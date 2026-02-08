@@ -210,7 +210,7 @@ export const useComposition = () => {
                     ...s,
                     bars: s.bars.map(b => {
                         if (b.id !== barId) return b;
-                        const newChords = [...b.chords];
+                        const newChords = [...(b.chords || [])];
                         newChords.splice(chordIndex, 1);
                         return { ...b, chords: newChords };
                     })
@@ -239,6 +239,19 @@ export const useComposition = () => {
         }));
     }, []);
 
+    const updateBarLyrics = useCallback((sectionId: string, barId: string, text: string) => {
+        setComposition(prev => ({
+            ...prev,
+            sections: prev.sections.map(s => {
+                if (s.id !== sectionId) return s;
+                return {
+                    ...s,
+                    bars: s.bars.map(b => b.id === barId ? { ...b, lyrics: text } : b)
+                };
+            })
+        }));
+    }, []);
+
     const addChord = useCallback((sectionId: string, barId: string, beat: number, chord: string) => {
         setComposition(prev => ({
             ...prev,
@@ -250,7 +263,7 @@ export const useComposition = () => {
                         if (b.id !== barId) return b;
                         return {
                             ...b,
-                            chords: [...b.chords, { beatPosition: beat, chord }]
+                            chords: [...(b.chords || []), { beatPosition: beat, chord }]
                         };
                     })
                 };
@@ -325,6 +338,7 @@ export const useComposition = () => {
         addSection,
         updateSection,
         updateBar,
+        updateBarLyrics,
         addChord,
         removeChord,
         selectedDuration,

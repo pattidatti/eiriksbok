@@ -10,6 +10,7 @@ interface NotationEditorProps {
     onUpdateBar: (barId: string, nodeIndex: number, duration: NoteDuration, isRest: boolean) => void;
     onAddChord: (barId: string, beat: number, chord: string) => void;
     onRemoveChord: (barId: string, chordIndex: number) => void;
+    onUpdateLyrics: (barId: string, text: string) => void;
 }
 
 export const NotationEditor: React.FC<NotationEditorProps> = ({
@@ -19,7 +20,8 @@ export const NotationEditor: React.FC<NotationEditorProps> = ({
     isRestMode,
     onUpdateBar,
     onAddChord,
-    onRemoveChord
+    onRemoveChord,
+    onUpdateLyrics
 }) => {
     const [editingChord, setEditingChord] = React.useState<{ barId: string, beat: number, x: number, y: number } | null>(null);
 
@@ -36,6 +38,7 @@ export const NotationEditor: React.FC<NotationEditorProps> = ({
                                 onNodeClick={(idx) => onUpdateBar(bar.id, idx, selectedDuration, isRestMode)}
                                 onRemoveChord={(idx) => onRemoveChord(bar.id, idx)}
                                 setEditingChord={setEditingChord}
+                                onUpdateLyrics={(text) => onUpdateLyrics(bar.id, text)}
                             />
                         </div>
                     ))}
@@ -85,21 +88,25 @@ const BarView: React.FC<{
     color: string,
     onNodeClick: (nodeIndex: number) => void,
     onRemoveChord: (index: number) => void,
-    setEditingChord: (data: { barId: string, beat: number, x: number, y: number }) => void
-}> = ({ bar, index, color, onNodeClick, onRemoveChord, setEditingChord }) => {
+    setEditingChord: (data: { barId: string, beat: number, x: number, y: number }) => void,
+    onUpdateLyrics: (text: string) => void
+}> = ({ bar, index, color, onNodeClick, onRemoveChord, setEditingChord, onUpdateLyrics }) => {
 
     return (
-        <div className={`relative w-full h-[100px] border-r-0 border-b border-slate-100 flex flex-col justify-end group transform transition-all hover:bg-white/50 rounded-xl hover:shadow-sm pb-1 overflow-hidden`}>
+        <div className={`relative w-full min-h-[140px] border-r-0 border-b border-slate-100 flex flex-col group transition-all hover:bg-white/50 rounded-xl hover:shadow-sm pb-1`}>
             {/* Color tint background */}
-            <div className={`absolute inset-0 ${color} opacity-[0.06] pointer-events-none`} />
+            <div className={`absolute inset-0 ${color} opacity-[0.06] pointer-events-none rounded-xl`} />
 
-            {/* Bar Number */}
-            <div className="absolute top-1.5 left-2 text-[9px] font-serif font-bold text-slate-300 select-none">
+            {/* Bar Number - Absolute logic ok, but ensure it doesn't overlap excessively */}
+            <div className="absolute top-1.5 left-2 text-[9px] font-serif font-bold text-slate-300 select-none z-0">
                 {index}
             </div>
 
+            {/* Top Spacer for Chords (ensure they aren't clipped) */}
+            <div className="h-10 w-full" />
+
             {/* Staff & Notes Area */}
-            <div className="relative mx-3 h-14 flex items-center">
+            <div className="relative mx-3 h-14 flex items-center mb-1 shrink-0">
                 {/* 5-Line Staff (Visual Only) */}
                 <div className="absolute inset-x-0 h-8 border-t border-b border-slate-200 opacity-40 flex flex-col justify-between py-[2px] pointer-events-none">
                     <div className={`w-full h-px ${color.replace('bg-', 'bg-').replace('-100', '-300')} opacity-30`} />
@@ -111,7 +118,7 @@ const BarView: React.FC<{
                 <div className="absolute inset-0 flex items-center z-10 w-full">
                     {bar.nodes.map((node, i) => {
                         const beatPos = i;
-                        const nodeChord = bar.chords.find(c => Math.abs(c.beatPosition - beatPos) < 0.1);
+                        const nodeChord = (bar.chords || []).find(c => Math.abs(c.beatPosition - beatPos) < 0.1);
 
                         return (
                             <motion.div
@@ -121,7 +128,7 @@ const BarView: React.FC<{
                             >
                                 {/* Chord Zone (Above Note) - Higher elevation */}
                                 <div
-                                    className="absolute -top-10 inset-x-0 h-10 flex items-center justify-center cursor-text z-20"
+                                    className="absolute -top-6 inset-x-0 h-10 flex items-center justify-center cursor-text z-30"
                                     onClick={(e: React.MouseEvent) => {
                                         e.stopPropagation();
                                         const rect = e.currentTarget.getBoundingClientRect();
@@ -134,10 +141,11 @@ const BarView: React.FC<{
                                             animate={{ scale: 1 }}
                                             onClick={(e: React.MouseEvent) => {
                                                 e.stopPropagation();
-                                                const idx = bar.chords.indexOf(nodeChord);
-                                                if (confirm(`Slette ${nodeChord.chord}?`)) onRemoveChord(idx);
+                                                const currentChords = bar.chords || [];
+                                                const idx = currentChords.indexOf(nodeChord);
+                                                if (idx !== -1 && confirm(`Slette ${nodeChord.chord}?`)) onRemoveChord(idx);
                                             }}
-                                            className={`bg-white/95 backdrop-blur-sm px-2.5 py-0.5 rounded text-slate-900 font-serif text-[15px] font-black shadow-lg border-2 ${color.replace('bg-', 'border-').replace('-100', '-300')} hover:bg-red-50 hover:border-red-200 hover:text-red-700 transition-colors cursor-pointer z-30`}
+                                            className={`bg-white/95 backdrop-blur-sm px-2.5 py-0.5 rounded text-slate-900 font-serif text-[15px] font-black shadow-lg border-2 ${color.replace('bg-', 'border-').replace('-100', '-300')} hover:bg-red-50 hover:border-red-200 hover:text-red-700 transition-colors cursor-pointer`}
                                         >
                                             {nodeChord.chord}
                                         </motion.div>
@@ -152,7 +160,7 @@ const BarView: React.FC<{
 
                                 <div
                                     onClick={() => onNodeClick(i)}
-                                    className="w-full flex justify-center items-center h-16 cursor-pointer hover:bg-indigo-50/20 rounded transition-colors group/symbol"
+                                    className="w-full flex justify-center items-center h-16 cursor-pointer hover:bg-indigo-50/20 rounded transition-colors group/symbol mt-[20px]"
                                 >
                                     <NoteSymbol type={node.type} duration={node.duration} />
                                     {/* Split Glow Highlight */}
@@ -163,6 +171,67 @@ const BarView: React.FC<{
                     })}
                 </div>
             </div>
+
+            {/* Lyrics Input Area - Auto-growing */}
+            <div className="px-2 pb-2 z-20 flex-1 min-h-[30px]">
+                <BarLyricsInput
+                    value={bar.lyrics || ''}
+                    onChange={onUpdateLyrics}
+                    onNext={() => {
+                        const inputs = document.querySelectorAll('.lyrics-input');
+                        const myIndex = Array.from(inputs).findIndex(el => el.id === `lyrics-${bar.id}`);
+                        if (myIndex >= 0 && myIndex < inputs.length - 1) {
+                            (inputs[myIndex + 1] as HTMLElement).focus();
+                        }
+                    }}
+                    barId={bar.id}
+                />
+            </div>
+        </div>
+    );
+};
+
+const BarLyricsInput: React.FC<{
+    value: string,
+    onChange: (val: string) => void,
+    onNext: () => void,
+    barId: string
+}> = ({ value, onChange, onNext, barId }) => {
+    const [localValue, setLocalValue] = React.useState(value);
+
+    React.useEffect(() => {
+        setLocalValue(value);
+    }, [value]);
+
+    const commit = () => {
+        if (localValue !== value) {
+            onChange(localValue);
+        }
+    };
+
+    return (
+        <div className="grid text-sm font-serif font-medium w-full relative">
+            {/* Invisible div to force height */}
+            <div className="col-start-1 row-start-1 whitespace-pre-wrap invisible p-1 min-h-[1.5em] pointer-events-none border border-transparent">
+                {localValue + ' '}
+            </div>
+
+            {/* Actual Textarea */}
+            <textarea
+                id={`lyrics-${barId}`}
+                className="col-start-1 row-start-1 lyrics-input w-full h-full text-left bg-transparent outline-none text-slate-600 placeholder-slate-300/50 transition-all duration-200 focus:text-slate-900 focus:bg-white/50 focus:rounded-md p-1 resize-none overflow-hidden"
+                placeholder="..."
+                value={localValue}
+                onChange={(e) => setLocalValue(e.target.value)}
+                onBlur={commit}
+                onKeyDown={(e) => {
+                    if (e.key === 'Tab') {
+                        e.preventDefault();
+                        commit();
+                        onNext();
+                    }
+                }}
+            />
         </div>
     );
 };

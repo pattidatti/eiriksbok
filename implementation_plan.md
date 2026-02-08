@@ -1,26 +1,23 @@
-# Layout Optimization Plan
+# Refactor Section Layout for Compactness
 
-**Goal:** Clean up the article header by moving utility elements to the sidebar (Desktop) and compacting them on Mobile.
+## Goal
+Integrate the Section Header (name, controls, instruments) into the same grid layout as the Bars (measures) to save vertical space and create a uniform "card-based" UI. This directly addresses the user's request: "Gjør seksjonsboksene samme størrelse som takter boksene".
 
-## 1. The Strategy
-We will split the UI based on screen size:
--   **Desktop:** The Header is PURELY the Title. The "Utility Belt" (Audio, Metadata, Tags) lives in the Sticky Sidebar.
--   **Mobile:** The Sidebar is at the bottom (too far). We will keep a **compact** metadata row and audio button under the title, but minimal.
+## Proposed Changes
 
-## 2. Changes to `RichSidebar.tsx`
--   **New Props:**
-    -   `audioState`: `{ isPlaying, isPaused, hasVoice, onToggle }`
-    -   `metadata`: `{ year, readTime, category }`
--   **New UI Section (Top of Sidebar):**
-    -   **Audio Player Card:** A prominent, colorful card to start listening.
-    -   **Quick Stats:** A small grid or row showing `Year` | `Read Time`.
+### [Music Feature]
 
-## 3. Changes to `InteractiveArticle.tsx`
--   **Remove:** The large centered `pt-4` container with Metadata and Audio Button.
--   **Add (Mobile Only):** A `md:hidden` compact row below the title:
-    -   `[Category] • 5 min • [Audio Icon]`
--   **Pass Props:** Connect `useTextToSpeech` state to the `RichSidebar`.
+#### [MODIFY] [NotationEditor.tsx](file:///home/irik/eiriksbok/src/features/music/components/composition/NotationEditor.tsx)
+- Add optional `headerContent` prop (ReactNode).
+- Render `headerContent` as the first item in the flex/grid container.
+- Apply the same responsive width classes (`w-full md:w-1/2 lg:w-1/3 xl:w-1/4`) to the header container as the bars.
 
-## 4. Visual Verification
--   **Desktop:** Title should look clean and "magazine-like". Sidebar will have the tools.
--   **Mobile:** Tighter vertical rhythm, no huge buttons pushing text down.
+#### [MODIFY] [SectionItem.tsx](file:///home/irik/eiriksbok/src/features/music/components/composition/SectionItem.tsx)
+- Extract the existing header JSX.
+- Pass this JSX into `NotationEditor` via the new `headerContent` prop.
+- Refactor the header styling to fit within the `min-h-[140px]` card constraints (vertical layout if necessary).
+- Ensure drag handle (`GripVertical`) remains accessible or is integrated into the card.
+
+## Implementation Details
+1.  **Section Card Styling:** Use a distinct background or border style to differentiate the Section Card from Bar Cards, while maintaining identical dimensions.
+2.  **Controls:** Stack controls vertically or use a compact grid within the card to fit all instruments and settings.

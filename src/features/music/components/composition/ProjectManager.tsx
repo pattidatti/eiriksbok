@@ -55,22 +55,54 @@ export const ProjectManager: React.FC<ProjectManagerProps> = ({
 
         const loadSongs = async () => {
             setLoadingLibrary(true);
-            const savedIds = JSON.parse(localStorage.getItem(MY_SONGS_KEY) || '[]');
+            const rawStorage = localStorage.getItem(MY_SONGS_KEY);
+            console.log('[ProjectManager] Loading library. Raw storage:', rawStorage);
+
+            const savedIds = JSON.parse(rawStorage || '[]');
             const fetchedSongs = [];
+            let storageNeedsUpdate = false;
+            let finalIds = [...savedIds];
 
             for (const id of savedIds) {
-                // Determine if we need to fetch from FB or if we have it locally?
-                // For now, always fetch to get latest titles/dates.
-                // TODO: Batch fetch or optimize?
+                console.log('[ProjectManager] Checking ID:', id);
                 const songRef = ref(db, `compositions/${id}`);
                 try {
                     const snapshot = await get(songRef);
-                    if (snapshot.exists()) {
-                        fetchedSongs.push(snapshot.val());
+                    const exists = snapshot.exists();
+                    console.log(`[ProjectManager] ID ${id} exists in FB:`, exists);
+
+                    if (exists) {
+                        const songData = snapshot.val();
+                        if (songData.id !== id) {
+                            console.warn(`[ProjectManager] FIXING MISMATCH: Key ${id} has wrong ID ${songData.id}. Updating FB...`);
+
+                            // 1. Repair Firebase
+                            // We trust the KEY (id) as the source of truth for location.
+                            // We update the internal ID to match the key.
+                            try {
+                                const { update } = await import('firebase/database');
+                                await update(ref(db, `compositions/${id}`), { id: id });
+                                console.log('[ProjectManager] Firebase repaired.');
+                            } catch (err) {
+                                console.error('[ProjectManager] Failed to repair Firebase:', err);
+                            }
+
+                            // 2. Repair Local Object for this render
+                            songData.id = id;
+                        }
+                        fetchedSongs.push(songData);
+                    } else {
+                        console.warn('[ProjectManager] GHOST DETECTED! Removing:', id);
+                        finalIds = finalIds.filter((s: string) => s !== id);
+                        storageNeedsUpdate = true;
                     }
                 } catch (e) {
                     console.error('Failed to load song', id, e);
                 }
+            }
+
+            if (storageNeedsUpdate) {
+                localStorage.setItem(MY_SONGS_KEY, JSON.stringify(finalIds));
             }
 
             setMySongs(fetchedSongs.sort((a, b) => (b.lastModified || 0) - (a.lastModified || 0)));
@@ -104,13 +136,22 @@ export const ProjectManager: React.FC<ProjectManagerProps> = ({
     };
 
     const handleDelete = async (id: string) => {
-        await onDelete(id);
-        setDeleteConfirmId(null);
-        // Refresh library locally
-        setMySongs(prev => prev.filter(s => s.id !== id));
-        // If it was the active song, the parent component handles navigation/closing
-        if (id === activeSongId) {
-            onClose();
+        if (!id) return;
+        try {
+            await onDelete(id);
+            console.log('[ProjectManager] Song deleted successfully:', id);
+
+            setDeleteConfirmId(null);
+
+            // Refresh library locally (filter out deleted song)
+            setMySongs(prev => prev.filter(s => s.id !== id));
+
+            // If it was the active song, close the menu
+            if (id === activeSongId) {
+                onClose();
+            }
+        } catch (e) {
+            console.error('[ProjectManager] Failed to delete song:', e);
         }
     };
 

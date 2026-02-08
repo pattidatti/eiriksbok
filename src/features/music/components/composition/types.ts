@@ -20,6 +20,7 @@ export interface Bar {
         beatPosition: number; // 0-based beat index (e.g. 0, 1, 2.5)
         chord: string;
     }[];
+    lyrics?: string;
 }
 
 export type InstrumentType = 'Vokal' | 'Trommer' | 'Bass' | 'Gitar' | 'Piano';

@@ -14,6 +14,7 @@ export const useCompositionSync = (
     const [isLoading, setIsLoading] = useState(!!activeId);
     const [error, setError] = useState<string | null>(null);
     const isLocalChange = useRef(false);
+    const isDeleting = useRef(false);
 
     // Sync from Firebase
     useEffect(() => {
@@ -23,12 +24,14 @@ export const useCompositionSync = (
         const unsubscribe = onValue(songRef, (snapshot) => {
             const data = snapshot.val();
             if (data) {
-                if (!isLocalChange.current) {
+                if (!isLocalChange.current && !isDeleting.current) {
                     setComposition(data);
                 }
             } else {
-                console.warn('Song data is null, resetting to default.');
-                resetToDefault();
+                console.log('Song data is null, resetting to default.');
+                if (!isDeleting.current) {
+                    resetToDefault();
+                }
             }
             setIsLoading(false);
         }, (err) => {
@@ -36,7 +39,7 @@ export const useCompositionSync = (
             setIsLoading(false);
         });
 
-        // Presence logic
+        // ... rest of presence logic ...
         const presenceRef = ref(db, `presence/${activeId}`);
         const userPresenceRef = push(presenceRef);
 
@@ -58,14 +61,23 @@ export const useCompositionSync = (
     useEffect(() => {
         if (!activeId || !composition) return;
 
+        // Prevent saving if the active ID doesn't match the composition ID (during switching)
+        if (activeId !== composition.id) return;
+
+        // Prevent saving if we are in the process of deleting
+        if (isDeleting.current) return;
+
         isLocalChange.current = true;
         const timeout = setTimeout(async () => {
+            // ... existing save logic ...
             const songRef = ref(db, `compositions/${activeId}`);
             try {
-                await set(songRef, {
-                    ...composition,
-                    lastModified: Date.now()
-                });
+                if (!isDeleting.current) {
+                    await set(songRef, {
+                        ...composition,
+                        lastModified: Date.now()
+                    });
+                }
             } catch (err) {
                 console.error('Failed to sync to Firebase:', err);
             } finally {
@@ -80,6 +92,7 @@ export const useCompositionSync = (
     }, [composition, activeId]);
 
     const saveAsNew = async (comp: Composition) => {
+        // ... existing saveAsNew logic ...
         const newId = generateShortId();
         const creatorId = getCreatorId();
         const newComp = {
@@ -106,19 +119,39 @@ export const useCompositionSync = (
 
     const deleteSong = async (id: string) => {
         console.log('[Delete] Starting delete for:', id);
+        isDeleting.current = true;
         try {
+            // 1. Remove from Firebase
             await remove(ref(db, `compositions/${id}`));
-            const currentList = localStorage.getItem(MY_SONGS_KEY);
-            console.log('[Delete] Current list before:', currentList);
 
-            const mySongs = JSON.parse(currentList || '[]');
+            // ... rest of delete logic ...
+
+            // 2. Remove from Local Storage
+            const currentListStr = localStorage.getItem(MY_SONGS_KEY);
+            console.log('[Delete] Current list before:', currentListStr);
+
+            const mySongs = JSON.parse(currentListStr || '[]');
             const newList = mySongs.filter((s: string) => s !== id);
+
             localStorage.setItem(MY_SONGS_KEY, JSON.stringify(newList));
 
+            // 3. Verify Local Storage Update
+            const verifyListStr = localStorage.getItem(MY_SONGS_KEY);
             console.log('[Delete] New list saved:', newList);
+            console.log('[Delete] Verification read:', verifyListStr);
+
+            if (verifyListStr && verifyListStr.includes(id)) {
+                console.error('[Delete] CRITICAL: Song ID still present in localStorage after deletion!');
+            }
+
         } catch (error) {
             console.error('Error deleting song:', error);
             throw error;
+        } finally {
+            // Reset deleting flag after delay to ensure no pending saves interfere
+            setTimeout(() => {
+                isDeleting.current = false;
+            }, 2000);
         }
     };
 

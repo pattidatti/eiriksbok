@@ -1,50 +1,57 @@
-# ULTRATHINK Analysis Report
+# ULTRATHINK RAPPORT: UI/UX Analyse av Komposisjonsverktøyet
 
-**Date:** 2026-01-06
-**Scope:** `gravity-l-rebok` (Eiriksbok)
-**Status:** ⚠️ Needs Optimization
+## 1. Innledning & Premiss
+**Målsetting:** Skape et effektivt, ryddig og lettlest grensesnitt for bandmedlemmer som bruker laptop (ofte på litt avstand/notestativ) under øving eller konsert.
+**Nåsituasjon:** Designet er "pent" og luftig (moderne web-estetikk), men lider av "Desktop Office"-syndromet: For små klikkflater, for lav kontrast på inaktive elementer, og for mye fokus på redigering kontra fremføring/lesing.
 
-## 1. Technical Health Check
-> [!WARNING]
-> Critical Lint Density Detected
+---
 
-- **Linting Status:** **FAILED** (900+ errors).
-  - Primary Offender: `no-explicit-any` (TypeScript).
-  - Impact: Reduces type safety and confidence in refactoring.
-  - **Recommendation:** Implement a progressive type-hardening strategy. Enable `noImplicitAny` in `tsconfig` implies strictness, but the code is riddled with `any`.
+## 2. Kritisk Analyse
 
-- **Build Status:** **PASS** (Typescript compilation successful).
-  - This means the code *runs*, but it is fragile.
+### 2.1 Visuelt Hierarki & Lesbarhet
+*   **Problem:** Notestørrelsen og akkordsymbolene er optimalisert for en person som sitter 40-50 cm fra skjermen. På et notestativ (80-100 cm unna) blir `text-[10px]` og `w-10` ikoner for utydelige.
+*   **Problem:** Kontrasten på "inaktive" elementer (eks. instrument-toggles som ikke er valgt) er svært lav (`text-slate-400`). I et mørkt øvingslokale eller scenelys vil disse forsvinne helt.
+*   **Problem:** Tekstfelt for lyrics er små og "flyter" litt. Det er vanskelig å se hvor takten starter og slutter ved raskt øyekast.
 
-## 2. Design & UX Audit
-> [!NOTE]
-> "Dark Immersion" aesthetic is present but fragmented.
+### 2.2 Interaksjonsdesign (UX)
+*   **Klikkflater (Fitts's Law):** Mange knapper er for små. Slette-knappen for akkorder er en liten `x` eller tekstboks som krever presisjonsmus. Instrument-velgerne er små "piller".
+    *   *Konsekvens:* Frustrasjon når man skal gjøre raske endringer under en øving.
+*   **Redigering vs. Visning:** Dagens UI blander "Composer Mode" (redigering) og "Player Mode" (visning). Det er mange redigeringsknapper (+, -, søppelbøtte, flyttehåndtak) som støyer visuelt når man bare skal spille sangen.
 
-- **Component Usage:** `ImmersiveCard` exists but is underutilized (~10 component files use it, while others implementation custom glass styles).
-- **Styling Strategy:** Hybrid of Tailwind and raw CSS modules (`ImmersiveCard.css`).
-  - **Recommendation:** Migrate `ImmersiveCard.css` logic into Tailwind `layer-components` or a `cva` (Class Variance Authority) component to ensure consistent token usage (padding, blur, border-radius).
-- **Accessibility:** `grep` shows widespread use of `div` with `onClick` (e.g., in `ImmersiveCard.tsx`).
-  - **Critical Fix:** Ensure all interactive elements use `<button>` or have `role="button"` and `tabIndex`.
+### 2.3 "Stage Presence" (Scene-faktor)
+*   **Manglende "Gig Mode":** Det finnes ingen modus som fjerner UI-støy og maksimerer notene/akkordene.
+*   **Lysstyrke:** Den hvite bakgrunnen (`bg-[#FDFBF7]`) kan være blendende på en mørk scene. En "Dark Mode" eller "High Contrast Mode" er essensielt for scenebruk.
 
-## 3. Content Integrity
-- **Manifest:** Sync appears healthy.
-- **Assets:** `missing_images_report` indicates no missing assets, which is excellent.
+---
 
-## 4. Architecture
-- **Routing:** Manifest-driven routing is a strong, scalable choice for a textbook.
-- **State Management:** Zustand is installed. Ensure it's used for global UI state (like specific "Immersion Modes").
+## 3. Konkrete Forbedringspotensialer (Tiltaksliste)
 
-## Action Plan: "Best Version" Roadmap
+### Tiltak A: "Performance Mode" (Høy Prioritet)
+Introduser en dedikert visningsmodus som kan toggles (f.eks. med `P`-tasten).
+*   **Hva:** Skjuler alle redigeringsverktøy (sletteknapper, drag-handles, input-borders).
+*   **Resultat:** Renere skjermbilde, større plass til noter/tekst.
+*   **Design:** Mørk bakgrunn (OLED black) med hvit tekst/akkorder for maksimal kontrast.
 
-### Phase 1: The Foundation (Technical)
-1. Run `eslint . --fix` to clear low-hanging fruit.
-2. Manually address critical `any` types in `contentLoader.ts` and core components.
-3. Standardize `ImmersiveCard` to use accessible HTML semantics.
+### Tiltak B: Justering av Dimensjoner (Middels Prioritet)
+Oppskalering av kjerneelementer i "Edit Mode":
+1.  **Akkorder:** Øk fontstørrelse fra dagens standard (ca 14px) til `text-xl` eller `text-2xl` og bruk fetere vekting (Black/Bold).
+2.  **Instrument-toggles:** Gjør om fra tekst-baserte "piller" til større ikoner eller bokser med tydeligere PÅ/AV tilstand.
+3.  **Notehoder:** Øk SVG-størrelsen på `NoteSymbol` med 20-30%.
 
-### Phase 2: The Experience (Visual)
-1. Centralize Glassmorphism tokens in `tailwind.config.js`.
-2. Refactor all "Card-like" components to use the unified `ImmersiveCard`.
-3. Implement `framer-motion` page transitions (if not already present) for a fluid book feel.
+### Tiltak C: Typografisk Opprydding (Lav Prioritet)
+*   Bytt ut `text-slate-500` med `text-slate-700` generelt for bedre lesbarhet.
+*   Gjør seksjonsoverskrifter (INTRO, VERS) større og mer distinste for å fungere som visuelle "ankere" når man skummer gjennom sangen.
 
-### Phase 3: The Content (Structure)
-1. Review `manifest.json` structure for scalability.
+### Tiltak D: Navigasjon & Spiller
+*   Flytt "Play"-kontrolleren til en fast "Sticky Footer" eller "Floating Action Button" som er stor og lett å treffe (i stedet for dagens lille bar).
+*   Legg til tastatursnarveier: `Mellomrom` for Play/Pause. `Pil Høyre/Venstre` for neste/forrige seksjon.
+
+---
+
+## 4. Anbefalt Fremdrift
+1.  Endre fargepaletten på inaktive elementer (øk kontrast).
+2.  Implementer en enkel "Toggle" for å skjule redigeringsverktøy (starten på Performance Mode).
+3.  Øk base-størrelsen på notene i CSS/Tailwind.
+
+**Konklusjon:**
+Applikasjonen har et solid fundament, men trenger en "vekting" mot scenebruk. Tenk "Plakat" heller enn "Dokument".
