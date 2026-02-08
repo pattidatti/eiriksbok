@@ -317,8 +317,13 @@ export const useComposition = () => {
         localStorage.removeItem('composition_draft');
     }, []);
 
-    const moveSection = useCallback((oldIndex: number, newIndex: number) => {
+    const moveSection = useCallback((activeId: string, overId: string) => {
         setComposition(prev => {
+            const oldIndex = prev.sections.findIndex(s => s.id === activeId);
+            const newIndex = prev.sections.findIndex(s => s.id === overId);
+
+            if (oldIndex === -1 || newIndex === -1) return prev;
+
             const newSections = [...prev.sections];
             const [movedSection] = newSections.splice(oldIndex, 1);
             newSections.splice(newIndex, 0, movedSection);
