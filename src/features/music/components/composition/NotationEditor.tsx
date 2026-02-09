@@ -114,6 +114,9 @@ const BarView: React.FC<{
                     <div className={`w-full h-px ${color.replace('bg-', 'bg-').replace('-100', '-300')} opacity-30`} />
                 </div>
 
+                {/* Taktstrek (Bar Line) - Visual Separator */}
+                <div className="absolute right-0 top-2 bottom-2 w-[1.5px] bg-indigo-900/10 rounded-full pointer-events-none z-0" />
+
                 {/* Nodes Container */}
                 <div className="absolute inset-0 flex items-center z-10 w-full">
                     {bar.nodes.map((node, i) => {

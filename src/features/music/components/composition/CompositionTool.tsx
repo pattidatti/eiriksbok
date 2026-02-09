@@ -177,10 +177,7 @@ export const CompositionTool: React.FC = () => {
                 </div>
 
                 <div className="flex items-center gap-2">
-                    <div className="px-3 py-1.5 bg-white rounded-xl border border-slate-100 text-[10px] font-mono text-slate-500 shadow-sm flex items-center gap-3">
-                        <span className="opacity-50 uppercase tracking-tighter">Tempo</span>
-                        <span className="font-bold text-slate-800 text-xs">{composition.tempo} BPM</span>
-                    </div>
+
 
                     <button
                         onClick={() => setIsMenuOpen(true)}
