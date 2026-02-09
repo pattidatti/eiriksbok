@@ -1,7 +1,8 @@
 import { useState, useCallback, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import type { Composition, Section, Bar, RhythmNode, NoteDuration, SectionType, InstrumentType } from './types';
+import type { Composition, Section, Bar, NoteDuration, SectionType, InstrumentType } from './types';
 import { getCreatorId } from './utils';
+import { calculateNewNodes } from './compositionLogic';
 
 export const useComposition = () => {
     const [composition, setComposition] = useState<Composition>({
@@ -118,15 +119,7 @@ export const useComposition = () => {
         }));
     }, []);
 
-    const getDurationBeats = (d: NoteDuration): number => {
-        switch (d) {
-            case '1n': return 4;
-            case '2n': return 2;
-            case '4n': return 1;
-            case '8n': return 0.5;
-            default: return 1;
-        }
-    };
+
 
     const updateBar = useCallback((sectionId: string, barId: string, nodeIndex: number, newDuration: NoteDuration, isRest: boolean) => {
         setComposition(prev => ({
@@ -138,62 +131,13 @@ export const useComposition = () => {
                     bars: s.bars.map(b => {
                         if (b.id !== barId) return b;
 
-                        const oldNode = b.nodes[nodeIndex];
-                        const oldBeats = getDurationBeats(oldNode.duration);
-                        const newBeats = getDurationBeats(newDuration);
+                        const newNodes = calculateNewNodes(b.nodes, nodeIndex, newDuration, isRest);
 
-                        let resultingNodes: RhythmNode[] = [];
-                        let nodesToSkip = 1;
-
-                        if (newBeats < oldBeats) {
-                            // Split logic
-                            const splitCount = oldBeats / newBeats;
-                            resultingNodes = Array(splitCount).fill(null).map(() => ({
-                                id: uuidv4(),
-                                type: isRest ? 'rest' : 'note',
-                                duration: newDuration
-                            }));
-                        } else if (newBeats > oldBeats) {
-                            // Consume logic: Merge multiple smaller nodes into one larger one
-                            let accumulatedOldBeats = 0;
-                            let i = nodeIndex;
-                            while (i < b.nodes.length && accumulatedOldBeats < newBeats) {
-                                accumulatedOldBeats += getDurationBeats(b.nodes[i].duration);
-                                i++;
-                            }
-                            nodesToSkip = i - nodeIndex;
-
-                            resultingNodes = [{
-                                id: uuidv4(),
-                                type: isRest ? 'rest' : 'note',
-                                duration: newDuration
-                            }];
-
-                            // Handle remainders if we consumed "too much" (greedy consumption)
-                            if (accumulatedOldBeats > newBeats) {
-                                let remainder = accumulatedOldBeats - newBeats;
-                                while (remainder > 0) {
-                                    const durs: NoteDuration[] = ['2n', '4n', '8n'];
-                                    const fit = durs.find(d => getDurationBeats(d) <= remainder) || '8n';
-                                    resultingNodes.push({
-                                        id: uuidv4(),
-                                        type: 'rest',
-                                        duration: fit
-                                    });
-                                    remainder -= getDurationBeats(fit);
-                                }
-                            }
-                        } else {
-                            // Simple replace
-                            resultingNodes = [{
-                                id: uuidv4(),
-                                type: isRest ? 'rest' : 'note',
-                                duration: newDuration
-                            }];
+                        if (!newNodes) {
+                            // Invalid move (should be clamped, but if null returned, abort)
+                            return b;
                         }
 
-                        const newNodes = [...b.nodes];
-                        newNodes.splice(nodeIndex, nodesToSkip, ...resultingNodes);
                         return { ...b, nodes: newNodes };
                     })
                 };
