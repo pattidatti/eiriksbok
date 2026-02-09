@@ -71,7 +71,7 @@ export const SectionItem: React.FC<SectionItemProps> = ({
                 <div className="flex items-center gap-4">
                     {/* Section Name Pill + Repeats */}
                     <div className={`px-4 py-1.5 rounded-full ${section.color} ${section.color.replace('bg-', 'text-').replace('-100', '-700')} shadow-sm flex items-center gap-3`}>
-                        <span className="text-[10px] font-black uppercase tracking-widest pointer-events-none">
+                        <span className="text-xs font-black uppercase tracking-widest pointer-events-none">
                             {{
                                 'intro': 'Intro',
                                 'verse': 'Vers',
@@ -89,8 +89,8 @@ export const SectionItem: React.FC<SectionItemProps> = ({
                             onPointerDown={(e) => e.stopPropagation()}
                             onKeyDown={(e) => e.stopPropagation()}
                         >
-                            <Repeat size={12} className="opacity-50" />
-                            <span className="font-bold text-sm min-w-[12px] text-center">{section.repeatCount}</span>
+                            <Repeat size={14} className="opacity-50" />
+                            <span className="font-black text-lg min-w-[12px] text-center">{section.repeatCount}</span>
                             <div className="flex flex-col -space-y-1 ml-0.5 opacity-0 group-hover/header:opacity-100 transition-opacity">
                                 <button
                                     onClick={() => updateSection(section.id, { repeatCount: section.repeatCount + 1 })}
@@ -133,19 +133,19 @@ export const SectionItem: React.FC<SectionItemProps> = ({
                         onKeyDown={(e) => e.stopPropagation()}
                     >
                         {[
-                            { id: 'Vokal', label: 'V' },
-                            { id: 'Trommer', label: 'T' },
-                            { id: 'Bass', label: 'B' },
-                            { id: 'Gitar', label: 'G' },
-                            { id: 'Piano', label: 'P' }
+                            { id: 'Vokal', label: 'Vokal' },
+                            { id: 'Trommer', label: 'Trommer' },
+                            { id: 'Bass', label: 'Bass' },
+                            { id: 'Gitar', label: 'Gitar' },
+                            { id: 'Piano', label: 'Piano' }
                         ].map((inst) => (
                             <button
                                 key={inst.id}
                                 onClick={() => toggleInstrument(section.id, inst.id as any)}
                                 title={inst.id}
-                                className={`w-7 h-7 rounded-full flex items-center justify-center text-[9px] font-black transition-all duration-200 border border-transparent ${section.instruments?.includes(inst.id as any)
+                                className={`px-3 py-1.5 h-8 rounded-full flex items-center justify-center text-xs font-bold uppercase tracking-wider transition-all duration-200 border border-transparent ${section.instruments?.includes(inst.id as any)
                                     ? 'bg-slate-900 text-white shadow-md scale-100'
-                                    : 'bg-slate-50 text-slate-300 hover:bg-slate-100 hover:text-slate-400 hover:scale-105'
+                                    : 'bg-slate-50 text-slate-400 hover:bg-slate-100 hover:text-slate-600 hover:scale-105'
                                     }`}
                             >
                                 {inst.label}
