@@ -13,18 +13,40 @@ export const useCompositionSync = (
     const [activeUsers, setActiveUsers] = useState(0);
     const [isLoading, setIsLoading] = useState(!!activeId);
     const [error, setError] = useState<string | null>(null);
-    const isLocalChange = useRef(false);
+
+    // Strict Dirty-Check Refs
+    const isDirty = useRef(false);
+    const isRemoteUpdate = useRef(false);
     const isDeleting = useRef(false);
+    const currentCompositionRef = useRef(composition);
+
+    // Keep ref in sync with render cycle for comparison
+    useEffect(() => {
+        currentCompositionRef.current = composition;
+    }, [composition]);
 
     // Sync from Firebase
     useEffect(() => {
         if (!activeId) return;
 
+        // Reset state logic when switching songs
+        isDirty.current = false;
+        isRemoteUpdate.current = false;
+        setIsLoading(true);
+
         const songRef = ref(db, `compositions/${activeId}`);
         const unsubscribe = onValue(songRef, (snapshot) => {
             const data = snapshot.val();
             if (data) {
-                if (!isLocalChange.current && !isDeleting.current) {
+                // Safety: If we have unsaved local changes, ignore remote updates to prevent overwriting
+                // This implements a "Local Client Wins" policy for the active editor
+                if (isDirty.current && !isDeleting.current) {
+                    console.log('Blocking remote update due to unsaved local changes');
+                    return;
+                }
+
+                if (!isDeleting.current) {
+                    isRemoteUpdate.current = true;
                     setComposition(data);
                 }
             } else {
@@ -39,7 +61,6 @@ export const useCompositionSync = (
             setIsLoading(false);
         });
 
-        // ... rest of presence logic ...
         const presenceRef = ref(db, `presence/${activeId}`);
         const userPresenceRef = push(presenceRef);
 
@@ -60,16 +81,19 @@ export const useCompositionSync = (
     // Sync to Firebase (debounced)
     useEffect(() => {
         if (!activeId || !composition) return;
-
-        // Prevent saving if the active ID doesn't match the composition ID (during switching)
         if (activeId !== composition.id) return;
-
-        // Prevent saving if we are in the process of deleting
         if (isDeleting.current) return;
 
-        isLocalChange.current = true;
+        // Check if this update came from Firebase
+        if (isRemoteUpdate.current) {
+            isRemoteUpdate.current = false;
+            return;
+        }
+
+        // It's a local user change! Mark as dirty.
+        isDirty.current = true;
+
         const timeout = setTimeout(async () => {
-            // ... existing save logic ...
             const songRef = ref(db, `compositions/${activeId}`);
             try {
                 if (!isDeleting.current) {
@@ -77,17 +101,22 @@ export const useCompositionSync = (
                         ...composition,
                         lastModified: Date.now()
                     });
+
+                    // Only mark clean if no newer changes have occurred since this timeout started
+                    // We compare the composition we just saved (captured in closure) with the current ref
+                    if (currentCompositionRef.current === composition) {
+                        isDirty.current = false;
+                    }
                 }
             } catch (err) {
                 console.error('Failed to sync to Firebase:', err);
-            } finally {
-                isLocalChange.current = false;
             }
         }, 1000);
 
         return () => {
             clearTimeout(timeout);
-            isLocalChange.current = false;
+            // CRITICAL CHECK: Do not reset isDirty here. 
+            // If the effect cleanup runs because the user typed again, we remain dirty.
         };
     }, [composition, activeId]);
 
