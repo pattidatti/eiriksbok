@@ -4362,13 +4362,6 @@
                     "icon": "drums"
                 },
                 {
-                    "id": "latskriver-tool",
-                    "title": "Låtskriver",
-                    "description": "Planlegg struktur",
-                    "link": "/musikk/oppslag/latskriver",
-                    "icon": "edit"
-                },
-                {
                     "id": "komposisjon-tool",
                     "title": "Komposisjon",
                     "description": "Detaljert notasjon og akkordprogresjon.",
@@ -4558,20 +4551,6 @@
                                 "oppslag",
                                 "trommer",
                                 "rytme"
-                            ],
-                            "createdDate": "2025-12-13T12:00:00Z",
-                            "lastUpdated": "2025-12-13T12:00:00Z"
-                        },
-                        {
-                            "id": "latskriver",
-                            "layout": "tool",
-                            "title": "Låtskriververktøy",
-                            "description": "Planlegg strukturen og dynamikken i låta di.",
-                            "image": "/images/lessons/musikk/latskriving.png",
-                            "tags": [
-                                "musikk",
-                                "verktøy",
-                                "komposisjon"
                             ],
                             "createdDate": "2025-12-13T12:00:00Z",
                             "lastUpdated": "2025-12-13T12:00:00Z"
