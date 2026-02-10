@@ -2,8 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Users, Share2, Menu, Check } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useComposition } from './useComposition';
-import { useCompositionSync } from './useCompositionSync';
+import { useRealtimeComposition } from './useRealtimeComposition';
 import { getCreatorId } from './utils';
 import { RhythmPalette } from './RhythmPalette';
 import { ProjectManager } from './ProjectManager';
@@ -18,24 +17,37 @@ export const CompositionTool: React.FC = () => {
 
     const {
         composition,
-        setComposition,
-        addSection,
-        updateSection,
-        updateSectionBars,
-        updateBar,
-        addChord,
-        removeChord,
-        removeSection,
+        // activeSectionId, // Unused
+        // setActiveSectionId, // Unused
+        // activeSection, // Unused
         selectedDuration,
         setSelectedDuration,
         isRestMode,
         setIsRestMode,
-        toggleInstrument,
+        status,
+        activeUsers,
+
+        // Actions
         renameComposition,
-        resetToDefault,
+        addSection,
+        removeSection,
         moveSection,
-        updateBarLyrics
-    } = useComposition();
+        updateSection,
+        updateSectionBars,
+        updateBar,
+        updateBarLyrics,
+        addChord,
+        removeChord,
+        toggleInstrument,
+
+        // Lifecycle
+        saveAsNew,
+        deleteSong,
+        resetToDefault
+    } = useRealtimeComposition();
+
+    // Map status to legacy isLoading for UI compatibility (or enhance UI)
+    const isLoading = status === 'loading';
 
     // Update browser title
     useEffect(() => {
@@ -43,14 +55,7 @@ export const CompositionTool: React.FC = () => {
         return () => {
             document.title = 'Komposisjon';
         };
-    }, [composition.title]);
-
-    const { activeUsers, isLoading, saveAsNew, deleteSong } = useCompositionSync(
-        composition,
-        setComposition,
-        songId,
-        resetToDefault
-    );
+    }, [composition?.title]);
 
     // Dnd Sensors
     const sensors = useSensors(
@@ -73,10 +78,10 @@ export const CompositionTool: React.FC = () => {
     const [isCopied, setIsCopied] = useState(false);
     const titleInputRef = useRef<HTMLInputElement>(null);
 
-    const isCreator = composition.creatorId === getCreatorId();
+    const isCreator = composition?.creatorId === getCreatorId();
 
     const handleSaveAsNew = async () => {
-        if (!pendingName.trim()) return;
+        if (!pendingName.trim() || !composition) return;
 
         console.log('Saving as new:', pendingName);
         const newId = await saveAsNew({
@@ -98,6 +103,7 @@ export const CompositionTool: React.FC = () => {
         if (id === songId) {
             setSearchParams({});
             setIsMenuOpen(false);
+            resetToDefault();
         }
     };
 
@@ -158,9 +164,27 @@ export const CompositionTool: React.FC = () => {
 
                     {/* Presence Bubble */}
                     {songId ? (
-                        <div className="flex items-center gap-1.5 px-2.5 py-1 bg-blue-50 text-blue-600 rounded-full border border-blue-100 shadow-sm animate-pulse ml-2">
-                            <Users size={12} className="fill-current" />
-                            <span className="text-[10px] font-black uppercase tracking-tighter">{activeUsers} aktive</span>
+                        <div className="flex items-center gap-2 ml-2">
+                            <div className="flex items-center gap-1.5 px-2.5 py-1 bg-blue-50 text-blue-600 rounded-full border border-blue-100 shadow-sm animate-pulse">
+                                <Users size={12} className="fill-current" />
+                                <span className="text-[10px] font-black uppercase tracking-tighter">{activeUsers} aktive</span>
+                            </div>
+
+                            {/* Sync Status - Avant Garde Pulse */}
+                            <div className="flex items-center gap-1.5 px-2 py-1 bg-white border border-slate-100 rounded-full shadow-sm">
+                                <div className={`w-1.5 h-1.5 rounded-full transition-colors duration-500 ${status === 'saving' ? 'bg-amber-400 animate-pulse' :
+                                    status === 'error' ? 'bg-red-500' :
+                                        'bg-emerald-400'
+                                    }`} />
+                                <span className={`text-[9px] font-bold uppercase tracking-widest ${status === 'saving' ? 'text-amber-500' :
+                                        status === 'error' ? 'text-red-500' :
+                                            'text-emerald-600'
+                                    }`}>
+                                    {status === 'saving' ? 'Lagrer...' :
+                                        status === 'error' ? 'Feil' :
+                                            'Lagret'}
+                                </span>
+                            </div>
                         </div>
                     ) : (
                         <button
