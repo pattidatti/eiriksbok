@@ -20,6 +20,7 @@ import { useGlobalTimeline } from '../hooks/useGlobalTimeline';
 import { parseYearRange } from '../utils/dateUtils';
 import { ImageWithFallback } from './ImageWithFallback';
 import { useRelatedContent } from '../hooks/useRelatedContent';
+import { renderInlineMarkdown } from './markdownUtils';
 import type { SidebarConfig } from '../types';
 
 // Generic Article Data Type
@@ -396,12 +397,16 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, f
                                                                 {event.lessonPlan.writingTask.map((task, i) => (
                                                                     <div key={i} className={i > 0 ? "pt-4 border-t border-emerald-50" : ""}>
                                                                         <div className="text-xs font-bold text-emerald-600 mb-1 uppercase">Alternativ {i + 1}</div>
-                                                                        <p className="text-sm leading-relaxed text-slate-700">{task}</p>
+                                                                        <p className="text-sm leading-relaxed text-slate-700">
+                                                                            {renderInlineMarkdown(task, event.concepts)}
+                                                                        </p>
                                                                     </div>
                                                                 ))}
                                                             </div>
                                                         ) : (
-                                                            <p className="text-sm leading-relaxed text-slate-700">{event.lessonPlan.writingTask}</p>
+                                                            <p className="text-sm leading-relaxed text-slate-700">
+                                                                {renderInlineMarkdown(event.lessonPlan.writingTask, event.concepts)}
+                                                            </p>
                                                         )}
                                                     </div>
                                                 )}
