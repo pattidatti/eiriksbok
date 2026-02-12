@@ -181,7 +181,8 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
             subjectId: subjectId,
             topicId: topicId,
             learningPaths: relevantLearningPaths,
-            learningPathData: lesson.learningPathData
+            learningPathData: lesson.learningPathData,
+            lessonPlan: lesson.lessonPlan
         };
     }, [lesson, lessonImage, subjectId, topicId, relevantLearningPaths]);
 

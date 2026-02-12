@@ -1,6 +1,9 @@
 {
-  "buildId": 1770796801481,
+  "buildId": 1770892525315,
   "contentMap": {
+    "adel": [
+      "content/concepts/adel.json"
+    ],
     "agens": [
       "content/concepts/agens.json"
     ],
@@ -58,6 +61,9 @@
     ],
     "blokade": [
       "content/concepts/blokade.json"
+    ],
+    "boddel": [
+      "content/concepts/boddel.json"
     ],
     "borskrakk": [
       "content/concepts/borskrakk.json",
@@ -293,6 +299,9 @@
     "motiv": [
       "content/concepts/motiv.json"
     ],
+    "nasjonalisere": [
+      "content/concepts/nasjonalisere.json"
+    ],
     "nasjonalisme": [
       "content/concepts/nasjonalisme.json"
     ],
@@ -416,6 +425,9 @@
     "sikh": [
       "content/concepts/sikh.json"
     ],
+    "skagerrak": [
+      "content/concepts/skagerrak.json"
+    ],
     "skyttergravskrig": [
       "content/concepts/skyttergravskrig.json",
       "content/historie/forste-verdenskrig/skyttergravskrig.json"
@@ -513,6 +525,9 @@
     ],
     "v2": [
       "content/concepts/v2.json"
+    ],
+    "vanaere": [
+      "content/concepts/vanaere.json"
     ],
     "verbalet": [
       "content/concepts/verbalet.json"
@@ -1330,8 +1345,14 @@
     "dronning-elizabeth-i": [
       "content/people/dronning-elizabeth-i.json"
     ],
+    "dwight-eisenhower": [
+      "content/people/dwight-eisenhower.json"
+    ],
     "einstein": [
       "content/people/einstein.json"
+    ],
+    "eirik-magnusson": [
+      "content/people/eirik-magnusson.json"
     ],
     "ellington": [
       "content/people/ellington.json"
@@ -1405,8 +1426,14 @@
     "knut-alvsson-bio": [
       "content/people/knut-alvsson-bio.json"
     ],
+    "kong-haakon-v": [
+      "content/people/kong-haakon-v.json"
+    ],
     "kublai-khan": [
       "content/people/kublai-khan.json"
+    ],
+    "magnus-lagabote": [
+      "content/people/magnus-lagabote.json"
     ],
     "marcus-antonius": [
       "content/people/marcus-antonius.json"
@@ -1584,6 +1611,7 @@
     ]
   },
   "hierarchicalMap": {
+    "concepts/adel.json/adel": "content/concepts/adel.json",
     "concepts/agens.json/agens": "content/concepts/agens.json",
     "concepts/aksemaktene.json/aksemaktene": "content/concepts/aksemaktene.json",
     "concepts/aksjeselskap.json/aksjeselskap": "content/concepts/aksjeselskap.json",
@@ -1603,6 +1631,7 @@
     "concepts/blankoblankett.json/blankoblankett": "content/concepts/blankoblankett.json",
     "concepts/blitzkrieg.json/blitzkrieg": "content/concepts/blitzkrieg.json",
     "concepts/blokade.json/blokade": "content/concepts/blokade.json",
+    "concepts/boddel.json/boddel": "content/concepts/boddel.json",
     "concepts/borskrakk.json/borskrakk": "content/concepts/borskrakk.json",
     "concepts/budskap.json/budskap": "content/concepts/budskap.json",
     "concepts/bysants.json/bysants": "content/concepts/bysants.json",
@@ -1680,6 +1709,7 @@
     "concepts/monarki.json/monarki": "content/concepts/monarki.json",
     "concepts/monopol.json/monopol": "content/concepts/monopol.json",
     "concepts/motiv.json/motiv": "content/concepts/motiv.json",
+    "concepts/nasjonalisere.json/nasjonalisere": "content/concepts/nasjonalisere.json",
     "concepts/nasjonalisme.json/nasjonalisme": "content/concepts/nasjonalisme.json",
     "concepts/naturalhandel.json/naturalhandel": "content/concepts/naturalhandel.json",
     "concepts/nazisme.json/nazisme": "content/concepts/nazisme.json",
@@ -1721,6 +1751,7 @@
     "concepts/sepoy.json/sepoy": "content/concepts/sepoy.json",
     "concepts/show-dont-tell.json/show-dont-tell": "content/concepts/show-dont-tell.json",
     "concepts/sikh.json/sikh": "content/concepts/sikh.json",
+    "concepts/skagerrak.json/skagerrak": "content/concepts/skagerrak.json",
     "concepts/skyttergravskrig.json/skyttergravskrig": "content/concepts/skyttergravskrig.json",
     "concepts/sosialisme.json/sosialisme": "content/concepts/sosialisme.json",
     "concepts/stalingrad.json/stalingrad": "content/concepts/stalingrad.json",
@@ -1753,6 +1784,7 @@
     "concepts/urbanisering.json/urbanisering": "content/concepts/urbanisering.json",
     "concepts/utmattelseskrig.json/utmattelseskrig": "content/concepts/utmattelseskrig.json",
     "concepts/v2.json/v2": "content/concepts/v2.json",
+    "concepts/vanaere.json/vanaere": "content/concepts/vanaere.json",
     "concepts/verbalet.json/verbalet": "content/concepts/verbalet.json",
     "concepts/versailles-traktaten.json/versailles-traktaten": "content/concepts/versailles-traktaten.json",
     "concepts/versaillestraktaten.json/versaillestraktaten": "content/concepts/versaillestraktaten.json",
@@ -2073,7 +2105,9 @@
     "people/diokletian-bio.json/diokletian-bio": "content/people/diokletian-bio.json",
     "people/douglas-macarthur.json/douglas-macarthur": "content/people/douglas-macarthur.json",
     "people/dronning-elizabeth-i.json/dronning-elizabeth-i": "content/people/dronning-elizabeth-i.json",
+    "people/dwight-eisenhower.json/dwight-eisenhower": "content/people/dwight-eisenhower.json",
     "people/einstein.json/einstein": "content/people/einstein.json",
+    "people/eirik-magnusson.json/eirik-magnusson": "content/people/eirik-magnusson.json",
     "people/ellington.json/ellington": "content/people/ellington.json",
     "people/ester-boserup.json/ester-boserup": "content/people/ester-boserup.json",
     "people/franco.json/franco": "content/people/franco.json",
@@ -2098,7 +2132,9 @@
     "people/keynes.json/keynes": "content/people/keynes.json",
     "people/kleopatra.json/kleopatra": "content/people/kleopatra.json",
     "people/knut-alvsson-bio.json/knut-alvsson-bio": "content/people/knut-alvsson-bio.json",
+    "people/kong-haakon-v.json/kong-haakon-v": "content/people/kong-haakon-v.json",
     "people/kublai-khan.json/kublai-khan": "content/people/kublai-khan.json",
+    "people/magnus-lagabote.json/magnus-lagabote": "content/people/magnus-lagabote.json",
     "people/marcus-antonius.json/marcus-antonius": "content/people/marcus-antonius.json",
     "people/martin-heidegger.json/martin-heidegger": "content/people/martin-heidegger.json",
     "people/mikhail-gorbatsjov.json/mikhail-gorbatsjov": "content/people/mikhail-gorbatsjov.json",
