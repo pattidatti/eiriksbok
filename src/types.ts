@@ -91,6 +91,19 @@ export interface Lesson {
     learningPathData?: LearningPathData;
     learningPaths?: { id: string; title: string; url: string }[];
     presentation?: PresentationData;
+    lessonPlan?: LessonPlan;
+}
+
+export interface LessonPlan {
+    learningObjectives: string[];
+    preReading: string[];
+    whileReading: string[];
+    postReading: string[];
+    writingTask?: string;
+    period?: {
+        title: string;
+        link: string;
+    };
 }
 
 export interface Quote {

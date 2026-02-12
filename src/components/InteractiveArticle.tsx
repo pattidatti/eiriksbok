@@ -5,7 +5,9 @@ import {
     Volume2,
     PauseCircle,
     PlayCircle,
-    ArrowLeft
+    ArrowLeft,
+    BookOpen,
+    ChevronDown
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { ArticleContent } from './ArticleContent';
@@ -43,6 +45,7 @@ export type ArticleData = {
     subjectId?: string;
     learningPathData?: LearningPathData;
     learningPaths?: { id: string; title: string; url: string }[];
+    lessonPlan?: import('../types').LessonPlan;
 };
 
 interface InteractiveArticleProps {
@@ -332,6 +335,69 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, f
                                 />
 
                                 {event.fact && <FactBox content={event.fact} />}
+
+                                {event.lessonPlan && (
+                                    <div className="mt-12">
+                                        <details className="group bg-emerald-50/50 rounded-2xl border border-emerald-100 overflow-hidden">
+                                            <summary className="flex items-center justify-between p-6 cursor-pointer list-none text-emerald-900 font-bold hover:bg-emerald-50 transition-colors">
+                                                <span className="flex items-center gap-2">
+                                                    <BookOpen size={20} className="text-emerald-600" />
+                                                    Oppgaver
+                                                </span>
+                                                <span className="transform group-open:rotate-180 transition-transform duration-200">
+                                                    <ChevronDown className="w-5 h-5" />
+                                                </span>
+                                            </summary>
+                                            <div className="px-6 pb-6 pt-2 text-slate-700 space-y-6">
+                                                <div>
+                                                    <h4 className="font-bold text-emerald-800 mb-2 flex items-center gap-2 uppercase tracking-wider text-xs">
+                                                        Læringsmål
+                                                    </h4>
+                                                    <ul className="list-disc list-outside ml-5 space-y-1 text-sm italic">
+                                                        {event.lessonPlan.learningObjectives.map((obj: string, i: number) => (
+                                                            <li key={i}>{obj}</li>
+                                                        ))}
+                                                    </ul>
+                                                </div>
+
+                                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                                    <div>
+                                                        <h4 className="font-bold text-slate-900 mb-3 uppercase tracking-wider text-xs">Før lesing</h4>
+                                                        <ul className="list-disc list-outside ml-5 space-y-2 text-sm text-slate-600">
+                                                            {event.lessonPlan.preReading.map((task: string, i: number) => (
+                                                                <li key={i}>{task}</li>
+                                                            ))}
+                                                        </ul>
+                                                    </div>
+                                                    <div>
+                                                        <h4 className="font-bold text-slate-900 mb-3 uppercase tracking-wider text-xs">Under lesing</h4>
+                                                        <ul className="list-disc list-outside ml-5 space-y-2 text-sm text-slate-600">
+                                                            {event.lessonPlan.whileReading.map((task: string, i: number) => (
+                                                                <li key={i}>{task}</li>
+                                                            ))}
+                                                        </ul>
+                                                    </div>
+                                                </div>
+
+                                                <div>
+                                                    <h4 className="font-bold text-slate-900 mb-3 uppercase tracking-wider text-xs">Etter lesing</h4>
+                                                    <ul className="list-disc list-outside ml-5 space-y-2 text-sm text-slate-600">
+                                                        {event.lessonPlan.postReading.map((task: string, i: number) => (
+                                                            <li key={i}>{task}</li>
+                                                        ))}
+                                                    </ul>
+                                                </div>
+
+                                                {event.lessonPlan.writingTask && (
+                                                    <div className="bg-white p-6 rounded-xl border border-emerald-100 shadow-sm">
+                                                        <h4 className="font-bold text-emerald-900 mb-2 uppercase tracking-wide text-xs">Skriveoppgave</h4>
+                                                        <p className="text-sm leading-relaxed text-slate-700">{event.lessonPlan.writingTask}</p>
+                                                    </div>
+                                                )}
+                                            </div>
+                                        </details>
+                                    </div>
+                                )}
                             </div>
 
                             {/* Right Column: Sidebar / Interactive Elements */}

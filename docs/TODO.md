@@ -24,6 +24,7 @@ Her kan du skrive ned ideer, oppgaver og annet du vil huske for Gravity lærebok
 
 
 ### Samfunnskunnskap
+- [ ] Artikkel om hvordan naturlig rente fungerer, eksempler, fordeler og teorien bak. 
 
 
 ### Historie

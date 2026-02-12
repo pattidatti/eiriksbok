@@ -42,7 +42,7 @@
     "content": [
         {
             "type": "text",
-            "content": "Han var kongens yndling, en diplomat i europeisk toppklasse, og en av Norges mektigste menn. Men Alv Erlingsson er ikke husket for sine dannede manerer ved det skotske hoffet eller sine strategiske evner. Han er husket som \"Mindre Alv\" – piratjarlen som forvandlet Skagerrak til et mareritt for [Hansaen](/historie/middelalderen/hanseatene), og som endte sine dager knust på et hjul i Helsingborg. Historien om Alv er fortellingen om den gamle adelens siste, desperate kamp mot en stadig sterkere kongemakt, og om hvordan grensen mellom ridder og røver kan viskes ut når politikken slår feil. Dette skjedde i [middelalderen](/historie/middelalderen/middelalderen), en tid preget av maktkamp."
+            "content": "Han var kongens yndling, en diplomat i europeisk toppklasse, og en av Norges mektigste menn. Men Alv Erlingsson er ikke husket for sine dannede manerer ved det skotske hoffet eller sine strategiske evner. Han er husket som \"Mindre Alv\" – piratjarlen som forvandlet Skagerrak til et mareritt for [Hansaen](/historie/middelalderen/hanseatene), og som endte sine dager knust på et hjul in Helsingborg. Historien om Alv er fortellingen om den gamle adelens siste, desperate kamp mot en stadig sterkere kongemakt, og om hvordan grensen mellom ridder og røver kan viskes ut når politikken slår feil. Dette skjedde i [middelalderen](/historie/middelalderen/middelalderen), en tid preget av maktkamp."
         },
         {
             "type": "header",
@@ -159,5 +159,26 @@
             ],
             "correctAnswer": 2
         }
-    ]
+    ],
+    "lessonPlan": {
+        "learningObjectives": [
+            "Analysere Alv Erlingssons transformasjon fra ridder til pirat.",
+            "Reflektere over maktkampen mellom adelen og kongemakten i middelalderen.",
+            "Vurdere Alvs ettermæle og betydningen av hans fall for Norge."
+        ],
+        "preReading": [
+            "Hva forbinder du med ordet 'sjørøver'? Er det forskjell på en sjørøver og en soldat?",
+            "Hvorfor tror du noen velger å bryte loven de selv er satt til å beskytte?"
+        ],
+        "whileReading": [
+            "Se etter vendepunkter i teksten. Når går Alv fra å være kongens favoritt til å bli hans fiende?",
+            "Legg merke til hvordan 'Mindre Alv' blir beskrevet. Hvilke egenskaper fremheves?"
+        ],
+        "postReading": [
+            "Sammenlign de to rollene Alv hadde: Jarl av Sarpsborg og 'Mindre Alv'. Hvordan endret hans makt seg?",
+            "Hva forteller henrettelsesmetoden 'steile og hjul' oss om samfunnets behov for å statuere eksempler?",
+            "På hvilken måte var Alv en 'mann som ikke forstod at tiden hadde løpt fra ham'?"
+        ],
+        "writingTask": "Skriv en reflekterende tekst der du drøfter om Alv Erlingsson var en tragisk helt, en simpel forbryter, eller et offer for politiske endringer. Bruk eksempler fra teksten."
+    }
 }
