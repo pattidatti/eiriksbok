@@ -99,7 +99,7 @@ export interface LessonPlan {
     preReading: string[];
     whileReading: string[];
     postReading: string[];
-    writingTask?: string;
+    writingTask?: string | string[];
     period?: {
         title: string;
         link: string;

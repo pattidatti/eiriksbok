@@ -391,7 +391,18 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, f
                                                 {event.lessonPlan.writingTask && (
                                                     <div className="bg-white p-6 rounded-xl border border-emerald-100 shadow-sm">
                                                         <h4 className="font-bold text-emerald-900 mb-2 uppercase tracking-wide text-xs">Skriveoppgave</h4>
-                                                        <p className="text-sm leading-relaxed text-slate-700">{event.lessonPlan.writingTask}</p>
+                                                        {Array.isArray(event.lessonPlan.writingTask) ? (
+                                                            <div className="space-y-4">
+                                                                {event.lessonPlan.writingTask.map((task, i) => (
+                                                                    <div key={i} className={i > 0 ? "pt-4 border-t border-emerald-50" : ""}>
+                                                                        <div className="text-xs font-bold text-emerald-600 mb-1 uppercase">Alternativ {i + 1}</div>
+                                                                        <p className="text-sm leading-relaxed text-slate-700">{task}</p>
+                                                                    </div>
+                                                                ))}
+                                                            </div>
+                                                        ) : (
+                                                            <p className="text-sm leading-relaxed text-slate-700">{event.lessonPlan.writingTask}</p>
+                                                        )}
                                                     </div>
                                                 )}
                                             </div>

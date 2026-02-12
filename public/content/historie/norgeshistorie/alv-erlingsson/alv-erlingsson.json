@@ -189,6 +189,11 @@
             "Alv var en av de siste frie ridderne i Norge. Hva tror du ble annerledes i landet da slike menn forsvant?",
             "Var Alv Erlingsson en helt som kjempet for Norge, eller bare en egoistisk sjørøver? Begrunn svaret ditt."
         ],
-        "writingTask": "Skriv en kort historie fra synsvinkelen til en av innbyggerne i Oslo som ser Alv Erlingsson angripe byen, og som senere ser Akershus festning begynne å reise seg."
+        "writingTask": [
+            "**Forsvarsadvokaten:** Se for deg at du er Alv Erlingssons forsvarer i rettssaken i Danmark i 1290. Skriv en tale der du prøver å overbevise dommerne om at Alv ikke bare var en forbryter, men en mann som kjempet for sin ære og mot Hansaens makt. Bruk detaljer fra teksten for å begrunne saken din.",
+            "**Ridderens siste natt:** Skriv et brev eller et dagboknotat fra Alv selv, skrevet i fengselet i Helsingborg kvelden før han skal henrettes. Han reflekterer over livet sitt: Fra å være kongens nærmeste venn til å ende opp som en utstøtt pirat. Angrer han på drapet på Hallkjell Krøkedans, og hva tenker han om at navnet hans vil huskes for alltid?",
+            "**Breaking News fra Middelalderen:** Skriv en nyhetsartikkel eller et 'live-intervju' fra Fredrikstad i 1287, rett etter at borgen Isegran er brent ned. Intervju en overlevende soldat eller en livredd innbygger i byen. Hvordan opplevde de Alvs svik og hertugens brutale hevn?",
+            "**Alv i det 21. århundre:** Hvis Alv Erlingsson levde i dag, hvem ville han vært? En rebelsk teknommilliardær, en beryktet hacker som angriper store selskaper, eller en kontroversiell politiker? Lag en karakterbeskrivelse eller en kort historie der du plasserer Alvs personlighet og ambisjoner i vår moderne verden."
+        ]
     }
 }
