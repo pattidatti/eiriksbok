@@ -1,5 +1,4 @@
 import React, { Suspense } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Layout } from './components/Layout';
 import { PageSkeleton } from './components/Skeleton';
 import { ErrorBoundary } from './components/ErrorBoundary';
@@ -62,112 +61,98 @@ const CompositionTool = React.lazy(routeFactories.CompositionTool);
 
 import { WorkstationLayout } from './components/workstation/WorkstationLayout';
 import { usePresence } from './hooks/usePresence';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+
+const AppRoot = () => {
+  usePresence();
+  return (
+    <LayoutProvider>
+      <GlossaryProvider>
+        <UpdatePrompt />
+        <Layout />
+      </GlossaryProvider>
+    </LayoutProvider>
+  );
+};
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <AppRoot />,
+    errorElement: <ErrorBoundary><NotFoundPage /></ErrorBoundary>,
+    children: [
+      { index: true, element: <LandingPage /> },
+      { path: "sok", element: <SearchPage /> },
+      { path: "norsk/bibliotek", element: <TextLibraryPage /> },
+      { path: "norsk/bibliotek/:textId", element: <TextReaderPage /> },
+      { path: "tidslinje", element: <GlobalTimelinePage /> },
+      { path: "persongalleri", element: <PersonGallery /> },
+      { path: "colonization", element: <ColonizationMap /> },
+      { path: "laeringsstier", element: <LearningPathsHub /> },
+      { path: "norsk/virkemidler/desk", element: <WorkstationLayout /> },
+      { path: "musikk/komposisjon", element: <CompositionTool /> },
+      { path: "oving", element: <PracticePage /> },
+      { path: "quiz", element: <QuizPage /> },
+      { path: "oving/flashcards", element: <FlashcardPage /> },
+      { path: "oving/quiz", element: <QuizPage /> },
+      { path: "oving/chrono", element: <ChronoGamePage /> },
+      { path: "oving/dungeon", element: <DungeonGamePage /> },
+      { path: "oving/retorikk", element: <RhetoricGamePage /> },
+      { path: "oving/hengemann", element: <HangmanPage /> },
+      { path: "oving/chrono-glider", element: <ChronoGliderPage /> },
+      { path: "oving/tidslinje-td", element: <TimelineTDPage /> },
+      { path: "oving/konsept-snake", element: <ConceptSnakeGame /> },
+      { path: "oving/detektiv", element: <DetectiveHubPage /> },
+      { path: "oving/detektiv/:caseId", element: <DetectiveCasePage /> },
+      { path: "oving/etikk", element: <EthicsExperimentPage /> },
+      { path: "oving/tidsreise", element: <TimeTravelPage /> },
+      { path: "oving/tidsreise/:scenarioId", element: <TimeTravelGamePage /> },
+      { path: "historie/vikingtiden/detektiv", element: <DetectiveCasePage /> },
+      { path: "admin", element: <AdminGuard><AdminDashboard /></AdminGuard> },
+      { path: "admin/stats", element: <AdminGuard><StatsPage /></AdminGuard> },
+      { path: "admin/inventory", element: <AdminGuard><ContentInventory /></AdminGuard> },
+      { path: "admin/links", element: <AdminGuard><LinkChecker /></AdminGuard> },
+      { path: "admin/scanner", element: <AdminGuard><ScannerPage /></AdminGuard> },
+      { path: "quiz-battle", element: <QuizLobby /> },
+      { path: "quiz-battle/admin-999", element: <AdminGuard><QuizAdmin /></AdminGuard> },
+      { path: "quiz-battle/host/:pin", element: <AdminGuard><QuizHost /></AdminGuard> },
+      { path: "quiz-battle/play/:pin", element: <QuizPlayer /> },
+      { path: "krle/sammenlign", element: <ReligionComparisonPage /> },
+      { path: "krle/filosofi/odyssey", element: <PhilosophyOdyssey /> },
+      { path: "krle/filosofi/sammenlign", element: <PhilosophyComparisonPage /> },
+      { path: "krle/sammenlign/tema/:tag", element: <TopicComparisonPage /> },
+      { path: "krle/religion/:religionId", element: <ReligionPage /> },
+      { path: ":subjectId/:topicId/present/:lessonId", element: <PresentationPage /> },
+      { path: ":subjectId/:topicId/present/:lessonId/projector", element: <PresentationPage /> },
+      { path: ":subjectId/:topicId/:subTopicId/present/:lessonId", element: <PresentationPage /> },
+      { path: ":subjectId/:topicId/:subTopicId/present/:lessonId/projector", element: <PresentationPage /> },
+      { path: ":subjectId", element: <SubjectPage /> },
+      { path: ":subjectId/:topicId/:subTopicId/:lessonId", element: <LessonPage /> },
+      { path: ":subjectId/:topicId/:lessonId", element: <LessonPage /> },
+      { path: ":subjectId/:topicId/:subTopicId", element: <TopicPage /> },
+      { path: ":subjectId/:topicId", element: <TopicPage /> },
+      { path: "/norsk/ordklasser/sortering", element: <WordSorterGame /> },
+      { path: "flashcards", element: <FlashcardPage /> },
+      { path: "*", element: <NotFoundPage /> },
+    ],
+  },
+], {
+  basename: import.meta.env.BASE_URL,
+  future: {
+    v7_fetcherPersist: true,
+    v7_normalizeFormMethod: true,
+    v7_partialHydration: true,
+    v7_skipActionErrorRevalidation: true,
+  }
+});
 
 function App() {
   return (
-    <BrowserRouter
-      basename={import.meta.env.BASE_URL}
-      future={{
-        v7_startTransition: true,
-        v7_relativeSplatPath: true,
-      }}
-    >
-
-      <LayoutProvider>
-        <GlossaryProvider>
-          <AppContent />
-        </GlossaryProvider>
-      </LayoutProvider>
-    </BrowserRouter>
-  );
-}
-
-function AppContent() {
-  usePresence(); // Initialize global presence tracking
-
-  return (
-    <>
-      <UpdatePrompt />
-      <ErrorBoundary>
-        <Suspense fallback={<PageSkeleton />}>
-          <Routes>
-            <Route path="/" element={<Layout />}>
-              <Route index element={<LandingPage />} />
-              <Route path="sok" element={<SearchPage />} />
-              <Route path="norsk/bibliotek" element={<TextLibraryPage />} />
-              <Route path="norsk/bibliotek/:textId" element={<TextReaderPage />} />
-              <Route path="tidslinje" element={<GlobalTimelinePage />} />
-              <Route path="persongalleri" element={<PersonGallery />} />
-              <Route path="colonization" element={<ColonizationMap />} />
-              <Route path="laeringsstier" element={<LearningPathsHub />} />
-
-              {/* Tools */}
-              <Route path="norsk/virkemidler/desk" element={<WorkstationLayout />} />
-              <Route path="musikk/komposisjon" element={<CompositionTool />} />
-
-              {/* Static routes must come before dynamic :subjectId routes */}
-              <Route path="oving" element={<PracticePage />} />
-              <Route path="quiz" element={<QuizPage />} />
-              <Route path="oving/flashcards" element={<FlashcardPage />} />
-              <Route path="oving/quiz" element={<QuizPage />} />
-              <Route path="oving/chrono" element={<ChronoGamePage />} />
-              <Route path="oving/dungeon" element={<DungeonGamePage />} />
-              <Route path="oving/retorikk" element={<RhetoricGamePage />} />
-              <Route path="oving/hengemann" element={<HangmanPage />} />
-              <Route path="oving/chrono-glider" element={<ChronoGliderPage />} />
-              <Route path="oving/tidslinje-td" element={<TimelineTDPage />} />
-              <Route path="oving/konsept-snake" element={<ConceptSnakeGame />} />
-              <Route path="oving/detektiv" element={<DetectiveHubPage />} />
-              <Route path="oving/detektiv/:caseId" element={<DetectiveCasePage />} />
-              <Route path="oving/etikk" element={<EthicsExperimentPage />} />
-              <Route path="oving/tidsreise" element={<TimeTravelPage />} />
-              <Route path="oving/tidsreise/:scenarioId" element={<TimeTravelGamePage />} />
-              <Route path="historie/vikingtiden/detektiv" element={<DetectiveCasePage />} />
-
-
-              {/* Simulation Game Routes - REMOVED */}
-
-
-              <Route path="admin" element={<AdminGuard><AdminDashboard /></AdminGuard>} />
-              <Route path="admin/stats" element={<AdminGuard><StatsPage /></AdminGuard>} />
-              <Route path="admin/inventory" element={<AdminGuard><ContentInventory /></AdminGuard>} />
-              <Route path="admin/links" element={<AdminGuard><LinkChecker /></AdminGuard>} />
-              <Route path="admin/scanner" element={<AdminGuard><ScannerPage /></AdminGuard>} />
-
-              {/* Quiz Battle Routes */}
-              <Route path="quiz-battle" element={<QuizLobby />} />
-              <Route path="quiz-battle/admin-999" element={<QuizAdmin />} /> {/* "Secret" url for now */}
-              <Route path="quiz-battle/host/:pin" element={<QuizHost />} />
-              <Route path="quiz-battle/play/:pin" element={<QuizPlayer />} />
-
-              <Route path="krle/sammenlign" element={<ReligionComparisonPage />} />
-              <Route path="krle/filosofi/odyssey" element={<PhilosophyOdyssey />} />
-              <Route path="krle/filosofi/sammenlign" element={<PhilosophyComparisonPage />} />
-              <Route path="krle/sammenlign/tema/:tag" element={<TopicComparisonPage />} />
-              <Route path="krle/religion/:religionId" element={<ReligionPage />} />
-
-
-
-              <Route path=":subjectId/:topicId/present/:lessonId" element={<PresentationPage />} />
-              <Route path=":subjectId/:topicId/present/:lessonId/projector" element={<PresentationPage />} />
-              <Route path=":subjectId/:topicId/:subTopicId/present/:lessonId" element={<PresentationPage />} />
-              <Route path=":subjectId/:topicId/:subTopicId/present/:lessonId/projector" element={<PresentationPage />} />
-
-              <Route path=":subjectId" element={<SubjectPage />} />
-              <Route path=":subjectId/:topicId/:subTopicId/:lessonId" element={<LessonPage />} />
-              <Route path=":subjectId/:topicId/:lessonId" element={<LessonPage />} />
-              <Route path=":subjectId/:topicId/:subTopicId" element={<TopicPage />} />
-              <Route path=":subjectId/:topicId" element={<TopicPage />} />
-              <Route path="/norsk/ordklasser/sortering" element={<WordSorterGame />} />
-
-              {/* Backward compatibility / direct access */}
-              <Route path="flashcards" element={<FlashcardPage />} />
-              <Route path="*" element={<NotFoundPage />} />
-            </Route>
-          </Routes>
-        </Suspense>
-      </ErrorBoundary>
-    </>
+    <ErrorBoundary>
+      <Suspense fallback={<PageSkeleton />}>
+        <RouterProvider router={router} />
+      </Suspense>
+    </ErrorBoundary>
   );
 }
 
