@@ -5,6 +5,7 @@
     "layout": "learning-path",
     "category": "Læringssti",
     "readTime": "45-60 min",
+    "heroImage": "/images/lessons/norsk/analyse/analyse-sti-hero.png",
     "learningPathData": {
         "id": "analyse-sti",
         "title": "Codebreaker: Avslør tekstens hemmeligheter",

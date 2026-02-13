@@ -1,5 +1,9 @@
 # Standard for Artikler i Eiriks Lærebok
 
+> [!WARNING]
+> **DEPRECATED**: Dette dokumentet er utdatert. 
+> For moderne standarder og komponent-oversikt, vennligst se skillen `article-implementation` og [CONTENT_SYSTEM.md](file:///home/irik/eiriksbok/docs/CONTENT_SYSTEM.md).
+
 Vi har innført en standardisert layout for artikler som gir en rikere leseopplevelse med hero-bilde, flytende navigasjon og sidebar med nøkkelpunkter.
 
 ## Hvordan opprette en ny artikkel

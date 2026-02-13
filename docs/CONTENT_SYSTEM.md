@@ -214,6 +214,8 @@ Før du faktisk skriver JSON, bør du ha en **Blueprint**.
 - Verktøy: Bruk gjerne workflowen `/plan_topic` for å generere dette.
 
 ## 7. Best Practices
+For detaljerte tekniske og pedagogiske standarder, bruk skillen `article-implementation`.
+
 1.  **Tags**: Bruk konsistente tags på tvers av artikler og tidslinje.
 2.  **Datoer**: Bruk ISO-format (`YYYY-MM-DD`) for hendelser.
 3.  **Bilder**: Se `docs/image-style-guide.md` for hvordan du genererer bilder som passer inn i den visuelle estetikken.

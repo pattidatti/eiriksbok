@@ -2,7 +2,7 @@
     "id": "tema-og-budskap",
     "title": "Tema og budskap",
     "description": "Lær å finne meningen bak teksten. Fra handling til tolkning.",
-    "image": "/images/lessons/norsk/analyse/tema-og-budskap-hero.png",
+    "heroImage": "/images/lessons/norsk/analyse/tema-og-budskap-hero.png",
     "content": [
         {
             "type": "paragraph",

@@ -17,3 +17,9 @@ Dette dokumentet definerer reglene for skriving og formatering av artikler for �
 ## 4. Struktur
 - Bruk overskriftsnivåer konsekvent (h2 for hovedseksjoner, h3 for underseksjoner).
 - Integrer interaktive modeller der de gir pedagogisk merverdi.
+
+## 5. Tekstlengde
+- Innholdet bør være forklarende, ikke bruke antagelser, fylle inn nødvendig kontekst og bakgrunn for at leseren skal forstå innholdet. 
+- Hver seksjon bør også være lesbar for seg selv, slik at man kan lese den uten å ha lest resten av emnet. 
+- Hver artikkel bør være rundt 600-1200 ord lang. Avhengig av emnet. Noen emner krever mer forklaring enn andre.
+- Ingen avsnitt skal bestå av bare en setning og en liste. Det må være en forklarende tekst som utdyper poenget.

@@ -80,6 +80,7 @@ Focus on the "Soul" of the content before writing any code.
 
 ## Phase 2: Technical Implementation
 Focus on the "Bones" of the JSON structure.
+**Standard:** Use the `article-implementation` skill for all technical decisions.
 
 ### 1. Manifest Entry
 - Add the lesson to `public/content/manifest.json`.
@@ -87,6 +88,7 @@ Focus on the "Bones" of the JSON structure.
 
 ### 2. JSON Structure Rules
 - **Flat Content:** The `content` array MUST be flat.
+- **Components:** Select appropriate interactive blocks from the `article-implementation` catalog.
 - **No Markdown Bolding:** Never use `**text**` for emphasis. Use the concept system.
 - **Cross-linking:** Use `[Link Text](/subject/topic/article-id)` for internal links.
 - **Lists:** Use `{ "type": "list", "items": [...] }`. NEVER use markdown `-` lists.
@@ -109,6 +111,7 @@ Final polish and technical checks.
 - **Consistency:** Ensure the hero image matches the card image in Topic overview.
 
 ### 2. Verification Checklist
+**Audit:** Run an audit using the `article-implementation` skill.
 - [ ] JSON is syntax-valid.
 - [ ] No bold text in body text.
 - [ ] Table of Contents works.
