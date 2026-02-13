@@ -143,6 +143,7 @@ const router = createBrowserRouter([
     v7_normalizeFormMethod: true,
     v7_partialHydration: true,
     v7_skipActionErrorRevalidation: true,
+    v7_relativeSplatPath: true,
   }
 });
 
@@ -150,7 +151,12 @@ function App() {
   return (
     <ErrorBoundary>
       <Suspense fallback={<PageSkeleton />}>
-        <RouterProvider router={router} />
+        <RouterProvider
+          router={router}
+          future={{
+            v7_startTransition: true,
+          }}
+        />
       </Suspense>
     </ErrorBoundary>
   );
