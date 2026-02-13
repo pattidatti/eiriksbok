@@ -227,7 +227,7 @@ function registerToManifest(topicId) {
             topicEntry.lessons.push({
                 id: articleId,
                 title: articleId.charAt(0).toUpperCase() + articleId.slice(1).replace(/-/g, ' '),
-                type: "article"
+                // Dates will be filled by sync-manifest-dates.js
             });
             console.log(`[REGISTER] Added '${articleId}' to topic '${simpleId}'.`);
             addedCount++;
