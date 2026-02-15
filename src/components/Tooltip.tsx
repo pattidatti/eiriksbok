@@ -16,6 +16,7 @@ export const Tooltip: React.FC<TooltipProps> = ({ text, children, type = 'concep
     const [isTouch, setIsTouch] = useState(false);
     const [coords, setCoords] = useState({ top: 0, left: 0 });
     const triggerRef = useRef<HTMLSpanElement>(null);
+    const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
     const Icon = type === 'person' ? User : Book;
 
@@ -42,11 +43,6 @@ export const Tooltip: React.FC<TooltipProps> = ({ text, children, type = 'concep
             let top = rect.top + scrollY - 10; // 10px gap
             let left = rect.left + scrollX + rect.width / 2;
 
-            // Viewport logic (simple clamping for MVP, can be expanded)
-            // Ideally we'd measure the tooltip ref too, but we'll center it via CSS transform first
-            // and assume it doesn't blow out the viewport.
-            // For a robust solution, we'd need a second ref for the tooltip content.
-
             setCoords({ top, left });
         }
     }, [isOpen]);
@@ -59,8 +55,22 @@ export const Tooltip: React.FC<TooltipProps> = ({ text, children, type = 'concep
         return () => {
             window.removeEventListener('scroll', handleScroll);
             window.removeEventListener('resize', handleScroll);
+            if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current);
         };
     }, []);
+
+    const handleMouseEnter = () => {
+        if (isTouch) return;
+        if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current);
+        setIsOpen(true);
+    };
+
+    const handleMouseLeave = () => {
+        if (isTouch) return;
+        closeTimeoutRef.current = setTimeout(() => {
+            setIsOpen(false);
+        }, 150);
+    };
 
     const handleClick = () => {
         if (!isTouch) {
@@ -75,10 +85,14 @@ export const Tooltip: React.FC<TooltipProps> = ({ text, children, type = 'concep
         <AnimatePresence>
             {isOpen && (
                 <motion.div
-                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                    transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }} // Avant-garde easing
+                    initial={{ opacity: 0, y: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, y: -10, scale: 1 }}
+                    exit={{ opacity: 0, y: 0, scale: 0.9 }}
+                    transition={{
+                        y: { type: "spring", stiffness: 600, damping: 35 },
+                        scale: { type: "spring", stiffness: 600, damping: 35 },
+                        opacity: { duration: 0.1, ease: "easeOut" }
+                    }}
                     style={{
                         position: 'absolute',
                         top: coords.top,
@@ -86,9 +100,11 @@ export const Tooltip: React.FC<TooltipProps> = ({ text, children, type = 'concep
                         transform: 'translate(-50%, -100%)', // Centered above
                         zIndex: 9999, // Above everything
                     }}
-                    className="w-72 pointer-events-none sm:pointer-events-auto"
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                    className="w-72 pointer-events-auto"
                 >
-                    <div className="bg-white/95 backdrop-blur-md text-slate-800 p-4 rounded-2xl shadow-2xl border border-white/20 ring-1 ring-slate-900/5 relative overflow-hidden">
+                    <div className="bg-white/80 backdrop-blur-xl text-slate-800 p-4 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-white/40 ring-1 ring-white/50 relative overflow-hidden">
                         {/* Decorative gradient top bar */}
                         <div className={`absolute top-0 left-0 right-0 h-1 ${type === 'person' ? 'bg-gradient-to-r from-orange-400 to-red-500' : 'bg-gradient-to-r from-indigo-500 to-purple-600'}`} />
 
@@ -112,14 +128,9 @@ export const Tooltip: React.FC<TooltipProps> = ({ text, children, type = 'concep
                             </div>
                         </div>
 
-                        {/* Arrow (Visual only, simpler to just omit for floating portal or replicate complex css) 
-                            For portal, the arrow needs to be positioned carefully. 
-                            Let's keep it simple and clean ("Airy" look) without the physical arrow for now,
-                            or add a small one attached to the bottom.
-                        */}
                         <div className="absolute top-full left-1/2 transform -translate-x-1/2 -mt-[1px]">
                             <svg width="16" height="8" viewBox="0 0 16 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M8 8L0 0H16L8 8Z" className="fill-white/95" />
+                                <path d="M8 8L0 0H16L8 8Z" className="fill-white/80 backdrop-blur-xl" />
                             </svg>
                         </div>
                     </div>
@@ -133,8 +144,8 @@ export const Tooltip: React.FC<TooltipProps> = ({ text, children, type = 'concep
             <span
                 ref={triggerRef}
                 className={triggerStyles}
-                onMouseEnter={() => !isTouch && setIsOpen(true)}
-                onMouseLeave={() => !isTouch && setIsOpen(false)}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
                 onClick={handleClick}
             >
                 {children}
