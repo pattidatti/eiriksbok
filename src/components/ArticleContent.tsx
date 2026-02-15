@@ -101,16 +101,21 @@ export const ArticleContent: React.FC<ArticleContentProps> = React.memo(({ conte
     // URL-safe (legacy) fallback logic
     // DEBUG: Fallback fetch if content is truncated
     const [fullContent, setFullContent] = React.useState<ContentBlock[] | null>(null);
+    const fetchInFlightRef = React.useRef(false);
 
     React.useEffect(() => {
-        if (content.length < 25 && !fullContent && fallbackUrl) {
+        if (content.length < 25 && !fullContent && fallbackUrl && !fetchInFlightRef.current) {
+            fetchInFlightRef.current = true;
             fetch(fallbackUrl + '?t=' + Date.now())
                 .then(res => res.json())
                 .then(data => {
                     console.log('ArticleContent: Fetched full content, length:', data.content.length);
                     setFullContent(data.content);
                 })
-                .catch(err => console.error('ArticleContent: Fetch failed', err));
+                .catch(err => {
+                    console.error('ArticleContent: Fetch failed', err);
+                    fetchInFlightRef.current = false;
+                });
         }
     }, [content, fallbackUrl, fullContent]);
 

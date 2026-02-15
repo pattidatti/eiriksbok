@@ -172,6 +172,23 @@
     "link": "/historie/antikken/platon-og-aristoteles"
   },
   {
+    "term": "armada",
+    "aliases": [
+      "armadaen",
+      "armadaer",
+      "armadaene"
+    ],
+    "definition": "En stor flåte av krigsskip, mest kjent fra den spanske armadaen i 1588.",
+    "type": "concept",
+    "tags": [
+      "krig",
+      "flåte",
+      "spania",
+      "historie"
+    ],
+    "subject": "historie"
+  },
+  {
     "term": "Artilleri",
     "definition": "Tunge skytevåpen som kanoner og bombekastere, ment for å skyte over lange avstander.",
     "subject": "historie",

@@ -57,7 +57,7 @@ interface InteractiveArticleProps {
 
 
 // Helper Components
-const FactBox: React.FC<{ content: string }> = ({ content }) => (
+const FactBox: React.FC<{ content: string }> = React.memo(({ content }) => (
     <div className="bg-indigo-50 p-6 rounded-2xl border border-indigo-100">
         <h3 className="font-bold text-indigo-900 mb-2 flex items-center">
             <Info className="w-5 h-5 mr-2 text-indigo-600" />
@@ -67,7 +67,7 @@ const FactBox: React.FC<{ content: string }> = ({ content }) => (
             {content}
         </p>
     </div>
-);
+));
 
 
 
@@ -227,12 +227,17 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, f
     // Find related articles using the shared hook
     // We use the event's subjectId and topicId if available, otherwise defaults or empty strings
     // Note: The hook handles empty strings gracefully by returning empty array
-    const relatedArticles = useRelatedContent(
+    // Find related articles using the shared hook
+    // We use the event's subjectId and topicId if available, otherwise defaults or empty strings
+    // Note: The hook handles empty strings gracefully by returning empty array
+    const relatedArticlesResult = useRelatedContent(
         event.subjectId || '',
         event.topicId || '',
         event.id?.toString() || '',
         event.tags || []
-    ).slice(0, 5); // Limit to 5 related articles
+    );
+
+    const relatedArticles = useMemo(() => relatedArticlesResult.slice(0, 5), [relatedArticlesResult]);
 
     // Diagnostic logging
     console.log(`[InteractiveArticle] Rendering: title="${event.title}", layout="${event.layout}", hasContent=${!!event.content}, hasLPData=${!!event.learningPathData}, LPSteps=${event.learningPathData?.steps?.length}`);
