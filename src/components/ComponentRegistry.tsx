@@ -70,6 +70,7 @@ const AttritionWarfare = lazy(() => import('./content/interactive/AttritionWarfa
 const TankInterior = lazy(() => import('./content/interactive/TankInterior').then(m => ({ default: m.default })));
 const GasAttackSim = lazy(() => import('./content/interactive/GasAttackSim').then(m => ({ default: m.default })));
 const TsarsDilemma = lazy(() => import('./content/interactive/TsarsDilemma').then(m => ({ default: m.default })));
+const HermeneuticCircle = lazy(() => import('./content/interactive/HermeneuticCircle').then(m => ({ default: m.HermeneuticCircle })));
 
 // Demography
 const DTMSimulator = lazy(() => import('./content/interactive/demography/DTMSimulator').then(m => ({ default: m.DTMSimulator })));
@@ -169,6 +170,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     TankInterior,
     GasAttackSim,
     TsarsDilemma,
+    HermeneuticCircle,
     TriangularTradeMap: lazy(() => import('./content/interactive/TriangularTradeMap').then(m => ({ default: m.TriangularTradeMap }))),
     CensorTask: lazy(() => import('./historie/CensorTask').then(m => ({ default: m.CensorTask }))),
     PropagandaDecoder: lazy(() => import('./historie/PropagandaDecoder').then(m => ({ default: m.PropagandaDecoder }))),

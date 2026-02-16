@@ -89,7 +89,31 @@
         },
         {
             "type": "paragraph",
-            "text": "Å finne tema og budskap er en sirkelprosess. Du starter med en forståelse av helheten etter å ha lest teksten én gang. Så begynner du å se på detaljene – ordvalg, titler, kontraster. Disse detaljene endrer din forståelse av helheten, og slik fortsetter du til du har en overbevisende tolkning.\n\nHer er de viktigste sporene du bør jakte på:\n- Tittelen: Forfatteren gir deg ofte en gave i tittelen. Hva antyder den om innholdet?\n- Starten og slutten: Hvordan blir konflikten introdusert, og hvordan blir den (eventuelt) løst?\n- Kontraster: Finnes det motsetninger som lys/mørke, rik/fattig eller natur/kultur? Kontraster peker nesten alltid rett mot temaet.\n- Symboler: Er det gjenstander eller farger som betyr noe mer enn seg selv?"
+            "text": "Å finne tema og budskap er en sirkelprosess. Du starter med en forståelse av helheten etter å ha lest teksten én gang. Så begynner du å se på detaljene – ordvalg, titler, kontraster. Disse detaljene endrer din forståelse av helheten, og slik fortsetter du til du har en overbevisende tolkning.\n\nHer er de viktigste sporene du bør jakte på:\n\n* **Tittelen**: Forfatteren gir deg ofte en gave i tittelen. Hva antyder den om innholdet?\n* **Starten og slutten**: Hvordan blir konflikten introdusert, og hvordan blir den løst?\n* **Kontraster**: Finnes det motsetninger som lys/mørke eller rik/fattig? Kontraster peker ofte rett mot temaet.\n* **Symboler**: Er det gjenstander eller farger som betyr noe mer enn seg selv?"
+        },
+        {
+            "type": "component",
+            "component": "HermeneuticCircle",
+            "props": {
+                "parts": [
+                    {
+                        "label": "Deler",
+                        "description": "Du ser på små ting i teksten for seg selv, som enkelte ord eller bilder."
+                    },
+                    {
+                        "label": "Tankevekkere",
+                        "description": "Du tenker over hvordan de små delene henger sammen og hva de betyr."
+                    },
+                    {
+                        "label": "Sirkelen",
+                        "description": "Du går fram og tilbake mellom delene og helheten til alt gir mening."
+                    }
+                ],
+                "whole": {
+                    "title": "Tekstens sjel",
+                    "description": "Når du har undersøkt delene, forstår du hva teksten egentlig prøver å si oss."
+                }
+            }
         },
         {
             "type": "component",
