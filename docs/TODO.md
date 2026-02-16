@@ -6,6 +6,7 @@ Her kan du skrive ned ideer, oppgaver og annet du vil huske for Gravity lærebok
 - [] I Komposisjon tool. Sørge for at det er riktig antall inndelinger i en takt. Bugger seg av og til hvis man legger inn f.eks. 1/8, bytte rut med helnote, så doble, og 1/8. osv. Den må være smartere. 
 - [ ] Ikke bug men; Oppdatere alle artiklene i Analyse-emnet, så de er like gode som dikt artikkelen. 
 - [ ] Tidsreiser spillet: Lage tidsreise om tysksoldat ved frontlinjen og en om nordkoreaner under koreakrigen.
+- [ ] Timeline inne i artikkler (ikke sidebar) er ekstremt stor, må gjøres MYE mer kompakt. 
 ## Læringsstier
 
 

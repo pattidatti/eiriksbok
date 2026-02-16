@@ -1444,6 +1444,23 @@
     "lifespan": "1901 - 1971"
   },
   {
+    "term": "Lydrike",
+    "aliases": [
+      "lydriket",
+      "lydriker",
+      "lydrikene"
+    ],
+    "definition": "Et land som formelt er selvstendig, men som i realiteten styres av en annen stat. Brukes ofte om Norges status under Danmark etter 1536 (Lydriketiden).",
+    "type": "concept",
+    "tags": [
+      "danmark-norge",
+      "politikk",
+      "union",
+      "makt"
+    ],
+    "subject": "historie"
+  },
+  {
     "term": "MAD",
     "definition": "Forkortelse for 'Mutual Assured Destruction' (gjensidig garantert ødeleggelse). En militærstrategisk doktrine der bruk av atomvåpen av to parter vil føre til total utslettelse av begge, noe som hindrer angrep.",
     "subject": "historie",
