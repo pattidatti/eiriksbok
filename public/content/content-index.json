@@ -1,5 +1,5 @@
 {
-  "buildId": 1771191113744,
+  "buildId": 1771229370808,
   "contentMap": {
     "adel": [
       "content/concepts/adel.json"
@@ -34,6 +34,9 @@
     "arbeidsspesialisering": [
       "content/concepts/arbeidsspesialisering.json",
       "content/samfunnskunnskap/okonomi/arbeidsspesialisering.json"
+    ],
+    "armada": [
+      "content/concepts/armada.json"
     ],
     "artilleri": [
       "content/concepts/artilleri.json"
@@ -1622,6 +1625,7 @@
     "concepts/anforselstegn.json/anforselstegn": "content/concepts/anforselstegn.json",
     "concepts/anschluss.json/anschluss": "content/concepts/anschluss.json",
     "concepts/arbeidsspesialisering.json/arbeidsspesialisering": "content/concepts/arbeidsspesialisering.json",
+    "concepts/armada.json/armada": "content/concepts/armada.json",
     "concepts/artilleri.json/artilleri": "content/concepts/artilleri.json",
     "concepts/autoritaert-diktatur.json/autoritaert-diktatur": "content/concepts/autoritaert-diktatur.json",
     "concepts/avkolonisering.json/avkolonisering": "content/concepts/avkolonisering.json",

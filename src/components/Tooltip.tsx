@@ -16,7 +16,7 @@ export const Tooltip: React.FC<TooltipProps> = ({ text, children, type = 'concep
     const [isTouch, setIsTouch] = useState(false);
     const [coords, setCoords] = useState({ top: 0, left: 0 });
     const triggerRef = useRef<HTMLSpanElement>(null);
-    const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+    const closeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
     const Icon = type === 'person' ? User : Book;
 
