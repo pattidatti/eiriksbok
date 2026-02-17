@@ -250,18 +250,44 @@
                 "links": []
             },
             {
-                "id": "step-2",
+                "id": "step-2-part1",
                 "phase": "Akt 1: Illusjonen (1914)",
-                "title": "August-begeistringen",
+                "title": "Krigens utbrudd: Fra begeistring til skyttergraver (1914–1915)",
                 "type": "fakta",
-                "content": "August 1914. Europa koker av begeistring. Unge menn i millioner melder seg frivillig til krigen. De får blomster stukket i geværløpene og vinkes av gårde fra jernbanestasjonene som om de skal på en sommerleir. 'Hjemme til jul!', roper de.\n\nTyskland har en plan som skal sikre seieren raskt: Schlieffen-planen. De skal marsjere gjennom det nøytrale Belgia for å overrumple Frankrike. Ved å vinne i vest på bare noen uker, håper de å unngå å kjempe mot både Frankrike og Russland samtidig.\n\nI dette steget skal du se på hvorfor alle trodde krigen ville bli kort. Du vil lære om de militære planene som var laget på forhånd, og hvorfor tyskernes ferd gjennom nøytrale land trakk Storbritannia inn i krigen. Les nøye om hvordan planene feilet allerede de første ukene.",
+                "content": "August 1914. Europa koker av begeistring. Unge menn i millioner melder seg frivillig til krigen. De får blomster stukket i geværløpene og vinkes av gårde fra jernbanestasjonene som om de skal på en sommerleir. 'Hjemme til jul!', roper de.\n\nTyskland har en plan som skal sikre seieren raskt: Schlieffen-planen. De skal marsjere gjennom det nøytrale Belgia for å overrumple Frankrike. Ved å vinne i vest på bare noen uker, håper de å unngå å kjempe mot både Frankrike og Russland samtidig.\n\nI dette steget skal du se på krigens første fase. Du vil lære om de militære planene som var laget på forhånd, og hvorfor tyskernes ferd gjennom nøytrale land trakk Storbritannia inn i krigen. Les nøye om hvordan den raske bevegelseskrigen stoppet opp og ble til en fastlåst front.",
                 "tasks": [
                     "Les artikkelen [Krigens løp](/historie/forste-verdenskrig/krigens-lop)",
-                    "Hva var hovedmålet med Schlieffen-planen? (Fakta)",
-                    "Hvorfor var tyskernes invasjon av Belgia så skjebnesvanger for Storbritannia? (Årsak)",
-                    "Hva mente man med at soldatene skulle være 'hjemme til jul'? (Fakta)",
-                    "Hvorfor feilet Schlieffen-planen i september 1914? (Analyse)",
-                    "Hvordan kan massesuggesjon og nasjonalisme forklare begeistringen ved krigsutbruddet? (Psykologi)"
+                    "Hvorfor trodde folk at krigen ville bli kort og heroisk? (Les seksjon: Krigens løp - Intro)",
+                    "Når startet selve krigen og hvilken hendelse utløste den? (Les seksjon: Tidslinje)",
+                    "Hva var hovedstrategien i Schlieffen-planen? (Les seksjon: 1914: Bevegelseskrigen stopper opp)",
+                    "Hva skjedde under slaget ved Marne som endret tyskernes planer? (Les seksjon: 1914: Bevegelseskrigen stopper opp)",
+                    "Hva var 'kappløpet mot havet', og hva ble resultatet? (Les seksjon: 1914: Bevegelseskrigen stopper opp)",
+                    "Beskriv de hygieniske forholdene i skyttergravene. (Les seksjon: Livet og døden i skyttergravene)",
+                    "Hva var Ingenmannsland, og hvordan foregikk selve angrepsbølgene? (Les seksjon: Livet og døden i skyttergravene)"
+                ],
+                "links": [
+                    {
+                        "title": "Les artikkel: Krigens løp",
+                        "url": "/historie/forste-verdenskrig/krigens-lop"
+                    }
+                ]
+            },
+            {
+                "id": "step-2-part2",
+                "phase": "Akt 2: Maskinen (1915-1917)",
+                "title": "Krigens gang: Slaktehuset og vendepunktet (1916–1918)",
+                "type": "fakta",
+                "content": "Drømmen om en rask seier er knust. Krigen har utviklet seg til en brutal utmattelseskrig der målet ikke lenger er å erobre land, men å bare drepe flere av fienden enn de klarer å erstatte. Millioner av menn kastes inn i enorme slag som Verdun og Somme.\n\nSamtidig sprer krigen seg globalt. I øst kollapser Russland i revolusjon, mens USA blir trukket inn i kampen etter tyskernes uinnskrenkede ubåtkrig. Verdens største industrimakt melder sin ankomst, og balansen tipper til slutt i de alliertes favør. I dette steget skal du følge krigen til den bitre slutten i november 1918.",
+                "tasks": [
+                    "Les videre i artikkelen [Krigens løp](/historie/forste-verdenskrig/krigens-lop)",
+                    "Hva var målet med det tyske angrepet på Verdun? (Les seksjon: 1916: Det store slaktehuset)",
+                    "Hvorfor iverksatte britene Somme-offensiven, og hva skjedde den første dagen? (Les seksjon: 1916: Det store slaktehuset)",
+                    "Nevn to andre fronter enn Vestfronten og hva som preget dem. (Les seksjon: Andre fronter og krigen til sjøs)",
+                    "Hva mente Tyskland med 'uinnskrenket ubåtkrig'? (Les seksjon: Andre fronter og krigen til sjøs)",
+                    "Hvorfor trakk Russland seg ut av krigen i 1917? (Les seksjon: 1917: Vendepunktet)",
+                    "Hva var Zimmermann-telegrammet, og hvordan påvirket det USA? (Les seksjon: 1917: Vendepunktet)",
+                    "Hva var 'Michael-offensiven', og hvorfor mislyktes den? (Les seksjon: 1918: Avgjørelsen)",
+                    "Når og hvor ble våpenhvilen signert? (Les seksjon: 1918: Avgjørelsen)"
                 ],
                 "links": [
                     {
