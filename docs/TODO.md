@@ -56,7 +56,8 @@ Her kan du skrive ned ideer, oppgaver og annet du vil huske for Gravity lærebok
 - [ ] Admin inventory: Skjekke om artikkelen har quiz tilknyttet seg. Skjekke hvorfor f.eks. 30-årskrigen er betegnet med 0 ord
 - [ ] Vikingtiden: Fikse timeline sidebar. 
 - [ ] Vikingtiden: Avsnitt med siffer inni seg bør være nummererte lister i stedet. 
-- [ ] Relaterte artikler i sidebar fra samme emne (I alle emner, eller krasjer det med noe? Undersøk og lag plan. Sidebards og layouts bør planlegges og utvikles skikkelig). 
+- [ ] Relaterte artikler i sidebar fra samme emne (I alle emner, eller krasjer det med noe? Undersøk og lag plan. Sidebards og layouts bør planlegges og utvikles skikkelig).
+- [ ] Oppdatere artikkel for kilder: legge til info om kilder uten år, uten forfatter, mer konkrete eksempler i tekst og kildeliste.
 
 ## ✅ Ferdig
 - [x] Opprettet denne filen
