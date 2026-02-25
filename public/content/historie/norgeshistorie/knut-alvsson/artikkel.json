@@ -132,5 +132,62 @@
             "type": "text",
             "content": "Selv om Knut Alvssons opprør mislyktes, står han igjen som en av de siste norske stormennene som utfordret det danske styret i middelalderen. I ettertid er han blitt husket som en symbolsk skikkelse – noen har kalt ham en martyr for norsk selvstendighet. Hans dramatiske død under forræderiske omstendigheter gjorde sterkt inntrykk på samtiden. Folk diktet viser og fortellinger om hendelsen, og historien om sviket på Akershus festning har siden inspirert både skuespill og litteratur. I Henrik Ibsens dikt «På Akershus» beskrives drapet slik: “Hugget i Knut Alvssons pande var et hugg i Norges hjerte.” Knut Alvssons fall markerte slutten på en æra, men minnet om ridderen som trosset kongen lever videre som et kapittel om kampen for et selvstendig Norge."
         }
-    ]
+    ],
+    "quiz": [
+        {
+            "question": "Hvilken konge var monark over Danmark og Norge mens opprøret pågikk?",
+            "options": [
+                "Christian II",
+                "Kong Hans",
+                "Håkon V",
+                "Margrete I"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hvilken adelsmann og kongelig hærfører drepte Knut Alvsson i et bakhold?",
+            "options": [
+                "David Sinclair",
+                "Sten Sture den eldre",
+                "Lasse Skjold",
+                "Henrik Krummedige"
+            ],
+            "correctAnswer": 3
+        },
+        {
+            "question": "Hva innebærer begrepet «fritt leide», som Knut Alvsson ble lovet før de fatale forhandlingene?",
+            "options": [
+                "Fritak fra å betale toll på sjøen",
+                "En sikkerhetsgaranti for at man kan forhandle uten å bli angrepet",
+                "Full råderett over Akershus festning under krig",
+                "Frihet til å angripe kongens menn uten straff"
+            ],
+            "correctAnswer": 1
+        }
+    ],
+    "lessonPlan": {
+        "learningObjectives": [
+            "Analysere årsakene til den norske allmuens og adelens misnøye med danskestyret.",
+            "Beskrive sentrale hendelser fra Knut Alvssons opprør mot kong Hans (1501–1502).",
+            "Reflektere over konsekvensene av løftebruddet under det skjebnesvangre møtet på skipet."
+        ],
+        "preReading": [
+            "Hva betyr det å gjøre opprør ut ifra det du vet fra før, og hva tror du utløser slike opprør?",
+            "Knut Alvsson var ridder, adelsmann og slottsherre. Hva slags maktposisjon og muligheter ga dette ham i samfunnet på 1400-tallet?"
+        ],
+        "whileReading": [
+            "Noter deg hvilken konkret hendelse som utløste bøndenes væpnede opprør på Romerike i 1497.",
+            "Legg merke til hvem Knut Alvsson allierte seg med for å samle nok motstandskraft til å kaste ut kong Hans."
+        ],
+        "postReading": [
+            "Hvorfor tror du drapet på Knut Alvsson ble ansett som et grovt, æresløst svik i sin samtid?",
+            "I konklusjonen nevnes at sviket ledet Norge i retning av «400-årsnatten». Hvordan hang opprørets fall sammen med at Norge ble et lydrike?",
+            "Synes du Knut Alvsson fremstår som en fristillingens helt som ofret seg for nasjonen, eller som en mektig mann som primært kjempet for sin egen makt? Begrunn svaret ditt."
+        ],
+        "writingTask": [
+            "**Talen til allmuen:** Tenk deg at du er Knut Alvsson som står foran bøndene på Vestlandet i 1501 for å samle dem til opprør mot danskestyret. Skriv talen der du forsøker å overbevise folket om hvorfor de bør risikere livet og slå følge med deg.",
+            "**Det siste brevet:** Du er Knut Alvsson. Skriv et kort, hemmelig brev til din venn og allierte, den svenske opprøreren Sten Sture, natten før du drar ut i båten for å forhandle. Hva tenker du og hva frykter du?",
+            "**Kontrafaktisk historie:** Forestill deg at Henrik Krummedige faktisk holdt ord om «fritt leide», og at Knut Alvsson forlot skipet i live. Skriv en alternativ fortsettelse på historien. Ville Knut ha vunnet krigen, eller ville noe annet ha skjedd?"
+        ]
+    }
 }
