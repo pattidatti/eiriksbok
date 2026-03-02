@@ -155,7 +155,7 @@ export const TopicContentRenderer: React.FC<TopicContentRendererProps> = ({ cont
                             }
 
                             return (
-                                <motion.div key={index} variants={item} className="my-12">
+                                <motion.div key={index} variants={item} className="my-8">
                                     <Comparison {...restProps} items={comparedItems} />
                                 </motion.div>
                             );
@@ -169,7 +169,7 @@ export const TopicContentRenderer: React.FC<TopicContentRendererProps> = ({ cont
                             }));
 
                             return (
-                                <motion.div key={index} variants={item} className="my-12">
+                                <motion.div key={index} variants={item} className="my-6">
                                     <TimelineComponent {...block.props} events={events} />
                                 </motion.div>
                             );
@@ -177,7 +177,7 @@ export const TopicContentRenderer: React.FC<TopicContentRendererProps> = ({ cont
 
                         if (block.component === 'GrammarRuleCard') {
                             return (
-                                <motion.div key={index} variants={item} className="my-12">
+                                <motion.div key={index} variants={item} className="my-8">
                                     <GrammarRuleCard {...block.props} />
                                 </motion.div>
                             );
@@ -185,7 +185,7 @@ export const TopicContentRenderer: React.FC<TopicContentRendererProps> = ({ cont
 
                         if (block.component === 'WritingFix') {
                             return (
-                                <motion.div key={index} variants={item} className="my-12">
+                                <motion.div key={index} variants={item} className="my-8">
                                     <WritingFix {...block.props} />
                                 </motion.div>
                             );

@@ -180,7 +180,7 @@ export const ArticleContent: React.FC<ArticleContentProps> = React.memo(({ conte
                     if (props.items && !props.events && (type as string) === 'TimelineComponent') props.events = props.items;
 
                     return (
-                        <div key={index} className="my-8">
+                        <div key={index} className="my-4">
                             <React.Suspense fallback={<div className="h-20 w-full animate-pulse bg-slate-50 rounded-xl" />}>
                                 <DirectComponent {...props} />
                             </React.Suspense>
