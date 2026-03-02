@@ -9,30 +9,32 @@ interface TimelineProps {
 
 export const Timeline: React.FC<TimelineProps> = ({ lessons }) => {
     // Filter out lessons without date and sort by date descending (newest first)
-    const sortedLessons = lessons
-        .filter(lesson => lesson.date)
-        .sort((a, b) => {
-            const getDateValue = (dateStr: string) => {
-                const date = new Date(dateStr);
-                if (!isNaN(date.getTime())) {
-                    return date.getTime();
-                }
-                // Handle ancient dates manually (e.g. -300000-01-01)
-                // Assuming format YYYY-MM-DD or -YYYYYY-MM-DD
-                const parts = dateStr.split('-');
-                if (parts.length >= 3) {
-                    // If starts with -, the first part is empty string
-                    const isNegative = dateStr.startsWith('-');
-                    const yearIndex = isNegative ? 1 : 0;
-                    const year = parseInt(parts[yearIndex]) * (isNegative ? -1 : 1);
-                    // Return a timestamp-like value (year * approx ms in year)
-                    // This is rough but enough for sorting against other dates
-                    return year * 31536000000;
-                }
-                return 0;
-            };
-            return getDateValue(b.date!) - getDateValue(a.date!);
-        });
+    const sortedLessons = React.useMemo(() => {
+        return lessons
+            .filter(lesson => lesson.date)
+            .sort((a, b) => {
+                const getDateValue = (dateStr: string) => {
+                    const date = new Date(dateStr);
+                    if (!isNaN(date.getTime())) {
+                        return date.getTime();
+                    }
+                    // Handle ancient dates manually (e.g. -300000-01-01)
+                    // Assuming format YYYY-MM-DD or -YYYYYY-MM-DD
+                    const parts = dateStr.split('-');
+                    if (parts.length >= 3) {
+                        // If starts with -, the first part is empty string
+                        const isNegative = dateStr.startsWith('-');
+                        const yearIndex = isNegative ? 1 : 0;
+                        const year = parseInt(parts[yearIndex]) * (isNegative ? -1 : 1);
+                        // Return a timestamp-like value (year * approx ms in year)
+                        // This is rough but enough for sorting against other dates
+                        return year * 31536000000;
+                    }
+                    return 0;
+                };
+                return getDateValue(b.date!) - getDateValue(a.date!);
+            });
+    }, [lessons]);
 
     return (
         <div className="timeline-container relative max-w-4xl mx-auto py-8">

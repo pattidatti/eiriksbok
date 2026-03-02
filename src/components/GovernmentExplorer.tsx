@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useState, useEffect, useCallback, useMemo } from 'react';
+import { useState, useEffect, useCallback, useMemo, memo } from 'react';
 import { Quiz } from './Quiz';
 import type { Lesson } from '../types';
 import {
@@ -11,10 +11,16 @@ import {
 
 // Internal Imports
 import { definitionsMap } from '../data/governmentData';
-import { ExplorerControls } from './government/ExplorerControls';
-import { ExplorerResult } from './government/ExplorerResult';
-import { Maktbalanse } from './government/Maktbalanse';
-import { GlossarySection } from './government/GlossarySection';
+import { ExplorerControls as ExplorerControlsBase } from './government/ExplorerControls';
+import { ExplorerResult as ExplorerResultBase } from './government/ExplorerResult';
+import { Maktbalanse as MaktbalanseBase } from './government/Maktbalanse';
+import { GlossarySection as GlossarySectionBase } from './government/GlossarySection';
+
+// Memoized sub-components
+const ExplorerControls = memo(ExplorerControlsBase);
+const ExplorerResult = memo(ExplorerResultBase);
+const Maktbalanse = memo(MaktbalanseBase);
+const GlossarySection = memo(GlossarySectionBase);
 
 interface GovernmentExplorerProps {
     lesson?: Lesson;

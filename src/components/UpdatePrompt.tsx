@@ -1,20 +1,10 @@
 import React from 'react';
-import { useRegisterSW } from 'virtual:pwa-register/react';
+import { useVersionCheck } from '../hooks/useVersionCheck';
 import { RefreshCw, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export const UpdatePrompt: React.FC = () => {
-    const {
-        needRefresh: [needRefresh, setNeedRefresh],
-        updateServiceWorker,
-    } = useRegisterSW({
-        onRegistered(r: ServiceWorkerRegistration | undefined) {
-            console.log('SW Registered:', r);
-        },
-        onRegisterError(error: any) {
-            console.log('SW registration error', error);
-        },
-    });
+    const { needRefresh, setNeedRefresh, updateNow } = useVersionCheck(60000); // Check every minute
 
     const close = () => {
         setNeedRefresh(false);
@@ -40,7 +30,7 @@ export const UpdatePrompt: React.FC = () => {
                             </p>
                             <div className="flex gap-2">
                                 <button
-                                    onClick={() => updateServiceWorker(true)}
+                                    onClick={updateNow}
                                     className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium rounded-lg transition-colors"
                                 >
                                     Oppdater nå
