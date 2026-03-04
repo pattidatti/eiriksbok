@@ -8,7 +8,9 @@ Her kan du skrive ned ideer, oppgaver og annet du vil huske for Gravity lærebok
 - [ ] Tidsreiser spillet: Lage tidsreise om tysksoldat ved frontlinjen og en om nordkoreaner under koreakrigen.
 - [x] Timeline inne i artikkler (ikke sidebar) er ekstremt stor, må gjøres MYE mer kompakt. 
 ## Læringsstier
-
+- [ ] Kildekritikk med konkrete eksmepler, metoder for å avdekke og evaluere, gråsoner, hvordan vite at noe er sant (forskningsmetoder lett forklart)
+- [ ] Årsasammenheng
+- [ ] 
 
 ## 💡 Ideer
 - [ ] Slaveri gjennom tidene, hvordan dette ofte var en del av imperialismen, hvordan det ble avskaffet ulike steder. Eget emne i historie. Læringsstier kan heller koble seg på. 
