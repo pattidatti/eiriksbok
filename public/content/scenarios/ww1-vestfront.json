@@ -1,0 +1,436 @@
+{
+    "id": "ww1-vestfront",
+    "title": "Skyttergravenes Ekko",
+    "era": "Første verdenskrig",
+    "year": "1916",
+    "role": "Thomas Berg, frivillig soldat",
+    "summary": "Tre uker i skyttergravene ved Somme. Overlev artilleri, gass og ingenmannsland — og ta stilling til om en ordre alltid skal adlydes.",
+    "heroImage": "/images/chronos/ww1_trench_hero.webp",
+    "startingNodeId": "intro_ankomst",
+    "randomEvents": [],
+    "config": {
+        "stats": [
+            {
+                "id": "moral",
+                "label": "Moral",
+                "icon": "heart",
+                "value": 65,
+                "max": 100
+            },
+            {
+                "id": "disiplin",
+                "label": "Disiplin",
+                "icon": "shield",
+                "value": 50,
+                "max": 100
+            },
+            {
+                "id": "kameratskap",
+                "label": "Kameratskap",
+                "icon": "users",
+                "value": 40,
+                "max": 100
+            },
+            {
+                "id": "overlevelse",
+                "label": "Overlevelse",
+                "icon": "activity",
+                "value": 75,
+                "max": 100
+            }
+        ],
+        "items": [
+            {
+                "id": "gassmask",
+                "name": "Gassmaske",
+                "description": "Standard militærutlevering etter Ypres 1915. Kan redde livet ditt ved kjemisk angrep.",
+                "icon": "shield"
+            },
+            {
+                "id": "tysk_kobbkrus",
+                "name": "Tysk kobbkrus",
+                "description": "En enkel kobberkrus. Den tyske soldaten ga deg den som takk. Den minner deg på at fienden også er et menneske.",
+                "icon": "star"
+            },
+            {
+                "id": "forbindingspakke",
+                "name": "Forbindingspakke",
+                "description": "Enkelt sanitetsutstyr utlevert ved feltstasjonen. Kan hjelpe sårede.",
+                "icon": "heart"
+            }
+        ],
+        "recipes": [],
+        "theme": {
+            "primaryColor": "#4a5a3e",
+            "font": "serif"
+        }
+    },
+    "nodes": {
+        "intro_ankomst": {
+            "id": "intro_ankomst",
+            "text": "Det er juni 1916. Toget fra Calais stopper ved Arras. Du heter Thomas Berg — 19 år, norsk far, britisk mor, frivillig i King's Own Yorkshire Light Infantry siden 1914. Hjemme i Bergen talte propagandaplakatene om ære og plikt: Storbritannia måtte forsvare Belgia mot tysk aggresjon, alliansesystemet som hadde bundet Europa i tiår krevde sin pris. To år etter Sarajevo-attentatet som utløste det hele, ser du virkeligheten for første gang gjennom kupévinduet: gjørma, stanken av svovel og råtnende tre, og den fjerne men uopphørlige bulderingen av artilleri. En utslitt soldat på perrongen ser på deg og sier: 'Nytt kjøtt. Skyttergravene er rett frem.'",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/ww1_arras_arrival.webp",
+            "choices": [
+                {
+                    "id": "c_intro_1",
+                    "text": "Grip utstyret ditt og stig av. Du er her. Det er ingen vei tilbake.",
+                    "nextNodeId": "hub_skyttergraven",
+                    "effects": {
+                        "disiplin": 5
+                    }
+                }
+            ]
+        },
+        "hub_skyttergraven": {
+            "id": "hub_skyttergraven",
+            "text": "Du er i skyttergravssystemet ved Beaumont-Hamel — én seksjon av de nesten 700 kilometer med grøfter som strekker seg fra Nordsjøen til Sveits. Grøftevegger av sandsekker og furuplanker holder gjørma tilbake. Det er ditt nye hjem. Hva vil du gjøre?",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/ww1_trench_hub.webp",
+            "uiType": "map",
+            "choices": [],
+            "mapConfig": {
+                "image": "/images/chronos/ww1_trench_map.webp",
+                "points": [
+                    {
+                        "id": "point_hverdagen",
+                        "x": 50,
+                        "y": 72,
+                        "label": "Dugout (Hverdagen)",
+                        "icon": "home",
+                        "nextNodeId": "hverdagen_skyttergraven"
+                    },
+                    {
+                        "id": "point_patrulje",
+                        "x": 50,
+                        "y": 18,
+                        "label": "Ingenmannsland (Patrulje)",
+                        "icon": "eye",
+                        "nextNodeId": "patrulje_ingenmannsland"
+                    },
+                    {
+                        "id": "point_gassangrep",
+                        "x": 20,
+                        "y": 45,
+                        "label": "Gassalarm",
+                        "icon": "wind",
+                        "nextNodeId": "gassangrep"
+                    },
+                    {
+                        "id": "point_kommandopost",
+                        "x": 80,
+                        "y": 45,
+                        "label": "Kommandoposten",
+                        "icon": "flag",
+                        "nextNodeId": "kommandoposten"
+                    },
+                    {
+                        "id": "point_over_toppen",
+                        "x": 50,
+                        "y": 4,
+                        "label": "Over toppen!",
+                        "icon": "chevron-up",
+                        "nextNodeId": "ordre_over_toppen"
+                    }
+                ]
+            }
+        },
+        "hverdagen_skyttergraven": {
+            "id": "hverdagen_skyttergraven",
+            "text": "Livet i skyttergraven er en kamp mot gjørma, lus og kjedsomhet. Rotter pipler i natten; en stor grå rotte sitter på sidemannens knekkebrød og stirrer på deg uten frykt. Sanitetssergeanten deler ut gassmasker langs linjen — 'Etter Ypres i fjor er dette obligatorisk, ingen unntak' — og fra feltposten kommer det et brev. Faren din skriver fra Bergen at de er stolte av deg. Du vet ikke om du kan forklare ham at ingenting her ligner det propagandaplakatene avbildet.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/ww1_trench_dugout.webp",
+            "journalPrompt": "Du skal skrive et brev hjem til familien din. Hva forteller du om livet i skyttergraven — og hva holder du tilbake? Skriv minst to setninger fra brevet, og forklar kort hvorfor du valgte å si akkurat det du valgte å si.",
+            "choices": [
+                {
+                    "id": "c_hverdagen_1",
+                    "text": "Legg brevet i brystlommen og fest gassmasken til beltet. Du er klar.",
+                    "nextNodeId": "hub_skyttergraven",
+                    "effects": {
+                        "moral": -5
+                    },
+                    "updateInventory": {
+                        "add": "gassmask"
+                    }
+                }
+            ]
+        },
+        "patrulje_ingenmannsland": {
+            "id": "patrulje_ingenmannsland",
+            "text": "Natten er kald og stjerneklar — en farlig natt for patrulje. Du og to andre kryper gjennom piggtrådssperringen og ut i ingenmannsland: det åpne, kraterfylte terrenget mellom linjene der ingenting vokser og ingenting lever. Oppdraget er å observere tyske bevegelser. Kanonene tier. Det er i stillheten faren bor. Kast terningene — vil skjebnen gi deg ly?",
+            "speaker": "Optio",
+            "backgroundImage": "/images/chronos/ww1_no_mans_land.webp",
+            "choices": [],
+            "minigame": {
+                "type": "dice",
+                "config": {
+                    "targetScore": 4,
+                    "winNodeId": "saarede_tysker",
+                    "lossNodeId": "patrulje_oppdaget"
+                }
+            }
+        },
+        "patrulje_oppdaget": {
+            "id": "patrulje_oppdaget",
+            "text": "En tysk lysgranate eksploderer over hodet ditt og gjør natten til dag. Stemmer, skudd. Du kaster deg i et krater mens kulene kviner centimeter over deg. Sidemannen din, Simpson, griper armen din og drar deg tilbake mot de britiske linjene under konstant ild. Da dere endelig klatrer over kanten og inn i grøften igjen, sier han bare: 'Aldri mer.' Du skylder ham et liv.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/ww1_no_mans_land.webp",
+            "choices": [
+                {
+                    "id": "c_oppdaget_1",
+                    "text": "Pust. Sjekk skadene. Kameratene dine er der.",
+                    "nextNodeId": "hub_skyttergraven",
+                    "effects": {
+                        "kameratskap": 10,
+                        "overlevelse": -20
+                    }
+                }
+            ]
+        },
+        "saarede_tysker": {
+            "id": "saarede_tysker",
+            "text": "I bunnen av et granatkrater ser du ham: en ung tysk soldat, ikke eldre enn deg, med et kulesår i låret. Blikkene møtes. Han mumler noe — kanskje et navn, kanskje en bønn — og strekker hånden mot deg. Ikke som en fiende, men som et menneske som er redd for å dø alene. Du har tre sekunder til å bestemme deg.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/ww1_shell_crater.webp",
+            "choices": [
+                {
+                    "id": "c_tysker_hjelp",
+                    "text": "Knel ved siden av ham. Del rasjonen din og forbind såret. Han gir deg kobberkruset sitt som takk.",
+                    "nextNodeId": "hub_skyttergraven",
+                    "effects": {
+                        "moral": 15,
+                        "disiplin": -10
+                    },
+                    "updateInventory": {
+                        "add": "tysk_kobbkrus"
+                    }
+                },
+                {
+                    "id": "c_tysker_forlat",
+                    "text": "Se bort og forlat stedet. Du kan ikke risikere oppdraget for en fiende.",
+                    "nextNodeId": "hub_skyttergraven",
+                    "effects": {
+                        "disiplin": 10,
+                        "moral": -20
+                    }
+                },
+                {
+                    "id": "c_tysker_fange",
+                    "text": "Hjelp ham opp og ta ham til fange. Han kan ha viktig informasjon for britisk etterretning.",
+                    "nextNodeId": "hub_skyttergraven",
+                    "effects": {
+                        "disiplin": 5,
+                        "kameratskap": 5,
+                        "moral": 5
+                    }
+                }
+            ]
+        },
+        "gassangrep": {
+            "id": "gassangrep",
+            "text": "En gul-grønn sky ruller inn ved daggry, tyngre enn luft, krypende langs bakken ned mot grøftene. Det tar et sekund å forstå hva det er — klorgass, for første gang brukt i massiv skala av Tyskland ved Ypres i april 1915, nå en fast del av krigens arsenal. 'GAS! GAS!' roper noen fra posten ved siden av. Du har omtrent ti sekunder.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/ww1_gas_attack.webp",
+            "choices": [
+                {
+                    "id": "c_gass_maske",
+                    "text": "Riv gassmasken fra beltet og trekk den over ansiktet. Fingrene skjelver.",
+                    "nextNodeId": "hub_skyttergraven",
+                    "effects": {
+                        "moral": -10
+                    },
+                    "checkInventory": {
+                        "hasItem": "gassmask"
+                    }
+                },
+                {
+                    "id": "c_gass_ingen_maske",
+                    "text": "Du har ingen gassmaske. Press ansiktet i gjørma og pust gjennom ermet på jakken.",
+                    "nextNodeId": "sanitetsposten",
+                    "effects": {
+                        "overlevelse": -35,
+                        "moral": -20
+                    }
+                }
+            ]
+        },
+        "sanitetsposten": {
+            "id": "sanitetsposten",
+            "text": "Feltstasjonen lukter jodoform og blod. Rundt deg ligger menn med komplikasjoner ingen kirurg i 1916 er fullt rustet til å behandle: gassødelagte lunger, lem smadret av artilleri, sjokk som ikke har et medisinsk navn ennå. Sanitetssergeanten skifter bandasjen din og trykker en forbindingspakke i hånden din. 'Du var heldig,' sier han. Du er ikke sikker på at det er det rette ordet.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/ww1_field_hospital.webp",
+            "journalPrompt": "Bruk av klorgass var et brudd med Haag-konvensjonen av 1907, som forbød giftige stoffer som krigsvåpen. Mener du kjemisk krigføring noen gang kan rettferdiggjøres? Begrunne svaret ditt med minst ett historisk eller etisk argument.",
+            "choices": [
+                {
+                    "id": "c_sykehus_1",
+                    "text": "Reis deg. Grøften venter.",
+                    "nextNodeId": "hub_skyttergraven",
+                    "effects": {
+                        "overlevelse": 20,
+                        "moral": -5
+                    },
+                    "updateInventory": {
+                        "add": "forbindingspakke"
+                    }
+                }
+            ]
+        },
+        "kommandoposten": {
+            "id": "kommandoposten",
+            "text": "Majoren brer et kart over bordet. '1. juli. Vi angriper på en 25 kilometer bred front. Artilleriet har bombet dem i en uke — linjene er smadret, maskingeværene er tause.' Han peker: 'Gå fremover i linje. Hold tempoet. Det er bare å gå bort og ta stillingene.' Det var nasjonalismen, imperialismen og det europeiske alliansesystemet — Trippelententen mot Trippelalliansen — som satte 20 nasjoner i krig etter skuddene i Sarajevo. Men ingen av stormaktspolitikerne er her nede i gjørma og tar seg av resultatet. Du er.",
+            "speaker": "Major Whitfield",
+            "backgroundImage": "/images/chronos/ww1_command_post.webp",
+            "choices": [
+                {
+                    "id": "c_kommando_spor",
+                    "text": "Rek hånden. 'Sir — hva om artilleriet ikke ødela alle maskingeværene? Vi vet at de har betongskilder.'",
+                    "nextNodeId": "hub_skyttergraven",
+                    "effects": {
+                        "disiplin": -15,
+                        "moral": 10
+                    }
+                },
+                {
+                    "id": "c_kommando_adlyd",
+                    "text": "Stram deg opp. 'Forstått, sir. Vi gjør vår plikt.'",
+                    "nextNodeId": "hub_skyttergraven",
+                    "effects": {
+                        "disiplin": 15,
+                        "moral": -5
+                    }
+                }
+            ]
+        },
+        "ordre_over_toppen": {
+            "id": "ordre_over_toppen",
+            "text": "1. juli 1916. Kl. 07:28 — i to minutter har trommeldansen stanset. Stillheten er verre enn lyden. Offiseren lener seg mot stigen med fløyten til leppene. Kl. 07:30 blåser han. Stigen er foran deg. Mennene på begge sider klatrer opp. Over kanten er himmelen grå og kald og naken. Og fra de tyske linjene — de linjene som skulle være smadret av en ukes artilleribombing — begynner maskingeværene å lyde.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/ww1_over_top.webp",
+            "choices": [
+                {
+                    "id": "c_top_klatr",
+                    "text": "Klatr opp stigen. Adlyd ordren. Du er soldat.",
+                    "nextNodeId": "slag_ved_somme",
+                    "effects": {
+                        "disiplin": 10,
+                        "moral": -5
+                    }
+                },
+                {
+                    "id": "c_top_nekt",
+                    "text": "Bli stående. Ordren er en dødsdøm. Du nekter å klatre.",
+                    "nextNodeId": "slutt_krigsrett",
+                    "effects": {
+                        "disiplin": -40,
+                        "moral": 10
+                    }
+                },
+                {
+                    "id": "c_top_leder",
+                    "text": "Snu deg mot seksjonen din. 'Vi holder oss samlet. Vi bruker kraterene som dekke og hjelper hverandre frem.'",
+                    "nextNodeId": "slag_ved_somme",
+                    "effects": {
+                        "kameratskap": 15,
+                        "disiplin": 5
+                    }
+                }
+            ]
+        },
+        "slag_ved_somme": {
+            "id": "slag_ved_somme",
+            "text": "Du er ute i åpent terreng, halvveis mellom linjene. Rundt deg løper og faller menn i gjørma. Femti meter foran deg stikker en tysk maskingeværstilling frem fra et halvt nedgravd betongbunker — den overlevde en hel ukes artilleribombing. Kulene kviner. Det er ditt mål.",
+            "speaker": "Slag",
+            "backgroundImage": "/images/chronos/ww1_somme_charge.webp",
+            "choices": [],
+            "minigame": {
+                "type": "battle",
+                "config": {
+                    "enemyName": "Tysk maskingeværpost",
+                    "playerHealth": 20,
+                    "enemyHealth": 20,
+                    "winNodeId": "slag_etterspill",
+                    "lossNodeId": "slutt_fell",
+                    "moves": [
+                        {
+                            "id": "kast_ned",
+                            "label": "Kast deg ned",
+                            "type": "defend",
+                            "damage": 3,
+                            "counters": ["ildkave"]
+                        },
+                        {
+                            "id": "zigzag_loep",
+                            "label": "Zig-zag løp",
+                            "type": "charge",
+                            "damage": 4,
+                            "counters": ["siktet_skudd"]
+                        },
+                        {
+                            "id": "kast_granat",
+                            "label": "Kast granat",
+                            "type": "attack",
+                            "damage": 5,
+                            "counters": ["pause"]
+                        }
+                    ]
+                }
+            }
+        },
+        "slag_etterspill": {
+            "id": "slag_etterspill",
+            "text": "Det er over. Maskingeværet er taust. Du er på den andre siden av ingenmannsland, og du lever. Rundt deg er det kaos — menn som hjelper hverandre, noen som allerede ligger stille. Det siste lyset bryter gjennom skydekket. Den første Somme-dagen er ikke over, men du har overlevd den.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/ww1_trench_victory.webp",
+            "journalPrompt": "Somme-offensiven varte 141 dager og kostet britiske og franske styrker over 620 000 mann — den første dagen alene 57 470 britiske tap. Hva mener du om offensiven sett med ettertidens øyne? Var det riktig å adlyde ordre, og fantes det et tredje alternativ mellom full lydighet og å nekte?",
+            "choices": [
+                {
+                    "id": "c_etterspill_human",
+                    "text": "Du tar med deg ansiktet til den tyske soldaten i krateret. Det er det du vil huske.",
+                    "nextNodeId": "slutt_humanitet",
+                    "effects": {
+                        "moral": 5
+                    }
+                },
+                {
+                    "id": "c_etterspill_soldat",
+                    "text": "Du utførte plikten din. Det er alt som kan kreves av et menneske.",
+                    "nextNodeId": "slutt_soldat",
+                    "effects": {
+                        "disiplin": 5
+                    }
+                }
+            ]
+        },
+        "slutt_humanitet": {
+            "id": "slutt_humanitet",
+            "text": "Thomas Berg kom hjem til Bergen i november 1918. Han vant ikke noe. Han mistet fire av seks i seksjonen sin. Men han bar med seg ansiktet til den tyske soldaten i krateret — ikke som et spøkelse, men som et vitnesbyrd: på begge sider av frontlinjen var det menn som ikke valgte krigen, bare ble fanget av den. I 1919 leste han om Versailles-traktaten: Tysklands totale krigsansvar, de enorme erstatningsbetalingene, de avskårne territoriene. Han la avisen fra seg og tenkte: dette planter frøet til den neste krigen. Historien fikk ham rett — tjue år senere brente Europa igjen.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/ww1_homecoming.webp",
+            "journalPrompt": "Versailles-traktaten av 1919 påla Tyskland eneansvar for krigen ('krigsgjeld') og krevde enorme erstatningsbetalinger. Mange historikere mener dette skapte betingelsene for Hitlers fremvekst og andre verdenskrig. Var fredsavtalen rettferdig? Hva ville du gjort annerledes for å sikre en varig fred?",
+            "choices": []
+        },
+        "slutt_soldat": {
+            "id": "slutt_soldat",
+            "text": "Thomas Berg kom hjem i november 1918. Han snakket aldri om krigen. Ikke om Somme, ikke om gasset, ikke om mannen i krateret som han gikk forbi. I 1919 jublet britiske aviser over Versailles: 'Tysklands skam!' Thomas leste om krigsoppreisningene og de avskårne landene, og tenkte på soldaten i krateret. Han lukket avisen. Dette var ikke fred — dette var en pause med fastsatt utløpsdato. Tjue år beviset ham rett.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/ww1_homecoming.webp",
+            "journalPrompt": "Versailles-traktaten ydmyket Tyskland og skapte grobunn for bitterhet og nasjonalisme — det politiske klimaet Adolf Hitler utnyttet. Hva ville vært en mer varig fred etter første verdenskrig? Diskuter minst ett alternativ, og ta stilling til om «den tapende part» alltid bør straffes.",
+            "choices": []
+        },
+        "slutt_fell": {
+            "id": "slutt_fell",
+            "text": "Kl. 07:34, 1. juli 1916. Thomas Berg, 19 år, frivillig soldat fra Bergen, falt i åpent terreng mellom de britiske og tyske linjene ved Beaumont-Hamel. Han var én av 57 470 britiske tap den første Somme-dagen — den blodigste enkeltdagen i britisk militærhistorie. Versailles-traktaten ble underskrevet tre år etter, uten ham. Tjue millioner var døde totalt. Traktaten som skulle gjøre ende på all krig plantet i stedet frøene til den neste — men det visste ikke Thomas. Han kom aldri så langt.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/ww1_fallen.webp",
+            "choices": []
+        },
+        "slutt_krigsrett": {
+            "id": "slutt_krigsrett",
+            "text": "Du satte deg mot grøftveggen idet mennene rundt deg klatret opp. Ikke av feighet — du hadde sett nok til å vite at ordren var en massedødsdøm. Military Police tok deg i arrest samme kveld. Krigsrett. Dom. Historisk ble 306 britiske soldater skutt for feighet eller desertering under første verdenskrig; resten fengslet. Det britiske parlamentet beklaget dette formelt i 2006 og benådet alle posthumt. Fra fengselet leste du om Versailles-traktaten i 1919 — og om dolkesjøtlegenden som vokste i Tyskland: at hæren var blitt sviktet av feige menn hjemme. Du visste bedre enn de fleste hva den legenden kostet.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/ww1_courtmartial.webp",
+            "journalPrompt": "306 britiske soldater ble henrettet for «feighet» under første verdenskrig — mange av dem lidende av det vi i dag kaller PTSD. Parlamentet benådet alle posthumt i 2006. Mener du lydighetsplikt i krig alltid bør gå foran samvittigheten? Hva skiller «feighet» fra «samvittighetsnektelse»?",
+            "choices": []
+        }
+    }
+}

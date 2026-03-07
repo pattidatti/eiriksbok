@@ -1646,6 +1646,13 @@
               "description": "Følg første verdenskrig fra 1914 til 1918.",
               "link": "/historie/forste-verdenskrig/ww1-sti",
               "icon": "map"
+            },
+            {
+              "id": "ww1-vestfront",
+              "title": "Tidsreise: Soldat ved Vestfronten",
+              "description": "Tre uker i skyttergravene ved Somme. Overlev artilleri, gass og ingenmannsland — og ta stilling til om en ordre alltid skal adlydes.",
+              "link": "/oving/tidsreise/ww1-vestfront",
+              "icon": "clock"
             }
           ],
           "lessons": [
@@ -2027,7 +2034,7 @@
                 "prestisje"
               ],
               "createdDate": "2025-12-21T13:37:14+01:00",
-              "lastUpdated": "2025-12-24T09:59:36+01:00"
+              "lastUpdated": "2026-03-02T11:19:31+01:00"
             },
             {
               "id": "cuba-krisen",

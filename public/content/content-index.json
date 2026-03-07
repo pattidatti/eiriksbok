@@ -1,5 +1,5 @@
 {
-  "buildId": 1772443893727,
+  "buildId": 1772921873387,
   "contentMap": {
     "adel": [
       "content/concepts/adel.json"
@@ -1617,6 +1617,9 @@
     ],
     "roman-soldier": [
       "content/scenarios/roman-soldier.json"
+    ],
+    "ww1-vestfront": [
+      "content/scenarios/ww1-vestfront.json"
     ]
   },
   "hierarchicalMap": {
@@ -2208,6 +2211,7 @@
     "samfunnskunnskap/styringsformer/uten-hersker": "content/samfunnskunnskap/styringsformer/uten-hersker.json",
     "samfunnskunnskap/styringsformer/utforsk": "content/samfunnskunnskap/styringsformer/utforsk.json",
     "scenarios/medieval-baron.json/medieval-baron": "content/scenarios/medieval-baron.json",
-    "scenarios/roman-soldier.json/roman-soldier": "content/scenarios/roman-soldier.json"
+    "scenarios/roman-soldier.json/roman-soldier": "content/scenarios/roman-soldier.json",
+    "scenarios/ww1-vestfront.json/ww1-vestfront": "content/scenarios/ww1-vestfront.json"
   }
 }
