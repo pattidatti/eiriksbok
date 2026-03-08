@@ -163,8 +163,8 @@ export const TimeTravelEngine: React.FC<TimeTravelEngineProps> = ({ scenarioId }
     if (!currentNode) return <div>Laster noder...</div>;
 
     return (
-        <div className="w-full max-w-6xl mx-auto p-4 md:p-8">
-            <div className="mb-6 flex items-center justify-between">
+        <div className="w-full max-w-6xl mx-auto p-2 sm:p-4 md:p-8">
+            <div className="mb-3 sm:mb-5 md:mb-6 flex items-center justify-between">
                 <Link to="/oving/tidsreise" className="flex items-center gap-2 text-slate-500 hover:text-slate-900 transition-colors bg-white px-4 py-2 rounded-xl shadow-sm border border-slate-100">
                     <ArrowLeft size={16} />
                     <span className="font-bold text-sm uppercase tracking-wider">Avslutt Tidsreise</span>

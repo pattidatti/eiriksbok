@@ -38,6 +38,17 @@ const TimeTravelHub: React.FC = () => {
             color: 'bg-red-950',
             image: '/images/chronos/medieval_castle_view.jpg',
             disabled: false
+        },
+        {
+            id: 'ww1-vestfront',
+            title: 'Skyttergravenes Ekko',
+            era: '1916',
+            difficulty: 'Vanskelig',
+            description: 'Tre uker i skyttergravene ved Somme. Ta valgene som avgjør om du overlever Vestfronten.',
+            icon: Sword,
+            color: 'bg-slate-700',
+            image: '/images/chronos/ww1_trench_hero.webp',
+            disabled: false
         }
     ];
 
@@ -114,7 +125,7 @@ const TimeTravelHub: React.FC = () => {
                                     <div className="flex items-center gap-4">
                                         <div className={`w-2 h-12 rounded-full ${log.result === 'victory' ? 'bg-yellow-400' : 'bg-slate-300'}`} />
                                         <div>
-                                            <div className="font-bold text-slate-900">{log.scenarioId === 'roman-soldier' ? 'Romersk Legionær' : log.scenarioId}</div>
+                                            <div className="font-bold text-slate-900">{{ 'roman-soldier': 'Romersk Legionær', 'medieval-baron': 'Baron av Rhinen', 'ww1-vestfront': 'Skyttergravenes Ekko' }[log.scenarioId] ?? log.scenarioId}</div>
                                             <div className="text-xs text-slate-500 uppercase tracking-wide">
                                                 {new Date(log.date).toLocaleDateString()} • {log.daysSurvived} Dager Overlevd
                                             </div>

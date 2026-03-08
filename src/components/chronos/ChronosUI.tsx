@@ -133,7 +133,7 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({ node, stats, inventory = [
     const isEnd = node.isEnd;
 
     return (
-        <div className="relative w-full min-h-[600px] rounded-[2.5rem] overflow-hidden bg-[#FDFBF7] shadow-2xl border border-stone-200 group ring-1 ring-black/5 flex flex-col justify-between">
+        <div className="relative w-full min-h-[400px] sm:min-h-[500px] md:min-h-[600px] rounded-[2.5rem] overflow-hidden bg-[#FDFBF7] shadow-2xl border border-stone-200 group ring-1 ring-black/5 flex flex-col justify-between">
             {/* Weather Overlay */}
             <WeatherOverlay environment={environment} />
 
@@ -165,17 +165,17 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({ node, stats, inventory = [
             </AnimatePresence>
 
             {/* HUD Layer (Relative, Top) */}
-            <div className="relative z-20 p-8 w-full flex justify-between items-start">
-                <div className="flex gap-4">
+            <div className="relative z-20 p-3 sm:p-5 md:p-8 w-full flex justify-between items-start">
+                <div className="flex gap-2 sm:gap-3 md:gap-4">
                     {/* Attributes */}
-                    <div className="flex flex-wrap gap-4 p-3 pl-5 pr-8 rounded-2xl bg-white/80 backdrop-blur-xl border border-stone-200/50 shadow-sm shadow-stone-200/50 w-fit">
+                    <div className="flex flex-wrap gap-2 sm:gap-4 p-2 pl-3 pr-4 sm:p-3 sm:pl-5 sm:pr-8 rounded-2xl bg-white/80 backdrop-blur-xl border border-stone-200/50 shadow-sm shadow-stone-200/50 w-fit">
                         {attributes.map(stat => (
                             <div key={stat.id} className="flex flex-col gap-1.5">
                                 <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-stone-500">
                                     {getIcon(stat.icon)}
                                     <span>{stat.label}</span>
                                 </div>
-                                <div className="w-32 h-2 bg-stone-200 rounded-full overflow-hidden shadow-inner">
+                                <div className="w-20 sm:w-28 md:w-32 h-2 bg-stone-200 rounded-full overflow-hidden shadow-inner">
                                     <motion.div
                                         className="h-full"
                                         initial={{ width: 0 }}
@@ -190,14 +190,14 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({ node, stats, inventory = [
 
                     {/* Relations - Only show if exist */}
                     {relations.length > 0 && (
-                        <div className="flex flex-wrap gap-4 p-3 pl-5 pr-8 rounded-2xl bg-white/80 backdrop-blur-xl border border-stone-200/50 shadow-sm shadow-stone-200/50 w-fit">
+                        <div className="flex flex-wrap gap-2 sm:gap-4 p-2 pl-3 pr-4 sm:p-3 sm:pl-5 sm:pr-8 rounded-2xl bg-white/80 backdrop-blur-xl border border-stone-200/50 shadow-sm shadow-stone-200/50 w-fit">
                             {relations.map(stat => (
                                 <div key={stat.id} className="flex flex-col gap-1.5">
                                     <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-indigo-500">
                                         {getIcon(stat.icon)}
                                         <span>{stat.label}</span>
                                     </div>
-                                    <div className="w-24 h-2 bg-stone-200 rounded-full overflow-hidden shadow-inner">
+                                    <div className="w-16 sm:w-20 md:w-24 h-2 bg-stone-200 rounded-full overflow-hidden shadow-inner">
                                         <motion.div
                                             className="h-full bg-indigo-500"
                                             initial={{ width: 0 }}
@@ -211,11 +211,11 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({ node, stats, inventory = [
                     )}
                 </div>
 
-                <div className="flex gap-4">
+                <div className="flex gap-2 md:gap-4">
                     {/* Journal Toggle */}
                     <button
                         onClick={() => setShowJournal(true)}
-                        className="p-4 rounded-2xl bg-white/80 backdrop-blur-xl border border-stone-200/50 shadow-sm text-stone-600 hover:text-stone-900 transition-colors"
+                        className="p-2 sm:p-3 md:p-4 rounded-2xl bg-white/80 backdrop-blur-xl border border-stone-200/50 shadow-sm text-stone-600 hover:text-stone-900 transition-colors"
                     >
                         <BookOpen size={20} />
                     </button>
@@ -224,7 +224,7 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({ node, stats, inventory = [
                     {config.recipes && config.recipes.length > 0 && onCraft && (
                         <button
                             onClick={() => setShowCrafting(true)}
-                            className="p-4 rounded-2xl bg-white/80 backdrop-blur-xl border border-stone-200/50 shadow-sm text-stone-600 hover:text-stone-900 transition-colors"
+                            className="p-2 sm:p-3 md:p-4 rounded-2xl bg-white/80 backdrop-blur-xl border border-stone-200/50 shadow-sm text-stone-600 hover:text-stone-900 transition-colors"
                         >
                             <Hammer size={20} />
                         </button>
@@ -234,7 +234,7 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({ node, stats, inventory = [
                     <div className="relative">
                         <button
                             onClick={() => setShowInventory(!showInventory)}
-                            className={`p-4 rounded-2xl border transition-colors relative ${showInventory ? 'bg-indigo-100 text-indigo-900 border-indigo-200' : 'bg-white/80 backdrop-blur-xl border-stone-200/50 text-stone-600 hover:text-stone-900'}`}
+                            className={`p-2 sm:p-3 md:p-4 rounded-2xl border transition-colors relative ${showInventory ? 'bg-indigo-100 text-indigo-900 border-indigo-200' : 'bg-white/80 backdrop-blur-xl border-stone-200/50 text-stone-600 hover:text-stone-900'}`}
                         >
                             <Backpack size={20} />
                             {inventory.length > 0 && (
@@ -304,7 +304,7 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({ node, stats, inventory = [
                                 <h3 className="font-display font-black text-xl text-stone-800">Dagbok</h3>
                                 <button onClick={() => setShowJournal(false)} className="text-stone-400 hover:text-stone-600"><X size={24} /></button>
                             </div>
-                            <div className="p-6 overflow-y-auto space-y-6 font-serif">
+                            <div className="flex-1 min-h-0 p-6 overflow-y-auto space-y-6 font-serif">
                                 {journal.length === 0 && <p className="text-stone-500 italic text-center">Ingen oppføringer ennå.</p>}
                                 {journal.map((entry, i) => (
                                     <div key={i} className="bg-white p-6 rounded-xl border border-stone-100 shadow-sm">
@@ -336,7 +336,7 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({ node, stats, inventory = [
             <div className="flex-grow z-10" />
 
             {/* Dialogue Layer (Relative, Bottom) */}
-            <div className="relative z-30 p-8 md:p-12 w-full bg-gradient-to-t from-[#FDFBF7] via-[#FDFBF7]/95 to-transparent">
+            <div className="relative z-30 p-4 sm:p-6 md:p-8 lg:p-12 w-full bg-gradient-to-t from-[#FDFBF7] via-[#FDFBF7]/95 to-transparent">
                 <AnimatePresence mode="wait">
                     <motion.div
                         key={node.id}
@@ -355,7 +355,7 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({ node, stats, inventory = [
 
                         {/* Main Text & Content */}
                         <h2
-                            className="text-2xl md:text-4xl font-medium text-stone-900 mb-8 md:mb-10 leading-[1.35] tracking-tight"
+                            className="text-lg sm:text-2xl md:text-4xl font-medium text-stone-900 mb-3 sm:mb-6 md:mb-8 lg:mb-10 leading-[1.35] tracking-tight"
                             style={{ fontFamily: config.theme?.font || 'serif' }}
                         >
                             {node.text}
@@ -411,21 +411,31 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({ node, stats, inventory = [
                                 onPointClick={handleMapPointClick}
                             />
                         ) : node.journalPrompt ? (
-                            <div className="space-y-4">
-                                <p className="text-sm font-bold uppercase tracking-widest text-stone-400">{node.journalPrompt}</p>
+                            <div className="space-y-3 sm:space-y-4">
+                                <p className="text-xs sm:text-sm font-bold uppercase tracking-widest text-stone-400">{node.journalPrompt}</p>
                                 <textarea
                                     value={journalText}
                                     onChange={(e) => setJournalText(e.target.value)}
-                                    className="w-full p-4 rounded-xl border border-stone-300 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 font-serif text-lg bg-white/50 backdrop-blur-sm min-h-[150px]"
+                                    className="w-full p-2 sm:p-4 rounded-xl border border-stone-300 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 font-serif text-base sm:text-lg bg-white/50 backdrop-blur-sm min-h-[80px] sm:min-h-[120px] md:min-h-[150px]"
                                     placeholder="Skriv dine tanker..."
                                 />
-                                <button
-                                    onClick={handleJournalSubmit}
-                                    disabled={!journalText.trim()}
-                                    className="px-8 py-3 bg-indigo-900 text-white font-bold rounded-xl shadow-lg hover:bg-indigo-800 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
-                                >
-                                    Lagre Dagbok & Sov
-                                </button>
+                                <div className="flex flex-wrap gap-3">
+                                    <button
+                                        onClick={handleJournalSubmit}
+                                        disabled={!journalText.trim()}
+                                        className="px-6 sm:px-8 py-2 sm:py-3 bg-indigo-900 text-white font-bold rounded-xl shadow-lg hover:bg-indigo-800 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                                    >
+                                        Lagre Dagbok & Sov
+                                    </button>
+                                    {isEnd && onRestart && (
+                                        <button
+                                            onClick={onRestart}
+                                            className="px-6 sm:px-8 py-2 sm:py-3 bg-stone-700 text-white font-bold rounded-xl shadow-lg hover:bg-stone-600 transition-all"
+                                        >
+                                            Prøv på nytt
+                                        </button>
+                                    )}
+                                </div>
                             </div>
                         ) : (
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -438,7 +448,7 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({ node, stats, inventory = [
                                             key={choice.id}
                                             onClick={() => !locked && onChoice(choice)}
                                             disabled={locked}
-                                            className={`group relative p-6 text-left rounded-[1.5rem] border transition-all duration-300 overflow-hidden ${locked
+                                            className={`group relative p-3 sm:p-5 md:p-6 text-left rounded-[1.5rem] border transition-all duration-300 overflow-hidden ${locked
                                                 ? 'bg-stone-100 border-stone-200 opacity-70 cursor-not-allowed'
                                                 : 'bg-white border-stone-200 hover:border-indigo-200 active:scale-[0.98] shadow-sm hover:shadow-xl hover:shadow-indigo-500/5'
                                                 }`}
@@ -480,26 +490,26 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({ node, stats, inventory = [
                                 })}
 
                                 {isEnd && (
-                                    <div className="md:col-span-2 space-y-8">
-                                        <div className={`p-10 rounded-[2rem] border text-center shadow-lg ${node.endType === 'victory'
+                                    <div className="md:col-span-2 space-y-3 sm:space-y-5 md:space-y-8">
+                                        <div className={`p-4 sm:p-6 md:p-10 rounded-[2rem] border text-center shadow-lg ${node.endType === 'victory'
                                             ? 'bg-emerald-50/50 border-emerald-100'
                                             : node.endType === 'defeat'
                                                 ? 'bg-rose-50/50 border-rose-100'
                                                 : 'bg-stone-50/50 border-stone-200'
                                             }`}>
-                                            {node.endType === 'victory' && <Crown className="mx-auto mb-6 text-emerald-600" size={48} />}
-                                            {node.endType === 'defeat' && <Skull className="mx-auto mb-6 text-rose-500" size={48} />}
+                                            {node.endType === 'victory' && <Crown className="mx-auto mb-3 sm:mb-4 md:mb-6 text-emerald-600" size={32} />}
+                                            {node.endType === 'defeat' && <Skull className="mx-auto mb-3 sm:mb-4 md:mb-6 text-rose-500" size={32} />}
 
-                                            <h3 className="text-3xl font-black text-stone-900 mb-4 tracking-tight">
+                                            <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-stone-900 mb-2 sm:mb-4 tracking-tight">
                                                 {node.endType === 'victory' ? 'Historisk Seier' : node.endType === 'defeat' ? 'Historien endte her...' : 'Reisen er over'}
                                             </h3>
-                                            <p className="text-lg text-stone-600 font-medium leading-relaxed max-w-lg mx-auto">
+                                            <p className="text-sm sm:text-base md:text-lg text-stone-600 font-medium leading-relaxed max-w-lg mx-auto">
                                                 {node.endType === 'victory' ? 'Du navigerte fortidens utfordringer med kløkt og visdom.' : 'Du lærte en hard lekse om fortidens brutale virkelighet.'}
                                             </p>
                                         </div>
                                         <button
                                             onClick={onRestart}
-                                            className="w-full py-6 rounded-2xl bg-stone-900 text-white font-black uppercase tracking-[0.2em] hover:scale-[1.01] active:scale-[0.99] transition-all shadow-xl hover:shadow-2xl shadow-stone-400/20"
+                                            className="w-full py-3 sm:py-4 md:py-6 rounded-2xl bg-stone-900 text-white font-black uppercase tracking-[0.2em] hover:scale-[1.01] active:scale-[0.99] transition-all shadow-xl hover:shadow-2xl shadow-stone-400/20"
                                         >
                                             Prøv på nytt
                                         </button>

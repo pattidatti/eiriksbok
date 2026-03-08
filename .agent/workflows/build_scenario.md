@@ -196,6 +196,31 @@ Sjekk at:
 
 ---
 
+## 5b. Oppdater TimeTravelPage.tsx
+
+Åpne `src/pages/TimeTravelPage.tsx` og legg til scenariet i `scenarios`-arrayen:
+
+```typescript
+{
+    id: '[scenario-id]',
+    title: '[Kortversjon av tittel]',
+    era: '[År/periode]',
+    difficulty: 'Lett|Middels|Vanskelig',
+    description: '[1 setning fra summary]',
+    icon: Shield,   // Shield|Crown|Sword – velg passende
+    color: 'bg-[farge]-[nyanse]',   // Historisk passende farge
+    disabled: false
+}
+```
+
+**Viktig:** Legg også til scenario-tittelen i lookup-objektet i graveyard-seksjonen (ca. linje 117):
+
+```tsx
+{ 'roman-soldier': 'Romersk Legionær', 'medieval-baron': 'Baron av Rhinen', '[scenario-id]': '[Tittel]' }[log.scenarioId] ?? log.scenarioId
+```
+
+---
+
 ## 6. Generer Asset-liste
 
 List opp alle `backgroundImage`-verdier fra JSON-en og gi brukeren klare AI-bildeprompts for hver:
