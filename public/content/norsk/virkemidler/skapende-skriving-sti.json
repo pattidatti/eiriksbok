@@ -1,0 +1,543 @@
+{
+    "id": "skapende-skriving-sti",
+    "title": "Læringssti: Forfatterens Verksted",
+    "description": "Bygg din egen verktøykasse for skjønnlitterær skriving — fra tema og karakter til ferdig novelle.",
+    "layout": "learning-path",
+    "category": "Læringssti",
+    "readTime": "5–6 timer",
+    "heroImage": "/images/topics/virkemidler_hero.png",
+    "learningPathData": {
+        "id": "skapende-skriving-sti",
+        "title": "Forfatterens Verksted",
+        "description": "Hva skiller en tekst du glemmer, fra en som forandrer deg? I denne læringsstien bygger du opp en komplett verktøykasse for skjønnlitterær skriving.",
+        "targetTopicId": "virkemidler",
+        "targetSubjectId": "norsk",
+        "steps": [
+            {
+                "id": "step-0",
+                "phase": "Prolog",
+                "title": "Forfatterens drøm",
+                "type": "fakta",
+                "content": "Velkommen til Verkstedet. Bak denne døren finnes alt du trenger for å skrive tekster som betyr noe — verktøy som kan forvandle en kjedelig setning til noe som setter seg i magen på leseren. Men før vi åpner den første skuffen, må vi stille det viktigste spørsmålet: Hva gjør egentlig en historie god?\n\nDu har sikkert lest bøker eller sett filmer som bare forsvinner fra hukommelsen. Og så har du opplevd historier som forandrer måten du tenker på. Forskjellen handler ikke om flaks eller talent — det handler om håndverk. Om å vite hvilke grep som fungerer, og når man skal bruke dem.\n\nI dette første steget møter du de grunnleggende prinsippene: aktiv skrivestil, «show don't tell», og kraften i å velge riktig detalj. Tenk på det som å se inn i verkstedet fra døråpningen. Du trenger ingen forkunnskaper — bare nysgjerrighet og et ønske om å skrive bedre enn du gjør i dag. Artikkelen gir deg en smakebit på alt som kommer, uten å gå i dybden. Den viser deg kartet over reisen. Så er det bare å ta det første steget inn.",
+                "tasks": [
+                    "Les artikkelen [Skriv bedre historier](/norsk/skrivehjelp/skriv-bedre-historier)",
+                    "Hva menes med «aktiv» vs. «passiv» fortellerstil? (Fakta)",
+                    "Hvorfor er det viktigere å vise enn å fortelle? (Forståelse)",
+                    "Finn ett eksempel i artikkelen der en tekst forbedres. Hva ble endret? (Fakta)",
+                    "Tenk på en bok eller film du liker. Hva tror du gjør den god? Skriv ned tre ting. (Refleksjon)",
+                    "Hvordan tror du en forfatter bestemmer hva som er viktig å fortelle? (Refleksjon)"
+                ],
+                "links": [
+                    {
+                        "title": "Les artikkel: Skriv bedre historier",
+                        "url": "/norsk/skrivehjelp/skriv-bedre-historier"
+                    }
+                ]
+            },
+            {
+                "id": "step-1",
+                "phase": "Akt 1: Verktøykassen",
+                "title": "Hjertet i teksten",
+                "type": "fakta",
+                "content": "Den første skuffen du åpner inneholder kanskje det viktigste verktøyet av alle: tema. Tema er det teksten egentlig handler om, under overflaten. En historie kan handle om en gutt som fisker — men temaet kan være ensomhet, eller forholdet mellom far og sønn, eller menneskets kamp mot naturen.\n\nUten tema er en tekst bare hendelser i rekkefølge. Med tema blir den til noe som betyr noe. Tema er sjelen i teksten, og budskap er forfatterens fingeravtrykk — det de egentlig prøver å si uten å si det rett ut.\n\nForskjellen mellom tema og handling er enkel, men viktig: handlingen er det som skjer, temaet er det historien handler om. En film om to tenåringer som møtes på sykehus handler kanskje egentlig om å leve fullt mens man har begrenset tid. Klarer du å se forbi handlingen og finne hjertet i teksten, har du funnet det første verktøyet i kassen din. I dette steget skal du lære å skille tema fra motiv, og forstå hvorfor budskap aldri bør skrives med store bokstaver.",
+                "tasks": [
+                    "Les artikkelen [Tema og budskap](/norsk/analyse/tema-og-budskap)",
+                    "Hva er forskjellen mellom tema og budskap? (Fakta)",
+                    "Hva er et «motiv», og hvordan skiller det seg fra tema? (Fakta)",
+                    "Velg en kjent eventyr (f.eks. Askepott). Hva er handlingen, og hva er temaet? (Forståelse)",
+                    "Hvorfor kan to lesere tolke det samme diktet forskjellig? (Forståelse)",
+                    "Tenk på en tekst du selv har skrevet. Hadde den et tema, eller bare en handling? Hva ville du endret? (Refleksjon)"
+                ],
+                "links": [
+                    {
+                        "title": "Les artikkel: Tema og budskap",
+                        "url": "/norsk/analyse/tema-og-budskap"
+                    }
+                ]
+            },
+            {
+                "id": "step-2",
+                "phase": "Akt 1: Verktøykassen",
+                "title": "Historiens DNA",
+                "type": "fakta",
+                "content": "Har du noen gang lagt merke til at de fleste historier følger lignende mønstre? Det er ikke tilfelle — det er DNA. Gjennom tusenvis av år har mennesker fortalt historier som faller inn i et overraskende lite antall grunnstrukturer. Noen forskere sier syv, andre sier færre, men poenget er det samme: alle historier bygger på en kjerne av gjenkjennelige mønstre.\n\nNår du kjenner igjen mønstrene, får du makt over dem. Du kan velge å følge en heltefortelling, eller du kan bevisst bryte med mønsteret for å overraske leseren. Å vite at din historie er en «gjenfødelse» betyr at du vet hva leseren forventer — og det gir deg friheten til å innfri eller utfordre de forventningene.\n\nDette steget handler om å løfte blikket fra enkelthendelser til den store strukturen. Du skal lære å gjenkjenne de syv grunnleggende plottene og forstå hvorfor de fungerer. Tenk på det som å studere byggeplanen før du begynner å bygge. Det betyr ikke at huset ditt må se ut som alle andre — men du bør vite hva som holder taket oppe.",
+                "tasks": [
+                    "Les artikkelen [7 vanlige plot](/norsk/skrivehjelp/7-vanlige-plot)",
+                    "Nevn de syv plottypene. (Fakta)",
+                    "Hvilket plot følger «Ringenes Herre»? Hva med «Askepott»? (Fakta)",
+                    "Hva er forskjellen mellom «Reisen og returen» og «Jakten»? (Forståelse)",
+                    "Hvorfor ender tragedier alltid med at helten faller? Hva vil forfatteren si med det? (Forståelse)",
+                    "Hvilken plottype passer best til en historie om en mobbeoffer som reiser seg? Begrunn svaret. (Analyse)",
+                    "Skriv én setning som oppsummerer handlingen i en film du liker. Hvilken plottype er det? (Anvendelse)"
+                ],
+                "links": [
+                    {
+                        "title": "Les artikkel: De 7 grunnleggende plottene",
+                        "url": "/norsk/skrivehjelp/7-vanlige-plot"
+                    }
+                ]
+            },
+            {
+                "id": "step-3",
+                "phase": "Akt 1: Verktøykassen",
+                "title": "Mennesker av blekk",
+                "type": "fakta",
+                "content": "En historie uten troverdige karakterer er som en motorvei uten biler — teknisk funksjonell, men totalt uinteressant. Det er karakterene som får oss til å bla videre, som gjør at vi gråter over fiksjon og heier på mennesker som ikke finnes. Å skape gode karakterer er kanskje det viktigste håndverket en forfatter kan lære.\n\nMen hva gjør en karakter troverdig? Det handler ikke om å beskrive utseendet ned til minste detalj. Det handler om å gi dem en funksjon i historien, et ønske som driver dem fremover, et behov de kanskje ikke er klar over selv, og en sårbarhet som gjør dem menneskelige. Batman uten angsten for flaggermus er bare en rik mann med kappe.\n\nI dette steget åpner du skuffen merket «karakterbygging». Du skal lære å tenke på karakterer som levende systemer med indre konflikter og ytre drivkrefter. Du skal forstå hvorfor kontraster gjør karakterer sterkere, hvorfor skurken trenger en motivasjon, og hvorfor sårbarhet er styrke når du skriver. Prøv å se karakterene dine som mennesker du kunne møtt — med alt det rotete og motstridende det innebærer.",
+                "tasks": [
+                    "Les artikkelen [Hvordan lage karakterer](/norsk/skrivehjelp/hvordan-lage-karakterer)",
+                    "Hva menes med at en karakter har en «funksjon» i historien? (Fakta)",
+                    "Hva er forskjellen mellom en karakters «want» og «need»? (Fakta)",
+                    "Hvorfor gjør sårbarhet en karakter mer interessant? (Forståelse)",
+                    "Forklar hva «kontrast» betyr i karakterbygging — hvorfor trenger Batman en Joker? (Forståelse)",
+                    "Lag en minikarakter: Gi dem et navn, en funksjon, et ønske, et behov og en sårbarhet. Skriv det ned i 3–4 setninger. (Anvendelse)",
+                    "Hva gjør en skurk troverdig? Er det nok at de er «onde»? (Refleksjon)"
+                ],
+                "links": [
+                    {
+                        "title": "Les artikkel: Hvordan lage karakterer",
+                        "url": "/norsk/skrivehjelp/hvordan-lage-karakterer"
+                    }
+                ]
+            },
+            {
+                "id": "step-4",
+                "phase": "Akt 1: Verktøykassen",
+                "title": "Hvem eier historien?",
+                "type": "fakta",
+                "content": "Tenk deg en krangel mellom to venner. Hvem har rett? Det kommer helt an på hvem som forteller. Synsvinkel er forfatterens mest underestimerte verktøy — det bestemmer ikke bare hva leseren får vite, men hva de føler. Samme historie kan bli intim og nær med jeg-perspektiv, eller distansert og allvitende med en autoral forteller.\n\nHver synsvinkel gir noe og tar noe. Jeg-perspektiv gir direkte tilgang til tankene til én person, men du mister muligheten til å vise hva andre tenker. Tredjeperson gir oversikt, men kan føles kaldere. Og så har du den upålitelige fortelleren — den som lyver, overdriver eller skjuler sannheten. Den er et av de mest kraftfulle verktøyene i kassen, fordi den tvinger leseren til å tenke kritisk.\n\nI dette steget undersøker du hvem som eier historien din. Du skal lære forskjellen mellom personal og autoral synsvinkel, oppdage hva en upålitelig forteller kan gjøre med leserens tillit, og forstå at valg av perspektiv er et av de første og viktigste grepene du tar som forfatter. Hvem som forteller, forandrer alt.",
+                "tasks": [
+                    "Les artikkelen [Hvem eier historien?](/norsk/virkemidler/synsvinkel-og-stemme)",
+                    "Hva er forskjellen mellom personal og autoral synsvinkel? (Fakta)",
+                    "Hva kjennetegner en upålitelig forteller? (Fakta)",
+                    "Hvorfor gir jeg-perspektiv en følelse av nærhet? Hva mister du? (Forståelse)",
+                    "Tenk deg en krangel mellom to venner. Skriv to setninger fra hver sin synsvinkel — hva legger de merke til? (Anvendelse)",
+                    "Når ville du valgt en upålitelig forteller? Hvilken effekt har det på leseren? (Refleksjon)"
+                ],
+                "links": [
+                    {
+                        "title": "Les artikkel: Hvem eier historien?",
+                        "url": "/norsk/virkemidler/synsvinkel-og-stemme"
+                    }
+                ]
+            },
+            {
+                "id": "step-5",
+                "phase": "Akt 2: Verkstedet",
+                "title": "Mal med ord",
+                "type": "utfordring",
+                "content": "Nå begynner det virkelig. Du har verktøyene — tema, plot, karakter, synsvinkel — men de er som pensler uten maling. Bildespråk er det som gir teksten din farge. Metaforer, sammenligninger, personifikasjoner, symboler, kontraster og gjentagelser — dette er det som skiller en setning du glemmer fra en som setter seg fast i hodet.\n\nForskjellen mellom «hun var lei seg» og «noe knuste bak øynene hennes, som is som gir etter under foten» er ikke bare estetisk. Det er forskjellen mellom å fortelle og å vise. Det første er informasjon. Det andre er opplevelse. Som forfatter er jobben din å skape opplevelser, ikke bare overlevere fakta.\n\nMen her er utfordringen: bildespråk er et tveegget sverd. For mye, og teksten din drukner i pynt. For lite, og den blir grå og glemt. Kunsten er balanse — å vite når en metafor løfter teksten og når den distraherer. I dette steget skal du eksperimentere med virkemidlene, prøve dem ut, og lære å kjenne grensen mellom effektfullt og overdrevet. Det er på tide å bli skitten på hendene.",
+                "tasks": [
+                    "Les artikkelen [Språkets farger](/norsk/virkemidler/bildesprak-og-effekter)",
+                    "Hva er forskjellen mellom en metafor og en sammenligning? (Fakta)",
+                    "Gi et eksempel på personifikasjon. (Fakta)",
+                    "Hva menes med «show, don't tell»? Hvorfor er det viktig? (Forståelse)",
+                    "Forklar hva symbolikk er. Gi et eksempel fra en film eller bok du kjenner. (Forståelse)",
+                    "Skriv om denne setningen med bildespråk: «Hun var lei seg.» — Bruk minst to virkemidler. (Anvendelse)",
+                    "Kan man overdrive bruken av virkemidler? Når blir det for mye? (Refleksjon)"
+                ],
+                "links": [
+                    {
+                        "title": "Les artikkel: Språkets farger",
+                        "url": "/norsk/virkemidler/bildesprak-og-effekter"
+                    }
+                ]
+            },
+            {
+                "id": "step-6",
+                "phase": "Akt 2: Verkstedet",
+                "title": "Styr rytmen",
+                "type": "utfordring",
+                "content": "Tid i en fortelling er ikke det samme som tid i virkeligheten. I det virkelige livet tikker klokken jevnt fremover. I en tekst er tid noe forfatteren manipulerer. Du kan starte midt i et drama og la leseren forstå bakgrunnen etterpå. Du kan bremse ned et øyeblikk til det varer en hel side, eller hoppe over ti år i én setning.\n\nDette er et av de mest undervurderte verktøyene i forfatterens verksted. Når du starter med «in medias res» — midt i handlingen — griper du leseren i kraven og drar dem rett inn. Når du bruker tilbakeblikk, gir du dybde til en karakter uten å stoppe handlingen. Og når du bevisst bremser ned tiden i et avgjørende øyeblikk, tvinger du leseren til å være til stede i det.\n\nI dette steget skal du lære å manipulere leserens opplevelse av tid. Du skal forstå forskjellen mellom fortalt tid og fortelletid, eksperimentere med tidssprang og saktegåing, og oppdage hvorfor rekkefølgen du forteller ting i kan være like viktig som hva du forteller. Tid er ikke en fiende — det er et instrument du spiller på.",
+                "tasks": [
+                    "Les artikkelen [Tidens tannhjul](/norsk/virkemidler/tid-og-struktur)",
+                    "Hva betyr «in medias res»? Gi et eksempel. (Fakta)",
+                    "Hva er forskjellen mellom «fortalt tid» og «fortelletid»? (Fakta)",
+                    "Hvorfor bruker forfattere tilbakeblikk? Hva oppnår de? (Forståelse)",
+                    "Hva er effekten av å bremse ned tiden i et dramatisk øyeblikk? (Forståelse)",
+                    "Skriv en åpningssetning som bruker in medias res. Hva skjer i scenen? (Anvendelse)"
+                ],
+                "links": [
+                    {
+                        "title": "Les artikkel: Tidens tannhjul",
+                        "url": "/norsk/virkemidler/tid-og-struktur"
+                    }
+                ]
+            },
+            {
+                "id": "step-7",
+                "phase": "Akt 2: Verkstedet",
+                "title": "Stemmer som lever",
+                "type": "utfordring",
+                "content": "Når en karakter åpner munnen, avslører de hvem de er. Dialog er ikke bare prat mellom to mennesker — det er et av de kraftigste verktøyene en forfatter har. God dialog driver handlingen fremover, viser personlighet uten at forfatteren trenger å forklare, og sier ofte mest mellom linjene.\n\nDet er forskjell på å skrive dialog og å skrive slik folk faktisk snakker. Ekte samtaler er fulle av «eh», avbrytelser og blindveier. Litterær dialog destillerer det — den tar essensen av en samtale og fjerner alt som ikke driver teksten fremover. Men den må fortsatt føles naturlig. Trikset er å høre stemmene i hodet ditt og skrive det ned som om du dikterer.\n\nOg så er det subtekst — det folk sier uten å si det. Når en karakter sier «det er greit» mens de knuser et glass, vet leseren at det ikke er greit i det hele tatt. Subtekst er gapet mellom ord og handling, og det er der de mest interessante dialogene lever. I dette steget skal du lære håndverket: talemerker, handlingsmerker, og kunsten å la karakterene dine snakke for seg selv.",
+                "tasks": [
+                    "Les artikkelen [Hvordan skrive dialog](/norsk/skrivehjelp/hvordan-skrive-dialog)",
+                    "Hva er de tre funksjonene til dialog i en fortelling? (Fakta)",
+                    "Hva er forskjellen mellom et talemerke og et handlingsmerke? (Fakta)",
+                    "Hva menes med «subtekst» i dialog? (Forståelse)",
+                    "Hvorfor bør man unngå å skrive «sa hun trist» og heller vise følelsen? (Forståelse)",
+                    "Skriv en kort dialog (4–6 replikker) mellom to karakterer som er uenige om noe. Bruk handlingsmerker. (Anvendelse)",
+                    "Les din egen dialog høyt. Høres det naturlig ut? Hva ville du endret? (Refleksjon)"
+                ],
+                "links": [
+                    {
+                        "title": "Les artikkel: Hvordan skrive dialog",
+                        "url": "/norsk/skrivehjelp/hvordan-skrive-dialog"
+                    }
+                ]
+            },
+            {
+                "id": "step-8",
+                "phase": "Akt 2: Verkstedet",
+                "title": "Den lille kunsten",
+                "type": "utfordring",
+                "content": "Novellen er skjønnlitteraturens miniatyr. Den er kort — men ikke enkel. Tvert imot krever den mer presisjon enn en roman, fordi hvert eneste ord teller. En roman kan ta seg tid til å bygge opp og utforske. En novelle må treffe med kirurgisk presisjon.\n\nDet som gjør novellen unik er kompresjon. Du har ikke plass til lange karakterbeskrivelser eller kompliserte bakgrunnshistorier. Du må vise karakterene gjennom handling og dialog, formidle tema gjennom hendelser, og gi leseren akkurat nok informasjon til at de fyller inn resten selv. Det er som å male et bilde med bare tre penselstrøk — men de tre strøkene må sitte perfekt.\n\nI dette steget samler du trådene. Du har verktøy for tema, plot, karakter, synsvinkel, bildespråk, tid og dialog. Novellen er formen der alt dette kommer sammen. Du skal lære hva som kjennetegner sjangeren: vendepunktet som snur alt, den åpne slutten som lar leseren tenke videre, og kunsten å si mye med lite. Etter dette steget har du alt du trenger. Da gjenstår bare å gjøre det.",
+                "tasks": [
+                    "Les artikkelen [Hvordan skrive novelle](/norsk/skrivehjelp/hvordan-skrive-novelle)",
+                    "Hva kjennetegner en novelle sammenlignet med en roman? (Fakta)",
+                    "Hva er et «vendepunkt» i en novelle? (Fakta)",
+                    "Hvorfor bruker mange noveller åpen slutt? Hva gjør det med leseren? (Forståelse)",
+                    "Hvorfor er det lurt å starte in medias res i en novelle? (Forståelse)",
+                    "Hvilke av verktøyene du har lært hittil tror du er viktigst for en novelle? Ranger topp 3 og begrunn. (Analyse)"
+                ],
+                "links": [
+                    {
+                        "title": "Les artikkel: Hvordan skrive novelle",
+                        "url": "/norsk/skrivehjelp/hvordan-skrive-novelle"
+                    }
+                ]
+            },
+            {
+                "id": "step-9",
+                "phase": "Akt 2: Verkstedet",
+                "title": "Forfatterens veikryss",
+                "type": "utfordring",
+                "content": "Nå er det tid for den store testen. Du har samlet verktøy i åtte steg — tema, plot, karakter, synsvinkel, bildespråk, tid, dialog og novellestruktur. Men å kjenne verktøyene er ikke det samme som å bruke dem. I dette steget blir du kastet inn i en serie forfattervalg som former en novelle mens du velger.\n\nDu møter Nora, 15 år. Hun oppdager at bestevenninna har stjålet noe verdifullt fra henne — et armbånd med stor personlig verdi. Historien er gitt, men hvordan du forteller den er helt opp til deg. Starter du midt i konfrontasjonen, eller bygger du opp spenningen sakte? Ser vi alt gjennom Noras øyne, eller observerer vi fra utsiden? Løses konflikten med ord, handlinger eller symboler?\n\nHvert valg du tar bruker et verktøy du har lært. In medias res. Jeg-perspektiv. Dialog med subtekst. Åpen slutt. Det finnes ingen riktig vei gjennom dette — men det finnes bevisste og ubevisste valg. Spill gjennom minst to ganger, velg forskjellig, og legg merke til hvordan de samme hendelsene føles helt annerledes avhengig av hvilke teknikker du bruker.",
+                "tasks": [
+                    "Spill gjennom scenariet minst to ganger med ulike valg.",
+                    "Hvilke verktøy (virkemidler) brukte du i dine valg? Klarer du å navngi dem? (Forståelse)",
+                    "Hvorfor gir ulike åpninger ulik stemning? (Analyse)",
+                    "Hvilken versjon av historien ble best? Hvorfor? (Refleksjon)",
+                    "Fantes det et «riktig svar»? Hva sier det om skriving? (Refleksjon)"
+                ],
+                "component": {
+                    "name": "ScenarioRoleplay",
+                    "props": {
+                        "title": "Forfatterens veikryss",
+                        "intro": "Du er forfatteren. Foran deg ligger begynnelsen på en novelle om Nora (15), som nettopp har oppdaget at bestevenninna hennes har stjålet armbåndet hun fikk av bestemoren sin. Hvert valg du tar former historien — og bruker et verktøy du har lært.",
+                        "startId": "start",
+                        "scenarios": [
+                            {
+                                "id": "start",
+                                "text": "Nora vet at armbåndet er borte. Hun vet hvem som tok det. Spørsmålet er: Hvordan begynner du å fortelle denne historien? Valget av åpning setter tonen for alt som følger.",
+                                "options": [
+                                    {
+                                        "label": "In medias res — Start midt i konfrontasjonen",
+                                        "nextId": "node_medias",
+                                        "feedback": "Du kaster leseren rett inn i dramaet. Ingen oppvarming, bare spenning."
+                                    },
+                                    {
+                                        "label": "Kronologisk — Bygg opp sakte fra morgenen",
+                                        "nextId": "node_kronologisk",
+                                        "feedback": "Du gir leseren tid til å bli kjent med Nora før stormen treffer."
+                                    },
+                                    {
+                                        "label": "Tilbakeblikk — Start etter at alt er over",
+                                        "nextId": "node_tilbakeblikk",
+                                        "feedback": "Du skaper et mysterium: Hva skjedde? Leseren vil vite."
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "node_medias",
+                                "text": "«Du sitter rett overfor henne. Armbåndet — ditt armbånd — glitrer på hennes håndledd. Hun smiler som om ingenting har skjedd.» Leseren er fanget. Hjertet banker. Men nå må du velge: Hvem forteller denne historien?",
+                                "options": [
+                                    {
+                                        "label": "Jeg-perspektiv — Noras tanker og følelser",
+                                        "nextId": "node_jeg",
+                                        "feedback": "Nærhet. Leseren kjenner Noras raseri og svik på kroppen."
+                                    },
+                                    {
+                                        "label": "Tredjeperson — En observatør ser på",
+                                        "nextId": "node_tredje",
+                                        "feedback": "Distanse. Leseren ser begge sidene, men mister den rå nærheten."
+                                    },
+                                    {
+                                        "label": "Venninnens perspektiv — Den som stjal, forteller",
+                                        "nextId": "node_venninne",
+                                        "feedback": "En overraskende vri. Plutselig er det tyven vi forstår."
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "node_kronologisk",
+                                "text": "«Morgenen starter som alle andre. Nora finner sokker, spiser brødskive, sjekker telefonen. Alt er normalt — bortsett fra den tomme smykkeskrinet på nattbordet.» Langsomt bygger du en uro hos leseren. Nå: Hvem eier denne fortellingen?",
+                                "options": [
+                                    {
+                                        "label": "Jeg-perspektiv — Noras tanker og følelser",
+                                        "nextId": "node_jeg",
+                                        "feedback": "Nærhet. Uroen vokser innenfra. Leseren føler det Nora føler."
+                                    },
+                                    {
+                                        "label": "Tredjeperson — En observatør ser på",
+                                        "nextId": "node_tredje",
+                                        "feedback": "Overblikk. Leseren ser hva Nora ennå ikke har forstått."
+                                    },
+                                    {
+                                        "label": "Venninnens perspektiv — Den som stjal, forteller",
+                                        "nextId": "node_venninne",
+                                        "feedback": "Vi vet allerede at hun er skyldig. Spenningen blir: angrer hun?"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "node_tilbakeblikk",
+                                "text": "«Det var armbåndet som ødela alt. Eller kanskje det var venninnens hender, eller mine egne øyne som valgte å se.» Leseren vet at noe er gått galt. Nå vil de vite hva. Men hvem forteller denne historien bakover?",
+                                "options": [
+                                    {
+                                        "label": "Jeg-perspektiv — Nora ser tilbake",
+                                        "nextId": "node_jeg",
+                                        "feedback": "Nora reflekterer. Leseren hører en stemme som bærer på noe."
+                                    },
+                                    {
+                                        "label": "Tredjeperson — En nøytral stemme rekonstruerer",
+                                        "nextId": "node_tredje",
+                                        "feedback": "Nesten som en dokumentar. Kjølig, presis, og ubehagelig nær."
+                                    },
+                                    {
+                                        "label": "Venninnens perspektiv — Hun prøver å forklare",
+                                        "nextId": "node_venninne",
+                                        "feedback": "«Jeg prøvde å legge det tilbake. Men da var det allerede for sent.»"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "node_jeg",
+                                "text": "Nora forteller selv. Tankene strømmer: sinne, svik, forvirring. Hun ser armbåndet på venninnens arm og kjenner noe knuse inni seg. Leseren er klemt inn i hodet hennes. Nå kommer vendepunktet — hvordan løser du konflikten?",
+                                "options": [
+                                    {
+                                        "label": "Dialog — Nora konfronterer direkte",
+                                        "nextId": "ending_konfrontasjon",
+                                        "feedback": "Ordene blir våpen. Subtekst og spenning i hver replikk."
+                                    },
+                                    {
+                                        "label": "Handling — Nora handler uten å si et ord",
+                                        "nextId": "ending_stille",
+                                        "feedback": "Stillhet sier mer enn ord. Nora lar handlingene tale."
+                                    },
+                                    {
+                                        "label": "Symbol — Armbåndet dukker opp på et uventet sted",
+                                        "nextId": "ending_symbol",
+                                        "feedback": "Armbåndet blir mer enn en gjenstand. Det bærer hele temaet."
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "node_tredje",
+                                "text": "En nøytral stemme beskriver scenen. Nora sitter stille. Venninnen ler. Armbåndet fanger lyset. Ingen vet hva Nora tenker — men kroppsspråket hennes forteller alt. Hvordan ender historien?",
+                                "options": [
+                                    {
+                                        "label": "Handling — Nora reiser seg og går",
+                                        "nextId": "ending_stille",
+                                        "feedback": "Ingen konfrontasjon. Bare en stol som skraper mot gulvet."
+                                    },
+                                    {
+                                        "label": "Symbol — Armbåndet dukker opp i Noras skap neste dag",
+                                        "nextId": "ending_symbol",
+                                        "feedback": "Lagt tilbake i hemmelighet. Men kan tilliten legges tilbake?"
+                                    },
+                                    {
+                                        "label": "Dialog — Venninnen bryter stillheten",
+                                        "nextId": "ending_konfrontasjon",
+                                        "feedback": "«Jeg vet at du vet.» Fire ord som endrer alt."
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "node_venninne",
+                                "text": "Venninnen forteller. Hun tok armbåndet — men ikke fordi hun ville ha det. Hun ville ha noe av Nora. Noe som beviste at de fortsatt var venner. Leseren forstår plutselig mer enn Nora gjør. Hvordan avslutter du?",
+                                "options": [
+                                    {
+                                        "label": "Forsoning — Hun legger armbåndet tilbake og forteller sannheten",
+                                        "nextId": "ending_forsoning",
+                                        "feedback": "Sårbarhet møter sårbarhet. Vennskapet får en ny sjanse."
+                                    },
+                                    {
+                                        "label": "Dialog — Nora finner ut og konfronterer",
+                                        "nextId": "ending_konfrontasjon",
+                                        "feedback": "To versjoner av sannheten krasjer. Hvem har rett?"
+                                    },
+                                    {
+                                        "label": "Stillhet — Nora slutter å svare på meldinger",
+                                        "nextId": "ending_stille",
+                                        "feedback": "Ingen dramatikk. Bare et vennskap som langsomt dør ut."
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "ending_konfrontasjon",
+                                "text": "Ordene faller som stein mellom dem. «Jeg så det. På armen din.» Venninnen åpner munnen, men ingenting kommer ut. Armbåndet henger tungt. Novellen slutter her — midt i stillheten etter den siste replikken. En åpen slutt. Leseren avgjør om vennskapet overlever."
+                            },
+                            {
+                                "id": "ending_stille",
+                                "text": "Nora reiser seg. Stolen skraper mot gulvet. Hun går uten å si et ord, uten å se seg tilbake. Venninnen blir sittende med hendene i fanget og armbåndet som plutselig veier alt for mye. Et brudd fortalt gjennom handling. Ingen dialog trengs — kroppen har sagt alt."
+                            },
+                            {
+                                "id": "ending_symbol",
+                                "text": "Neste morgen ligger armbåndet på pulten hennes. Ingen lapp. Ingen forklaring. Nora holder det opp mot lyset. Det er det samme armbåndet — men det føles annerledes nå. Tyngre. Som om det bærer noe mer enn sølv og minner. En åpen slutt der gjenstanden selv blir et symbol for alt som er usnakket."
+                            },
+                            {
+                                "id": "ending_forsoning",
+                                "text": "«Jeg tok det fordi jeg var redd for å miste deg.» Ordene henger i luften. Nora ser på venninnen — virkelig ser — og oppdager noe hun aldri har lagt merke til: frykten i øynene. Armbåndet skifter hender. Ikke tilbake, men videre. Et nytt løfte. Forsoning betyr ikke at alt er som før — men at det kan bli noe nytt."
+                            }
+                        ]
+                    }
+                },
+                "links": []
+            },
+            {
+                "id": "step-10",
+                "phase": "Akt 3: Mesterverket",
+                "title": "Pakk verktøykassen",
+                "type": "oppgave",
+                "content": "Du har lært verktøyene. Du har sett dem i aksjon. Nå er det din tur. Men før du setter deg ned for å skrive, må du planlegge. En novelle er kort — du kan ikke bruke alt du har lært i én tekst. Du må velge. Og å velge bevisst er noe av det viktigste en forfatter gjør.\n\nTenk på det slik: en novelle på 500–1000 ord har plass til kanskje fire-fem virkemidler som brukes med presisjon. Prøver du å stappe inn alt — in medias res, tilbakeblikk, tre forskjellige symboler, dialog med subtekst og en upålitelig forteller — blir det kaos. Novellen er en miniatyrkunst. Hvert valg må tjene historien.\n\nI den interaktive oppgaven under skal du «pakke verktøykassen» for din egen novelle. Du har begrenset plass, akkurat som i en ekte novelle. Noen verktøy er tunge men kraftfulle, andre er lette men effektive. Etter pakningen skal du bruke resten av oppgavene til å planlegge selve novellen din: tema, plottype, hovedkarakter, synsvinkel og handlingsforløp. Når du er ferdig med dette steget, har du en komplett plan klar for skriving.",
+                "tasks": [
+                    "Bruk PackTheBag-verktøyet over for å velge dine teknikker.",
+                    "Bestem deg for et tema. Skriv det ned i én setning: «Novellen min handler om...» (Planlegging)",
+                    "Velg en plottype fra de 7 plottene. Hvilken passer ditt tema? (Planlegging)",
+                    "Lag hovedkarakteren din: Navn, funksjon, ønske, behov og sårbarhet. (Anvendelse)",
+                    "Velg synsvinkel. Jeg-perspektiv eller tredjeperson? Begrunn. (Anvendelse)",
+                    "Skriv et kort handlingsforløp (5–8 setninger): Hva skjer i novellen din? Hvor er vendepunktet? (Planlegging)",
+                    "Velg tre virkemidler du vil bruke bevisst. Skriv ned hvor i novellen du planlegger å bruke dem. (Planlegging)"
+                ],
+                "component": {
+                    "name": "PackTheBag",
+                    "props": {
+                        "capacity": 200,
+                        "targetValue": 120,
+                        "title": "Forfatterens verktøykasse",
+                        "descriptionOverride": "Novellen er kort — du kan ikke bruke alle verktøyene! Velg bevisst hvilke teknikker som passer din historie.",
+                        "items": [
+                            {
+                                "id": "in-medias-res",
+                                "name": "In medias res",
+                                "weight": 30,
+                                "value": 25,
+                                "icon": "⚡"
+                            },
+                            {
+                                "id": "metafor",
+                                "name": "Metafor",
+                                "weight": 40,
+                                "value": 30,
+                                "icon": "🎨"
+                            },
+                            {
+                                "id": "kontrast",
+                                "name": "Kontrast",
+                                "weight": 25,
+                                "value": 20,
+                                "icon": "⚖️"
+                            },
+                            {
+                                "id": "dialog-subtekst",
+                                "name": "Dialog med subtekst",
+                                "weight": 50,
+                                "value": 35,
+                                "icon": "💬"
+                            },
+                            {
+                                "id": "symbol",
+                                "name": "Symbol",
+                                "weight": 45,
+                                "value": 30,
+                                "icon": "🔑"
+                            },
+                            {
+                                "id": "aapen-slutt",
+                                "name": "Åpen slutt",
+                                "weight": 20,
+                                "value": 25,
+                                "icon": "❓"
+                            },
+                            {
+                                "id": "tilbakeblikk",
+                                "name": "Tilbakeblikk",
+                                "weight": 35,
+                                "value": 20,
+                                "icon": "⏪"
+                            },
+                            {
+                                "id": "personifikasjon",
+                                "name": "Personifikasjon",
+                                "weight": 30,
+                                "value": 15,
+                                "icon": "🌿"
+                            },
+                            {
+                                "id": "gjentagelse",
+                                "name": "Gjentagelse",
+                                "weight": 20,
+                                "value": 20,
+                                "icon": "🔁"
+                            },
+                            {
+                                "id": "upalitelig-forteller",
+                                "name": "Upålitelig forteller",
+                                "weight": 60,
+                                "value": 35,
+                                "icon": "🎭"
+                            },
+                            {
+                                "id": "jeg-perspektiv",
+                                "name": "Jeg-perspektiv",
+                                "weight": 25,
+                                "value": 20,
+                                "icon": "👁️"
+                            },
+                            {
+                                "id": "sammenligning",
+                                "name": "Sammenligning",
+                                "weight": 20,
+                                "value": 15,
+                                "icon": "🪞"
+                            }
+                        ]
+                    }
+                },
+                "links": []
+            },
+            {
+                "id": "step-11",
+                "phase": "Akt 3: Mesterverket",
+                "title": "Skriv din novelle",
+                "type": "oppgave",
+                "content": "Du har verktøyene. Du har planen. Nå er det tid for å skrive. Dette er selve mesterprøven — øyeblikket der alt du har lært i denne læringsstien kommer sammen i én sammenhengende tekst.\n\nNovellen din bør være på 500–1000 ord. Det høres kanskje lite ut, men husk: novellen er en miniatyrkunst. Hvert ord teller. Det betyr ikke at hvert ord må være perfekt fra starten. Første utkast er alltid rotete — det er meningen. Hemmeligheten er å skrive først og redigere etterpå. Ikke stopp opp for å finpusse setninger mens du er i flyten.\n\nBruk planen fra forrige steg som veikart. Start med åpningen du valgte — in medias res, kronologisk eller tilbakeblikk. Introduser karakteren din gjennom handling, ikke beskrivelse. Bygg opp mot vendepunktet med minst ett bevisst virkemiddel. La avslutningen gi leseren noe å tenke på.\n\nOg husk: du er ikke alene. Alt du trenger står i verktøykassen du har bygget gjennom tolv steg. Nå er det bare å åpne skuffene og bruke dem.",
+                "tasks": [
+                    "Skriv åpningen (2–3 avsnitt). Bruk én av teknikkene du valgte — in medias res, dialog, eller en sterk billedlig beskrivelse.",
+                    "Introduser hovedkarakteren gjennom handling, ikke beskrivelse. Vis hvem de er.",
+                    "Bygg opp mot vendepunktet. Bruk minst ett virkemiddel bevisst (metafor, kontrast, symbol).",
+                    "Skriv vendepunktet. Her endrer noe seg for karakteren. Husk: «show, don't tell».",
+                    "Skriv avslutningen. Prøv en åpen slutt — la leseren tenke videre.",
+                    "Les gjennom novellen din. Marker steder der du brukte virkemidler bevisst."
+                ],
+                "links": []
+            },
+            {
+                "id": "step-12",
+                "phase": "Akt 3: Mesterverket",
+                "title": "Forfatterens speil",
+                "type": "refleksjon",
+                "content": "Du har skrevet en novelle. Gratulerer — det er noe de fleste bare snakker om å gjøre. Men en forfatter er aldri helt ferdig. Den siste og kanskje viktigste ferdigheten er evnen til å se på sitt eget arbeid med nye øyne. Å evaluere, reflektere og forbedre.\n\nDette siste steget handler ikke om å finne feil. Det handler om å forstå hva du har skapt. Hvilket tema bærer novellen din? Klarer en leser å finne det uten at du forklarer det direkte? Hvilke virkemidler brukte du — bevisst eller ubevisst? Hva fungerte, og hva ville du gjort annerledes?\n\nLes novellen din høyt. Lytt til rytmen. Legg merke til hvor flyten stopper og hvor den bærer deg videre. Spør deg selv: Forteller åpningen leseren nok til å bli nysgjerrig? Treffer vendepunktet hardt nok? Gir avslutningen rom for ettertanke?\n\nDette er forfatterens speil — og det er verktøyet du vil bruke resten av livet, uansett hva du skriver. Evnen til å se klart på sitt eget arbeid er det som skiller en som skriver fra en forfatter.",
+                "tasks": [
+                    "Les novellen din høyt for deg selv (eller en medelev). Legg merke til flyten.",
+                    "Hvilket tema har novellen din? Klarer en leser å finne det uten at du forklarer det? (Selvvurdering)",
+                    "Hvilke virkemidler brukte du? List opp minst tre med eksempler fra teksten. (Analyse)",
+                    "Hva fungerte best i novellen din? Hva er du mest fornøyd med? (Refleksjon)",
+                    "Hva ville du endret om du skulle skrevet et nytt utkast? Vær konkret. (Refleksjon)",
+                    "Fullfør setningen: «Det viktigste jeg har lært om å skrive skjønnlitterært er...» (Metarefleksjon)"
+                ],
+                "links": []
+            }
+        ]
+    }
+}

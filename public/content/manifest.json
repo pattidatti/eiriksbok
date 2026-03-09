@@ -17,7 +17,7 @@
           "id": "ordklasser",
           "title": "Ordklasser",
           "description": "Lær om de ulike ordklassene: Substantiv, verb, adjektiv og mer.",
-          "image": "/Eiriksbok/images/topics/grammatikk.png",
+          "image": "/images/topics/ordklasser_hero.png",
           "tools": [
             {
               "id": "word-sorter",
@@ -125,7 +125,7 @@
           "id": "grammatikk",
           "title": "Grammatikk",
           "description": "Lær om språkets oppbygning.",
-          "image": "/Eiriksbok/images/topics/grammatikk.png",
+          "image": "/images/topics/grammatikk.png",
           "lessons": [
             {
               "id": "setningsanalyse",
@@ -357,7 +357,15 @@
           "title": "Virkemidler",
           "description": "Forfatterens verktøykasse. Lær hvordan tekst bygges opp.",
           "image": "/images/topics/virkemidler_hero.png",
-          "tools": [],
+          "tools": [
+            {
+              "id": "skapende-skriving-sti",
+              "title": "Læringssti: Forfatterens Verksted",
+              "description": "Bygg din egen verktøykasse for skjønnlitterær skriving — fra tema og karakter til ferdig novelle.",
+              "link": "/norsk/virkemidler/skapende-skriving-sti",
+              "icon": "map"
+            }
+          ],
           "lessons": [
             {
               "id": "tid-og-struktur",
@@ -602,16 +610,46 @@
           ]
         },
         {
+          "id": "sprakhistorie",
+          "title": "Språkhistorie",
+          "description": "Fra urgermansk til moderne norsk — språkets lange reise.",
+          "image": "/images/topics/sprakhistorie_hero.webp",
+          "lessons": [
+            {
+              "id": "germanske-sprak",
+              "title": "De germanske søskenbarna",
+              "description": "Hvorfor norsk, engelsk og tysk er i slekt.",
+              "image": "/images/topics/germanske_sprak_hero.webp",
+              "tags": [
+                "språkhistorie",
+                "germansk",
+                "indoeuropeisk",
+                "norrønt",
+                "språkfamilie"
+              ],
+              "createdDate": "2026-03-09T12:00:00Z",
+              "lastUpdated": "2026-03-09T13:09:15.050Z"
+            }
+          ]
+        },
+        {
           "id": "skrivehjelp",
           "title": "Skrivehjelp",
           "description": "Tips og triks for å skrive bedre.",
-          "image": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&q=80",
+          "image": "/images/topics/skrivehjelp_hero.png",
           "tools": [
             {
               "id": "reflekterende-skriving-sti",
               "title": "Læringssti: Hvordan skrive reflekterende",
               "description": "Bli en mester i å tenke og skrive dypere.",
               "link": "/norsk/skrivehjelp/reflekterende-skriving-sti",
+              "icon": "map"
+            },
+            {
+              "id": "kildeforing-sti",
+              "title": "Læringssti: Kildeføring (APA 7)",
+              "description": "Lær å føre kilder som en proff — steg for steg.",
+              "link": "/norsk/skrivehjelp/kildeforing-sti",
               "icon": "map"
             }
           ],

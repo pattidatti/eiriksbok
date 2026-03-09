@@ -1,0 +1,404 @@
+{
+    "id": "kildeforing-sti",
+    "title": "Læringssti: Kildeføring (APA 7)",
+    "description": "Lær å føre kilder steg for steg — fra parenteshenvisning til kildeliste og spesialtilfeller.",
+    "layout": "learning-path",
+    "category": "Læringssti",
+    "year": "2024",
+    "readTime": "1.5–2 timer",
+    "heroImage": "/images/lessons/norsk/citation_hero.png",
+    "learningPathData": {
+        "id": "kildeforing-sti",
+        "title": "Hvem eier tankene?",
+        "description": "En reise fra forvirret skribent til kildeekspert. Lær å vise hvor kunnskapen din kommer fra — steg for steg.",
+        "steps": [
+            {
+                "id": "steg-0",
+                "phase": "Prolog",
+                "title": "Hvem eier tankene?",
+                "type": "fakta",
+                "content": "Tenk deg at du har skrevet en kjempebra fagartikkel om klimaendringer. Du har funnet spennende fakta, overraskende tall og smarte argumenter. Men så sier læreren: «Hvor har du dette fra? Du må føre kilder!» Hva betyr egentlig det?\n\nKildeføring handler om to ting. Det første er ærlighet — du gir æren til den som eier tankene. Hvis noen har brukt måneder på å forske frem et tall, fortjener de å bli nevnt. Det andre er sporbarhet — du gir leseren et kart. En god kildehenvisning er som en GPS-koordinat til kunnskap. Den sier: «Her fant jeg dette. Gå dit og sjekk selv.»\n\nI norsk skole bruker vi stilen APA 7. Den kan virke streng med alle sine regler, men egentlig følger den en enkel logikk som gjentar seg hver gang. Fire spørsmål er alt du trenger å svare på: Hvem har laget det? Når ble det laget? Hva heter det? Hvor finner jeg det?\n\nI denne læringsstien skal vi ta deg gjennom hele prosessen — fra den enkle parenteshenvisningen i teksten, via de ulike kildetypene i kildelisten, til de vanskelige spesialtilfellene. Du kommer til å starte som en forvirret skribent og ende som en kildeekspert.",
+                "tasks": [
+                    "Les artikkelen [Hvordan føre kilder (APA 7)](/norsk/skrivehjelp/hvordan-fore-kilder)",
+                    "Hva er de to hovedgrunnene til at vi fører kilder?",
+                    "Hva er de fire spørsmålene en kildeoppføring svarer på?",
+                    "Forklar med egne ord hva «sporbarhet» betyr.",
+                    "Hvorfor er det viktig å gi æren til den som eier tankene?",
+                    "Hva kan skje hvis du bruker andres tekst uten å oppgi kilde?"
+                ],
+                "links": [
+                    {
+                        "title": "Hvordan føre kilder (APA 7)",
+                        "url": "/norsk/skrivehjelp/hvordan-fore-kilder"
+                    }
+                ]
+            },
+            {
+                "id": "steg-1",
+                "phase": "Akt 1: I teksten",
+                "title": "Når trenger du en kilde?",
+                "type": "fakta",
+                "content": "Før du lærer hvordan du fører kilder, må du vite når du trenger dem. Ikke alt du skriver krever en kilde. «Norge ligger i Europa» er noe alle vet — det er fellesgods. Men «93 % av norske 16-åringer bruker sosiale medier daglig» er et konkret tall som noen har funnet ut gjennom forskning. Det krever en kilde.\n\nHovedregelen er enkel: Hvis noen kan spørre «Hvor vet du det fra?» og du ikke kan svare «Det vet jo alle», da trenger du en kilde. Konkrete tall, forskningsfunn, kontroversielle påstander og direkte sitater krever alltid kildehenvisning.\n\nStuder eksemplene i komponenten under. Legg merke til mønsteret: Generell kunnskap som alle kjenner til trenger ingen kilde, mens spesifikke fakta og påstander som bygger på noens arbeid alltid trenger det.",
+                "component": {
+                    "name": "WritingFix",
+                    "props": {
+                        "title": "Trenger denne setningen en kilde?",
+                        "items": [
+                            {
+                                "bad": "Mange unge bruker sosiale medier.",
+                                "good": "93 % av norske 16-åringer bruker sosiale medier daglig (Medietilsynet, 2023).",
+                                "why": "Konkrete tall og statistikk krever alltid en kilde. Generelle påstander som «mange bruker det» er uklare og bør uansett presiseres."
+                            },
+                            {
+                                "bad": "Solen går opp i øst.",
+                                "good": "Solen går opp i øst. (Ingen kilde nødvendig)",
+                                "why": "Dette er fellesgods — noe alle vet. Du trenger ikke kilde for allment kjente fakta."
+                            },
+                            {
+                                "bad": "Finland er verdens lykkeligste land.",
+                                "good": "Finland er verdens lykkeligste land (FN-sambandet, 2023).",
+                                "why": "Selv om du har hørt det mange ganger, er dette et forskningsfunn. Noen har samlet inn data og rangert landene."
+                            },
+                            {
+                                "bad": "Norge ble selvstendig i 1905.",
+                                "good": "Norge ble selvstendig i 1905. (Ingen kilde nødvendig)",
+                                "why": "Historiske årstall som er allment kjent regnes som fellesgods."
+                            }
+                        ]
+                    }
+                },
+                "tasks": [
+                    "Hva er forskjellen mellom «fellesgods» og noe som krever kilde?",
+                    "Trenger setningen «Vann koker ved 100 grader» en kilde? Hvorfor/hvorfor ikke?",
+                    "Trenger setningen «60 % av norske elever bruker TikTok daglig» en kilde? Hvorfor?",
+                    "Gi et eget eksempel på fellesgods.",
+                    "Gi et eget eksempel på en påstand som krever kilde.",
+                    "Studer eksemplene i WritingFix-komponenten over. Hva er mønsteret?"
+                ],
+                "links": [
+                    {
+                        "title": "Hvordan føre kilder (APA 7)",
+                        "url": "/norsk/skrivehjelp/hvordan-fore-kilder"
+                    }
+                ]
+            },
+            {
+                "id": "steg-2",
+                "phase": "Akt 1: I teksten",
+                "title": "Parenteshenvisningen",
+                "type": "oppgave",
+                "content": "Nå som du vet når du trenger en kilde, skal du lære den enkleste delen av APA 7: parenteshenvisningen. Dette er den lille referansen du setter rett i teksten din, og den er overraskende enkel.\n\nRegelen er: Sett en parentes med forfatterens etternavn og årstallet til slutt i setningen, før punktumet. Det er det. Eksempel: Finland er verdens lykkeligste land (FN-sambandet, 2023).\n\nNoen ganger er forfatteren en organisasjon. Da bruker du organisasjonsnavnet: (Medietilsynet, 2023). Andre ganger er det en enkeltperson: (Hansen, 2023). Legg merke til at du bare bruker etternavnet — aldri fornavnet.\n\nMen hva hvis du allerede nevner forfatteren i setningen? Da trenger du bare årstallet i parentesen: «Ifølge FN-sambandet (2023) er Finland verdens lykkeligste land.» Legg merke til at parentesen kommer rett etter forfatternavnet, ikke på slutten av setningen.\n\nEn vanlig feil er å bare lime inn URL-en i teksten. Det ser uprofesjonelt ut og gir leseren ingen informasjon om hvem som står bak kilden eller når den ble publisert.",
+                "tasks": [
+                    "Hva skal stå inni parentesen i teksten?",
+                    "Hvor i setningen skal parentesen stå — før eller etter punktumet?",
+                    "Skriv en setning om et valgfritt tema og legg til en korrekt parenteshenvisning.",
+                    "Hva er forskjellen på (Hansen, 2023) og (FN-sambandet, 2023)?",
+                    "Hvordan refererer du i teksten hvis du bruker forfatterens navn i selve setningen? (F.eks. «Ifølge Hansen (2023)...»)",
+                    "Skriv om denne setningen med korrekt henvisning: «Ifølge FN-sambandet er Finland verdens lykkeligste land. Artikkelen ble publisert i 2023.»",
+                    "Hvorfor holder det ikke å bare skrive URL-en i teksten?"
+                ],
+                "links": [
+                    {
+                        "title": "Hvordan føre kilder (APA 7)",
+                        "url": "/norsk/skrivehjelp/hvordan-fore-kilder"
+                    }
+                ]
+            },
+            {
+                "id": "steg-3",
+                "phase": "Akt 1: I teksten",
+                "title": "Oppskriften bak det hele",
+                "type": "fakta",
+                "content": "Før vi dykker ned i de ulike kildetypene, stopper vi opp og ser det store bildet. Alle kildeoppføringer i APA 7 følger det samme grunnmønsteret. Det er fire byggesteiner, og de kommer alltid i samme rekkefølge:\n\nHvem → Når → Hva → Hvor\n\nHvem har laget det? Det kan være en person (Hansen, P.) eller en organisasjon (FN-sambandet). Når ble det laget? Årstallet i parentes: (2023). Hva heter det? Tittelen på verket — alltid i kursiv. Hvor finner jeg det? For digitale kilder er dette en URL eller et forlagsnavn.\n\nDette mønsteret gjentar seg uansett om kilden er en nettside, en video, en avisartikkel eller en bok. Detaljene varierer litt, men skjelettet er alltid det samme. Når du først har forstått disse fire byggesteinene, kan du føre nesten hva som helst.\n\nEn viktig detalj: Kildelisten skal alltid sorteres alfabetisk etter den første bokstaven i kildeoppføringen — altså etter forfatterens etternavn eller organisasjonsnavnet.",
+                "tasks": [
+                    "Hva er de fire «byggesteinene» i enhver kilde i APA 7?",
+                    "Hva skal stå i kursiv i kildelisten?",
+                    "Hvorfor tror du tittelen på verket skal være i kursiv?",
+                    "Forklar med egne ord hva «Hvor» betyr i en digital kilde vs. en bok.",
+                    "Hvordan skal kildelisten sorteres?"
+                ],
+                "links": [
+                    {
+                        "title": "Hvordan føre kilder (APA 7)",
+                        "url": "/norsk/skrivehjelp/hvordan-fore-kilder"
+                    }
+                ]
+            },
+            {
+                "id": "steg-4",
+                "phase": "Akt 2: Kildelisten",
+                "title": "Nettsider i kildelisten",
+                "type": "oppgave",
+                "content": "Nå begynner vi å bygge kildelisten. Den vanligste kildetypen for skoleoppgaver er nettsider — sider fra SNL, FN-sambandet, Regjeringen og lignende. Oppskriften for nettsider følger de fire byggesteinene du nettopp lærte:\n\nForfatter/Organisasjon. (År). *Tittel*. Hentet dato fra URL\n\nLa oss bryte det ned: Først skriver du hvem som står bak artikkelen (husk punktum etter). Så årstallet i parentes med punktum etter. Deretter tittelen i kursiv med punktum etter. Til slutt skriver du «Hentet» etterfulgt av datoen du leste artikkelen, «fra», og så selve URL-en.\n\nKomponenten under lar deg øve på dette. Du får delene av en kildeoppføring og skal dra dem i riktig rekkefølge. Fargene hjelper deg å huske hvilken rolle hver del spiller: grønn for hvem, rød for når, blå for hva, og gul for hvor.",
+                "component": {
+                    "name": "SentenceBuilder",
+                    "props": {
+                        "instruction": "Dra delene i riktig rekkefølge for å bygge en kildeoppføring for en nettside.",
+                        "segments": [
+                            { "id": "hvem", "text": "FN-sambandet.", "type": "subject" },
+                            { "id": "naar", "text": "(2023).", "type": "verbal" },
+                            { "id": "hva", "text": "Finland.", "type": "object" },
+                            { "id": "hentet", "text": "Hentet 12.01.2024 fra", "type": "adverbial" },
+                            { "id": "url", "text": "https://www.fn.no/Land/finland", "type": "adverbial" }
+                        ],
+                        "correctOrder": ["hvem", "naar", "hva", "hentet", "url"]
+                    }
+                },
+                "tasks": [
+                    "Fullfør SentenceBuilder-oppgaven over. Klarte du å sette delene i riktig rekkefølge?",
+                    "Skriv en fullstendig kildeoppføring for en selvvalgt SNL-artikkel.",
+                    "Hva betyr «Hentet dato» i en kildeoppføring?",
+                    "Trenger du alltid å oppgi «Hentet dato»? Når er det spesielt viktig?",
+                    "Hva er forskjellen på en kilde med personlig forfatter og en med organisasjon?",
+                    "Skriv kildeoppføringen for denne artikkelen: Per Hansen skrev «Kildebruk i skolen» for SNL i 2022. URL: https://snl.no/kildebruk"
+                ],
+                "links": [
+                    {
+                        "title": "Hvordan føre kilder (APA 7)",
+                        "url": "/norsk/skrivehjelp/hvordan-fore-kilder"
+                    }
+                ]
+            },
+            {
+                "id": "steg-5",
+                "phase": "Akt 2: Kildelisten",
+                "title": "Video og nettavis",
+                "type": "oppgave",
+                "content": "Du har mestret nettsider. Nå tar vi to nye kildetyper — men ikke bekymre deg, mønsteret er det samme. Du kjenner allerede skjelettet: Hvem → Når → Hva → Hvor.\n\nFor YouTube-videoer legger du til to ekstra elementer: [Video]-markøren rett etter tittelen, og plattformnavnet (YouTube) før URL-en. Oppskriften blir:\n\nKanalnavn. (År). *Videotittel* [Video]. YouTube. URL\n\nLegg merke til at vi ikke bruker «Hentet dato» for videoer — en publisert video endrer seg ikke.\n\nFor nettavisartikler er det også litt annerledes. Her bruker du journalistens navn som forfatter og avisens navn som en del av oppføringen:\n\nEtternavn, F. (År). *Artikkeltittel*. Avisens navn. URL\n\nHeller ikke her bruker du «Hentet dato», fordi publiserte nyhetsartikler er stabile dokumenter.\n\nPrøv SentenceBuilder-komponenten under for å øve på rekkefølgen i en YouTube-referanse.",
+                "component": {
+                    "name": "SentenceBuilder",
+                    "props": {
+                        "instruction": "Dra delene i riktig rekkefølge for å bygge en kildeoppføring for en YouTube-video.",
+                        "segments": [
+                            { "id": "hvem", "text": "NRK Skole.", "type": "subject" },
+                            { "id": "naar", "text": "(2023).", "type": "verbal" },
+                            { "id": "hva", "text": "Hva er demokrati?", "type": "object" },
+                            { "id": "type", "text": "[Video].", "type": "val" },
+                            { "id": "plattform", "text": "YouTube.", "type": "val" },
+                            { "id": "url", "text": "https://www.youtube.com/watch?v=eksempel", "type": "adverbial" }
+                        ],
+                        "correctOrder": ["hvem", "naar", "hva", "type", "plattform", "url"]
+                    }
+                },
+                "tasks": [
+                    "Fullfør SentenceBuilder-oppgaven for YouTube-kilden.",
+                    "Hva er det som skiller en videokilde fra en nettsidekilde i kildelisten?",
+                    "Skriv kildeoppføringen for en selvvalgt YouTube-video.",
+                    "Hva er oppskriften for en nettavisartikkel?",
+                    "Hva er forskjellen mellom en nettavisartikkel og en vanlig nettside i kildelisten?",
+                    "Skriv kildeoppføringen for denne kilden: Lars Røed skrev artikkelen «Slik løser vi klimakrisen» i Aftenposten i 2024. URL: https://www.aftenposten.no/eksempel",
+                    "Hvorfor bruker vi ikke «Hentet dato» for avisartikler?"
+                ],
+                "links": [
+                    {
+                        "title": "Hvordan føre kilder (APA 7)",
+                        "url": "/norsk/skrivehjelp/hvordan-fore-kilder"
+                    }
+                ]
+            },
+            {
+                "id": "steg-6",
+                "phase": "Akt 2: Kildelisten",
+                "title": "Organisasjoner som forfatter",
+                "type": "utfordring",
+                "content": "Her begynner det å bli vanskelig — men du er klar for det. Mange nettsider har artikler skrevet av navngitte personer, selv om de publiseres på en organisasjons nettside. For eksempel har SNL ofte en personlig forfatter oppgitt på artikkelen. Da bruker du personens navn, ikke «Store norske leksikon».\n\nMen hva om artikkelen ikke har en personlig forfatter? Da bruker du organisasjonsnavnet som forfatter. «Store norske leksikon» eller «Utdanningsdirektoratet» — det fulle, offisielle navnet.\n\nDen vanligste feilen er å skrive «ukjent forfatter» eller bruke nettadressen (www.snl.no) som forfatter. Begge deler er feil. Enten finnes det en person, eller så bruker du organisasjonen.\n\nHovedregelen: Sjekk alltid om artikkelen har en personlig forfatter før du bruker organisasjonsnavnet. På SNL finner du forfatteren nederst i artikkelen. På offentlige nettsider som Udir eller Regjeringen er det som regel organisasjonen som står som avsender.\n\nStuder eksemplene i WritingFix-komponenten under. Legg merke til forskjellen mellom de tre tilfellene.",
+                "component": {
+                    "name": "WritingFix",
+                    "props": {
+                        "title": "Organisasjon eller person?",
+                        "items": [
+                            {
+                                "bad": "Store norske leksikon. (2021). *Vikingtiden*. Hentet 10.01.2024 fra https://snl.no/vikingtiden",
+                                "good": "Sigurdsson, J. V. (2021). *Vikingtiden*. Store norske leksikon. Hentet 10.01.2024 fra https://snl.no/vikingtiden",
+                                "why": "Artikkelen har en personlig forfatter (Jon Vidar Sigurdsson). Da bruker du forfatterens navn, ikke organisasjonen."
+                            },
+                            {
+                                "bad": "Ukjent forfatter. (2023). *Norge*. Hentet 15.02.2024 fra https://snl.no/Norge",
+                                "good": "Store norske leksikon. (2023). *Norge*. Hentet 15.02.2024 fra https://snl.no/Norge",
+                                "why": "Når det ikke finnes en personlig forfatter, bruker du organisasjonsnavnet. Aldri skriv «ukjent forfatter»."
+                            },
+                            {
+                                "bad": "www.udir.no. (2024). *Kompetansemål i norsk*. Hentet 20.03.2024 fra https://udir.no/lk20",
+                                "good": "Utdanningsdirektoratet. (2024). *Kompetansemål i norsk*. Hentet 20.03.2024 fra https://udir.no/lk20",
+                                "why": "Bruk det fulle, offisielle organisasjonsnavnet — aldri nettadressen som «forfatter»."
+                            }
+                        ]
+                    }
+                },
+                "tasks": [
+                    "Studer WritingFix-eksemplene over. Hva er hovedregelen for når du bruker organisasjonsnavnet?",
+                    "Du finner en artikkel på SNL om «Vikingtiden» skrevet av Jon Vidar Sigurdsson i 2021. Skriv kildeoppføringen.",
+                    "Du finner en artikkel på SNL om «Norge» uten personlig forfatter, oppdatert i 2023. Skriv kildeoppføringen.",
+                    "Hva gjør du hvis organisasjonsnavnet er veldig langt? (F.eks. «Barne-, ungdoms- og familiedirektoratet»)",
+                    "Hvordan ser parenteshenvisningen ut i teksten for en kilde med organisasjonsnavn?",
+                    "Hvorfor bør du alltid sjekke om artikkelen har en personlig forfatter før du bruker organisasjonsnavnet?"
+                ]
+            },
+            {
+                "id": "steg-7",
+                "phase": "Akt 3: Spesialtilfellene",
+                "title": "Uten årstall og hentet-dato",
+                "type": "utfordring",
+                "content": "Noen ganger finner du ikke årstallet for når en kilde ble publisert. Kanskje nettsiden ikke viser det, eller kanskje artikkelen har blitt oppdatert så mange ganger at det opprinnelige årstallet er borte. Hva gjør du da?\n\nSvaret er forkortelsen u.å., som betyr «uten år». Du bruker den både i parenteshenvisningen i teksten og i kildelisten:\n\nI teksten: (Røde Kors, u.å.)\nI kildelisten: Røde Kors. (u.å.). *Førstehjelp*. Hentet 20.03.2024 fra https://www.rodekors.no/forstehjelp\n\nNår kilden mangler årstall, blir «Hentet dato» ekstra viktig. Den viser leseren når du leste kilden, slik at de kan sjekke om innholdet har endret seg siden da. Det samme gjelder for kilder som oppdateres ofte — som Wikipedia-artikler eller offentlige statistikksider.\n\nFor stabile kilder med kjent årstall (som avisartikler og YouTube-videoer) trenger du som regel ikke «Hentet dato».",
+                "tasks": [
+                    "Hva betyr forkortelsen «u.å.»?",
+                    "Hvordan ser parenteshenvisningen ut i teksten for en kilde uten årstall?",
+                    "Skriv kildeoppføringen for denne kilden: Du fant en artikkel om «Bærekraft» på regjeringen.no, men finner ikke publiseringsdato. URL: https://www.regjeringen.no/baerekraft. Du leste den 15. mars 2024.",
+                    "Hvorfor er «Hentet dato» spesielt viktig for Wikipedia-artikler?",
+                    "Hva ville du gjort hvis du fant en YouTube-video uten publiseringsdato?",
+                    "Er det mer eller mindre troverdig å bruke en kilde uten årstall? Begrunn svaret."
+                ]
+            },
+            {
+                "id": "steg-8",
+                "phase": "Akt 3: Spesialtilfellene",
+                "title": "Flere kilder fra samme forfatter",
+                "type": "utfordring",
+                "content": "Du skriver en artikkel om klimaendringer og har brukt to ulike artikler av Per Hansen, begge fra 2023. Problemet er at parenteshenvisningen (Hansen, 2023) nå peker på to forskjellige kilder. Hvordan vet leseren hvilken du mener?\n\nSvaret er bokstaver. Du legger til a, b, c etter årstallet for å skille dem: (Hansen, 2023a) og (Hansen, 2023b). Men hvilken får «a» og hvilken får «b»?\n\nDet bestemmes av kildelisten. Kildene sorteres alfabetisk etter tittel — den som kommer først alfabetisk, får «a». For eksempel: «Havnivåstigning i Norge» kommer før «Klimaendringer i Arktis» alfabetisk, så den får 2023a.\n\nI kildelisten ser det slik ut:\nHansen, P. (2023a). *Havnivåstigning i Norge*. ...\nHansen, P. (2023b). *Klimaendringer i Arktis*. ...\n\nOg i teksten bruker du riktig bokstav: «Havnivået stiger raskere enn ventet (Hansen, 2023a), og temperaturen i Arktis følger samme trend (Hansen, 2023b).»\n\nHvis to ulike forfattere har samme etternavn, bruker du i stedet initialene for å skille dem: (P. Hansen, 2023) og (L. Hansen, 2023).",
+                "tasks": [
+                    "Hvorfor trenger vi bokstaver (a, b, c) bak årstallet?",
+                    "Hva bestemmer hvilken kilde som får «a» og hvilken som får «b»?",
+                    "Du har brukt disse to kildene: Hansen, P. (2023). *Klimaendringer i Arktis*. og Hansen, P. (2023). *Havnivåstigning i Norge*. Skriv dem med riktige bokstaver.",
+                    "Hvordan ser parenteshenvisningen ut i teksten for disse to kildene?",
+                    "Hva gjør du hvis to ULIKE forfattere har samme etternavn og samme årstall?",
+                    "Tenk deg at du har tre artikler av FN-sambandet fra 2023. Hvordan ville du sortert og merket dem?"
+                ]
+            },
+            {
+                "id": "steg-9",
+                "phase": "Akt 3: Spesialtilfellene",
+                "title": "Scenario: Din første fagartikkel",
+                "type": "utfordring",
+                "content": "Alt du har lært settes nå på prøve. Du er midt i å skrive en fagartikkel om sosiale medier og ungdom, og du har funnet mange gode kilder. Nå må du føre dem riktig — og du vil møte flere av situasjonene du har øvd på.\n\nI scenarioet under spiller du deg gjennom fire kildesituasjoner. For hvert valg må du tenke på oppskriften: Hvem → Når → Hva → Hvor. Hvis du velger feil, får du en forklaring og kan prøve igjen.",
+                "component": {
+                    "name": "ScenarioRoleplay",
+                    "props": {
+                        "title": "Din første fagartikkel",
+                        "intro": "Du skriver en fagartikkel om sosiale medier og ungdom. Du har funnet mange gode kilder, men nå må du føre dem riktig. For hvert valg: tenk på oppskriften!",
+                        "startId": "start",
+                        "scenarios": [
+                            {
+                                "id": "start",
+                                "text": "Du har funnet en artikkel i VG av journalist Lise Røed fra 2024 med tittelen «Ungdom og skjermtid». Hvordan skriver du parenteshenvisningen i teksten?",
+                                "options": [
+                                    { "label": "(Røed, 2024)", "nextId": "riktig-1" },
+                                    { "label": "(VG, 2024)", "nextId": "feil-avis" },
+                                    { "label": "(Lise Røed, 2024)", "nextId": "feil-fornavn" }
+                                ]
+                            },
+                            {
+                                "id": "feil-avis",
+                                "text": "Nesten! VG er avisens navn, ikke forfatteren. I en avisartikkel bruker du journalistens etternavn. Prøv igjen!",
+                                "options": [
+                                    { "label": "(Røed, 2024)", "nextId": "riktig-1" }
+                                ]
+                            },
+                            {
+                                "id": "feil-fornavn",
+                                "text": "Riktig forfatter, men i parenteshenvisningen bruker vi bare etternavn — ikke fornavn. Prøv igjen!",
+                                "options": [
+                                    { "label": "(Røed, 2024)", "nextId": "riktig-1" }
+                                ]
+                            },
+                            {
+                                "id": "riktig-1",
+                                "text": "Riktig! Nå finner du et tall på Medietilsynets nettside: «93 % av 16-åringer bruker sosiale medier daglig.» Det er ingen personlig forfatter. Hvordan henviser du?",
+                                "options": [
+                                    { "label": "(Medietilsynet, 2023)", "nextId": "riktig-2" },
+                                    { "label": "(ukjent, 2023)", "nextId": "feil-ukjent" },
+                                    { "label": "(medietilsynet.no, 2023)", "nextId": "feil-url" }
+                                ]
+                            },
+                            {
+                                "id": "feil-ukjent",
+                                "text": "Vi skriver aldri «ukjent» som forfatter. Når det ikke er personlig forfatter, bruker du organisasjonsnavnet. Prøv igjen.",
+                                "options": [
+                                    { "label": "(Medietilsynet, 2023)", "nextId": "riktig-2" }
+                                ]
+                            },
+                            {
+                                "id": "feil-url",
+                                "text": "Nettadressen er ikke forfatteren! Bruk det offisielle organisasjonsnavnet med stor forbokstav.",
+                                "options": [
+                                    { "label": "(Medietilsynet, 2023)", "nextId": "riktig-2" }
+                                ]
+                            },
+                            {
+                                "id": "riktig-2",
+                                "text": "Perfekt! Du finner en video av NRK Skole om nettmobbing fra 2022. Nå skal du skrive kildeoppføringen i kildelisten. Hva kommer etter tittelen?",
+                                "options": [
+                                    { "label": "[Video]. YouTube. URL", "nextId": "riktig-3" },
+                                    { "label": "Hentet dato fra URL", "nextId": "feil-hentet" },
+                                    { "label": "YouTube. [Video]. URL", "nextId": "feil-rekkefolge" }
+                                ]
+                            },
+                            {
+                                "id": "feil-hentet",
+                                "text": "«Hentet dato» brukes for nettsider, ikke YouTube-videoer. For video bruker du [Video]-markøren og plattformnavnet.",
+                                "options": [
+                                    { "label": "[Video]. YouTube. URL", "nextId": "riktig-3" }
+                                ]
+                            },
+                            {
+                                "id": "feil-rekkefolge",
+                                "text": "Riktige elementer, men feil rekkefølge! [Video] kommer rett etter tittelen, deretter plattformen.",
+                                "options": [
+                                    { "label": "[Video]. YouTube. URL", "nextId": "riktig-3" }
+                                ]
+                            },
+                            {
+                                "id": "riktig-3",
+                                "text": "Siste utfordring! Du har to artikler av Per Hansen fra 2024: «Skjermtid og søvn» og «Digital avhengighet». Hvordan skiller du dem i parenteshenvisningene?",
+                                "options": [
+                                    { "label": "(Hansen, 2024a) og (Hansen, 2024b)", "nextId": "slutt" },
+                                    { "label": "(Hansen 1, 2024) og (Hansen 2, 2024)", "nextId": "feil-tall" },
+                                    { "label": "(P. Hansen, 2024) og (Per Hansen, 2024)", "nextId": "feil-fornavn2" }
+                                ]
+                            },
+                            {
+                                "id": "feil-tall",
+                                "text": "I APA 7 bruker vi bokstaver (a, b, c) etter årstallet for å skille kilder av samme forfatter fra samme år.",
+                                "options": [
+                                    { "label": "(Hansen, 2024a) og (Hansen, 2024b)", "nextId": "slutt" }
+                                ]
+                            },
+                            {
+                                "id": "feil-fornavn2",
+                                "text": "Initialene brukes bare når to ULIKE forfattere har samme etternavn. Når det er SAMME forfatter, bruker vi bokstaver (a, b) etter årstallet.",
+                                "options": [
+                                    { "label": "(Hansen, 2024a) og (Hansen, 2024b)", "nextId": "slutt" }
+                                ]
+                            },
+                            {
+                                "id": "slutt",
+                                "text": "Gratulerer! Du har mestret alle de viktigste kildesituasjonene. Din fagartikkel har nå korrekte kilder i teksten og i kildelisten. Du er en kildeekspert!"
+                            }
+                        ]
+                    }
+                },
+                "tasks": [
+                    "Spill gjennom scenarioet over. Hvor mange riktige valg fikk du på første forsøk?",
+                    "Hva var den vanskeligste kildesituasjonen du møtte? Hvorfor?",
+                    "Skriv en komplett kildeliste med minst 4 kilder fra ulike typer (nettside, video, avis, rapport).",
+                    "Bytt kildeliste med en medelev og sjekk hverandres arbeid. Er alt riktig sortert og formatert?",
+                    "Hva ville du gjort annerledes neste gang du skriver en fagartikkel?"
+                ]
+            },
+            {
+                "id": "steg-10",
+                "phase": "Epilog",
+                "title": "Kildeekspert",
+                "type": "refleksjon",
+                "content": "Du har kommet hele veien. Fra å lure på hva «kilder» egentlig betyr, til å mestre parenteshenvisninger, kildelister for nettsider, videoer og avisartikler, og til og med de vanskelige spesialtilfellene.\n\nMen kildeføring er mer enn bare en formalitet du gjør fordi læreren krever det. Det handler om noe dypere. Hver gang du fører en kilde, sier du til leseren: «Jeg har gjort jobben min. Jeg har sjekket dette. Og du kan sjekke det selv.» Det er en tillitserklæring.\n\nI den virkelige verden har dårlig kildebruk alvorlige konsekvenser. Forskere har mistet jobbene sine fordi de plagierte andres arbeid. Journalister har blitt sparket for å fabrikkere kilder. Politikere har tapt troverdighet fordi de påstod ting uten belegg.\n\nOg her er koblingen til et enda større tema: Kildeføring henger tett sammen med kildekritikk. Det holder ikke bare å ha mange kilder — du må ha gode kilder. En tekst med ti svake kilder er ikke bedre enn en tekst med tre sterke. Når du fører kilder, tvinger det deg til å tenke over kvaliteten på det du bruker. Hvem står bak? Er dette troverdig? Når ble det skrevet?\n\nDu er nå en kildeekspert. Bruk det godt.",
+                "tasks": [
+                    "Forklar med egne ord hvorfor kildeføring er viktig — som om du forklarer det til en yngre elev.",
+                    "Hva er den viktigste tingen du har lært i denne læringsstien?",
+                    "Hvordan kan gode kildehenvisninger gjøre teksten din mer troverdig?",
+                    "Tenk deg at du leser en artikkel som påstår noe kontroversielt, men ikke oppgir kilder. Hva ville du tenkt?",
+                    "Hva er sammenhengen mellom kildeføring og kildekritikk? Hvorfor holder det ikke bare å ha mange kilder?",
+                    "Lag en «huskelapp» med de tre viktigste reglene for kildeføring som du vil ha med deg videre."
+                ]
+            }
+        ]
+    }
+}

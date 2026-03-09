@@ -1,5 +1,5 @@
 {
-  "buildId": 1772971411935,
+  "buildId": 1773061757962,
   "contentMap": {
     "adel": [
       "content/concepts/adel.json"
@@ -1276,11 +1276,17 @@
     "hvordan-skrive-roman": [
       "content/norsk/skrivehjelp/hvordan-skrive-roman.json"
     ],
+    "kildeforing-sti": [
+      "content/norsk/skrivehjelp/kildeforing-sti.json"
+    ],
     "reflekterende-skriving-sti": [
       "content/norsk/skrivehjelp/reflekterende-skriving-sti.json"
     ],
     "skriv-bedre-historier": [
       "content/norsk/skrivehjelp/skriv-bedre-historier.json"
+    ],
+    "germanske-sprak": [
+      "content/norsk/sprakhistorie/germanske-sprak.json"
     ],
     "tekstsjangre": [
       "content/norsk/tekstsjangre/artikkel.json"
@@ -1308,6 +1314,9 @@
     ],
     "bildesprak-og-effekter": [
       "content/norsk/virkemidler/bildesprak-og-effekter.json"
+    ],
+    "skapende-skriving-sti": [
+      "content/norsk/virkemidler/skapende-skriving-sti.json"
     ],
     "synsvinkel-og-stemme": [
       "content/norsk/virkemidler/synsvinkel-og-stemme.json"
@@ -2094,8 +2103,10 @@
     "norsk/skrivehjelp/hvordan-skrive-novelle": "content/norsk/skrivehjelp/hvordan-skrive-novelle.json",
     "norsk/skrivehjelp/hvordan-skrive-reflekterende": "content/norsk/skrivehjelp/hvordan-skrive-reflekterende.json",
     "norsk/skrivehjelp/hvordan-skrive-roman": "content/norsk/skrivehjelp/hvordan-skrive-roman.json",
+    "norsk/skrivehjelp/kildeforing-sti": "content/norsk/skrivehjelp/kildeforing-sti.json",
     "norsk/skrivehjelp/reflekterende-skriving-sti": "content/norsk/skrivehjelp/reflekterende-skriving-sti.json",
     "norsk/skrivehjelp/skriv-bedre-historier": "content/norsk/skrivehjelp/skriv-bedre-historier.json",
+    "norsk/sprakhistorie/germanske-sprak": "content/norsk/sprakhistorie/germanske-sprak.json",
     "norsk/tekstsjangre/tekstsjangre": "content/norsk/tekstsjangre/artikkel.json",
     "norsk/tekstsjangre/debattinnlegg": "content/norsk/tekstsjangre/debattinnlegg.json",
     "norsk/tekstsjangre/dikt": "content/norsk/tekstsjangre/dikt.json",
@@ -2105,6 +2116,7 @@
     "norsk/tekstsjangre/reflekterende-tekst": "content/norsk/tekstsjangre/reflekterende-tekst.json",
     "norsk/tekstsjangre/roman": "content/norsk/tekstsjangre/roman.json",
     "norsk/virkemidler/bildesprak-og-effekter": "content/norsk/virkemidler/bildesprak-og-effekter.json",
+    "norsk/virkemidler/skapende-skriving-sti": "content/norsk/virkemidler/skapende-skriving-sti.json",
     "norsk/virkemidler/synsvinkel-og-stemme": "content/norsk/virkemidler/synsvinkel-og-stemme.json",
     "norsk/virkemidler/tid-og-struktur": "content/norsk/virkemidler/tid-og-struktur.json",
     "people/adam-smith.json/adam-smith": "content/people/adam-smith.json",

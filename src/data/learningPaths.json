@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-02-05T13:30:00.000Z",
-  "count": 13,
+  "updatedAt": "2026-03-09T13:04:20.334Z",
+  "count": 15,
   "paths": [
     {
       "id": "romerriket-sti",
@@ -12,13 +12,7 @@
       "year": "753 f.Kr - 476 e.Kr",
       "readTime": "3-4 timer",
       "path": "/historie/romerriket/romerriket-sti",
-      "fileRelativePath": "historie\\romerriket\\romerriket-sti.json",
-      "tags": [
-        "historie",
-        "romerriket",
-        "antikken"
-      ],
-      "createdDate": "2024-01-10T10:00:00Z"
+      "fileRelativePath": "historie/romerriket/romerriket-sti.json"
     },
     {
       "id": "vikingtiden-sti",
@@ -30,13 +24,7 @@
       "year": "750-1066",
       "readTime": "2-3 timer aktiv læring",
       "path": "/historie/vikingtiden/vikingtiden-sti",
-      "fileRelativePath": "historie\\vikingtiden\\vikingtiden-sti.json",
-      "tags": [
-        "historie",
-        "viking",
-        "norge"
-      ],
-      "createdDate": "2024-01-15T12:00:00Z"
+      "fileRelativePath": "historie/vikingtiden/vikingtiden-sti.json"
     },
     {
       "id": "svartedauden-sti",
@@ -48,13 +36,7 @@
       "year": "1347-1351",
       "readTime": "15 min aktiv læring",
       "path": "/historie/middelalderen/svartedauden-sti",
-      "fileRelativePath": "historie\\middelalderen\\svartedauden-sti.json",
-      "tags": [
-        "historie",
-        "middelalder",
-        "pest"
-      ],
-      "createdDate": "2024-01-20T09:00:00Z"
+      "fileRelativePath": "historie/middelalderen/svartedauden-sti.json"
     },
     {
       "id": "dekolonisering-sti",
@@ -66,13 +48,7 @@
       "year": "1776 - 1994",
       "readTime": "3-4 timer",
       "path": "/historie/dekolonisering/dekolonisering-sti",
-      "fileRelativePath": "historie\\dekolonisering\\dekolonisering-sti.json",
-      "tags": [
-        "historie",
-        "frihet",
-        "global"
-      ],
-      "createdDate": "2024-01-25T14:00:00Z"
+      "fileRelativePath": "historie/dekolonisering/dekolonisering-sti.json"
     },
     {
       "id": "ww1-sti",
@@ -84,13 +60,7 @@
       "year": "1914 - 1918",
       "readTime": "4-5 timer",
       "path": "/historie/forste-verdenskrig/ww1-sti",
-      "fileRelativePath": "historie\\forste-verdenskrig\\ww1-sti.json",
-      "tags": [
-        "historie",
-        "krig",
-        "ww1"
-      ],
-      "createdDate": "2026-02-04T18:00:00Z"
+      "fileRelativePath": "historie/forste-verdenskrig/ww1-sti.json"
     },
     {
       "id": "mellomkrigstiden-sti",
@@ -102,13 +72,7 @@
       "year": "1918-1939",
       "readTime": "3-4 timer",
       "path": "/historie/mellomkrigstiden/mellomkrigstiden-sti",
-      "fileRelativePath": "historie\\mellomkrigstiden\\mellomkrigstiden-sti.json",
-      "tags": [
-        "historie",
-        "mellomkrigstid",
-        "europe"
-      ],
-      "createdDate": "2024-02-05T08:00:00Z"
+      "fileRelativePath": "historie/mellomkrigstiden/mellomkrigstiden-sti.json"
     },
     {
       "id": "kald-krig-sti",
@@ -120,14 +84,7 @@
       "year": "1945 - 1991",
       "readTime": "4-5 timer",
       "path": "/historie/den-kalde-krigen/kald-krig-sti",
-      "fileRelativePath": "historie\\den-kalde-krigen\\kald-krig-sti.json",
-      "tags": [
-        "historie",
-        "kald krig",
-        "sovjet",
-        "usa"
-      ],
-      "createdDate": "2024-02-10T13:00:00Z"
+      "fileRelativePath": "historie/den-kalde-krigen/kald-krig-sti.json"
     },
     {
       "id": "romantikken-sti",
@@ -139,13 +96,7 @@
       "year": "1830-1870",
       "readTime": "30-45 min",
       "path": "/norsk/litteraturhistorie/romantikken-sti",
-      "fileRelativePath": "norsk\\litteraturhistorie\\romantikken-sti.json",
-      "tags": [
-        "norsk",
-        "litteraturhistorie",
-        "romantikken"
-      ],
-      "createdDate": "2024-02-15T10:00:00Z"
+      "fileRelativePath": "norsk/litteraturhistorie/romantikken-sti.json"
     },
     {
       "id": "realismen-sti",
@@ -157,13 +108,7 @@
       "year": "1870-1890",
       "readTime": "35-50 min",
       "path": "/norsk/litteraturhistorie/realismen-sti",
-      "fileRelativePath": "norsk\\litteraturhistorie\\realismen-sti.json",
-      "tags": [
-        "norsk",
-        "litteraturhistorie",
-        "realismen"
-      ],
-      "createdDate": "2024-02-20T12:00:00Z"
+      "fileRelativePath": "norsk/litteraturhistorie/realismen-sti.json"
     },
     {
       "id": "nyromantikken-sti",
@@ -175,13 +120,7 @@
       "year": "1890-1905",
       "readTime": "45-60 min",
       "path": "/norsk/litteraturhistorie/nyromantikken-sti",
-      "fileRelativePath": "norsk\\litteraturhistorie\\nyromantikken-sti.json",
-      "tags": [
-        "norsk",
-        "litteraturhistorie",
-        "nyromantikken"
-      ],
-      "createdDate": "2024-02-25T09:00:00Z"
+      "fileRelativePath": "norsk/litteraturhistorie/nyromantikken-sti.json"
     },
     {
       "id": "nyrealismen-sti",
@@ -193,13 +132,7 @@
       "year": "1905-1940",
       "readTime": "30-45 min",
       "path": "/norsk/litteraturhistorie/nyrealismen-sti",
-      "fileRelativePath": "norsk\\litteraturhistorie\\nyrealismen-sti.json",
-      "tags": [
-        "norsk",
-        "litteraturhistorie",
-        "nyrealismen"
-      ],
-      "createdDate": "2024-03-01T14:00:00Z"
+      "fileRelativePath": "norsk/litteraturhistorie/nyrealismen-sti.json"
     },
     {
       "id": "reflekterende-skriving-sti",
@@ -211,13 +144,19 @@
       "year": "2024",
       "readTime": "45 minutter",
       "path": "/norsk/skrivehjelp/reflekterende-skriving-sti",
-      "fileRelativePath": "norsk\\skrivehjelp\\reflekterende-skriving-sti.json",
-      "tags": [
-        "norsk",
-        "skrivehjelp",
-        "refleksjon"
-      ],
-      "createdDate": "2024-03-05T11:00:00Z"
+      "fileRelativePath": "norsk/skrivehjelp/reflekterende-skriving-sti.json"
+    },
+    {
+      "id": "kildeforing-sti",
+      "title": "Læringssti: Kildeføring (APA 7)",
+      "description": "Lær å føre kilder steg for steg — fra parenteshenvisning til kildeliste og spesialtilfeller.",
+      "subjectId": "norsk",
+      "subjectName": "Norsk",
+      "topicId": "skrivehjelp",
+      "year": "2024",
+      "readTime": "1.5–2 timer",
+      "path": "/norsk/skrivehjelp/kildeforing-sti",
+      "fileRelativePath": "norsk/skrivehjelp/kildeforing-sti.json"
     },
     {
       "id": "analyse-sti",
@@ -228,13 +167,18 @@
       "topicId": "analyse",
       "readTime": "45-60 min",
       "path": "/norsk/analyse/analyse-sti",
-      "fileRelativePath": "norsk\\analyse\\analyse-sti.json",
-      "tags": [
-        "norsk",
-        "analyse",
-        "metode"
-      ],
-      "createdDate": "2024-03-10T13:00:00Z"
+      "fileRelativePath": "norsk/analyse/analyse-sti.json"
+    },
+    {
+      "id": "skapende-skriving-sti",
+      "title": "Læringssti: Forfatterens Verksted",
+      "description": "Bygg din egen verktøykasse for skjønnlitterær skriving — fra tema og karakter til ferdig novelle.",
+      "subjectId": "norsk",
+      "subjectName": "Norsk",
+      "topicId": "virkemidler",
+      "readTime": "5–6 timer",
+      "path": "/norsk/virkemidler/skapende-skriving-sti",
+      "fileRelativePath": "norsk/virkemidler/skapende-skriving-sti.json"
     }
   ]
 }

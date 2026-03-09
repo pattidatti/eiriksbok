@@ -70,11 +70,73 @@
         },
         {
             "type": "header",
+            "value": "Del 3: Forfatter i setningen"
+        },
+        {
+            "type": "text",
+            "value": "Noen ganger nevner du forfatteren direkte i setningen. Da trenger du bare årstallet i parentesen."
+        },
+        {
+            "type": "comparison",
+            "before": {
+                "label": "Parentes (vanlig)",
+                "content": "Finland er verdens lykkeligste land (FN-sambandet, 2023)."
+            },
+            "after": {
+                "label": "Forfatter i setningen",
+                "content": "Ifølge FN-sambandet (2023) er Finland verdens lykkeligste land."
+            }
+        },
+        {
+            "type": "header",
+            "value": "Del 4: Spesialtilfeller"
+        },
+        {
+            "type": "subheader",
+            "value": "Organisasjon eller person? (f.eks. SNL)"
+        },
+        {
+            "type": "text",
+            "value": "Mange nettsider har artikler skrevet av navngitte personer. Da bruker du personens navn, ikke organisasjonen. Sjekk alltid om artikkelen har en forfatter oppgitt."
+        },
+        {
+            "type": "comparison",
+            "before": {
+                "label": "SNL med forfatter",
+                "content": "Sigurdsson, J. V. (2021). *Vikingtiden*. Store norske leksikon. Hentet 10.01.2024 fra https://snl.no/vikingtiden"
+            },
+            "after": {
+                "label": "SNL uten forfatter",
+                "content": "Store norske leksikon. (2023). *Norge*. Hentet 15.02.2024 fra https://snl.no/Norge"
+            }
+        },
+        {
+            "type": "text",
+            "value": "Legg merke til forskjellen: Når artikkelen har en personlig forfatter, bruker du etternavnet og initialene. Når det ikke finnes en personlig forfatter, bruker du organisasjonsnavnet. Skriv aldri \"ukjent forfatter\" eller nettadressen som forfatter."
+        },
+        {
+            "type": "subheader",
+            "value": "Uten årstall (u.å.)"
+        },
+        {
+            "type": "text",
+            "value": "Noen ganger finner du ikke årstallet for når en kilde ble publisert. Da skriver du (u.å.) i stedet, som betyr \"uten år\". I teksten ser det slik ut: (Røde Kors, u.å.). I kildelisten ser det slik ut:\n\nRøde Kors. (u.å.). *Førstehjelp*. Hentet 20.03.2024 fra https://www.rodekors.no/forstehjelp\n\nNår kilden mangler årstall, er det ekstra viktig å ta med datoen du hentet den. Slik kan leseren sjekke om innholdet har endret seg."
+        },
+        {
+            "type": "subheader",
+            "value": "Flere kilder av samme forfatter, samme år"
+        },
+        {
+            "type": "text",
+            "value": "Hva gjør du hvis du har brukt to artikler av Per Hansen, begge fra 2023? Da legger du til en bokstav etter årstallet: a, b, c. Bokstavene følger alfabetisk rekkefølge basert på tittelen i kildelisten.\n\nI teksten: (Hansen, 2023a) og (Hansen, 2023b)\n\nI kildelisten:\nHansen, P. (2023a). *Havnivåstigning i Norge*. Hentet 12.01.2024 fra https://www.eksempel.no/havniva\nHansen, P. (2023b). *Klimaendringer i Arktis*. Hentet 12.01.2024 fra https://www.eksempel.no/klima\n\n\"Havnivåstigning\" kommer før \"Klimaendringer\" alfabetisk, og får derfor bokstaven a."
+        },
+        {
+            "type": "header",
             "value": "Husk!"
         },
         {
             "type": "text",
-            "value": "Hvis en kilde ikke har et personlig forfatternavn, bruker du navnet på organisasjonen (som \"Store norske leksikon\" eller \"Utdanningsdirektoratet\"). Finner du ikke årstallet? Da skriver du (u.å.) som betyr \"uten år\". Du trenger som regel ikke ta med datoen du leste kilden, med mindre innholdet endrer seg ofte (som på Wikipedia)."
+            "value": "Hvis en kilde ikke har et personlig forfatternavn, bruker du navnet på organisasjonen (som \"Store norske leksikon\" eller \"Utdanningsdirektoratet\"). Finner du ikke årstallet? Da skriver du (u.å.) som betyr \"uten år\". Du trenger som regel ikke ta med datoen du leste kilden, med mindre innholdet endrer seg ofte (som på Wikipedia) eller kilden mangler årstall."
         }
     ],
     "quiz": [
@@ -107,6 +169,36 @@
                 "Det er tilfeldig"
             ],
             "correctAnswer": 2
+        },
+        {
+            "question": "En SNL-artikkel er skrevet av Jon Vidar Sigurdsson. Hva bruker du som forfatter i kildelisten?",
+            "options": [
+                "Store norske leksikon",
+                "Sigurdsson, J. V.",
+                "SNL",
+                "snl.no"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hva skriver du hvis du ikke finner årstallet for en kilde?",
+            "options": [
+                "Du dropper kilden",
+                "(u.å.)",
+                "(ukjent år)",
+                "Du bruker årstallet du fant den"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Du har to artikler av Hansen fra 2023. Hvordan skiller du dem?",
+            "options": [
+                "(Hansen 1, 2023) og (Hansen 2, 2023)",
+                "(Hansen, 2023a) og (Hansen, 2023b)",
+                "(P. Hansen, 2023) og (Per Hansen, 2023)",
+                "Du trenger ikke skille dem"
+            ],
+            "correctAnswer": 1
         }
     ]
 }
