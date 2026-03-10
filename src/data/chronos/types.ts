@@ -152,6 +152,11 @@ export interface ChronosBattleConfig {
         type: 'attack' | 'defend' | 'maneuver';
         counters: string[]; // Types this move beats (rock beats scissors)
     }>;
+    statBonus?: {
+        stat: string;
+        threshold: number;
+        bonusHP: number;
+    };
 }
 
 export type ChronosMinigame =

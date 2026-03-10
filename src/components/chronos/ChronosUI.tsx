@@ -99,12 +99,37 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({ node, stats, inventory = [
     // Helper to check if choice is locked
     const isChoiceLocked = (choice: ChronosChoice) => {
         if (choice.checkInventory?.hasItem) {
-            return !inventory.includes(choice.checkInventory.hasItem);
+            if (!inventory.includes(choice.checkInventory.hasItem)) return true;
         }
         if (choice.checkInventory?.lacksItem) {
-            return inventory.includes(choice.checkInventory.lacksItem);
+            if (inventory.includes(choice.checkInventory.lacksItem)) return true;
+        }
+        if (choice.condition) {
+            const stat = stats.find(s => s.id === choice.condition!.statId);
+            if (stat) {
+                const { operator, value } = choice.condition;
+                switch (operator) {
+                    case '>=': if (!(stat.value >= value)) return true; break;
+                    case '>': if (!(stat.value > value)) return true; break;
+                    case '<=': if (!(stat.value <= value)) return true; break;
+                    case '<': if (!(stat.value < value)) return true; break;
+                    case '==': if (!(stat.value === value)) return true; break;
+                }
+            }
         }
         return false;
+    };
+
+    const getLockedReason = (choice: ChronosChoice): string | null => {
+        if (choice.checkInventory?.hasItem && !inventory.includes(choice.checkInventory.hasItem)) {
+            const item = getItemDetails(choice.checkInventory.hasItem);
+            return item?.name ? `Mangler: ${item.name}` : null;
+        }
+        if (choice.condition) {
+            const stat = stats.find(s => s.id === choice.condition!.statId);
+            if (stat) return `Krever: ${stat.label} ${choice.condition.operator} ${choice.condition.value}`;
+        }
+        return null;
     };
 
     const getItemDetails = (itemId: string) => {
@@ -380,6 +405,7 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({ node, stats, inventory = [
                             ) : node.minigame.type === 'battle' ? (
                                 <BattleGame
                                     config={node.minigame.config}
+                                    stats={stats}
                                     onComplete={(success: boolean) => {
                                         if (node.minigame?.type === 'battle') {
                                             const nextId = success ? node.minigame.config.winNodeId : node.minigame.config.lossNodeId;
@@ -441,7 +467,7 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({ node, stats, inventory = [
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 {!isEnd && node.choices.map(choice => {
                                     const locked = isChoiceLocked(choice);
-                                    const reqItemName = choice.checkInventory?.hasItem ? getItemDetails(choice.checkInventory.hasItem)?.name : null;
+                                    const lockedReason = locked ? getLockedReason(choice) : null;
 
                                     return (
                                         <button
@@ -460,9 +486,9 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({ node, stats, inventory = [
                                                     <span className={`font-medium text-lg transition-colors ${locked ? 'text-stone-400' : 'text-stone-700 group-hover:text-indigo-900'}`}>
                                                         {choice.text}
                                                     </span>
-                                                    {locked && reqItemName && (
+                                                    {locked && lockedReason && (
                                                         <span className="text-xs font-bold text-rose-500 mt-1 flex items-center gap-1">
-                                                            <Lock size={10} /> Mange: {reqItemName}
+                                                            <Lock size={10} /> {lockedReason}
                                                         </span>
                                                     )}
                                                 </div>
