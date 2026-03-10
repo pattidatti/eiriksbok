@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { fetchLesson } from '../utils/contentLoader';
 import { ArticleContent } from './ArticleContent';
 import type { ManifestLesson, Lesson } from '../types';
@@ -67,18 +68,21 @@ export function TopicPrintView({ subjectId, topicId, lessons, onClose }: Props) 
                 </div>
             </div>
 
-            {/* Print-container (skjult på skjerm, synlig i print) */}
-            <div id="print-container">
-                {articles.map(
-                    (article) =>
-                        article && (
-                            <div key={article.id} className="print-article">
-                                <h1>{article.title}</h1>
-                                <ArticleContent content={article.content ?? []} />
-                            </div>
-                        )
-                )}
-            </div>
+            {/* Print-container (skjult på skjerm, synlig i print) — portal til document.body utenfor #root */}
+            {createPortal(
+                <div id="print-container">
+                    {articles.map(
+                        (article) =>
+                            article && (
+                                <div key={article.id} className="print-article">
+                                    <h1>{article.title}</h1>
+                                    <ArticleContent content={article.content ?? []} />
+                                </div>
+                            )
+                    )}
+                </div>,
+                document.body
+            )}
         </>
     );
 }
