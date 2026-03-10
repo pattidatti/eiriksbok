@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Scroll, ArrowRight, Skull, Trophy, RefreshCcw } from 'lucide-react';
+import { renderInlineMarkdown } from '../../markdownUtils';
 
 interface Option {
     label: string;
@@ -82,9 +83,11 @@ export const ScenarioRoleplay: React.FC<ScenarioRoleplayProps> = ({ title, intro
                             />
                         )}
 
-                        <p className="text-lg text-slate-700 leading-relaxed mb-8">
-                            {currentScenario.text}
-                        </p>
+                        <div className="text-lg text-slate-700 leading-relaxed mb-8 space-y-4">
+                            {currentScenario.text.split('\n\n').map((para, i) => (
+                                <p key={i}>{renderInlineMarkdown(para)}</p>
+                            ))}
+                        </div>
 
                         {/* Options */}
                         <div className="space-y-3">

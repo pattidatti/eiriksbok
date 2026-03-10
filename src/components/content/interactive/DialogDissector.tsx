@@ -122,7 +122,7 @@ export const DialogDissector = ({
                                                 : 'bg-white border border-slate-200 text-slate-700 hover:border-violet-300 hover:shadow-md cursor-pointer'
                                         }`}
                                     >
-                                        \u00ab{line.text}\u00bb
+                                        «{line.text}»
                                         {revealed && <CheckCircle2 size={14} className="inline ml-2 text-green-500" />}
                                     </motion.button>
                                     {/* Subtext drawer */}
@@ -224,8 +224,8 @@ export const DialogDissector = ({
                                     <Sparkles size={28} className="mx-auto text-violet-500 mb-2" />
                                     <h4 className="font-display font-bold text-lg text-slate-800 mb-1">Stemmene lever!</h4>
                                     <p className="text-sm text-slate-500">
-                                        Du har avsl\u00f8rt subtekst og erstattet svake talebeskrivelser med handlingsmerker.
-                                        Dialogen f\u00f8les ekte n\u00e5r leseren kan <em>se</em> hva karakterene gj\u00f8r.
+                                        Du har avslørt subtekst og erstattet svake talebeskrivelser med handlingsmerker.
+                                        Dialogen føles ekte når leseren kan <em>se</em> hva karakterene gjør.
                                     </p>
                                 </motion.div>
                             )}
