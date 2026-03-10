@@ -381,9 +381,11 @@ export const ArticleContent: React.FC<ArticleContentProps> = React.memo(({ conte
                         }
 
                         return (
-                            <React.Suspense key={index} fallback={<div className="h-40 w-full animate-pulse bg-slate-100 rounded-xl my-4 flex items-center justify-center text-slate-400">Laster modul...</div>}>
-                                <RegisteredComponent {...((block as any).props || {})} />
-                            </React.Suspense>
+                            <div key={index} data-interactive-component>
+                                <React.Suspense fallback={<div className="h-40 w-full animate-pulse bg-slate-100 rounded-xl my-4 flex items-center justify-center text-slate-400">Laster modul...</div>}>
+                                    <RegisteredComponent {...((block as any).props || {})} />
+                                </React.Suspense>
+                            </div>
                         );
 
                     case 'task':

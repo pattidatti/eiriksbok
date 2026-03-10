@@ -378,3 +378,33 @@ body.dyslexia-mode h6 {
 .animate-dust-float {
   animation: dust-float linear infinite;
 }
+/* --- Print / PDF export --- */
+#print-container { display: none; }
+
+@media print {
+  /* Skjul hele React-appen, vis kun print-container */
+  body > #root { display: none !important; }
+  #print-container { display: block !important; }
+
+  /* Sidesett */
+  @page { margin: 2cm; size: A4; }
+
+  /* Sideskift mellom artikler */
+  .print-article { break-before: page; }
+  .print-article:first-child { break-before: avoid; }
+
+  /* Typografi */
+  #print-container { font-size: 11pt; line-height: 1.6; color: #111; }
+  h1 { font-size: 20pt; margin-bottom: 8pt; }
+  h2 { font-size: 15pt; margin-bottom: 6pt; }
+  h3 { font-size: 13pt; margin-bottom: 4pt; }
+  h1, h2, h3 { color: black !important; break-after: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  blockquote { border-left: 3pt solid #555; padding-left: 12pt; color: #333; }
+
+  /* Skjul interaktive komponenter */
+  [data-interactive-component] { display: none !important; }
+
+  /* Hero-bilde: begrens høyde */
+  .article-hero-image { max-height: 180px; object-fit: cover; }
+}

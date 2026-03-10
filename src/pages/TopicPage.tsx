@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import { motionPresets } from '../styles/motion-presets';
 import { LessonCard } from '../components/LessonCard';
 import { TopicCard } from '../components/TopicCard';
-import { ChevronRight, Grid, List, ArrowDownAZ, Calendar, Clock, Map } from 'lucide-react';
+import { ChevronRight, Grid, List, ArrowDownAZ, Calendar, Clock, Map, Download } from 'lucide-react';
 import { HistoryLongLines } from '../components/HistoryLongLines';
 import { ErrorBoundary } from '../components/ErrorBoundary';
 import { TopicInteractiveModel } from '../components/TopicInteractiveModel';
@@ -15,6 +15,7 @@ import { useUserHistory } from '../hooks/useUserHistory';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { PageSkeleton } from '../components/Skeleton';
 import { useAnalytics } from '../hooks/useAnalytics';
+import { TopicPrintView } from '../components/TopicPrintView';
 
 type ViewMode = 'grid' | 'list';
 type SortMode = 'alphabetical' | 'year' | 'newest';
@@ -28,6 +29,7 @@ export const TopicPage: React.FC = () => {
 
     const [viewMode, setViewMode] = useState<ViewMode>('grid');
     const [sortMode, setSortMode] = useState<SortMode>('alphabetical');
+    const [showPrint, setShowPrint] = useState(false);
 
     const subjectData = manifest?.subjects.find((s: any) => s.id === subjectId);
     const currentTopic = subjectData?.topics.find((t: any) => t.id === topicId);
@@ -125,6 +127,16 @@ export const TopicPage: React.FC = () => {
 
                 {/* Controls */}
                 <div className="flex items-center gap-4 bg-surface-card p-2 rounded-lg border border-white/10">
+                    {activeItem?.lessons && activeItem.lessons.length > 0 && (
+                        <button
+                            onClick={() => setShowPrint(true)}
+                            className="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/10 border border-white/10 hover:bg-white/20 transition text-sm font-medium"
+                            title="Last ned emne som PDF"
+                        >
+                            <Download className="w-4 h-4" />
+                            <span className="hidden sm:inline">Last ned som PDF</span>
+                        </button>
+                    )}
                     <div className="flex gap-1 border-r border-white/10 pr-4">
                         <button
                             onClick={() => setViewMode('grid')}
@@ -167,6 +179,15 @@ export const TopicPage: React.FC = () => {
                     </div>
                 </div>
             </div>
+
+            {showPrint && activeItem?.lessons && (
+                <TopicPrintView
+                    subjectId={subjectId!}
+                    topicId={activeItem.id}
+                    lessons={activeItem.lessons}
+                    onClose={() => setShowPrint(false)}
+                />
+            )}
 
             {/* Tools Section */}
             {activeItem!.tools && activeItem!.tools.length > 0 && (
