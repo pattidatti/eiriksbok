@@ -11,7 +11,7 @@ Her kan du skrive ned ideer, oppgaver og annet du vil huske for Gravity lærebok
 - [ ] Kildekritikk med konkrete eksmepler, metoder for å avdekke og evaluere, gråsoner, hvordan vite at noe er sant (forskningsmetoder lett forklart)
 - [ ] Årsasammenheng
 - [x] Om kildeføring, som et spill med tester og eksempler. 
-- [ ] Norsk; Hvordan skrive drøftende, med analyse av noe i norskfaget. Læringsti. 
+- [x] Norsk; Hvordan skrive drøftende, med analyse av noe i norskfaget. Læringsti. 
 
 # MÅ GJØRE
 - [ ] Finne en god måte å kunne eksportere nettisden på, slik at elevene kan bruke den offline/sperret nett. En giga pdf? Hva er gode alternativer?
