@@ -74,7 +74,7 @@ export function TopicPrintView({ subjectId, topicId, lessons, onClose }: Props) 
                         article && (
                             <div key={article.id} className="print-article">
                                 <h1>{article.title}</h1>
-                                <ArticleContent lesson={article} concepts={[]} />
+                                <ArticleContent content={article.content} />
                             </div>
                         )
                 )}
