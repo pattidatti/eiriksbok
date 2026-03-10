@@ -72,6 +72,17 @@ const GasAttackSim = lazy(() => import('./content/interactive/GasAttackSim').the
 const TsarsDilemma = lazy(() => import('./content/interactive/TsarsDilemma').then(m => ({ default: m.default })));
 const HermeneuticCircle = lazy(() => import('./content/interactive/HermeneuticCircle').then(m => ({ default: m.HermeneuticCircle })));
 
+// Skapende Skriving (Creative Writing)
+const StoryElementMixer = lazy(() => import('./content/interactive/StoryElementMixer').then(m => ({ default: m.StoryElementMixer })));
+const ThemeDigger = lazy(() => import('./content/interactive/ThemeDigger').then(m => ({ default: m.ThemeDigger })));
+const PlotDNA = lazy(() => import('./content/interactive/PlotDNA').then(m => ({ default: m.PlotDNA })));
+const CharacterForge = lazy(() => import('./content/interactive/CharacterForge').then(m => ({ default: m.CharacterForge })));
+const PerspectiveSwitcher = lazy(() => import('./content/interactive/PerspectiveSwitcher').then(m => ({ default: m.PerspectiveSwitcher })));
+const SentenceTransformer = lazy(() => import('./content/interactive/SentenceTransformer').then(m => ({ default: m.SentenceTransformer })));
+const TimelineDirector = lazy(() => import('./content/interactive/TimelineDirector').then(m => ({ default: m.TimelineDirector })));
+const DialogDissector = lazy(() => import('./content/interactive/DialogDissector').then(m => ({ default: m.DialogDissector })));
+const NovelleSlicer = lazy(() => import('./content/interactive/NovelleSlicer').then(m => ({ default: m.NovelleSlicer })));
+
 // Demography
 const DTMSimulator = lazy(() => import('./content/interactive/demography/DTMSimulator').then(m => ({ default: m.DTMSimulator })));
 const MalthusBoserupModel = lazy(() => import('./content/interactive/demography/MalthusBoserupModel').then(m => ({ default: m.MalthusBoserupModel })));
@@ -171,6 +182,15 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     GasAttackSim,
     TsarsDilemma,
     HermeneuticCircle,
+    StoryElementMixer,
+    ThemeDigger,
+    PlotDNA,
+    CharacterForge,
+    PerspectiveSwitcher,
+    SentenceTransformer,
+    TimelineDirector,
+    DialogDissector,
+    NovelleSlicer,
     TriangularTradeMap: lazy(() => import('./content/interactive/TriangularTradeMap').then(m => ({ default: m.TriangularTradeMap }))),
     CensorTask: lazy(() => import('./historie/CensorTask').then(m => ({ default: m.CensorTask }))),
     PropagandaDecoder: lazy(() => import('./historie/PropagandaDecoder').then(m => ({ default: m.PropagandaDecoder }))),

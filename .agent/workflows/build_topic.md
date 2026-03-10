@@ -42,7 +42,7 @@ description: The Builder. Reads a Blueprint and creates the physical files and a
         *   **Structure:** Implement the **3-Act Model** (Phase 1: Opptakt, Phase 2: Konfrontasjon, Phase 3: Resolusjon).
         *   **Onboarding:** Every path MUST start with **Steg 0 (Prolog)** assuming zero prior knowledge.
         *   **Step Depth:** Each step must have 150-300 words of narrative/guiding text (NOT just a list of links).
-        *   **Tasks:** Every step MUST have 5-8 tasks following **Blooms Taxonomy** (Fakta -> Forståelse -> Analyse).
+        *   **Tasks:** Every step MUST have 4-7 tasks following **Blooms Taxonomy** (Fakta → Forståelse → Anvendelse → Refleksjon).
         *   **Interactivity:** Integrate at least one interactive component (e.g., `ScenarioRoleplay`, `PackTheBag`) where the narrative supports it.
 
 6.  **Register & Final Polish**:

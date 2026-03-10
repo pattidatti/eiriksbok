@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Shield, Heart, Zap, Scroll, Skull, Crown, Star, ArrowRight, Backpack, Lock, CloudRain, Moon, BookOpen, X, Map as MapIcon, Users, Hammer, Scale } from 'lucide-react';
+import { Shield, Heart, Zap, Scroll, Skull, Crown, Star, ArrowRight, Backpack, Lock, CloudRain, Moon, BookOpen, X, Map as MapIcon, Users, Hammer, Scale, Activity, CloudFog, CloudLightning, Sunrise, Sunset } from 'lucide-react';
 import type { ChronosNode, ChronosChoice, ChronosStat, ChronosConfig, ChronosEnvironment, ChronosEntry, ChronosMapPoint, ChronosRecipe } from '../../data/chronos/types';
 import { DiceGame } from './minigames/DiceGame';
 import { BattleGame } from './minigames/BattleGame';
@@ -35,12 +35,18 @@ const IconMap: Record<string, any> = {
     map: MapIcon,
     users: Users,
     hammer: Hammer,
-    scale: Scale
+    scale: Scale,
+    activity: Activity,
+    eye: Shield,
 };
 
 const WeatherOverlay: React.FC<{ environment?: Partial<ChronosEnvironment> }> = ({ environment }) => {
     const isNight = environment?.time === 'night';
+    const isDawn = environment?.time === 'dawn';
+    const isDusk = environment?.time === 'dusk';
     const isRain = environment?.weather === 'rain';
+    const isFog = environment?.weather === 'fog';
+    const isStorm = environment?.weather === 'storm';
 
     return (
         <div className="absolute inset-0 z-10 pointer-events-none overflow-hidden rounded-[2.5rem]">
@@ -61,6 +67,40 @@ const WeatherOverlay: React.FC<{ environment?: Partial<ChronosEnvironment> }> = 
                 )}
             </AnimatePresence>
 
+            {/* Dawn Overlay */}
+            <AnimatePresence>
+                {isDawn && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 2 }}
+                        className="absolute inset-0 bg-gradient-to-t from-amber-500/30 via-rose-400/20 to-transparent"
+                    >
+                        <div className="absolute bottom-8 right-8 text-amber-300/80">
+                            <Sunrise size={32} />
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
+            {/* Dusk Overlay */}
+            <AnimatePresence>
+                {isDusk && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 2 }}
+                        className="absolute inset-0 bg-gradient-to-b from-indigo-900/30 via-purple-800/20 to-transparent"
+                    >
+                        <div className="absolute top-8 right-8 text-purple-300/80">
+                            <Sunset size={32} />
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
             {/* Rain Overlay */}
             <AnimatePresence>
                 {isRain && (
@@ -72,6 +112,43 @@ const WeatherOverlay: React.FC<{ environment?: Partial<ChronosEnvironment> }> = 
                     >
                         <div className="absolute top-8 left-8 text-blue-200/60 animate-bounce">
                             <CloudRain size={32} />
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
+            {/* Fog Overlay */}
+            <AnimatePresence>
+                {isFog && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 3 }}
+                        className="absolute inset-0 bg-gradient-to-b from-white/40 via-gray-200/30 to-white/50"
+                    >
+                        <div className="absolute top-8 left-8 text-gray-400/60">
+                            <CloudFog size={32} />
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
+            {/* Storm Overlay */}
+            <AnimatePresence>
+                {isStorm && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1, x: [0, -2, 2, -1, 1, 0] }}
+                        exit={{ opacity: 0 }}
+                        transition={{
+                            opacity: { duration: 1 },
+                            x: { duration: 0.4, repeat: Infinity, repeatDelay: 2 }
+                        }}
+                        className="absolute inset-0 bg-slate-900/40 mix-blend-multiply"
+                    >
+                        <div className="absolute top-8 left-8 text-yellow-200/80 animate-pulse">
+                            <CloudLightning size={32} />
                         </div>
                     </motion.div>
                 )}
@@ -103,6 +180,20 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({ node, stats, inventory = [
         }
         if (choice.checkInventory?.lacksItem) {
             return inventory.includes(choice.checkInventory.lacksItem);
+        }
+        if (choice.condition) {
+            const stat = stats.find(s => s.id === choice.condition!.statId);
+            if (stat) {
+                const { operator, value } = choice.condition;
+                switch (operator) {
+                    case '>': return !(stat.value > value);
+                    case '<': return !(stat.value < value);
+                    case '>=': return !(stat.value >= value);
+                    case '<=': return !(stat.value <= value);
+                    case '==': return !(stat.value === value);
+                    default: return false;
+                }
+            }
         }
         return false;
     };

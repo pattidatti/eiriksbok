@@ -27,6 +27,56 @@
                     "Tenk på en bok eller film du liker. Hva tror du gjør den god? Skriv ned tre ting. (Refleksjon)",
                     "Hvordan tror du en forfatter bestemmer hva som er viktig å fortelle? (Refleksjon)"
                 ],
+                "component": {
+                    "name": "StoryElementMixer",
+                    "props": {
+                        "title": "Tekstforvandleren",
+                        "originalText": "Det var en gang en gutt. Han gikk gjennom skogen. Han var redd. Plutselig hørte han en lyd. Det var en fugl. Han ble glad.",
+                        "ingredients": [
+                            {
+                                "id": "aktive-verb",
+                                "name": "Aktive verb",
+                                "icon": "⚡",
+                                "description": "Bytt ut svake verb med presise, aktive verb som viser handling.",
+                                "transforms": [
+                                    { "find": "gikk gjennom", "replace": "trasket alene gjennom", "color": "amber" },
+                                    { "find": "hørte han en lyd", "replace": "skar en lyd gjennom stillheten", "color": "amber" }
+                                ]
+                            },
+                            {
+                                "id": "show-dont-tell",
+                                "name": "Vis, ikke fortell",
+                                "icon": "🎭",
+                                "description": "Vis følelser gjennom handling og kropp i stedet for å fortelle dem direkte.",
+                                "transforms": [
+                                    { "find": "Han var redd.", "replace": "Hjertet hamret. Fingrene knyttet seg rundt stroppen på sekken.", "color": "rose" },
+                                    { "find": "Han ble glad.", "replace": "Skuldrene hans sank ned, og han slapp ut et pust han ikke visste at han holdt.", "color": "rose" }
+                                ]
+                            },
+                            {
+                                "id": "presis-detalj",
+                                "name": "Presis detalj",
+                                "icon": "🔍",
+                                "description": "Bytt ut vage ord med konkrete, spesifikke detaljer.",
+                                "transforms": [
+                                    { "find": "en gutt", "replace": "en trettenåring med gjørmete joggesko", "color": "sky" },
+                                    { "find": "skogen", "replace": "den tette granskogen der stammene sto som mørke søyler", "color": "sky" },
+                                    { "find": "en fugl", "replace": "en rødstrupe som vippet på hodet fra en lavthengende gren", "color": "sky" }
+                                ]
+                            },
+                            {
+                                "id": "fjern-plutselig",
+                                "name": "Fjern «plutselig»",
+                                "icon": "✂️",
+                                "description": "Ordet «plutselig» svekker overraskelsen. La handlingen overraske i seg selv.",
+                                "transforms": [
+                                    { "find": "Plutselig hørte", "replace": "Da hørte", "color": "emerald" },
+                                    { "find": "Det var en gang", "replace": "Stien forsvant bak ham.", "color": "emerald" }
+                                ]
+                            }
+                        ]
+                    }
+                },
                 "links": [
                     {
                         "title": "Les artikkel: Skriv bedre historier",
@@ -48,6 +98,68 @@
                     "Hvorfor kan to lesere tolke det samme diktet forskjellig? (Forståelse)",
                     "Tenk på en tekst du selv har skrevet. Hadde den et tema, eller bare en handling? Hva ville du endret? (Refleksjon)"
                 ],
+                "component": {
+                    "name": "ThemeDigger",
+                    "props": {
+                        "title": "Grav i historien",
+                        "story": "Askepott",
+                        "storyDescription": "En fattig jente blir mishandlet av stemoren og stesøstrene. Med hjelp fra en god fe får hun dra på ball, der prinsen forelsker seg i henne. Hun mister glasskoen, prinsen finner henne, og de lever lykkelig.",
+                        "layers": [
+                            {
+                                "id": "handling",
+                                "name": "Handling",
+                                "depth": 0,
+                                "question": "Hva handler historien om på overflaten?",
+                                "options": [
+                                    { "text": "En jente som får dra på ball og gifter seg med en prins", "correct": true, "feedback": "Riktig! Dette er den synlige handlingen — det som skjer." },
+                                    { "text": "Kampen mellom fattig og rik i samfunnet", "correct": false, "feedback": "Det er dypere enn handlingen. Handlingen er det konkrete som skjer i historien." },
+                                    { "text": "At man aldri skal gi opp drømmene sine", "correct": false, "feedback": "Det høres mer ut som et budskap. Handlingen er de konkrete hendelsene." }
+                                ],
+                                "color": "amber",
+                                "icon": "🏖️"
+                            },
+                            {
+                                "id": "motiv",
+                                "name": "Motiv",
+                                "depth": 1,
+                                "question": "Hvilke konkrete elementer (motiver) gjentar seg i historien?",
+                                "options": [
+                                    { "text": "Glasskoen, ballen, midnatt, forvandlingen", "correct": true, "feedback": "Riktig! Motiver er konkrete, gjenkjennelige elementer som bærer mening — ting, steder, hendelser som gjentar seg." },
+                                    { "text": "Rettferdighet og kjærlighet", "correct": false, "feedback": "Det er mer abstrakt — det ligner et tema. Motiver er konkrete ting og hendelser." },
+                                    { "text": "At utseendet bestemmer alt", "correct": false, "feedback": "Det er en tolkning, ikke et motiv. Motiver er konkrete elementer i historien." }
+                                ],
+                                "color": "emerald",
+                                "icon": "🔑"
+                            },
+                            {
+                                "id": "tema",
+                                "name": "Tema",
+                                "depth": 2,
+                                "question": "Hva er det abstrakte temaet under overflaten?",
+                                "options": [
+                                    { "text": "At snillhet til slutt blir belønnet", "correct": false, "feedback": "Nesten — men det er mer et budskap. Tema er et abstrakt emne, ikke en påstand." },
+                                    { "text": "Rettferdighet og forvandling", "correct": true, "feedback": "Riktig! Temaet er de abstrakte ideene historien utforsker — rettferdighet, forvandling, indre verdi vs. ytre status." },
+                                    { "text": "En jente som får nye klær og danser", "correct": false, "feedback": "Det er handlingen igjen. Tema er de abstrakte ideene historien utforsker." }
+                                ],
+                                "color": "blue",
+                                "icon": "💎"
+                            },
+                            {
+                                "id": "budskap",
+                                "name": "Budskap",
+                                "depth": 3,
+                                "question": "Hva er forfatterens budskap — holdningen bak historien?",
+                                "options": [
+                                    { "text": "Forvandling og balltilbehør", "correct": false, "feedback": "Det er bare overflaten. Budskapet er forfatterens holdning eller påstand." },
+                                    { "text": "At indre godhet er mer verdt enn ytre status, og at rettferdighet til slutt seirer", "correct": true, "feedback": "Riktig! Budskapet er forfatterens fingeravtrykk — det de egentlig prøver å si med historien." },
+                                    { "text": "At man trenger magisk hjelp for å lykkes", "correct": false, "feedback": "Det er en bokstavelig tolkning. Budskapet handler om de dypere verdiene historien formidler." }
+                                ],
+                                "color": "purple",
+                                "icon": "👑"
+                            }
+                        ]
+                    }
+                },
                 "links": [
                     {
                         "title": "Les artikkel: Tema og budskap",
@@ -70,6 +182,30 @@
                     "Hvilken plottype passer best til en historie om en mobbeoffer som reiser seg? Begrunn svaret. (Analyse)",
                     "Skriv én setning som oppsummerer handlingen i en film du liker. Hvilken plottype er det? (Anvendelse)"
                 ],
+                "component": {
+                    "name": "PlotDNA",
+                    "props": {
+                        "title": "Historiens DNA",
+                        "plotTypes": [
+                            { "id": "monster", "name": "Overvinne monsteret", "description": "Helten bekjemper en stor trussel og redder dagen.", "icon": "🐉" },
+                            { "id": "fattig-rik", "name": "Fra fattig til rik", "description": "Hovedpersonen går fra bunnen til toppen.", "icon": "👑" },
+                            { "id": "jakten", "name": "Jakten", "description": "En gruppe legger ut på en farlig reise for å finne noe.", "icon": "🗺️" },
+                            { "id": "reisen", "name": "Reisen og returen", "description": "Helten reiser til en fremmed verden og kommer hjem forandret.", "icon": "🚪" },
+                            { "id": "komedie", "name": "Komedie", "description": "Misforståelser og kaos som løses med forsoning.", "icon": "😄" },
+                            { "id": "tragedie", "name": "Tragedie", "description": "Helten faller på grunn av en fatal feil.", "icon": "💀" },
+                            { "id": "gjenfodelse", "name": "Gjenfødelse", "description": "En karakter fanget i mørke blir reddet av kjærlighet eller godhet.", "icon": "🌅" }
+                        ],
+                        "storyCards": [
+                            { "id": "harry-potter", "title": "Harry Potter", "hint": "En gutt oppdager at han er trollmann og må bekjempe Voldemort", "correctPlotId": "monster", "icon": "⚡" },
+                            { "id": "askepott", "title": "Askepott", "hint": "En fattig jente ender opp som prinsesse", "correctPlotId": "fattig-rik", "icon": "👠" },
+                            { "id": "ringenes-herre", "title": "Ringenes Herre", "hint": "Et følge legger ut for å ødelegge en ring i et fjernt land", "correctPlotId": "jakten", "icon": "💍" },
+                            { "id": "alice", "title": "Alice i Eventyrland", "hint": "En jente faller ned i et kaninhull og opplever en merkelig verden", "correctPlotId": "reisen", "icon": "🐇" },
+                            { "id": "romeo-julie", "title": "Romeo og Julie", "hint": "To elskende fra rivaliserende familier går mot undergangen", "correctPlotId": "tragedie", "icon": "🌹" },
+                            { "id": "julefortelling", "title": "En julefortelling", "hint": "En gjerrig mann forandres etter besøk av tre ånder", "correctPlotId": "gjenfodelse", "icon": "🎄" },
+                            { "id": "midt-natt", "title": "En midtsommernattsdrøm", "hint": "Forviklinger og forelskelser i en magisk skog", "correctPlotId": "komedie", "icon": "🧚" }
+                        ]
+                    }
+                },
                 "links": [
                     {
                         "title": "Les artikkel: De 7 grunnleggende plottene",
@@ -92,6 +228,112 @@
                     "Lag en minikarakter: Gi dem et navn, en funksjon, et ønske, et behov og en sårbarhet. Skriv det ned i 3–4 setninger. (Anvendelse)",
                     "Hva gjør en skurk troverdig? Er det nok at de er «onde»? (Refleksjon)"
                 ],
+                "component": {
+                    "name": "CharacterForge",
+                    "props": {
+                        "title": "Karaktersmia",
+                        "steps": [
+                            {
+                                "id": "funksjon",
+                                "name": "Funksjon",
+                                "icon": "⚙️",
+                                "description": "Hvilken rolle har karakteren i historien? Funksjonen bestemmer hva karakteren gjør for plottet.",
+                                "fieldLabel": "Velg karakterens funksjon",
+                                "fieldType": "select",
+                                "options": ["Protagonisten (helten)", "Antagonisten (motstanderen)", "Mentoren (veilederen)", "Sidekick (følgesvennen)", "Formskifteren (den uforutsigbare)"]
+                            },
+                            {
+                                "id": "overflate",
+                                "name": "Overflate",
+                                "icon": "👤",
+                                "description": "Hvordan ser karakteren ut utenfra? Ikke bare utseende, men førsteinntrykket — det som synes.",
+                                "fieldLabel": "Beskriv førsteinntrykket av karakteren",
+                                "fieldType": "text",
+                                "placeholder": "F.eks: En stille jente med store hodetelefoner som alltid sitter bakerst i klasserommet..."
+                            },
+                            {
+                                "id": "motor",
+                                "name": "Motor (vilje vs. behov)",
+                                "icon": "🔥",
+                                "description": "Hva vil karakteren (det de jager bevisst), og hva trenger de egentlig (det de ikke innser selv)?",
+                                "fieldLabel": "Hva vil karakteren, og hva trenger de?",
+                                "fieldType": "text",
+                                "placeholder": "Vilje: Å vinne konkurransen. Behov: Å innse at vennskap betyr mer enn seier."
+                            },
+                            {
+                                "id": "skygge",
+                                "name": "Skygge",
+                                "icon": "🌑",
+                                "description": "Hva er karakterens sårbarhet, frykt eller hemmelighet? Det som gjør dem menneskelige.",
+                                "fieldLabel": "Hva er karakterens sårbarhet?",
+                                "fieldType": "text",
+                                "placeholder": "F.eks: Redd for å bli forlatt fordi faren dro da hun var liten..."
+                            },
+                            {
+                                "id": "kontrast",
+                                "name": "Kontrast",
+                                "icon": "⚖️",
+                                "description": "Hvem eller hva er karakterens motstykke? Kontraster gjør karakterer tydeligere.",
+                                "fieldLabel": "Beskriv en kontrast til karakteren",
+                                "fieldType": "text",
+                                "placeholder": "F.eks: Bestevenninna er høylytt og uredd — alt hun selv ikke tør å være."
+                            }
+                        ],
+                        "strengthTests": [
+                            {
+                                "scenario": "Karakteren din oppdager at bestevennen har løyet om noe viktig.",
+                                "question": "Hvordan reagerer karakteren din?",
+                                "options": [
+                                    "Konfronterer vennen direkte og krever en forklaring",
+                                    "Later som ingenting, men begynner å trekke seg unna i stillhet",
+                                    "Skriver en melding midt på natten med alt de egentlig føler",
+                                    "Forteller det til noen andre i stedet for å ta det opp direkte"
+                                ],
+                                "bestIndex": 1,
+                                "feedback": [
+                                    "Direkte og modig! Karakteren din tør å ta konflikter.",
+                                    "Subtilt og sammensatt — dette viser en karakter som bærer ting inni seg. Sterk dybde!",
+                                    "Sårbart og ærlig. Karakteren din tør å vise følelser, men kanskje ikke ansikt til ansikt.",
+                                    "Interessant valg — karakteren din bruker andre som skjold. Det forteller mye."
+                                ]
+                            },
+                            {
+                                "scenario": "Karakteren din står foran et valg: gjøre det som er riktig, eller det som er lett.",
+                                "question": "Hva velger de — og hvorfor?",
+                                "options": [
+                                    "Det riktige, uten å nøle. De vet hvem de er.",
+                                    "Det lette, men med dårlig samvittighet som gnager etterpå",
+                                    "De utsetter valget så lenge som mulig og håper det løser seg selv",
+                                    "De prøver å finne en tredje vei som unngår begge ekstremer"
+                                ],
+                                "bestIndex": 1,
+                                "feedback": [
+                                    "Helteaktig, men kanskje litt for perfekt? Ekte karakterer nøler noen ganger.",
+                                    "Menneskelig og realistisk. Indre konflikt etter valget gir masse stoff å jobbe med!",
+                                    "Passivitet kan være like kraftfullt som handling. Karakteren din er redd for konsekvenser.",
+                                    "Kreativt! Karakteren din er en problemløser som nekter å godta svart-hvitt-valg."
+                                ]
+                            },
+                            {
+                                "scenario": "En fremmed forteller karakteren din noe overraskende: «Du ligner veldig på faren din.»",
+                                "question": "Hvordan reagerer de?",
+                                "options": [
+                                    "Smiler stolt — de ser opp til faren sin",
+                                    "Blir stille. Det er komplisert.",
+                                    "Protesterer: «Jeg er ingenting som ham.»",
+                                    "Spør: «Kjente du faren min?» med nysgjerrighet"
+                                ],
+                                "bestIndex": 1,
+                                "feedback": [
+                                    "Enkelt og varmt. Karakteren har et godt forhold til opphavet.",
+                                    "Tvetydighet og usagte følelser — dette er gull for en forfatter. Dybde!",
+                                    "Motstand og identitetskamp. Karakteren definerer seg mot noe.",
+                                    "Nysgjerrighet viser at karakteren søker sin egen historie. Interessant!"
+                                ]
+                            }
+                        ]
+                    }
+                },
                 "links": [
                     {
                         "title": "Les artikkel: Hvordan lage karakterer",
@@ -113,6 +355,54 @@
                     "Tenk deg en krangel mellom to venner. Skriv to setninger fra hver sin synsvinkel — hva legger de merke til? (Anvendelse)",
                     "Når ville du valgt en upålitelig forteller? Hvilken effekt har det på leseren? (Refleksjon)"
                 ],
+                "component": {
+                    "name": "PerspectiveSwitcher",
+                    "props": {
+                        "title": "Perspektivbytteren",
+                        "scene": {
+                            "description": "Mia (15) kommer hjem fra skolen og oppdager at lillebroren har lest dagboken hennes. Han sitter på sengen hennes med den åpne dagboken i fanget.",
+                            "perspectives": [
+                                {
+                                    "id": "jeg",
+                                    "name": "Jeg-perspektiv",
+                                    "icon": "👁️",
+                                    "text": "Jeg stopper i døråpningen. Dagboken. Min dagbok. Den ligger åpen i fanget hans, og han ser opp på meg med de der store øynene sine som om han ikke skjønner hva han har gjort. Men jeg skjønner det. Jeg kjenner det som en knyttneve i magen — alle ordene mine, alle hemmelighetene, ligger nakne foran ham. Hendene mine skjelver. Jeg vil skrike, men stemmen sitter fast.",
+                                    "proximity": 95
+                                },
+                                {
+                                    "id": "tredje",
+                                    "name": "Tredjeperson",
+                                    "icon": "📷",
+                                    "text": "Mia stoppet i døråpningen. Broren satt på sengen hennes med dagboken åpen i fanget. Han så opp. Ansiktet hennes var uttrykksløst, men fingrene hennes krummet seg rundt skolesekken. Ingen av dem sa noe. Luften mellom dem ble tyngre for hvert sekund som passerte.",
+                                    "proximity": 45
+                                },
+                                {
+                                    "id": "allvitende",
+                                    "name": "Allvitende forteller",
+                                    "icon": "🔮",
+                                    "text": "Mia stoppet i døråpningen og kjente raseriet stige som en bølge. Broren, som egentlig bare hadde lett etter en linjal og funnet dagboken ved en tilfeldighet, forstod ikke ennå hva han hadde gjort. Han hadde bare lest tre linjer — men det var nok. De tre linjene handlet om ham. Om hvordan hun noen ganger ønsket at hun var enebarn. Det visste hun ikke at han hadde lest. Det visste ikke han at hun hadde skrevet.",
+                                    "proximity": 15
+                                }
+                            ]
+                        },
+                        "quiz": {
+                            "excerpts": [
+                                {
+                                    "text": "Hjertet mitt slo så hardt at jeg var sikker på at alle i rommet kunne høre det.",
+                                    "correctPerspectiveId": "jeg"
+                                },
+                                {
+                                    "text": "Hun visste ikke at han allerede angret. Han visste ikke at hun allerede hadde tilgitt ham.",
+                                    "correctPerspectiveId": "allvitende"
+                                },
+                                {
+                                    "text": "Gutten lukket boken stille. Jenta snudde seg og gikk ut av rommet uten et ord.",
+                                    "correctPerspectiveId": "tredje"
+                                }
+                            ]
+                        }
+                    }
+                },
                 "links": [
                     {
                         "title": "Les artikkel: Hvem eier historien?",
@@ -135,6 +425,38 @@
                     "Skriv om denne setningen med bildespråk: «Hun var lei seg.» — Bruk minst to virkemidler. (Anvendelse)",
                     "Kan man overdrive bruken av virkemidler? Når blir det for mye? (Refleksjon)"
                 ],
+                "component": {
+                    "name": "SentenceTransformer",
+                    "props": {
+                        "title": "Mal med ord",
+                        "sentences": [
+                            {
+                                "id": "lei-seg",
+                                "original": "Hun var lei seg.",
+                                "techniques": [
+                                    { "id": "metafor", "name": "Metafor", "icon": "🎨", "transformed": "Noe knuste bak øynene hennes.", "overdoseVersion": "Den emosjonelle tsunamien av et knust univers druknet sjelen hennes i et hav av uendelig smerte." },
+                                    { "id": "sammenligning", "name": "Sammenligning", "icon": "🪞", "transformed": "Hun følte seg som et hus der noen hadde slukket alle lysene.", "overdoseVersion": "Hun var som en visnet rose i en ørken av sorg, lik en ensom stjerne i et univers av mørke." },
+                                    { "id": "personifikasjon", "name": "Personifikasjon", "icon": "🌿", "transformed": "Tristheten la seg over skuldrene hennes som en tung kappe.", "overdoseVersion": "Sorgen danset rundt henne mens ensomheten hvisket og frykten gråt og angsten skrek." },
+                                    { "id": "kontrast", "name": "Kontrast", "icon": "⚖️", "transformed": "Alle lo. Hun smilte også — men smilet nådde aldri øynene.", "overdoseVersion": "I livets store, vidunderlige, fantastiske fest av glede og latter var hun den eneste som gråt tårer av blod." },
+                                    { "id": "symbol", "name": "Symbol", "icon": "🔑", "transformed": "Hun la telefonen med skjermen ned og stirret på den svarte flaten.", "overdoseVersion": "Telefonen var hennes hjerte, skjermen hennes sjel, den svarte flaten et speil inn i tomhetens avgrunn." }
+                                ],
+                                "sweetSpot": 2
+                            },
+                            {
+                                "id": "redd",
+                                "original": "Han var redd.",
+                                "techniques": [
+                                    { "id": "metafor", "name": "Metafor", "icon": "🎨", "transformed": "Frykten var en hånd som klemte rundt brystkassen hans.", "overdoseVersion": "Frykten var en demonisk krake som spiste sjelen hans innenfra i en dans med døden." },
+                                    { "id": "sammenligning", "name": "Sammenligning", "icon": "🪞", "transformed": "Hjertet hamret som en fugl i et bur som er for lite.", "overdoseVersion": "Hjertet var som en eksplosjon i en vulkan midt i et jordskjelv under en orkan." },
+                                    { "id": "personifikasjon", "name": "Personifikasjon", "icon": "🌿", "transformed": "Mørket presset seg inn fra alle kanter, sulten og tålmodig.", "overdoseVersion": "Mørket gråt, natten hvisket, veggene skrek og gulvet sukket av medlidenhet." },
+                                    { "id": "kontrast", "name": "Kontrast", "icon": "⚖️", "transformed": "Stemmen hans var rolig da han sa «alt er bra» — men hendene skalv.", "overdoseVersion": "Mens universet eksploderte i kaos rundt ham, sto han urørlig som en statue av ren, iskald frykt." },
+                                    { "id": "symbol", "name": "Symbol", "icon": "🔑", "transformed": "Han sjekket at døren var låst. Igjen. For tredje gang.", "overdoseVersion": "Døren var porten til undergangen, låsen var hans siste festning, nøkkelen hans eneste håp i evighetens mørke." }
+                                ],
+                                "sweetSpot": 2
+                            }
+                        ]
+                    }
+                },
                 "links": [
                     {
                         "title": "Les artikkel: Språkets farger",
@@ -156,6 +478,25 @@
                     "Hva er effekten av å bremse ned tiden i et dramatisk øyeblikk? (Forståelse)",
                     "Skriv en åpningssetning som bruker in medias res. Hva skjer i scenen? (Anvendelse)"
                 ],
+                "component": {
+                    "name": "TimelineDirector",
+                    "props": {
+                        "title": "Klipperommet",
+                        "scenes": [
+                            { "id": "scene-1", "title": "Morgenen", "description": "Lena våkner og finner et brev under døren. Avsender ukjent.", "chronologicalOrder": 1, "icon": "🌅" },
+                            { "id": "scene-2", "title": "Hemmeligheten", "description": "Tilbakeblikk: For tre måneder siden overhørte Lena en samtale hun ikke skulle hørt.", "chronologicalOrder": 2, "icon": "🤫" },
+                            { "id": "scene-3", "title": "Konfrontasjonen", "description": "Lena konfronterer avsenderen av brevet på skolens tak.", "chronologicalOrder": 3, "icon": "⚡" },
+                            { "id": "scene-4", "title": "Flukten", "description": "Lena løper gjennom byen i regnet med brevet krøllet i hånden.", "chronologicalOrder": 4, "icon": "🌧️" },
+                            { "id": "scene-5", "title": "Beslutningen", "description": "Lena setter seg på benken ved vannet og tar et valg som endrer alt.", "chronologicalOrder": 5, "icon": "🌊" }
+                        ],
+                        "techniques": [
+                            { "id": "in-medias-res", "name": "In medias res", "icon": "⚡", "effect": "shake", "description": "Start midt i handlingen — kast leseren rett inn." },
+                            { "id": "tilbakeblikk", "name": "Tilbakeblikk", "icon": "⏪", "effect": "sepia", "description": "Hopp bakover i tid for å gi kontekst og dybde." },
+                            { "id": "frampek", "name": "Frampek", "icon": "✨", "effect": "shimmer", "description": "Hint om noe som skal skje — bygg spenning og forventning." },
+                            { "id": "saktegang", "name": "Saktegåing", "icon": "🐌", "effect": "slowmo", "description": "Brems ned tiden i et viktig øyeblikk — gjør sekunder til minutter." }
+                        ]
+                    }
+                },
                 "links": [
                     {
                         "title": "Les artikkel: Tidens tannhjul",
@@ -178,6 +519,68 @@
                     "Skriv en kort dialog (4–6 replikker) mellom to karakterer som er uenige om noe. Bruk handlingsmerker. (Anvendelse)",
                     "Les din egen dialog høyt. Høres det naturlig ut? Hva ville du endret? (Refleksjon)"
                 ],
+                "component": {
+                    "name": "DialogDissector",
+                    "props": {
+                        "title": "Dialogverkstedet",
+                        "subtextDialogue": {
+                            "lines": [
+                                {
+                                    "speaker": "Emma",
+                                    "text": "Fint at du kunne komme.",
+                                    "subtext": "Jeg trodde du hadde glemt meg.",
+                                    "options": ["Jeg er glad for å se deg.", "Jeg trodde du hadde glemt meg.", "Jeg liker å være høflig.", "Jeg hadde ingenting bedre å gjøre."],
+                                    "correctIndex": 1
+                                },
+                                {
+                                    "speaker": "Jonas",
+                                    "text": "Ja, jeg hadde ikke noe annet å gjøre uansett.",
+                                    "subtext": "Jeg droppet alt for å komme hit, men vil ikke vise det.",
+                                    "options": ["Jeg kjeder meg.", "Jeg er ærlig om at jeg er ledig.", "Jeg droppet alt for å komme hit, men vil ikke vise det.", "Jeg liker ikke å planlegge."],
+                                    "correctIndex": 2
+                                },
+                                {
+                                    "speaker": "Emma",
+                                    "text": "Du har klippet deg.",
+                                    "subtext": "Jeg legger merke til alt ved deg.",
+                                    "options": ["Jeg liker frisyren din.", "Jeg legger merke til alt ved deg.", "Jeg foretrekker langt hår.", "Jeg snakker om utseende fordi jeg er usikker."],
+                                    "correctIndex": 1
+                                },
+                                {
+                                    "speaker": "Jonas",
+                                    "text": "Ja. Det trengte seg.",
+                                    "subtext": "Jeg klippet meg fordi jeg visste jeg skulle se deg.",
+                                    "options": ["Håret mitt vokste for fort.", "Det var billig hos frisøren.", "Jeg klippet meg fordi jeg visste jeg skulle se deg.", "Jeg tenker ikke så mye på utseende."],
+                                    "correctIndex": 2
+                                }
+                            ]
+                        },
+                        "actionBeats": {
+                            "lines": [
+                                {
+                                    "original": "«Jeg vet ikke,» sa hun trist.",
+                                    "improved": "«Jeg vet ikke.» Hun snudde kaffekoppen langsomt mellom hendene.",
+                                    "speaker": "Emma"
+                                },
+                                {
+                                    "original": "«Det spiller ingen rolle,» sa han sint.",
+                                    "improved": "«Det spiller ingen rolle.» Han dyttet stolen bakover så den skrapte mot gulvet.",
+                                    "speaker": "Jonas"
+                                },
+                                {
+                                    "original": "«Kanskje vi burde snakke om det,» sa hun forsiktig.",
+                                    "improved": "«Kanskje vi burde snakke om det.» Hun strøk en usynlig rynke ut av servietten.",
+                                    "speaker": "Emma"
+                                },
+                                {
+                                    "original": "«Greit,» sa han likegyldig.",
+                                    "improved": "«Greit.» Han tok en slurk av kaffen som allerede var kald.",
+                                    "speaker": "Jonas"
+                                }
+                            ]
+                        }
+                    }
+                },
                 "links": [
                     {
                         "title": "Les artikkel: Hvordan skrive dialog",
@@ -199,6 +602,106 @@
                     "Hvorfor er det lurt å starte in medias res i en novelle? (Forståelse)",
                     "Hvilke av verktøyene du har lært hittil tror du er viktigst for en novelle? Ranger topp 3 og begrunn. (Analyse)"
                 ],
+                "component": {
+                    "name": "NovelleSlicer",
+                    "props": {
+                        "title": "Redaktørens saks",
+                        "originalWordCount": 320,
+                        "targetWordCount": 200,
+                        "sections": [
+                            {
+                                "id": "sec-1",
+                                "text": "Regnet hadde trummet mot vinduet i tre timer, noe som var ganske lenge å vente på en buss, men hun hadde egentlig aldri likt å ta bussen, ikke fordi det var noe galt med busser generelt, men fordi hun alltid ble kvalm av den svingete ruten gjennom sentrum.",
+                                "type": "cuttable",
+                                "wordCount": 45,
+                                "label": "Overforklaring",
+                                "tensionValue": 1,
+                                "feedback": "Bra kuttet! Denne setningen forklarer for mye. Leseren trenger ikke hele busshistorien."
+                            },
+                            {
+                                "id": "sec-2",
+                                "text": "Klokken var 23:47 da telefonen ringte. Skjermen lyste opp rommet som et blått sår.",
+                                "type": "essential",
+                                "wordCount": 15,
+                                "label": "Åpning med bildespråk",
+                                "tensionValue": 8,
+                                "feedback": "Obs! Denne åpningen setter stemningen og bruker et sterkt bilde. Uten den mister novellen kraften sin."
+                            },
+                            {
+                                "id": "sec-3",
+                                "text": "Hun tok telefonen. Det var moren. Moren ringte ofte. Hun ringte nesten hver kveld. Noen ganger ringte hun to ganger. Det hadde hun gjort siden faren døde.",
+                                "type": "cuttable",
+                                "wordCount": 30,
+                                "label": "Gjentakelse",
+                                "tensionValue": 2,
+                                "feedback": "Bra kuttet! Gjentakelsen av «ringte» svekker tempoet. En setning hadde holdt."
+                            },
+                            {
+                                "id": "sec-4",
+                                "text": "«Hei, mamma.» Stemmen hennes var flat som vannet i badekaret hun nettopp hadde tømt.",
+                                "type": "essential",
+                                "wordCount": 14,
+                                "label": "Dialog + bildespråk",
+                                "tensionValue": 6,
+                                "feedback": "Obs! Denne dialogen viser personlighet, og sammenligningen med badevannet er sterk. Behold den."
+                            },
+                            {
+                                "id": "sec-5",
+                                "text": "Leiligheten var en toroms på Grünerløkka, med parkettgulv som knirket og et kjøkken som var for lite til å ha spisebord i. Badet hadde blitt renovert i 2019, og hun hadde valgt hvite fliser med grå fuger.",
+                                "type": "cuttable",
+                                "wordCount": 40,
+                                "label": "Irrelevant detalj",
+                                "tensionValue": 0,
+                                "feedback": "Bra kuttet! Flisfargen på badet driver ikke handlingen. Kutt det som ikke tjener historien."
+                            },
+                            {
+                                "id": "sec-6",
+                                "text": "Moren sa ingenting i tre sekunder. Tre sekunder er lenge i en telefonsamtale. Lenge nok til at hun skjønte at dette ikke var en vanlig kveldshilsen.",
+                                "type": "borderline",
+                                "wordCount": 28,
+                                "label": "Saktegåing",
+                                "tensionValue": 7,
+                                "feedback": "Denne kan beholdes — saktegåingen bygger spenning. Men den kan også kuttes om du trenger plass."
+                            },
+                            {
+                                "id": "sec-7",
+                                "text": "«Det gjelder huset.» Morens stemme knakk midt i setningen, som en gren som gir etter under snøen.",
+                                "type": "essential",
+                                "wordCount": 18,
+                                "label": "Vendepunkt",
+                                "tensionValue": 10,
+                                "feedback": "Obs! Dette er vendepunktet — øyeblikket som snur alt. Kutt dette og novellen kollapser."
+                            },
+                            {
+                                "id": "sec-8",
+                                "text": "Huset. Barndomshjemmet. Stedet der hun lærte å sykle, der hun gjemte seg i skapet under trappen, der hun en sommer malte hele gjerdet gult uten å spørre noen først. Det var mange minner i det huset. Gode minner og dårlige minner. Minner hun ikke visste om hun ville beholde eller glemme.",
+                                "type": "cuttable",
+                                "wordCount": 50,
+                                "label": "Overforklaring av følelser",
+                                "tensionValue": 3,
+                                "feedback": "Bra kuttet! Alle disse minnene forklarer det leseren allerede forstår. Stol på leseren."
+                            },
+                            {
+                                "id": "sec-9",
+                                "text": "Hun la på uten å si ha det. Telefonen ble mørk. Rommet ble stille. Bare regnet fortsatte, som om ingenting hadde skjedd.",
+                                "type": "essential",
+                                "wordCount": 24,
+                                "label": "Avslutning med symbol",
+                                "tensionValue": 7,
+                                "feedback": "Obs! Denne avslutningen bruker regnet som symbol og skaper en åpen slutt. Essensiell for novellen."
+                            },
+                            {
+                                "id": "sec-10",
+                                "text": "Det var i det hele tatt en veldig rar kveld, tenkte hun. Rart at moren ringte akkurat nå. Rart at det regnet akkurat i dag. Rart at alt alltid skjedde på en gang.",
+                                "type": "cuttable",
+                                "wordCount": 32,
+                                "label": "Gjentakelse + telling",
+                                "tensionValue": 1,
+                                "feedback": "Bra kuttet! «Rart»-gjentakelsen er lat. Og den forteller i stedet for å vise."
+                            }
+                        ]
+                    }
+                },
                 "links": [
                     {
                         "title": "Les artikkel: Hvordan skrive novelle",

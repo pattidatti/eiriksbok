@@ -20,6 +20,21 @@ Før du skriver kode, må du strukturere stien pedagogisk.
     2.  **Akt 2: Konfrontasjonen** (Kampen, utfordringene, vendepunktet).
     3.  **Akt 3: Resolusjonen** (Resultatet, konsekvensene, lærdommen).
 *   **Perspektiv**: Bruk konsekvent "Du"-perspektiv som utvikler seg (f.eks. fra bonde til konge).
+*   **Samlende metafor**: Gi stien en gjennomgående metafor som binder alt sammen og gir eleven et mentalt bilde av reisen. (F.eks. "Forfatterens Verksted" med skuffer, verktøy og pensler — ikke bare "Norsk skriveoppgaver".)
+*   **Poetiske stegtitler**: Hvert steg bør ha en evokativ, poetisk tittel som vekker nysgjerrighet. "Hjertet i teksten" > "Tema og budskap". "Mennesker av blekk" > "Karakterbygging". Titler som føles generiske svekker den narrative opplevelsen.
+
+### Designprinsipper (fra Skapende Skriving-stien)
+
+Læringsstien *Forfatterens Verksted* (`norsk/virkemidler/skapende-skriving-sti.json`) er referanseimplementasjonen for kvalitet. Alle nye stier skal følge disse prinsippene:
+
+1.  **Én artikkel per steg.** Hvert steg fokuserer på nøyaktig én artikkel. Aldri "les disse tre artiklene". Hvis innholdet krever to artikler, del steget i to.
+2.  **Færre, skarpere oppgaver (4-7).** Kvalitet over kvantitet. Hvert spørsmål skal føles meningsfullt.
+3.  **Anvendelsesoppgaver.** Eleven skal *skape* noe — ikke bare svare. "Lag en minikarakter", "Skriv en åpningssetning", "Skriv om denne setningen med bildespråk".
+4.  **Klar Bloom-trapp med Anvendelse.** Fakta → Forståelse → Anvendelse → Refleksjon. Ikke hopp over skapende oppgaver.
+5.  **Content-blokker som narrativ motor.** 200-300 ord guidingtekst som setter scenen, bruker metaforer, og gir motivasjon — ikke bare "dette handler om X".
+6.  **Interaktive komponenter ved vendepunkt.** Plassér ScenarioRoleplay ved klimaks, PackTheBag ved syntese. Ikke spredd tilfeldig.
+7.  **Capstone-prosjekt.** De siste 2-3 stegene bygger mot et konkret sluttprodukt (f.eks. "skriv din egen novelle").
+8.  **Vurder skreddersydde komponenter.** Ikke nøy deg med eksisterende bibliotek — foreslå nye komponenter som passer det spesifikke emnet (f.eks. en "omskriv setningen"-widget for skriving, et tidslinje-puslespill for historie).
 
 ### Obligatorisk "Steg 0": Onboarding
 Hver læringssti må starte med et **Steg 0 (Prolog)**. Dette steget skal:
@@ -72,7 +87,7 @@ Hvert steg i `steps`-arrayet kan være av typen:
 *   `oppgave`: Konkrete gjøremål.
 *   `ressurs`: Lenker til fordypning.
 
-Hvert steg skal ha **5-8 oppgaver** som følger **Blooms Taksonomi (Scaffolding-trappen)**:
+Hvert steg skal ha **4-7 oppgaver** som følger **Blooms Taksonomi (Scaffolding-trappen)**:
 
 > [!IMPORTANT]
 > **Regel for artikler**: Hvis et steg krever at eleven leser en artikkel for å finne svarene, skal dette **ALLTID** være den første oppgaven i `tasks`-arrayet. Oppgaven skal være en klikkbar lenke.
@@ -81,7 +96,8 @@ Hvert steg skal ha **5-8 oppgaver** som følger **Blooms Taksonomi (Scaffolding-
 
 1.  **Fakta**: (Gjenkalling) Svar som finnes direkte i teksten.
 2.  **Forståelse**: (Forklaring) Eleven må forklare mekanismer eller årsaker.
-3.  **Analyse/Etikk**: (Refleksjon) Eleven må vurdere dilemmaer eller se lange linjer.
+3.  **Anvendelse**: (Skapende) Eleven må *lage* noe — en setning, en minikarakter, en omskriving. Ikke bare svare, men bruke kunnskapen aktivt.
+4.  **Analyse/Etikk**: (Refleksjon) Eleven må vurdere dilemmaer eller se lange linjer.
 
 ```json
 {
@@ -109,7 +125,9 @@ Hvert steg skal ha **5-8 oppgaver** som følger **Blooms Taksonomi (Scaffolding-
 
 Du kan legge inn spill og verktøy direkte i et steg ved å bruke `component`-feltet.
 
-> **Tips:** Hvis ingen av de eksisterende komponentene passer til ditt innhold, ikke nøl med å **foreslå nye!** Vi utvider stadig biblioteket med skreddersydde verktøy for spesifikke læringsmål.
+> **Tips:** Ikke nøy deg med å velge fra eksisterende bibliotek. Vurder alltid om emnet trenger **skreddersydde komponenter** — f.eks. en "omskriv setningen"-widget for skriving, et karakter-byggeverktøy, eller en perspektiv-bytter. Foreslå nye komponenter der det løfter læringen!
+>
+> **Plassering:** Interaktive komponenter bør plasseres ved **vendepunkter og klimaks** i den narrative buen — ikke spredd tilfeldig. En ScenarioRoleplay hører hjemme i Akt 2 (konfrontasjonen), en PackTheBag ved syntese-steget.
 
 #### Tilgjengelige komponenter:
 
@@ -285,8 +303,11 @@ Før du sier deg ferdig:
 
 1.  [ ] **Lenker**: Fungerer alle interne lenker til artikler? Har du laget placeholder-artikler for manglende innhold?
 2.  [ ] **Bilder**: Har alle interaktive komponenter nødvendige ikoner/bilder?
-3.  [ ] **Pedagogisk Trapp**: Følger oppgavene Blooms taksonomi (Fakta -> Forståelse -> Refleksjon)?
-4.  [ ] **Narrativ Dybde**: Har hvert steg minst 150 ord med guiding tekst?
+3.  [ ] **Pedagogisk Trapp**: Følger oppgavene Blooms taksonomi (Fakta → Forståelse → Anvendelse → Refleksjon)?
+4.  [ ] **Narrativ Dybde**: Har hvert steg minst 150 ord med guiding tekst (helst 200-300)?
+4b. [ ] **Samlende Metafor**: Har stien en gjennomgående metafor som binder alt sammen?
+4c. [ ] **Poetiske Titler**: Er stegtitlene evokative og nysgjerrighetsskapende (ikke generiske)?
+4d. [ ] **Én artikkel per steg**: Fokuserer hvert steg på kun én artikkel?
 5.  [ ] **Ghost-Fact Audit (KRITISK)**: Har du manuelt verifisert at alle 'Fakta'-spørsmål faktisk kan besvares ved å lese den lenkede artikkelen? Det er forbudt å spørre om noe som ikke står i kildematerialet. Sjekk også at "Les artikkelen" er første steg.
 6.  [ ] **Testing**: Åpne stien i nettleseren og klikk gjennom alle stegene. Spill gjennom scenariene for å sjekke at logikken holder.
 7.  [ ] **Data Synchronization:** Run `node scripts/update-learning-paths.cjs` to update the library hub.
