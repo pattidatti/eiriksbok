@@ -1,0 +1,826 @@
+{
+    "id": "tekstanalyse-sti",
+    "title": "Læringssti: Tekstdetektiven",
+    "description": "Lær å finne virkemidler, koble dem til tema, og skrive overbevisende analysetekster.",
+    "layout": "learning-path",
+    "category": "Læringssti",
+    "readTime": "4–6 timer",
+    "heroImage": "/images/topics/analyse_hero.png",
+    "learningPathData": {
+        "id": "tekstanalyse-sti",
+        "title": "Tekstdetektiven",
+        "description": "Enhver tekst er et åsted. Forfatteren har gjort bevisste valg — og din jobb er å finne sporene, forstå motivet, og presentere saken. I denne læringsstien blir du en fullblods tekstdetektiv.",
+        "targetTopicId": "analyse",
+        "targetSubjectId": "norsk",
+        "steps": [
+            {
+                "id": "step-0",
+                "phase": "Prolog",
+                "title": "Rekrutteringen",
+                "type": "fakta",
+                "content": "Velkommen, rekrutt. Du er her fordi du har et godt øye for detaljer — og fordi verden trenger flere tekstdetektiver.\n\nHver eneste tekst du leser er et åsted. Forfatteren har gjort hundrevis av bevisste valg: dette ordet i stedet for det andre, denne setningsrekkefølgen, dette bildet. Noen valg er åpenbare, som et fingeravtrykk på et glass. Andre er skjulte, som usynlig blekk som bare kommer fram i riktig lys.\n\nDin jobb som tekstdetektiv? Finne sporene. Forstå motivet. Og til slutt — skrive en etterforskningsrapport som overbeviser juryen om hva teksten egentlig handler om. Det krever verktøy, øvelse og mot til å grave dypere enn det som ligger på overflaten.\n\nMen først, la oss sjekke at du har den rette innstillingen.",
+                "tasks": [
+                    "Hva er forskjellen på å lese for underholdning og å analysere en tekst? Skriv ned to forskjeller.",
+                    "Tenk på en reklame du har sett nylig — hvilke grep brukte den for å påvirke deg?",
+                    "Les denne setningen: «Den siste solstrålen trakk seg tilbake bak fjellet.» Hvilke ordvalg er bevisste? Hva oppnår forfatteren?",
+                    "Skriv ned hva du vil bli bedre til i tekstanalyse. Kom tilbake til dette i steg 13."
+                ],
+                "links": []
+            },
+            {
+                "id": "step-1",
+                "phase": "Akt 1: Sporjakten",
+                "title": "Verktøyskapet",
+                "type": "fakta",
+                "content": "Enhver detektiv trenger sitt utstyr. Det første verktøyet i kofferten din er evnen til å gjenkjenne språklige bilder — de usynlige trådene som binder teksten sammen og gir den mening utover det bokstavelige.\n\nMetaforer, sammenligninger, besjelinger, kontraster, symboler og gjentakelser. Seks verktøy som forfattere bruker for å male bilder i leserens hode, skape stemning og forsterke budskapet. Du har sikkert møtt dem før, men kanskje uten å sette navn på dem.\n\nI dette steget lærer du å identifisere dem — raskt og presist. Tenk på det som å lære å skille fingeravtrykk fra hverandre: hver type har sitt eget mønster.",
+                "tasks": [
+                    "Les artikkelen [Bildespråk og effekter](/norsk/virkemidler/bildesprak-og-effekter)",
+                    "Hva er forskjellen mellom en metafor og en sammenligning? Gi et eksempel på hver.",
+                    "Forklar: Hvorfor bruker forfattere besjeling? Hva oppnår det som vanlig beskrivelse ikke gjør?",
+                    "Bruk Sporjegeren nedenfor til å markere virkemidlene i tekstutdraget.",
+                    "Skriv en setning der du bruker personifisering (besjeling) av et naturfenomen."
+                ],
+                "component": {
+                    "name": "TextHighlighter",
+                    "props": {
+                        "instruction": "Marker virkemidlene i teksten — velg riktig kategori for hvert uttrykk.",
+                        "text": "Havet var et grått teppe som strakte seg mot horisonten. Bølgene hvisket mot stranden, urolige og rastløse. Solen sank som en glødende mynt bak skyene. Den gamle fyrlykten sto som en ensom vokter ved klippen — et symbol på håp i mørket. Lyset kom og gikk, kom og gikk. Alt var stille og stort, mørkt og uendelig.",
+                        "correctWords": [
+                            { "word": "et grått teppe", "category": "metafor" },
+                            { "word": "som strakte seg mot horisonten", "category": "sammenligning" },
+                            { "word": "Bølgene hvisket", "category": "besjeling" },
+                            { "word": "som en glødende mynt", "category": "sammenligning" },
+                            { "word": "som en ensom vokter", "category": "sammenligning" },
+                            { "word": "et symbol på håp", "category": "symbol" },
+                            { "word": "kom og gikk, kom og gikk", "category": "gjentakelse" },
+                            { "word": "stille og stort, mørkt og uendelig", "category": "kontrast" }
+                        ]
+                    }
+                },
+                "links": [
+                    {
+                        "title": "Les artikkel: Bildespråk og effekter",
+                        "url": "/norsk/virkemidler/bildesprak-og-effekter"
+                    }
+                ]
+            },
+            {
+                "id": "step-2",
+                "phase": "Akt 1: Sporjakten",
+                "title": "Kameraets øye",
+                "type": "fakta",
+                "content": "Tenk på synsvinkelen som forfatterens kamera. Hvor er det plassert? Hvem ser vi gjennom? Og viktigst av alt — hva får vi ikke se?\n\nEn personal synsvinkel lar oss bo inni én persons hode. Vi kjenner hvert bankende hjerte og hver kvelende tvil. Men vi vet ingenting om hva de andre tenker. En autoral synsvinkel løfter kameraet høyere — vi ser mer, men føler mindre. Og en allvitende forteller? Den vet alt, men kan gjøre leseren lat.\n\nDet mest spennende grepet er kanskje den upålitelige fortelleren — et kamera med en sprekk i linsen. Alt vi ser er farget av fortellerens løgner, hukommelse eller blinde flekker.",
+                "tasks": [
+                    "Les artikkelen [Synsvinkel og stemme](/norsk/virkemidler/synsvinkel-og-stemme)",
+                    "Hva er forskjellen mellom personal og autoral synsvinkel? Hvilken skaper mest nærhet?",
+                    "Hvorfor velger en forfatter å bruke en upålitelig forteller? Hva oppnås?",
+                    "Bruk Setningsforvandleren for å se hvordan synsvinkel endrer mening og effekt.",
+                    "Hva ville du som detektiv sett etter som tegn på at en forteller er upålitelig?"
+                ],
+                "component": {
+                    "name": "SentenceTransformer",
+                    "props": {
+                        "title": "Synsvinkelbryteren",
+                        "sentences": [
+                            {
+                                "id": "scene-1",
+                                "original": "En jente sitter på en benk i parken og ser på de andre barna som leker.",
+                                "techniques": [
+                                    {
+                                        "id": "personal",
+                                        "name": "Personal",
+                                        "icon": "👁️",
+                                        "transformed": "Magen knøt seg. De lo der borte, alle sammen. Hun klemte hendene rundt kanten av benken og late som hun ikke brydde seg."
+                                    },
+                                    {
+                                        "id": "autoral",
+                                        "name": "Autoral",
+                                        "icon": "🎥",
+                                        "transformed": "Den lille jenta satt ubevegelig på benken, alene, mens de andre barna jaget hverandre mellom trærne. Ingen la merke til henne."
+                                    },
+                                    {
+                                        "id": "allvitende",
+                                        "name": "Allvitende",
+                                        "icon": "🌐",
+                                        "transformed": "Sara ville gjerne leke, men motet sviktet. Borte ved sklia visste Emil godt at hun satt der. Han skammet seg over at han ikke gikk bort."
+                                    }
+                                ],
+                                "sweetSpot": 1
+                            },
+                            {
+                                "id": "scene-2",
+                                "original": "En mann kommer hjem fra jobb og oppdager at døra er ulåst.",
+                                "techniques": [
+                                    {
+                                        "id": "personal-2",
+                                        "name": "Personal",
+                                        "icon": "👁️",
+                                        "transformed": "Noe var galt. Dørhåndtaket ga etter uten motstand. Jeg frøs midt i bevegelsen. Hadde noen vært her?"
+                                    },
+                                    {
+                                        "id": "autoral-2",
+                                        "name": "Autoral",
+                                        "icon": "🎥",
+                                        "transformed": "Mannen stanset på trappen. Døra sto på gløtt. Han ble stående lenge før han gikk inn."
+                                    },
+                                    {
+                                        "id": "allvitende-2",
+                                        "name": "Allvitende",
+                                        "icon": "🌐",
+                                        "transformed": "Karl merket at døra var ulåst og tenkte straks på innbrudd. Han visste ikke at det bare var datteren som hadde glemt å låse da hun hentet gymtøyet."
+                                    }
+                                ],
+                                "sweetSpot": 1
+                            }
+                        ]
+                    }
+                },
+                "links": [
+                    {
+                        "title": "Les artikkel: Synsvinkel og stemme",
+                        "url": "/norsk/virkemidler/synsvinkel-og-stemme"
+                    }
+                ]
+            },
+            {
+                "id": "step-3",
+                "phase": "Akt 1: Sporjakten",
+                "title": "Tidens tannhjul",
+                "type": "fakta",
+                "content": "Tid i en tekst er ikke som tid i virkeligheten. Forfatteren kan starte midt i en eksplosjon, fryse et øyeblikk i tre sider, eller la ti år passere i én setning. Disse tidsgrepene er blant de kraftigste verktøyene i verktøykassen.\n\nIn medias res kaster deg rett inn i handlingen — du vet ikke hvor du er, men du føler at noe viktig skjer. Retrospektiv tar deg tilbake i tid for å avsløre hemmeligheter. Frampek planter frø som først blomstrer mye senere. Og utvidet øyeblikk? Det er som sakte film — et sekund som strekkes til en hel side.\n\nNår du forstår tidsmanipulasjon, kan du lese tekster på en helt ny måte. Du ser ikke bare hva som skjer — du ser hvordan det fortelles.",
+                "tasks": [
+                    "Les artikkelen [Tid og struktur](/norsk/virkemidler/tid-og-struktur)",
+                    "Hva betyr «in medias res»? Hvorfor er det en effektiv åpning?",
+                    "Hva er forskjellen mellom frampek og retrospektiv? Gi et eksempel på hver.",
+                    "Bruk Elementmikseren til å se hvordan tidsgrep forvandler et nøytralt narrativ.",
+                    "Tenk på en film eller serie som starter «midt i handlingen» — hvilken effekt har det på deg som seer?"
+                ],
+                "component": {
+                    "name": "StoryElementMixer",
+                    "props": {
+                        "title": "Tidsmanipulatoren",
+                        "originalText": "Ole våknet. Han spiste frokost. Han gikk til skolen. Der traff han Sara. De snakket sammen. Etter skolen gikk han hjem igjen.",
+                        "ingredients": [
+                            {
+                                "id": "in-medias-res",
+                                "name": "In medias res",
+                                "icon": "⚡",
+                                "description": "Start midt i handlingen — la leseren forstå bakgrunnen etter hvert.",
+                                "transforms": [
+                                    { "find": "Ole våknet.", "replace": "«Jeg visste ikke at det var siste gang jeg ville se henne.»", "color": "rose" },
+                                    { "find": "Han spiste frokost.", "replace": "Frokosten ble stående urørt på bordet.", "color": "rose" }
+                                ]
+                            },
+                            {
+                                "id": "frampek",
+                                "name": "Frampek",
+                                "icon": "🔮",
+                                "description": "Plant et hint om noe som kommer til å skje — skap forventning.",
+                                "transforms": [
+                                    { "find": "Han gikk til skolen.", "replace": "Han gikk til skolen uten å ane at denne dagen ville forandre alt.", "color": "amber" },
+                                    { "find": "De snakket sammen.", "replace": "De snakket sammen, og ordene hennes ville følge ham i ukene som kom.", "color": "amber" }
+                                ]
+                            },
+                            {
+                                "id": "retrospektiv",
+                                "name": "Retrospektiv",
+                                "icon": "⏪",
+                                "description": "Gå tilbake i tid — avslør bakgrunn som forklarer nåtiden.",
+                                "transforms": [
+                                    { "find": "Der traff han Sara.", "replace": "Der traff han Sara. Han husket første gang de møttes — i den lekkende gymsalen i sjuende klasse, da de begge hadde glemt gymtøyet.", "color": "sky" }
+                                ]
+                            },
+                            {
+                                "id": "utvidet-oyeblikk",
+                                "name": "Utvidet øyeblikk",
+                                "icon": "⏸️",
+                                "description": "Frys et øyeblikk — strekk ut et sekund til en hel scene.",
+                                "transforms": [
+                                    { "find": "Etter skolen gikk han hjem igjen.", "replace": "Hun vinket. Hånden hennes hang i luften et halvt sekund — lenge nok til at han la merke til armbåndet hun alltid hadde på seg, lenge nok til at han lurte på om vinket var for ham eller for noen bak ham. Så snudde han og gikk.", "color": "emerald" }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "links": [
+                    {
+                        "title": "Les artikkel: Tid og struktur",
+                        "url": "/norsk/virkemidler/tid-og-struktur"
+                    }
+                ]
+            },
+            {
+                "id": "step-4",
+                "phase": "Akt 2: Etterforskingen",
+                "title": "Fra spor til motiv",
+                "type": "fakta",
+                "content": "Du har nå et godt verktøyskap. Du kan gjenkjenne metaforer, kontraster og tidsgrep. Men sporene alene er ikke nok — en god detektiv spør alltid: hva peker dette mot?\n\nDet er her mange elever stopper. De identifiserer at «havet er en metafor» og tror de er ferdige. Men identifisering er bare steg én. Det virkelige arbeidet er å koble spor til motiv — og motiv til tema og budskap.\n\nHandling er hva som skjer. Motiv er et gjentakende element som peker mot noe dypere. Tema er det teksten handler om på et overordnet nivå. Og budskap? Det er hva forfatteren mener om temaet. Fire lag, som en arkeologisk utgravning. I dette steget lærer du å grave.",
+                "tasks": [
+                    "Les artikkelen [Tema og budskap](/norsk/analyse/tema-og-budskap)",
+                    "Hva er forskjellen mellom motiv, tema og budskap? Gi et eksempel som viser sammenhengen.",
+                    "Hvorfor kan en tekst ha flere gyldige temaer? Hva gjør det med analysen?",
+                    "Bruk Gravemaskinen til å grave gjennom lagene i teksten nedenfor.",
+                    "Velg en tekst du kjenner godt. Skriv én setning for hvert lag: handling, motiv, tema, budskap.",
+                    "Er det mulig at to lesere finner ulike temaer i samme tekst? Begrunn svaret ditt."
+                ],
+                "component": {
+                    "name": "ThemeDigger",
+                    "props": {
+                        "title": "Gravemaskinen",
+                        "story": "Den gamle mannen satt ved vinduet og så på treet i hagen. Det hadde vært der så lenge han kunne huske. Hvert år mistet det bladene sine, og hvert år kom de tilbake — litt svakere, litt færre. I år var den nederste grenen bar. Han reiste seg og gikk ut for å vanne det, selv om han visste at vann ikke var nok.",
+                        "storyDescription": "En kort tekst om en gammel mann og et tre.",
+                        "layers": [
+                            {
+                                "id": "handling",
+                                "name": "Handling",
+                                "depth": 1,
+                                "question": "Hva skjer på overflaten i denne teksten?",
+                                "options": [
+                                    { "text": "En mann sitter ved vinduet og ser på et tre som mister blader. Han går ut for å vanne det.", "correct": true, "feedback": "Riktig! Dette er det konkrete handlingsnivået — hva vi ser «utenfra»." },
+                                    { "text": "En mann planter et nytt tre i hagen.", "correct": false, "feedback": "Nei — treet er allerede der, og har vært der lenge." },
+                                    { "text": "En mann bestemmer seg for å hugge ned treet.", "correct": false, "feedback": "Nei — han prøver tvert imot å ta vare på det." }
+                                ],
+                                "color": "amber",
+                                "icon": "👁️"
+                            },
+                            {
+                                "id": "motiv",
+                                "name": "Motiv",
+                                "depth": 2,
+                                "question": "Hvilket gjentakende motiv finner du?",
+                                "options": [
+                                    { "text": "Årstidenes syklus — bladene som faller og kommer tilbake, men svakere for hvert år.", "correct": true, "feedback": "Nettopp! Årstidsmotivet skaper en parallell til noe mer enn bare et tre." },
+                                    { "text": "Reise — mannen reiser til et annet sted.", "correct": false, "feedback": "Nei — mannen reiser ikke noe sted. Han er hjemme hele tiden." },
+                                    { "text": "Mat — han er sulten og leter etter noe å spise.", "correct": false, "feedback": "Nei — teksten handler ikke om mat eller sult." }
+                                ],
+                                "color": "orange",
+                                "icon": "🔁"
+                            },
+                            {
+                                "id": "tema",
+                                "name": "Tema",
+                                "depth": 3,
+                                "question": "Hva handler teksten egentlig om?",
+                                "options": [
+                                    { "text": "Aldring og forgjengelighet — at alt sakte svekkes, men man holder fast likevel.", "correct": true, "feedback": "Ja! Treet er et bilde på mannen selv — begge svekkes, men han gir ikke opp." },
+                                    { "text": "Hagearbeid — hvordan man tar vare på trær.", "correct": false, "feedback": "Det er for bokstavelig. Teksten bruker treet som bilde på noe dypere." },
+                                    { "text": "Vær og klima — at været endrer seg.", "correct": false, "feedback": "Årstidene er et motiv, men temaet handler om noe mer enn vær." }
+                                ],
+                                "color": "emerald",
+                                "icon": "💡"
+                            },
+                            {
+                                "id": "budskap",
+                                "name": "Budskap",
+                                "depth": 4,
+                                "question": "Hva mener forfatteren om dette temaet?",
+                                "options": [
+                                    { "text": "Vi holder fast ved det vi elsker, selv når vi vet at tiden er i ferd med å ta det fra oss. Omsorgen er meningsfull i seg selv.", "correct": true, "feedback": "Mesterlig! Budskapet ligger i den siste handlingen — han vanner, selv om han vet det ikke er nok. Kjærligheten trumfer logikken." },
+                                    { "text": "Man bør gi opp når ting er håpløse.", "correct": false, "feedback": "Tvert imot — mannen gjør det motsatte av å gi opp." },
+                                    { "text": "Trær er viktige for miljøet.", "correct": false, "feedback": "Det er en bokstavelig lesning. Teksten bruker treet symbolsk." }
+                                ],
+                                "color": "violet",
+                                "icon": "🎯"
+                            }
+                        ]
+                    }
+                },
+                "links": [
+                    {
+                        "title": "Les artikkel: Tema og budskap",
+                        "url": "/norsk/analyse/tema-og-budskap"
+                    }
+                ]
+            },
+            {
+                "id": "step-5",
+                "phase": "Akt 2: Etterforskingen",
+                "title": "Bevisføringen",
+                "type": "utfordring",
+                "content": "En detektiv som finner spor men ikke kan presentere dem i retten, er en dårlig detektiv. I tekstanalysen er sitatene dine bevis — og bevis må presenteres riktig for å ha tyngde.\n\nDet finnes tre måter å bruke sitater på. Direkte sitat bruker forfatterens eksakte ord i anførselstegn. Parafrase gjengir innholdet med dine egne ord. Og innvevd sitat — den mest elegante formen — fletter forfatterens ord naturlig inn i din egen setning.\n\nForskjellen mellom en middels og en sterk analyse ligger ofte nettopp her: i hvor godt du integrerer bevisene. En lang sitatblokk uten kommentar er som å legge et bevis på bordet uten å forklare hva det betyr.",
+                "tasks": [
+                    "Les artikkelen [Hvordan føre kilder](/norsk/skrivehjelp/hvordan-fore-kilder)",
+                    "Hva er forskjellen mellom direkte sitat og parafrase? Når passer det best å bruke hver?",
+                    "Hvorfor er korte, presise sitater bedre enn lange utdrag i en analyse?",
+                    "Bruk Sitatveveren for å øve de tre sitatteknikkene.",
+                    "Skriv en analysesetning med direkte sitat fra en tekst du kjenner godt.",
+                    "Hva skjer med troverdigheten din i en analyse som ikke har noen sitater?"
+                ],
+                "component": {
+                    "name": "QuoteWeaver",
+                    "props": {
+                        "title": "Sitatveveren",
+                        "sourceText": "Han la merke til at treet hadde mistet den nederste grenen. Det sto der nakent og skjelvent, som om det frøs i høstvinden. Likevel gikk han ut med vannkannen, langsomt, med stive knær.",
+                        "sourceAuthor": "Tekstutdrag",
+                        "exercises": [
+                            {
+                                "id": "ex-1",
+                                "claim": "Forfatteren bruker personifisering for å skape sympati med treet.",
+                                "availableQuotes": [
+                                    "nakent og skjelvent, som om det frøs",
+                                    "den nederste grenen",
+                                    "langsomt, med stive knær"
+                                ],
+                                "methods": [
+                                    {
+                                        "type": "direct",
+                                        "template": "Treet beskrives som [SITAT], noe som gir det menneskelige egenskaper og skaper sympati hos leseren.",
+                                        "correctQuote": "nakent og skjelvent, som om det frøs",
+                                        "modelAnswer": "Treet beskrives som «nakent og skjelvent, som om det frøs», noe som gir det menneskelige egenskaper og skaper sympati hos leseren."
+                                    },
+                                    {
+                                        "type": "paraphrase",
+                                        "template": "Forfatteren gir treet menneskelige trekk ved å beskrive det som [SITAT], slik at leseren føler medlidenhet.",
+                                        "correctQuote": "nakent og skjelvent, som om det frøs",
+                                        "modelAnswer": "Forfatteren gir treet menneskelige trekk ved å beskrive det som frossent og avkledd. Denne besjelingen gjør at leseren føler medlidenhet med treet — og indirekte med den gamle mannen."
+                                    },
+                                    {
+                                        "type": "woven",
+                                        "template": "At treet står [SITAT] i høstvinden, skaper en parallell til mannens egen sårbarhet.",
+                                        "correctQuote": "nakent og skjelvent, som om det frøs",
+                                        "modelAnswer": "At treet står «nakent og skjelvent, som om det frøs» i høstvinden, skaper en parallell til mannens egen sårbarhet — begge er utsatt for tidens gang."
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "ex-2",
+                                "claim": "Den fysiske beskrivelsen av mannen forsterker temaet aldring.",
+                                "availableQuotes": [
+                                    "langsomt, med stive knær",
+                                    "la merke til",
+                                    "nakent og skjelvent, som om det frøs"
+                                ],
+                                "methods": [
+                                    {
+                                        "type": "direct",
+                                        "template": "Mannen går [SITAT], en detalj som understreker at også han er merket av alderen.",
+                                        "correctQuote": "langsomt, med stive knær",
+                                        "modelAnswer": "Mannen går «langsomt, med stive knær», en detalj som understreker at også han er merket av alderen."
+                                    },
+                                    {
+                                        "type": "woven",
+                                        "template": "Beskrivelsen av mannens kropp — han beveger seg [SITAT] — speiler treets forfall og forsterker temaet om forgjengelighet.",
+                                        "correctQuote": "langsomt, med stive knær",
+                                        "modelAnswer": "Beskrivelsen av mannens kropp — han beveger seg «langsomt, med stive knær» — speiler treets forfall og forsterker temaet om forgjengelighet."
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "links": [
+                    {
+                        "title": "Les artikkel: Hvordan føre kilder",
+                        "url": "/norsk/skrivehjelp/hvordan-fore-kilder"
+                    }
+                ]
+            },
+            {
+                "id": "step-6",
+                "phase": "Akt 2: Etterforskingen",
+                "title": "Analysebyggeren",
+                "type": "utfordring",
+                "content": "Nå som du kan finne spor og presentere bevis, er det tid for å bygge selve etterforskningsrapporten — avsnitt for avsnitt.\n\nEt godt analyseavsnitt følger PST-D-modellen: Påstand, Sitat, Tolkning, Drøfting. Påstanden er din hovedpåstand om teksten. Sitatet er beviset ditt. Tolkningen forklarer hva beviset betyr. Og drøftingen setter det i et større perspektiv — kanskje ved å veie alternative tolkninger.\n\nDet er som å bygge en mur: påstanden er fundamentet, sitatet er mursteinene, tolkningen er mørtelen som holder alt sammen, og drøftingen er det som gjør muren til noe mer enn bare en vegg — kanskje et vindu ut mot verden.",
+                "tasks": [
+                    "Les artikkelen [Hvordan skrive gode saktekster](/norsk/skrivehjelp/hvordan-skrive-gode-saktekster)",
+                    "Hva er en temasetning, og hvorfor er den viktig for et analyseavsnitt?",
+                    "Hva er forskjellen mellom en kommentarsetning og en sitatsetning?",
+                    "Bruk Analysebyggeren til å bygge et perfekt PST-D-avsnitt.",
+                    "Skriv et eget PST-D-avsnitt om en tekst du kjenner.",
+                    "Hva gir mest tyngde i en analyse: mange sitater uten kommentar, eller få godt kommenterte sitater?"
+                ],
+                "component": {
+                    "name": "ParagraphBuilder",
+                    "props": {
+                        "title": "Analysebyggeren",
+                        "context": "Bygg et analyseavsnitt om novelleutdraget der den gamle mannen vanner treet sitt.",
+                        "slots": [
+                            { "id": "pastand", "label": "Påstand", "description": "Din hovedpåstand om teksten", "color": "blue" },
+                            { "id": "sitat", "label": "Sitat", "description": "Tekstbevis som støtter påstanden", "color": "yellow" },
+                            { "id": "tolkning", "label": "Tolkning", "description": "Hva betyr dette beviset?", "color": "green" },
+                            { "id": "drofting", "label": "Drøfting", "description": "Sett i perspektiv — vei mot alternativer", "color": "purple" }
+                        ],
+                        "fragments": [
+                            { "id": "p1", "text": "Forfatteren bruker besjeling for å skape en parallell mellom treet og den gamle mannen.", "correctSlot": "pastand", "isDistractor": false, "feedback": "Riktig! Dette er en klar påstand om et virkemiddel og dets funksjon." },
+                            { "id": "s1", "text": "Treet beskrives som «nakent og skjelvent, som om det frøs i høstvinden».", "correctSlot": "sitat", "isDistractor": false, "feedback": "Godt valgt sitat! Det viser besjelingen tydelig." },
+                            { "id": "t1", "text": "Ved å gi treet menneskelige egenskaper som nakenhet og skjelving, gjør forfatteren det til et speilbilde av den aldrende mannen.", "correctSlot": "tolkning", "isDistractor": false, "feedback": "Sterk tolkning! Du forklarer hvorfor besjelingen fungerer og hva den oppnår." },
+                            { "id": "d1", "text": "Denne parallellen kan også leses som et bilde på forgjengelighet generelt — at alt levende er sårbart, men at omsorgen vi viser gir mening selv når utfallet er gitt.", "correctSlot": "drofting", "isDistractor": false, "feedback": "Utmerket drøfting! Du løfter tolkningen til et universelt nivå." },
+                            { "id": "x1", "text": "Teksten er skrevet i fortid.", "correctSlot": "", "isDistractor": true, "feedback": "Dette er en observasjon, men den fører ikke analysen videre. En påstand trenger et analytisk poeng." },
+                            { "id": "x2", "text": "Den gamle mannen liker trær.", "correctSlot": "", "isDistractor": true, "feedback": "Dette er gjenfortelling, ikke analyse. Prøv å si noe om hvorfor og hvordan — ikke bare hva." },
+                            { "id": "x3", "text": "Jeg synes teksten er fin.", "correctSlot": "", "isDistractor": true, "feedback": "Personlige meninger uten begrunnelse hører ikke hjemme i en faglig analyse." }
+                        ],
+                        "modelParagraph": "Forfatteren bruker besjeling for å skape en parallell mellom treet og den gamle mannen. Treet beskrives som «nakent og skjelvent, som om det frøs i høstvinden». Ved å gi treet menneskelige egenskaper som nakenhet og skjelving, gjør forfatteren det til et speilbilde av den aldrende mannen — begge er sårbare og utsatt for tidens krefter. Denne parallellen kan også leses som et bilde på forgjengelighet generelt: at alt levende er sårbart, men at omsorgen vi viser gir mening selv når utfallet er gitt."
+                    }
+                },
+                "links": [
+                    {
+                        "title": "Les artikkel: Hvordan skrive gode saktekster",
+                        "url": "/norsk/skrivehjelp/hvordan-skrive-gode-saktekster"
+                    }
+                ]
+            },
+            {
+                "id": "step-7",
+                "phase": "Akt 2: Etterforskingen",
+                "title": "Dybdedykket",
+                "type": "oppgave",
+                "content": "La oss bruke alt du har lært på en ekte novelle. Ernest Hemingway sa en gang at en god historie er som et isfjell: bare 10 prosent er synlig over vannflaten. Resten — det virkelige innholdet — ligger under.\n\nÅ lese som en detektiv betyr å se det som er «under vannet». Handlingen er overflaten: hvem gjør hva, hvor og når. Men under overflaten finner du subtext — det usagte, det symbolske, det som forfatteren mener men aldri skriver rett ut.\n\nDen beste øvelsen er å markere begge lagene i en tekst. Hva hører til overflaten? Hva peker nedover mot dypet?",
+                "tasks": [
+                    "Les artikkelen [Analyse av novelle](/norsk/analyse/analyse-novelle)",
+                    "Hva er Isfjell-teorien, og hvordan påvirker den måten vi leser noveller på?",
+                    "Bruk Sporjegeren til å markere «overflate» (handling) og «dyp» (subtext/symbolikk) i utdraget nedenfor.",
+                    "Skriv en temasetning etter modellen: «Forfatterens bruk av [virkemiddel] forsterker temaet [tema] ved at...»",
+                    "Ville analysen din endret seg dersom novellen brukte en allvitende forteller i stedet? Drøft kort."
+                ],
+                "component": {
+                    "name": "TextHighlighter",
+                    "props": {
+                        "instruction": "Marker det som tilhører **overflaten** (handling) og det som tilhører **dypet** (symbolikk, subtext).",
+                        "text": "Hun åpnet vinduet og lot den kalde luften strømme inn. Det hadde regnet hele natten, og vanndråpene hang som diamanter i spindelvevet utenfor. Hun tok på seg jakken og gikk ut uten å si adjø. Bak henne sto koppen med kald kaffe, urørt, som et stille bevis på at hun hadde bestemt seg lenge før morgenen kom.",
+                        "correctWords": [
+                            { "word": "åpnet vinduet", "category": "overflate" },
+                            { "word": "lot den kalde luften strømme inn", "category": "dyp" },
+                            { "word": "hadde regnet hele natten", "category": "overflate" },
+                            { "word": "vanndråpene hang som diamanter i spindelvevet", "category": "dyp" },
+                            { "word": "tok på seg jakken", "category": "overflate" },
+                            { "word": "gikk ut uten å si adjø", "category": "dyp" },
+                            { "word": "koppen med kald kaffe, urørt", "category": "dyp" },
+                            { "word": "et stille bevis på at hun hadde bestemt seg lenge før morgenen kom", "category": "dyp" }
+                        ]
+                    }
+                },
+                "links": [
+                    {
+                        "title": "Les artikkel: Analyse av novelle",
+                        "url": "/norsk/analyse/analyse-novelle"
+                    }
+                ]
+            },
+            {
+                "id": "step-8",
+                "phase": "Akt 2: Etterforskingen",
+                "title": "Rettssalen",
+                "type": "utfordring",
+                "content": "En god detektiv finner bevis. En mesterdetektiv presenterer saken i retten — og vinner. Forskjellen? Drøfting.\n\nDe fleste elever stopper ved identifisering: «Teksten bruker en metafor.» Noen kommer til tolkning: «Metaforen viser at karakteren er ensom.» Men få når helt opp til drøfting: «Denne metaforen kan tolkes som ensomhet, men den kan også leses som en bevisst avstand — forfatteren lar det være opp til leseren å avgjøre.»\n\nDrøfting er forskjellen mellom å beskrive og å tenke. Det er her du veier din tolkning mot alternativer, stiller spørsmål ved dine egne antakelser, og viser at du forstår tekstens kompleksitet. Argumentstigen viser deg hvordan — trinn for trinn.",
+                "tasks": [
+                    "Gjenbesøk artikkelen [Tema og budskap](/norsk/analyse/tema-og-budskap) — les spesielt om den hermeneutiske sirkel.",
+                    "Hva betyr «å drøfte» i en tekstanalyse? Hvordan er drøfting forskjellig fra å beskrive?",
+                    "Hvorfor må du veie argumenter mot hverandre i en god analyse?",
+                    "Bruk Argumentstigen for å se og forstå forskjellen mellom svak og sterk analyse.",
+                    "Skriv én beskrivende og én drøftende setning om samme tekst.",
+                    "En klassekamerat sier: «Diktet handler om døden, ferdig.» Hva mangler i denne analysen?"
+                ],
+                "component": {
+                    "name": "ArgumentScaffold",
+                    "props": {
+                        "title": "Argumentstigen",
+                        "topic": "Analyse av «den gamle mannen og treet»",
+                        "levels": [
+                            {
+                                "id": "gjenfortelling",
+                                "name": "Gjenfortelling",
+                                "color": "red",
+                                "example": "Teksten handler om en gammel mann som ser på et tre og vanner det.",
+                                "explanation": "Dette er bare gjenfortelling — du sier hva som skjer, men ikke hva det betyr. Ingen virkemidler er identifisert, ingen tolkning er gjort.",
+                                "additions": ["handler om", "vi ser at"]
+                            },
+                            {
+                                "id": "identifisering",
+                                "name": "Identifisering",
+                                "color": "yellow",
+                                "example": "Forfatteren bruker besjeling når treet beskrives som «nakent og skjelvent».",
+                                "explanation": "Du har identifisert et virkemiddel og gitt et sitat som bevis. Men du har ikke forklart hva det oppnår — hvorfor er besjelingen der?",
+                                "additions": ["forfatteren bruker", "vi finner"]
+                            },
+                            {
+                                "id": "tolkning",
+                                "name": "Tolkning",
+                                "color": "green",
+                                "example": "Besjelingen gjør treet til et speilbilde av den gamle mannen. Begge er sårbare og svekkes av tiden, noe som forsterker temaet forgjengelighet.",
+                                "explanation": "Nå forklarer du hva virkemiddelet oppnår og kobler det til tema. Du tolker — men du veier ikke mot alternativer ennå.",
+                                "additions": ["dette forsterker", "noe som viser"]
+                            },
+                            {
+                                "id": "drofting",
+                                "name": "Drøfting",
+                                "color": "gold",
+                                "example": "Besjelingen skaper en parallell mellom mann og tre, men den kan også leses som et bilde på omsorg i seg selv — at handlingen å vanne har verdi uavhengig av resultatet. Dersom forfatteren hadde valgt en autoral synsvinkel, ville den emosjonelle effekten vært svakere, og leseren ville ikke opplevd mannens stille aksept like sterkt.",
+                                "explanation": "Her drøfter du: du presenterer en alternativ tolkning, reflekterer over forfatterens valg, og viser at teksten er flertydig. Dette er toppnivå.",
+                                "additions": ["men kan også", "på den annen side"]
+                            }
+                        ],
+                        "climbMode": {
+                            "baseText": "Teksten handler om en gammel mann som ser på et tre.",
+                            "additions": [
+                                { "id": "a1", "text": "Forfatteren bruker besjeling: treet beskrives som «nakent og skjelvent».", "correctLevel": 1, "feedback": "Du har identifisert virkemiddelet og sitert. Neste steg: forklar hva det betyr." },
+                                { "id": "a2", "text": "Han liker treet sitt veldig godt.", "correctLevel": -1, "feedback": "Dette er gjenfortelling med følelsestillegg — det tilfører ingen analyse." },
+                                { "id": "a3", "text": "Besjelingen gjør treet til et speilbilde av mannens egen aldring, noe som forsterker temaet forgjengelighet.", "correctLevel": 2, "feedback": "Sterk tolkning! Du kobler virkemiddelet til tema. Neste steg: drøft alternativer." },
+                                { "id": "a4", "text": "Teksten er godt skrevet.", "correctLevel": -1, "feedback": "Vurderinger som «godt skrevet» uten begrunnelse gir ingen analytisk verdi." },
+                                { "id": "a5", "text": "Denne parallellen kan også leses som et bilde på omsorg — at handlingen å ta vare på noe har verdi i seg selv, uavhengig av utfallet.", "correctLevel": 3, "feedback": "Utmerket drøfting! Du veier en alternativ tolkning og løfter analysen til et universelt nivå." },
+                                { "id": "a6", "text": "Treet mister bladene sine om høsten.", "correctLevel": -1, "feedback": "Ren gjenfortelling — dette tilfører ingen analytisk dybde." }
+                            ]
+                        }
+                    }
+                },
+                "links": [
+                    {
+                        "title": "Gjenbesøk: Tema og budskap",
+                        "url": "/norsk/analyse/tema-og-budskap"
+                    }
+                ]
+            },
+            {
+                "id": "step-9",
+                "phase": "Akt 3: Rapporten",
+                "title": "Diktet under lupen",
+                "type": "oppgave",
+                "content": "Diktet har dårlig tid. Der novellen kan bruke sider på å bygge stemning, må diktet si alt med noen få, nøye valgte ord. Derfor er hvert enkelt virkemiddel i et dikt ekstra ladet — som en komprimert filer som åpner seg i leserens hode.\n\nDet betyr også at analyse av dikt krever ekstra presisjon. Du må se på form (strofer, rim, rytme), bilder (metaforer, symboler), og innhold (tema, budskap) som et integrert hele. De fire stegene for diktanalyse hjelper deg med å strukturere dette arbeidet.\n\nBruk Gravemaskinen for å grave gjennom lagene i et kort dikt — fra overflateform til dypere budskap.",
+                "tasks": [
+                    "Les artikkelen [Analyse av dikt](/norsk/analyse/analyse-dikt)",
+                    "Hva er de fire stegene for diktanalyse? Hvorfor er rekkefølgen viktig?",
+                    "Bruk Gravemaskinen til å analysere diktet nedenfor lag for lag.",
+                    "Skriv et PST-D-avsnitt om diktet: påstand, sitat, tolkning, drøfting.",
+                    "Kunne diktet ha et annet budskap enn det du fant? Presenter en alternativ tolkning med begrunnelse."
+                ],
+                "component": {
+                    "name": "ThemeDigger",
+                    "props": {
+                        "title": "Gravemaskinen — Diktanalyse",
+                        "story": "Treet i hagen\n\nDet gamle treet\nbøyer seg mot jorden\nsom en gammel mann\nmed ryggen full av år.\n\nBladene faller —\nett for ett,\nstille som hemmeligheter\ningen vil høre.\n\nMen røttene holder.\nDe holder.",
+                        "storyDescription": "Et kort dikt om et tre som bøyer seg.",
+                        "layers": [
+                            {
+                                "id": "form",
+                                "name": "Form",
+                                "depth": 1,
+                                "question": "Hva legger du merke til ved diktets form?",
+                                "options": [
+                                    { "text": "Tre strofer uten rim, korte verselinjer, siste strofe er kuttet ned til bare to linjer med gjentakelse.", "correct": true, "feedback": "Godt observert! Den korte siste strofen skaper et vendepunkt — formen speiler innholdet." },
+                                    { "text": "Diktet har parrim og fast rytme.", "correct": false, "feedback": "Nei, diktet er på fritt vers uten faste rim. Se nærmere på verselinjene." },
+                                    { "text": "Diktet har bare én lang strofe.", "correct": false, "feedback": "Diktet har tre tydelige strofer. Legg merke til linjeskiftene." }
+                                ],
+                                "color": "amber",
+                                "icon": "📐"
+                            },
+                            {
+                                "id": "bilder",
+                                "name": "Bilder og virkemidler",
+                                "depth": 2,
+                                "question": "Hvilke virkemidler finner du?",
+                                "options": [
+                                    { "text": "Sammenligning (treet bøyer seg som en gammel mann), besjeling (hemmeligheter ingen vil høre), gjentakelse (De holder. De holder.).", "correct": true, "feedback": "Helt riktig! Sammenligningen kobler treet til mennesket, besjelingen gjør bladfallet til noe emosjonelt, og gjentakelsen understreker styrken." },
+                                    { "text": "Bare allitterasjon og enderim.", "correct": false, "feedback": "Diktet har verken tydelig allitterasjon eller enderim. Se etter billedlige virkemidler." },
+                                    { "text": "Ironi og sarkasme.", "correct": false, "feedback": "Stemningen i diktet er alvorlig og ærlig, ikke ironisk." }
+                                ],
+                                "color": "emerald",
+                                "icon": "🎨"
+                            },
+                            {
+                                "id": "tema-dikt",
+                                "name": "Tema",
+                                "depth": 3,
+                                "question": "Hva handler diktet egentlig om?",
+                                "options": [
+                                    { "text": "Aldring og utholdenhet — å miste noe sakte men holde fast likevel.", "correct": true, "feedback": "Treet er et symbol for mennesket. Tapet er reelt, men røttene — det indre fundamentet — holder." },
+                                    { "text": "Botanikk og naturvitenskap.", "correct": false, "feedback": "For bokstavelig. Treet brukes som et bilde på noe dypere enn biologi." },
+                                    { "text": "Krig og ødeleggelse.", "correct": false, "feedback": "Diktet handler om sakte tap, ikke voldsom ødeleggelse." }
+                                ],
+                                "color": "sky",
+                                "icon": "💡"
+                            },
+                            {
+                                "id": "budskap-dikt",
+                                "name": "Budskap",
+                                "depth": 4,
+                                "question": "Hva mener dikteren?",
+                                "options": [
+                                    { "text": "Det finnes en stille styrke i å holde ut, selv når man mister det synlige. Røttene — det usynlige grunnlaget — er det som virkelig teller.", "correct": true, "feedback": "Mesterlig! Gjentakelsen «De holder. De holder.» er diktets hjerte — et budskap om indre styrke og utholdenhet." },
+                                    { "text": "Alt dør til slutt, og det er ingen vits å kjempe imot.", "correct": false, "feedback": "Siste strofe motsier dette — røttene holder. Diktet er håpefullt, ikke resignert." },
+                                    { "text": "Trær er viktige for klimaet.", "correct": false, "feedback": "Igjen for bokstavelig. Diktet bruker treet symbolsk for å si noe om menneskelivet." }
+                                ],
+                                "color": "violet",
+                                "icon": "🎯"
+                            }
+                        ]
+                    }
+                },
+                "links": [
+                    {
+                        "title": "Les artikkel: Analyse av dikt",
+                        "url": "/norsk/analyse/analyse-dikt"
+                    }
+                ]
+            },
+            {
+                "id": "step-10",
+                "phase": "Akt 3: Rapporten",
+                "title": "Saktekstens rustning",
+                "type": "fakta",
+                "content": "Til nå har du analysert skjønnlitteratur — noveller og dikt. Men virkemidler finnes overalt, også i sakprosa. Forskjellen er at sakprosaens virkemidler har ett klart mål: å overbevise.\n\nDe tre klassiske overbevisningsstrategiene er etos (troverdighet), patos (følelser) og logos (logikk). En god debattant bruker alle tre — men blandingsforholdet varierer. En forsker lener seg tungt på logos. En politiker bruker kanskje mest patos. Og en ekspert som siteres i avisen? Ren etos.\n\nÅ gjenkjenne disse strategiene er nøkkelen til å analysere sakprosatekster kritisk. For som tekstdetektiv vet du: det som prøver å overbevise deg, fortjener ekstra gransking.",
+                "tasks": [
+                    "Les artikkelen [Analyse av debattinnlegg](/norsk/analyse/analyse-debattinnlegg)",
+                    "Hva er Etos, Patos og Logos? Gi et konkret eksempel på hver.",
+                    "Bruk Setningsforvandleren for å se samme argument uttrykt med ulik retorisk strategi.",
+                    "Finn en aviskommentar eller et debattinnlegg på nett. Identifiser tre retoriske grep forfatteren bruker.",
+                    "Er Patos eller Logos mest overbevisende i en skoledebatt? Drøft med eksempler."
+                ],
+                "component": {
+                    "name": "SentenceTransformer",
+                    "props": {
+                        "title": "Retorikk-forvandleren",
+                        "sentences": [
+                            {
+                                "id": "argument-1",
+                                "original": "Skolen bør ha lengre friminutt.",
+                                "techniques": [
+                                    {
+                                        "id": "etos",
+                                        "name": "Etos",
+                                        "icon": "🎓",
+                                        "transformed": "Som leder for elevrådet i tre år har jeg sett på nært hold hvordan korte friminutt påvirker elevenes trivsel. Forskning fra NTNU bekrefter det vi opplever daglig: pausene er for korte."
+                                    },
+                                    {
+                                        "id": "patos",
+                                        "name": "Patos",
+                                        "icon": "❤️",
+                                        "transformed": "Forestill deg at du er tolv år gammel. Klokka ringer, og du har nøyaktig ti minutter til å spise, drikke, gå på do, og kanskje — kanskje — snakke med en venn. Er det et verdig skoleliv?"
+                                    },
+                                    {
+                                        "id": "logos",
+                                        "name": "Logos",
+                                        "icon": "📊",
+                                        "transformed": "En undersøkelse fra 2023 viser at elever med 20-minutters friminutt har 34% bedre konsentrasjon i neste time sammenlignet med elever som bare har 10 minutter. Tallene taler for seg."
+                                    }
+                                ],
+                                "sweetSpot": 1
+                            },
+                            {
+                                "id": "argument-2",
+                                "original": "Mobilforbud i skolen er en dårlig idé.",
+                                "techniques": [
+                                    {
+                                        "id": "etos-2",
+                                        "name": "Etos",
+                                        "icon": "🎓",
+                                        "transformed": "Digitale verktøy er en integrert del av moderne pedagogikk. UNESCO anbefaler balansert bruk, ikke totalforbud. Som IKT-ansvarlig på skolen ser jeg daglig verdien av digital kompetanse."
+                                    },
+                                    {
+                                        "id": "patos-2",
+                                        "name": "Patos",
+                                        "icon": "❤️",
+                                        "transformed": "Tenk deg at lillebroren din blir syk på skolen, men ikke kan ringe hjem fordi mobilen er innlåst. Forbud handler ikke om disiplin — det handler om å ta fra barn tryggheten de trenger."
+                                    },
+                                    {
+                                        "id": "logos-2",
+                                        "name": "Logos",
+                                        "icon": "📊",
+                                        "transformed": "I Sverige innførte 40% av skolene mobilforbud i 2022. Evalueringen etter ett år viste ingen målbar forbedring i resultater, men en økning i konflikter mellom elever og lærere."
+                                    }
+                                ],
+                                "sweetSpot": 1
+                            }
+                        ]
+                    }
+                },
+                "links": [
+                    {
+                        "title": "Les artikkel: Analyse av debattinnlegg",
+                        "url": "/norsk/analyse/analyse-debattinnlegg"
+                    }
+                ]
+            },
+            {
+                "id": "step-11",
+                "phase": "Akt 3: Rapporten",
+                "title": "Etterforskningsrapporten",
+                "type": "oppgave",
+                "content": "Du har verktøyene. Du har sporene. Du har øvd på å bygge avsnitt og presentere bevis. Nå er det tid for å bygge selve etterforskningsrapporten — en fullstendig analysetekst med innledning, hoveddel og avslutning.\n\nInnledningen presenterer saken: tittel, forfatter, kort om innholdet, og din problemstilling. Hoveddelen er bevisføringen: PST-D-avsnitt som bygger opp argumentet ditt trinn for trinn. Avslutningen samler trådene og svarer på problemstillingen med et overordnet perspektiv.\n\nFiskemodellen minner deg om at innledning og avslutning er smale og fokuserte, mens hoveddelen er bred og detaljert. Bruk Analysebyggeren for å øve på strukturen — denne gangen med alle tre delene.",
+                "tasks": [
+                    "Gjenbesøk artikkelen [Hvordan skrive gode saktekster](/norsk/skrivehjelp/hvordan-skrive-gode-saktekster)",
+                    "Hva er «fiskemodellen», og hvordan hjelper den deg med å strukturere en analyse?",
+                    "Hvorfor trenger analysen din en problemstilling? Hva gjør den for teksten?",
+                    "Bruk Analysebyggeren til å bygge en minianalyse med innledning, hoveddel og avslutning.",
+                    "Skriv en innledning med tittel, forfatter, kort innhold og problemstilling for en tekst du kjenner.",
+                    "Skriv to PST-D-avsnitt som bygger på innledningen.",
+                    "Vurder: har du identifisert, tolket OG drøftet? Sjekk med Argumentstigen i bakhodet."
+                ],
+                "component": {
+                    "name": "ParagraphBuilder",
+                    "props": {
+                        "title": "Analysebyggeren — Fullstendig tekst",
+                        "context": "Bygg en minianalyse med innledning, hoveddel og avslutning om novelleutdraget.",
+                        "slots": [
+                            { "id": "innledning", "label": "Innledning", "description": "Presentér teksten og problemstillingen", "color": "blue" },
+                            { "id": "hoveddel", "label": "Hoveddel", "description": "Bevisføring med PST-D", "color": "green" },
+                            { "id": "avslutning", "label": "Avslutning", "description": "Samle tråder, svar på problemstilling", "color": "purple" }
+                        ],
+                        "fragments": [
+                            { "id": "i1", "text": "I dette utdraget skildres en gammel mann som vanner et døende tre. Hvordan bruker forfatteren virkemidler for å forsterke temaet forgjengelighet?", "correctSlot": "innledning", "isDistractor": false, "feedback": "Fin innledning! Du presenterer teksten og stiller en tydelig problemstilling." },
+                            { "id": "h1", "text": "Forfatteren bruker besjeling når treet beskrives som «nakent og skjelvent». Denne personifiseringen gjør treet til et bilde på mannens egen sårbarhet, noe som forsterker temaet aldring.", "correctSlot": "hoveddel", "isDistractor": false, "feedback": "Solid hoveddel-avsnitt med påstand, sitat og tolkning!" },
+                            { "id": "h2", "text": "Videre skaper gjentakelsen «kom og gikk, kom og gikk» en rytme som speiler årstidenes syklus. Denne rytmen understreker at forfallet er gradvis og uunngåelig, men også at det finnes en form for skjønnhet i gjentakelsen.", "correctSlot": "hoveddel", "isDistractor": false, "feedback": "Enda et sterkt analytisk poeng som bygger videre på det første." },
+                            { "id": "a1", "text": "Samlet sett viser analysen at forfatterens bruk av besjeling og gjentakelse skaper et dobbelt portrett av mann og natur. Teksten formidler at omsorg har verdi i seg selv — selv når det vi tar vare på, er i ferd med å forsvinne.", "correctSlot": "avslutning", "isDistractor": false, "feedback": "Sterk avslutning som samler trådene og svarer på problemstillingen." },
+                            { "id": "x1", "text": "Teksten handler om en mann og et tre, og den er ganske kort.", "correctSlot": "", "isDistractor": true, "feedback": "For svak som innledning — du trenger en problemstilling, ikke bare en oppsummering." },
+                            { "id": "x2", "text": "Jeg liker best noveller som handler om naturen.", "correctSlot": "", "isDistractor": true, "feedback": "Personlige preferanser hører ikke hjemme i en faglig analyse." }
+                        ],
+                        "modelParagraph": "I dette utdraget skildres en gammel mann som vanner et døende tre. Hvordan bruker forfatteren virkemidler for å forsterke temaet forgjengelighet? Forfatteren bruker besjeling når treet beskrives som «nakent og skjelvent». Denne personifiseringen gjør treet til et bilde på mannens egen sårbarhet, noe som forsterker temaet aldring. Videre skaper gjentakelsen «kom og gikk, kom og gikk» en rytme som speiler årstidenes syklus — forfallet er gradvis og uunngåelig, men det finnes en skjønnhet i gjentakelsen. Samlet sett viser analysen at forfatterens bruk av besjeling og gjentakelse skaper et dobbelt portrett av mann og natur, der omsorg har verdi i seg selv — selv når det vi tar vare på, er i ferd med å forsvinne."
+                    }
+                },
+                "links": [
+                    {
+                        "title": "Gjenbesøk: Hvordan skrive gode saktekster",
+                        "url": "/norsk/skrivehjelp/hvordan-skrive-gode-saktekster"
+                    }
+                ]
+            },
+            {
+                "id": "step-12",
+                "phase": "Akt 3: Rapporten",
+                "title": "Blindtest",
+                "type": "oving",
+                "content": "Den siste prøven før du får ditt detektiv-diplom: kvalitetskontroll. Kan du gjenkjenne forskjellen mellom en svak, en middels og en sterk analyse — uten å vite hvem som har skrevet dem?\n\nDu er nå redaktør i et fagtidsskrift. Tre analyser har kommet inn til vurdering, og du må avgjøre hvilken som holder publiseringskvalitet. Noen gjør alt riktig. Andre mangler sitater, drøfting eller struktur. Din jobb er å gi konstruktiv tilbakemelding — akkurat som en ekte redaktør ville gjort.\n\nDette er kanskje det viktigste steget i hele stien. For å skrive godt, må du kunne vurdere kvalitet — også i ditt eget arbeid.",
+                "tasks": [
+                    "Bruk Kvalitetskontrollen nedenfor — vurder de tre innsendte analysene.",
+                    "Hva mangler i den svakeste analysen? Vær konkret.",
+                    "Hva gjør den sterkeste analysen bedre enn de to andre?",
+                    "Kunne du forbedret selv den sterkeste analysen? Hva ville du lagt til?",
+                    "Hvilken feil gjør DU oftest i dine egne analyser? Skriv det ned som en påminnelse."
+                ],
+                "component": {
+                    "name": "ScenarioRoleplay",
+                    "props": {
+                        "title": "Kvalitetskontrollen",
+                        "intro": "Du er redaktør i skoletidsskriftet «Tekstdetektiven». Tre elever har sendt inn analyser av det samme diktet. Les alle tre og gi din vurdering. Hvilken analyse holder høyest kvalitet — og hvorfor?",
+                        "startId": "velg-analyse",
+                        "scenarios": [
+                            {
+                                "id": "velg-analyse",
+                                "text": "Du har tre analyser foran deg. Les dem nøye og vurder kvaliteten.\n\n**Analyse A:** «Diktet handler om et tre som mister bladene. Det er trist. Forfatteren bruker noen fine ord.»\n\n**Analyse B:** «Forfatteren bruker sammenligningen 'som en gammel mann' for å koble treet til menneskelivet. Gjentakelsen 'De holder. De holder.' understreker temaet utholdenhet.»\n\n**Analyse C:** «I diktet 'Treet i hagen' bruker forfatteren sammenligning og gjentakelse for å utforske temaet aldring og utholdenhet. Sammenligningen 'som en gammel mann / med ryggen full av år' skaper en direkte parallell mellom tre og menneske, som gjør temaet konkret og gjenkjennelig. Den avsluttende gjentakelsen 'De holder. De holder.' kan tolkes som et håpefullt budskap om indre styrke — men den kan også leses som en desperat insistering, et forsøk på å overbevise seg selv.»",
+                                "options": [
+                                    { "label": "Analyse A er best", "nextId": "feil-a", "outcome": "failure" },
+                                    { "label": "Analyse B er best", "nextId": "nesten-b", "outcome": "neutral" },
+                                    { "label": "Analyse C er best", "nextId": "riktig-c", "outcome": "success" }
+                                ]
+                            },
+                            {
+                                "id": "feil-a",
+                                "text": "Analyse A er den svakeste. Den gjør tre klassiske feil:\n\n1. **Gjenfortelling uten analyse** — «diktet handler om et tre» sier ingenting nytt.\n2. **Vurdering uten begrunnelse** — «det er trist» og «fine ord» er meninger, ikke analyse.\n3. **Ingen sitater** — uten tekstbevis har analysen ingen troverdighet.\n\nVil du prøve igjen?",
+                                "options": [
+                                    { "label": "Gå tilbake og velg på nytt", "nextId": "velg-analyse" }
+                                ]
+                            },
+                            {
+                                "id": "nesten-b",
+                                "text": "Analyse B er en solid middels analyse. Den identifiserer virkemidler korrekt og bruker sitater. Men den mangler to ting:\n\n1. **Innledning** — den hopper rett inn uten å presentere teksten.\n2. **Drøfting** — den tolker, men veier ikke mot alternativer.\n\nSammenlign med Analyse C: ser du forskjellen?",
+                                "options": [
+                                    { "label": "Se på Analyse C", "nextId": "riktig-c" },
+                                    { "label": "Gå tilbake og velg på nytt", "nextId": "velg-analyse" }
+                                ]
+                            },
+                            {
+                                "id": "riktig-c",
+                                "text": "Riktig! Analyse C er den sterkeste fordi den:\n\n✅ **Presenterer teksten** med tittel og forfatter\n✅ **Identifiserer virkemidler** med presise sitater\n✅ **Tolker** hva virkemidlene oppnår\n✅ **Drøfter** ved å presentere en alternativ tolkning\n\nLegg merke til det siste punktet: «kan tolkes som håp — men også som desperat insistering». Det er drøfting i praksis.\n\nHvilken tilbakemelding ville du gitt forfatteren av Analyse A?",
+                                "options": [
+                                    { "label": "«Du trenger sitater og analyse, ikke bare gjenfortelling»", "nextId": "god-feedback", "outcome": "success" },
+                                    { "label": "«Analysen din er dårlig»", "nextId": "svak-feedback", "outcome": "failure" }
+                                ]
+                            },
+                            {
+                                "id": "god-feedback",
+                                "text": "Perfekt tilbakemelding! Du peker på konkrete mangler (sitater, analyse) og foreslår forbedring. En god redaktør er spesifikk og konstruktiv.\n\nDu har bestått kvalitetskontrollen. Du kan nå skille mellom svak, middels og sterk analyse — og det betyr at du kan forbedre din egen skriving.",
+                                "options": []
+                            },
+                            {
+                                "id": "svak-feedback",
+                                "text": "Hmm — «dårlig» er en vurdering, ikke en tilbakemelding. Akkurat som i analyse: vær konkret! Hva mangler? Hva bør eleven gjøre annerledes?\n\nPrøv igjen: gi en tilbakemelding som peker på noe spesifikt.",
+                                "options": [
+                                    { "label": "«Du trenger sitater fra teksten og må forklare hva virkemidlene oppnår.»", "nextId": "god-feedback", "outcome": "success" }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "links": []
+            },
+            {
+                "id": "step-13",
+                "phase": "Epilog",
+                "title": "Mesterstykket",
+                "type": "oppgave",
+                "content": "Du har gjennomført hele etterforskningen. Du har lært å finne spor i tekster, koble dem til motiv og tema, presentere bevis med sitater, bygge analyseavsnitt etter PST-D-modellen, og drøfte alternative tolkninger. Du er nå en fullblods Tekstdetektiv.\n\nMen det finnes bare én måte å bevise det på: vis hva du kan. I dette siste steget skriver du en fullstendig analysetekst — fra innledning til drøftende avslutning. Velg en tekst fra Biblioteket (eller en annen tekst du kjenner godt), og skriv din etterforskningsrapport.\n\nHusk: en god analyse handler ikke om å finne det «riktige» svaret. Det handler om å vise at du kan lese kritisk, tenke selvstendig, og argumentere overbevisende. Lykke til, detektiv.",
+                "tasks": [
+                    "Velg en tekst fra [Biblioteket](/norsk/bibliotek) — eller en annen tekst du kjenner godt.",
+                    "Skriv en fullstendig analysetekst (400–600 ord) med innledning, hoveddel med PST-D-avsnitt, og avslutning.",
+                    "Sjekk at du har brukt minst ett direkte sitat og én parafrase.",
+                    "Les gjennom analysen din med Argumentstigen i bakhodet: er du på identifiserings-, tolknings- eller drøftingsnivå?",
+                    "Gå tilbake til steg 0. Hva skrev du at du ville bli bedre til? Har du klart det?"
+                ],
+                "links": [
+                    {
+                        "title": "Biblioteket — velg en tekst",
+                        "url": "/norsk/bibliotek"
+                    }
+                ]
+            }
+        ]
+    }
+}

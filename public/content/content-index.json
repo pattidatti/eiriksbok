@@ -1,5 +1,5 @@
 {
-  "buildId": 1773133613082,
+  "buildId": 1773143931204,
   "contentMap": {
     "adel": [
       "content/concepts/adel.json"
@@ -1180,6 +1180,9 @@
     "analyse-sti": [
       "content/norsk/analyse/analyse-sti.json"
     ],
+    "tekstanalyse-sti": [
+      "content/norsk/analyse/tekstanalyse-sti.json"
+    ],
     "tema-og-budskap": [
       "content/norsk/analyse/tema-og-budskap.json"
     ],
@@ -2071,6 +2074,7 @@
     "norsk/analyse/analyse-novelle": "content/norsk/analyse/analyse-novelle.json",
     "norsk/analyse/analyse-roman": "content/norsk/analyse/analyse-roman.json",
     "norsk/analyse/analyse-sti": "content/norsk/analyse/analyse-sti.json",
+    "norsk/analyse/tekstanalyse-sti": "content/norsk/analyse/tekstanalyse-sti.json",
     "norsk/analyse/tema-og-budskap": "content/norsk/analyse/tema-og-budskap.json",
     "norsk/grammatikk/setningsanalyse": "content/norsk/grammatikk/setningsanalyse.json",
     "norsk/litteraturhistorie/nasjonalromantikken": "content/norsk/litteraturhistorie/nasjonalromantikken.json",

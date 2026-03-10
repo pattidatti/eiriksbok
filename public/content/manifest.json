@@ -417,6 +417,13 @@
               "description": "En guidet reise fra leser til analytiker. Knekk kodene.",
               "link": "/norsk/analyse/analyse-sti",
               "icon": "map"
+            },
+            {
+              "id": "tekstanalyse-sti",
+              "title": "Læringssti: Tekstdetektiven",
+              "description": "Lær å finne virkemidler, koble dem til tema, og skrive overbevisende analysetekster.",
+              "link": "/norsk/analyse/tekstanalyse-sti",
+              "icon": "map"
             }
           ],
           "lessons": [

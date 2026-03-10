@@ -68,8 +68,7 @@
                                 "icon": "✂️",
                                 "description": "Ordet «plutselig» svekker overraskelsen. La handlingen overraske i seg selv.",
                                 "transforms": [
-                                    { "find": "Plutselig hørte", "replace": "Da hørte", "color": "emerald" },
-                                    { "find": "Det var en gang", "replace": "Stien forsvant bak ham.", "color": "emerald" }
+                                    { "find": "Plutselig hørte han en lyd.", "replace": "En skarp lyd skar gjennom stillheten.", "color": "emerald" }
                                 ]
                             }
                         ]

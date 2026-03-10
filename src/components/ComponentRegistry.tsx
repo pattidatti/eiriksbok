@@ -83,6 +83,11 @@ const TimelineDirector = lazy(() => import('./content/interactive/TimelineDirect
 const DialogDissector = lazy(() => import('./content/interactive/DialogDissector').then(m => ({ default: m.DialogDissector })));
 const NovelleSlicer = lazy(() => import('./content/interactive/NovelleSlicer').then(m => ({ default: m.NovelleSlicer })));
 
+// Tekstanalyse (Text Analysis)
+const QuoteWeaver = lazy(() => import('./content/interactive/QuoteWeaver').then(m => ({ default: m.QuoteWeaver })));
+const ParagraphBuilder = lazy(() => import('./content/interactive/ParagraphBuilder').then(m => ({ default: m.ParagraphBuilder })));
+const ArgumentScaffold = lazy(() => import('./content/interactive/ArgumentScaffold').then(m => ({ default: m.ArgumentScaffold })));
+
 // Demography
 const DTMSimulator = lazy(() => import('./content/interactive/demography/DTMSimulator').then(m => ({ default: m.DTMSimulator })));
 const MalthusBoserupModel = lazy(() => import('./content/interactive/demography/MalthusBoserupModel').then(m => ({ default: m.MalthusBoserupModel })));
@@ -191,6 +196,9 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     TimelineDirector,
     DialogDissector,
     NovelleSlicer,
+    QuoteWeaver,
+    ParagraphBuilder,
+    ArgumentScaffold,
     TriangularTradeMap: lazy(() => import('./content/interactive/TriangularTradeMap').then(m => ({ default: m.TriangularTradeMap }))),
     CensorTask: lazy(() => import('./historie/CensorTask').then(m => ({ default: m.CensorTask }))),
     PropagandaDecoder: lazy(() => import('./historie/PropagandaDecoder').then(m => ({ default: m.PropagandaDecoder }))),

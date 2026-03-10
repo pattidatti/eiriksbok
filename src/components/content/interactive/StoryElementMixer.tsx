@@ -44,20 +44,40 @@ export const StoryElementMixer: React.FC<StoryElementMixerProps> = ({
     const allApplied = appliedIds.size === ingredients.length;
 
     const buildSegments = useCallback((txs: AppliedTransform[]) => {
-        type Seg = { text: string; color?: string };
-        let segs: Seg[] = [{ text: originalText }];
+        type Match = { start: number; end: number; replace: string; color: string };
+        const matches: Match[] = [];
+
         for (const t of txs) {
-            const next: Seg[] = [];
-            for (const seg of segs) {
-                if (seg.color) { next.push(seg); continue; }
-                const parts = seg.text.split(t.find);
-                parts.forEach((part, i) => {
-                    if (part) next.push({ text: part });
-                    if (i < parts.length - 1) next.push({ text: t.replace, color: t.color });
-                });
+            let from = 0;
+            while (true) {
+                const idx = originalText.indexOf(t.find, from);
+                if (idx === -1) break;
+                matches.push({ start: idx, end: idx + t.find.length, replace: t.replace, color: t.color });
+                from = idx + t.find.length;
             }
-            segs = next;
         }
+
+        matches.sort((a, b) => a.start - b.start || (b.end - b.start) - (a.end - a.start));
+
+        const resolved: Match[] = [];
+        let lastEnd = 0;
+        for (const m of matches) {
+            if (m.start >= lastEnd) {
+                resolved.push(m);
+                lastEnd = m.end;
+            }
+        }
+
+        type Seg = { text: string; color?: string };
+        const segs: Seg[] = [];
+        let pos = 0;
+        for (const m of resolved) {
+            if (pos < m.start) segs.push({ text: originalText.substring(pos, m.start) });
+            segs.push({ text: m.replace, color: m.color });
+            pos = m.end;
+        }
+        if (pos < originalText.length) segs.push({ text: originalText.substring(pos) });
+
         return segs;
     }, [originalText]);
 

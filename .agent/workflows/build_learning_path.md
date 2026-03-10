@@ -102,6 +102,8 @@ Hvert steg i `steps`-arrayet:
 
 ### 3.4 Steg med Interaktive Komponenter
 
+> **Ny komponent?** Kjør `/build_interactive` for designprinsipper og teknisk implementasjon.
+
 Steg som inneholder en komponent bruker `type: "utfordring"`, `"oppgave"` eller `"fakta"` (ALDRI `"interaktiv"`). Legg til `component`-feltet:
 
 **ScenarioRoleplay:**

@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-03-09T13:04:20.334Z",
-  "count": 15,
+  "updatedAt": "2026-03-10T11:58:07.472Z",
+  "count": 16,
   "paths": [
     {
       "id": "romerriket-sti",
@@ -176,9 +176,20 @@
       "subjectId": "norsk",
       "subjectName": "Norsk",
       "topicId": "virkemidler",
-      "readTime": "5–6 timer",
+      "readTime": "4–5 timer",
       "path": "/norsk/virkemidler/skapende-skriving-sti",
       "fileRelativePath": "norsk/virkemidler/skapende-skriving-sti.json"
+    },
+    {
+      "id": "tekstanalyse-sti",
+      "title": "Læringssti: Tekstdetektiven",
+      "description": "Lær å finne virkemidler, koble dem til tema, og skrive overbevisende analysetekster.",
+      "subjectId": "norsk",
+      "subjectName": "Norsk",
+      "topicId": "analyse",
+      "readTime": "4–6 timer",
+      "path": "/norsk/analyse/tekstanalyse-sti",
+      "fileRelativePath": "norsk/analyse/tekstanalyse-sti.json"
     }
   ]
 }

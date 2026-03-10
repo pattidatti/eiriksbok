@@ -10,7 +10,11 @@ Her kan du skrive ned ideer, oppgaver og annet du vil huske for Gravity lærebok
 ## Læringsstier
 - [ ] Kildekritikk med konkrete eksmepler, metoder for å avdekke og evaluere, gråsoner, hvordan vite at noe er sant (forskningsmetoder lett forklart)
 - [ ] Årsasammenheng
-- [ ] Om kildeføring, som et spill med tester og eksempler. 
+- [x] Om kildeføring, som et spill med tester og eksempler. 
+- [ ] Norsk; Hvordan skrive drøftende, med analyse av noe i norskfaget. Læringsti. 
+
+# MÅ GJØRE
+- [ ] Finne en god måte å kunne eksportere nettisden på, slik at elevene kan bruke den offline/sperret nett. En giga pdf? Hva er gode alternativer?
 
 ## 💡 Ideer
 - [ ] Slaveri gjennom tidene, hvordan dette ofte var en del av imperialismen, hvordan det ble avskaffet ulike steder. Eget emne i historie. Læringsstier kan heller koble seg på. 

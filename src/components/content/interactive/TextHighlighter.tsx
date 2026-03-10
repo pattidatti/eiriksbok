@@ -21,7 +21,17 @@ const CATEGORY_STYLES: Record<string, { label: string; color: string; bg: string
     verbal: { label: 'Verbal', color: 'bg-red-500', bg: 'bg-red-100', border: 'border-red-400', text: 'text-red-800' },
     object: { label: 'Objekt', color: 'bg-blue-500', bg: 'bg-blue-100', border: 'border-blue-400', text: 'text-blue-800' },
     adverbial: { label: 'Adverbial', color: 'bg-yellow-500', bg: 'bg-yellow-100', border: 'border-yellow-400', text: 'text-yellow-800' },
-    default: { label: 'Markering', color: 'bg-indigo-500', bg: 'bg-indigo-100', border: 'border-indigo-400', text: 'text-indigo-800' }
+    default: { label: 'Markering', color: 'bg-indigo-500', bg: 'bg-indigo-100', border: 'border-indigo-400', text: 'text-indigo-800' },
+    // Literary device categories
+    metafor: { label: 'Metafor', color: 'bg-violet-500', bg: 'bg-violet-100', border: 'border-violet-400', text: 'text-violet-800' },
+    sammenligning: { label: 'Sammenligning', color: 'bg-sky-500', bg: 'bg-sky-100', border: 'border-sky-400', text: 'text-sky-800' },
+    besjeling: { label: 'Besjeling', color: 'bg-emerald-500', bg: 'bg-emerald-100', border: 'border-emerald-400', text: 'text-emerald-800' },
+    kontrast: { label: 'Kontrast', color: 'bg-orange-500', bg: 'bg-orange-100', border: 'border-orange-400', text: 'text-orange-800' },
+    symbol: { label: 'Symbol', color: 'bg-amber-500', bg: 'bg-amber-100', border: 'border-amber-400', text: 'text-amber-800' },
+    gjentakelse: { label: 'Gjentakelse', color: 'bg-rose-500', bg: 'bg-rose-100', border: 'border-rose-400', text: 'text-rose-800' },
+    // Analysis depth categories
+    overflate: { label: 'Overflate', color: 'bg-blue-500', bg: 'bg-blue-100', border: 'border-blue-400', text: 'text-blue-800' },
+    dyp: { label: 'Dyp', color: 'bg-purple-500', bg: 'bg-purple-100', border: 'border-purple-400', text: 'text-purple-800' },
 };
 
 export const TextHighlighter: React.FC<TextHighlighterProps> = ({ text, correctWords, instruction }) => {

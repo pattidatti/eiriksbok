@@ -71,7 +71,8 @@ Focus on the "Soul" of the content before writing any code.
         - `SongwriterStudio` / `BeatBuilder`: Creative music tools.
     - **Assessment:**
         - `Quiz`: 3-5 questions at the end.
-    - **General Rule:** Make a model that underscores what the article is about. Make it interactive, beautiful, fun, and insightful. 
+    - **General Rule:** Make a model that underscores what the article is about. Make it interactive, beautiful, fun, and insightful.
+    - **Lager du ny komponent?** Følg `/build_interactive`-skillet for designprinsipper og teknisk implementasjon.
 
 
 
