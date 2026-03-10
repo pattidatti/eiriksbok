@@ -7,7 +7,14 @@
     "summary": "Tre uker i skyttergravene ved Somme. Overlev artilleri, gass og ingenmannsland — og ta stilling til om en ordre alltid skal adlydes.",
     "heroImage": "/images/chronos/ww1_trench_hero.webp",
     "startingNodeId": "intro_toget",
-    "randomEvents": ["random_granatsplint", "random_rotte", "random_post"],
+    "randomEvents": [
+        "random_granatsplint",
+        "random_rotte",
+        "random_post",
+        "random_sniper",
+        "random_rum",
+        "random_artilleri"
+    ],
     "config": {
         "stats": [
             {
@@ -97,13 +104,22 @@
                 "name": "Feltbandasje",
                 "description": "Improvisert sanitetsutstyr. Rummen desinfiserer, forbindingspakken stanser blødning.",
                 "icon": "heart"
+            },
+            {
+                "id": "brev_fra_hjemsted",
+                "name": "Brev hjemmefra",
+                "description": "Et brev fra faren din i Bergen. Ordene hans minner deg på hvem du var før krigen.",
+                "icon": "book"
             }
         ],
         "recipes": [
             {
                 "id": "rec_feltbandasje",
                 "label": "Lag feltbandasje",
-                "ingredients": ["forbindingspakke", "rumrasjon"],
+                "ingredients": [
+                    "forbindingspakke",
+                    "rumrasjon"
+                ],
                 "result": "feltbandasje"
             }
         ],
@@ -154,7 +170,7 @@
         },
         "intro_veteranen": {
             "id": "intro_veteranen",
-            "text": "En utslitt soldat lener seg mot perrongens stolpe. Han ser på ryggsekken din, de blanke knappene, den ustøpte hjelmen. 'Nytt kjøtt,' sier han flatt. 'Skyttergravene er rett frem. Lykke til.'",
+            "text": "En utslitt soldat lener seg mot perrongens stolpe. Han ser på ryggsekken din, de blanke knappene, den ustøpte hjelmen. 'Nytt kjøtt,' sier han flatt. 'Skyttergravene er rett frem. Lykke til.' En mann ved siden av deg på toget smiler skjevt: 'Simpson. Yorkshire. Og du?' Det er første gang noen her behandler deg som et menneske, ikke et nummer.",
             "speaker": "Utslitt soldat",
             "backgroundImage": "/images/chronos/ww1_arras_arrival.webp",
             "choices": [
@@ -163,15 +179,18 @@
                     "text": "Grip utstyret ditt og gå. Det er ingen vei tilbake.",
                     "nextNodeId": "hub_skyttergraven",
                     "effects": {
-                        "disiplin": 5
+                        "disiplin": 5,
+                        "kameratskap": 5
                     },
                     "updateEnvironment": {
                         "time": "dawn"
+                    },
+                    "updateInventory": {
+                        "add": "brev_fra_hjemsted"
                     }
                 }
             ]
         },
-
         "hub_skyttergraven": {
             "id": "hub_skyttergraven",
             "text": "Skyttergravssystemet ved Beaumont-Hamel — én seksjon av nesten 700 kilometer med grøfter fra Nordsjøen til Sveits. Sandsekker, furuplanker, gjørme. Ditt nye hjem. Hvor vil du gå?",
@@ -257,7 +276,6 @@
                 ]
             }
         },
-
         "hverdagen_skyttergraven": {
             "id": "hverdagen_skyttergraven",
             "text": "Dugout-en er et hull i grøfteveggen, fire skritt langt, med et tak av bølgeblikk og jord. Rotter pipler mellom voksede sandsekker. Lus kryper langs sømmene i uniformen din. Simpson, sidemannen din fra Leeds, banker gjørme av støvlene sine og sier: 'Aldri trodd jeg skulle savne fabrikken.'",
@@ -325,7 +343,6 @@
                 }
             ]
         },
-
         "standto_morgen": {
             "id": "standto_morgen",
             "text": "Klokken 04:30. Sersjant Clarke går langs ildtrinnet med en stav. 'Alle opp! Stand-To!' Hvert daggry og skumring står hele linjen klar med geværet mot fiendens posisjon i tretti minutter — fordi angrep oftest kom i halvmørket. Du klatrer opp på ildtrinnet og legger bajonetten på kanten.",
@@ -370,7 +387,6 @@
                 }
             ]
         },
-
         "observasjon_post": {
             "id": "observasjon_post",
             "text": "Observasjonsposten er en forhøyning ved brystverket med et speilperiskop. Forrige observatør, Jenkins, kikket over kanten i stedet for å bruke periskopet. En tysk snikskytter ga ham ett skudd. Nå er det din tur. Periskopet er en liten ting av messing og to speil.",
@@ -435,7 +451,6 @@
                 }
             ]
         },
-
         "feltprest_besok": {
             "id": "feltprest_besok",
             "text": "Feltprest Henderson sitter på en ammunisjonskasse utenfor teltet sitt. Han ser sliten ut — mørkere ringer under øynene enn de fleste soldatene. 'Berg, ikke sant? Sett deg ned.' Han skjenker tynn te. 'Hva tenker du på når du ikke kan sove om natten?'",
@@ -478,7 +493,6 @@
                 }
             ]
         },
-
         "artilleri_alarm": {
             "id": "artilleri_alarm",
             "text": "Jorden rister. Dugout-veggen revner og jord regner ned. Du hører det før du forstår det — en trommeldans av granater, tettere og tettere. Luften vibrerer. Simpson griper armen din. 'Bombardement! Hold deg nede!' Taket knaker. Mørket er totalt bortsett fra lynene gjennom sprekken.",
@@ -551,7 +565,6 @@
                 }
             ]
         },
-
         "juletid_minne": {
             "id": "juletid_minne",
             "text": "Det er en stille kveld. Simpson stikker hodet inn i dugout-en. 'Visste du at de hadde julefred i 1914? Britene og tyskerne klatret ut og møttes i ingenmannsland. Spilte fotball. Delte sigaretter. Offiserene var rasende etterpå — forlangte at det aldri skulle skje igjen.'",
@@ -586,7 +599,6 @@
                 }
             ]
         },
-
         "patrulje_ingenmannsland": {
             "id": "patrulje_ingenmannsland",
             "text": "Natten er kald og stjerneklar. Du og Simpson kryper gjennom piggtrådssperringen og ut i ingenmannsland — det kraterfylte terrenget mellom linjene der ingenting lever. Oppdraget: observere tyske bevegelser. I stillheten bor faren.",
@@ -626,7 +638,7 @@
         },
         "saarede_tysker": {
             "id": "saarede_tysker",
-            "text": "I bunnen av et granatkrater: en ung tysk soldat, ikke eldre enn deg, med et kulesår i låret. Blikkene møtes. Han mumler noe — kanskje et navn, kanskje en bønn — og strekker hånden mot deg. Ikke som en fiende. Som et menneske som er redd for å dø alene.",
+            "text": "I bunnen av et granatkrater ser du ham: en ung tysk soldat, ikke eldre enn deg, med et kulesår i låret. Blikkene møtes. Han mumler noe — 'Mutter... bitte...' — og strekker hånden mot deg. Ikke som en fiende, men som et menneske som er redd for å dø alene i gjørma mellom linjene. Du har tre sekunder til å bestemme deg.",
             "speaker": "Forteller",
             "backgroundImage": "/images/chronos/ww1_shell_crater.webp",
             "choices": [
@@ -697,7 +709,6 @@
                 }
             ]
         },
-
         "gassangrep": {
             "id": "gassangrep",
             "text": "En gul-grønn sky ruller inn, tyngre enn luft, krypende langs bakken. Klorgass — første gang brukt i massiv skala ved Ypres i april 1915, nå en fast del av krigens arsenal. 'GAS! GAS!' roper noen. Du har ti sekunder.",
@@ -731,10 +742,10 @@
         },
         "sanitetsposten": {
             "id": "sanitetsposten",
-            "text": "Feltstasjonen lukter jodoform og blod. Menn med gassødelagte lunger, lemmer smadret av artilleri, sjokk uten medisinsk navn ennå. Sanitetssersjanten skifter bandasjen din. 'Du var heldig,' sier han. Du er ikke sikker på at det er det rette ordet.",
+            "text": "Feltstasjonen lukter jodoform og blod. Rundt deg ligger menn med komplikasjoner ingen kirurg i 1916 er fullt rustet til å behandle: gassødelagte lunger, lem smadret av artilleri, sjokk som ikke har et medisinsk navn ennå — det vi i dag kaller PTSD. En mann i hjørnet gjentar samme setning om og om igjen: 'Vi går over i morgen.' Sanitetssergeanten skifter bandasjen din og trykker en forbindingspakke i hånden din. 'Du var heldig,' sier han. Du er ikke sikker på at det er det rette ordet.",
             "speaker": "Forteller",
             "backgroundImage": "/images/chronos/ww1_field_hospital.webp",
-            "journalPrompt": "Bruk av klorgass var et brudd med Haag-konvensjonen av 1907, som forbød giftige stoffer som krigsvåpen. Mener du kjemisk krigføring noen gang kan rettferdiggjøres? Begrunn svaret ditt med minst ett historisk eller etisk argument.",
+            "journalPrompt": "Bruk av klorgass var et brudd med Haag-konvensjonen av 1907, som forbød giftige stoffer som krigsvåpen. Mener du kjemisk krigføring noen gang kan rettferdiggjøres? Begrunne svaret ditt med minst ett historisk eller etisk argument.",
             "choices": [
                 {
                     "id": "c_sykehus_1",
@@ -750,20 +761,34 @@
                     "updateEnvironment": {
                         "weather": "clear"
                     }
+                },
+                {
+                    "id": "c_sykehus_brev",
+                    "text": "Les brevet fra far mens du venter. Ordene hans gir deg ro.",
+                    "nextNodeId": "hub_skyttergraven",
+                    "effects": {
+                        "overlevelse": 20,
+                        "moral": 10
+                    },
+                    "checkInventory": {
+                        "hasItem": "brev_fra_hjemsted"
+                    },
+                    "updateInventory": {
+                        "add": "forbindingspakke"
+                    }
                 }
             ]
         },
-
         "kommandoposten": {
             "id": "kommandoposten",
-            "text": "Majoren brer et kart over bordet. Telysene flakkrer. '1. juli. Vi angriper på en 25 kilometer bred front. Artilleriet har bombet tyskerne i en uke — over en million granater.' Han peker mot den tyske linjen.",
+            "text": "Majoren brer et kart over bordet. '1. juli. Vi angriper på en 25 kilometer bred front. Artilleriet har bombet dem i en uke — linjene er smadret, maskingeværene er tause.' Han peker: 'Gå fremover i linje. Hold tempoet. Det er bare å gå bort og ta stillingene.' Det var nasjonalismen, imperialismen og det europeiske alliansesystemet — Trippelententen mot Trippelalliansen — som satte 20 nasjoner i krig etter skuddene i Sarajevo. Men ingen av stormaktspolitikerne er her nede i gjørma og tar seg av resultatet. Du er.",
             "speaker": "Major Whitfield",
             "backgroundImage": "/images/chronos/ww1_command_post.webp",
             "choices": [
                 {
                     "id": "c_kommando_1",
                     "text": "Lytt til planen.",
-                    "nextNodeId": "kommandoposten_plan"
+                    "nextNodeId": "forberedelse_somme"
                 }
             ]
         },
@@ -813,10 +838,9 @@
                 }
             ]
         },
-
         "ordre_over_toppen": {
             "id": "ordre_over_toppen",
-            "text": "1. juli 1916. Klokken 07:28 — i to minutter har trommeldansen stanset. Stillheten er verre enn lyden. Offiseren lener seg mot stigen med fløyten til leppene. Du ser på hendene dine. De skjelver.",
+            "text": "1. juli 1916. Kl. 07:28 — i to minutter har trommeldansen stanset. Stillheten er verre enn lyden. Offiseren lener seg mot stigen med fløyten til leppene. Simpson ser på deg — blek, men med øynene åpne. Kl. 07:30 blåser han. Stigen er foran deg. Mennene på begge sider klatrer opp. Over kanten er himmelen grå og kald og naken. Og fra de tyske linjene — de linjene som skulle være smadret av en ukes artilleribombing — begynner maskingeværene å lyde.",
             "speaker": "Forteller",
             "backgroundImage": "/images/chronos/ww1_over_top.webp",
             "choices": [
@@ -863,10 +887,9 @@
                 }
             ]
         },
-
         "slag_ved_somme": {
             "id": "slag_ved_somme",
-            "text": "Du er ute i åpent terreng. Rundt deg løper og faller menn. Femti meter foran deg stikker en tysk maskingeværstilling opp fra et halvt nedgravd betongbunker — den overlevde en hel ukes artilleribombing. Kulene kviner. Det er ditt mål.",
+            "text": "Du er ute i åpent terreng, halvveis mellom linjene. Rundt deg løper og faller menn i gjørma. Femti meter foran deg stikker en tysk maskingeværstilling frem fra et halvt nedgravd betongbunker — den overlevde en hel ukes artilleribombing. Kulene kviner. Det er ditt mål.",
             "speaker": "Forteller",
             "backgroundImage": "/images/chronos/ww1_somme_charge.webp",
             "choices": [],
@@ -884,21 +907,27 @@
                             "label": "Kast deg ned",
                             "type": "defend",
                             "damage": 3,
-                            "counters": ["ildkave"]
+                            "counters": [
+                                "ildkave"
+                            ]
                         },
                         {
                             "id": "zigzag_loep",
                             "label": "Zig-zag løp",
                             "type": "charge",
                             "damage": 4,
-                            "counters": ["siktet_skudd"]
+                            "counters": [
+                                "siktet_skudd"
+                            ]
                         },
                         {
                             "id": "kast_granat",
                             "label": "Kast granat",
                             "type": "attack",
                             "damage": 5,
-                            "counters": ["pause"]
+                            "counters": [
+                                "pause"
+                            ]
                         }
                     ]
                 }
@@ -906,7 +935,7 @@
         },
         "slag_etterspill": {
             "id": "slag_etterspill",
-            "text": "Det er over. Maskingeværet er taust. Du er på den andre siden av ingenmannsland, og du lever. Rundt deg: kaos, menn som hjelper hverandre, noen som allerede ligger stille. Det siste lyset bryter gjennom skydekket.",
+            "text": "Det er over. Maskingeværet er taust. Du er på den andre siden av ingenmannsland, og du lever. Rundt deg er det kaos — menn som hjelper hverandre over kanten og ned i den erobrede tyske grøften, andre som ligger stille i gjørma der de falt. Røyken driver sakte østover. Det siste lyset bryter gjennom skydekket og legger et blekt gyllent skjær over slagmarken. Du ser Simpson — han sitter med ryggen mot grøfteveggen, blodig men i live. Han nikker til deg. Den første Somme-dagen er ikke over. Men dere har overlevd den.",
             "speaker": "Forteller",
             "backgroundImage": "/images/chronos/ww1_trench_victory.webp",
             "choices": [
@@ -926,15 +955,15 @@
                         "disiplin": 5
                     }
                 }
-            ]
+            ],
+            "journalPrompt": "Somme-offensiven varte 141 dager og kostet britiske og franske styrker over 620 000 mann — den første dagen alene 57 470 britiske tap. Hva mener du om offensiven sett med ettertidens øyne? Var det riktig å adlyde ordre, og fantes det et tredje alternativ mellom full lydighet og å nekte?"
         },
-
         "slutt_humanitet": {
             "id": "slutt_humanitet",
-            "text": "Thomas Berg kom hjem til Bergen i november 1918. Han vant ingenting. Han mistet fire av seks i seksjonen sin. Men han bar med seg ansiktet til den tyske soldaten i krateret — ikke som et spøkelse, men som et vitnesbyrd om at begge sider hadde menn som ikke valgte krigen.",
+            "text": "Thomas Berg kom hjem til Bergen i november 1918. Han vant ikke noe. Han mistet fire av seks i seksjonen sin — Simpson overlevde, men de møttes aldri igjen etter demobiliseringen. I sekken hans lå et tysk kobberkrus som en ung mann hadde gitt ham i bunnen av et krater midt i ingenmannsland. Det var alt han tok med seg hjem — det og ansiktet til en fiende som viste seg å være et menneske. I 1919 leste han om Versailles-traktaten: Tysklands totale krigsansvar, artikkel 231, de enorme erstatningsbetalingene, de avskårne territoriene. Han la avisen fra seg og tenkte: dette er ikke fred. Dette er en pause med fastsatt utløpsdato. Ydmykelsen som skapte bitterhet, og bitterheten som ble til raseri. Historien fikk ham rett — tjue år senere brente Europa igjen.",
             "speaker": "Forteller",
             "backgroundImage": "/images/chronos/ww1_homecoming.webp",
-            "journalPrompt": "Somme-offensiven varte 141 dager og kostet over 620 000 mann — den første dagen alene 57 470 britiske tap. Hva mener du om offensiven sett med ettertidens øyne? Var det riktig å adlyde ordre?",
+            "journalPrompt": "Versailles-traktaten av 1919 påla Tyskland eneansvar for krigen ('krigsgjeld') og krevde enorme erstatningsbetalinger. Mange historikere mener dette skapte betingelsene for Hitlers fremvekst og andre verdenskrig. Var fredsavtalen rettferdig? Hva ville du gjort annerledes for å sikre en varig fred?",
             "choices": [
                 {
                     "id": "c_humanitet_epilog",
@@ -954,10 +983,10 @@
         },
         "slutt_soldat": {
             "id": "slutt_soldat",
-            "text": "Thomas Berg kom hjem i november 1918. Han snakket aldri om krigen. Ikke om Somme, ikke om gasset, ikke om mannen i krateret. Han utførte plikten sin. Det var alt som kunne kreves.",
+            "text": "Thomas Berg kom hjem i november 1918. Han snakket aldri om krigen. Ikke om Somme, ikke om gasset, ikke om mannen i krateret. Han var en del av det Gertrude Stein kalte 'den fortapte generasjonen' — menn som gikk ut som gutter og kom hjem som skygger, ute av stand til å forklare det de hadde sett til mennesker som ikke var der. I 1919 jublet britiske aviser over Versailles: 'Tysklands skam!' Thomas leste om krigsoppreisningene og de avskårne landene, og tenkte på soldaten i krateret. Han lukket avisen. Tyve millioner døde, og det eneste traktatens arkitekter hadde oppnådd var å plante frøet til den neste krigen. Tjue år beviset ham rett.",
             "speaker": "Forteller",
             "backgroundImage": "/images/chronos/ww1_homecoming.webp",
-            "journalPrompt": "Versailles-traktaten ydmyket Tyskland og skapte grobunn for nasjonalisme. Hva ville vært en mer varig fred etter første verdenskrig? Bør «den tapende part» alltid straffes?",
+            "journalPrompt": "Versailles-traktaten ydmyket Tyskland og skapte grobunn for bitterhet og nasjonalisme — det politiske klimaet Adolf Hitler utnyttet. Hva ville vært en mer varig fred etter første verdenskrig? Diskuter minst ett alternativ, og ta stilling til om «den tapende part» alltid bør straffes.",
             "choices": [
                 {
                     "id": "c_soldat_epilog",
@@ -977,7 +1006,7 @@
         },
         "slutt_fell": {
             "id": "slutt_fell",
-            "text": "Klokken 07:34, 1. juli 1916. Thomas Berg falt i åpent terreng mellom linjene ved Beaumont-Hamel. Han var nitten år. Himmelen over ham var grå. Han hørte ingenting lenger — bare en fjern stillhet, som Bergen om vinteren.",
+            "text": "Kl. 07:34, 1. juli 1916. Thomas Berg, 19 år, frivillig soldat fra Bergen, falt i åpent terreng mellom de britiske og tyske linjene ved Beaumont-Hamel. Han var én av 57 470 britiske tap den første Somme-dagen — den blodigste enkeltdagen i britisk militærhistorie. Versailles-traktaten ble underskrevet tre år etter, uten ham. Tjue millioner var døde totalt. Traktaten som skulle gjøre ende på all krig plantet i stedet frøene til den neste — men det visste ikke Thomas. Han kom aldri så langt.",
             "speaker": "Forteller",
             "backgroundImage": "/images/chronos/ww1_fallen.webp",
             "choices": [
@@ -999,10 +1028,10 @@
         },
         "slutt_krigsrett": {
             "id": "slutt_krigsrett",
-            "text": "Du satte deg mot grøftveggen idet mennene klatret opp. Ikke av feighet — du hadde sett nok til å vite at ordren var en massedødsdøm. Military Police tok deg i arrest samme kveld.",
+            "text": "Du satte deg mot grøftveggen idet mennene rundt deg klatret opp. Ikke av feighet — du hadde sett nok til å vite at ordren var en massedødsdøm. Simpson var den siste som så på deg før han klatret stigen. Han sa ingenting. Military Police tok deg i arrest samme kveld. Krigsrett. Dom. Historisk ble 306 britiske soldater skutt for feighet eller desertering under første verdenskrig; resten fengslet. Det britiske parlamentet beklaget dette formelt i 2006 og benådet alle posthumt. Fra fengselet leste du om Versailles-traktaten i 1919 — og om dolkesjøtlegenden som vokste i Tyskland: at hæren var blitt sviktet av feige menn hjemme. Du visste bedre enn de fleste hva den legenden kostet.",
             "speaker": "Forteller",
             "backgroundImage": "/images/chronos/ww1_courtmartial.webp",
-            "journalPrompt": "306 britiske soldater ble henrettet for 'feighet' under første verdenskrig — mange med det vi i dag kaller PTSD. Parlamentet benådet alle i 2006. Bør lydighetsplikt i krig alltid gå foran samvittigheten? Hva skiller 'feighet' fra 'samvittighetsnektelse'?",
+            "journalPrompt": "306 britiske soldater ble henrettet for «feighet» under første verdenskrig — mange av dem lidende av det vi i dag kaller PTSD. Parlamentet benådet alle posthumt i 2006. Mener du lydighetsplikt i krig alltid bør gå foran samvittigheten? Hva skiller «feighet» fra «samvittighetsnektelse»?",
             "choices": [
                 {
                     "id": "c_krigsrett_epilog",
@@ -1020,7 +1049,6 @@
             "endType": "defeat",
             "choices": []
         },
-
         "random_granatsplint": {
             "id": "random_granatsplint",
             "text": "En granat lander tretti meter unna. Trykkbølgen presser luften ut av lungene dine. Splint hviner forbi øret — et fragment av stål som var ment for deg. Shrapnel var den primære dødsårsaken i skyttergravene.",
@@ -1065,6 +1093,105 @@
                     "nextNodeId": "hub_skyttergraven",
                     "effects": {
                         "moral": 15
+                    }
+                }
+            ]
+        },
+        "forberedelse_somme": {
+            "id": "forberedelse_somme",
+            "text": "Siste natt før angrepet. Seksjonen sitter tett i dugout-en mens regnet trommer på blikktaket over. Simpson sitter ved siden av deg og gnir hendene. 'I morgen tidlig,' sier han uten å se opp. Ingen trenger å si mer. Noen synger lavt — 'It's a Long Way to Tipperary.' Noen skriver brev. Noen bare stirrer. Rumrasjonen går rundt. Det er den siste natten for noen av dere. Du vet bare ikke hvem.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/ww1_trench_dugout.webp",
+            "journalPrompt": "Det er natten før et stormangrep du vet kan koste livet ditt. Hva tenker du på? Hva ville du sagt til noen hjemme hvis du kunne sendt ett siste brev?",
+            "choices": [
+                {
+                    "id": "c_forberedelse_del",
+                    "text": "Del rasjonene dine med seksjonen. I morgen trenger dere hverandre mer enn mat.",
+                    "nextNodeId": "ordre_over_toppen",
+                    "effects": {
+                        "kameratskap": 10,
+                        "overlevelse": -5
+                    },
+                    "updateEnvironment": {
+                        "time": "night"
+                    }
+                },
+                {
+                    "id": "c_forberedelse_spar",
+                    "text": "Spar kreftene. Spis alt du har. Du trenger hver kalori i morgen.",
+                    "nextNodeId": "ordre_over_toppen",
+                    "effects": {
+                        "overlevelse": 5
+                    },
+                    "updateEnvironment": {
+                        "time": "night"
+                    }
+                }
+            ]
+        },
+        "random_sniper": {
+            "id": "random_sniper",
+            "text": "Et skudd sprenger sandsekken rett over hodet ditt. Sand og jord regner ned. Snikskytter. Alle i nærheten fryser — du vet at ethvert hode som stikker opp over kanten er en dødsdøm. 'Holdt dere nede!' hviser noen fra traverseringen.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/ww1_trench_hub.webp",
+            "choices": [
+                {
+                    "id": "c_sniper_lav",
+                    "text": "Bli lav. Ikke beveg deg. Vent til han bytter mål.",
+                    "nextNodeId": "hub_skyttergraven",
+                    "effects": {
+                        "overlevelse": 5
+                    }
+                },
+                {
+                    "id": "c_sniper_varsle",
+                    "text": "Varsle seksjonen. Pek ut retningen slik at de kan ta forholdsregler.",
+                    "nextNodeId": "hub_skyttergraven",
+                    "effects": {
+                        "kameratskap": 5,
+                        "overlevelse": -5
+                    }
+                }
+            ]
+        },
+        "random_rum": {
+            "id": "random_rum",
+            "text": "Rumrasjonen ankommer — et blikk med den daglige dosen som skal holde kulden og frykten på avstand. Simpson løfter kruset sitt: 'For Yorkshire. Og Bergen.' Noen ler. Det er det nærmeste dere kommer normalitet her nede i gjørma.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/ww1_trench_dugout.webp",
+            "choices": [
+                {
+                    "id": "c_rum_del",
+                    "text": "Ta imot og skål med kameratene. Et øyeblikk av varme.",
+                    "nextNodeId": "hub_skyttergraven",
+                    "effects": {
+                        "moral": 5,
+                        "kameratskap": 5
+                    }
+                }
+            ]
+        },
+        "random_artilleri": {
+            "id": "random_artilleri",
+            "text": "Jorden rister. En hvining i luften — og så eksploderer verden. Artilleribombing. Sandsekker revner, planker knekker, jord og metall fyller luften. Du hører ropene fra traverseringen ved siden av. Det tar tretti sekunder, men det føles som timer.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/ww1_trench_hub.webp",
+            "choices": [
+                {
+                    "id": "c_artilleri_traversering",
+                    "text": "Kast deg i nærmeste traversering og krøll deg sammen.",
+                    "nextNodeId": "hub_skyttergraven",
+                    "effects": {
+                        "overlevelse": -10,
+                        "moral": -5
+                    }
+                },
+                {
+                    "id": "c_artilleri_dugout",
+                    "text": "Press deg inn i dugout-en og vent til det er over.",
+                    "nextNodeId": "hub_skyttergraven",
+                    "effects": {
+                        "moral": -10
                     }
                 }
             ]

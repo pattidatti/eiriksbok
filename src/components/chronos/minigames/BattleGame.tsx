@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Shield, Sword, RefreshCw, Skull, Heart } from 'lucide-react';
-import type { ChronosBattleConfig } from '../../../data/chronos/types';
+import type { ChronosBattleConfig, ChronosStat } from '../../../data/chronos/types';
 
 interface BattleGameProps {
     config: ChronosBattleConfig;
+    stats?: ChronosStat[];
     onComplete: (success: boolean) => void;
 }
 
@@ -13,8 +14,18 @@ const MoveIcon: Record<string, any> = {
     maneuver: RefreshCw
 };
 
-export const BattleGame: React.FC<BattleGameProps> = ({ config, onComplete }) => {
-    const [playerHealth, setPlayerHealth] = useState(config.playerHealth);
+export const BattleGame: React.FC<BattleGameProps> = ({ config, stats, onComplete }) => {
+    const getInitialPlayerHealth = () => {
+        let hp = config.playerHealth;
+        if (config.statBonus && stats) {
+            const stat = stats.find(s => s.id === config.statBonus!.stat);
+            if (stat && stat.value >= config.statBonus.threshold) {
+                hp += config.statBonus.bonusHP;
+            }
+        }
+        return hp;
+    };
+    const [playerHealth, setPlayerHealth] = useState(getInitialPlayerHealth);
     const [enemyHealth, setEnemyHealth] = useState(config.enemyHealth);
     const [log, setLog] = useState<string[]>(["Kampen starter!"]);
     const [isAnimating, setIsAnimating] = useState(false);
