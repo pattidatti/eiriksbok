@@ -18,7 +18,7 @@
     "content": [
         {
             "type": "text",
-            "content": "Se for deg denne situasjonen: Du har jobbet i to timer med en drøftingsoppgave. Du har skrevet om klimaendringer — hva de er, hva FN sier, hvilke land som slipper ut mest, og hvilke tiltak som finnes. Du leverer, fornøyd. Tilbake får du: «Bra fakta, men du drøfter ikke.» Hva skjedde? Du beskrev og analyserte et tema. Men en drøfting er noe annet: du skal veie argumenter for og mot, og endre opp i en begrunnet konklusjon. Det er akkurat den forskjellen vi skal lære i denne artikkelen."
+            "content": "Se for deg denne situasjonen: Du har jobbet i to timer med en drøftingsoppgave. Du har skrevet om karakterpress i skolen — hva det er, hva psykologer sier, hvilke elever som rammes hardest, og hvilke tiltak skoler har prøvd. Du leverer, fornøyd. Tilbake får du: «Bra fakta, men du drøfter ikke.» Hva skjedde? Du beskrev og analyserte et tema. Men en drøfting er noe annet: du skal veie argumenter for og mot, og ende opp i en begrunnet konklusjon. Det er akkurat den forskjellen vi skal lære i denne artikkelen."
         },
         {
             "type": "info_box",
@@ -130,8 +130,8 @@
                 "title": "Feil 1: Referat i stedet for drøfting",
                 "items": [
                     {
-                        "bad": "Klimaendringer er et stort problem. FN sier vi må kutte utslipp. Mange land har signert Paris-avtalen. Det er viktig at vi gjør noe.",
-                        "good": "Klimaendringer krever umiddelbar handling, men spørsmålet om hvem som bærer kostnaden er uavklart. På den ene siden er det rettferdig at rike land som historisk sett har sluppet ut mest tar den største byrden. Et motargument er at fremvoksende økonomier ikke kan pålegges de samme restriksjonene uten at det hemmer deres utvikling. Totalt sett er en differensiert byrdefordeling det mest rettferdige alternativet.",
+                        "bad": "Karakterpress er et stort problem blant ungdom. Mange elever sover dårlig og er stresset. Skoler har satt inn tiltak som lavterskel-rådgivning. Det er viktig at vi gjør noe.",
+                        "good": "Karaktersystemet bidrar til at mange elever opplever skolen som en kontinuerlig prestasjonsvurdering snarere enn et læringssted — noe som ifølge Folkehelseinstituttet korrelerer med økt forekomst av angst blant 15-åringer. Et reelt motargument er at karakterer gir elever konkret tilbakemelding og forbereder dem på arbeidslivets krav om målbare resultater. Sett samlet er løsningen ikke å fjerne karakterer, men å supplere dem med systematisk underveisvurdering som premierer læringsprosessen — ikke bare sluttproduktet.",
                         "why": "Det første svaret gjenforteller fakta uten å ta stilling. Det andre presenterer et standpunkt, et motargument og en begrunnet syntese."
                     }
                 ]
@@ -225,7 +225,7 @@
         },
         {
             "type": "quote",
-            "content": "16-åringer er direkte berørt av politiske beslutninger om skole, klima og arbeidsliv, og forsøket med stemmerett for 16-åringer i norske kommunevalg i 2011 og 2015 viste at unge stemte mer konsekvent enn voksne i aldersgruppen 18–21. Et motargument er at hjernen ikke er ferdig utviklet før i midten av tjueårene, og at ungdom kan være mer sårbare for kortsiktig påvirkning fra sosiale medier. Likevel veier demokratihensynet tyngst: politisk deltakelse er også en læringsarena, og stemmerett fra 16 vil styrke demokratisk engasjement på lang sikt.",
+            "content": "16-åringer er direkte berørt av politiske beslutninger om skole, boligpriser og arbeidsliv, og forsøket med stemmerett for 16-åringer i norske kommunevalg i 2011 og 2015 viste at unge stemte mer konsekvent enn voksne i aldersgruppen 18–21. Et motargument er at hjernen ikke er ferdig utviklet før i midten av tjueårene, og at ungdom kan være mer sårbare for kortsiktig påvirkning fra sosiale medier. Likevel veier demokratihensynet tyngst: politisk deltakelse er også en læringsarena, og stemmerett fra 16 vil styrke demokratisk engasjement på lang sikt.",
             "author": "Eksempeltekst"
         },
         {
@@ -347,8 +347,8 @@
             "question": "Hvilken setning er et eksempel på en god drøftingskonklusjon?",
             "options": [
                 "Alt i alt ser vi at det finnes mange meninger om dette temaet.",
-                "Klimatiltak er absolutt nødvendig.",
-                "Selv om kostnaden er høy, veier den langsiktige gevinsten for klimaet tyngst, forutsatt at tiltakene fordeles rettferdig mellom land.",
+                "Karakterer i skolen er absolutt nødvendig.",
+                "Selv om karakterer gir nyttig tilbakemelding, veier den dokumenterte belastningen på elevenes psykiske helse tyngst — forutsatt at vi innfører robuste alternativer til vurdering.",
                 "Det er umulig å si noe sikkert om dette."
             ],
             "answer": 2,
