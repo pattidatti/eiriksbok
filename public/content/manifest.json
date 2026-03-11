@@ -688,6 +688,20 @@
               "lastUpdated": "2026-01-20T09:21:05+01:00"
             },
             {
+              "id": "hvordan-drofte",
+              "title": "Hvordan drøfte",
+              "description": "Lær å skrive drøftende tekster som virkelig holder: Påstand, argument, motargument og konklusjon — med eksempler fra alle fag.",
+              "image": "/images/lessons/norsk/drofte-hero.webp",
+              "tags": [
+                "skrivehjelp",
+                "drøfting",
+                "argumentasjon",
+                "saktekst"
+              ],
+              "createdDate": "2026-03-11T10:00:00Z",
+              "lastUpdated": "2026-03-11T10:00:00Z"
+            },
+            {
               "id": "hvordan-skrive-gode-saktekster",
               "title": "Hvordan skrive gode saktekster",
               "description": "Lær å bygge gode avsnitt med temasetninger, kommentarsetninger og bindeord.",
