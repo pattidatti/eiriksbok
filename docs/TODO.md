@@ -2,6 +2,9 @@
 
 Her kan du skrive ned ideer, oppgaver og annet du vil huske for Gravity lærebok.
 
+# Tidsreise
+- [] Tidsreiser hvor man spiller gjennom livet til den russiske tsaren i første verdenskrig. Vi skal holde oss så tett opp til historien som mulig. virkelig feltte oss med historien. Samtidig må det være mulig å påvirke utfallet til historien. Dette må gjerne markeres enkelt og subtilt, at man har branchet fra det som virkelig skjedde. Tenker at opptakten til første verdenskrig, gjennom krigen og etterkirgen/ revolusjonen og hvordan livet hans endte. VI må ha dybde, replayability, være juicy, interessant, minigames. Etikk, historie, filosofi, økonomisk teori, maktstrukturer, krigs-taktikk.  Vær kreativ! Hva kan vi få til med dette utgangspunktet?  
+
 ### Bugs
 - [x] I Komposisjon tool. Sørge for at det er riktig antall inndelinger i en takt. Bugger seg av og til hvis man legger inn f.eks. 1/8, bytte rut med helnote, så doble, og 1/8. osv. Den må være smartere. 
 - [ ] Ikke bug men; Oppdatere alle artiklene i Analyse-emnet, så de er like gode som dikt artikkelen. 

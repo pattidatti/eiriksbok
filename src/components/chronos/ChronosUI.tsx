@@ -8,13 +8,14 @@ import {
 import type {
     ChronosNode, ChronosChoice, ChronosStat, ChronosConfig, ChronosEnvironment,
     ChronosEntry, ChronosMapPoint, ChronosRecipe, ChronosDiscoveryEvent,
-    ChronosEpilogue, ChronosEthicsLens,
+    ChronosEpilogue, ChronosEthicsLens, ChronosItem,
 } from '../../data/chronos/types';
 import { DiceGame } from './minigames/DiceGame';
 import { BattleGame } from './minigames/BattleGame';
 import { JusticeGame } from './minigames/JusticeGame';
 import { CraftingModal } from './CraftingModal';
 import { ChronosMap } from './ChronosMap';
+import { ItemInspectModal } from './ItemInspectModal';
 
 interface ChronosUIProps {
     node: ChronosNode;
@@ -239,6 +240,7 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
     const [showJournal, setShowJournal] = useState(false);
     const [showCrafting, setShowCrafting] = useState(false);
     const [showInventory, setShowInventory] = useState(false);
+    const [selectedItem, setSelectedItem] = useState<ChronosItem | null>(null);
 
     // Prinsipp 3: Discovery events
     const [showDiscovery, setShowDiscovery] = useState(false);
@@ -461,15 +463,24 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
                                                 {inventory.map((itemId, idx) => {
                                                     const item = getItemDetails(itemId);
                                                     return (
-                                                        <div key={`${itemId}-${idx}`} className="flex items-start gap-3 p-3 rounded-xl bg-white border border-stone-100 shadow-sm">
-                                                            <div className="p-2 bg-stone-50 rounded-lg text-stone-400">
+                                                        <button
+                                                            key={`${itemId}-${idx}`}
+                                                            onClick={() => item && setSelectedItem(item)}
+                                                            className="w-full flex items-start gap-3 p-3 rounded-xl bg-white border border-stone-100 shadow-sm text-left hover:border-indigo-200 hover:shadow-md transition-all"
+                                                        >
+                                                            <div className="p-2 bg-stone-50 rounded-lg text-stone-400 flex-shrink-0">
                                                                 {item?.icon ? getIcon(item.icon) : <Star size={14} />}
                                                             </div>
                                                             <div>
                                                                 <p className="text-sm font-bold text-stone-800">{item?.name || itemId}</p>
                                                                 <p className="text-[10px] text-stone-500 leading-relaxed mt-0.5">{item?.description}</p>
+                                                                {item?.content && (
+                                                                    <p className="text-[9px] font-bold uppercase tracking-widest text-indigo-400 mt-1">
+                                                                        Trykk for å lese
+                                                                    </p>
+                                                                )}
                                                             </div>
-                                                        </div>
+                                                        </button>
                                                     );
                                                 })}
                                             </div>
@@ -534,6 +545,8 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
                 items={config.items || []}
                 onCraft={(recipe) => { if (onCraft) onCraft(recipe); }}
             />
+
+            <ItemInspectModal item={selectedItem} onClose={() => setSelectedItem(null)} />
 
             <div className="flex-grow z-10" />
 

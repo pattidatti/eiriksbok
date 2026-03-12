@@ -7,11 +7,24 @@ export interface ChronosStat {
     category?: 'attribute' | 'relation';
 }
 
+export type ChronosItemContent =
+    | {
+          itemType: 'letter';
+          from: string;
+          to: string;
+          date: string;
+          body: string[];
+      }
+    | {
+          itemType: 'object';
+      };
+
 export interface ChronosItem {
     id: string;
     name: string;
     description?: string;
     icon?: string;
+    content?: ChronosItemContent;
 }
 
 export interface ChronosConfig {

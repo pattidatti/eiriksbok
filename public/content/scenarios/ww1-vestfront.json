@@ -97,7 +97,21 @@
                 "id": "brev_far",
                 "name": "Brev fra far",
                 "description": "Et brev fra Bergen. Far skriver om nyhetene fra Østfronten og sjøblokaden.",
-                "icon": "scroll"
+                "icon": "scroll",
+                "content": {
+                    "itemType": "letter",
+                    "from": "Harald Berg, Bergen",
+                    "to": "Thomas Berg, 2. bataljon, vestfronten",
+                    "date": "3. november 1916",
+                    "body": [
+                        "Thomas,",
+                        "Denne gangen skriver jeg kortere for papiret er knapt. Den britiske sjøblokaden kutter handelsskipene og tyske ubåter gjør det samme fra den andre siden. Vi er klemt fra begge kanter.",
+                        "Avisen melder om russernes problemer i øst — Brusilov-offensiven tok mange liv, men gikk greit. Det sies at krigen kanskje er over innen jul. Det sa de i 1914 også.",
+                        "Søsteren din hilser. Hun arbeider nå på sykehuset og sier at hendene hennes aldri er varme.",
+                        "Vær forsiktig, gutten. En far kan ikke miste mer enn han allerede har mistet.",
+                        "Harald"
+                    ]
+                }
             },
             {
                 "id": "feltbandasje",
@@ -109,7 +123,21 @@
                 "id": "brev_fra_hjemsted",
                 "name": "Brev hjemmefra",
                 "description": "Et brev fra faren din i Bergen. Ordene hans minner deg på hvem du var før krigen.",
-                "icon": "book"
+                "icon": "book",
+                "content": {
+                    "itemType": "letter",
+                    "from": "Harald Berg, Bergen",
+                    "to": "Thomas Berg, King's Own Yorkshire Light Infantry",
+                    "date": "18. september 1916",
+                    "body": [
+                        "Kjære Thomas,",
+                        "Det er lenge siden vi fikk brev fra deg, og din mor og jeg tenker på deg hver eneste dag. Her hjemme er dagene lange og stille. Tyske ubåter herjer havnene og fisken er dyr, men vi klarer oss.",
+                        "Avisen skriver om Somme — store tall, lite mening for oss som sitter her. Jeg vet ikke hvilke av tallene du er, men jeg håper du er den som lever.",
+                        "Husk hvem du er, gutten min. Du er ikke bare en soldat. Du er Thomas Berg fra Nedre Korskirkeallmenningen, som lærte å sykle i den bratte gaten og alltid hjalp naboen med vedhoggingen.",
+                        "Ta vare på deg selv. Kom hjem.",
+                        "Din far, Harald"
+                    ]
+                }
             }
         ],
         "recipes": [

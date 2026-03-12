@@ -60,6 +60,7 @@ Fyll ut med spesifikt og konkret innhold — ikke generiske plassholdere. Bluepr
 ### Gjenstander & Crafting (valgfritt)
 *   List opp 2-4 items som er narrativt meningsfulle
 *   Én crafting-oppskrift hvis relevant
+*   **Brev-items:** Dersom et item er et brev (brev fra hjem, ordre, historisk dokument), merk det i blueprinten med avsender, mottaker, dato og 4-6 avsnitt med brevtekst. Disse rendres som stiliserte håndskrevne brev i ryggsekken via `content.itemType: "letter"` (se `build_scenario.md` for JSON-struktur).
 
 ### Asset-prompts
 *   Hero Image-prompt (16:9, cinematisk, WebP)

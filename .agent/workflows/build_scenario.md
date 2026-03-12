@@ -51,7 +51,17 @@ Opprett `public/content/scenarios/[scenario-id].json`.
     { "id": "stat_id", "label": "Visningsnavn", "icon": "shield|heart|crown|users", "value": 50, "max": 100, "category": "relation|null" }
   ],
   "items": [
-    { "id": "item_id", "name": "Navn", "description": "Beskrivelse.", "icon": "sword|star|gem|scroll" }
+    { "id": "item_id", "name": "Navn", "description": "Beskrivelse.", "icon": "sword|star|gem|scroll" },
+    {
+      "id": "brev_id", "name": "Brev fra X", "description": "Kort ingress.", "icon": "scroll",
+      "content": {
+        "itemType": "letter",
+        "from": "Avsender, Sted",
+        "to": "Mottaker, Enhet",
+        "date": "DD. måned ÅÅÅÅ",
+        "body": ["Kjære X,", "Avsnitt 2.", "Hilsen Y"]
+      }
+    }
   ],
   "recipes": [
     { "id": "recipe_id", "result": "item_id", "ingredients": ["item_a", "item_b"] }
@@ -65,6 +75,11 @@ Opprett `public/content/scenarios/[scenario-id].json`.
 
 *   Bruk `category: "relation"` for alle stats som representerer relasjoner til personer/grupper.
 *   `recipes` kan være en tom liste `[]` dersom ingen crafting er planlagt.
+*   **Gjenstander med `content`** vises med en klikkbar modal i ryggsekken:
+    *   `itemType: "letter"` — brevvisning med sepia-stil, Fra/Til/Dato og brødtekst som `<p>`-elementer.
+    *   `itemType: "object"` — standard gjenstandsvisning (brukes sjelden; gjenstander *uten* `content` bruker samme visning automatisk).
+    *   Brev skal alltid ha `"icon": "scroll"` eller `"icon": "book"`.
+    *   `body`-arrayen: ett element per avsnitt. Første element er gjerne tiltalen ("Kjære X,"), siste er underskriften.
 
 ### 2.3 Noder
 
@@ -222,6 +237,7 @@ Sjekk at:
 
 - [ ] Alle `nextNodeId`-referanser peker på eksisterende node-ID-er.
 - [ ] Alle `checkInventory.hasItem`-verdier er definert i `config.items`.
+- [ ] Brev-items (`itemType: "letter"`) har utfylte `from`, `to`, `date` og minst 3 `body`-elementer.
 - [ ] Alle `effects`-nøkler matcher en `id` i `config.stats`.
 - [ ] `startingNodeId` finnes i `nodes`.
 - [ ] Ingen node mangler `choices`-array (selv om den er tom).
