@@ -257,4 +257,77 @@ export type ChronosMinigame =
                 };
             }>;
         };
+    }
+    | {
+        type: 'telegram';
+        config: {
+            onComplete: { nextNodeId: string };
+            telegrams: Array<{
+                id: string;
+                from: string;
+                preview: string;
+                correctBucket: 'urgent' | 'wait';
+            }>;
+        };
+    }
+    | {
+        type: 'allocation';
+        config: {
+            onComplete: { nextNodeId: string };
+            totalPoints: number;
+            categories: Array<{
+                id: string;
+                label: string;
+                description: string;
+            }>;
+        };
+    }
+    | {
+        type: 'crowd';
+        config: {
+            winNodeId: string;
+            lossNodeId: string;
+            timeLimit: number;
+            fillRate: number;
+            responses: Array<{
+                id: string;
+                label: string;
+                description: string;
+                pressureChange: number;
+                cooldown?: number;
+            }>;
+        };
+    }
+    | {
+        type: 'speech';
+        config: {
+            onComplete: { nextNodeId: string };
+            columns: Array<{
+                label: string;
+                options: Array<{
+                    id: string;
+                    text: string;
+                }>;
+            }>;
+            outcomes: Array<{
+                combo: string;
+                feedback: string;
+                effects?: ChronosEffect;
+            }>;
+        };
+    }
+    | {
+        type: 'intrigue';
+        config: {
+            onComplete: { nextNodeId: string };
+            tokens: number;
+            characters: Array<{
+                id: string;
+                name: string;
+                role: string;
+                description: string;
+                isTraitor: boolean;
+                feedback: string;
+            }>;
+        };
     };

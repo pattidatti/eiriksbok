@@ -14,6 +14,11 @@ import type {
 import { DiceGame } from './minigames/DiceGame';
 import { BattleGame } from './minigames/BattleGame';
 import { JusticeGame } from './minigames/JusticeGame';
+import { TelegramGame } from './minigames/TelegramGame';
+import { AllocationGame } from './minigames/AllocationGame';
+import { CrowdPressureGame } from './minigames/CrowdPressureGame';
+import { SpeechGame } from './minigames/SpeechGame';
+import { IntrigueGame } from './minigames/IntrigueGame';
 import { CraftingModal } from './CraftingModal';
 import { ChronosMap } from './ChronosMap';
 import { ItemInspectModal } from './ItemInspectModal';
@@ -586,7 +591,7 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
 
                         {/* Main Text */}
                         <h2
-                            className="text-lg sm:text-2xl md:text-4xl font-medium text-stone-900 mb-3 sm:mb-6 md:mb-8 lg:mb-10 leading-[1.35] tracking-tight"
+                            className="text-sm sm:text-lg md:text-xl font-medium text-stone-900 mb-2 sm:mb-4 md:mb-6 lg:mb-8 leading-[1.35] tracking-tight"
                             style={{ fontFamily: config.theme?.font || 'serif' }}
                         >
                             {node.text}
@@ -620,6 +625,51 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
                                     onComplete={() => {
                                         if (node.minigame?.type === 'justice') {
                                             onChoice({ id: 'justice_complete', text: 'Court Adjourned', nextNodeId: node.minigame.config.onComplete.nextNodeId });
+                                        }
+                                    }}
+                                />
+                            ) : node.minigame.type === 'telegram' ? (
+                                <TelegramGame
+                                    config={node.minigame.config}
+                                    onComplete={() => {
+                                        if (node.minigame?.type === 'telegram') {
+                                            onChoice({ id: 'telegram_complete', text: 'Telegrammer sortert', nextNodeId: node.minigame.config.onComplete.nextNodeId });
+                                        }
+                                    }}
+                                />
+                            ) : node.minigame.type === 'allocation' ? (
+                                <AllocationGame
+                                    config={node.minigame.config}
+                                    onComplete={() => {
+                                        if (node.minigame?.type === 'allocation') {
+                                            onChoice({ id: 'allocation_complete', text: 'Ressurser fordelt', nextNodeId: node.minigame.config.onComplete.nextNodeId });
+                                        }
+                                    }}
+                                />
+                            ) : node.minigame.type === 'crowd' ? (
+                                <CrowdPressureGame
+                                    config={node.minigame.config}
+                                    onComplete={(success: boolean) => {
+                                        if (node.minigame?.type === 'crowd') {
+                                            onChoice({ id: 'crowd_complete', text: 'Folkemengde-trykk', nextNodeId: success ? node.minigame.config.winNodeId : node.minigame.config.lossNodeId });
+                                        }
+                                    }}
+                                />
+                            ) : node.minigame.type === 'speech' ? (
+                                <SpeechGame
+                                    config={node.minigame.config}
+                                    onComplete={() => {
+                                        if (node.minigame?.type === 'speech') {
+                                            onChoice({ id: 'speech_complete', text: 'Tale holdt', nextNodeId: node.minigame.config.onComplete.nextNodeId });
+                                        }
+                                    }}
+                                />
+                            ) : node.minigame.type === 'intrigue' ? (
+                                <IntrigueGame
+                                    config={node.minigame.config}
+                                    onComplete={() => {
+                                        if (node.minigame?.type === 'intrigue') {
+                                            onChoice({ id: 'intrigue_complete', text: 'Intriger avslørt', nextNodeId: node.minigame.config.onComplete.nextNodeId });
                                         }
                                     }}
                                 />

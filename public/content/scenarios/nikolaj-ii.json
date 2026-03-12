@@ -164,16 +164,48 @@
         },
         "intro_telegram": {
             "id": "intro_telegram",
-            "text": "Erkehertug Frans Ferdinand av Østerrike-Ungarn er myrdet i Sarajevo. Kona hans også. Frans Ferdinand var arveprinsen til Østerrike — en av Europas mektigste stater. Din første tanke: tragisk — men fjernt. Nok et drap på Balkan. Du vet ikke at du har akkurat 37 dager på deg til å avgjøre om Europa brenner.",
+            "text": "På skrivebordet hoper meldinger seg opp. Fra alle kanter av Europa strømmer det telegram — fra konger, ministre, generaler. 37 dager gjenstår til krigen bryter ut. Hva er viktig nå?",
             "speaker": "Forteller",
             "backgroundImage": "/images/chronos/nikolaj-ii/sarajevo_telegram.webp",
-            "choices": [
-                {
-                    "id": "c_intro_telegram",
-                    "text": "Les telegrammet og kall rådgiverne til møte.",
-                    "nextNodeId": "hub_tsarskoje_1914"
+            "choices": [],
+            "minigame": {
+                "type": "telegram",
+                "config": {
+                    "onComplete": { "nextNodeId": "hub_tsarskoje_1914" },
+                    "telegrams": [
+                        {
+                            "id": "tg_willy",
+                            "from": "Kaiser Wilhelm II ('Willy')",
+                            "preview": "Ikke la dette bli en stormaktskrig. Russlands mobilisering vil tvinge meg til å handle.",
+                            "correctBucket": "urgent"
+                        },
+                        {
+                            "id": "tg_austria",
+                            "from": "Østerrike-Ungarn — Utenriksminister Berchtold",
+                            "preview": "Serbia har avvist ultimatumet. Østerrike vil handle — vi forventer russisk nøytralitet.",
+                            "correctBucket": "urgent"
+                        },
+                        {
+                            "id": "tg_france",
+                            "from": "Frankrike — President Poincaré",
+                            "preview": "Frankrike vil oppfylle sine allianseplikter. Vi støtter Russland.",
+                            "correctBucket": "urgent"
+                        },
+                        {
+                            "id": "tg_sukhomlinov",
+                            "from": "Krigsminister Sukhomlinov",
+                            "preview": "Mobiliseringsordren er klar. Venter kun på din underskrift, Majestet.",
+                            "correctBucket": "urgent"
+                        },
+                        {
+                            "id": "tg_hoffinvitasjon",
+                            "from": "Hoffmarskalk Benkendorff",
+                            "preview": "Sommerfesten i Livadia er planlagt til 15. august. Arrangementene kan vente til situasjonen avklares.",
+                            "correctBucket": "wait"
+                        }
+                    ]
                 }
-            ]
+            }
         },
         "hub_tsarskoje_1914": {
             "id": "hub_tsarskoje_1914",
@@ -221,8 +253,52 @@
                         "label": "Ta mobiliseringsbeslutningen",
                         "icon": "crown",
                         "nextNodeId": "mobilisering_beslutning"
+                    },
+                    {
+                        "id": "point_budsjett",
+                        "x": 78,
+                        "y": 28,
+                        "label": "Fordel statsressursene",
+                        "icon": "scale",
+                        "nextNodeId": "ressurser_1914"
                     }
                 ]
+            }
+        },
+        "ressurser_1914": {
+            "id": "ressurser_1914",
+            "text": "Juli 1914. Keiserdømmet har 100 enheter å fordele over fire kritiske sektorer. Valget du gjør nå vil sette rammene for alt som følger.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/nikolaj-ii/tsarskoje_selo_study.webp",
+            "choices": [],
+            "minigame": {
+                "type": "allocation",
+                "config": {
+                    "onComplete": { "nextNodeId": "mobilisering_beslutning" },
+                    "totalPoints": 100,
+                    "categories": [
+                        {
+                            "id": "militær_front",
+                            "label": "Militær front",
+                            "description": "Utstyr, ammunisjon og forsyningslinjer til hæren"
+                        },
+                        {
+                            "id": "mat_til_folket",
+                            "label": "Matforsyning til folket",
+                            "description": "Korn og proviant til bybefolkningen i Petrograd og Moskva"
+                        },
+                        {
+                            "id": "aleksej_medisin",
+                            "label": "Aleksejs medisin",
+                            "description": "Medisinske ressurser og spesialleger til tronsarvingen"
+                        },
+                        {
+                            "id": "hoffets_utgifter",
+                            "label": "Hoffets utgifter",
+                            "description": "Seremonier, diplomatiske mottak og hoffets daglige drift"
+                        }
+                    ]
+                }
             }
         },
         "nicky_willy_telegram": {
@@ -569,7 +645,7 @@
         },
         "rasputin_dilemma": {
             "id": "rasputin_dilemma",
-            "text": "1915–1916. Mens du er ved Stavka og leder hæren, styrer Alexandra — under sterk innflytelse fra Grigorij Rasputin — ministerutnevnelsene i Petrograd. På ett år skiftes fire innenriksministre, tre krigsministre og to statsministre ut. Ryktene om Rasputins makt når hoffet, adelen og folket. Aviser våger ikke å skrive det direkte — men karikaturer sirkulerer. Aleksej er frisk igjen etter Rasputins bønner, og Alexandra er overbevist om at munken er Guds sendebud. Du mottar et brev fra Rasputin selv.",
+            "text": "1915–1916. Hoffet er fylt av rykter og intriger. Rasputin-sympatisører infiltrerer kretsen rundt Alexandra. Hvem kan du virkelig stole på?",
             "speaker": "Forteller",
             "backgroundImage": "/images/chronos/nikolaj-ii/rasputin_portrait.webp",
             "discoveryEvent": {
@@ -577,43 +653,64 @@
                 "fact": "Grigorij Rasputin var en selvutnevnt hellig mann fra Sibir. Han klarte å overbevise tsarinnna Alexandra om at han kunne helbrede sønnen Aleksej. Aleksej led av hemofili — en arvelig sykdom der blodet ikke koagulerer normalt. Et lite kutt kan bli livstruende. Rasputin tilsynelatende hjalp gutten når ingen andre kunne, noe som ga ham enorm makt over Alexandra. Og Alexandra påvirket tsaren. Mellom 1915 og 1916 ble fire statsministre, tre krigsministre og en rekke andre ministre byttet ut — på Rasputins råd.",
                 "reflectionQuestion": "Hvordan kan én persons innflytelse over ett enkelt menneske (Alexandra) endre et helt imperiums politikk? Hva sier dette om autokratiets svakheter?"
             },
-            "choices": [
-                {
-                    "id": "c_rasputin_passiv",
-                    "text": "La det skje. Aleksej lever. Det er nok.",
-                    "nextNodeId": "rasputin_etterliv",
-                    "isHistoricalChoice": true,
-                    "setFlags": ["stottet_rasputin"],
-                    "effects": {
-                        "aleksej_helse": 10,
-                        "hoffets_tillit": -15,
-                        "folkets_stotte": -10
-                    }
-                },
-                {
-                    "id": "c_rasputin_konfronter",
-                    "text": "Konfronter Rasputin personlig. Hans politiske rolle er uakseptabel.",
-                    "nextNodeId": "rasputin_etterliv",
-                    "effects": {
-                        "aleksej_helse": -10,
-                        "hoffets_tillit": 5,
-                        "autoritet": 5,
-                        "folkets_stotte": 5
-                    }
-                },
-                {
-                    "id": "c_rasputin_sibir",
-                    "text": "Send Rasputin tilbake til Sibir. Avstand løser problemet.",
-                    "nextNodeId": "rasputin_etterliv",
-                    "historicalNote": "★ Historien gikk en annen vei — Nikolaj II tillot Rasputins innflytelse å fortsette.",
-                    "effects": {
-                        "aleksej_helse": -20,
-                        "hoffets_tillit": 15,
-                        "folkets_stotte": 10,
-                        "autoritet": 10
-                    }
+            "choices": [],
+            "minigame": {
+                "type": "intrigue",
+                "config": {
+                    "onComplete": { "nextNodeId": "rasputin_etterliv" },
+                    "tokens": 3,
+                    "characters": [
+                        {
+                            "id": "sazonov",
+                            "name": "Sergej Sazonov",
+                            "role": "Utenriksminister",
+                            "description": "Erfaren diplomat, skeptisk til Rasputins påvirkning. Ønsker sterkere allianser.",
+                            "isTraitor": false,
+                            "feedback": "En av de få som advarte direkte mot Rasputins politiske rolle."
+                        },
+                        {
+                            "id": "stirmer",
+                            "name": "Boris Stürmer",
+                            "role": "Statsminister",
+                            "description": "Utnevnt på Rasputins anbefaling. Lite erfaring, stor lojalitet til Alexandra.",
+                            "isTraitor": true,
+                            "feedback": "Ble statsminister direkte takket være Rasputin — videreformidlet Alexandras instrukser."
+                        },
+                        {
+                            "id": "rodzianko",
+                            "name": "Michail Rodzianko",
+                            "role": "Duma-president",
+                            "description": "Konservativ, men åpent kritisk til Rasputins innflytelse. Advarte tsaren gjentatte ganger.",
+                            "isTraitor": false,
+                            "feedback": "Sendte tsaren desperate advarsler om revolusjonsfaren. Ble ignorert."
+                        },
+                        {
+                            "id": "protopopov",
+                            "name": "Aleksandr Protopopov",
+                            "role": "Innenriksminister",
+                            "description": "Fremstår som balansert og lojal, men omgåes Rasputin-kretsen jevnlig.",
+                            "isTraitor": true,
+                            "feedback": "Utnevnt på Rasputins direkte råd — styrket Rasputins kontroll over indre sikkerhet."
+                        },
+                        {
+                            "id": "yusupov",
+                            "name": "Prins Felix Yusupov",
+                            "role": "Hoffadel",
+                            "description": "Rik og karismatisk. Tilsynelatende lojal mot dynastiet, men handler i det stille.",
+                            "isTraitor": false,
+                            "feedback": "Yusupov var så anti-Rasputin at han til slutt organiserte drapet på ham i desember 1916."
+                        },
+                        {
+                            "id": "vyrubova",
+                            "name": "Anna Vyrubova",
+                            "role": "Tsarinnens hoffame",
+                            "description": "Alexandras nærmeste venninne og fortrolige. Formidler meldinger mellom Alexandra og hoffet.",
+                            "isTraitor": true,
+                            "feedback": "Vyrubova var Rasputins viktigste kanal til Alexandra — alt gikk gjennom henne."
+                        }
+                    ]
                 }
-            ]
+            }
         },
         "hub_petrograd_1916": {
             "id": "hub_petrograd_1916",
@@ -734,52 +831,74 @@
         },
         "duma_krav": {
             "id": "duma_krav",
-            "text": "November 1916. Den russiske Duma — det russiske parlamentet, som fikk begrenset makt etter den første revolusjonen i 1905 — samles i Tauride-palasset i Petrograd. Pavel Milyukov, leder for det liberale partiet, holder en tale som rister hele byen: han leser opp en lang liste over regjeringens feil og spør for hvert punkt — 'Dumhet eller forræderi?' Han mener Alexandra og Rasputin styrer landet fra bakrommet. Parlamentet krever noe enkelt, men revolusjonært: at ministre skal svare for folkets valgte representanter — ikke bare for tsaren. Du sitter 700 kilometer unna og leser referatene. Hva gjør du?",
+            "text": "November 1916. Pavel Milyukov holder en tale i Duma som rister hele Russland: 'Dumhet eller forræderi?' Parlamentet krever at ministre svarer for folkets representanter. Du sitter 700 kilometer unna. Det er din tur til å svare.",
             "speaker": "Forteller",
             "backgroundImage": "/images/chronos/nikolaj-ii/duma_petrograd.webp",
-            "ethicsLens": {
-                "deontological": "Plikttanken: Du er tsar av Guds nåde — din makt er ikke folkets å ta fra deg. Å gi etter for parlamentet bryter med alt du har svoret å verne om.",
-                "consequentialist": "Konsekvenstanken: Hva skjer om du nekter? Parlamentet mister tilliten. Folket mister håpet. Revolusjonen nærmer seg. Å gi litt makt nå kan kanskje redde det meste.",
-                "virtue": "Karaktertanken: En klok leder vet når han må endre kurs. Er det svakhet å lytte til folket — eller er det den eneste måten å faktisk beholde makten?"
-            },
-            "choices": [
-                {
-                    "id": "c_duma_avvis",
-                    "text": "Avvis kravene. Tsarens makt er absolutt og gudegitt.",
-                    "nextNodeId": "duma_konsekvens",
-                    "isHistoricalChoice": true,
-                    "setFlags": ["avslo_duma"],
-                    "effects": {
-                        "autoritet": 5,
-                        "hoffets_tillit": -20,
-                        "folkets_stotte": -20
-                    }
-                },
-                {
-                    "id": "c_duma_delvis",
-                    "text": "Innrøm moderate krav — utnevn statsminister som Duma godkjenner.",
-                    "nextNodeId": "duma_konsekvens",
-                    "setFlags": ["konstitusjonell_monarki"],
-                    "historicalNote": "★ Historien gikk en annen vei — Nikolaj II avviste alle Dumas krav.",
-                    "effects": {
-                        "autoritet": -10,
-                        "hoffets_tillit": 5,
-                        "folkets_stotte": 25
-                    }
-                },
-                {
-                    "id": "c_duma_full",
-                    "text": "Innrøm full ansvarlig regjering. La Duma velge statsministeren.",
-                    "nextNodeId": "duma_konsekvens",
-                    "setFlags": ["konstitusjonell_monarki", "avviker_fra_historien"],
-                    "historicalNote": "★ Historien gikk en annen vei — Nikolaj II avviste alle Dumas krav.",
-                    "effects": {
-                        "autoritet": -25,
-                        "hoffets_tillit": -5,
-                        "folkets_stotte": 35
-                    }
+            "choices": [],
+            "minigame": {
+                "type": "speech",
+                "config": {
+                    "onComplete": { "nextNodeId": "duma_konsekvens" },
+                    "columns": [
+                        {
+                            "label": "Tone",
+                            "options": [
+                                { "id": "streng", "text": "Streng" },
+                                { "id": "mild", "text": "Mild" },
+                                { "id": "appellerende", "text": "Appellerende" }
+                            ]
+                        },
+                        {
+                            "label": "Fokus",
+                            "options": [
+                                { "id": "krig", "text": "Krigen er prioritet" },
+                                { "id": "folk", "text": "Folkets lidelse" },
+                                { "id": "stabilitet", "text": "Stabilitet og orden" }
+                            ]
+                        },
+                        {
+                            "label": "Løfte",
+                            "options": [
+                                { "id": "ingen", "text": "Ingen innrømmelser" },
+                                { "id": "reformer", "text": "Moderate reformer" },
+                                { "id": "ansvar", "text": "Ansvarlig regjering" }
+                            ]
+                        }
+                    ],
+                    "outcomes": [
+                        {
+                            "combo": "streng_krig_ingen",
+                            "feedback": "Duma-representantene forlater møtet i stillhet. Din tale bekrefter det de fryktet: tsaren er ute av kontakt med virkeligheten. Milyukov leser den opp som bevis på 'forræderi'.",
+                            "effects": { "autoritet": 5, "hoffets_tillit": -20, "folkets_stotte": -20 }
+                        },
+                        {
+                            "combo": "streng_krig_reformer",
+                            "feedback": "Kombinasjonen virker selvmotsigende. Duma-lederne er usikre på hva du egentlig mener. Midlertidig ro — men ingen bygger reell tillit.",
+                            "effects": { "autoritet": 0, "folkets_stotte": -5 }
+                        },
+                        {
+                            "combo": "mild_folk_reformer",
+                            "feedback": "Talen blir mottatt med forsiktig optimisme. Noen Duma-representanter kaller det et gjennombrudd. Det gir deg tid — men kravene vil komme igjen.",
+                            "effects": { "autoritet": -10, "hoffets_tillit": 5, "folkets_stotte": 25 }
+                        },
+                        {
+                            "combo": "appellerende_folk_ansvar",
+                            "feedback": "Duma applauderer. For første gang på år lytter parlamentet med håp. Men hoffet er sjokkert — og krigen krever fortsatt svar.",
+                            "effects": { "autoritet": -25, "hoffets_tillit": -10, "folkets_stotte": 35 }
+                        },
+                        {
+                            "combo": "appellerende_stabilitet_ingen",
+                            "feedback": "Talen roer gemyttene midlertidig, men uten løfter om endring. Revolusjonens gnister slukkes ikke av vakre ord alene.",
+                            "effects": { "autoritet": -5, "folkets_stotte": 5 }
+                        },
+                        {
+                            "combo": "mild_stabilitet_reformer",
+                            "feedback": "En forsiktig, kalkulert tale. Duma tar den som et positivt signal. Det gir deg litt handlingsrom — mer enn den historiske Nikolaj II fikk.",
+                            "effects": { "autoritet": -8, "hoffets_tillit": 3, "folkets_stotte": 18 }
+                        }
+                    ]
                 }
-            ]
+            }
         },
         "rasputin_mord": {
             "id": "rasputin_mord",
@@ -817,7 +936,7 @@
         },
         "petrograd_vinter_1917": {
             "id": "petrograd_vinter_1917",
-            "text": "Februar 1917. Petrograd fryser. Brødet er borte fra butikkhyllene — distribusjonssystemet har kollapset under krigens press. Arbeidere streiker. Soldater som sendes for å oppløse demonstrasjonene, nekter å skyte på folkemengden og snur geværene mot offiserene sine. Du er i Stavka, 700 kilometer unna, og mottar telegram etter telegram: 'Hæren kan ikke garantere ro og orden.' 'Minister innenriks ber om ytterligere instruks.' 'Situasjonen ukontrollerbar.' Du har tre alternativer — og ingen av dem er gode.",
+            "text": "Februar 1917. Petrograd fryser. Brødet er borte. Arbeidere streiker. Meldingene strømmer inn — 'Situasjonen ukontrollerbar.' Du er 700 kilometer unna. Trykket stiger. Handle nå.",
             "speaker": "Forteller",
             "backgroundImage": "/images/chronos/nikolaj-ii/petrograd_februar_1917.webp",
             "discoveryEvent": {
@@ -825,54 +944,39 @@
                 "fact": "Februar-revolusjonen 1917 var spontan — ingen revolusjonær organisasjon planla den. Den startet som brødemonstrasjonr av arbeiderskvinner 8. mars (23. februar etter gammel russisk kalender), og eskalerte på åtte dager til tsarens abdikasjon. Det avgjørende var at soldatene nektet å skyte på sine egne landsmenn. Uten hærens lojalitet hadde monarkiet ingenting å stå på.",
                 "reflectionQuestion": "Revolusjoner skjer sjelden fordi noen planlegger dem — de skjer når systemer mister sin legitimitet. Hva manglet Nikolaj IIs styre at folk sluttet å tro på det?"
             },
-            "npcDialogue": {
-                "stat": "krigsevne",
-                "npc": "Militærrådgiver",
-                "cold": "Rådgiveren unngår øynene dine. 'Reservene er... tynne, Majestet. Svært tynne.'",
-                "neutral": "Rådgiveren legger frem tallene nøkternt. 'Vi har to divisjoner tilgjengelig. Det kan holde orden i noen dager.'",
-                "warm": "Rådgiveren presenterer rapporten med rimelig ro. 'Fem divisjoner i reserve, Majestet. Tilstrekkelig til å gjenopprette kontroll i Petrograd.'"
-            },
-            "choices": [
-                {
-                    "id": "c_vinter_bli",
-                    "text": "Bli i Stavka. Send tropper for å gjenopprette orden i Petrograd.",
-                    "nextNodeId": "februar_revolusjon",
-                    "isHistoricalChoice": true,
-                    "effects": {
-                        "krigsevne": 5,
-                        "folkets_stotte": -15,
-                        "autoritet": -5
-                    }
-                },
-                {
-                    "id": "c_vinter_reis",
-                    "text": "Reis umiddelbart til Petrograd. Din tilstedeværelse kan roe situasjonen.",
-                    "nextNodeId": "februar_revolusjon_direkte",
-                    "effects": {
-                        "autoritet": 10,
-                        "krigsevne": -5,
-                        "folkets_stotte": 5
-                    }
-                },
-                {
-                    "id": "c_vinter_unntakstilstand",
-                    "text": "Utrop unntakstilstand og overfør politimakt til general Khabalov.",
-                    "nextNodeId": "februar_revolusjon",
-                    "effects": {
-                        "autoritet": -20,
-                        "folkets_stotte": -20,
-                        "krigsevne": -5
-                    }
-                },
-                {
-                    "id": "c_vinter_kommando_autoritet",
-                    "text": "Bruk kommandoautoriteten din direkte. Som øverstkommanderende beordrer du Petrograd-garnisonen personlig.",
-                    "condition": { "hasFlag": "tok_personlig_kommando" },
-                    "nextNodeId": "februar_revolusjon",
-                    "effects": { "autoritet": 10, "krigsevne": -5, "folkets_stotte": -10 },
-                    "historicalNote": "★ Selv med personlig autoritet hadde det liten praktisk effekt — soldatene nektet å skyte på sine egne."
+            "choices": [],
+            "minigame": {
+                "type": "crowd",
+                "config": {
+                    "winNodeId": "februar_revolusjon",
+                    "lossNodeId": "februar_revolusjon_direkte",
+                    "timeLimit": 25,
+                    "fillRate": 4,
+                    "responses": [
+                        {
+                            "id": "korn",
+                            "label": "Tilby korn til byene",
+                            "description": "Akutt nødhjelp — kan roe gatene midlertidig",
+                            "pressureChange": -18,
+                            "cooldown": 6
+                        },
+                        {
+                            "id": "kosakker",
+                            "label": "Send kosakker",
+                            "description": "Militær intervensjon — risikerer å eskalere situasjonen",
+                            "pressureChange": 12,
+                            "cooldown": 3
+                        },
+                        {
+                            "id": "reform",
+                            "label": "Love reform",
+                            "description": "Ord uten umiddelbar handling — virker kortvarig",
+                            "pressureChange": -10,
+                            "cooldown": 4
+                        }
+                    ]
                 }
-            ]
+            }
         },
         "februar_revolusjon": {
             "id": "februar_revolusjon",
