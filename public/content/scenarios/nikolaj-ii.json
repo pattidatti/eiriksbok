@@ -485,6 +485,13 @@
                 "consequentialist": "Konsekvenstanken: Hvis du personlig leder hæren og Russland taper slag, er det du som er ansvarlig. Hvert militært nederlag blir et slag mot selve monarkiet.",
                 "virtue": "Karaktertanken: Det er mot å stille seg i front. Men er det også klokt? Vet du nok om militær ledelse til å gjøre dette bra — eller handler det om stolthet?"
             },
+            "npcDialogue": {
+                "stat": "aleksej_helse",
+                "npc": "Alexandra",
+                "cold": "Alexandra tier. Hendene hennes knytter seg. 'Du forlater ham nå?'",
+                "neutral": "Alexandra nikker stivt. 'Rasputin sa det ville gå bra. Jeg tror ham.'",
+                "warm": "Alexandra tar din hånd. 'Aleksej sover. Du kan reise med lett hjerte — gutten er i Guds hender.'"
+            },
             "choices": [
                 {
                     "id": "c_ta_kommando",
@@ -574,7 +581,7 @@
                 {
                     "id": "c_rasputin_passiv",
                     "text": "La det skje. Aleksej lever. Det er nok.",
-                    "nextNodeId": "hub_petrograd_1916",
+                    "nextNodeId": "rasputin_etterliv",
                     "isHistoricalChoice": true,
                     "setFlags": ["stottet_rasputin"],
                     "effects": {
@@ -586,7 +593,7 @@
                 {
                     "id": "c_rasputin_konfronter",
                     "text": "Konfronter Rasputin personlig. Hans politiske rolle er uakseptabel.",
-                    "nextNodeId": "hub_petrograd_1916",
+                    "nextNodeId": "rasputin_etterliv",
                     "effects": {
                         "aleksej_helse": -10,
                         "hoffets_tillit": 5,
@@ -597,7 +604,7 @@
                 {
                     "id": "c_rasputin_sibir",
                     "text": "Send Rasputin tilbake til Sibir. Avstand løser problemet.",
-                    "nextNodeId": "hub_petrograd_1916",
+                    "nextNodeId": "rasputin_etterliv",
                     "historicalNote": "★ Historien gikk en annen vei — Nikolaj II tillot Rasputins innflytelse å fortsette.",
                     "effects": {
                         "aleksej_helse": -20,
@@ -640,7 +647,7 @@
                         "y": 75,
                         "label": "Rasputins mord",
                         "icon": "feather",
-                        "nextNodeId": "rasputin_mord"
+                        "nextNodeId": "rasputin_mord_intro"
                     }
                 ]
             }
@@ -739,7 +746,7 @@
                 {
                     "id": "c_duma_avvis",
                     "text": "Avvis kravene. Tsarens makt er absolutt og gudegitt.",
-                    "nextNodeId": "rasputin_mord",
+                    "nextNodeId": "duma_konsekvens",
                     "isHistoricalChoice": true,
                     "setFlags": ["avslo_duma"],
                     "effects": {
@@ -751,7 +758,7 @@
                 {
                     "id": "c_duma_delvis",
                     "text": "Innrøm moderate krav — utnevn statsminister som Duma godkjenner.",
-                    "nextNodeId": "rasputin_mord",
+                    "nextNodeId": "duma_konsekvens",
                     "setFlags": ["konstitusjonell_monarki"],
                     "historicalNote": "★ Historien gikk en annen vei — Nikolaj II avviste alle Dumas krav.",
                     "effects": {
@@ -763,7 +770,7 @@
                 {
                     "id": "c_duma_full",
                     "text": "Innrøm full ansvarlig regjering. La Duma velge statsministeren.",
-                    "nextNodeId": "rasputin_mord",
+                    "nextNodeId": "duma_konsekvens",
                     "setFlags": ["konstitusjonell_monarki", "avviker_fra_historien"],
                     "historicalNote": "★ Historien gikk en annen vei — Nikolaj II avviste alle Dumas krav.",
                     "effects": {
@@ -818,6 +825,13 @@
                 "fact": "Februar-revolusjonen 1917 var spontan — ingen revolusjonær organisasjon planla den. Den startet som brødemonstrasjonr av arbeiderskvinner 8. mars (23. februar etter gammel russisk kalender), og eskalerte på åtte dager til tsarens abdikasjon. Det avgjørende var at soldatene nektet å skyte på sine egne landsmenn. Uten hærens lojalitet hadde monarkiet ingenting å stå på.",
                 "reflectionQuestion": "Revolusjoner skjer sjelden fordi noen planlegger dem — de skjer når systemer mister sin legitimitet. Hva manglet Nikolaj IIs styre at folk sluttet å tro på det?"
             },
+            "npcDialogue": {
+                "stat": "krigsevne",
+                "npc": "Militærrådgiver",
+                "cold": "Rådgiveren unngår øynene dine. 'Reservene er... tynne, Majestet. Svært tynne.'",
+                "neutral": "Rådgiveren legger frem tallene nøkternt. 'Vi har to divisjoner tilgjengelig. Det kan holde orden i noen dager.'",
+                "warm": "Rådgiveren presenterer rapporten med rimelig ro. 'Fem divisjoner i reserve, Majestet. Tilstrekkelig til å gjenopprette kontroll i Petrograd.'"
+            },
             "choices": [
                 {
                     "id": "c_vinter_bli",
@@ -849,6 +863,14 @@
                         "folkets_stotte": -20,
                         "krigsevne": -5
                     }
+                },
+                {
+                    "id": "c_vinter_kommando_autoritet",
+                    "text": "Bruk kommandoautoriteten din direkte. Som øverstkommanderende beordrer du Petrograd-garnisonen personlig.",
+                    "condition": { "hasFlag": "tok_personlig_kommando" },
+                    "nextNodeId": "februar_revolusjon",
+                    "effects": { "autoritet": 10, "krigsevne": -5, "folkets_stotte": -10 },
+                    "historicalNote": "★ Selv med personlig autoritet hadde det liten praktisk effekt — soldatene nektet å skyte på sine egne."
                 }
             ]
         },
@@ -892,6 +914,13 @@
                 "consequentialist": "Konsekvenstanken: Hvis du abdiserer, stopper kanskje den verste volden. Hvis du holder fast, fortsetter krigen — og familien er i fare. Hva gir flest overlevende?",
                 "virtue": "Karaktertanken: Det krever mot å holde fast. Men det kan kreve enda mer mot å slippe taket. Hva er egentlig det feige — og hva er det kloke?"
             },
+            "npcDialogue": {
+                "stat": "autoritet",
+                "npc": "General Ruzsky",
+                "cold": "Ruzsky legger papiret foran deg uten å møte blikket ditt. Hans holdning er den av en mann som allerede har avgjort saken.",
+                "neutral": "Ruzsky presenterer dokumentene med et nøytralt uttrykk. Han venter, men uten å presse.",
+                "warm": "Ruzsky retter seg opp og møter blikket ditt. 'Majestet — generalene står samlet. Dette er vår anbefaling, ikke et krav.'"
+            },
             "choices": [
                 {
                     "id": "c_abdiser",
@@ -925,7 +954,7 @@
                     "id": "c_abdiser_med_eksil",
                     "text": "Signer abdikasjonen — og aksepter det britiske eksiltilbudet.",
                     "nextNodeId": "eksil_spor",
-                    "condition": {
+                    "checkInventory": {
                         "hasItem": "britisk_tilbud"
                     },
                     "setFlags": ["abdiserte", "aksepterte_eksil"],
@@ -936,6 +965,15 @@
                     "effects": {
                         "autoritet": -50
                     }
+                },
+                {
+                    "id": "c_abdiser_separatfred",
+                    "text": "Presentér den tyske fredsavtalen for Duma. Du abdicerer ikke — du forhandler.",
+                    "condition": { "hasFlag": "separatfred" },
+                    "nextNodeId": "separatfred_bro",
+                    "setFlags": ["separatfred_avsluttet"],
+                    "effects": { "autoritet": -15, "folkets_stotte": -20, "krigsevne": 10 },
+                    "historicalNote": "★ I virkeligheten var dette bolsjevikenes handling i 1918."
                 }
             ]
         },
@@ -966,7 +1004,7 @@
                 {
                     "id": "c_arrest_vent",
                     "text": "Vent. Hendelsene vil avgjøre seg selv.",
-                    "nextNodeId": "bolsjevik_makt",
+                    "nextNodeId": "hus_arrest_valg",
                     "effects": {
                         "autoritet": -5
                     }
@@ -987,7 +1025,7 @@
                 {
                     "id": "c_bolsjevik_jekaterinburg",
                     "text": "Aksepter familiens skjebne i bolsjevikenes hender.",
-                    "nextNodeId": "jekaterinburg"
+                    "nextNodeId": "jekaterinburg_valg"
                 }
             ]
         },
@@ -1060,6 +1098,14 @@
                     {
                         "hasFlag": "telegraferte_willy",
                         "text": "Du sendte den personlige appellen til Kaiser Wilhelm — slik Nikolaj II faktisk sendte telegrammene. Det endret ikke krigens gang, men viste at begge keiserne visste hva de satte i gang."
+                    },
+                    {
+                        "hasFlag": "svarte_offiseren",
+                        "text": "Du svarte på en lapp i Jekaterinburg. Det fantes et øyeblikk av håp. Det holdt ikke."
+                    },
+                    {
+                        "hasFlag": "forsøkte_flukt",
+                        "text": "Du forsøkte å flykte fra Tsarskoje Selo sommeren 1917. Det mislyktes."
                     }
                 ],
                 "historicalEcho": "Du fulgte alle historiske valg. Nikolaj IIs faktiske skjebne: henrettet 17. juli 1918. Dynastiet utryddet. Russland under bolsjevikstyre til 1991.",
@@ -1083,6 +1129,10 @@
                     {
                         "hasFlag": "aksepterte_eksil",
                         "text": "Du aksepterte det britiske eksiltilbudet — i virkeligheten trakk Kong Georg V tilbudet tilbake under press fra den britiske regjeringen, som fryktet at å huse Romanovene ville destabilisere Storbritannia under krigen."
+                    },
+                    {
+                        "hasFlag": "forsøkte_flukt",
+                        "text": "Din instinkt om å flykte sommeren 1917 var riktig. Eksil ble til slutt virkeligheten."
                     }
                 ],
                 "historicalEcho": "I den virkelige historien fikk familien Romanov aldri noe eksiltilbud. Kong Georg V trakk tilbudet tilbake i april 1917 — av politiske hensyn. Det er en av historiens mest diskuterte 'hva om'-er.",
@@ -1166,7 +1216,7 @@
                 {
                     "id": "c_aleksej_reis",
                     "text": "Reis hjem umiddelbart.",
-                    "nextNodeId": "hub_petrograd_1916",
+                    "nextNodeId": "event_logg",
                     "effects": {
                         "krigsevne": -5,
                         "aleksej_helse": 10,
@@ -1176,7 +1226,7 @@
                 {
                     "id": "c_aleksej_bli",
                     "text": "Bli ved fronten. Krigen kan ikke vente.",
-                    "nextNodeId": "hub_petrograd_1916",
+                    "nextNodeId": "event_logg",
                     "effects": {
                         "krigsevne": 5,
                         "aleksej_helse": -5,
@@ -1194,7 +1244,7 @@
                 {
                     "id": "c_desertering_straff",
                     "text": "Strengt straffe desertørene. Eksempel til skrekk.",
-                    "nextNodeId": "hub_petrograd_1916",
+                    "nextNodeId": "event_logg",
                     "effects": {
                         "krigsevne": 5,
                         "folkets_stotte": -15,
@@ -1204,7 +1254,7 @@
                 {
                     "id": "c_desertering_se_bort",
                     "text": "Se bort fra det. Krigen er nok hard som den er.",
-                    "nextNodeId": "hub_petrograd_1916",
+                    "nextNodeId": "event_logg",
                     "effects": {
                         "krigsevne": -5,
                         "autoritet": -5
@@ -1213,7 +1263,7 @@
                 {
                     "id": "c_desertering_amnesti",
                     "text": "Gi amnesti og forbedr provianteringen.",
-                    "nextNodeId": "hub_petrograd_1916",
+                    "nextNodeId": "event_logg",
                     "effects": {
                         "krigsevne": -3,
                         "folkets_stotte": 10,
@@ -1231,7 +1281,7 @@
                 {
                     "id": "c_forhandler_aksepter",
                     "text": "Gå videre med hemmelige fredsforhandlinger.",
-                    "nextNodeId": "hub_petrograd_1916",
+                    "nextNodeId": "event_logg",
                     "setFlags": ["separatfred"],
                     "updateInventory": {
                         "add": "britisk_tilbud"
@@ -1245,7 +1295,7 @@
                 {
                     "id": "c_forhandler_avvis",
                     "text": "Avvis begge. Russland holder kursen.",
-                    "nextNodeId": "hub_petrograd_1916",
+                    "nextNodeId": "event_logg",
                     "effects": {
                         "autoritet": 5,
                         "hoffets_tillit": 5
@@ -1262,7 +1312,7 @@
                 {
                     "id": "c_opprort_trupper",
                     "text": "Send tropper fra reservene.",
-                    "nextNodeId": "hub_petrograd_1916",
+                    "nextNodeId": "event_logg",
                     "effects": {
                         "krigsevne": -10,
                         "folkets_stotte": -10,
@@ -1272,7 +1322,7 @@
                 {
                     "id": "c_opprort_proviant",
                     "text": "Send brødprovianter fremfor tropper.",
-                    "nextNodeId": "hub_petrograd_1916",
+                    "nextNodeId": "event_logg",
                     "effects": {
                         "folkets_stotte": 5,
                         "krigsevne": -5
@@ -1294,7 +1344,7 @@
                 {
                     "id": "c_brev_legg_bort",
                     "text": "Legg brevet i skuffen. Det er ingenting du kan gjøre i kveld.",
-                    "nextNodeId": "hub_petrograd_1916"
+                    "nextNodeId": "event_logg"
                 }
             ]
         },
@@ -1307,7 +1357,7 @@
                 {
                     "id": "c_alexandra_avskjedige",
                     "text": "Avskjedige Polivanov. Freden i hjemmet er også viktig.",
-                    "nextNodeId": "hub_petrograd_1916",
+                    "nextNodeId": "event_logg",
                     "setFlags": ["stottet_rasputin"],
                     "effects": {
                         "krigsevne": -10,
@@ -1318,12 +1368,231 @@
                 {
                     "id": "c_alexandra_beholde",
                     "text": "Beholde Polivanov. Rasputin blander seg ikke i militærsaker.",
-                    "nextNodeId": "hub_petrograd_1916",
+                    "nextNodeId": "event_logg",
                     "effects": {
                         "krigsevne": 5,
                         "aleksej_helse": -10,
                         "autoritet": 5
                     }
+                }
+            ]
+        },
+        "event_logg": {
+            "id": "event_logg",
+            "text": "Hendelsene er registrert i tsarens dagbok. Verden utenfor fortsetter sin ustoppelige gang.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/nikolaj-ii/tsarskoje_selo_study.webp",
+            "choices": [
+                {
+                    "id": "c_event_logg_videre",
+                    "text": "Tilbake til kartet.",
+                    "nextNodeId": "hub_petrograd_1916"
+                }
+            ]
+        },
+        "separatfred_bro": {
+            "id": "separatfred_bro",
+            "text": "Mars 1917. Du presenterer fredsvilkårene for Duma-lederne på Pskov stasjon. Det er stille i kupéen. Guchkov leser dokumentet to ganger. Shulgin stirrer ut av vinduet. Det er ikke abdikasjonen de ventet på — det er noe langt mer komplisert. Men forhandlinger er mulig. En tsar som forhandler, er en tsar som ennå lever. Neste trinn er Berlin.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/nikolaj-ii/pskov_train.webp",
+            "choices": [
+                {
+                    "id": "c_separatfred_bro_videre",
+                    "text": "La forhandlingene begynne.",
+                    "nextNodeId": "epilog_separatfred"
+                }
+            ]
+        },
+        "hus_arrest_valg": {
+            "id": "hus_arrest_valg",
+            "text": "Sommeren 1917. Tsarskoje Selo under husarrest. En lojal hoffoffiser nærmer seg deg i parken mens Alexandra beder inne og vakten har snudd ryggen til. Han hvisker lavt: det finnes en britisk sjåfør med kontakter, og en general som kan eskorte familien til Finland. Et vindu — kanskje det siste.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/nikolaj-ii/tsarskoje_hus_arrest.webp",
+            "journalPrompt": "Du sitter mellom to verdener: den som var og den som ennå ikke har vist sitt ansikt.",
+            "npcDialogue": {
+                "stat": "hoffets_tillit",
+                "npc": "Den lojale offiseren",
+                "cold": "Offiseren holder seg på trygg avstand. Hans øyne sier ingenting. Han vil ikke bli sett.",
+                "neutral": "Offiseren nærmer seg forsiktig og hvisker om muligheter — men uten detaljer.",
+                "warm": "Offiseren bøyer seg nær og hvisker tydelig: 'Majestet, det finnes en britisk sjåfør i hagen og en general som kan eskorte familien til Finland.'"
+            },
+            "choices": [
+                {
+                    "id": "c_arrest_flukt",
+                    "text": "Utforsk fluktmuligheten med den britiske sjåføren.",
+                    "checkInventory": { "hasItem": "britisk_tilbud" },
+                    "nextNodeId": "flukt_forsok",
+                    "setFlags": ["forsøkte_flukt"]
+                },
+                {
+                    "id": "c_arrest_duma",
+                    "text": "Søk kontakt med Duma-moderatene. Kanskje Kerenskij kan forhandle frem noe.",
+                    "condition": { "hasFlag": "konstitusjonell_monarki" },
+                    "nextNodeId": "arrest_duma_kontakt",
+                    "setFlags": ["søkte_duma_kontakt"]
+                },
+                {
+                    "id": "c_arrest_vent_historisk",
+                    "text": "Vent. Det er det sikreste.",
+                    "isHistoricalChoice": true,
+                    "nextNodeId": "bolsjevik_makt",
+                    "effects": { "autoritet": -5 }
+                }
+            ]
+        },
+        "flukt_forsok": {
+            "id": "flukt_forsok",
+            "text": "Du kontakter offiseren. Planen tar form: en britisk sjåfør, en falsk identitet, en grensevakt som kan bestikkes. Men da du legger frem planen for Alexandra, er svaret kontant: 'Aleksej er feber i tre dager. Han kan ikke reise.' Du ser på sønnen — han er blek, pustingen tung. Å dra nå kan drepe ham. Å bli kan drepe dere alle.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/nikolaj-ii/tsarskoje_hus_arrest.webp",
+            "choices": [
+                {
+                    "id": "c_flukt_fortsett",
+                    "text": "Gjennomfør planen uansett. Aleksej er sterkere enn han ser ut.",
+                    "nextNodeId": "flukt_mislykkes",
+                    "effects": { "aleksej_helse": -15 }
+                },
+                {
+                    "id": "c_flukt_avbryt",
+                    "text": "Avbryt. Du kan ikke risikere Aleksej.",
+                    "nextNodeId": "bolsjevik_makt",
+                    "effects": { "aleksej_helse": 5 }
+                }
+            ]
+        },
+        "flukt_mislykkes": {
+            "id": "flukt_mislykkes",
+            "text": "Toget stopper ved porten. En vakt du ikke kjenner igjen løfter hånden. Den britiske sjåføren er borte — enten flyktet eller arrestert. Sikkerheten dobles neste morgen. Alexandra holder om Aleksej hele natten. Vinduet er lukket.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/nikolaj-ii/tsarskoje_hus_arrest.webp",
+            "choices": [
+                {
+                    "id": "c_flukt_mislykkes_videre",
+                    "text": "Aksepter situasjonen. Og vent.",
+                    "nextNodeId": "bolsjevik_makt",
+                    "effects": { "autoritet": -10, "aleksej_helse": -5 }
+                }
+            ]
+        },
+        "arrest_duma_kontakt": {
+            "id": "arrest_duma_kontakt",
+            "text": "Svaret fra Duma-kontakten kommer etter tre dager: 'For sent. Kerenskij mister grepet. De moderate har ikke lenger flertallet.' Du leser brevet i parken mens vaktene ser på. Kanskje det alltid var for sent. Kanskje ikke.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/nikolaj-ii/duma_petrograd.webp",
+            "choices": [
+                {
+                    "id": "c_arrest_duma_videre",
+                    "text": "Godta svaret. Det finnes ikke noe moderert middelveisalternativ lenger.",
+                    "nextNodeId": "bolsjevik_makt",
+                    "effects": { "folkets_stotte": 5 }
+                }
+            ]
+        },
+        "jekaterinburg_valg": {
+            "id": "jekaterinburg_valg",
+            "text": "April 1918. Ipatiev-huset. Under middagsretten finner du en lapp skjult under tallerkenen. Skriften er liten, hånden ustø: 'Hvite tropper nærmer seg. Monarkister kan handle. Svar hvis du ønsker kontakt.' Vakten Avdejev er ikke i rommet. Du har tretti sekunder.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/nikolaj-ii/ipatiev_house.webp",
+            "ethicsLens": {
+                "deontological": "Plikttanken: En lapp kan bety håp for familien. Men å svare trekker andre mennesker inn i fare på dine vegne — er det rettferdig?",
+                "consequentialist": "Konsekvenstanken: Hvite tropper nærmer seg. Bolsjevikene er nervøse. Kanskje finnes det en vei ut. Eller kanskje lappen er en felle.",
+                "virtue": "Karaktertanken: En modig mann svarer. En klok mann vurderer hvem som skreiv lappen — og hvorfor."
+            },
+            "choices": [
+                {
+                    "id": "c_jekaterinburg_svar",
+                    "text": "Svar på lappen.",
+                    "nextNodeId": "jekaterinburg_kontakt",
+                    "setFlags": ["svarte_offiseren"]
+                },
+                {
+                    "id": "c_jekaterinburg_ignorer",
+                    "text": "Ignorer. For risikabelt.",
+                    "isHistoricalChoice": true,
+                    "nextNodeId": "jekaterinburg"
+                }
+            ]
+        },
+        "jekaterinburg_kontakt": {
+            "id": "jekaterinburg_kontakt",
+            "text": "Du sender svaret. Tre dager later er offiseren borte — enten forflyttet eller arrestert, du vet ikke. Den hvite arméen nærmer seg, men ikke raskt nok. Vakten Avdejev skiftes ut med en ny kommandant. Bolsjevikene har fått vite noe. Natten mellom 16. og 17. juli banker en vakt på døren.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/nikolaj-ii/ipatiev_house.webp",
+            "choices": [
+                {
+                    "id": "c_jekaterinburg_kontakt_videre",
+                    "text": "Gå ned trappene med familien.",
+                    "nextNodeId": "jekaterinburg",
+                    "effects": { "aleksej_helse": 5, "autoritet": -5 }
+                }
+            ]
+        },
+        "rasputin_etterliv": {
+            "id": "rasputin_etterliv",
+            "text": "Uken etter Rasputin-beslutningen. Petrograd reagerer. Aviser hvisker det som ikke kan trykkes. Karikaturer sirkulerer i hoffkretsene. Alexandra vet hva valget ditt betyr — for Aleksej, for hoffet, for dynastiet. Hun venter på deg i biblioteket.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/nikolaj-ii/rasputin_portrait.webp",
+            "npcDialogue": {
+                "stat": "hoffets_tillit",
+                "npc": "Hoffets reaksjon",
+                "cold": "En hoffdame ser bort når du passerer. Ingen kommenterer Rasputin-saken direkte — men stillheten sier alt.",
+                "neutral": "Reaksjonene er blandet. Noen nikker anerkjennende, andre er reserverte. Petrograds adel venter og ser.",
+                "warm": "En eldre minister tar deg til side: 'Majestet, hoffet er lettet. Det var den rette beslutningen.'"
+            },
+            "choices": [
+                {
+                    "id": "c_rasputin_etterliv_stottet",
+                    "text": "Alexandra er rolig. Gutten lever. Det er nok.",
+                    "condition": { "hasFlag": "stottet_rasputin" },
+                    "nextNodeId": "hub_petrograd_1916",
+                    "effects": { "aleksej_helse": 5 }
+                },
+                {
+                    "id": "c_rasputin_etterliv_ikke_stottet",
+                    "text": "Hoffet responderer positivt. Kanskje var dette riktig tross alt.",
+                    "condition": { "not": { "hasFlag": "stottet_rasputin" } },
+                    "nextNodeId": "hub_petrograd_1916",
+                    "effects": { "hoffets_tillit": 5 }
+                }
+            ]
+        },
+        "duma_konsekvens": {
+            "id": "duma_konsekvens",
+            "text": "Dagene etter Duma-avgjørelsen. Petrograd reagerer. Miliukovs tale sirkulerer i avskrifter. Utenfor palassets vinduer er gatene urolige — ikke revolusjonære ennå, men noe er i ferd med å snu.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/nikolaj-ii/duma_petrograd.webp",
+            "npcDialogue": {
+                "stat": "folkets_stotte",
+                "npc": "En hofftjenestemann",
+                "cold": "Budbringeren retter seg opp: 'Petrograd reagerer sterkt, Majestet. Demonstrasjonene har økt i styrke siden Dumas vedtak.'",
+                "neutral": "Budbringeren melder nøkternt: 'Avisforsidene er kritiske, men gatene er rolige foreløpig. Folk venter.'",
+                "warm": "Budbringeren smiler svakt: 'Moderat reaksjon, Majestet. Mange er fornøyde med den retningen du har valgt.'"
+            },
+            "choices": [
+                {
+                    "id": "c_duma_konsekvens_videre",
+                    "text": "Situasjonen er satt. Nå kommer Rasputin.",
+                    "nextNodeId": "rasputin_mord"
+                }
+            ]
+        },
+        "rasputin_mord_intro": {
+            "id": "rasputin_mord_intro",
+            "text": "Desember 1916. Et rykte når hoffet: prins Felix Yusupov skal ha invitert Rasputin til en privat middag — et møte med en vakker dame, sies det. Men Yusupov er ikke kjent for Rasputin-sympati. Noen i hoffet ler lavt. Andre er urolige.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/nikolaj-ii/rasputin_portrait.webp",
+            "npcDialogue": {
+                "stat": "hoffets_tillit",
+                "npc": "En hoffkilde",
+                "cold": "Kilden hvisker knapt og forsvinner. Ingen ønsker å bli sett i nærheten av temaet.",
+                "neutral": "Kilden rapporterer kort: Yusupov har invitert Rasputin. Ingenting mer er kjent.",
+                "warm": "Kilden er åpen: 'Majestet, ryktet sier Yusupov har lovet Rasputin å møte en vakker dame. Men noen i hoffet mener det er noe helt annet som venter.'"
+            },
+            "choices": [
+                {
+                    "id": "c_rasputin_mord_intro_videre",
+                    "text": "Begivenhetene vil snart avklares.",
+                    "nextNodeId": "rasputin_mord"
                 }
             ]
         }
