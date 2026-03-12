@@ -227,13 +227,13 @@
         },
         "nicky_willy_telegram": {
             "id": "nicky_willy_telegram",
-            "text": "Telegrammet fra Berlin er skrevet på personlig brevpapir, ikke offisielt statsbrev. 'Kjære Nicky, jeg er i sorg og ser med bekymring på dette...' Kaiser Wilhelm II — Willy for deg siden barndommen — appellerer direkte til deg som slektning, ikke som statsoverhode. Han ber deg stoppe mobiliseringen. Men generalene dine sier mobilisering ikke kan reverseres når den er startet — logistikken er for kompleks. Hva svarer du?",
+            "text": "Telegrammet fra Berlin er skrevet på personlig brevpapir, ikke offisielt statsbrev. 'Kjære Nicky, jeg er i sorg og ser med bekymring på dette...' Kaiser Wilhelm II — Willy for deg siden barndommen — appellerer direkte til deg som slektning, ikke som statsoverhode. Han ber deg stoppe mobiliseringen. Men generalene dine sier mobilisering ikke kan reverseres når den er startet — tog, soldater og forsyninger er allerede i bevegelse over hele landet. Hva svarer du?",
             "speaker": "Kaiser Wilhelms telegram",
             "backgroundImage": "/images/chronos/nikolaj-ii/nicky_willy_telegram.webp",
             "ethicsLens": {
-                "deontological": "Plikttanken: Serbia er din allierte — du har lovet å stå opp for dem. Å vike nå betyr at ingen stoler på russiske løfter i fremtiden.",
-                "consequentialist": "Konsekvenstanken: Willy sier krig kan stoppes. Hvis han har rett, kan ett telegram redde millioner av liv. Hva er mer verdt — ære eller liv?",
-                "virtue": "Karaktertanken: Det er lett å velge med hjertet når fetteren din ber deg. Men er det dette folket ditt trenger av deg akkurat nå?"
+                "deontological": "Plikttanken (hva du er forpliktet til): Serbia er din allierte — du har lovet å stå opp for dem. Å vike nå betyr at ingen stoler på russiske løfter i fremtiden.",
+                "consequentialist": "Konsekvenstanken (hva som faktisk skjer): Willy sier krig kan stoppes. Hvis han har rett, kan ett telegram redde millioner av liv. Hva er mer verdt — ære eller liv?",
+                "virtue": "Karaktertanken (hvem du vil være som leder): Det er lett å velge med hjertet når fetteren din ber deg. Men er det dette folket ditt trenger av deg akkurat nå?"
             },
             "choices": [
                 {
@@ -681,7 +681,7 @@
                         },
                         {
                             "id": "infiltrasjon",
-                            "label": "Send infiltrasjonstropper i forkant",
+                            "label": "Send infiltrasjonstropper (spesialsoldater som sniker seg bak fiendens linjer) i forkant",
                             "type": "charge",
                             "damage": 5,
                             "counters": ["tett forsvar"]
@@ -776,7 +776,7 @@
         },
         "rasputin_mord": {
             "id": "rasputin_mord",
-            "text": "Natt til 17. desember 1916. Rasputin er drept i Prins Yusupovs palass ved Moika-kanalen i Petrograd. En gruppe adelige — inkludert prins Felix Yusupov og Storfyrst Dmitrij Pavlovich, din slektning — bak drapet. Rapporten er makaberr: gift, skudd, et forsøk på drukning i den frosne Neva-elven. Petrograds elegant jubler. Alexandra er knust. Du sitter i Stavka og vet at de skyldige er for prominente til å straffe fullt ut — men du kan ikke la drapet stå ustraffet heller.",
+            "text": "Natt til 17. desember 1916. Rasputin er drept i Prins Yusupovs palass ved Moika-kanalen i Petrograd. En gruppe adelige — inkludert prins Felix Yusupov og Storfyrst Dmitrij Pavlovich, din slektning — bak drapet. Rapporten er grusom: gift, skudd, et forsøk på drukning i den frosne Neva-elven. Petrograds elegant jubler. Alexandra er knust. Du sitter i Stavka og vet at de skyldige er for prominente til å straffe fullt ut — men du kan ikke la drapet stå ustraffet heller.",
             "speaker": "Forteller",
             "backgroundImage": "/images/chronos/nikolaj-ii/rasputin_portrait.webp",
             "discoveryEvent": {
