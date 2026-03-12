@@ -1,15 +1,14 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
     Shield, Heart, Zap, Scroll, Skull, Crown, Star, ArrowRight, Backpack, Lock,
-    CloudRain, Moon, BookOpen, X, Map as MapIcon, Users, Hammer, Scale, Activity,
-    CloudFog, CloudLightning, Sunrise, Sunset, Brain, Lightbulb, ExternalLink,
-    Mail, Feather, PenLine,
+    BookOpen, X, Map as MapIcon, Users, Hammer, Scale, Activity, Brain, Lightbulb,
+    ExternalLink, Mail, Feather, PenLine, GitBranch, ArrowLeft, RotateCcw,
 } from 'lucide-react';
 import type {
     ChronosNode, ChronosChoice, ChronosStat, ChronosConfig, ChronosEnvironment,
     ChronosEntry, ChronosMapPoint, ChronosRecipe, ChronosDiscoveryEvent,
-    ChronosEpilogue, ChronosEthicsLens, ChronosItem,
+    ChronosEpilogue, ChronosEthicsLens, ChronosItem, ChoiceHistoryEntry,
 } from '../../data/chronos/types';
 import { DiceGame } from './minigames/DiceGame';
 import { BattleGame } from './minigames/BattleGame';
@@ -19,6 +18,12 @@ import { AllocationGame } from './minigames/AllocationGame';
 import { CrowdPressureGame } from './minigames/CrowdPressureGame';
 import { SpeechGame } from './minigames/SpeechGame';
 import { IntrigueGame } from './minigames/IntrigueGame';
+import { TriageGame } from './minigames/TriageGame';
+import { CensorGame } from './minigames/CensorGame';
+import { GasMaskGame } from './minigames/GasMaskGame';
+import { RationingGame } from './minigames/RationingGame';
+import { SignalGame } from './minigames/SignalGame';
+import { EndComparisonScreen } from './EndComparisonScreen';
 import { CraftingModal } from './CraftingModal';
 import { ChronosMap } from './ChronosMap';
 import { ItemInspectModal } from './ItemInspectModal';
@@ -28,6 +33,7 @@ interface ChronosUIProps {
     stats: ChronosStat[];
     inventory?: string[];
     environment?: Partial<ChronosEnvironment>;
+    choiceHistory?: ChoiceHistoryEntry[];
     journal?: ChronosEntry[];
     onAddJournalEntry?: (text: string) => void;
     config: ChronosConfig;
@@ -35,6 +41,10 @@ interface ChronosUIProps {
     onChoice: (choice: ChronosChoice) => void;
     onRestart?: () => void;
     onCraft?: (recipe: ChronosRecipe) => void;
+    scenarioTitle?: string;
+    scenarioMeta?: string;
+    onExit?: () => void;
+    onRequestReset?: () => void;
 }
 
 const IconMap: Record<string, any> = {
@@ -46,62 +56,203 @@ const IconMap: Record<string, any> = {
 
 // ── Weather Overlay ──────────────────────────────────────────────────────────
 
+const WEATHER_CSS = `
+@keyframes chron-rain-fall {
+    0%   { transform: translateY(-5dvh) rotate(-15deg); opacity: 0; }
+    5%   { opacity: 1; }
+    95%  { opacity: 0.75; }
+    100% { transform: translateY(110dvh) translateX(-3dvh) rotate(-15deg); opacity: 0; }
+}
+@keyframes chron-fog-drift {
+    0%   { transform: translateX(-8%); opacity: 0; }
+    20%  { opacity: 1; }
+    50%  { transform: translateX(8%); opacity: 0.85; }
+    80%  { opacity: 1; }
+    100% { transform: translateX(-8%); opacity: 0; }
+}
+@keyframes chron-star-twinkle {
+    0%   { opacity: var(--smin, 0.15); }
+    50%  { opacity: var(--smax, 0.85); }
+    100% { opacity: var(--smin, 0.15); }
+}
+@keyframes chron-lightning-flash {
+    0%   { opacity: 0; }
+    93%  { opacity: 0; }
+    94%  { opacity: 0.35; }
+    95%  { opacity: 0; }
+    100% { opacity: 0; }
+}
+@keyframes chron-snow-fall {
+    0%   { transform: translateY(-5dvh) translateX(0px); opacity: 0; }
+    10%  { opacity: 0.9; }
+    50%  { transform: translateY(55dvh) translateX(12px); }
+    90%  { opacity: 0.8; }
+    100% { transform: translateY(115dvh) translateX(-8px); opacity: 0; }
+}
+`;
+
+function seededRand(seed: number) {
+    let s = seed;
+    return () => { s = (s * 16807) % 2147483647; return (s - 1) / 2147483646; };
+}
+
+interface RainDrop { left: number; duration: number; delay: number; height: number; opacity: number; }
+interface StarDot  { left: number; top: number; size: number; duration: number; delay: number; smin: number; smax: number; }
+
 const WeatherOverlay: React.FC<{ environment?: Partial<ChronosEnvironment> }> = ({ environment }) => {
     const isNight = environment?.time === 'night';
-    const isDawn = environment?.time === 'dawn';
-    const isDusk = environment?.time === 'dusk';
-    const isRain = environment?.weather === 'rain';
-    const isFog = environment?.weather === 'fog';
+    const isDawn  = environment?.time === 'dawn';
+    const isDusk  = environment?.time === 'dusk';
+    const isRain  = environment?.weather === 'rain';
+    const isFog   = environment?.weather === 'fog';
     const isStorm = environment?.weather === 'storm';
+    const isSnow  = environment?.weather === 'snow';
+
+    const rainDrops = useMemo<RainDrop[]>(() => {
+        const rand = seededRand(42);
+        return Array.from({ length: 45 }, () => ({
+            left: rand() * 110 - 5, duration: 0.6 + rand() * 0.8,
+            delay: rand() * -2.5, height: 7 + rand() * 10, opacity: 0.4 + rand() * 0.5,
+        }));
+    }, []);
+
+    const stormDrops = useMemo<RainDrop[]>(() => {
+        const rand = seededRand(99);
+        return Array.from({ length: 65 }, () => ({
+            left: rand() * 115 - 7, duration: 0.35 + rand() * 0.45,
+            delay: rand() * -1.5, height: 10 + rand() * 14, opacity: 0.55 + rand() * 0.4,
+        }));
+    }, []);
+
+    const stars = useMemo<StarDot[]>(() => {
+        const rand = seededRand(7);
+        return Array.from({ length: 28 }, () => ({
+            left: rand() * 98, top: rand() * 75, size: 1 + rand() * 2.5,
+            duration: 2 + rand() * 4, delay: rand() * -5,
+            smin: 0.1 + rand() * 0.25, smax: 0.5 + rand() * 0.5,
+        }));
+    }, []);
+
+    const fogLayers = [
+        { top: 5,  height: 35, duration: 28, delay: 0,   opacity: 0.55, blur: 18 },
+        { top: 25, height: 40, duration: 38, delay: -10,  opacity: 0.45, blur: 28 },
+        { top: 55, height: 30, duration: 22, delay: -5,   opacity: 0.50, blur: 14 },
+        { top: 70, height: 45, duration: 45, delay: -20,  opacity: 0.40, blur: 22 },
+    ];
+
+    const snowFlakes = useMemo<RainDrop[]>(() => {
+        const rand = seededRand(13);
+        return Array.from({ length: 50 }, () => ({
+            left: rand() * 105 - 2, duration: 3 + rand() * 4,
+            delay: rand() * -6, height: 3 + rand() * 3, opacity: 0.6 + rand() * 0.35,
+        }));
+    }, []);
 
     return (
-        <div className="absolute inset-0 z-10 pointer-events-none overflow-hidden rounded-[2.5rem]">
+        <div className="absolute inset-0 z-10 pointer-events-none overflow-hidden">
+            <style dangerouslySetInnerHTML={{ __html: WEATHER_CSS }} />
             <AnimatePresence>
                 {isNight && (
-                    <motion.div key="night" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 2 }}
-                        className="absolute inset-0 bg-indigo-950/60 mix-blend-multiply">
-                        <div className="absolute top-8 right-8 text-yellow-100/80 animate-pulse"><Moon size={32} /></div>
+                    <motion.div key="night"
+                        initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+                        transition={{ duration: 2 }} className="absolute inset-0">
+                        <div className="absolute inset-0 bg-indigo-950/55 mix-blend-multiply" />
+                        {stars.map((s, i) => (
+                            <div key={i} className="absolute rounded-full bg-white" style={{
+                                left: `${s.left}%`, top: `${s.top}%`,
+                                width: `${s.size}px`, height: `${s.size}px`,
+                                willChange: 'opacity',
+                                animation: `chron-star-twinkle ${s.duration}s ease-in-out infinite`,
+                                animationDelay: `${s.delay}s`,
+                                '--smin': s.smin, '--smax': s.smax,
+                            } as React.CSSProperties} />
+                        ))}
                     </motion.div>
                 )}
-            </AnimatePresence>
-            <AnimatePresence>
                 {isDawn && (
-                    <motion.div key="dawn" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 2 }}
-                        className="absolute inset-0 bg-gradient-to-t from-amber-500/30 via-rose-400/20 to-transparent">
-                        <div className="absolute bottom-8 right-8 text-amber-300/80"><Sunrise size={32} /></div>
-                    </motion.div>
+                    <motion.div key="dawn"
+                        initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+                        transition={{ duration: 2.5 }}
+                        className="absolute inset-0 bg-gradient-to-t from-amber-600/35 via-rose-400/25 via-orange-300/15 to-indigo-900/20"
+                    />
                 )}
-            </AnimatePresence>
-            <AnimatePresence>
                 {isDusk && (
-                    <motion.div key="dusk" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 2 }}
-                        className="absolute inset-0 bg-gradient-to-b from-indigo-900/30 via-purple-800/20 to-transparent">
-                        <div className="absolute top-8 right-8 text-purple-300/80"><Sunset size={32} /></div>
-                    </motion.div>
+                    <motion.div key="dusk"
+                        initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+                        transition={{ duration: 2.5 }}
+                        className="absolute inset-0 bg-gradient-to-b from-indigo-900/35 via-purple-700/25 via-rose-700/15 to-transparent"
+                    />
                 )}
-            </AnimatePresence>
-            <AnimatePresence>
                 {isRain && (
-                    <motion.div key="rain" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-                        className="absolute inset-0 bg-slate-800/20 mix-blend-overlay">
-                        <div className="absolute top-8 left-8 text-blue-200/60 animate-bounce"><CloudRain size={32} /></div>
+                    <motion.div key="rain"
+                        initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+                        transition={{ duration: 1 }} className="absolute inset-0">
+                        <div className="absolute inset-0 bg-slate-700/15 mix-blend-overlay" />
+                        {rainDrops.map((d, i) => (
+                            <div key={i} className="absolute bg-blue-200/70" style={{
+                                left: `${d.left}%`, top: '-2%',
+                                width: '1.5px', height: `${d.height}px`,
+                                opacity: d.opacity, willChange: 'transform',
+                                animation: `chron-rain-fall ${d.duration}s linear infinite`,
+                                animationDelay: `${d.delay}s`,
+                            } as React.CSSProperties} />
+                        ))}
                     </motion.div>
                 )}
-            </AnimatePresence>
-            <AnimatePresence>
-                {isFog && (
-                    <motion.div key="fog" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 3 }}
-                        className="absolute inset-0 bg-gradient-to-b from-white/40 via-gray-200/30 to-white/50">
-                        <div className="absolute top-8 left-8 text-gray-400/60"><CloudFog size={32} /></div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
-            <AnimatePresence>
                 {isStorm && (
-                    <motion.div key="storm" initial={{ opacity: 0 }} animate={{ opacity: 1, x: [0, -2, 2, -1, 1, 0] }} exit={{ opacity: 0 }}
-                        transition={{ opacity: { duration: 1 }, x: { duration: 0.4, repeat: Infinity, repeatDelay: 2 } }}
-                        className="absolute inset-0 bg-slate-900/40 mix-blend-multiply">
-                        <div className="absolute top-8 left-8 text-yellow-200/80 animate-pulse"><CloudLightning size={32} /></div>
+                    <motion.div key="storm"
+                        initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+                        transition={{ duration: 0.8 }} className="absolute inset-0">
+                        <div className="absolute inset-0 bg-slate-900/35 mix-blend-multiply" />
+                        {stormDrops.map((d, i) => (
+                            <div key={i} className="absolute bg-slate-300/60" style={{
+                                left: `${d.left}%`, top: '-2%',
+                                width: '1.5px', height: `${d.height}px`,
+                                opacity: d.opacity, willChange: 'transform',
+                                animation: `chron-rain-fall ${d.duration}s linear infinite`,
+                                animationDelay: `${d.delay}s`,
+                            } as React.CSSProperties} />
+                        ))}
+                        <div className="absolute inset-0 bg-white/25" style={{
+                            willChange: 'opacity',
+                            animation: 'chron-lightning-flash 16s ease-out infinite',
+                        }} />
+                        <div className="absolute inset-0 bg-indigo-100/20" style={{
+                            willChange: 'opacity',
+                            animation: 'chron-lightning-flash 16s ease-out infinite',
+                            animationDelay: '7s',
+                        }} />
+                    </motion.div>
+                )}
+                {isFog && (
+                    <motion.div key="fog"
+                        initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+                        transition={{ duration: 3 }} className="absolute inset-0">
+                        {fogLayers.map((f, i) => (
+                            <div key={i} className="absolute left-0 right-0 bg-gradient-to-r from-white/0 via-gray-100 to-white/0" style={{
+                                top: `${f.top}%`, height: `${f.height}%`,
+                                opacity: f.opacity, filter: `blur(${f.blur}px)`,
+                                willChange: 'transform, opacity',
+                                animation: `chron-fog-drift ${f.duration}s ease-in-out infinite`,
+                                animationDelay: `${f.delay}s`,
+                            }} />
+                        ))}
+                    </motion.div>
+                )}
+                {isSnow && (
+                    <motion.div key="snow"
+                        initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+                        transition={{ duration: 1.5 }} className="absolute inset-0">
+                        <div className="absolute inset-0 bg-slate-200/10 mix-blend-overlay" />
+                        {snowFlakes.map((d, i) => (
+                            <div key={i} className="absolute bg-white rounded-full" style={{
+                                left: `${d.left}%`, top: '-2%',
+                                width: `${d.height}px`, height: `${d.height}px`,
+                                opacity: d.opacity, willChange: 'transform',
+                                animation: `chron-snow-fall ${d.duration}s ease-in-out infinite`,
+                                animationDelay: `${d.delay}s`,
+                            }} />
+                        ))}
                     </motion.div>
                 )}
             </AnimatePresence>
@@ -242,11 +393,13 @@ const EpilogueCard: React.FC<{ epilogue: ChronosEpilogue; flags: string[] }> = (
 export const ChronosUI: React.FC<ChronosUIProps> = ({
     node, stats, inventory = [], environment = { time: 'day', weather: 'clear' },
     journal = [], onAddJournalEntry, config, flags = [], onChoice, onRestart, onCraft,
+    choiceHistory = [], scenarioTitle, scenarioMeta, onExit, onRequestReset,
 }) => {
     const [journalText, setJournalText] = useState('');
     const [showJournal, setShowJournal] = useState(false);
     const [showCrafting, setShowCrafting] = useState(false);
     const [showInventory, setShowInventory] = useState(false);
+    const [showDecisionMap, setShowDecisionMap] = useState(false);
     const [selectedItem, setSelectedItem] = useState<ChronosItem | null>(null);
 
     // Prinsipp 3: Discovery events
@@ -358,7 +511,7 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
     const npcTone = getNPCTone();
 
     return (
-        <div className="relative w-full min-h-[400px] sm:min-h-[500px] md:min-h-[600px] rounded-[2.5rem] overflow-hidden bg-[#FDFBF7] shadow-2xl border border-stone-200 group ring-1 ring-black/5 flex flex-col justify-between">
+        <div className="relative w-full h-[100dvh] overflow-hidden bg-stone-950 flex flex-col">
             <WeatherOverlay environment={environment} />
 
             {/* Background Image */}
@@ -371,28 +524,53 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
                 >
                     {node.backgroundImage ? (
                         <>
-                            <div className="absolute inset-0 bg-gradient-to-t from-[#FDFBF7] via-[#FDFBF7]/90 to-transparent z-10" />
-                            <div className="absolute inset-0 bg-gradient-to-b from-[#FDFBF7]/60 via-transparent to-[#FDFBF7] z-10" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/70 to-transparent z-10" />
+                            <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-transparent z-10" />
                             <img src={node.backgroundImage} alt="Setting"
-                                className="w-full h-full object-cover opacity-90 mix-blend-multiply filter sepia-[.15]" />
+                                className="w-full h-full object-cover opacity-85 filter saturate-[0.85]" />
                         </>
                     ) : (
-                        <div className="w-full h-full bg-[#FDFBF7]" />
+                        <div className="w-full h-full bg-stone-950" />
                     )}
                 </motion.div>
             </AnimatePresence>
 
-            {/* HUD Layer */}
-            <div className="relative z-20 p-3 sm:p-5 md:p-8 w-full flex justify-between items-start">
+            {/* Zone 1: Nav HUD */}
+            <div className="relative z-40 flex-shrink-0 flex items-center justify-between px-4 sm:px-6 md:px-10 pt-3 pb-2">
+                <div className="flex items-center gap-2">
+                    {onExit && (
+                        <button onClick={onExit}
+                            className="flex items-center gap-2 px-3 py-2 rounded-xl bg-black/30 backdrop-blur-sm border border-white/10 text-white/80 hover:text-white hover:bg-black/50 transition-all text-sm font-bold uppercase tracking-wider">
+                            <ArrowLeft size={16} />
+                            <span className="hidden sm:inline">Avslutt</span>
+                        </button>
+                    )}
+                    {onRequestReset && (
+                        <button onClick={onRequestReset} title="Nullstill"
+                            className="p-2 rounded-xl bg-black/30 backdrop-blur-sm border border-white/10 text-white/50 hover:text-red-400 hover:bg-black/50 transition-all">
+                            <RotateCcw size={15} />
+                        </button>
+                    )}
+                </div>
+                {scenarioTitle && (
+                    <div className="text-right">
+                        <p className="text-white font-display font-black text-sm sm:text-base leading-none drop-shadow-lg">{scenarioTitle}</p>
+                        {scenarioMeta && <p className="text-white/50 text-[10px] uppercase tracking-widest mt-0.5">{scenarioMeta}</p>}
+                    </div>
+                )}
+            </div>
+
+            {/* Zone 2: Stats HUD */}
+            <div className="relative z-20 flex-shrink-0 px-3 sm:px-5 md:px-8 pb-2 w-full flex justify-between items-start">
                 <div className="flex gap-2 sm:gap-3 md:gap-4">
                     {/* Attributes */}
-                    <div className="flex flex-wrap gap-2 sm:gap-4 p-2 pl-3 pr-4 sm:p-3 sm:pl-5 sm:pr-8 rounded-2xl bg-white/80 backdrop-blur-xl border border-stone-200/50 shadow-sm w-fit">
+                    <div className="flex flex-wrap gap-2 sm:gap-4 p-2 pl-3 pr-4 sm:p-3 sm:pl-5 sm:pr-8 rounded-2xl bg-black/30 backdrop-blur-xl border border-white/10 shadow-sm w-fit">
                         {attributes.map(stat => (
                             <div key={stat.id} className="flex flex-col gap-1.5">
-                                <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-stone-500">
+                                <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-stone-300">
                                     {getIcon(stat.icon)}<span>{stat.label}</span>
                                 </div>
-                                <div className="w-20 sm:w-28 md:w-32 h-2 bg-stone-200 rounded-full overflow-hidden shadow-inner">
+                                <div className="w-20 sm:w-28 md:w-32 h-2 bg-white/10 rounded-full overflow-hidden shadow-inner">
                                     <motion.div className="h-full"
                                         initial={{ width: 0 }}
                                         animate={{ width: `${(stat.value / stat.max) * 100}%` }}
@@ -405,13 +583,13 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
 
                     {/* Relations */}
                     {relations.length > 0 && (
-                        <div className="flex flex-wrap gap-2 sm:gap-4 p-2 pl-3 pr-4 sm:p-3 sm:pl-5 sm:pr-8 rounded-2xl bg-white/80 backdrop-blur-xl border border-stone-200/50 shadow-sm w-fit">
+                        <div className="flex flex-wrap gap-2 sm:gap-4 p-2 pl-3 pr-4 sm:p-3 sm:pl-5 sm:pr-8 rounded-2xl bg-black/30 backdrop-blur-xl border border-white/10 shadow-sm w-fit">
                             {relations.map(stat => (
                                 <div key={stat.id} className="flex flex-col gap-1.5">
-                                    <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-indigo-500">
+                                    <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-indigo-300">
                                         {getIcon(stat.icon)}<span>{stat.label}</span>
                                     </div>
-                                    <div className="w-16 sm:w-20 md:w-24 h-2 bg-stone-200 rounded-full overflow-hidden shadow-inner">
+                                    <div className="w-16 sm:w-20 md:w-24 h-2 bg-white/10 rounded-full overflow-hidden shadow-inner">
                                         <motion.div className="h-full bg-indigo-500"
                                             initial={{ width: 0 }}
                                             animate={{ width: `${(stat.value / stat.max) * 100}%` }}
@@ -426,30 +604,44 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
                 <div className="flex gap-2 md:gap-3">
                     {/* Prinsipp 6: Ethics mode toggle */}
                     <button onClick={() => setEthicsModeOn(!ethicsModeOn)} title={ethicsModeOn ? 'Skru av etikk-modus' : 'Slå på etikk-modus'}
-                        className={`p-2 sm:p-3 md:p-4 rounded-2xl border transition-colors ${ethicsModeOn ? 'bg-violet-100 text-violet-900 border-violet-200' : 'bg-white/80 backdrop-blur-xl border-stone-200/50 text-stone-600 hover:text-stone-900'}`}>
+                        className={`p-2 sm:p-3 md:p-4 rounded-2xl border transition-colors ${ethicsModeOn ? 'bg-violet-900/60 text-violet-200 border-violet-600/40' : 'bg-black/30 backdrop-blur-xl border-white/10 text-white/60 hover:text-white'}`}>
                         <Brain size={20} />
                     </button>
 
                     {/* Journal */}
                     <button onClick={() => setShowJournal(true)}
-                        className="p-2 sm:p-3 md:p-4 rounded-2xl bg-white/80 backdrop-blur-xl border border-stone-200/50 shadow-sm text-stone-600 hover:text-stone-900 transition-colors">
+                        className="p-2 sm:p-3 md:p-4 rounded-2xl bg-black/30 backdrop-blur-xl border border-white/10 shadow-sm text-white/60 hover:text-white transition-colors">
                         <BookOpen size={20} />
                     </button>
+
+                    {/* Decision Map */}
+                    {choiceHistory.length > 0 && (
+                        <button
+                            onClick={() => setShowDecisionMap(true)}
+                            title="Beslutningskart"
+                            className="p-2 sm:p-3 md:p-4 rounded-2xl bg-black/30 backdrop-blur-xl border border-white/10 shadow-sm text-white/60 hover:text-white transition-colors relative"
+                        >
+                            <GitBranch size={20} />
+                            <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-indigo-600 text-[9px] font-bold text-white">
+                                {choiceHistory.length}
+                            </span>
+                        </button>
+                    )}
 
                     {/* Crafting */}
                     {config.recipes && config.recipes.length > 0 && onCraft && (
                         <button onClick={() => setShowCrafting(true)}
-                            className="p-2 sm:p-3 md:p-4 rounded-2xl bg-white/80 backdrop-blur-xl border border-stone-200/50 shadow-sm text-stone-600 hover:text-stone-900 transition-colors">
+                            className="p-2 sm:p-3 md:p-4 rounded-2xl bg-black/30 backdrop-blur-xl border border-white/10 shadow-sm text-white/60 hover:text-white transition-colors">
                             <Hammer size={20} />
                         </button>
                     )}
 
                     {/* Inventory */}
                     <button onClick={() => setShowInventory(!showInventory)}
-                        className={`p-2 sm:p-3 md:p-4 rounded-2xl border transition-colors relative ${showInventory ? 'bg-indigo-100 text-indigo-900 border-indigo-200' : 'bg-white/80 backdrop-blur-xl border-stone-200/50 text-stone-600 hover:text-stone-900'}`}>
+                        className={`p-2 sm:p-3 md:p-4 rounded-2xl border transition-colors relative ${showInventory ? 'bg-indigo-900/60 text-indigo-200 border-indigo-600/40' : 'bg-black/30 backdrop-blur-xl border-white/10 text-white/60 hover:text-white'}`}>
                         <Backpack size={20} />
                         {inventory.length > 0 && (
-                            <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-stone-800 text-[10px] font-bold text-white">
+                            <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-indigo-500 text-[10px] font-bold text-white">
                                 {inventory.length}
                             </span>
                         )}
@@ -532,6 +724,52 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
                 )}
             </AnimatePresence>
 
+            {/* Decision Map Modal */}
+            <AnimatePresence>
+                {showDecisionMap && (
+                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+                        className="absolute inset-0 z-50 bg-stone-900/40 backdrop-blur-sm flex items-center justify-center p-8"
+                        onClick={() => setShowDecisionMap(false)}
+                    >
+                        <motion.div initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.9, opacity: 0 }}
+                            className="bg-[#FDFBF7] w-full max-w-lg rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[80vh]"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <div className="p-5 border-b border-stone-200 flex justify-between items-center bg-stone-50">
+                                <div className="flex items-center gap-2">
+                                    <GitBranch size={18} className="text-indigo-500" />
+                                    <h3 className="font-display font-black text-lg text-stone-800">Beslutningskart</h3>
+                                </div>
+                                <button onClick={() => setShowDecisionMap(false)} className="text-stone-400 hover:text-stone-600"><X size={24} /></button>
+                            </div>
+                            <div className="flex-1 min-h-0 overflow-y-auto divide-y divide-stone-100">
+                                {choiceHistory.length === 0 && (
+                                    <p className="text-stone-500 italic text-center p-8">Ingen nøkkelvalg ennå.</p>
+                                )}
+                                {choiceHistory.map((entry, i) => (
+                                    <div key={i} className="p-4">
+                                        <p className="text-[10px] font-bold uppercase tracking-widest text-stone-400 mb-1 line-clamp-1">{entry.nodeText}</p>
+                                        <div className="flex items-start gap-2">
+                                            <span className={`mt-1.5 w-2 h-2 rounded-full flex-shrink-0 ${entry.isHistorical ? 'bg-emerald-500' : 'bg-blue-400'}`} />
+                                            <p className="text-sm text-stone-700 leading-snug">{entry.choiceText}</p>
+                                        </div>
+                                        {!entry.isHistorical && entry.historicalChoiceText && (
+                                            <p className="text-xs text-stone-400 ml-4 mt-0.5 italic">
+                                                Historisk: <span className="text-emerald-600">{entry.historicalChoiceText}</span>
+                                            </p>
+                                        )}
+                                    </div>
+                                ))}
+                            </div>
+                            <div className="p-4 border-t border-stone-100 flex gap-3 text-[10px] font-bold uppercase tracking-widest text-stone-400">
+                                <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-emerald-500 inline-block" />Historisk valg</span>
+                                <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-blue-400 inline-block" />Alternativt valg</span>
+                            </div>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
             {/* Prinsipp 3: Discovery Modal */}
             <AnimatePresence>
                 {showDiscovery && node.discoveryEvent && (
@@ -562,10 +800,12 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
 
             <ItemInspectModal item={selectedItem} onClose={() => setSelectedItem(null)} />
 
-            <div className="flex-grow z-10" />
-
-            {/* Dialogue Layer */}
-            <div className="relative z-30 p-4 sm:p-6 md:p-8 lg:p-12 w-full bg-gradient-to-t from-[#FDFBF7] via-[#FDFBF7]/95 to-transparent">
+            {/* Zone 4: Dialogue Layer — fills all remaining space after the two HUDs */}
+            <div className="relative z-30 flex-1 min-h-0 overflow-y-auto flex flex-col px-4 sm:px-6 md:px-8 lg:px-12 pb-4 sm:pb-6 md:pb-8 bg-gradient-to-t from-stone-950 via-stone-950/90 to-transparent [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-white/20">
+                {/* Internal spacer — scene image shows through here; collapses when content is tall */}
+                <div className="flex-1 min-h-0" />
+                {/* Content — pinned to bottom, never compressed */}
+                <div className="flex-shrink-0">
                 <AnimatePresence mode="wait">
                     <motion.div
                         key={node.id}
@@ -577,28 +817,35 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
                     >
                         {/* Speaker Tag */}
                         {node.speaker && (
-                            <div className="inline-block px-4 py-1.5 mb-4 rounded-lg bg-stone-100 border border-stone-200 text-[10px] font-black uppercase tracking-[0.2em] text-stone-600 shadow-sm">
+                            <div className="inline-block px-4 py-1.5 mb-4 rounded-lg bg-white/10 border border-white/15 text-[10px] font-black uppercase tracking-[0.2em] text-stone-300 shadow-sm">
                                 {node.speaker}
                             </div>
                         )}
 
                         {/* Prinsipp 2: NPC tone dialogue */}
                         {npcTone && (
-                            <div className="mb-4 pl-4 border-l-2 border-stone-300">
-                                <p className="text-stone-600 italic font-serif text-base sm:text-lg leading-relaxed">{npcTone}</p>
+                            <div className="mb-4 pl-4 border-l-2 border-white/20">
+                                <p className="text-stone-300 italic font-serif text-base sm:text-lg leading-relaxed">{npcTone}</p>
                             </div>
                         )}
 
                         {/* Main Text */}
-                        <h2
-                            className="text-sm sm:text-lg md:text-xl font-medium text-stone-900 mb-2 sm:mb-4 md:mb-6 lg:mb-8 leading-[1.35] tracking-tight"
+                        <div
+                            className="mb-2 sm:mb-4 md:mb-6 lg:mb-8"
                             style={{ fontFamily: config.theme?.font || 'serif' }}
                         >
-                            {node.text}
-                        </h2>
+                            {node.text.split('\n\n').map((paragraph, i) => (
+                                <p
+                                    key={i}
+                                    className="text-sm sm:text-lg md:text-xl font-medium text-stone-100 leading-[1.35] tracking-tight mb-3 last:mb-0"
+                                >
+                                    {paragraph}
+                                </p>
+                            ))}
+                        </div>
 
                         {/* Content: minigame / map / journal / choices */}
-                        {node.minigame ? (
+                        {!showDiscovery && !pendingChoice && node.minigame ? (
                             node.minigame.type === 'dice' ? (
                                 <DiceGame
                                     targetScore={node.minigame.config.targetScore}
@@ -673,6 +920,50 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
                                         }
                                     }}
                                 />
+                            ) : node.minigame.type === 'triage' ? (
+                                <TriageGame
+                                    config={node.minigame.config}
+                                    onComplete={(results) => {
+                                        if (node.minigame?.type === 'triage') {
+                                            onChoice({ id: 'triage_complete', text: 'Triasje fullført', nextNodeId: node.minigame.config.onComplete.nextNodeId, effects: results.effects });
+                                        }
+                                    }}
+                                />
+                            ) : node.minigame.type === 'censor' ? (
+                                <CensorGame
+                                    config={node.minigame.config}
+                                    onComplete={() => {
+                                        if (node.minigame?.type === 'censor') {
+                                            onChoice({ id: 'censor_complete', text: 'Brev sensurert', nextNodeId: node.minigame.config.onComplete.nextNodeId });
+                                        }
+                                    }}
+                                />
+                            ) : node.minigame.type === 'gasmask' ? (
+                                <GasMaskGame
+                                    config={node.minigame.config}
+                                    inventory={inventory}
+                                    onComplete={(result) => {
+                                        onChoice({ id: 'gasmask_complete', text: 'Gassalarm', nextNodeId: result.nextNodeId, effects: result.effects });
+                                    }}
+                                />
+                            ) : node.minigame.type === 'rationing' ? (
+                                <RationingGame
+                                    config={node.minigame.config}
+                                    onComplete={(effects) => {
+                                        if (node.minigame?.type === 'rationing') {
+                                            onChoice({ id: 'rationing_complete', text: 'Rasjonering fullført', nextNodeId: node.minigame.config.onComplete.nextNodeId, effects });
+                                        }
+                                    }}
+                                />
+                            ) : node.minigame.type === 'signal' ? (
+                                <SignalGame
+                                    config={node.minigame.config}
+                                    onComplete={(success: boolean) => {
+                                        if (node.minigame?.type === 'signal') {
+                                            onChoice({ id: 'signal_complete', text: 'Observasjonsrapport', nextNodeId: success ? node.minigame.config.winNodeId : node.minigame.config.lossNodeId });
+                                        }
+                                    }}
+                                />
                             ) : null
                         ) : node.uiType === 'map' && node.mapConfig ? (
                             <ChronosMap config={node.mapConfig} onPointClick={handleMapPointClick} />
@@ -711,15 +1002,15 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
                                             onClick={() => !locked && handleChoiceClick(choice)}
                                             disabled={locked}
                                             className={`group relative p-3 sm:p-5 md:p-6 text-left rounded-[1.5rem] border transition-all duration-300 overflow-hidden ${locked
-                                                ? 'bg-stone-100 border-stone-200 opacity-70 cursor-not-allowed'
-                                                : 'bg-white border-stone-200 hover:border-indigo-200 active:scale-[0.98] shadow-sm hover:shadow-xl hover:shadow-indigo-500/5'
+                                                ? 'bg-white/5 border-white/10 opacity-50 cursor-not-allowed'
+                                                : 'bg-white/10 backdrop-blur-sm border-white/15 hover:border-white/30 hover:bg-white/15 active:scale-[0.98] shadow-sm hover:shadow-xl hover:shadow-indigo-500/10'
                                                 }`}
                                         >
                                             {!locked && <div className="absolute inset-0 bg-gradient-to-br from-indigo-50/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />}
 
                                             <div className="relative z-10 flex items-center justify-between">
                                                 <div className="flex flex-col">
-                                                    <span className={`font-medium text-lg transition-colors ${locked ? 'text-stone-400' : 'text-stone-700 group-hover:text-indigo-900'}`}>
+                                                    <span className={`font-medium text-lg transition-colors ${locked ? 'text-stone-500' : 'text-stone-100 group-hover:text-white'}`}>
                                                         {choice.text}
                                                     </span>
                                                     {locked && lockedReason && (
@@ -735,10 +1026,10 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
                                                     )}
                                                 </div>
                                                 <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors flex-shrink-0 ${locked
-                                                    ? 'bg-stone-200 text-stone-400'
+                                                    ? 'bg-white/10 text-stone-500'
                                                     : hasEthics
-                                                        ? 'bg-violet-100 text-violet-600'
-                                                        : 'bg-stone-100 group-hover:bg-indigo-100 text-stone-400 group-hover:text-indigo-600'
+                                                        ? 'bg-violet-900/60 text-violet-300'
+                                                        : 'bg-white/10 group-hover:bg-indigo-600/40 text-white/50 group-hover:text-white'
                                                     }`}>
                                                     {locked ? <Lock size={14} /> : <ArrowRight size={16} />}
                                                 </div>
@@ -763,15 +1054,15 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
                                 {isEnd && (
                                     <div className="md:col-span-2 space-y-5 md:space-y-8">
                                         <div className={`p-6 sm:p-8 md:p-10 rounded-[2rem] border shadow-lg ${node.endType === 'victory'
-                                            ? 'bg-emerald-50/50 border-emerald-100'
+                                            ? 'bg-emerald-950/50 border-emerald-800/40 backdrop-blur-sm'
                                             : node.endType === 'defeat'
-                                                ? 'bg-rose-50/50 border-rose-100'
-                                                : 'bg-stone-50/50 border-stone-200'
+                                                ? 'bg-rose-950/50 border-rose-800/40 backdrop-blur-sm'
+                                                : 'bg-stone-900/60 border-stone-700/40 backdrop-blur-sm'
                                             }`}>
                                             {node.endType === 'victory' && <Crown className="mx-auto mb-4 md:mb-6 text-emerald-600" size={32} />}
                                             {node.endType === 'defeat' && <Skull className="mx-auto mb-4 md:mb-6 text-rose-500" size={32} />}
 
-                                            <h3 className="text-2xl md:text-3xl font-black text-stone-900 mb-2 tracking-tight text-center">
+                                            <h3 className="text-2xl md:text-3xl font-black text-stone-100 mb-2 tracking-tight text-center">
                                                 {node.endType === 'victory' ? 'Historisk Seier' : node.endType === 'defeat' ? 'Historien endte her...' : 'Reisen er over'}
                                             </h3>
 
@@ -779,11 +1070,16 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
                                             {node.epilogue ? (
                                                 <EpilogueCard epilogue={node.epilogue} flags={flags} />
                                             ) : (
-                                                <p className="text-base md:text-lg text-stone-600 font-medium leading-relaxed max-w-lg mx-auto text-center mt-4">
+                                                <p className="text-base md:text-lg text-stone-300 font-medium leading-relaxed max-w-lg mx-auto text-center mt-4">
                                                     {node.endType === 'victory'
                                                         ? 'Du navigerte fortidens utfordringer med kløkt og visdom.'
                                                         : 'Du lærte en hard lekse om fortidens brutale virkelighet.'}
                                                 </p>
+                                            )}
+
+                                            {/* EndComparisonScreen */}
+                                            {node.showEndComparison && choiceHistory.length > 0 && (
+                                                <EndComparisonScreen choiceHistory={choiceHistory} />
                                             )}
                                         </div>
 
@@ -797,6 +1093,7 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
                         )}
                     </motion.div>
                 </AnimatePresence>
+                </div>
             </div>
         </div>
     );

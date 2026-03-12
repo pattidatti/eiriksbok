@@ -300,6 +300,30 @@
                         "label": "Over toppen!",
                         "icon": "chevron-up",
                         "nextNodeId": "ordre_over_toppen"
+                    },
+                    {
+                        "id": "point_sanitetsposten",
+                        "x": 88,
+                        "y": 72,
+                        "label": "Feltsykehuset (Triasje)",
+                        "icon": "heart",
+                        "nextNodeId": "sanitetsposten_triasje"
+                    },
+                    {
+                        "id": "point_skriving",
+                        "x": 65,
+                        "y": 25,
+                        "label": "Skriv brev hjem (Sensur)",
+                        "icon": "feather",
+                        "nextNodeId": "brev_sensur"
+                    },
+                    {
+                        "id": "point_rasjonering",
+                        "x": 40,
+                        "y": 55,
+                        "label": "Rum-rasjonering",
+                        "icon": "zap",
+                        "nextNodeId": "standto_rasjonering"
                     }
                 ]
             }
@@ -419,6 +443,11 @@
                     "updateEnvironment": {
                         "time": "day"
                     }
+                },
+                {
+                    "id": "c_rumrasjon_fordeling",
+                    "text": "Hvem skal egentlig få rasjonen i dag? Ikke alle kan drikke fullt.",
+                    "nextNodeId": "standto_rasjonering"
                 }
             ]
         },
@@ -442,11 +471,19 @@
             "backgroundImage": "/images/chronos/ww1_trench_hub.webp",
             "choices": [],
             "minigame": {
-                "type": "dice",
+                "type": "signal",
                 "config": {
-                    "targetScore": 6,
                     "winNodeId": "observasjon_suksess",
-                    "lossNodeId": "observasjon_feil"
+                    "lossNodeId": "observasjon_feil",
+                    "situation": "To grupper koordinerte soldater beveger seg systematisk langs brystverket. De bærer rektangulære gjenstander i rekker — tunge, ensformige. Bevegelsene er koordinerte og rettet mot fløyen til venstre.",
+                    "options": [
+                        { "id": "opt_offensiv", "label": "Offensiv forberedelse — forsterkninger ankommer", "isCorrect": true },
+                        { "id": "opt_skadet", "label": "Skadet soldat — trengs sanitetshjelp", "isCorrect": false },
+                        { "id": "opt_forsyning", "label": "Vanlig forsyningstransport — ingen fare", "isCorrect": false },
+                        { "id": "opt_trevirke", "label": "Grøftereparasjon — trevirke bæres inn", "isCorrect": false }
+                    ],
+                    "correctFeedback": "Nøyaktig rapport. Artilleriet settes inn mot de tyske forsterkningstropper — ditt bidrag reddet linjene.",
+                    "incorrectFeedback": "Feil rapport. Troppene fikk satt seg i stilling. Sersjant Clarke er ikke fornøyd."
                 }
             }
         },
@@ -709,6 +746,8 @@
                     "id": "c_tysker_forlat",
                     "text": "Se bort og forlat stedet. Du kan ikke risikere oppdraget.",
                     "nextNodeId": "hub_skyttergraven",
+                    "isHistoricalChoice": true,
+                    "historicalConsequence": "De fleste soldater forlot sårede fiender. Overlevelse og oppdrag gikk foran. Det var ordren.",
                     "setFlags": ["forlot_tysker"],
                     "ethicsLens": {
                         "deontological": "Kant: Å la noen dø når man kan hjelpe bryter med menneskets iboende verdi. Ordren om å ignorere fienden fritar ikke fra den moralske plikten.",
@@ -773,31 +812,40 @@
                 "articleLink": "/historie/forste-verdenskrig/skyttergravskrigen",
                 "reflectionQuestion": "Haag-konvensjonen forbød giftige stoffer i krig i 1907. Burde det finnes absolutte forbud i krig, eller avhenger det alltid av situasjonen?"
             },
-            "choices": [
-                {
-                    "id": "c_gass_maske",
-                    "text": "Riv gassmasken fra beltet og trekk den over ansiktet.",
-                    "nextNodeId": "hub_skyttergraven",
-                    "effects": {
-                        "moral": -10
-                    },
-                    "checkInventory": {
-                        "hasItem": "gassmask"
-                    },
-                    "updateEnvironment": {
-                        "weather": "clear"
-                    }
-                },
-                {
-                    "id": "c_gass_ingen_maske",
-                    "text": "Du har ingen gassmaske. Press ansiktet i gjørma og pust gjennom ermet.",
-                    "nextNodeId": "sanitetsposten",
-                    "effects": {
-                        "overlevelse": -35,
-                        "moral": -20
-                    }
+            "choices": [],
+            "minigame": {
+                "type": "gasmask",
+                "config": {
+                    "situation": "En gul-grønn sky ruller inn fra sør, tyngre enn luft. Klorets stikkende lukt er kvalmende. 'GAS! GAS!' roper noen. Du har sekunder.",
+                    "timeLimit": 12,
+                    "options": [
+                        {
+                            "id": "ta_maske",
+                            "text": "Riv gassmasken fra beltet og trekk den over ansiktet",
+                            "requiresItem": "gassmask",
+                            "nextNodeId": "hub_skyttergraven",
+                            "effects": { "moral": -10, "overlevelse": 5 }
+                        },
+                        {
+                            "id": "hjelp_simpson",
+                            "text": "Hjelp Simpson med masken hans — du tar sjansen selv",
+                            "nextNodeId": "sanitetsposten",
+                            "effects": { "kameratskap": 20, "overlevelse": -20, "rel_simpson": 15 }
+                        },
+                        {
+                            "id": "spring_bunker",
+                            "text": "Spring mot bunkeren og hold pusten",
+                            "nextNodeId": "sanitetsposten",
+                            "effects": { "overlevelse": -15, "disiplin": -5 }
+                        }
+                    ],
+                    "noMaskMessage": "Du har ingen gassmaske! Masken er ikke i utstyret ditt.",
+                    "noMaskNextNodeId": "sanitetsposten",
+                    "noMaskEffects": { "overlevelse": -35, "moral": -20 },
+                    "timeoutNextNodeId": "sanitetsposten",
+                    "timeoutEffects": { "overlevelse": -25, "moral": -10 }
                 }
-            ]
+            }
         },
         "sanitetsposten": {
             "id": "sanitetsposten",
@@ -926,6 +974,8 @@
                     "id": "c_top_klatr",
                     "text": "Klatr opp stigen. Adlyd ordren. Du er soldat.",
                     "nextNodeId": "slag_ved_somme",
+                    "isHistoricalChoice": true,
+                    "historicalConsequence": "De fleste britiske soldater adlydde. 57 470 falt den første dagen — men lydighet var grunnpilaren i militærordenen.",
                     "setFlags": ["adlydde_ordre"],
                     "ethicsLens": {
                         "deontological": "Kant: Lydighetsplikt er grunnleggende i militær etikk. En ordre er en ordre — offiserene bærer det moralske ansvaret for konsekvensene.",
@@ -1057,6 +1107,7 @@
             "backgroundImage": "/images/chronos/ww1_homecoming.webp",
             "isEnd": true,
             "endType": "victory",
+            "showEndComparison": true,
             "choices": [],
             "epilogue": {
                 "entries": [
@@ -1102,6 +1153,7 @@
             "backgroundImage": "/images/chronos/ww1_homecoming.webp",
             "isEnd": true,
             "endType": "victory",
+            "showEndComparison": true,
             "choices": [],
             "epilogue": {
                 "entries": [
@@ -1343,6 +1395,237 @@
                     "effects": {
                         "moral": -10
                     }
+                }
+            ]
+        },
+        "sanitetsposten_triasje": {
+            "id": "sanitetsposten_triasje",
+            "text": "Feltstasjonen er kaos. Sanitetssersjant Roberts peker på fem bårer langs veggen: 'Berg — jeg trenger hjelp til å prioritere. Legen er i operasjonen. Vi har ressurser til to umiddelbare inngrep. Se på dem og si meg hvem som skal inn nå, hvem som kan vente, og hvem vi ikke kan redde.' Han ser deg rett i øynene. 'Triasjesystemet ble til her i denne krigen. Ikke likt — men nødvendig.'",
+            "speaker": "Sanitetssersjant Roberts",
+            "backgroundImage": "/images/chronos/ww1_field_hospital.webp",
+            "discoveryEvent": {
+                "title": "Triasje — valgets etikk",
+                "fact": "Triasjesystemet ble formelt utviklet under første verdenskrig av den franske legen Antonin Deprès. Det sorterer sårede i tre kategorier: de som kan reddes med umiddelbar behandling, de som kan vente, og de som ikke kan reddes. Kategorien 'forventet å dø' var og er etisk kontroversiell — den innebærer bevisst å prioritere bort mennesker.",
+                "reflectionQuestion": "Triasje betyr å velge hvem som skal reddes og hvem som ikke skal prioriteres. Er dette en etisk metode — eller en normalisering av å la mennesker dø? Diskuter fra et konsekvensetisk og et dygdsetisk perspektiv."
+            },
+            "choices": [],
+            "minigame": {
+                "type": "triage",
+                "config": {
+                    "onComplete": { "nextNodeId": "sanitetsposten_etter_triasje" },
+                    "treatCapacity": 2,
+                    "patients": [
+                        {
+                            "id": "pt_jim",
+                            "name": "Jim Atkins",
+                            "age": "19 år",
+                            "wound": "Gasskade i lungene. Gurglende pust, lepper blå. Maksimalt 20 minutter uten intervensjon.",
+                            "correctBucket": "treat_now"
+                        },
+                        {
+                            "id": "pt_harris",
+                            "name": "Kapral Harris",
+                            "age": "34 år",
+                            "wound": "Kulesår i låret — alvorlig, men blødningen er stanset med tourniquet. Stabil.",
+                            "correctBucket": "can_wait"
+                        },
+                        {
+                            "id": "pt_young",
+                            "name": "Oliver Young",
+                            "age": "17 år",
+                            "wound": "Granatsplint gjennom buken og ryggraden. Lammelse fra livet ned. Prognosen er sikker.",
+                            "correctBucket": "expectant"
+                        },
+                        {
+                            "id": "pt_morrison",
+                            "name": "Sersjant Morrison",
+                            "age": "41 år",
+                            "wound": "Brannskader over 60% av kroppen etter flammenekaster. Sirkulasjonssvikt.",
+                            "correctBucket": "expectant"
+                        },
+                        {
+                            "id": "pt_davies",
+                            "name": "Davies",
+                            "age": "22 år",
+                            "wound": "Brudd i begge bein, smerter, bevisst. Trenger kirurgi men ikke akutt.",
+                            "correctBucket": "can_wait"
+                        }
+                    ]
+                }
+            }
+        },
+        "sanitetsposten_etter_triasje": {
+            "id": "sanitetsposten_etter_triasje",
+            "text": "Legen opererer basert på dine prioriteringer. Roberts nikker til deg. 'Det er ingen fasit her, Berg. Bare valg og konsekvenser.' Utenfor buldrer artilleriet. Nye bårer ankommer allerede. Triasjesystemet stopper aldri.",
+            "speaker": "Sanitetssersjant Roberts",
+            "backgroundImage": "/images/chronos/ww1_field_hospital.webp",
+            "journalPrompt": "Du måtte bestemme hvem som skulle få behandling og hvem som ikke skulle prioriteres. Beskriv hva du følte da du sorterte pasientene — og hva du mener er forskjellen mellom å la noen dø og å aktivt prioritere bort dem.",
+            "choices": [
+                {
+                    "id": "c_triasje_tilbake",
+                    "text": "Gå tilbake til skyttergraven.",
+                    "nextNodeId": "hub_skyttergraven",
+                    "effects": {
+                        "moral": -5,
+                        "kameratskap": 5
+                    }
+                }
+            ]
+        },
+        "brev_sensur": {
+            "id": "brev_sensur",
+            "text": "Du setter deg ned med papir og penn. Et brev hjem til far i Bergen — ordene flommer lettere enn du trodde, men du vet at det vil bli lest av militærsensuren før det forlater Frankrike. Du er sensurkontrollør i dag. Les gjennom hva du har skrevet, og stryk det som ikke kan passere.",
+            "speaker": "Thomas (skriver)",
+            "backgroundImage": "/images/chronos/ww1_trench_dugout.webp",
+            "discoveryEvent": {
+                "title": "Sensur i krigen",
+                "fact": "Alle brev fra fronten under første verdenskrig ble åpnet og sensurert av militæret. Soldatene visste om dette og selvsensurerte seg. Posisjon, tapstall, moral og militære planer ble konsekvent strøket — noen ganger erstattet av svart blekk, andre ganger av hull i papiret. Familiene hjemme visste sjelden hva som egentlig foregikk.",
+                "reflectionQuestion": "Sensur hindrer propaganda og taktisk informasjonslekkasje, men det hindrer også familienes rett til å vite. Hva mener du er grensen mellom legitim militær sensur og manipulering av befolkningen?"
+            },
+            "choices": [],
+            "minigame": {
+                "type": "censor",
+                "config": {
+                    "onComplete": { "nextNodeId": "brev_sensur_levert" },
+                    "paragraphs": [
+                        {
+                            "id": "para_1",
+                            "tokens": [
+                                { "type": "text", "content": "Kjære far, vi er stasjonert ved " },
+                                { "type": "phrase", "id": "ph_pos", "text": "en liten landsby vest for Thiepval, om lag fire kilometer fra fronten", "shouldCensor": true, "reason": "Posisjon — avslører militær stilling for fienden" },
+                                { "type": "text", "content": ". Livet her er " },
+                                { "type": "phrase", "id": "ph_mood1", "text": "hardt og monotont, og vi er konstant utslitte", "shouldCensor": false, "reason": "" },
+                                { "type": "text", "content": "." }
+                            ]
+                        },
+                        {
+                            "id": "para_2",
+                            "tokens": [
+                                { "type": "text", "content": "Simpson fra Leeds er en god kamerat. Vi deler " },
+                                { "type": "phrase", "id": "ph_personal", "text": "minner om hjembyer og familier", "shouldCensor": false, "reason": "" },
+                                { "type": "text", "content": ". Han sa at " },
+                                { "type": "phrase", "id": "ph_supply", "text": "matforsyningene er knappe og at mange i troppen sliter med sykdom etter gassangrepet i april", "shouldCensor": true, "reason": "Forsynings- og helseinfo — avslører svakheter i linjen" },
+                                { "type": "text", "content": ". " },
+                                { "type": "phrase", "id": "ph_morale", "text": "Moralen er lav etter store tap i siste uke", "shouldCensor": true, "reason": "Moral — slik informasjon er nyttig for fiendens etterretning" },
+                                { "type": "text", "content": ", men vi holder ut." }
+                            ]
+                        },
+                        {
+                            "id": "para_3",
+                            "tokens": [
+                                { "type": "text", "content": "Jeg tenker på dere hver dag. " },
+                                { "type": "phrase", "id": "ph_attack", "text": "Vi venter på at det store angrepet skal begynne — det er bare spørsmål om dager nå", "shouldCensor": true, "reason": "Militære planer — direkte trussel mot operasjonell sikkerhet" },
+                                { "type": "text", "content": ". " },
+                                { "type": "phrase", "id": "ph_family", "text": "Ta vare på søsteren og gi hilsner til naboene i Korskirkeallmenningen", "shouldCensor": false, "reason": "" },
+                                { "type": "text", "content": ". Din Thomas." }
+                            ]
+                        }
+                    ]
+                }
+            }
+        },
+        "brev_sensur_levert": {
+            "id": "brev_sensur_levert",
+            "text": "Brevet er ferdig. Det som er igjen etter sensuren — hullene, de svarte strekene — er det familien i Bergen vil lese. De vet at noe mangler, men ikke hva. Du bretter papiret og tenker på hva far ville sagt om han visste sannheten.",
+            "speaker": "Thomas",
+            "backgroundImage": "/images/chronos/ww1_trench_dugout.webp",
+            "choices": [
+                {
+                    "id": "c_brev_sensur_tilbake",
+                    "text": "Lever brevet og gå tilbake.",
+                    "nextNodeId": "hub_skyttergraven",
+                    "effects": {
+                        "moral": 5
+                    }
+                }
+            ]
+        },
+        "standto_rasjonering": {
+            "id": "standto_rasjonering",
+            "text": "Tre rumrasjoner. Seks soldater. Simpson rekker deg bøtten med halvfylte kopper. 'Du er den som fordeler i dag, Berg.' Rundt deg: den unge rekrutten Fowler som skjelver, den syke Hopkins som hostet blod i natt, den upopulære Pettigrew som aldri hjelper til, kapral Reeves som alltid er på vakt, dig selv — og Simpson. Ikke alle kan drikke i dag.",
+            "speaker": "Simpson",
+            "backgroundImage": "/images/chronos/ww1_trench_hub.webp",
+            "choices": [],
+            "minigame": {
+                "type": "rationing",
+                "config": {
+                    "onComplete": { "nextNodeId": "rasjonering_etter" },
+                    "rations": 3,
+                    "soldiers": [
+                        {
+                            "id": "fowler",
+                            "name": "Menig Fowler",
+                            "role": "Rekruttert sist uke",
+                            "context": "Han skjelver. Øynene er tomme. Førstegangstjeneste ved fronten.",
+                            "effects": {
+                                "ifGiven": { "kameratskap": 8, "moral": 5 },
+                                "ifSkipped": { "moral": -5 }
+                            }
+                        },
+                        {
+                            "id": "hopkins",
+                            "name": "Menig Hopkins",
+                            "role": "Syk — hostet blod i natt",
+                            "context": "Legen sa han burde hvile. Han nekter å forlate linjen.",
+                            "effects": {
+                                "ifGiven": { "kameratskap": 5, "rel_simpson": 5 },
+                                "ifSkipped": { "overlevelse": -5, "kameratskap": -5 }
+                            }
+                        },
+                        {
+                            "id": "pettigrew",
+                            "name": "Menig Pettigrew",
+                            "role": "Upopulær — klager alltid",
+                            "context": "Ingen liker ham. Han er lat og gneldrer. Men han er redd, som alle andre.",
+                            "effects": {
+                                "ifGiven": { "disiplin": 5, "moral": -3 },
+                                "ifSkipped": { "kameratskap": -3 }
+                            }
+                        },
+                        {
+                            "id": "reeves",
+                            "name": "Kapral Reeves",
+                            "role": "Alltid på vakt, leder for seksjonen",
+                            "context": "Rangeringsreglene sier at korporaler får prioritet. Han sier ingenting, men venter.",
+                            "effects": {
+                                "ifGiven": { "disiplin": 8, "rel_sersjant": 5 },
+                                "ifSkipped": { "disiplin": -8 }
+                            }
+                        },
+                        {
+                            "id": "simpson",
+                            "name": "Simpson",
+                            "role": "Din nærmeste kamerat",
+                            "context": "'Jeg greier meg uten, Thomas.' Han mener det, men du ser at han lyver.",
+                            "effects": {
+                                "ifGiven": { "rel_simpson": 10, "moral": 5 },
+                                "ifSkipped": { "rel_simpson": -5 }
+                            }
+                        },
+                        {
+                            "id": "thomas_self",
+                            "name": "Thomas — deg selv",
+                            "role": "Du",
+                            "context": "Du er også sulten og kald. Men er det riktig å ta til seg selv?",
+                            "effects": {
+                                "ifGiven": { "overlevelse": 5, "moral": -5 },
+                                "ifSkipped": { "overlevelse": -5, "moral": 5 }
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        "rasjonering_etter": {
+            "id": "rasjonering_etter",
+            "text": "Rasjonene er fordelt. Noen nikker takknemlig, andre ser bort. Ingen sier noe høyt, men alle vet hvem som fikk og hvem som ikke fikk. I skyttergravene husker mennene alt — og glemmer ingenting.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/ww1_trench_hub.webp",
+            "choices": [
+                {
+                    "id": "c_rasjonering_tilbake",
+                    "text": "Gå tilbake til grøften.",
+                    "nextNodeId": "hub_skyttergraven"
                 }
             ]
         }

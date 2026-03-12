@@ -9,10 +9,10 @@ import type {
     ChronosEntry,
     ChronosRunLog,
     ChronosRecipe,
+    ChoiceHistoryEntry,
 } from '../../data/chronos/types';
 import { Skeleton } from '../Skeleton';
-import { ArrowLeft, RotateCcw } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useTimeTravelProfile } from './context/TimeTravelProfileContext';
 import { useChronosRunSave, type SavedRun } from './hooks/useChronosRunSave';
 
@@ -91,6 +91,8 @@ function ScenarioStartScreen({
 }
 
 export const TimeTravelEngine: React.FC<TimeTravelEngineProps> = ({ scenarioId }) => {
+    const navigate = useNavigate();
+
     // Game State
     const [currentNodeId, setCurrentNodeId] = useState<string | null>(null);
     const [stats, setStats] = useState<ChronosStat[]>([]);
@@ -101,6 +103,7 @@ export const TimeTravelEngine: React.FC<TimeTravelEngineProps> = ({ scenarioId }
     });
     const [journal, setJournal] = useState<ChronosEntry[]>([]);
     const [flags, setFlags] = useState<string[]>([]);
+    const [choiceHistory, setChoiceHistory] = useState<ChoiceHistoryEntry[]>([]);
 
     // UI State for save/restore prompts
     const [savedRun, setSavedRun] = useState<SavedRun | null>(null);
@@ -150,6 +153,7 @@ export const TimeTravelEngine: React.FC<TimeTravelEngineProps> = ({ scenarioId }
         setEnvironment({ time: 'day', weather: 'clear' });
         setJournal([]);
         setFlags([]);
+        setChoiceHistory([]);
         setCurrentNodeId(sc.startingNodeId);
         setShowContinuePrompt(false);
         runSave.clear();
@@ -191,6 +195,28 @@ export const TimeTravelEngine: React.FC<TimeTravelEngineProps> = ({ scenarioId }
             newFlags = [...new Set([...newFlags, ...choice.setFlags])];
         if (choice.clearFlags && choice.clearFlags.length > 0)
             newFlags = newFlags.filter((f) => !choice.clearFlags!.includes(f));
+
+        // Track key decisions for DecisionMapModal + EndComparisonScreen
+        if (currentNodeId) {
+            const currentNodeData = scenario.nodes[currentNodeId];
+            const isKeyDecision = currentNodeData?.choices.some((c) => c.isHistoricalChoice);
+            if (isKeyDecision && choice.id !== 'minigame_complete' && !choice.id.endsWith('_complete')) {
+                const historicalChoice = currentNodeData.choices.find((c) => c.isHistoricalChoice);
+                setChoiceHistory((prev) => [
+                    ...prev,
+                    {
+                        nodeId: currentNodeId,
+                        nodeText: currentNodeData.text.substring(0, 70) + (currentNodeData.text.length > 70 ? '…' : ''),
+                        choiceText: choice.text,
+                        isHistorical: !!choice.isHistoricalChoice,
+                        historicalChoiceText: historicalChoice?.text,
+                        historicalConsequence: choice.isHistoricalChoice
+                            ? choice.historicalConsequence
+                            : historicalChoice?.historicalConsequence,
+                    },
+                ]);
+            }
+        }
 
         // Resolve target node
         let targetNodeId = choice.nextNodeId;
@@ -296,7 +322,7 @@ export const TimeTravelEngine: React.FC<TimeTravelEngineProps> = ({ scenarioId }
         );
 
     return (
-        <div className="w-full max-w-6xl mx-auto p-2 sm:p-4 md:p-8">
+        <div className="relative">
             {/* Confirm reset modal */}
             {confirmReset && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
@@ -323,35 +349,6 @@ export const TimeTravelEngine: React.FC<TimeTravelEngineProps> = ({ scenarioId }
                 </div>
             )}
 
-            <div className="mb-3 sm:mb-5 md:mb-6 flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                    <Link
-                        to="/oving/tidsreise"
-                        className="flex items-center gap-2 text-slate-500 hover:text-slate-900 transition-colors bg-white px-4 py-2 rounded-xl shadow-sm border border-slate-100"
-                    >
-                        <ArrowLeft size={16} />
-                        <span className="font-bold text-sm uppercase tracking-wider">
-                            Avslutt Tidsreise
-                        </span>
-                    </Link>
-                    <button
-                        onClick={() => setConfirmReset(true)}
-                        className="flex items-center gap-1.5 text-slate-400 hover:text-red-600 transition-colors text-sm font-medium px-3 py-2 rounded-xl border border-transparent hover:border-red-100 hover:bg-red-50"
-                    >
-                        <RotateCcw size={14} />
-                        <span>Nullstill</span>
-                    </button>
-                </div>
-                <div className="text-right">
-                    <h1 className="text-xl font-display font-black text-slate-900">
-                        {scenario.title}
-                    </h1>
-                    <p className="text-xs font-medium text-slate-400 uppercase tracking-widest">
-                        {scenario.role} • {scenario.year}
-                    </p>
-                </div>
-            </div>
-
             <ChronosUI
                 node={currentNode}
                 stats={stats}
@@ -360,6 +357,7 @@ export const TimeTravelEngine: React.FC<TimeTravelEngineProps> = ({ scenarioId }
                 journal={journal}
                 flags={flags}
                 config={scenario.config}
+                choiceHistory={choiceHistory}
                 onChoice={handleChoice}
                 onAddJournalEntry={(text) =>
                     setJournal((prev) => [
@@ -369,6 +367,10 @@ export const TimeTravelEngine: React.FC<TimeTravelEngineProps> = ({ scenarioId }
                 }
                 onRestart={handleRestart}
                 onCraft={handleCraft}
+                scenarioTitle={scenario.title}
+                scenarioMeta={`${scenario.role} • ${scenario.year}`}
+                onExit={() => navigate('/oving/tidsreise')}
+                onRequestReset={() => setConfirmReset(true)}
             />
         </div>
     );

@@ -53,7 +53,7 @@ export interface ChronosCondition {
 
 export interface ChronosEnvironment {
     time: 'day' | 'night' | 'dawn' | 'dusk';
-    weather: 'clear' | 'rain' | 'fog' | 'storm';
+    weather: 'clear' | 'rain' | 'fog' | 'storm' | 'snow';
 }
 
 // Prinsipp 6: Ethics lens – three philosophical perspectives shown post-choice
@@ -85,6 +85,9 @@ export interface ChronosChoice {
     clearFlags?: string[];
     // Prinsipp 6: Ethics Lens
     ethicsLens?: ChronosEthicsLens;
+    // Historical accuracy – used by EndComparisonScreen
+    isHistoricalChoice?: boolean;
+    historicalConsequence?: string;
 }
 
 export interface ChronosMapPoint {
@@ -140,6 +143,7 @@ export interface ChronosNode {
     endType?: 'victory' | 'defeat';
     minigame?: ChronosMinigame;
     journalPrompt?: string; // If present, shows text area before choices
+    showEndComparison?: boolean; // If true, EndComparisonScreen shown after epilogue
 
     // Map System
     uiType?: 'default' | 'map';
@@ -178,6 +182,16 @@ export interface ChronosScenario {
     };
     startingNodeId: string;
     randomEvents?: string[]; // IDs of nodes that can be triggered randomly
+}
+
+// Choice History – tracked in TimeTravelEngine for DecisionMapModal + EndComparisonScreen
+export interface ChoiceHistoryEntry {
+    nodeId: string;
+    nodeText: string; // truncated for display
+    choiceText: string;
+    isHistorical: boolean;
+    historicalChoiceText?: string; // the choice marked isHistoricalChoice at that node
+    historicalConsequence?: string;
 }
 
 // Phase 9.1: Persistence Types
@@ -329,5 +343,83 @@ export type ChronosMinigame =
                 isTraitor: boolean;
                 feedback: string;
             }>;
+        };
+    }
+    | {
+        type: 'triage';
+        config: {
+            onComplete: { nextNodeId: string };
+            treatCapacity: number;
+            patients: Array<{
+                id: string;
+                name: string;
+                wound: string;
+                age?: string;
+                correctBucket: 'treat_now' | 'can_wait' | 'expectant';
+            }>;
+        };
+    }
+    | {
+        type: 'censor';
+        config: {
+            onComplete: { nextNodeId: string };
+            paragraphs: Array<{
+                id: string;
+                tokens: Array<
+                    | { type: 'text'; content: string }
+                    | { type: 'phrase'; id: string; text: string; shouldCensor: boolean; reason: string }
+                >;
+            }>;
+        };
+    }
+    | {
+        type: 'gasmask';
+        config: {
+            situation: string;
+            timeLimit: number;
+            options: Array<{
+                id: string;
+                text: string;
+                requiresItem?: string;
+                nextNodeId: string;
+                effects?: ChronosEffect;
+            }>;
+            noMaskMessage: string;
+            noMaskNextNodeId: string;
+            noMaskEffects?: ChronosEffect;
+            timeoutNextNodeId: string;
+            timeoutEffects?: ChronosEffect;
+        };
+    }
+    | {
+        type: 'rationing';
+        config: {
+            onComplete: { nextNodeId: string };
+            rations: number;
+            soldiers: Array<{
+                id: string;
+                name: string;
+                role: string;
+                context: string;
+                effects: {
+                    ifGiven: ChronosEffect;
+                    ifSkipped: ChronosEffect;
+                };
+            }>;
+        };
+    }
+    | {
+        type: 'signal';
+        config: {
+            winNodeId: string;
+            lossNodeId: string;
+            situation: string;
+            options: Array<{
+                id: string;
+                label: string;
+                isCorrect: boolean;
+            }>;
+            correctFeedback: string;
+            incorrectFeedback: string;
         };
     };

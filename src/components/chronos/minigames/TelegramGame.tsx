@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, AlertTriangle, Clock, CheckCircle } from 'lucide-react';
 
 interface Telegram {
@@ -19,37 +19,40 @@ interface TelegramGameProps {
 
 export const TelegramGame: React.FC<TelegramGameProps> = ({ config, onComplete }) => {
     const [sorted, setSorted] = useState<Record<string, 'urgent' | 'wait'>>({});
+    const [currentIndex, setCurrentIndex] = useState(0);
     const [submitted, setSubmitted] = useState(false);
     const [score, setScore] = useState(0);
 
-    const sortedCount = Object.keys(sorted).length;
-    const allSorted = sortedCount === config.telegrams.length;
+    const handleChoose = (bucket: 'urgent' | 'wait') => {
+        const telegram = config.telegrams[currentIndex];
+        const newSorted = { ...sorted, [telegram.id]: bucket };
+        setSorted(newSorted);
 
-    const handleSort = (id: string, bucket: 'urgent' | 'wait') => {
-        setSorted((prev) => ({ ...prev, [id]: bucket }));
-    };
-
-    const handleSubmit = () => {
-        let correct = 0;
-        config.telegrams.forEach((t) => {
-            if (sorted[t.id] === t.correctBucket) correct++;
-        });
-        setScore(correct);
-        setSubmitted(true);
-        setTimeout(() => {
-            onComplete({ correct, total: config.telegrams.length });
-        }, 2500);
+        const isLast = currentIndex === config.telegrams.length - 1;
+        if (isLast) {
+            let correct = 0;
+            config.telegrams.forEach((t) => {
+                if (newSorted[t.id] === t.correctBucket) correct++;
+            });
+            setScore(correct);
+            setSubmitted(true);
+            setTimeout(() => {
+                onComplete({ correct, total: config.telegrams.length });
+            }, 2500);
+        } else {
+            setCurrentIndex(currentIndex + 1);
+        }
     };
 
     if (submitted) {
         const pct = score / config.telegrams.length;
         return (
-            <div className="flex flex-col items-center justify-center p-8 bg-stone-100 rounded-3xl border border-stone-200">
-                <CheckCircle className="text-emerald-600 mb-4" size={48} />
-                <h3 className="text-2xl font-bold text-stone-800 mb-2">
+            <div className="flex flex-col items-center justify-center p-4 bg-stone-100 rounded-3xl border border-stone-200">
+                <CheckCircle className="text-emerald-600 mb-1.5" size={24} />
+                <h3 className="text-base font-bold text-stone-800 mb-1.5">
                     {score}/{config.telegrams.length} riktig prioritert
                 </h3>
-                <p className="text-stone-600 text-center text-sm">
+                <p className="text-stone-600 text-center text-xs">
                     {pct >= 0.8
                         ? 'Utmerket diplomatisk instinkt — de kritiske meldingene ble fanget opp.'
                         : pct >= 0.5
@@ -60,74 +63,66 @@ export const TelegramGame: React.FC<TelegramGameProps> = ({ config, onComplete }
         );
     }
 
+    const telegram = config.telegrams[currentIndex];
+
     return (
         <div className="bg-stone-100 rounded-3xl border border-stone-200 overflow-hidden">
-            <div className="bg-stone-800 text-stone-100 p-5 text-center">
-                <Mail className="mx-auto mb-2 opacity-80" size={28} />
-                <h2 className="text-xl font-display font-medium tracking-wide">Telegram-triage</h2>
-                <p className="text-xs text-stone-400 mt-1">
-                    Juli 1914 — Sorter meldingene: hva haster nå?
-                </p>
+            {/* Header strip med progress-teller */}
+            <div className="flex items-center justify-between px-3 py-2 bg-stone-800 border-b border-stone-700/50">
+                <div className="flex items-center gap-2">
+                    <Mail size={13} className="opacity-70 text-stone-300 flex-shrink-0" />
+                    <span className="text-xs font-display font-semibold text-stone-100 tracking-wide">
+                        Telegram-triage
+                    </span>
+                </div>
+                <span className="text-[10px] font-mono text-stone-400 tabular-nums">
+                    {currentIndex + 1}/{config.telegrams.length}
+                </span>
             </div>
 
-            <div className="p-4 space-y-3">
-                {config.telegrams.map((telegram, i) => (
+            {/* Progress bar */}
+            <div className="h-0.5 bg-stone-700">
+                <div
+                    className="h-full bg-stone-400 transition-all duration-300"
+                    style={{ width: `${(currentIndex / config.telegrams.length) * 100}%` }}
+                />
+            </div>
+
+            {/* Telegram-kort med slide-animasjon */}
+            <div className="p-3 min-h-[80px]">
+                <AnimatePresence mode="wait">
                     <motion.div
                         key={telegram.id}
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: i * 0.08 }}
-                        className={`p-4 bg-white rounded-2xl border-2 transition-colors ${
-                            sorted[telegram.id] === 'urgent'
-                                ? 'border-red-300 bg-red-50'
-                                : sorted[telegram.id] === 'wait'
-                                  ? 'border-stone-300 bg-stone-50'
-                                  : 'border-stone-200'
-                        }`}
+                        initial={{ x: 30, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1 }}
+                        exit={{ x: -30, opacity: 0 }}
+                        transition={{ duration: 0.18 }}
                     >
-                        <div className="text-[10px] font-black uppercase tracking-widest text-stone-400 mb-1">
+                        <div className="text-[10px] font-black uppercase tracking-widest text-stone-400 mb-1.5 truncate">
                             Fra: {telegram.from}
                         </div>
-                        <p className="text-sm text-stone-700 mb-3 leading-relaxed italic">
+                        <p className="text-sm text-stone-700 leading-relaxed italic">
                             &quot;{telegram.preview}&quot;
                         </p>
-                        <div className="flex gap-2">
-                            <button
-                                onClick={() => handleSort(telegram.id, 'urgent')}
-                                className={`flex-1 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-colors flex items-center justify-center gap-1 ${
-                                    sorted[telegram.id] === 'urgent'
-                                        ? 'bg-red-500 text-white'
-                                        : 'bg-red-50 text-red-600 border border-red-200 hover:bg-red-100'
-                                }`}
-                            >
-                                <AlertTriangle size={11} />
-                                Svar umiddelbart
-                            </button>
-                            <button
-                                onClick={() => handleSort(telegram.id, 'wait')}
-                                className={`flex-1 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-colors flex items-center justify-center gap-1 ${
-                                    sorted[telegram.id] === 'wait'
-                                        ? 'bg-stone-700 text-white'
-                                        : 'bg-stone-50 text-stone-600 border border-stone-200 hover:bg-stone-100'
-                                }`}
-                            >
-                                <Clock size={11} />
-                                Kan vente
-                            </button>
-                        </div>
                     </motion.div>
-                ))}
+                </AnimatePresence>
             </div>
 
-            <div className="p-4 pt-0">
+            {/* Faste action-knapper */}
+            <div className="px-3 pb-3 grid grid-cols-2 gap-2">
                 <button
-                    onClick={handleSubmit}
-                    disabled={!allSorted}
-                    className="w-full py-3 bg-stone-900 text-white font-bold rounded-2xl disabled:opacity-40 disabled:cursor-not-allowed hover:bg-stone-800 transition-colors"
+                    onClick={() => handleChoose('urgent')}
+                    className="py-2.5 rounded-xl bg-red-500 text-white text-xs font-bold flex items-center justify-center gap-1.5 active:scale-95 transition-all hover:bg-red-600"
                 >
-                    {allSorted
-                        ? 'Send instrukser'
-                        : `${config.telegrams.length - sortedCount} telegram gjenstår`}
+                    <AlertTriangle size={11} />
+                    Haster
+                </button>
+                <button
+                    onClick={() => handleChoose('wait')}
+                    className="py-2.5 rounded-xl bg-stone-600 text-white text-xs font-bold flex items-center justify-center gap-1.5 active:scale-95 transition-all hover:bg-stone-700"
+                >
+                    <Clock size={11} />
+                    Kan vente
                 </button>
             </div>
         </div>
