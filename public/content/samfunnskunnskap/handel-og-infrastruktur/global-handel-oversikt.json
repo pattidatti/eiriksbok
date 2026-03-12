@@ -1,0 +1,130 @@
+{
+  "id": "global-handel-oversikt",
+  "title": "Verden er én maskin",
+  "layout": "rich",
+  "year": "2024",
+  "category": "Globalisering",
+  "readTime": "9 min lesning",
+  "heroImage": "/images/lessons/handel/global-handel-hero.webp",
+  "details": [
+    "Over 80 000 handelsskip er i drift til enhver tid",
+    "Global handel utgjør ca. 25 000 milliarder dollar per år",
+    "Et smarttelefon-komponent kan krysse 70 landegrenser"
+  ],
+  "externalUrl": "https://snl.no/internasjonal_handel",
+  "content": [
+    {
+      "type": "text",
+      "content": "Tenk på den siste varen du kjøpte. Kanskje var det en t-skjorte, en mobiltelefon, eller matvarene til middag. Uansett hva det var, har den med stor sannsynlighet vært på en reise som strekker seg over flere kontinenter — sydd i Bangladesh, designet i USA, med chips fra Taiwan, solgt i en norsk butikk. Slik er verden vi lever i."
+    },
+    {
+      "type": "header",
+      "text": "Verden som en sammenkoblet maskin"
+    },
+    {
+      "type": "text",
+      "content": "Den globale handelen er som en gigantisk maskin der ingen del fungerer alene. Råvarer fra Afrika fraktes til asiatiske fabrikker. Ferdige produkter sendes til Europa og Amerika. Penger, data og energi flyter i parallelle strømmer. Ingen land er selvforsynt. Ingen økonomi eksisterer i et vakuum."
+    },
+    {
+      "type": "text",
+      "content": "Denne gjensidig avhengigheten kalles interdependens — og det er fundamentet for moderne velstand. Land som spesialiserer seg på det de er best til, bytter varer med hverandre, og alle kan få mer enn de ville klart alene. Teorien kalles komparativt fortrinn, og den ble formulert av økonomen David Ricardo i 1817."
+    },
+    {
+      "type": "component",
+      "name": "GlobalProductionDots",
+      "props": {
+        "title": "Verdens viktigste handelsstrømmer",
+        "description": "Klikk på et land for å se hva det eksporterer og importerer mest"
+      }
+    },
+    {
+      "type": "header",
+      "text": "Havets hegemoni"
+    },
+    {
+      "type": "text",
+      "content": "90 prosent av all handel skjer via skip. Det er ikke tilfeldig: sjøtransport er absurd billig. Å sende en container med varer fra Shanghai til Rotterdam koster omtrent det samme som en flybillett, og containeren veier hundrevis av tonn. Containerrevolusjonen på 1950- og 60-tallet — standardiserte metallbokser som passer på skip, tog og lastebiler — er en av industrihistoriens mest undervurderte transformasjoner."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Over 800 millioner containere transporteres globalt hvert år",
+        "Et fullt containerskip kan frakte 24 000 TEU (Twenty-foot Equivalent Units)",
+        "Transportkostnadene har falt med over 90 % siden 1950 (inflasjonsjustert)"
+      ]
+    },
+    {
+      "type": "header",
+      "text": "Flaskehalser som styrer verden"
+    },
+    {
+      "type": "text",
+      "content": "Det finnes steder i verden der en enkelt hendelse kan ramme hele planeten. Disse kalles flaskehalser — trange gjennomfarter der mesteparten av verdenshandelen må passere. Suezkanalen i Egypt. Hormuzstredet mellom Iran og Oman. Malakkastredet mellom Malaysia og Indonesia. Panamakanalen."
+    },
+    {
+      "type": "component",
+      "name": "FactBox",
+      "props": {
+        "title": "Suezkanalen — verdens trafikkork",
+        "facts": [
+          "12-15 % av verdens handel passerer gjennom Suezkanalen",
+          "I mars 2021 blokkerte containerskipet Ever Given kanalen i 6 dager",
+          "Blokaden kostet verdenshandelen anslagsvis 400 millioner dollar per time",
+          "Alternativet — rundt Afrika — legger 7 000 km til reiselengden"
+        ]
+      }
+    },
+    {
+      "type": "header",
+      "text": "Hvem styrer handelen?"
+    },
+    {
+      "type": "text",
+      "content": "Internasjonal handel reguleres av WTO (Verdens handelsorganisasjon), bilateral handelsavtaler, og tollmurer. Siden 1990-tallet har handelen eksplodert etter at land som Kina ble med i det internasjonale handelssystemet. Men nå ser vi en reversering: handelskrig mellom USA og Kina, Brexit, sanksjoner mot Russland — alle tegner et bilde av at globaliseringen er under press."
+    },
+    {
+      "type": "text",
+      "content": "Deglobalisering — eller reshoring, som det heter — betyr at land begynner å produsere mer hjemme igjen, av hensyn til forsyningssikkerhet. Pandemien som avslørte sårbarheten i globale forsyningskjeder, Ukraine-krigen som kuttet gassforsyningen til Europa, og teknologikrigen om halvledere — alt dette tvinger politikere til å tenke nytt om avhengighet."
+    },
+    {
+      "type": "header",
+      "text": "Norges rolle i den globale maskinen"
+    },
+    {
+      "type": "text",
+      "content": "Norge er et lite land, men langt fra uvesentlig. Vi er verdens tredje største eksportør av naturgass etter Russlands tilbaketrekning, en av verdens største sjøfartsnasjoner, og eksporterer fisk til over 100 land. Norsk økonomi er eksponert mot globale konjunkturer på en måte som er svært tydelig: når oljeprisene faller, kjennes det. Når eurosonen stagnerer, faller norsk eksport."
+    },
+    {
+      "type": "component",
+      "name": "Quiz",
+      "props": {
+        "questions": [
+          {
+            "question": "Hva kalles teorien om at land bør spesialisere seg på det de er relativt best til?",
+            "options": ["Absolutt fortrinn", "Komparativt fortrinn", "Merkantilisme", "Proteksjonisme"],
+            "correct": 1,
+            "explanation": "David Ricardos teori om komparativt fortrinn (1817) sier at et land bør spesialisere seg på varene det er relativt sett mest effektivt til å produsere, selv om et annet land er absolutt bedre til å produsere alt."
+          },
+          {
+            "question": "Hvor stor andel av verdenshandelen transporteres via skip?",
+            "options": ["50 %", "70 %", "90 %", "99 %"],
+            "correct": 2,
+            "explanation": "Omtrent 90 % av all verdenshandel målt i volum fraktes via sjøveien. Skipsfart er den klart billigste og mest effektive formen for massefrakt av varer."
+          },
+          {
+            "question": "Hva er en handelsmessig 'flaskehals'?",
+            "options": [
+              "En vare med lav pris",
+              "Et sjekkpunkt for toll",
+              "En trang geografisk passasje som mye handel må gjennom",
+              "Et land med høy eksport"
+            ],
+            "correct": 2,
+            "explanation": "Flaskehalser er trange geografiske passasjer — som Suezkanalen, Malakkastredet og Hormuzstredet — der svært mye av verdens sjøfart er konsentrert. En blokkering her kan ramme hele verdenshandelen."
+          }
+        ]
+      }
+    }
+  ],
+  "timeline": []
+}

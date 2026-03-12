@@ -1,0 +1,108 @@
+{
+  "id": "energi-og-rorledninger",
+  "title": "Olje, gass og rørledningene",
+  "layout": "rich",
+  "year": "2024",
+  "category": "Energi",
+  "readTime": "10 min lesning",
+  "heroImage": "/images/lessons/handel/energi-rorledninger-hero.webp",
+  "details": [
+    "Over 3,5 millioner kilometer rørledninger finnes globalt",
+    "Russland forsynte 40 % av EUs gass i 2021",
+    "Hormuzstredet transporterer 20 % av verdens olje"
+  ],
+  "externalUrl": "https://snl.no/naturgass",
+  "content": [
+    {
+      "type": "text",
+      "content": "Under bakken og under havbunnen strekker seg et usynlig nervesystem som holder industrisivilisasjonen i gang: rørledningene. De frakter olje, naturgass og flytende naturalis (LNG) over kontinent og havdyp. Der skipene er langsomme og fleksible, er rørledningene raske og rigide — og det gjør dem til noe mer enn infrastruktur. De er politikk støpt i stål."
+    },
+    {
+      "type": "header",
+      "text": "Rørledninger er geopolitikk"
+    },
+    {
+      "type": "text",
+      "content": "Det er ikke tilfeldig at Russland bygde gassrørledninger direkte til Vest-Europa. Det skapte avhengighet. I årtier var Europas gassforsyning knyttet til Moskvas vilje. Da Putin invaderte Ukraina i 2022, hadde Europa et problem: 40 prosent av gassen kom fra Russland, og mesteparten kom via rørledninger."
+    },
+    {
+      "type": "text",
+      "content": "Sabotasjen av Nord Stream 1 og 2 i september 2022 — fire eksplosjoner i Østersjøen som skadet begge rørledningene — viste at infrastruktur er et mål i moderne konflikter. Hvem som sto bak, er fortsatt uklart. Men konsekvensen var tydelig: Europa måtte finne ny energi, raskere enn noen hadde trodd mulig."
+    },
+    {
+      "type": "component",
+      "name": "PipelineScenario",
+      "props": {
+        "title": "Energiminister-dilemmaet",
+        "intro": "Du er energiminister i et europeisk land i januar 2022. Russland truer med å kutte gasstilførselen. Hva gjør du?"
+      }
+    },
+    {
+      "type": "header",
+      "text": "Hormuzstredet: oljens smaleste vei"
+    },
+    {
+      "type": "text",
+      "content": "Hvert år passerer omtrent 20 prosent av verdens olje gjennom Hormuzstredet — en 54 kilometer smal passasje mellom Iran og Oman. Saudi-Arabias, Iraks, Kuwaits, og UAEs eksport går gjennom her. En konflikt i regionen, eller en iransk beslutning om å blokkere stredet, ville sende oljepriser til værs over natten."
+    },
+    {
+      "type": "component",
+      "name": "FactBox",
+      "props": {
+        "title": "Verdens viktigste energiflaskehalser",
+        "facts": [
+          "Hormuzstredet: 20 % av verdens olje, 18 % av LNG",
+          "Malakkastredet: 25 % av verdens oljehandel",
+          "Suezkanalen: ca. 10 % av globalt oljeforbruk",
+          "Bab el-Mandeb (Rødehavet): 8 % av verdenshandelen"
+        ]
+      }
+    },
+    {
+      "type": "header",
+      "text": "LNG: Gassfrihetens pris"
+    },
+    {
+      "type": "text",
+      "content": "Flytende naturgass (LNG) er en revolusjon. Ved å kjøle ned gass til minus 162 grader Celsius og komprimere den til 1/600 av volumet, kan den lastes på spesialskip og sendes til hvem som helst i verden. Det bryter rørledningenes monopol. LNG ble Europas redning i 2022: skip fra Qatar, Australia og USA fraktet erstatningsgass til terminaler i Frankrike, Nederland og Spania."
+    },
+    {
+      "type": "text",
+      "content": "Men LNG er dyrere enn rørgass. Det krever kostbare terminaler for å flytende- og regassifisere. Det tar tid å bygge. Europa kom seg gjennom vinteren 2022–2023, men til en pris: energiregningene skjøt i været, fabrikker stengte, og inflasjon spre seg til alle hjørner av europeisk økonomi."
+    },
+    {
+      "type": "header",
+      "text": "Norges gasstransport til Europa"
+    },
+    {
+      "type": "text",
+      "content": "Da Russland trakk seg tilbake, ble Norge Europas viktigste gassleverandør. Norsk gass transporteres gjennom Gassled — et nettverk av undersjøiske rørledninger på norsk kontinentalsokkel — til mottaksterminaler i Storbritannia, Frankrike, Belgia, Nederland og Tyskland. Noen av disse rørledningene har ligget på havbunnen siden 1970-tallet og er blant verdens lengste offshore-gassrørledninger."
+    },
+    {
+      "type": "component",
+      "name": "Quiz",
+      "props": {
+        "questions": [
+          {
+            "question": "Hva er LNG?",
+            "options": [
+              "En type oljeplattform",
+              "Naturgass kjølt ned og komprimert til flytende form",
+              "En fornybar energikilde",
+              "Et internasjonalt energisamarbeid"
+            ],
+            "correct": 1,
+            "explanation": "LNG (Liquefied Natural Gas / flytende naturgass) er naturgass som er kjølt ned til -162°C og komprimert til 1/600 av opprinnelig volum. Det gjør det mulig å transportere gass med skip, i stedet for å være avhengig av rørledninger."
+          },
+          {
+            "question": "Hvilken andel av verdens olje passerer gjennom Hormuzstredet?",
+            "options": ["5 %", "10 %", "20 %", "40 %"],
+            "correct": 2,
+            "explanation": "Omtrent 20 % av verdens oljeforbruk passerer gjennom Hormuzstredet hvert år. Det er den viktigste enkeltflaskehalsen for energihandel i verden."
+          }
+        ]
+      }
+    }
+  ],
+  "timeline": []
+}

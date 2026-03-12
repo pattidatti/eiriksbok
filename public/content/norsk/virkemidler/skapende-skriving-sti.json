@@ -1,6 +1,6 @@
 {
     "id": "skapende-skriving-sti",
-    "title": "Læringssti: Forfatterens Verksted",
+    "title": "Læringssti: Skrive gode historier",
     "description": "Bygg din egen verktøykasse for skjønnlitterær skriving — fra tema og karakter til ferdig novelle.",
     "layout": "learning-path",
     "category": "Læringssti",
@@ -538,6 +538,7 @@
                     "name": "TimelineDirector",
                     "props": {
                         "title": "Klipperommet",
+                        "allowCustomScenes": true,
                         "scenes": [
                             { "id": "scene-1", "title": "Morgenen", "description": "Lena våkner og finner et brev under døren. Avsender ukjent.", "chronologicalOrder": 1, "icon": "🌅" },
                             { "id": "scene-2", "title": "Hemmeligheten", "description": "Tilbakeblikk: For tre måneder siden overhørte Lena en samtale hun ikke skulle hørt.", "chronologicalOrder": 2, "icon": "🤫" },
@@ -676,7 +677,7 @@
                     "props": {
                         "title": "Redaktørens saks",
                         "originalWordCount": 320,
-                        "targetWordCount": 200,
+                        "targetWordCount": 175,
                         "sections": [
                             {
                                 "id": "sec-1",
@@ -744,11 +745,11 @@
                             {
                                 "id": "sec-8",
                                 "text": "Huset. Barndomshjemmet. Stedet der hun lærte å sykle, der hun gjemte seg i skapet under trappen, der hun en sommer malte hele gjerdet gult uten å spørre noen først. Det var mange minner i det huset. Gode minner og dårlige minner. Minner hun ikke visste om hun ville beholde eller glemme.",
-                                "type": "cuttable",
+                                "type": "borderline",
                                 "wordCount": 50,
-                                "label": "Overforklaring av følelser",
+                                "label": "Overflod av minner",
                                 "tensionValue": 3,
-                                "feedback": "Bra kuttet! Alle disse minnene forklarer det leseren allerede forstår. Stol på leseren."
+                                "feedback": "Du kan kutte dette — men vurder å beholde ett av minnene. En god novelle trenger å vise noe av følelsen, ikke bare antyde den. «Show, don't tell» betyr ikke «vis ingenting»."
                             },
                             {
                                 "id": "sec-9",

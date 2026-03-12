@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-03-10T11:58:07.472Z",
-  "count": 16,
+  "updatedAt": "2026-03-12T08:59:39.854Z",
+  "count": 17,
   "paths": [
     {
       "id": "romerriket-sti",
@@ -170,8 +170,19 @@
       "fileRelativePath": "norsk/analyse/analyse-sti.json"
     },
     {
+      "id": "tekstanalyse-sti",
+      "title": "Læringssti: Fra lesning til analysetekst",
+      "description": "Lær å finne virkemidler, koble dem til tema, og skrive overbevisende analysetekster.",
+      "subjectId": "norsk",
+      "subjectName": "Norsk",
+      "topicId": "analyse",
+      "readTime": "4–6 timer",
+      "path": "/norsk/analyse/tekstanalyse-sti",
+      "fileRelativePath": "norsk/analyse/tekstanalyse-sti.json"
+    },
+    {
       "id": "skapende-skriving-sti",
-      "title": "Læringssti: Forfatterens Verksted",
+      "title": "Læringssti: Skrive gode historier",
       "description": "Bygg din egen verktøykasse for skjønnlitterær skriving — fra tema og karakter til ferdig novelle.",
       "subjectId": "norsk",
       "subjectName": "Norsk",
@@ -181,15 +192,14 @@
       "fileRelativePath": "norsk/virkemidler/skapende-skriving-sti.json"
     },
     {
-      "id": "tekstanalyse-sti",
-      "title": "Læringssti: Tekstdetektiven",
-      "description": "Lær å finne virkemidler, koble dem til tema, og skrive overbevisende analysetekster.",
-      "subjectId": "norsk",
-      "subjectName": "Norsk",
-      "topicId": "analyse",
-      "readTime": "4–6 timer",
-      "path": "/norsk/analyse/tekstanalyse-sti",
-      "fileRelativePath": "norsk/analyse/tekstanalyse-sti.json"
+      "id": "handel-og-infrastruktur-sti",
+      "title": "Læringssti: Verdens årer",
+      "description": "Fra komparativt fortrinn til kaskadefeil — utforsk nettverkene som binder verden sammen og holder sivilisasjonen i gang.",
+      "subjectId": "samfunnskunnskap",
+      "subjectName": "Samfunnskunnskap",
+      "topicId": "handel-og-infrastruktur",
+      "path": "/samfunnskunnskap/handel-og-infrastruktur/handel-og-infrastruktur-sti",
+      "fileRelativePath": "samfunnskunnskap/handel-og-infrastruktur/handel-og-infrastruktur-sti.json"
     }
   ]
 }

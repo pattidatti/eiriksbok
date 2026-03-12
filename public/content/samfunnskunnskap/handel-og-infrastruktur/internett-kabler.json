@@ -1,0 +1,95 @@
+{
+  "id": "internett-kabler",
+  "title": "Internett på havbunnen",
+  "layout": "rich",
+  "year": "2024",
+  "category": "Teknologi",
+  "readTime": "8 min lesning",
+  "heroImage": "/images/lessons/handel/internett-kabler-hero.webp",
+  "details": [
+    "99 % av internetttrafikk går via undersjøiske kabler",
+    "Over 1 400 kabler dekker ca. 1,3 millioner km havbunn",
+    "En kabel er omtrent like tykk som en hageslange"
+  ],
+  "externalUrl": "https://snl.no/undersjøisk_kabel",
+  "content": [
+    {
+      "type": "text",
+      "content": "Forestill deg at du sender en e-post fra Oslo til New York. Den reiser ikke gjennom luften, selv om den virker umiddelbar. Den skytes ut som lyspulser gjennom tynne glassfibertråder, gjennom en kabel som er dumpet ned på Atlanterhavets bunn — der det er mørkt, kaldt og trykket er knusende. Internett er et fysisk objekt, og det eksisterer nesten utelukkende under vann."
+    },
+    {
+      "type": "header",
+      "text": "Havbunnens skjulte nett"
+    },
+    {
+      "type": "text",
+      "content": "I dag finnes det over 1 400 aktive undersjøiske kabler som til sammen strekker seg 1,3 millioner kilometer. De frakter ikke bare nettsider og Netflix — de er fundamentet for den globale finansøkonomien. Trillioner av dollar i transaksjoner skjer daglig gjennom disse kablene. Uten dem ville ikke moderne handel, ikke banker, ikke verdipapirhandel fungere."
+    },
+    {
+      "type": "text",
+      "content": "Teknologien er bemerkelsesverdig: en moderne kabel kan ha en kapasitet på hundrevis av terabit per sekund. Inni er det glassfibertråder som er tynnere enn et hår, og rundt dem lag av stålvire, isolasjon og plast. Kabelen er omtrent like tykk som en hageslange — men den kobler kontinenter."
+    },
+    {
+      "type": "component",
+      "name": "CableBreakSim",
+      "props": {
+        "title": "Hva skjer når en kabel kuttes?",
+        "description": "Klikk på en kabel for å se hvordan kapasiteten omfordeles"
+      }
+    },
+    {
+      "type": "header",
+      "text": "Stormaktenes kamp om kablene"
+    },
+    {
+      "type": "text",
+      "content": "I mange år var de fleste undersjøiske kabler eid av telekommunikasjonsselskaper. Nå eier tech-giganter som Google, Meta, Amazon og Microsoft en stadig større andel. Det gir dem kontroll over infrastrukturen som driver deres egne tjenester — og bekymrer myndigheter som frykter for konsentrasjonen av makt."
+    },
+    {
+      "type": "text",
+      "content": "Det er også en militær og etterretningsdimensjon. NSA ble i 2013 avslørt for å tappe undersjøiske kabler som en del av overvåkingsprogrammet PRISM. Russland og Kina holder flåtefartøy i nærheten av kabelkorridorer. I 2022 ble undersjøiske kabler nær Svalbard skadet av mystiske årsaker. NATO tar nå trusler mot undersjøisk infrastruktur svært alvorlig."
+    },
+    {
+      "type": "component",
+      "name": "FactBox",
+      "props": {
+        "title": "Kablenes fiender",
+        "facts": [
+          "Skipanker er den vanligste årsaken til kabeltyveri",
+          "Jordskjelv kan kutte flere kabler samtidig",
+          "I 2006 kuttet et taiwansk jordskjelv 9 kabler og lammet internett i Asia i uker",
+          "Haier biter av og til på kablene — trolig på grunn av elektromagnetiske felt"
+        ]
+      }
+    },
+    {
+      "type": "header",
+      "text": "Reparasjonen — en undervurdert industri"
+    },
+    {
+      "type": "text",
+      "content": "Rundt 150-200 kabelskader repareres hvert år. Spesialbygde kabelskip — det finnes bare rundt 50 i verden — lokaliserer skaden med sonar, henter opp kabelen med robotarmer fra dyp på opptil 8 000 meter, og spleiser den på nytt. En enkelt reparasjon kan ta uker og koster millioner av dollar."
+    },
+    {
+      "type": "component",
+      "name": "Quiz",
+      "props": {
+        "questions": [
+          {
+            "question": "Hvor mye av global internetttrafikk reiser via undersjøiske kabler?",
+            "options": ["40 %", "70 %", "90 %", "99 %"],
+            "correct": 3,
+            "explanation": "Omtrent 99 % av all internasjonal internettrafikk reiser gjennom undersjøiske fiberoptiske kabler. Satellitter brukes kun som backup og i avsidesliggende strøk."
+          },
+          {
+            "question": "Hva er den vanligste årsaken til at undersjøiske kabler skades?",
+            "options": ["Sabotasje", "Skipanker", "Jordskjelv", "Haier"],
+            "correct": 1,
+            "explanation": "Den vanligste årsaken er skipanker — skip som kaster anker i kabelkorridorer. Jordskjelv og fisking er andre vanlige årsaker. Sabotasje er sjeldnere, men bekymringen øker."
+          }
+        ]
+      }
+    }
+  ],
+  "timeline": []
+}

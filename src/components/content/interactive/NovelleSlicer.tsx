@@ -1,7 +1,7 @@
 import { useState, useMemo, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import confetti from 'canvas-confetti';
-import { Scissors, RotateCcw, CheckCircle, AlertTriangle, TrendingUp } from 'lucide-react';
+import { Scissors, RotateCcw, CheckCircle, AlertTriangle, TrendingUp, Undo2 } from 'lucide-react';
 
 interface NovelleSlicerProps {
     title?: string;
@@ -29,6 +29,7 @@ export const NovelleSlicer = ({
     const [warningMsg, setWarningMsg] = useState('');
     const [finished, setFinished] = useState(false);
     const [feedbackId, setFeedbackId] = useState<string | null>(null);
+    const [restoredId, setRestoredId] = useState<string | null>(null);
 
     const currentWordCount = useMemo(() => {
         return originalWordCount - sections
@@ -45,10 +46,23 @@ export const NovelleSlicer = ({
             .join(' ');
     }, [cutIds, sections]);
 
-    const handleCut = useCallback((sectionId: string) => {
-        if (finished || cutIds.has(sectionId)) return;
+    const handleToggle = useCallback((sectionId: string) => {
+        if (finished) return;
         const section = sections.find((s) => s.id === sectionId);
         if (!section) return;
+
+        if (cutIds.has(sectionId)) {
+            // Restore the section
+            setCutIds((prev) => {
+                const next = new Set(prev);
+                next.delete(sectionId);
+                return next;
+            });
+            setRestoredId(sectionId);
+            setTimeout(() => setRestoredId(null), 2500);
+            return;
+        }
+
         if (section.type === 'essential') {
             setWarningId(sectionId);
             setWarningMsg('Obs! Denne delen er viktig for historien!');
@@ -83,6 +97,7 @@ export const NovelleSlicer = ({
         setWarningMsg('');
         setFinished(false);
         setFeedbackId(null);
+        setRestoredId(null);
     };
 
     const wordRatio = currentWordCount / originalWordCount;
@@ -165,11 +180,11 @@ export const NovelleSlicer = ({
                             className="relative"
                         >
                             <motion.button
-                                onClick={() => handleCut(section.id)}
-                                disabled={finished || isCut} layout
-                                className={`w-full text-left rounded-xl border p-4 transition-colors relative overflow-hidden ${
+                                onClick={() => handleToggle(section.id)}
+                                disabled={finished} layout
+                                className={`w-full text-left rounded-xl border p-4 transition-colors relative overflow-hidden group ${
                                     isCut
-                                        ? 'bg-slate-100/50 border-slate-200'
+                                        ? 'bg-slate-100/50 border-slate-200 cursor-pointer hover:border-blue-300'
                                         : 'bg-white border-slate-200 hover:border-rose-300 hover:shadow-sm cursor-pointer'
                                 }`}
                             >
@@ -194,6 +209,14 @@ export const NovelleSlicer = ({
                                                 className="absolute top-1/2 left-0 right-0 h-0.5 bg-rose-400 origin-left"
                                             />
                                             <Scissors className="absolute -right-1 top-1/2 -translate-y-1/2 w-4 h-4 text-rose-400" />
+                                            <motion.span
+                                                initial={{ opacity: 0 }} animate={{ opacity: 0 }}
+                                                whileHover={{ opacity: 1 }}
+                                                className="absolute right-6 top-1/2 -translate-y-1/2 flex items-center gap-1 text-xs text-blue-500 font-medium opacity-0 group-hover:opacity-100 transition-opacity bg-white/90 rounded px-1.5 py-0.5 shadow-sm"
+                                            >
+                                                <Undo2 className="w-3 h-3" />
+                                                Angre
+                                            </motion.span>
                                         </motion.div>
                                     ) : (
                                         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }}
@@ -210,6 +233,15 @@ export const NovelleSlicer = ({
                                         className="mt-1 text-xs text-emerald-700 bg-emerald-50 rounded-lg px-3 py-1.5 border border-emerald-200"
                                     >
                                         {section.feedback}
+                                    </motion.div>
+                                )}
+                                {restoredId === section.id && (
+                                    <motion.div
+                                        initial={{ opacity: 0, y: -5 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
+                                        className="mt-1 text-xs text-blue-700 bg-blue-50 rounded-lg px-3 py-1.5 border border-blue-200 flex items-center gap-1.5"
+                                    >
+                                        <Undo2 className="w-3 h-3" />
+                                        Angret! Seksjonen er tilbake.
                                     </motion.div>
                                 )}
                             </AnimatePresence>

@@ -13,14 +13,6 @@ export interface GameDefinition {
 }
 
 export const GAMES: Record<string, GameDefinition> = {
-    'timeline-td': {
-        id: 'timeline-td',
-        title: 'Tidslinje Forsvar',
-        description: 'Forsvar historien mot mørkets krefter i dette Tower Defense spillet.',
-        icon: '🛡️',
-        path: '/spill/timeline-td',
-        isMinigame: false
-    },
     'chrono-glider': {
         id: 'chrono-glider',
         title: 'Chrono Glider',

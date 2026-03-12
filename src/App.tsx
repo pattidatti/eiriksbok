@@ -32,11 +32,9 @@ const PhilosophyComparisonPage = React.lazy(routeFactories.PhilosophyComparisonP
 const TopicComparisonPage = React.lazy(routeFactories.TopicComparisonPage);
 const GlobalTimelinePage = React.lazy(routeFactories.GlobalTimelinePage);
 const ChronoGamePage = React.lazy(routeFactories.ChronoGamePage);
-const DungeonGamePage = React.lazy(routeFactories.DungeonGamePage);
 const RhetoricGamePage = React.lazy(routeFactories.RhetoricGamePage);
 const HangmanPage = React.lazy(routeFactories.HangmanPage);
 const ChronoGliderPage = React.lazy(routeFactories.ChronoGliderPage);
-const TimelineTDPage = React.lazy(routeFactories.TimelineTDPage);
 const StatsPage = React.lazy(routeFactories.StatsPage);
 const AdminDashboard = React.lazy(routeFactories.AdminDashboard);
 const ContentInventory = React.lazy(routeFactories.ContentInventory);
@@ -56,6 +54,7 @@ const TimeTravelGamePage = React.lazy(routeFactories.TimeTravelGamePage);
 const PresentationPage = React.lazy(routeFactories.PresentationPage);
 const LearningPathsHub = React.lazy(routeFactories.LearningPathsHub);
 const CompositionTool = React.lazy(routeFactories.CompositionTool);
+const InfrastrukturAtlas = React.lazy(routeFactories.InfrastrukturAtlas);
 
 
 
@@ -88,6 +87,7 @@ const router = createBrowserRouter([
       { path: "tidslinje", element: <GlobalTimelinePage /> },
       { path: "persongalleri", element: <PersonGallery /> },
       { path: "colonization", element: <ColonizationMap /> },
+      { path: "infrastruktur-atlas", element: <InfrastrukturAtlas /> },
       { path: "laeringsstier", element: <LearningPathsHub /> },
       { path: "norsk/virkemidler/desk", element: <WorkstationLayout /> },
       { path: "musikk/komposisjon", element: <CompositionTool /> },
@@ -96,11 +96,9 @@ const router = createBrowserRouter([
       { path: "oving/flashcards", element: <FlashcardPage /> },
       { path: "oving/quiz", element: <QuizPage /> },
       { path: "oving/chrono", element: <ChronoGamePage /> },
-      { path: "oving/dungeon", element: <DungeonGamePage /> },
       { path: "oving/retorikk", element: <RhetoricGamePage /> },
       { path: "oving/hengemann", element: <HangmanPage /> },
       { path: "oving/chrono-glider", element: <ChronoGliderPage /> },
-      { path: "oving/tidslinje-td", element: <TimelineTDPage /> },
       { path: "oving/konsept-snake", element: <ConceptSnakeGame /> },
       { path: "oving/detektiv", element: <DetectiveHubPage /> },
       { path: "oving/detektiv/:caseId", element: <DetectiveCasePage /> },

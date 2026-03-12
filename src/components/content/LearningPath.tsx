@@ -204,19 +204,11 @@ export const LearningPath: React.FC<LearningPathProps> = ({ data }) => {
                                             </div>
                                         )}
 
-                                        {step.component && (
-                                            <div className="mb-6 mt-4">
-                                                {(() => {
-                                                    const Component = getComponent(step.component.name);
-                                                    if (!Component) return null;
-                                                    return (
-                                                        <div className="border border-slate-200 rounded-lg overflow-hidden shadow-sm bg-slate-50">
-                                                            <Component {...step.component.props} />
-                                                        </div>
-                                                    );
-                                                })()}
-                                            </div>
-                                        )}
+                                        {step.component && (() => {
+                                            const Component = getComponent(step.component.name);
+                                            if (!Component) return null;
+                                            return <Component {...step.component.props} />;
+                                        })()}
 
                                         {step.links && step.links.length > 0 && (
                                             <div className="flex flex-wrap gap-3 mb-6">

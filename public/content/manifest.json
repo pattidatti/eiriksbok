@@ -360,7 +360,7 @@
           "tools": [
             {
               "id": "skapende-skriving-sti",
-              "title": "Læringssti: Forfatterens Verksted",
+              "title": "Læringssti: Skrive gode historier",
               "description": "Bygg din egen verktøykasse for skjønnlitterær skriving — fra tema og karakter til ferdig novelle.",
               "link": "/norsk/virkemidler/skapende-skriving-sti",
               "icon": "map"
@@ -420,7 +420,7 @@
             },
             {
               "id": "tekstanalyse-sti",
-              "title": "Læringssti: Tekstdetektiven",
+              "title": "Læringssti: Fra lesning til analysetekst",
               "description": "Lær å finne virkemidler, koble dem til tema, og skrive overbevisende analysetekster.",
               "link": "/norsk/analyse/tekstanalyse-sti",
               "icon": "map"
@@ -698,8 +698,8 @@
                 "argumentasjon",
                 "saktekst"
               ],
-              "createdDate": "2026-03-11T10:00:00Z",
-              "lastUpdated": "2026-03-11T10:00:00Z"
+              "createdDate": "2026-03-11T10:03:11+01:00",
+              "lastUpdated": "2026-03-11T10:12:54+01:00"
             },
             {
               "id": "hvordan-skrive-gode-saktekster",
@@ -799,7 +799,7 @@
                 "formatering"
               ],
               "createdDate": "2026-02-02T09:50:15+01:00",
-              "lastUpdated": "2026-02-02T10:38:34+01:00"
+              "lastUpdated": "2026-03-11T10:12:54+01:00"
             },
             {
               "id": "hvordan-lage-karakterer",
@@ -1397,6 +1397,107 @@
               ],
               "createdDate": "2025-12-23T14:29:34+01:00",
               "lastUpdated": "2025-12-25T10:09:30+01:00"
+            }
+          ]
+        },
+        {
+          "id": "handel-og-infrastruktur",
+          "title": "Handel og infrastruktur",
+          "description": "Utforsk nettverkene som binder verden sammen: handelsruter, rørledninger, undersjøiske kabler og energisystemer.",
+          "image": "/images/topics/handel-og-infrastruktur.png",
+          "tools": [
+            {
+              "id": "infrastruktur-atlas",
+              "title": "InfrastrukturAtlas",
+              "description": "Interaktivt kart over verdens viktigste handelsruter, rørledninger, undersjøiske kabler og energiinfrastruktur.",
+              "link": "/infrastruktur-atlas",
+              "icon": "globe"
+            },
+            {
+              "id": "handel-og-infrastruktur-sti",
+              "title": "Læringssti: Verdens årer",
+              "description": "Utforsk nettverkene som holder verden i gang — fra oljerørledninger til internettkabler.",
+              "link": "/samfunnskunnskap/handel-og-infrastruktur/handel-og-infrastruktur-sti",
+              "icon": "map"
+            }
+          ],
+          "lessons": [
+            {
+              "id": "global-handel-oversikt",
+              "title": "Verden er én maskin",
+              "description": "Hvordan global handel fungerer og hvorfor alle land er avhengige av hverandre.",
+              "image": "/images/lessons/handel/global-handel-hero.webp",
+              "layout": "rich",
+              "tags": [
+                "handel",
+                "globalisering",
+                "økonomi",
+                "infrastruktur"
+              ],
+              "createdDate": "2026-03-12T00:00:00+01:00",
+              "lastUpdated": "2026-03-12T08:47:23.473Z"
+            },
+            {
+              "id": "energi-og-rorledninger",
+              "title": "Olje, gass og rørledningene",
+              "description": "Hvordan verdens energi transporteres — og hva som skjer når rørene stenges.",
+              "image": "/images/lessons/handel/energi-rorledninger-hero.webp",
+              "layout": "rich",
+              "tags": [
+                "energi",
+                "olje",
+                "gass",
+                "rørledninger",
+                "geopolitikk"
+              ],
+              "createdDate": "2026-03-12T00:00:00+01:00",
+              "lastUpdated": "2026-03-12T08:48:09.260Z"
+            },
+            {
+              "id": "internett-kabler",
+              "title": "Internett på havbunnen",
+              "description": "99 % av internetttrafikken går gjennom undersjøiske kabler. Hva skjer når de kuttes?",
+              "image": "/images/lessons/handel/internett-kabler-hero.webp",
+              "layout": "rich",
+              "tags": [
+                "internett",
+                "kabler",
+                "teknologi",
+                "infrastruktur",
+                "geopolitikk"
+              ],
+              "createdDate": "2026-03-12T00:00:00+01:00",
+              "lastUpdated": "2026-03-12T08:48:48.543Z"
+            },
+            {
+              "id": "mat-og-skipsfart",
+              "title": "Maten din og havet",
+              "description": "90 % av all handel fraktes med skip. Følg maten din fra åker til tallerken — via hav.",
+              "image": "/images/lessons/handel/mat-skipsfart-hero.webp",
+              "layout": "rich",
+              "tags": [
+                "skipsfart",
+                "mat",
+                "handel",
+                "logistikk"
+              ],
+              "createdDate": "2026-03-12T00:00:00+01:00",
+              "lastUpdated": "2026-03-12T08:49:36.164Z"
+            },
+            {
+              "id": "saarbare-nettverk",
+              "title": "Når nettverkene brister",
+              "description": "Hva skjer med verden når infrastrukturen svikter? Om sårbarhet, flaskehalser og resiliens.",
+              "image": "/images/lessons/handel/saarbare-nettverk-hero.webp",
+              "layout": "rich",
+              "tags": [
+                "sårbarhet",
+                "infrastruktur",
+                "geopolitikk",
+                "sikkerhet"
+              ],
+              "createdDate": "2026-03-12T00:00:00+01:00",
+              "lastUpdated": "2026-03-12T08:50:27.026Z"
             }
           ]
         }

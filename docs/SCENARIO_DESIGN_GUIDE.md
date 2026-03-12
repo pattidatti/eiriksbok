@@ -6,11 +6,14 @@ Denne guiden beskriver hvordan du designer og implementerer interaktive "Tidsrei
 
 Hvert scenario er en **graf av noder**. Eleven starter i en `startingNodeId` og navigerer gjennom noder via `choices`.
 
-### De 4 Søylene i et Scenario:
+### De 7 Søylene i et Scenario:
 1.  **Narrativ (Noder):** Teksten, taleren og bakgrunnsbildet som setter scenen.
 2.  **Mekanikk (Stats):** Tallverdier som Disiplin, Moral eller Gull som endres basert på valg.
 3.  **Økonomi (Inventory):** Gjenstander som kan finnes, brukes eller kombineres (Crafting).
 4.  **Utfordringer (Minigames):** Spesialiserte noder for kamp, terningspill eller domsavsigelser.
+5.  **Hukommelse (Flags):** Narrativ hukommelse via `setFlags`/`hasFlag`/`lacksFlag`. Flags er hendelser, ikke tall — de husker hva spilleren *valgte*, ikke bare tallresultatet. NPC-er kan kommentere dem, og epilogen personaliseres basert på dem.
+6.  **Forankring (Discovery Events):** Historiske fakta-ankre via `discoveryEvent`. Når spilleren oppdager en historisk realitet for første gang, vises et læreskjold med faktaboks, artikkelkobling og refleksjonsspørsmål. Kobler fiksjon til fakta.
+7.  **Refleksjon (Epilogue + Ethics):** Personalisert epilog (`epilogue`) med flag-drevne tekster, `historicalEcho` og klasseromsspørsmål. `ethicsLens` på moralske valg gir tre filosofiske perspektiver (Kant, utilitarisme, dygdsetikk) via etikk-modus i HUD.
 
 ---
 
@@ -48,8 +51,12 @@ Hver node representerer ett "skjermbilde" i spillet.
 ### 2.3 Valg (`choices`)
 Valg driver historien fremover og endrer spilltilstanden.
 - `effects`: Endrer stats (f.eks. `{"discipline": 10}`).
+- `setFlags`: Setter narrativt flagg (f.eks. `["hjalp_fienden"]`). Snake_case. Konsistente IDer på tvers av hele scenariet.
+- `clearFlags`: Fjerner et flagg som tidligere ble satt.
+- `condition.hasFlag` / `condition.lacksFlag`: Låser/åpner valg basert på hendelser (i stedet for eller i tillegg til stat-betingelser).
+- `ethicsLens`: Tre filosofiske perspektiver (`deontological`, `consequentialist`, `virtue`) som vises i pause-modal når etikk-modus er aktiv. Bruk på valg med moralsk vekt.
 - `updateInventory`: Legg til eller fjern gjenstander (`add` / `remove`).
-- `checkInventory`: Lås valg baser på om eleven har en gjenstand (`hasItem`).
+- `checkInventory`: Lås valg basert på om eleven har en gjenstand (`hasItem`).
 - `updateEnvironment`: Endre tid på døgnet (`time: "night"`) eller vær (`weather: "rain"`).
 
 ---

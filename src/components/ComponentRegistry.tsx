@@ -242,6 +242,13 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     triangularTradeMap: lazy(() => import('./content/interactive/TriangularTradeMap').then(m => ({ default: m.TriangularTradeMap }))),
     HanseaticLedger: lazy(() => import('./content/interactive/hanseatene/HanseaticLedger').then(m => ({ default: m.HanseaticLedger }))),
     HanseaticTradeMap: lazy(() => import('./content/interactive/hanseatene/HanseaticTradeMap').then(m => ({ default: m.HanseaticTradeMap }))),
+
+    // Handel og infrastruktur
+    GlobalProductionDots: lazy(() => import('./content/interactive/infrastruktur/GlobalProductionDots').then(m => ({ default: m.GlobalProductionDots }))),
+    PipelineScenario: lazy(() => import('./content/interactive/infrastruktur/PipelineScenario').then(m => ({ default: m.PipelineScenario }))),
+    CableBreakSim: lazy(() => import('./content/interactive/infrastruktur/CableBreakSim').then(m => ({ default: m.CableBreakSim }))),
+    ShipmentTracker: lazy(() => import('./content/interactive/infrastruktur/ShipmentTracker').then(m => ({ default: m.ShipmentTracker }))),
+    CascadeFailureSim: lazy(() => import('./content/interactive/infrastruktur/CascadeFailureSim').then(m => ({ default: m.CascadeFailureSim }))),
     MapCarousel,
 };
 

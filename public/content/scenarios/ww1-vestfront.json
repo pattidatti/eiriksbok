@@ -368,6 +368,13 @@
             "text": "Etter Stand-To deler Simpson ut rumrasjoner. 'SRD,' leser han av etiketten. 'Supply Reserve Depot. Soldatene sier det betyr Seldom Reaches Destination.' Han gliser. Tre hundre tusen gallons rum i året til britiske tropper. En slurk som varmer fra magen og ut. Kanskje den eneste luksusen her nede.",
             "speaker": "Simpson",
             "backgroundImage": "/images/chronos/ww1_trench_hub.webp",
+            "npcDialogue": {
+                "statId": "rel_simpson",
+                "cold": "Simpson rekker deg koppen uten å se opp. Han sier ingenting.",
+                "neutral": "'SRD,' sier Simpson og gliser skjevt. 'Seldom Reaches Destination.' Han høres ikke helt overbevist ut.",
+                "warm": "'Thomas!' sier Simpson og løfter koppen mot deg. 'For Yorkshire. Og for Bergen.' Det er ekte varme i øynene hans.",
+                "thresholds": { "coldBelow": 30, "warmAbove": 60 }
+            },
             "choices": [
                 {
                     "id": "c_rumrasjon_1",
@@ -641,11 +648,22 @@
             "text": "I bunnen av et granatkrater ser du ham: en ung tysk soldat, ikke eldre enn deg, med et kulesår i låret. Blikkene møtes. Han mumler noe — 'Mutter... bitte...' — og strekker hånden mot deg. Ikke som en fiende, men som et menneske som er redd for å dø alene i gjørma mellom linjene. Du har tre sekunder til å bestemme deg.",
             "speaker": "Forteller",
             "backgroundImage": "/images/chronos/ww1_shell_crater.webp",
+            "discoveryEvent": {
+                "title": "Fienden er et menneske",
+                "fact": "Propaganda forsøkte å avhumanisere fienden — tyske soldater ble kalt 'Huns', britene 'Tommies'. Men i ingenmannsland møttes menn fra begge sider som mennesker. Julefredagen 1914 viste at soldatene selv, overlatt til seg selv, kunne velge fred fremfor krig.",
+                "reflectionQuestion": "Propaganda avhumaniserer fienden for å gjøre det lettere å drepe. Hva tror du skjer med soldatene som møter den menneskelige virkeligheten bak propagandaen?"
+            },
             "choices": [
                 {
                     "id": "c_tysker_hjelp",
                     "text": "Knel ved siden av ham. Del rasjonen din og forbind såret.",
                     "nextNodeId": "hub_skyttergraven",
+                    "setFlags": ["hjalp_tysker"],
+                    "ethicsLens": {
+                        "deontological": "Kant: En universell lov om å hjelpe den sårede — uavhengig av nasjonalitet — ville alle kunne ønske seg. Plikten gjelder mennesket, ikke uniformen.",
+                        "consequentialist": "Utilitarisme: Å hjelpe én person gir liten militær risiko men stor menneskelig gevinst. Konsekvensene taler for handling.",
+                        "virtue": "Aristoteles: Medmenneskelighet er en dyd. Den som hjelper en fiende viser mot og moralsk karakter — ikke svakhet."
+                    },
                     "effects": {
                         "moral": 15,
                         "disiplin": -10,
@@ -663,6 +681,12 @@
                     "id": "c_tysker_forlat",
                     "text": "Se bort og forlat stedet. Du kan ikke risikere oppdraget.",
                     "nextNodeId": "hub_skyttergraven",
+                    "setFlags": ["forlot_tysker"],
+                    "ethicsLens": {
+                        "deontological": "Kant: Å la noen dø når man kan hjelpe bryter med menneskets iboende verdi. Ordren om å ignorere fienden fritar ikke fra den moralske plikten.",
+                        "consequentialist": "Utilitarisme: Å forlate stedet minimerer din risiko — men til hvilken pris? En manns liv veier tungt mot en liten taktisk fordel.",
+                        "virtue": "Aristoteles: Å snu ryggen til en sårbar person strider mot dyden medmenneskelighet. Hva slags person ønsker du å være?"
+                    },
                     "effects": {
                         "disiplin": 10,
                         "moral": -20
@@ -676,6 +700,7 @@
                     "id": "c_tysker_fange",
                     "text": "Hjelp ham opp og ta ham til fange. Han kan ha viktig informasjon.",
                     "nextNodeId": "hub_skyttergraven",
+                    "setFlags": ["tok_tysker_til_fange"],
                     "effects": {
                         "disiplin": 5,
                         "kameratskap": 5,
@@ -714,6 +739,12 @@
             "text": "En gul-grønn sky ruller inn, tyngre enn luft, krypende langs bakken. Klorgass — første gang brukt i massiv skala ved Ypres i april 1915, nå en fast del av krigens arsenal. 'GAS! GAS!' roper noen. Du har ti sekunder.",
             "speaker": "Forteller",
             "backgroundImage": "/images/chronos/ww1_gas_attack.webp",
+            "discoveryEvent": {
+                "title": "Kjemisk krigføring",
+                "fact": "Klorgass ble brukt i massiv skala for første gang ved Ypres i april 1915, i strid med Haag-konvensjonen av 1907. Innen 1918 hadde begge sider tatt i bruk kjemiske våpen — over 90 000 soldater ble drept av gass, og over én million skadet for livet.",
+                "articleLink": "/historie/forste-verdenskrig/skyttergravskrigen",
+                "reflectionQuestion": "Haag-konvensjonen forbød giftige stoffer i krig i 1907. Burde det finnes absolutte forbud i krig, eller avhenger det alltid av situasjonen?"
+            },
             "choices": [
                 {
                     "id": "c_gass_maske",
@@ -745,6 +776,12 @@
             "text": "Feltstasjonen lukter jodoform og blod. Rundt deg ligger menn med komplikasjoner ingen kirurg i 1916 er fullt rustet til å behandle: gassødelagte lunger, lem smadret av artilleri, sjokk som ikke har et medisinsk navn ennå — det vi i dag kaller PTSD. En mann i hjørnet gjentar samme setning om og om igjen: 'Vi går over i morgen.' Sanitetssergeanten skifter bandasjen din og trykker en forbindingspakke i hånden din. 'Du var heldig,' sier han. Du er ikke sikker på at det er det rette ordet.",
             "speaker": "Forteller",
             "backgroundImage": "/images/chronos/ww1_field_hospital.webp",
+            "discoveryEvent": {
+                "title": "Skyttergravssjokk — krigens usynlige sår",
+                "fact": "Det vi i dag kaller PTSD ble under første verdenskrig kalt 'shell shock' (skyttergravssjokk). Over 80 000 britiske soldater ble diagnostisert, men militæret behandlet det lenge som feighet eller svakhet. Mange ble henrettet for desertering — i virkeligheten led de av alvorlige psykiske krigslidelser.",
+                "articleLink": "/historie/forste-verdenskrig/soldatlivet",
+                "reflectionQuestion": "Shell shock ble i 1916 behandlet som feighet. Hva sier dette om hvordan samtiden forsto psykisk helse — og hva er forandret i dag?"
+            },
             "journalPrompt": "Bruk av klorgass var et brudd med Haag-konvensjonen av 1907, som forbød giftige stoffer som krigsvåpen. Mener du kjemisk krigføring noen gang kan rettferdiggjøres? Begrunne svaret ditt med minst ett historisk eller etisk argument.",
             "choices": [
                 {
@@ -861,6 +898,12 @@
                     "id": "c_top_klatr",
                     "text": "Klatr opp stigen. Adlyd ordren. Du er soldat.",
                     "nextNodeId": "slag_ved_somme",
+                    "setFlags": ["adlydde_ordre"],
+                    "ethicsLens": {
+                        "deontological": "Kant: Lydighetsplikt er grunnleggende i militær etikk. En ordre er en ordre — offiserene bærer det moralske ansvaret for konsekvensene.",
+                        "consequentialist": "Utilitarisme: 57 470 britiske tap den første dagen. Hva er den moralske kalkulen når du aner at angrepet vil feile?",
+                        "virtue": "Aristoteles: Pliktoppfyllelse er en dyd — men mot innebærer også å stille spørsmål. Hvem er den dygdige soldaten?"
+                    },
                     "effects": {
                         "disiplin": 10,
                         "moral": -5
@@ -870,6 +913,12 @@
                     "id": "c_top_nekt",
                     "text": "Bli stående. Ordren er en dødsdøm. Du nekter å klatre.",
                     "nextNodeId": "slutt_krigsrett",
+                    "setFlags": ["nektet_ordre"],
+                    "ethicsLens": {
+                        "deontological": "Kant: En soldat har plikt til lydighet — men Kant mente også at man aldri skal behandle mennesker bare som midler. Er soldatene midler for en planlagt katastrofe?",
+                        "consequentialist": "Utilitarisme: Å nekte kan redde ditt liv, men krigsretten og konsekvensene for troppen er store. Regnestykket er ikke enkelt.",
+                        "virtue": "Aristoteles: Mot er dyden mellom feighet og dumdristighet. Er det mot å nekte en dødsdøm — eller feighet?"
+                    },
                     "effects": {
                         "disiplin": -40,
                         "moral": 10
@@ -879,6 +928,7 @@
                     "id": "c_top_leder",
                     "text": "'Vi holder oss samlet. Bruk kraterene som dekke.'",
                     "nextNodeId": "slag_ved_somme",
+                    "setFlags": ["ledet_troppen"],
                     "effects": {
                         "kameratskap": 15,
                         "disiplin": 5,
@@ -979,7 +1029,29 @@
             "backgroundImage": "/images/chronos/ww1_homecoming.webp",
             "isEnd": true,
             "endType": "victory",
-            "choices": []
+            "choices": [],
+            "epilogue": {
+                "entries": [
+                    {
+                        "hasFlag": "hjalp_tysker",
+                        "text": "Du hjalp en fiende i bunnen av et krater. Det tyske kobbkruset ble liggende i en skuff i Bergen i femti år — et stille vitne om at fienden også var et menneske."
+                    },
+                    {
+                        "hasFlag": "nektet_ordre",
+                        "text": "Du nektet en ordre som ville sendt deg i sikker død. Franske soldater mutinerte i 1917 av nøyaktig samme grunn — militærstrategi som behandlet menn som forbruksvarer."
+                    },
+                    {
+                        "hasFlag": "ledet_troppen",
+                        "text": "Du ledet troppen gjennom kraterfeltene og holdt dem samlet. Noen av dem overlevde nettopp fordi du tenkte fremfor å adlyde blindt."
+                    },
+                    {
+                        "lacksFlag": "hjalp_tysker",
+                        "text": "Du overlevde Somme. Men spørsmålet du aldri besvarte — hva gjør vi med fiendens ansikt i krateret — fulgte deg hjem."
+                    }
+                ],
+                "historicalEcho": "Somme-offensiven varte 141 dager og kostet over 1,2 millioner liv. Den første dagen ble 57 470 britiske soldater drept, såret eller savnet — den blodigste dagen i britisk militærhistorie. Versailles-traktaten av 1919 ydmyket Tyskland og plantet frøene til andre verdenskrig.",
+                "reflectionQuestion": "Versailles-traktaten påla Tyskland eneansvar for krigen og krevde enorme erstatningsbetalinger. Mange historikere mener dette skapte betingelsene for Hitlers fremvekst. Var fredsavtalen rettferdig — og hva ville vært et bedre alternativ?"
+            }
         },
         "slutt_soldat": {
             "id": "slutt_soldat",
@@ -1002,7 +1074,29 @@
             "backgroundImage": "/images/chronos/ww1_homecoming.webp",
             "isEnd": true,
             "endType": "victory",
-            "choices": []
+            "choices": [],
+            "epilogue": {
+                "entries": [
+                    {
+                        "hasFlag": "adlydde_ordre",
+                        "text": "Du adlydde ordren og klatret over toppen. Du overlevde der tusenvis falt. Plikten kostet deg dyrt — og det var din byrde å bære alene."
+                    },
+                    {
+                        "hasFlag": "forlot_tysker",
+                        "text": "Soldaten du lot ligge igjen i krateret — du vet ikke hva som skjedde med ham. Det spørsmålet fulgte deg hjem til Bergen."
+                    },
+                    {
+                        "hasFlag": "tok_tysker_til_fange",
+                        "text": "Tyskeren du tok til fange overlevde krigen. Dere møttes aldri igjen, men i noen historier søker menn som deg og han etter hverandre lenge etterpå."
+                    },
+                    {
+                        "hasFlag": "hjalp_tysker",
+                        "text": "Du hjalp ham i krateret. Det tyske kobbkruset i skuffen din i Bergen — et stille vitne om at fienden også var et menneske."
+                    }
+                ],
+                "historicalEcho": "Av de over 57 000 britiske soldatene som falt den første Somme-dagen, har mange ingen kjent grav. Navn på de savnede er risset inn på Thiepval-minnemonumentet over 72 195 britiske og sørafrikanske soldater fra Somme-kampene.",
+                "reflectionQuestion": "Er det mulig å bryte en militær ordre på etisk grunnlag? Hva er forskjellen på feighet og samvittighetsnektelse i krig?"
+            }
         },
         "slutt_fell": {
             "id": "slutt_fell",
@@ -1024,7 +1118,21 @@
             "backgroundImage": "/images/chronos/ww1_fallen.webp",
             "isEnd": true,
             "endType": "defeat",
-            "choices": []
+            "choices": [],
+            "epilogue": {
+                "entries": [
+                    {
+                        "hasFlag": "hjalp_tysker",
+                        "text": "Det siste du tenkte på var soldaten i krateret — hans hender, hans 'Mutter'. Du valgte å se ham som et menneske. Det er ikke det minste en kan gjøre."
+                    },
+                    {
+                        "lacksFlag": "hjalp_tysker",
+                        "text": "Thomas Berg, 19 år, frivillig soldat fra Bergen. Hans navn er risset inn på Thiepval-minnemonumentet over 72 195 britiske soldater uten kjent grav."
+                    }
+                ],
+                "historicalEcho": "Den første juli 1916 er den blodigste dagen i britisk militærhistorie. Artilleriet hadde ikke ødelagt de tyske maskingeværbunkerene slik planleggerne trodde. Mange offiserer ante at planen var feil — men ordre var ordre.",
+                "reflectionQuestion": "Er det mulig å bryte en militær ordre på etisk grunnlag? Hva er forskjellen på feighet og samvittighetsnektelse?"
+            }
         },
         "slutt_krigsrett": {
             "id": "slutt_krigsrett",
@@ -1047,7 +1155,21 @@
             "backgroundImage": "/images/chronos/ww1_courtmartial.webp",
             "isEnd": true,
             "endType": "defeat",
-            "choices": []
+            "choices": [],
+            "epilogue": {
+                "entries": [
+                    {
+                        "hasFlag": "nektet_ordre",
+                        "text": "Du er ham som nektet Clarke. Fra fengselet leste Thomas om Versailles — og om dolkesjøtlegenden som vokste i Tyskland. Han visste bedre enn de fleste hva den legenden kostet."
+                    },
+                    {
+                        "hasFlag": "hjalp_tysker",
+                        "text": "Du hjalp en fiende i krateret og nektet en dødsdøm. To valg som sa noe om hvem Thomas Berg var — og som ingen krigsrett kunne ta fra ham."
+                    }
+                ],
+                "historicalEcho": "306 britiske soldater ble henrettet for 'feighet' eller desertering under første verdenskrig. Mange led av det vi i dag kaller PTSD. Det britiske parlamentet beklaget formelt og benådet alle posthumt i 2006 — 90 år for sent.",
+                "reflectionQuestion": "Hva er grensen mellom lojalitet til staten og lojalitet til samvittigheten? Er det alltid galt å bryte en ordre?"
+            }
         },
         "random_granatsplint": {
             "id": "random_granatsplint",

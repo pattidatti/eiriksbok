@@ -1,0 +1,109 @@
+{
+  "id": "mat-og-skipsfart",
+  "title": "Maten din og havet",
+  "layout": "rich",
+  "year": "2024",
+  "category": "Skipsfart",
+  "readTime": "8 min lesning",
+  "heroImage": "/images/lessons/handel/mat-skipsfart-hero.webp",
+  "details": [
+    "Et eple fra New Zealand tilbakelegger 20 000 km til norske butikker",
+    "Ukraina og Russland leverer 30 % av verdens hvete",
+    "Sjømat er Norges nest største eksportnæring"
+  ],
+  "externalUrl": "https://snl.no/skipsfart",
+  "content": [
+    {
+      "type": "text",
+      "content": "I en norsk dagligvare-hylle kan du finne bananer fra Ecuador, laks oppdrettet med soya fra Brasil, ris fra Thailand, og apelsinejuice fra Florida. Denne variasjonen er ikke bare et resultat av smak — den er et resultat av at skipsfarten har gjort det billigere å frakte mat over en ocean enn å produsere den lokalt. Mat er blitt global."
+    },
+    {
+      "type": "header",
+      "text": "Containerens revolusjon"
+    },
+    {
+      "type": "text",
+      "content": "Malcom McLean, en lastebileier fra North Carolina, kom på en idé i 1956: hva om lastebilens lasteplan kunne løftes direkte opp på et skip? Han bygde verdens første containerskip og innledet en logistikkrvolusjon. Standardiserte containere — 20 eller 40 fot lange stålbokser — kan stabeles, fraktes med skip, løftes av kraner og settes direkte på lastebiler eller tog. Lastetiden ble redusert fra dager til timer."
+    },
+    {
+      "type": "text",
+      "content": "I dag er containerne selve symbolet på globalisering. Et moderne containerskip er nesten 400 meter langt og kan frakte 24 000 containere — hver fylt med klær, elektronikk, leketøy eller mat. Og det gjøres med et mannskap på kanskje 20 sjøfolk."
+    },
+    {
+      "type": "component",
+      "name": "ShipmentTracker",
+      "props": {
+        "title": "Hvor kommer maten din fra?",
+        "description": "Velg en matvare og se ruten den tar til norske butikker"
+      }
+    },
+    {
+      "type": "header",
+      "text": "Ukraina-krigen og brødkorven"
+    },
+    {
+      "type": "text",
+      "content": "I februar 2022 invaderte Russland Ukraina — og verden fikk raskt kjenne konsekvensene på matvaremarkedet. Ukraina og Russland er til sammen ansvarlige for rundt 30 prosent av verdens hveteksport og 60 prosent av solsikkeolje. Da krigshandlingene blokkerte havnene i Svartehavet, sluttet kornet å nå markeder i Nord-Afrika og Midtøsten."
+    },
+    {
+      "type": "text",
+      "content": "Det resulterte i en matkrise. Egypt, Tunisia og Libanon — land med høy brødavhengighet av ukrainsk hvete — opplevde dramatisk prisstigning. FN forhandlet frem en kornutekjørselsavtale som midlertidig åpnet havnene. Da Russland trakk seg fra avtalen sommeren 2023, gikk prisene opp igjen."
+    },
+    {
+      "type": "component",
+      "name": "FactBox",
+      "props": {
+        "title": "Norsk sjømateksport",
+        "facts": [
+          "Norge eksporterer sjømat til over 100 land",
+          "I 2023 eksporterte Norge sjømat for 155 milliarder kroner",
+          "Laks utgjør omtrent 70 % av norsk sjømateksport",
+          "En norsk laks kan ha spist soya produsert i Brasil"
+        ]
+      }
+    },
+    {
+      "type": "header",
+      "text": "Klimaets effekt på skipsfarten"
+    },
+    {
+      "type": "text",
+      "content": "Skipsfarten er ansvarlig for ca. 2,5 prosent av globale CO₂-utslipp — omtrent like mye som Tysklands totale utslipp. IMO (FNs sjøfartsorganisasjon) har satt ambisiøse mål: nullutslipp innen 2050. Det krever overgang til grønt hydrogen, ammoniakk eller metanol. Norsk skipsfartsindustri leder an med verden første nullutslipps-ferger og arbeider med hydrogen-drevne containerskip."
+    },
+    {
+      "type": "text",
+      "content": "Samtidig åpner klimaendringene Arktis. Den nordøstlige passasjen langs Russlands arktiske kyst — kjent som Nordøstpassasjen — er nå is-fri deler av året. Den kutter reiseavstanden fra Asia til Europa med 40 prosent sammenlignet med Suezkanalen. Russland tjener penger på å tilby isbrytere. Men ruten er fortsatt risikabel og politisk kompleks."
+    },
+    {
+      "type": "component",
+      "name": "Quiz",
+      "props": {
+        "questions": [
+          {
+            "question": "Hvem oppfant containerfrakt?",
+            "options": [
+              "En ingeniør fra IBM",
+              "En lastebileier fra North Carolina",
+              "Det japanske militæret etter WW2",
+              "Hamburgbørsen"
+            ],
+            "correct": 1,
+            "explanation": "Malcolm McLean, en lastebileier fra North Carolina, oppfant prinsippet om standardiserte containere i 1956. Hans idé om å løfte lastebilens lasteplan direkte opp på et skip revolusjonerte verdenshandelen."
+          },
+          {
+            "question": "Hva skjedde med matvareprisene da Russland invaderte Ukraina?",
+            "options": [
+              "De falt fordi alternative leverandører økte produksjonen",
+              "De var stabile fordi EU økte sin produksjon",
+              "Hveteprisene steg kraftig, spesielt i Nord-Afrika og Midtøsten",
+              "Ingenting særlig — markedet justerte seg raskt"
+            ],
+            "correct": 2,
+            "explanation": "Ukraina og Russland leverer til sammen ca. 30 % av verdens hvete. Da krigshandlingene blokkerte de ukrainske Svartehavshavnene, steg globale priser kraftig og skapte en matkrise i importavhengige land."
+          }
+        ]
+      }
+    }
+  ],
+  "timeline": []
+}

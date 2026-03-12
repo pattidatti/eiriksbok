@@ -1,5 +1,5 @@
 {
-  "buildId": 1773143931204,
+  "buildId": 1773306959154,
   "contentMap": {
     "adel": [
       "content/concepts/adel.json"
@@ -1252,6 +1252,9 @@
     "7-vanlige-plot": [
       "content/norsk/skrivehjelp/7-vanlige-plot.json"
     ],
+    "hvordan-drofte": [
+      "content/norsk/skrivehjelp/hvordan-drofte.json"
+    ],
     "hvordan-fore-kilder": [
       "content/norsk/skrivehjelp/hvordan-fore-kilder.json"
     ],
@@ -1533,6 +1536,24 @@
     ],
     "teknologi-helse": [
       "content/samfunnskunnskap/demografi/teknologi-helse.json"
+    ],
+    "energi-og-rorledninger": [
+      "content/samfunnskunnskap/handel-og-infrastruktur/energi-og-rorledninger.json"
+    ],
+    "global-handel-oversikt": [
+      "content/samfunnskunnskap/handel-og-infrastruktur/global-handel-oversikt.json"
+    ],
+    "handel-og-infrastruktur-sti": [
+      "content/samfunnskunnskap/handel-og-infrastruktur/handel-og-infrastruktur-sti.json"
+    ],
+    "internett-kabler": [
+      "content/samfunnskunnskap/handel-og-infrastruktur/internett-kabler.json"
+    ],
+    "mat-og-skipsfart": [
+      "content/samfunnskunnskap/handel-og-infrastruktur/mat-og-skipsfart.json"
+    ],
+    "saarbare-nettverk": [
+      "content/samfunnskunnskap/handel-og-infrastruktur/saarbare-nettverk.json"
     ],
     "det-unormale": [
       "content/samfunnskunnskap/ideer-og-verdenssyn/det-unormale.json"
@@ -2098,6 +2119,7 @@
     "norsk/setningsoppbygging/niva-3-v2-regelen": "content/norsk/setningsoppbygging/niva-3-v2-regelen.json",
     "norsk/setningsoppbygging/niva-4-leddsetninger": "content/norsk/setningsoppbygging/niva-4-leddsetninger.json",
     "norsk/skrivehjelp/7-vanlige-plot": "content/norsk/skrivehjelp/7-vanlige-plot.json",
+    "norsk/skrivehjelp/hvordan-drofte": "content/norsk/skrivehjelp/hvordan-drofte.json",
     "norsk/skrivehjelp/hvordan-fore-kilder": "content/norsk/skrivehjelp/hvordan-fore-kilder.json",
     "norsk/skrivehjelp/hvordan-lage-karakterer": "content/norsk/skrivehjelp/hvordan-lage-karakterer.json",
     "norsk/skrivehjelp/hvordan-skrive-dialog": "content/norsk/skrivehjelp/hvordan-skrive-dialog.json",
@@ -2194,6 +2216,12 @@
     "samfunnskunnskap/demografi/migrasjon-push-pull": "content/samfunnskunnskap/demografi/migrasjon-push-pull.json",
     "samfunnskunnskap/demografi/teknologi-helse": "content/samfunnskunnskap/demografi/teknologi-helse.json",
     "samfunnskunnskap/demografi/urbanisering": "content/samfunnskunnskap/demografi/urbanisering.json",
+    "samfunnskunnskap/handel-og-infrastruktur/energi-og-rorledninger": "content/samfunnskunnskap/handel-og-infrastruktur/energi-og-rorledninger.json",
+    "samfunnskunnskap/handel-og-infrastruktur/global-handel-oversikt": "content/samfunnskunnskap/handel-og-infrastruktur/global-handel-oversikt.json",
+    "samfunnskunnskap/handel-og-infrastruktur/handel-og-infrastruktur-sti": "content/samfunnskunnskap/handel-og-infrastruktur/handel-og-infrastruktur-sti.json",
+    "samfunnskunnskap/handel-og-infrastruktur/internett-kabler": "content/samfunnskunnskap/handel-og-infrastruktur/internett-kabler.json",
+    "samfunnskunnskap/handel-og-infrastruktur/mat-og-skipsfart": "content/samfunnskunnskap/handel-og-infrastruktur/mat-og-skipsfart.json",
+    "samfunnskunnskap/handel-og-infrastruktur/saarbare-nettverk": "content/samfunnskunnskap/handel-og-infrastruktur/saarbare-nettverk.json",
     "samfunnskunnskap/ideer-og-verdenssyn/casus-belli": "content/samfunnskunnskap/ideer-og-verdenssyn/casus-belli.json",
     "samfunnskunnskap/ideer-og-verdenssyn/det-unormale": "content/samfunnskunnskap/ideer-og-verdenssyn/det-unormale.json",
     "samfunnskunnskap/ideer-og-verdenssyn/eskatologi": "content/samfunnskunnskap/ideer-og-verdenssyn/eskatologi.json",

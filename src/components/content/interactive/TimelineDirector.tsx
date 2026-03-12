@@ -1,7 +1,16 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { motion, Reorder, AnimatePresence } from 'framer-motion';
 import confetti from 'canvas-confetti';
-import { Play, RotateCcw, Film, GripVertical } from 'lucide-react';
+import { Play, RotateCcw, Film, GripVertical, Trash2, Plus, PenLine } from 'lucide-react';
+
+interface DraftScene {
+    title: string;
+    description: string;
+    icon: string;
+    chronologicalOrder: string;
+}
+
+const EMPTY_DRAFT: DraftScene = { title: '', description: '', icon: '', chronologicalOrder: '' };
 
 interface TimelineDirectorProps {
     title?: string;
@@ -19,11 +28,14 @@ interface TimelineDirectorProps {
         effect: string;
         description: string;
     }[];
+    allowCustomScenes?: boolean;
 }
 
 type SceneWithTechnique = TimelineDirectorProps['scenes'][number] & {
     techniqueId?: string;
 };
+
+type Phase = 'create' | 'edit' | 'playing' | 'result';
 
 const EFFECT_CLASSES: Record<string, string> = {
     sepia: 'sepia brightness-90',
@@ -43,13 +55,72 @@ export const TimelineDirector = ({
     title = 'Regissørens klipperom',
     scenes,
     techniques,
+    allowCustomScenes,
 }: TimelineDirectorProps) => {
-    const [items, setItems] = useState<SceneWithTechnique[]>(() =>
-        [...scenes].sort(() => Math.random() - 0.5)
-    );
-    const [phase, setPhase] = useState<'edit' | 'playing' | 'result'>('edit');
+    const storageKey = `klipperommet_${(title ?? 'td').toLowerCase().replace(/\s+/g, '_')}`;
+
+    const [customScenes, setCustomScenes] = useState<SceneWithTechnique[]>(() => {
+        if (!allowCustomScenes) return [];
+        try {
+            const saved = localStorage.getItem(storageKey);
+            return saved ? JSON.parse(saved) : [];
+        } catch {
+            return [];
+        }
+    });
+
+    const [draft, setDraft] = useState<DraftScene>(EMPTY_DRAFT);
+    const [draftError, setDraftError] = useState('');
+
+    const [exampleMode, setExampleMode] = useState<boolean>(() => {
+        if (!allowCustomScenes) return false;
+        try {
+            const saved = localStorage.getItem(storageKey);
+            const savedScenes = saved ? JSON.parse(saved) : [];
+            return savedScenes.length < 3;
+        } catch {
+            return true;
+        }
+    });
+
+    const [phase, setPhase] = useState<Phase>(() => {
+        if (!allowCustomScenes) return 'edit';
+        try {
+            const saved = localStorage.getItem(storageKey);
+            const savedScenes = saved ? JSON.parse(saved) : [];
+            return savedScenes.length >= 3 ? 'edit' : 'edit';
+        } catch {
+            return 'edit';
+        }
+    });
+
+    const [items, setItems] = useState<SceneWithTechnique[]>(() => {
+        if (allowCustomScenes) {
+            try {
+                const saved = localStorage.getItem(storageKey);
+                const savedScenes: SceneWithTechnique[] = saved ? JSON.parse(saved) : [];
+                if (savedScenes.length >= 3) {
+                    return [...savedScenes]
+                        .sort(() => Math.random() - 0.5)
+                        .map((s) => ({ ...s, techniqueId: undefined }));
+                }
+            } catch {
+                // fall through
+            }
+            // No saved custom scenes — show the example (Lena's scenes)
+            return [...scenes].sort(() => Math.random() - 0.5);
+        }
+        return [...scenes].sort(() => Math.random() - 0.5);
+    });
+
     const [activeScene, setActiveScene] = useState(-1);
     const [score, setScore] = useState(0);
+
+    useEffect(() => {
+        if (allowCustomScenes) {
+            localStorage.setItem(storageKey, JSON.stringify(customScenes));
+        }
+    }, [customScenes, storageKey, allowCustomScenes]);
 
     const assignTechnique = (sceneId: string, techniqueId: string) => {
         setItems((prev) =>
@@ -62,6 +133,53 @@ export const TimelineDirector = ({
     };
 
     const getTechnique = (id?: string) => techniques.find((t) => t.id === id);
+
+    const addScene = () => {
+        setDraftError('');
+        if (!draft.title.trim()) {
+            setDraftError('Tittel er påkrevd.');
+            return;
+        }
+        if (!draft.description.trim()) {
+            setDraftError('Beskrivelse er påkrevd.');
+            return;
+        }
+        if ([...draft.icon].length !== 1) {
+            setDraftError('Ikon må være én emoji.');
+            return;
+        }
+        const order = parseInt(draft.chronologicalOrder, 10);
+        if (!draft.chronologicalOrder || isNaN(order) || order < 1 || order > 99) {
+            setDraftError('Kronologisk rekkefølge må være et tall mellom 1 og 99.');
+            return;
+        }
+        if (customScenes.length >= 6) {
+            setDraftError('Maks 6 scener.');
+            return;
+        }
+        const newScene: SceneWithTechnique = {
+            id: `custom-${Date.now()}`,
+            title: draft.title.trim(),
+            description: draft.description.trim(),
+            icon: draft.icon,
+            chronologicalOrder: order,
+        };
+        setCustomScenes((prev) => [...prev, newScene]);
+        setDraft(EMPTY_DRAFT);
+    };
+
+    const deleteScene = (id: string) => {
+        setCustomScenes((prev) => prev.filter((s) => s.id !== id));
+    };
+
+    const enterEditPhase = () => {
+        if (customScenes.length < 3) return;
+        const shuffled = [...customScenes]
+            .sort(() => Math.random() - 0.5)
+            .map((s) => ({ ...s, techniqueId: undefined }));
+        setItems(shuffled);
+        setPhase('edit');
+    };
 
     const calculateScore = useCallback(() => {
         let s = 0;
@@ -95,11 +213,35 @@ export const TimelineDirector = ({
         }
     };
 
-    const reset = () => {
-        setItems([...scenes].sort(() => Math.random() - 0.5).map((s) => ({ ...s, techniqueId: undefined })));
-        setPhase('edit');
+    const reset = (goToCreate = false) => {
         setActiveScene(-1);
         setScore(0);
+        if (goToCreate) {
+            setExampleMode(false);
+            setCustomScenes([]);
+            localStorage.removeItem(storageKey);
+            setDraft(EMPTY_DRAFT);
+            setDraftError('');
+            setItems([]);
+            setPhase('create');
+        } else if (exampleMode) {
+            setItems(
+                [...scenes].sort(() => Math.random() - 0.5).map((s) => ({ ...s, techniqueId: undefined }))
+            );
+            setPhase('edit');
+        } else if (allowCustomScenes) {
+            setItems(
+                [...customScenes]
+                    .sort(() => Math.random() - 0.5)
+                    .map((s) => ({ ...s, techniqueId: undefined }))
+            );
+            setPhase('edit');
+        } else {
+            setItems(
+                [...scenes].sort(() => Math.random() - 0.5).map((s) => ({ ...s, techniqueId: undefined }))
+            );
+            setPhase('edit');
+        }
     };
 
     const meterColor = score >= 70 ? 'bg-emerald-500' : score >= 40 ? 'bg-amber-500' : 'bg-red-500';
@@ -117,14 +259,186 @@ export const TimelineDirector = ({
                 <div>
                     <h3 className="font-bold text-lg">{title}</h3>
                     <p className="text-slate-400 text-sm">
-                        Dra scenene i den rekkefølgen du vil fortelle
+                        {phase === 'create'
+                            ? 'Skriv inn scenene fra din egen fortelling'
+                            : exampleMode
+                              ? 'Se eksempelet — dra scenene i din foretrukne rekkefølge'
+                              : 'Dra scenene i den rekkefølgen du vil fortelle'}
                     </p>
                 </div>
             </div>
 
             <div className="p-5">
+                {phase === 'create' && (
+                    <div>
+                        <p className="text-slate-600 text-sm mb-4">
+                            Skriv inn minst 3 scener fra fortellingen din. Du angir selv hvilken
+                            kronologisk rekkefølge de hører hjemme i — det er kjernen i øvelsen!
+                        </p>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            {/* Left: form */}
+                            <div className="space-y-3">
+                                <div>
+                                    <label className="text-xs font-medium text-slate-600 block mb-1">
+                                        Tittel
+                                    </label>
+                                    <input
+                                        type="text"
+                                        value={draft.title}
+                                        onChange={(e) =>
+                                            setDraft((d) => ({ ...d, title: e.target.value }))
+                                        }
+                                        placeholder="Kort tittel på scenen"
+                                        className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400"
+                                    />
+                                </div>
+                                <div>
+                                    <label className="text-xs font-medium text-slate-600 block mb-1">
+                                        Beskrivelse
+                                    </label>
+                                    <textarea
+                                        value={draft.description}
+                                        onChange={(e) =>
+                                            setDraft((d) => ({ ...d, description: e.target.value }))
+                                        }
+                                        placeholder="Hva skjer i denne scenen?"
+                                        rows={3}
+                                        className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400 resize-none"
+                                    />
+                                </div>
+                                <div className="flex gap-2">
+                                    <div className="flex-1">
+                                        <label className="text-xs font-medium text-slate-600 block mb-1">
+                                            Ikon (én emoji)
+                                        </label>
+                                        <div className="flex items-center gap-2">
+                                            <input
+                                                type="text"
+                                                value={draft.icon}
+                                                onChange={(e) =>
+                                                    setDraft((d) => ({ ...d, icon: e.target.value }))
+                                                }
+                                                placeholder="🎭"
+                                                className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400"
+                                            />
+                                            {draft.icon && (
+                                                <span className="text-2xl">{draft.icon}</span>
+                                            )}
+                                        </div>
+                                    </div>
+                                    <div className="flex-1">
+                                        <label className="text-xs font-medium text-slate-600 block mb-1">
+                                            Kronologisk nr. (1–99)
+                                        </label>
+                                        <input
+                                            type="number"
+                                            min={1}
+                                            max={99}
+                                            value={draft.chronologicalOrder}
+                                            onChange={(e) =>
+                                                setDraft((d) => ({
+                                                    ...d,
+                                                    chronologicalOrder: e.target.value,
+                                                }))
+                                            }
+                                            placeholder="1"
+                                            className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400"
+                                        />
+                                    </div>
+                                </div>
+                                {draftError && (
+                                    <p className="text-rose-600 text-xs">{draftError}</p>
+                                )}
+                                <button
+                                    onClick={addScene}
+                                    disabled={customScenes.length >= 6}
+                                    className="flex items-center gap-2 bg-amber-500 hover:bg-amber-400 disabled:opacity-40 disabled:cursor-not-allowed text-white font-semibold px-4 py-2 rounded-lg text-sm transition-colors w-full justify-center"
+                                >
+                                    <Plus className="w-4 h-4" /> Legg til scene
+                                </button>
+                            </div>
+
+                            {/* Right: scene list */}
+                            <div>
+                                <div className="flex items-center justify-between mb-2">
+                                    <span className="text-xs font-medium text-slate-500">
+                                        {customScenes.length}/6 scener · min 3
+                                    </span>
+                                    {customScenes.length >= 1 && (
+                                        <button
+                                            onClick={() => {
+                                                setCustomScenes([]);
+                                                localStorage.removeItem(storageKey);
+                                                setDraft(EMPTY_DRAFT);
+                                                setDraftError('');
+                                            }}
+                                            className="flex items-center gap-1 text-xs text-slate-400 hover:text-rose-500 transition-colors"
+                                        >
+                                            <RotateCcw className="w-3 h-3" /> Nullstill
+                                        </button>
+                                    )}
+                                </div>
+                                <div className="space-y-2">
+                                    {customScenes.map((s, idx) => (
+                                        <div
+                                            key={s.id}
+                                            className="flex items-start gap-2 bg-slate-50 rounded-lg border border-slate-200 p-3"
+                                        >
+                                            <span className="text-lg mt-0.5">{s.icon}</span>
+                                            <div className="flex-1 min-w-0">
+                                                <p className="font-semibold text-sm text-slate-800 truncate">
+                                                    {idx + 1}. {s.title}
+                                                </p>
+                                                <p className="text-xs text-slate-500 truncate">
+                                                    {s.description}
+                                                </p>
+                                                <p className="text-xs text-amber-600 mt-0.5">
+                                                    Kronologisk: {s.chronologicalOrder}
+                                                </p>
+                                            </div>
+                                            <button
+                                                onClick={() => deleteScene(s.id)}
+                                                className="text-slate-300 hover:text-rose-500 transition-colors flex-shrink-0 mt-0.5"
+                                            >
+                                                <Trash2 className="w-4 h-4" />
+                                            </button>
+                                        </div>
+                                    ))}
+                                    {Array.from({
+                                        length: Math.max(0, 3 - customScenes.length),
+                                    }).map((_, i) => (
+                                        <div
+                                            key={`empty-${i}`}
+                                            className="border-2 border-dashed border-slate-200 rounded-lg p-3 flex items-center justify-center"
+                                        >
+                                            <span className="text-xs text-slate-300">
+                                                Scene {customScenes.length + i + 1}
+                                            </span>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="mt-5 flex justify-center">
+                            <button
+                                onClick={enterEditPhase}
+                                disabled={customScenes.length < 3}
+                                className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-500 disabled:opacity-40 disabled:cursor-not-allowed text-white font-bold px-6 py-2.5 rounded-lg transition-colors"
+                            >
+                                <Film className="w-4 h-4" /> Klar til klipperommet!
+                            </button>
+                        </div>
+                    </div>
+                )}
+
                 {phase === 'edit' && (
                     <>
+                        {exampleMode && allowCustomScenes && (
+                            <div className="mb-4 bg-amber-50 border border-amber-200 rounded-lg px-4 py-3 text-sm text-amber-800">
+                                📽️ Dette er et eksempel — se hvordan scenene kan settes sammen!
+                            </div>
+                        )}
                         <Reorder.Group
                             axis="y"
                             values={items}
@@ -284,14 +598,39 @@ export const TimelineDirector = ({
                             </p>
                         </div>
 
-                        <div className="flex justify-center">
+                        <div className="flex justify-center gap-3 flex-wrap">
                             <button
-                                onClick={reset}
+                                onClick={() => reset()}
                                 className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-500
                                     text-white font-semibold px-6 py-2.5 rounded-full transition-colors"
                             >
                                 <RotateCcw className="w-4 h-4" /> Prøv igjen
                             </button>
+                            {exampleMode && allowCustomScenes && (
+                                <button
+                                    onClick={() => {
+                                        setExampleMode(false);
+                                        setCustomScenes([]);
+                                        setItems([]);
+                                        setDraft(EMPTY_DRAFT);
+                                        setDraftError('');
+                                        setPhase('create');
+                                    }}
+                                    className="flex items-center gap-2 bg-amber-500 hover:bg-amber-400
+                                        text-white font-bold px-6 py-2.5 rounded-full transition-colors"
+                                >
+                                    <PenLine className="w-4 h-4" /> Lag din egen fortelling
+                                </button>
+                            )}
+                            {!exampleMode && allowCustomScenes && (
+                                <button
+                                    onClick={() => reset(true)}
+                                    className="flex items-center gap-2 bg-slate-700 hover:bg-slate-600
+                                        text-white font-semibold px-6 py-2.5 rounded-full transition-colors"
+                                >
+                                    <PenLine className="w-4 h-4" /> Lag ny fortelling
+                                </button>
+                            )}
                         </div>
                     </motion.div>
                 )}

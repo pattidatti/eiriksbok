@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Brain, HelpCircle, Clock, Sword, MessageCircle, ArrowRight, Gamepad2, Plane, History, Users, Search, Compass, Hourglass, Castle } from 'lucide-react';
+import { Brain, HelpCircle, Clock, MessageCircle, ArrowRight, Gamepad2, Plane, History, Users, Search, Compass, Hourglass, Castle } from 'lucide-react';
 
 export const PracticePage: React.FC = () => {
     const modules = [
@@ -37,14 +37,6 @@ export const PracticePage: React.FC = () => {
             link: '/tidslinje'
         },
         {
-            id: 'dungeon',
-            title: 'Fangehull-spillet',
-            description: 'Utforsk fangehullet og løs oppgaver for å overleve.',
-            icon: Sword,
-            color: 'bg-red-600',
-            link: '/oving/dungeon'
-        },
-        {
             id: 'rhetoric',
             title: 'Retorikk-spillet',
             description: 'Mestre etos, patos og logos i dette spillet.',
@@ -75,14 +67,6 @@ export const PracticePage: React.FC = () => {
             icon: History,
             color: 'bg-emerald-500',
             link: '/oving/chrono'
-        },
-        {
-            id: 'timeline-td',
-            title: 'Tidslinje Forsvar',
-            description: 'Forsvar historien mot angrep i dette Tårnforsvar-spillet!',
-            icon: Sword, // Reusing Sword or could use Shield if imported
-            color: 'bg-rose-500',
-            link: '/oving/tidslinje-td'
         },
         {
             id: 'quiz-battle',

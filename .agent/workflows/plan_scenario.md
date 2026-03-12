@@ -27,6 +27,7 @@ Bruk det oppgitte konseptet til å brainstorme:
     *   Eks. Kald krig: `tillit`, `propaganda`, `øst_vest_spenning`
 *   **Hub-noden:** Hva er "hjemmebasen"? (En leir, et marked, en by — brukes som navigasjonspunkt mellom hendelser)
 *   **2-3 sentrale Hendelser/Valg:** Hva er de viktigste historisk meningsfulle valgene eleven tar?
+*   **Narrative flags:** Hva er de 2–4 viktigste hendelsene eleven kan ta med seg gjennom historien? (Eks. `hjalp_fienden`, `nektet_ordre`, `ofret_seg`). Flags er ikke tall — de er hendelser som påvirker epilog og låser/åpner valg.
 
 ---
 
@@ -47,14 +48,14 @@ Fyll ut med spesifikt og konkret innhold — ikke generiske plassholdere. Bluepr
 
 ### Nodeflyt (Minst 8 noder)
 
-| Node ID | Type | Beskrivelse | Valg/Utganger | Faglig kobling |
-| :--- | :--- | :--- | :--- | :--- |
-| `intro` | Narrativ | Ankomstscene | -> `hub_[navn]` | Historisk kontekst |
-| `hub_[navn]` | Hub/Kart | Hjemmebasen | 3-4 lokasjoner | Oversikt/navigasjon |
-| `[hendelse_1]` | Narrativ | ... | Valg A, Valg B | ... |
-| `[minigame_1]` | Battle/Dice/Justice | ... | Win -> ..., Loss -> ... | ... |
-| `victory` | Ending | Seierscene | — | Refleksjon |
-| `defeat` | Ending | Tap-scene | — | Refleksjon |
+| Node ID | Type | Beskrivelse | Valg/Utganger | Faglig kobling | Flags/Discovery/Ethics |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| `intro` | Narrativ | Ankomstscene | -> `hub_[navn]` | Historisk kontekst | `discoveryEvent` |
+| `hub_[navn]` | Hub/Kart | Hjemmebasen | 3-4 lokasjoner | Oversikt/navigasjon | — |
+| `[hendelse_1]` | Narrativ | ... | Valg A (`setFlags`), Valg B | ... | `ethicsLens`, `setFlags` |
+| `[minigame_1]` | Battle/Dice/Justice | ... | Win -> ..., Loss -> ... | ... | — |
+| `victory` | Ending | Seierscene | — | Refleksjon | `epilogue` med flag-entries |
+| `defeat` | Ending | Tap-scene | — | Refleksjon | `epilogue` med flag-entries |
 
 ### Gjenstander & Crafting (valgfritt)
 *   List opp 2-4 items som er narrativt meningsfulle

@@ -29,14 +29,25 @@ export interface ChronosEffect {
 }
 
 export interface ChronosCondition {
-    statId: string;
-    operator: '>' | '<' | '>=' | '<=' | '==';
-    value: number;
+    // Stat-based condition
+    statId?: string;
+    operator?: '>' | '<' | '>=' | '<=' | '==';
+    value?: number;
+    // Prinsipp 1: Flag-based condition
+    hasFlag?: string;
+    lacksFlag?: string;
 }
 
 export interface ChronosEnvironment {
     time: 'day' | 'night' | 'dawn' | 'dusk';
     weather: 'clear' | 'rain' | 'fog' | 'storm';
+}
+
+// Prinsipp 6: Ethics lens – three philosophical perspectives shown post-choice
+export interface ChronosEthicsLens {
+    deontological: string;    // Pliktetikk (Kant)
+    consequentialist: string; // Konsekvensetikk (Utilitarisme)
+    virtue: string;           // Dygdsetikk
 }
 
 export interface ChronosChoice {
@@ -56,9 +67,12 @@ export interface ChronosChoice {
     };
     // Environment System
     updateEnvironment?: Partial<ChronosEnvironment>;
+    // Prinsipp 1: Flag System – narrative memory
+    setFlags?: string[];
+    clearFlags?: string[];
+    // Prinsipp 6: Ethics Lens
+    ethicsLens?: ChronosEthicsLens;
 }
-
-
 
 export interface ChronosMapPoint {
     id: string;
@@ -67,6 +81,40 @@ export interface ChronosMapPoint {
     label: string;
     icon?: string; // Lucide icon name
     nextNodeId: string;
+}
+
+// Prinsipp 3: Discovery event – historical anchor shown when entering the node
+export interface ChronosDiscoveryEvent {
+    title: string;
+    fact: string;
+    articleLink?: string;
+    reflectionQuestion?: string;
+}
+
+// Prinsipp 2: NPC tone – stat-driven dialogue variation
+export interface ChronosNPCDialogue {
+    statId: string;
+    cold: string;    // Low relation value
+    neutral: string; // Mid relation value
+    warm: string;    // High relation value
+    thresholds?: {
+        coldBelow?: number; // % of max below which tone is cold (default 33)
+        warmAbove?: number; // % of max above which tone is warm (default 66)
+    };
+}
+
+// Prinsipp 5: Personalized epilogue entry, gated by narrative flags
+export interface ChronosEpilogueEntry {
+    hasFlag?: string;
+    lacksFlag?: string;
+    text: string;
+}
+
+// Prinsipp 5: Full epilogue block for end nodes
+export interface ChronosEpilogue {
+    entries: ChronosEpilogueEntry[];  // Flag-gated personalized lines
+    historicalEcho: string;           // What actually happened historically
+    reflectionQuestion: string;       // Open question for the class
 }
 
 export interface ChronosNode {
@@ -86,6 +134,15 @@ export interface ChronosNode {
         image: string;
         points: ChronosMapPoint[];
     };
+
+    // Prinsipp 3: Discovery Event
+    discoveryEvent?: ChronosDiscoveryEvent;
+
+    // Prinsipp 2: NPC Dialogue Tones
+    npcDialogue?: ChronosNPCDialogue;
+
+    // Prinsipp 5: Epilogue (for isEnd nodes)
+    epilogue?: ChronosEpilogue;
 }
 
 export interface ChronosEntry {

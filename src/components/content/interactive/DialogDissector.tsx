@@ -138,7 +138,7 @@ export const DialogDissector = ({
                                     {/* Multiple choice options */}
                                     <AnimatePresence>
                                         {isActive && !revealed && (
-                                            <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={spring} className={`max-w-[85%] overflow-hidden mt-1 ${right ? 'self-end' : 'self-start'}`}>
+                                            <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={spring} className={`max-w-[85%] overflow-hidden mt-1 px-1 ${right ? 'self-end' : 'self-start'}`}>
                                                 <p className="text-xs text-slate-500 font-medium mb-1.5 px-1">
                                                     Hva mener {line.speaker} egentlig?
                                                 </p>

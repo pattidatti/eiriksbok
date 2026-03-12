@@ -29,7 +29,6 @@ export const routeFactories: Record<string, PageFactory> = {
     QuizHost: () => import('./pages/quiz/QuizHost').then(module => ({ default: module.QuizHost })),
     QuizPlayer: () => import('./pages/quiz/QuizPlayer').then(module => ({ default: module.QuizPlayer })),
     ChronoGamePage: () => import('./pages/ChronoGamePage'),
-    DungeonGamePage: () => import('./pages/DungeonGamePage'),
     StatsPage: () => import('./pages/StatsPage').then(module => ({ default: module.StatsPage })),
     AdminDashboard: () => import('./pages/admin/AdminDashboard').then(module => ({ default: module.AdminDashboard })),
     ContentInventory: () => import('./pages/admin/ContentInventory').then(module => ({ default: module.ContentInventory })),
@@ -38,7 +37,6 @@ export const routeFactories: Record<string, PageFactory> = {
     RhetoricGamePage: () => import('./pages/RhetoricGamePage').then(module => ({ default: module.RhetoricGamePage })),
     HangmanPage: () => import('./pages/HangmanPage').then(module => ({ default: module.HangmanPage })),
     ChronoGliderPage: () => import('./games/chrono-glider/ChronoGliderPage'),
-    TimelineTDPage: () => import('./pages/TimelineTDPage'),
     WordSorterGame: () => import('./games/word-sorter/WordSorterGame'),
     ConceptSnakeGame: () => import('./games/concept-snake/ConceptSnakeGame'),
     PersonGallery: () => import('./pages/PersonGallery').then(module => ({ default: module.PersonGallery })),
@@ -53,5 +51,6 @@ export const routeFactories: Record<string, PageFactory> = {
     PresentationPage: () => import('./pages/PresentationPage').then(module => ({ default: module.PresentationPage })),
     LearningPathsHub: () => import('./pages/LearningPathsHub').then(module => ({ default: module.LearningPathsHub })),
     CompositionTool: () => import('./features/music/components/composition/CompositionTool').then(module => ({ default: module.CompositionTool })),
+    InfrastrukturAtlas: () => import('./features/infrastruktur/InfrastrukturAtlasPage').then(module => ({ default: module.InfrastrukturAtlasPage })),
 };
 

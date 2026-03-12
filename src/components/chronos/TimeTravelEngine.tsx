@@ -18,6 +18,8 @@ export const TimeTravelEngine: React.FC<TimeTravelEngineProps> = ({ scenarioId }
     const [inventory, setInventory] = useState<string[]>([]);
     const [environment, setEnvironment] = useState<Partial<ChronosEnvironment>>({ time: 'day', weather: 'clear' });
     const [journal, setJournal] = useState<ChronosEntry[]>([]);
+    // Prinsipp 1: Narrative flags
+    const [flags, setFlags] = useState<string[]>([]);
 
     // Profile Context
     const { profile, saveRun, unlockScenario, addLegacyItem } = useTimeTravelProfile();
@@ -85,6 +87,14 @@ export const TimeTravelEngine: React.FC<TimeTravelEngineProps> = ({ scenarioId }
             setEnvironment(prev => ({ ...prev, ...choice.updateEnvironment }));
         }
 
+        // 3b. Update Flags (Prinsipp 1)
+        if (choice.setFlags && choice.setFlags.length > 0) {
+            setFlags(prev => [...new Set([...prev, ...choice.setFlags!])]);
+        }
+        if (choice.clearFlags && choice.clearFlags.length > 0) {
+            setFlags(prev => prev.filter(f => !choice.clearFlags!.includes(f)));
+        }
+
         // 4. Navigate to Next Node
         let targetNodeId = choice.nextNodeId;
 
@@ -137,6 +147,7 @@ export const TimeTravelEngine: React.FC<TimeTravelEngineProps> = ({ scenarioId }
             setInventory([...legacyItems]);
 
             setJournal([]);
+            setFlags([]); // Reset narrative flags
             setCurrentNodeId(scenario.startingNodeId);
         }
     };
@@ -181,6 +192,7 @@ export const TimeTravelEngine: React.FC<TimeTravelEngineProps> = ({ scenarioId }
                 inventory={inventory}
                 environment={environment}
                 journal={journal}
+                flags={flags}
                 config={scenario.config}
                 onChoice={handleChoice}
                 onAddJournalEntry={(text) => setJournal(prev => [...prev, { day: journal.length + 1, text, timestamp: Date.now() }])}

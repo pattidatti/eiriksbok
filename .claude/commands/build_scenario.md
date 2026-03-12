@@ -77,6 +77,18 @@ Bygg ut ALLE noder definert i blueprinten. Hvert node-objekt:
   "speaker": "Forteller|[Karakternavn]",
   "backgroundImage": "/images/chronos/[filnavn].webp",
   "uiType": "map",
+  "discoveryEvent": {
+    "title": "Historisk faktum",
+    "fact": "1-2 setninger med ekte historisk data.",
+    "articleLink": "/fag/emne/artikkel",
+    "reflectionQuestion": "Hva tenker du om...?"
+  },
+  "npcDialogue": {
+    "statId": "rel_[navn]",
+    "cold": "Han snur seg bort.",
+    "neutral": "'Hva vil du?'",
+    "warm": "'[Navn]! Kom og sett deg.'"
+  },
   "journalPrompt": "Hva mener du om...",
   "choices": [ ... ]
 }
@@ -87,6 +99,8 @@ Bygg ut ALLE noder definert i blueprinten. Hvert node-objekt:
 *   `journalPrompt` — Bruk ved viktige veiskiller (før stor konflikt, etter minigame). Tving refleksjon.
 *   `backgroundImage` — Alltid `/images/chronos/[beskrivende-filnavn].webp`. Filen trenger ikke eksistere ennå.
 *   `speaker` — Bruk "Forteller" for narratorscener. Bruk karakternavn for dialog.
+*   `discoveryEvent` — Bruk ved historisk viktige noder (første gang eleven møter en realitet: gassangrep, krigsrett, hungersnød). Kun én per node. Vises automatisk første gang eleven besøker noden. Bruk på minst 1–2 noder i scenariet.
+*   `npcDialogue` — Bruk på noder der en NPC snakker og det finnes en `rel_[navn]`-stat. Velg `statId` lik den aktuelle relasjonens stat-ID. Relasjonsverdien styrer hvilken tone som vises automatisk.
 
 ### 2.4 Valg (choices)
 
@@ -96,6 +110,17 @@ Bygg ut ALLE noder definert i blueprinten. Hvert node-objekt:
   "text": "Handlingsrettet valgtext (verb + konsekvens-hint)",
   "nextNodeId": "neste_node",
   "effects": { "stat_id": 10, "annen_stat": -5 },
+  "setFlags": ["flagg_id"],
+  "clearFlags": ["flagg_som_fjernes"],
+  "condition": {
+    "hasFlag": "krev_dette_flagget",
+    "lacksFlag": "blokker_hvis_dette_flagget"
+  },
+  "ethicsLens": {
+    "deontological": "Kant: ...",
+    "consequentialist": "Utilitarisme: ...",
+    "virtue": "Aristoteles: ..."
+  },
   "updateInventory": { "add": "item_id" },
   "checkInventory": { "hasItem": "item_id" },
   "updateEnvironment": { "time": "day|night", "weather": "rain|clear" }
@@ -105,6 +130,9 @@ Bygg ut ALLE noder definert i blueprinten. Hvert node-objekt:
 *   Hvert valg skal ha **minst ett `effects`-objekt** (stats endres alltid).
 *   Bruk `checkInventory` for valg som krever en gjenstand — disse låses automatisk i UI.
 *   Skriv valgtext slik at eleven forstår den historiske implikasjonen.
+*   `setFlags` — bruk på valg som representerer en *hendelse* eleven husker (hjalp fienden, nektet ordre, tok gjenstand). Snake_case. Flag-IDer må være konsistente på tvers av hele scenariet.
+*   `condition.hasFlag` / `condition.lacksFlag` — brukes i stedet for (eller i tillegg til) stat-betingelser for å låse/åpne valg basert på hendelser.
+*   `ethicsLens` — bruk på valg med moralsk vekt. Aktiveres kun dersom eleven har slått på etikk-modus i HUD. Gir tre filosofiske perspektiver i en pause-modal før eleven bekrefter valget.
 
 ### 2.5 Minispill-noder
 
@@ -161,7 +189,30 @@ Alltid inkludér minst to avslutningsnoder:
 *   **`victory`** — Positiv avslutning. Inkludér `journalPrompt` som oppsummerer hva eleven lærte.
 *   **`defeat`** — Negativ avslutning. Reflekter over hva som gikk galt historisk.
 
-Avslutningsnoder har `"choices": []` (tom liste).
+Avslutningsnoder har `"choices": []` (tom liste) og **skal alltid ha `epilogue`**:
+
+```json
+"slutt_victory": {
+  "id": "slutt_victory",
+  "text": "...",
+  "isEnd": true,
+  "endType": "victory",
+  "choices": [],
+  "epilogue": {
+    "entries": [
+      { "hasFlag": "flagg_id", "text": "Personalisert linje basert på hva som skjedde." },
+      { "lacksFlag": "flagg_id", "text": "Alternativ linje." }
+    ],
+    "historicalEcho": "Hva skjedde faktisk i denne perioden historisk sett.",
+    "reflectionQuestion": "Ett åpent spørsmål til klassen."
+  }
+}
+```
+
+**Regler:**
+*   Minst én `entries`-oppføring per viktig flagg i scenariet.
+*   `historicalEcho` kobler fiksjon til fakta — det som faktisk skjedde historisk.
+*   `reflectionQuestion` er rettet mot klassen, ikke spilleren — brukes som samtalestart.
 
 ---
 
@@ -174,6 +225,10 @@ Sjekk at:
 - [ ] Alle `effects`-nøkler matcher en `id` i `config.stats`.
 - [ ] `startingNodeId` finnes i `nodes`.
 - [ ] Ingen node mangler `choices`-array (selv om den er tom).
+- [ ] `setFlags`-IDer er konsistente — samme streng brukt på tvers av `setFlags`, `hasFlag`, `lacksFlag` og `epilogue.entries`.
+- [ ] Alle end-noder har `epilogue` med minst én `historicalEcho`.
+- [ ] Noder med `npcDialogue` peker på en `statId` som finnes i `config.stats`.
+- [ ] `discoveryEvent` er brukt på minst 1–2 noder i scenariet.
 
 ---
 

@@ -50,6 +50,7 @@ const LEVEL_COLORS: Record<
         gradient: string;
         glow: string;
         step: string;
+        leftColor: string;
     }
 > = {
     red: {
@@ -60,6 +61,7 @@ const LEVEL_COLORS: Record<
         gradient: 'from-red-400 to-red-500',
         glow: 'shadow-red-200',
         step: 'bg-red-400',
+        leftColor: '#fca5a5',
     },
     yellow: {
         bg: 'bg-amber-50',
@@ -69,6 +71,7 @@ const LEVEL_COLORS: Record<
         gradient: 'from-amber-400 to-amber-500',
         glow: 'shadow-amber-200',
         step: 'bg-amber-400',
+        leftColor: '#fcd34d',
     },
     green: {
         bg: 'bg-emerald-50',
@@ -78,6 +81,7 @@ const LEVEL_COLORS: Record<
         gradient: 'from-emerald-400 to-emerald-500',
         glow: 'shadow-emerald-200',
         step: 'bg-emerald-400',
+        leftColor: '#6ee7b7',
     },
     gold: {
         bg: 'bg-yellow-50',
@@ -87,6 +91,7 @@ const LEVEL_COLORS: Record<
         gradient: 'from-yellow-400 to-amber-500',
         glow: 'shadow-yellow-300',
         step: 'bg-yellow-400',
+        leftColor: '#fbbf24',
     },
 };
 
@@ -192,101 +197,138 @@ export const ArgumentScaffold: React.FC<ArgumentScaffoldProps> = ({
             </p>
 
             {/* Staircase visualization */}
-            <div className="relative mb-6 flex flex-col-reverse gap-2">
-                {levels.map((level, i) => {
-                    const colors = LEVEL_COLORS[level.color] || LEVEL_COLORS.yellow;
-                    const isExpanded = expandedLevel === level.id;
-                    const isReached =
-                        isClimbing && i <= climbProgress;
-                    const isCurrent = isClimbing && i === climbProgress;
+            <div className="relative mb-6 flex flex-row gap-3">
+                {/* Left rail column */}
+                <div className="flex w-7 shrink-0 flex-col items-center gap-1">
+                    <span
+                        className="shrink-0 text-[9px] font-semibold uppercase tracking-widest text-slate-400"
+                        style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
+                    >
+                        HØYERE NIVÅ ↑
+                    </span>
+                    <div className="w-1 flex-1 rounded-full bg-gradient-to-b from-yellow-400 via-emerald-400 to-red-400 opacity-60" />
+                </div>
 
-                    return (
-                        <motion.div
-                            key={level.id}
-                            layout
-                            onClick={() => toggleLevel(level.id)}
-                            className={`cursor-pointer rounded-xl border-2 transition-all ${
-                                isReached
-                                    ? `${colors.border} ${colors.bg} shadow-lg ${colors.glow}`
-                                    : isExpanded
-                                      ? `${colors.border} ${colors.bg}`
-                                      : 'border-slate-200 bg-white hover:border-slate-300'
-                            }`}
-                            style={{ marginLeft: `${i * 16}px` }}
-                        >
-                            <div className="flex items-center gap-3 p-3">
-                                {/* Step indicator */}
-                                <div
-                                    className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-sm font-bold text-white ${
+                {/* Card column */}
+                <div className="flex flex-1 flex-col-reverse gap-2">
+                    {levels.map((level, i) => {
+                        const colors = LEVEL_COLORS[level.color] || LEVEL_COLORS.yellow;
+                        const isExpanded = expandedLevel === level.id;
+                        const isReached = isClimbing && i <= climbProgress;
+                        const isCurrent = isClimbing && i === climbProgress;
+
+                        return (
+                            <React.Fragment key={level.id}>
+                                <motion.div
+                                    key={`card-${level.id}`}
+                                    layout
+                                    onClick={() => toggleLevel(level.id)}
+                                    className={`cursor-pointer rounded-xl border transition-all ${
                                         isReached
-                                            ? `bg-gradient-to-br ${colors.gradient}`
-                                            : 'bg-slate-300'
+                                            ? `${colors.border} ${colors.bg} shadow-lg ${colors.glow}`
+                                            : isExpanded
+                                              ? `${colors.border} ${colors.bg}`
+                                              : 'border-slate-200 bg-white hover:border-slate-300'
                                     }`}
+                                    style={{
+                                        borderLeftWidth: `${(i + 1) * 1.5}px`,
+                                        borderLeftColor:
+                                            isReached || isExpanded
+                                                ? colors.leftColor
+                                                : '#e2e8f0',
+                                    }}
                                 >
-                                    {isReached && i <= climbProgress ? (
-                                        <CheckCircle2 size={16} />
-                                    ) : (
-                                        i + 1
-                                    )}
-                                </div>
-
-                                <div className="flex-1">
-                                    <div className="flex items-center gap-2">
-                                        <span
-                                            className={`rounded-md px-2 py-0.5 text-xs font-semibold ${
-                                                isReached || isExpanded
-                                                    ? colors.badge
-                                                    : 'bg-slate-100 text-slate-500'
-                                            }`}
-                                        >
-                                            {level.name}
-                                        </span>
-                                        {isCurrent && (
-                                            <motion.span
-                                                initial={{ opacity: 0 }}
-                                                animate={{ opacity: 1 }}
-                                                className="text-xs text-emerald-600 font-medium"
-                                            >
-                                                ← du er her
-                                            </motion.span>
-                                        )}
-                                    </div>
-                                </div>
-
-                                {!isClimbing && (
-                                    <div className="text-slate-400">
-                                        {isExpanded ? (
-                                            <ChevronUp size={16} />
+                                    <div className="flex items-center gap-3 p-3">
+                                        {/* Dot stack quality indicator */}
+                                        {isReached ? (
+                                            <CheckCircle2
+                                                size={16}
+                                                className={`shrink-0 ${colors.text}`}
+                                            />
                                         ) : (
-                                            <ChevronDown size={16} />
+                                            <div className="flex shrink-0 flex-col gap-0.5 py-0.5">
+                                                {Array.from({ length: levels.length }).map(
+                                                    (_, dotIdx) => (
+                                                        <div
+                                                            key={dotIdx}
+                                                            className={`h-2 w-2 rounded-full transition-all ${
+                                                                dotIdx < i + 1
+                                                                    ? colors.step
+                                                                    : 'bg-slate-200'
+                                                            }`}
+                                                        />
+                                                    )
+                                                )}
+                                            </div>
+                                        )}
+
+                                        <div className="flex-1">
+                                            <div className="flex items-center gap-2">
+                                                <span
+                                                    className={`rounded-md px-2 py-0.5 text-xs font-semibold ${
+                                                        isReached || isExpanded
+                                                            ? colors.badge
+                                                            : 'bg-slate-100 text-slate-500'
+                                                    }`}
+                                                >
+                                                    {level.name}
+                                                </span>
+                                                {isCurrent && (
+                                                    <motion.span
+                                                        initial={{ opacity: 0 }}
+                                                        animate={{ opacity: 1 }}
+                                                        className="text-xs text-emerald-600 font-medium"
+                                                    >
+                                                        ← du er her
+                                                    </motion.span>
+                                                )}
+                                            </div>
+                                        </div>
+
+                                        {!isClimbing && (
+                                            <div className="text-slate-400">
+                                                {isExpanded ? (
+                                                    <ChevronUp size={16} />
+                                                ) : (
+                                                    <ChevronDown size={16} />
+                                                )}
+                                            </div>
                                         )}
                                     </div>
-                                )}
-                            </div>
 
-                            {/* Expanded content */}
-                            <AnimatePresence>
-                                {(isExpanded || isReached) && (
-                                    <motion.div
-                                        initial={{ opacity: 0, height: 0 }}
-                                        animate={{ opacity: 1, height: 'auto' }}
-                                        exit={{ opacity: 0, height: 0 }}
-                                        className="overflow-hidden"
-                                    >
-                                        <div className="border-t border-slate-100 px-3 pb-3 pt-2">
-                                            <p className="mb-2 text-sm leading-relaxed text-slate-700 italic">
-                                                &laquo;{level.example}&raquo;
-                                            </p>
-                                            <p className="text-xs text-slate-500">
-                                                {level.explanation}
-                                            </p>
-                                        </div>
-                                    </motion.div>
+                                    {/* Expanded content */}
+                                    <AnimatePresence>
+                                        {(isExpanded || isReached) && (
+                                            <motion.div
+                                                initial={{ opacity: 0, height: 0 }}
+                                                animate={{ opacity: 1, height: 'auto' }}
+                                                exit={{ opacity: 0, height: 0 }}
+                                                className="overflow-hidden"
+                                            >
+                                                <div className="border-t border-slate-100 px-3 pb-3 pt-2">
+                                                    <p className="mb-2 text-sm leading-relaxed text-slate-700 italic">
+                                                        &laquo;{level.example}&raquo;
+                                                    </p>
+                                                    <p className="text-xs text-slate-500">
+                                                        {level.explanation}
+                                                    </p>
+                                                </div>
+                                            </motion.div>
+                                        )}
+                                    </AnimatePresence>
+                                </motion.div>
+
+                                {i < levels.length - 1 && !isClimbing && (
+                                    <div className="flex justify-end pr-2">
+                                        <span className="text-[10px] text-slate-400 italic">
+                                            stig opp ↑
+                                        </span>
+                                    </div>
                                 )}
-                            </AnimatePresence>
-                        </motion.div>
-                    );
-                })}
+                            </React.Fragment>
+                        );
+                    })}
+                </div>
             </div>
 
             {/* Climb mode controls */}
