@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { AlertTriangle, Clock, XCircle, CheckCircle, HeartPulse } from 'lucide-react';
+import { AlertTriangle, Clock, XCircle, HeartPulse } from 'lucide-react';
 import type { ChronosEffect } from '../../../data/chronos/types';
 
 interface Patient {
