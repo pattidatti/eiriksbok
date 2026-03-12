@@ -1,13 +1,20 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Layers, X } from 'lucide-react';
 import { AtlasMap } from './components/AtlasMap';
 import { LayerPanel } from './components/LayerPanel';
 import { InfoPanel } from './components/InfoPanel';
 import { StatsBar } from './components/StatsBar';
+import { useLayout } from '../../context/LayoutContext';
 
 export function InfrastrukturAtlasPage() {
     const [mobileLayersOpen, setMobileLayersOpen] = useState(false);
+    const { setHideHeader } = useLayout();
+
+    useEffect(() => {
+        setHideHeader(true);
+        return () => setHideHeader(false);
+    }, [setHideHeader]);
 
     return (
         <div className="flex flex-col h-screen bg-[#0b1120] text-white overflow-hidden">

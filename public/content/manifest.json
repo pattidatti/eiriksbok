@@ -813,6 +813,21 @@
               ],
               "createdDate": "2026-02-02T13:55:57+01:00",
               "lastUpdated": "2026-02-02T13:55:57+01:00"
+            },
+            {
+              "id": "hvordan-lage-kortfilm",
+              "title": "Hvordan lage kortfilm",
+              "description": "Fra manus til ferdig film: lyd, lys, vinkler, klipping og teksting — for deg som filmer på Chromebook.",
+              "image": "/images/lessons/norsk/kortfilm-hero.webp",
+              "tags": [
+                "skrivehjelp",
+                "kortfilm",
+                "fortelling",
+                "lyd",
+                "klipping",
+                "filmproduksjon"
+              ],
+              "createdDate": "2026-03-12T12:00:00Z"
             }
           ]
         }
@@ -1404,7 +1419,7 @@
           "id": "handel-og-infrastruktur",
           "title": "Handel og infrastruktur",
           "description": "Utforsk nettverkene som binder verden sammen: handelsruter, rørledninger, undersjøiske kabler og energisystemer.",
-          "image": "/images/topics/handel-og-infrastruktur.png",
+          "image": "/images/topics/handel-og-infrastruktur.webp",
           "tools": [
             {
               "id": "infrastruktur-atlas",

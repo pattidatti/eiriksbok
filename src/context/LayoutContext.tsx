@@ -19,7 +19,8 @@ const FULL_WIDTH_PATHS = [
     '/tidslinje',
     '/oving/tidsreise',
     '/oving/etikk',
-    '/oving/simulering'
+    '/oving/simulering',
+    '/infrastruktur-atlas'
 ];
 
 export const LayoutProvider: React.FC<{ children: ReactNode }> = ({ children }) => {

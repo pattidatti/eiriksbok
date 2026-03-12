@@ -82,6 +82,7 @@ const SentenceTransformer = lazy(() => import('./content/interactive/SentenceTra
 const TimelineDirector = lazy(() => import('./content/interactive/TimelineDirector').then(m => ({ default: m.TimelineDirector })));
 const DialogDissector = lazy(() => import('./content/interactive/DialogDissector').then(m => ({ default: m.DialogDissector })));
 const NovelleSlicer = lazy(() => import('./content/interactive/NovelleSlicer').then(m => ({ default: m.NovelleSlicer })));
+const ShotTypeExplorer = lazy(() => import('./content/interactive/ShotTypeExplorer').then(m => ({ default: m.ShotTypeExplorer })));
 
 // Tekstanalyse (Text Analysis)
 const QuoteWeaver = lazy(() => import('./content/interactive/QuoteWeaver').then(m => ({ default: m.QuoteWeaver })));
@@ -196,6 +197,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     TimelineDirector,
     DialogDissector,
     NovelleSlicer,
+    ShotTypeExplorer,
     QuoteWeaver,
     ParagraphBuilder,
     ArgumentScaffold,

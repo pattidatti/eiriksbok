@@ -66,7 +66,7 @@
       "name": "FactBox",
       "props": {
         "title": "Suezkanalen — verdens trafikkork",
-        "facts": [
+        "items": [
           "12-15 % av verdens handel passerer gjennom Suezkanalen",
           "I mars 2021 blokkerte containerskipet Ever Given kanalen i 6 dager",
           "Blokaden kostet verdenshandelen anslagsvis 400 millioner dollar per time",

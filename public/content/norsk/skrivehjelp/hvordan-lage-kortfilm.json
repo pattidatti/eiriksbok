@@ -1,0 +1,493 @@
+{
+    "id": "hvordan-lage-kortfilm",
+    "title": "Hvordan lage kortfilm",
+    "subject": "norsk",
+    "topic": "skrivehjelp",
+    "layout": "rich",
+    "readTime": "10 min lesning",
+    "heroImage": "/images/lessons/norsk/kortfilm-hero.webp",
+    "tags": ["skrivehjelp", "kortfilm", "fortelling", "lyd", "klipping", "filmproduksjon"],
+    "relatedLink": {
+        "text": "Lær om karakterbygging",
+        "url": "/norsk/skrivehjelp/hvordan-lage-karakterer"
+    },
+    "createdDate": "2026-03-12T12:00:00Z",
+    "content": [
+        {
+            "type": "text",
+            "content": "En kortfilm er en novelle du kan se — og de samme reglene gjelder. Karakterene dine trenger å ville noe, noe må stå i veien, og slutten skal bety noe. Forskjellen er at i stedet for ord bruker du lys, bevegelse og lyd. Har du arbeidet deg gjennom [Forfatterens Verksted](/norsk/virkemidler/skapende-skriving-sti)? Da har du allerede historien. Denne artikkelen handler om produksjonssteget: hvordan du får den historien fra hodet og ut i en film."
+        },
+        {
+            "type": "header",
+            "text": "Fra manus til motiv — planlegg før du filmer"
+        },
+        {
+            "type": "text",
+            "content": "Det som skiller en god elevfilm fra en kaotisk en, er ikke kameraet — det er forberedelsen. Et enkelt scenenotat tar femten minutter å lage og redder dere fra to timer med opptak dere ikke kan bruke. Skriv ned scenene dine i kronologisk rekkefølge. Bestem hvilke filmtekniske grep du vil bruke i hver scene. Deretter kan du lage dem i den rekkefølgen som passer — og sette dem sammen slik historien krever."
+        },
+        {
+            "type": "component",
+            "component": "TimelineDirector",
+            "props": {
+                "title": "Klipperommet: Planlegg scenene dine",
+                "allowCustomScenes": true,
+                "scenes": [
+                    {
+                        "id": "s1",
+                        "title": "Gangen",
+                        "description": "Ali åpner skoleskapet. En hvit lapp faller ut på gulvet.",
+                        "icon": "🚪",
+                        "chronologicalOrder": 1
+                    },
+                    {
+                        "id": "s2",
+                        "title": "Lappen",
+                        "description": "Ekstremt nært: teksten «Møt meg bak gymsalen kl 15:00». Ingen signatur.",
+                        "icon": "📝",
+                        "chronologicalOrder": 2
+                    },
+                    {
+                        "id": "s3",
+                        "title": "Ventingen",
+                        "description": "Ali venter bak gymsalen. Klokken tikker. Ingen kommer.",
+                        "icon": "⏱️",
+                        "chronologicalOrder": 3
+                    },
+                    {
+                        "id": "s4",
+                        "title": "Møtet",
+                        "description": "En kjent ansikt trer ut av skyggen.",
+                        "icon": "👤",
+                        "chronologicalOrder": 4
+                    },
+                    {
+                        "id": "s5",
+                        "title": "Avsløringen",
+                        "description": "Læreren gir Ali prisen for beste fortelling i klassen.",
+                        "icon": "🏆",
+                        "chronologicalOrder": 5
+                    }
+                ],
+                "techniques": [
+                    {
+                        "id": "totalbilde",
+                        "name": "Totalbilde",
+                        "icon": "🏔️",
+                        "effect": "shimmer",
+                        "description": "Viser oss stedet og stemningen"
+                    },
+                    {
+                        "id": "naert",
+                        "name": "Nært bilde",
+                        "icon": "👁️",
+                        "effect": "slowmo",
+                        "description": "Viser ansiktet og følelsen"
+                    },
+                    {
+                        "id": "smash",
+                        "name": "Smash-klipp",
+                        "icon": "⚡",
+                        "effect": "shake",
+                        "description": "Brå overgang for sjokk"
+                    },
+                    {
+                        "id": "match",
+                        "name": "Match-klipp",
+                        "icon": "🎞️",
+                        "effect": "sepia",
+                        "description": "Lik bevegelse binder scenene"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Scener — en scene gjør én ting"
+        },
+        {
+            "type": "text",
+            "content": "Hver scene i filmen din har én jobb: drive plottet fremover, avsløre noe om en karakter, eller skape stemning. Ingen av delene? Da trengs ikke scenen. Still deg spørsmålet: Hva ville skjedd hvis denne scenen ikke var der? Ingenting? Klipp den. Se mer om dette prinsippet i [Vis, ikke fortell](/norsk/skrivehjelp/skriv-bedre-historier)."
+        },
+        {
+            "type": "component",
+            "component": "WritingFix",
+            "props": {
+                "title": "Scenetesten i praksis",
+                "items": [
+                    {
+                        "bad": "Erik går til skolen. Han tar bussen, setter seg ned og stirrer ut av vinduet.",
+                        "good": "Erik går forbi oppslagstavlen i gangen. Han stopper, river ned lappen med fotballkamp-datoen og stapper den i lommen.",
+                        "why": "I det første eksempelet skjer ingenting. I det andre forteller gåturen oss at Erik skjuler noe — uten at noen forklarer det."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Vinkler og avstand — fortell med kameraet"
+        },
+        {
+            "type": "text",
+            "content": "Kameraet velger hva vi ser — og det er et valg. Avstand bestemmer om vi er observatør eller vitne. Utforsk de fem standardavstandene og når du bruker dem:"
+        },
+        {
+            "type": "component",
+            "component": "ShotTypeExplorer",
+            "props": {
+                "title": "De fem kameraavstandene",
+                "shots": [
+                    {
+                        "id": "totalbilde",
+                        "name": "Totalbilde",
+                        "englishName": "Extreme Wide Shot",
+                        "framing": "extreme-wide",
+                        "useCase": "Viser oss hvor vi er",
+                        "example": "En enslig elev i en tom skolegård om kvelden"
+                    },
+                    {
+                        "id": "halvtotalbilde",
+                        "name": "Halvtotalbilde",
+                        "englishName": "Wide Shot",
+                        "framing": "wide",
+                        "useCase": "Vi ser hele kroppen",
+                        "example": "To elever som nærmer seg hverandre i en korridor"
+                    },
+                    {
+                        "id": "halvnaert",
+                        "name": "Halvnært",
+                        "englishName": "Medium Shot",
+                        "framing": "medium",
+                        "useCase": "Det vi ser mest på TV",
+                        "example": "En elev som snakker i kamera i en klasseromsintervju"
+                    },
+                    {
+                        "id": "naert",
+                        "name": "Nært",
+                        "englishName": "Close-up",
+                        "framing": "close-up",
+                        "useCase": "Ansiktet og følelsen",
+                        "example": "Øynene til en elev som leser en viktig lapp"
+                    },
+                    {
+                        "id": "ekstremt-naert",
+                        "name": "Ekstremt nært",
+                        "englishName": "Extreme Close-up",
+                        "framing": "extreme-close-up",
+                        "useCase": "Detaljen som sier alt",
+                        "example": "Fingrene som skjelver mens de holder en telefon"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "text",
+            "content": "I tillegg til avstand bestemmer høyden på kameraet hvem som har makt i scenen:"
+        },
+        {
+            "type": "component",
+            "component": "FactBox",
+            "props": {
+                "title": "Tre kameravinkler",
+                "items": [
+                    {
+                        "label": "Fugleperspektiv (ovenfra og ned)",
+                        "value": "Karakteren ser liten og sårbar ut. Bruk når noen er i en håpløs situasjon."
+                    },
+                    {
+                        "label": "Normalperspektiv (øyehøyde)",
+                        "value": "Vi behandler karakteren som en likeverdig. Den vanligste vinkelen."
+                    },
+                    {
+                        "label": "Froskeperspektiv (nedenfra og opp)",
+                        "value": "Karakteren ser mektig og truende ut. Bruk for sjefer, antagonister, eller øyeblikk av triumf."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Lyd — den usynlige halvdelen"
+        },
+        {
+            "type": "text",
+            "content": "Halvparten av filmopplevelsen er lyd. Publikum tolererer dårlig bilde — men dårlig lyd gjør at de slutter å se. Dette er det området der de fleste elevfilmer mister seerne, og det er fullt mulig å gjøre noe med det."
+        },
+        {
+            "type": "component",
+            "component": "FactBox",
+            "props": {
+                "title": "Overlev Chromebook-mikrofonen",
+                "items": [
+                    "Hold ansiktet 20 cm fra skjermen — ikke nærmere, ikke lengre.",
+                    "Film aldri ute i vind uten å legge et klede over mikrofonen.",
+                    "Hvisking tas ikke opp. Snakk med normalvolum.",
+                    "Ta opp 10 sekunder stille bakgrunnslyd først — da kan du redigere bort støy etterpå.",
+                    "Unngå rom med ekko: tomme ganger og klasserom med harde vegger er verst."
+                ]
+            }
+        },
+        {
+            "type": "component",
+            "component": "FactBox",
+            "props": {
+                "title": "Det beste lydtrikset: Dubbing",
+                "text": "ADR (Automatic Dialogue Replacement) er når skuespillerne sier replikkene sine på nytt, innendørs, etter at filmingen er ferdig. Selv Hollywood gjør dette. Det reduserer stress under opptak og gir deg full kontroll over lyden. Film scenen, klipp den, og la skuespillerne dubbe dialogen mens de ser på seg selv på skjermen. Lyden blir alltid bedre."
+            }
+        },
+        {
+            "type": "header",
+            "text": "Lys — bruk det lyset du allerede har"
+        },
+        {
+            "type": "text",
+            "content": "Du trenger ikke lysutstyr. Du trenger å forstå lyset som allerede er der. Tre gyldne regler: Film aldri med et vindu bak personen. Vend personen mot vinduet. Bruk et hvitt A4-ark utenfor bildet som speil — det reflekterer naturlig lys inn i ansiktet og fjerner harde skygger."
+        },
+        {
+            "type": "component",
+            "component": "FactBox",
+            "props": {
+                "title": "Tre lysfeil og hvordan du unngår dem",
+                "items": [
+                    {
+                        "label": "Bakgrunnsvindu",
+                        "value": "Filmer du med vindu bak personen, blir personen mørk og bare en silhuett. Løsning: Snu personen slik at ansiktet vender mot vinduet."
+                    },
+                    {
+                        "label": "Tak-neon",
+                        "value": "Takbelysning gir harde skygger rett under øynene og nesen. Løsning: Slå av taklyset og bruk et bordlys fra siden i stedet."
+                    },
+                    {
+                        "label": "For mørkt",
+                        "value": "Mørke rom gir kornete, støyfullt bilde. Løsning: Hold et hvitt A4-ark utenfor bildet slik at det reflekterer lys inn på ansiktet — billig og effektivt."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Tydelig dialog — muntlig skriving som fungerer på film"
+        },
+        {
+            "type": "text",
+            "content": "Filmreplikker er kortere, mer indirekte og mer ladede enn romandialog. Hvis karakteren kan si det direkte, bør de ikke si det i det hele tatt. Unngå eksponeringsdialog — replikker som bare forteller tilskueren noe de trenger å vite, men som ingen person i virkeligheten ville sagt."
+        },
+        {
+            "type": "component",
+            "component": "WritingFix",
+            "props": {
+                "title": "Unngå eksponeringsdialog",
+                "items": [
+                    {
+                        "bad": "«Husker du at pappa dro for tre år siden?» sa Emma.\n«Ja, det var hardt for deg,» svarte venninnen.",
+                        "good": "«Han sendte ikke engang melding til bursdagen min,» sa Emma og stirret ut av vinduet.",
+                        "why": "Det første eksempelet bruker dialog til å informere tilskueren. Det andre lar oss forstå situasjonen gjennom det Emma ikke sier direkte."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "text",
+            "content": "Øv deg på å lese subtekst i dialog med dette eksempelet fra en klasseromskonflikt. Se også artikkelen [Hvordan skrive dialog](/norsk/skrivehjelp/hvordan-skrive-dialog) for mer om replikker i skriving."
+        },
+        {
+            "type": "component",
+            "component": "DialogDissector",
+            "props": {
+                "title": "Klasseromskonflikt: Les subteksten",
+                "subtextDialogue": {
+                    "lines": [
+                        {
+                            "speaker": "Jonas",
+                            "text": "Det er greit, du velger.",
+                            "subtext": "Jeg er skuffet og venter at hun skal spørre hva jeg mener.",
+                            "options": [
+                                "Jonas er uinteressert i prosjektet.",
+                                "Jonas er skuffet og vil at hun skal engasjere ham.",
+                                "Jonas er fornøyd med at Sofie tar ansvar."
+                            ],
+                            "correctIndex": 1
+                        },
+                        {
+                            "speaker": "Sofie",
+                            "text": "Jeg tenkte faktisk vi kunne gjøre det du sa i går.",
+                            "subtext": "Jeg innrømmer at jeg avviste en god idé uten å si det direkte.",
+                            "options": [
+                                "Sofie husket ikke idéene fra i går.",
+                                "Sofie prøver å reparere forholdet indirekte.",
+                                "Sofie vil bestemme alt selv."
+                            ],
+                            "correctIndex": 1
+                        },
+                        {
+                            "speaker": "Jonas",
+                            "text": "OK.",
+                            "subtext": "Jeg vet at hun gir seg, men venter likevel på en skikkelig unnskyldning.",
+                            "options": [
+                                "Jonas er klar for å begynne arbeidet.",
+                                "Jonas aksepterer halvhjertet og er ikke helt ferdig.",
+                                "Jonas er forvirret over hva som skjedde."
+                            ],
+                            "correctIndex": 1
+                        }
+                    ]
+                },
+                "actionBeats": {
+                    "lines": [
+                        {
+                            "speaker": "Jonas",
+                            "original": "Jonas sa til Sofie at han var irritert på henne.",
+                            "improved": "Jonas begynte å pakke ned bøkene sine uten å se på henne."
+                        },
+                        {
+                            "speaker": "Sofie",
+                            "original": "Sofie sa at hun egentlig synes ideen hans var god.",
+                            "improved": "Sofie åpnet notatboken og skrev ned det han hadde sagt i går."
+                        },
+                        {
+                            "speaker": "Jonas",
+                            "original": "Jonas sa at han lot henne slippe unna denne gangen.",
+                            "improved": "Jonas snudde skjermen mot henne."
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "type": "header",
+            "text": "Klipping — fortell raskere enn du tror"
+        },
+        {
+            "type": "text",
+            "content": "Du filmer 30 minutter for å ha 3 brukbare minutter. Klipping er der du forteller historien på nytt — nå med rytme og presisjon. Det finnes tre grunnleggende klippetyper: direkte klipp (brå overgang til neste scene), match-klipp (to liknende bevegelser binder scenene), og smash-klipp (overraskende, hard overgang for sjokk)."
+        },
+        {
+            "type": "component",
+            "component": "FactBox",
+            "props": {
+                "title": "Klipperegler for nybegynnere",
+                "items": [
+                    "Klipp på bevegelse, ikke på stillhet. La handlingen starte, deretter bytt.",
+                    "180-graders-regelen: Hold kameraet på én side av en tenkt rett linje mellom to karakterer — ellers snur synsretningen og forvirrer tilskueren.",
+                    "Match-klipp: To bevegelser som ligner binder scenene usynlig — f.eks. en arm som svinger, klipp til en annen som gjør det samme.",
+                    "Smash-klipp: Brå, overraskende overgang — bruk det for sjokk, vits eller tidshopp.",
+                    "Tøm aldri skjermen: Ha neste bilde klart idet det forrige slutter."
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Aktiv klipping — rytme skaper spenning"
+        },
+        {
+            "type": "text",
+            "content": "Lengden på hvert klipp kommuniserer noe til hjernen. Korte klipp gir hjertet fart. Lange klipp gir pusterom. Et reaksjonsklipp — å klippe til ansiktet til en person som ser på noe — forteller oss hva vi skal føle."
+        },
+        {
+            "type": "component",
+            "component": "Comparison",
+            "props": {
+                "title": "Rytme endrer følelse",
+                "leftTitle": "Lange klipp (sorg)",
+                "rightTitle": "Korte klipp (panikk)",
+                "items": [
+                    {
+                        "label": "Teknikk",
+                        "left": "Kameraet hviler i 8 sekunder på den tomme stolen ved middagsbordet.",
+                        "right": "Tom stol. Tallerken. Dør. Vindu. Gata nedenfor. Fire klipp på to sekunder."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "component",
+            "component": "WritingFix",
+            "props": {
+                "title": "Handlingsklipp vs. Reaksjonsklipp",
+                "items": [
+                    {
+                        "bad": "Vi ser Jonas ta opp telefonen, lese meldingen og legge den tilbake på pulten.",
+                        "good": "Vi ser Jonas ta opp telefonen. Klipp. Vi ser ansiktet hans bli blankt.",
+                        "why": "Reaksjonsklippet forteller oss hva vi skal føle. Vi trenger ikke å se hva meldingen sier — vi ser det på ansiktet hans."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Teksting — gjør dårlig lyd til en styrke"
+        },
+        {
+            "type": "text",
+            "content": "Teksting er ikke et tegn på at lyden er dårlig. Det er et profesjonelt grep som gjør filmen tilgjengelig for alle — inkludert de som ser den uten lyd. I CapCut (gratis i nettleseren på Chromebook) finner du tekstverktøyet under «Text» → «Add text». Legg alltid til teksting aller sist, etter at klippingen er ferdig."
+        },
+        {
+            "type": "component",
+            "component": "FactBox",
+            "props": {
+                "title": "Rettskrivingsregler for teksting",
+                "items": [
+                    "Maks 2 linjer tekst på skjermen av gangen.",
+                    "Hvit tekst med svart skygge (i CapCut: 'Shadow' eller 'Stroke') — aldri bare hvit på lyst bilde.",
+                    "Plasser teksten nær bunnen, ikke midt i bildet.",
+                    "Legg til teksting aller sist, etter at klippingen er ferdig.",
+                    "Skriv fulle setninger — ikke forkort som i SMS."
+                ]
+            }
+        },
+        {
+            "type": "quiz",
+            "questions": [
+                {
+                    "question": "Hva er scenetesten?",
+                    "options": [
+                        "Å sjekke om skuespillerne kan linjene sine.",
+                        "Å spørre hva som ville skjedd hvis scenen ikke var der.",
+                        "Å telle antall scener i manuset."
+                    ],
+                    "correctAnswer": 1
+                },
+                {
+                    "question": "Hvilken kameraavstand brukes oftest i TV-serier?",
+                    "options": [
+                        "Totalbilde (Extreme Wide Shot)",
+                        "Halvtotalbilde (Wide Shot)",
+                        "Halvnært (Medium Shot)"
+                    ],
+                    "correctAnswer": 2
+                },
+                {
+                    "question": "Hva er det mest effektive lydtipset for elevfilmer på Chromebook?",
+                    "options": [
+                        "Å filme ute for å unngå ekko.",
+                        "Å dubbe dialogen innendørs etter opptak.",
+                        "Å alltid bruke ekstern mikrofon."
+                    ],
+                    "correctAnswer": 1
+                },
+                {
+                    "question": "Hva betyr «klipp på bevegelse»?",
+                    "options": [
+                        "At du bytter scene midt i en handling, ikke etter at den er fullført.",
+                        "At du kutter scenen ved begynnelsen av en handling.",
+                        "At du unngår stillbilder i filmen."
+                    ],
+                    "correctAnswer": 0
+                },
+                {
+                    "question": "Hva gjør et fugleperspektiv med karakteren?",
+                    "options": [
+                        "Karakteren ser mektig og truende ut.",
+                        "Karakteren ser liten og sårbar ut.",
+                        "Vi ser ansiktet og følelsene på nært hold."
+                    ],
+                    "correctAnswer": 1
+                }
+            ]
+        },
+        {
+            "type": "info",
+            "title": "Klar til å skrive historien?",
+            "text": "Gå tilbake til [Forfatterens Verksted](/norsk/virkemidler/skapende-skriving-sti) for å finne historien din, eller les [Hvordan lage karakterer](/norsk/skrivehjelp/hvordan-lage-karakterer) for å gjøre skuespillerne dine mer troverdige."
+        }
+    ]
+}

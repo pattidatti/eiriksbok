@@ -38,8 +38,8 @@ function AnimatedNumber({ target, duration = 1800 }: { target: number; duration?
 
 export function StatsBar() {
     return (
-        <div className="bg-slate-800/80 border-t border-slate-700 px-4 py-3 overflow-x-auto">
-            <div className="flex gap-6 min-w-max">
+        <div className="bg-slate-800/80 border-t border-slate-700 px-4 py-3">
+            <div className="flex flex-wrap gap-x-6 gap-y-2 justify-around">
                 {STATS.map((stat) => (
                     <motion.div
                         key={stat.label}
@@ -53,7 +53,7 @@ export function StatsBar() {
                             <span className="text-sm font-normal text-slate-400 ml-0.5">{stat.unit}</span>
                         </div>
                         <div className="text-xs text-slate-400 leading-tight mt-0.5">{stat.label}</div>
-                        <div className="text-[10px] text-slate-600 mt-0.5">{stat.source}</div>
+                        <div className="text-[10px] text-slate-500 mt-0.5">{stat.source}</div>
                     </motion.div>
                 ))}
             </div>

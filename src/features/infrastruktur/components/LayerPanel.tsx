@@ -94,6 +94,29 @@ export function LayerPanel() {
                     </div>
                 ))}
             </div>
+
+            {/* Data sources */}
+            <div className="mt-4 border-t border-slate-700 pt-3">
+                <p className="text-[10px] font-semibold text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-1">
+                    <span>ℹ</span> Datakilder
+                </p>
+                {[
+                    { icon: '🗺', label: 'Geografi', source: 'Natural Earth / world-atlas 110m' },
+                    { icon: '🚢', label: 'Skipsruter', source: 'IMO / UNCTAD 2024 (red.)' },
+                    { icon: '🌐', label: 'Kabler', source: 'TeleGeography SubmarineCableMap' },
+                    { icon: '🛢', label: 'Rørledninger', source: 'IEA / EIA / Wikipedia (red.)' },
+                    { icon: '⚡', label: 'Produksjon', source: 'IEA World Energy Outlook 2024' },
+                ].map((item) => (
+                    <div key={item.label} className="flex flex-col mb-1.5">
+                        <span className="text-[10px] text-slate-400">
+                            {item.icon} {item.label}
+                        </span>
+                        <span className="text-[10px] text-slate-500 pl-4 leading-tight">
+                            {item.source}
+                        </span>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 }
