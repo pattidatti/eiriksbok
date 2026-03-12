@@ -15,7 +15,7 @@ import {
     Clipboard,
     Check
 } from 'lucide-react';
-import type { LearningPathData, LearningPathStep } from '../../types';
+import type { LearningPathData, LearningPathStep, LearningPathTask } from '../../types';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { getComponent } from '../ComponentRegistry';
 
@@ -52,11 +52,13 @@ const getStepColor = (type: LearningPathStep['type']) => {
 import { renderInlineMarkdown } from '../markdownUtils';
 import { useGlossary } from '../../context/GlossaryContext';
 
-const CopyTasksButton: React.FC<{ tasks: string[]; stepNumber: number }> = ({ tasks, stepNumber }) => {
+const CopyTasksButton: React.FC<{ tasks: (string | LearningPathTask)[]; stepNumber: number }> = ({ tasks, stepNumber }) => {
     const [copied, setCopied] = React.useState(false);
 
     const handleCopy = async () => {
-        const formattedTasks = tasks.map((t, i) => `${stepNumber}.${i + 1} ${t}`).join('\n');
+        const formattedTasks = tasks
+            .map((t, i) => `${stepNumber}.${i + 1} ${typeof t === 'string' ? t : t.text}`)
+            .join('\n');
         try {
             await navigator.clipboard.writeText(formattedTasks);
             setCopied(true);
@@ -258,7 +260,9 @@ export const LearningPath: React.FC<LearningPathProps> = ({ data }) => {
                                                             <span className="font-mono text-xs font-bold text-slate-400 mt-1 bg-white px-1.5 py-0.5 rounded shadow-sm border border-slate-200">
                                                                 {index + 1}.{i + 1}
                                                             </span>
-                                                            <span className="text-sm">{renderInlineMarkdown(task, entries)}</span>
+                                                            <span className="text-sm">
+                                                                {renderInlineMarkdown(typeof task === 'string' ? task : task.text, entries)}
+                                                            </span>
                                                         </li>
                                                     ))}
                                                 </ul>

@@ -12,6 +12,8 @@ interface DraftScene {
 
 const EMPTY_DRAFT: DraftScene = { title: '', description: '', icon: '', chronologicalOrder: '' };
 
+const SCENE_DURATION = 4000;
+
 interface TimelineDirectorProps {
     title?: string;
     scenes: {
@@ -202,7 +204,7 @@ export const TimelineDirector = ({
         setPhase('playing');
         for (let i = 0; i < items.length; i++) {
             setActiveScene(i);
-            await new Promise((r) => setTimeout(r, 1800));
+            await new Promise((r) => setTimeout(r, SCENE_DURATION));
         }
         setActiveScene(-1);
         const finalScore = calculateScore();
@@ -503,7 +505,7 @@ export const TimelineDirector = ({
                                 );
                             })}
                         </Reorder.Group>
-                        <div className="flex justify-center mt-5">
+                        <div className="flex justify-center gap-3 mt-5 flex-wrap">
                             <button
                                 onClick={playSequence}
                                 className="flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-white
@@ -511,6 +513,22 @@ export const TimelineDirector = ({
                             >
                                 <Play className="w-4 h-4" /> Spill av!
                             </button>
+                            {exampleMode && allowCustomScenes && (
+                                <button
+                                    onClick={() => {
+                                        setExampleMode(false);
+                                        setCustomScenes([]);
+                                        setItems([]);
+                                        setDraft(EMPTY_DRAFT);
+                                        setDraftError('');
+                                        setPhase('create');
+                                    }}
+                                    className="flex items-center gap-2 bg-white border border-amber-300 text-amber-700
+                                        hover:bg-amber-50 font-semibold px-6 py-2.5 rounded-lg transition-colors"
+                                >
+                                    <PenLine className="w-4 h-4" /> Lag din egen fortelling
+                                </button>
+                            )}
                         </div>
                     </>
                 )}
@@ -551,6 +569,13 @@ export const TimelineDirector = ({
                                     );
                                 })}
                             </AnimatePresence>
+                            <motion.div
+                                key={`progress-${activeScene}`}
+                                initial={{ width: '0%' }}
+                                animate={{ width: '100%' }}
+                                transition={{ duration: SCENE_DURATION / 1000, ease: 'linear' }}
+                                className="absolute bottom-0 left-0 h-1 bg-amber-400 rounded-full"
+                            />
                         </div>
                         <div className="flex gap-1.5 mt-4">
                             {items.map((_, i) => (

@@ -257,6 +257,13 @@ export interface TextAnalysisGameData {
     solutions: TextAnalysisSpan[];
 }
 
+export interface LearningPathTask {
+    id: string;
+    type: string;
+    text: string;
+    bloom?: string;
+}
+
 export interface LearningPathStep {
     id: string;
     title: string;
@@ -264,7 +271,7 @@ export interface LearningPathStep {
     content: string;
     icon?: string;
     links?: { title: string; url: string; external?: boolean }[];
-    tasks?: string[];
+    tasks?: (string | LearningPathTask)[];
     difficulty?: 'easy' | 'medium' | 'hard';
     phase?: string;
     component?: {

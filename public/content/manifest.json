@@ -827,7 +827,8 @@
                 "klipping",
                 "filmproduksjon"
               ],
-              "createdDate": "2026-03-12T12:00:00Z"
+              "createdDate": "2026-03-12T10:46:17+01:00",
+              "lastUpdated": "2026-03-12T10:46:17+01:00"
             }
           ]
         }
@@ -1449,8 +1450,8 @@
                 "økonomi",
                 "infrastruktur"
               ],
-              "createdDate": "2026-03-12T00:00:00+01:00",
-              "lastUpdated": "2026-03-12T08:47:23.473Z"
+              "createdDate": "2026-03-12T10:16:35+01:00",
+              "lastUpdated": "2026-03-12T10:46:17+01:00"
             },
             {
               "id": "energi-og-rorledninger",
@@ -1465,8 +1466,8 @@
                 "rørledninger",
                 "geopolitikk"
               ],
-              "createdDate": "2026-03-12T00:00:00+01:00",
-              "lastUpdated": "2026-03-12T08:48:09.260Z"
+              "createdDate": "2026-03-12T10:16:35+01:00",
+              "lastUpdated": "2026-03-12T10:46:17+01:00"
             },
             {
               "id": "internett-kabler",
@@ -1481,8 +1482,8 @@
                 "infrastruktur",
                 "geopolitikk"
               ],
-              "createdDate": "2026-03-12T00:00:00+01:00",
-              "lastUpdated": "2026-03-12T08:48:48.543Z"
+              "createdDate": "2026-03-12T10:16:35+01:00",
+              "lastUpdated": "2026-03-12T10:46:17+01:00"
             },
             {
               "id": "mat-og-skipsfart",
@@ -1496,8 +1497,8 @@
                 "handel",
                 "logistikk"
               ],
-              "createdDate": "2026-03-12T00:00:00+01:00",
-              "lastUpdated": "2026-03-12T08:49:36.164Z"
+              "createdDate": "2026-03-12T10:16:35+01:00",
+              "lastUpdated": "2026-03-12T10:46:17+01:00"
             },
             {
               "id": "saarbare-nettverk",
@@ -1511,8 +1512,8 @@
                 "geopolitikk",
                 "sikkerhet"
               ],
-              "createdDate": "2026-03-12T00:00:00+01:00",
-              "lastUpdated": "2026-03-12T08:50:27.026Z"
+              "createdDate": "2026-03-12T10:16:35+01:00",
+              "lastUpdated": "2026-03-12T10:46:17+01:00"
             }
           ]
         }

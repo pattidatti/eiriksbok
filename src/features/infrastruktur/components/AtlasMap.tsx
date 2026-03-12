@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState, useCallback } from 'react';
+import { useMemo, useRef, useState, useCallback, useEffect } from 'react';
 import { geoNaturalEarth1, geoPath } from 'd3-geo';
 import * as topojson from 'topojson-client';
 import { useQuery } from '@tanstack/react-query';
@@ -56,24 +56,32 @@ export function AtlasMap() {
 
     const clampScale = (s: number) => Math.min(MAX_SCALE, Math.max(MIN_SCALE, s));
 
-    // Zoom toward mouse position (CSS pixel space — transform is on SVG element with transformOrigin '0 0')
-    const handleWheel = useCallback((e: React.WheelEvent<HTMLDivElement>) => {
-        e.preventDefault();
-        const rect = containerRef.current?.getBoundingClientRect();
-        if (!rect) return;
-        setTransform((prev) => {
-            const factor = e.deltaY < 0 ? 1.15 : 1 / 1.15;
-            const newScale = clampScale(prev.scale * factor);
-            const ratio = newScale / prev.scale;
-            const mouseX = e.clientX - rect.left;
-            const mouseY = e.clientY - rect.top;
-            return {
-                scale: newScale,
-                x: mouseX - (mouseX - prev.x) * ratio,
-                y: mouseY - (mouseY - prev.y) * ratio,
-            };
-        });
-    }, []);
+    // Zoom toward mouse position using a native non-passive listener so
+    // preventDefault() actually blocks browser pinch-zoom (React onWheel is passive).
+    useEffect(() => {
+        const el = containerRef.current;
+        if (!el) return;
+
+        const onWheel = (e: WheelEvent) => {
+            e.preventDefault();
+            const rect = el.getBoundingClientRect();
+            setTransform((prev) => {
+                const factor = e.deltaY < 0 ? 1.15 : 1 / 1.15;
+                const newScale = Math.min(MAX_SCALE, Math.max(MIN_SCALE, prev.scale * factor));
+                const ratio = newScale / prev.scale;
+                const mouseX = e.clientX - rect.left;
+                const mouseY = e.clientY - rect.top;
+                return {
+                    scale: newScale,
+                    x: mouseX - (mouseX - prev.x) * ratio,
+                    y: mouseY - (mouseY - prev.y) * ratio,
+                };
+            });
+        };
+
+        el.addEventListener('wheel', onWheel, { passive: false });
+        return () => el.removeEventListener('wheel', onWheel);
+    }, []); // containerRef and setTransform are both stable
 
     const handleMouseDown = useCallback(
         (e: React.MouseEvent<HTMLDivElement>) => {
@@ -127,7 +135,6 @@ export function AtlasMap() {
         <div
             ref={containerRef}
             className={`w-full h-full overflow-hidden rounded-xl bg-[#0f172a] relative touch-none select-none ${isPanning ? 'cursor-grabbing' : 'cursor-grab'}`}
-            onWheel={handleWheel}
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
             onMouseUp={stopPan}

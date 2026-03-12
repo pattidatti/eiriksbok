@@ -1,5 +1,5 @@
 {
-  "buildId": 1773306959154,
+  "buildId": 1773312831242,
   "contentMap": {
     "adel": [
       "content/concepts/adel.json"
@@ -1261,6 +1261,9 @@
     "hvordan-lage-karakterer": [
       "content/norsk/skrivehjelp/hvordan-lage-karakterer.json"
     ],
+    "hvordan-lage-kortfilm": [
+      "content/norsk/skrivehjelp/hvordan-lage-kortfilm.json"
+    ],
     "hvordan-skrive-dialog": [
       "content/norsk/skrivehjelp/hvordan-skrive-dialog.json"
     ],
@@ -2122,6 +2125,7 @@
     "norsk/skrivehjelp/hvordan-drofte": "content/norsk/skrivehjelp/hvordan-drofte.json",
     "norsk/skrivehjelp/hvordan-fore-kilder": "content/norsk/skrivehjelp/hvordan-fore-kilder.json",
     "norsk/skrivehjelp/hvordan-lage-karakterer": "content/norsk/skrivehjelp/hvordan-lage-karakterer.json",
+    "norsk/skrivehjelp/hvordan-lage-kortfilm": "content/norsk/skrivehjelp/hvordan-lage-kortfilm.json",
     "norsk/skrivehjelp/hvordan-skrive-dialog": "content/norsk/skrivehjelp/hvordan-skrive-dialog.json",
     "norsk/skrivehjelp/hvordan-skrive-dikt": "content/norsk/skrivehjelp/hvordan-skrive-dikt.json",
     "norsk/skrivehjelp/hvordan-skrive-eventyr": "content/norsk/skrivehjelp/hvordan-skrive-eventyr.json",
