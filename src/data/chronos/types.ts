@@ -171,6 +171,7 @@ export interface ChronosScenario {
     year: string;
     role: string;
     summary: string;
+    heroImage?: string;
     config: ChronosConfig;
     nodes: {
         [nodeId: string]: ChronosNode;
