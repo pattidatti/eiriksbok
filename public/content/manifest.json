@@ -1829,6 +1829,13 @@
               "description": "Tre uker i skyttergravene ved Somme. Overlev artilleri, gass og ingenmannsland — og ta stilling til om en ordre alltid skal adlydes.",
               "link": "/oving/tidsreise/ww1-vestfront",
               "icon": "clock"
+            },
+            {
+              "id": "nikolaj-ii",
+              "title": "Tidsreise: Tsarens Skjebne",
+              "description": "Spill som Nikolaj II — fra Juli-krisen 1914 til revolusjonen 1917. Kan du endre historiens løp?",
+              "link": "/oving/tidsreise/nikolaj-ii",
+              "icon": "crown"
             }
           ],
           "lessons": [

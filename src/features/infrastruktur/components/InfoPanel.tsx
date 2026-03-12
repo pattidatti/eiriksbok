@@ -2,57 +2,83 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { X } from 'lucide-react';
 import { useAtlasStore } from '../store/atlasStore';
-import type { Pipeline, ProductionSite, SubmarineCable, ShippingLane } from '../types';
+import type {
+    Pipeline,
+    ProductionSite,
+    SubmarineCable,
+    ShippingLane,
+    Chokepoint,
+    RiskZone,
+    SelectedFeature,
+} from '../types';
+import { DidYouKnow } from './DidYouKnow';
 
 export function InfoPanel() {
-    const { selectedFeature, setSelectedFeature } = useAtlasStore();
+    const { selectedFeature, setSelectedFeature, compareFeature, setCompareFeature } =
+        useAtlasStore();
 
     return (
         <AnimatePresence>
-            {selectedFeature && (
+            {selectedFeature ? (
                 <motion.div
                     key="info-panel"
                     initial={{ opacity: 0, x: 24 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: 24 }}
                     transition={{ duration: 0.2 }}
-                    className="bg-slate-800/95 backdrop-blur border border-slate-700 rounded-xl p-4 text-sm text-slate-200 h-full overflow-y-auto"
+                    className="bg-slate-800/95 backdrop-blur border border-slate-700 rounded-xl p-4 text-sm text-slate-200 h-full overflow-y-auto relative"
                 >
                     <button
-                        onClick={() => setSelectedFeature(null)}
-                        className="absolute top-3 right-3 text-slate-400 hover:text-white transition-colors"
+                        onClick={() => {
+                            setSelectedFeature(null);
+                            setCompareFeature(null);
+                        }}
+                        className="absolute top-3 right-3 text-slate-400 hover:text-white transition-colors z-10"
                     >
                         <X size={16} />
                     </button>
 
-                    {selectedFeature.type === 'pipelines' && (
-                        <PipelineInfo data={selectedFeature.data as Pipeline} />
-                    )}
-                    {selectedFeature.type === 'production' && (
-                        <ProductionInfo data={selectedFeature.data as ProductionSite} />
-                    )}
-                    {selectedFeature.type === 'cables' && (
-                        <CableInfo data={selectedFeature.data as SubmarineCable} />
-                    )}
-                    {selectedFeature.type === 'shipping' && (
-                        <ShippingInfo data={selectedFeature.data as ShippingLane} />
+                    {compareFeature ? (
+                        <div className="flex gap-2 h-full">
+                            <div className="flex-1 border-r border-slate-700 pr-2 min-w-0">
+                                <FeatureInfo feature={selectedFeature} />
+                            </div>
+                            <div className="flex-1 pl-2 min-w-0 relative">
+                                <button
+                                    onClick={() => setCompareFeature(null)}
+                                    className="absolute top-0 right-0 text-slate-500 hover:text-white text-xs"
+                                >
+                                    ✕
+                                </button>
+                                <FeatureInfo feature={compareFeature} />
+                            </div>
+                        </div>
+                    ) : (
+                        <FeatureInfo feature={selectedFeature} />
                     )}
                 </motion.div>
-            )}
-
-            {!selectedFeature && (
+            ) : (
                 <motion.div
                     key="info-placeholder"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-4 flex flex-col items-center justify-center h-full text-center"
+                    className="h-full"
                 >
-                    <div className="text-3xl mb-2">🌍</div>
-                    <p className="text-slate-400 text-sm">Klikk på et lag i kartet for å lese mer.</p>
+                    <DidYouKnow />
                 </motion.div>
             )}
         </AnimatePresence>
     );
+}
+
+function FeatureInfo({ feature }: { feature: SelectedFeature }) {
+    if (feature.type === 'pipelines') return <PipelineInfo data={feature.data as Pipeline} />;
+    if (feature.type === 'production') return <ProductionInfo data={feature.data as ProductionSite} />;
+    if (feature.type === 'cables') return <CableInfo data={feature.data as SubmarineCable} />;
+    if (feature.type === 'shipping') return <ShippingInfo data={feature.data as ShippingLane} />;
+    if (feature.type === 'chokepoints') return <ChokepointInfo data={feature.data as Chokepoint} />;
+    if (feature.type === 'riskzones') return <RiskZoneInfo data={feature.data as RiskZone} />;
+    return null;
 }
 
 function PipelineInfo({ data }: { data: Pipeline }) {
@@ -60,7 +86,7 @@ function PipelineInfo({ data }: { data: Pipeline }) {
         <div>
             <div className="flex items-center gap-2 mb-3">
                 <span className="text-lg">🛢️</span>
-                <h3 className="font-bold text-base">{data.name}</h3>
+                <h3 className="font-bold text-base leading-tight">{data.name}</h3>
             </div>
             <div className="space-y-1.5">
                 <InfoRow label="Rute" value={data.countries} />
@@ -81,7 +107,7 @@ function ProductionInfo({ data }: { data: ProductionSite }) {
         <div>
             <div className="flex items-center gap-2 mb-3">
                 <span className="text-lg">{typeIcon[data.type]}</span>
-                <h3 className="font-bold text-base">{data.name}</h3>
+                <h3 className="font-bold text-base leading-tight">{data.name}</h3>
             </div>
             <div className="space-y-1.5">
                 <InfoRow label="Land" value={data.country} />
@@ -105,7 +131,7 @@ function CableInfo({ data }: { data: SubmarineCable }) {
                     className="w-3 h-3 rounded-full flex-shrink-0"
                     style={{ backgroundColor: data.color ?? '#f59e0b' }}
                 />
-                <h3 className="font-bold text-base">{data.name}</h3>
+                <h3 className="font-bold text-base leading-tight">{data.name}</h3>
             </div>
             <div className="space-y-1.5">
                 {data.capacityTbps && (
@@ -131,7 +157,7 @@ function ShippingInfo({ data }: { data: ShippingLane }) {
         <div>
             <div className="flex items-center gap-2 mb-3">
                 <span className="text-lg">🚢</span>
-                <h3 className="font-bold text-base">{data.name}</h3>
+                <h3 className="font-bold text-base leading-tight">{data.name}</h3>
             </div>
             <div className="mb-2">
                 <span
@@ -146,6 +172,61 @@ function ShippingInfo({ data }: { data: ShippingLane }) {
             </div>
             {data.description && (
                 <p className="mt-2 text-xs text-slate-400 leading-relaxed">{data.description}</p>
+            )}
+        </div>
+    );
+}
+
+function ChokepointInfo({ data }: { data: Chokepoint }) {
+    const typeLabel: Record<string, string> = { oil: 'Olje', shipping: 'Shipping', both: 'Olje + Shipping' };
+    return (
+        <div>
+            <div className="flex items-center gap-2 mb-3">
+                <span className="text-lg">⚠️</span>
+                <h3 className="font-bold text-base leading-tight">{data.name}</h3>
+            </div>
+            <div className="space-y-1.5">
+                <InfoRow label="Gjennomstrømning" value={data.throughput} />
+                <InfoRow label="Type" value={typeLabel[data.type]} />
+                {data.shipsPerDay && (
+                    <InfoRow label="Skip/dag" value={String(data.shipsPerDay)} />
+                )}
+            </div>
+            <p className="mt-3 text-xs text-slate-400 leading-relaxed">{data.description}</p>
+            {data.snlUrl && (
+                <a
+                    href={data.snlUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-2 inline-block text-xs text-sky-400 hover:text-sky-300 transition-colors"
+                >
+                    Les mer på SNL →
+                </a>
+            )}
+        </div>
+    );
+}
+
+function RiskZoneInfo({ data }: { data: RiskZone }) {
+    return (
+        <div>
+            <div className="flex items-center gap-2 mb-3">
+                <span
+                    className="w-3 h-3 rounded-full flex-shrink-0"
+                    style={{ backgroundColor: data.color }}
+                />
+                <h3 className="font-bold text-base leading-tight">{data.name}</h3>
+            </div>
+            <p className="text-xs text-slate-400 leading-relaxed">{data.description}</p>
+            {data.snlUrl && (
+                <a
+                    href={data.snlUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-2 inline-block text-xs text-sky-400 hover:text-sky-300 transition-colors"
+                >
+                    Les mer på SNL →
+                </a>
             )}
         </div>
     );

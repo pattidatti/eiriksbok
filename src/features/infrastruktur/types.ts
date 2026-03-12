@@ -1,4 +1,4 @@
-export type LayerType = 'shipping' | 'cables' | 'pipelines' | 'production';
+export type LayerType = 'shipping' | 'cables' | 'pipelines' | 'production' | 'chokepoints' | 'riskzones';
 
 export interface LayerConfig {
     id: LayerType;
@@ -46,7 +46,27 @@ export interface ShippingLane {
     description?: string;
 }
 
+export interface Chokepoint {
+    id: string;
+    name: string;
+    coordinates: [number, number];
+    throughput: string;
+    shipsPerDay?: number;
+    type: 'oil' | 'shipping' | 'both';
+    description: string;
+    snlUrl?: string;
+}
+
+export interface RiskZone {
+    id: string;
+    name: string;
+    color: string;
+    coordinates: [number, number][];
+    description: string;
+    snlUrl?: string;
+}
+
 export interface SelectedFeature {
     type: LayerType;
-    data: Pipeline | ProductionSite | SubmarineCable | ShippingLane;
+    data: Pipeline | ProductionSite | SubmarineCable | ShippingLane | Chokepoint | RiskZone;
 }

@@ -1,6 +1,11 @@
 
 import { useAtlasStore } from '../store/atlasStore';
 import type { LayerType } from '../types';
+import { pipelines } from '../data/pipelines';
+import { productionSites } from '../data/productionSites';
+import { shippingLanes } from '../data/shippingLanes';
+import { chokepoints } from '../data/chokepoints';
+import { riskZones } from '../data/riskZones';
 
 const LAYERS: { id: LayerType; label: string; color: string; description: string }[] = [
     {
@@ -27,40 +32,123 @@ const LAYERS: { id: LayerType; label: string; color: string; description: string
         color: '#facc15',
         description: 'De største olje- og gassfeltene i verden.',
     },
+    {
+        id: 'chokepoints',
+        label: 'Flaskehalser',
+        color: '#ef4444',
+        description: 'Strategiske sund og kanaler for verdenshandelen.',
+    },
+    {
+        id: 'riskzones',
+        label: 'Risikosoner',
+        color: '#8b5cf6',
+        description: 'Geopolitiske konflikt- og risikoområder.',
+    },
+];
+
+const LAYER_COUNTS: Partial<Record<LayerType, number>> = {
+    shipping: shippingLanes.length,
+    pipelines: pipelines.length,
+    production: productionSites.length,
+    chokepoints: chokepoints.length,
+    riskzones: riskZones.length,
+};
+
+const REGIONS = [
+    { label: 'Nordsjøen', target: { scale: 3.5, x: -175, y: 65 } },
+    { label: 'Persiagulfen', target: { scale: 4.0, x: -520, y: 80 } },
+    { label: 'Malacca', target: { scale: 4.5, x: -830, y: 120 } },
+    { label: 'Øst-Asia', target: { scale: 3.0, x: -750, y: 50 } },
 ];
 
 export function LayerPanel() {
-    const { activeLayers, toggleLayer } = useAtlasStore();
+    const { activeLayers, toggleLayer, layerOpacities, setLayerOpacity, yearFilter, setYearFilter, setViewTarget } =
+        useAtlasStore();
 
     return (
         <div className="flex flex-col gap-2 p-3">
             <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1">Lag</p>
             {LAYERS.map((layer) => {
                 const active = activeLayers.has(layer.id);
+                const count = LAYER_COUNTS[layer.id];
                 return (
-                    <button
-                        key={layer.id}
-                        onClick={() => toggleLayer(layer.id)}
-                        className={`flex items-start gap-2 px-3 py-2 rounded-lg text-left transition-all text-sm w-full ${
-                            active
-                                ? 'bg-slate-700 text-white'
-                                : 'bg-slate-800/50 text-slate-400 hover:bg-slate-700/50'
-                        }`}
-                    >
-                        <span
-                            className="mt-0.5 flex-shrink-0 w-3 h-3 rounded-full"
-                            style={{ backgroundColor: active ? layer.color : '#475569' }}
-                        />
-                        <span className="flex flex-col gap-0.5">
-                            <span className="font-medium">{layer.label}</span>
-                            <span className="text-xs text-slate-500">{layer.description}</span>
-                        </span>
-                    </button>
+                    <div key={layer.id} className="flex flex-col gap-1">
+                        <button
+                            onClick={() => toggleLayer(layer.id)}
+                            className={`flex items-start gap-2 px-3 py-2 rounded-lg text-left transition-all text-sm w-full ${
+                                active
+                                    ? 'bg-slate-700 text-white'
+                                    : 'bg-slate-800/50 text-slate-400 hover:bg-slate-700/50'
+                            }`}
+                        >
+                            <span
+                                className="mt-0.5 flex-shrink-0 w-3 h-3 rounded-full"
+                                style={{ backgroundColor: active ? layer.color : '#475569' }}
+                            />
+                            <span className="flex flex-col gap-0.5 flex-1">
+                                <span className="font-medium">{layer.label}</span>
+                                <span className="text-xs text-slate-500">
+                                    {layer.description}
+                                    {count != null && (
+                                        <span className="ml-1 text-slate-600">({count})</span>
+                                    )}
+                                </span>
+                            </span>
+                        </button>
+                        {active && (
+                            <input
+                                type="range"
+                                min={0.1}
+                                max={1}
+                                step={0.05}
+                                value={layerOpacities[layer.id]}
+                                onChange={(e) => setLayerOpacity(layer.id, Number(e.target.value))}
+                                className="w-full h-1 accent-slate-400 mx-1"
+                                title="Gjennomsiktighet"
+                            />
+                        )}
+                    </div>
                 );
             })}
 
+            {/* Region shortcuts */}
+            <div className="mt-3 border-t border-slate-700 pt-3">
+                <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">
+                    Gå til region
+                </p>
+                <div className="grid grid-cols-2 gap-1">
+                    {REGIONS.map((r) => (
+                        <button
+                            key={r.label}
+                            onClick={() => setViewTarget(r.target)}
+                            className="text-xs bg-slate-800/70 hover:bg-slate-700 text-slate-300 px-2 py-1.5 rounded-lg transition-colors text-left"
+                        >
+                            {r.label}
+                        </button>
+                    ))}
+                </div>
+            </div>
+
+            {/* Year filter */}
+            <div className="mt-3 border-t border-slate-700 pt-3">
+                <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">
+                    Tidsfilter
+                </p>
+                <input
+                    type="range"
+                    min={1960}
+                    max={2024}
+                    value={yearFilter}
+                    onChange={(e) => setYearFilter(Number(e.target.value))}
+                    className="w-full accent-sky-400"
+                />
+                <p className="text-xs text-slate-400 mt-1">
+                    Vis infrastruktur t.o.m. {yearFilter}
+                </p>
+            </div>
+
             {/* Legend */}
-            <div className="mt-4 border-t border-slate-700 pt-3">
+            <div className="mt-3 border-t border-slate-700 pt-3">
                 <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">
                     Rørledningstype
                 </p>
@@ -101,19 +189,25 @@ export function LayerPanel() {
                     <span>ℹ</span> Datakilder
                 </p>
                 {[
-                    { icon: '🗺', label: 'Geografi', source: 'Natural Earth / world-atlas 110m' },
-                    { icon: '🚢', label: 'Skipsruter', source: 'IMO / UNCTAD 2024 (red.)' },
-                    { icon: '🌐', label: 'Kabler', source: 'TeleGeography SubmarineCableMap' },
-                    { icon: '🛢', label: 'Rørledninger', source: 'IEA / EIA / Wikipedia (red.)' },
-                    { icon: '⚡', label: 'Produksjon', source: 'IEA World Energy Outlook 2024' },
+                    { icon: '🗺', label: 'Geografi', source: 'Natural Earth / world-atlas 110m', url: 'https://www.naturalearthdata.com/' },
+                    { icon: '🚢', label: 'Skipsruter', source: 'IMO / UNCTAD 2024 (red.)', url: 'https://unctad.org/topic/transport-and-trade-logistics' },
+                    { icon: '🌐', label: 'Kabler', source: 'TeleGeography SubmarineCableMap', url: 'https://www.submarinecablemap.com/' },
+                    { icon: '🛢', label: 'Rørledninger', source: 'IEA / EIA / Wikipedia (red.)', url: 'https://www.iea.org/data-and-statistics' },
+                    { icon: '⚡', label: 'Produksjon', source: 'IEA World Energy Outlook 2024', url: 'https://www.iea.org/reports/world-energy-outlook-2024' },
                 ].map((item) => (
                     <div key={item.label} className="flex flex-col mb-1.5">
                         <span className="text-[10px] text-slate-400">
                             {item.icon} {item.label}
                         </span>
-                        <span className="text-[10px] text-slate-500 pl-4 leading-tight">
+                        <a
+                            href={item.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-[10px] text-slate-500 pl-4 leading-tight hover:text-sky-400 transition-colors"
+                            onClick={(e) => e.stopPropagation()}
+                        >
                             {item.source}
-                        </span>
+                        </a>
                     </div>
                 ))}
             </div>

@@ -49,6 +49,17 @@ const TimeTravelHub: React.FC = () => {
             color: 'bg-slate-700',
             image: '/images/chronos/ww1_trench_hero.webp',
             disabled: false
+        },
+        {
+            id: 'nikolaj-ii',
+            title: 'Tsarens Skjebne',
+            era: '1914–1918',
+            difficulty: 'Svært vanskelig',
+            description: 'Du er Nikolaj II — den siste tsaren av Russland. Fra Juli-krisen til revolusjonen: kan du endre historiens løp?',
+            icon: Crown,
+            color: 'bg-red-950',
+            image: '/images/chronos/nikolaj-ii/hero.webp',
+            disabled: false
         }
     ];
 

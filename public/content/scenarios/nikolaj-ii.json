@@ -1,0 +1,1331 @@
+{
+    "id": "nikolaj-ii",
+    "title": "Tsarens Skjebne",
+    "subtitle": "Nikolaj II og Den Store Krigen",
+    "era": "Første verdenskrig",
+    "year": "1914–1918",
+    "role": "Tsar Nikolaj II av Russland",
+    "summary": "Du er Nikolaj II — den siste tsaren av Russland. Fra attentatet i Sarajevo til revolusjonens ild navigerer du et imperium i krise. Hvert valg du tar kan forandre historien — eller gjenta den.",
+    "heroImage": "/images/chronos/nikolaj-ii/hero.webp",
+    "startingNodeId": "intro_sarajevo",
+    "randomEvents": [
+        "event_aleksej_krise",
+        "event_offiser_desertering",
+        "event_tyske_forhandler",
+        "event_folkeopproret",
+        "event_brev_fra_fronten",
+        "event_alexandra_press"
+    ],
+    "config": {
+        "stats": [
+            {
+                "id": "autoritet",
+                "label": "Tsarens Autoritet",
+                "icon": "crown",
+                "value": 65,
+                "max": 100,
+                "category": "core"
+            },
+            {
+                "id": "folkets_stotte",
+                "label": "Folkelig Støtte",
+                "icon": "heart",
+                "value": 30,
+                "max": 100,
+                "category": "core"
+            },
+            {
+                "id": "krigsevne",
+                "label": "Militær Styrke",
+                "icon": "shield",
+                "value": 55,
+                "max": 100,
+                "category": "core"
+            },
+            {
+                "id": "hoffets_tillit",
+                "label": "Hoffets Tillit",
+                "icon": "users",
+                "value": 60,
+                "max": 100,
+                "category": "relation"
+            },
+            {
+                "id": "aleksej_helse",
+                "label": "Aleksejs Helse",
+                "icon": "star",
+                "value": 35,
+                "max": 100,
+                "category": "special"
+            }
+        ],
+        "items": [
+            {
+                "id": "nicky_willy_telegram",
+                "name": "Telegram fra 'Willy'",
+                "description": "Personlig appell fra Kaiser Wilhelm II om å stoppe mobiliseringen. Fetteren din ber deg stanse — men generalene trykker på.",
+                "icon": "mail",
+                "content": {
+                    "itemType": "letter",
+                    "from": "Kaiser Wilhelm II av Tyskland (\"Willy\")",
+                    "to": "Tsar Nikolaj II av Russland (\"Nicky\")",
+                    "date": "29. juli 1914",
+                    "body": [
+                        "Kjære Nicky,",
+                        "Jeg er dypt uroet over de nyeste rapportene. Østerrike har fremmet sine krav til Serbia — men dette bør ikke bli en stormaktskrig.",
+                        "Jeg appellerer til deg, som fetter og venn: stopp mobiliseringen. La oss gi diplomati en sjanse. En telegrafisk utveksling mellom oss kan forhindre det utenkelige.",
+                        "Russlands mobilisering vil tvinge meg til å mobilisere selv — og da er krigen uunngåelig. Jeg tror ikke det er din vilje.",
+                        "Din hengivne fetter, Willy"
+                    ]
+                }
+            },
+            {
+                "id": "militær_rapport",
+                "name": "Frontrapporten",
+                "description": "En direkte rapport fra fronten — langt dystrere enn det offisielle bildet. Soldatene sulter. Rifler mangler. Ambulanser er ikke der.",
+                "icon": "scroll",
+                "content": {
+                    "itemType": "letter",
+                    "from": "Generalstaben, Øverstkommanderende Brussilov",
+                    "to": "Hans Keiserlige Majestet",
+                    "date": "Vinteren 1916",
+                    "body": [
+                        "Hemmelig rapport. Kun for Tsarens øyne.",
+                        "Frontlinjene holder — men til en forferdelig pris. Ammunisjonslagrene er kritisk lave. Av 100 soldater mangler 30 rifler. Matforsyningene er avbrutt på tre sektorer.",
+                        "Sanitetstjenesten er overveldet. Sykdommer tar like mange som fiendtlig ild.",
+                        "Vi kan holde stillingen gjennom vinteren dersom forsyningslinjene gjenåpnes. Men uten umiddelbar handling kan vi ikke garantere frontens integritet frem til våren.",
+                        "Hærens lojalitet er intakt — men soldatenes tålmodighet er ikke ubegrenset."
+                    ]
+                }
+            },
+            {
+                "id": "rasputin_brev",
+                "name": "Rasputins Brev",
+                "description": "Et brev fra Grigorij Rasputin med profetiske advarsler mot krigen: 'Hvis Russland trer inn i krigen, vil det bety slutten på Russland.'",
+                "icon": "feather",
+                "content": {
+                    "itemType": "letter",
+                    "from": "Grigorij Rasputin",
+                    "to": "Hans Keiserlige Majestet, Tsar Nikolaj II",
+                    "date": "Juli 1914",
+                    "body": [
+                        "Herre, hør din tjeners ord.",
+                        "Krig med tyskerne betyr undergang for Russland og deg selv. Du vil ødelegge deg selv og folket ditt.",
+                        "Vi vil seire over fienden, men vi vil suge blod i årevis og bli svekket til slutten. En stor sorg vil herje landet — uten slutt, sorg, sorg.",
+                        "Tsar av Russland: la ikke galskapen råde. Ingen leder er tjent med krig om ikke fedrelandet er i fare.",
+                        "Grigorij"
+                    ]
+                }
+            },
+            {
+                "id": "abdikasjonsdokument",
+                "name": "Abdikasjonsdokumentet",
+                "description": "Det offisielle abdikasjonsdokumentet. Å signere dette avslutter din tidsalder — og 304 år med Romanov-dynastiet.",
+                "icon": "pen"
+            },
+            {
+                "id": "britisk_tilbud",
+                "name": "Tilbud om Eksil",
+                "description": "Et hemmelig tilbud fra kong Georg V om asyl i Storbritannia. Familien kan overleve — men kronen er tapt for alltid.",
+                "icon": "shield",
+                "content": {
+                    "itemType": "letter",
+                    "from": "Kong Georg V av Storbritannia",
+                    "to": "Tsar Nikolaj II",
+                    "date": "Mars 1917 (Hemmelig)",
+                    "body": [
+                        "Kjære Nicky,",
+                        "Jeg har fulgt utviklingen i Russland med den dypeste bekymring.",
+                        "Det er min oppriktige ønske at du og familien din kan finne et sikkert tilfluktssted her i Storbritannia, dersom situasjonen skulle kreve det.",
+                        "Jeg vil gjøre alt som er i min makt for å legge til rette for en trygg overgang. Familien Romanov vil være velkomne gjester.",
+                        "Din hjertebundne fetter, Georg"
+                    ]
+                }
+            }
+        ],
+        "theme": {
+            "primaryColor": "#8B0000",
+            "font": "serif"
+        }
+    },
+    "nodes": {
+        "intro_sarajevo": {
+            "id": "intro_sarajevo",
+            "text": "Det er 28. juni 1914. Du sitter med familien i Tsarskoje Selo — keiserens private sommerpalass sør for St. Petersburg. Aleksej leker i parken, Alexandra og dattrene er nettopp vendt tilbake fra gudstjenesten. Du vil drikke te i fred da en militær budbringer stormer inn med et telegram.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/nikolaj-ii/sarajevo_telegram.webp",
+            "choices": [
+                {
+                    "id": "c_intro_sarajevo",
+                    "text": "Ta imot telegrammet.",
+                    "nextNodeId": "intro_telegram"
+                }
+            ]
+        },
+        "intro_telegram": {
+            "id": "intro_telegram",
+            "text": "Erkehertug Frans Ferdinand av Østerrike-Ungarn er myrdet i Sarajevo. Kona hans også. Frans Ferdinand var arveprinsen til Østerrike — en av Europas mektigste stater. Din første tanke: tragisk — men fjernt. Nok et drap på Balkan. Du vet ikke at du har akkurat 37 dager på deg til å avgjøre om Europa brenner.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/nikolaj-ii/sarajevo_telegram.webp",
+            "choices": [
+                {
+                    "id": "c_intro_telegram",
+                    "text": "Les telegrammet og kall rådgiverne til møte.",
+                    "nextNodeId": "hub_tsarskoje_1914"
+                }
+            ]
+        },
+        "hub_tsarskoje_1914": {
+            "id": "hub_tsarskoje_1914",
+            "text": "Ditt arbeidsrom i Tsarskoje Selo, juli 1914. På skrivebordet ligger et ubesvart telegram fra 'Willy' — Kaiser Wilhelm II, din fetter. Utenriksminister Sazonov venter i det ytre rommet med nyheter fra Wien og Beograd. Krigsminister Sukhomlinov har bedt om et øyeblikkelig møte om mobiliseringsplaner. Du har ikke mye tid.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/nikolaj-ii/tsarskoje_selo_study.webp",
+            "discoveryEvent": {
+                "title": "Juli-krisen 1914",
+                "fact": "Da arveprinsen til Østerrike ble drept, krevde Østerrike hevn mot Serbia. Men alle store land i Europa hadde gjort hemmelige løfter til hverandre om å hjelpe hverandre i krig. Frankrike, Russland og Storbritannia hadde lovet å stå sammen. Tyskland og Østerrike hadde gjort det samme. Resultatet: da ett land gikk i krig, dro de alle med — som dominobrikker. På 37 dager ble ett attentat til verdenskrig.",
+                "reflectionQuestion": "Tenk på dominobrikker: hvis én brikke velter, velter alle. Gjelder det samme for krig? Kunne noen stoppet det — og hvem hadde i så fall hatt makten til det?"
+            },
+            "uiType": "map",
+            "choices": [],
+            "mapConfig": {
+                "image": "/images/chronos/nikolaj-ii/tsarskoje_selo_map.webp",
+                "points": [
+                    {
+                        "id": "point_telegram",
+                        "x": 25,
+                        "y": 40,
+                        "label": "Les telegram fra Willy",
+                        "icon": "mail",
+                        "nextNodeId": "nicky_willy_telegram"
+                    },
+                    {
+                        "id": "point_sazonov",
+                        "x": 60,
+                        "y": 35,
+                        "label": "Konsulter Sazonov",
+                        "icon": "users",
+                        "nextNodeId": "sazonov_press"
+                    },
+                    {
+                        "id": "point_militær",
+                        "x": 75,
+                        "y": 65,
+                        "label": "Les militær vurdering",
+                        "icon": "shield",
+                        "nextNodeId": "militær_vurdering_1914"
+                    },
+                    {
+                        "id": "point_beslutning",
+                        "x": 40,
+                        "y": 75,
+                        "label": "Ta mobiliseringsbeslutningen",
+                        "icon": "crown",
+                        "nextNodeId": "mobilisering_beslutning"
+                    }
+                ]
+            }
+        },
+        "nicky_willy_telegram": {
+            "id": "nicky_willy_telegram",
+            "text": "Telegrammet fra Berlin er skrevet på personlig brevpapir, ikke offisielt statsbrev. 'Kjære Nicky, jeg er i sorg og ser med bekymring på dette...' Kaiser Wilhelm II — Willy for deg siden barndommen — appellerer direkte til deg som slektning, ikke som statsoverhode. Han ber deg stoppe mobiliseringen. Men generalene dine sier mobilisering ikke kan reverseres når den er startet — logistikken er for kompleks. Hva svarer du?",
+            "speaker": "Kaiser Wilhelms telegram",
+            "backgroundImage": "/images/chronos/nikolaj-ii/nicky_willy_telegram.webp",
+            "ethicsLens": {
+                "deontological": "Plikttanken: Serbia er din allierte — du har lovet å stå opp for dem. Å vike nå betyr at ingen stoler på russiske løfter i fremtiden.",
+                "consequentialist": "Konsekvenstanken: Willy sier krig kan stoppes. Hvis han har rett, kan ett telegram redde millioner av liv. Hva er mer verdt — ære eller liv?",
+                "virtue": "Karaktertanken: Det er lett å velge med hjertet når fetteren din ber deg. Men er det dette folket ditt trenger av deg akkurat nå?"
+            },
+            "choices": [
+                {
+                    "id": "c_telegram_appell",
+                    "text": "Svar med en personlig appell: be ham holde tilbake Østerrike.",
+                    "nextNodeId": "hub_tsarskoje_1914",
+                    "setFlags": ["telegraferte_willy"],
+                    "effects": {
+                        "autoritet": -5,
+                        "hoffets_tillit": -5
+                    },
+                    "updateInventory": {
+                        "add": "nicky_willy_telegram"
+                    }
+                },
+                {
+                    "id": "c_telegram_avvisning",
+                    "text": "Svar kort og formelt: Russlands forpliktelser til Serbia er ikke omsettelige.",
+                    "nextNodeId": "hub_tsarskoje_1914",
+                    "effects": {
+                        "autoritet": 5,
+                        "hoffets_tillit": 5
+                    },
+                    "updateInventory": {
+                        "add": "nicky_willy_telegram"
+                    }
+                }
+            ]
+        },
+        "sazonov_press": {
+            "id": "sazonov_press",
+            "text": "Utenriksminister Sergej Sazonov er blek, men bestemt. 'Østerrike-Ungarn har stilt Serbia et ultimatum — et sett med krav de vet Serbia ikke kan godta. Wien vil ha krig uansett.' Han legger frem rapporter om tyske tropper langs grensene. 'Hvis vi ikke mobiliserer nå, vil det ta seks uker. Til da kan det være for sent.' Sazonov tror sterkt på pan-slavismen — tanken om at alle slaviske folk (russere, serbere, polakker og andre) tilhører samme familie og bør hjelpe hverandre. Serbia er Russlands lille bror. Å svikte dem ville, i hans øyne, være å svikte Russlands sjel.",
+            "speaker": "Sazonov",
+            "backgroundImage": "/images/chronos/nikolaj-ii/tsarskoje_selo_study.webp",
+            "choices": [
+                {
+                    "id": "c_sazonov_tilbake",
+                    "text": "Takk Sazonov. Du trenger mer tid til å tenke.",
+                    "nextNodeId": "hub_tsarskoje_1914"
+                }
+            ]
+        },
+        "militær_vurdering_1914": {
+            "id": "militær_vurdering_1914",
+            "text": "Krigsminister Sukhomlinov presenterer mobiliseringsplanene — planene for å kalle inn og utstyre hæren. Russland har verdens største hær: 1,4 millioner soldater i fredstid, med potensial til å kalle inn fire ganger så mange under krig. Men bak tallene skjuler det seg en dyster sannhet: Russlands jernbanenett er ett av Europas dårligste. Det tar minst seks uker å få soldatene til fronten. Ammunisjonslagrene er for lave. Hvert tredje gevær mangler kuler. 'Vi er ikke klare for en lang krig,' hvisker en av offiserene — men Sukhomlinov hører det ikke, eller later som om han ikke gjør det.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/nikolaj-ii/military_map_1914.webp",
+            "choices": [
+                {
+                    "id": "c_militær_tilbake",
+                    "text": "Motta rapporten.",
+                    "nextNodeId": "hub_tsarskoje_1914",
+                    "updateInventory": {
+                        "add": "militær_rapport"
+                    }
+                }
+            ]
+        },
+        "mobilisering_beslutning": {
+            "id": "mobilisering_beslutning",
+            "text": "31. juli 1914. Du sitter alene i arbeidsrommet. Det er ikke lenger mulig å utsette. Østerrike-Ungarn har erklært krig mot Serbia. Generalene dine sier 'nå eller aldri' — hvert minutt du venter er et minutt Russland sakker akterut. Et nytt telegram fra Willy: 'Stopp. Stopp. Stopp mobiliseringen.' Men telegrafisten sier allerede at de tyske mobiliseringsordene er gitt. Alexandra stikker hodet inn: Aleksej har feber og spør etter deg. I dette ene øyeblikket bærer du 150 millioner russere, alliansen med Frankrike og Storbritannia, og Pan-slavismens løfte til Serbia — alt på dine skuldre.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/nikolaj-ii/mobilisering.webp",
+            "journalPrompt": "Hva veier tyngst: løftet du ga Serbia, de millionene av soldater som nå må dø, eller det som skjer med Russland om du sviker?",
+            "ethicsLens": {
+                "deontological": "Plikttanken: Du har lovet å beskytte Serbia. En avtale er en avtale — og bryter du den, stoler ingen allierte på deg igjen.",
+                "consequentialist": "Konsekvenstanken: Full krig vil drepe millioner. Å stoppe nå, selv om det er skamfullt, kan redde langt flere liv enn du ofrer i ære.",
+                "virtue": "Karaktertanken: Er det mot å sende millioner i krig for en beslutning du tok på sekunder? En klok leder skiller mellom ekte ansvar og prestisje."
+            },
+            "choices": [
+                {
+                    "id": "c_full_mobilisering",
+                    "text": "Beordre full mobilisering. Russland støtter Serbia.",
+                    "nextNodeId": "krigsutbrudd",
+                    "isHistoricalChoice": true,
+                    "setFlags": ["full_mobilisering"],
+                    "effects": {
+                        "autoritet": 10,
+                        "folkets_stotte": 15,
+                        "hoffets_tillit": 10
+                    }
+                },
+                {
+                    "id": "c_ingen_mobilisering",
+                    "text": "Stopp mobiliseringen. Russland trekker seg tilbake fra kanten.",
+                    "nextNodeId": "diplomatisk_losning_1914",
+                    "setFlags": ["avviker_fra_historien", "diplomatisk_losning_1914"],
+                    "historicalNote": "★ Historien gikk en annen vei — Nikolaj II ga ordre om full mobilisering 31. juli 1914.",
+                    "effects": {
+                        "autoritet": -10,
+                        "folkets_stotte": -5,
+                        "hoffets_tillit": -15
+                    }
+                },
+                {
+                    "id": "c_deleger_mobilisering",
+                    "text": "Deleger beslutningen til Generalstaben. Du kan ikke bære dette ansvaret alene.",
+                    "nextNodeId": "krigsutbrudd",
+                    "setFlags": ["full_mobilisering"],
+                    "effects": {
+                        "autoritet": -15,
+                        "krigsevne": 5
+                    }
+                }
+            ]
+        },
+        "krigsutbrudd": {
+            "id": "krigsutbrudd",
+            "text": "1. august 1914. Russland er i krig. Fra balkongen i Vinterpalasset i St. Petersburg ser du havet av folk: hundretusener som fyller Palace Square, syngende, viftende med flagg. Krigsbegeistringen — det historikerne senere kaller 'Augusterlebnis' — er ekte og overveldende. Menn melder seg frivillig. Kvinner binder røde kors på ermene. En gammel mann kneler og velsigner uniformerte soldater. De vet ikke at de fleste av disse unge mennene ikke vil komme hjem. Du vet det heller ikke — ennå.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/nikolaj-ii/krigsutbrudd_petrograd.webp",
+            "discoveryEvent": {
+                "title": "Den Store Krigens Utbrudd",
+                "fact": "I august 1914 var krigsbegeistringen ekte i alle europeiske storbyer — Berlin, Paris, London, St. Petersburg. Menn meldte seg frivillig i tusentall. Ingen trodde krigen ville vare lenge. 'Hjemme før bladene faller,' sa de tyske soldatene. Fire år og 20 millioner døde senere forstod man at den optimismen var en av historiens største feilberegninger.",
+                "reflectionQuestion": "Hvorfor var folk begeistret for en krig som viste seg å bli så ødeleggende? Hva forteller det om nasjonalisme og propaganda?"
+            },
+            "choices": [
+                {
+                    "id": "c_krigsutbrudd_videre",
+                    "text": "Krigen har begynt. Nå begynner de virkelige prøvelsene.",
+                    "nextNodeId": "tannenberg_katastrofe"
+                }
+            ]
+        },
+        "diplomatisk_losning_1914": {
+            "id": "diplomatisk_losning_1914",
+            "text": "Russland stanser mobiliseringen. En dyp, lamslående stillhet senker seg over Europa. Østerrike-Ungarn og Serbia forhandler under tysk press. Den europeiske krigen — om den i det hele tatt kommer — blir en lokal balkankrig uten Russland. Men prisen er umiddelbar og brutal: Pan-slavistene raser. Aviser skriver om Russlands skam. General Sukhomlinov sier at halve offiserskorpset er i sjokk. Sazonov gråter av raseri. Alexandra ser på deg med kalde øyne. Du har kanskje reddet millioner av liv. Det er ingen som takker deg for det — ennå.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/nikolaj-ii/tsarskoje_selo_study.webp",
+            "choices": [
+                {
+                    "id": "c_diplomatisk_videre",
+                    "text": "Bær skammen. Et imperium er mer enn én krig.",
+                    "nextNodeId": "konstitusjonell_reform_spor",
+                    "effects": {
+                        "autoritet": -20,
+                        "folkets_stotte": -15,
+                        "hoffets_tillit": -20
+                    }
+                }
+            ]
+        },
+        "konstitusjonell_reform_spor": {
+            "id": "konstitusjonell_reform_spor",
+            "text": "Uten krigen forsvinner noe som holdt folk samlet — den felles fienden. Nå rettes all misnøyen innover: mot deg, mot hovet, mot systemet. Streiker øker. Parlamentspolitikerne krever at tsaren deler makten. Men uten krigen er det også en mulighet: den politiske energien kan gå inn i reformer istedenfor revolusjon. I dette alternative sporet har statsminister Stolypin — som i virkeligheten ble myrdet i 1911 — overlevd og foreslår noe radikalt: at Russland sakte går over til et konstitusjonelt monarki, der tsaren beholder tronen men deler makten med et folkevalgt parlament. Det er ikke der du ønsker å stå. Men det er kanskje der du må stå for å overleve.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/nikolaj-ii/duma_petrograd.webp",
+            "choices": [
+                {
+                    "id": "c_reform_aksepter",
+                    "text": "Aksepter Stolypins plan. Russland reformeres — dynastiet overlever.",
+                    "nextNodeId": "epilog_konstitusjonelt_monarki",
+                    "setFlags": ["konstitusjonell_monarki"],
+                    "effects": {
+                        "autoritet": -10,
+                        "folkets_stotte": 20,
+                        "hoffets_tillit": -15
+                    }
+                },
+                {
+                    "id": "c_reform_nekt",
+                    "text": "Nekt reformen. Tsarens autoritet er absolutt og gudegitt.",
+                    "nextNodeId": "epilog_kollaps",
+                    "effects": {
+                        "autoritet": -5,
+                        "folkets_stotte": -25,
+                        "hoffets_tillit": 10
+                    }
+                }
+            ]
+        },
+        "tannenberg_katastrofe": {
+            "id": "tannenberg_katastrofe",
+            "text": "August–september 1914. Den østprøyssiske katastrofen. General Samsonov og general Rennenkampf angriper med to arméer som ikke kommuniserer. Tyske kryptografer fanger opp russiske radiomeldinger — i klartekst, ukryptert. General Hindenburg omslutter Samsonovs 2. armé fullstendig. 150 000 russiske soldater tatt til fange. General Samsonov rir ut i skogen og skyter seg selv. Rapporten som legges på skrivebordet ditt er nøkternt formulert, men tallene er sjokkerende. Du sitter med den i hendene og vet at dette bare er den første rapporten i en lang krig.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/nikolaj-ii/tannenberg_battlefield.webp",
+            "discoveryEvent": {
+                "title": "Katastrofen ved Tannenberg",
+                "fact": "Ved Tannenberg mistet Russland nesten 170 000 soldater på noen uker — fanget eller drept. Det var Russlands verste militære katastrofe på over hundre år. Grunnen var delvis dårlig organisering, men også en fatal feil: russerne sendte radiomeldinger i klartekst, uten koding. Tyskerne avlyttet alt og visste nøyaktig hvor russerne var og hva de planla.",
+                "reflectionQuestion": "En hær på 150 000 mann tapte fordi noen glemte å kode radiomeldingene. Hva sier det om hvordan krig egentlig vinnes — gjennom styrke, eller gjennom informasjon?"
+            },
+            "choices": [
+                {
+                    "id": "c_tannenberg_undersokelse",
+                    "text": "Beordre en streng undersøkelse. Noen må ta ansvaret for dette.",
+                    "nextNodeId": "ostfront_krise",
+                    "effects": {
+                        "autoritet": 5,
+                        "krigsevne": -5,
+                        "hoffets_tillit": -10
+                    }
+                },
+                {
+                    "id": "c_tannenberg_ansvar",
+                    "text": "Ta ansvaret selv som øverste krigsherre. Hev moralen — ikke finn syndebukker.",
+                    "nextNodeId": "ostfront_krise",
+                    "effects": {
+                        "folkets_stotte": 5,
+                        "krigsevne": 5,
+                        "autoritet": -5
+                    }
+                }
+            ]
+        },
+        "ostfront_krise": {
+            "id": "ostfront_krise",
+            "text": "1915. Det Store Tilbaketog. Russland mister Polen, Litauen og deler av Hviterussland — et område på størrelse med Frankrike. To millioner flyktninger strømmer østover. Provianttogene er fulle av soldater som mangler rifler, ammunition og sko. Generaler krangler innbyrdes. Storfyrst Nikolai, din onkel, kommanderer hærene i felt. Han er populær blant soldatene — noe som begynner å bekymre hoffets politikere. Du er langt fra fronten, her i Tsarskoje Selo. Hva gjør du nå?",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/nikolaj-ii/ostfront_retreating.webp",
+            "uiType": "map",
+            "choices": [],
+            "mapConfig": {
+                "image": "/images/chronos/nikolaj-ii/ostfront_map_1915.webp",
+                "points": [
+                    {
+                        "id": "point_kommando",
+                        "x": 30,
+                        "y": 45,
+                        "label": "Ta personlig kommando over hæren",
+                        "icon": "crown",
+                        "nextNodeId": "personlig_kommando"
+                    },
+                    {
+                        "id": "point_nikolai",
+                        "x": 65,
+                        "y": 35,
+                        "label": "Støtt Storfyrst Nikolai",
+                        "icon": "shield",
+                        "nextNodeId": "stott_nikolai"
+                    },
+                    {
+                        "id": "point_fred",
+                        "x": 50,
+                        "y": 75,
+                        "label": "Søk fredsforhandlinger med Tyskland",
+                        "icon": "feather",
+                        "nextNodeId": "fredsonderhandlinger_1915"
+                    }
+                ]
+            }
+        },
+        "personlig_kommando": {
+            "id": "personlig_kommando",
+            "text": "August 1915. Du vil ta personlig kommando over de russiske hærene. Alle rådgivere fraråder det — unntatt Alexandra, som sier Rasputin har profetert at det er riktig. Statsministre, ministre, generaler skriver brev om brev om å ombestemme deg. 'Hva skjer når en hær taper? Da er det Tsarens skyld. Personlig.' Men du hører dem ikke. Du reiser til Stavka, det militære hovedkvarteret i Mogilyov, 700 kilometer fra Petrograd. Herfra vil du lede Russland til seier — eller til undergangen.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/nikolaj-ii/stavka_headquarters.webp",
+            "ethicsLens": {
+                "deontological": "Plikttanken: En tsar skal lede sitt folk — også i krig. Det er din rolle, din arv, ditt ansvar. Å sende andre i stedet kan virke feigt.",
+                "consequentialist": "Konsekvenstanken: Hvis du personlig leder hæren og Russland taper slag, er det du som er ansvarlig. Hvert militært nederlag blir et slag mot selve monarkiet.",
+                "virtue": "Karaktertanken: Det er mot å stille seg i front. Men er det også klokt? Vet du nok om militær ledelse til å gjøre dette bra — eller handler det om stolthet?"
+            },
+            "choices": [
+                {
+                    "id": "c_ta_kommando",
+                    "text": "Reise til Stavka. Du tar kommandoen.",
+                    "nextNodeId": "rasputin_dilemma",
+                    "isHistoricalChoice": true,
+                    "setFlags": ["tok_personlig_kommando"],
+                    "effects": {
+                        "autoritet": 10,
+                        "krigsevne": 5,
+                        "hoffets_tillit": -10,
+                        "folkets_stotte": 5
+                    }
+                },
+                {
+                    "id": "c_ikke_ta_kommando",
+                    "text": "La Storfyrst Nikolai beholde kommandoen. Du styrer imperiet fra Petrograd.",
+                    "nextNodeId": "rasputin_dilemma",
+                    "historicalNote": "★ Historien gikk en annen vei — Nikolaj II tok personlig kommando i august 1915.",
+                    "effects": {
+                        "autoritet": -5,
+                        "hoffets_tillit": 10,
+                        "folkets_stotte": -5
+                    }
+                }
+            ]
+        },
+        "stott_nikolai": {
+            "id": "stott_nikolai",
+            "text": "Du sender et brev til Storfyrst Nikolai med full støtte og styrket autoritet. Han sender tilbake en takknemlig respons og lover å holde linjen. Hoffet murrer — noen ser Storfyrsten som en rival til tronen — men i felten gir det ro i kommandolinjene. Aleksej er syk igjen. Alexandra skriver at Rasputin er den eneste som hjelper gutten. Du leser brevet tre ganger og legger det vekk.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/nikolaj-ii/tsarskoje_selo_study.webp",
+            "choices": [
+                {
+                    "id": "c_stott_nikolai_videre",
+                    "text": "Gå tilbake til krisehåndteringen.",
+                    "nextNodeId": "rasputin_dilemma",
+                    "effects": {
+                        "krigsevne": 5,
+                        "hoffets_tillit": -5
+                    }
+                }
+            ]
+        },
+        "fredsonderhandlinger_1915": {
+            "id": "fredsonderhandlinger_1915",
+            "text": "En hemmelig kanal til Berlin. En tysk diplomat — ikke-offisielt, naturligvis — antyder at det finnes grunnlag for en separat fredsavtale. Russland kan beholde sine europeiske territorier mot at det trekker seg fra krigen. Frankrike og Storbritannia vil reagere med raseri. Pan-slavistene vil kalle deg forræder. Men kanskje er det prisen for å redde imperiet. Du bestiller en nøytral mellommann. Kanskje.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/nikolaj-ii/diplomatic_meeting.webp",
+            "choices": [
+                {
+                    "id": "c_fred_forhandl",
+                    "text": "Gå videre med hemmelige forhandlinger.",
+                    "nextNodeId": "rasputin_dilemma",
+                    "setFlags": ["separatfred"],
+                    "updateInventory": {
+                        "add": "britisk_tilbud"
+                    },
+                    "effects": {
+                        "autoritet": -10,
+                        "folkets_stotte": -10,
+                        "krigsevne": -5
+                    }
+                },
+                {
+                    "id": "c_fred_avvis",
+                    "text": "Avvis tilbudet. Russland svikter ikke sine allierte.",
+                    "nextNodeId": "rasputin_dilemma",
+                    "effects": {
+                        "autoritet": 5,
+                        "hoffets_tillit": 5
+                    }
+                }
+            ]
+        },
+        "rasputin_dilemma": {
+            "id": "rasputin_dilemma",
+            "text": "1915–1916. Mens du er ved Stavka og leder hæren, styrer Alexandra — under sterk innflytelse fra Grigorij Rasputin — ministerutnevnelsene i Petrograd. På ett år skiftes fire innenriksministre, tre krigsministre og to statsministre ut. Ryktene om Rasputins makt når hoffet, adelen og folket. Aviser våger ikke å skrive det direkte — men karikaturer sirkulerer. Aleksej er frisk igjen etter Rasputins bønner, og Alexandra er overbevist om at munken er Guds sendebud. Du mottar et brev fra Rasputin selv.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/nikolaj-ii/rasputin_portrait.webp",
+            "discoveryEvent": {
+                "title": "Rasputins Skygge",
+                "fact": "Grigorij Rasputin var en selvutnevnt hellig mann fra Sibir. Han klarte å overbevise tsarinnna Alexandra om at han kunne helbrede sønnen Aleksej. Aleksej led av hemofili — en arvelig sykdom der blodet ikke koagulerer normalt. Et lite kutt kan bli livstruende. Rasputin tilsynelatende hjalp gutten når ingen andre kunne, noe som ga ham enorm makt over Alexandra. Og Alexandra påvirket tsaren. Mellom 1915 og 1916 ble fire statsministre, tre krigsministre og en rekke andre ministre byttet ut — på Rasputins råd.",
+                "reflectionQuestion": "Hvordan kan én persons innflytelse over ett enkelt menneske (Alexandra) endre et helt imperiums politikk? Hva sier dette om autokratiets svakheter?"
+            },
+            "choices": [
+                {
+                    "id": "c_rasputin_passiv",
+                    "text": "La det skje. Aleksej lever. Det er nok.",
+                    "nextNodeId": "hub_petrograd_1916",
+                    "isHistoricalChoice": true,
+                    "setFlags": ["stottet_rasputin"],
+                    "effects": {
+                        "aleksej_helse": 10,
+                        "hoffets_tillit": -15,
+                        "folkets_stotte": -10
+                    }
+                },
+                {
+                    "id": "c_rasputin_konfronter",
+                    "text": "Konfronter Rasputin personlig. Hans politiske rolle er uakseptabel.",
+                    "nextNodeId": "hub_petrograd_1916",
+                    "effects": {
+                        "aleksej_helse": -10,
+                        "hoffets_tillit": 5,
+                        "autoritet": 5,
+                        "folkets_stotte": 5
+                    }
+                },
+                {
+                    "id": "c_rasputin_sibir",
+                    "text": "Send Rasputin tilbake til Sibir. Avstand løser problemet.",
+                    "nextNodeId": "hub_petrograd_1916",
+                    "historicalNote": "★ Historien gikk en annen vei — Nikolaj II tillot Rasputins innflytelse å fortsette.",
+                    "effects": {
+                        "aleksej_helse": -20,
+                        "hoffets_tillit": 15,
+                        "folkets_stotte": 10,
+                        "autoritet": 10
+                    }
+                }
+            ]
+        },
+        "hub_petrograd_1916": {
+            "id": "hub_petrograd_1916",
+            "text": "1916. Tre fronter blinker på kartet: østfronten der tyske press øker, Galicia der Østerrike-Ungarn vakler, og den indre fronten i Petrograd der Duma-politikerne mobiliserer sin kritikk. Tre avgjørelser venter.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/nikolaj-ii/petrograd_1916.webp",
+            "uiType": "map",
+            "choices": [],
+            "mapConfig": {
+                "image": "/images/chronos/nikolaj-ii/petrograd_map_1916.webp",
+                "points": [
+                    {
+                        "id": "point_brusilov",
+                        "x": 70,
+                        "y": 40,
+                        "label": "Brusilov-offensiven",
+                        "icon": "shield",
+                        "nextNodeId": "brusilov_offensiv"
+                    },
+                    {
+                        "id": "point_duma",
+                        "x": 30,
+                        "y": 60,
+                        "label": "Duma-kravene",
+                        "icon": "users",
+                        "nextNodeId": "duma_krav"
+                    },
+                    {
+                        "id": "point_rasputin",
+                        "x": 55,
+                        "y": 75,
+                        "label": "Rasputins mord",
+                        "icon": "feather",
+                        "nextNodeId": "rasputin_mord"
+                    }
+                ]
+            }
+        },
+        "brusilov_offensiv": {
+            "id": "brusilov_offensiv",
+            "text": "Juni 1916. General Aleksei Brusilov presenterer en taktisk plan ingen har prøvd på Vestfronten: multiple simultane angrep langs en bred front på 500 kilometer, uten langvarig artilleribombardering som varsler fienden. Infiltrasjonstropper, overraskelse, koordinasjon. De andre generalene er skeptiske — men Brusilov er overbevisende. Du holder russlandets militærskjebne i dine hender i dette øyeblikket.",
+            "speaker": "General Brusilov",
+            "backgroundImage": "/images/chronos/nikolaj-ii/brusilov_map_table.webp",
+            "discoveryEvent": {
+                "title": "Brusilov-offensivens Geni",
+                "fact": "Brusilov-offensiven (juni–september 1916) er regnet som den eneste vellykkede storoffensiven i første verdenskrig. Ved å angripe langs en bred front på 500 km uten forvarsel, tvang Brusilov Østerrike-Ungarn til å spre styrkene sine. Resultatet: nesten én million østerrikske fanger, og Østerrike-Ungarn aldri fullt funksjonsdyktig militært igjen. Brusilovs taktiske nytenkning påvirket militær doktrine i tiår fremover.",
+                "reflectionQuestion": "Hva skiller Brusilows tilnærming fra 'over-toppen'-taktikken på Vestfronten? Hva kan vi lære av hans suksess om forholdet mellom tradisjon og innovasjon?"
+            },
+            "choices": [],
+            "minigame": {
+                "type": "battle",
+                "config": {
+                    "enemyName": "Østerriksk forsvarslinje — Galicia",
+                    "playerHealth": 25,
+                    "enemyHealth": 25,
+                    "winNodeId": "brusilov_seier",
+                    "lossNodeId": "brusilov_delvis",
+                    "moves": [
+                        {
+                            "id": "bred_front",
+                            "label": "Angrip langs bred front (Brusilovs plan)",
+                            "type": "attack",
+                            "damage": 6,
+                            "counters": ["konsentrert_forsvar"]
+                        },
+                        {
+                            "id": "artilleri_forberedelse",
+                            "label": "Lang artilleriforberedelse (tradisjonell taktikk)",
+                            "type": "defend",
+                            "damage": 3,
+                            "counters": ["flankeangrep"]
+                        },
+                        {
+                            "id": "infiltrasjon",
+                            "label": "Send infiltrasjonstropper i forkant",
+                            "type": "charge",
+                            "damage": 5,
+                            "counters": ["tett forsvar"]
+                        }
+                    ]
+                }
+            }
+        },
+        "brusilov_seier": {
+            "id": "brusilov_seier",
+            "text": "Brusilov-offensiven er en triumf uten sidestykke i denne krigen. Østerrike-Ungarn lider nesten én million tap. Det tyske Vestfront-presset avtar mens reserver sendes østover. For første gang siden krigsutbruddet er det Russland som dikterer krigens tempo. Flagg heises i Petrograd. Soldatmoralen stiger for første gang siden Tannenberg. Du har ett sjeldent øyeblikk av militær suksess — nyt det mens det varer.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/nikolaj-ii/brusilov_victory.webp",
+            "choices": [
+                {
+                    "id": "c_brusilov_seier_videre",
+                    "text": "Vedlikehold momentumet.",
+                    "nextNodeId": "hub_petrograd_1916",
+                    "effects": {
+                        "krigsevne": 25,
+                        "folkets_stotte": 15,
+                        "autoritet": 10
+                    }
+                }
+            ]
+        },
+        "brusilov_delvis": {
+            "id": "brusilov_delvis",
+            "text": "Offensiven gjør fremgang, men koordinasjonen svikter på høyre fløy. Noen generaler reserverer seg mot Brusilows innovasjoner og faller tilbake på gammel taktikk. Resultatet er en partiell suksess: territorielle gevinster, men ikke det avgjørende gjennombruddet. Østerrike-Ungarn lider alvorlige tap, men er ikke knust. Krigen fortsetter.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/nikolaj-ii/brusilov_map_table.webp",
+            "choices": [
+                {
+                    "id": "c_brusilov_delvis_videre",
+                    "text": "Konsolider gevinsten.",
+                    "nextNodeId": "hub_petrograd_1916",
+                    "effects": {
+                        "krigsevne": 8,
+                        "folkets_stotte": 5
+                    }
+                }
+            ]
+        },
+        "duma_krav": {
+            "id": "duma_krav",
+            "text": "November 1916. Den russiske Duma — det russiske parlamentet, som fikk begrenset makt etter den første revolusjonen i 1905 — samles i Tauride-palasset i Petrograd. Pavel Milyukov, leder for det liberale partiet, holder en tale som rister hele byen: han leser opp en lang liste over regjeringens feil og spør for hvert punkt — 'Dumhet eller forræderi?' Han mener Alexandra og Rasputin styrer landet fra bakrommet. Parlamentet krever noe enkelt, men revolusjonært: at ministre skal svare for folkets valgte representanter — ikke bare for tsaren. Du sitter 700 kilometer unna og leser referatene. Hva gjør du?",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/nikolaj-ii/duma_petrograd.webp",
+            "ethicsLens": {
+                "deontological": "Plikttanken: Du er tsar av Guds nåde — din makt er ikke folkets å ta fra deg. Å gi etter for parlamentet bryter med alt du har svoret å verne om.",
+                "consequentialist": "Konsekvenstanken: Hva skjer om du nekter? Parlamentet mister tilliten. Folket mister håpet. Revolusjonen nærmer seg. Å gi litt makt nå kan kanskje redde det meste.",
+                "virtue": "Karaktertanken: En klok leder vet når han må endre kurs. Er det svakhet å lytte til folket — eller er det den eneste måten å faktisk beholde makten?"
+            },
+            "choices": [
+                {
+                    "id": "c_duma_avvis",
+                    "text": "Avvis kravene. Tsarens makt er absolutt og gudegitt.",
+                    "nextNodeId": "rasputin_mord",
+                    "isHistoricalChoice": true,
+                    "setFlags": ["avslo_duma"],
+                    "effects": {
+                        "autoritet": 5,
+                        "hoffets_tillit": -20,
+                        "folkets_stotte": -20
+                    }
+                },
+                {
+                    "id": "c_duma_delvis",
+                    "text": "Innrøm moderate krav — utnevn statsminister som Duma godkjenner.",
+                    "nextNodeId": "rasputin_mord",
+                    "setFlags": ["konstitusjonell_monarki"],
+                    "historicalNote": "★ Historien gikk en annen vei — Nikolaj II avviste alle Dumas krav.",
+                    "effects": {
+                        "autoritet": -10,
+                        "hoffets_tillit": 5,
+                        "folkets_stotte": 25
+                    }
+                },
+                {
+                    "id": "c_duma_full",
+                    "text": "Innrøm full ansvarlig regjering. La Duma velge statsministeren.",
+                    "nextNodeId": "rasputin_mord",
+                    "setFlags": ["konstitusjonell_monarki", "avviker_fra_historien"],
+                    "historicalNote": "★ Historien gikk en annen vei — Nikolaj II avviste alle Dumas krav.",
+                    "effects": {
+                        "autoritet": -25,
+                        "hoffets_tillit": -5,
+                        "folkets_stotte": 35
+                    }
+                }
+            ]
+        },
+        "rasputin_mord": {
+            "id": "rasputin_mord",
+            "text": "Natt til 17. desember 1916. Rasputin er drept i Prins Yusupovs palass ved Moika-kanalen i Petrograd. En gruppe adelige — inkludert prins Felix Yusupov og Storfyrst Dmitrij Pavlovich, din slektning — bak drapet. Rapporten er makaberr: gift, skudd, et forsøk på drukning i den frosne Neva-elven. Petrograds elegant jubler. Alexandra er knust. Du sitter i Stavka og vet at de skyldige er for prominente til å straffe fullt ut — men du kan ikke la drapet stå ustraffet heller.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/nikolaj-ii/rasputin_portrait.webp",
+            "discoveryEvent": {
+                "title": "Rasputins Død",
+                "fact": "Rasputin ble drept natten til 17. desember 1916 i prins Yusupovs palass. De involverte var blant Russlands mest prominente adelige, inkludert Storfyrst Dmitrij Pavlovich. Nikolaj II verbannte Yusupov til sitt gods og Dmitrij til Persiafronten — men ingen ble straffet hardt. Alexandra var dypt traumatisert. Mange historikere mener Rasputins mord kom for sent til å redde monarkiet — skaden var allerede gjort.",
+                "reflectionQuestion": "Hvorfor var det de konservative adelige — ikke revolusjonærene — som drepte Rasputin? Hva sier det om hva slags trussel han representerte?"
+            },
+            "choices": [
+                {
+                    "id": "c_rasputin_se_bort",
+                    "text": "Se bort fra det. De skyldige er for viktige til å straffe.",
+                    "nextNodeId": "petrograd_vinter_1917",
+                    "isHistoricalChoice": true,
+                    "effects": {
+                        "hoffets_tillit": 5,
+                        "aleksej_helse": -15,
+                        "folkets_stotte": 5
+                    }
+                },
+                {
+                    "id": "c_rasputin_arrest",
+                    "text": "Arrester de skyldige. Loven gjelder for alle — også Romanov-slektninger.",
+                    "nextNodeId": "petrograd_vinter_1917",
+                    "effects": {
+                        "hoffets_tillit": -20,
+                        "autoritet": 10,
+                        "folkets_stotte": 10
+                    }
+                }
+            ]
+        },
+        "petrograd_vinter_1917": {
+            "id": "petrograd_vinter_1917",
+            "text": "Februar 1917. Petrograd fryser. Brødet er borte fra butikkhyllene — distribusjonssystemet har kollapset under krigens press. Arbeidere streiker. Soldater som sendes for å oppløse demonstrasjonene, nekter å skyte på folkemengden og snur geværene mot offiserene sine. Du er i Stavka, 700 kilometer unna, og mottar telegram etter telegram: 'Hæren kan ikke garantere ro og orden.' 'Minister innenriks ber om ytterligere instruks.' 'Situasjonen ukontrollerbar.' Du har tre alternativer — og ingen av dem er gode.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/nikolaj-ii/petrograd_februar_1917.webp",
+            "discoveryEvent": {
+                "title": "Februar-revolusjonen",
+                "fact": "Februar-revolusjonen 1917 var spontan — ingen revolusjonær organisasjon planla den. Den startet som brødemonstrasjonr av arbeiderskvinner 8. mars (23. februar etter gammel russisk kalender), og eskalerte på åtte dager til tsarens abdikasjon. Det avgjørende var at soldatene nektet å skyte på sine egne landsmenn. Uten hærens lojalitet hadde monarkiet ingenting å stå på.",
+                "reflectionQuestion": "Revolusjoner skjer sjelden fordi noen planlegger dem — de skjer når systemer mister sin legitimitet. Hva manglet Nikolaj IIs styre at folk sluttet å tro på det?"
+            },
+            "choices": [
+                {
+                    "id": "c_vinter_bli",
+                    "text": "Bli i Stavka. Send tropper for å gjenopprette orden i Petrograd.",
+                    "nextNodeId": "februar_revolusjon",
+                    "isHistoricalChoice": true,
+                    "effects": {
+                        "krigsevne": 5,
+                        "folkets_stotte": -15,
+                        "autoritet": -5
+                    }
+                },
+                {
+                    "id": "c_vinter_reis",
+                    "text": "Reis umiddelbart til Petrograd. Din tilstedeværelse kan roe situasjonen.",
+                    "nextNodeId": "februar_revolusjon_direkte",
+                    "effects": {
+                        "autoritet": 10,
+                        "krigsevne": -5,
+                        "folkets_stotte": 5
+                    }
+                },
+                {
+                    "id": "c_vinter_unntakstilstand",
+                    "text": "Utrop unntakstilstand og overfør politimakt til general Khabalov.",
+                    "nextNodeId": "februar_revolusjon",
+                    "effects": {
+                        "autoritet": -20,
+                        "folkets_stotte": -20,
+                        "krigsevne": -5
+                    }
+                }
+            ]
+        },
+        "februar_revolusjon": {
+            "id": "februar_revolusjon",
+            "text": "Toglinjen tilbake til Petrograd er avskåret av revolusjonære jernbanearbeidere. Du sitter i keisertoget på stasjonen i Pskov. General Ruzsky leser opp telegrams fra alle frontsjefer: alle anbefaler abdikasjon. Duma-lederne Guchkov og Shulgin er på vei med abdikasjonsdokumentene. Alexandra vet ikke ennå. Aleksej vet ikke ennå. Dattrene dine vet ikke ennå. Det er 2. mars 1917.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/nikolaj-ii/pskov_train.webp",
+            "choices": [
+                {
+                    "id": "c_feb_rev_videre",
+                    "text": "Vent på Duma-delegatene.",
+                    "nextNodeId": "abdikasjon_beslutning"
+                }
+            ]
+        },
+        "februar_revolusjon_direkte": {
+            "id": "februar_revolusjon_direkte",
+            "text": "Du er på vei til Petrograd i keisertoget — men linjene er blokkert. Revolusjonære jernbanearbeidere har stoppet alle tog til hovedstaden. Toget ditt omprogrammeres via Pskov. Du ankommer stasjonen tidlig om morgenen. General Ruzsky møter deg på perrongen med et bunt telegrammer. Ansiktet hans sier alt. Du tar imot papirene og leser: alle frontsjefer anbefaler abdikasjon. Duma-representanter er underveis. Det er 2. mars 1917.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/nikolaj-ii/pskov_train.webp",
+            "choices": [
+                {
+                    "id": "c_feb_rev_direkte_videre",
+                    "text": "Ta imot Duma-representantene.",
+                    "nextNodeId": "abdikasjon_beslutning",
+                    "effects": {
+                        "autoritet": 5
+                    }
+                }
+            ]
+        },
+        "abdikasjon_beslutning": {
+            "id": "abdikasjon_beslutning",
+            "text": "2. mars 1917. Du sitter alene i keisertogkupéen ved Pskov stasjon. Guchkov og Shulgin fra Duma er kommet. Generalene ber om abdikasjon. Det britiske konsulatet har passert et hemmelig budskap om muligheten for eksil i England. Foran deg på det lille bordet ligger to dokumenter: abdikasjonsdokumentet — ferdig formulert, klart til signering — og et blankt ark der du kan skrive din avgjørelse. Du tenker på Alexandra. Du tenker på Aleksej. Du tenker på de fire dattrene. 304 år med Romanov-dynastiet hviler i hendene dine.",
+            "speaker": "Nikolaj II (indre monolog)",
+            "backgroundImage": "/images/chronos/nikolaj-ii/abdikasjon_beslutning.webp",
+            "journalPrompt": "Hvem er du skyldig mest — kronen du har arvet, familien som venter på deg, eller folket som har vendt deg ryggen?",
+            "ethicsLens": {
+                "deontological": "Plikttanken: Du er kronet av Gud og Russland. En tsar legger ikke fra seg makten — det er en hellig plikt, ikke en jobb du kan slutte i.",
+                "consequentialist": "Konsekvenstanken: Hvis du abdiserer, stopper kanskje den verste volden. Hvis du holder fast, fortsetter krigen — og familien er i fare. Hva gir flest overlevende?",
+                "virtue": "Karaktertanken: Det krever mot å holde fast. Men det kan kreve enda mer mot å slippe taket. Hva er egentlig det feige — og hva er det kloke?"
+            },
+            "choices": [
+                {
+                    "id": "c_abdiser",
+                    "text": "Signer abdikasjonsdokumentet. For Russland. For familien.",
+                    "nextNodeId": "abdikasjon_scene",
+                    "isHistoricalChoice": true,
+                    "setFlags": ["abdiserte"],
+                    "updateInventory": {
+                        "add": "abdikasjonsdokument"
+                    },
+                    "effects": {
+                        "autoritet": -50,
+                        "folkets_stotte": 5
+                    }
+                },
+                {
+                    "id": "c_forkast_abdikasjon",
+                    "text": "Forkast abdikasjonsdokumentet. Erklær konstitusjonelt monarki istedenfor.",
+                    "nextNodeId": "reformspor_avslutning",
+                    "condition": {
+                        "hasFlag": "konstitusjonell_monarki"
+                    },
+                    "historicalNote": "★ Historien gikk en annen vei — Nikolaj II signerte abdikasjonen.",
+                    "effects": {
+                        "autoritet": -20,
+                        "folkets_stotte": 15,
+                        "hoffets_tillit": -30
+                    }
+                },
+                {
+                    "id": "c_abdiser_med_eksil",
+                    "text": "Signer abdikasjonen — og aksepter det britiske eksiltilbudet.",
+                    "nextNodeId": "eksil_spor",
+                    "condition": {
+                        "hasItem": "britisk_tilbud"
+                    },
+                    "setFlags": ["abdiserte", "aksepterte_eksil"],
+                    "updateInventory": {
+                        "add": "abdikasjonsdokument"
+                    },
+                    "historicalNote": "★ Historien gikk en annen vei — Kong Georg V trakk eksilstilbudet tilbake under press.",
+                    "effects": {
+                        "autoritet": -50
+                    }
+                }
+            ]
+        },
+        "abdikasjon_scene": {
+            "id": "abdikasjon_scene",
+            "text": "Pskov stasjon, natt til 3. mars 1917. Du signerer. Ikke bare for deg selv — Aleksej er for syk til å bli tsar alene, bestemmer du — men til fordel for din bror, Storfyrst Mikhail. Pennen er tung. Guchkov tar papiret. Det er ingen dramatikk. Ingen tårer. Ingen avskjedssang. Det er kald, stille jernbanestasjon i provinsen, og det er her 304 år med Romanov-dynasti slutter. Mikhail vil abdisere neste dag. Den provisoriske regjeringen overtar. Du er ikke lenger Tsar av Russland.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/nikolaj-ii/abdikasjon_scene.webp",
+            "discoveryEvent": {
+                "title": "Abdikasjonsdokumentet",
+                "fact": "Nikolaj IIs abdikasjon ble signert 2. mars 1917 på Pskov jernbanestasjon. Det er et av historiens mest udramatiske dokumenter: håndskrevet, nøkternt formulert. Han abdiserte ikke bare for seg selv, men også på vegne av sin sønn Aleksej, til fordel for broren Mikhail. Mikhail abdiserte dagen etter. 304 år med Romanov-dynastiet — fra Mikhail I i 1613 til Nikolaj II i 1917 — var over.",
+                "reflectionQuestion": "Nikolaj II tok ingen farvel, holdt ingen tale, og grep ikke til dramatisk motstand. Hva forteller det om mannen — og om monarkiets tilstand?"
+            },
+            "choices": [
+                {
+                    "id": "c_abdikasjon_videre",
+                    "text": "Vend tilbake til familien.",
+                    "nextNodeId": "hus_arrest"
+                }
+            ]
+        },
+        "hus_arrest": {
+            "id": "hus_arrest",
+            "text": "Mars–august 1917. Du og familien er under husarrest i Tsarskoje Selo. Den provisoriske regjeringen under statsminister Kerenskij beskytter dere fra pøbelens vrede — foreløpig. Dattrene dine har meslingene. Aleksej er syk igjen. Alexandra ber. Du kapper ved og leser. Det er merkelig stille, som en pause mellom to verdener. Du vet ennå ikke hva den neste verdenen bringer.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/nikolaj-ii/tsarskoje_hus_arrest.webp",
+            "choices": [
+                {
+                    "id": "c_arrest_vent",
+                    "text": "Vent. Hendelsene vil avgjøre seg selv.",
+                    "nextNodeId": "bolsjevik_makt",
+                    "effects": {
+                        "autoritet": -5
+                    }
+                }
+            ]
+        },
+        "bolsjevik_makt": {
+            "id": "bolsjevik_makt",
+            "text": "Oktober 1917. Kanonskuddet fra Aurora-krysseren lyser opp Neva-elven. Bolsjevikene — Lenins revolusjonære parti — tar makten i én natt. Kerenskij flykter forkledd som kvinne. Vinterpalasset faller. Den provisoriske regjeringen er borte. Din eneste beskyttelse — Kerenskijs moderate regjering — er knust. Familien overføres til Tobolsk i Sibir. Lenin underskriver 'Dekretet om fred'. Krigen Russland kjempet — og tapte så mye for — er over. Men for deg begynner den virkelige usikkerheten nå.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/nikolaj-ii/aurora_skuddet.webp",
+            "discoveryEvent": {
+                "title": "Oktoberrevolusjonen",
+                "fact": "Bolsjevikrevolusjonen natten til 25. oktober 1917 var ikke en spontan folkereisning — det var et presist, planlagt kupp ledet av Lenin og Trotskij. Kanonskuddet fra krigsskipet Aurora var signalet for bolsjevikene til å storme Vinterpalasset. Lenin kalte det selv 'maktovertagelsen' — ikke en revolusjon. Historikere diskuterer den dag i dag: var det et folkeopprør med bred støtte, eller en liten gruppe som kapret makten mens landet var i kaos? Begge deler er delvis sant.",
+                "reflectionQuestion": "Lenin kalte det en 'maktovertagelse', andre kaller det revolusjon, noen kaller det kupp. Hvem bestemmer hva en historisk hendelse skal hete — og har det noe å si for hvordan vi husker den?"
+            },
+            "choices": [
+                {
+                    "id": "c_bolsjevik_jekaterinburg",
+                    "text": "Aksepter familiens skjebne i bolsjevikenes hender.",
+                    "nextNodeId": "jekaterinburg"
+                }
+            ]
+        },
+        "jekaterinburg": {
+            "id": "jekaterinburg",
+            "text": "April–juli 1918. Familien overføres fra Tobolsk til Jekaterinburg i Ural — nærmere den hvite arméens fronter. Ipatiev-huset er tungt bevoktet. Dattrene dine syr diamanter inn i korsettene sine. Aleksej er altfor syk til å gå trapper. Alexandra ber. Du spiller kort med vakten Avdejev og leser Tolstoj. Den hvite arméen nærmer seg. Bolsjevikene er nervøse. Du aner ikke hva det betyr for dere. Natten mellom 16. og 17. juli 1918 banker en vakt på døren og ber dere kle på dere — det er sikkerhetsmessige grunner, sier han, dere flyttes til en annen lokasjon. Familien samler seg i kjelleren.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/nikolaj-ii/ipatiev_house.webp",
+            "discoveryEvent": {
+                "title": "Natten i Jekaterinburg",
+                "fact": "Natten mellom 16. og 17. juli 1918 ble Nikolaj II, tsarinna Alexandra, de fire dattene Olga, Tatjana, Maria og Anastasia, tsarevitsj Aleksej, og fire tjenere henrettet i kjelleren i Ipatiev-huset i Jekaterinburg. Bolsjevikene fryktet at den hvite arméen — som nærmet seg — ville bruke tsarfamilien som samlingspunkt. Kroppene ble begravet i skogen og funnet i 1991. Russland bekreftet identitetene med DNA-analyser i 2008.",
+                "reflectionQuestion": "Bolsjevikene henrettet tsarfamilien — inkludert barna — for å fjerne et potensielt symbol. Hva sier det om forholdet mellom politisk symbolikk og politisk vold?"
+            },
+            "choices": [
+                {
+                    "id": "c_jekaterinburg_slutt",
+                    "text": "Gå ned trappene med familien.",
+                    "nextNodeId": "epilog_jekaterinburg"
+                }
+            ]
+        },
+        "reformspor_avslutning": {
+            "id": "reformspor_avslutning",
+            "text": "Du forkaster abdikasjonsdokumentet og erklærer i stedet overgang til konstitusjonelt monarki. Det er et sjansesspill — Duma aksepterer, revolusjonærene raser, men den moderate midten holder. Dynastiet overlever i en ny form: ikke lenger absolutt, men konstitusjonelt. De neste ukene er farlige — to kuppforsøk avvertes. Men etter ett år stabiliserer det seg. Russland 1918 er ikke tsarens Russland — det er noe helt nytt. Kanskje levedyktig. Kanskje ikke. Du beholder kronen, men har gitt bort makten. Det er spørsmålet om det var nok.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/nikolaj-ii/reformspor.webp",
+            "choices": [
+                {
+                    "id": "c_reformspor_slutt",
+                    "text": "Skriv historien videre.",
+                    "nextNodeId": "epilog_konstitusjonelt_monarki"
+                }
+            ]
+        },
+        "eksil_spor": {
+            "id": "eksil_spor",
+            "text": "Via Finland og Sverige ankommer familien England i august 1917. Kong Georg V — din fetter, som ba om at tilbudet ble holdt hemmelig — tar imot dere stille på en landsby i Kent. Aleksej trenger ikke skjule seg lenger. Dattrene kan gå på marked. Du og Alexandra sitter i hagen og hører Englands rolige fugler. Det er ingenting dramatisk ved å overleve. En dag forteller en diplomat at de hvite arméene er slått, at bolsjevikene har konsolidert makten, at Russland er borte slik du kjente det. Du nikker. Du visste det allerede.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/nikolaj-ii/eksil_england.webp",
+            "choices": [
+                {
+                    "id": "c_eksil_slutt",
+                    "text": "La dagene gå.",
+                    "nextNodeId": "epilog_eksil"
+                }
+            ]
+        },
+        "epilog_jekaterinburg": {
+            "id": "epilog_jekaterinburg",
+            "text": "Du fulgte historiens gang til dens bitre ende. Romanov-dynastiet ble utslettet natten til 17. juli 1918 i kjelleren i Ipatiev-huset. Nikolaj II ble 50 år. Aleksej ble 13 år. Russland gikk inn i 70 år med kommuniststyre. Var det uunngåelig? Mange historikere mener nei — at bedre valg på nøkkelmomentene (mer makt til parlamentet i 1905, reformer i 1915, å lytte til folket i 1916) kunne ha gitt Russland en annen vei. Du fikk sjansen til å ta de valgene. Du tok dem ikke.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/nikolaj-ii/ipatiev_house.webp",
+            "isEnd": true,
+            "endType": "defeat",
+            "choices": [],
+            "epilogue": {
+                "entries": [
+                    {
+                        "hasFlag": "tok_personlig_kommando",
+                        "text": "Du tok personlig kommando over hæren i 1915 — slik Nikolaj II virkelig gjorde. Det bandt din personlige prestisje til hvert militært tap, og svekket tilliten til monarkiet hver gang fronten vek tilbake."
+                    },
+                    {
+                        "hasFlag": "avslo_duma",
+                        "text": "Du avslo Dumas krav om ansvarlig regjering — slik Nikolaj II virkelig gjorde. Den progressive blokken vendte seg mot deg, og monarkiet mistet sin siste politiske støtte."
+                    },
+                    {
+                        "hasFlag": "stottet_rasputin",
+                        "text": "Du tillot Rasputins innflytelse på ministerutnevnelsene — slik Nikolaj II virkelig tillot det. Skandalen undergravet hoffets anseelse og Alexandras omdømme utenfor palassets murer."
+                    },
+                    {
+                        "hasFlag": "telegraferte_willy",
+                        "text": "Du sendte den personlige appellen til Kaiser Wilhelm — slik Nikolaj II faktisk sendte telegrammene. Det endret ikke krigens gang, men viste at begge keiserne visste hva de satte i gang."
+                    }
+                ],
+                "historicalEcho": "Du fulgte alle historiske valg. Nikolaj IIs faktiske skjebne: henrettet 17. juli 1918. Dynastiet utryddet. Russland under bolsjevikstyre til 1991.",
+                "classroomQuestions": [
+                    "Var Nikolaj IIs fall uunngåelig, eller finnes det valg han kunne tatt annerledes?",
+                    "Hva krevde det av en 1917-russisk politiker å stå imot revolusjonens press?",
+                    "Sammenlign Nikolaj IIs situasjon med andre monarker som mistet tronen i samme periode."
+                ]
+            }
+        },
+        "epilog_eksil": {
+            "id": "epilog_eksil",
+            "text": "Du valgte familien over kronen — og familien overlevde. I Kent lever Romanovene som privatpersoner. Det er ikke Vinterpalasset, og det er ikke Russland. Men Aleksej vokser opp. Dattrene gifter seg, reiser, lever. Du og Alexandra blir gamle i et fremmed land. Du leser russiske aviser og hører om borgerkrig, kollektivisering, terror. Millioner dør. Russland du kjente er borte for alltid — men du levde lenge nok til å sørge over det.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/nikolaj-ii/eksil_england.webp",
+            "isEnd": true,
+            "endType": "victory",
+            "choices": [],
+            "epilogue": {
+                "entries": [
+                    {
+                        "hasFlag": "aksepterte_eksil",
+                        "text": "Du aksepterte det britiske eksiltilbudet — i virkeligheten trakk Kong Georg V tilbudet tilbake under press fra den britiske regjeringen, som fryktet at å huse Romanovene ville destabilisere Storbritannia under krigen."
+                    }
+                ],
+                "historicalEcho": "I den virkelige historien fikk familien Romanov aldri noe eksiltilbud. Kong Georg V trakk tilbudet tilbake i april 1917 — av politiske hensyn. Det er en av historiens mest diskuterte 'hva om'-er.",
+                "classroomQuestions": [
+                    "Hadde Kong Georg V et moralsk ansvar for å beskytte sin slektning? Hva veier tyngst — familielojalitet eller politisk stabilitet?",
+                    "Hva ville det betydd for Russlands historie om tsarfamilien hadde overlevd i eksil?"
+                ]
+            }
+        },
+        "epilog_konstitusjonelt_monarki": {
+            "id": "epilog_konstitusjonelt_monarki",
+            "text": "Russland ble noe nytt i din hånd — et konstitusjonelt monarki der dynastiet overlevde ved å dele makten. Det er ikke sikkert det holder. De neste tiårene vil vise om Russland kan finne balansen mellom autokrati og demokrati, mellom tsarens tradisjon og folkets stemme. Du beholder kronen, men bærer den annerledes. Det er kanskje det klokeste — og det vanskeligste — en monark kan gjøre.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/nikolaj-ii/reformspor.webp",
+            "isEnd": true,
+            "endType": "victory",
+            "choices": [],
+            "epilogue": {
+                "entries": [
+                    {
+                        "hasFlag": "konstitusjonell_monarki",
+                        "text": "Du innrømmet Dumas krav og overgang til konstitusjonelt monarki — i virkeligheten nektet Nikolaj II kategorisk. Historikere diskuterer om reformer på dette tidspunktet ville vært nok til å avverge revolusjonen."
+                    },
+                    {
+                        "hasFlag": "diplomatisk_losning_1914",
+                        "text": "Du holdt Russland utenfor verdenskrigen — og betalte prisen i form av skam og indre uro. Men uten krigens fire blodige år hadde kanskje imperiet overlevd."
+                    }
+                ],
+                "historicalEcho": "I den virkelige historien nektet Nikolaj II alle krav om konstitusjonelt monarki til det var for sent. Mange historikere mener at reformer i 1915–1916 kunne ha reddet dynastiet.",
+                "classroomQuestions": [
+                    "Hva er forskjellen mellom et absolutt monarki og et konstitusjonelt monarki? Hva mister og hva vinner en monark ved overgangen?",
+                    "Kan kompromiss i politikk sees som styrke eller svakhet? Hva avhenger svaret av?"
+                ]
+            }
+        },
+        "epilog_separatfred": {
+            "id": "epilog_separatfred",
+            "text": "Du inngikk fred med Tyskland — og betalte en høy pris for det. Russland mister enorme landområder. Nasjonalistene er rasende. Allierte kutter forbindelsene. Men krigen er over for de russiske soldatene. Og uten krigens press dabbet revolusjonens trykk av. Imperiet overlevde — svekket og skamfull, men levende. Det var kalkylen din: land kan gjenerobres. Et dynasti som er borte, er borte for alltid.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/nikolaj-ii/brest_litovsk.webp",
+            "isEnd": true,
+            "endType": "neutral",
+            "choices": [],
+            "epilogue": {
+                "entries": [
+                    {
+                        "hasFlag": "separatfred",
+                        "text": "Du søkte separat fred med Tyskland. I virkeligheten var det bolsjevikene som inngikk Brest-Litovsk-freden i mars 1918 — etter tsarens fall. Fredsavtalen ga Russland fred, men krevde enorme territorielle ofre."
+                    }
+                ],
+                "historicalEcho": "Brest-Litovsk-freden (mars 1918) ble signert av bolsjevikene, ikke av Nikolaj II. Lenin var villig til å betale en hvilken som helst pris for fred — han trengte ro til å konsolidere makten innenlands.",
+                "classroomQuestions": [
+                    "Er det noen gang riktig å gi opp territorier for å oppnå fred? Hva er betingelsene?",
+                    "Sammenlign Brest-Litovsk-freden med Versailles-traktaten. Hva var rettferdig og urettferdig i begge?"
+                ]
+            }
+        },
+        "epilog_kollaps": {
+            "id": "epilog_kollaps",
+            "text": "Imperiet kollapset ikke bare under revolusjonens trykk — det kollapset fordi det allerede var råttent inni. Tre fronter, en hær i oppløsning, et hoff ingen stolte på, et folk som sultet og et keiserstyre som nektet å endre seg. Det store Russland — 150 millioner mennesker, verdens største land — falt til ingenting fordi ett system ikke klarte å tilpasse seg en verden som endret seg for fort. Du var den siste i en lang rekke. Men det var der du sto at kjeden brøt.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/nikolaj-ii/ipatiev_house.webp",
+            "isEnd": true,
+            "endType": "defeat",
+            "choices": [],
+            "epilogue": {
+                "entries": [],
+                "historicalEcho": "Det russiske keiserriket — som hadde overlevd Napoleon, en revolusjon i 1905 og krig mot Japan — gikk til grunne mellom 1917 og 1918. Det kommunistiske Russland som tok over, varte til 1991.",
+                "classroomQuestions": [
+                    "Kan et system kollapse av sin egen tyngde — uavhengig av individuelle valg? Hva er forholdet mellom strukturelle krefter og personlig ansvar i historien?",
+                    "Hva kan vi lære av det russiske monarkiets fall om betingelsene for politisk stabilitet?"
+                ]
+            }
+        },
+        "event_aleksej_krise": {
+            "id": "event_aleksej_krise",
+            "text": "Et hastetelegram fra Alexandra: Aleksej har falt og blør innvendig. Smertene er uutholdelige. Rasputin ber og gutten sovner — men legene er hjelpeløse. Alexandra ber deg komme hjem fra fronten. 'Han trenger deg. Jeg trenger deg.' Du vet hva det betyr militært å forlate Stavka i en kritisk fase. Du vet også hva det betyr for din sønn om du ikke kommer.",
+            "speaker": "Alexandra (telegram)",
+            "backgroundImage": "/images/chronos/nikolaj-ii/aleksej_portrett.webp",
+            "choices": [
+                {
+                    "id": "c_aleksej_reis",
+                    "text": "Reis hjem umiddelbart.",
+                    "nextNodeId": "hub_petrograd_1916",
+                    "effects": {
+                        "krigsevne": -5,
+                        "aleksej_helse": 10,
+                        "hoffets_tillit": -5
+                    }
+                },
+                {
+                    "id": "c_aleksej_bli",
+                    "text": "Bli ved fronten. Krigen kan ikke vente.",
+                    "nextNodeId": "hub_petrograd_1916",
+                    "effects": {
+                        "krigsevne": 5,
+                        "aleksej_helse": -5,
+                        "folkets_stotte": -5
+                    }
+                }
+            ]
+        },
+        "event_offiser_desertering": {
+            "id": "event_offiser_desertering",
+            "text": "Rapport fra Nordvestfronten: massedeserteringer. Soldater fra 5. armé forlater stillingene i hopetall — ikke av feighet, men av sult og desperasjon. Mange har ikke hatt mat på tre dager. Vinteren er brutal. Offiserene melder at de ikke lenger kan garantere at ordrer følges. Du har tre alternativer.",
+            "speaker": "Generalen (rapport)",
+            "backgroundImage": "/images/chronos/nikolaj-ii/ostfront_retreating.webp",
+            "choices": [
+                {
+                    "id": "c_desertering_straff",
+                    "text": "Strengt straffe desertørene. Eksempel til skrekk.",
+                    "nextNodeId": "hub_petrograd_1916",
+                    "effects": {
+                        "krigsevne": 5,
+                        "folkets_stotte": -15,
+                        "autoritet": 5
+                    }
+                },
+                {
+                    "id": "c_desertering_se_bort",
+                    "text": "Se bort fra det. Krigen er nok hard som den er.",
+                    "nextNodeId": "hub_petrograd_1916",
+                    "effects": {
+                        "krigsevne": -5,
+                        "autoritet": -5
+                    }
+                },
+                {
+                    "id": "c_desertering_amnesti",
+                    "text": "Gi amnesti og forbedr provianteringen.",
+                    "nextNodeId": "hub_petrograd_1916",
+                    "effects": {
+                        "krigsevne": -3,
+                        "folkets_stotte": 10,
+                        "autoritet": -10
+                    }
+                }
+            ]
+        },
+        "event_tyske_forhandler": {
+            "id": "event_tyske_forhandler",
+            "text": "En nøytral mellommann — sveitsisk diplomat — overfører et hemmelig budskap fra Berlin. Germany er villig til å diskutere en separat fredsavtale med Russland på gunstige vilkår. Frankrike og Storbritannia vil aldri tilgi det. Men det kan redde imperiet. Samtidig ankommer et annet budskap: en britisk diplomat har overlevert et hemmelig privat brev fra Kong Georg V.",
+            "speaker": "Mellommann",
+            "backgroundImage": "/images/chronos/nikolaj-ii/diplomatic_meeting.webp",
+            "choices": [
+                {
+                    "id": "c_forhandler_aksepter",
+                    "text": "Gå videre med hemmelige fredsforhandlinger.",
+                    "nextNodeId": "hub_petrograd_1916",
+                    "setFlags": ["separatfred"],
+                    "updateInventory": {
+                        "add": "britisk_tilbud"
+                    },
+                    "effects": {
+                        "krigsevne": -5,
+                        "folkets_stotte": -5,
+                        "autoritet": -5
+                    }
+                },
+                {
+                    "id": "c_forhandler_avvis",
+                    "text": "Avvis begge. Russland holder kursen.",
+                    "nextNodeId": "hub_petrograd_1916",
+                    "effects": {
+                        "autoritet": 5,
+                        "hoffets_tillit": 5
+                    }
+                }
+            ]
+        },
+        "event_folkeopproret": {
+            "id": "event_folkeopproret",
+            "text": "Spontane opprør i Moskva. Brødutsalg plyndret. Politi overveldede. Guvernøren rapporterer at han ikke har nok tropper til å opprettholde orden. Fra vinduet ser du at folkesinnet er i ferd med å snu — og det snur mot deg.",
+            "speaker": "Guvernøren (telegram)",
+            "backgroundImage": "/images/chronos/nikolaj-ii/petrograd_februar_1917.webp",
+            "choices": [
+                {
+                    "id": "c_opprort_trupper",
+                    "text": "Send tropper fra reservene.",
+                    "nextNodeId": "hub_petrograd_1916",
+                    "effects": {
+                        "krigsevne": -10,
+                        "folkets_stotte": -10,
+                        "autoritet": 5
+                    }
+                },
+                {
+                    "id": "c_opprort_proviant",
+                    "text": "Send brødprovianter fremfor tropper.",
+                    "nextNodeId": "hub_petrograd_1916",
+                    "effects": {
+                        "folkets_stotte": 5,
+                        "krigsevne": -5
+                    }
+                }
+            ]
+        },
+        "event_brev_fra_fronten": {
+            "id": "event_brev_fra_fronten",
+            "text": "Et anonymt brev er smuglet inn til Stavka. Det er skrevet av en menig soldat — ingen navn, ingen regiment, ingen identifikasjon. Men ordene er klare: 'Min keiser. Vi har ikke sko. Geværet mitt har bare 3 skudd igjen. I går gravde vi ned seks kamerater. Ingen av oss vet hva vi kjemper for lenger.' Du leser brevet to ganger. Du legger det i skuffen.",
+            "speaker": "Ukjent soldat",
+            "backgroundImage": "/images/chronos/nikolaj-ii/tannenberg_battlefield.webp",
+            "discoveryEvent": {
+                "title": "Soldatenes Verden",
+                "fact": "I 1917 hadde Russland sendt over 15 millioner menn til krigen. Av disse hadde rundt 1,7 millioner falt, 5 millioner var såret og 2,5 millioner var tatt til fange. Demoralisering og forsyningssvikt var udbredt langs hele østfronten. Rapporten om at Russland manglet rifler til hver tredje soldat er historisk korrekt — noen soldater ble sendt i strid med beskjed om å ta geværet fra kameraten som falt.",
+                "reflectionQuestion": "Hva skjer med en hærs moral når soldatene ikke lenger vet hva de kjemper for? Hva er sammenhengen mellom krigens mening og soldatenes vilje til å kjempe?"
+            },
+            "choices": [
+                {
+                    "id": "c_brev_legg_bort",
+                    "text": "Legg brevet i skuffen. Det er ingenting du kan gjøre i kveld.",
+                    "nextNodeId": "hub_petrograd_1916"
+                }
+            ]
+        },
+        "event_alexandra_press": {
+            "id": "event_alexandra_press",
+            "text": "Et presserende brev fra Alexandra: Rasputin har sagt at krigsminister Polivanov 'har en djevels sjel' og må fjernes umiddelbart. Polivanov er faktisk en av Russlands mest kompetente militærministre — han reorganiserte hæren etter katastrofene i 1915. Å fjerne ham er militært uansvarlig. Men Alexandra er kategorisk, og du vet hva det betyr for freden i Tsarskoje Selo.",
+            "speaker": "Alexandra (brev)",
+            "backgroundImage": "/images/chronos/nikolaj-ii/tsarskoje_hus_arrest.webp",
+            "choices": [
+                {
+                    "id": "c_alexandra_avskjedige",
+                    "text": "Avskjedige Polivanov. Freden i hjemmet er også viktig.",
+                    "nextNodeId": "hub_petrograd_1916",
+                    "setFlags": ["stottet_rasputin"],
+                    "effects": {
+                        "krigsevne": -10,
+                        "hoffets_tillit": -10,
+                        "aleksej_helse": 5
+                    }
+                },
+                {
+                    "id": "c_alexandra_beholde",
+                    "text": "Beholde Polivanov. Rasputin blander seg ikke i militærsaker.",
+                    "nextNodeId": "hub_petrograd_1916",
+                    "effects": {
+                        "krigsevne": 5,
+                        "aleksej_helse": -10,
+                        "autoritet": 5
+                    }
+                }
+            ]
+        }
+    }
+}

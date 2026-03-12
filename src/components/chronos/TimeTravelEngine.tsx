@@ -29,6 +29,67 @@ function formatDate(ts: number): string {
     });
 }
 
+function ScenarioStartScreen({
+    scenario,
+    isInitializing,
+    savedRun,
+    onContinue,
+    onFresh,
+}: {
+    scenario: ChronosScenario;
+    isInitializing: boolean;
+    savedRun: SavedRun | null;
+    onContinue: () => void;
+    onFresh: () => void;
+}) {
+    return (
+        <div className="relative w-full min-h-[100dvh] flex items-center justify-center overflow-hidden bg-slate-900">
+            {scenario.heroImage && (
+                <img
+                    src={scenario.heroImage}
+                    alt=""
+                    className="absolute inset-0 w-full h-full object-cover opacity-40"
+                />
+            )}
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent" />
+
+            <div className="relative z-10 text-center px-6 max-w-md mx-auto">
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-amber-400 mb-3">
+                    {scenario.role} • {scenario.year}
+                </p>
+                <h1 className="text-4xl sm:text-5xl font-display font-black text-white mb-8 leading-tight">
+                    {scenario.title}
+                </h1>
+
+                {isInitializing ? (
+                    <div className="flex items-center justify-center gap-2 text-slate-300">
+                        <span className="animate-spin rounded-full h-5 w-5 border-2 border-white/30 border-t-white" />
+                        <span className="text-sm font-medium">Starter tidsreise…</span>
+                    </div>
+                ) : savedRun ? (
+                    <div className="space-y-3">
+                        <p className="text-slate-400 text-sm mb-4">
+                            Pågående tidsreise fra {formatDate(savedRun.savedAt)}
+                        </p>
+                        <button
+                            onClick={onContinue}
+                            className="w-full py-3.5 rounded-2xl bg-amber-500 text-slate-900 font-black hover:bg-amber-400 transition-colors"
+                        >
+                            Fortsett der jeg var
+                        </button>
+                        <button
+                            onClick={onFresh}
+                            className="w-full py-3 rounded-2xl bg-white/10 text-white font-bold hover:bg-white/20 transition-colors backdrop-blur-sm"
+                        >
+                            Start på nytt
+                        </button>
+                    </div>
+                ) : null}
+            </div>
+        </div>
+    );
+}
+
 export const TimeTravelEngine: React.FC<TimeTravelEngineProps> = ({ scenarioId }) => {
     // Game State
     const [currentNodeId, setCurrentNodeId] = useState<string | null>(null);
@@ -214,37 +275,28 @@ export const TimeTravelEngine: React.FC<TimeTravelEngineProps> = ({ scenarioId }
             <div className="p-12 text-center text-red-500">Klarte ikke laste tidsreisen.</div>
         );
 
-    const currentNode = currentNodeId ? scenario.nodes[currentNodeId] : null;
-    if (!currentNode) return <div>Laster noder...</div>;
+    if (!currentNodeId || showContinuePrompt) {
+        return (
+            <ScenarioStartScreen
+                scenario={scenario}
+                isInitializing={!showContinuePrompt}
+                savedRun={savedRun}
+                onContinue={handleContinue}
+                onFresh={() => initFresh()}
+            />
+        );
+    }
+
+    const currentNode = scenario.nodes[currentNodeId];
+    if (!currentNode)
+        return (
+            <div className="p-12">
+                <Skeleton className="h-[600px] w-full rounded-3xl" />
+            </div>
+        );
 
     return (
         <div className="w-full max-w-6xl mx-auto p-2 sm:p-4 md:p-8">
-            {/* "Fortsett?" overlay */}
-            {showContinuePrompt && savedRun && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
-                    <div className="bg-white rounded-3xl p-8 max-w-sm w-full mx-4 shadow-2xl text-center">
-                        <h2 className="text-2xl font-black text-slate-900 mb-2">
-                            Velkommen tilbake!
-                        </h2>
-                        <p className="text-slate-500 mb-6">
-                            Du har en pågående tidsreise fra {formatDate(savedRun.savedAt)}.
-                        </p>
-                        <button
-                            onClick={handleContinue}
-                            className="w-full mb-3 py-3 rounded-2xl bg-indigo-900 text-white font-bold hover:bg-indigo-800 transition-colors"
-                        >
-                            Fortsett der jeg var
-                        </button>
-                        <button
-                            onClick={() => initFresh()}
-                            className="w-full py-3 rounded-2xl bg-stone-100 text-stone-700 font-bold hover:bg-stone-200 transition-colors"
-                        >
-                            Start på nytt
-                        </button>
-                    </div>
-                </div>
-            )}
-
             {/* Confirm reset modal */}
             {confirmReset && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">

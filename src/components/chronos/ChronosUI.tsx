@@ -4,6 +4,7 @@ import {
     Shield, Heart, Zap, Scroll, Skull, Crown, Star, ArrowRight, Backpack, Lock,
     CloudRain, Moon, BookOpen, X, Map as MapIcon, Users, Hammer, Scale, Activity,
     CloudFog, CloudLightning, Sunrise, Sunset, Brain, Lightbulb, ExternalLink,
+    Mail, Feather, PenLine,
 } from 'lucide-react';
 import type {
     ChronosNode, ChronosChoice, ChronosStat, ChronosConfig, ChronosEnvironment,
@@ -35,6 +36,7 @@ const IconMap: Record<string, any> = {
     shield: Shield, heart: Heart, zap: Zap, scroll: Scroll, skull: Skull,
     crown: Crown, star: Star, backpack: Backpack, sword: Zap, book: BookOpen,
     map: MapIcon, users: Users, hammer: Hammer, scale: Scale, activity: Activity, eye: Shield,
+    mail: Mail, feather: Feather, pen: PenLine,
 };
 
 // ── Weather Overlay ──────────────────────────────────────────────────────────
@@ -438,58 +440,15 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
                     )}
 
                     {/* Inventory */}
-                    <div className="relative">
-                        <button onClick={() => setShowInventory(!showInventory)}
-                            className={`p-2 sm:p-3 md:p-4 rounded-2xl border transition-colors relative ${showInventory ? 'bg-indigo-100 text-indigo-900 border-indigo-200' : 'bg-white/80 backdrop-blur-xl border-stone-200/50 text-stone-600 hover:text-stone-900'}`}>
-                            <Backpack size={20} />
-                            {inventory.length > 0 && (
-                                <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-stone-800 text-[10px] font-bold text-white">
-                                    {inventory.length}
-                                </span>
-                            )}
-                        </button>
-                        <AnimatePresence>
-                            {showInventory && (
-                                <motion.div initial={{ opacity: 0, y: 10, scale: 0.95 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                                    className="absolute right-0 top-full mt-4 w-72 p-1 rounded-2xl bg-white shadow-xl border border-stone-100 z-50 overflow-hidden">
-                                    <div className="p-4 bg-stone-50 border-b border-stone-100">
-                                        <h4 className="text-xs font-black uppercase tracking-widest text-stone-400">Ryggsekk</h4>
-                                    </div>
-                                    <div className="p-2 max-h-64 overflow-y-auto">
-                                        {inventory.length === 0 ? (
-                                            <p className="p-4 text-sm text-stone-500 italic text-center">Sekken er tom.</p>
-                                        ) : (
-                                            <div className="space-y-1">
-                                                {inventory.map((itemId, idx) => {
-                                                    const item = getItemDetails(itemId);
-                                                    return (
-                                                        <button
-                                                            key={`${itemId}-${idx}`}
-                                                            onClick={() => item && setSelectedItem(item)}
-                                                            className="w-full flex items-start gap-3 p-3 rounded-xl bg-white border border-stone-100 shadow-sm text-left hover:border-indigo-200 hover:shadow-md transition-all"
-                                                        >
-                                                            <div className="p-2 bg-stone-50 rounded-lg text-stone-400 flex-shrink-0">
-                                                                {item?.icon ? getIcon(item.icon) : <Star size={14} />}
-                                                            </div>
-                                                            <div>
-                                                                <p className="text-sm font-bold text-stone-800">{item?.name || itemId}</p>
-                                                                <p className="text-[10px] text-stone-500 leading-relaxed mt-0.5">{item?.description}</p>
-                                                                {item?.content && (
-                                                                    <p className="text-[9px] font-bold uppercase tracking-widest text-indigo-400 mt-1">
-                                                                        Trykk for å lese
-                                                                    </p>
-                                                                )}
-                                                            </div>
-                                                        </button>
-                                                    );
-                                                })}
-                                            </div>
-                                        )}
-                                    </div>
-                                </motion.div>
-                            )}
-                        </AnimatePresence>
-                    </div>
+                    <button onClick={() => setShowInventory(!showInventory)}
+                        className={`p-2 sm:p-3 md:p-4 rounded-2xl border transition-colors relative ${showInventory ? 'bg-indigo-100 text-indigo-900 border-indigo-200' : 'bg-white/80 backdrop-blur-xl border-stone-200/50 text-stone-600 hover:text-stone-900'}`}>
+                        <Backpack size={20} />
+                        {inventory.length > 0 && (
+                            <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-stone-800 text-[10px] font-bold text-white">
+                                {inventory.length}
+                            </span>
+                        )}
+                    </button>
                 </div>
             </div>
 
@@ -512,6 +471,56 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
                                         <p className="text-stone-700 leading-relaxed italic">"{entry.text}"</p>
                                     </div>
                                 ))}
+                            </div>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
+            {/* Inventory Side Panel */}
+            <AnimatePresence>
+                {showInventory && (
+                    <motion.div
+                        initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+                        className="absolute inset-0 z-50 bg-stone-900/40 backdrop-blur-sm flex justify-end"
+                        onClick={() => setShowInventory(false)}
+                    >
+                        <motion.div
+                            initial={{ x: '100%' }} animate={{ x: 0 }} exit={{ x: '100%' }}
+                            transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+                            className="bg-[#FDFBF7] w-80 h-full shadow-2xl flex flex-col"
+                            onClick={e => e.stopPropagation()}
+                        >
+                            <div className="p-6 border-b border-stone-200 flex justify-between items-center bg-stone-50">
+                                <h3 className="font-display font-black text-xl text-stone-800">Ryggsekk</h3>
+                                <button onClick={() => setShowInventory(false)} className="text-stone-400 hover:text-stone-600"><X size={24} /></button>
+                            </div>
+                            <div className="flex-1 min-h-0 p-4 overflow-y-auto space-y-2">
+                                {inventory.length === 0
+                                    ? <p className="text-sm text-stone-500 italic text-center mt-8">Sekken er tom.</p>
+                                    : inventory.map((itemId, idx) => {
+                                        const item = getItemDetails(itemId);
+                                        return (
+                                            <button key={`${itemId}-${idx}`}
+                                                onClick={() => { if (item) { setSelectedItem(item); setShowInventory(false); } }}
+                                                className="w-full flex items-start gap-3 p-3 rounded-xl bg-white border border-stone-100 shadow-sm text-left hover:border-indigo-200 transition-all"
+                                            >
+                                                <div className="p-2 bg-stone-50 rounded-lg text-stone-400 flex-shrink-0">
+                                                    {item?.icon ? getIcon(item.icon) : <Star size={14} />}
+                                                </div>
+                                                <div>
+                                                    <p className="text-sm font-bold text-stone-800">{item?.name || itemId}</p>
+                                                    <p className="text-[10px] text-stone-500 leading-relaxed mt-0.5">{item?.description}</p>
+                                                    {item?.content && (
+                                                        <p className="text-[9px] font-bold uppercase tracking-widest text-indigo-400 mt-1">
+                                                            Trykk for å lese
+                                                        </p>
+                                                    )}
+                                                </div>
+                                            </button>
+                                        );
+                                    })
+                                }
                             </div>
                         </motion.div>
                     </motion.div>
