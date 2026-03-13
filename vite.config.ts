@@ -22,6 +22,7 @@ export default defineConfig({
           vendor: ['react', 'react-dom', 'react-router-dom', 'framer-motion'],
           ui: ['lucide-react', '@heroicons/react'],
           three: ['three', '@react-three/fiber', '@react-three/drei'],
+          remotion: ['@remotion/player', '@remotion/core'],
         },
       },
     },

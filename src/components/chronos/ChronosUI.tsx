@@ -10,6 +10,7 @@ import type {
     ChronosNode, ChronosChoice, ChronosStat, ChronosConfig, ChronosEnvironment,
     ChronosEntry, ChronosMapPoint, ChronosRecipe, ChronosDiscoveryEvent,
     ChronosEpilogue, ChronosEthicsLens, ChronosItem, ChoiceHistoryEntry,
+    ChronosCondition,
 } from '../../data/chronos/types';
 import { DiceGame } from './minigames/DiceGame';
 import { BattleGame } from './minigames/BattleGame';
@@ -505,24 +506,33 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
     const getItemDetails = (itemId: string) => config.items?.find(i => i.id === itemId);
 
     // Prinsipp 1: Condition check with flag support
+    const isConditionFailed = (cond: ChronosCondition): boolean => {
+        if (cond.hasFlag && !flags.includes(cond.hasFlag)) return true;
+        if (cond.lacksFlag && flags.includes(cond.lacksFlag)) return true;
+        if (cond.statId && cond.operator !== undefined && cond.value !== undefined) {
+            const stat = stats.find(s => s.id === cond.statId);
+            if (stat) {
+                switch (cond.operator) {
+                    case '>=': if (!(stat.value >= cond.value)) return true; break;
+                    case '>':  if (!(stat.value > cond.value)) return true; break;
+                    case '<=': if (!(stat.value <= cond.value)) return true; break;
+                    case '<':  if (!(stat.value < cond.value)) return true; break;
+                    case '==': if (!(stat.value === cond.value)) return true; break;
+                }
+            }
+        }
+        return false;
+    };
+
     const isChoiceLocked = (choice: ChronosChoice): boolean => {
         if (choice.checkInventory?.hasItem && !inventory.includes(choice.checkInventory.hasItem)) return true;
         if (choice.checkInventory?.lacksItem && inventory.includes(choice.checkInventory.lacksItem)) return true;
         if (choice.condition) {
             const cond = choice.condition;
-            if (cond.hasFlag && !flags.includes(cond.hasFlag)) return true;
-            if (cond.lacksFlag && flags.includes(cond.lacksFlag)) return true;
-            if (cond.statId && cond.operator !== undefined && cond.value !== undefined) {
-                const stat = stats.find(s => s.id === cond.statId);
-                if (stat) {
-                    switch (cond.operator) {
-                        case '>=': if (!(stat.value >= cond.value)) return true; break;
-                        case '>':  if (!(stat.value > cond.value)) return true; break;
-                        case '<=': if (!(stat.value <= cond.value)) return true; break;
-                        case '<':  if (!(stat.value < cond.value)) return true; break;
-                        case '==': if (!(stat.value === cond.value)) return true; break;
-                    }
-                }
+            if (cond.all) {
+                if (!cond.all.every(subCond => !isConditionFailed(subCond))) return true;
+            } else {
+                if (isConditionFailed(cond)) return true;
             }
         }
         return false;
@@ -535,6 +545,17 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
         }
         if (choice.condition) {
             const cond = choice.condition;
+            if (cond.all) {
+                const parts = cond.all.map(sub => {
+                    if (sub.statId) {
+                        const stat = stats.find(s => s.id === sub.statId);
+                        return stat ? `${stat.label} ${sub.operator} ${sub.value}` : '';
+                    }
+                    if (sub.hasFlag) return `Hendelse: ${sub.hasFlag}`;
+                    return '';
+                }).filter(Boolean);
+                return `Krever: ${parts.join(' + ')}`;
+            }
             if (cond.hasFlag) return `Krever hendelse: ${cond.hasFlag}`;
             if (cond.lacksFlag) return `Blokkert av: ${cond.lacksFlag}`;
             if (cond.statId) {
@@ -988,9 +1009,15 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
                             ) : node.minigame.type === 'speech' ? (
                                 <SpeechGame
                                     config={node.minigame.config}
-                                    onComplete={() => {
+                                    onComplete={(result) => {
                                         if (node.minigame?.type === 'speech') {
-                                            onChoice({ id: 'speech_complete', text: 'Tale holdt', nextNodeId: node.minigame.config.onComplete.nextNodeId });
+                                            onChoice({
+                                                id: 'speech_complete',
+                                                text: 'Tale holdt',
+                                                nextNodeId: node.minigame.config.onComplete.nextNodeId,
+                                                effects: result.effects,
+                                                setFlags: result.setsFlag ? [result.setsFlag] : undefined,
+                                            });
                                         }
                                     }}
                                 />

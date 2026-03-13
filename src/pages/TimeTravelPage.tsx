@@ -60,6 +60,17 @@ const TimeTravelHub: React.FC = () => {
             color: 'bg-red-950',
             image: '/images/chronos/nikolaj-ii/hero.webp',
             disabled: false
+        },
+        {
+            id: 'kald-krig',
+            title: 'I Supermaktenes Skygge',
+            era: '1945–1991',
+            difficulty: 'Svært vanskelig',
+            description: 'Fra Potsdams ruiner til Berlinmurens fall - du er vitne til og aktør i den kaldeste krigen verden har sett.',
+            icon: History,
+            color: 'bg-slate-800',
+            image: '/images/chronos/kald-krig/hero.webp',
+            disabled: false
         }
     ];
 
@@ -136,7 +147,7 @@ const TimeTravelHub: React.FC = () => {
                                     <div className="flex items-center gap-4">
                                         <div className={`w-2 h-12 rounded-full ${log.result === 'victory' ? 'bg-yellow-400' : 'bg-slate-300'}`} />
                                         <div>
-                                            <div className="font-bold text-slate-900">{{ 'roman-soldier': 'Romersk Legionær', 'medieval-baron': 'Baron av Rhinen', 'ww1-vestfront': 'Skyttergravenes Ekko' }[log.scenarioId] ?? log.scenarioId}</div>
+                                            <div className="font-bold text-slate-900">{{ 'roman-soldier': 'Romersk Legionær', 'medieval-baron': 'Baron av Rhinen', 'ww1-vestfront': 'Skyttergravenes Ekko', 'nikolaj-ii': 'Tsarens Skjebne', 'kald-krig': 'I Supermaktenes Skygge' }[log.scenarioId] ?? log.scenarioId}</div>
                                             <div className="text-xs text-slate-500 uppercase tracking-wide">
                                                 {new Date(log.date).toLocaleDateString()} • {log.daysSurvived} Dager Overlevd
                                             </div>

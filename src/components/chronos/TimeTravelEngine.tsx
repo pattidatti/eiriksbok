@@ -218,8 +218,19 @@ export const TimeTravelEngine: React.FC<TimeTravelEngineProps> = ({ scenarioId }
             }
         }
 
-        // Resolve target node
+        // Check game-over conditions (e.g. atomspanning >= 100)
         let targetNodeId = choice.nextNodeId;
+        if (scenario.gameOverConditions) {
+            for (const cond of scenario.gameOverConditions) {
+                const stat = newStats.find((s) => s.id === cond.statId);
+                if (stat && stat.value >= cond.threshold && scenario.nodes[cond.nodeId]) {
+                    targetNodeId = cond.nodeId;
+                    break;
+                }
+            }
+        }
+
+        // Resolve target node
         if (
             targetNodeId === 'RANDOM_EVENT' &&
             scenario.randomEvents &&

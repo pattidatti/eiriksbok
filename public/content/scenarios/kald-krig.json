@@ -8,7 +8,21 @@
     "summary": "Fra Potsdams ruiner til Berlinmurens fall - du er vitne til og aktør i den kaldeste krigen verden har sett.",
     "heroImage": "/images/chronos/kald-krig/hero.webp",
     "startingNodeId": "intro_prolog",
-    "randomEvents": [],
+    "gameOverConditions": [
+        {
+            "statId": "atomspanning",
+            "threshold": 100,
+            "nodeId": "game_over_atomkrig"
+        }
+    ],
+    "randomEvents": [
+        "event_stanislav_petrov",
+        "event_spion_avsloert",
+        "event_pentagon_papers",
+        "event_ungarn_1956",
+        "event_brev_fra_vietnam",
+        "event_fredsbevegelse"
+    ],
     "config": {
         "stats": [
             {
@@ -150,13 +164,15 @@
                     "id": "c_potsdam_2",
                     "text": "Intensiver spionasje - skaff atomhemmeligheter fra USA",
                     "nextNodeId": "sovjet_spion_start",
-                    "setFlags": ["atomspionasje_godkjent"],
+                    "setFlags": [
+                        "atomspionasje_godkjent"
+                    ],
+                    "isHistoricalChoice": true,
+                    "historicalConsequence": "Sovjet intensiverte atomspionasje via Klaus Fuchs og Julius Rosenberg. De sprengte sin første atombombe i 1949 - fire år raskere enn CIA hadde anslått. Dette var delvis takket være massiv spionasje mot Manhattan-prosjektet.",
                     "effects": {
                         "historisk_innsikt": 5,
                         "sovjet_innflytelse": 5
                     },
-                    "isHistoricalChoice": true,
-                    "historicalConsequence": "Sovjet iverksatte i virkeligheten en massiv spionkampanje. I 1949 hadde de sin egen atombombe, delvis takket være spioner som Klaus Fuchs og ekteparet Rosenberg.",
                     "ethicsLens": {
                         "deontological": "Spionasje bryter internasjonale normer og tilliten mellom nasjoner - selv i en ideologisk krig.",
                         "consequentialist": "Atomparitet skapte 'gjensidig sikker ødeleggelse' (MAD) - noe som faktisk holdt freden mellom supermaktene i 46 år.",
@@ -174,7 +190,9 @@
                     "id": "c_spion_1",
                     "text": "Godkjenn operasjonen - atomhemmeligheten tilhører arbeiderklassen",
                     "nextNodeId": "berlin_deling",
-                    "setFlags": ["atomspionasje_fullfort"],
+                    "setFlags": [
+                        "atomspionasje_fullfort"
+                    ],
                     "effects": {
                         "sovjet_innflytelse": 10,
                         "atomspanning": 5
@@ -248,7 +266,9 @@
                     "id": "c_luftbro_1",
                     "text": "En stor seier for demokratiet - gå videre",
                     "nextNodeId": "nato_1949",
-                    "setFlags": ["luftbro_valgt"],
+                    "setFlags": [
+                        "luftbro_valgt"
+                    ],
                     "effects": {
                         "usa_innflytelse": 10,
                         "historisk_innsikt": 5
@@ -326,7 +346,9 @@
                     "id": "c_arkiv_2",
                     "text": "La det ligge - Asia er ikke prioritet nå",
                     "nextNodeId": "korea_hub",
-                    "setFlags": ["ignorert_ho_chi_minh"]
+                    "setFlags": [
+                        "ignorert_ho_chi_minh"
+                    ]
                 }
             ]
         },
@@ -342,7 +364,9 @@
                     "effects": {
                         "historisk_innsikt": 15
                     },
-                    "setFlags": ["ho_brev_funnet"]
+                    "setFlags": [
+                        "ho_brev_funnet"
+                    ]
                 }
             ]
         },
@@ -523,13 +547,15 @@
                     "id": "c_iran_1",
                     "text": "Gjennomfor Operasjon Ajax - fjern Mosaddegh",
                     "nextNodeId": "iran_shah_installert",
-                    "setFlags": ["iran_shah_installert"],
+                    "isHistoricalChoice": true,
+                    "historicalConsequence": "CIA og britisk etterretning gjennomførte kuppet i august 1953. Mosaddegh ble fengslet, og Shahen styrte Iran med hard hånd frem til den islamske revolusjonen i 1979 - en hendelse som i stor grad var en reaksjon på kuppet i 1953.",
+                    "setFlags": [
+                        "iran_shah_installert"
+                    ],
                     "effects": {
                         "usa_innflytelse": 5,
                         "menneskekost": 5
                     },
-                    "isHistoricalChoice": true,
-                    "historicalConsequence": "CIA gjennomforte kuppet. Mosaddegh ble fengslet. Shahen styrte Iran med hard hand frem til den islamske revolusjonen i 1979 - som delvis var en reaksjon mot det USA hadde gjort i 1953.",
                     "ethicsLens": {
                         "deontological": "Å fjerne en demokratisk valgt leder bryter prinsippet om selvbestemmelse - uavhengig av hva det koster USA.",
                         "consequentialist": "Olje er strategisk kritisk. Konsekvensene av kommunistisk kontroll over Irans oljeressurser er uakseptable.",
@@ -578,7 +604,9 @@
                     "id": "c_suez_1",
                     "text": "Krev umiddelbar britisk og fransk tilbaketrekning",
                     "nextNodeId": "suez_ny_orden",
-                    "setFlags": ["suez_ny_verdensorden"],
+                    "setFlags": [
+                        "suez_ny_verdensorden"
+                    ],
                     "effects": {
                         "usa_innflytelse": 10,
                         "historisk_innsikt": 10
@@ -740,7 +768,9 @@
                     "id": "c_berlin_ost_1",
                     "text": "Forsøk flukt - nå er det nå eller aldri",
                     "nextNodeId": "flukt_fra_ost",
-                    "setFlags": ["forsokt_flukt"],
+                    "setFlags": [
+                        "forsokt_flukt"
+                    ],
                     "effects": {
                         "menneskekost": 5
                     }
@@ -880,22 +910,40 @@
                         {
                             "label": "Tone",
                             "options": [
-                                { "id": "rolig", "text": "Rolig og bestemt" },
-                                { "id": "aggressiv", "text": "Aggressiv og konfronterende" }
+                                {
+                                    "id": "rolig",
+                                    "text": "Rolig og bestemt"
+                                },
+                                {
+                                    "id": "aggressiv",
+                                    "text": "Aggressiv og konfronterende"
+                                }
                             ]
                         },
                         {
                             "label": "Budskap",
                             "options": [
-                                { "id": "krav", "text": "Krev umiddelbar tilbaketrekning" },
-                                { "id": "dialog", "text": "Tilby forhandlinger via FN" }
+                                {
+                                    "id": "krav",
+                                    "text": "Krev umiddelbar tilbaketrekning"
+                                },
+                                {
+                                    "id": "dialog",
+                                    "text": "Tilby forhandlinger via FN"
+                                }
                             ]
                         },
                         {
                             "label": "Appell",
                             "options": [
-                                { "id": "nasjonal", "text": "Til det amerikanske folk" },
-                                { "id": "global", "text": "Til hele verden" }
+                                {
+                                    "id": "nasjonal",
+                                    "text": "Til det amerikanske folk"
+                                },
+                                {
+                                    "id": "global",
+                                    "text": "Til hele verden"
+                                }
                             ]
                         }
                     ],
@@ -903,42 +951,63 @@
                         {
                             "combo": "rolig+krav+nasjonal",
                             "feedback": "En balansert tone beroliget amerikanerne. Krusjtsjev forstod at du var alvorlig - men ikke irrasjonell. Et godt utgangspunkt for forhandlinger.",
-                            "effects": { "historisk_innsikt": 5 }
+                            "effects": {
+                                "historisk_innsikt": 5
+                            }
                         },
                         {
                             "combo": "rolig+krav+global",
                             "feedback": "Den globale appellen skapte internasjonal støtte. Verdensopinionen la press på Sovjet uten å eskalere direkte.",
-                            "effects": { "usa_innflytelse": 5, "historisk_innsikt": 5 }
+                            "effects": {
+                                "usa_innflytelse": 5,
+                                "historisk_innsikt": 5
+                            }
                         },
                         {
                             "combo": "rolig+dialog+nasjonal",
                             "feedback": "En diplomatisk tone viste handlekraft uten aggresjon. Amerikanerne var trygge, og Krusjtsjev fikk signal om at det fantes en vei ut.",
-                            "effects": { "historisk_innsikt": 5, "atomspanning": -5 }
+                            "effects": {
+                                "historisk_innsikt": 5,
+                                "atomspanning": -5
+                            }
                         },
                         {
                             "combo": "rolig+dialog+global",
                             "feedback": "Den beste kombinasjonen. En rolig diplomatisk appell til verden ga Krusjtsjev mulighet til å trekke seg uten å miste ansikt - nøkkelen til krisens løsning.",
-                            "effects": { "historisk_innsikt": 10, "atomspanning": -10 }
+                            "effects": {
+                                "historisk_innsikt": 10,
+                                "atomspanning": -10
+                            }
                         },
                         {
                             "combo": "aggressiv+krav+nasjonal",
                             "feedback": "Amerikanerne hørte en sterk leder. Men Krusjtsjev så en fiende i hjørnet - og dyr som er innestengt, biter.",
-                            "effects": { "atomspanning": 10 }
+                            "effects": {
+                                "atomspanning": 10
+                            }
                         },
                         {
                             "combo": "aggressiv+krav+global",
                             "feedback": "En aggressiv tone på verdensscenen eskalerte spenningen dramatisk. Nøytrale land tok avstand. Sovjet stivnet i forsvarsposisjon.",
-                            "effects": { "atomspanning": 15, "usa_innflytelse": -5 }
+                            "effects": {
+                                "atomspanning": 15,
+                                "usa_innflytelse": -5
+                            }
                         },
                         {
                             "combo": "aggressiv+dialog+nasjonal",
                             "feedback": "Et forvirrende signal: aggressiv tone, men diplomatiske ord. Verken amerikanerne eller Krusjtsjev visste hva de skulle tro om dine intensjoner.",
-                            "effects": { "atomspanning": 5 }
+                            "effects": {
+                                "atomspanning": 5
+                            }
                         },
                         {
                             "combo": "aggressiv+dialog+global",
                             "feedback": "Verdenssamfunnet var forvirret. Motstridende signaler paralyserte FN og skapte usikkerhet i begge leire.",
-                            "effects": { "atomspanning": 5, "historisk_innsikt": 5 }
+                            "effects": {
+                                "atomspanning": 5,
+                                "historisk_innsikt": 5
+                            }
                         }
                     ]
                 }
@@ -953,12 +1022,12 @@
                 {
                     "id": "c_kuba_blokkade",
                     "text": "Sjøblokkade - kontrollert press, diplomatisk rom",
+                    "isHistoricalChoice": true,
+                    "historicalConsequence": "Kennedy valgte sjøblokkaden. Etter 13 dager trakk Sovjet rakettene tilbake. En hemmelig tilleggsavtale innebar at USA fjernet Jupiter-raketter fra Tyrkia, men dette ble holdt hemmelig for offentligheten i mange år.",
                     "nextNodeId": "kuba_blokkade_ok",
                     "effects": {
                         "atomspanning": -10
                     },
-                    "isHistoricalChoice": true,
-                    "historicalConsequence": "Kennedy valgte sjøblokkaden. Etter 13 dager trakk Sovjet rakettene tilbake. En hemmelig tilleggsavtale: USA fjernet raketter fra Tyrkia - men dette ble ikke kjent offentlig på mange år.",
                     "ethicsLens": {
                         "deontological": "Blokkaden respekterer folkeretten bedre enn et angrep - og gir motparten mulighet til å velge.",
                         "consequentialist": "Blokkaden minimerer risikoen for umiddelbar eskalasjon. Den beste løsningen er den som lar begge parter redde ansikt.",
@@ -1169,6 +1238,8 @@
                 {
                     "id": "c_tonkin_tvil_1",
                     "text": "Godkjenn Tonkin-resolusjonen - vi trenger mandatet",
+                    "isHistoricalChoice": true,
+                    "historicalConsequence": "LBJ godkjente Tonkin-resolusjonen og fikk fri krigsmandat. I 2005 bekreftet NSA-dokumenter at det andre angrepet i Tonkin-bukta trolig aldri skjedde.",
                     "nextNodeId": "tonkin_godkjent_scene",
                     "effects": {
                         "menneskekost": 5
@@ -1193,7 +1264,9 @@
                     "id": "c_tonkin_godkjent_1",
                     "text": "Gå til Vestmoreland - krigen begynner",
                     "nextNodeId": "vietnam_strategi",
-                    "setFlags": ["tonkin_godkjent"],
+                    "setFlags": [
+                        "tonkin_godkjent"
+                    ],
                     "effects": {
                         "menneskekost": 10
                     }
@@ -1289,8 +1362,13 @@
                             "role": "Gravid, 7. måneder",
                             "context": "Trenger mat kritisk. Barnet hennes er i fare.",
                             "effects": {
-                                "ifGiven": { "menneskekost": -5 },
-                                "ifSkipped": { "menneskekost": 15, "historisk_innsikt": 5 }
+                                "ifGiven": {
+                                    "menneskekost": -5
+                                },
+                                "ifSkipped": {
+                                    "menneskekost": 15,
+                                    "historisk_innsikt": 5
+                                }
                             }
                         },
                         {
@@ -1299,8 +1377,13 @@
                             "role": "Brannsår fra napalm",
                             "context": "Alvorlige forbrenningsskader. Trenger umiddelbar behandling.",
                             "effects": {
-                                "ifGiven": { "menneskekost": -8, "historisk_innsikt": 5 },
-                                "ifSkipped": { "menneskekost": 20 }
+                                "ifGiven": {
+                                    "menneskekost": -8,
+                                    "historisk_innsikt": 5
+                                },
+                                "ifSkipped": {
+                                    "menneskekost": 20
+                                }
                             }
                         },
                         {
@@ -1309,8 +1392,12 @@
                             "role": "Gammel og syk",
                             "context": "Overlevde japanerne og franskmennene. Trenger medisin.",
                             "effects": {
-                                "ifGiven": { "historisk_innsikt": 5 },
-                                "ifSkipped": { "menneskekost": 8 }
+                                "ifGiven": {
+                                    "historisk_innsikt": 5
+                                },
+                                "ifSkipped": {
+                                    "menneskekost": 8
+                                }
                             }
                         },
                         {
@@ -1319,8 +1406,12 @@
                             "role": "Far er soldat, ukjent skjebne",
                             "context": "Gråter uten stopp. Vet ikke om far er i live.",
                             "effects": {
-                                "ifGiven": { "menneskekost": -3 },
-                                "ifSkipped": { "menneskekost": 10 }
+                                "ifGiven": {
+                                    "menneskekost": -3
+                                },
+                                "ifSkipped": {
+                                    "menneskekost": 10
+                                }
                             }
                         }
                     ]
@@ -1407,7 +1498,9 @@
                     "id": "c_praha_1",
                     "text": "Delta i protestene - vi kan ikke bare stå og se på",
                     "nextNodeId": "praha_protest",
-                    "setFlags": ["delta_i_protest"],
+                    "setFlags": [
+                        "delta_i_protest"
+                    ],
                     "effects": {
                         "menneskekost": 5
                     }
@@ -1519,8 +1612,12 @@
                 {
                     "id": "c_chile_1",
                     "text": "Godkjenn CIA-støtte til militaerkuppet",
+                    "isHistoricalChoice": true,
+                    "historicalConsequence": "Nixon og Kissinger godkjente CIA-støtten. 11. september 1973 bombet militaeret La Moneda-palasset. Allende dode. Pinochet tok makten og styrte til 1990.",
                     "nextNodeId": "chile_kupp",
-                    "setFlags": ["chile_kupp_godkjent"],
+                    "setFlags": [
+                        "chile_kupp_godkjent"
+                    ],
                     "effects": {
                         "menneskekost": 10,
                         "usa_innflytelse": 5
@@ -1712,14 +1809,16 @@
                 {
                     "id": "c_afg_1",
                     "text": "Invader - vi kan ikke miste Afghanistan til islamistene",
+                    "isHistoricalChoice": true,
+                    "historicalConsequence": "Sovjet invaderte Afghanistan 25. desember 1979 med 100 000 soldater. De lovet en rask seier, men etter ti år og 15 000 drepte russiske soldater trakk de seg ydmyket ut i 1989. Afghanistan ble kjent som 'Sovjetunionens Vietnam'.",
                     "nextNodeId": "afghanistan_invasjon",
-                    "setFlags": ["afghanistan_invadert"],
+                    "setFlags": [
+                        "afghanistan_invadert"
+                    ],
                     "effects": {
                         "atomspanning": 10,
                         "sovjet_innflytelse": 5
                     },
-                    "isHistoricalChoice": true,
-                    "historicalConsequence": "Sovjet invaderte 25. desember 1979 med 100 000 soldater. De lovet rask seier. Ti år og 15 000 drepte russiske soldater seinere trakk de seg ydmyket ut. Afghanistan ble Sovjets Vietnam.",
                     "ethicsLens": {
                         "deontological": "En stat har ikke rett til å invadere et suverent land - uansett ideologisk trussel.",
                         "consequentialist": "Å miste Afghanistan til islamistene kan destabilisere Sentral-Asia og true Sovjet-grensen. Er risikokalkylen riktig?",
@@ -1796,8 +1895,13 @@
                             "role": "Syk, trenger medisin",
                             "context": "Har vaert syk i to uker. Uten medisin overlever hun ikke vinteren.",
                             "effects": {
-                                "ifGiven": { "menneskekost": -5 },
-                                "ifSkipped": { "menneskekost": 12, "historisk_innsikt": 5 }
+                                "ifGiven": {
+                                    "menneskekost": -5
+                                },
+                                "ifSkipped": {
+                                    "menneskekost": 12,
+                                    "historisk_innsikt": 5
+                                }
                             }
                         },
                         {
@@ -1806,8 +1910,12 @@
                             "role": "Trenger mat for reisen",
                             "context": "Eneste som kan gå til nabodalen for hjelp - men trenger mat for den tre timers turen.",
                             "effects": {
-                                "ifGiven": { "menneskekost": -8 },
-                                "ifSkipped": { "menneskekost": 15 }
+                                "ifGiven": {
+                                    "menneskekost": -8
+                                },
+                                "ifSkipped": {
+                                    "menneskekost": 15
+                                }
                             }
                         },
                         {
@@ -1816,8 +1924,12 @@
                             "role": "Sulten og redd",
                             "context": "Har ikke spist skikkelig på to dager. Gråter uten stopp.",
                             "effects": {
-                                "ifGiven": { "menneskekost": -3 },
-                                "ifSkipped": { "menneskekost": 10 }
+                                "ifGiven": {
+                                    "menneskekost": -3
+                                },
+                                "ifSkipped": {
+                                    "menneskekost": 10
+                                }
                             }
                         },
                         {
@@ -1826,8 +1938,12 @@
                             "role": "Skadet i bombingen",
                             "context": "Shrapnel i skulderen. Trenger forbinding og mat.",
                             "effects": {
-                                "ifGiven": { "historisk_innsikt": 5 },
-                                "ifSkipped": { "menneskekost": 8 }
+                                "ifGiven": {
+                                    "historisk_innsikt": 5
+                                },
+                                "ifSkipped": {
+                                    "menneskekost": 8
+                                }
                             }
                         }
                     ]
@@ -1850,7 +1966,9 @@
                     "id": "c_cia_1",
                     "text": "Bevapne mujahideen - gi Sovjet sin Vietnam",
                     "nextNodeId": "cia_domino_spill",
-                    "setFlags": ["mujahideen_bevapnet"],
+                    "setFlags": [
+                        "mujahideen_bevapnet"
+                    ],
                     "updateInventory": {
                         "add": "mujahideen_kontrakt"
                     },
@@ -2084,44 +2202,1039 @@
         },
         "hub_kap5": {
             "id": "hub_kap5",
-            "text": "1985. Mikhail Gorbatsjov blir generalsekretær. Han vet at systemet er sykt. Men er medisinen verre enn sykdommen? Tsernobyl eksploderer. Solidaritet-bevegelsen marsjerer. Og i Berlin er det en mur som ikke har lenge igjen. Kapittel 5: Muren Faller.\n\n[Kapittel 5 er under utvikling]",
+            "text": "1985. Mikhail Gorbatsjov blir generalsekretær i Sovjet. Han vet at systemet er sykt. Det råtner innenfra. Tre kriser venter - og én av dem vil forandre alt.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/kald-krig/gorbachev_dilemma.webp",
+            "discoveryEvent": {
+                "title": "Glasnost og Perestroika",
+                "fact": "Mikhail Gorbatsjov lanserte glasnost (åpenhet) og perestroika (omstrukturering) fra 1985 for å modernisere Sovjet. Det han ikke forutså, var at åpenhet ville avsløre systemets dypereliggende rot - og gi folk verktøy til å kreve mer.",
+                "articleLink": "/historie/den-kalde-krigen/oversikt",
+                "reflectionQuestion": "Kan et autoritært system reformere seg selv uten å kollapse?"
+            },
+            "uiType": "map",
+            "mapConfig": {
+                "image": "/images/chronos/kald-krig/world_map_1953.webp",
+                "points": [
+                    {
+                        "id": "point_glasnost",
+                        "x": 62,
+                        "y": 25,
+                        "label": "Glasnost - Reform fra toppen 1985",
+                        "icon": "book-open",
+                        "nextNodeId": "gorbachev_dilemma"
+                    },
+                    {
+                        "id": "point_tsernobyl",
+                        "x": 60,
+                        "y": 30,
+                        "label": "Tsernobyl - Ulykken som avslørte lognen 1986",
+                        "icon": "zap",
+                        "nextNodeId": "tsernobyl_hub"
+                    },
+                    {
+                        "id": "point_solidarnosc",
+                        "x": 53,
+                        "y": 22,
+                        "label": "Solidarnosc - Polen velger frihet 1980",
+                        "icon": "users",
+                        "nextNodeId": "solidarnosc"
+                    }
+                ]
+            },
+            "choices": []
+        },
+        "gorbachev_dilemma": {
+            "id": "gorbachev_dilemma",
+            "text": "Du er Gorbatsjov. Politbyrået møtes. Du vet at noen av mennene rundt bordet vil forsøke å stoppe reformene - eller verre. Sju ansikter. Tre forrådere. Finn dem.",
+            "speaker": "Gorbatsjov",
+            "backgroundImage": "/images/chronos/kald-krig/gorbachev_dilemma.webp",
+            "minigame": {
+                "type": "intrigue",
+                "config": {
+                    "onComplete": {
+                        "nextNodeId": "glasnost_tale"
+                    },
+                    "tokens": 4,
+                    "characters": [
+                        {
+                            "id": "shevardnadze",
+                            "name": "Eduard Sjevardnadze",
+                            "role": "Utenriksminister",
+                            "description": "Taler varmt om åpenhet og samarbeid med Vesten. Betrakter glasnost som Sovjets siste sjanse.",
+                            "isTraitor": false,
+                            "feedback": "En lojal reformator. Hans åpenhet mot Vesten var avgjørende for å avslutte den kalde krigen."
+                        },
+                        {
+                            "id": "ryzhkov",
+                            "name": "Nikolai Rysjkov",
+                            "role": "Statsminister",
+                            "description": "Bekymret for reformtempo. Vil gå sakte. Men vil han sabotere?",
+                            "isTraitor": false,
+                            "feedback": "Rysjkov var skeptisk, men lojal. Han trodde reformene gikk for fort - men han kuppet ikke."
+                        },
+                        {
+                            "id": "ligachev",
+                            "name": "Jegor Ligasjov",
+                            "role": "Andresekretær",
+                            "description": "Nostalgisk over Stalins orden. Taler om 'for mye åpenhet' og 'destabilisering av partiet'.",
+                            "isTraitor": true,
+                            "feedback": "Ligasjov forsøkte systematisk å undergrave glasnost. Han var den interne konservative motpolen til Gorbatsjov."
+                        },
+                        {
+                            "id": "kryuchkov",
+                            "name": "Vladimir Kryusjkov",
+                            "role": "KGB-direktør",
+                            "description": "Sier lite. Noterer alt. Har ikke blunket én gang under møtet.",
+                            "isTraitor": true,
+                            "feedback": "Kryusjkov ledet augustkuppet mot Gorbatsjov i 1991. Din mistanke var berettiget."
+                        },
+                        {
+                            "id": "yakovlev",
+                            "name": "Aleksandr Jakovlev",
+                            "role": "Politbyråmedlem",
+                            "description": "Glasnostens arkitekt i skyggene. Har skrevet mange av ideene Gorbatsjov presenterer.",
+                            "isTraitor": false,
+                            "feedback": "Jakovlev var glasnostens far - en ekte reformator som trodde på åpenhetens frigjørende kraft."
+                        },
+                        {
+                            "id": "yeltsin",
+                            "name": "Boris Jeltsin",
+                            "role": "Partisekretær Moskva",
+                            "description": "Karismatisk og impulsiv. Vil ha langt mer reform enn Gorbatsjov planlegger.",
+                            "isTraitor": false,
+                            "feedback": "Jeltsin var ikke en forræder av glasnost - men han ble en rival. Han ønsket mer reform, ikke stopp av den."
+                        },
+                        {
+                            "id": "yanayev",
+                            "name": "Gennady Janajev",
+                            "role": "Nestleder",
+                            "description": "Stille og konservativ. Snakker om 'stabilitet' og 'partiets beste'. Unngår øyekontakt.",
+                            "isTraitor": true,
+                            "feedback": "Janajev ble frontfigur for augustkuppet 1991 og erklærte Gorbatsjov midlertidig ute av stand til å styre. Din uro var berettiget."
+                        }
+                    ]
+                }
+            },
+            "choices": []
+        },
+        "glasnost_tale": {
+            "id": "glasnost_tale",
+            "text": "Du skal holde glasnost-talen. Tre valg definerer innholdet - og verden lytter. Det finnes ingen garanti for at alle tolker ordene likt.",
+            "speaker": "Gorbatsjov",
+            "minigame": {
+                "type": "speech",
+                "config": {
+                    "onComplete": {
+                        "nextNodeId": "hub_kap5"
+                    },
+                    "columns": [
+                        {
+                            "label": "Informasjonspolitikk",
+                            "options": [
+                                {
+                                    "id": "aapen",
+                                    "text": "Full åpenhet om systemets feil"
+                                },
+                                {
+                                    "id": "selektiv",
+                                    "text": "Selektiv åpenhet - kontrollert reform"
+                                },
+                                {
+                                    "id": "taus",
+                                    "text": "Taushet er styrke - ingen innrømmelser"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Reformtempo",
+                            "options": [
+                                {
+                                    "id": "rask",
+                                    "text": "Rask omstilling - halvhjertet reform er ingen reform"
+                                },
+                                {
+                                    "id": "gradvis",
+                                    "text": "Gradvis reform - ikke destabiliser"
+                                },
+                                {
+                                    "id": "stopp",
+                                    "text": "Stabilitet nå - reform kan vente"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Forholdet til Vesten",
+                            "options": [
+                                {
+                                    "id": "samarbeid",
+                                    "text": "Nedrustning og samarbeid med Vesten"
+                                },
+                                {
+                                    "id": "strategisk",
+                                    "text": "Strategisk engasjement på Sovjets premisser"
+                                },
+                                {
+                                    "id": "avvisning",
+                                    "text": "Vi trenger ingen fra Vesten"
+                                }
+                            ]
+                        }
+                    ],
+                    "outcomes": [
+                        {
+                            "combo": "aapen-rask-samarbeid",
+                            "feedback": "Glasnost som et ekte løfte til folket og verden. Internasjonalt applaus. Konservative i Politbyrået er rasende. Du har satt i gang noe som ikke kan stoppes.",
+                            "effects": {
+                                "historisk_innsikt": 10,
+                                "atomspanning": -10
+                            },
+                            "setsFlag": "reform_valgt"
+                        },
+                        {
+                            "combo": "selektiv-gradvis-strategisk",
+                            "feedback": "Kontrollert reform. Du navigerer mellom konservative og reformatorer. Men folket vil ha mer enn halvmessige løfter.",
+                            "effects": {
+                                "historisk_innsikt": 5
+                            }
+                        },
+                        {
+                            "combo": "taus-stopp-avvisning",
+                            "feedback": "Konservative er fornøyde. Men dette er ikke glasnost - det er status quo i ny innpakning. Systemet råtner videre mens du venter.",
+                            "effects": {
+                                "atomspanning": 5,
+                                "sovjet_innflytelse": -10
+                            }
+                        },
+                        {
+                            "combo": "aapen-gradvis-strategisk",
+                            "feedback": "En balansert tilnærming: åpenhet om feil, men reformtakt som Politbyrået kan akseptere.",
+                            "effects": {
+                                "historisk_innsikt": 7
+                            }
+                        },
+                        {
+                            "combo": "selektiv-rask-samarbeid",
+                            "feedback": "Du lover åpenhet og samarbeid - men uten å faktisk levere full transparens. Et løfte som krever innfrielse snart.",
+                            "effects": {
+                                "historisk_innsikt": 5,
+                                "usa_innflytelse": 5
+                            }
+                        },
+                        {
+                            "combo": "aapen-rask-avvisning",
+                            "feedback": "Full åpenhet og hurtig reform - men uten å strekke hånden mot Vesten. En intern revolusjon på egne premisser.",
+                            "effects": {
+                                "historisk_innsikt": 8,
+                                "sovjet_innflytelse": -5
+                            }
+                        },
+                        {
+                            "combo": "taus-gradvis-strategisk",
+                            "feedback": "Minste motstands vei. Ingen fiender i dag - men ingen venner i morgen heller.",
+                            "effects": {
+                                "sovjet_innflytelse": -5
+                            }
+                        },
+                        {
+                            "combo": "selektiv-stopp-avvisning",
+                            "feedback": "Reformene skrinlegges i praksis. Systemet holder - for nå. Men trykket bygger seg opp.",
+                            "effects": {
+                                "atomspanning": 10,
+                                "sovjet_innflytelse": -15
+                            }
+                        }
+                    ]
+                }
+            },
+            "choices": []
+        },
+        "tsernobyl_hub": {
+            "id": "tsernobyl_hub",
+            "text": "26. april 1986, klokken 01.23. Reaktor 4 eksploderer. Ingeniørene melder 'under kontroll'. Klokken 06 er det klart at det ikke er sant. Den radioaktive skyen beveger seg mot Europa.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/kald-krig/tsernobyl.webp",
+            "discoveryEvent": {
+                "title": "Tsernobyl-ulykken 1986",
+                "fact": "Reaktor 4 ved Tjernobyl-kraftverket eksploderte 26. april 1986. Det var verdens verste atomulykke. Sovjet-myndighetene ventet 36 timer med å evakuere nærliggende Pripyat og informerte ikke umiddelbart europeiske naboland. Over 600 000 'likvidasjonsarbeidere' ble sendt til oppryddingen uten tilstrekkelig verneutstyr.",
+                "articleLink": "/historie/den-kalde-krigen/oversikt",
+                "reflectionQuestion": "Hvordan kan et system som krever taushet fungere i en krise som krever åpenhet for å redde liv?"
+            },
+            "choices": [
+                {
+                    "id": "c_tsernobyl_hub_1",
+                    "text": "Du er informasjonsminister. Pravda venter. Hva rapporterer du?",
+                    "nextNodeId": "tsernobyl_valg",
+                    "effects": {
+                        "historisk_innsikt": 5
+                    }
+                }
+            ]
+        },
+        "tsernobyl_valg": {
+            "id": "tsernobyl_valg",
+            "text": "Pravda-redaksjonen er samlet. Fem nyheter om Tsernobyl krever avgjørelser nå. Verden ser på.",
+            "speaker": "Sovjet-informasjonsminister",
+            "minigame": {
+                "type": "propaganda",
+                "config": {
+                    "onComplete": {
+                        "nextNodeId": "tsernobyl_konsekvens"
+                    },
+                    "outlet": "Pravda",
+                    "outletType": "soviet",
+                    "date": "26. april - 15. mai 1986",
+                    "items": [
+                        {
+                            "id": "eksplosjon",
+                            "headline": "Teknisk uhell ved Tsernobyl kjernekraftverk",
+                            "realFacts": "Reaktor 4 eksploderte klokken 01.23. Eksplosjonen frigjorde 400 ganger mer radioaktivitet enn bomben over Hiroshima. Brannen slokkes ikke på dager.",
+                            "options": [
+                                {
+                                    "id": "avvis",
+                                    "label": "Bagatelliser",
+                                    "description": "'Et mindre teknisk problem er raskt under kontroll.' Minimale detaljer publiseres.",
+                                    "credibilityChange": -20,
+                                    "setsFlag": "tsernobyl_dekket_opp",
+                                    "effects": {
+                                        "menneskekost": 10
+                                    }
+                                },
+                                {
+                                    "id": "delvis",
+                                    "label": "Delvis rapportering",
+                                    "description": "'Et alvorlig uhell er inntruffet. Situasjonen er under kontroll.'",
+                                    "credibilityChange": -5,
+                                    "effects": {}
+                                },
+                                {
+                                    "id": "full",
+                                    "label": "Rapporter sannheten",
+                                    "description": "'En katastrofe av historiske dimensjoner. Full evakuering er iverksatt. Internasjonal hjelp ønskes.'",
+                                    "credibilityChange": 15,
+                                    "effects": {
+                                        "sovjet_innflytelse": -5,
+                                        "historisk_innsikt": 5
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "id": "sky",
+                            "headline": "Sverige rapporterer forhøyet stråling - kilde uklar",
+                            "realFacts": "En radioaktiv sky driftet over Europa. Sverige oppdaget stråling på en arbeiders klær og sporet kilden tilbake til Sovjet.",
+                            "options": [
+                                {
+                                    "id": "nekter",
+                                    "label": "Nekt kommentar",
+                                    "description": "'Ingen kommentar til utenlandske rapporter basert på vestlig hysteri.'",
+                                    "credibilityChange": -25,
+                                    "setsFlag": "tsernobyl_dekket_opp",
+                                    "effects": {
+                                        "menneskekost": 5
+                                    }
+                                },
+                                {
+                                    "id": "angrip",
+                                    "label": "Angrip kilden",
+                                    "description": "'Vestlige medier driver anti-sovjetisk propaganda. Ingen fare for folkets helse.'",
+                                    "credibilityChange": -15,
+                                    "effects": {}
+                                },
+                                {
+                                    "id": "erkjenn",
+                                    "label": "Erkjenn hendelsen",
+                                    "description": "'Sovjet bekrefter: Tsernobyl er kilden. Vi samarbeider med internasjonale myndigheter.'",
+                                    "credibilityChange": 10,
+                                    "effects": {
+                                        "historisk_innsikt": 5
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "id": "evakuering",
+                            "headline": "Pripyat evakuert - 49 000 innbyggere",
+                            "realFacts": "Sovjet ventet 36 timer med å evakuere Pripyat. Innbyggerne fikk ikke vite hva som hadde skjedd. Mange sovnet med full stråledose.",
+                            "options": [
+                                {
+                                    "id": "tier",
+                                    "label": "Tier om forsinkelsen",
+                                    "description": "'Evakuering gjennomføres som forsiktighetstiltak.' Ingen omtale av 36-timers forsinkelsen.",
+                                    "credibilityChange": -10,
+                                    "setsFlag": "tsernobyl_dekket_opp",
+                                    "effects": {
+                                        "menneskekost": 5
+                                    }
+                                },
+                                {
+                                    "id": "forklarer",
+                                    "label": "Erkjenn forsinkelsen",
+                                    "description": "'Myndighetene tok tid til grundig vurdering. Vi beklager forsinkelsen og iverksetter tiltak.'",
+                                    "credibilityChange": 8,
+                                    "effects": {
+                                        "historisk_innsikt": 5
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "id": "helse",
+                            "headline": "Eksperter avviser langsiktig helsefare",
+                            "realFacts": "Over 600 000 'likvidasjonsarbeidere' ble sendt til opprydding uten tilstrekkelig verneutstyr. Tusenvis ble syke. Strålerisikoen ble systematisk underrapportert.",
+                            "options": [
+                                {
+                                    "id": "avvis_fare",
+                                    "label": "Avvis helsefaren",
+                                    "description": "'Eksperter bekrefter: ingen langsiktig helserisiko for befolkningen i området.'",
+                                    "credibilityChange": -20,
+                                    "setsFlag": "tsernobyl_dekket_opp",
+                                    "effects": {
+                                        "menneskekost": 15
+                                    }
+                                },
+                                {
+                                    "id": "erkjenn_fare",
+                                    "label": "Erkjenn risiko åpent",
+                                    "description": "'Myndighetene anbefaler forsiktighet. Langsiktig overvåking og medisinsk støtte er iverksatt.'",
+                                    "credibilityChange": 8,
+                                    "effects": {
+                                        "historisk_innsikt": 5
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "id": "glasnost_test",
+                            "headline": "Gorbatsjov og Tsernobyl: Glasnostens prøve",
+                            "realFacts": "Gorbatsjov ventet 18 dager etter ulykken med å tale til nasjonen. Mange historikere mener Tsernobyl ble glasnostens virkelige test - og at systemet strøk.",
+                            "options": [
+                                {
+                                    "id": "helten",
+                                    "label": "Fremstill som rask respons",
+                                    "description": "'Sovjet håndterte krisen åpent og effektivt. Glasnost i praksis - systemene virker.'",
+                                    "credibilityChange": -5,
+                                    "setsFlag": "tsernobyl_dekket_opp",
+                                    "effects": {}
+                                },
+                                {
+                                    "id": "laerer",
+                                    "label": "Innrøm og lær",
+                                    "description": "'Vi lærte. Et system som tier får konsekvenser. Glasnost er ikke et valg - det er en nødvendighet.'",
+                                    "credibilityChange": 20,
+                                    "effects": {
+                                        "historisk_innsikt": 10,
+                                        "sovjet_innflytelse": -5
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "choices": []
+        },
+        "tsernobyl_konsekvens": {
+            "id": "tsernobyl_konsekvens",
+            "text": "'Logner rundt Tsernobyl kostet liv,' skriver Gorbatsjov seinere. 'Men de kostet systemet noe mer: Ingen trodde lenger på myndighetene.' Tsernobyl ble ikke bare en atomulykke. Det ble glasnostens sannhetsprøve.",
+            "speaker": "Forteller",
+            "choices": [
+                {
+                    "id": "c_tsernobyl_ok",
+                    "text": "Et system som lyver om atomer - hva lyver det ellers om?",
+                    "nextNodeId": "hub_kap5",
+                    "condition": {
+                        "lacksFlag": "tsernobyl_dekket_opp"
+                    },
+                    "effects": {
+                        "historisk_innsikt": 5
+                    }
+                },
+                {
+                    "id": "c_tsernobyl_dekket",
+                    "text": "Kostnadene av dekkoperasjonen er enorme - og usynlige ennå",
+                    "nextNodeId": "hub_kap5",
+                    "condition": {
+                        "hasFlag": "tsernobyl_dekket_opp"
+                    },
+                    "effects": {
+                        "sovjet_innflytelse": -15,
+                        "menneskekost": 5
+                    }
+                }
+            ]
+        },
+        "solidarnosc": {
+            "id": "solidarnosc",
+            "text": "Gdansk-verftet, 1980. Arbeiderne har streika i tre dager. Lech Walesa klatrer over verftsgjerdene og kunngjør kravene: frie fagforeninger, pressefrihet, løslatelse av politiske fanger. Ti millioner polakker slutter seg til Solidaritet.",
+            "speaker": "Polsk arbeider Lech",
+            "backgroundImage": "/images/chronos/kald-krig/solidarnosc.webp",
+            "discoveryEvent": {
+                "title": "Solidaritet-bevegelsen",
+                "fact": "Solidaritet ble grunnlagt i 1980 av streikende arbeidere ved Gdansk-verftet, ledet av Lech Walesa. Det var den første uavhengige fagforeningen i et Sovjet-kontrollert land. Bevegelsen hadde 10 millioner medlemmer på topp. I 1989 gjennomførte Polen de første frie valgene i østblokken.",
+                "articleLink": "/historie/den-kalde-krigen/oversikt",
+                "reflectionQuestion": "Kan vanlige arbeidere forandre historien? Hva forteller Solidaritet om forholdet mellom folkelig motstand og systemkollaps?"
+            },
+            "choices": [
+                {
+                    "id": "c_solidar_1",
+                    "text": "Delta aktivt i streiken. Polen er i ferd med å skrive historie.",
+                    "nextNodeId": "solidarnosc_seier",
+                    "effects": {
+                        "historisk_innsikt": 5
+                    }
+                },
+                {
+                    "id": "c_solidar_2",
+                    "text": "Hold deg unna. Det er for risikabelt.",
+                    "nextNodeId": "berlin_mur_fall",
+                    "effects": {}
+                }
+            ]
+        },
+        "solidarnosc_seier": {
+            "id": "solidarnosc_seier",
+            "text": "Lech Walesa og Solidaritet tvinger frem frie valg i 1989. Et kommunistisk land velger fritt - for første gang. Kommunistpartiet får 0 av 161 mulige seter. Polen velger demokrati. Og dominofallet begynner.",
+            "speaker": "Forteller",
+            "choices": [
+                {
+                    "id": "c_solidar_seier_1",
+                    "text": "Veien til Berlin er åpen",
+                    "nextNodeId": "berlin_mur_fall",
+                    "effects": {
+                        "sovjet_innflytelse": -10,
+                        "historisk_innsikt": 10
+                    }
+                }
+            ]
+        },
+        "berlin_mur_fall": {
+            "id": "berlin_mur_fall",
+            "text": "9. november 1989. Du hører radiomeldingen: 'DDR åpner grensene - med øyeblikkelig virkning.' Noe er feil. Du slår på TV-en. Det er sant. Folk beveger seg mot Brandenburger Tor. Du tar jakken.",
+            "speaker": "Osttysk student Petra, 17 år",
+            "backgroundImage": "/images/chronos/kald-krig/berlin_mur_fall.webp",
+            "discoveryEvent": {
+                "title": "Murens fall - 9. november 1989",
+                "fact": "Berlinmuren falt natt til 10. november 1989 etter at DDR-myndighetene ved en feiltagelse annonserte at grensene var åpnet 'øyeblikkelig og uten forsinkelse'. Grensvaktene, uten nye ordrer, åpnet portene. To millioner mennesker strømmet gjennom i løpet av natta.",
+                "articleLink": "/historie/den-kalde-krigen/oversikt",
+                "reflectionQuestion": "Berlinmuren falt delvis på grunn av en pressekonferansefeil. Hvilken rolle spiller tilfeldigheter i historien?"
+            },
+            "choices": [
+                {
+                    "id": "c_mur_fall_1",
+                    "text": "Gå mot muren. Hundrevis rundt deg gjør det samme.",
+                    "nextNodeId": "berlin_mur_crowd",
+                    "effects": {}
+                }
+            ]
+        },
+        "berlin_mur_crowd": {
+            "id": "berlin_mur_crowd",
+            "text": "Brandenburger Tor. Tusenvis trykker mot grensepunktet. Grensvaktene vakler. Ti minutter avgjør historien.",
+            "speaker": "Petra og folkemengden",
+            "minigame": {
+                "type": "crowd",
+                "config": {
+                    "winNodeId": "muren_faller",
+                    "lossNodeId": "muren_holder_naatt",
+                    "timeLimit": 60,
+                    "fillRate": 2,
+                    "responses": [
+                        {
+                            "id": "klatr",
+                            "label": "Klatr over muren",
+                            "description": "Utfordrer grensevaktene direkte. Folkemengden jubler - men trykket stiger farlig.",
+                            "pressureChange": 20,
+                            "cooldown": 5
+                        },
+                        {
+                            "id": "rop",
+                            "label": "Rop 'Öffnet das Tor!'",
+                            "description": "Massenes kamprop samler energi og mot - men kan tenne en farlig funke.",
+                            "pressureChange": 10,
+                            "cooldown": 3
+                        },
+                        {
+                            "id": "organiser",
+                            "label": "Organiser mengden rolig",
+                            "description": "'Rolig! Vi er mange nok. La vakten se ansiktene våre.' Trykket synker.",
+                            "pressureChange": -15,
+                            "cooldown": 4
+                        },
+                        {
+                            "id": "snakk",
+                            "label": "Snakk med grensvakten",
+                            "description": "Du møter øynene til grensvakten: 'Har du familie på andre siden? Vi vil bare hjem.'",
+                            "pressureChange": -25,
+                            "cooldown": 8
+                        }
+                    ]
+                }
+            },
+            "choices": []
+        },
+        "muren_faller": {
+            "id": "muren_faller",
+            "text": "Hammerne slår. Muren faller. To millioner mennesker strømmer gjennom i løpet av natta. Gråt og latter på samme tid. En 71 år gammel dame omfavner en soldat hun aldri har møtt. DDR er borte.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/kald-krig/berlin_mur_fall.webp",
+            "choices": [
+                {
+                    "id": "c_muren_falt_1",
+                    "text": "Øst møter Vest for første gang på 28 år",
+                    "nextNodeId": "sovjet_kollaps",
+                    "setFlags": [
+                        "muren_passert"
+                    ],
+                    "effects": {
+                        "atomspanning": -20,
+                        "historisk_innsikt": 15
+                    }
+                }
+            ]
+        },
+        "muren_holder_naatt": {
+            "id": "muren_holder_naatt",
+            "text": "Vakten holder tilbake mengden - men bare til neste morgen. Klokken 06 åpner grensene. Historien lar seg ikke stoppe av én natt.",
+            "speaker": "Forteller",
+            "choices": [
+                {
+                    "id": "c_holder_1",
+                    "text": "Vent til morgenen",
+                    "nextNodeId": "sovjet_kollaps",
+                    "effects": {
+                        "historisk_innsikt": 5
+                    }
+                }
+            ]
+        },
+        "sovjet_kollaps": {
+            "id": "sovjet_kollaps",
+            "text": "25. desember 1991. Gorbatsjov trer av. Det røde flagget over Kreml heises ned for siste gang. Det er jul i Moskva. Sovjet eksisterer ikke lenger. 46 år etter at den kalde krigen begynte - er den over.",
+            "speaker": "Gorbatsjov",
+            "backgroundImage": "/images/chronos/kald-krig/sovjet_kollaps.webp",
+            "discoveryEvent": {
+                "title": "Sovjet-kollapsen - Årsaker og konsekvenser",
+                "fact": "Sovjet-unionen oppløste seg selv 25. desember 1991. 15 republikker ble selvstendige stater. Historikere peker på glasnost og perestroika, Tsernobyl, Afghanistanskrigen, Solidaritet i Polen og DDR-befolkningens opprør. Det var ikke et militært nederlag - det var et systemkollaps innenfra.",
+                "articleLink": "/historie/den-kalde-krigen/oversikt",
+                "reflectionQuestion": "Var Sovjet-kollapsen uunngåelig - eller var det en rekke tilfeldige hendelser som samlet skapte en dominoeffekt?"
+            },
+            "choices": [
+                {
+                    "id": "c_kollaps_1",
+                    "text": "En epoke er over. Hva er regningen?",
+                    "nextNodeId": "epilog_konsekvenser",
+                    "effects": {
+                        "historisk_innsikt": 10
+                    }
+                }
+            ]
+        },
+        "epilog_konsekvenser": {
+            "id": "epilog_konsekvenser",
+            "text": "Den kalde krigen er over. Men historien er ikke ferdig ennå. La oss se hva valgene dine fikk å si - lenge etter at de ble tatt.",
+            "speaker": "Forteller",
+            "choices": [
+                {
+                    "id": "c_epilog_muj",
+                    "text": "Afghanistan, 1996...",
+                    "nextNodeId": "epilog_mujahideen",
+                    "condition": {
+                        "hasFlag": "mujahideen_bevapnet"
+                    }
+                },
+                {
+                    "id": "c_epilog_iran_direkte",
+                    "text": "Videre",
+                    "nextNodeId": "epilog_iran",
+                    "condition": {
+                        "lacksFlag": "mujahideen_bevapnet"
+                    }
+                }
+            ]
+        },
+        "epilog_mujahideen": {
+            "id": "epilog_mujahideen",
+            "text": "1996. En gruppe kalt Taliban tar makten i Kabul. De bærer Stinger-missiler - amerikanske våpen fra CIAs Operasjon Syklone på 1980-tallet. Brzezinski svarte da han ble konfrontert: 'Hva var viktigst for verdenshistorien - Taliban eller Sovjet-kollapsen?' Han svarte selv: 'Sovjet-kollapsen.'",
+            "speaker": "Forteller",
+            "choices": [
+                {
+                    "id": "c_epilog_muj_1",
+                    "text": "Noen betalte en høy pris for den kalkylen",
+                    "nextNodeId": "epilog_iran",
+                    "effects": {
+                        "historisk_innsikt": 10
+                    }
+                }
+            ]
+        },
+        "epilog_iran": {
+            "id": "epilog_iran",
+            "text": "Iran, 1979. Sjahens regime faller i islamsk revolusjon. Millioner jubler. Men i arkivene finnes et notat om en demokratisk valgt statsminister som ble fjernet i 1953.",
+            "speaker": "Forteller",
+            "choices": [
+                {
+                    "id": "c_epilog_iran_shah",
+                    "text": "'Mossadegh ble valgt av folket. USA fjernet ham. 1979 var svaret.' - iransk historiker",
+                    "nextNodeId": "epilog_chile",
+                    "condition": {
+                        "hasFlag": "iran_shah_installert"
+                    },
+                    "effects": {
+                        "historisk_innsikt": 5
+                    }
+                },
+                {
+                    "id": "c_epilog_iran_noshah",
+                    "text": "Iransk politikk preget av interne motsetninger og religiøse bevegelser",
+                    "nextNodeId": "epilog_chile",
+                    "condition": {
+                        "lacksFlag": "iran_shah_installert"
+                    },
+                    "effects": {
+                        "historisk_innsikt": 5
+                    }
+                }
+            ]
+        },
+        "epilog_chile": {
+            "id": "epilog_chile",
+            "text": "Chile, 1973-1990. Et land delt av en avgjørelse tatt i Washington.",
+            "speaker": "Forteller",
+            "choices": [
+                {
+                    "id": "c_epilog_chile_kupp",
+                    "text": "Pinochet-regimet dreper og torturerer over 3 000 mennesker. USA sa ingenting.",
+                    "nextNodeId": "ending_select",
+                    "condition": {
+                        "hasFlag": "chile_kupp_godkjent"
+                    },
+                    "effects": {
+                        "historisk_innsikt": 5,
+                        "menneskekost": 5
+                    }
+                },
+                {
+                    "id": "c_epilog_chile_demokrati",
+                    "text": "Det chilenske demokratiet overlevde noen år til. En annen vei var mulig.",
+                    "nextNodeId": "ending_select",
+                    "condition": {
+                        "lacksFlag": "chile_kupp_godkjent"
+                    },
+                    "effects": {
+                        "historisk_innsikt": 5
+                    }
+                }
+            ]
+        },
+        "ending_select": {
+            "id": "ending_select",
+            "text": "Den kalde krigen er over. Verdenshistorien har skrevet seg. Nå er det tid for å forstå hvilken historiker du har vært.",
+            "speaker": "Forteller",
+            "choices": [
+                {
+                    "id": "c_ending_fred",
+                    "text": "Du forsto det store bildet - og valgte menneskenes side",
+                    "nextNodeId": "ending_fredsskaperen",
+                    "condition": {
+                        "all": [
+                            {
+                                "statId": "atomspanning",
+                                "operator": "<",
+                                "value": 50
+                            },
+                            {
+                                "statId": "historisk_innsikt",
+                                "operator": ">=",
+                                "value": 80
+                            },
+                            {
+                                "statId": "menneskekost",
+                                "operator": "<",
+                                "value": 40
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "c_ending_pyrr",
+                    "text": "Du vant. Men til hvilken pris?",
+                    "nextNodeId": "ending_pyrrhusseiros",
+                    "condition": {
+                        "statId": "menneskekost",
+                        "operator": ">",
+                        "value": 70
+                    }
+                },
+                {
+                    "id": "c_ending_prag",
+                    "text": "Realpolitikkens vei",
+                    "nextNodeId": "ending_pragmatikeren"
+                }
+            ]
+        },
+        "ending_fredsskaperen": {
+            "id": "ending_fredsskaperen",
+            "text": "Du forsto at historien ikke handler om flagg og kartseire. Den handler om menneskene under bombene, bak murene, i arkivene ingen leste. Du valgte å forstå - og å ikke glemme. Det er den vanskeligste leksen historien lærer.",
             "speaker": "Forteller",
             "isEnd": true,
             "endType": "victory",
+            "showEndComparison": true,
+            "epilogue": {
+                "entries": [
+                    {
+                        "hasFlag": "luftbro_valgt",
+                        "text": "Du valgte luftbroen over Berlin. 277 000 flyvninger. Ingen kriger. Det er mulig å holde mot uten å skyte."
+                    },
+                    {
+                        "hasFlag": "ho_brev_funnet",
+                        "text": "Du leste Ho Chi Minhs brev. En nasjonalist som siterte den amerikanske uavhengighetserklæringen. Historien er sjelden enkel."
+                    },
+                    {
+                        "hasFlag": "muren_passert",
+                        "text": "Du var der da muren falt. 9. november 1989. Det er én av de dagene som forandrer alt."
+                    },
+                    {
+                        "hasFlag": "mujahideen_bevapnet",
+                        "text": "Du bevapnet mujahideen. Og du vet nå hva det kostet. Å forstå en feil er ikke det samme som å angre - men det er begynnelsen."
+                    },
+                    {
+                        "text": "Den kalde krigen kostet 25 millioner menneskeliv i proxy-konflikter verden over. Den endte ikke med en avtale - men med et folks vilje til frihet, og ledere som valgte å ikke skyte."
+                    }
+                ],
+                "historicalEcho": "Den kalde krigen endte 25. desember 1991 med Gorbatsjovs avgang og Sovjet-unionens oppløsning. Det var ikke et militært nederlag for Sovjet - det var et systemkollaps drevet av glasnost, Tsernobyl, Afghanistanskrigen, Solidaritet i Polen og DDR-befolkningens opprør. USA erklærte seg som seierherre - men mange historikere mener det var europeiske folk, ikke den amerikanske militærmakten, som vant den kalde krigen.",
+                "reflectionQuestion": "Kan vi si at noen 'vant' den kalde krigen - eller var det alle som tapte noe, og fredssøkerne som reddet mest?"
+            },
+            "choices": []
+        },
+        "ending_pragmatikeren": {
+            "id": "ending_pragmatikeren",
+            "text": "Du spilte realpolitikkens spill. Noen ganger er den beste løsningen den minst dårlige. Verden overlevde. Men regningene for de stille beslutningene betales ofte av andre enn de som tok dem - og gjerne lenge etter.",
+            "speaker": "Forteller",
+            "isEnd": true,
+            "endType": "victory",
+            "showEndComparison": true,
             "epilogue": {
                 "entries": [
                     {
                         "hasFlag": "mujahideen_bevapnet",
-                        "text": "Du bevapnet mujahideen i Afghanistan. I 1996 tar en gruppe kalt Taliban makten i Kabul. De har Stinger-missiler - amerikanske vapen fra CIAs Operasjon Syklone. Brzezinski svarte seinere: 'Hva var viktigst for verdenshistorien - Taliban eller Sovjet-kollapsen?'"
-                    },
-                    {
-                        "hasFlag": "afghanistan_invadert",
-                        "text": "Sovjet-invasjonen du godkjente kostet 15 000 russiske soldater livet og over 2 millioner afghanske sivile. Og ti år seinere trakk Sovjet seg ydmyket ut - uten å ha 'vunnet' noe som helst."
-                    },
-                    {
-                        "hasFlag": "tonkin_godkjent",
-                        "text": "Tonkin-resolusjonen du godkjente ga LBJ fri krigsmandat. Over 58 000 amerikanere og 3 millioner vietnamesere dode. I 2005 bekreftet NSA-dokumenter at det andre angrepet trolig aldri skjedde."
+                        "text": "CIA-operasjonene som bevapnet mujahideen ble sett på som et taktisk suksess. Det strategiske regnestykket ble et annet da Taliban tok makten i 1996."
                     },
                     {
                         "hasFlag": "chile_kupp_godkjent",
-                        "text": "Pinochet-regimet du støttet drepte over 3 000 mennesker. I 1998 ble Pinochet arrestert i London etter internasjonal arrestordre - men slapp straff på grunn av helsetilstand."
+                        "text": "Pinochet-kuppet 'stabiliserte' Chile fra et amerikansk perspektiv. 3 000 liv og et årelangt diktatur var prisen."
                     },
                     {
                         "hasFlag": "iran_shah_installert",
-                        "text": "Irans islamske revolusjon i 1979 - som fulgte av kuppet du hjalp til med i 1953 - skapte et regime som fortsatt utfordrer USA. Den kjedereaksjonen varte i over 70 år."
+                        "text": "Shahen av Iran tjente vestlige interesser i 26 år - frem til 1979-revolusjonen som skapte en fiende av Iran for tiår fremover."
                     },
                     {
-                        "hasFlag": "ho_brev_funnet",
-                        "text": "Ho Chi Minhs brev fra 1946 lå ubesvart. Vietnam-krigen kostet 58 000 amerikanske og 3 millioner vietnamesiske liv. I dag er Vietnam en viktig handelspartner for USA."
-                    },
-                    {
-                        "text": "Fire kapitler. Førti år. Valgene hauger seg opp. Kapittel 5 venter: Gorbatsjov, Tsernobyl, Solidaritet og det uunngåelige. En mur er i ferd med å falle."
+                        "text": "Realpolitikk er ikke ondt eller godt - det er kalkulert. Spørsmålet er alltid: hvem betaler regningen for kalkylen?"
                     }
                 ],
-                "historicalEcho": "Perioden 1975-1985 formet betingelsene for den kalde krigens slutt. Sovjet-invasjonen av Afghanistan (1979) og CIAs motrespons tappet begge supermakter - men etterlot Afghanistan i kaos som varte i tiår. Detente var over. En ny, farligere fase begynte.",
-                "reflectionQuestion": "Welcoming-spørsmål for klassen: Hvilken av beslutningene gjennom hele spillet hadde ifølge deg størst utilsiktede konsekvenser - og ble de faktisk 'utilsiktet', eller burde noen ha sett det komme?"
+                "historicalEcho": "Den kalde krigen endte med USAs geopolitiske dominans - men etterlot dype sår i Iran, Afghanistan, Chile, Vietnam og andre land der proxy-krigen ble ført. 'Seieren' kostet langt mer for menneskene på bakken enn for beslutningstakerne i Washington og Moskva.",
+                "reflectionQuestion": "Er det etisk forsvarlig å ofre demokrati og menneskeliv i andre land for din nasjons sikkerhet? Hvem bestemmer regnestykket?"
             },
             "choices": []
+        },
+        "ending_pyrrhusseiros": {
+            "id": "ending_pyrrhusseiros",
+            "text": "Du 'vant'. Sovjet kollapset. USA dominerer. Men den menneskelige kostnaden av dette 'seiersspillet' er lang og blodig - og mange av de som led mest hadde aldri sett Washington eller Moskva.",
+            "speaker": "Forteller",
+            "isEnd": true,
+            "endType": "victory",
+            "showEndComparison": true,
+            "epilogue": {
+                "entries": [
+                    {
+                        "hasFlag": "tonkin_godkjent",
+                        "text": "Tonkin-resolusjonen som aldri burde vært vedtatt: 58 000 amerikanere, 3 millioner vietnamesere. NSA bekreftet i 2005 at det andre angrepet trolig aldri skjedde."
+                    },
+                    {
+                        "hasFlag": "napalm_godkjent",
+                        "text": "Napalm og Agent Orange dreper ikke bare i krig - de dreper i generasjoner. Vietnam rapporterer fortsatt misdannelser knyttet til Agent Orange-eksponering."
+                    },
+                    {
+                        "hasFlag": "chile_kupp_godkjent",
+                        "text": "Pinochet-regimet: 3 000 drepte, 30 000 torturert, 200 000 i eksil. Et demokrati ble knust for å forhindre en sosialist som ble valgt av folket."
+                    },
+                    {
+                        "hasFlag": "mujahideen_bevapnet",
+                        "text": "De samme mennene CIA bevapnet i Afghanistan dannet kjernen av Taliban. 11. september 2001 kostet 2 977 liv. En direkte linje fra 1980-tallets kalkyle."
+                    },
+                    {
+                        "hasFlag": "afghanistan_invadert",
+                        "text": "Sovjet-invasjonen du godkjente: 15 000 russiske soldater, over 2 millioner afghanske sivile. Et land som aldri har latt seg beseire."
+                    },
+                    {
+                        "text": "En pyrrhusseier er en seier som koster mer enn den er verdt. Historien er full av dem."
+                    }
+                ],
+                "historicalEcho": "Den kalde krigen er historiens mest kostbare geopolitiske konflikt målt i proxy-krigsofre: 25-40 millioner mennesker drept i konflikter der USA og Sovjet aldri sloss direkte mot hverandre. Begge supermakter bidro til lidelse de aldri ville akseptert hjemme.",
+                "reflectionQuestion": "Kan man kalle det en 'kald' krig når 25 millioner mennesker døde? Hvem bestemmer om en krig er 'kald'?"
+            },
+            "choices": []
+        },
+        "event_stanislav_petrov": {
+            "id": "event_stanislav_petrov",
+            "text": "26. september 1983, klokken 00.15. Sovjet-radaren viser fem amerikanske raketter i luften. Alarmen er rød. Protokollen sier: meld fra til overordnede umiddelbart. Du er Stanislav Petrov - og du er ikke sikker.",
+            "speaker": "Sovjet-offiser Stanislav Petrov",
+            "discoveryEvent": {
+                "title": "Mannen som reddet verden",
+                "fact": "26. september 1983 indikerte Sovjet-varslingssystemet at USA hadde skutt fem interkontinentale missiler. Stanislav Petrov, offiser på vakt, besluttet at det var en systemfeil og meldte ikke videre. Det var det. Systemet hadde oppdaget sollys reflektert av skyer. Petrov ble irettesatt for ikke å ha fulgt protokollen.",
+                "articleLink": "/historie/den-kalde-krigen/oversikt",
+                "reflectionQuestion": "Petrov brøt protokollen og reddet muligens verden. Burde han ha fulgt ordren?"
+            },
+            "choices": [
+                {
+                    "id": "c_petrov_eskalerer",
+                    "text": "Følg protokollen. Meld fra til overordnede nå.",
+                    "nextNodeId": "ending_select",
+                    "effects": {
+                        "atomspanning": 20,
+                        "historisk_innsikt": 5
+                    }
+                },
+                {
+                    "id": "c_petrov_venter",
+                    "text": "Vent. Dette er en systemfeil - ingen kan ville dette.",
+                    "nextNodeId": "ending_select",
+                    "effects": {
+                        "atomspanning": -5,
+                        "historisk_innsikt": 10
+                    }
+                }
+            ]
+        },
+        "event_spion_avsloert": {
+            "id": "event_spion_avsloert",
+            "text": "En CIA-agent i Moskva er kompromittert. KGB vet hvem han er. Du har to muligheter: evakuer agenten og avslør dekningsthistorien, eller la ham bli for å beskytte kildenettverket.",
+            "speaker": "CIA-operasjonssjef",
+            "choices": [
+                {
+                    "id": "c_spion_evakuer",
+                    "text": "Evakuer agenten. Et liv er viktigere enn et nettverk.",
+                    "nextNodeId": "ending_select",
+                    "effects": {
+                        "usa_innflytelse": -5,
+                        "historisk_innsikt": 5
+                    }
+                },
+                {
+                    "id": "c_spion_la_vaere",
+                    "text": "La ham bli. Kildenettverket er for verdifullt.",
+                    "nextNodeId": "ending_select",
+                    "effects": {
+                        "usa_innflytelse": 5,
+                        "menneskekost": 10
+                    }
+                }
+            ]
+        },
+        "event_pentagon_papers": {
+            "id": "event_pentagon_papers",
+            "text": "1971. Hemmelige Pentagon-dokumenter lekker til New York Times. 7 000 sider viser at LBJ og Kennedy løy systematisk om Vietnam. Regjeringen krever forbud mot publisering.",
+            "speaker": "Forteller",
+            "discoveryEvent": {
+                "title": "Pentagon-papirene",
+                "fact": "Pentagon Papers var en hemmelig studie om USAs involvering i Vietnam fra 1945-1968. Dokumentene avslørte at regjeringen hadde løyet til Kongressen og folket om krigens forløp og utsikter. Daniel Ellsberg lekket dem til pressen. Høyesterett tillot publisering. Nixon prøvde å stoppe dem.",
+                "articleLink": "/historie/den-kalde-krigen/oversikt",
+                "reflectionQuestion": "Har en regjering rett til å holde krigsstrategier hemmelig fra sine egne borgere?"
+            },
+            "choices": [
+                {
+                    "id": "c_pentagon_publiser",
+                    "text": "Pressen har rett til å trykke sannheten.",
+                    "nextNodeId": "ending_select",
+                    "effects": {
+                        "historisk_innsikt": 10,
+                        "usa_innflytelse": -5
+                    }
+                },
+                {
+                    "id": "c_pentagon_stopp",
+                    "text": "Nasjonal sikkerhet veier tyngre enn pressefriheten.",
+                    "nextNodeId": "ending_select",
+                    "effects": {
+                        "usa_innflytelse": 5
+                    }
+                }
+            ]
+        },
+        "event_ungarn_1956": {
+            "id": "event_ungarn_1956",
+            "text": "23. oktober 1956. Studenter og arbeidere i Budapest river ned Stalin-statuen. Imre Nagy kunngjør nøytralitet og melder Ungarn ut av Warszawapakten. Sovjet-tanks ruller mot grensen.",
+            "speaker": "Forteller",
+            "discoveryEvent": {
+                "title": "Den ungarske revolusjonen 1956",
+                "fact": "Den ungarske revolusjonen i 1956 var et folkeopprør mot Sovjet-kontroll. Etter 13 dager sendte Khrusjtsjov 1 000 tanks inn i Budapest. Over 2 500 ungarere og 700 sovjetsoldater ble drept. 200 000 ungarere flyktet til Vesten. USA og NATO så på - uten å gripe inn.",
+                "articleLink": "/historie/den-kalde-krigen/oversikt",
+                "reflectionQuestion": "USA sendte signaler om støtte til opprørerne - men handlet ikke. Hva er ansvaret for ord man ikke kan holde?"
+            },
+            "choices": [
+                {
+                    "id": "c_ungarn_stoett",
+                    "text": "Vesten bør handle - ikke bare se på.",
+                    "nextNodeId": "ending_select",
+                    "effects": {
+                        "atomspanning": 15,
+                        "historisk_innsikt": 5
+                    }
+                },
+                {
+                    "id": "c_ungarn_observer",
+                    "text": "Direkte intervensjon risikerer atomkrig. Vi sender sympati.",
+                    "nextNodeId": "ending_select",
+                    "effects": {
+                        "historisk_innsikt": 10
+                    }
+                }
+            ]
+        },
+        "event_brev_fra_vietnam": {
+            "id": "event_brev_fra_vietnam",
+            "text": "Et brev ankommer. Avsender: Korporalsoldat James Mitchell, 4. infanteridivisjon, Vietnam. Mottaker: Mrs. Dorothy Mitchell, Kansas. 'Mamma, jeg vet ikke lenger hva vi kjemper for. Men jeg vet hva jeg kjemper mot: å ikke komme hjem.'",
+            "speaker": "Korporalsoldat James Mitchell",
+            "choices": [
+                {
+                    "id": "c_brev_les",
+                    "text": "Les brevet videre",
+                    "nextNodeId": "ending_select",
+                    "effects": {
+                        "historisk_innsikt": 5,
+                        "menneskekost": 5
+                    }
+                }
+            ]
+        },
+        "event_fredsbevegelse": {
+            "id": "event_fredsbevegelse",
+            "text": "1983. 500 000 demonstranter i Vest-Europa. London, Bonn, Amsterdam, Roma. De bærer bannere mot Pershing II-rakettene NATO stasjonerer i Europa. 'Vi er alle atomvåpnets mål.'",
+            "speaker": "Forteller",
+            "discoveryEvent": {
+                "title": "Anti-atomvåpenprotestene 1980-1983",
+                "fact": "Fra 1979-1983 vokste en massiv anti-atomvåpenbevegelse frem i Vest-Europa som respons på NATOs beslutning om å stasjonere mellomdistanseraketter. I oktober 1983 deltok over 3 millioner mennesker i demonstrasjoner over hele Vest-Europa.",
+                "articleLink": "/historie/den-kalde-krigen/oversikt",
+                "reflectionQuestion": "Kan folkelig protest endre supermaktenes atomvåpenpolitikk? Eller er disse beslutningene tatt langt over hodet på vanlige mennesker?"
+            },
+            "choices": [
+                {
+                    "id": "c_fred_delta",
+                    "text": "Delta. Supermaktene må høre folkets stemme.",
+                    "nextNodeId": "ending_select",
+                    "effects": {
+                        "atomspanning": -5,
+                        "historisk_innsikt": 5
+                    }
+                },
+                {
+                    "id": "c_fred_skepsis",
+                    "text": "Protest alene stopper ikke atomvåpen.",
+                    "nextNodeId": "ending_select",
+                    "effects": {
+                        "historisk_innsikt": 5
+                    }
+                }
+            ]
         },
         "game_over_atomkrig": {
             "id": "game_over_atomkrig",

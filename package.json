@@ -23,6 +23,8 @@
     "@heroicons/react": "^2.2.0",
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.4.2",
+    "@remotion/core": "^1.0.0-y.46",
+    "@remotion/player": "^4.0.435",
     "@tanstack/react-query": "^5.90.11",
     "@types/canvas-confetti": "^1.9.0",
     "@types/d3-geo": "^3.1.0",

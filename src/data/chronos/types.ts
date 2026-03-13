@@ -49,6 +49,8 @@ export interface ChronosCondition {
     // Prinsipp 1: Flag-based condition
     hasFlag?: string;
     lacksFlag?: string;
+    // AND-logic: all sub-conditions must be met
+    all?: ChronosCondition[];
 }
 
 export interface ChronosEnvironment {
@@ -168,6 +170,12 @@ export interface ChronosEntry {
     timestamp: number;
 }
 
+export interface ChronosGameOverCondition {
+    statId: string;
+    threshold: number;
+    nodeId: string;
+}
+
 export interface ChronosScenario {
     id: string;
     title: string;
@@ -182,6 +190,7 @@ export interface ChronosScenario {
         [nodeId: string]: ChronosNode;
     };
     startingNodeId: string;
+    gameOverConditions?: ChronosGameOverCondition[];
     randomEvents?: string[]; // IDs of nodes that can be triggered randomly
 }
 
@@ -328,6 +337,7 @@ export type ChronosMinigame =
                 combo: string;
                 feedback: string;
                 effects?: ChronosEffect;
+                setsFlag?: string;
             }>;
         };
     }

@@ -16,6 +16,7 @@ interface SpeechGameProps {
             combo: string;
             feedback: string;
             effects?: ChronosEffect;
+            setsFlag?: string;
         }>;
     };
     onComplete: (results: any) => void;
@@ -54,7 +55,7 @@ export const SpeechGame: React.FC<SpeechGameProps> = ({ config, onComplete }) =>
         setOutcome(found);
         setSubmitted(true);
         setTimeout(() => {
-            onComplete({ combo, effects: found?.effects });
+            onComplete({ combo, effects: found?.effects, setsFlag: found?.setsFlag });
         }, 3000);
     };
 
