@@ -356,3 +356,123 @@ Dette er det storste scenariet som er planlagt. Bygg i denne rekkefolgjen:
 6. **Fase 6:** Epilog, endings, randomEvents, balansering
 
 De to nye minigamene (`propaganda` og `domino`) maa utvikles som React-komponenter parallelt med byggefasene - de kan legges inn som `"type": "signal"` placeholders frem til komponentene er ferdige.
+
+---
+
+## 12. Bildemanifest (AI-generering)
+
+Alle bilder lagres under `public/images/chronos/kald-krig/[filnavn]`.
+Format: WebP, 16:9, max 1600px bred, kvalitet 75-80.
+Stil: cinematic documentary photorealism, som beskrevet i Seksjon 9.
+
+---
+
+### `hero.webp`
+**Brukes i:** heroImage + node `intro_prolog`
+
+`A dramatic 16:9 cinematic photograph of a divided world. Left half: Manhattan skyline at night, neon signs, 1960s America, prosperity. Right half: grey Soviet city, Red Army parade, overcast sky, oppressive concrete. The Berlin Wall visible dividing the image exactly in the center. Cold morning light. Ultra-detailed photorealism.`
+
+---
+
+### `intro_potsdam.webp`
+**Brukes i:** node `intro_potsdam`
+
+`Five exhausted world leaders at a formal diplomatic table, Potsdam Palace, 1945. Heavy drapes, candlelight. Post-war gravity on their faces. Cinematic photograph, 16:9.`
+
+---
+
+### `berlin_blokkade.webp`
+**Brukes i:** noder `berlin_deling`, `berlin_blokkade_hub`, `luftbro_sekvens`
+
+`A long convoy of American C-54 transport aircraft lined up on a West Berlin airstrip at dusk, 1948. Ground crews unload sacks of flour and coal. Tired German civilians watch from behind a fence. Overcast grey sky. Documentary war photography, 16:9.`
+
+---
+
+### `nato_1949.webp`
+**Brukes i:** node `nato_1949`
+
+`The signing of the North Atlantic Treaty in Washington D.C., April 1949. Twelve foreign ministers at a long table, pens in hand, American flags behind them. Formal black-and-white documentary photograph, 16:9.`
+
+---
+
+### `ho_brev_arkiv.webp`
+**Brukes i:** node `ho_brev_arkiv`
+
+`A dusty, dimly lit government archive in Washington, 1946. A single typewritten letter lies open on a wooden desk under a desk lamp. The top of the letter reads "To President Truman." A forgotten envelope beside it. Warm amber light, cinematic close-up, 16:9.`
+
+---
+
+### `korea_krig.webp`
+**Brukes i:** noder `korea_krig`, `vietnam_intro`, `vietnam_strategi`, `cia_domino_spill`
+
+`American and South Korean infantry advancing through a snow-covered valley in Korea, winter 1950. Artillery smoke rises in the distance. Soldiers wear heavy winter gear, rifles raised. Gritty black-and-white war documentary photography, 16:9.`
+
+---
+
+### `korea_sivil.webp`
+**Brukes i:** noder `korea_sivil_perspektiv`, `vietnam_sivil_bombing`, `chile_kupp`, `afghanistan_landsby`
+
+`A South Korean mother and her three young children crouched in a roadside ditch as military vehicles pass, 1950. Faces drawn with fear and exhaustion. Rubble of a village visible behind them. Dust-filled air. Documentary war photography, 16:9.`
+
+---
+
+### `kuba_hub.webp`
+**Brukes i:** node `kuba_hub`
+
+`An American U-2 reconnaissance photograph of Cuba pinned to a Pentagon briefing table, October 1962. Red circles mark missile launch sites. Military officers lean over the table studying the image. Fluorescent lighting, tension in the room. Cinematic documentary, 16:9.`
+
+---
+
+### `kuba_tale.webp`
+**Brukes i:** node `kuba_tale`
+
+`President Kennedy at the Oval Office podium, October 1962. Television cameras. American flag. The weight of the world in his expression. Black-and-white documentary style, 16:9.`
+
+---
+
+### `world_map_1953.webp`
+**Brukes i:** noder `hub_kap2`, `hub_kap3`, `praha_protest`, `hub_kap4`
+
+`A Cold War-era world map mounted on a government briefing room wall, circa 1953. Countries colored in blue for Western-aligned and red for Soviet-aligned blocs. A wooden pointer rests across Southeast Asia. Fluorescent ceiling light, institutional setting. Cinematic documentary, 16:9.`
+
+---
+
+### `berlin_mur_ost.webp`
+**Brukes i:** noder `berlin_mur_forb`, `berlin_mur_ost`
+
+`A young East German man at the newly built Berlin Wall in 1961. Pre-dawn. Wire and concrete stretching into the distance. Guard tower silhouette. He looks west. Gritty film photography, 16:9.`
+
+---
+
+### `berlin_mur_fall.webp`
+**Brukes i:** noder `berlin_mur_fall`, `muren_faller`
+
+`Enormous crowd at the Berlin Wall the night of November 9, 1989. People climbing the wall, crying, embracing. Searchlights and car headlights illuminate the chaos and joy. Historic documentary photograph, 16:9.`
+
+---
+
+### `gorbachev_dilemma.webp`
+**Brukes i:** noder `hub_kap5`, `gorbachev_dilemma`
+
+`Gorbachev at the head of a Soviet Politburo table, 1985. Stern older men around him. Fluorescent lighting. USSR map on the wall. Cinematic documentary, 16:9.`
+
+---
+
+### `tsernobyl.webp`
+**Brukes i:** node `tsernobyl_hub`
+
+`The Chernobyl nuclear power plant at night, April 26, 1986. Reactor 4 is a glowing ruin, visible smoke and orange light rising into the dark sky. Emergency vehicles with flashing lights in the foreground. First responders in silhouette. Gritty documentary photography, 16:9.`
+
+---
+
+### `solidarnosc.webp`
+**Brukes i:** node `solidarnosc`
+
+`Polish Solidarity trade union workers gathered outside the Lenin Shipyard in Gdansk, 1980. A large banner reading "Solidarnosc" is held above the crowd. Workers in overalls, determined faces, fists raised. Overcast sky. Documentary photography, 16:9.`
+
+---
+
+### `sovjet_kollaps.webp`
+**Brukes i:** node `sovjet_kollaps`
+
+`The Soviet red flag being slowly lowered from the Kremlin flagpole, December 25, 1991. A Russian tricolor flag rises in its place. Sparse crowd watches in silence in the snow below. Grey winter light. Historic documentary photograph, 16:9.`
