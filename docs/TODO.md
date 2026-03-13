@@ -3,12 +3,14 @@
 Her kan du skrive ned ideer, oppgaver og annet du vil huske for Gravity lærebok.
 
 # Tidsreise
-- [] Tidsreiser hvor man spiller gjennom livet til den russiske tsaren i første verdenskrig. Vi skal holde oss så tett opp til historien som mulig. virkelig feltte oss med historien. Samtidig må det være mulig å påvirke utfallet til historien. Dette må gjerne markeres enkelt og subtilt, at man har branchet fra det som virkelig skjedde. Tenker at opptakten til første verdenskrig, gjennom krigen og etterkirgen/ revolusjonen og hvordan livet hans endte. VI må ha dybde, replayability, være juicy, interessant, minigames. Etikk, historie, filosofi, økonomisk teori, maktstrukturer, krigs-taktikk.  Vær kreativ! Hva kan vi få til med dette utgangspunktet?  
+- [x] Tidsreiser hvor man spiller gjennom livet til den russiske tsaren i første verdenskrig. Vi skal holde oss så tett opp til historien som mulig. virkelig feltte oss med historien. Samtidig må det være mulig å påvirke utfallet til historien. Dette må gjerne markeres enkelt og subtilt, at man har branchet fra det som virkelig skjedde. Tenker at opptakten til første verdenskrig, gjennom krigen og etterkirgen/ revolusjonen og hvordan livet hans endte. VI må ha dybde, replayability, være juicy, interessant, minigames. Etikk, historie, filosofi, økonomisk teori, maktstrukturer, krigs-taktikk.  Vær kreativ! Hva kan vi få til med dette utgangspunktet? 
+
+- [ ] Tidsreise hvor man spiller gjennom den kalde krigen. Vi tar utgangspunktet i læringsstien om den kalde krigen, men vi må også ha med afghanistan. Kjernen i spillet er proxykrigene, men også det politiske spillet, spionasje, propaganda, og hvordan dette påvirket vanlige folk. Dette krever nok av vi må bytte perspektiver en del ganger. Det er naturlig at en spiller ulike presidenter fra USA og Sovjet. Men vi kan også vise perspektiver fra vanlige folk, soldater, sivile, motstandsgrupper. F.eks. etter spilleren "velger" å angripe Nord-Vietnam, får vi perspektivet til dem som blir bombet sønder og stykker og må søke tilflukt. VI må ha dybde, replayability, være juicy, interessant, minigames. Etikk, historie, filosofi, økonomisk teori, maktstrukturer, krigs-taktikk.  Vær kreativ! Hva kan vi få til med dette utgangspunktet? Dette blir den lengste og største Tidsreisen vi har laget hittil. Vi skal dra eleven gjennom hele den kalde krigen, fra starten til slutten. Fortellerstemmen må være nøytral og objektiv, men samtidig engasjerende. Vi må passe på at ingen dialoger fra historiske personer blir for moderne eller for "amerikanske". Språket må være tilgjengelig for en 14åring. Er ikke utenkelig at vi må ha hundrevis av dialogtrær; hver "samtale" kan aldri være en vegg med tekst, det må deles opp, slik at eleven sjeldent leser mer enn 4-5 setninger pr dialog. Vi må aktivt bruke mini-games for å ha variasjon; ikke bare lesing. Vi trenger nok også nye mini-games mer tilpasset temaet. Sentralt for spillet i dette tema er at det stormaktene gjør, ofte har utilsiktede konsekvenser. SOm at USA støtter opprørere i Afghanistan mot Sovjet, men at disse opprørerne senere blir taliban, og samme med Ho chi Minh. Det finnes også flere eksempler enn disse. Det er også viktig å få frem at det ikke bare var USA og Sovjet som var viktige, men også de landene som ble rammet av proxykrigene. Vi må få fram at dette var en brytning fra den gamle Imperieverden med UK og frankrike. New kids on the block. 
 
 ### Bugs
 - [x] I Komposisjon tool. Sørge for at det er riktig antall inndelinger i en takt. Bugger seg av og til hvis man legger inn f.eks. 1/8, bytte rut med helnote, så doble, og 1/8. osv. Den må være smartere. 
 - [ ] Ikke bug men; Oppdatere alle artiklene i Analyse-emnet, så de er like gode som dikt artikkelen. 
-- [ ] Tidsreiser spillet: Lage tidsreise om tysksoldat ved frontlinjen og en om nordkoreaner under koreakrigen.
+- [x] Tidsreiser spillet: Lage tidsreise om tysksoldat ved frontlinjen og en om nordkoreaner under koreakrigen.
 - [x] Timeline inne i artikkler (ikke sidebar) er ekstremt stor, må gjøres MYE mer kompakt. 
 ## Læringsstier
 - [ ] Kildekritikk med konkrete eksmepler, metoder for å avdekke og evaluere, gråsoner, hvordan vite at noe er sant (forskningsmetoder lett forklart)
@@ -17,7 +19,7 @@ Her kan du skrive ned ideer, oppgaver og annet du vil huske for Gravity lærebok
 - [x] Norsk; Hvordan skrive drøftende, med analyse av noe i norskfaget. Læringsti. 
 
 # MÅ GJØRE
-- [ ] Finne en god måte å kunne eksportere nettisden på, slik at elevene kan bruke den offline/sperret nett. En giga pdf? Hva er gode alternativer?
+- [x] Finne en god måte å kunne eksportere nettisden på, slik at elevene kan bruke den offline/sperret nett. En giga pdf? Hva er gode alternativer?
 
 ## 💡 Ideer
 - [ ] Slaveri gjennom tidene, hvordan dette ofte var en del av imperialismen, hvordan det ble avskaffet ulike steder. Eget emne i historie. Læringsstier kan heller koble seg på. 

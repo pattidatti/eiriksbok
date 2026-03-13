@@ -4,7 +4,7 @@ description: Bygger et fullstendig Tidsreise-scenario-JSON fra en godkjent Bluep
 
 # Workflow: Build Scenario
 
-**Input:** `[scenario-id]` — ID-en til et godkjent scenario (blueprint skal eksistere).
+**Input:** `[scenario-id]` - ID-en til et godkjent scenario (blueprint skal eksistere).
 
 **Forutsetning:** `/plan_scenario` er fullført og blueprinfilen finnes.
 
@@ -12,10 +12,11 @@ description: Bygger et fullstendig Tidsreise-scenario-JSON fra en godkjent Bluep
 
 ## 1. Les Kontekst
 
-*   File: `docs/Design documents/[scenario-id]-scenario-blueprint.md` — PRIMÆRKILDEN. Følg denne nøye.
-*   File: `docs/SCENARIO_DESIGN_GUIDE.md` — Teknisk spec for alle node-typer og felter.
-*   File: `public/content/scenarios/roman-soldier.json` — Referanseimplementasjon for JSON-struktur.
-*   File: `public/content/manifest.json` — For å finne riktig `subjectId` og `topicId` til registrering.
+*   File: `docs/Design documents/[scenario-id]-scenario-blueprint.md` - PRIMÆRKILDEN. Følg denne nøye.
+*   File: `docs/SCENARIO_DESIGN_GUIDE.md` - Teknisk spec for alle node-typer og felter.
+*   File: `public/content/scenarios/nikolaj-ii.json` - Gold-standard. Les denne først. Viser bruk av alle 10 minigame-typer, heroImage og subtitle.
+*   File: `public/content/scenarios/roman-soldier.json` - Enklere referanse (battle + dice).
+*   File: `public/content/manifest.json` - For å finne riktig `subjectId` og `topicId` til registrering.
 
 ---
 
@@ -29,6 +30,8 @@ Opprett `public/content/scenarios/[scenario-id].json`.
 {
   "id": "[scenario-id]",
   "title": "...",
+  "subtitle": "Undertittel (valgfritt - anbefalt for lengre scenarier)",
+  "heroImage": "/images/chronos/[scenario-id]/hero.webp",
   "era": "...",
   "year": "...",
   "role": "...",
@@ -41,6 +44,8 @@ Opprett `public/content/scenarios/[scenario-id].json`.
 ```
 
 *   `summary` skal være 1-2 setninger som gir eleven lyst til å starte.
+*   `heroImage` - 16:9 WebP-bilde vist på scenario-kortet og intro-skjermen. Valgfritt men anbefalt.
+*   `subtitle` - Valgfri undertittel, f.eks. epoke eller historisk kontekst. Vises under tittelen.
 *   `randomEvents` fylles med node-ID-er for hendelser som kan trigges tilfeldig fra hub-noden (kan være tom liste).
 
 ### 2.2 Config-objekt
@@ -76,8 +81,8 @@ Opprett `public/content/scenarios/[scenario-id].json`.
 *   Bruk `category: "relation"` for alle stats som representerer relasjoner til personer/grupper.
 *   `recipes` kan være en tom liste `[]` dersom ingen crafting er planlagt.
 *   **Gjenstander med `content`** vises med en klikkbar modal i ryggsekken:
-    *   `itemType: "letter"` — brevvisning med sepia-stil, Fra/Til/Dato og brødtekst som `<p>`-elementer.
-    *   `itemType: "object"` — standard gjenstandsvisning (brukes sjelden; gjenstander *uten* `content` bruker samme visning automatisk).
+    *   `itemType: "letter"` - brevvisning med sepia-stil, Fra/Til/Dato og brødtekst som `<p>`-elementer.
+    *   `itemType: "object"` - standard gjenstandsvisning (brukes sjelden; gjenstander *uten* `content` bruker samme visning automatisk).
     *   Brev skal alltid ha `"icon": "scroll"` eller `"icon": "book"`.
     *   `body`-arrayen: ett element per avsnitt. Første element er gjerne tiltalen ("Kjære X,"), siste er underskriften.
 
@@ -110,12 +115,12 @@ Bygg ut ALLE noder definert i blueprinten. Hvert node-objekt:
 ```
 
 **Felt-regler:**
-*   `uiType: "map"` — Bruk KUN for hub-noder. Utelat feltet for alle andre noder.
-*   `journalPrompt` — Bruk ved viktige veiskiller (før stor konflikt, etter minigame). Tving refleksjon.
-*   `backgroundImage` — Alltid `/images/chronos/[beskrivende-filnavn].webp`. Filen trenger ikke eksistere ennå.
-*   `speaker` — Bruk "Forteller" for narratorscener. Bruk karakternavn for dialog.
-*   `discoveryEvent` — Bruk ved historisk viktige noder (første gang eleven møter en realitet: gassangrep, krigsrett, hungersnød). Kun én per node. Vises automatisk første gang eleven besøker noden. Bruk på minst 1–2 noder i scenariet.
-*   `npcDialogue` — Bruk på noder der en NPC snakker og det finnes en `rel_[navn]`-stat. Velg `statId` lik den aktuelle relasjonens stat-ID. Relasjonsverdien styrer hvilken tone som vises automatisk.
+*   `uiType: "map"` - Bruk KUN for hub-noder. Utelat feltet for alle andre noder.
+*   `journalPrompt` - Bruk ved viktige veiskiller (før stor konflikt, etter minigame). Tving refleksjon.
+*   `backgroundImage` - Alltid `/images/chronos/[beskrivende-filnavn].webp`. Filen trenger ikke eksistere ennå.
+*   `speaker` - Bruk "Forteller" for narratorscener. Bruk karakternavn for dialog.
+*   `discoveryEvent` - Bruk ved historisk viktige noder (første gang eleven møter en realitet: gassangrep, krigsrett, hungersnød). Kun én per node. Vises automatisk første gang eleven besøker noden. Bruk på minst 1-2 noder i scenariet.
+*   `npcDialogue` - Bruk på noder der en NPC snakker og det finnes en `rel_[navn]`-stat. Velg `statId` lik den aktuelle relasjonens stat-ID. Relasjonsverdien styrer hvilken tone som vises automatisk.
 
 ### 2.4 Valg (choices)
 
@@ -143,57 +148,325 @@ Bygg ut ALLE noder definert i blueprinten. Hvert node-objekt:
 ```
 
 *   Hvert valg skal ha **minst ett `effects`-objekt** (stats endres alltid).
-*   Bruk `checkInventory` for valg som krever en gjenstand — disse låses automatisk i UI.
+*   Bruk `checkInventory` for valg som krever en gjenstand - disse låses automatisk i UI.
 *   Skriv valgtext slik at eleven forstår den historiske implikasjonen.
-*   `setFlags` — bruk på valg som representerer en *hendelse* eleven husker (hjalp fienden, nektet ordre, tok gjenstand). Snake_case. Flag-IDer må være konsistente på tvers av hele scenariet.
-*   `condition.hasFlag` / `condition.lacksFlag` — brukes i stedet for (eller i tillegg til) stat-betingelser for å låse/åpne valg basert på hendelser.
-*   `ethicsLens` — bruk på valg med moralsk vekt. Aktiveres kun dersom eleven har slått på etikk-modus i HUD. Gir tre filosofiske perspektiver i en pause-modal før eleven bekrefter valget.
+*   `setFlags` - bruk på valg som representerer en *hendelse* eleven husker (hjalp fienden, nektet ordre, tok gjenstand). Snake_case. Flag-IDer må være konsistente på tvers av hele scenariet.
+*   `condition.hasFlag` / `condition.lacksFlag` - brukes i stedet for (eller i tillegg til) stat-betingelser for å låse/åpne valg basert på hendelser.
+*   `ethicsLens` - bruk på valg med moralsk vekt. Aktiveres kun dersom eleven har slått på etikk-modus i HUD. Gir tre filosofiske perspektiver i en pause-modal før eleven bekrefter valget.
 
 ### 2.5 Minispill-noder
 
-**Battle:**
+Alle minigame-noder har `"choices": []` (tom liste) - routing skjer via minigame-config.
+
+#### Valgguide: Pedagogisk funksjon per type
+
+| Type | Pedagogisk funksjon | Routing |
+|---|---|---|
+| `telegram` | Prioritering under press / informasjonsoverbelastning | `onComplete` |
+| `allocation` | Ressursfordelingsbeslutninger | `onComplete` |
+| `speech` | Retorikk og innramming med kombo-utfall | `onComplete` |
+| `intrigue` | Tillit og svik, sosial analyse | `onComplete` |
+| `crowd` | Sanntids krisehåndtering (eneste med ekte tidspress) | `winNodeId`/`lossNodeId` |
+| `triage` | Medisinsk/etisk prioritering under knapphet | `onComplete` |
+| `signal` | Enkelt observasjons-/tolkningsutfordring | `winNodeId`/`lossNodeId` |
+| `gasmask` | Tidsbegrenset overlev med inventarkrav | Per-option `nextNodeId` |
+| `rationing` | Moralsk ressursallokering med kumulativ effekt | `onComplete` |
+| `censor` | Kildekritikk / sensur-etikk | `onComplete` |
+| `battle` | Historisk forankret strid (stein-saks-papir) | `winNodeId`/`lossNodeId` |
+| `dice` | Tilfeldighet og skjebne som historisk faktor | `winNodeId`/`lossNodeId` |
+| `justice` | Etisk domsavsigelse | `onComplete` |
+
+---
+
+**battle:**
 ```json
 "node_id": {
   "id": "node_id",
   "type": "battle",
   "text": "Introduksjonstekst for kampen.",
-  "enemy": { "name": "Fiendenavn", "health": 3, "moves": ["move_a", "move_b"] },
-  "moves": [
-    { "id": "move_id", "name": "Angrepsnavn", "counters": ["fiende_move"], "effects": { "stat": 5 } }
-  ],
-  "onWin": { "nextNodeId": "victory_node", "effects": { "stat": 20 } },
-  "onLoss": { "nextNodeId": "defeat_node", "effects": { "stat": -20 } }
+  "choices": [],
+  "config": {
+    "enemyName": "Fiendenavn",
+    "playerHealth": 15,
+    "enemyHealth": 15,
+    "winNodeId": "seier_node",
+    "lossNodeId": "tap_node",
+    "moves": [
+      { "id": "angrep", "label": "Angrep", "type": "attack", "counters": ["maneuver"] },
+      { "id": "forsvar", "label": "Forsvar", "type": "defend", "counters": ["attack"] },
+      { "id": "manøver", "label": "Manøver", "type": "maneuver", "counters": ["defend"] }
+    ]
+  }
 }
 ```
+> `type` må være `attack|defend|maneuver`. `counters` inneholder *typer* som flytten slår, ikke ID-er.
 
-**Dice:**
+---
+
+**dice:**
 ```json
 "node_id": {
   "id": "node_id",
   "type": "dice",
   "text": "Terningkast-scene.",
-  "targetScore": 4,
-  "onWin": { "nextNodeId": "..." },
-  "onLoss": { "nextNodeId": "..." }
+  "choices": [],
+  "config": {
+    "targetScore": 4,
+    "winNodeId": "seier_node",
+    "lossNodeId": "tap_node"
+  }
 }
 ```
 
-**Justice:**
+---
+
+**justice:**
 ```json
 "node_id": {
   "id": "node_id",
   "type": "justice",
   "text": "Domsscene.",
-  "cases": [
-    {
-      "id": "case_id",
-      "description": "Tvistebeskrivelse.",
-      "mercy": { "nextNodeId": "...", "effects": { "stat": 10 } },
-      "harsh": { "nextNodeId": "...", "effects": { "stat": -10 } }
-    }
-  ]
+  "choices": [],
+  "config": {
+    "onComplete": { "nextNodeId": "neste_node" },
+    "cases": [
+      {
+        "id": "case_id",
+        "description": "Tvistebeskrivelse.",
+        "mercy": { "nextNodeId": "...", "effects": { "stat": 10 } },
+        "harsh": { "nextNodeId": "...", "effects": { "stat": -10 } }
+      }
+    ]
+  }
 }
 ```
+
+---
+
+**telegram:**
+```json
+"node_id": {
+  "id": "node_id",
+  "type": "telegram",
+  "text": "Introduksjonstekst.",
+  "choices": [],
+  "config": {
+    "onComplete": { "nextNodeId": "neste_node" },
+    "telegrams": [
+      { "id": "tg1", "from": "Avsender", "preview": "Meldingstekst...", "correctBucket": "urgent" },
+      { "id": "tg2", "from": "Avsender 2", "preview": "Tekst...", "correctBucket": "wait" }
+    ]
+  }
+}
+```
+> `correctBucket`: `"urgent"` eller `"wait"`. Bruk 4-6 telegrammer. Score beregnes internt.
+
+---
+
+**allocation:**
+```json
+"node_id": {
+  "id": "node_id",
+  "type": "allocation",
+  "text": "Introduksjonstekst.",
+  "choices": [],
+  "config": {
+    "onComplete": { "nextNodeId": "neste_node" },
+    "totalPoints": 100,
+    "categories": [
+      { "id": "militær", "label": "Militær front", "description": "Utstyr og forsyninger til hæren" },
+      { "id": "mat", "label": "Mat til folket", "description": "Korn til bybefolkningen" }
+    ]
+  }
+}
+```
+> Alltid 3-4 kategorier. Ingen effekter fra minigamen selv - bruk en oppfølgende narrativnode for konsekvenser.
+
+---
+
+**speech:**
+```json
+"node_id": {
+  "id": "node_id",
+  "type": "speech",
+  "text": "Introduksjonstekst.",
+  "choices": [],
+  "config": {
+    "onComplete": { "nextNodeId": "konsekvens_node" },
+    "columns": [
+      { "label": "Tone", "options": [{ "id": "streng", "text": "Streng" }, { "id": "mild", "text": "Mild" }] },
+      { "label": "Fokus", "options": [{ "id": "krig", "text": "Krigen" }, { "id": "folk", "text": "Folket" }] }
+    ],
+    "outcomes": [
+      { "combo": "streng_krig", "feedback": "Duma-representantene forlater i stillhet.", "effects": { "autoritet": 5, "folkets_stotte": -20 } },
+      { "combo": "mild_folk", "feedback": "Forsiktig optimisme i salen.", "effects": { "autoritet": -5, "folkets_stotte": 20 } }
+    ]
+  }
+}
+```
+> `combo`-nøkkel: option-ID-er i kolonneordenen, adskilt med `_`. Siste `outcomes`-innslag brukes som fallback.
+
+---
+
+**intrigue:**
+```json
+"node_id": {
+  "id": "node_id",
+  "type": "intrigue",
+  "text": "Introduksjonstekst.",
+  "choices": [],
+  "config": {
+    "onComplete": { "nextNodeId": "neste_node" },
+    "tokens": 3,
+    "characters": [
+      { "id": "char1", "name": "Navn", "role": "Rolle", "description": "Hvem er dette?", "isTraitor": false, "feedback": "Historisk utfall." },
+      { "id": "char2", "name": "Navn 2", "role": "Rolle 2", "description": "...", "isTraitor": true, "feedback": "Forræder." }
+    ]
+  }
+}
+```
+> Score beregnes internt. Bruk 5-7 karakterer, 2-3 forrædere.
+
+---
+
+**crowd:**
+```json
+"node_id": {
+  "id": "node_id",
+  "type": "crowd",
+  "text": "Introduksjonstekst.",
+  "choices": [],
+  "config": {
+    "winNodeId": "ro_gjenopprettet",
+    "lossNodeId": "revolusjon_bryter_ut",
+    "timeLimit": 25,
+    "fillRate": 4,
+    "responses": [
+      { "id": "korn", "label": "Tilby korn", "description": "Nødhjelp", "pressureChange": -18, "cooldown": 6 },
+      { "id": "militær", "label": "Send tropper", "description": "Risikerer eskalering", "pressureChange": 12, "cooldown": 3 }
+    ]
+  }
+}
+```
+> Starttrykk er hardkodet til 15. `fillRate` = trykk per sekund (3-6). `pressureChange` < 0 = reduksjon.
+
+---
+
+**triage:**
+```json
+"node_id": {
+  "id": "node_id",
+  "type": "triage",
+  "text": "Introduksjonstekst.",
+  "choices": [],
+  "config": {
+    "onComplete": { "nextNodeId": "neste_node" },
+    "treatCapacity": 3,
+    "patients": [
+      { "id": "p1", "name": "Soldat Hansen", "wound": "Skuddsår i brystet, bevissthetssvikt", "correctBucket": "treat_now" },
+      { "id": "p2", "name": "Menig Berg", "wound": "Brudd i armen", "correctBucket": "can_wait" },
+      { "id": "p3", "name": "Kapteinen", "wound": "Hodeskade, ingen puls", "correctBucket": "expectant" }
+    ]
+  }
+}
+```
+> **NB:** Komponenten beregner effekter på `moral` og `overlevelse` internt basert på score-prosent. Egendefinerte effekter kan ikke injiseres fra JSON.
+
+---
+
+**signal:**
+```json
+"node_id": {
+  "id": "node_id",
+  "type": "signal",
+  "text": "Introduksjonstekst.",
+  "choices": [],
+  "config": {
+    "winNodeId": "riktig_rapport",
+    "lossNodeId": "feil_rapport",
+    "situation": "Beskriv scenen som skal tolkes...",
+    "options": [
+      { "id": "opt1", "label": "Tolkning A", "isCorrect": true },
+      { "id": "opt2", "label": "Tolkning B", "isCorrect": false }
+    ],
+    "correctFeedback": "Rapporten var nøyaktig.",
+    "incorrectFeedback": "Feil analyse - konsekvensene merkes."
+  }
+}
+```
+> Nøyaktig én `isCorrect: true`.
+
+---
+
+**gasmask:**
+```json
+"node_id": {
+  "id": "node_id",
+  "type": "gasmask",
+  "text": "Introduksjonstekst.",
+  "choices": [],
+  "config": {
+    "situation": "Situasjonsbeskrivelse...",
+    "timeLimit": 8,
+    "options": [
+      { "id": "opt1", "text": "Ta på gassmasken", "requiresItem": "gassmask_item_id", "nextNodeId": "overlevde", "effects": { "stat": 10 } },
+      { "id": "opt2", "text": "Hjelp kameraten", "nextNodeId": "hjalp_kameraten" }
+    ],
+    "noMaskMessage": "Du rekker etter masken - den er ikke der.",
+    "noMaskNextNodeId": "gass_skade",
+    "noMaskEffects": { "stat": -20 },
+    "timeoutNextNodeId": "gass_timeout",
+    "timeoutEffects": { "stat": -15 }
+  }
+}
+```
+> Mest granulær routing. Hvert option har eget `nextNodeId`. `requiresItem` sjekker inventar - mangler varen, brukes `noMaskNextNodeId`.
+
+---
+
+**rationing:**
+```json
+"node_id": {
+  "id": "node_id",
+  "type": "rationing",
+  "text": "Introduksjonstekst.",
+  "choices": [],
+  "config": {
+    "onComplete": { "nextNodeId": "neste_node" },
+    "rations": 3,
+    "soldiers": [
+      { "id": "s1", "name": "Navn", "role": "Rolle", "context": "Kontekst om soldaten", "effects": { "ifGiven": { "moral": 5 }, "ifSkipped": { "moral": -5 } } }
+    ]
+  }
+}
+```
+> `rations` = maks antall soldater som kan motta. Alle effekter summeres og påføres stats.
+
+---
+
+**censor:**
+```json
+"node_id": {
+  "id": "node_id",
+  "type": "censor",
+  "text": "Introduksjonstekst.",
+  "choices": [],
+  "config": {
+    "onComplete": { "nextNodeId": "neste_node" },
+    "paragraphs": [
+      {
+        "id": "p1",
+        "tokens": [
+          { "type": "text", "content": "Kjære mor, " },
+          { "type": "phrase", "id": "ph1", "text": "fronten er et helvete", "shouldCensor": true, "reason": "Senker moral hjemme." },
+          { "type": "text", "content": " men vi holder ut." }
+        ]
+      }
+    ]
+  }
+}
+```
+> **NB:** Komponenten har hardkodet brevhode - visuelt kontekst-spesifikt. Vurder om det passer scenariet.
 
 ---
 
@@ -201,8 +474,8 @@ Bygg ut ALLE noder definert i blueprinten. Hvert node-objekt:
 
 Alltid inkludér minst to avslutningsnoder:
 
-*   **`victory`** — Positiv avslutning. Inkludér `journalPrompt` som oppsummerer hva eleven lærte.
-*   **`defeat`** — Negativ avslutning. Reflekter over hva som gikk galt historisk.
+*   **`victory`** - Positiv avslutning. Inkludér `journalPrompt` som oppsummerer hva eleven lærte.
+*   **`defeat`** - Negativ avslutning. Reflekter over hva som gikk galt historisk.
 
 Avslutningsnoder har `"choices": []` (tom liste) og **skal alltid ha `epilogue`**:
 
@@ -219,15 +492,20 @@ Avslutningsnoder har `"choices": []` (tom liste) og **skal alltid ha `epilogue`*
       { "lacksFlag": "flagg_id", "text": "Alternativ linje." }
     ],
     "historicalEcho": "Hva skjedde faktisk i denne perioden historisk sett.",
-    "reflectionQuestion": "Ett åpent spørsmål til klassen."
+    "reflectionQuestion": "Ett åpent spørsmål til klassen.",
+    "classroomQuestions": [
+      "Åpent spørsmål 1 rettet mot klassen.",
+      "Åpent spørsmål 2 med historiefaglig kjerne."
+    ]
   }
 }
 ```
 
 **Regler:**
 *   Minst én `entries`-oppføring per viktig flagg i scenariet.
-*   `historicalEcho` kobler fiksjon til fakta — det som faktisk skjedde historisk.
-*   `reflectionQuestion` er rettet mot klassen, ikke spilleren — brukes som samtalestart.
+*   `historicalEcho` kobler fiksjon til fakta - det som faktisk skjedde historisk.
+*   `reflectionQuestion` er rettet mot klassen, ikke spilleren - brukes som samtalestart.
+*   `classroomQuestions` (valgfritt) - array med åpne diskusjonsspørsmål for læreren. **NB:** Feltet er i JSON men rendres ikke av UI-et automatisk - det er pedagogisk dokumentasjon for læreren/plan.
 
 ---
 
@@ -241,10 +519,14 @@ Sjekk at:
 - [ ] Alle `effects`-nøkler matcher en `id` i `config.stats`.
 - [ ] `startingNodeId` finnes i `nodes`.
 - [ ] Ingen node mangler `choices`-array (selv om den er tom).
-- [ ] `setFlags`-IDer er konsistente — samme streng brukt på tvers av `setFlags`, `hasFlag`, `lacksFlag` og `epilogue.entries`.
+- [ ] `setFlags`-IDer er konsistente - samme streng brukt på tvers av `setFlags`, `hasFlag`, `lacksFlag` og `epilogue.entries`.
 - [ ] Alle end-noder har `epilogue` med minst én `historicalEcho`.
 - [ ] Noder med `npcDialogue` peker på en `statId` som finnes i `config.stats`.
-- [ ] `discoveryEvent` er brukt på minst 1–2 noder i scenariet.
+- [ ] `discoveryEvent` er brukt på minst 1-2 noder i scenariet.
+- [ ] Minigame med `onComplete`: `onComplete.nextNodeId` finnes i `nodes`.
+- [ ] Minigame med `winNodeId`/`lossNodeId` (battle, dice, crowd, signal): begge finnes i `nodes`.
+- [ ] `gasmask`: alle `option[].nextNodeId`, `noMaskNextNodeId` og `timeoutNextNodeId` finnes i `nodes`.
+- [ ] Alle minigame-noder har `"choices": []` (tom liste).
 
 ---
 
@@ -277,7 +559,7 @@ Sjekk at:
     era: '[År/periode]',
     difficulty: 'Lett|Middels|Vanskelig',
     description: '[1 setning fra summary]',
-    icon: Shield,   // Shield|Crown|Sword – velg passende
+    icon: Shield,   // Shield|Crown|Sword - velg passende
     color: 'bg-[farge]-[nyanse]',   // Historisk passende farge
     disabled: false
 }

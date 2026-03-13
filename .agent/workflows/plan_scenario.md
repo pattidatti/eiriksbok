@@ -10,9 +10,10 @@ description: Design-fase for et nytt Tidsreise-scenario. Lager Blueprint og defi
 
 ## 1. Les Referanser
 
-*   File: `docs/SCENARIO_DESIGN_GUIDE.md` — Full teknisk og pedagogisk spec.
-*   File: `docs/templates/scenario-blueprint-template.md` — Blueprintmalen.
-*   File: `public/content/scenarios/roman-soldier.json` — Referanseimplementasjon (les kun metadata + 2-3 noder).
+*   File: `docs/SCENARIO_DESIGN_GUIDE.md` - Full teknisk og pedagogisk spec.
+*   File: `docs/templates/scenario-blueprint-template.md` - Blueprintmalen.
+*   File: `public/content/scenarios/nikolaj-ii.json` - Les kun metadata + 2-3 minigame-noder. Referanse for avansert minigame-bruk.
+*   File: `public/content/scenarios/roman-soldier.json` - Enklere referanse (battle + dice).
 
 ---
 
@@ -20,14 +21,22 @@ description: Design-fase for et nytt Tidsreise-scenario. Lager Blueprint og defi
 
 Bruk det oppgitte konseptet til å brainstorme:
 
-*   **Rolle:** Hvem er eleven i dette universet? (Konkret og historisk forankret — f.eks. "Vikinghandelsmann på Silkeveien")
-*   **Spenningsbue:** Hva er det overordnede dilemmaet eleven må navigere? (Ikke "overlev" — finn en historisk-faglig kjerne)
+*   **Rolle:** Hvem er eleven i dette universet? (Konkret og historisk forankret - f.eks. "Vikinghandelsmann på Silkeveien")
+*   **Spenningsbue:** Hva er det overordnede dilemmaet eleven må navigere? (Ikke "overlev" - finn en historisk-faglig kjerne)
 *   **De 3-5 Stats:** Hva kan eleven miste eller vinne? Velg stats som har reell faglig forankring.
     *   Eks. Vikingtid: `ære`, `gull`, `skip_tilstand`, `rel_kaptein`
     *   Eks. Kald krig: `tillit`, `propaganda`, `øst_vest_spenning`
-*   **Hub-noden:** Hva er "hjemmebasen"? (En leir, et marked, en by — brukes som navigasjonspunkt mellom hendelser)
+*   **Hub-noden:** Hva er "hjemmebasen"? (En leir, et marked, en by - brukes som navigasjonspunkt mellom hendelser)
 *   **2-3 sentrale Hendelser/Valg:** Hva er de viktigste historisk meningsfulle valgene eleven tar?
-*   **Narrative flags:** Hva er de 2–4 viktigste hendelsene eleven kan ta med seg gjennom historien? (Eks. `hjalp_fienden`, `nektet_ordre`, `ofret_seg`). Flags er ikke tall — de er hendelser som påvirker epilog og låser/åpner valg.
+*   **Minigame per nøkkelhendelse:** Hvilken mekanikk passer best?
+    *   Diplomatisk kaos → `telegram`
+    *   Ressursmangel → `rationing` eller `allocation`
+    *   Krisehåndtering → `crowd`
+    *   Propaganda/sensur → `censor`
+    *   Tillit og forræderi → `intrigue`
+    *   Retorikk → `speech`
+    *   Strid → `battle`
+*   **Narrative flags:** Hva er de 2-4 viktigste hendelsene eleven kan ta med seg gjennom historien? (Eks. `hjalp_fienden`, `nektet_ordre`, `ofret_seg`). Flags er ikke tall - de er hendelser som påvirker epilog og låser/åpner valg.
 
 ---
 
@@ -35,7 +44,7 @@ Bruk det oppgitte konseptet til å brainstorme:
 
 Opprett filen `docs/Design documents/[scenario-id]-scenario-blueprint.md` basert på malen i `docs/templates/scenario-blueprint-template.md`.
 
-Fyll ut med spesifikt og konkret innhold — ikke generiske plassholdere. Blueprinten skal inneholde:
+Fyll ut med spesifikt og konkret innhold - ikke generiske plassholdere. Blueprinten skal inneholde:
 
 ### Metadata
 *   `id`, `title`, `role`, `era/year`, alle stats med startverdi og ikon
@@ -51,11 +60,11 @@ Fyll ut med spesifikt og konkret innhold — ikke generiske plassholdere. Bluepr
 | Node ID | Type | Beskrivelse | Valg/Utganger | Faglig kobling | Flags/Discovery/Ethics |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | `intro` | Narrativ | Ankomstscene | -> `hub_[navn]` | Historisk kontekst | `discoveryEvent` |
-| `hub_[navn]` | Hub/Kart | Hjemmebasen | 3-4 lokasjoner | Oversikt/navigasjon | — |
+| `hub_[navn]` | Hub/Kart | Hjemmebasen | 3-4 lokasjoner | Oversikt/navigasjon | - |
 | `[hendelse_1]` | Narrativ | ... | Valg A (`setFlags`), Valg B | ... | `ethicsLens`, `setFlags` |
-| `[minigame_1]` | Battle/Dice/Justice | ... | Win -> ..., Loss -> ... | ... | — |
-| `victory` | Ending | Seierscene | — | Refleksjon | `epilogue` med flag-entries |
-| `defeat` | Ending | Tap-scene | — | Refleksjon | `epilogue` med flag-entries |
+| `[minigame_1]` | Battle/Dice/Signal/Telegram/Triage/Crowd/... | ... | Win -> ..., Loss -> ... eller onComplete -> ... | ... | - |
+| `victory` | Ending | Seierscene | - | Refleksjon | `epilogue` med flag-entries |
+| `defeat` | Ending | Tap-scene | - | Refleksjon | `epilogue` med flag-entries |
 
 ### Gjenstander & Crafting (valgfritt)
 *   List opp 2-4 items som er narrativt meningsfulle
@@ -73,9 +82,9 @@ Fyll ut med spesifikt og konkret innhold — ikke generiske plassholdere. Bluepr
 Etter at utkast er skrevet, still brukeren disse spørsmålene dersom blueprinten mangler svar:
 
 1.  "Hvilken faglig kompetanse skal eleven sitte igjen med? (Læreplanen)"
-2.  "Skal scenariet ha et Minispill (kamp, terning, domsavsigelse)?"
+2.  "Hvilke typer minispill passer historien? (Telegram, Rasjonering, Tale, Folkemengde-press, Triasje, Intriger, Sensur, Gassmaske, Signal, Kamp, Terning, Domsavsigelse)"
 3.  "Er det en spesifikk historisk hendelse eller person som bør være sentralt?"
-4.  "Ønsket visuell stil — realistisk foto, illustrasjon, maleri?"
+4.  "Ønsket visuell stil - realistisk foto, illustrasjon, maleri?"
 
 ---
 
