@@ -2151,6 +2151,13 @@
               "description": "Bli med agenten 'Null' på oppdrag gjennom jernteppet.",
               "link": "/historie/den-kalde-krigen/kald-krig-sti",
               "icon": "map"
+            },
+            {
+              "id": "kald-krig",
+              "title": "I Supermaktenes Skygge",
+              "description": "Fra Potsdams ruiner til Berlinmurens fall - du er vitne til den kaldeste krigen verden har sett.",
+              "link": "/oving/tidsreise/kald-krig",
+              "icon": "clock"
             }
           ],
           "lessons": [

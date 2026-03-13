@@ -171,6 +171,7 @@ export interface ChronosEntry {
 export interface ChronosScenario {
     id: string;
     title: string;
+    subtitle?: string;
     era: string;
     year: string;
     role: string;
@@ -421,5 +422,51 @@ export type ChronosMinigame =
             }>;
             correctFeedback: string;
             incorrectFeedback: string;
+        };
+    }
+    | {
+        type: 'propaganda';
+        config: {
+            onComplete: { nextNodeId: string };
+            outlet: string;
+            outletType: 'soviet' | 'western';
+            date: string;
+            items: Array<{
+                id: string;
+                headline: string;
+                realFacts: string;
+                options: Array<{
+                    id: string;
+                    label: string;
+                    description: string;
+                    credibilityChange: number;
+                    setsFlag?: string;
+                    effects?: ChronosEffect;
+                }>;
+            }>;
+        };
+    }
+    | {
+        type: 'domino';
+        config: {
+            winNodeId: string;
+            lossNodeId: string;
+            budget: number;
+            winThreshold: number;
+            countries: Array<{
+                id: string;
+                name: string;
+                region: string;
+                pressureLevel: number;
+                tileColor: string;
+                actions: Array<{
+                    id: string;
+                    label: string;
+                    cost: number;
+                    successBonus: number;
+                    backfireChance: number;
+                    description: string;
+                }>;
+            }>;
         };
     };

@@ -1,0 +1,2148 @@
+{
+    "id": "kald-krig",
+    "title": "I Supermaktenes Skygge",
+    "subtitle": "Den Kalde Krigen 1945-1991",
+    "era": "Den kalde krigen",
+    "year": "1945-1991",
+    "role": "Historiens Vitne",
+    "summary": "Fra Potsdams ruiner til Berlinmurens fall - du er vitne til og aktør i den kaldeste krigen verden har sett.",
+    "heroImage": "/images/chronos/kald-krig/hero.webp",
+    "startingNodeId": "intro_prolog",
+    "randomEvents": [],
+    "config": {
+        "stats": [
+            {
+                "id": "atomspanning",
+                "label": "Atomspenning",
+                "icon": "zap",
+                "value": 35,
+                "max": 100
+            },
+            {
+                "id": "menneskekost",
+                "label": "Menneskelig Kostnad",
+                "icon": "users",
+                "value": 0,
+                "max": 100
+            },
+            {
+                "id": "usa_innflytelse",
+                "label": "USA",
+                "icon": "flag",
+                "value": 65,
+                "max": 100
+            },
+            {
+                "id": "sovjet_innflytelse",
+                "label": "Sovjet",
+                "icon": "hammer",
+                "value": 55,
+                "max": 100
+            },
+            {
+                "id": "historisk_innsikt",
+                "label": "Historisk Innsikt",
+                "icon": "book-open",
+                "value": 10,
+                "max": 100
+            }
+        ],
+        "items": [
+            {
+                "id": "atomkofferten",
+                "name": "Atomkofferten",
+                "description": "Den bærbare terminalen som gir tilgang til atomvåpenene. Et symbol på den ytterste makten - og det ytterste ansvaret.",
+                "icon": "zap"
+            },
+            {
+                "id": "cia_autorisasjon",
+                "name": "CIA-autorisasjon",
+                "description": "Et klassifisert dokument som autoriserer skjulte operasjoner i utlandet. Åpner dører, men lukker samvittigheten.",
+                "icon": "shield"
+            },
+            {
+                "id": "brev_fra_ho_1946",
+                "name": "Brev fra Ho Chi Minh (1946)",
+                "description": "Et brev fra Ho Chi Minh til president Truman, der han ber om støtte til vietnamesisk uavhengighet. Aldri besvart.",
+                "icon": "mail",
+                "content": {
+                    "itemType": "letter",
+                    "from": "Ho Chi Minh",
+                    "to": "President Harry S. Truman",
+                    "date": "28. februar 1946",
+                    "body": [
+                        "Hr. President,",
+                        "Jeg henvender meg til Dem på vegne av det vietnamesiske folk med en innstendig bønn om anerkjennelse og støtte til vår kamp for uavhengighet.",
+                        "Vietnam krever full uavhengighet fra Frankrike, i tråd med de alliertes erklæringer om folkenes selvbestemmelsesrett. Vi har kjempet mot japansk okkupasjon side om side med de allierte - nå ber vi om det vi ble lovet.",
+                        "Vi tror på de demokratiske prinsippene som USA ble grunnlagt på, og de fire frihetene som president Roosevelt proklamerte for alle folk. Vi søker ikke fiendskap, men vennskap og samarbeid.",
+                        "Jeg retter denne appellen til Dem personlig, i håp om at De vil tale vår sak overfor de øvrige allierte maktene.",
+                        "Med dypeste respekt,",
+                        "Ho Chi Minh",
+                        "President, Demokratiske Republikk Vietnam"
+                    ]
+                }
+            },
+            {
+                "id": "mujahideen_kontrakt",
+                "name": "Mujahideen-kontrakt",
+                "description": "En hemmelig kontrakt om våpenleveranser til afghanske motstandskjempere. Operasjon Syklone - CIA-ets dyreste skjulte operasjon.",
+                "icon": "scroll"
+            },
+            {
+                "id": "gorbachev_notater",
+                "name": "Gorbatsjov-notater",
+                "description": "Håndskrevne notater fra Mikhail Gorbatsjov om glasnost og perestrojka. Planer som skulle forandre verden.",
+                "icon": "feather"
+            },
+            {
+                "id": "berlin_stein",
+                "name": "Stein fra Berlinmuren",
+                "description": "Et betongelement fra Berlinmuren - grå med fargerike grafittispor. Fra 1989, da muren falt og verden endret seg for alltid.",
+                "icon": "gem"
+            }
+        ],
+        "recipes": [],
+        "theme": {
+            "primaryColor": "#1e3a5f",
+            "font": "serif"
+        }
+    },
+    "nodes": {
+        "intro_prolog": {
+            "id": "intro_prolog",
+            "text": "Berlin, 1945. Krigen er over - men freden er ikke kommet. Fra asken av Den andre verdenskrig reiser det seg to giganter: USA og Sovjetunionen. De har delt verden mellom seg, og ingen mellomrom er nøytralt lenger. Du er vitne til historiens mest nervepirrende maktkamp - en krig som aldri ble varm, men som aldri ble kald.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/kald-krig/hero.webp",
+            "discoveryEvent": {
+                "title": "Hva er Den kalde krigen?",
+                "fact": "Den kalde krigen (1947-1991) var en politisk og ideologisk konflikt mellom USA og Sovjetunionen. Den kalles 'kald' fordi de to supermaktene aldri kjempet direkte mot hverandre - i stedet brukte de proxykriger, atomtrusler, spionasje og propaganda.",
+                "articleLink": "/historie/den-kalde-krigen/oversikt",
+                "reflectionQuestion": "Hvorfor tror du stormaktene valgte å kjempe gjennom andre land i stedet for å gå til direkte krig?"
+            },
+            "choices": [
+                {
+                    "id": "c_prolog_1",
+                    "text": "Gå inn i historien - Potsdam, juli 1945",
+                    "nextNodeId": "intro_potsdam"
+                }
+            ]
+        },
+        "intro_potsdam": {
+            "id": "intro_potsdam",
+            "text": "Potsdam, 17. juli 1945. De tre seirende maktene møtes for å bestemme Europas skjebne. Harry Truman, den nye amerikanske presidenten, nevner nærmest i forbifarten at USA har testet 'et nytt våpen av ekstraordinær ødeleggelseskraft'. Stalin reagerer nesten ikke. Men du ser det han ikke viser: bak de kalde øynene spinner allerede planer.",
+            "speaker": "Stalin",
+            "backgroundImage": "/images/chronos/kald-krig/intro_potsdam.webp",
+            "choices": [
+                {
+                    "id": "c_potsdam_1",
+                    "text": "Ignorer atomnyheten - fokuser på Europas deling",
+                    "nextNodeId": "berlin_deling",
+                    "effects": {
+                        "historisk_innsikt": 5
+                    },
+                    "ethicsLens": {
+                        "deontological": "En stats plikt er å opprettholde stabilitet. Å ignorere maktbalansen er å svikte egne borgere.",
+                        "consequentialist": "Ignorering gir ro på kort sikt, men lar USA beholde et enormt strategisk fortrinn i årtier.",
+                        "virtue": "Visdom er å velge sine kamper. Kanskje er det klokt å vente og observere."
+                    }
+                },
+                {
+                    "id": "c_potsdam_2",
+                    "text": "Intensiver spionasje - skaff atomhemmeligheter fra USA",
+                    "nextNodeId": "sovjet_spion_start",
+                    "setFlags": ["atomspionasje_godkjent"],
+                    "effects": {
+                        "historisk_innsikt": 5,
+                        "sovjet_innflytelse": 5
+                    },
+                    "isHistoricalChoice": true,
+                    "historicalConsequence": "Sovjet iverksatte i virkeligheten en massiv spionkampanje. I 1949 hadde de sin egen atombombe, delvis takket være spioner som Klaus Fuchs og ekteparet Rosenberg.",
+                    "ethicsLens": {
+                        "deontological": "Spionasje bryter internasjonale normer og tilliten mellom nasjoner - selv i en ideologisk krig.",
+                        "consequentialist": "Atomparitet skapte 'gjensidig sikker ødeleggelse' (MAD) - noe som faktisk holdt freden mellom supermaktene i 46 år.",
+                        "virtue": "Er det tapperhet eller feighet å kopiere andres arbeid i stedet for å utvikle eget?"
+                    }
+                }
+            ]
+        },
+        "sovjet_spion_start": {
+            "id": "sovjet_spion_start",
+            "text": "En KGB-offiser legger frem planene. Tre agenter er allerede plassert i Los Alamos-laboratoriet. De trenger bare din endelige godkjenning for å sende de tekniske tegningene til Moskva. 'Kameratene i New York er klare,' sier han. 'Vi trenger bare ett ord fra deg.'",
+            "speaker": "KGB-offiser",
+            "choices": [
+                {
+                    "id": "c_spion_1",
+                    "text": "Godkjenn operasjonen - atomhemmeligheten tilhører arbeiderklassen",
+                    "nextNodeId": "berlin_deling",
+                    "setFlags": ["atomspionasje_fullfort"],
+                    "effects": {
+                        "sovjet_innflytelse": 10,
+                        "atomspanning": 5
+                    }
+                },
+                {
+                    "id": "c_spion_2",
+                    "text": "Avbryt - for risikabelt, vi klarer dette selv",
+                    "nextNodeId": "berlin_deling",
+                    "effects": {
+                        "historisk_innsikt": 5
+                    }
+                }
+            ]
+        },
+        "berlin_deling": {
+            "id": "berlin_deling",
+            "text": "1945-1948. Europa er delt. Berlin - den gamle tyske hovedstaden - ligger dypt inne i den sovjetiske sonen, men er selv delt i fire sektorer mellom seirerne. Vestmaktene har bygget opp sin del av byen som et demokratisk utstillingsvindu midt i kommunistisk territorium. For Stalin er dette en provokasjon som ikke kan tolereres.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/kald-krig/berlin_blokkade.webp",
+            "discoveryEvent": {
+                "title": "Berlin-blokkaden 1948",
+                "fact": "24. juni 1948 sperret Sovjet alle bakkeforbindelser til Vest-Berlin - jernbane, veier og kanaler. Målet var å sulte ut 2,5 millioner vestberlinere og tvinge vestmaktene ut av byen.",
+                "articleLink": "/historie/den-kalde-krigen/berlinmuren",
+                "reflectionQuestion": "Tenk deg at du bor i Vest-Berlin. Hva ville vært det verste med å bli avskåret fra omverdenen?"
+            },
+            "choices": [
+                {
+                    "id": "c_berlin_1",
+                    "text": "Gå videre - Berlinkrisen 1948",
+                    "nextNodeId": "berlin_blokkade_hub"
+                }
+            ]
+        },
+        "berlin_blokkade_hub": {
+            "id": "berlin_blokkade_hub",
+            "text": "24. juni 1948. Sovjet har stengt alle landveier til Vest-Berlin. General Lucius Clay ringer fra Frankfurt: 'Vi har to muligheter. En luftbro for å forsyne sivilbefolkningen - tidkrevende og kostbart, men fredelig. Eller vi sender en væpnet konvoi gjennom den Sovjet-kontrollerte sonen og tester om Stalin virkelig vil skyte på oss.'",
+            "speaker": "US-kommandant",
+            "backgroundImage": "/images/chronos/kald-krig/berlin_blokkade.webp",
+            "uiType": "map",
+            "mapConfig": {
+                "image": "/images/chronos/kald-krig/berlin_blokkade.webp",
+                "points": [
+                    {
+                        "id": "point_luftbro",
+                        "x": 30,
+                        "y": 35,
+                        "label": "Start luftbroen",
+                        "icon": "plane",
+                        "nextNodeId": "luftbro_sekvens"
+                    },
+                    {
+                        "id": "point_konvoi",
+                        "x": 70,
+                        "y": 65,
+                        "label": "Tving konvoi gjennom",
+                        "icon": "truck",
+                        "nextNodeId": "berlin_konfrontasjon"
+                    }
+                ]
+            },
+            "choices": []
+        },
+        "luftbro_sekvens": {
+            "id": "luftbro_sekvens",
+            "text": "Operasjon Vittles starter. I 11 måneder lander et fly i Vest-Berlin hvert 90. sekund - 24 timer i døgnet. Totalt 278 296 flyvninger. 2,3 millioner tonn forsyninger. Berlinerne kaller pilotene 'Rosinenbomber' fordi de slipper godterier ned til barna nedenfor. Stalin gir opp blokkaden 12. mai 1949. Uten et eneste skudd.",
+            "speaker": "US-pilot",
+            "backgroundImage": "/images/chronos/kald-krig/berlin_blokkade.webp",
+            "choices": [
+                {
+                    "id": "c_luftbro_1",
+                    "text": "En stor seier for demokratiet - gå videre",
+                    "nextNodeId": "nato_1949",
+                    "setFlags": ["luftbro_valgt"],
+                    "effects": {
+                        "usa_innflytelse": 10,
+                        "historisk_innsikt": 5
+                    }
+                }
+            ]
+        },
+        "berlin_konfrontasjon": {
+            "id": "berlin_konfrontasjon",
+            "text": "En pansret konvoi ruller mot den Sovjet-kontrollerte sjekkpunkten. Spenningen er til å ta og føle på. Soldater på begge sider griper våpnene hardere. Vil Stalin la dem passere? Vil dette utløse den krigen alle frykter? Sjåføren ser deg i speilet, venter på den endelige ordren.",
+            "speaker": "Forteller",
+            "choices": [
+                {
+                    "id": "c_konf_1",
+                    "text": "Gi ordren om tilbaketrekning - for risikabelt",
+                    "nextNodeId": "nato_1949",
+                    "effects": {
+                        "historisk_innsikt": 5
+                    }
+                },
+                {
+                    "id": "c_konf_2",
+                    "text": "Stå fast - bluff ham ut",
+                    "nextNodeId": "nato_1949",
+                    "effects": {
+                        "atomspanning": 15,
+                        "usa_innflytelse": 5
+                    }
+                }
+            ]
+        },
+        "nato_1949": {
+            "id": "nato_1949",
+            "text": "4. april 1949. Berlinkrisen er over, men den har lært vestmaktene en lekse: USA kan ikke stå alene. I Washington signerer representanter fra 12 nasjoner en historisk pakt - NATO. 'Et angrep på én er et angrep på alle.' Måneder senere svarer Sovjet med Warszawapakten. Europa er nå formelt delt i to militære blokker, og verden er aldri den samme igjen.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/kald-krig/nato_1949.webp",
+            "discoveryEvent": {
+                "title": "NATO og Warszawapakten",
+                "fact": "NATO ble grunnlagt 4. april 1949 med 12 medlemsland. Warszawapakten ble dannet av Sovjet og dets satellittstater i 1955 som svar. Disse to alliansene sto mot hverandre frem til Sovjetunionens fall i 1991.",
+                "articleLink": "/historie/den-kalde-krigen/nato-vs-warszawa",
+                "reflectionQuestion": "Hva skjer med et land som ikke er med i noen allianse? Er det tryggere eller farligere?"
+            },
+            "choices": [
+                {
+                    "id": "c_nato_1",
+                    "text": "Verden deler seg - gå videre til 1950",
+                    "nextNodeId": "ho_brev_arkiv",
+                    "effects": {
+                        "historisk_innsikt": 5
+                    }
+                }
+            ]
+        },
+        "ho_brev_arkiv": {
+            "id": "ho_brev_arkiv",
+            "text": "Washington D.C., januar 1950. Du er i et støvete statsdepartementsarkiv. Mellom hundrevis av dokumenter fra Asia finner du noe merkelig - et brev fra Vietnam, datert 1946. Avsenderen er en viss 'Ho Chi Minh'. Han skal ha sendt åtte brev til president Truman og bedt om amerikansk støtte til vietnamesisk selvstendighet. Intet svar ble gitt.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/kald-krig/ho_brev_arkiv.webp",
+            "discoveryEvent": {
+                "title": "Ho Chi Minhs identitet",
+                "fact": "Ho Chi Minh var både nasjonalist og kommunist, og kjempet for vietnamesisk selvstendighet fra Frankrike. Fra 1945 sendte han gjentatte henvendelser til USA uten å få svar. USA valgte i stedet å støtte Frankrike - en beslutning som la grunnlaget for Vietnamkrigen.",
+                "articleLink": "/historie/den-kalde-krigen/vietnamkrigen",
+                "reflectionQuestion": "Hva tror du hadde skjedd om USA hadde svart på Ho Chi Minhs brev og støttet vietnamesisk uavhengighet?"
+            },
+            "choices": [
+                {
+                    "id": "c_arkiv_1",
+                    "text": "Les brevet nøye",
+                    "nextNodeId": "ho_brev_lest",
+                    "updateInventory": {
+                        "add": "brev_fra_ho_1946"
+                    }
+                },
+                {
+                    "id": "c_arkiv_2",
+                    "text": "La det ligge - Asia er ikke prioritet nå",
+                    "nextNodeId": "korea_hub",
+                    "setFlags": ["ignorert_ho_chi_minh"]
+                }
+            ]
+        },
+        "ho_brev_lest": {
+            "id": "ho_brev_lest",
+            "text": "Du leser brevet. Ho Chi Minh skriver med en slående blanding av nasjonalisme og beundring for amerikanske verdier. Han siterer den amerikanske uavhengighetserklæringen. Han ber ikke om penger - bare om anerkjennelse. Ingen svarte ham. I stedet valgte USA å finansiere den franske kolonikrigen i Indokina. Brevet ble glemt i arkivet - og årtier senere skulle Amerika betale en enorm pris for det valget.",
+            "speaker": "Forteller",
+            "choices": [
+                {
+                    "id": "c_lest_1",
+                    "text": "Gå videre - Korea er neste",
+                    "nextNodeId": "korea_hub",
+                    "effects": {
+                        "historisk_innsikt": 15
+                    },
+                    "setFlags": ["ho_brev_funnet"]
+                }
+            ]
+        },
+        "korea_hub": {
+            "id": "korea_hub",
+            "text": "25. juni 1950. President Truman mottar et kriseanrop fra Seoul. Nord-Korea, støttet av Sovjet og Kina, har krysset den 38. breddegrad og invadert Sør-Korea med overveldende styrke. FNs sikkerhetsråd krever tilbaketrekning. USA må beslutte: Hvordan svarer vi?",
+            "speaker": "Truman",
+            "choices": [
+                {
+                    "id": "c_korea_1",
+                    "text": "Nekt atomvåpen - send konvensjonelle tropper gjennom FN",
+                    "nextNodeId": "korea_krig",
+                    "isHistoricalChoice": true,
+                    "historicalConsequence": "Truman valgte nettopp dette - og general MacArthur ledet FN-styrkene. Da Kina gikk inn i krigen, ønsket MacArthur å bruke atombomber, men Truman avsatte ham for ulydighet."
+                },
+                {
+                    "id": "c_korea_2",
+                    "text": "True med atomvåpen for å stoppe invasjonen umiddelbart",
+                    "nextNodeId": "korea_atom_true",
+                    "effects": {
+                        "atomspanning": 20
+                    }
+                }
+            ]
+        },
+        "korea_atom_true": {
+            "id": "korea_atom_true",
+            "text": "Truselen sendes gjennom diplomatiske kanaler. Verdenen holder pusten. Men Kina og Sovjet svarer ikke med tilbaketrekning - de svarer med å intensivere støtten til Nord-Korea. Mao Zedong sender en klar beskjed: Kina er ikke redd for atomtrusler. Du har brukt din sterkeste trussel - og verden er nå mer ustabil enn da du begynte.",
+            "speaker": "Forteller",
+            "choices": [
+                {
+                    "id": "c_atom_1",
+                    "text": "Send konvensjonelle tropper likevel",
+                    "nextNodeId": "korea_krig",
+                    "effects": {
+                        "atomspanning": 5,
+                        "historisk_innsikt": 5
+                    }
+                }
+            ]
+        },
+        "korea_krig": {
+            "id": "korea_krig",
+            "text": "General Walker samler staben i et skadeskutt skolehus utenfor Pusan. 'Vi har begrensede ressurser og ubegrenset motstand,' sier han. 'Kina har sendt 300 000 frivillige over Yalu-elven. Sør-Koreas hær smuldrer. Dere må bestemme hvordan vi fordeler det vi har.'",
+            "speaker": "US-general",
+            "backgroundImage": "/images/chronos/kald-krig/korea_krig.webp",
+            "minigame": {
+                "type": "allocation",
+                "config": {
+                    "onComplete": {
+                        "nextNodeId": "korea_sivil_perspektiv"
+                    },
+                    "totalPoints": 100,
+                    "categories": [
+                        {
+                            "id": "infanteri",
+                            "label": "Infanteri",
+                            "description": "Bakkestyrker for å holde frontlinjen langs den 38. breddegrad"
+                        },
+                        {
+                            "id": "luftstotte",
+                            "label": "Luftstøtte",
+                            "description": "F-86 Sabre-jagerfly og strategiske bombetokter mot forsyningslinjer"
+                        },
+                        {
+                            "id": "forsyninger",
+                            "label": "Forsyninger",
+                            "description": "Mat, medisin og ammunisjon til troppene i felten"
+                        },
+                        {
+                            "id": "diplomatiske_kanaler",
+                            "label": "Diplomatiske kanaler",
+                            "description": "FN-forhandlinger og fredssamtaler i Panmunjeom"
+                        }
+                    ]
+                }
+            },
+            "choices": []
+        },
+        "korea_sivil_perspektiv": {
+            "id": "korea_sivil_perspektiv",
+            "text": "Seoul, vinteren 1950. Jeg er 12 år. Jeg husker ikke mye fra de dagene - bare kulden, og lukten av røyk. Granater smalt i nabolaget i går. Mor sa vi måtte gå sørover. Far er borte - han var soldat, tror jeg. Eller kanskje er han på den andre siden nå. Jeg vet ikke. Jeg vet ikke lenger hva som er 'den andre siden'. Vi er alle koreanske.",
+            "speaker": "Koreansk gutt, 12 år",
+            "backgroundImage": "/images/chronos/kald-krig/korea_sivil.webp",
+            "discoveryEvent": {
+                "title": "Koreakrigen og sivile",
+                "fact": "Koreakrigen (1950-1953) kostet over 5 millioner liv - majoriteten sivile. Over 10 millioner koreanske familier ble splittet av den 38. breddegrad. Den tekniske tilstanden er fortsatt 'krig' - kun en våpenhvile ble signert i 1953, aldri en fredsavtale.",
+                "articleLink": "/historie/den-kalde-krigen/koreakrigen",
+                "reflectionQuestion": "Koreakrigen kalles ofte 'den glemte krigen'. Hvorfor tror du den er mindre kjent enn andre konflikter fra denne perioden?"
+            },
+            "choices": [
+                {
+                    "id": "c_sivil_1",
+                    "text": "Se konsekvensene - hva kom ut av krigen?",
+                    "nextNodeId": "kap1_konsekvenser",
+                    "effects": {
+                        "historisk_innsikt": 10,
+                        "menneskekost": 10
+                    }
+                }
+            ]
+        },
+        "kap1_konsekvenser": {
+            "id": "kap1_konsekvenser",
+            "text": "1953. Kampene er over. Den 38. breddegrad er tilbake der den startet - ingenting har endret seg geopolitisk. Men over 5 millioner er døde. Korea er delt for alltid. USA og Sovjet har testet hverandres grenser og funnet dem uforanderlige. Verden har lært en bitter leksjon: i den kalde krigen kan millioner dø i 'varme' konflikter uten at fronten mellom supermaktene beveger seg en centimeter.",
+            "speaker": "Forteller",
+            "discoveryEvent": {
+                "title": "Koreakrig-statistikk",
+                "fact": "Koreakrigen (1950-1953): 36 574 amerikanske drepte, ca. 600 000 nord- og sørkoreanere drepte, estimert 900 000 kinesiske drepte. Total: 5+ millioner drepte. BNP per innbygger i Syd-Korea i 1953: 67 dollar. I dag: over 35 000 dollar. Nord-Korea: fortsatt under 2 000 dollar.",
+                "articleLink": "/historie/den-kalde-krigen/koreakrigen",
+                "reflectionQuestion": "Kina og USA sloss mot hverandre i Korea, men erklærte aldri krig mot hverandre. Hva sier dette om den kalde krigen som system?"
+            },
+            "choices": [
+                {
+                    "id": "c_kap1_1",
+                    "text": "Gå videre til kapittel 2",
+                    "nextNodeId": "hub_kap2"
+                }
+            ]
+        },
+        "hub_kap2": {
+            "id": "hub_kap2",
+            "text": "1953. Stalin er død - men Sovjet lever. Fire kriser venter deg: Iran, Egypt, verdensrommet og Berlin. Utforsk dem alle. De leder alle mot ett brennpunkt: Kuba, 1962.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/kald-krig/world_map_1953.webp",
+            "uiType": "map",
+            "mapConfig": {
+                "image": "/images/chronos/kald-krig/world_map_1953.webp",
+                "points": [
+                    {
+                        "id": "point_iran",
+                        "x": 68,
+                        "y": 42,
+                        "label": "Iran - Operasjon Ajax 1953",
+                        "icon": "flag",
+                        "nextNodeId": "iran_cia_1953"
+                    },
+                    {
+                        "id": "point_suez",
+                        "x": 58,
+                        "y": 48,
+                        "label": "Egypt - Suezkrisen 1956",
+                        "icon": "scroll",
+                        "nextNodeId": "suez_krise_1956"
+                    },
+                    {
+                        "id": "point_sputnik",
+                        "x": 73,
+                        "y": 22,
+                        "label": "USSR - Sputnik 1957",
+                        "icon": "zap",
+                        "nextNodeId": "sputnik_1957"
+                    },
+                    {
+                        "id": "point_berlin",
+                        "x": 51,
+                        "y": 26,
+                        "label": "Berlin - Muren reises 1961",
+                        "icon": "shield",
+                        "nextNodeId": "berlin_mur_forb"
+                    }
+                ]
+            },
+            "choices": []
+        },
+        "iran_cia_1953": {
+            "id": "iran_cia_1953",
+            "text": "Tehran, august 1953. Mohammad Mosaddegh er Irans demokratisk valgte statsminister. Han har gjort noe utenkelig: nasjonalisert oljeindustrien og drevet ut britisk kapital. CIA-direktør Allen Dulles legger frem planen: Operasjon Ajax. Mosaddegh fjernes. Shahen settes inn. 'Et enkelt kupp er billigere enn en krig,' sier han.",
+            "speaker": "CIA-operativ",
+            "discoveryEvent": {
+                "title": "Iran og olje 1953",
+                "fact": "I august 1953 gjennomforte CIA og britisk etterretning et kupp mot Irans demokratisk valgte statsminister Mohammad Mosaddegh. Han hadde nasjonalisert oljeindustrien. Shahen Mohammad Reza Pahlavi ble gjeninnsatt. USA bevarte tilgangen til iransk olje - men skapte harme som fortsatt preger Iran-USA-forholdet.",
+                "articleLink": "/historie/den-kalde-krigen/oversikt",
+                "reflectionQuestion": "Er det rettferdig å fjerne en demokratisk valgt leder for å beskytte egne oljeinteresser? Hva skjer med demokratiet som prinsipp da?"
+            },
+            "choices": [
+                {
+                    "id": "c_iran_1",
+                    "text": "Gjennomfor Operasjon Ajax - fjern Mosaddegh",
+                    "nextNodeId": "iran_shah_installert",
+                    "setFlags": ["iran_shah_installert"],
+                    "effects": {
+                        "usa_innflytelse": 5,
+                        "menneskekost": 5
+                    },
+                    "isHistoricalChoice": true,
+                    "historicalConsequence": "CIA gjennomforte kuppet. Mosaddegh ble fengslet. Shahen styrte Iran med hard hand frem til den islamske revolusjonen i 1979 - som delvis var en reaksjon mot det USA hadde gjort i 1953.",
+                    "ethicsLens": {
+                        "deontological": "Å fjerne en demokratisk valgt leder bryter prinsippet om selvbestemmelse - uavhengig av hva det koster USA.",
+                        "consequentialist": "Olje er strategisk kritisk. Konsekvensene av kommunistisk kontroll over Irans oljeressurser er uakseptable.",
+                        "virtue": "En rettferdig stat respekterer andres demokrati. Er dette en stat USA er stolt av å vaere?"
+                    }
+                },
+                {
+                    "id": "c_iran_2",
+                    "text": "Trekk tilbake - respekter Irans demokratiske valg",
+                    "nextNodeId": "hub_kap2",
+                    "effects": {
+                        "historisk_innsikt": 5
+                    },
+                    "ethicsLens": {
+                        "deontological": "En demokratisk nasjon bor ikke undergrave andre demokratier, uansett strategisk gevinst.",
+                        "consequentialist": "Pa kort sikt mister USA innflytelse. Pa lang sikt unngår USA å skape anti-amerikanisme som koster mye mer.",
+                        "virtue": "Integritet er å gjore det riktige selv nar det er kostbart. Dette er en sjanse til å bevise hva USA faktisk star for."
+                    }
+                }
+            ]
+        },
+        "iran_shah_installert": {
+            "id": "iran_shah_installert",
+            "text": "Mosaddegh arresteres. Shahen Mohammad Reza Pahlavi settes inn - med bred vestlig støtte. USAs oljeinteresser er ivaretatt. En demokratisk valgt leder er fjernet av en fremmed makt. Iranerne kaller det 'den mørke dagen'. De vil ikke glemme dette.",
+            "speaker": "Forteller",
+            "choices": [
+                {
+                    "id": "c_iran_shah_1",
+                    "text": "Gå tilbake til verdenskartet",
+                    "nextNodeId": "hub_kap2"
+                }
+            ]
+        },
+        "suez_krise_1956": {
+            "id": "suez_krise_1956",
+            "text": "5. november 1956. President Eisenhower er rasende. Uten å varsle USA har Storbritannia, Frankrike og Israel angrepet Egypt for å ta tilbake Suezkanalen - som Gamal Nasser nasjonaliserte i sommer. Allierte ber om støtte. Men Sovjet truer med raketter. Og FN venter på din beslutning.",
+            "speaker": "Eisenhower",
+            "discoveryEvent": {
+                "title": "Suezkanalen 1956",
+                "fact": "Da Egypt nasjonaliserte Suezkanalen i juli 1956, svarte Storbritannia, Frankrike og Israel med militaert angrep. USA - overrasket og sint - presset frem britisk tilbaketrekning. Hendelsen markerte slutten på britisk og fransk stormaktstatus og bekreftet at USA og Sovjet var de eneste gjenvaerende supermaktene.",
+                "articleLink": "/historie/den-kalde-krigen/oversikt",
+                "reflectionQuestion": "Hva betyr det at USA tvang sine egne allierte til å trekke seg? Hva sier dette om forholdet mellom de 'gamle' og 'nye' stormaktene?"
+            },
+            "choices": [
+                {
+                    "id": "c_suez_1",
+                    "text": "Krev umiddelbar britisk og fransk tilbaketrekning",
+                    "nextNodeId": "suez_ny_orden",
+                    "setFlags": ["suez_ny_verdensorden"],
+                    "effects": {
+                        "usa_innflytelse": 10,
+                        "historisk_innsikt": 10
+                    },
+                    "isHistoricalChoice": true,
+                    "historicalConsequence": "Eisenhower krevde nettopp dette. Storbritannia og Frankrike måtte trekke seg ydmyket tilbake. Den europeiske imperietiden var over. USA var den udiskutable vestige supermakten.",
+                    "ethicsLens": {
+                        "deontological": "En stat bor ikke angripe et annet land ulovlig - uansett hvem som gjor det, allierte eller ikke.",
+                        "consequentialist": "Å stoppe allierte her sender et kraftig signal om internasjonal orden. Langsiktig gevinst overstyrer kortsiktig lojalitet.",
+                        "virtue": "Rettferdighet er blind for vennskap. Å holde prinsippene fast gjor USA troverdig som frihetens forsvarer."
+                    }
+                },
+                {
+                    "id": "c_suez_2",
+                    "text": "Støtt britiske og franske allierte - de forsvarer vestlige interesser",
+                    "nextNodeId": "suez_old_empire",
+                    "effects": {
+                        "usa_innflytelse": -10
+                    },
+                    "ethicsLens": {
+                        "deontological": "Lojalitet til allierte er en plikt. Å svikte dem i krise undergraver alliansens integritet.",
+                        "consequentialist": "Å støtte et ulovlig angrep koster USA sin rolle som 'frihetens forsvarer' - en rolle verdt mye mer enn Suez.",
+                        "virtue": "Er det modig eller feigt å støtte noe man vet er galt fordi det er allierte som gjor det?"
+                    }
+                }
+            ]
+        },
+        "suez_ny_orden": {
+            "id": "suez_ny_orden",
+            "text": "USA presser frem tilbaketrekning. Britene og franskmennene trekker seg ydmyket tilbake. Nasser er helten i den arabiske verden. Et nytt begrep er lansert: 'dekolonisering.' Den europeiske imperietiden er over - USA og Sovjet er de eneste supermaktene igjen.",
+            "speaker": "Forteller",
+            "discoveryEvent": {
+                "title": "Avkolonisering og ny verdensorden",
+                "fact": "Suezkrisen i 1956 akselererte avkoloniseringsprocessen. Fra 1956 til 1975 ble over 40 afrikanske og asiatiske land selvstendige. Bade USA og Sovjet forsøkte å fylle maktvakuumet - noe som skapte nye proxyslagmarker.",
+                "articleLink": "/historie/den-kalde-krigen/oversikt",
+                "reflectionQuestion": "Da de europeiske koloniimperiene falt, fylte USA og Sovjet maktvakuumet. Er det noen forskjell mellom dette og tradisjonell kolonialisme?"
+            },
+            "choices": [
+                {
+                    "id": "c_suez_ny_1",
+                    "text": "Gå tilbake til verdenskartet",
+                    "nextNodeId": "hub_kap2"
+                }
+            ]
+        },
+        "suez_old_empire": {
+            "id": "suez_old_empire",
+            "text": "USA støtter allierte. Britene og franskmennene fullforer operasjonen - men verdensopinionen er rasende. FN fordommer angrepet. Sovjet truer med raketter. USA er nå på samme side som kolonimaktene - og internasjonalt prestige faller dramatisk.",
+            "speaker": "Forteller",
+            "choices": [
+                {
+                    "id": "c_suez_old_1",
+                    "text": "Gå tilbake til verdenskartet",
+                    "nextNodeId": "hub_kap2"
+                }
+            ]
+        },
+        "sputnik_1957": {
+            "id": "sputnik_1957",
+            "text": "4. oktober 1957. CIA-mottaksstasjon, Maryland. Et radioteleskop fanger opp et signal - beep-beep-beep - hvert 96. sekund. Sovjet har skutt noe opp i verdensrommet. Det kretser 900 kilometer over USA. Dine analytikere er delt om hva dette betyr. Du må rådgi presidenten nå.",
+            "speaker": "CIA-analytiker",
+            "discoveryEvent": {
+                "title": "Sputnik og romkapplopet",
+                "fact": "4. oktober 1957 skjot Sovjet opp Sputnik 1 - verdens forste kunstige satellitt. Den var 58 cm i diameter og veide 83 kg. Sputnik beviste at Sovjet hadde raketter kraftige nok til å na USA med atomvapen. USA svarte med å opprette NASA i 1958 og starte Apolloprogrammet.",
+                "articleLink": "/historie/den-kalde-krigen/romkapplopet",
+                "reflectionQuestion": "Hva forteller romkapplopet om sammenhengen mellom vitenskap, prestisje og militaer makt under den kalde krigen?"
+            },
+            "minigame": {
+                "type": "signal",
+                "config": {
+                    "winNodeId": "nasa_respons",
+                    "lossNodeId": "sputnik_panikk",
+                    "situation": "Oktober 1957. CIA-analytikere er samlet. Et ukjent signal kretser over USA med 96-minutters intervall. Velg den analysen som gir presidenten riktigst forståelse av trusselen.",
+                    "options": [
+                        {
+                            "id": "opt_teknologi",
+                            "label": "Teknologisk demonstrasjon - Sovjet viser ICBM-kapasitet. Svar: Akseler USAs romprogram og rakettforskning.",
+                            "isCorrect": true
+                        },
+                        {
+                            "id": "opt_militaer",
+                            "label": "Umiddelbar militaer trussel - Sputnik barer atomvapen. Svar: Sett atomstyrker i forhoyede beredskap.",
+                            "isCorrect": false
+                        },
+                        {
+                            "id": "opt_propaganda",
+                            "label": "Rent propagandastunt uten militaer verdi. Svar: Ignorer det og gi dem ingen publisitet.",
+                            "isCorrect": false
+                        },
+                        {
+                            "id": "opt_spionasje",
+                            "label": "Rekognoseringsatellitt som kartlegger USA. Svar: Skyt den ned umiddelbart.",
+                            "isCorrect": false
+                        }
+                    ],
+                    "correctFeedback": "Riktig. Sputnik var ikke et vapen - men det beviste at Sovjet hadde raketter med rekkevidde til USA. Riktig svar er å akselerere USAs eget romprogram. NASA dannes i 1958.",
+                    "incorrectFeedback": "Feil analyse. Overdreven militarisering av svaret skapte unødig panikk og feil prioritering. Sputnik var en teknologisk demonstrasjon - farlig nok i seg selv, men ikke en umiddelbar militaer trussel."
+                }
+            },
+            "choices": []
+        },
+        "nasa_respons": {
+            "id": "nasa_respons",
+            "text": "Riktig analyse. Eisenhower oppretter NASA. Kongressen bevilger historiske summer til vitenskapen og rakettteknologi. Romkapplopet er i gang - og USA er fast bestemt på å ikke tape det. Menneskene i verdensrommet er den kalde krigens fremste prestisjesymbol.",
+            "speaker": "Forteller",
+            "choices": [
+                {
+                    "id": "c_nasa_1",
+                    "text": "Gå tilbake til verdenskartet",
+                    "nextNodeId": "hub_kap2",
+                    "effects": {
+                        "usa_innflytelse": 5,
+                        "historisk_innsikt": 5
+                    }
+                }
+            ]
+        },
+        "sputnik_panikk": {
+            "id": "sputnik_panikk",
+            "text": "Feil analyse. Panikken sprer seg til Kongressen. Rakettforsvarsbudsjetter eksploderer. Massemedia snakker om et 'missile gap' som later til å plassere USA langt bak Sovjet. Gapet eksisterte egentlig ikke - men frykten var reell nok til å styre politikken.",
+            "speaker": "Forteller",
+            "choices": [
+                {
+                    "id": "c_sputnik_panikk_1",
+                    "text": "Gå tilbake til verdenskartet",
+                    "nextNodeId": "hub_kap2",
+                    "effects": {
+                        "atomspanning": 5
+                    }
+                }
+            ]
+        },
+        "berlin_mur_forb": {
+            "id": "berlin_mur_forb",
+            "text": "Natten til 13. august 1961. Mens Vest-Berlin sover, begynner østtyske soldater å rulle ut piggtråd langs grensen. Om morgenen er 3,5 millioner østeuropeere avskåret fra et liv i vest. Familier er skilt. I de neste 28 årene blir Berlinmuren det fremste symbolet på den kalde krigen.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/kald-krig/berlin_mur_ost.webp",
+            "discoveryEvent": {
+                "title": "Berlinmuren - faktaene",
+                "fact": "Berlinmuren ble reist natten til 13. august 1961. Den var 155 km lang med 302 vakttårn. Fra 1961 til 1989 ble over 140 mennesker skutt og drept mens de forsøkte å flykte til vest. Over 5 000 lyktes med flukten. Muren falt 9. november 1989.",
+                "articleLink": "/historie/den-kalde-krigen/berlinmuren",
+                "reflectionQuestion": "En stat som bygger en mur for å holde egne borgere inne - hva sier det om det systemet?"
+            },
+            "choices": [
+                {
+                    "id": "c_berlin_forb_1",
+                    "text": "Møt dem som lever på den andre siden",
+                    "nextNodeId": "berlin_mur_ost"
+                }
+            ]
+        },
+        "berlin_mur_ost": {
+            "id": "berlin_mur_ost",
+            "text": "Jeg er Klaus. 21 år, Øst-Berlin. Jeg våknet til nyheten om at grensen var stengt. Fabrikken min er i vest. Kjæresten min er i vest. I kveld er det mørkt, og vakten ved sjekkpunktet er min barndomsvenn Peter. Hans ordre er klar. Men han er Peter.",
+            "speaker": "Osttysk ungdom Klaus",
+            "backgroundImage": "/images/chronos/kald-krig/berlin_mur_ost.webp",
+            "choices": [
+                {
+                    "id": "c_berlin_ost_1",
+                    "text": "Forsøk flukt - nå er det nå eller aldri",
+                    "nextNodeId": "flukt_fra_ost",
+                    "setFlags": ["forsokt_flukt"],
+                    "effects": {
+                        "menneskekost": 5
+                    }
+                },
+                {
+                    "id": "c_berlin_ost_2",
+                    "text": "Bli - det er for farlig",
+                    "nextNodeId": "kuba_hub",
+                    "effects": {
+                        "historisk_innsikt": 5
+                    }
+                }
+            ]
+        },
+        "flukt_fra_ost": {
+            "id": "flukt_fra_ost",
+            "text": "Natten er stille. Piggtråden er ett sted 40 cm høy - du har sett det fra avstand. Peters vakt slutter om 20 minutter. Du tar sats. Lykken er din eneste allierte.",
+            "speaker": "Klaus",
+            "minigame": {
+                "type": "dice",
+                "config": {
+                    "targetScore": 8,
+                    "winNodeId": "friheten_vest",
+                    "lossNodeId": "fengslet_ost"
+                }
+            },
+            "choices": []
+        },
+        "friheten_vest": {
+            "id": "friheten_vest",
+            "text": "Du er i vest. Fremmede og kjente gater på samme tid. En politimann gir deg et teppe og en kopp te. Familien er igjen på den andre siden. Du vet ikke når - eller om - du noensinne ser dem igjen.",
+            "speaker": "Klaus",
+            "choices": [
+                {
+                    "id": "c_frihet_1",
+                    "text": "Gå videre - Kuba venter",
+                    "nextNodeId": "kuba_hub",
+                    "effects": {
+                        "historisk_innsikt": 5
+                    }
+                }
+            ]
+        },
+        "fengslet_ost": {
+            "id": "fengslet_ost",
+            "text": "Søkelyset finner deg. Over 140 mennesker ble skutt og drept ved Berlinmuren fra 1961 til 1989. Mange ble fengslet. Klaus er ikke blant dem som lyktes - denne gangen. Han sitter 18 måneder i Stasi-varetekt.",
+            "speaker": "Forteller",
+            "choices": [
+                {
+                    "id": "c_fengslet_1",
+                    "text": "Gå videre - Kuba venter",
+                    "nextNodeId": "kuba_hub",
+                    "effects": {
+                        "menneskekost": 10,
+                        "historisk_innsikt": 5
+                    }
+                }
+            ]
+        },
+        "kuba_hub": {
+            "id": "kuba_hub",
+            "text": "16. oktober 1962. CIA-direktør McCone legger luftfotografier på presidentens skrivebord. Sovjet-raketter på Cuba. 150 kilometer fra Florida. Med atomstridshoder. Rekkevidde: hele USA. Krisens 13 dager begynner. Presidenten ser på bildene lenge. Ingen sier noe.",
+            "speaker": "Kennedy",
+            "backgroundImage": "/images/chronos/kald-krig/kuba_hub.webp",
+            "discoveryEvent": {
+                "title": "Kubakrisen - bakgrunn",
+                "fact": "Kubakrisen (16.-28. oktober 1962) var den farligste konfrontasjonen under den kalde krigen. Sovjet hadde plassert mellomdistanseraketter på Cuba - 150 km fra Florida. I 13 dager var verden naermere atomkrig enn noen gang for eller siden.",
+                "articleLink": "/historie/den-kalde-krigen/cuba-krisen",
+                "reflectionQuestion": "Hva tror du er den hardeste beslutningen en president kan ta - og hva hjelper til med å ta den riktige?"
+            },
+            "choices": [
+                {
+                    "id": "c_kuba_hub_1",
+                    "text": "Åpne rapportene - start krisehåndteringen",
+                    "nextNodeId": "kuba_telegram"
+                }
+            ]
+        },
+        "kuba_telegram": {
+            "id": "kuba_telegram",
+            "text": "Fem meldinger venter din prioritering. CIA, Pentagon, Sovjet, FN og opinionsmålinger - alle merket topphemmelig. Ikke alt krever umiddelbar handling. Sorter: hva krever presidentens oppmerksomhet nå?",
+            "speaker": "Kennedy",
+            "minigame": {
+                "type": "telegram",
+                "config": {
+                    "onComplete": {
+                        "nextNodeId": "kuba_tale"
+                    },
+                    "telegrams": [
+                        {
+                            "id": "tel_cia",
+                            "from": "CIA-stasjon Havana",
+                            "preview": "Luftfoto bekrefter SS-4 balistiske raketter i San Cristobal. Operative innen 10-14 dager. Koordinater vedlagt.",
+                            "correctBucket": "urgent"
+                        },
+                        {
+                            "id": "tel_pentagon",
+                            "from": "Pentagon / JCS",
+                            "preview": "General Taylor anbefaler umiddelbare luftangrep mot alle 9 identifiserte missilbaser. Kan gjennomfores innen 72 timer.",
+                            "correctBucket": "wait"
+                        },
+                        {
+                            "id": "tel_sovjet",
+                            "from": "Sovjet-ambassadr Dobrynin",
+                            "preview": "Moskva benekter offisielt: 'Sovjet har ingen offensive vapen pa Cuba. Alle installasjoner er rent defensive.'",
+                            "correctBucket": "urgent"
+                        },
+                        {
+                            "id": "tel_fn",
+                            "from": "FN-generalsekretaer U Thant",
+                            "preview": "Foreslår frivillig stans i all skipstrafikk til Cuba i 2-3 uker for å gi rom for diplomatiske forhandlinger.",
+                            "correctBucket": "wait"
+                        },
+                        {
+                            "id": "tel_gallup",
+                            "from": "Gallup-instituttet",
+                            "preview": "Ny meningsmåling: 82% av amerikanerne støtter militaer aksjon mot Cuba. Medier spekulerer om forestående krise.",
+                            "correctBucket": "wait"
+                        }
+                    ]
+                }
+            },
+            "choices": []
+        },
+        "kuba_tale": {
+            "id": "kuba_tale",
+            "text": "22. oktober 1962. Kamera på. 100 millioner amerikanere ser på. Og Nikita Krusjtsjev ser fra Moskva - hans ambassadr sender lydbånd i sanntid. Ordene du velger nå setter tonen for de 13 dagene som avgjor historien.",
+            "speaker": "Kennedy",
+            "backgroundImage": "/images/chronos/kald-krig/kuba_tale.webp",
+            "minigame": {
+                "type": "speech",
+                "config": {
+                    "onComplete": {
+                        "nextNodeId": "kuba_valg"
+                    },
+                    "columns": [
+                        {
+                            "label": "Tone",
+                            "options": [
+                                { "id": "rolig", "text": "Rolig og bestemt" },
+                                { "id": "aggressiv", "text": "Aggressiv og konfronterende" }
+                            ]
+                        },
+                        {
+                            "label": "Budskap",
+                            "options": [
+                                { "id": "krav", "text": "Krev umiddelbar tilbaketrekning" },
+                                { "id": "dialog", "text": "Tilby forhandlinger via FN" }
+                            ]
+                        },
+                        {
+                            "label": "Appell",
+                            "options": [
+                                { "id": "nasjonal", "text": "Til det amerikanske folk" },
+                                { "id": "global", "text": "Til hele verden" }
+                            ]
+                        }
+                    ],
+                    "outcomes": [
+                        {
+                            "combo": "rolig+krav+nasjonal",
+                            "feedback": "En balansert tone beroliget amerikanerne. Krusjtsjev forstod at du var alvorlig - men ikke irrasjonell. Et godt utgangspunkt for forhandlinger.",
+                            "effects": { "historisk_innsikt": 5 }
+                        },
+                        {
+                            "combo": "rolig+krav+global",
+                            "feedback": "Den globale appellen skapte internasjonal støtte. Verdensopinionen la press på Sovjet uten å eskalere direkte.",
+                            "effects": { "usa_innflytelse": 5, "historisk_innsikt": 5 }
+                        },
+                        {
+                            "combo": "rolig+dialog+nasjonal",
+                            "feedback": "En diplomatisk tone viste handlekraft uten aggresjon. Amerikanerne var trygge, og Krusjtsjev fikk signal om at det fantes en vei ut.",
+                            "effects": { "historisk_innsikt": 5, "atomspanning": -5 }
+                        },
+                        {
+                            "combo": "rolig+dialog+global",
+                            "feedback": "Den beste kombinasjonen. En rolig diplomatisk appell til verden ga Krusjtsjev mulighet til å trekke seg uten å miste ansikt - nøkkelen til krisens løsning.",
+                            "effects": { "historisk_innsikt": 10, "atomspanning": -10 }
+                        },
+                        {
+                            "combo": "aggressiv+krav+nasjonal",
+                            "feedback": "Amerikanerne hørte en sterk leder. Men Krusjtsjev så en fiende i hjørnet - og dyr som er innestengt, biter.",
+                            "effects": { "atomspanning": 10 }
+                        },
+                        {
+                            "combo": "aggressiv+krav+global",
+                            "feedback": "En aggressiv tone på verdensscenen eskalerte spenningen dramatisk. Nøytrale land tok avstand. Sovjet stivnet i forsvarsposisjon.",
+                            "effects": { "atomspanning": 15, "usa_innflytelse": -5 }
+                        },
+                        {
+                            "combo": "aggressiv+dialog+nasjonal",
+                            "feedback": "Et forvirrende signal: aggressiv tone, men diplomatiske ord. Verken amerikanerne eller Krusjtsjev visste hva de skulle tro om dine intensjoner.",
+                            "effects": { "atomspanning": 5 }
+                        },
+                        {
+                            "combo": "aggressiv+dialog+global",
+                            "feedback": "Verdenssamfunnet var forvirret. Motstridende signaler paralyserte FN og skapte usikkerhet i begge leire.",
+                            "effects": { "atomspanning": 5, "historisk_innsikt": 5 }
+                        }
+                    ]
+                }
+            },
+            "choices": []
+        },
+        "kuba_valg": {
+            "id": "kuba_valg",
+            "text": "ExComm er delt. McNamara anbefaler sjøblokkade - kontrollert, reversibel, gir Krusjtsjev en vei ut. General LeMay slår neven i bordet: 'Luftangrep nå - det er det eneste Sovjet forstår.' Bobby Kennedy hvisker: 'Jack. Tenk på hva som skjer dagen etter.'",
+            "speaker": "Kennedy",
+            "choices": [
+                {
+                    "id": "c_kuba_blokkade",
+                    "text": "Sjøblokkade - kontrollert press, diplomatisk rom",
+                    "nextNodeId": "kuba_blokkade_ok",
+                    "effects": {
+                        "atomspanning": -10
+                    },
+                    "isHistoricalChoice": true,
+                    "historicalConsequence": "Kennedy valgte sjøblokkaden. Etter 13 dager trakk Sovjet rakettene tilbake. En hemmelig tilleggsavtale: USA fjernet raketter fra Tyrkia - men dette ble ikke kjent offentlig på mange år.",
+                    "ethicsLens": {
+                        "deontological": "Blokkaden respekterer folkeretten bedre enn et angrep - og gir motparten mulighet til å velge.",
+                        "consequentialist": "Blokkaden minimerer risikoen for umiddelbar eskalasjon. Den beste løsningen er den som lar begge parter redde ansikt.",
+                        "virtue": "Klokskap er å velge den minst destruktive veien. Det krever mer mot enn å slå til."
+                    }
+                },
+                {
+                    "id": "c_kuba_luftangrep",
+                    "text": "Luftangrep - ødelegg rakettbasene nå",
+                    "nextNodeId": "kuba_nesten_krig",
+                    "effects": {
+                        "atomspanning": 30
+                    },
+                    "ethicsLens": {
+                        "deontological": "Et forkjøpsangrep mot Cuba er et uprovosert angrep - ulovlig under folkeretten.",
+                        "consequentialist": "Å eliminere trukkelen umiddelbart virker logisk - men hva skjer med Sovjet-styrkene allerede på Cuba?",
+                        "virtue": "Er det modighet å angripe forst, eller feighet å ikke tåle usikkerheten som forhandlinger medforer?"
+                    }
+                }
+            ]
+        },
+        "kuba_blokkade_ok": {
+            "id": "kuba_blokkade_ok",
+            "text": "Krusjtsjev blinker. Etter 13 dager med nervekrig trekker Sovjet-skipene seg. Rakettene fjernes fra Cuba. Hemmelig tilleggsavtale: USA fjerner raketter fra Tyrkia. Verden vet ikke dette på mange år. Krisen er over. Men verden er aldri den samme igjen.",
+            "speaker": "Forteller",
+            "discoveryEvent": {
+                "title": "Kubakrisen - den hemmelige avtalen",
+                "fact": "Kubakrisen ble løst gjennom en offentlig og en hemmelig avtale. Offentlig: Sovjet fjerner raketter fra Cuba, USA lover ikke å invadere Cuba. Hemmelig: USA fjerner raketter fra Tyrkia innen 6 måneder. Den hemmelige delen ble ikke kjent offentlig for på 1990-tallet.",
+                "articleLink": "/historie/den-kalde-krigen/cuba-krisen",
+                "reflectionQuestion": "Når er det riktig for en stat å inngå hemmelige avtaler? Hva er risikoen med demokrati og hemmelig utenrikspolitikk?"
+            },
+            "choices": [
+                {
+                    "id": "c_blokkade_ok_1",
+                    "text": "Se konsekvensene for en kubansk familie",
+                    "nextNodeId": "kuba_sivil",
+                    "effects": {
+                        "atomspanning": -15,
+                        "historisk_innsikt": 5
+                    }
+                }
+            ]
+        },
+        "kuba_nesten_krig": {
+            "id": "kuba_nesten_krig",
+            "text": "Et U-2-fly skytes ned over Cuba. Dypt under havet mister en Sovjet-ubåt kontakten med Moskva. Kaptein Savitskiy tror verdenskrigen har begynt. Han beordrer atomtorpedo. Tre offiserers godkjennelse kreves. To sier ja. En mann - flottiljeadmiral Vasili Arkhipov - sier nei. Verden reddes av ett enkelt nei.",
+            "speaker": "Forteller",
+            "discoveryEvent": {
+                "title": "Vasili Arkhipov - mannen som reddet verden",
+                "fact": "27. oktober 1962 var Sovjet-ubåten B-59 avskarmet fra Moskva i dagevis. Kaptein Savitskiy trodde krigen hadde startet og beordret atomtorpedo. Reglementet krevde enstemmighet blant tre offiserer. Vasili Arkhipov nektet å godkjenne. Uten ham ville atomtorpedoen troflig ha losnet og utloest verdenskrig.",
+                "articleLink": "/historie/den-kalde-krigen/cuba-krisen",
+                "reflectionQuestion": "Verden ble reddet av ett enkelt nei fra én manns samvittighet. Hva sier dette om enkeltmenneskets rolle i historien?"
+            },
+            "choices": [
+                {
+                    "id": "c_nesten_krig_1",
+                    "text": "Se hva krisen betyr for en kubansk familie",
+                    "nextNodeId": "kuba_sivil",
+                    "effects": {
+                        "atomspanning": 20,
+                        "historisk_innsikt": 10
+                    }
+                }
+            ]
+        },
+        "kuba_sivil": {
+            "id": "kuba_sivil",
+            "text": "Havana, oktober 1962. Jeg heter Elena. Jeg er 34 år og har to barn. Vi hadde hørt at bombene kunne komme når som helst. Radioen sa ingenting viktig. Naboene la seg ned i kjellerne. Barna mine sov med klærne på i fire netter. Det er 500 meter til naermeste rakettbase.",
+            "speaker": "Kubansk husmor Elena i Havana",
+            "choices": [
+                {
+                    "id": "c_kuba_sivil_1",
+                    "text": "Se konsekvensene av krisens 13 dager",
+                    "nextNodeId": "kap2_konsekvenser",
+                    "effects": {
+                        "historisk_innsikt": 10,
+                        "menneskekost": 5
+                    }
+                }
+            ]
+        },
+        "kap2_konsekvenser": {
+            "id": "kap2_konsekvenser",
+            "text": "Verden overlevde Kubakrisen - nesten ved et tilfelle. En direkte telefonlinje mellom Det hvite hus og Kreml installeres: den hete linjen. Aldri mer skal to menn med fingeren på knappen ikke kunne nå hverandre i en krise. Det var det nærmeste den kalde krigen kom til å lage fred.",
+            "speaker": "Forteller",
+            "discoveryEvent": {
+                "title": "Den hete linjen",
+                "fact": "Den hete linjen (Den røde telefonen) ble installert 30. august 1963 - direkte forbindelse mellom Washington og Moskva. Den var ikke en telefonlinje, men en teleksprmaskin. Første bruk: Seksdagerskrigen i Midtosten, 1967. Den eksisterer fortsatt den dag i dag.",
+                "articleLink": "/historie/den-kalde-krigen/oversikt",
+                "reflectionQuestion": "Hva forteller det oss at verdlederne etter Kubakrisen umiddelbart installerte en direktelinje? Hva manglet de i 1962 som skapte fare?"
+            },
+            "choices": [
+                {
+                    "id": "c_kap2_1",
+                    "text": "Gå videre til kapittel 3",
+                    "nextNodeId": "hub_kap3",
+                    "effects": {
+                        "historisk_innsikt": 5
+                    }
+                }
+            ]
+        },
+        "hub_kap3": {
+            "id": "hub_kap3",
+            "text": "1964. Johnson overtar etter Kennedy. Vietnam eskalerer. Praha drommer om 'sosialisme med et menneskelig ansikt'. Salvador Allende stiller til valg i Chile. Den kalde krigen brant på tre kontinenter samtidig - og det var ikke supermaktene som betalte prisen.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/kald-krig/world_map_1953.webp",
+            "uiType": "map",
+            "mapConfig": {
+                "image": "/images/chronos/kald-krig/world_map_1953.webp",
+                "points": [
+                    {
+                        "id": "point_vietnam",
+                        "x": 78,
+                        "y": 52,
+                        "label": "Vietnam - Krigen eskalerer 1964",
+                        "icon": "flame",
+                        "nextNodeId": "vietnam_intro"
+                    },
+                    {
+                        "id": "point_praha",
+                        "x": 53,
+                        "y": 27,
+                        "label": "Praha - Vaaren som ble knust 1968",
+                        "icon": "heart",
+                        "nextNodeId": "praha_1968"
+                    },
+                    {
+                        "id": "point_chile",
+                        "x": 27,
+                        "y": 76,
+                        "label": "Chile - Demokratiet og CIA 1973",
+                        "icon": "flag",
+                        "nextNodeId": "chile_1973"
+                    }
+                ]
+            },
+            "choices": []
+        },
+        "vietnam_intro": {
+            "id": "vietnam_intro",
+            "text": "Ho Chi Minh har kjempet siden 1941. Mot japanerne. Mot franskmennene. Mot alle som ville styre landet hans. Han er 74 år. 'Vi er villige til å kjempe i 20 år,' sa han en gang. Han mente det. Nå er USA neste.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/kald-krig/korea_krig.webp",
+            "discoveryEvent": {
+                "title": "Vietnam - bakgrunn og Ho Chi Minh",
+                "fact": "Ho Chi Minh grunnla Viet Minh i 1941 og kjempet for vietnamesisk selvstendighet fra Frankrike. Da Frankrike tapte ved Dien Bien Phu i 1954, delte Geneve-avtalen Vietnam ved den 17. breddegrad. USA begynte å støtte Syd-Vietnam mot nord - og arvet Frankrikes krig.",
+                "articleLink": "/historie/den-kalde-krigen/vietnamkrigen",
+                "reflectionQuestion": "Hva skjer når en stormakt 'arver' en annen stormakts kolonikrig? Er det den samme krigen, eller noe nytt?"
+            },
+            "choices": [
+                {
+                    "id": "c_vietnam_intro_1",
+                    "text": "August 1964 - Tonkin-bukten",
+                    "nextNodeId": "vietnam_tonkin"
+                }
+            ]
+        },
+        "vietnam_tonkin": {
+            "id": "vietnam_tonkin",
+            "text": "2.-4. august 1964. Destroyeren USS Maddox melder om angrep i Tonkin-bukten. Men etterretningen er motstridende. Kaptein Herrick sender selv telegram: 'Gjennomgang anbefales sterkt for videre aksjon.' President Johnson venter på din analyse.",
+            "speaker": "LBJ-radgiver",
+            "discoveryEvent": {
+                "title": "Tonkin-bukta-fakta",
+                "fact": "Det første angrepet (2. august 1964) skjedde trolig. Det andre angrepet (4. august) skjedde trolig ikke - det var radar-fantomer under stormvær. Likevel ble Tonkin-resolusjonen vedtatt 7. august og ga LBJ fri krigsmandat i Vietnam. Krigen det utloste kostet 58 220 amerikanske og estimert 3 millioner vietnamesiske liv.",
+                "articleLink": "/historie/den-kalde-krigen/vietnamkrigen",
+                "reflectionQuestion": "Hva er faren ved å ta kritiske krigsavgjorelser basert på usikker etterretning? Hvem er ansvarlig nar det viser seg å vaere feil?"
+            },
+            "minigame": {
+                "type": "signal",
+                "config": {
+                    "winNodeId": "tonkin_tvilsom",
+                    "lossNodeId": "tonkin_godkjent_scene",
+                    "situation": "4. august 1964, natt. Meldinger fra USS Maddox: 'Angrepet av torpedoer.' Men signaloperatøren rapporterer radar-ekko fra bolgegangen. Kaptein Herrick er usikker. Velg riktig analyse for presidenten.",
+                    "options": [
+                        {
+                            "id": "opt_tvilsomt",
+                            "label": "Tvilsomt angrep - bevisene er for usikre. Krev mer informasjon for Kongressen.",
+                            "isCorrect": true
+                        },
+                        {
+                            "id": "opt_reelt",
+                            "label": "Reelt angrep - Nord-Vietnam har eskalert. Bruk dette som grunnlag for krigsmandat.",
+                            "isCorrect": false
+                        },
+                        {
+                            "id": "opt_konspirasjon",
+                            "label": "CIA-operasjon for å starte krig - nekt å bruke det som begrunnelse.",
+                            "isCorrect": false
+                        },
+                        {
+                            "id": "opt_teknisk",
+                            "label": "Ren teknisk feil - ingen trussel. Rapport bør ikke videresendes til presidenten.",
+                            "isCorrect": false
+                        }
+                    ],
+                    "correctFeedback": "Riktig analyse. Det andre angrepet fant trolig aldri sted. Kaptein Herrick sendte selv telegram med tvil. Dessverre: president Johnson visste om usikkerheten - og godkjente resolusjonen likevel.",
+                    "incorrectFeedback": "Feil analyse. Etterretningen var for usikker til å bygge en krigserklæring på. NSA-dokumenter frigjort i 2005 bekreftet: det andre angrepet skjedde trolig ikke."
+                }
+            },
+            "choices": []
+        },
+        "tonkin_tvilsom": {
+            "id": "tonkin_tvilsom",
+            "text": "Du sitter med rapporten. Bevisene er svake - det vet du. Men Nord-Vietnam har provosert gjentatte ganger. Kongressen venter. Pressen spekulerer. General Wheeler sier: 'Nå er sjansen.' Rådgiveren din hvisker: 'Ingen president taper et valg ved å vise styrke.'",
+            "speaker": "LBJ",
+            "choices": [
+                {
+                    "id": "c_tonkin_tvil_1",
+                    "text": "Godkjenn Tonkin-resolusjonen - vi trenger mandatet",
+                    "nextNodeId": "tonkin_godkjent_scene",
+                    "effects": {
+                        "menneskekost": 5
+                    }
+                },
+                {
+                    "id": "c_tonkin_tvil_2",
+                    "text": "Krev mer informasjon - Kongressen kan vente",
+                    "nextNodeId": "vietnam_diplomati",
+                    "effects": {
+                        "historisk_innsikt": 10
+                    }
+                }
+            ]
+        },
+        "tonkin_godkjent_scene": {
+            "id": "tonkin_godkjent_scene",
+            "text": "Kongressen gir deg full krigsmyndighet. 416 mot 0 i Representantenes hus. 88 mot 2 i Senatet. Basert på et angrep som trolig aldri fant sted. Senator Wayne Morse er en av de to som stemmer nei: 'Dette er en krigserklæring - kall det hva det er.'",
+            "speaker": "LBJ",
+            "choices": [
+                {
+                    "id": "c_tonkin_godkjent_1",
+                    "text": "Gå til Vestmoreland - krigen begynner",
+                    "nextNodeId": "vietnam_strategi",
+                    "setFlags": ["tonkin_godkjent"],
+                    "effects": {
+                        "menneskekost": 10
+                    }
+                }
+            ]
+        },
+        "vietnam_diplomati": {
+            "id": "vietnam_diplomati",
+            "text": "USA velger en forsiktig diplomatisk linje. Krigen eskalerer ikke - ennå. Men Ho Chi Minh er tålmodig. 'Ti år, tjue år - det spiller ingen rolle,' sa han i 1946. Han sitter fortsatt i Hanoi. Og venter.",
+            "speaker": "Forteller",
+            "choices": [
+                {
+                    "id": "c_diplomati_1",
+                    "text": "Gå tilbake til verdenskartet",
+                    "nextNodeId": "hub_kap3",
+                    "effects": {
+                        "historisk_innsikt": 10
+                    }
+                }
+            ]
+        },
+        "vietnam_strategi": {
+            "id": "vietnam_strategi",
+            "text": "General Westmoreland legger frem planen: 'Search and Destroy.' Vi søker fienden, vi ødelegger dem. Enkelt. Men ressursene er ikke ubegrensede - og ingen vet lenger hvem fienden er. Du fordeler midlene.",
+            "speaker": "General Westmoreland",
+            "backgroundImage": "/images/chronos/kald-krig/korea_krig.webp",
+            "minigame": {
+                "type": "allocation",
+                "config": {
+                    "onComplete": {
+                        "nextNodeId": "vietnam_perspektiv_valg"
+                    },
+                    "totalPoints": 100,
+                    "categories": [
+                        {
+                            "id": "infanteri",
+                            "label": "Infanteri og stridsvogner",
+                            "description": "Bakkestyrker for 'Search and Destroy'-operasjoner i jungelen"
+                        },
+                        {
+                            "id": "luftbombing",
+                            "label": "Luftbombing og napalm",
+                            "description": "Strategiske bombetokter mot nord og defoliantkampanjer (Agent Orange)"
+                        },
+                        {
+                            "id": "sivil_hjelp",
+                            "label": "Sivilbefolkning og gjenoppbygging",
+                            "description": "Flyktningehjelp, medisinsk hjelp og 'hearts and minds'-program"
+                        },
+                        {
+                            "id": "diplomati",
+                            "label": "Paris-forhandlinger",
+                            "description": "Diplomatiske kanaler og fredssamtaler i Paris"
+                        }
+                    ]
+                }
+            },
+            "choices": []
+        },
+        "vietnam_perspektiv_valg": {
+            "id": "vietnam_perspektiv_valg",
+            "text": "La oss forlate Saigon et øyeblikk. Strategiene besluttes i Washington og Hanoi - men konsekvensene leves av andre. To perspektiver venter deg.",
+            "speaker": "Forteller",
+            "choices": [
+                {
+                    "id": "c_perspektiv_sivil",
+                    "text": "Mott en nordvietnamesisk familie under bombing",
+                    "nextNodeId": "vietnam_sivil_bombing"
+                },
+                {
+                    "id": "c_perspektiv_soldat",
+                    "text": "Folg en amerikansk soldat på patrulje",
+                    "nextNodeId": "vietnam_soldat_patrulje"
+                }
+            ]
+        },
+        "vietnam_sivil_bombing": {
+            "id": "vietnam_sivil_bombing",
+            "text": "Landsbyen Binh Hoa, Nord-Vietnam. Napalm. Flybrakket er borte. Det er stille - men stillheten er ikke trygg. Husene brenner. Fire familiemedlemmer trenger hjelp. Du har tre porsjoner mat og medisin igjen.",
+            "speaker": "Nordvietnamesisk familie, Binh Hoa",
+            "backgroundImage": "/images/chronos/kald-krig/korea_sivil.webp",
+            "minigame": {
+                "type": "rationing",
+                "config": {
+                    "onComplete": {
+                        "nextNodeId": "vietnam_usa_perspektiv"
+                    },
+                    "rations": 3,
+                    "soldiers": [
+                        {
+                            "id": "lan",
+                            "name": "Lan - moren",
+                            "role": "Gravid, 7. måneder",
+                            "context": "Trenger mat kritisk. Barnet hennes er i fare.",
+                            "effects": {
+                                "ifGiven": { "menneskekost": -5 },
+                                "ifSkipped": { "menneskekost": 15, "historisk_innsikt": 5 }
+                            }
+                        },
+                        {
+                            "id": "duc",
+                            "name": "Duc - sønnen (9 år)",
+                            "role": "Brannsår fra napalm",
+                            "context": "Alvorlige forbrenningsskader. Trenger umiddelbar behandling.",
+                            "effects": {
+                                "ifGiven": { "menneskekost": -8, "historisk_innsikt": 5 },
+                                "ifSkipped": { "menneskekost": 20 }
+                            }
+                        },
+                        {
+                            "id": "ong",
+                            "name": "Ong - bestefaren",
+                            "role": "Gammel og syk",
+                            "context": "Overlevde japanerne og franskmennene. Trenger medisin.",
+                            "effects": {
+                                "ifGiven": { "historisk_innsikt": 5 },
+                                "ifSkipped": { "menneskekost": 8 }
+                            }
+                        },
+                        {
+                            "id": "nhung",
+                            "name": "Nhung - datteren (5 år)",
+                            "role": "Far er soldat, ukjent skjebne",
+                            "context": "Gråter uten stopp. Vet ikke om far er i live.",
+                            "effects": {
+                                "ifGiven": { "menneskekost": -3 },
+                                "ifSkipped": { "menneskekost": 10 }
+                            }
+                        }
+                    ]
+                }
+            },
+            "choices": []
+        },
+        "vietnam_soldat_patrulje": {
+            "id": "vietnam_soldat_patrulje",
+            "text": "Vi har patruljert i åtte timer. Jungelen er den samme overalt. 'Du vet aldri hvem fienden er,' sier sersjant Miller. 'Den 12-åringen i landsbyen i går - i dag er han Viet Cong.' Jeg vet ikke lenger hva reglene er for.",
+            "speaker": "US-soldat James, 101. luftbårne divisjon",
+            "choices": [
+                {
+                    "id": "c_soldat_aggressiv",
+                    "text": "Vær aggressiv - alle i sonen er potensielle fiender",
+                    "nextNodeId": "vietnam_sivil_bombing",
+                    "effects": {
+                        "menneskekost": 10
+                    },
+                    "ethicsLens": {
+                        "deontological": "En soldat har plikt til å følge krigens regler - og skille mellom stridende og sivile, uansett hvor vanskelig det er.",
+                        "consequentialist": "Aggressiv taktikk kan redde amerikanske soldatliv kortsiktig - men skaper nye fiender og forlenger krigen.",
+                        "virtue": "Hva slags person bringer du hjem fra denne krigen? Er det den du ønsker å vaere?"
+                    }
+                },
+                {
+                    "id": "c_soldat_regler",
+                    "text": "Hold deg til reglene - skyt bare når du skytes mot",
+                    "nextNodeId": "vietnam_usa_perspektiv",
+                    "effects": {
+                        "historisk_innsikt": 5
+                    }
+                }
+            ]
+        },
+        "vietnam_usa_perspektiv": {
+            "id": "vietnam_usa_perspektiv",
+            "text": "Jeg har vart her i ni måneder. Elleve av mennene mine er döde. Jeg husker ikke lenger tydelig hvorfor vi er her. De forteller oss vi kjemper for frihet. Men alt vi gjör er å telle lik og vente på flyet hjem.",
+            "speaker": "James",
+            "choices": [
+                {
+                    "id": "c_usa_perspektiv_1",
+                    "text": "Se krigens slutt",
+                    "nextNodeId": "vietnam_avslutt",
+                    "effects": {
+                        "historisk_innsikt": 5
+                    }
+                }
+            ]
+        },
+        "vietnam_avslutt": {
+            "id": "vietnam_avslutt",
+            "text": "1973. Nixon trekker troppene ut. Paris-fredsavtalen signeres. To år seinere faller Saigon. 58 220 amerikanere er döde. Estimert 3 millioner vietnamesere. Landet er forent under kommunisme. Det USA kjempet i 20 år for å hindre, skjedde likevel.",
+            "speaker": "Forteller",
+            "discoveryEvent": {
+                "title": "Vietnam-statistikk",
+                "fact": "Vietnamkrigen (1955-1975): 58 220 amerikanske drepte, estimert 1,1-3,8 millioner vietnamesiske drepte (nord og syd). 19 millioner liter Agent Orange sprøytet over 10% av Syd-Vietnams areal. USA brukte 168 milliarder dollar (2021-verdier: over 1 000 milliarder).",
+                "articleLink": "/historie/den-kalde-krigen/vietnamkrigen",
+                "reflectionQuestion": "Vietnam er kalt 'the first televised war'. Hva skjer når borgerne ser krigen direkte på TV - og hva betyr det for demokratiets evne til å fore krig?"
+            },
+            "choices": [
+                {
+                    "id": "c_vietnam_avslutt_1",
+                    "text": "Gå tilbake til verdenskartet",
+                    "nextNodeId": "hub_kap3",
+                    "effects": {
+                        "historisk_innsikt": 5
+                    }
+                }
+            ]
+        },
+        "praha_1968": {
+            "id": "praha_1968",
+            "text": "Praha, august 1968. Jeg er Miroslav - 22 år, student. I vår fikk vi Alexander Dubcek og 'sosialisme med et menneskelig ansikt': ytringsfrihet, reisefrihet, avisene skriver sant. Natten til 21. august rommer 500 000 Sovjet-soldater og 6 600 tanks inn i gatene våre.",
+            "speaker": "Tsjekkisk student Miroslav",
+            "discoveryEvent": {
+                "title": "Praha-vaaren 1968",
+                "fact": "Praha-vaaren var en periode med politisk liberalisering i Tsjekkoslovakia under kommunistlederen Alexander Dubcek i 1968. Natten til 21. august invaderte Warszawapaktens styrker landet. Dubcek ble fjernet. Invasjonen førte til Brezjnev-doktrinen: Sovjet forbeholdt seg retten til å intervenere i ethvert sosialistland som 'truet' blokkens sikkerhet.",
+                "articleLink": "/historie/den-kalde-krigen/oversikt",
+                "reflectionQuestion": "Hva er forskjellen på 'reform innenfra' og 'revolusjon'? Og hvem bestemmer den grensen?"
+            },
+            "choices": [
+                {
+                    "id": "c_praha_1",
+                    "text": "Delta i protestene - vi kan ikke bare stå og se på",
+                    "nextNodeId": "praha_protest",
+                    "setFlags": ["delta_i_protest"],
+                    "effects": {
+                        "menneskekost": 5
+                    }
+                },
+                {
+                    "id": "c_praha_2",
+                    "text": "Hold deg unna - mot tanks er det selvmord",
+                    "nextNodeId": "hub_kap3",
+                    "effects": {
+                        "historisk_innsikt": 5
+                    }
+                }
+            ]
+        },
+        "praha_protest": {
+            "id": "praha_protest",
+            "text": "Vaclav-plassen. Tanks ruller langs Karl-broen. Titusenvis av studenter mot 500 000 soldater. Hold folkemassen samlet og fredelig - og kanskje verdenshistorien ser på.",
+            "speaker": "Miroslav",
+            "backgroundImage": "/images/chronos/kald-krig/world_map_1953.webp",
+            "minigame": {
+                "type": "crowd",
+                "config": {
+                    "winNodeId": "praha_symbol",
+                    "lossNodeId": "praha_knust",
+                    "timeLimit": 60,
+                    "fillRate": 1.5,
+                    "responses": [
+                        {
+                            "id": "sang",
+                            "label": "Fredelig sang",
+                            "description": "Holder stemningen rolig og samler folkemassen",
+                            "pressureChange": -20,
+                            "cooldown": 6
+                        },
+                        {
+                            "id": "flagg",
+                            "label": "Vift med tsjekkisk flagg",
+                            "description": "Nasjonalt symbol - fyller mengden med mot",
+                            "pressureChange": -15,
+                            "cooldown": 4
+                        },
+                        {
+                            "id": "sitt_ned",
+                            "label": "Sett dere ned foran tankene",
+                            "description": "Passiv motstand - kraftfullt symbol på mot uten vold",
+                            "pressureChange": -30,
+                            "cooldown": 12
+                        },
+                        {
+                            "id": "retrett",
+                            "label": "Organiser rolig retrett",
+                            "description": "Unngår direkte konfrontasjon - bevarer liv",
+                            "pressureChange": -25,
+                            "cooldown": 10
+                        }
+                    ]
+                }
+            },
+            "choices": []
+        },
+        "praha_symbol": {
+            "id": "praha_symbol",
+            "text": "Bildene spres verden over. En student foran en tank. Sovjet-invasjonen er en propaganda-katastrofe. Brezjnev stadfester doktrinen: ingen østblokkstat kan forlate pakten. Men frøet av motstand er plantet - Praha-vaaren ble aldri glemt av det tsjekkiske folk.",
+            "speaker": "Forteller",
+            "discoveryEvent": {
+                "title": "Brezjnev-doktrinen",
+                "fact": "Brezjnev-doktrinen (1968) erklarte at Sovjet hadde rett til å intervenere i ethvert sosialistland der 'sosialismen var truet'. Doktrinen holdt Østblokken samlet - inntil Gorbatsjov i 1989 forkastet den og lot Øst-Europa velge fritt.",
+                "articleLink": "/historie/den-kalde-krigen/oversikt",
+                "reflectionQuestion": "En allianse der ett land bestemmer for alle - er det en allianse eller en tvangstrøye?"
+            },
+            "choices": [
+                {
+                    "id": "c_praha_symbol_1",
+                    "text": "Gå tilbake til verdenskartet",
+                    "nextNodeId": "hub_kap3",
+                    "effects": {
+                        "historisk_innsikt": 5
+                    }
+                }
+            ]
+        },
+        "praha_knust": {
+            "id": "praha_knust",
+            "text": "Protestene slås ned. Dubcek fjernes. Sovjet kaller det 'normalisering'. Alt som ble vunnet i vaaren er borte. Men noe er ugjenkallelig forandret: mange tsjekkere vil aldri stole på systemet igjen. Det frøet spirer i 1989.",
+            "speaker": "Forteller",
+            "choices": [
+                {
+                    "id": "c_praha_knust_1",
+                    "text": "Gå tilbake til verdenskartet",
+                    "nextNodeId": "hub_kap3",
+                    "effects": {
+                        "menneskekost": 5,
+                        "historisk_innsikt": 5
+                    }
+                }
+            ]
+        },
+        "chile_1973": {
+            "id": "chile_1973",
+            "text": "Santiago, september 1973. Salvador Allende vant valget i 1970 - demokratisk, med 36%. CIA-direktøren sa da: 'Vi kan ikke la Chile gå kommunistisk bare fordi folk var dumme nok til å stemme for det.' Tre år med sabotasje og press. Nå er Pinochet klar. Du trenger bare å gi klarsignal.",
+            "speaker": "Nixon/Kissinger",
+            "discoveryEvent": {
+                "title": "Allende og demokratiet i Chile",
+                "fact": "Salvador Allende ble valgt til president i Chile i 1970 - den forste demokratisk valgte marxisten i verden. CIA finansierte protester og streiker for å destabilisere regimet. 11. september 1973 gjennomforte general Pinochet et militaerkupp. Allende dode under belejringen av La Moneda. Pinochets regime drepte og torturerte over 3 000 mennesker.",
+                "articleLink": "/historie/den-kalde-krigen/oversikt",
+                "reflectionQuestion": "Hva skjer med 'frihetens forsvarer'-narrativet nar USA fjerner demokratisk valgte ledere? Er det et dobbeltstandard - eller er det realpolitikk?"
+            },
+            "choices": [
+                {
+                    "id": "c_chile_1",
+                    "text": "Godkjenn CIA-støtte til militaerkuppet",
+                    "nextNodeId": "chile_kupp",
+                    "setFlags": ["chile_kupp_godkjent"],
+                    "effects": {
+                        "menneskekost": 10,
+                        "usa_innflytelse": 5
+                    },
+                    "ethicsLens": {
+                        "deontological": "Å hjelpe til med å fjerne en demokratisk valgt leder bryter den grunnleggende plikten til å respektere folkenes selvbestemmelse.",
+                        "consequentialist": "Pinochet er proppkapitalist. Chile holder seg i vestlig leir. Er det resultatet som teller - uansett metode?",
+                        "virtue": "Hva slags samfunn er USA hvis de støtter et regime de vet vil drepe tusenvis av uskyldige?"
+                    }
+                },
+                {
+                    "id": "c_chile_2",
+                    "text": "Trekk tilbake - respekter det demokratiske valget",
+                    "nextNodeId": "chile_demokrati",
+                    "effects": {
+                        "historisk_innsikt": 5
+                    },
+                    "ethicsLens": {
+                        "deontological": "En demokratisk stat bor ikke undergrave andres demokrati - uansett ideologisk uenighet.",
+                        "consequentialist": "Chile kan bli en kommunistisk dominobrikke. Er det en risiko USA har råd til å ta i Latin-Amerika?",
+                        "virtue": "Prinsippfasthet koster noe. Men det er det som gjor et prinsipp til et prinsipp."
+                    }
+                }
+            ]
+        },
+        "chile_kupp": {
+            "id": "chile_kupp",
+            "text": "Santiago, 11. september 1973. La Moneda-palasset bombes av de samme flyene som skal beskytte Chile. Allendes siste radiotale: 'Alamedaen vil åpne seg igjen.' Så tier det. Pinochet griper makten. Og folk begynner å forsvinne.",
+            "speaker": "Chilensk journalist Carmen",
+            "backgroundImage": "/images/chronos/kald-krig/korea_sivil.webp",
+            "discoveryEvent": {
+                "title": "Pinochets terror",
+                "fact": "Under Pinochets regime (1973-1990) ble over 3 200 mennesker drept eller tvangsforsvinnet. Over 40 000 ble torturert. Regime mottok aktivt støtte fra USA gjennom Operasjon Condor - et CIA-koordinert samarbeid mellom Syd-Amerikas militaerdiktaturer.",
+                "articleLink": "/historie/den-kalde-krigen/oversikt",
+                "reflectionQuestion": "Kan USA kalle seg frihetens forsvarer nar de finansierer et regime som dreper egne borgere? Hva er konsekvensen for USAs troverdighet globalt?"
+            },
+            "choices": [
+                {
+                    "id": "c_chile_kupp_1",
+                    "text": "Se konsekvensene av tiåret med krig",
+                    "nextNodeId": "kap3_konsekvenser",
+                    "effects": {
+                        "menneskekost": 10
+                    }
+                }
+            ]
+        },
+        "chile_demokrati": {
+            "id": "chile_demokrati",
+            "text": "USA trekker seg tilbake. CIA-støtten uteblir. Allende sitter. Chile er et eksperiment verden ser på: kan sosialisme fungere i et demokrati? Indre uro, streiker og inflasjon setter systemet under press. Men demokratiet lever - for nå.",
+            "speaker": "Forteller",
+            "choices": [
+                {
+                    "id": "c_chile_demo_1",
+                    "text": "Se konsekvensene av tiåret med krig",
+                    "nextNodeId": "kap3_konsekvenser",
+                    "effects": {
+                        "historisk_innsikt": 5
+                    }
+                }
+            ]
+        },
+        "kap3_konsekvenser": {
+            "id": "kap3_konsekvenser",
+            "text": "1975. Vietnam er falt. Praha er glemt av verden. Chile blor under diktaturat. Den kalde krigens logikk er klar nå: supermaktene kjempet aldri direkte mot hverandre. De kjempet gjennom andre land. Og det var de landene som betalte regningen.",
+            "speaker": "Forteller",
+            "discoveryEvent": {
+                "title": "Kovert makt og utilsiktede konsekvenser",
+                "fact": "Fra 1947 til 1989 gjennomforte CIA og Sovjet-etterretningen over 80 kovert operasjoner i fremmede land - inkludert kupp, attentater, propaganda og bevapning av opprørere. Mange av disse operasjonene skapte ustabilitet som varte i tiår etter den kalde krigens slutt.",
+                "articleLink": "/historie/den-kalde-krigen/oversikt",
+                "reflectionQuestion": "Hva er forskjellen på 'utilsiktede konsekvenser' og 'konsekvenser man valgte å ignorere'? Hvem borer ansvaret?"
+            },
+            "choices": [
+                {
+                    "id": "c_kap3_1",
+                    "text": "Gå videre til kapittel 4",
+                    "nextNodeId": "hub_kap4",
+                    "effects": {
+                        "historisk_innsikt": 5
+                    }
+                }
+            ]
+        },
+        "hub_kap4": {
+            "id": "hub_kap4",
+            "text": "1975. Det er avspenning - på papiret. Nixon og Brezjnev har snakket. SALT-avtalen er signert. Men Afrika brenner og Afghanistan vakler. To nye kriser krever din oppmerksomhet.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/kald-krig/world_map_1953.webp",
+            "discoveryEvent": {
+                "title": "Detente og realpolitikk",
+                "fact": "Detente (avspenning) var en periode på 1970-tallet der USA og Sovjet reduserte spenningen gjennom SALT-avtalene om atomvapen, Nixons Kina-besok og Helsingfors-avtalen. Men proxy-kriger fortsatte uforminsket - i Afrika, Midtosten og Asia.",
+                "articleLink": "/historie/den-kalde-krigen/oversikt",
+                "reflectionQuestion": "Er det mulig å ha 'avspenning' mellom to stormakter nar de simultaneously kjemper mot hverandre gjennom andre land?"
+            },
+            "uiType": "map",
+            "mapConfig": {
+                "image": "/images/chronos/kald-krig/world_map_1953.webp",
+                "points": [
+                    {
+                        "id": "point_angola",
+                        "x": 52,
+                        "y": 65,
+                        "label": "Angola - Proxykrig 1975",
+                        "icon": "hammer",
+                        "nextNodeId": "angola_proxy"
+                    },
+                    {
+                        "id": "point_afghanistan",
+                        "x": 68,
+                        "y": 38,
+                        "label": "Afghanistan - Invasjon 1979",
+                        "icon": "shield",
+                        "nextNodeId": "afghanistan_sovjet_hub"
+                    }
+                ]
+            },
+            "choices": []
+        },
+        "angola_proxy": {
+            "id": "angola_proxy",
+            "text": "Luanda, 1975. Portugal forlater Angola etter 500 år. Tre frigjøringsbevegelser kjemper om makten. MPLA støttes av Sovjet og Cuba. UNITA støttes av CIA og Syd-Afrika. Du er Carters rådgiver. Du har begrensede ressurser - og ingen gode valg.",
+            "speaker": "Carter-radgiver",
+            "discoveryEvent": {
+                "title": "Angola-borgerkrigen",
+                "fact": "Da Portugal forlot Angola i 1975 brøt borgerkrig ut mellom MPLA (Sovjet/Cuba-støttet) og UNITA (CIA/Syd-Afrika-støttet). Cuba sendte 50 000 soldater. USA finansierte UNITA. Borgerkrigen varte til 2002 og kostet estimert 500 000 liv.",
+                "articleLink": "/historie/den-kalde-krigen/oversikt",
+                "reflectionQuestion": "Nar to afrikanske frigjøringsbevegelser kjemper om makten - hvorfor bestemmer supermakter i Washington og Moskva hvem som vinner?"
+            },
+            "minigame": {
+                "type": "allocation",
+                "config": {
+                    "onComplete": {
+                        "nextNodeId": "angola_konsekvens"
+                    },
+                    "totalPoints": 100,
+                    "categories": [
+                        {
+                            "id": "militaer_unita",
+                            "label": "Militaerstotte til UNITA",
+                            "description": "Vapen, trening og logistikk til Jonas Savimbis UNITA-styrker"
+                        },
+                        {
+                            "id": "diplomati_fn",
+                            "label": "FN-diplomati",
+                            "description": "Forsok på forhandlet løsning gjennom FNs sikkerhetsrad"
+                        },
+                        {
+                            "id": "humanitaer",
+                            "label": "Humanitaer hjelp",
+                            "description": "Mat, medisin og hjelp til sivile i konfliktsonene"
+                        },
+                        {
+                            "id": "etterretning",
+                            "label": "CIA-etterretning",
+                            "description": "Kartlegge Sovjet- og Cuba-aktivitet i Angola"
+                        }
+                    ]
+                }
+            },
+            "choices": []
+        },
+        "angola_konsekvens": {
+            "id": "angola_konsekvens",
+            "text": "Angola drukner i borgerkrig. Cuba sender 50 000 soldater - MPLA tar makten. UNITA kjemper videre i årtier. Over 500 000 angolanske liv vil gå tapt. Det er en proxykrig - supermaktene er aldri i skytelinja selv.",
+            "speaker": "Forteller",
+            "choices": [
+                {
+                    "id": "c_angola_1",
+                    "text": "Gå tilbake til verdenskartet",
+                    "nextNodeId": "hub_kap4",
+                    "effects": {
+                        "menneskekost": 10,
+                        "historisk_innsikt": 5
+                    }
+                }
+            ]
+        },
+        "afghanistan_sovjet_hub": {
+            "id": "afghanistan_sovjet_hub",
+            "text": "1979. En kommunistisk regjering i Kabul vakler. Islamistiske mujahideen kontrollerer landsbygda. Generalstaben anbefaler invasjon: 'Tre uker, og vi har kontroll.' Brezjnev er 73 og syk. Du vet at ingen stormakt noensinne har beseiret Afghanistan.",
+            "speaker": "Brezjnev",
+            "discoveryEvent": {
+                "title": "Afghanistan - et land ingen har beseiret",
+                "fact": "Afghanistan er kalt 'Imperienes kirkegård'. Britene forsøkte og mislyktes (1839-1919). Sovjet invaderte i 1979 og trakk seg ut i 1989 etter 15 000 drepte soldater. USA invaderte i 2001 og trakk seg ut i 2021. Landets geografi og stammekulturer har utmattet alle invasjonsstyrker.",
+                "articleLink": "/historie/den-kalde-krigen/oversikt",
+                "reflectionQuestion": "Hva er det med Afghanistan som gjor det svaert å okkupere? Er det geografi, kultur, begge deler - eller noe annet?"
+            },
+            "choices": [
+                {
+                    "id": "c_afg_1",
+                    "text": "Invader - vi kan ikke miste Afghanistan til islamistene",
+                    "nextNodeId": "afghanistan_invasjon",
+                    "setFlags": ["afghanistan_invadert"],
+                    "effects": {
+                        "atomspanning": 10,
+                        "sovjet_innflytelse": 5
+                    },
+                    "isHistoricalChoice": true,
+                    "historicalConsequence": "Sovjet invaderte 25. desember 1979 med 100 000 soldater. De lovet rask seier. Ti år og 15 000 drepte russiske soldater seinere trakk de seg ydmyket ut. Afghanistan ble Sovjets Vietnam.",
+                    "ethicsLens": {
+                        "deontological": "En stat har ikke rett til å invadere et suverent land - uansett ideologisk trussel.",
+                        "consequentialist": "Å miste Afghanistan til islamistene kan destabilisere Sentral-Asia og true Sovjet-grensen. Er risikokalkylen riktig?",
+                        "virtue": "Er en stormakt som invaderer naboland i ferd med å bli den trusselen den hevder å bekjempe?"
+                    }
+                },
+                {
+                    "id": "c_afg_2",
+                    "text": "Diplomatisk losning - støtt Kabul-regjeringen uten direkte invasjon",
+                    "nextNodeId": "afghanistan_diplomatisk",
+                    "effects": {
+                        "historisk_innsikt": 5
+                    },
+                    "ethicsLens": {
+                        "deontological": "Diplomati respekterer Afghanistans suverenitet og folkeretten.",
+                        "consequentialist": "Diplomatisk støtte kan stabilisere uten de katastrofale kostnadene ved en direkte invasjon.",
+                        "virtue": "Det krevde mer mot å holde militaeret tilbake enn å sende dem inn."
+                    }
+                }
+            ]
+        },
+        "afghanistan_invasjon": {
+            "id": "afghanistan_invasjon",
+            "text": "25. desember 1979. 100 000 Sovjet-soldater krysser Amu-Darya-elven. Kabul faller på timer. 'Vi er invitert av den afghanske regjeringen,' sier Moskva. Generalene lovte Brezjnev: 'Tre uker.' De har aldri studert Afghanistan.",
+            "speaker": "Sovjet-general",
+            "choices": [
+                {
+                    "id": "c_afg_inv_1",
+                    "text": "Se hva invasjonen betyr for en afghansk familie",
+                    "nextNodeId": "afghanistan_landsby",
+                    "effects": {
+                        "menneskekost": 15
+                    }
+                }
+            ]
+        },
+        "afghanistan_diplomatisk": {
+            "id": "afghanistan_diplomatisk",
+            "text": "Sovjet velger diplomati. Kabul-regjeringen holder seg en stund, men smuldrer under det indre presset. Mujahideen forblir lokale stammegrupper uten stormaktstøtte. Afghanistan unngår å bli en proxy-slagmark - denne gangen.",
+            "speaker": "Forteller",
+            "choices": [
+                {
+                    "id": "c_afg_dip_1",
+                    "text": "Gå videre - CIA venter med en plan",
+                    "nextNodeId": "cia_beslutning",
+                    "effects": {
+                        "historisk_innsikt": 5
+                    }
+                }
+            ]
+        },
+        "afghanistan_landsby": {
+            "id": "afghanistan_landsby",
+            "text": "Panjshir-dalen, 1980. Jeg er Fatima. Sovjet-fly bombet i morges. Mannen min er i fjellene med Mujahideen. Jeg er igjen med barna, en syk mor og det som er igjen av forrådet. Soldatene patruljerer veien nedenfor. Hvem kan jeg hjelpe?",
+            "speaker": "Afghansk bonde Fatima",
+            "backgroundImage": "/images/chronos/kald-krig/korea_sivil.webp",
+            "discoveryEvent": {
+                "title": "Afghanske sivile under Sovjet-invasjonen",
+                "fact": "Under Sovjet-krigen i Afghanistan (1979-1989) ble estimert 2 millioner afghanske sivile drept. 5-6 millioner flyktet til Pakistan og Iran - en av historiens storste flyktningkriser. Over 1 million miner ble lagt igjen da Sovjet trakk seg ut.",
+                "articleLink": "/historie/den-kalde-krigen/oversikt",
+                "reflectionQuestion": "Nar stormakter kjemper proxy-krig i fattige land - hvem borer det moralske ansvaret for de sivile ofrene?"
+            },
+            "minigame": {
+                "type": "rationing",
+                "config": {
+                    "onComplete": {
+                        "nextNodeId": "cia_beslutning"
+                    },
+                    "rations": 3,
+                    "soldiers": [
+                        {
+                            "id": "mor",
+                            "name": "Fatimas mor",
+                            "role": "Syk, trenger medisin",
+                            "context": "Har vaert syk i to uker. Uten medisin overlever hun ikke vinteren.",
+                            "effects": {
+                                "ifGiven": { "menneskekost": -5 },
+                                "ifSkipped": { "menneskekost": 12, "historisk_innsikt": 5 }
+                            }
+                        },
+                        {
+                            "id": "sønn",
+                            "name": "Sønn (11 år)",
+                            "role": "Trenger mat for reisen",
+                            "context": "Eneste som kan gå til nabodalen for hjelp - men trenger mat for den tre timers turen.",
+                            "effects": {
+                                "ifGiven": { "menneskekost": -8 },
+                                "ifSkipped": { "menneskekost": 15 }
+                            }
+                        },
+                        {
+                            "id": "datter",
+                            "name": "Datter (4 år)",
+                            "role": "Sulten og redd",
+                            "context": "Har ikke spist skikkelig på to dager. Gråter uten stopp.",
+                            "effects": {
+                                "ifGiven": { "menneskekost": -3 },
+                                "ifSkipped": { "menneskekost": 10 }
+                            }
+                        },
+                        {
+                            "id": "nabo",
+                            "name": "Nabokvinnen",
+                            "role": "Skadet i bombingen",
+                            "context": "Shrapnel i skulderen. Trenger forbinding og mat.",
+                            "effects": {
+                                "ifGiven": { "historisk_innsikt": 5 },
+                                "ifSkipped": { "menneskekost": 8 }
+                            }
+                        }
+                    ]
+                }
+            },
+            "choices": []
+        },
+        "cia_beslutning": {
+            "id": "cia_beslutning",
+            "text": "'Vi har sjansen til å gi Sovjet sin Vietnam,' sier Brzezinski. Han legger frem bildene: afghanske menn i fjellene, utdaterte gevarer mot Sovjet-helikoptere. 'Gi dem Stinger-missiler. La dem blø som vi blødde.' Carter tar av brillene og ser lenge ut vinduet.",
+            "speaker": "Zbigniew Brzezinski",
+            "discoveryEvent": {
+                "title": "Operasjon Syklone - CIA og mujahideen",
+                "fact": "Operasjon Syklone var CIAs stoerste kovert operasjon noensinne. Fra 1979 til 1992 brukte USA estimert 2 milliarder dollar på å bevapne og trene afghanske mujahideen. Saudiarabia matchet hvert dollar. Operasjonen bidro til Sovjet-nederlaget - men la ogsa grunnlaget for Taliban.",
+                "articleLink": "/historie/den-kalde-krigen/oversikt",
+                "reflectionQuestion": "Brzezinski sa seinere: 'Hva var viktigst for verdenshistorien? Taliban eller Sovjet-kollapsen?' Hva mener du?"
+            },
+            "choices": [
+                {
+                    "id": "c_cia_1",
+                    "text": "Bevapne mujahideen - gi Sovjet sin Vietnam",
+                    "nextNodeId": "cia_domino_spill",
+                    "setFlags": ["mujahideen_bevapnet"],
+                    "updateInventory": {
+                        "add": "mujahideen_kontrakt"
+                    },
+                    "effects": {
+                        "usa_innflytelse": 5,
+                        "sovjet_innflytelse": -5
+                    },
+                    "ethicsLens": {
+                        "deontological": "Å bevapne ikke-statlige aktorer bryter folkeretten og overforer ansvar for konsekvensene til en gruppe USA ikke kontrollerer.",
+                        "consequentialist": "Sovjet i Afghanistan koster dem ressurser og prestisje - og kan akselerere systemets kollaps. Resultatet kan rettferdiggjore midlet.",
+                        "virtue": "Hvem er disse mennene vi bevapner - og er vi villige til å leve med det vi skaper?"
+                    }
+                },
+                {
+                    "id": "c_cia_2",
+                    "text": "Nekt - vi vet ikke hvem vi bevapner",
+                    "nextNodeId": "kap4_advarsel",
+                    "effects": {
+                        "historisk_innsikt": 10
+                    },
+                    "ethicsLens": {
+                        "deontological": "Å nekte å bevapne ukjente aktorer er den eneste ansvarsfulle handlingen nar konsekvensene er uforutsigbare.",
+                        "consequentialist": "Å ikke handle lar Sovjet beholde Afghanistan - og sender signal om at USA er passivt.",
+                        "virtue": "Å si nei nar alle sier ja krever mot. Men det er nettopp da det teller."
+                    }
+                }
+            ]
+        },
+        "cia_domino_spill": {
+            "id": "cia_domino_spill",
+            "text": "Peshawar, Pakistan, 1981. CIA-operativ Charlie Wilson legger frem kartet. Mujahideen-grupper venter: noen pålitelige, noen ikke. Stinger-missiler, treningsleire, penger. Du har begrenset budsjett. Plasser ressursene.",
+            "speaker": "CIA-operativ",
+            "backgroundImage": "/images/chronos/kald-krig/korea_krig.webp",
+            "minigame": {
+                "type": "domino",
+                "config": {
+                    "winNodeId": "mujahideen_suksess",
+                    "lossNodeId": "mujahideen_kaos",
+                    "budget": 6,
+                    "winThreshold": 55,
+                    "countries": [
+                        {
+                            "id": "panjshir",
+                            "name": "Panjshir-dalen",
+                            "region": "Nord",
+                            "pressureLevel": 35,
+                            "tileColor": "#60a5fa",
+                            "actions": [
+                                {
+                                    "id": "stinger",
+                                    "label": "Stinger-missiler",
+                                    "cost": 2,
+                                    "successBonus": 20,
+                                    "backfireChance": 10,
+                                    "description": "Skuddvisse raketter mot Sovjet-helikoptere. Hoy effekt, lav risiko her."
+                                },
+                                {
+                                    "id": "trening",
+                                    "label": "Treningsleir",
+                                    "cost": 2,
+                                    "successBonus": 15,
+                                    "backfireChance": 12,
+                                    "description": "Afghanske soldater trenes av pakistansk ISI med CIA-instruktorer."
+                                },
+                                {
+                                    "id": "penger",
+                                    "label": "Kontantutbetaling",
+                                    "cost": 1,
+                                    "successBonus": 8,
+                                    "backfireChance": 8,
+                                    "description": "Direkte betaling til stammelederen. Effektivt, men lojaliteten er usikker."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "kandahar",
+                            "name": "Kandahar-regionen",
+                            "region": "Syd",
+                            "pressureLevel": 70,
+                            "tileColor": "#ef4444",
+                            "actions": [
+                                {
+                                    "id": "stinger",
+                                    "label": "Stinger-missiler",
+                                    "cost": 2,
+                                    "successBonus": 25,
+                                    "backfireChance": 22,
+                                    "description": "Sterk Sovjet-tilstedevaerelse. Missilene kan snu kampen - men risiko for at de faller i feil hender."
+                                },
+                                {
+                                    "id": "trening",
+                                    "label": "Treningsleir",
+                                    "cost": 2,
+                                    "successBonus": 18,
+                                    "backfireChance": 25,
+                                    "description": "Ustabile stammealliancer gjor treningsleire risikable."
+                                },
+                                {
+                                    "id": "penger",
+                                    "label": "Kontantutbetaling",
+                                    "cost": 1,
+                                    "successBonus": 10,
+                                    "backfireChance": 18,
+                                    "description": "Høy korrupsjon i regionen - pengene kan forsvinne."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "herat",
+                            "name": "Herat",
+                            "region": "Vest",
+                            "pressureLevel": 50,
+                            "tileColor": "#f59e0b",
+                            "actions": [
+                                {
+                                    "id": "stinger",
+                                    "label": "Stinger-missiler",
+                                    "cost": 2,
+                                    "successBonus": 22,
+                                    "backfireChance": 15,
+                                    "description": "Nær iransk grense. Iran kan også pavirke gruppen - dobbeltagenter mulig."
+                                },
+                                {
+                                    "id": "trening",
+                                    "label": "Treningsleir",
+                                    "cost": 2,
+                                    "successBonus": 16,
+                                    "backfireChance": 18,
+                                    "description": "Lokal leder er pålitelig, men kapasiteten er begrenset."
+                                },
+                                {
+                                    "id": "penger",
+                                    "label": "Kontantutbetaling",
+                                    "cost": 1,
+                                    "successBonus": 9,
+                                    "backfireChance": 10,
+                                    "description": "Moderat effekt, lav risiko."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "kabul_omland",
+                            "name": "Kabul-omlandet",
+                            "region": "Sentrum",
+                            "pressureLevel": 80,
+                            "tileColor": "#dc2626",
+                            "actions": [
+                                {
+                                    "id": "stinger",
+                                    "label": "Stinger-missiler",
+                                    "cost": 3,
+                                    "successBonus": 30,
+                                    "backfireChance": 28,
+                                    "description": "Hoyest risiko, hoyest belonning. Sovjet-kontroll er sterk rundt hovedstaden."
+                                },
+                                {
+                                    "id": "trening",
+                                    "label": "Treningsleir",
+                                    "cost": 3,
+                                    "successBonus": 25,
+                                    "backfireChance": 30,
+                                    "description": "Ekstremt vanskelig operasjonsomrade - nart Sovjet-hovedkvarteret."
+                                },
+                                {
+                                    "id": "penger",
+                                    "label": "Kontantutbetaling",
+                                    "cost": 2,
+                                    "successBonus": 15,
+                                    "backfireChance": 22,
+                                    "description": "Stammelederen har dobbelt lojalitet. Risikabelt."
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "choices": []
+        },
+        "mujahideen_suksess": {
+            "id": "mujahideen_suksess",
+            "text": "Stinger-missilene endrer krigen. Sovjet-helikoptere faller. Mujahideen holder fjellene. Brzezinski ringer fra Washington: 'Vi gav dem sin Vietnam.' Sovjet lider 15 000 drepte og trekker seg ut i 1989. En stormakt er beseiret.",
+            "speaker": "Forteller",
+            "choices": [
+                {
+                    "id": "c_muj_suksess_1",
+                    "text": "Men hvem er disse mennene vi bevapnet?",
+                    "nextNodeId": "kap4_advarsel",
+                    "effects": {
+                        "sovjet_innflytelse": -10,
+                        "historisk_innsikt": 5
+                    }
+                }
+            ]
+        },
+        "mujahideen_kaos": {
+            "id": "mujahideen_kaos",
+            "text": "Mujahideen er fragmentert og uforutsigbar. Grupper kjemper seg imellom om CIA-pengene. Noen Stinger-missiler forsvinner til ukjente aktorer. USA har mistet kontrollen over hvem som mottar hva - og hva de vil gjøre med det.",
+            "speaker": "Forteller",
+            "choices": [
+                {
+                    "id": "c_muj_kaos_1",
+                    "text": "Men hvem er disse mennene vi bevapnet?",
+                    "nextNodeId": "kap4_advarsel",
+                    "effects": {
+                        "menneskekost": 10,
+                        "historisk_innsikt": 5
+                    }
+                }
+            ]
+        },
+        "kap4_advarsel": {
+            "id": "kap4_advarsel",
+            "text": "'Men hvem er disse mennene vi bevapner?' En ung CIA-analytiker reiser seg ved bordenden. 'Og hva vil de gjøre med sine Stinger-missiler når Sovjet er borte?' Rommet er stille. Ingen svarer. Det er 1985.",
+            "speaker": "Forteller",
+            "discoveryEvent": {
+                "title": "Utilsiktede konsekvenser - Afghanistan",
+                "fact": "Mange av de mujahideen-krigerne CIA bevapnet på 1980-tallet organiserte seg seinere i Taliban og al-Qaida. Stinger-missilene som USA leverte dukket opp i konflikter i tiår etter den kalde krigens slutt. Operasjon Syklone er blitt lereeksempel på utilsiktede konsekvenser i internasjonal politikk.",
+                "articleLink": "/historie/den-kalde-krigen/oversikt",
+                "reflectionQuestion": "Kan en beslutning vaere 'riktig' i 1981 og 'feil' i 2001? Eller var advarseltegnene der hele tiden?"
+            },
+            "choices": [
+                {
+                    "id": "c_advarsel_1",
+                    "text": "Gå videre til kapittel 5",
+                    "nextNodeId": "hub_kap5",
+                    "effects": {
+                        "historisk_innsikt": 5
+                    }
+                }
+            ]
+        },
+        "hub_kap5": {
+            "id": "hub_kap5",
+            "text": "1985. Mikhail Gorbatsjov blir generalsekretær. Han vet at systemet er sykt. Men er medisinen verre enn sykdommen? Tsernobyl eksploderer. Solidaritet-bevegelsen marsjerer. Og i Berlin er det en mur som ikke har lenge igjen. Kapittel 5: Muren Faller.\n\n[Kapittel 5 er under utvikling]",
+            "speaker": "Forteller",
+            "isEnd": true,
+            "endType": "victory",
+            "epilogue": {
+                "entries": [
+                    {
+                        "hasFlag": "mujahideen_bevapnet",
+                        "text": "Du bevapnet mujahideen i Afghanistan. I 1996 tar en gruppe kalt Taliban makten i Kabul. De har Stinger-missiler - amerikanske vapen fra CIAs Operasjon Syklone. Brzezinski svarte seinere: 'Hva var viktigst for verdenshistorien - Taliban eller Sovjet-kollapsen?'"
+                    },
+                    {
+                        "hasFlag": "afghanistan_invadert",
+                        "text": "Sovjet-invasjonen du godkjente kostet 15 000 russiske soldater livet og over 2 millioner afghanske sivile. Og ti år seinere trakk Sovjet seg ydmyket ut - uten å ha 'vunnet' noe som helst."
+                    },
+                    {
+                        "hasFlag": "tonkin_godkjent",
+                        "text": "Tonkin-resolusjonen du godkjente ga LBJ fri krigsmandat. Over 58 000 amerikanere og 3 millioner vietnamesere dode. I 2005 bekreftet NSA-dokumenter at det andre angrepet trolig aldri skjedde."
+                    },
+                    {
+                        "hasFlag": "chile_kupp_godkjent",
+                        "text": "Pinochet-regimet du støttet drepte over 3 000 mennesker. I 1998 ble Pinochet arrestert i London etter internasjonal arrestordre - men slapp straff på grunn av helsetilstand."
+                    },
+                    {
+                        "hasFlag": "iran_shah_installert",
+                        "text": "Irans islamske revolusjon i 1979 - som fulgte av kuppet du hjalp til med i 1953 - skapte et regime som fortsatt utfordrer USA. Den kjedereaksjonen varte i over 70 år."
+                    },
+                    {
+                        "hasFlag": "ho_brev_funnet",
+                        "text": "Ho Chi Minhs brev fra 1946 lå ubesvart. Vietnam-krigen kostet 58 000 amerikanske og 3 millioner vietnamesiske liv. I dag er Vietnam en viktig handelspartner for USA."
+                    },
+                    {
+                        "text": "Fire kapitler. Førti år. Valgene hauger seg opp. Kapittel 5 venter: Gorbatsjov, Tsernobyl, Solidaritet og det uunngåelige. En mur er i ferd med å falle."
+                    }
+                ],
+                "historicalEcho": "Perioden 1975-1985 formet betingelsene for den kalde krigens slutt. Sovjet-invasjonen av Afghanistan (1979) og CIAs motrespons tappet begge supermakter - men etterlot Afghanistan i kaos som varte i tiår. Detente var over. En ny, farligere fase begynte.",
+                "reflectionQuestion": "Welcoming-spørsmål for klassen: Hvilken av beslutningene gjennom hele spillet hadde ifølge deg størst utilsiktede konsekvenser - og ble de faktisk 'utilsiktet', eller burde noen ha sett det komme?"
+            },
+            "choices": []
+        },
+        "game_over_atomkrig": {
+            "id": "game_over_atomkrig",
+            "text": "Sirener. Radioen knitrer - en siste melding: 'Dette er ikke en øvelse.' Atomspenningen nådde et bristepunkt ingen klarte å kontrollere. Noen trykket på knappen. Kanskje deg. Kanskje motstanderen. Nå spiller det ingen rolle lenger.",
+            "speaker": "Forteller",
+            "isEnd": true,
+            "endType": "defeat",
+            "epilogue": {
+                "entries": [
+                    {
+                        "hasFlag": "atomspionasje_fullfort",
+                        "text": "Atomspionasjen ga Sovjet bomben. Og til slutt brukte noen den."
+                    },
+                    {
+                        "text": "Den kalde krigen endte ikke med en hvisken - den endte med et brak. Eskalasjon på eskalasjon, og ingen ville gi seg. Dette er scenariet historikere kaller 'worst case'."
+                    }
+                ],
+                "historicalEcho": "I virkeligheten kom verden farligst nær atomkrig under Cubakrisen i 1962 - 13 dager der verdensfreden hang i en tynn tråd. En sovjetisk ubåtoffiser, Vasili Arkhipov, nektet å autorisere en atomtorpedo og reddet trolig verden. Du hadde ikke en Arkhipov.",
+                "reflectionQuestion": "Hva holdt faktisk supermaktene fra å bruke atomvåpnene sine gjennom 46 år?"
+            },
+            "choices": []
+        }
+    }
+}

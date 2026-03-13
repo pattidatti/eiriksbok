@@ -369,6 +369,7 @@ export const TimeTravelEngine: React.FC<TimeTravelEngineProps> = ({ scenarioId }
                 onCraft={handleCraft}
                 scenarioTitle={scenario.title}
                 scenarioMeta={`${scenario.role} • ${scenario.year}`}
+                scenarioId={scenario.id}
                 onExit={() => navigate('/oving/tidsreise')}
                 onRequestReset={() => setConfirmReset(true)}
             />

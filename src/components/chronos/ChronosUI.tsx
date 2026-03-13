@@ -3,7 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
     Shield, Heart, Zap, Scroll, Skull, Crown, Star, ArrowRight, Backpack, Lock,
     BookOpen, X, Map as MapIcon, Users, Hammer, Scale, Activity, Brain, Lightbulb,
-    ExternalLink, Mail, Feather, PenLine, GitBranch, ArrowLeft, RotateCcw,
+    ExternalLink, Mail, Feather, PenLine, GitBranch, ArrowLeft, RotateCcw, Flag,
+    Play, Pause,
 } from 'lucide-react';
 import type {
     ChronosNode, ChronosChoice, ChronosStat, ChronosConfig, ChronosEnvironment,
@@ -23,6 +24,8 @@ import { CensorGame } from './minigames/CensorGame';
 import { GasMaskGame } from './minigames/GasMaskGame';
 import { RationingGame } from './minigames/RationingGame';
 import { SignalGame } from './minigames/SignalGame';
+import { PropagandaGame } from './minigames/PropagandaGame';
+import { DominoGame } from './minigames/DominoGame';
 import { EndComparisonScreen } from './EndComparisonScreen';
 import { CraftingModal } from './CraftingModal';
 import { ChronosMap } from './ChronosMap';
@@ -43,6 +46,7 @@ interface ChronosUIProps {
     onCraft?: (recipe: ChronosRecipe) => void;
     scenarioTitle?: string;
     scenarioMeta?: string;
+    scenarioId?: string;
     onExit?: () => void;
     onRequestReset?: () => void;
 }
@@ -50,6 +54,7 @@ interface ChronosUIProps {
 const IconMap: Record<string, any> = {
     shield: Shield, heart: Heart, zap: Zap, scroll: Scroll, skull: Skull,
     crown: Crown, star: Star, backpack: Backpack, sword: Zap, book: BookOpen,
+    'book-open': BookOpen, flag: Flag,
     map: MapIcon, users: Users, hammer: Hammer, scale: Scale, activity: Activity, eye: Shield,
     mail: Mail, feather: Feather, pen: PenLine,
 };
@@ -393,7 +398,7 @@ const EpilogueCard: React.FC<{ epilogue: ChronosEpilogue; flags: string[] }> = (
 export const ChronosUI: React.FC<ChronosUIProps> = ({
     node, stats, inventory = [], environment = { time: 'day', weather: 'clear' },
     journal = [], onAddJournalEntry, config, flags = [], onChoice, onRestart, onCraft,
-    choiceHistory = [], scenarioTitle, scenarioMeta, onExit, onRequestReset,
+    choiceHistory = [], scenarioTitle, scenarioMeta, scenarioId, onExit, onRequestReset,
 }) => {
     const [journalText, setJournalText] = useState('');
     const [showJournal, setShowJournal] = useState(false);
@@ -406,17 +411,87 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
     const [showDiscovery, setShowDiscovery] = useState(false);
     const seenDiscoveries = useRef<Set<string>>(new Set());
 
+    // Narration audio
+    const audioRef = useRef<HTMLAudioElement | null>(null);
+    const popupAudioRef = useRef<HTMLAudioElement | null>(null);
+    const [isPaused, setIsPaused] = useState(false);
+    const isPausedRef = useRef(isPaused);
+
     // Prinsipp 6: Ethics mode
     const [ethicsModeOn, setEthicsModeOn] = useState(false);
     const [pendingChoice, setPendingChoice] = useState<ChronosChoice | null>(null);
 
-    // Auto-show discovery event when entering a new node
+    // On node change: discovery check + node audio
     useEffect(() => {
-        if (node.discoveryEvent && !seenDiscoveries.current.has(node.id)) {
+        // Stop any previous audio
+        if (audioRef.current) { audioRef.current.pause(); audioRef.current = null; }
+        if (popupAudioRef.current) { popupAudioRef.current.pause(); popupAudioRef.current = null; }
+
+        const willShowDiscovery = !!node.discoveryEvent && !seenDiscoveries.current.has(node.id);
+        if (willShowDiscovery) {
             seenDiscoveries.current.add(node.id);
             setShowDiscovery(true);
+            // Discovery effect handles audio from here
+            return;
+        }
+        if (!isPausedRef.current && scenarioId) {
+            const audio = new Audio(`/audio/tidsreise/${scenarioId}/${node.id}.mp3`);
+            audioRef.current = audio;
+            audio.play().catch(() => {});
         }
     }, [node.id]); // eslint-disable-line react-hooks/exhaustive-deps
+
+    // Pause node audio when discovery popup is open; resume when dismissed
+    useEffect(() => {
+        if (showDiscovery) {
+            if (audioRef.current) audioRef.current.pause();
+            if (!isPausedRef.current && scenarioId && node.discoveryEvent) {
+                const audio = new Audio(`/audio/tidsreise/${scenarioId}/discovery_${node.id}.mp3`);
+                popupAudioRef.current = audio;
+                audio.play().catch(() => {});
+            }
+        } else if (popupAudioRef.current) {
+            popupAudioRef.current.pause();
+            popupAudioRef.current = null;
+            if (!isPausedRef.current && scenarioId) {
+                const audio = new Audio(`/audio/tidsreise/${scenarioId}/${node.id}.mp3`);
+                audioRef.current = audio;
+                audio.play().catch(() => {});
+            }
+        }
+    }, [showDiscovery]); // eslint-disable-line react-hooks/exhaustive-deps
+
+    // Pause node audio when other modals are open; resume when all are closed
+    useEffect(() => {
+        const anyOpen = showJournal || showCrafting || showDecisionMap || !!selectedItem;
+        if (anyOpen) {
+            if (audioRef.current) audioRef.current.pause();
+        } else {
+            if (!isPausedRef.current && audioRef.current) audioRef.current.play().catch(() => {});
+        }
+    }, [showJournal, showCrafting, showDecisionMap, selectedItem]); // eslint-disable-line react-hooks/exhaustive-deps
+
+    const togglePause = () => {
+        setIsPaused(prev => {
+            const next = !prev;
+            isPausedRef.current = next;
+            if (next) {
+                if (audioRef.current) audioRef.current.pause();
+                if (popupAudioRef.current) popupAudioRef.current.pause();
+            } else {
+                // Resume whichever audio is active, or start fresh for current node
+                const active = showDiscovery ? popupAudioRef.current : audioRef.current;
+                if (active) {
+                    active.play().catch(() => {});
+                } else if (scenarioId) {
+                    const audio = new Audio(`/audio/tidsreise/${scenarioId}/${node.id}.mp3`);
+                    audioRef.current = audio;
+                    audio.play().catch(() => {});
+                }
+            }
+            return next;
+        });
+    };
 
     // Filter Stats
     const attributes = stats.filter(s => !s.category || s.category === 'attribute');
@@ -646,6 +721,14 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
                             </span>
                         )}
                     </button>
+
+                    {/* Narration pause/play */}
+                    {scenarioId && (
+                        <button onClick={togglePause} title={isPaused ? 'Spill av forteller' : 'Pause forteller'}
+                            className="p-2 sm:p-3 md:p-4 rounded-2xl bg-black/30 backdrop-blur-xl border border-white/10 text-white/60 hover:text-white transition-colors">
+                            {isPaused ? <Play size={20} /> : <Pause size={20} />}
+                        </button>
+                    )}
                 </div>
             </div>
 
@@ -961,6 +1044,24 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
                                     onComplete={(success: boolean) => {
                                         if (node.minigame?.type === 'signal') {
                                             onChoice({ id: 'signal_complete', text: 'Observasjonsrapport', nextNodeId: success ? node.minigame.config.winNodeId : node.minigame.config.lossNodeId });
+                                        }
+                                    }}
+                                />
+                            ) : node.minigame.type === 'propaganda' ? (
+                                <PropagandaGame
+                                    config={node.minigame.config}
+                                    onComplete={(result) => {
+                                        if (node.minigame?.type === 'propaganda') {
+                                            onChoice({ id: 'propaganda_complete', text: 'Mediedekning bestemt', nextNodeId: node.minigame.config.onComplete.nextNodeId, effects: result.effects, setFlags: result.setFlags });
+                                        }
+                                    }}
+                                />
+                            ) : node.minigame.type === 'domino' ? (
+                                <DominoGame
+                                    config={node.minigame.config}
+                                    onComplete={(success: boolean) => {
+                                        if (node.minigame?.type === 'domino') {
+                                            onChoice({ id: 'domino_complete', text: 'Kartintervensjon fullfort', nextNodeId: success ? node.minigame.config.winNodeId : node.minigame.config.lossNodeId });
                                         }
                                     }}
                                 />
