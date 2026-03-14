@@ -340,7 +340,7 @@
     "nodes": {
         "intro_prolog": {
             "id": "intro_prolog",
-            "text": "Berlin, 1945. Krigen er over - men freden er ikke kommet. Fra asken av Den andre verdenskrig reiser det seg to giganter: USA og Sovjetunionen. De har delt verden mellom seg, og ingen mellomrom er nøytralt lenger. Du er vitne til historiens mest nervepirrende maktkamp - en krig som aldri ble varm, men som aldri ble kald.",
+            "text": "Berlin, 1945. Krigen er over - men freden er ikke kommet. Fra asken av Den andre verdenskrig reiser det seg to giganter: USA og Sovjetunionen. De har delt verden mellom seg, og ingen områder er lenger nøytrale. Du er vitne til historiens mest nervepirrende maktkamp - en krig som aldri ble varm, men som aldri ble kald.",
             "speaker": "Forteller",
             "backgroundImage": "/images/chronos/kald-krig/hero.webp",
             "discoveryEvent": {
@@ -538,7 +538,7 @@
         },
         "nato_1949": {
             "id": "nato_1949",
-            "text": "4. april 1949. Berlinkrisen er over, men den har lært vestmaktene en lekse: USA kan ikke stå alene. I Washington signerer representanter fra 12 nasjoner en historisk pakt - NATO. 'Et angrep på én er et angrep på alle.' Måneder senere svarer Sovjet med Warszawapakten. Europa er nå formelt delt i to militære blokker, og verden er aldri den samme igjen.",
+            "text": "4. april 1949. Berlinkrisen er over, men den har lært vestmaktene en lekse: USA kan ikke stå alene. I Washington signerer representanter fra 12 nasjoner en historisk pakt - NATO. 'Et angrep på én er et angrep på alle.' Noen år senere svarer Sovjet med Warszawapakten. Europa er nå formelt delt i to militære blokker, og verden er aldri den samme igjen.",
             "speaker": "Forteller",
             "backgroundImage": "/images/chronos/kald-krig/nato_1949.webp",
             "discoveryEvent": {
@@ -576,7 +576,7 @@
         },
         "ho_brev_arkiv": {
             "id": "ho_brev_arkiv",
-            "text": "Washington D.C., januar 1950. Du er i et støvete statsdepartementsarkiv. Mellom hundrevis av dokumenter fra Asia finner du noe merkelig - et brev fra Vietnam, datert 1946. Avsenderen er en viss 'Ho Chi Minh'. Han skal ha sendt åtte brev til president Truman og bedt om amerikansk støtte til vietnamesisk selvstendighet. Intet svar ble gitt.",
+            "text": "Washington D.C., januar 1950. Du er i et støvete utenriksdepartements arkiv. Mellom hundrevis av dokumenter fra Asia finner du noe merkelig - et brev fra Vietnam, datert 1946. Avsenderen er en viss 'Ho Chi Minh'. Han skal ha sendt åtte brev til president Truman og bedt om amerikansk støtte til vietnamesisk selvstendighet. Intet svar ble gitt.",
             "speaker": "Forteller",
             "backgroundImage": "/images/chronos/kald-krig/ho_brev_arkiv.webp",
             "discoveryEvent": {
@@ -709,7 +709,7 @@
         },
         "korea_krig": {
             "id": "korea_krig",
-            "text": "General Walker samler staben i et skadeskutt skolehus utenfor Pusan. 'Vi har begrensede ressurser og ubegrenset motstand,' sier han. 'Kina har sendt 300 000 frivillige over Yalu-elven. Sør-Koreas hær smuldrer. Dere må bestemme hvordan vi fordeler det vi har.'",
+            "text": "General Walker samler staben i et sønderskutt skolehus utenfor Pusan. 'Vi har begrensede ressurser og ubegrenset motstand,' sier han. 'Kina har sendt 300 000 frivillige over Yalu-elven. Sør-Koreas hær smuldrer. Dere må bestemme hvordan vi fordeler det vi har.'",
             "speaker": "US-general",
             "backgroundImage": "/images/chronos/kald-krig/korea_krig.webp",
             "minigame": {
@@ -1472,7 +1472,7 @@
         },
         "kuba_tale": {
             "id": "kuba_tale",
-            "text": "22. oktober 1962. Kamera på. 100 millioner amerikanere ser på. Og Nikita Krusjtsjev (Sovjets president) ser fra Moskva - hans ambassadør sender lydbånd i sanntid. Ordene du velger nå setter tonen for de 13 dagene som avgjør historien.",
+            "text": "22. oktober 1962. Kamera på. 100 millioner amerikanere ser på. Og Nikita Krusjtsjev (Sovjets president) ser fra Moskva - hans ambassadør sender lydbånd i sanntid. Ordene du velger nå setter tonen for de 13 dagene som avgjør historiens gang.",
             "speaker": "Kennedy",
             "backgroundImage": "/images/chronos/kald-krig/kuba_tale.webp",
             "minigame": {
@@ -1627,7 +1627,7 @@
         },
         "kuba_blokkade_ok": {
             "id": "kuba_blokkade_ok",
-            "text": "Krusjtsjev blinker. Etter 13 dager med nervekrig trekker Sovjet-skipene seg. Rakettene fjernes fra Cuba. Hemmelig tilleggsavtale: USA fjerner raketter fra Tyrkia. Verden vet ikke dette på mange år. Krisen er over. Men verden er aldri den samme igjen.",
+            "text": "Krusjtsjev blunker. Etter 13 dager med nervekrig trekker Sovjet-skipene seg. Rakettene fjernes fra Cuba. Hemmelig tilleggsavtale: USA fjerner raketter fra Tyrkia. Verden vet ikke dette på mange år. Krisen er over. Men verden er aldri den samme igjen.",
             "speaker": "Forteller",
             "discoveryEvent": {
                 "title": "Kubakrisen - den hemmelige avtalen",
@@ -1815,7 +1815,7 @@
         },
         "vietnam_tonkin": {
             "id": "vietnam_tonkin",
-            "text": "2.-4. august 1964. Destroyeren USS Maddox melder om angrep i Tonkin-bukten. Men etterretningen er motstridende. Kaptein Herrick sender selv telegram: 'Gjennomgang anbefales sterkt for videre aksjon.' President Johnson venter på din analyse.",
+            "text": "2.-4. august 1964. Destroyeren (båten) USS Maddox melder om angrep i Tonkin-bukten. Men etterretningen er motstridende. Kaptein Herrick sender selv telegram: 'Gjennomgang anbefales sterkt for videre aksjon.' President Johnson venter på din analyse.",
             "speaker": "LBJ-radgiver",
             "discoveryEvent": {
                 "title": "Tonkin-bukta-fakta",
@@ -2135,11 +2135,11 @@
         },
         "vietnam_avslutt": {
             "id": "vietnam_avslutt",
-            "text": "1973. Nixon trekker troppene ut. Paris-fredsavtalen signeres. To år seinere faller Saigon. 58 220 amerikanere er døde. Estimert 3 millioner vietnamesere. Landet er forent under kommunisme. Det USA kjempet i 20 år for å hindre, skjedde likevel.",
+            "text": "1973. Nixon trekker troppene ut. Paris-fredsavtalen signeres. To år senere faller Saigon. 58 220 amerikanere er døde. Estimert 3 millioner vietnamesere. Landet er forent under kommunisme. Det USA kjempet i 20 år for å hindre, skjedde likevel.",
             "speaker": "Forteller",
             "discoveryEvent": {
                 "title": "Vietnam-statistikk",
-                "fact": "Vietnamkrigen (1955-1975): 58 220 amerikanske drepte, estimert 1,1-3,8 millioner vietnamesiske drepte (nord og syd). 19 millioner liter Agent Orange sprøytet over 10% av Sør-Vietnams areal. USA brukte 168 milliarder dollar (2021-verdier: over 1 000 milliarder).",
+                "fact": "Vietnamkrigen (1955-1975): 58 220 amerikanske drepte, estimert 1,1-3,8 millioner vietnamesiske drepte (nord og sør). 19 millioner liter Agent Orange sprøytet over 10% av Sør-Vietnams areal. USA brukte 168 milliarder dollar (2021-verdier: over 1 000 milliarder).",
                 "articleLink": "/historie/den-kalde-krigen/vietnamkrigen",
                 "reflectionQuestion": "Vietnam er kalt 'the first televised war'. Hva skjer når borgerne ser krigen direkte på TV - og hva betyr det for demokratiets evne til å fore krig?"
             },
@@ -2403,7 +2403,7 @@
                 "title": "Detente og realpolitikk",
                 "fact": "Detente (avspenning) var en periode på 1970-tallet der USA og Sovjet reduserte spenningen gjennom SALT-avtalene om atomvåpen, Nixons Kina-besok og Helsingfors-avtalen. Men proxy-kriger fortsatte uforminsket - i Afrika, Midtosten og Asia.",
                 "articleLink": "/historie/den-kalde-krigen/oversikt",
-                "reflectionQuestion": "Er det mulig å ha 'avspenning' mellom to stormakter når de simultaneously kjemper mot hverandre gjennom andre land?"
+                "reflectionQuestion": "Er det mulig å ha 'avspenning' mellom to stormakter når de samtidig kjemper mot hverandre gjennom andre land?"
             },
             "uiType": "map",
             "mapConfig": {
@@ -2411,8 +2411,8 @@
                 "points": [
                     {
                         "id": "point_angola",
-                        "x": 52,
-                        "y": 65,
+                        "x": 41,
+                        "y": 63,
                         "label": "Angola - Proxykrig 1975",
                         "icon": "hammer",
                         "nextNodeId": "angola_proxy",
@@ -2420,8 +2420,8 @@
                     },
                     {
                         "id": "point_afghanistan",
-                        "x": 68,
-                        "y": 38,
+                        "x": 46,
+                        "y": 39,
                         "label": "Afghanistan - Invasjon 1979",
                         "icon": "shield",
                         "nextNodeId": "afghanistan_sovjet_hub",
@@ -2672,13 +2672,13 @@
         },
         "cia_beslutning": {
             "id": "cia_beslutning",
-            "text": "'Vi har sjansen til å gi Sovjet sin Vietnam,' sier Brzezinski. Han legger frem bildene: afghanske menn i fjellene, utdaterte gevarer mot Sovjet-helikoptere. 'Gi dem Stinger-missiler. La dem blø som vi blødde.' Carter tar av brillene og ser lenge ut vinduet.",
+            "text": "'Vi har sjansen til å gi Sovjet sin Vietnam,' sier Brzezinski. Han legger frem bildene: afghanske menn i fjellene, utdaterte gevarer mot Sovjet-helikoptere. 'Gi dem Stinger-missiler. La dem blø som vi blødde.' President Carter tar av brillene og ser lenge ut vinduet.",
             "speaker": "Zbigniew Brzezinski",
             "discoveryEvent": {
                 "title": "Operasjon Syklone - CIA og mujahideen",
-                "fact": "Operasjon Syklone var CIAs stoerste kovert operasjon noensinne. Fra 1979 til 1992 brukte USA estimert 2 milliarder dollar på å bevæpne og trene afghanske mujahideen. Saudiarabia matchet hvert dollar. Operasjonen bidro til Sovjet-nederlaget - men la ogsa grunnlaget for Taliban.",
+                "fact": "Operasjon Syklone var CIAs største dekkoperasjon noensinne. Fra 1979 til 1992 brukte USA estimert 2 milliarder dollar på å bevæpne og trene afghanske mujahideen. Saudi-Arabia matchet hvert dollar. Operasjonen bidro til Sovjet-nederlaget - men la også grunnlaget for Taliban og al-Qaida.",
                 "articleLink": "/historie/den-kalde-krigen/oversikt",
-                "reflectionQuestion": "Brzezinski sa seinere: 'Hva var viktigst for verdenshistorien? Taliban eller Sovjet-kollapsen?' Hva mener du?"
+                "reflectionQuestion": "Brzezinski sa senere: 'Hva var viktigst for verdenshistorien? Taliban eller Sovjet-kollapsen?' Hva mener du?"
             },
             "choices": [
                 {
@@ -2907,7 +2907,7 @@
             "speaker": "Forteller",
             "discoveryEvent": {
                 "title": "Utilsiktede konsekvenser - Afghanistan",
-                "fact": "Mange av de mujahideen-krigerne CIA bevæpnet på 1980-tallet organiserte seg seinere i Taliban og al-Qaida. Stinger-missilene som USA leverte dukket opp i konflikter i tiår etter den kalde krigens slutt. Operasjon Syklone er blitt lereeksempel på utilsiktede konsekvenser i internasjonal politikk.",
+                "fact": "Mange av de mujahideen-krigerne CIA bevæpnet på 1980-tallet organiserte seg senere i Taliban og al-Qaida. Stinger-missilene som USA leverte dukket opp i konflikter i tiår etter den kalde krigens slutt. Operasjon Syklone er blitt lærebokeksempel på utilsiktede konsekvenser i internasjonal politikk.",
                 "articleLink": "/historie/den-kalde-krigen/oversikt",
                 "reflectionQuestion": "Kan en beslutning være 'riktig' i 1981 og 'feil' i 2001? Eller var advarseltegnene der hele tiden?"
             },
@@ -2943,7 +2943,7 @@
                 "points": [
                     {
                         "id": "point_glasnost",
-                        "x": 62,
+                        "x": 15,
                         "y": 25,
                         "label": "Glasnost - Reform fra toppen 1985",
                         "icon": "book-open",
@@ -2952,8 +2952,8 @@
                     },
                     {
                         "id": "point_tsernobyl",
-                        "x": 60,
-                        "y": 30,
+                        "x": 55,
+                        "y": 35,
                         "label": "Tsjernobyl - Ulykken som avslørte lognen 1986",
                         "icon": "zap",
                         "nextNodeId": "tsernobyl_hub",
@@ -2961,7 +2961,7 @@
                     },
                     {
                         "id": "point_solidarnosc",
-                        "x": 53,
+                        "x": 35,
                         "y": 22,
                         "label": "Solidarnosc - Polen velger frihet 1980",
                         "icon": "users",
@@ -2993,7 +2993,7 @@
         },
         "gorbachev_dilemma": {
             "id": "gorbachev_dilemma",
-            "text": "Du er Gorbatsjov. Politbyrået møtes. Du vet at noen av mennene rundt bordet vil forsøke å stoppe reformene - eller verre. Sju ansikter. Tre forrådere. Finn dem.",
+            "text": "Du er Gorbatsjov. Politbyrået møtes. Du vet at noen av mennene rundt bordet vil forsøke å stoppe reformene - eller verre. Sju ansikter. Tre forrædere. Finn dem.",
             "speaker": "Gorbatsjov",
             "backgroundImage": "/images/chronos/kald-krig/politburo_1985.webp",
             "minigame": {
@@ -3401,7 +3401,7 @@
         },
         "tsernobyl_konsekvens": {
             "id": "tsernobyl_konsekvens",
-            "text": "'Logner rundt Tsjernobyl kostet liv,' skriver Gorbatsjov seinere. 'Men de kostet systemet noe mer: Ingen trodde lenger på myndighetene.' Tsjernobyl ble ikke bare en atomulykke. Det ble glasnostens sannhetsprøve.",
+            "text": "'Løgner rundt Tsjernobyl kostet liv,' skriver Gorbatsjov senere. 'Men de kostet systemet noe mer: Ingen trodde lenger på myndighetene.' Tsjernobyl ble ikke bare en atomulykke. Det ble glasnostens sannhetsprøve.",
             "speaker": "Forteller",
             "choices": [
                 {
@@ -3653,7 +3653,7 @@
         },
         "epilog_iran": {
             "id": "epilog_iran",
-            "text": "Iran, 1979. Sjahens regime faller i islamsk revolusjon. Millioner jubler. Men i arkivene finnes et notat om en demokratisk valgt statsminister som ble fjernet i 1953.",
+            "text": "Iran, 1979. Sjahens regime faller i islamsk revolusjon. Millioner jubler. Men i arkivene finnes et notat om en demokratisk valgt statsminister som ble fjernet i 1953. Mars 2026 har USA og Isreal begynt å bombe Iran, og drept store deler av landets lederskap.",
             "speaker": "Forteller",
             "choices": [
                 {
