@@ -569,7 +569,7 @@
                         "atomspanning": 5
                     },
                     "ethicsLens": {
-                        "deontological": "Frihet kjopt gjennom gjensidig trussel er ikke frihet - det er en uskreven kapitulasjonsavtale."
+                        "deontological": "Frihet kjøpt gjennom gjensidig trussel er ikke frihet - det er en uskreven kapitulasjonsavtale."
                     }
                 }
             ]
@@ -784,7 +784,7 @@
             "speaker": "Forteller",
             "discoveryEvent": {
                 "title": "Koreakrig-statistikk",
-                "fact": "Koreakrigen (1950-1953): 36 574 amerikanske drepte, ca. 600 000 nord- og sørkoreanere drepte, estimert 900 000 kinesiske drepte. Total: 5+ millioner drepte. BNP per innbygger i Syd-Korea i 1953: 67 dollar. I dag: over 35 000 dollar. Nord-Korea: fortsatt under 2 000 dollar.",
+                "fact": "Koreakrigen (1950-1953): 36 574 amerikanske drepte, ca. 600 000 nord- og sørkoreanere drepte, estimert 900 000 kinesiske drepte. Total: 5+ millioner drepte. BNP per innbygger i Sør-Korea i 1953: 67 dollar. I dag: over 35 000 dollar. Nord-Korea: fortsatt under 2 000 dollar.",
                 "articleLink": "/historie/den-kalde-krigen/koreakrigen",
                 "reflectionQuestion": "Kina og USA sloss mot hverandre i Korea, men erklærte aldri krig mot hverandre. Hva sier dette om den kalde krigen som system?"
             },
@@ -792,7 +792,7 @@
             "choices": [
                 {
                     "id": "c_kap1_1",
-                    "text": "5 millioner dode for en grense som ikke beveget seg. Hva var poenget?",
+                    "text": "5 millioner døde for en grense som ikke beveget seg. Hva var poenget?",
                     "nextNodeId": "hub_kap2",
                     "effects": {
                         "menneskekost": 10,
@@ -801,7 +801,7 @@
                 },
                 {
                     "id": "c_kap1_2",
-                    "text": "Syd-Korea overlevde. Den er i dag et av verdens rikeste land. Uten krigen?",
+                    "text": "Sør-Korea overlevde. Den er i dag et av verdens rikeste land. Uten krigen?",
                     "nextNodeId": "hub_kap2",
                     "effects": {
                         "historisk_innsikt": 15,
@@ -924,7 +924,7 @@
                     },
                     "ethicsLens": {
                         "deontological": "En demokratisk nasjon bor ikke undergrave andre demokratier, uansett strategisk gevinst.",
-                        "consequentialist": "Pa kort sikt mister USA innflytelse. Pa lang sikt unngår USA å skape anti-amerikanisme som koster mye mer.",
+                        "consequentialist": "På kort sikt mister USA innflytelse. På lang sikt unngår USA å skape anti-amerikanisme som koster mye mer.",
                         "virtue": "Integritet er å gjøre det riktige selv når det er kostbart. Dette er en sjanse til å bevise hva USA faktisk står for."
                     }
                 }
@@ -1021,11 +1021,11 @@
                         "historisk_innsikt": 10
                     },
                     "isHistoricalChoice": true,
-                    "historicalConsequence": "Eisenhower krevde nettopp dette. Storbritannia og Frankrike måtte trekke seg ydmyket tilbake. Den europeiske imperietiden var over. USA var den udiskutable vestige supermakten.",
+                    "historicalConsequence": "Eisenhower krevde nettopp dette. Storbritannia og Frankrike måtte trekke seg ydmyket tilbake. Den europeiske imperietiden var over. USA var den udiskutable vestlige supermakten.",
                     "ethicsLens": {
-                        "deontological": "En stat bor ikke angripe et annet land ulovlig - uansett hvem som gjor det, allierte eller ikke.",
+                        "deontological": "En stat bor ikke angripe et annet land ulovlig - uansett hvem som gjør det, allierte eller ikke.",
                         "consequentialist": "Å stoppe allierte her sender et kraftig signal om internasjonal orden. Langsiktig gevinst overstyrer kortsiktig lojalitet.",
-                        "virtue": "Rettferdighet er blind for vennskap. Å holde prinsippene fast gjor USA troverdig som frihetens forsvarer."
+                        "virtue": "Rettferdighet er blind for vennskap. Å holde prinsippene fast gjør USA troverdig som frihetens forsvarer."
                     }
                 },
                 {
@@ -1038,7 +1038,7 @@
                     "ethicsLens": {
                         "deontological": "Lojalitet til allierte er en plikt. Å svikte dem i krise undergraver alliansens integritet.",
                         "consequentialist": "Å støtte et ulovlig angrep koster USA sin rolle som 'frihetens forsvarer' - en rolle verdt mye mer enn Suez.",
-                        "virtue": "Er det modig eller feigt å støtte noe man vet er galt fordi det er allierte som gjor det?"
+                        "virtue": "Er det modig eller feigt å støtte noe man vet er galt fordi det er allierte som gjør det?"
                     }
                 }
             ],
@@ -1050,7 +1050,7 @@
             "speaker": "Forteller",
             "discoveryEvent": {
                 "title": "Avkolonisering og ny verdensorden",
-                "fact": "Suezkrisen i 1956 akselererte avkoloniseringsprocessen. Fra 1956 til 1975 ble over 40 afrikanske og asiatiske land selvstendige. Bade USA og Sovjet forsøkte å fylle maktvakuumet - noe som skapte nye proxyslagmarker.",
+                "fact": "Suezkrisen i 1956 akselererte avkoloniseringsprosessen. Fra 1956 til 1975 ble over 40 afrikanske og asiatiske land selvstendige. Bade USA og Sovjet forsøkte å fylle maktvakuumet - noe som skapte nye proxyslagmarker.",
                 "articleLink": "/historie/den-kalde-krigen/oversikt",
                 "reflectionQuestion": "Da de europeiske koloniimperiene falt, fylte USA og Sovjet maktvakuumet. Er det noen forskjell mellom dette og tradisjonell kolonialisme?"
             },
@@ -1141,10 +1141,10 @@
             "text": "4. oktober 1957. CIA-mottaksstasjon, Maryland. Et radioteleskop fanger opp et signal - beep-beep-beep - hvert 96. sekund. Sovjet har skutt noe opp i verdensrommet. Det kretser 900 kilometer over USA. Dine analytikere er delt om hva dette betyr. Du må rådgi presidenten nå.",
             "speaker": "CIA-analytiker",
             "discoveryEvent": {
-                "title": "Sputnik og romkapplopet",
-                "fact": "4. oktober 1957 skjøt Sovjet opp Sputnik 1 - verdens første kunstige satellitt. Den var 58 cm i diameter og veide 83 kg. Sputnik beviste at Sovjet hadde raketter kraftige nok til å nå USA med atomvapen. USA svarte med å opprette NASA i 1958 og starte Apolloprogrammet.",
-                "articleLink": "/historie/den-kalde-krigen/romkapplopet",
-                "reflectionQuestion": "Hva forteller romkapplopet om sammenhengen mellom vitenskap, prestisje og militær makt under den kalde krigen?"
+                "title": "Sputnik og romkappløpet",
+                "fact": "4. oktober 1957 skjøt Sovjet opp Sputnik 1 - verdens første kunstige satellitt. Den var 58 cm i diameter og veide 83 kg. Sputnik beviste at Sovjet hadde raketter kraftige nok til å nå USA med atomvåpen. USA svarte med å opprette NASA i 1958 og starte Apolloprogrammet.",
+                "articleLink": "/historie/den-kalde-krigen/romkappløpet",
+                "reflectionQuestion": "Hva forteller romkappløpet om sammenhengen mellom vitenskap, prestisje og militær makt under den kalde krigen?"
             },
             "minigame": {
                 "type": "signal",
@@ -1160,7 +1160,7 @@
                         },
                         {
                             "id": "opt_militær",
-                            "label": "Umiddelbar militær trussel - Sputnik barer atomvapen. Svar: Sett atomstyrker i forhoyede beredskap.",
+                            "label": "Umiddelbar militær trussel - Sputnik barer atomvåpen. Svar: Sett atomstyrker i forhoyede beredskap.",
                             "isCorrect": false
                         },
                         {
@@ -1174,7 +1174,7 @@
                             "isCorrect": false
                         }
                     ],
-                    "correctFeedback": "Riktig. Sputnik var ikke et vapen - men det beviste at Sovjet hadde raketter med rekkevidde til USA. Riktig svar er å akselerere USAs eget romprogram. NASA dannes i 1958.",
+                    "correctFeedback": "Riktig. Sputnik var ikke et våpen - men det beviste at Sovjet hadde raketter med rekkevidde til USA. Riktig svar er å akselerere USAs eget romprogram. NASA dannes i 1958.",
                     "incorrectFeedback": "Feil analyse. Overdreven militarisering av svaret skapte unødig panikk og feil prioritering. Sputnik var en teknologisk demonstrasjon - farlig nok i seg selv, men ikke en umiddelbar militær trussel."
                 }
             },
@@ -1449,7 +1449,7 @@
                         {
                             "id": "tel_sovjet",
                             "from": "Sovjet-ambassadr Dobrynin",
-                            "preview": "Moskva benekter offisielt: 'Sovjet har ingen offensive vapen pa Cuba. Alle installasjoner er rent defensive.'",
+                            "preview": "Moskva benekter offisielt: 'Sovjet har ingen offensive våpen pa Cuba. Alle installasjoner er rent defensive.'",
                             "correctBucket": "urgent"
                         },
                         {
@@ -1618,7 +1618,7 @@
                     },
                     "ethicsLens": {
                         "deontological": "Et forkjøpsangrep mot Cuba er et uprovosert angrep - ulovlig under folkeretten.",
-                        "consequentialist": "Å eliminere trukkelen umiddelbart virker logisk - men hva skjer med Sovjet-styrkene allerede på Cuba?",
+                        "consequentialist": "Å eliminere trusselen umiddelbart virker logisk - men hva skjer med Sovjet-styrkene allerede på Cuba?",
                         "virtue": "Er det modighet å angripe forst, eller feighet å ikke tåle usikkerheten som forhandlinger medfører?"
                     }
                 }
@@ -1709,9 +1709,9 @@
             "speaker": "Forteller",
             "discoveryEvent": {
                 "title": "Den hete linjen",
-                "fact": "Den hete linjen (Den røde telefonen) ble installert 30. august 1963 - direkte forbindelse mellom Washington og Moskva. Den var ikke en telefonlinje, men en teleksprmaskin. Første bruk: Seksdagerskrigen i Midtosten, 1967. Den eksisterer fortsatt den dag i dag.",
+                "fact": "Den hete linjen (Den røde telefonen) ble installert 30. august 1963 - direkte forbindelse mellom Washington og Moskva. Den var ikke en telefonlinje, men en teleksmaskin. Første bruk: Seksdagerskrigen i Midtosten, 1967. Den eksisterer fortsatt den dag i dag.",
                 "articleLink": "/historie/den-kalde-krigen/oversikt",
-                "reflectionQuestion": "Hva forteller det oss at verdlederne etter Kubakrisen umiddelbart installerte en direktelinje? Hva manglet de i 1962 som skapte fare?"
+                "reflectionQuestion": "Hva forteller det oss at verdenslederne etter Kubakrisen umiddelbart installerte en direktelinje? Hva manglet de i 1962 som skapte fare?"
             },
             "journalPrompt": "Kubakrisen var nesten slutten. Hva tror du var det viktigste vi lærte - og hva lærte vi ikke som vi burde?",
             "choices": [
@@ -1737,7 +1737,7 @@
         },
         "hub_kap3": {
             "id": "hub_kap3",
-            "text": "1964. Johnson overtar etter Kennedy. Vietnam eskalerer. Praha drommer om 'sosialisme med et menneskelig ansikt'. Salvador Allende stiller til valg i Chile. Den kalde krigen brant på tre kontinenter samtidig - og det var ikke supermaktene som betalte prisen.",
+            "text": "1964. Johnson overtar etter Kennedy. Vietnam eskalerer. Praha drømmer om 'sosialisme med et menneskelig ansikt'. Salvador Allende stiller til valg i Chile. Den kalde krigen brant på tre kontinenter samtidig - og det var ikke supermaktene som betalte prisen.",
             "speaker": "Forteller",
             "backgroundImage": "/images/chronos/kald-krig/world_map_1975.webp",
             "uiType": "map",
@@ -1801,7 +1801,7 @@
             "backgroundImage": "/images/chronos/kald-krig/ho_brev_arkiv.webp",
             "discoveryEvent": {
                 "title": "Vietnam - bakgrunn og Ho Chi Minh",
-                "fact": "Ho Chi Minh grunnla Viet Minh i 1941 og kjempet for vietnamesisk selvstendighet fra Frankrike. Da Frankrike tapte ved Dien Bien Phu i 1954, delte Geneve-avtalen Vietnam ved den 17. breddegrad. USA begynte å støtte Syd-Vietnam mot nord - og arvet Frankrikes krig.",
+                "fact": "Ho Chi Minh grunnla Viet Minh i 1941 og kjempet for vietnamesisk selvstendighet fra Frankrike. Da Frankrike tapte ved Dien Bien Phu i 1954, delte Geneve-avtalen Vietnam ved den 17. breddegrad. USA begynte å støtte Sør-Vietnam mot nord - og arvet Frankrikes krig.",
                 "articleLink": "/historie/den-kalde-krigen/vietnamkrigen",
                 "reflectionQuestion": "Hva skjer når en stormakt 'arver' en annen stormakts kolonikrig? Er det den samme krigen, eller noe nytt?"
             },
@@ -1819,7 +1819,7 @@
             "speaker": "LBJ-radgiver",
             "discoveryEvent": {
                 "title": "Tonkin-bukta-fakta",
-                "fact": "Det første angrepet (2. august 1964) skjedde trolig. Det andre angrepet (4. august) skjedde trolig ikke - det var radar-fantomer under stormvær. Likevel ble Tonkin-resolusjonen vedtatt 7. august og ga LBJ fri krigsmandat i Vietnam. Krigen det utloste kostet 58 220 amerikanske og estimert 3 millioner vietnamesiske liv.",
+                "fact": "Det første angrepet (2. august 1964) skjedde trolig. Det andre angrepet (4. august) skjedde trolig ikke - det var radar-fantomer under stormvær. Likevel ble Tonkin-resolusjonen vedtatt 7. august og ga USAs president Lyndon B. Johnson fri krigsmandat i Vietnam. Krigen det utløste kostet 58 220 amerikanske og estimert 3 millioner vietnamesiske liv.",
                 "articleLink": "/historie/den-kalde-krigen/vietnamkrigen",
                 "reflectionQuestion": "Hva er faren ved å ta kritiske krigsavgjørelser basert på usikker etterretning? Hvem er ansvarlig når det viser seg å være feil?"
             },
@@ -1828,7 +1828,7 @@
                 "config": {
                     "winNodeId": "tonkin_tvilsom",
                     "lossNodeId": "tonkin_godkjent_scene",
-                    "situation": "4. august 1964, natt. Meldinger fra USS Maddox: 'Angrepet av torpedoer.' Men signaloperatøren rapporterer radar-ekko fra bolgegangen. Kaptein Herrick er usikker. Velg riktig analyse for presidenten.",
+                    "situation": "4. august 1964, natt. Meldinger fra USS Maddox: 'Angrepet av torpedoer.' Men signaloperatøren rapporterer radar-ekko fra bølgegangen. Kaptein Herrick er usikker. Velg riktig analyse for presidenten.",
                     "options": [
                         {
                             "id": "opt_tvilsomt",
@@ -2139,7 +2139,7 @@
             "speaker": "Forteller",
             "discoveryEvent": {
                 "title": "Vietnam-statistikk",
-                "fact": "Vietnamkrigen (1955-1975): 58 220 amerikanske drepte, estimert 1,1-3,8 millioner vietnamesiske drepte (nord og syd). 19 millioner liter Agent Orange sprøytet over 10% av Syd-Vietnams areal. USA brukte 168 milliarder dollar (2021-verdier: over 1 000 milliarder).",
+                "fact": "Vietnamkrigen (1955-1975): 58 220 amerikanske drepte, estimert 1,1-3,8 millioner vietnamesiske drepte (nord og syd). 19 millioner liter Agent Orange sprøytet over 10% av Sør-Vietnams areal. USA brukte 168 milliarder dollar (2021-verdier: over 1 000 milliarder).",
                 "articleLink": "/historie/den-kalde-krigen/vietnamkrigen",
                 "reflectionQuestion": "Vietnam er kalt 'the first televised war'. Hva skjer når borgerne ser krigen direkte på TV - og hva betyr det for demokratiets evne til å fore krig?"
             },
@@ -2242,11 +2242,11 @@
         },
         "praha_symbol": {
             "id": "praha_symbol",
-            "text": "Bildene spres verden over. En student foran en tank. Sovjet-invasjonen er en propaganda-katastrofe. Brezjnev stadfester doktrinen: ingen østblokkstat kan forlate pakten. Men frøet av motstand er plantet - Praha-våren ble aldri glemt av det tsjekkiske folk.",
+            "text": "Bildene spres verden over. En student foran en tank. Sovjet-invasjonen er en propaganda-katastrofe. Sovjets president Brezjnev stadfester doktrinen: ingen østblokkstat kan forlate pakten. Men frøet av motstand er plantet - Praha-våren ble aldri glemt av det tsjekkiske folk.",
             "speaker": "Forteller",
             "discoveryEvent": {
                 "title": "Brezjnev-doktrinen",
-                "fact": "Brezjnev-doktrinen (1968) erklarte at Sovjet hadde rett til å intervenere i ethvert sosialistland der 'sosialismen var truet'. Doktrinen holdt Østblokken samlet - inntil Gorbatsjov i 1989 forkastet den og lot Øst-Europa velge fritt.",
+                "fact": "Brezjnev-doktrinen (1968) erklærte at Sovjet hadde rett til å intervenere i ethvert sosialistland der 'sosialismen var truet'. Doktrinen holdt Østblokken samlet - inntil Gorbatsjov i 1989 forkastet den og lot Øst-Europa velge fritt.",
                 "articleLink": "/historie/den-kalde-krigen/oversikt",
                 "reflectionQuestion": "En allianse der ett land bestemmer for alle - er det en allianse eller en tvangstrøye?"
             },
@@ -2267,7 +2267,7 @@
         },
         "praha_knust": {
             "id": "praha_knust",
-            "text": "Protestene slås ned. Dubcek fjernes. Sovjet kaller det 'normalisering'. Alt som ble vunnet i vaaren er borte. Men noe er ugjenkallelig forandret: mange tsjekkere vil aldri stole på systemet igjen. Det frøet spirer i 1989.",
+            "text": "Protestene slås ned. Dubcek fjernes. Sovjet kaller det 'normalisering'. Alt som ble vunnet i våren er borte. Men noe er ugjenkallelig forandret: mange tsjekkere vil aldri stole på systemet igjen. Det frøet spirer i 1989.",
             "speaker": "Forteller",
             "choices": [
                 {
@@ -2291,7 +2291,7 @@
             "speaker": "Nixon/Kissinger",
             "discoveryEvent": {
                 "title": "Allende og demokratiet i Chile",
-                "fact": "Salvador Allende ble valgt til president i Chile i 1970 - den første demokratisk valgte marxisten i verden. CIA finansierte protester og streiker for å destabilisere regimet. 11. september 1973 gjennomførte general Pinochet et militærkupp. Allende døde under belejringen av La Moneda. Pinochets regime drepte og torturerte over 3 000 mennesker.",
+                "fact": "Salvador Allende ble valgt til president i Chile i 1970 - den første demokratisk valgte marxisten i verden. CIA finansierte protester og streiker for å destabilisere regimet. 11. september 1973 gjennomførte general Pinochet et militærkupp. Allende døde under beleiringen av La Moneda. Pinochets regime drepte og torturerte over 3 000 mennesker.",
                 "articleLink": "/historie/den-kalde-krigen/oversikt",
                 "reflectionQuestion": "Hva skjer med 'frihetens forsvarer'-narrativet når USA fjerner demokratisk valgte ledere? Er det et dobbeltstandard - eller er det realpolitikk?"
             },
@@ -2311,7 +2311,7 @@
                     },
                     "ethicsLens": {
                         "deontological": "Å hjelpe til med å fjerne en demokratisk valgt leder bryter den grunnleggende plikten til å respektere folkenes selvbestemmelse.",
-                        "consequentialist": "Pinochet er proppkapitalist. Chile holder seg i vestlig leir. Er det resultatet som teller - uansett metode?",
+                        "consequentialist": "Pinochet er pro-kapitalist. Chile holder seg i vestlig leir. Er det resultatet som teller - uansett metode?",
                         "virtue": "Hva slags samfunn er USA hvis de støtter et regime de vet vil drepe tusenvis av uskyldige?"
                     }
                 },
@@ -2325,7 +2325,7 @@
                     "ethicsLens": {
                         "deontological": "En demokratisk stat bor ikke undergrave andres demokrati - uansett ideologisk uenighet.",
                         "consequentialist": "Chile kan bli en kommunistisk dominobrikke. Er det en risiko USA har råd til å ta i Latin-Amerika?",
-                        "virtue": "Prinsippfasthet koster noe. Men det er det som gjor et prinsipp til et prinsipp."
+                        "virtue": "Prinsippfasthet koster noe. Men det er det som gjør et prinsipp til et prinsipp."
                     }
                 }
             ],
@@ -2338,7 +2338,7 @@
             "backgroundImage": "/images/chronos/kald-krig/chile_moneda.webp",
             "discoveryEvent": {
                 "title": "Pinochets terror",
-                "fact": "Under Pinochets regime (1973-1990) ble over 3 200 mennesker drept eller tvangsforsvinnet. Over 40 000 ble torturert. Regime mottok aktivt støtte fra USA gjennom Operasjon Condor - et CIA-koordinert samarbeid mellom Syd-Amerikas militærdiktaturer.",
+                "fact": "Under Pinochets regime (1973-1990) ble over 3 200 mennesker drept eller tvangsforsvinnet. Over 40 000 ble torturert. Regime mottok aktivt støtte fra USA gjennom Operasjon Condor - et CIA-koordinert samarbeid mellom Sør-Amerikas militærdiktaturer.",
                 "articleLink": "/historie/den-kalde-krigen/oversikt",
                 "reflectionQuestion": "Kan USA kalle seg frihetens forsvarer når de finansierer et regime som dreper egne borgere? Hva er konsekvensen for USAs troverdighet globalt?"
             },
@@ -2371,7 +2371,7 @@
         },
         "kap3_konsekvenser": {
             "id": "kap3_konsekvenser",
-            "text": "Santiago, 1973. Pinochet sitter ved makten. Allende er borte. Chile blør under diktaturet. Den kalde krigens logikk begynner å bli klar: supermaktene kjempet ikke med egne soldater - de brukte andre lands borgere. Og det var de landene som betalte regningen.",
+            "text": "1975. Vietnam er falt. Praha er glemt av verden. Chile blør under diktaturat. Den kalde krigens logikk er klar nå: supermaktene kjempet aldri direkte mot hverandre. De kjempet gjennom andre land. Og det var de landene som betalte regningen.",
             "speaker": "Forteller",
             "discoveryEvent": {
                 "title": "Kovert makt og utilsiktede konsekvenser",
@@ -2382,7 +2382,7 @@
             "choices": [
                 {
                     "id": "c_kap3_1",
-                    "text": "Gå tilbake til verdenskartet",
+                    "text": "Gå videre til kapittel 4",
                     "nextNodeId": "hub_kap3",
                     "setFlags": [
                         "hub3_chile_done"
@@ -2401,7 +2401,7 @@
             "backgroundImage": "/images/chronos/kald-krig/nixon_china_1972.webp",
             "discoveryEvent": {
                 "title": "Detente og realpolitikk",
-                "fact": "Detente (avspenning) var en periode på 1970-tallet der USA og Sovjet reduserte spenningen gjennom SALT-avtalene om atomvapen, Nixons Kina-besok og Helsingfors-avtalen. Men proxy-kriger fortsatte uforminsket - i Afrika, Midtosten og Asia.",
+                "fact": "Detente (avspenning) var en periode på 1970-tallet der USA og Sovjet reduserte spenningen gjennom SALT-avtalene om atomvåpen, Nixons Kina-besok og Helsingfors-avtalen. Men proxy-kriger fortsatte uforminsket - i Afrika, Midtosten og Asia.",
                 "articleLink": "/historie/den-kalde-krigen/oversikt",
                 "reflectionQuestion": "Er det mulig å ha 'avspenning' mellom to stormakter når de simultaneously kjemper mot hverandre gjennom andre land?"
             },
@@ -2449,11 +2449,11 @@
         },
         "angola_proxy": {
             "id": "angola_proxy",
-            "text": "Luanda, 1975. Portugal forlater Angola etter 500 år. Tre frigjøringsbevegelser kjemper om makten. MPLA støttes av Sovjet og Cuba. UNITA støttes av CIA og Syd-Afrika. Du er Carters rådgiver. Du har begrensede ressurser - og ingen gode valg.",
+            "text": "Luanda, 1975. Portugal forlater Angola etter 500 år. Tre frigjøringsbevegelser kjemper om makten. MPLA støttes av Sovjet og Cuba. UNITA støttes av CIA og Sør-Afrika. Du er Carters rådgiver. Du har begrensede ressurser - og ingen gode valg.",
             "speaker": "Carter-radgiver",
             "discoveryEvent": {
                 "title": "Angola-borgerkrigen",
-                "fact": "Da Portugal forlot Angola i 1975 brøt borgerkrig ut mellom MPLA (Sovjet/Cuba-støttet) og UNITA (CIA/Syd-Afrika-støttet). Cuba sendte 50 000 soldater. USA finansierte UNITA. Borgerkrigen varte til 2002 og kostet estimert 500 000 liv.",
+                "fact": "Da Portugal forlot Angola i 1975 brøt borgerkrig ut mellom MPLA (Sovjet/Cuba-støttet) og UNITA (CIA/Sør-Afrika-støttet). Cuba sendte 50 000 soldater. USA finansierte UNITA. Borgerkrigen varte til 2002 og kostet estimert 500 000 liv.",
                 "articleLink": "/historie/den-kalde-krigen/oversikt",
                 "reflectionQuestion": "Når to afrikanske frigjøringsbevegelser kjemper om makten - hvorfor bestemmer supermakter i Washington og Moskva hvem som vinner?"
             },
@@ -2519,7 +2519,7 @@
                 "title": "Afghanistan - et land ingen har beseiret",
                 "fact": "Afghanistan er kalt 'Imperienes kirkegård'. Britene forsøkte og mislyktes (1839-1919). Sovjet invaderte i 1979 og trakk seg ut i 1989 etter 15 000 drepte soldater. USA invaderte i 2001 og trakk seg ut i 2021. Landets geografi og stammekulturer har utmattet alle invasjonsstyrker.",
                 "articleLink": "/historie/den-kalde-krigen/oversikt",
-                "reflectionQuestion": "Hva er det med Afghanistan som gjor det svaert å okkupere? Er det geografi, kultur, begge deler - eller noe annet?"
+                "reflectionQuestion": "Hva er det med Afghanistan som gjør det svært å okkupere? Er det geografi, kultur, begge deler - eller noe annet?"
             },
             "choices": [
                 {
@@ -2612,7 +2612,7 @@
                             "id": "mor",
                             "name": "Fatimas mor",
                             "role": "Syk, trenger medisin",
-                            "context": "Har vaert syk i to uker. Uten medisin overlever hun ikke vinteren.",
+                            "context": "Har vært syk i to uker. Uten medisin overlever hun ikke vinteren.",
                             "effects": {
                                 "ifGiven": {
                                     "menneskekost": -5
@@ -2676,7 +2676,7 @@
             "speaker": "Zbigniew Brzezinski",
             "discoveryEvent": {
                 "title": "Operasjon Syklone - CIA og mujahideen",
-                "fact": "Operasjon Syklone var CIAs stoerste kovert operasjon noensinne. Fra 1979 til 1992 brukte USA estimert 2 milliarder dollar på å bevapne og trene afghanske mujahideen. Saudiarabia matchet hvert dollar. Operasjonen bidro til Sovjet-nederlaget - men la ogsa grunnlaget for Taliban.",
+                "fact": "Operasjon Syklone var CIAs stoerste kovert operasjon noensinne. Fra 1979 til 1992 brukte USA estimert 2 milliarder dollar på å bevæpne og trene afghanske mujahideen. Saudiarabia matchet hvert dollar. Operasjonen bidro til Sovjet-nederlaget - men la ogsa grunnlaget for Taliban.",
                 "articleLink": "/historie/den-kalde-krigen/oversikt",
                 "reflectionQuestion": "Brzezinski sa seinere: 'Hva var viktigst for verdenshistorien? Taliban eller Sovjet-kollapsen?' Hva mener du?"
             },
@@ -2686,7 +2686,7 @@
                     "text": "Bevapne mujahideen - gi Sovjet sin Vietnam",
                     "nextNodeId": "cia_domino_spill",
                     "setFlags": [
-                        "mujahideen_bevapnet"
+                        "mujahideen_bevæpnet"
                     ],
                     "updateInventory": {
                         "add": "mujahideen_kontrakt"
@@ -2696,20 +2696,20 @@
                         "sovjet_innflytelse": -5
                     },
                     "ethicsLens": {
-                        "deontological": "Å bevapne ikke-statlige aktorer bryter folkeretten og overforer ansvar for konsekvensene til en gruppe USA ikke kontrollerer.",
+                        "deontological": "Å bevæpne ikke-statlige aktører bryter folkeretten og overforer ansvar for konsekvensene til en gruppe USA ikke kontrollerer.",
                         "consequentialist": "Sovjet i Afghanistan koster dem ressurser og prestisje - og kan akselerere systemets kollaps. Resultatet kan rettferdiggjore midlet.",
-                        "virtue": "Hvem er disse mennene vi bevapner - og er vi villige til å leve med det vi skaper?"
+                        "virtue": "Hvem er disse mennene vi bevæpner - og er vi villige til å leve med det vi skaper?"
                     }
                 },
                 {
                     "id": "c_cia_2",
-                    "text": "Nekt - vi vet ikke hvem vi bevapner",
+                    "text": "Nekt - vi vet ikke hvem vi bevæpner",
                     "nextNodeId": "kap4_advarsel",
                     "effects": {
                         "historisk_innsikt": 10
                     },
                     "ethicsLens": {
-                        "deontological": "Å nekte å bevapne ukjente aktorer er den eneste ansvarsfulle handlingen når konsekvensene er uforutsigbare.",
+                        "deontological": "Å nekte å bevæpne ukjente aktører er den eneste ansvarsfulle handlingen når konsekvensene er uforutsigbare.",
                         "consequentialist": "Å ikke handle lar Sovjet beholde Afghanistan - og sender signal om at USA er passivt.",
                         "virtue": "Å si nei når alle sier ja krever mot. Men det er nettopp da det teller."
                     }
@@ -2743,7 +2743,7 @@
                                     "cost": 2,
                                     "successBonus": 20,
                                     "backfireChance": 10,
-                                    "description": "Skuddvisse raketter mot Sovjet-helikoptere. Hoy effekt, lav risiko her."
+                                    "description": "Skuddvisse raketter mot Sovjet-helikoptere. Høy effekt, lav risiko her."
                                 },
                                 {
                                     "id": "trening",
@@ -2784,7 +2784,7 @@
                                     "cost": 2,
                                     "successBonus": 18,
                                     "backfireChance": 25,
-                                    "description": "Ustabile stammealliancer gjor treningsleire risikable."
+                                    "description": "Ustabile stammealliancer gjør treningsleire risikable."
                                 },
                                 {
                                     "id": "penger",
@@ -2842,7 +2842,7 @@
                                     "cost": 3,
                                     "successBonus": 30,
                                     "backfireChance": 28,
-                                    "description": "Hoyest risiko, hoyest belonning. Sovjet-kontroll er sterk rundt hovedstaden."
+                                    "description": "Høyest risiko, hoyest belønning. Sovjet-kontroll er sterk rundt hovedstaden."
                                 },
                                 {
                                     "id": "trening",
@@ -2874,7 +2874,7 @@
             "choices": [
                 {
                     "id": "c_muj_suksess_1",
-                    "text": "Men hvem er disse mennene vi bevapnet?",
+                    "text": "Men hvem er disse mennene vi bevæpnet?",
                     "nextNodeId": "kap4_advarsel",
                     "effects": {
                         "sovjet_innflytelse": -10,
@@ -2886,12 +2886,12 @@
         },
         "mujahideen_kaos": {
             "id": "mujahideen_kaos",
-            "text": "Mujahideen er fragmentert og uforutsigbar. Grupper kjemper seg imellom om CIA-pengene. Noen Stinger-missiler forsvinner til ukjente aktorer. USA har mistet kontrollen over hvem som mottar hva - og hva de vil gjøre med det.",
+            "text": "Mujahideen er fragmentert og uforutsigbar. Grupper kjemper seg imellom om CIA-pengene. Noen Stinger-missiler forsvinner til ukjente aktører. USA har mistet kontrollen over hvem som mottar hva - og hva de vil gjøre med det.",
             "speaker": "Forteller",
             "choices": [
                 {
                     "id": "c_muj_kaos_1",
-                    "text": "Men hvem er disse mennene vi bevapnet?",
+                    "text": "Men hvem er disse mennene vi bevæpnet?",
                     "nextNodeId": "kap4_advarsel",
                     "effects": {
                         "menneskekost": 10,
@@ -2903,11 +2903,11 @@
         },
         "kap4_advarsel": {
             "id": "kap4_advarsel",
-            "text": "'Men hvem er disse mennene vi bevapner?' En ung CIA-analytiker reiser seg ved bordenden. 'Og hva vil de gjøre med sine Stinger-missiler når Sovjet er borte?' Rommet er stille. Ingen svarer. Det er 1985.",
+            "text": "'Men hvem er disse mennene vi bevæpner?' En ung CIA-analytiker reiser seg ved bordenden. 'Og hva vil de gjøre med sine Stinger-missiler når Sovjet er borte?' Rommet er stille. Ingen svarer. Det er 1985.",
             "speaker": "Forteller",
             "discoveryEvent": {
                 "title": "Utilsiktede konsekvenser - Afghanistan",
-                "fact": "Mange av de mujahideen-krigerne CIA bevapnet på 1980-tallet organiserte seg seinere i Taliban og al-Qaida. Stinger-missilene som USA leverte dukket opp i konflikter i tiår etter den kalde krigens slutt. Operasjon Syklone er blitt lereeksempel på utilsiktede konsekvenser i internasjonal politikk.",
+                "fact": "Mange av de mujahideen-krigerne CIA bevæpnet på 1980-tallet organiserte seg seinere i Taliban og al-Qaida. Stinger-missilene som USA leverte dukket opp i konflikter i tiår etter den kalde krigens slutt. Operasjon Syklone er blitt lereeksempel på utilsiktede konsekvenser i internasjonal politikk.",
                 "articleLink": "/historie/den-kalde-krigen/oversikt",
                 "reflectionQuestion": "Kan en beslutning være 'riktig' i 1981 og 'feil' i 2001? Eller var advarseltegnene der hele tiden?"
             },
@@ -2954,7 +2954,7 @@
                         "id": "point_tsernobyl",
                         "x": 60,
                         "y": 30,
-                        "label": "Tsernobyl - Ulykken som avslørte lognen 1986",
+                        "label": "Tsjernobyl - Ulykken som avslørte lognen 1986",
                         "icon": "zap",
                         "nextNodeId": "tsernobyl_hub",
                         "visitedFlag": "hub5_tsernobyl_done"
@@ -3219,7 +3219,7 @@
             "speaker": "Forteller",
             "backgroundImage": "/images/chronos/kald-krig/tsernobyl.webp",
             "discoveryEvent": {
-                "title": "Tsernobyl-ulykken 1986",
+                "title": "Tsjernobyl-ulykken 1986",
                 "fact": "Reaktor 4 ved Tjernobyl-kraftverket eksploderte 26. april 1986. Det var verdens verste atomulykke. Sovjet-myndighetene ventet 36 timer med å evakuere nærliggende Pripyat og informerte ikke umiddelbart europeiske naboland. Over 600 000 'likvidasjonsarbeidere' ble sendt til oppryddingen uten tilstrekkelig verneutstyr.",
                 "articleLink": "/historie/den-kalde-krigen/oversikt",
                 "reflectionQuestion": "Hvordan kan et system som krever taushet fungere i en krise som krever åpenhet for å redde liv?"
@@ -3237,7 +3237,7 @@
         },
         "tsernobyl_valg": {
             "id": "tsernobyl_valg",
-            "text": "Pravda-redaksjonen er samlet. Fem nyheter om Tsernobyl krever avgjørelser nå. Verden ser på.",
+            "text": "Pravda-redaksjonen er samlet. Fem nyheter om Tsjernobyl krever avgjørelser nå. Verden ser på.",
             "speaker": "Sovjet-informasjonsminister",
             "minigame": {
                 "type": "propaganda",
@@ -3251,7 +3251,7 @@
                     "items": [
                         {
                             "id": "eksplosjon",
-                            "headline": "Teknisk uhell ved Tsernobyl kjernekraftverk",
+                            "headline": "Teknisk uhell ved Tsjernobyl kjernekraftverk",
                             "realFacts": "Reaktor 4 eksploderte klokken 01.23. Eksplosjonen frigjorde 400 ganger mer radioaktivitet enn bomben over Hiroshima. Brannen slokkes ikke på dager.",
                             "options": [
                                 {
@@ -3308,7 +3308,7 @@
                                 {
                                     "id": "erkjenn",
                                     "label": "Erkjenn hendelsen",
-                                    "description": "'Sovjet bekrefter: Tsernobyl er kilden. Vi samarbeider med internasjonale myndigheter.'",
+                                    "description": "'Sovjet bekrefter: Tsjernobyl er kilden. Vi samarbeider med internasjonale myndigheter.'",
                                     "credibilityChange": 10,
                                     "effects": {
                                         "historisk_innsikt": 5
@@ -3370,8 +3370,8 @@
                         },
                         {
                             "id": "glasnost_test",
-                            "headline": "Gorbatsjov og Tsernobyl: Glasnostens prøve",
-                            "realFacts": "Gorbatsjov ventet 18 dager etter ulykken med å tale til nasjonen. Mange historikere mener Tsernobyl ble glasnostens virkelige test - og at systemet strøk.",
+                            "headline": "Gorbatsjov og Tsjernobyl: Glasnostens prøve",
+                            "realFacts": "Gorbatsjov ventet 18 dager etter ulykken med å tale til nasjonen. Mange historikere mener Tsjernobyl ble glasnostens virkelige test - og at systemet strøk.",
                             "options": [
                                 {
                                     "id": "helten",
@@ -3401,7 +3401,7 @@
         },
         "tsernobyl_konsekvens": {
             "id": "tsernobyl_konsekvens",
-            "text": "'Logner rundt Tsernobyl kostet liv,' skriver Gorbatsjov seinere. 'Men de kostet systemet noe mer: Ingen trodde lenger på myndighetene.' Tsernobyl ble ikke bare en atomulykke. Det ble glasnostens sannhetsprøve.",
+            "text": "'Logner rundt Tsjernobyl kostet liv,' skriver Gorbatsjov seinere. 'Men de kostet systemet noe mer: Ingen trodde lenger på myndighetene.' Tsjernobyl ble ikke bare en atomulykke. Det ble glasnostens sannhetsprøve.",
             "speaker": "Forteller",
             "choices": [
                 {
@@ -3596,7 +3596,7 @@
             "backgroundImage": "/images/chronos/kald-krig/sovjet_kollaps.webp",
             "discoveryEvent": {
                 "title": "Sovjet-kollapsen - Årsaker og konsekvenser",
-                "fact": "Sovjet-unionen oppløste seg selv 25. desember 1991. 15 republikker ble selvstendige stater. Historikere peker på glasnost og perestroika, Tsernobyl, Afghanistanskrigen, Solidaritet i Polen og DDR-befolkningens opprør. Det var ikke et militært nederlag - det var et systemkollaps innenfra.",
+                "fact": "Sovjet-unionen oppløste seg selv 25. desember 1991. 15 republikker ble selvstendige stater. Historikere peker på glasnost og perestroika, Tsjernobyl, Afghanistanskrigen, Solidaritet i Polen og DDR-befolkningens opprør. Det var ikke et militært nederlag - det var et systemkollaps innenfra.",
                 "articleLink": "/historie/den-kalde-krigen/oversikt",
                 "reflectionQuestion": "Var Sovjet-kollapsen uunngåelig - eller var det en rekke tilfeldige hendelser som samlet skapte en dominoeffekt?"
             },
@@ -3621,7 +3621,7 @@
                     "text": "Afghanistan, 1996...",
                     "nextNodeId": "epilog_mujahideen",
                     "condition": {
-                        "hasFlag": "mujahideen_bevapnet"
+                        "hasFlag": "mujahideen_bevæpnet"
                     }
                 },
                 {
@@ -3629,7 +3629,7 @@
                     "text": "Videre",
                     "nextNodeId": "epilog_iran",
                     "condition": {
-                        "lacksFlag": "mujahideen_bevapnet"
+                        "lacksFlag": "mujahideen_bevæpnet"
                     }
                 }
             ],
@@ -3786,14 +3786,14 @@
                         "text": "Du var der da muren falt. 9. november 1989. Det er én av de dagene som forandrer alt."
                     },
                     {
-                        "hasFlag": "mujahideen_bevapnet",
-                        "text": "Du bevapnet mujahideen. Og du vet nå hva det kostet. Å forstå en feil er ikke det samme som å angre - men det er begynnelsen."
+                        "hasFlag": "mujahideen_bevæpnet",
+                        "text": "Du bevæpnet mujahideen. Og du vet nå hva det kostet. Å forstå en feil er ikke det samme som å angre - men det er begynnelsen."
                     },
                     {
                         "text": "Den kalde krigen kostet 25 millioner menneskeliv i proxy-konflikter verden over. Den endte ikke med en avtale - men med et folks vilje til frihet, og ledere som valgte å ikke skyte."
                     }
                 ],
-                "historicalEcho": "Den kalde krigen endte 25. desember 1991 med Gorbatsjovs avgang og Sovjet-unionens oppløsning. Det var ikke et militært nederlag for Sovjet - det var et systemkollaps drevet av glasnost, Tsernobyl, Afghanistanskrigen, Solidaritet i Polen og DDR-befolkningens opprør. USA erklærte seg som seierherre - men mange historikere mener det var europeiske folk, ikke den amerikanske militærmakten, som vant den kalde krigen.",
+                "historicalEcho": "Den kalde krigen endte 25. desember 1991 med Gorbatsjovs avgang og Sovjet-unionens oppløsning. Det var ikke et militært nederlag for Sovjet - det var et systemkollaps drevet av glasnost, Tsjernobyl, Afghanistanskrigen, Solidaritet i Polen og DDR-befolkningens opprør. USA erklærte seg som seierherre - men mange historikere mener det var europeiske folk, ikke den amerikanske militærmakten, som vant den kalde krigen.",
                 "reflectionQuestion": "Kan vi si at noen 'vant' den kalde krigen - eller var det alle som tapte noe, og fredssøkerne som reddet mest?"
             },
             "choices": [],
@@ -3809,8 +3809,8 @@
             "epilogue": {
                 "entries": [
                     {
-                        "hasFlag": "mujahideen_bevapnet",
-                        "text": "CIA-operasjonene som bevapnet mujahideen ble sett på som et taktisk suksess. Det strategiske regnestykket ble et annet da Taliban tok makten i 1996."
+                        "hasFlag": "mujahideen_bevæpnet",
+                        "text": "CIA-operasjonene som bevæpnet mujahideen ble sett på som et taktisk suksess. Det strategiske regnestykket ble et annet da Taliban tok makten i 1996."
                     },
                     {
                         "hasFlag": "chile_kupp_godkjent",
@@ -3856,8 +3856,8 @@
                         "text": "Pinochet-regimet: 3 000 drepte, 30 000 torturert, 200 000 i eksil. Et demokrati ble knust for å forhindre en sosialist som ble valgt av folket."
                     },
                     {
-                        "hasFlag": "mujahideen_bevapnet",
-                        "text": "De samme mennene CIA bevapnet i Afghanistan dannet kjernen av Taliban. 11. september 2001 kostet 2 977 liv. En direkte linje fra 1980-tallets kalkyle."
+                        "hasFlag": "mujahideen_bevæpnet",
+                        "text": "De samme mennene CIA bevæpnet i Afghanistan dannet kjernen av Taliban. 11. september 2001 kostet 2 977 liv. En direkte linje fra 1980-tallets kalkyle."
                     },
                     {
                         "hasFlag": "afghanistan_invadert",
@@ -3907,7 +3907,7 @@
         },
         "event_spion_avsloert": {
             "id": "event_spion_avsloert",
-            "text": "En CIA-agent i Moskva er kompromittert. KGB vet hvem han er. Du har to muligheter: evakuer agenten og avslør dekningsthistorien, eller la ham bli for å beskytte kildenettverket.",
+            "text": "En CIA-agent i Moskva er kompromittert. KGB vet hvem han er. Du har to muligheter: evakuer agenten og avslør dekningshistorien, eller la ham bli for å beskytte kildenettverket.",
             "speaker": "CIA-operasjonssjef",
             "choices": [
                 {
