@@ -218,7 +218,21 @@
                 "reflectionQuestion": "Tenk på dominobrikker: hvis én brikke velter, velter alle. Gjelder det samme for krig? Kunne noen stoppet det — og hvem hadde i så fall hatt makten til det?"
             },
             "uiType": "map",
-            "choices": [],
+            "choices": [
+                {
+                    "id": "c_hub1_beslutning",
+                    "text": "Du har lest alle rapporter og raadfört deg med raadgiverne. Ta mobiliseringsbeslutningen.",
+                    "nextNodeId": "mobilisering_beslutning",
+                    "condition": {
+                        "all": [
+                            { "hasFlag": "hub1_telegram_done" },
+                            { "hasFlag": "hub1_sazonov_done" },
+                            { "hasFlag": "hub1_militaer_done" },
+                            { "hasFlag": "hub1_budsjett_done" }
+                        ]
+                    }
+                }
+            ],
             "mapConfig": {
                 "image": "/images/chronos/nikolaj-ii/tsarskoje_selo_map.webp",
                 "points": [
@@ -228,7 +242,8 @@
                         "y": 40,
                         "label": "Les telegram fra Willy",
                         "icon": "mail",
-                        "nextNodeId": "nicky_willy_telegram"
+                        "nextNodeId": "nicky_willy_telegram",
+                        "visitedFlag": "hub1_telegram_done"
                     },
                     {
                         "id": "point_sazonov",
@@ -236,7 +251,8 @@
                         "y": 35,
                         "label": "Konsulter Sazonov",
                         "icon": "users",
-                        "nextNodeId": "sazonov_press"
+                        "nextNodeId": "sazonov_press",
+                        "visitedFlag": "hub1_sazonov_done"
                     },
                     {
                         "id": "point_militær",
@@ -244,15 +260,8 @@
                         "y": 65,
                         "label": "Les militær vurdering",
                         "icon": "shield",
-                        "nextNodeId": "militær_vurdering_1914"
-                    },
-                    {
-                        "id": "point_beslutning",
-                        "x": 40,
-                        "y": 75,
-                        "label": "Ta mobiliseringsbeslutningen",
-                        "icon": "crown",
-                        "nextNodeId": "mobilisering_beslutning"
+                        "nextNodeId": "militær_vurdering_1914",
+                        "visitedFlag": "hub1_militaer_done"
                     },
                     {
                         "id": "point_budsjett",
@@ -260,7 +269,8 @@
                         "y": 28,
                         "label": "Fordel statsressursene",
                         "icon": "scale",
-                        "nextNodeId": "ressurser_1914"
+                        "nextNodeId": "ressurser_1914",
+                        "visitedFlag": "hub1_budsjett_done"
                     },
                     {
                         "id": "point_rapporter_1914",
@@ -282,7 +292,7 @@
             "minigame": {
                 "type": "allocation",
                 "config": {
-                    "onComplete": { "nextNodeId": "mobilisering_beslutning" },
+                    "onComplete": { "nextNodeId": "ressurser_fullfort" },
                     "totalPoints": 100,
                     "categories": [
                         {
@@ -309,6 +319,20 @@
                 }
             }
         },
+        "ressurser_fullfort": {
+            "id": "ressurser_fullfort",
+            "text": "Statsressursene er fordelt. Prioriteringene dine vil forme Russlands kapasitet i krigen som kommer.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/nikolaj-ii/tsarskoje_selo_study.webp",
+            "choices": [
+                {
+                    "id": "c_ressurser_tilbake",
+                    "text": "Gaa tilbake til arbeidsrommet.",
+                    "nextNodeId": "hub_tsarskoje_1914",
+                    "setFlags": ["hub1_budsjett_done"]
+                }
+            ]
+        },
         "nicky_willy_telegram": {
             "id": "nicky_willy_telegram",
             "text": "Telegrammet fra Berlin er skrevet på personlig brevpapir, ikke offisielt statsbrev. 'Kjære Nicky, jeg er i sorg og ser med bekymring på dette...' Kaiser Wilhelm II — Willy for deg siden barndommen — appellerer direkte til deg som slektning, ikke som statsoverhode. Han ber deg stoppe mobiliseringen.\n\nMen generalene dine sier mobilisering ikke kan reverseres når den er startet — tog, soldater og forsyninger er allerede i bevegelse over hele landet. Hva svarer du?",
@@ -324,7 +348,7 @@
                     "id": "c_telegram_appell",
                     "text": "Svar med en personlig appell: be ham holde tilbake Østerrike.",
                     "nextNodeId": "hub_tsarskoje_1914",
-                    "setFlags": ["telegraferte_willy"],
+                    "setFlags": ["telegraferte_willy", "hub1_telegram_done"],
                     "effects": {
                         "autoritet": -5,
                         "hoffets_tillit": -5
@@ -337,6 +361,7 @@
                     "id": "c_telegram_avvisning",
                     "text": "Svar kort og formelt: Russlands forpliktelser til Serbia er ikke omsettelige.",
                     "nextNodeId": "hub_tsarskoje_1914",
+                    "setFlags": ["hub1_telegram_done"],
                     "effects": {
                         "autoritet": 5,
                         "hoffets_tillit": 5
@@ -356,7 +381,8 @@
                 {
                     "id": "c_sazonov_tilbake",
                     "text": "Takk Sazonov. Du trenger mer tid til å tenke.",
-                    "nextNodeId": "hub_tsarskoje_1914"
+                    "nextNodeId": "hub_tsarskoje_1914",
+                    "setFlags": ["hub1_sazonov_done"]
                 }
             ]
         },
@@ -370,6 +396,7 @@
                     "id": "c_militær_tilbake",
                     "text": "Motta rapporten.",
                     "nextNodeId": "hub_tsarskoje_1914",
+                    "setFlags": ["hub1_militaer_done"],
                     "updateInventory": {
                         "add": "militær_rapport"
                     }
@@ -548,7 +575,20 @@
                 "warm": "Troppene kjemper med mot, Majestet. Men vi trenger forsyninger."
             },
             "uiType": "map",
-            "choices": [],
+            "choices": [
+                {
+                    "id": "c_hub2_videre",
+                    "text": "Du har veiet alle alternativer paa ostfronten. Det er paa tide aa ta stilling.",
+                    "nextNodeId": "rasputin_dilemma",
+                    "condition": {
+                        "all": [
+                            { "hasFlag": "hub2_kommando_done" },
+                            { "hasFlag": "hub2_nikolai_done" },
+                            { "hasFlag": "hub2_fred_done" }
+                        ]
+                    }
+                }
+            ],
             "mapConfig": {
                 "image": "/images/chronos/nikolaj-ii/ostfront_map_1915.webp",
                 "points": [
@@ -558,7 +598,8 @@
                         "y": 45,
                         "label": "Ta personlig kommando over hæren",
                         "icon": "crown",
-                        "nextNodeId": "personlig_kommando"
+                        "nextNodeId": "personlig_kommando",
+                        "visitedFlag": "hub2_kommando_done"
                     },
                     {
                         "id": "point_nikolai",
@@ -566,7 +607,8 @@
                         "y": 35,
                         "label": "Støtt Storfyrst Nikolai",
                         "icon": "shield",
-                        "nextNodeId": "stott_nikolai"
+                        "nextNodeId": "stott_nikolai",
+                        "visitedFlag": "hub2_nikolai_done"
                     },
                     {
                         "id": "point_fred",
@@ -574,7 +616,8 @@
                         "y": 75,
                         "label": "Søk fredsforhandlinger med Tyskland",
                         "icon": "feather",
-                        "nextNodeId": "fredsonderhandlinger_1915"
+                        "nextNodeId": "fredsonderhandlinger_1915",
+                        "visitedFlag": "hub2_fred_done"
                     }
                 ]
             }
@@ -600,9 +643,9 @@
                 {
                     "id": "c_ta_kommando",
                     "text": "Reise til Stavka. Du tar kommandoen.",
-                    "nextNodeId": "rasputin_dilemma",
+                    "nextNodeId": "ostfront_krise",
                     "isHistoricalChoice": true,
-                    "setFlags": ["tok_personlig_kommando"],
+                    "setFlags": ["tok_personlig_kommando", "hub2_kommando_done"],
                     "effects": {
                         "autoritet": 10,
                         "krigsevne": 5,
@@ -613,7 +656,8 @@
                 {
                     "id": "c_ikke_ta_kommando",
                     "text": "La Storfyrst Nikolai beholde kommandoen. Du styrer imperiet fra Petrograd.",
-                    "nextNodeId": "rasputin_dilemma",
+                    "nextNodeId": "ostfront_krise",
+                    "setFlags": ["hub2_kommando_done"],
                     "historicalNote": "★ Historien gikk en annen vei — Nikolaj II tok personlig kommando i august 1915.",
                     "effects": {
                         "autoritet": -5,
@@ -632,7 +676,8 @@
                 {
                     "id": "c_stott_nikolai_videre",
                     "text": "Gå tilbake til krisehåndteringen.",
-                    "nextNodeId": "rasputin_dilemma",
+                    "nextNodeId": "ostfront_krise",
+                    "setFlags": ["hub2_nikolai_done"],
                     "effects": {
                         "krigsevne": 5,
                         "hoffets_tillit": -5
@@ -649,8 +694,8 @@
                 {
                     "id": "c_fred_forhandl",
                     "text": "Gå videre med hemmelige forhandlinger.",
-                    "nextNodeId": "rasputin_dilemma",
-                    "setFlags": ["separatfred"],
+                    "nextNodeId": "ostfront_krise",
+                    "setFlags": ["separatfred", "hub2_fred_done"],
                     "updateInventory": {
                         "add": "britisk_tilbud"
                     },
@@ -663,7 +708,8 @@
                 {
                     "id": "c_fred_avvis",
                     "text": "Avvis tilbudet. Russland svikter ikke sine allierte.",
-                    "nextNodeId": "rasputin_dilemma",
+                    "nextNodeId": "ostfront_krise",
+                    "setFlags": ["hub2_fred_done"],
                     "effects": {
                         "autoritet": 5,
                         "hoffets_tillit": 5
@@ -746,7 +792,20 @@
             "speaker": "Forteller",
             "backgroundImage": "/images/chronos/nikolaj-ii/petrograd_1916.webp",
             "uiType": "map",
-            "choices": [],
+            "choices": [
+                {
+                    "id": "c_hub3_videre",
+                    "text": "Petrograd er ustabilt. Du har gjort hva du kan. Vinteren 1917 naermer seg.",
+                    "nextNodeId": "petrograd_vinter_1917",
+                    "condition": {
+                        "all": [
+                            { "hasFlag": "hub3_brusilov_done" },
+                            { "hasFlag": "hub3_duma_done" },
+                            { "hasFlag": "hub3_rasputin_done" }
+                        ]
+                    }
+                }
+            ],
             "mapConfig": {
                 "image": "/images/chronos/nikolaj-ii/petrograd_map_1916.webp",
                 "points": [
@@ -756,7 +815,8 @@
                         "y": 40,
                         "label": "Brusilov-offensiven",
                         "icon": "shield",
-                        "nextNodeId": "brusilov_offensiv"
+                        "nextNodeId": "brusilov_offensiv",
+                        "visitedFlag": "hub3_brusilov_done"
                     },
                     {
                         "id": "point_duma",
@@ -764,7 +824,8 @@
                         "y": 60,
                         "label": "Duma-kravene",
                         "icon": "users",
-                        "nextNodeId": "duma_krav"
+                        "nextNodeId": "duma_krav",
+                        "visitedFlag": "hub3_duma_done"
                     },
                     {
                         "id": "point_rasputin",
@@ -772,7 +833,8 @@
                         "y": 75,
                         "label": "Rasputins mord",
                         "icon": "feather",
-                        "nextNodeId": "rasputin_mord_intro"
+                        "nextNodeId": "rasputin_mord_intro",
+                        "visitedFlag": "hub3_rasputin_done"
                     },
                     {
                         "id": "point_rapporter_1916",
@@ -840,6 +902,7 @@
                     "id": "c_brusilov_seier_videre",
                     "text": "Vedlikehold momentumet.",
                     "nextNodeId": "hub_petrograd_1916",
+                    "setFlags": ["hub3_brusilov_done"],
                     "effects": {
                         "krigsevne": 25,
                         "folkets_stotte": 15,
@@ -858,6 +921,7 @@
                     "id": "c_brusilov_delvis_videre",
                     "text": "Konsolider gevinsten.",
                     "nextNodeId": "hub_petrograd_1916",
+                    "setFlags": ["hub3_brusilov_done"],
                     "effects": {
                         "krigsevne": 8,
                         "folkets_stotte": 5
@@ -950,8 +1014,9 @@
                 {
                     "id": "c_rasputin_se_bort",
                     "text": "Se bort fra det. De skyldige er for viktige til å straffe.",
-                    "nextNodeId": "petrograd_vinter_1917",
+                    "nextNodeId": "hub_petrograd_1916",
                     "isHistoricalChoice": true,
+                    "setFlags": ["hub3_rasputin_done"],
                     "updateEnvironment": { "time": "day", "weather": "snow" },
                     "effects": {
                         "hoffets_tillit": 5,
@@ -962,7 +1027,8 @@
                 {
                     "id": "c_rasputin_arrest",
                     "text": "Arrester de skyldige. Loven gjelder for alle — også Romanov-slektninger.",
-                    "nextNodeId": "petrograd_vinter_1917",
+                    "nextNodeId": "hub_petrograd_1916",
+                    "setFlags": ["hub3_rasputin_done"],
                     "updateEnvironment": { "time": "day", "weather": "snow" },
                     "effects": {
                         "hoffets_tillit": -20,
@@ -1733,8 +1799,9 @@
             "choices": [
                 {
                     "id": "c_duma_konsekvens_videre",
-                    "text": "Situasjonen er satt. Nå kommer Rasputin.",
-                    "nextNodeId": "rasputin_mord",
+                    "text": "Petrograd har tatt imot din tale. Tilbake til kartrummet.",
+                    "nextNodeId": "hub_petrograd_1916",
+                    "setFlags": ["hub3_duma_done"],
                     "updateEnvironment": { "time": "night", "weather": "fog" }
                 }
             ]

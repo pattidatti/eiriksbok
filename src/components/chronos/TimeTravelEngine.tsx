@@ -35,12 +35,14 @@ function ScenarioStartScreen({
     savedRun,
     onContinue,
     onFresh,
+    onExit,
 }: {
     scenario: ChronosScenario;
     isInitializing: boolean;
     savedRun: SavedRun | null;
     onContinue: () => void;
     onFresh: () => void;
+    onExit: () => void;
 }) {
     return (
         <div className="relative w-full min-h-[100dvh] flex items-center justify-center overflow-hidden bg-slate-900">
@@ -82,6 +84,12 @@ function ScenarioStartScreen({
                             className="w-full py-3 rounded-2xl bg-white/10 text-white font-bold hover:bg-white/20 transition-colors backdrop-blur-sm"
                         >
                             Start på nytt
+                        </button>
+                        <button
+                            onClick={onExit}
+                            className="w-full py-3 rounded-2xl bg-transparent text-slate-400 font-medium hover:text-white transition-colors"
+                        >
+                            Avslutt
                         </button>
                     </div>
                 ) : null}
@@ -320,6 +328,7 @@ export const TimeTravelEngine: React.FC<TimeTravelEngineProps> = ({ scenarioId }
                 savedRun={savedRun}
                 onContinue={handleContinue}
                 onFresh={() => initFresh()}
+                onExit={() => navigate('/oving/tidsreise')}
             />
         );
     }

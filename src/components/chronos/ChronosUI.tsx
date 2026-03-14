@@ -418,6 +418,9 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
     const popupAudioRef = useRef<HTMLAudioElement | null>(null);
     const [isPaused, setIsPaused] = useState(false);
     const isPausedRef = useRef(isPaused);
+    const defaultSpeechRate = scenarioId === 'nikolaj-ii' ? 1.1 : 1.0;
+    const [speechRate, setSpeechRate] = useState(defaultSpeechRate);
+    const speechRateRef = useRef(defaultSpeechRate);
 
     // Prinsipp 6: Ethics mode
     const [ethicsModeOn, setEthicsModeOn] = useState(false);
@@ -439,6 +442,7 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
         if (!isPausedRef.current && scenarioId) {
             const audio = new Audio(`/audio/tidsreise/${scenarioId}/${node.id}.mp3`);
             audioRef.current = audio;
+            audio.playbackRate = speechRateRef.current;
             audio.play().catch(() => {});
         }
     }, [node.id]); // eslint-disable-line react-hooks/exhaustive-deps
@@ -450,6 +454,7 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
             if (!isPausedRef.current && scenarioId && node.discoveryEvent) {
                 const audio = new Audio(`/audio/tidsreise/${scenarioId}/discovery_${node.id}.mp3`);
                 popupAudioRef.current = audio;
+                audio.playbackRate = speechRateRef.current;
                 audio.play().catch(() => {});
             }
         } else if (popupAudioRef.current) {
@@ -458,6 +463,7 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
             if (!isPausedRef.current && scenarioId) {
                 const audio = new Audio(`/audio/tidsreise/${scenarioId}/${node.id}.mp3`);
                 audioRef.current = audio;
+                audio.playbackRate = speechRateRef.current;
                 audio.play().catch(() => {});
             }
         }
@@ -488,11 +494,19 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
                 } else if (scenarioId) {
                     const audio = new Audio(`/audio/tidsreise/${scenarioId}/${node.id}.mp3`);
                     audioRef.current = audio;
+                    audio.playbackRate = speechRateRef.current;
                     audio.play().catch(() => {});
                 }
             }
             return next;
         });
+    };
+
+    const changeSpeechRate = (rate: number) => {
+        speechRateRef.current = rate;
+        setSpeechRate(rate);
+        if (audioRef.current) audioRef.current.playbackRate = rate;
+        if (popupAudioRef.current) popupAudioRef.current.playbackRate = rate;
     };
 
     // Filter Stats
@@ -751,6 +765,31 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
                             {isPaused ? <Play size={20} /> : <Pause size={20} />}
                         </button>
                     )}
+
+                    {/* Speech rate control */}
+                    {scenarioId && (
+                        <div className="flex items-center gap-1 rounded-2xl bg-black/30 backdrop-blur-xl border border-white/10 px-2">
+                            <button
+                                onClick={() => changeSpeechRate(Math.max(0.8, parseFloat((speechRate - 0.05).toFixed(2))))}
+                                disabled={speechRate <= 0.8}
+                                className="p-1 text-white/60 hover:text-white disabled:opacity-30 transition-colors text-sm font-bold"
+                                title="Tregere"
+                            >
+                                -
+                            </button>
+                            <span className="text-white/70 text-xs font-bold min-w-[2.5rem] text-center">
+                                {speechRate.toFixed(2)}x
+                            </span>
+                            <button
+                                onClick={() => changeSpeechRate(Math.min(1.4, parseFloat((speechRate + 0.05).toFixed(2))))}
+                                disabled={speechRate >= 1.4}
+                                className="p-1 text-white/60 hover:text-white disabled:opacity-30 transition-colors text-sm font-bold"
+                                title="Raskere"
+                            >
+                                +
+                            </button>
+                        </div>
+                    )}
                 </div>
             </div>
 
@@ -924,22 +963,22 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
                         {node.speaker && (() => {
                             const p = perspectives?.[node.speaker];
                             const factionStyles = {
-                                sovjet:    { border: 'border-l-4 border-red-500',    bg: 'bg-red-950/50',    text: 'text-red-200'    },
-                                usa:       { border: 'border-l-4 border-blue-500',   bg: 'bg-blue-950/50',   text: 'text-blue-200'   },
-                                sivil:     { border: 'border-l-4 border-stone-400',  bg: 'bg-stone-800/50',  text: 'text-stone-200'  },
-                                forteller: { border: 'border-l-4 border-amber-400',  bg: 'bg-amber-950/30',  text: 'text-amber-200'  },
+                                sovjet:    { border: 'border-l-[6px] border-red-500',    bg: 'bg-red-950/50',    text: 'text-red-200'    },
+                                usa:       { border: 'border-l-[6px] border-blue-500',   bg: 'bg-blue-950/50',   text: 'text-blue-200'   },
+                                sivil:     { border: 'border-l-[6px] border-stone-400',  bg: 'bg-stone-800/50',  text: 'text-stone-200'  },
+                                forteller: { border: 'border-l-[6px] border-amber-400',  bg: 'bg-amber-950/30',  text: 'text-amber-200'  },
                             };
                             const style = p ? factionStyles[p.faction] : null;
                             return style ? (
-                                <div className={`inline-flex items-center gap-3 px-4 py-2 mb-5 rounded-r-lg ${style.border} ${style.bg}`}>
-                                    {p?.flag && <span className="text-xl leading-none">{p.flag}</span>}
+                                <div className={`inline-flex items-center gap-4 px-6 py-4 mb-6 rounded-r-lg ${style.border} ${style.bg}`}>
+                                    {p?.flag && <span className="text-3xl leading-none">{p.flag}</span>}
                                     <div>
-                                        <div className={`text-[10px] font-black uppercase tracking-[0.2em] ${style.text}`}>{node.speaker}</div>
-                                        {p?.subtitle && <div className="text-[9px] opacity-60 text-stone-300 mt-0.5">{p.subtitle}</div>}
+                                        <div className={`text-base font-black uppercase tracking-[0.2em] ${style.text}`}>{node.speaker}</div>
+                                        {p?.subtitle && <div className="text-sm opacity-60 text-stone-300 mt-0.5">{p.subtitle}</div>}
                                     </div>
                                 </div>
                             ) : (
-                                <div className="inline-block px-4 py-1.5 mb-4 rounded-lg bg-white/10 border border-white/15 text-[10px] font-black uppercase tracking-[0.2em] text-stone-300 shadow-sm">
+                                <div className="inline-block px-6 py-3 mb-4 rounded-lg bg-white/10 border border-white/15 text-base font-black uppercase tracking-[0.2em] text-stone-300 shadow-sm">
                                     {node.speaker}
                                 </div>
                             );
@@ -1112,8 +1151,6 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
                                     }}
                                 />
                             ) : null
-                        ) : node.uiType === 'map' && node.mapConfig ? (
-                            <ChronosMap config={node.mapConfig} onPointClick={handleMapPointClick} flags={flags} />
                         ) : node.journalPrompt ? (
                             <div className="space-y-3 sm:space-y-4">
                                 <p className="text-xs sm:text-sm font-bold uppercase tracking-widest text-stone-400">{node.journalPrompt}</p>
@@ -1137,34 +1174,29 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
                                 </div>
                             </div>
                         ) : (
+                            <>
+                                {node.uiType === 'map' && node.mapConfig && (
+                                    <ChronosMap config={node.mapConfig} onPointClick={handleMapPointClick} flags={flags} />
+                                )}
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 {!isEnd && node.choices.map(choice => {
-                                    const locked = isChoiceLocked(choice);
-                                    const lockedReason = locked ? getLockedReason(choice) : null;
+                                    if (isChoiceLocked(choice)) return null;
                                     const hasEthics = ethicsModeOn && !!choice.ethicsLens;
 
                                     return (
                                         <button
                                             key={choice.id}
-                                            onClick={() => !locked && handleChoiceClick(choice)}
-                                            disabled={locked}
-                                            className={`group relative p-3 sm:p-5 md:p-6 text-left rounded-[1.5rem] border transition-all duration-300 overflow-hidden ${locked
-                                                ? 'bg-white/5 border-white/10 opacity-50 cursor-not-allowed'
-                                                : 'bg-white/10 backdrop-blur-sm border-white/15 hover:border-white/30 hover:bg-white/15 active:scale-[0.98] shadow-sm hover:shadow-xl hover:shadow-indigo-500/10'
-                                                }`}
+                                            onClick={() => handleChoiceClick(choice)}
+                                            disabled={false}
+                                            className="group relative p-3 sm:p-5 md:p-6 text-left rounded-[1.5rem] border transition-all duration-300 overflow-hidden bg-white/10 backdrop-blur-sm border-white/15 hover:border-white/30 hover:bg-white/15 active:scale-[0.98] shadow-sm hover:shadow-xl hover:shadow-indigo-500/10"
                                         >
-                                            {!locked && <div className="absolute inset-0 bg-gradient-to-br from-indigo-50/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />}
+                                            <div className="absolute inset-0 bg-gradient-to-br from-indigo-50/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                                             <div className="relative z-10 flex items-center justify-between">
                                                 <div className="flex flex-col">
-                                                    <span className={`font-medium text-lg transition-colors ${locked ? 'text-stone-500' : 'text-stone-100 group-hover:text-white'}`}>
+                                                    <span className="font-medium text-lg transition-colors text-stone-100 group-hover:text-white">
                                                         {choice.text}
                                                     </span>
-                                                    {locked && lockedReason && (
-                                                        <span className="text-xs font-bold text-rose-500 mt-1 flex items-center gap-1">
-                                                            <Lock size={10} /> {lockedReason}
-                                                        </span>
-                                                    )}
                                                     {/* Prinsipp 6: ethics mode indicator */}
                                                     {hasEthics && (
                                                         <span className="text-[10px] font-bold text-violet-500 mt-1 flex items-center gap-1">
@@ -1172,18 +1204,16 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
                                                         </span>
                                                     )}
                                                 </div>
-                                                <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors flex-shrink-0 ${locked
-                                                    ? 'bg-white/10 text-stone-500'
-                                                    : hasEthics
-                                                        ? 'bg-violet-900/60 text-violet-300'
-                                                        : 'bg-white/10 group-hover:bg-indigo-600/40 text-white/50 group-hover:text-white'
+                                                <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors flex-shrink-0 ${hasEthics
+                                                    ? 'bg-violet-900/60 text-violet-300'
+                                                    : 'bg-white/10 group-hover:bg-indigo-600/40 text-white/50 group-hover:text-white'
                                                     }`}>
-                                                    {locked ? <Lock size={14} /> : <ArrowRight size={16} />}
+                                                    <ArrowRight size={16} />
                                                 </div>
                                             </div>
 
                                             {/* Effect preview */}
-                                            {!locked && choice.effects && (
+                                            {choice.effects && (
                                                 <div className="relative z-10 flex flex-wrap gap-3 mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
                                                     {Object.entries(choice.effects)
                                                         .filter(([key]) => stats.some(s => s.id === key))
@@ -1237,6 +1267,7 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
                                     </div>
                                 )}
                             </div>
+                            </>
                         )}
                     </motion.div>
                 </AnimatePresence>

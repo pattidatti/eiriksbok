@@ -28,6 +28,7 @@ export const SpeechGame: React.FC<SpeechGameProps> = ({ config, onComplete }) =>
     );
     const [submitted, setSubmitted] = useState(false);
     const [outcome, setOutcome] = useState<(typeof config.outcomes)[0] | null>(null);
+    const [resultData, setResultData] = useState<any>(null);
 
     const allSelected = selections.every((s) => s !== null);
 
@@ -53,10 +54,8 @@ export const SpeechGame: React.FC<SpeechGameProps> = ({ config, onComplete }) =>
             config.outcomes.find((o) => o.combo === combo) ??
             config.outcomes[config.outcomes.length - 1];
         setOutcome(found);
+        setResultData({ combo, effects: found?.effects, setsFlag: found?.setsFlag });
         setSubmitted(true);
-        setTimeout(() => {
-            onComplete({ combo, effects: found?.effects, setsFlag: found?.setsFlag });
-        }, 3000);
     };
 
     if (submitted && outcome) {
@@ -85,6 +84,12 @@ export const SpeechGame: React.FC<SpeechGameProps> = ({ config, onComplete }) =>
                         </div>
                     )}
                 </div>
+                <button
+                    onClick={() => onComplete(resultData)}
+                    className="w-full py-3 bg-stone-900 text-white font-bold rounded-2xl hover:bg-stone-800 transition-colors"
+                >
+                    Fortsett
+                </button>
             </div>
         );
     }

@@ -399,7 +399,7 @@
         },
         "sovjet_spion_start": {
             "id": "sovjet_spion_start",
-            "text": "En KGB-offiser legger frem planene. Tre agenter er allerede plassert i Los Alamos-laboratoriet. De trenger bare din endelige godkjenning for å sende de tekniske tegningene til Moskva. 'Kameratene i New York er klare,' sier han. 'Vi trenger bare ett ord fra deg.'",
+            "text": "En KGB-offiser legger frem planene. Tre agenter er allerede plassert i USAs laboratorier. De trenger bare din endelige godkjenning for å sende de tekniske tegningene til Moskva. 'Kameratene i New York er klare,' sier han. 'Vi trenger bare ett ord fra deg.'",
             "speaker": "KGB-offiser",
             "choices": [
                 {
@@ -427,7 +427,7 @@
         },
         "berlin_deling": {
             "id": "berlin_deling",
-            "text": "1945-1948. Europa er delt. Berlin - den gamle tyske hovedstaden - ligger dypt inne i den sovjetiske sonen, men er selv delt i fire sektorer mellom seirerne. Vestmaktene har bygget opp sin del av byen som et demokratisk utstillingsvindu midt i kommunistisk territorium. For Stalin er dette en provokasjon som ikke kan tolereres.",
+            "text": "1945-1948. Europa er delt. Berlin - den gamle tyske hovedstaden - ligger dypt inne i den sovjetiske sonen, men er selv delt i fire sektorer mellom de allierte. Vestmaktene har bygget opp sin del av byen som et demokratisk utstillingsvindu midt i kommunistisk territorium. For Stalin er dette en provokasjon som ikke kan tolereres.",
             "speaker": "Forteller",
             "backgroundImage": "/images/chronos/kald-krig/berlin_blokkade.webp",
             "discoveryEvent": {
@@ -822,7 +822,7 @@
                 "points": [
                     {
                         "id": "point_iran",
-                        "x": 68,
+                        "x": 52,
                         "y": 42,
                         "label": "Iran - Operasjon Ajax 1953",
                         "icon": "flag",
@@ -831,7 +831,7 @@
                     },
                     {
                         "id": "point_suez",
-                        "x": 58,
+                        "x": 45,
                         "y": 48,
                         "label": "Egypt - Suezkrisen 1956",
                         "icon": "scroll",
@@ -849,8 +849,8 @@
                     },
                     {
                         "id": "point_berlin",
-                        "x": 51,
-                        "y": 26,
+                        "x": 35,
+                        "y": 30,
                         "label": "Berlin - Muren reises 1961",
                         "icon": "shield",
                         "nextNodeId": "berlin_mur_forb",
@@ -865,10 +865,18 @@
                     "nextNodeId": "berlin_til_kuba",
                     "condition": {
                         "all": [
-                            { "hasFlag": "hub2_iran_done" },
-                            { "hasFlag": "hub2_suez_done" },
-                            { "hasFlag": "hub2_sputnik_done" },
-                            { "hasFlag": "hub2_berlin_done" }
+                            {
+                                "hasFlag": "hub2_iran_done"
+                            },
+                            {
+                                "hasFlag": "hub2_suez_done"
+                            },
+                            {
+                                "hasFlag": "hub2_sputnik_done"
+                            },
+                            {
+                                "hasFlag": "hub2_berlin_done"
+                            }
                         ]
                     }
                 }
@@ -876,11 +884,11 @@
         },
         "iran_cia_1953": {
             "id": "iran_cia_1953",
-            "text": "Tehran, august 1953. Mohammad Mosaddegh er Irans demokratisk valgte statsminister. Han har gjort noe utenkelig: nasjonalisert oljeindustrien og drevet ut britisk kapital. CIA-direktør Allen Dulles legger frem planen: Operasjon Ajax. Mosaddegh fjernes. Shahen settes inn. 'Et enkelt kupp er billigere enn en krig,' sier han.",
+            "text": "Tehran, august 1953. Mohammad Mosaddegh er Irans demokratisk valgte statsminister. Han har gjort noe utenkelig: nasjonalisert (staten tar kontroll) oljeindustrien og drevet ut britisk kapital. CIA-direktør Allen Dulles legger frem planen: Operasjon Ajax. Mosaddegh fjernes. Shahen/kongen settes inn. 'Et enkelt kupp er billigere enn en krig,' sier han.",
             "speaker": "CIA-operativ",
             "discoveryEvent": {
                 "title": "Iran og olje 1953",
-                "fact": "I august 1953 gjennomførte CIA og britisk etterretning et kupp mot Irans demokratisk valgte statsminister Mohammad Mosaddegh. Han hadde nasjonalisert oljeindustrien. Shahen Mohammad Reza Pahlavi ble gjeninnsatt. USA bevarte tilgangen til iransk olje - men skapte harme som fortsatt preger Iran-USA-forholdet.",
+                "fact": "I august 1953 gjennomførte CIA og britisk etterretning et kupp mot Irans demokratisk valgte statsminister Mohammad Mosaddegh. Han hadde nasjonalisert oljeindustrien. Shahen (kongen) Mohammad Reza Pahlavi ble gjeninnsatt. USA bevarte tilgangen til iransk olje - men skapte harme som fortsatt preger Iran-USA-forholdet.",
                 "articleLink": "/historie/den-kalde-krigen/oversikt",
                 "reflectionQuestion": "Er det rettferdig å fjerne en demokratisk valgt leder for å beskytte egne oljeinteresser? Hva skjer med demokratiet som prinsipp da?"
             },
@@ -890,7 +898,7 @@
                     "text": "Gjennomfor Operasjon Ajax - fjern Mosaddegh",
                     "nextNodeId": "iran_shah_installert",
                     "isHistoricalChoice": true,
-                    "historicalConsequence": "CIA og britisk etterretning gjennomførte kuppet i august 1953. Mosaddegh ble fengslet, og Shahen styrte Iran med hard hånd frem til den islamske revolusjonen i 1979 - en hendelse som i stor grad var en reaksjon på kuppet i 1953.",
+                    "historicalConsequence": "CIA og britisk etterretning gjennomførte kuppet i august 1953. Mosaddegh ble fengslet, og Shahen (kongen) styrte Iran med hard hånd frem til den islamske revolusjonen i 1979 - en hendelse som i stor grad var en reaksjon på kuppet i 1953.",
                     "setFlags": [
                         "iran_shah_installert"
                     ],
@@ -908,7 +916,9 @@
                     "id": "c_iran_2",
                     "text": "Trekk tilbake - respekter Irans demokratiske valg",
                     "nextNodeId": "hub_kap2",
-                    "setFlags": ["hub2_iran_done"],
+                    "setFlags": [
+                        "hub2_iran_done"
+                    ],
                     "effects": {
                         "historisk_innsikt": 5
                     },
@@ -968,7 +978,9 @@
                     "id": "c_iran_kons_1",
                     "text": "Realpolitikk har alltid en kostnad - men noen ganger er det riktig pris",
                     "nextNodeId": "hub_kap2",
-                    "setFlags": ["hub2_iran_done"],
+                    "setFlags": [
+                        "hub2_iran_done"
+                    ],
                     "effects": {
                         "usa_innflytelse": 5
                     }
@@ -977,7 +989,9 @@
                     "id": "c_iran_kons_2",
                     "text": "Vi sådde 1953 - vi høstet 1979. Prisen var for høy.",
                     "nextNodeId": "hub_kap2",
-                    "setFlags": ["hub2_iran_done"],
+                    "setFlags": [
+                        "hub2_iran_done"
+                    ],
                     "effects": {
                         "historisk_innsikt": 15
                     }
@@ -986,11 +1000,11 @@
         },
         "suez_krise_1956": {
             "id": "suez_krise_1956",
-            "text": "5. november 1956. President Eisenhower er rasende. Uten å varsle USA har Storbritannia, Frankrike og Israel angrepet Egypt for å ta tilbake Suezkanalen - som Gamal Nasser nasjonaliserte i sommer. Allierte ber om støtte. Men Sovjet truer med raketter. Og FN venter på din beslutning.",
+            "text": "5. november 1956. President Eisenhower er rasende. Uten å varsle USA har Storbritannia, Frankrike og Israel angrepet Egypt for å ta tilbake Suezkanalen - som Gamal Nasser nasjonaliserte i sommer (staten tar kontroll). Allierte ber om støtte. Men Sovjet truer med raketter. Og FN venter på din beslutning.",
             "speaker": "Eisenhower",
             "discoveryEvent": {
                 "title": "Suezkanalen 1956",
-                "fact": "Da Egypt nasjonaliserte Suezkanalen i juli 1956, svarte Storbritannia, Frankrike og Israel med militært angrep. USA - overrasket og sint - presset frem britisk tilbaketrekning. Hendelsen markerte slutten på britisk og fransk stormaktstatus og bekreftet at USA og Sovjet var de eneste gjenværende supermaktene.",
+                "fact": "Da Egypt nasjonaliserte/tok over Suezkanalen i juli 1956, svarte Storbritannia, Frankrike og Israel med militært angrep. USA - overrasket og sint - presset frem britisk tilbaketrekning. Hendelsen markerte slutten på britisk og fransk stormaktstatus og bekreftet at USA og Sovjet var de eneste gjenværende supermaktene.",
                 "articleLink": "/historie/den-kalde-krigen/oversikt",
                 "reflectionQuestion": "Hva betyr det at USA tvang sine egne allierte til å trekke seg? Hva sier dette om forholdet mellom de 'gamle' og 'nye' stormaktene?"
             },
@@ -1102,7 +1116,9 @@
                     "id": "c_suez_etter_1",
                     "text": "Imperietiden er over. En ny verdensorden krever nye regler.",
                     "nextNodeId": "hub_kap2",
-                    "setFlags": ["hub2_suez_done"],
+                    "setFlags": [
+                        "hub2_suez_done"
+                    ],
                     "effects": {
                         "historisk_innsikt": 10
                     }
@@ -1111,7 +1127,9 @@
                     "id": "c_suez_etter_2",
                     "text": "Eden betalte prisen for lojalitet og moralsk feil. Slik er politikk.",
                     "nextNodeId": "hub_kap2",
-                    "setFlags": ["hub2_suez_done"],
+                    "setFlags": [
+                        "hub2_suez_done"
+                    ],
                     "effects": {
                         "historisk_innsikt": 5
                     }
@@ -1172,7 +1190,9 @@
                     "id": "c_nasa_1",
                     "text": "Romkapplopet er i gang. Teknologisk kappestrid er bedre enn atomkappestrid.",
                     "nextNodeId": "hub_kap2",
-                    "setFlags": ["hub2_sputnik_done"],
+                    "setFlags": [
+                        "hub2_sputnik_done"
+                    ],
                     "effects": {
                         "usa_innflytelse": 5,
                         "historisk_innsikt": 10
@@ -1185,7 +1205,9 @@
                     "id": "c_nasa_2",
                     "text": "Milliarder til raketter. Millioner lever i fattigdom. Hva er de riktige prioriteringene?",
                     "nextNodeId": "hub_kap2",
-                    "setFlags": ["hub2_sputnik_done"],
+                    "setFlags": [
+                        "hub2_sputnik_done"
+                    ],
                     "effects": {
                         "historisk_innsikt": 15,
                         "menneskekost": 5
@@ -1206,7 +1228,9 @@
                     "id": "c_sputnik_panikk_1",
                     "text": "Frykten styrte politikken. Det er en farlig kombinasjon.",
                     "nextNodeId": "hub_kap2",
-                    "setFlags": ["hub2_sputnik_done"],
+                    "setFlags": [
+                        "hub2_sputnik_done"
+                    ],
                     "effects": {
                         "atomspanning": 5,
                         "historisk_innsikt": 10
@@ -1216,7 +1240,9 @@
                     "id": "c_sputnik_panikk_2",
                     "text": "Panikk ga oss NASA. Kanskje frykt kan drive fremskritt?",
                     "nextNodeId": "hub_kap2",
-                    "setFlags": ["hub2_sputnik_done"],
+                    "setFlags": [
+                        "hub2_sputnik_done"
+                    ],
                     "effects": {
                         "atomspanning": 10,
                         "usa_innflytelse": 5
@@ -1281,7 +1307,9 @@
                     "id": "c_ble_igjen_1",
                     "text": "La Klaus sin stille hverdag ligge bak deg",
                     "nextNodeId": "hub_kap2",
-                    "setFlags": ["hub2_berlin_done"],
+                    "setFlags": [
+                        "hub2_berlin_done"
+                    ],
                     "effects": {
                         "historisk_innsikt": 5,
                         "menneskekost": 10
@@ -1318,7 +1346,9 @@
                     "id": "c_frihet_1",
                     "text": "Du er trygg. Men friheten smaker annerledes enn du trodde",
                     "nextNodeId": "hub_kap2",
-                    "setFlags": ["hub2_berlin_done"],
+                    "setFlags": [
+                        "hub2_berlin_done"
+                    ],
                     "effects": {
                         "historisk_innsikt": 5,
                         "menneskekost": 10
@@ -1328,7 +1358,9 @@
                     "id": "c_frihet_2",
                     "text": "Du tenker på dem på den andre siden - og på alle de andre Klaus-ene",
                     "nextNodeId": "hub_kap2",
-                    "setFlags": ["hub2_berlin_done"],
+                    "setFlags": [
+                        "hub2_berlin_done"
+                    ],
                     "effects": {
                         "historisk_innsikt": 10,
                         "menneskekost": 5
@@ -1346,7 +1378,9 @@
                     "id": "c_fengslet_1",
                     "text": "Gå videre - Kuba venter",
                     "nextNodeId": "hub_kap2",
-                    "setFlags": ["hub2_berlin_done"],
+                    "setFlags": [
+                        "hub2_berlin_done"
+                    ],
                     "effects": {
                         "menneskekost": 10,
                         "historisk_innsikt": 5
@@ -1438,7 +1472,7 @@
         },
         "kuba_tale": {
             "id": "kuba_tale",
-            "text": "22. oktober 1962. Kamera på. 100 millioner amerikanere ser på. Og Nikita Krusjtsjev ser fra Moskva - hans ambassadr sender lydbånd i sanntid. Ordene du velger nå setter tonen for de 13 dagene som avgjor historien.",
+            "text": "22. oktober 1962. Kamera på. 100 millioner amerikanere ser på. Og Nikita Krusjtsjev (Sovjets president) ser fra Moskva - hans ambassadør sender lydbånd i sanntid. Ordene du velger nå setter tonen for de 13 dagene som avgjør historien.",
             "speaker": "Kennedy",
             "backgroundImage": "/images/chronos/kald-krig/kuba_tale.webp",
             "minigame": {
@@ -1557,7 +1591,7 @@
         },
         "kuba_valg": {
             "id": "kuba_valg",
-            "text": "ExComm er delt. McNamara anbefaler sjøblokkade - kontrollert, reversibel, gir Krusjtsjev en vei ut. General LeMay slår neven i bordet: 'Luftangrep nå - det er det eneste Sovjet forstår.' Bobby Kennedy hvisker: 'Jack. Tenk på hva som skjer dagen etter.'",
+            "text": "ExComm er delt. Forsvarsminister McNamara anbefaler sjøblokkade - kontrollert, reversibel, gir Krusjtsjev en vei ut. General LeMay slår neven i bordet: 'Luftangrep nå - det er det eneste Sovjet forstår.' Bobby Kennedy hvisker: 'Jack. Tenk på hva som skjer dagen etter.'",
             "speaker": "Kennedy",
             "choices": [
                 {
@@ -1620,7 +1654,7 @@
             "speaker": "Forteller",
             "discoveryEvent": {
                 "title": "Vasili Arkhipov - mannen som reddet verden",
-                "fact": "27. oktober 1962 var Sovjet-ubåten B-59 avskarmet fra Moskva i dagevis. Kaptein Savitskiy trodde krigen hadde startet og beordret atomtorpedo. Reglementet krevde enstemmighet blant tre offiserer. Vasili Arkhipov nektet å godkjenne. Uten ham ville atomtorpedoen troflig ha losnet og utloest verdenskrig.",
+                "fact": "27. oktober 1962 var Sovjet-ubåten B-59 isolert fra Moskva i dagevis. Kaptein Savitskiy trodde krigen hadde startet og beordret atomtorpedo. Reglene krevde enstemmighet blant tre offiserer. Vasili Arkhipov nektet å godkjenne. Uten ham ville atomtorpedoen trolig ha blitt avfyrt og utløst en atomkrig.",
                 "articleLink": "/historie/den-kalde-krigen/cuba-krisen",
                 "reflectionQuestion": "Verden ble reddet av ett enkelt nei fra én manns samvittighet. Hva sier dette om enkeltmenneskets rolle i historien?"
             },
@@ -1712,7 +1746,7 @@
                 "points": [
                     {
                         "id": "point_vietnam",
-                        "x": 78,
+                        "x": 60,
                         "y": 52,
                         "label": "Vietnam - Krigen eskalerer 1964",
                         "icon": "flame",
@@ -1721,17 +1755,17 @@
                     },
                     {
                         "id": "point_praha",
-                        "x": 53,
-                        "y": 27,
-                        "label": "Praha - Vaaren som ble knust 1968",
+                        "x": 36,
+                        "y": 33,
+                        "label": "Praha - Våren som ble knust 1968",
                         "icon": "heart",
                         "nextNodeId": "praha_1968",
                         "visitedFlag": "hub3_praha_done"
                     },
                     {
                         "id": "point_chile",
-                        "x": 27,
-                        "y": 76,
+                        "x": 20,
+                        "y": 60,
                         "label": "Chile - Demokratiet og CIA 1973",
                         "icon": "flag",
                         "nextNodeId": "chile_1973",
@@ -1746,9 +1780,15 @@
                     "nextNodeId": "hub_kap4",
                     "condition": {
                         "all": [
-                            { "hasFlag": "hub3_vietnam_done" },
-                            { "hasFlag": "hub3_praha_done" },
-                            { "hasFlag": "hub3_chile_done" }
+                            {
+                                "hasFlag": "hub3_vietnam_done"
+                            },
+                            {
+                                "hasFlag": "hub3_praha_done"
+                            },
+                            {
+                                "hasFlag": "hub3_chile_done"
+                            }
                         ]
                     }
                 }
@@ -1872,7 +1912,9 @@
                     "id": "c_diplomati_1",
                     "text": "Vi valgte tilbakeholdenhet. Ho Chi Minh venter fortsatt. Var det riktig?",
                     "nextNodeId": "hub_kap3",
-                    "setFlags": ["hub3_vietnam_done"],
+                    "setFlags": [
+                        "hub3_vietnam_done"
+                    ],
                     "effects": {
                         "historisk_innsikt": 15
                     },
@@ -1884,7 +1926,9 @@
                     "id": "c_diplomati_2",
                     "text": "Ikke-eskalering reddet liv. Det teller - selv om seieren er borte.",
                     "nextNodeId": "hub_kap3",
-                    "setFlags": ["hub3_vietnam_done"],
+                    "setFlags": [
+                        "hub3_vietnam_done"
+                    ],
                     "effects": {
                         "historisk_innsikt": 10,
                         "menneskekost": -5
@@ -2104,7 +2148,9 @@
                     "id": "c_vietnam_avslutt_1",
                     "text": "Gå tilbake til verdenskartet",
                     "nextNodeId": "hub_kap3",
-                    "setFlags": ["hub3_vietnam_done"],
+                    "setFlags": [
+                        "hub3_vietnam_done"
+                    ],
                     "effects": {
                         "historisk_innsikt": 5
                     }
@@ -2114,11 +2160,11 @@
         },
         "praha_1968": {
             "id": "praha_1968",
-            "text": "Praha, august 1968. Jeg er Miroslav - 22 år, student. I vår fikk vi Alexander Dubcek og 'sosialisme med et menneskelig ansikt': ytringsfrihet, reisefrihet, avisene skriver sant. Natten til 21. august rommer 500 000 Sovjet-soldater og 6 600 tanks inn i gatene våre.",
+            "text": "Praha, august 1968. Jeg er Miroslav - 22 år, student. I vår fikk vi Alexander Dubcek og 'sosialisme med et menneskelig ansikt': ytringsfrihet, reisefrihet, avisene skriver sant. Natten til 21. august kom 500 000 Sovjet-soldater og 6 600 tanks inn i gatene våre.",
             "speaker": "Tsjekkisk student Miroslav",
             "discoveryEvent": {
-                "title": "Praha-vaaren 1968",
-                "fact": "Praha-vaaren var en periode med politisk liberalisering i Tsjekkoslovakia under kommunistlederen Alexander Dubcek i 1968. Natten til 21. august invaderte Warszawapaktens styrker landet. Dubcek ble fjernet. Invasjonen førte til Brezjnev-doktrinen: Sovjet forbeholdt seg retten til å intervenere i ethvert sosialistland som 'truet' blokkens sikkerhet.",
+                "title": "Praha-våren 1968",
+                "fact": "Praha-våren var en periode med politisk liberalisering i Tsjekkoslovakia under kommunistlederen Alexander Dubcek i 1968. Natten til 21. august invaderte Warszawapaktens styrker landet. Dubcek ble fjernet. Invasjonen førte til Brezjnev-doktrinen: Sovjet forbeholdt seg retten til å gripe inn i ethvert sosialistland som 'truet' blokkens sikkerhet.",
                 "articleLink": "/historie/den-kalde-krigen/oversikt",
                 "reflectionQuestion": "Hva er forskjellen på 'reform innenfra' og 'revolusjon'? Og hvem bestemmer den grensen?"
             },
@@ -2138,7 +2184,9 @@
                     "id": "c_praha_2",
                     "text": "Hold deg unna - mot tanks er det selvmord",
                     "nextNodeId": "hub_kap3",
-                    "setFlags": ["hub3_praha_done"],
+                    "setFlags": [
+                        "hub3_praha_done"
+                    ],
                     "effects": {
                         "historisk_innsikt": 5
                     }
@@ -2194,7 +2242,7 @@
         },
         "praha_symbol": {
             "id": "praha_symbol",
-            "text": "Bildene spres verden over. En student foran en tank. Sovjet-invasjonen er en propaganda-katastrofe. Brezjnev stadfester doktrinen: ingen østblokkstat kan forlate pakten. Men frøet av motstand er plantet - Praha-vaaren ble aldri glemt av det tsjekkiske folk.",
+            "text": "Bildene spres verden over. En student foran en tank. Sovjet-invasjonen er en propaganda-katastrofe. Brezjnev stadfester doktrinen: ingen østblokkstat kan forlate pakten. Men frøet av motstand er plantet - Praha-våren ble aldri glemt av det tsjekkiske folk.",
             "speaker": "Forteller",
             "discoveryEvent": {
                 "title": "Brezjnev-doktrinen",
@@ -2207,7 +2255,9 @@
                     "id": "c_praha_symbol_1",
                     "text": "Gå tilbake til verdenskartet",
                     "nextNodeId": "hub_kap3",
-                    "setFlags": ["hub3_praha_done"],
+                    "setFlags": [
+                        "hub3_praha_done"
+                    ],
                     "effects": {
                         "historisk_innsikt": 5
                     }
@@ -2224,7 +2274,9 @@
                     "id": "c_praha_knust_1",
                     "text": "Gå tilbake til verdenskartet",
                     "nextNodeId": "hub_kap3",
-                    "setFlags": ["hub3_praha_done"],
+                    "setFlags": [
+                        "hub3_praha_done"
+                    ],
                     "effects": {
                         "menneskekost": 5,
                         "historisk_innsikt": 5
@@ -2319,7 +2371,7 @@
         },
         "kap3_konsekvenser": {
             "id": "kap3_konsekvenser",
-            "text": "1975. Vietnam er falt. Praha er glemt av verden. Chile blor under diktaturat. Den kalde krigens logikk er klar nå: supermaktene kjempet aldri direkte mot hverandre. De kjempet gjennom andre land. Og det var de landene som betalte regningen.",
+            "text": "Santiago, 1973. Pinochet sitter ved makten. Allende er borte. Chile blør under diktaturet. Den kalde krigens logikk begynner å bli klar: supermaktene kjempet ikke med egne soldater - de brukte andre lands borgere. Og det var de landene som betalte regningen.",
             "speaker": "Forteller",
             "discoveryEvent": {
                 "title": "Kovert makt og utilsiktede konsekvenser",
@@ -2330,9 +2382,11 @@
             "choices": [
                 {
                     "id": "c_kap3_1",
-                    "text": "Gå videre til kapittel 4",
+                    "text": "Gå tilbake til verdenskartet",
                     "nextNodeId": "hub_kap3",
-                    "setFlags": ["hub3_chile_done"],
+                    "setFlags": [
+                        "hub3_chile_done"
+                    ],
                     "effects": {
                         "historisk_innsikt": 5
                     }
@@ -2382,8 +2436,12 @@
                     "nextNodeId": "hub_kap5",
                     "condition": {
                         "all": [
-                            { "hasFlag": "hub4_angola_done" },
-                            { "hasFlag": "hub4_afghanistan_done" }
+                            {
+                                "hasFlag": "hub4_angola_done"
+                            },
+                            {
+                                "hasFlag": "hub4_afghanistan_done"
+                            }
                         ]
                     }
                 }
@@ -2442,7 +2500,9 @@
                     "id": "c_angola_1",
                     "text": "Gå tilbake til verdenskartet",
                     "nextNodeId": "hub_kap4",
-                    "setFlags": ["hub4_angola_done"],
+                    "setFlags": [
+                        "hub4_angola_done"
+                    ],
                     "effects": {
                         "menneskekost": 10,
                         "historisk_innsikt": 5
@@ -2856,7 +2916,9 @@
                     "id": "c_advarsel_1",
                     "text": "Gå videre til kapittel 5",
                     "nextNodeId": "hub_kap4",
-                    "setFlags": ["hub4_afghanistan_done"],
+                    "setFlags": [
+                        "hub4_afghanistan_done"
+                    ],
                     "effects": {
                         "historisk_innsikt": 5
                     }
@@ -2915,9 +2977,15 @@
                     "nextNodeId": "berlin_mur_fall",
                     "condition": {
                         "all": [
-                            { "hasFlag": "hub5_glasnost_done" },
-                            { "hasFlag": "hub5_tsernobyl_done" },
-                            { "hasFlag": "hub5_solidarnosc_done" }
+                            {
+                                "hasFlag": "hub5_glasnost_done"
+                            },
+                            {
+                                "hasFlag": "hub5_tsernobyl_done"
+                            },
+                            {
+                                "hasFlag": "hub5_solidarnosc_done"
+                            }
                         ]
                     }
                 }
@@ -3139,7 +3207,9 @@
                     "id": "c_glasnost_retur",
                     "text": "Gå tilbake til verdenskartet",
                     "nextNodeId": "hub_kap5",
-                    "setFlags": ["hub5_glasnost_done"]
+                    "setFlags": [
+                        "hub5_glasnost_done"
+                    ]
                 }
             ]
         },
@@ -3341,7 +3411,9 @@
                     "condition": {
                         "lacksFlag": "tsernobyl_dekket_opp"
                     },
-                    "setFlags": ["hub5_tsernobyl_done"],
+                    "setFlags": [
+                        "hub5_tsernobyl_done"
+                    ],
                     "effects": {
                         "historisk_innsikt": 5
                     }
@@ -3353,7 +3425,9 @@
                     "condition": {
                         "hasFlag": "tsernobyl_dekket_opp"
                     },
-                    "setFlags": ["hub5_tsernobyl_done"],
+                    "setFlags": [
+                        "hub5_tsernobyl_done"
+                    ],
                     "effects": {
                         "sovjet_innflytelse": -15,
                         "menneskekost": 5
@@ -3386,7 +3460,9 @@
                     "id": "c_solidar_2",
                     "text": "Hold deg unna. Det er for risikabelt.",
                     "nextNodeId": "hub_kap5",
-                    "setFlags": ["hub5_solidarnosc_done"],
+                    "setFlags": [
+                        "hub5_solidarnosc_done"
+                    ],
                     "effects": {}
                 }
             ]
@@ -3400,7 +3476,9 @@
                     "id": "c_solidar_seier_1",
                     "text": "Veien til Berlin er åpen",
                     "nextNodeId": "hub_kap5",
-                    "setFlags": ["hub5_solidarnosc_done"],
+                    "setFlags": [
+                        "hub5_solidarnosc_done"
+                    ],
                     "effects": {
                         "sovjet_innflytelse": -10,
                         "historisk_innsikt": 10
@@ -3740,7 +3818,7 @@
                     },
                     {
                         "hasFlag": "iran_shah_installert",
-                        "text": "Shahen av Iran tjente vestlige interesser i 26 år - frem til 1979-revolusjonen som skapte en fiende av Iran for tiår fremover."
+                        "text": "Shahen/kongen av Iran tjente vestlige interesser i 26 år - frem til 1979-revolusjonen som skapte en fiende av Iran for tiår fremover."
                     },
                     {
                         "hasFlag": "oss_samarbeid_kjent",
