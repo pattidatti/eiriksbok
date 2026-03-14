@@ -99,6 +99,7 @@ export interface ChronosMapPoint {
     label: string;
     icon?: string; // Lucide icon name
     nextNodeId: string;
+    visitedFlag?: string; // Flag set when this sub-chain is completed
 }
 
 // Prinsipp 3: Discovery event – historical anchor shown when entering the node

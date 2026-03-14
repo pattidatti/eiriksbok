@@ -1113,7 +1113,7 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
                                 />
                             ) : null
                         ) : node.uiType === 'map' && node.mapConfig ? (
-                            <ChronosMap config={node.mapConfig} onPointClick={handleMapPointClick} />
+                            <ChronosMap config={node.mapConfig} onPointClick={handleMapPointClick} flags={flags} />
                         ) : node.journalPrompt ? (
                             <div className="space-y-3 sm:space-y-4">
                                 <p className="text-xs sm:text-sm font-bold uppercase tracking-widest text-stone-400">{node.journalPrompt}</p>

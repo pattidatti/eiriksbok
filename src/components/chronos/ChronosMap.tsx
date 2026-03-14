@@ -1,11 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Tent, Swords, Droplets, Shield, Scroll, Castle, Home, Eye, Wind, Flag, ChevronUp, BookOpen, Map as MapIcon } from 'lucide-react';
+import { MapPin, Tent, Swords, Droplets, Shield, Scroll, Castle, Home, Eye, Wind, Flag, ChevronUp, BookOpen, Map as MapIcon, CheckCircle } from 'lucide-react';
 import type { ChronosMapPoint, ChronosNode } from '../../data/chronos/types';
 
 interface ChronosMapProps {
     config: NonNullable<ChronosNode['mapConfig']>;
     onPointClick: (point: ChronosMapPoint) => void;
+    flags: string[];
 }
 
 const IconMap: Record<string, any> = {
@@ -25,7 +26,7 @@ const IconMap: Record<string, any> = {
     map: MapIcon
 };
 
-export const ChronosMap: React.FC<ChronosMapProps> = ({ config, onPointClick }) => {
+export const ChronosMap: React.FC<ChronosMapProps> = ({ config, onPointClick, flags }) => {
     return (
         <div className="relative w-full aspect-video rounded-3xl overflow-hidden shadow-inner border border-stone-200 group bg-stone-100">
             {/* Background Image */}
@@ -43,6 +44,7 @@ export const ChronosMap: React.FC<ChronosMapProps> = ({ config, onPointClick }) 
             {/* Map Points */}
             {config.points.map((point: ChronosMapPoint) => {
                 const Icon = point.icon && IconMap[point.icon] ? IconMap[point.icon] : MapPin;
+                const isVisited = point.visitedFlag ? flags.includes(point.visitedFlag) : false;
 
                 return (
                     <motion.button
@@ -55,9 +57,16 @@ export const ChronosMap: React.FC<ChronosMapProps> = ({ config, onPointClick }) 
                         onClick={() => onPointClick(point)}
                     >
                         <div className="relative">
-                            <div className="absolute -inset-2 bg-indigo-500/30 rounded-full animate-ping" />
-                            <div className="relative p-2 bg-indigo-600 text-white rounded-full shadow-lg border-2 border-white group-hover/point:bg-indigo-700 transition-colors">
-                                <Icon size={24} fill="currentColor" className="opacity-90" />
+                            {!isVisited && <div className="absolute -inset-2 bg-indigo-500/30 rounded-full animate-ping" />}
+                            <div className={`relative p-2 text-white rounded-full shadow-lg border-2 border-white transition-colors ${
+                                isVisited
+                                    ? 'bg-emerald-600 group-hover/point:bg-emerald-700'
+                                    : 'bg-indigo-600 group-hover/point:bg-indigo-700'
+                            }`}>
+                                {isVisited
+                                    ? <CheckCircle size={24} className="opacity-90" />
+                                    : <Icon size={24} fill="currentColor" className="opacity-90" />
+                                }
                             </div>
                         </div>
 
