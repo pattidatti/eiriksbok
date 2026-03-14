@@ -56,24 +56,26 @@ export const AllocationGame: React.FC<AllocationGameProps> = ({ config, onComple
 
     return (
         <div className="bg-stone-100 rounded-3xl border border-stone-200 overflow-hidden">
-            <div className="bg-stone-800 text-stone-100 p-5 text-center">
-                <Sliders className="mx-auto mb-2 opacity-80" size={28} />
-                <h2 className="text-xl font-display font-medium tracking-wide">Ressursfordeling</h2>
-                <div
-                    className={`mt-2 text-sm font-bold ${remaining === 0 ? 'text-emerald-400' : 'text-amber-400'}`}
-                >
-                    {remaining === 0
-                        ? 'Alle ressurser fordelt'
-                        : `${remaining} enheter gjenstår`}
+            <div className="bg-stone-800 text-stone-100 py-2.5 px-4 flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                    <Sliders size={14} className="opacity-70" />
+                    <span className="text-sm font-semibold tracking-wide">Ressursfordeling</span>
                 </div>
+                <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${
+                    remaining === 0
+                        ? 'bg-emerald-500/20 text-emerald-400'
+                        : 'bg-amber-500/20 text-amber-400'
+                }`}>
+                    {remaining === 0 ? 'Klar' : `${remaining} gjenstår`}
+                </span>
             </div>
 
-            <div className="p-5 space-y-4">
+            <div className="p-4 space-y-3">
                 {config.categories.map((cat) => {
                     const pct = (allocations[cat.id] / config.totalPoints) * 100;
                     return (
-                        <div key={cat.id} className="bg-white rounded-2xl p-4 border border-stone-200">
-                            <div className="flex justify-between items-start mb-3">
+                        <div key={cat.id} className="bg-white rounded-2xl p-3 border border-stone-200">
+                            <div className="flex justify-between items-start mb-2">
                                 <div>
                                     <div className="font-bold text-stone-800">{cat.label}</div>
                                     <div className="text-xs text-stone-500 mt-0.5">{cat.description}</div>
@@ -110,7 +112,7 @@ export const AllocationGame: React.FC<AllocationGameProps> = ({ config, onComple
                 })}
             </div>
 
-            <div className="px-5 pb-5">
+            <div className="px-5 pb-4">
                 <button
                     onClick={handleSubmit}
                     disabled={remaining !== 0}

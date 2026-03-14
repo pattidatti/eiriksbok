@@ -23,6 +23,198 @@
         "event_brev_fra_vietnam",
         "event_fredsbevegelse"
     ],
+    "perspectives": {
+        "Stalin": {
+            "faction": "sovjet",
+            "flag": "🇷🇺",
+            "subtitle": "Generalsekretær, Sovjet"
+        },
+        "Brezjnev": {
+            "faction": "sovjet",
+            "flag": "🇷🇺",
+            "subtitle": "Generalsekretær, Sovjet"
+        },
+        "Gorbatsjov": {
+            "faction": "sovjet",
+            "flag": "🇷🇺",
+            "subtitle": "Generalsekretær, Sovjet"
+        },
+        "KGB-offiser": {
+            "faction": "sovjet",
+            "flag": "🇷🇺",
+            "subtitle": "Etterretning, KGB"
+        },
+        "Sovjet-general": {
+            "faction": "sovjet",
+            "flag": "🇷🇺",
+            "subtitle": "General, Sovjet"
+        },
+        "Sovjet-informasjonsminister": {
+            "faction": "sovjet",
+            "flag": "🇷🇺",
+            "subtitle": "Minister, Sovjet"
+        },
+        "Sovjet-offiser Stanislav Petrov": {
+            "faction": "sovjet",
+            "flag": "🇷🇺",
+            "subtitle": "Offiser, Sovjet"
+        },
+        "Truman": {
+            "faction": "usa",
+            "flag": "🇺🇸",
+            "subtitle": "President, USA"
+        },
+        "Eisenhower": {
+            "faction": "usa",
+            "flag": "🇺🇸",
+            "subtitle": "President, USA"
+        },
+        "Kennedy": {
+            "faction": "usa",
+            "flag": "🇺🇸",
+            "subtitle": "President, USA"
+        },
+        "LBJ": {
+            "faction": "usa",
+            "flag": "🇺🇸",
+            "subtitle": "President, USA"
+        },
+        "Nixon/Kissinger": {
+            "faction": "usa",
+            "flag": "🇺🇸",
+            "subtitle": "President, USA"
+        },
+        "Carter-radgiver": {
+            "faction": "usa",
+            "flag": "🇺🇸",
+            "subtitle": "Rådgiver, USA"
+        },
+        "LBJ-radgiver": {
+            "faction": "usa",
+            "flag": "🇺🇸",
+            "subtitle": "Rådgiver, USA"
+        },
+        "Zbigniew Brzezinski": {
+            "faction": "usa",
+            "flag": "🇺🇸",
+            "subtitle": "Nasjonal sikkerhetsrådgiver"
+        },
+        "CIA-analytiker": {
+            "faction": "usa",
+            "flag": "🇺🇸",
+            "subtitle": "Etterretning, CIA"
+        },
+        "CIA-operasjonssjef": {
+            "faction": "usa",
+            "flag": "🇺🇸",
+            "subtitle": "Etterretning, CIA"
+        },
+        "CIA-operativ": {
+            "faction": "usa",
+            "flag": "🇺🇸",
+            "subtitle": "Etterretning, CIA"
+        },
+        "General Westmoreland": {
+            "faction": "usa",
+            "flag": "🇺🇸",
+            "subtitle": "General, USA"
+        },
+        "US-general": {
+            "faction": "usa",
+            "flag": "🇺🇸",
+            "subtitle": "General, USA"
+        },
+        "US-kommandant": {
+            "faction": "usa",
+            "flag": "🇺🇸",
+            "subtitle": "Kommandant, USA"
+        },
+        "US-pilot": {
+            "faction": "usa",
+            "flag": "🇺🇸",
+            "subtitle": "Pilot, USA"
+        },
+        "James": {
+            "faction": "usa",
+            "flag": "🇺🇸",
+            "subtitle": "Soldat, USA"
+        },
+        "Korporalsoldat James Mitchell": {
+            "faction": "usa",
+            "flag": "🇺🇸",
+            "subtitle": "Soldat, USA"
+        },
+        "US-soldat James, 101. luftbårne divisjon": {
+            "faction": "usa",
+            "flag": "🇺🇸",
+            "subtitle": "Soldat, USA"
+        },
+        "Afghansk bonde Fatima": {
+            "faction": "sivil",
+            "flag": "🇦🇫",
+            "subtitle": "Sivil, Afghanistan"
+        },
+        "Chilensk journalist Carmen": {
+            "faction": "sivil",
+            "flag": "🇨🇱",
+            "subtitle": "Sivil, Chile"
+        },
+        "Koreansk gutt, 12 år": {
+            "faction": "sivil",
+            "flag": "🇰🇷",
+            "subtitle": "Sivil, Korea"
+        },
+        "Kubansk husmor Elena i Havana": {
+            "faction": "sivil",
+            "flag": "🇨🇺",
+            "subtitle": "Sivil, Cuba"
+        },
+        "Nordvietnamesisk familie, Binh Hoa": {
+            "faction": "sivil",
+            "flag": "🇻🇳",
+            "subtitle": "Sivil, Nord-Vietnam"
+        },
+        "Osttysk student Petra, 17 år": {
+            "faction": "sivil",
+            "flag": "🇩🇪",
+            "subtitle": "Sivil, Øst-Tyskland"
+        },
+        "Klaus": {
+            "faction": "sivil",
+            "flag": "🇩🇪",
+            "subtitle": "Sivil, Øst-Tyskland"
+        },
+        "Osttysk ungdom Klaus": {
+            "faction": "sivil",
+            "flag": "🇩🇪",
+            "subtitle": "Sivil, Øst-Tyskland"
+        },
+        "Petra og folkemengden": {
+            "faction": "sivil",
+            "flag": "🇩🇪",
+            "subtitle": "Sivil, Øst-Tyskland"
+        },
+        "Miroslav": {
+            "faction": "sivil",
+            "flag": "🇨🇿",
+            "subtitle": "Sivil, Tsjekkoslovakia"
+        },
+        "Tsjekkisk student Miroslav": {
+            "faction": "sivil",
+            "flag": "🇨🇿",
+            "subtitle": "Sivil, Tsjekkoslovakia"
+        },
+        "Polsk arbeider Lech": {
+            "faction": "sivil",
+            "flag": "🇵🇱",
+            "subtitle": "Sivil, Polen"
+        },
+        "Forteller": {
+            "faction": "forteller",
+            "flag": "📖",
+            "subtitle": "Historisk forteller"
+        }
+    },
     "config": {
         "stats": [
             {
@@ -93,6 +285,30 @@
                         "Med dypeste respekt,",
                         "Ho Chi Minh",
                         "President, Demokratiske Republikk Vietnam"
+                    ]
+                }
+            },
+            {
+                "id": "oss_rapport_1945",
+                "name": "OSS-feltrapport: Deer Team, august 1945",
+                "description": "En klassifisert feltrapport fra OSS-agent Archimedes Patti om samarbeidet med Ho Chi Minh og Viet Minh sommeren 1945. Rapporten anbefaler vietnamesisk uavhengighet.",
+                "icon": "scroll",
+                "content": {
+                    "itemType": "letter",
+                    "from": "Major Archimedes L.A. Patti, OSS Deer Team",
+                    "to": "OSS-sjefen, Chungking-stasjonen",
+                    "date": "26. august 1945",
+                    "body": [
+                        "KLASSIFISERT - TOPP HEMMELIG",
+                        "Emne: Rapport fra Deer Team-operasjonen, Nord-Indokina",
+                        "Jeg rapporterer hermed fra operasjonsbasen i Tan Trao-jungelen, etter tre ukers intensivt samarbeid med Viet Minh-organisasjonen og dens leder, Nguyen Ai Quoc - kjent som Ho Chi Minh.",
+                        "Ho Chi Minh er ingen typisk opprørsleder. Han er velutdannet, taler flytende fransk og engelsk, og har et grundig kjennskap til vestlig politisk filosofi. Han refererte gjentatte ganger til den amerikanske uavhengighetserklæringen og spurte meg direkte om USA ville anerkjenne vietnamesisk selvstyre etter japansk kapitulasjon.",
+                        "Deer Team har hatt et fruktbart samarbeid med Viet Minh-styrkene. Vi har trent deres soldater i guerillataktikk, levert radio- og sanitetsutstyr, og mottatt verdifull etterretning om japanske posisjoner. Ho Chi Minhs menn er disiplinerte, motiverte og effektive samarbeidspartnere mot den felles fienden.",
+                        "Min klare anbefaling: USA bør anerkjenne Demokratisk Republikk Vietnam og støtte vietnamesisk uavhengighet fra Frankrike. Ho Chi Minh er i dag pro-amerikansk. Han er ikke bundet til Moskva. Et Frankrike-støttet kolonistyre vil drive ham dit.",
+                        "Jeg advarer mot å la Frankrike gjenopprette kolonimakten. Det vil sløse bort all goodwill vi har bygd opp, og legge grunnlaget for en fremtidig konflikt vi ikke vil ønske oss inn i.",
+                        "Med respekt,",
+                        "Major A.L.A. Patti",
+                        "OSS Deer Team, Nord-Indokina"
                     ]
                 }
             },
@@ -206,7 +422,8 @@
                         "historisk_innsikt": 5
                     }
                 }
-            ]
+            ],
+            "backgroundImage": "/images/chronos/kald-krig/ho_brev_arkiv.webp"
         },
         "berlin_deling": {
             "id": "berlin_deling",
@@ -298,7 +515,8 @@
                         "usa_innflytelse": 5
                     }
                 }
-            ]
+            ],
+            "backgroundImage": "/images/chronos/kald-krig/berlin_blokkade.webp"
         },
         "nato_1949": {
             "id": "nato_1949",
@@ -358,6 +576,14 @@
             "speaker": "Forteller",
             "choices": [
                 {
+                    "id": "c_lest_2",
+                    "text": "Vent - han skriver at amerikanerne lovet ham støtte. Hva betyr det?",
+                    "nextNodeId": "oss_viet_minh_1945",
+                    "effects": {
+                        "historisk_innsikt": 10
+                    }
+                },
+                {
                     "id": "c_lest_1",
                     "text": "Gå videre - Korea er neste",
                     "nextNodeId": "korea_hub",
@@ -367,6 +593,43 @@
                     "setFlags": [
                         "ho_brev_funnet"
                     ]
+                }
+            ],
+            "backgroundImage": "/images/chronos/kald-krig/ho_brev_arkiv.webp"
+        },
+        "oss_viet_minh_1945": {
+            "id": "oss_viet_minh_1945",
+            "text": "Hanoi, 2. september 1945. Det er en solfylt dag og torget er overfylt med jubilerende vietnamesere. Du leser videre i arkivet og finner noe som stopper deg midt i pusten: den dagen Ho Chi Minh erklærte vietnamesisk uavhengighet, sto det amerikanske OSS-agenter i mengden. Major Archimedes Patti fra den hemmelige tjenesten OSS hadde vært med Ho Chi Minh i jungelen i ukevis. Deer Team hadde trent Viet Minh-soldater, levert radioer og våpen - alt med godkjenning fra Washington - for å bekjempe japanerne. Nå sto Ho på tribunen og leste fra dokumentet han husket utenat: 'Vi holder disse sannhetene for selvinnlysende: at alle mennesker er skapt likeverdige...' Han siterte den amerikanske uavhengighetserklæringen. Patti klappet. Han trodde på dette. Han trodde på at USA og Vietnam kunne være allierte. Rapporten hans til OSS-sjefen var klar: Anerkjenn Vietnam. Ho Chi Minh er pro-amerikansk. Ikke la Frankrike komme tilbake. Ingen i Washington leste den.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/kald-krig/ho_brev_arkiv.webp",
+            "discoveryEvent": {
+                "title": "OSS Deer Team og Ho Chi Minh (1945)",
+                "fact": "Sommeren 1945 sendte USA OSS-agenter - forgjengeren til CIA - til Vietnams jungler for å samarbeide med Ho Chi Minh og Viet Minh mot japansk okkupasjon. Major Archimedes Patti trente og bevæpnet Viet Minh-soldater. Da Ho Chi Minh erklærte uavhengighet 2. september 1945, sto amerikanske agenter i mengden og applauderte. Patti sendte klare rapporter hjem: Vietnam er pro-amerikansk, ikke kommunistisk - anbefaler anerkjennelse. Rapportene ble ignorert. USA valgte i stedet å finansiere Frankrikes kolonikrig. 20 år senere sendte USA 500 000 soldater til Vietnam for å bekjempe den mannen de hadde vært allierte med.",
+                "articleLink": "/historie/den-kalde-krigen/vietnamkrigen",
+                "reflectionQuestion": "Hva ville ha skjedd om USA hadde fulgt Pattis anbefaling i 1945? Var Ho Chi Minh i utgangspunktet kommunist - eller ble han det fordi Vesten tvang ham dit?"
+            },
+            "choices": [
+                {
+                    "id": "c_oss_1",
+                    "text": "Ta med Pattis rapport og gå videre til Korea-krigen",
+                    "nextNodeId": "korea_hub",
+                    "effects": {
+                        "historisk_innsikt": 15
+                    },
+                    "setFlags": [
+                        "oss_samarbeid_kjent",
+                        "ho_brev_funnet"
+                    ],
+                    "updateInventory": {
+                        "add": "oss_rapport_1945"
+                    },
+                    "ethicsLens": {
+                        "deontological": "En alliert som har kjempet side om side med deg har krav på lojalitet. Å forvike Ho Chi Minh var et pliktbrudd overfor en mann som stolte på amerikanske ord.",
+                        "consequentialist": "Patti hadde rett. Å ignorere hans anbefaling kostet 58 000 amerikanske liv og 3 millioner vietnamesiske liv over de neste tretti årene. Kalkylene slo feil.",
+                        "virtue": "Archimedes Patti viste mot ved å skrive sannheten til makthaverne. Ingen av dem viste mot nok til å handle på den."
+                    },
+                    "isHistoricalChoice": true,
+                    "historicalConsequence": "OSS ble nedlagt i 1945. CIAs etterfølgere arvet ikke Pattis kunnskap eller hans nettverk. Da USA gikk inn i Vietnam på 1960-tallet, behandlet de Ho Chi Minh som en Sovjet-satellitt - ikke som den nasjonalisten han i utgangspunktet hadde vært. Pattis rapport ble liggende i et arkiv i over 50 år."
                 }
             ]
         },
@@ -390,7 +653,8 @@
                         "atomspanning": 20
                     }
                 }
-            ]
+            ],
+            "backgroundImage": "/images/chronos/kald-krig/korea_krig.webp"
         },
         "korea_atom_true": {
             "id": "korea_atom_true",
@@ -406,7 +670,8 @@
                         "historisk_innsikt": 5
                     }
                 }
-            ]
+            ],
+            "backgroundImage": "/images/chronos/kald-krig/korea_krig.webp"
         },
         "korea_krig": {
             "id": "korea_krig",
@@ -485,7 +750,8 @@
                     "text": "Gå videre til kapittel 2",
                     "nextNodeId": "hub_kap2"
                 }
-            ]
+            ],
+            "backgroundImage": "/images/chronos/kald-krig/world_map_1953.webp"
         },
         "hub_kap2": {
             "id": "hub_kap2",
@@ -575,7 +841,8 @@
                         "virtue": "Integritet er å gjore det riktige selv nar det er kostbart. Dette er en sjanse til å bevise hva USA faktisk star for."
                     }
                 }
-            ]
+            ],
+            "backgroundImage": "/images/chronos/kald-krig/iran_cia_1953.webp"
         },
         "iran_shah_installert": {
             "id": "iran_shah_installert",
@@ -587,7 +854,8 @@
                     "text": "Gå tilbake til verdenskartet",
                     "nextNodeId": "hub_kap2"
                 }
-            ]
+            ],
+            "backgroundImage": "/images/chronos/kald-krig/iran_cia_1953.webp"
         },
         "suez_krise_1956": {
             "id": "suez_krise_1956",
@@ -632,7 +900,8 @@
                         "virtue": "Er det modig eller feigt å støtte noe man vet er galt fordi det er allierte som gjor det?"
                     }
                 }
-            ]
+            ],
+            "backgroundImage": "/images/chronos/kald-krig/suez_kanal.webp"
         },
         "suez_ny_orden": {
             "id": "suez_ny_orden",
@@ -650,7 +919,8 @@
                     "text": "Gå tilbake til verdenskartet",
                     "nextNodeId": "hub_kap2"
                 }
-            ]
+            ],
+            "backgroundImage": "/images/chronos/kald-krig/suez_kanal.webp"
         },
         "suez_old_empire": {
             "id": "suez_old_empire",
@@ -662,7 +932,8 @@
                     "text": "Gå tilbake til verdenskartet",
                     "nextNodeId": "hub_kap2"
                 }
-            ]
+            ],
+            "backgroundImage": "/images/chronos/kald-krig/suez_kanal.webp"
         },
         "sputnik_1957": {
             "id": "sputnik_1957",
@@ -706,7 +977,8 @@
                     "incorrectFeedback": "Feil analyse. Overdreven militarisering av svaret skapte unødig panikk og feil prioritering. Sputnik var en teknologisk demonstrasjon - farlig nok i seg selv, men ikke en umiddelbar militaer trussel."
                 }
             },
-            "choices": []
+            "choices": [],
+            "backgroundImage": "/images/chronos/kald-krig/sputnik_launch.webp"
         },
         "nasa_respons": {
             "id": "nasa_respons",
@@ -722,7 +994,8 @@
                         "historisk_innsikt": 5
                     }
                 }
-            ]
+            ],
+            "backgroundImage": "/images/chronos/kald-krig/nasa_respons.webp"
         },
         "sputnik_panikk": {
             "id": "sputnik_panikk",
@@ -737,7 +1010,8 @@
                         "atomspanning": 5
                     }
                 }
-            ]
+            ],
+            "backgroundImage": "/images/chronos/kald-krig/sputnik_launch.webp"
         },
         "berlin_mur_forb": {
             "id": "berlin_mur_forb",
@@ -797,7 +1071,8 @@
                     "lossNodeId": "fengslet_ost"
                 }
             },
-            "choices": []
+            "choices": [],
+            "backgroundImage": "/images/chronos/kald-krig/berlin_mur_ost.webp"
         },
         "friheten_vest": {
             "id": "friheten_vest",
@@ -812,7 +1087,8 @@
                         "historisk_innsikt": 5
                     }
                 }
-            ]
+            ],
+            "backgroundImage": "/images/chronos/kald-krig/berlin_mur_fall.webp"
         },
         "fengslet_ost": {
             "id": "fengslet_ost",
@@ -828,7 +1104,8 @@
                         "historisk_innsikt": 5
                     }
                 }
-            ]
+            ],
+            "backgroundImage": "/images/chronos/kald-krig/berlin_mur_ost.webp"
         },
         "kuba_hub": {
             "id": "kuba_hub",
@@ -893,7 +1170,8 @@
                     ]
                 }
             },
-            "choices": []
+            "choices": [],
+            "backgroundImage": "/images/chronos/kald-krig/kuba_hub.webp"
         },
         "kuba_tale": {
             "id": "kuba_tale",
@@ -1047,7 +1325,8 @@
                         "virtue": "Er det modighet å angripe forst, eller feighet å ikke tåle usikkerheten som forhandlinger medforer?"
                     }
                 }
-            ]
+            ],
+            "backgroundImage": "/images/chronos/kald-krig/kuba_tale.webp"
         },
         "kuba_blokkade_ok": {
             "id": "kuba_blokkade_ok",
@@ -1069,7 +1348,8 @@
                         "historisk_innsikt": 5
                     }
                 }
-            ]
+            ],
+            "backgroundImage": "/images/chronos/kald-krig/kuba_hub.webp"
         },
         "kuba_nesten_krig": {
             "id": "kuba_nesten_krig",
@@ -1091,7 +1371,8 @@
                         "historisk_innsikt": 10
                     }
                 }
-            ]
+            ],
+            "backgroundImage": "/images/chronos/kald-krig/kuba_tale.webp"
         },
         "kuba_sivil": {
             "id": "kuba_sivil",
@@ -1107,7 +1388,8 @@
                         "menneskekost": 5
                     }
                 }
-            ]
+            ],
+            "backgroundImage": "/images/chronos/kald-krig/kuba_hub.webp"
         },
         "kap2_konsekvenser": {
             "id": "kap2_konsekvenser",
@@ -1128,7 +1410,8 @@
                         "historisk_innsikt": 5
                     }
                 }
-            ]
+            ],
+            "backgroundImage": "/images/chronos/kald-krig/world_map_1953.webp"
         },
         "hub_kap3": {
             "id": "hub_kap3",
@@ -1171,7 +1454,7 @@
             "id": "vietnam_intro",
             "text": "Ho Chi Minh har kjempet siden 1941. Mot japanerne. Mot franskmennene. Mot alle som ville styre landet hans. Han er 74 år. 'Vi er villige til å kjempe i 20 år,' sa han en gang. Han mente det. Nå er USA neste.",
             "speaker": "Forteller",
-            "backgroundImage": "/images/chronos/kald-krig/korea_krig.webp",
+            "backgroundImage": "/images/chronos/kald-krig/ho_brev_arkiv.webp",
             "discoveryEvent": {
                 "title": "Vietnam - bakgrunn og Ho Chi Minh",
                 "fact": "Ho Chi Minh grunnla Viet Minh i 1941 og kjempet for vietnamesisk selvstendighet fra Frankrike. Da Frankrike tapte ved Dien Bien Phu i 1954, delte Geneve-avtalen Vietnam ved den 17. breddegrad. USA begynte å støtte Syd-Vietnam mot nord - og arvet Frankrikes krig.",
@@ -1228,7 +1511,8 @@
                     "incorrectFeedback": "Feil analyse. Etterretningen var for usikker til å bygge en krigserklæring på. NSA-dokumenter frigjort i 2005 bekreftet: det andre angrepet skjedde trolig ikke."
                 }
             },
-            "choices": []
+            "choices": [],
+            "backgroundImage": "/images/chronos/kald-krig/vietnam_bombing.webp"
         },
         "tonkin_tvilsom": {
             "id": "tonkin_tvilsom",
@@ -1253,7 +1537,8 @@
                         "historisk_innsikt": 10
                     }
                 }
-            ]
+            ],
+            "backgroundImage": "/images/chronos/kald-krig/vietnam_bombing.webp"
         },
         "tonkin_godkjent_scene": {
             "id": "tonkin_godkjent_scene",
@@ -1271,7 +1556,8 @@
                         "menneskekost": 10
                     }
                 }
-            ]
+            ],
+            "backgroundImage": "/images/chronos/kald-krig/vietnam_bombing.webp"
         },
         "vietnam_diplomati": {
             "id": "vietnam_diplomati",
@@ -1286,13 +1572,14 @@
                         "historisk_innsikt": 10
                     }
                 }
-            ]
+            ],
+            "backgroundImage": "/images/chronos/kald-krig/ho_brev_arkiv.webp"
         },
         "vietnam_strategi": {
             "id": "vietnam_strategi",
             "text": "General Westmoreland legger frem planen: 'Search and Destroy.' Vi søker fienden, vi ødelegger dem. Enkelt. Men ressursene er ikke ubegrensede - og ingen vet lenger hvem fienden er. Du fordeler midlene.",
             "speaker": "General Westmoreland",
-            "backgroundImage": "/images/chronos/kald-krig/korea_krig.webp",
+            "backgroundImage": "/images/chronos/kald-krig/vietnam_jungle.webp",
             "minigame": {
                 "type": "allocation",
                 "config": {
@@ -1341,13 +1628,14 @@
                     "text": "Folg en amerikansk soldat på patrulje",
                     "nextNodeId": "vietnam_soldat_patrulje"
                 }
-            ]
+            ],
+            "backgroundImage": "/images/chronos/kald-krig/vietnam_jungle.webp"
         },
         "vietnam_sivil_bombing": {
             "id": "vietnam_sivil_bombing",
             "text": "Landsbyen Binh Hoa, Nord-Vietnam. Napalm. Flybrakket er borte. Det er stille - men stillheten er ikke trygg. Husene brenner. Fire familiemedlemmer trenger hjelp. Du har tre porsjoner mat og medisin igjen.",
             "speaker": "Nordvietnamesisk familie, Binh Hoa",
-            "backgroundImage": "/images/chronos/kald-krig/korea_sivil.webp",
+            "backgroundImage": "/images/chronos/kald-krig/vietnam_bombing.webp",
             "minigame": {
                 "type": "rationing",
                 "config": {
@@ -1445,7 +1733,8 @@
                         "historisk_innsikt": 5
                     }
                 }
-            ]
+            ],
+            "backgroundImage": "/images/chronos/kald-krig/vietnam_jungle.webp"
         },
         "vietnam_usa_perspektiv": {
             "id": "vietnam_usa_perspektiv",
@@ -1460,7 +1749,8 @@
                         "historisk_innsikt": 5
                     }
                 }
-            ]
+            ],
+            "backgroundImage": "/images/chronos/kald-krig/vietnam_jungle.webp"
         },
         "vietnam_avslutt": {
             "id": "vietnam_avslutt",
@@ -1481,7 +1771,8 @@
                         "historisk_innsikt": 5
                     }
                 }
-            ]
+            ],
+            "backgroundImage": "/images/chronos/kald-krig/vietnam_jungle.webp"
         },
         "praha_1968": {
             "id": "praha_1968",
@@ -1513,13 +1804,14 @@
                         "historisk_innsikt": 5
                     }
                 }
-            ]
+            ],
+            "backgroundImage": "/images/chronos/kald-krig/prague_tanks.webp"
         },
         "praha_protest": {
             "id": "praha_protest",
             "text": "Vaclav-plassen. Tanks ruller langs Karl-broen. Titusenvis av studenter mot 500 000 soldater. Hold folkemassen samlet og fredelig - og kanskje verdenshistorien ser på.",
             "speaker": "Miroslav",
-            "backgroundImage": "/images/chronos/kald-krig/world_map_1953.webp",
+            "backgroundImage": "/images/chronos/kald-krig/prague_tanks.webp",
             "minigame": {
                 "type": "crowd",
                 "config": {
@@ -1580,7 +1872,8 @@
                         "historisk_innsikt": 5
                     }
                 }
-            ]
+            ],
+            "backgroundImage": "/images/chronos/kald-krig/prague_tanks.webp"
         },
         "praha_knust": {
             "id": "praha_knust",
@@ -1596,7 +1889,8 @@
                         "historisk_innsikt": 5
                     }
                 }
-            ]
+            ],
+            "backgroundImage": "/images/chronos/kald-krig/prague_tanks.webp"
         },
         "chile_1973": {
             "id": "chile_1973",
@@ -1641,13 +1935,14 @@
                         "virtue": "Prinsippfasthet koster noe. Men det er det som gjor et prinsipp til et prinsipp."
                     }
                 }
-            ]
+            ],
+            "backgroundImage": "/images/chronos/kald-krig/chile_moneda.webp"
         },
         "chile_kupp": {
             "id": "chile_kupp",
             "text": "Santiago, 11. september 1973. La Moneda-palasset bombes av de samme flyene som skal beskytte Chile. Allendes siste radiotale: 'Alamedaen vil åpne seg igjen.' Så tier det. Pinochet griper makten. Og folk begynner å forsvinne.",
             "speaker": "Chilensk journalist Carmen",
-            "backgroundImage": "/images/chronos/kald-krig/korea_sivil.webp",
+            "backgroundImage": "/images/chronos/kald-krig/chile_moneda.webp",
             "discoveryEvent": {
                 "title": "Pinochets terror",
                 "fact": "Under Pinochets regime (1973-1990) ble over 3 200 mennesker drept eller tvangsforsvinnet. Over 40 000 ble torturert. Regime mottok aktivt støtte fra USA gjennom Operasjon Condor - et CIA-koordinert samarbeid mellom Syd-Amerikas militaerdiktaturer.",
@@ -1678,7 +1973,8 @@
                         "historisk_innsikt": 5
                     }
                 }
-            ]
+            ],
+            "backgroundImage": "/images/chronos/kald-krig/chile_moneda.webp"
         },
         "kap3_konsekvenser": {
             "id": "kap3_konsekvenser",
@@ -1699,7 +1995,8 @@
                         "historisk_innsikt": 5
                     }
                 }
-            ]
+            ],
+            "backgroundImage": "/images/chronos/kald-krig/world_map_1953.webp"
         },
         "hub_kap4": {
             "id": "hub_kap4",
@@ -1777,7 +2074,8 @@
                     ]
                 }
             },
-            "choices": []
+            "choices": [],
+            "backgroundImage": "/images/chronos/kald-krig/angola_war.webp"
         },
         "angola_konsekvens": {
             "id": "angola_konsekvens",
@@ -1793,7 +2091,8 @@
                         "historisk_innsikt": 5
                     }
                 }
-            ]
+            ],
+            "backgroundImage": "/images/chronos/kald-krig/angola_war.webp"
         },
         "afghanistan_sovjet_hub": {
             "id": "afghanistan_sovjet_hub",
@@ -1838,7 +2137,8 @@
                         "virtue": "Det krevde mer mot å holde militaeret tilbake enn å sende dem inn."
                     }
                 }
-            ]
+            ],
+            "backgroundImage": "/images/chronos/kald-krig/afghanistan_mountains.webp"
         },
         "afghanistan_invasjon": {
             "id": "afghanistan_invasjon",
@@ -1853,7 +2153,8 @@
                         "menneskekost": 15
                     }
                 }
-            ]
+            ],
+            "backgroundImage": "/images/chronos/kald-krig/afghanistan_mountains.webp"
         },
         "afghanistan_diplomatisk": {
             "id": "afghanistan_diplomatisk",
@@ -1868,13 +2169,14 @@
                         "historisk_innsikt": 5
                     }
                 }
-            ]
+            ],
+            "backgroundImage": "/images/chronos/kald-krig/afghanistan_mountains.webp"
         },
         "afghanistan_landsby": {
             "id": "afghanistan_landsby",
             "text": "Panjshir-dalen, 1980. Jeg er Fatima. Sovjet-fly bombet i morges. Mannen min er i fjellene med Mujahideen. Jeg er igjen med barna, en syk mor og det som er igjen av forrådet. Soldatene patruljerer veien nedenfor. Hvem kan jeg hjelpe?",
             "speaker": "Afghansk bonde Fatima",
-            "backgroundImage": "/images/chronos/kald-krig/korea_sivil.webp",
+            "backgroundImage": "/images/chronos/kald-krig/afghanistan_mountains.webp",
             "discoveryEvent": {
                 "title": "Afghanske sivile under Sovjet-invasjonen",
                 "fact": "Under Sovjet-krigen i Afghanistan (1979-1989) ble estimert 2 millioner afghanske sivile drept. 5-6 millioner flyktet til Pakistan og Iran - en av historiens storste flyktningkriser. Over 1 million miner ble lagt igjen da Sovjet trakk seg ut.",
@@ -1995,13 +2297,14 @@
                         "virtue": "Å si nei nar alle sier ja krever mot. Men det er nettopp da det teller."
                     }
                 }
-            ]
+            ],
+            "backgroundImage": "/images/chronos/kald-krig/afghanistan_mountains.webp"
         },
         "cia_domino_spill": {
             "id": "cia_domino_spill",
             "text": "Peshawar, Pakistan, 1981. CIA-operativ Charlie Wilson legger frem kartet. Mujahideen-grupper venter: noen pålitelige, noen ikke. Stinger-missiler, treningsleire, penger. Du har begrenset budsjett. Plasser ressursene.",
             "speaker": "CIA-operativ",
-            "backgroundImage": "/images/chronos/kald-krig/korea_krig.webp",
+            "backgroundImage": "/images/chronos/kald-krig/afghanistan_mountains.webp",
             "minigame": {
                 "type": "domino",
                 "config": {
@@ -2161,7 +2464,8 @@
                         "historisk_innsikt": 5
                     }
                 }
-            ]
+            ],
+            "backgroundImage": "/images/chronos/kald-krig/afghanistan_mountains.webp"
         },
         "mujahideen_kaos": {
             "id": "mujahideen_kaos",
@@ -2177,7 +2481,8 @@
                         "historisk_innsikt": 5
                     }
                 }
-            ]
+            ],
+            "backgroundImage": "/images/chronos/kald-krig/afghanistan_mountains.webp"
         },
         "kap4_advarsel": {
             "id": "kap4_advarsel",
@@ -2198,13 +2503,14 @@
                         "historisk_innsikt": 5
                     }
                 }
-            ]
+            ],
+            "backgroundImage": "/images/chronos/kald-krig/world_map_1953.webp"
         },
         "hub_kap5": {
             "id": "hub_kap5",
             "text": "1985. Mikhail Gorbatsjov blir generalsekretær i Sovjet. Han vet at systemet er sykt. Det råtner innenfra. Tre kriser venter - og én av dem vil forandre alt.",
             "speaker": "Forteller",
-            "backgroundImage": "/images/chronos/kald-krig/gorbachev_dilemma.webp",
+            "backgroundImage": "/images/chronos/kald-krig/world_map_1953.webp",
             "discoveryEvent": {
                 "title": "Glasnost og Perestroika",
                 "fact": "Mikhail Gorbatsjov lanserte glasnost (åpenhet) og perestroika (omstrukturering) fra 1985 for å modernisere Sovjet. Det han ikke forutså, var at åpenhet ville avsløre systemets dypereliggende rot - og gi folk verktøy til å kreve mer.",
@@ -2446,7 +2752,8 @@
                     ]
                 }
             },
-            "choices": []
+            "choices": [],
+            "backgroundImage": "/images/chronos/kald-krig/gorbachev_dilemma.webp"
         },
         "tsernobyl_hub": {
             "id": "tsernobyl_hub",
@@ -2631,7 +2938,8 @@
                     ]
                 }
             },
-            "choices": []
+            "choices": [],
+            "backgroundImage": "/images/chronos/kald-krig/tsernobyl.webp"
         },
         "tsernobyl_konsekvens": {
             "id": "tsernobyl_konsekvens",
@@ -2661,7 +2969,8 @@
                         "menneskekost": 5
                     }
                 }
-            ]
+            ],
+            "backgroundImage": "/images/chronos/kald-krig/tsernobyl.webp"
         },
         "solidarnosc": {
             "id": "solidarnosc",
@@ -2705,7 +3014,8 @@
                         "historisk_innsikt": 10
                     }
                 }
-            ]
+            ],
+            "backgroundImage": "/images/chronos/kald-krig/solidarnosc.webp"
         },
         "berlin_mur_fall": {
             "id": "berlin_mur_fall",
@@ -2770,7 +3080,8 @@
                     ]
                 }
             },
-            "choices": []
+            "choices": [],
+            "backgroundImage": "/images/chronos/kald-krig/berlin_mur_fall.webp"
         },
         "muren_faller": {
             "id": "muren_faller",
@@ -2805,7 +3116,8 @@
                         "historisk_innsikt": 5
                     }
                 }
-            ]
+            ],
+            "backgroundImage": "/images/chronos/kald-krig/berlin_mur_ost.webp"
         },
         "sovjet_kollaps": {
             "id": "sovjet_kollaps",
@@ -2850,7 +3162,8 @@
                         "lacksFlag": "mujahideen_bevapnet"
                     }
                 }
-            ]
+            ],
+            "backgroundImage": "/images/chronos/kald-krig/sovjet_kollaps.webp"
         },
         "epilog_mujahideen": {
             "id": "epilog_mujahideen",
@@ -2865,7 +3178,8 @@
                         "historisk_innsikt": 10
                     }
                 }
-            ]
+            ],
+            "backgroundImage": "/images/chronos/kald-krig/afghanistan_mountains.webp"
         },
         "epilog_iran": {
             "id": "epilog_iran",
@@ -2894,7 +3208,8 @@
                         "historisk_innsikt": 5
                     }
                 }
-            ]
+            ],
+            "backgroundImage": "/images/chronos/kald-krig/iran_cia_1953.webp"
         },
         "epilog_chile": {
             "id": "epilog_chile",
@@ -2924,7 +3239,8 @@
                         "historisk_innsikt": 5
                     }
                 }
-            ]
+            ],
+            "backgroundImage": "/images/chronos/kald-krig/chile_moneda.webp"
         },
         "ending_select": {
             "id": "ending_select",
@@ -2970,7 +3286,8 @@
                     "text": "Realpolitikkens vei",
                     "nextNodeId": "ending_pragmatikeren"
                 }
-            ]
+            ],
+            "backgroundImage": "/images/chronos/kald-krig/berlin_mur_fall.webp"
         },
         "ending_fredsskaperen": {
             "id": "ending_fredsskaperen",
@@ -2990,6 +3307,10 @@
                         "text": "Du leste Ho Chi Minhs brev. En nasjonalist som siterte den amerikanske uavhengighetserklæringen. Historien er sjelden enkel."
                     },
                     {
+                        "hasFlag": "oss_samarbeid_kjent",
+                        "text": "Du fant Pattis rapport. Sommeren 1945 sto amerikanske agenter side om side med Ho Chi Minh mot Japan. USA valgte Frankrike i stedet. Historiens ironi lar seg ikke overskrives - men den lar seg forstå."
+                    },
+                    {
                         "hasFlag": "muren_passert",
                         "text": "Du var der da muren falt. 9. november 1989. Det er én av de dagene som forandrer alt."
                     },
@@ -3004,7 +3325,8 @@
                 "historicalEcho": "Den kalde krigen endte 25. desember 1991 med Gorbatsjovs avgang og Sovjet-unionens oppløsning. Det var ikke et militært nederlag for Sovjet - det var et systemkollaps drevet av glasnost, Tsernobyl, Afghanistanskrigen, Solidaritet i Polen og DDR-befolkningens opprør. USA erklærte seg som seierherre - men mange historikere mener det var europeiske folk, ikke den amerikanske militærmakten, som vant den kalde krigen.",
                 "reflectionQuestion": "Kan vi si at noen 'vant' den kalde krigen - eller var det alle som tapte noe, og fredssøkerne som reddet mest?"
             },
-            "choices": []
+            "choices": [],
+            "backgroundImage": "/images/chronos/kald-krig/berlin_mur_fall.webp"
         },
         "ending_pragmatikeren": {
             "id": "ending_pragmatikeren",
@@ -3028,13 +3350,18 @@
                         "text": "Shahen av Iran tjente vestlige interesser i 26 år - frem til 1979-revolusjonen som skapte en fiende av Iran for tiår fremover."
                     },
                     {
+                        "hasFlag": "oss_samarbeid_kjent",
+                        "text": "OSS bevæpnet Ho Chi Minh i 1945. 20 år senere sendte USA ham bomber. Realpolitikk er ikke alltid kynisk kalkyle - noen ganger er det glemsel."
+                    },
+                    {
                         "text": "Realpolitikk er ikke ondt eller godt - det er kalkulert. Spørsmålet er alltid: hvem betaler regningen for kalkylen?"
                     }
                 ],
                 "historicalEcho": "Den kalde krigen endte med USAs geopolitiske dominans - men etterlot dype sår i Iran, Afghanistan, Chile, Vietnam og andre land der proxy-krigen ble ført. 'Seieren' kostet langt mer for menneskene på bakken enn for beslutningstakerne i Washington og Moskva.",
                 "reflectionQuestion": "Er det etisk forsvarlig å ofre demokrati og menneskeliv i andre land for din nasjons sikkerhet? Hvem bestemmer regnestykket?"
             },
-            "choices": []
+            "choices": [],
+            "backgroundImage": "/images/chronos/kald-krig/sovjet_kollaps.webp"
         },
         "ending_pyrrhusseiros": {
             "id": "ending_pyrrhusseiros",
@@ -3072,7 +3399,8 @@
                 "historicalEcho": "Den kalde krigen er historiens mest kostbare geopolitiske konflikt målt i proxy-krigsofre: 25-40 millioner mennesker drept i konflikter der USA og Sovjet aldri sloss direkte mot hverandre. Begge supermakter bidro til lidelse de aldri ville akseptert hjemme.",
                 "reflectionQuestion": "Kan man kalle det en 'kald' krig når 25 millioner mennesker døde? Hvem bestemmer om en krig er 'kald'?"
             },
-            "choices": []
+            "choices": [],
+            "backgroundImage": "/images/chronos/kald-krig/sovjet_kollaps.webp"
         },
         "event_stanislav_petrov": {
             "id": "event_stanislav_petrov",
@@ -3103,7 +3431,8 @@
                         "historisk_innsikt": 10
                     }
                 }
-            ]
+            ],
+            "backgroundImage": "/images/chronos/kald-krig/stanislav_petrov.webp"
         },
         "event_spion_avsloert": {
             "id": "event_spion_avsloert",
@@ -3128,7 +3457,8 @@
                         "menneskekost": 10
                     }
                 }
-            ]
+            ],
+            "backgroundImage": "/images/chronos/kald-krig/ho_brev_arkiv.webp"
         },
         "event_pentagon_papers": {
             "id": "event_pentagon_papers",
@@ -3158,7 +3488,8 @@
                         "usa_innflytelse": 5
                     }
                 }
-            ]
+            ],
+            "backgroundImage": "/images/chronos/kald-krig/pentagon_papers.webp"
         },
         "event_ungarn_1956": {
             "id": "event_ungarn_1956",
@@ -3188,7 +3519,8 @@
                         "historisk_innsikt": 10
                     }
                 }
-            ]
+            ],
+            "backgroundImage": "/images/chronos/kald-krig/ungarn_1956.webp"
         },
         "event_brev_fra_vietnam": {
             "id": "event_brev_fra_vietnam",
@@ -3204,7 +3536,8 @@
                         "menneskekost": 5
                     }
                 }
-            ]
+            ],
+            "backgroundImage": "/images/chronos/kald-krig/vietnam_jungle.webp"
         },
         "event_fredsbevegelse": {
             "id": "event_fredsbevegelse",
@@ -3234,7 +3567,8 @@
                         "historisk_innsikt": 5
                     }
                 }
-            ]
+            ],
+            "backgroundImage": "/images/chronos/kald-krig/fredsbevegelsen.webp"
         },
         "game_over_atomkrig": {
             "id": "game_over_atomkrig",
@@ -3255,7 +3589,8 @@
                 "historicalEcho": "I virkeligheten kom verden farligst nær atomkrig under Cubakrisen i 1962 - 13 dager der verdensfreden hang i en tynn tråd. En sovjetisk ubåtoffiser, Vasili Arkhipov, nektet å autorisere en atomtorpedo og reddet trolig verden. Du hadde ikke en Arkhipov.",
                 "reflectionQuestion": "Hva holdt faktisk supermaktene fra å bruke atomvåpnene sine gjennom 46 år?"
             },
-            "choices": []
+            "choices": [],
+            "backgroundImage": "/images/chronos/kald-krig/world_map_1953.webp"
         }
     }
 }

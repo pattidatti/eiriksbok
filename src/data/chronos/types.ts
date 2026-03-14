@@ -176,6 +176,12 @@ export interface ChronosGameOverCondition {
     nodeId: string;
 }
 
+export interface ChronosPerspective {
+    faction: 'sovjet' | 'usa' | 'sivil' | 'forteller';
+    flag?: string;     // emoji-flagg, f.eks. "🇷🇺"
+    subtitle?: string; // f.eks. "Generalsekretær, Sovjet"
+}
+
 export interface ChronosScenario {
     id: string;
     title: string;
@@ -192,6 +198,7 @@ export interface ChronosScenario {
     startingNodeId: string;
     gameOverConditions?: ChronosGameOverCondition[];
     randomEvents?: string[]; // IDs of nodes that can be triggered randomly
+    perspectives?: Record<string, ChronosPerspective>;
 }
 
 // Choice History – tracked in TimeTravelEngine for DecisionMapModal + EndComparisonScreen

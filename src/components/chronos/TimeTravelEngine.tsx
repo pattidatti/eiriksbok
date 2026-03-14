@@ -369,6 +369,7 @@ export const TimeTravelEngine: React.FC<TimeTravelEngineProps> = ({ scenarioId }
                 flags={flags}
                 config={scenario.config}
                 choiceHistory={choiceHistory}
+                perspectives={scenario.perspectives}
                 onChoice={handleChoice}
                 onAddJournalEntry={(text) =>
                     setJournal((prev) => [

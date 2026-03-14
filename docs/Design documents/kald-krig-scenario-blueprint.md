@@ -476,3 +476,101 @@ Stil: cinematic documentary photorealism, som beskrevet i Seksjon 9.
 **Brukes i:** node `sovjet_kollaps`
 
 `The Soviet red flag being slowly lowered from the Kremlin flagpole, December 25, 1991. A Russian tricolor flag rises in its place. Sparse crowd watches in silence in the snow below. Grey winter light. Historic documentary photograph, 16:9.`
+
+---
+
+### `iran_cia_1953.webp`
+**Brukes i:** noder `iran_cia_1953`, `iran_shah_installert`, `epilog_iran`
+
+`A highly realistic 4K cinematic photograph of Tehran streets during the 1953 Iranian coup, crowds and military vehicles outside the parliament. Cold War era color grading, tense atmosphere. 16:9 ratio.`
+
+---
+
+### `sputnik_launch.webp`
+**Brukes i:** noder `sputnik_1957`, `sputnik_panikk`
+
+`A highly realistic 4K cinematic photograph of Sputnik satellite in orbit above Earth, 1957. Soviet space program aesthetic, dark space background with Earth's curvature, dramatic lighting. 16:9 ratio.`
+
+---
+
+### `nasa_respons.webp`
+**Brukes i:** node `nasa_respons`
+
+`A highly realistic 4K cinematic photograph of 1950s American scientists and engineers at radar consoles tracking Sputnik, tense atmosphere, green oscilloscope screens. Cold War era. 16:9 ratio.`
+
+---
+
+### `vietnam_jungle.webp`
+**Brukes i:** noder `vietnam_strategi`, `vietnam_soldat_patrulje`, `vietnam_usa_perspektiv`, `vietnam_avslutt`, `vietnam_perspektiv_valg`, `event_brev_fra_vietnam`
+
+`A highly realistic 4K cinematic photograph of American soldiers on patrol in dense Vietnamese jungle, 1968. Wet, humid atmosphere, documentary war photography style. 16:9 ratio.`
+
+---
+
+### `vietnam_bombing.webp`
+**Brukes i:** noder `vietnam_tonkin`, `tonkin_tvilsom`, `tonkin_godkjent_scene`, `vietnam_sivil_bombing`
+
+`A highly realistic 4K cinematic photograph of B-52 bombers over Vietnamese countryside with explosions below, 1968. Dramatic aerial warfare scene. 16:9 ratio.`
+
+---
+
+### `prague_tanks.webp`
+**Brukes i:** noder `praha_1968`, `praha_protest`, `praha_symbol`, `praha_knust`
+
+`A highly realistic 4K cinematic photograph of Soviet T-54 tanks rolling through Prague streets past historic buildings, August 1968. Czech citizens watching in shock. Documentary photography style. 16:9 ratio.`
+
+---
+
+### `chile_moneda.webp`
+**Brukes i:** noder `chile_1973`, `chile_kupp`, `chile_demokrati`, `epilog_chile`
+
+`A highly realistic 4K cinematic photograph of La Moneda presidential palace in Santiago surrounded by smoke and military, September 11, 1973. Dramatic political crisis atmosphere. 16:9 ratio.`
+
+---
+
+### `afghanistan_mountains.webp`
+**Brukes i:** noder `afghanistan_sovjet_hub`, `afghanistan_invasjon`, `afghanistan_diplomatisk`, `afghanistan_landsby`, `cia_beslutning`, `cia_domino_spill`, `mujahideen_suksess`, `mujahideen_kaos`, `epilog_mujahideen`
+
+`A highly realistic 4K cinematic photograph of rugged Afghan mountain terrain in the Hindu Kush with Soviet military convoy on a narrow mountain road, 1980s. Harsh landscape. 16:9 ratio.`
+
+---
+
+### `angola_war.webp`
+**Brukes i:** noder `angola_proxy`, `angola_konsekvens`
+
+`A highly realistic 4K cinematic photograph of war-torn Angolan landscape with military vehicles and guerrilla fighters, 1975. African savanna setting, proxy war atmosphere. 16:9 ratio.`
+
+---
+
+### `suez_kanal.webp`
+**Brukes i:** noder `suez_krise_1956`, `suez_ny_orden`, `suez_old_empire`
+
+`A highly realistic 4K cinematic photograph of the Suez Canal with British and French naval vessels, 1956. Egyptian desert backdrop, dramatic geopolitical tension. 16:9 ratio.`
+
+---
+
+### `ungarn_1956.webp`
+**Brukes i:** node `event_ungarn_1956`
+
+`A highly realistic 4K cinematic photograph of Budapest streets during the 1956 Hungarian Revolution, crowds confronting Soviet tanks near the Hungarian Parliament. 16:9 ratio.`
+
+---
+
+### `stanislav_petrov.webp`
+**Brukes i:** node `event_stanislav_petrov`
+
+`A highly realistic 4K cinematic photograph of a Soviet early warning radar control room, 1983. Tense atmosphere with operators at monitors showing missile alert. Night time. 16:9 ratio.`
+
+---
+
+### `pentagon_papers.webp`
+**Brukes i:** node `event_pentagon_papers`
+
+`A highly realistic 4K cinematic photograph of classified government documents spread on a desk with newspaper headlines about the Pentagon Papers, 1971. Investigative journalism aesthetic. 16:9 ratio.`
+
+---
+
+### `fredsbevegelsen.webp`
+**Brukes i:** node `event_fredsbevegelse`
+
+`A highly realistic 4K cinematic photograph of large anti-nuclear protest in a European city, 1983. Thousands of people with signs, Cold War tensions backdrop. 16:9 ratio.`

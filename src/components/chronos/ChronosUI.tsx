@@ -10,7 +10,7 @@ import type {
     ChronosNode, ChronosChoice, ChronosStat, ChronosConfig, ChronosEnvironment,
     ChronosEntry, ChronosMapPoint, ChronosRecipe, ChronosDiscoveryEvent,
     ChronosEpilogue, ChronosEthicsLens, ChronosItem, ChoiceHistoryEntry,
-    ChronosCondition,
+    ChronosCondition, ChronosPerspective,
 } from '../../data/chronos/types';
 import { DiceGame } from './minigames/DiceGame';
 import { BattleGame } from './minigames/BattleGame';
@@ -48,6 +48,7 @@ interface ChronosUIProps {
     scenarioTitle?: string;
     scenarioMeta?: string;
     scenarioId?: string;
+    perspectives?: Record<string, ChronosPerspective>;
     onExit?: () => void;
     onRequestReset?: () => void;
 }
@@ -399,7 +400,7 @@ const EpilogueCard: React.FC<{ epilogue: ChronosEpilogue; flags: string[] }> = (
 export const ChronosUI: React.FC<ChronosUIProps> = ({
     node, stats, inventory = [], environment = { time: 'day', weather: 'clear' },
     journal = [], onAddJournalEntry, config, flags = [], onChoice, onRestart, onCraft,
-    choiceHistory = [], scenarioTitle, scenarioMeta, scenarioId, onExit, onRequestReset,
+    choiceHistory = [], scenarioTitle, scenarioMeta, scenarioId, perspectives, onExit, onRequestReset,
 }) => {
     const [journalText, setJournalText] = useState('');
     const [showJournal, setShowJournal] = useState(false);
@@ -920,11 +921,29 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
                         className="max-w-4xl mx-auto w-full relative z-40"
                     >
                         {/* Speaker Tag */}
-                        {node.speaker && (
-                            <div className="inline-block px-4 py-1.5 mb-4 rounded-lg bg-white/10 border border-white/15 text-[10px] font-black uppercase tracking-[0.2em] text-stone-300 shadow-sm">
-                                {node.speaker}
-                            </div>
-                        )}
+                        {node.speaker && (() => {
+                            const p = perspectives?.[node.speaker];
+                            const factionStyles = {
+                                sovjet:    { border: 'border-l-4 border-red-500',    bg: 'bg-red-950/50',    text: 'text-red-200'    },
+                                usa:       { border: 'border-l-4 border-blue-500',   bg: 'bg-blue-950/50',   text: 'text-blue-200'   },
+                                sivil:     { border: 'border-l-4 border-stone-400',  bg: 'bg-stone-800/50',  text: 'text-stone-200'  },
+                                forteller: { border: 'border-l-4 border-amber-400',  bg: 'bg-amber-950/30',  text: 'text-amber-200'  },
+                            };
+                            const style = p ? factionStyles[p.faction] : null;
+                            return style ? (
+                                <div className={`inline-flex items-center gap-3 px-4 py-2 mb-5 rounded-r-lg ${style.border} ${style.bg}`}>
+                                    {p?.flag && <span className="text-xl leading-none">{p.flag}</span>}
+                                    <div>
+                                        <div className={`text-[10px] font-black uppercase tracking-[0.2em] ${style.text}`}>{node.speaker}</div>
+                                        {p?.subtitle && <div className="text-[9px] opacity-60 text-stone-300 mt-0.5">{p.subtitle}</div>}
+                                    </div>
+                                </div>
+                            ) : (
+                                <div className="inline-block px-4 py-1.5 mb-4 rounded-lg bg-white/10 border border-white/15 text-[10px] font-black uppercase tracking-[0.2em] text-stone-300 shadow-sm">
+                                    {node.speaker}
+                                </div>
+                            );
+                        })()}
 
                         {/* Prinsipp 2: NPC tone dialogue */}
                         {npcTone && (
