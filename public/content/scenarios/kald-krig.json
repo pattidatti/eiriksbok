@@ -423,7 +423,7 @@
                     }
                 }
             ],
-            "backgroundImage": "/images/chronos/kald-krig/ho_brev_arkiv.webp"
+            "backgroundImage": "/images/chronos/kald-krig/kgb_spy_cafe.webp"
         },
         "berlin_deling": {
             "id": "berlin_deling",
@@ -654,7 +654,7 @@
                     }
                 }
             ],
-            "backgroundImage": "/images/chronos/kald-krig/korea_krig.webp"
+            "backgroundImage": "/images/chronos/kald-krig/macarthur_korea.webp"
         },
         "korea_atom_true": {
             "id": "korea_atom_true",
@@ -671,7 +671,7 @@
                     }
                 }
             ],
-            "backgroundImage": "/images/chronos/kald-krig/korea_krig.webp"
+            "backgroundImage": "/images/chronos/kald-krig/macarthur_korea.webp"
         },
         "korea_krig": {
             "id": "korea_krig",
@@ -751,13 +751,13 @@
                     "nextNodeId": "hub_kap2"
                 }
             ],
-            "backgroundImage": "/images/chronos/kald-krig/world_map_1953.webp"
+            "backgroundImage": "/images/chronos/kald-krig/epilog_aftermath.webp"
         },
         "hub_kap2": {
             "id": "hub_kap2",
             "text": "1953. Stalin er død - men Sovjet lever. Fire kriser venter deg: Iran, Egypt, verdensrommet og Berlin. Utforsk dem alle. De leder alle mot ett brennpunkt: Kuba, 1962.",
             "speaker": "Forteller",
-            "backgroundImage": "/images/chronos/kald-krig/world_map_1953.webp",
+            "backgroundImage": "/images/chronos/kald-krig/world_map_1962.webp",
             "uiType": "map",
             "mapConfig": {
                 "image": "/images/chronos/kald-krig/world_map_1953.webp",
@@ -1088,7 +1088,7 @@
                     }
                 }
             ],
-            "backgroundImage": "/images/chronos/kald-krig/berlin_mur_fall.webp"
+            "backgroundImage": "/images/chronos/kald-krig/west_berlin_street.webp"
         },
         "fengslet_ost": {
             "id": "fengslet_ost",
@@ -1105,7 +1105,7 @@
                     }
                 }
             ],
-            "backgroundImage": "/images/chronos/kald-krig/berlin_mur_ost.webp"
+            "backgroundImage": "/images/chronos/kald-krig/stasi_prison.webp"
         },
         "kuba_hub": {
             "id": "kuba_hub",
@@ -1349,7 +1349,7 @@
                     }
                 }
             ],
-            "backgroundImage": "/images/chronos/kald-krig/kuba_hub.webp"
+            "backgroundImage": "/images/chronos/kald-krig/cuba_naval_blockade.webp"
         },
         "kuba_nesten_krig": {
             "id": "kuba_nesten_krig",
@@ -1372,7 +1372,7 @@
                     }
                 }
             ],
-            "backgroundImage": "/images/chronos/kald-krig/kuba_tale.webp"
+            "backgroundImage": "/images/chronos/kald-krig/submarine_b59.webp"
         },
         "kuba_sivil": {
             "id": "kuba_sivil",
@@ -1389,7 +1389,7 @@
                     }
                 }
             ],
-            "backgroundImage": "/images/chronos/kald-krig/kuba_hub.webp"
+            "backgroundImage": "/images/chronos/kald-krig/havana_family_shelter.webp"
         },
         "kap2_konsekvenser": {
             "id": "kap2_konsekvenser",
@@ -1411,13 +1411,13 @@
                     }
                 }
             ],
-            "backgroundImage": "/images/chronos/kald-krig/world_map_1953.webp"
+            "backgroundImage": "/images/chronos/kald-krig/hotline_phone.webp"
         },
         "hub_kap3": {
             "id": "hub_kap3",
             "text": "1964. Johnson overtar etter Kennedy. Vietnam eskalerer. Praha drommer om 'sosialisme med et menneskelig ansikt'. Salvador Allende stiller til valg i Chile. Den kalde krigen brant på tre kontinenter samtidig - og det var ikke supermaktene som betalte prisen.",
             "speaker": "Forteller",
-            "backgroundImage": "/images/chronos/kald-krig/world_map_1953.webp",
+            "backgroundImage": "/images/chronos/kald-krig/world_map_1975.webp",
             "uiType": "map",
             "mapConfig": {
                 "image": "/images/chronos/kald-krig/world_map_1953.webp",
@@ -1573,13 +1573,13 @@
                     }
                 }
             ],
-            "backgroundImage": "/images/chronos/kald-krig/ho_brev_arkiv.webp"
+            "backgroundImage": "/images/chronos/kald-krig/paris_peace_1973.webp"
         },
         "vietnam_strategi": {
             "id": "vietnam_strategi",
             "text": "General Westmoreland legger frem planen: 'Search and Destroy.' Vi søker fienden, vi ødelegger dem. Enkelt. Men ressursene er ikke ubegrensede - og ingen vet lenger hvem fienden er. Du fordeler midlene.",
             "speaker": "General Westmoreland",
-            "backgroundImage": "/images/chronos/kald-krig/vietnam_jungle.webp",
+            "backgroundImage": "/images/chronos/kald-krig/saigon_command.webp",
             "minigame": {
                 "type": "allocation",
                 "config": {
@@ -1629,7 +1629,7 @@
                     "nextNodeId": "vietnam_soldat_patrulje"
                 }
             ],
-            "backgroundImage": "/images/chronos/kald-krig/vietnam_jungle.webp"
+            "backgroundImage": "/images/chronos/kald-krig/vietnam_transition.webp"
         },
         "vietnam_sivil_bombing": {
             "id": "vietnam_sivil_bombing",
@@ -1772,7 +1772,7 @@
                     }
                 }
             ],
-            "backgroundImage": "/images/chronos/kald-krig/vietnam_jungle.webp"
+            "backgroundImage": "/images/chronos/kald-krig/saigon_fall.webp"
         },
         "praha_1968": {
             "id": "praha_1968",
@@ -1996,13 +1996,13 @@
                     }
                 }
             ],
-            "backgroundImage": "/images/chronos/kald-krig/world_map_1953.webp"
+            "backgroundImage": "/images/chronos/kald-krig/world_map_1975.webp"
         },
         "hub_kap4": {
             "id": "hub_kap4",
             "text": "1975. Det er avspenning - på papiret. Nixon og Brezjnev har snakket. SALT-avtalen er signert. Men Afrika brenner og Afghanistan vakler. To nye kriser krever din oppmerksomhet.",
             "speaker": "Forteller",
-            "backgroundImage": "/images/chronos/kald-krig/world_map_1953.webp",
+            "backgroundImage": "/images/chronos/kald-krig/nixon_china_1972.webp",
             "discoveryEvent": {
                 "title": "Detente og realpolitikk",
                 "fact": "Detente (avspenning) var en periode på 1970-tallet der USA og Sovjet reduserte spenningen gjennom SALT-avtalene om atomvapen, Nixons Kina-besok og Helsingfors-avtalen. Men proxy-kriger fortsatte uforminsket - i Afrika, Midtosten og Asia.",
@@ -2138,7 +2138,7 @@
                     }
                 }
             ],
-            "backgroundImage": "/images/chronos/kald-krig/afghanistan_mountains.webp"
+            "backgroundImage": "/images/chronos/kald-krig/brezjnev_kremlin.webp"
         },
         "afghanistan_invasjon": {
             "id": "afghanistan_invasjon",
@@ -2170,7 +2170,7 @@
                     }
                 }
             ],
-            "backgroundImage": "/images/chronos/kald-krig/afghanistan_mountains.webp"
+            "backgroundImage": "/images/chronos/kald-krig/soviet_withdrawal.webp"
         },
         "afghanistan_landsby": {
             "id": "afghanistan_landsby",
@@ -2298,7 +2298,7 @@
                     }
                 }
             ],
-            "backgroundImage": "/images/chronos/kald-krig/afghanistan_mountains.webp"
+            "backgroundImage": "/images/chronos/kald-krig/brzezinski_cia.webp"
         },
         "cia_domino_spill": {
             "id": "cia_domino_spill",
@@ -2465,7 +2465,7 @@
                     }
                 }
             ],
-            "backgroundImage": "/images/chronos/kald-krig/afghanistan_mountains.webp"
+            "backgroundImage": "/images/chronos/kald-krig/mujahideen_stinger.webp"
         },
         "mujahideen_kaos": {
             "id": "mujahideen_kaos",
@@ -2482,7 +2482,7 @@
                     }
                 }
             ],
-            "backgroundImage": "/images/chronos/kald-krig/afghanistan_mountains.webp"
+            "backgroundImage": "/images/chronos/kald-krig/soviet_withdrawal.webp"
         },
         "kap4_advarsel": {
             "id": "kap4_advarsel",
@@ -2504,13 +2504,13 @@
                     }
                 }
             ],
-            "backgroundImage": "/images/chronos/kald-krig/world_map_1953.webp"
+            "backgroundImage": "/images/chronos/kald-krig/world_map_1985.webp"
         },
         "hub_kap5": {
             "id": "hub_kap5",
             "text": "1985. Mikhail Gorbatsjov blir generalsekretær i Sovjet. Han vet at systemet er sykt. Det råtner innenfra. Tre kriser venter - og én av dem vil forandre alt.",
             "speaker": "Forteller",
-            "backgroundImage": "/images/chronos/kald-krig/world_map_1953.webp",
+            "backgroundImage": "/images/chronos/kald-krig/world_map_1985.webp",
             "discoveryEvent": {
                 "title": "Glasnost og Perestroika",
                 "fact": "Mikhail Gorbatsjov lanserte glasnost (åpenhet) og perestroika (omstrukturering) fra 1985 for å modernisere Sovjet. Det han ikke forutså, var at åpenhet ville avsløre systemets dypereliggende rot - og gi folk verktøy til å kreve mer.",
@@ -2553,7 +2553,7 @@
             "id": "gorbachev_dilemma",
             "text": "Du er Gorbatsjov. Politbyrået møtes. Du vet at noen av mennene rundt bordet vil forsøke å stoppe reformene - eller verre. Sju ansikter. Tre forrådere. Finn dem.",
             "speaker": "Gorbatsjov",
-            "backgroundImage": "/images/chronos/kald-krig/gorbachev_dilemma.webp",
+            "backgroundImage": "/images/chronos/kald-krig/politburo_1985.webp",
             "minigame": {
                 "type": "intrigue",
                 "config": {
@@ -2753,7 +2753,7 @@
                 }
             },
             "choices": [],
-            "backgroundImage": "/images/chronos/kald-krig/gorbachev_dilemma.webp"
+            "backgroundImage": "/images/chronos/kald-krig/glasnost_press.webp"
         },
         "tsernobyl_hub": {
             "id": "tsernobyl_hub",
@@ -2939,7 +2939,7 @@
                 }
             },
             "choices": [],
-            "backgroundImage": "/images/chronos/kald-krig/tsernobyl.webp"
+            "backgroundImage": "/images/chronos/kald-krig/chernobyl_evacuation.webp"
         },
         "tsernobyl_konsekvens": {
             "id": "tsernobyl_konsekvens",
@@ -3117,7 +3117,7 @@
                     }
                 }
             ],
-            "backgroundImage": "/images/chronos/kald-krig/berlin_mur_ost.webp"
+            "backgroundImage": "/images/chronos/kald-krig/checkpoint_night.webp"
         },
         "sovjet_kollaps": {
             "id": "sovjet_kollaps",
@@ -3163,7 +3163,7 @@
                     }
                 }
             ],
-            "backgroundImage": "/images/chronos/kald-krig/sovjet_kollaps.webp"
+            "backgroundImage": "/images/chronos/kald-krig/epilog_aftermath.webp"
         },
         "epilog_mujahideen": {
             "id": "epilog_mujahideen",
@@ -3179,7 +3179,7 @@
                     }
                 }
             ],
-            "backgroundImage": "/images/chronos/kald-krig/afghanistan_mountains.webp"
+            "backgroundImage": "/images/chronos/kald-krig/mujahideen_stinger.webp"
         },
         "epilog_iran": {
             "id": "epilog_iran",
@@ -3326,7 +3326,7 @@
                 "reflectionQuestion": "Kan vi si at noen 'vant' den kalde krigen - eller var det alle som tapte noe, og fredssøkerne som reddet mest?"
             },
             "choices": [],
-            "backgroundImage": "/images/chronos/kald-krig/berlin_mur_fall.webp"
+            "backgroundImage": "/images/chronos/kald-krig/berlin_wall_graffiti.webp"
         },
         "ending_pragmatikeren": {
             "id": "ending_pragmatikeren",
@@ -3400,7 +3400,7 @@
                 "reflectionQuestion": "Kan man kalle det en 'kald' krig når 25 millioner mennesker døde? Hvem bestemmer om en krig er 'kald'?"
             },
             "choices": [],
-            "backgroundImage": "/images/chronos/kald-krig/sovjet_kollaps.webp"
+            "backgroundImage": "/images/chronos/kald-krig/soviet_collapse_queue.webp"
         },
         "event_stanislav_petrov": {
             "id": "event_stanislav_petrov",
@@ -3458,7 +3458,7 @@
                     }
                 }
             ],
-            "backgroundImage": "/images/chronos/kald-krig/ho_brev_arkiv.webp"
+            "backgroundImage": "/images/chronos/kald-krig/spy_bridge_exchange.webp"
         },
         "event_pentagon_papers": {
             "id": "event_pentagon_papers",
@@ -3537,7 +3537,7 @@
                     }
                 }
             ],
-            "backgroundImage": "/images/chronos/kald-krig/vietnam_jungle.webp"
+            "backgroundImage": "/images/chronos/kald-krig/james_letter.webp"
         },
         "event_fredsbevegelse": {
             "id": "event_fredsbevegelse",
@@ -3590,7 +3590,7 @@
                 "reflectionQuestion": "Hva holdt faktisk supermaktene fra å bruke atomvåpnene sine gjennom 46 år?"
             },
             "choices": [],
-            "backgroundImage": "/images/chronos/kald-krig/world_map_1953.webp"
+            "backgroundImage": "/images/chronos/kald-krig/nuclear_mushroom.webp"
         }
     }
 }

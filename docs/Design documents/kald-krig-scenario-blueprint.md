@@ -574,3 +574,231 @@ Stil: cinematic documentary photorealism, som beskrevet i Seksjon 9.
 **Brukes i:** node `event_fredsbevegelse`
 
 `A highly realistic 4K cinematic photograph of large anti-nuclear protest in a European city, 1983. Thousands of people with signs, Cold War tensions backdrop. 16:9 ratio.`
+
+---
+
+## Bildeoppforinger - Runde 2 (30 nye bilder)
+
+### Gruppe 1: Era-spesifikke verdenskart
+
+### `world_map_1962.webp`
+**Brukes i:** noder `hub_kap2`
+
+`A Cold War-era world map on a government briefing room wall, circa 1962. Cuba prominently circled in red marker, Berlin highlighted. Blue and red blocs. Fluorescent ceiling light. Cinematic documentary, 16:9.`
+
+---
+
+### `world_map_1975.webp`
+**Brukes i:** noder `hub_kap3`, `kap3_konsekvenser`
+
+`A Cold War-era world map, 1975. Southeast Asia highlighted - Vietnam, Laos, Cambodia shaded red. Angola marked on the African continent. Wooden pointer resting on the map. Institutional briefing room. 16:9.`
+
+---
+
+### `world_map_1985.webp`
+**Brukes i:** noder `hub_kap4`, `hub_kap5`, `kap4_advarsel`
+
+`A Cold War-era world map in a government situation room, 1985. Afghanistan circled, Poland highlighted, Eastern Europe under scrutiny. Multiple annotations. Late Cold War aesthetic. 16:9.`
+
+---
+
+### `nuclear_mushroom.webp`
+**Brukes i:** node `game_over_atomkrig`
+
+`A highly realistic 4K cinematic photograph of a nuclear test explosion mushroom cloud rising over a Pacific atoll, 1950s. Terrifying scale, orange fire at the base, grey-white cloud towering into the stratosphere. Distant military observation ship silhouette. 16:9.`
+
+---
+
+### Gruppe 2: Afghanistan-buen
+
+### `brezjnev_kremlin.webp`
+**Brukes i:** node `afghanistan_sovjet_hub`
+
+`A highly realistic 4K cinematic photograph of an aging Soviet leader at the head of a Kremlin conference table, 1979. Politburo members in suits around him, USSR military maps spread on the table. Heavy Soviet decor, chandelier light. 16:9.`
+
+---
+
+### `brzezinski_cia.webp`
+**Brukes i:** node `cia_beslutning`
+
+`A highly realistic 4K cinematic photograph of a US National Security Council war room, 1979. Intelligence officials around a table with a map of Central Asia, classified documents, CIA seal visible. Tense atmosphere. 16:9.`
+
+---
+
+### `mujahideen_stinger.webp`
+**Brukes i:** noder `mujahideen_suksess`, `epilog_mujahideen`
+
+`A highly realistic 4K cinematic photograph of Afghan mujahideen fighters in mountain terrain, 1988. Several men holding American-made Stinger missiles. A destroyed Soviet helicopter wreck visible behind them. Dawn light. 16:9.`
+
+---
+
+### `soviet_withdrawal.webp`
+**Brukes i:** noder `mujahideen_kaos`, `afghanistan_diplomatisk`
+
+`A highly realistic 4K cinematic photograph of the last Soviet troops crossing the Friendship Bridge over the Amu Darya river, February 1989. General Gromov walking last across the bridge. Somber morning light. 16:9.`
+
+---
+
+### Gruppe 3: Vietnam-buen
+
+### `saigon_command.webp`
+**Brukes i:** node `vietnam_strategi`
+
+`A highly realistic 4K cinematic photograph of a US military command room in Saigon, 1966. General Westmoreland at a map table with officers. Radio operators at consoles. Operational maps pinned to walls. 16:9.`
+
+---
+
+### `saigon_fall.webp`
+**Brukes i:** node `vietnam_avslutt`
+
+`A highly realistic 4K cinematic photograph of the US Embassy rooftop in Saigon, April 30, 1975. A helicopter lifting off with evacuees. Crowds below. South Vietnamese city visible behind. Historic documentary photography. 16:9.`
+
+---
+
+### `paris_peace_1973.webp`
+**Brukes i:** node `vietnam_diplomati`
+
+`A highly realistic 4K cinematic photograph of the Paris Peace Accords negotiating table, January 1973. American and North Vietnamese diplomats in a formal conference room. Flags, formal suits. Tense diplomacy. 16:9.`
+
+---
+
+### `james_letter.webp`
+**Brukes i:** node `event_brev_fra_vietnam`
+
+`A highly realistic 4K cinematic photograph of a young American soldier sitting in a jungle foxhole at night, writing a letter by flashlight. Rifle beside him. Worn, tired expression. Vietnam, 1968. 16:9.`
+
+---
+
+### `vietnam_transition.webp`
+**Brukes i:** node `vietnam_perspektiv_valg`
+
+`A highly realistic 4K cinematic photograph split between two worlds: on the left, a US military commander in an air-conditioned Saigon office; on the right, a Vietnamese village in ruins. Cinematic diptych style, 16:9.`
+
+---
+
+### Gruppe 4: Berlin-buen
+
+### `west_berlin_street.webp`
+**Brukes i:** node `friheten_vest`
+
+`A highly realistic 4K cinematic photograph of a West Berlin street in 1961, bustling with neon-lit shops, cafes, and people. Contrast to the grey East. A young man stands alone looking east toward the wall in the distance. 16:9.`
+
+---
+
+### `stasi_prison.webp`
+**Brukes i:** node `fengslet_ost`
+
+`A highly realistic 4K cinematic photograph of a Stasi prison corridor in East Germany, 1962. Grey concrete walls, iron doors with small peepholes, single overhead fluorescent light. Oppressive silence. Documentary style. 16:9.`
+
+---
+
+### `berlin_wall_graffiti.webp`
+**Brukes i:** node `ending_fredsskaperen`
+
+`A highly realistic 4K cinematic photograph of the West Berlin side of the Wall in 1988, covered in colorful political graffiti and murals. Artists and passersby. Contrast between the vibrant West and the concrete barrier. 16:9.`
+
+---
+
+### `checkpoint_night.webp`
+**Brukes i:** node `muren_holder_naatt`
+
+`A highly realistic 4K cinematic photograph of Checkpoint Charlie at night, November 1989. East German border guards blocking a growing crowd with searchlights. Tension before the wall falls. 16:9.`
+
+---
+
+### Gruppe 5: Cuba-buen
+
+### `cuba_naval_blockade.webp`
+**Brukes i:** node `kuba_blokkade_ok`
+
+`A highly realistic 4K cinematic photograph of US Navy destroyers intercepting a Soviet freighter in the Atlantic, October 1962. Grey warships in formation. Tense standoff at sea. Naval officers observing through binoculars. 16:9.`
+
+---
+
+### `havana_family_shelter.webp`
+**Brukes i:** node `kuba_sivil`
+
+`A highly realistic 4K cinematic photograph of a Cuban family sheltering in their Havana apartment during the missile crisis, October 1962. Mother with three children, windows taped, radio on the table. Fear and waiting. 16:9.`
+
+---
+
+### `submarine_b59.webp`
+**Brukes i:** node `kuba_nesten_krig`
+
+`A highly realistic 4K cinematic photograph of the cramped interior of a Soviet submarine, October 1962. Crew at crisis stations, sweating, red emergency lighting. A hand rests on a launch control panel. 16:9.`
+
+---
+
+### Gruppe 6: KGB/spion-buen
+
+### `kgb_spy_cafe.webp`
+**Brukes i:** node `sovjet_spion_start`
+
+`A highly realistic 4K cinematic photograph of a clandestine meeting in a dimly lit cafe near Los Alamos, New Mexico, 1946. Two men in hats and coats exchange an envelope beneath a table. Noir atmosphere, rain-streaked window. 16:9.`
+
+---
+
+### `spy_bridge_exchange.webp`
+**Brukes i:** node `event_spion_avsloert`
+
+`A highly realistic 4K cinematic photograph of the Glienicke Bridge on the East-West German border, 1960s. Two figures walking toward each other in early morning fog. Military escorts on both ends. Cold War spy exchange. 16:9.`
+
+---
+
+### Gruppe 7: Gorbatsjov/kollaps-buen
+
+### `politburo_1985.webp`
+**Brukes i:** node `gorbachev_dilemma`
+
+`A highly realistic 4K cinematic photograph of the Soviet Politburo in session, 1985. A row of elderly men in dark suits at a long table. Gorbachev at the end, younger and alert. USSR flags. Tense institutional silence. 16:9.`
+
+---
+
+### `glasnost_press.webp`
+**Brukes i:** node `glasnost_tale`
+
+`A highly realistic 4K cinematic photograph of Soviet journalists in a Moscow newsroom, 1986. For the first time, bold headlines on front pages challenge the government. Editors look stunned. Stacks of Pravda newspapers. 16:9.`
+
+---
+
+### `chernobyl_evacuation.webp`
+**Brukes i:** node `tsernobyl_valg`
+
+`A highly realistic 4K cinematic photograph of buses evacuating residents of Pripyat after the Chernobyl explosion, April 1986. Families with hastily packed bags boarding buses. Soldiers in radiation gear. Fear on faces. 16:9.`
+
+---
+
+### `soviet_collapse_queue.webp`
+**Brukes i:** node `ending_pyrrhusseiros`
+
+`A highly realistic 4K cinematic photograph of a long queue outside an empty Soviet state shop in Moscow, 1991. Grey winter, worn coats, empty shelves visible through the window. Resignation and exhaustion. 16:9.`
+
+---
+
+### Gruppe 8: Historiske one-offs
+
+### `nixon_china_1972.webp`
+**Brukes i:** node `hub_kap4`
+
+`A highly realistic 4K cinematic photograph of President Nixon shaking hands with Mao Zedong in the Great Hall of the People, Beijing, February 1972. Historic moment, formal setting, Chinese and American delegations. 16:9.`
+
+---
+
+### `hotline_phone.webp`
+**Brukes i:** node `kap2_konsekvenser`
+
+`A highly realistic 4K cinematic photograph of the Washington-Moscow hotline teletype machine on a White House desk, 1963. Red emergency telephone beside it. Classified cables on the desk. Documentary close-up style. 16:9.`
+
+---
+
+### `macarthur_korea.webp`
+**Brukes i:** noder `korea_hub`, `korea_atom_true`
+
+`A highly realistic 4K cinematic photograph of General MacArthur at a Korean War command post, 1950. Sunglasses, corncob pipe, officers behind him studying a tactical map. Military command atmosphere. 16:9.`
+
+---
+
+### `epilog_aftermath.webp`
+**Brukes i:** noder `kap1_konsekvenser`, `epilog_konsekvenser`
+
+`A highly realistic 4K cinematic photograph of a United Nations General Assembly session, 1950s. Representatives from dozens of nations in the circular hall. A new world order taking shape after the old empires. 16:9.`
