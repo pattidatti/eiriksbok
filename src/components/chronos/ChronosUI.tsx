@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-    Shield, Heart, Zap, Scroll, Skull, Crown, Star, ArrowRight, Backpack, Lock,
+    Shield, Heart, Zap, Scroll, Skull, Crown, Star, ArrowRight, Backpack,
     BookOpen, X, Map as MapIcon, Users, Hammer, Scale, Activity, Brain, Lightbulb,
     ExternalLink, Mail, Feather, PenLine, GitBranch, ArrowLeft, RotateCcw, Flag,
     Play, Pause,
@@ -551,34 +551,6 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
             }
         }
         return false;
-    };
-
-    const getLockedReason = (choice: ChronosChoice): string | null => {
-        if (choice.checkInventory?.hasItem && !inventory.includes(choice.checkInventory.hasItem)) {
-            const item = getItemDetails(choice.checkInventory.hasItem);
-            return item?.name ? `Mangler: ${item.name}` : 'Mangler gjenstand';
-        }
-        if (choice.condition) {
-            const cond = choice.condition;
-            if (cond.all) {
-                const parts = cond.all.map(sub => {
-                    if (sub.statId) {
-                        const stat = stats.find(s => s.id === sub.statId);
-                        return stat ? `${stat.label} ${sub.operator} ${sub.value}` : '';
-                    }
-                    if (sub.hasFlag) return `Hendelse: ${sub.hasFlag}`;
-                    return '';
-                }).filter(Boolean);
-                return `Krever: ${parts.join(' + ')}`;
-            }
-            if (cond.hasFlag) return `Krever hendelse: ${cond.hasFlag}`;
-            if (cond.lacksFlag) return `Blokkert av: ${cond.lacksFlag}`;
-            if (cond.statId) {
-                const stat = stats.find(s => s.id === cond.statId);
-                if (stat) return `Krever: ${stat.label} ${cond.operator} ${cond.value}`;
-            }
-        }
-        return null;
     };
 
     // Prinsipp 2: NPC tone resolver
