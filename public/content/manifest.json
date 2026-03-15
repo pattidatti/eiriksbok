@@ -412,13 +412,6 @@
           "image": "/images/topics/analyse_hero.png",
           "tools": [
             {
-              "id": "analyse-sti",
-              "title": "Læringssti: Codebreaker",
-              "description": "En guidet reise fra leser til analytiker. Knekk kodene.",
-              "link": "/norsk/analyse/analyse-sti",
-              "icon": "map"
-            },
-            {
               "id": "tekstanalyse-sti",
               "title": "Læringssti: Fra lesning til analysetekst",
               "description": "Lær å finne virkemidler, koble dem til tema, og skrive overbevisende analysetekster.",

@@ -10,8 +10,8 @@ interface FilterBarProps {
 
 export const FilterBar: React.FC<FilterBarProps> = ({ subjects, selectedSubject, onSelectSubject, counts }) => {
     return (
-        <div className="sticky top-[64px] z-30 w-full bg-slate-50/80 backdrop-blur-md border-b border-indigo-100/50 py-3 px-6 transition-all duration-300">
-            <div className="flex gap-2 overflow-x-auto no-scrollbar pb-1 max-w-[1920px] mx-auto items-center">
+        <div className="sticky top-[64px] z-30 w-full bg-white/70 backdrop-blur-md border-b border-slate-200/50 py-3 px-6 transition-all duration-300">
+            <div className="flex gap-2 overflow-x-auto no-scrollbar pb-1 max-w-4xl mx-auto items-center">
 
                 {/* "Alle" Pill */}
                 <button

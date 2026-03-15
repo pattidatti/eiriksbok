@@ -5,7 +5,7 @@
     {
       "id": "romerriket-sti",
       "title": "Læringssti: Romerriket",
-      "description": "Bli med på en tidsreise fra en liten landsby på sju høyder til et verdensrike som formet historien. Du vil leve som legionær, keiser og gladiator.",
+      "description": "Republikk, keisertid, legion, Pompeii, kristendom og Romas fall. 12 steg.",
       "subjectId": "historie",
       "subjectName": "Historie",
       "topicId": "romerriket",
@@ -17,7 +17,7 @@
     {
       "id": "vikingtiden-sti",
       "title": "Læringssti: Vikingtiden",
-      "description": "En omfattende reise fra skipssmedens verksted til dannelsen av det norske riket. Denne stien tar deg gjennom 22 steg med fordypning, refleksjon og oppgaver som forbereder deg på en storstilt emneoppgave.",
+      "description": "Skipsteknologi, raid, lov og ting, religion, rikssamling og arven etter vikingene. 22 steg.",
       "subjectId": "historie",
       "subjectName": "Historie",
       "topicId": "vikingtiden",
@@ -29,7 +29,7 @@
     {
       "id": "svartedauden-sti",
       "title": "Læringssti: Svartedauden",
-      "description": "Bli med på en reise gjennom en av historiens mest dramatiske hendelser. Denne stien tar deg fra de første utbruddene til de store samfunnsendringene som fulgte i kjølvannet av pesten.",
+      "description": "Pestens spredning, menneskelige valg og samfunnsendringene etterpå. 5 steg.",
       "subjectId": "historie",
       "subjectName": "Historie",
       "topicId": "middelalderen",
@@ -41,7 +41,7 @@
     {
       "id": "dekolonisering-sti",
       "title": "Læringssti: Frihetens Maraton",
-      "description": "Følg frihetskampen gjennom 200 år og 3 kontinenter. Fra Washingtons sverd til Gandhis salt.",
+      "description": "Frihetskamp fra den amerikanske revolusjonen til apartheids fall. 15 steg.",
       "subjectId": "historie",
       "subjectName": "Historie",
       "topicId": "dekolonisering",
@@ -53,7 +53,7 @@
     {
       "id": "ww1-sti",
       "title": "Læringssti: Første verdenskrig",
-      "description": "En reise fra 1914-optimismen til skyttergravenes helvete. Klarer du å forstå valgene som ødela en hel generasjon?",
+      "description": "Skyttergraver, industriell krig, revolusjon og freden som feilet. 9 steg.",
       "subjectId": "historie",
       "subjectName": "Historie",
       "topicId": "forste-verdenskrig",
@@ -65,7 +65,7 @@
     {
       "id": "mellomkrigstiden-sti",
       "title": "Læringssti: Mellomkrigstiden",
-      "description": "Fra Versailles til verdenskrig – en reise gjennom epoken som formet det 20. århundret.",
+      "description": "Versailles, børskrakk, fascisme, kommunisme og veien mot ny krig. 12 steg.",
       "subjectId": "historie",
       "subjectName": "Historie",
       "topicId": "mellomkrigstiden",
@@ -77,7 +77,7 @@
     {
       "id": "kald-krig-sti",
       "title": "Læringssti: Den Kalde Krigen",
-      "description": "Bli med agenten 'Null' gjennom en verden delt av jernteppet. Fra ruinene av Berlin til Cubas jungel – du er vitne til spillet som kunne endt verden.",
+      "description": "Jernteppet, atomvåpen, Cuba-krisen, proxy-kriger og Berlinmurens fall. 10 steg.",
       "subjectId": "historie",
       "subjectName": "Historie",
       "topicId": "den-kalde-krigen",
@@ -89,7 +89,7 @@
     {
       "id": "romantikken-sti",
       "title": "Læringssti: Romantikken",
-      "description": "Da Norge fant sin sjel. En reise gjennom 1800-tallets føleri og nasjonsbygging.",
+      "description": "Wergeland, Welhaven, folkeeventyr og jakten på norsk identitet. 6 steg.",
       "subjectId": "norsk",
       "subjectName": "Norsk",
       "topicId": "litteraturhistorie",
@@ -101,7 +101,7 @@
     {
       "id": "realismen-sti",
       "title": "Læringssti: Realismen",
-      "description": "Fra dukkehjem til folkefiender. Når litteraturen skulle forandre samfunnet.",
+      "description": "Ibsen, Kielland og Brandes - litteratur som samfunnskritikk. 5 steg.",
       "subjectId": "norsk",
       "subjectName": "Norsk",
       "topicId": "litteraturhistorie",
@@ -113,7 +113,7 @@
     {
       "id": "nyromantikken-sti",
       "title": "Læringssti: Nyromantikken",
-      "description": "En reise inn i 1890-årenes mystiske, emosjonelle og ofte mørke litteratur.",
+      "description": "Hamsuns Sult, Obstfelders fremmedgjøring og 1890-tallets indre liv. 11 steg.",
       "subjectId": "norsk",
       "subjectName": "Norsk",
       "topicId": "litteraturhistorie",
@@ -125,7 +125,7 @@
     {
       "id": "nyrealismen-sti",
       "title": "Læringssti: Nyrealismen",
-      "description": "Etter 1905 skulle landet bygges. En tid for historie, røtter og fabrikkpiper.",
+      "description": "Undsets middelalder, Nilsens arbeiderdikt og nasjonsbygging etter 1905. 5 steg.",
       "subjectId": "norsk",
       "subjectName": "Norsk",
       "topicId": "litteraturhistorie",
@@ -137,7 +137,7 @@
     {
       "id": "reflekterende-skriving-sti",
       "title": "Læringssti: Hvordan skrive reflekterende",
-      "description": "Lær å gå fra kjedelige referater til spennende refleksjoner. Vi guider deg steg for steg!",
+      "description": "Fra referat til refleksjon - øving i å tenke og skrive med flere perspektiver. 11 steg.",
       "subjectId": "norsk",
       "subjectName": "Norsk",
       "topicId": "skrivehjelp",
@@ -149,7 +149,7 @@
     {
       "id": "kildeforing-sti",
       "title": "Læringssti: Kildeføring (APA 7)",
-      "description": "Lær å føre kilder steg for steg — fra parenteshenvisning til kildeliste og spesialtilfeller.",
+      "description": "APA 7 fra start til slutt - parenteser, kildeliste og spesialtilfeller. 11 steg.",
       "subjectId": "norsk",
       "subjectName": "Norsk",
       "topicId": "skrivehjelp",
@@ -159,20 +159,9 @@
       "fileRelativePath": "norsk/skrivehjelp/kildeforing-sti.json"
     },
     {
-      "id": "analyse-sti",
-      "title": "Læringssti: Codebreaker",
-      "description": "En guidet reise fra leser til analytiker. Knekk kodene.",
-      "subjectId": "norsk",
-      "subjectName": "Norsk",
-      "topicId": "analyse",
-      "readTime": "45-60 min",
-      "path": "/norsk/analyse/analyse-sti",
-      "fileRelativePath": "norsk/analyse/analyse-sti.json"
-    },
-    {
       "id": "tekstanalyse-sti",
       "title": "Læringssti: Fra lesning til analysetekst",
-      "description": "Lær å finne virkemidler, koble dem til tema, og skrive overbevisende analysetekster.",
+      "description": "Finn virkemidler, knytt dem til tema og skriv analysetekst. 12 steg.",
       "subjectId": "norsk",
       "subjectName": "Norsk",
       "topicId": "analyse",
@@ -183,7 +172,7 @@
     {
       "id": "skapende-skriving-sti",
       "title": "Læringssti: Skrive gode historier",
-      "description": "Bygg din egen verktøykasse for skjønnlitterær skriving — fra tema og karakter til ferdig novelle.",
+      "description": "Karakterbygging, dialog, spenning og veien til ferdig novelle. 12 steg.",
       "subjectId": "norsk",
       "subjectName": "Norsk",
       "topicId": "virkemidler",
@@ -194,7 +183,7 @@
     {
       "id": "handel-og-infrastruktur-sti",
       "title": "Læringssti: Verdens årer",
-      "description": "Fra komparativt fortrinn til kaskadefeil — utforsk nettverkene som binder verden sammen og holder sivilisasjonen i gang.",
+      "description": "Handelsruter, energinett, sjøkabel og hva som skjer når systemer svikter. 7 steg.",
       "subjectId": "samfunnskunnskap",
       "subjectName": "Samfunnskunnskap",
       "topicId": "handel-og-infrastruktur",
