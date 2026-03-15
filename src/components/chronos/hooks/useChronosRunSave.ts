@@ -9,6 +9,7 @@ export interface SavedRun {
     environment: Partial<ChronosEnvironment>;
     journal: ChronosEntry[];
     flags: string[];
+    visitedHubs?: string[];
 }
 
 const key = (id: string) => `chronos_run_save_${id}_v1`;

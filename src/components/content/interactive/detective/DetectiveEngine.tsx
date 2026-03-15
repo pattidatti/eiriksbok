@@ -1,22 +1,197 @@
-import { motion } from 'framer-motion';
+import { useState, useRef, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
     Search,
     ChevronRight,
-    ChevronLeft
+    ChevronLeft,
+    ChevronDown,
+    X,
+    User,
+    CheckCircle2,
 } from 'lucide-react';
 import { useDetectiveState } from './useDetectiveState';
 import { SourceViewer } from './SourceViewer';
-import { CaseFile } from './CaseFile';
 import { ConclusionScreen } from './ConclusionScreen';
 import { BriefingScreen } from './BriefingScreen';
-import type { DetectiveCase } from './types';
+import type { DetectiveCase, DetectiveSuspect, DetectiveClue } from './types';
+import { useNavigate } from 'react-router-dom';
 
 interface DetectiveEngineProps {
     data: DetectiveCase;
 }
 
+/** Compact progress pill shown in the header */
+function ProgressPill({
+    currentStep,
+    totalSteps,
+    evidenceCount,
+    totalEvidence,
+    isOpen,
+    onToggle,
+}: {
+    currentStep: number;
+    totalSteps: number;
+    evidenceCount: number;
+    totalEvidence: number;
+    isOpen: boolean;
+    onToggle: () => void;
+}) {
+    return (
+        <button
+            onClick={onToggle}
+            className="flex items-center gap-3 px-3 py-1.5 rounded-full bg-slate-800/80 border border-slate-700/50 hover:border-slate-600 transition-colors"
+        >
+            {/* Step dots */}
+            <div className="flex items-center gap-1">
+                {Array.from({ length: totalSteps }).map((_, i) => (
+                    <div
+                        key={i}
+                        className={`w-2 h-2 rounded-full transition-colors ${
+                            i < currentStep
+                                ? 'bg-emerald-500'
+                                : i === currentStep
+                                  ? 'bg-indigo-500'
+                                  : 'bg-slate-600'
+                        }`}
+                    />
+                ))}
+            </div>
+
+            {/* Evidence badge */}
+            <span className="text-xs font-bold text-slate-400">
+                <span className={evidenceCount >= totalEvidence ? 'text-emerald-400' : 'text-indigo-400'}>
+                    {evidenceCount}
+                </span>
+                /{totalEvidence} bevis
+            </span>
+
+            <ChevronDown
+                className={`w-3.5 h-3.5 text-slate-500 transition-transform ${isOpen ? 'rotate-180' : ''}`}
+            />
+        </button>
+    );
+}
+
+/** Overlay drawer showing suspects and collected evidence */
+function InvestigationDrawer({
+    suspects,
+    clueDetails,
+    onClose,
+}: {
+    suspects: DetectiveSuspect[];
+    clueDetails: DetectiveClue[];
+    onClose: () => void;
+}) {
+    const drawerRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const handleKey = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') onClose();
+        };
+        window.addEventListener('keydown', handleKey);
+        return () => window.removeEventListener('keydown', handleKey);
+    }, [onClose]);
+
+    return (
+        <>
+            {/* Backdrop */}
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="absolute inset-0 bg-black/40 z-20"
+                onClick={onClose}
+            />
+
+            {/* Drawer */}
+            <motion.div
+                ref={drawerRef}
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                className="absolute top-0 left-0 right-0 z-30 bg-slate-900 border-b border-slate-700 shadow-2xl max-h-[50vh] overflow-y-auto rounded-b-2xl"
+            >
+                <div className="p-4">
+                    <div className="flex items-center justify-between mb-4">
+                        <h3 className="text-sm font-bold text-white uppercase tracking-wider">
+                            Saksmappe
+                        </h3>
+                        <button
+                            onClick={onClose}
+                            className="p-1 rounded-lg hover:bg-slate-800 text-slate-400 hover:text-white transition-colors"
+                        >
+                            <X className="w-4 h-4" />
+                        </button>
+                    </div>
+
+                    {/* Suspects row */}
+                    {suspects.length > 0 && (
+                        <div className="mb-4">
+                            <h4 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2">
+                                Teorier
+                            </h4>
+                            <div className="flex gap-2 overflow-x-auto pb-1">
+                                {suspects.map((suspect) => (
+                                    <div
+                                        key={suspect.id}
+                                        className="flex-shrink-0 flex items-center gap-2 px-3 py-2 bg-slate-800/50 rounded-lg border border-white/5"
+                                    >
+                                        <div className="w-6 h-6 rounded-md bg-slate-700 flex items-center justify-center text-slate-400 text-xs">
+                                            {suspect.icon || <User className="w-3.5 h-3.5" />}
+                                        </div>
+                                        <div className="min-w-0">
+                                            <p className="text-xs font-bold text-slate-200 whitespace-nowrap">
+                                                {suspect.name}
+                                            </p>
+                                            <p className="text-[10px] text-slate-500 whitespace-nowrap max-w-[180px] truncate">
+                                                {suspect.description}
+                                            </p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    )}
+
+                    {/* Collected evidence */}
+                    <div>
+                        <h4 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2">
+                            Bevis funnet
+                        </h4>
+                        {clueDetails.length === 0 ? (
+                            <p className="text-xs text-slate-600 italic py-2">
+                                Ingen bevis samlet inn enda. Klikk på markerte fraser i kildeteksten.
+                            </p>
+                        ) : (
+                            <div className="space-y-1.5">
+                                {clueDetails.map((clue) => (
+                                    <div
+                                        key={clue.id}
+                                        className="flex items-start gap-2 p-2 bg-emerald-500/5 rounded-lg border border-emerald-500/15"
+                                    >
+                                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 mt-0.5 flex-shrink-0" />
+                                        <div className="min-w-0">
+                                            <p className="text-xs font-semibold text-emerald-200">
+                                                "{clue.text}"
+                                            </p>
+                                            <p className="text-[11px] text-slate-400 leading-snug">
+                                                {clue.insight}
+                                            </p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+                </div>
+            </motion.div>
+        </>
+    );
+}
+
 export const DetectiveEngine: React.FC<DetectiveEngineProps> = ({ data }) => {
     const state = useDetectiveState(data);
+    const navigate = useNavigate();
     const {
         currentStep,
         currentStepIndex,
@@ -28,141 +203,179 @@ export const DetectiveEngine: React.FC<DetectiveEngineProps> = ({ data }) => {
         isConclusionVisible,
         setIsConclusionVisible,
         isBriefingVisible,
-        setIsBriefingVisible
+        setIsBriefingVisible,
     } = state;
+
+    const [drawerOpen, setDrawerOpen] = useState(false);
+    const [activeSourceIndex, setActiveSourceIndex] = useState(0);
+
+    // Reset active source when step changes
+    const stepId = currentStep?.id;
+    const [prevStepId, setPrevStepId] = useState(stepId);
+    if (stepId !== prevStepId) {
+        setPrevStepId(stepId);
+        setActiveSourceIndex(0);
+    }
 
     if (isBriefingVisible && data.briefing) {
         return (
-            <BriefingScreen
-                briefing={data.briefing}
-                onStart={() => setIsBriefingVisible(false)}
-            />
+            <BriefingScreen briefing={data.briefing} onStart={() => setIsBriefingVisible(false)} />
         );
     }
 
     if (state.isCompleted) {
         return (
-            <div className="flex-1 flex flex-col items-center justify-center p-12 bg-[#0a0c10] text-center space-y-8 min-h-[600px]">
+            <div className="flex-1 flex flex-col items-center justify-center p-8 bg-[#0a0c10] text-center space-y-6 min-h-[400px]">
                 <motion.div
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
-                    className="w-24 h-24 bg-emerald-500/20 rounded-full flex items-center justify-center text-emerald-400 border border-emerald-500/20"
+                    className="w-20 h-20 bg-emerald-500/20 rounded-full flex items-center justify-center text-emerald-400 border border-emerald-500/20"
                 >
-                    <Search className="w-12 h-12" />
+                    <Search className="w-10 h-10" />
                 </motion.div>
-                <div className="space-y-4">
-                    <h2 className="text-4xl font-display font-bold text-white">Oppdrag Fullført!</h2>
-                    <p className="text-slate-400 text-lg max-w-md mx-auto">
-                        Godt jobbet, detektiv! Din sluttrapport er levert og arkivert i statsarkivet.
+                <div className="space-y-3">
+                    <h2 className="text-3xl font-display font-bold text-white">
+                        Oppdrag fullført!
+                    </h2>
+                    <p className="text-slate-400 max-w-md mx-auto">
+                        Godt jobbet, detektiv! Du fant{' '}
+                        <span className="text-indigo-400 font-bold">
+                            {state.collectedClues.size}
+                        </span>{' '}
+                        bevis og leverte sluttrapport.
                     </p>
                 </div>
-                <div className="flex flex-col gap-4">
-                    <div className="flex items-center gap-6 justify-center">
-                        <div className="text-center">
-                            <div className="text-3xl font-bold text-emerald-400 font-display">{state.trustScore}%</div>
-                            <div className="text-[10px] text-slate-500 uppercase tracking-widest font-bold">Tillitsscore</div>
-                        </div>
-                        <div className="w-px h-8 bg-slate-800" />
-                        <div className="text-center">
-                            <div className="text-3xl font-bold text-indigo-400 font-display">{state.collectedClues.size}</div>
-                            <div className="text-[10px] text-slate-500 uppercase tracking-widest font-bold">Bevis Funnet</div>
-                        </div>
-                    </div>
+                <div className="flex gap-3">
+                    <button
+                        onClick={() => navigate('/oving/detektiv')}
+                        className="px-6 py-2.5 bg-slate-800 text-slate-300 rounded-xl font-semibold hover:bg-slate-700 transition-colors"
+                    >
+                        Tilbake til oversikten
+                    </button>
+                    <button
+                        onClick={() => window.location.reload()}
+                        className="px-6 py-2.5 bg-white text-slate-900 rounded-xl font-bold hover:bg-slate-200 transition-all"
+                    >
+                        Spill igjen
+                    </button>
                 </div>
-                <button
-                    onClick={() => window.location.reload()}
-                    className="px-8 py-3 bg-white text-slate-900 rounded-xl font-bold hover:bg-slate-200 transition-all hover:scale-105"
-                >
-                    Gjenta Oppdrag
-                </button>
             </div>
         );
     }
 
     if (isConclusionVisible) {
         return (
-            <div className="relative bg-[#0a0c10] text-slate-200 rounded-2xl border border-slate-800 shadow-2xl min-h-[600px] flex overflow-hidden">
-                <CaseFile state={state} suspects={data.suspects} />
-                <ConclusionScreen
-                    conclusionData={data.conclusion_engine}
-                    onRestart={() => setIsConclusionVisible(false)}
-                    onSubmit={() => state.setIsCompleted(true)}
-                    trustScore={state.trustScore}
-                    evidenceCount={state.collectedClues.size}
-                />
-            </div>
+            <ConclusionScreen
+                conclusionData={data.conclusion_engine}
+                onRestart={() => setIsConclusionVisible(false)}
+                onSubmit={() => state.setIsCompleted(true)}
+                evidenceCount={state.collectedClues.size}
+            />
         );
     }
 
+    const multiSource = currentStep.sources.length > 1;
+    const activeSource = currentStep.sources[activeSourceIndex] || currentStep.sources[0];
+
     return (
-        <div className="relative bg-[#0a0c10] text-slate-200 rounded-2xl overflow-hidden border border-slate-800 shadow-2xl min-h-[600px] flex flex-col md:flex-row">
-            {/* Sidebar / Case File */}
-            <CaseFile
-                state={state}
-                suspects={data.suspects}
-                mission={data.briefing?.mission}
-                totalEvidence={data.status.totalEvidence}
-            />
-
-            {/* Main Investigation Area */}
-            <main className="flex-1 flex flex-col relative overflow-hidden">
-
-                {/* Header */}
-                <header className="p-6 border-b border-slate-800 bg-slate-900/50 backdrop-blur-md flex items-center justify-between">
-                    <div>
-                        <div className="flex items-center gap-2 mb-1">
-                            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-indigo-400">
-                                Case Log {currentStepIndex + 1}/{totalSteps}
-                            </span>
-                        </div>
-                        <h2 className="text-xl font-bold text-white font-display">
-                            {currentStep.title}
-                        </h2>
-                    </div>
-                </header>
-
-                {/* Content Scroller */}
-                <div className="flex-1 overflow-y-auto p-6 space-y-8 custom-scrollbar">
-                    <motion.div
-                        key={currentStep.id}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        className="max-w-3xl mx-auto"
-                    >
-                        <div className="space-y-12">
-                            {currentStep.sources.map(source => (
-                                <SourceViewer
-                                    key={source.id}
-                                    source={source}
-                                    onClueFound={state.collectClue}
-                                    foundClues={state.collectedClues}
-                                />
-                            ))}
-                        </div>
-                    </motion.div>
+        <div className="relative bg-[#0a0c10] text-slate-200 rounded-2xl overflow-hidden border border-slate-800 shadow-2xl flex flex-col h-full">
+            {/* Header */}
+            <header className="px-4 py-3 border-b border-slate-800 bg-slate-900/50 backdrop-blur-md flex items-center justify-between flex-shrink-0">
+                <div className="min-w-0">
+                    <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-indigo-400">
+                        Steg {currentStepIndex + 1} av {totalSteps}
+                    </span>
+                    <h2 className="text-base font-bold text-white font-display truncate">
+                        {currentStep.title}
+                    </h2>
                 </div>
 
-                {/* Navigation Footer */}
-                <footer className="p-4 border-t border-slate-800 bg-slate-900/80 backdrop-blur-md flex items-center justify-between">
-                    <button
-                        onClick={prevStep}
-                        disabled={isFirstStep}
-                        className={`flex items-center gap-2 px-4 py-2 rounded-lg font-bold transition-all ${isFirstStep ? 'text-slate-600 cursor-not-allowed' : 'text-slate-300 hover:bg-white/5'
-                            }`}
-                    >
-                        <ChevronLeft className="w-5 h-5" />
-                        Forrige spor
-                    </button>
+                <ProgressPill
+                    currentStep={currentStepIndex}
+                    totalSteps={totalSteps}
+                    evidenceCount={state.collectedClues.size}
+                    totalEvidence={data.status.totalEvidence}
+                    isOpen={drawerOpen}
+                    onToggle={() => setDrawerOpen(!drawerOpen)}
+                />
+            </header>
 
-                    <button
-                        onClick={nextStep}
-                        className="flex items-center gap-2 px-6 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg font-bold transition-all shadow-lg shadow-indigo-500/20"
-                    >
-                        {isLastStep ? 'Gå til konklusjon' : 'Neste spor'}
-                        <ChevronRight className="w-5 h-5" />
-                    </button>
-                </footer>
-            </main>
+            {/* Multi-source tabs */}
+            {multiSource && (
+                <div className="flex border-b border-slate-800 bg-slate-900/30 flex-shrink-0">
+                    {currentStep.sources.map((src, i) => (
+                        <button
+                            key={src.id}
+                            onClick={() => setActiveSourceIndex(i)}
+                            className={`flex-1 px-3 py-2 text-xs font-semibold transition-colors truncate ${
+                                i === activeSourceIndex
+                                    ? 'text-white border-b-2 border-indigo-500 bg-indigo-500/5'
+                                    : 'text-slate-500 hover:text-slate-300'
+                            }`}
+                        >
+                            Kilde {i + 1}: {src.title}
+                        </button>
+                    ))}
+                </div>
+            )}
+
+            {/* Content area */}
+            <div className="flex-1 overflow-y-auto p-4 custom-scrollbar relative">
+                {/* Investigation drawer overlay */}
+                <AnimatePresence>
+                    {drawerOpen && (
+                        <InvestigationDrawer
+                            suspects={data.suspects}
+                            clueDetails={state.collectedClueDetails}
+                            onClose={() => setDrawerOpen(false)}
+                        />
+                    )}
+                </AnimatePresence>
+
+                <motion.div
+                    key={`${currentStep.id}-${activeSourceIndex}`}
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="max-w-3xl mx-auto"
+                >
+                    {/* Step description */}
+                    {currentStep.content && (
+                        <p className="text-sm text-slate-400 mb-4 italic">
+                            {currentStep.content}
+                        </p>
+                    )}
+
+                    <SourceViewer
+                        source={activeSource}
+                        onClueFound={state.collectClue}
+                        foundClues={state.collectedClues}
+                    />
+                </motion.div>
+            </div>
+
+            {/* Navigation footer */}
+            <footer className="px-4 py-3 border-t border-slate-800 bg-slate-900/80 backdrop-blur-md flex items-center justify-between flex-shrink-0">
+                <button
+                    onClick={prevStep}
+                    disabled={isFirstStep}
+                    className={`flex items-center gap-1.5 px-3 py-2 rounded-lg font-semibold text-sm transition-all ${
+                        isFirstStep
+                            ? 'text-slate-600 cursor-not-allowed'
+                            : 'text-slate-300 hover:bg-white/5'
+                    }`}
+                >
+                    <ChevronLeft className="w-4 h-4" />
+                    Forrige
+                </button>
+
+                <button
+                    onClick={nextStep}
+                    className="flex items-center gap-1.5 px-5 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg font-bold text-sm transition-all shadow-lg shadow-indigo-500/20"
+                >
+                    {isLastStep ? 'Gå til konklusjon' : 'Neste'}
+                    <ChevronRight className="w-4 h-4" />
+                </button>
+            </footer>
         </div>
     );
 };

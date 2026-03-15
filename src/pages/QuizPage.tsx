@@ -70,7 +70,8 @@ export const QuizPage: React.FC = () => {
 
                     // Subtopic lessons
                     topic.subTopics?.forEach(subTopic => {
-                        subTopic.lessons.forEach(lesson => {
+                        subTopic.lessons?.forEach(lesson => {
+                            if (!lesson.id) return;
                             lessonsToFetch.push({
                                 subjectId: subject.id,
                                 topicId: topic.id,
@@ -88,9 +89,13 @@ export const QuizPage: React.FC = () => {
 
             const results = await Promise.all(
                 lessonsToFetch.map(async (l) => {
-                    const lesson = await fetchLesson(l.subjectId, l.topicId, l.lessonId, l.subTopicId);
-                    if (lesson) {
-                        return { ...lesson, subject: l.subjectId, topic: l.topicId, subTopic: l.subTopicId };
+                    try {
+                        const lesson = await fetchLesson(l.subjectId, l.topicId, l.lessonId, l.subTopicId);
+                        if (lesson) {
+                            return { ...lesson, subject: l.subjectId, topic: l.topicId, subTopic: l.subTopicId };
+                        }
+                    } catch {
+                        // Lesson file missing or malformed - skip
                     }
                     return null;
                 })

@@ -15,7 +15,7 @@ interface GameObject {
     rotationSpeed: number;
 }
 
-export function ObjectManager() {
+export function ObjectManager({ projectilesRef }: { projectilesRef: React.MutableRefObject<{ id: number, x: number, y: number, z: number, life: number }[]> }) {
     const { gameState, speed, loseLife, gainLife, addScore } = useGameStore();
     const [objects, setObjects] = useState<GameObject[]>([]);
     const [explosions, setExplosions] = useState<{ id: number, position: [number, number, number], color: string }[]>([]);
@@ -68,7 +68,25 @@ export function ObjectManager() {
             const playerY = state.mouse.y * 6;
 
             return next.filter(o => {
-                // Collision
+                // Projectile-obstacle collision
+                if (o.type === 'obstacle') {
+                    const projectiles = projectilesRef.current;
+                    for (let i = 0; i < projectiles.length; i++) {
+                        const p = projectiles[i];
+                        const dx = o.x - p.x;
+                        const dy = o.y - p.y;
+                        const dz = o.z - p.z;
+                        const dist = Math.sqrt(dx * dx + dy * dy + dz * dz);
+                        if (dist < 1.2) {
+                            p.life = 999; // Mark projectile for removal
+                            addScore(50);
+                            setExplosions(ex => [...ex, { id: Date.now(), position: [o.x, o.y, o.z], color: '#ff8800' }]);
+                            return false;
+                        }
+                    }
+                }
+
+                // Player collision
                 if (o.z > -1 && o.z < 1) {
                     const dist = Math.sqrt(Math.pow(o.x - playerX, 2) + Math.pow(o.y - playerY, 2));
                     if (dist < 1) {

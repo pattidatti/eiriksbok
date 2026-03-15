@@ -15,7 +15,6 @@ export const DetectiveCasePage: React.FC = () => {
     const { setFullWidth } = useLayout();
 
     useEffect(() => {
-        // Force full width for the detective experience
         setFullWidth(true);
         return () => setFullWidth(false);
     }, [setFullWidth]);
@@ -24,10 +23,7 @@ export const DetectiveCasePage: React.FC = () => {
         const fetchCase = async () => {
             setLoading(true);
             try {
-                // Determine which JSON to load. Default to greenland.
                 const idToLoad = caseId || 'greenland';
-
-                // Construct path for local development/production
                 const url = `${window.location.origin}${import.meta.env.BASE_URL.replace(/\/$/, '')}/content/interactive/detective/${idToLoad}.json`;
 
                 const response = await fetch(url);
@@ -38,8 +34,8 @@ export const DetectiveCasePage: React.FC = () => {
                 setCaseData(data);
                 setError(null);
             } catch (err) {
-                console.error("Error loading detective case:", err);
-                setError(err instanceof Error ? err.message : "En uventet feil oppstod");
+                console.error('Error loading detective case:', err);
+                setError(err instanceof Error ? err.message : 'En uventet feil oppstod');
             } finally {
                 setLoading(false);
             }
@@ -49,29 +45,26 @@ export const DetectiveCasePage: React.FC = () => {
     }, [caseId]);
 
     const handleBack = () => {
-        // If we came from a specific topic, we might want to go back there, 
-        // but for now, going back to the hub is safest.
         navigate('/oving/detektiv');
     };
 
     return (
         <div className="min-h-screen bg-slate-900 text-slate-100 flex flex-col">
-            {/* Minimal Header */}
-            <header className="h-16 border-b border-slate-800 bg-slate-900/50 backdrop-blur-md flex items-center justify-between px-6 sticky top-0 z-50">
+            {/* Compact header */}
+            <header className="h-12 border-b border-slate-800 bg-slate-900/50 backdrop-blur-md flex items-center justify-between px-4 sticky top-0 z-50">
                 <button
                     onClick={handleBack}
-                    className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors group px-3 py-1.5 rounded-lg hover:bg-slate-800"
+                    className="flex items-center gap-1.5 text-slate-400 hover:text-white transition-colors group px-2 py-1 rounded-lg hover:bg-slate-800"
                 >
-                    <ChevronLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
-                    <span className="font-semibold">Avslutt etterforskning</span>
+                    <ChevronLeft className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" />
+                    <span className="text-sm font-semibold">Avslutt</span>
                 </button>
 
-                <div className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
-                    <span className="text-xs font-bold uppercase tracking-widest text-slate-500">
-                        Aktiv Etterforskning
+                {caseData && (
+                    <span className="text-xs font-semibold text-slate-500 truncate max-w-[250px]">
+                        {caseData.title}
                     </span>
-                </div>
+                )}
             </header>
 
             <main className="flex-1 overflow-hidden relative">
@@ -82,10 +75,12 @@ export const DetectiveCasePage: React.FC = () => {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
-                            className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-slate-900"
+                            className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-slate-900"
                         >
-                            <Loader2 className="w-12 h-12 text-indigo-500 animate-spin" />
-                            <p className="text-slate-400 font-medium italic">Samler kildemateriale...</p>
+                            <Loader2 className="w-10 h-10 text-indigo-500 animate-spin" />
+                            <p className="text-slate-400 text-sm font-medium italic">
+                                Samler kildemateriale...
+                            </p>
                         </motion.div>
                     ) : error ? (
                         <motion.div
@@ -94,16 +89,16 @@ export const DetectiveCasePage: React.FC = () => {
                             animate={{ opacity: 1, scale: 1 }}
                             className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center"
                         >
-                            <div className="w-16 h-16 bg-red-500/10 rounded-full flex items-center justify-center text-red-500 mb-6">
-                                <AlertCircle className="w-8 h-8" />
+                            <div className="w-14 h-14 bg-red-500/10 rounded-full flex items-center justify-center text-red-500 mb-4">
+                                <AlertCircle className="w-7 h-7" />
                             </div>
-                            <h2 className="text-2xl font-bold mb-2">Ops! Noe gikk galt</h2>
-                            <p className="text-slate-400 max-w-md mb-8">{error}</p>
+                            <h2 className="text-xl font-bold mb-2">Noe gikk galt</h2>
+                            <p className="text-slate-400 max-w-md mb-6 text-sm">{error}</p>
                             <button
                                 onClick={() => window.location.reload()}
-                                className="px-6 py-2 bg-white text-slate-900 rounded-xl font-bold hover:bg-slate-200 transition-colors"
+                                className="px-5 py-2 bg-white text-slate-900 rounded-xl font-bold text-sm hover:bg-slate-200 transition-colors"
                             >
-                                Prøv igjen
+                                Prov igjen
                             </button>
                         </motion.div>
                     ) : caseData ? (

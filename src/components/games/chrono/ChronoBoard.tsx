@@ -400,8 +400,9 @@ export const ChronoBoard: React.FC<ChronoBoardProps> = ({ events, onGameOver, di
                         <React.Fragment key={card.id}>
                             <motion.div
                                 layout
-                                initial={{ scale: 0.8, opacity: 0 }}
+                                initial={{ scale: 0.9, opacity: 0 }}
                                 animate={{ scale: 1, opacity: 1 }}
+                                transition={{ duration: 0.3, ease: 'easeOut' }}
                                 className="mx-2 z-10 shrink-0"
                             >
                                 <ChronoCard event={card} isRevealed={true} />

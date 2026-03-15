@@ -38,7 +38,8 @@ export default function ChronoGliderPage() {
         // Fetch timeline data
         fetch('/content/global-timeline.json')
             .then(res => res.json())
-            .then((data: any[]) => {
+            .then((rawData: any) => {
+                const data: any[] = Array.isArray(rawData) ? rawData : rawData.events || [];
                 // Filter valid events (must have year/startDate)
                 // Transform to simplified format
                 const validEvents = data

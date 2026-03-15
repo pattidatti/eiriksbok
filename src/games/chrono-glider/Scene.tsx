@@ -15,6 +15,7 @@ import { EngineExhaust } from './components/EngineExhaust';
 export function Scene() {
     const { gameState, speed } = useGameStore();
     const shipRef = useRef<THREE.Group>(null);
+    const projectilesRef = useRef<{ id: number, x: number, y: number, z: number, life: number }[]>([]);
 
     useFrame((state) => {
         // Dynamic FOV based on speed
@@ -34,12 +35,12 @@ export function Scene() {
             {/* The Ship */}
             <Glider ref={shipRef} />
             <EngineExhaust shipRef={shipRef} />
-            <ProjectileManager shipRef={shipRef} />
+            <ProjectileManager shipRef={shipRef} projectilesRef={projectilesRef} />
 
             {gameState === 'playing' && (
                 <>
                     <GateManager />
-                    <ObjectManager />
+                    <ObjectManager projectilesRef={projectilesRef} />
                     <Boss />
                 </>
             )}

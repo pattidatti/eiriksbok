@@ -62,11 +62,13 @@ function Gate({ initialPosition, date, isCorrect, onPass }: { initialPosition: [
 
             {/* The Label */}
             <Text
-                position={[0, 0, 0]}
-                fontSize={0.8}
+                position={[0, 0, 0.2]}
+                fontSize={1.0}
                 color="white"
                 anchorX="center"
                 anchorY="middle"
+                outlineWidth={0.05}
+                outlineColor="black"
             >
                 {date}
             </Text>

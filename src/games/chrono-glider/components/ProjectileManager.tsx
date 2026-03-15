@@ -3,10 +3,10 @@ import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 import { useGameStore } from '../store';
 
-export function ProjectileManager({ shipRef }: { shipRef: React.MutableRefObject<THREE.Group | null> }) {
+export function ProjectileManager({ shipRef, projectilesRef }: { shipRef: React.MutableRefObject<THREE.Group | null>, projectilesRef: React.MutableRefObject<{ id: number, x: number, y: number, z: number, life: number }[]> }) {
     const { gameState, lastFired, speed } = useGameStore();
     const meshRef = useRef<THREE.InstancedMesh>(null);
-    const projectiles = useRef<{ id: number, x: number, y: number, z: number, life: number }[]>([]);
+    const projectiles = projectilesRef;
     const lastFiredTime = useRef(0);
 
     const dummy = useMemo(() => new THREE.Object3D(), []);

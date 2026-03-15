@@ -4,7 +4,7 @@ import {
     Shield, Heart, Zap, Scroll, Skull, Crown, Star, ArrowRight, Backpack,
     BookOpen, X, Map as MapIcon, Users, Hammer, Scale, Activity, Brain, Lightbulb,
     ExternalLink, Mail, Feather, PenLine, GitBranch, ArrowLeft, RotateCcw, Flag,
-    Play, Pause, TrendingUp, TrendingDown,
+    Play, Pause, TrendingUp, TrendingDown, Compass, Lock, CheckCircle,
 } from 'lucide-react';
 import type {
     ChronosNode, ChronosChoice, ChronosStat, ChronosConfig, ChronosEnvironment,
@@ -51,6 +51,9 @@ interface ChronosUIProps {
     perspectives?: Record<string, ChronosPerspective>;
     onExit?: () => void;
     onRequestReset?: () => void;
+    allHubs?: Array<{ nodeId: string; label: string; speaker?: string }>;
+    visitedHubs?: string[];
+    onHubJump?: (hubNodeId: string) => void;
 }
 
 const IconMap: Record<string, any> = {
@@ -417,9 +420,11 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
     node, stats, inventory = [], environment = { time: 'day', weather: 'clear' },
     journal = [], onAddJournalEntry, config, flags = [], onChoice, onRestart, onCraft,
     choiceHistory = [], scenarioTitle, scenarioMeta, scenarioId, perspectives, onExit, onRequestReset,
+    allHubs, visitedHubs, onHubJump,
 }) => {
     const [journalText, setJournalText] = useState('');
     const [showJournal, setShowJournal] = useState(false);
+    const [showHubNav, setShowHubNav] = useState(false);
     const [showCrafting, setShowCrafting] = useState(false);
     const [showInventory, setShowInventory] = useState(false);
     const [showDecisionMap, setShowDecisionMap] = useState(false);
@@ -462,14 +467,18 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
             seenDiscoveries.current.add(node.id);
             setShowDiscovery(true);
             // Discovery effect handles audio from here
-            return;
-        }
-        if (!isPausedRef.current && scenarioId) {
+        } else if (!isPausedRef.current && scenarioId) {
             const audio = new Audio(`/audio/tidsreise/${scenarioId}/${node.id}.mp3`);
             audioRef.current = audio;
             audio.playbackRate = speechRateRef.current;
             audio.play().catch(() => {});
         }
+
+        // Cleanup on unmount (e.g. navigating away) to stop lingering audio
+        return () => {
+            if (audioRef.current) { audioRef.current.pause(); audioRef.current = null; }
+            if (popupAudioRef.current) { popupAudioRef.current.pause(); popupAudioRef.current = null; }
+        };
     }, [node.id]); // eslint-disable-line react-hooks/exhaustive-deps
 
     // Pause node audio when discovery popup is open; resume when dismissed
@@ -496,13 +505,13 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
 
     // Pause node audio when other modals are open; resume when all are closed
     useEffect(() => {
-        const anyOpen = showJournal || showCrafting || showDecisionMap || !!selectedItem;
+        const anyOpen = showJournal || showCrafting || showDecisionMap || showHubNav || !!selectedItem;
         if (anyOpen) {
             if (audioRef.current) audioRef.current.pause();
         } else {
             if (!isPausedRef.current && audioRef.current) audioRef.current.play().catch(() => {});
         }
-    }, [showJournal, showCrafting, showDecisionMap, selectedItem]); // eslint-disable-line react-hooks/exhaustive-deps
+    }, [showJournal, showCrafting, showDecisionMap, showHubNav, selectedItem]); // eslint-disable-line react-hooks/exhaustive-deps
 
     const togglePause = () => {
         setIsPaused(prev => {
@@ -688,12 +697,28 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
                         </button>
                     )}
                 </div>
-                {scenarioTitle && (
-                    <div className="text-right">
-                        <p className="text-white font-display font-black text-sm sm:text-base leading-none drop-shadow-lg">{scenarioTitle}</p>
-                        {scenarioMeta && <p className="text-white/50 text-[10px] uppercase tracking-widest mt-0.5">{scenarioMeta}</p>}
-                    </div>
-                )}
+                <div className="flex items-center gap-3">
+                    {allHubs && allHubs.length > 0 && (
+                        <button
+                            onClick={() => setShowHubNav(true)}
+                            title="Knutepunkter"
+                            className="p-2 rounded-xl bg-black/30 backdrop-blur-sm border border-white/10 text-white/60 hover:text-white hover:bg-black/50 transition-all relative"
+                        >
+                            <Compass size={16} />
+                            {visitedHubs && visitedHubs.length > 0 && (
+                                <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-amber-500 text-[9px] font-bold text-stone-900">
+                                    {visitedHubs.length}
+                                </span>
+                            )}
+                        </button>
+                    )}
+                    {scenarioTitle && (
+                        <div className="text-right">
+                            <p className="text-white font-display font-black text-sm sm:text-base leading-none drop-shadow-lg">{scenarioTitle}</p>
+                            {scenarioMeta && <p className="text-white/50 text-[10px] uppercase tracking-widest mt-0.5">{scenarioMeta}</p>}
+                        </div>
+                    )}
+                </div>
             </div>
 
             {/* Zone 2: Stats HUD */}
@@ -903,6 +928,81 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
                                         );
                                     })
                                 }
+                            </div>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
+            {/* Hub Navigator Side Panel */}
+            <AnimatePresence>
+                {showHubNav && allHubs && allHubs.length > 0 && (
+                    <motion.div
+                        initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+                        className="absolute inset-0 z-50 bg-stone-900/40 backdrop-blur-sm flex justify-end"
+                        onClick={() => setShowHubNav(false)}
+                    >
+                        <motion.div
+                            initial={{ x: '100%' }} animate={{ x: 0 }} exit={{ x: '100%' }}
+                            transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+                            className="bg-[#FDFBF7] w-80 h-full shadow-2xl flex flex-col"
+                            onClick={e => e.stopPropagation()}
+                        >
+                            <div className="p-6 border-b border-stone-200 flex justify-between items-center bg-stone-50">
+                                <div className="flex items-center gap-2">
+                                    <Compass size={20} className="text-amber-600" />
+                                    <h3 className="font-display font-black text-xl text-stone-800">Knutepunkter</h3>
+                                </div>
+                                <button onClick={() => setShowHubNav(false)} className="text-stone-400 hover:text-stone-600"><X size={24} /></button>
+                            </div>
+                            <div className="flex-1 min-h-0 p-4 overflow-y-auto space-y-2">
+                                {allHubs.map((hub, idx) => {
+                                    const isVisited = visitedHubs?.includes(hub.nodeId);
+                                    const isCurrent = node.id === hub.nodeId;
+                                    return (
+                                        <button
+                                            key={hub.nodeId}
+                                            disabled={!isVisited}
+                                            onClick={() => {
+                                                if (isVisited && onHubJump) {
+                                                    onHubJump(hub.nodeId);
+                                                    setShowHubNav(false);
+                                                }
+                                            }}
+                                            className={`w-full flex items-start gap-3 p-3 rounded-xl border text-left transition-all ${
+                                                isCurrent
+                                                    ? 'bg-amber-50 border-amber-200 ring-2 ring-amber-400/40'
+                                                    : isVisited
+                                                        ? 'bg-white border-stone-100 shadow-sm hover:border-indigo-200 hover:bg-indigo-50/50'
+                                                        : 'bg-stone-50 border-stone-100 opacity-40 cursor-not-allowed'
+                                            }`}
+                                        >
+                                            <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 text-sm font-bold ${
+                                                isCurrent ? 'bg-amber-500 text-white' :
+                                                isVisited ? 'bg-emerald-500 text-white' :
+                                                'bg-stone-200 text-stone-400'
+                                            }`}>
+                                                {isVisited ? <CheckCircle size={16} /> : idx + 1}
+                                            </div>
+                                            <div className="min-w-0">
+                                                <p className={`text-sm font-bold leading-snug ${
+                                                    isVisited ? 'text-stone-800' : 'text-stone-400'
+                                                }`}>
+                                                    {hub.label}
+                                                </p>
+                                                {hub.speaker && (
+                                                    <p className="text-[10px] text-stone-400 mt-0.5">{hub.speaker}</p>
+                                                )}
+                                                {isCurrent && (
+                                                    <p className="text-[10px] font-bold text-amber-600 mt-1">Du er her</p>
+                                                )}
+                                            </div>
+                                            {!isVisited && (
+                                                <Lock size={14} className="text-stone-300 flex-shrink-0 mt-1 ml-auto" />
+                                            )}
+                                        </button>
+                                    );
+                                })}
                             </div>
                         </motion.div>
                     </motion.div>

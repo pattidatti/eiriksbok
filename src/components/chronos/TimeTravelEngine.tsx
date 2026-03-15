@@ -176,6 +176,7 @@ export const TimeTravelEngine: React.FC<TimeTravelEngineProps> = ({ scenarioId }
     const [journal, setJournal] = useState<ChronosEntry[]>([]);
     const [flags, setFlags] = useState<string[]>([]);
     const [choiceHistory, setChoiceHistory] = useState<ChoiceHistoryEntry[]>([]);
+    const [visitedHubs, setVisitedHubs] = useState<string[]>([]);
 
     // UI State for save/restore prompts
     const [savedRun, setSavedRun] = useState<SavedRun | null>(null);
@@ -202,6 +203,34 @@ export const TimeTravelEngine: React.FC<TimeTravelEngineProps> = ({ scenarioId }
         },
     });
 
+    // Precompute all hub nodes from scenario
+    const allHubs = useMemo(() => {
+        if (!scenario) return [];
+        return Object.entries(scenario.nodes)
+            .filter(([, node]) => node.uiType === 'map')
+            .map(([nodeId, node]) => {
+                const firstSentence = node.text.split(/\.\s|\.\n/)[0];
+                return {
+                    nodeId,
+                    label:
+                        firstSentence.length > 60
+                            ? firstSentence.substring(0, 57) + '...'
+                            : firstSentence,
+                    speaker: node.speaker,
+                };
+            });
+    }, [scenario]);
+
+    // Track hub visits when currentNodeId changes
+    useEffect(() => {
+        if (!currentNodeId || !scenario) return;
+        const node = scenario.nodes[currentNodeId];
+        if (node?.uiType === 'map' && !visitedHubs.includes(currentNodeId)) {
+            setVisitedHubs((prev) => [...prev, currentNodeId]);
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [currentNodeId, scenario]);
+
     // Initialize Game when scenario loads
     useEffect(() => {
         if (!scenario) return;
@@ -226,6 +255,7 @@ export const TimeTravelEngine: React.FC<TimeTravelEngineProps> = ({ scenarioId }
         setJournal([]);
         setFlags([]);
         setChoiceHistory([]);
+        setVisitedHubs([]);
         setCurrentNodeId(sc.startingNodeId);
         setShowContinuePrompt(false);
         runSave.clear();
@@ -238,6 +268,7 @@ export const TimeTravelEngine: React.FC<TimeTravelEngineProps> = ({ scenarioId }
         setEnvironment(savedRun.environment);
         setJournal(savedRun.journal);
         setFlags(savedRun.flags);
+        setVisitedHubs(savedRun.visitedHubs || []);
         setCurrentNodeId(savedRun.currentNodeId);
         setShowContinuePrompt(false);
     };
@@ -346,6 +377,12 @@ export const TimeTravelEngine: React.FC<TimeTravelEngineProps> = ({ scenarioId }
                 if (newInventory.includes('celtic_brooch')) addLegacyItem('celtic_brooch');
             }
         } else {
+            // Compute updated visitedHubs inline for persistence
+            const nextNodeData = scenario.nodes[targetNodeId];
+            const newVisitedHubs =
+                nextNodeData?.uiType === 'map' && !visitedHubs.includes(targetNodeId)
+                    ? [...visitedHubs, targetNodeId]
+                    : visitedHubs;
             runSave.save({
                 currentNodeId: targetNodeId,
                 stats: newStats,
@@ -353,6 +390,7 @@ export const TimeTravelEngine: React.FC<TimeTravelEngineProps> = ({ scenarioId }
                 environment: newEnvironment,
                 journal,
                 flags: newFlags,
+                visitedHubs: newVisitedHubs,
             });
         }
     };
@@ -361,6 +399,20 @@ export const TimeTravelEngine: React.FC<TimeTravelEngineProps> = ({ scenarioId }
         runSave.clear();
         initFresh();
         setConfirmReset(false);
+    };
+
+    const handleHubJump = (hubNodeId: string) => {
+        if (!scenario || !visitedHubs.includes(hubNodeId)) return;
+        setCurrentNodeId(hubNodeId);
+        runSave.save({
+            currentNodeId: hubNodeId,
+            stats,
+            inventory,
+            environment,
+            journal,
+            flags,
+            visitedHubs,
+        });
     };
 
     const handleCraft = (recipe: ChronosRecipe) => {
@@ -457,6 +509,9 @@ export const TimeTravelEngine: React.FC<TimeTravelEngineProps> = ({ scenarioId }
                 scenarioId={scenario.id}
                 onExit={() => navigate('/oving/tidsreise')}
                 onRequestReset={() => setConfirmReset(true)}
+                allHubs={allHubs}
+                visitedHubs={visitedHubs}
+                onHubJump={handleHubJump}
             />
         </div>
     );

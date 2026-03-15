@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Brain, HelpCircle, Clock, MessageCircle, ArrowRight, Gamepad2, Plane, History, Users, Search, Compass, Hourglass, Castle } from 'lucide-react';
+import { Brain, HelpCircle, Clock, MessageCircle, ArrowRight, Gamepad2, Plane, History, Users, Search, Compass, Hourglass, Castle, Swords } from 'lucide-react';
 
 export const PracticePage: React.FC = () => {
     const modules = [
@@ -107,6 +107,14 @@ export const PracticePage: React.FC = () => {
             icon: Hourglass,
             color: 'bg-rose-900',
             link: '/oving/tidsreise'
+        },
+        {
+            id: 'krigsringen',
+            title: 'Krigsringen',
+            description: 'Kjemp mot andre i en multiplayer-arena!',
+            icon: Swords,
+            color: 'bg-red-600',
+            link: 'https://krigsringen.haaland.de'
         },
         {
             id: 'simulation',

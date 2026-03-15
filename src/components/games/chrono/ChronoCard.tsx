@@ -28,12 +28,8 @@ export const ChronoCard: React.FC<ChronoCardProps> = ({
 }) => {
     return (
         <motion.div
-            layout
-            layoutId={event.id}
             className={`relative w-56 h-72 perspective-1000 cursor-pointer select-none ${className}`}
             onClick={onClick}
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
             whileHover={{ y: -5 }}
         >
             <motion.div

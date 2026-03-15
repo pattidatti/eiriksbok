@@ -12,6 +12,19 @@ The core philosophy: content is *architected* before it is *built*. A Blueprint 
 
 ---
 
+## Språklige krav til innhold
+
+Alt innhold i Eiriksbok skal være forståelig for en gjennomsnittlig 14-åring.
+
+- Bruk enkle, direkte setninger. Velg det korteste ordet som gir riktig mening.
+- Unngå faglige og akademiske uttrykk når et hverdagslig ord dekker det samme.
+- Hvis et fremmedord eller fagbegrep må brukes, forklar det når det introduseres.
+- Skriv aktivt ("Harald samlet Norge") fremfor passivt ("Norge ble samlet av Harald").
+- Bruk alltid korrekte norske tegn: **å, ø, æ** - aldri aa, oe, ae som erstatning.
+- Test deg selv: Ville en 14-åring forstått dette uten hjelp? Hvis ikke - skriv om.
+
+---
+
 ## Tech Stack
 
 | Layer | Technology |
@@ -353,6 +366,7 @@ See `.agent/workflows/LEARNING_PATH_GUIDE.md` for the full JSON schema.
 - Game-specific colors in `game.*` namespace (e.g. `game-gold`, `game-stone`)
 - Fonts: `Inter` (sans), `Outfit` (display)
 - `darkMode: 'class'` — dark mode is class-toggled, not system-automatic
+- **Chromebook-first**: De fleste brukere har Chromebook med lav skjermoppløsning (typisk 1366x768). Design for denne skjermstørrelsen som baseline - ikke full-HD. Unngå layout som kun ser bra ut på store skjermer.
 
 ### React Patterns
 

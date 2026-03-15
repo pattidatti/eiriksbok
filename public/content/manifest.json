@@ -3361,6 +3361,7 @@
                   "lastUpdated": "2025-12-04T13:39:40+01:00"
                 },
                 {
+                  "id": "bonn",
                   "title": "Bønn",
                   "description": "Bønn i kristendommen.",
                   "image": "/images/krle/religion/kristendom_hero.jpg",
@@ -3369,8 +3370,8 @@
                     "bønn",
                     "ritual"
                   ],
-                  "createdDate": "2025-12-04T11:00:00Z",
-                  "lastUpdated": "2025-12-04T11:00:00Z"
+                  "createdDate": "2025-12-04T13:10:30+01:00",
+                  "lastUpdated": "2025-12-04T13:39:40+01:00"
                 },
                 {
                   "id": "overgangsriter",
