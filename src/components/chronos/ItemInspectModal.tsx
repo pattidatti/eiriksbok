@@ -47,9 +47,11 @@ export const ItemInspectModal: React.FC<ItemInspectModalProps> = ({ item, onClos
                                 </div>
 
                                 {/* Letter metadata */}
-                                <div
+                                <motion.div
                                     className="px-6 pt-5 pb-2"
-                                    style={{ filter: 'sepia(0.25)' }}
+                                    initial={{ filter: 'sepia(0.6)' }}
+                                    animate={{ filter: 'sepia(0.25)' }}
+                                    transition={{ duration: 1.2, ease: 'easeOut' }}
                                 >
                                     <div className="grid grid-cols-3 gap-2 text-[10px] font-black uppercase tracking-widest text-stone-400 mb-4">
                                         <div>
@@ -66,24 +68,28 @@ export const ItemInspectModal: React.FC<ItemInspectModalProps> = ({ item, onClos
                                         </div>
                                     </div>
 
-                                    {/* Letter body */}
+                                    {/* Letter body with staggered paragraphs */}
                                     <div className="border-l-4 border-amber-200/60 pl-4 space-y-3 max-h-64 overflow-y-auto">
                                         {item.content.body.map((paragraph, i) => (
-                                            <p
+                                            <motion.p
                                                 key={i}
+                                                initial={{ opacity: 0, y: 8 }}
+                                                animate={{ opacity: 1, y: 0 }}
+                                                transition={{ delay: 0.3 + i * 0.15, duration: 0.4, ease: 'easeOut' }}
                                                 className="font-serif italic text-stone-800 leading-relaxed text-sm"
                                             >
                                                 {paragraph}
-                                            </p>
+                                            </motion.p>
                                         ))}
                                     </div>
-                                </div>
+                                </motion.div>
 
                                 <div className="px-6 pb-6 pt-4">
                                     <button
                                         onClick={onClose}
-                                        className="w-full py-3 rounded-2xl bg-stone-900 text-white font-black uppercase tracking-[0.2em] hover:bg-stone-800 transition-all text-sm"
+                                        className="w-full py-3 rounded-2xl bg-stone-900 text-white font-black uppercase tracking-[0.2em] hover:bg-stone-800 transition-all text-sm flex items-center justify-center gap-2"
                                     >
+                                        <Scroll size={14} />
                                         Lukk brevet
                                     </button>
                                 </div>
@@ -107,7 +113,14 @@ export const ItemInspectModal: React.FC<ItemInspectModalProps> = ({ item, onClos
                                 </div>
 
                                 <div className="p-6">
-                                    <p className="text-stone-700 leading-relaxed">{item?.description}</p>
+                                    <motion.p
+                                        initial={{ opacity: 0, y: 8 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ delay: 0.2, duration: 0.4 }}
+                                        className="text-stone-700 leading-relaxed"
+                                    >
+                                        {item?.description}
+                                    </motion.p>
                                 </div>
 
                                 <div className="px-6 pb-6">

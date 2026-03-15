@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useQuery } from '@tanstack/react-query';
+import { motion } from 'framer-motion';
 import { ChronosUI } from './ChronosUI';
 import type {
     ChronosScenario,
@@ -29,6 +30,15 @@ function formatDate(ts: number): string {
     });
 }
 
+const DUST_CSS = `
+@keyframes chron-dust-float {
+    0%   { transform: translateY(0) translateX(0); opacity: 0; }
+    20%  { opacity: var(--dust-opacity, 0.4); }
+    80%  { opacity: var(--dust-opacity, 0.4); }
+    100% { transform: translateY(-80px) translateX(20px); opacity: 0; }
+}
+`;
+
 function ScenarioStartScreen({
     scenario,
     isInitializing,
@@ -44,32 +54,86 @@ function ScenarioStartScreen({
     onFresh: () => void;
     onExit: () => void;
 }) {
+    const dustParticles = useMemo(() =>
+        Array.from({ length: 6 }, (_, i) => ({
+            left: 15 + Math.random() * 70,
+            bottom: 10 + Math.random() * 40,
+            size: 2 + Math.random() * 3,
+            duration: 6 + Math.random() * 8,
+            delay: i * -2.5,
+            opacity: 0.2 + Math.random() * 0.3,
+        })), []);
+
     return (
         <div className="relative w-full min-h-[100dvh] flex items-center justify-center overflow-hidden bg-slate-900">
+            <style dangerouslySetInnerHTML={{ __html: DUST_CSS }} />
+
             {scenario.heroImage && (
-                <img
+                <motion.img
                     src={scenario.heroImage}
                     alt=""
-                    className="absolute inset-0 w-full h-full object-cover opacity-40"
+                    initial={{ opacity: 0, scale: 1.1 }}
+                    animate={{ opacity: 0.4, scale: 1 }}
+                    transition={{ duration: 2, ease: [0.22, 1, 0.36, 1] }}
+                    className="absolute inset-0 w-full h-full object-cover"
                 />
             )}
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent" />
 
+            {/* Floating dust particles */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden">
+                {dustParticles.map((p, i) => (
+                    <div
+                        key={i}
+                        className="absolute rounded-full bg-amber-200/50"
+                        style={{
+                            left: `${p.left}%`,
+                            bottom: `${p.bottom}%`,
+                            width: `${p.size}px`,
+                            height: `${p.size}px`,
+                            animation: `chron-dust-float ${p.duration}s ease-in-out infinite`,
+                            animationDelay: `${p.delay}s`,
+                            '--dust-opacity': p.opacity,
+                        } as React.CSSProperties}
+                    />
+                ))}
+            </div>
+
             <div className="relative z-10 text-center px-6 max-w-md mx-auto">
-                <p className="text-xs font-bold uppercase tracking-[0.2em] text-amber-400 mb-3">
+                <motion.p
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5, duration: 0.6 }}
+                    className="text-xs font-bold uppercase tracking-[0.2em] text-amber-400 mb-3"
+                >
                     {scenario.role} • {scenario.year}
-                </p>
-                <h1 className="text-4xl sm:text-5xl font-display font-black text-white mb-8 leading-tight">
+                </motion.p>
+                <motion.h1
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.8, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                    className="text-4xl sm:text-5xl font-display font-black text-white mb-8 leading-tight"
+                >
                     {scenario.title}
-                </h1>
+                </motion.h1>
 
                 {isInitializing ? (
-                    <div className="flex items-center justify-center gap-2 text-slate-300">
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 1.2 }}
+                        className="flex items-center justify-center gap-2 text-slate-300"
+                    >
                         <span className="animate-spin rounded-full h-5 w-5 border-2 border-white/30 border-t-white" />
                         <span className="text-sm font-medium">Starter tidsreise…</span>
-                    </div>
+                    </motion.div>
                 ) : savedRun ? (
-                    <div className="space-y-3">
+                    <motion.div
+                        initial={{ opacity: 0, y: 15 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 1.0, duration: 0.6 }}
+                        className="space-y-3"
+                    >
                         <p className="text-slate-400 text-sm mb-4">
                             Pågående tidsreise fra {formatDate(savedRun.savedAt)}
                         </p>
@@ -91,7 +155,7 @@ function ScenarioStartScreen({
                         >
                             Avslutt
                         </button>
-                    </div>
+                    </motion.div>
                 ) : null}
             </div>
         </div>

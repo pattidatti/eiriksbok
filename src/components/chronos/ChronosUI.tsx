@@ -4,7 +4,7 @@ import {
     Shield, Heart, Zap, Scroll, Skull, Crown, Star, ArrowRight, Backpack,
     BookOpen, X, Map as MapIcon, Users, Hammer, Scale, Activity, Brain, Lightbulb,
     ExternalLink, Mail, Feather, PenLine, GitBranch, ArrowLeft, RotateCcw, Flag,
-    Play, Pause,
+    Play, Pause, TrendingUp, TrendingDown,
 } from 'lucide-react';
 import type {
     ChronosNode, ChronosChoice, ChronosStat, ChronosConfig, ChronosEnvironment,
@@ -279,21 +279,37 @@ const DiscoveryModal: React.FC<{ event: ChronosDiscoveryEvent; onDismiss: () => 
             className="bg-[#FDFBF7] w-full max-w-lg rounded-3xl shadow-2xl overflow-hidden"
         >
             <div className="p-5 bg-amber-50 border-b border-amber-100 flex items-center gap-3">
-                <div className="p-2 bg-amber-100 rounded-xl flex-shrink-0">
+                <motion.div
+                    className="p-2 bg-amber-100 rounded-xl flex-shrink-0"
+                    animate={{ boxShadow: ['0 0 0 0 rgba(245,158,11,0)', '0 0 0 8px rgba(245,158,11,0.3)', '0 0 0 0 rgba(245,158,11,0)'] }}
+                    transition={{ duration: 2, repeat: 2, ease: 'easeInOut' }}
+                >
                     <Lightbulb size={20} className="text-amber-700" />
-                </div>
+                </motion.div>
                 <div>
                     <p className="text-[10px] font-black uppercase tracking-widest text-amber-600">Historisk oppdagelse</p>
                     <h3 className="font-display font-black text-lg text-stone-800 leading-tight">{event.title}</h3>
                 </div>
             </div>
             <div className="p-6 space-y-4">
-                <p className="text-stone-700 leading-relaxed">{event.fact}</p>
+                <motion.p
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3, duration: 0.5 }}
+                    className="text-stone-700 leading-relaxed"
+                >
+                    {event.fact}
+                </motion.p>
                 {event.reflectionQuestion && (
-                    <div className="bg-stone-50 border border-stone-100 rounded-2xl p-4">
-                        <p className="text-[10px] font-black uppercase tracking-widest text-stone-400 mb-1">Tenk over</p>
-                        <p className="text-sm text-stone-600 italic leading-relaxed">{event.reflectionQuestion}</p>
-                    </div>
+                    <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.6, duration: 0.5 }}
+                        className="bg-amber-50/80 border-2 border-amber-200/60 rounded-2xl p-4"
+                    >
+                        <p className="text-[10px] font-black uppercase tracking-widest text-amber-600 mb-1">Tenk over</p>
+                        <p className="text-sm text-stone-700 italic leading-relaxed">{event.reflectionQuestion}</p>
+                    </motion.div>
                 )}
                 {event.articleLink && (
                     <a href={event.articleLink} className="flex items-center gap-2 text-sm font-bold text-indigo-600 hover:text-indigo-800 transition-colors">
@@ -426,6 +442,15 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
     const [ethicsModeOn, setEthicsModeOn] = useState(false);
     const [pendingChoice, setPendingChoice] = useState<ChronosChoice | null>(null);
 
+    // Polish: Floating stat indicators
+    const [statFloats, setStatFloats] = useState<{ id: string; key: number; label: string; delta: number }[]>([]);
+    const floatKeyRef = useRef(0);
+    const prevInventoryRef = useRef<string[]>(inventory);
+    const [inventoryPulse, setInventoryPulse] = useState(false);
+
+    // Polish: Choice cooldown (prevent double-click)
+    const [choiceCooldown, setChoiceCooldown] = useState(false);
+
     // On node change: discovery check + node audio
     useEffect(() => {
         // Stop any previous audio
@@ -509,6 +534,16 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
         if (popupAudioRef.current) popupAudioRef.current.playbackRate = rate;
     };
 
+    // Polish: Detect inventory changes for pulse
+    useEffect(() => {
+        if (inventory.length > prevInventoryRef.current.length) {
+            setInventoryPulse(true);
+            const t = setTimeout(() => setInventoryPulse(false), 800);
+            return () => clearTimeout(t);
+        }
+        prevInventoryRef.current = inventory;
+    }, [inventory]);
+
     // Filter Stats
     const attributes = stats.filter(s => !s.category || s.category === 'attribute');
     const relations = stats.filter(s => s.category === 'relation');
@@ -567,8 +602,26 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
         return d.neutral;
     };
 
-    // Prinsipp 6: Choice click handler with ethics intercept
+    // Prinsipp 6: Choice click handler with ethics intercept + polish
     const handleChoiceClick = (choice: ChronosChoice) => {
+        if (choiceCooldown) return;
+        setChoiceCooldown(true);
+        setTimeout(() => setChoiceCooldown(false), 600);
+
+        // Show floating stat indicators
+        if (choice.effects) {
+            const floats = Object.entries(choice.effects)
+                .filter(([key]) => stats.some(s => s.id === key))
+                .map(([key, val]) => {
+                    floatKeyRef.current += 1;
+                    return { id: key, key: floatKeyRef.current, label: stats.find(s => s.id === key)?.label || key, delta: val };
+                });
+            if (floats.length > 0) {
+                setStatFloats(floats);
+                setTimeout(() => setStatFloats([]), 1800);
+            }
+        }
+
         if (ethicsModeOn && choice.ethicsLens) {
             setPendingChoice(choice);
         } else {
@@ -682,6 +735,22 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
                             ))}
                         </div>
                     )}
+                    {/* Floating stat change indicators */}
+                    <AnimatePresence>
+                        {statFloats.map((f, i) => (
+                            <motion.div
+                                key={f.key}
+                                initial={{ opacity: 1, y: 0 }}
+                                animate={{ opacity: 0, y: -40 }}
+                                exit={{ opacity: 0 }}
+                                transition={{ duration: 1.5, ease: 'easeOut', delay: i * 0.1 }}
+                                className={`absolute left-4 sm:left-6 md:left-8 text-sm font-black uppercase tracking-wider ${f.delta > 0 ? 'text-emerald-400' : 'text-rose-400'}`}
+                                style={{ bottom: -4 }}
+                            >
+                                {f.delta > 0 ? '+' : ''}{f.delta} {f.label}
+                            </motion.div>
+                        ))}
+                    </AnimatePresence>
                 </div>
 
                 <div className="flex gap-2 md:gap-3">
@@ -721,7 +790,7 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
 
                     {/* Inventory */}
                     <button onClick={() => setShowInventory(!showInventory)}
-                        className={`p-2 sm:p-3 md:p-4 rounded-2xl border transition-colors relative ${showInventory ? 'bg-indigo-900/60 text-indigo-200 border-indigo-600/40' : 'bg-black/30 backdrop-blur-xl border-white/10 text-white/60 hover:text-white'}`}>
+                        className={`p-2 sm:p-3 md:p-4 rounded-2xl border transition-colors relative ${showInventory ? 'bg-indigo-900/60 text-indigo-200 border-indigo-600/40' : 'bg-black/30 backdrop-blur-xl border-white/10 text-white/60 hover:text-white'} ${inventoryPulse ? 'animate-pulse ring-2 ring-amber-400/60' : ''}`}>
                         <Backpack size={20} />
                         {inventory.length > 0 && (
                             <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-indigo-500 text-[10px] font-bold text-white">
@@ -1151,16 +1220,19 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
                                     <ChronosMap config={node.mapConfig} onPointClick={handleMapPointClick} flags={flags} />
                                 )}
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                {!isEnd && node.choices.map(choice => {
+                                {!isEnd && node.choices.map((choice, choiceIdx) => {
                                     if (isChoiceLocked(choice)) return null;
                                     const hasEthics = ethicsModeOn && !!choice.ethicsLens;
 
                                     return (
-                                        <button
+                                        <motion.button
                                             key={choice.id}
+                                            initial={{ opacity: 0, y: 20 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            transition={{ duration: 0.4, delay: choiceIdx * 0.1, ease: [0.22, 1, 0.36, 1] }}
                                             onClick={() => handleChoiceClick(choice)}
-                                            disabled={false}
-                                            className="group relative p-3 sm:p-5 md:p-6 text-left rounded-[1.5rem] border transition-all duration-300 overflow-hidden bg-white/10 backdrop-blur-sm border-white/15 hover:border-white/30 hover:bg-white/15 active:scale-[0.98] shadow-sm hover:shadow-xl hover:shadow-indigo-500/10"
+                                            disabled={choiceCooldown}
+                                            className="group relative p-3 sm:p-5 md:p-6 text-left rounded-[1.5rem] border transition-all duration-300 overflow-hidden bg-white/10 backdrop-blur-sm border-white/15 hover:border-white/30 hover:bg-white/15 active:scale-[0.98] shadow-sm hover:shadow-xl hover:shadow-indigo-500/10 disabled:opacity-60 disabled:pointer-events-none"
                                         >
                                             <div className="absolute inset-0 bg-gradient-to-br from-indigo-50/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
@@ -1184,19 +1256,20 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
                                                 </div>
                                             </div>
 
-                                            {/* Effect preview */}
+                                            {/* Effect preview with icons */}
                                             {choice.effects && (
                                                 <div className="relative z-10 flex flex-wrap gap-3 mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
                                                     {Object.entries(choice.effects)
                                                         .filter(([key]) => stats.some(s => s.id === key))
                                                         .map(([key, val]) => (
-                                                            <span key={key} className={`text-[10px] font-black uppercase tracking-wider ${val > 0 ? 'text-emerald-600' : 'text-rose-600'}`}>
+                                                            <span key={key} className={`text-[10px] font-black uppercase tracking-wider flex items-center gap-1 ${val > 0 ? 'text-emerald-600' : 'text-rose-600'}`}>
+                                                                {val > 0 ? <TrendingUp size={10} /> : <TrendingDown size={10} />}
                                                                 {val > 0 ? '+' : ''}{val} {stats.find(s => s.id === key)?.label}
                                                             </span>
                                                         ))}
                                                 </div>
                                             )}
-                                        </button>
+                                        </motion.button>
                                     );
                                 })}
 
@@ -1208,8 +1281,26 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
                                                 ? 'bg-rose-950/50 border-rose-800/40 backdrop-blur-sm'
                                                 : 'bg-stone-900/60 border-stone-700/40 backdrop-blur-sm'
                                             }`}>
-                                            {node.endType === 'victory' && <Crown className="mx-auto mb-4 md:mb-6 text-emerald-600" size={32} />}
-                                            {node.endType === 'defeat' && <Skull className="mx-auto mb-4 md:mb-6 text-rose-500" size={32} />}
+                                            {node.endType === 'victory' && (
+                                                <motion.div
+                                                    initial={{ scale: 0, rotate: -20 }}
+                                                    animate={{ scale: [0, 1.3, 1], rotate: [-20, 10, 0] }}
+                                                    transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                                                    className="flex justify-center mb-4 md:mb-6"
+                                                >
+                                                    <Crown className="text-emerald-600" size={32} />
+                                                </motion.div>
+                                            )}
+                                            {node.endType === 'defeat' && (
+                                                <motion.div
+                                                    initial={{ scale: 0, rotate: 20 }}
+                                                    animate={{ scale: [0, 1.2, 1], rotate: [20, -5, 0] }}
+                                                    transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                                                    className="flex justify-center mb-4 md:mb-6"
+                                                >
+                                                    <Skull className="text-rose-500" size={32} />
+                                                </motion.div>
+                                            )}
 
                                             <h3 className="text-2xl md:text-3xl font-black text-stone-100 mb-2 tracking-tight text-center">
                                                 {node.endType === 'victory' ? 'Historisk Seier' : node.endType === 'defeat' ? 'Historien endte her...' : 'Reisen er over'}

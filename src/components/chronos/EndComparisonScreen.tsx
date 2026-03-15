@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle2, XCircle, History } from 'lucide-react';
 import type { ChoiceHistoryEntry } from '../../data/chronos/types';
@@ -7,18 +7,70 @@ interface EndComparisonScreenProps {
     choiceHistory: ChoiceHistoryEntry[];
 }
 
+function useCountUp(target: number, duration = 1200, delay = 800) {
+    const [count, setCount] = useState(0);
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+            const start = performance.now();
+            const step = (now: number) => {
+                const elapsed = now - start;
+                const progress = Math.min(elapsed / duration, 1);
+                setCount(Math.round(progress * target));
+                if (progress < 1) requestAnimationFrame(step);
+            };
+            requestAnimationFrame(step);
+        }, delay);
+        return () => clearTimeout(timeout);
+    }, [target, duration, delay]);
+    return count;
+}
+
 export const EndComparisonScreen: React.FC<EndComparisonScreenProps> = ({ choiceHistory }) => {
     if (choiceHistory.length === 0) return null;
 
     const historicalCount = choiceHistory.filter((e) => e.isHistorical).length;
+    const animatedCount = useCountUp(historicalCount);
+    const isHighScore = historicalCount >= choiceHistory.length * 0.7;
 
     return (
         <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.6 }}
-            className="mt-6 bg-stone-50 border border-stone-200 rounded-2xl overflow-hidden"
+            className="mt-6 bg-stone-50 border border-stone-200 rounded-2xl overflow-hidden relative"
         >
+            {/* Confetti for high accuracy */}
+            {isHighScore && (
+                <div className="absolute inset-0 overflow-hidden pointer-events-none z-10">
+                    {Array.from({ length: 12 }).map((_, i) => (
+                        <motion.div
+                            key={i}
+                            initial={{
+                                opacity: 1,
+                                x: `${20 + Math.random() * 60}%`,
+                                y: '-10%',
+                                rotate: Math.random() * 360,
+                                scale: 0.6 + Math.random() * 0.6,
+                            }}
+                            animate={{
+                                y: '110%',
+                                rotate: Math.random() * 720 - 360,
+                                opacity: [1, 1, 0],
+                            }}
+                            transition={{
+                                duration: 2 + Math.random() * 1.5,
+                                delay: 0.8 + i * 0.15,
+                                ease: 'easeIn',
+                            }}
+                            className="absolute w-2 h-3 rounded-sm"
+                            style={{
+                                backgroundColor: ['#10b981', '#f59e0b', '#6366f1', '#ec4899', '#14b8a6'][i % 5],
+                            }}
+                        />
+                    ))}
+                </div>
+            )}
+
             <div className="p-4 bg-amber-50 border-b border-amber-100 flex items-center gap-3">
                 <div className="p-2 bg-amber-100 rounded-xl flex-shrink-0">
                     <History size={16} className="text-amber-700" />
@@ -33,7 +85,7 @@ export const EndComparisonScreen: React.FC<EndComparisonScreenProps> = ({ choice
                 </div>
                 <div className="text-right">
                     <p className="text-2xl font-black text-stone-800">
-                        {historicalCount}
+                        {animatedCount}
                         <span className="text-sm font-bold text-stone-400">/{choiceHistory.length}</span>
                     </p>
                     <p className="text-[10px] text-stone-400 font-bold uppercase tracking-widest">
