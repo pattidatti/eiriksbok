@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useCallback } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
     Search,
@@ -249,8 +249,6 @@ export const DetectiveEngine: React.FC<DetectiveEngineProps> = ({ data }) => {
 
     const [drawerOpen, setDrawerOpen] = useState(false);
     const [activeSourceIndex, setActiveSourceIndex] = useState(0);
-    const [stepTransition, setStepTransition] = useState<string | null>(null);
-
     // Reset active source when step changes
     const stepId = currentStep?.id;
     const [prevStepId, setPrevStepId] = useState(stepId);
@@ -258,20 +256,6 @@ export const DetectiveEngine: React.FC<DetectiveEngineProps> = ({ data }) => {
         setPrevStepId(stepId);
         setActiveSourceIndex(0);
     }
-
-    // Step transition animation
-    const handleNextStep = useCallback(() => {
-        if (isLastStep) {
-            nextStep();
-            return;
-        }
-        const nextTitle = data.steps[currentStepIndex + 1]?.title;
-        setStepTransition(nextTitle || '');
-        setTimeout(() => {
-            nextStep();
-            setStepTransition(null);
-        }, 800);
-    }, [isLastStep, currentStepIndex, data.steps, nextStep]);
 
     if (isBriefingVisible && data.briefing) {
         return (
@@ -386,7 +370,7 @@ export const DetectiveEngine: React.FC<DetectiveEngineProps> = ({ data }) => {
     const activeSource = currentStep.sources[activeSourceIndex] || currentStep.sources[0];
 
     return (
-        <div className="relative bg-[#0a0c10] text-slate-200 rounded-2xl overflow-hidden border border-slate-800 shadow-2xl flex flex-col h-full">
+        <div className="relative bg-[#0a0c10] text-slate-200 rounded-2xl overflow-hidden border border-slate-800 shadow-2xl flex flex-col flex-1 min-h-0">
             {/* Header */}
             <header className="px-4 py-3 border-b border-slate-800 bg-slate-900/50 backdrop-blur-md flex items-center justify-between flex-shrink-0">
                 <div className="min-w-0">
@@ -440,37 +424,7 @@ export const DetectiveEngine: React.FC<DetectiveEngineProps> = ({ data }) => {
                     )}
                 </AnimatePresence>
 
-                {/* Step transition overlay */}
-                <AnimatePresence>
-                    {stepTransition && (
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            className="absolute inset-0 z-40 bg-[#0a0c10]/95 flex items-center justify-center"
-                        >
-                            <motion.div
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                className="text-center"
-                            >
-                                <span className="text-[10px] font-bold text-indigo-400 uppercase tracking-widest">
-                                    Neste steg
-                                </span>
-                                <h3 className="text-2xl font-display font-bold text-white mt-2">
-                                    {stepTransition}
-                                </h3>
-                            </motion.div>
-                        </motion.div>
-                    )}
-                </AnimatePresence>
-
-                <motion.div
-                    key={`${currentStep.id}-${activeSourceIndex}`}
-                    initial={{ opacity: 0, y: 12 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="max-w-3xl mx-auto"
-                >
+                <div className="max-w-3xl mx-auto">
                     {currentStep.content && (
                         <p className="text-sm text-slate-400 mb-4 italic">
                             {currentStep.content}
@@ -482,7 +436,7 @@ export const DetectiveEngine: React.FC<DetectiveEngineProps> = ({ data }) => {
                         onClueFound={state.collectClue}
                         foundClues={state.collectedClues}
                     />
-                </motion.div>
+                </div>
             </div>
 
             {/* Navigation footer */}
@@ -501,7 +455,7 @@ export const DetectiveEngine: React.FC<DetectiveEngineProps> = ({ data }) => {
                 </button>
 
                 <button
-                    onClick={handleNextStep}
+                    onClick={nextStep}
                     className="flex items-center gap-1.5 px-5 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg font-bold text-sm transition-all shadow-lg shadow-indigo-500/20"
                 >
                     {isLastStep ? 'Gå til konklusjon' : 'Neste'}

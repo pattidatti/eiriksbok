@@ -331,54 +331,42 @@ export const SourceViewer: React.FC<SourceViewerProps> = ({
 
                 {/* Document content */}
                 <div className="p-4">
-                    <AnimatePresence mode="wait">
-                        {viewMode === 'raw' ? (
-                            <motion.div
-                                key="raw"
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                exit={{ opacity: 0 }}
-                            >
-                                {source.type === 'textual' || source.type === 'scientific' ? (
-                                    <div className="font-serif text-base leading-relaxed text-slate-400 bg-slate-950/50 p-4 rounded border border-slate-800/50 italic">
-                                        {source.original}
-                                    </div>
-                                ) : (
-                                    <img
-                                        src={source.original}
-                                        alt={source.title}
-                                        className="rounded-lg shadow-xl max-h-[200px] object-contain mx-auto"
-                                    />
-                                )}
-                            </motion.div>
-                        ) : (
-                            <motion.div
-                                key="interpreted"
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                exit={{ opacity: 0 }}
-                            >
-                                {/* Zone 2: Inline clue discovery within translation text */}
-                                <p className="text-base text-slate-100 leading-relaxed">
-                                    {highlightedText}
-                                </p>
+                    {viewMode === 'raw' ? (
+                        <div>
+                            {source.type === 'textual' || source.type === 'scientific' ? (
+                                <div className="font-serif text-base leading-relaxed text-slate-400 bg-slate-950/50 p-4 rounded border border-slate-800/50 italic">
+                                    {source.original}
+                                </div>
+                            ) : (
+                                <img
+                                    src={source.original}
+                                    alt={source.title}
+                                    className="rounded-lg shadow-xl max-h-[200px] object-contain mx-auto"
+                                />
+                            )}
+                        </div>
+                    ) : (
+                        <div>
+                            {/* Zone 2: Inline clue discovery within translation text */}
+                            <p className="text-base text-slate-100 leading-relaxed">
+                                {highlightedText}
+                            </p>
 
-                                {/* Fallback chips for clues that didn't match inline */}
-                                {unmatchedClues.length > 0 && (
-                                    <div className="mt-3 flex flex-wrap gap-2">
-                                        {unmatchedClues.map((clue) => (
-                                            <ClueChip
-                                                key={clue.id}
-                                                clue={clue}
-                                                isFound={foundClues.has(clue.id)}
-                                                onCollect={() => handleClueFound(clue)}
-                                            />
-                                        ))}
-                                    </div>
-                                )}
-                            </motion.div>
-                        )}
-                    </AnimatePresence>
+                            {/* Fallback chips for clues that didn't match inline */}
+                            {unmatchedClues.length > 0 && (
+                                <div className="mt-3 flex flex-wrap gap-2">
+                                    {unmatchedClues.map((clue) => (
+                                        <ClueChip
+                                            key={clue.id}
+                                            clue={clue}
+                                            isFound={foundClues.has(clue.id)}
+                                            onCollect={() => handleClueFound(clue)}
+                                        />
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+                    )}
                 </div>
             </div>
 
@@ -420,68 +408,54 @@ export const SourceViewer: React.FC<SourceViewerProps> = ({
                     {/* Tab content with fade gradient */}
                     <div className="relative">
                         <div className="p-4 max-h-[200px] overflow-y-auto custom-scrollbar">
-                            <AnimatePresence mode="wait">
-                                {(contextTab === 'background' && hasBackground) ||
-                                !hasCriticism ? (
-                                    <motion.div
-                                        key="bg"
-                                        initial={{ opacity: 0 }}
-                                        animate={{ opacity: 1 }}
-                                        exit={{ opacity: 0 }}
-                                        className="space-y-3"
-                                    >
-                                        {source.introduction && (
-                                            <p className="text-sm text-slate-300 leading-relaxed italic">
-                                                {source.introduction}
-                                            </p>
-                                        )}
-                                        {source.guidance && (
-                                            <p className="text-sm text-slate-300 leading-relaxed">
-                                                {source.guidance}
-                                            </p>
-                                        )}
-                                    </motion.div>
-                                ) : (
-                                    <motion.div
-                                        key="crit"
-                                        initial={{ opacity: 0 }}
-                                        animate={{ opacity: 1 }}
-                                        exit={{ opacity: 0 }}
-                                        className="space-y-3"
-                                    >
-                                        {source.provenance && (
-                                            <div>
-                                                <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">
-                                                    Opphav:{' '}
-                                                </span>
-                                                <span className="text-sm text-slate-400 leading-relaxed">
-                                                    {source.provenance}
-                                                </span>
-                                            </div>
-                                        )}
-                                        {source.uncertainty && (
-                                            <div>
-                                                <span className="text-xs font-bold text-amber-500/60 uppercase tracking-wider">
-                                                    Usikkerhet:{' '}
-                                                </span>
-                                                <span className="text-sm text-slate-400 leading-relaxed italic">
-                                                    {source.uncertainty}
-                                                </span>
-                                            </div>
-                                        )}
-                                        {source.hint && (
-                                            <div>
-                                                <span className="text-xs font-bold text-slate-600 uppercase tracking-wider">
-                                                    Hint:{' '}
-                                                </span>
-                                                <span className="text-sm text-slate-500 italic">
-                                                    {source.hint}
-                                                </span>
-                                            </div>
-                                        )}
-                                    </motion.div>
-                                )}
-                            </AnimatePresence>
+                            {(contextTab === 'background' && hasBackground) ||
+                            !hasCriticism ? (
+                                <div className="space-y-3">
+                                    {source.introduction && (
+                                        <p className="text-sm text-slate-300 leading-relaxed italic">
+                                            {source.introduction}
+                                        </p>
+                                    )}
+                                    {source.guidance && (
+                                        <p className="text-sm text-slate-300 leading-relaxed">
+                                            {source.guidance}
+                                        </p>
+                                    )}
+                                </div>
+                            ) : (
+                                <div className="space-y-3">
+                                    {source.provenance && (
+                                        <div>
+                                            <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">
+                                                Opphav:{' '}
+                                            </span>
+                                            <span className="text-sm text-slate-400 leading-relaxed">
+                                                {source.provenance}
+                                            </span>
+                                        </div>
+                                    )}
+                                    {source.uncertainty && (
+                                        <div>
+                                            <span className="text-xs font-bold text-amber-500/60 uppercase tracking-wider">
+                                                Usikkerhet:{' '}
+                                            </span>
+                                            <span className="text-sm text-slate-400 leading-relaxed italic">
+                                                {source.uncertainty}
+                                            </span>
+                                        </div>
+                                    )}
+                                    {source.hint && (
+                                        <div>
+                                            <span className="text-xs font-bold text-slate-600 uppercase tracking-wider">
+                                                Hint:{' '}
+                                            </span>
+                                            <span className="text-sm text-slate-500 italic">
+                                                {source.hint}
+                                            </span>
+                                        </div>
+                                    )}
+                                </div>
+                            )}
                         </div>
                         {/* Fade gradient at bottom */}
                         <div className="absolute bottom-0 left-0 right-0 h-6 bg-gradient-to-t from-slate-800/60 to-transparent pointer-events-none rounded-b-xl" />

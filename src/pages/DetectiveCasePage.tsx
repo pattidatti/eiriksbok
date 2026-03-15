@@ -4,7 +4,6 @@ import { DetectiveEngine } from '../components/content/interactive/detective/Det
 import type { DetectiveCase } from '../components/content/interactive/detective/types';
 import { useLayout } from '../context/LayoutContext';
 import { ChevronLeft, Loader2, AlertCircle } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
 
 export const DetectiveCasePage: React.FC = () => {
     const { caseId } = useParams<{ caseId: string }>();
@@ -67,51 +66,33 @@ export const DetectiveCasePage: React.FC = () => {
                 )}
             </header>
 
-            <main className="flex-1 min-h-0 overflow-hidden relative">
-                <AnimatePresence mode="wait">
-                    {loading ? (
-                        <motion.div
-                            key="loading"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-slate-900"
+            <main className="flex-1 min-h-0 flex flex-col overflow-hidden relative">
+                {loading ? (
+                    <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-slate-900">
+                        <Loader2 className="w-10 h-10 text-indigo-500 animate-spin" />
+                        <p className="text-slate-400 text-sm font-medium italic">
+                            Samler kildemateriale...
+                        </p>
+                    </div>
+                ) : error ? (
+                    <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
+                        <div className="w-14 h-14 bg-red-500/10 rounded-full flex items-center justify-center text-red-500 mb-4">
+                            <AlertCircle className="w-7 h-7" />
+                        </div>
+                        <h2 className="text-xl font-bold mb-2">Noe gikk galt</h2>
+                        <p className="text-slate-400 max-w-md mb-6 text-sm">{error}</p>
+                        <button
+                            onClick={() => window.location.reload()}
+                            className="px-5 py-2 bg-white text-slate-900 rounded-xl font-bold text-sm hover:bg-slate-200 transition-colors"
                         >
-                            <Loader2 className="w-10 h-10 text-indigo-500 animate-spin" />
-                            <p className="text-slate-400 text-sm font-medium italic">
-                                Samler kildemateriale...
-                            </p>
-                        </motion.div>
-                    ) : error ? (
-                        <motion.div
-                            key="error"
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center"
-                        >
-                            <div className="w-14 h-14 bg-red-500/10 rounded-full flex items-center justify-center text-red-500 mb-4">
-                                <AlertCircle className="w-7 h-7" />
-                            </div>
-                            <h2 className="text-xl font-bold mb-2">Noe gikk galt</h2>
-                            <p className="text-slate-400 max-w-md mb-6 text-sm">{error}</p>
-                            <button
-                                onClick={() => window.location.reload()}
-                                className="px-5 py-2 bg-white text-slate-900 rounded-xl font-bold text-sm hover:bg-slate-200 transition-colors"
-                            >
-                                Prov igjen
-                            </button>
-                        </motion.div>
-                    ) : caseData ? (
-                        <motion.div
-                            key="content"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            className="h-full"
-                        >
-                            <DetectiveEngine data={caseData} />
-                        </motion.div>
-                    ) : null}
-                </AnimatePresence>
+                            Prov igjen
+                        </button>
+                    </div>
+                ) : caseData ? (
+                    <div className="flex-1 min-h-0 flex flex-col">
+                        <DetectiveEngine data={caseData} />
+                    </div>
+                ) : null}
             </main>
         </div>
     );
