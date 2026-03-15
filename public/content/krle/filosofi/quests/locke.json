@@ -79,5 +79,9 @@
                 }
             ]
         }
+    ],
+    "reflectionQuestions": [
+        "Hvem bestemmer egentlig hva du har rett til?",
+        "Hva ville skjedd om ingen hadde noen rettigheter?"
     ]
 }

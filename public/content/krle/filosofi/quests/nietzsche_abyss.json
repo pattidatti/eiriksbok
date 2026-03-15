@@ -18,7 +18,8 @@
                         "existentialism": 4,
                         "skepticism": 2
                     },
-                    "nextStepId": "monsters"
+                    "nextStepId": "monsters",
+                    "feedback": "Nietzsche advarte: Den som kjemper mot monstre, må passe på å ikke bli et monster selv."
                 },
                 {
                     "id": "no_faith",
@@ -90,7 +91,8 @@
                         "individualism": 5,
                         "existentialism": 3
                     },
-                    "nextStepId": "conclusion"
+                    "nextStepId": "conclusion",
+                    "feedback": "Man må ha kaos i seg for å føde en dansende stjerne. Du velger skapelse over passivitet!"
                 }
             ]
         },
@@ -125,5 +127,9 @@
                 }
             ]
         }
+    ],
+    "reflectionQuestions": [
+        "Hva gjør du når alt virker meningsløst?",
+        "Kan kaos være begynnelsen på noe nytt?"
     ]
 }

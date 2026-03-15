@@ -1,0 +1,654 @@
+{
+    "id": "muntlig",
+    "title": "Muntlig eksamen i norsk",
+    "description": "Fra forberedelse til samtale: slik mestrer du muntlig eksamen etter 10. trinn.",
+    "subject": "norsk",
+    "topic": "eksamen",
+    "layout": "rich",
+    "readTime": "14 min lesning",
+    "category": "Eksamen",
+    "details": [
+        "Du får vite faget 48 timer før, og har 24 timer forberedelsestid.",
+        "Eksamen varer inntil 30 minutter: presentasjon + samtale.",
+        "Forbered 3-4 tekster som passer temaet, med kobling til epoker.",
+        "Ha en klar påstand i presentasjonen, ikke bare en oppsummering.",
+        "Forbered ekstra tekster for samtalen med sensor."
+    ],
+    "externalUrl": "https://www.udir.no/eksamen-og-prover/eksamen/muntlig-eksamen/",
+    "timeline": [],
+    "content": [
+        {
+            "type": "paragraph",
+            "text": "Muntlig eksamen er annerledes enn skriftlig. Her handler det ikke bare om hva du kan skrive, men om hva du kan si, forklare og diskutere i samtale med en sensor. Du får et tema (for eksempel «Identitet» eller «Makt og avmakt») og skal vise at du kan knytte tekster, virkemidler og litteraturhistorie sammen i en muntlig fremføring. De som gjør det best, er ikke de som pugger mest. Det er de som forbereder seg smartest. Denne guiden gir deg en konkret oppskrift."
+        },
+        {
+            "type": "header",
+            "text": "Formatet: Hva skjer på eksamen?",
+            "level": 2
+        },
+        {
+            "type": "paragraph",
+            "text": "Muntlig eksamen i norsk har tre faser: forberedelse, presentasjon og samtale. Det er i forberedelsen du legger grunnlaget for alt som skjer etterpå."
+        },
+        {
+            "type": "component",
+            "name": "Comparison",
+            "props": {
+                "title": "De to delene av eksamen",
+                "leftTitle": "Presentasjonen (ca. 10 min)",
+                "rightTitle": "Samtalen (ca. 20 min)",
+                "items": [
+                    {
+                        "label": "Kontroll",
+                        "left": "Du styrer. Du har planlagt hva du vil si.",
+                        "right": "Sensor styrer. Du svarer på spørsmål."
+                    },
+                    {
+                        "label": "Formål",
+                        "left": "Vise at du kan presentere og argumentere.",
+                        "right": "Vise at du forstår stoffet i dybden."
+                    },
+                    {
+                        "label": "Din rolle",
+                        "left": "Formidler med en klar påstand.",
+                        "right": "Samtalepartner som tenker høyt."
+                    },
+                    {
+                        "label": "Tips",
+                        "left": "Ha en tydelig tese og bruk konkrete eksempler.",
+                        "right": "Forbered ekstra tekster du ikke brukte i presentasjonen."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "info_box",
+            "title": "Tidslinjen for muntlig eksamen",
+            "content": "48 timer før: Du får vite hvilket fag du er trukket i. 24 timer før: Forberedelsesdagen starter. Du får det overordnede temaet (for eksempel «Identitet»). Forberedelsesdagen er obligatorisk skoledag, du har tilgang til skolens fasiliteter, og du kan samarbeide med medelever. På eksamensdagen: Du får den spesifikke oppgaven og har 30 minutter alene til å forberede presentasjonen. Selve eksamen: Inntil 30 minutter."
+        },
+        {
+            "type": "link",
+            "text": "Regler for muntlig eksamen (Udir)",
+            "url": "https://www.udir.no/eksamen-og-prover/eksamen/muntlig-eksamen/",
+            "icon": "external"
+        },
+        {
+            "type": "header",
+            "text": "Forberedelsen: Bygg et arsenal",
+            "level": 2
+        },
+        {
+            "type": "paragraph",
+            "text": "Forberedelsestiden er det viktigste du har. Elevene som gjør det best på muntlig eksamen, er de som kommer med et arsenal av tekster, analyser og koblinger. De har ikke pugget en tale. De har bygget en verktøykasse som gjør dem klare for alt sensor kan spørre om."
+        },
+        {
+            "type": "header",
+            "text": "Steg 1: Kjenn temaet fra alle vinkler",
+            "level": 3
+        },
+        {
+            "type": "paragraph",
+            "text": "Når du får temaet, start med å tenke bredt. Hva betyr dette temaet i ulike sammenhenger? Personlig, i samfunnet, i litteraturen? Lag et stort tankekart med temaet i sentrum. Denne første brainstormingen hjelper deg å se hvilke tekster og vinkler du har å spille på."
+        },
+        {
+            "type": "info_box",
+            "title": "Vanlige tema på muntlig eksamen",
+            "content": "Identitet - Makt og avmakt - Drømmer og ambisjoner - Kjærlighet og tap - Utenforskap og fellesskap - Oppvekst og forandring - Natur og menneske - Teknologi og framtid - Frihet og ansvar - Sannhet og løgn"
+        },
+        {
+            "type": "header",
+            "text": "Steg 2: Finn og forbered 3-4 tekster",
+            "level": 3
+        },
+        {
+            "type": "paragraph",
+            "text": "Dette er nøkkelen til en sterk eksamen. Du trenger flere tekster som belyser temaet fra ulike vinkler. Velg en blanding av skjønnlitteratur og sakprosa, og sørg for at minst en tekst kan kobles til en litteraturhistorisk epoke. Da viser du sensor at du kan se sammenhenger mellom tema, tid og tekstform."
+        },
+        {
+            "type": "list",
+            "items": [
+                "Velg minst en novelle eller et romanutdrag som belyser temaet.",
+                "Velg minst ett dikt som utforsker temaet med andre virkemidler.",
+                "Velg minst en saktekst (debattinnlegg, kronikk eller fagartikkel) som gir en annen vinkel.",
+                "Bonus: en visuell tekst (reklame, bilde eller filmklipp) som utvider perspektivet."
+            ]
+        },
+        {
+            "type": "info_box",
+            "title": "Koble tekster til litterære epoker",
+            "content": "Sensor setter pris på at du kan se forbindelsen mellom et tema og tiden teksten ble skrevet i. Eksempel: Hvis temaet er «Identitet», kan du bruke Knut Hamsuns Sult (nyromantikken) for å vise hvordan identitet ble utforsket gjennom det ubevisste sjelelivet. Eller bruke et dikt av Wergeland (nasjonalromantikken) for å vise nasjonal identitet. Denne typen koblinger løfter besvarelsen fra god til fremragende."
+        },
+        {
+            "type": "info_box",
+            "title": "Finn tekster i biblioteket",
+            "content": "Bruk [tekstbiblioteket](/norsk/bibliotek) for å finne tekster som passer til temaet ditt. Du kan filtrere på sjanger, tema og tidsperiode."
+        },
+        {
+            "type": "info_box",
+            "title": "Les om de litterære epokene",
+            "content": "[Nasjonalromantikken](/norsk/litteraturhistorie/nasjonalromantikken) - [Realismen](/norsk/litteraturhistorie/realismen) - [Nyromantikken](/norsk/litteraturhistorie/ny-romantikken) - [Nyrealismen](/norsk/litteraturhistorie/ny-realismen)"
+        },
+        {
+            "type": "header",
+            "text": "Steg 3: Analyser med tankekart",
+            "level": 3
+        },
+        {
+            "type": "paragraph",
+            "text": "For hver tekst du har valgt, lag et tankekart. I sentrum: tittelen på teksten. Grener ut: tema, virkemidler, budskap, kobling til epoke, personlig refleksjon. Bruk mye tid på denne fasen. Jo dypere du graver nå, jo lettere blir det å snakke fritt på eksamen."
+        },
+        {
+            "type": "component",
+            "name": "WritingFix",
+            "props": {
+                "title": "Grunn vs. dyp forberedelse",
+                "items": [
+                    {
+                        "bad": "Novellen handler om en jente som er ensom. Det passer til temaet identitet.",
+                        "good": "I novellen bruker forfatteren kontrastfylte naturbeskrivelser som et speil for hovedpersonens indre splittelse. Ensomheten er ikke bare et tema, den er bygd inn i selve språket. Metaforen om den lukkede døren i andre avsnitt viser at identitetskrisen ikke bare er psykologisk, men også sosial. Dette kan vi sammenligne med Hamsuns Sult, der identiteten brytes ned gjennom fysisk lidelse.",
+                        "why": "En god forberedelse handler ikke om å vite hva teksten handler om. Det handler om å vite hvordan teksten bygger opp sitt budskap gjennom konkrete virkemidler."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "info_box",
+            "title": "Nyttige analyseverktøy",
+            "content": "Les disse artiklene for å styrke analysen: [Tema og budskap](/norsk/analyse/tema-og-budskap) - [Bildespråk og effekter](/norsk/virkemidler/bildesprak-og-effekter) - [Synsvinkel og stemme](/norsk/virkemidler/synsvinkel-og-stemme)"
+        },
+        {
+            "type": "header",
+            "text": "Steg 4: Bygg presentasjonen med en klar påstand",
+            "level": 3
+        },
+        {
+            "type": "paragraph",
+            "text": "Den vanligste feilen i presentasjoner er å bare beskrive: «I denne presentasjonen skal jeg snakke om identitet i tre tekster.» Det er ikke en tese, det er en innholdsfortegnelse. I stedet bør du åpne med en klar påstand som alt i presentasjonen din underbygger."
+        },
+        {
+            "type": "comparison",
+            "before": {
+                "label": "Vag åpning",
+                "content": "I denne presentasjonen skal jeg snakke om identitet i tre tekster fra ulike perioder."
+            },
+            "after": {
+                "label": "Klar påstand",
+                "content": "Identitet er ikke noe vi finner, det er noe vi bygger gjennom motstand. Det viser jeg gjennom tre tekster som spenner fra Hamsuns Sult til en moderne novelle om digital identitet."
+            }
+        },
+        {
+            "type": "paragraph",
+            "text": "Bygg presentasjonen rundt 2-3 tekster. Bruk konkrete sitater og pek på spesifikke virkemidler. Avslutt med å sirkel tilbake til påstanden din."
+        },
+        {
+            "type": "list",
+            "items": [
+                "Åpning (30 sekunder): Presenter påstanden din tidlig og tydelig.",
+                "Hoveddel (7-8 minutter): Gå gjennom 2-3 tekster med analyse og kobling til temaet. Bruk sitater og forklar virkemidler.",
+                "Avslutning (1-2 minutter): Oppsummering. Hvordan bekrefter tekstene påstanden din?"
+            ]
+        },
+        {
+            "type": "header",
+            "text": "Steg 5: Forbered samtalen",
+            "level": 3
+        },
+        {
+            "type": "paragraph",
+            "text": "Samtalen etter presentasjonen er der mange elever mister poeng. Det er ikke tilfeldig hva sensor spør om. Sensor tester om du virkelig forstår stoffet eller bare har pugget presentasjonen. Forbered deg ved å tenke gjennom hva sensor sannsynligvis vil spørre om."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Typiske spørsmål fra sensor",
+                "items": [
+                    {
+                        "label": "Sammenligning",
+                        "value": "Kan du sammenligne bruken av et virkemiddel i to av tekstene dine?"
+                    },
+                    {
+                        "label": "Kontrafaktisk",
+                        "value": "Hvordan ville denne teksten vært annerledes om den var skrevet i en annen epoke?"
+                    },
+                    {
+                        "label": "Personlig refleksjon",
+                        "value": "Hva tenker du om budskapet? Er du enig med forfatteren?"
+                    },
+                    {
+                        "label": "Utvidelse",
+                        "value": "Kan du trekke inn et annet eksempel som belyser det samme temaet?"
+                    },
+                    {
+                        "label": "Kontekst",
+                        "value": "Hva vet du om forfatteren og tiden teksten ble skrevet i?"
+                    },
+                    {
+                        "label": "Virkemiddel i dybden",
+                        "value": "Du nevnte en metafor. Kan du forklare hva den gjør med leserens forståelse av temaet?"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "info_box",
+            "title": "Ha ekstra tekster i baklomma",
+            "content": "Forbered 2-3 tekster eller eksempler som du IKKE bruker i presentasjonen, men som støtter det samme temaet. Når sensor spør «Kan du tenke på et annet eksempel?», trekker du frem et forberedt kort i stedet for å famle. Dette er forskjellen mellom en god og en fremragende samtale."
+        },
+        {
+            "type": "info_box",
+            "title": "Presentasjonsteknikk",
+            "content": "Les artikkelen om [grunnleggende retorikk](/norsk/retorikk/grunnleggende-retorikk) for tips om etos, patos og logos i din muntlige fremføring."
+        },
+        {
+            "type": "header",
+            "text": "Virkemidler du MÅ kunne",
+            "level": 2
+        },
+        {
+            "type": "paragraph",
+            "text": "I samtalen vil sensor ofte spørre om spesifikke virkemidler. Du trenger ikke kunne alle, men disse bør du kunne identifisere og forklare effekten av:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "Metafor: Overført betydning. «Livet er en reise» sier noe om livets retning og bevegelse uten å sammenligne direkte.",
+                "Sammenligning: Direkte sammenligning med «som» eller «lik». «Hun var som en steinmur» gir et konkret bilde.",
+                "Symbol: Noe konkret som står for noe abstrakt. En lukket dør kan symbolisere avvisning.",
+                "Kontrast: To motsetninger satt opp mot hverandre for å forsterke begge.",
+                "Ironi: Når det som sies betyr det motsatte av det som menes.",
+                "Gjentakelse: Ord eller fraser som gjentas for å understreke en følelse eller et poeng.",
+                "In medias res: Å begynne midt i handlingen. Skaper umiddelbar spenning.",
+                "Synsvinkel: Hvem forteller? Jeg-forteller gir nærhet, allvitende gir overblikk."
+            ]
+        },
+        {
+            "type": "info_box",
+            "title": "Fordyp deg i virkemidler",
+            "content": "[Tid og struktur](/norsk/virkemidler/tid-og-struktur) - [Bildespråk og effekter](/norsk/virkemidler/bildesprak-og-effekter) - [Synsvinkel og stemme](/norsk/virkemidler/synsvinkel-og-stemme)"
+        },
+        {
+            "type": "header",
+            "text": "Kompetansemålene bak eksamen",
+            "level": 2
+        },
+        {
+            "type": "paragraph",
+            "text": "Muntlig eksamen tester spesifikke kompetansemål fra LK20. Når du forstår hva hvert mål betyr i praksis, vet du også hva sensor leter etter."
+        },
+        {
+            "type": "component",
+            "name": "Comparison",
+            "props": {
+                "title": "Kompetansemål og hva de betyr for deg",
+                "leftTitle": "Kompetansemål (LK20)",
+                "rightTitle": "Hva sensor ser etter",
+                "items": [
+                    {
+                        "label": "Presentere",
+                        "left": "Bruke fagspråk og argumentere saklig i muntlige presentasjoner.",
+                        "right": "Presentasjonen din har en klar tese, ikke bare en oppsummering."
+                    },
+                    {
+                        "label": "Lese og reflektere",
+                        "left": "Lese skjønnlitteratur og sakprosa og reflektere over formål, innhold og form.",
+                        "right": "Du viser at du forstår både HVA teksten sier og HVORDAN den sier det."
+                    },
+                    {
+                        "label": "Historisk kontekst",
+                        "left": "Sammenligne og tolke tekster ut fra historisk kontekst og egen samtid.",
+                        "right": "Du kobler minst en tekst til en historisk periode og forklarer sammenhengen."
+                    },
+                    {
+                        "label": "Fagspråk",
+                        "left": "Bruke kunnskap om språk og tekst i samtaler om tekster.",
+                        "right": "I samtalen bruker du fagbegreper naturlig, ikke mekanisk."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "paragraph",
+            "text": "Kjennetegn på måloppnåelse for muntlig fra Udir: Ved lav kompetanse (karakter 2) kommuniserer eleven noe faglig innhold og begrunner til en viss grad egne oppfatninger. Ved god kompetanse (karakter 4) kommuniserer eleven faglig innhold klart og underbygger egne oppfatninger. Ved høy kompetanse (karakter 6) kommuniserer eleven faglig innhold klart og tydelig og argumenterer saklig."
+        },
+        {
+            "type": "link",
+            "text": "Kompetansemål norsk LK20 (Udir)",
+            "url": "https://www.udir.no/lk20/nor01-07/kompetansemaal-og-vurdering/kv920",
+            "icon": "external"
+        },
+        {
+            "type": "link",
+            "text": "Kjennetegn på måloppnåelse (Udir)",
+            "url": "https://www.udir.no/laring-og-trivsel/lareplanverket/kjennetegn/kjennetegn-pa-maloppnaelse-norsk-10.-trinn",
+            "icon": "external"
+        },
+        {
+            "type": "header",
+            "text": "De vanligste feilene",
+            "level": 2
+        },
+        {
+            "type": "component",
+            "name": "WritingFix",
+            "props": {
+                "title": "Feil 1: Lese opp manus",
+                "items": [
+                    {
+                        "bad": "Leser opp et ferdigskrevet manus ord for ord, med blikket festet i papirene.",
+                        "good": "Snakker fritt med stikkord på kort. Har øyekontakt med sensor. Bruker egne ord og viser at stoffet sitter.",
+                        "why": "Sensor vil se at du forstår stoffet, ikke at du kan lese høyt. Stikkord tvinger deg til å formulere deg selv, og det er akkurat det som viser kompetanse."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "component",
+            "name": "WritingFix",
+            "props": {
+                "title": "Feil 2: Vage virkemidler",
+                "items": [
+                    {
+                        "bad": "Teksten bruker mange virkemidler. Forfatteren har et fint språk med gode beskrivelser.",
+                        "good": "Metaforen «havet av stillhet» i linje 3 forsterker hovedpersonens følelse av isolasjon. Stillheten er ikke bare fravær av lyd, den er et hav du kan drukne i. Forfatteren gjør ensomheten fysisk.",
+                        "why": "Alltid vær spesifikk: navngi virkemiddelet, siter teksten, forklar effekten. «Mange virkemidler» er et tomt utsagn som ikke viser kompetanse."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "component",
+            "name": "WritingFix",
+            "props": {
+                "title": "Feil 3: Bare beskrive handling",
+                "items": [
+                    {
+                        "bad": "I novellen er det en mann som mister jobben. Han blir lei seg og sitter hjemme. Til slutt går han ut igjen.",
+                        "good": "Forfatteren bruker kontrasten mellom mannens tidligere rutine og hans nye hverdag for å vise identitetstapet som følger med arbeidsledighet. At vendepunktet skjer ved en tilfeldig samtale på butikken, og ikke gjennom en dramatisk hendelse, understreker temaet: identitet bygges i det hverdagslige, ikke i det spektakulære.",
+                        "why": "Beskrivelse er referat. Analyse kobler form til mening. Sensor spør: Hvorfor har forfatteren gjort det slik? Hva er effekten? Det er det du må svare på."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Scenario: 30 minutter forberedelse",
+            "level": 2
+        },
+        {
+            "type": "paragraph",
+            "text": "På eksamensdagen får du den spesifikke oppgaven og har 30 minutter alene til å forberede presentasjonen. Hva gjør du?"
+        },
+        {
+            "type": "component",
+            "name": "ScenarioRoleplay",
+            "props": {
+                "title": "Forberedelsestiden",
+                "intro": "Du har forberedt deg i 24 timer med temaet «Identitet». Nå får du den spesifikke oppgaven: «Drøft hvordan identitet framstilles i to selvvalgte tekster fra ulike tidsperioder. Bruk fagbegreper.» Du har 30 minutter. Hva gjør du først?",
+                "startId": "start",
+                "scenarios": [
+                    {
+                        "id": "start",
+                        "text": "Velg din strategi for de første 10 minuttene:",
+                        "options": [
+                            {
+                                "label": "Skrive et fullstendig manus for hele presentasjonen",
+                                "nextId": "manus",
+                                "outcome": "failure"
+                            },
+                            {
+                                "label": "Lage et tankekart som kobler dine forberedte tekster til den spesifikke oppgaven",
+                                "nextId": "tankekart",
+                                "outcome": "success"
+                            },
+                            {
+                                "label": "Lese en helt ny tekst du ikke har sett før",
+                                "nextId": "ny_tekst",
+                                "outcome": "failure"
+                            },
+                            {
+                                "label": "Øve på å snakke høyt med en gang",
+                                "nextId": "snakke",
+                                "outcome": "neutral"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "tankekart",
+                        "text": "Smart! Du bruker forberedelsen effektivt. Koble tekstene du allerede kjenner godt til det oppgaven spør etter. Skriv ned stikkord for påstanden din, 2-3 virkemidler per tekst med sitater, og noen punkter du vil ta opp i samtalen. Med 20 minutter igjen kan du øve på å si det høyt.",
+                        "options": []
+                    },
+                    {
+                        "id": "manus",
+                        "text": "30 minutter er for kort til et fullstendig manus. Du ender opp med en halvferdig tekst og ingen tid til å øve. Dessuten fører manus til at du leser opp i stedet for å snakke fritt. Bruk stikkord i stedet.",
+                        "options": []
+                    },
+                    {
+                        "id": "ny_tekst",
+                        "text": "Med 30 minutter har du ikke tid til å lese og analysere noe nytt grundig nok. Bruk tekstene du allerede har forberedt i 24 timer. De sitter mye bedre.",
+                        "options": []
+                    },
+                    {
+                        "id": "snakke",
+                        "text": "Å øve muntlig er bra, men ikke som det aller første. Uten en plan for hva du skal si, øver du på å improvisere. Bruk 10 minutter på å lage en plan med stikkord, og bruk de siste 20 minuttene på å øve.",
+                        "options": []
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Sjekkliste for de 24 timene",
+            "level": 2
+        },
+        {
+            "type": "paragraph",
+            "text": "Her er en steg-for-steg plan for forberedelsestiden:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "1. Les oppgaven grundig. Hva er det overordnede temaet? Hva er nøkkelordene?",
+                "2. Brainstorm: Hvilke tekster du allerede kjenner, passer til dette temaet?",
+                "3. Velg 3-4 tekster. Sørg for en blanding av skjønnlitteratur og sakprosa, og minst en fra en litteraturhistorisk epoke.",
+                "4. Lag tankekart for hver tekst: tema, virkemidler, budskap, kobling til epoke.",
+                "5. Formuler en klar påstand for presentasjonen. Hva vil du argumentere for?",
+                "6. Lag stikkordlapp for presentasjonen (ikke fullt manus).",
+                "7. Øv presentasjonen høyt. Hold deg under 10 minutter.",
+                "8. Forbered 2-3 ekstra tekster eller eksempler for samtalen.",
+                "9. Tenk gjennom sannsynlige spørsmål fra sensor og øv på svarene.",
+                "10. Sov godt natten før. En uthvilt hjerne tenker bedre enn en som har pugget hele natten."
+            ]
+        },
+        {
+            "type": "header",
+            "text": "Lenker",
+            "level": 2
+        },
+        {
+            "type": "expandable",
+            "title": "Analyse",
+            "content": [
+                {
+                    "type": "link",
+                    "text": "Tema og budskap",
+                    "url": "/norsk/analyse/tema-og-budskap",
+                    "icon": "book"
+                },
+                {
+                    "type": "link",
+                    "text": "Analyse av novelle",
+                    "url": "/norsk/analyse/analyse-novelle",
+                    "icon": "book"
+                },
+                {
+                    "type": "link",
+                    "text": "Analyse av dikt",
+                    "url": "/norsk/analyse/analyse-dikt",
+                    "icon": "book"
+                },
+                {
+                    "type": "link",
+                    "text": "Analyse av debattinnlegg",
+                    "url": "/norsk/analyse/analyse-debattinnlegg",
+                    "icon": "book"
+                },
+                {
+                    "type": "link",
+                    "text": "Analyse av roman",
+                    "url": "/norsk/analyse/analyse-roman",
+                    "icon": "book"
+                }
+            ]
+        },
+        {
+            "type": "expandable",
+            "title": "Virkemidler",
+            "content": [
+                {
+                    "type": "link",
+                    "text": "Tid og struktur",
+                    "url": "/norsk/virkemidler/tid-og-struktur",
+                    "icon": "book"
+                },
+                {
+                    "type": "link",
+                    "text": "Bildespråk og effekter",
+                    "url": "/norsk/virkemidler/bildesprak-og-effekter",
+                    "icon": "book"
+                },
+                {
+                    "type": "link",
+                    "text": "Synsvinkel og stemme",
+                    "url": "/norsk/virkemidler/synsvinkel-og-stemme",
+                    "icon": "book"
+                }
+            ]
+        },
+        {
+            "type": "expandable",
+            "title": "Litteraturhistorie",
+            "content": [
+                {
+                    "type": "link",
+                    "text": "Nasjonalromantikken",
+                    "url": "/norsk/litteraturhistorie/nasjonalromantikken",
+                    "icon": "book"
+                },
+                {
+                    "type": "link",
+                    "text": "Realismen",
+                    "url": "/norsk/litteraturhistorie/realismen",
+                    "icon": "book"
+                },
+                {
+                    "type": "link",
+                    "text": "Nyromantikken",
+                    "url": "/norsk/litteraturhistorie/ny-romantikken",
+                    "icon": "book"
+                },
+                {
+                    "type": "link",
+                    "text": "Nyrealismen",
+                    "url": "/norsk/litteraturhistorie/ny-realismen",
+                    "icon": "book"
+                }
+            ]
+        },
+        {
+            "type": "expandable",
+            "title": "Tekstbibliotek og øving",
+            "content": [
+                {
+                    "type": "link",
+                    "text": "Tekstbiblioteket",
+                    "url": "/norsk/bibliotek",
+                    "icon": "book"
+                },
+                {
+                    "type": "link",
+                    "text": "Flashcards",
+                    "url": "/oving/flashcards",
+                    "icon": "star"
+                },
+                {
+                    "type": "link",
+                    "text": "Quiz",
+                    "url": "/oving/quiz",
+                    "icon": "star"
+                }
+            ]
+        },
+        {
+            "type": "link",
+            "text": "Tidligere eksamensoppgaver (Udir)",
+            "url": "https://sokeresultat.udir.no/eksamensoppgaver.html",
+            "icon": "external"
+        },
+        {
+            "type": "link",
+            "text": "Regler for muntlig eksamen (Udir)",
+            "url": "https://www.udir.no/eksamen-og-prover/eksamen/muntlig-eksamen/",
+            "icon": "external"
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hvor lang forberedelsestid har du på muntlig eksamen?",
+            "options": [
+                "48 timer",
+                "24 timer",
+                "30 minutter",
+                "1 uke"
+            ],
+            "answer": 1,
+            "explanation": "Du har 24 timer forberedelsestid (forberedelsesdagen). Du får vite faget 48 timer før, og på selve eksamensdagen får du 30 minutter til å tilpasse presentasjonen til den spesifikke oppgaven."
+        },
+        {
+            "question": "Hva bør du gjøre med de første 10 minuttene av de 30 minuttene på eksamensdagen?",
+            "options": [
+                "Skrive et fullstendig manus",
+                "Lese en ny tekst du ikke har sett før",
+                "Lage et tankekart som kobler dine forberedte tekster til den spesifikke oppgaven",
+                "Øve presentasjonen høyt"
+            ],
+            "answer": 2,
+            "explanation": "Bruk de første minuttene på å koble det du allerede har forberedt til den spesifikke oppgaven. Lag en plan med stikkord, og bruk resten av tiden på å øve."
+        },
+        {
+            "question": "Hvorfor bør du ha en klar påstand i presentasjonen?",
+            "options": [
+                "Fordi sensor har sagt at du må",
+                "Fordi en påstand gir presentasjonen retning og viser at du argumenterer, ikke bare beskriver",
+                "Fordi det gjør presentasjonen lengre",
+                "Fordi det er enklere å pugge"
+            ],
+            "answer": 1,
+            "explanation": "En klar påstand viser at du kan argumentere og ta stilling, ikke bare oppsummere. Alt i presentasjonen bygger opp under påstanden, noe som gir helhet og retning."
+        },
+        {
+            "question": "Hva er den beste strategien for samtalen med sensor?",
+            "options": [
+                "Gjenta det du sa i presentasjonen",
+                "Si at du ikke vet hvis du er usikker",
+                "Ha ekstra tekster forberedt som du kan trekke inn, og bruk fagbegreper naturlig",
+                "Snakke så lenge som mulig om hvert spørsmål"
+            ],
+            "answer": 2,
+            "explanation": "Forbered ekstra tekster og eksempler du ikke brukte i presentasjonen. Når sensor spør om nye vinkler, har du forberedte svar klare. Bruk fagbegreper naturlig, ikke tvunget."
+        },
+        {
+            "question": "Hvorfor bør du koble minst en tekst til en litteraturhistorisk epoke?",
+            "options": [
+                "Fordi sensor liker historie",
+                "Fordi kompetansemålene krever at du kan sammenligne tekster ut fra historisk kontekst",
+                "Fordi gamle tekster er bedre enn nye",
+                "Fordi det gjør presentasjonen lengre"
+            ],
+            "answer": 1,
+            "explanation": "Et av kompetansemålene i LK20 er å sammenligne og tolke tekster ut fra historisk kontekst og egen samtid. Å koble tekst til epoke viser at du mestrer dette målet."
+        }
+    ],
+    "tags": ["eksamen", "muntlig", "presentasjon", "norsk", "vurdering"],
+    "createdDate": "2026-03-15T00:00:00Z"
+}

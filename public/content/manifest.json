@@ -824,6 +824,38 @@
               "lastUpdated": "2026-03-12T10:46:17+01:00"
             }
           ]
+        },
+        {
+          "id": "eksamen",
+          "title": "Eksamen",
+          "description": "Alt du trenger for å mestre skriftlig og muntlig eksamen i norsk etter 10. trinn.",
+          "lessons": [
+            {
+              "id": "skriftlig",
+              "title": "Skriftlig eksamen",
+              "description": "Slik forbereder du deg til skriftlig eksamen i norsk.",
+              "tags": [
+                "eksamen",
+                "skriving",
+                "norsk"
+              ],
+              "createdDate": "2026-03-15T00:00:00Z",
+              "lastUpdated": "2026-03-15T20:12:50.545Z"
+            },
+            {
+              "id": "muntlig",
+              "title": "Muntlig eksamen",
+              "description": "Fra forberedelse til samtale: slik mestrer du muntlig eksamen.",
+              "tags": [
+                "eksamen",
+                "muntlig",
+                "presentasjon",
+                "norsk"
+              ],
+              "createdDate": "2026-03-15T00:00:00Z",
+              "lastUpdated": "2026-03-15T20:15:49.818Z"
+            }
+          ]
         }
       ]
     },

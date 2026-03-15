@@ -72,7 +72,29 @@ export interface PhilosophyQuest {
     initialStepId: string;
     steps: DialogueStep[];
     rewardXp: number;
+    reflectionQuestions?: string[];
 }
+
+export interface QuestProgress {
+    questId: string;
+    stepId: string;
+    history: string[];
+}
+
+export const AXIS_DESCRIPTIONS: Record<PhilosophyAxis, string> = {
+    rationalism: 'Du stoler på logikk og fornuft for å finne sannhet.',
+    empiricism: 'Du stoler på erfaring og sanser for å finne sannhet.',
+    stoicism: 'Du mener plikt og selvkontroll er viktigst.',
+    epicureanism: 'Du mener lykke og nytelse er målet med livet.',
+    idealism: 'Du tror på en høyere virkelighet bak det vi kan se.',
+    materialism: 'Du tror bare det fysiske og målbare er virkelig.',
+    individualism: 'Du setter individets frihet høyt.',
+    collectivism: 'Du mener fellesskapet er viktigere enn enkeltpersonen.',
+    existentialism: 'Du mener vi må skape vår egen mening i livet.',
+    essentialism: 'Du tror ting har en fast natur eller hensikt.',
+    skepticism: 'Du stiller spørsmål ved alt og tviler på sikker kunnskap.',
+    dogmatism: 'Du stoler på faste regler og sannheter.',
+};
 
 export interface Achievement {
     id: string;

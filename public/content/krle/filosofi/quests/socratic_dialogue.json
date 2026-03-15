@@ -18,7 +18,8 @@
                         "rationalism": 2,
                         "stoicism": 1
                     },
-                    "nextStepId": "weapon_analogy"
+                    "nextStepId": "weapon_analogy",
+                    "feedback": "En enkel definisjon, men Sokrates elsket å finne huller i det vi tar for gitt. La oss se om den holder!"
                 },
                 {
                     "id": "no_complex",
@@ -27,7 +28,8 @@
                         "idealism": 3,
                         "rationalism": 1
                     },
-                    "nextStepId": "deeper_justice"
+                    "nextStepId": "deeper_justice",
+                    "feedback": "Godt observert! Sokrates mente at de enkleste spørsmålene ofte skjuler de dypeste sannhetene."
                 }
             ]
         },
@@ -68,7 +70,8 @@
                         "materialism": 5,
                         "empiricism": 3
                     },
-                    "nextStepId": "challenge_might"
+                    "nextStepId": "challenge_might",
+                    "feedback": "Denne tanken kalles \"makt er rett\" - den ble forsvart av sofisten Thrasymakhos. Sokrates var sterkt uenig."
                 },
                 {
                     "id": "harmony",
@@ -77,7 +80,8 @@
                         "idealism": 5,
                         "stoicism": 3
                     },
-                    "nextStepId": "conclusion"
+                    "nextStepId": "conclusion",
+                    "feedback": "Dette er kjernen i Platons rettferdighetsbegrep: harmoni mellom sjelens og samfunnets deler."
                 }
             ]
         },
@@ -112,5 +116,9 @@
                 }
             ]
         }
+    ],
+    "reflectionQuestions": [
+        "Finnes det noe du har trodd var sant, men som du nå er usikker på?",
+        "Hvem i livet ditt stiller deg de vanskeligste spørsmålene?"
     ]
 }

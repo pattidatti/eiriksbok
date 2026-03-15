@@ -18,7 +18,8 @@
                         "rationalism": 3,
                         "empiricism": 2
                     },
-                    "nextStepId": "challenge_law"
+                    "nextStepId": "challenge_law",
+                    "feedback": "De fleste tenker slik. Men Hume påpekte: bare fordi solen alltid har gått opp, kan vi ikke logisk bevise at den vil gjøre det i morgen."
                 },
                 {
                     "id": "uncertain",
@@ -27,7 +28,8 @@
                         "skepticism": 4,
                         "empiricism": 3
                     },
-                    "nextStepId": "habit"
+                    "nextStepId": "habit",
+                    "feedback": "Du tenker som Hume! Han mente at vanen, ikke logikken, får oss til å tro på årsak og virkning."
                 }
             ]
         },
@@ -87,5 +89,9 @@
                 }
             ]
         }
+    ],
+    "reflectionQuestions": [
+        "Bare fordi noe alltid har skjedd, betyr det at det alltid vil skje?",
+        "Stoler du mest på det du ser, eller det du tenker?"
     ]
 }

@@ -18,7 +18,8 @@
                         "rationalism": 3,
                         "skepticism": 2
                     },
-                    "nextStepId": "truth_vs_comfort"
+                    "nextStepId": "truth_vs_comfort",
+                    "feedback": "Sokrates ble faktisk kalt akkurat dette! Men han mente at kritikk er den viktigste gaven man kan gi et samfunn."
                 },
                 {
                     "id": "danger",
@@ -26,7 +27,8 @@
                     "impact": {
                         "empiricism": 3
                     },
-                    "nextStepId": "danger_response"
+                    "nextStepId": "danger_response",
+                    "feedback": "Sokrates visste at han risikerte livet. Han mente at et uutforsket liv ikke er verdt å leve."
                 }
             ]
         },
@@ -101,5 +103,9 @@
                 }
             ]
         }
+    ],
+    "reflectionQuestions": [
+        "Når er det riktig å utfordre det de fleste mener?",
+        "Ville du turt å stå alene mot mengden?"
     ]
 }

@@ -18,7 +18,8 @@
                         "epicureanism": 3,
                         "materialism": 2
                     },
-                    "nextStepId": "critique_pleasure"
+                    "nextStepId": "critique_pleasure",
+                    "feedback": "Aristoteles ville innvendt: Nytelse er for enkelt. Til og med dyr søker nytelse!"
                 },
                 {
                     "id": "virtue",
@@ -27,7 +28,8 @@
                         "idealism": 3,
                         "rationalism": 2
                     },
-                    "nextStepId": "virtue_path"
+                    "nextStepId": "virtue_path",
+                    "feedback": "Du tenker som Aristoteles! Han mente at dyd er nøkkelen til eudaimonia - det gode liv."
                 }
             ]
         },
@@ -74,7 +76,8 @@
                         "rationalism": 2,
                         "stoicism": 1
                     },
-                    "nextStepId": "conclusion"
+                    "nextStepId": "conclusion",
+                    "feedback": "Perfekt! Den gylne middelvei: Mot ligger mellom feighet og dumdristighet. Balanse er nøkkelen."
                 }
             ]
         },
@@ -94,5 +97,9 @@
                 }
             ]
         }
+    ],
+    "reflectionQuestions": [
+        "Finnes det noe du gjør for mye eller for lite av?",
+        "Hva ville Aristoteles sagt om balansen i livet ditt?"
     ]
 }

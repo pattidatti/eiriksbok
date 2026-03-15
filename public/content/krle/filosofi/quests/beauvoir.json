@@ -18,7 +18,8 @@
                         "existentialism": 4,
                         "individualism": 3
                     },
-                    "nextStepId": "object"
+                    "nextStepId": "object",
+                    "feedback": "Beauvoir var enig! \"Man fødes ikke som kvinne, man blir det.\" Samfunnet former roller vi tar for gitt."
                 },
                 {
                     "id": "biology",
@@ -27,7 +28,8 @@
                         "rationalism": 3,
                         "materialism": 1
                     },
-                    "nextStepId": "object"
+                    "nextStepId": "object",
+                    "feedback": "Det er det mange tror. Men Beauvoir viste at biologi bare er starten - kulturen gjør resten av jobben."
                 }
             ]
         },
@@ -79,5 +81,9 @@
                 }
             ]
         }
+    ],
+    "reflectionQuestions": [
+        "Hvem bestemmer hva det betyr å være gutt eller jente i dag?",
+        "Finnes det forventninger til deg som du ikke har valgt selv?"
     ]
 }

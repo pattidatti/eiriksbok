@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle, Lock, ChevronRight } from 'lucide-react';
+import { CheckCircle, Lock, ChevronRight, Star, RotateCcw } from 'lucide-react';
 import { QUEST_REGISTRY, type QuestConfig } from '../../../../data/philosophy/questRegistry';
 import { ERA_LABELS, type Era } from '../../../../data/philosophy/types';
 import { usePhilosophyProfile } from '../../../../hooks/usePhilosophyProfile';
@@ -31,7 +31,7 @@ function groupByEra(quests: QuestConfig[]): Record<Era, { primary: QuestConfig[]
 }
 
 export const QuestList: React.FC<QuestListProps> = ({ onSelectQuest }) => {
-    const { profile } = usePhilosophyProfile();
+    const { profile, questProgress } = usePhilosophyProfile();
     const allQuests = Object.values(QUEST_REGISTRY);
     const grouped = groupByEra(allQuests);
 
@@ -39,8 +39,18 @@ export const QuestList: React.FC<QuestListProps> = ({ onSelectQuest }) => {
         <div className="space-y-8">
             {ERA_ORDER.map(era => {
                 const group = grouped[era];
-                const quests = [...group.primary, ...group.secondary];
+                if (group.primary.length === 0 && group.secondary.length === 0) return null;
+
+                // Only show secondary quests whose prerequisites are met
+                const visibleSecondary = group.secondary.filter(q =>
+                    q.prerequisites.every(p => profile.completedQuests.includes(p)) ||
+                    profile.completedQuests.includes(q.id)
+                );
+
+                const quests = [...group.primary, ...visibleSecondary];
                 if (quests.length === 0) return null;
+
+                const hasBonusSection = visibleSecondary.length > 0;
 
                 return (
                     <div key={era}>
@@ -51,17 +61,40 @@ export const QuestList: React.FC<QuestListProps> = ({ onSelectQuest }) => {
                             <div className="h-px flex-1 bg-slate-100" />
                         </div>
 
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            {quests.map((quest, index) => (
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            {group.primary.map((quest, index) => (
                                 <QuestCard
                                     key={quest.id}
                                     quest={quest}
                                     profile={profile}
                                     index={index}
                                     onSelect={onSelectQuest}
+                                    hasResume={questProgress?.questId === quest.id}
                                 />
                             ))}
                         </div>
+
+                        {hasBonusSection && (
+                            <>
+                                <div className="flex items-center gap-2 mt-4 mb-3">
+                                    <Star size={12} className="text-amber-500" />
+                                    <span className="text-[10px] font-bold text-amber-600 uppercase tracking-widest">Bonusdialoger</span>
+                                    <div className="h-px flex-1 bg-amber-100" />
+                                </div>
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                    {visibleSecondary.map((quest, index) => (
+                                        <QuestCard
+                                            key={quest.id}
+                                            quest={quest}
+                                            profile={profile}
+                                            index={index}
+                                            onSelect={onSelectQuest}
+                                            hasResume={questProgress?.questId === quest.id}
+                                        />
+                                    ))}
+                                </div>
+                            </>
+                        )}
                     </div>
                 );
             })}
@@ -74,9 +107,10 @@ interface QuestCardProps {
     profile: ReturnType<typeof usePhilosophyProfile>['profile'];
     index: number;
     onSelect: (id: string) => void;
+    hasResume?: boolean;
 }
 
-const QuestCard: React.FC<QuestCardProps> = ({ quest, profile, index, onSelect }) => {
+const QuestCard: React.FC<QuestCardProps> = ({ quest, profile, index, onSelect, hasResume }) => {
     const isCompleted = profile.completedQuests.includes(quest.id);
     const isLocked = quest.prerequisites.some(
         prereq => !profile.completedQuests.includes(prereq)
@@ -88,7 +122,7 @@ const QuestCard: React.FC<QuestCardProps> = ({ quest, profile, index, onSelect }
         <motion.button
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.05 }}
+            transition={{ delay: index * 0.04 }}
             disabled={isLocked}
             onClick={() => !isLocked && onSelect(quest.id)}
             className={`
@@ -97,13 +131,23 @@ const QuestCard: React.FC<QuestCardProps> = ({ quest, profile, index, onSelect }
                     ? 'opacity-50 cursor-not-allowed bg-slate-50 border-slate-100'
                     : isCompleted
                         ? 'bg-indigo-50/50 border-indigo-100 hover:border-indigo-300 hover:shadow-md cursor-pointer'
-                        : 'bg-white border-slate-200 hover:border-indigo-300 hover:shadow-md cursor-pointer'
+                        : hasResume
+                            ? 'bg-amber-50/50 border-amber-200 hover:border-amber-400 hover:shadow-md cursor-pointer'
+                            : 'bg-white border-slate-200 hover:border-indigo-300 hover:shadow-md cursor-pointer'
                 }
             `}
         >
-            <div className="flex gap-4 p-4">
+            {/* Resume badge */}
+            {hasResume && !isCompleted && (
+                <div className="absolute top-2 right-2 z-10 px-2 py-0.5 rounded-full bg-amber-500 text-white text-[9px] font-bold uppercase tracking-widest flex items-center gap-1">
+                    <RotateCcw size={8} />
+                    Fortsett
+                </div>
+            )}
+
+            <div className="flex gap-3 p-3.5">
                 {/* Philosopher thumbnail */}
-                <div className="w-14 h-14 rounded-xl overflow-hidden bg-slate-100 shrink-0">
+                <div className={`w-12 h-12 rounded-xl overflow-hidden bg-slate-100 shrink-0 ${quest.isSecondary ? 'ring-2 ring-amber-300 ring-offset-1' : ''}`}>
                     <img
                         src={imagePath}
                         alt={philosopherName}
@@ -113,20 +157,15 @@ const QuestCard: React.FC<QuestCardProps> = ({ quest, profile, index, onSelect }
                 </div>
 
                 <div className="flex-1 min-w-0">
-                    <div className="flex items-start justify-between gap-2 mb-1">
-                        <div>
-                            {quest.isSecondary && (
-                                <span className="text-[9px] font-bold text-indigo-500 uppercase tracking-widest">Bonusdialog</span>
-                            )}
-                            <h3 className="text-sm font-bold text-slate-900 group-hover:text-indigo-700 transition-colors leading-tight">
-                                {quest.title}
-                            </h3>
-                        </div>
-                        {isCompleted && <CheckCircle size={16} className="text-green-500 shrink-0 mt-0.5" />}
-                        {isLocked && <Lock size={14} className="text-slate-300 shrink-0 mt-0.5" />}
+                    <div className="flex items-start justify-between gap-2 mb-0.5">
+                        <h3 className="text-sm font-bold text-slate-900 group-hover:text-indigo-700 transition-colors leading-tight">
+                            {quest.title}
+                        </h3>
+                        {isCompleted && <CheckCircle size={14} className="text-green-500 shrink-0 mt-0.5" />}
+                        {isLocked && <Lock size={12} className="text-slate-300 shrink-0 mt-0.5" />}
                     </div>
 
-                    <p className="text-xs text-slate-500 leading-snug mb-2 line-clamp-2">
+                    <p className="text-[11px] text-slate-500 leading-snug mb-1.5 line-clamp-2">
                         {quest.description}
                     </p>
 
@@ -136,6 +175,11 @@ const QuestCard: React.FC<QuestCardProps> = ({ quest, profile, index, onSelect }
                             <ChevronRight size={12} className="text-slate-300 group-hover:text-indigo-500 transition-colors" />
                         )}
                     </div>
+
+                    {/* Learning Goal */}
+                    <p className="text-[10px] text-slate-400 mt-1 leading-snug italic line-clamp-1">
+                        {quest.learningGoal}
+                    </p>
                 </div>
             </div>
         </motion.button>

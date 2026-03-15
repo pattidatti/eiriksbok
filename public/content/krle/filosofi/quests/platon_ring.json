@@ -18,7 +18,8 @@
                         "skepticism": 3,
                         "materialism": 2
                     },
-                    "nextStepId": "glaucon"
+                    "nextStepId": "glaucon",
+                    "feedback": "Glaukon (som forteller historien) mente det samme: de fleste ville gitt etter. Men er det riktig?"
                 },
                 {
                     "id": "virtue",
@@ -27,7 +28,8 @@
                         "idealism": 5,
                         "stoicism": 3
                     },
-                    "nextStepId": "inner_justice"
+                    "nextStepId": "inner_justice",
+                    "feedback": "Platon ville applaudert! Han mente at en virkelig rettferdig person er rettferdig i seg selv, ikke for belønningens skyld."
                 }
             ]
         },
@@ -101,5 +103,9 @@
                 }
             ]
         }
+    ],
+    "reflectionQuestions": [
+        "Ville du oppført deg annerledes om ingen så deg?",
+        "Er du god fordi du vil, eller fordi du må?"
     ]
 }

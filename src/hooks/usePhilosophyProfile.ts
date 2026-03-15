@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import type { PhilosophyProfile, PhilosophyAxis, Achievement } from '../data/philosophy/types';
+import type { PhilosophyProfile, PhilosophyAxis, Achievement, QuestProgress } from '../data/philosophy/types';
 import { QUEST_REGISTRY } from '../data/philosophy/questRegistry';
 
 const INITIAL_PROFILE: PhilosophyProfile = {
@@ -81,10 +81,13 @@ const validAxes = Object.keys(INITIAL_PROFILE.alignment) as PhilosophyAxis[];
 interface ProfileStore {
     profile: PhilosophyProfile;
     isLoaded: boolean;
+    questProgress: QuestProgress | null;
     addXp: (amount: number) => void;
     updateAlignment: (changes: Partial<Record<string, number>>) => void;
     completeQuest: (questId: string, xpReward: number) => void;
     resetProfile: () => void;
+    saveQuestProgress: (progress: QuestProgress) => void;
+    clearQuestProgress: () => void;
 }
 
 const useProfileStore = create<ProfileStore>()(
@@ -92,6 +95,7 @@ const useProfileStore = create<ProfileStore>()(
         (set) => ({
             profile: INITIAL_PROFILE,
             isLoaded: true,
+            questProgress: null as QuestProgress | null,
 
             addXp: (amount: number) =>
                 set((state) => {
@@ -151,6 +155,12 @@ const useProfileStore = create<ProfileStore>()(
                 }),
 
             resetProfile: () => set({ profile: INITIAL_PROFILE }),
+
+            saveQuestProgress: (progress: QuestProgress) =>
+                set({ questProgress: progress }),
+
+            clearQuestProgress: () =>
+                set({ questProgress: null }),
         }),
         {
             name: 'odyssey_philosophy_profile',
@@ -173,8 +183,8 @@ const useProfileStore = create<ProfileStore>()(
 );
 
 export const usePhilosophyProfile = () => {
-    const { profile, isLoaded, addXp, updateAlignment, completeQuest, resetProfile } =
-        useProfileStore();
+    const { profile, isLoaded, addXp, updateAlignment, completeQuest, resetProfile,
+        questProgress, saveQuestProgress, clearQuestProgress } = useProfileStore();
 
     const earnedAchievements = useMemo(
         () => ACHIEVEMENTS.filter((a) => a.condition(profile)),
@@ -204,5 +214,8 @@ export const usePhilosophyProfile = () => {
         earnedAchievements,
         progress,
         ACHIEVEMENTS,
+        questProgress,
+        saveQuestProgress,
+        clearQuestProgress,
     };
 };

@@ -1,0 +1,559 @@
+{
+    "id": "skriftlig",
+    "title": "Skriftlig eksamen i norsk",
+    "description": "Alt du trenger for å forberede deg til skriftlig eksamen etter 10. trinn.",
+    "subject": "norsk",
+    "topic": "eksamen",
+    "layout": "rich",
+    "readTime": "15 min lesning",
+    "category": "Eksamen",
+    "details": [
+        "Eksamen har to deler: kortsvarsoppgave og langsvarsoppgave.",
+        "Kortsvaret tester analyse og tolkning av en gitt tekst.",
+        "Langsvaret gir deg valg mellom saktekst og skapende skriving.",
+        "Sensor vurderer etter kompetansemål fra LK20.",
+        "Forberedelsesdagen er din viktigste ressurs."
+    ],
+    "externalUrl": "https://www.udir.no/lk20/nor01-07/kompetansemaal-og-vurdering/kv920",
+    "timeline": [],
+    "content": [
+        {
+            "type": "paragraph",
+            "text": "Du har øvd på å skrive reflekterende tekster, analysere noveller, drøfte problemstillinger og bruke virkemidler i egne tekster. Nå skal alt dette settes sammen i en fem timers eksamen. Det høres kanskje skummelt ut, men egentlig er eksamen bare en sjanse til å vise det du allerede kan. Denne guiden tar deg gjennom alt du trenger å vite, fra formatet til forberedelsesdagen til hva sensor faktisk ser etter."
+        },
+        {
+            "type": "header",
+            "text": "Hva er skriftlig eksamen i norsk?",
+            "level": 2
+        },
+        {
+            "type": "paragraph",
+            "text": "Skriftlig eksamen i norsk varer i fem timer. Du får et oppgavehefte med flere oppgaver og velger selv hvilke du vil svare på. Eksamen har to hoveddeler: en kortsvarsoppgave og en langsvarsoppgave. Kortsvaret handler om å analysere eller tolke en tekst du får utdelt. Langsvaret gir deg valg mellom å skrive en saktekst (for eksempel en drøftende eller reflekterende tekst) eller en skapende tekst (for eksempel en novelle eller et dikt)."
+        },
+        {
+            "type": "info_box",
+            "title": "Praktisk info",
+            "content": "Varighet: 5 timer. Du får et oppgavehefte med tekstvedlegg og flere oppgavealternativer. Hjelpemidler: Ordbok (bokmål/nynorsk), rettskrivningsordbok. Forberedelsesdag: Dagen før eksamen får du oppgaven og kan forberede deg. Tips: Du kan søke i tidligere eksamensoppgaver på sokeresultat.udir.no for å bli kjent med formatet."
+        },
+        {
+            "type": "header",
+            "text": "Kompetansemålene: Hva skal du bevise?",
+            "level": 2
+        },
+        {
+            "type": "paragraph",
+            "text": "Hver eneste oppgave på eksamen er designet for å teste kompetansemål fra læreplanen (LK20). Når du forstår hvilke mål som testes, forstår du også hva sensor leter etter i svaret ditt. Her er de viktigste kompetansemålene for skriftlig eksamen:"
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Kompetansemål fra LK20 (norsk etter 10. trinn)",
+                "items": [
+                    {
+                        "label": "Lesing og analyse",
+                        "value": "Lese skjønnlitteratur og sakprosa og reflektere over tekstenes formål, innhold, sjangertrekk og virkemidler."
+                    },
+                    {
+                        "label": "Tolkning i kontekst",
+                        "value": "Sammenligne og tolke romaner, noveller, lyrikk og andre tekster ut fra historisk kontekst og egen samtid."
+                    },
+                    {
+                        "label": "Skriving i sjangre",
+                        "value": "Informere, fortelle, argumentere og reflektere i ulike muntlige og skriftlige sjangre og for ulike formål."
+                    },
+                    {
+                        "label": "Virkemidler og retorikk",
+                        "value": "Gjenkjenne og bruke språklige virkemidler og retoriske appellformer."
+                    },
+                    {
+                        "label": "Kildebruk",
+                        "value": "Bruke kilder på en kritisk måte, markere sitater og vise til kilder på en etterrettelig måte i egne tekster."
+                    },
+                    {
+                        "label": "Fagspråk",
+                        "value": "Bruke fagspråk og kunnskap om grammatikk, tekststruktur og sjanger i samtale om og bearbeiding av tekster."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "link",
+            "text": "Se alle kompetansemålene på Udir",
+            "url": "https://www.udir.no/lk20/nor01-07/kompetansemaal-og-vurdering/kv920",
+            "icon": "external"
+        },
+        {
+            "type": "header",
+            "text": "Kortsvarsoppgaven",
+            "level": 2
+        },
+        {
+            "type": "paragraph",
+            "text": "Kortsvaret er den delen av eksamen der du viser at du kan lese en tekst grundig og si noe smart om den. Du får en tekst (et dikt, et novelletutdrag, en artikkel eller en visuell tekst) og et konkret spørsmål. Svaret skal vanligvis være 250-400 ord. Det viktigste er at du ikke bare gjenforteller hva teksten handler om. Du skal analysere og tolke, altså forklare hvordan teksten bygger opp sitt budskap gjennom virkemidler."
+        },
+        {
+            "type": "component",
+            "name": "WritingFix",
+            "props": {
+                "title": "Kortsvar: Fra referat til analyse",
+                "items": [
+                    {
+                        "bad": "Diktet handler om en person som er ensom. Forfatteren beskriver naturen og bruker mange fine ord. Personen tenker på livet og savner noen.",
+                        "good": "Ensomheten i diktet forsterkes gjennom kontrastfylte naturbilder: den vide himmelen og det tomme landskapet speiler hovedpersonens indre tomhet. Metaforen «steinmuren mellom oss» i tredje strofe gjør avstanden mellom mennesker fysisk og konkret. Forfatteren bruker gjentakelse av «aldri» for å understreke at tapet er endelig, og dette gir diktet en resignert tone som peker mot temaet uopprettelig savn.",
+                        "why": "Det første svaret beskriver hva teksten handler om (referat). Det andre forklarer hvordan teksten skaper sin mening gjennom konkrete virkemidler (analyse). Sensor ser etter det andre."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "paragraph",
+            "text": "En god oppskrift for kortsvaret: Start med å identifisere sjangeren. Finn 2-3 virkemidler og forklar hvilken effekt de har. Knytt virkemidlene til tema og budskap. Bruk alltid sitater fra teksten som bevis."
+        },
+        {
+            "type": "info_box",
+            "title": "Trenger du oppfriskning?",
+            "content": "Les artiklene om analyse og virkemidler: [Tema og budskap](/norsk/analyse/tema-og-budskap) - [Analyse av novelle](/norsk/analyse/analyse-novelle) - [Analyse av dikt](/norsk/analyse/analyse-dikt) - [Bildespråk og effekter](/norsk/virkemidler/bildesprak-og-effekter)"
+        },
+        {
+            "type": "header",
+            "text": "Langsvarsoppgaven",
+            "level": 2
+        },
+        {
+            "type": "paragraph",
+            "text": "Langsvaret er den største delen av eksamen. Her velger du mellom å skrive en saktekst eller en skapende tekst. Valget handler om hva du er sterkest på og hva du har best tid til. Begge alternativene kan gi toppkarakter."
+        },
+        {
+            "type": "header",
+            "text": "Alternativ 1: Saktekst",
+            "level": 3
+        },
+        {
+            "type": "paragraph",
+            "text": "Her skriver du en argumenterende, drøftende eller reflekterende tekst. De vanligste oppgavetypene ber deg drøfte et tema, reflektere over en problemstilling, eller argumentere for et syn. Den viktigste forskjellen mellom en svak og en sterk saktekst er evnen til å se saken fra flere sider og bruke fagspråk presist."
+        },
+        {
+            "type": "component",
+            "name": "WritingFix",
+            "props": {
+                "title": "Langsvar saktekst: Referat vs. drøfting",
+                "items": [
+                    {
+                        "bad": "Mange unge bruker sosiale medier. Det finnes fordeler og ulemper. Noen mener det er bra, andre mener det er dårlig. Det er viktig at vi diskuterer dette.",
+                        "good": "Sosiale medier gir unge en plattform for selvuttrykk og deltakelse i demokratiske samtaler. Et reelt motargument er at algoritmene systematisk favoriserer ekstremt innhold, noe som forskning fra MIT viser øker polarisering blant tenåringer. Etter en samlet vurdering er løsningen ikke å forby sosiale medier, men å regulere algoritmene, fordi selve plattformene har en demokratisk verdi som overstiger risikoen.",
+                        "why": "Det første svaret lister opp at det finnes ulike syn, men tar aldri stilling. Det andre bruker PAMK-modellen: påstand, argument, motargument og konklusjon."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "info_box",
+            "title": "Skriveteknikk for saktekst",
+            "content": "Artiklene som hjelper deg mest: [Hvordan drøfte](/norsk/skrivehjelp/hvordan-drofte) - [Hvordan skrive reflekterende](/norsk/skrivehjelp/hvordan-skrive-reflekterende) - [Hvordan skrive gode saktekster](/norsk/skrivehjelp/hvordan-skrive-gode-saktekster) - [Hvordan føre kilder](/norsk/skrivehjelp/hvordan-fore-kilder)"
+        },
+        {
+            "type": "header",
+            "text": "Alternativ 2: Skapende skriving",
+            "level": 3
+        },
+        {
+            "type": "paragraph",
+            "text": "Her skriver du en novelle, et dikt, en fortelling eller en annen kreativ tekst. Det som skiller en eksamennovelle med toppkarakter fra en svak tekst, er ikke bare en god historie. Det er bevisst bruk av virkemidler: synsvinkel, tidsstruktur, bildespråk og et tema som ligger under overflaten. Sensor vil se at du har kontroll over verktøykassen din."
+        },
+        {
+            "type": "info_box",
+            "title": "Skriveteknikk for skapende skriving",
+            "content": "Artiklene som hjelper deg mest: [Hvordan skrive novelle](/norsk/skrivehjelp/hvordan-skrive-novelle) - [Hvordan skrive dikt](/norsk/skrivehjelp/hvordan-skrive-dikt) - [Tid og struktur](/norsk/virkemidler/tid-og-struktur) - [Synsvinkel og stemme](/norsk/virkemidler/synsvinkel-og-stemme) - [Bildespråk og effekter](/norsk/virkemidler/bildesprak-og-effekter)"
+        },
+        {
+            "type": "header",
+            "text": "Forberedelsesdagen: Gull verdt",
+            "level": 2
+        },
+        {
+            "type": "paragraph",
+            "text": "Dagen før eksamen får du oppgaveheftet. Du har hele dagen til å lese, tenke og planlegge. Denne dagen er din viktigste fordel. Bruk den smart, ikke til å skrive ferdig tekster, men til å bygge en disposisjon og samle tankene dine."
+        },
+        {
+            "type": "list",
+            "items": [
+                "Les alle oppgavene grundig. Ikke bestem deg for den første som virker grei.",
+                "Lag tankekart for de 2-3 oppgavene som frister mest. Sammenlign ideene dine.",
+                "Finn sitater og eksempler fra tekstvedlegget du kan bruke i kortsvaret.",
+                "Skriv en disposisjon for langsvaret: innledning, hoveddel med 3-4 avsnitt, avslutning.",
+                "For saktekst: forbered argumenter OG motargumenter (bruk PAMK-modellen).",
+                "For skapende skriving: bestem synsvinkel, tidsstruktur og 1-2 gjennomgående virkemidler.",
+                "Forbered kildeliste hvis du velger saktekstoppgaven."
+            ]
+        },
+        {
+            "type": "link",
+            "text": "Lær om kildeføring (APA 7)",
+            "url": "/norsk/skrivehjelp/hvordan-fore-kilder",
+            "icon": "book"
+        },
+        {
+            "type": "header",
+            "text": "Vurdering: Hva ser sensor etter?",
+            "level": 2
+        },
+        {
+            "type": "paragraph",
+            "text": "Sensor bruker kjennetegn på måloppnåelse fra Utdanningsdirektoratet. Disse er delt inn i nivåer (karakter 2, 4 og 6). Her er de viktigste kategoriene slik at du vet nøyaktig hva som skiller de ulike karakternivåene:"
+        },
+        {
+            "type": "component",
+            "name": "Comparison",
+            "props": {
+                "title": "Kjennetegn på måloppnåelse (skriftlig)",
+                "leftTitle": "Karakter 2 (lav)",
+                "rightTitle": "Karakter 6 (høy)",
+                "items": [
+                    {
+                        "label": "Tekstanalyse",
+                        "left": "Beskriver innhold og noen virkemidler. Plasserer tekster i en kontekst.",
+                        "right": "Analyserer og tolker tekster. Reflekterer over virkemidler og forholdet mellom tekst og kontekst."
+                    },
+                    {
+                        "label": "Fagspråk",
+                        "left": "Bruker enkelte fagbegreper om tekst og språk.",
+                        "right": "Bruker presist fagspråk om tekst og språk."
+                    },
+                    {
+                        "label": "Kildebruk",
+                        "left": "Bruker kilder. Skiller mellom egen og andres tekst.",
+                        "right": "Bruker og vurderer kilder kritisk. Oppgir kilder etterrettelig."
+                    },
+                    {
+                        "label": "Tekstsammenheng",
+                        "left": "Skriver tekster med noe sammenheng. Mestrer sentrale regler for rettskriving.",
+                        "right": "Skriver klart sammenhengende tekster. Varierer setningsstruktur selvstendig."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "info_box",
+            "title": "Det som skiller 5/6 fra 3/4",
+            "content": "Den ene tingen som konsekvent skiller de beste besvarelsene fra de gjennomsnittlige, er evnen til å koble virkemidler til tema. Det holder ikke å si at forfatteren bruker metaforer. Du må forklare hva metaforen gjør med leserens forståelse av temaet. Referat + virkemiddelliste = karakter 3-4. Analyse der virkemidler belyser tema = karakter 5-6."
+        },
+        {
+            "type": "link",
+            "text": "Kjennetegn på måloppnåelse (Udir)",
+            "url": "https://www.udir.no/laring-og-trivsel/lareplanverket/kjennetegn/kjennetegn-pa-maloppnaelse-norsk-10.-trinn",
+            "icon": "external"
+        },
+        {
+            "type": "header",
+            "text": "Sjekkliste for eksamensdagen",
+            "level": 2
+        },
+        {
+            "type": "paragraph",
+            "text": "Her er en steg-for-steg plan for de fem timene:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "1. Les gjennom alle oppgavene en gang til (15 min). Stemmer valgene dine fra forberedelsesdagen?",
+                "2. Start med kortsvaret. Det er kortest og gir deg en god start (45-60 min).",
+                "3. Les gjennom kortsvaret ditt. Har du sitater? Har du koblet virkemidler til tema?",
+                "4. Gå over til langsvaret. Følg disposisjonen fra forberedelsesdagen.",
+                "5. Skriv innledning og hoveddel. Ikke bruk for lang tid på innledningen.",
+                "6. Skriv avslutning/konklusjon. I saktekst: konkluder tydelig. I novelle: sørg for et poeng.",
+                "7. Spar minst 30 minutter til gjennomlesing. Se etter: rettskriving, tegnsetting, tekstbinding.",
+                "8. Sjekk at du har kildeliste (saktekst) og at sjangertrekk er på plass."
+            ]
+        },
+        {
+            "type": "component",
+            "name": "ScenarioRoleplay",
+            "props": {
+                "title": "Tidspress på eksamen",
+                "intro": "Du har skrevet kortsvaret og er godt i gang med langsvaret. Klokken viser at du har 1 time igjen, men du er bare 2/3 ferdig med teksten. Hva gjør du?",
+                "startId": "start",
+                "scenarios": [
+                    {
+                        "id": "start",
+                        "text": "Velg strategi:",
+                        "options": [
+                            {
+                                "label": "Skrive raskere og prøve å få med alt",
+                                "nextId": "hastverk",
+                                "outcome": "failure"
+                            },
+                            {
+                                "label": "Kutte ned planen og skrive en kortere, men ferdig tekst med god avslutning",
+                                "nextId": "smart",
+                                "outcome": "success"
+                            },
+                            {
+                                "label": "Droppe avslutningen og bruke all tid på å utvide hoveddelen",
+                                "nextId": "ingen_slutt",
+                                "outcome": "failure"
+                            },
+                            {
+                                "label": "Starte på nytt med en enklere oppgave",
+                                "nextId": "start_pa_nytt",
+                                "outcome": "failure"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "smart",
+                        "text": "Smart valg! En ferdig tekst med innledning, hoveddel og avslutning vurderes alltid bedre enn en uferdig tekst, selv om den er kortere. Sensor gir poeng for helhet og struktur. Kutt heller et avsnitt i hoveddelen og sørg for en god konklusjon.",
+                        "options": []
+                    },
+                    {
+                        "id": "hastverk",
+                        "text": "Når du skriver raskere, går det ofte utover kvaliteten. Du gjør flere skrivefeil, tekstbindingen svekkes, og argumentasjonen blir slapp. Bedre å kutte ned omfanget og levere en kortere, men gjennomarbeidet tekst.",
+                        "options": []
+                    },
+                    {
+                        "id": "ingen_slutt",
+                        "text": "En tekst uten avslutning er en tekst uten poeng. Sensor ser dette som manglende sjangerbeherskelse. Alltid bedre å kutte et avsnitt i hoveddelen og skrive en tydelig avslutning.",
+                        "options": []
+                    },
+                    {
+                        "id": "start_pa_nytt",
+                        "text": "Med 1 time igjen rekker du ikke å skrive noe ferdig fra bunnen av. Du ender opp med to uferdige tekster i stedet for en ferdig en. Hold deg til planen, kutt ned, og fullfør.",
+                        "options": []
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Lenker til alt du trenger",
+            "level": 2
+        },
+        {
+            "type": "expandable",
+            "title": "Skriveteknikk",
+            "content": [
+                {
+                    "type": "link",
+                    "text": "Hvordan drøfte",
+                    "url": "/norsk/skrivehjelp/hvordan-drofte",
+                    "icon": "book"
+                },
+                {
+                    "type": "link",
+                    "text": "Hvordan skrive reflekterende",
+                    "url": "/norsk/skrivehjelp/hvordan-skrive-reflekterende",
+                    "icon": "book"
+                },
+                {
+                    "type": "link",
+                    "text": "Hvordan skrive gode saktekster",
+                    "url": "/norsk/skrivehjelp/hvordan-skrive-gode-saktekster",
+                    "icon": "book"
+                },
+                {
+                    "type": "link",
+                    "text": "Hvordan skrive novelle",
+                    "url": "/norsk/skrivehjelp/hvordan-skrive-novelle",
+                    "icon": "book"
+                },
+                {
+                    "type": "link",
+                    "text": "Hvordan skrive dikt",
+                    "url": "/norsk/skrivehjelp/hvordan-skrive-dikt",
+                    "icon": "book"
+                },
+                {
+                    "type": "link",
+                    "text": "Hvordan føre kilder (APA 7)",
+                    "url": "/norsk/skrivehjelp/hvordan-fore-kilder",
+                    "icon": "book"
+                }
+            ]
+        },
+        {
+            "type": "expandable",
+            "title": "Analyse",
+            "content": [
+                {
+                    "type": "link",
+                    "text": "Tema og budskap",
+                    "url": "/norsk/analyse/tema-og-budskap",
+                    "icon": "book"
+                },
+                {
+                    "type": "link",
+                    "text": "Analyse av novelle",
+                    "url": "/norsk/analyse/analyse-novelle",
+                    "icon": "book"
+                },
+                {
+                    "type": "link",
+                    "text": "Analyse av dikt",
+                    "url": "/norsk/analyse/analyse-dikt",
+                    "icon": "book"
+                },
+                {
+                    "type": "link",
+                    "text": "Analyse av debattinnlegg",
+                    "url": "/norsk/analyse/analyse-debattinnlegg",
+                    "icon": "book"
+                },
+                {
+                    "type": "link",
+                    "text": "Analyse av kommentar",
+                    "url": "/norsk/analyse/analyse-kommentar",
+                    "icon": "book"
+                },
+                {
+                    "type": "link",
+                    "text": "Analyse av fagartikkel",
+                    "url": "/norsk/analyse/analyse-fagartikkel",
+                    "icon": "book"
+                }
+            ]
+        },
+        {
+            "type": "expandable",
+            "title": "Virkemidler",
+            "content": [
+                {
+                    "type": "link",
+                    "text": "Tid og struktur",
+                    "url": "/norsk/virkemidler/tid-og-struktur",
+                    "icon": "book"
+                },
+                {
+                    "type": "link",
+                    "text": "Bildespråk og effekter",
+                    "url": "/norsk/virkemidler/bildesprak-og-effekter",
+                    "icon": "book"
+                },
+                {
+                    "type": "link",
+                    "text": "Synsvinkel og stemme",
+                    "url": "/norsk/virkemidler/synsvinkel-og-stemme",
+                    "icon": "book"
+                }
+            ]
+        },
+        {
+            "type": "expandable",
+            "title": "Litteraturhistorie",
+            "content": [
+                {
+                    "type": "link",
+                    "text": "Nasjonalromantikken",
+                    "url": "/norsk/litteraturhistorie/nasjonalromantikken",
+                    "icon": "book"
+                },
+                {
+                    "type": "link",
+                    "text": "Realismen",
+                    "url": "/norsk/litteraturhistorie/realismen",
+                    "icon": "book"
+                },
+                {
+                    "type": "link",
+                    "text": "Nyromantikken",
+                    "url": "/norsk/litteraturhistorie/ny-romantikken",
+                    "icon": "book"
+                },
+                {
+                    "type": "link",
+                    "text": "Nyrealismen",
+                    "url": "/norsk/litteraturhistorie/ny-realismen",
+                    "icon": "book"
+                }
+            ]
+        },
+        {
+            "type": "expandable",
+            "title": "Øving og ekstern",
+            "content": [
+                {
+                    "type": "link",
+                    "text": "Flashcards",
+                    "url": "/oving/flashcards",
+                    "icon": "star"
+                },
+                {
+                    "type": "link",
+                    "text": "Quiz",
+                    "url": "/oving/quiz",
+                    "icon": "star"
+                },
+                {
+                    "type": "link",
+                    "text": "Tidligere eksamensoppgaver (Udir)",
+                    "url": "https://sokeresultat.udir.no/eksamensoppgaver.html",
+                    "icon": "external"
+                },
+                {
+                    "type": "link",
+                    "text": "Kompetansemål LK20 (Udir)",
+                    "url": "https://www.udir.no/lk20/nor01-07/kompetansemaal-og-vurdering/kv920",
+                    "icon": "external"
+                }
+            ]
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva er de to hoveddelene av skriftlig eksamen i norsk?",
+            "options": [
+                "Grammatikkoppgave og stiloppgave",
+                "Kortsvarsoppgave og langsvarsoppgave",
+                "Lytteoppgave og skriveoppgave",
+                "Flervalgsoppgave og tekstoppgave"
+            ],
+            "answer": 1,
+            "explanation": "Eksamen består av en kortsvarsoppgave (analyse/tolkning) og en langsvarsoppgave (saktekst eller skapende skriving)."
+        },
+        {
+            "question": "Hva er den viktigste forskjellen mellom et referat og en analyse i kortsvaret?",
+            "options": [
+                "En analyse er lengre enn et referat",
+                "En analyse gjengir handlingen, et referat tolker",
+                "En analyse forklarer hvordan virkemidler bygger opp tema og budskap",
+                "En analyse bruker flere sitater"
+            ],
+            "answer": 2,
+            "explanation": "Analyse handler om å koble virkemidler til tema og forklare hvilken effekt de har. Referat bare gjenforteller hva teksten handler om."
+        },
+        {
+            "question": "Hva bør du gjøre på forberedelsesdagen?",
+            "options": [
+                "Skrive hele langsvaret ferdig",
+                "Lese oppgavene, lage tankekart og skrive disposisjon",
+                "Bare slappe av og spare krefter",
+                "Pugge alle virkemidler utenat"
+            ],
+            "answer": 1,
+            "explanation": "Forberedelsesdagen brukes best til å lese oppgavene, samle ideer i tankekart og skrive en disposisjon. Ikke skriv ferdig tekster, men legg en solid plan."
+        },
+        {
+            "question": "Du har 1 time igjen og er bare 2/3 ferdig med langsvaret. Hva er smartest?",
+            "options": [
+                "Skrive så fort du kan for å rekke alt",
+                "Starte på en ny, enklere oppgave",
+                "Kutte ned planen og skrive en kortere, men ferdig tekst med god avslutning",
+                "Droppe avslutningen og utvide hoveddelen"
+            ],
+            "answer": 2,
+            "explanation": "En ferdig tekst med innledning, hoveddel og avslutning vurderes alltid bedre enn en uferdig tekst. Kutt heller et avsnitt og sørg for en helhetlig struktur."
+        },
+        {
+            "question": "Hva skiller karakter 5-6 fra 3-4 i tekstanalyse?",
+            "options": [
+                "Lengre svar med flere ord",
+                "Flere sitater fra teksten",
+                "Evnen til å koble virkemidler til tema og reflektere over forholdet mellom tekst og kontekst",
+                "Penere håndskrift"
+            ],
+            "answer": 2,
+            "explanation": "Ifølge Udirs kjennetegn på måloppnåelse handler høy kompetanse om å analysere, tolke og reflektere over virkemidler og forholdet mellom tekst og kontekst."
+        }
+    ],
+    "tags": ["eksamen", "skriving", "norsk", "analyse", "vurdering"],
+    "createdDate": "2026-03-15T00:00:00Z"
+}

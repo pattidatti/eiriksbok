@@ -2,31 +2,12 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Sparkles, ArrowRight, Trophy } from 'lucide-react';
 import type { PhilosophyProfile } from '../../../../data/philosophy/types';
-import { QUEST_REGISTRY, getLevelTitle, type QuestConfig } from '../../../../data/philosophy/questRegistry';
+import { getLevelTitle, getNextQuest } from '../../../../data/philosophy/questRegistry';
 
 interface HeroSectionProps {
     profile: PhilosophyProfile;
     progress: { completed: number; total: number; percent: number };
     onStartQuest: (questId: string) => void;
-}
-
-function getNextQuest(profile: PhilosophyProfile): QuestConfig | null {
-    const eraOrder = ['antikken', 'middelalder', 'opplysning', 'moderne'] as const;
-    for (const era of eraOrder) {
-        const quests = Object.values(QUEST_REGISTRY).filter(
-            q => q.era === era && !q.isSecondary && !profile.completedQuests.includes(q.id)
-        );
-        const available = quests.filter(q =>
-            q.prerequisites.every(p => profile.completedQuests.includes(p))
-        );
-        if (available.length > 0) return available[0];
-    }
-    // Try secondary quests
-    const secondary = Object.values(QUEST_REGISTRY).filter(
-        q => q.isSecondary && !profile.completedQuests.includes(q.id) &&
-            q.prerequisites.every(p => profile.completedQuests.includes(p))
-    );
-    return secondary[0] || null;
 }
 
 export const HeroSection: React.FC<HeroSectionProps> = ({ profile, progress, onStartQuest }) => {

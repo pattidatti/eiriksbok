@@ -17,7 +17,8 @@
                     "impact": {
                         "existentialism": 5
                     },
-                    "nextStepId": "nihilism"
+                    "nextStepId": "nihilism",
+                    "feedback": "Nietzsche forsto den reaksjonen. Men han mente at nettopp denne krisen er starten på noe nytt: sjansen til å skape egne verdier."
                 },
                 {
                     "id": "create",
@@ -26,7 +27,8 @@
                         "existentialism": 4,
                         "individualism": 3
                     },
-                    "nextStepId": "ubermensch"
+                    "nextStepId": "ubermensch",
+                    "feedback": "Du tenker som Nietzsches overmenneske: den som skaper mening i stedet for å vente på at noen gir den."
                 }
             ]
         },
@@ -86,5 +88,9 @@
                 }
             ]
         }
+    ],
+    "reflectionQuestions": [
+        "Hvis du kunne lage dine egne regler for livet, hva ville de vært?",
+        "Er det frigjørende eller skummelt å tenke at livet ikke har en forhåndsbestemt mening?"
     ]
 }

@@ -18,7 +18,8 @@
                         "skepticism": 3,
                         "idealism": 1
                     },
-                    "nextStepId": "demon"
+                    "nextStepId": "demon",
+                    "feedback": "Nettopp! Descartes brukte drømmeargumentet til å vise at vi aldri kan stole blindt på sansene."
                 },
                 {
                     "id": "senses_trust",
@@ -27,7 +28,8 @@
                         "empiricism": 4,
                         "materialism": 2
                     },
-                    "nextStepId": "deceit"
+                    "nextStepId": "deceit",
+                    "feedback": "De fleste gjør det! Men Descartes sa: hva om sansene dine lurer deg, som i en drøm?"
                 }
             ]
         },
@@ -78,5 +80,9 @@
                 }
             ]
         }
+    ],
+    "reflectionQuestions": [
+        "Hvordan vet du at du ikke drømmer akkurat nå?",
+        "Hva er det du er mest sikker på i livet ditt?"
     ]
 }

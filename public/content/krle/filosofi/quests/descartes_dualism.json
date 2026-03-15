@@ -112,5 +112,9 @@
                 }
             ]
         }
+    ],
+    "reflectionQuestions": [
+        "Er tankene dine en del av hjernen, eller noe annet?",
+        "Kan en maskin noen gang tenke som et menneske?"
     ]
 }

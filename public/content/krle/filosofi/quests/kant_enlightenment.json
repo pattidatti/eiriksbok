@@ -86,5 +86,9 @@
                 }
             ]
         }
+    ],
+    "reflectionQuestions": [
+        "Tør du mene noe annet enn det alle andre mener?",
+        "Hva hindrer deg fra å tenke helt fritt?"
     ]
 }

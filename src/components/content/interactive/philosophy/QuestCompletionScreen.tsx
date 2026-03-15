@@ -1,19 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Zap, Trophy, ArrowRight, Star } from 'lucide-react';
+import { Zap, Trophy, ArrowRight, Star, Sparkles, MessageCircle } from 'lucide-react';
 import type { PhilosophyQuest } from '../../../../data/philosophy/types';
 import { usePhilosophyProfile } from '../../../../hooks/usePhilosophyProfile';
-import { getLevelTitle } from '../../../../data/philosophy/questRegistry';
+import { getLevelTitle, getNextQuest } from '../../../../data/philosophy/questRegistry';
 import confetti from 'canvas-confetti';
 
 interface QuestCompletionScreenProps {
     quest: PhilosophyQuest;
     onClose: () => void;
+    onStartNextQuest?: (questId: string) => void;
 }
 
-export const QuestCompletionScreen: React.FC<QuestCompletionScreenProps> = ({ quest, onClose }) => {
+export const QuestCompletionScreen: React.FC<QuestCompletionScreenProps> = ({ quest, onClose, onStartNextQuest }) => {
     const { profile, earnedAchievements } = usePhilosophyProfile();
     const [xpAnimated, setXpAnimated] = useState(0);
+
+    const nextQuest = getNextQuest(profile);
 
     useEffect(() => {
         confetti({
@@ -39,45 +42,45 @@ export const QuestCompletionScreen: React.FC<QuestCompletionScreenProps> = ({ qu
         : null;
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-[500px] text-center p-8 relative overflow-hidden">
+        <div className="flex flex-col items-center justify-center min-h-[500px] text-center p-6 relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-indigo-50/50 to-transparent pointer-events-none" />
 
             <motion.div
                 initial={{ scale: 0.5, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
-                className="w-24 h-24 rounded-full bg-indigo-500 text-white flex items-center justify-center mb-6 shadow-xl shadow-indigo-500/30 relative z-10"
+                className="w-20 h-20 rounded-full bg-indigo-500 text-white flex items-center justify-center mb-5 shadow-xl shadow-indigo-500/30 relative z-10"
             >
-                <Trophy size={48} />
+                <Trophy size={40} />
             </motion.div>
 
             <motion.h2
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.3 }}
-                className="text-3xl font-black mb-3 font-display"
+                className="text-2xl font-black mb-2 font-display"
             >
-                Dialog fullfort!
+                Dialog fullført!
             </motion.h2>
 
             <motion.p
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.4 }}
-                className="text-slate-500 text-sm mb-8 max-w-md"
+                className="text-slate-500 text-sm mb-6 max-w-md"
             >
                 Du har navigert gjennom &laquo;{quest.title}&raquo; med visdom.
             </motion.p>
 
-            <div className="grid grid-cols-2 gap-4 w-full max-w-sm mb-8 relative z-10">
+            <div className="grid grid-cols-2 gap-3 w-full max-w-xs mb-6 relative z-10">
                 <motion.div
                     initial={{ x: -20, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ delay: 0.6 }}
-                    className="bg-white p-5 rounded-2xl border border-black/5 shadow-lg flex flex-col items-center"
+                    className="bg-white p-4 rounded-2xl border border-black/5 shadow-lg flex flex-col items-center"
                 >
                     <div className="text-[10px] font-bold uppercase tracking-widest text-indigo-500 mb-1">XP opptjent</div>
-                    <div className="text-3xl font-black flex items-center gap-1.5">
-                        <Zap className="text-amber-400" fill="currentColor" size={20} />
+                    <div className="text-2xl font-black flex items-center gap-1.5">
+                        <Zap className="text-amber-400" fill="currentColor" size={18} />
                         {xpAnimated}
                     </div>
                 </motion.div>
@@ -86,39 +89,79 @@ export const QuestCompletionScreen: React.FC<QuestCompletionScreenProps> = ({ qu
                     initial={{ x: 20, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ delay: 0.6 }}
-                    className="bg-white p-5 rounded-2xl border border-black/5 shadow-lg flex flex-col items-center"
+                    className="bg-white p-4 rounded-2xl border border-black/5 shadow-lg flex flex-col items-center"
                 >
-                    <div className="text-[10px] font-bold uppercase tracking-widest text-purple-500 mb-1">Niva {profile.level}</div>
-                    <div className="text-3xl font-black flex items-center gap-1.5">
-                        <Star className="text-purple-400" fill="currentColor" size={20} />
-                        {getLevelTitle(profile.level)}
+                    <div className="text-[10px] font-bold uppercase tracking-widest text-purple-500 mb-1">Nivå {profile.level}</div>
+                    <div className="text-2xl font-black flex items-center gap-1.5">
+                        <Star className="text-purple-400" fill="currentColor" size={18} />
+                        <span className="text-base">{getLevelTitle(profile.level)}</span>
                     </div>
                 </motion.div>
             </div>
 
-            {/* New achievement */}
+            {/* Achievement */}
             {latestAchievement && (
                 <motion.div
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.8 }}
-                    className="mb-8 px-5 py-3 rounded-2xl bg-amber-50 border border-amber-200 text-amber-800 text-sm font-bold flex items-center gap-2"
+                    className="mb-6 px-4 py-2.5 rounded-2xl bg-amber-50 border border-amber-200 text-amber-800 text-sm font-bold flex items-center gap-2"
                 >
-                    <Star size={16} className="text-amber-500" />
+                    <Star size={14} className="text-amber-500" />
                     Nytt merke: {latestAchievement.title}
                 </motion.div>
             )}
 
-            <motion.button
+            {/* Reflection Questions */}
+            {quest.reflectionQuestions && quest.reflectionQuestions.length > 0 && (
+                <motion.div
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.9 }}
+                    className="mb-6 w-full max-w-md bg-slate-50 border border-slate-200 rounded-2xl p-5 text-left"
+                >
+                    <div className="flex items-center gap-2 mb-3">
+                        <MessageCircle size={14} className="text-indigo-500" />
+                        <p className="text-[10px] font-bold text-indigo-600 uppercase tracking-widest">Hva tenker du?</p>
+                    </div>
+                    <ul className="space-y-2">
+                        {quest.reflectionQuestions.map((q, i) => (
+                            <li key={i} className="text-sm text-slate-600 font-serif italic leading-relaxed">
+                                {q}
+                            </li>
+                        ))}
+                    </ul>
+                </motion.div>
+            )}
+
+            {/* Action Buttons */}
+            <motion.div
                 initial={{ y: 40, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 1 }}
-                onClick={onClose}
-                className="px-10 py-3.5 rounded-2xl bg-black text-white font-bold uppercase tracking-widest text-xs hover:bg-slate-800 hover:scale-105 active:scale-95 transition-all shadow-lg flex items-center gap-2"
+                className="flex flex-col gap-3 w-full max-w-xs"
             >
-                <span>Fortsett Reisen</span>
-                <ArrowRight size={16} />
-            </motion.button>
+                {nextQuest && onStartNextQuest && (
+                    <button
+                        onClick={() => onStartNextQuest(nextQuest.id)}
+                        className="w-full px-8 py-3 rounded-2xl bg-indigo-600 text-white font-bold text-xs uppercase tracking-widest hover:bg-indigo-700 hover:scale-105 active:scale-95 transition-all shadow-lg flex items-center justify-center gap-2"
+                    >
+                        <Sparkles size={14} />
+                        Neste: {nextQuest.title}
+                    </button>
+                )}
+                <button
+                    onClick={onClose}
+                    className={`w-full px-8 py-3 rounded-2xl font-bold text-xs uppercase tracking-widest hover:scale-105 active:scale-95 transition-all shadow-lg flex items-center justify-center gap-2 ${
+                        nextQuest && onStartNextQuest
+                            ? 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-50'
+                            : 'bg-black text-white hover:bg-slate-800'
+                    }`}
+                >
+                    <span>Tilbake til oversikt</span>
+                    <ArrowRight size={14} />
+                </button>
+            </motion.div>
         </div>
     );
 };

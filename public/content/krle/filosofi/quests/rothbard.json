@@ -18,7 +18,8 @@
                         "idealism": 2,
                         "collectivism": 2
                     },
-                    "nextStepId": "challenge_contract"
+                    "nextStepId": "challenge_contract",
+                    "feedback": "Men Rothbard spurte: Hvor fikk staten denne legitimiteten fra? Hvem ga dem lov?"
                 },
                 {
                     "id": "force",
@@ -27,7 +28,8 @@
                         "individualism": 5,
                         "skepticism": 3
                     },
-                    "nextStepId": "monopoly"
+                    "nextStepId": "monopoly",
+                    "feedback": "Rothbard var enig. Han mente at staten i bunn og grunn er en organisasjon som lever av tvang."
                 }
             ]
         },
@@ -76,5 +78,9 @@
                 }
             ]
         }
+    ],
+    "reflectionQuestions": [
+        "Trenger vi en stat for å leve sammen?",
+        "Hvor går grensen for hva staten skal bestemme?"
     ]
 }

@@ -18,7 +18,8 @@
                         "rationalism": 4,
                         "individualism": 2
                     },
-                    "nextStepId": "value_subjective"
+                    "nextStepId": "value_subjective",
+                    "feedback": "Mises ville nikket! Han mente at all handling er målrettet - vi prøver alltid å oppnå noe."
                 },
                 {
                     "id": "chaos",
@@ -26,7 +27,8 @@
                     "impact": {
                         "empiricism": 2
                     },
-                    "nextStepId": "value_subjective"
+                    "nextStepId": "value_subjective",
+                    "feedback": "Interessant vinkel. Mises mente det motsatte: selv tilsynelatende kaotisk oppførsel følger en logikk."
                 }
             ]
         },
@@ -77,5 +79,9 @@
                 }
             ]
         }
+    ],
+    "reflectionQuestions": [
+        "Hva driver deg til å handle i hverdagen?",
+        "Bør andre mennesker få bestemme hva du skal gjøre med livet ditt?"
     ]
 }

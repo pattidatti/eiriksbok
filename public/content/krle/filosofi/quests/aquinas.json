@@ -87,5 +87,9 @@
                 }
             ]
         }
+    ],
+    "reflectionQuestions": [
+        "Kan du tro på noe og samtidig stille spørsmål ved det?",
+        "Finnes det grenser for hva fornuften kan forklare?"
     ]
 }

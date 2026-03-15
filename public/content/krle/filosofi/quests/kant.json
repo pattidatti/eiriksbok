@@ -18,7 +18,8 @@
                         "epicureanism": 4,
                         "empiricism": 2
                     },
-                    "nextStepId": "challenge_consequences"
+                    "nextStepId": "challenge_consequences",
+                    "feedback": "En vanlig tanke! Men Kant mente at hvis alle løy når det passet, ville ingen stole på noen lenger."
                 },
                 {
                     "id": "never",
@@ -27,7 +28,8 @@
                         "stoicism": 5,
                         "idealism": 2
                     },
-                    "nextStepId": "categorical"
+                    "nextStepId": "categorical",
+                    "feedback": "Kant ville vært enig. Han mente at moral handler om regler som gjelder uansett, ikke om hva som gir best resultat."
                 }
             ]
         },
@@ -79,5 +81,9 @@
                 }
             ]
         }
+    ],
+    "reflectionQuestions": [
+        "Finnes det handlinger som alltid er gale, uansett konsekvensene?",
+        "Ville verden fungere om alle gjorde det du gjør?"
     ]
 }

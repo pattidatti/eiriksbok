@@ -90,6 +90,10 @@ export const PhilosophyOdysseyPage: React.FC = () => {
                                 mentorImage={mentorImagePath}
                                 onExit={() => setActiveQuest(null)}
                                 onComplete={() => setActiveQuest(null)}
+                                onStartNextQuest={(questId) => {
+                                    setActiveQuest(null);
+                                    setActiveQuestId(questId);
+                                }}
                             />
                         </motion.div>
                     ) : (
@@ -126,12 +130,12 @@ export const PhilosophyOdysseyPage: React.FC = () => {
                             {/* Main Grid: Quests + Sidebar */}
                             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
                                 {/* Quest List */}
-                                <div className="lg:col-span-8">
+                                <div className="lg:col-span-7">
                                     <QuestList onSelectQuest={setActiveQuestId} />
                                 </div>
 
                                 {/* Sidebar */}
-                                <div className="lg:col-span-4 space-y-6">
+                                <div className="lg:col-span-5 space-y-6">
                                     {/* Profile Card */}
                                     <div className="rounded-2xl bg-white border border-black/5 shadow-sm p-6">
                                         <div className="flex items-center gap-4 mb-4">

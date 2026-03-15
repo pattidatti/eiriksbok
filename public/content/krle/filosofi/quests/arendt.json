@@ -27,7 +27,8 @@
                         "idealism": 2,
                         "collectivism": 1
                     },
-                    "nextStepId": "challenge_monster"
+                    "nextStepId": "challenge_monster",
+                    "feedback": "Arendt overrasket alle ved å si det motsatte: Eichmann var skremmende normal. Ondskapen lå i at han ikke tenkte selv."
                 }
             ]
         },
@@ -77,5 +78,9 @@
                 }
             ]
         }
+    ],
+    "reflectionQuestions": [
+        "Ville du fulgt ordre om du visste det var galt?",
+        "Hva skal til for at vanlige folk gjør forferdelige ting?"
     ]
 }

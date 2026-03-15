@@ -17,7 +17,8 @@
                     "nextStepId": "chains",
                     "impact": {
                         "empiricism": 5
-                    }
+                    },
+                    "feedback": "Empiristen i deg snakker! Du stoler på det du kan se og ta på."
                 },
                 {
                     "id": "illusion",
@@ -25,7 +26,8 @@
                     "nextStepId": "chains",
                     "impact": {
                         "rationalism": 5
-                    }
+                    },
+                    "feedback": "Platons poeng nettopp: Kanskje det vi ser bare er skygger av noe dypere."
                 }
             ]
         },
@@ -80,7 +82,8 @@
                     "impact": {
                         "stoicism": 5,
                         "collectivism": 5
-                    }
+                    },
+                    "feedback": "Platon mente at den som har sett sannheten har plikt til å vende tilbake og hjelpe andre."
                 },
                 {
                     "id": "stay_free",
@@ -122,5 +125,9 @@
                 }
             ]
         }
+    ],
+    "reflectionQuestions": [
+        "Hva er de moderne \"skyggene\" vi stirrer på i dag?",
+        "Har du noen gang oppdaget at noe du trodde var sant, var feil?"
     ]
 }

@@ -18,7 +18,8 @@
                         "epicureanism": 3,
                         "materialism": 1
                     },
-                    "nextStepId": "utility_pleasure"
+                    "nextStepId": "utility_pleasure",
+                    "feedback": "Aristoteles kalte dette \"nytelsens vennskap\" - det er greit, men det varer bare så lenge dere har det gøy."
                 },
                 {
                     "id": "utility",
@@ -109,5 +110,9 @@
                 }
             ]
         }
+    ],
+    "reflectionQuestions": [
+        "Hva skiller dine ekte venner fra de andre?",
+        "Kan man ha ekte vennskap uten å gi noe av seg selv?"
     ]
 }

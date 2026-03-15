@@ -18,7 +18,8 @@
                         "existentialism": 2,
                         "stoicism": 1
                     },
-                    "nextStepId": "inauthentic"
+                    "nextStepId": "inauthentic",
+                    "feedback": "Heidegger kalte dette \"das Man\" - vi gjør det alle gjør uten å tenke. Autentisitet krever at vi våkner opp."
                 },
                 {
                     "id": "authentic",
@@ -27,7 +28,8 @@
                         "existentialism": 4,
                         "individualism": 2
                     },
-                    "nextStepId": "death"
+                    "nextStepId": "death",
+                    "feedback": "Heidegger ville sagt at dette er sjeldent, men mulig. Ekte væren begynner med å innse at du er til."
                 }
             ]
         },
@@ -77,5 +79,9 @@
                 }
             ]
         }
+    ],
+    "reflectionQuestions": [
+        "Lever du livet ditt, eller gjør du bare det andre forventer?",
+        "Hva betyr det å leve autentisk for deg?"
     ]
 }

@@ -1,5 +1,5 @@
 {
-  "buildId": 1773604168248,
+  "buildId": 1773605839598,
   "contentMap": {
     "adel": [
       "content/concepts/adel.json"
@@ -1183,6 +1183,12 @@
     "tema-og-budskap": [
       "content/norsk/analyse/tema-og-budskap.json"
     ],
+    "muntlig": [
+      "content/norsk/eksamen/muntlig.json"
+    ],
+    "skriftlig": [
+      "content/norsk/eksamen/skriftlig.json"
+    ],
     "setningsanalyse": [
       "content/norsk/grammatikk/setningsanalyse.json"
     ],
@@ -2102,6 +2108,8 @@
     "norsk/analyse/analyse-roman": "content/norsk/analyse/analyse-roman.json",
     "norsk/analyse/tekstanalyse-sti": "content/norsk/analyse/tekstanalyse-sti.json",
     "norsk/analyse/tema-og-budskap": "content/norsk/analyse/tema-og-budskap.json",
+    "norsk/eksamen/muntlig": "content/norsk/eksamen/muntlig.json",
+    "norsk/eksamen/skriftlig": "content/norsk/eksamen/skriftlig.json",
     "norsk/grammatikk/setningsanalyse": "content/norsk/grammatikk/setningsanalyse.json",
     "norsk/litteraturhistorie/nasjonalromantikken": "content/norsk/litteraturhistorie/nasjonalromantikken.json",
     "norsk/litteraturhistorie/ny-realismen": "content/norsk/litteraturhistorie/ny-realismen.json",

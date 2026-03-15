@@ -18,7 +18,8 @@
                         "existentialism": 4,
                         "idealism": 1
                     },
-                    "nextStepId": "choice"
+                    "nextStepId": "choice",
+                    "feedback": "Kierkegaard mente at denne angsten er et tegn på at du tar livet på alvor. Angst er frihetens svimmelhet."
                 },
                 {
                     "id": "no_happy",
@@ -27,7 +28,8 @@
                         "materialism": 3,
                         "epicureanism": 2
                     },
-                    "nextStepId": "despair"
+                    "nextStepId": "despair",
+                    "feedback": "Kierkegaard ville sagt at kanskje du bare ikke har stått overfor det avgjørende valget ennå."
                 }
             ]
         },
@@ -85,5 +87,9 @@
                 }
             ]
         }
+    ],
+    "reflectionQuestions": [
+        "Har du noen gang måttet velge uten å vite svaret?",
+        "Er det modig eller dumt å tro på noe du ikke kan bevise?"
     ]
 }

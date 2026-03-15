@@ -22,21 +22,7 @@ export const Stjernekart: React.FC<StjernekartProps> = ({ onStartQuest }) => {
     const findNode = (id: string) => nodes.find(n => n.id === id);
 
     return (
-        <div className="relative w-full h-[min(65vh,550px)] bg-[#0A0A0A] rounded-2xl overflow-hidden shadow-xl border border-white/5">
-            {/* Background Stars */}
-            <div className="absolute inset-0 opacity-30 pointer-events-none">
-                {[...Array(80)].map((_, i) => (
-                    <div
-                        key={i}
-                        className="absolute w-px h-px bg-white rounded-full"
-                        style={{
-                            left: `${(i * 37 + 13) % 100}%`,
-                            top: `${(i * 53 + 7) % 100}%`,
-                            opacity: ((i * 29) % 100) / 100,
-                        }}
-                    />
-                ))}
-            </div>
+        <div className="relative w-full h-[min(60vh,500px)] bg-[#0A0A0A] rounded-2xl overflow-hidden shadow-xl border border-white/5">
 
             {/* Draggable Container */}
             <motion.div
@@ -150,7 +136,7 @@ export const Stjernekart: React.FC<StjernekartProps> = ({ onStartQuest }) => {
                         initial={{ x: 300, opacity: 0 }}
                         animate={{ x: 0, opacity: 1 }}
                         exit={{ x: 300, opacity: 0 }}
-                        className="absolute top-4 right-4 bottom-4 w-72 bg-white/10 backdrop-blur-2xl rounded-2xl border border-white/20 p-6 z-20 flex flex-col text-white overflow-y-auto"
+                        className="absolute top-4 right-4 bottom-4 w-64 bg-white/10 backdrop-blur-2xl rounded-2xl border border-white/20 p-5 z-20 flex flex-col text-white overflow-y-auto"
                     >
                         <button
                             onClick={() => setSelectedNode(null)}
