@@ -1,5 +1,5 @@
 {
-    "id": "nietzsche_quest",
+    "id": "uber-mensch",
     "title": "Gud er Død",
     "description": "Friedrich Nietzsche forkynner en skremmende frihet: Når gamle verdier faller, må vi skape våre egne.",
     "mentor": "Nietzsche",
@@ -15,8 +15,7 @@
                     "id": "despair",
                     "text": "Hvis ingenting har mening, er alt lov. Det er kaos.",
                     "impact": {
-                        "nihilism": 4,
-                        "existentialism": 2
+                        "existentialism": 5
                     },
                     "nextStepId": "nihilism"
                 },

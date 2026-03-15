@@ -1,5 +1,5 @@
 {
-    "id": "platon",
+    "id": "cave-allegory",
     "title": "Skygger på Veggen",
     "description": "Utforsk sannhetens natur gjennom Platons berømte hulelignelse.",
     "mentor": "Platon",
@@ -16,7 +16,7 @@
                     "text": "De er selve virkeligheten. Det er alt jeg noensinne har sett.",
                     "nextStepId": "chains",
                     "impact": {
-                        "empiricism": 10
+                        "empiricism": 5
                     }
                 },
                 {
@@ -24,7 +24,7 @@
                     "text": "De må være refleksjoner av noe annet, men jeg vet ikke hva.",
                     "nextStepId": "chains",
                     "impact": {
-                        "rationalism": 10
+                        "rationalism": 5
                     }
                 }
             ]
@@ -39,7 +39,7 @@
                     "text": "Smerten er for stor. Jeg snur meg tilbake til skyggene som er behagelige og kjente.",
                     "nextStepId": "cowardice",
                     "impact": {
-                        "tradition": 10
+                        "essentialism": 5
                     }
                 },
                 {
@@ -47,8 +47,8 @@
                     "text": "Jeg trosser smerten og går mot lyset for å se hva som kaster skyggene.",
                     "nextStepId": "sunlight",
                     "impact": {
-                        "liberty": 10,
-                        "rationalism": 10
+                        "individualism": 5,
+                        "rationalism": 5
                     }
                 }
             ]
@@ -78,8 +78,8 @@
                     "text": "Ja, jeg må gå tilbake og fortelle dem sannheten, selv om de kanskje ikke tror meg.",
                     "nextStepId": "conclusion_hero",
                     "impact": {
-                        "duty": 20,
-                        "altruism": 20
+                        "stoicism": 5,
+                        "collectivism": 5
                     }
                 },
                 {
@@ -87,7 +87,7 @@
                     "text": "Nei, hvorfor skal jeg tilbake til mørket? De vil bare le av meg. Jeg blir her i lyset.",
                     "nextStepId": "conclusion_individual",
                     "impact": {
-                        "individualism": 20
+                        "individualism": 5
                     }
                 }
             ]
@@ -102,7 +102,7 @@
                     "text": "Jeg forstår. Kunnskap forplikter.",
                     "nextStepId": "End",
                     "impact": {
-                        "rationalism": 10
+                        "rationalism": 5
                     }
                 }
             ]

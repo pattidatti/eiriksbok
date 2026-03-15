@@ -1,5 +1,5 @@
 {
-    "id": "hume_quest",
+    "id": "cause-effect",
     "title": "Solen Går Ned",
     "description": "David Hume utfordrer det vi tar for gitt om årsak og virkning.",
     "mentor": "Hume",
@@ -66,7 +66,7 @@
                     "text": "Det gjør oss mer ydmyke overfor naturen.",
                     "impact": {
                         "empiricism": 4,
-                        "humility": 3
+                        "stoicism": 3
                     },
                     "nextStepId": "conclusion"
                 }
@@ -81,7 +81,7 @@
                     "id": "end",
                     "text": "Jeg skal prøve å balansere tvil og liv. Takk, Hume.",
                     "impact": {
-                        "pragmatism": 3
+                        "empiricism": 3
                     },
                     "nextStepId": "End"
                 }

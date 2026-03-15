@@ -1,5 +1,5 @@
 {
-    "id": "aristoteles_friendship",
+    "id": "aristoteles-friendship",
     "title": "Ekte Vennskap",
     "description": "Aristoteles skiller mellom tre typer vennskap. Har du opplevd den høyeste formen?",
     "mentor": "Aristoteles",
@@ -24,7 +24,7 @@
                     "id": "utility",
                     "text": "Fordi vi hjelper hverandre.",
                     "impact": {
-                        "pragmatism": 3,
+                        "empiricism": 3,
                         "rationalism": 1
                     },
                     "nextStepId": "utility_pleasure"

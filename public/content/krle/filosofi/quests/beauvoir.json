@@ -1,5 +1,5 @@
 {
-    "id": "beauvoir_quest",
+    "id": "second-sex",
     "title": "Det Annet Kjønn",
     "description": "Simone de Beauvoir utforsker kvinnefrigjøring og eksistensiell frihet.",
     "mentor": "Beauvoir",
@@ -16,7 +16,7 @@
                     "text": "At samfunnet og oppdragelsen former oss til å fylle en rolle.",
                     "impact": {
                         "existentialism": 4,
-                        "liberalism": 3
+                        "individualism": 3
                     },
                     "nextStepId": "object"
                 },
@@ -57,7 +57,7 @@
                     "text": "Vi må skape våre egne prosjekter og ta ansvar for våre liv.",
                     "impact": {
                         "existentialism": 4,
-                        "pragmatism": 3
+                        "empiricism": 3
                     },
                     "nextStepId": "conclusion"
                 }

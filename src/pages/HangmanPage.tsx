@@ -12,7 +12,7 @@ type Manifest = {
 };
 
 type Concept = {
-    id: string;
+    id?: string;
     term: string;
     definition: string;
     subject?: string;
@@ -28,10 +28,19 @@ export const HangmanPage = () => {
     useEffect(() => {
         Promise.all([
             fetch('/content/manifest.json').then(res => res.json()),
-            fetch('/data/concepts.json').then(res => res.json())
-        ]).then(([manifestData, conceptsData]) => {
+            fetch('/data/glossary.json').then(res => res.json())
+        ]).then(([manifestData, glossaryData]) => {
             setManifest(manifestData);
-            setConcepts(conceptsData);
+            const validWords: Concept[] = glossaryData
+                .map((entry: Record<string, unknown>) => ({
+                    ...entry,
+                    definition: (entry.definition || entry.description || '') as string,
+                }))
+                .filter((entry: Concept) =>
+                    entry.definition &&
+                    /^[a-zA-ZæøåÆØÅ \-:,]+$/.test(entry.term)
+                );
+            setConcepts(validWords);
         }).catch(err => console.error("Failed to load game data:", err));
     }, []);
 

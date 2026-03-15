@@ -1,5 +1,5 @@
 {
-    "id": "rothbard_quest",
+    "id": "anatomy-state",
     "title": "Statens Anatomi",
     "description": "Murray Rothbard kler av staten dens mytologi og avslører dens sanne natur.",
     "mentor": "Rothbard",
@@ -16,7 +16,7 @@
                     "text": "Staten har lov til det, fordi vi har valgt den.",
                     "impact": {
                         "idealism": 2,
-                        "authoritarianism": 2
+                        "collectivism": 2
                     },
                     "nextStepId": "challenge_contract"
                 },
@@ -24,7 +24,7 @@
                     "id": "force",
                     "text": "Forskjellen er bare at staten har makt til å slippe unna med det.",
                     "impact": {
-                        "liberalism": 5,
+                        "individualism": 5,
                         "skepticism": 3
                     },
                     "nextStepId": "monopoly"
@@ -40,7 +40,7 @@
                     "id": "monopoly_violence",
                     "text": "Den har monopol på bruk av vold.",
                     "impact": {
-                        "liberalism": 4
+                        "individualism": 4
                     },
                     "nextStepId": "monopoly"
                 }
@@ -55,7 +55,7 @@
                     "id": "rights",
                     "text": "Hva er alternativet?",
                     "impact": {
-                        "pragmatism": 2
+                        "empiricism": 2
                     },
                     "nextStepId": "liberty"
                 }
@@ -70,8 +70,7 @@
                     "id": "end",
                     "text": "En radikal tanke. Jeg skal være på vakt.",
                     "impact": {
-                        "liberalism": 5,
-                        "individualism": 4
+                        "individualism": 5
                     },
                     "nextStepId": "End"
                 }

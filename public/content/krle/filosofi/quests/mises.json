@@ -1,5 +1,5 @@
 {
-    "id": "mises_quest",
+    "id": "human-action",
     "title": "Det Handlende Menneske",
     "description": "Ludwig von Mises forklarer at all menneskelig handling er et forsøk på å bytte en tilstand med en bedre.",
     "mentor": "Mises",
@@ -16,7 +16,7 @@
                     "text": "At all handling er målrettet og rasjonell fra aktørens perspektiv.",
                     "impact": {
                         "rationalism": 4,
-                        "liberalism": 2
+                        "individualism": 2
                     },
                     "nextStepId": "value_subjective"
                 },
@@ -39,7 +39,7 @@
                     "id": "planning_impossible",
                     "text": "Så en stat kan ikke beregne økonomien riktig?",
                     "impact": {
-                        "liberalism": 4,
+                        "individualism": 4,
                         "rationalism": 3
                     },
                     "nextStepId": "calc_problem"
@@ -55,7 +55,7 @@
                     "id": "freedom",
                     "text": "Frihet er altså en forutsetning for orden.",
                     "impact": {
-                        "liberalism": 5,
+                        "individualism": 5,
                         "rationalism": 2
                     },
                     "nextStepId": "conclusion"
@@ -71,8 +71,7 @@
                     "id": "end",
                     "text": "Jeg skal handle klokt.",
                     "impact": {
-                        "individualism": 3,
-                        "liberalism": 2
+                        "individualism": 5
                     },
                     "nextStepId": "End"
                 }

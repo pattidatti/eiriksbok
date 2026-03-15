@@ -2,16 +2,19 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { PHILOSOPHY_NETWORK } from '../../../../data/philosophy/network';
 import type { NetworkNode } from '../../../../data/philosophy/network';
-import { Info, Users, Link as LinkIcon, Sparkles } from 'lucide-react';
+import { Info, Users, Link as LinkIcon, Sparkles, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { getQuestsForPhilosopher } from '../../../../data/philosophy/questRegistry';
+import { usePhilosophyProfile } from '../../../../hooks/usePhilosophyProfile';
 
 interface StjernekartProps {
-    onStartQuest?: (philosopherId: string) => void;
+    onStartQuest?: (questId: string) => void;
 }
 
 export const Stjernekart: React.FC<StjernekartProps> = ({ onStartQuest }) => {
     const [selectedNode, setSelectedNode] = useState<NetworkNode | null>(null);
     const [hoveredNode, setHoveredNode] = useState<string | null>(null);
+    const { profile } = usePhilosophyProfile();
 
     const nodes = PHILOSOPHY_NETWORK.nodes;
     const links = PHILOSOPHY_NETWORK.links;
@@ -19,17 +22,17 @@ export const Stjernekart: React.FC<StjernekartProps> = ({ onStartQuest }) => {
     const findNode = (id: string) => nodes.find(n => n.id === id);
 
     return (
-        <div className="relative w-full h-[700px] bg-[#0A0A0A] rounded-[3rem] overflow-hidden shadow-2xl border border-white/5">
-            {/* Background Stars Effect */}
+        <div className="relative w-full h-[min(65vh,550px)] bg-[#0A0A0A] rounded-2xl overflow-hidden shadow-xl border border-white/5">
+            {/* Background Stars */}
             <div className="absolute inset-0 opacity-30 pointer-events-none">
-                {[...Array(100)].map((_, i) => (
+                {[...Array(80)].map((_, i) => (
                     <div
                         key={i}
                         className="absolute w-px h-px bg-white rounded-full"
                         style={{
-                            left: `${Math.random() * 100}%`,
-                            top: `${Math.random() * 100}%`,
-                            opacity: Math.random()
+                            left: `${(i * 37 + 13) % 100}%`,
+                            top: `${(i * 53 + 7) % 100}%`,
+                            opacity: ((i * 29) % 100) / 100,
                         }}
                     />
                 ))}
@@ -39,24 +42,33 @@ export const Stjernekart: React.FC<StjernekartProps> = ({ onStartQuest }) => {
             <motion.div
                 className="w-full h-full cursor-grab active:cursor-grabbing touch-none select-none"
                 drag
-                dragConstraints={{ left: -200, right: 200, top: -200, bottom: 200 }}
-                whileTap={{ cursor: "grabbing" }}
+                dragConstraints={{ left: -150, right: 150, top: -150, bottom: 150 }}
+                whileTap={{ cursor: 'grabbing' }}
             >
                 <svg
-                    className="w-full h-full outline-none"
-                    style={{
-                        pointerEvents: 'all',
-                        userSelect: 'none',
-                        WebkitUserSelect: 'none'
-                    }}
+                    className="w-full h-full"
+                    style={{ pointerEvents: 'all', userSelect: 'none' }}
                     viewBox="-20 -20 140 140"
                     preserveAspectRatio="xMidYMid slice"
                     onDragStart={(e) => e.preventDefault()}
                 >
                     <defs>
-                        <radialGradient id="nodeGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
-                            <stop offset="0%" stopColor="#818cf8" stopOpacity="1" />
-                            <stop offset="100%" stopColor="#4f46e5" stopOpacity="0.4" />
+                        {/* Per-era gradients */}
+                        <radialGradient id="grad-antikken" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stopColor="#fbbf24" stopOpacity="1" />
+                            <stop offset="100%" stopColor="#d97706" stopOpacity="0.4" />
+                        </radialGradient>
+                        <radialGradient id="grad-middelalder" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stopColor="#34d399" stopOpacity="1" />
+                            <stop offset="100%" stopColor="#059669" stopOpacity="0.4" />
+                        </radialGradient>
+                        <radialGradient id="grad-opplysning" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stopColor="#60a5fa" stopOpacity="1" />
+                            <stop offset="100%" stopColor="#2563eb" stopOpacity="0.4" />
+                        </radialGradient>
+                        <radialGradient id="grad-moderne" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stopColor="#a78bfa" stopOpacity="1" />
+                            <stop offset="100%" stopColor="#7c3aed" stopOpacity="0.4" />
                         </radialGradient>
                         <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
                             <feGaussianBlur stdDeviation="1.5" result="coloredBlur" />
@@ -67,29 +79,27 @@ export const Stjernekart: React.FC<StjernekartProps> = ({ onStartQuest }) => {
                         </filter>
                     </defs>
 
-                    {/* Main Group */}
                     <g>
-                        {/* Connections */}
+                        {/* Links */}
                         {links.map((link, i) => {
                             const source = findNode(link.source);
                             const target = findNode(link.target);
                             if (!source || !target) return null;
 
-                            const isHighlighted = hoveredNode === link.source || hoveredNode === link.target;
+                            const isHighlighted = hoveredNode === link.source || hoveredNode === link.target ||
+                                (selectedNode && (selectedNode.id === link.source || selectedNode.id === link.target));
 
                             return (
                                 <motion.line
                                     key={`${link.source}-${link.target}`}
-                                    x1={source.x}
-                                    y1={source.y}
-                                    x2={target.x}
-                                    y2={target.y}
-                                    stroke={isHighlighted ? "#818cf8" : "#ffffff"}
-                                    strokeWidth={isHighlighted ? "0.4" : "0.1"}
-                                    strokeOpacity={isHighlighted ? "0.6" : "0.15"}
+                                    x1={source.x} y1={source.y}
+                                    x2={target.x} y2={target.y}
+                                    stroke={isHighlighted ? '#818cf8' : '#ffffff'}
+                                    strokeWidth={isHighlighted ? '0.4' : '0.1'}
+                                    strokeOpacity={isHighlighted ? '0.6' : '0.15'}
                                     initial={{ pathLength: 0, opacity: 0 }}
                                     animate={{ pathLength: 1, opacity: 1 }}
-                                    transition={{ duration: 1.5, delay: i * 0.1 }}
+                                    transition={{ duration: 1.5, delay: i * 0.08 }}
                                 />
                             );
                         })}
@@ -107,142 +117,184 @@ export const Stjernekart: React.FC<StjernekartProps> = ({ onStartQuest }) => {
                                 }}
                             >
                                 <motion.circle
-                                    cx={node.x}
-                                    cy={node.y}
+                                    cx={node.x} cy={node.y}
                                     r={node.size / 15}
-                                    fill="url(#nodeGradient)"
+                                    fill={`url(#grad-${node.era})`}
                                     filter="url(#glow)"
-                                    whileHover={{ r: node.size / 12, stroke: "#ffffff", strokeWidth: 0.2 }}
                                     initial={{ scale: 0 }}
                                     animate={{ scale: 1 }}
-                                    transition={{ type: "spring", damping: 12, delay: 0.5 }}
+                                    transition={{ type: 'spring', damping: 12, delay: 0.3 }}
                                 />
-                                <motion.text
+                                <text
                                     x={node.x}
                                     y={node.y + node.size / 10 + 2}
                                     textAnchor="middle"
                                     fill="white"
                                     fontSize="1.8"
                                     fontWeight="900"
-                                    className="pointer-events-none select-none uppercase tracking-widest opacity-40 group-hover:opacity-100 transition-opacity"
+                                    style={{ pointerEvents: 'none', userSelect: 'none' }}
+                                    opacity={hoveredNode === node.id || selectedNode?.id === node.id ? 0.9 : 0.4}
                                 >
                                     {node.name}
-                                </motion.text>
+                                </text>
                             </g>
                         ))}
                     </g>
                 </svg>
             </motion.div>
 
-            {/* Info Panel Overlay */}
+            {/* Info Panel */}
             <AnimatePresence>
                 {selectedNode && (
                     <motion.div
                         initial={{ x: 300, opacity: 0 }}
                         animate={{ x: 0, opacity: 1 }}
                         exit={{ x: 300, opacity: 0 }}
-                        className="absolute top-8 right-8 bottom-8 w-80 bg-white/10 backdrop-blur-2xl rounded-[2.5rem] border border-white/20 p-8 z-20 flex flex-col text-white"
+                        className="absolute top-4 right-4 bottom-4 w-72 bg-white/10 backdrop-blur-2xl rounded-2xl border border-white/20 p-6 z-20 flex flex-col text-white overflow-y-auto"
                     >
                         <button
                             onClick={() => setSelectedNode(null)}
-                            className="absolute top-6 right-6 w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
+                            className="absolute top-4 right-4 w-7 h-7 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
                         >
-                            ×
+                            <X size={14} />
                         </button>
 
-                        <div className="mb-8">
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/20 border border-indigo-500/30 text-[10px] font-black uppercase tracking-widest mb-4">
+                        <div className="mb-6">
+                            <div
+                                className="inline-flex items-center gap-2 px-2.5 py-1 rounded-lg text-[10px] font-bold uppercase tracking-widest mb-3"
+                                style={{ backgroundColor: `${selectedNode.color}30`, borderColor: `${selectedNode.color}50`, border: '1px solid' }}
+                            >
                                 <Sparkles size={10} />
                                 <span>{selectedNode.period}</span>
                             </div>
-                            <h3 className="text-3xl font-black">{selectedNode.name}</h3>
+                            <h3 className="text-2xl font-black">{selectedNode.name}</h3>
                         </div>
 
-                        <div className="space-y-6 flex-1 text-sm text-white/70 font-medium">
-                            <div className="flex gap-4">
-                                <Info className="shrink-0 text-indigo-400" size={20} />
-                                <p>En sentral figur i {selectedNode.period.toLowerCase()} filosofi, kjent for sine bidrag til epistemologi og etikk.</p>
-                            </div>
-                            <div className="flex gap-4">
-                                <Users className="shrink-0 text-indigo-400" size={20} />
+                        <div className="space-y-4 flex-1 text-sm text-white/70 font-medium">
+                            {/* Description */}
+                            <div className="flex gap-3">
+                                <Info className="shrink-0 mt-0.5" size={16} style={{ color: selectedNode.color }} />
                                 <div>
-                                    <p className="text-[10px] font-black uppercase tracking-widest text-white/30 mb-2">Inspirert av</p>
-                                    <div className="flex flex-wrap gap-2">
+                                    <p>{selectedNode.description}</p>
+                                    <p className="text-white/40 text-xs mt-1 italic">{selectedNode.keyIdea}</p>
+                                </div>
+                            </div>
+
+                            {/* Influences */}
+                            <div className="flex gap-3">
+                                <Users className="shrink-0 mt-0.5" size={16} style={{ color: selectedNode.color }} />
+                                <div>
+                                    <p className="text-[10px] font-bold uppercase tracking-widest text-white/30 mb-1">Inspirert av</p>
+                                    <div className="flex flex-wrap gap-1.5">
                                         {links.filter(l => l.target === selectedNode.id).map(l => (
                                             <button
                                                 key={l.source}
-                                                onClick={() => {
-                                                    const node = findNode(l.source);
-                                                    if (node) setSelectedNode(node);
-                                                }}
-                                                className="px-2 py-1 rounded bg-white/5 text-[10px] hover:bg-white/20 hover:scale-105 active:scale-95 transition-all text-left"
+                                                onClick={() => { const n = findNode(l.source); if (n) setSelectedNode(n); }}
+                                                className="px-2 py-0.5 rounded bg-white/5 text-[10px] hover:bg-white/15 transition-colors"
                                             >
                                                 {findNode(l.source)?.name || l.source}
                                             </button>
                                         ))}
+                                        {links.filter(l => l.target === selectedNode.id).length === 0 && (
+                                            <span className="text-white/20 text-xs italic">Grunnlegger</span>
+                                        )}
                                     </div>
                                 </div>
                             </div>
-                            <div className="flex gap-4">
-                                <LinkIcon className="shrink-0 text-indigo-400" size={20} />
+
+                            <div className="flex gap-3">
+                                <LinkIcon className="shrink-0 mt-0.5" size={16} style={{ color: selectedNode.color }} />
                                 <div>
-                                    <p className="text-[10px] font-black uppercase tracking-widest text-white/30 mb-2">Har påvirket</p>
-                                    <div className="flex flex-wrap gap-2">
+                                    <p className="text-[10px] font-bold uppercase tracking-widest text-white/30 mb-1">Har pavirket</p>
+                                    <div className="flex flex-wrap gap-1.5">
                                         {links.filter(l => l.source === selectedNode.id).map(l => (
                                             <button
                                                 key={l.target}
-                                                onClick={() => {
-                                                    const node = findNode(l.target);
-                                                    if (node) setSelectedNode(node);
-                                                }}
-                                                className="px-2 py-1 rounded bg-white/5 text-[10px] hover:bg-white/20 hover:scale-105 active:scale-95 transition-all text-left"
+                                                onClick={() => { const n = findNode(l.target); if (n) setSelectedNode(n); }}
+                                                className="px-2 py-0.5 rounded bg-white/5 text-[10px] hover:bg-white/15 transition-colors"
                                             >
                                                 {findNode(l.target)?.name || l.target}
                                             </button>
                                         ))}
+                                        {links.filter(l => l.source === selectedNode.id).length === 0 && (
+                                            <span className="text-white/20 text-xs italic">Ingen registrerte</span>
+                                        )}
                                     </div>
                                 </div>
                             </div>
+
+                            {/* Available quests for this philosopher */}
+                            <QuestButtons philosopherId={selectedNode.id} profile={profile} onStartQuest={onStartQuest} />
                         </div>
 
-                        <div className="mt-auto space-y-3">
-                            <button
-                                onClick={() => onStartQuest?.(selectedNode.id)}
-                                className="w-full py-4 rounded-2xl bg-indigo-500 text-white font-black text-xs uppercase tracking-widest hover:scale-105 active:scale-95 transition-all shadow-xl flex items-center justify-center gap-2"
-                            >
-                                <Sparkles size={16} />
-                                Start Dialog
-                            </button>
+                        <div className="mt-auto pt-4">
                             <Link
                                 to={`/krle/filosofi/${selectedNode.id}`}
-                                className="w-full py-4 rounded-2xl bg-white text-black font-black text-xs uppercase tracking-widest hover:scale-105 active:scale-95 transition-all shadow-xl text-center block"
+                                className="w-full py-3 rounded-xl bg-white/10 text-white font-bold text-xs uppercase tracking-widest hover:bg-white/20 transition-colors text-center block"
                             >
-                                Les Mer i Biblioteket
+                                Les mer i biblioteket
                             </Link>
                         </div>
                     </motion.div>
                 )}
             </AnimatePresence>
 
-            {/* Legend/Instructions */}
-            <div className="absolute bottom-12 left-12 z-20">
-                <p className="text-[10px] font-black text-white/30 uppercase tracking-[0.3em] mb-4">Navigasjon</p>
-                <div className="flex items-center gap-6">
-                    <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 rounded-full bg-indigo-500 shadow-[0_0_10px_#6366f1]" />
-                        <span className="text-[10px] font-black text-white/60 uppercase tracking-widest">Filosof</span>
+            {/* Legend */}
+            <div className="absolute bottom-4 left-4 z-20 flex flex-wrap gap-4">
+                {[
+                    { label: 'Antikken', color: '#d97706' },
+                    { label: 'Middelalder', color: '#059669' },
+                    { label: 'Opplysning', color: '#2563eb' },
+                    { label: 'Moderne', color: '#7c3aed' },
+                ].map(({ label, color }) => (
+                    <div key={label} className="flex items-center gap-1.5">
+                        <div className="w-2 h-2 rounded-full" style={{ backgroundColor: color, boxShadow: `0 0 6px ${color}` }} />
+                        <span className="text-[9px] font-bold text-white/50 uppercase tracking-widest">{label}</span>
                     </div>
-                    <div className="flex items-center gap-2">
-                        <div className="w-8 h-px bg-white/20" />
-                        <span className="text-[10px] font-black text-white/60 uppercase tracking-widest">Inflytelse</span>
-                    </div>
-                </div>
+                ))}
             </div>
-
-            <style dangerouslySetInnerHTML={{
-                __html: `
-                .group:hover text { opacity: 1 !important; }
-            ` }} />
         </div>
     );
 };
+
+// Sub-component: quest buttons for selected philosopher
+function QuestButtons({
+    philosopherId,
+    profile,
+    onStartQuest,
+}: {
+    philosopherId: string;
+    profile: { completedQuests: string[] };
+    onStartQuest?: (id: string) => void;
+}) {
+    const quests = getQuestsForPhilosopher(philosopherId);
+    if (quests.length === 0) return null;
+
+    return (
+        <div className="space-y-2 pt-2 border-t border-white/10">
+            <p className="text-[10px] font-bold uppercase tracking-widest text-white/30">Dialoger</p>
+            {quests.map(q => {
+                const done = profile.completedQuests.includes(q.id);
+                const locked = q.prerequisites.some(p => !profile.completedQuests.includes(p));
+                return (
+                    <button
+                        key={q.id}
+                        disabled={locked}
+                        onClick={() => !locked && onStartQuest?.(q.id)}
+                        className={`w-full py-2.5 px-3 rounded-xl text-xs font-bold text-left flex items-center justify-between transition-colors ${
+                            locked
+                                ? 'bg-white/5 text-white/30 cursor-not-allowed'
+                                : done
+                                    ? 'bg-green-500/20 text-green-300 hover:bg-green-500/30'
+                                    : 'bg-indigo-500/30 text-white hover:bg-indigo-500/50'
+                        }`}
+                    >
+                        <span>{q.title}{q.isSecondary ? ' (bonus)' : ''}</span>
+                        {done && <span className="text-green-400">&#10003;</span>}
+                        {locked && <span className="text-white/20">&#128274;</span>}
+                    </button>
+                );
+            })}
+        </div>
+    );
+}

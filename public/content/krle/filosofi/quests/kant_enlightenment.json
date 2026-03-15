@@ -1,5 +1,5 @@
 {
-    "id": "kant_enlightenment",
+    "id": "kant-enlightenment",
     "title": "Våg å Vite!",
     "description": "Kant utfordrer deg til å tenke selv og kaste av deg umyndighetens lenker.",
     "mentor": "Kant",
@@ -24,8 +24,8 @@
                     "id": "follow",
                     "text": "Jeg stoler ofte på eksperter og ledere.",
                     "impact": {
-                        "authoritarianism": 2,
-                        "pragmatism": 2
+                        "collectivism": 2,
+                        "empiricism": 2
                     },
                     "nextStepId": "laziness"
                 }
@@ -40,7 +40,7 @@
                     "id": "guilty",
                     "text": "Au, den traff.",
                     "impact": {
-                        "humility": 2
+                        "stoicism": 2
                     },
                     "nextStepId": "sapere_aude"
                 },
@@ -48,7 +48,7 @@
                     "id": "defend",
                     "text": "Men vi kan ikke vite alt selv!",
                     "impact": {
-                        "pragmatism": 3
+                        "empiricism": 3
                     },
                     "nextStepId": "public_use"
                 }
@@ -63,7 +63,7 @@
                     "id": "freedom_speech",
                     "text": "Ytringsfrihet er altså nøkkelen.",
                     "impact": {
-                        "liberalism": 5,
+                        "individualism": 5,
                         "rationalism": 2
                     },
                     "nextStepId": "sapere_aude"

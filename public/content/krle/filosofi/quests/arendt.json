@@ -1,5 +1,5 @@
 {
-    "id": "arendt_quest",
+    "id": "banality-evil",
     "title": "Ondskapens Banalitet",
     "description": "Hannah Arendt advarer om hva som skjer når vi slutter å tenke og bare følger ordre.",
     "mentor": "Arendt",
@@ -25,7 +25,7 @@
                     "text": "Han må ha vært ond innerst inne for å gjøre det han gjorde.",
                     "impact": {
                         "idealism": 2,
-                        "authoritarianism": 1
+                        "collectivism": 1
                     },
                     "nextStepId": "challenge_monster"
                 }
@@ -56,7 +56,7 @@
                     "id": "prevention",
                     "text": "Hvordan hindrer vi det?",
                     "impact": {
-                        "pragmatism": 2
+                        "empiricism": 2
                     },
                     "nextStepId": "action"
                 }
@@ -71,8 +71,7 @@
                     "id": "end",
                     "text": "Jeg skal aldri slutte å tenke selv.",
                     "impact": {
-                        "individualism": 3,
-                        "liberalism": 3
+                        "individualism": 5
                     },
                     "nextStepId": "End"
                 }

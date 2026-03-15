@@ -1,5 +1,5 @@
 {
-    "id": "sokrates_gadfly",
+    "id": "socratic-gadfly",
     "title": "Kleggen i Aten",
     "description": "Sokrates forklarer hvorfor han irriterer makteliten – og hvorfor det er nødvendig.",
     "mentor": "Sokrates",
@@ -24,7 +24,7 @@
                     "id": "danger",
                     "text": "Du risikerer livet ditt ved å provosere dem. Er det verdt det?",
                     "impact": {
-                        "pragmatism": 3
+                        "empiricism": 3
                     },
                     "nextStepId": "danger_response"
                 }
@@ -48,8 +48,8 @@
                     "id": "safety",
                     "text": "Noen ganger må man være pragmatisk for å overleve.",
                     "impact": {
-                        "pragmatism": 4,
-                        "mockery": 1
+                        "empiricism": 4,
+                        "skepticism": 1
                     },
                     "nextStepId": "trial"
                 }
@@ -79,7 +79,7 @@
                     "id": "escape",
                     "text": "Men dine venner kan hjelpe deg å rømme! Hvorfor bli?",
                     "impact": {
-                        "pragmatism": 3
+                        "empiricism": 3
                     },
                     "nextStepId": "laws"
                 }

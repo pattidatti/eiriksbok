@@ -1,5 +1,5 @@
 {
-    "id": "platon_ring",
+    "id": "ring-of-gyges",
     "title": "Gyges Ring",
     "description": "Platon tester din moral: Hva ville du gjort hvis du kunne bli usynlig?",
     "mentor": "Platon",
@@ -41,7 +41,7 @@
                     "text": "Det høres sannsynlig ut. Mennesket er egoistisk av natur.",
                     "impact": {
                         "materialism": 4,
-                        "authoritarianism": 2
+                        "collectivism": 2
                     },
                     "nextStepId": "beast"
                 },

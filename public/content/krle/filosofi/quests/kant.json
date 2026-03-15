@@ -1,5 +1,5 @@
 {
-    "id": "kant_quest",
+    "id": "categorical-imperative",
     "title": "Pliktens Kall",
     "description": "Immanuel Kant stiller det ultimate spørsmålet om moral: Hva om alle gjorde som deg?",
     "mentor": "Kant",
@@ -15,8 +15,8 @@
                     "id": "white_lie",
                     "text": "Ja, hvis det redder noen fra smerte eller fare.",
                     "impact": {
-                        "utilitarianism": 4,
-                        "pragmatism": 2
+                        "epicureanism": 4,
+                        "empiricism": 2
                     },
                     "nextStepId": "challenge_consequences"
                 },
@@ -24,7 +24,7 @@
                     "id": "never",
                     "text": "Nei, sannhet er en absolutt plikt.",
                     "impact": {
-                        "deontology": 5,
+                        "stoicism": 5,
                         "idealism": 2
                     },
                     "nextStepId": "categorical"
@@ -40,7 +40,7 @@
                     "id": "hard_truth",
                     "text": "Det er hardt, men logisk. Plikten må komme først.",
                     "impact": {
-                        "deontology": 3,
+                        "stoicism": 3,
                         "rationalism": 2
                     },
                     "nextStepId": "categorical"
@@ -57,7 +57,7 @@
                     "text": "Nei, da ville ingen stolt på noen, og løgn ville mistet sin hensikt.",
                     "impact": {
                         "rationalism": 5,
-                        "deontology": 3
+                        "stoicism": 3
                     },
                     "nextStepId": "conclusion"
                 }
@@ -72,7 +72,7 @@
                     "id": "end",
                     "text": "Jeg skal forsøke å leve etter moralloven. Takk, Herr Professor.",
                     "impact": {
-                        "deontology": 2,
+                        "stoicism": 2,
                         "idealism": 2
                     },
                     "nextStepId": "End"

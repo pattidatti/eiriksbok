@@ -1,5 +1,5 @@
 {
-    "id": "locke_quest",
+    "id": "property-rights",
     "title": "Hvem Eier Deg?",
     "description": "Utforsk John Lockes tanker om frihet, eiendom og hvorfor vi trenger en stat.",
     "mentor": "Locke",
@@ -15,7 +15,7 @@
                     "id": "agree",
                     "text": "Ja, frihet er vår naturlige rett.",
                     "impact": {
-                        "liberalism": 4,
+                        "individualism": 4,
                         "idealism": 2
                     },
                     "nextStepId": "property"
@@ -24,8 +24,8 @@
                     "id": "disagree",
                     "text": "Noen trenger å bli ledet. Orden er viktigere enn frihet.",
                     "impact": {
-                        "authoritarianism": 3,
-                        "pragmatism": 2
+                        "collectivism": 3,
+                        "empiricism": 2
                     },
                     "nextStepId": "challenge_order"
                 }
@@ -40,7 +40,7 @@
                     "id": "agree_prop",
                     "text": "Ja, eiendomsretten kommer fra arbeid.",
                     "impact": {
-                        "liberalism": 4,
+                        "individualism": 4,
                         "materialism": 2
                     },
                     "nextStepId": "social_contract"
@@ -56,7 +56,7 @@
                     "id": "revolution",
                     "text": "Jo, hvis lederen bryter tilliten, har vi rett til å gjøre opprør.",
                     "impact": {
-                        "liberalism": 5,
+                        "individualism": 5,
                         "rationalism": 2
                     },
                     "nextStepId": "social_contract"
@@ -72,7 +72,7 @@
                     "id": "end",
                     "text": "Frihet under loven. Det høres fornuftig ut.",
                     "impact": {
-                        "liberalism": 3,
+                        "individualism": 3,
                         "rationalism": 2
                     },
                     "nextStepId": "End"

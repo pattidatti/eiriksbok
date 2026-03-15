@@ -1,5 +1,5 @@
 {
-    "id": "nietzsche_abyss",
+    "id": "nietzsche-abyss",
     "title": "Avgrunnen",
     "description": "Nietzsche utfordrer deg til å stirre inn i avgrunnen uten å blunke.",
     "mentor": "Nietzsche",
@@ -40,7 +40,7 @@
                     "id": "hardness",
                     "text": "Kanskje jeg har blitt kynisk.",
                     "impact": {
-                        "nihilism": 3
+                        "existentialism": 3
                     },
                     "nextStepId": "dancing_star"
                 },
@@ -104,7 +104,7 @@
                     "text": "Jeg forstår. Viljen skaper verden.",
                     "impact": {
                         "individualism": 4,
-                        "nihilism": 2
+                        "existentialism": 2
                     },
                     "nextStepId": "conclusion"
                 }

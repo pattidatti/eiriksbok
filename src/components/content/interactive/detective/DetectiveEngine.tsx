@@ -428,7 +428,7 @@ export const DetectiveEngine: React.FC<DetectiveEngineProps> = ({ data }) => {
             )}
 
             {/* Content area */}
-            <div className="flex-1 overflow-y-auto p-4 custom-scrollbar relative">
+            <div className="flex-1 min-h-0 overflow-y-auto p-4 custom-scrollbar relative">
                 {/* Investigation drawer overlay */}
                 <AnimatePresence>
                     {drawerOpen && (
