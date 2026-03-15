@@ -20,7 +20,7 @@ export const TopicCard: React.FC<TopicCardProps> = ({ title, description, image,
                 className="h-full bg-surface-card border border-white/10 rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300 flex flex-col"
             >
                 {/* Image Area - Updated to h-40 to match ExplorerView */}
-                <div className="h-40 bg-slate-100 relative overflow-hidden">
+                <div className="h-32 bg-slate-100 relative overflow-hidden">
                     <ImageWithFallback
                         src={image}
                         alt={title}

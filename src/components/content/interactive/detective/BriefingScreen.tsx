@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Zap, ChevronRight } from 'lucide-react';
+import { Search, ChevronRight } from 'lucide-react';
 import type { DetectiveBriefing } from './types';
 
 interface BriefingScreenProps {
@@ -32,7 +32,7 @@ export const BriefingScreen: React.FC<BriefingScreenProps> = ({ briefing, onStar
                     )}
 
                     <div className="relative z-10 w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-md border border-white/30 shadow-xl">
-                        <Zap className="w-8 h-8 text-white" />
+                        <Search className="w-8 h-8 text-white" />
                     </div>
                 </div>
 

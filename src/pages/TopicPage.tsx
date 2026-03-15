@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import { motionPresets } from '../styles/motion-presets';
 import { LessonCard } from '../components/LessonCard';
 import { TopicCard } from '../components/TopicCard';
-import { ChevronRight, Grid, List, ArrowDownAZ, Calendar, Clock, Map, Download } from 'lucide-react';
+import { ChevronRight, Grid, List, Map, Download } from 'lucide-react';
 import { HistoryLongLines } from '../components/HistoryLongLines';
 import { ErrorBoundary } from '../components/ErrorBoundary';
 import { TopicInteractiveModel } from '../components/TopicInteractiveModel';
@@ -109,74 +109,58 @@ export const TopicPage: React.FC = () => {
     const image = (activeItem as any)?.image;
 
     return (
-        <div className="topic-page max-w-7xl mx-auto px-6 py-12">
+        <div className="topic-page max-w-7xl mx-auto px-4 py-6">
 
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 gap-6">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-4 gap-4">
                 <motion.div
                     {...motionPresets.slideUp}
                 >
-                    <h1 className="text-4xl font-display font-bold text-text-main mb-2">
+                    <h1 className="text-2xl font-display font-bold text-text-main mb-1">
                         {title}
                     </h1>
                     {description && (
-                        <p className="text-xl text-text-muted max-w-3xl leading-relaxed">
+                        <p className="text-base text-text-muted max-w-3xl leading-relaxed">
                             {description}
                         </p>
                     )}
                 </motion.div>
 
                 {/* Controls */}
-                <div className="flex items-center gap-4 bg-surface-card p-2 rounded-lg border border-white/10">
+                <div className="flex items-center gap-2 shrink-0">
                     {activeItem?.lessons && activeItem.lessons.length > 0 && (
                         <button
                             onClick={() => setShowPrint(true)}
-                            className="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/10 border border-white/10 hover:bg-white/20 transition text-sm font-medium"
+                            className="p-2 rounded-lg text-text-muted hover:text-text-main hover:bg-white/10 transition"
                             title="Last ned emne som PDF"
                         >
                             <Download className="w-4 h-4" />
-                            <span className="hidden sm:inline">Last ned som PDF</span>
                         </button>
                     )}
-                    <div className="flex gap-1 border-r border-white/10 pr-4">
+                    <div className="flex gap-0.5 bg-surface-card rounded-lg p-0.5 border border-white/10">
                         <button
                             onClick={() => setViewMode('grid')}
-                            className={`p-2 rounded-md transition-colors ${viewMode === 'grid' ? 'bg-neon-accent/20 text-neon-accent' : 'text-text-muted hover:text-text-main'}`}
-                            title="Grid View"
+                            className={`p-1.5 rounded-md transition-colors ${viewMode === 'grid' ? 'bg-neon-accent/20 text-neon-accent' : 'text-text-muted hover:text-text-main'}`}
+                            title="Rutenett"
                         >
-                            <Grid size={20} />
+                            <Grid size={16} />
                         </button>
                         <button
                             onClick={() => setViewMode('list')}
-                            className={`p-2 rounded-md transition-colors ${viewMode === 'list' ? 'bg-neon-accent/20 text-neon-accent' : 'text-text-muted hover:text-text-main'}`}
-                            title="List View"
+                            className={`p-1.5 rounded-md transition-colors ${viewMode === 'list' ? 'bg-neon-accent/20 text-neon-accent' : 'text-text-muted hover:text-text-main'}`}
+                            title="Liste"
                         >
-                            <List size={20} />
+                            <List size={16} />
                         </button>
                     </div>
-
-                    <div className="flex gap-2">
-                        <button
-                            onClick={() => setSortMode('alphabetical')}
-                            className={`p-2 rounded-md transition-colors ${sortMode === 'alphabetical' ? 'bg-neon-accent/20 text-neon-accent' : 'text-text-muted hover:text-text-main'}`}
-                            title="Alfabetisk"
-                        >
-                            <ArrowDownAZ size={20} />
-                        </button>
-                        <button
-                            onClick={() => setSortMode('year')}
-                            className={`p-2 rounded-md transition-colors ${sortMode === 'year' ? 'bg-neon-accent/20 text-neon-accent' : 'text-text-muted hover:text-text-main'}`}
-                            title="Kronologisk"
-                        >
-                            <Calendar size={20} />
-                        </button>
-                        <button
-                            onClick={() => setSortMode('newest')}
-                            className={`p-2 rounded-md transition-colors ${sortMode === 'newest' ? 'bg-neon-accent/20 text-neon-accent' : 'text-text-muted hover:text-text-main'}`}
-                            title="Nyeste"
-                        >
-                            <Clock size={20} />
-                        </button>
-                    </div>
+                    <select
+                        value={sortMode}
+                        onChange={(e) => setSortMode(e.target.value as SortMode)}
+                        className="text-sm bg-surface-card border border-white/10 rounded-lg px-2 py-1.5 text-text-main cursor-pointer"
+                    >
+                        <option value="alphabetical">A-Å</option>
+                        <option value="year">Kronologisk</option>
+                        <option value="newest">Nyeste</option>
+                    </select>
                 </div>
             </div>
 
@@ -189,35 +173,20 @@ export const TopicPage: React.FC = () => {
                 />
             )}
 
-            {/* Tools Section */}
+            {/* Tools Section - Pill ribbon */}
             {activeItem!.tools && activeItem!.tools.length > 0 && (
-                <div className="mb-12">
-                    <h2 className="text-2xl font-display font-bold text-text-main mb-6">Verktøy & Ressurser</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {activeItem!.tools.map((tool: any) => (
-                            <Link
-                                key={tool.id}
-                                to={tool.link}
-                                className="block bg-surface-card hover:bg-surface-card-hover border border-white/10 rounded-xl p-6 transition-all group"
-                            >
-                                <div className="flex items-start gap-4">
-                                    <div className="p-3 bg-neon-accent/10 rounded-lg text-neon-accent group-hover:bg-neon-accent/20 transition-colors">
-                                        <Map className="w-6 h-6" />
-                                    </div>
-                                    <div>
-                                        <h3 className="text-lg font-bold text-text-main group-hover:text-neon-accent transition-colors mb-2">
-                                            {tool.title}
-                                        </h3>
-                                        {tool.description && (
-                                            <p className="text-text-muted text-sm leading-relaxed">
-                                                {tool.description}
-                                            </p>
-                                        )}
-                                    </div>
-                                </div>
-                            </Link>
-                        ))}
-                    </div>
+                <div className="flex gap-2 overflow-x-auto pb-1 mb-6 scrollbar-hide">
+                    {activeItem!.tools.map((tool: any) => (
+                        <Link
+                            key={tool.id}
+                            to={tool.link}
+                            className="inline-flex items-center gap-2 px-4 py-2 bg-surface-card border border-white/10 rounded-full text-sm font-medium whitespace-nowrap hover:bg-neon-accent/10 hover:text-neon-accent transition-all shrink-0"
+                            title={tool.description}
+                        >
+                            <Map className="w-4 h-4 text-neon-accent" />
+                            {tool.title}
+                        </Link>
+                    ))}
                 </div>
             )}
 
@@ -234,9 +203,9 @@ export const TopicPage: React.FC = () => {
             )}
 
             {subTopics.length > 0 && (
-                <div className="mb-12">
-                    <h2 className="text-2xl font-display font-bold text-text-main mb-6">Emner</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div className="mb-8">
+                    <h2 className="text-lg font-display font-bold text-text-main mb-4">Emner</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
                         {subTopics.map((subTopic: any, index: number) => (
                             <motion.div
                                 key={subTopic.id}
@@ -274,8 +243,8 @@ export const TopicPage: React.FC = () => {
 
             {filteredLessons.length > 0 && (
                 <div>
-                    {subTopics.length > 0 && <h2 className="text-2xl font-display font-bold text-text-main mb-6">Leksjoner</h2>}
-                    <div className={`grid gap-6 ${viewMode === 'grid' ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-4' : 'grid-cols-1'}`}>
+                    {subTopics.length > 0 && <h2 className="text-lg font-display font-bold text-text-main mb-4">Leksjoner</h2>}
+                    <div className={`grid gap-4 ${viewMode === 'grid' ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-4' : 'grid-cols-1'}`}>
                         {filteredLessons.map((lesson, index) => (
                             <motion.div
                                 key={lesson.id}

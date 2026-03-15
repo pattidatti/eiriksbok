@@ -49,7 +49,7 @@ export const DetectiveCasePage: React.FC = () => {
     };
 
     return (
-        <div className="min-h-screen bg-slate-900 text-slate-100 flex flex-col">
+        <div className="h-screen bg-slate-900 text-slate-100 flex flex-col">
             {/* Compact header */}
             <header className="h-12 border-b border-slate-800 bg-slate-900/50 backdrop-blur-md flex items-center justify-between px-4 sticky top-0 z-50">
                 <button

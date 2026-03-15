@@ -15,39 +15,26 @@ export const TopicView: React.FC<TopicViewProps> = ({ subjectData, subjectId }) 
     const navigate = useNavigate();
 
     return (
-        <div className="space-y-12">
-            {/* Tools Section */}
+        <div className="space-y-6">
+            {/* Tools Section - Pill ribbon */}
             {subjectData.tools && subjectData.tools.length > 0 && (
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {subjectData.tools.map((tool: any, index: number) => (
-                        <motion.div
+                <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
+                    {subjectData.tools.map((tool: any) => (
+                        <button
                             key={tool.id}
-                            {...motionPresets.slideUp}
-                            transition={{ delay: index * 0.05 }}
                             onClick={() => navigate(tool.link)}
-                            className="bg-surface-card p-6 rounded-xl border border-white/10 cursor-pointer hover:shadow-md transition-all group"
+                            className="inline-flex items-center gap-2 px-4 py-2 bg-surface-card border border-white/10 rounded-full text-sm font-medium whitespace-nowrap hover:bg-indigo-50 hover:text-indigo-600 transition-all shrink-0 cursor-pointer"
+                            title={tool.description}
                         >
-                            <div className="flex items-start gap-4">
-                                <div className="p-3 bg-indigo-50 text-indigo-600 rounded-lg group-hover:bg-indigo-100 transition-colors">
-                                    {/* You might want to dynamically render icons here based on tool.icon */}
-                                    <LayoutGrid size={24} />
-                                </div>
-                                <div>
-                                    <h3 className="font-bold text-lg text-slate-900 mb-1 group-hover:text-indigo-600 transition-colors">
-                                        {tool.title}
-                                    </h3>
-                                    <p className="text-sm text-slate-600">
-                                        {tool.description}
-                                    </p>
-                                </div>
-                            </div>
-                        </motion.div>
+                            <LayoutGrid size={16} className="text-indigo-600" />
+                            {tool.title}
+                        </button>
                     ))}
                 </div>
             )}
 
             {/* Topics Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
                 {subjectData.topics.map((topic: any, index: number) => {
                     // Calculate total lessons
                     let lessonCount = 0;

@@ -313,38 +313,36 @@
             "content": "Samtidig er arven også preget av dype sår og urettferdighet. Den massive utbyttingen av naturressurser, de kunstige grensene som ble trukket på tvers av kulturelle linjer, og den systematiske undertrykkelsen av urfolks kulturer har etterlatt seg utfordringer vi fortsatt kjemper med i dag. Konflikter i Midtøsten, Afrika og Asia har ofte sine røtter i de beslutningene som ble tatt i koloniadministrasjonene i London eller Paris for hundre år siden. Å forstå denne historien er derfor ikke bare en akademisk øvelse; det er en nødvendighet for å forstå hvorfor vår moderne verden ser ut som den gjør, og for å kunne navigere i en fremtid der maktbalansen igjen er i ferd med å skifte, denne gangen kanskje bort fra Europa for godt."
         }
     ],
-    "quiz": {
-        "questions": [
-            {
-                "question": "Hva refererer de 'tre G-ene' til i koloniseringens kontekst?",
-                "options": [
-                    "Gull, Gud og Glans",
-                    "Grenser, Gruver og Godhet",
-                    "Geværer, Galeoner og Grådighet",
-                    "Globalisering, Geopolitikk og Gevinst"
-                ],
-                "correctAnswer": 0
-            },
-            {
-                "question": "Hvilken begivenhet i 1956 markerte slutten på europeisk hegemoni?",
-                "options": [
-                    "Berlin-konferansen",
-                    "Suez-krisen",
-                    "Freden i Versailles",
-                    "Cubakrisen"
-                ],
-                "correctAnswer": 1
-            },
-            {
-                "question": "Hva var hovedformålet med handelskompanier som VOC og EIC?",
-                "options": [
-                    "Å spre utdanning i koloniene",
-                    "Å drive bistandsarbeid",
-                    "Å sikre monopol på handel og akkumulere rikdom for hjemlandet",
-                    "Å bygge demokratiske institusjoner"
-                ],
-                "correctAnswer": 2
-            }
-        ]
-    }
+    "quiz": [
+        {
+            "question": "Hva refererer de 'tre G-ene' til i koloniseringens kontekst?",
+            "options": [
+                "Gull, Gud og Glans",
+                "Grenser, Gruver og Godhet",
+                "Geværer, Galeoner og Grådighet",
+                "Globalisering, Geopolitikk og Gevinst"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "question": "Hvilken begivenhet i 1956 markerte slutten på europeisk hegemoni?",
+            "options": [
+                "Berlin-konferansen",
+                "Suez-krisen",
+                "Freden i Versailles",
+                "Cubakrisen"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hva var hovedformålet med handelskompanier som VOC og EIC?",
+            "options": [
+                "Å spre utdanning i koloniene",
+                "Å drive bistandsarbeid",
+                "Å sikre monopol på handel og akkumulere rikdom for hjemlandet",
+                "Å bygge demokratiske institusjoner"
+            ],
+            "correctAnswer": 2
+        }
+    ]
 }

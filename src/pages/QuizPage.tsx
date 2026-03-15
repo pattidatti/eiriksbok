@@ -103,7 +103,7 @@ export const QuizPage: React.FC = () => {
 
             const allQuestions: QuizQuestion[] = [];
             results.forEach(lesson => {
-                if (lesson && lesson.quiz) {
+                if (lesson && Array.isArray(lesson.quiz)) {
                     const lessonUrl = lesson.subTopic
                         ? `/${lesson.subject}/${lesson.topic}/${lesson.subTopic}/${lesson.id}`
                         : `/${lesson.subject}/${lesson.topic}/${lesson.id}`;

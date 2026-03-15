@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
     Search,
@@ -8,6 +8,8 @@ import {
     X,
     User,
     CheckCircle2,
+    Star,
+    AlertCircle,
 } from 'lucide-react';
 import { useDetectiveState } from './useDetectiveState';
 import { SourceViewer } from './SourceViewer';
@@ -41,11 +43,14 @@ function ProgressPill({
             onClick={onToggle}
             className="flex items-center gap-3 px-3 py-1.5 rounded-full bg-slate-800/80 border border-slate-700/50 hover:border-slate-600 transition-colors"
         >
-            {/* Step dots */}
             <div className="flex items-center gap-1">
                 {Array.from({ length: totalSteps }).map((_, i) => (
-                    <div
+                    <motion.div
                         key={i}
+                        animate={{
+                            scale: i === currentStep ? [1, 1.4, 1] : 1,
+                        }}
+                        transition={{ duration: 0.4, type: 'spring', stiffness: 400 }}
                         className={`w-2 h-2 rounded-full transition-colors ${
                             i < currentStep
                                 ? 'bg-emerald-500'
@@ -57,13 +62,22 @@ function ProgressPill({
                 ))}
             </div>
 
-            {/* Evidence badge */}
-            <span className="text-xs font-bold text-slate-400">
-                <span className={evidenceCount >= totalEvidence ? 'text-emerald-400' : 'text-indigo-400'}>
+            <motion.span
+                key={evidenceCount}
+                initial={{ scale: 1.3 }}
+                animate={{ scale: 1 }}
+                transition={{ type: 'spring', stiffness: 500, damping: 15 }}
+                className="text-xs font-bold text-slate-400"
+            >
+                <span
+                    className={
+                        evidenceCount >= totalEvidence ? 'text-emerald-400' : 'text-indigo-400'
+                    }
+                >
                     {evidenceCount}
                 </span>
                 /{totalEvidence} bevis
-            </span>
+            </motion.span>
 
             <ChevronDown
                 className={`w-3.5 h-3.5 text-slate-500 transition-transform ${isOpen ? 'rotate-180' : ''}`}
@@ -94,7 +108,6 @@ function InvestigationDrawer({
 
     return (
         <>
-            {/* Backdrop */}
             <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -103,12 +116,12 @@ function InvestigationDrawer({
                 onClick={onClose}
             />
 
-            {/* Drawer */}
             <motion.div
                 ref={drawerRef}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
+                transition={{ type: 'spring', stiffness: 300, damping: 25 }}
                 className="absolute top-0 left-0 right-0 z-30 bg-slate-900 border-b border-slate-700 shadow-2xl max-h-[50vh] overflow-y-auto rounded-b-2xl"
             >
                 <div className="p-4">
@@ -124,7 +137,6 @@ function InvestigationDrawer({
                         </button>
                     </div>
 
-                    {/* Suspects row */}
                     {suspects.length > 0 && (
                         <div className="mb-4">
                             <h4 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2">
@@ -153,20 +165,22 @@ function InvestigationDrawer({
                         </div>
                     )}
 
-                    {/* Collected evidence */}
                     <div>
                         <h4 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2">
                             Bevis funnet
                         </h4>
                         {clueDetails.length === 0 ? (
                             <p className="text-xs text-slate-600 italic py-2">
-                                Ingen bevis samlet inn enda. Klikk på markerte fraser i kildeteksten.
+                                Ingen bevis samlet inn enda. Klikk på markerte fraser i
+                                kildeteksten.
                             </p>
                         ) : (
                             <div className="space-y-1.5">
                                 {clueDetails.map((clue) => (
-                                    <div
+                                    <motion.div
                                         key={clue.id}
+                                        initial={{ opacity: 0, x: -10 }}
+                                        animate={{ opacity: 1, x: 0 }}
                                         className="flex items-start gap-2 p-2 bg-emerald-500/5 rounded-lg border border-emerald-500/15"
                                     >
                                         <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 mt-0.5 flex-shrink-0" />
@@ -178,7 +192,7 @@ function InvestigationDrawer({
                                                 {clue.insight}
                                             </p>
                                         </div>
-                                    </div>
+                                    </motion.div>
                                 ))}
                             </div>
                         )}
@@ -186,6 +200,33 @@ function InvestigationDrawer({
                 </div>
             </motion.div>
         </>
+    );
+}
+
+/** Star rating visual (1-3 stars) */
+function StarRating({ found, total }: { found: number; total: number }) {
+    const pct = total > 0 ? found / total : 0;
+    const stars = pct >= 1 ? 3 : pct > 0.5 ? 2 : 1;
+
+    return (
+        <div className="flex items-center gap-1">
+            {[1, 2, 3].map((i) => (
+                <motion.div
+                    key={i}
+                    initial={{ scale: 0, rotate: -30 }}
+                    animate={{ scale: 1, rotate: 0 }}
+                    transition={{ delay: 0.3 + i * 0.15, type: 'spring', stiffness: 400 }}
+                >
+                    <Star
+                        className={`w-6 h-6 ${
+                            i <= stars
+                                ? 'text-amber-400 fill-amber-400'
+                                : 'text-slate-700 fill-slate-800'
+                        }`}
+                    />
+                </motion.div>
+            ))}
+        </div>
     );
 }
 
@@ -208,6 +249,7 @@ export const DetectiveEngine: React.FC<DetectiveEngineProps> = ({ data }) => {
 
     const [drawerOpen, setDrawerOpen] = useState(false);
     const [activeSourceIndex, setActiveSourceIndex] = useState(0);
+    const [stepTransition, setStepTransition] = useState<string | null>(null);
 
     // Reset active source when step changes
     const stepId = currentStep?.id;
@@ -217,34 +259,100 @@ export const DetectiveEngine: React.FC<DetectiveEngineProps> = ({ data }) => {
         setActiveSourceIndex(0);
     }
 
+    // Step transition animation
+    const handleNextStep = useCallback(() => {
+        if (isLastStep) {
+            nextStep();
+            return;
+        }
+        const nextTitle = data.steps[currentStepIndex + 1]?.title;
+        setStepTransition(nextTitle || '');
+        setTimeout(() => {
+            nextStep();
+            setStepTransition(null);
+        }, 800);
+    }, [isLastStep, currentStepIndex, data.steps, nextStep]);
+
     if (isBriefingVisible && data.briefing) {
         return (
-            <BriefingScreen briefing={data.briefing} onStart={() => setIsBriefingVisible(false)} />
+            <BriefingScreen
+                briefing={data.briefing}
+                onStart={() => setIsBriefingVisible(false)}
+            />
         );
     }
 
     if (state.isCompleted) {
+        const found = state.collectedClues.size;
+        const total = data.status.totalEvidence;
+        const missed = total - found;
+
         return (
-            <div className="flex-1 flex flex-col items-center justify-center p-8 bg-[#0a0c10] text-center space-y-6 min-h-[400px]">
+            <div className="flex-1 flex flex-col items-center justify-center p-6 bg-[#0a0c10] text-center min-h-[400px]">
                 <motion.div
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
-                    className="w-20 h-20 bg-emerald-500/20 rounded-full flex items-center justify-center text-emerald-400 border border-emerald-500/20"
+                    transition={{ type: 'spring', stiffness: 300 }}
+                    className="w-16 h-16 bg-emerald-500/20 rounded-full flex items-center justify-center text-emerald-400 border border-emerald-500/20 mb-4"
                 >
-                    <Search className="w-10 h-10" />
+                    <Search className="w-8 h-8" />
                 </motion.div>
-                <div className="space-y-3">
-                    <h2 className="text-3xl font-display font-bold text-white">
-                        Oppdrag fullført!
-                    </h2>
-                    <p className="text-slate-400 max-w-md mx-auto">
-                        Godt jobbet, detektiv! Du fant{' '}
-                        <span className="text-indigo-400 font-bold">
-                            {state.collectedClues.size}
-                        </span>{' '}
-                        bevis og leverte sluttrapport.
-                    </p>
-                </div>
+
+                <h2 className="text-2xl font-display font-bold text-white mb-2">
+                    Oppdrag fullført!
+                </h2>
+
+                <StarRating found={found} total={total} />
+
+                <p className="text-sm text-slate-400 mt-3 mb-6 max-w-md">
+                    Du fant{' '}
+                    <span className="text-indigo-400 font-bold">
+                        {found} av {total}
+                    </span>{' '}
+                    bevis.
+                </p>
+
+                {state.collectedClueDetails.length > 0 && (
+                    <div className="w-full max-w-md mb-4">
+                        <h3 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2 text-left">
+                            Dine funn
+                        </h3>
+                        <div className="space-y-1.5 max-h-[150px] overflow-y-auto custom-scrollbar">
+                            {state.collectedClueDetails.map((clue, i) => (
+                                <motion.div
+                                    key={clue.id}
+                                    initial={{ opacity: 0, x: -15 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ delay: 0.5 + i * 0.1 }}
+                                    className="flex items-start gap-2 p-2 bg-emerald-500/5 rounded-lg border border-emerald-500/15 text-left"
+                                >
+                                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 mt-0.5 flex-shrink-0" />
+                                    <div className="min-w-0">
+                                        <p className="text-xs font-semibold text-emerald-200">
+                                            "{clue.text}"
+                                        </p>
+                                        <p className="text-[11px] text-slate-400 leading-snug">
+                                            {clue.insight}
+                                        </p>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </div>
+                )}
+
+                {missed > 0 && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 1 }}
+                        className="flex items-center gap-2 text-xs text-amber-400/80 mb-6"
+                    >
+                        <AlertCircle className="w-3.5 h-3.5" />
+                        Du gikk glipp av {missed} bevis - spill igjen for å finne alle!
+                    </motion.div>
+                )}
+
                 <div className="flex gap-3">
                     <button
                         onClick={() => navigate('/oving/detektiv')}
@@ -296,7 +404,7 @@ export const DetectiveEngine: React.FC<DetectiveEngineProps> = ({ data }) => {
                     evidenceCount={state.collectedClues.size}
                     totalEvidence={data.status.totalEvidence}
                     isOpen={drawerOpen}
-                    onToggle={() => setDrawerOpen(!drawerOpen)}
+                    onToggle={() => setDrawerOpen((prev) => !prev)}
                 />
             </header>
 
@@ -332,13 +440,37 @@ export const DetectiveEngine: React.FC<DetectiveEngineProps> = ({ data }) => {
                     )}
                 </AnimatePresence>
 
+                {/* Step transition overlay */}
+                <AnimatePresence>
+                    {stepTransition && (
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            className="absolute inset-0 z-40 bg-[#0a0c10]/95 flex items-center justify-center"
+                        >
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                className="text-center"
+                            >
+                                <span className="text-[10px] font-bold text-indigo-400 uppercase tracking-widest">
+                                    Neste steg
+                                </span>
+                                <h3 className="text-2xl font-display font-bold text-white mt-2">
+                                    {stepTransition}
+                                </h3>
+                            </motion.div>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
+
                 <motion.div
                     key={`${currentStep.id}-${activeSourceIndex}`}
                     initial={{ opacity: 0, y: 12 }}
                     animate={{ opacity: 1, y: 0 }}
                     className="max-w-3xl mx-auto"
                 >
-                    {/* Step description */}
                     {currentStep.content && (
                         <p className="text-sm text-slate-400 mb-4 italic">
                             {currentStep.content}
@@ -369,7 +501,7 @@ export const DetectiveEngine: React.FC<DetectiveEngineProps> = ({ data }) => {
                 </button>
 
                 <button
-                    onClick={nextStep}
+                    onClick={handleNextStep}
                     className="flex items-center gap-1.5 px-5 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg font-bold text-sm transition-all shadow-lg shadow-indigo-500/20"
                 >
                     {isLastStep ? 'Gå til konklusjon' : 'Neste'}

@@ -59,11 +59,11 @@ export const SubjectPage: React.FC = () => {
     });
 
     return (
-        <div className="subject-page max-w-7xl mx-auto px-6 py-12">
-            <div className="flex flex-col md:flex-row md:items-center justify-between mb-12 gap-6">
+        <div className="subject-page max-w-7xl mx-auto px-4 py-6">
+            <div className="flex flex-col md:flex-row md:items-center justify-between mb-6 gap-4">
                 <motion.h1
                     {...motionPresets.slideInLeft}
-                    className="text-5xl font-display font-bold text-text-main"
+                    className="text-3xl font-display font-bold text-text-main"
                 >
                     {subjectData.title}
                 </motion.h1>
