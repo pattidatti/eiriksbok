@@ -22,7 +22,7 @@
       "subjectName": "Historie",
       "topicId": "vikingtiden",
       "year": "750-1066",
-      "readTime": "2-3 timer aktiv læring",
+      "readTime": "2-3 timer",
       "path": "/historie/vikingtiden/vikingtiden-sti",
       "fileRelativePath": "historie/vikingtiden/vikingtiden-sti.json"
     },
@@ -34,7 +34,7 @@
       "subjectName": "Historie",
       "topicId": "middelalderen",
       "year": "1347-1351",
-      "readTime": "15 min aktiv læring",
+      "readTime": "15 min",
       "path": "/historie/middelalderen/svartedauden-sti",
       "fileRelativePath": "historie/middelalderen/svartedauden-sti.json"
     },
@@ -141,8 +141,8 @@
       "subjectId": "norsk",
       "subjectName": "Norsk",
       "topicId": "skrivehjelp",
-      "year": "2024",
-      "readTime": "45 minutter",
+      "year": "2026",
+      "readTime": "45 min",
       "path": "/norsk/skrivehjelp/reflekterende-skriving-sti",
       "fileRelativePath": "norsk/skrivehjelp/reflekterende-skriving-sti.json"
     },
@@ -153,7 +153,7 @@
       "subjectId": "norsk",
       "subjectName": "Norsk",
       "topicId": "skrivehjelp",
-      "year": "2024",
+      "year": "2026",
       "readTime": "1.5–2 timer",
       "path": "/norsk/skrivehjelp/kildeforing-sti",
       "fileRelativePath": "norsk/skrivehjelp/kildeforing-sti.json"
@@ -165,6 +165,7 @@
       "subjectId": "norsk",
       "subjectName": "Norsk",
       "topicId": "analyse",
+      "year": "2026",
       "readTime": "4–6 timer",
       "path": "/norsk/analyse/tekstanalyse-sti",
       "fileRelativePath": "norsk/analyse/tekstanalyse-sti.json"
@@ -176,6 +177,7 @@
       "subjectId": "norsk",
       "subjectName": "Norsk",
       "topicId": "virkemidler",
+      "year": "2026",
       "readTime": "4–5 timer",
       "path": "/norsk/virkemidler/skapende-skriving-sti",
       "fileRelativePath": "norsk/virkemidler/skapende-skriving-sti.json"

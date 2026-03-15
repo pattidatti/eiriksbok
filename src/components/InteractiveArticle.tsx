@@ -274,7 +274,7 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, f
             </div>
 
             {/* Header Section */}
-            <div className="pt-16 pb-4 md:pt-32 md:pb-6 px-6 max-w-5xl mx-auto text-center">
+            <div className="pt-4 pb-4 md:pt-8 md:pb-6 px-6 max-w-5xl mx-auto text-center">
                 <div>
                     {/* Mobile-Only Meta Row */}
                     <div className="md:hidden flex flex-wrap justify-center items-center gap-3 text-xs font-bold text-slate-500 mb-3">

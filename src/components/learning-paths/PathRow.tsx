@@ -38,18 +38,20 @@ export const PathRow = ({ path }: { path: LearningPathMetadata }) => {
                     />
                 </div>
 
-                {/* Line 2: Description + metadata */}
+                {/* Line 2: Description + metadata columns */}
                 <div className="flex items-center gap-3 mt-1 min-w-0">
                     <span className="text-xs text-slate-400 truncate">
                         {path.description}
                     </span>
                     <span className="flex-shrink-0 flex items-center gap-2 ml-auto">
-                        {path.year && (
-                            <span className="text-[11px] text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full">
-                                {path.year}
-                            </span>
-                        )}
-                        <span className="flex items-center gap-1 text-xs text-slate-400">
+                        <span className="min-w-[7rem] text-center text-[11px] text-slate-500">
+                            {path.year && (
+                                <span className="bg-slate-100 px-2 py-0.5 rounded-full">
+                                    {path.year}
+                                </span>
+                            )}
+                        </span>
+                        <span className="min-w-[4.5rem] text-right flex items-center justify-end gap-1 text-xs text-slate-400">
                             <Clock size={11} />
                             {path.readTime || '2-3 timer'}
                         </span>

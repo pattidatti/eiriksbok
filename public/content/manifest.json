@@ -613,7 +613,7 @@
           "id": "sprakhistorie",
           "title": "Språkhistorie",
           "description": "Fra urgermansk til moderne norsk — språkets lange reise.",
-          "image": "/images/topics/sprakhistorie_hero.webp",
+          "image": "/images/topics/germanske_sprak_hero.webp",
           "lessons": [
             {
               "id": "germanske-sprak",
@@ -3396,7 +3396,7 @@
                   "id": "hellige-tekster",
                   "title": "Bibelen",
                   "description": "Kristendommens hellige skrift.",
-                  "image": "https://images.unsplash.com/photo-1490902931801-d6f80ca94fe4?auto=format&fit=crop&q=80",
+                  "image": "/images/krle/religion/kristendom_bible.webp",
                   "tags": [
                     "kristendom",
                     "hellige-tekster",
@@ -3422,7 +3422,7 @@
                   "id": "frelse",
                   "title": "Frelse og nåde",
                   "description": "Frelse gjennom tro på Jesus.",
-                  "image": "https://images.unsplash.com/photo-1490902931801-d6f80ca94fe4?auto=format&fit=crop&q=80",
+                  "image": "/images/krle/religion/kristendom_frelse.webp",
                   "tags": [
                     "kristendom",
                     "frelse",
@@ -3507,7 +3507,7 @@
                   "id": "hellige-tekster",
                   "title": "Koranen",
                   "description": "Islams hellige bok.",
-                  "image": "https://images.unsplash.com/photo-1585036156171-384164a8c675?auto=format&fit=crop&q=80",
+                  "image": "/images/krle/religion/islam_quran.webp",
                   "tags": [
                     "islam",
                     "hellige-tekster",
@@ -3533,7 +3533,7 @@
                   "id": "frelse",
                   "title": "Dommens dag",
                   "description": "Regnskapets time og livet etter døden.",
-                  "image": "https://images.unsplash.com/photo-1585036156171-384164a8c675?auto=format&fit=crop&q=80",
+                  "image": "/images/krle/religion/islam_dommens_dag.webp",
                   "tags": [
                     "islam",
                     "frelse",
@@ -3618,7 +3618,7 @@
                   "id": "hellige-tekster",
                   "title": "Tripitaka",
                   "description": "De tre kurver - buddhismens hellige skrifter.",
-                  "image": "https://images.unsplash.com/photo-1606293926075-69a00febf280?auto=format&fit=crop&q=80",
+                  "image": "/images/krle/religion/buddhisme_statue.webp",
                   "tags": [
                     "buddhisme",
                     "hellige-tekster",
@@ -3644,7 +3644,7 @@
                   "id": "frelse",
                   "title": "Nirvana",
                   "description": "Frigjøring fra lidelse og gjenfødelse.",
-                  "image": "https://images.unsplash.com/photo-1606293926075-69a00febf280?auto=format&fit=crop&q=80",
+                  "image": "/images/krle/religion/buddhisme_nirvana.webp",
                   "tags": [
                     "buddhisme",
                     "frelse",
@@ -3678,7 +3678,7 @@
                   "id": "sentrale-trekk",
                   "title": "Sentrale trekk",
                   "description": "Kjernen i jødedommen: Pakten, Toraen og livet her og nå.",
-                  "image": "/images/krle/religion/jodedom_hero.jpg",
+                  "image": "/images/krle/religion/jodedom_menora.webp",
                   "tags": [
                     "jodedom",
                     "sentrale_trekk"
@@ -3729,7 +3729,7 @@
                   "id": "hellige-tekster",
                   "title": "Tanakh",
                   "description": "Den hebraiske bibelen.",
-                  "image": "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&q=80",
+                  "image": "/images/krle/religion/jodedom_tanakh.webp",
                   "tags": [
                     "jodedom",
                     "hellige-tekster",
@@ -3853,7 +3853,7 @@
                   "id": "gudsbilde",
                   "title": "Brahman og guder",
                   "description": "én guddommelig kraft i mange former.",
-                  "image": "/images/krle/religion/hinduisme_hero.jpg",
+                  "image": "/images/krle/religion/hinduisme_brahman.webp",
                   "tags": [
                     "hinduisme",
                     "gudsbilde",
@@ -3866,7 +3866,7 @@
                   "id": "frelse",
                   "title": "Moksha",
                   "description": "Frigjøring fra samsara.",
-                  "image": "https://images.unsplash.com/photo-1621827979802-6d778e170a64?auto=format&fit=crop&q=80",
+                  "image": "/images/krle/religion/hinduisme_moksha.webp",
                   "tags": [
                     "hinduisme",
                     "frelse",
@@ -4345,7 +4345,7 @@
               "id": "sokrates",
               "title": "Sokrates",
               "description": "Mannen som aldri skrev noe, men endret alt.",
-              "image": "/images/filosofi/sokrates_hero.png",
+              "image": "/images/filosofi/sokrates_hero.webp",
               "tags": [
                 "filosofi",
                 "sokrates",
@@ -4358,7 +4358,7 @@
               "id": "platon",
               "title": "Platon",
               "description": "Idélæren og skyggene i hulen.",
-              "image": "/images/filosofi/platon_hero.png",
+              "image": "/images/filosofi/platon_hero.webp",
               "tags": [
                 "filosofi",
                 "platon",
@@ -4450,7 +4450,7 @@
               "id": "kant",
               "title": "Immanuel Kant",
               "description": "Det kategoriske imperativ og fornuftens grenser.",
-              "image": "/images/filosofi/kant_hero.png",
+              "image": "/images/filosofi/kant_hero.webp",
               "tags": [
                 "filosofi",
                 "etikk",
@@ -4476,7 +4476,7 @@
               "id": "nietzsche",
               "title": "Friedrich Nietzsche",
               "description": "Gud er død og overmennesket.",
-              "image": "/images/filosofi/nietzsche_hero.png",
+              "image": "/images/filosofi/nietzsche_hero.webp",
               "tags": [
                 "filosofi",
                 "nihilisme",
@@ -4528,7 +4528,7 @@
               "id": "beauvoir",
               "title": "Simone de Beauvoir",
               "description": "Man fødes ikke som kvinne, man blir det.",
-              "image": "/images/filosofi/beauvoir_hero.png",
+              "image": "/images/filosofi/beauvoir_hero.webp",
               "tags": [
                 "filosofi",
                 "feminisme",

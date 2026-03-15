@@ -1,8 +1,8 @@
-import { useState, useEffect, useCallback, useMemo } from 'react';
+import { useMemo } from 'react';
+import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
 import type { PhilosophyProfile, PhilosophyAxis, Achievement } from '../data/philosophy/types';
 import { QUEST_REGISTRY } from '../data/philosophy/questRegistry';
-
-const PROFILE_KEY = 'odyssey_philosophy_profile';
 
 const INITIAL_PROFILE: PhilosophyProfile = {
     xp: 0,
@@ -76,116 +76,121 @@ const ACHIEVEMENTS: Achievement[] = [
     },
 ];
 
-function migrateProfile(stored: PhilosophyProfile): PhilosophyProfile {
-    const alignment = { ...INITIAL_PROFILE.alignment };
-    if (stored.alignment) {
-        for (const key of Object.keys(alignment) as PhilosophyAxis[]) {
-            if (key in stored.alignment) {
-                alignment[key] = stored.alignment[key];
-            }
-        }
-    }
-    return { ...stored, alignment };
+const validAxes = Object.keys(INITIAL_PROFILE.alignment) as PhilosophyAxis[];
+
+interface ProfileStore {
+    profile: PhilosophyProfile;
+    isLoaded: boolean;
+    addXp: (amount: number) => void;
+    updateAlignment: (changes: Partial<Record<string, number>>) => void;
+    completeQuest: (questId: string, xpReward: number) => void;
+    resetProfile: () => void;
 }
 
-export const usePhilosophyProfile = () => {
-    const [profile, setProfile] = useState<PhilosophyProfile>(INITIAL_PROFILE);
-    const [isLoaded, setIsLoaded] = useState(false);
+const useProfileStore = create<ProfileStore>()(
+    persist(
+        (set) => ({
+            profile: INITIAL_PROFILE,
+            isLoaded: true,
 
-    useEffect(() => {
-        const stored = localStorage.getItem(PROFILE_KEY);
-        if (stored) {
-            try {
-                const parsed = JSON.parse(stored);
-                setProfile(migrateProfile(parsed));
-            } catch (e) {
-                console.error('Failed to parse philosophy profile', e);
-            }
-        }
-        setIsLoaded(true);
-    }, []);
+            addXp: (amount: number) =>
+                set((state) => {
+                    const newXp = state.profile.xp + amount;
+                    return {
+                        profile: {
+                            ...state.profile,
+                            xp: newXp,
+                            level: Math.floor(newXp / XP_PER_LEVEL) + 1,
+                            lastActive: Date.now(),
+                        },
+                    };
+                }),
 
-    const saveProfile = useCallback((newProfile: PhilosophyProfile) => {
-        setProfile(newProfile);
-        localStorage.setItem(PROFILE_KEY, JSON.stringify(newProfile));
-    }, []);
+            updateAlignment: (changes: Partial<Record<string, number>>) =>
+                set((state) => {
+                    const newAlignment = { ...state.profile.alignment };
+                    for (const [axis, change] of Object.entries(changes)) {
+                        if (!change) continue;
+                        if (validAxes.includes(axis as PhilosophyAxis)) {
+                            newAlignment[axis as PhilosophyAxis] = Math.max(
+                                0,
+                                Math.min(100, (newAlignment[axis as PhilosophyAxis] || 50) + change)
+                            );
+                        }
+                    }
+                    return {
+                        profile: {
+                            ...state.profile,
+                            alignment: newAlignment,
+                            lastActive: Date.now(),
+                        },
+                    };
+                }),
 
-    const addXp = useCallback((amount: number) => {
-        setProfile(prev => {
-            const newXp = prev.xp + amount;
-            const newLevel = Math.floor(newXp / XP_PER_LEVEL) + 1;
-            const updatedProfile = {
-                ...prev,
-                xp: newXp,
-                level: newLevel,
-                lastActive: Date.now()
-            };
-            localStorage.setItem(PROFILE_KEY, JSON.stringify(updatedProfile));
-            return updatedProfile;
-        });
-    }, []);
+            completeQuest: (questId: string, xpReward: number) =>
+                set((state) => {
+                    if (state.profile.completedQuests.includes(questId)) return state;
 
-    const updateAlignment = useCallback((changes: Partial<Record<string, number>>) => {
-        setProfile(prev => {
-            const newAlignment = { ...prev.alignment };
-            const validAxes = Object.keys(INITIAL_PROFILE.alignment) as PhilosophyAxis[];
+                    const newXp = state.profile.xp + xpReward;
+                    const newCompleted = [...state.profile.completedQuests, questId];
+                    const tempProfile: PhilosophyProfile = {
+                        ...state.profile,
+                        completedQuests: newCompleted,
+                        xp: newXp,
+                        level: Math.floor(newXp / XP_PER_LEVEL) + 1,
+                    };
+                    const earnedIds = ACHIEVEMENTS.filter((a) => a.condition(tempProfile)).map((a) => a.id);
 
-            for (const [axis, change] of Object.entries(changes)) {
-                if (!change) continue;
-                if (validAxes.includes(axis as PhilosophyAxis)) {
-                    newAlignment[axis as PhilosophyAxis] = Math.max(0, Math.min(100, (newAlignment[axis as PhilosophyAxis] || 50) + change));
+                    return {
+                        profile: {
+                            ...tempProfile,
+                            achievements: earnedIds,
+                            lastActive: Date.now(),
+                        },
+                    };
+                }),
+
+            resetProfile: () => set({ profile: INITIAL_PROFILE }),
+        }),
+        {
+            name: 'odyssey_philosophy_profile',
+            // Migrate old localStorage key if present
+            onRehydrateStorage: () => (state) => {
+                if (!state) return;
+                // Ensure all alignment axes exist (migration)
+                const alignment = { ...INITIAL_PROFILE.alignment };
+                if (state.profile.alignment) {
+                    for (const key of validAxes) {
+                        if (key in state.profile.alignment) {
+                            alignment[key] = state.profile.alignment[key];
+                        }
+                    }
                 }
-            }
+                state.profile = { ...state.profile, alignment };
+            },
+        }
+    )
+);
 
-            const updatedProfile = {
-                ...prev,
-                alignment: newAlignment,
-                lastActive: Date.now()
-            };
-            localStorage.setItem(PROFILE_KEY, JSON.stringify(updatedProfile));
-            return updatedProfile;
-        });
-    }, []);
+export const usePhilosophyProfile = () => {
+    const { profile, isLoaded, addXp, updateAlignment, completeQuest, resetProfile } =
+        useProfileStore();
 
-    const completeQuest = useCallback((questId: string, xpReward: number) => {
-        setProfile(prev => {
-            if (prev.completedQuests.includes(questId)) return prev;
-
-            const newXp = prev.xp + xpReward;
-            const newLevel = Math.floor(newXp / XP_PER_LEVEL) + 1;
-            const newCompleted = [...prev.completedQuests, questId];
-
-            const tempProfile: PhilosophyProfile = {
-                ...prev,
-                completedQuests: newCompleted,
-                xp: newXp,
-                level: newLevel,
-            };
-            const earnedAchievements = ACHIEVEMENTS
-                .filter(a => a.condition(tempProfile))
-                .map(a => a.id);
-
-            const updatedProfile = {
-                ...tempProfile,
-                achievements: earnedAchievements,
-                lastActive: Date.now()
-            };
-            localStorage.setItem(PROFILE_KEY, JSON.stringify(updatedProfile));
-            return updatedProfile;
-        });
-    }, []);
-
-    const earnedAchievements = useMemo(() => {
-        return ACHIEVEMENTS.filter(a => a.condition(profile));
-    }, [profile]);
+    const earnedAchievements = useMemo(
+        () => ACHIEVEMENTS.filter((a) => a.condition(profile)),
+        [profile]
+    );
 
     const progress = useMemo(() => {
-        const primaryQuests = Object.values(QUEST_REGISTRY).filter(q => !q.isSecondary);
-        const completed = primaryQuests.filter(q => profile.completedQuests.includes(q.id));
+        const primaryQuests = Object.values(QUEST_REGISTRY).filter((q) => !q.isSecondary);
+        const completed = primaryQuests.filter((q) => profile.completedQuests.includes(q.id));
         return {
             completed: completed.length,
             total: primaryQuests.length,
-            percent: primaryQuests.length > 0 ? Math.round((completed.length / primaryQuests.length) * 100) : 0,
+            percent:
+                primaryQuests.length > 0
+                    ? Math.round((completed.length / primaryQuests.length) * 100)
+                    : 0,
         };
     }, [profile]);
 
@@ -195,7 +200,7 @@ export const usePhilosophyProfile = () => {
         addXp,
         updateAlignment,
         completeQuest,
-        resetProfile: () => saveProfile(INITIAL_PROFILE),
+        resetProfile,
         earnedAchievements,
         progress,
         ACHIEVEMENTS,

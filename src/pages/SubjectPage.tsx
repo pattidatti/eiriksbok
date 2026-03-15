@@ -4,17 +4,17 @@ import { useManifest } from '../hooks/useManifest';
 import type { ManifestLesson } from '../types';
 import { motion } from 'framer-motion';
 import { motionPresets } from '../styles/motion-presets';
-import { Timeline } from '../components/Timeline';
+
 import { TopicView } from '../components/views/TopicView';
 import { ExplorerView } from '../components/views/ExplorerView';
-import { LayoutGrid, List, Search } from 'lucide-react';
+import { LayoutGrid, Search } from 'lucide-react';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { PageSkeleton } from '../components/Skeleton';
 
 export const SubjectPage: React.FC = () => {
     const { subjectId } = useParams<{ subjectId: string }>();
     const { data: manifest, isLoading } = useManifest();
-    const [viewMode, setViewMode] = useState<'hierarchical' | 'timeline' | 'explorer'>('hierarchical');
+    const [viewMode, setViewMode] = useState<'hierarchical' | 'explorer'>('hierarchical');
 
     const subjectData = manifest?.subjects.find((s: any) => s.id === subjectId);
 
@@ -87,23 +87,13 @@ export const SubjectPage: React.FC = () => {
                             }`}
                     >
                         <Search className="w-4 h-4 mr-2" />
-                        Utforsker
-                    </button>
-                    <button
-                        onClick={() => setViewMode('timeline')}
-                        className={`flex items-center px-4 py-2 rounded-md font-sans text-sm font-medium transition-all whitespace-nowrap ${viewMode === 'timeline'
-                            ? 'bg-slate-100 text-slate-900'
-                            : 'text-slate-500 hover:text-slate-700 hover:bg-slate-50'
-                            }`}
-                    >
-                        <List className="w-4 h-4 mr-2" />
-                        Tidslinje
+                        Alle artikler
                     </button>
                 </div>
             </div>
 
             <div className="min-h-[500px]">
-                {viewMode === 'timeline' && <Timeline lessons={allLessons} />}
+
                 {viewMode === 'hierarchical' && <TopicView subjectData={subjectData} subjectId={subjectId || ''} />}
                 {viewMode === 'explorer' && <ExplorerView lessons={allLessons} />}
             </div>
