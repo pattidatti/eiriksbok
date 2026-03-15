@@ -342,7 +342,7 @@
             "id": "intro_prolog",
             "text": "Berlin, 1945. Krigen er over - men freden er ikke kommet. Fra asken av Den andre verdenskrig reiser det seg to giganter: USA og Sovjetunionen. De har delt verden mellom seg, og ingen områder er lenger nøytrale. Du er vitne til historiens mest nervepirrende maktkamp - en krig som aldri ble varm, men som aldri ble kald.",
             "speaker": "Forteller",
-            "backgroundImage": "/images/chronos/kald-krig/hero.webp",
+            "backgroundImage": "/images/chronos/kald-krig/propaganda_posters.webp",
             "discoveryEvent": {
                 "title": "Hva er Den kalde krigen?",
                 "fact": "Den kalde krigen (1947-1991) var en politisk og ideologisk konflikt mellom USA og Sovjetunionen. Den kalles 'kald' fordi de to supermaktene aldri kjempet direkte mot hverandre - i stedet brukte de proxykriger, atomtrusler, spionasje og propaganda.",
@@ -1217,7 +1217,7 @@
                     }
                 }
             ],
-            "backgroundImage": "/images/chronos/kald-krig/nasa_respons.webp"
+            "backgroundImage": "/images/chronos/kald-krig/moon_landing_tv.webp"
         },
         "sputnik_panikk": {
             "id": "sputnik_panikk",
@@ -1255,7 +1255,7 @@
             "id": "berlin_mur_forb",
             "text": "Natten til 13. august 1961. Mens Vest-Berlin sover, begynner østtyske soldater å rulle ut piggtråd langs grensen. Om morgenen er 3,5 millioner østeuropeere avskåret fra et liv i vest. Familier er skilt. I de neste 28 årene blir Berlinmuren det fremste symbolet på den kalde krigen.",
             "speaker": "Forteller",
-            "backgroundImage": "/images/chronos/kald-krig/berlin_mur_ost.webp",
+            "backgroundImage": "/images/chronos/kald-krig/duck_and_cover.webp",
             "discoveryEvent": {
                 "title": "Berlinmuren - faktaene",
                 "fact": "Berlinmuren ble reist natten til 13. august 1961. Den var 155 km lang med 302 vakttårn. Fra 1961 til 1989 ble over 140 mennesker skutt og drept mens de forsøkte å flykte til vest. Over 5 000 lyktes med flukten. Muren falt 9. november 1989.",
@@ -1330,7 +1330,7 @@
                 }
             },
             "choices": [],
-            "backgroundImage": "/images/chronos/kald-krig/berlin_mur_ost.webp"
+            "backgroundImage": "/images/chronos/kald-krig/duck_and_cover.webp"
         },
         "friheten_vest": {
             "id": "friheten_vest",
@@ -1367,7 +1367,7 @@
                     }
                 }
             ],
-            "backgroundImage": "/images/chronos/kald-krig/west_berlin_street.webp"
+            "backgroundImage": "/images/chronos/kald-krig/berlin_culture_80s.webp"
         },
         "fengslet_ost": {
             "id": "fengslet_ost",
@@ -3903,7 +3903,7 @@
                     }
                 }
             ],
-            "backgroundImage": "/images/chronos/kald-krig/stanislav_petrov.webp"
+            "backgroundImage": "/images/chronos/kald-krig/doomsday_clock.webp"
         },
         "event_spion_avsloert": {
             "id": "event_spion_avsloert",
@@ -4039,7 +4039,7 @@
                     }
                 }
             ],
-            "backgroundImage": "/images/chronos/kald-krig/fredsbevegelsen.webp"
+            "backgroundImage": "/images/chronos/kald-krig/peace_rally_1980s.webp"
         },
         "game_over_atomkrig": {
             "id": "game_over_atomkrig",

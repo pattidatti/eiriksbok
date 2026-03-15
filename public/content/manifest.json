@@ -37,8 +37,8 @@
                 "substantiv",
                 "ordklasser"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-09T15:25:34+01:00",
+              "lastUpdated": "2025-12-09T15:25:34+01:00"
             },
             {
               "id": "verb",
@@ -50,8 +50,8 @@
                 "verb",
                 "ordklasser"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-09T15:25:34+01:00",
+              "lastUpdated": "2025-12-09T15:25:34+01:00"
             },
             {
               "id": "adjektiv",
@@ -63,8 +63,8 @@
                 "adjektiv",
                 "ordklasser"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-09T15:25:34+01:00",
+              "lastUpdated": "2025-12-09T15:25:34+01:00"
             },
             {
               "id": "pronomen",
@@ -76,8 +76,8 @@
                 "pronomen",
                 "ordklasser"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-09T15:25:34+01:00",
+              "lastUpdated": "2025-12-09T15:25:34+01:00"
             },
             {
               "id": "preposisjoner",
@@ -89,8 +89,8 @@
                 "preposisjoner",
                 "ordklasser"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-09T15:25:34+01:00",
+              "lastUpdated": "2025-12-09T15:25:34+01:00"
             },
             {
               "id": "adverb",
@@ -102,8 +102,8 @@
                 "adverb",
                 "ordklasser"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-09T15:25:34+01:00",
+              "lastUpdated": "2025-12-09T15:25:34+01:00"
             },
             {
               "id": "konjunksjoner-subjunksjoner",
@@ -116,8 +116,8 @@
                 "subjunksjoner",
                 "ordklasser"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-09T15:25:34+01:00",
+              "lastUpdated": "2025-12-09T15:25:34+01:00"
             }
           ]
         },
@@ -136,8 +136,8 @@
                 "skjønnlitteratur",
                 "fortelling"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-11-27T18:40:30+01:00",
+              "lastUpdated": "2025-12-03T19:18:01+01:00"
             }
           ]
         },
@@ -158,8 +158,8 @@
                 "subjekt",
                 "verbal"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-09T15:25:34+01:00",
+              "lastUpdated": "2025-12-09T15:25:34+01:00"
             },
             {
               "id": "niva-2-utvidet",
@@ -172,8 +172,8 @@
                 "objekt",
                 "adverbial"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-09T15:25:34+01:00",
+              "lastUpdated": "2025-12-09T15:25:34+01:00"
             },
             {
               "id": "niva-3-v2-regelen",
@@ -186,8 +186,8 @@
                 "v2-regelen",
                 "inversjon"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-09T15:25:34+01:00",
+              "lastUpdated": "2025-12-09T15:25:34+01:00"
             },
             {
               "id": "niva-4-leddsetninger",
@@ -200,8 +200,8 @@
                 "leddsetninger",
                 "ikke"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-09T15:25:34+01:00",
+              "lastUpdated": "2025-12-09T15:25:34+01:00"
             }
           ]
         },
@@ -222,8 +222,8 @@
                 "korthistorie",
                 "novelle"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-11-30T18:12:18+01:00",
+              "lastUpdated": "2025-12-03T22:36:24+01:00"
             },
             {
               "id": "eventyr",
@@ -235,8 +235,8 @@
                 "eventyr",
                 "folkediktning"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-02T09:42:14+01:00",
+              "lastUpdated": "2025-12-03T22:36:24+01:00"
             },
             {
               "id": "roman",
@@ -249,8 +249,8 @@
                 "bok",
                 "roman"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-11-30T18:12:18+01:00",
+              "lastUpdated": "2025-12-03T22:36:24+01:00"
             },
             {
               "id": "dikt",
@@ -263,8 +263,8 @@
                 "poesi",
                 "dikt"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-11-30T18:12:18+01:00",
+              "lastUpdated": "2025-12-03T22:36:24+01:00"
             },
             {
               "id": "artikkel",
@@ -291,8 +291,8 @@
                 "argumentasjon",
                 "debattinnlegg"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-11-30T18:12:18+01:00",
+              "lastUpdated": "2025-12-03T22:36:24+01:00"
             },
             {
               "id": "kommentar",
@@ -305,8 +305,8 @@
                 "analyse",
                 "kommentar"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-02T20:16:56+01:00",
+              "lastUpdated": "2025-12-03T22:36:24+01:00"
             },
             {
               "id": "reflekterende-tekst",
@@ -317,8 +317,8 @@
                 "sakprosa",
                 "refleksjon"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2026-02-06T11:55:26+01:00",
+              "lastUpdated": "2026-02-06T11:55:26+01:00"
             }
           ]
         },
@@ -347,8 +347,8 @@
                 "språk",
                 "kommunikasjon"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-11-30T20:30:54+01:00",
+              "lastUpdated": "2025-12-03T19:18:01+01:00"
             }
           ]
         },
@@ -376,8 +376,8 @@
                 "tid"
               ],
               "image": "/images/lessons/norsk/virkemidler/tid-hero.png",
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2026-01-27T09:16:58+01:00",
+              "lastUpdated": "2026-01-27T11:06:46+01:00"
             },
             {
               "id": "bildesprak-og-effekter",
@@ -388,8 +388,8 @@
                 "bilder"
               ],
               "image": "/images/lessons/norsk/virkemidler/bilder-hero.png",
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2026-01-27T09:16:58+01:00",
+              "lastUpdated": "2026-01-27T11:06:46+01:00"
             },
             {
               "id": "synsvinkel-og-stemme",
@@ -400,8 +400,8 @@
                 "synsvinkel"
               ],
               "image": "/images/lessons/norsk/virkemidler/synsvinkel-hero.png",
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2026-01-27T09:16:58+01:00",
+              "lastUpdated": "2026-01-27T11:06:46+01:00"
             }
           ]
         },
@@ -437,8 +437,8 @@
                 "tema",
                 "budskap"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2026-02-05T10:32:12+01:00",
+              "lastUpdated": "2026-02-16T10:27:17+01:00"
             },
             {
               "id": "analyse-novelle",
@@ -449,8 +449,8 @@
                 "analyse",
                 "novelle"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2026-02-02T15:09:02+01:00",
+              "lastUpdated": "2026-02-13T20:03:29+01:00"
             },
             {
               "id": "analyse-eventyr",
@@ -461,8 +461,8 @@
                 "analyse",
                 "eventyr"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2026-02-02T15:09:02+01:00",
+              "lastUpdated": "2026-02-13T20:03:29+01:00"
             },
             {
               "id": "analyse-dikt",
@@ -473,8 +473,8 @@
                 "analyse",
                 "dikt"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2026-02-02T15:09:02+01:00",
+              "lastUpdated": "2026-02-02T15:09:02+01:00"
             },
             {
               "id": "analyse-roman",
@@ -485,8 +485,8 @@
                 "analyse",
                 "roman"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2026-02-02T15:09:02+01:00",
+              "lastUpdated": "2026-02-13T20:03:29+01:00"
             },
             {
               "id": "analyse-fagartikkel",
@@ -497,8 +497,8 @@
                 "analyse",
                 "fagartikkel"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2026-02-02T15:09:02+01:00",
+              "lastUpdated": "2026-02-13T20:03:29+01:00"
             },
             {
               "id": "analyse-debattinnlegg",
@@ -509,8 +509,8 @@
                 "analyse",
                 "debatt"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2026-02-02T15:09:02+01:00",
+              "lastUpdated": "2026-02-13T20:03:29+01:00"
             },
             {
               "id": "analyse-kommentar",
@@ -521,8 +521,8 @@
                 "analyse",
                 "kommentar"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2026-02-02T15:09:02+01:00",
+              "lastUpdated": "2026-02-13T20:03:29+01:00"
             }
           ]
         },
@@ -567,52 +567,52 @@
               "title": "Nasjonalromantikken",
               "description": "Da Norge fant sin sjel: Bønder, natur og eventyr.",
               "image": "https://upload.wikimedia.org/wikipedia/commons/e/e3/Brudeferden_by_Adolph_Tidemand_and_Hans_Gude.jpg",
-              "createdDate": "2026-02-25T14:24:15+01:00",
+              "createdDate": "2025-11-30T22:30:55+01:00",
               "tags": [
                 "litteraturhistorie",
                 "nasjonsbygging",
                 "eventyr"
               ],
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "lastUpdated": "2025-12-03T22:36:24+01:00"
             },
             {
               "id": "realismen",
               "title": "Realismen",
               "description": "Sannheten skal frem: Samfunnskritikk og problemer under debatt.",
               "image": "https://images.unsplash.com/photo-1712687948350-9906073eb5f7?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&w=600",
-              "createdDate": "2026-02-25T14:24:15+01:00",
+              "createdDate": "2025-11-30T22:30:55+01:00",
               "tags": [
                 "litteraturhistorie",
                 "ibsen",
                 "samfunnskritikk"
               ],
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "lastUpdated": "2025-12-03T22:36:24+01:00"
             },
             {
               "id": "ny-romantikken",
               "title": "Nyromantikken",
               "description": "Følelser og mystikk: Det ubevisste sjeleliv.",
               "image": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80",
-              "createdDate": "2026-02-25T14:24:15+01:00",
+              "createdDate": "2025-11-30T22:30:55+01:00",
               "tags": [
                 "litteraturhistorie",
                 "hamsun",
                 "sult"
               ],
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "lastUpdated": "2026-01-06T08:42:59+01:00"
             },
             {
               "id": "ny-realismen",
               "title": "Nyrealismen",
               "description": "Etikk og historie: Vanlige folk og store valg.",
               "image": "https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&q=80",
-              "createdDate": "2026-02-25T14:24:15+01:00",
+              "createdDate": "2025-11-30T22:30:55+01:00",
               "tags": [
                 "litteraturhistorie",
                 "undset",
                 "historie"
               ],
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "lastUpdated": "2025-12-03T22:36:24+01:00"
             }
           ]
         },
@@ -671,8 +671,8 @@
                 "fortelling",
                 "tips"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2026-01-19T09:39:31+01:00",
+              "lastUpdated": "2026-02-02T10:29:59+01:00"
             },
             {
               "id": "hvordan-skrive-reflekterende",
@@ -684,8 +684,8 @@
                 "refleksjon",
                 "norsk"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2026-01-20T09:21:05+01:00",
+              "lastUpdated": "2026-01-20T09:21:05+01:00"
             },
             {
               "id": "hvordan-drofte",
@@ -711,8 +711,8 @@
                 "sakprosa",
                 "tips"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2026-01-19T13:47:47+01:00",
+              "lastUpdated": "2026-01-19T13:52:26+01:00"
             },
             {
               "id": "hvordan-fore-kilder",
@@ -724,7 +724,7 @@
                 "kilder",
                 "apa7"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
+              "createdDate": "2026-01-15T12:17:18+01:00",
               "lastUpdated": "2026-03-09T14:10:48+01:00"
             },
             {
@@ -736,8 +736,8 @@
                 "skrivehjelp",
                 "novelle"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-02T09:42:14+01:00",
+              "lastUpdated": "2026-01-19T09:39:31+01:00"
             },
             {
               "id": "hvordan-skrive-eventyr",
@@ -748,8 +748,8 @@
                 "skrivehjelp",
                 "eventyr"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-02T09:42:14+01:00",
+              "lastUpdated": "2025-12-03T22:36:24+01:00"
             },
             {
               "id": "hvordan-skrive-dikt",
@@ -760,8 +760,8 @@
                 "skrivehjelp",
                 "dikt"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-02T09:42:14+01:00",
+              "lastUpdated": "2026-01-12T14:36:29+01:00"
             },
             {
               "id": "hvordan-skrive-roman",
@@ -772,8 +772,8 @@
                 "skrivehjelp",
                 "roman"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-02T09:42:14+01:00",
+              "lastUpdated": "2025-12-03T22:36:24+01:00"
             },
             {
               "id": "7-vanlige-plot",
@@ -785,8 +785,8 @@
                 "plot",
                 "fortelleteknikk"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-02T15:29:37+01:00",
+              "lastUpdated": "2025-12-03T22:36:24+01:00"
             },
             {
               "id": "hvordan-skrive-dialog",
@@ -798,7 +798,7 @@
                 "dialog",
                 "formatering"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
+              "createdDate": "2026-02-02T09:50:15+01:00",
               "lastUpdated": "2026-03-11T10:12:54+01:00"
             },
             {
@@ -811,8 +811,8 @@
                 "karakterer",
                 "fortelling"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2026-02-02T13:55:57+01:00",
+              "lastUpdated": "2026-02-02T13:55:57+01:00"
             },
             {
               "id": "hvordan-lage-kortfilm",
@@ -854,8 +854,8 @@
                 "produksjon",
                 "systemer"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-16T11:49:04+01:00",
+              "lastUpdated": "2026-01-14T10:21:48+01:00"
             },
             {
               "id": "pengesystem-vs-naturalhandel",
@@ -867,8 +867,8 @@
                 "penger",
                 "historie"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2026-01-14T10:21:48+01:00",
+              "lastUpdated": "2026-01-14T10:21:48+01:00"
             },
             {
               "id": "arbeidsspesialisering",
@@ -880,8 +880,8 @@
                 "produksjon",
                 "spesialisering"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2026-01-14T10:21:48+01:00",
+              "lastUpdated": "2026-01-14T10:21:48+01:00"
             },
             {
               "id": "inflasjon-og-rente",
@@ -894,8 +894,8 @@
                 "penger",
                 "rente"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-03T10:17:41+01:00",
+              "lastUpdated": "2026-01-14T10:21:48+01:00"
             },
             {
               "id": "finanskriser",
@@ -907,8 +907,8 @@
                 "krise",
                 "syklus"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-03T14:46:45+01:00",
+              "lastUpdated": "2026-01-18T23:13:44+01:00"
             }
           ]
         },
@@ -928,8 +928,8 @@
                 "befolkning",
                 "historie"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2026-01-14T10:21:48+01:00",
+              "lastUpdated": "2026-01-15T09:12:52+01:00"
             },
             {
               "id": "migrasjon-push-pull",
@@ -941,8 +941,8 @@
                 "migrasjon",
                 "samfunn"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2026-01-14T10:21:48+01:00",
+              "lastUpdated": "2026-01-15T09:12:52+01:00"
             },
             {
               "id": "malthus-vs-boserup",
@@ -954,8 +954,8 @@
                 "filosofi",
                 "innovasjon"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2026-01-14T10:21:48+01:00",
+              "lastUpdated": "2026-01-15T09:12:52+01:00"
             },
             {
               "id": "fattigdom",
@@ -967,8 +967,8 @@
                 "demografi",
                 "samfunn"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2026-01-14T10:21:48+01:00",
+              "lastUpdated": "2026-01-15T10:00:09+01:00"
             },
             {
               "id": "urbanisering",
@@ -980,8 +980,8 @@
                 "byutvikling",
                 "historie"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2026-01-14T10:21:48+01:00",
+              "lastUpdated": "2026-01-14T10:21:48+01:00"
             },
             {
               "id": "teknologi-helse",
@@ -993,8 +993,8 @@
                 "teknologi",
                 "vitenskap"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2026-01-14T10:21:48+01:00",
+              "lastUpdated": "2026-01-14T12:45:28+01:00"
             },
             {
               "id": "finland-levekar",
@@ -1006,8 +1006,8 @@
                 "finland",
                 "levekår"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2026-01-15T12:06:24+01:00",
+              "lastUpdated": "2026-01-15T12:50:06+01:00"
             },
             {
               "id": "intro",
@@ -1017,8 +1017,8 @@
                 "demografi",
                 "befolkning"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00",
+              "createdDate": "2025-12-21T13:37:14+01:00",
+              "lastUpdated": "2025-12-23T11:47:37+01:00",
               "image": "/images/lessons/demografi/demografi_overgang_hero.png"
             }
           ]
@@ -1048,8 +1048,8 @@
                 "sosial-kontrakt",
                 "weber"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T23:17:57+01:00",
+              "lastUpdated": "2025-12-22T23:53:21+01:00"
             },
             {
               "id": "antikken-visjoner",
@@ -1062,8 +1062,8 @@
                 "athen",
                 "sparta"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T23:17:57+01:00",
+              "lastUpdated": "2025-12-22T23:53:21+01:00"
             },
             {
               "id": "monarkiet",
@@ -1075,8 +1075,8 @@
                 "kongedømme",
                 "norge"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T23:17:57+01:00",
+              "lastUpdated": "2025-12-22T23:53:21+01:00"
             },
             {
               "id": "opplysningstid",
@@ -1088,8 +1088,8 @@
                 "revolusjon",
                 "rettigheter"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T23:17:57+01:00",
+              "lastUpdated": "2025-12-22T23:53:21+01:00"
             },
             {
               "id": "demokrati-ansikter",
@@ -1101,8 +1101,8 @@
                 "parlamentarisme",
                 "valg"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T23:17:57+01:00",
+              "lastUpdated": "2025-12-22T23:53:21+01:00"
             },
             {
               "id": "elitenes-herredomme",
@@ -1114,8 +1114,8 @@
                 "økonomi",
                 "eliter"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T23:17:57+01:00",
+              "lastUpdated": "2025-12-22T23:53:21+01:00"
             },
             {
               "id": "diktaturet",
@@ -1127,8 +1127,8 @@
                 "totalitarisme",
                 "arendt"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T23:17:57+01:00",
+              "lastUpdated": "2025-12-22T23:53:21+01:00"
             },
             {
               "id": "uten-hersker",
@@ -1141,8 +1141,8 @@
                 "kapitalisme",
                 "frihet"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T23:17:57+01:00",
+              "lastUpdated": "2025-12-22T23:53:21+01:00"
             },
             {
               "id": "teokrati-teknokrati",
@@ -1154,8 +1154,8 @@
                 "politikk",
                 "vitenskap"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T23:17:57+01:00",
+              "lastUpdated": "2025-12-22T23:53:21+01:00"
             },
             {
               "id": "foydalisme",
@@ -1167,8 +1167,8 @@
                 "politikk",
                 "middelalder"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-22T09:35:32+01:00",
+              "lastUpdated": "2025-12-22T23:53:21+01:00"
             },
             {
               "id": "stortinget",
@@ -1180,8 +1180,8 @@
                 "norge",
                 "demokrati"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-22T21:11:33+01:00",
+              "lastUpdated": "2025-12-22T23:53:21+01:00"
             }
           ]
         },
@@ -1201,8 +1201,8 @@
                 "samfunn",
                 "atferd"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T20:32:19+01:00",
+              "lastUpdated": "2025-12-21T20:32:19+01:00"
             },
             {
               "id": "ytringsvett-vs-ytringsmot",
@@ -1214,8 +1214,8 @@
                 "kultur",
                 "debatt"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T20:32:19+01:00",
+              "lastUpdated": "2025-12-21T20:32:19+01:00"
             },
             {
               "id": "ekkokamre",
@@ -1227,8 +1227,8 @@
                 "teknologi",
                 "polarisering"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T20:32:19+01:00",
+              "lastUpdated": "2026-01-19T14:07:37+01:00"
             },
             {
               "id": "kjendismakt",
@@ -1240,8 +1240,8 @@
                 "markedsføring",
                 "influensere"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T20:32:19+01:00",
+              "lastUpdated": "2025-12-21T20:32:19+01:00"
             },
             {
               "id": "robotene-kommer",
@@ -1253,8 +1253,8 @@
                 "teknologi",
                 "fremtid"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T20:32:19+01:00",
+              "lastUpdated": "2025-12-21T20:32:19+01:00"
             }
           ]
         },
@@ -1276,8 +1276,8 @@
                 "religion",
                 "eskatologi"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T20:32:19+01:00",
+              "lastUpdated": "2025-12-22T11:15:15+01:00"
             },
             {
               "id": "utopier",
@@ -1291,8 +1291,8 @@
                 "politikk",
                 "utopi"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T20:32:19+01:00",
+              "lastUpdated": "2025-12-22T11:15:15+01:00"
             },
             {
               "id": "naturens-sjel",
@@ -1306,8 +1306,8 @@
                 "filosofi",
                 "økologi"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T20:32:19+01:00",
+              "lastUpdated": "2025-12-22T11:15:15+01:00"
             },
             {
               "id": "sannhetens-historie",
@@ -1321,8 +1321,8 @@
                 "vitenskap",
                 "teknologi"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T20:32:19+01:00",
+              "lastUpdated": "2025-12-22T21:11:33+01:00"
             },
             {
               "id": "humanisme",
@@ -1336,8 +1336,8 @@
                 "renessansen",
                 "rettigheter"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T20:32:19+01:00",
+              "lastUpdated": "2025-12-22T11:15:15+01:00"
             },
             {
               "id": "framskrittstro",
@@ -1351,8 +1351,8 @@
                 "teknologi",
                 "fremtid"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T20:32:19+01:00",
+              "lastUpdated": "2025-12-23T23:10:22+01:00"
             },
             {
               "id": "det-unormale",
@@ -1366,8 +1366,8 @@
                 "psykologi",
                 "samfunn"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T20:32:19+01:00",
+              "lastUpdated": "2025-12-23T23:10:22+01:00"
             },
             {
               "id": "casus-belli",
@@ -1381,8 +1381,8 @@
                 "krig",
                 "rettsvitenskap"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2026-02-04T09:36:05+01:00",
+              "lastUpdated": "2026-02-04T09:36:05+01:00"
             },
             {
               "id": "store-sykluser",
@@ -1396,8 +1396,8 @@
                 "syklus",
                 "samfunn"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-22T12:00:34+01:00",
+              "lastUpdated": "2025-12-22T12:00:34+01:00"
             },
             {
               "id": "fn",
@@ -1411,8 +1411,8 @@
                 "samfunn",
                 "fn"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-23T14:29:34+01:00",
+              "lastUpdated": "2025-12-25T10:09:30+01:00"
             }
           ]
         },
@@ -1536,8 +1536,8 @@
               "link": "/oving/detektiv/vardo",
               "image": "/images/detective/vardo_hero.png",
               "icon": "search",
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-25T19:43:00+01:00",
+              "lastUpdated": "2025-12-25T21:27:38+01:00"
             },
             {
               "id": "detective-karl-xii",
@@ -1546,8 +1546,8 @@
               "link": "/oving/detektiv/karl-xii",
               "image": "/images/detective/karl_xii_hero.png",
               "icon": "search",
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-25T21:27:38+01:00",
+              "lastUpdated": "2025-12-25T21:27:38+01:00"
             },
             {
               "id": "detective-isdalskvinnen",
@@ -1556,8 +1556,8 @@
               "link": "/oving/detektiv/isdalskvinnen",
               "image": "/images/detective/isdalskvinnen_hero.png",
               "icon": "search",
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-25T21:27:38+01:00",
+              "lastUpdated": "2025-12-25T21:27:38+01:00"
             },
             {
               "id": "detective-tungtvann",
@@ -1566,8 +1566,8 @@
               "link": "/oving/detektiv/tungtvann",
               "image": "/images/detective/tungtvann_hero.png",
               "icon": "search",
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-25T21:27:38+01:00",
+              "lastUpdated": "2025-12-25T21:27:38+01:00"
             },
             {
               "id": "norge-for-vikingene",
@@ -1580,8 +1580,8 @@
                 "steinalder",
                 "jernalder"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-04T20:11:57+01:00",
+              "lastUpdated": "2026-01-17T12:51:02+01:00"
             },
             {
               "id": "klimakrisen-536",
@@ -1597,8 +1597,8 @@
                 "folkevandring",
                 "fimbulvinter"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00",
+              "createdDate": "2025-12-05T20:37:16+01:00",
+              "lastUpdated": "2025-12-05T23:05:03+01:00",
               "definitions": [
                 {
                   "term": "Fimbulvinter",
@@ -1631,8 +1631,8 @@
                 "sjørøveri",
                 "adel"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2026-01-30T00:14:38+01:00",
+              "lastUpdated": "2026-02-13T08:28:24+01:00"
             },
             {
               "id": "knut-alvsson",
@@ -1645,7 +1645,7 @@
                 "kalmarunionen",
                 "middelalder"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
+              "createdDate": "2025-12-05T20:37:16+01:00",
               "lastUpdated": "2026-02-25T14:24:15+01:00",
               "definitions": [
                 {
@@ -1685,8 +1685,8 @@
                 "norge",
                 "industrialisering"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-12T10:22:51+01:00",
+              "lastUpdated": "2025-12-12T11:58:55+01:00"
             },
             {
               "id": "hanseatene",
@@ -1699,8 +1699,8 @@
                 "handel",
                 "bergen"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2026-01-30T14:38:55+01:00",
+              "lastUpdated": "2026-01-31T13:22:20+01:00"
             }
           ]
         },
@@ -1724,8 +1724,8 @@
                 "vasa",
                 "unionsoppløsning"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-25T00:02:52+01:00",
+              "lastUpdated": "2025-12-25T00:02:52+01:00"
             }
           ]
         },
@@ -1744,8 +1744,8 @@
                 "krig",
                 "oversikt"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T14:35:48+01:00",
+              "lastUpdated": "2025-12-24T23:23:27+01:00"
             },
             {
               "id": "bakgrunn",
@@ -1756,8 +1756,8 @@
                 "geopolitikk",
                 "bakgrunn"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-11-27T20:04:50+01:00",
+              "lastUpdated": "2025-12-24T23:23:27+01:00"
             },
             {
               "id": "krigens-lop",
@@ -1768,8 +1768,8 @@
                 "krigføring",
                 "slag"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T14:35:48+01:00",
+              "lastUpdated": "2025-12-24T23:23:27+01:00"
             },
             {
               "id": "teknologi",
@@ -1780,8 +1780,8 @@
                 "teknologi",
                 "våpen"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T14:35:48+01:00",
+              "lastUpdated": "2025-12-24T23:23:27+01:00"
             },
             {
               "id": "konsentrasjonsleirene",
@@ -1793,8 +1793,8 @@
                 "folkemord",
                 "auschwitz"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-22T10:14:27+01:00",
+              "lastUpdated": "2025-12-22T11:15:15+01:00"
             },
             {
               "id": "konsekvenser",
@@ -1805,8 +1805,8 @@
                 "konsekvenser",
                 "politikk"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T14:35:48+01:00",
+              "lastUpdated": "2025-12-24T23:23:27+01:00"
             }
           ]
         },
@@ -1849,8 +1849,8 @@
                 "vestfronten",
                 "soldatliv"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-23T23:48:22+01:00",
+              "lastUpdated": "2025-12-23T23:48:22+01:00"
             },
             {
               "id": "russiske-revolusjon",
@@ -1862,8 +1862,8 @@
                 "russland",
                 "kommunisme"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2026-01-18T19:18:35+01:00",
+              "lastUpdated": "2026-01-21T14:37:48+01:00"
             },
             {
               "id": "hjemmefronten",
@@ -1875,8 +1875,8 @@
                 "kvinner",
                 "økonomi"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2026-01-18T18:32:30+01:00",
+              "lastUpdated": "2026-01-22T13:06:50+01:00"
             },
             {
               "id": "oversikt",
@@ -1887,8 +1887,8 @@
                 "krig",
                 "oversikt"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T14:35:48+01:00",
+              "lastUpdated": "2025-12-24T23:23:27+01:00"
             },
             {
               "id": "opptakt",
@@ -1899,8 +1899,8 @@
                 "geopolitikk",
                 "opptakt"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T14:35:48+01:00",
+              "lastUpdated": "2026-02-03T10:03:44+01:00"
             },
             {
               "id": "krigens-lop",
@@ -1911,8 +1911,8 @@
                 "krigføring",
                 "slag"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T14:35:48+01:00",
+              "lastUpdated": "2025-12-24T23:23:27+01:00"
             },
             {
               "id": "teknologi",
@@ -1923,8 +1923,8 @@
                 "teknologi",
                 "våpen"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T14:35:48+01:00",
+              "lastUpdated": "2025-12-24T23:23:27+01:00"
             },
             {
               "id": "norge-under-ww1",
@@ -1936,8 +1936,8 @@
                 "sjøfart",
                 "nøytralitet"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2026-01-18T19:18:35+01:00",
+              "lastUpdated": "2026-01-22T14:39:34+01:00"
             },
             {
               "id": "tyske-revolusjon",
@@ -1949,8 +1949,8 @@
                 "revolusjon",
                 "politikk"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2026-01-18T19:18:35+01:00",
+              "lastUpdated": "2026-01-18T20:40:13+01:00"
             },
             {
               "id": "konsekvenser",
@@ -1961,8 +1961,8 @@
                 "konsekvenser",
                 "politikk"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T14:35:48+01:00",
+              "lastUpdated": "2025-12-24T23:23:27+01:00"
             }
           ]
         },
@@ -1991,8 +1991,8 @@
                 "oversikt",
                 "fred"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T14:35:48+01:00",
+              "lastUpdated": "2025-12-24T23:23:27+01:00"
             },
             {
               "id": "usa",
@@ -2004,8 +2004,8 @@
                 "økonomi",
                 "jazz"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2026-01-18T22:34:44+01:00",
+              "lastUpdated": "2026-01-31T13:32:13+01:00"
             },
             {
               "id": "borskrakk",
@@ -2017,8 +2017,8 @@
                 "krise",
                 "børskrakk"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2026-01-18T23:13:44+01:00",
+              "lastUpdated": "2026-01-18T23:13:44+01:00"
             },
             {
               "id": "norge",
@@ -2030,8 +2030,8 @@
                 "politikk",
                 "velferdsstat"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2026-01-18T22:34:44+01:00",
+              "lastUpdated": "2026-01-31T13:32:13+01:00"
             },
             {
               "id": "sovjet",
@@ -2043,8 +2043,8 @@
                 "stalin",
                 "totalitarisme"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2026-01-18T22:34:44+01:00",
+              "lastUpdated": "2026-01-18T23:13:44+01:00"
             },
             {
               "id": "midtoesten",
@@ -2056,8 +2056,8 @@
                 "geopolitikk",
                 "mandat"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2026-01-18T22:34:44+01:00",
+              "lastUpdated": "2026-01-31T13:32:13+01:00"
             },
             {
               "id": "kultur",
@@ -2069,8 +2069,8 @@
                 "modernisme",
                 "vitenskap"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T13:37:14+01:00",
+              "lastUpdated": "2025-12-24T09:59:36+01:00"
             },
             {
               "id": "folkeforbundet",
@@ -2082,8 +2082,8 @@
                 "fred",
                 "diplomati"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-23T23:48:22+01:00",
+              "lastUpdated": "2025-12-23T23:48:22+01:00"
             },
             {
               "id": "italia",
@@ -2095,8 +2095,8 @@
                 "fascisme",
                 "politikk"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2026-01-18T22:34:44+01:00",
+              "lastUpdated": "2026-01-31T13:32:13+01:00"
             },
             {
               "id": "tyskland",
@@ -2108,8 +2108,8 @@
                 "nazi",
                 "politikk"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2026-01-18T22:34:44+01:00",
+              "lastUpdated": "2026-01-31T13:32:13+01:00"
             },
             {
               "id": "spania",
@@ -2121,8 +2121,8 @@
                 "borgerkrig",
                 "ideologi"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2026-01-18T22:34:44+01:00",
+              "lastUpdated": "2026-01-31T13:22:20+01:00"
             },
             {
               "id": "japan",
@@ -2134,8 +2134,8 @@
                 "militarisme",
                 "krig"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2026-01-18T22:34:44+01:00",
+              "lastUpdated": "2026-01-31T13:22:20+01:00"
             }
           ]
         },
@@ -2171,8 +2171,8 @@
                 "kald-krig",
                 "atomvåpen"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T14:35:48+01:00",
+              "lastUpdated": "2025-12-24T23:23:27+01:00"
             },
             {
               "id": "nato-vs-warszawa",
@@ -2184,8 +2184,8 @@
                 "nato",
                 "geopolitikk"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T13:37:14+01:00",
+              "lastUpdated": "2025-12-24T09:59:36+01:00"
             },
             {
               "id": "koreakrigen",
@@ -2197,8 +2197,8 @@
                 "asia",
                 "proxy-krig"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T13:37:14+01:00",
+              "lastUpdated": "2026-01-22T14:39:34+01:00"
             },
             {
               "id": "atomvapenkapplopet",
@@ -2210,8 +2210,8 @@
                 "atomvåpen",
                 "frykt"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T13:37:14+01:00",
+              "lastUpdated": "2026-02-06T08:29:52+01:00"
             },
             {
               "id": "romkapplopet",
@@ -2223,7 +2223,7 @@
                 "romfart",
                 "prestisje"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
+              "createdDate": "2025-12-21T13:37:14+01:00",
               "lastUpdated": "2026-03-02T11:19:31+01:00"
             },
             {
@@ -2236,8 +2236,8 @@
                 "diplomati",
                 "kennedy"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T13:37:14+01:00",
+              "lastUpdated": "2025-12-24T09:59:36+01:00"
             },
             {
               "id": "kultur",
@@ -2249,8 +2249,8 @@
                 "media",
                 "propaganda"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T13:37:14+01:00",
+              "lastUpdated": "2025-12-24T09:59:36+01:00"
             },
             {
               "id": "vietnamkrigen",
@@ -2262,8 +2262,8 @@
                 "asia",
                 "protest"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T13:37:14+01:00",
+              "lastUpdated": "2025-12-24T23:17:17+01:00"
             },
             {
               "id": "berlinmuren",
@@ -2275,8 +2275,8 @@
                 "jernteppet",
                 "symbol"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T13:37:14+01:00",
+              "lastUpdated": "2025-12-24T09:59:36+01:00"
             },
             {
               "id": "veien-mot-slutt",
@@ -2288,8 +2288,8 @@
                 "glasnost",
                 "1989"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T13:37:14+01:00",
+              "lastUpdated": "2025-12-24T23:17:17+01:00"
             },
             {
               "id": "suez-krisen",
@@ -2301,8 +2301,8 @@
                 "konflikt",
                 "fn"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T13:37:14+01:00",
+              "lastUpdated": "2026-02-11T09:21:54+01:00"
             }
           ]
         },
@@ -2331,8 +2331,8 @@
                 "europa",
                 "reformasjonen"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-06T19:29:39+01:00",
+              "lastUpdated": "2025-12-23T23:48:22+01:00"
             }
           ]
         },
@@ -2363,8 +2363,8 @@
                 "imperialisme",
                 "global-historie"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-22T12:00:34+01:00",
+              "lastUpdated": "2026-01-31T13:22:20+01:00"
             },
             {
               "id": "verdenshandel-for-oppdagelsesreisene",
@@ -2389,8 +2389,8 @@
                 "amerika",
                 "imperium"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-22T11:15:15+01:00",
+              "lastUpdated": "2025-12-22T11:15:15+01:00"
             },
             {
               "id": "portugisisk-kolonialisering",
@@ -2402,8 +2402,8 @@
                 "kolonialisering",
                 "portugal"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-22T11:15:15+01:00",
+              "lastUpdated": "2025-12-22T11:15:15+01:00"
             },
             {
               "id": "trekanthandelen",
@@ -2417,8 +2417,8 @@
                 "økonomi",
                 "afrika"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-11-27T20:04:50+01:00",
+              "lastUpdated": "2026-01-23T14:43:02+01:00"
             },
             {
               "id": "britisk-imperium",
@@ -2430,8 +2430,8 @@
                 "kolonialisering",
                 "storbritannia"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-22T11:15:15+01:00",
+              "lastUpdated": "2025-12-22T12:00:34+01:00"
             },
             {
               "id": "fransk-kolonirike",
@@ -2443,14 +2443,14 @@
                 "kolonialisering",
                 "frankrike"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-22T11:15:15+01:00",
+              "lastUpdated": "2025-12-22T12:00:34+01:00"
             },
             {
               "id": "voc",
               "title": "Det nederlandske ostindiske kompani (VOC)",
               "description": "Verdens første aksjeselskap og et globalt handelsimperium.",
-              "createdDate": "2026-02-25T14:24:15+01:00",
+              "createdDate": "2025-11-28T21:47:51+01:00",
               "tags": [
                 "handel",
                 "kolonialisme",
@@ -2458,7 +2458,7 @@
                 "økonomi"
               ],
               "image": "/images/historie/kolonialisering/voc/hero.png",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "lastUpdated": "2025-12-24T23:38:49+01:00"
             },
             {
               "id": "eic",
@@ -2471,8 +2471,8 @@
                 "storbritannia"
               ],
               "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&q=80",
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-11-28T22:22:13+01:00",
+              "lastUpdated": "2025-12-03T19:18:01+01:00"
             }
           ]
         },
@@ -2503,8 +2503,8 @@
                 "oversikt",
                 "kart"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T14:35:48+01:00",
+              "lastUpdated": "2025-12-24T23:23:27+01:00"
             },
             {
               "id": "usa-frigjoring",
@@ -2517,8 +2517,8 @@
                 "usa",
                 "revolusjon"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2026-01-16T10:43:34+01:00",
+              "lastUpdated": "2026-01-16T10:43:34+01:00"
             },
             {
               "id": "haiti",
@@ -2531,8 +2531,8 @@
                 "haiti",
                 "slaveri"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2026-01-16T10:43:34+01:00",
+              "lastUpdated": "2026-01-16T10:43:34+01:00"
             },
             {
               "id": "latin-amerika",
@@ -2545,8 +2545,8 @@
                 "latin-amerika",
                 "bolivar"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2026-01-16T10:43:34+01:00",
+              "lastUpdated": "2026-01-16T10:43:34+01:00"
             },
             {
               "id": "midtosten-mandater",
@@ -2559,8 +2559,8 @@
                 "midtøsten",
                 "osmanriket"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2026-01-16T10:43:34+01:00",
+              "lastUpdated": "2026-01-16T10:43:34+01:00"
             },
             {
               "id": "india",
@@ -2573,8 +2573,8 @@
                 "india",
                 "gandhi"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2026-01-16T10:43:34+01:00",
+              "lastUpdated": "2026-01-16T10:43:34+01:00"
             },
             {
               "id": "sorost-asia",
@@ -2587,8 +2587,8 @@
                 "indonesia",
                 "vietnam"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2026-01-16T10:43:34+01:00",
+              "lastUpdated": "2026-01-16T10:43:34+01:00"
             },
             {
               "id": "ghana-panafrikanisme",
@@ -2601,8 +2601,8 @@
                 "afrika",
                 "ghana"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2026-01-16T10:43:34+01:00",
+              "lastUpdated": "2026-01-16T10:43:34+01:00"
             },
             {
               "id": "frigjoringskrigene",
@@ -2615,8 +2615,8 @@
                 "krig",
                 "algerie"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2026-01-16T10:43:34+01:00",
+              "lastUpdated": "2026-01-16T10:43:34+01:00"
             },
             {
               "id": "kongo",
@@ -2629,8 +2629,8 @@
                 "kongo",
                 "kald-krig"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2026-01-16T10:43:34+01:00",
+              "lastUpdated": "2026-01-16T10:43:34+01:00"
             },
             {
               "id": "siste-skanse",
@@ -2643,8 +2643,8 @@
                 "portugal",
                 "apartheid"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2026-01-16T10:43:34+01:00",
+              "lastUpdated": "2026-01-16T10:43:34+01:00"
             }
           ]
         },
@@ -2711,8 +2711,8 @@
                 "teknologi",
                 "skip"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-22T21:11:33+01:00",
+              "lastUpdated": "2025-12-23T23:10:22+01:00"
             },
             {
               "id": "myklebust-funnet",
@@ -2725,8 +2725,8 @@
                 "ritualer",
                 "norge"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2026-01-30T20:51:50+01:00",
+              "lastUpdated": "2026-01-31T12:59:44+01:00"
             },
             {
               "id": "samfunn-og-rett",
@@ -2739,8 +2739,8 @@
                 "samfunn",
                 "lov"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-22T21:11:33+01:00",
+              "lastUpdated": "2025-12-22T21:11:33+01:00"
             },
             {
               "id": "hypotesen-norden-vs-frankrike",
@@ -2753,8 +2753,8 @@
                 "krig",
                 "karl-den-store"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-09T23:20:17+01:00",
+              "lastUpdated": "2025-12-12T09:20:03+01:00"
             },
             {
               "id": "karl-den-store",
@@ -2767,8 +2767,8 @@
                 "middelalder",
                 "karl-den-store"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-09T23:20:17+01:00",
+              "lastUpdated": "2025-12-12T09:20:03+01:00"
             },
             {
               "id": "asatro",
@@ -2781,8 +2781,8 @@
                 "vikingtiden",
                 "guder"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-09T23:20:17+01:00",
+              "lastUpdated": "2025-12-22T21:11:33+01:00"
             },
             {
               "id": "rikssamlingen",
@@ -2794,8 +2794,8 @@
                 "norge",
                 "rikssamlingen"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-11-28T18:28:18+01:00",
+              "lastUpdated": "2025-12-22T21:11:33+01:00"
             },
             {
               "id": "danelagen",
@@ -2807,8 +2807,8 @@
                 "krig",
                 "vikingtiden"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-09T23:20:17+01:00",
+              "lastUpdated": "2025-12-12T09:20:03+01:00"
             },
             {
               "id": "veien-mot-ost",
@@ -2821,8 +2821,8 @@
                 "handel",
                 "vikingtiden"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-09T23:20:17+01:00",
+              "lastUpdated": "2025-12-12T09:20:03+01:00"
             },
             {
               "id": "oppdagelsesreiser",
@@ -2835,8 +2835,8 @@
                 "oppdagelse",
                 "amerika"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-22T21:11:33+01:00",
+              "lastUpdated": "2025-12-22T21:11:33+01:00"
             },
             {
               "id": "kristningen-av-norge",
@@ -2849,8 +2849,8 @@
                 "olav-den-hellige",
                 "stiklestad"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-09T23:20:17+01:00",
+              "lastUpdated": "2025-12-22T21:11:33+01:00"
             },
             {
               "id": "normandie",
@@ -2863,8 +2863,8 @@
                 "riddere",
                 "vikingtiden"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-09T23:20:17+01:00",
+              "lastUpdated": "2025-12-12T09:20:03+01:00"
             }
           ]
         },
@@ -2901,8 +2901,8 @@
                 "middelalderen",
                 "folkevandringstiden"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-25T00:02:52+01:00",
+              "lastUpdated": "2025-12-25T00:02:52+01:00"
             },
             {
               "id": "middelalderen",
@@ -2914,8 +2914,8 @@
                 "middelalderen",
                 "europa"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-20T23:36:59+01:00",
+              "lastUpdated": "2025-12-22T09:35:32+01:00"
             },
             {
               "id": "svartedauden",
@@ -2929,8 +2929,8 @@
                 "norge",
                 "sykdom"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-11-28T18:28:18+01:00",
+              "lastUpdated": "2025-12-22T14:35:44+01:00"
             },
             {
               "id": "hanseatene",
@@ -2944,8 +2944,8 @@
                 "hansa",
                 "middelalderen"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2026-01-30T14:38:55+01:00",
+              "lastUpdated": "2026-01-31T13:22:20+01:00"
             },
             {
               "id": "boktrykkerkunsten",
@@ -2958,8 +2958,8 @@
                 "renessansen",
                 "bøker"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00",
+              "createdDate": "2025-11-30T12:37:47+01:00",
+              "lastUpdated": "2025-12-21T00:04:37+01:00",
               "definitions": [
                 {
                   "term": "Mainz",
@@ -2999,8 +2999,8 @@
                 "tyskland",
                 "keiser"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T20:32:19+01:00",
+              "lastUpdated": "2025-12-21T20:32:19+01:00"
             },
             {
               "id": "detective-berlinmuren",
@@ -3009,8 +3009,8 @@
               "link": "/oving/detektiv/berlinmuren",
               "image": "/images/detective/berlin_wall_hero.png",
               "icon": "search",
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-25T21:27:38+01:00",
+              "lastUpdated": "2025-12-25T21:27:38+01:00"
             },
             {
               "id": "mongolske-riket",
@@ -3024,8 +3024,8 @@
                 "asia",
                 "mongolene"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2026-01-07T09:56:43+01:00",
+              "lastUpdated": "2026-01-07T22:38:08+01:00"
             }
           ]
         },
@@ -3054,8 +3054,8 @@
                 "roma",
                 "republikk"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-20T09:30:18+01:00",
+              "lastUpdated": "2025-12-21T13:37:14+01:00"
             },
             {
               "id": "augustus-og-keiserdomme",
@@ -3068,8 +3068,8 @@
                 "augustus",
                 "keiser"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-20T09:30:18+01:00",
+              "lastUpdated": "2025-12-20T21:07:10+01:00"
             },
             {
               "id": "romerske-keisere",
@@ -3082,8 +3082,8 @@
                 "keiser",
                 "biografi"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-20T09:30:18+01:00",
+              "lastUpdated": "2025-12-20T21:07:10+01:00"
             },
             {
               "id": "legitimitet-og-kristendom",
@@ -3097,8 +3097,8 @@
                 "religion",
                 "politikk"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-20T20:05:32+01:00",
+              "lastUpdated": "2025-12-21T13:37:14+01:00"
             },
             {
               "id": "handel-og-silkeveien",
@@ -3112,8 +3112,8 @@
                 "økonomi",
                 "globalisering"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-20T20:33:08+01:00",
+              "lastUpdated": "2025-12-21T13:37:14+01:00"
             },
             {
               "id": "pompeii",
@@ -3126,8 +3126,8 @@
                 "romerriket",
                 "arkeologi"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-20T20:33:08+01:00",
+              "lastUpdated": "2025-12-21T13:37:14+01:00"
             },
             {
               "id": "diokletian",
@@ -3141,8 +3141,8 @@
                 "reformer",
                 "sentantikken"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00",
+              "createdDate": "2025-12-23T14:29:34+01:00",
+              "lastUpdated": "2025-12-23T14:29:34+01:00",
               "definitions": [
                 {
                   "term": "Tetrarki",
@@ -3174,8 +3174,8 @@
                 "militær",
                 "teknologi"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-20T20:33:08+01:00",
+              "lastUpdated": "2025-12-21T13:37:14+01:00"
             },
             {
               "id": "hverdagsliv-i-roma",
@@ -3189,8 +3189,8 @@
                 "kultur",
                 "hverdagsliv"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-20T20:33:08+01:00",
+              "lastUpdated": "2025-12-21T13:37:14+01:00"
             },
             {
               "id": "arven-etter-romerriket",
@@ -3204,8 +3204,8 @@
                 "kultur",
                 "politikk"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-20T20:19:26+01:00",
+              "lastUpdated": "2025-12-21T13:37:14+01:00"
             },
             {
               "id": "vestromerrikets-fall",
@@ -3218,8 +3218,8 @@
                 "kollaps",
                 "historie"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-20T09:30:18+01:00",
+              "lastUpdated": "2025-12-21T13:37:14+01:00"
             },
             {
               "id": "romerske-guder",
@@ -3233,8 +3233,8 @@
                 "religion",
                 "krle"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T00:04:37+01:00",
+              "lastUpdated": "2025-12-21T13:37:14+01:00"
             }
           ]
         },
@@ -3279,8 +3279,8 @@
                 "sivilisasjon",
                 "teknologi"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-11-28T18:28:18+01:00",
+              "lastUpdated": "2025-12-03T19:18:01+01:00"
             }
           ]
         },
@@ -3301,8 +3301,8 @@
                 "evolusjon",
                 "afrika"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-11-28T18:28:18+01:00",
+              "lastUpdated": "2025-12-07T10:32:48+01:00"
             }
           ]
         }
@@ -3357,8 +3357,8 @@
                     "kristendom",
                     "sentrale_trekk"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-04T13:10:30+01:00",
+                  "lastUpdated": "2025-12-04T13:39:40+01:00"
                 },
                 {
                   "title": "Bønn",
@@ -3382,8 +3382,8 @@
                     "overgangsriter",
                     "ritual"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-04T13:10:30+01:00",
+                  "lastUpdated": "2025-12-04T13:39:40+01:00"
                 },
                 {
                   "id": "grunnleggere",
@@ -3395,8 +3395,8 @@
                     "grunnleggere",
                     "narrative"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-04T14:04:03+01:00",
+                  "lastUpdated": "2025-12-04T14:04:03+01:00"
                 },
                 {
                   "id": "hellige-tekster",
@@ -3408,8 +3408,8 @@
                     "hellige-tekster",
                     "narrative"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-04T14:04:03+01:00",
+                  "lastUpdated": "2025-12-04T14:04:03+01:00"
                 },
                 {
                   "id": "gudsbilde",
@@ -3421,8 +3421,8 @@
                     "gudsbilde",
                     "doctrinal"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-04T14:04:03+01:00",
+                  "lastUpdated": "2025-12-04T14:04:03+01:00"
                 },
                 {
                   "id": "frelse",
@@ -3434,8 +3434,8 @@
                     "frelse",
                     "doctrinal"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-04T14:04:03+01:00",
+                  "lastUpdated": "2025-12-04T14:04:03+01:00"
                 },
                 {
                   "id": "intro",
@@ -3446,8 +3446,8 @@
                     "kristendom",
                     "intro"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-21T13:37:14+01:00",
+                  "lastUpdated": "2025-12-23T11:47:37+01:00"
                 }
               ]
             },
@@ -3467,8 +3467,8 @@
                     "islam",
                     "sentrale_trekk"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-04T13:10:30+01:00",
+                  "lastUpdated": "2025-12-04T13:39:40+01:00"
                 },
                 {
                   "id": "bonn",
@@ -3480,8 +3480,8 @@
                     "bønn",
                     "ritual"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-04T13:10:30+01:00",
+                  "lastUpdated": "2025-12-04T13:39:40+01:00"
                 },
                 {
                   "id": "overgangsriter",
@@ -3493,8 +3493,8 @@
                     "overgangsriter",
                     "ritual"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-04T13:10:30+01:00",
+                  "lastUpdated": "2025-12-04T13:39:40+01:00"
                 },
                 {
                   "id": "grunnleggere",
@@ -3506,8 +3506,8 @@
                     "grunnleggere",
                     "narrative"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-04T14:04:03+01:00",
+                  "lastUpdated": "2025-12-04T14:04:03+01:00"
                 },
                 {
                   "id": "hellige-tekster",
@@ -3519,8 +3519,8 @@
                     "hellige-tekster",
                     "narrative"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-04T14:04:03+01:00",
+                  "lastUpdated": "2025-12-04T14:04:03+01:00"
                 },
                 {
                   "id": "gudsbilde",
@@ -3532,8 +3532,8 @@
                     "gudsbilde",
                     "doctrinal"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-04T14:04:03+01:00",
+                  "lastUpdated": "2025-12-04T14:04:03+01:00"
                 },
                 {
                   "id": "frelse",
@@ -3545,8 +3545,8 @@
                     "frelse",
                     "doctrinal"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-04T14:04:03+01:00",
+                  "lastUpdated": "2025-12-04T14:04:03+01:00"
                 },
                 {
                   "id": "intro",
@@ -3557,8 +3557,8 @@
                     "islam",
                     "intro"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-21T13:37:14+01:00",
+                  "lastUpdated": "2025-12-23T11:47:37+01:00"
                 }
               ]
             },
@@ -3578,8 +3578,8 @@
                     "buddhisme",
                     "sentrale_trekk"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-04T13:10:30+01:00",
+                  "lastUpdated": "2025-12-04T13:39:40+01:00"
                 },
                 {
                   "id": "bonn",
@@ -3591,8 +3591,8 @@
                     "bønn",
                     "ritual"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-04T13:10:30+01:00",
+                  "lastUpdated": "2025-12-04T13:39:40+01:00"
                 },
                 {
                   "id": "overgangsriter",
@@ -3604,8 +3604,8 @@
                     "overgangsriter",
                     "ritual"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-04T13:10:30+01:00",
+                  "lastUpdated": "2025-12-04T13:39:40+01:00"
                 },
                 {
                   "id": "grunnleggere",
@@ -3617,8 +3617,8 @@
                     "grunnleggere",
                     "narrative"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-04T14:04:03+01:00",
+                  "lastUpdated": "2025-12-04T14:04:03+01:00"
                 },
                 {
                   "id": "hellige-tekster",
@@ -3630,8 +3630,8 @@
                     "hellige-tekster",
                     "narrative"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-04T14:04:03+01:00",
+                  "lastUpdated": "2025-12-04T14:04:03+01:00"
                 },
                 {
                   "id": "gudsbilde",
@@ -3643,8 +3643,8 @@
                     "gudsbilde",
                     "doctrinal"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-04T14:04:03+01:00",
+                  "lastUpdated": "2025-12-04T14:04:03+01:00"
                 },
                 {
                   "id": "frelse",
@@ -3656,8 +3656,8 @@
                     "frelse",
                     "doctrinal"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-04T14:04:03+01:00",
+                  "lastUpdated": "2025-12-04T14:04:03+01:00"
                 },
                 {
                   "id": "intro",
@@ -3668,8 +3668,8 @@
                     "buddhisme",
                     "intro"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-21T13:37:14+01:00",
+                  "lastUpdated": "2025-12-23T11:47:37+01:00"
                 }
               ]
             },
@@ -3689,8 +3689,8 @@
                     "jodedom",
                     "sentrale_trekk"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-04T13:10:30+01:00",
+                  "lastUpdated": "2025-12-04T13:39:40+01:00"
                 },
                 {
                   "id": "bonn",
@@ -3702,8 +3702,8 @@
                     "bønn",
                     "ritual"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-04T13:10:30+01:00",
+                  "lastUpdated": "2025-12-04T13:39:40+01:00"
                 },
                 {
                   "id": "overgangsriter",
@@ -3715,8 +3715,8 @@
                     "overgangsriter",
                     "ritual"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-04T13:10:30+01:00",
+                  "lastUpdated": "2025-12-04T13:39:40+01:00"
                 },
                 {
                   "id": "grunnleggere",
@@ -3728,8 +3728,8 @@
                     "grunnleggere",
                     "narrative"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-04T14:04:03+01:00",
+                  "lastUpdated": "2025-12-04T14:04:03+01:00"
                 },
                 {
                   "id": "hellige-tekster",
@@ -3741,8 +3741,8 @@
                     "hellige-tekster",
                     "narrative"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-04T14:04:03+01:00",
+                  "lastUpdated": "2025-12-04T14:04:03+01:00"
                 },
                 {
                   "id": "gudsbilde",
@@ -3754,8 +3754,8 @@
                     "gudsbilde",
                     "doctrinal"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-04T14:04:03+01:00",
+                  "lastUpdated": "2025-12-04T14:04:03+01:00"
                 },
                 {
                   "id": "frelse",
@@ -3767,8 +3767,8 @@
                     "frelse",
                     "doctrinal"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-04T14:04:03+01:00",
+                  "lastUpdated": "2025-12-04T14:04:03+01:00"
                 },
                 {
                   "id": "intro",
@@ -3779,8 +3779,8 @@
                     "jødedom",
                     "intro"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-21T13:37:14+01:00",
+                  "lastUpdated": "2025-12-23T11:47:37+01:00"
                 }
               ]
             },
@@ -3800,8 +3800,8 @@
                     "hinduisme",
                     "sentrale_trekk"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-04T13:10:30+01:00",
+                  "lastUpdated": "2025-12-04T13:39:40+01:00"
                 },
                 {
                   "id": "bonn",
@@ -3813,8 +3813,8 @@
                     "bønn",
                     "ritual"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-04T13:10:30+01:00",
+                  "lastUpdated": "2025-12-04T13:39:40+01:00"
                 },
                 {
                   "id": "overgangsriter",
@@ -3826,8 +3826,8 @@
                     "overgangsriter",
                     "ritual"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-04T13:10:30+01:00",
+                  "lastUpdated": "2025-12-04T13:39:40+01:00"
                 },
                 {
                   "id": "grunnleggere",
@@ -3839,8 +3839,8 @@
                     "grunnleggere",
                     "narrative"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-04T14:04:03+01:00",
+                  "lastUpdated": "2025-12-04T14:04:03+01:00"
                 },
                 {
                   "id": "hellige-tekster",
@@ -3852,8 +3852,8 @@
                     "hellige-tekster",
                     "narrative"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-04T14:04:03+01:00",
+                  "lastUpdated": "2025-12-04T14:04:03+01:00"
                 },
                 {
                   "id": "gudsbilde",
@@ -3865,8 +3865,8 @@
                     "gudsbilde",
                     "doctrinal"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-04T14:04:03+01:00",
+                  "lastUpdated": "2025-12-04T14:04:03+01:00"
                 },
                 {
                   "id": "frelse",
@@ -3878,8 +3878,8 @@
                     "frelse",
                     "doctrinal"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-04T14:04:03+01:00",
+                  "lastUpdated": "2025-12-04T14:04:03+01:00"
                 },
                 {
                   "id": "intro",
@@ -3890,8 +3890,8 @@
                     "hinduisme",
                     "intro"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-21T13:37:14+01:00",
+                  "lastUpdated": "2025-12-23T11:47:37+01:00"
                 }
               ]
             },
@@ -3934,8 +3934,8 @@
                     "bahai",
                     "sentrale_trekk"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-04T13:10:30+01:00",
+                  "lastUpdated": "2025-12-04T13:39:40+01:00"
                 },
                 {
                   "id": "bonn",
@@ -3947,8 +3947,8 @@
                     "bønn",
                     "ritual"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-04T13:10:30+01:00",
+                  "lastUpdated": "2025-12-04T13:39:40+01:00"
                 },
                 {
                   "id": "overgangsriter",
@@ -3960,8 +3960,8 @@
                     "overgangsriter",
                     "ritual"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-04T13:10:30+01:00",
+                  "lastUpdated": "2025-12-04T13:39:40+01:00"
                 },
                 {
                   "id": "grunnleggere",
@@ -3973,8 +3973,8 @@
                     "grunnleggere",
                     "narrative"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-04T14:04:03+01:00",
+                  "lastUpdated": "2025-12-04T14:04:03+01:00"
                 },
                 {
                   "id": "hellige-tekster",
@@ -3986,8 +3986,8 @@
                     "hellige-tekster",
                     "narrative"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-04T14:04:03+01:00",
+                  "lastUpdated": "2025-12-04T14:04:03+01:00"
                 },
                 {
                   "id": "gudsbilde",
@@ -3999,8 +3999,8 @@
                     "gudsbilde",
                     "doctrinal"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-04T14:04:03+01:00",
+                  "lastUpdated": "2025-12-04T14:04:03+01:00"
                 },
                 {
                   "id": "frelse",
@@ -4012,8 +4012,8 @@
                     "frelse",
                     "doctrinal"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-04T14:04:03+01:00",
+                  "lastUpdated": "2025-12-04T14:04:03+01:00"
                 },
                 {
                   "id": "intro",
@@ -4024,8 +4024,8 @@
                     "bahai",
                     "intro"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-21T13:37:14+01:00",
+                  "lastUpdated": "2025-12-23T11:47:37+01:00"
                 }
               ]
             },
@@ -4045,8 +4045,8 @@
                     "mormonisme",
                     "sentrale_trekk"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-04T13:10:30+01:00",
+                  "lastUpdated": "2025-12-04T13:39:40+01:00"
                 },
                 {
                   "id": "bonn",
@@ -4058,8 +4058,8 @@
                     "bønn",
                     "ritual"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-04T13:10:30+01:00",
+                  "lastUpdated": "2025-12-04T13:39:40+01:00"
                 },
                 {
                   "id": "overgangsriter",
@@ -4071,8 +4071,8 @@
                     "overgangsriter",
                     "ritual"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-04T13:10:30+01:00",
+                  "lastUpdated": "2025-12-04T13:39:40+01:00"
                 },
                 {
                   "id": "grunnleggere",
@@ -4084,8 +4084,8 @@
                     "grunnleggere",
                     "narrative"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-04T14:04:03+01:00",
+                  "lastUpdated": "2025-12-04T14:04:03+01:00"
                 },
                 {
                   "id": "hellige-tekster",
@@ -4097,8 +4097,8 @@
                     "hellige-tekster",
                     "narrative"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-04T14:04:03+01:00",
+                  "lastUpdated": "2025-12-04T14:04:03+01:00"
                 },
                 {
                   "id": "gudsbilde",
@@ -4110,8 +4110,8 @@
                     "gudsbilde",
                     "doctrinal"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-04T14:04:03+01:00",
+                  "lastUpdated": "2025-12-04T14:04:03+01:00"
                 },
                 {
                   "id": "frelse",
@@ -4123,8 +4123,8 @@
                     "frelse",
                     "doctrinal"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-04T14:04:03+01:00",
+                  "lastUpdated": "2025-12-04T14:04:03+01:00"
                 },
                 {
                   "id": "intro",
@@ -4135,8 +4135,8 @@
                     "mormonisme",
                     "intro"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-21T13:37:14+01:00",
+                  "lastUpdated": "2025-12-23T11:47:37+01:00"
                 }
               ]
             },
@@ -4156,8 +4156,8 @@
                     "jehovas-vitner",
                     "sentrale_trekk"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-04T13:10:30+01:00",
+                  "lastUpdated": "2025-12-04T13:39:40+01:00"
                 },
                 {
                   "id": "bonn",
@@ -4169,8 +4169,8 @@
                     "bønn",
                     "ritual"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-04T13:10:30+01:00",
+                  "lastUpdated": "2025-12-04T13:39:40+01:00"
                 },
                 {
                   "id": "overgangsriter",
@@ -4182,8 +4182,8 @@
                     "overgangsriter",
                     "ritual"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-04T13:10:30+01:00",
+                  "lastUpdated": "2025-12-04T13:39:40+01:00"
                 },
                 {
                   "id": "grunnleggere",
@@ -4195,8 +4195,8 @@
                     "grunnleggere",
                     "narrative"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-04T14:04:03+01:00",
+                  "lastUpdated": "2025-12-04T14:04:03+01:00"
                 },
                 {
                   "id": "hellige-tekster",
@@ -4208,8 +4208,8 @@
                     "hellige-tekster",
                     "narrative"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-04T14:04:03+01:00",
+                  "lastUpdated": "2025-12-04T14:04:03+01:00"
                 },
                 {
                   "id": "gudsbilde",
@@ -4221,8 +4221,8 @@
                     "gudsbilde",
                     "doctrinal"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-04T14:04:03+01:00",
+                  "lastUpdated": "2025-12-04T14:04:03+01:00"
                 },
                 {
                   "id": "frelse",
@@ -4234,8 +4234,8 @@
                     "frelse",
                     "doctrinal"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-04T14:04:03+01:00",
+                  "lastUpdated": "2025-12-04T14:04:03+01:00"
                 },
                 {
                   "id": "intro",
@@ -4246,8 +4246,8 @@
                     "jehovas-vitner",
                     "intro"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-21T13:37:14+01:00",
+                  "lastUpdated": "2025-12-23T11:47:37+01:00"
                 }
               ]
             },
@@ -4267,8 +4267,8 @@
                     "sikhisme",
                     "sentrale_trekk"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-04T13:10:30+01:00",
+                  "lastUpdated": "2025-12-04T13:39:40+01:00"
                 },
                 {
                   "id": "grunnleggere",
@@ -4279,8 +4279,8 @@
                     "sikhisme",
                     "grunnleggere"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-04T14:04:03+01:00",
+                  "lastUpdated": "2025-12-04T14:04:03+01:00"
                 },
                 {
                   "id": "hellige-tekster",
@@ -4291,8 +4291,8 @@
                     "sikhisme",
                     "hellige-tekster"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-04T14:04:03+01:00",
+                  "lastUpdated": "2025-12-04T14:04:03+01:00"
                 },
                 {
                   "id": "intro",
@@ -4303,8 +4303,8 @@
                     "sikhisme",
                     "intro"
                   ],
-                  "createdDate": "2026-02-25T14:24:15+01:00",
-                  "lastUpdated": "2026-02-25T14:24:15+01:00"
+                  "createdDate": "2025-12-21T13:37:14+01:00",
+                  "lastUpdated": "2025-12-23T11:47:37+01:00"
                 }
               ]
             }
@@ -4344,8 +4344,8 @@
                 "ontologi",
                 "epistemologi"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T13:37:14+01:00",
+              "lastUpdated": "2025-12-23T11:47:37+01:00"
             },
             {
               "id": "sokrates",
@@ -4357,8 +4357,8 @@
                 "sokrates",
                 "metode"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T13:37:14+01:00",
+              "lastUpdated": "2025-12-23T11:47:37+01:00"
             },
             {
               "id": "platon",
@@ -4370,8 +4370,8 @@
                 "platon",
                 "idélære"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T13:37:14+01:00",
+              "lastUpdated": "2025-12-23T11:47:37+01:00"
             },
             {
               "id": "aristoteles",
@@ -4383,8 +4383,8 @@
                 "aristoteles",
                 "logikk"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T13:37:14+01:00",
+              "lastUpdated": "2025-12-23T11:47:37+01:00"
             },
             {
               "id": "augustin",
@@ -4396,8 +4396,8 @@
                 "kristendom",
                 "middelalder"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T13:37:14+01:00",
+              "lastUpdated": "2025-12-23T11:47:37+01:00"
             },
             {
               "id": "aquinas",
@@ -4409,8 +4409,8 @@
                 "skolastikk",
                 "aquinas"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T13:37:14+01:00",
+              "lastUpdated": "2025-12-23T11:47:37+01:00"
             },
             {
               "id": "descartes",
@@ -4422,8 +4422,8 @@
                 "rasjonalisme",
                 "descartes"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T13:37:14+01:00",
+              "lastUpdated": "2025-12-23T11:47:37+01:00"
             },
             {
               "id": "locke",
@@ -4435,8 +4435,8 @@
                 "empirisme",
                 "locke"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T13:37:14+01:00",
+              "lastUpdated": "2025-12-23T11:47:37+01:00"
             },
             {
               "id": "hume",
@@ -4449,8 +4449,8 @@
                 "skeptisisme",
                 "hume"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-22T23:53:21+01:00",
+              "lastUpdated": "2025-12-22T23:53:21+01:00"
             },
             {
               "id": "kant",
@@ -4462,8 +4462,8 @@
                 "etikk",
                 "kant"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T13:37:14+01:00",
+              "lastUpdated": "2025-12-23T11:47:37+01:00"
             },
             {
               "id": "kierkegaard",
@@ -4475,8 +4475,8 @@
                 "eksistensialisme",
                 "kierkegaard"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T13:37:14+01:00",
+              "lastUpdated": "2025-12-23T11:47:37+01:00"
             },
             {
               "id": "nietzsche",
@@ -4488,8 +4488,8 @@
                 "nihilisme",
                 "nietzsche"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T13:37:14+01:00",
+              "lastUpdated": "2025-12-23T11:47:37+01:00"
             },
             {
               "id": "mises",
@@ -4501,8 +4501,8 @@
                 "økonomi",
                 "mises"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T13:37:14+01:00",
+              "lastUpdated": "2025-12-23T11:47:37+01:00"
             },
             {
               "id": "heidegger",
@@ -4514,8 +4514,8 @@
                 "heidegger",
                 "eksistens"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T13:37:14+01:00",
+              "lastUpdated": "2025-12-23T11:47:37+01:00"
             },
             {
               "id": "arendt",
@@ -4527,8 +4527,8 @@
                 "arendt",
                 "politisk"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T13:37:14+01:00",
+              "lastUpdated": "2025-12-23T11:47:37+01:00"
             },
             {
               "id": "beauvoir",
@@ -4540,8 +4540,8 @@
                 "feminisme",
                 "beauvoir"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T13:37:14+01:00",
+              "lastUpdated": "2025-12-23T11:47:37+01:00"
             },
             {
               "id": "rothbard",
@@ -4553,8 +4553,8 @@
                 "politisk",
                 "rothbard"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T13:37:14+01:00",
+              "lastUpdated": "2025-12-23T11:47:37+01:00"
             }
           ]
         },
@@ -4584,8 +4584,8 @@
                 "etikk",
                 "moral"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T13:37:14+01:00",
+              "lastUpdated": "2025-12-23T11:47:37+01:00"
             },
             {
               "id": "utilitarisme",
@@ -4598,8 +4598,8 @@
                 "konsekvens",
                 "mill"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T13:37:14+01:00",
+              "lastUpdated": "2025-12-23T11:47:37+01:00"
             },
             {
               "id": "pliktetikk",
@@ -4612,8 +4612,8 @@
                 "kant",
                 "imperativ"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T13:37:14+01:00",
+              "lastUpdated": "2025-12-23T11:47:37+01:00"
             },
             {
               "id": "dygdsetikk",
@@ -4626,8 +4626,8 @@
                 "aristoteles",
                 "karakter"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T13:37:14+01:00",
+              "lastUpdated": "2025-12-23T11:47:37+01:00"
             },
             {
               "id": "naturrett",
@@ -4640,8 +4640,8 @@
                 "locke",
                 "rettigheter"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T13:37:14+01:00",
+              "lastUpdated": "2025-12-23T11:47:37+01:00"
             },
             {
               "id": "non-aggression",
@@ -4654,8 +4654,8 @@
                 "frihet",
                 "eiendom"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-21T13:37:14+01:00",
+              "lastUpdated": "2025-12-23T11:47:37+01:00"
             }
           ]
         }
@@ -4704,8 +4704,8 @@
                 "teori",
                 "rytme"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-13T22:43:33+01:00",
+              "lastUpdated": "2025-12-13T22:43:33+01:00"
             },
             {
               "id": "akkorder-og-harmoni",
@@ -4717,8 +4717,8 @@
                 "teori",
                 "harmoni"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-13T22:43:33+01:00",
+              "lastUpdated": "2025-12-13T22:43:33+01:00"
             },
             {
               "id": "notasjon",
@@ -4730,8 +4730,8 @@
                 "teori",
                 "notasjon"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-13T22:43:33+01:00",
+              "lastUpdated": "2025-12-13T22:43:33+01:00"
             }
           ]
         },
@@ -4751,8 +4751,8 @@
                 "instrument",
                 "piano"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-13T22:43:33+01:00",
+              "lastUpdated": "2025-12-13T22:43:33+01:00"
             },
             {
               "id": "gitar-intro",
@@ -4764,8 +4764,8 @@
                 "instrument",
                 "gitar"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-13T22:43:33+01:00",
+              "lastUpdated": "2025-12-13T22:43:33+01:00"
             },
             {
               "id": "bass-intro",
@@ -4777,8 +4777,8 @@
                 "instrument",
                 "bass"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-13T22:43:33+01:00",
+              "lastUpdated": "2025-12-13T22:43:33+01:00"
             },
             {
               "id": "trommer-intro",
@@ -4790,8 +4790,8 @@
                 "instrument",
                 "trommer"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-13T22:43:33+01:00",
+              "lastUpdated": "2025-12-13T22:43:33+01:00"
             }
           ]
         },
@@ -4811,8 +4811,8 @@
                 "komposisjon",
                 "låtskriving"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-13T22:43:33+01:00",
+              "lastUpdated": "2025-12-13T22:43:33+01:00"
             }
           ]
         },
@@ -4832,8 +4832,8 @@
                 "skole",
                 "vurdering"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-13T22:43:33+01:00",
+              "lastUpdated": "2025-12-13T22:43:33+01:00"
             }
           ]
         },
@@ -4855,8 +4855,8 @@
                 "piano",
                 "akkorder"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-13T22:43:33+01:00",
+              "lastUpdated": "2025-12-13T22:43:33+01:00"
             },
             {
               "id": "rytmebank",
@@ -4870,8 +4870,8 @@
                 "trommer",
                 "rytme"
               ],
-              "createdDate": "2026-02-25T14:24:15+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00"
+              "createdDate": "2025-12-13T22:43:33+01:00",
+              "lastUpdated": "2025-12-13T22:43:33+01:00"
             }
           ]
         }
