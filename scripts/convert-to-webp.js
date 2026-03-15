@@ -2,7 +2,7 @@ import sharp from 'sharp';
 import fs from 'fs';
 
 const images = [
-    { src: '/home/irik/.gemini/antigravity/brain/2e4369c7-3367-49e0-a9e0-247cfcd98028/kgb_spy_cafe_generation_1773524049916.png', dest: 'public/images/chronos/kald-krig/kgb_spy_cafe.webp' }
+    { src: '/home/irik/.gemini/antigravity/brain/2e4369c7-3367-49e0-a9e0-247cfcd98028/macarthur_korea_generation_1773562278730.png', dest: 'public/images/chronos/kald-krig/macarthur_korea.webp' }
 ];
 
 async function convert() {
