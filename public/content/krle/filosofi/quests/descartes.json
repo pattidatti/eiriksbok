@@ -61,7 +61,8 @@
                         "rationalism": 5,
                         "existentialism": 2
                     },
-                    "nextStepId": "conclusion"
+                    "nextStepId": "conclusion",
+                    "feedback": "Descartes sitt berømte svar: \"Cogito, ergo sum.\" Selv om alt annet er usikkert, kan du ikke tvile på at du tviler!"
                 }
             ]
         },

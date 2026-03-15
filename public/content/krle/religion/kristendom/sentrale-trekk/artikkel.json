@@ -1,6 +1,6 @@
 {
     "id": "sentrale-trekk",
-    "title": "Sentrale trekk i Kristendommen",
+    "title": "Sentrale trekk i kristendommen",
     "subject": "krle",
     "topic": "religioner",
     "religion": "kristendom",
@@ -10,7 +10,7 @@
         "frelse_og_mal"
     ],
     "createdDate": "2025-12-04T10:00:00Z",
-    "lastUpdated": "2025-12-04T10:00:00Z",
+    "lastUpdated": "2026-03-15T12:00:00Z",
     "content": [
         {
             "type": "header",
@@ -18,15 +18,7 @@
         },
         {
             "type": "text",
-            "content": "Kristendommen bygger på troen på at Jesus fra Nasaret er Guds sønn og verdens frelser (Messias). Kjernen i budskapet er at Gud elsker menneskene så høyt at han ble menneske i Jesus for å gjenopprette forholdet mellom Gud og mennesker."
-        },
-        {
-            "type": "header",
-            "text": "Frelse ved nåde"
-        },
-        {
-            "type": "text",
-            "content": "Målet i kristendommen er frelse, som betyr redning fra synd og død, og evig liv sammen med Gud. Dette oppnås ikke gjennom egne gjerninger, men ved Guds nåde gjennom troen på Jesu død og oppstandelse."
+            "content": "Kristendommen bygger på troen på at Jesus fra Nasaret er Guds sønn og verdens frelser. Ordet Kristus betyr den salvede, og viser til at kristne tror Jesus var den kongen og frelseren som var lovet i Det gamle testamentet. Kjernen i budskapet er at Gud elsker menneskene så høyt at han selv ble menneske i Jesus for å gjenopprette forholdet mellom Gud og mennesker."
         },
         {
             "type": "header",
@@ -34,14 +26,46 @@
         },
         {
             "type": "text",
-            "content": "Gud forstås som én, men åpenbarer seg i tre personer: Faderen (skaperen), Sønnen (frelseren) og Den hellige ånd (livgiveren)."
+            "content": "Kristne tror på én Gud, men at Gud viser seg på tre måter: som Faderen (skaperen), Sønnen (Jesus, frelseren) og Den hellige ånd (Guds kraft i verden i dag). Dette kalles treenigheten. Det er ikke tre guder, men én Gud i tre personer. En måte å tenke på det er at vann kan være is, flytende vann og damp - tre former, men fortsatt det samme stoffet."
+        },
+        {
+            "type": "header",
+            "text": "Frelse ved nåde"
+        },
+        {
+            "type": "text",
+            "content": "Målet i kristendommen er frelse - å bli reddet fra synd og død, og få evig liv sammen med Gud. Kristne tror at alle mennesker gjør feil og er skilt fra Gud. Men gjennom Jesu død og oppstandelse åpnet Gud en vei tilbake. Frelsen er en gave fra Gud, ikke noe man kan gjøre seg fortjent til. Dette kalles nåde."
+        },
+        {
+            "type": "header",
+            "text": "Nestekjærligheten"
+        },
+        {
+            "type": "text",
+            "content": "Da Jesus ble spurt om hva som er det viktigste budet, svarte han: Du skal elske Gud av hele ditt hjerte, og du skal elske din neste som deg selv. Dette doble kjærlighetsbudet er grunnlaget for kristen etikk. Det betyr at kristne skal behandle alle mennesker med respekt og omsorg - uansett hvem de er."
+        },
+        {
+            "type": "header",
+            "text": "Ulike retninger"
+        },
+        {
+            "type": "text",
+            "content": "Kristendommen er delt i tre hovedretninger: den katolske kirke, de protestantiske kirkene og de ortodokse kirkene. Alle er enige om at Jesus er Guds sønn og verdens frelser. Men de er uenige om ting som pavens rolle, helgener, og om frelse kommer gjennom tro alene eller tro sammen med gode gjerninger. Den norske kirke er protestantisk og følger Martin Luthers lære."
+        },
+        {
+            "type": "header",
+            "text": "Kristendommen i dag"
+        },
+        {
+            "type": "text",
+            "content": "Med over 2,4 milliarder tilhengere er kristendommen verdens største religion. Den finnes i nesten alle land, men vokser raskest i Afrika og Asia. I Europa går antallet aktive kirkegjengere ned, men kristne verdier og tradisjoner preger fortsatt kulturen. I Norge er rundt 65 prosent av befolkningen medlemmer i Den norske kirke."
         }
     ],
     "concepts": [
         {
             "id": "messias",
             "term": "Messias",
-            "definition": "Betyr 'den salvede'. I kristendommen er Jesus Messias, Guds sønn og verdens frelser."
+            "definition": "Betyr den salvede. I kristendommen er Jesus Messias, Guds sønn og verdens frelser."
         },
         {
             "id": "nade",
@@ -52,6 +76,16 @@
             "id": "treenigheten",
             "term": "Treenigheten",
             "definition": "Læren om at Gud er én, men tre personer: Faderen, Sønnen og Den hellige ånd."
+        },
+        {
+            "id": "nestekjaerlighet",
+            "term": "Nestekjærlighet",
+            "definition": "Å elske og vise omsorg for andre mennesker. Det viktigste etiske prinsippet i kristendommen."
+        },
+        {
+            "id": "monoteisme",
+            "term": "Monoteisme",
+            "definition": "Troen på bare én Gud. Kristendommen, islam og jødedommen er alle monoteistiske."
         }
     ],
     "quiz": [
@@ -81,6 +115,24 @@
                 "Abraham, Isak og Jakob"
             ],
             "answer": "Faderen, Sønnen og Den hellige ånd"
+        },
+        {
+            "question": "Hva er nestekjærlighetsbudet?",
+            "options": [
+                "Du skal elske Gud og din neste som deg selv",
+                "Du skal elske bare din familie",
+                "Du skal elske deg selv mest"
+            ],
+            "answer": "Du skal elske Gud og din neste som deg selv"
+        },
+        {
+            "question": "Hvilken kristen retning tilhører Den norske kirke?",
+            "options": [
+                "Katolsk",
+                "Protestantisk",
+                "Ortodoks"
+            ],
+            "answer": "Protestantisk"
         }
     ],
     "quote": {

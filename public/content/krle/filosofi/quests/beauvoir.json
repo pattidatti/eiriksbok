@@ -61,7 +61,8 @@
                         "existentialism": 4,
                         "empiricism": 3
                     },
-                    "nextStepId": "conclusion"
+                    "nextStepId": "conclusion",
+                    "feedback": "Beauvoir mente at ekte frihet handler om å ha prosjekter - å skape seg selv gjennom handlinger."
                 }
             ]
         },

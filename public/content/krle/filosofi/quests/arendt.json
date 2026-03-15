@@ -59,7 +59,8 @@
                     "impact": {
                         "empiricism": 2
                     },
-                    "nextStepId": "action"
+                    "nextStepId": "action",
+                    "feedback": "Arendt mente at nøkkelen er å tenke selv. Kritisk tenkning er det beste forsvaret mot ondskap."
                 }
             ]
         },

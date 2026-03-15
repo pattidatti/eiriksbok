@@ -60,7 +60,8 @@
                         "existentialism": 5,
                         "stoicism": 3
                     },
-                    "nextStepId": "conclusion"
+                    "nextStepId": "conclusion",
+                    "feedback": "Heidegger mente at å akseptere døden frigjør oss til å leve ekte. Det er \"væren-mot-døden\"."
                 }
             ]
         },

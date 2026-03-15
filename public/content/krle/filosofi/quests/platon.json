@@ -51,7 +51,8 @@
                     "impact": {
                         "individualism": 5,
                         "rationalism": 5
-                    }
+                    },
+                    "feedback": "Filosofens mot! Du velger sannhet fremfor trygghet. Det krever styrke."
                 }
             ]
         },

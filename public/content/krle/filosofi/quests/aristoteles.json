@@ -60,7 +60,8 @@
                     "impact": {
                         "rationalism": 1
                     },
-                    "nextStepId": "golden_mean"
+                    "nextStepId": "golden_mean",
+                    "feedback": "Riktig! Og for mye mot? Da blir man dumdristig. Balansen er nøkkelen."
                 }
             ]
         },

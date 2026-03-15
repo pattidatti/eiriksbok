@@ -70,7 +70,8 @@
                         "empiricism": 4,
                         "stoicism": 3
                     },
-                    "nextStepId": "conclusion"
+                    "nextStepId": "conclusion",
+                    "feedback": "Du tenker som Hume! Å innse begrensningene våre kan faktisk gjøre oss mer ydmyke og åpne."
                 }
             ]
         },

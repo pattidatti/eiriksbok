@@ -45,7 +45,8 @@
                         "stoicism": 5,
                         "materialism": 2
                     },
-                    "nextStepId": "deeper_justice"
+                    "nextStepId": "deeper_justice",
+                    "feedback": "En streng holdning! Men hva om du visste at han ville skade noen med det?"
                 },
                 {
                     "id": "refuse",
@@ -54,7 +55,8 @@
                         "rationalism": 5,
                         "epicureanism": 2
                     },
-                    "nextStepId": "deeper_justice"
+                    "nextStepId": "deeper_justice",
+                    "feedback": "Sokrates var enig: Fornuften må styre våre handlinger, ikke blinde regler."
                 }
             ]
         },
@@ -97,7 +99,8 @@
                         "idealism": 3,
                         "rationalism": 2
                     },
-                    "nextStepId": "conclusion"
+                    "nextStepId": "conclusion",
+                    "feedback": "Du og Sokrates er enige: Sann makt tjener folket, ikke makthaveren."
                 }
             ]
         },

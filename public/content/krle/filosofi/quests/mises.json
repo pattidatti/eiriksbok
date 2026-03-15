@@ -60,7 +60,8 @@
                         "individualism": 5,
                         "rationalism": 2
                     },
-                    "nextStepId": "conclusion"
+                    "nextStepId": "conclusion",
+                    "feedback": "Mises mente at frie priser er nødvendige for at samfunnet skal kunne koordinere millioner av beslutninger."
                 }
             ]
         },

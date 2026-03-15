@@ -18,7 +18,8 @@
                         "individualism": 3,
                         "rationalism": 2
                     },
-                    "nextStepId": "laziness"
+                    "nextStepId": "laziness",
+                    "feedback": "Kants motto: \"Sapere aude!\" - Våg å vite! Opplysning er veien ut av selvforskyldt umyndighet."
                 },
                 {
                     "id": "follow",

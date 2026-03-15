@@ -1,6 +1,6 @@
 {
     "id": "bonn",
-    "title": "Bønn i Kristendommen",
+    "title": "Bønn i kristendommen",
     "subject": "krle",
     "topic": "religioner",
     "religion": "kristendom",
@@ -10,7 +10,7 @@
         "ritual"
     ],
     "createdDate": "2025-12-04T11:00:00Z",
-    "lastUpdated": "2025-12-04T11:00:00Z",
+    "lastUpdated": "2026-03-15T12:00:00Z",
     "content": [
         {
             "type": "header",
@@ -18,15 +18,33 @@
         },
         {
             "type": "text",
-            "content": "I kristendommen er bønn en personlig samtale med Gud. Man kan be med egne ord eller bruke faste bønner. Bønnen kan være takk, lovprisning, bekjennelse eller ønske om hjelp."
+            "content": "I kristendommen er bønn en personlig samtale med Gud. Man kan be når som helst og hvor som helst - det finnes ingen faste tider eller regler for hvordan man skal stå eller sitte. Dette er annerledes enn for eksempel i islam, der bønnen har faste tidspunkter og bevegelser. Kristen bønn kan være stille eller høyt, spontan eller med faste ord."
         },
         {
             "type": "header",
-            "text": "Vår Far"
+            "text": "Forskjellige typer bønn"
         },
         {
             "type": "text",
-            "content": "Den mest kjente bønnen er 'Vår Far' (Fader vår), som Jesus lærte disiplene sine. Den brukes i nesten alle kirkesamfunn."
+            "content": "Det finnes mange former for bønn i kristendommen. De fleste kan deles inn i noen hovedtyper."
+        },
+        {
+            "type": "list",
+            "items": [
+                "Takk - å takke Gud for noe godt som har skjedd",
+                "Lovprisning - å prise Gud for den han er",
+                "Bekjennelse - å innrømme feil og be om tilgivelse",
+                "Forbønn - å be for andre mennesker som har det vanskelig",
+                "Bønn om hjelp - å be Gud om styrke eller veiledning i eget liv"
+            ]
+        },
+        {
+            "type": "header",
+            "text": "Fader vår"
+        },
+        {
+            "type": "text",
+            "content": "Den mest kjente bønnen i kristendommen er Fader vår, som Jesus selv lærte disiplene sine. Bønnen begynner med å henvende seg til Gud som en far, og ber om at Guds vilje skal skje. Den ber om daglig brød (det man trenger for å leve), om tilgivelse, og om beskyttelse mot fristelser. Fader vår brukes i nesten alle kirkesamfunn over hele verden."
         },
         {
             "type": "header",
@@ -34,7 +52,23 @@
         },
         {
             "type": "text",
-            "content": "Bønn er en sentral del av gudstjenesten søndag formiddag. Her ber menigheten i fellesskap, ofte ledet av en prest eller liturg."
+            "content": "Gudstjenesten er den viktigste felles samlingen for kristne. I Den norske kirke holdes den vanligvis søndag formiddag. En typisk gudstjeneste inneholder salmer, bønner, Bibellesning, en preken der presten forklarer teksten, og ofte nattverd. Menigheten ber sammen, og det er en veksling mellom fellesbønn og stille bønn."
+        },
+        {
+            "type": "header",
+            "text": "Nattverd"
+        },
+        {
+            "type": "text",
+            "content": "Nattverden er det andre store ritualet i kristendommen ved siden av dåpen. Under nattverden deler menigheten brød og vin, som representerer Jesu kropp og blod. Jesus innstiftet nattverden kvelden før han ble korsfestet, da han spiste det siste måltidet med disiplene sine. Katolikker tror at brødet og vinen faktisk blir til Jesu kropp og blod. Protestanter ser det mer som et minnemåltid."
+        },
+        {
+            "type": "header",
+            "text": "Bønn i hverdagen"
+        },
+        {
+            "type": "text",
+            "content": "Mange kristne ber også utenfor kirken. Bordbønn før maten, kveldsbønn før sengetid, og bønn i vanskelige situasjoner er vanlige eksempler. For troende er bønn en måte å holde kontakten med Gud i hverdagen - litt som å sende en melding til noen man er glad i."
         }
     ],
     "concepts": [
@@ -49,9 +83,19 @@
             "definition": "Den mest kjente bønnen i kristendommen, som Jesus lærte disiplene sine."
         },
         {
-            "id": "liturg",
-            "term": "Liturg",
-            "definition": "Den som leder gudstjenesten, ofte en prest."
+            "id": "nattverd",
+            "term": "Nattverd",
+            "definition": "Et ritual der menigheten deler brød og vin til minne om Jesu siste måltid. Et av de to sakramentene."
+        },
+        {
+            "id": "forbonn",
+            "term": "Forbønn",
+            "definition": "Å be til Gud for andre mennesker - for eksempel for noen som er syke eller har det vanskelig."
+        },
+        {
+            "id": "gudstjeneste",
+            "term": "Gudstjeneste",
+            "definition": "Den viktigste felles samlingen for kristne, vanligvis søndag formiddag. Inneholder bønn, sang og preken."
         }
     ],
     "quiz": [
@@ -65,7 +109,7 @@
             "answer": "En samtale med Gud"
         },
         {
-            "question": "Hvem lærte disiplene bønnen 'Fader vår'?",
+            "question": "Hvem lærte disiplene bønnen Fader vår?",
             "options": [
                 "Moses",
                 "Jesus",
@@ -74,20 +118,36 @@
             "answer": "Jesus"
         },
         {
-            "question": "Når ber menigheten ofte i fellesskap?",
+            "question": "Hva er nattverd?",
             "options": [
-                "På julaften",
-                "I gudstjenesten",
-                "Hjemme før middag"
+                "Et vanlig måltid i kirken",
+                "Et ritual med brød og vin til minne om Jesu siste måltid",
+                "En type bønn"
             ],
-            "answer": "I gudstjenesten"
+            "answer": "Et ritual med brød og vin til minne om Jesu siste måltid"
+        },
+        {
+            "question": "Hva er forbønn?",
+            "options": [
+                "Å be for seg selv",
+                "Å be for andre mennesker",
+                "Å be høyt i kirken"
+            ],
+            "answer": "Å be for andre mennesker"
+        },
+        {
+            "question": "Hvordan er kristen bønn forskjellig fra islamsk bønn?",
+            "options": [
+                "Kristne ber aldri",
+                "Kristen bønn har ikke faste tider eller bestemte bevegelser",
+                "Kristne ber bare i kirken"
+            ],
+            "answer": "Kristen bønn har ikke faste tider eller bestemte bevegelser"
         }
     ],
     "quote": {
         "text": "Vår Far i himmelen! La navnet ditt helliges. La riket ditt komme. La viljen din skje på jorden slik som i himmelen.",
         "source": "Bibelen",
         "reference": "Matteus 6:9-10"
-    },
-    "createdDate": "2025-12-04T11:00:00Z",
-    "lastUpdated": "2025-12-04T11:00:00Z"
+    }
 }

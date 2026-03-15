@@ -10,7 +10,7 @@
         "narrative"
     ],
     "createdDate": "2025-12-04T12:00:00Z",
-    "lastUpdated": "2025-12-04T12:00:00Z",
+    "lastUpdated": "2026-03-15T12:00:00Z",
     "content": [
         {
             "type": "header",
@@ -18,40 +18,74 @@
         },
         {
             "type": "text",
-            "content": "Jesus ble født i Betlehem for ca. 2000 år siden. Han vokste opp i Nasaret og virket som predikant og helbreder i tre år før han ble korsfestet i Jerusalem."
+            "content": "Jesus ble født i Betlehem for ca. 2000 år siden i enkle kår. Familien bodde i den lille byen Nasaret, og Jesus vokste opp som sønn av tømmermannen Josef. Da han var rundt 30 år gammel, begynte han å reise rundt i det som i dag er Israel og Palestina. Han samlet folk rundt seg, underviste og helbredet syke."
         },
         {
             "type": "header",
-            "text": "Messias"
+            "text": "Lærer og helbreder"
         },
         {
             "type": "text",
-            "content": "Kristus er gresk for Messias (den salvede). Kristne tror Jesus var den frelseren som profetene i Det gamle testamentet hadde lovet."
+            "content": "Jesus var kjent for å fortelle lignelser - korte historier med et dypt poeng. Han fortalte for eksempel om den barmhjertige samaritan, som hjalp en fremmed selv om ingen andre ville. Jesus helbredet syke, ga mat til sultne og tilbrakte tid med mennesker som ble sett ned på i samfunnet. Han utfordret de religiøse lederne som han mente hadde gjort religionen til et sett med strenge regler i stedet for å fokusere på kjærlighet."
         },
         {
             "type": "header",
-            "text": "Disiplene"
+            "text": "Korsfestelsen"
         },
         {
             "type": "text",
-            "content": "Jesus valgte ut 12 disipler (apostler) som skulle føre læren hans videre. Peter og Paulus ble de viktigste lederne i den tidlige kirken."
+            "content": "Etter tre år ble Jesus arrestert i Jerusalem. De religiøse lederne så ham som en trussel fordi han utfordret deres makt. Den romerske guvernøren Pontius Pilatus dømte ham til døden. Jesus ble korsfestet - en grusom henrettelsesmetode som romerne brukte. Kristne tror at Jesus døde for hele menneskehetens synder. Korsfestelsen er den mest sentrale hendelsen i kristendommen."
+        },
+        {
+            "type": "header",
+            "text": "Oppstandelsen"
+        },
+        {
+            "type": "text",
+            "content": "Tre dager etter korsfestelsen var graven tom. Kristne tror at Jesus sto opp fra de døde - dette kalles oppstandelsen. Det er dette påsken handler om. Oppstandelsen er selve grunnlaget for kristen tro. Uten den ville kristendommen ikke eksistert. Paulus skrev at hvis Jesus ikke sto opp, er troen uten verdi."
+        },
+        {
+            "type": "header",
+            "text": "Messias - den salvede"
+        },
+        {
+            "type": "text",
+            "content": "Kristus er gresk for Messias, som betyr den salvede. Det jødiske folket ventet på en frelser som var lovet av profetene. De fleste ventet en mektig krigerkonge som skulle beseire fiendene deres. Jesus var ikke den type Messias de forventet - han kom som en fredelig lærer som ofret seg selv. Likevel tror kristne at han oppfylte de gamle løftene."
+        },
+        {
+            "type": "header",
+            "text": "Disiplene og den første kirken"
+        },
+        {
+            "type": "text",
+            "content": "Jesus valgte ut 12 disipler som fulgte ham og lærte av ham. Etter oppstandelsen fikk de i oppdrag å spre budskapet til hele verden. Peter ble lederen for den første menigheten i Jerusalem og reiste senere til Roma. Paulus reiste over hele Middelhavsområdet og grunnla nye menigheter. I løpet av 300 år hadde kristendommen vokst fra en liten gruppe i Midtøsten til å bli Romerrikets offisielle religion."
         }
     ],
     "concepts": [
         {
             "id": "messias",
             "term": "Messias",
-            "definition": "Den salvede. En frelseskongen som jødene ventet på. Kristne tror Jesus er Messias."
+            "definition": "Den salvede. En frelseskonge som jødene ventet på. Kristne tror Jesus er Messias."
         },
         {
             "id": "disippel",
             "term": "Disippel",
-            "definition": "Elev eller etterfølger. Jesus hadde 12 nære disipler."
+            "definition": "Elev eller etterfølger. Jesus hadde 12 nære disipler som spredte budskapet hans."
         },
         {
-            "id": "apostel",
-            "term": "Apostel",
-            "definition": "Utsending. De som ble sendt ut for å forkynne om Jesus."
+            "id": "lignelse",
+            "term": "Lignelse",
+            "definition": "En kort fortelling med et dypere poeng. Jesus brukte lignelser for å forklare vanskelige ting."
+        },
+        {
+            "id": "korsfestelse",
+            "term": "Korsfestelse",
+            "definition": "En romersk henrettelsesmetode. Jesus ble korsfestet i Jerusalem. Kristne tror han døde for menneskenes synder."
+        },
+        {
+            "id": "oppstandelse",
+            "term": "Oppstandelse",
+            "definition": "At Jesus sto opp fra de døde tre dager etter korsfestelsen. Grunnlaget for kristen tro."
         }
     ],
     "quiz": [
@@ -65,13 +99,31 @@
             "answer": "Den salvede (Messias)"
         },
         {
-            "question": "Hvor ble Jesus født?",
+            "question": "Hva er en lignelse?",
             "options": [
-                "Nasaret",
-                "Jerusalem",
-                "Betlehem"
+                "En lovtekst fra Bibelen",
+                "En kort fortelling med et dypere poeng",
+                "En type bønn"
             ],
-            "answer": "Betlehem"
+            "answer": "En kort fortelling med et dypere poeng"
+        },
+        {
+            "question": "Hva feirer kristne i påsken?",
+            "options": [
+                "Jesu fødsel",
+                "Jesu død og oppstandelse",
+                "Pinsedagen"
+            ],
+            "answer": "Jesu død og oppstandelse"
+        },
+        {
+            "question": "Hvorfor ble Jesus oppfattet som en trussel?",
+            "options": [
+                "Fordi han var en soldat",
+                "Fordi han utfordret de religiøse ledernes makt",
+                "Fordi han ville bli konge"
+            ],
+            "answer": "Fordi han utfordret de religiøse ledernes makt"
         },
         {
             "question": "Hvor mange disipler valgte Jesus ut?",
@@ -87,7 +139,5 @@
         "text": "Jeg er veien, sannheten og livet. Ingen kommer til Faderen uten ved meg.",
         "source": "Bibelen",
         "reference": "Johannes 14:6"
-    },
-    "createdDate": "2025-12-04T12:00:00Z",
-    "lastUpdated": "2025-12-04T12:00:00Z"
+    }
 }

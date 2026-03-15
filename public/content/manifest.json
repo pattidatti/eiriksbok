@@ -839,8 +839,8 @@
                 "skriving",
                 "norsk"
               ],
-              "createdDate": "2026-03-15T00:00:00Z",
-              "lastUpdated": "2026-03-15T20:12:50.545Z"
+              "createdDate": "2026-03-15T21:20:22+01:00",
+              "lastUpdated": "2026-03-15T21:20:22+01:00"
             },
             {
               "id": "muntlig",
@@ -852,8 +852,8 @@
                 "presentasjon",
                 "norsk"
               ],
-              "createdDate": "2026-03-15T00:00:00Z",
-              "lastUpdated": "2026-03-15T20:15:49.818Z"
+              "createdDate": "2026-03-15T21:20:22+01:00",
+              "lastUpdated": "2026-03-15T21:20:22+01:00"
             }
           ]
         }
@@ -3374,9 +3374,21 @@
               "link": "/krle/religion/kristendom",
               "lessons": [
                 {
+                  "id": "intro",
+                  "title": "Introduksjon",
+                  "description": "Verdens største religion: retninger, utbredelse og kristendommen i Norge.",
+                  "image": "/images/krle/religion/kristendom_hero.jpg",
+                  "tags": [
+                    "kristendom",
+                    "intro"
+                  ],
+                  "createdDate": "2025-12-21T13:37:14+01:00",
+                  "lastUpdated": "2025-12-23T11:47:37+01:00"
+                },
+                {
                   "id": "sentrale-trekk",
                   "title": "Sentrale trekk",
-                  "description": "Kjernen i kristendommen: Frelse, treenighet og nestekjærlighet.",
+                  "description": "Kjernen i kristendommen: frelse, treenighet, nestekjærlighet og ulike retninger.",
                   "image": "/images/krle/religion/kristendom_hero.jpg",
                   "tags": [
                     "kristendom",
@@ -3386,9 +3398,61 @@
                   "lastUpdated": "2025-12-04T13:39:40+01:00"
                 },
                 {
+                  "id": "grunnleggere",
+                  "title": "Jesus Kristus",
+                  "description": "Jesus fra Nasaret: lærer, helbreder, korsfestet og oppstanden.",
+                  "image": "/images/krle/religion/kristendom_hero.jpg",
+                  "tags": [
+                    "kristendom",
+                    "grunnleggere",
+                    "narrative"
+                  ],
+                  "createdDate": "2025-12-04T14:04:03+01:00",
+                  "lastUpdated": "2025-12-04T14:04:03+01:00"
+                },
+                {
+                  "id": "gudsbilde",
+                  "title": "Treenigheten",
+                  "description": "Gud som Fader, Sønn og Hellig Ånd - tre personer, én Gud.",
+                  "image": "/images/krle/religion/kristendom_hero.jpg",
+                  "tags": [
+                    "kristendom",
+                    "gudsbilde",
+                    "doctrinal"
+                  ],
+                  "createdDate": "2025-12-04T14:04:03+01:00",
+                  "lastUpdated": "2025-12-04T14:04:03+01:00"
+                },
+                {
+                  "id": "hellige-tekster",
+                  "title": "Bibelen",
+                  "description": "66 bøker i to testamenter: evangelier, brev, profetier og poesi.",
+                  "image": "/images/krle/religion/kristendom_bible.webp",
+                  "tags": [
+                    "kristendom",
+                    "hellige_tekster",
+                    "narrative"
+                  ],
+                  "createdDate": "2025-12-04T14:04:03+01:00",
+                  "lastUpdated": "2025-12-04T14:04:03+01:00"
+                },
+                {
+                  "id": "frelse",
+                  "title": "Frelse og nåde",
+                  "description": "Synd, nåde, korsets betydning og ulike syn på frelse.",
+                  "image": "/images/krle/religion/kristendom_frelse.webp",
+                  "tags": [
+                    "kristendom",
+                    "frelse",
+                    "doctrinal"
+                  ],
+                  "createdDate": "2025-12-04T14:04:03+01:00",
+                  "lastUpdated": "2025-12-04T14:04:03+01:00"
+                },
+                {
                   "id": "bonn",
                   "title": "Bønn",
-                  "description": "Bønn i kristendommen.",
+                  "description": "Samtale med Gud: bønn, gudstjeneste og nattverd.",
                   "image": "/images/krle/religion/kristendom_hero.jpg",
                   "tags": [
                     "kristendom",
@@ -3401,7 +3465,7 @@
                 {
                   "id": "overgangsriter",
                   "title": "Overgangsriter",
-                  "description": "Dåp, konfirmasjon, bryllup og begravelse.",
+                  "description": "Dåp, konfirmasjon, ekteskap, begravelse og sakramentene.",
                   "image": "/images/krle/religion/kristendom_hero.jpg",
                   "tags": [
                     "kristendom",
@@ -3412,68 +3476,17 @@
                   "lastUpdated": "2025-12-04T13:39:40+01:00"
                 },
                 {
-                  "id": "grunnleggere",
-                  "title": "Jesus",
-                  "description": "Jesus fra Nasaret - kristendommens grunnlegger.",
+                  "id": "skapelse",
+                  "title": "Skapelsen",
+                  "description": "Bibelens skapelsesfortelling, syndefallet og forvalteransvaret.",
                   "image": "/images/krle/religion/kristendom_hero.jpg",
                   "tags": [
                     "kristendom",
-                    "grunnleggere",
+                    "skapelse",
                     "narrative"
                   ],
-                  "createdDate": "2025-12-04T14:04:03+01:00",
-                  "lastUpdated": "2025-12-04T14:04:03+01:00"
-                },
-                {
-                  "id": "hellige-tekster",
-                  "title": "Bibelen",
-                  "description": "Kristendommens hellige skrift.",
-                  "image": "/images/krle/religion/kristendom_bible.webp",
-                  "tags": [
-                    "kristendom",
-                    "hellige-tekster",
-                    "narrative"
-                  ],
-                  "createdDate": "2025-12-04T14:04:03+01:00",
-                  "lastUpdated": "2025-12-04T14:04:03+01:00"
-                },
-                {
-                  "id": "gudsbilde",
-                  "title": "Treenigheten",
-                  "description": "Gud som Fader, Sønn og Hellig Ånd.",
-                  "image": "/images/krle/religion/kristendom_hero.jpg",
-                  "tags": [
-                    "kristendom",
-                    "gudsbilde",
-                    "doctrinal"
-                  ],
-                  "createdDate": "2025-12-04T14:04:03+01:00",
-                  "lastUpdated": "2025-12-04T14:04:03+01:00"
-                },
-                {
-                  "id": "frelse",
-                  "title": "Frelse og nåde",
-                  "description": "Frelse gjennom tro på Jesus.",
-                  "image": "/images/krle/religion/kristendom_frelse.webp",
-                  "tags": [
-                    "kristendom",
-                    "frelse",
-                    "doctrinal"
-                  ],
-                  "createdDate": "2025-12-04T14:04:03+01:00",
-                  "lastUpdated": "2025-12-04T14:04:03+01:00"
-                },
-                {
-                  "id": "intro",
-                  "title": "Introduksjon",
-                  "description": "Grunnleggende om kristendommen.",
-                  "image": "/images/krle/religion/kristendom_hero.jpg",
-                  "tags": [
-                    "kristendom",
-                    "intro"
-                  ],
-                  "createdDate": "2025-12-21T13:37:14+01:00",
-                  "lastUpdated": "2025-12-23T11:47:37+01:00"
+                  "createdDate": "2025-12-02T22:54:02+01:00",
+                  "lastUpdated": "2025-12-04T22:48:37+01:00"
                 }
               ]
             },

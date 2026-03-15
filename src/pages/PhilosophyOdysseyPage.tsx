@@ -6,24 +6,21 @@ import {
     BrainCircuit,
     Star,
     Zap,
-    ChevronDown,
-    ChevronUp,
 } from 'lucide-react';
 import { useQuery } from '@tanstack/react-query';
 import { PageSkeleton } from '../components/Skeleton';
 import { usePhilosophyProfile } from '../hooks/usePhilosophyProfile';
 import { PhilosophicalQuestEngine } from '../components/content/interactive/philosophy/PhilosophicalQuestEngine';
 import type { PhilosophyQuest } from '../data/philosophy/types';
-import { Stjernekart } from '../components/content/interactive/philosophy/Stjernekart';
 import { findQuestConfig, getLevelTitle } from '../data/philosophy/questRegistry';
 import { QuestList } from '../components/content/interactive/philosophy/QuestList';
 import { HeroSection } from '../components/content/interactive/philosophy/HeroSection';
 import { AlignmentRadar } from '../components/content/interactive/philosophy/AlignmentRadar';
+import { PhilosophyTimeline } from '../components/content/interactive/philosophy/PhilosophyTimeline';
 
 export const PhilosophyOdysseyPage: React.FC = () => {
     const [activeQuest, setActiveQuest] = useState<PhilosophyQuest | null>(null);
     const [activeQuestId, setActiveQuestId] = useState<string | null>(null);
-    const [showNetwork, setShowNetwork] = useState(false);
 
     const { profile, isLoaded: profileLoaded, progress, earnedAchievements } = usePhilosophyProfile();
 
@@ -127,6 +124,9 @@ export const PhilosophyOdysseyPage: React.FC = () => {
                             {/* Hero */}
                             <HeroSection profile={profile} progress={progress} onStartQuest={setActiveQuestId} />
 
+                            {/* Philosophy Timeline */}
+                            <PhilosophyTimeline onStartQuest={setActiveQuestId} />
+
                             {/* Main Grid: Quests + Sidebar */}
                             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
                                 {/* Quest List */}
@@ -144,7 +144,7 @@ export const PhilosophyOdysseyPage: React.FC = () => {
                                             </div>
                                             <div>
                                                 <h3 className="font-bold text-sm">{getLevelTitle(profile.level)}</h3>
-                                                <p className="text-xs text-slate-400">Niva {profile.level}</p>
+                                                <p className="text-xs text-slate-400">Nivå {profile.level}</p>
                                             </div>
                                         </div>
 
@@ -168,7 +168,7 @@ export const PhilosophyOdysseyPage: React.FC = () => {
                                         <div className="grid grid-cols-3 gap-3 text-center py-4 border-t border-black/5">
                                             <div>
                                                 <p className="text-lg font-black">{progress.completed}</p>
-                                                <p className="text-[10px] text-slate-400 font-bold uppercase">Fullfort</p>
+                                                <p className="text-[10px] text-slate-400 font-bold uppercase">Fullført</p>
                                             </div>
                                             <div>
                                                 <p className="text-lg font-black">{progress.percent}%</p>
@@ -195,43 +195,11 @@ export const PhilosophyOdysseyPage: React.FC = () => {
                                     {/* Alignment Radar */}
                                     <div className="rounded-2xl bg-white border border-black/5 shadow-sm p-6">
                                         <h3 className="font-bold text-sm mb-1">Filosofisk Kompass</h3>
-                                        <p className="text-xs text-slate-400 mb-4">Basert pa dine valg i dialogene.</p>
+                                        <p className="text-xs text-slate-400 mb-4">Basert på dine valg i dialogene.</p>
                                         <AlignmentRadar alignment={profile.alignment} compact />
                                     </div>
-
-                                    {/* Stjernekart Toggle */}
-                                    <button
-                                        onClick={() => setShowNetwork(!showNetwork)}
-                                        className="w-full rounded-2xl bg-slate-900 text-white p-4 flex items-center justify-between hover:bg-slate-800 transition-colors"
-                                    >
-                                        <div className="flex items-center gap-3">
-                                            <div className="w-8 h-8 rounded-lg bg-indigo-500/30 flex items-center justify-center">
-                                                <BrainCircuit size={16} className="text-indigo-300" />
-                                            </div>
-                                            <span className="font-bold text-sm">Ideenes Nettverk</span>
-                                        </div>
-                                        {showNetwork ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
-                                    </button>
                                 </div>
                             </div>
-
-                            {/* Stjernekart Expanded */}
-                            <AnimatePresence>
-                                {showNetwork && (
-                                    <motion.div
-                                        initial={{ opacity: 0, height: 0 }}
-                                        animate={{ opacity: 1, height: 'auto' }}
-                                        exit={{ opacity: 0, height: 0 }}
-                                        className="overflow-hidden"
-                                    >
-                                        <div className="pb-2">
-                                            <h3 className="text-xl font-black mb-1">Den Store Samtalen</h3>
-                                            <p className="text-slate-400 text-sm mb-4">Utforsk hvordan ideer har formet historien gjennom arhundrene.</p>
-                                            <Stjernekart onStartQuest={setActiveQuestId} />
-                                        </div>
-                                    </motion.div>
-                                )}
-                            </AnimatePresence>
                         </motion.div>
                     )}
                 </AnimatePresence>

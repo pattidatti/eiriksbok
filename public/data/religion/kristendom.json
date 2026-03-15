@@ -10,7 +10,25 @@
                     "children": [
                         {
                             "type": "text",
-                            "text": "Dåp og nattverd er de viktigste ritualene (sakramentene). Gudstjenesten søndag formiddag er den sentrale samlingsformen."
+                            "text": "Dåp og nattverd er de to sakramentene i protestantiske kirker. Dåpen markerer inngangen til det kristne fellesskapet, mens nattverden er et minnemåltid der menigheten deler brød og vin til minne om Jesu siste måltid med disiplene."
+                        }
+                    ]
+                },
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Gudstjenesten søndag formiddag er den sentrale samlingsformen. Den inneholder bønn, salmer, Bibellesning og preken. Kirkeåret følger en fast rytme med store høytider som jul (Jesu fødsel), påske (Jesu død og oppstandelse) og pinse (Den hellige ånds komme)."
+                        }
+                    ]
+                },
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Bønn er en viktig del av hverdagen for mange kristne. I motsetning til islam har kristen bønn ingen faste tider eller bestemte bevegelser - man kan be fritt, når som helst."
                         }
                     ]
                 }
@@ -24,7 +42,25 @@
                     "children": [
                         {
                             "type": "text",
-                            "text": "Bibelen er den hellige boken, bestående av Det gamle og Det nye testamentet. Fortellingen om Jesu liv, død og oppstandelse er sentral."
+                            "text": "Bibelen er den hellige boken, bestående av Det gamle testamentet (39 bøker, delt med jødedommen) og Det nye testamentet (27 bøker om Jesus og den tidlige kirken). Bibelen inneholder historiske fortellinger, lover, poesi, profetier, evangelier og brev."
+                        }
+                    ]
+                },
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Den sentrale fortellingen er om Jesu liv, død og oppstandelse. Jesus fortalte lignelser, helbredet syke og utfordret sin tids religiøse ledere. Han ble korsfestet, men kristne tror han sto opp fra de døde tre dager senere."
+                        }
+                    ]
+                },
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Skapelsesfortellingen i 1. Mosebok forteller at Gud skapte verden og mennesket i sitt bilde. Syndefallet med Adam og Eva forklarer hvorfor verden ikke er perfekt. Fra Det gamle testamentet arves også fortellingene om Abraham, Moses og profetene."
                         }
                     ]
                 }
@@ -38,7 +74,25 @@
                     "children": [
                         {
                             "type": "text",
-                            "text": "Bønn, lovsang og fellesskapserfaringer. Troen på Den hellige ånds nærvær."
+                            "text": "Kristne beskriver troen som et personlig forhold til Gud. Bønn er den viktigste måten å oppleve dette forholdet på - en samtale der man kan dele alt fra takk og glede til sorg og tvil."
+                        }
+                    ]
+                },
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Opplevelsen av tilgivelse er sentral. Mange kristne beskriver en følelse av lettelse og fred når de bekjenner sine feil og opplever at de er tilgitt. Fellesskapet i gudstjenesten, lovsang og felles bønn gir også sterke opplevelser av tilhørighet."
+                        }
+                    ]
+                },
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Troen på Den hellige ånds nærvær er viktig i mange kirkesamfunn. Karismatiske bevegelser legger vekt på kraftige åndsopplevelser som tungetale og helbredelse. Andre tradisjoner, som klosterlivet, søker Gud gjennom stillhet og meditasjon."
                         }
                     ]
                 }
@@ -52,7 +106,25 @@
                     "children": [
                         {
                             "type": "text",
-                            "text": "Organisert i kirkesamfunn (f.eks. Den katolske kirke, Den norske kirke). Prester, biskoper og paver (i katolisismen) har lederroller."
+                            "text": "Kristendommen er organisert i mange kirkesamfunn. Den katolske kirke har et strengt hierarki med paven i Roma på toppen, etterfulgt av kardinaler, biskoper og prester. Protestantiske kirker er mer varierte - noen har biskoper, andre styres av menigheten selv."
+                        }
+                    ]
+                },
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Den norske kirke er en evangelisk-luthersk folkekirke. Den har biskoper og prester, men styres også av demokratisk valgte kirkemøter. Rundt 65 prosent av befolkningen er medlemmer, men langt færre deltar aktivt i gudstjenester."
+                        }
+                    ]
+                },
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Kristne organisasjoner driver mye sosialt arbeid. Kirkens Bymisjon, Frelsesarmeen og Røde Kors (grunnlagt av kristne) hjelper mennesker i nød. Menighetslivet gir fellesskap gjennom aktiviteter som søndagsskole, ungdomsgrupper og bibelgrupper."
                         }
                     ]
                 }
@@ -66,7 +138,25 @@
                     "children": [
                         {
                             "type": "text",
-                            "text": "Nestekjærlighetsbudet og De ti bud. Fokus på tilgivelse og omsorg for svake."
+                            "text": "Det doble kjærlighetsbudet er grunnlaget for kristen etikk: Du skal elske Gud av hele ditt hjerte, og du skal elske din neste som deg selv. De ti bud gir konkrete regler for forholdet til Gud og medmennesker."
+                        }
+                    ]
+                },
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "I Bergprekenen gir Jesus radikale etiske krav: elsk fiendene deres, vend det andre kinnet til, og døm ikke andre. Tilgivelse er et sentralt tema - kristne oppfordres til å tilgi, slik Gud tilgir dem."
+                        }
+                    ]
+                },
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Kristne er opptatt av sosial rettferdighet og omsorg for svake i samfunnet. Jesus brukte mye tid med fattige, syke og utstøtte. I dag debatterer kristne etiske spørsmål som abort, aktiv dødshjelp, likekjønnet ekteskap og klimaansvar, og det finnes ulike syn innenfor kristendommen."
                         }
                     ]
                 }
@@ -80,7 +170,25 @@
                     "children": [
                         {
                             "type": "text",
-                            "text": "Treenighetslæren (Gud er tre i én: Faderen, Sønnen og Den hellige ånd). Troen på Jesus som Guds sønn og frelser."
+                            "text": "Treenighetslæren er den mest særegne kristne doktrinen: Gud er tre i én - Faderen (skaperen), Sønnen (Jesus, frelseren) og Den hellige ånd (Guds nærvær i verden). Jesus var fullt ut Gud og fullt ut menneske (inkarnasjonen)."
+                        }
+                    ]
+                },
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Kristne tror at mennesker er skilt fra Gud på grunn av synd, men at Jesus gjenopprettet forholdet gjennom sin død og oppstandelse. Frelse er en gave fra Gud (nåde), ikke noe man kan gjøre seg fortjent til. Trosbekjennelsene (Den apostoliske og Den nikenske) oppsummerer kjernen i kristen tro."
+                        }
+                    ]
+                },
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "De tre hovedretningene - katolsk, protestantisk og ortodoks - er enige om det meste, men skiller seg på viktige punkter. Protestanter vektlegger frelse ved tro alene (sola fide) og Bibelen som øverste autoritet. Katolikker gir paven og tradisjonen større plass ved siden av Skriften."
                         }
                     ]
                 }
@@ -94,7 +202,25 @@
                     "children": [
                         {
                             "type": "text",
-                            "text": "Kirkebygg, altertavler, ikoner, korset som symbol."
+                            "text": "Kirkebygget er det viktigste materielle uttrykket. Det har typisk et skip (hovedrommet), et alter, en døpefont, en prekestol og et orgel. Korset er det mest kjente kristne symbolet og finnes på kirketårn, vegger og smykker."
+                        }
+                    ]
+                },
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "I ortodokse kirker brukes ikoner - religiøse bilder av Jesus, Maria og helgener malt etter strenge regler. Katolske kirker har ofte rike utsmykninger med altertavler, glassmalerier, helgenstatuer og krusifikser (kors med Jesus på). Protestantiske kirker er gjerne enklere, med fokus på prekestolen."
+                        }
+                    ]
+                },
+                {
+                    "type": "p",
+                    "children": [
+                        {
+                            "type": "text",
+                            "text": "Kirkeklokker ringer for å kalle folk til gudstjeneste og markere viktige hendelser. Liturgiske klær som alba (hvit kappe) og stola (farget bånd) brukes av prester under gudstjenesten. Fargene varierer etter kirkeåret: hvitt for glede, fiolett for bot, rødt for Den hellige ånd."
                         }
                     ]
                 }

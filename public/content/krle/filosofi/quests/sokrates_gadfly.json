@@ -44,7 +44,8 @@
                         "idealism": 5,
                         "stoicism": 2
                     },
-                    "nextStepId": "trial"
+                    "nextStepId": "trial",
+                    "feedback": "Sokrates valgte sannheten selv om det kostet ham livet. Han drakk giften heller enn å slutte å stille spørsmål."
                 },
                 {
                     "id": "safety",

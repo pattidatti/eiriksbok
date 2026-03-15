@@ -69,7 +69,8 @@
                         "rationalism": 3,
                         "stoicism": 3
                     },
-                    "nextStepId": "conclusion"
+                    "nextStepId": "conclusion",
+                    "feedback": "Platon mente at sjelen har tre deler: fornuft, mot og begjær. Rettferdighet er når de er i balanse."
                 }
             ]
         },

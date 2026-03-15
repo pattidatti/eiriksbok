@@ -45,7 +45,8 @@
                         "stoicism": 3,
                         "rationalism": 2
                     },
-                    "nextStepId": "categorical"
+                    "nextStepId": "categorical",
+                    "feedback": "Kant mente at moral som bøyer seg for konsekvenser, egentlig ikke er moral i det hele tatt."
                 }
             ]
         },

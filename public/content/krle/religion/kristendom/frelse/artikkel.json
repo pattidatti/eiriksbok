@@ -10,23 +10,39 @@
         "doctrinal"
     ],
     "createdDate": "2025-12-04T12:00:00Z",
-    "lastUpdated": "2025-12-04T12:00:00Z",
+    "lastUpdated": "2026-03-15T12:00:00Z",
     "content": [
         {
             "type": "header",
-            "text": "Synd og tilgivelse"
+            "text": "Hva er synd?"
         },
         {
             "type": "text",
-            "content": "Kristendommen lærer at mennesket synder (gjør feil) og kommer bort fra Gud. Men Gud tilgir synd på grunn av Jesu død på korset."
+            "content": "I kristendommen handler synd ikke bare om å gjøre noe galt. Det handler om at mennesker er skilt fra Gud. Ifølge Bibelen begynte dette med syndefallet, da Adam og Eva brøt Guds bud i Edens hage. Siden da har alle mennesker en tendens til å velge feil. Kristne kaller dette arvesynden - ikke at babyer er onde, men at alle mennesker er født inn i en verden der det er lett å gjøre feil."
         },
         {
             "type": "header",
-            "text": "Nåde"
+            "text": "Hvorfor trengs frelse?"
         },
         {
             "type": "text",
-            "content": "Frelse er en gave fra Gud, ikke noe man kan gjøre seg fortjent til. Dette kalles nåde. Man blir frelst ved å tro på Jesus."
+            "content": "Kristne tror at synden skaper et gap mellom mennesker og Gud. Uansett hvor hardt man prøver, klarer ingen å leve et perfekt liv. Mennesker kan ikke bygge bro over dette gapet på egen hånd. Derfor trengs det hjelp utenfra. Det er her frelsen kommer inn - Gud selv griper inn for å reparere forholdet."
+        },
+        {
+            "type": "header",
+            "text": "Nåde - Guds ufortjente gave"
+        },
+        {
+            "type": "text",
+            "content": "Frelse er en gave fra Gud, ikke noe man kan gjøre seg fortjent til. Dette kalles nåde. Tenk deg at du skylder noen en enorm sum penger du aldri kan betale tilbake - og personen sier: glem det, gjelden er slettet. Det er nåde. Kristne tror at Gud tilgir mennesker, ikke fordi de fortjener det, men fordi Gud elsker dem."
+        },
+        {
+            "type": "header",
+            "text": "Jesu død på korset"
+        },
+        {
+            "type": "text",
+            "content": "Korset er det mest kjente symbolet i kristendommen. Kristne tror at da Jesus døde på korset, tok han på seg straffen for menneskenes synder. Han ofret seg selv slik at forholdet mellom Gud og mennesker kunne bli gjenopprettet. Selv om korsfestelsen var en grusom hendelse, ser kristne på den som det ultimate uttrykket for Guds kjærlighet."
         },
         {
             "type": "header",
@@ -34,24 +50,42 @@
         },
         {
             "type": "text",
-            "content": "Kristne tror at Jesus sto opp fra de døde, og at de som tror på ham, skal få evig liv etter døden."
+            "content": "Kristne tror at Jesus sto opp fra de døde, og at de som tror på ham, skal få evig liv etter døden. Hva evig liv betyr konkret, finnes det ulike syn på. Noen forestiller seg himmelen som et sted der man møter Gud og sine kjære. Andre legger vekt på at det handler om å leve i fellesskap med Gud for alltid. De fleste kristne tror også på en dommedag, der alle mennesker en gang skal stå til regnskap."
+        },
+        {
+            "type": "header",
+            "text": "Ulike syn på frelse"
+        },
+        {
+            "type": "text",
+            "content": "Katolikker og protestanter er ikke helt enige om hvordan frelsen fungerer. Protestantene (som Den norske kirke) legger vekt på at man blir frelst ved tro alene - dette kalles sola fide. Katolikkene mener at tro og gode gjerninger hører sammen. Denne uenigheten var en av de viktigste grunnene til at Martin Luther startet reformasjonen på 1500-tallet."
         }
     ],
     "concepts": [
         {
             "id": "nade",
             "term": "Nåde",
-            "definition": "Guds ufortjente kjærlighet og tilgivelse."
+            "definition": "Guds ufortjente kjærlighet og tilgivelse. Frelse gis ved nåde, ikke ved egne gjerninger."
         },
         {
             "id": "frelse",
             "term": "Frelse",
-            "definition": "Å bli reddet fra synd og død til evig liv."
+            "definition": "Å bli reddet fra synd og død til evig liv sammen med Gud."
         },
         {
             "id": "synd",
             "term": "Synd",
-            "definition": "Handlinger eller tanker som skiller mennesket fra Gud."
+            "definition": "Handlinger eller tanker som skiller mennesket fra Gud. Kristne tror alle mennesker synder."
+        },
+        {
+            "id": "arvesynd",
+            "term": "Arvesynd",
+            "definition": "Læren om at alle mennesker er født med en tendens til å synde, som følge av syndefallet."
+        },
+        {
+            "id": "korset",
+            "term": "Korset",
+            "definition": "Det viktigste symbolet i kristendommen. Minner om at Jesus døde for menneskenes synder."
         }
     ],
     "quiz": [
@@ -59,35 +93,51 @@
             "question": "Hva betyr nåde?",
             "options": [
                 "At man må være snill",
-                "Guds ufortjente gave",
+                "Guds ufortjente gave og tilgivelse",
                 "En type bønn"
             ],
-            "answer": "Guds ufortjente gave"
+            "answer": "Guds ufortjente gave og tilgivelse"
         },
         {
-            "question": "Hvordan blir man frelst i kristendommen?",
+            "question": "Hva er arvesynd?",
             "options": [
-                "Ved å følge alle regler",
-                "Ved å betale penger",
-                "Ved tro på Jesus"
+                "At barn arver foreldrenes synder",
+                "At alle mennesker er født med en tendens til å gjøre feil",
+                "At synd kan overføres mellom mennesker"
             ],
-            "answer": "Ved tro på Jesus"
+            "answer": "At alle mennesker er født med en tendens til å gjøre feil"
         },
         {
-            "question": "Hva feirer kristne i påsken?",
+            "question": "Hvorfor er korset et viktig symbol?",
             "options": [
-                "Jesu fødsel",
-                "Jesu død og oppstandelse",
-                "Jesu dåp"
+                "Fordi Jesus ble født i et kors-formet hus",
+                "Fordi Jesus døde på korset for menneskenes synder",
+                "Fordi De ti bud ble skrevet på et kors"
             ],
-            "answer": "Jesu død og oppstandelse"
+            "answer": "Fordi Jesus døde på korset for menneskenes synder"
+        },
+        {
+            "question": "Hva betyr sola fide?",
+            "options": [
+                "Frelse ved tro alene",
+                "Frelse ved gode gjerninger",
+                "Frelse ved dåpen"
+            ],
+            "answer": "Frelse ved tro alene"
+        },
+        {
+            "question": "Hva er den viktigste forskjellen mellom katolsk og protestantisk syn på frelse?",
+            "options": [
+                "Katolikker tror ikke på Jesus",
+                "Protestanter mener man blir frelst ved tro alene, katolikker vektlegger også gjerninger",
+                "Katolikker tror ikke på himmelen"
+            ],
+            "answer": "Protestanter mener man blir frelst ved tro alene, katolikker vektlegger også gjerninger"
         }
     ],
     "quote": {
         "text": "For av nåde er dere frelst, ved tro. Det er ikke deres eget verk, men Guds gave.",
         "source": "Bibelen",
         "reference": "Efeserne 2:8"
-    },
-    "createdDate": "2025-12-04T12:00:00Z",
-    "lastUpdated": "2025-12-04T12:00:00Z"
+    }
 }

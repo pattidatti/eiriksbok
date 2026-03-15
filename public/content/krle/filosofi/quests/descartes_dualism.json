@@ -18,7 +18,8 @@
                         "idealism": 2,
                         "skepticism": 1
                     },
-                    "nextStepId": "machine"
+                    "nextStepId": "machine",
+                    "feedback": "Kropp-sjel-problemet har plaget filosofer i over 2000 år. Descartes ga det sitt mest berømte svar."
                 },
                 {
                     "id": "brain",

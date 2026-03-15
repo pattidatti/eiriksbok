@@ -1,5 +1,5 @@
 {
-  "buildId": 1773605839598,
+  "buildId": 1773608232997,
   "contentMap": {
     "adel": [
       "content/concepts/adel.json"
@@ -908,6 +908,7 @@
       "content/krle/religion/hinduisme/intro.json",
       "content/krle/religion/jehovas-vitner/intro.json",
       "content/krle/religion/jodedom/intro.json",
+      "content/krle/religion/kristendom/intro/artikkel.json",
       "content/krle/religion/mormonisme/intro.json",
       "content/samfunnskunnskap/demografi/intro.json"
     ],
@@ -1113,9 +1114,6 @@
     "skapelse": [
       "content/krle/religion/islam/skapelse/artikkel.json",
       "content/krle/religion/kristendom/skapelse/artikkel.json"
-    ],
-    "dap": [
-      "content/krle/religion/kristendom/dap/artikkel.json"
     ],
     "introduksjon": [
       "content/krle/religion/sikhisme/introduksjon/artikkel.json"
@@ -2067,11 +2065,11 @@
     "krle/religion/jodedom/overgangsriter": "content/krle/religion/jodedom/overgangsriter/artikkel.json",
     "krle/religion/jodedom/sentrale-trekk": "content/krle/religion/jodedom/sentrale-trekk/artikkel.json",
     "krle/religion/kristendom/bonn": "content/krle/religion/kristendom/bonn/artikkel.json",
-    "krle/religion/kristendom/dap": "content/krle/religion/kristendom/dap/artikkel.json",
     "krle/religion/kristendom/frelse": "content/krle/religion/kristendom/frelse/artikkel.json",
     "krle/religion/kristendom/grunnleggere": "content/krle/religion/kristendom/grunnleggere/artikkel.json",
     "krle/religion/kristendom/gudsbilde": "content/krle/religion/kristendom/gudsbilde/artikkel.json",
     "krle/religion/kristendom/hellige-tekster": "content/krle/religion/kristendom/hellige-tekster/artikkel.json",
+    "krle/religion/kristendom/intro": "content/krle/religion/kristendom/intro/artikkel.json",
     "krle/religion/kristendom/overgangsriter": "content/krle/religion/kristendom/overgangsriter/artikkel.json",
     "krle/religion/kristendom/sentrale-trekk": "content/krle/religion/kristendom/sentrale-trekk/artikkel.json",
     "krle/religion/kristendom/skapelse": "content/krle/religion/kristendom/skapelse/artikkel.json",

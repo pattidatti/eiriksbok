@@ -1,47 +1,91 @@
 {
+    "id": "skapelse",
     "title": "Skapelsen i Bibelen",
-    "subject": "KRLE",
-    "topic": "Kristendom",
+    "subject": "krle",
+    "topic": "religioner",
     "religion": "kristendom",
     "dimension": "narrative",
     "comparison_tags": [
-        "fortellinger",
-        "skapelsesmyte",
-        "opprinnelse"
+        "skapelse",
+        "narrative"
     ],
-    "fact": "Bibelen starter med to ulike skapelsesfortellinger i 1. Mosebok.",
-    "tags": [
-        "kristendom",
-        "narrative",
-        "skapelse"
-    ],
+    "createdDate": "2025-12-04T12:00:00Z",
+    "lastUpdated": "2026-03-15T12:00:00Z",
     "content": [
         {
-            "name": "text",
-            "content": "I begynnelsen skapte Gud himmelen og jorden. Bibelen forteller at Gud skapte verden på seks dager og hvilte på den syvende. Mennesket ble skapt i Guds bilde, som mann og kvinne, og satt til å forvalte skaperverket."
+            "type": "header",
+            "text": "Skapelsen i Bibelen"
         },
         {
-            "name": "image",
-            "src": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80",
-            "caption": "Jorden sett fra verdensrommet.",
-            "alt": "Jorden"
+            "type": "text",
+            "content": "Helt i begynnelsen av Bibelen står skapelsesfortellingen. Gud skapte verden på seks dager og hvilte på den sjuende. Først skapte han lys, så himmelen, land og hav, sol, måne og stjerner, dyr - og til slutt mennesket. Den sjuende dagen hvilte Gud, og den ble hellig. Denne fortellingen handler ikke bare om hvordan verden ble til, men om at alt som finnes har en mening og en hensikt."
+        },
+        {
+            "type": "header",
+            "text": "Mennesket i Guds bilde"
+        },
+        {
+            "type": "text",
+            "content": "Bibelen sier at mennesket ble skapt i Guds bilde. Det betyr ikke at Gud ser ut som et menneske. Det handler om at mennesker har noe spesielt - evnen til å tenke, elske, skape og ta moralske valg. Å være skapt i Guds bilde betyr at hvert menneske har en unik verdi."
+        },
+        {
+            "type": "header",
+            "text": "Forvalteransvaret"
+        },
+        {
+            "type": "text",
+            "content": "I skapelsesfortellingen gir Gud menneskene ansvar for å ta vare på jorda. Dette kalles forvalteransvaret. Mennesket skal ikke bare bruke naturen, men passe på den. Mange kristne bruker dette som argument for at vi må ta vare på miljøet - fordi jorda er Guds skaperverk, og vi har fått i oppgave å verne om den."
+        },
+        {
+            "type": "header",
+            "text": "Syndefallet"
+        },
+        {
+            "type": "text",
+            "content": "Like etter skapelsesfortellingen kommer historien om Adam og Eva i Edens hage. De levde i et perfekt paradis, men Gud sa at de ikke fikk spise av treet som ga kunnskap om godt og ondt. Da de likevel gjorde det, mistet de plassen sin i hagen. Denne hendelsen kalles syndefallet, og den forklarer hvorfor verden ikke er perfekt - ifølge kristen tro."
+        },
+        {
+            "type": "header",
+            "text": "To skapelsesfortellinger"
+        },
+        {
+            "type": "text",
+            "content": "Noe som overrasker mange, er at Bibelen har to litt forskjellige skapelsesfortellinger. Den første (1. Mosebok kapittel 1) forteller om de seks dagene. Den andre (1. Mosebok kapittel 2) starter med at Gud former mennesket av jord. De to fortellingene har ulike detaljer, men begge handler om at Gud er skaperen."
+        },
+        {
+            "type": "header",
+            "text": "Skapelse og vitenskap"
+        },
+        {
+            "type": "text",
+            "content": "Hvordan passer skapelsesfortellingen med det vi vet om evolusjon og Big Bang? Kristne har ulike syn på dette. Noen mener at Bibelen beskriver seks bokstavelige dager. Andre leser fortellingen som et bilde eller en metafor, og mener den handler om at Gud står bak skaperverket - ikke om nøyaktig hvordan det skjedde. Begge synene finnes blant kristne i dag."
         }
     ],
     "concepts": [
         {
             "id": "skaperverket",
             "term": "Skaperverket",
-            "definition": "Alt som Gud har skapt; universet, jorden, planter, dyr og mennesker."
+            "definition": "Alt som Gud har skapt: universet, jorda, planter, dyr og mennesker."
         },
         {
             "id": "forvalteransvar",
             "term": "Forvalteransvar",
-            "definition": "Menneskets oppgave å ta vare på jorden og alt som lever der."
+            "definition": "Menneskets oppgave å ta vare på jorda og alt som lever der. Kommer fra skapelsesfortellingen."
         },
         {
             "id": "guds-bilde",
             "term": "Guds bilde",
             "definition": "Tanken om at mennesket er skapt likt Gud, med evne til å tenke, elske og skape."
+        },
+        {
+            "id": "syndefallet",
+            "term": "Syndefallet",
+            "definition": "Fortellingen om at Adam og Eva brøt Guds bud i Edens hage. Forklarer hvorfor verden ikke er perfekt."
+        },
+        {
+            "id": "eden",
+            "term": "Edens hage",
+            "definition": "Paradiset der Adam og Eva levde ifølge Bibelen, før de ble drevet ut etter syndefallet."
         }
     ],
     "quiz": [
@@ -55,15 +99,6 @@
             "answer": "6 dager"
         },
         {
-            "question": "Hva gjorde Gud på den syvende dagen?",
-            "options": [
-                "Skapte mennesket",
-                "Hvilte",
-                "Skapte dyrene"
-            ],
-            "answer": "Hvilte"
-        },
-        {
             "question": "Hva er menneskets oppgave i skaperverket?",
             "options": [
                 "Å herske over andre",
@@ -71,13 +106,38 @@
                 "Å ødelegge det"
             ],
             "answer": "Å forvalte og ta vare på det"
+        },
+        {
+            "question": "Hva er syndefallet?",
+            "options": [
+                "At Gud skapte synden",
+                "At Adam og Eva brøt Guds bud",
+                "At djevelen skapte verden"
+            ],
+            "answer": "At Adam og Eva brøt Guds bud"
+        },
+        {
+            "question": "Hvor mange skapelsesfortellinger har Bibelen?",
+            "options": [
+                "En",
+                "To",
+                "Tre"
+            ],
+            "answer": "To"
+        },
+        {
+            "question": "Kan man være kristen og tro på evolusjon?",
+            "options": [
+                "Nei, aldri",
+                "Ja, mange kristne gjør det",
+                "Bare katolikker"
+            ],
+            "answer": "Ja, mange kristne gjør det"
         }
     ],
     "quote": {
         "text": "I begynnelsen skapte Gud himmelen og jorden.",
         "source": "Bibelen",
         "reference": "1. Mosebok 1:1"
-    },
-    "createdDate": "2023-01-01T12:00:00Z",
-    "lastUpdated": "2025-12-03T17:25:16.499Z"
+    }
 }

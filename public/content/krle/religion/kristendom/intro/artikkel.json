@@ -1,0 +1,142 @@
+{
+    "id": "intro",
+    "title": "Introduksjon til kristendommen",
+    "subject": "krle",
+    "topic": "religioner",
+    "religion": "kristendom",
+    "dimension": "doctrinal",
+    "comparison_tags": [
+        "sentrale_trekk"
+    ],
+    "createdDate": "2025-12-21T13:37:14Z",
+    "lastUpdated": "2026-03-15T12:00:00Z",
+    "content": [
+        {
+            "type": "header",
+            "text": "Verdens største religion"
+        },
+        {
+            "type": "text",
+            "content": "Kristendommen er verdens største religion med over 2,4 milliarder tilhengere. Det betyr at omtrent en av tre mennesker på jorda regner seg som kristne. Religionen oppsto i Midtøsten for rundt 2000 år siden, og spredte seg derfra til hele verden."
+        },
+        {
+            "type": "header",
+            "text": "Hva kristne tror"
+        },
+        {
+            "type": "text",
+            "content": "Kjernen i kristendommen er troen på at Jesus fra Nasaret er Guds sønn og verdens frelser. Kristne tror at Gud elsker alle mennesker, og at han ble menneske i Jesus for å redde verden fra synd og død. Det viktigste budet er å elske Gud og å elske andre mennesker som seg selv."
+        },
+        {
+            "type": "header",
+            "text": "Tre store retninger"
+        },
+        {
+            "type": "text",
+            "content": "Kristendommen er ikke én samlet kirke, men består av mange ulike retninger. De tre største er den katolske kirke, de protestantiske kirkene og de ortodokse kirkene. Alle er enige om det mest grunnleggende, men de er uenige om en del ting - for eksempel om pavens rolle, om helgener og om hvordan gudstjenesten skal foregå."
+        },
+        {
+            "type": "list",
+            "items": [
+                "Den katolske kirke er den største retningen med over en milliard medlemmer. Den ledes av paven i Roma.",
+                "De protestantiske kirkene oppsto etter reformasjonen på 1500-tallet. Den norske kirke er protestantisk (luthersk).",
+                "De ortodokse kirkene finnes særlig i Øst-Europa, Russland og Midtøsten. De er kjent for rike tradisjoner og ikoner."
+            ]
+        },
+        {
+            "type": "header",
+            "text": "Kristendommen i Norge"
+        },
+        {
+            "type": "text",
+            "content": "Kristendommen kom til Norge med vikingene for over 1000 år siden. I dag er Den norske kirke det største trossamfunnet i landet, med rundt 65 prosent av befolkningen som medlemmer. Selv om færre går i kirken regelmessig enn før, spiller kristne tradisjoner fortsatt en stor rolle i norsk kultur - for eksempel jul, påske og konfirmasjon."
+        },
+        {
+            "type": "header",
+            "text": "Hva du kan lese videre"
+        },
+        {
+            "type": "text",
+            "content": "I de neste artiklene kan du lære mer om de sentrale trekkene i kristendommen, hvem Jesus var, hva Bibelen handler om, og hvordan kristne ber og feirer viktige hendelser i livet. Du kan også sammenligne kristendommen med andre religioner."
+        }
+    ],
+    "concepts": [
+        {
+            "id": "monoteisme",
+            "term": "Monoteisme",
+            "definition": "Troen på bare én gud. Kristendommen, islam og jødedommen er alle monoteistiske religioner."
+        },
+        {
+            "id": "protestantisk",
+            "term": "Protestantisk",
+            "definition": "En kristen retning som oppsto etter reformasjonen på 1500-tallet. Den norske kirke er protestantisk."
+        },
+        {
+            "id": "katolsk",
+            "term": "Katolsk",
+            "definition": "Den største kristne retningen, ledet av paven i Roma. Over en milliard mennesker er katolikker."
+        },
+        {
+            "id": "ortodoks",
+            "term": "Ortodoks",
+            "definition": "En kristen retning som er utbredt i Øst-Europa og Midtøsten. Kjent for rike tradisjoner og ikoner."
+        },
+        {
+            "id": "folkekirke",
+            "term": "Folkekirke",
+            "definition": "En kirke som er åpen for alle og har en stor del av befolkningen som medlemmer. Den norske kirke er en folkekirke."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Omtrent hvor mange kristne finnes det i verden?",
+            "options": [
+                "500 millioner",
+                "1,5 milliarder",
+                "2,4 milliarder"
+            ],
+            "answer": "2,4 milliarder"
+        },
+        {
+            "question": "Hvilken kristen retning tilhører Den norske kirke?",
+            "options": [
+                "Katolsk",
+                "Protestantisk (luthersk)",
+                "Ortodoks"
+            ],
+            "answer": "Protestantisk (luthersk)"
+        },
+        {
+            "question": "Hva er de tre største retningene i kristendommen?",
+            "options": [
+                "Katolsk, protestantisk og ortodoks",
+                "Luthersk, baptistisk og metodistisk",
+                "Romersk, gresk og egyptisk"
+            ],
+            "answer": "Katolsk, protestantisk og ortodoks"
+        },
+        {
+            "question": "Omtrent når kom kristendommen til Norge?",
+            "options": [
+                "For rundt 500 år siden",
+                "For rundt 1000 år siden",
+                "For rundt 2000 år siden"
+            ],
+            "answer": "For rundt 1000 år siden"
+        },
+        {
+            "question": "Hva er det viktigste budet i kristendommen?",
+            "options": [
+                "Å be fem ganger om dagen",
+                "Å elske Gud og sin neste",
+                "Å faste i 40 dager"
+            ],
+            "answer": "Å elske Gud og sin neste"
+        }
+    ],
+    "quote": {
+        "text": "Du skal elske din neste som deg selv.",
+        "source": "Bibelen",
+        "reference": "Markus 12:31"
+    }
+}

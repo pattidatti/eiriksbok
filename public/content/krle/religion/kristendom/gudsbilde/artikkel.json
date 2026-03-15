@@ -10,7 +10,7 @@
         "doctrinal"
     ],
     "createdDate": "2025-12-04T12:00:00Z",
-    "lastUpdated": "2025-12-04T12:00:00Z",
+    "lastUpdated": "2026-03-15T12:00:00Z",
     "content": [
         {
             "type": "header",
@@ -18,23 +18,47 @@
         },
         {
             "type": "text",
-            "content": "Kristne tror på én Gud, men at Gud viser seg som tre personer: Faderen (Skaperen), Sønnen (Frelseren) og Den hellige ånd (Livgiveren). Dette kalles treenigheten."
+            "content": "Kristne tror på én Gud, men at Gud viser seg som tre personer: Faderen, Sønnen og Den hellige ånd. Dette kalles treenigheten. Ideen var ikke enkel for de første kristne heller. Det tok flere hundre år med diskusjoner før kirken vedtok treenighetslæren på kirkemøtet i Nikea i år 325."
         },
         {
             "type": "header",
-            "text": "Jesus som Gud og menneske"
+            "text": "Faderen - Skaperen"
         },
         {
             "type": "text",
-            "content": "Et sentralt dogme er at Jesus var både fullt ut menneske og fullt ut Gud. Han viste hvem Gud er gjennom sitt liv på jorden."
+            "content": "Den første personen i treenigheten er Gud Faderen. Han er skaperen av alt som finnes. Kristne ser ikke på Gud som en streng dommer som bare straffer. Tvert imot er Gud en kjærlig far som vil ha et nært forhold til menneskene. Jesus kalte Gud for Abba, som betyr pappa på arameisk - det var et svært uvanlig og personlig ord å bruke om Gud."
         },
         {
             "type": "header",
-            "text": "Skaperen"
+            "text": "Sønnen - Jesus Kristus"
         },
         {
             "type": "text",
-            "content": "Gud har skapt verden og opprettholder den. Gud er kjærlig og ønsker fellesskap med menneskene."
+            "content": "Kristne tror at Jesus var både fullt ut Gud og fullt ut menneske. At Gud ble menneske kalles inkarnasjonen. Tenk deg at kongen i et land kledde seg ut som en vanlig person og levde blant folket for å virkelig forstå livene deres. På lignende måte tror kristne at Gud ble menneske i Jesus for å vise hvem han er og for å dele menneskers glede og smerte."
+        },
+        {
+            "type": "header",
+            "text": "Den hellige ånd"
+        },
+        {
+            "type": "text",
+            "content": "Den tredje personen i treenigheten er Den hellige ånd. Kristne tror at etter at Jesus forlot jorda, sendte Gud sin ånd til menneskene. Det skjedde på pinsedagen, da disiplene plutselig begynte å tale på fremmede språk. Den hellige ånd er Guds nærvær i verden i dag - en kraft som gir troende styrke, trøst og veiledning."
+        },
+        {
+            "type": "header",
+            "text": "Gud som kjærlighet"
+        },
+        {
+            "type": "text",
+            "content": "I Det nye testamentet står det at Gud er kjærlighet. For kristne er ikke kjærlighet bare noe Gud gjør, det er noe Gud er. Hele skapelsen, Jesu liv og Den hellige ånds virke handler om kjærlighet. Denne tanken skiller seg fra gudsbilder der Gud først og fremst er en mektig hersker eller en fjern kraft."
+        },
+        {
+            "type": "header",
+            "text": "Hvordan forestiller kristne seg Gud?"
+        },
+        {
+            "type": "text",
+            "content": "Kristne tror at Gud ikke har en fysisk kropp og ikke kan fanges i et bilde. Likevel har kunstnere gjennom historien forsøkt å framstille Gud - som en gammel mann med skjegg, som et lys, eller som en hånd som strekker seg ut fra himmelen. Slike bilder er symboler, ikke forsøk på å vise hvordan Gud faktisk ser ut. I ortodokse kirker brukes ikoner, som er religiøse bilder som hjelper de troende å fokusere på Gud."
         }
     ],
     "concepts": [
@@ -46,12 +70,22 @@
         {
             "id": "inkarnasjon",
             "term": "Inkarnasjon",
-            "definition": "At Gud ble menneske i Jesus Kristus."
+            "definition": "At Gud ble menneske i Jesus Kristus. Betyr å bli kjøtt - altså å ta menneskelig form."
         },
         {
             "id": "den-hellige-and",
             "term": "Den hellige ånd",
-            "definition": "Guds nærvær i verden og i de troende."
+            "definition": "Guds nærvær i verden og i de troende. Den tredje personen i treenigheten."
+        },
+        {
+            "id": "nikea-konsilet",
+            "term": "Kirkemøtet i Nikea",
+            "definition": "Et viktig møte i år 325 der kristne ledere ble enige om treenighetslæren."
+        },
+        {
+            "id": "pinse",
+            "term": "Pinse",
+            "definition": "Feiringen av at Den hellige ånd kom til disiplene. Regnes som kirkens fødselsdag."
         }
     ],
     "quiz": [
@@ -65,29 +99,45 @@
             "answer": "Faderen, Sønnen og Den hellige ånd"
         },
         {
-            "question": "Hva betyr det at Jesus er Guds sønn?",
+            "question": "Hva betyr inkarnasjon?",
             "options": [
-                "At han var en engel",
+                "At Gud er usynlig",
                 "At Gud ble menneske",
-                "At han var en vanlig profet"
+                "At Jesus var en engel"
             ],
             "answer": "At Gud ble menneske"
         },
         {
-            "question": "Hvem er Skaperen i kristen tro?",
+            "question": "Når ble treenighetslæren vedtatt?",
             "options": [
-                "Faderen",
-                "Paulus",
-                "Paven"
+                "Da Jesus levde",
+                "På kirkemøtet i Nikea i år 325",
+                "Under reformasjonen"
             ],
-            "answer": "Faderen"
+            "answer": "På kirkemøtet i Nikea i år 325"
+        },
+        {
+            "question": "Hva skjedde på pinsedagen?",
+            "options": [
+                "Jesus ble født",
+                "Den hellige ånd kom til disiplene",
+                "Moses mottok De ti bud"
+            ],
+            "answer": "Den hellige ånd kom til disiplene"
+        },
+        {
+            "question": "Hva kalles religiøse bilder i ortodokse kirker?",
+            "options": [
+                "Fresker",
+                "Ikoner",
+                "Relieffer"
+            ],
+            "answer": "Ikoner"
         }
     ],
     "quote": {
         "text": "Gå derfor og gjør alle folkeslag til disipler: Døp dem til Faderens og Sønnens og Den hellige ånds navn.",
         "source": "Bibelen",
         "reference": "Matteus 28:19"
-    },
-    "createdDate": "2025-12-04T12:00:00Z",
-    "lastUpdated": "2025-12-04T12:00:00Z"
+    }
 }

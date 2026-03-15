@@ -12,14 +12,14 @@
         "Kortsvaret tester analyse og tolkning av en gitt tekst.",
         "Langsvaret gir deg valg mellom saktekst og skapende skriving.",
         "Sensor vurderer etter kompetansemål fra LK20.",
-        "Forberedelsesdagen er din viktigste ressurs."
+        "Øv på gamle eksamensoppgaver for å bli kjent med formatet."
     ],
     "externalUrl": "https://www.udir.no/lk20/nor01-07/kompetansemaal-og-vurdering/kv920",
     "timeline": [],
     "content": [
         {
             "type": "paragraph",
-            "text": "Du har øvd på å skrive reflekterende tekster, analysere noveller, drøfte problemstillinger og bruke virkemidler i egne tekster. Nå skal alt dette settes sammen i en fem timers eksamen. Det høres kanskje skummelt ut, men egentlig er eksamen bare en sjanse til å vise det du allerede kan. Denne guiden tar deg gjennom alt du trenger å vite, fra formatet til forberedelsesdagen til hva sensor faktisk ser etter."
+            "text": "Du har øvd på å skrive reflekterende tekster, analysere noveller, drøfte problemstillinger og bruke virkemidler i egne tekster. Nå skal alt dette settes sammen i en fem timers eksamen. Det høres kanskje skummelt ut, men egentlig er eksamen bare en sjanse til å vise det du allerede kan. Denne guiden tar deg gjennom alt du trenger å vite, fra formatet til hva sensor faktisk ser etter."
         },
         {
             "type": "header",
@@ -33,7 +33,7 @@
         {
             "type": "info_box",
             "title": "Praktisk info",
-            "content": "Varighet: 5 timer. Du får et oppgavehefte med tekstvedlegg og flere oppgavealternativer. Hjelpemidler: Ordbok (bokmål/nynorsk), rettskrivningsordbok. Forberedelsesdag: Dagen før eksamen får du oppgaven og kan forberede deg. Tips: Du kan søke i tidligere eksamensoppgaver på sokeresultat.udir.no for å bli kjent med formatet."
+            "content": "Varighet: 5 timer. Du får et oppgavehefte med tekstvedlegg og flere oppgavealternativer. Hjelpemidler: Ordbok (bokmål/nynorsk), rettskrivningsordbok. Du får vite at du er trukket ut til eksamen i norsk, men ser ikke selve oppgavene før eksamensdagen. Tips: Du kan søke i tidligere eksamensoppgaver på sokeresultat.udir.no for å bli kjent med formatet."
         },
         {
             "type": "header",
@@ -168,23 +168,23 @@
         },
         {
             "type": "header",
-            "text": "Forberedelsesdagen: Gull verdt",
+            "text": "Slik forbereder du deg",
             "level": 2
         },
         {
             "type": "paragraph",
-            "text": "Dagen før eksamen får du oppgaveheftet. Du har hele dagen til å lese, tenke og planlegge. Denne dagen er din viktigste fordel. Bruk den smart, ikke til å skrive ferdig tekster, men til å bygge en disposisjon og samle tankene dine."
+            "text": "På skriftlig eksamen ser du ikke oppgavene før du sitter i eksamenslokalet. Du vet at faget er norsk, men ikke hvilke tekster eller oppgaver som venter. Derfor handler forberedelsen om å trene på ferdighetene du trenger, ikke om å pugge innhold. Den som har øvd mye på analyse og skriving, er klar uansett hva oppgaveheftet inneholder."
         },
         {
             "type": "list",
             "items": [
-                "Les alle oppgavene grundig. Ikke bestem deg for den første som virker grei.",
-                "Lag tankekart for de 2-3 oppgavene som frister mest. Sammenlign ideene dine.",
-                "Finn sitater og eksempler fra tekstvedlegget du kan bruke i kortsvaret.",
-                "Skriv en disposisjon for langsvaret: innledning, hoveddel med 3-4 avsnitt, avslutning.",
-                "For saktekst: forbered argumenter OG motargumenter (bruk PAMK-modellen).",
-                "For skapende skriving: bestem synsvinkel, tidsstruktur og 1-2 gjennomgående virkemidler.",
-                "Forbered kildeliste hvis du velger saktekstoppgaven."
+                "Gjør gamle eksamensoppgaver. Udir har et arkiv med tidligere oppgaver der du kan trene på realistiske oppgaver.",
+                "Øv på å analysere ukjente tekster under tidspress. Velg en tekst fra biblioteket, sett en klokke på 45 minutter, og skriv et kortsvar.",
+                "Repeter de viktigste virkemidlene: metafor, kontrast, symbol, synsvinkel, gjentakelse. Øv på å forklare effekten, ikke bare navngi dem.",
+                "Tren på drøfting med PAMK-modellen (påstand, argument, motargument, konklusjon).",
+                "Øv på skapende skriving: velg et tema og skriv en novelle på 60 minutter. Tving deg selv til å bruke in medias res eller en bevisst synsvinkel.",
+                "Frisk opp kildeføring. Hvis du velger saktekst, må du vite hvordan du markerer sitater og oppgir kilder.",
+                "Les tekster i biblioteket regelmessig. Jo flere tekster du kjenner, jo raskere forstår du nye tekster på eksamen."
             ]
         },
         {
@@ -256,10 +256,10 @@
         {
             "type": "list",
             "items": [
-                "1. Les gjennom alle oppgavene en gang til (15 min). Stemmer valgene dine fra forberedelsesdagen?",
+                "1. Les gjennom alle oppgavene grundig (15 min). Hvilke oppgaver passer best for deg?",
                 "2. Start med kortsvaret. Det er kortest og gir deg en god start (45-60 min).",
                 "3. Les gjennom kortsvaret ditt. Har du sitater? Har du koblet virkemidler til tema?",
-                "4. Gå over til langsvaret. Følg disposisjonen fra forberedelsesdagen.",
+                "4. Gå over til langsvaret. Lag en rask disposisjon: innledning, 3-4 avsnitt i hoveddelen, avslutning.",
                 "5. Skriv innledning og hoveddel. Ikke bruk for lang tid på innledningen.",
                 "6. Skriv avslutning/konklusjon. I saktekst: konkluder tydelig. I novelle: sørg for et poeng.",
                 "7. Spar minst 30 minutter til gjennomlesing. Se etter: rettskriving, tegnsetting, tekstbinding.",
@@ -521,15 +521,15 @@
             "explanation": "Analyse handler om å koble virkemidler til tema og forklare hvilken effekt de har. Referat bare gjenforteller hva teksten handler om."
         },
         {
-            "question": "Hva bør du gjøre på forberedelsesdagen?",
+            "question": "Hva er den beste måten å forberede seg til skriftlig eksamen?",
             "options": [
-                "Skrive hele langsvaret ferdig",
-                "Lese oppgavene, lage tankekart og skrive disposisjon",
-                "Bare slappe av og spare krefter",
-                "Pugge alle virkemidler utenat"
+                "Pugge alle virkemidler utenat",
+                "Øve på gamle eksamensoppgaver og trene på analyse og skriving under tidspress",
+                "Lese hele pensum kvelden før",
+                "Bare stole på at det går bra"
             ],
             "answer": 1,
-            "explanation": "Forberedelsesdagen brukes best til å lese oppgavene, samle ideer i tankekart og skrive en disposisjon. Ikke skriv ferdig tekster, men legg en solid plan."
+            "explanation": "Du vet ikke hva oppgavene blir, så det beste er å trene på ferdighetene: analyser ukjente tekster, skriv drøftende og skapende tekster, og gjør gamle eksamensoppgaver."
         },
         {
             "question": "Du har 1 time igjen og er bare 2/3 ferdig med langsvaret. Hva er smartest?",

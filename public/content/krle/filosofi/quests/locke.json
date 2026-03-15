@@ -43,7 +43,8 @@
                         "individualism": 4,
                         "materialism": 2
                     },
-                    "nextStepId": "social_contract"
+                    "nextStepId": "social_contract",
+                    "feedback": "Locke mente at når du blander arbeidet ditt med noe, gjør du det til ditt. Som å dyrke jord."
                 }
             ]
         },

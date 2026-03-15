@@ -60,7 +60,8 @@
                         "existentialism": 5,
                         "idealism": 3
                     },
-                    "nextStepId": "conclusion"
+                    "nextStepId": "conclusion",
+                    "feedback": "Kierkegaards troens sprang! Du velger å tro selv om du ikke kan bevise det. Det er eksistensielt mot."
                 },
                 {
                     "id": "hesitate",

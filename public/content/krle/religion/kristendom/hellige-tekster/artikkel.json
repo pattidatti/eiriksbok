@@ -6,19 +6,27 @@
     "religion": "kristendom",
     "dimension": "narrative",
     "comparison_tags": [
-        "hellige-tekster",
+        "hellige_tekster",
         "narrative"
     ],
     "createdDate": "2025-12-04T12:00:00Z",
-    "lastUpdated": "2025-12-04T12:00:00Z",
+    "lastUpdated": "2026-03-15T12:00:00Z",
     "content": [
         {
             "type": "header",
-            "text": "Det gamle og Det nye testamentet"
+            "text": "To deler - én bok"
         },
         {
             "type": "text",
-            "content": "Bibelen er kristendommens hellige bok. Den består av to deler: Det gamle testamentet (som de deler med jødene) og Det nye testamentet (som handler om Jesus og de første kristne)."
+            "content": "Bibelen er kristendommens hellige bok, og den mest leste boken i verdenshistorien. Den er egentlig ikke én bok, men en samling av 66 bøker skrevet av mange forskjellige forfattere over en periode på rundt tusen år. Bibelen er delt i to hoveddeler: Det gamle testamentet (39 bøker) og Det nye testamentet (27 bøker)."
+        },
+        {
+            "type": "header",
+            "text": "Det gamle testamentet"
+        },
+        {
+            "type": "text",
+            "content": "Det gamle testamentet deler kristne med jødedommen. Det inneholder skapelsesfortellingen, historien om Abraham og Moses, De ti bud, salmer og profetenes budskap. Testamente betyr pakt eller avtale, og viser til pakten mellom Gud og det jødiske folket. For kristne peker mange av tekstene i Det gamle testamentet fram mot Jesus."
         },
         {
             "type": "header",
@@ -26,7 +34,7 @@
         },
         {
             "type": "text",
-            "content": "De fire evangeliene (Matteus, Markus, Lukas og Johannes) er de viktigste tekstene for kristne. De forteller om Jesu liv, død og oppstandelse."
+            "content": "De fire evangeliene er de viktigste tekstene i Det nye testamentet. De forteller om Jesu liv, lære, død og oppstandelse. Evangelium betyr godt budskap. De fire er skrevet av Matteus, Markus, Lukas og Johannes. De forteller den samme historien, men fra litt ulike vinkler - litt som fire vitner som beskriver den samme hendelsen."
         },
         {
             "type": "header",
@@ -34,27 +42,73 @@
         },
         {
             "type": "text",
-            "content": "Mange av bøkene i Det nye testamentet er brev skrevet av apostelen Paulus til de første kristne menighetene. De forklarer hva kristen tro går ut på."
+            "content": "Mye av Det nye testamentet er brev skrevet av Paulus. Han var opprinnelig en motstander av de kristne, men hadde en dramatisk omvendelse da han opplevde å møte Jesus i et syn. Etter dette reiste Paulus rundt i Middelhavsområdet og grunnla kristne menigheter. Brevene hans til disse menighetene forklarer hva kristen tro betyr i praksis."
+        },
+        {
+            "type": "header",
+            "text": "Hvordan brukes Bibelen?"
+        },
+        {
+            "type": "text",
+            "content": "Bibelen leses på mange måter. I gudstjenesten leses det høyt fra Bibelen, og presten holder en tale (preken) som forklarer teksten. Mange kristne leser også Bibelen hjemme, alene eller i grupper. Bibelen er oversatt til over 700 språk og er den mest oversatte boken i verden."
+        },
+        {
+            "type": "header",
+            "text": "Ulike typer tekster"
+        },
+        {
+            "type": "text",
+            "content": "Bibelen inneholder mange forskjellige sjangre. Noen kristne leser alt bokstavelig, mens andre mener at deler av Bibelen skal forstås billedlig eller symbolsk. De fleste er enige om at det er viktig å forstå hva slags tekst man leser."
+        },
+        {
+            "type": "list",
+            "items": [
+                "Lover og regler (De ti bud)",
+                "Historiske fortellinger (konger og kriger)",
+                "Poesi og sanger (Salmenes bok)",
+                "Profetier (varsler om framtiden)",
+                "Evangelier (fortellinger om Jesus)",
+                "Brev (Paulus' brev til menighetene)"
+            ]
         }
     ],
     "concepts": [
         {
             "id": "bibelen",
             "term": "Bibelen",
-            "definition": "Kristendommens hellige skrift, bestående av Det gamle og Det nye testamentet."
+            "definition": "Kristendommens hellige skrift, bestående av Det gamle og Det nye testamentet. Totalt 66 bøker."
         },
         {
             "id": "evangelium",
             "term": "Evangelium",
-            "definition": "Betyr 'godt budskap'. Fortellingene om Jesu liv."
+            "definition": "Betyr godt budskap. Fortellingene om Jesu liv skrevet av Matteus, Markus, Lukas og Johannes."
         },
         {
             "id": "testamente",
             "term": "Testamente",
-            "definition": "Betyr 'pakt' eller 'avtale'."
+            "definition": "Betyr pakt eller avtale. Viser til avtalen mellom Gud og menneskene."
+        },
+        {
+            "id": "profet",
+            "term": "Profet",
+            "definition": "En person som taler på vegne av Gud. Profetene i Det gamle testamentet varslet om framtiden."
+        },
+        {
+            "id": "salme",
+            "term": "Salme",
+            "definition": "En religiøs sang eller et dikt. Salmenes bok i Bibelen inneholder 150 salmer."
         }
     ],
     "quiz": [
+        {
+            "question": "Hvor mange bøker inneholder Bibelen totalt?",
+            "options": [
+                "27",
+                "39",
+                "66"
+            ],
+            "answer": "66"
+        },
         {
             "question": "Hva betyr ordet evangelium?",
             "options": [
@@ -81,11 +135,20 @@
                 "Det gamle testamentet"
             ],
             "answer": "Det gamle testamentet"
+        },
+        {
+            "question": "Hvorfor har kristendommen fire evangelier og ikke bare ett?",
+            "options": [
+                "Fordi de handler om fire forskjellige personer",
+                "Fordi de forteller den samme historien fra ulike vinkler",
+                "Fordi de ble skrevet i fire forskjellige land"
+            ],
+            "answer": "Fordi de forteller den samme historien fra ulike vinkler"
         }
     ],
     "quote": {
-        "text": "For så høyt har Gud elsket verden at han ga sin Sønn, den enbårne, for at hver den som tror på ham, ikke skal gå fortapt, men ha evig liv.",
+        "text": "Hele Skriften er innblåst av Gud og nyttig til opplæring, tilrettevisning, veiledning og oppdragelse i rettferd.",
         "source": "Bibelen",
-        "reference": "Johannes 3:16"
+        "reference": "2. Timoteus 3:16"
     }
 }
