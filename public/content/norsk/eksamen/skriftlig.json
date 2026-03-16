@@ -8,9 +8,9 @@
     "readTime": "15 min lesning",
     "category": "Eksamen",
     "details": [
-        "Eksamen har to deler: kortsvarsoppgave og langsvarsoppgave.",
-        "Kortsvaret tester analyse og tolkning av en gitt tekst.",
-        "Langsvaret gir deg valg mellom saktekst og skapende skriving.",
+        "Eksamen har to deler: kortsvarsoppgaver og langsvarsoppgaver.",
+        "Kortsvarsoppgavene er obligatoriske og varierer fra noen setninger til ca. 250 ord.",
+        "Langsvarsoppgavene gir valgmuligheter, ofte 2 oppgaver på ca. 450 ord hver.",
         "Sensor vurderer etter kompetansemål fra LK20.",
         "Øv på gamle eksamensoppgaver for å bli kjent med formatet."
     ],
@@ -28,7 +28,7 @@
         },
         {
             "type": "paragraph",
-            "text": "Skriftlig eksamen i norsk varer i fem timer. Du får et oppgavehefte med flere oppgaver og velger selv hvilke du vil svare på. Eksamen har to hoveddeler: en kortsvarsoppgave og en langsvarsoppgave. Kortsvaret handler om å analysere eller tolke en tekst du får utdelt. Langsvaret gir deg valg mellom å skrive en saktekst (for eksempel en drøftende eller reflekterende tekst) eller en skapende tekst (for eksempel en novelle eller et dikt)."
+            "text": "Skriftlig eksamen i norsk varer i fem timer. Du får et oppgavehefte med tekstvedlegg og flere oppgaver. Eksamen har to hoveddeler: kortsvarsoppgaver og langsvarsoppgaver. Kortsvarsoppgavene er obligatoriske og skal alle besvares. De varierer i lengde - noen krever bare 2-4 setninger, andre kan være opptil ca. 250 ord. Langsvarsoppgavene gir deg valgmuligheter. Det er ofte 2 langsvarsoppgaver på ca. 450 ord hver, der du kan velge mellom å skrive en saktekst (for eksempel en drøftende eller reflekterende tekst) eller en skapende tekst (for eksempel en novelle eller et dikt)."
         },
         {
             "type": "info_box",
@@ -90,7 +90,7 @@
         },
         {
             "type": "paragraph",
-            "text": "Kortsvaret er den delen av eksamen der du viser at du kan lese en tekst grundig og si noe smart om den. Du får en tekst (et dikt, et novelletutdrag, en artikkel eller en visuell tekst) og et konkret spørsmål. Svaret skal vanligvis være 250-400 ord. Det viktigste er at du ikke bare gjenforteller hva teksten handler om. Du skal analysere og tolke, altså forklare hvordan teksten bygger opp sitt budskap gjennom virkemidler."
+            "text": "Kortsvarsoppgavene er den delen av eksamen der du viser at du kan lese en tekst grundig og si noe smart om den. Du får tekster (dikt, novelleutdrag, artikler eller visuelle tekster) og konkrete spørsmål. Alle kortsvarsoppgavene er obligatoriske. Lengden varierer - noen oppgaver krever bare 2-4 setninger, andre kan være opptil ca. 250 ord. Det viktigste er at du ikke bare gjenforteller hva teksten handler om. Du skal analysere og tolke, altså forklare hvordan teksten bygger opp sitt budskap gjennom virkemidler."
         },
         {
             "type": "component",
@@ -122,7 +122,7 @@
         },
         {
             "type": "paragraph",
-            "text": "Langsvaret er den største delen av eksamen. Her velger du mellom å skrive en saktekst eller en skapende tekst. Valget handler om hva du er sterkest på og hva du har best tid til. Begge alternativene kan gi toppkarakter."
+            "text": "Det er ofte 2 langsvarsoppgaver på eksamen, og hver skal være ca. 450 ord. Her velger du mellom å skrive en saktekst eller en skapende tekst. Valget handler om hva du er sterkest på og hva du har best tid til. Begge alternativene kan gi toppkarakter."
         },
         {
             "type": "header",
@@ -256,11 +256,11 @@
         {
             "type": "list",
             "items": [
-                "1. Les gjennom alle oppgavene grundig (15 min). Hvilke oppgaver passer best for deg?",
-                "2. Start med kortsvaret. Det er kortest og gir deg en god start (45-60 min).",
-                "3. Les gjennom kortsvaret ditt. Har du sitater? Har du koblet virkemidler til tema?",
-                "4. Gå over til langsvaret. Lag en rask disposisjon: innledning, 3-4 avsnitt i hoveddelen, avslutning.",
-                "5. Skriv innledning og hoveddel. Ikke bruk for lang tid på innledningen.",
+                "1. Les gjennom alle oppgavene grundig (15 min). Hvilke langsvarsoppgaver passer best for deg?",
+                "2. Start med kortsvarsoppgavene. De er obligatoriske og relativt korte (30-45 min totalt).",
+                "3. Les gjennom kortsvarene dine. Har du sitater? Har du koblet virkemidler til tema?",
+                "4. Gå over til langsvarsoppgavene. Lag en rask disposisjon for hver: innledning, hoveddel, avslutning.",
+                "5. Skriv langsvarene (ca. 450 ord hver). Ikke bruk for lang tid på innledningene.",
                 "6. Skriv avslutning/konklusjon. I saktekst: konkluder tydelig. I novelle: sørg for et poeng.",
                 "7. Spar minst 30 minutter til gjennomlesing. Se etter: rettskriving, tegnsetting, tekstbinding.",
                 "8. Sjekk at du har kildeliste (saktekst) og at sjangertrekk er på plass."
@@ -501,13 +501,13 @@
         {
             "question": "Hva er de to hoveddelene av skriftlig eksamen i norsk?",
             "options": [
-                "Grammatikkoppgave og stiloppgave",
-                "Kortsvarsoppgave og langsvarsoppgave",
-                "Lytteoppgave og skriveoppgave",
-                "Flervalgsoppgave og tekstoppgave"
+                "Grammatikkoppgaver og stiloppgaver",
+                "Kortsvarsoppgaver og langsvarsoppgaver",
+                "Lytteoppgaver og skriveoppgaver",
+                "Flervalgsoppgaver og tekstoppgaver"
             ],
             "answer": 1,
-            "explanation": "Eksamen består av en kortsvarsoppgave (analyse/tolkning) og en langsvarsoppgave (saktekst eller skapende skriving)."
+            "explanation": "Eksamen består av obligatoriske kortsvarsoppgaver (analyse/tolkning) og langsvarsoppgaver med valgmuligheter (saktekst eller skapende skriving)."
         },
         {
             "question": "Hva er den viktigste forskjellen mellom et referat og en analyse i kortsvaret?",

@@ -5,7 +5,8 @@
     "subject": "norsk",
     "topic": "eksamen",
     "layout": "rich",
-    "readTime": "14 min lesning",
+    "heroImage": "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80",
+    "readTime": "18 min lesning",
     "category": "Eksamen",
     "details": [
         "Du får vite faget 48 timer før, og har 24 timer forberedelsestid.",
@@ -62,15 +63,60 @@
             }
         },
         {
-            "type": "info_box",
-            "title": "Tidslinjen for muntlig eksamen",
-            "content": "48 timer før: Du får vite hvilket fag du er trukket i. 24 timer før: Forberedelsesdagen starter. Du får det overordnede temaet (for eksempel «Identitet»). Forberedelsesdagen er obligatorisk skoledag, du har tilgang til skolens fasiliteter, og du kan samarbeide med medelever. På eksamensdagen: Du får den spesifikke oppgaven og har 30 minutter alene til å forberede presentasjonen. Selve eksamen: Inntil 30 minutter."
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Tidslinjen for muntlig eksamen",
+                "items": [
+                    {
+                        "label": "48 timer før",
+                        "value": "Du får vite hvilket fag du er trukket i."
+                    },
+                    {
+                        "label": "24 timer før (forberedelsesdagen)",
+                        "value": "Du får det overordnede temaet (for eksempel «Identitet»). Dette er en obligatorisk skoledag. Du har tilgang til skolens fasiliteter og kan samarbeide med medelever."
+                    },
+                    {
+                        "label": "30 min på eksamensdagen",
+                        "value": "Du får den spesifikke oppgaven og forbereder presentasjonen alene."
+                    },
+                    {
+                        "label": "Selve eksamen",
+                        "value": "Inntil 30 minutter: presentasjon + samtale med sensor."
+                    }
+                ]
+            }
         },
         {
             "type": "link",
             "text": "Regler for muntlig eksamen (Udir)",
             "url": "https://www.udir.no/eksamen-og-prover/eksamen/muntlig-eksamen/",
             "icon": "external"
+        },
+        {
+            "type": "quiz",
+            "questions": [
+                {
+                    "question": "Hvor lenge varer selve muntlig eksamen?",
+                    "options": [
+                        "15 minutter",
+                        "Inntil 30 minutter",
+                        "45 minutter",
+                        "1 time"
+                    ],
+                    "correctAnswer": 1
+                },
+                {
+                    "question": "Hva er hovedforskjellen mellom presentasjonen og samtalen?",
+                    "options": [
+                        "Presentasjonen er vanskeligere enn samtalen",
+                        "I presentasjonen styrer du, i samtalen styrer sensor",
+                        "Samtalen varer lengre enn presentasjonen",
+                        "Du trenger bare å forberede presentasjonen"
+                    ],
+                    "correctAnswer": 1
+                }
+            ]
         },
         {
             "type": "header",
@@ -157,6 +203,31 @@
             "content": "Les disse artiklene for å styrke analysen: [Tema og budskap](/norsk/analyse/tema-og-budskap) - [Bildespråk og effekter](/norsk/virkemidler/bildesprak-og-effekter) - [Synsvinkel og stemme](/norsk/virkemidler/synsvinkel-og-stemme)"
         },
         {
+            "type": "quiz",
+            "questions": [
+                {
+                    "question": "Hva er forskjellen mellom å beskrive og å analysere en tekst?",
+                    "options": [
+                        "Beskrivelse er lengre enn analyse",
+                        "Analyse kobler form til mening, beskrivelse bare gjenforteller",
+                        "Det er ingen forskjell",
+                        "Analyse handler bare om virkemidler"
+                    ],
+                    "correctAnswer": 1
+                },
+                {
+                    "question": "Hvorfor bør du lage tankekart for hver tekst du har valgt?",
+                    "options": [
+                        "Fordi sensor vil se tankekartet",
+                        "Fordi det ser pent ut i presentasjonen",
+                        "For å se sammenhenger mellom tema, virkemidler og epoke",
+                        "Fordi det er obligatorisk"
+                    ],
+                    "correctAnswer": 2
+                }
+            ]
+        },
+        {
             "type": "header",
             "text": "Steg 4: Bygg presentasjonen med en klar påstand",
             "level": 3
@@ -239,6 +310,141 @@
             "type": "info_box",
             "title": "Presentasjonsteknikk",
             "content": "Les artikkelen om [grunnleggende retorikk](/norsk/retorikk/grunnleggende-retorikk) for tips om etos, patos og logos i din muntlige fremføring."
+        },
+        {
+            "type": "component",
+            "name": "ScenarioRoleplay",
+            "props": {
+                "title": "Samtalen med sensor",
+                "intro": "Du har akkurat holdt presentasjonen din om temaet «Utenforskap». Sensor nikker og sier: «Du nevnte metaforen om den lukkede døren i novellen. Kan du gå dypere inn i hva den gjør med leserens forståelse av temaet?»",
+                "startId": "start",
+                "scenarios": [
+                    {
+                        "id": "start",
+                        "text": "Sensor vil at du graver dypere i et virkemiddel. Hva gjør du?",
+                        "options": [
+                            {
+                                "label": "Gjenta det du sa i presentasjonen om metaforen",
+                                "nextId": "gjenta",
+                                "outcome": "failure"
+                            },
+                            {
+                                "label": "Forklar effekten: hva metaforen gjør med leseren, og koble den til temaet",
+                                "nextId": "effekt",
+                                "outcome": "success"
+                            },
+                            {
+                                "label": "Si at du ikke husker detaljene og be om neste spørsmål",
+                                "nextId": "hopp_over",
+                                "outcome": "failure"
+                            },
+                            {
+                                "label": "Sammenligne metaforen med et lignende virkemiddel i en annen tekst",
+                                "nextId": "sammenligne",
+                                "outcome": "success"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "gjenta",
+                        "text": "Sensor har allerede hørt dette. Å gjenta det du sa viser ikke at du kan tenke videre. Sensor ønsker å se at du kan gå dypere enn det forberedte - prøv å forklare effekten virkemiddelet har på leseren, eller koble det til en annen tekst.",
+                        "options": []
+                    },
+                    {
+                        "id": "effekt",
+                        "text": "Bra! Du forklarer at den lukkede døren ikke bare viser at hovedpersonen er utestengt, den gjør at leseren føler det fysisk. Døren blir et symbol på alt personen ikke får tilgang til. Sensor følger opp: «Kan du trekke inn et eksempel fra en annen tidsperiode som behandler utenforskap?» Du har forberedt en ekstra tekst om nettopp dette, og svarer trygt.",
+                        "options": []
+                    },
+                    {
+                        "id": "hopp_over",
+                        "text": "Det er bedre å prøve enn å gi opp. Selv om du er usikker, kan du si: «Jeg tror metaforen forsterker følelsen av isolasjon fordi døren er noe konkret leseren kan se for seg.» Det viser at du tenker, selv om du ikke har et ferdig svar. Sensor setter pris på at du prøver.",
+                        "options": []
+                    },
+                    {
+                        "id": "sammenligne",
+                        "text": "Flott strategi! Du trekker inn diktet du hadde i baklomma og viser at samme tema behandles med andre virkemidler i en annen epoke. Sensor ser at du kan se sammenhenger på tvers av tekster og tid. Dette er det som skiller en god samtale fra en middels.",
+                        "options": []
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "På eksamensdagen: Kropp, stemme og nerver",
+            "level": 2
+        },
+        {
+            "type": "paragraph",
+            "text": "Hva du sier er viktig, men hvordan du sier det teller også. En trygg stemme og rolig kroppsspråk gjør at sensor oppfatter deg som godt forberedt, selv om du er nervøs inni deg."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Kroppsspråk og stemme",
+                "items": [
+                    {
+                        "label": "Øyekontakt",
+                        "value": "Se på sensor når du snakker. Du trenger ikke stirre, men løft blikket fra notatene regelmessig. Det viser at du eier stoffet."
+                    },
+                    {
+                        "label": "Hender",
+                        "value": "Hold hendene rolig. Ha stikkordlappen i hånden som et anker. Unngå å fikle med penner eller hår."
+                    },
+                    {
+                        "label": "Stemme",
+                        "value": "Snakk saktere enn du tror du må. Nervøsitet gjør at vi snakker fortere uten å merke det. Senk tempoet bevisst."
+                    },
+                    {
+                        "label": "Pauser",
+                        "value": "Det er lov å ta en pause for å tenke. En kort stillhet virker selvsikkert. Å fylle med «ehm» og «liksom» virker usikkert."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "component",
+            "name": "WritingFix",
+            "props": {
+                "title": "Nervøs vs. forberedt",
+                "items": [
+                    {
+                        "bad": "Snakker fort, ser ned i papirene, hopper over poenger fordi tankene raser. Glemmer å puste.",
+                        "good": "Puster rolig, ser opp, tar seg tid. Bruker stikkord som ankere, og stoler på forberedelsen. Tar en pause når det trengs.",
+                        "why": "Nervøsitet er helt normalt. Forskjellen er at den forberedte eleven har en plan å falle tilbake på når nervene slår inn. Stikkordene er sikkerhetsnett."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "info_box",
+            "title": "Hva gjør du hvis du står fast?",
+            "content": "Pust. Ta en slurk vann. Si høyt: «La meg komme tilbake til det.» Gå til neste punkt på stikkordlappen. Det er bedre å gå videre enn å stå stille. Og husk: det er lov å si «Det har jeg ikke tenkt nok på» hvis sensor spør om noe du ikke kan. Ærlighet er bedre enn å finne på noe."
+        },
+        {
+            "type": "quiz",
+            "questions": [
+                {
+                    "question": "Hva bør du gjøre hvis du står fast midt i presentasjonen?",
+                    "options": [
+                        "Stå stille til du husker",
+                        "Begynne helt på nytt",
+                        "Ta en pause, pust, og gå til neste punkt på stikkordlappen",
+                        "Si unnskyld til sensor"
+                    ],
+                    "correctAnswer": 2
+                },
+                {
+                    "question": "Hvorfor er stikkord bedre enn fullt manus?",
+                    "options": [
+                        "Fordi stikkord er raskere å skrive",
+                        "Fordi sensor ikke liker manus",
+                        "Fordi stikkord tvinger deg til å snakke fritt, som viser at du forstår stoffet",
+                        "Fordi du ikke får lov til å ha manus"
+                    ],
+                    "correctAnswer": 2
+                }
+            ]
         },
         {
             "type": "header",
@@ -650,5 +856,6 @@
         }
     ],
     "tags": ["eksamen", "muntlig", "presentasjon", "norsk", "vurdering"],
-    "createdDate": "2026-03-15T00:00:00Z"
+    "createdDate": "2026-03-15T00:00:00Z",
+    "lastUpdated": "2026-03-16T00:00:00Z"
 }
