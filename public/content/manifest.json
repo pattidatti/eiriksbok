@@ -1355,7 +1355,7 @@
               "id": "humanisme",
               "title": "Humanisme",
               "description": "Hvordan mennesket ble kilden til moral og mening i et nytt verdensbilde.",
-              "image": "/images/lessons/ideer/humanisme_hero.png",
+              "image": "/images/krle/religion/humanisme_hero.webp",
               "layout": "rich",
               "tags": [
                 "historie",
@@ -3252,7 +3252,7 @@
               "id": "romerske-guder",
               "title": "De Romerske Gudene",
               "description": "En reise inn i en verden hvor guder er overalt, og fred med dem sikrer rikets bestående.",
-              "image": "https://images.unsplash.com/photo-1555662369-0bd7982cb4c3?auto=format&fit=crop&q=80",
+              "image": "/images/krle/religion/humanisme_hero.webp",
               "layout": "rich",
               "tags": [
                 "historie",
@@ -3366,7 +3366,7 @@
           "id": "religion",
           "title": "Verdensreligioner",
           "description": "Utforsk de store verdensreligionene.",
-          "image": "https://images.unsplash.com/photo-1507692049790-de58293a4697?auto=format&fit=crop&q=80",
+          "image": "/images/krle/religion/mangfold_hero.webp",
           "subTopics": [
             {
               "id": "kristendom",
@@ -3468,7 +3468,7 @@
                   "id": "overgangsriter",
                   "title": "Overgangsriter",
                   "description": "Dåp, konfirmasjon, ekteskap, begravelse og sakramentene.",
-                  "image": "/images/krle/religion/kristendom_hero.jpg",
+                  "image": "/images/krle/religion/kristendom_overgangsriter.webp",
                   "tags": [
                     "kristendom",
                     "overgangsriter",
@@ -3515,7 +3515,7 @@
                   "id": "bonn",
                   "title": "Bønn (Salah)",
                   "description": "Den rituelle bønnen i islam.",
-                  "image": "/images/krle/religion/islam_hero.jpg",
+                  "image": "/images/krle/religion/islam_bonn.webp",
                   "tags": [
                     "islam",
                     "bønn",
@@ -3982,7 +3982,7 @@
                   "id": "bonn",
                   "title": "Bønn",
                   "description": "Bønn i Bahá'í.",
-                  "image": "/images/krle/religion/bahai_hero.jpg",
+                  "image": "/images/krle/religion/bahai_hero.webp",
                   "tags": [
                     "bahai",
                     "bønn",
@@ -3995,7 +3995,7 @@
                   "id": "overgangsriter",
                   "title": "Overgangsriter",
                   "description": "Ingen faste ritualer, men markering av livshendelser.",
-                  "image": "/images/krle/religion/bahai_hero.jpg",
+                  "image": "/images/krle/religion/bahai_hero.webp",
                   "tags": [
                     "bahai",
                     "overgangsriter",
@@ -4008,7 +4008,7 @@
                   "id": "grunnleggere",
                   "title": "Bahá'u'lláh",
                   "description": "Grunnleggeren av Bahá'í-troen.",
-                  "image": "/images/krle/religion/bahai_hero.jpg",
+                  "image": "/images/krle/religion/bahai_hero.webp",
                   "tags": [
                     "bahai",
                     "grunnleggere",
@@ -4021,7 +4021,7 @@
                   "id": "hellige-tekster",
                   "title": "Kitáb-i-Aqdas",
                   "description": "Den helligste boken i Bahá'í.",
-                  "image": "/images/krle/religion/bahai_hero.jpg",
+                  "image": "/images/krle/religion/bahai_hero.webp",
                   "tags": [
                     "bahai",
                     "hellige-tekster",
@@ -4034,7 +4034,7 @@
                   "id": "gudsbilde",
                   "title": "En ukjennbar Gud",
                   "description": "Gud er én og utenfor menneskelig fatteevne.",
-                  "image": "/images/krle/religion/bahai_hero.jpg",
+                  "image": "/images/krle/religion/bahai_hero.webp",
                   "tags": [
                     "bahai",
                     "gudsbilde",
@@ -4047,7 +4047,7 @@
                   "id": "frelse",
                   "title": "Åndelig utvikling",
                   "description": "Sjelens reise mot Gud.",
-                  "image": "/images/krle/religion/bahai_hero.jpg",
+                  "image": "/images/krle/religion/bahai_hero.webp",
                   "tags": [
                     "bahai",
                     "frelse",
@@ -4060,7 +4060,7 @@
                   "id": "intro",
                   "title": "Introduksjon",
                   "description": "Grunnleggende om Bahá'í.",
-                  "image": "/images/krle/religion/bahai_hero.jpg",
+                  "image": "/images/krle/religion/bahai_hero.webp",
                   "tags": [
                     "bahai",
                     "intro"
@@ -4074,14 +4074,14 @@
               "id": "mormonisme",
               "title": "Mormonisme",
               "description": "Jesu Kristi Kirke av Siste Dagers Hellige.",
-              "image": "/images/krle/religion/mormonisme_hero.jpg",
+              "image": "/images/krle/religion/mormonisme_hero.webp",
               "link": "/krle/religion/mormonisme",
               "lessons": [
                 {
                   "id": "sentrale-trekk",
                   "title": "Sentrale trekk",
                   "description": "Kjernen i mormonismen: Gjenopprettelsen og evig progresjon.",
-                  "image": "/images/krle/religion/mormonisme_hero.jpg",
+                  "image": "/images/krle/religion/mormonisme_hero.webp",
                   "tags": [
                     "mormonisme",
                     "sentrale_trekk"
@@ -4093,7 +4093,7 @@
                   "id": "bonn",
                   "title": "Bønn",
                   "description": "Bønn i mormonismen.",
-                  "image": "/images/krle/religion/mormonisme_hero.jpg",
+                  "image": "/images/krle/religion/mormonisme_hero.webp",
                   "tags": [
                     "mormonisme",
                     "bønn",
@@ -4106,7 +4106,7 @@
                   "id": "overgangsriter",
                   "title": "Overgangsriter",
                   "description": "Dåp, konfirmasjon og tempelbesegling.",
-                  "image": "/images/krle/religion/mormonisme_hero.jpg",
+                  "image": "/images/krle/religion/mormonisme_hero.webp",
                   "tags": [
                     "mormonisme",
                     "overgangsriter",
@@ -4119,7 +4119,7 @@
                   "id": "grunnleggere",
                   "title": "Joseph Smith",
                   "description": "Profeten som gjenopprettet kirken.",
-                  "image": "/images/krle/religion/mormonisme_hero.jpg",
+                  "image": "/images/krle/religion/mormonisme_hero.webp",
                   "tags": [
                     "mormonisme",
                     "grunnleggere",
@@ -4132,7 +4132,7 @@
                   "id": "hellige-tekster",
                   "title": "Mormons bok",
                   "description": "Et annet testamente om Jesus Kristus.",
-                  "image": "/images/krle/religion/mormonisme_hero.jpg",
+                  "image": "/images/krle/religion/mormonisme_hero.webp",
                   "tags": [
                     "mormonisme",
                     "hellige-tekster",
@@ -4145,7 +4145,7 @@
                   "id": "gudsbilde",
                   "title": "Guddommen",
                   "description": "Faderen, Sønnen og Den hellige ånd er tre separate vesener.",
-                  "image": "/images/krle/religion/mormonisme_hero.jpg",
+                  "image": "/images/krle/religion/mormonisme_hero.webp",
                   "tags": [
                     "mormonisme",
                     "gudsbilde",
@@ -4158,7 +4158,7 @@
                   "id": "frelse",
                   "title": "Evig progresjon",
                   "description": "Muligheten til å bli lik Gud.",
-                  "image": "/images/krle/religion/mormonisme_hero.jpg",
+                  "image": "/images/krle/religion/mormonisme_hero.webp",
                   "tags": [
                     "mormonisme",
                     "frelse",
@@ -4171,7 +4171,7 @@
                   "id": "intro",
                   "title": "Introduksjon",
                   "description": "Grunnleggende om mormonismen.",
-                  "image": "/images/krle/religion/mormonisme_hero.jpg",
+                  "image": "/images/krle/religion/mormonisme_hero.webp",
                   "tags": [
                     "mormonisme",
                     "intro"
@@ -4185,14 +4185,14 @@
               "id": "jehovas-vitner",
               "title": "Jehovas vitner",
               "description": "Et aktivt forkynnende trossamfunn.",
-              "image": "/images/krle/religion/jehovas-vitner_hero.jpg",
+              "image": "/images/krle/religion/jehovas-vitner_hero.webp",
               "link": "/krle/religion/jehovas-vitner",
               "lessons": [
                 {
                   "id": "sentrale-trekk",
                   "title": "Sentrale trekk",
                   "description": "Kjernen i Jehovas vitner: Guds rike og paradis på jord.",
-                  "image": "/images/krle/religion/jehovas-vitner_hero.jpg",
+                  "image": "/images/krle/religion/jehovas-vitner_hero.webp",
                   "tags": [
                     "jehovas-vitner",
                     "sentrale_trekk"
@@ -4204,7 +4204,7 @@
                   "id": "bonn",
                   "title": "Bønn",
                   "description": "Bønn i Jehovas vitner.",
-                  "image": "/images/krle/religion/jehovas-vitner_hero.jpg",
+                  "image": "/images/krle/religion/jehovas-vitner_hero.webp",
                   "tags": [
                     "jehovas-vitner",
                     "bønn",
@@ -4217,7 +4217,7 @@
                   "id": "overgangsriter",
                   "title": "Overgangsriter",
                   "description": "Dåp og ekteskap.",
-                  "image": "/images/krle/religion/jehovas-vitner_hero.jpg",
+                  "image": "/images/krle/religion/jehovas-vitner_hero.webp",
                   "tags": [
                     "jehovas-vitner",
                     "overgangsriter",
@@ -4230,7 +4230,7 @@
                   "id": "grunnleggere",
                   "title": "Charles Taze Russell",
                   "description": "Grunnleggeren av Bibelstudentene.",
-                  "image": "/images/krle/religion/jehovas-vitner_hero.jpg",
+                  "image": "/images/krle/religion/jehovas-vitner_hero.webp",
                   "tags": [
                     "jehovas-vitner",
                     "grunnleggere",
@@ -4243,7 +4243,7 @@
                   "id": "hellige-tekster",
                   "title": "Ny verden-oversettelsen",
                   "description": "Jehovas vitners bibeloversettelse.",
-                  "image": "/images/krle/religion/jehovas-vitner_hero.jpg",
+                  "image": "/images/krle/religion/jehovas-vitner_hero.webp",
                   "tags": [
                     "jehovas-vitner",
                     "hellige-tekster",
@@ -4256,7 +4256,7 @@
                   "id": "gudsbilde",
                   "title": "Jehova",
                   "description": "Guds personlige navn.",
-                  "image": "/images/krle/religion/jehovas-vitner_hero.jpg",
+                  "image": "/images/krle/religion/jehovas-vitner_hero.webp",
                   "tags": [
                     "jehovas-vitner",
                     "gudsbilde",
@@ -4269,7 +4269,7 @@
                   "id": "frelse",
                   "title": "Paradis på jord",
                   "description": "Håpet om evig liv på en paradisisk jord.",
-                  "image": "/images/krle/religion/jehovas-vitner_hero.jpg",
+                  "image": "/images/krle/religion/jehovas-vitner_hero.webp",
                   "tags": [
                     "jehovas-vitner",
                     "frelse",
@@ -4282,7 +4282,7 @@
                   "id": "intro",
                   "title": "Introduksjon",
                   "description": "Grunnleggende om Jehovas vitner.",
-                  "image": "/images/krle/religion/jehovas-vitner_hero.jpg",
+                  "image": "/images/krle/religion/jehovas-vitner_hero.webp",
                   "tags": [
                     "jehovas-vitner",
                     "intro"
@@ -4418,7 +4418,7 @@
               "id": "aristoteles",
               "title": "Aristoteles",
               "description": "Systematikeren og den gylne middelvei.",
-              "image": "/images/filosofi/aristoteles_hero.png",
+              "image": "/images/filosofi/aristoteles_hero.webp",
               "tags": [
                 "filosofi",
                 "aristoteles",
@@ -4431,7 +4431,7 @@
               "id": "augustin",
               "title": "Augustin",
               "description": "Tro og fornuft i tidlig middelalder.",
-              "image": "/images/filosofi/augustin_hero.png",
+              "image": "/images/filosofi/augustin_hero.webp",
               "tags": [
                 "filosofi",
                 "kristendom",
@@ -4444,7 +4444,7 @@
               "id": "aquinas",
               "title": "Thomas Aquinas",
               "description": "Gudbeviser og den naturlige lov.",
-              "image": "/images/filosofi/aquinas_hero.png",
+              "image": "/images/filosofi/aquinas_hero.webp",
               "tags": [
                 "filosofi",
                 "skolastikk",
@@ -4457,7 +4457,7 @@
               "id": "descartes",
               "title": "René Descartes",
               "description": "Jeg tenker, altså er jeg.",
-              "image": "/images/filosofi/descartes_hero.png",
+              "image": "/images/filosofi/descartes_hero.webp",
               "tags": [
                 "filosofi",
                 "rasjonalisme",
@@ -4470,7 +4470,7 @@
               "id": "locke",
               "title": "John Locke",
               "description": "Tabula Rasa og menneskets naturlige rettigheter.",
-              "image": "/images/filosofi/locke_hero.png",
+              "image": "/images/filosofi/locke_hero.webp",
               "tags": [
                 "filosofi",
                 "empirisme",
@@ -4483,7 +4483,7 @@
               "id": "hume",
               "title": "David Hume",
               "description": "Fornuften er følelsenes slave: Skeptisisme og vane.",
-              "image": "/images/filosofi/hume-hero.png",
+              "image": "/images/filosofi/hume_hero.webp",
               "tags": [
                 "filosofi",
                 "empirisme",
@@ -4510,7 +4510,7 @@
               "id": "kierkegaard",
               "title": "Søren Kierkegaard",
               "description": "Eksistensens tre stadier.",
-              "image": "/images/filosofi/kierkegaard_hero.png",
+              "image": "/images/filosofi/kierkegaard_hero.webp",
               "tags": [
                 "filosofi",
                 "eksistensialisme",
@@ -4562,7 +4562,7 @@
               "id": "arendt",
               "title": "Hannah Arendt",
               "description": "Det ondes banalitet og det offentlige rom.",
-              "image": "/images/filosofi/arendt_hero.png",
+              "image": "/images/filosofi/arendt_hero.webp",
               "tags": [
                 "filosofi",
                 "arendt",
