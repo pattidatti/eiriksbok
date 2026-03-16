@@ -5,6 +5,7 @@
     "subject": "norsk",
     "topic": "eksamen",
     "layout": "rich",
+    "heroImage": "/images/norsk/eksamen/skriftlig_hero.webp",
     "readTime": "15 min lesning",
     "category": "Eksamen",
     "details": [
@@ -554,6 +555,12 @@
             "explanation": "Ifølge Udirs kjennetegn på måloppnåelse handler høy kompetanse om å analysere, tolke og reflektere over virkemidler og forholdet mellom tekst og kontekst."
         }
     ],
-    "tags": ["eksamen", "skriving", "norsk", "analyse", "vurdering"],
+    "tags": [
+        "eksamen",
+        "skriving",
+        "norsk",
+        "analyse",
+        "vurdering"
+    ],
     "createdDate": "2026-03-15T00:00:00Z"
 }

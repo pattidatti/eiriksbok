@@ -5,7 +5,7 @@
     "subject": "norsk",
     "topic": "eksamen",
     "layout": "rich",
-    "heroImage": "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80",
+    "heroImage": "/images/norsk/eksamen/muntlig_hero.webp",
     "readTime": "18 min lesning",
     "category": "Eksamen",
     "details": [
@@ -855,7 +855,13 @@
             "explanation": "Et av kompetansemålene i LK20 er å sammenligne og tolke tekster ut fra historisk kontekst og egen samtid. Å koble tekst til epoke viser at du mestrer dette målet."
         }
     ],
-    "tags": ["eksamen", "muntlig", "presentasjon", "norsk", "vurdering"],
+    "tags": [
+        "eksamen",
+        "muntlig",
+        "presentasjon",
+        "norsk",
+        "vurdering"
+    ],
     "createdDate": "2026-03-15T00:00:00Z",
     "lastUpdated": "2026-03-16T00:00:00Z"
 }

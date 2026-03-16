@@ -834,18 +834,20 @@
               "id": "skriftlig",
               "title": "Skriftlig eksamen",
               "description": "Slik forbereder du deg til skriftlig eksamen i norsk.",
+              "image": "/images/norsk/eksamen/skriftlig_hero.webp",
               "tags": [
                 "eksamen",
                 "skriving",
                 "norsk"
               ],
               "createdDate": "2026-03-15T21:20:22+01:00",
-              "lastUpdated": "2026-03-16T10:12:00+01:00"
+              "lastUpdated": "2026-03-16T11:16:00+01:00"
             },
             {
               "id": "muntlig",
               "title": "Muntlig eksamen",
               "description": "Fra forberedelse til samtale: slik mestrer du muntlig eksamen.",
+              "image": "/images/norsk/eksamen/muntlig_hero.webp",
               "tags": [
                 "eksamen",
                 "muntlig",
@@ -853,7 +855,7 @@
                 "norsk"
               ],
               "createdDate": "2026-03-15T21:20:22+01:00",
-              "lastUpdated": "2026-03-16T10:12:00+01:00"
+              "lastUpdated": "2026-03-16T11:16:00+01:00"
             }
           ]
         }
@@ -4376,7 +4378,7 @@
               "id": "intro",
               "title": "Hva er filosofi?",
               "description": "Opphavet til filosofi og de ulike grenene som undersøker virkeligheten.",
-              "image": "/images/filosofi/intro_hero.png",
+              "image": "/images/filosofi/intro_hero.webp",
               "tags": [
                 "intro",
                 "filosofi",
@@ -4617,7 +4619,7 @@
               "id": "intro",
               "title": "Hva er etikk?",
               "description": "En introduksjon til moralens fundamenter og vanskelige valg.",
-              "image": "/images/etikk/intro_hero.png",
+              "image": "/images/etikk/intro_hero.webp",
               "tags": [
                 "intro",
                 "etikk",
@@ -4630,7 +4632,7 @@
               "id": "utilitarisme",
               "title": "Utilitarisme",
               "description": "Målet om størst mulig lykke for flest mulig.",
-              "image": "/images/etikk/utilitarisme_hero.png",
+              "image": "/images/etikk/utilitarisme_hero.webp",
               "tags": [
                 "etikk",
                 "nytte",
@@ -4644,7 +4646,7 @@
               "id": "pliktetikk",
               "title": "Pliktetikk",
               "description": "Det finnes regler som aldri skal brytes.",
-              "image": "/images/etikk/pliktetikk_hero.png",
+              "image": "/images/etikk/pliktetikk_hero.webp",
               "tags": [
                 "etikk",
                 "plikt",
