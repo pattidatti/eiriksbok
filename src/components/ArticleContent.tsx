@@ -439,7 +439,7 @@ export const ArticleContent: React.FC<ArticleContentProps> = React.memo(({ conte
 
                     case 'link':
                         const isExternal = (block as any).url?.startsWith('http');
-                        const className = "inline-flex items-center gap-2 px-6 py-3 bg-indigo-50 text-indigo-700 rounded-full font-medium hover:bg-indigo-100 transition-colors my-4";
+                        const className = "flex items-center gap-2 px-6 py-3 bg-indigo-50 text-indigo-700 rounded-xl font-medium hover:bg-indigo-100 transition-colors my-2 w-fit";
 
                         if (isExternal) {
                             return (
