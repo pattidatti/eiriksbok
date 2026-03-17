@@ -14,7 +14,7 @@ import { ArticleContent } from './ArticleContent';
 import { RichSidebar } from './RichSidebar';
 import { LearningPath } from './content/LearningPath';
 import type { ContentBlock, LearningPathData, MapData, Concept } from '../types';
-import { useTextToSpeech } from '../hooks/useTextToSpeech';
+import { useTTS } from '../hooks/useTTS';
 import { cleanTextForSpeech } from '../utils/speechUtils';
 import { useGlobalTimeline } from '../hooks/useGlobalTimeline';
 import { parseYearRange } from '../utils/dateUtils';
@@ -74,7 +74,7 @@ const FactBox: React.FC<{ content: string }> = React.memo(({ content }) => (
 export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, fallbackUrl, sidebarConfig }) => {
     const navigate = useNavigate();
     const { events: globalEvents } = useGlobalTimeline();
-    const { speak, pause, resume, cancel, playBlock, isPlaying, isPaused, hasVoice, activeBlockIndex } = useTextToSpeech();
+    const { speak, pause, resume, cancel, playBlock, isPlaying, isPaused, hasVoice, activeBlockIndex, rate, setRate } = useTTS();
 
     // Calculate speech blocks and mapping
     const speechData = React.useMemo(() => {
@@ -137,8 +137,10 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, f
         isPlaying,
         isPaused,
         hasVoice,
-        onToggle: handleListenClick
-    }), [isPlaying, isPaused, hasVoice, handleListenClick]);
+        onToggle: handleListenClick,
+        rate,
+        setRate,
+    }), [isPlaying, isPaused, hasVoice, handleListenClick, rate, setRate]);
 
     const metadata = useMemo(() => ({
         year: event.year,
@@ -297,6 +299,17 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, f
                                     ) : (
                                         <Volume2 className="w-4 h-4" />
                                     )}
+                                </button>
+                                <button
+                                    onClick={() => {
+                                        const rates = [0.8, 1.0, 1.2, 1.5];
+                                        const idx = rates.indexOf(rate);
+                                        setRate(rates[(idx + 1) % rates.length]);
+                                    }}
+                                    className="text-slate-400 hover:text-indigo-600 transition-colors"
+                                    title="Endre hastighet"
+                                >
+                                    {rate}x
                                 </button>
                             </>
                         )}

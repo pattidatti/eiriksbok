@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 
-interface UseTextToSpeechReturn {
+export interface TTSReturn {
     speak: (textBlocks: string[]) => void;
     pause: () => void;
     resume: () => void;
@@ -10,142 +10,222 @@ interface UseTextToSpeechReturn {
     isPaused: boolean;
     hasVoice: boolean;
     activeBlockIndex: number;
+    rate: number;
+    setRate: (rate: number) => void;
 }
 
-export const useTextToSpeech = (): UseTextToSpeechReturn => {
+const RATE_STORAGE_KEY = 'tts-rate';
+const KEEPALIVE_INTERVAL_MS = 13_000; // Just under Chrome's ~14s timeout
+
+function loadRate(): number {
+    try {
+        const stored = localStorage.getItem(RATE_STORAGE_KEY);
+        if (stored) {
+            const val = parseFloat(stored);
+            if (val >= 0.5 && val <= 2.0) return val;
+        }
+    } catch {
+        // localStorage unavailable
+    }
+    return 1.0;
+}
+
+/**
+ * Picks the best Norwegian voice available.
+ * Priority: filter out eSpeak → prefer "Natural" → "Google" cloud → any nb-NO voice.
+ */
+function pickBestNorwegianVoice(voices: SpeechSynthesisVoice[]): SpeechSynthesisVoice | undefined {
+    const nbVoices = voices.filter(
+        (v) =>
+            (v.lang === 'nb-NO' || v.lang === 'no-NO' || v.lang.startsWith('nb') || v.lang.startsWith('no')) &&
+            !v.name.toLowerCase().includes('espeak') // always skip eSpeak
+    );
+
+    if (nbVoices.length === 0) return undefined;
+
+    // 1. "Natural" voices (highest quality on ChromeOS)
+    const natural = nbVoices.find((v) => v.name.toLowerCase().includes('natural'));
+    if (natural) return natural;
+
+    // 2. Google cloud voices (localService: false = streamed from Google, higher quality)
+    const googleCloud = nbVoices.find(
+        (v) =>
+            (v.name.toLowerCase().includes('google') || v.name.toLowerCase().includes('neural')) &&
+            v.localService === false
+    );
+    if (googleCloud) return googleCloud;
+
+    // 3. Any Google/neural voice (even local)
+    const googleAny = nbVoices.find(
+        (v) => v.name.toLowerCase().includes('google') || v.name.toLowerCase().includes('neural')
+    );
+    if (googleAny) return googleAny;
+
+    // 4. Any non-eSpeak Norwegian voice
+    return nbVoices[0];
+}
+
+export const useTextToSpeech = (): TTSReturn => {
     const [isPlaying, setIsPlaying] = useState(false);
     const [isPaused, setIsPaused] = useState(false);
     const [hasVoice, setHasVoice] = useState(false);
     const [activeBlockIndex, setActiveBlockIndex] = useState(-1);
+    const [rate, setRateState] = useState(loadRate);
+
     const synth = useRef<SpeechSynthesis | null>(null);
     const utterance = useRef<SpeechSynthesisUtterance | null>(null);
     const isPausedRef = useRef(false);
     const blocksRef = useRef<string[]>([]);
+    const keepAliveRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+    const setRate = useCallback((newRate: number) => {
+        const clamped = Math.max(0.5, Math.min(2.0, newRate));
+        setRateState(clamped);
+        try {
+            localStorage.setItem(RATE_STORAGE_KEY, String(clamped));
+        } catch {
+            // ignore
+        }
+    }, []);
+
+    // Clear keepalive interval
+    const clearKeepAlive = useCallback(() => {
+        if (keepAliveRef.current) {
+            clearInterval(keepAliveRef.current);
+            keepAliveRef.current = null;
+        }
+    }, []);
+
+    // Start keepalive interval (workaround for Chrome ~14s timeout bug with cloud voices)
+    const startKeepAlive = useCallback(() => {
+        clearKeepAlive();
+        keepAliveRef.current = setInterval(() => {
+            if (synth.current && synth.current.speaking && !isPausedRef.current) {
+                synth.current.pause();
+                synth.current.resume();
+            } else if (!synth.current?.speaking) {
+                clearKeepAlive();
+            }
+        }, KEEPALIVE_INTERVAL_MS);
+    }, [clearKeepAlive]);
 
     useEffect(() => {
         if (typeof window !== 'undefined' && window.speechSynthesis) {
             synth.current = window.speechSynthesis;
 
-            // Check if voices are already loaded
             const checkVoices = () => {
                 const voices = synth.current?.getVoices() || [];
-                if (voices.length > 0) {
-                    setHasVoice(true);
-                }
+                const best = pickBestNorwegianVoice(voices);
+                setHasVoice(!!best);
             };
 
             checkVoices();
 
-            // Some browsers load voices asynchronously
             if (window.speechSynthesis.onvoiceschanged !== undefined) {
                 window.speechSynthesis.onvoiceschanged = checkVoices;
             }
         }
     }, []);
 
-    const speakBlock = useCallback((index: number) => {
-        if (!synth.current || index >= blocksRef.current.length || index < 0) {
-            setIsPlaying(false);
-            setIsPaused(false);
-            isPausedRef.current = false;
-            setActiveBlockIndex(-1);
-            return;
-        }
-
-        // Cancel any current speaking
-        synth.current.cancel();
-        setActiveBlockIndex(index);
-        setIsPlaying(true);
-        setIsPaused(false);
-        isPausedRef.current = false;
-
-        // Create new utterance
-        const text = blocksRef.current[index];
-        const newUtterance = new SpeechSynthesisUtterance(text);
-
-        // Try to find a Norwegian voice with priority:
-        // 1. Google/Neural cloud voices (localService: false)
-        // 2. Any Google/Neural voice
-        // 3. Any Norwegian voice
-        const voices = synth.current.getVoices();
-        const nbVoices = voices.filter(voice => voice.lang === 'nb-NO' || voice.lang === 'no-NO' || voice.lang.includes('no'));
-
-        const bestVoice = nbVoices.find(voice =>
-            (voice.name.toLowerCase().includes('google') || voice.name.toLowerCase().includes('neural')) &&
-            voice.localService === false
-        ) || nbVoices.find(voice =>
-            voice.name.toLowerCase().includes('google') || voice.name.toLowerCase().includes('neural')
-        ) || nbVoices[0];
-
-        if (bestVoice) {
-            newUtterance.voice = bestVoice;
-        }
-
-        // Event handlers
-        newUtterance.onstart = () => {
-            setIsPlaying(true);
-            setIsPaused(false);
-            isPausedRef.current = false;
-        };
-
-        newUtterance.onend = () => {
-            // Only proceed if not paused
-            if (isPausedRef.current) return;
-
-            // Automatically play next block
-            if (index < blocksRef.current.length - 1) {
-                speakBlock(index + 1);
-            } else {
+    const speakBlock = useCallback(
+        (index: number) => {
+            if (!synth.current || index >= blocksRef.current.length || index < 0) {
                 setIsPlaying(false);
                 setIsPaused(false);
                 isPausedRef.current = false;
                 setActiveBlockIndex(-1);
+                clearKeepAlive();
+                return;
             }
-        };
 
-        newUtterance.onerror = (event) => {
-            // "interrupted" is common when we call cancel() ourselves
-            if ((event as any).error === 'interrupted') return;
-
-            console.error('Speech synthesis error:', event);
-            setIsPlaying(false);
+            synth.current.cancel();
+            clearKeepAlive();
+            setActiveBlockIndex(index);
+            setIsPlaying(true);
             setIsPaused(false);
             isPausedRef.current = false;
-        };
 
-        utterance.current = newUtterance;
-        synth.current.speak(newUtterance);
-    }, []);
+            const text = blocksRef.current[index];
+            const newUtterance = new SpeechSynthesisUtterance(text);
 
-    const speak = useCallback((textBlocks: string[]) => {
-        blocksRef.current = textBlocks;
-        setIsPlaying(true);
-        setIsPaused(false);
-        isPausedRef.current = false;
-        speakBlock(0);
-    }, [speakBlock]);
+            const voices = synth.current.getVoices();
+            const bestVoice = pickBestNorwegianVoice(voices);
+            if (bestVoice) {
+                newUtterance.voice = bestVoice;
+            }
 
-    const playBlock = useCallback((index: number) => {
-        if (blocksRef.current.length > 0) {
-            speakBlock(index);
-        }
-    }, [speakBlock]);
+            newUtterance.rate = loadRate();
+
+            newUtterance.onstart = () => {
+                setIsPlaying(true);
+                setIsPaused(false);
+                isPausedRef.current = false;
+                startKeepAlive();
+            };
+
+            newUtterance.onend = () => {
+                clearKeepAlive();
+                if (isPausedRef.current) return;
+
+                if (index < blocksRef.current.length - 1) {
+                    speakBlock(index + 1);
+                } else {
+                    setIsPlaying(false);
+                    setIsPaused(false);
+                    isPausedRef.current = false;
+                    setActiveBlockIndex(-1);
+                }
+            };
+
+            newUtterance.onerror = (event) => {
+                clearKeepAlive();
+                if ((event as any).error === 'interrupted') return;
+
+                console.error('Speech synthesis error:', event);
+                setIsPlaying(false);
+                setIsPaused(false);
+                isPausedRef.current = false;
+            };
+
+            utterance.current = newUtterance;
+            synth.current.speak(newUtterance);
+        },
+        [clearKeepAlive, startKeepAlive]
+    );
+
+    const speak = useCallback(
+        (textBlocks: string[]) => {
+            blocksRef.current = textBlocks;
+            setIsPlaying(true);
+            setIsPaused(false);
+            isPausedRef.current = false;
+            speakBlock(0);
+        },
+        [speakBlock]
+    );
+
+    const playBlock = useCallback(
+        (index: number) => {
+            if (blocksRef.current.length > 0) {
+                speakBlock(index);
+            }
+        },
+        [speakBlock]
+    );
 
     const pause = useCallback(() => {
-        // Native pause/resume is very unreliable for cloud voices on Chrome/Chromebooks.
-        // We use a "Safe Pause" by canceling and tracking the index.
         if (synth.current && isPlaying && !isPaused) {
             isPausedRef.current = true;
             setIsPaused(true);
-            synth.current.cancel(); // Immediate stop
+            clearKeepAlive();
+            synth.current.cancel();
         }
-    }, [isPlaying, isPaused]);
+    }, [isPlaying, isPaused, clearKeepAlive]);
 
     const resume = useCallback(() => {
         if (synth.current && isPlaying && isPaused) {
             isPausedRef.current = false;
             setIsPaused(false);
-            // Restart from the current block
             if (activeBlockIndex !== -1) {
                 speakBlock(activeBlockIndex);
             }
@@ -156,11 +236,12 @@ export const useTextToSpeech = (): UseTextToSpeechReturn => {
         if (synth.current) {
             isPausedRef.current = false;
             synth.current.cancel();
+            clearKeepAlive();
             setIsPlaying(false);
             setIsPaused(false);
             setActiveBlockIndex(-1);
         }
-    }, []);
+    }, [clearKeepAlive]);
 
     // Cleanup on unmount
     useEffect(() => {
@@ -168,8 +249,9 @@ export const useTextToSpeech = (): UseTextToSpeechReturn => {
             if (synth.current) {
                 synth.current.cancel();
             }
+            clearKeepAlive();
         };
-    }, []);
+    }, [clearKeepAlive]);
 
     return {
         speak,
@@ -180,6 +262,8 @@ export const useTextToSpeech = (): UseTextToSpeechReturn => {
         isPlaying,
         isPaused,
         hasVoice,
-        activeBlockIndex
+        activeBlockIndex,
+        rate,
+        setRate,
     };
 };
