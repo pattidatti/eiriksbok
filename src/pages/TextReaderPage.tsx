@@ -5,7 +5,7 @@ import { ArrowLeft, BookOpen, User, Tag, Volume2, PauseCircle, PlayCircle, Colum
 import { textLibraryData, type TextEntry } from '../data/textLibraryData';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { Tooltip } from '../components/Tooltip';
-import { useTextToSpeech } from '../hooks/useTextToSpeech';
+import { useTTS } from '../hooks/useTTS';
 import { cleanMarkdown } from '../utils/speechUtils';
 
 
@@ -83,7 +83,7 @@ export const TextReaderPage: React.FC = () => {
 
     usePageTitle(displayTitle || 'Les tekst');
 
-    const { speak, pause, resume, cancel, playBlock, isPlaying, isPaused, hasVoice, activeBlockIndex } = useTextToSpeech();
+    const { speak, pause, resume, cancel, playBlock, isPlaying, isPaused, hasVoice, activeBlockIndex, rate, setRate } = useTTS();
 
     // Calculate speech blocks and mapping
     const speechData = useMemo(() => {
@@ -241,29 +241,42 @@ export const TextReaderPage: React.FC = () => {
                         {/* Audio & Split View Controls */}
                         <div className="flex flex-wrap justify-center gap-4">
                             {hasVoice && (
-                                <button
-                                    onClick={handleListenClick}
-                                    className={`flex items-center px-4 py-2 rounded-full font-bold transition-all shadow-sm ${isPlaying
-                                        ? 'bg-indigo-600 text-white shadow-lg'
-                                        : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
-                                        }`}
-                                >
-                                    {isPlaying ? (
-                                        isPaused ? (
-                                            <>
-                                                <PlayCircle className="w-5 h-5 mr-2" /> Fortsett
-                                            </>
+                                <div className="flex items-center gap-2">
+                                    <button
+                                        onClick={handleListenClick}
+                                        className={`flex items-center px-4 py-2 rounded-full font-bold transition-all shadow-sm ${isPlaying
+                                            ? 'bg-indigo-600 text-white shadow-lg'
+                                            : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                                            }`}
+                                    >
+                                        {isPlaying ? (
+                                            isPaused ? (
+                                                <>
+                                                    <PlayCircle className="w-5 h-5 mr-2" /> Fortsett
+                                                </>
+                                            ) : (
+                                                <>
+                                                    <PauseCircle className="w-5 h-5 mr-2" /> Pause
+                                                </>
+                                            )
                                         ) : (
                                             <>
-                                                <PauseCircle className="w-5 h-5 mr-2" /> Pause
+                                                <Volume2 className="w-5 h-5 mr-2" /> Lytt til tekst
                                             </>
-                                        )
-                                    ) : (
-                                        <>
-                                            <Volume2 className="w-5 h-5 mr-2" /> Lytt til tekst
-                                        </>
-                                    )}
-                                </button>
+                                        )}
+                                    </button>
+                                    <button
+                                        onClick={() => {
+                                            const rates = [0.8, 1.0, 1.2, 1.5];
+                                            const idx = rates.indexOf(rate);
+                                            setRate(rates[(idx + 1) % rates.length]);
+                                        }}
+                                        className="px-3 py-2 rounded-full bg-slate-100 text-slate-600 text-xs font-bold hover:bg-slate-200 transition-all"
+                                        title="Endre hastighet"
+                                    >
+                                        {rate}x
+                                    </button>
+                                </div>
                             )}
 
                             {/* Split View Toggle */}

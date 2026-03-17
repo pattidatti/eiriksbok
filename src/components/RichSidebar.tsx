@@ -18,6 +18,8 @@ interface RichSidebarProps {
         isPaused: boolean;
         hasVoice: boolean;
         onToggle: () => void;
+        rate?: number;
+        setRate?: (rate: number) => void;
     };
     metadata?: {
         year: string;
@@ -76,34 +78,49 @@ export const RichSidebar: React.FC<RichSidebarProps> = React.memo(({ details, ti
                 {/* Desktop: Audio Player & Key Info */}
                 <div className="hidden md:block space-y-4 mb-8">
                     {config?.showAudio !== false && audioState?.hasVoice && (
-                        <button
-                            onClick={audioState.onToggle}
-                            className={`w-full flex items-center justify-between p-4 rounded-xl transition-all shadow-sm group border ${audioState.isPlaying
-                                ? 'bg-indigo-600 border-indigo-500 text-white'
-                                : 'bg-white border-slate-200 text-slate-700 hover:border-indigo-300 hover:shadow-md'
-                                }`}
-                        >
-                            <span className="font-bold text-sm flex items-center">
-                                {audioState.isPlaying ? (
-                                    audioState.isPaused ? (
-                                        <>
-                                            <PlayCircle className="w-5 h-5 mr-3" />
-                                            Fortsett avspilling
-                                        </>
+                        <div className="flex gap-2">
+                            <button
+                                onClick={audioState.onToggle}
+                                className={`flex-1 flex items-center justify-between p-4 rounded-xl transition-all shadow-sm group border ${audioState.isPlaying
+                                    ? 'bg-indigo-600 border-indigo-500 text-white'
+                                    : 'bg-white border-slate-200 text-slate-700 hover:border-indigo-300 hover:shadow-md'
+                                    }`}
+                            >
+                                <span className="font-bold text-sm flex items-center">
+                                    {audioState.isPlaying ? (
+                                        audioState.isPaused ? (
+                                            <>
+                                                <PlayCircle className="w-5 h-5 mr-3" />
+                                                Fortsett avspilling
+                                            </>
+                                        ) : (
+                                            <>
+                                                <PauseCircle className="w-5 h-5 mr-3" />
+                                                Pause opplesning
+                                            </>
+                                        )
                                     ) : (
                                         <>
-                                            <PauseCircle className="w-5 h-5 mr-3" />
-                                            Pause opplesning
+                                            <Volume2 className={`w-5 h-5 mr-3 ${audioState.isPlaying ? 'text-white' : 'text-indigo-600'}`} />
+                                            Lytt til artikkel
                                         </>
-                                    )
-                                ) : (
-                                    <>
-                                        <Volume2 className={`w-5 h-5 mr-3 ${audioState.isPlaying ? 'text-white' : 'text-indigo-600'}`} />
-                                        Lytt til artikkel
-                                    </>
-                                )}
-                            </span>
-                        </button>
+                                    )}
+                                </span>
+                            </button>
+                            {audioState.rate !== undefined && audioState.setRate && (
+                                <button
+                                    onClick={() => {
+                                        const rates = [0.8, 1.0, 1.2, 1.5];
+                                        const idx = rates.indexOf(audioState.rate!);
+                                        audioState.setRate!(rates[(idx + 1) % rates.length]);
+                                    }}
+                                    className="px-3 rounded-xl bg-white border border-slate-200 text-slate-600 text-xs font-bold hover:border-indigo-300 hover:shadow-md transition-all"
+                                    title="Endre hastighet"
+                                >
+                                    {audioState.rate}x
+                                </button>
+                            )}
+                        </div>
                     )}
 
                     {metadata && (

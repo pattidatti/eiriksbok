@@ -10,9 +10,30 @@ export const cleanMarkdown = (text: string): string => {
     return cleaned;
 };
 
+/** Extra cleaning for TTS: numbers, abbreviations, special characters */
+export const cleanForTTS = (text: string): string => {
+    let cleaned = cleanMarkdown(text);
+    // Replace common abbreviations
+    cleaned = cleaned.replace(/\bf\.eks\.\b/gi, 'for eksempel');
+    cleaned = cleaned.replace(/\bca\.\b/gi, 'cirka');
+    cleaned = cleaned.replace(/\bbl\.a\.\b/gi, 'blant annet');
+    cleaned = cleaned.replace(/\bnr\.\b/gi, 'nummer');
+    cleaned = cleaned.replace(/\bkr\.\b/gi, 'kroner');
+    cleaned = cleaned.replace(/\bmrd\.\b/gi, 'milliarder');
+    cleaned = cleaned.replace(/\bmill\.\b/gi, 'millioner');
+    cleaned = cleaned.replace(/\bfr\.\b/gi, 'fra');
+    cleaned = cleaned.replace(/\bm\.m\.\b/gi, 'med mer');
+    cleaned = cleaned.replace(/\bosv\.\b/gi, 'og så videre');
+    // Strip HTML tags
+    cleaned = cleaned.replace(/<[^>]+>/g, '');
+    // Collapse multiple spaces / newlines
+    cleaned = cleaned.replace(/\s+/g, ' ').trim();
+    return cleaned;
+};
+
 export const cleanTextForSpeech = (blocks: ContentBlock[]): string => {
     return blocks
-        .filter(b => b.type === 'text' && b.content)
-        .map(b => cleanMarkdown((b as any).content || ''))
+        .filter((b) => b.type === 'text' && b.content)
+        .map((b) => cleanForTTS((b as any).content || ''))
         .join('. ');
 };
