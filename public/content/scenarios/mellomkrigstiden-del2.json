@@ -555,7 +555,7 @@
         },
         "ending_historisk_vitne": {
             "id": "ending_historisk_vitne",
-            "text": "Du reiste gjennom tjue år med kaos, løgner og frykt. Du gjennomskuet propagandaen. Du så at demokratiet ikke ble styrtet med kupp, men stemte seg selv bort. Du valgte å stå imot der du kunne.\n\nDu er et historisk vitne - en som forsto det de så.",
+            "text": "Du reiste gjennom tjue år med kaos, løgner og frykt. Du gjennomskuet propagandaen. Du forsto at børskrakket ikke bare var uflaks, men resultatet av kunstig kredittekspansjon. Du så at demokratiet ikke ble styrtet med kupp, men stemte seg selv bort. Du valgte å stå imot der du kunne.\n\nDu er et historisk vitne - en som forsto det de så.",
             "speaker": "Forteller",
             "isEnd": true,
             "endType": "victory",
@@ -581,7 +581,7 @@
             "showEndComparison": true,
             "epilogue": {
                 "entries": [
-                    { "hasFlag": "hjalp_fascistene", "text": "Du støttet fascistene der du kunne. Slik bygges diktaturer - stein for stein, av vanlige folk." },
+                    { "hasFlag": "hjalp_fascistene", "text": "Du støttet marsjen mot Roma, stemte NSDAP, og trykket Francos løgner. Slik bygges diktaturer - stein for stein, av vanlige folk." },
                     { "hasFlag": "valgte_fred_over_rettferdighet", "text": "Og da freden sto på spill, valgte du alltid det mest komfortable. Det gjorde Chamberlain også." },
                     { "text": "Hannah Arendt kalte det 'ondskapens banalitet' - evnen til å gjøre forferdelige ting uten å mene det." }
                 ],
