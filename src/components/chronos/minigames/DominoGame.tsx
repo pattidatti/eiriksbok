@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Shield, ChevronRight, CheckCircle, TrendingDown } from 'lucide-react';
+import { MiniGameHeader } from './MiniGameHeader';
 
 interface DominoAction {
     id: string;
@@ -212,25 +213,22 @@ export const DominoGame: React.FC<DominoGameProps> = ({ config, onComplete }) =>
     /* ── Render ─────────────────────────────────────────────────────── */
     return (
         <div className="bg-stone-100 rounded-3xl border border-stone-200 overflow-hidden">
-            {/* Header */}
-            <div className="bg-stone-900 px-4 py-2.5 flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                    <Shield size={13} className="text-blue-400 flex-shrink-0" />
-                    <span className="text-xs font-display font-bold text-blue-300 tracking-wide">
-                        Innflytelsesstrategi
+            <MiniGameHeader
+                icon={Shield}
+                title="Innflytelsesstrategi"
+                badge={
+                    <span className="flex items-center gap-1.5">
+                        <span className="text-[10px] text-stone-500 font-mono">Budsjett:</span>
+                        <span
+                            className={`text-xs font-black font-mono ${
+                                remaining === 0 ? 'text-emerald-400' : 'text-amber-400'
+                            }`}
+                        >
+                            {remaining}/{budget}
+                        </span>
                     </span>
-                </div>
-                <div className="flex items-center gap-1.5">
-                    <span className="text-[10px] text-stone-500 font-mono">Budsjett:</span>
-                    <span
-                        className={`text-sm font-black font-mono ${
-                            remaining === 0 ? 'text-emerald-400' : 'text-amber-400'
-                        }`}
-                    >
-                        {remaining}/{budget}
-                    </span>
-                </div>
-            </div>
+                }
+            />
 
             {/* Domino theory note */}
             {phase === 'allocation' && (

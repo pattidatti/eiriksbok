@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 
 export interface TTSReturn {
-    speak: (textBlocks: string[]) => void;
+    speak: (textBlocks: string[], startIndex?: number) => void;
     pause: () => void;
     resume: () => void;
     cancel: () => void;
@@ -138,7 +138,7 @@ export const useTextToSpeech = (): TTSReturn => {
                 return;
             }
 
-            synth.current.cancel();
+            if (synth.current.speaking) synth.current.cancel();
             clearKeepAlive();
             setActiveBlockIndex(index);
             setIsPlaying(true);
@@ -168,7 +168,11 @@ export const useTextToSpeech = (): TTSReturn => {
                 if (isPausedRef.current) return;
 
                 if (index < blocksRef.current.length - 1) {
-                    speakBlock(index + 1);
+                    // setTimeout to work around Chrome/ChromeOS bug where
+                    // synth.speak() called directly from onend gets silently interrupted
+                    setTimeout(() => {
+                        if (!isPausedRef.current) speakBlock(index + 1);
+                    }, 50);
                 } else {
                     setIsPlaying(false);
                     setIsPaused(false);
@@ -194,12 +198,12 @@ export const useTextToSpeech = (): TTSReturn => {
     );
 
     const speak = useCallback(
-        (textBlocks: string[]) => {
+        (textBlocks: string[], startIndex = 0) => {
             blocksRef.current = textBlocks;
             setIsPlaying(true);
             setIsPaused(false);
             isPausedRef.current = false;
-            speakBlock(0);
+            speakBlock(startIndex);
         },
         [speakBlock]
     );

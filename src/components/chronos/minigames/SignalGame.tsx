@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Eye, CheckCircle, XCircle } from 'lucide-react';
+import { MiniGameHeader } from './MiniGameHeader';
 
 interface SignalOption {
     id: string;
@@ -38,10 +39,7 @@ export const SignalGame: React.FC<SignalGameProps> = ({ config, onComplete }) =>
 
     return (
         <div className="bg-stone-100 rounded-3xl border border-stone-200 overflow-hidden">
-            <div className="flex items-center gap-2 px-3 py-2 bg-stone-800 border-b border-stone-700/50">
-                <Eye size={13} className="opacity-70 text-stone-300 flex-shrink-0" />
-                <span className="text-xs font-display font-semibold text-stone-100 tracking-wide">Observasjonsrapport</span>
-            </div>
+            <MiniGameHeader icon={Eye} title="Observasjonsrapport" />
 
             <div className="mx-3 mt-2 rounded-xl bg-stone-800 p-3 border border-stone-700/60">
                 <p className="text-sm text-stone-300 leading-relaxed font-mono text-center">{config.situation}</p>

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Clock, Shield, Sword, Trophy, History, Crown } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { usePageTitle } from '../hooks/usePageTitle';
 import { TimeTravelProfileProvider, useTimeTravelProfile } from '../components/chronos/context/TimeTravelProfileContext';
 import type { ChronosRunLog } from '../data/chronos/types';
 
@@ -15,6 +16,7 @@ export const TimeTravelPage: React.FC = () => {
 
 const TimeTravelHub: React.FC = () => {
     const { profile, isLoading } = useTimeTravelProfile();
+    usePageTitle('Tidsreiser');
 
     const scenarios = [
         {
@@ -25,7 +27,7 @@ const TimeTravelHub: React.FC = () => {
             description: 'Stå vakt ved Hadrians mur og hold barbarene unna.',
             icon: Shield,
             color: 'bg-red-900',
-            image: '/images/chronos/hadrian_mist.jpg',
+            image: '/images/chronos/roman_fort_map.png',
             disabled: false
         },
         {
@@ -36,7 +38,7 @@ const TimeTravelHub: React.FC = () => {
             description: 'Styr ditt len, døm dine bønder og sikre din ætt i det tysk-romerske riket.',
             icon: Crown,
             color: 'bg-red-950',
-            image: '/images/chronos/medieval_castle_view.jpg',
+            image: '/images/chronos/medieval_castle_map.png',
             disabled: false
         },
         {
@@ -75,46 +77,19 @@ const TimeTravelHub: React.FC = () => {
     ];
 
     return (
-        <div className="min-h-screen pt-24 pb-12 bg-slate-50">
+        <div className="min-h-screen pt-14 pb-8 bg-slate-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-16">
-                    <div className="inline-flex items-center justify-center p-3 mb-4 bg-indigo-100 rounded-2xl text-indigo-600">
-                        <Clock size={32} />
-                    </div>
-                    <h1 className="text-4xl md:text-5xl font-display font-bold mb-4 text-slate-900">
+                <div className="text-center mb-8">
+                    <h1 className="inline-flex items-center gap-3 text-4xl md:text-5xl font-display font-bold mb-3 text-slate-900">
+                        <Clock size={36} className="text-indigo-500" />
                         Tidsreiser
                     </h1>
-                    <p className="text-xl text-slate-600 max-w-2xl mx-auto mb-8">
+                    <p className="text-xl text-slate-600 max-w-2xl mx-auto">
                         Tre inn i historien. Ta valgene som formet fortiden.
                     </p>
-
-                    {/* Profile Stats */}
-                    {!isLoading && profile && (
-                        <div className="inline-flex gap-8 p-4 bg-white rounded-2xl shadow-sm border border-slate-200">
-                            <div className="flex items-center gap-3">
-                                <div className="p-2 bg-slate-100 rounded-lg text-slate-500">
-                                    <History size={20} />
-                                </div>
-                                <div className="text-left">
-                                    <div className="text-xs font-bold uppercase tracking-wider text-slate-400">Reiser</div>
-                                    <div className="text-xl font-black text-slate-900">{profile.totalRuns}</div>
-                                </div>
-                            </div>
-                            <div className="w-px bg-slate-100" />
-                            <div className="flex items-center gap-3">
-                                <div className="p-2 bg-yellow-100 rounded-lg text-yellow-600">
-                                    <Trophy size={20} />
-                                </div>
-                                <div className="text-left">
-                                    <div className="text-xs font-bold uppercase tracking-wider text-slate-400">Seiere</div>
-                                    <div className="text-xl font-black text-slate-900">{profile.totalWins}</div>
-                                </div>
-                            </div>
-                        </div>
-                    )}
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
                     {scenarios.map((scenario) => (
                         <motion.div
                             key={scenario.id}
@@ -134,34 +109,48 @@ const TimeTravelHub: React.FC = () => {
                     ))}
                 </div>
 
-                {/* Graveyard / History */}
-                {!isLoading && profile && profile.graveyard.length > 0 && (
+                {/* Stats + Graveyard */}
+                {!isLoading && profile && (
                     <div className="max-w-4xl mx-auto">
-                        <div className="flex items-center gap-4 mb-6">
-                            <h2 className="text-2xl font-display font-bold text-slate-900">Dine Forfedre</h2>
+                        <div className="flex items-center gap-6 mb-6">
+                            <div className="flex items-center gap-2">
+                                <History size={18} className="text-slate-400" />
+                                <span className="text-sm text-slate-500">
+                                    <span className="font-black text-slate-900">{profile.totalRuns}</span> reiser
+                                </span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                                <Trophy size={18} className="text-yellow-500" />
+                                <span className="text-sm text-slate-500">
+                                    <span className="font-black text-slate-900">{profile.totalWins}</span> seiere
+                                </span>
+                            </div>
                             <div className="h-px bg-slate-200 flex-1" />
+                            <h2 className="text-2xl font-display font-bold text-slate-900">Dine Forfedre</h2>
                         </div>
-                        <div className="bg-white rounded-3xl border border-slate-200 overflow-hidden">
-                            {profile.graveyard.slice(0, 5).map((log: ChronosRunLog) => (
-                                <div key={log.id} className="p-4 border-b border-slate-100 last:border-0 flex items-center justify-between hover:bg-slate-50 transition-colors">
-                                    <div className="flex items-center gap-4">
-                                        <div className={`w-2 h-12 rounded-full ${log.result === 'victory' ? 'bg-yellow-400' : 'bg-slate-300'}`} />
-                                        <div>
-                                            <div className="font-bold text-slate-900">{{ 'roman-soldier': 'Romersk Legionær', 'medieval-baron': 'Baron av Rhinen', 'ww1-vestfront': 'Skyttergravenes Ekko', 'nikolaj-ii': 'Tsarens Skjebne', 'kald-krig': 'I Supermaktenes Skygge' }[log.scenarioId] ?? log.scenarioId}</div>
-                                            <div className="text-xs text-slate-500 uppercase tracking-wide">
-                                                {new Date(log.date).toLocaleDateString()} • {log.daysSurvived} Dager Overlevd
+                        {profile.graveyard.length > 0 && (
+                            <div className="bg-white rounded-3xl border border-slate-200 overflow-hidden">
+                                {profile.graveyard.slice(0, 5).map((log: ChronosRunLog) => (
+                                    <div key={log.id} className="p-4 border-b border-slate-100 last:border-0 flex items-center justify-between hover:bg-slate-50 transition-colors">
+                                        <div className="flex items-center gap-4">
+                                            <div className={`w-2 h-12 rounded-full ${log.result === 'victory' ? 'bg-yellow-400' : 'bg-slate-300'}`} />
+                                            <div>
+                                                <div className="font-bold text-slate-900">{{ 'roman-soldier': 'Romersk Legionær', 'medieval-baron': 'Baron av Rhinen', 'ww1-vestfront': 'Skyttergravenes Ekko', 'nikolaj-ii': 'Tsarens Skjebne', 'kald-krig': 'I Supermaktenes Skygge' }[log.scenarioId] ?? log.scenarioId}</div>
+                                                <div className="text-xs text-slate-500 uppercase tracking-wide">
+                                                    {new Date(log.date).toLocaleDateString()} • {log.daysSurvived} Dager Overlevd
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="text-right">
+                                            <div className="text-sm font-bold text-slate-900">{log.score} Poeng</div>
+                                            <div className={`text-xs uppercase font-bold tracking-wider ${log.result === 'victory' ? 'text-yellow-600' : 'text-slate-400'}`}>
+                                                {log.result === 'victory' ? 'Seier' : 'Falt'}
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="text-right">
-                                        <div className="text-sm font-bold text-slate-900">{log.score} Poeng</div>
-                                        <div className={`text-xs uppercase font-bold tracking-wider ${log.result === 'victory' ? 'text-yellow-600' : 'text-slate-400'}`}>
-                                            {log.result === 'victory' ? 'Seier' : 'Falt'}
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
+                                ))}
+                            </div>
+                        )}
                     </div>
                 )}
             </div>
@@ -172,7 +161,13 @@ const TimeTravelHub: React.FC = () => {
 const ScenarioCardContent: React.FC<{ scenario: any }> = ({ scenario }) => (
     <>
         <div className={`h-48 ${scenario.color} relative overflow-hidden`}>
-            {/* Simple Pattern/Image Overlay */}
+            {scenario.image && (
+                <img
+                    src={scenario.image}
+                    alt=""
+                    className="absolute inset-0 w-full h-full object-cover opacity-60"
+                />
+            )}
             <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] mix-blend-overlay" />
 
             <div className="absolute top-4 right-4 px-3 py-1 bg-black/20 backdrop-blur-md rounded-full text-xs font-bold text-white uppercase tracking-wider border border-white/10">

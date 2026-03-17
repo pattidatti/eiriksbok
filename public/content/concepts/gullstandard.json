@@ -1,0 +1,12 @@
+{
+    "term": "Gullstandard",
+    "aliases": ["gullstandarden", "gullankeret"],
+    "definition": "Et pengesystem der valutaens verdi er knyttet til gull. Dette begrenser sentralbankens evne til å trykke penger og manipulere renten, fordi pengemengden ikke kan vokse raskere enn gullbeholdningen.",
+    "type": "concept",
+    "tags": [
+        "økonomi",
+        "penger",
+        "rente"
+    ],
+    "subject": "samfunnskunnskap"
+}

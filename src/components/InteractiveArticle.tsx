@@ -15,7 +15,7 @@ import { RichSidebar } from './RichSidebar';
 import { LearningPath } from './content/LearningPath';
 import type { ContentBlock, LearningPathData, MapData, Concept } from '../types';
 import { useTTS } from '../hooks/useTTS';
-import { cleanTextForSpeech } from '../utils/speechUtils';
+import { cleanForTTS } from '../utils/speechUtils';
 import { useGlobalTimeline } from '../hooks/useGlobalTimeline';
 import { parseYearRange } from '../utils/dateUtils';
 import { ImageWithFallback } from './ImageWithFallback';
@@ -89,8 +89,9 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, f
         mapSpeechToContent.push(-1); // -1 indicates title
 
         event.content.forEach((block, index) => {
-            if (block.type === 'text' && block.content) {
-                const cleanText = cleanTextForSpeech([block]);
+            if (block.type === 'text' || block.type === 'paragraph') {
+                const rawText = (block as any).content || (block as any).text || '';
+                const cleanText = cleanForTTS(rawText);
                 if (cleanText) {
                     blocks.push(cleanText);
                     const speechIndex = blocks.length - 1;
@@ -128,9 +129,13 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, f
     const handleBlockClick = useCallback((contentIndex: number) => {
         const speechIndex = speechData.mapContentToSpeech[contentIndex];
         if (speechIndex !== undefined) {
-            playBlock(speechIndex);
+            if (isPlaying) {
+                playBlock(speechIndex);
+            } else {
+                speak(speechData.blocks, speechIndex);
+            }
         }
-    }, [speechData.mapContentToSpeech, playBlock]);
+    }, [speechData.mapContentToSpeech, speechData.blocks, playBlock, speak, isPlaying]);
 
     // Memoize sidebar props to prevent re-renders in RichSidebar
     const audioState = useMemo(() => ({

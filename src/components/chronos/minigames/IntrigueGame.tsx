@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Users, Eye, EyeOff, CheckCircle } from 'lucide-react';
+import { MiniGameHeader } from './MiniGameHeader';
 
 interface Character {
     id: string;
@@ -61,23 +62,19 @@ export const IntrigueGame: React.FC<IntrigueGameProps> = ({ config, onComplete }
 
     return (
         <div className="bg-stone-100 rounded-3xl border border-stone-200 overflow-hidden">
-            <div className="bg-stone-800 text-stone-100 p-5 text-center">
-                <Users className="mx-auto mb-2 opacity-80" size={28} />
-                <h2 className="text-xl font-display font-medium tracking-wide">Hoffets Intriger</h2>
-                {!revealed ? (
-                    <>
-                        <p className="text-xs text-stone-400 mt-1">
-                            Hvem kan du stole på? Plasser {config.tokens} tillitstokener.
-                        </p>
-                        <div className="mt-2">
-                            <span className="text-amber-400 font-bold">{tokensLeft}</span>
-                            <span className="text-stone-400 text-xs"> token{tokensLeft !== 1 ? 'er' : ''} igjen</span>
-                        </div>
-                    </>
-                ) : (
-                    <p className="text-xs text-stone-400 mt-1">Avsløringen...</p>
-                )}
-            </div>
+            <MiniGameHeader
+                icon={Users}
+                title="Hoffets Intriger"
+                badge={
+                    !revealed ? (
+                        <span className="text-[10px] text-stone-400">
+                            <span className="text-amber-400 font-bold">{tokensLeft}</span> token{tokensLeft !== 1 ? 'er' : ''} igjen
+                        </span>
+                    ) : (
+                        <span className="text-[10px] text-stone-400 italic">Avsløring...</span>
+                    )
+                }
+            />
 
             <div className="p-4 grid grid-cols-2 gap-3">
                 {config.characters.map((char) => {

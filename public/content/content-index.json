@@ -1,5 +1,5 @@
 {
-  "buildId": 1773731798025,
+  "buildId": 1773740019265,
   "contentMap": {
     "adel": [
       "content/concepts/adel.json"
@@ -158,6 +158,9 @@
     "gulag": [
       "content/concepts/gulag.json"
     ],
+    "gullstandard": [
+      "content/concepts/gullstandard.json"
+    ],
     "gurdwara": [
       "content/concepts/gurdwara.json"
     ],
@@ -227,11 +230,17 @@
     "kapitalisme": [
       "content/concepts/kapitalisme.json"
     ],
+    "kapitalstruktur": [
+      "content/concepts/kapitalstruktur.json"
+    ],
     "karakterarketyper": [
       "content/concepts/karakterarketyper.json"
     ],
     "karakterutvikling": [
       "content/concepts/karakterutvikling.json"
+    ],
+    "keynesiansk-okonomi": [
+      "content/concepts/keynesiansk-okonomi.json"
     ],
     "khalsa": [
       "content/concepts/khalsa.json"
@@ -326,8 +335,14 @@
     "nrnbergprosessene": [
       "content/concepts/nrnbergprosessene.json"
     ],
+    "nullrentepolitikk": [
+      "content/concepts/nullrentepolitikk.json"
+    ],
     "oligarki": [
       "content/concepts/oligarki.json"
+    ],
+    "omveisproduksjon": [
+      "content/concepts/omveisproduksjon.json"
     ],
     "operasjon-barbarossa": [
       "content/concepts/operasjon-barbarossa.json"
@@ -497,6 +512,9 @@
     ],
     "teokrati": [
       "content/concepts/teokrati.json"
+    ],
+    "tidspreferanse": [
+      "content/concepts/tidspreferanse.json"
     ],
     "total-krig": [
       "content/concepts/total-krig.json"
@@ -1355,8 +1373,14 @@
     "bartolomeus-voet": [
       "content/people/bartolomeus-voet.json"
     ],
+    "ben-bernanke": [
+      "content/people/ben-bernanke.json"
+    ],
     "birger-jarl": [
       "content/people/birger-jarl.json"
+    ],
+    "bohm-bawerk": [
+      "content/people/bohm-bawerk.json"
     ],
     "clovis-i": [
       "content/people/clovis-i.json"
@@ -1393,6 +1417,9 @@
     ],
     "franz-ferdinand": [
       "content/people/franz-ferdinand.json"
+    ],
+    "friedrich-hayek": [
+      "content/people/friedrich-hayek.json"
     ],
     "friedrich-nietzsche": [
       "content/people/friedrich-nietzsche.json"
@@ -1466,6 +1493,9 @@
     "marcus-antonius": [
       "content/people/marcus-antonius.json"
     ],
+    "mario-draghi": [
+      "content/people/mario-draghi.json"
+    ],
     "martin-heidegger": [
       "content/people/martin-heidegger.json"
     ],
@@ -1486,6 +1516,9 @@
     ],
     "platon-bio": [
       "content/people/platon-bio.json"
+    ],
+    "richard-nixon": [
+      "content/people/richard-nixon.json"
     ],
     "ronald-reagan": [
       "content/people/ronald-reagan.json"
@@ -1607,6 +1640,9 @@
     "inflasjon-og-rente": [
       "content/samfunnskunnskap/okonomi/inflasjon-og-rente.json"
     ],
+    "naturlig-rente": [
+      "content/samfunnskunnskap/okonomi/naturlig-rente.json"
+    ],
     "pengesystem-vs-naturalhandel": [
       "content/samfunnskunnskap/okonomi/pengesystem-vs-naturalhandel.json"
     ],
@@ -1717,6 +1753,7 @@
     "concepts/fullmaktsloven.json/fullmaktsloven": "content/concepts/fullmaktsloven.json",
     "concepts/glasnost.json/glasnost": "content/concepts/glasnost.json",
     "concepts/gulag.json/gulag": "content/concepts/gulag.json",
+    "concepts/gullstandard.json/gullstandard": "content/concepts/gullstandard.json",
     "concepts/gurdwara.json/gurdwara": "content/concepts/gurdwara.json",
     "concepts/guru-gobind-singh.json/guru-gobind-singh": "content/concepts/guru-gobind-singh.json",
     "concepts/guru-granth-sahib.json/guru-granth-sahib": "content/concepts/guru-granth-sahib.json",
@@ -1740,8 +1777,10 @@
     "concepts/justinianske-pest.json/justinianske-pest": "content/concepts/justinianske-pest.json",
     "concepts/kalmarunionen.json/kalmarunionen": "content/concepts/kalmarunionen.json",
     "concepts/kapitalisme.json/kapitalisme": "content/concepts/kapitalisme.json",
+    "concepts/kapitalstruktur.json/kapitalstruktur": "content/concepts/kapitalstruktur.json",
     "concepts/karakterarketyper.json/karakterarketyper": "content/concepts/karakterarketyper.json",
     "concepts/karakterutvikling.json/karakterutvikling": "content/concepts/karakterutvikling.json",
+    "concepts/keynesiansk-okonomi.json/keynesiansk-okonomi": "content/concepts/keynesiansk-okonomi.json",
     "concepts/khalsa.json/khalsa": "content/concepts/khalsa.json",
     "concepts/kirtan.json/kirtan": "content/concepts/kirtan.json",
     "concepts/koloni.json/koloni": "content/concepts/koloni.json",
@@ -1773,7 +1812,9 @@
     "concepts/nazisme.json/nazisme": "content/concepts/nazisme.json",
     "concepts/new-deal.json/new-deal": "content/concepts/new-deal.json",
     "concepts/nrnbergprosessene.json/nrnbergprosessene": "content/concepts/nrnbergprosessene.json",
+    "concepts/nullrentepolitikk.json/nullrentepolitikk": "content/concepts/nullrentepolitikk.json",
     "concepts/oligarki.json/oligarki": "content/concepts/oligarki.json",
+    "concepts/omveisproduksjon.json/omveisproduksjon": "content/concepts/omveisproduksjon.json",
     "concepts/operasjon-barbarossa.json/operasjon-barbarossa": "content/concepts/operasjon-barbarossa.json",
     "concepts/opium.json/opium": "content/concepts/opium.json",
     "concepts/oppdemming.json/oppdemming": "content/concepts/oppdemming.json",
@@ -1830,6 +1871,7 @@
     "concepts/tema.json/tema": "content/concepts/tema.json",
     "concepts/temasetning.json/temasetning": "content/concepts/temasetning.json",
     "concepts/teokrati.json/teokrati": "content/concepts/teokrati.json",
+    "concepts/tidspreferanse.json/tidspreferanse": "content/concepts/tidspreferanse.json",
     "concepts/total-krig.json/total-krig": "content/concepts/total-krig.json",
     "concepts/totalitaert-diktatur.json/totalitaert-diktatur": "content/concepts/totalitaert-diktatur.json",
     "concepts/traktat.json/traktat": "content/concepts/traktat.json",
@@ -2164,7 +2206,9 @@
     "people/armstrong.json/armstrong": "content/people/armstrong.json",
     "people/augustin-bio.json/augustin-bio": "content/people/augustin-bio.json",
     "people/bartolomeus-voet.json/bartolomeus-voet": "content/people/bartolomeus-voet.json",
+    "people/ben-bernanke.json/ben-bernanke": "content/people/ben-bernanke.json",
     "people/birger-jarl.json/birger-jarl": "content/people/birger-jarl.json",
+    "people/bohm-bawerk.json/bohm-bawerk": "content/people/bohm-bawerk.json",
     "people/clovis-i.json/clovis-i": "content/people/clovis-i.json",
     "people/david-hume.json/david-hume": "content/people/david-hume.json",
     "people/diokletian-bio.json/diokletian-bio": "content/people/diokletian-bio.json",
@@ -2177,6 +2221,7 @@
     "people/ester-boserup.json/ester-boserup": "content/people/ester-boserup.json",
     "people/franco.json/franco": "content/people/franco.json",
     "people/franz-ferdinand.json/franz-ferdinand": "content/people/franz-ferdinand.json",
+    "people/friedrich-hayek.json/friedrich-hayek": "content/people/friedrich-hayek.json",
     "people/friedrich-nietzsche.json/friedrich-nietzsche": "content/people/friedrich-nietzsche.json",
     "people/gaius-octavius.json/gaius-octavius": "content/people/gaius-octavius.json",
     "people/gamal-abdel-nasser.json/gamal-abdel-nasser": "content/people/gamal-abdel-nasser.json",
@@ -2201,6 +2246,7 @@
     "people/kublai-khan.json/kublai-khan": "content/people/kublai-khan.json",
     "people/magnus-lagabote.json/magnus-lagabote": "content/people/magnus-lagabote.json",
     "people/marcus-antonius.json/marcus-antonius": "content/people/marcus-antonius.json",
+    "people/mario-draghi.json/mario-draghi": "content/people/mario-draghi.json",
     "people/martin-heidegger.json/martin-heidegger": "content/people/martin-heidegger.json",
     "people/mikhail-gorbatsjov.json/mikhail-gorbatsjov": "content/people/mikhail-gorbatsjov.json",
     "people/mussolini.json/mussolini": "content/people/mussolini.json",
@@ -2208,6 +2254,7 @@
     "people/nikita-khrusjtsjov.json/nikita-khrusjtsjov": "content/people/nikita-khrusjtsjov.json",
     "people/oscar-ii.json/oscar-ii": "content/people/oscar-ii.json",
     "people/platon-bio.json/platon-bio": "content/people/platon-bio.json",
+    "people/richard-nixon.json/richard-nixon": "content/people/richard-nixon.json",
     "people/ronald-reagan.json/ronald-reagan": "content/people/ronald-reagan.json",
     "people/roosevelt.json/roosevelt": "content/people/roosevelt.json",
     "people/selassie.json/selassie": "content/people/selassie.json",
@@ -2252,6 +2299,7 @@
     "samfunnskunnskap/okonomi/arbeidsspesialisering": "content/samfunnskunnskap/okonomi/arbeidsspesialisering.json",
     "samfunnskunnskap/okonomi/finanskriser": "content/samfunnskunnskap/okonomi/finanskriser.json",
     "samfunnskunnskap/okonomi/inflasjon-og-rente": "content/samfunnskunnskap/okonomi/inflasjon-og-rente.json",
+    "samfunnskunnskap/okonomi/naturlig-rente": "content/samfunnskunnskap/okonomi/naturlig-rente.json",
     "samfunnskunnskap/okonomi/pengesystem-vs-naturalhandel": "content/samfunnskunnskap/okonomi/pengesystem-vs-naturalhandel.json",
     "samfunnskunnskap/okonomi/produksjon": "content/samfunnskunnskap/okonomi/produksjon.json",
     "samfunnskunnskap/styringsformer/antikken-visjoner": "content/samfunnskunnskap/styringsformer/antikken-visjoner.json",

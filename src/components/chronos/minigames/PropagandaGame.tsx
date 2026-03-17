@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FileText, ChevronRight, TrendingUp, TrendingDown, Eye } from 'lucide-react';
+import { MiniGameHeader } from './MiniGameHeader';
 import type { ChronosEffect } from '../../../data/chronos/types';
 
 interface PropagandaOption {
@@ -183,21 +184,18 @@ export const PropagandaGame: React.FC<PropagandaGameProps> = ({ config, onComple
     /* ── Main choosing / feedback screen ───────────────────────────── */
     return (
         <div className="bg-stone-100 rounded-3xl border border-stone-200 overflow-hidden">
-            {/* Newspaper masthead */}
-            <div className={`${headerBg} px-4 py-2.5 flex items-center justify-between`}>
-                <div className="flex items-center gap-2">
-                    <FileText size={12} className={`${accentText} flex-shrink-0`} />
-                    <span className={`text-xs font-display font-bold ${accentText} tracking-wide`}>
-                        {outlet}
+            <MiniGameHeader
+                icon={FileText}
+                title={outlet}
+                badge={
+                    <span className="flex items-center gap-2">
+                        <span className="text-[10px] text-stone-500">{date}</span>
+                        <span className="text-[10px] font-mono text-stone-400 tabular-nums">
+                            {itemIndex + 1}/{totalItems}
+                        </span>
                     </span>
-                </div>
-                <div className="flex items-center gap-2">
-                    <span className="text-[11px] text-stone-500">{date}</span>
-                    <span className="text-[10px] font-mono text-stone-500 bg-stone-800 px-1.5 py-0.5 rounded-full">
-                        {itemIndex + 1}/{totalItems}
-                    </span>
-                </div>
-            </div>
+                }
+            />
 
             {/* Troverdighet progress strip */}
             <div className="h-1.5 bg-stone-300">

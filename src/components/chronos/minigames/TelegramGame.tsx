@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, AlertTriangle, Clock, CheckCircle } from 'lucide-react';
+import { MiniGameHeader } from './MiniGameHeader';
 
 interface Telegram {
     id: string;
@@ -67,18 +68,15 @@ export const TelegramGame: React.FC<TelegramGameProps> = ({ config, onComplete }
 
     return (
         <div className="bg-stone-100 rounded-3xl border border-stone-200 overflow-hidden">
-            {/* Header strip med progress-teller */}
-            <div className="flex items-center justify-between px-3 py-2 bg-stone-800 border-b border-stone-700/50">
-                <div className="flex items-center gap-2">
-                    <Mail size={13} className="opacity-70 text-stone-300 flex-shrink-0" />
-                    <span className="text-xs font-display font-semibold text-stone-100 tracking-wide">
-                        Telegram-triage
+            <MiniGameHeader
+                icon={Mail}
+                title="Telegram-triage"
+                badge={
+                    <span className="text-[10px] font-mono text-stone-400 tabular-nums">
+                        {currentIndex + 1}/{config.telegrams.length}
                     </span>
-                </div>
-                <span className="text-[10px] font-mono text-stone-400 tabular-nums">
-                    {currentIndex + 1}/{config.telegrams.length}
-                </span>
-            </div>
+                }
+            />
 
             {/* Progress bar */}
             <div className="h-0.5 bg-stone-700">

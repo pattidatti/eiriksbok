@@ -101,6 +101,8 @@ const UrbanSprawlSim = lazy(() => import('./content/interactive/demography/Urban
 // Economics
 const TradeLoopComponent = lazy(() => import('./content/interactive/okonomi/TradeLoopComponent').then(m => ({ default: m.TradeLoopComponent })));
 const SpecializationSlider = lazy(() => import('./content/interactive/okonomi/SpecializationSlider').then(m => ({ default: m.SpecializationSlider })));
+const LoanableFundsMarket = lazy(() => import('./content/interactive/okonomi/LoanableFundsMarket').then(m => ({ default: m.LoanableFundsMarket })));
+const HayekTriangle = lazy(() => import('./content/interactive/okonomi/HayekTriangle').then(m => ({ default: m.HayekTriangle })));
 
 // Viking/Historie
 const ConflictMap = lazy(() => import('./viking/ConflictMap').then(m => ({ default: m.ConflictMap })));
@@ -219,6 +221,8 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     // Economics
     TradeLoopComponent,
     SpecializationSlider,
+    LoanableFundsMarket,
+    HayekTriangle,
 
     // Viking/History
     ConflictMap,

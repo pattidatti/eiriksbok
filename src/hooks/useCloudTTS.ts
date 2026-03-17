@@ -78,13 +78,13 @@ export const useCloudTTS = (): TTSReturn & { isAvailable: boolean } => {
     const [isPaused, setIsPaused] = useState(false);
     const [activeBlockIndex, setActiveBlockIndex] = useState(-1);
     const [rate, setRateState] = useState(loadRate);
+    const [isAvailable, setIsAvailable] = useState(!!API_KEY);
 
     const blocksRef = useRef<string[]>([]);
     const audioRef = useRef<HTMLAudioElement | null>(null);
     const cacheRef = useRef<AudioCache>({});
     const isPausedRef = useRef(false);
-
-    const isAvailable = !!API_KEY;
+    const playBlockAudioRef = useRef<(index: number) => void>(() => {});
 
     const setRate = useCallback((newRate: number) => {
         const clamped = Math.max(0.5, Math.min(2.0, newRate));
@@ -102,8 +102,7 @@ export const useCloudTTS = (): TTSReturn & { isAvailable: boolean } => {
     const stopAudio = useCallback(() => {
         if (audioRef.current) {
             audioRef.current.pause();
-            audioRef.current.removeAttribute('src');
-            audioRef.current.load();
+            audioRef.current = null;
         }
     }, []);
 
@@ -136,36 +135,33 @@ export const useCloudTTS = (): TTSReturn & { isAvailable: boolean } => {
 
                 if (isPausedRef.current) return; // User paused while we were fetching
 
-                if (!audioRef.current) {
-                    audioRef.current = new Audio();
-                }
+                const audio = new Audio(audioUrl);
+                audioRef.current = audio;
 
-                const audio = audioRef.current;
-                audio.src = audioUrl;
-
-                audio.onended = () => {
+                audio.addEventListener('ended', () => {
                     if (isPausedRef.current) return;
                     if (index < blocksRef.current.length - 1) {
-                        playBlockAudio(index + 1);
+                        playBlockAudioRef.current(index + 1);
                     } else {
                         setIsPlaying(false);
                         setIsPaused(false);
                         isPausedRef.current = false;
                         setActiveBlockIndex(-1);
                     }
-                };
+                }, { once: true });
 
-                audio.onerror = () => {
+                audio.addEventListener('error', () => {
                     console.error('Cloud TTS audio playback error');
                     setIsPlaying(false);
                     setIsPaused(false);
                     isPausedRef.current = false;
                     setActiveBlockIndex(-1);
-                };
+                }, { once: true });
 
                 await audio.play();
             } catch (err) {
-                console.error('Cloud TTS synthesis failed:', err);
+                console.warn('[Cloud TTS] Feil - faller tilbake til browser TTS:', err);
+                setIsAvailable(false);
                 setIsPlaying(false);
                 setIsPaused(false);
                 isPausedRef.current = false;
@@ -175,13 +171,18 @@ export const useCloudTTS = (): TTSReturn & { isAvailable: boolean } => {
         [stopAudio]
     );
 
+    // Keep ref in sync for use in event listeners (avoids stale closure)
+    useEffect(() => {
+        playBlockAudioRef.current = playBlockAudio;
+    }, [playBlockAudio]);
+
     const speak = useCallback(
-        (textBlocks: string[]) => {
+        (textBlocks: string[], startIndex = 0) => {
             blocksRef.current = textBlocks;
             setIsPlaying(true);
             setIsPaused(false);
             isPausedRef.current = false;
-            playBlockAudio(0);
+            playBlockAudio(startIndex);
         },
         [playBlockAudio]
     );
@@ -196,20 +197,26 @@ export const useCloudTTS = (): TTSReturn & { isAvailable: boolean } => {
     );
 
     const pause = useCallback(() => {
-        if (isPlaying && !isPaused && audioRef.current) {
+        if (isPlaying && !isPaused) {
             isPausedRef.current = true;
             setIsPaused(true);
-            audioRef.current.pause();
+            if (audioRef.current) {
+                audioRef.current.pause();
+            }
         }
     }, [isPlaying, isPaused]);
 
     const resume = useCallback(() => {
-        if (isPlaying && isPaused && audioRef.current) {
+        if (isPlaying && isPaused) {
             isPausedRef.current = false;
             setIsPaused(false);
-            audioRef.current.play();
+            if (audioRef.current) {
+                audioRef.current.play();
+            } else if (activeBlockIndex !== -1) {
+                playBlockAudioRef.current(activeBlockIndex);
+            }
         }
-    }, [isPlaying, isPaused]);
+    }, [isPlaying, isPaused, activeBlockIndex]);
 
     const cancel = useCallback(() => {
         isPausedRef.current = false;

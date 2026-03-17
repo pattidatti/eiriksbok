@@ -955,6 +955,40 @@
       ]
     },
     {
+      "id": "federal-reserve-1913",
+      "title": "Federal Reserve grunnlegges",
+      "description": "USA oppretter sin sentralbank. For første gang kan et sentralt organ sette prisen på penger i verdens største økonomi.",
+      "startDate": 1913,
+      "endDate": null,
+      "displayDate": "1913",
+      "type": "event",
+      "subjectId": "samfunnskunnskap",
+      "topicId": "okonomi",
+      "link": "/samfunnskunnskap/okonomi/naturlig-rente",
+      "tags": [
+        "økonomi",
+        "sentralbank",
+        "rente"
+      ]
+    },
+    {
+      "id": "nixon-sjokket-1971",
+      "title": "Nixon-sjokket: Gullstandarden avvikles",
+      "description": "President Nixon avslutter dollarens gullkonvertibilitet. Verdens pengesystem blir rent fiat-basert.",
+      "startDate": 1971,
+      "endDate": null,
+      "displayDate": "15. august 1971",
+      "type": "event",
+      "subjectId": "samfunnskunnskap",
+      "topicId": "okonomi",
+      "link": "/samfunnskunnskap/okonomi/naturlig-rente",
+      "tags": [
+        "økonomi",
+        "rente",
+        "penger"
+      ]
+    },
+    {
       "id": "klimakrisen-536",
       "title": "536 - æ…ret da solen forsvant",
       "description": "Klimakrisen som kan være virkelighetens Fimbulvinter.",

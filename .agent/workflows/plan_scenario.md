@@ -37,6 +37,8 @@ Bruk det oppgitte konseptet til å brainstorme:
     *   Retorikk → `speech`
     *   Strid → `battle`
 *   **Narrative flags:** Hva er de 2-4 viktigste hendelsene eleven kan ta med seg gjennom historien? (Eks. `hjalp_fienden`, `nektet_ordre`, `ofret_seg`). Flags er ikke tall - de er hendelser som påvirker epilog og låser/åpner valg.
+*   **Automatisk game-over:** Er det en stat som representerer katastrofe (atomkrig, pest, revolusjon)? Definer `gameOverConditions` for den. Gi game-over-noden en `epilogue` med `historicalEcho` som forklarer hva som gikk galt.
+*   **Persongalleri (perspectives):** Har scenariet 6 eller flere navngitte historiske figurer fra ulike nasjoner? Planlegg `perspectives`-ordboken: faction, emoji-flagg og tittel for hver. Se `kald-krig.json` for et eksempel med 30+ speakers.
 
 ---
 
@@ -63,13 +65,16 @@ Fyll ut med spesifikt og konkret innhold - ikke generiske plassholdere. Blueprin
 | `hub_[navn]` | Hub/Kart | Hjemmebasen | 3-4 lokasjoner | Oversikt/navigasjon | - |
 | `[hendelse_1]` | Narrativ | ... | Valg A (`setFlags`), Valg B | ... | `ethicsLens`, `setFlags` |
 | `[minigame_1]` | Battle/Dice/Signal/Telegram/Triage/Crowd/... | ... | Win -> ..., Loss -> ... eller onComplete -> ... | ... | - |
+| `ending_select` | Valg (ikke end-node) | Ruter til riktig slutt basert på stats/flagg | condition.all / statId | - | - |
 | `victory` | Ending | Seierscene | - | Refleksjon | `epilogue` med flag-entries |
 | `defeat` | Ending | Tap-scene | - | Refleksjon | `epilogue` med flag-entries |
+
+> Scenariet kan ha 2-3 seier-slutt-noder som representerer ulike historiske holdninger, pluss én tap-slutt. Bruk `ending_select` som en ren routing-node uten `isEnd`. Se `kald-krig.json` for eksempel med tre victory endings.
 
 ### Gjenstander & Crafting (valgfritt)
 *   List opp 2-4 items som er narrativt meningsfulle
 *   Én crafting-oppskrift hvis relevant
-*   **Brev-items:** Dersom et item er et brev (brev fra hjem, ordre, historisk dokument), merk det i blueprinten med avsender, mottaker, dato og 4-6 avsnitt med brevtekst. Disse rendres som stiliserte håndskrevne brev i ryggsekken via `content.itemType: "letter"` (se `build_scenario.md` for JSON-struktur).
+*   **Brev-items:** Dersom et item er et brev (brev fra hjem, ordre, historisk dokument), merk det i blueprinten med avsender, mottaker, dato og 4-6 avsnitt med brevtekst. Ikon skal være `"scroll"`, `"book"`, eller `"mail"` (alle fungerer for brev). Disse rendres som stiliserte håndskrevne brev i ryggsekken via `content.itemType: "letter"` (se `build_scenario.md` for JSON-struktur).
 
 ### Asset-prompts
 *   Hero Image-prompt (16:9, cinematisk, WebP)
@@ -82,7 +87,9 @@ Fyll ut med spesifikt og konkret innhold - ikke generiske plassholdere. Blueprin
 Etter at utkast er skrevet, still brukeren disse spørsmålene dersom blueprinten mangler svar:
 
 1.  "Hvilken faglig kompetanse skal eleven sitte igjen med? (Læreplanen)"
-2.  "Hvilke typer minispill passer historien? (Telegram, Rasjonering, Tale, Folkemengde-press, Triasje, Intriger, Sensur, Gassmaske, Signal, Kamp, Terning, Domsavsigelse)"
+2.  "Hvilke typer minispill passer historien? (Telegram, Rasjonering, Tale, Folkemengde-press, Triasje, Intriger, Sensur, Gassmaske, Signal, Kamp, Terning, Domsavsigelse, Propaganda, Domino-proxy-strategi)"
+    - **Propaganda** - Eleven er redaktør/propagandist og velger hvilken versjon av sannheten som publiseres. Passer for scenarier i autoritære regimer eller medieetikk-kontekst.
+    - **Domino** - Eleven fordeler begrensede ressurser mellom geografiske regioner med ulik risiko og potensiell gevinst. Passer for proxy-konflikter og geopolitisk strategi.
 3.  "Er det en spesifikk historisk hendelse eller person som bør være sentralt?"
 4.  "Ønsket visuell stil - realistisk foto, illustrasjon, maleri?"
 

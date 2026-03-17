@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { AlertTriangle, Users } from 'lucide-react';
+import { MiniGameHeader } from './MiniGameHeader';
 
 interface Response {
     id: string;
@@ -114,24 +115,24 @@ export const CrowdPressureGame: React.FC<CrowdPressureGameProps> = ({ config, on
 
     return (
         <div className="bg-stone-100 rounded-3xl border border-stone-200 overflow-hidden">
-            <div className="bg-stone-800 text-stone-100 p-5 text-center">
-                <Users className="mx-auto mb-2 opacity-80" size={28} />
-                <h2 className="text-xl font-display font-medium tracking-wide">Folkemengde-trykk</h2>
-                <div className="flex justify-center gap-6 mt-2 text-xs">
-                    <span className="text-stone-400">
-                        Tid igjen:{' '}
-                        <span className={`font-bold ${timeLeft <= 5 ? 'text-red-400' : 'text-white'}`}>
-                            {timeLeft}s
+            <MiniGameHeader
+                icon={Users}
+                title="Folkemengde-trykk"
+                badge={
+                    <span className="flex items-center gap-3 text-[10px] font-mono text-stone-400 tabular-nums">
+                        <span>
+                            <span className={`font-bold ${pressure > 70 ? 'text-red-400' : 'text-stone-200'}`}>
+                                {Math.round(pressure)}%
+                            </span>
+                        </span>
+                        <span>
+                            <span className={`font-bold ${timeLeft <= 5 ? 'text-red-400' : 'text-stone-200'}`}>
+                                {timeLeft}s
+                            </span>
                         </span>
                     </span>
-                    <span className="text-stone-400">
-                        Trykk:{' '}
-                        <span className={`font-bold ${pressure > 70 ? 'text-red-400' : 'text-white'}`}>
-                            {Math.round(pressure)}%
-                        </span>
-                    </span>
-                </div>
-            </div>
+                }
+            />
 
             {/* Pressure gauge */}
             <div className="p-5 pb-3">

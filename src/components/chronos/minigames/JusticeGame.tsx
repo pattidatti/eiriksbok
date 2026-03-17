@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Scale, Gavel, ThumbsUp } from 'lucide-react';
+import { MiniGameHeader } from './MiniGameHeader';
 
 interface JusticeGameProps {
     config: {
@@ -53,13 +54,15 @@ export const JusticeGame: React.FC<JusticeGameProps> = ({ config, onComplete }) 
 
     return (
         <div className="w-full max-w-md mx-auto bg-stone-100 rounded-3xl overflow-hidden shadow-2xl border border-stone-200">
-            {/* Header */}
-            <div className="bg-stone-800 text-stone-100 p-6 text-center relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-yellow-600 to-transparent opacity-50" />
-                <Scale className="mx-auto mb-2 opacity-80" size={32} />
-                <h2 className="text-2xl font-display font-medium tracking-wide">Kongelig Domstol</h2>
-                <div className="text-xs uppercase tracking-widest text-stone-400 mt-1">Sak {currentCaseIndex + 1} av {config.cases.length}</div>
-            </div>
+            <MiniGameHeader
+                icon={Scale}
+                title="Kongelig Domstol"
+                badge={
+                    <span className="text-[10px] font-mono text-stone-400 tabular-nums">
+                        {currentCaseIndex + 1}/{config.cases.length}
+                    </span>
+                }
+            />
 
             {/* Content */}
             <div className="p-8 relative min-h-[400px] flex flex-col justify-between">

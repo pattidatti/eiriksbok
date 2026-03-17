@@ -98,6 +98,10 @@
         {
             "type": "text",
             "content": "Spesielt sårbare er varer med **høy frekvens**, som mat og strøm. Prisene her kan endre seg raskt og skape store forstyrrelser i folks privatøkonomi, da dette er ting man *må* kjøpe uansett pris."
+        },
+        {
+            "type": "text",
+            "content": "Vil du gå dypere? Artikkelen Den naturlige renten (/samfunnskunnskap/okonomi/naturlig-rente) tar for seg Böhm-Bawerks og Hayeks teori om hva renten egentlig er, og hva som skjer når sentralbanken overstyrer den."
         }
     ],
     "concepts": [

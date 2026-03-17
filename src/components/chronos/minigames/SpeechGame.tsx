@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Mic } from 'lucide-react';
+import { MiniGameHeader } from './MiniGameHeader';
 import type { ChronosEffect } from '../../../data/chronos/types';
 
 interface SpeechGameProps {
@@ -96,11 +97,7 @@ export const SpeechGame: React.FC<SpeechGameProps> = ({ config, onComplete }) =>
 
     return (
         <div className="bg-stone-100 rounded-3xl border border-stone-200 overflow-hidden">
-            <div className="bg-stone-800 text-stone-100 p-5 text-center">
-                <Mic className="mx-auto mb-2 opacity-80" size={28} />
-                <h2 className="text-xl font-display font-medium tracking-wide">Talekonstruktøren</h2>
-                <p className="text-xs text-stone-400 mt-1">Velg én fra hver kolonne — ordene dine teller</p>
-            </div>
+            <MiniGameHeader icon={Mic} title="Talekonstruktøren" />
 
             <div className="p-4">
                 {/* Speech preview */}

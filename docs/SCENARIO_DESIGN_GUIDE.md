@@ -6,16 +6,17 @@ Denne guiden beskriver hvordan du designer og implementerer interaktive "Tidsrei
 
 Hvert scenario er en **graf av noder**. Eleven starter i en `startingNodeId` og navigerer gjennom noder via `choices`.
 
-### De 7 Søylene i et Scenario:
+### De 8 Søylene i et Scenario:
 1.  **Narrativ (Noder):** Teksten, taleren og bakgrunnsbildet som setter scenen.
-2.  **Mekanikk (Stats):** Tallverdier som Disiplin, Moral eller Gull som endres basert på valg.
+2.  **Mekanikk (Stats):** Tallverdier som Disiplin, Moral eller Gull som endres basert på valg. For stats som representerer katastrofe (f.eks. atomspenning, pest-spredning), bruk `gameOverConditions` for automatisk game-over dersom terskelen nås.
 3.  **Økonomi (Inventory):** Gjenstander som kan finnes, brukes eller kombineres (Crafting).
-4.  **Utfordringer (Minigames):** Spesialiserte noder for 13 ulike utfordringer (kamp, prioritering, sensur, taler, m.m.).
-5.  **Hukommelse (Flags):** Narrativ hukommelse via `setFlags`/`hasFlag`/`lacksFlag`. Flags er hendelser, ikke tall - de husker hva spilleren *valgte*, ikke bare tallresultatet. NPC-er kan kommentere dem, og epilogen personaliseres basert på dem.
+4.  **Utfordringer (Minigames):** Spesialiserte noder for 15 ulike utfordringer (kamp, prioritering, sensur, taler, propaganda, proxy-strategi, m.m.).
+5.  **Hukommelse (Flags):** Narrativ hukommelse via `setFlags`/`hasFlag`/`lacksFlag`. Flags er hendelser, ikke tall - de husker hva spilleren *valgte*, ikke bare tallresultatet. NPC-er kan kommentere dem, og epilogen personaliseres basert på dem. `visitedFlag` på kartpunkter i hub-noder fungerer som automatiske fullforingsflagg - de settes når spilleren returnerer fra et stoppested og brukes til å gate fremgang med `condition.all`. `isHistoricalChoice`/`historicalConsequence` på valg fungerer som faktaflagg - de vises i EndComparisonScreen og forteller eleven hva som faktisk skjedde historisk.
 6.  **Forankring (Discovery Events):** Historiske fakta-ankre via `discoveryEvent`. Når spilleren oppdager en historisk realitet for første gang, vises et læreskjold med faktaboks, artikkelkobling og refleksjonsspørsmål. Kobler fiksjon til fakta.
-7.  **Refleksjon (Epilogue + Ethics):** Personalisert epilog (`epilogue`) med flag-drevne tekster, `historicalEcho` og klasseromsspørsmål. `ethicsLens` på moralske valg gir tre filosofiske perspektiver (Kant, utilitarisme, dygdsetikk) via etikk-modus i HUD.
+7.  **Refleksjon (Epilogue + Ethics):** Personalisert epilog (`epilogue`) med flag-drevne tekster, `historicalEcho` og klasseromsspørsmål. `ethicsLens` på moralske valg gir tre filosofiske perspektiver (Kant, utilitarisme, dygdsetikk) via etikk-modus i HUD. Alle tre felt er uavhengig valgfrie - bruk kun de rammeverka som genuint gjelder det moralske spørsmålet.
+8.  **Perspektiv (Perspectives):** I scenarier med mange historiske aktører fra ulike nasjoner kan `perspectives`-ordboken gi stemmer, fraksjoner og flagg til alle talere. Dette gjør dialogen rikere og gir elevene visuell kontekst om hvem som snakker og fra hvilken side av konflikten. Bruk når scenariet har 6+ navngitte figurer.
 
-Se `public/content/scenarios/nikolaj-ii.json` for et komplett eksempel på alle 10 minigame-typer i bruk.
+Se `public/content/scenarios/nikolaj-ii.json` for et komplett eksempel på de klassiske minigame-typene. Se `public/content/scenarios/kald-krig.json` for bruk av `perspectives`, `gameOverConditions`, `propaganda`, `domino`, `visitedFlag`-basert hub-navigasjon, og multiple victory endings.
 
 ---
 
@@ -144,6 +145,22 @@ Routing: `onComplete.nextNodeId`. Hvert `case` har `mercy`- og `harsh`-utfall me
 
 ---
 
+### Medier og geopolitikk
+
+#### `propaganda` - Redaktøren som propagandist
+Faglig egnet for: presseetikk under autoritære regimer, Sovjet-propaganda, informasjonskontroll, glasnost.
+Routing: `onComplete.nextNodeId`. Intern `credibilityChange`-score gir ikke direkte stats-effekt, men valgene kan sette flagg (`setsFlag`) som brukes i epilogen og ha egne `effects` på stats.
+Begrensning: visuell stil er knyttet til outlet-type - tilpass `outlet`-navn og `outletType` til konteksten.
+Sammenlignet med `censor`: I `censor` redigerer eleven andres brev for å skjule sannhet. I `propaganda` er eleven sjefsredaktøren som velger hvordan staten presenterer sin egen virkelighet (aktiv propagandist-rolle).
+
+#### `domino` - Proxy-strategi
+Faglig egnet for: den kalde krigen, neokolonialisme, proxy-konflikter, utilsiktede konsekvenser.
+Routing: `winNodeId`/`lossNodeId`. Score basert på totale `successBonus` fra handlinger som ikke slo tilbake.
+Begrensning: `backfireChance` er probabilistisk - samme valg kan gi ulikt utfall. Ikke bruk `domino` der pedagogikken krever et deterministisk svar.
+Pedagogisk poeng: elevene opplever at ressursallokering under usikkerhet alltid innebærer avveininger og risiko for utilsiktede konsekvenser.
+
+---
+
 ## 4. Design-prosess: Fasevis Utvikling
 
 Siden disse scenariene er komplekse, bør de utvikles i faser:
@@ -183,3 +200,8 @@ Generer kinematiske 16:9-bilder i WebP-format.
 - **`crowd` og `gasmask` gir ekte stress** - bruk sparsomt (maks én per scenario). Disse er høyintensitet og bør etterfølges av en rolig narrativnode.
 - **Noder med minigame trenger kortere `text`** (30-60 ord) - minigamen er innholdet, teksten er kun kontekstsetting.
 - **Følg opp `allocation` og `rationing`** med en narrativnode som viser konsekvensene av valget - disse minigamene produserer ikke egne utfall-tekster.
+
+### Perspektiver og game-over
+
+- **Perspektiver og historisk stemme:** Dersom scenariet har mange talere fra ulike nasjoner, bruk `perspectives` for konsistent visuell identitet. Gi alltid `"Forteller"` en entry i `perspectives` med `"faction": "forteller"` og `"flag": "📖"`.
+- **Automatisk game-over vs. manuell routing:** For stats som representerer uopprettelige katastrofer (atomkrig, massedød, systemkollaps), bruk `gameOverConditions` for umiddelbar feedback når terskelen nås. For stats som representerer gradvise tap, bruk manuell tap-routing via valg-betingelser. Ikke bruk begge metodene på samme stat.

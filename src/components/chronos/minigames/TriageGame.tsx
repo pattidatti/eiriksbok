@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { AlertTriangle, Clock, XCircle, HeartPulse } from 'lucide-react';
+import { MiniGameHeader } from './MiniGameHeader';
 import type { ChronosEffect } from '../../../data/chronos/types';
 
 interface Patient {
@@ -100,10 +101,7 @@ export const TriageGame: React.FC<TriageGameProps> = ({ config, onComplete }) =>
 
     return (
         <div className="bg-stone-100 rounded-3xl border border-stone-200 overflow-hidden">
-            <div className="flex items-center gap-2 px-3 py-2 bg-stone-800 border-b border-stone-700/50">
-                <HeartPulse size={13} className="opacity-70 text-stone-300 flex-shrink-0" />
-                <span className="text-xs font-display font-semibold text-stone-100 tracking-wide">Triasje</span>
-            </div>
+            <MiniGameHeader icon={HeartPulse} title="Triasje" />
 
             <div className="p-3 bg-stone-200/60 border-b border-stone-200 flex items-center justify-center gap-4 text-[10px] font-bold uppercase tracking-widest text-stone-500">
                 {(['treat_now', 'can_wait', 'expectant'] as Bucket[]).map((b) => (

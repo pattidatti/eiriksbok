@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Users, CheckCircle } from 'lucide-react';
+import { MiniGameHeader } from './MiniGameHeader';
 import type { ChronosEffect } from '../../../data/chronos/types';
 
 interface Soldier {
@@ -69,15 +70,15 @@ export const RationingGame: React.FC<RationingGameProps> = ({ config, onComplete
 
     return (
         <div className="bg-stone-100 rounded-3xl border border-stone-200 overflow-hidden">
-            <div className="bg-stone-800 text-stone-100 p-5 text-center">
-                <Users className="mx-auto mb-2 opacity-80" size={28} />
-                <h2 className="text-xl font-display font-medium tracking-wide">Rasjonering</h2>
-                <p className="text-xs text-stone-400 mt-1">
-                    Du har{' '}
-                    <span className="font-bold text-amber-400">{config.rations} rasjoner</span>. Klikk på
-                    soldatene du vil gi til.
-                </p>
-            </div>
+            <MiniGameHeader
+                icon={Users}
+                title="Rasjonering"
+                badge={
+                    <span className="text-[10px] text-stone-400">
+                        <span className="font-bold text-amber-400">{remaining}</span>/{config.rations} igjen
+                    </span>
+                }
+            />
 
             <div className="p-3 bg-amber-50/60 border-b border-stone-200 text-center">
                 <span className="text-xs font-black uppercase tracking-widest text-stone-500">

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Scissors, Eye, EyeOff, CheckCircle } from 'lucide-react';
+import { MiniGameHeader } from './MiniGameHeader';
 
 type LetterToken =
     | { type: 'text'; content: string }
@@ -53,10 +54,7 @@ export const CensorGame: React.FC<CensorGameProps> = ({ config, onComplete }) =>
 
     return (
         <div className="bg-stone-100 rounded-3xl border border-stone-200 overflow-hidden">
-            <div className="flex items-center gap-2 px-3 py-2 bg-stone-800 border-b border-stone-700/50">
-                <Scissors size={13} className="opacity-70 text-stone-300 flex-shrink-0" />
-                <span className="text-xs font-display font-semibold text-stone-100 tracking-wide">Militærsensur</span>
-            </div>
+            <MiniGameHeader icon={Scissors} title="Militærsensur" />
 
             {/* Letter */}
             <div className="p-5 bg-amber-50/60 border-b border-stone-200">
