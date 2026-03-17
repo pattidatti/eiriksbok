@@ -127,7 +127,7 @@ export const PracticePage: React.FC = () => {
     ];
 
     return (
-        <div className="min-h-screen pt-16 pb-12">
+        <div className="min-h-screen pt-4 pb-12">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-8">
                     <h1 className="text-4xl md:text-5xl font-display font-bold mb-4 text-slate-900">
