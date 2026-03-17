@@ -2019,6 +2019,20 @@
               "description": "En reise gjennom kriser og konflikter mellom de to verdenskrigene.",
               "link": "/historie/mellomkrigstiden/mellomkrigstiden-sti",
               "icon": "map"
+            },
+            {
+              "id": "mellomkrigstiden-del1",
+              "title": "Tidsreise: Veien mot mørket - Del 1 (1919-1929)",
+              "description": "Spill som vitne til mellomkrigstiden - fra Versailles til børskrakket.",
+              "link": "/oving/tidsreise/mellomkrigstiden-del1",
+              "icon": "clock"
+            },
+            {
+              "id": "mellomkrigstiden-del2",
+              "title": "Tidsreise: Veien mot mørket - Del 2 (1930-1939)",
+              "description": "Fra Hitlers maktovertakelse til 1. september 1939.",
+              "link": "/oving/tidsreise/mellomkrigstiden-del2",
+              "icon": "clock"
             }
           ],
           "lessons": [

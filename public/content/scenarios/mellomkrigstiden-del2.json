@@ -1,0 +1,612 @@
+{
+    "id": "mellomkrigstiden-del2",
+    "title": "Veien mot mørket",
+    "subtitle": "Del 2: Stormen (1930-1939)",
+    "era": "Mellomkrigstiden",
+    "year": "1930-1939",
+    "role": "Historiens Vitne",
+    "summary": "Fra Hitlers maktovertakelse til 1. september 1939 - opplev demokratiets fall og veien mot krig.",
+    "heroImage": "/images/chronos/mellomkrigstiden/del2-hero.webp",
+    "startingNodeId": "intro_del2_1930",
+    "perspectives": {
+        "Forteller": { "faction": "forteller", "flag": "📖", "subtitle": "Forteller" },
+        "Heinrich": { "faction": "sivil", "flag": "🇩🇪", "subtitle": "Arbeidsløs, Berlin" },
+        "Redaktør": { "faction": "sivil", "flag": "🇩🇪", "subtitle": "Redaktør, Berliner Tageblatt" },
+        "Mykola": { "faction": "sivil", "flag": "🇺🇦", "subtitle": "Bonde, Ukraina" },
+        "Haile Selassie": { "faction": "etiopia", "flag": "🦁", "subtitle": "Keiser, Etiopia" },
+        "Britisk diplomat": { "faction": "storbritannia", "flag": "🇬🇧", "subtitle": "Diplomat, Storbritannia" },
+        "Lytton-observatør": { "faction": "sivil", "flag": "🏛️", "subtitle": "Lytton-kommisjonen" },
+        "Fotojournalist": { "faction": "sivil", "flag": "📷", "subtitle": "Fotojournalist" },
+        "Chamberlain": { "faction": "storbritannia", "flag": "🇬🇧", "subtitle": "Statsminister, Storbritannia" }
+    },
+    "config": {
+        "stats": [
+            { "id": "totalitar_makt", "label": "Totalitær Makt", "icon": "zap", "value": 10, "max": 100 },
+            { "id": "sosial_desperasjon", "label": "Sosial Desperasjon", "icon": "users", "value": 30, "max": 100 },
+            { "id": "historisk_innsikt", "label": "Historisk Innsikt", "icon": "book-open", "value": 0, "max": 100 },
+            { "id": "demokratisk_motstand", "label": "Demokratisk Motstand", "icon": "shield", "value": 60, "max": 100 }
+        ],
+        "theme": {
+            "primaryColor": "#1e293b"
+        }
+    },
+    "nodes": {
+        "intro_del2_1930": {
+            "id": "intro_del2_1930",
+            "text": "1930. Krakket sprer seg som pest over verden. I USA mister 13 millioner jobben. I Tyskland stiger arbeidsledigheten fra 1,4 millioner til 6 millioner på tre år.\n\nNSDAP vokser fra 2,6% til 18,3% i riksdagsvalget. Desperasjonen har et ansikt, og demagoger kappes om å gi den en stemme.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/mellomkrigstiden/berlin_suppekjokken_1932.webp",
+            "choices": [
+                {
+                    "id": "c_start_del2",
+                    "text": "Utforsk 1930-tallets verden",
+                    "nextNodeId": "hub_verdenskart_del2"
+                }
+            ]
+        },
+        "hub_verdenskart_del2": {
+            "id": "hub_verdenskart_del2",
+            "text": "Verden 1930-1939. Kartet mørkner. Demokratiene faller, ett etter ett.",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/mellomkrigstiden/world_map_1930s.webp",
+            "uiType": "map",
+            "mapConfig": {
+                "image": "/images/chronos/mellomkrigstiden/world_map_1930s.webp",
+                "points": [
+                    { "id": "point_berlin_32", "x": 53, "y": 34, "label": "Berlin, 1932-33", "icon": "vote", "nextNodeId": "berlin_1932_demokratiet", "visitedFlag": "visited_berlin_1932" },
+                    { "id": "point_ukraina", "x": 58, "y": 33, "label": "Ukraina, 1932-33", "icon": "wheat", "nextNodeId": "ukraina_1932_holodomor", "visitedFlag": "visited_ukraina" },
+                    { "id": "point_geneve", "x": 51, "y": 37, "label": "Geneve, 1935", "icon": "landmark", "nextNodeId": "geneve_1935_abessinia", "visitedFlag": "visited_geneve" },
+                    { "id": "point_mandsjuria", "x": 82, "y": 35, "label": "Mandsjuria, 1931-37", "icon": "swords", "nextNodeId": "mandsjuria_1931_japan", "visitedFlag": "visited_mandsjuria" },
+                    { "id": "point_guernica", "x": 47, "y": 40, "label": "Guernica, 1937", "icon": "flame", "nextNodeId": "madrid_1937_guernica", "visitedFlag": "visited_guernica" },
+                    { "id": "point_munchen", "x": 52, "y": 36, "label": "München, 1938", "icon": "handshake", "nextNodeId": "munchen_1938_appeasement", "visitedFlag": "visited_munchen" }
+                ]
+            },
+            "choices": [
+                {
+                    "id": "c_til_epilog",
+                    "text": "Alle steder besøkt. 1. september 1939 venter.",
+                    "nextNodeId": "epilog_overgang",
+                    "condition": {
+                        "all": [
+                            { "hasFlag": "visited_berlin_1932" },
+                            { "hasFlag": "visited_ukraina" },
+                            { "hasFlag": "visited_geneve" },
+                            { "hasFlag": "visited_mandsjuria" },
+                            { "hasFlag": "visited_guernica" },
+                            { "hasFlag": "visited_munchen" }
+                        ]
+                    }
+                }
+            ]
+        },
+        "berlin_1932_demokratiet": {
+            "id": "berlin_1932_demokratiet",
+            "text": "Berlin, juli 1932. Du er Heinrich, 38 år, familiefar, arbeidsløs i to år. Kona vasker klær for andre. Barna er tynne.\n\nUtenfor suppekjøkkenet roper en NSDAP-taler: 'Vi gir dere arbeid, brød og ære!' På den andre siden roper kommunistene: 'Arbeidere, foren dere!' Og midt imellom sitter Weimar-demokratene og virker maktesløse.",
+            "speaker": "Heinrich",
+            "backgroundImage": "/images/chronos/mellomkrigstiden/berlin_suppekjokken_1932.webp",
+            "choices": [
+                {
+                    "id": "c_weimar",
+                    "text": "Stem på SPD - demokratiet må overleve",
+                    "nextNodeId": "berlin_1933_goebbels",
+                    "effects": { "demokratisk_motstand": 5, "historisk_innsikt": 10 }
+                },
+                {
+                    "id": "c_nsdap",
+                    "text": "Stem på NSDAP - de er i det minste handlekraftige",
+                    "nextNodeId": "berlin_1933_goebbels",
+                    "setFlags": ["hjalp_fascistene"],
+                    "effects": { "totalitar_makt": 15, "demokratisk_motstand": -10 },
+                    "isHistoricalChoice": true,
+                    "historicalConsequence": "30. januar 1933. President Hindenburg utnevner Hitler til rikskansler. 'Vi har hyret ham,' sa politikerne som trodde de kunne kontrollere ham. De tok feil."
+                },
+                {
+                    "id": "c_kpd",
+                    "text": "Stem på KPD - arbeiderne må ta makten",
+                    "nextNodeId": "berlin_1933_goebbels",
+                    "effects": { "sosial_desperasjon": -5, "totalitar_makt": 10 }
+                }
+            ]
+        },
+        "berlin_1933_goebbels": {
+            "id": "berlin_1933_goebbels",
+            "text": "Berlin, mars 1933. Riksdagsbrannen har nettopp gitt Hitler påskudd til Fullmaktsloven. Du er redaktør i Berliner Tageblatt.\n\nTelefonen ringer. Det er Goebbels' kontor: 'Fra nå av godkjenner vi alle forsider. Her er morgendagens overskrifter.'",
+            "speaker": "Redaktør",
+            "backgroundImage": "/images/chronos/mellomkrigstiden/berlin_riksdagsbrannen_1933.webp",
+            "minigame": {
+                "type": "censor",
+                "config": {
+                    "onComplete": { "nextNodeId": "berlin_1933_etterpaa" },
+                    "paragraphs": [
+                        {
+                            "id": "riksdagsbrannen",
+                            "tokens": [
+                                { "type": "text", "content": "Riksdagsbrannen natten til 27. februar har rystet hovedstaden. " },
+                                { "type": "phrase", "id": "p1_kommunistisk", "text": "Regjeringen hevder brannen var del av en kommunistisk sammensvergelse", "shouldCensor": false, "reason": "Regjeringens offisielle versjon - trygt å trykke" },
+                                { "type": "text", "content": ", men " },
+                                { "type": "phrase", "id": "p1_tvil", "text": "flere uavhengige eksperter betviler at en enkelt mann kunne starte en så stor brann alene", "shouldCensor": true, "reason": "Stiller spørsmål ved regjeringens narrativ" },
+                                { "type": "text", "content": ". " },
+                                { "type": "phrase", "id": "p1_nodforordning", "text": "Nødforordningen opphever ytringsfrihet, pressefrihet og forsamlingsfrihet på ubestemt tid", "shouldCensor": true, "reason": "Eksponerer omfanget av rettighetsinnskrenkingene" },
+                                { "type": "text", "content": ". Politiet har arrestert tusenvis av mistenkte kommunister." }
+                            ]
+                        },
+                        {
+                            "id": "fullmaktsloven",
+                            "tokens": [
+                                { "type": "text", "content": "Riksdagen vedtok i dag Fullmaktsloven med 444 mot 94 stemmer. " },
+                                { "type": "phrase", "id": "p2_spd", "text": "Bare SPD stemte mot. KPDs representanter var allerede arrestert eller drevet i eksil", "shouldCensor": true, "reason": "Viser at opposisjonen ble eliminert før avstemningen" },
+                                { "type": "text", "content": ". Loven gir " },
+                                { "type": "phrase", "id": "p2_all_makt", "text": "kansleren full lovgivende makt i fire år uten riksdagens godkjenning", "shouldCensor": true, "reason": "For direkte beskrivelse av demokratiets avvikling" },
+                                { "type": "text", "content": ". Regjeringen kaller dette en " },
+                                { "type": "phrase", "id": "p2_stabilitet", "text": "nødvendig handling for Tysklands stabilitet og sikkerhet", "shouldCensor": false, "reason": "Regjeringens foretrukne innramming - trygt" },
+                                { "type": "text", "content": "." }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "choices": []
+        },
+        "berlin_1933_etterpaa": {
+            "id": "berlin_1933_etterpaa",
+            "text": "Innen slutten av 1933 er Tyskland forvandlet. Fagforeninger forbudt. Opposisjonspartier oppløst. Bokbål i Berlin. Konsentrasjonsleiren Dachau åpner for politiske fanger.\n\nAlt på under ett år. Demokratiet døde ikke med en invasjon - det stemte seg selv bort.",
+            "speaker": "Forteller",
+            "discoveryEvent": {
+                "title": "Pressefrihetens fall",
+                "fact": "Innen 1934 var alle uavhengige aviser i Tyskland enten stengt eller ensrettet under Goebbels' kontroll. Propaganda erstattet journalistikk.",
+                "articleLink": "/historie/mellomkrigstiden/tyskland",
+                "reflectionQuestion": "Hvorfor er pressefrihet så viktig for demokratiet?"
+            },
+            "choices": [
+                {
+                    "id": "c_motsta_pressen",
+                    "text": "Du skrev sannheten mellom linjene, så lenge du kunne",
+                    "nextNodeId": "hub_verdenskart_del2",
+                    "setFlags": ["motstod_propagandaen"],
+                    "effects": { "demokratisk_motstand": 10, "historisk_innsikt": 10 }
+                },
+                {
+                    "id": "c_boyde_pressen",
+                    "text": "Du trykket det Goebbels krevde - du hadde familie å beskytte",
+                    "nextNodeId": "hub_verdenskart_del2",
+                    "setFlags": ["hjalp_fascistene"],
+                    "effects": { "demokratisk_motstand": -10, "totalitar_makt": 10 }
+                }
+            ]
+        },
+        "ukraina_1932_holodomor": {
+            "id": "ukraina_1932_holodomor",
+            "text": "Ukraina, vinteren 1932-33. Du er Mykola, 34 år, bonde. Stalins brigader har tømt kornlagrene. Landsbyen er sperret av - ingen får reise til byen for å kjøpe mat.\n\nNaboene dine sulter. Du har gjemt en liten sekk korn under gulvet.",
+            "speaker": "Mykola",
+            "backgroundImage": "/images/chronos/mellomkrigstiden/ukraina_holodomor_1933.webp",
+            "discoveryEvent": {
+                "title": "Holodomor",
+                "fact": "4-7 millioner ukrainere sultet i hjel som resultat av Stalins tvangskollektivisering. Landsbyer ble sperret av, korn konfiskert, flukt straffet med arrestasjon. Verden ignorerte det.",
+                "articleLink": "/historie/mellomkrigstiden/sovjet",
+                "reflectionQuestion": "Hvorfor ignorerte resten av verden Holodomor?"
+            },
+            "choices": [
+                {
+                    "id": "c_del_korn",
+                    "text": "Del kornet med naboens barn - de sulter",
+                    "nextNodeId": "hub_verdenskart_del2",
+                    "effects": { "historisk_innsikt": 10, "sosial_desperasjon": 5 },
+                    "ethicsLens": {
+                        "deontological": "Å hjelpe er en plikt uavhengig av konsekvensen for deg selv.",
+                        "consequentialist": "Hvis du deler, redder du kanskje noen, men familien din kan dø. Hva gir flest overlevende?",
+                        "virtue": "Hva slags person vil du være? En som delte eller en som så bort?"
+                    }
+                },
+                {
+                    "id": "c_rapporter_nabo",
+                    "text": "Rapporter at naboen gjemmer korn - for å redde deg selv",
+                    "nextNodeId": "hub_verdenskart_del2",
+                    "setFlags": ["hjalp_fascistene"],
+                    "effects": { "sosial_desperasjon": 10 }
+                },
+                {
+                    "id": "c_flykt",
+                    "text": "Flykt til byen med familien din",
+                    "nextNodeId": "hub_verdenskart_del2",
+                    "effects": { "sosial_desperasjon": 10, "demokratisk_motstand": -5 }
+                }
+            ]
+        },
+        "geneve_1935_abessinia": {
+            "id": "geneve_1935_abessinia",
+            "text": "Geneve, oktober 1935. Keiser Haile Selassie av Etiopia står foran Folkeforbundet. Mussolinis hær har invadert med fly, tanks og sennepsgass mot spyd og skjold.\n\nSelassie taler: 'Det er oss i dag. Det er dere i morgen.'\n\nDu er britisk diplomat. Hva gjør Storbritannia?",
+            "speaker": "Britisk diplomat",
+            "backgroundImage": "/images/chronos/mellomkrigstiden/geneve_folkeforbundet.webp",
+            "discoveryEvent": {
+                "title": "Folkeforbundets svakheter",
+                "fact": "USA var aldri med i Folkeforbundet. Organisasjonen hadde ingen egen hærmakt, stormaktene hadde vetomakt, og sanksjoner manglet tyngde. Abessinia-krisen avslørte at kollektiv sikkerhet var en illusjon.",
+                "articleLink": "/historie/mellomkrigstiden/folkeforbundet",
+                "reflectionQuestion": "Hva trengs for at en internasjonal organisasjon faktisk kan stoppe krig?"
+            },
+            "minigame": {
+                "type": "intrigue",
+                "config": {
+                    "onComplete": { "nextNodeId": "geneve_etterpaa" },
+                    "tokens": 6,
+                    "characters": [
+                        {
+                            "id": "selassie",
+                            "name": "Haile Selassie",
+                            "role": "Keiser av Etiopia",
+                            "description": "Ber desperat om hjelp. Mussolini bruker sennepsgass mot hans folk. Han trenger fullstendige sanksjoner.",
+                            "isTraitor": false,
+                            "feedback": "Selassie talte sant. Uten hjelp falt Etiopia i mai 1936."
+                        },
+                        {
+                            "id": "laval",
+                            "name": "Pierre Laval",
+                            "role": "Fransk statsminister",
+                            "description": "Vil bevare alliansen med Italia mot Tyskland. Foreslår et hemmelig kompromiss: gi Mussolini halvparten av Etiopia.",
+                            "isTraitor": true,
+                            "feedback": "Laval forhandlet i hemmelighet med Mussolini. Hoare-Laval-pakten ble en skandale da den ble lekket."
+                        },
+                        {
+                            "id": "eden",
+                            "name": "Anthony Eden",
+                            "role": "Britisk utenriksminister",
+                            "description": "Vil ha sterke sanksjoner. Mener Folkeforbundets troverdighet står på spill.",
+                            "isTraitor": false,
+                            "feedback": "Eden hadde rett. Svake sanksjoner ødela Folkeforbundets troverdighet for godt."
+                        },
+                        {
+                            "id": "mussolini_rep",
+                            "name": "Italias ambassadør",
+                            "role": "Representant for Mussolini",
+                            "description": "Truer med å forlate Folkeforbundet hvis sanksjoner vedtas. Hevder Italia 'siviliserer' Etiopia.",
+                            "isTraitor": true,
+                            "feedback": "Italia brukte sennepsgass og massedrap. 'Siviliseringsmisjon' var propaganda."
+                        },
+                        {
+                            "id": "usa_obs",
+                            "name": "Amerikansk observatør",
+                            "role": "Uoffisiell observatør (USA er ikke medlem)",
+                            "description": "USA nekter å ta stilling. Isolasjonisme dominerer.",
+                            "isTraitor": false,
+                            "feedback": "USAs fravær fra Folkeforbundet var en av organisasjonens største svakheter."
+                        }
+                    ]
+                }
+            },
+            "choices": []
+        },
+        "geneve_etterpaa": {
+            "id": "geneve_etterpaa",
+            "text": "'I dag er det oss. I morgen er det dere.'\n\nKeiseren hadde rett. Folkeforbundet vedtok sanksjoner, men utelot olje, stål og kull - akkurat det Italia trengte. Etiopia falt i mai 1936.\n\nDa Italia angrep uten konsekvenser, lærte Hitler og Japan at Folkeforbundet var tannløst.",
+            "speaker": "Haile Selassie",
+            "choices": [
+                {
+                    "id": "c_geneve_krev",
+                    "text": "Folkeforbundet sviktet. Vi burde ha krevd fullstendige sanksjoner.",
+                    "nextNodeId": "hub_verdenskart_del2",
+                    "effects": { "demokratisk_motstand": 15, "historisk_innsikt": 10 }
+                },
+                {
+                    "id": "c_geneve_kompromiss",
+                    "text": "Diplomati handler om kompromisser. Vi gjorde det vi kunne.",
+                    "nextNodeId": "hub_verdenskart_del2",
+                    "setFlags": ["valgte_fred_over_rettferdighet"],
+                    "effects": { "sosial_desperasjon": 5 }
+                },
+                {
+                    "id": "c_geneve_ignorer",
+                    "text": "Etiopia er langt borte. Europas sikkerhet er viktigere.",
+                    "nextNodeId": "hub_verdenskart_del2",
+                    "effects": { "totalitar_makt": 20 },
+                    "isHistoricalChoice": true,
+                    "historicalConsequence": "I virkeligheten vedtok Folkeforbundet halvhjertede sanksjoner som utelot olje, stål og kull. Etiopia falt."
+                }
+            ]
+        },
+        "mandsjuria_1931_japan": {
+            "id": "mandsjuria_1931_japan",
+            "text": "Mandsjuria, september 1931. Du er medlem av Lytton-kommisjonen, sendt av Folkeforbundet for å undersøke Japans invasjon.\n\nKwantung-hæren sprengte sitt eget jernbanespor og skyldte på kineserne - et falskt flagg-angrep. Japan kontrollerer nå hele Mandsjuria og har satt opp marionettstaten Manchukuo.",
+            "speaker": "Lytton-observatør",
+            "backgroundImage": "/images/chronos/mellomkrigstiden/mandsjuria_1931.webp",
+            "discoveryEvent": {
+                "title": "Japansk militarisme",
+                "fact": "Unge offiserer myrdet to statsministre mellom 1930 og 1936. Innen 1937 styrte militæret japansk utenrikspolitikk. Demokratiet ble gradvis kvalt innenfra.",
+                "articleLink": "/historie/mellomkrigstiden/japan",
+                "reflectionQuestion": "Hvordan kan militæret gradvis ta over et demokrati?"
+            },
+            "choices": [
+                {
+                    "id": "c_mandsjuria_videre",
+                    "text": "Kan Japans ekspansjon stoppes?",
+                    "nextNodeId": "mandsjuria_domino_minispill"
+                }
+            ]
+        },
+        "mandsjuria_domino_minispill": {
+            "id": "mandsjuria_domino_minispill",
+            "text": "Japans ekspansjon er som en dominoeffekt. For hvert territorium som faller, blir det vanskeligere å stoppe det neste. Du har begrensede diplomatiske ressurser.",
+            "speaker": "Lytton-observatør",
+            "minigame": {
+                "type": "domino",
+                "config": {
+                    "winNodeId": "mandsjuria_win",
+                    "lossNodeId": "mandsjuria_loss",
+                    "budget": 100,
+                    "winThreshold": 2,
+                    "countries": [
+                        {
+                            "id": "mandsjuria",
+                            "name": "Mandsjuria (1931)",
+                            "region": "Nordøst-Kina",
+                            "pressureLevel": 40,
+                            "tileColor": "#dc2626",
+                            "actions": [
+                                { "id": "sanctions", "label": "Økonomiske sanksjoner", "cost": 30, "successBonus": 30, "backfireChance": 20, "description": "Kutt handel med Japan. Risiko: Japan blir mer aggressivt." },
+                                { "id": "condemn", "label": "Fordøm i Folkeforbundet", "cost": 10, "successBonus": 10, "backfireChance": 10, "description": "Symbolsk, men billig." }
+                            ]
+                        },
+                        {
+                            "id": "jehol",
+                            "name": "Jehol-provinsen (1933)",
+                            "region": "Indre Mongolia",
+                            "pressureLevel": 55,
+                            "tileColor": "#dc2626",
+                            "actions": [
+                                { "id": "military_aid", "label": "Militær støtte til Kina", "cost": 40, "successBonus": 35, "backfireChance": 30, "description": "Kina trenger våpen, men dette kan provosere Japan." },
+                                { "id": "diplomatic", "label": "Diplomatisk press", "cost": 20, "successBonus": 15, "backfireChance": 10, "description": "Forsiktig, men begrenset effekt." }
+                            ]
+                        },
+                        {
+                            "id": "kina",
+                            "name": "Full krig i Kina (1937)",
+                            "region": "Kina",
+                            "pressureLevel": 70,
+                            "tileColor": "#991b1b",
+                            "actions": [
+                                { "id": "oil_embargo", "label": "Oljeembargo mot Japan", "cost": 35, "successBonus": 40, "backfireChance": 40, "description": "Japans akilleshæl. Men kan utløse krig med Vesten." },
+                                { "id": "refugee_aid", "label": "Humanitær hjelp", "cost": 15, "successBonus": 10, "backfireChance": 5, "description": "Hjelp sivile, men stopper ikke invasjonen." }
+                            ]
+                        },
+                        {
+                            "id": "indokina",
+                            "name": "Fransk Indokina (1940)",
+                            "region": "Sørøst-Asia",
+                            "pressureLevel": 85,
+                            "tileColor": "#7f1d1d",
+                            "actions": [
+                                { "id": "full_embargo", "label": "Total handelsblokade", "cost": 50, "successBonus": 45, "backfireChance": 50, "description": "Siste utvei. Men dette kan bety krig med Japan." },
+                                { "id": "negotiate", "label": "Forhandl om tilbaketrekning", "cost": 25, "successBonus": 15, "backfireChance": 15, "description": "Diplomati mot militærmakt. Sjansene er små." }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "choices": []
+        },
+        "mandsjuria_win": {
+            "id": "mandsjuria_win",
+            "text": "Du klarte å bremse ekspansjonen. I virkeligheten stoppet ingen Japan.\n\nDa Lytton-rapporten erklærte invasjonen ulovlig, forlot Japan simpelthen Folkeforbundet. Ingen løftet en finger.",
+            "speaker": "Forteller",
+            "choices": [
+                {
+                    "id": "c_mandsjuria_win",
+                    "text": "Tilbake til verdenskartet",
+                    "nextNodeId": "hub_verdenskart_del2",
+                    "effects": { "historisk_innsikt": 15 }
+                }
+            ]
+        },
+        "mandsjuria_loss": {
+            "id": "mandsjuria_loss",
+            "text": "Japan ekspanderte uhindret. Da Lytton-rapporten erklærte invasjonen ulovlig, svarte Japan med å forlate Folkeforbundet. Ingen løftet en finger.\n\nI 1937 angrep Japan Kina. Massakren i Nanjing tok livet av minst 100 000 sivile.",
+            "speaker": "Forteller",
+            "choices": [
+                {
+                    "id": "c_mandsjuria_loss",
+                    "text": "Tilbake til verdenskartet",
+                    "nextNodeId": "hub_verdenskart_del2",
+                    "effects": { "totalitar_makt": 15 }
+                }
+            ]
+        },
+        "madrid_1937_guernica": {
+            "id": "madrid_1937_guernica",
+            "text": "Guernica, 26. april 1937. Du er fotojournalist i den spanske borgerkrigen.\n\nI dag bombet Hitlers Condor-legion den lille baskiske byen Guernica i tre timer. Minst 200 sivile drept. Francos folk sier det aldri skjedde - at republikanerne selv satte fyr på byen.\n\nDu har bildene.",
+            "speaker": "Fotojournalist",
+            "backgroundImage": "/images/chronos/mellomkrigstiden/guernica_1937.webp",
+            "choices": [
+                {
+                    "id": "c_guernica_videre",
+                    "text": "Hvem eier sannheten om Guernica?",
+                    "nextNodeId": "guernica_propaganda_minispill"
+                }
+            ]
+        },
+        "guernica_propaganda_minispill": {
+            "id": "guernica_propaganda_minispill",
+            "text": "Du har dokumentert bombingen. Men hvem forteller historien?",
+            "speaker": "Fotojournalist",
+            "minigame": {
+                "type": "propaganda",
+                "config": {
+                    "onComplete": { "nextNodeId": "guernica_etterpaa" },
+                    "outlet": "Internasjonal presse",
+                    "outletType": "western",
+                    "date": "April 1937",
+                    "items": [
+                        {
+                            "id": "guernica_story",
+                            "headline": "Hva skjedde i Guernica?",
+                            "realFacts": "Hitlers Condor-legion bombet Guernica systematisk i tre timer. Minst 200 sivile drept. Francos propaganda hevdet republikanerne brant byen selv.",
+                            "options": [
+                                {
+                                    "id": "publiser_sannhet",
+                                    "label": "Publiser dine bilder og øyenvitneskildringer",
+                                    "description": "Dokumentar - bildene viser bombingene, de døde barna, ruinene.",
+                                    "credibilityChange": 20,
+                                    "effects": { "historisk_innsikt": 15, "demokratisk_motstand": 5 },
+                                    "setsFlag": "motstod_propagandaen"
+                                },
+                                {
+                                    "id": "franco_versjon",
+                                    "label": "Trykk Francos versjon",
+                                    "description": "Baskiske anarkister brenner sin egen by - frykter Francos frigjøring.",
+                                    "credibilityChange": -30,
+                                    "effects": { "totalitar_makt": 10 },
+                                    "setsFlag": "hjalp_fascistene"
+                                },
+                                {
+                                    "id": "begge_sider",
+                                    "label": "Presenter begge versjoner som likeverdige",
+                                    "description": "Falsk balanse: løgnen og sannheten side om side.",
+                                    "credibilityChange": -10,
+                                    "effects": { "sosial_desperasjon": 5 }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "choices": []
+        },
+        "guernica_etterpaa": {
+            "id": "guernica_etterpaa",
+            "text": "Den spanske borgerkrigen var generalprøven. Hitler testet Luftwaffe. Mussolini sendte tropper. Stalin sendte våpen til republikanerne. Storbritannia og Frankrike valgte 'ikke-intervensjon.'\n\nOg 35 000 frivillige fra 50 land reiste til Spania for å kjempe mot fascismen. Blant dem var George Orwell og Ernest Hemingway.\n\nPablo Picasso svarte med maleriet Guernica - et av historiens mektigste antikrigskunstverk.",
+            "speaker": "Forteller",
+            "choices": [
+                {
+                    "id": "c_guernica_videre2",
+                    "text": "Tilbake til verdenskartet",
+                    "nextNodeId": "hub_verdenskart_del2",
+                    "isHistoricalChoice": true,
+                    "historicalConsequence": "Den spanske borgerkrigen endte i 1939 med Francos seier. Han styrte Spania som diktator til sin død i 1975."
+                }
+            ]
+        },
+        "munchen_1938_appeasement": {
+            "id": "munchen_1938_appeasement",
+            "text": "München, 29. september 1938. Du er rådgiver for statsminister Chamberlain. Hitler krever Sudetenland - den tysktalende delen av Tsjekkoslovakia.\n\nChamberlain har fløyet til München for å forhandle. Churchill advarer fra London: 'Dere hadde valget mellom vanære og krig. Dere valgte vanæren, og dere vil få krigen.'\n\nTsjekkoslovakia er ikke invitert til forhandlingene om sitt eget land.",
+            "speaker": "Britisk diplomat",
+            "backgroundImage": "/images/chronos/mellomkrigstiden/munchen_1938.webp",
+            "discoveryEvent": {
+                "title": "Appeasement",
+                "fact": "Appeasement betyr å gi etter for en aggressors krav for å unngå krig. München 1938 viste at det bare utsetter konflikten og styrker angriperen. Seks måneder senere okkuperte Hitler resten av Tsjekkoslovakia.",
+                "articleLink": "/historie/mellomkrigstiden/oversikt",
+                "reflectionQuestion": "Finnes det situasjoner der appeasement kan fungere, eller er det alltid feil?"
+            },
+            "choices": [
+                {
+                    "id": "c_stott_chamberlain",
+                    "text": "Støtt Chamberlain - fred i vår tid er verdt ethvert kompromiss",
+                    "nextNodeId": "hub_verdenskart_del2",
+                    "setFlags": ["valgte_fred_over_rettferdighet"],
+                    "effects": { "demokratisk_motstand": -10, "totalitar_makt": 10 },
+                    "isHistoricalChoice": true,
+                    "historicalConsequence": "Chamberlain kom hjem og erklærte 'Fred i vår tid.' Seks måneder senere okkuperte Hitler resten av Tsjekkoslovakia."
+                },
+                {
+                    "id": "c_advar_chamberlain",
+                    "text": "Advar ham - dette er ikke fred, det er kapitulasjon",
+                    "nextNodeId": "hub_verdenskart_del2",
+                    "effects": { "historisk_innsikt": 15, "demokratisk_motstand": 5 }
+                },
+                {
+                    "id": "c_referendum",
+                    "text": "Foreslå en folkeavstemning i Sudetenland",
+                    "nextNodeId": "hub_verdenskart_del2",
+                    "effects": { "historisk_innsikt": 5, "demokratisk_motstand": 5 }
+                }
+            ]
+        },
+        "epilog_overgang": {
+            "id": "epilog_overgang",
+            "text": "1. september 1939. Klokken 04:45 åpner det tyske slagskipet Schleswig-Holstein ild mot den polske garnisonen på Westerplatte. Tyske stridsvogner krysser grensen. Luftwaffe bomber Warszawa.\n\nDu har vært vitne til alt som ledet hit. Tjue år med feilgrep, desperasjon, hat og feighet kulminerer i det øyeblikket verden fryktet mest.\n\nForstod du det du så?",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/mellomkrigstiden/epilog_1939.webp",
+            "journalPrompt": "Hvilke av de valgene du tok kunne ha endret historien? Eller var krigen uunngåelig fra det øyeblikket Versailles-traktaten ble signert?",
+            "choices": [
+                {
+                    "id": "c_ending_vitne",
+                    "text": "Jeg forsto det jeg så",
+                    "nextNodeId": "ending_historisk_vitne",
+                    "condition": {
+                        "all": [
+                            { "statId": "historisk_innsikt", "operator": ">=", "value": 70 },
+                            { "hasFlag": "motstod_propagandaen" }
+                        ]
+                    }
+                },
+                {
+                    "id": "c_ending_medskyldig",
+                    "text": "Jeg tok de valgene som var lettest",
+                    "nextNodeId": "ending_medskyldig",
+                    "condition": {
+                        "all": [
+                            { "hasFlag": "hjalp_fascistene" },
+                            { "statId": "historisk_innsikt", "operator": "<", "value": 40 }
+                        ]
+                    }
+                },
+                {
+                    "id": "c_ending_haplost",
+                    "text": "Jeg så det skje",
+                    "nextNodeId": "ending_haplost_vitne"
+                }
+            ]
+        },
+        "ending_historisk_vitne": {
+            "id": "ending_historisk_vitne",
+            "text": "Du reiste gjennom tjue år med kaos, løgner og frykt. Du gjennomskuet propagandaen. Du så at demokratiet ikke ble styrtet med kupp, men stemte seg selv bort. Du valgte å stå imot der du kunne.\n\nDu er et historisk vitne - en som forsto det de så.",
+            "speaker": "Forteller",
+            "isEnd": true,
+            "endType": "victory",
+            "showEndComparison": true,
+            "epilogue": {
+                "entries": [
+                    { "hasFlag": "forsto_okonomien", "text": "Du gjennomskuet Federal Reserves falske signaler og solgte i tide. Hayek ville vært stolt." },
+                    { "hasFlag": "motstod_propagandaen", "text": "Du nektet å bøye deg for Goebbels og Franco. Sannheten overlevde." },
+                    { "hasFlag": "valgte_fred_over_rettferdighet", "text": "Men du valgte den enkle freden i Geneve eller München. Kanskje ingen kunne gjort det annerledes." },
+                    { "text": "Winston Churchill sa: 'De som ikke lærer av historien, er dømt til å gjenta den.' Du lærte." }
+                ],
+                "historicalEcho": "Mellomkrigstiden viste at demokrati kan dø innenfra. Italia, Tyskland og Japan mistet alle sine demokratier gjennom lovlige prosesser og gradvise maktgrep - ikke gjennom invasjon. De som forsto tegnene tidlig nok, var unntakene.",
+                "reflectionQuestion": "Ser du paralleller mellom mellomkrigstiden og dagens politiske debatter? Hva er de viktigste tegnene å se etter?"
+            },
+            "choices": []
+        },
+        "ending_medskyldig": {
+            "id": "ending_medskyldig",
+            "text": "Du tok de valgene som var lettest i øyeblikket. Du stemte med frykten. Du trykket løgnene. Du ga makten til dem som ropte høyest.\n\nDu er ikke ond - du er menneskelig. Og det var akkurat slik det skjedde med millioner av vanlige folk i Italia, Tyskland, Japan og Sovjet. De fleste medløpere mente ikke noe vondt. De var bare redde.",
+            "speaker": "Forteller",
+            "isEnd": true,
+            "endType": "victory",
+            "showEndComparison": true,
+            "epilogue": {
+                "entries": [
+                    { "hasFlag": "hjalp_fascistene", "text": "Du støttet fascistene der du kunne. Slik bygges diktaturer - stein for stein, av vanlige folk." },
+                    { "hasFlag": "valgte_fred_over_rettferdighet", "text": "Og da freden sto på spill, valgte du alltid det mest komfortable. Det gjorde Chamberlain også." },
+                    { "text": "Hannah Arendt kalte det 'ondskapens banalitet' - evnen til å gjøre forferdelige ting uten å mene det." }
+                ],
+                "historicalEcho": "De fleste tyskere som stemte NSDAP i 1932 var ikke nazister. De var arbeidsløse, redde og desperate. De trodde de valgte orden og brød. Medløperi er sjelden et aktivt valg - det er fravær av motstand.",
+                "reflectionQuestion": "Hvem bærer mest skyld - lederne som grep makten, eller vanlige folk som lot det skje?"
+            },
+            "choices": []
+        },
+        "ending_haplost_vitne": {
+            "id": "ending_haplost_vitne",
+            "text": "Du så det skje. Du skjønte ikke alltid hva du så. Du tok noen gode valg og noen dårlige. Du var verken helt eller medløper - du var et menneske fanget i historiens malstrøm.\n\nSom de fleste. Og kanskje er det den viktigste lærdommen: historien formes ikke bare av diktatorer og helter, men av vanlige folk som deg.",
+            "speaker": "Forteller",
+            "isEnd": true,
+            "endType": "victory",
+            "showEndComparison": true,
+            "epilogue": {
+                "entries": [
+                    { "text": "Primo Levi skrev: 'Det skjedde, altså kan det skje igjen.' Spørsmålet er om du nå vil gjenkjenne tegnene." },
+                    { "hasFlag": "valgte_fred_over_rettferdighet", "text": "Du valgte fred over rettferdighet mer enn en gang. Det er menneskelig. Men historien viste at freden ble kortvarig." },
+                    { "hasFlag": "hjalp_fascistene", "text": "Noen av dine valg styrket autoritære krefter. Det gjorde de fleste europeeres valg i denne perioden også." }
+                ],
+                "historicalEcho": "De fleste mennesker i mellomkrigstiden var verken helter eller skurker. De levde livene sine, prøvde å overleve, og håpet at noen andre ville fikse problemene. Da krigen kom, var det for sent å angre.",
+                "reflectionQuestion": "Kunne andre verdenskrig vært unngått? Når var 'point of no return'?"
+            },
+            "choices": []
+        }
+    }
+}

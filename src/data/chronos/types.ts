@@ -178,7 +178,7 @@ export interface ChronosGameOverCondition {
 }
 
 export interface ChronosPerspective {
-    faction: 'sovjet' | 'usa' | 'sivil' | 'forteller';
+    faction: 'sovjet' | 'usa' | 'sivil' | 'forteller' | 'fascisme' | 'nazisme' | 'frankrike' | 'etiopia' | 'storbritannia' | 'vitne';
     flag?: string;     // emoji-flagg, f.eks. "🇷🇺"
     subtitle?: string; // f.eks. "Generalsekretær, Sovjet"
 }

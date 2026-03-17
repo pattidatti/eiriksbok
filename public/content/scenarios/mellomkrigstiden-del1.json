@@ -1,0 +1,655 @@
+{
+    "id": "mellomkrigstiden-del1",
+    "title": "Veien mot mørket",
+    "subtitle": "Del 1: Festen (1919-1929)",
+    "era": "Mellomkrigstiden",
+    "year": "1919-1929",
+    "role": "Historiens Vitne",
+    "summary": "Fra Versailles til børskrakket - opplev 1920-tallets fest og fall gjennom skiftende perspektiver.",
+    "heroImage": "/images/chronos/mellomkrigstiden/del1-hero.webp",
+    "startingNodeId": "intro_versailles_1919",
+    "perspectives": {
+        "Forteller": {
+            "faction": "forteller",
+            "flag": "📖",
+            "subtitle": "Forteller"
+        },
+        "Wilson": {
+            "faction": "usa",
+            "flag": "🇺🇸",
+            "subtitle": "President, USA"
+        },
+        "Clemenceau": {
+            "faction": "frankrike",
+            "flag": "🇫🇷",
+            "subtitle": "Statsminister, Frankrike"
+        },
+        "Michele": {
+            "faction": "sivil",
+            "flag": "🇮🇹",
+            "subtitle": "Veteran, Italia"
+        },
+        "Mussolini": {
+            "faction": "fascisme",
+            "flag": "⚡",
+            "subtitle": "Il Duce, Italia"
+        },
+        "Klaus": {
+            "faction": "sivil",
+            "flag": "🇩🇪",
+            "subtitle": "Arbeider, Tyskland"
+        },
+        "Aleksej": {
+            "faction": "sovjet",
+            "flag": "☭",
+            "subtitle": "Kommunist, Sovjet"
+        },
+        "Stalin": {
+            "faction": "sovjet",
+            "flag": "☭",
+            "subtitle": "Generalsekretær, Sovjet"
+        },
+        "Weimar-borger": {
+            "faction": "sivil",
+            "flag": "🇩🇪",
+            "subtitle": "Borger, Weimar-republikken"
+        },
+        "NSDAP-plakatmaker": {
+            "faction": "nazisme",
+            "flag": "🦅",
+            "subtitle": "Grafisk designer"
+        },
+        "Margaret": {
+            "faction": "usa",
+            "flag": "🇺🇸",
+            "subtitle": "Megler, Wall Street"
+        }
+    },
+    "config": {
+        "stats": [
+            {
+                "id": "totalitar_makt",
+                "label": "Totalitær Makt",
+                "icon": "zap",
+                "value": 10,
+                "max": 100
+            },
+            {
+                "id": "sosial_desperasjon",
+                "label": "Sosial Desperasjon",
+                "icon": "users",
+                "value": 20,
+                "max": 100
+            },
+            {
+                "id": "historisk_innsikt",
+                "label": "Historisk Innsikt",
+                "icon": "book-open",
+                "value": 0,
+                "max": 100
+            },
+            {
+                "id": "demokratisk_motstand",
+                "label": "Demokratisk Motstand",
+                "icon": "shield",
+                "value": 70,
+                "max": 100
+            }
+        ],
+        "theme": {
+            "primaryColor": "#b8860b"
+        }
+    },
+    "nodes": {
+        "intro_versailles_1919": {
+            "id": "intro_versailles_1919",
+            "speaker": "Forteller",
+            "backgroundImage": "/images/chronos/mellomkrigstiden/versailles_1919.webp",
+            "text": "Paris, juni 1919. Krigen som skulle ende alle kriger er over. 17 millioner er døde. Nå skal seierherrene bestemme hvordan freden skal se ut. Du er assistent for den amerikanske delegasjonen, og to visjoner kolliderer i Speilsalen. Clemenceau vil knuse Tyskland for alltid. Wilson drømmer om en rettferdig fred og et folkeforbund.",
+            "discoveryEvent": {
+                "title": "Versailles-traktaten",
+                "fact": "Reparasjoner på 132 milliarder gullmark, skyldparagrafen (artikkel 231), Rhinlandets avmilitarisering. Økonomen John Maynard Keynes advarte profetisk: 'Denne freden vil ødelegge Europa.'",
+                "articleLink": "/historie/mellomkrigstiden/oversikt",
+                "reflectionQuestion": "Hva tror du skjer når du ydmyker et helt land?"
+            },
+            "choices": [
+                {
+                    "id": "c_clemenceau",
+                    "text": "Clemenceau har rett - Tyskland må aldri kunne true oss igjen",
+                    "nextNodeId": "hub_verdenskart_del1",
+                    "setFlags": ["valgte_fred_over_rettferdighet"],
+                    "effects": {
+                        "totalitar_makt": 5,
+                        "sosial_desperasjon": 10
+                    },
+                    "isHistoricalChoice": true,
+                    "historicalConsequence": "I virkeligheten vant Clemenceaus linje. Keynes' advarsel slo til: ydmykelsen av Tyskland ble drivstoff for nazismen."
+                },
+                {
+                    "id": "c_wilson",
+                    "text": "Wilson har rett - en rettferdig fred er den eneste varige freden",
+                    "nextNodeId": "hub_verdenskart_del1",
+                    "effects": {
+                        "historisk_innsikt": 10,
+                        "demokratisk_motstand": 5
+                    }
+                }
+            ]
+        },
+        "hub_verdenskart_del1": {
+            "id": "hub_verdenskart_del1",
+            "uiType": "map",
+            "speaker": "Forteller",
+            "text": "Verden 1919-1929. Fire steder kaller. Fire skjebner som former tiåret.",
+            "mapConfig": {
+                "image": "/images/chronos/mellomkrigstiden/world_map_1920s.webp",
+                "points": [
+                    {
+                        "id": "point_roma",
+                        "x": 52,
+                        "y": 44,
+                        "label": "Roma, 1922",
+                        "icon": "flag",
+                        "nextNodeId": "roma_1922_marsjen",
+                        "visitedFlag": "visited_roma"
+                    },
+                    {
+                        "id": "point_berlin",
+                        "x": 53,
+                        "y": 34,
+                        "label": "Berlin, 1923",
+                        "icon": "banknote",
+                        "nextNodeId": "berlin_1923_hyperinflasjon",
+                        "visitedFlag": "visited_berlin"
+                    },
+                    {
+                        "id": "point_moskva",
+                        "x": 62,
+                        "y": 28,
+                        "label": "Moskva, 1924",
+                        "icon": "hammer",
+                        "nextNodeId": "moskva_1924_nep",
+                        "visitedFlag": "visited_moskva"
+                    },
+                    {
+                        "id": "point_new_york",
+                        "x": 22,
+                        "y": 38,
+                        "label": "New York, 1929",
+                        "icon": "trending-down",
+                        "nextNodeId": "new_york_1929_pre",
+                        "visitedFlag": "visited_new_york"
+                    }
+                ]
+            },
+            "choices": [
+                {
+                    "id": "c_neste_kapittel",
+                    "text": "Alle fire steder besøkt. Fortsett til 1929.",
+                    "nextNodeId": "ending_del1_bridge",
+                    "condition": {
+                        "all": [
+                            { "hasFlag": "visited_roma" },
+                            { "hasFlag": "visited_berlin" },
+                            { "hasFlag": "visited_moskva" },
+                            { "hasFlag": "visited_new_york" }
+                        ]
+                    }
+                }
+            ]
+        },
+        "roma_1922_marsjen": {
+            "id": "roma_1922_marsjen",
+            "speaker": "Michele",
+            "backgroundImage": "/images/chronos/mellomkrigstiden/roma_marsjen_1922.webp",
+            "text": "Roma, oktober 1922. Du er Michele, 26 år, veteran fra Isonzo-fronten. Krigen ga deg ingenting. Ingen jobb, ingen ære. Men en mann lover alt det Italia fortjener: Benito Mussolini. 30 000 sorthemder marsjerer mot Roma. Kong Victor Emmanuel III må velge: militæret mot demonstrantene, eller gi fascistene makt.",
+            "discoveryEvent": {
+                "title": "Fascismens kjennetegn",
+                "fact": "Fascismen var anti-marxistisk, anti-liberal og bygde på nasjonal mytologi. Den lovte en 'tredje vei' mellom kapitalisme og kommunisme gjennom korporativisme - staten styrer alt.",
+                "articleLink": "/historie/mellomkrigstiden/italia",
+                "reflectionQuestion": "Hvorfor tror du fascismen appellerte til veteraner som Michele?"
+            },
+            "choices": [
+                {
+                    "id": "c_roma_stott",
+                    "text": "Støtt marsjen - Italia trenger en sterk leder",
+                    "nextNodeId": "roma_speech_minispill",
+                    "setFlags": ["hjalp_fascistene"],
+                    "effects": {
+                        "totalitar_makt": 10
+                    }
+                },
+                {
+                    "id": "c_roma_motsta",
+                    "text": "Si til kongen at han må stanse dem med hæren",
+                    "nextNodeId": "roma_speech_minispill",
+                    "effects": {
+                        "demokratisk_motstand": 5,
+                        "historisk_innsikt": 5
+                    }
+                }
+            ]
+        },
+        "roma_speech_minispill": {
+            "id": "roma_speech_minispill",
+            "speaker": "Mussolini",
+            "text": "Mussolini står foran kongen. Han skal overbevise monarken om at fascistene fortjener makten. Hvilken retorisk strategi fungerer best?",
+            "minigame": {
+                "type": "speech",
+                "config": {
+                    "onComplete": { "nextNodeId": "roma_etterpaa" },
+                    "columns": [
+                        {
+                            "label": "Argument",
+                            "options": [
+                                {
+                                    "id": "tragedie",
+                                    "text": "Italia ble sveket i Versailles - vi vant krigen men tapte freden"
+                                },
+                                {
+                                    "id": "orden",
+                                    "text": "Kommunistene truer med revolusjon - bare vi kan gjenopprette orden"
+                                },
+                                {
+                                    "id": "demokrati",
+                                    "text": "Vi vil styrke parlamentet og samarbeide med kongen"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Appell",
+                            "options": [
+                                {
+                                    "id": "truende",
+                                    "text": "Gi oss makten, eller det blir borgerkrig"
+                                },
+                                {
+                                    "id": "overbevisende",
+                                    "text": "Fascismen er Italias framtid og eneste håp"
+                                },
+                                {
+                                    "id": "ydmyk",
+                                    "text": "Vi vil tjene Italia under kongens visdom"
+                                }
+                            ]
+                        }
+                    ],
+                    "outcomes": [
+                        {
+                            "combo": "tragedie_truende",
+                            "feedback": "Nasjonal skam og trusler - Mussolinis foretrukne kombinasjon. Kongen bøyde seg.",
+                            "effects": { "totalitar_makt": 15 }
+                        },
+                        {
+                            "combo": "tragedie_overbevisende",
+                            "feedback": "Nasjonal skam pakket inn i optimisme. Effektivt og farlig.",
+                            "effects": { "totalitar_makt": 10 }
+                        },
+                        {
+                            "combo": "tragedie_ydmyk",
+                            "feedback": "Ydmykhet passer dårlig med fascismens selvbilde. Kongen er usikker.",
+                            "effects": { "totalitar_makt": 5, "historisk_innsikt": 5 }
+                        },
+                        {
+                            "combo": "orden_truende",
+                            "feedback": "Orden gjennom trusler - Mussolinis mest effektive strategi. Kongen frykter borgerkrig.",
+                            "effects": { "totalitar_makt": 15 },
+                            "setsFlag": "hjalp_fascistene"
+                        },
+                        {
+                            "combo": "orden_overbevisende",
+                            "feedback": "Stabilitet som løfte. Kongen ser en utvei fra kaoset.",
+                            "effects": { "totalitar_makt": 10 }
+                        },
+                        {
+                            "combo": "orden_ydmyk",
+                            "feedback": "Orden med respekt for kongen. Troverdigheten vakler, men kongen lytter.",
+                            "effects": { "historisk_innsikt": 10 }
+                        },
+                        {
+                            "combo": "demokrati_truende",
+                            "feedback": "Demokrati med trusler? Selvmotsigende. Kongen gjennomskuer bløffen.",
+                            "effects": { "historisk_innsikt": 10 }
+                        },
+                        {
+                            "combo": "demokrati_overbevisende",
+                            "feedback": "Demokratisk retorikk fra en fascist. Historien viser at det var løgn.",
+                            "effects": { "historisk_innsikt": 10 }
+                        },
+                        {
+                            "combo": "demokrati_ydmyk",
+                            "feedback": "Du valgte den minst fascistiske kombinasjonen. I virkeligheten ville Mussolini aldri sagt dette.",
+                            "effects": { "historisk_innsikt": 15 }
+                        }
+                    ]
+                }
+            },
+            "choices": []
+        },
+        "roma_etterpaa": {
+            "id": "roma_etterpaa",
+            "speaker": "Forteller",
+            "text": "28. oktober 1922. Kongen nekter å erklære unntakstilstand. I stedet inviterer han Mussolini til å danne regjering. Demokratiet i Italia dør ikke med et smell - det dør med en invitasjon. Innen 1925 har Mussolini gjort seg til diktator.",
+            "choices": [
+                {
+                    "id": "c_roma_videre",
+                    "text": "Tilbake til verdenskartet",
+                    "nextNodeId": "hub_verdenskart_del1",
+                    "effects": {
+                        "totalitar_makt": 5,
+                        "demokratisk_motstand": -5
+                    }
+                }
+            ]
+        },
+        "berlin_1923_hyperinflasjon": {
+            "id": "berlin_1923_hyperinflasjon",
+            "speaker": "Klaus",
+            "backgroundImage": "/images/chronos/mellomkrigstiden/berlin_hyperinflasjon_1923.webp",
+            "text": "Berlin, november 1923. Du er Klaus, 31 år, mekaniker. I januar kostet et brød 250 mark. I november koster det 200 milliarder. Din families sparepenger fra 20 år er nå verdt mindre enn en fyrstikk. Utenfor Münchens ølhaller prøver en østerriksk korporal ved navn Adolf Hitler å ta makten med kupp.",
+            "discoveryEvent": {
+                "title": "Hyperinflasjonen 1923",
+                "fact": "Riksbanken trykket penger for å betale krigserstatning. Kunstig lav rente skapte feilinvesteringer og hyperinflasjon. Middelklassens sparepenger fordampet, og tilliten til demokratiet ble knust.",
+                "articleLink": "/historie/mellomkrigstiden/borskrakk",
+                "reflectionQuestion": "Hva skjer med folks tillit til demokratiet når sparepengene deres blir verdiløse over natten?"
+            },
+            "choices": [
+                {
+                    "id": "c_berlin_protest",
+                    "text": "Gå på protestmøtet - krev at politikerne tar ansvar",
+                    "nextNodeId": "berlin_1928_gyldne_aar",
+                    "effects": {
+                        "historisk_innsikt": 10,
+                        "demokratisk_motstand": 5
+                    }
+                },
+                {
+                    "id": "c_berlin_gjem",
+                    "text": "Gjemmer restene av sparepengene, vent og se",
+                    "nextNodeId": "berlin_1928_gyldne_aar",
+                    "effects": {
+                        "sosial_desperasjon": -5
+                    }
+                },
+                {
+                    "id": "c_berlin_nsdap",
+                    "text": "Hør på NSDAP-taleren - kanskje han har rett om at noen er skyld i dette",
+                    "nextNodeId": "berlin_1928_gyldne_aar",
+                    "setFlags": ["hjalp_fascistene"],
+                    "effects": {
+                        "totalitar_makt": 5,
+                        "sosial_desperasjon": 10
+                    }
+                }
+            ]
+        },
+        "berlin_1928_gyldne_aar": {
+            "id": "berlin_1928_gyldne_aar",
+            "speaker": "Weimar-borger",
+            "backgroundImage": "/images/chronos/mellomkrigstiden/berlin_kabaret_1928.webp",
+            "text": "Berlin, 1928. Fem år har gått. Dawes-planen pumper amerikanske dollar inn i tysk økonomi. Kabaretene svinger, Josephine Baker danser, Bauhaus bygger framtiden. NSDAP får bare 2,6% i riksdagsvalget. Alt ser ut til å gå bra. Men pengene som holder festen i gang, er lånte penger. Fra Wall Street.",
+            "discoveryEvent": {
+                "title": "Wall Streets gullregn",
+                "fact": "Amerikanske lån holdt tysk økonomi kunstig i live gjennom Dawes-planen. De 'gyldne årene' var bygget på et korthus av utenlandsk kreditt.",
+                "articleLink": "/historie/mellomkrigstiden/usa",
+                "reflectionQuestion": "Hva skjer med en økonomi som er avhengig av lånte penger fra utlandet?"
+            },
+            "choices": [
+                {
+                    "id": "c_gyldne_videre",
+                    "text": "Noe brygger under overflaten...",
+                    "nextNodeId": "weimar_propaganda_minispill"
+                }
+            ]
+        },
+        "weimar_propaganda_minispill": {
+            "id": "weimar_propaganda_minispill",
+            "speaker": "NSDAP-plakatmaker",
+            "text": "Selv i de gyldne årene jobber NSDAP i bakgrunnen. Du er en ung grafisk designer. NSDAP ber deg designe en propagandaplakat for valgkampen 1928. Hva velger du?",
+            "minigame": {
+                "type": "propaganda",
+                "config": {
+                    "onComplete": { "nextNodeId": "hub_verdenskart_del1" },
+                    "outlet": "NSDAP Propagandakontor",
+                    "outletType": "western",
+                    "date": "1928",
+                    "items": [
+                        {
+                            "id": "nasjonal_skam",
+                            "headline": "Dolkestøtet: Hvem svek Tyskland?",
+                            "realFacts": "Dolkestøtlegenden var en konspirasjonsteori. Tyskland tapte krigen militært, ikke på grunn av 'forrædere'. Men myten var et kraftig politisk våpen.",
+                            "options": [
+                                {
+                                    "id": "godkjenn_skam",
+                                    "label": "Design plakaten",
+                                    "description": "Spill på hat og skyld. Effektivt for NSDAP.",
+                                    "credibilityChange": -20,
+                                    "effects": {
+                                        "totalitar_makt": 10,
+                                        "sosial_desperasjon": 5
+                                    },
+                                    "setsFlag": "hjalp_fascistene"
+                                },
+                                {
+                                    "id": "mildr_skam",
+                                    "label": "Gjør den mildere",
+                                    "description": "Fjern de verste anklagene, men behold budskapet.",
+                                    "credibilityChange": -10,
+                                    "effects": {
+                                        "totalitar_makt": 5
+                                    }
+                                },
+                                {
+                                    "id": "nekt_skam",
+                                    "label": "Nekt å designe hat",
+                                    "description": "Du risikerer jobben, men beholder samvittigheten.",
+                                    "credibilityChange": 10,
+                                    "effects": {
+                                        "historisk_innsikt": 10,
+                                        "demokratisk_motstand": 5
+                                    },
+                                    "setsFlag": "motstod_propagandaen"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "orden_fremtid",
+                            "headline": "Hitler: Orden, arbeid, nasjonalt fellesskap",
+                            "realFacts": "NSDAP lovte alt til alle - arbeid til arbeidsløse, beskyttelse til middelklassen, storhet til nasjonalistene. Løftene var bevisst vage.",
+                            "options": [
+                                {
+                                    "id": "godkjenn_orden",
+                                    "label": "Design plakaten",
+                                    "description": "Positiv innramming av en autoritær bevegelse.",
+                                    "credibilityChange": -15,
+                                    "effects": {
+                                        "totalitar_makt": 5
+                                    },
+                                    "setsFlag": "hjalp_fascistene"
+                                },
+                                {
+                                    "id": "nekt_orden",
+                                    "label": "Nekt oppdraget helt",
+                                    "description": "Du sier opp. NSDAP finner en annen designer.",
+                                    "credibilityChange": 15,
+                                    "effects": {
+                                        "historisk_innsikt": 10,
+                                        "demokratisk_motstand": 5
+                                    },
+                                    "setsFlag": "motstod_propagandaen"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "choices": []
+        },
+        "moskva_1924_nep": {
+            "id": "moskva_1924_nep",
+            "speaker": "Aleksej",
+            "text": "Moskva, januar 1924. Lenin er død. Du er Aleksej, 22 år, overbevist kommunist. Lenins testament advarte mot Stalin - 'for brutal' - men testamentet ble undertrykt. Nå kjemper Stalin, Trotskij, Zinovjev og Kamenev om makten. Og et enormt spørsmål gjenstår: skal Russland industrialiseres gradvis eller med tvang?",
+            "discoveryEvent": {
+                "title": "Lenins testament",
+                "fact": "Lenin advarte mot Stalin i sitt testament: 'Stalin er for brutal.' Testamentet ble undertrykt av Stalins allierte. Innen 1928 hadde Stalin eliminert alle rivaler.",
+                "articleLink": "/historie/mellomkrigstiden/sovjet",
+                "reflectionQuestion": "Hva kunne skjedd om Lenins testament ble offentliggjort?"
+            },
+            "choices": [
+                {
+                    "id": "c_moskva_stalin",
+                    "text": "Støtt Stalins linje - Russland må industrialiseres raskt",
+                    "nextNodeId": "moskva_allocation_minispill",
+                    "effects": {
+                        "totalitar_makt": 10
+                    }
+                },
+                {
+                    "id": "c_moskva_trotskij",
+                    "text": "Støtt Trotskijs linje - verdensrevolusjonen først",
+                    "nextNodeId": "moskva_allocation_minispill",
+                    "effects": {
+                        "historisk_innsikt": 5
+                    }
+                }
+            ]
+        },
+        "moskva_allocation_minispill": {
+            "id": "moskva_allocation_minispill",
+            "speaker": "Stalin",
+            "text": "1928. Femårsplanen begynner. Du skal fordele Sovjetunionens ressurser mellom tungindustri, landbruk og utdanning. Hva prioriterer du?",
+            "minigame": {
+                "type": "allocation",
+                "config": {
+                    "onComplete": { "nextNodeId": "moskva_etterpaa" },
+                    "totalPoints": 100,
+                    "categories": [
+                        {
+                            "id": "tungindustri",
+                            "label": "Tungindustri",
+                            "description": "Stål, kullgruver, demninger. Bygger militær og økonomisk makt."
+                        },
+                        {
+                            "id": "landbruk",
+                            "label": "Landbruk og mat",
+                            "description": "Kornproduksjon, traktorer, gjødsel. Metter befolkningen."
+                        },
+                        {
+                            "id": "utdanning",
+                            "label": "Utdanning og vitenskap",
+                            "description": "Universiteter, leseferdighet, teknisk opplæring."
+                        }
+                    ]
+                }
+            },
+            "choices": []
+        },
+        "moskva_etterpaa": {
+            "id": "moskva_etterpaa",
+            "speaker": "Forteller",
+            "text": "Jernverket i Magnitogorsk reiser seg. Dnepr-demningen tennes. Sovjet blir verdens tredje største industriøkonomi. Men på landsbygda begynner kulakkene å forsvinne. Bønder som nekter å gi fra seg kornet kalles 'klassefiender'. Millioner vil snart sulte. Stalin ga 80% til tungindustri. Resultatet: industriell makt - og Holodomor.",
+            "choices": [
+                {
+                    "id": "c_moskva_videre",
+                    "text": "Tilbake til verdenskartet",
+                    "nextNodeId": "hub_verdenskart_del1",
+                    "effects": {
+                        "totalitar_makt": 10,
+                        "historisk_innsikt": 5
+                    }
+                }
+            ]
+        },
+        "new_york_1929_pre": {
+            "id": "new_york_1929_pre",
+            "speaker": "Margaret",
+            "text": "New York, oktober 1929. Du er Margaret, 28 år, en av få kvinnelige meglere på Wall Street. I fem år har aksjer bare gått oppover. Alle kjøper 'on margin' - med lånte penger. Federal Reserve har holdt renten kunstig lav. En økonom ved navn Friedrich Hayek advarer om at boblene må sprekke. Men hvem lytter til advarsler når alle tjener penger?",
+            "discoveryEvent": {
+                "title": "Børskrakket og Federal Reserve",
+                "fact": "Federal Reserve holdt renten kunstig lav i 1920-årene. Dette skapte en kredittboble der folk kjøpte aksjer med lånte penger. Da boblen sprakk 29. oktober 1929, mistet 14 milliarder dollar sin verdi på en dag. Hayeks forklaring: feilinvesteringer drevet av falske prissignaler.",
+                "articleLink": "/historie/mellomkrigstiden/borskrakk",
+                "reflectionQuestion": "Hva skjer når en sentralbank holder renten kunstig lav over lang tid?"
+            },
+            "choices": [
+                {
+                    "id": "c_ny_videre",
+                    "text": "Telefonen ringer. Markedet vakler...",
+                    "nextNodeId": "new_york_1929_signal"
+                }
+            ]
+        },
+        "new_york_1929_signal": {
+            "id": "new_york_1929_signal",
+            "speaker": "Margaret",
+            "text": "24. oktober 1929. Ticker-maskinen hakker febrilsk. US Steel ned 12%. Rykter om at banker ikke kan dekke margin calls. Federal Reserve sier 'ingen grunn til panikk.' J.P. Morgan-bankene kjøper aksjer. Hva gjør du?",
+            "minigame": {
+                "type": "signal",
+                "config": {
+                    "winNodeId": "new_york_win",
+                    "lossNodeId": "new_york_loss",
+                    "situation": "Wall Street, 24. oktober 1929. Signalene strømmer inn: US Steel faller, banker vakler, Federal Reserve bagatelliserer, og J.P. Morgan forsøker å stabilisere. Du har kunders porteføljer i hendene.",
+                    "options": [
+                        {
+                            "id": "selg",
+                            "label": "Selg alt - noe er veldig galt",
+                            "isCorrect": true
+                        },
+                        {
+                            "id": "hold",
+                            "label": "Hold - dette er bare en korreksjon",
+                            "isCorrect": false
+                        },
+                        {
+                            "id": "kjop",
+                            "label": "Kjøp mer! Alt er billig nå",
+                            "isCorrect": false
+                        }
+                    ],
+                    "correctFeedback": "Du solgte i tide. Fem dager senere, 29. oktober - 'Black Tuesday' - kollapser alt. 16 millioner aksjer dumpes på en dag. Du reddet kundene dine.",
+                    "incorrectFeedback": "Du holdt eller kjøpte. 29. oktober 1929 - 'Black Tuesday' - kollapser alt. 16 millioner aksjer dumpes på en dag. Kundene dine mister alt."
+                }
+            },
+            "choices": []
+        },
+        "new_york_win": {
+            "id": "new_york_win",
+            "speaker": "Margaret",
+            "text": "Du gjennomskuet boblens signaler. Hayeks teori slo til: kunstig lav rente hadde skapt feilinvesteringer i hele økonomien. Da boblen sprakk, sto du klar. Men for millioner av andre var det allerede for sent.",
+            "choices": [
+                {
+                    "id": "c_ny_win_videre",
+                    "text": "Tilbake til verdenskartet",
+                    "nextNodeId": "hub_verdenskart_del1",
+                    "setFlags": ["forsto_okonomien"],
+                    "effects": {
+                        "historisk_innsikt": 20
+                    }
+                }
+            ]
+        },
+        "new_york_loss": {
+            "id": "new_york_loss",
+            "speaker": "Margaret",
+            "text": "Alt forsvinner. Sparepenger, lån, framtid. 29. oktober 1929 - 'Black Tuesday' - er dagen verden forandres. 16 millioner aksjer dumpes. Ticker-maskinen henger 4 timer etter virkeligheten. Når du endelig forstår omfanget, er det for sent.",
+            "choices": [
+                {
+                    "id": "c_ny_loss_videre",
+                    "text": "Tilbake til verdenskartet",
+                    "nextNodeId": "hub_verdenskart_del1",
+                    "effects": {
+                        "sosial_desperasjon": 25
+                    }
+                }
+            ]
+        },
+        "ending_del1_bridge": {
+            "id": "ending_del1_bridge",
+            "speaker": "Forteller",
+            "text": "29. oktober 1929. 16 millioner aksjer dumpet på en dag. Festen er over. Lysene slukkes. Verdenshandelen kollapser. Arbeidsledigheten eksploderer. I mørket som følger, våkner de gamle demonene.\n\nMussolini har allerede makten i Roma. Stalin strammer grepet i Moskva. Og i Berlin sitter en mann med bart og venter tålmodig på sin sjanse.\n\nDette er slutten på Del 1. Fortsett reisen i Del 2: Stormen.",
+            "journalPrompt": "Hva tror du skjer med vanlige folk i Tyskland, Italia og Sovjet nå som den økonomiske krisen rammer?",
+            "isEnd": true,
+            "showEndComparison": true,
+            "choices": []
+        }
+    }
+}

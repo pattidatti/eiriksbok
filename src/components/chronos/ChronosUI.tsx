@@ -1104,10 +1104,16 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
                         {node.speaker && (() => {
                             const p = perspectives?.[node.speaker];
                             const factionStyles = {
-                                sovjet:    { border: 'border-l-[6px] border-red-500',    bg: 'bg-red-950/50',    text: 'text-red-200'    },
-                                usa:       { border: 'border-l-[6px] border-blue-500',   bg: 'bg-blue-950/50',   text: 'text-blue-200'   },
-                                sivil:     { border: 'border-l-[6px] border-stone-400',  bg: 'bg-stone-800/50',  text: 'text-stone-200'  },
-                                forteller: { border: 'border-l-[6px] border-amber-400',  bg: 'bg-amber-950/30',  text: 'text-amber-200'  },
+                                sovjet:        { border: 'border-l-[6px] border-red-500',      bg: 'bg-red-950/50',      text: 'text-red-200'      },
+                                usa:           { border: 'border-l-[6px] border-blue-500',     bg: 'bg-blue-950/50',     text: 'text-blue-200'     },
+                                sivil:         { border: 'border-l-[6px] border-stone-400',    bg: 'bg-stone-800/50',    text: 'text-stone-200'    },
+                                forteller:     { border: 'border-l-[6px] border-amber-400',    bg: 'bg-amber-950/30',    text: 'text-amber-200'    },
+                                fascisme:      { border: 'border-l-[6px] border-rose-600',     bg: 'bg-rose-950/50',     text: 'text-rose-200'     },
+                                nazisme:       { border: 'border-l-[6px] border-slate-500',    bg: 'bg-slate-900/50',    text: 'text-slate-200'    },
+                                frankrike:     { border: 'border-l-[6px] border-indigo-400',   bg: 'bg-indigo-950/50',   text: 'text-indigo-200'   },
+                                etiopia:       { border: 'border-l-[6px] border-emerald-500',  bg: 'bg-emerald-950/50',  text: 'text-emerald-200'  },
+                                storbritannia: { border: 'border-l-[6px] border-cyan-400',     bg: 'bg-cyan-950/50',     text: 'text-cyan-200'     },
+                                vitne:         { border: 'border-l-[6px] border-violet-400',   bg: 'bg-violet-950/50',   text: 'text-violet-200'   },
                             };
                             const style = p ? factionStyles[p.faction] : null;
                             return style ? (

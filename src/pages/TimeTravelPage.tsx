@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Clock, Shield, Sword, Trophy, History, Crown } from 'lucide-react';
+import { Clock, Shield, Sword, Trophy, History, Crown, Zap } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { TimeTravelProfileProvider, useTimeTravelProfile } from '../components/chronos/context/TimeTravelProfileContext';
@@ -61,6 +61,28 @@ const TimeTravelHub: React.FC = () => {
             icon: Crown,
             color: 'bg-red-950',
             image: '/images/chronos/nikolaj-ii/hero.webp',
+            disabled: false
+        },
+        {
+            id: 'mellomkrigstiden-del1',
+            title: 'Veien mot mørket – Del 1',
+            era: '1919–1929',
+            difficulty: 'Vanskelig',
+            description: 'Fra Versailles til børskrakket - opplev 1920-tallets fest og fall gjennom skiftende perspektiver.',
+            icon: Zap,
+            color: 'bg-amber-800',
+            image: '/images/chronos/mellomkrigstiden/del1-hero.webp',
+            disabled: false
+        },
+        {
+            id: 'mellomkrigstiden-del2',
+            title: 'Veien mot mørket – Del 2',
+            era: '1930–1939',
+            difficulty: 'Svært vanskelig',
+            description: 'Fra Hitlers maktovertakelse til 1. september 1939 - opplev demokratiets fall og veien mot krig.',
+            icon: Zap,
+            color: 'bg-slate-900',
+            image: '/images/chronos/mellomkrigstiden/del2-hero.webp',
             disabled: false
         },
         {
@@ -135,7 +157,7 @@ const TimeTravelHub: React.FC = () => {
                                         <div className="flex items-center gap-4">
                                             <div className={`w-2 h-12 rounded-full ${log.result === 'victory' ? 'bg-yellow-400' : 'bg-slate-300'}`} />
                                             <div>
-                                                <div className="font-bold text-slate-900">{{ 'roman-soldier': 'Romersk Legionær', 'medieval-baron': 'Baron av Rhinen', 'ww1-vestfront': 'Skyttergravenes Ekko', 'nikolaj-ii': 'Tsarens Skjebne', 'kald-krig': 'I Supermaktenes Skygge' }[log.scenarioId] ?? log.scenarioId}</div>
+                                                <div className="font-bold text-slate-900">{{ 'roman-soldier': 'Romersk Legionær', 'medieval-baron': 'Baron av Rhinen', 'ww1-vestfront': 'Skyttergravenes Ekko', 'nikolaj-ii': 'Tsarens Skjebne', 'mellomkrigstiden-del1': 'Veien mot mørket – Del 1', 'mellomkrigstiden-del2': 'Veien mot mørket – Del 2', 'kald-krig': 'I Supermaktenes Skygge' }[log.scenarioId] ?? log.scenarioId}</div>
                                                 <div className="text-xs text-slate-500 uppercase tracking-wide">
                                                     {new Date(log.date).toLocaleDateString()} • {log.daysSurvived} Dager Overlevd
                                                 </div>
@@ -188,12 +210,9 @@ const ScenarioCardContent: React.FC<{ scenario: any }> = ({ scenario }) => (
                     {scenario.difficulty}
                 </span>
             </div>
-            <p className="text-slate-600 mb-6 leading-relaxed">
+            <p className="text-slate-600 leading-relaxed">
                 {scenario.description}
             </p>
-            <div className="flex items-center text-indigo-600 font-bold text-sm uppercase tracking-wider group-hover:translate-x-1 transition-transform">
-                Start Reisen <Sword size={14} className="ml-2" />
-            </div>
         </div>
     </>
 );

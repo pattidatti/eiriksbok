@@ -28,11 +28,13 @@ Kilde: [Udir — Kjennetegn på måloppnåelse, musikk 10. trinn](https://www.ud
 
 Kjennetegnene gjelder Læreplan i musikk (MUS01-02) og er veiledende for standpunktvurdering.
 
-<!-- TODO: Kopier tabellinnhold fra Udir — https://www.udir.no/laring-og-trivsel/lareplanverket/kjennetegn/kjennetegn-pa-maloppnaelse--musikk-10.-trinn -->
-
 | | Karakter 2 (lav kompetanse) | Karakter 4 (god kompetanse) | Karakter 6 (framifrå kompetanse) |
 |---|---|---|---|
-| *Fyll inn fra Udir* | | | |
+| Samarbeid | Eleven lytter og tar imot innspill fra andre i musikkaktiviteter. | Eleven lytter og bidrar i musikkaktiviteter ved å gi innspill til andre, og bruker innspill fra andre i eget skapende arbeid. | Eleven tar initiativ i musikkaktiviteter, deler og kommuniserer ideer. Eleven prøver ut og vurderer innspill fra andre i eget skapende arbeid. |
+| Utøve | Eleven bruker noen musikalske virkemidler og viser enkle håndverksmessige ferdigheter når eleven utøver et repertoar. | Eleven bruker musikalske virkemidler og viser håndverksmessige ferdigheter når eleven utøver et variert repertoar. | Eleven bruker varierte musikalske virkemidler for å forme musikalske uttrykk og knytter dette til egne musikkopplevelser. Eleven viser gode håndverksmessige ferdigheter når eleven utøver et variert repertoar. |
+| Skape | Eleven bruker noen grunnelementer når eleven lager musikk. | Eleven bruker grunnelementer og setter dem sammen på varierte måter når eleven lager musikk. | Eleven bruker musikalske grunnelementer på kreative måter og knytter dette til egne musikkopplevelser. Eleven tar i bruk flere verktøy når eleven lager musikk. |
+| Formidle | Eleven formidler musikkopplevelser gjennom samtale og andre uttrykksformer. | Eleven formidler musikkopplevelser gjennom samtale og andre uttrykksformer. Eleven forklarer hvordan musikk kan gi mening i ulike sammenhenger. | Eleven formidler musikkopplevelser gjennom samtale og andre uttrykksformer. Eleven reflekterer over hvordan musikk kan gi mening for individer og grupper. |
+| Historisk perspektiv | Eleven setter musikk, sang og dans inn i et historisk og samfunnsmessig perspektiv. | Eleven setter musikk, sang og dans inn i et historisk og samfunnsmessig perspektiv, og beskriver sammenhenger mellom kulturelle forhold og estetiske uttrykk. | Eleven setter musikk, sang og dans inn i et historisk og samfunnsmessig perspektiv og knytter dette til eget skapende arbeid. Eleven reflekterer over sammenhenger mellom kulturelle forhold og estetiske uttrykk. |
 
 ## Underveisvurdering
 

@@ -40,11 +40,14 @@ Kilde: [Udir — Kjennetegn på måloppnåelse, samfunnsfag 10. trinn](https://w
 
 Kjennetegnene gjelder Læreplan i samfunnsfag (SAF01-04) og er veiledende for standpunktvurdering.
 
-<!-- TODO: Kopier tabellinnhold fra Udir — https://www.udir.no/laring-og-trivsel/lareplanverket/kjennetegn/kjennetegn-pa-maloppnaelse-samfunnsfag-10-trinn/ -->
-
 | | Karakter 2 (lav kompetanse) | Karakter 4 (god kompetanse) | Karakter 6 (framifrå kompetanse) |
 |---|---|---|---|
-| *Fyll inn fra Udir* | | | |
+| Sammenhenger | Eleven bruker gitte sammenhenger mellom geografiske, historiske og nåtidige forhold for å belyse samfunnsfaglige tema/problemstillinger. | Eleven identifiserer og bruker sammenhenger mellom geografiske, historiske og nåtidige forhold for å belyse samfunnsfaglige tema/problemstillinger. | Eleven identifiserer, bruker og kombinerer sammenhenger mellom geografiske, historiske og nåtidige forhold for å belyse samfunnsfaglige tema/problemstillinger. |
+| Kildebruk | Eleven finner og gjengir informasjon fra kilder for å belyse samfunnsfaglige tema/problemstillinger. | Eleven finner, gjengir og stiller spørsmål ved informasjon fra kilder for å belyse samfunnsfaglige tema/problemstillinger fra flere sider. | Eleven velger, bruker og vurderer informasjon fra kilder og tilgang på kilder for å belyse samfunnsfaglige tema/problemstillinger fra flere sider. |
+| Metode | Eleven bruker et begrenset utvalg samfunnsfaglige metoder og begrunner valg av metode. | Eleven bruker forskjellige samfunnsfaglige metoder og reflekterer over valg av metode. | Eleven bruker og tilpasser forskjellige samfunnsfaglige metoder og reflekterer over valg og bruk av metode. |
+| Årsak-virkning | Eleven forklarer ut fra et begrenset utvalg av årsak-virkningsforhold. | Eleven forklarer ut fra flere årsaks- og virkningsforhold. | Eleven forklarer ut fra sammensatte årsaks- og virkningsforhold. |
+| Handlingsalternativer | Eleven forklarer gitte handlingsalternativer i fortid, nåtid og fremtid. | Eleven forklarer handlingsalternativer i fortid, nåtid og fremtid og konsekvenser av disse. | Eleven forklarer handlingsalternativer i fortid, nåtid og fremtid og konsekvenser av disse, og identifiserer nyanser. |
+| Perspektiver | Eleven gjengir ulike perspektiver, herunder lokale, nasjonale og globale, på hendelser og fenomener. | Eleven bruker ulike perspektiver, herunder lokale, nasjonale og globale, i redegjørelser av hendelser og fenomener. | Eleven bruker ulike perspektiver, herunder lokale, nasjonale og globale, for å belyse hendelser og fenomener nyansert. |
 
 ## Underveisvurdering
 

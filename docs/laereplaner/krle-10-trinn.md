@@ -34,11 +34,13 @@ Kilde: [Udir — Kjennetegn på måloppnåelse, KRLE 10. trinn](https://www.udir
 
 Kjennetegnene gjelder Læreplan i KRLE (RLE01-03) og er veiledende for standpunktvurdering.
 
-<!-- TODO: Kopier tabellinnhold fra Udir — https://www.udir.no/laring-og-trivsel/lareplanverket/kjennetegn/kjennetegn-pa-maloppnaelse-krle-10.-trinn/ -->
-
 | | Karakter 2 (lav kompetanse) | Karakter 4 (god kompetanse) | Karakter 6 (framifrå kompetanse) |
 |---|---|---|---|
-| *Fyll inn fra Udir* | | | |
+| Faglig innhold | Eleven anvender deler av faglig innhold og beskriver noen faglige fenomener fra kristendom, andre religioner, livssyn og etikk ved bruk av enkelte fagbegreper. | Eleven anvender sentralt faglig innhold fra kristendom, andre religioner, livssyn og etikk og bruker fagbegreper i faglige framstillinger. | Eleven anvender et bredt utvalg av sentralt faglig innhold fra kristendom, andre religioner, livssyn og etikk og bruker fagbegreper presist i faglige framstillinger. |
+| Kildebruk og metode | Eleven velger, bruker og gjengir informasjon fra kilder, og bruker enkelte metoder i faget. | Eleven velger, bruker og gjengir selvstendig informasjon fra ulike kilder og vurderer og bruker varierte metoder i faget. | Eleven velger, bruker, gjengir og sammenstiller informasjon fra ulike kilder selvstendig og vurderer, bruker og reflekterer over varierte og komplekse metoder i faget. |
+| Eksistensielle spørsmål | Eleven beskriver og sammenligner noen ulike måter å nærme seg eksistensielle spørsmål og svar. | Eleven beskriver likheter og forskjeller mellom ulike måter å nærme seg eksistensielle spørsmål og svar. | Eleven beskriver forskjellige måter å nærme seg og forstå eksistensielle spørsmål og svar og reflekterer over fordeler og ulemper ved de ulike tilnærmingsmåtene. |
+| Perspektiver | Eleven gjengir og viser forståelse av andres ståsteder og perspektiver. | Eleven gjengir og forklarer andres ståsteder og perspektiver. | Eleven gjengir og reflekterer kritisk og selvstendig over andres ståsteder og perspektiver. |
+| Etikk og filosofi | Eleven identifiserer etiske dilemmaer og viser kjennskap til etiske modeller og filosofiske tenkemåter. | Eleven identifiserer etiske dilemmaer og bruker etiske modeller og filosofiske tenkemåter som redskaper i faget. | Eleven identifiserer et mangfold av etiske dilemmaer og bruker ulike etiske modeller og filosofiske tenkemåter som redskaper i faget. |
 
 ## Underveisvurdering
 

@@ -37,25 +37,30 @@ Kjennetegnene gjelder Læreplan i norsk og er veiledende for standpunktvurdering
 2. Muntlig kompetanse
 3. Skriftlig kompetanse
 
-<!-- TODO: Kopier tabellinnhold fra Udir — https://www.udir.no/laring-og-trivsel/lareplanverket/kjennetegn/kjennetegn-pa-maloppnaelse-norsk-10.-trinn -->
-
 ### Tabell 1: Felles (muntlig og skriftlig)
 
 | | Karakter 2 (lav kompetanse) | Karakter 4 (god kompetanse) | Karakter 6 (framifrå kompetanse) |
 |---|---|---|---|
-| *Fyll inn fra Udir* | | | |
+| Faglige emner | Eleven utforsker, gjør rede for og reflekterer over noen faglige emner på en enkel måte. | Eleven utforsker, gjør rede for og reflekterer over faglige emner. | Eleven utforsker, gjør rede for og reflekterer selvstendig over faglige emner. |
+| Fagspråk | Eleven bruker enkelte fagbegreper om tekst, faglige emner og språk. | Eleven bruker fagspråk om tekst, faglige emner og språk. | Eleven bruker presist fagspråk om tekst, faglige emner og språk. |
+| Tekstanalyse | Eleven beskriver innhold og noen virkemidler i tekster. Eleven plasserer tekster i en kontekst. | Eleven analyserer og grunngir sin forståelse av tekster. Eleven gir eksempler på virkemidler og beskriver forholdet mellom tekst og kontekst. | Eleven analyserer og tolker tekster. Eleven reflekterer over virkemidler og forholdet mellom tekst og kontekst. |
+| Uttrykksmåter | Eleven eksperimenterer med noen uttrykksmåter og uttrykker seg på måter som til en viss grad er tilpasset sjanger, formål, mottaker og medium. | Eleven eksperimenterer med uttrykksmåter og uttrykker seg på måter som er tilpasset sjanger, formål, mottaker og medium. | Eleven eksperimenterer med uttrykksmåter og varierer språket på måter som er tilpasset sjanger, formål, mottaker og medium. |
+| Kildebruk | Eleven bruker kilder i egen tekstskaping. Eleven skiller mellom egen og andres tekst og oppgir kilder. | Eleven bruker hensiktsmessige kilder i egen tekstskaping. Eleven oppgir kilder på en etterrettelig måte. | Eleven bruker og vurderer kilder kritisk i egen tekstskaping. Eleven oppgir kilder på en etterrettelig måte. |
+| Bearbeiding | Eleven gjør endringer i egne tekster ut fra innspill fra andre. | Eleven gjør endringer og bearbeider egne tekster ut fra kunnskap om språk og tekst og innspill fra andre. | Eleven gjør endringer og bearbeider egne tekster ut fra kunnskap om språk og tekst og innspill fra andre, og videreutvikler tekstene på en selvstendig måte. |
 
 ### Tabell 2: Muntlig
 
 | | Karakter 2 (lav kompetanse) | Karakter 4 (god kompetanse) | Karakter 6 (framifrå kompetanse) |
 |---|---|---|---|
-| *Fyll inn fra Udir* | | | |
+| Muntlig kommunikasjon | Eleven kommuniserer noe faglig innhold og begrunner til en viss grad egne oppfatninger og meninger i muntlige presentasjoner, samtaler og diskusjoner. | Eleven kommuniserer faglig innhold klart og underbygger egne oppfatninger og meninger i muntlige presentasjoner, samtaler og diskusjoner. | Eleven kommuniserer faglig innhold klart og tydelig og argumenterer saklig i muntlige presentasjoner, samtaler og diskusjoner. |
 
 ### Tabell 3: Skriftlig
 
 | | Karakter 2 (lav kompetanse) | Karakter 4 (god kompetanse) | Karakter 6 (framifrå kompetanse) |
 |---|---|---|---|
-| *Fyll inn fra Udir* | | | |
+| Tekstskaping | Eleven skriver tekster med en viss tematisk sammenheng. Eleven bruker forståelig setningsstruktur og tekstbinding mellom setninger og avsnitt. Eleven mestrer sentrale regler for rettskriving og tegnsetting. | Eleven skriver tekster med god tematisk sammenheng. Eleven varierer setningsstruktur og tekstbinding ut fra formålet med teksten. Eleven mestrer regler for rettskriving, og sentrale regler for tegnsetting. | Eleven skriver tekster med klar tematisk sammenheng. Eleven varierer setningsstruktur og tekstbinding på en selvstendig måte ut fra formålet med teksten. Eleven mestrer regler for rettskriving og i hovedtrekk regler for tegnsetting. |
+| Hovedmål | Eleven mestrer hovedregler for ordbøying på hovedmålet sitt. Eleven har også et dekkende ordforråd og uttrykker seg stort sett hensiktsmessig på hovedmålet. | Eleven mestrer ordbøying på hovedmålet sitt. Eleven har et variert ordforråd og uttrykker seg hensiktsmessig på hovedmålet. | Eleven mestrer ordbøying på hovedmålet sitt. Eleven har et rikt og presist ordforråd og uttrykker seg variert og hensiktsmessig på hovedmålet. |
+| Sidemål | Eleven mestrer sentrale regler for ordbøying på sidemålet sitt. Eleven har et enkelt ordforråd og bruker enkelte ord og uttrykk som er typiske for sidemålet. | Eleven mestrer hovedregler for ordbøying på sidemålet sitt. Eleven har et relevant ordforråd, bruker sentrale ord og uttrykk og uttrykker seg stort sett hensiktsmessig på sidemålet. | Eleven mestrer i hovedtrekk ordbøying på sidemålet sitt. Eleven har et variert ordforråd, bruker relevante ord og uttrykk og uttrykker seg hensiktsmessig på sidemålet. |
 
 ## Underveisvurdering
 
