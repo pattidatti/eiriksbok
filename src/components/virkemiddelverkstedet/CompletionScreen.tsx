@@ -2,44 +2,71 @@ import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import confetti from 'canvas-confetti';
 import { Star, ArrowRight, RotateCcw } from 'lucide-react';
-import type { LiteraryDevice, Level } from '../../data/virkemiddelverkstedet/types';
+import type { LiteraryDevice, Level, ApplyLevel, WorkshopMode } from '../../data/virkemiddelverkstedet/types';
 import { deviceColorMap } from '../../data/virkemiddelverkstedet/devices';
 import { getLevelExerciseCount } from '../../data/virkemiddelverkstedet/exercises';
-import { getLevelName } from '../../data/virkemiddelverkstedet/levels';
+import { getApplyLevelExerciseCount } from '../../data/virkemiddelverkstedet/exercises/apply';
+import { getLevelName, getApplyLevelName } from '../../data/virkemiddelverkstedet/levels';
 import { useVirkemiddelStore } from '../../stores/useVirkemiddelStore';
 
 interface CompletionScreenProps {
     device: LiteraryDevice;
-    level: Level;
+    level: Level | ApplyLevel;
     score: number;
+    mode: WorkshopMode;
     onNextLevel: () => void;
     onRetry: () => void;
     onBack: () => void;
 }
 
-export const CompletionScreen = ({ device, level, score, onNextLevel, onRetry, onBack }: CompletionScreenProps) => {
+export const CompletionScreen = ({
+    device,
+    level,
+    score,
+    mode,
+    onNextLevel,
+    onRetry,
+    onBack,
+}: CompletionScreenProps) => {
     const colors = deviceColorMap[device.color];
-    const { getDeviceProgress, unlockLevel, addPoints } = useVirkemiddelStore();
-    const progress = getDeviceProgress(device.id);
+    const isApply = mode === 'bruk';
+    const { getDeviceProgress, getApplyDeviceProgress, unlockLevel, addPoints, addApplyPoints } =
+        useVirkemiddelStore();
+    const progress = isApply
+        ? getApplyDeviceProgress(device.id)
+        : getDeviceProgress(device.id);
 
-    const totalExercises = getLevelExerciseCount(device.id, level);
-    const maxPossible = totalExercises * 150; // 100 base + 50 max streak
+    const totalExercises = isApply
+        ? getApplyLevelExerciseCount(device.id, level as ApplyLevel)
+        : getLevelExerciseCount(device.id, level as Level);
+    const maxPossible = totalExercises * 150;
     const percentage = maxPossible > 0 ? (score / maxPossible) * 100 : 0;
     const stars = percentage >= 80 ? 3 : percentage >= 50 ? 2 : 1;
 
-    const hasNextLevel = level < 10;
-    const nextLevelUnlocked = level < 10 && progress.levelUnlocked >= (level + 1);
+    const maxLevel = isApply ? 3 : 10;
+    const hasNextLevel = level < maxLevel;
+    // In apply mode, all levels are always open so next is always available
+    const nextLevelUnlocked = isApply
+        ? true
+        : level < 10 && progress.levelUnlocked >= level + 1;
+
+    const levelName = isApply
+        ? getApplyLevelName(level as ApplyLevel)
+        : getLevelName(level as Level);
 
     useEffect(() => {
-        // Unlock next level if performance is good enough
-        if (hasNextLevel && stars >= 2) {
+        // Unlock next level for analyze mode
+        if (!isApply && hasNextLevel && stars >= 2) {
             unlockLevel(device.id, (level + 1) as Exclude<Level, 1>);
         }
 
         // Level completion bonus
-        addPoints(200);
+        if (isApply) {
+            addApplyPoints(200);
+        } else {
+            addPoints(200);
+        }
 
-        // Confetti!
         const timer = setTimeout(() => {
             confetti({
                 particleCount: 80 + stars * 40,
@@ -65,7 +92,10 @@ export const CompletionScreen = ({ device, level, score, onNextLevel, onRetry, o
                         Nivå {level} fullført!
                     </h2>
                     <p className="text-slate-500">
-                        {device.name} - {getLevelName(level)}
+                        {device.name} - {levelName}
+                        {isApply && (
+                            <span className="text-indigo-500 ml-1">(Bruk)</span>
+                        )}
                     </p>
 
                     {/* Stars */}
@@ -75,11 +105,17 @@ export const CompletionScreen = ({ device, level, score, onNextLevel, onRetry, o
                                 key={s}
                                 initial={{ scale: 0, rotate: -30 }}
                                 animate={{ scale: 1, rotate: 0 }}
-                                transition={{ delay: 0.3 + s * 0.15, type: 'spring', stiffness: 200 }}
+                                transition={{
+                                    delay: 0.3 + s * 0.15,
+                                    type: 'spring',
+                                    stiffness: 200,
+                                }}
                             >
                                 <Star
                                     className={`w-10 h-10 ${
-                                        s <= stars ? 'text-amber-400 fill-amber-400' : 'text-slate-300'
+                                        s <= stars
+                                            ? 'text-amber-400 fill-amber-400'
+                                            : 'text-slate-300'
                                     }`}
                                 />
                             </motion.div>
@@ -112,7 +148,7 @@ export const CompletionScreen = ({ device, level, score, onNextLevel, onRetry, o
                             onClick={onRetry}
                             className="w-full py-3 px-6 rounded-full font-bold text-slate-600 hover:bg-slate-100 transition-colors flex items-center justify-center gap-2"
                         >
-                            <RotateCcw className="w-4 h-4" /> Prov igjen
+                            <RotateCcw className="w-4 h-4" /> Prøv igjen
                         </button>
 
                         <button
@@ -123,7 +159,7 @@ export const CompletionScreen = ({ device, level, score, onNextLevel, onRetry, o
                         </button>
                     </div>
 
-                    {stars < 2 && hasNextLevel && (
+                    {!isApply && stars < 2 && hasNextLevel && (
                         <p className="text-xs text-slate-400">
                             Få minst 2 stjerner for å låse opp neste nivå.
                         </p>

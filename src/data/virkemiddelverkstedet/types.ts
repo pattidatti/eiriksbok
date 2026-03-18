@@ -1,4 +1,6 @@
 export type Level = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
+export type ApplyLevel = 1 | 2 | 3;
+export type WorkshopMode = 'analyser' | 'bruk';
 
 export interface DeviceTheory {
     definition: string;
@@ -113,7 +115,7 @@ export type ExerciseData =
 export interface Exercise {
     id: string;
     deviceId: string;
-    level: Level;
+    level: Level | ApplyLevel;
     instruction: string;
     data: ExerciseData;
 }
@@ -130,6 +132,6 @@ export type ViewState =
     | { view: 'grid' }
     | { view: 'theory'; deviceId: string }
     | { view: 'levels'; deviceId: string }
-    | { view: 'exercise'; deviceId: string; level: Level }
-    | { view: 'completion'; deviceId: string; level: Level; score: number }
+    | { view: 'exercise'; deviceId: string; level: Level | ApplyLevel }
+    | { view: 'completion'; deviceId: string; level: Level | ApplyLevel; score: number }
     | { view: 'mastery'; deviceId: string };

@@ -1,9 +1,10 @@
 import { useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import type { Exercise, Level } from '../../data/virkemiddelverkstedet/types';
+import type { Exercise, Level, ApplyLevel, WorkshopMode } from '../../data/virkemiddelverkstedet/types';
 import { getDevice } from '../../data/virkemiddelverkstedet/devices';
 import { getExercisesForDevice } from '../../data/virkemiddelverkstedet/exercises';
-import { getLevelName } from '../../data/virkemiddelverkstedet/levels';
+import { getApplyExercisesForDevice } from '../../data/virkemiddelverkstedet/exercises/apply';
+import { getLevelName, getApplyLevelName } from '../../data/virkemiddelverkstedet/levels';
 import { useVirkemiddelStore } from '../../stores/useVirkemiddelStore';
 import { ScoreDisplay } from './ScoreDisplay';
 import { HighlightExercise } from './exercises/HighlightExercise';
@@ -18,16 +19,29 @@ import { FindErrorExercise } from './exercises/FindErrorExercise';
 
 interface ExerciseRunnerProps {
     deviceId: string;
-    level: Level;
+    level: Level | ApplyLevel;
+    mode: WorkshopMode;
     onComplete: (score: number) => void;
     onBack: () => void;
 }
 
-export const ExerciseRunner = ({ deviceId, level, onComplete, onBack }: ExerciseRunnerProps) => {
+export const ExerciseRunner = ({ deviceId, level, mode, onComplete, onBack }: ExerciseRunnerProps) => {
     const device = getDevice(deviceId);
-    const exercises = getExercisesForDevice(deviceId, level);
-    const { completeExercise, incrementStreak, resetStreak, getDeviceProgress } = useVirkemiddelStore();
-    const progress = getDeviceProgress(deviceId);
+    const isApply = mode === 'bruk';
+    const exercises = isApply
+        ? getApplyExercisesForDevice(deviceId, level as ApplyLevel)
+        : getExercisesForDevice(deviceId, level as Level);
+    const {
+        completeExercise,
+        incrementStreak,
+        resetStreak,
+        getDeviceProgress,
+        completeApplyExercise,
+        incrementApplyStreak,
+        resetApplyStreak,
+        getApplyDeviceProgress,
+    } = useVirkemiddelStore();
+    const progress = isApply ? getApplyDeviceProgress(deviceId) : getDeviceProgress(deviceId);
 
     const [currentIndex, setCurrentIndex] = useState(0);
     const [sessionScore, setSessionScore] = useState(0);
@@ -35,6 +49,10 @@ export const ExerciseRunner = ({ deviceId, level, onComplete, onBack }: Exercise
     const [exerciseDone, setExerciseDone] = useState(false);
 
     const currentExercise = exercises[currentIndex];
+
+    const levelName = isApply
+        ? getApplyLevelName(level as ApplyLevel)
+        : getLevelName(level as Level);
 
     const handleCorrect = useCallback(
         (points: number) => {
@@ -45,20 +63,37 @@ export const ExerciseRunner = ({ deviceId, level, onComplete, onBack }: Exercise
             setStreak((s) => s + 1);
             setExerciseDone(true);
 
-            completeExercise(deviceId, currentExercise.id, totalPoints);
-            incrementStreak(deviceId);
+            if (isApply) {
+                completeApplyExercise(deviceId, currentExercise.id, totalPoints);
+                incrementApplyStreak(deviceId);
+            } else {
+                completeExercise(deviceId, currentExercise.id, totalPoints);
+                incrementStreak(deviceId);
+            }
         },
-        [deviceId, currentExercise, streak, completeExercise, incrementStreak]
+        [
+            deviceId,
+            currentExercise,
+            streak,
+            isApply,
+            completeExercise,
+            incrementStreak,
+            completeApplyExercise,
+            incrementApplyStreak,
+        ]
     );
 
     const handleWrong = useCallback(() => {
         setStreak(0);
-        resetStreak(deviceId);
-    }, [deviceId, resetStreak]);
+        if (isApply) {
+            resetApplyStreak(deviceId);
+        } else {
+            resetStreak(deviceId);
+        }
+    }, [deviceId, isApply, resetStreak, resetApplyStreak]);
 
     const handleNext = () => {
         if (currentIndex + 1 >= exercises.length) {
-            // Level complete
             onComplete(sessionScore);
         } else {
             setCurrentIndex((i) => i + 1);
@@ -113,9 +148,16 @@ export const ExerciseRunner = ({ deviceId, level, onComplete, onBack }: Exercise
             <div className="flex items-center gap-3 mb-2">
                 <span className="text-2xl">{device.emoji}</span>
                 <div>
-                    <h2 className="font-bold text-slate-900">{device.name}</h2>
+                    <h2 className="font-bold text-slate-900">
+                        {device.name}
+                        {isApply && (
+                            <span className="text-indigo-500 text-sm font-medium ml-2">
+                                Bruk
+                            </span>
+                        )}
+                    </h2>
                     <p className="text-xs text-slate-400">
-                        Nivå {level} - {getLevelName(level)}
+                        Nivå {level} - {levelName}
                     </p>
                 </div>
             </div>
@@ -155,7 +197,9 @@ export const ExerciseRunner = ({ deviceId, level, onComplete, onBack }: Exercise
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
                         >
-                            {currentIndex + 1 >= exercises.length ? 'Se resultater' : 'Neste oppgave'}
+                            {currentIndex + 1 >= exercises.length
+                                ? 'Se resultater'
+                                : 'Neste oppgave'}
                         </motion.button>
                     </motion.div>
                 )}

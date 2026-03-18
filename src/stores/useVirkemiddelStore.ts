@@ -13,6 +13,8 @@ const DEFAULT_PROGRESS: DeviceProgress = {
 interface VirkemiddelState {
     progress: Record<string, DeviceProgress>;
     totalPoints: number;
+    applyProgress: Record<string, DeviceProgress>;
+    applyTotalPoints: number;
 
     getDeviceProgress: (deviceId: string) => DeviceProgress;
     completeExercise: (deviceId: string, exerciseId: string, points: number) => void;
@@ -20,6 +22,13 @@ interface VirkemiddelState {
     incrementStreak: (deviceId: string) => void;
     resetStreak: (deviceId: string) => void;
     addPoints: (points: number) => void;
+
+    getApplyDeviceProgress: (deviceId: string) => DeviceProgress;
+    completeApplyExercise: (deviceId: string, exerciseId: string, points: number) => void;
+    incrementApplyStreak: (deviceId: string) => void;
+    resetApplyStreak: (deviceId: string) => void;
+    addApplyPoints: (points: number) => void;
+
     resetAll: () => void;
 }
 
@@ -28,6 +37,8 @@ export const useVirkemiddelStore = create<VirkemiddelState>()(
         (set, get) => ({
             progress: {},
             totalPoints: 0,
+            applyProgress: {},
+            applyTotalPoints: 0,
 
             getDeviceProgress: (deviceId) => {
                 return get().progress[deviceId] || { ...DEFAULT_PROGRESS };
@@ -94,7 +105,70 @@ export const useVirkemiddelStore = create<VirkemiddelState>()(
                     totalPoints: state.totalPoints + points,
                 })),
 
-            resetAll: () => set({ progress: {}, totalPoints: 0 }),
+            // Apply mode methods
+            getApplyDeviceProgress: (deviceId) => {
+                return get().applyProgress[deviceId] || { ...DEFAULT_PROGRESS };
+            },
+
+            completeApplyExercise: (deviceId, exerciseId, points) =>
+                set((state) => {
+                    const current = state.applyProgress[deviceId] || { ...DEFAULT_PROGRESS };
+                    if (current.completedExercises.includes(exerciseId)) return state;
+                    return {
+                        applyProgress: {
+                            ...state.applyProgress,
+                            [deviceId]: {
+                                ...current,
+                                completedExercises: [
+                                    ...current.completedExercises,
+                                    exerciseId,
+                                ],
+                                bestScore: current.bestScore + points,
+                            },
+                        },
+                        applyTotalPoints: state.applyTotalPoints + points,
+                    };
+                }),
+
+            incrementApplyStreak: (deviceId) =>
+                set((state) => {
+                    const current = state.applyProgress[deviceId] || { ...DEFAULT_PROGRESS };
+                    const newStreak = current.currentStreak + 1;
+                    return {
+                        applyProgress: {
+                            ...state.applyProgress,
+                            [deviceId]: {
+                                ...current,
+                                currentStreak: newStreak,
+                                maxStreak: Math.max(current.maxStreak, newStreak),
+                            },
+                        },
+                    };
+                }),
+
+            resetApplyStreak: (deviceId) =>
+                set((state) => {
+                    const current = state.applyProgress[deviceId] || { ...DEFAULT_PROGRESS };
+                    return {
+                        applyProgress: {
+                            ...state.applyProgress,
+                            [deviceId]: { ...current, currentStreak: 0 },
+                        },
+                    };
+                }),
+
+            addApplyPoints: (points) =>
+                set((state) => ({
+                    applyTotalPoints: state.applyTotalPoints + points,
+                })),
+
+            resetAll: () =>
+                set({
+                    progress: {},
+                    totalPoints: 0,
+                    applyProgress: {},
+                    applyTotalPoints: 0,
+                }),
         }),
         {
             name: 'virkemiddelverkstedet',

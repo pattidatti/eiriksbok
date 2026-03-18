@@ -2,23 +2,32 @@ import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import confetti from 'canvas-confetti';
 import { Crown, Trophy, Sparkles } from 'lucide-react';
-import type { LiteraryDevice } from '../../data/virkemiddelverkstedet/types';
+import type { LiteraryDevice, WorkshopMode } from '../../data/virkemiddelverkstedet/types';
 import { deviceColorMap } from '../../data/virkemiddelverkstedet/devices';
 import { useVirkemiddelStore } from '../../stores/useVirkemiddelStore';
 
 interface MasteryScreenProps {
     device: LiteraryDevice;
+    mode: WorkshopMode;
     onBack: () => void;
 }
 
-export const MasteryScreen = ({ device, onBack }: MasteryScreenProps) => {
+export const MasteryScreen = ({ device, mode, onBack }: MasteryScreenProps) => {
     const colors = deviceColorMap[device.color];
-    const { getDeviceProgress, addPoints } = useVirkemiddelStore();
-    const progress = getDeviceProgress(device.id);
+    const isApply = mode === 'bruk';
+    const { getDeviceProgress, getApplyDeviceProgress, addPoints, addApplyPoints } =
+        useVirkemiddelStore();
+    const progress = isApply
+        ? getApplyDeviceProgress(device.id)
+        : getDeviceProgress(device.id);
 
     useEffect(() => {
         // Mastery bonus
-        addPoints(500);
+        if (isApply) {
+            addApplyPoints(500);
+        } else {
+            addPoints(500);
+        }
 
         // Max celebration!
         const burst = (delay: number, opts: confetti.Options) => {
@@ -48,6 +57,8 @@ export const MasteryScreen = ({ device, onBack }: MasteryScreenProps) => {
         });
     }, []);
 
+    const modeLabel = isApply ? 'bruke' : 'analysere';
+
     return (
         <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -57,9 +68,7 @@ export const MasteryScreen = ({ device, onBack }: MasteryScreenProps) => {
         >
             <div className="bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden">
                 {/* Glowing header */}
-                <div
-                    className={`${colors.light} p-10 relative overflow-hidden`}
-                >
+                <div className={`${colors.light} p-10 relative overflow-hidden`}>
                     {/* Sparkle decorations */}
                     <motion.div
                         className="absolute top-4 left-8"
@@ -106,7 +115,7 @@ export const MasteryScreen = ({ device, onBack }: MasteryScreenProps) => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.7 }}
                     >
-                        Mester!
+                        {isApply ? 'Fullført!' : 'Mester!'}
                     </motion.h2>
                     <motion.p
                         className={`font-bold mt-1 ${colors.text}`}
@@ -114,7 +123,7 @@ export const MasteryScreen = ({ device, onBack }: MasteryScreenProps) => {
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.9 }}
                     >
-                        Du har mestret {device.name}!
+                        Du kan {modeLabel} {device.name}!
                     </motion.p>
                 </div>
 
@@ -123,11 +132,15 @@ export const MasteryScreen = ({ device, onBack }: MasteryScreenProps) => {
                     <div className="grid grid-cols-2 gap-3">
                         <div className="bg-amber-50 rounded-xl p-3">
                             <Trophy className="w-5 h-5 text-amber-500 mx-auto mb-1" />
-                            <p className="text-2xl font-bold text-amber-700">{progress.bestScore}</p>
+                            <p className="text-2xl font-bold text-amber-700">
+                                {progress.bestScore}
+                            </p>
                             <p className="text-xs text-amber-600">Totalpoeng</p>
                         </div>
                         <div className="bg-orange-50 rounded-xl p-3">
-                            <p className="text-2xl font-bold text-orange-700">🔥 {progress.maxStreak}</p>
+                            <p className="text-2xl font-bold text-orange-700">
+                                🔥 {progress.maxStreak}
+                            </p>
                             <p className="text-xs text-orange-600">Beste streak</p>
                         </div>
                     </div>
@@ -139,9 +152,7 @@ export const MasteryScreen = ({ device, onBack }: MasteryScreenProps) => {
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: 1.2 }}
                     >
-                        <p className={`font-bold ${colors.text}`}>
-                            +500 mestringsbonus!
-                        </p>
+                        <p className={`font-bold ${colors.text}`}>+500 mestringsbonus!</p>
                     </motion.div>
 
                     <motion.button
