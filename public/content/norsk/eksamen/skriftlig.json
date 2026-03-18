@@ -114,7 +114,7 @@
         {
             "type": "info_box",
             "title": "Trenger du oppfriskning?",
-            "content": "Les artiklene om analyse og virkemidler:\n\n- [Tema og budskap](/norsk/analyse/tema-og-budskap)\n- [Analyse av novelle](/norsk/analyse/analyse-novelle)\n- [Analyse av dikt](/norsk/analyse/analyse-dikt)\n- [Bildespråk og effekter](/norsk/virkemidler/bildesprak-og-effekter)"
+            "content": "Les artiklene om analyse og virkemidler:\n\n- [Tema og budskap](/norsk/analyse/tema-og-budskap)\n- [Analyse av novelle](/norsk/analyse/analyse-novelle)\n- [Analyse av dikt](/norsk/analyse/analyse-dikt)\n- [Bildespråk og effekter](/norsk/virkemidler/bildesprak-og-effekter)\n- [Tren i Virkemiddelverkstedet](/oving/virkemidler)"
         },
         {
             "type": "header",
@@ -481,6 +481,12 @@
                     "type": "link",
                     "text": "Quiz",
                     "url": "/oving/quiz",
+                    "icon": "star"
+                },
+                {
+                    "type": "link",
+                    "text": "Virkemiddelverkstedet",
+                    "url": "/oving/virkemidler",
                     "icon": "star"
                 },
                 {

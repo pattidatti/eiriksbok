@@ -52,5 +52,6 @@ export const routeFactories: Record<string, PageFactory> = {
     LearningPathsHub: () => import('./pages/LearningPathsHub').then(module => ({ default: module.LearningPathsHub })),
     CompositionTool: () => import('./features/music/components/composition/CompositionTool').then(module => ({ default: module.CompositionTool })),
     InfrastrukturAtlas: () => import('./features/infrastruktur/InfrastrukturAtlasPage').then(module => ({ default: module.InfrastrukturAtlasPage })),
+    VirkemiddelverkstedetPage: () => import('./pages/VirkemiddelverkstedetPage').then(module => ({ default: module.VirkemiddelverkstedetPage })),
 };
 

@@ -55,6 +55,7 @@ const PresentationPage = React.lazy(routeFactories.PresentationPage);
 const LearningPathsHub = React.lazy(routeFactories.LearningPathsHub);
 const CompositionTool = React.lazy(routeFactories.CompositionTool);
 const InfrastrukturAtlas = React.lazy(routeFactories.InfrastrukturAtlas);
+const VirkemiddelverkstedetPage = React.lazy(routeFactories.VirkemiddelverkstedetPage);
 
 
 
@@ -105,6 +106,7 @@ const router = createBrowserRouter([
       { path: "oving/etikk", element: <EthicsExperimentPage /> },
       { path: "oving/tidsreise", element: <TimeTravelPage /> },
       { path: "oving/tidsreise/:scenarioId", element: <TimeTravelGamePage /> },
+      { path: "oving/virkemidler", element: <VirkemiddelverkstedetPage /> },
       { path: "historie/vikingtiden/detektiv", element: <DetectiveCasePage /> },
       { path: "admin", element: <AdminGuard><AdminDashboard /></AdminGuard> },
       { path: "admin/stats", element: <AdminGuard><StatsPage /></AdminGuard> },

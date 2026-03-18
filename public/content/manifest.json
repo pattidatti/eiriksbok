@@ -364,6 +364,13 @@
               "description": "Bygg din egen verktøykasse for skjønnlitterær skriving — fra tema og karakter til ferdig novelle.",
               "link": "/norsk/virkemidler/skapende-skriving-sti",
               "icon": "map"
+            },
+            {
+              "id": "virkemiddelverkstedet",
+              "title": "Virkemiddelverkstedet",
+              "description": "Tren på å kjenne igjen metaforer, symboler og andre virkemidler.",
+              "link": "/oving/virkemidler",
+              "icon": "pen"
             }
           ],
           "lessons": [
@@ -922,7 +929,7 @@
                 "rente"
               ],
               "createdDate": "2025-12-03T10:17:41+01:00",
-              "lastUpdated": "2026-01-14T10:21:48+01:00"
+              "lastUpdated": "2026-03-17T11:06:26+01:00"
             },
             {
               "id": "finanskriser",
@@ -948,8 +955,8 @@
                 "østerriksk skole",
                 "sentralbank"
               ],
-              "createdDate": "2026-03-17T00:00:00Z",
-              "lastUpdated": "2026-03-17T09:33:00.835Z"
+              "createdDate": "2026-03-17T11:06:26+01:00",
+              "lastUpdated": "2026-03-17T11:06:26+01:00"
             }
           ]
         },

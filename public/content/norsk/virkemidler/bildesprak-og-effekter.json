@@ -253,6 +253,11 @@
             "content": "Språklige bilder er fargene du maler med. Du trenger ikke bruke alle på én gang, men ved å velge riktig verktøy kan du styre leserens følelser. Metaforer slår hardt, sammenligninger forklarer forsiktig, og symboler gir dybde. Neste gang du leser en tekst, prøv å se etter disse usynlige penselstrøkene."
         },
         {
+            "type": "info_box",
+            "title": "Tren på virkemidlene",
+            "content": "Kan du kjenne igjen metaforer, symboler og andre virkemidler i en tekst? Test deg selv i [Virkemiddelverkstedet](/oving/virkemidler)!"
+        },
+        {
             "type": "link",
             "target": "norsk/skrivehjelp/hvordan-skrive-dikt",
             "text": "Neste steg: Skriv ditt eget dikt"

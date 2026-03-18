@@ -128,6 +128,11 @@
             "content": "Forfatteren er en tidsreisende. Ved å bryte kronologien (rekkefølgen) med hopp fram og tilbake, og ved å justere tempoet (utvide eller forkorte), skaper forfatteren en opplevelse som er mer spennende enn virkeligheten. Når du skriver selv: Ikke vær redd for å hoppe rett inn i det actionfylte, for så å forklare bakgrunnen senere."
         },
         {
+            "type": "info_box",
+            "title": "Tren på virkemidlene",
+            "content": "Kan du gjenkjenne frampek, tilbakeblikk og andre virkemidler i en tekst? Test deg selv i [Virkemiddelverkstedet](/oving/virkemidler)!"
+        },
+        {
             "type": "link",
             "target": "norsk/litteraturhistorie/realismen",
             "text": "Se hvordan Ibsen mestert retrospektiv teknikk"

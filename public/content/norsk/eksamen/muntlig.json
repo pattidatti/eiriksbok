@@ -200,7 +200,7 @@
         {
             "type": "info_box",
             "title": "Nyttige analyseverktøy",
-            "content": "Les disse artiklene for å styrke analysen:\n\n- [Tema og budskap](/norsk/analyse/tema-og-budskap)\n- [Bildespråk og effekter](/norsk/virkemidler/bildesprak-og-effekter)\n- [Synsvinkel og stemme](/norsk/virkemidler/synsvinkel-og-stemme)"
+            "content": "Les disse artiklene for å styrke analysen:\n\n- [Tema og budskap](/norsk/analyse/tema-og-budskap)\n- [Bildespråk og effekter](/norsk/virkemidler/bildesprak-og-effekter)\n- [Synsvinkel og stemme](/norsk/virkemidler/synsvinkel-og-stemme)\n- [Tren i Virkemiddelverkstedet](/oving/virkemidler)"
         },
         {
             "type": "quiz",
@@ -471,7 +471,7 @@
         {
             "type": "info_box",
             "title": "Fordyp deg i virkemidler",
-            "content": "- [Tid og struktur](/norsk/virkemidler/tid-og-struktur)\n- [Bildespråk og effekter](/norsk/virkemidler/bildesprak-og-effekter)\n- [Synsvinkel og stemme](/norsk/virkemidler/synsvinkel-og-stemme)"
+            "content": "- [Tid og struktur](/norsk/virkemidler/tid-og-struktur)\n- [Bildespråk og effekter](/norsk/virkemidler/bildesprak-og-effekter)\n- [Synsvinkel og stemme](/norsk/virkemidler/synsvinkel-og-stemme)\n- [Tren i Virkemiddelverkstedet](/oving/virkemidler)"
         },
         {
             "type": "header",
@@ -770,6 +770,12 @@
                     "text": "Tekstbiblioteket",
                     "url": "/norsk/bibliotek",
                     "icon": "book"
+                },
+                {
+                    "type": "link",
+                    "text": "Virkemiddelverkstedet",
+                    "url": "/oving/virkemidler",
+                    "icon": "star"
                 },
                 {
                     "type": "link",

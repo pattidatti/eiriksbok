@@ -116,6 +116,11 @@
             "type": "info",
             "title": "Husk!",
             "content": "Det finnes ingen 'feil' i poesi. Hvis du bryter en regel med vilje for å få frem en effekt, er det kunst. Hvis du gjør det ved en feil, er det læring. Bare skriv!"
+        },
+        {
+            "type": "info_box",
+            "title": "Tren på virkemidlene",
+            "content": "Vil du bli bedre til å bruke metaforer, sammenligninger og besjeling? Tren i [Virkemiddelverkstedet](/oving/virkemidler)!"
         }
     ],
     "tags": [

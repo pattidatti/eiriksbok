@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Brain, HelpCircle, Clock, MessageCircle, Gamepad2, Plane, History, Users, Search, Compass, Hourglass, Castle, Swords } from 'lucide-react';
+import { Brain, HelpCircle, Clock, MessageCircle, Gamepad2, Plane, History, Users, Search, Compass, Hourglass, Castle, Swords, Pen } from 'lucide-react';
 
 export const PracticePage: React.FC = () => {
     const modules = [
@@ -35,6 +35,14 @@ export const PracticePage: React.FC = () => {
             icon: Clock,
             color: 'bg-amber-500',
             link: '/tidslinje'
+        },
+        {
+            id: 'virkemidler',
+            title: 'Virkemiddelverkstedet',
+            description: 'Lær å kjenne igjen metaforer, symboler og andre litterære virkemidler.',
+            icon: Pen,
+            color: 'bg-violet-500',
+            link: '/oving/virkemidler'
         },
         {
             id: 'rhetoric',

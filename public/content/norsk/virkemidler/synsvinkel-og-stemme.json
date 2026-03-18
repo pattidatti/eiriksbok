@@ -140,6 +140,11 @@
             "content": "Synsvinkel er ikke bare et teknisk valg, det er et valg om sannhet. Vil du ha den intense, subjektive sannheten (Personal)? Den kalde, objektive fakta-sannheten (Autoral)? Eller den store, altomfattende oversikten (Allvitende)? Det finnes ingen fasit, bare ulike måter å se verden på."
         },
         {
+            "type": "info_box",
+            "title": "Tren på virkemidlene",
+            "content": "Kan du gjenkjenne virkemidler som metafor, symbol og personifisering? Test deg selv i [Virkemiddelverkstedet](/oving/virkemidler)!"
+        },
+        {
             "type": "link",
             "target": "norsk/virkemidler/tid-og-struktur",
             "text": "Neste leksjon: Tid og Struktur"
