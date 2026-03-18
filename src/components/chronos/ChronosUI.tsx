@@ -489,8 +489,6 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
     useEffect(() => {
         if (node.isEnd && node.endType === 'defeat') {
             setDefeatInterstitial(true);
-            const timer = setTimeout(() => setDefeatInterstitial(false), 2200);
-            return () => clearTimeout(timer);
         }
     }, [node.id, node.isEnd, node.endType]);
 
@@ -681,7 +679,7 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="absolute inset-0 z-[60] flex flex-col items-center justify-center pointer-events-none"
+                        className="absolute inset-0 z-[60] flex flex-col items-center justify-center"
                     >
                         <motion.div
                             className="absolute inset-0 bg-red-950"
@@ -715,6 +713,25 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
                                 animate={{ width: '60vw' }}
                                 transition={{ delay: 0.7, duration: 0.8, ease: 'easeOut' }}
                             />
+                            <motion.div
+                                className="flex gap-3 mt-8"
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 1.8, duration: 0.5 }}
+                            >
+                                <button
+                                    onClick={onRestart}
+                                    className="px-6 py-3 rounded-xl bg-red-800/60 text-red-100 font-bold uppercase tracking-wider text-sm border border-red-600/30 hover:bg-red-700/60 transition-colors"
+                                >
+                                    Prøv på nytt
+                                </button>
+                                <button
+                                    onClick={onExit}
+                                    className="px-6 py-3 rounded-xl bg-white/10 text-red-200/80 font-bold uppercase tracking-wider text-sm border border-white/10 hover:bg-white/20 transition-colors"
+                                >
+                                    Avslutt
+                                </button>
+                            </motion.div>
                         </motion.div>
                     </motion.div>
                 )}
