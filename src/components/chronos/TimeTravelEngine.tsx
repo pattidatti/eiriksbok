@@ -512,6 +512,7 @@ export const TimeTravelEngine: React.FC<TimeTravelEngineProps> = ({ scenarioId }
                 allHubs={allHubs}
                 visitedHubs={visitedHubs}
                 onHubJump={handleHubJump}
+                gameOverConditions={scenario.gameOverConditions}
             />
         </div>
     );

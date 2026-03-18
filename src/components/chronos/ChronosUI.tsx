@@ -10,7 +10,7 @@ import type {
     ChronosNode, ChronosChoice, ChronosStat, ChronosConfig, ChronosEnvironment,
     ChronosEntry, ChronosMapPoint, ChronosRecipe, ChronosDiscoveryEvent,
     ChronosEpilogue, ChronosEthicsLens, ChronosItem, ChoiceHistoryEntry,
-    ChronosCondition, ChronosPerspective,
+    ChronosCondition, ChronosPerspective, ChronosGameOverCondition,
 } from '../../data/chronos/types';
 import { DiceGame } from './minigames/DiceGame';
 import { BattleGame } from './minigames/BattleGame';
@@ -54,6 +54,7 @@ interface ChronosUIProps {
     allHubs?: Array<{ nodeId: string; label: string; speaker?: string }>;
     visitedHubs?: string[];
     onHubJump?: (hubNodeId: string) => void;
+    gameOverConditions?: ChronosGameOverCondition[];
 }
 
 const IconMap: Record<string, any> = {
@@ -420,7 +421,7 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
     node, stats, inventory = [], environment = { time: 'day', weather: 'clear' },
     journal = [], onAddJournalEntry, config, flags = [], onChoice, onRestart, onCraft,
     choiceHistory = [], scenarioTitle, scenarioMeta, scenarioId, perspectives, onExit, onRequestReset,
-    allHubs, visitedHubs, onHubJump,
+    allHubs, visitedHubs, onHubJump, gameOverConditions,
 }) => {
     const [journalText, setJournalText] = useState('');
     const [showJournal, setShowJournal] = useState(false);
@@ -456,6 +457,9 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
     // Polish: Choice cooldown (prevent double-click)
     const [choiceCooldown, setChoiceCooldown] = useState(false);
 
+    // Defeat interstitial overlay
+    const [defeatInterstitial, setDefeatInterstitial] = useState(false);
+
     // On node change: discovery check + node audio
     useEffect(() => {
         // Stop any previous audio
@@ -480,6 +484,15 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
             if (popupAudioRef.current) { popupAudioRef.current.pause(); popupAudioRef.current = null; }
         };
     }, [node.id]); // eslint-disable-line react-hooks/exhaustive-deps
+
+    // Defeat interstitial: show dramatic overlay when entering a defeat end node
+    useEffect(() => {
+        if (node.isEnd && node.endType === 'defeat') {
+            setDefeatInterstitial(true);
+            const timer = setTimeout(() => setDefeatInterstitial(false), 2200);
+            return () => clearTimeout(timer);
+        }
+    }, [node.id, node.isEnd, node.endType]);
 
     // Pause node audio when discovery popup is open; resume when dismissed
     useEffect(() => {
@@ -659,6 +672,54 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
         <div className="relative w-full h-[100dvh] overflow-hidden bg-stone-950 flex flex-col">
             <WeatherOverlay environment={environment} />
 
+            {/* Defeat Interstitial Overlay */}
+            <AnimatePresence>
+                {defeatInterstitial && (
+                    <motion.div
+                        key="defeat-interstitial"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="absolute inset-0 z-[60] flex flex-col items-center justify-center pointer-events-none"
+                    >
+                        <motion.div
+                            className="absolute inset-0 bg-red-950"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: [0, 0.9, 0.7] }}
+                            transition={{ duration: 0.6, times: [0, 0.3, 1] }}
+                        />
+                        <motion.div
+                            className="relative flex flex-col items-center gap-4"
+                            animate={{ x: [0, -8, 6, -4, 2, 0] }}
+                            transition={{ duration: 0.5, delay: 0.1 }}
+                        >
+                            <motion.div
+                                initial={{ scale: 0, rotate: -30 }}
+                                animate={{ scale: [0, 1.5, 1.2], rotate: [-30, 10, 0] }}
+                                transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+                            >
+                                <Skull size={64} className="text-red-400" />
+                            </motion.div>
+                            <motion.p
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.5, duration: 0.5 }}
+                                className="text-2xl sm:text-3xl font-display font-black text-red-200 uppercase tracking-[0.15em] text-center"
+                            >
+                                Tidslinjen brast
+                            </motion.p>
+                            <motion.div
+                                className="h-px bg-red-500/60"
+                                initial={{ width: 0 }}
+                                animate={{ width: '60vw' }}
+                                transition={{ delay: 0.7, duration: 0.8, ease: 'easeOut' }}
+                            />
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
             {/* Background Image */}
             <AnimatePresence mode="wait">
                 <motion.div
@@ -726,20 +787,34 @@ export const ChronosUI: React.FC<ChronosUIProps> = ({
                 <div className="flex gap-2 sm:gap-3 md:gap-4">
                     {/* Attributes */}
                     <div className="flex flex-wrap gap-2 sm:gap-4 p-2 pl-3 pr-4 sm:p-3 sm:pl-5 sm:pr-8 rounded-2xl bg-black/30 backdrop-blur-xl border border-white/10 shadow-sm w-fit">
-                        {attributes.map(stat => (
-                            <div key={stat.id} className="flex flex-col gap-1.5">
-                                <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-stone-300">
-                                    {getIcon(stat.icon)}<span>{stat.label}</span>
+                        {attributes.map(stat => {
+                            const gameOverCond = gameOverConditions?.find(c => c.statId === stat.id);
+                            const dangerRatio = gameOverCond ? stat.value / gameOverCond.threshold : 0;
+                            const isDanger = dangerRatio >= 0.8;
+                            const isCritical = dangerRatio >= 0.95;
+
+                            return (
+                                <div key={stat.id} className="flex flex-col gap-1.5">
+                                    <div className={`flex items-center gap-2 text-[10px] font-black uppercase tracking-widest ${
+                                        isCritical ? 'text-red-300 animate-pulse' : isDanger ? 'text-red-400' : 'text-stone-300'
+                                    }`}>
+                                        {getIcon(stat.icon)}<span>{stat.label}</span>
+                                    </div>
+                                    <div className={`w-20 sm:w-28 md:w-32 h-2 rounded-full overflow-hidden shadow-inner ${
+                                        isDanger ? 'bg-red-900/40 ring-1 ring-red-500/30' : 'bg-white/10'
+                                    }`}>
+                                        <motion.div className="h-full"
+                                            initial={{ width: 0 }}
+                                            animate={{ width: `${(stat.value / stat.max) * 100}%` }}
+                                            transition={{ type: 'spring', stiffness: 50, damping: 20 }}
+                                            style={{ backgroundColor: isDanger
+                                                ? (isCritical ? '#ef4444' : '#f87171')
+                                                : (config.theme?.primaryColor || '#6366f1')
+                                            }} />
+                                    </div>
                                 </div>
-                                <div className="w-20 sm:w-28 md:w-32 h-2 bg-white/10 rounded-full overflow-hidden shadow-inner">
-                                    <motion.div className="h-full"
-                                        initial={{ width: 0 }}
-                                        animate={{ width: `${(stat.value / stat.max) * 100}%` }}
-                                        transition={{ type: 'spring', stiffness: 50, damping: 20 }}
-                                        style={{ backgroundColor: config.theme?.primaryColor || '#6366f1' }} />
-                                </div>
-                            </div>
-                        ))}
+                            );
+                        })}
                     </div>
 
                     {/* Relations */}

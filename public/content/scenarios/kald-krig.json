@@ -4047,6 +4047,7 @@
             "speaker": "Forteller",
             "isEnd": true,
             "endType": "defeat",
+            "showEndComparison": true,
             "epilogue": {
                 "entries": [
                     {
