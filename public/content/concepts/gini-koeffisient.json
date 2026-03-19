@@ -1,0 +1,7 @@
+{
+    "term": "Gini-koeffisient",
+    "definition": "Et tall mellom 0 og 1 som måler hvor ulike inntektene i et land er. 0 betyr at alle tjener likt, 1 betyr at en person har alt. Norge ligger rundt 0,27, blant de mest like i verden.",
+    "type": "concept",
+    "tags": ["økonomi", "ulikhet", "statistikk"],
+    "subject": "samfunnskunnskap"
+}

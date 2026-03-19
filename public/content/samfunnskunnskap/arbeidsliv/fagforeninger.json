@@ -1,0 +1,229 @@
+{
+    "id": "fagforeninger",
+    "title": "Fra ufrihet til organisering",
+    "layout": "rich",
+    "year": "1848",
+    "category": "Arbeidsliv",
+    "readTime": "8 min lesning",
+    "heroImage": "/images/lessons/arbeidsliv/fagforeninger_hero.webp",
+    "details": [
+        "Fagforeninger oppsto fordi arbeidere sto maktesløse alene",
+        "LO ble grunnlagt i 1899",
+        "Hovedavtalen av 1935 la grunnlaget for den norske modellen"
+    ],
+    "externalUrl": "https://snl.no/fagforening",
+    "content": [
+        {
+            "type": "text",
+            "content": "Forestill deg at du jobber 14 timer om dagen, 6 dager i uken, uten rett til å klage. Hvis du blir syk, mister du jobben. Hvis du klager på lønnen, kan sjefen sparke deg på flekken. Du er 12 år gammel, og ingen lov beskytter deg. Slik så virkeligheten ut for hundretusener av norske arbeidere på 1800-tallet. Veien fra den virkeligheten til det arbeidslivet vi kjenner i dag, er historien om fagforeningene."
+        },
+        {
+            "type": "header",
+            "text": "Arbeidslivet før fagforeninger"
+        },
+        {
+            "type": "text",
+            "content": "På begynnelsen av 1800-tallet var Norge et bondesamfunn. De fleste levde av jordbruk og fiske. Men utover århundret begynte industrien å vokse. Fabrikker dukket opp i byene, og folk strømmet inn fra bygdene for å finne arbeid. De fant jobber, men vilkårene var brutale."
+        },
+        {
+            "type": "text",
+            "content": "Arbeidsdagene var lange, ofte 12 til 14 timer. Barn helt ned i ti-tolvårsalderen jobbet i fabrikker og gruver. Det fantes ingen arbeidsmiljølov, ingen sykelønn, ingen ferie. Hvis du skadet deg på jobben, var det ditt eget problem. Fabrikkeierne hadde all makten, og arbeiderne hadde ingen."
+        },
+        {
+            "type": "text",
+            "content": "Problemet var enkelt: Alene var hver arbeider svak. En enkelt arbeider som krevde høyere lønn, kunne bare erstattes med en annen. Men hva om alle arbeiderne sto sammen? Hva om de nektet å jobbe med mindre de fikk bedre vilkår? Det var denne ideen som la grunnlaget for fagforeningene."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Arbeidslivet rundt 1850",
+                "content": "En vanlig industriarbeider i Norge jobbet 12-14 timer om dagen, seks dager i uken. Det fantes ingen lovfestet rett til ferie, sykelønn eller pensjon. Barn fra tiårsalderen jobbet på fabrikker. Arbeidsgiveren kunne si opp en arbeider uten grunn og uten varsel."
+            }
+        },
+        {
+            "type": "header",
+            "text": "Marcus Thrane og de første arbeiderne"
+        },
+        {
+            "type": "text",
+            "content": "Den første som virkelig organiserte norske arbeidere, var Marcus Thrane. I 1848 - det samme året som revolusjoner feide over Europa - startet han det som ble kjent som thranitterbevegelsen. Thrane var journalist og hadde sett hvordan vanlige folk ble behandlet. Han mente at arbeidsfolk fortjente en stemme i samfunnet."
+        },
+        {
+            "type": "text",
+            "content": "Thrane reiste rundt i Norge og holdt møter. Han opprettet arbeiderforeninger i by etter by. I løpet av bare to år hadde bevegelsen over 30 000 medlemmer. Det var et enormt tall for et land med bare halvannen million innbyggere. Foreningene krevde bedre skoler, allmenn stemmerett og rettferdig fordeling av jord."
+        },
+        {
+            "type": "text",
+            "content": "Men myndighetene ble skremt. I 1851 ble Thrane arrestert sammen med over hundre andre ledere. Han satt i fengsel i åtte år. Bevegelsen ble knust. Likevel hadde Thrane vist noe viktig: Vanlige folk kunne organisere seg og stille krav. Frøet var sådd."
+        },
+        {
+            "type": "text",
+            "content": "Etter thranitterbevegelsen tok det tid før nye organisasjoner vokste fram. I 1872 ble Den typografiske forening stiftet, Norges første egentlige fagforening. Den organiserte trykkeriarbeidere som krevde faste lønnsvilkår. I årene som fulgte, dukket det opp fagforeninger i bransje etter bransje: jernarbeidere, skoarbeidere, sjømenn og bygningsarbeidere fant sammen."
+        },
+        {
+            "type": "component",
+            "name": "ScenarioRoleplay",
+            "props": {
+                "title": "Fabrikkarbeideren",
+                "intro": "Du er 16 år og jobber på en tekstilfabrikk i Kristiania, 1892.",
+                "startId": "start",
+                "scenarios": [
+                    {
+                        "id": "start",
+                        "text": "Du jobber 12 timer om dagen, seks dager i uken. Lønnen er lav, og formannen kan sparke deg uten grunn. En kollega hvisker at noen arbeidere planlegger å danne en forening for å kreve bedre vilkår. Hva gjør du?",
+                        "options": [
+                            { "label": "Bli med på møtet i hemmelighet", "nextId": "meeting" },
+                            { "label": "Hold deg unna - det er for risikabelt", "nextId": "stay-quiet" },
+                            { "label": "Fortell formannen om møtet", "nextId": "snitch" }
+                        ]
+                    },
+                    {
+                        "id": "meeting",
+                        "text": "Du sniker deg ut om kvelden og møter 30 andre arbeidere i et bakrom. Stemningen er spent. Lederen foreslår å skrive et brev til fabrikkeieren med krav om kortere arbeidstid og høyere lønn. Men noen vil gå rett til streik.\n\nHva stemmer du for?",
+                        "options": [
+                            { "label": "Send brevet først - gi fabrikkeieren en sjanse", "nextId": "letter" },
+                            { "label": "Streik nå - brev hjelper ikke", "nextId": "strike" }
+                        ]
+                    },
+                    {
+                        "id": "letter",
+                        "text": "Dere sender brevet. Fabrikkeieren svarer etter to uker: Han avviser alle kravene og truer med å sparke dem som står bak. Men nå har dere bevis på at han nekter å forhandle. Flere arbeidere slutter seg til foreningen.\n\nEtter måneder med press går fabrikkeieren med på å forkorte arbeidsdagen til 10 timer. Det er en liten seier, men det er starten på noe større. Dere har vist at organisering fungerer.",
+                        "options": []
+                    },
+                    {
+                        "id": "strike",
+                        "text": "Streiken begynner neste morgen. Fabrikkporten står tom. Men fabrikkeieren ansetter nye folk fra landsbygda som er desperate etter arbeid. Etter to uker uten inntekt må de fleste gi seg.\n\nDu mister jobben, men erfaringen sprer seg. Andre arbeidere lærer av feilen: Man trenger en sterk organisasjon og streikekasse før man legger ned arbeidet. Det tar tid, men bevegelsen vokser.",
+                        "options": []
+                    },
+                    {
+                        "id": "stay-quiet",
+                        "text": "Du holder deg unna og fortsetter å jobbe som vanlig. Arbeidsdagene er fortsatt 12 timer, og lønnen forblir lav. Noen av kollegene dine organiserer seg likevel, og etter et halvt år får de gjennom bedre vilkår.\n\nDu nyter godt av forbedringene uten å ha tatt risikoen. Men spørsmålet gnager: Hadde det gått raskere om flere hadde stilt opp?",
+                        "options": []
+                    },
+                    {
+                        "id": "snitch",
+                        "text": "Du forteller formannen om møtet. Han sier du er en lojal arbeider. Neste dag blir tre av kollegene dine sparket. Fabrikken fortsetter som før.\n\nMen ryktet om sparkingene sprer seg til andre fabrikker. Harmen vokser. Innen et år har arbeiderbevegelsen i byen vokst kraftig - ironisk nok delvis på grunn av den urettferdige behandlingen.",
+                        "options": []
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "LO stiftes"
+        },
+        {
+            "type": "text",
+            "content": "Mot slutten av 1800-tallet var det blitt tydelig at de mange små fagforeningene trengte å samarbeide. En forening med 50 medlemmer kunne legge press på en enkelt arbeidsgiver, men mot de store industrieierne trengte man noe større. Løsningen var å samle alle fagforeningene under en paraplyorganisasjon."
+        },
+        {
+            "type": "text",
+            "content": "I 1899 ble Landsorganisasjonen i Norge - LO - stiftet. For første gang hadde norske arbeidere en felles, nasjonal stemme. LO kunne koordinere streiker på tvers av bransjer, forhandle med arbeidsgiverne som en samlet front, og påvirke politikken. Samme år svarte arbeidsgiverne med å stifte sin egen organisasjon: Norsk Arbeidsgiverforening, som senere ble til NHO."
+        },
+        {
+            "type": "text",
+            "content": "De første tiårene etter stiftelsen var preget av harde kamper. Streiker og lockout-er var vanlige. En lockout betyr at arbeidsgiveren stenger arbeiderne ute fra arbeidsplassen for å presse dem til å godta dårligere vilkår. Det var en kamp mellom to sider som begge hadde noe å tape, men der arbeiderne som oftest hadde minst å falle tilbake på."
+        },
+        {
+            "type": "text",
+            "content": "Gradvis vant arbeiderbevegelsen viktige seire. I 1915 fikk Norge en lov om ti timers arbeidsdag. I 1919 ble åtte timers arbeidsdag lovfestet - en milepæl som fagforeningene hadde kjempet for i flere tiår. Retten til å organisere seg ble anerkjent, og tariffavtaler - avtaler mellom fagforeninger og arbeidsgivere om lønn og arbeidsvilkår - ble det normale."
+        },
+        {
+            "type": "component",
+            "name": "TimelineComponent",
+            "props": {
+                "compact": true,
+                "events": [
+                    { "year": 1848, "title": "Thranitterbevegelsen", "description": "Norges første arbeiderforening stiftes" },
+                    { "year": 1872, "title": "Den typografiske forening", "description": "Norges første fagforening" },
+                    { "year": 1899, "title": "LO grunnlagt", "description": "Landsorganisasjonen i Norge stiftes" },
+                    { "year": 1935, "title": "Hovedavtalen", "description": "Arbeidslivets grunnlov inngås" },
+                    { "year": 1977, "title": "Arbeidsmiljøloven", "description": "Sterkere vern av arbeidstakere" }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Hovedavtalen 1935"
+        },
+        {
+            "type": "text",
+            "content": "1920- og 1930-tallet var en urolig tid i Norge. Økonomiske kriser herjet, arbeidsledigheten var høy, og konflikten mellom arbeidere og arbeidsgivere var bitter. Menstad-slaget i 1931 - der streikende arbeidere og politi støtte sammen i voldelige kamper - viste at Norge sto ved et veiskille. Ville konflikten fortsette å eskalere, eller fantes det en annen vei?"
+        },
+        {
+            "type": "text",
+            "content": "Svaret kom i 1935, da LO og Norsk Arbeidsgiverforening undertegnet Hovedavtalen. Denne avtalen blir ofte kalt arbeidslivets grunnlov, og det er ikke uten grunn. For første gang ble det slått fast klare regler for hvordan arbeidere og arbeidsgivere skulle forholde seg til hverandre. Begge sider anerkjente hverandres rett til å organisere seg. De ble enige om fredelige forhandlinger som førstevalg, med streik og lockout bare som siste utvei."
+        },
+        {
+            "type": "text",
+            "content": "Hovedavtalen la grunnlaget for det vi i dag kaller den norske modellen. Kjernen i denne modellen er trepartssamarbeidet: Staten, arbeidsgiverne og fagforeningene samarbeider om å finne løsninger som er gode for alle parter. I stedet for å kjempe mot hverandre, setter de seg ned ved forhandlingsbordet. Dette samarbeidet er en av hovedgrunnene til at Norge i dag har et av verdens mest velfungerende arbeidsliv."
+        },
+        {
+            "type": "text",
+            "content": "Det samme året - 1935 - inngikk Arbeiderpartiet og Bondepartiet det berømte kriseforliket i Stortinget. Disse to hendelsene - Hovedavtalen og kriseforliket - forandret Norge. Konfrontasjon ble erstattet av samarbeid, og grunnlaget for den moderne velferdsstaten ble lagt."
+        },
+        {
+            "type": "header",
+            "text": "Fagforeninger i dag"
+        },
+        {
+            "type": "text",
+            "content": "I dag er omtrent halvparten av alle norske arbeidstakere medlem av en fagforening. LO er fortsatt den største, med rundt 980 000 medlemmer, men det finnes også andre store sammenslutninger som Unio, YS og Akademikerne. Til sammen dekker de alt fra industriarbeidere og lærere til sykepleiere og ingeniører."
+        },
+        {
+            "type": "text",
+            "content": "Fagforeningenes viktigste oppgave i dag er å forhandle tariffavtaler. Hvert år eller annethvert år møtes fagforeningene og arbeidsgiverorganisasjonene til lønnsforhandlinger. Dette kalles tariffoppgjøret. Norge bruker noe som heter frontfagmodellen: Det er industrien som forhandler først og setter rammen for lønnsveksten. Deretter forhandler andre bransjer innenfor denne rammen. Tanken er at lønnsveksten ikke skal bli så høy at norske bedrifter taper i konkurransen med utlandet."
+        },
+        {
+            "type": "text",
+            "content": "Men fagforeninger handler om mye mer enn lønn. De passer på at arbeidsmiljøloven blir fulgt, de hjelper medlemmer som har problemer på arbeidsplassen, og de er med på å bestemme hvordan arbeidsplassen skal organiseres. Verneombud og tillitsvalgte - roller som finnes på de fleste norske arbeidsplasser - er en del av dette systemet."
+        },
+        {
+            "type": "text",
+            "content": "Fagforeningene står likevel overfor nye utfordringer. I noen bransjer, som servering og renhold, er det langt færre som er organisert. Arbeidsinnvandring fra andre land har skapt nye spørsmål om rettigheter og lønn. Og den digitale økonomien, med apper og plattformjobber, gjør at mange jobber i en gråsone der det er uklart om de i det hele tatt regnes som ansatte."
+        },
+        {
+            "type": "list",
+            "items": [
+                "LO - Landsorganisasjonen: Norges største, med nesten en million medlemmer",
+                "Unio: Organiserer blant annet lærere, sykepleiere og politifolk",
+                "YS - Yrkesorganisasjonenes Sentralforbund: Bred sammenslutning av yrkesgrupper",
+                "Akademikerne: Organiserer folk med høyere utdanning"
+            ]
+        },
+        {
+            "type": "text",
+            "content": "Historien om fagforeningene handler om noe mer enn lover og avtaler. Den handler om at vanlige mennesker nektet å akseptere urettferdighet. De risikerte jobbene sine, friheten sin og noen ganger helsa si for å stå opp for hverandre. Resultatet er et arbeidsliv der du har rett til ferie, sykelønn, trygt arbeidsmiljø og en lønn du kan leve av. Det er ikke noe som kom av seg selv. Det ble kjempet fram."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hva heter den norske modellen der eksportindustrien forhandler lønn først?",
+                        "options": ["Frontfagmodellen", "Tariffmodellen", "Lønnsmodellen", "Industrimodellen"],
+                        "answer": "Frontfagmodellen"
+                    },
+                    {
+                        "question": "Når ble LO grunnlagt?",
+                        "options": ["1899", "1848", "1935", "1920"],
+                        "answer": "1899"
+                    },
+                    {
+                        "question": "Hva er en tariffavtale?",
+                        "options": ["En avtale mellom fagforening og arbeidsgiver om lønn og vilkår", "En lov vedtatt av Stortinget", "En internasjonal handelsavtale", "En kontrakt mellom to bedrifter"],
+                        "answer": "En avtale mellom fagforening og arbeidsgiver om lønn og vilkår"
+                    },
+                    {
+                        "question": "Hva kalles Hovedavtalen av 1935?",
+                        "options": ["Arbeidslivets grunnlov", "Norges kontrakt", "Fagforeningsloven", "Streikeavtalen"],
+                        "answer": "Arbeidslivets grunnlov"
+                    }
+                ]
+            }
+        }
+    ],
+    "timeline": []
+}

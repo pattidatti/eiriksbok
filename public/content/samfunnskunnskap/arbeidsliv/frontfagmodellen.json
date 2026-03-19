@@ -1,0 +1,373 @@
+{
+    "id": "frontfagmodellen",
+    "title": "Norges lønnsmaskin",
+    "layout": "rich",
+    "year": "1952",
+    "category": "Økonomi",
+    "readTime": "14 min lesning",
+    "heroImage": "/images/lessons/arbeidsliv/frontfagmodellen_hero.webp",
+    "details": [
+        "Eksportindustrien forhandler lønn først og setter normen for alle",
+        "Modellen har holdt norsk inflasjon lav og lønnsulikhet liten",
+        "Kritikere mener den begrenser friheten og er utdatert for moderne arbeidsliv"
+    ],
+    "externalUrl": "https://snl.no/frontfagsmodellen",
+    "tags": [
+        "økonomi",
+        "arbeidsliv",
+        "lønn",
+        "frontfagmodellen"
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Hvem bestemmer egentlig hva du skal tjene? I Norge er svaret overraskende. Det er ikke sjefen din, ikke politikerne, og ikke markedet alene. Det er et system der noen få tusen industriarbeidere setter kursen for millioner av nordmenn."
+        },
+        {
+            "type": "text",
+            "content": "Systemet heter frontfagmodellen, og det er en av de viktigste grunnene til at Norge er et av verdens mest likestilte land når det gjelder lønn. Men modellen er også omstridt. Er det rettferdig at noen få bestemmer for alle? Og fungerer den fortsatt i en verden med gig-arbeidere, hjemmekontor og kunstig intelligens?"
+        },
+        {
+            "type": "header",
+            "text": "Slik fungerer frontfagmodellen"
+        },
+        {
+            "type": "text",
+            "content": "Hver vår forhandler arbeidstakere og arbeidsgivere i Norge om lønn. Men de forhandler ikke alle samtidig. Det finnes en bestemt rekkefølge, og den rekkefølgen er selve kjernen i frontfagmodellen."
+        },
+        {
+            "type": "text",
+            "content": "Først ut er den konkurranseutsatte industrien - altså bedrifter som lager varer som selges til utlandet. Det kan være fabrikker som produserer aluminium, fiskeoppdrett som eksporterer laks, eller verft som bygger skip. Disse bedriftene konkurrerer med utenlandske selskaper, og det setter en naturlig grense for hvor mye de kan øke lønningene. Hvis de gir for mye i lønn, blir varene for dyre, og kundene kjøper fra andre land i stedet."
+        },
+        {
+            "type": "text",
+            "content": "Når industrien har blitt enig om sin lønnsøkning, setter det en norm - en slags ramme - som resten av arbeidslivet følger. Sykepleiere, lærere, bussjåfører, frisører og IT-utviklere forhandler alle etterpå, og de bruker industriens resultat som utgangspunkt."
+        },
+        {
+            "type": "text",
+            "content": "Systemet fungerer i fem trinn:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "Det tekniske beregningsutvalget (TBU) legger frem tall for prisvekst, produktivitet og lønnsutvikling. Disse tallene er omforente - alle parter er enige om at de stemmer.",
+                "LO og NHO forhandler om lønn for den konkurranseutsatte industrien. De blir enige om en ramme, for eksempel 4 prosent lønnsvekst.",
+                "Denne rammen blir normen. Den kalles frontfagsrammen.",
+                "Offentlig sektor (stat og kommune) og andre private bransjer forhandler deretter, med frontfagsrammen som rettesnor.",
+                "Til slutt kan det bli lokale forhandlinger på den enkelte arbeidsplass, der man fordeler eventuelle tillegg innenfor rammen."
+            ]
+        },
+        {
+            "type": "text",
+            "content": "Tanken bak er enkel: Hvis alle holder seg innenfor samme ramme, unngår vi at lønningene løper løpsk. Ingen bransje sprenger budsjettet, og norske bedrifter forblir konkurransedyktige i utlandet. Samtidig sikrer modellen at alle får ta del i den økonomiske veksten - ikke bare de med mest forhandlingsmakt."
+        },
+        {
+            "type": "component",
+            "name": "WageNegotiationSim",
+            "props": {
+                "title": "Lønnsforhandlingene"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Historisk bakgrunn"
+        },
+        {
+            "type": "text",
+            "content": "For å forstå hvorfor Norge innførte frontfagmodellen, må vi tilbake til årene etter andre verdenskrig. Landet lå i ruiner, spesielt i Finnmark og Nord-Troms. Alt måtte bygges opp igjen. Det trengtes nye hus, veier, skoler og sykehus. Men det fantes lite penger, og det var fare for at konkurranse om arbeidskraft ville drive lønningene opp og skape [inflasjon](/samfunnskunnskap/okonomi/inflasjon-og-rente)."
+        },
+        {
+            "type": "text",
+            "content": "I mellomkrigstiden hadde Norge opplevd harde arbeidskonflikter med streiker og lockout. Arbeidsgivere og arbeidstakere sto steilt mot hverandre. Men krigen endret noe. Under okkupasjonen hadde folk fra alle lag stått sammen mot fienden. Den fellesskapsfølelsen tok de med seg inn i fredstiden."
+        },
+        {
+            "type": "text",
+            "content": "I 1945 ble LO (Landsorganisasjonen, Norges største arbeidstakerorganisasjon) og NAF (forløperen til NHO, Næringslivets Hovedorganisasjon) enige om at de trengte en ny måte å samarbeide på. I stedet for å slåss om hver krone, skulle de koordinere lønnsoppgjørene."
+        },
+        {
+            "type": "text",
+            "content": "Det var økonomen Odd Aukrust som i 1952 la det teoretiske grunnlaget for modellen vi kjenner i dag. Hans hovedbudskap var enkelt, men kraftig: Norge lever av å selge varer til utlandet. Derfor må lønningene styres av hva eksportbedriftene tåler. Hvis lønnsveksten blir høyere enn det bedriftene klarer å betale uten å tape kunder, vil vi til slutt miste arbeidsplasser."
+        },
+        {
+            "type": "text",
+            "content": "Denne ideen ble kalt Aukrust-modellen, og den ble formelt innført som grunnlag for norsk lønnsdannelse. Siden den gang har frontfagene - altså industrien som konkurrerer internasjonalt - forhandlet først i hvert lønnsoppgjør."
+        },
+        {
+            "type": "text",
+            "content": "Modellen overlevde oljealderen på 1970-tallet, finanskriser, EU-debatter og globaliseringen. Den har blitt justert og diskutert, men grunnprinsippet har stått fast i over 70 år. Det i seg selv er ganske oppsiktsvekkende."
+        },
+        {
+            "type": "header",
+            "text": "Argumentene for frontfagmodellen"
+        },
+        {
+            "type": "text",
+            "content": "Tilhengerne av frontfagmodellen peker på flere fordeler som har gjort den til en bærebjelke i norsk økonomi."
+        },
+        {
+            "type": "text",
+            "content": "Den viktigste fordelen er kontroll over inflasjonen. Når alle følger samme ramme, unngår man lønnsspiraler - at en bransje gir store lønnstillegg, neste bransje krever enda mer for å holde følge, og prisene deretter stiger for å dekke kostnadene. I land uten koordinert lønnsdannelse har dette vært et stort problem. I Norge har [inflasjonen](/samfunnskunnskap/okonomi/inflasjon-og-rente) i snitt vært lavere og mer forutsigbar."
+        },
+        {
+            "type": "text",
+            "content": "Den andre fordelen er konkurransekraft. Norske eksportbedrifter vet at lønnsveksten ikke vil sprenge kostnadsrammene deres. Det gir forutsigbarhet og gjør det mulig å planlegge langsiktig. Uten denne sikkerheten ville mange bedrifter trolig ha flyttet produksjonen til lavkostland."
+        },
+        {
+            "type": "text",
+            "content": "Den tredje fordelen er sammenpresset lønnsstruktur. Det betyr at forskjellen mellom de som tjener mest og de som tjener minst i Norge er liten sammenlignet med mange andre land. Frontfagmodellen løfter bunnlønningene, fordi lavtlønte yrkesgrupper får ta del i den samme veksten som industrien. Samtidig bremses topplønn noe, fordi selv høytlønte grupper forventes å holde seg innenfor rammen."
+        },
+        {
+            "type": "text",
+            "content": "Den fjerde fordelen er stabilitet og forutsigbarhet i arbeidslivet. Norge har svært få streiker sammenlignet med mange andre europeiske land. Frontfagmodellen bidrar til dette ved å gi partene et felles utgangspunkt for forhandlingene. Når alle er enige om tallgrunnlaget fra TBU, blir det lettere å komme til enighet."
+        },
+        {
+            "type": "text",
+            "content": "Det er altså ikke tilfeldig at frontfagmodellen gjør bruk av [arbeidsspesialisering](/samfunnskunnskap/okonomi/arbeidsspesialisering) som prinsipp: eksportindustrien spesialiserer seg på å sette rammen, mens andre sektorer spesialiserer seg på sine egne oppgaver innenfor den rammen."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Frontfagmodellen i tall",
+                "items": [
+                    "Norge har den 6. laveste lønnsulikheten i OECD",
+                    "Gjennomsnittlig lønnsvekst har ligget mellom 3-4% per år de siste 20 årene",
+                    "Over 70% av norske arbeidstakere er dekket av en tariffavtale",
+                    "Inflasjonen i Norge har i snitt vært lavere enn i land uten koordinert lønnsdannelse",
+                    "LO har over 970 000 medlemmer, NHO organiserer over 30 000 bedrifter"
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Kritikken"
+        },
+        {
+            "type": "text",
+            "content": "Ikke alle er enige i at frontfagmodellen er rettferdig eller fornuftig. Kritikken kommer fra flere hold, og noe av den er vanskelig å avvise."
+        },
+        {
+            "type": "text",
+            "content": "Den mest grunnleggende innvendingen handler om frihet. Hvorfor skal en sykepleier i Tromsø få lønnen sin bestemt av hva en industriarbeider i Raufoss forhandlet seg frem til? Kritikere mener at frontfagmodellen begrenser den enkelte arbeidstakers mulighet til å forhandle basert på sine egne ferdigheter, sin egen innsats og etterspørselen etter akkurat sin kompetanse. Filosofen [Ludwig von Mises](/krle/filosofi/mises) ville sagt at slik koordinering forstyrrer markedets evne til å sende riktige prissignaler."
+        },
+        {
+            "type": "text",
+            "content": "En annen innvending handler om rettferdighet mellom sektorer. Er det virkelig rimelig at industriens evne til å betale skal avgjøre lønnen til lærere, sykepleiere og politi? Offentlig sektor har helt andre inntekter enn industrien. De selger ikke varer til utlandet, men leverer tjenester som samfunnet trenger. Mange mener at offentlig ansatte fortjener lønn basert på hvor viktige oppgavene deres er - ikke basert på aluminiumspriser."
+        },
+        {
+            "type": "text",
+            "content": "Det er også et spørsmål om modellen holder de flinke tilbake. I bransjer med stor etterspørsel etter arbeidskraft - som IT, teknologi og medisin - kunne lønningene vært mye høyere hvis markedet fikk bestemme. Frontfagsrammen fungerer som et tak som hindrer disse yrkesgruppene i å hente ut sin fulle markedsverdi. Noen mener dette fører til hjerneflukt, at de mest talentfulle søker seg til utlandet der lønningene er høyere."
+        },
+        {
+            "type": "text",
+            "content": "Kritikere fra arbeidstakersiden peker dessuten på at modellen har en innebygd skjevhet. Industriarbeiderne som setter normen, er i hovedsak menn i typiske mannsyrker. Yrkesgrupper dominert av kvinner - som sykepleiere, lærere og barnehageansatte - kommer alltid etterpå og må tilpasse seg. Noen mener dette har bidratt til å opprettholde lønnsforskjeller mellom kjønnene."
+        },
+        {
+            "type": "text",
+            "content": "Prøv deg selv i en debatt om frontfagmodellen. Klarer du å forsvare den mot kritikk?"
+        },
+        {
+            "type": "component",
+            "name": "DebateSimulator",
+            "props": {
+                "topic": "Bør frontfagmodellen avskaffes?",
+                "opponentName": "NHO-direktøren",
+                "context": "Du er LO-leder og forsvarer frontfagmodellen i en TV-debatt. NHO-direktøren mener modellen begrenser bedriftenes frihet.",
+                "arguments": [
+                    {
+                        "id": "stability",
+                        "text": "Frontfagmodellen har gitt Norge stabil lønnsvekst og lav inflasjon i over 70 år. Hvorfor endre noe som fungerer?",
+                        "strength": 3,
+                        "type": "laws",
+                        "response": "Stabilitet er fint, men verden har endret seg. Gig-arbeidere og tech-selskaper passer ikke inn i denne modellen."
+                    },
+                    {
+                        "id": "equality",
+                        "text": "Modellen holder lønnsforskjellene små. Uten den ville sykepleiere og lærere falt langt bak.",
+                        "strength": 4,
+                        "type": "mercy",
+                        "response": "Men er det rettferdig at dyktige folk i voksende bransjer ikke kan forhandle fritt?"
+                    },
+                    {
+                        "id": "competitiveness",
+                        "text": "Uten koordinering ville lønnsspiraler gjort norske bedrifter ukonkurransedyktige. Vi trenger en ramme.",
+                        "strength": 3,
+                        "type": "laws",
+                        "response": "Andre land klarer seg fint uten. Markedet regulerer seg selv hvis vi lar det."
+                    },
+                    {
+                        "id": "freedom",
+                        "text": "Frihet til å forhandle selv høres fint ut, men i praksis betyr det at de svakeste taper.",
+                        "strength": 4,
+                        "type": "mercy",
+                        "response": "Det er et paternalistisk argument. Arbeidstakere er voksne mennesker som kan ta egne valg."
+                    },
+                    {
+                        "id": "collective",
+                        "text": "Kollektiv forhandling er selve grunnlaget for den norske velferdsmodellen. Vi kan ikke rive ut fundamentet.",
+                        "strength": 2,
+                        "type": "honor",
+                        "response": "Velferdsmodellen kan bestå uten at industrien bestemmer alles lønn. Det er to forskjellige ting."
+                    },
+                    {
+                        "id": "inflation",
+                        "text": "Se på land uten koordinert lønnsdannelse. Mange sliter med høyere inflasjon og større svingninger.",
+                        "strength": 3,
+                        "type": "laws",
+                        "response": "Korrelasjon er ikke kausalitet. Sentralbanken styrer inflasjonen, ikke lønnsforhandlerne."
+                    },
+                    {
+                        "id": "trust",
+                        "text": "Modellen bygger på tillit mellom partene. Den tilliten er Norges største konkurransefortrinn.",
+                        "strength": 3,
+                        "type": "honor",
+                        "response": "Tillit kan vi ha uten rigid lønnskoordinering. Tillit handler om kultur, ikke om system."
+                    },
+                    {
+                        "id": "workers",
+                        "text": "Spør en sykepleier om hun foretrekker koordinert lønnsvekst eller å stå alene mot helseforetakene.",
+                        "strength": 4,
+                        "type": "mercy",
+                        "response": "Men spør en IT-utvikler om hun synes det er rettferdig at hennes lønn bestemmes av stålverket."
+                    },
+                    {
+                        "id": "adaptation",
+                        "text": "Modellen er ikke hugget i stein. Den har tilpasset seg i 70 år og kan fortsette å gjøre det.",
+                        "strength": 2,
+                        "type": "honor",
+                        "response": "Tilpasning er bra, men noen ganger trenger man en helt ny tilnærming, ikke bare justeringer."
+                    }
+                ],
+                "winningScore": 10
+            }
+        },
+        {
+            "type": "header",
+            "text": "Hvem påvirkes?"
+        },
+        {
+            "type": "text",
+            "content": "Frontfagmodellen påvirker alle som jobber i Norge, men den påvirker folk på svært forskjellige måter. For noen er den en sikkerhetsnett som løfter lønnen deres. For andre er den et usynlig tak som holder dem tilbake."
+        },
+        {
+            "type": "text",
+            "content": "For en sykepleier er frontfagmodellen trolig en fordel. Sykepleiere har viktige jobber, men de har begrenset forhandlingsmakt alene. De kan ikke streike uten at det går ut over syke mennesker, og det er vanskelig å true med å slutte når man brenner for yrket. Frontfagsrammen sikrer at de likevel får en lønnsvekst som følger resten av samfunnet."
+        },
+        {
+            "type": "text",
+            "content": "For en industriarbeider er modellen ganske nøytral. Det er deres bransje som setter normen, så de forhandler fritt basert på bedriftenes lønnsevne. De verken vinner eller taper spesielt mye på systemet."
+        },
+        {
+            "type": "text",
+            "content": "For en IT-ingeniør kan modellen føles begrensende. IT-kompetanse er mangelvare i hele verden, og utenlandske selskaper tilbyr ofte mye høyere lønninger. Frontfagsrammen gjør at norske IT-lønninger holdes lavere enn de ville vært i et fritt marked. Noen velger derfor å jobbe for utenlandske selskaper eller flytte utenlands."
+        },
+        {
+            "type": "text",
+            "content": "For en frisør er modellen trolig en stor fordel. Frisører har lav organisasjonsgrad (få er fagorganiserte), og uten frontfagsrammen ville de stått svakt i forhandlinger. Normen drar dem opp til et lønnsnivå de neppe hadde oppnådd alene."
+        },
+        {
+            "type": "component",
+            "name": "Comparison",
+            "props": {
+                "title": "Hvem påvirkes av frontfagmodellen?",
+                "leftTitle": "Med frontfagmodellen",
+                "rightTitle": "Uten frontfagmodellen (estimat)",
+                "items": [
+                    {
+                        "label": "Sykepleier",
+                        "left": "Ca. 550 000 kr/år. Følger frontfagnormen.",
+                        "right": "Ca. 450 000 kr/år. Svakere forhandlingsposisjon uten normen."
+                    },
+                    {
+                        "label": "Industriarbeider",
+                        "left": "Ca. 520 000 kr/år. Setter normen.",
+                        "right": "Ca. 520 000 kr/år. Ville forhandlet direkte."
+                    },
+                    {
+                        "label": "IT-ingeniør",
+                        "left": "Ca. 700 000 kr/år. Holdes noe tilbake av normen.",
+                        "right": "Ca. 900 000 kr/år. Høy etterspørsel ville drevet lønnen opp."
+                    },
+                    {
+                        "label": "Frisør",
+                        "left": "Ca. 400 000 kr/år. Drar nytte av normen.",
+                        "right": "Ca. 300 000 kr/år. Lav organisering ville gitt lavere lønn."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "text",
+            "content": "Tabellen over viser et viktig poeng: Frontfagmodellen er ikke et nøytralt system. Den omfordeler. Den tar fra de som ville tjent mer i et fritt marked, og gir til de som ville tjent mindre. Spørsmålet er om denne omfordelingen er rettferdig - og det avhenger av hvilket filosofisk ståsted du velger."
+        },
+        {
+            "type": "header",
+            "text": "Den filosofiske dimensjonen"
+        },
+        {
+            "type": "text",
+            "content": "Diskusjonen om frontfagmodellen handler egentlig om noe mye dypere enn lønnsforhandlinger. Den handler om to grunnleggende syn på hva som er rettferdig."
+        },
+        {
+            "type": "text",
+            "content": "Det første synet er [utilitarisme](/krle/etikk/utilitarisme) - ideen om at det riktige er det som skaper mest mulig nytte for flest mulig mennesker. Sett gjennom utilitaristiske briller er frontfagmodellen en suksess. Den gir stabil lønnsvekst til millioner av nordmenn, holder inflasjonen lav, bevarer arbeidsplasser og sikrer at også svake grupper får ta del i velstandsøkningen. At noen få tusen IT-ingeniører tjener mindre enn de kunne, er en liten pris å betale for et system som gagner fellesskapet."
+        },
+        {
+            "type": "text",
+            "content": "Det andre synet er [naturrett](/krle/etikk/naturrett) - ideen om at mennesker har grunnleggende rettigheter som ikke kan krenkes, selv om det ville gitt flertallet fordeler. Filosofen [John Locke](/krle/filosofi/locke) argumenterte for at mennesker har en naturlig rett til fruktene av sitt eget arbeid. Hvis du er dyktig, jobber hardt og skaper verdi, har du rett til å bli belønnet deretter. Ingen - verken staten, fagforeningen eller industriens lønnsoppgjør - bør ha rett til å sette et tak på hva du kan tjene."
+        },
+        {
+            "type": "text",
+            "content": "Økonomen [Ludwig von Mises](/krle/filosofi/mises) ville tatt dette videre. Han mente at frie markeder er den eneste mekanismen som kan sende riktige signaler om hva arbeidskraft er verdt. Når frontfagmodellen holder IT-lønningene nede, sender den et feil signal til unge mennesker som vurderer yrkesvalg. Færre velger kanskje IT, og Norge taper i den globale konkurransen om talenter."
+        },
+        {
+            "type": "text",
+            "content": "Tilhengerne av frontfagmodellen svarer at ren frihet ikke er lik rettferdighet. I et fritt marked uten koordinering ville de sterkeste - de med mest etterspurt kompetanse og best forhandlingskort - tatt stadig mer. De svakeste - de uten utdanning, uten fagforening, uten alternativer - ville falt etter. Et samfunn der sykepleierlønnen synker mens IT-lønningene eksploderer er kanskje fritt, men er det rettferdig?"
+        },
+        {
+            "type": "text",
+            "content": "Her finnes det ikke et fasitsvar. Det avhenger av hva du mener er viktigst: størst mulig frihet for den enkelte, eller størst mulig likhet i samfunnet. Og kanskje ligger den norske modellens styrke nettopp i at den prøver å balansere begge hensynene - uten å gi fullt gjennomslag til noen av dem."
+        },
+        {
+            "type": "header",
+            "text": "Har modellen utspilt sin rolle?"
+        },
+        {
+            "type": "text",
+            "content": "Frontfagmodellen ble designet for en verden der de fleste jobbet i fabrikker, på verft eller i kontorer. En verden der arbeidsgivere og arbeidstakere var tydelig definerte, der de fleste var fagorganiserte, og der norske bedrifter hovedsakelig konkurrerte med bedrifter i nabolandene."
+        },
+        {
+            "type": "text",
+            "content": "Den verden finnes ikke lenger. I dag jobber stadig flere som frilansere, konsulenter eller i det som kalles gig-økonomien. De har ikke en fast arbeidsgiver, ingen fagforening og ingen tariffavtale. Frontfagsrammen påvirker dem lite eller ingenting. Uber-sjåfører, influensere og frilansprogrammerere lever i en helt annen virkelighet enn den modellen ble bygget for."
+        },
+        {
+            "type": "text",
+            "content": "Fjernarbeid er en annen utfordring. Når en norsk utvikler kan jobbe for et amerikansk selskap fra stuebordet i Trondheim, hva betyr da frontfagsrammen? Det amerikanske selskapet følger ikke norske lønnsoppgjør. De betaler markedspris, og den prisen kan være dobbelt så høy som den norske normen."
+        },
+        {
+            "type": "text",
+            "content": "Globaliseringen utfordrer også grunnpremisset. Aukrust-modellen bygger på at norsk industri konkurrerer med utenlandske konkurrenter. Men i en verden der verdikjeder krysser landegrenser og produksjon flyttes til lavkostland, er det ikke opplagt at norske industriarbeideres lønn er riktig målestokk for resten av samfunnet."
+        },
+        {
+            "type": "text",
+            "content": "Kunstig intelligens legger enda en dimensjon til. Hva skjer med frontfagmodellen når maskiner overtar mange av oppgavene i industrien? Hvis fabrikkene har færre ansatte, men produserer mer, gir det grunnlag for høyere lønnsramme - men til hvem? Og hva med alle yrkene som AI truer, men som ikke er en del av frontfaget?"
+        },
+        {
+            "type": "text",
+            "content": "Forsvarerne av modellen sier at den har overlevd store omveltninger før. Oljekrisen på 1970-tallet, bankkrisen på 1990-tallet, finanskrisen i 2008 - hver gang spådde kritikerne modellens død, og hver gang tilpasset den seg. De mener den kan tilpasse seg også denne gangen."
+        },
+        {
+            "type": "text",
+            "content": "Andre er mindre sikre. De peker på at endringene denne gangen er av en helt annen karakter. Det handler ikke bare om konjunkturer som går opp og ned, men om en fundamental endring i hvordan arbeid organiseres. Når selve begrepene arbeidsgiver og arbeidstaker blir uklare, fungerer ikke et system som bygger på tydelig definerte parter som forhandler mot hverandre."
+        },
+        {
+            "type": "text",
+            "content": "Kanskje er svaret at frontfagmodellen verken bør avskaffes eller bevares uendret. Kanskje trenger vi en ny versjon - en modell som beholder det beste fra den koordinerte lønnsdannelsen, men som også rommer det nye arbeidslivet. Spørsmålet er hvem som skal designe den, og om partene klarer å bli enige om noe nytt like radikalt som det Odd Aukrust foreslo i 1952."
+        },
+        {
+            "type": "text",
+            "content": "Det er her dere kommer inn. Generasjonen som vokser opp nå, vil måtte ta stilling til om frontfagmodellen skal videreføres, endres eller erstattes. Det krever at dere forstår hva den er, hvorfor den ble laget, hva den har oppnådd - og hva den kanskje ikke klarer lenger. Uansett hva dere velger, er det viktig at valget bygger på kunnskap, ikke bare følelser."
+        }
+    ],
+    "timeline": []
+}
