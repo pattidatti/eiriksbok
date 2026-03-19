@@ -104,6 +104,9 @@ const SpecializationSlider = lazy(() => import('./content/interactive/okonomi/Sp
 const LoanableFundsMarket = lazy(() => import('./content/interactive/okonomi/LoanableFundsMarket').then(m => ({ default: m.LoanableFundsMarket })));
 const HayekTriangle = lazy(() => import('./content/interactive/okonomi/HayekTriangle').then(m => ({ default: m.HayekTriangle })));
 
+// Arbeidsliv
+const WageNegotiationSim = lazy(() => import('./content/interactive/arbeidsliv/WageNegotiationSim').then(m => ({ default: m.WageNegotiationSim })));
+
 // Viking/Historie
 const ConflictMap = lazy(() => import('./viking/ConflictMap').then(m => ({ default: m.ConflictMap })));
 const FeudalPyramid = lazy(() => import('./viking/FeudalPyramid').then(m => ({ default: m.FeudalPyramid })));
@@ -223,6 +226,9 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     SpecializationSlider,
     LoanableFundsMarket,
     HayekTriangle,
+
+    // Arbeidsliv
+    WageNegotiationSim,
 
     // Viking/History
     ConflictMap,

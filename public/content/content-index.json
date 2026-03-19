@@ -1,5 +1,5 @@
 {
-  "buildId": 1773906589085,
+  "buildId": 1773916917876,
   "contentMap": {
     "adel": [
       "content/concepts/adel.json"
@@ -30,6 +30,9 @@
     ],
     "anschluss": [
       "content/concepts/anschluss.json"
+    ],
+    "arbeidsmiljoloven": [
+      "content/concepts/arbeidsmiljoloven.json"
     ],
     "arbeidsspesialisering": [
       "content/concepts/arbeidsspesialisering.json",
@@ -133,6 +136,9 @@
     "ettergivenhetspolitikk": [
       "content/concepts/ettergivenhetspolitikk.json"
     ],
+    "fagforening": [
+      "content/concepts/fagforening.json"
+    ],
     "fascisme": [
       "content/concepts/fascisme.json"
     ],
@@ -149,8 +155,18 @@
     "folkevandringstiden": [
       "content/concepts/folkevandringstiden.json"
     ],
+    "frontfagmodellen": [
+      "content/concepts/frontfagmodellen.json",
+      "content/samfunnskunnskap/arbeidsliv/frontfagmodellen.json"
+    ],
     "fullmaktsloven": [
       "content/concepts/fullmaktsloven.json"
+    ],
+    "gig-okonomi": [
+      "content/concepts/gig-okonomi.json"
+    ],
+    "gini-koeffisient": [
+      "content/concepts/gini-koeffisient.json"
     ],
     "glasnost": [
       "content/concepts/glasnost.json"
@@ -468,6 +484,9 @@
     "stormaktstiden": [
       "content/concepts/stormaktstiden.json"
     ],
+    "streikerett": [
+      "content/concepts/streikerett.json"
+    ],
     "stridsvogn": [
       "content/concepts/stridsvogn.json"
     ],
@@ -494,6 +513,9 @@
     ],
     "tankereferat": [
       "content/concepts/tankereferat.json"
+    ],
+    "tariffavtale": [
+      "content/concepts/tariffavtale.json"
     ],
     "te": [
       "content/concepts/te.json"
@@ -1553,6 +1575,18 @@
     "woodrow-wilson": [
       "content/people/woodrow-wilson.json"
     ],
+    "arbeidsrett": [
+      "content/samfunnskunnskap/arbeidsliv/arbeidsrett.json"
+    ],
+    "fagforeninger": [
+      "content/samfunnskunnskap/arbeidsliv/fagforeninger.json"
+    ],
+    "fremtidens-arbeidsliv": [
+      "content/samfunnskunnskap/arbeidsliv/fremtidens-arbeidsliv.json"
+    ],
+    "lonn-og-ulikhet": [
+      "content/samfunnskunnskap/arbeidsliv/lonn-og-ulikhet.json"
+    ],
     "befolkningspyramider": [
       "content/samfunnskunnskap/demografi/befolkningspyramider.json"
     ],
@@ -1718,6 +1752,7 @@
     "concepts/anarko-kommunisme.json/anarko-kommunisme": "content/concepts/anarko-kommunisme.json",
     "concepts/anforselstegn.json/anforselstegn": "content/concepts/anforselstegn.json",
     "concepts/anschluss.json/anschluss": "content/concepts/anschluss.json",
+    "concepts/arbeidsmiljoloven.json/arbeidsmiljoloven": "content/concepts/arbeidsmiljoloven.json",
     "concepts/arbeidsspesialisering.json/arbeidsspesialisering": "content/concepts/arbeidsspesialisering.json",
     "concepts/armada.json/armada": "content/concepts/armada.json",
     "concepts/artilleri.json/artilleri": "content/concepts/artilleri.json",
@@ -1751,12 +1786,16 @@
     "concepts/ententen.json/ententen": "content/concepts/ententen.json",
     "concepts/etos.json/etos": "content/concepts/etos.json",
     "concepts/ettergivenhetspolitikk.json/ettergivenhetspolitikk": "content/concepts/ettergivenhetspolitikk.json",
+    "concepts/fagforening.json/fagforening": "content/concepts/fagforening.json",
     "concepts/fascisme.json/fascisme": "content/concepts/fascisme.json",
     "concepts/femarsplan.json/femarsplan": "content/concepts/femarsplan.json",
     "concepts/foerromersk-jernalder.json/foerromersk-jernalder": "content/concepts/foerromersk-jernalder.json",
     "concepts/folkeforbundet.json/folkeforbundet": "content/concepts/folkeforbundet.json",
     "concepts/folkevandringstiden.json/folkevandringstiden": "content/concepts/folkevandringstiden.json",
+    "concepts/frontfagmodellen.json/frontfagmodellen": "content/concepts/frontfagmodellen.json",
     "concepts/fullmaktsloven.json/fullmaktsloven": "content/concepts/fullmaktsloven.json",
+    "concepts/gig-okonomi.json/gig-okonomi": "content/concepts/gig-okonomi.json",
+    "concepts/gini-koeffisient.json/gini-koeffisient": "content/concepts/gini-koeffisient.json",
     "concepts/glasnost.json/glasnost": "content/concepts/glasnost.json",
     "concepts/gulag.json/gulag": "content/concepts/gulag.json",
     "concepts/gullstandard.json/gullstandard": "content/concepts/gullstandard.json",
@@ -1862,6 +1901,7 @@
     "concepts/stalingrad.json/stalingrad": "content/concepts/stalingrad.json",
     "concepts/stfronten.json/stfronten": "content/concepts/stfronten.json",
     "concepts/stormaktstiden.json/stormaktstiden": "content/concepts/stormaktstiden.json",
+    "concepts/streikerett.json/streikerett": "content/concepts/streikerett.json",
     "concepts/stridsvogn.json/stridsvogn": "content/concepts/stridsvogn.json",
     "concepts/subjektet.json/subjektet": "content/concepts/subjektet.json",
     "concepts/subtekst.json/subtekst": "content/concepts/subtekst.json",
@@ -1871,6 +1911,7 @@
     "concepts/sykes-picot.json/sykes-picot": "content/concepts/sykes-picot.json",
     "concepts/synsvinkel.json/synsvinkel": "content/concepts/synsvinkel.json",
     "concepts/tankereferat.json/tankereferat": "content/concepts/tankereferat.json",
+    "concepts/tariffavtale.json/tariffavtale": "content/concepts/tariffavtale.json",
     "concepts/te.json/te": "content/concepts/te.json",
     "concepts/teknokrati.json/teknokrati": "content/concepts/teknokrati.json",
     "concepts/tekstil.json/tekstil": "content/concepts/tekstil.json",
@@ -2272,6 +2313,11 @@
     "people/vladimir-lenin.json/vladimir-lenin": "content/people/vladimir-lenin.json",
     "people/wilhelm-ii.json/wilhelm-ii": "content/people/wilhelm-ii.json",
     "people/woodrow-wilson.json/woodrow-wilson": "content/people/woodrow-wilson.json",
+    "samfunnskunnskap/arbeidsliv/arbeidsrett": "content/samfunnskunnskap/arbeidsliv/arbeidsrett.json",
+    "samfunnskunnskap/arbeidsliv/fagforeninger": "content/samfunnskunnskap/arbeidsliv/fagforeninger.json",
+    "samfunnskunnskap/arbeidsliv/fremtidens-arbeidsliv": "content/samfunnskunnskap/arbeidsliv/fremtidens-arbeidsliv.json",
+    "samfunnskunnskap/arbeidsliv/frontfagmodellen": "content/samfunnskunnskap/arbeidsliv/frontfagmodellen.json",
+    "samfunnskunnskap/arbeidsliv/lonn-og-ulikhet": "content/samfunnskunnskap/arbeidsliv/lonn-og-ulikhet.json",
     "samfunnskunnskap/demografi/befolkningspyramider": "content/samfunnskunnskap/demografi/befolkningspyramider.json",
     "samfunnskunnskap/demografi/den-demografiske-overgangen": "content/samfunnskunnskap/demografi/den-demografiske-overgangen.json",
     "samfunnskunnskap/demografi/fattigdom": "content/samfunnskunnskap/demografi/fattigdom.json",

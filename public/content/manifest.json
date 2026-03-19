@@ -1564,6 +1564,86 @@
               "lastUpdated": "2026-03-12T10:46:17+01:00"
             }
           ]
+        },
+        {
+          "id": "arbeidsliv",
+          "title": "Arbeidsliv",
+          "description": "Utforsk motoren i det norske samfunnet: Fra historiske arbeiderkamper til fremtidens AI-drevne arbeidsmarked.",
+          "image": "/images/topics/arbeidsliv_hero.webp",
+          "lessons": [
+            {
+              "id": "fagforeninger",
+              "title": "Fra ufrihet til organisering",
+              "description": "Fra industrielle opprør til den norske modellen. Oppdag kampen som ga oss dagens rettigheter.",
+              "image": "/images/lessons/arbeidsliv/fagforeninger_hero.webp",
+              "layout": "rich",
+              "tags": [
+                "arbeidsliv",
+                "historie",
+                "fagforening"
+              ],
+              "createdDate": "2026-03-19T10:40:29+01:00",
+              "lastUpdated": "2026-03-19T11:47:00+01:00"
+            },
+            {
+              "id": "arbeidsrett",
+              "title": "Spillereglene i arbeidslivet",
+              "description": "Spillereglene bak drømmejobben. Lær om arbeidsmiljøloven, rettigheter og plikter.",
+              "image": "/images/lessons/arbeidsliv/arbeidsrett_hero.webp",
+              "layout": "rich",
+              "tags": [
+                "arbeidsliv",
+                "rettigheter",
+                "lov"
+              ],
+              "createdDate": "2026-03-19T10:40:29+01:00",
+              "lastUpdated": "2026-03-19T11:47:00+01:00"
+            },
+            {
+              "id": "frontfagmodellen",
+              "title": "Norges lønnsmaskin",
+              "description": "Motoren i norsk økonomi. Forstå systemet som balanserer lønn, eksport og rettferdighet.",
+              "image": "/images/lessons/arbeidsliv/frontfagmodellen_hero.webp",
+              "layout": "rich",
+              "tags": [
+                "arbeidsliv",
+                "økonomi",
+                "lønn",
+                "frontfag"
+              ],
+              "createdDate": "2026-03-19T10:40:29+01:00",
+              "lastUpdated": "2026-03-19T11:47:00+01:00"
+            },
+            {
+              "id": "lonn-og-ulikhet",
+              "title": "Hvem tjener hva?",
+              "description": "Hvorfor er lønnsforskjellene så små i Norge? Dypdykk i Gini-koeffisient og fordeling.",
+              "image": "/images/lessons/arbeidsliv/lonn-ulikhet_hero.webp",
+              "layout": "rich",
+              "tags": [
+                "arbeidsliv",
+                "økonomi",
+                "ulikhet"
+              ],
+              "createdDate": "2026-03-19T10:40:29+01:00",
+              "lastUpdated": "2026-03-19T11:47:00+01:00"
+            },
+            {
+              "id": "fremtidens-arbeidsliv",
+              "title": "Roboter, gig og frihet",
+              "description": "Naviger i et arbeidsliv i endring. Om AI, gig-økonomi og ferdighetene du trenger.",
+              "image": "/images/lessons/arbeidsliv/fremtiden_hero.webp",
+              "layout": "rich",
+              "tags": [
+                "arbeidsliv",
+                "fremtid",
+                "ai",
+                "gig"
+              ],
+              "createdDate": "2026-03-19T10:40:29+01:00",
+              "lastUpdated": "2026-03-19T11:47:00+01:00"
+            }
+          ]
         }
       ]
     },
