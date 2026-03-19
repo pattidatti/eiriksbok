@@ -58,6 +58,8 @@ export const metaforApplyExercises: Exercise[] = [
                 'en kamp',
                 'et helvete',
             ],
+            acceptKeywords: ['mareritt', 'mur', 'fjell', 'monster', 'kamp', 'helvete', 'katastrofe', 'tortur', 'hinder', 'straff', 'felle'],
+            hint: 'Bruk en metafor - sammenlign matteprøven med noe vanskelig uten å bruke «som».',
             explanation:
                 'Vi trenger en metafor som viser at prøven var veldig vanskelig. «Et mareritt», «en mur» eller «et fjell» er alle gode metaforer fordi de beskriver noe overveldende uten å bruke «som» eller «lik».',
         },

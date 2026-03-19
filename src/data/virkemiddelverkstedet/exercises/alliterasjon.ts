@@ -179,6 +179,8 @@ export const alliterasjonExercises: Exercise[] = [
             textBefore: 'Tunge, trøtte',
             textAfter: 'trasket gjennom mørket.',
             correctAnswers: ['troll', 'tropper', 'turister'],
+            acceptKeywords: ['tanker', 'tenåringer', 'travere', 'trollmenn', 'tyver', 'titaner', 'trær'],
+            hint: 'Ordet må begynne med «t» for å fortsette alliterasjonen.',
             explanation: 'Et ord som begynner på "t" fullfører alliterasjonen. T-lyden skaper en tung, slitsom rytme som passer til stemningen.',
         },
     },

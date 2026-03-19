@@ -58,6 +58,8 @@ export const temaApplyExercises: Exercise[] = [
                 'satte seg ned ved siden av henne',
                 'stoppet å le',
             ],
+            acceptKeywords: ['hjalp', 'hånd', 'trøst', 'holdt', 'tiet', 'forsvart', 'stoppet', 'sa fra', 'sa stopp', 'reiste seg', 'brydde seg', 'lo ikke', 'sa imot'],
+            hint: 'Tenk på hva en god venn ville gjort for å vise vennskap gjennom handling.',
             explanation:
                 'Temaet vennskap vises best gjennom handlinger. Når Sara gjør noe konkret for å hjelpe Mia, forstår leseren at dette er ekte vennskap – uten at vi trenger å skrive det direkte.',
         },

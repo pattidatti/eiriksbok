@@ -179,6 +179,8 @@ export const kontrastExercises: Exercise[] = [
             textBefore: 'Han lo høyt og fortalte vitser til alle rundt seg. Men da han kom hjem og lukket døren, ',
             textAfter: '',
             correctAnswers: ['gråt han', 'gråt han stille', 'sank han sammen', 'falt tårene', 'var han helt alene', 'satt han alene i mørket'],
+            acceptKeywords: ['gråt', 'tåre', 'alene', 'mørk', 'stille', 'sank', 'trist', 'ensom'],
+            hint: 'Hva er det motsatte av å le og fortelle vitser? Hva skjer bak den lukka døra?',
             explanation: 'Kontrasten mellom den sosiale fasaden (latter, vitser) og det som skjer hjemme (gråt, ensomhet) gjør begge sidene sterkere og viser at han skjuler noe.',
         },
     },

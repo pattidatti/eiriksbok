@@ -179,6 +179,8 @@ export const sammenligningExercises: Exercise[] = [
             textBefore: 'Stemmen hennes var myk som',
             textAfter: '.',
             correctAnswers: ['silke', 'fløyel', 'bomull', 'en sommerbris', 'et vindpust'],
+            acceptKeywords: ['silke', 'fløyel', 'bomull', 'bris', 'vindpust', 'dun', 'honning', 'smør', 'ull'],
+            hint: 'Sammenlign med noe som er mykt. Stemmen var myk som...?',
             explanation: 'Her trenger vi noe som er mykt og behagelig. Silke, fløyel eller en bris er gode sammenligningsbilder fordi de er kjent for mykhet.',
         },
     },

@@ -179,6 +179,8 @@ export const tilbakeblikkExercises: Exercise[] = [
             textBefore: 'Han så på det gamle fotballkortet.',
             textAfter: 'hadde han og pappa stått i kø i tre timer for å få det signert.',
             correctAnswers: ['Den sommeren', 'Den gangen', 'For ti år siden'],
+            acceptKeywords: ['sommer', 'gang', 'år siden', 'husket', 'minnet', 'tilbake'],
+            hint: 'Bruk en tidsmarkør som tar oss tilbake i tid. Når skjedde dette minnet?',
             explanation: 'Tidsmarkører som "den sommeren", "den gangen" eller "for ti år siden" signaliserer et tidshopp bakover. De forteller leseren at vi nå befinner oss i et minne.',
         },
     },

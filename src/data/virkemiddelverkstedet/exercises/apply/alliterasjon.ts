@@ -52,6 +52,8 @@ export const alliterasjonApplyExercises: Exercise[] = [
             textBefore: 'Brisen blåste over',
             textAfter: '.',
             correctAnswers: ['bølgene', 'bakken', 'berget', 'broen', 'blomstene', 'byen'],
+            acceptKeywords: ['båten', 'busken', 'bjørka', 'bygda', 'bekken', 'bukta', 'barna', 'benken', 'bredden', 'beitet'],
+            hint: 'Ordet må begynne med «b» for å skape alliterasjon med «brisen» og «blåste».',
             explanation:
                 'Vi trenger et ord som starter med «b» for å fortsette alliterasjonen med «brisen» og «blåste». Ord som «bølgene», «berget» eller «blomstene» gir en fin klang.',
         },

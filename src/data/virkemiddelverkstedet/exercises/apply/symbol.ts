@@ -60,6 +60,8 @@ export const symbolApplyExercises: Exercise[] = [
                 'en hvit due',
                 'duen',
             ],
+            acceptKeywords: ['fugl', 'sommerfugl', 'due', 'ballong', 'drage', 'falk', 'spurv'],
+            hint: 'Tenk på noe som kan fly fritt - et symbol for tilgivelse og frihet.',
             explanation:
                 'En fugl som slippes fri er et klassisk symbol for tilgivelse og det å slippe noe negativt. Fuglen representerer friheten som kommer når du lar noe vondt gå.',
         },

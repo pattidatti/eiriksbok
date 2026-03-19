@@ -50,6 +50,8 @@ export const tilbakeblikkApplyExercises: Exercise[] = [
                 'Det tok ham tilbake til den kvelden',
                 'Minnet traff ham',
             ],
+            acceptKeywords: ['husket', 'minnet', 'tilbake', 'plutselig', 'så for seg', 'tenkte', 'erindret'],
+            hint: 'Lag en overgang fra nåtid til fortid. Bruk et uttrykk som tar karakteren tilbake i tid.',
             explanation:
                 'For å starte et tilbakeblikk trenger vi en overgang som tar leseren fra nåtiden til fortiden. Uttrykk som "han husket" eller "plutselig var han tilbake" fungerer som en bro mellom tidene.',
         },

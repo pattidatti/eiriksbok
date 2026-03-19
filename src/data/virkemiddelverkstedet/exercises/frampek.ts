@@ -179,6 +179,8 @@ export const frampekExercises: Exercise[] = [
             textBefore: 'De pakket bilen og kjørte mot hytta. Alt var rolig og fint.',
             textAfter: '.',
             correctAnswers: ['Foreløpig', 'Ennå', 'Så langt'],
+            acceptKeywords: ['inntil', 'hittil', 'for nå', 'tilsynelatende'],
+            hint: 'Legg til et ord som antyder at det gode ikke vil vare.',
             explanation: 'Ord som "foreløpig", "ennå" eller "så langt" skaper frampek fordi de antyder at roen ikke vil vare. Leseren skjønner at noe kommer til å endre seg.',
         },
     },

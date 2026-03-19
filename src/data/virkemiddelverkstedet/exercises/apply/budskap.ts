@@ -58,6 +58,8 @@ export const budskapApplyExercises: Exercise[] = [
                 'en løgn skaper mer skade enn sannheten',
                 'det er bedre å være ærlig fra starten',
             ],
+            acceptKeywords: ['ærlig', 'sannhet', 'løgn', 'tillit', 'sant', 'ærle'],
+            hint: 'Hva lærte Leo om forholdet mellom løgn og tillit?',
             explanation:
                 'Historien viser at en løgn kan vokse og gjøre mer skade enn sannheten. Moralen bør handle om ærlighet og tillit – det er det historiens handlinger peker mot.',
         },

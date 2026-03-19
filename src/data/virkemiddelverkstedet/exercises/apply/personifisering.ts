@@ -62,6 +62,8 @@ export const personifiseringApplyExercises: Exercise[] = [
                 'stønnet',
                 'jaget',
             ],
+            acceptKeywords: ['hylte', 'gråt', 'suste', 'fløytet', 'sprang', 'lekte', 'snek', 'stormet', 'trampet', 'jamret', 'sukket'],
+            hint: 'Gi vinden en menneskelig handling. Hva gjør vinden gjennom gatene?',
             explanation:
                 'Vinden kan ikke egentlig hviske, skrike eller danse – det er menneskelige handlinger. Når vi gir vinden slike handlinger, er det personifisering. Det gjør teksten mer levende.',
         },

@@ -60,6 +60,8 @@ export const ironiApplyExercises: Exercise[] = [
                 'perfekt badevær',
                 'flott sommervær',
             ],
+            acceptKeywords: ['herlig', 'fantast', 'nydelig', 'strålende', 'perfekt', 'flott', 'deilig', 'vidunderlig', 'utmerket', 'super'],
+            hint: 'Si det motsatte av hva du mener - det er ironi! Det regner, men du sier at det er...?',
             explanation:
                 'Ironi fungerer ved å si det motsatte av virkeligheten. Når det regner, er det ironisk å kalle det "herlig sommervær" eller "perfekt badevær". Alle skjønner at du mener det motsatte.',
         },

@@ -58,6 +58,8 @@ export const kontrastApplyExercises: Exercise[] = [
                 'stille',
                 'mørkt',
             ],
+            acceptKeywords: ['stille', 'mørk', 'kald', 'tom', 'taus', 'grå', 'ensom', 'trist', 'øde', 'dyster'],
+            hint: 'Hva er det motsatte av sol, lek og latter? Beskriv det som er inne i huset.',
             explanation:
                 'Kontrasten mellom den lyse, livlige utsiden og det mørke, stille innsiden skaper en umiddelbar stemning. Leseren forstår at noe er galt inne i huset uten at det trengs å forklares.',
         },

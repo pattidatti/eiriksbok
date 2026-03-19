@@ -167,6 +167,8 @@ export const symbolExercises: Exercise[] = [
             textBefore: 'Etter at hun flyttet ut, ble ',
             textAfter: ' stående urørt på nattbordet. Støvet la seg tykt over det, men han klarte aldri å flytte det.',
             correctAnswers: ['fotografiet', 'bildet', 'ringen', 'boken', 'koppen'],
+            acceptKeywords: ['foto', 'bilde', 'ring', 'bok', 'kopp', 'brev', 'klokke', 'smykke', 'armbånd', 'halskjede'],
+            hint: 'Tenk på en gjenstand som kan bære minner om henne. Hva ble stående på nattbordet?',
             explanation: 'Her trengs en konkret gjenstand som kan symbolisere henne og forholdet de hadde. Fotografiet, ringen eller lignende gjenstander bærer minner og tilknytning.',
         },
     },

@@ -52,6 +52,7 @@ export const gjentakelseApplyExercises: Exercise[] = [
             textBefore: 'Han løp og løp og',
             textAfter: ', men kom aldri fram.',
             correctAnswers: ['løp'],
+            hint: 'Gjentakelse betyr å bruke samme ord igjen. Hvilket ord gjentas allerede?',
             explanation:
                 'Ved å gjenta "løp" tre ganger skaper vi en følelse av utholdenhet og frustrasjon. Leseren føler hvor lenge han har holdt på.',
         },
@@ -66,6 +67,8 @@ export const gjentakelseApplyExercises: Exercise[] = [
             textBefore: 'Det var',
             textAfter: '. Så kaldt at fingrene ikke ville lystre.',
             correctAnswers: ['kaldt, kaldt', 'kaldt kaldt', 'kaldt, så kaldt'],
+            acceptKeywords: ['kaldt'],
+            hint: 'Gjenta ordet som allerede brukes i neste setning for å forsterke følelsen.',
             explanation:
                 'Å gjenta "kaldt" gjør at leseren nesten føler kulden selv. Gjentakelse forsterker sanseinntrykk.',
         },

@@ -45,6 +45,8 @@ export const frampekApplyExercises: Exercise[] = [
             textBefore: 'De lo og spiste is i solen. Alt var perfekt.',
             textAfter: '.',
             correctAnswers: ['Foreløpig', 'Ennå', 'Så langt', 'Tilsynelatende'],
+            acceptKeywords: ['inntil', 'hittil', 'i hvert fall', 'for nå', 'akkurat da'],
+            hint: 'Legg til et ord som antyder at det gode ikke vil vare.',
             explanation:
                 'Ord som "foreløpig" eller "ennå" forandrer hele stemningen. De antyder at det gode ikke vil vare, og det skaper spenning hos leseren.',
         },
@@ -144,6 +146,8 @@ export const frampekApplyExercises: Exercise[] = [
                 'Han skulle snart trenge den',
                 'Det visste han ikke da, men ja',
             ],
+            acceptKeywords: ['trenge', 'glad for', 'bruk for', 'viste seg', 'fikk bruk'],
+            hint: 'Lag en setning som antyder at kniven faktisk blir viktig senere.',
             explanation:
                 'Ved å legge til en setning som forteller at kniven faktisk ble viktig, skaper du et frampek. Leseren forstår at noe vil skje der kniven trengs.',
         },

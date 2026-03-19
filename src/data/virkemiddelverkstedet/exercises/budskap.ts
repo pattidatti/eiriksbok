@@ -194,6 +194,8 @@ export const budskapExercises: Exercise[] = [
             textBefore: 'Fabelen om haren og skilpadden lærer oss at utholdenhet er viktigere enn',
             textAfter: '.',
             correctAnswers: ['fart', 'hastighet', 'talent', 'medfødt talent'],
+            acceptKeywords: ['rask', 'speed', 'evne', 'begavelse', 'gave', 'smart'],
+            hint: 'Hva er det haren har som skilpadden mangler?',
             explanation: 'Budskapet er at utholdenhet slår fart. Haren var raskest, men skilpadden vant fordi den aldri ga opp. Jevn innsats trumfer naturlig talent.',
         },
     },

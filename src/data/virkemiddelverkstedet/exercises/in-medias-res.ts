@@ -185,6 +185,8 @@ export const inMediasResExercises: Exercise[] = [
             textBefore: '',
             textAfter: ' Hun visste ikke hvor lenge hun hadde løpt, men bena begynte å svikte.',
             correctAnswers: ['Pusten brant i halsen.', 'Grenene slo mot ansiktet hennes.', 'Skrittene bak henne kom nærmere.', 'Hjertet hamret i brystet.'],
+            acceptKeywords: ['pust', 'hjerte', 'løp', 'skritt', 'bena', 'svette', 'skrek', 'mørk', 'smerte', 'blod', 'falt'],
+            hint: 'Start midt i handlingen med en fysisk, sanselig beskrivelse. Hva føler kroppen akkurat nå?',
             explanation: 'En god in medias res-åpning starter med noe fysisk og umiddelbart - pust, smerte, bevegelse. Vi er midt i handlingen uten forklaring.',
         },
     },

@@ -179,6 +179,7 @@ export const gjentakelseExercises: Exercise[] = [
             textBefore: 'Han gikk og gikk og',
             textAfter: 'gjennom den endeløse skogen.',
             correctAnswers: ['gikk'],
+            hint: 'Gjentakelse betyr å bruke samme ord igjen. Hvilket ord gjentas allerede?',
             explanation: 'Ordet "gikk" gjentas tre ganger for å vise at vandringen var lang og utmattende.',
         },
     },

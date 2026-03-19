@@ -59,6 +59,8 @@ export const sammenligningApplyExercises: Exercise[] = [
                 'en sommerfugl',
                 'vinden',
             ],
+            acceptKeywords: ['fjær', 'katt', 'fugl', 'sommerfugl', 'vind', 'ballong', 'sky', 'dun', 'fjer'],
+            hint: 'Sammenlign med noe som er lett. Hunden var lett som...?',
             explanation:
                 'Vi trenger noe lett og elegant etter «som». «En fjær» eller «en fugl» er gode sammenligninger fordi de viser letthet og gratie.',
         },

@@ -90,6 +90,8 @@ export const inMediasResApplyExercises: Exercise[] = [
                 'Hodet dundret',
                 'Vannet traff ansiktet hans',
             ],
+            acceptKeywords: ['øyne', 'våknet', 'hodet', 'kroppen', 'smerte', 'sand', 'bølge', 'kald', 'mørk', 'lys'],
+            hint: 'Start midt i handlingen - beskriv noe fysisk som skjer akkurat nå.',
             explanation:
                 'En in medias res-åpning starter midt i noe som allerede har skjedd. Vi forstår at karakteren har vært bevisstløs på en strand. Det skaper spørsmål: Hvorfor ligger han der? Hva har skjedd?',
         },

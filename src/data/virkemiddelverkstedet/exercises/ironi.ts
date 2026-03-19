@@ -179,6 +179,8 @@ export const ironiExercises: Exercise[] = [
             textBefore: '"For en ',
             textAfter: ' dag," sukket hun mens regnet øste ned og bussen kjørte forbi henne.',
             correctAnswers: ['strålende', 'nydelig', 'fantastisk', 'herlig', 'flott', 'vidunderlig'],
+            acceptKeywords: ['herlig', 'fantast', 'nydelig', 'strålende', 'perfekt', 'flott', 'deilig', 'super', 'utmerket'],
+            hint: 'Si det motsatte av det du mener - det er ironi! Det regner og alt er elendig, men du sier at det er en...?',
             explanation: 'Et positivt ord som "strålende" eller "nydelig" skaper ironi fordi situasjonen er det stikk motsatte - regn og en buss som ikke stopper.',
         },
     },

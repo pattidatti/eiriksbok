@@ -192,6 +192,8 @@ export const temaExercises: Exercise[] = [
             textBefore: 'Teksten handler om en gutt som alltid gjør det de andre vil, til han en dag ikke vet hva han selv liker. Temaet er',
             textAfter: '.',
             correctAnswers: ['identitet', 'selvbilde', 'tilpasning'],
+            acceptKeywords: ['identitet', 'selvbilde', 'hvem man er', 'seg selv', 'tilpass'],
+            hint: 'Hva handler det om å ikke vite hvem du er? Hva kaller vi det å lete etter «deg selv»?',
             explanation: 'Temaet er identitet. Gutten har mistet seg selv ved å alltid tilpasse seg andre. Han vet ikke lenger hvem han er.',
         },
     },

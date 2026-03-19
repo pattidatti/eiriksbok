@@ -60,6 +60,8 @@ export const besjelingApplyExercises: Exercise[] = [
                 'voktet',
                 'sørget',
             ],
+            acceptKeywords: ['passet på', 'holdt vakt', 'skuet', 'betraktet', 'fulgte', 'så ned', 'vernet', 'tittet', 'kikket', 'stirret', 'sukket', 'tenkte'],
+            hint: 'Gi fjellene en menneskelig handling - noe mennesker gjør, men fjell egentlig ikke kan.',
             explanation:
                 'Fjell kan ikke egentlig våke, drømme eller gruble – de er ikke levende. Men når vi gir dem slike følelser, kaller vi det besjeling. Det gjør naturen mer levende og stemningsfull.',
         },
