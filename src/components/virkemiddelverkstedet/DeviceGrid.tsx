@@ -14,7 +14,6 @@ export const DeviceGrid = ({ mode, onSelectDevice }: DeviceGridProps) => {
     const { totalPoints, applyTotalPoints, getDeviceProgress, getApplyDeviceProgress } =
         useVirkemiddelStore();
 
-    const points = mode === 'analyser' ? totalPoints : applyTotalPoints;
     const getProgress = mode === 'analyser' ? getDeviceProgress : getApplyDeviceProgress;
 
     const virkemidler = devices.filter((d) => d.category === 'virkemiddel');
