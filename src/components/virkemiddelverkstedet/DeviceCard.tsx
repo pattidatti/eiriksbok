@@ -1,23 +1,32 @@
 import { motion } from 'framer-motion';
 import { CheckCircle2, Lock } from 'lucide-react';
-import type { LiteraryDevice, DeviceProgress } from '../../data/virkemiddelverkstedet/types';
+import type { LiteraryDevice, DeviceProgress, WorkshopMode } from '../../data/virkemiddelverkstedet/types';
 import { deviceColorMap } from '../../data/virkemiddelverkstedet/devices';
 import { getExerciseCountForDevice, hasExercises } from '../../data/virkemiddelverkstedet/exercises';
+import {
+    getApplyExerciseCountForDevice,
+    hasApplyExercises,
+} from '../../data/virkemiddelverkstedet/exercises/apply';
 
 interface DeviceCardProps {
     device: LiteraryDevice;
+    mode: WorkshopMode;
     progress: DeviceProgress;
     onClick: () => void;
 }
 
-export const DeviceCard = ({ device, progress, onClick }: DeviceCardProps) => {
+export const DeviceCard = ({ device, mode, progress, onClick }: DeviceCardProps) => {
     const colors = deviceColorMap[device.color];
-    const totalExercises = getExerciseCountForDevice(device.id);
+    const totalExercises =
+        mode === 'analyser'
+            ? getExerciseCountForDevice(device.id)
+            : getApplyExerciseCountForDevice(device.id);
     const completedCount = progress.completedExercises.length;
     const progressPercent = totalExercises > 0 ? (completedCount / totalExercises) * 100 : 0;
     const isMastered = totalExercises > 0 && completedCount >= totalExercises;
     const isStarted = completedCount > 0;
-    const available = hasExercises(device.id);
+    const available =
+        mode === 'analyser' ? hasExercises(device.id) : hasApplyExercises(device.id);
 
     // SVG progress ring
     const radius = 28;
@@ -95,10 +104,12 @@ export const DeviceCard = ({ device, progress, onClick }: DeviceCardProps) => {
                         <div className="mt-2">
                             {isMastered ? (
                                 <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700">
-                                    Mester
+                                    Fullført
                                 </span>
                             ) : isStarted ? (
-                                <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${colors.badge}`}>
+                                <span
+                                    className={`text-xs font-bold px-2 py-0.5 rounded-full ${colors.badge}`}
+                                >
                                     {Math.round(progressPercent)}%
                                 </span>
                             ) : (

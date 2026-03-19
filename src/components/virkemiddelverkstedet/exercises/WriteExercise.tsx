@@ -5,9 +5,9 @@ import type { Exercise, WriteData } from '../../../data/virkemiddelverkstedet/ty
 
 interface WriteExerciseProps {
     exercise: Exercise;
-    deviceColor: string;
+    deviceColor?: string;
     onCorrect: (points: number) => void;
-    onWrong: () => void;
+    onWrong?: () => void;
 }
 
 export const WriteExercise = ({ exercise, onCorrect }: WriteExerciseProps) => {

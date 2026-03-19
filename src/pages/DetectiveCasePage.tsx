@@ -85,7 +85,7 @@ export const DetectiveCasePage: React.FC = () => {
                             onClick={() => window.location.reload()}
                             className="px-5 py-2 bg-white text-slate-900 rounded-xl font-bold text-sm hover:bg-slate-200 transition-colors"
                         >
-                            Prov igjen
+                            Prøv igjen
                         </button>
                     </div>
                 ) : caseData ? (

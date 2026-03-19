@@ -1,18 +1,29 @@
 import { motion } from 'framer-motion';
 import { Trophy } from 'lucide-react';
+import type { WorkshopMode } from '../../data/virkemiddelverkstedet/types';
 import { devices } from '../../data/virkemiddelverkstedet/devices';
 import { useVirkemiddelStore } from '../../stores/useVirkemiddelStore';
 import { DeviceCard } from './DeviceCard';
 
 interface DeviceGridProps {
+    mode: WorkshopMode;
     onSelectDevice: (deviceId: string) => void;
 }
 
-export const DeviceGrid = ({ onSelectDevice }: DeviceGridProps) => {
-    const { totalPoints, getDeviceProgress } = useVirkemiddelStore();
+export const DeviceGrid = ({ mode, onSelectDevice }: DeviceGridProps) => {
+    const { totalPoints, applyTotalPoints, getDeviceProgress, getApplyDeviceProgress } =
+        useVirkemiddelStore();
+
+    const points = mode === 'analyser' ? totalPoints : applyTotalPoints;
+    const getProgress = mode === 'analyser' ? getDeviceProgress : getApplyDeviceProgress;
 
     const virkemidler = devices.filter((d) => d.category === 'virkemiddel');
     const analyse = devices.filter((d) => d.category === 'analyse');
+
+    const subtitle =
+        mode === 'analyser'
+            ? 'Velg et virkemiddel og tren på å kjenne det igjen.'
+            : 'Velg et virkemiddel og tren på å bruke det selv.';
 
     return (
         <motion.div
@@ -25,17 +36,35 @@ export const DeviceGrid = ({ onSelectDevice }: DeviceGridProps) => {
                 <h1 className="text-3xl md:text-4xl font-display font-bold text-slate-900 mb-2">
                     Virkemiddelverkstedet
                 </h1>
-                <p className="text-lg text-slate-500 max-w-xl mx-auto">
-                    Velg et virkemiddel og tren deg opp gjennom tre nivåer.
-                </p>
+                <p className="text-lg text-slate-500 max-w-xl mx-auto">{subtitle}</p>
 
                 {/* Total stats */}
-                {totalPoints > 0 && (
-                    <div className="flex items-center justify-center gap-4 mt-4">
-                        <div className="flex items-center gap-1.5 bg-amber-50 text-amber-700 px-3 py-1.5 rounded-full text-sm font-bold">
-                            <Trophy className="w-4 h-4" />
-                            {totalPoints.toLocaleString()} poeng
-                        </div>
+                {(totalPoints > 0 || applyTotalPoints > 0) && (
+                    <div className="flex items-center justify-center gap-3 mt-4">
+                        {totalPoints > 0 && (
+                            <div
+                                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-bold ${
+                                    mode === 'analyser'
+                                        ? 'bg-amber-50 text-amber-700'
+                                        : 'bg-slate-100 text-slate-400'
+                                }`}
+                            >
+                                <Trophy className="w-4 h-4" />
+                                🔍 {totalPoints.toLocaleString()}
+                            </div>
+                        )}
+                        {applyTotalPoints > 0 && (
+                            <div
+                                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-bold ${
+                                    mode === 'bruk'
+                                        ? 'bg-amber-50 text-amber-700'
+                                        : 'bg-slate-100 text-slate-400'
+                                }`}
+                            >
+                                <Trophy className="w-4 h-4" />
+                                ✏️ {applyTotalPoints.toLocaleString()}
+                            </div>
+                        )}
                     </div>
                 )}
             </div>
@@ -55,7 +84,8 @@ export const DeviceGrid = ({ onSelectDevice }: DeviceGridProps) => {
                         >
                             <DeviceCard
                                 device={device}
-                                progress={getDeviceProgress(device.id)}
+                                mode={mode}
+                                progress={getProgress(device.id)}
                                 onClick={() => onSelectDevice(device.id)}
                             />
                         </motion.div>
@@ -78,7 +108,8 @@ export const DeviceGrid = ({ onSelectDevice }: DeviceGridProps) => {
                         >
                             <DeviceCard
                                 device={device}
-                                progress={getDeviceProgress(device.id)}
+                                mode={mode}
+                                progress={getProgress(device.id)}
                                 onClick={() => onSelectDevice(device.id)}
                             />
                         </motion.div>

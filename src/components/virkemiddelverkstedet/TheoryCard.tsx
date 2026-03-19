@@ -1,16 +1,18 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Lightbulb, Eye, AlertTriangle } from 'lucide-react';
-import type { LiteraryDevice } from '../../data/virkemiddelverkstedet/types';
+import { ArrowRight, Lightbulb, Eye, PenLine, AlertTriangle } from 'lucide-react';
+import type { LiteraryDevice, WorkshopMode } from '../../data/virkemiddelverkstedet/types';
 import { deviceColorMap } from '../../data/virkemiddelverkstedet/devices';
 
 interface TheoryCardProps {
     device: LiteraryDevice;
+    mode: WorkshopMode;
     onStart: () => void;
     onBack: () => void;
 }
 
-export const TheoryCard = ({ device, onStart, onBack }: TheoryCardProps) => {
+export const TheoryCard = ({ device, mode, onStart, onBack }: TheoryCardProps) => {
     const colors = deviceColorMap[device.color];
+    const isApply = mode === 'bruk';
 
     return (
         <motion.div
@@ -34,7 +36,7 @@ export const TheoryCard = ({ device, onStart, onBack }: TheoryCardProps) => {
                         {device.name}
                     </h2>
                     <p className={`text-sm font-medium mt-1 ${colors.text}`}>
-                        {device.category === 'virkemiddel' ? 'Virkemiddel' : 'Analysebegrep'}
+                        {isApply ? 'Bruk virkemiddelet' : device.category === 'virkemiddel' ? 'Virkemiddel' : 'Analysebegrep'}
                     </p>
                 </div>
 
@@ -50,11 +52,17 @@ export const TheoryCard = ({ device, onStart, onBack }: TheoryCardProps) => {
                         </p>
                     </div>
 
-                    {/* How to recognize */}
+                    {/* How to recognize / How to use */}
                     <div>
                         <div className="flex items-center gap-2 mb-2">
-                            <Eye className="w-4 h-4 text-indigo-500" />
-                            <h3 className="font-bold text-slate-800">Slik kjenner du det igjen</h3>
+                            {isApply ? (
+                                <PenLine className="w-4 h-4 text-indigo-500" />
+                            ) : (
+                                <Eye className="w-4 h-4 text-indigo-500" />
+                            )}
+                            <h3 className="font-bold text-slate-800">
+                                {isApply ? 'Slik bruker du det' : 'Slik kjenner du det igjen'}
+                            </h3>
                         </div>
                         <p className="text-slate-600 leading-relaxed">
                             {device.theory.howToRecognize}
@@ -71,7 +79,7 @@ export const TheoryCard = ({ device, onStart, onBack }: TheoryCardProps) => {
                                     className={`${colors.light} rounded-xl p-4 border ${colors.border}`}
                                 >
                                     <p className="font-medium text-slate-800 italic mb-1.5">
-                                        "{example.text}"
+                                        &quot;{example.text}&quot;
                                     </p>
                                     <p className="text-sm text-slate-600">
                                         {example.explanation}
@@ -103,7 +111,8 @@ export const TheoryCard = ({ device, onStart, onBack }: TheoryCardProps) => {
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                     >
-                        Start ovelsene <ArrowRight className="w-5 h-5" />
+                        {isApply ? 'Start skriveøvelsene' : 'Start øvelsene'}{' '}
+                        <ArrowRight className="w-5 h-5" />
                     </motion.button>
                 </div>
             </div>

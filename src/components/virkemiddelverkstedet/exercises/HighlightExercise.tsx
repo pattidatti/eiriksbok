@@ -166,7 +166,7 @@ export const HighlightExercise = ({ exercise, onCorrect, onWrong }: HighlightExe
                         onClick={retry}
                         className="px-6 py-2 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 flex items-center gap-2 transition-all"
                     >
-                        Prov igjen
+                        Prøv igjen
                     </button>
                 ) : null}
             </div>
