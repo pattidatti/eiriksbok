@@ -25,6 +25,7 @@ interface VirkemiddelState {
 
     getApplyDeviceProgress: (deviceId: string) => DeviceProgress;
     completeApplyExercise: (deviceId: string, exerciseId: string, points: number) => void;
+    unlockApplyLevel: (deviceId: string, level: Exclude<Level, 1>) => void;
     incrementApplyStreak: (deviceId: string) => void;
     resetApplyStreak: (deviceId: string) => void;
     addApplyPoints: (points: number) => void;
@@ -127,6 +128,18 @@ export const useVirkemiddelStore = create<VirkemiddelState>()(
                             },
                         },
                         applyTotalPoints: state.applyTotalPoints + points,
+                    };
+                }),
+
+            unlockApplyLevel: (deviceId, level) =>
+                set((state) => {
+                    const current = state.applyProgress[deviceId] || { ...DEFAULT_PROGRESS };
+                    if (current.levelUnlocked >= level) return state;
+                    return {
+                        applyProgress: {
+                            ...state.applyProgress,
+                            [deviceId]: { ...current, levelUnlocked: level },
+                        },
                     };
                 }),
 

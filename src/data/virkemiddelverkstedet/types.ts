@@ -74,6 +74,8 @@ export interface FillBlankData {
     textBefore: string;
     textAfter: string;
     correctAnswers: string[];
+    acceptKeywords?: string[];
+    hint?: string;
     explanation: string;
 }
 

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle2, XCircle } from 'lucide-react';
+import { CheckCircle2, XCircle, Lightbulb, Eye } from 'lucide-react';
 import type { Exercise, FillBlankData } from '../../../data/virkemiddelverkstedet/types';
 
 interface FillBlankExerciseProps {
@@ -19,24 +19,43 @@ export const FillBlankExercise = ({ exercise, onCorrect, onWrong }: FillBlankExe
 
     const checkAnswer = () => {
         const normalized = answer.trim().toLowerCase();
-        const isCorrect = data.correctAnswers.some(
+
+        const isExactMatch = data.correctAnswers.some(
             (a) => a.toLowerCase() === normalized
         );
 
-        setAttempts((a) => a + 1);
+        const isKeywordMatch =
+            data.acceptKeywords?.some((kw) =>
+                normalized.includes(kw.toLowerCase())
+            ) ?? false;
+
+        const isCorrect = isExactMatch || isKeywordMatch;
+
+        const newAttempts = attempts + 1;
+        setAttempts(newAttempts);
 
         if (isCorrect) {
             setFeedback({ correct: true, text: data.explanation });
             onCorrect(attempts === 0 ? 100 : 50);
         } else {
-            setFeedback({ correct: false, text: `Ikke helt. Prøv igjen!` });
+            const feedbackText =
+                newAttempts >= 2 && data.hint
+                    ? data.hint
+                    : 'Ikke helt. Prøv igjen!';
+            setFeedback({ correct: false, text: feedbackText });
             setWrongKey((k) => k + 1);
             onWrong();
             setTimeout(() => {
                 setFeedback(null);
                 setAnswer('');
-            }, 1500);
+            }, 2000);
         }
+    };
+
+    const revealAnswer = () => {
+        setAnswer(data.correctAnswers[0]);
+        setFeedback({ correct: true, text: data.explanation });
+        onCorrect(0);
     };
 
     const handleKeyDown = (e: React.KeyboardEvent) => {
@@ -68,7 +87,7 @@ export const FillBlankExercise = ({ exercise, onCorrect, onWrong }: FillBlankExe
                                 onChange={(e) => setAnswer(e.target.value)}
                                 onKeyDown={handleKeyDown}
                                 placeholder="____"
-                                className="w-32 px-3 py-1 border-2 border-dashed border-indigo-300 rounded-lg text-center font-bold text-indigo-700 bg-white focus:border-indigo-500 focus:outline-none"
+                                className="w-48 px-3 py-1 border-2 border-dashed border-indigo-300 rounded-lg text-center font-bold text-indigo-700 bg-white focus:border-indigo-500 focus:outline-none"
                                 autoFocus
                             />
                         )}
@@ -78,7 +97,16 @@ export const FillBlankExercise = ({ exercise, onCorrect, onWrong }: FillBlankExe
             </div>
 
             {!feedback?.correct && (
-                <div className="flex justify-end">
+                <div className="flex items-center justify-end gap-3">
+                    {attempts >= 3 && (
+                        <button
+                            onClick={revealAnswer}
+                            className="flex items-center gap-1.5 px-4 py-2 text-sm text-slate-500 hover:text-slate-700 border border-slate-200 rounded-lg hover:bg-slate-50 transition-all"
+                        >
+                            <Eye className="w-4 h-4" />
+                            Vis svar
+                        </button>
+                    )}
                     <button
                         onClick={checkAnswer}
                         disabled={!answer.trim()}
@@ -96,11 +124,15 @@ export const FillBlankExercise = ({ exercise, onCorrect, onWrong }: FillBlankExe
                     className={`mt-4 p-4 rounded-xl border flex items-start gap-2 ${
                         feedback.correct
                             ? 'bg-emerald-50 border-emerald-200 text-emerald-800'
-                            : 'bg-red-50 border-red-200 text-red-800'
+                            : attempts >= 2 && data.hint
+                              ? 'bg-amber-50 border-amber-200 text-amber-800'
+                              : 'bg-red-50 border-red-200 text-red-800'
                     }`}
                 >
                     {feedback.correct ? (
                         <CheckCircle2 className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" />
+                    ) : attempts >= 2 && data.hint ? (
+                        <Lightbulb className="w-5 h-5 text-amber-500 mt-0.5 flex-shrink-0" />
                     ) : (
                         <XCircle className="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" />
                     )}

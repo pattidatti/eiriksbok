@@ -54,8 +54,7 @@ export const LevelSelector = ({ device, mode, progress, onSelectLevel, onBack }:
 
             <div className={`grid grid-cols-1 ${isApply ? '' : 'sm:grid-cols-2'} gap-2`}>
                 {levelInfo.map(({ level, title, description }, i) => {
-                    // In apply mode all levels are unlocked
-                    const isUnlocked = isApply ? true : level <= progress.levelUnlocked;
+                    const isUnlocked = level <= progress.levelUnlocked;
                     const totalForLevel = getLevelTotal(level);
                     const completedForLevel = getLevelCompletedCount(level);
                     const isComplete = totalForLevel > 0 && completedForLevel >= totalForLevel;

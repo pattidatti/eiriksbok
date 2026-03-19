@@ -30,8 +30,14 @@ export const CompletionScreen = ({
 }: CompletionScreenProps) => {
     const colors = deviceColorMap[device.color];
     const isApply = mode === 'bruk';
-    const { getDeviceProgress, getApplyDeviceProgress, unlockLevel, addPoints, addApplyPoints } =
-        useVirkemiddelStore();
+    const {
+        getDeviceProgress,
+        getApplyDeviceProgress,
+        unlockLevel,
+        unlockApplyLevel,
+        addPoints,
+        addApplyPoints,
+    } = useVirkemiddelStore();
     const progress = isApply
         ? getApplyDeviceProgress(device.id)
         : getDeviceProgress(device.id);
@@ -45,19 +51,20 @@ export const CompletionScreen = ({
 
     const maxLevel = isApply ? 3 : 10;
     const hasNextLevel = level < maxLevel;
-    // In apply mode, all levels are always open so next is always available
-    const nextLevelUnlocked = isApply
-        ? true
-        : level < 10 && progress.levelUnlocked >= level + 1;
+    const nextLevelUnlocked = level < maxLevel && progress.levelUnlocked >= level + 1;
 
     const levelName = isApply
         ? getApplyLevelName(level as ApplyLevel)
         : getLevelName(level as Level);
 
     useEffect(() => {
-        // Unlock next level for analyze mode
-        if (!isApply && hasNextLevel && stars >= 2) {
-            unlockLevel(device.id, (level + 1) as Exclude<Level, 1>);
+        // Unlock next level when player earns 2+ stars
+        if (hasNextLevel && stars >= 2) {
+            if (isApply) {
+                unlockApplyLevel(device.id, (level + 1) as Exclude<Level, 1>);
+            } else {
+                unlockLevel(device.id, (level + 1) as Exclude<Level, 1>);
+            }
         }
 
         // Level completion bonus
@@ -159,7 +166,7 @@ export const CompletionScreen = ({
                         </button>
                     </div>
 
-                    {!isApply && stars < 2 && hasNextLevel && (
+                    {stars < 2 && hasNextLevel && (
                         <p className="text-xs text-slate-400">
                             Få minst 2 stjerner for å låse opp neste nivå.
                         </p>
