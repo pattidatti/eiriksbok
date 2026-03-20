@@ -76,14 +76,10 @@ async function syncDates() {
         const dates = gitDates || fsDates;
         if (!dates) return;
 
-        // Only update if missing or if the source is newer/different
-        if (!lesson.createdDate || (dates.created && lesson.createdDate !== dates.created)) {
-            // We only set createdDate if it's missing or significantly different?
-            // Actually, createdDate should probably be sticky once set correctly by Git.
-            if (!lesson.createdDate || gitDates) {
-                lesson.createdDate = dates.created;
-                changed = true;
-            }
+        // Only set createdDate if missing — never overwrite existing values
+        if (!lesson.createdDate && dates.created) {
+            lesson.createdDate = dates.created;
+            changed = true;
         }
 
         if (!lesson.lastUpdated || (dates.updated && lesson.lastUpdated !== dates.updated)) {
