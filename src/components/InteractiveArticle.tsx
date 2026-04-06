@@ -143,9 +143,10 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, f
         isPaused,
         hasVoice,
         onToggle: handleListenClick,
+        onStop: cancel,
         rate,
         setRate,
-    }), [isPlaying, isPaused, hasVoice, handleListenClick, rate, setRate]);
+    }), [isPlaying, isPaused, hasVoice, handleListenClick, cancel, rate, setRate]);
 
     const metadata = useMemo(() => ({
         year: event.year,
@@ -356,6 +357,12 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, f
                                     onBlockClick={handleBlockClick}
                                     fallbackUrl={fallbackUrl}
                                     isTool={event.layout === 'tool'}
+                                    audioControls={isPlaying ? {
+                                        isPlaying,
+                                        isPaused,
+                                        onToggle: handleListenClick,
+                                        onStop: cancel,
+                                    } : undefined}
                                 />
 
                                 {event.fact && <FactBox content={event.fact} />}

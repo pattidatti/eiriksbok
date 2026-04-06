@@ -102,30 +102,8 @@
             "content": "Hvis vi ser på de siste fem århundrene, ser vi en tydelig stafettveksling. Ingen makt forblir på toppen evig. Etter at nederlenderne mistet sitt forsprang, overtok det [britiske imperiet](/historie/kolonialisering/britisk-imperium). Gjennom den [industrielle revolusjonen](/historie/kolonialisering/europa-erobrer-verden) og overlegen militær makt, skapte de en periode med relativ fred kjent som Pax Britannica."
         },
         {
-            "type": "component",
-            "name": "LineChart",
-            "props": {
-                "title": "Relativ maktbalanse over 500 år",
-                "xAxisLabel": "År",
-                "yAxisLabel": "Relativ styrke (0-100)",
-                "data": [
-                    { "year": 1600, "value": 15 },
-                    { "year": 1650, "value": 75 },
-                    { "year": 1700, "value": 65 },
-                    { "year": 1750, "value": 35 },
-                    { "year": 1800, "value": 25 },
-                    { "year": 1850, "value": 90 },
-                    { "year": 1900, "value": 85 },
-                    { "year": 1945, "value": 98 },
-                    { "year": 1970, "value": 90 },
-                    { "year": 2000, "value": 85 },
-                    { "year": 2024, "value": 72 }
-                ]
-            }
-        },
-        {
             "type": "text",
-            "content": "I det 20. århundre så vi USAs oppgang, spesielt etter [andre verdenskrig](/historie/andre-verdenskrig/oversikt). Med dollaren som verdens reservevaluta og en enorm økonomisk dominans gjennom [kapitalisme](/concepts/kapitalisme), har USA styrt den globale orden. Men historien lærer oss at suksessen selv sår frøene til forfall."
+            "content": "I det 20. århundre så vi USAs oppgang, spesielt etter [andre verdenskrig](/historie/andre-verdenskrig/oversikt). Med dollaren som verdens reservevaluta og en enorm økonomisk dominans gjennom [kapitalisme](/concepts/kapitalisme), har USA styrt den globale orden gjennom hele [den kalde krigen](/historie/den-kalde-krigen/oversikt) og frem til i dag. Men historien lærer oss at suksessen selv sår frøene til forfall."
         },
         {
             "type": "header",
@@ -139,7 +117,7 @@
         },
         {
             "type": "text",
-            "content": "Tenk deg at alle land i verden bruker én felles betalingsapp. Den nasjonen som eier appen bestemmer reglene og høster enorme fordeler - de kan betale for varer ved å trykke mer av sin egen valuta. Dette er reservevaluta-status. Når de fleste land handler med hverandre bruker de én bestemt valuta, er det landet som eier den valutaen som sitter med makten. I dag er det dollaren."
+            "content": "Tenk deg at alle land i verden bruker én felles betalingsapp. Den nasjonen som eier appen bestemmer reglene og høster enorme fordeler - de kan betale for varer ved å trykke mer av sin egen valuta. Dette er reservevaluta-status. [Penger](/samfunnskunnskap/okonomi/pengesystem-vs-naturalhandel) er i bunn og grunn bare tillit - og den nasjonen som eier reservevalutaen har hele verdens tillit. Når de fleste land handler med hverandre bruker de én bestemt valuta, er det landet som eier den valutaen som sitter med makten. I dag er det dollaren."
         },
         {
             "type": "component",
@@ -184,7 +162,7 @@
                 "Finansboble og voksende velstandsgap: Suksessen fører til økt låneopptak og spekulasjon. Gapet mellom rik og fattig vokser.",
                 "Økonomien sprekker og krymper: Boblene sprekker. [Finanskrise](/samfunnskunnskap/okonomi/finanskriser), arbeidsledighet og usikkerhet.",
                 "Staten trykker penger og øker gjelden: For å redde økonomien trykker sentralbanken penger. [Inflasjon](/samfunnskunnskap/okonomi/inflasjon-og-rente) svekker kjøpekraften.",
-                "Revolusjon og borgerkrig: Stor ulikhet og polarisering fører til intern konflikt. Populisme og ekstremisme vokser.",
+                "Revolusjon og borgerkrig: Stor ulikhet og polarisering fører til intern konflikt. Populisme og [ekstremisme](/samfunnskunnskap/styringsformer/diktaturet) vokser.",
                 "Gjeld og politisk omveltning: Landet sliter med ubetalelig gjeld og politisk kaos. Tilliten til systemet brytes ned.",
                 "Krig mot en annen nasjon - og alt begynner på nytt: En ny stormakt utfordrer den sittende. Krig avgjør hvem som setter reglene for neste syklus."
             ]
@@ -192,12 +170,6 @@
         {
             "type": "header",
             "content": "Del 1: Oppgangen"
-        },
-        {
-            "type": "image",
-            "src": "/images/ideer/store-sykluser/dalio-oppgangen.png",
-            "alt": "Graf som viser The Rise - en stigende kurve som representerer imperiets oppgang",
-            "caption": "Oppgangen starter gradvis, men akselererer når alle systemene virker sammen."
         },
         {
             "type": "text",
@@ -211,7 +183,7 @@
         },
         {
             "type": "text",
-            "content": "Fred og fremtidstro skaper grunnlaget for god utdanning, sterk arbeidsmoral og respekt for loven. Dette leder igjen til innovasjon og ny teknologi. Kjeden er logisk og uunngåelig:"
+            "content": "Fred og [fremtidstro](/samfunnskunnskap/ideer-og-verdenssyn/framskrittstro) skaper grunnlaget for god utdanning, sterk arbeidsmoral og respekt for loven. Dette leder igjen til innovasjon og ny teknologi. Kjeden er logisk og uunngåelig:"
         },
         {
             "type": "image",
@@ -258,7 +230,7 @@
         },
         {
             "type": "text",
-            "content": "Rikdommen som er bygget opp gjennom generasjoner begynner å bli tatt for gitt. Folk og stater begynner å låne mer enn de tjener fordi fremtiden alltid har sett lys ut. Finansielle bobler bygger seg opp: aksjekurser og eiendomspriser stiger langt raskere enn den reelle verdiskapingen. Gapet mellom de aller rikeste og resten av befolkningen vokser dramatisk."
+            "content": "Rikdommen som er bygget opp gjennom generasjoner begynner å bli tatt for gitt. Folk og stater begynner å låne mer enn de tjener fordi fremtiden alltid har sett lys ut. Finansielle bobler bygger seg opp: aksjekurser og eiendomspriser stiger langt raskere enn den reelle verdiskapingen - slik det skjedde før [børskrakket i 1929](/historie/mellomkrigstiden/borskrakk). Gapet mellom de aller rikeste og resten av befolkningen vokser dramatisk."
         },
         {
             "type": "text",
@@ -280,7 +252,7 @@
         },
         {
             "type": "text",
-            "content": "Den store ulikheten som ble bygget opp i toppfasen eksploderer nå i åpen konflikt. Polarisering, populisme og mistillit til institusjoner preger samfunnet. Det er her risikoen for borgerkrig eller revolusjon er størst."
+            "content": "Den store ulikheten som ble bygget opp i toppfasen eksploderer nå i åpen konflikt. Polarisering, populisme og mistillit til institusjoner preger samfunnet. [Weimar-Tysklands vei mot nazismen](/historie/mellomkrigstiden/tyskland) og [den russiske revolusjonen](/historie/forste-verdenskrig/russiske-revolusjon) er begge klassiske eksempler på denne fasen. Det er her risikoen for borgerkrig eller revolusjon er størst."
         },
         {
             "type": "image",
@@ -290,7 +262,7 @@
         },
         {
             "type": "text",
-            "content": "Mens den sittende stormakten sliter med indre problemer, vokser en ny utfordrer frem. Denne utfordreren har vært gjennom sin egen oppgangsfase og er nå klar til å kreve sin plass. Dette er det Dalio kaller det farligste punktet i syklusen - når to stormakter kolliderer om hvem som skal sette reglene for neste epoke. Utfallet av denne konflikten avgjør den nye verdensordenen, og syklusen begynner på nytt."
+            "content": "Mens den sittende stormakten sliter med indre problemer, vokser en ny utfordrer frem. Denne utfordreren har vært gjennom sin egen oppgangsfase og er nå klar til å kreve sin plass. Dette er det Dalio kaller det farligste punktet i syklusen - når to stormakter kolliderer om hvem som skal sette reglene for neste epoke. [Vestromerrikets fall](/historie/romerriket/vestromerrikets-fall) er kanskje det mest kjente historiske eksempelet: et rikt, overstrukket imperium som til slutt ikke klarte å forsvare seg mot nye krefter. Utfallet av denne konflikten avgjør den nye verdensordenen, og syklusen begynner på nytt."
         },
         {
             "type": "component",

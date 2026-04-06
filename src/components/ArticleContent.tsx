@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Volume2, ChevronDown, Info, CheckCircle2, XCircle } from 'lucide-react';
+import { Volume2, ChevronDown, Info, CheckCircle2, XCircle, Pause, Play, Square } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { getComponent } from './ComponentRegistry';
 import { useGlossary } from '../context/GlossaryContext';
@@ -91,9 +91,15 @@ interface ArticleContentProps {
     onBlockClick?: (index: number) => void;
     fallbackUrl?: string;
     isTool?: boolean;
+    audioControls?: {
+        isPlaying: boolean;
+        isPaused: boolean;
+        onToggle: () => void;
+        onStop: () => void;
+    };
 }
 
-export const ArticleContent: React.FC<ArticleContentProps> = React.memo(({ content, concepts: explicitConcepts, activeBlockIndex, onBlockClick, fallbackUrl, isTool = false }) => {
+export const ArticleContent: React.FC<ArticleContentProps> = React.memo(({ content, concepts: explicitConcepts, activeBlockIndex, onBlockClick, fallbackUrl, isTool = false, audioControls }) => {
     const { entries: globalEntries } = useGlossary();
 
     if (!content || !Array.isArray(content)) return null;
@@ -203,7 +209,7 @@ export const ArticleContent: React.FC<ArticleContentProps> = React.memo(({ conte
                                     </h3>
                                 )}
                                 {isActive && (
-                                    <div className="absolute -left-12 top-2 hidden md:flex items-center justify-center w-8 h-8">
+                                    <div className="absolute -left-14 top-1 hidden md:flex flex-col items-center gap-1" onClick={e => e.stopPropagation()}>
                                         <motion.div
                                             animate={{ scale: [1, 1.2, 1] }}
                                             transition={{
@@ -214,6 +220,27 @@ export const ArticleContent: React.FC<ArticleContentProps> = React.memo(({ conte
                                         >
                                             <Volume2 className="w-5 h-5 text-amber-600" />
                                         </motion.div>
+                                        {audioControls && (
+                                            <>
+                                                <button
+                                                    onClick={audioControls.onToggle}
+                                                    className="w-8 h-8 flex items-center justify-center rounded-full bg-indigo-600 text-white hover:bg-indigo-700 transition-colors shadow-sm"
+                                                    title={audioControls.isPaused ? 'Fortsett' : 'Pause'}
+                                                >
+                                                    {audioControls.isPaused
+                                                        ? <Play className="w-3.5 h-3.5 ml-0.5" />
+                                                        : <Pause className="w-3.5 h-3.5" />
+                                                    }
+                                                </button>
+                                                <button
+                                                    onClick={audioControls.onStop}
+                                                    className="w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 text-slate-500 hover:bg-red-50 hover:text-red-500 transition-colors shadow-sm"
+                                                    title="Stopp"
+                                                >
+                                                    <Square className="w-3 h-3" />
+                                                </button>
+                                            </>
+                                        )}
                                     </div>
                                 )}
                                 {renderWithMarkdown((block as any).content || (block as any).text || (block as any).value, mergedConcepts)}

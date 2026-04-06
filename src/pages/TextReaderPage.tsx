@@ -1,7 +1,7 @@
 import React, { useMemo, useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeft, BookOpen, User, Tag, Volume2, PauseCircle, PlayCircle, Columns, Scan } from 'lucide-react';
+import { ArrowLeft, BookOpen, User, Tag, Volume2, Pause, Play, Square, Columns, Scan } from 'lucide-react';
 import { textLibraryData, type TextEntry } from '../data/textLibraryData';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { Tooltip } from '../components/Tooltip';
@@ -242,29 +242,40 @@ export const TextReaderPage: React.FC = () => {
                         <div className="flex flex-wrap justify-center gap-4">
                             {hasVoice && (
                                 <div className="flex items-center gap-2">
-                                    <button
-                                        onClick={handleListenClick}
-                                        className={`flex items-center px-4 py-2 rounded-full font-bold transition-all shadow-sm ${isPlaying
-                                            ? 'bg-indigo-600 text-white shadow-lg'
-                                            : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
-                                            }`}
-                                    >
-                                        {isPlaying ? (
-                                            isPaused ? (
-                                                <>
-                                                    <PlayCircle className="w-5 h-5 mr-2" /> Fortsett
-                                                </>
-                                            ) : (
-                                                <>
-                                                    <PauseCircle className="w-5 h-5 mr-2" /> Pause
-                                                </>
-                                            )
-                                        ) : (
-                                            <>
-                                                <Volume2 className="w-5 h-5 mr-2" /> Lytt til tekst
-                                            </>
-                                        )}
-                                    </button>
+                                    {isPlaying ? (
+                                        /* Active player controls */
+                                        <div className="flex items-center gap-2 px-3 py-2 bg-white border border-slate-200 rounded-full shadow-sm">
+                                            <Volume2 className="w-4 h-4 text-indigo-500 animate-pulse" />
+                                            <span className="text-xs text-slate-500 font-medium">
+                                                {isPaused ? 'Pauset' : 'Leser...'}
+                                            </span>
+                                            <button
+                                                onClick={handleListenClick}
+                                                className="w-8 h-8 flex items-center justify-center rounded-full bg-indigo-600 text-white hover:bg-indigo-700 transition-colors"
+                                                title={isPaused ? 'Fortsett' : 'Pause'}
+                                            >
+                                                {isPaused
+                                                    ? <Play className="w-3.5 h-3.5 ml-0.5" />
+                                                    : <Pause className="w-3.5 h-3.5" />
+                                                }
+                                            </button>
+                                            <button
+                                                onClick={cancel}
+                                                className="w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 text-slate-500 hover:bg-red-50 hover:text-red-500 transition-colors"
+                                                title="Stopp"
+                                            >
+                                                <Square className="w-3 h-3" />
+                                            </button>
+                                        </div>
+                                    ) : (
+                                        /* Idle - start button */
+                                        <button
+                                            onClick={handleListenClick}
+                                            className="flex items-center px-4 py-2 rounded-full font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition-all shadow-sm"
+                                        >
+                                            <Volume2 className="w-5 h-5 mr-2" /> Lytt til tekst
+                                        </button>
+                                    )}
                                     <button
                                         onClick={() => {
                                             const rates = [0.8, 1.0, 1.2, 1.5];

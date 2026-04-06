@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { BookOpen, Map, ChevronDown, ChevronUp, Volume2, PauseCircle, PlayCircle } from 'lucide-react';
+import { BookOpen, Map, ChevronDown, ChevronUp, Volume2, Pause, Play, Square } from 'lucide-react';
 import { TimelineComponent } from './TimelineComponent';
 import type { SidebarConfig } from '../types';
 
@@ -18,6 +18,7 @@ interface RichSidebarProps {
         isPaused: boolean;
         hasVoice: boolean;
         onToggle: () => void;
+        onStop?: () => void;
         rate?: number;
         setRate?: (rate: number) => void;
     };
@@ -79,34 +80,45 @@ export const RichSidebar: React.FC<RichSidebarProps> = React.memo(({ details, ti
                 <div className="hidden md:block space-y-4 mb-8">
                     {config?.showAudio !== false && audioState?.hasVoice && (
                         <div className="flex gap-2">
-                            <button
-                                onClick={audioState.onToggle}
-                                className={`flex-1 flex items-center justify-between p-4 rounded-xl transition-all shadow-sm group border ${audioState.isPlaying
-                                    ? 'bg-indigo-600 border-indigo-500 text-white'
-                                    : 'bg-white border-slate-200 text-slate-700 hover:border-indigo-300 hover:shadow-md'
-                                    }`}
-                            >
-                                <span className="font-bold text-sm flex items-center">
-                                    {audioState.isPlaying ? (
-                                        audioState.isPaused ? (
-                                            <>
-                                                <PlayCircle className="w-5 h-5 mr-3" />
-                                                Fortsett avspilling
-                                            </>
-                                        ) : (
-                                            <>
-                                                <PauseCircle className="w-5 h-5 mr-3" />
-                                                Pause opplesning
-                                            </>
-                                        )
-                                    ) : (
-                                        <>
-                                            <Volume2 className={`w-5 h-5 mr-3 ${audioState.isPlaying ? 'text-white' : 'text-indigo-600'}`} />
-                                            Lytt til artikkel
-                                        </>
-                                    )}
-                                </span>
-                            </button>
+                            {audioState.isPlaying ? (
+                                /* Active player bar */
+                                <div className="flex-1 flex items-center gap-3 px-3 py-2.5 bg-white border border-slate-200 rounded-xl">
+                                    <Volume2 className="w-4 h-4 text-indigo-500 shrink-0 animate-pulse" />
+                                    <span className="text-xs text-slate-500 flex-1 font-medium">
+                                        {audioState.isPaused ? 'Pauset' : 'Leser...'}
+                                    </span>
+                                    <div className="flex items-center gap-1">
+                                        <button
+                                            onClick={audioState.onToggle}
+                                            className="w-8 h-8 flex items-center justify-center rounded-full bg-indigo-600 text-white hover:bg-indigo-700 transition-colors"
+                                            title={audioState.isPaused ? 'Fortsett' : 'Pause'}
+                                        >
+                                            {audioState.isPaused
+                                                ? <Play className="w-3.5 h-3.5 ml-0.5" />
+                                                : <Pause className="w-3.5 h-3.5" />
+                                            }
+                                        </button>
+                                        {audioState.onStop && (
+                                            <button
+                                                onClick={audioState.onStop}
+                                                className="w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 text-slate-500 hover:bg-red-50 hover:text-red-500 transition-colors"
+                                                title="Stopp"
+                                            >
+                                                <Square className="w-3 h-3" />
+                                            </button>
+                                        )}
+                                    </div>
+                                </div>
+                            ) : (
+                                /* Idle - start button */
+                                <button
+                                    onClick={audioState.onToggle}
+                                    className="flex-1 flex items-center p-4 rounded-xl transition-all shadow-sm border bg-white border-slate-200 text-slate-700 hover:border-indigo-300 hover:shadow-md"
+                                >
+                                    <Volume2 className="w-5 h-5 mr-3 text-indigo-600" />
+                                    <span className="font-bold text-sm">Lytt til artikkel</span>
+                                </button>
+                            )}
                             {audioState.rate !== undefined && audioState.setRate && (
                                 <button
                                     onClick={() => {
