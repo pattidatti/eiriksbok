@@ -61,7 +61,7 @@ export const Layout: React.FC = () => {
 
                             <Link to="/" className="flex items-center gap-3 text-xl font-display font-bold text-text-main no-underline tracking-tight group">
 
-                                <img src="/logo.png" alt="Logo" className="w-8 h-8 object-contain transition-transform group-hover:scale-110" />
+                                <img src="/logo.webp" alt="Logo" className="w-8 h-8 object-contain transition-transform group-hover:scale-110" />
                                 <span className="hidden sm:inline">BOK.HAALAND.DE</span>
                                 <span className="sm:hidden">EIRIKSBOK</span>
                             </Link>
