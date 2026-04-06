@@ -120,6 +120,11 @@
             "content": "Murens fall skjedde nesten ved en feiltakelse. Under en kluntete pressekonferanse sa en \u00f8sttysk talsmann, G\u00fcnter Schabowski, at visumreglene var endret og at folk kunne reise 'umiddelbart'. Da journalister spurte n\u00e5r det tr\u00e5dte i kraft, svarte han: 'S\u00e5 vidt jeg vet... med en gang'.\n\nTitusenvis av \u00f8st-berlinere str\u00f8mmet til grenseovergangene. Vaktene, som ikke hadde f\u00e5tt noen nye ordrer, ble overveldet av folkemassene og valgte til slutt \u00e5 \u00e5pne portene. Folk fra \u00f8st og vest m\u00f8ttes i en enorm fest p\u00e5 toppen av muren. Verden s\u00e5 p\u00e5 med t\u00e5rer i \u00f8ynene; den kalde krigen var i ferd med \u00e5 avsluttes i det som ble [Veien mot slutten](/historie/den-kalde-krigen/veien-mot-slutt)."
         },
         {
+            "type": "video",
+            "url": "https://www.youtube.com/watch?v=Mn4VDwaV-oo",
+            "title": "Berlinmurens fall - 9. november 1989"
+        },
+        {
             "type": "component",
             "name": "Quiz",
             "props": {
