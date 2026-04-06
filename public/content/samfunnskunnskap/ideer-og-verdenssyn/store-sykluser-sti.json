@@ -1,0 +1,263 @@
+{
+    "id": "store-sykluser-sti",
+    "title": "Læringssti: Imperienes sykluser",
+    "description": "Forstå hvorfor stormakter stiger og faller - og hva det betyr for verden i dag.",
+    "layout": "learning-path",
+    "category": "Læringssti",
+    "year": "Fra 1600 til i dag",
+    "readTime": "45-60 min",
+    "heroImage": "/images/ideer/store-sykluser/dalio-big-cycle.png",
+    "learningPathData": {
+        "id": "store-sykluser-sti",
+        "title": "Koden bak historien: Imperienes sykluser",
+        "description": "En fondsforvalter med 150 milliarder kroner hevder å ha knekket historiens kode. Gjennom Ray Dalios rammeverk skal du lære å se de usynlige mønstrene som bestemmer hvilke nasjoner som stiger og faller - og hva dette betyr for verden akkurat nå.",
+        "steps": [
+            {
+                "id": "prolog",
+                "phase": "Prolog: Hvem er mannen bak teorien?",
+                "title": "Koden bak historien",
+                "type": "fakta",
+                "content": "Tenk deg at du kan se bak nyhetene. At du kan forstå hvorfor USA er supermakt, hvorfor Kina vokser, og hva som egentlig skjedde i 2008-finanskrisen - ikke som tilfeldige hendelser, men som deler av et mønster som har gjentatt seg i over 500 år.\n\nRay Dalio hevder å ha funnet dette mønsteret. Han er en av verdens mest kjente investorer og har brukt tiår på å studere historiens imperier - fra det nederlandske på 1600-tallet til USA i dag.\n\nSpørsmålet hans er enkelt: Hvorfor gjentar historien seg? Og svaret hans har forandret måten mange tenker på økonomi og geopolitikk.",
+                "tasks": [
+                    "Les avsnittet 'Hvem er Ray Dalio?' i artikkelen [De store syklusene](/samfunnskunnskap/ideer-og-verdenssyn/store-sykluser)",
+                    "Hvem er Ray Dalio og hva er han kjent for?",
+                    "Hva er det store spørsmålet han prøver å svare på?",
+                    "Se [videoen fra 0:00 til 2:00](https://www.youtube.com/watch?v=xguam0TKMw8&t=0) - hva er kjernen i det han vil forklare?"
+                ],
+                "links": [
+                    {
+                        "title": "De store syklusene",
+                        "url": "/samfunnskunnskap/ideer-og-verdenssyn/store-sykluser"
+                    }
+                ]
+            },
+            {
+                "id": "maktfaktorer",
+                "phase": "Akt 1: Mønstre i historien",
+                "title": "Hva kan vi måle?",
+                "type": "fakta",
+                "content": "For å si noe fornuftig om hvilke nasjoner som er mektige og hvilke som svekkes, trenger vi konkrete målinger. Du kan ikke bare si 'de er sterkere enn dem' - du må vise det med tall og fakta.\n\nDalio har identifisert 8 nøkkelindikatorer som til sammen gir et bilde av en nasjons relative styrke. Det interessante er ikke bare hva disse faktorene er - men at de alltid henger sammen i en bestemt rekkefølge. Den ene leder til den andre, som en kjede.\n\nKan du se logikken i kjeden før du leser svaret?",
+                "tasks": [
+                    "Les avsnittet 'Prinsippet bak historien' og faktaboksen 'De 8 viktigste maktfaktorene' i artikkelen [De store syklusene](/samfunnskunnskap/ideer-og-verdenssyn/store-sykluser)",
+                    "Se [videoen fra 2:00 til 5:00](https://www.youtube.com/watch?v=xguam0TKMw8&t=120)",
+                    "List opp Dalios 8 maktfaktorer i riktig rekkefølge",
+                    "Hvilken faktor er det absolutte fundamentet som alle andre bygger på?",
+                    "Hvorfor tror du utdanning kommer før militær styrke i kjeden?",
+                    "Noter én faktor fra videoen du ikke hadde tenkt på som en maktfaktor"
+                ],
+                "links": [
+                    {
+                        "title": "De store syklusene - Les om de 8 faktorene",
+                        "url": "/samfunnskunnskap/ideer-og-verdenssyn/store-sykluser"
+                    }
+                ]
+            },
+            {
+                "id": "syklusen",
+                "phase": "Akt 1: Mønstre i historien",
+                "title": "Den store buen - 250 år på én kurve",
+                "type": "refleksjon",
+                "content": "Dalio har funnet noe fascinerende: Alle store imperier følger den samme kurven. Som en bue. De stiger, når toppen, og faller. Og de gjør det i omtrent samme tempo - rundt 250 år per syklus.\n\nDet er ikke tilfeldig. Det er de samme mekanismene som driver dem frem og ned - hver gang. Nederlandene på 1600-tallet. Storbritannia på 1800-tallet. USA på 1900-tallet.\n\nNår du ser kurven, begynner du å forstå historien på en helt ny måte.",
+                "tasks": [
+                    "Les avsnittet 'Den store syklusen: 7 faser på 250 år' i artikkelen [De store syklusene](/samfunnskunnskap/ideer-og-verdenssyn/store-sykluser)",
+                    "Se [videoen fra 5:00 til 8:00](https://www.youtube.com/watch?v=xguam0TKMw8&t=300)",
+                    "Beskriv de 7 fasene med egne ord - hva kjennetegner hver fase?",
+                    "Hvor lenge varer en typisk syklus ifølge Dalio?",
+                    "Kjenner du igjen noen av fasene fra historiefaget? Gi et konkret eksempel"
+                ],
+                "links": [
+                    {
+                        "title": "De store syklusene - Les om de 7 fasene",
+                        "url": "/samfunnskunnskap/ideer-og-verdenssyn/store-sykluser"
+                    }
+                ],
+                "component": {
+                    "name": "DragDropTimeline",
+                    "props": {
+                        "title": "Sorter de 7 fasene i riktig rekkefølge",
+                        "events": [
+                            {
+                                "id": "fase1",
+                                "year": 1,
+                                "label": "Fred, mulighet og produksjon"
+                            },
+                            {
+                                "id": "fase2",
+                                "year": 2,
+                                "label": "Finansboble og voksende velstandsgap"
+                            },
+                            {
+                                "id": "fase3",
+                                "year": 3,
+                                "label": "Økonomien sprekker og krymper"
+                            },
+                            {
+                                "id": "fase4",
+                                "year": 4,
+                                "label": "Staten trykker penger og øker gjelden"
+                            },
+                            {
+                                "id": "fase5",
+                                "year": 5,
+                                "label": "Revolusjon og borgerkrig"
+                            },
+                            {
+                                "id": "fase6",
+                                "year": 6,
+                                "label": "Gjeld og politisk omveltning"
+                            },
+                            {
+                                "id": "fase7",
+                                "year": 7,
+                                "label": "Krig mot en annen nasjon - ny syklus"
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "id": "penger-gull",
+                "phase": "Akt 2: Pengenes hemmeligheter",
+                "title": "Gull, dollar og hemmeligheten bak 1971",
+                "type": "utfordring",
+                "content": "En sommerdag i august 1971 tok president Nixon et grep som forandret hele den globale pengeordenen for alltid. Han kuttet koblingen mellom dollar og gull.\n\nFra den dagen kunne USA - og andre stater - trykke så mye penger de ville uten noen fysisk grense. Dette er kjernen i Dalios prinsipp 1, og det er starten på det han mener er en av de farligste mekanismene i moderne økonomi.\n\nForstår du dette prinsippet, forstår du mye av det som har skjedd siden 2008.",
+                "tasks": [
+                    "Les avsnittet 'To grunnleggende prinsipper' i artikkelen [De store syklusene](/samfunnskunnskap/ideer-og-verdenssyn/store-sykluser)",
+                    "Se [videoen fra 0:00 til 7:30](https://www.youtube.com/watch?v=xguam0TKMw8&t=0)",
+                    "Forklar Prinsipp 1 med egne ord: Hva skjer med verdien av penger når sentralbanken trykker mer?",
+                    "Forklar Prinsipp 2: Hva mener Dalio med at man må forstå fortiden for å forstå fremtiden?",
+                    "Hva skjedde i USA i 1933 og 1971 med koblingen mellom gull og dollar?",
+                    "Hva gjør stater når de bruker mer penger enn de får inn i skatt?"
+                ],
+                "links": [
+                    {
+                        "title": "De store syklusene - Les om de to prinsippene",
+                        "url": "/samfunnskunnskap/ideer-og-verdenssyn/store-sykluser"
+                    }
+                ]
+            },
+            {
+                "id": "reservevaluta",
+                "phase": "Akt 2: Pengenes hemmeligheter",
+                "title": "Reservevaluta - verdens mektigste betalingsapp",
+                "type": "fakta",
+                "content": "Tenk deg at alle land i verden bruker én felles betalingsapp. Den nasjonen som eier appen bestemmer reglene - og de kan ta ut penger fra den selv, fordi alle andre er avhengige av å bruke den.\n\nDette er reservevaluta-status. Det er kanskje den største fordelen en nasjon kan ha. Og historien viser at denne fordelen alltid bytter hender - fra den nederlandske gulden, til det britiske pundet, til den amerikanske dollaren.\n\nHvem eier 'appen' i fremtiden?",
+                "tasks": [
+                    "Les avsnittet 'Reservevaluta og verdensorden' i artikkelen [De store syklusene](/samfunnskunnskap/ideer-og-verdenssyn/store-sykluser)",
+                    "Se [videoen fra 7:30 til 12:00](https://www.youtube.com/watch?v=xguam0TKMw8&t=450)",
+                    "Hva er en reservevaluta, og hvilken valuta har den rollen i dag?",
+                    "Hva er en intern orden, og hvordan pleier den å endres?",
+                    "Hva er en ekstern orden, og hvordan pleier den å endres?",
+                    "Gi et historisk eksempel på en ekstern orden som ble endret gjennom krig"
+                ],
+                "links": [
+                    {
+                        "title": "De store syklusene - Les om reservevaluta",
+                        "url": "/samfunnskunnskap/ideer-og-verdenssyn/store-sykluser"
+                    }
+                ],
+                "component": {
+                    "name": "ScenarioRoleplay",
+                    "props": {
+                        "title": "Du er finansminister",
+                        "intro": "Du er finansminister i et lite land. USA truer med sanksjoner. Kina tilbyr en ny handelsavtale der dere kan betale i yuan i stedet for dollar. Hva gjør du?",
+                        "startId": "start",
+                        "scenarios": [
+                            {
+                                "id": "start",
+                                "text": "Kina tilbyr attraktive vilkår, men å bytte fra dollar til yuan er et historisk skritt. Hva er din første vurdering?",
+                                "options": [
+                                    { "label": "Vi bytter til yuan - de nye vilkårene er mye bedre", "nextId": "yuan" },
+                                    { "label": "Vi holder oss til dollar - stabiliteten er for viktig", "nextId": "dollar" },
+                                    { "label": "Vi venter og ser hva andre land gjør", "nextId": "venter" }
+                                ]
+                            },
+                            {
+                                "id": "yuan",
+                                "text": "Et dristig valg! Yuan gir bedre kinesiske handelsvilkår, men USA kan reagere med sanksjoner. Dere er også avhengige av at yuan forblir stabil. Kina kontrollerer sin valuta politisk - er det trygt?",
+                                "options": [
+                                    { "label": "Vi aksepterer risikoen - Kinas økonomi vokser uansett", "nextId": "slutt-yuan" },
+                                    { "label": "Vi ombestemmer oss - dette er for risikabelt", "nextId": "dollar" }
+                                ]
+                            },
+                            {
+                                "id": "dollar",
+                                "text": "Trygt valg, men du mister de kinesiske fordelene. USA setter pris på lojaliteten. Men husk: Dalio viser at reservevalutaer alltid bytter hender til slutt. Holder dollaren sin posisjon?",
+                                "options": [
+                                    { "label": "Ja - vi satser på at USA forblir dominerende de neste 20 år", "nextId": "slutt-dollar" }
+                                ]
+                            },
+                            {
+                                "id": "venter",
+                                "text": "Diplomatisk! Du holder alle dører åpne og lar andre ta risikoen først. Men stillstand kan også koste deg handelsavtaler. Hva gjør du mens du venter?",
+                                "options": [
+                                    { "label": "Vi styrker handelen med begge parter uten å velge side", "nextId": "slutt-nøytral" }
+                                ]
+                            },
+                            {
+                                "id": "slutt-yuan",
+                                "text": "Du er en av de første til å tørre. Om 20 år vet vi om det var fremsynt eller dumdristig. Det er slik historien lages - av de som tør å se mønstrene tidlig."
+                            },
+                            {
+                                "id": "slutt-dollar",
+                                "text": "Du spiller det trygge kortet. Det fungerer - inntil videre. Men husk Dalios advarsel: Ingen reservevaluta varer evig."
+                            },
+                            {
+                                "id": "slutt-nøytral",
+                                "text": "Smart! Mange små land overlever ved å balansere mellom stormakter. Norge er faktisk et godt eksempel på dette - sterk NATO-alliert, men med gode handelsforbindelser østover."
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "id": "oppgangen",
+                "phase": "Akt 3: Syklusen i praksis",
+                "title": "Oppgangens hemmelighet - Nederlandenes mirakel",
+                "type": "utfordring",
+                "content": "På 1600-tallet var Nederland et lite, flatt land uten naturressurser, omgitt av mektige naboer. Allikevel ble de verdens mektigste nasjon. Hvordan?\n\nSvaret er ikke tilfeldig. Det er Dalios 5-stegs-kjede i praksis. Nederlenderne hadde ikke olje eller gull - de hadde kunnskap, innovasjon og et system som belønnet de som skapte verdier.\n\nDa de slo Spania i 80-årskrigen i 1648, sto de på toppen av verden. Og oppskriften deres er den samme som har blitt brukt av hvert eneste suksessrike imperium siden.",
+                "tasks": [
+                    "Les avsnittet 'Del 1: Oppgangen' i artikkelen [De store syklusene](/samfunnskunnskap/ideer-og-verdenssyn/store-sykluser)",
+                    "Se [videoen fra 18:15 til 23:00](https://www.youtube.com/watch?v=xguam0TKMw8&t=1095)",
+                    "Hva er de 5 stegene i oppgangens kjede (fra utdanning til verdenshandel)?",
+                    "Hvorfor vokser militæret naturlig som en del av oppgangsfasen?",
+                    "Nederland slo Spania i 80-årskrigen (1648). Hvilke nederlandske oppfinnelser fra denne perioden kjenner du igjen?",
+                    "Bruk Dalios modell: Hvilke av de 5 stegene ser du tydeligst i Norge i dag?",
+                    "Hvorfor tror du det er avgjørende at nye ledere velges på en fredelig og forutsigbar måte?"
+                ],
+                "links": [
+                    {
+                        "title": "De store syklusene - Les om oppgangen",
+                        "url": "/samfunnskunnskap/ideer-og-verdenssyn/store-sykluser"
+                    },
+                    {
+                        "title": "VOC og det nederlandske imperiet",
+                        "url": "/historie/kolonialisering/voc"
+                    }
+                ]
+            },
+            {
+                "id": "topp-fall-capstone",
+                "phase": "Akt 3: Syklusen i praksis",
+                "title": "Toppen, fallet - og hva nå?",
+                "type": "refleksjon",
+                "content": "Nå har du verktøykassen. Du kjenner de 8 maktfaktorene, de 7 fasene, de to prinsippene om penger, og du har sett oppskriften fra Nederlandene.\n\nDet siste steget er det viktigste: Bruk det du har lært på verden slik den ser ut akkurat nå.\n\nHvilken fase er USA i? Hva med Kina? Og hva med Norge? Dalio er tydelig på at å forstå historien ikke er akademisk øvelse - det er nødvendig kunnskap for å ta gode beslutninger i fremtiden.",
+                "tasks": [
+                    "Les avsnittene 'Del 2: Toppen', 'Del 3: Fallet' og 'Hvor er vi i dag?' i artikkelen [De store syklusene](/samfunnskunnskap/ideer-og-verdenssyn/store-sykluser)",
+                    "Se [videoen fra 26:00 til 36:00](https://www.youtube.com/watch?v=xguam0TKMw8&t=1560)",
+                    "Hva kjennetegner topp-fasen? Forklar hvordan suksessen planter frøene til forfall",
+                    "Hva er de typiske tegnene på at et imperium er på vei ned?",
+                    "Skriv et avsnitt (5-7 setninger): Hvilken av de 7 fasene tror du USA befinner seg i nå? Bruk minst 3 av Dalios 8 maktfaktorer i svaret",
+                    "Hvilken nasjon mener du er den neste utfordreren? Begrunn med Dalios rammeverk",
+                    "Skriv et 'råd til Norge': Hvilken fase er vi i, og hva bør vi prioritere de neste 20 årene?"
+                ],
+                "links": [
+                    {
+                        "title": "De store syklusene - Les om toppen og fallet",
+                        "url": "/samfunnskunnskap/ideer-og-verdenssyn/store-sykluser"
+                    }
+                ]
+            }
+        ]
+    }
+}

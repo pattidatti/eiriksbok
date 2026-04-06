@@ -1311,6 +1311,15 @@
           "title": "Ideer og verdenssyn",
           "description": "Utforsk de store tankene, forestillingene og trosprosessene som har formet menneskets historie.",
           "image": "/images/lessons/ideer/framskritt_hero.jpg",
+          "tools": [
+            {
+              "id": "store-sykluser-sti",
+              "title": "Læringssti: Imperienes sykluser",
+              "description": "Forstå hvorfor stormakter stiger og faller - og hva det betyr for verden i dag.",
+              "link": "/samfunnskunnskap/ideer-og-verdenssyn/store-sykluser-sti",
+              "icon": "map"
+            }
+          ],
           "lessons": [
             {
               "id": "eskatologi",

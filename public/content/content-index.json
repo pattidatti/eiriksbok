@@ -1,5 +1,5 @@
 {
-  "buildId": 1775475965997,
+  "buildId": 1775496523010,
   "contentMap": {
     "adel": [
       "content/concepts/adel.json"
@@ -1647,6 +1647,9 @@
     "sannhetens-historie": [
       "content/samfunnskunnskap/ideer-og-verdenssyn/sannhetens-historie.json"
     ],
+    "store-sykluser-sti": [
+      "content/samfunnskunnskap/ideer-og-verdenssyn/store-sykluser-sti.json"
+    ],
     "store-sykluser": [
       "content/samfunnskunnskap/ideer-og-verdenssyn/store-sykluser.json"
     ],
@@ -2341,6 +2344,7 @@
     "samfunnskunnskap/ideer-og-verdenssyn/humanisme": "content/samfunnskunnskap/ideer-og-verdenssyn/humanisme.json",
     "samfunnskunnskap/ideer-og-verdenssyn/naturens-sjel": "content/samfunnskunnskap/ideer-og-verdenssyn/naturens-sjel.json",
     "samfunnskunnskap/ideer-og-verdenssyn/sannhetens-historie": "content/samfunnskunnskap/ideer-og-verdenssyn/sannhetens-historie.json",
+    "samfunnskunnskap/ideer-og-verdenssyn/store-sykluser-sti": "content/samfunnskunnskap/ideer-og-verdenssyn/store-sykluser-sti.json",
     "samfunnskunnskap/ideer-og-verdenssyn/store-sykluser": "content/samfunnskunnskap/ideer-og-verdenssyn/store-sykluser.json",
     "samfunnskunnskap/ideer-og-verdenssyn/utopier": "content/samfunnskunnskap/ideer-og-verdenssyn/utopier.json",
     "samfunnskunnskap/mennesket-kultur-samfunn/ekkokamre": "content/samfunnskunnskap/mennesket-kultur-samfunn/ekkokamre.json",

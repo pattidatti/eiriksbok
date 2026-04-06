@@ -125,6 +125,11 @@
             "title": "Berlinmurens fall - 9. november 1989"
         },
         {
+            "type": "video",
+            "url": "https://www.youtube.com/watch?v=KoJ0Pih0Ssc",
+            "title": "Berlinmuren - dokumentar"
+        },
+        {
             "type": "component",
             "name": "Quiz",
             "props": {
