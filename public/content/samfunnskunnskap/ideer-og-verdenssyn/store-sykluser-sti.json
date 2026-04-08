@@ -22,7 +22,7 @@
                     "Les avsnittet 'Hvem er Ray Dalio?' i artikkelen [De store syklusene](/samfunnskunnskap/ideer-og-verdenssyn/store-sykluser)",
                     "Hvem er Ray Dalio og hva er han kjent for?",
                     "Hva er det store spørsmålet han prøver å svare på?",
-                    "Se [videoen fra 0:00 til 2:00](https://www.youtube.com/watch?v=xguam0TKMw8&t=0) - hva er kjernen i det han vil forklare?"
+                    "Se [videoen fra 0:00 til 1:33](https://www.youtube.com/watch?v=xguam0TKMw8&t=0) - hva er kjernen i det han vil forklare?"
                 ],
                 "links": [
                     {
@@ -32,98 +32,14 @@
                 ]
             },
             {
-                "id": "maktfaktorer",
-                "phase": "Akt 1: Mønstre i historien",
-                "title": "Hva kan vi måle?",
-                "type": "fakta",
-                "content": "For å si noe fornuftig om hvilke nasjoner som er mektige og hvilke som svekkes, trenger vi konkrete målinger. Du kan ikke bare si 'de er sterkere enn dem' - du må vise det med tall og fakta.\n\nDalio har identifisert 8 nøkkelindikatorer som til sammen gir et bilde av en nasjons relative styrke. Det interessante er ikke bare hva disse faktorene er - men at de alltid henger sammen i en bestemt rekkefølge. Den ene leder til den andre, som en kjede.\n\nKan du se logikken i kjeden før du leser svaret?",
-                "tasks": [
-                    "Les avsnittet 'Prinsippet bak historien' og faktaboksen 'De 8 viktigste maktfaktorene' i artikkelen [De store syklusene](/samfunnskunnskap/ideer-og-verdenssyn/store-sykluser)",
-                    "Se [videoen fra 2:00 til 5:00](https://www.youtube.com/watch?v=xguam0TKMw8&t=120)",
-                    "List opp Dalios 8 maktfaktorer i riktig rekkefølge",
-                    "Hvilken faktor er det absolutte fundamentet som alle andre bygger på?",
-                    "Hvorfor tror du utdanning kommer før militær styrke i kjeden?",
-                    "Noter én faktor fra videoen du ikke hadde tenkt på som en maktfaktor"
-                ],
-                "links": [
-                    {
-                        "title": "De store syklusene - Les om de 8 faktorene",
-                        "url": "/samfunnskunnskap/ideer-og-verdenssyn/store-sykluser"
-                    }
-                ]
-            },
-            {
-                "id": "syklusen",
-                "phase": "Akt 1: Mønstre i historien",
-                "title": "Den store buen - 250 år på én kurve",
-                "type": "refleksjon",
-                "content": "Dalio har funnet noe fascinerende: Alle store imperier følger den samme kurven. Som en bue. De stiger, når toppen, og faller. Og de gjør det i omtrent samme tempo - rundt 250 år per syklus.\n\nDet er ikke tilfeldig. Det er de samme mekanismene som driver dem frem og ned - hver gang. Nederlandene på 1600-tallet. Storbritannia på 1800-tallet. USA på 1900-tallet.\n\nNår du ser kurven, begynner du å forstå historien på en helt ny måte.",
-                "tasks": [
-                    "Les avsnittet 'Den store syklusen: 7 faser på 250 år' i artikkelen [De store syklusene](/samfunnskunnskap/ideer-og-verdenssyn/store-sykluser)",
-                    "Se [videoen fra 5:00 til 8:00](https://www.youtube.com/watch?v=xguam0TKMw8&t=300)",
-                    "Beskriv de 7 fasene med egne ord - hva kjennetegner hver fase?",
-                    "Hvor lenge varer en typisk syklus ifølge Dalio?",
-                    "Kjenner du igjen noen av fasene fra historiefaget? Gi et konkret eksempel"
-                ],
-                "links": [
-                    {
-                        "title": "De store syklusene - Les om de 7 fasene",
-                        "url": "/samfunnskunnskap/ideer-og-verdenssyn/store-sykluser"
-                    }
-                ],
-                "component": {
-                    "name": "DragDropTimeline",
-                    "props": {
-                        "title": "Sorter de 7 fasene i riktig rekkefølge",
-                        "events": [
-                            {
-                                "id": "fase1",
-                                "year": 1,
-                                "label": "Fred, mulighet og produksjon"
-                            },
-                            {
-                                "id": "fase2",
-                                "year": 2,
-                                "label": "Finansboble og voksende velstandsgap"
-                            },
-                            {
-                                "id": "fase3",
-                                "year": 3,
-                                "label": "Økonomien sprekker og krymper"
-                            },
-                            {
-                                "id": "fase4",
-                                "year": 4,
-                                "label": "Staten trykker penger og øker gjelden"
-                            },
-                            {
-                                "id": "fase5",
-                                "year": 5,
-                                "label": "Revolusjon og borgerkrig"
-                            },
-                            {
-                                "id": "fase6",
-                                "year": 6,
-                                "label": "Gjeld og politisk omveltning"
-                            },
-                            {
-                                "id": "fase7",
-                                "year": 7,
-                                "label": "Krig mot en annen nasjon - ny syklus"
-                            }
-                        ]
-                    }
-                }
-            },
-            {
                 "id": "penger-gull",
-                "phase": "Akt 2: Pengenes hemmeligheter",
+                "phase": "Akt 1: Grunnprinsippene",
                 "title": "Gull, dollar og hemmeligheten bak 1971",
                 "type": "utfordring",
                 "content": "En sommerdag i august 1971 tok president Nixon et grep som forandret hele den globale pengeordenen for alltid. Han kuttet koblingen mellom dollar og gull.\n\nFra den dagen kunne USA - og andre stater - trykke så mye penger de ville uten noen fysisk grense. Dette er kjernen i Dalios prinsipp 1, og det er starten på det han mener er en av de farligste mekanismene i moderne økonomi.\n\nForstår du dette prinsippet, forstår du mye av det som har skjedd siden 2008.",
                 "tasks": [
                     "Les avsnittet 'To grunnleggende prinsipper' i artikkelen [De store syklusene](/samfunnskunnskap/ideer-og-verdenssyn/store-sykluser)",
-                    "Se [videoen fra 0:00 til 7:30](https://www.youtube.com/watch?v=xguam0TKMw8&t=0)",
+                    "Se [videoen fra 1:33 til 8:00](https://www.youtube.com/watch?v=xguam0TKMw8&t=93)",
                     "Forklar Prinsipp 1 med egne ord: Hva skjer med verdien av penger når sentralbanken trykker mer?",
                     "Forklar Prinsipp 2: Hva mener Dalio med at man må forstå fortiden for å forstå fremtiden?",
                     "Hva skjedde i USA i 1933 og 1971 med koblingen mellom gull og dollar?",
@@ -138,13 +54,13 @@
             },
             {
                 "id": "reservevaluta",
-                "phase": "Akt 2: Pengenes hemmeligheter",
+                "phase": "Akt 1: Grunnprinsippene",
                 "title": "Reservevaluta - verdens mektigste betalingsapp",
                 "type": "fakta",
                 "content": "Tenk deg at alle land i verden bruker én felles betalingsapp. Den nasjonen som eier appen bestemmer reglene - og de kan ta ut penger fra den selv, fordi alle andre er avhengige av å bruke den.\n\nDette er reservevaluta-status. Det er kanskje den største fordelen en nasjon kan ha. Og historien viser at denne fordelen alltid bytter hender - fra den nederlandske gulden, til det britiske pundet, til den amerikanske dollaren.\n\nHvem eier 'appen' i fremtiden?",
                 "tasks": [
                     "Les avsnittet 'Reservevaluta og verdensorden' i artikkelen [De store syklusene](/samfunnskunnskap/ideer-og-verdenssyn/store-sykluser)",
-                    "Se [videoen fra 7:30 til 12:00](https://www.youtube.com/watch?v=xguam0TKMw8&t=450)",
+                    "Se [videoen fra 8:00 til 11:38](https://www.youtube.com/watch?v=xguam0TKMw8&t=480)",
                     "Hva er en reservevaluta, og hvilken valuta har den rollen i dag?",
                     "Hva er en intern orden, og hvordan pleier den å endres?",
                     "Hva er en ekstern orden, og hvordan pleier den å endres?",
@@ -211,6 +127,90 @@
                 }
             },
             {
+                "id": "maktfaktorer",
+                "phase": "Akt 2: Rammeverket",
+                "title": "Hva kan vi måle?",
+                "type": "fakta",
+                "content": "For å si noe fornuftig om hvilke nasjoner som er mektige og hvilke som svekkes, trenger vi konkrete målinger. Du kan ikke bare si 'de er sterkere enn dem' - du må vise det med tall og fakta.\n\nDalio har identifisert 8 nøkkelindikatorer som til sammen gir et bilde av en nasjons relative styrke. Det interessante er ikke bare hva disse faktorene er - men at de alltid henger sammen i en bestemt rekkefølge. Den ene leder til den andre, som en kjede.\n\nKan du se logikken i kjeden før du leser svaret?",
+                "tasks": [
+                    "Les avsnittet 'Prinsippet bak historien' og faktaboksen 'De 8 viktigste maktfaktorene' i artikkelen [De store syklusene](/samfunnskunnskap/ideer-og-verdenssyn/store-sykluser)",
+                    "Se [videoen fra 11:38 til 15:00](https://www.youtube.com/watch?v=xguam0TKMw8&t=698)",
+                    "List opp Dalios 8 maktfaktorer i riktig rekkefølge",
+                    "Hvilken faktor er det absolutte fundamentet som alle andre bygger på?",
+                    "Hvorfor tror du utdanning kommer før militær styrke i kjeden?",
+                    "Noter én faktor fra videoen du ikke hadde tenkt på som en maktfaktor"
+                ],
+                "links": [
+                    {
+                        "title": "De store syklusene - Les om de 8 faktorene",
+                        "url": "/samfunnskunnskap/ideer-og-verdenssyn/store-sykluser"
+                    }
+                ]
+            },
+            {
+                "id": "syklusen",
+                "phase": "Akt 2: Rammeverket",
+                "title": "Den store buen - 250 år på én kurve",
+                "type": "refleksjon",
+                "content": "Dalio har funnet noe fascinerende: Alle store imperier følger den samme kurven. Som en bue. De stiger, når toppen, og faller. Og de gjør det i omtrent samme tempo - rundt 250 år per syklus.\n\nDet er ikke tilfeldig. Det er de samme mekanismene som driver dem frem og ned - hver gang. Nederlandene på 1600-tallet. Storbritannia på 1800-tallet. USA på 1900-tallet.\n\nNår du ser kurven, begynner du å forstå historien på en helt ny måte.",
+                "tasks": [
+                    "Les avsnittet 'Den store syklusen: 7 faser på 250 år' i artikkelen [De store syklusene](/samfunnskunnskap/ideer-og-verdenssyn/store-sykluser)",
+                    "Se [videoen fra 15:00 til 18:45](https://www.youtube.com/watch?v=xguam0TKMw8&t=900)",
+                    "Beskriv de 7 fasene med egne ord - hva kjennetegner hver fase?",
+                    "Hvor lenge varer en typisk syklus ifølge Dalio?",
+                    "Kjenner du igjen noen av fasene fra historiefaget? Gi et konkret eksempel"
+                ],
+                "links": [
+                    {
+                        "title": "De store syklusene - Les om de 7 fasene",
+                        "url": "/samfunnskunnskap/ideer-og-verdenssyn/store-sykluser"
+                    }
+                ],
+                "component": {
+                    "name": "DragDropTimeline",
+                    "props": {
+                        "title": "Sorter de 7 fasene i riktig rekkefølge",
+                        "events": [
+                            {
+                                "id": "fase1",
+                                "year": 1,
+                                "label": "Fred, mulighet og produksjon"
+                            },
+                            {
+                                "id": "fase2",
+                                "year": 2,
+                                "label": "Finansboble og voksende velstandsgap"
+                            },
+                            {
+                                "id": "fase3",
+                                "year": 3,
+                                "label": "Økonomien sprekker og krymper"
+                            },
+                            {
+                                "id": "fase4",
+                                "year": 4,
+                                "label": "Staten trykker penger og øker gjelden"
+                            },
+                            {
+                                "id": "fase5",
+                                "year": 5,
+                                "label": "Revolusjon og borgerkrig"
+                            },
+                            {
+                                "id": "fase6",
+                                "year": 6,
+                                "label": "Gjeld og politisk omveltning"
+                            },
+                            {
+                                "id": "fase7",
+                                "year": 7,
+                                "label": "Krig mot en annen nasjon - ny syklus"
+                            }
+                        ]
+                    }
+                }
+            },
+            {
                 "id": "oppgangen",
                 "phase": "Akt 3: Syklusen i praksis",
                 "title": "Oppgangens hemmelighet - Nederlandenes mirakel",
@@ -218,7 +218,7 @@
                 "content": "På 1600-tallet var Nederland et lite, flatt land uten naturressurser, omgitt av mektige naboer. Allikevel ble de verdens mektigste nasjon. Hvordan?\n\nSvaret er ikke tilfeldig. Det er Dalios 5-stegs-kjede i praksis. Nederlenderne hadde ikke olje eller gull - de hadde kunnskap, innovasjon og et system som belønnet de som skapte verdier.\n\nDa de slo Spania i 80-årskrigen i 1648, sto de på toppen av verden. Og oppskriften deres er den samme som har blitt brukt av hvert eneste suksessrike imperium siden.",
                 "tasks": [
                     "Les avsnittet 'Del 1: Oppgangen' i artikkelen [De store syklusene](/samfunnskunnskap/ideer-og-verdenssyn/store-sykluser)",
-                    "Se [videoen fra 18:15 til 23:00](https://www.youtube.com/watch?v=xguam0TKMw8&t=1095)",
+                    "Se [videoen fra 18:45 til 26:16](https://www.youtube.com/watch?v=xguam0TKMw8&t=1125)",
                     "Hva er de 5 stegene i oppgangens kjede (fra utdanning til verdenshandel)?",
                     "Hvorfor vokser militæret naturlig som en del av oppgangsfasen?",
                     "Nederland slo Spania i 80-årskrigen (1648). Hvilke nederlandske oppfinnelser fra denne perioden kjenner du igjen?",
@@ -244,7 +244,7 @@
                 "content": "Nå har du verktøykassen. Du kjenner de 8 maktfaktorene, de 7 fasene, de to prinsippene om penger, og du har sett oppskriften fra Nederlandene.\n\nDet siste steget er det viktigste: Bruk det du har lært på verden slik den ser ut akkurat nå.\n\nHvilken fase er USA i? Hva med Kina? Og hva med Norge? Dalio er tydelig på at å forstå historien ikke er akademisk øvelse - det er nødvendig kunnskap for å ta gode beslutninger i fremtiden.",
                 "tasks": [
                     "Les avsnittene 'Del 2: Toppen', 'Del 3: Fallet' og 'Hvor er vi i dag?' i artikkelen [De store syklusene](/samfunnskunnskap/ideer-og-verdenssyn/store-sykluser)",
-                    "Se [videoen fra 26:00 til 36:00](https://www.youtube.com/watch?v=xguam0TKMw8&t=1560)",
+                    "Se [videoen fra 26:16 til slutten](https://www.youtube.com/watch?v=xguam0TKMw8&t=1576)",
                     "Hva kjennetegner topp-fasen? Forklar hvordan suksessen planter frøene til forfall",
                     "Hva er de typiske tegnene på at et imperium er på vei ned?",
                     "Skriv et avsnitt (5-7 setninger): Hvilken av de 7 fasene tror du USA befinner seg i nå? Bruk minst 3 av Dalios 8 maktfaktorer i svaret",
