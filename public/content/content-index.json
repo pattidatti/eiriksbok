@@ -1,5 +1,5 @@
 {
-  "buildId": 1775496523010,
+  "buildId": 1775651086969,
   "contentMap": {
     "adel": [
       "content/concepts/adel.json"
@@ -633,6 +633,9 @@
       "content/historie/andre-verdenskrig/teknologi.json",
       "content/historie/forste-verdenskrig/teknologi.json"
     ],
+    "apartheid-syd-afrika": [
+      "content/historie/dekolonisering/apartheid-syd-afrika.json"
+    ],
     "dekolonisering-sti": [
       "content/historie/dekolonisering/dekolonisering-sti.json"
     ],
@@ -647,6 +650,12 @@
     ],
     "india": [
       "content/historie/dekolonisering/india.json"
+    ],
+    "israel-palestina-muren": [
+      "content/historie/dekolonisering/israel-palestina-muren.json"
+    ],
+    "jim-crow-lovene": [
+      "content/historie/dekolonisering/jim-crow-lovene.json"
     ],
     "kongo": [
       "content/historie/dekolonisering/kongo.json"
@@ -681,6 +690,9 @@
     "kald-krig-sti": [
       "content/historie/den-kalde-krigen/kald-krig-sti.json"
     ],
+    "korea-dmz": [
+      "content/historie/den-kalde-krigen/korea-dmz.json"
+    ],
     "koreakrigen": [
       "content/historie/den-kalde-krigen/koreakrigen.json"
     ],
@@ -688,8 +700,14 @@
       "content/historie/den-kalde-krigen/kultur.json",
       "content/historie/mellomkrigstiden/kultur.json"
     ],
+    "kypros-delingslinjen": [
+      "content/historie/den-kalde-krigen/kypros-delingslinjen.json"
+    ],
     "nato-vs-warszawa": [
       "content/historie/den-kalde-krigen/nato-vs-warszawa.json"
+    ],
+    "peace-lines-belfast": [
+      "content/historie/den-kalde-krigen/peace-lines-belfast.json"
     ],
     "romkapplopet": [
       "content/historie/den-kalde-krigen/romkapplopet.json"
@@ -1951,11 +1969,14 @@
     "historie/andre-verdenskrig/krigens-lop": "content/historie/andre-verdenskrig/krigens-lop.json",
     "historie/andre-verdenskrig/oversikt": "content/historie/andre-verdenskrig/oversikt.json",
     "historie/andre-verdenskrig/teknologi": "content/historie/andre-verdenskrig/teknologi.json",
+    "historie/dekolonisering/apartheid-syd-afrika": "content/historie/dekolonisering/apartheid-syd-afrika.json",
     "historie/dekolonisering/dekolonisering-sti": "content/historie/dekolonisering/dekolonisering-sti.json",
     "historie/dekolonisering/frigjoringskrigene": "content/historie/dekolonisering/frigjoringskrigene.json",
     "historie/dekolonisering/ghana-panafrikanisme": "content/historie/dekolonisering/ghana-panafrikanisme.json",
     "historie/dekolonisering/haiti": "content/historie/dekolonisering/haiti.json",
     "historie/dekolonisering/india": "content/historie/dekolonisering/india.json",
+    "historie/dekolonisering/israel-palestina-muren": "content/historie/dekolonisering/israel-palestina-muren.json",
+    "historie/dekolonisering/jim-crow-lovene": "content/historie/dekolonisering/jim-crow-lovene.json",
     "historie/dekolonisering/kongo": "content/historie/dekolonisering/kongo.json",
     "historie/dekolonisering/latin-amerika": "content/historie/dekolonisering/latin-amerika.json",
     "historie/dekolonisering/midtosten-mandater": "content/historie/dekolonisering/midtosten-mandater.json",
@@ -1968,10 +1989,13 @@
     "historie/den-kalde-krigen/berlinmuren": "content/historie/den-kalde-krigen/berlinmuren.json",
     "historie/den-kalde-krigen/cuba-krisen": "content/historie/den-kalde-krigen/cuba-krisen.json",
     "historie/den-kalde-krigen/kald-krig-sti": "content/historie/den-kalde-krigen/kald-krig-sti.json",
+    "historie/den-kalde-krigen/korea-dmz": "content/historie/den-kalde-krigen/korea-dmz.json",
     "historie/den-kalde-krigen/koreakrigen": "content/historie/den-kalde-krigen/koreakrigen.json",
     "historie/den-kalde-krigen/kultur": "content/historie/den-kalde-krigen/kultur.json",
+    "historie/den-kalde-krigen/kypros-delingslinjen": "content/historie/den-kalde-krigen/kypros-delingslinjen.json",
     "historie/den-kalde-krigen/nato-vs-warszawa": "content/historie/den-kalde-krigen/nato-vs-warszawa.json",
     "historie/den-kalde-krigen/oversikt": "content/historie/den-kalde-krigen/oversikt.json",
+    "historie/den-kalde-krigen/peace-lines-belfast": "content/historie/den-kalde-krigen/peace-lines-belfast.json",
     "historie/den-kalde-krigen/romkapplopet": "content/historie/den-kalde-krigen/romkapplopet.json",
     "historie/den-kalde-krigen/suez-krisen": "content/historie/den-kalde-krigen/suez-krisen.json",
     "historie/den-kalde-krigen/veien-mot-slutt": "content/historie/den-kalde-krigen/veien-mot-slutt.json",

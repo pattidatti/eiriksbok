@@ -1,0 +1,250 @@
+{
+    "id": "jim-crow-lovene",
+    "title": "Jim Crow: «Separate but equal»",
+    "subject": "historie",
+    "layout": "rich",
+    "year": "1877–1965",
+    "category": "USA / Delte samfunn",
+    "readTime": "11 min lesning",
+    "heroImage": "/images/lessons/dekolonisering/jim-crow-lovene.webp",
+    "details": [
+        "Jim Crow-lovene var en serie statlige lover som lovfestet rasesegregering i sørstatene.",
+        "«Separate but equal» ble slått fast av Høyesterett i Plessy mot Ferguson (1896).",
+        "Rosa Parks nektet å gi fra seg bussplassen sin 1. desember 1955.",
+        "Martin Luther Kings «I have a dream»-tale ble holdt 28. august 1963.",
+        "Civil Rights Act av 1964 opphevet Jim Crow-lovene – nesten 100 år etter slaveriets avskaffelse."
+    ],
+    "timeline": [],
+    "externalUrl": "https://snl.no/Jim_Crow-lovene",
+    "content": [
+        {
+            "type": "text",
+            "content": "Vannfontenen er merket «Colored». Den andre, ti meter borte, er merket «White». Vannet er det samme. Menneskene er det samme. Men loven sier at de ikke kan dele den.\n\nI USA etter borgerkrigen ble slaveriet avskaffet i 1865. Men i de sørlige statene ble friheten raskt innskrenket gjennom lover som skapte et system nesten like totalt som det man hadde under slaveriet. Disse lovene kalles Jim Crow-lovene – og de delte et samfunn ikke med murer av betong, slik som i [Belfast](/historie/den-kalde-krigen/peace-lines-belfast) eller [Sør-Afrika](/historie/dekolonisering/apartheid-syd-afrika), men med skilt, regler og vold."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Hvem var Jim Crow?",
+                "content": "«Jim Crow» var opprinnelig en karikaturfigur fra minstrel-show på 1800-tallet – en nedsettende fremstilling av svarte amerikanere. Navnet ble brukt om det samlede systemet av rasesegregering i sørstatene etter 1877. Jim Crow-lovene bestemte alt: hvem som kunne stemme, hvilken skole man kunne gå på, hvilken inngang man kunne bruke, hvem man kunne gifte seg med. Det var ikke ett sett lover – det var hundrevis av enkeltlover vedtatt i stat etter stat."
+            }
+        },
+        {
+            "type": "header",
+            "text": "Plessy mot Ferguson: Lovlig ulikhet"
+        },
+        {
+            "type": "text",
+            "content": "I 1892 kjøpte Homer Plessy – en mann som var sju åttendedeler hvit og en åttendedel svart – en togbillett i Louisiana og satte seg i en hvit vogn. Han ble arrestert. Saken gikk helt til USAs høyesterett.\n\nI 1896 avsa Høyesterett sin kjennelse: «Separate but equal» – atskilte fasiliteter var lovlig, så lenge de var likeverdige. Dommer John Marshall Harlan avga en dissens som ble profetisk: «Vår grunnlov er fargeblind... Men det er grunn til å tro at denne avgjørelsen vil hindre forsoning mellom rasene og vil gi oppmuntring til den mer aggressive typen hvite, som mener at dominansen er for dem å hevde.»\n\nHøyesterett-avgjørelsen ga grønt lys for segregering i nesten 60 år. I praksis var fasiliteter aldri «like». Svarte skoler fikk brukte lærebøker, utslitte bygninger og halvparten av budsjettet."
+        },
+        {
+            "type": "header",
+            "text": "Hverdagen under Jim Crow"
+        },
+        {
+            "type": "text",
+            "content": "Jim Crow var ikke bare skilt ved vannfontener. Det var et helhetlig system av kontroll:\n\nI «sundown towns» – byer over hele USA, ikke bare i sør – måtte svarte amerikanere forlate bygrensen innen solnedgang. Ellers risikerte de vold eller arrest. Velgersystemet var rigget: Svarte menn hadde teknisk sett stemmerett, men lokale myndigheter krevde at de besto «lesbarhetstester» de hvite ble spart for, betalte avgifter de ikke hadde råd til, eller ventet i køer som aldri ble ferdig.\n\nOg bak alt lå trusselen om vold. Mellom 1877 og 1950 ble over 4 000 svarte amerikanere lynsjert – hengt, brent eller drept av pøbler, nesten alltid uten at noen ble straffeforfulgt."
+        },
+        {
+            "type": "component",
+            "name": "TimelineComponent",
+            "props": {
+                "title": "Kampen mot Jim Crow",
+                "compact": true,
+                "events": [
+                    {
+                        "date": "1865",
+                        "title": "13. grunnlovstillegg",
+                        "description": "Slaveriet avskaffes i USA etter borgerkrigen."
+                    },
+                    {
+                        "date": "1877",
+                        "title": "Reconstruction slutter",
+                        "description": "Nordstatenes militære tilstedeværelse i sør trekkes tilbake. Jim Crow-lovene begynner å bre seg."
+                    },
+                    {
+                        "date": "1896",
+                        "title": "Plessy mot Ferguson",
+                        "description": "Høyesterett fastslår at «separate but equal» er lovlig. Segregering er nå grunnlovskonformt."
+                    },
+                    {
+                        "date": "1955",
+                        "title": "Rosa Parks",
+                        "description": "Rosa Parks nekter å gi fra seg bussplassen sin i Montgomery, Alabama. Montgomery Bus Boycott begynner."
+                    },
+                    {
+                        "date": "1963",
+                        "title": "March on Washington",
+                        "description": "250 000 mennesker marsjerer til Lincoln Memorial. Martin Luther King Jr. holder «I have a dream»."
+                    },
+                    {
+                        "date": "1964",
+                        "title": "Civil Rights Act",
+                        "description": "President Lyndon B. Johnson signerer loven som forbyr diskriminering basert på rase, farge, religion, kjønn eller nasjonalt opphav."
+                    },
+                    {
+                        "date": "1965",
+                        "title": "Voting Rights Act",
+                        "description": "Lover som hindret svarte amerikanere i å stemme, forbys. Millioner registrerer seg som velgere for første gang."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Rosa Parks og bussen"
+        },
+        {
+            "type": "text",
+            "content": "1. desember 1955. Rosa Parks, 42 år, syerske, sitter på bussen i Montgomery, Alabama etter en lang arbeidsdag. Bussen er full. En hvit passasjer vil ha plassen hennes. Sjåføren ber henne reise seg. Hun nekter.\n\nParks ble arrestert. Men det var ikke spontant. Parks var aktiv i NAACP – en borgerrettsorganisasjon – og hadde trent i borgerrettskamp. Det var ikke slik at hun var for sliten til å reise seg, slik historien av og til forteller det. Hun var sliten – men hun var sliten av å gi etter.\n\nBoikotten som fulgte varte i 381 dager. Svarte amerikanere i Montgomery – 75 prosent av bussselskapets kunder – gikk til fots, syklet, eller samkjørte. En ung baptist-pastor ble talsmann for boikotten: Martin Luther King Jr. Montgomery Bus Boycott ble vendepunktet som viste at ikke-voldelig motstand virket."
+        },
+        {
+            "type": "component",
+            "name": "ScenarioRoleplay",
+            "props": {
+                "title": "Lunch counter sit-in, Greensboro 1960",
+                "intro": "Du er 18 år og student i Greensboro, North Carolina, i 1960. Fire studenter fra din skole har akkurat satt seg ned ved lunchbaren på Woolworths varehus – en bar kun for hvite. De nekter å flytte seg.",
+                "startId": "start",
+                "scenarios": [
+                    {
+                        "id": "start",
+                        "text": "Nyheten sprer seg på campus: Fire av medstudentene dine sitter rolig ved lunchbaren og venter på å bli servert. Betjeningen nekter å ta imot bestillingen. De sitter bare der og leser.\n\nNeste dag vil de gjøre det igjen. De trenger folk til å fylle stolene.\n\nHva gjør du?",
+                        "options": [
+                            { "label": "Bli med i sit-in'en", "nextId": "sit-in" },
+                            { "label": "Du er enig, men redd – du holder deg unna", "nextId": "unna" }
+                        ]
+                    },
+                    {
+                        "id": "sit-in",
+                        "text": "Du setter deg ned ved baren. En eldre hvit mann bak deg sier noe stygt. Du ser rett frem og sier ingenting. Kaffekopene kommer ikke.\n\nNoen begynner å helle ketchup på hodet ditt. Du sitter stille. Det er det dere har øvd på: Uansett hva som skjer – sitt stille, se rolig ut, ikke svar provokasjonene.\n\nNyhetsreportere er der. Bildene kommer på forsiden av avisen neste dag.",
+                        "options": [
+                            { "label": "Hva skjedde videre?", "nextId": "videre" }
+                        ]
+                    },
+                    {
+                        "id": "videre",
+                        "text": "Sit-in'ene i Greensboro spredte seg. Innen uker hadde lignende protester startet i over 50 byer i 9 stater. Woolworths mistet så mange kunder at de etter seks måneder begynte å servere svarte og hvite ved de samme barene.\n\nDet var ikke lov som endret det. Det var en stol. Og motet til å sitte i den.",
+                        "options": []
+                    },
+                    {
+                        "id": "unna",
+                        "text": "Du holder deg unna. Frykten er reell – du kjenner til folk som er blitt banket opp, arrestert, mistet jobbene sine for å ha protestert.\n\nMen du følger med på nyheter. Og dagene og ukene som følger, ser du sit-in'ene spre seg fra by til by. Du ser at det virker.\n\nNeste gang de trenger folk, rekker du opp hånden.",
+                        "options": []
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "«I have a dream»"
+        },
+        {
+            "type": "text",
+            "content": "28. august 1963. Over 250 000 mennesker samlet seg i Washington D.C. for March on Washington. Det var den største politiske demonstrasjonen i amerikansk historie til da. Mot slutten av dagen gikk Martin Luther King Jr. til mikrofonen.\n\nTalen han hadde forberedt, var god men kjedelig. Sangeren Mahalia Jackson, som sto bak ham, ropte: «Tell them about the dream, Martin!» King la manuset til side. Det som fulgte, var improvisert – og er blitt en av historiens mest siterte taler: «I have a dream that my four little children will one day live in a nation where they will not be judged by the color of their skin but by the content of their character.»\n\nAtte måneder etter, i juli 1964, signerte president Lyndon B. Johnson Civil Rights Act. Segregering var nå ulovlig. Neste år kom Voting Rights Act. Jim Crow-lovene var formelt over – nesten hundre år etter at slaveriet ble avskaffet."
+        },
+        {
+            "type": "header",
+            "text": "Lovene forsvant – men ulikheten?"
+        },
+        {
+            "type": "text",
+            "content": "Civil Rights Act forbød diskriminering. Men den endret ikke hvem som eide land, hvem som fikk gode skoler, hvem som bygget opp formue gjennom generasjoner. De strukturene som ble bygget under Jim Crow, lever videre.\n\nI dag er amerikanske fengsler overveiende svarte. Formuesgapet mellom hvite og svarte amerikanere er nesten like stort som i 1968. Og debatten om politiets behandling av svarte har vist – ikke minst gjennom Black Lives Matter – at spørsmålet om likhet er langt fra besvart.\n\nLovene fra Jim Crow er borte. Men som [apartheid i Sør-Afrika](/historie/dekolonisering/apartheid-syd-afrika) og [Peace Lines i Belfast](/historie/den-kalde-krigen/peace-lines-belfast) illustrerer: Splittelse er enklere å bygge enn å rive."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hva fastslo Høyesteretts avgjørelse i Plessy mot Ferguson (1896)?",
+                        "options": [
+                            "Rasesegregering er grunnlovsstridig",
+                            "Svarte amerikanere har stemmerett",
+                            "«Separate but equal» er lovlig",
+                            "Jim Crow-lovene er ugyldige"
+                        ],
+                        "answer": "«Separate but equal» er lovlig"
+                    },
+                    {
+                        "question": "Hva gjorde Rosa Parks 1. desember 1955?",
+                        "options": [
+                            "Hun holdt en tale i Washington D.C.",
+                            "Hun nektet å gi fra seg bussplassen sin",
+                            "Hun grunnla NAACP",
+                            "Hun ledet en marsj til Det hvite hus"
+                        ],
+                        "answer": "Hun nektet å gi fra seg bussplassen sin"
+                    },
+                    {
+                        "question": "Hva het loven fra 1964 som forbød rasediskriminering i USA?",
+                        "options": [
+                            "Voting Rights Act",
+                            "Equal Rights Amendment",
+                            "Civil Rights Act",
+                            "13. grunnlovstillegg"
+                        ],
+                        "answer": "Civil Rights Act"
+                    },
+                    {
+                        "question": "Hva er «sundown towns»?",
+                        "options": [
+                            "Byer som var hjem for frigjorte slaver etter borgerkrigen",
+                            "Byer der svarte amerikanere måtte forlate bygrensen innen solnedgang",
+                            "Fattige nabolag i sørstatene",
+                            "Byer som boikottet Jim Crow-lovene"
+                        ],
+                        "answer": "Byer der svarte amerikanere måtte forlate bygrensen innen solnedgang"
+                    }
+                ]
+            }
+        }
+    ],
+    "quiz": [
+        {
+            "id": "q1",
+            "question": "Hva fastslo Høyesteretts avgjørelse i Plessy mot Ferguson (1896)?",
+            "options": [
+                "Rasesegregering er grunnlovsstridig",
+                "Svarte amerikanere har stemmerett",
+                "«Separate but equal» er lovlig",
+                "Jim Crow-lovene er ugyldige"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": "q2",
+            "question": "Hva gjorde Rosa Parks 1. desember 1955?",
+            "options": [
+                "Hun holdt en tale i Washington D.C.",
+                "Hun nektet å gi fra seg bussplassen sin",
+                "Hun grunnla NAACP",
+                "Hun ledet en marsj til Det hvite hus"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": "q3",
+            "question": "Hva het loven fra 1964 som forbød rasediskriminering i USA?",
+            "options": [
+                "Voting Rights Act",
+                "Equal Rights Amendment",
+                "Civil Rights Act",
+                "13. grunnlovstillegg"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": "q4",
+            "question": "Hva er «sundown towns»?",
+            "options": [
+                "Byer som var hjem for frigjorte slaver etter borgerkrigen",
+                "Byer der svarte amerikanere måtte forlate bygrensen innen solnedgang",
+                "Fattige nabolag i sørstatene",
+                "Byer som boikottet Jim Crow-lovene"
+            ],
+            "correctAnswer": 1
+        }
+    ],
+    "createdDate": "2026-04-08T00:00:00Z",
+    "lastUpdated": "2026-04-08T00:00:00Z"
+}

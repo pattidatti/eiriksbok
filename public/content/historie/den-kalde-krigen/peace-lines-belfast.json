@@ -1,0 +1,292 @@
+{
+    "id": "peace-lines-belfast",
+    "title": "Peace Lines: Murene som deler Belfast",
+    "subject": "historie",
+    "layout": "rich",
+    "year": "1969–i dag",
+    "category": "Irland / Delte samfunn",
+    "readTime": "12 min lesning",
+    "heroImage": "/images/lessons/den-kalde-krigen/peace-lines-belfast.webp",
+    "details": [
+        "99 Peace Lines finnes fortsatt i Belfast i dag.",
+        "De første barrierene ble satt opp i 1969 – som en midlertidig løsning.",
+        "The Troubles kostet over 3 500 menneskeliv mellom 1968 og 1998.",
+        "Bloody Sunday (1972): 14 ubevæpnede sivile drept av britiske soldater.",
+        "Belfast-avtalen (1998) endte the Troubles, men murene ble stående."
+    ],
+    "timeline": [],
+    "externalUrl": "https://snl.no/The_Troubles",
+    "content": [
+        {
+            "type": "text",
+            "content": "Klokken ni om kvelden låses portene. Det er ikke fengselsgjerder – det er gatene i en by. Nabolag som ligger side om side i Belfast blir hver kveld stengt av for hverandre. Bak portene finner du familier som aldri har snakket med naboene på den andre siden, barn som vokser opp uten å kjenne noen fra den andre gruppen, og murer av stål og betong som har stått siden 1969.\n\nI en by som [Berlinmuren](/historie/den-kalde-krigen/berlinmuren) var et symbol på to ideologier, er murene i Belfast et symbol på noe eldre og vanskeligere å løse: religion, identitet og hundre år med mistro."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Hva er Peace Lines?",
+                "content": "Peace Lines er fysiske barrierer – murer av betong, stål og piggtråd – som skiller katolske og protestantiske nabolag i Nord-Irland. De fleste finnes i Belfast. Noen er 8 meter høye. De ble bygget av britiske myndigheter fra 1969 og utover, og er egentlig det motsatte av det de heter: de skaper fred gjennom adskillelse, ikke forsoning. I dag er det over 99 slike barrierer, og mange av dem har porter som låses om natten."
+            }
+        },
+        {
+            "type": "header",
+            "text": "Irlands deling: frøet til konflikt"
+        },
+        {
+            "type": "text",
+            "content": "For å forstå murene i Belfast må vi tilbake til 1920. Irland hadde lenge vært en del av det britiske imperiet, og irene hadde i generasjoner kjempet for selvstyre. I 1916 brøt nasjonalister ut i det som ble kjent som Påskeopprøret i Dublin – et forsøk på å gjøre Irland fritt med makt. Opprøret ble slått ned, lederne henrettet, men det tente en flamme.\n\nI 1921 ble Irland delt i to. Den irske fristaten – det seinere Irland – fikk selvstyre i sør. Men de seks nordlige fylkene, kjent som Nord-Irland, forble en del av Storbritannia. Her bodde både katolikker som ønsket et samlet Irland, og protestanter som ønsket å forbli britiske. Den grensen skapte et problem ingen hadde en god løsning på. Du kan lese mer om dette i [frigjøring og dekolonisering](/historie/dekolonisering)."
+        },
+        {
+            "type": "header",
+            "text": "Uroen begynner: 1968"
+        },
+        {
+            "type": "text",
+            "content": "I Nord-Irland var katolikkene i årevis blitt behandlet som annenrangs borgere. De hadde vanskeligere for å få jobb, leide- og kommunale boliger ble prioritert til protestanter, og valgkretsene var tegnet for å svekke den katolske stemmen. Det var et system som lignet det man så i USA i den samme perioden – og som i USA, begynte folk å protestere.\n\nI 1968 startet en borgerrettighetsbevegelse i Nord-Irland. De krevde like rettigheter, ikke at landet skulle forlate Storbritannia. Men protestene ble møtt med vold fra politiet og fra lojalistiske grupper som fryktet enhver forandring. Den britiske hæren ble sendt inn i 1969 – opprinnelig for å beskytte den katolske befolkningen. Mange katolikker jublet. Det varte ikke lenge."
+        },
+        {
+            "type": "header",
+            "text": "Murene reiser seg"
+        },
+        {
+            "type": "text",
+            "content": "I august 1969 eksploderte volden i Belfast. Loyalistiske folkemengder angrep katolske nabolag. Hus ble brent ned, familier flyktet i natt og tåke. Over 1 500 familier ble fordrevet fra hjemmene sine i løpet av noen få dager – den største tvangsflyttingen i Europa siden andre verdenskrig.\n\nBritiske soldater satte raskt opp provisoriske sperringer – piggtråd og brakker – mellom nabolagene. Det var ment som en midlertidig løsning. Sperringene ble til murer. Murene vokste høyere. Og de ble stående. På begge sider av murene organiserte grupper seg militært: IRA (Den irske republikanske hær) på katolsk side, og paramilitære lojalistgrupper som UVF på protestantisk side. Den kalde freden i gatene ble opprettholdt gjennom frykt."
+        },
+        {
+            "type": "component",
+            "name": "TimelineComponent",
+            "props": {
+                "title": "Nord-Irland: Fra deling til fred",
+                "compact": true,
+                "events": [
+                    {
+                        "date": "1916",
+                        "title": "Påskeopprøret",
+                        "description": "Irske nasjonalister gjør opprør mot britisk styre i Dublin. Opprøret slås ned, men tenne vilje til frigjøring."
+                    },
+                    {
+                        "date": "1920",
+                        "title": "Irland deles i to",
+                        "description": "Nord-Irland forblir britisk. Seks nordlige fylker skilles fra resten av øya."
+                    },
+                    {
+                        "date": "1968",
+                        "title": "The Troubles begynner",
+                        "description": "Borgerrettighetsbevegelsen møtes med vold. Konflikten eskalerer raskt."
+                    },
+                    {
+                        "date": "1969",
+                        "title": "Første Peace Lines",
+                        "description": "Britiske soldater setter opp provisoriske barrierer etter pogromlignende angrep på katolske nabolag."
+                    },
+                    {
+                        "date": "1972",
+                        "title": "Bloody Sunday",
+                        "description": "14 ubevæpnede demonstranter drept av britiske fallskjermsoldater i Derry."
+                    },
+                    {
+                        "date": "1994",
+                        "title": "IRA erklærer våpenhvile",
+                        "description": "Etter press fra USA og Irland legger IRA ned våpnene midlertidig. Fredsforhandlinger starter."
+                    },
+                    {
+                        "date": "1998",
+                        "title": "Belfast-avtalen",
+                        "description": "Good Friday Agreement signeres. The Troubles er offisielt over. Murene blir stående."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Bloody Sunday: Det som ikke kan glemmes"
+        },
+        {
+            "type": "text",
+            "content": "Søndag 30. januar 1972 demonstrerte tusenvis av mennesker fredelig i gatene i Derry – en by sørvest i Nord-Irland – mot internering uten rettssak. Mange av dem som ble kastet i fengsel uten dom, var uskyldige. Demonstrantene var ubevæpnede.\n\nBritiske fallskjermsoldater åpnet ild mot folkemengden. 14 mennesker ble drept. De fleste var tenåringer og unge menn. Alle var ubevæpnede. Den britiske regjeringen forsvarte soldatene i årevis. Først i 2010, etter en 12 år lang gransking, innrømte statsminister David Cameron at drapene var ulovlige og at ofrene var uskyldig.\n\nBlodige søndager forandret konflikten. Tusenvis av unge menn som aldri hadde tenkt på å ta opp våpen, meldte seg inn i IRA dagen etter. Hendelsen rekrutterte mer enn noe annet enkeltmoment til den væpnede kampen. I Nord-Irland snakker folk fortsatt om den datoen som «den dagen alt forandret seg»."
+        },
+        {
+            "type": "component",
+            "name": "ScenarioRoleplay",
+            "props": {
+                "title": "Livet i Belfast på 1970-tallet",
+                "intro": "Du er 15 år og bor i Belfast i 1972. Velg hvem du er – og opplev hvordan splittelsen former hverdagen.",
+                "startId": "velg-side",
+                "scenarios": [
+                    {
+                        "id": "velg-side",
+                        "text": "Det er mandag morgen i Belfast. To familier våkner på hver sin side av en Peace Line.\n\nHvem vil du følge?",
+                        "options": [
+                            { "label": "Ciaran, 15 – katolsk familie i Falls Road", "nextId": "ciaran-morgen" },
+                            { "label": "William, 15 – protestantisk familie i Shankill Road", "nextId": "william-morgen" }
+                        ]
+                    },
+                    {
+                        "id": "ciaran-morgen",
+                        "text": "Du er Ciaran. Faren din jobbet på verftet, men mistet jobben fordi han var katolikk. Nå tar moren din rengjøringsjobber. Skolen din er en katolsk skole – du har aldri hatt en protestantisk klassekamerat.\n\nI dag vil du hjem fra skolen en ny vei – den er kortere. Men den nye veien går gjennom et protestantisk nabolag.\n\nHva gjør du?",
+                        "options": [
+                            { "label": "Ta den korte veien – det er jo bare en gate", "nextId": "ciaran-feil-vei" },
+                            { "label": "Gå den lange veien som alltid – det er tryggere", "nextId": "ciaran-trygg-vei" }
+                        ]
+                    },
+                    {
+                        "id": "ciaran-feil-vei",
+                        "text": "Du går inn i gaten. Tre gutter på din alder ser deg. De ser skoleboken du bærer – fra den katolske skolen. En av dem sier noe du ikke vil gjenta.\n\nDu snur og løper. De kaster noe etter deg. Du kommer hjem uskadd, men hendene skjelver.\n\nLater på kvelden hører du eksplosjoner i det fjerne. Du vet ikke hvem som sprengte hva. Du sovner med lyset på.",
+                        "options": [
+                            { "label": "Se hva William opplevde samme dag", "nextId": "william-morgen" }
+                        ]
+                    },
+                    {
+                        "id": "ciaran-trygg-vei",
+                        "text": "Du tar omveien. Det tar 25 minutter ekstra. Du vet at dette er slik livet er her – man lærer seg de trygge rutene, de trygge tidspunktene, de trygge stedene.\n\nHjemme forteller du ikke moren din om tankene du hadde. Hun har nok å bekymre seg for. Du gjør leksene ved kjøkkenbordet mens hun lager middag og radionyheter surrer i bakgrunnen: En bombe i sentrum. To drept.",
+                        "options": [
+                            { "label": "Se hva William opplevde samme dag", "nextId": "william-morgen" }
+                        ]
+                    },
+                    {
+                        "id": "william-morgen",
+                        "text": "Du er William. Faren din er butikkmann. Det går greit, men forretningen har blitt brutt inn i to ganger det siste året. Ingen vet sikkert hvem som sto bak.\n\nI dag er det en demonstrasjon i sentrum av Belfast. Noen i klassen din vil dra for å se på. En av guttene sier det bare er bråkmakere som vil ødelegge ting.\n\nHva gjør du?",
+                        "options": [
+                            { "label": "Bli med for å se – du er bare nysgjerrig", "nextId": "william-sentrum" },
+                            { "label": "Hold deg hjemme – ingenting godt kommer ut av det", "nextId": "william-hjemme" }
+                        ]
+                    },
+                    {
+                        "id": "william-sentrum",
+                        "text": "Dere drar til sentrum. Det er mange mennesker. Noen bærer plakater. Stemningen er spent.\n\nPlutserig løper folk i alle retninger. Noen roper. Du hører et smell – du vet ikke hva det er. Du og kameratene løper og skiller dere. Du finner veien hjem alene gjennom bakgater du knapt kjenner.\n\nHjemme er moren rasende og lettet på en gang. «Aldri mer», sier hun. Du sitter stille og nikker.",
+                        "options": [
+                            { "label": "Se hva Ciaran opplevde denne dagen", "nextId": "ciaran-morgen" },
+                            { "label": "Les hva skjedde videre i Belfast", "nextId": "avslutning" }
+                        ]
+                    },
+                    {
+                        "id": "william-hjemme",
+                        "text": "Du holder deg hjemme. Om kvelden ser du nyheter på TV. Det var en demonstrasjon som ble til opptøyer. En person skadet.\n\nFaren din sier: «Se, det er alltid slik det ender.» Du er ikke sikker på om han har rett, men du sier ikke noe. Utenfor er det stille. Porten til nabolaget er låst.",
+                        "options": [
+                            { "label": "Se hva Ciaran opplevde denne dagen", "nextId": "ciaran-morgen" },
+                            { "label": "Les hva skjedde videre i Belfast", "nextId": "avslutning" }
+                        ]
+                    },
+                    {
+                        "id": "avslutning",
+                        "text": "Ciaran og William bor fem minutter fra hverandre. De har aldri møttes.\n\nDe har begge lært de samme tingene: Hold deg til ditt eget nabolag. Stol ikke på de ukjente. Pass deg.\n\nDet er det murene gjør. Ikke bare av betong og stål – men inni hodene til folk som vokser opp i skyggen av dem. The Troubles tok over 3 500 liv. Men millioner av mennesker levde sine liv i frykt, uten noensinne å løsne et skudd.",
+                        "options": []
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Belfast-avtalen 1998: En skjør fred"
+        },
+        {
+            "type": "text",
+            "content": "Gjennom 1990-tallet begynte fredsforhandlinger å ta form. USA spilte en sentral rolle – president Bill Clinton sendte en spesialutsending og presset begge sider mot forhandlingsbordet. Den irske og britiske regjeringen samarbeidet tettere enn noensinne.\n\nPå langfredag 10. april 1998 ble Belfast-avtalen – kjent internasjonalt som Good Friday Agreement – signert. Det var en historisk avtale: IRA og de lojalistiske gruppene la ned våpnene. Nord-Irland fikk et eget parlament med maktdeling mellom begge grupper. For første gang siden 1920-tallet hadde folk på begge sider noe å håpe på.\n\nBagatellen det var enighet om: Murene. Ingen av partene var villige til å tvinge gjennom fjerning av barrierene. Folk ville bestemme selv – og mange ville beholde dem."
+        },
+        {
+            "type": "header",
+            "text": "Murene som ble"
+        },
+        {
+            "type": "text",
+            "content": "I dag, mer enn 25 år etter fredsavtalen, finnes 99 Peace Lines fortsatt i Belfast. Noen er kortere og lavere enn de var. Noen har blitt fjernet. Men mange står like høye som alltid, og portene låses fortsatt om natten.\n\nSurveyundersøkelser viser at mange i de berørte nabolagene selv ønsker å beholde murene. Frykten sitter dypt. Barn som er vokst opp etter fredsavtalen – som aldri har opplevd The Troubles – vokser likevel opp i en by der de knapt kjenner noen fra den andre gruppen.\n\nDet er den dypeste konsekvensen av splittelse: Den lever videre i hodene til folk lang etter at bombene har stilnet. [Berlinmuren](/historie/den-kalde-krigen/berlinmuren) ble revet på én natt i november 1989 – fordi folk krevde det og makten ga etter. I Belfast er det ingen klar dramatisk dag murene falt. Her er freden stille, forsiktig og uferdig. Spørsmålet Belfast stiller verden er: Hva gjør man med freden etter at krigen er over?"
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hva het fredsavtalen som avsluttet The Troubles i 1998?",
+                        "options": [
+                            "Dublin-avtalen",
+                            "Belfast-avtalen (Good Friday Agreement)",
+                            "Londoner-avtalen",
+                            "Sunningdale-avtalen"
+                        ],
+                        "answer": "Belfast-avtalen (Good Friday Agreement)"
+                    },
+                    {
+                        "question": "Hva skjedde på Bloody Sunday i 1972?",
+                        "options": [
+                            "IRA sprengte en bombe i London",
+                            "Nord-Irland ble delt fra resten av Irland",
+                            "Britiske soldater skjøt og drepte 14 ubevæpnede demonstranter",
+                            "The Troubles ble offisielt erklært over"
+                        ],
+                        "answer": "Britiske soldater skjøt og drepte 14 ubevæpnede demonstranter"
+                    },
+                    {
+                        "question": "Når ble de første Peace Lines satt opp i Belfast?",
+                        "options": [
+                            "1921",
+                            "1945",
+                            "1969",
+                            "1998"
+                        ],
+                        "answer": "1969"
+                    },
+                    {
+                        "question": "Hvor mange Peace Lines finnes i Belfast i dag (ca.)?",
+                        "options": [
+                            "12",
+                            "45",
+                            "99",
+                            "230"
+                        ],
+                        "answer": "99"
+                    }
+                ]
+            }
+        }
+    ],
+    "quiz": [
+        {
+            "id": "q1",
+            "question": "Hva het fredsavtalen som avsluttet The Troubles i 1998?",
+            "options": [
+                "Dublin-avtalen",
+                "Belfast-avtalen (Good Friday Agreement)",
+                "Londoner-avtalen",
+                "Sunningdale-avtalen"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": "q2",
+            "question": "Hva skjedde på Bloody Sunday i 1972?",
+            "options": [
+                "IRA sprengte en bombe i London",
+                "Nord-Irland ble delt fra resten av Irland",
+                "Britiske soldater skjøt og drepte 14 ubevæpnede demonstranter",
+                "The Troubles ble offisielt erklært over"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": "q3",
+            "question": "Når ble de første Peace Lines satt opp i Belfast?",
+            "options": [
+                "1921",
+                "1945",
+                "1969",
+                "1998"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": "q4",
+            "question": "Hvor mange Peace Lines finnes i Belfast i dag (ca.)?",
+            "options": [
+                "12",
+                "45",
+                "99",
+                "230"
+            ],
+            "correctAnswer": 2
+        }
+    ],
+    "createdDate": "2026-04-08T00:00:00Z",
+    "lastUpdated": "2026-04-08T00:00:00Z"
+}

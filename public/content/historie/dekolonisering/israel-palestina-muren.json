@@ -1,0 +1,214 @@
+{
+    "id": "israel-palestina-muren",
+    "title": "Muren på Vestbredden: Sikkerhet eller okkupasjon?",
+    "subject": "historie",
+    "layout": "rich",
+    "year": "2002–i dag",
+    "category": "Midtøsten / Delte samfunn",
+    "readTime": "13 min lesning",
+    "heroImage": "/images/lessons/dekolonisering/israel-palestina-muren.webp",
+    "details": [
+        "Separasjonsbarrieren er over 700 km lang – nesten tre ganger lengden av grensen den følger.",
+        "Israelske myndigheter kaller den en «sikkerhetsgjerdet». Palestinere kaller den «apartheidmuren».",
+        "FNs internasjonale domstol (ICJ) erklærte barrieren folkerettsstridig i 2004.",
+        "Antall selvmordsangrep i Israel falt med over 90 prosent etter at konstruksjonen startet.",
+        "Konflikten mellom Israel og Palestina har røtter tilbake til det britiske mandatets slutt i 1948."
+    ],
+    "timeline": [],
+    "externalUrl": "https://snl.no/Israel-Palestina-konflikten",
+    "content": [
+        {
+            "type": "text",
+            "content": "Den er 8 meter høy i de mest bebygde områdene. Den løper gjennom olivenlunder, deler landsbyer fra markene bøndene har dyrket i generasjoner, og skjærer gjennom bykjerner som Betlehem og Jerusalem. Israel kaller den «sikkerhetsgjerdet». Palestinere kaller den «apartheidmuren». FN erklærte den folkerettsstridig.\n\nDenne muren – separasjonsbarrieren på Vestbredden – er kanskje den mest omstridte fysiske grensen i verden. Ingen av verdens delte samfunn er så politisk ladet, så kompleks, eller så aktiv i dag. Det er ingen enkel fortelling her. Men vi kan forstå bakgrunnen – og la deg danne din egen mening. Les bakgrunnen i [Midtøsten: Streker i sanden](/historie/dekolonisering/midtosten-mandater)."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Barrieren i tall",
+                "content": "Separasjonsbarrieren er over 700 km lang – selv om grensen mellom Israel og Vestbredden (den såkalte Grønne linjen fra 1949) bare er 315 km. Det betyr at over halvparten av barrieren ikke følger den internasjonalt anerkjente grensen, men stikker inn i palestinsk territorium. Rundt 85 prosent av barrieren er et høyt gjerde med overvåkningssystemer. I tettbygde områder er det en 8 meter høy betongmur. Konstruksjonen startet i 2002 og er ikke ferdigstilt."
+            }
+        },
+        {
+            "type": "header",
+            "text": "Bakgrunnen: To folk, ett land"
+        },
+        {
+            "type": "text",
+            "content": "For å forstå muren, må vi forstå konflikten som skapte den. I 1948, da Storbritannia trakk seg tilbake fra Palestina-mandatet, erklærte jødiske ledere staten Israel. FN hadde anbefalt å dele området mellom en jødisk og en arabisk stat.\n\nDet som fulgte, kalles på hebraisk «Selvuavhengighet» (Yom HaAtzmaut) og på arabisk «Katastrofen» (Nakba). Over 700 000 palestinere flyktet eller ble fordrevet fra hjemmene sine under og etter krigen i 1948. Israel og nabolandene Egypt, Jordan, Syria og Irak kjempet. Da kampene stoppet, kontrollerte Israel mer land enn FNs delingsplan hadde foreslått.\n\nI 1967 okkuperte Israel Vestbredden, Gaza og Sinaihalvøya i Seksdagerskrigen. Okkupasjonen av Vestbredden og Gaza varer den dag i dag og er kjernen i den pågående konflikten."
+        },
+        {
+            "type": "component",
+            "name": "TimelineComponent",
+            "props": {
+                "title": "Israel-Palestina-konfliktens milepæler",
+                "compact": true,
+                "events": [
+                    {
+                        "date": "1948",
+                        "title": "Israel opprettes / Nakba",
+                        "description": "Israel erklærer selvstendighet. Over 700 000 palestinere flykter eller fordrive. Krig bryter ut."
+                    },
+                    {
+                        "date": "1967",
+                        "title": "Seksdagerskrigen",
+                        "description": "Israel okkuperer Vestbredden, Gaza og Sinai. Okkupasjonen starter."
+                    },
+                    {
+                        "date": "1987",
+                        "title": "Første intifada",
+                        "description": "Palestinsk folkeopprør mot israelsk okkupasjon begynner."
+                    },
+                    {
+                        "date": "1993",
+                        "title": "Oslo-avtalen",
+                        "description": "Israel og PLO anerkjenner hverandre. Rammeverk for forhandlinger etableres."
+                    },
+                    {
+                        "date": "2000",
+                        "title": "Andre intifada",
+                        "description": "Fredsforhandlinger kollapser. Voldsbølge med selvmordsangrep og militære operasjoner."
+                    },
+                    {
+                        "date": "2002",
+                        "title": "Barrieren begynner å bygges",
+                        "description": "Israel begynner konstruksjonen av separasjonsbarrieren langs og delvis inne på Vestbredden."
+                    },
+                    {
+                        "date": "2004",
+                        "title": "ICJ erklærer barrieren ulovlig",
+                        "description": "FNs internasjonale domstol slår fast at barrieren bryter folkeretten der den går utenfor Grønne linjen."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Intifadaene og beslutningen om å bygge"
+        },
+        {
+            "type": "text",
+            "content": "Den første intifadaen (1987–1993) var et folkeopprør: steinkasting, streiker og sivil ulydighet mot israelsk okkupasjon. Det ledet til Oslo-avtalen i 1993 – en historisk håndtrykk mellom Yassir Arafat og Yitzhak Rabin på Det hvite hus' plener. Det så ut til at en tostatsløsning var innen rekkevidde.\n\nMen Oslo-prosessen havarerte. I 2000 brøt den andre intifadaen ut – mer voldelig enn den første. En serie med selvmordsangrep i israelske byer drepte hundrevis av sivile – på busser, i restauranter, på markeder. For israelere skapte det en eksistensiell frykt.\n\nI 2002, midt i bølgen av angrep, bestemte den israelske regjeringen seg for å bygge en fysisk barriere. Argumentet var klart: Barrieren ville stoppe terrorister fra å krysse inn fra Vestbredden til Israel."
+        },
+        {
+            "type": "header",
+            "text": "To syn på den samme muren"
+        },
+        {
+            "type": "text",
+            "content": "Det israelske synet: Barrieren virker. Antallet selvmordsangrep i Israel falt med over 90 prosent etter at konstruksjonen startet. Det er vanskelig å argumentere mot statistikken av sivile liv spart. Israelske familier som mistet barn og ektefeller i bombeangrep, ser på barrieren som det som til slutt ga dem trygghet.\n\nDet palestinske synet: Barrieren er ikke bygget langs den internasjonalt anerkjente grensen fra 1949 (Grønne linjen), men stikker dypt inn i palestinsk territorium. Bønder er avskåret fra markene sine. Landsbyer er omringet. For å komme seg til jobben, til sykehuset eller til skolen på den andre siden, må palestinere gjennom kontrollposter – noen ganger timevis i kø. FNs internasjonale domstol erklærte i 2004 at de delene av barrieren som goes utenfor Grønne linjen, er i strid med folkeretten.\n\nDette er kjernen i konflikten: De fleste israelere ser barrieren som en nødvendig sikkerhetsforanstaltning. De fleste palestinere ser den som et virkemiddel i en pågående okkupasjon."
+        },
+        {
+            "type": "header",
+            "text": "Gaza: En annen form for stengsel"
+        },
+        {
+            "type": "text",
+            "content": "Gaza – en kyststripe sørvest for Israel, om lag 40 km lang og 10 km bred – er hjemsted for rundt 2,3 millioner palestinere. I 2005 trakk Israel seg ensidig ut av Gaza. To år seinere tok Hamas, den islamistiske bevegelsen som ikke anerkjenner Israel, kontroll over Gaza.\n\nIsrael og Egypt innførte en blokade av Gaza: Strenge begrensninger på hva som kan komme inn (og ut) av landveier, til sjøs og i luften. Israel begrunner blokaden med sikkerhetsbehovet – å hindre innsmuggling av våpen til Hamas. Kritikere, inkludert FN, mener blokaden rammer sivilbefolkningen hardt og bryter humanitær folkerett.\n\nGaza er ikke delt av en fysisk mur slik Vestbredden er. Men blokaden skaper en annen form for stengsel – usynlig, men like effektiv."
+        },
+        {
+            "type": "header",
+            "text": "Et spørsmål uten enkelt svar"
+        },
+        {
+            "type": "text",
+            "content": "Israel-Palestina-konflikten skiller seg fra [Belfast](/historie/den-kalde-krigen/peace-lines-belfast), [apartheid](/historie/dekolonisering/apartheid-syd-afrika) og [Korea](/historie/den-kalde-krigen/korea-dmz) på en viktig måte: Det er ingen avslutning i sikte. Konfliktens kjerne – hvem som har rett til hvilket land – er ikke løst gjennom forhandlinger, og begge sider bærer historiske traumer som gjør kompromiss ekstremt vanskelig.\n\nDet som er uomtvistelig: Det er sivile på begge sider som betaler prisen. Israelske familier har mistet mennesker i terrorangrep. Palestinske familier har mistet folk i militære operasjoner. Begge befolkninger lever med frykt som former hverdagen.\n\nHistorien om murer og skiller – fra Berlin til Belfast til Betlehem – handler til syvende og sist om det samme: Hva er vi villige til å ofre for sikkerhet? Og hva koster det de som havner på feil side av grensen?"
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hva er «Grønne linjen» i Israel-Palestina-konflikten?",
+                        "options": [
+                            "Separasjonsbarrieren Israel bygget i 2002",
+                            "Grensen mellom Egypt og Gaza",
+                            "Våpenhvilelinjen fra 1949, som er den internasjonalt anerkjente grensen",
+                            "En plantet skogsone mellom Israel og Libanon"
+                        ],
+                        "answer": "Våpenhvilelinjen fra 1949, som er den internasjonalt anerkjente grensen"
+                    },
+                    {
+                        "question": "Hva var Israels begrunnelse for å bygge separasjonsbarrieren?",
+                        "options": [
+                            "Å hindre palestinere i å søke arbeid i Israel",
+                            "Å stoppe angrep fra palestinske grupper under den andre intifadaen",
+                            "Å markere grensen for en fremtidig palestinsk stat",
+                            "FN ba Israel om å bygge den"
+                        ],
+                        "answer": "Å stoppe angrep fra palestinske grupper under den andre intifadaen"
+                    },
+                    {
+                        "question": "Hva fastslo FNs internasjonale domstol (ICJ) om barrieren i 2004?",
+                        "options": [
+                            "At barrieren var lovlig som sikkerhetstiltak",
+                            "At barrieren måtte rives innen ett år",
+                            "At delene av barrieren som går utenfor Grønne linjen, bryter folkeretten",
+                            "At barrieren måtte overdras til FNs kontroll"
+                        ],
+                        "answer": "At delene av barrieren som går utenfor Grønne linjen, bryter folkeretten"
+                    },
+                    {
+                        "question": "Hva kalles palestinernes betegnelse på hendelsene i 1948 da hundretusener flyktet eller ble fordrevet?",
+                        "options": [
+                            "Intifadaen",
+                            "Nakba",
+                            "Shalit",
+                            "Jihad"
+                        ],
+                        "answer": "Nakba"
+                    }
+                ]
+            }
+        }
+    ],
+    "quiz": [
+        {
+            "id": "q1",
+            "question": "Hva er «Grønne linjen» i Israel-Palestina-konflikten?",
+            "options": [
+                "Separasjonsbarrieren Israel bygget i 2002",
+                "Grensen mellom Egypt og Gaza",
+                "Våpenhvilelinjen fra 1949, som er den internasjonalt anerkjente grensen",
+                "En plantet skogsone mellom Israel og Libanon"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": "q2",
+            "question": "Hva var Israels begrunnelse for å bygge separasjonsbarrieren?",
+            "options": [
+                "Å hindre palestinere i å søke arbeid i Israel",
+                "Å stoppe angrep fra palestinske grupper under den andre intifadaen",
+                "Å markere grensen for en fremtidig palestinsk stat",
+                "FN ba Israel om å bygge den"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": "q3",
+            "question": "Hva fastslo FNs internasjonale domstol (ICJ) om barrieren i 2004?",
+            "options": [
+                "At barrieren var lovlig som sikkerhetstiltak",
+                "At barrieren måtte rives innen ett år",
+                "At delene av barrieren som går utenfor Grønne linjen, bryter folkeretten",
+                "At barrieren måtte overdras til FNs kontroll"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": "q4",
+            "question": "Hva kalles palestinernes betegnelse på hendelsene i 1948 da hundretusener flyktet eller ble fordrevet?",
+            "options": [
+                "Intifadaen",
+                "Nakba",
+                "Shalit",
+                "Jihad"
+            ],
+            "correctAnswer": 1
+        }
+    ],
+    "createdDate": "2026-04-08T00:00:00Z",
+    "lastUpdated": "2026-04-08T00:00:00Z"
+}

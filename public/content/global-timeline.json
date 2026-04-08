@@ -3593,6 +3593,242 @@
         "islam",
         "midtausten"
       ]
+    },
+    {
+      "id": "irland-deles",
+      "title": "Irland deles i to",
+      "description": "Nord-Irland forblir britisk. Seks nordlige fylker skilles fra resten av øya, og frøet til tiår med konflikt såes.",
+      "startDate": 1920,
+      "endDate": null,
+      "displayDate": "1920",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "den-kalde-krigen",
+      "link": "/historie/den-kalde-krigen/peace-lines-belfast",
+      "tags": [
+        "irland",
+        "belfast",
+        "delte-samfunn",
+        "the-troubles"
+      ]
+    },
+    {
+      "id": "the-troubles-starter",
+      "title": "The Troubles begynner",
+      "description": "Borgerrettsbevegelsen i Nord-Irland møtes med vold. Konflikten mellom katolikker og protestanter eskalerer.",
+      "startDate": 1968,
+      "endDate": 1998,
+      "displayDate": "1968–1998",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "den-kalde-krigen",
+      "link": "/historie/den-kalde-krigen/peace-lines-belfast",
+      "tags": [
+        "irland",
+        "belfast",
+        "konflikt",
+        "delte-samfunn",
+        "the-troubles"
+      ]
+    },
+    {
+      "id": "peace-lines-1969",
+      "title": "Første Peace Lines reises",
+      "description": "Britiske soldater setter opp provisoriske barrierer mellom katolske og protestantiske nabolag i Belfast etter pogromlignende angrep.",
+      "startDate": 1969,
+      "endDate": null,
+      "displayDate": "1969",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "den-kalde-krigen",
+      "link": "/historie/den-kalde-krigen/peace-lines-belfast",
+      "tags": [
+        "irland",
+        "belfast",
+        "delte-samfunn",
+        "the-troubles"
+      ]
+    },
+    {
+      "id": "bloody-sunday",
+      "title": "Bloody Sunday",
+      "description": "Britiske fallskjermsoldater dreper 14 ubevæpnede demonstranter i Derry. Hendelsen rekrutterte tusenvis til IRA.",
+      "startDate": 1972,
+      "endDate": null,
+      "displayDate": "1972",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "den-kalde-krigen",
+      "link": "/historie/den-kalde-krigen/peace-lines-belfast",
+      "tags": [
+        "irland",
+        "belfast",
+        "konflikt",
+        "delte-samfunn",
+        "the-troubles"
+      ]
+    },
+    {
+      "id": "belfast-avtalen",
+      "title": "Belfast-avtalen (Good Friday Agreement)",
+      "description": "Historisk fredsavtale avslutter The Troubles. IRA legger ned våpnene. Men Peace Lines i Belfast blir stående.",
+      "startDate": 1998,
+      "endDate": null,
+      "displayDate": "1998",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "den-kalde-krigen",
+      "link": "/historie/den-kalde-krigen/peace-lines-belfast",
+      "tags": [
+        "irland",
+        "belfast",
+        "fred",
+        "delte-samfunn",
+        "the-troubles"
+      ]
+    },
+    {
+      "id": "apartheid-innfores",
+      "title": "Apartheid innføres i Sør-Afrika",
+      "description": "National Party vinner valget og begynner å lovfeste raseskillelse systematisk gjennom en rekke diskrimineringslover.",
+      "startDate": 1948,
+      "endDate": 1994,
+      "displayDate": "1948–1994",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/apartheid-syd-afrika",
+      "tags": [
+        "apartheid",
+        "sør-afrika",
+        "segregering",
+        "delte-samfunn"
+      ]
+    },
+    {
+      "id": "sharpeville-massakren",
+      "title": "Sharpeville-massakren",
+      "description": "69 ubevæpnede demonstranter mot passloven drept av politiet i Sharpeville, Sør-Afrika.",
+      "startDate": 1960,
+      "endDate": null,
+      "displayDate": "1960",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/apartheid-syd-afrika",
+      "tags": [
+        "apartheid",
+        "sør-afrika",
+        "delte-samfunn"
+      ]
+    },
+    {
+      "id": "mandela-fri",
+      "title": "Mandela løslates etter 27 år",
+      "description": "Nelson Mandela går ut av Victor Verster-fengslet. Fire år seinere vinner han Sør-Afrikas første frie valg.",
+      "startDate": 1990,
+      "endDate": null,
+      "displayDate": "1990",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/apartheid-syd-afrika",
+      "tags": [
+        "apartheid",
+        "sør-afrika",
+        "mandela",
+        "delte-samfunn"
+      ]
+    },
+    {
+      "id": "rosa-parks",
+      "title": "Rosa Parks nekter å gi fra seg plassen",
+      "description": "Rosa Parks nekter å gi fra seg bussplassen sin i Montgomery, Alabama. Montgomery Bus Boycott begynner.",
+      "startDate": 1955,
+      "endDate": null,
+      "displayDate": "1955",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/jim-crow-lovene",
+      "tags": [
+        "usa",
+        "segregering",
+        "borgerrettigheter",
+        "delte-samfunn"
+      ]
+    },
+    {
+      "id": "civil-rights-act",
+      "title": "Civil Rights Act",
+      "description": "USA forbyr rasediskriminering ved lov. Jim Crow-lovene er formelt over – nesten 100 år etter at slaveriet ble avskaffet.",
+      "startDate": 1964,
+      "endDate": null,
+      "displayDate": "1964",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/jim-crow-lovene",
+      "tags": [
+        "usa",
+        "segregering",
+        "borgerrettigheter",
+        "delte-samfunn"
+      ]
+    },
+    {
+      "id": "kypros-delt",
+      "title": "Kypros deles",
+      "description": "Tyrkia invaderer etter et gresk militærkupp. 160 000 gresk-kyprioter og 45 000 tyrkisk-kyprioter tvinges fra hjemmene sine.",
+      "startDate": 1974,
+      "endDate": null,
+      "displayDate": "1974",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "den-kalde-krigen",
+      "link": "/historie/den-kalde-krigen/kypros-delingslinjen",
+      "tags": [
+        "kypros",
+        "europa",
+        "konflikt",
+        "delte-samfunn"
+      ]
+    },
+    {
+      "id": "korea-dmz-etablert",
+      "title": "DMZ etableres i Korea",
+      "description": "Koreakrigen avsluttes med en våpenhvile. En 250 km lang demilitarisert sone deler halvøya. Ingen fredsavtale er signert.",
+      "startDate": 1953,
+      "endDate": null,
+      "displayDate": "1953",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "den-kalde-krigen",
+      "link": "/historie/den-kalde-krigen/korea-dmz",
+      "tags": [
+        "korea",
+        "asia",
+        "delte-samfunn",
+        "kald-krig"
+      ]
+    },
+    {
+      "id": "vestbredden-barriere",
+      "title": "Separasjonsbarrieren på Vestbredden",
+      "description": "Israel begynner å bygge en 700 km lang barriere langs og delvis inne på Vestbredden. FNs domstol erklærer deler av den folkerettsstridig.",
+      "startDate": 2002,
+      "endDate": null,
+      "displayDate": "2002",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/israel-palestina-muren",
+      "tags": [
+        "israel",
+        "palestina",
+        "midtøsten",
+        "delte-samfunn"
+      ]
     }
   ]
 }

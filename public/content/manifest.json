@@ -1454,7 +1454,7 @@
                 "samfunn"
               ],
               "createdDate": "2025-12-22T12:00:34+01:00",
-              "lastUpdated": "2025-12-22T12:00:34+01:00"
+              "lastUpdated": "2026-04-06T20:02:29+02:00"
             },
             {
               "id": "fn",
@@ -2427,7 +2427,7 @@
                 "symbol"
               ],
               "createdDate": "2025-12-21T13:37:14+01:00",
-              "lastUpdated": "2026-04-06T13:25:21+02:00"
+              "lastUpdated": "2026-04-06T19:50:08+02:00"
             },
             {
               "id": "veien-mot-slutt",
@@ -2454,6 +2454,51 @@
               ],
               "createdDate": "2025-12-21T13:37:14+01:00",
               "lastUpdated": "2026-02-11T09:21:54+01:00"
+            },
+            {
+              "id": "peace-lines-belfast",
+              "title": "Peace Lines: Murene som deler Belfast",
+              "description": "Fra irsk deling i 1920 til 99 murer som fortsatt skiller nabolag i dag.",
+              "image": "/images/lessons/den-kalde-krigen/peace-lines-belfast.webp",
+              "tags": [
+                "irland",
+                "belfast",
+                "konflikt",
+                "delte-samfunn",
+                "the-troubles"
+              ],
+              "createdDate": "2026-04-08T00:00:00Z",
+              "lastUpdated": "2026-04-08T12:07:50.995Z"
+            },
+            {
+              "id": "kypros-delingslinjen",
+              "title": "Kypros: Europas siste delte by",
+              "description": "Den grønne linjen, spøkelsesbyen Varosha og Nicosia – Europas eneste delte hovedstad.",
+              "image": "/images/lessons/den-kalde-krigen/kypros-delingslinjen.webp",
+              "tags": [
+                "kypros",
+                "europa",
+                "konflikt",
+                "delte-samfunn",
+                "tyrkia"
+              ],
+              "createdDate": "2026-04-08T00:00:00Z",
+              "lastUpdated": "2026-04-08T12:20:06.883Z"
+            },
+            {
+              "id": "korea-dmz",
+              "title": "DMZ: Grensen verden glemte å åpne",
+              "description": "Den mest militariserte grensen i verden – og et utilsiktet naturreservat.",
+              "image": "/images/lessons/den-kalde-krigen/korea-dmz.webp",
+              "tags": [
+                "korea",
+                "asia",
+                "konflikt",
+                "delte-samfunn",
+                "atomvåpen"
+              ],
+              "createdDate": "2026-04-08T00:00:00Z",
+              "lastUpdated": "2026-04-08T12:21:17.926Z"
             }
           ]
         },
@@ -2796,6 +2841,51 @@
               ],
               "createdDate": "2026-01-16T10:43:34+01:00",
               "lastUpdated": "2026-01-16T10:43:34+01:00"
+            },
+            {
+              "id": "apartheid-syd-afrika",
+              "title": "Apartheid: Et samfunn delt i lov",
+              "description": "Passbøker, townships og 27 år i fengsel – slik delte apartheid Sør-Afrika.",
+              "image": "/images/lessons/dekolonisering/apartheid-syd-afrika.webp",
+              "tags": [
+                "apartheid",
+                "sør-afrika",
+                "segregering",
+                "delte-samfunn",
+                "mandela"
+              ],
+              "createdDate": "2026-04-08T00:00:00Z",
+              "lastUpdated": "2026-04-08T12:17:17.933Z"
+            },
+            {
+              "id": "jim-crow-lovene",
+              "title": "Jim Crow: «Separate but equal»",
+              "description": "Vannfontener, busser og drømmer – slik delte Jim Crow-lovene det amerikanske sør.",
+              "image": "/images/lessons/dekolonisering/jim-crow-lovene.webp",
+              "tags": [
+                "usa",
+                "segregering",
+                "borgerrettigheter",
+                "delte-samfunn",
+                "martin-luther-king"
+              ],
+              "createdDate": "2026-04-08T00:00:00Z",
+              "lastUpdated": "2026-04-08T12:18:57.284Z"
+            },
+            {
+              "id": "israel-palestina-muren",
+              "title": "Muren på Vestbredden: Sikkerhet eller okkupasjon?",
+              "description": "700 km med betong og gjerde – og to folk med helt ulike svar på hva den betyr.",
+              "image": "/images/lessons/dekolonisering/israel-palestina-muren.webp",
+              "tags": [
+                "israel",
+                "palestina",
+                "midtøsten",
+                "delte-samfunn",
+                "okkupasjon"
+              ],
+              "createdDate": "2026-04-08T00:00:00Z",
+              "lastUpdated": "2026-04-08T12:22:43.796Z"
             }
           ]
         },

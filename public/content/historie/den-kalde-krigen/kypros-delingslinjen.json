@@ -1,0 +1,201 @@
+{
+    "id": "kypros-delingslinjen",
+    "title": "Kypros: Europas siste delte by",
+    "subject": "historie",
+    "layout": "rich",
+    "year": "1974–i dag",
+    "category": "Kypros / Delte samfunn",
+    "readTime": "10 min lesning",
+    "heroImage": "/images/lessons/den-kalde-krigen/kypros-delingslinjen.webp",
+    "details": [
+        "Nicosia er den eneste delte hovedstaden i Europa i dag.",
+        "Den grønne linjen er en FN-kontrollert buffersone på opptil 7 km bredde.",
+        "Tyrkia invaderte Kypros i 1974 etter et gresk statskupp.",
+        "Den forlatte byen Varosha har stått tom siden 1974.",
+        "I 2003 ble grensen delvis åpnet for første gang på 29 år."
+    ],
+    "timeline": [],
+    "externalUrl": "https://snl.no/Kypros",
+    "content": [
+        {
+            "type": "text",
+            "content": "Midt i Nicosia – en by med kafeer, butikker og travle gater – stopper alt. En stripe med piggtråd, sandsekker og forlatte bygninger skjærer gjennom bykjernen. På den ene siden gresk-kypriotisk Kypros, EU-medlem og europeisk stat. På den andre siden Nord-Kypros – en stat bare Tyrkia anerkjenner.\n\nSom [Berlinmuren](/historie/den-kalde-krigen/berlinmuren) som delte en stor europeisk by, og [Peace Lines i Belfast](/historie/den-kalde-krigen/peace-lines-belfast) som skiller nabolag, deler den grønne linjen på Kypros ikke bare land – den deler familier, minner og en øys identitet."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Den grønne linjen",
+                "content": "Den grønne linjen (på gresk: Πράσινη Γραμμή) er en 180 km lang demilitarisert buffersone som deler Kypros fra kyst til kyst. Bredden varierer fra noen meter i Nicosia til over 7 km på landsbygda. Sonen overvåkes av FN-styrken UNFICYP, som ble stasjonert på Kypros allerede i 1964. Innenfor sonen står forlatte bygninger, gjengrodd mark og militærinstallasjoner som har stått tomme siden 1974."
+            }
+        },
+        {
+            "type": "header",
+            "text": "En øy med to folk"
+        },
+        {
+            "type": "text",
+            "content": "Kypros har alltid vært hjem for to folk: gresk-kyprioter (om lag 78 prosent av befolkningen) og tyrkisk-kyprioter (om lag 18 prosent). I årtusener levde de side om side, blandet i byer og landsbyer over hele øya.\n\nI 1878 overtok Storbritannia Kypros fra Det osmanske riket. I 1960 ble Kypros selvstendig – men med en komplisert grunnlov som garanterte begge folkegrupper representasjon i regjering. Det var et forsøk på å bygge en felles stat. Det gikk ikke lenge."
+        },
+        {
+            "type": "header",
+            "text": "Statskuppet og invasjonen"
+        },
+        {
+            "type": "text",
+            "content": "15. juli 1974 gjennomførte greske militærjuntaen et kupp på Kypros. Målet var å forene øya med Hellas – det som kalles enosis. President Makarios ble styrtet.\n\nFem dager seinere invaderte den tyrkiske hæren nordkysten av Kypros – med den offisielle begrunnelsen om å beskytte tyrkisk-kyprioter mot den greske militærjuntaen. To måneder med krig og invasjon fulgte. Da våpenhvilen kom i august, kontrollerte Tyrkia 37 prosent av øya – den nordlige delen.\n\nDet som skjedde etterpå, var det største folkeflyttings-traumaet i Kypros sin moderne historie: Over 160 000 gresk-kyprioter flyktet sørover. Over 45 000 tyrkisk-kyprioter flyktet nordover. Naboer som hadde levd side om side i generasjoner, forlot hjem, jorder og graver i løpet av uker."
+        },
+        {
+            "type": "component",
+            "name": "TimelineComponent",
+            "props": {
+                "title": "Kypros-konfliktens viktigste hendelser",
+                "compact": true,
+                "events": [
+                    {
+                        "date": "1878",
+                        "title": "Britisk kontroll",
+                        "description": "Storbritannia overtar Kypros fra Det osmanske riket."
+                    },
+                    {
+                        "date": "1960",
+                        "title": "Selvstendighet",
+                        "description": "Kypros blir selvstendig. Komplisert maktdelingsgrunnlov mellom greske og tyrkiske kyprioter."
+                    },
+                    {
+                        "date": "1974",
+                        "title": "Statskupp og invasjon",
+                        "description": "Gresk militærjunta kuppet regjeringen. Tyrkia invaderte som svar og tok kontroll over nord."
+                    },
+                    {
+                        "date": "1983",
+                        "title": "Nord-Kypros proklamerer uavhengighet",
+                        "description": "Den tyrkiske republikken Nord-Kypros erklærer seg selvstendig. Kun Tyrkia anerkjenner staten."
+                    },
+                    {
+                        "date": "2003",
+                        "title": "Grensen åpnes delvis",
+                        "description": "For første gang på 29 år kan folk krysse den grønne linjen. Familier møtes igjen."
+                    },
+                    {
+                        "date": "2004",
+                        "title": "Gjenforeningsavstemning feiler",
+                        "description": "En FN-plan for gjenforening forkastes av gresk-kypriotene i folkeavstemning, kort før Kypros trer inn i EU."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Varosha: Spøkelsesbyen"
+        },
+        {
+            "type": "text",
+            "content": "Den mest slående konsekvensen av delingen er Varosha – et forlatt ferieresort i Famagusta i nord. I 1974 var Varosha en blomstrende by med 40 000 innbyggere, hoteller, butikker og en av Kypros' fineste strender. Elizabeth Taylor og Brigitte Bardot hadde feriert her.\n\nDa tyrkiske styrker nærmet seg, forlot innbyggerne i panikk – med planer om å komme tilbake om noen dager. Noen dager ble til 50 år. Tyrkia stengte Varosha og erklærte den militær sone. I tiår stod butikkene med varer på hyllene, klærne hang til tørk, biler ruste sakte i gatene.\n\nI 2020 åpnet Tyrkia deler av Varosha, noe som skapte stor internasjonal uro. FNs sikkerhetsråd krevde at sonen ble tilbakegitt til sine opprinnelige innbyggere. Bygningene forfaller, men spørsmålet om hvem de tilhører, er fortsatt uløst."
+        },
+        {
+            "type": "header",
+            "text": "Gjenforening: Nær, men ikke nådd"
+        },
+        {
+            "type": "text",
+            "content": "I 2003 åpnet grensen mellom nord og sør for første gang på 29 år. Eldre kyprioter krysset for å se husene de hadde forlatt som unge. Noen fant alt som de hadde etterlatt seg. Andre fant fremmede familier som nå bodde der.\n\nI 2004 stemte innbyggerne på Kypros om en FN-plan for gjenforening. Tyrkisk-kyprioter stemte ja. Gresk-kyprioter stemte nei – 76 prosent mot. Kort etter trådte Kypros inn i EU: En delt øy i en union som skulle stå for samling. Ironien er ikke til å ta feil av.\n\nForhandlingene fortsetter i dag, uten resultat. Kypros er det eneste EU-landet med en fremmed militærmakt stasjonert på territoriet, og den eneste delte hovedstaden i Europa. Som [Berlinmuren](/historie/den-kalde-krigen/berlinmuren) minner oss om – slike skillelinjer kan falle raskt. Men som [Peace Lines i Belfast](/historie/den-kalde-krigen/peace-lines-belfast) minner oss om – de kan også stå i generasjoner."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hva er den grønne linjen på Kypros?",
+                        "options": [
+                            "En motorvei som deler øya",
+                            "En FN-kontrollert buffersone som deler Kypros mellom gresk og tyrkisk side",
+                            "En grense mellom Kypros og Tyrkia",
+                            "En turistattraksjon i Nicosia"
+                        ],
+                        "answer": "En FN-kontrollert buffersone som deler Kypros mellom gresk og tyrkisk side"
+                    },
+                    {
+                        "question": "Hva skjedde i 1974 som førte til delingen av Kypros?",
+                        "options": [
+                            "FN delte øya i en fredsplan",
+                            "Kypros søkte om å bli delt",
+                            "Et gresk militærkupp etterfulgt av tyrkisk invasjon",
+                            "Storbritannia delte øya da de forlot kolonien"
+                        ],
+                        "answer": "Et gresk militærkupp etterfulgt av tyrkisk invasjon"
+                    },
+                    {
+                        "question": "Hva er Varosha?",
+                        "options": [
+                            "Kypriotenes navn på den grønne linjen",
+                            "En forlatt by som har stått tom siden 1974",
+                            "Hovedstaden i Nord-Kypros",
+                            "En gresk militærbase"
+                        ],
+                        "answer": "En forlatt by som har stått tom siden 1974"
+                    },
+                    {
+                        "question": "Hva skjedde da den grønne linjen delvis åpnet i 2003?",
+                        "options": [
+                            "Kypros ble gjenforent",
+                            "Tyrkia trakk troppene sine tilbake",
+                            "Folk fikk krysse grensen for første gang på 29 år",
+                            "FN overtok administrasjonen av øya"
+                        ],
+                        "answer": "Folk fikk krysse grensen for første gang på 29 år"
+                    }
+                ]
+            }
+        }
+    ],
+    "quiz": [
+        {
+            "id": "q1",
+            "question": "Hva er den grønne linjen på Kypros?",
+            "options": [
+                "En motorvei som deler øya",
+                "En FN-kontrollert buffersone som deler Kypros mellom gresk og tyrkisk side",
+                "En grense mellom Kypros og Tyrkia",
+                "En turistattraksjon i Nicosia"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": "q2",
+            "question": "Hva skjedde i 1974 som førte til delingen av Kypros?",
+            "options": [
+                "FN delte øya i en fredsplan",
+                "Kypros søkte om å bli delt",
+                "Et gresk militærkupp etterfulgt av tyrkisk invasjon",
+                "Storbritannia delte øya da de forlot kolonien"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": "q3",
+            "question": "Hva er Varosha?",
+            "options": [
+                "Kypriotenes navn på den grønne linjen",
+                "En forlatt by som har stått tom siden 1974",
+                "Hovedstaden i Nord-Kypros",
+                "En gresk militærbase"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": "q4",
+            "question": "Hva skjedde da den grønne linjen delvis åpnet i 2003?",
+            "options": [
+                "Kypros ble gjenforent",
+                "Tyrkia trakk troppene sine tilbake",
+                "Folk fikk krysse grensen for første gang på 29 år",
+                "FN overtok administrasjonen av øya"
+            ],
+            "correctAnswer": 2
+        }
+    ],
+    "createdDate": "2026-04-08T00:00:00Z",
+    "lastUpdated": "2026-04-08T00:00:00Z"
+}
