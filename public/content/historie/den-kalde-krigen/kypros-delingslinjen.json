@@ -30,6 +30,15 @@
             }
         },
         {
+            "type": "component",
+            "name": "Image",
+            "props": {
+                "src": "/images/lessons/den-kalde-krigen/green-line-buffer.webp",
+                "alt": "Den grønne linjen med FN-skilt og forlatte bygninger",
+                "caption": "Den grønne linjen er en buffersone som har skilt nord og sør siden 1974."
+            }
+        },
+        {
             "type": "header",
             "text": "En øy med to folk"
         },
@@ -44,6 +53,15 @@
         {
             "type": "text",
             "content": "15. juli 1974 gjennomførte greske militærjuntaen et kupp på Kypros. Målet var å forene øya med Hellas – det som kalles enosis. President Makarios ble styrtet.\n\nFem dager seinere invaderte den tyrkiske hæren nordkysten av Kypros – med den offisielle begrunnelsen om å beskytte tyrkisk-kyprioter mot den greske militærjuntaen. To måneder med krig og invasjon fulgte. Da våpenhvilen kom i august, kontrollerte Tyrkia 37 prosent av øya – den nordlige delen.\n\nDet som skjedde etterpå, var det største folkeflyttings-traumaet i Kypros sin moderne historie: Over 160 000 gresk-kyprioter flyktet sørover. Over 45 000 tyrkisk-kyprioter flyktet nordover. Naboer som hadde levd side om side i generasjoner, forlot hjem, jorder og graver i løpet av uker."
+        },
+        {
+            "type": "component",
+            "name": "Image",
+            "props": {
+                "src": "/images/lessons/den-kalde-krigen/kypros-1974.webp",
+                "alt": "Militære operasjoner ved kysten av Kypros i 1974",
+                "caption": "Invasjonen i 1974 førte til en varig deling av øya."
+            }
         },
         {
             "type": "component",
@@ -94,12 +112,160 @@
             "content": "Den mest slående konsekvensen av delingen er Varosha – et forlatt ferieresort i Famagusta i nord. I 1974 var Varosha en blomstrende by med 40 000 innbyggere, hoteller, butikker og en av Kypros' fineste strender. Elizabeth Taylor og Brigitte Bardot hadde feriert her.\n\nDa tyrkiske styrker nærmet seg, forlot innbyggerne i panikk – med planer om å komme tilbake om noen dager. Noen dager ble til 50 år. Tyrkia stengte Varosha og erklærte den militær sone. I tiår stod butikkene med varer på hyllene, klærne hang til tørk, biler ruste sakte i gatene.\n\nI 2020 åpnet Tyrkia deler av Varosha, noe som skapte stor internasjonal uro. FNs sikkerhetsråd krevde at sonen ble tilbakegitt til sine opprinnelige innbyggere. Bygningene forfaller, men spørsmålet om hvem de tilhører, er fortsatt uløst."
         },
         {
+            "type": "component",
+            "name": "Image",
+            "props": {
+                "src": "/images/lessons/den-kalde-krigen/varosha-ghost-town.webp",
+                "alt": "Forlatte hoteller i Varosha",
+                "caption": "Varosha har stått som en spøkelsesby siden innbyggerne flyktet i 1974."
+            }
+        },
+        {
+            "type": "video",
+            "url": "https://www.youtube.com/watch?v=p7_TZagxjyk",
+            "title": "Kypros: Den delte øya"
+        },
+        {
             "type": "header",
             "text": "Gjenforening: Nær, men ikke nådd"
         },
         {
             "type": "text",
             "content": "I 2003 åpnet grensen mellom nord og sør for første gang på 29 år. Eldre kyprioter krysset for å se husene de hadde forlatt som unge. Noen fant alt som de hadde etterlatt seg. Andre fant fremmede familier som nå bodde der.\n\nI 2004 stemte innbyggerne på Kypros om en FN-plan for gjenforening. Tyrkisk-kyprioter stemte ja. Gresk-kyprioter stemte nei – 76 prosent mot. Kort etter trådte Kypros inn i EU: En delt øy i en union som skulle stå for samling. Ironien er ikke til å ta feil av.\n\nForhandlingene fortsetter i dag, uten resultat. Kypros er det eneste EU-landet med en fremmed militærmakt stasjonert på territoriet, og den eneste delte hovedstaden i Europa. Som [Berlinmuren](/historie/den-kalde-krigen/berlinmuren) minner oss om – slike skillelinjer kan falle raskt. Men som [Peace Lines i Belfast](/historie/den-kalde-krigen/peace-lines-belfast) minner oss om – de kan også stå i generasjoner."
+        },
+        {
+            "type": "component",
+            "name": "ScenarioRoleplay",
+            "props": {
+                "title": "Nicosia, april 2003 - En grense åpner seg",
+                "intro": "Det er april 2003. For første gang på 29 år kan folk krysse den grønne linjen. Lange køer danner seg ved grenseovergangene. Noen gråter. Noen er tause. Hvem vil du følge?",
+                "startId": "velg-side",
+                "scenarios": [
+                    {
+                        "id": "velg-side",
+                        "text": "Det er april 2003. Nyheten spres gjennom radio og TV: For første gang på 29 år kan folk krysse den grønne linjen. I Nicosia danner det seg lange køer ved grenseovergangene. Noen gråter. Noen er tause. Noen er redde.\n\nHvem vil du følge?",
+                        "options": [
+                            {
+                                "label": "Elena, 52 - gresk-kypriot fra Famagusta, flyktet i 1974",
+                                "nextId": "elena-start"
+                            },
+                            {
+                                "label": "Mehmet, 48 - tyrkisk-kypriot fra Nicosia nord",
+                                "nextId": "mehmet-start"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "elena-start",
+                        "text": "Du er Elena. 52 år, sykepleier i Nicosia. Du flyktet fra Famagusta i august 1974 – 23 år gammel, med en bag og det som var av smykker. Nøklene til leiligheten din tok du med – skjønt du visste du kanskje aldri kom tilbake. De henger fortsatt i kjøkkenskuffen hjemme.\n\nNå er det 2003. Du har nøklene i hånden. Kø strekker seg hundre meter foran deg. Hva gjør du?",
+                        "options": [
+                            {
+                                "label": "Dra nordover - se leiligheten din en siste gang",
+                                "nextId": "elena-hjem"
+                            },
+                            {
+                                "label": "Vent litt - du er redd for hva du finner",
+                                "nextId": "elena-venter"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "elena-hjem",
+                        "text": "Bussen tar deg til Famagusta. Gatene er de samme – men navnene er på tyrkisk nå. Du finner blokken din. Leiligheten din er i tredje etasje. Det er blomster i vinduskarmen – noen bor der.\n\nHva gjør du?",
+                        "options": [
+                            {
+                                "label": "Banker på og forteller hvem du er",
+                                "nextId": "elena-banker"
+                            },
+                            {
+                                "label": "Går stille forbi - klarer ikke å gå inn",
+                                "nextId": "elena-forbi"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "elena-banker",
+                        "text": "Du banker på. En ung kvinne åpner – tyrkisk-kypriotisk, kanskje 30. Du sier hvem du er. Det er en lang pause. Så lar hun deg inn.\n\nVeggene er malt om. Kjøkkenet er modernisert. Men gulvmønsteret er det samme som du husker fra barndommen – svart-hvitt terracotta. Du berører det med handen.\n\nIngen av dere sier så mye. Det er ikke nødvendig.",
+                        "options": [
+                            {
+                                "label": "Se hva Mehmet opplevde samme dag",
+                                "nextId": "mehmet-start"
+                            },
+                            {
+                                "label": "Les avslutningen",
+                                "nextId": "avslutning"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "elena-forbi",
+                        "text": "Du stopper foran blokken. Blomster i tredje etasje. Noen bor der. Du tar opp telefonen og tar et bilde av fasaden.\n\nSå legger du nøklene tilbake i vesken. Du vet ikke hvorfor du tok dem med.\n\nDu tar bussen tilbake. Sitter stille. En mann ved siden av deg gråter åpent. Du ser ut av vinduet.",
+                        "options": [
+                            {
+                                "label": "Se hva Mehmet opplevde samme dag",
+                                "nextId": "mehmet-start"
+                            },
+                            {
+                                "label": "Les avslutningen",
+                                "nextId": "avslutning"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "elena-venter",
+                        "text": "Du setter deg på en benk nær overgangen og ser på folk som krysser. En gammel mann i 80-åra holder en yngre manns arm. Begge gråter.\n\nEtter en time reiser du deg. Kanskje ikke i dag. Men snart.\n\nNøklene tar du med hjem igjen.",
+                        "options": [
+                            {
+                                "label": "Se hva Mehmet opplevde samme dag",
+                                "nextId": "mehmet-start"
+                            },
+                            {
+                                "label": "Les avslutningen",
+                                "nextId": "avslutning"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "mehmet-start",
+                        "text": "Du er Mehmet. 48 år, lærer fra Nicosia nord. Besteforeldrene dine flyktet fra Limassol i sør i 1974 – de var blant de 45 000 tyrkisk-kypriotene som ble drevet nordover. Bestefaren jobbet på en kafé nede ved havnen i Limassol.\n\nDu har aldri vært i sør. Det er teknisk sett et fremmed land for deg, selv om du er kypriot.\n\nHva gjør du?",
+                        "options": [
+                            {
+                                "label": "Dra til Limassol - finn kafeen bestefaren jobbet på",
+                                "nextId": "mehmet-limassol"
+                            },
+                            {
+                                "label": "Bli stående ved overgangen - det er et fremmed land",
+                                "nextId": "mehmet-usikker"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "mehmet-limassol",
+                        "text": "Du finner kaféen – den finnes fortsatt, nede ved havnen. En gresk-kypriotisk mann i 60-åra tørker av bardisken da du kommer inn.\n\nDu forteller ham hvem du er. Hvem bestefaren din var. Mannen setter seg ned.\n\n«Jeg kjente ikke din bestefar», sier han. «Men min far fortalte om de som måtte dra. Det var feil.»\n\nDere drikker kaffe. Dere snakker ikke om politikk. Dere snakker om Kypros – øya, ikke staten.",
+                        "options": [
+                            {
+                                "label": "Les avslutningen",
+                                "nextId": "avslutning"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "mehmet-usikker",
+                        "text": "Du blir stående ved grenseovergangen i over en time. Ser folk gå forbi i begge retninger.\n\nTil slutt snur du. Det kjennes ikke riktig – ikke i dag. Du vet ikke helt hva du ventet å finne.\n\nPå vei hjem ringer du bestemoren din. Hun ber deg fortelle hva du så. Du forteller om køen, om flaggene, om menneskene som gråt.\n\n«Neste gang», sier hun. «Ta meg med neste gang.»",
+                        "options": [
+                            {
+                                "label": "Les avslutningen",
+                                "nextId": "avslutning"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "avslutning",
+                        "text": "Elena og Mehmet krysset grensen samme dag. De møttes aldri.\n\nMen begge oppdaget det samme: At grensen ikke bare er en strek på et kart. Den er noe som lever i folk – i minner, i nøkler man ikke kaster, i kafeer man aldri besøkte.\n\nFolk krysset grensen 100 000 ganger den første uken. Gjenforeningen kom aldri. Men noe annet skjedde – folk fikk se hverandre igjen.",
+                        "options": []
+                    }
+                ]
+            }
         },
         {
             "type": "component",
@@ -148,6 +314,35 @@
                     }
                 ]
             }
+        },
+        {
+            "type": "header",
+            "text": "Oppgaver"
+        },
+        {
+            "type": "task",
+            "title": "Oppgave 1 - Fakta",
+            "content": "Hva er den grønne linjen på Kypros? Nevn tre kjennetegn ved den: Hvor lang er den, hvem overvåker den, og hvor bred kan den være?"
+        },
+        {
+            "type": "task",
+            "title": "Oppgave 2 - Forklaring",
+            "content": "Forklar med egne ord hva som skjedde i 1974. Hva var statskuppet, hvorfor invaderte Tyrkia, og hva skjedde med befolkningen etterpå?"
+        },
+        {
+            "type": "task",
+            "title": "Oppgave 3 - Analyse",
+            "content": "Hvorfor tror du 76 prosent av gresk-kyprioter stemte nei til gjenforening i 2004, selv om mange av dem hadde mistet hjemmene sine i nord? Hva kan ha vært grunnen til at de stemte nei?"
+        },
+        {
+            "type": "task",
+            "title": "Oppgave 4 - Sammenligning",
+            "content": "Artikkelen sammenligner Kypros med Berlinmuren og Peace Lines i Belfast. Velg en av disse og skriv om en viktig likhet og en viktig forskjell sammenlignet med delingen av Kypros."
+        },
+        {
+            "type": "task",
+            "title": "Oppgave 5 - Refleksjon",
+            "content": "Tenk deg at du er Elena eller Mehmet fra scenariet over. Beskriv hva du ville kjent da du krysset grensen for første gang. Skriv 5-8 setninger."
         }
     ],
     "quiz": [
