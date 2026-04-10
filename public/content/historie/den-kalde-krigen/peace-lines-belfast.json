@@ -193,6 +193,10 @@
             "content": "I dag, mer enn 25 år etter fredsavtalen, finnes 99 Peace Lines fortsatt i Belfast. Noen er kortere og lavere enn de var. Noen har blitt fjernet. Men mange står like høye som alltid, og portene låses fortsatt om natten.\n\nSurveyundersøkelser viser at mange i de berørte nabolagene selv ønsker å beholde murene. Frykten sitter dypt. Barn som er vokst opp etter fredsavtalen – som aldri har opplevd The Troubles – vokser likevel opp i en by der de knapt kjenner noen fra den andre gruppen.\n\nDet er den dypeste konsekvensen av splittelse: Den lever videre i hodene til folk lang etter at bombene har stilnet. [Berlinmuren](/historie/den-kalde-krigen/berlinmuren) ble revet på én natt i november 1989 – fordi folk krevde det og makten ga etter. I Belfast er det ingen klar dramatisk dag murene falt. Her er freden stille, forsiktig og uferdig. Spørsmålet Belfast stiller verden er: Hva gjør man med freden etter at krigen er over?"
         },
         {
+            "type": "header",
+            "text": "Oppgaver"
+        },
+        {
             "type": "component",
             "name": "Quiz",
             "props": {
@@ -239,6 +243,114 @@
                     }
                 ]
             }
+        },
+        {
+            "type": "component",
+            "name": "BiasLens",
+            "props": {
+                "title": "Bloody Sunday i avisen: Hvem forteller sannheten?",
+                "baseContent": "Den 30. januar 1972 marsjerte tusenvis av mennesker i Derry mot interneringen uten rettssak. Britiske soldater åpnet ild mot demonstrantene. 14 personer ble drept. Myndighetene hevdet at soldatene hadde svart på ild fra folkemengden. Øyenvitner sa at demonstrantene var ubevæpnede.",
+                "lenses": [
+                    {
+                        "id": "german",
+                        "label": "Unionist-avis",
+                        "description": "Slik beskrev en lojalistisk protestantisk avis hendelsen",
+                        "theme": {
+                            "color": "#b45309",
+                            "bgColor": "bg-[#fffdf8]",
+                            "borderColor": "border-amber-800/10",
+                            "textColor": "text-gray-900"
+                        },
+                        "replacements": [
+                            {
+                                "original": "marsjerte tusenvis av mennesker",
+                                "replacement": "samlet seg en opphisset folkemengde",
+                                "explanation": "Lojalistiske aviser brukte ofte ord som antyder uro og fare, selv når demonstrasjonene var planlagt som fredelige."
+                            },
+                            {
+                                "original": "åpnet ild mot demonstrantene",
+                                "replacement": "svarte på angrep fra folkemengden",
+                                "explanation": "Den offisielle britiske forklaringen i 1972 var at soldatene ble angrepet først. Dette viste seg å være usant, men ble gjentatt ukritisk i pro-britiske aviser."
+                            },
+                            {
+                                "original": "14 personer ble drept",
+                                "replacement": "14 personer mistet livet i sammenstøtet",
+                                "explanation": "Å si 'mistet livet i sammenstøtet' gir inntrykk av gjensidig vold - i stedet for at ubevæpnede ble skutt."
+                            },
+                            {
+                                "original": "Øyenvitner sa at demonstrantene var ubevæpnede",
+                                "replacement": "Republikanske kilder hevdet at demonstrantene var ubevæpnede",
+                                "explanation": "Å kalle øyenvitner for 'republikanske kilder' antyder at de ikke er til å stole på - selv om de så det samme med egne øyne."
+                            }
+                        ]
+                    },
+                    {
+                        "id": "french",
+                        "label": "Nasjonalist-avis",
+                        "description": "Slik beskrev en irsk-katolsk avis hendelsen",
+                        "theme": {
+                            "color": "#166534",
+                            "bgColor": "bg-[#f8fff9]",
+                            "borderColor": "border-green-800/10",
+                            "textColor": "text-gray-900"
+                        },
+                        "replacements": [
+                            {
+                                "original": "marsjerte tusenvis av mennesker",
+                                "replacement": "marsjerte tusenvis fredelig og lovlig",
+                                "explanation": "Nasjonalistiske aviser understreket at demonstrasjonen var lovlig og ikke-voldelig - noe som gjør det britiske angrepet enda mer urettferdig."
+                            },
+                            {
+                                "original": "åpnet ild mot demonstrantene",
+                                "replacement": "massakrerte ubevæpnede sivile",
+                                "explanation": "Ordet 'massakre' brukes når uskyldig folk drepes systematisk. Nasjonalistiske aviser brukte dette ordet for å understreke at dette var en krigsforbrytelse, ikke en militær operasjon."
+                            },
+                            {
+                                "original": "14 personer ble drept",
+                                "replacement": "14 uskyldige borgere ble drept i kald blod",
+                                "explanation": "'I kald blod' betyr med overlegg og uten følelser. Dette valget av ord gjorde det klart hvem avisen mente hadde skylden."
+                            },
+                            {
+                                "original": "Myndighetene hevdet at soldatene hadde svart på ild fra folkemengden",
+                                "replacement": "Myndighetene løy for å dekke over drapene",
+                                "explanation": "For irske nasjonalister var det åpenbart allerede i 1972 at myndighetene løy. Det tok Storbritannia til 2010 å innrømme dette offisielt."
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Refleksjon: Livet bak murene"
+        },
+        {
+            "type": "list",
+            "items": [
+                "Ciaran og William bor fem minutter fra hverandre, men har aldri møttes. Hva tror du er den viktigste grunnen til det - murene, skolene, familiene, eller noe annet?",
+                "Mange katolikker jublet da den britiske hæren ankom i 1969 for å beskytte dem. Men stemningen snudde raskt. Hva skjedde, og hvorfor tror du det gikk slik?",
+                "Bloody Sunday forandret konflikten. Tusenvis av unge menn meldte seg inn i IRA dagene etter. Forstår du det valget - selv om du kanskje ikke er enig i det?"
+            ]
+        },
+        {
+            "type": "header",
+            "text": "Skriveoppgave: To brev fra Belfast"
+        },
+        {
+            "type": "text",
+            "content": "Ciaran er 14 år og bor i Falls Road. William er 14 år og bor i Shankill Road. De bor fem minutter fra hverandre, men har aldri møttes. Begge har vokst opp i skyggen av de samme murene - men opplevd dem helt ulikt.\n\nSkriv to brev: Ett fra Ciaran og ett fra William. Beskriv hverdagen din, hva du tenker om de som bor på den andre siden av muren, og hva du ønsker deg for fremtiden. Husk at de to ikke kjenner hverandre - men lever i den samme byen."
+        },
+        {
+            "type": "header",
+            "text": "Diskusjon: Bør murene rives?"
+        },
+        {
+            "type": "list",
+            "items": [
+                "Undersøkelser viser at mange i de berørte nabolagene selv ønsker å beholde murene - over 25 år etter fredsavtalen. Forstår du det? Hva ville du ønsket om du bodde der?",
+                "En ung mann fra Belfast sier: «Jeg vokste opp etter fredsavtalen, men kjenner nesten ingen fra den andre siden.» Hva forteller det oss om hva som skal til for å lege et sår i et samfunn?",
+                "Hvem bør bestemme om murene skal rives - politikerne, eller de som bor i nabolagene?"
+            ]
         }
     ],
     "quiz": [
@@ -288,5 +400,5 @@
         }
     ],
     "createdDate": "2026-04-08T00:00:00Z",
-    "lastUpdated": "2026-04-08T00:00:00Z"
+    "lastUpdated": "2026-04-10T00:00:00Z"
 }
