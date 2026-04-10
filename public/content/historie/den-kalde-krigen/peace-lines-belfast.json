@@ -30,6 +30,12 @@
             }
         },
         {
+            "type": "image",
+            "src": "/images/lessons/den-kalde-krigen/peace-lines-gates.webp",
+            "alt": "En låst stålport i en Peace Line-mur i Belfast ved skumring.",
+            "caption": "Mange av portene i murene låses fortsatt hver kveld."
+        },
+        {
             "type": "header",
             "text": "Irlands deling: frøet til konflikt"
         },
@@ -105,6 +111,12 @@
         {
             "type": "text",
             "content": "Søndag 30. januar 1972 demonstrerte tusenvis av mennesker fredelig i gatene i Derry – en by sørvest i Nord-Irland – mot internering uten rettssak. Mange av dem som ble kastet i fengsel uten dom, var uskyldige. Demonstrantene var ubevæpnede.\n\nBritiske fallskjermsoldater åpnet ild mot folkemengden. 14 mennesker ble drept. De fleste var tenåringer og unge menn. Alle var ubevæpnede. Den britiske regjeringen forsvarte soldatene i årevis. Først i 2010, etter en 12 år lang gransking, innrømte statsminister David Cameron at drapene var ulovlige og at ofrene var uskyldig.\n\nBlodige søndager forandret konflikten. Tusenvis av unge menn som aldri hadde tenkt på å ta opp våpen, meldte seg inn i IRA dagen etter. Hendelsen rekrutterte mer enn noe annet enkeltmoment til den væpnede kampen. I Nord-Irland snakker folk fortsatt om den datoen som «den dagen alt forandret seg»."
+        },
+        {
+            "type": "image",
+            "src": "/images/lessons/den-kalde-krigen/bloody-sunday-monument.webp",
+            "alt": "Et enkelt steinmonument i Derry til minne om ofrene for Bloody Sunday, omgitt av blomster.",
+            "caption": "Minnesmerke i Derry for de som mistet livet i konflikten."
         },
         {
             "type": "component",
@@ -191,6 +203,11 @@
         {
             "type": "text",
             "content": "I dag, mer enn 25 år etter fredsavtalen, finnes 99 Peace Lines fortsatt i Belfast. Noen er kortere og lavere enn de var. Noen har blitt fjernet. Men mange står like høye som alltid, og portene låses fortsatt om natten.\n\nSurveyundersøkelser viser at mange i de berørte nabolagene selv ønsker å beholde murene. Frykten sitter dypt. Barn som er vokst opp etter fredsavtalen – som aldri har opplevd The Troubles – vokser likevel opp i en by der de knapt kjenner noen fra den andre gruppen.\n\nDet er den dypeste konsekvensen av splittelse: Den lever videre i hodene til folk lang etter at bombene har stilnet. [Berlinmuren](/historie/den-kalde-krigen/berlinmuren) ble revet på én natt i november 1989 – fordi folk krevde det og makten ga etter. I Belfast er det ingen klar dramatisk dag murene falt. Her er freden stille, forsiktig og uferdig. Spørsmålet Belfast stiller verden er: Hva gjør man med freden etter at krigen er over?"
+        },
+        {
+            "type": "video",
+            "url": "https://www.youtube.com/watch?v=XAAmf6eTReQ",
+            "title": "Peace Lines: Murene som deler Belfast"
         },
         {
             "type": "header",
