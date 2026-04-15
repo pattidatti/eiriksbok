@@ -30,13 +30,10 @@
             }
         },
         {
-            "type": "component",
-            "name": "Image",
-            "props": {
-                "src": "/images/lessons/den-kalde-krigen/green-line-buffer.webp",
-                "alt": "Den grønne linjen med FN-skilt og forlatte bygninger",
-                "caption": "Den grønne linjen er en buffersone som har skilt nord og sør siden 1974."
-            }
+            "type": "image",
+            "src": "/images/lessons/den-kalde-krigen/green-line-buffer.webp",
+            "alt": "Den grønne linjen med FN-skilt og forlatte bygninger",
+            "caption": "Den grønne linjen er en buffersone som har skilt nord og sør siden 1974."
         },
         {
             "type": "header",
@@ -55,13 +52,10 @@
             "content": "15. juli 1974 gjennomførte greske militærjuntaen et kupp på Kypros. Målet var å forene øya med Hellas – det som kalles enosis. President Makarios ble styrtet.\n\nFem dager seinere invaderte den tyrkiske hæren nordkysten av Kypros – med den offisielle begrunnelsen om å beskytte tyrkisk-kyprioter mot den greske militærjuntaen. To måneder med krig og invasjon fulgte. Da våpenhvilen kom i august, kontrollerte Tyrkia 37 prosent av øya – den nordlige delen.\n\nDet som skjedde etterpå, var det største folkeflyttings-traumaet i Kypros sin moderne historie: Over 160 000 gresk-kyprioter flyktet sørover. Over 45 000 tyrkisk-kyprioter flyktet nordover. Naboer som hadde levd side om side i generasjoner, forlot hjem, jorder og graver i løpet av uker."
         },
         {
-            "type": "component",
-            "name": "Image",
-            "props": {
-                "src": "/images/lessons/den-kalde-krigen/kypros-1974.webp",
-                "alt": "Militære operasjoner ved kysten av Kypros i 1974",
-                "caption": "Invasjonen i 1974 førte til en varig deling av øya."
-            }
+            "type": "image",
+            "src": "/images/lessons/den-kalde-krigen/kypros-1974.webp",
+            "alt": "Militære operasjoner ved kysten av Kypros i 1974",
+            "caption": "Invasjonen i 1974 førte til en varig deling av øya."
         },
         {
             "type": "component",
@@ -112,13 +106,10 @@
             "content": "Den mest slående konsekvensen av delingen er Varosha – et forlatt ferieresort i Famagusta i nord. I 1974 var Varosha en blomstrende by med 40 000 innbyggere, hoteller, butikker og en av Kypros' fineste strender. Elizabeth Taylor og Brigitte Bardot hadde feriert her.\n\nDa tyrkiske styrker nærmet seg, forlot innbyggerne i panikk – med planer om å komme tilbake om noen dager. Noen dager ble til 50 år. Tyrkia stengte Varosha og erklærte den militær sone. I tiår stod butikkene med varer på hyllene, klærne hang til tørk, biler ruste sakte i gatene.\n\nI 2020 åpnet Tyrkia deler av Varosha, noe som skapte stor internasjonal uro. FNs sikkerhetsråd krevde at sonen ble tilbakegitt til sine opprinnelige innbyggere. Bygningene forfaller, men spørsmålet om hvem de tilhører, er fortsatt uløst."
         },
         {
-            "type": "component",
-            "name": "Image",
-            "props": {
-                "src": "/images/lessons/den-kalde-krigen/varosha-ghost-town.webp",
-                "alt": "Forlatte hoteller i Varosha",
-                "caption": "Varosha har stått som en spøkelsesby siden innbyggerne flyktet i 1974."
-            }
+            "type": "image",
+            "src": "/images/lessons/den-kalde-krigen/varosha-ghost-town.webp",
+            "alt": "Forlatte hoteller i Varosha",
+            "caption": "Varosha har stått som en spøkelsesby siden innbyggerne flyktet i 1974."
         },
         {
             "type": "video",
@@ -320,29 +311,14 @@
             "text": "Oppgaver"
         },
         {
-            "type": "task",
-            "title": "Oppgave 1 - Fakta",
-            "content": "Hva er den grønne linjen på Kypros? Nevn tre kjennetegn ved den: Hvor lang er den, hvem overvåker den, og hvor bred kan den være?"
-        },
-        {
-            "type": "task",
-            "title": "Oppgave 2 - Forklaring",
-            "content": "Forklar med egne ord hva som skjedde i 1974. Hva var statskuppet, hvorfor invaderte Tyrkia, og hva skjedde med befolkningen etterpå?"
-        },
-        {
-            "type": "task",
-            "title": "Oppgave 3 - Analyse",
-            "content": "Hvorfor tror du 76 prosent av gresk-kyprioter stemte nei til gjenforening i 2004, selv om mange av dem hadde mistet hjemmene sine i nord? Hva kan ha vært grunnen til at de stemte nei?"
-        },
-        {
-            "type": "task",
-            "title": "Oppgave 4 - Sammenligning",
-            "content": "Artikkelen sammenligner Kypros med Berlinmuren og Peace Lines i Belfast. Velg en av disse og skriv om en viktig likhet og en viktig forskjell sammenlignet med delingen av Kypros."
-        },
-        {
-            "type": "task",
-            "title": "Oppgave 5 - Refleksjon",
-            "content": "Tenk deg at du er Elena eller Mehmet fra scenariet over. Beskriv hva du ville kjent da du krysset grensen for første gang. Skriv 5-8 setninger."
+            "type": "list",
+            "items": [
+                "**Oppgave 1 - Fakta**: Hva er den grønne linjen på Kypros? Nevn tre kjennetegn ved den: Hvor lang er den, hvem overvåker den, og hvor bred kan den være?",
+                "**Oppgave 2 - Forklaring**: Forklar med egne ord hva som skjedde i 1974. Hva var statskuppet, hvorfor invaderte Tyrkia, og hva skjedde med befolkningen etterpå?",
+                "**Oppgave 3 - Analyse**: Hvorfor tror du 76 prosent av gresk-kyprioter stemte nei til gjenforening i 2004, selv om mange av dem hadde mistet hjemmene sine i nord? Hva kan ha vært grunnen til at de stemte nei?",
+                "**Oppgave 4 - Sammenligning**: Artikkelen sammenligner Kypros med Berlinmuren og Peace Lines i Belfast. Velg en av disse og skriv om en viktig likhet og en viktig forskjell sammenlignet med delingen av Kypros.",
+                "**Oppgave 5 - Refleksjon**: Tenk deg at du er Elena eller Mehmet fra scenariet over. Beskriv hva du ville kjent da du krysset grensen for første gang. Skriv 5-8 setninger."
+            ]
         }
     ],
     "quiz": [
