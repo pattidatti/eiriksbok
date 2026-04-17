@@ -319,6 +319,11 @@
                 "**Oppgave 4 - Sammenligning**: Artikkelen sammenligner Kypros med Berlinmuren og Peace Lines i Belfast. Velg en av disse og skriv om en viktig likhet og en viktig forskjell sammenlignet med delingen av Kypros.",
                 "**Oppgave 5 - Refleksjon**: Tenk deg at du er Elena eller Mehmet fra scenariet over. Beskriv hva du ville kjent da du krysset grensen for første gang. Skriv 5-8 setninger."
             ]
+        },
+        {
+            "type": "component",
+            "name": "CyprusPeaceTalks",
+            "props": {}
         }
     ],
     "quiz": [
