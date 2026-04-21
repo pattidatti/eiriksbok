@@ -1,0 +1,43 @@
+import { useParams, Navigate } from 'react-router-dom';
+import { Suspense } from 'react';
+import { GameCanvas } from '../games/engine/components/GameCanvas';
+import { wattLabConfig } from '../games/watt-lab/WattLabConfig';
+import type { GameConfig } from '../games/engine/types';
+
+// Registry: map game IDs to their configs
+const GAME_REGISTRY: Record<string, GameConfig> = {
+    'watt-lab': wattLabConfig,
+};
+
+function GameLoader({ gameId }: { gameId: string }) {
+    const config = GAME_REGISTRY[gameId];
+    if (!config) return <Navigate to="/oving/spill" replace />;
+    return <GameCanvas config={config} />;
+}
+
+export function GamePage() {
+    const { gameId } = useParams<{ gameId: string }>();
+    if (!gameId) return <Navigate to="/oving/spill" replace />;
+
+    return (
+        <Suspense
+            fallback={
+                <div
+                    className="flex items-center justify-center"
+                    style={{
+                        height: 'calc(100dvh - 4rem)',
+                        background: '#0a0604',
+                        color: '#d4a574',
+                        fontFamily: "Georgia, serif",
+                        fontSize: 18,
+                        letterSpacing: 2,
+                    }}
+                >
+                    Laster spill...
+                </div>
+            }
+        >
+            <GameLoader gameId={gameId} />
+        </Suspense>
+    );
+}

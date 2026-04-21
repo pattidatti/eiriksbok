@@ -53,5 +53,7 @@ export const routeFactories: Record<string, PageFactory> = {
     CompositionTool: () => import('./features/music/components/composition/CompositionTool').then(module => ({ default: module.CompositionTool })),
     InfrastrukturAtlas: () => import('./features/infrastruktur/InfrastrukturAtlasPage').then(module => ({ default: module.InfrastrukturAtlasPage })),
     VirkemiddelverkstedetPage: () => import('./pages/VirkemiddelverkstedetPage').then(module => ({ default: module.VirkemiddelverkstedetPage })),
+    MiniGamesPage: () => import('./pages/MiniGamesPage').then(module => ({ default: module.MiniGamesPage })),
+    GamePage: () => import('./pages/GamePage').then(module => ({ default: module.GamePage })),
 };
 

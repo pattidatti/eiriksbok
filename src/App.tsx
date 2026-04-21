@@ -56,6 +56,8 @@ const LearningPathsHub = React.lazy(routeFactories.LearningPathsHub);
 const CompositionTool = React.lazy(routeFactories.CompositionTool);
 const InfrastrukturAtlas = React.lazy(routeFactories.InfrastrukturAtlas);
 const VirkemiddelverkstedetPage = React.lazy(routeFactories.VirkemiddelverkstedetPage);
+const MiniGamesPage = React.lazy(routeFactories.MiniGamesPage);
+const GamePage = React.lazy(routeFactories.GamePage);
 
 
 
@@ -107,6 +109,8 @@ const router = createBrowserRouter([
       { path: "oving/tidsreise", element: <TimeTravelPage /> },
       { path: "oving/tidsreise/:scenarioId", element: <TimeTravelGamePage /> },
       { path: "oving/virkemidler", element: <VirkemiddelverkstedetPage /> },
+      { path: "oving/spill", element: <MiniGamesPage /> },
+      { path: "oving/spill/:gameId", element: <GamePage /> },
       { path: "historie/vikingtiden/detektiv", element: <DetectiveCasePage /> },
       { path: "admin", element: <AdminGuard><AdminDashboard /></AdminGuard> },
       { path: "admin/stats", element: <AdminGuard><StatsPage /></AdminGuard> },

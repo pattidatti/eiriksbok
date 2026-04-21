@@ -1,0 +1,1393 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+<meta charset="UTF-8" />
+<title>Watts Laboratorium — Dampmaskinens fødsel</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 100%; height: 100%; overflow: hidden; background: #1a0f08; font-family: Georgia, 'Times New Roman', serif; }
+  canvas { display: block; }
+
+  #ui {
+    position: fixed; inset: 0; pointer-events: none; z-index: 10;
+    color: #f4e4c1;
+  }
+
+  #hud {
+    position: absolute; top: 20px; left: 20px;
+    background: rgba(30, 18, 10, 0.88);
+    border: 2px solid #8b6f47;
+    padding: 14px 18px;
+    border-radius: 4px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,220,160,0.08);
+    max-width: 320px;
+    backdrop-filter: blur(4px);
+  }
+  #hud h2 {
+    font-size: 14px; letter-spacing: 2px; text-transform: uppercase;
+    color: #d4a574; margin-bottom: 8px; font-weight: normal;
+    border-bottom: 1px solid #5c4228; padding-bottom: 6px;
+  }
+  #questText { font-size: 15px; line-height: 1.5; color: #f4e4c1; font-style: italic; }
+  #parts {
+    margin-top: 10px; font-size: 13px; color: #b89968;
+    display: flex; flex-direction: column; gap: 3px;
+  }
+  .part-item { display: flex; align-items: center; gap: 6px; transition: all 0.3s; }
+  .part-item.collected { color: #90c090; text-decoration: line-through; }
+
+  #interactPrompt {
+    position: absolute; bottom: 80px; left: 50%; transform: translateX(-50%);
+    background: rgba(30, 18, 10, 0.9);
+    border: 2px solid #d4a574;
+    padding: 10px 22px;
+    font-size: 16px;
+    color: #f4e4c1;
+    border-radius: 4px;
+    opacity: 0; transition: opacity 0.25s;
+    animation: pulse 1.5s infinite;
+  }
+  #interactPrompt.visible { opacity: 1; }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 10px rgba(212,165,116,0.3); }
+    50% { box-shadow: 0 0 25px rgba(212,165,116,0.7); }
+  }
+
+  #dialogBox {
+    position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(20px);
+    width: min(720px, 90vw);
+    background: rgba(20, 12, 6, 0.95);
+    border: 3px solid #8b6f47;
+    border-radius: 6px;
+    padding: 22px 28px;
+    pointer-events: auto;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.8), 0 0 60px rgba(139,111,71,0.15);
+    backdrop-filter: blur(8px);
+  }
+  #dialogBox.visible { opacity: 1; transform: translateX(-50%) translateY(0); }
+  #dialogBox::before {
+    content: ''; position: absolute; inset: 4px;
+    border: 1px solid #5c4228; border-radius: 3px; pointer-events: none;
+  }
+  #speakerName {
+    font-size: 18px; color: #d4a574;
+    margin-bottom: 10px; letter-spacing: 1px;
+    font-variant: small-caps;
+  }
+  #dialogText {
+    font-size: 16px; line-height: 1.6; color: #f4e4c1;
+    margin-bottom: 14px; min-height: 50px;
+  }
+  .choice {
+    display: block; width: 100%;
+    background: transparent;
+    border: 1px solid #5c4228;
+    color: #f4e4c1;
+    padding: 10px 14px;
+    margin-top: 6px;
+    text-align: left;
+    font-family: inherit; font-size: 15px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-radius: 3px;
+  }
+  .choice:hover {
+    background: #5c4228; border-color: #d4a574; color: #fff;
+    transform: translateX(4px);
+    box-shadow: 0 0 12px rgba(212,165,116,0.2);
+  }
+
+  #controls {
+    position: absolute; bottom: 20px; right: 20px;
+    background: rgba(30, 18, 10, 0.85);
+    border: 1px solid #5c4228;
+    padding: 10px 14px; font-size: 12px; color: #b89968;
+    border-radius: 4px; line-height: 1.7;
+    backdrop-filter: blur(4px);
+  }
+  #controls b { color: #d4a574; }
+
+  #titleScreen {
+    position: fixed; inset: 0; z-index: 100;
+    background: radial-gradient(ellipse at center, #3a2615 0%, #0a0604 100%);
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 30px;
+    pointer-events: auto;
+  }
+  #titleScreen h1 {
+    font-size: 56px; color: #d4a574; letter-spacing: 4px;
+    text-shadow: 0 0 30px rgba(212,165,116,0.4), 3px 3px 0 #1a0f08;
+    font-variant: small-caps; font-weight: normal;
+    text-align: center; animation: titleGlow 3s ease-in-out infinite;
+  }
+  @keyframes titleGlow {
+    0%, 100% { text-shadow: 0 0 30px rgba(212,165,116,0.3), 3px 3px 0 #1a0f08; }
+    50% { text-shadow: 0 0 50px rgba(212,165,116,0.6), 3px 3px 0 #1a0f08, 0 0 80px rgba(255,100,30,0.15); }
+  }
+  #titleScreen h1 span { display: block; font-size: 20px; color: #8b6f47; letter-spacing: 8px; margin-top: 8px; }
+  #startBtn {
+    background: #5c4228; color: #f4e4c1;
+    border: 2px solid #d4a574;
+    padding: 14px 40px; font-size: 18px;
+    font-family: inherit; cursor: pointer;
+    letter-spacing: 3px; text-transform: uppercase;
+    transition: all 0.3s;
+  }
+  #startBtn:hover { background: #d4a574; color: #1a0f08; transform: scale(1.05); box-shadow: 0 0 30px rgba(212,165,116,0.4); }
+
+  #endScreen {
+    position: fixed; inset: 0; z-index: 100;
+    background: radial-gradient(ellipse at center, #3a2615 0%, #0a0604 100%);
+    display: none; align-items: center; justify-content: center;
+    flex-direction: column; gap: 24px; pointer-events: auto;
+    color: #f4e4c1; padding: 40px; text-align: center;
+  }
+  #endScreen h1 { font-size: 48px; color: #d4a574; font-variant: small-caps; letter-spacing: 3px; }
+  #endScreen p { font-size: 18px; line-height: 1.6; max-width: 600px; font-style: italic; color: #b89968; }
+
+  #screenFlash {
+    position: fixed; inset: 0; z-index: 50;
+    background: rgba(255, 220, 150, 0); pointer-events: none;
+    transition: background 0.1s;
+  }
+  #screenFlash.flash { background: rgba(255, 220, 150, 0.25); }
+</style>
+</head>
+<body>
+
+<div id="titleScreen">
+  <h1>Watts Laboratorium<span>Dampmaskinens Fødsel · 1765</span></h1>
+  <button id="startBtn">Begynn Eventyret</button>
+  <div style="color:#8b6f47; font-size: 13px; max-width: 500px; text-align:center; line-height: 1.6;">
+    Hjelp James Watt å fullføre oppfinnelsen som skal forandre verden.<br>
+    Gå rundt i verkstedet, samle deler, og løs gåten om separat kondensator.
+  </div>
+</div>
+
+<div id="ui">
+  <div id="hud">
+    <h2>Oppdrag</h2>
+    <div id="questText">Snakk med James Watt.</div>
+    <div id="parts"></div>
+  </div>
+  <div id="interactPrompt">Trykk <b>E</b> for å interagere</div>
+  <div id="dialogBox">
+    <div id="speakerName">James Watt</div>
+    <div id="dialogText"></div>
+    <div id="choices"></div>
+  </div>
+  <div id="controls">
+    <b>WASD</b> bevege<br>
+    <b>Mus</b> se rundt<br>
+    <b>Mellomrom</b> hoppe<br>
+    <b>E</b> interagere<br>
+    <b>1-9</b> velge dialog
+  </div>
+</div>
+
+<div id="endScreen">
+  <h1>Gratulerer!</h1>
+  <p id="endText"></p>
+  <button id="restartBtn" style="background:#5c4228; color:#f4e4c1; border:2px solid #d4a574; padding:12px 32px; font-size:16px; font-family:inherit; cursor:pointer; letter-spacing:2px;">SPILL IGJEN</button>
+</div>
+
+<div id="screenFlash"></div>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+
+<script type="module">
+import * as THREE from 'three';
+
+// Post-processing loaded dynamically to avoid breaking game if CDN fails
+let composer = null, bloomPass = null, vignettePass = null;
+const postReady = (async () => {
+  try {
+    const [{ EffectComposer }, { RenderPass }, { UnrealBloomPass }, { ShaderPass }] = await Promise.all([
+      import('three/addons/postprocessing/EffectComposer.js'),
+      import('three/addons/postprocessing/RenderPass.js'),
+      import('three/addons/postprocessing/UnrealBloomPass.js'),
+      import('three/addons/postprocessing/ShaderPass.js'),
+    ]);
+    return { EffectComposer, RenderPass, UnrealBloomPass, ShaderPass };
+  } catch (e) { console.warn('Post-processing unavailable:', e); return null; }
+})();
+
+// ============ SCENE SETUP ============
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x6b5544);
+scene.fog = new THREE.FogExp2(0x6b5544, 0.008);
+
+const camera = new THREE.PerspectiveCamera(60, innerWidth/innerHeight, 0.1, 100);
+const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
+renderer.setSize(innerWidth, innerHeight);
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+renderer.toneMapping = THREE.LinearToneMapping;
+renderer.toneMappingExposure = 2.2;
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+document.body.appendChild(renderer.domElement);
+
+addEventListener('resize', () => {
+  camera.aspect = innerWidth/innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(innerWidth, innerHeight);
+  if (composer) composer.setSize(innerWidth, innerHeight);
+  if (bloomPass) bloomPass.resolution.set(innerWidth, innerHeight);
+});
+
+// ============ POST-PROCESSING (deferred setup) ============
+const VignetteShader = {
+  uniforms: {
+    tDiffuse: { value: null },
+    strength: { value: 0.18 },
+    warmth: { value: 0.08 },
+    time: { value: 0 },
+  },
+  vertexShader: `varying vec2 vUv; void main(){ vUv=uv; gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.); }`,
+  fragmentShader: `
+    uniform sampler2D tDiffuse; uniform float strength, warmth, time;
+    varying vec2 vUv;
+    void main(){
+      vec4 c=texture2D(tDiffuse,vUv);
+      c.r=min(1.,c.r*(1.+warmth)); c.b*=(1.-warmth*0.5);
+      vec2 uv=vUv-0.5; float d=dot(uv,uv);
+      c.rgb*=1.-d*strength*2.5;
+      float grain=(fract(sin(dot(vUv*time,vec2(12.9898,78.233)))*43758.5453)-0.5)*0.025;
+      c.rgb+=grain;
+      gl_FragColor=c;
+    }`,
+};
+
+postReady.then(mods => {
+  if (!mods) return;
+  const { EffectComposer, RenderPass, UnrealBloomPass, ShaderPass } = mods;
+  composer = new EffectComposer(renderer);
+  composer.addPass(new RenderPass(scene, camera));
+  bloomPass = new UnrealBloomPass(new THREE.Vector2(innerWidth, innerHeight), 0.45, 0.7, 0.78);
+  composer.addPass(bloomPass);
+  vignettePass = new ShaderPass(VignetteShader);
+  composer.addPass(vignettePass);
+});
+
+// ============ PROCEDURAL TEXTURES ============
+function makeWoodTex(w, h, base, line) {
+  const c = document.createElement('canvas'); c.width = w; c.height = h;
+  const x = c.getContext('2d');
+  x.fillStyle = base; x.fillRect(0, 0, w, h);
+  x.strokeStyle = line; x.lineWidth = 2;
+  for (let y = 0; y < h; y += h/10) { x.beginPath(); x.moveTo(0, y); x.lineTo(w, y); x.stroke(); }
+  for (let i = 0; i < 120; i++) {
+    x.strokeStyle = `rgba(0,0,0,${Math.random()*0.06})`;
+    x.beginPath(); const y = Math.random()*h;
+    x.moveTo(0, y); x.bezierCurveTo(w*.3, y+Math.random()*4-2, w*.7, y+Math.random()*4-2, w, y);
+    x.stroke();
+  }
+  const t = new THREE.CanvasTexture(c); t.wrapS = t.wrapT = THREE.RepeatWrapping; return t;
+}
+
+function makeStoneTex(w, h) {
+  const c = document.createElement('canvas'); c.width = w; c.height = h;
+  const x = c.getContext('2d');
+  x.fillStyle = '#9a7d64'; x.fillRect(0, 0, w, h);
+  for (let i = 0; i < 300; i++) {
+    x.fillStyle = `rgba(${80+Math.random()*40},${60+Math.random()*30},${40+Math.random()*30},${Math.random()*0.15})`;
+    x.fillRect(Math.random()*w, Math.random()*h, 2+Math.random()*8, 2+Math.random()*8);
+  }
+  // Mortar lines
+  x.strokeStyle = 'rgba(60,40,25,0.3)'; x.lineWidth = 1;
+  for (let y = 0; y < h; y += h/6) {
+    x.beginPath(); x.moveTo(0, y+Math.random()*4); x.lineTo(w, y+Math.random()*4); x.stroke();
+  }
+  const t = new THREE.CanvasTexture(c); t.wrapS = t.wrapT = THREE.RepeatWrapping; return t;
+}
+
+const woodTex = makeWoodTex(512, 512, '#6b4423', '#2a1810');
+const stoneTex = makeStoneTex(512, 512);
+
+// ============ CEL-SHADED MATERIALS ============
+const gradData = new Uint8Array([160, 190, 220, 240, 255]);
+const gradientMap = new THREE.DataTexture(gradData, gradData.length, 1, THREE.RedFormat);
+gradientMap.magFilter = THREE.NearestFilter;
+gradientMap.minFilter = THREE.NearestFilter;
+gradientMap.needsUpdate = true;
+
+function toonMat(color, opts = {}) {
+  return new THREE.MeshToonMaterial({ color, gradientMap, ...opts });
+}
+
+// ============ LIGHTING ============
+scene.add(new THREE.HemisphereLight(0xffeedd, 0xaa8866, 1.2));
+// Extra fill to eliminate dark corners
+const fill2 = new THREE.DirectionalLight(0xffddc0, 0.6);
+fill2.position.set(-8, 10, -5);
+scene.add(fill2);
+
+const sunLight = new THREE.DirectionalLight(0xffe4b5, 1.4);
+sunLight.position.set(10, 15, 5);
+sunLight.castShadow = true;
+sunLight.shadow.mapSize.set(2048, 2048);
+const s = sunLight.shadow.camera;
+s.left = s.bottom = -15; s.right = s.top = 15; s.near = 1; s.far = 40;
+scene.add(sunLight);
+
+// Warm fire point light (forge)
+const fireLight = new THREE.PointLight(0xff6622, 2.0, 12, 1.5);
+fireLight.position.set(-7, 2.5, -7);
+fireLight.castShadow = true;
+fireLight.shadow.mapSize.set(512, 512);
+scene.add(fireLight);
+
+// Subtle blue fill from opposite side (moonlight feel)
+const fillLight = new THREE.PointLight(0x6688bb, 0.5, 25);
+fillLight.position.set(8, 4, 8);
+scene.add(fillLight);
+
+// Window spotlights — warm light streaming in
+function addWindowLight(x, y, z, tx, ty, tz) {
+  const spot = new THREE.SpotLight(0xffeebb, 2.5, 20, 0.6, 0.5, 1);
+  spot.position.set(x, y, z);
+  spot.target.position.set(tx, ty, tz);
+  spot.castShadow = true;
+  spot.shadow.mapSize.set(512, 512);
+  scene.add(spot); scene.add(spot.target);
+  // Visible light shaft (simple transparent cone)
+  const shaftGeo = new THREE.CylinderGeometry(0.1, 2.5, 6, 8, 1, true);
+  const shaftMat = new THREE.MeshBasicMaterial({
+    color: 0xffeedd, transparent: true, opacity: 0.03,
+    side: THREE.DoubleSide, depthWrite: false
+  });
+  const shaft = new THREE.Mesh(shaftGeo, shaftMat);
+  shaft.position.set((x+tx)/2, (y+ty)/2, (z+tz)/2);
+  shaft.lookAt(tx, ty, tz);
+  shaft.rotateX(Math.PI/2);
+  scene.add(shaft);
+}
+addWindowLight(0, 5.5, -9.5, 0, 0, -3);
+addWindowLight(-9.5, 5.5, -3, -3, 0, -3);
+addWindowLight(-9.5, 5.5, 3, -3, 0, 3);
+
+// Oil lamp on main workbench
+const lampLight = new THREE.PointLight(0xff9944, 0.8, 6, 2);
+lampLight.position.set(0, 2.2, 2);
+scene.add(lampLight);
+
+// ============ ROOM / LABORATORY ============
+const roomGroup = new THREE.Group();
+scene.add(roomGroup);
+
+const ROOM = 20, WALLH = 6;
+
+// Floor with wood texture
+const floorMat = toonMat(0x7a5030, { map: woodTex });
+woodTex.repeat.set(4, 4);
+const floor = new THREE.Mesh(new THREE.PlaneGeometry(ROOM, ROOM), floorMat);
+floor.rotation.x = -Math.PI/2; floor.receiveShadow = true;
+roomGroup.add(floor);
+
+// Walls with stone texture
+stoneTex.repeat.set(3, 1);
+const wallMat = toonMat(0xa88a6e, { map: stoneTex });
+function makeWall(w, h, d, x, y, z, ry = 0) {
+  const m = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), wallMat);
+  m.position.set(x, y, z); m.rotation.y = ry;
+  m.castShadow = true; m.receiveShadow = true;
+  roomGroup.add(m); return m;
+}
+makeWall(ROOM, WALLH, 0.3, 0, WALLH/2, -ROOM/2);
+makeWall(ROOM, WALLH, 0.3, 0, WALLH/2, ROOM/2);
+makeWall(0.3, WALLH, ROOM, -ROOM/2, WALLH/2, 0);
+makeWall(0.3, WALLH, ROOM, ROOM/2, WALLH/2, 0);
+
+// Baseboards
+const baseMat = toonMat(0x3a2010);
+for (const [w, d, x, z, ry] of [
+  [ROOM, 0.35, 0, -ROOM/2+0.18, 0], [ROOM, 0.35, 0, ROOM/2-0.18, 0],
+  [0.35, ROOM, -ROOM/2+0.18, 0, 0], [0.35, ROOM, ROOM/2-0.18, 0, 0]
+]) {
+  const b = new THREE.Mesh(new THREE.BoxGeometry(w, 0.25, d), baseMat);
+  b.position.set(x, 0.125, z); roomGroup.add(b);
+}
+
+// Ceiling beams
+const beamMat = toonMat(0x3a2515);
+for (let i = -8; i <= 8; i += 4) {
+  const beam = new THREE.Mesh(new THREE.BoxGeometry(ROOM, 0.4, 0.4), beamMat);
+  beam.position.set(0, WALLH - 0.3, i); beam.castShadow = true;
+  roomGroup.add(beam);
+}
+// Cross beams
+for (let i = -6; i <= 6; i += 6) {
+  const beam = new THREE.Mesh(new THREE.BoxGeometry(0.3, 0.3, ROOM), beamMat);
+  beam.position.set(i, WALLH - 0.5, 0); beam.castShadow = true;
+  roomGroup.add(beam);
+}
+
+// Windows
+function makeWindow(x, z, ry) {
+  const frame = new THREE.Mesh(new THREE.BoxGeometry(2.5, 3, 0.4), toonMat(0x4a2e1a));
+  frame.position.set(x, 3.5, z); frame.rotation.y = ry;
+  roomGroup.add(frame);
+  const glass = new THREE.Mesh(
+    new THREE.PlaneGeometry(2, 2.5),
+    new THREE.MeshBasicMaterial({ color: 0xffedbf, transparent: true, opacity: 0.6 })
+  );
+  glass.position.copy(frame.position);
+  const off = ry === 0 ? [0, 0, 0.21] : [0.21 * Math.sign(-x), 0, 0];
+  glass.position.x += off[0]; glass.position.z += off[2];
+  glass.rotation.y = ry; roomGroup.add(glass);
+  // Cross bars
+  for (const geo of [new THREE.BoxGeometry(0.1, 2.5, 0.5), new THREE.BoxGeometry(2, 0.1, 0.5)]) {
+    const bar = new THREE.Mesh(geo, beamMat);
+    bar.position.copy(frame.position); bar.rotation.y = ry;
+    roomGroup.add(bar);
+  }
+}
+makeWindow(0, -ROOM/2 + 0.3, 0);
+makeWindow(-ROOM/2 + 0.3, -3, Math.PI/2);
+makeWindow(-ROOM/2 + 0.3, 3, Math.PI/2);
+
+// ============ FURNITURE ============
+function makeWorkbench(x, z, ry = 0) {
+  const g = new THREE.Group();
+  const top = new THREE.Mesh(new THREE.BoxGeometry(3, 0.15, 1.2), toonMat(0x8b5a2b));
+  top.position.y = 1; top.castShadow = true; top.receiveShadow = true;
+  g.add(top);
+  for (const [lx, lz] of [[-1.3,-0.5],[1.3,-0.5],[-1.3,0.5],[1.3,0.5]]) {
+    const leg = new THREE.Mesh(new THREE.BoxGeometry(0.15, 1, 0.15), toonMat(0x5a3a1a));
+    leg.position.set(lx, 0.5, lz); leg.castShadow = true; g.add(leg);
+  }
+  // Shelf underneath
+  const shelf = new THREE.Mesh(new THREE.BoxGeometry(2.4, 0.08, 0.8), toonMat(0x5a3a1a));
+  shelf.position.y = 0.35; g.add(shelf);
+  g.position.set(x, 0, z); g.rotation.y = ry;
+  roomGroup.add(g); return g;
+}
+const mainBench = makeWorkbench(0, 2);
+makeWorkbench(6, -4, Math.PI/2);
+makeWorkbench(-5, -6);
+
+// Oil lamp on main bench
+const lampGroup = new THREE.Group();
+const lampBase = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.14, 0.08, 12), toonMat(0xb87333));
+lampBase.position.y = 1.12; lampGroup.add(lampBase);
+const lampGlass = new THREE.Mesh(
+  new THREE.CylinderGeometry(0.06, 0.08, 0.2, 12),
+  new THREE.MeshBasicMaterial({ color: 0xffaa44, transparent: true, opacity: 0.6 })
+);
+lampGlass.position.y = 1.25; lampGroup.add(lampGlass);
+const lampFlame = new THREE.Mesh(
+  new THREE.SphereGeometry(0.04, 8, 8),
+  new THREE.MeshBasicMaterial({ color: 0xffcc33 })
+);
+lampFlame.position.y = 1.25; lampGroup.add(lampFlame);
+lampGroup.position.set(0, 0, 2);
+roomGroup.add(lampGroup);
+
+// Wall shelves
+function makeShelf(x, y, z, ry = 0) {
+  const g = new THREE.Group();
+  g.add(new THREE.Mesh(new THREE.BoxGeometry(2.5, 0.08, 0.5), toonMat(0x6b4423)));
+  for (let i = 0; i < 5; i++) {
+    const book = new THREE.Mesh(
+      new THREE.BoxGeometry(0.2, 0.35 + Math.random()*0.2, 0.3),
+      toonMat(0x443322 + Math.random()*0x444444 | 0)
+    );
+    book.position.set(-1 + i*0.4, 0.22, 0); g.add(book);
+  }
+  g.position.set(x, y, z); g.rotation.y = ry;
+  roomGroup.add(g);
+}
+makeShelf(-9.5, 4, -5, Math.PI/2);
+makeShelf(-9.5, 2.5, -5, Math.PI/2);
+makeShelf(-9.5, 4, 3, Math.PI/2);
+makeShelf(9.5, 3.5, -2, -Math.PI/2);
+
+// Forge
+const forgeGroup = new THREE.Group();
+const forgeBase = new THREE.Mesh(new THREE.BoxGeometry(2.5, 1.2, 2), toonMat(0x555555));
+forgeBase.position.y = 0.6; forgeBase.castShadow = true; forgeGroup.add(forgeBase);
+const forgeStack = new THREE.Mesh(new THREE.BoxGeometry(1.2, 3, 1.2), toonMat(0x666666));
+forgeStack.position.y = 2.7; forgeGroup.add(forgeStack);
+// Hood
+const forgeHood = new THREE.Mesh(new THREE.CylinderGeometry(0.6, 1.3, 1, 4), toonMat(0x555555));
+forgeHood.position.y = 1.7; forgeHood.rotation.y = Math.PI/4; forgeGroup.add(forgeHood);
+// Fire (multi-layer for depth)
+for (let i = 0; i < 3; i++) {
+  const f = new THREE.Mesh(
+    new THREE.SphereGeometry(0.5 - i*0.12, 8, 8),
+    new THREE.MeshBasicMaterial({ color: [0xff3300, 0xff6622, 0xffaa33][i] })
+  );
+  f.position.set(0, 1.3 + i*0.1, 0);
+  f.userData.fireLayer = i;
+  forgeGroup.add(f);
+}
+forgeGroup.position.set(-7, 0, -7);
+roomGroup.add(forgeGroup);
+
+// Barrels
+function makeBarrel(x, z) {
+  const b = new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.45, 1.2, 12), toonMat(0x6b4423));
+  b.position.set(x, 0.6, z); b.castShadow = true; roomGroup.add(b);
+  for (const by of [0.2, -0.2]) {
+    const band = new THREE.Mesh(new THREE.TorusGeometry(0.51, 0.04, 8, 24), toonMat(0x2a2a2a));
+    band.rotation.x = Math.PI/2; band.position.y = by; b.add(band);
+  }
+}
+makeBarrel(8, 7); makeBarrel(8, 5.5); makeBarrel(-8, 7); makeBarrel(7, -8);
+
+// ============ STEAM ENGINE ============
+const engineGroup = new THREE.Group();
+engineGroup.position.set(0, 0, -5);
+roomGroup.add(engineGroup);
+
+// Platform
+const ePlatform = new THREE.Mesh(new THREE.BoxGeometry(4.5, 0.3, 2.5), toonMat(0x3a2515));
+ePlatform.position.y = 0.15; ePlatform.castShadow = true; ePlatform.receiveShadow = true;
+engineGroup.add(ePlatform);
+const eStone = new THREE.Mesh(new THREE.BoxGeometry(4.2, 0.4, 2.3), toonMat(0x6a6a6a));
+eStone.position.y = -0.1; engineGroup.add(eStone);
+
+// --- BOILER ---
+const boilerGroup = new THREE.Group();
+boilerGroup.position.set(-1.6, 0.3, 0); boilerGroup.visible = false;
+engineGroup.add(boilerGroup);
+
+const boilerBody = new THREE.Mesh(new THREE.CylinderGeometry(0.7, 0.7, 1.3, 20), toonMat(0xb87333));
+boilerBody.position.y = 0.75; boilerBody.castShadow = true; boilerGroup.add(boilerBody);
+for (const by of [0.3, 0.75, 1.2]) {
+  const band = new THREE.Mesh(new THREE.TorusGeometry(0.72, 0.05, 8, 24), toonMat(0x2a2a2a));
+  band.rotation.x = Math.PI/2; band.position.y = by; boilerGroup.add(band);
+}
+const boilerDome = new THREE.Mesh(
+  new THREE.SphereGeometry(0.7, 16, 12, 0, Math.PI*2, 0, Math.PI/2), toonMat(0xb87333)
+);
+boilerDome.position.y = 1.4; boilerGroup.add(boilerDome);
+// Rivets on dome
+for (let i = 0; i < 8; i++) {
+  const rivet = new THREE.Mesh(new THREE.SphereGeometry(0.03, 6, 6), toonMat(0x8a6030));
+  const a = (i/8)*Math.PI*2;
+  rivet.position.set(Math.cos(a)*0.65, 1.42, Math.sin(a)*0.65);
+  boilerGroup.add(rivet);
+}
+const firebox = new THREE.Mesh(
+  new THREE.BoxGeometry(0.5, 0.3, 0.1),
+  new THREE.MeshBasicMaterial({ color: 0xff5520 })
+);
+firebox.position.set(0, 0.25, 0.7); boilerGroup.add(firebox);
+// Pressure gauge
+const gaugeBack = new THREE.Mesh(new THREE.CylinderGeometry(0.14, 0.14, 0.06, 16), toonMat(0xddaa55));
+gaugeBack.rotation.x = Math.PI/2; gaugeBack.position.set(0.4, 1.2, 0.68); boilerGroup.add(gaugeBack);
+const gaugeFace = new THREE.Mesh(new THREE.CircleGeometry(0.11, 16), new THREE.MeshBasicMaterial({ color: 0xf4e4c1 }));
+gaugeFace.position.set(0.4, 1.2, 0.72); boilerGroup.add(gaugeFace);
+const gaugeNeedle = new THREE.Mesh(new THREE.BoxGeometry(0.01, 0.09, 0.01), new THREE.MeshBasicMaterial({ color: 0xaa0000 }));
+gaugeNeedle.position.set(0.4, 1.24, 0.73); boilerGroup.add(gaugeNeedle);
+
+const steamPipe1 = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.08, 1.2, 12), toonMat(0x886644));
+steamPipe1.rotation.z = Math.PI/2; steamPipe1.position.set(-0.6, 1.5, 0);
+steamPipe1.visible = false; engineGroup.add(steamPipe1);
+
+// --- CYLINDER with piston and beam ---
+const cylinderGroup = new THREE.Group();
+cylinderGroup.position.set(0.2, 0.3, 0); cylinderGroup.visible = false;
+engineGroup.add(cylinderGroup);
+
+const cylMain = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.3, 1.3, 20), toonMat(0x8b6f47));
+cylMain.position.y = 0.9; cylMain.castShadow = true; cylinderGroup.add(cylMain);
+for (const [r, y] of [[0.35, 1.6], [0.35, 0.2]]) {
+  const cap = new THREE.Mesh(new THREE.CylinderGeometry(r, r, 0.1, 20), toonMat(0x5a3a1a));
+  cap.position.y = y; cylinderGroup.add(cap);
+}
+const pistonRod = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 1.2, 12), toonMat(0xddddee));
+pistonRod.position.y = 2.2; cylinderGroup.add(pistonRod);
+
+// Beam pivot tower
+const beamPivot = new THREE.Mesh(new THREE.BoxGeometry(0.3, 2, 0.3), toonMat(0x3a2515));
+beamPivot.position.set(0.2, 1.65, 0); beamPivot.visible = false; engineGroup.add(beamPivot);
+const beamTower = new THREE.Mesh(new THREE.ConeGeometry(0.25, 0.6, 4), toonMat(0x3a2515));
+beamTower.position.set(0.2, 2.95, 0); beamTower.visible = false; engineGroup.add(beamTower);
+
+const beamPivotHeight = 3.3;
+const walkingBeamGroup = new THREE.Group();
+walkingBeamGroup.position.set(0.2, beamPivotHeight, 0);
+walkingBeamGroup.visible = false; engineGroup.add(walkingBeamGroup);
+
+walkingBeamGroup.add(new THREE.Mesh(new THREE.BoxGeometry(3.2, 0.18, 0.3), toonMat(0x5a3a1a)));
+for (const ex of [-1.6, 1.6]) {
+  const cap = new THREE.Mesh(new THREE.BoxGeometry(0.3, 0.35, 0.4), toonMat(0x3a2515));
+  cap.position.x = ex; walkingBeamGroup.add(cap);
+}
+const connectRod = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.7, 8), toonMat(0xddddee));
+connectRod.position.set(-1.5, -0.35, 0); walkingBeamGroup.add(connectRod);
+
+// --- CONDENSER ---
+const condenserGroup = new THREE.Group();
+condenserGroup.position.set(1.8, 0.3, 0); condenserGroup.visible = false;
+engineGroup.add(condenserGroup);
+
+const condBody = new THREE.Mesh(new THREE.CylinderGeometry(0.4, 0.4, 1.1, 16), toonMat(0xc89060));
+condBody.position.y = 0.65; condBody.castShadow = true; condenserGroup.add(condBody);
+const condJacket = new THREE.Mesh(
+  new THREE.CylinderGeometry(0.5, 0.5, 1.0, 16),
+  new THREE.MeshToonMaterial({ color: 0x4477aa, gradientMap, transparent: true, opacity: 0.55 })
+);
+condJacket.position.y = 0.65; condenserGroup.add(condJacket);
+for (const by of [0.25, 0.95]) {
+  const band = new THREE.Mesh(new THREE.TorusGeometry(0.52, 0.04, 8, 24), toonMat(0x2a2a2a));
+  band.rotation.x = Math.PI/2; band.position.y = by; condenserGroup.add(band);
+}
+const dripPipe = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.3, 8), toonMat(0x886644));
+dripPipe.position.set(0, 0.05, 0.3); condenserGroup.add(dripPipe);
+
+const steamPipe2 = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.08, 1.5, 12), toonMat(0x886644));
+steamPipe2.rotation.z = Math.PI/2; steamPipe2.position.set(1.0, 1.2, 0);
+steamPipe2.visible = false; engineGroup.add(steamPipe2);
+
+// Flywheel
+const flywheelGroup = new THREE.Group();
+flywheelGroup.position.set(1.8, 2.3, 0); flywheelGroup.visible = false;
+engineGroup.add(flywheelGroup);
+
+const fwRim = new THREE.Mesh(new THREE.TorusGeometry(0.7, 0.12, 12, 32), toonMat(0x3a3a3a));
+fwRim.rotation.y = Math.PI/2; flywheelGroup.add(fwRim);
+for (let i = 0; i < 6; i++) {
+  const spoke = new THREE.Mesh(new THREE.BoxGeometry(0.08, 1.35, 0.08), toonMat(0x5a5a5a));
+  spoke.rotation.z = (i/6)*Math.PI*2; flywheelGroup.add(spoke);
+}
+const fwHub = new THREE.Mesh(new THREE.CylinderGeometry(0.15, 0.15, 0.3, 12), toonMat(0x2a2a2a));
+fwHub.rotation.set(0, 0, Math.PI/2); flywheelGroup.add(fwHub);
+
+// Steam particles
+const steamParticles = [];
+for (let i = 0; i < 35; i++) {
+  const p = new THREE.Mesh(
+    new THREE.SphereGeometry(0.15, 8, 8),
+    new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0 })
+  );
+  p.userData = { life: 0 }; engineGroup.add(p); steamParticles.push(p);
+}
+
+// Plaque
+const plaqueGroup = new THREE.Group();
+plaqueGroup.position.set(0.2, 0.5, 1.4); plaqueGroup.visible = false;
+engineGroup.add(plaqueGroup);
+plaqueGroup.add(new THREE.Mesh(new THREE.BoxGeometry(1.2, 0.3, 0.05), toonMat(0xd4a574)));
+
+// Engine state
+const engine = { boilerVisible: false, cylinderVisible: false, condenserVisible: false, running: false, runSpeed: 0 };
+
+function revealBoiler() {
+  if (engine.boilerVisible) return;
+  engine.boilerVisible = true;
+  boilerGroup.visible = true; boilerGroup.scale.set(0.01, 0.01, 0.01);
+  screenFlash();
+}
+function revealCylinder() {
+  if (engine.cylinderVisible) return;
+  engine.cylinderVisible = true;
+  for (const o of [cylinderGroup, steamPipe1, beamPivot, beamTower, walkingBeamGroup]) o.visible = true;
+  cylinderGroup.scale.set(0.01, 0.01, 0.01);
+  screenFlash();
+}
+function revealCondenser() {
+  if (engine.condenserVisible) return;
+  engine.condenserVisible = true;
+  for (const o of [condenserGroup, steamPipe2, flywheelGroup, plaqueGroup]) o.visible = true;
+  condenserGroup.scale.set(0.01, 0.01, 0.01);
+  flywheelGroup.scale.set(0.01, 0.01, 0.01);
+  screenFlash();
+  // Camera shake + bloom pulse on engine start
+  setTimeout(() => {
+    engine.running = true;
+    cameraShake(0.4, 1.5);
+    bloomPulse(0.9, 2.0);
+  }, 800);
+}
+
+// ============ ATMOSPHERIC PARTICLES ============
+// Dust motes
+const dustCount = 250;
+const dustGeo = new THREE.BufferGeometry();
+const dustPos = new Float32Array(dustCount * 3);
+const dustVel = new Float32Array(dustCount * 3);
+for (let i = 0; i < dustCount; i++) {
+  dustPos[i*3] = (Math.random()-0.5) * ROOM;
+  dustPos[i*3+1] = Math.random() * WALLH;
+  dustPos[i*3+2] = (Math.random()-0.5) * ROOM;
+  dustVel[i*3] = (Math.random()-0.5) * 0.1;
+  dustVel[i*3+1] = 0.02 + Math.random() * 0.04;
+  dustVel[i*3+2] = (Math.random()-0.5) * 0.1;
+}
+dustGeo.setAttribute('position', new THREE.BufferAttribute(dustPos, 3));
+const dustMat = new THREE.PointsMaterial({
+  color: 0xffeedd, size: 0.06, transparent: true, opacity: 0.4,
+  depthWrite: false, blending: THREE.AdditiveBlending
+});
+scene.add(new THREE.Points(dustGeo, dustMat));
+
+// Fire sparks
+const sparks = [];
+for (let i = 0; i < 25; i++) {
+  const s = new THREE.Mesh(
+    new THREE.SphereGeometry(0.025, 4, 4),
+    new THREE.MeshBasicMaterial({ color: 0xff8833 })
+  );
+  s.visible = false; s.userData = { life: 0, vx: 0, vy: 0, vz: 0 };
+  scene.add(s); sparks.push(s);
+}
+
+// ============ COLLECTIBLE PARTS ============
+const parts = [
+  { id: 'sylinder', name: 'Messingsylinder', pos: [6, 1.2, -4], collected: false, color: 0xc8a04a },
+  { id: 'ventil', name: 'Ventil', pos: [-5, 1.2, -6], collected: false, color: 0x8b7355 },
+  { id: 'kondensator', name: 'Kobberkondensator', pos: [-7.5, 0.5, 5], collected: false, color: 0xb77a3e },
+];
+
+const partMeshes = [];
+for (const part of parts) {
+  const g = new THREE.Group();
+  const geos = {
+    sylinder: new THREE.CylinderGeometry(0.2, 0.2, 0.5, 16),
+    ventil: new THREE.TorusGeometry(0.2, 0.08, 8, 16),
+    kondensator: new THREE.CylinderGeometry(0.25, 0.3, 0.4, 12)
+  };
+  const mesh = new THREE.Mesh(geos[part.id], toonMat(part.color));
+  mesh.castShadow = true; g.add(mesh);
+  // Glow ring
+  const ring = new THREE.Mesh(
+    new THREE.TorusGeometry(0.5, 0.04, 8, 32),
+    new THREE.MeshBasicMaterial({ color: 0xffdd66, transparent: true, opacity: 0.7 })
+  );
+  ring.rotation.x = Math.PI/2; ring.position.y = -0.3; g.add(ring);
+  // Vertical glow pillar
+  const pillar = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.02, 0.02, 2, 6),
+    new THREE.MeshBasicMaterial({ color: 0xffdd66, transparent: true, opacity: 0.15 })
+  );
+  pillar.position.y = 0.5; g.add(pillar);
+  g.position.set(...part.pos);
+  g.userData = { part, ring, baseMesh: mesh, pillar, isPart: true };
+  scene.add(g); partMeshes.push(g);
+}
+
+// ============ CHARACTER BUILDER ============
+// Face texture generator
+function makeFaceTex(style = 'happy') {
+  const c = document.createElement('canvas'); c.width = 128; c.height = 128;
+  const x = c.getContext('2d');
+  // Transparent background
+  x.clearRect(0, 0, 128, 128);
+
+  if (style === 'happy') {
+    // Bright round eyes
+    x.fillStyle = '#1a1008';
+    x.beginPath(); x.arc(42, 48, 10, 0, Math.PI*2); x.fill();
+    x.beginPath(); x.arc(86, 48, 10, 0, Math.PI*2); x.fill();
+    // Eye shine
+    x.fillStyle = '#fff';
+    x.beginPath(); x.arc(46, 44, 4, 0, Math.PI*2); x.fill();
+    x.beginPath(); x.arc(90, 44, 4, 0, Math.PI*2); x.fill();
+    // Cheerful smile
+    x.strokeStyle = '#1a1008'; x.lineWidth = 4; x.lineCap = 'round';
+    x.beginPath(); x.arc(64, 62, 22, 0.15*Math.PI, 0.85*Math.PI); x.stroke();
+    // Rosy cheeks
+    x.fillStyle = 'rgba(220,120,100,0.35)';
+    x.beginPath(); x.arc(30, 68, 12, 0, Math.PI*2); x.fill();
+    x.beginPath(); x.arc(98, 68, 12, 0, Math.PI*2); x.fill();
+  } else if (style === 'excited') {
+    // Wide excited eyes
+    x.fillStyle = '#1a1008';
+    x.beginPath(); x.arc(42, 46, 12, 0, Math.PI*2); x.fill();
+    x.beginPath(); x.arc(86, 46, 12, 0, Math.PI*2); x.fill();
+    // Eye shine (bigger = more excited)
+    x.fillStyle = '#fff';
+    x.beginPath(); x.arc(47, 42, 5, 0, Math.PI*2); x.fill();
+    x.beginPath(); x.arc(91, 42, 5, 0, Math.PI*2); x.fill();
+    // Big open smile
+    x.fillStyle = '#1a1008';
+    x.beginPath(); x.arc(64, 68, 20, 0, Math.PI); x.fill();
+    // Teeth
+    x.fillStyle = '#fff';
+    x.fillRect(50, 68, 28, 6);
+    // Excited eyebrows
+    x.strokeStyle = '#1a1008'; x.lineWidth = 3; x.lineCap = 'round';
+    x.beginPath(); x.moveTo(28, 30); x.quadraticCurveTo(42, 22, 56, 30); x.stroke();
+    x.beginPath(); x.moveTo(72, 30); x.quadraticCurveTo(86, 22, 100, 30); x.stroke();
+    // Rosy cheeks
+    x.fillStyle = 'rgba(220,120,100,0.3)';
+    x.beginPath(); x.arc(28, 70, 10, 0, Math.PI*2); x.fill();
+    x.beginPath(); x.arc(100, 70, 10, 0, Math.PI*2); x.fill();
+  }
+
+  const t = new THREE.CanvasTexture(c);
+  t.needsUpdate = true;
+  return t;
+}
+
+function makeCharacter({ bodyCol, headCol, hatCol, legCol, pos, face, extras }) {
+  const g = new THREE.Group();
+  const body = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.8, 0.35), toonMat(bodyCol));
+  body.position.y = 0.9; body.castShadow = true; g.add(body);
+  const head = new THREE.Mesh(new THREE.SphereGeometry(0.25, 16, 16), toonMat(headCol));
+  head.position.y = 1.55; head.castShadow = true; g.add(head);
+  // Face
+  if (face) {
+    const faceTex = makeFaceTex(face);
+    const facePlane = new THREE.Mesh(
+      new THREE.PlaneGeometry(0.28, 0.28),
+      new THREE.MeshBasicMaterial({ map: faceTex, transparent: true, depthWrite: false })
+    );
+    facePlane.position.set(0, 1.55, 0.24);
+    g.add(facePlane);
+    g.userData.facePlane = facePlane;
+  }
+  const lArm = new THREE.Mesh(new THREE.BoxGeometry(0.15, 0.7, 0.15), toonMat(bodyCol));
+  lArm.position.set(-0.33, 0.95, 0); lArm.castShadow = true; g.add(lArm);
+  const rArm = new THREE.Mesh(new THREE.BoxGeometry(0.15, 0.7, 0.15), toonMat(bodyCol));
+  rArm.position.set(0.33, 0.95, 0); rArm.castShadow = true; g.add(rArm);
+  const lLeg = new THREE.Mesh(new THREE.BoxGeometry(0.18, 0.5, 0.18), toonMat(legCol));
+  lLeg.position.set(-0.12, 0.25, 0); lLeg.castShadow = true; g.add(lLeg);
+  const rLeg = new THREE.Mesh(new THREE.BoxGeometry(0.18, 0.5, 0.18), toonMat(legCol));
+  rLeg.position.set(0.12, 0.25, 0); rLeg.castShadow = true; g.add(rLeg);
+  if (extras) extras(g);
+  g.position.set(...pos);
+  g.userData = { ...g.userData, body, head, lArm, rArm, lLeg, rLeg };
+  scene.add(g); return g;
+}
+
+// Player
+const player = makeCharacter({
+  bodyCol: 0x3a5a7a, headCol: 0xf0c090, hatCol: 0x1a0f08, legCol: 0x4a3020,
+  pos: [4, 0, 4], face: 'happy',
+  extras: g => {
+    // Coat
+    const coat = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.5, 0.2), toonMat(0x2a4a6a));
+    coat.position.set(0, 0.6, -0.1); coat.castShadow = true; g.add(coat);
+    // Tricorn hat
+    const hat = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.3, 0.15, 3), toonMat(0x1a0f08));
+    hat.position.y = 1.78; hat.rotation.y = Math.PI/6; g.add(hat);
+    const brim = new THREE.Mesh(new THREE.CylinderGeometry(0.4, 0.4, 0.05, 3), toonMat(0x1a0f08));
+    brim.position.y = 1.7; brim.rotation.y = Math.PI/6; g.add(brim);
+  }
+});
+
+// Watt NPC
+const watt = makeCharacter({
+  bodyCol: 0x5a3a2a, headCol: 0xe8b888, hatCol: 0xdddddd, legCol: 0x3a2515,
+  pos: [2.5, 0, -3], face: 'excited',
+  extras: g => {
+    // Apron
+    const apron = new THREE.Mesh(new THREE.BoxGeometry(0.52, 0.7, 0.05), toonMat(0xaa8855));
+    apron.position.set(0, 0.85, 0.22); g.add(apron);
+    // Wig
+    const wig = new THREE.Mesh(new THREE.SphereGeometry(0.3, 16, 16), toonMat(0xdddddd));
+    wig.position.y = 1.68; wig.scale.set(1, 0.75, 1.1); g.add(wig);
+  }
+});
+
+// Watt marker
+const wattMarker = new THREE.Mesh(
+  new THREE.SphereGeometry(0.12, 8, 8),
+  new THREE.MeshBasicMaterial({ color: 0xffdd66 })
+);
+wattMarker.position.y = 2.2; watt.add(wattMarker);
+
+// ============ CAMERA EFFECTS ============
+let shakeAmount = 0, shakeDuration = 0, shakeTimer = 0;
+function cameraShake(amount, duration) { shakeAmount = amount; shakeDuration = duration; shakeTimer = 0; }
+
+let bloomTarget = 0.45;
+function bloomPulse(peak, duration) {
+  if (!bloomPass) return;
+  bloomPass.strength = peak;
+  bloomTarget = 0.45;
+  setTimeout(() => { if (bloomPass) bloomPass.strength = bloomTarget; }, duration * 1000);
+}
+
+const flashEl = document.getElementById('screenFlash');
+function screenFlash() {
+  flashEl.classList.add('flash');
+  setTimeout(() => flashEl.classList.remove('flash'), 200);
+}
+
+// ============ PLAYER CONTROLS ============
+const keys = {};
+addEventListener('keydown', e => { keys[e.code] = true; });
+addEventListener('keyup', e => { keys[e.code] = false; });
+
+let yaw = 0, pitch = 0.3, mouseLocked = false;
+renderer.domElement.addEventListener('click', () => { if (gameStarted) renderer.domElement.requestPointerLock(); });
+document.addEventListener('pointerlockchange', () => { mouseLocked = document.pointerLockElement === renderer.domElement; });
+document.addEventListener('mousemove', e => {
+  if (!mouseLocked) return;
+  yaw += e.movementX * 0.003;
+  pitch = Math.max(-0.5, Math.min(1.0, pitch + e.movementY * 0.003));
+});
+
+const velocity = new THREE.Vector3();
+let onGround = true;
+const SPEED = 5, JUMP = 6, GRAV = -18;
+
+// ============ GAME STATE ============
+const state = { phase: 'intro', collectedCount: 0, wattTalkedIntro: false, puzzleSolved: false };
+
+// ============ DIALOG SYSTEM ============
+const dialogBox = document.getElementById('dialogBox');
+const dialogText = document.getElementById('dialogText');
+const choicesDiv = document.getElementById('choices');
+const speakerNameEl = document.getElementById('speakerName');
+let dialogActive = false, currentChoices = [];
+
+const dialogs = {
+  intro: {
+    speaker: 'James Watt',
+    text: 'Ah, endelig! Du må være den unge lærlingen fra universitetet. Jeg er James Watt, og jeg står fast. Newcomen-maskinen der borte sløser bort halvparten av dampen på å varme opp sylinderen igjen og igjen. Det er skandaløst ineffektivt!',
+    choices: [
+      { text: 'Hva er problemet egentlig?', next: 'problem' },
+      { text: 'Hvordan kan jeg hjelpe?', next: 'help' },
+    ],
+  },
+  problem: {
+    speaker: 'James Watt',
+    text: 'Se her: Hver gang dampen kondenseres inne i sylinderen, må vi varme opp hele sylinderen på nytt. Enorm sløsing av kull! Jeg har en idé — en *separat* kondensator! Jeg har bygget en platform der borte. Finn delene, så bygger vi maskinen sammen.',
+    choices: [{ text: 'Jeg finner delene!', next: 'fetch' }],
+  },
+  help: {
+    speaker: 'James Watt',
+    text: 'Jeg trenger tre deler: en messingsylinder, en ventil, og — viktigst av alt — en kobberbeholder som kan fungere som separat kondensator. Let rundt i verkstedet. De bør være her et sted.',
+    choices: [{ text: 'På saken!', next: 'fetch' }],
+  },
+  fetch: {
+    speaker: 'James Watt',
+    text: 'Utmerket! Let etter de gule lysene rundt delene. Kom tilbake til meg ved platformen når du har alle tre — så monterer vi maskinen foran dine egne øyne.',
+    choices: [{ text: 'Greit.', next: null }],
+    onEnd: () => {
+      state.phase = 'collecting';
+      updateQuest('Finn de tre delene i verkstedet.');
+      updatePartsUI();
+    },
+  },
+  progress: {
+    speaker: 'James Watt',
+    text: () => `Du har ${state.collectedCount} av 3 deler. Fortsett å lete!`,
+    choices: [{ text: 'Jeg fortsetter.', next: null }],
+  },
+  puzzleIntro: {
+    speaker: 'James Watt',
+    text: 'Fantastisk! Se på platformen — vi skal bygge maskinen del for del. For hvert riktig svar dukker neste komponent opp. Hvilken rekkefølge skal dampen strømme?',
+    choices: [{ text: 'La oss bygge!', next: null, action: () => openPuzzle() }],
+  },
+  puzzleWin: {
+    speaker: 'James Watt',
+    text: 'DET VIRKER! Ser du svinghjulet som går? Dampen kondenseres i den separate beholderen, sylinderen holder seg varm, og maskinen kan gå kontinuerlig! Dette vil mangedoble effektiviteten. Vi har nettopp forandret historien, min venn. Dampmaskinen er født!',
+    choices: [{ text: 'Gratulerer, mester Watt!', next: null, action: () => showEndScreen() }],
+  },
+  puzzleFail: {
+    speaker: 'James Watt',
+    text: 'Nei, nei! Det ville blåst hele verkstedet i lufta! Tenk på prinsippet: Damp kommer fra kjelen, presser stempelet i sylinderen, og MÅ ledes bort til et separat sted for å kondenseres. Prøv igjen!',
+    choices: [{ text: 'Jeg prøver på nytt.', next: null, action: () => openPuzzle() }],
+  },
+};
+
+function showDialog(key) {
+  const d = dialogs[key];
+  if (!d) { closeDialog(); return; }
+  dialogActive = true;
+  dialogBox.classList.add('visible');
+  speakerNameEl.textContent = d.speaker;
+  dialogText.textContent = typeof d.text === 'function' ? d.text() : d.text;
+  choicesDiv.innerHTML = '';
+  currentChoices = d.choices.map((choice, i) => ({
+    ...choice,
+    action: () => {
+      if (choice.next) { if (choice.action) choice.action(); showDialog(choice.next); }
+      else if (choice.action) choice.action();
+      else { closeDialog(); if (d.onEnd) d.onEnd(); }
+    }
+  }));
+  d.choices.forEach((c, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'choice';
+    btn.innerHTML = `<span style="color:#d4a574;font-weight:bold;margin-right:8px">[${i+1}]</span>${c.text}`;
+    btn.onclick = () => currentChoices[i].action();
+    choicesDiv.appendChild(btn);
+  });
+}
+function closeDialog() {
+  dialogActive = false;
+  dialogBox.classList.remove('visible');
+}
+
+// ============ PUZZLE ============
+function openPuzzle() {
+  closeDialog(); dialogActive = true;
+  const steps = [
+    { question: 'Først: Hvor kommer dampen <b>fra</b>?', hint: 'Tenk på hva som varmer opp vannet til damp.',
+      options: [
+        { text: '🔥 Dampkjelen (vann varmes til damp)', correct: true, feedback: 'Riktig! Kjelen produserer dampen.' },
+        { text: '❄ Kondensatoren', correct: false, feedback: 'Nei — kondensatoren er der dampen ENDER opp, ikke der den starter. Prøv igjen!' },
+      ] },
+    { question: 'Så: Hvor skal dampen <b>jobbe</b>?', hint: 'Dampen må presse noe for å gjøre nytte for seg.',
+      options: [
+        { text: '⚙ Sylinderen med stempelet', correct: true, feedback: 'Nettopp! Dampen presser stempelet og gjør det mekaniske arbeidet.' },
+        { text: '📦 Rett tilbake til kjelen', correct: false, feedback: 'Det gir ingen mening — da ville dampen aldri gjort noe arbeid. Prøv igjen!' },
+      ] },
+    { question: 'Til slutt: Hvor skal dampen <b>kondenseres</b>?', hint: 'Dette er Watts store idé — kondenseringen må IKKE skje i sylinderen.',
+      options: [
+        { text: '💧 Den separate kondensatoren', correct: true, feedback: 'GENIALT! Det er dette som er hele oppfinnelsen!' },
+        { text: '🔥 Inne i sylinderen', correct: false, feedback: 'Men det er jo nettopp problemet med Newcomen-maskinen! Sylinderen må holdes varm. Prøv igjen!' },
+      ] },
+  ];
+
+  let cur = 0, feedback = '';
+  const reveals = [revealBoiler, revealCylinder, revealCondenser];
+
+  function render() {
+    dialogBox.classList.add('visible');
+    const step = steps[cur];
+    speakerNameEl.textContent = `⚙ Bygg dampmaskinen (steg ${cur+1} av 3)`;
+    const labels = ['Kjele','Sylinder','Kondensator'];
+    const diagram = labels.map((l, i) => {
+      if (i < cur) return `<span style="color:#90c090">✓ ${l}</span>`;
+      if (i === cur) return `<span style="color:#d4a574">● ${l}?</span>`;
+      return `<span style="color:#5c4228">○ ${l}</span>`;
+    }).join(' <span style="color:#5c4228">→</span> ');
+    const fbHtml = feedback ? `<div style="background:rgba(60,30,15,0.6);border-left:3px solid #d4a574;padding:8px 12px;margin:10px 0;font-style:italic;color:#f4e4c1">${feedback}</div>` : '';
+    dialogText.innerHTML = `<div style="text-align:center;font-size:14px;margin-bottom:12px;letter-spacing:1px">${diagram}</div>${fbHtml}<div style="font-style:normal">${step.question}</div><div style="font-size:13px;color:#b89968;margin-top:6px">💡 Hint: ${step.hint}</div>`;
+    choicesDiv.innerHTML = ''; currentChoices = [];
+    step.options.forEach((opt, i) => {
+      const action = () => {
+        if (opt.correct) {
+          feedback = opt.feedback;
+          reveals[cur]();
+          cur++;
+          if (cur >= steps.length) {
+            setTimeout(() => {
+              state.puzzleSolved = true; closeDialog();
+              updateQuest('Se hva dere har skapt! Snakk med Watt når du er klar.');
+              setTimeout(() => showDialog('puzzleWin'), 4000);
+            }, 800);
+          } else render();
+        } else { feedback = opt.feedback; render(); }
+      };
+      currentChoices.push({ action });
+      const btn = document.createElement('button');
+      btn.className = 'choice';
+      btn.innerHTML = `<span style="color:#d4a574;font-weight:bold;margin-right:8px">[${i+1}]</span>${opt.text}`;
+      btn.onclick = action; choicesDiv.appendChild(btn);
+    });
+  }
+  render();
+}
+
+// ============ HUD ============
+const questTextEl = document.getElementById('questText');
+const partsEl = document.getElementById('parts');
+function updateQuest(t) { questTextEl.textContent = t; }
+function updatePartsUI() {
+  partsEl.innerHTML = '';
+  for (const p of parts) {
+    const div = document.createElement('div');
+    div.className = 'part-item' + (p.collected ? ' collected' : '');
+    div.textContent = (p.collected ? '✓ ' : '○ ') + p.name;
+    partsEl.appendChild(div);
+  }
+}
+
+// ============ INTERACTION ============
+const interactPrompt = document.getElementById('interactPrompt');
+let nearestInteractable = null;
+
+function checkInteractions() {
+  if (dialogActive) { interactPrompt.classList.remove('visible'); return; }
+  let closest = null, closestDist = 2.2;
+  const dWatt = player.position.distanceTo(watt.position);
+  if (dWatt < closestDist) { closest = { type: 'watt' }; closestDist = dWatt; }
+  for (const pm of partMeshes) {
+    if (pm.userData.part.collected) continue;
+    const d = player.position.distanceTo(pm.position);
+    if (d < closestDist) { closest = { type: 'part', mesh: pm }; closestDist = d; }
+  }
+  nearestInteractable = closest;
+  interactPrompt.classList.toggle('visible', !!closest);
+}
+
+addEventListener('keydown', e => {
+  if (dialogActive && e.code.startsWith('Digit')) {
+    const num = parseInt(e.code.replace('Digit', ''));
+    if (num >= 1 && num <= currentChoices.length) { e.preventDefault(); currentChoices[num-1].action(); return; }
+  }
+  if (e.code !== 'KeyE' || dialogActive || !nearestInteractable) return;
+  if (nearestInteractable.type === 'watt') {
+    if (state.phase === 'intro') { showDialog('intro'); state.wattTalkedIntro = true; }
+    else if (state.phase === 'collecting') {
+      if (state.collectedCount === 3) { state.phase = 'puzzle'; showDialog('puzzleIntro'); }
+      else showDialog('progress');
+    } else if (state.phase === 'puzzle' && !state.puzzleSolved) showDialog('puzzleIntro');
+  } else if (nearestInteractable.type === 'part') {
+    const part = nearestInteractable.mesh.userData.part;
+    part.collected = true; state.collectedCount++;
+    scene.remove(nearestInteractable.mesh);
+    partMeshes.splice(partMeshes.indexOf(nearestInteractable.mesh), 1);
+    updatePartsUI(); screenFlash();
+    updateQuest(state.collectedCount === 3 ? 'Gå tilbake til Watt!' : `Funnet ${state.collectedCount}/3 deler. Fortsett å lete!`);
+  }
+});
+
+// ============ END SCREEN ============
+const endScreen = document.getElementById('endScreen');
+function showEndScreen() {
+  closeDialog();
+  document.getElementById('endText').innerHTML = `Du har hjulpet James Watt å oppfinne den separate kondensatoren — forbedringen som gjorde dampmaskinen til motoren bak den industrielle revolusjonen.<br><br>Det tok egentlig Watt over 10 år å perfeksjonere den, men i kveld klarte dere det sammen.`;
+  endScreen.style.display = 'flex';
+}
+document.getElementById('restartBtn').onclick = () => location.reload();
+
+// ============ START ============
+let gameStarted = false;
+document.getElementById('startBtn').onclick = () => {
+  document.getElementById('titleScreen').style.display = 'none';
+  gameStarted = true; updatePartsUI();
+  updateQuest('Snakk med James Watt (trykk E).');
+};
+
+// ============ GAME LOOP ============
+const clock = new THREE.Clock();
+let time = 0;
+const camTarget = new THREE.Vector3();
+const camPos = new THREE.Vector3();
+
+function update(dt) {
+  if (!gameStarted) return;
+  time += dt;
+
+  // --- Player movement ---
+  const moveDir = new THREE.Vector3();
+  if (!dialogActive) {
+    const fwd = new THREE.Vector3(Math.sin(yaw), 0, -Math.cos(yaw));
+    const right = new THREE.Vector3(Math.cos(yaw), 0, Math.sin(yaw));
+    if (keys['KeyW']) moveDir.add(fwd);
+    if (keys['KeyS']) moveDir.sub(fwd);
+    if (keys['KeyD']) moveDir.add(right);
+    if (keys['KeyA']) moveDir.sub(right);
+    if (moveDir.lengthSq() > 0) moveDir.normalize();
+  }
+  velocity.x = moveDir.x * SPEED;
+  velocity.z = moveDir.z * SPEED;
+  if (keys['Space'] && onGround && !dialogActive) { velocity.y = JUMP; onGround = false; }
+  velocity.y += GRAV * dt;
+  player.position.addScaledVector(velocity, dt);
+  if (player.position.y <= 0) { player.position.y = 0; velocity.y = 0; onGround = true; }
+  const WI = ROOM/2 - 0.6;
+  player.position.x = Math.max(-WI, Math.min(WI, player.position.x));
+  player.position.z = Math.max(-WI, Math.min(WI, player.position.z));
+
+  // Rotate player
+  if (moveDir.lengthSq() > 0.1) {
+    const tgt = Math.atan2(moveDir.x, moveDir.z);
+    let diff = tgt - player.rotation.y;
+    while (diff > Math.PI) diff -= 2*Math.PI;
+    while (diff < -Math.PI) diff += 2*Math.PI;
+    player.rotation.y += diff * Math.min(1, dt * 12);
+  }
+
+  // Walk animation
+  const { body, lArm, rArm, lLeg, rLeg } = player.userData;
+  const moving = moveDir.lengthSq() > 0.1 && onGround;
+  if (moving) {
+    body.position.y = 0.9 + Math.abs(Math.sin(time * 10) * 0.05);
+    lLeg.rotation.x = Math.sin(time * 10) * 0.6;
+    rLeg.rotation.x = -Math.sin(time * 10) * 0.6;
+    lArm.rotation.x = -Math.sin(time * 10) * 0.4;
+    rArm.rotation.x = Math.sin(time * 10) * 0.4;
+  } else {
+    for (const m of [lLeg, rLeg, lArm, rArm]) m.rotation.x *= 0.85;
+    body.position.y = 0.9;
+  }
+
+  // --- Watt ---
+  watt.position.y = Math.sin(time * 1.5) * 0.03;
+  const toP = new THREE.Vector3().subVectors(player.position, watt.position);
+  watt.rotation.y = Math.atan2(toP.x, toP.z);
+  wattMarker.position.y = 2.2 + Math.sin(time * 3) * 0.12;
+  wattMarker.material.opacity = 0.5 + Math.sin(time * 4) * 0.5;
+  wattMarker.material.transparent = true;
+  wattMarker.visible = state.phase === 'intro' || (state.phase === 'collecting' && state.collectedCount === 3) || state.phase === 'puzzle';
+
+  // --- Part hover animation ---
+  for (const pm of partMeshes) {
+    pm.userData.baseMesh.position.y = Math.sin(time * 2 + pm.position.x) * 0.15;
+    pm.userData.baseMesh.rotation.y += dt * 1.5;
+    pm.userData.ring.rotation.z += dt * 0.5;
+    pm.userData.ring.material.opacity = 0.4 + Math.sin(time * 3) * 0.3;
+    pm.userData.pillar.material.opacity = 0.08 + Math.sin(time * 2) * 0.07;
+  }
+
+  // --- Fire & forge ---
+  forgeGroup.children.forEach(c => {
+    if (c.userData.fireLayer !== undefined) {
+      const i = c.userData.fireLayer;
+      c.scale.setScalar(0.85 + Math.sin(time * (12 + i*3)) * 0.12 + Math.random() * 0.05);
+      c.position.y = 1.3 + i * 0.1 + Math.sin(time * 8) * 0.05;
+    }
+  });
+  fireLight.intensity = 1.8 + Math.sin(time * 12) * 0.4 + Math.random() * 0.3;
+  fireLight.color.setHSL(0.06 + Math.sin(time * 5) * 0.02, 1, 0.5);
+
+  // Lamp flicker
+  lampLight.intensity = 0.7 + Math.sin(time * 15) * 0.08 + Math.random() * 0.05;
+  lampFlame.scale.setScalar(0.8 + Math.sin(time * 20) * 0.15);
+
+  // --- Sparks ---
+  for (const s of sparks) {
+    s.userData.life -= dt;
+    if (s.userData.life <= 0) {
+      if (Math.random() < 0.15) {
+        s.visible = true;
+        s.position.set(-7 + (Math.random()-0.5)*0.8, 1.8, -7 + (Math.random()-0.5)*0.8);
+        s.userData.vx = (Math.random()-0.5)*1.5;
+        s.userData.vy = 2 + Math.random()*2;
+        s.userData.vz = (Math.random()-0.5)*1.5;
+        s.userData.life = 0.5 + Math.random()*0.8;
+        s.userData.maxLife = s.userData.life;
+      } else { s.visible = false; }
+    } else {
+      s.position.x += s.userData.vx * dt;
+      s.position.y += s.userData.vy * dt;
+      s.position.z += s.userData.vz * dt;
+      s.userData.vy -= 3 * dt;
+      const t = s.userData.life / s.userData.maxLife;
+      s.material.opacity = t;
+      s.scale.setScalar(t * 0.8 + 0.2);
+    }
+  }
+
+  // --- Dust ---
+  const pos = dustGeo.attributes.position;
+  for (let i = 0; i < dustCount; i++) {
+    pos.array[i*3] += dustVel[i*3] * dt;
+    pos.array[i*3+1] += dustVel[i*3+1] * dt;
+    pos.array[i*3+2] += dustVel[i*3+2] * dt;
+    // Drift
+    dustVel[i*3] += (Math.random()-0.5) * 0.02;
+    dustVel[i*3+2] += (Math.random()-0.5) * 0.02;
+    dustVel[i*3] *= 0.99; dustVel[i*3+2] *= 0.99;
+    // Wrap
+    if (pos.array[i*3+1] > WALLH) { pos.array[i*3+1] = 0; }
+    for (const ax of [0, 2]) {
+      if (Math.abs(pos.array[i*3+ax]) > ROOM/2) pos.array[i*3+ax] *= -0.5;
+    }
+  }
+  pos.needsUpdate = true;
+
+  // --- Engine animation ---
+  for (const g of [boilerGroup, cylinderGroup, condenserGroup, flywheelGroup]) {
+    if (g.visible && g.scale.x < 1) {
+      const ns = Math.min(1, g.scale.x + dt * 2.5);
+      // Overshoot easing
+      const os = ns >= 0.95 ? 1 + Math.sin((ns - 0.95) / 0.05 * Math.PI) * 0.04 : ns;
+      g.scale.set(os, os, os);
+      if (ns >= 1) g.scale.set(1, 1, 1);
+    }
+  }
+
+  if (engine.boilerVisible) {
+    gaugeNeedle.rotation.z = (engine.running ? -0.8 : -0.3) + Math.sin(time * 8) * 0.05;
+    firebox.material.color.setHSL(0.04, 1, 0.4 + Math.random() * 0.15);
+  }
+
+  if (engine.running) engine.runSpeed = Math.min(1, engine.runSpeed + dt * 0.4);
+  if (engine.runSpeed > 0) {
+    const s = engine.runSpeed, cyc = time * 2.5 * s, py = Math.sin(cyc);
+    pistonRod.position.y = 2.2 + py * 0.35;
+    if (walkingBeamGroup.visible) walkingBeamGroup.rotation.z = py * 0.25;
+    if (flywheelGroup.visible) flywheelGroup.rotation.x -= dt * 3 * s;
+
+    for (const p of steamParticles) {
+      p.userData.life -= dt;
+      if (p.userData.life <= 0) {
+        const src = Math.random();
+        if (src < 0.5 && engine.boilerVisible) {
+          p.position.set(-1.3, 1.9, (Math.random()-0.5)*0.3);
+          p.userData.vx = 0.5 + Math.random()*0.3;
+          p.userData.vy = 0.2 + Math.random()*0.4;
+        } else if (engine.condenserVisible) {
+          p.position.set(1.8 + (Math.random()-0.5)*0.3, 1.5, (Math.random()-0.5)*0.2);
+          p.userData.vx = (Math.random()-0.5)*0.2;
+          p.userData.vy = 0.5 + Math.random()*0.5;
+        } else { p.visible = false; continue; }
+        p.userData.life = 1.5 + Math.random()*0.5;
+        p.userData.maxLife = p.userData.life;
+        p.visible = true; p.scale.setScalar(0.3 + Math.random()*0.3);
+      } else {
+        p.position.x += (p.userData.vx || 0) * dt;
+        p.position.y += (p.userData.vy || 0) * dt;
+        const t = p.userData.life / p.userData.maxLife;
+        p.material.opacity = t * 0.6 * s;
+        p.scale.multiplyScalar(1 + dt * 0.5);
+      }
+    }
+  }
+
+  if (plaqueGroup.visible && engine.running) {
+    plaqueGroup.position.y = 0.5 + Math.sin(time * 2) * 0.05;
+  }
+
+  // --- Camera (smooth follow + shake) ---
+  const camDist = 4.5, camH = 2.5;
+  const idealPos = new THREE.Vector3(
+    player.position.x - Math.sin(yaw) * camDist * Math.cos(pitch),
+    player.position.y + camH + Math.sin(pitch) * camDist,
+    player.position.z + Math.cos(yaw) * camDist * Math.cos(pitch)
+  );
+  idealPos.y = Math.max(0.5, idealPos.y);
+  // Smooth lerp
+  camPos.lerp(idealPos, Math.min(1, dt * 8));
+  camera.position.copy(camPos);
+
+  // Camera shake
+  if (shakeDuration > 0) {
+    shakeTimer += dt;
+    if (shakeTimer < shakeDuration) {
+      const decay = 1 - shakeTimer / shakeDuration;
+      camera.position.x += (Math.random()-0.5) * shakeAmount * decay;
+      camera.position.y += (Math.random()-0.5) * shakeAmount * decay * 0.5;
+    } else { shakeDuration = 0; }
+  }
+
+  const lookTgt = player.position.clone(); lookTgt.y += 1.2;
+  camTarget.lerp(lookTgt, Math.min(1, dt * 10));
+  camera.lookAt(camTarget);
+
+  // Bloom easing
+  if (bloomPass) bloomPass.strength += (bloomTarget - bloomPass.strength) * dt * 3;
+
+  // Post-processing time uniform
+  if (vignettePass) vignettePass.uniforms.time.value = time;
+
+  checkInteractions();
+}
+
+// Init camera position
+camPos.set(4 - Math.sin(yaw)*4.5, 2.5, 4 + Math.cos(yaw)*4.5);
+camTarget.set(4, 1.2, 4);
+
+function animate() {
+  requestAnimationFrame(animate);
+  const dt = Math.min(0.05, clock.getDelta());
+  update(dt);
+  if (composer) composer.render(); else renderer.render(scene, camera);
+}
+animate();
+</script>
+</body>
+</html>

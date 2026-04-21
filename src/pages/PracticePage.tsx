@@ -1,9 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Brain, HelpCircle, Clock, MessageCircle, Gamepad2, Plane, History, Users, Search, Compass, Hourglass, Castle, Swords, Pen, Rocket } from 'lucide-react';
+import { Brain, HelpCircle, Clock, MessageCircle, Gamepad2, Plane, History, Users, Search, Compass, Hourglass, Castle, Swords, Pen, Rocket, Landmark } from 'lucide-react';
 
 export const PracticePage: React.FC = () => {
     const modules = [
+        {
+            id: 'historiske-spill',
+            title: 'Historiske Spill',
+            description: 'Lev deg inn i historien. Utforsk 3D-verdener, samle gjenstander og løs gåter fra fortiden.',
+            icon: Landmark,
+            color: 'bg-amber-700',
+            link: '/oving/spill'
+        },
         {
             id: 'flashcards',
             title: 'Flashcards',
