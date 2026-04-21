@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import type { GameEngineRef } from '../engine/types';
+import type { GameEngineRef, AABB2D } from '../engine/types';
 
 // ─── Steam Engine Assembly ────────────────────────────────────────────────────
 
@@ -271,6 +271,15 @@ export function setupWattLabScene(engine: GameEngineRef): void {
     }
     if (config.dialogs.puzzleWin?.choices[0]) {
         config.dialogs.puzzleWin.choices[0].action = () => triggerEnd();
+    }
+
+    // Register collision boxes for game-specific objects (obstacle + player radius 0.4)
+    const boxes = scene.userData.collisionBoxes as AABB2D[] | undefined;
+    if (boxes) {
+        // Engine platform: center (0, -5), BoxGeometry(4.5, 0.3, 2.5)
+        boxes.push({ minX: -2.65, maxX: 2.65, minZ: -6.65, maxZ: -3.35 });
+        // Forge: center (-7, -7), BoxGeometry(2.5, 1.2, 2)
+        boxes.push({ minX: -8.65, maxX: -5.35, minZ: -8.4, maxZ: -5.6 });
     }
 
     // Wire puzzle callbacks

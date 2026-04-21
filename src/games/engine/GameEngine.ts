@@ -4,6 +4,7 @@ import type {
     GameUIState,
     GameEngineRef,
     DialogNode,
+    AABB2D,
 } from './types';
 import { buildCharacter, buildCollectibleMesh, type BuiltCharacter } from './CharacterBuilder';
 import { buildWorkshopRoom, buildWorkshopLighting } from './WorldBuilder';
@@ -38,6 +39,7 @@ export class GameEngine {
     private phase = 'intro';
     private gameStarted = false;
     private dialogActive = false;
+    private puzzleActive = false;
     private currentChoices: (() => void)[] = [];
     private collectedIds = new Set<string>();
     private puzzleSolved = false;
@@ -54,6 +56,7 @@ export class GameEngine {
     private pitch = 0.3;
     private mouseLocked = false;
     private keys: Record<string, boolean> = {};
+    private collisionBoxes: AABB2D[] = [];
 
     // Camera
     private camPos = new THREE.Vector3();
@@ -77,6 +80,10 @@ export class GameEngine {
     // Proximity detection
     private nearCharacterId: string | null = null;
     private nearCollectibleId: string | null = null;
+
+    // Persistent UI state (survives per-frame pushUIState calls)
+    private activeDialog: GameUIState['dialog'] = null;
+    private activePuzzle: GameUIState['puzzle'] = null;
 
     // Groups that need scale-in animation
     private revealGroups: THREE.Group[] = [];
@@ -175,6 +182,9 @@ export class GameEngine {
         this.gradientMap.magFilter = THREE.NearestFilter;
         this.gradientMap.minFilter = THREE.NearestFilter;
         this.gradientMap.needsUpdate = true;
+
+        // Shared collision list - WorldBuilder and setupScene both push to this
+        this.scene.userData.collisionBoxes = this.collisionBoxes;
 
         // Build room
         const preset = this.config.world.preset;
@@ -303,10 +313,17 @@ export class GameEngine {
         const onKeyDown = (e: KeyboardEvent) => {
             this.keys[e.code] = true;
 
-            // Dialog number keys
-            if (this.dialogActive && e.code.startsWith('Digit')) {
+            // Dialog / puzzle number keys
+            if (e.code.startsWith('Digit')) {
                 const num = parseInt(e.code.replace('Digit', ''));
-                if (num >= 1 && num <= this.currentChoices.length) {
+                if (this.puzzleActive) {
+                    const step = this.config.puzzle?.steps[this.puzzleStepIndex];
+                    if (step && num >= 1 && num <= step.options.length) {
+                        e.preventDefault();
+                        this.handlePuzzleAnswer(num - 1);
+                        return;
+                    }
+                } else if (this.dialogActive && num >= 1 && num <= this.currentChoices.length) {
                     e.preventDefault();
                     this.currentChoices[num - 1]();
                     return;
@@ -405,6 +422,7 @@ export class GameEngine {
         if (!node) return;
 
         this.dialogActive = true;
+        document.exitPointerLock();
 
         const text = typeof node.text === 'function' ? node.text() : node.text;
 
@@ -451,6 +469,8 @@ export class GameEngine {
     openPuzzle(): void {
         this.closeDialog();
         this.dialogActive = true;
+        this.puzzleActive = true;
+        document.exitPointerLock();
         this.puzzleStepIndex = 0;
         this.puzzleFeedback = '';
         this.renderPuzzleStep();
@@ -474,6 +494,7 @@ export class GameEngine {
                 // Puzzle complete
                 this.puzzleSolved = true;
                 this.dialogActive = false;
+                this.puzzleActive = false;
                 this.pushUIState({ puzzle: null });
 
                 // Advance quest
@@ -536,6 +557,22 @@ export class GameEngine {
         this.pushUIState({ questObjective: this.questObjective });
     }
 
+    private resolveCollisions(): void {
+        const r = 0.4;
+        const pos = this.player.group.position;
+        for (const box of this.collisionBoxes) {
+            const ox = Math.min(pos.x + r, box.maxX) - Math.max(pos.x - r, box.minX);
+            const oz = Math.min(pos.z + r, box.maxZ) - Math.max(pos.z - r, box.minZ);
+            if (ox > 0 && oz > 0) {
+                if (ox < oz) {
+                    pos.x += pos.x < (box.minX + box.maxX) / 2 ? -ox : ox;
+                } else {
+                    pos.z += pos.z < (box.minZ + box.maxZ) / 2 ? -oz : oz;
+                }
+            }
+        }
+    }
+
     private checkProximity(): void {
         if (this.dialogActive) {
             this.nearCharacterId = null;
@@ -594,6 +631,10 @@ export class GameEngine {
     // ─── Push state to React ─────────────────────────────────────────────────
 
     private pushUIState(override: Partial<GameUIState> = {}): void {
+        // Persist dialog/puzzle state across calls so per-frame updates don't reset them
+        if ('dialog' in override) this.activeDialog = override.dialog ?? null;
+        if ('puzzle' in override) this.activePuzzle = override.puzzle ?? null;
+
         const collectibles = this.config.collectibles ?? [];
         const parts = collectibles.map((c) => ({
             id: c.id,
@@ -606,8 +647,8 @@ export class GameEngine {
             questObjective: this.questObjective || this.config.quests[0]?.objective || '',
             questParts: parts,
             showInteractPrompt: !!(this.nearCharacterId || this.nearCollectibleId),
-            dialog: null,
-            puzzle: null,
+            dialog: this.activeDialog,
+            puzzle: this.activePuzzle,
             ended: false,
             endText: '',
         };
@@ -659,6 +700,7 @@ export class GameEngine {
         }
         this.velocity.y += GRAV * dt;
         this.player.group.position.addScaledVector(this.velocity, dt);
+        this.resolveCollisions();
 
         if (this.player.group.position.y <= 0) {
             this.player.group.position.y = 0;

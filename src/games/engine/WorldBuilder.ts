@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import type { AABB2D } from './types';
 
 function makeWoodTex(): THREE.Texture {
     const c = document.createElement('canvas');
@@ -199,7 +200,8 @@ export function buildWorkshopRoom(
     makeShelf(-hw + 0.1, 4, 3, Math.PI / 2, roomGroup, toonMat);
     makeShelf(hw - 0.1, 3.5, -2, -Math.PI / 2, roomGroup, toonMat);
 
-    for (const [bx, bz] of [[8, 7], [8, 5.5], [-8, 7], [7, -8]] as [number, number][]) {
+    const barrelPositions: [number, number][] = [[8, 7], [8, 5.5], [-8, 7], [7, -8]];
+    for (const [bx, bz] of barrelPositions) {
         const barrel = new THREE.Mesh(
             new THREE.CylinderGeometry(0.5, 0.45, 1.2, 12),
             toonMat(0x6b4423)
@@ -214,6 +216,21 @@ export function buildWorkshopRoom(
             barrel.add(band);
         }
         roomGroup.add(barrel);
+    }
+
+    // Register collision boxes (obstacle half-extents + player radius 0.4)
+    const boxes = scene.userData.collisionBoxes as AABB2D[] | undefined;
+    if (boxes) {
+        // Workbench at (0, 2), ry=0: 3×1.2 top
+        boxes.push({ minX: -1.9, maxX: 1.9, minZ: 1.0, maxZ: 3.0 });
+        // Workbench at (6, -4), ry=π/2: 1.2×3
+        boxes.push({ minX: 5.0, maxX: 7.0, minZ: -5.9, maxZ: -2.1 });
+        // Workbench at (-5, -6), ry=0: 3×1.2
+        boxes.push({ minX: -6.9, maxX: -3.1, minZ: -7.0, maxZ: -5.0 });
+        // Barrels (radius 0.5)
+        for (const [bx, bz] of barrelPositions) {
+            boxes.push({ minX: bx - 0.9, maxX: bx + 0.9, minZ: bz - 0.9, maxZ: bz + 0.9 });
+        }
     }
 }
 

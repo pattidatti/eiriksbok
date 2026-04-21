@@ -2,6 +2,8 @@ import type { Group, Scene, MeshToonMaterial } from 'three';
 
 export type SubjectId = 'historie' | 'norsk' | 'krle' | 'samfunnsfag' | 'musikk';
 
+export type AABB2D = { minX: number; maxX: number; minZ: number; maxZ: number };
+
 export interface DialogChoice {
     text: string;
     next: string | null;
