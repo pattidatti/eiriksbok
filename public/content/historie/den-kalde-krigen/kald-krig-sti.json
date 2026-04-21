@@ -504,6 +504,36 @@
                 ]
             },
             {
+                "id": "cold-war-divided-societies",
+                "title": "Delte samfunn: Tre grenser som formet Europa",
+                "type": "oppgave",
+                "content": "Berlinmuren falt i 1989. Men i Belfast og Nicosia står murene fortsatt. Noen skillelinjer er lette å rive - andre setter seg fast i generasjoner. I denne oppgaven skal dere sammenligne tre delte samfunn og finne ut hva de har til felles, og hva som skiller dem.",
+                "tasks": [
+                    "Les artikkelen [Berlinmuren](/historie/den-kalde-krigen/berlinmuren)",
+                    "Les artikkelen [Peace Lines: Murene som deler Belfast](/historie/den-kalde-krigen/peace-lines-belfast)",
+                    "Les artikkelen [Kypros: Europas siste delte by](/historie/den-kalde-krigen/kypros-delingslinjen)",
+                    "Lag et sammenligningsskjema: For hvert av de tre stedene - hva var skillelinjen (ideologi, religion eller etnisitet), hvem bygde grensen, og hva er situasjonen i dag?",
+                    "Kun ett av de tre stedene er gjenforent i dag. Hva tror du er grunnen til at Berlin lyktes, mens Belfast og Kypros fortsatt er delt?",
+                    "Hva er den viktigste likheten mellom de tre stedene? Og hva er den største forskjellen?",
+                    "Alle tre delingene ble bestemt av noen med makt. Hadde vanlige folk noe de skulle ha sagt? Hva sier dette om maktforhold?",
+                    "Gruppeoppgave (5-8 min): Presenter den viktigste likheten og forskjellen mellom de tre stedene. Svar på: Finnes det tilsvarende delte samfunn i verden i dag - og hva tror dere skal til for å forene dem?"
+                ],
+                "links": [
+                    {
+                        "title": "Berlinmuren",
+                        "url": "/historie/den-kalde-krigen/berlinmuren"
+                    },
+                    {
+                        "title": "Peace Lines: Murene som deler Belfast",
+                        "url": "/historie/den-kalde-krigen/peace-lines-belfast"
+                    },
+                    {
+                        "title": "Kypros: Europas siste delte by",
+                        "url": "/historie/den-kalde-krigen/kypros-delingslinjen"
+                    }
+                ]
+            },
+            {
                 "id": "cold-war-project",
                 "title": "Fordypningsoppgave",
                 "type": "oppgave",
