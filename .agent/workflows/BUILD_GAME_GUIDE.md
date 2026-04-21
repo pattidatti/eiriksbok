@@ -55,7 +55,8 @@ export const minSpillConfig: GameConfig = {
             name: 'Navn',
             position: [2, 0, -3],
             colors: { body: 0x5a3a2a, head: 0xe8b888, legs: 0x3a2515 },
-            face: 'excited',
+            characterType: 'scientist',   // 'scientist' | 'farmer' | 'noble'
+            defaultEmotion: 'glad',       // startemosjonen
             marker: true,
         },
     ],
@@ -222,7 +223,8 @@ interface GameConfig {
         name: string;
         position: [number, number, number];
         colors: { body: number; head: number; legs: number };
-        face?: 'happy' | 'excited';
+        characterType?: 'scientist' | 'farmer' | 'noble';  // aktiverer karikatyr-ansikt
+        defaultEmotion?: 'glad' | 'worried' | 'surprised' | 'triumphant';
         marker?: boolean;        // viser gul pil over NPC
         extras?: (group: THREE.Group) => void;  // legg til klær, frisyrer, osv.
     }>;
@@ -285,6 +287,7 @@ interface GameConfig {
 | `screenFlash()` | `() => void` | Hvit flash-effekt |
 | `cameraShake(amount, duration)` | `(number, number) => void` | Kameraskjelving |
 | `updateUI()` | `() => void` | Tvinger UI-oppdatering |
+| `setEmotion(id, emotion, resetAfterMs?)` | `(string, Emotion, number?) => void` | Bytter NPC-ansikt med smooth morph (se seksjon 10) |
 
 ---
 
@@ -368,12 +371,45 @@ scene.userData._engineRunUpdate = (dt: number) => { ... };  // motoranimasjon (e
 
 ---
 
-## 10. Referanseimplementasjon
+## 10. Emosjonssystem
+
+NPC-er med `characterType` får et karikatyr-ansikt som kan morphes mellom 4 emosjoner:
+
+| Emosjon | Beskrivelse | Brukseksempel |
+|---|---|---|
+| `'glad'` | Smile, kinnskjær, løftede øyebryn | Startemosjonen / etter fullført oppgave |
+| `'worried'` | Rynkede bryn (V-form), surmunn | Når noe går galt |
+| `'surprised'` | Store øyne, åpen munn, løftede bryn | Når noe viktig avdekkes |
+| `'triumphant'` | Bredt smil med tenner, armene i V | Ved seier / puzzle fullført |
+
+`setEmotion(id, emotion, resetAfterMs?)` morphes over 400ms. Med `resetAfterMs` returnerer ansiktet automatisk til `defaultEmotion` etter angitt antall millisekunder.
+
+```typescript
+// I puzzle-callbacks (i Assets.ts):
+config.puzzle.steps[0].onCorrect = () => {
+    animateReveal(minGruppe);
+    setEmotion('min-npc', 'surprised', 1500);  // surprised → glad etter 1.5s
+};
+config.puzzle.steps[2].onCorrect = () => {
+    setTimeout(() => startEngineAnimation(), 800);
+    setEmotion('min-npc', 'triumphant', 3000); // triumphant → glad etter 3s
+};
+```
+
+**Karaktertyper** styrer brynntykkelse, rynker og skjegg:
+- `'scientist'` — tykke bryn (2.2x), rynker under øynene, skjeggantydning
+- `'farmer'` — medium bryn (1.4x), bred kjeve
+- `'noble'` — tynne bryn (0.8x), smal kjeve
+
+---
+
+## 11. Referanseimplementasjon
 
 | Fil | Innhold |
 |---|---|
-| `src/games/watt-lab/WattLabConfig.ts` | Komplett `GameConfig` med dialog, quest, puzzle |
-| `src/games/watt-lab/WattLabAssets.ts` | Bygging av dampmaskin, esse, callback-kopling, kollisjonsbokser |
-| `src/games/engine/types.ts` | Alle typer: `GameConfig`, `GameEngineRef`, `AABB2D`, osv. |
+| `src/games/watt-lab/WattLabConfig.ts` | Komplett `GameConfig` med dialog, quest, puzzle og `characterType` |
+| `src/games/watt-lab/WattLabAssets.ts` | Bygging av dampmaskin, esse, callback-kopling, `setEmotion`-kall |
+| `src/games/engine/types.ts` | Alle typer: `GameConfig`, `GameEngineRef`, `Emotion`, `CharacterType`, `AABB2D`, osv. |
+| `src/games/engine/CharacterBuilder.ts` | `drawFace`, `lerpParams`, `EMOTION_PARAMS` — emosjonssystemets tegnelogikk |
 | `src/pages/MiniGamesPage.tsx` | Galleriside — legg til spill her |
 | `src/pages/GamePage.tsx` | `GAME_REGISTRY` — registrer spill-ID her |
