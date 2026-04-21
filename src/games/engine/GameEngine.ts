@@ -5,10 +5,115 @@ import type {
     GameEngineRef,
     DialogNode,
     AABB2D,
+    Emotion,
 } from './types';
-import { buildCharacter, buildCollectibleMesh, type BuiltCharacter } from './CharacterBuilder';
+import { buildCharacter, buildCollectibleMesh, drawFace, lerpParams, EMOTION_PARAMS, type BuiltCharacter } from './CharacterBuilder';
 import { buildWorkshopRoom, buildWorkshopLighting } from './WorldBuilder';
 import { DustSystem, SparkSystem } from './ParticleSystem';
+
+// Single-pass cinematic shader — safe for all devices (Chromebook included).
+// Warmth, vignette, film grain, and chromatic aberration in one fullscreen quad.
+const LightweightCinematicShader = {
+    uniforms: {
+        tDiffuse: { value: null },
+        time: { value: 0 },
+    },
+    vertexShader: `varying vec2 vUv; void main(){ vUv=uv; gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.); }`,
+    fragmentShader: `
+        uniform sampler2D tDiffuse;
+        uniform float time;
+        varying vec2 vUv;
+        void main(){
+            vec2 center = vUv - 0.5;
+            float edge = dot(center, center);
+
+            // Chromatic aberration — zero at centre, peaks at corners
+            float aberr = 0.0018 * edge;
+            float r = texture2D(tDiffuse, vUv + vec2(aberr,  0.0)).r;
+            float g = texture2D(tDiffuse, vUv                   ).g;
+            float b = texture2D(tDiffuse, vUv - vec2(aberr,  0.0)).b;
+            vec4 c = vec4(r, g, b, 1.0);
+
+            // Warm tint (forge atmosphere)
+            c.r = min(1.0, c.r * 1.06);
+            c.b *= 0.93;
+
+            // Vignette
+            c.rgb *= 1.0 - edge * 0.55;
+
+            // Film grain — pattern shifts at ~24fps for organic look
+            float grain = fract(
+                sin(dot(vUv + floor(time * 24.0) * 0.017, vec2(127.1, 311.7))) * 43758.5453
+            ) - 0.5;
+            c.rgb += grain * 0.022;
+
+            gl_FragColor = c;
+        }`,
+};
+
+// Extended cinematic shader for high-end — stronger aberration, richer grain
+const HighEndCinematicShader = {
+    uniforms: {
+        tDiffuse: { value: null },
+        warmth: { value: 0.08 },
+        time: { value: 0 },
+    },
+    vertexShader: `varying vec2 vUv; void main(){ vUv=uv; gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.); }`,
+    fragmentShader: `
+        uniform sampler2D tDiffuse;
+        uniform float warmth, time;
+        varying vec2 vUv;
+        void main(){
+            vec2 center = vUv - 0.5;
+            float edge = dot(center, center);
+
+            // Stronger chromatic aberration for high-res screens
+            float aberr = 0.003 * edge;
+            float r = texture2D(tDiffuse, vUv + vec2(aberr,  0.0)).r;
+            float g = texture2D(tDiffuse, vUv                   ).g;
+            float b = texture2D(tDiffuse, vUv - vec2(aberr,  0.0)).b;
+            vec4 c = vec4(r, g, b, 1.0);
+
+            // Warm tint
+            c.r = min(1.0, c.r * (1.0 + warmth));
+            c.b *= (1.0 - warmth * 0.5);
+
+            // Vignette
+            c.rgb *= 1.0 - edge * 0.45;
+
+            // Richer film grain
+            float grain = fract(
+                sin(dot(vUv + floor(time * 24.0) * 0.017, vec2(127.1, 311.7))) * 43758.5453
+            ) - 0.5;
+            c.rgb += grain * 0.028;
+
+            gl_FragColor = c;
+        }`,
+};
+
+// ─── Emotion system ──────────────────────────────────────────────────────────
+
+interface EmotionMorphState {
+    fromEmotion: Emotion;
+    toEmotion: Emotion;
+    progress: number;
+    morphDuration: number;
+    defaultEmotion: Emotion;
+    resetAfterMs?: number;
+}
+
+interface BodyTarget { headRotX: number; lArmRotZ: number; rArmRotZ: number; }
+
+const BODY_TARGETS: Record<Emotion, BodyTarget> = {
+    glad:       { headRotX: 0,     lArmRotZ: 0,     rArmRotZ: 0 },
+    worried:    { headRotX: 0.18,  lArmRotZ: 0.2,   rArmRotZ: -0.2 },
+    surprised:  { headRotX: -0.2,  lArmRotZ: 0.4,   rArmRotZ: -0.4 },
+    triumphant: { headRotX: -0.05, lArmRotZ: -1.65, rArmRotZ: 1.65 },
+};
+
+function easeInOut(t: number): number {
+    return t * t * (3 - 2 * t);
+}
 
 interface EngineOptions {
     container: HTMLDivElement;
@@ -31,10 +136,11 @@ export class GameEngine {
     private animFrameId = 0;
     private disposed = false;
 
-    // Post-processing (optional, high-end only)
+    // Post-processing (tiered: all devices get lightweight pass, high-end gets bloom too)
     private composer: unknown = null;
     private bloomPass: { strength: number; resolution: THREE.Vector2 } | null = null;
     private bloomTarget = 0.45;
+    private cinematicPass: { uniforms: { time: { value: number } } } | null = null;
 
     // State
     private phase = 'intro';
@@ -65,6 +171,11 @@ export class GameEngine {
     private shakeAmount = 0;
     private shakeDuration = 0;
     private shakeTimer = 0;
+
+    // Emotion state per NPC
+    private emotionStates = new Map<string, EmotionMorphState>();
+    private bodyTargets = new Map<string, BodyTarget>();
+    private triumphAnimStates = new Map<string, { t: number; duration: number }>();
 
     // NPCs and collectibles
     private characters: Map<string, BuiltCharacter & { config: { id: string; name: string } }> = new Map();
@@ -124,7 +235,11 @@ export class GameEngine {
         this.setupInput();
         this.setupResize();
 
-        if (!isLowEnd) this.setupPostProcessing();
+        if (isLowEnd) {
+            this.setupLowEndCompositor();
+        } else {
+            this.setupHighEndCompositor();
+        }
 
         // Init camera
         const [px, , pz] = options.config.player.startPosition;
@@ -171,6 +286,31 @@ export class GameEngine {
         this.pushUIState();
     }
 
+    setEmotion(id: string, emotion: Emotion, resetAfterMs?: number): void {
+        const char = this.characters.get(id);
+        if (!char || !char.characterType) return;
+
+        const existing = this.emotionStates.get(id);
+        const fromEmotion = existing?.toEmotion ?? (char.currentEmotion ?? 'glad');
+
+        this.emotionStates.set(id, {
+            fromEmotion,
+            toEmotion: emotion,
+            progress: 0,
+            morphDuration: 0.4,
+            defaultEmotion: char.defaultEmotion ?? 'glad',
+            resetAfterMs,
+        });
+
+        this.bodyTargets.set(id, BODY_TARGETS[emotion]);
+
+        if (emotion === 'triumphant') {
+            this.triumphAnimStates.set(id, { t: 0, duration: 1.5 });
+        }
+
+        char.currentEmotion = emotion;
+    }
+
     // ─── Private setup ───────────────────────────────────────────────────────
 
     private gradientMap!: THREE.DataTexture;
@@ -209,7 +349,6 @@ export class GameEngine {
                 name: 'Spiller',
                 position: playerCfg.startPosition,
                 colors: playerCfg.colors,
-                face: 'happy',
                 extras: (g) => {
                     // Default player hat
                     const hat = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.3, 0.15, 3), this.toonMat(0x1a0f08));
@@ -227,6 +366,13 @@ export class GameEngine {
         for (const charCfg of this.config.characters) {
             const built = buildCharacter(charCfg, this.toonMat.bind(this), this.renderer, this.scene);
             this.characters.set(charCfg.id, { ...built, config: { id: charCfg.id, name: charCfg.name } });
+        }
+
+        // Initialize body targets for characters with a default emotion
+        for (const charCfg of this.config.characters) {
+            if (charCfg.characterType && charCfg.defaultEmotion) {
+                this.bodyTargets.set(charCfg.id, BODY_TARGETS[charCfg.defaultEmotion]);
+            }
         }
 
         // Build collectibles
@@ -251,12 +397,33 @@ export class GameEngine {
                 openPuzzle: this.openPuzzle.bind(this),
                 triggerEnd: this.triggerEnd.bind(this),
                 updateUI: this.updateUI.bind(this),
+                setEmotion: this.setEmotion.bind(this),
             };
             this.config.setupScene(ref);
         }
     }
 
-    private async setupPostProcessing(): Promise<void> {
+    // Lightweight single-pass compositor — safe for Chromebook
+    private async setupLowEndCompositor(): Promise<void> {
+        try {
+            const [{ EffectComposer }, { RenderPass }, { ShaderPass }] = await Promise.all([
+                import('three/addons/postprocessing/EffectComposer.js'),
+                import('three/addons/postprocessing/RenderPass.js'),
+                import('three/addons/postprocessing/ShaderPass.js'),
+            ]);
+            const composer = new EffectComposer(this.renderer);
+            composer.addPass(new RenderPass(this.scene, this.camera));
+            const pass = new ShaderPass(LightweightCinematicShader);
+            composer.addPass(pass);
+            this.composer = composer;
+            this.cinematicPass = pass as unknown as { uniforms: { time: { value: number } } };
+        } catch (e) {
+            console.warn('Lightweight compositor unavailable:', e);
+        }
+    }
+
+    // Full pipeline — bloom + cinematic shader for high-end devices
+    private async setupHighEndCompositor(): Promise<void> {
         try {
             const [
                 { EffectComposer },
@@ -279,32 +446,12 @@ export class GameEngine {
             );
             composer.addPass(bloomPass);
 
-            const VignetteShader = {
-                uniforms: {
-                    tDiffuse: { value: null },
-                    strength: { value: 0.18 },
-                    warmth: { value: 0.08 },
-                    time: { value: 0 },
-                },
-                vertexShader: `varying vec2 vUv; void main(){ vUv=uv; gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.); }`,
-                fragmentShader: `
-                    uniform sampler2D tDiffuse; uniform float strength, warmth, time;
-                    varying vec2 vUv;
-                    void main(){
-                        vec4 c=texture2D(tDiffuse,vUv);
-                        c.r=min(1.,c.r*(1.+warmth)); c.b*=(1.-warmth*0.5);
-                        vec2 uv=vUv-0.5; float d=dot(uv,uv);
-                        c.rgb*=1.-d*strength*2.5;
-                        float grain=(fract(sin(dot(vUv*time,vec2(12.9898,78.233)))*43758.5453)-0.5)*0.025;
-                        c.rgb+=grain;
-                        gl_FragColor=c;
-                    }`,
-            };
-            const vignettePass = new ShaderPass(VignetteShader);
-            composer.addPass(vignettePass);
+            const cinematicPass = new ShaderPass(HighEndCinematicShader);
+            composer.addPass(cinematicPass);
 
             this.composer = composer;
             this.bloomPass = bloomPass;
+            this.cinematicPass = cinematicPass as unknown as { uniforms: { time: { value: number } } };
         } catch (e) {
             console.warn('Post-processing unavailable:', e);
         }
@@ -759,6 +906,47 @@ export class GameEngine {
             }
         }
 
+        // ── Emotion face morph ─────────────────────────────────────────────────
+        for (const [id, ms] of this.emotionStates) {
+            if (ms.progress < 1) {
+                ms.progress = Math.min(1, ms.progress + dt / ms.morphDuration);
+                const char = this.characters.get(id);
+                if (char?.faceCtx && char.faceTexture && char.characterType) {
+                    const t = easeInOut(ms.progress);
+                    const p = lerpParams(EMOTION_PARAMS[ms.fromEmotion], EMOTION_PARAMS[ms.toEmotion], t);
+                    drawFace(char.faceCtx, p, char.characterType);
+                    char.faceTexture.needsUpdate = true;
+                }
+            }
+            if (ms.resetAfterMs !== undefined && ms.progress >= 1) {
+                ms.resetAfterMs -= dt * 1000;
+                if (ms.resetAfterMs <= 0) {
+                    this.setEmotion(id, ms.defaultEmotion);
+                    // setEmotion replaced this map entry; no explicit delete needed
+                }
+            }
+        }
+
+        // ── Body pose lerp ─────────────────────────────────────────────────────
+        for (const [id, target] of this.bodyTargets) {
+            const char = this.characters.get(id);
+            if (!char) continue;
+            const spd = Math.min(1, dt * 5);
+            char.head.rotation.x += (target.headRotX - char.head.rotation.x) * spd;
+            char.lArm.rotation.z += (target.lArmRotZ - char.lArm.rotation.z) * spd;
+            char.rArm.rotation.z += (target.rArmRotZ - char.rArm.rotation.z) * spd;
+        }
+
+        // ── Triumphant arm-V one-shot ──────────────────────────────────────────
+        for (const [id, anim] of this.triumphAnimStates) {
+            anim.t = Math.min(1, anim.t + dt / anim.duration);
+            const char = this.characters.get(id);
+            if (char) {
+                char.head.position.y = 1.55 + Math.sin(anim.t * Math.PI * 2) * 0.04 * (1 - anim.t);
+            }
+            if (anim.t >= 1) this.triumphAnimStates.delete(id);
+        }
+
         // Collectible hover animations
         for (const col of this.collectibleMeshes.values()) {
             const base = col.group.userData.baseMesh as THREE.Mesh | undefined;
@@ -828,6 +1016,9 @@ export class GameEngine {
         // Post-processing
         if (this.bloomPass) {
             this.bloomPass.strength += (this.bloomTarget - this.bloomPass.strength) * dt * 3;
+        }
+        if (this.cinematicPass) {
+            this.cinematicPass.uniforms.time.value = this.time;
         }
 
         // Handle flash

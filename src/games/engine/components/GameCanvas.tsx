@@ -88,21 +88,8 @@ export function GameCanvas({ config }: GameCanvasProps) {
             className="relative w-full overflow-hidden bg-stone-900"
             style={{ height: 'calc(100dvh - 4rem)' }}
         >
-            {/* Three.js canvas — CSS color grading for richer visuals on all devices */}
-            <div
-                ref={containerRef}
-                className="absolute inset-0"
-                style={{ filter: 'saturate(1.15) contrast(1.06)' }}
-            />
-
-            {/* CSS vignette — cinematic focus for all devices (replaces GPU shader on low-end) */}
-            <div
-                className="absolute inset-0 pointer-events-none"
-                style={{
-                    background: 'radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.38) 100%)',
-                    zIndex: 1,
-                }}
-            />
+            {/* Three.js canvas — cinematic effects handled by shader (all devices) */}
+            <div ref={containerRef} className="absolute inset-0" />
 
             {/* Title screen */}
             {!uiState.started && !uiState.ended && (

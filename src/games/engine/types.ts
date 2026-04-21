@@ -4,6 +4,9 @@ export type SubjectId = 'historie' | 'norsk' | 'krle' | 'samfunnsfag' | 'musikk'
 
 export type AABB2D = { minX: number; maxX: number; minZ: number; maxZ: number };
 
+export type Emotion = 'glad' | 'worried' | 'surprised' | 'triumphant';
+export type CharacterType = 'scientist' | 'farmer' | 'noble';
+
 export interface DialogChoice {
     text: string;
     next: string | null;
@@ -41,7 +44,8 @@ export interface CharacterConfig {
     name: string;
     position: [number, number, number];
     colors: CharacterColors;
-    face?: 'happy' | 'excited';
+    characterType?: CharacterType;
+    defaultEmotion?: Emotion;
     extras?: (group: Group) => void;
     marker?: boolean;
 }
@@ -81,6 +85,7 @@ export interface GameEngineRef {
     openPuzzle: () => void;
     triggerEnd: () => void;
     updateUI: () => void;
+    setEmotion: (id: string, emotion: Emotion, resetAfterMs?: number) => void;
 }
 
 export interface GameConfig {

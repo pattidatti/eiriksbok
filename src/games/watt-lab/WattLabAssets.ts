@@ -173,7 +173,7 @@ function buildForge(toonMat: GameEngineRef['toonMat']): {
 // ─── Main setup function ─────────────────────────────────────────────────────
 
 export function setupWattLabScene(engine: GameEngineRef): void {
-    const { scene, toonMat, config, animateReveal, startEngineAnimation, openPuzzle, triggerEnd } = engine;
+    const { scene, toonMat, config, animateReveal, startEngineAnimation, openPuzzle, triggerEnd, setEmotion } = engine;
 
     // Engine platform
     const engineGroup = new THREE.Group();
@@ -286,6 +286,7 @@ export function setupWattLabScene(engine: GameEngineRef): void {
     if (config.puzzle) {
         config.puzzle.steps[0].onCorrect = () => {
             animateReveal(boilerGroup);
+            setEmotion('watt', 'surprised', 1500);
         };
         config.puzzle.steps[1].onCorrect = () => {
             for (const obj of [cylinderGroup, beamPivot, beamTower, beamGroup]) {
@@ -295,6 +296,7 @@ export function setupWattLabScene(engine: GameEngineRef): void {
                 }
             }
             pipe1.visible = true;
+            setEmotion('watt', 'glad', 1000);
         };
         config.puzzle.steps[2].onCorrect = () => {
             condenserGroup.visible = true;
@@ -303,6 +305,7 @@ export function setupWattLabScene(engine: GameEngineRef): void {
             animateReveal(condenserGroup);
             animateReveal(flywheelGroup);
             setTimeout(() => startEngineAnimation(), 800);
+            setEmotion('watt', 'triumphant', 3000);
         };
     }
 }

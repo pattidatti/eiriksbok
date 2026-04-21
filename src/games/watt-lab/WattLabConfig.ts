@@ -30,7 +30,8 @@ export const wattLabConfig: GameConfig = {
             name: 'James Watt',
             position: [2.5, 0, -3],
             colors: { body: 0x5a3a2a, head: 0xe8b888, legs: 0x3a2515 },
-            face: 'excited',
+            characterType: 'scientist',
+            defaultEmotion: 'glad',
             marker: true,
             extras: (g) => {
                 const apron = new THREE.Mesh(

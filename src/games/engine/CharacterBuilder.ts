@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import type { CharacterConfig } from './types';
+import type { CharacterConfig, Emotion, CharacterType } from './types';
 
 function addOutline(mesh: THREE.Mesh, scale = 1.06): void {
     const outline = new THREE.Mesh(
@@ -10,48 +10,108 @@ function addOutline(mesh: THREE.Mesh, scale = 1.06): void {
     mesh.add(outline);
 }
 
-function makeFaceTex(style: 'happy' | 'excited', renderer: THREE.WebGLRenderer): THREE.Texture {
-    const c = document.createElement('canvas');
-    c.width = 128;
-    c.height = 128;
-    const x = c.getContext('2d')!;
-    x.clearRect(0, 0, 128, 128);
+// ─── Parametric face drawing system ─────────────────────────────────────────
 
-    if (style === 'happy') {
-        x.fillStyle = '#1a1008';
-        x.beginPath(); x.arc(42, 48, 10, 0, Math.PI * 2); x.fill();
-        x.beginPath(); x.arc(86, 48, 10, 0, Math.PI * 2); x.fill();
-        x.fillStyle = '#fff';
-        x.beginPath(); x.arc(46, 44, 4, 0, Math.PI * 2); x.fill();
-        x.beginPath(); x.arc(90, 44, 4, 0, Math.PI * 2); x.fill();
-        x.strokeStyle = '#1a1008'; x.lineWidth = 4; x.lineCap = 'round';
-        x.beginPath(); x.arc(64, 62, 22, 0.15 * Math.PI, 0.85 * Math.PI); x.stroke();
-        x.fillStyle = 'rgba(220,120,100,0.35)';
-        x.beginPath(); x.arc(30, 68, 12, 0, Math.PI * 2); x.fill();
-        x.beginPath(); x.arc(98, 68, 12, 0, Math.PI * 2); x.fill();
-    } else {
-        x.fillStyle = '#1a1008';
-        x.beginPath(); x.arc(42, 46, 12, 0, Math.PI * 2); x.fill();
-        x.beginPath(); x.arc(86, 46, 12, 0, Math.PI * 2); x.fill();
-        x.fillStyle = '#fff';
-        x.beginPath(); x.arc(47, 42, 5, 0, Math.PI * 2); x.fill();
-        x.beginPath(); x.arc(91, 42, 5, 0, Math.PI * 2); x.fill();
-        x.fillStyle = '#1a1008';
-        x.beginPath(); x.arc(64, 68, 20, 0, Math.PI); x.fill();
-        x.fillStyle = '#fff';
-        x.fillRect(50, 68, 28, 6);
-        x.strokeStyle = '#1a1008'; x.lineWidth = 3; x.lineCap = 'round';
-        x.beginPath(); x.moveTo(28, 30); x.quadraticCurveTo(42, 22, 56, 30); x.stroke();
-        x.beginPath(); x.moveTo(72, 30); x.quadraticCurveTo(86, 22, 100, 30); x.stroke();
-        x.fillStyle = 'rgba(220,120,100,0.3)';
-        x.beginPath(); x.arc(28, 70, 10, 0, Math.PI * 2); x.fill();
-        x.beginPath(); x.arc(100, 70, 10, 0, Math.PI * 2); x.fill();
+export interface DrawParams {
+    eyeSize: number;     // 0.5 = squinted, 1.5 = enormous
+    eyeOffsetY: number;  // px, positive = upward (cheeks push eyes up)
+    mouthCurve: number;  // -1 = frown, 1 = broad smile
+    mouthWidth: number;  // 0.4–0.9 relative width
+    mouthOpen: number;   // 0 = closed, 1 = O-gap
+    cheekPuff: number;   // 0–1
+    browAngle: number;   // -1 = V-furrow, 1 = raised surprised
+    teethShow: number;   // 0–1 (only visible when mouthOpen > 0.3)
+}
+
+interface TypeModifier {
+    browThickness: number;
+    wrinkles: boolean;
+    jawScale: number;
+    beardHint: boolean;
+}
+
+export const EMOTION_PARAMS: Record<Emotion, DrawParams> = {
+    glad:       { eyeSize: 0.7,  eyeOffsetY: 2,  mouthCurve: 0.85,  mouthWidth: 0.65, mouthOpen: 0.2,  cheekPuff: 0.75, browAngle: 0.15, teethShow: 0.0 },
+    worried:    { eyeSize: 0.85, eyeOffsetY: -2, mouthCurve: -0.55, mouthWidth: 0.5,  mouthOpen: 0.0,  cheekPuff: 0.0,  browAngle: -0.6, teethShow: 0.0 },
+    surprised:  { eyeSize: 1.5,  eyeOffsetY: 5,  mouthCurve: 0.0,   mouthWidth: 0.5,  mouthOpen: 0.95, cheekPuff: 0.0,  browAngle: 1.0,  teethShow: 0.0 },
+    triumphant: { eyeSize: 0.55, eyeOffsetY: 4,  mouthCurve: 1.0,   mouthWidth: 0.82, mouthOpen: 0.45, cheekPuff: 1.0,  browAngle: 0.35, teethShow: 0.9 },
+};
+
+const TYPE_MODIFIERS: Record<CharacterType, TypeModifier> = {
+    scientist: { browThickness: 2.2, wrinkles: true,  jawScale: 0.9,  beardHint: true  },
+    farmer:    { browThickness: 1.4, wrinkles: false, jawScale: 1.15, beardHint: false },
+    noble:     { browThickness: 0.8, wrinkles: false, jawScale: 0.85, beardHint: false },
+};
+
+export function lerpParams(a: DrawParams, b: DrawParams, t: number): DrawParams {
+    return {
+        eyeSize:    a.eyeSize    + (b.eyeSize    - a.eyeSize)    * t,
+        eyeOffsetY: a.eyeOffsetY + (b.eyeOffsetY - a.eyeOffsetY) * t,
+        mouthCurve: a.mouthCurve + (b.mouthCurve - a.mouthCurve) * t,
+        mouthWidth: a.mouthWidth + (b.mouthWidth - a.mouthWidth) * t,
+        mouthOpen:  a.mouthOpen  + (b.mouthOpen  - a.mouthOpen)  * t,
+        cheekPuff:  a.cheekPuff  + (b.cheekPuff  - a.cheekPuff)  * t,
+        browAngle:  a.browAngle  + (b.browAngle  - a.browAngle)  * t,
+        teethShow:  a.teethShow  + (b.teethShow  - a.teethShow)  * t,
+    };
+}
+
+export function drawFace(ctx: CanvasRenderingContext2D, p: DrawParams, type: CharacterType): void {
+    const mod = TYPE_MODIFIERS[type];
+    ctx.clearRect(0, 0, 128, 128);
+
+    // Blush cheeks
+    if (p.cheekPuff > 0.05) {
+        ctx.fillStyle = `rgba(220,110,90,${(0.45 * p.cheekPuff).toFixed(2)})`;
+        ctx.beginPath(); ctx.arc(22, 72, 12 * p.cheekPuff, 0, Math.PI * 2); ctx.fill();
+        ctx.beginPath(); ctx.arc(106, 72, 12 * p.cheekPuff, 0, Math.PI * 2); ctx.fill();
     }
 
-    void renderer;
-    const t = new THREE.CanvasTexture(c);
-    t.needsUpdate = true;
-    return t;
+    // Eyes
+    const eyeY = 50 - p.eyeOffsetY * 1.8;
+    const ew = 13 * p.eyeSize, eh = 15 * p.eyeSize;
+    ctx.fillStyle = '#1a1008';
+    ctx.beginPath(); ctx.ellipse(38, eyeY, ew / 2, eh / 2, 0, 0, Math.PI * 2); ctx.fill();
+    ctx.beginPath(); ctx.ellipse(90, eyeY, ew / 2, eh / 2, 0, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = '#ffffff';
+    ctx.beginPath(); ctx.arc(38 + ew * 0.22, eyeY - eh * 0.22, 3, 0, Math.PI * 2); ctx.fill();
+    ctx.beginPath(); ctx.arc(90 + ew * 0.22, eyeY - eh * 0.22, 3, 0, Math.PI * 2); ctx.fill();
+
+    // Eyebrows
+    const browY = eyeY - eh / 2 - 6;
+    ctx.strokeStyle = '#1a1008';
+    ctx.lineWidth = 3 * mod.browThickness;
+    ctx.lineCap = 'round';
+    ctx.beginPath(); ctx.moveTo(26, browY); ctx.quadraticCurveTo(39, browY - p.browAngle * 12, 52, browY); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(76, browY); ctx.quadraticCurveTo(89, browY - p.browAngle * 12, 102, browY); ctx.stroke();
+
+    // Mouth
+    const mx = 64, mouthY = 84, mw = p.mouthWidth * 26;
+    if (p.mouthOpen > 0.3) {
+        ctx.fillStyle = '#1a1008';
+        ctx.beginPath(); ctx.ellipse(mx, mouthY, mw, p.mouthOpen * 13, 0, 0, Math.PI * 2); ctx.fill();
+        if (p.teethShow > 0.1) {
+            ctx.fillStyle = `rgba(255,252,240,${p.teethShow.toFixed(2)})`;
+            ctx.beginPath(); ctx.ellipse(mx, mouthY - 2, mw - 3, p.mouthOpen * 6.5, 0, Math.PI, Math.PI * 2); ctx.fill();
+        }
+    } else {
+        ctx.strokeStyle = '#1a1008';
+        ctx.lineWidth = 3.5;
+        ctx.beginPath(); ctx.moveTo(mx - mw, mouthY); ctx.quadraticCurveTo(mx, mouthY + p.mouthCurve * 16, mx + mw, mouthY); ctx.stroke();
+    }
+
+    // Scientist extras
+    if (mod.wrinkles) {
+        ctx.strokeStyle = 'rgba(100,60,20,0.35)';
+        ctx.lineWidth = 1.2;
+        ctx.beginPath(); ctx.arc(38, eyeY + eh / 2 + 3, 7, 0.1 * Math.PI, 0.9 * Math.PI); ctx.stroke();
+        ctx.beginPath(); ctx.arc(90, eyeY + eh / 2 + 3, 7, 0.1 * Math.PI, 0.9 * Math.PI); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(44, 22); ctx.quadraticCurveTo(64, 20, 84, 22); ctx.stroke();
+    }
+    if (mod.beardHint) {
+        ctx.fillStyle = 'rgba(160,140,120,0.5)';
+        ctx.beginPath(); ctx.ellipse(64, 103, 22, 9, 0, 0, Math.PI * 2); ctx.fill();
+    }
 }
 
 export interface BuiltCharacter {
@@ -63,6 +123,12 @@ export interface BuiltCharacter {
     lLeg: THREE.Mesh;
     rLeg: THREE.Mesh;
     marker?: THREE.Mesh;
+    faceCanvas?: HTMLCanvasElement;
+    faceCtx?: CanvasRenderingContext2D;
+    faceTexture?: THREE.CanvasTexture;
+    characterType?: CharacterType;
+    currentEmotion?: Emotion;
+    defaultEmotion?: Emotion;
 }
 
 export function buildCharacter(
@@ -89,15 +155,26 @@ export function buildCharacter(
     addOutline(head, 1.08);
     g.add(head);
 
-    if (config.face) {
-        const faceTex = makeFaceTex(config.face, renderer);
+    let faceCanvas: HTMLCanvasElement | undefined;
+    let faceCtx: CanvasRenderingContext2D | undefined;
+    let faceTexture: THREE.CanvasTexture | undefined;
+
+    if (config.characterType) {
+        faceCanvas = document.createElement('canvas');
+        faceCanvas.width = 128;
+        faceCanvas.height = 128;
+        faceCtx = faceCanvas.getContext('2d')!;
+        drawFace(faceCtx, EMOTION_PARAMS[config.defaultEmotion ?? 'glad'], config.characterType);
+        faceTexture = new THREE.CanvasTexture(faceCanvas);
         const facePlane = new THREE.Mesh(
             new THREE.PlaneGeometry(0.28, 0.28),
-            new THREE.MeshBasicMaterial({ map: faceTex, transparent: true, depthWrite: false })
+            new THREE.MeshBasicMaterial({ map: faceTexture, transparent: true, depthWrite: false })
         );
         facePlane.position.set(0, 1.55, 0.24);
         g.add(facePlane);
     }
+
+    void renderer;
 
     const lArm = new THREE.Mesh(
         new THREE.BoxGeometry(0.15, 0.7, 0.15),
@@ -139,7 +216,13 @@ export function buildCharacter(
         g.add(marker);
     }
 
-    return { group: g, body, head, lArm, rArm, lLeg, rLeg, marker };
+    return {
+        group: g, body, head, lArm, rArm, lLeg, rLeg, marker,
+        faceCanvas, faceCtx, faceTexture,
+        characterType: config.characterType,
+        currentEmotion: config.defaultEmotion ?? (config.characterType ? 'glad' : undefined),
+        defaultEmotion: config.defaultEmotion,
+    };
 }
 
 export function buildCollectibleMesh(
