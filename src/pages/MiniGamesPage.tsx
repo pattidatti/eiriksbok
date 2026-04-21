@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom';
 import { wattLabConfig } from '../games/watt-lab/WattLabConfig';
 import { lindisfarneConfig } from '../games/lindisfarne-793/LindisfarneConfig';
+import { fordFactoryConfig } from '../games/ford-factory/FordFactoryConfig';
 import type { GameConfig } from '../games/engine/types';
 
 // All registered historical games - add new entries here
-const HISTORICAL_GAMES: GameConfig[] = [wattLabConfig, lindisfarneConfig];
+const HISTORICAL_GAMES: GameConfig[] = [wattLabConfig, lindisfarneConfig, fordFactoryConfig];
 
 const subjectColors: Record<string, string> = {
     historie: 'bg-amber-100 text-amber-800',

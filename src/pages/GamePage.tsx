@@ -3,12 +3,14 @@ import { Suspense } from 'react';
 import { GameCanvas } from '../games/engine/components/GameCanvas';
 import { wattLabConfig } from '../games/watt-lab/WattLabConfig';
 import { lindisfarneConfig } from '../games/lindisfarne-793/LindisfarneConfig';
+import { fordFactoryConfig } from '../games/ford-factory/FordFactoryConfig';
 import type { GameConfig } from '../games/engine/types';
 
 // Registry: map game IDs to their configs
 const GAME_REGISTRY: Record<string, GameConfig> = {
     'watt-lab': wattLabConfig,
     'lindisfarne-793': lindisfarneConfig,
+    'ford-factory': fordFactoryConfig,
 };
 
 function GameLoader({ gameId }: { gameId: string }) {
