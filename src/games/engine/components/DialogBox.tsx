@@ -1,3 +1,5 @@
+import { GamePanel } from './GamePanel';
+
 interface DialogState {
     visible: boolean;
     speaker: string;
@@ -10,28 +12,25 @@ interface DialogBoxProps {
     onChoice: (index: number) => void;
 }
 
+const keyBadge: React.CSSProperties = {
+    display: 'inline-block',
+    background: 'rgba(0,0,0,0.45)',
+    border: '1px solid #8b6f47',
+    borderRadius: 3,
+    fontFamily: 'monospace',
+    fontSize: 12,
+    padding: '1px 6px',
+    marginRight: 10,
+    color: '#d4a574',
+    minWidth: 20,
+    textAlign: 'center',
+};
+
 export function DialogBox({ dialog, onChoice }: DialogBoxProps) {
     if (!dialog.visible) return null;
 
     return (
-        <div
-            style={{
-                position: 'absolute',
-                bottom: 30,
-                left: '50%',
-                transform: 'translateX(-50%)',
-                width: 'min(720px, 90vw)',
-                background: 'rgba(20,12,6,0.95)',
-                border: '3px solid #8b6f47',
-                borderRadius: 6,
-                padding: '22px 28px',
-                boxShadow: '0 8px 40px rgba(0,0,0,0.8), 0 0 60px rgba(139,111,71,0.15)',
-                backdropFilter: 'blur(8px)',
-                fontFamily: "Georgia, 'Times New Roman', serif",
-                color: '#f4e4c1',
-                zIndex: 10,
-            }}
-        >
+        <GamePanel>
             <div
                 style={{
                     fontSize: 17,
@@ -89,13 +88,11 @@ export function DialogBox({ dialog, onChoice }: DialogBoxProps) {
                             el.style.transform = 'translateX(0)';
                         }}
                     >
-                        <span style={{ color: '#d4a574', fontWeight: 'bold', marginRight: 8 }}>
-                            [{i + 1}]
-                        </span>
+                        <span style={keyBadge}>{i + 1}</span>
                         {choice}
                     </button>
                 ))}
             </div>
-        </div>
+        </GamePanel>
     );
 }

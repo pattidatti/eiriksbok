@@ -124,4 +124,5 @@ export interface GameUIState {
     } | null;
     ended: boolean;
     endText: string;
+    showFlash?: boolean;
 }

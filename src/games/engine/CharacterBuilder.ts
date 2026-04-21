@@ -1,6 +1,15 @@
 import * as THREE from 'three';
 import type { CharacterConfig } from './types';
 
+function addOutline(mesh: THREE.Mesh, scale = 1.06): void {
+    const outline = new THREE.Mesh(
+        mesh.geometry,
+        new THREE.MeshBasicMaterial({ color: 0x000000, side: THREE.BackSide })
+    );
+    outline.scale.setScalar(scale);
+    mesh.add(outline);
+}
+
 function makeFaceTex(style: 'happy' | 'excited', renderer: THREE.WebGLRenderer): THREE.Texture {
     const c = document.createElement('canvas');
     c.width = 128;
@@ -68,13 +77,17 @@ export function buildCharacter(
         new THREE.BoxGeometry(0.5, 0.8, 0.35),
         toonMat(config.colors.body)
     );
-    body.position.y = 0.9; body.castShadow = true; g.add(body);
+    body.position.y = 0.9; body.castShadow = true;
+    addOutline(body);
+    g.add(body);
 
     const head = new THREE.Mesh(
         new THREE.SphereGeometry(0.25, 16, 16),
         toonMat(config.colors.head)
     );
-    head.position.y = 1.55; head.castShadow = true; g.add(head);
+    head.position.y = 1.55; head.castShadow = true;
+    addOutline(head, 1.08);
+    g.add(head);
 
     if (config.face) {
         const faceTex = makeFaceTex(config.face, renderer);
@@ -145,6 +158,7 @@ export function buildCollectibleMesh(
 
     const mesh = new THREE.Mesh(geoMap[geometry], toonMat(color));
     mesh.castShadow = true;
+    addOutline(mesh);
     g.add(mesh);
 
     const ring = new THREE.Mesh(

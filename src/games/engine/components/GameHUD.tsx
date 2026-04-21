@@ -9,9 +9,10 @@ interface GameHUDProps {
     questParts: QuestPart[];
     showInteractPrompt: boolean;
     showFlash: boolean;
+    toast?: string;
 }
 
-export function GameHUD({ questObjective, questParts, showInteractPrompt, showFlash }: GameHUDProps) {
+export function GameHUD({ questObjective, questParts, showInteractPrompt, showFlash, toast }: GameHUDProps) {
     return (
         <>
             {/* Quest HUD */}
@@ -30,6 +31,7 @@ export function GameHUD({ questObjective, questParts, showInteractPrompt, showFl
                     color: '#f4e4c1',
                     fontFamily: "Georgia, 'Times New Roman', serif",
                     pointerEvents: 'none',
+                    zIndex: 10,
                 }}
             >
                 <h2
@@ -72,6 +74,31 @@ export function GameHUD({ questObjective, questParts, showInteractPrompt, showFl
                 )}
             </div>
 
+            {/* Collectible pickup toast */}
+            {toast && (
+                <div
+                    style={{
+                        position: 'absolute',
+                        top: 20,
+                        left: '50%',
+                        transform: 'translateX(-50%)',
+                        background: 'rgba(20,12,6,0.92)',
+                        border: '2px solid #90c090',
+                        color: '#90c090',
+                        padding: '8px 20px',
+                        borderRadius: 4,
+                        fontSize: 14,
+                        fontFamily: "Georgia, 'Times New Roman', serif",
+                        animation: 'toastFadeIn 0.3s ease',
+                        pointerEvents: 'none',
+                        zIndex: 12,
+                        whiteSpace: 'nowrap',
+                    }}
+                >
+                    ✓ {toast} samlet
+                </div>
+            )}
+
             {/* Controls hint */}
             <div
                 style={{
@@ -88,6 +115,7 @@ export function GameHUD({ questObjective, questParts, showInteractPrompt, showFl
                     backdropFilter: 'blur(4px)',
                     fontFamily: "Georgia, 'Times New Roman', serif",
                     pointerEvents: 'none',
+                    zIndex: 10,
                 }}
             >
                 <span style={{ color: '#d4a574' }}>WASD</span> bevege
@@ -116,6 +144,7 @@ export function GameHUD({ questObjective, questParts, showInteractPrompt, showFl
                         fontFamily: "Georgia, 'Times New Roman', serif",
                         pointerEvents: 'none',
                         animation: 'promptPulse 1.5s infinite',
+                        zIndex: 10,
                     }}
                 >
                     Trykk <strong style={{ color: '#d4a574' }}>E</strong> for å interagere
@@ -139,6 +168,10 @@ export function GameHUD({ questObjective, questParts, showInteractPrompt, showFl
                 @keyframes promptPulse {
                     0%, 100% { box-shadow: 0 0 10px rgba(212,165,116,0.3); }
                     50% { box-shadow: 0 0 25px rgba(212,165,116,0.7); }
+                }
+                @keyframes toastFadeIn {
+                    from { opacity: 0; transform: translateX(-50%) translateY(-8px); }
+                    to { opacity: 1; transform: translateX(-50%) translateY(0); }
                 }
             `}</style>
         </>

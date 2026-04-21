@@ -16,6 +16,7 @@ interface EngineOptions {
     onUIUpdate: (state: Partial<GameUIState>) => void;
     onStart: () => void;
     onEnd: (text: string) => void;
+    onCollect?: (name: string) => void;
 }
 
 export class GameEngine {
@@ -177,7 +178,7 @@ export class GameEngine {
 
     private buildScene(): void {
         // Gradient map for toon shading
-        const gradData = new Uint8Array([160, 190, 220, 240, 255]);
+        const gradData = new Uint8Array([0, 80, 150, 185, 210, 235, 255]);
         this.gradientMap = new THREE.DataTexture(gradData, gradData.length, 1, THREE.RedFormat);
         this.gradientMap.magFilter = THREE.NearestFilter;
         this.gradientMap.minFilter = THREE.NearestFilter;
@@ -540,6 +541,7 @@ export class GameEngine {
         this.scene.remove(col.group);
         this.collectibleMeshes.delete(id);
         this.flashPending = true;
+        this.options.onCollect?.(col.config.name);
 
         const total = this.config.collectibles?.length ?? 0;
         const count = this.collectedIds.size;
@@ -831,7 +833,8 @@ export class GameEngine {
         // Handle flash
         if (this.flashPending) {
             this.flashPending = false;
-            this.options.onUIUpdate({ /* flash handled by React */ });
+            this.options.onUIUpdate({ showFlash: true });
+            setTimeout(() => this.options.onUIUpdate({ showFlash: false }), 200);
         }
 
         // Proximity
