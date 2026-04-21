@@ -81,15 +81,28 @@ Alt innhold i Eiriksbok skal være forståelig for en gjennomsnittlig 14-åring.
 │   ├── features/music/        # Music subject feature module
 │   ├── games/
 │   │   ├── engine/            # Gjenbrukbart 3D-spillmotor-rammeverk (raw Three.js)
-│   │   │   ├── types.ts       # GameConfig, DialogNode, PuzzleStep, AABB2D, GameEngineRef, osv.
-│   │   │   ├── GameEngine.ts  # Hoved-orkestrator: scene, renderer, loop, input, kollisjon
-│   │   │   ├── WorldBuilder.ts    # Bygger rom fra preset ('workshop', osv.)
-│   │   │   ├── CharacterBuilder.ts # Toon-shaded karakterer og samleobjekter
+│   │   │   ├── types.ts       # GameConfig, DialogNode, MonologNode, RoomDef, PlayerMode, osv.
+│   │   │   ├── GameEngine.ts  # Hoved-orkestrator: scene, renderer, loop, input, kollisjon, flagg
+│   │   │   ├── WorldBuilder.ts    # Bygger 'workshop'-preset (ett lukket rom)
+│   │   │   ├── CharacterBuilder.ts # Toon-shaded karakterer, 4 typer (scientist/farmer/noble/monk)
 │   │   │   ├── ParticleSystem.ts  # Støv, gnister, damp
-│   │   │   └── components/    # React-wrappere: GameCanvas, DialogBox, PuzzleUI, GameHUD, osv.
-│   │   ├── watt-lab/          # James Watt-spill (første historiske mini-spill)
+│   │   │   ├── systems/       # Gjenbrukbare subsystemer
+│   │   │   │   ├── MonologSystem.ts   # Indre stemme - ikke-blokkerende tekst + triggere
+│   │   │   │   ├── OceanSystem.ts     # Animert hav + skum-partikler
+│   │   │   │   └── RoomSystem.ts      # Deklarativ rom-bygging med auto-kollisjon
+│   │   │   ├── builders/      # Spill-spesifikke scene-byggere (gjenbrukbare)
+│   │   │   │   ├── CloisterBuilder.ts # Kloster (kapell, korridor, bibliotek, sovesal)
+│   │   │   │   ├── BeachBuilder.ts    # Strand, sti, klipper
+│   │   │   │   └── SeascapeBuilder.ts # Hav + himmel + langskip
+│   │   │   └── components/    # React-wrappere: GameCanvas, DialogBox, MonologBox, PuzzleUI, osv.
+│   │   ├── watt-lab/          # James Watt-spill (ett-rom med samleobjekter + puzzle)
 │   │   │   ├── WattLabConfig.ts   # Komplett GameConfig: verden, karakterer, dialog, puzzle
 │   │   │   └── WattLabAssets.ts   # Spill-spesifikke 3D-objekter + kollisjonsbokser
+│   │   ├── lindisfarne-793/   # Vikingraid (fler-fase utendørs: båt, strand, kloster)
+│   │   │   ├── LindisfarneConfig.ts   # GameConfig med 'open'-preset og variabel endText
+│   │   │   ├── LindisfarneAssets.ts   # setupScene: syr sammen hav, båt, strand, kloster
+│   │   │   ├── LindisfarneDialogs.ts  # NPC-dialoger (Sigurd, veteran, Ulv, Eadfrith)
+│   │   │   └── LindisfarneMonologs.ts # Indre monolog-noder + triggervolumer
 │   │   ├── chrono-glider/     # Chrono Glider (eksisterende, R3F-basert)
 │   │   ├── concept-snake/     # Konseptslange (eksisterende)
 │   │   ├── word-sorter/       # Ordsortering (eksisterende)
@@ -357,14 +370,18 @@ See `.agent/workflows/LEARNING_PATH_GUIDE.md` for the full JSON schema.
 
 ## Mini-spill-system
 
-Historiske 3D-mini-spill bor under `/oving/spill` og bruker et eget gjenbrukbart rammeverk i `src/games/engine/`. Hvert spill defineres som et TypeScript-objekt (`GameConfig`) — motoren håndterer Three.js, input, dialog, puzzle og kollisjon. Ingen progresjonlagring.
+Historiske 3D-mini-spill bor under `/oving/spill` og bruker et eget gjenbrukbart rammeverk i `src/games/engine/`. Hvert spill defineres som et TypeScript-objekt (`GameConfig`) - motoren håndterer Three.js, input, dialog, puzzle, kollisjon, indre monolog og flagg. Ingen progresjonlagring.
+
+**To arketyper støttes:**
+- **Ett-rom-spill** (`world.preset: 'workshop'`) - lukket interiør med samleobjekter og puzzle. Se Watt Lab.
+- **Fler-fase-spill** (`world.preset: 'open'`) - utendørs / flere scener i én sammenhengende verden. Bruker `systems/` og `builders/` for hav, rom, indre monolog, og spiller-modi (seated/free). Se Lindisfarne 793.
 
 **Legge til et nytt spill:**
 1. Opprett `src/games/[id]/[Id]Config.ts` (GameConfig) og `[Id]Assets.ts` (setupScene-callback)
 2. Legg til i `HISTORICAL_GAMES` i `src/pages/MiniGamesPage.tsx`
 3. Legg til i `GAME_REGISTRY` i `src/pages/GamePage.tsx`
 
-Se **`.agent/workflows/BUILD_GAME_GUIDE.md`** for komplett guide med skjema, kollisjonsboks-formel, dialog- og puzzle-system, og eksempler fra Watt Lab.
+Se **`.agent/workflows/BUILD_GAME_GUIDE.md`** for komplett guide med skjema, kollisjonsboks-formel, dialog/puzzle/monolog-system, fase-overganger med `engine.setPhase`/`setFlag`, variabel slutt via `endText`-funksjon, og eksempler fra både Watt Lab og Lindisfarne.
 
 ---
 

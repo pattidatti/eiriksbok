@@ -1,6 +1,10 @@
 # Håndbok: Lage nye historiske 3D-mini-spill
 
-Dette dokumentet beskriver den komplette prosessen for å opprette et nytt historisk mini-spill med Eiriksbok sitt `GameEngine`-rammeverk. Referanseimplementasjon: **Watt Lab** (`src/games/watt-lab/`).
+Dette dokumentet beskriver den komplette prosessen for å opprette et nytt historisk mini-spill med Eiriksbok sitt `GameEngine`-rammeverk.
+
+**Referanseimplementasjoner:**
+- **Watt Lab** (`src/games/watt-lab/`) - klassisk ett-rom-spill med samleobjekter og puzzle
+- **Lindisfarne 793** (`src/games/lindisfarne-793/`) - utendørs fler-fase-spill med båt, strand og kloster, indre monolog, valg med konsekvens og variabel slutt
 
 ---
 
@@ -12,12 +16,21 @@ GameConfig (MinSpillConfig.ts)
         └── engine.scene.userData.collisionBoxes  ← registrer kollisjonsbokser her
 
 GameEngine.ts          ← Three.js scene, renderer, animasjonsloop, input, AABB-kollisjon
-  ├── WorldBuilder.ts  ← Bygger rom fra preset, registrerer romkollisjon automatisk
+  ├── WorldBuilder.ts      ← Bygger 'workshop'-preset (ett rom)
   ├── CharacterBuilder.ts  ← Toon-shaded NPC-er og samleobjekter
-  └── ParticleSystem.ts   ← Støv, gnister, damp
+  ├── ParticleSystem.ts    ← Støv, gnister, damp
+  ├── systems/             ← Gjenbrukbare subsystemer
+  │   ├── MonologSystem.ts ← Indre stemme - ikke-blokkerende tekst med triggervolumer
+  │   ├── OceanSystem.ts   ← Animert hav + skum-partikler for båt
+  │   └── RoomSystem.ts    ← Deklarativ rom-bygging med auto-kollisjonsbokser
+  └── builders/            ← Spill-spesifikke scene-byggere (gjenbrukbare)
+      ├── CloisterBuilder.ts   ← Kloster med tre rom + korridor
+      ├── BeachBuilder.ts      ← Strand, sti, klipper
+      └── SeascapeBuilder.ts   ← Hav + himmel + langskip
 
 GameCanvas.tsx         ← React-wrapper: monterer canvas, håndterer UI-state
-  ├── DialogBox.tsx
+  ├── DialogBox.tsx    ← Blokkerende NPC-dialog med valg
+  ├── MonologBox.tsx   ← Ikke-blokkerende indre monolog (italic, fade)
   ├── PuzzleUI.tsx
   ├── GameHUD.tsx
   ├── TitleScreen.tsx
@@ -30,7 +43,7 @@ Spilleren definerer alt via `GameConfig`. Ingen kode i `GameEngine.ts` trenger e
 
 ## 2. Steg-for-steg
 
-### Steg 1 — Opprett Config-filen
+### Steg 1 - Opprett Config-filen
 
 `src/games/[game-id]/[GameId]Config.ts`
 
@@ -55,7 +68,7 @@ export const minSpillConfig: GameConfig = {
             name: 'Navn',
             position: [2, 0, -3],
             colors: { body: 0x5a3a2a, head: 0xe8b888, legs: 0x3a2515 },
-            characterType: 'scientist',   // 'scientist' | 'farmer' | 'noble'
+            characterType: 'scientist',   // 'scientist' | 'farmer' | 'noble' | 'monk'
             defaultEmotion: 'glad',       // startemosjonen
             marker: true,
         },
@@ -117,7 +130,7 @@ export const minSpillConfig: GameConfig = {
 
 ---
 
-### Steg 2 — Opprett Assets-filen
+### Steg 2 - Opprett Assets-filen
 
 `src/games/[game-id]/[GameId]Assets.ts`
 
@@ -173,16 +186,16 @@ export function setupMinSpillScene(engine: GameEngineRef): void {
 
 ---
 
-### Steg 3 — Registrer i galleriet
+### Steg 3 - Registrer i galleriet
 
-**`src/pages/MiniGamesPage.tsx`** — legg til i `HISTORICAL_GAMES`:
+**`src/pages/MiniGamesPage.tsx`** - legg til i `HISTORICAL_GAMES`:
 
 ```typescript
 import { minSpillConfig } from '../games/mitt-spill/MinSpillConfig';
 const HISTORICAL_GAMES: GameConfig[] = [wattLabConfig, minSpillConfig];
 ```
 
-**`src/pages/GamePage.tsx`** — legg til i `GAME_REGISTRY`:
+**`src/pages/GamePage.tsx`** - legg til i `GAME_REGISTRY`:
 
 ```typescript
 import { minSpillConfig } from '../games/mitt-spill/MinSpillConfig';
@@ -206,9 +219,12 @@ interface GameConfig {
     thumbnail: string;           // '/images/emne/spill-thumb.webp'
 
     world: {
-        preset: 'workshop';      // kun 'workshop' er implementert
-        roomSize?: number;       // standard 20
-        wallHeight?: number;     // standard 6
+        // 'workshop' - ett lukket rom (vegger, tak, gulv). Bruker WorldBuilder.
+        // 'open'     - ingen forhåndsbygd verden. Spillet bygger alt selv via setupScene.
+        //              Bruk denne for utendørs-scener (hav, landskap, flere rom osv.).
+        preset: 'workshop' | 'open';
+        roomSize?: number;       // standard 20 (kun relevant for 'workshop')
+        wallHeight?: number;     // standard 6 (kun relevant for 'workshop')
         backgroundColor?: string;
         fogDensity?: number;
     };
@@ -223,7 +239,8 @@ interface GameConfig {
         name: string;
         position: [number, number, number];
         colors: { body: number; head: number; legs: number };
-        characterType?: 'scientist' | 'farmer' | 'noble';  // aktiverer karikatyr-ansikt
+        // Karaktertyper styrer brynntykkelse, rynker og skjegg (se seksjon 10)
+        characterType?: 'scientist' | 'farmer' | 'noble' | 'monk';
         defaultEmotion?: 'glad' | 'worried' | 'surprised' | 'triumphant';
         marker?: boolean;        // viser gul pil over NPC
         extras?: (group: THREE.Group) => void;  // legg til klær, frisyrer, osv.
@@ -266,14 +283,35 @@ interface GameConfig {
         }>;
     };
 
-    endText: string;
+    // Indre monolog (ikke-blokkerende). Noder kan trigges av posisjon eller programmatisk.
+    monologs?: Record<string, MonologNode>;
+    monologTriggers?: MonologTrigger[];
+
+    // Streng, eller en funksjon som kan lese flagg og returnere variabel slutt-tekst.
+    endText: string | ((engine: GameEngineRef) => string);
     setupScene?: (engine: GameEngineRef) => void;
+}
+
+interface MonologNode {
+    id: string;
+    lines: string[];           // vises sekvensielt
+    lineDurationMs?: number;   // auto: 50ms/tegn (min 2500, maks 6000)
+    once?: boolean;            // default true - spilles kun én gang
+}
+
+interface MonologTrigger {
+    id: string;
+    monologId: string;
+    area: AABB2D;              // XZ-sone spiller må inn i
+    requiresPhase?: string;    // valgfri gate
 }
 ```
 
 ---
 
 ## 4. `GameEngineRef`-API (tilgjengelig i `setupScene`)
+
+### 4.1 Grunnleggende (alle spill)
 
 | Metode / felt | Type | Beskrivelse |
 |---|---|---|
@@ -283,11 +321,28 @@ interface GameConfig {
 | `animateReveal(group)` | `(Group) => void` | Skaler gruppe fra 0 til 1 med bounce |
 | `startEngineAnimation()` | `() => void` | Starter bevegelig engine-animasjon (slutt-sekvens) |
 | `openPuzzle()` | `() => void` | Åpner puzzle-UI |
+| `openDialog(key)` | `(string) => void` | Åpner NPC-dialog programmatisk |
 | `triggerEnd()` | `() => void` | Avslutter spillet, viser endText |
 | `screenFlash()` | `() => void` | Hvit flash-effekt |
 | `cameraShake(amount, duration)` | `(number, number) => void` | Kameraskjelving |
 | `updateUI()` | `() => void` | Tvinger UI-oppdatering |
 | `setEmotion(id, emotion, resetAfterMs?)` | `(string, Emotion, number?) => void` | Bytter NPC-ansikt med smooth morph (se seksjon 10) |
+| `setCharacterMarkerVisible(id, visible)` | `(string, boolean) => void` | Manuell kontroll av gul NPC-markør (overstyrer motorens standardlogikk for dette NPC-id) |
+
+### 4.2 Fler-fase-spill (utendørs / flere scener)
+
+| Metode / felt | Type | Beskrivelse |
+|---|---|---|
+| `setPhase(phase)` | `(string) => void` | Bytter fase. Oppdaterer automatisk `questObjective` fra matching quest i config |
+| `getPhase()` | `() => string` | Gjeldende fase |
+| `setFlag<T>(key, value)` | `(string, T) => void` | Sett et spill-internt flagg (f.eks. valgkonsekvens) |
+| `getFlag<T>(key)` | `(string) => T \| undefined` | Les flagg. Brukes bl.a. i `endText`-funksjoner for variabel slutt |
+| `setPlayerMode(mode, opts?)` | `(PlayerMode, opts?) => void` | `'free'` = vanlig WASD. `'seated'` = låst til parent-gruppe (f.eks. båt) med opts `{ parent, offset }` |
+| `teleportPlayer(x, y, z)` | `(number, number, number) => void` | Flytt spiller til world-posisjon. Løfter automatisk ut av evt. seat-parent |
+| `getPlayerPosition()` | `() => { x, y, z }` | Spillers verdens-posisjon |
+| `playMonolog(id)` | `(string) => void` | Spill indre monolog programmatisk (alternativ til posisjons-trigger) |
+| `hasSeenMonolog(id)` | `(string) => boolean` | Har spilleren sett denne monologen? Brukes for å gate hendelser (f.eks. "først når X er observert") |
+| `schedule(fn, delayMs)` | `(() => void, number) => void` | Som `setTimeout`, men kanselleres automatisk i `dispose()`. **Bruk alltid denne** i stedet for `setTimeout` direkte, ellers risikerer du kall på disposed engine |
 
 ---
 
@@ -295,14 +350,14 @@ interface GameConfig {
 
 Dialogen er et tre av noder. Nøkkelregler:
 
-- `next: 'nodeName'` — gå til neste node (kjør `action` før navigering)
-- `next: null` — lukk dialog (kjør `action` i stedet)
+- `next: 'nodeName'` - gå til neste node (kjør `action` før navigering)
+- `next: null` - lukk dialog (kjør `action` i stedet)
 - Noden `'intro'` åpnes automatisk når spilleren trykker E på NPC første gang
 - Noden `'progress'` åpnes hvis spilleren prater med NPC midt i innsamlingsfasen
 - Noden `'puzzleIntro'` åpnes automatisk når alle samleobjekter er hentet
 - Noden `'puzzleWin'` åpnes automatisk 4 sekunder etter at puzzle er fullført
 
-For `puzzleIntro` og `puzzleWin` — koble `choices[0].action` i `setupScene`:
+For `puzzleIntro` og `puzzleWin` - koble `choices[0].action` i `setupScene`:
 ```typescript
 config.dialogs.puzzleIntro.choices[0].action = () => openPuzzle();
 config.dialogs.puzzleWin.choices[0].action  = () => triggerEnd();
@@ -397,19 +452,241 @@ config.puzzle.steps[2].onCorrect = () => {
 ```
 
 **Karaktertyper** styrer brynntykkelse, rynker og skjegg:
-- `'scientist'` — tykke bryn (2.2x), rynker under øynene, skjeggantydning
-- `'farmer'` — medium bryn (1.4x), bred kjeve
-- `'noble'` — tynne bryn (0.8x), smal kjeve
+- `'scientist'` - tykke bryn (2.2x), rynker under øynene, skjeggantydning
+- `'farmer'` - medium bryn (1.4x), bred kjeve
+- `'noble'` - tynne bryn (0.8x), smal kjeve
+- `'monk'` - tynne rolige bryn (0.7x), rynker, ingen skjegg (egnet for munk/prest)
 
 ---
 
-## 11. Referanseimplementasjon
+## 11. Fler-fase-spill (sammenhengende verden)
+
+For spill som har flere scener (f.eks. båt → strand → innendørs), bruk `world.preset: 'open'` og bygg alt selv i `setupScene`. Motoren har tre gjenbrukbare byggere og systemer.
+
+**Mønster:**
+
+```typescript
+world: { preset: 'open', backgroundColor: '#7a9ab8', fogDensity: 0.012 }
+player: { startPosition: [0, 0, 0], colors: { ... } }  // blir overstyrt av setPlayerMode('seated')
+
+// I setupScene:
+const sea = buildSeascape(scene, toonMat);     // hav + båt
+const beach = buildBeach(scene, toonMat, collisionBoxes);
+const cloister = buildCloister(scene, toonMat, collisionBoxes);
+
+// Start spilleren sittende i båten
+engine.setPlayerMode('seated', { parent: sea.boat, offset: sea.playerSeat });
+engine.setPhase('sailing');
+
+// Fase-overganger basert på posisjon
+scene.userData._customUpdate = (dt, time) => {
+    const player = engine.getPlayerPosition();
+    if (engine.getPhase() === 'landing' && player.z < -4) {
+        engine.setPhase('approach');
+    }
+    // osv.
+};
+```
+
+### 11.1 Rom-system (`systems/RoomSystem.ts`)
+
+Deklarativ bygging av rom med vegger, åpninger og auto-genererte kollisjonsbokser. Lager veggsegmenter rundt hver åpning så du slipper å manuelt telle kollisjonsbokser.
+
+```typescript
+import { buildRoom, playerInRoom } from '../engine/systems/RoomSystem';
+
+const room = buildRoom(scene, toonMat, {
+    id: 'kapell',
+    center: [0, -30],
+    size: [10, 10],
+    wallHeight: 4.5,
+    openings: [{ side: 'S', offset: 0, width: 2.4 }],  // 'N' | 'S' | 'E' | 'W'
+    floorColor: 0x5a4838,
+    wallColor: 0x9a8968,
+    hasRoof: true,  // default true, sett false for utendørs "rom"
+}, collisionBoxes);
+
+// Tak-dollhouse: skjul taket når spilleren er inne
+if (room.roof) room.roof.visible = !playerInRoom(player, room);
+```
+
+Koordinatkonvensjon: `-Z = nord`, `+Z = sør` (matcher Three.js-kamera som standard ser mot -Z).
+
+### 11.2 Hav + båt (`builders/SeascapeBuilder.ts`, `systems/OceanSystem.ts`)
+
+`OceanSystem` er en CPU-animert `PlaneGeometry` med stablede sinusbølger - lett nok for Chromebook. Båten bygges som en `THREE.Group` med skrog, mast, seil, dragehode, årer, skjold.
+
+```typescript
+import { buildSeascape } from '../engine/builders/SeascapeBuilder';
+
+const sea = buildSeascape(scene, toonMat);
+// Returnerer: { ocean, foam, boat, crewSeats, playerSeat, boatStart, boatEnd }
+
+// Båt-vugging i hver frame:
+const tilt = sea.ocean.getWaveTilt(sea.boat.position.x, sea.boat.position.z);
+sea.boat.rotation.z = tilt.roll * 0.35;
+sea.boat.position.y = tilt.height * 0.5;
+
+// Skjul hav når spilleren er innendørs (ytelse)
+sea.ocean.setVisible(!inCloister);
+sea.foam.setVisible(!inCloister);
+```
+
+### 11.3 Seated player (sittende spiller)
+
+Når spilleren skal være passivt plassert på en båt, benk eller hest:
+
+```typescript
+// Gjør spilleren til barn av båten, posisjonert på setet
+engine.setPlayerMode('seated', { parent: sea.boat, offset: [0, 0.8, -1] });
+
+// WASD-bevegelse blokkeres automatisk. Muspek fortsatt fri (yaw/pitch).
+// Båten kan bevege seg fritt; spilleren følger med.
+
+// Senere - frigi og teleporter til land:
+engine.setPlayerMode('free');
+engine.teleportPlayer(0, 0, 4);
+```
+
+**Viktig**: NPCer som er barn av båten og skal bli stående rolig på sete-Y, må sette `userData.bobBase` så motorens y-animasjon lerper rundt riktig base:
+
+```typescript
+crew.sigurd.group.position.set(0, 0.8, -2);
+crew.sigurd.group.userData.bobBase = 0.8;   // ellers bobber NPC-en ned til y=0
+```
+
+### 11.4 Proximity-filter (ekskludere NPCer)
+
+Motoren plukker nærmeste NPC som "trykk E"-kandidat. For å ekskludere NPCer som allerede er ferdig-behandlet (f.eks. snakket med):
+
+```typescript
+scene.userData._proximityFilter = (id: string): boolean => {
+    if (id === 'sigurd' && engine.getFlag('talkedChief')) return false;
+    return true;  // true = inkluder, false = ekskluder
+};
+```
+
+Dette lar "trykk E"-prompten hoppe til neste nærmeste NPC etter at dialogen er fullført.
+
+---
+
+## 12. Indre monolog (ikke-blokkerende tekst)
+
+Motoren har et eget system for indre stemme / voice-over / observasjoner som IKKE skal blokkere bevegelse eller kreve input. Monologer vises italic nederst midt på skjermen med fade inn/ut per linje.
+
+**Bruk når**: spilleren skal observere noe uten å stoppe opp (f.eks. "Jeg ser landet i horisonten"), reflektere over et valg, eller få en indirekte pedagogisk kommentar.
+
+### 12.1 Definere monologer
+
+```typescript
+const minMonologer: Record<string, MonologNode> = {
+    first_sight: {
+        id: 'first_sight',
+        lines: [
+            'Der. Jeg ser det.',
+            'En mørk stripe i horisonten.',
+        ],
+        once: true,  // default - spilles kun én gang
+    },
+};
+
+// Triggervolumer (posisjons-basert)
+const triggers: MonologTrigger[] = [
+    {
+        id: 't_first_sight',
+        monologId: 'first_sight',
+        area: { minX: -5, maxX: 5, minZ: 40, maxZ: 50 },
+        requiresPhase: 'sailing',  // valgfri gate
+    },
+];
+
+// I GameConfig:
+monologs: minMonologer,
+monologTriggers: triggers,
+```
+
+### 12.2 Programmatisk kontroll
+
+```typescript
+engine.playMonolog('first_sight');
+
+// Gate en hendelse på at monologer er vist:
+if (engine.hasSeenMonolog('library_book') && engine.hasSeenMonolog('library_discovery')) {
+    // først NÅ skal Eadfrith-konfrontasjonen starte
+}
+```
+
+### 12.3 Linje-varighet
+
+Default: 50 ms per tegn, klampet til [2500, 6000] ms. Overstyr med `lineDurationMs` per node.
+
+---
+
+## 13. Valg med konsekvens + variabel slutt
+
+Koble dialog-valg til flagg, og la `endText` være en funksjon som leser flagget:
+
+```typescript
+// I dialog-definisjon
+dialog.eadfrith_response_spared.onEnd = () => {
+    engine.setFlag('sparedEadfrith', true);
+    engine.setPhase('aftermath_spared');
+    engine.schedule(() => engine.triggerEnd(), 16000);
+};
+
+// I GameConfig
+endText: (engine) => {
+    const spared = engine.getFlag<boolean>('sparedEadfrith');
+    return spared
+        ? 'Du lot ham leve. Boken forble i klosteret.'
+        : 'Raidet markerte starten på vikingtiden i vest.';
+},
+```
+
+**Bruk alltid `engine.schedule` i stedet for `setTimeout`** for å unngå at callbacks fyrer etter at brukeren har navigert bort fra spillet.
+
+---
+
+## 14. Referanseimplementasjoner
+
+### Watt Lab (ett-rom-spill)
 
 | Fil | Innhold |
 |---|---|
 | `src/games/watt-lab/WattLabConfig.ts` | Komplett `GameConfig` med dialog, quest, puzzle og `characterType` |
 | `src/games/watt-lab/WattLabAssets.ts` | Bygging av dampmaskin, esse, callback-kopling, `setEmotion`-kall |
-| `src/games/engine/types.ts` | Alle typer: `GameConfig`, `GameEngineRef`, `Emotion`, `CharacterType`, `AABB2D`, osv. |
-| `src/games/engine/CharacterBuilder.ts` | `drawFace`, `lerpParams`, `EMOTION_PARAMS` — emosjonssystemets tegnelogikk |
-| `src/pages/MiniGamesPage.tsx` | Galleriside — legg til spill her |
-| `src/pages/GamePage.tsx` | `GAME_REGISTRY` — registrer spill-ID her |
+
+### Lindisfarne 793 (fler-fase utendørs-spill med valg)
+
+| Fil | Innhold |
+|---|---|
+| `src/games/lindisfarne-793/LindisfarneConfig.ts` | `GameConfig` med `preset: 'open'`, monologs, variabel `endText` |
+| `src/games/lindisfarne-793/LindisfarneAssets.ts` | Syr sammen hav, båt, strand, kloster; faseoverganger, proximity-filter, NPC-seter |
+| `src/games/lindisfarne-793/LindisfarneDialogs.ts` | Alle dialog-noder (Sigurd, veteran, Ulv, Eadfrith) med `{charId}_greeting`-navngiving |
+| `src/games/lindisfarne-793/LindisfarneMonologs.ts` | Alle monolog-noder + triggervolumer |
+
+### Motor-filer
+
+| Fil | Innhold |
+|---|---|
+| `src/games/engine/types.ts` | Alle typer: `GameConfig`, `GameEngineRef`, `MonologNode`, `RoomDef`, `PlayerMode`, osv. |
+| `src/games/engine/CharacterBuilder.ts` | `drawFace`, `lerpParams`, `EMOTION_PARAMS` - emosjonssystemets tegnelogikk |
+| `src/games/engine/systems/MonologSystem.ts` | Indre monolog med triggere og programmatisk API |
+| `src/games/engine/systems/OceanSystem.ts` | Animert hav + skum-system |
+| `src/games/engine/systems/RoomSystem.ts` | Deklarativ rom-bygging med auto-kollisjon |
+| `src/games/engine/builders/CloisterBuilder.ts` | Kloster-layout (kapell, korridor, bibliotek, sovesal) |
+| `src/games/engine/builders/BeachBuilder.ts` | Strand, sti, klipper |
+| `src/games/engine/builders/SeascapeBuilder.ts` | Hav + langskip |
+| `src/games/engine/components/MonologBox.tsx` | Ikke-blokkerende monolog-UI |
+| `src/pages/MiniGamesPage.tsx` | Galleriside - legg til spill her |
+| `src/pages/GamePage.tsx` | `GAME_REGISTRY` - registrer spill-ID her |
+
+---
+
+## 15. Språkregler (kritisk for UI-tekst)
+
+- Alt innhold på norsk bokmål, forståelig for 14-åring (jf. CLAUDE.md)
+- Bruk alltid korrekte norske tegn: **å, ø, æ** (aldri aa, oe, ae)
+- **ALDRI em-dash (—) eller tankestrek (–)**. Bruk bindestrek (-) i stedet
+- Aktiv form fremfor passiv ("Harald samlet Norge", ikke "Norge ble samlet")
+- Test hver setning: ville en 14-åring forstått dette uten hjelp?
