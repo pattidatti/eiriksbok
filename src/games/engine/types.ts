@@ -5,7 +5,7 @@ export type SubjectId = 'historie' | 'norsk' | 'krle' | 'samfunnsfag' | 'musikk'
 export type AABB2D = { minX: number; maxX: number; minZ: number; maxZ: number };
 
 export type Emotion = 'glad' | 'worried' | 'surprised' | 'triumphant';
-export type CharacterType = 'scientist' | 'farmer' | 'noble';
+export type CharacterType = 'scientist' | 'farmer' | 'noble' | 'monk';
 
 export interface DialogChoice {
     text: string;
@@ -58,7 +58,7 @@ export interface CollectibleConfig {
     color: number;
 }
 
-export type WorldPreset = 'workshop' | 'longhouse' | 'harbor' | 'custom';
+export type WorldPreset = 'workshop' | 'longhouse' | 'harbor' | 'open' | 'custom';
 
 export interface WorldConfig {
     preset: WorldPreset;
@@ -71,6 +71,44 @@ export interface WorldConfig {
 export interface PlayerConfig {
     startPosition: [number, number, number];
     colors: CharacterColors;
+}
+
+// Player movement modes. 'free' = normal WASD. 'seated' = locked to a parent group (e.g. boat).
+// 'scripted' = external code sets position each frame.
+export type PlayerMode = 'free' | 'seated' | 'scripted';
+
+export interface MonologNode {
+    id: string;
+    lines: string[];
+    // Auto from line length when omitted (50ms/char, min 2500, max 6000).
+    lineDurationMs?: number;
+    once?: boolean;
+}
+
+export interface MonologTrigger {
+    id: string;
+    monologId: string;
+    area: AABB2D;
+    requiresPhase?: string;
+}
+
+// Deklarativ definisjon for et rom som RoomSystem bygger. Åpninger er hull i veggene.
+export interface RoomOpening {
+    side: 'N' | 'S' | 'E' | 'W';
+    offset: number;
+    width: number;
+}
+
+export interface RoomDef {
+    id: string;
+    center: [number, number];
+    size: [number, number];
+    wallHeight: number;
+    openings?: RoomOpening[];
+    floorColor?: number;
+    wallColor?: number;
+    roofColor?: number;
+    hasRoof?: boolean;
 }
 
 // Minimal interface exposed to setupScene callbacks
@@ -86,6 +124,16 @@ export interface GameEngineRef {
     triggerEnd: () => void;
     updateUI: () => void;
     setEmotion: (id: string, emotion: Emotion, resetAfterMs?: number) => void;
+    // Nye API-metoder for fler-fase-spill med valg og indre monolog
+    setFlag: <T>(key: string, value: T) => void;
+    getFlag: <T>(key: string) => T | undefined;
+    setPlayerMode: (mode: PlayerMode, opts?: { parent?: Group; offset?: [number, number, number] }) => void;
+    playMonolog: (id: string) => void;
+    setPhase: (phase: string) => void;
+    getPhase: () => string;
+    openDialog: (key: string) => void;
+    getPlayerPosition: () => { x: number; y: number; z: number };
+    teleportPlayer: (x: number, y: number, z: number) => void;
 }
 
 export interface GameConfig {
@@ -102,9 +150,19 @@ export interface GameConfig {
     quests: { phase: string; objective: string }[];
     dialogs: Record<string, DialogNode>;
     puzzle?: { steps: PuzzleStep[] };
-    endText: string;
+    // Indre monolog (ikke-blokkerende tekst). Kan trigges via triggervolumer eller engine.playMonolog.
+    monologs?: Record<string, MonologNode>;
+    monologTriggers?: MonologTrigger[];
+    // Streng, eller en funksjon som kan lese flagg og returnere variabel slutt-tekst.
+    endText: string | ((engine: GameEngineRef) => string);
     // Called once after engine initializes - add game-specific 3D and wire puzzle callbacks here
     setupScene?: (engine: GameEngineRef) => void;
+}
+
+export interface MonologUIState {
+    id: string;
+    lines: string[];
+    currentLine: number;
 }
 
 export interface GameUIState {
@@ -127,6 +185,7 @@ export interface GameUIState {
         feedback: string;
         options: string[];
     } | null;
+    monolog: MonologUIState | null;
     ended: boolean;
     endText: string;
     showFlash?: boolean;

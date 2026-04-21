@@ -6,10 +6,13 @@ import type {
     DialogNode,
     AABB2D,
     Emotion,
+    PlayerMode,
+    MonologUIState,
 } from './types';
 import { buildCharacter, buildCollectibleMesh, drawFace, lerpParams, EMOTION_PARAMS, type BuiltCharacter } from './CharacterBuilder';
 import { buildWorkshopRoom, buildWorkshopLighting } from './WorldBuilder';
 import { DustSystem, SparkSystem } from './ParticleSystem';
+import { MonologSystem } from './systems/MonologSystem';
 
 // Single-pass cinematic shader — safe for all devices (Chromebook included).
 // Warmth, vignette, film grain, and chromatic aberration in one fullscreen quad.
@@ -182,7 +185,7 @@ export class GameEngine {
     private collectibleMeshes: Map<string, { group: THREE.Group; config: { id: string; name: string } }> = new Map();
 
     // Particles
-    private dustSystem!: DustSystem;
+    private dustSystem?: DustSystem;
     private sparkSystem?: SparkSystem;
 
     // Lights (for animation)
@@ -205,6 +208,18 @@ export class GameEngine {
     private engineRunSpeed = 0;
     private onEngineRunUpdate?: (dt: number) => void;
 
+    // Flagg (spill-interne tilstandsvariabler, brukes av dialog-valg og endText)
+    private flags: Map<string, unknown> = new Map();
+
+    // Player mode (free = vanlig WASD, seated = låst til forelder-gruppe, scripted = custom)
+    private playerMode: PlayerMode = 'free';
+    private seatParent: THREE.Group | null = null;
+    private seatOffset: [number, number, number] = [0, 0, 0];
+
+    // Indre monolog
+    private monologSystem: MonologSystem | null = null;
+    private activeMonolog: MonologUIState | null = null;
+
     constructor(options: EngineOptions) {
         this.options = options;
         this.config = options.config;
@@ -216,7 +231,8 @@ export class GameEngine {
             options.config.world.fogDensity ?? 0.008
         );
 
-        this.camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 100);
+        const far = options.config.world.preset === 'open' ? 400 : 100;
+        this.camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, far);
 
         this.renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
         this.renderer.setSize(window.innerWidth, window.innerHeight);
@@ -336,16 +352,18 @@ export class GameEngine {
             this.lampLight = lights.lampLight;
             this.sparkSystem = new SparkSystem(this.scene);
         }
-        // Other presets can be added here
+        // 'open' preset: ingen rom - spillet bygger alt selv via setupScene
 
-        // Dust particles
-        this.dustSystem = new DustSystem(this.scene, 250, this.config.world.roomSize ?? 20, this.config.world.wallHeight ?? 6);
+        // Dust particles (kun inne i lukkede rom - ute ser det rart ut og klemmer til romgrenser)
+        if (preset !== 'open') {
+            this.dustSystem = new DustSystem(this.scene, 250, this.config.world.roomSize ?? 20, this.config.world.wallHeight ?? 6);
+        }
 
         // Build player
         const playerCfg = this.config.player;
         this.player = buildCharacter(
             {
-                id: '_player',
+                id: 'player',
                 name: 'Spiller',
                 position: playerCfg.startPosition,
                 colors: playerCfg.colors,
@@ -361,6 +379,7 @@ export class GameEngine {
             this.renderer,
             this.scene
         );
+        this.player.group.userData.isPlayer = true;
 
         // Build NPCs
         for (const charCfg of this.config.characters) {
@@ -384,22 +403,87 @@ export class GameEngine {
             this.collectibleMeshes.set(colCfg.id, { group, config: { id: colCfg.id, name: colCfg.name } });
         }
 
+        // Initialiser MonologSystem hvis spillet har monologs
+        if (this.config.monologs) {
+            this.monologSystem = new MonologSystem(
+                this.config.monologs,
+                this.config.monologTriggers ?? [],
+                (state) => {
+                    this.activeMonolog = state;
+                    this.pushUIState({ monolog: state });
+                }
+            );
+        }
+
         // Let game provide custom assets and wire puzzle callbacks
         if (this.config.setupScene) {
-            const ref: GameEngineRef = {
-                scene: this.scene,
-                toonMat: this.toonMat.bind(this),
-                config: this.config,
-                screenFlash: this.screenFlash.bind(this),
-                cameraShake: this.cameraShake.bind(this),
-                animateReveal: this.animateReveal.bind(this),
-                startEngineAnimation: this.startEngineAnimation.bind(this),
-                openPuzzle: this.openPuzzle.bind(this),
-                triggerEnd: this.triggerEnd.bind(this),
-                updateUI: this.updateUI.bind(this),
-                setEmotion: this.setEmotion.bind(this),
-            };
+            const ref: GameEngineRef = this.buildEngineRef();
             this.config.setupScene(ref);
+        }
+    }
+
+    private buildEngineRef(): GameEngineRef {
+        return {
+            scene: this.scene,
+            toonMat: this.toonMat.bind(this),
+            config: this.config,
+            screenFlash: this.screenFlash.bind(this),
+            cameraShake: this.cameraShake.bind(this),
+            animateReveal: this.animateReveal.bind(this),
+            startEngineAnimation: this.startEngineAnimation.bind(this),
+            openPuzzle: this.openPuzzle.bind(this),
+            triggerEnd: this.triggerEnd.bind(this),
+            updateUI: this.updateUI.bind(this),
+            setEmotion: this.setEmotion.bind(this),
+            setFlag: <T>(key: string, value: T) => this.flags.set(key, value),
+            getFlag: <T>(key: string) => this.flags.get(key) as T | undefined,
+            setPlayerMode: (mode, opts) => this.setPlayerMode(mode, opts),
+            playMonolog: (id: string) => this.monologSystem?.play(id),
+            setPhase: (phase: string) => { this.phase = phase; },
+            getPhase: () => this.phase,
+            openDialog: (key: string) => this.openDialog(key),
+            getPlayerPosition: () => {
+                const world = new THREE.Vector3();
+                this.player.group.getWorldPosition(world);
+                return { x: world.x, y: world.y, z: world.z };
+            },
+            teleportPlayer: (x, y, z) => {
+                // Hvis spilleren fortsatt er barn av en seat-parent, løft den ut først
+                if (this.player.group.parent && this.player.group.parent !== this.scene) {
+                    const world = new THREE.Vector3();
+                    this.player.group.getWorldPosition(world);
+                    this.player.group.parent.remove(this.player.group);
+                    this.scene.add(this.player.group);
+                    this.player.group.position.copy(world);
+                }
+                this.player.group.position.set(x, y, z);
+            },
+        };
+    }
+
+    private setPlayerMode(mode: PlayerMode, opts?: { parent?: THREE.Group; offset?: [number, number, number] }): void {
+        this.playerMode = mode;
+        if (mode === 'seated') {
+            if (opts?.parent) {
+                // Flytt spilleren inn som barn av seat-forelder slik at den arver transform
+                const prev = this.player.group.parent;
+                if (prev && prev !== opts.parent) prev.remove(this.player.group);
+                opts.parent.add(this.player.group);
+                this.seatParent = opts.parent;
+                this.seatOffset = opts.offset ?? [0, 0, 0];
+                this.player.group.position.set(...this.seatOffset);
+            }
+            this.velocity.set(0, 0, 0);
+        } else if (mode === 'free') {
+            // Hvis spilleren var i seat, flytt den tilbake til scenen på verdens-posisjon
+            if (this.seatParent && this.player.group.parent === this.seatParent) {
+                const world = new THREE.Vector3();
+                this.player.group.getWorldPosition(world);
+                this.seatParent.remove(this.player.group);
+                this.scene.add(this.player.group);
+                this.player.group.position.copy(world);
+            }
+            this.seatParent = null;
         }
     }
 
@@ -550,7 +634,13 @@ export class GameEngine {
         const char = this.characters.get(charId);
         if (!char) return;
 
-        // Delegate to config dialogs based on game phase
+        // Per-NPC dialog: bruk "{charId}_greeting" hvis den finnes
+        if (this.config.dialogs[`${charId}_greeting`]) {
+            this.openDialog(`${charId}_greeting`);
+            return;
+        }
+
+        // Fallback: standard Watt Lab-flyt basert på fase
         if (this.phase === 'intro') {
             this.openDialog('intro');
         } else if (this.phase === 'collecting') {
@@ -735,8 +825,17 @@ export class GameEngine {
         let nearChar: string | null = null;
         let nearCol: string | null = null;
 
+        const playerWorld = new THREE.Vector3();
+        this.player.group.getWorldPosition(playerWorld);
+
+        // Valgfritt filter satt av spillets setupScene - returner false for å ekskludere en karakter
+        const filter = this.scene.userData._proximityFilter as ((id: string) => boolean) | undefined;
+
+        const charWorld = new THREE.Vector3();
         for (const [id, char] of this.characters) {
-            const d = this.player.group.position.distanceTo(char.group.position);
+            if (filter && !filter(id)) continue;
+            char.group.getWorldPosition(charWorld);
+            const d = playerWorld.distanceTo(charWorld);
             if (d < closestDist) {
                 closestDist = d;
                 nearChar = id;
@@ -745,7 +844,8 @@ export class GameEngine {
         }
 
         for (const [id, col] of this.collectibleMeshes) {
-            const d = this.player.group.position.distanceTo(col.group.position);
+            col.group.getWorldPosition(charWorld);
+            const d = playerWorld.distanceTo(charWorld);
             if (d < closestDist) {
                 closestDist = d;
                 nearChar = null;
@@ -764,7 +864,9 @@ export class GameEngine {
 
     triggerEnd(): void {
         this.dialogActive = false;
-        this.options.onEnd(this.config.endText);
+        const raw = this.config.endText;
+        const text = typeof raw === 'function' ? raw(this.buildEngineRef()) : raw;
+        this.options.onEnd(text);
     }
 
     private bloomPulse(peak: number, duration: number): void {
@@ -798,6 +900,7 @@ export class GameEngine {
             showInteractPrompt: !!(this.nearCharacterId || this.nearCollectibleId),
             dialog: this.activeDialog,
             puzzle: this.activePuzzle,
+            monolog: this.activeMonolog,
             ended: false,
             endText: '',
         };
@@ -831,7 +934,9 @@ export class GameEngine {
         const SPEED = 5, JUMP = 6, GRAV = -18;
         const moveDir = new THREE.Vector3();
 
-        if (!this.dialogActive) {
+        const canMove = !this.dialogActive && this.playerMode === 'free';
+
+        if (canMove) {
             const fwd = new THREE.Vector3(Math.sin(this.yaw), 0, -Math.cos(this.yaw));
             const right = new THREE.Vector3(Math.cos(this.yaw), 0, Math.sin(this.yaw));
             if (this.keys['KeyW']) moveDir.add(fwd);
@@ -841,25 +946,34 @@ export class GameEngine {
             if (moveDir.lengthSq() > 0) moveDir.normalize();
         }
 
-        this.velocity.x = moveDir.x * SPEED;
-        this.velocity.z = moveDir.z * SPEED;
-        if (this.keys['Space'] && this.onGround && !this.dialogActive) {
-            this.velocity.y = JUMP;
-            this.onGround = false;
-        }
-        this.velocity.y += GRAV * dt;
-        this.player.group.position.addScaledVector(this.velocity, dt);
-        this.resolveCollisions();
+        if (this.playerMode === 'free') {
+            this.velocity.x = moveDir.x * SPEED;
+            this.velocity.z = moveDir.z * SPEED;
+            if (this.keys['Space'] && this.onGround && !this.dialogActive) {
+                this.velocity.y = JUMP;
+                this.onGround = false;
+            }
+            this.velocity.y += GRAV * dt;
+            this.player.group.position.addScaledVector(this.velocity, dt);
+            this.resolveCollisions();
 
-        if (this.player.group.position.y <= 0) {
-            this.player.group.position.y = 0;
-            this.velocity.y = 0;
-            this.onGround = true;
-        }
+            if (this.player.group.position.y <= 0) {
+                this.player.group.position.y = 0;
+                this.velocity.y = 0;
+                this.onGround = true;
+            }
 
-        const hw = (this.config.world.roomSize ?? 20) / 2 - 0.6;
-        this.player.group.position.x = Math.max(-hw, Math.min(hw, this.player.group.position.x));
-        this.player.group.position.z = Math.max(-hw, Math.min(hw, this.player.group.position.z));
+            // Romgrense-clamp kun for lukkede preset (workshop). 'open'-preset lar spillet styre grenser via kollisjonsbokser.
+            if (this.config.world.preset !== 'open') {
+                const hw = (this.config.world.roomSize ?? 20) / 2 - 0.6;
+                this.player.group.position.x = Math.max(-hw, Math.min(hw, this.player.group.position.x));
+                this.player.group.position.z = Math.max(-hw, Math.min(hw, this.player.group.position.z));
+            }
+        } else if (this.playerMode === 'seated') {
+            // Spiller-posisjon er lokal til seat-parent; hold den fast ved offset
+            this.player.group.position.set(...this.seatOffset);
+            this.velocity.set(0, 0, 0);
+        }
 
         // Rotate player to face movement direction
         if (moveDir.lengthSq() > 0.1) {
@@ -991,7 +1105,7 @@ export class GameEngine {
         }
 
         // Particles
-        this.dustSystem.update(dt);
+        this.dustSystem?.update(dt);
         if (this.sparkSystem) {
             this.sparkSystem.update(dt, -7, -7);
         }
@@ -1031,19 +1145,42 @@ export class GameEngine {
         // Proximity
         this.checkProximity();
 
+        // Indre monolog (trigger-volumer og progresjon)
+        if (this.monologSystem) {
+            const world = new THREE.Vector3();
+            this.player.group.getWorldPosition(world);
+            this.monologSystem.update(dt, { x: world.x, z: world.z }, this.phase);
+        }
+
+        // Game-spesifikk per-frame hook (kalles etter alt annet så spill kan lese/overskrive posisjon)
+        const customUpdate = this.scene.userData._customUpdate as ((dt: number, time: number) => void) | undefined;
+        if (customUpdate) customUpdate(dt, this.time);
+
         // Camera
         this.updateCamera(dt);
     }
 
     private updateCamera(dt: number): void {
-        const camDist = 4.5, camH = 2.5;
+        // World-posisjon for spilleren (kan være barn av båt/annen gruppe)
+        const playerWorld = new THREE.Vector3();
+        this.player.group.getWorldPosition(playerWorld);
+
+        // Variabel kameradistanse: krymp når spiller er innendørs (gjenkjennes ved tak-dollhouse-flag)
+        const indoors = this.scene.userData._indoors === true;
+        const camDist = indoors ? 2.8 : 4.5;
+        const camH = indoors ? 1.6 : 2.5;
+
         const idealPos = new THREE.Vector3(
-            this.player.group.position.x - Math.sin(this.yaw) * camDist * Math.cos(this.pitch),
-            this.player.group.position.y + camH + Math.sin(this.pitch) * camDist,
-            this.player.group.position.z + Math.cos(this.yaw) * camDist * Math.cos(this.pitch)
+            playerWorld.x - Math.sin(this.yaw) * camDist * Math.cos(this.pitch),
+            playerWorld.y + camH + Math.sin(this.pitch) * camDist,
+            playerWorld.z + Math.cos(this.yaw) * camDist * Math.cos(this.pitch)
         );
         idealPos.y = Math.max(0.5, idealPos.y);
-        this.camPos.lerp(idealPos, Math.min(1, dt * 8));
+
+        // Kamera-clamp: raycast mot kollisjonsbokser så kamera ikke klipper gjennom vegger
+        const clamped = this.clampCameraAgainstWalls(playerWorld, idealPos);
+
+        this.camPos.lerp(clamped, Math.min(1, dt * 8));
         this.camera.position.copy(this.camPos);
 
         if (this.shakeDuration > 0) {
@@ -1057,10 +1194,62 @@ export class GameEngine {
             }
         }
 
-        const lookTgt = this.player.group.position.clone();
+        const lookTgt = playerWorld.clone();
         lookTgt.y += 1.2;
         this.camTarget.lerp(lookTgt, Math.min(1, dt * 10));
         this.camera.lookAt(this.camTarget);
+    }
+
+    // Strammer ideell kameraposisjon dersom strålen fra spiller til kamera krysser en kollisjonsboks.
+    // Bruker AABB2D (XZ-planet) - samme enkle representasjon som spiller-kollisjon.
+    private clampCameraAgainstWalls(player: THREE.Vector3, ideal: THREE.Vector3): THREE.Vector3 {
+        const MARGIN = 0.3;
+        const dx = ideal.x - player.x;
+        const dz = ideal.z - player.z;
+        const distXZ = Math.hypot(dx, dz);
+        if (distXZ < 0.01) return ideal.clone();
+
+        let minT = 1;
+        for (const box of this.collisionBoxes) {
+            // Stråle fra player mot ideal i XZ. Slab-test mot AABB.
+            const t = this.raySegmentVsAABB(player.x, player.z, dx, dz, box);
+            if (t !== null && t < minT) minT = t;
+        }
+
+        if (minT >= 1) return ideal.clone();
+
+        const clampFactor = Math.max(0, minT - MARGIN / distXZ);
+        return new THREE.Vector3(
+            player.x + dx * clampFactor,
+            player.y + (ideal.y - player.y) * clampFactor + (player.y) * (1 - clampFactor),
+            player.z + dz * clampFactor
+        );
+    }
+
+    // Returnerer t (0..1) langs (px+t*dx, pz+t*dz) hvor strålen krysser AABB, eller null.
+    private raySegmentVsAABB(px: number, pz: number, dx: number, dz: number, box: AABB2D): number | null {
+        let tmin = 0, tmax = 1;
+        if (Math.abs(dx) < 1e-6) {
+            if (px < box.minX || px > box.maxX) return null;
+        } else {
+            let t1 = (box.minX - px) / dx;
+            let t2 = (box.maxX - px) / dx;
+            if (t1 > t2) [t1, t2] = [t2, t1];
+            tmin = Math.max(tmin, t1);
+            tmax = Math.min(tmax, t2);
+            if (tmin > tmax) return null;
+        }
+        if (Math.abs(dz) < 1e-6) {
+            if (pz < box.minZ || pz > box.maxZ) return null;
+        } else {
+            let t1 = (box.minZ - pz) / dz;
+            let t2 = (box.maxZ - pz) / dz;
+            if (t1 > t2) [t1, t2] = [t2, t1];
+            tmin = Math.max(tmin, t1);
+            tmax = Math.min(tmax, t2);
+            if (tmin > tmax) return null;
+        }
+        return tmin > 0.01 ? tmin : null;
     }
 
     // ─── Cleanup ─────────────────────────────────────────────────────────────

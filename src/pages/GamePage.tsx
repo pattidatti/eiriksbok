@@ -2,11 +2,13 @@ import { useParams, Navigate } from 'react-router-dom';
 import { Suspense } from 'react';
 import { GameCanvas } from '../games/engine/components/GameCanvas';
 import { wattLabConfig } from '../games/watt-lab/WattLabConfig';
+import { lindisfarneConfig } from '../games/lindisfarne-793/LindisfarneConfig';
 import type { GameConfig } from '../games/engine/types';
 
 // Registry: map game IDs to their configs
 const GAME_REGISTRY: Record<string, GameConfig> = {
     'watt-lab': wattLabConfig,
+    'lindisfarne-793': lindisfarneConfig,
 };
 
 function GameLoader({ gameId }: { gameId: string }) {

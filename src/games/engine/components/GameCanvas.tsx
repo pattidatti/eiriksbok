@@ -7,6 +7,7 @@ import { EndScreen } from './EndScreen';
 import { GameHUD } from './GameHUD';
 import { DialogBox } from './DialogBox';
 import { PuzzleUI } from './PuzzleUI';
+import { MonologBox } from './MonologBox';
 
 interface GameCanvasProps {
     config: GameConfig;
@@ -19,6 +20,7 @@ const defaultUIState: GameUIState = {
     showInteractPrompt: false,
     dialog: null,
     puzzle: null,
+    monolog: null,
     ended: false,
     endText: '',
 };
@@ -115,6 +117,11 @@ export function GameCanvas({ config }: GameCanvasProps) {
             {/* Puzzle UI */}
             {uiState.started && !uiState.ended && uiState.puzzle && (
                 <PuzzleUI puzzle={uiState.puzzle} onAnswer={handlePuzzleAnswer} />
+            )}
+
+            {/* Indre monolog (ikke-blokkerende) */}
+            {uiState.started && !uiState.ended && (
+                <MonologBox monolog={uiState.monolog} />
             )}
 
             {/* End screen */}

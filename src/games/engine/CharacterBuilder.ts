@@ -41,6 +41,7 @@ const TYPE_MODIFIERS: Record<CharacterType, TypeModifier> = {
     scientist: { browThickness: 2.2, wrinkles: true,  jawScale: 0.9,  beardHint: true  },
     farmer:    { browThickness: 1.4, wrinkles: false, jawScale: 1.15, beardHint: false },
     noble:     { browThickness: 0.8, wrinkles: false, jawScale: 0.85, beardHint: false },
+    monk:      { browThickness: 0.7, wrinkles: true,  jawScale: 0.9,  beardHint: false },
 };
 
 export function lerpParams(a: DrawParams, b: DrawParams, t: number): DrawParams {
@@ -203,6 +204,7 @@ export function buildCharacter(
     if (config.extras) config.extras(g);
 
     g.position.set(...config.position);
+    g.userData.npcId = config.id;
     scene.add(g);
 
     let marker: THREE.Mesh | undefined;

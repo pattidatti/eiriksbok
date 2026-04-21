@@ -9,7 +9,7 @@ export const wattLabConfig: GameConfig = {
     subject: 'historie',
     description:
         'Hjelp James Watt å fullføre oppfinnelsen som skal forandre verden. Gå rundt i verkstedet, samle deler, og løs gåten om separat kondensator.',
-    thumbnail: '/images/industri/watt-lab-thumb.webp',
+    thumbnail: '/images/industri/watt-lab-thumb.png',
 
     world: {
         preset: 'workshop',
