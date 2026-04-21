@@ -1,15 +1,8 @@
 import type { DialogNode } from '../engine/types';
 
-// Alle NPC-dialoger i Lindisfarne 793. Actions settes opp i Assets-filen (openPuzzle, setFlag, setPhase).
+// Alle NPC-dialoger i Lindisfarne 793. Actions (setFlag, setPhase, triggerEnd) kobles
+// på i LindisfarneAssets.ts siden de krever engine-referansen.
 export const lindisfarneDialogs: Record<string, DialogNode> = {
-    // Hovedinngang (erstattes ikke brukt siden spillet ikke har standard intro-flyt,
-    // men motoren krever noen dialoger). Vi bruker 'intro' som placeholder.
-    intro: {
-        speaker: 'Torstein',
-        text: 'Her er jeg. Hva nå?',
-        choices: [{ text: 'Fortsett.', next: null }],
-    },
-
     // ───── Høvding Sigurd (sittende bakerst i båten) ─────
     sigurd_greeting: {
         speaker: 'Høvding Sigurd',

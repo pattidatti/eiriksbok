@@ -129,11 +129,16 @@ export interface GameEngineRef {
     getFlag: <T>(key: string) => T | undefined;
     setPlayerMode: (mode: PlayerMode, opts?: { parent?: Group; offset?: [number, number, number] }) => void;
     playMonolog: (id: string) => void;
+    hasSeenMonolog: (id: string) => boolean;
     setPhase: (phase: string) => void;
     getPhase: () => string;
     openDialog: (key: string) => void;
     getPlayerPosition: () => { x: number; y: number; z: number };
     teleportPlayer: (x: number, y: number, z: number) => void;
+    setCharacterMarkerVisible: (id: string, visible: boolean) => void;
+    // Planlegg et kall som kanselleres automatisk hvis motoren disposes.
+    // Bruk denne i stedet for setTimeout direkte i setupScene og dialog-actions.
+    schedule: (callback: () => void, delayMs: number) => void;
 }
 
 export interface GameConfig {

@@ -12,22 +12,22 @@ export function setupLindisfarneScene(engine: GameEngineRef): void {
     // ───── Fase 1: Hav og båt ─────
     const sea = buildSeascape(scene, toonMat);
 
-    // Plasser mannskap som barn av båten
+    // Plasser mannskap som barn av båten, og lagre sete-Y som bob-base
     const crew = findCrewNPCs(scene);
     if (crew.sigurd) {
         sea.boat.add(crew.sigurd.group);
         crew.sigurd.group.position.set(...sea.crewSeats.chief);
-        crew.sigurd.group.rotation.y = Math.PI; // vendt mot spilleren
+        crew.sigurd.group.userData.bobBase = sea.crewSeats.chief[1];
     }
     if (crew.veteran) {
         sea.boat.add(crew.veteran.group);
         crew.veteran.group.position.set(...sea.crewSeats.veteran);
-        crew.veteran.group.rotation.y = Math.PI;
+        crew.veteran.group.userData.bobBase = sea.crewSeats.veteran[1];
     }
     if (crew.ulv) {
         sea.boat.add(crew.ulv.group);
         crew.ulv.group.position.set(...sea.crewSeats.peer);
-        crew.ulv.group.rotation.y = 0; // pekende fremover
+        crew.ulv.group.userData.bobBase = sea.crewSeats.peer[1];
     }
 
     // ───── Fase 2: Strand og sti ─────
@@ -153,15 +153,15 @@ export function setupLindisfarneScene(engine: GameEngineRef): void {
     }
 
     // Et par sko ved siden av en seng (personlig detalj)
-    const shoeA = new THREE.Mesh(
+    const skoA = new THREE.Mesh(
         new THREE.BoxGeometry(0.15, 0.1, 0.3),
         toonMat(0x3a2814)
     );
-    shoeA.position.set(9.8, 0.05, -21);
-    scene.add(shoeA);
-    const shoeB = shoeA.clone();
-    shoeB.position.set(9.6, 0.05, -21);
-    scene.add(shoeB);
+    skoA.position.set(9.8, 0.05, -21);
+    scene.add(skoA);
+    const skoB = skoA.clone();
+    skoB.position.set(9.6, 0.05, -21);
+    scene.add(skoB);
 
     // ───── Biblioteket: bokhyller langs veggene ─────
     for (let i = 0; i < 3; i++) {
@@ -217,9 +217,9 @@ export function setupLindisfarneScene(engine: GameEngineRef): void {
             engine.setFlag('sparedEadfrith', true);
             engine.setPhase('aftermath_spared');
             engine.playMonolog('after_choice_spared');
-            setTimeout(() => {
+            engine.schedule(() => {
                 engine.playMonolog('epilog_boat_spared');
-                setTimeout(() => engine.triggerEnd(), 16000);
+                engine.schedule(() => engine.triggerEnd(), 16000);
             }, 5000);
         };
     }
@@ -231,9 +231,9 @@ export function setupLindisfarneScene(engine: GameEngineRef): void {
             engine.setPhase('aftermath_killed');
             engine.cameraShake(0.3, 0.6);
             engine.playMonolog('after_choice_killed');
-            setTimeout(() => {
+            engine.schedule(() => {
                 engine.playMonolog('epilog_boat_killed');
-                setTimeout(() => engine.triggerEnd(), 16000);
+                engine.schedule(() => engine.triggerEnd(), 16000);
             }, 5000);
         };
     }
@@ -252,8 +252,8 @@ export function setupLindisfarneScene(engine: GameEngineRef): void {
     engine.setPhase('sailing');
 
     // Start intro-monolog kort etter spillstart
-    setTimeout(() => engine.playMonolog('intro_boat'), 1500);
-    setTimeout(() => engine.playMonolog('first_sight_of_island'), 14000);
+    engine.schedule(() => engine.playMonolog('intro_boat'), 1500);
+    engine.schedule(() => engine.playMonolog('first_sight_of_island'), 14000);
 
     // Båten stopper her og venter til spilleren har snakket ferdig med alle
     const sailingHoldZ = 18;
@@ -285,7 +285,7 @@ export function setupLindisfarneScene(engine: GameEngineRef): void {
             ) {
                 engine.setFlag('readyToLand', true);
                 // Trigger høvdings-landgangsdialog
-                setTimeout(() => engine.openDialog('chief_land'), 2500);
+                engine.schedule(() => engine.openDialog('chief_land'), 2500);
             }
         } else {
             // Etter landing - båten ligger parkert ved stranden med baugen inn mot land
@@ -321,23 +321,29 @@ export function setupLindisfarneScene(engine: GameEngineRef): void {
             engine.setPhase('cloister');
         }
         if (phase === 'cloister') {
-            // Når spilleren nærmer seg Eadfrith i biblioteket, start konfrontasjon
-            const toEadfrith = Math.hypot(player.x - (-6.5), player.z - (-22));
-            if (toEadfrith < 2.2 && !engine.getFlag('confronted')) {
-                engine.setFlag('confronted', true);
-                engine.setPhase('confrontation');
-                engine.openDialog('eadfrith_intercept');
+            // Konfrontasjonen skal først utløses når spilleren faktisk har sett boken og
+            // observert biblioteket. Krev at begge bibliotek-monologene er vist, og bruk
+            // Eadfriths reelle posisjon (-8, -22) med tight radius.
+            const seenBookIntro = engine.hasSeenMonolog('library_discovery');
+            const seenBook = engine.hasSeenMonolog('library_book');
+            if (seenBookIntro && seenBook && !engine.getFlag('confronted')) {
+                const toEadfrith = Math.hypot(player.x - (-8), player.z - (-22));
+                if (toEadfrith < 1.5) {
+                    engine.setFlag('confronted', true);
+                    engine.setPhase('confrontation');
+                    engine.openDialog('eadfrith_intercept');
+                }
             }
         }
 
         // Animer bøker på lesepulten - en svak pulsering i gullkanten
         bookGold.rotation.z = Math.sin(time * 0.8) * 0.05;
 
-        // NPC-markører vises basert på fase
+        // NPC-markører: synlig under seilas for dem som ikke er snakket med ennå
         const showCrewMarkers = phase === 'sailing';
-        if (crew.sigurd?.marker) crew.sigurd.marker.visible = showCrewMarkers && !engine.getFlag('talkedChief');
-        if (crew.veteran?.marker) crew.veteran.marker.visible = showCrewMarkers && !engine.getFlag('talkedVeteran');
-        if (crew.ulv?.marker) crew.ulv.marker.visible = showCrewMarkers && !engine.getFlag('talkedPeer');
+        engine.setCharacterMarkerVisible('sigurd', showCrewMarkers && !engine.getFlag('talkedChief'));
+        engine.setCharacterMarkerVisible('veteran', showCrewMarkers && !engine.getFlag('talkedVeteran'));
+        engine.setCharacterMarkerVisible('ulv', showCrewMarkers && !engine.getFlag('talkedPeer'));
     };
 
     // ───── Fase-overgang: Landgang ─────
@@ -366,10 +372,7 @@ interface CrewRef {
     ulv: { group: THREE.Group; marker?: THREE.Mesh } | null;
 }
 
-// Finn NPC-objekter ved å matche mot navn som er satt i scenen.
-// Motoren legger ikke til en id i Group.name, så vi matcher på position-start (alle start på [0,0,0])
-// eller en alternativ: iterer alle children og matcher ved prosedyre.
-// Enklere: NPCs ligger i scene.children som Group. Vi leter etter dem med userData.npcId som vi setter nedenfor.
+// Finner NPC-gruppene ved å slå opp userData.npcId som motoren setter i buildCharacter.
 function findCrewNPCs(scene: THREE.Scene): CrewRef {
     const result: CrewRef = { sigurd: null, veteran: null, ulv: null };
     for (const child of scene.children) {

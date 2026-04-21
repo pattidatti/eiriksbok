@@ -108,6 +108,11 @@ export class MonologSystem {
         });
     }
 
+    // Sjekk om en monolog har blitt vist for spilleren
+    hasSeen(id: string): boolean {
+        return this.seen.has(id);
+    }
+
     // For debug / reset
     clear(): void {
         this.active = null;

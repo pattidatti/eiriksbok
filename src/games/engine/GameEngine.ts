@@ -220,6 +220,12 @@ export class GameEngine {
     private monologSystem: MonologSystem | null = null;
     private activeMonolog: MonologUIState | null = null;
 
+    // NPCer hvor spillet styrer marker-synlighet manuelt (motor-standardlogikken skal skippes)
+    private manualMarkerIds = new Set<string>();
+
+    // Utestående timeouts satt via engine.schedule - kanselleres ved dispose
+    private scheduledTimeouts = new Set<ReturnType<typeof setTimeout>>();
+
     constructor(options: EngineOptions) {
         this.options = options;
         this.config = options.config;
@@ -257,10 +263,17 @@ export class GameEngine {
             this.setupHighEndCompositor();
         }
 
-        // Init camera
-        const [px, , pz] = options.config.player.startPosition;
-        this.camPos.set(px - Math.sin(this.yaw) * 4.5, 2.5, pz + Math.cos(this.yaw) * 4.5);
-        this.camTarget.set(px, 1.2, pz);
+        // Init camera basert på faktisk verdensposisjon (setupScene kan ha satt player som
+        // barn av et annet objekt via setPlayerMode('seated'), så config.startPosition alene
+        // ville gitt en feil start-posisjon og et synlig kamera-snap første frame)
+        const world = new THREE.Vector3();
+        this.player.group.getWorldPosition(world);
+        this.camPos.set(
+            world.x - Math.sin(this.yaw) * 4.5,
+            world.y + 2.5,
+            world.z + Math.cos(this.yaw) * 4.5
+        );
+        this.camTarget.set(world.x, world.y + 1.2, world.z);
     }
 
     // ─── Public interface for setupScene callbacks ──────────────────────────
@@ -439,13 +452,37 @@ export class GameEngine {
             getFlag: <T>(key: string) => this.flags.get(key) as T | undefined,
             setPlayerMode: (mode, opts) => this.setPlayerMode(mode, opts),
             playMonolog: (id: string) => this.monologSystem?.play(id),
-            setPhase: (phase: string) => { this.phase = phase; },
+            hasSeenMonolog: (id: string) => this.monologSystem?.hasSeen(id) ?? false,
+            setPhase: (phase: string) => {
+                this.phase = phase;
+                // Slå opp tilsvarende quest i config og oppdater oppdragstekst hvis den finnes
+                const quest = this.config.quests.find((q) => q.phase === phase);
+                if (quest) {
+                    this.questObjective = quest.objective;
+                    this.pushUIState({ questObjective: this.questObjective });
+                }
+            },
             getPhase: () => this.phase,
             openDialog: (key: string) => this.openDialog(key),
             getPlayerPosition: () => {
                 const world = new THREE.Vector3();
                 this.player.group.getWorldPosition(world);
                 return { x: world.x, y: world.y, z: world.z };
+            },
+            setCharacterMarkerVisible: (id, visible) => {
+                const char = this.characters.get(id);
+                if (char?.marker) char.marker.visible = visible;
+                // Merk at spillet nå styrer denne markøren - motoren skal ikke overstyre
+                this.manualMarkerIds.add(id);
+            },
+            schedule: (callback, delayMs) => {
+                if (this.disposed) return;
+                const id = setTimeout(() => {
+                    this.scheduledTimeouts.delete(id);
+                    if (this.disposed) return;
+                    callback();
+                }, delayMs);
+                this.scheduledTimeouts.add(id);
             },
             teleportPlayer: (x, y, z) => {
                 // Hvis spilleren fortsatt er barn av en seat-parent, løft den ut først
@@ -999,8 +1036,11 @@ export class GameEngine {
         }
 
         // NPC animations
-        for (const char of this.characters.values()) {
-            char.group.position.y = Math.sin(this.time * 1.5) * 0.03;
+        for (const [id, char] of this.characters) {
+            // Sittende eller høytplasserte NPCer (f.eks. mannskap i båt) kan spesifisere
+            // en base-Y i userData så sin-bob ikke rykker dem ned til gulvet.
+            const bobBase = (char.group.userData.bobBase as number | undefined) ?? 0;
+            char.group.position.y = bobBase + Math.sin(this.time * 1.5) * 0.03;
             const toPlayer = new THREE.Vector3().subVectors(
                 this.player.group.position,
                 char.group.position
@@ -1012,11 +1052,13 @@ export class GameEngine {
                 (char.marker.material as THREE.MeshBasicMaterial).opacity =
                     0.5 + Math.sin(this.time * 4) * 0.5;
 
-                // Show marker based on phase
-                const showMarker = this.phase === 'intro' ||
-                    (this.phase === 'collecting' && this.collectedIds.size === (this.config.collectibles?.length ?? 0)) ||
-                    this.phase === 'puzzle';
-                char.marker.visible = showMarker;
+                // Hvis spillet har tatt manuell kontroll over markøren, ikke overstyr
+                if (!this.manualMarkerIds.has(id)) {
+                    const showMarker = this.phase === 'intro' ||
+                        (this.phase === 'collecting' && this.collectedIds.size === (this.config.collectibles?.length ?? 0)) ||
+                        this.phase === 'puzzle';
+                    char.marker.visible = showMarker;
+                }
             }
         }
 
@@ -1257,6 +1299,9 @@ export class GameEngine {
     dispose(): void {
         this.disposed = true;
         cancelAnimationFrame(this.animFrameId);
+        // Kanseller alle planlagte timeouts for å unngå setState på disposed engine
+        for (const id of this.scheduledTimeouts) clearTimeout(id);
+        this.scheduledTimeouts.clear();
         this._cleanupInput();
         this._cleanupResize();
         if (document.pointerLockElement === this.renderer.domElement) {
