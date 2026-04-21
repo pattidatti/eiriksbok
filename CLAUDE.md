@@ -39,7 +39,8 @@ Alt innhold i Eiriksbok skal være forståelig for en gjennomsnittlig 14-åring.
 | Data fetching | TanStack React Query 5 |
 | Backend/Realtime | Firebase 12 (Firestore, Realtime DB — for Quiz Battle & feedback) |
 | CMS | TinaCMS 2 (visual editing at `/admin`) |
-| 3D | Three.js + React Three Fiber |
+| 3D (artikler) | React Three Fiber + Drei |
+| 3D (mini-spill) | Raw Three.js (imperativ, ingen R3F) |
 | Charts | Chart.js + react-chartjs-2 |
 | Maps | d3-geo + topojson-client |
 | Drag-and-drop | @dnd-kit |
@@ -78,7 +79,21 @@ Alt innhold i Eiriksbok skal være forståelig for en gjennomsnittlig 14-åring.
 │   │   ├── ui/                # Generic UI primitives
 │   │   └── ...                # Layout, navigation, modals
 │   ├── features/music/        # Music subject feature module
-│   ├── games/                 # Standalone game pages (Chrono Glider, Timeline TD, etc.)
+│   ├── games/
+│   │   ├── engine/            # Gjenbrukbart 3D-spillmotor-rammeverk (raw Three.js)
+│   │   │   ├── types.ts       # GameConfig, DialogNode, PuzzleStep, AABB2D, GameEngineRef, osv.
+│   │   │   ├── GameEngine.ts  # Hoved-orkestrator: scene, renderer, loop, input, kollisjon
+│   │   │   ├── WorldBuilder.ts    # Bygger rom fra preset ('workshop', osv.)
+│   │   │   ├── CharacterBuilder.ts # Toon-shaded karakterer og samleobjekter
+│   │   │   ├── ParticleSystem.ts  # Støv, gnister, damp
+│   │   │   └── components/    # React-wrappere: GameCanvas, DialogBox, PuzzleUI, GameHUD, osv.
+│   │   ├── watt-lab/          # James Watt-spill (første historiske mini-spill)
+│   │   │   ├── WattLabConfig.ts   # Komplett GameConfig: verden, karakterer, dialog, puzzle
+│   │   │   └── WattLabAssets.ts   # Spill-spesifikke 3D-objekter + kollisjonsbokser
+│   │   ├── chrono-glider/     # Chrono Glider (eksisterende, R3F-basert)
+│   │   ├── concept-snake/     # Konseptslange (eksisterende)
+│   │   ├── word-sorter/       # Ordsortering (eksisterende)
+│   │   └── GameRegistry.ts    # Eldre spill-registry (ikke brukt av engine-systemet)
 │   ├── hooks/                 # Custom React hooks
 │   ├── context/               # React context providers (GlossaryContext, LayoutContext)
 │   ├── stores/                # Zustand stores
@@ -138,6 +153,8 @@ The app uses a manifest-driven routing system:
 /oving/detektiv/:caseId         Detective case
 /oving/etikk                    Ethics experiment
 /oving/tidsreise/:scenarioId    Time travel game
+/oving/spill                    Mini-spill galleri (historiske 3D-spill)
+/oving/spill/:gameId            Enkelt mini-spill (f.eks. /oving/spill/watt-lab)
 /quiz-battle                    Multiplayer quiz lobby
 /krle/sammenlign                Religion comparison
 /krle/filosofi/odyssey          Philosophy odyssey
@@ -338,6 +355,19 @@ See `.agent/workflows/LEARNING_PATH_GUIDE.md` for the full JSON schema.
 
 ---
 
+## Mini-spill-system
+
+Historiske 3D-mini-spill bor under `/oving/spill` og bruker et eget gjenbrukbart rammeverk i `src/games/engine/`. Hvert spill defineres som et TypeScript-objekt (`GameConfig`) — motoren håndterer Three.js, input, dialog, puzzle og kollisjon. Ingen progresjonlagring.
+
+**Legge til et nytt spill:**
+1. Opprett `src/games/[id]/[Id]Config.ts` (GameConfig) og `[Id]Assets.ts` (setupScene-callback)
+2. Legg til i `HISTORICAL_GAMES` i `src/pages/MiniGamesPage.tsx`
+3. Legg til i `GAME_REGISTRY` i `src/pages/GamePage.tsx`
+
+Se **`.agent/workflows/BUILD_GAME_GUIDE.md`** for komplett guide med skjema, kollisjonsboks-formel, dialog- og puzzle-system, og eksempler fra Watt Lab.
+
+---
+
 ## Code Conventions
 
 ### TypeScript
@@ -447,9 +477,14 @@ A highly realistic 4K cinematic photograph of [scene], [time period].
 | `src/App.tsx` | Router setup, context providers |
 | `src/routes.ts` | Lazy-load route factories |
 | `src/lib/firebase.ts` | Firebase configuration |
+| `src/games/engine/types.ts` | Alle typer for mini-spill-systemet (GameConfig, AABB2D, osv.) |
+| `src/games/engine/GameEngine.ts` | Three.js spillmotor — scene, input, loop, kollisjon |
+| `src/pages/MiniGamesPage.tsx` | Galleriside — legg til nye spill i HISTORICAL_GAMES her |
+| `src/pages/GamePage.tsx` | Enkeltspill-side — legg til spill-ID i GAME_REGISTRY her |
 | `docs/THE_ARCHITECTS_HANDBOOK.md` | Workflow philosophy |
 | `docs/CONTENT_SYSTEM.md` | Comprehensive content system reference |
 | `.agent/workflows/LEARNING_PATH_GUIDE.md` | Learning path JSON schema and guide |
+| `.agent/workflows/BUILD_GAME_GUIDE.md` | Guide for å lage nye 3D-mini-spill |
 | `docs/image-style-guide.md` | Image generation and optimization standards |
 
 ---
@@ -464,6 +499,7 @@ A highly realistic 4K cinematic photograph of [scene], [time period].
 6. **Timeline in article JSON**: Always keep `"timeline": []` in article files. All events go in `global-timeline.json`.
 7. **Learning paths in `lessons`**: Learning paths (`-sti.json`) must be registered under `tools`, not `lessons` in the manifest.
 8. **Relative links in tasks**: Always use absolute paths starting with `/` in learning path task links.
+9. **Mini-spill kollisjonsbokser**: Nye 3D-objekter i `setupScene` trenger manuelle AABB2D-bokser i `engine.scene.userData.collisionBoxes`. Glem dette, og spilleren går rett gjennom objektet. Formel: center ± (half_extent + 0.4).
 
 ---
 
@@ -478,5 +514,7 @@ A highly realistic 4K cinematic photograph of [scene], [time period].
 - `docs/DETEKTIV_GUIDE.md` — Detective case system
 - `docs/KRLE_PEDAGOGICAL_GUIDE.md` — KRLE content guidelines
 - `docs/Design documents/` — Per-topic blueprints
-- `.agent/workflows/` — AI agent workflow definitions
+- `.agent/workflows/LEARNING_PATH_GUIDE.md` — Learning path JSON schema and guide
+- `.agent/workflows/BUILD_GAME_GUIDE.md` — Guide for å lage nye historiske 3D-mini-spill
+- `Ideer/` — Ideas and planning documents (Norwegian)
 - `Ideer/` — Ideas and planning documents (Norwegian)
