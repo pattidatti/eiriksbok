@@ -108,6 +108,16 @@ export class MonologSystem {
         });
     }
 
+    isActive(): boolean {
+        return this.active !== null;
+    }
+
+    // Hopp til neste linje, eller avslutt monologen hvis vi er på siste linje.
+    skip(): void {
+        if (!this.active) return;
+        this.advanceLine();
+    }
+
     // Sjekk om en monolog har blitt vist for spilleren
     hasSeen(id: string): boolean {
         return this.seen.has(id);

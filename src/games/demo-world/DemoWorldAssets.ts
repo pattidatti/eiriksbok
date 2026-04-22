@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { Sky } from 'three/addons/objects/Sky.js';
 import type { GameEngineRef, AABB2D } from '../engine/types';
 import { buildRoom } from '../engine/systems/RoomSystem';
 
@@ -82,6 +83,15 @@ function getTerrainY(x: number, z: number): number {
         h *= blend;
     }
 
+    // Flat plateau around light test room [28, -10]
+    const trdx = x - 28,
+        trdz = z - -10;
+    const testRoomDist = Math.sqrt(trdx * trdx + trdz * trdz);
+    if (testRoomDist < 14) {
+        const blend = smoothstep(Math.min(1, Math.max(0, (testRoomDist - 10) / 4)));
+        h *= blend;
+    }
+
     return Math.max(-1.3, h);
 }
 
@@ -96,6 +106,8 @@ function isGrassExcluded(x: number, z: number): boolean {
     const wdx = x - 16,
         wdz = z - 12;
     if (Math.sqrt(wdx * wdx + wdz * wdz) < 13) return true;
+    // Light test room zone
+    if (x > 17 && x < 39 && z > -20 && z < 0) return true;
     // Terrain edge
     if (Math.abs(x) > 37 || Math.abs(z) > 37) return true;
     return false;
@@ -172,7 +184,8 @@ function buildGrassMesh(mat: THREE.ShaderMaterial): THREE.Mesh {
 // ── Trees ─────────────────────────────────────────────────────────────────────
 
 interface TreeRef {
-    crown: THREE.Mesh;
+    group: THREE.Group; // whole-tree sway rotates around the base
+    crown: THREE.Mesh;  // extra crown sway on top of whole-tree motion
     phase: number;
 }
 
@@ -189,9 +202,10 @@ function buildTree(
     const group = new THREE.Group();
     group.position.set(x, y, z);
 
-    const trunkH = 1.2 * scale;
+    // Realistic trunk: 4–7m tall, 0.3–0.5m diameter at base
+    const trunkH = 5.0 * scale;
     const trunk = new THREE.Mesh(
-        new THREE.CylinderGeometry(0.12 * scale, 0.18 * scale, trunkH, 6),
+        new THREE.CylinderGeometry(0.18 * scale, 0.28 * scale, trunkH, 7),
         toonMat(0x5c3d1a)
     );
     trunk.position.y = trunkH / 2;
@@ -200,26 +214,31 @@ function buildTree(
 
     let crown: THREE.Mesh;
     if (conifer) {
+        // Gran: smal kjegle, 6–8m høy
+        const coneH = 6.5 * scale;
         crown = new THREE.Mesh(
-            new THREE.ConeGeometry(0.88 * scale, 2.2 * scale, 7),
+            new THREE.ConeGeometry(2.2 * scale, coneH, 7),
             toonMat(0x2d6a2d)
         );
-        crown.position.y = trunkH + 0.9 * scale;
+        // ConeGeometry centre = midpoint, so base sits at trunkH
+        crown.position.y = trunkH + coneH / 2;
     } else {
+        // Løvtre: bred kuleform krone, 3–4m radius
+        const sphereR = 2.8 * scale;
         crown = new THREE.Mesh(
-            new THREE.SphereGeometry(0.88 * scale, 8, 6),
+            new THREE.SphereGeometry(sphereR, 9, 7),
             toonMat(0x3a7a3a)
         );
-        crown.position.y = trunkH + 0.65 * scale;
+        crown.position.y = trunkH + sphereR * 0.8;
     }
     crown.castShadow = true;
     group.add(crown);
     scene.add(group);
 
-    const r = 0.22 * scale + 0.4;
+    const r = 0.30 * scale + 0.4;
     collisionBoxes.push({ minX: x - r, maxX: x + r, minZ: z - r, maxZ: z + r });
 
-    return { crown, phase: Math.random() * Math.PI * 2 };
+    return { group, crown, phase: Math.random() * Math.PI * 2 };
 }
 
 function buildForest(
@@ -378,6 +397,113 @@ function buildShoreRocks(
     }
 }
 
+// ── Light test room ───────────────────────────────────────────────────────────
+
+interface LightRoomRefs {
+    lights: THREE.PointLight[];
+}
+
+function buildLightTestRoom(
+    scene: THREE.Scene,
+    toonMat: (c: number, o?: Record<string, unknown>) => THREE.MeshToonMaterial,
+    collisionBoxes: AABB2D[]
+): LightRoomRefs {
+    const cx = 28,
+        cz = -10;
+    const baseY = getTerrainY(cx, cz);
+
+    buildRoom(
+        scene,
+        toonMat,
+        {
+            id: 'lysrom',
+            center: [cx, cz],
+            size: [20, 18],
+            wallHeight: 7,
+            floorColor: 0x1a1a1a,
+            wallColor: 0x222222,
+            roofColor: 0x111111,
+            hasRoof: true,
+            openings: [{ side: 'S', offset: 0, width: 2.2 }],
+        },
+        collisionBoxes
+    );
+
+    const lightDefs = [
+        { x: cx, z: cz, color: 0xffffff, intensity: 35, radius: 25 },
+        { x: cx - 7, z: cz - 5, color: 0xff2200, intensity: 18, radius: 18 },
+        { x: cx + 7, z: cz - 5, color: 0x0055ff, intensity: 18, radius: 18 },
+        { x: cx - 7, z: cz + 5, color: 0x00ee44, intensity: 18, radius: 18 },
+        { x: cx + 7, z: cz + 5, color: 0xffaa00, intensity: 18, radius: 18 },
+    ];
+
+    const lights: THREE.PointLight[] = [];
+
+    for (const def of lightDefs) {
+        const hangY = baseY + 7;
+        const bulbY = hangY - 1.0;
+
+        const cord = new THREE.Mesh(
+            new THREE.CylinderGeometry(0.02, 0.02, 1.0, 4),
+            new THREE.MeshStandardMaterial({ color: 0x333333 })
+        );
+        cord.position.set(def.x, hangY - 0.5, def.z);
+        scene.add(cord);
+
+        const bulb = new THREE.Mesh(
+            new THREE.SphereGeometry(0.14, 8, 6),
+            new THREE.MeshStandardMaterial({
+                color: def.color,
+                emissive: def.color,
+                emissiveIntensity: 4.0,
+                roughness: 0.1,
+                metalness: 0.3,
+            })
+        );
+        bulb.position.set(def.x, bulbY, def.z);
+        scene.add(bulb);
+
+        const light = new THREE.PointLight(def.color, def.intensity, def.radius);
+        light.position.set(def.x, bulbY - 0.2, def.z);
+        scene.add(light);
+        lights.push(light);
+    }
+
+    // Test objects: sphere (center), 4 cylinders with varying roughness, reflective disc
+    const sphere = new THREE.Mesh(
+        new THREE.SphereGeometry(0.8, 16, 12),
+        new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.4, metalness: 0.1 })
+    );
+    sphere.position.set(cx, baseY + 0.8, cz);
+    sphere.castShadow = true;
+    scene.add(sphere);
+
+    const cylPositions: [number, number][] = [
+        [cx - 7, cz - 5],
+        [cx + 7, cz - 5],
+        [cx - 7, cz + 5],
+        [cx + 7, cz + 5],
+    ];
+    [0.1, 0.4, 0.7, 1.0].forEach((roughness, i) => {
+        const cyl = new THREE.Mesh(
+            new THREE.CylinderGeometry(0.3, 0.3, 1.2, 12),
+            new THREE.MeshStandardMaterial({ color: 0xaaaaaa, roughness, metalness: 0.0 })
+        );
+        cyl.position.set(cylPositions[i][0], baseY + 0.6, cylPositions[i][1]);
+        cyl.castShadow = true;
+        scene.add(cyl);
+    });
+
+    const disc = new THREE.Mesh(
+        new THREE.CylinderGeometry(1.2, 1.2, 0.05, 24),
+        new THREE.MeshStandardMaterial({ color: 0xcccccc, roughness: 0.05, metalness: 0.95 })
+    );
+    disc.position.set(cx, baseY + 0.03, cz);
+    scene.add(disc);
+
+    return { lights };
+}
+
 // ── Main setup ────────────────────────────────────────────────────────────────
 
 export function setupDemoWorldScene(engine: GameEngineRef): void {
@@ -385,6 +511,21 @@ export function setupDemoWorldScene(engine: GameEngineRef): void {
     const collisionBoxes = scene.userData.collisionBoxes as AABB2D[];
 
     scene.userData.getTerrainY = getTerrainY;
+
+    // ── Sky (procedural Preetham atmospheric model) ────────────────────────────
+    scene.background = null; // Sky mesh replaces the flat background color
+    const sky = new Sky();
+    sky.scale.setScalar(10000);
+    scene.add(sky);
+    const skyMat = sky.material as THREE.ShaderMaterial;
+    skyMat.uniforms['turbidity'].value = 6;
+    skyMat.uniforms['rayleigh'].value = 2.2;
+    skyMat.uniforms['mieCoefficient'].value = 0.004;
+    skyMat.uniforms['mieDirectionalG'].value = 0.88;
+    // Sun direction matches DirectionalLight at (30, 50, 20)
+    skyMat.uniforms['sunPosition'].value.set(30, 50, 20).normalize();
+    // Fog color tuned to match sky horizon
+    if (scene.fog) scene.fog.color.set(0xb8cad4);
 
     // ── Lighting ──────────────────────────────────────────────────────────────
     const sun = new THREE.DirectionalLight(0xfff5e0, 3.8);
@@ -512,6 +653,9 @@ export function setupDemoWorldScene(engine: GameEngineRef): void {
     // ── Shore rocks ───────────────────────────────────────────────────────────
     buildShoreRocks(scene, toonMat);
 
+    // ── Light test room ───────────────────────────────────────────────────────
+    const lightRoomRefs = buildLightTestRoom(scene, toonMat, collisionBoxes);
+
     // ── Fix NPC Y position to terrain ─────────────────────────────────────────
     for (const child of scene.children) {
         if (child instanceof THREE.Group && child.userData.npcId === 'bonden') {
@@ -528,9 +672,13 @@ export function setupDemoWorldScene(engine: GameEngineRef): void {
         waterMat.uniforms.uTime.value = elapsed;
         grassMat.uniforms.uTime.value = elapsed;
 
-        for (const { crown, phase } of treeRefs) {
-            crown.rotation.z = Math.sin(elapsed * 0.8 + phase) * 0.015;
-            crown.rotation.x = Math.sin(elapsed * 0.6 + phase * 1.3) * 0.01;
+        for (const { group, crown, phase } of treeRefs) {
+            // Whole-tree sway — rotates around the base (realistic wind effect)
+            group.rotation.z = Math.sin(elapsed * 0.65 + phase) * 0.022;
+            group.rotation.x = Math.sin(elapsed * 0.48 + phase * 1.6) * 0.014;
+            // Crown sways more than trunk tip (canopy is looser)
+            crown.rotation.z = Math.sin(elapsed * 1.4 + phase * 0.85) * 0.032;
+            crown.rotation.x = Math.sin(elapsed * 1.1 + phase * 1.2) * 0.018;
         }
 
         const flicker = Math.sin(elapsed * 5.3) * 0.5 + 0.5;
@@ -541,5 +689,10 @@ export function setupDemoWorldScene(engine: GameEngineRef): void {
         fireRefs.flame2.position.y = 0.48 + flicker2 * 0.18;
         fireRefs.light1.intensity = 11 + flicker * 7;
         fireRefs.light2.intensity = 3 + flicker2 * 4;
+
+        const baseLightIntensity = [35, 18, 18, 18, 18];
+        lightRoomRefs.lights.forEach((light, i) => {
+            light.intensity = baseLightIntensity[i] + Math.sin(elapsed * 0.8 + i * 1.2) * 2.5;
+        });
     };
 }

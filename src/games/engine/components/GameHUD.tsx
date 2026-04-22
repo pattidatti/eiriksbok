@@ -10,9 +10,10 @@ interface GameHUDProps {
     showInteractPrompt: boolean;
     showFlash: boolean;
     toast?: string;
+    debug?: { phase: string; flags: Record<string, unknown> };
 }
 
-export function GameHUD({ questObjective, questParts, showInteractPrompt, showFlash, toast }: GameHUDProps) {
+export function GameHUD({ questObjective, questParts, showInteractPrompt, showFlash, toast, debug }: GameHUDProps) {
     return (
         <>
             {/* Quest HUD */}
@@ -122,10 +123,38 @@ export function GameHUD({ questObjective, questParts, showInteractPrompt, showFl
                 <br />
                 <span style={{ color: '#d4a574' }}>Mus</span> se rundt
                 <br />
-                <span style={{ color: '#d4a574' }}>Mellomrom</span> hoppe
+                <span style={{ color: '#d4a574' }}>Mellomrom</span> hoppe / skippe
                 <br />
                 <span style={{ color: '#d4a574' }}>E</span> interagere
+                <br />
+                <span style={{ color: '#d4a574' }}>Esc</span> pause
             </div>
+
+            {/* Debug overlay */}
+            {debug && (
+                <div
+                    style={{
+                        position: 'absolute',
+                        top: 20,
+                        right: 20,
+                        background: 'rgba(0,0,0,0.8)',
+                        border: '1px solid #00ff44',
+                        padding: '8px 12px',
+                        fontSize: 11,
+                        color: '#00ff44',
+                        borderRadius: 3,
+                        fontFamily: 'monospace',
+                        lineHeight: 1.6,
+                        pointerEvents: 'none',
+                        zIndex: 20,
+                    }}
+                >
+                    <div>fase: {debug.phase}</div>
+                    {Object.entries(debug.flags).map(([k, v]) => (
+                        <div key={k}>{k}: {String(v)}</div>
+                    ))}
+                </div>
+            )}
 
             {/* Interact prompt */}
             {showInteractPrompt && (

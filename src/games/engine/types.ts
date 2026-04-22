@@ -160,6 +160,8 @@ export interface GameConfig {
     monologTriggers?: MonologTrigger[];
     // Streng, eller en funksjon som kan lese flagg og returnere variabel slutt-tekst.
     endText: string | ((engine: GameEngineRef) => string);
+    // Aktiver debug-modus: viser kollisjonsbokser og fase/flagg i HUD.
+    debug?: boolean;
     // Called once after engine initializes - add game-specific 3D and wire puzzle callbacks here
     setupScene?: (engine: GameEngineRef) => void;
 }
@@ -194,4 +196,6 @@ export interface GameUIState {
     ended: boolean;
     endText: string;
     showFlash?: boolean;
+    paused?: boolean;
+    debug?: { phase: string; flags: Record<string, unknown> };
 }

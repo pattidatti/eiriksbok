@@ -67,12 +67,18 @@ export const demoWorldConfig: GameConfig = {
             lines: ['Bålet sprekker og knaser. Varmen treffer deg fra lang avstand.'],
             once: true,
         },
+        testrom: {
+            id: 'testrom',
+            lines: ['Et stort mørkt rom. Lysene kaster fargede skygger på veggene.'],
+            once: true,
+        },
     },
 
     monologTriggers: [
         { id: 't_vann', monologId: 'vann', area: { minX: 10, maxX: 22, minZ: 6, maxZ: 18 } },
         { id: 't_skog', monologId: 'skog', area: { minX: -8, maxX: 3, minZ: -13, maxZ: -7 } },
         { id: 't_baal', monologId: 'baal', area: { minX: 4, maxX: 10, minZ: -25, maxZ: -19 } },
+        { id: 't_testrom', monologId: 'testrom', area: { minX: 18, maxX: 38, minZ: -20, maxZ: 0 } },
     ],
 
     endText: 'Du har utforsket demoverdenen.',

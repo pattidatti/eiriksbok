@@ -15,16 +15,15 @@ import { DustSystem, SparkSystem } from './ParticleSystem';
 import { MonologSystem } from './systems/MonologSystem';
 
 // Single-pass cinematic shader — safe for all devices (Chromebook included).
-// Warmth, vignette, film grain, and chromatic aberration in one fullscreen quad.
+// Warmth, vignette, and chromatic aberration in one fullscreen quad.
 const LightweightCinematicShader = {
     uniforms: {
         tDiffuse: { value: null },
-        time: { value: 0 },
+        time: { value: 0 }, // retained for API compatibility, unused in shader
     },
     vertexShader: `varying vec2 vUv; void main(){ vUv=uv; gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.); }`,
     fragmentShader: `
         uniform sampler2D tDiffuse;
-        uniform float time;
         varying vec2 vUv;
         void main(){
             vec2 center = vUv - 0.5;
@@ -44,27 +43,21 @@ const LightweightCinematicShader = {
             // Vignette
             c.rgb *= 1.0 - edge * 0.55;
 
-            // Film grain — pattern shifts at ~24fps for organic look
-            float grain = fract(
-                sin(dot(vUv + floor(time * 24.0) * 0.017, vec2(127.1, 311.7))) * 43758.5453
-            ) - 0.5;
-            c.rgb += grain * 0.022;
-
             gl_FragColor = c;
         }`,
 };
 
-// Extended cinematic shader for high-end — stronger aberration, richer grain
+// Extended cinematic shader for high-end — stronger aberration, scene warmth
 const HighEndCinematicShader = {
     uniforms: {
         tDiffuse: { value: null },
         warmth: { value: 0.08 },
-        time: { value: 0 },
+        time: { value: 0 }, // retained for API compatibility, unused in shader
     },
     vertexShader: `varying vec2 vUv; void main(){ vUv=uv; gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.); }`,
     fragmentShader: `
         uniform sampler2D tDiffuse;
-        uniform float warmth, time;
+        uniform float warmth;
         varying vec2 vUv;
         void main(){
             vec2 center = vUv - 0.5;
@@ -83,12 +76,6 @@ const HighEndCinematicShader = {
 
             // Vignette
             c.rgb *= 1.0 - edge * 0.45;
-
-            // Richer film grain
-            float grain = fract(
-                sin(dot(vUv + floor(time * 24.0) * 0.017, vec2(127.1, 311.7))) * 43758.5453
-            ) - 0.5;
-            c.rgb += grain * 0.028;
 
             gl_FragColor = c;
         }`,
@@ -143,12 +130,14 @@ export class GameEngine {
     // Post-processing (tiered: all devices get lightweight pass, high-end gets bloom too)
     private composer: unknown = null;
     private bloomPass: { strength: number; resolution: THREE.Vector2 } | null = null;
-    private bloomTarget = 0.45;
+    private bloomTarget = 0.35;
     private cinematicPass: { uniforms: { time: { value: number } } } | null = null;
+    private fxaaPass: { uniforms: { resolution: { value: { x: number; y: number } } } } | null = null;
 
     // State
     private phase = 'intro';
     private gameStarted = false;
+    private paused = false;
     private dialogActive = false;
     private puzzleActive = false;
     private currentChoices: (() => void)[] = [];
@@ -248,8 +237,8 @@ export class GameEngine {
         this.renderer.setPixelRatio(isLowEnd ? 1 : Math.min(window.devicePixelRatio, 2));
         this.renderer.shadowMap.enabled = true;
         this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-        this.renderer.toneMapping = THREE.LinearToneMapping;
-        this.renderer.toneMappingExposure = 2.2;
+        this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
+        this.renderer.toneMappingExposure = 1.8;
         this.renderer.outputColorSpace = THREE.SRGBColorSpace;
 
         options.container.appendChild(this.renderer.domElement);
@@ -434,6 +423,22 @@ export class GameEngine {
             const ref: GameEngineRef = this.buildEngineRef();
             this.config.setupScene(ref);
         }
+
+        if (this.config.debug) {
+            this.addDebugCollisionBoxes();
+        }
+    }
+
+    private addDebugCollisionBoxes(): void {
+        const mat = new THREE.MeshBasicMaterial({ color: 0x00ff44, wireframe: true });
+        for (const box of this.collisionBoxes) {
+            const w = box.maxX - box.minX;
+            const d = box.maxZ - box.minZ;
+            const geo = new THREE.BoxGeometry(w, 2, d);
+            const mesh = new THREE.Mesh(geo, mat);
+            mesh.position.set((box.minX + box.maxX) / 2, 1, (box.minZ + box.maxZ) / 2);
+            this.scene.add(mesh);
+        }
     }
 
     private buildEngineRef(): GameEngineRef {
@@ -528,23 +533,30 @@ export class GameEngine {
     // Lightweight single-pass compositor — safe for Chromebook
     private async setupLowEndCompositor(): Promise<void> {
         try {
-            const [{ EffectComposer }, { RenderPass }, { ShaderPass }] = await Promise.all([
+            const [{ EffectComposer }, { RenderPass }, { ShaderPass }, { FXAAShader }] = await Promise.all([
                 import('three/addons/postprocessing/EffectComposer.js'),
                 import('three/addons/postprocessing/RenderPass.js'),
                 import('three/addons/postprocessing/ShaderPass.js'),
+                import('three/addons/shaders/FXAAShader.js'),
             ]);
             const composer = new EffectComposer(this.renderer);
             composer.addPass(new RenderPass(this.scene, this.camera));
             const pass = new ShaderPass(LightweightCinematicShader);
             composer.addPass(pass);
+            const fxaaPass = new ShaderPass(FXAAShader);
+            const pr = this.renderer.getPixelRatio();
+            fxaaPass.uniforms['resolution'].value.x = 1 / (window.innerWidth * pr);
+            fxaaPass.uniforms['resolution'].value.y = 1 / (window.innerHeight * pr);
+            composer.addPass(fxaaPass);
             this.composer = composer;
             this.cinematicPass = pass as unknown as { uniforms: { time: { value: number } } };
+            this.fxaaPass = fxaaPass as unknown as { uniforms: { resolution: { value: { x: number; y: number } } } };
         } catch (e) {
             console.warn('Lightweight compositor unavailable:', e);
         }
     }
 
-    // Full pipeline — bloom + cinematic shader for high-end devices
+    // Full pipeline — bloom + cinematic shader + FXAA for high-end devices
     private async setupHighEndCompositor(): Promise<void> {
         try {
             const [
@@ -552,11 +564,13 @@ export class GameEngine {
                 { RenderPass },
                 { UnrealBloomPass },
                 { ShaderPass },
+                { FXAAShader },
             ] = await Promise.all([
                 import('three/addons/postprocessing/EffectComposer.js'),
                 import('three/addons/postprocessing/RenderPass.js'),
                 import('three/addons/postprocessing/UnrealBloomPass.js'),
                 import('three/addons/postprocessing/ShaderPass.js'),
+                import('three/addons/shaders/FXAAShader.js'),
             ]);
 
             const composer = new EffectComposer(this.renderer);
@@ -564,16 +578,23 @@ export class GameEngine {
 
             const bloomPass = new UnrealBloomPass(
                 new THREE.Vector2(window.innerWidth, window.innerHeight),
-                0.45, 0.7, 0.78
+                0.35, 0.7, 0.25  // threshold lowered from 0.78 — fire/emissive now blooms
             );
             composer.addPass(bloomPass);
 
             const cinematicPass = new ShaderPass(HighEndCinematicShader);
             composer.addPass(cinematicPass);
 
+            const fxaaPass = new ShaderPass(FXAAShader);
+            const pr = this.renderer.getPixelRatio();
+            fxaaPass.uniforms['resolution'].value.x = 1 / (window.innerWidth * pr);
+            fxaaPass.uniforms['resolution'].value.y = 1 / (window.innerHeight * pr);
+            composer.addPass(fxaaPass);
+
             this.composer = composer;
             this.bloomPass = bloomPass;
             this.cinematicPass = cinematicPass as unknown as { uniforms: { time: { value: number } } };
+            this.fxaaPass = fxaaPass as unknown as { uniforms: { resolution: { value: { x: number; y: number } } } };
         } catch (e) {
             console.warn('Post-processing unavailable:', e);
         }
@@ -582,6 +603,19 @@ export class GameEngine {
     private setupInput(): void {
         const onKeyDown = (e: KeyboardEvent) => {
             this.keys[e.code] = true;
+
+            // Escape = pause / unpause (browser alltid frigir pointer lock ved Escape)
+            if (e.code === 'Escape' && this.gameStarted && !this.isEnded && !this.dialogActive && !this.puzzleActive) {
+                this.paused = true;
+                this.pushUIState({ paused: true });
+                return;
+            }
+
+            // Space = hopp over aktiv monolog (forhindrer også hopp i samme frame)
+            if (e.code === 'Space' && this.monologSystem?.isActive() && !this.dialogActive) {
+                this.monologSystem.skip();
+                this.keys['Space'] = false;
+            }
 
             // Dialog / puzzle number keys
             if (e.code.startsWith('Digit')) {
@@ -615,6 +649,10 @@ export class GameEngine {
 
         const onPointerLockChange = () => {
             this.mouseLocked = document.pointerLockElement === this.renderer.domElement;
+            if (this.mouseLocked && this.paused) {
+                this.paused = false;
+                this.pushUIState({ paused: false });
+            }
         };
 
         this.renderer.domElement.addEventListener('click', () => {
@@ -644,6 +682,11 @@ export class GameEngine {
             this.renderer.setSize(window.innerWidth, window.innerHeight);
             if (this.composer) {
                 (this.composer as { setSize: (w: number, h: number) => void }).setSize(window.innerWidth, window.innerHeight);
+            }
+            if (this.fxaaPass) {
+                const pr = this.renderer.getPixelRatio();
+                this.fxaaPass.uniforms.resolution.value.x = 1 / (window.innerWidth * pr);
+                this.fxaaPass.uniforms.resolution.value.y = 1 / (window.innerHeight * pr);
             }
         };
         window.addEventListener('resize', onResize);
@@ -734,6 +777,9 @@ export class GameEngine {
         this.dialogActive = false;
         this.currentChoices = [];
         this.pushUIState({ dialog: null });
+        if (this.gameStarted && !this.isEnded && !this.paused && !this.puzzleActive) {
+            this.renderer.domElement.requestPointerLock();
+        }
     }
 
     handleDialogChoice(index: number): void {
@@ -772,6 +818,9 @@ export class GameEngine {
                 this.dialogActive = false;
                 this.puzzleActive = false;
                 this.pushUIState({ puzzle: null });
+                if (this.gameStarted && !this.isEnded && !this.paused) {
+                    this.renderer.domElement.requestPointerLock();
+                }
 
                 // Advance quest
                 const nextQuest = this.config.quests.find((q) => q.phase === 'puzzleWon');
@@ -911,7 +960,7 @@ export class GameEngine {
     private bloomPulse(peak: number, duration: number): void {
         if (this.bloomPass) {
             this.bloomPass.strength = peak;
-            this.bloomTarget = 0.45;
+            this.bloomTarget = 0.35;
             setTimeout(() => {
                 if (this.bloomPass) this.bloomPass.strength = this.bloomTarget;
             }, duration * 1000);
@@ -943,6 +992,10 @@ export class GameEngine {
             monolog: this.activeMonolog,
             ended: false,
             endText: '',
+            paused: this.paused,
+            debug: this.config.debug
+                ? { phase: this.phase, flags: Object.fromEntries(this.flags) }
+                : undefined,
         };
 
         this.options.onUIUpdate({ ...base, ...override });

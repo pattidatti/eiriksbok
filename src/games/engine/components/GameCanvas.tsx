@@ -106,7 +106,48 @@ export function GameCanvas({ config }: GameCanvasProps) {
                     showInteractPrompt={uiState.showInteractPrompt}
                     showFlash={!!uiState.showFlash}
                     toast={toast}
+                    debug={uiState.debug}
                 />
+            )}
+
+            {/* Pause overlay */}
+            {uiState.started && !uiState.ended && uiState.paused && (
+                <div
+                    style={{
+                        position: 'absolute',
+                        inset: 0,
+                        background: 'rgba(10,6,3,0.72)',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        zIndex: 50,
+                        pointerEvents: 'none',
+                        backdropFilter: 'blur(3px)',
+                    }}
+                >
+                    <p
+                        style={{
+                            color: '#d4a574',
+                            fontFamily: "Georgia, 'Times New Roman', serif",
+                            fontSize: 22,
+                            letterSpacing: 3,
+                            textTransform: 'uppercase',
+                            marginBottom: 12,
+                        }}
+                    >
+                        Pauset
+                    </p>
+                    <p
+                        style={{
+                            color: '#b89968',
+                            fontFamily: "Georgia, 'Times New Roman', serif",
+                            fontSize: 14,
+                        }}
+                    >
+                        Klikk for å fortsette
+                    </p>
+                </div>
             )}
 
             {/* Dialog box */}
