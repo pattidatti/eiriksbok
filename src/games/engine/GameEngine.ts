@@ -339,6 +339,10 @@ export class GameEngine {
     private flashPending = false;
 
     private buildScene(): void {
+        // Global ambient baseline - replaces the implicit brightness floor that MeshToonMaterial's
+        // gradient map provided (minimum step 80/255 ≈ 0.31). All presets get this.
+        this.scene.add(new THREE.AmbientLight(0xffffff, 0.6));
+
         // Shared collision list - WorldBuilder and setupScene both push to this
         this.scene.userData.collisionBoxes = this.collisionBoxes;
 
@@ -1223,10 +1227,6 @@ export class GameEngine {
         // Game-specific scene updates (e.g., forge animation, engine animation)
         const forgeUpdate = this.scene.userData._forgeUpdate as ((dt: number) => void) | undefined;
         if (forgeUpdate) forgeUpdate(dt);
-
-        // Per-scene animasjonshooke (gress, vann, trær, ild, lys)
-        const customUpdate = this.scene.userData._customUpdate as ((dt: number, elapsed: number) => void) | undefined;
-        if (customUpdate) customUpdate(dt, this.time);
 
         if (this.engineRunning) {
             const engineRunUpdate = this.scene.userData._engineRunUpdate as ((dt: number) => void) | undefined;

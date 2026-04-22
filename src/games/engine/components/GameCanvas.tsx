@@ -165,6 +165,25 @@ export function GameCanvas({ config }: GameCanvasProps) {
                 <MonologBox monolog={uiState.monolog} />
             )}
 
+            {/* Crosshair */}
+            {uiState.started && !uiState.ended && !uiState.paused && !uiState.dialog && !uiState.puzzle && (
+                <div
+                    style={{
+                        position: 'absolute',
+                        left: '50%',
+                        top: '50%',
+                        transform: 'translate(-50%, -50%)',
+                        width: 6,
+                        height: 6,
+                        borderRadius: '50%',
+                        background: 'rgba(255,255,255,0.9)',
+                        boxShadow: '0 0 0 1px rgba(0,0,0,0.5)',
+                        pointerEvents: 'none',
+                        zIndex: 10,
+                    }}
+                />
+            )}
+
             {/* End screen */}
             {uiState.ended && (
                 <EndScreen text={uiState.endText} onRestart={handleRestart} />

@@ -586,10 +586,23 @@ export function setupDemoWorldScene(engine: GameEngineRef): void {
     // ── Water ─────────────────────────────────────────────────────────────────
     const waterGeo = new THREE.CircleGeometry(11, 64);
     waterGeo.rotateX(-Math.PI / 2);
+    // Conform each vertex to terrain height so the water sits in the bowl without
+    // clipping at the edges (where terrain rises above a flat water plane).
+    const wPos = waterGeo.attributes.position as THREE.BufferAttribute;
+    const waterCX = 16,
+        waterCZ = 12;
+    for (let i = 0; i < wPos.count; i++) {
+        wPos.setY(i, getTerrainY(waterCX + wPos.getX(i), waterCZ + wPos.getZ(i)) + 0.12);
+    }
+    wPos.needsUpdate = true;
+    waterGeo.computeVertexNormals();
     const waterMat = new THREE.ShaderMaterial({
         uniforms: { uTime: { value: 0 } },
         transparent: true,
         depthWrite: false,
+        polygonOffset: true,
+        polygonOffsetFactor: -1,
+        polygonOffsetUnits: -1,
         vertexShader: `
             uniform float uTime;
             varying vec2 vUv;
@@ -597,9 +610,10 @@ export function setupDemoWorldScene(engine: GameEngineRef): void {
             void main() {
                 vUv = uv;
                 vec3 p = position;
-                p.y += sin(p.x * 0.85 + uTime * 1.3) * 0.055
-                     + sin(p.z * 0.65 + uTime * 1.0) * 0.045;
-                vH = p.y;
+                float wave = sin(p.x * 0.85 + uTime * 1.3) * 0.055
+                           + sin(p.z * 0.65 + uTime * 1.0) * 0.045;
+                p.y += wave;
+                vH = wave;
                 gl_Position = projectionMatrix * modelViewMatrix * vec4(p, 1.0);
             }
         `,
@@ -622,7 +636,7 @@ export function setupDemoWorldScene(engine: GameEngineRef): void {
         `,
     });
     const waterMesh = new THREE.Mesh(waterGeo, waterMat);
-    waterMesh.position.set(16, getTerrainY(16, 12) + 0.06, 12);
+    waterMesh.position.set(waterCX, 0, waterCZ);
     scene.add(waterMesh);
 
     // ── Grass (built after rooms so room interiors are excluded) ─────────────

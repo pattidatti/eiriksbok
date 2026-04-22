@@ -18,6 +18,7 @@ GameConfig (MinSpillConfig.ts)
 GameEngine.ts          ← Three.js scene, renderer, animasjonsloop, input, AABB-kollisjon
   ├── WorldBuilder.ts      ← Bygger 'workshop'-preset (ett rom)
   ├── CharacterBuilder.ts  ← Toon-shaded NPC-er og samleobjekter
+  ├── LightBuilder.ts      ← buildHangingLight: SpotLight + shader-kjegle + støvpartikler
   ├── ParticleSystem.ts    ← Støv, gnister, damp
   ├── systems/             ← Gjenbrukbare subsystemer
   │   ├── MonologSystem.ts ← Indre stemme - ikke-blokkerende tekst med triggervolumer
@@ -239,10 +240,11 @@ interface GameConfig {
         name: string;
         position: [number, number, number];
         colors: { body: number; head: number; legs: number };
-        // Karaktertyper styrer brynntykkelse, rynker og skjegg (se seksjon 10)
+        // Karaktertyper styrer brynntykkelse, rynker og skjegg (se seksjon 11)
         characterType?: 'scientist' | 'farmer' | 'noble' | 'monk';
         defaultEmotion?: 'glad' | 'worried' | 'surprised' | 'triumphant';
         marker?: boolean;        // viser gul pil over NPC
+        showName?: boolean;      // viser navn-label over NPC
         extras?: (group: THREE.Group) => void;  // legg til klær, frisyrer, osv.
     }>;
 
@@ -283,12 +285,17 @@ interface GameConfig {
         }>;
     };
 
+    // Deklarative innendørs-lyskilder (SpotLight + shader-kjegle + støvpartikler).
+    // Bygges automatisk av motoren etter setupScene. Se seksjon 10.
+    lights?: LightConfig[];
+
     // Indre monolog (ikke-blokkerende). Noder kan trigges av posisjon eller programmatisk.
     monologs?: Record<string, MonologNode>;
     monologTriggers?: MonologTrigger[];
 
     // Streng, eller en funksjon som kan lese flagg og returnere variabel slutt-tekst.
     endText: string | ((engine: GameEngineRef) => string);
+    debug?: boolean;            // viser kollisjonsbokser og fase/flagg i HUD
     setupScene?: (engine: GameEngineRef) => void;
 }
 
@@ -329,7 +336,14 @@ interface MonologTrigger {
 | `setEmotion(id, emotion, resetAfterMs?)` | `(string, Emotion, number?) => void` | Bytter NPC-ansikt med smooth morph (se seksjon 10) |
 | `setCharacterMarkerVisible(id, visible)` | `(string, boolean) => void` | Manuell kontroll av gul NPC-markør (overstyrer motorens standardlogikk for dette NPC-id) |
 
-### 4.2 Fler-fase-spill (utendørs / flere scener)
+### 4.2 Lys og visuelle effekter
+
+| Metode | Type | Beskrivelse |
+|---|---|---|
+| `registerAnimatedLight(light, animation, baseIntensity?)` | `(Light, LightAnimation, number?) => void` | Registrer SpotLight/PointLight for motor-animasjon (`'flicker'`, `'flicker-soft'`, `'pulse'`). Brukes for lys opprettet imperativt i `setupScene`. |
+| `setBloom(strength)` | `(number) => void` | Sett bloom-styrke. Standard `0.35`, anbefalt innendørs `0.5-0.6`. Kun effekt på high-end - Chromebook kjører uten bloom. |
+
+### 4.3 Fler-fase-spill (utendørs / flere scener)
 
 | Metode / felt | Type | Beskrivelse |
 |---|---|---|
@@ -414,19 +428,103 @@ Pointer lock deaktiveres automatisk når dialog eller puzzle åpner, slik at HTM
 Registrer egne update-funksjoner på `scene.userData`:
 
 ```typescript
-// Enkel oppdatering
-scene.userData._customUpdate = (dt: number) => { ... };
+// Generell per-frame hook - for gress, vann, trær, ild, lys, osv.
+// dt = delta-tid (sekunder), elapsed = total kjøretid (sekunder)
+scene.userData._customUpdate = (dt: number, elapsed: number) => {
+    waterMat.uniforms.uTime.value = elapsed;
+    lightRef.update(dt, elapsed);   // oppdater støvpartikler
+};
 
 // Spesifikt for Watt Lab-mønsteret:
 scene.userData._forgeUpdate     = (dt: number) => { ... };  // esse-animasjon
 scene.userData._engineRunUpdate = (dt: number) => { ... };  // motoranimasjon (etter startEngineAnimation)
 ```
 
-`GameEngine` kaller disse automatisk hvert frame hvis de er satt.
+`GameEngine` kaller alle disse automatisk hvert frame hvis de er satt. Bruk alltid `elapsed` (ikke akkumulert `dt`) for sinusbølger og shader-uniforms.
 
 ---
 
-## 10. Emosjonssystem
+## 10. Lyssystem (innendørs lyskilder)
+
+Motoren bruker `THREE.SpotLight` (peker rett ned) som den faktiske lyskilden, kombinert med synlig shader-gradient-kjegle og 30 støvpartikler som flyter oppover i strålen for volumetrisk effekt.
+
+> **Teknisk bakgrunn:** `THREE.PointLight` lyser i alle retninger og skaper ingen synlige stråler. SpotLight er fysisk korrekt for en hengende pære og lar den visuelle kjegelen matche det faktiske lyset eksakt.
+
+### 10.1 Deklarativt (anbefalt - i GameConfig)
+
+```typescript
+lights: [
+    {
+        id: 'lykt-1',
+        position: [2, 4.5, -3],      // SpotLight-posisjon. Pæren henger 0.2 enheter over.
+        color: 0xff9944,             // standard 0xffeedd (varm hvit)
+        intensity: 5,                // standard 3.0
+        distance: 12,                // rekkevidde (0 = uendelig); standard 15
+        decay: 1.5,                  // lysfalloff; standard 1.5
+        animation: 'flicker-soft',   // 'steady' | 'flicker' | 'flicker-soft' | 'pulse'
+        angle: 0.52,                 // SpotLight-åpning i radianer; standard 0.52 (~30 grader)
+        penumbra: 0.35,              // myk kant (0 = skarp); standard 0.35
+        coneHeight: 4.0,             // lengde på synlig lysstråle; standard 4.0
+        coneOpacity: 0.18,           // synlighet av strålen; standard 0.18
+        castShadow: false,           // dyrt - maks ett lys bør kaste skygge per rom
+    },
+]
+```
+
+Motoren bygger automatisk: SpotLight med target rett ned, snor, emissiv kule, glød-halo, indre og ytre shader-kjegle, og støvpartikler. Animasjon og partikkeloppdatering skjer i motorloopen.
+
+**`coneRadius` trenger aldri settes** - beregnes automatisk fra `angle` og `coneHeight` slik at den visuelle kjegelen matcher det faktiske lyset.
+
+### 10.2 Imperativt (fra setupScene)
+
+Bruk `buildHangingLight` direkte når lysposisjon avhenger av dynamisk terreng eller romgeometri:
+
+```typescript
+import { buildHangingLight, type HangingLightRef } from '../engine/LightBuilder';
+
+const ref: HangingLightRef = buildHangingLight(engine.scene, {
+    id: 'min-lykt',
+    position: [x, terrainY + 5.8, z],
+    color: 0xff6622,
+    intensity: 8,
+});
+
+// Registrer for motor-animasjon (valgfritt):
+engine.registerAnimatedLight(ref.light, 'flicker');
+
+// VIKTIG: kall ref.update fra _customUpdate for at støvpartikler skal animere:
+scene.userData._customUpdate = (dt, elapsed) => {
+    ref.update(dt, elapsed);
+};
+```
+
+### 10.3 Bloom-boost for mørke rom
+
+```typescript
+// I setupScene, etter at alle lys er bygget:
+engine.setBloom(0.55);  // standard 0.35 - øk for mørke innendørs-scener
+```
+
+Effekt kun på high-end enheter. Chromebook kjører uten bloom - sørg for at scenen ser bra ut uten.
+
+### 10.4 Animasjonstyper
+
+| `animation` | Beskrivelse |
+|---|---|
+| `'steady'` | Fast intensitet, ingen animasjon |
+| `'flicker'` | Urolig ild-flimring (bål, fakkel) |
+| `'flicker-soft'` | Myk gass-lampe-puls (anbefalt for elektrisk lys) |
+| `'pulse'` | Langsom sinus-puls - 0.8 Hz |
+
+### 10.5 Ytelsesregler
+
+- Unngå `castShadow: true` på mer enn ett lys per rom (hvert skygge-SpotLight bruker ekstra render-pass)
+- 5-6 SpotLights per scene er trygt. Over 10 kan gi ytelsesproblemer på Chromebook.
+- Støvpartikler (30 per lampe) er billige - CPU-oppdatert BufferGeometry
+
+---
+
+## 11. Emosjonssystem
 
 NPC-er med `characterType` får et karikatyr-ansikt som kan morphes mellom 4 emosjoner:
 
@@ -459,7 +557,7 @@ config.puzzle.steps[2].onCorrect = () => {
 
 ---
 
-## 11. Fler-fase-spill (sammenhengende verden)
+## 12. Fler-fase-spill (sammenhengende verden)
 
 For spill som har flere scener (f.eks. båt → strand → innendørs), bruk `world.preset: 'open'` og bygg alt selv i `setupScene`. Motoren har tre gjenbrukbare byggere og systemer.
 
@@ -488,7 +586,7 @@ scene.userData._customUpdate = (dt, time) => {
 };
 ```
 
-### 11.1 Rom-system (`systems/RoomSystem.ts`)
+### 12.1 Rom-system (`systems/RoomSystem.ts`)
 
 Deklarativ bygging av rom med vegger, åpninger og auto-genererte kollisjonsbokser. Lager veggsegmenter rundt hver åpning så du slipper å manuelt telle kollisjonsbokser.
 
@@ -531,7 +629,7 @@ for (let i = 0; i < count; i++) {
 
 Koordinatkonvensjon: `-Z = nord`, `+Z = sør` (matcher Three.js-kamera som standard ser mot -Z).
 
-### 11.2 Hav + båt (`builders/SeascapeBuilder.ts`, `systems/OceanSystem.ts`)
+### 12.2 Hav + båt (`builders/SeascapeBuilder.ts`, `systems/OceanSystem.ts`)
 
 `OceanSystem` er en CPU-animert `PlaneGeometry` med stablede sinusbølger - lett nok for Chromebook. Båten bygges som en `THREE.Group` med skrog, mast, seil, dragehode, årer, skjold.
 
@@ -551,7 +649,7 @@ sea.ocean.setVisible(!inCloister);
 sea.foam.setVisible(!inCloister);
 ```
 
-### 11.3 Seated player (sittende spiller)
+### 12.3 Seated player (sittende spiller)
 
 Når spilleren skal være passivt plassert på en båt, benk eller hest:
 
@@ -574,7 +672,7 @@ crew.sigurd.group.position.set(0, 0.8, -2);
 crew.sigurd.group.userData.bobBase = 0.8;   // ellers bobber NPC-en ned til y=0
 ```
 
-### 11.4 Proximity-filter (ekskludere NPCer)
+### 12.4 Proximity-filter (ekskludere NPCer)
 
 Motoren plukker nærmeste NPC som "trykk E"-kandidat. For å ekskludere NPCer som allerede er ferdig-behandlet (f.eks. snakket med):
 
@@ -589,13 +687,13 @@ Dette lar "trykk E"-prompten hoppe til neste nærmeste NPC etter at dialogen er 
 
 ---
 
-## 12. Indre monolog (ikke-blokkerende tekst)
+## 13. Indre monolog (ikke-blokkerende tekst)
 
 Motoren har et eget system for indre stemme / voice-over / observasjoner som IKKE skal blokkere bevegelse eller kreve input. Monologer vises italic nederst midt på skjermen med fade inn/ut per linje.
 
 **Bruk når**: spilleren skal observere noe uten å stoppe opp (f.eks. "Jeg ser landet i horisonten"), reflektere over et valg, eller få en indirekte pedagogisk kommentar.
 
-### 12.1 Definere monologer
+### 13.1 Definere monologer
 
 ```typescript
 const minMonologer: Record<string, MonologNode> = {
@@ -624,7 +722,7 @@ monologs: minMonologer,
 monologTriggers: triggers,
 ```
 
-### 12.2 Programmatisk kontroll
+### 13.2 Programmatisk kontroll
 
 ```typescript
 engine.playMonolog('first_sight');
@@ -635,13 +733,13 @@ if (engine.hasSeenMonolog('library_book') && engine.hasSeenMonolog('library_disc
 }
 ```
 
-### 12.3 Linje-varighet
+### 13.3 Linje-varighet
 
 Default: 50 ms per tegn, klampet til [2500, 6000] ms. Overstyr med `lineDurationMs` per node.
 
 ---
 
-## 13. Valg med konsekvens + variabel slutt
+## 14. Valg med konsekvens + variabel slutt
 
 Koble dialog-valg til flagg, og la `endText` være en funksjon som leser flagget:
 
@@ -666,7 +764,7 @@ endText: (engine) => {
 
 ---
 
-## 14. Referanseimplementasjoner
+## 15. Referanseimplementasjoner
 
 ### Watt Lab (ett-rom-spill)
 
@@ -688,7 +786,8 @@ endText: (engine) => {
 
 | Fil | Innhold |
 |---|---|
-| `src/games/engine/types.ts` | Alle typer: `GameConfig`, `GameEngineRef`, `MonologNode`, `RoomDef`, `PlayerMode`, osv. |
+| `src/games/engine/types.ts` | Alle typer: `GameConfig`, `GameEngineRef`, `LightConfig`, `MonologNode`, `RoomDef`, osv. |
+| `src/games/engine/LightBuilder.ts` | `buildHangingLight` - SpotLight + shader-kjegle + støvpartikler. Eksporterer `HangingLightRef`. |
 | `src/games/engine/CharacterBuilder.ts` | `drawFace`, `lerpParams`, `EMOTION_PARAMS` - emosjonssystemets tegnelogikk |
 | `src/games/engine/systems/MonologSystem.ts` | Indre monolog med triggere og programmatisk API |
 | `src/games/engine/systems/OceanSystem.ts` | Animert hav + skum-system |

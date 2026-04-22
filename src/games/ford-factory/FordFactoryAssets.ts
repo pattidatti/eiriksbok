@@ -67,7 +67,40 @@ export function setupFordFactoryScene(engine: GameEngineRef): void {
     fillLight.position.set(-8, 6, 10);
     scene.add(fillLight);
 
-    // Tidlige elektriske lamper over samlebåndet
+    // Tidlige elektriske lamper over samlebåndet (5 stk langs båndet)
+    // Kjegle-shader: V=1 ved spiss (nær kilden), V=0 ved bred ende → stråle fader ut
+    const lampConeVert = `
+        varying vec2 vUv;
+        void main() {
+            vUv = uv;
+            gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+        }
+    `;
+    const lampConeFrag = `
+        varying vec2 vUv;
+        uniform vec3 uColor;
+        uniform float uOpacity;
+        void main() {
+            float fade = vUv.y * vUv.y;
+            gl_FragColor = vec4(uColor, uOpacity * fade);
+        }
+    `;
+    const mkConeMat = (color: number, opacity: number) =>
+        new THREE.ShaderMaterial({
+            uniforms: {
+                uColor: { value: new THREE.Color(color) },
+                uOpacity: { value: opacity },
+            },
+            vertexShader: lampConeVert,
+            fragmentShader: lampConeFrag,
+            transparent: true,
+            side: THREE.DoubleSide,
+            blending: THREE.AdditiveBlending,
+            depthWrite: false,
+        });
+
+    const lampDustUpdates: Array<(dt: number, elapsed: number) => void> = [];
+
     for (const bx of [-8, -4, 0, 4, 8]) {
         // Kabel fra takbjelke (y=6.8) ned til lampeskjerm (y=5.8)
         const cord = new THREE.Mesh(
@@ -94,18 +127,118 @@ export function setupFordFactoryScene(engine: GameEngineRef): void {
         ring.rotation.x = Math.PI / 2;
         scene.add(ring);
 
-        // Glødende lyspære synlig under skjermen
-        const bulbGlow = new THREE.Mesh(
-            new THREE.SphereGeometry(0.07, 8, 8),
-            new THREE.MeshBasicMaterial({ color: 0xfff0a0 })
-        );
-        bulbGlow.position.set(bx, 5.48, 0);
-        scene.add(bulbGlow);
+        // Emissiv pære (oppgradert fra MeshBasicMaterial)
+        const bulbY = 5.48;
+        const lampColor = 0xffdd88;
 
-        // Lys
-        const light = new THREE.PointLight(0xffdd88, 5.0, 18, 1.0);
-        light.position.set(bx, 5.3, 0);
-        scene.add(light);
+        const bulb = new THREE.Mesh(
+            new THREE.SphereGeometry(0.07, 8, 8),
+            new THREE.MeshStandardMaterial({
+                color: lampColor,
+                emissive: lampColor,
+                emissiveIntensity: 6.0,
+                roughness: 0.1,
+                metalness: 0.05,
+            })
+        );
+        bulb.position.set(bx, bulbY, 0);
+        scene.add(bulb);
+
+        // Glød-halo rundt pæren
+        const glow = new THREE.Mesh(
+            new THREE.SphereGeometry(0.28, 10, 8),
+            new THREE.MeshBasicMaterial({
+                color: lampColor,
+                transparent: true,
+                opacity: 0.2,
+                blending: THREE.AdditiveBlending,
+                depthWrite: false,
+            })
+        );
+        glow.position.set(bx, bulbY, 0);
+        scene.add(glow);
+
+        // SpotLight pekende rett ned — erstatter PointLight
+        const angle = 0.44;
+        const spot = new THREE.SpotLight(lampColor, 5.0, 16, angle, 0.3, 1.5);
+        spot.position.set(bx, bulbY, 0);
+        spot.target.position.set(bx, -5, 0);
+        scene.add(spot);
+        scene.add(spot.target);
+
+        // Gradient lyskjegle: indre + ytre sylinder med shader
+        // CylinderGeometry UV: V=1 topp (spiss/nær kilden), V=0 bunn (bred/fjern)
+        const coneH = 4.8; // rekker nesten ned til gulvet (y ≈ 0.68)
+        const coneR = Math.tan(angle) * coneH;
+
+        const innerCone = new THREE.Mesh(
+            new THREE.CylinderGeometry(0.04, coneR, coneH, 24, 1, true),
+            mkConeMat(lampColor, 0.18)
+        );
+        innerCone.position.set(bx, bulbY - coneH / 2, 0);
+        scene.add(innerCone);
+
+        const outerCone = new THREE.Mesh(
+            new THREE.CylinderGeometry(0.02, coneR * 1.9, coneH * 0.8, 24, 1, true),
+            mkConeMat(lampColor, 0.054)
+        );
+        outerCone.position.set(bx, bulbY - (coneH * 0.8) / 2, 0);
+        scene.add(outerCone);
+
+        // Støvpartikler i lysstrålen (20 per lampe)
+        const N = 20;
+        const posArr = new Float32Array(N * 3);
+        const phases = new Float32Array(N);
+        const relRadii = new Float32Array(N);
+        const thetas = new Float32Array(N);
+        const speeds = new Float32Array(N);
+
+        for (let i = 0; i < N; i++) {
+            phases[i] = Math.random();
+            relRadii[i] = Math.sqrt(Math.random()) * 0.8;
+            thetas[i] = Math.random() * Math.PI * 2;
+            speeds[i] = 0.04 + Math.random() * 0.04;
+            const t = phases[i];
+            const r = relRadii[i] * Math.tan(angle) * coneH * t;
+            posArr[i * 3] = bx + Math.cos(thetas[i]) * r;
+            posArr[i * 3 + 1] = bulbY - coneH * t;
+            posArr[i * 3 + 2] = Math.sin(thetas[i]) * r;
+        }
+
+        const dustGeo = new THREE.BufferGeometry();
+        const posAttr = new THREE.BufferAttribute(posArr, 3);
+        dustGeo.setAttribute('position', posAttr);
+        const dust = new THREE.Points(
+            dustGeo,
+            new THREE.PointsMaterial({
+                color: lampColor,
+                size: 0.022,
+                transparent: true,
+                opacity: 0.55,
+                blending: THREE.AdditiveBlending,
+                depthWrite: false,
+                sizeAttenuation: true,
+            })
+        );
+        scene.add(dust);
+
+        // for...of med const gir ny binding per iterasjon — lukningene er korrekte
+        lampDustUpdates.push((dt: number, elapsed: number): void => {
+            for (let i = 0; i < N; i++) {
+                phases[i] -= speeds[i] * dt;
+                if (phases[i] < 0) phases[i] += 1;
+                const t = phases[i];
+                const r = relRadii[i] * Math.tan(angle) * coneH * t;
+                const theta = thetas[i] + elapsed * 0.06;
+                posAttr.setXYZ(
+                    i,
+                    bx + Math.cos(theta) * r,
+                    bulbY - coneH * t,
+                    Math.sin(theta) * r
+                );
+            }
+            posAttr.needsUpdate = true;
+        });
     }
 
     // Stålbjelker i taket for fabrikkatmosfære
@@ -403,6 +536,8 @@ export function setupFordFactoryScene(engine: GameEngineRef): void {
         placedStations.push(id);
         st.group.visible = true;
         animateReveal(st.group);
+        burstSparks(scene, st.x, st.z);
+        flashLight(scene, st.x, st.z);
 
         // Skjul gulvmarkøren - stasjonen er nå plassert
         const marker = markerMeshes.get(id);
@@ -489,8 +624,11 @@ export function setupFordFactoryScene(engine: GameEngineRef): void {
         }
 
         if (production.running) {
-            updateProduction(dt, cars, placedStations, production, stations);
+            updateProduction(scene, dt, cars, placedStations, production, stations);
         }
+
+        // Animer støvpartikler i taklampene
+        for (const fn of lampDustUpdates) fn(dt, time);
     };
 
     // ───── Start intro-monolog kort etter spillstart ─────
@@ -500,6 +638,7 @@ export function setupFordFactoryScene(engine: GameEngineRef): void {
 // ─── Produksjonsloop ────────────────────────────────────────────────────────
 
 function updateProduction(
+    scene: THREE.Scene,
     dt: number,
     cars: CarState[],
     placedStations: StationId[],
@@ -543,6 +682,7 @@ function updateProduction(
                 part.visible = true;
                 part.scale.set(0.1, 0.1, 0.1);
                 animateScaleIn(part);
+                burstSparks(scene, st.x, 0);
                 car.stage++;
             }
         }
@@ -566,6 +706,78 @@ function animateScaleIn(obj: THREE.Object3D): void {
         obj.scale.set(ease, ease, ease);
         if (t < 1) requestAnimationFrame(step);
         else obj.scale.set(1, 1, 1);
+    };
+    requestAnimationFrame(step);
+}
+
+// ─── Effektfunksjoner ───────────────────────────────────────────────────────
+
+function burstSparks(scene: THREE.Scene, x: number, z: number): void {
+    const N = 35;
+    const posArr = new Float32Array(N * 3);
+    const velArr = new Float32Array(N * 3);
+    for (let i = 0; i < N; i++) {
+        const theta = Math.random() * Math.PI * 2;
+        const phi = Math.random() * Math.PI * 0.5 + 0.1;
+        const speed = 1.5 + Math.random() * 2.5;
+        posArr[i * 3] = x;
+        posArr[i * 3 + 1] = 1.0;
+        posArr[i * 3 + 2] = z;
+        velArr[i * 3] = Math.cos(theta) * Math.sin(phi) * speed;
+        velArr[i * 3 + 1] = Math.cos(phi) * speed;
+        velArr[i * 3 + 2] = Math.sin(theta) * Math.sin(phi) * speed;
+    }
+    const geo = new THREE.BufferGeometry();
+    const posAttr = new THREE.BufferAttribute(posArr, 3);
+    geo.setAttribute('position', posAttr);
+    const mat = new THREE.PointsMaterial({
+        color: 0xffaa22,
+        size: 0.06,
+        transparent: true,
+        opacity: 1.0,
+        blending: THREE.AdditiveBlending,
+        depthWrite: false,
+    });
+    const points = new THREE.Points(geo, mat);
+    scene.add(points);
+    const start = performance.now();
+    const dur = 900;
+    const step = () => {
+        if (!points.parent) return;
+        const elapsed = (performance.now() - start) / 1000;
+        const t = elapsed / (dur / 1000);
+        if (t >= 1) {
+            scene.remove(points);
+            geo.dispose();
+            mat.dispose();
+            return;
+        }
+        for (let i = 0; i < N; i++) {
+            posArr[i * 3] = x + velArr[i * 3] * elapsed;
+            posArr[i * 3 + 1] = 1.0 + velArr[i * 3 + 1] * elapsed - 4.9 * elapsed * elapsed;
+            posArr[i * 3 + 2] = z + velArr[i * 3 + 2] * elapsed;
+        }
+        posAttr.needsUpdate = true;
+        mat.opacity = 1.0 - t * t;
+        requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+}
+
+function flashLight(scene: THREE.Scene, x: number, z: number): void {
+    const light = new THREE.PointLight(0xffaa44, 8.0, 5);
+    light.position.set(x, 1.5, z);
+    scene.add(light);
+    const start = performance.now();
+    const step = () => {
+        if (!light.parent) return;
+        const t = (performance.now() - start) / 500;
+        if (t >= 1) {
+            scene.remove(light);
+            return;
+        }
+        light.intensity = 8.0 * (1 - t * t);
+        requestAnimationFrame(step);
     };
     requestAnimationFrame(step);
 }
