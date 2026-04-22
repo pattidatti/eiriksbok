@@ -138,6 +138,7 @@ export class GameEngine {
     private time = 0;
     private animFrameId = 0;
     private disposed = false;
+    private isEnded = false;
 
     // Post-processing (tiered: all devices get lightweight pass, high-end gets bloom too)
     private composer: unknown = null;
@@ -900,6 +901,7 @@ export class GameEngine {
     }
 
     triggerEnd(): void {
+        this.isEnded = true;
         this.dialogActive = false;
         const raw = this.config.endText;
         const text = typeof raw === 'function' ? raw(this.buildEngineRef()) : raw;
@@ -919,6 +921,7 @@ export class GameEngine {
     // ─── Push state to React ─────────────────────────────────────────────────
 
     private pushUIState(override: Partial<GameUIState> = {}): void {
+        if (this.isEnded) return;
         // Persist dialog/puzzle state across calls so per-frame updates don't reset them
         if ('dialog' in override) this.activeDialog = override.dialog ?? null;
         if ('puzzle' in override) this.activePuzzle = override.puzzle ?? null;

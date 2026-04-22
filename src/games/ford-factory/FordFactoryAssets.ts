@@ -67,11 +67,45 @@ export function setupFordFactoryScene(engine: GameEngineRef): void {
     fillLight.position.set(-8, 6, 10);
     scene.add(fillLight);
 
-    // Tidlige elektriske pærer over samlebåndet
+    // Tidlige elektriske lamper over samlebåndet
     for (const bx of [-8, -4, 0, 4, 8]) {
-        const bulb = new THREE.PointLight(0xffdd99, 1.2, 14, 1.5);
-        bulb.position.set(bx, 5.5, 0);
-        scene.add(bulb);
+        // Kabel fra takbjelke (y=6.8) ned til lampeskjerm (y=5.8)
+        const cord = new THREE.Mesh(
+            new THREE.CylinderGeometry(0.025, 0.025, 1.0, 6),
+            toonMat(0x1a1a1a)
+        );
+        cord.position.set(bx, 6.3, 0);
+        scene.add(cord);
+
+        // Konisk industrilampeskjerm — smal topp, åpen bunn
+        const shade = new THREE.Mesh(
+            new THREE.CylinderGeometry(0.1, 0.42, 0.32, 14, 1, false),
+            toonMat(0x252218)
+        );
+        shade.position.set(bx, 5.64, 0);
+        scene.add(shade);
+
+        // Liten ring øverst på skjermen
+        const ring = new THREE.Mesh(
+            new THREE.TorusGeometry(0.11, 0.025, 6, 14),
+            toonMat(0x3a3828)
+        );
+        ring.position.set(bx, 5.8, 0);
+        ring.rotation.x = Math.PI / 2;
+        scene.add(ring);
+
+        // Glødende lyspære synlig under skjermen
+        const bulbGlow = new THREE.Mesh(
+            new THREE.SphereGeometry(0.07, 8, 8),
+            new THREE.MeshBasicMaterial({ color: 0xfff0a0 })
+        );
+        bulbGlow.position.set(bx, 5.48, 0);
+        scene.add(bulbGlow);
+
+        // Lys
+        const light = new THREE.PointLight(0xffdd88, 5.0, 18, 1.0);
+        light.position.set(bx, 5.3, 0);
+        scene.add(light);
     }
 
     // Stålbjelker i taket for fabrikkatmosfære
@@ -213,6 +247,41 @@ export function setupFordFactoryScene(engine: GameEngineRef): void {
         }
     }
 
+    // ───── Station-NPC-grupper (interaktive plasserings-punkter) ─────
+    const STATION_NPC_IDS = ['chassis', 'motor', 'wheels', 'body'] as const;
+    const stationNPCGroups = new Map<string, THREE.Group>();
+    for (const id of STATION_NPC_IDS) {
+        const g = findCharacterGroup(scene, `station_${id}`);
+        if (g) {
+            g.visible = false;
+            stationNPCGroups.set(id, g);
+        }
+    }
+
+    // Dialogs for station-NPCene — motoren kaller automatisk `${id}_greeting` ved E-trykk.
+    const stationLabels: Record<string, string> = {
+        chassis: 'chassis-stasjonen (rammen)',
+        motor: 'motor-stasjonen',
+        wheels: 'hjul-stasjonen',
+        body: 'karosseri-stasjonen',
+    };
+    for (const id of STATION_NPC_IDS) {
+        const label = stationLabels[id];
+        const capturedId = id;
+        config.dialogs[`station_${id}_greeting`] = {
+            speaker: 'Charles Sorensen',
+            text: `Her er plassen for ${label}. Sette den opp?`,
+            choices: [
+                {
+                    text: `Ja, plasser ${label.split(' ')[0]}-stasjonen her.`,
+                    next: null,
+                    action: () => tryPlaceStation(capturedId),
+                },
+                { text: 'Ikke ennå.', next: null },
+            ],
+        };
+    }
+
     // ───── Produksjonstilstand ─────
     const production = {
         running: false,
@@ -232,6 +301,13 @@ export function setupFordFactoryScene(engine: GameEngineRef): void {
         if (phase === 'intro') {
             dialogs.sorensen_greeting = introDialog;
         } else if (phase === 'placing') {
+            // Vis uplasserte station-NPCer slik at spilleren kan interagere direkte ved markørene
+            for (const id of STATION_NPC_IDS) {
+                if (!placedStations.includes(id as StationId)) {
+                    const g = stationNPCGroups.get(id);
+                    if (g) g.visible = true;
+                }
+            }
             if (placedStations.length < 4) {
                 dialogs.sorensen_greeting = makeStationPickerDialog(placedStations);
             } else {
@@ -332,6 +408,10 @@ export function setupFordFactoryScene(engine: GameEngineRef): void {
         const marker = markerMeshes.get(id);
         if (marker) marker.visible = false;
 
+        // Skjul station-NPCen — stasjonen er nå plassert
+        const stationNPC = stationNPCGroups.get(id);
+        if (stationNPC) stationNPC.visible = false;
+
         // Vis arbeideren for denne stasjonen (én gang)
         const worker = workerGroups.get(id);
         if (worker) worker.visible = true;
@@ -388,9 +468,12 @@ export function setupFordFactoryScene(engine: GameEngineRef): void {
         engine.playMonolog('ford_1914');
     }
 
-    // ───── Arbeidere: ekskluder fra NPC-interaksjon ─────
+    // ───── Proximity-filter: worker-NPCer er aldri interaktive,
+    //       station-NPCer kun i 'placing'-fasen ─────
     scene.userData._proximityFilter = (id: string): boolean => {
-        return !id.startsWith('worker_');
+        if (id.startsWith('worker_')) return false;
+        if (id.startsWith('station_')) return engine.getPhase() === 'placing';
+        return true;
     };
 
     // ───── Per-frame-oppdatering ─────

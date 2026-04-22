@@ -85,11 +85,45 @@ export const fordFactoryConfig: GameConfig = {
             defaultEmotion: 'worried',
             marker: false,
         },
+        // Stasjonspunkter — vises kun i 'placing'-fasen. Gir spilleren E-interaksjon
+        // direkte ved gulvmarkørene i stedet for å velge via Sorensens meny.
+        {
+            id: 'station_chassis',
+            name: 'Chassis-stasjon',
+            position: [-7, 0, -2.2],
+            colors: { body: 0x6a5a3a, head: 0xd4a474, legs: 0x2a2015 },
+            characterType: 'farmer',
+            marker: true,
+        },
+        {
+            id: 'station_motor',
+            name: 'Motor-stasjon',
+            position: [-2, 0, -2.2],
+            colors: { body: 0x6a5a3a, head: 0xd4a474, legs: 0x2a2015 },
+            characterType: 'farmer',
+            marker: true,
+        },
+        {
+            id: 'station_wheels',
+            name: 'Hjul-stasjon',
+            position: [2, 0, -2.2],
+            colors: { body: 0x6a5a3a, head: 0xd4a474, legs: 0x2a2015 },
+            characterType: 'farmer',
+            marker: true,
+        },
+        {
+            id: 'station_body',
+            name: 'Karosseri-stasjon',
+            position: [7, 0, -2.2],
+            colors: { body: 0x6a5a3a, head: 0xd4a474, legs: 0x2a2015 },
+            characterType: 'farmer',
+            marker: true,
+        },
     ],
 
     quests: [
         { phase: 'intro', objective: 'Snakk med Charles Sorensen (trykk E).' },
-        { phase: 'placing', objective: 'Plasser de fire stasjonene langs samlebåndet.' },
+        { phase: 'placing', objective: 'Gå til de merkede posisjonene og trykk E for å plassere stasjonene.' },
         { phase: 'running_1913', objective: 'Gå rundt og observer. Snakk med Sorensen for å gå videre.' },
         { phase: 'year_1914', objective: 'Det er 1914. Snakk med Sorensen om situasjonen.' },
     ],
