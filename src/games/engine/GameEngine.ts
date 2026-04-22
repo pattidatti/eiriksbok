@@ -1298,10 +1298,15 @@ export class GameEngine {
         const camDist = indoors ? 2.8 : 4.5;
         const camH = indoors ? 1.6 : 2.5;
 
+        // Over-the-shoulder: kamera litt til høyre (høyre-vektor = perpendikulær til yaw i XZ)
+        const sideOffset = 0.7;
+        const rightX = Math.cos(this.yaw) * sideOffset;
+        const rightZ = Math.sin(this.yaw) * sideOffset;
+
         const idealPos = new THREE.Vector3(
-            playerWorld.x - Math.sin(this.yaw) * camDist * Math.cos(this.pitch),
+            playerWorld.x - Math.sin(this.yaw) * camDist * Math.cos(this.pitch) + rightX,
             playerWorld.y + camH + Math.sin(this.pitch) * camDist,
-            playerWorld.z + Math.cos(this.yaw) * camDist * Math.cos(this.pitch)
+            playerWorld.z + Math.cos(this.yaw) * camDist * Math.cos(this.pitch) + rightZ
         );
         idealPos.y = Math.max(0.5, idealPos.y);
 
@@ -1322,8 +1327,13 @@ export class GameEngine {
             }
         }
 
-        const lookTgt = playerWorld.clone();
-        lookTgt.y += 1.2;
+        // Siktemål foran spilleren - krymper med pitch så karakteren forblir i bildet ved høy vinkel
+        const lookForward = 6.0 * Math.max(0, Math.cos(this.pitch));
+        const lookTgt = new THREE.Vector3(
+            playerWorld.x + Math.sin(this.yaw) * lookForward,
+            playerWorld.y + 1.2,
+            playerWorld.z - Math.cos(this.yaw) * lookForward
+        );
         this.camTarget.lerp(lookTgt, Math.min(1, dt * 10));
         this.camera.lookAt(this.camTarget);
     }
