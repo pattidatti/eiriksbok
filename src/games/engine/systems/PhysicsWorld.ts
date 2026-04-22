@@ -17,6 +17,9 @@ export interface SolidUserData {
     restitution?: number;
     climbable?: boolean;
     pickupable?: boolean;
+    // Demping på dynamiske bodies - uten disse ruller/drifter objekter evig.
+    linearDamping?: number;
+    angularDamping?: number;
 }
 
 export interface CharacterControllerHandle {
@@ -128,6 +131,10 @@ export class PhysicsWorld {
                 : RAPIER.RigidBodyDesc.fixed();
         bodyDesc.setTranslation(bodyPos.x, bodyPos.y, bodyPos.z);
         bodyDesc.setRotation({ x: worldQuat.x, y: worldQuat.y, z: worldQuat.z, w: worldQuat.w });
+        if (dynamic) {
+            if (ud.linearDamping !== undefined) bodyDesc.setLinearDamping(ud.linearDamping);
+            if (ud.angularDamping !== undefined) bodyDesc.setAngularDamping(ud.angularDamping);
+        }
         const body = this.world.createRigidBody(bodyDesc);
 
         // Collider
@@ -354,6 +361,15 @@ export class PhysicsWorld {
 
     resetAccumulator(): void {
         this.accumulator = 0;
+    }
+
+    getBodyCount(): number {
+        // Rapier's bodies store eksponerer .len() i nyere versjoner; vi feiler trygt til 0.
+        const bodies = (this.world as unknown as { bodies?: { len?: () => number } }).bodies;
+        if (bodies && typeof bodies.len === 'function') {
+            return bodies.len();
+        }
+        return this.dynamics.length;
     }
 
     dispose(): void {

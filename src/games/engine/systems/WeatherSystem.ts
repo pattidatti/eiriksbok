@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import type { WeatherType, WeatherState } from '../types';
 import type { QualityTier } from './PostProcessingSystem';
+import type { TimeOfDaySystem } from './TimeOfDaySystem';
 
 // Vær-system med tre overgangsstiler: regn (vertikale streker), snø (drift), tåke (fog tetthet).
 // Partikler forfølger spilleren (følger XZ) så det ikke trengs hav av instanser.
@@ -19,12 +20,19 @@ export class WeatherSystem {
     private fogTarget: THREE.FogExp2 | null = null;
     private radius = 30;
     private heightCeiling = 18;
+    private timeOfDay: TimeOfDaySystem | null = null;
 
     constructor(scene: THREE.Scene, tier: QualityTier) {
         this.scene = scene;
         this.rainCount = tier === 'low' ? 800 : tier === 'medium' ? 1400 : 2200;
         this.snowCount = tier === 'low' ? 400 : tier === 'medium' ? 800 : 1200;
         this.originalFog = (scene.fog as THREE.Fog | THREE.FogExp2 | null) ?? null;
+    }
+
+    // Fase 1.3: gi WeatherSystem referanse til TimeOfDay slik at fog-kontroll overføres
+    // mykt mellom de to. Uten dette ville rain/snow/fog permanent erstatte TOD-drevet fog.
+    attachTimeOfDay(tod: TimeOfDaySystem): void {
+        this.timeOfDay = tod;
     }
 
     setWeather(state: WeatherState): void {
@@ -110,6 +118,7 @@ export class WeatherSystem {
     }
 
     private applyFog(): void {
+        const isWet = this.current.type === 'fog' || this.current.type === 'rain' || this.current.type === 'snow';
         const isFog = this.current.type === 'fog';
         if (isFog) {
             const density = 0.008 + this.current.intensity * 0.04;
@@ -120,6 +129,8 @@ export class WeatherSystem {
             this.scene.fog = this.originalFog;
             this.fogTarget = null;
         }
+        // La TimeOfDay eie fog-kontrollen igjen når været er klart.
+        if (this.timeOfDay) this.timeOfDay.setFogActive(!isWet);
     }
 
     update(_dt: number, playerX: number, playerZ: number): void {

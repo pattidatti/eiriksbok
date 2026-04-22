@@ -10,6 +10,8 @@ import { PuzzleUI } from './PuzzleUI';
 import { MonologBox } from './MonologBox';
 import { IntroOverlay } from './IntroRunner';
 import { SettingsMenu } from './SettingsMenu';
+import { DebugHud } from './DebugHud';
+import type { DebugStats } from '../systems/DebugHudSystem';
 
 interface GameCanvasProps {
     config: GameConfig;
@@ -34,7 +36,39 @@ export function GameCanvas({ config }: GameCanvasProps) {
     const [toast, setToast] = useState('');
     const toastTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
     const [fadeState, setFadeState] = useState({ opacity: 0, durationMs: 400 });
+    const [debugVisible, setDebugVisible] = useState(false);
     const { setFullWidth } = useLayout();
+
+    // F3 toggler Debug-HUD i alle spill (uavhengig av config.debug).
+    useEffect(() => {
+        const onKey = (e: KeyboardEvent) => {
+            if (e.code === 'F3') {
+                e.preventDefault();
+                setDebugVisible((v) => !v);
+            }
+        };
+        window.addEventListener('keydown', onKey);
+        return () => window.removeEventListener('keydown', onKey);
+    }, []);
+
+    const getDebugStats = useCallback((): DebugStats => {
+        const stats = engineRef.current?.getDebugStats();
+        if (stats) return stats;
+        return {
+            fps: 0,
+            frameMs: 0,
+            drawCalls: 0,
+            triangles: 0,
+            geometries: 0,
+            textures: 0,
+            programs: 0,
+            materials: 0,
+            physicsBodies: 0,
+            phase: '-',
+            qualityTier: 'medium',
+            flags: {},
+        };
+    }, []);
 
     // Expand layout
     useEffect(() => {
@@ -177,6 +211,9 @@ export function GameCanvas({ config }: GameCanvasProps) {
                     }}
                 />
             )}
+
+            {/* Debug-HUD (F3) */}
+            {debugVisible && <DebugHud getStats={getDebugStats} />}
 
             {/* End screen */}
             {uiState.ended && (

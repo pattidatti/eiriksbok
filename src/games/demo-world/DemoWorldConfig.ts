@@ -23,11 +23,22 @@ export const demoWorldConfig: GameConfig = {
     },
 
     visual: {
-        postProcessing: 'auto',
+        postProcessing: {
+            quality: 'auto',
+            bloom: { strength: 0.4, threshold: 0.3, radius: 0.7 },
+            exposure: 1.65,
+            lut: 'neutral',
+        },
         timeOfDay: 0.42,
         colorGrading: 'warm',
         sky: 'procedural',
         weather: { type: 'clear', intensity: 0 },
+        fogDensityCurve: {
+            night: 0.012,
+            dawn: 0.016,
+            day: 0.006,
+            dusk: 0.018,
+        },
     },
 
     player: {
@@ -202,7 +213,7 @@ export const demoWorldConfig: GameConfig = {
         { id: 't_spawn', monologId: 'm_spawn', area: { minX: -3, maxX: 3, minZ: 6, maxZ: 12 } },
         { id: 't_chapel', monologId: 'm_chapel', area: { minX: -23, maxX: -13, minZ: -22, maxZ: -14 } },
         { id: 't_bonfire', monologId: 'm_bonfire', area: { minX: 7, maxX: 13, minZ: -12, maxZ: -7 } },
-        { id: 't_dock', monologId: 'm_dock', area: { minX: 24, maxX: 34, minZ: 3, maxZ: 8 } },
+        { id: 't_dock', monologId: 'm_dock', area: { minX: 52, maxX: 64, minZ: 3, maxZ: 8 } },
         { id: 't_forest', monologId: 'm_forest', area: { minX: -35, maxX: -22, minZ: -10, maxZ: 8 } },
         { id: 't_stones', monologId: 'm_stones', area: { minX: -11, maxX: -5, minZ: -22, maxZ: -16 } },
     ],

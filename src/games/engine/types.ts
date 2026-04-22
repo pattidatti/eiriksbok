@@ -144,12 +144,35 @@ export interface WeatherState {
     intensity: number; // 0..1
 }
 
+// Fase 1.2: utvidet post-processing-konfig. Kompatibelt med den gamle string-formen
+// (postProcessing: 'auto' | 'low' | ... ) via union.
+export interface PostProcessingConfig {
+    quality?: QualityTierConfig;
+    bloom?: {
+        strength?: number;   // default 0.35 medium, 0.55 high
+        threshold?: number;  // default 0.7
+        radius?: number;     // default 0.25
+    };
+    exposure?: number;       // tone mapping exposure, default 1.8
+    lut?: string;            // LUT-preset-navn (Fase 1.5 infra — kun 'neutral' støttet nå)
+}
+
+// Fase 1.3: tetthetskurve for fog over dagen. Alle verdier i FogExp2-density.
+// Verdiene brukes når scene.fog er satt og WeatherSystem ikke overstyrer (fog/rain/snow).
+export interface FogDensityCurve {
+    dawn: number;   // ca. t = 0.25
+    day: number;    // ca. t = 0.5
+    dusk: number;   // ca. t = 0.75
+    night: number;  // ca. t = 0.0 / 1.0
+}
+
 export interface VisualConfig {
-    postProcessing?: QualityTierConfig;
+    postProcessing?: QualityTierConfig | PostProcessingConfig;
     timeOfDay?: number; // 0..1
     weather?: WeatherState;
     colorGrading?: ColorGrading;
     sky?: SkyMode;
+    fogDensityCurve?: FogDensityCurve;
 }
 
 export interface NpcRouteConfig {
@@ -259,7 +282,11 @@ export interface GameEngineRef {
     // Registrer et SpotLight/PointLight for automatisk animasjon i motorloopen.
     registerAnimatedLight: (light: Light, animation: LightAnimation, baseIntensity?: number) => void;
     // Sett bloom-styrke (kun effekt på high-end). 0 = av, 0.35 = standard, 0.6 = intenst.
-    setBloom: (strength: number) => void;
+    // Kan også motta { strength, threshold, radius } for finere kontroll (Fase 1.2).
+    setBloom: (strength: number | { strength?: number; threshold?: number; radius?: number }) => void;
+    // Fase 1.5: bytt LUT-preset i runtime (null = av). Krever at GameConfig.visual.postProcessing.lut
+    // var satt ved init, ellers er ingen LUT-pass i pipelinen.
+    setLut: (name: string | null) => void;
     // ── Fase 1-3 utvidelser ──
     setTimeOfDay: (t: number) => void;
     getSunDirection: () => Vector3;

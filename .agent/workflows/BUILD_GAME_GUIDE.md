@@ -26,8 +26,9 @@ GameEngine.ts          ← Three.js scene, renderer, animasjonsloop, input, Rapi
   │   ├── PostProcessingSystem.ts  ← EffectComposer: bloom, tone mapping, color grading
   │   ├── SkySystem.ts             ← Prosedyral himmel
   │   ├── TimeOfDaySystem.ts       ← Lerp 0-1 driver sol/ambient/sky-farge
-  │   ├── WeatherSystem.ts         ← Regn, snø, tåke
+  │   ├── WeatherSystem.ts         ← Regn, snø, tåke (overstyrer TOD-fog mens aktiv)
   │   ├── VegetationSystem.ts      ← Instansiert gress/siv/trær med vind-shader
+  │   ├── DebugHudSystem.ts        ← Stats-samler for F3-overlay (FPS, drawcalls, materialer)
   │   ├── CameraDirector.ts        ← Dialog-framing, fade, cinematics
   │   ├── AIDirector.ts            ← Waypoint-vandring for NPCer
   │   ├── MonologSystem.ts         ← Indre stemme - ikke-blokkerende tekst + triggere
@@ -304,11 +305,28 @@ interface GameConfig {
 
     // ── Fase 1-3: visuelle systemer ─────────────────────────────────────────
     visual?: {
-        postProcessing?: 'auto' | 'low' | 'medium' | 'high';
+        // Fase 1.2: godtar enten en kvalitets-streng ('auto' | 'low' | 'medium' | 'high')
+        // eller et fullt PostProcessingConfig-objekt med bloom/exposure/lut-knotter.
+        postProcessing?:
+            | 'auto' | 'low' | 'medium' | 'high'
+            | {
+                quality?: 'auto' | 'low' | 'medium' | 'high';
+                bloom?: { strength?: number; threshold?: number; radius?: number };
+                exposure?: number;    // tone mapping exposure, default 1.8
+                lut?: string;          // Fase 1.5: LUT-preset ('neutral' i Fase 1)
+              };
         timeOfDay?: number;           // 0-1, driver sol/ambient/sky-farge
         weather?: { type: 'clear' | 'rain' | 'fog' | 'snow'; intensity: number };
         colorGrading?: 'warm' | 'cold' | 'sepia' | 'neutral' | 'dawn' | 'dusk';
         sky?: 'procedural' | 'solid' | 'none';
+        // Fase 1.3: tetthetskurve for fog over dagen. TimeOfDay driver fog-farge
+        // og -tetthet når været er klart. WeatherSystem overstyrer ved rain/snow/fog.
+        fogDensityCurve?: {
+            night: number;   // ca. t = 0.0 / 1.0
+            dawn: number;    // ca. t = 0.25
+            day: number;     // ca. t = 0.5
+            dusk: number;    // ca. t = 0.75
+        };
     };
 
     // Fase 3: NPC-er følger waypoint-ruter styrt av AIDirector
@@ -900,7 +918,195 @@ endText: (engine) => {
 
 ---
 
-## 15. Språkregler (kritisk for UI-tekst)
+## 16. Vanlige fallgruver (les før du bygger)
+
+Disse feilene er lette å gjøre og vanskelige å diagnostisere. Gå gjennom sjekklisten i 16.7 før første testkjøring.
+
+### 16.1 Preset `'open'` trenger egen sol og hemisfære
+
+`GameEngine.buildScene()` oppretter kun `AmbientLight` automatisk. For `preset: 'open'` lager motoren verken sol (DirectionalLight) eller hemisfærelys - `TimeOfDaySystem` står uten noe å drive, og scenen blir nesten svart. Himmelen (SkySystem) ser riktig ut, men det er ingen lyskilde som treffer terrenget.
+
+**Løsning:** I starten av `setupScene`, legg til sol + hemi og registrer dem slik at `TimeOfDaySystem` kan styre intensitet og farge:
+
+```ts
+const sun = new THREE.DirectionalLight(0xfff5e0, 2.4);
+sun.position.set(60, 90, 40);
+sun.castShadow = true;
+sun.shadow.mapSize.set(2048, 2048);
+sun.shadow.camera.near = 0.5;
+sun.shadow.camera.far = 200;
+sun.shadow.camera.left = -70;    // tilpass til gangbart område
+sun.shadow.camera.right = 70;
+sun.shadow.camera.top = 70;
+sun.shadow.camera.bottom = -70;
+sun.shadow.bias = -0.0005;
+scene.add(sun);
+scene.userData._mainSunLight = sun;     // ← KRITISK: uten dette driver ikke TOD solen
+
+const hemi = new THREE.HemisphereLight(0x9ec6e8, 0x3d5a2d, 0.9);
+hemi.position.set(0, 50, 0);
+scene.add(hemi);
+scene.userData._mainHemiLight = hemi;   // ← KRITISK: uten dette mangler himmelbidraget
+```
+
+Intensitetene overstyres hver frame av `TimeOfDaySystem` basert på `visual.timeOfDay`, så basisverdien er bare utgangspunktet. Tilpass `shadow.camera`-boksen til størrelsen på ditt gangbare område.
+
+**Unntak:** `buildSeascape` og enkelte andre builders setter `_mainSunLight` selv - da trenger du ikke gjøre det igjen.
+
+### 16.2 `RoomSystem.buildRoom` gir tak kun synlig innenfra
+
+`buildRoom` (`systems/RoomSystem.ts`) bygger tak som `PlaneGeometry.rotateX(Math.PI/2)`. Det plasserer normalen pekende nedover `(0, -1, 0)`. Kombinert med default `side: FrontSide` er taket bare synlig fra UNDER (innsiden). Sett utenfra ser bygget ut som en vegg-boks uten tak.
+
+Dette er med vilje for dollhouse-oppførsel (skjul tak når spilleren er inne), men for frittstående bygninger som sees fra utsiden gir det et åpenbart glitch.
+
+**Løsning - bygg saltak selv:**
+
+```ts
+const room = buildRoom(scene, toonMat, { /* ... */ });
+if (room.roof) room.roof.visible = false;
+
+const cx = -18, cz = -18;   // match room.center
+const chW = 10, chD = 9;    // match room.size
+const wallH = 5;             // match room.wallHeight
+const peakH = 2.2;
+const overhang = 0.5;
+const halfW = chW / 2 + overhang;
+const slopeLen = Math.sqrt(halfW * halfW + peakH * peakH);
+const tilt = Math.atan2(peakH, halfW);
+
+const roofMat = new THREE.MeshStandardMaterial({
+    color: 0x3a2818, roughness: 0.92, side: THREE.DoubleSide,
+});
+const slopeE = new THREE.Mesh(
+    new THREE.BoxGeometry(slopeLen, 0.12, chD + 2 * overhang), roofMat);
+slopeE.rotation.z = -tilt;
+slopeE.position.set(cx + Math.cos(tilt) * halfW * 0.5, wallH + peakH / 2, cz);
+scene.add(slopeE);
+// Gjenta speilvendt for slopeW. Legg til to gavler (Shape + ShapeGeometry) og en mønekam.
+```
+
+Komplett eksempel: `src/games/demo-world/DemoWorldAssets.ts` (chapel-blokken).
+
+### 16.3 Prosedyrale plasseringer må ekskludere bygg
+
+`engine.addTree`, `engine.addVegetationPatch`, og manuelle randomiseringsløkker plasserer objekter hvor du ber dem. Hvis plassering-området overlapper et rom eller en bygning, lander objekter INNE i veggene.
+
+**Løsning:** Samle bygge-bounds og sjekk mot dem i plasseringsløkken:
+
+```ts
+const room = buildRoom(scene, toonMat, { /* ... */ });
+const buildingBounds: AABB2D[] = [
+    room.innerBounds,                                    // rom fra buildRoom
+    { minX: -12, maxX: -4, minZ: -23, maxZ: -15 },      // andre strukturer
+    { minX: -7,  maxX: -1, minZ: 1,   maxZ: 7 },        // flaggstenger/benker med buffer
+];
+const insideAnyBuilding = (x: number, z: number) =>
+    buildingBounds.some(b => x >= b.minX && x <= b.maxX && z >= b.minZ && z <= b.maxZ);
+
+let placed = 0, attempts = 0;
+while (placed < 26 && attempts < 80) {
+    attempts++;
+    const x = -36 + rng() * 22;
+    const z = -24 + rng() * 38;
+    if (insideAnyBuilding(x, z)) continue;
+    engine.addTree([x, 0, z], 'pine');
+    placed++;
+}
+```
+
+Husk også manuelt plasserte objekter (flaggstenger, benker): trær i nærheten må ha avstand større enn foliage-radius. Treprofiler i `VegetationSystem.ts`:
+
+| Type | foliageRadius | foliageHeight |
+|---|---|---|
+| `pine` | 1.2 | 3.0 |
+| `oak` | 1.6 | 2.0 |
+| `birch` | 1.2 | 1.8 |
+
+### 16.4 `OceanSystem`-bølger kan klippe gjennom land
+
+`OceanSystem` lager et `PlaneGeometry(size, size)` sentrert på `center`. Bølgene har amplitude opptil ~0.7 m (sum av de tre sinuskomponentene i `OceanSystem.WAVES`). Hvis havplanet overlapper solid land OG `ocean.mesh.position.y` er høyere enn `land_top - 0.7`, vil bølgetopper stige opp gjennom bakken eller inn i bygninger.
+
+**Løsning - bruk begge verktøy:**
+
+**A. Krymp havplanet så det ikke overlapper land-bokser:**
+```ts
+const ocean = new OceanSystem(scene, toonMat, {
+    center: [80, 0],   // flytt senter ut fra land
+    size: 180,         // krymp så plane ikke strekker seg inn under land
+});
+```
+
+**B. Senk havnivået så maks bølgetopp ligger godt under bakkenivå:**
+```ts
+ocean.mesh.position.y = -1.1;    // maks bølgetopp = -1.1 + 0.7 = -0.4 (trygt under y=0)
+```
+
+Når havnivået senkes må `FoamSystem`-origin og båt-base-Y oppdateres tilsvarende:
+
+```ts
+const foam = new FoamSystem(scene, () => ({ x: dockEndX, y: -0.9, z: 5 }), 60);
+const boatBaseY = -1.0;   // båt delvis nedsenket i nytt vannivå
+boatGroup.position.y = boatBaseY + oceanTilt.height * 0.5;  // i _customUpdate
+```
+
+Plasser båter og flytende objekter i områder der havet er VISUELT synlig - altså der ingen solide land-bokser (ground, beach) dekker området. Land-bokser er ugjennomsiktige og skjuler havet under dem.
+
+### 16.5 Dynamiske objekter trenger demping
+
+Rapier3D har `linearDamping = 0` og `angularDamping = 0` som default. Et objekt som får en dytt beholder all bevegelsesenergi for alltid. Spesielt sfæriske colliders ruller evig siden rullefriksjon er neglisjerbar i Rapier.
+
+**Løsning:** Sett demping på alle dynamiske objekter, og unngå sfæriske colliders for pickups:
+
+```ts
+stone.userData.solid = true;
+stone.userData.dynamic = true;
+stone.userData.mass = 2;
+stone.userData.pickupable = true;
+stone.userData.colliderShape = 'cuboid';    // ikke 'sphere' - ruller evig
+stone.userData.friction = 0.9;
+stone.userData.linearDamping = 1.2;         // stanser drift etter dytt
+stone.userData.angularDamping = 2.4;        // stanser rotasjon etter dytt
+```
+
+Typiske verdier:
+- Stein/tre: `linearDamping: 1.0-1.5`, `angularDamping: 2.0-3.0`
+- Lette objekter (fjær, papir): høyere demping (2-4)
+- Ball/hjul som SKAL rulle: `angularDamping: 0.2-0.5`, friksjon lavere
+
+### 16.6 Gulv må eksplisitt merkes solide
+
+Det finnes ingen auto-ground i motoren. For `preset: 'open'` må du lage et solid underlag selv, ellers faller spilleren evig gjennom verden etter at fysikk-systemet har initialisert.
+
+```ts
+const ground = new THREE.Mesh(
+    new THREE.BoxGeometry(110, 1, 110),
+    new THREE.MeshStandardMaterial({ color: 0x3e6b2a, roughness: 0.95 }),
+);
+ground.position.set(0, -0.5, 0);        // topp ved y=0
+ground.receiveShadow = true;
+ground.userData.solid = true;            // ← uten dette faller spilleren gjennom
+scene.add(ground);
+```
+
+### 16.7 Sjekkliste før første testkjøring
+
+Gå gjennom listen før du starter `npm run dev` på et nytt `open`-preset-spill:
+
+- [ ] `DirectionalLight` lagt til scene og registrert som `scene.userData._mainSunLight`
+- [ ] `HemisphereLight` lagt til scene og registrert som `scene.userData._mainHemiLight`
+- [ ] Gulv-mesh har `userData.solid = true` og topp ved forventet y-nivå
+- [ ] Alle rom fra `buildRoom` som sees utenfra har tak bygd manuelt (eller `room.roof.visible = false` og annen løsning)
+- [ ] Prosedyrale plasseringer (`addTree`, `addVegetationPatch`, egne løkker) ekskluderer bygge-bounds
+- [ ] Manuelt plasserte objekter (benker, flaggstenger) har trær med tilstrekkelig avstand (foliage-radius)
+- [ ] Hvis `OceanSystem` brukes: havplanet overlapper ikke solide bygg, eller havnivået er senket under maks bølgetopp
+- [ ] `FoamSystem`-origin-y og båt-base-y matcher faktisk havnivå
+- [ ] Båter og flytende objekter er plassert i åpent synlig hav, ikke skjult bak land eller strand
+- [ ] Dynamiske pickupable objekter har `linearDamping` + `angularDamping` satt, og bruker `cuboid`-collider (ikke `sphere`)
+- [ ] Monolog-trigger-områder matcher faktiske verdenskoordinater etter eventuell relokering
+
+---
+
+## 17. Språkregler (kritisk for UI-tekst)
 
 - Alt innhold på norsk bokmål, forståelig for 14-åring (jf. CLAUDE.md)
 - Bruk alltid korrekte norske tegn: **å, ø, æ** (aldri aa, oe, ae)

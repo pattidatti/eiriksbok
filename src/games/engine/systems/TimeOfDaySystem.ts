@@ -1,5 +1,25 @@
 import * as THREE from 'three';
 import type { SkySystem } from './SkySystem';
+import type { FogDensityCurve } from '../types';
+
+// Standardkurve: svakt tykkere tåke ved dawn/dusk, tynn midt på dagen. Bakoverkompatibelt —
+// hvis ingen curve settes, beholdes scene.fog.density slik den var ved init.
+const DEFAULT_FOG_CURVE: FogDensityCurve = {
+    night: 0.010,
+    dawn: 0.014,
+    day: 0.006,
+    dusk: 0.016,
+};
+
+// Lerp mellom de fire keyframe-verdiene (night → dawn → day → dusk → night) med t i [0,1].
+function fogDensityAt(t: number, curve: FogDensityCurve): number {
+    // Kontroll-punkter: 0.0 night, 0.25 dawn, 0.5 day, 0.75 dusk, 1.0 night
+    const a = curve.night, b = curve.dawn, c = curve.day, d = curve.dusk;
+    if (t < 0.25) { const u = t / 0.25; return a + (b - a) * u; }
+    if (t < 0.5)  { const u = (t - 0.25) / 0.25; return b + (c - b) * u; }
+    if (t < 0.75) { const u = (t - 0.5) / 0.25;  return c + (d - c) * u; }
+    const u = (t - 0.75) / 0.25; return d + (a - d) * u;
+}
 
 // Tidspunkt: 0 = midnatt, 0.25 = soloppgang, 0.5 = middag, 0.75 = solnedgang.
 // Påvirker sun-direction (gjennom SkySystem) og farger på directional/ambient lys.
@@ -11,10 +31,30 @@ export class TimeOfDaySystem {
     private hemi: THREE.HemisphereLight | null = null;
     private dirty = true;
     private sunDir = new THREE.Vector3();
+    // Fase 1.3: fog-kobling. Settes av GameEngine.
+    private scene: THREE.Scene | null = null;
+    private fogCurve: FogDensityCurve | null = null;
+    private fogActive = false;
 
     constructor(initialTime = 0.5, sky: SkySystem | null = null) {
         this.timeOfDay = initialTime;
         this.sky = sky;
+    }
+
+    // Koble en scene slik at fog-farge og -tetthet kan drives av time-of-day.
+    // `curve` = eksplisitt FogDensityCurve fra GameConfig, eller null for å bruke default.
+    // `enabled` = false skrur av fog-styring (brukes hvis spillet eksplisitt vil ha statisk fog).
+    attachScene(scene: THREE.Scene, curve: FogDensityCurve | null, enabled: boolean): void {
+        this.scene = scene;
+        this.fogCurve = curve ?? DEFAULT_FOG_CURVE;
+        this.fogActive = enabled;
+        this.dirty = true;
+    }
+
+    // Lar WeatherSystem midlertidig overstyre (rain/snow/fog-tåke) uten å miste curve-state.
+    setFogActive(active: boolean): void {
+        this.fogActive = active;
+        this.dirty = true;
     }
 
     setSky(sky: SkySystem): void {
@@ -91,6 +131,13 @@ export class TimeOfDaySystem {
         if (this.hemi) {
             this.hemi.color.copy(skyColorFor(this.timeOfDay));
             this.hemi.intensity = 0.3 + Math.max(0, this.getSunDirection().y) * 0.6;
+        }
+
+        // Fog-kurven: lerp tetthet over dagen og bytt farge mot himmelhorisonten
+        // slik at tåken visuelt henger sammen med den øvrige belysningen.
+        if (this.fogActive && this.scene && this.fogCurve && this.scene.fog instanceof THREE.FogExp2) {
+            this.scene.fog.density = fogDensityAt(this.timeOfDay, this.fogCurve);
+            this.scene.fog.color.copy(skyColorFor(this.timeOfDay));
         }
     }
 }

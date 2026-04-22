@@ -1,6 +1,17 @@
 import * as THREE from 'three';
+import type { PostProcessingConfig } from '../types';
+import { buildLut, type LutPreset } from '../shaders/LutShader';
 
 export type QualityTier = 'low' | 'medium' | 'high';
+
+// Bloom-defaults per tier — brukes hvis PostProcessingConfig ikke overstyrer.
+const DEFAULT_BLOOM_STRENGTH: Record<QualityTier, number> = {
+    low: 0,
+    medium: 0.35,
+    high: 0.55,
+};
+const DEFAULT_BLOOM_RADIUS = 0.7;
+const DEFAULT_BLOOM_THRESHOLD = 0.25;
 
 // Single-pass cinematic shader — safe for all devices (Chromebook included).
 const LightweightCinematicShader = {
@@ -61,6 +72,8 @@ const HighEndCinematicShader = {
 
 interface BloomPassLike {
     strength: number;
+    threshold: number;
+    radius: number;
     resolution: THREE.Vector2;
 }
 
@@ -74,6 +87,15 @@ interface CinematicPassLike {
 
 interface FxaaPassLike {
     uniforms: { resolution: { value: { x: number; y: number } } };
+}
+
+interface SmaaPassLike {
+    setSize: (w: number, h: number) => void;
+}
+
+interface LutPassLike {
+    lut: THREE.Data3DTexture | null;
+    enabled: boolean;
 }
 
 interface ComposerLike {
@@ -119,12 +141,20 @@ export class PostProcessingSystem {
     private composer: ComposerLike | null = null;
     private bloomPass: BloomPassLike | null = null;
     private bloomTarget = 0.35;
+    private bloomThreshold = DEFAULT_BLOOM_THRESHOLD;
+    private bloomRadius = DEFAULT_BLOOM_RADIUS;
     private cinematicPass: CinematicPassLike | null = null;
     private fxaaPass: FxaaPassLike | null = null;
+    private smaaPass: SmaaPassLike | null = null;
+    private lutPass: LutPassLike | null = null;
+    private lutTexture: THREE.Data3DTexture | null = null;
     private grading: ColorGradingPreset;
     private initialized = false;
     private enabled = true;
     private time = 0;
+    // Config-knotter (Fase 1.2, 1.5)
+    private bloomStrengthOverride: number | null = null;
+    private lutName: string | null = null;
 
     constructor(
         renderer: THREE.WebGLRenderer,
@@ -132,12 +162,19 @@ export class PostProcessingSystem {
         camera: THREE.Camera,
         tier: QualityTier,
         grading: ColorGrading = 'warm',
+        ppConfig?: PostProcessingConfig,
     ) {
         this.renderer = renderer;
         this.scene = scene;
         this.camera = camera;
         this.tier = tier;
         this.grading = COLOR_GRADING_PRESETS[grading] ?? COLOR_GRADING_PRESETS.warm;
+        if (ppConfig?.bloom?.strength !== undefined) this.bloomStrengthOverride = ppConfig.bloom.strength;
+        if (ppConfig?.bloom?.threshold !== undefined) this.bloomThreshold = ppConfig.bloom.threshold;
+        if (ppConfig?.bloom?.radius !== undefined) this.bloomRadius = ppConfig.bloom.radius;
+        if (ppConfig?.lut) this.lutName = ppConfig.lut;
+        const tierStrength = DEFAULT_BLOOM_STRENGTH[tier];
+        this.bloomTarget = this.bloomStrengthOverride ?? tierStrength;
     }
 
     getTier(): QualityTier {
@@ -198,17 +235,19 @@ export class PostProcessingSystem {
             ]);
         const composer = new EffectComposer(this.renderer);
         composer.addPass(new RenderPass(this.scene, this.camera));
+        const bloomStrength = this.bloomStrengthOverride ?? DEFAULT_BLOOM_STRENGTH.medium;
         const bloom = new UnrealBloomPass(
             new THREE.Vector2(window.innerWidth, window.innerHeight),
-            0.35,
-            0.7,
-            0.25,
+            bloomStrength,
+            this.bloomRadius,
+            this.bloomThreshold,
         );
         composer.addPass(bloom);
         const cinematic = new ShaderPass(HighEndCinematicShader);
         cinematic.uniforms.warmth.value = this.grading.warmth;
         cinematic.uniforms.vignette.value = this.grading.vignette;
         composer.addPass(cinematic);
+        await this.maybeAddLutPass(composer);
         const fxaa = new ShaderPass(FXAAShader);
         const pr = this.renderer.getPixelRatio();
         fxaa.uniforms['resolution'].value.x = 1 / (window.innerWidth * pr);
@@ -220,13 +259,59 @@ export class PostProcessingSystem {
         this.fxaaPass = fxaa as unknown as FxaaPassLike;
     }
 
-    private async setupHigh(): Promise<void> {
-        // High = Medium + sterkere bloom. SSAO/godrays er reservert for fremtidig utvidelse.
-        await this.setupMedium();
-        if (this.bloomPass) {
-            this.bloomPass.strength = 0.55;
-            this.bloomTarget = 0.55;
+    private async maybeAddLutPass(composer: unknown): Promise<void> {
+        if (!this.lutName) return;
+        try {
+            const { LUTPass } = await import('three/addons/postprocessing/LUTPass.js');
+            const tex = buildLut(this.lutName as LutPreset);
+            const pass = new LUTPass({ lut: tex, intensity: 1 });
+            (composer as { addPass: (p: unknown) => void }).addPass(pass);
+            this.lutPass = pass as unknown as LutPassLike;
+            this.lutTexture = tex;
+        } catch (e) {
+            console.warn('LUTPass load failed:', e);
         }
+    }
+
+    private async setupHigh(): Promise<void> {
+        // High-tier: full pipeline med SMAA for skarpere kanter (Fase 1.4).
+        const [
+            { EffectComposer },
+            { RenderPass },
+            { UnrealBloomPass },
+            { ShaderPass },
+            { SMAAPass },
+        ] = await Promise.all([
+            import('three/addons/postprocessing/EffectComposer.js'),
+            import('three/addons/postprocessing/RenderPass.js'),
+            import('three/addons/postprocessing/UnrealBloomPass.js'),
+            import('three/addons/postprocessing/ShaderPass.js'),
+            import('three/addons/postprocessing/SMAAPass.js'),
+        ]);
+        const composer = new EffectComposer(this.renderer);
+        composer.addPass(new RenderPass(this.scene, this.camera));
+        const bloomStrength = this.bloomStrengthOverride ?? DEFAULT_BLOOM_STRENGTH.high;
+        const bloom = new UnrealBloomPass(
+            new THREE.Vector2(window.innerWidth, window.innerHeight),
+            bloomStrength,
+            this.bloomRadius,
+            this.bloomThreshold,
+        );
+        composer.addPass(bloom);
+        const cinematic = new ShaderPass(HighEndCinematicShader);
+        cinematic.uniforms.warmth.value = this.grading.warmth;
+        cinematic.uniforms.vignette.value = this.grading.vignette;
+        composer.addPass(cinematic);
+        await this.maybeAddLutPass(composer);
+        const pr = this.renderer.getPixelRatio();
+        const smaa = new SMAAPass();
+        smaa.setSize(window.innerWidth * pr, window.innerHeight * pr);
+        composer.addPass(smaa);
+        this.composer = composer as unknown as ComposerLike;
+        this.bloomPass = bloom as unknown as BloomPassLike;
+        this.cinematicPass = cinematic as unknown as CinematicPassLike;
+        this.smaaPass = smaa as unknown as SmaaPassLike;
+        this.bloomTarget = bloomStrength;
     }
 
     update(dt: number): void {
@@ -260,22 +345,58 @@ export class PostProcessingSystem {
             this.fxaaPass.uniforms.resolution.value.x = 1 / (width * pr);
             this.fxaaPass.uniforms.resolution.value.y = 1 / (height * pr);
         }
+        if (this.smaaPass) {
+            const pr = this.renderer.getPixelRatio();
+            this.smaaPass.setSize(width * pr, height * pr);
+        }
         if (this.bloomPass) {
             this.bloomPass.resolution.set(width, height);
         }
     }
 
-    setBloom(strength: number): void {
-        this.bloomTarget = strength;
+    setBloom(strengthOrOpts: number | { strength?: number; threshold?: number; radius?: number }): void {
+        if (typeof strengthOrOpts === 'number') {
+            this.bloomTarget = strengthOrOpts;
+            return;
+        }
+        if (strengthOrOpts.strength !== undefined) this.bloomTarget = strengthOrOpts.strength;
+        if (strengthOrOpts.threshold !== undefined) {
+            this.bloomThreshold = strengthOrOpts.threshold;
+            if (this.bloomPass) this.bloomPass.threshold = strengthOrOpts.threshold;
+        }
+        if (strengthOrOpts.radius !== undefined) {
+            this.bloomRadius = strengthOrOpts.radius;
+            if (this.bloomPass) this.bloomPass.radius = strengthOrOpts.radius;
+        }
     }
 
     bloomPulse(peak: number, fallbackMs: number): void {
         if (!this.bloomPass) return;
         this.bloomPass.strength = peak;
-        const target = 0.35;
+        const restoreTo = this.bloomStrengthOverride ?? DEFAULT_BLOOM_STRENGTH[this.tier];
         setTimeout(() => {
-            if (this.bloomPass) this.bloomTarget = target;
+            if (this.bloomPass) this.bloomTarget = restoreTo;
         }, fallbackMs);
+    }
+
+    // Fase 1.5: LUT-API. Slå av med null, eller sett nytt preset-navn (kun 'neutral' har
+    // faktisk effekt foreløpig; andre navn lastes som identity inntil ekte LUT-er er lagt til).
+    setLut(name: string | null): void {
+        this.lutName = name;
+        if (this.lutPass) {
+            if (name === null) {
+                this.lutPass.enabled = false;
+            } else {
+                this.lutPass.enabled = true;
+                if (this.lutTexture) this.lutTexture.dispose();
+                this.lutTexture = buildLut(name as LutPreset);
+                this.lutPass.lut = this.lutTexture;
+            }
+        }
+    }
+
+    getLutName(): string | null {
+        return this.lutName;
     }
 
     setColorGrading(grading: ColorGrading): void {
@@ -291,5 +412,11 @@ export class PostProcessingSystem {
         this.bloomPass = null;
         this.cinematicPass = null;
         this.fxaaPass = null;
+        this.smaaPass = null;
+        this.lutPass = null;
+        if (this.lutTexture) {
+            this.lutTexture.dispose();
+            this.lutTexture = null;
+        }
     }
 }

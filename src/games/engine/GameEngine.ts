@@ -17,6 +17,7 @@ import type {
     DialogCameraFraming,
     CinematicShot,
     PickupOptions,
+    PostProcessingConfig,
 } from './types';
 import { buildCharacter, buildCollectibleMesh, drawFace, lerpParams, EMOTION_PARAMS, updateCharacterAnim, type BuiltCharacter } from './CharacterBuilder';
 import { buildWorkshopRoom, buildWorkshopLighting } from './WorldBuilder';
@@ -30,7 +31,8 @@ import { WeatherSystem } from './systems/WeatherSystem';
 import { VegetationSystem } from './systems/VegetationSystem';
 import { CameraDirector } from './systems/CameraDirector';
 import { AIDirector } from './systems/AIDirector';
-import { createSceneMat } from './SceneMat';
+import { createSceneMat, createToonLikeMat, disposeMaterialCache, getMaterialCacheSize } from './SceneMat';
+import { DebugHudSystem, type DebugStats } from './systems/DebugHudSystem';
 import type { PhysicsWorld, CharacterControllerHandle } from './systems/PhysicsWorld';
 import type { InteractableSystem } from './systems/InteractableSystem';
 import { getGameSettings, subscribeGameSettings } from './settings/gameSettings';
@@ -57,6 +59,15 @@ const BODY_TARGETS: Record<Emotion, BodyTarget> = {
 
 function easeInOut(t: number): number {
     return t * t * (3 - 2 * t);
+}
+
+// Godtar både det gamle string-formatet ('auto' | 'low' | 'medium' | 'high') og den nye
+// PostProcessingConfig-objektformen, og returnerer alltid et normalisert objekt.
+type PostProcessingInput = NonNullable<NonNullable<GameConfig['visual']>['postProcessing']> | undefined;
+function extractPostProcessing(input: PostProcessingInput): PostProcessingConfig & { quality: NonNullable<PostProcessingConfig['quality']> } {
+    if (!input) return { quality: 'auto' };
+    if (typeof input === 'string') return { quality: input };
+    return { ...input, quality: input.quality ?? 'auto' };
 }
 
 interface EngineOptions {
@@ -86,6 +97,9 @@ export class GameEngine {
     // Post-processing (tiered: all devices get lightweight pass, high-end gets bloom too)
     private postProcessing: PostProcessingSystem;
     private qualityTier: QualityTier;
+
+    // Debug-HUD (Fase 1.6). Toggle med F3 i GameCanvas.
+    private debugHudSystem: DebugHudSystem | null = null;
 
     // Visuelle systemer (Fase 1-3)
     private skySystem: SkySystem | null = null;
@@ -208,7 +222,8 @@ export class GameEngine {
         this.config = options.config;
 
         const visual = options.config.visual ?? {};
-        this.qualityTier = resolveTier(visual.postProcessing ?? 'auto');
+        const ppConfig = extractPostProcessing(visual.postProcessing);
+        this.qualityTier = resolveTier(ppConfig.quality ?? 'auto');
 
         this.scene = new THREE.Scene();
         this.scene.background = new THREE.Color(options.config.world.backgroundColor ?? 0x6b5544);
@@ -226,7 +241,7 @@ export class GameEngine {
         this.renderer.shadowMap.enabled = this.qualityTier !== 'low';
         this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
         this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
-        this.renderer.toneMappingExposure = 1.8;
+        this.renderer.toneMappingExposure = ppConfig.exposure ?? 1.8;
         this.renderer.outputColorSpace = THREE.SRGBColorSpace;
 
         options.container.appendChild(this.renderer.domElement);
@@ -253,6 +268,14 @@ export class GameEngine {
         if (this.ambientLight) this.timeOfDaySystem.registerAmbient(this.ambientLight);
         if (this.hemiLight) this.timeOfDaySystem.registerHemisphere(this.hemiLight);
 
+        // Fase 1.3: TimeOfDay driver fog-farge og -tetthet over dagen — men KUN hvis
+        // spillet eksplisitt har satt en fogDensityCurve. Uten curve beholdes scene.fog
+        // slik GameEngine og WorldConfig.fogDensity definerte den (bakoverkompatibelt).
+        // WeatherSystem overstyrer via setFogActive(false) når rain/snow/fog er aktiv.
+        if (visual.fogDensityCurve) {
+            this.timeOfDaySystem.attachScene(this.scene, visual.fogDensityCurve, true);
+        }
+
         // Sky-system (kun hvis sky === 'procedural')
         if ((visual.sky ?? (options.config.world.preset === 'open' ? 'procedural' : 'none')) === 'procedural') {
             this.skySystem = new SkySystem(this.scene);
@@ -266,6 +289,7 @@ export class GameEngine {
         if (visual.weather) {
             if (!this.weatherSystem) {
                 this.weatherSystem = new WeatherSystem(this.scene, this.qualityTier);
+                this.weatherSystem.attachTimeOfDay(this.timeOfDaySystem);
             }
             this.weatherSystem.setWeather(visual.weather);
         }
@@ -295,8 +319,18 @@ export class GameEngine {
             this.camera,
             this.qualityTier,
             visual.colorGrading ?? 'warm',
+            ppConfig,
         );
         void this.postProcessing.init();
+
+        // Debug-HUD (Fase 1.6) — toggle via GameCanvas F3-lytter
+        this.debugHudSystem = new DebugHudSystem(this.renderer, {
+            getPhase: () => this.phase,
+            getQualityTier: () => this.qualityTier,
+            getFlags: () => Object.fromEntries(this.flags),
+            getPhysicsBodies: () => this.physics?.getBodyCount() ?? 0,
+            getMaterialCount: () => getMaterialCacheSize(),
+        });
 
         // Globale grafikkinnstillinger: apply initial state og lytt på endringer fra meny
         this.applyGameSettings();
@@ -363,8 +397,8 @@ export class GameEngine {
     // ─── Public interface for setupScene callbacks ──────────────────────────
 
     toonMat(color: number, opts: Record<string, unknown> = {}): THREE.MeshStandardMaterial {
-        // Bakoverkompatibilitet: thin wrapper rundt sceneMat. Eksisterende kall fungerer uendret.
-        return new THREE.MeshStandardMaterial({ color, roughness: 0.8, metalness: 0.0, ...opts } as THREE.MeshStandardMaterialParameters);
+        // Bakoverkompatibelt wrapper — deler material-cache med createSceneMat.
+        return createToonLikeMat(color, opts);
     }
 
     sceneMat(color: number, opts: SceneMatOpts = {}): THREE.MeshStandardMaterial {
@@ -652,8 +686,11 @@ export class GameEngine {
             registerAnimatedLight: (light, animation, baseIntensity) => {
                 this.animatedLights.push({ light, animation, base: baseIntensity ?? light.intensity });
             },
-            setBloom: (strength: number) => {
+            setBloom: (strength) => {
                 this.postProcessing?.setBloom(strength);
+            },
+            setLut: (name) => {
+                this.postProcessing?.setLut(name);
             },
             sceneMat: this.sceneMat.bind(this),
             setTimeOfDay: (t: number) => this.timeOfDaySystem.setTimeOfDay(t),
@@ -661,6 +698,7 @@ export class GameEngine {
             setWeather: (state: WeatherState) => {
                 if (!this.weatherSystem) {
                     this.weatherSystem = new WeatherSystem(this.scene, this.qualityTier);
+                    this.weatherSystem.attachTimeOfDay(this.timeOfDaySystem);
                 }
                 this.weatherSystem.setWeather(state);
             },
@@ -1297,7 +1335,15 @@ export class GameEngine {
         }
         const dt = Math.min(0.05, rawDt);
         this.update(dt);
+        // Debug-HUD leser + resetter renderer.info før render, slik at draw calls
+        // akkumuleres gjennom hele post-processing-kjeden.
+        this.debugHudSystem?.tick(dt);
         this.postProcessing.render();
+    }
+
+    // Samler debug-stats for DebugHud-overlayet (F3). Trygg å kalle når som helst.
+    getDebugStats(): DebugStats | null {
+        return this.debugHudSystem?.collect() ?? null;
     }
 
     private update(dt: number): void {
@@ -1769,10 +1815,13 @@ export class GameEngine {
         this.cameraDirector.dispose();
         this.aiDirector.dispose();
         this.postProcessing?.dispose();
+        this.debugHudSystem?.dispose();
+        this.debugHudSystem = null;
         if (document.pointerLockElement === this.renderer.domElement) {
             document.exitPointerLock();
         }
         this.renderer.dispose();
+        disposeMaterialCache();
         if (this.options.container.contains(this.renderer.domElement)) {
             this.options.container.removeChild(this.renderer.domElement);
         }
