@@ -12,7 +12,7 @@ import type {
 } from './types';
 import { buildCharacter, buildCollectibleMesh, drawFace, lerpParams, EMOTION_PARAMS, type BuiltCharacter } from './CharacterBuilder';
 import { buildWorkshopRoom, buildWorkshopLighting } from './WorldBuilder';
-import { buildHangingLight } from './LightBuilder';
+import { buildHangingLight, type HangingLightRef } from './LightBuilder';
 import { DustSystem, SparkSystem } from './ParticleSystem';
 import { MonologSystem } from './systems/MonologSystem';
 
@@ -183,7 +183,8 @@ export class GameEngine {
     // Lights (for animation)
     private fireLight?: THREE.PointLight;
     private lampLight?: THREE.PointLight;
-    private animatedLights: { light: THREE.PointLight; animation: LightAnimation; base: number }[] = [];
+    private animatedLights: { light: THREE.Light; animation: LightAnimation; base: number }[] = [];
+    private lightUpdates: ((dt: number, elapsed: number) => void)[] = [];
 
     // Proximity detection
     private nearCharacterId: string | null = null;
@@ -422,10 +423,11 @@ export class GameEngine {
 
         // Bygg deklarative lys fra GameConfig.lights
         for (const cfg of this.config.lights ?? []) {
-            const light = buildHangingLight(this.scene, cfg);
+            const ref: HangingLightRef = buildHangingLight(this.scene, cfg);
             if (cfg.animation && cfg.animation !== 'steady') {
-                this.animatedLights.push({ light, animation: cfg.animation, base: light.intensity });
+                this.animatedLights.push({ light: ref.light, animation: cfg.animation, base: ref.light.intensity });
             }
+            this.lightUpdates.push(ref.update);
         }
 
         if (this.config.debug) {
@@ -1222,6 +1224,10 @@ export class GameEngine {
         const forgeUpdate = this.scene.userData._forgeUpdate as ((dt: number) => void) | undefined;
         if (forgeUpdate) forgeUpdate(dt);
 
+        // Per-scene animasjonshooke (gress, vann, trær, ild, lys)
+        const customUpdate = this.scene.userData._customUpdate as ((dt: number, elapsed: number) => void) | undefined;
+        if (customUpdate) customUpdate(dt, this.time);
+
         if (this.engineRunning) {
             const engineRunUpdate = this.scene.userData._engineRunUpdate as ((dt: number) => void) | undefined;
             if (engineRunUpdate) engineRunUpdate(dt);
@@ -1247,6 +1253,7 @@ export class GameEngine {
                     break;
             }
         }
+        for (const fn of this.lightUpdates) fn(dt, this.time);
 
         // Post-processing
         if (this.bloomPass) {

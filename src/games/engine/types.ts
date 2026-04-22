@@ -1,4 +1,4 @@
-import type { Group, Scene, MeshStandardMaterial, PointLight } from 'three';
+import type { Group, Scene, MeshStandardMaterial, Light } from 'three';
 
 export type SubjectId = 'historie' | 'norsk' | 'krle' | 'samfunnsfag' | 'musikk';
 
@@ -71,6 +71,9 @@ export interface LightConfig {
     animation?: LightAnimation;
     castShadow?: boolean;
     showBulb?: boolean;
+    // SpotLight-vinkel og myk kant (erstatter PointLight)
+    angle?: number;
+    penumbra?: number;
     // Synlig lyskjegle (stråle) under pæren
     coneHeight?: number;
     coneRadius?: number;
@@ -158,8 +161,8 @@ export interface GameEngineRef {
     // Planlegg et kall som kanselleres automatisk hvis motoren disposes.
     // Bruk denne i stedet for setTimeout direkte i setupScene og dialog-actions.
     schedule: (callback: () => void, delayMs: number) => void;
-    // Registrer et PointLight for automatisk animasjon i motorloopen.
-    registerAnimatedLight: (light: PointLight, animation: LightAnimation, baseIntensity?: number) => void;
+    // Registrer et SpotLight/PointLight for automatisk animasjon i motorloopen.
+    registerAnimatedLight: (light: Light, animation: LightAnimation, baseIntensity?: number) => void;
     // Sett bloom-styrke (kun effekt på high-end). 0 = av, 0.35 = standard, 0.6 = intenst.
     setBloom: (strength: number) => void;
 }

@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import { Sky } from 'three/addons/objects/Sky.js';
 import type { GameEngineRef, AABB2D } from '../engine/types';
 import { buildRoom } from '../engine/systems/RoomSystem';
-import { buildHangingLight } from '../engine/LightBuilder';
+import { buildHangingLight, type HangingLightRef } from '../engine/LightBuilder';
 
 // ── Deterministic PRNG (Mulberry32) ──────────────────────────────────────────
 
@@ -398,7 +398,7 @@ function buildShoreRocks(
 // ── Light test room ───────────────────────────────────────────────────────────
 
 interface LightRoomRefs {
-    lights: THREE.PointLight[];
+    lightRefs: HangingLightRef[];
     innerBounds: AABB2D;
 }
 
@@ -436,18 +436,18 @@ function buildLightTestRoom(
         { x: cx + 7, z: cz + 5, color: 0xffaa00, intensity: 18, distance: 18 },
     ];
 
-    const lights: THREE.PointLight[] = [];
+    const lightRefs: HangingLightRef[] = [];
 
     for (const def of lightDefs) {
         const lightY = baseY + 5.8;
-        const light = buildHangingLight(scene, {
+        const ref = buildHangingLight(scene, {
             id: `light-${def.x}-${def.z}`,
             position: [def.x, lightY, def.z],
             color: def.color,
             intensity: def.intensity,
             distance: def.distance,
         });
-        lights.push(light);
+        lightRefs.push(ref);
     }
 
     // Test objects: sphere (center), 4 cylinders with varying roughness, reflective disc
@@ -482,7 +482,7 @@ function buildLightTestRoom(
     disc.position.set(cx, baseY + 0.03, cz);
     scene.add(disc);
 
-    return { lights, innerBounds: room.innerBounds };
+    return { lightRefs, innerBounds: room.innerBounds };
 }
 
 // ── Main setup ────────────────────────────────────────────────────────────────
@@ -653,7 +653,7 @@ export function setupDemoWorldScene(engine: GameEngineRef): void {
     engine.setBloom(0.55);
 
     // ── Per-frame animation hook ───────────────────────────────────────────────
-    scene.userData._customUpdate = (_dt: number, elapsed: number) => {
+    scene.userData._customUpdate = (dt: number, elapsed: number) => {
         waterMat.uniforms.uTime.value = elapsed;
         grassMat.uniforms.uTime.value = elapsed;
 
@@ -676,8 +676,9 @@ export function setupDemoWorldScene(engine: GameEngineRef): void {
         fireRefs.light2.intensity = 3 + flicker2 * 4;
 
         const baseLightIntensity = [35, 18, 18, 18, 18];
-        lightRoom.lights.forEach((light: THREE.PointLight, i: number) => {
-            light.intensity = baseLightIntensity[i] + Math.sin(elapsed * 0.8 + i * 1.2) * 2.5;
+        lightRoom.lightRefs.forEach((ref: HangingLightRef, i: number) => {
+            ref.light.intensity = baseLightIntensity[i] + Math.sin(elapsed * 0.8 + i * 1.2) * 2.5;
+            ref.update(dt, elapsed);
         });
     };
 }
