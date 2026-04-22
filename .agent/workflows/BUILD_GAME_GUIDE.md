@@ -327,6 +327,11 @@ interface GameConfig {
             day: number;     // ca. t = 0.5
             dusk: number;    // ca. t = 0.75
         };
+        // Fase 2.3: skygge-modus. 'standard' (default) = enkel DirectionalLight.
+        // 'cascaded' = three/addons CSM — krever world.preset='open' og high-tier.
+        shadows?: 'standard' | 'cascaded';
+        // Fase 2.5: volumetrisk lys / god rays. Kun world.preset='open' og high-tier.
+        volumetricLight?: boolean;
     };
 
     // Fase 3: NPC-er følger waypoint-ruter styrt av AIDirector

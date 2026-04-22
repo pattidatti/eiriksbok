@@ -1,6 +1,6 @@
 # Motor-Update: Fullstendig Plan for Oppgradering av GameEngine
 
-**Status**: Fase 1 ferdig (2026-04-23). Fase 2-6 gjenstår.
+**Status**: Fase 1-2 ferdig (2026-04-23). Fase 3-6 gjenstår.
 **Opprettet**: 2026-04-22
 **Mål**: Løfte motoren fra "funksjonell showroom" til "produksjonsklar mini-spillmotor" som kan bære ekte narrative spill.
 
@@ -29,6 +29,35 @@ Alle seks sub-oppgaver er implementert og bygger rent (tsc + eslint + vite build
 **Bakoverkompatibilitet bevart**: Watt Lab, Lindisfarne og Ford Factory kjører uten config-endringer.
 
 **Demo-world** bruker nå alle nye knotter: bloom.strength 0.4, exposure 1.65, lut 'neutral', og kvinelig fog-kurve (tykkere dawn/dusk).
+
+---
+
+## Leveranse Fase 2 (2026-04-23)
+
+Alle fem sub-oppgaver implementert og bygger rent. Alt er opt-in og high-tier-gated slik at Chromebook-baseline bevares.
+
+| Oppgave | Status | Filer |
+|---|---|---|
+| 2.1 Normal maps + PBR-texturing | ✅ | `types.ts` (SceneMatOpts utvidet), `SceneMat.ts`, `TextureManager.ts` (prosedyrale normal/roughness/AO), `GameEngine.ts` (getTexture) |
+| 2.2 SSAO-pass | ✅ | `types.ts` (ssao-config), `PostProcessingSystem.ts` (maybeAddSsaoPass + setupHigh integration) |
+| 2.3 Cascaded Shadow Maps | ✅ | `systems/ShadowSystem.ts` (CSM-wrapper), `GameEngine.ts` (init/dispose/update) |
+| 2.4 IBL fra SkySystem | ✅ | `systems/SkySystem.ts` (PMREMGenerator + envMap), `GameEngine.ts` (enableIbl) |
+| 2.5 Volumetrisk lys (god rays) | ✅ | `shaders/GodRaysShader.ts`, `PostProcessingSystem.ts` (maybeAddGodRaysPass + updateGodRays), `GameEngine.ts` (sun-NDC projeksjon) |
+
+**Nye public API-er:**
+- `engine.getTexture(preset, kind)` — runtime prosedyral normal/roughness/AO
+- `GameConfig.visual.shadows: 'standard' | 'cascaded'` — opt-in CSM
+- `GameConfig.visual.volumetricLight: boolean` — opt-in god rays
+- `PostProcessingConfig.ssao: { enabled, kernelRadius, minDistance, maxDistance }`
+- `SceneMatOpts.normalMap/roughnessMap/metalnessMap/aoMap/mapRepeat`
+
+**Gating:**
+- SSAO: kun når `ssao.enabled=true`, påvirker alle tiers men tyngst på high
+- CSM: kun når `shadows='cascaded'` + `world.preset='open'` + `tier='high'`
+- IBL: automatisk når `sky='procedural'` + `tier='high'`
+- God rays: kun når `volumetricLight=true` + `world.preset='open'` + `tier='high'`
+
+**Bakoverkompatibilitet**: Watt Lab, Lindisfarne og Ford Factory kjører uten config-endringer. TypeScript + ESLint + Vite build passerer rent.
 
 ---
 

@@ -15,8 +15,12 @@ export function disposeMaterialCache(): void {
 }
 
 function cacheKey(color: number, opts: SceneMatOpts, grading: ColorGrading | undefined): string | null {
-    // Hopp over cache hvis opts.map er satt — textures har identitet som ikke er hashbar trygt.
+    // Hopp over cache hvis noe texture er satt — textures har identitet som ikke er hashbar trygt.
     if (opts.map !== undefined) return null;
+    if (opts.normalMap !== undefined) return null;
+    if (opts.roughnessMap !== undefined) return null;
+    if (opts.metalnessMap !== undefined) return null;
+    if (opts.aoMap !== undefined) return null;
     return [
         color,
         opts.preset ?? '',
@@ -100,6 +104,10 @@ export function createSceneMat(
         metalness,
     };
     if (opts.map !== undefined) params.map = opts.map as THREE.Texture;
+    if (opts.normalMap !== undefined) params.normalMap = opts.normalMap as THREE.Texture;
+    if (opts.roughnessMap !== undefined) params.roughnessMap = opts.roughnessMap as THREE.Texture;
+    if (opts.metalnessMap !== undefined) params.metalnessMap = opts.metalnessMap as THREE.Texture;
+    if (opts.aoMap !== undefined) params.aoMap = opts.aoMap as THREE.Texture;
     if (opts.transparent !== undefined) params.transparent = opts.transparent;
     if (opts.opacity !== undefined) params.opacity = opts.opacity;
     if (opts.side !== undefined) params.side = opts.side as THREE.Side;
@@ -107,6 +115,16 @@ export function createSceneMat(
     if (opts.emissiveIntensity !== undefined) params.emissiveIntensity = opts.emissiveIntensity;
 
     const mat = new THREE.MeshStandardMaterial(params);
+    if (opts.mapRepeat) {
+        const [rx, ry] = opts.mapRepeat;
+        for (const t of [mat.map, mat.normalMap, mat.roughnessMap, mat.metalnessMap, mat.aoMap]) {
+            if (t) {
+                t.wrapS = THREE.RepeatWrapping;
+                t.wrapT = THREE.RepeatWrapping;
+                t.repeat.set(rx, ry);
+            }
+        }
+    }
     if (key !== null) materialCache.set(key, mat);
     return mat;
 }
@@ -127,5 +145,12 @@ export function createToonLikeMat(
     if (typeof opts.emissive === 'number') sceneOpts.emissive = opts.emissive;
     if (typeof opts.emissiveIntensity === 'number') sceneOpts.emissiveIntensity = opts.emissiveIntensity;
     if (opts.map !== undefined) sceneOpts.map = opts.map;
+    if (opts.normalMap !== undefined) sceneOpts.normalMap = opts.normalMap;
+    if (opts.roughnessMap !== undefined) sceneOpts.roughnessMap = opts.roughnessMap;
+    if (opts.metalnessMap !== undefined) sceneOpts.metalnessMap = opts.metalnessMap;
+    if (opts.aoMap !== undefined) sceneOpts.aoMap = opts.aoMap;
+    if (Array.isArray(opts.mapRepeat) && opts.mapRepeat.length === 2) {
+        sceneOpts.mapRepeat = opts.mapRepeat as [number, number];
+    }
     return createSceneMat(color, sceneOpts, undefined);
 }

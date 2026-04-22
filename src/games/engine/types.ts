@@ -150,11 +150,19 @@ export interface PostProcessingConfig {
     quality?: QualityTierConfig;
     bloom?: {
         strength?: number;   // default 0.35 medium, 0.55 high
-        threshold?: number;  // default 0.7
-        radius?: number;     // default 0.25
+        threshold?: number;  // default 0.25
+        radius?: number;     // default 0.7
     };
     exposure?: number;       // tone mapping exposure, default 1.8
     lut?: string;            // LUT-preset-navn (Fase 1.5 infra — kun 'neutral' støttet nå)
+    // Fase 2.2: Screen-space ambient occlusion. Kun high-tier har full effekt.
+    // Default: av. Aktiver med { enabled: true } for standard-tuning.
+    ssao?: {
+        enabled?: boolean;
+        kernelRadius?: number;   // default 0.5
+        minDistance?: number;    // default 0.005
+        maxDistance?: number;    // default 0.1
+    };
 }
 
 // Fase 1.3: tetthetskurve for fog over dagen. Alle verdier i FogExp2-density.
@@ -173,6 +181,12 @@ export interface VisualConfig {
     colorGrading?: ColorGrading;
     sky?: SkyMode;
     fogDensityCurve?: FogDensityCurve;
+    // Fase 2.3: skygge-modus. 'standard' = enkel DirectionalLight.shadow.
+    // 'cascaded' = three/addons CSM med tre kaskader (kun high-tier, kun 'open'-preset).
+    // Default: 'standard'. Eksisterende spill trenger ingen endring.
+    shadows?: 'standard' | 'cascaded';
+    // Fase 2.5: volumetrisk lys (god rays). Default: av.
+    volumetricLight?: boolean;
 }
 
 export interface NpcRouteConfig {
@@ -249,12 +263,23 @@ export interface SceneMatOpts {
     side?: number;
     emissive?: number;
     emissiveIntensity?: number;
+    // Fase 2.1: PBR-texturing. Alle valgfrie. Angi enten en preloadet texture-ID
+    // (string, slått opp i engine.getTexture) eller en rå THREE.Texture via `unknown`.
+    normalMap?: unknown;
+    roughnessMap?: unknown;
+    metalnessMap?: unknown;
+    aoMap?: unknown;
+    // Skaler texture-repetisjon (default 1,1). Satt på alle maps som er satt.
+    mapRepeat?: [number, number];
 }
 
 export interface GameEngineRef {
     scene: Scene;
     toonMat: (color: number, opts?: Record<string, unknown>) => MeshStandardMaterial;
     sceneMat: (color: number, opts?: SceneMatOpts) => MeshStandardMaterial;
+    // Fase 2.1: runtime-genererte PBR-textures. Returnerer delt CanvasTexture
+    // (cached), så flere materialer som refererer samme (preset,kind) deler minne.
+    getTexture: (preset: MaterialPreset, kind: 'normal' | 'roughness' | 'ao') => unknown;
     config: GameConfig;
     screenFlash: () => void;
     cameraShake: (amount: number, duration: number) => void;

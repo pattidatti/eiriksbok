@@ -31,7 +31,9 @@ import { WeatherSystem } from './systems/WeatherSystem';
 import { VegetationSystem } from './systems/VegetationSystem';
 import { CameraDirector } from './systems/CameraDirector';
 import { AIDirector } from './systems/AIDirector';
+import { ShadowSystem } from './systems/ShadowSystem';
 import { createSceneMat, createToonLikeMat, disposeMaterialCache, getMaterialCacheSize } from './SceneMat';
+import { getProceduralTexture, disposeTextureCache } from './TextureManager';
 import { DebugHudSystem, type DebugStats } from './systems/DebugHudSystem';
 import type { PhysicsWorld, CharacterControllerHandle } from './systems/PhysicsWorld';
 import type { InteractableSystem } from './systems/InteractableSystem';
@@ -60,6 +62,10 @@ const BODY_TARGETS: Record<Emotion, BodyTarget> = {
 function easeInOut(t: number): number {
     return t * t * (3 - 2 * t);
 }
+
+// Gjenbruksvektorer for god rays-projeksjon (Fase 2.5) — unngår allokering per frame.
+const _sunWorldScratch = new THREE.Vector3();
+const _sunNdcScratch = new THREE.Vector3();
 
 // Godtar både det gamle string-formatet ('auto' | 'low' | 'medium' | 'high') og den nye
 // PostProcessingConfig-objektformen, og returnerer alltid et normalisert objekt.
@@ -108,6 +114,7 @@ export class GameEngine {
     private vegetationSystem: VegetationSystem | null = null;
     private cameraDirector: CameraDirector;
     private aiDirector: AIDirector;
+    private shadowSystem: ShadowSystem | null = null;
     private sunLight: THREE.DirectionalLight | null = null;
     private ambientLight: THREE.AmbientLight | null = null;
     private hemiLight: THREE.HemisphereLight | null = null;
@@ -280,7 +287,11 @@ export class GameEngine {
         if ((visual.sky ?? (options.config.world.preset === 'open' ? 'procedural' : 'none')) === 'procedural') {
             this.skySystem = new SkySystem(this.scene);
             this.timeOfDaySystem.setSky(this.skySystem);
+            const enableIbl = this.qualityTier === 'high';
             void this.skySystem.init().then(() => {
+                // Fase 2.4: IBL — kun high-tier. Bake prosedyral himmel til envMap
+                // slik at alle PBR-materialer får reflekser fra riktig sky-farge.
+                if (enableIbl) this.skySystem?.enableIbl(this.renderer);
                 this.timeOfDaySystem.setTimeOfDay(this.timeOfDaySystem.getTimeOfDay());
             });
         }
@@ -321,6 +332,10 @@ export class GameEngine {
             visual.colorGrading ?? 'warm',
             ppConfig,
         );
+        // Fase 2.5: opt-in volumetrisk lys. Kun high-tier + open-preset har råd.
+        if (visual.volumetricLight && this.qualityTier === 'high' && options.config.world.preset === 'open') {
+            this.postProcessing.setGodRaysEnabled(true);
+        }
         void this.postProcessing.init();
 
         // Debug-HUD (Fase 1.6) — toggle via GameCanvas F3-lytter
@@ -331,6 +346,15 @@ export class GameEngine {
             getPhysicsBodies: () => this.physics?.getBodyCount() ?? 0,
             getMaterialCount: () => getMaterialCacheSize(),
         });
+
+        // Cascaded shadow maps (Fase 2.3) — opt-in, kun open-preset + high-tier.
+        if (visual.shadows === 'cascaded' && options.config.world.preset === 'open' && this.qualityTier === 'high') {
+            this.shadowSystem = new ShadowSystem(this.scene, this.camera, this.qualityTier);
+            const sunDir = this.timeOfDaySystem.getSunDirection();
+            void this.shadowSystem.init(sunDir).then(() => {
+                this.shadowSystem?.registerSceneMaterials();
+            });
+        }
 
         // Globale grafikkinnstillinger: apply initial state og lytt på endringer fra meny
         this.applyGameSettings();
@@ -693,6 +717,10 @@ export class GameEngine {
                 this.postProcessing?.setLut(name);
             },
             sceneMat: this.sceneMat.bind(this),
+            getTexture: (preset, kind) => {
+                if (preset === 'water') return undefined; // ingen prosedyral vann-normal i Fase 2
+                return getProceduralTexture(preset, kind);
+            },
             setTimeOfDay: (t: number) => this.timeOfDaySystem.setTimeOfDay(t),
             getSunDirection: () => this.timeOfDaySystem.getSunDirection().clone(),
             setWeather: (state: WeatherState) => {
@@ -1593,6 +1621,27 @@ export class GameEngine {
         // TimeOfDay (oppdaterer sun/sky/ambient farger ved endringer)
         this.timeOfDaySystem.update();
 
+        // CSM: hold sol-retning synkronisert + oppdater cascade-frustum hver frame
+        if (this.shadowSystem?.isActive()) {
+            this.shadowSystem.setLightDirection(this.timeOfDaySystem.getSunDirection());
+            this.shadowSystem.update();
+        }
+
+        // Fase 2.5: projiser sol til skjerm-koordinater for god rays-pass.
+        // Solen regnes som synlig kun hvis y>0 (over horisonten) og i kamera-frustum.
+        {
+            const sunDir = this.timeOfDaySystem.getSunDirection();
+            const sunWorld = _sunWorldScratch.copy(sunDir).multiplyScalar(200).add(this.camera.position);
+            const sunNdc = _sunNdcScratch.copy(sunWorld).project(this.camera);
+            const onScreen = sunNdc.x > -1.4 && sunNdc.x < 1.4 && sunNdc.y > -1.4 && sunNdc.y < 1.4 && sunNdc.z < 1;
+            const aboveHorizon = sunDir.y > 0.05;
+            this.postProcessing?.updateGodRays(
+                (sunNdc.x + 1) * 0.5,
+                (sunNdc.y + 1) * 0.5,
+                onScreen && aboveHorizon,
+            );
+        }
+
         // Vær (regn/snø/tåke)
         if (this.weatherSystem) {
             const playerWorld = new THREE.Vector3();
@@ -1817,11 +1866,14 @@ export class GameEngine {
         this.postProcessing?.dispose();
         this.debugHudSystem?.dispose();
         this.debugHudSystem = null;
+        this.shadowSystem?.dispose();
+        this.shadowSystem = null;
         if (document.pointerLockElement === this.renderer.domElement) {
             document.exitPointerLock();
         }
         this.renderer.dispose();
         disposeMaterialCache();
+        disposeTextureCache();
         if (this.options.container.contains(this.renderer.domElement)) {
             this.options.container.removeChild(this.renderer.domElement);
         }
