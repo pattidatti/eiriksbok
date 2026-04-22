@@ -24,8 +24,8 @@ export const fordFactoryConfig: GameConfig = {
 
     world: {
         preset: 'open',
-        backgroundColor: '#2a2420',
-        fogDensity: 0.018,
+        backgroundColor: '#7a6e60',
+        fogDensity: 0.012,
     },
 
     player: {

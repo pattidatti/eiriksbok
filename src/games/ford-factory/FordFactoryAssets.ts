@@ -51,6 +51,29 @@ export function setupFordFactoryScene(engine: GameEngineRef): void {
         collisionBoxes
     );
 
+    // ───── Belysning (industriell fabrikk, 1913) ─────
+    // Dagslys gjennom takvinduene
+    scene.add(new THREE.HemisphereLight(0xfff0d0, 0x55443a, 2.2));
+
+    const skylight = new THREE.DirectionalLight(0xffeedd, 2.0);
+    skylight.position.set(4, 18, -6);
+    skylight.castShadow = true;
+    skylight.shadow.mapSize.set(1024, 1024);
+    const sc = skylight.shadow.camera;
+    sc.left = sc.bottom = -20; sc.right = sc.top = 20; sc.near = 1; sc.far = 50;
+    scene.add(skylight);
+
+    const fillLight = new THREE.DirectionalLight(0xdde8ff, 0.8);
+    fillLight.position.set(-8, 6, 10);
+    scene.add(fillLight);
+
+    // Tidlige elektriske pærer over samlebåndet
+    for (const bx of [-8, -4, 0, 4, 8]) {
+        const bulb = new THREE.PointLight(0xffdd99, 1.2, 14, 1.5);
+        bulb.position.set(bx, 5.5, 0);
+        scene.add(bulb);
+    }
+
     // Stålbjelker i taket for fabrikkatmosfære
     for (let i = -14; i <= 14; i += 4) {
         const beam = new THREE.Mesh(
