@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import { OceanSystem, FoamSystem } from '../systems/OceanSystem';
 
-type ToonMat = (c: number, o?: Record<string, unknown>) => THREE.MeshToonMaterial;
+type ToonMat = (c: number, o?: Record<string, unknown>) => THREE.MeshStandardMaterial;
 
 export interface BuiltSeascape {
     ocean: OceanSystem;

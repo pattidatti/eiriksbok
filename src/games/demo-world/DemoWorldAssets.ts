@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import { Sky } from 'three/addons/objects/Sky.js';
 import type { GameEngineRef, AABB2D } from '../engine/types';
 import { buildRoom } from '../engine/systems/RoomSystem';
+import { buildHangingLight } from '../engine/LightBuilder';
 
 // ── Deterministic PRNG (Mulberry32) ──────────────────────────────────────────
 
@@ -98,16 +99,12 @@ function getTerrainY(x: number, z: number): number {
 // ── Grass ─────────────────────────────────────────────────────────────────────
 
 function isGrassExcluded(x: number, z: number): boolean {
-    // House zone
-    if (x > -25 && x < -5 && z > -7 && z < 4) return true;
     // Forest zone
     if (x > -22 && x < 2 && z < -8 && z > -34) return true;
     // Water zone
     const wdx = x - 16,
         wdz = z - 12;
     if (Math.sqrt(wdx * wdx + wdz * wdz) < 13) return true;
-    // Light test room zone
-    if (x > 17 && x < 39 && z > -20 && z < 0) return true;
     // Terrain edge
     if (Math.abs(x) > 37 || Math.abs(z) > 37) return true;
     return false;
@@ -141,7 +138,7 @@ function buildGrassMaterial(): THREE.ShaderMaterial {
     });
 }
 
-function buildGrassMesh(mat: THREE.ShaderMaterial): THREE.Mesh {
+function buildGrassMesh(mat: THREE.ShaderMaterial, roomBounds: AABB2D[]): THREE.Mesh {
     const baseGeo = new THREE.PlaneGeometry(0.08, 0.35, 1, 3);
     // Shift vertices so blade base sits at y=0
     const basePos = baseGeo.attributes.position as THREE.BufferAttribute;
@@ -161,6 +158,7 @@ function buildGrassMesh(mat: THREE.ShaderMaterial): THREE.Mesh {
         const x = (rng() - 0.5) * 72;
         const z = (rng() - 0.5) * 72;
         if (isGrassExcluded(x, z)) continue;
+        if (roomBounds.some((b) => x >= b.minX && x <= b.maxX && z >= b.minZ && z <= b.maxZ)) continue;
         offsets[placed * 3] = x;
         offsets[placed * 3 + 1] = getTerrainY(x, z);
         offsets[placed * 3 + 2] = z;
@@ -191,7 +189,7 @@ interface TreeRef {
 
 function buildTree(
     scene: THREE.Scene,
-    toonMat: (c: number, o?: Record<string, unknown>) => THREE.MeshToonMaterial,
+    toonMat: (c: number, o?: Record<string, unknown>) => THREE.MeshStandardMaterial,
     x: number,
     z: number,
     scale: number,
@@ -243,7 +241,7 @@ function buildTree(
 
 function buildForest(
     scene: THREE.Scene,
-    toonMat: (c: number, o?: Record<string, unknown>) => THREE.MeshToonMaterial,
+    toonMat: (c: number, o?: Record<string, unknown>) => THREE.MeshStandardMaterial,
     collisionBoxes: AABB2D[]
 ): TreeRef[] {
     const refs: TreeRef[] = [];
@@ -292,7 +290,7 @@ interface FireRefs {
 
 function buildCampfire(
     scene: THREE.Scene,
-    toonMat: (c: number, o?: Record<string, unknown>) => THREE.MeshToonMaterial
+    toonMat: (c: number, o?: Record<string, unknown>) => THREE.MeshStandardMaterial
 ): FireRefs {
     const cx = 7,
         cz = -22;
@@ -373,7 +371,7 @@ function buildCampfire(
 
 function buildShoreRocks(
     scene: THREE.Scene,
-    _toonMat: (c: number, o?: Record<string, unknown>) => THREE.MeshToonMaterial
+    _toonMat: (c: number, o?: Record<string, unknown>) => THREE.MeshStandardMaterial
 ): void {
     const rng = mulberry32(99);
     const rockMat = new THREE.MeshStandardMaterial({
@@ -401,18 +399,19 @@ function buildShoreRocks(
 
 interface LightRoomRefs {
     lights: THREE.PointLight[];
+    innerBounds: AABB2D;
 }
 
 function buildLightTestRoom(
     scene: THREE.Scene,
-    toonMat: (c: number, o?: Record<string, unknown>) => THREE.MeshToonMaterial,
+    toonMat: (c: number, o?: Record<string, unknown>) => THREE.MeshStandardMaterial,
     collisionBoxes: AABB2D[]
 ): LightRoomRefs {
     const cx = 28,
         cz = -10;
     const baseY = getTerrainY(cx, cz);
 
-    buildRoom(
+    const room = buildRoom(
         scene,
         toonMat,
         {
@@ -430,42 +429,24 @@ function buildLightTestRoom(
     );
 
     const lightDefs = [
-        { x: cx, z: cz, color: 0xffffff, intensity: 35, radius: 25 },
-        { x: cx - 7, z: cz - 5, color: 0xff2200, intensity: 18, radius: 18 },
-        { x: cx + 7, z: cz - 5, color: 0x0055ff, intensity: 18, radius: 18 },
-        { x: cx - 7, z: cz + 5, color: 0x00ee44, intensity: 18, radius: 18 },
-        { x: cx + 7, z: cz + 5, color: 0xffaa00, intensity: 18, radius: 18 },
+        { x: cx, z: cz, color: 0xffffff, intensity: 35, distance: 25 },
+        { x: cx - 7, z: cz - 5, color: 0xff2200, intensity: 18, distance: 18 },
+        { x: cx + 7, z: cz - 5, color: 0x0055ff, intensity: 18, distance: 18 },
+        { x: cx - 7, z: cz + 5, color: 0x00ee44, intensity: 18, distance: 18 },
+        { x: cx + 7, z: cz + 5, color: 0xffaa00, intensity: 18, distance: 18 },
     ];
 
     const lights: THREE.PointLight[] = [];
 
     for (const def of lightDefs) {
-        const hangY = baseY + 7;
-        const bulbY = hangY - 1.0;
-
-        const cord = new THREE.Mesh(
-            new THREE.CylinderGeometry(0.02, 0.02, 1.0, 4),
-            new THREE.MeshStandardMaterial({ color: 0x333333 })
-        );
-        cord.position.set(def.x, hangY - 0.5, def.z);
-        scene.add(cord);
-
-        const bulb = new THREE.Mesh(
-            new THREE.SphereGeometry(0.14, 8, 6),
-            new THREE.MeshStandardMaterial({
-                color: def.color,
-                emissive: def.color,
-                emissiveIntensity: 4.0,
-                roughness: 0.1,
-                metalness: 0.3,
-            })
-        );
-        bulb.position.set(def.x, bulbY, def.z);
-        scene.add(bulb);
-
-        const light = new THREE.PointLight(def.color, def.intensity, def.radius);
-        light.position.set(def.x, bulbY - 0.2, def.z);
-        scene.add(light);
+        const lightY = baseY + 5.8;
+        const light = buildHangingLight(scene, {
+            id: `light-${def.x}-${def.z}`,
+            position: [def.x, lightY, def.z],
+            color: def.color,
+            intensity: def.intensity,
+            distance: def.distance,
+        });
         lights.push(light);
     }
 
@@ -501,7 +482,7 @@ function buildLightTestRoom(
     disc.position.set(cx, baseY + 0.03, cz);
     scene.add(disc);
 
-    return { lights };
+    return { lights, innerBounds: room.innerBounds };
 }
 
 // ── Main setup ────────────────────────────────────────────────────────────────
@@ -560,6 +541,48 @@ export function setupDemoWorldScene(engine: GameEngineRef): void {
     terrainMesh.receiveShadow = true;
     scene.add(terrainMesh);
 
+    // ── Rooms (built before grass so innerBounds are available) ──────────────
+    const roomA = buildRoom(
+        scene,
+        toonMat,
+        {
+            id: 'romA',
+            center: [-13, -2],
+            size: [8, 6],
+            wallHeight: 3,
+            floorColor: 0xc8a86a,
+            wallColor: 0xe8d8b0,
+            roofColor: 0x8b4513,
+            hasRoof: true,
+            openings: [
+                { side: 'S', offset: 0, width: 1.6 },
+                { side: 'W', offset: 0, width: 1.2 },
+            ],
+        },
+        collisionBoxes
+    );
+
+    const roomB = buildRoom(
+        scene,
+        toonMat,
+        {
+            id: 'romB',
+            center: [-19.5, -2],
+            size: [5, 5],
+            wallHeight: 3,
+            floorColor: 0xb89060,
+            wallColor: 0xe0d0a0,
+            roofColor: 0x7a3a10,
+            hasRoof: true,
+            openings: [{ side: 'E', offset: 0, width: 1.2 }],
+        },
+        collisionBoxes
+    );
+
+    const lightRoom = buildLightTestRoom(scene, toonMat, collisionBoxes);
+    // Collect inner bounds of all rooms to exclude grass from interiors
+    const roomInnerBounds = [roomA.innerBounds, roomB.innerBounds, lightRoom.innerBounds];
+
     // ── Water ─────────────────────────────────────────────────────────────────
     const waterGeo = new THREE.CircleGeometry(11, 64);
     waterGeo.rotateX(-Math.PI / 2);
@@ -602,47 +625,9 @@ export function setupDemoWorldScene(engine: GameEngineRef): void {
     waterMesh.position.set(16, getTerrainY(16, 12) + 0.06, 12);
     scene.add(waterMesh);
 
-    // ── Grass ─────────────────────────────────────────────────────────────────
+    // ── Grass (built after rooms so room interiors are excluded) ─────────────
     const grassMat = buildGrassMaterial();
-    scene.add(buildGrassMesh(grassMat));
-
-    // ── House with two rooms ──────────────────────────────────────────────────
-    buildRoom(
-        scene,
-        toonMat,
-        {
-            id: 'romA',
-            center: [-13, -2],
-            size: [8, 6],
-            wallHeight: 3,
-            floorColor: 0xc8a86a,
-            wallColor: 0xe8d8b0,
-            roofColor: 0x8b4513,
-            hasRoof: true,
-            openings: [
-                { side: 'S', offset: 0, width: 1.6 },
-                { side: 'W', offset: 0, width: 1.2 },
-            ],
-        },
-        collisionBoxes
-    );
-
-    buildRoom(
-        scene,
-        toonMat,
-        {
-            id: 'romB',
-            center: [-19.5, -2],
-            size: [5, 5],
-            wallHeight: 3,
-            floorColor: 0xb89060,
-            wallColor: 0xe0d0a0,
-            roofColor: 0x7a3a10,
-            hasRoof: true,
-            openings: [{ side: 'E', offset: 0, width: 1.2 }],
-        },
-        collisionBoxes
-    );
+    scene.add(buildGrassMesh(grassMat, roomInnerBounds));
 
     // ── Forest and trees ──────────────────────────────────────────────────────
     const treeRefs = buildForest(scene, toonMat, collisionBoxes);
@@ -652,9 +637,6 @@ export function setupDemoWorldScene(engine: GameEngineRef): void {
 
     // ── Shore rocks ───────────────────────────────────────────────────────────
     buildShoreRocks(scene, toonMat);
-
-    // ── Light test room ───────────────────────────────────────────────────────
-    const lightRoomRefs = buildLightTestRoom(scene, toonMat, collisionBoxes);
 
     // ── Fix NPC Y position to terrain ─────────────────────────────────────────
     for (const child of scene.children) {
@@ -666,6 +648,9 @@ export function setupDemoWorldScene(engine: GameEngineRef): void {
 
     // ── Teleport player to correct terrain height ──────────────────────────────
     engine.teleportPlayer(0, getTerrainY(0, 0) + 0.1, 0);
+
+    // Lys-testrommet har sterke innendørskilder — øk bloom for bedre glød
+    engine.setBloom(0.55);
 
     // ── Per-frame animation hook ───────────────────────────────────────────────
     scene.userData._customUpdate = (_dt: number, elapsed: number) => {
@@ -691,7 +676,7 @@ export function setupDemoWorldScene(engine: GameEngineRef): void {
         fireRefs.light2.intensity = 3 + flicker2 * 4;
 
         const baseLightIntensity = [35, 18, 18, 18, 18];
-        lightRoomRefs.lights.forEach((light, i) => {
+        lightRoom.lights.forEach((light: THREE.PointLight, i: number) => {
             light.intensity = baseLightIntensity[i] + Math.sin(elapsed * 0.8 + i * 1.2) * 2.5;
         });
     };

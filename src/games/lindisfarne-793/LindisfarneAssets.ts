@@ -394,7 +394,7 @@ function findCharacter(scene: THREE.Scene, id: string): { group: THREE.Group } |
 }
 
 // Legg til tonsure på en munk-hode (hvit/lys hår-ring rundt skallen)
-function addTonsure(group: THREE.Group, toonMat: (c: number, o?: Record<string, unknown>) => THREE.MeshToonMaterial): void {
+function addTonsure(group: THREE.Group, toonMat: (c: number, o?: Record<string, unknown>) => THREE.MeshStandardMaterial): void {
     // En torus på hodet som representerer hår-kronen
     const tonsure = new THREE.Mesh(
         new THREE.TorusGeometry(0.22, 0.04, 6, 16),
@@ -406,7 +406,7 @@ function addTonsure(group: THREE.Group, toonMat: (c: number, o?: Record<string, 
 }
 
 // Legg til en munkekappe - enkel cylinder i brun farge
-function addRobe(group: THREE.Group, toonMat: (c: number, o?: Record<string, unknown>) => THREE.MeshToonMaterial): void {
+function addRobe(group: THREE.Group, toonMat: (c: number, o?: Record<string, unknown>) => THREE.MeshStandardMaterial): void {
     const robe = new THREE.Mesh(
         new THREE.CylinderGeometry(0.4, 0.5, 1.3, 8),
         toonMat(0x3a2814)

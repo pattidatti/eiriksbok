@@ -170,7 +170,7 @@ function createNameLabel(name: string): THREE.Sprite {
 
 export function buildCharacter(
     config: CharacterConfig,
-    toonMat: (color: number, opts?: Record<string, unknown>) => THREE.MeshToonMaterial,
+    toonMat: (color: number, opts?: Record<string, unknown>) => THREE.MeshStandardMaterial,
     renderer: THREE.WebGLRenderer,
     scene: THREE.Scene
 ): BuiltCharacter {
@@ -239,9 +239,12 @@ export function buildCharacter(
 
     if (config.extras) config.extras(g);
 
-    const nameLabel = createNameLabel(config.name);
-    nameLabel.position.y = 1.95;
-    g.add(nameLabel);
+    let nameLabel: THREE.Sprite | undefined;
+    if (config.showName !== false) {
+        nameLabel = createNameLabel(config.name);
+        nameLabel.position.y = 1.95;
+        g.add(nameLabel);
+    }
 
     g.position.set(...config.position);
     g.userData.npcId = config.id;
@@ -270,7 +273,7 @@ export function buildCharacter(
 export function buildCollectibleMesh(
     geometry: 'cylinder' | 'torus' | 'sphere' | 'box',
     color: number,
-    toonMat: (color: number, opts?: Record<string, unknown>) => THREE.MeshToonMaterial
+    toonMat: (color: number, opts?: Record<string, unknown>) => THREE.MeshStandardMaterial
 ): THREE.Group {
     const g = new THREE.Group();
 

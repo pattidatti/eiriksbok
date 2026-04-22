@@ -1,4 +1,4 @@
-import type { Group, Scene, MeshToonMaterial } from 'three';
+import type { Group, Scene, MeshStandardMaterial, PointLight } from 'three';
 
 export type SubjectId = 'historie' | 'norsk' | 'krle' | 'samfunnsfag' | 'musikk';
 
@@ -48,6 +48,7 @@ export interface CharacterConfig {
     defaultEmotion?: Emotion;
     extras?: (group: Group) => void;
     marker?: boolean;
+    showName?: boolean;
 }
 
 export interface CollectibleConfig {
@@ -56,6 +57,24 @@ export interface CollectibleConfig {
     position: [number, number, number];
     geometry: 'cylinder' | 'torus' | 'sphere' | 'box';
     color: number;
+}
+
+export type LightAnimation = 'steady' | 'flicker' | 'flicker-soft' | 'pulse';
+
+export interface LightConfig {
+    id: string;
+    position: [number, number, number];
+    color?: number;
+    intensity?: number;
+    distance?: number;
+    decay?: number;
+    animation?: LightAnimation;
+    castShadow?: boolean;
+    showBulb?: boolean;
+    // Synlig lyskjegle (stråle) under pæren
+    coneHeight?: number;
+    coneRadius?: number;
+    coneOpacity?: number;
 }
 
 export type WorldPreset = 'workshop' | 'longhouse' | 'harbor' | 'open' | 'custom';
@@ -114,7 +133,7 @@ export interface RoomDef {
 // Minimal interface exposed to setupScene callbacks
 export interface GameEngineRef {
     scene: Scene;
-    toonMat: (color: number, opts?: Record<string, unknown>) => MeshToonMaterial;
+    toonMat: (color: number, opts?: Record<string, unknown>) => MeshStandardMaterial;
     config: GameConfig;
     screenFlash: () => void;
     cameraShake: (amount: number, duration: number) => void;
@@ -139,6 +158,10 @@ export interface GameEngineRef {
     // Planlegg et kall som kanselleres automatisk hvis motoren disposes.
     // Bruk denne i stedet for setTimeout direkte i setupScene og dialog-actions.
     schedule: (callback: () => void, delayMs: number) => void;
+    // Registrer et PointLight for automatisk animasjon i motorloopen.
+    registerAnimatedLight: (light: PointLight, animation: LightAnimation, baseIntensity?: number) => void;
+    // Sett bloom-styrke (kun effekt på high-end). 0 = av, 0.35 = standard, 0.6 = intenst.
+    setBloom: (strength: number) => void;
 }
 
 export interface GameConfig {
@@ -152,6 +175,7 @@ export interface GameConfig {
     player: PlayerConfig;
     characters: CharacterConfig[];
     collectibles?: CollectibleConfig[];
+    lights?: LightConfig[];
     quests: { phase: string; objective: string }[];
     dialogs: Record<string, DialogNode>;
     puzzle?: { steps: PuzzleStep[] };

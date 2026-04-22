@@ -44,7 +44,7 @@ function makeStoneTex(): THREE.Texture {
     return t;
 }
 
-type ToonMatFn = (color: number, opts?: Record<string, unknown>) => THREE.MeshToonMaterial;
+type ToonMatFn = (color: number, opts?: Record<string, unknown>) => THREE.MeshStandardMaterial;
 
 function makeWorkbench(
     x: number, z: number, ry: number,
@@ -87,7 +87,7 @@ function makeWindow(
     x: number, z: number, ry: number,
     parent: THREE.Group,
     toonMat: ToonMatFn,
-    beamMat: THREE.MeshToonMaterial
+    beamMat: THREE.MeshStandardMaterial
 ): void {
     const frame = new THREE.Mesh(new THREE.BoxGeometry(2.5, 3, 0.4), toonMat(0x4a2e1a));
     frame.position.set(x, 3.5, z); frame.rotation.y = ry;

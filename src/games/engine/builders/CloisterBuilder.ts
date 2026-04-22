@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import type { AABB2D, RoomDef } from '../types';
 import { buildRoom, isInside, type BuiltRoom } from '../systems/RoomSystem';
 
-type ToonMat = (c: number, o?: Record<string, unknown>) => THREE.MeshToonMaterial;
+type ToonMat = (c: number, o?: Record<string, unknown>) => THREE.MeshStandardMaterial;
 
 export interface BuiltCloister {
     rooms: Record<'chapel' | 'corridor' | 'library' | 'dormitory', BuiltRoom>;

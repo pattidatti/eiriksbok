@@ -10,7 +10,7 @@ export interface BuiltRoom {
     innerBounds: AABB2D; // innsiden av rommet (brukes til å detektere om spiller er inne)
 }
 
-type ToonMat = (c: number, o?: Record<string, unknown>) => THREE.MeshToonMaterial;
+type ToonMat = (c: number, o?: Record<string, unknown>) => THREE.MeshStandardMaterial;
 
 // Bygger et rom med segmenterte vegger slik at åpninger blir hull, og returnerer auto-genererte
 // AABB2D-kollisjonsbokser for alle veggsegmenter.

@@ -4,8 +4,7 @@ import type { GameEngineRef, AABB2D } from '../engine/types';
 // ─── Steam Engine Assembly ────────────────────────────────────────────────────
 
 function buildBoiler(
-    toonMat: GameEngineRef['toonMat'],
-    gradientMap: THREE.DataTexture
+    toonMat: GameEngineRef['toonMat']
 ): THREE.Group {
     const g = new THREE.Group();
 
@@ -52,7 +51,6 @@ function buildBoiler(
     gaugeNeedle.position.set(0.4, 1.24, 0.73); g.add(gaugeNeedle);
     g.userData.gaugeNeedle = gaugeNeedle;
 
-    void gradientMap;
     return g;
 }
 
@@ -106,7 +104,7 @@ function buildCondenser(toonMat: GameEngineRef['toonMat']): {
 
     const jacket = new THREE.Mesh(
         new THREE.CylinderGeometry(0.5, 0.5, 1.0, 16),
-        new THREE.MeshToonMaterial({ color: 0x4477aa, transparent: true, opacity: 0.55 })
+        new THREE.MeshStandardMaterial({ color: 0x4477aa, transparent: true, opacity: 0.55, roughness: 0.1, metalness: 0.1 })
     );
     jacket.position.y = 0.65; group.add(jacket);
 
@@ -188,11 +186,7 @@ export function setupWattLabScene(engine: GameEngineRef): void {
     stone.position.y = -0.1; engineGroup.add(stone);
 
     // Build components (all hidden initially)
-    const gradData = new Uint8Array([160, 190, 220, 240, 255]);
-    const gradMap = new THREE.DataTexture(gradData, gradData.length, 1, THREE.RedFormat);
-    gradMap.needsUpdate = true;
-
-    const boilerGroup = buildBoiler(toonMat, gradMap);
+    const boilerGroup = buildBoiler(toonMat);
     boilerGroup.position.set(-1.6, 0.3, 0);
     boilerGroup.visible = false;
     engineGroup.add(boilerGroup);

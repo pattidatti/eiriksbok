@@ -31,7 +31,7 @@ export class OceanSystem {
     private segments: number;
     private size: number;
 
-    constructor(scene: THREE.Scene, toonMat: (c: number, o?: Record<string, unknown>) => THREE.MeshToonMaterial, opts: OceanOptions = {}) {
+    constructor(scene: THREE.Scene, toonMat: (c: number, o?: Record<string, unknown>) => THREE.MeshStandardMaterial, opts: OceanOptions = {}) {
         this.size = opts.size ?? 200;
         this.segments = opts.segments ?? 64;
         const color = opts.color ?? 0x2b4a66;

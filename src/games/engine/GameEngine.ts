@@ -8,9 +8,11 @@ import type {
     Emotion,
     PlayerMode,
     MonologUIState,
+    LightAnimation,
 } from './types';
 import { buildCharacter, buildCollectibleMesh, drawFace, lerpParams, EMOTION_PARAMS, type BuiltCharacter } from './CharacterBuilder';
 import { buildWorkshopRoom, buildWorkshopLighting } from './WorldBuilder';
+import { buildHangingLight } from './LightBuilder';
 import { DustSystem, SparkSystem } from './ParticleSystem';
 import { MonologSystem } from './systems/MonologSystem';
 
@@ -181,6 +183,7 @@ export class GameEngine {
     // Lights (for animation)
     private fireLight?: THREE.PointLight;
     private lampLight?: THREE.PointLight;
+    private animatedLights: { light: THREE.PointLight; animation: LightAnimation; base: number }[] = [];
 
     // Proximity detection
     private nearCharacterId: string | null = null;
@@ -268,8 +271,8 @@ export class GameEngine {
 
     // ─── Public interface for setupScene callbacks ──────────────────────────
 
-    toonMat(color: number, opts: Record<string, unknown> = {}): THREE.MeshToonMaterial {
-        return new THREE.MeshToonMaterial({ color, gradientMap: this.gradientMap, ...opts } as THREE.MeshToonMaterialParameters);
+    toonMat(color: number, opts: Record<string, unknown> = {}): THREE.MeshStandardMaterial {
+        return new THREE.MeshStandardMaterial({ color, roughness: 0.8, metalness: 0.0, ...opts } as THREE.MeshStandardMaterialParameters);
     }
 
     screenFlash(): void {
@@ -332,17 +335,9 @@ export class GameEngine {
 
     // ─── Private setup ───────────────────────────────────────────────────────
 
-    private gradientMap!: THREE.DataTexture;
     private flashPending = false;
 
     private buildScene(): void {
-        // Gradient map for toon shading
-        const gradData = new Uint8Array([0, 80, 150, 185, 210, 235, 255]);
-        this.gradientMap = new THREE.DataTexture(gradData, gradData.length, 1, THREE.RedFormat);
-        this.gradientMap.magFilter = THREE.NearestFilter;
-        this.gradientMap.minFilter = THREE.NearestFilter;
-        this.gradientMap.needsUpdate = true;
-
         // Shared collision list - WorldBuilder and setupScene both push to this
         this.scene.userData.collisionBoxes = this.collisionBoxes;
 
@@ -368,6 +363,7 @@ export class GameEngine {
             {
                 id: 'player',
                 name: 'Spiller',
+                showName: false,
                 position: playerCfg.startPosition,
                 colors: playerCfg.colors,
                 extras: (g) => {
@@ -422,6 +418,14 @@ export class GameEngine {
         if (this.config.setupScene) {
             const ref: GameEngineRef = this.buildEngineRef();
             this.config.setupScene(ref);
+        }
+
+        // Bygg deklarative lys fra GameConfig.lights
+        for (const cfg of this.config.lights ?? []) {
+            const light = buildHangingLight(this.scene, cfg);
+            if (cfg.animation && cfg.animation !== 'steady') {
+                this.animatedLights.push({ light, animation: cfg.animation, base: light.intensity });
+            }
         }
 
         if (this.config.debug) {
@@ -500,6 +504,12 @@ export class GameEngine {
                     this.player.group.position.copy(world);
                 }
                 this.player.group.position.set(x, y, z);
+            },
+            registerAnimatedLight: (light, animation, baseIntensity) => {
+                this.animatedLights.push({ light, animation, base: baseIntensity ?? light.intensity });
+            },
+            setBloom: (strength: number) => {
+                if (this.bloomPass) this.bloomTarget = strength;
             },
         };
     }
@@ -1223,6 +1233,19 @@ export class GameEngine {
         }
         if (this.lampLight) {
             this.lampLight.intensity = 0.7 + Math.sin(this.time * 15) * 0.08 + Math.random() * 0.05;
+        }
+        for (const al of this.animatedLights) {
+            switch (al.animation) {
+                case 'flicker':
+                    al.light.intensity = al.base * (0.85 + Math.sin(this.time * 14) * 0.08 + Math.random() * 0.15);
+                    break;
+                case 'flicker-soft':
+                    al.light.intensity = al.base * (0.9 + Math.sin(this.time * 15) * 0.07 + Math.random() * 0.05);
+                    break;
+                case 'pulse':
+                    al.light.intensity = al.base * (0.8 + Math.sin(this.time * 2.5) * 0.2);
+                    break;
+            }
         }
 
         // Post-processing

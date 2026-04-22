@@ -36,12 +36,12 @@ export const wattLabConfig: GameConfig = {
             extras: (g) => {
                 const apron = new THREE.Mesh(
                     new THREE.BoxGeometry(0.52, 0.7, 0.05),
-                    new THREE.MeshToonMaterial({ color: 0xaa8855 })
+                    new THREE.MeshStandardMaterial({ color: 0xaa8855, roughness: 0.8, metalness: 0.0 })
                 );
                 apron.position.set(0, 0.85, 0.22); g.add(apron);
                 const wig = new THREE.Mesh(
                     new THREE.SphereGeometry(0.3, 16, 16),
-                    new THREE.MeshToonMaterial({ color: 0xdddddd })
+                    new THREE.MeshStandardMaterial({ color: 0xdddddd, roughness: 0.8, metalness: 0.0 })
                 );
                 wig.position.y = 1.68; wig.scale.set(1, 0.75, 1.1); g.add(wig);
             },

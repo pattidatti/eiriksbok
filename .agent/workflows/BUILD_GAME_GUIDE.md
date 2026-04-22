@@ -510,6 +510,25 @@ const room = buildRoom(scene, toonMat, {
 if (room.roof) room.roof.visible = !playerInRoom(player, room);
 ```
 
+`buildRoom` returnerer `innerBounds: AABB2D` — det eksakte gulvfotavtrykket til rommet. Bruk dette til å hindre at prosedyrelt plasserte objekter (gress, steiner, trær) havner innendørs:
+
+```typescript
+// Bygg alle rom FØR du plasserer gress/scatter
+const romA = buildRoom(scene, toonMat, { ... }, collisionBoxes);
+const romB = buildRoom(scene, toonMat, { ... }, collisionBoxes);
+
+// Samle innerBounds, sjekk mot dem i plasseringssløyfen
+const roomBounds = [romA.innerBounds, romB.innerBounds];
+
+for (let i = 0; i < count; i++) {
+    const x = ..., z = ...;
+    if (roomBounds.some(b => x >= b.minX && x <= b.maxX && z >= b.minZ && z <= b.maxZ)) continue;
+    // plasser objektet
+}
+```
+
+**Rekkefølge i `setupScene`:** bygg rom → samle `innerBounds` → plasser gress/scatter.
+
 Koordinatkonvensjon: `-Z = nord`, `+Z = sør` (matcher Three.js-kamera som standard ser mot -Z).
 
 ### 11.2 Hav + båt (`builders/SeascapeBuilder.ts`, `systems/OceanSystem.ts`)

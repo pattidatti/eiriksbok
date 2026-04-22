@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import type { AABB2D } from '../types';
 
-type ToonMat = (c: number, o?: Record<string, unknown>) => THREE.MeshToonMaterial;
+type ToonMat = (c: number, o?: Record<string, unknown>) => THREE.MeshStandardMaterial;
 
 export interface BuiltBeach {
     group: THREE.Group;
