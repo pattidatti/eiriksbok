@@ -1,10 +1,8 @@
 import * as THREE from 'three';
-import { Sky } from 'three/addons/objects/Sky.js';
-import type { GameEngineRef, AABB2D } from '../engine/types';
+import type { GameEngineRef } from '../engine/types';
 import { buildRoom } from '../engine/systems/RoomSystem';
 import { buildHangingLight, type HangingLightRef } from '../engine/LightBuilder';
-
-// ── Deterministic PRNG (Mulberry32) ──────────────────────────────────────────
+import { OceanSystem, FoamSystem } from '../engine/systems/OceanSystem';
 
 function mulberry32(seed: number): () => number {
     return function () {
@@ -15,682 +13,493 @@ function mulberry32(seed: number): () => number {
     };
 }
 
-// ── Terrain noise ─────────────────────────────────────────────────────────────
+export function setupDemoWorldScene(engine: GameEngineRef): void {
+    const { scene, toonMat, sceneMat, config } = engine;
+    const rng = mulberry32(13);
 
-function smoothstep(t: number): number {
-    return t * t * (3 - 2 * t);
-}
-
-function gradNoise(x: number, z: number): number {
-    const ix = Math.floor(x),
-        iz = Math.floor(z);
-    const fx = x - ix,
-        fz = z - iz;
-
-    function g(nx: number, nz: number): [number, number] {
-        const a = Math.sin(nx * 1271.7 + nz * 3389.3) * 43758.5453;
-        return [Math.cos(a * 6.2831), Math.sin(a * 6.2831)];
-    }
-
-    const [g00x, g00z] = g(ix, iz);
-    const [g10x, g10z] = g(ix + 1, iz);
-    const [g01x, g01z] = g(ix, iz + 1);
-    const [g11x, g11z] = g(ix + 1, iz + 1);
-
-    const ux = smoothstep(fx),
-        uz = smoothstep(fz);
-    const n00 = g00x * fx + g00z * fz;
-    const n10 = g10x * (fx - 1) + g10z * fz;
-    const n01 = g01x * fx + g01z * (fz - 1);
-    const n11 = g11x * (fx - 1) + g11z * (fz - 1);
-
-    return (
-        (1 +
-            n00 * (1 - ux) * (1 - uz) +
-            n10 * ux * (1 - uz) +
-            n01 * (1 - ux) * uz +
-            n11 * ux * uz) *
-        0.5
+    // ── Ground (solid base for physics + grass) ──────────────────────────────
+    const ground = new THREE.Mesh(
+        new THREE.BoxGeometry(110, 1, 110),
+        new THREE.MeshStandardMaterial({ color: 0x3e6b2a, roughness: 0.95, metalness: 0 }),
     );
-}
+    ground.position.set(-5, -0.5, -5);
+    ground.receiveShadow = true;
+    ground.userData.solid = true;
+    scene.add(ground);
 
-function fbm(x: number, z: number): number {
-    let v = 0,
-        amp = 0.5,
-        freq = 1.0;
+    // Sandy beach transitioning to ocean east of the land
+    const beach = new THREE.Mesh(
+        new THREE.BoxGeometry(16, 0.9, 100),
+        new THREE.MeshStandardMaterial({ color: 0xd9c88a, roughness: 1, metalness: 0 }),
+    );
+    beach.position.set(30, -0.55, -5);
+    beach.receiveShadow = true;
+    beach.userData.solid = true;
+    scene.add(beach);
+
+    // ── Dirt paths linking the landmarks ─────────────────────────────────────
+    const pathMat = new THREE.MeshStandardMaterial({ color: 0x7a5b3a, roughness: 1 });
+    const addPath = (points: [number, number][]) => {
+        for (let i = 0; i < points.length - 1; i++) {
+            const [x1, z1] = points[i];
+            const [x2, z2] = points[i + 1];
+            const dx = x2 - x1;
+            const dz = z2 - z1;
+            const len = Math.hypot(dx, dz);
+            const path = new THREE.Mesh(new THREE.BoxGeometry(1.8, 0.06, len), pathMat);
+            path.position.set((x1 + x2) / 2, 0.03, (z1 + z2) / 2);
+            path.rotation.y = Math.atan2(dx, dz);
+            path.receiveShadow = true;
+            scene.add(path);
+        }
+    };
+    addPath([[0, 8], [0, 0], [-10, -8], [-18, -14]]);
+    addPath([[0, 0], [6, -4], [10, -9]]);
+    addPath([[2, 2], [12, 4], [22, 5]]);
+
+    // ── Chapel (room system + hanging spotlights) ────────────────────────────
+    const chapel = buildRoom(scene, toonMat, {
+        id: 'kapell',
+        center: [-18, -18],
+        size: [10, 9],
+        wallHeight: 5,
+        floorColor: 0x6a5038,
+        wallColor: 0xa08a68,
+        roofColor: 0x3a2818,
+        hasRoof: true,
+        openings: [{ side: 'S', offset: 0, width: 2.2 }],
+    });
+
+    const hangingLightRefs: HangingLightRef[] = [];
+    const lightDefs: { x: number; z: number; color: number; intensity: number }[] = [
+        { x: -18, z: -18, color: 0xfff0c8, intensity: 22 },
+        { x: -22, z: -16, color: 0xffb060, intensity: 12 },
+        { x: -14, z: -16, color: 0xffb060, intensity: 12 },
+        { x: -22, z: -20, color: 0xff8844, intensity: 12 },
+        { x: -14, z: -20, color: 0xff8844, intensity: 12 },
+    ];
+    for (const def of lightDefs) {
+        const ref = buildHangingLight(scene, {
+            id: `chapel-light-${def.x}-${def.z}`,
+            position: [def.x, 4.4, def.z],
+            color: def.color,
+            intensity: def.intensity,
+            distance: 14,
+            animation: 'flicker-soft',
+            angle: 0.6,
+            coneHeight: 4.4,
+            coneOpacity: 0.16,
+        });
+        hangingLightRefs.push(ref);
+        engine.registerAnimatedLight(ref.light, 'flicker-soft', ref.light.intensity);
+    }
+
+    // Altar with candle inside the chapel
+    const altar = new THREE.Mesh(
+        new THREE.BoxGeometry(1.8, 0.9, 0.8),
+        sceneMat(0xd8d0b8, { preset: 'stone' }),
+    );
+    altar.position.set(-18, 0.45, -21.2);
+    altar.castShadow = true;
+    altar.receiveShadow = true;
+    altar.userData.solid = true;
+    scene.add(altar);
+
+    const candle = new THREE.Mesh(
+        new THREE.CylinderGeometry(0.08, 0.08, 0.3, 8),
+        new THREE.MeshStandardMaterial({ color: 0xf0e0b0, roughness: 0.6 }),
+    );
+    candle.position.set(-18, 1.05, -21.2);
+    scene.add(candle);
+
+    const candleFlame = new THREE.Mesh(
+        new THREE.SphereGeometry(0.07, 6, 4),
+        new THREE.MeshStandardMaterial({
+            color: 0xffcc66,
+            emissive: 0xffaa00,
+            emissiveIntensity: 5,
+            roughness: 1,
+        }),
+    );
+    candleFlame.position.set(-18, 1.27, -21.2);
+    scene.add(candleFlame);
+
+    const candleLight = new THREE.PointLight(0xffaa44, 3.5, 4);
+    candleLight.position.set(-18, 1.3, -21.2);
+    scene.add(candleLight);
+    engine.registerAnimatedLight(candleLight, 'flicker', 3.5);
+
+    // ── Stone circle ─────────────────────────────────────────────────────────
+    const stoneMat = new THREE.MeshStandardMaterial({
+        color: 0x7e7a74,
+        roughness: 0.98,
+        metalness: 0,
+        flatShading: true,
+    });
+    const [sx, sz] = [-8, -19];
+    for (let i = 0; i < 7; i++) {
+        const a = (i / 7) * Math.PI * 2;
+        const h = 2.2 + rng() * 1.0;
+        const stone = new THREE.Mesh(new THREE.BoxGeometry(0.9, h, 0.6), stoneMat);
+        stone.position.set(sx + Math.cos(a) * 3.2, h / 2, sz + Math.sin(a) * 3.2);
+        stone.rotation.y = a + (rng() - 0.5) * 0.2;
+        stone.rotation.z = (rng() - 0.5) * 0.08;
+        stone.castShadow = true;
+        stone.receiveShadow = true;
+        stone.userData.solid = true;
+        scene.add(stone);
+    }
+    // Center altar stone
+    const centerStone = new THREE.Mesh(
+        new THREE.BoxGeometry(1.2, 0.5, 1.2),
+        stoneMat,
+    );
+    centerStone.position.set(sx, 0.25, sz);
+    centerStone.castShadow = true;
+    centerStone.userData.solid = true;
+    scene.add(centerStone);
+
+    // ── Bonfire ──────────────────────────────────────────────────────────────
+    const firePos = new THREE.Vector3(10, 0, -10);
+    const fireGroup = new THREE.Group();
+    fireGroup.position.copy(firePos);
+
+    for (let i = 0; i < 10; i++) {
+        const a = (i / 10) * Math.PI * 2;
+        const r = 1.0 + (rng() - 0.5) * 0.1;
+        const rock = new THREE.Mesh(new THREE.DodecahedronGeometry(0.38 + rng() * 0.1, 0), stoneMat);
+        rock.position.set(Math.cos(a) * r, 0.18, Math.sin(a) * r);
+        rock.rotation.set(rng() * Math.PI, rng() * Math.PI, rng() * Math.PI);
+        rock.castShadow = true;
+        fireGroup.add(rock);
+    }
+    for (let i = 0; i < 4; i++) {
+        const a = (i / 4) * Math.PI * 2 + 0.3;
+        const log = new THREE.Mesh(
+            new THREE.CylinderGeometry(0.1, 0.14, 1.1, 7),
+            toonMat(0x5a3818),
+        );
+        log.position.set(Math.cos(a) * 0.25, 0.2, Math.sin(a) * 0.25);
+        log.rotation.z = Math.PI / 3;
+        log.rotation.y = a;
+        log.castShadow = true;
+        fireGroup.add(log);
+    }
+    const embers = new THREE.Mesh(
+        new THREE.CircleGeometry(0.55, 12),
+        new THREE.MeshStandardMaterial({
+            color: 0xff3300,
+            emissive: 0xff2200,
+            emissiveIntensity: 3,
+            roughness: 1,
+        }),
+    );
+    embers.rotation.x = -Math.PI / 2;
+    embers.position.y = 0.05;
+    fireGroup.add(embers);
+
+    const flame1 = new THREE.Mesh(
+        new THREE.ConeGeometry(0.32, 1.0, 7),
+        new THREE.MeshStandardMaterial({
+            color: 0xff7722,
+            emissive: 0xff4400,
+            emissiveIntensity: 4,
+            roughness: 1,
+        }),
+    );
+    flame1.position.y = 0.55;
+    fireGroup.add(flame1);
+
+    const flame2 = new THREE.Mesh(
+        new THREE.ConeGeometry(0.16, 0.6, 6),
+        new THREE.MeshStandardMaterial({
+            color: 0xffcc44,
+            emissive: 0xffaa22,
+            emissiveIntensity: 5,
+            roughness: 1,
+        }),
+    );
+    flame2.position.y = 0.85;
+    fireGroup.add(flame2);
+
+    scene.add(fireGroup);
+
+    const fireLight = new THREE.PointLight(0xff7722, 20, 20);
+    fireLight.position.set(firePos.x, firePos.y + 1.8, firePos.z);
+    scene.add(fireLight);
+
+    // ── Pickupable stones near the bonfire ───────────────────────────────────
     for (let i = 0; i < 5; i++) {
-        v += amp * gradNoise(x * freq, z * freq);
-        amp *= 0.5;
-        freq *= 2.0;
-    }
-    return v; // ~0..1
-}
-
-function getTerrainY(x: number, z: number): number {
-    let h = (fbm(x * 0.09, z * 0.09) - 0.5) * 3.0; // roughly -1.5..1.5
-
-    // Depression near water [16, 12]
-    const wdx = x - 16,
-        wdz = z - 12;
-    const waterDist = Math.sqrt(wdx * wdx + wdz * wdz);
-    h -= Math.max(0, 1.0 - waterDist / 12.0) * 2.4;
-
-    // Flat plateau around house complex [-16, -2]
-    const hdx = x - -16,
-        hdz = z - -2;
-    const houseDist = Math.sqrt(hdx * hdx + hdz * hdz);
-    if (houseDist < 10) {
-        const blend = smoothstep(Math.min(1, Math.max(0, (houseDist - 6) / 4)));
-        h *= blend;
+        const stone = new THREE.Mesh(new THREE.DodecahedronGeometry(0.3, 0), stoneMat);
+        const a = (i / 5) * Math.PI * 2;
+        stone.position.set(firePos.x + Math.cos(a) * 2.6, 0.5, firePos.z + Math.sin(a) * 2.6);
+        stone.rotation.set(rng() * Math.PI, rng() * Math.PI, rng() * Math.PI);
+        stone.castShadow = true;
+        stone.userData.solid = true;
+        stone.userData.dynamic = true;
+        stone.userData.pickupable = true;
+        stone.userData.mass = 2;
+        stone.userData.colliderShape = 'sphere';
+        scene.add(stone);
+        engine.registerPickup(stone, { throwForce: 14 });
     }
 
-    // Flat plateau around light test room [28, -10]
-    const trdx = x - 28,
-        trdz = z - -10;
-    const testRoomDist = Math.sqrt(trdx * trdx + trdz * trdz);
-    if (testRoomDist < 14) {
-        const blend = smoothstep(Math.min(1, Math.max(0, (testRoomDist - 10) / 4)));
-        h *= blend;
+    // ── Dock and ocean ───────────────────────────────────────────────────────
+    const dockMat = toonMat(0x7a5a38);
+    for (let i = 0; i < 12; i++) {
+        const plank = new THREE.Mesh(new THREE.BoxGeometry(2.4, 0.12, 0.42), dockMat);
+        plank.position.set(24 + i * 0.5, 0.28, 5);
+        plank.userData.solid = true;
+        plank.castShadow = true;
+        plank.receiveShadow = true;
+        scene.add(plank);
+    }
+    for (let i = 0; i < 4; i++) {
+        for (const dz of [-0.9, 0.9]) {
+            const post = new THREE.Mesh(new THREE.CylinderGeometry(0.14, 0.14, 1.8, 7), dockMat);
+            post.position.set(24.5 + i * 1.8, 0, 5 + dz);
+            post.userData.solid = true;
+            post.castShadow = true;
+            scene.add(post);
+        }
     }
 
-    return Math.max(-1.3, h);
-}
+    const ocean = new OceanSystem(scene, toonMat, {
+        size: 280,
+        segments: 72,
+        color: 0x285a7a,
+        center: [90, 0],
+    });
+    ocean.mesh.position.y = -0.45;
 
-// ── Grass ─────────────────────────────────────────────────────────────────────
+    const foam = new FoamSystem(scene, () => ({ x: 30, y: -0.3, z: 5 }), 60);
 
-function isGrassExcluded(x: number, z: number): boolean {
-    // Forest zone
-    if (x > -22 && x < 2 && z < -8 && z > -34) return true;
-    // Water zone
-    const wdx = x - 16,
-        wdz = z - 12;
-    if (Math.sqrt(wdx * wdx + wdz * wdz) < 13) return true;
-    // Terrain edge
-    if (Math.abs(x) > 37 || Math.abs(z) > 37) return true;
-    return false;
-}
+    // Coastal rocks hide the land/ocean seam
+    for (let i = 0; i < 22; i++) {
+        const z = -50 + i * 5 + (rng() - 0.5);
+        if (Math.abs(z - 5) < 3.5) continue;
+        const rock = new THREE.Mesh(
+            new THREE.DodecahedronGeometry(0.8 + rng() * 0.8, 0),
+            stoneMat,
+        );
+        rock.position.set(22 + rng() * 2, -0.1 + rng() * 0.5, z);
+        rock.rotation.set(rng() * Math.PI, rng() * Math.PI, rng() * Math.PI);
+        rock.castShadow = true;
+        rock.userData.solid = true;
+        scene.add(rock);
+    }
 
-function buildGrassMaterial(): THREE.ShaderMaterial {
-    return new THREE.ShaderMaterial({
+    // Sailboat anchored beyond the dock
+    const boatGroup = new THREE.Group();
+    const hull = new THREE.Mesh(new THREE.BoxGeometry(4, 0.7, 1.5), toonMat(0x5a3a20));
+    hull.position.y = 0.35;
+    hull.castShadow = true;
+    boatGroup.add(hull);
+    const hullInner = new THREE.Mesh(
+        new THREE.BoxGeometry(3.4, 0.4, 1.0),
+        toonMat(0x3a2510),
+    );
+    hullInner.position.y = 0.5;
+    boatGroup.add(hullInner);
+    const mast = new THREE.Mesh(
+        new THREE.CylinderGeometry(0.07, 0.09, 3.8, 6),
+        toonMat(0x4a2a10),
+    );
+    mast.position.y = 2.2;
+    boatGroup.add(mast);
+    const sailGeo = new THREE.PlaneGeometry(2.2, 2.2, 6, 6);
+    const sailMat = new THREE.ShaderMaterial({
         uniforms: { uTime: { value: 0 } },
         side: THREE.DoubleSide,
         vertexShader: `
             uniform float uTime;
-            attribute vec3 aOffset;
-            attribute float aPhase;
-            varying float vH;
-            void main() {
-                float h = clamp(position.y / 0.35, 0.0, 1.0);
-                float sway = sin(uTime * 1.8 + aPhase) * 0.12 * h * h;
-                vec3 pos = position;
-                pos.x += sway;
-                vH = h;
-                gl_Position = projectionMatrix * viewMatrix * vec4(pos + aOffset, 1.0);
-            }
-        `,
-        fragmentShader: `
-            varying float vH;
-            void main() {
-                vec3 col = mix(vec3(0.22, 0.44, 0.15), vec3(0.42, 0.68, 0.26), vH);
-                gl_FragColor = vec4(col, 1.0);
-            }
-        `,
-    });
-}
-
-function buildGrassMesh(mat: THREE.ShaderMaterial, roomBounds: AABB2D[]): THREE.Mesh {
-    const baseGeo = new THREE.PlaneGeometry(0.08, 0.35, 1, 3);
-    // Shift vertices so blade base sits at y=0
-    const basePos = baseGeo.attributes.position as THREE.BufferAttribute;
-    for (let i = 0; i < basePos.count; i++) {
-        basePos.setY(i, basePos.getY(i) + 0.175);
-    }
-
-    const maxCount = 3000;
-    const offsets = new Float32Array(maxCount * 3);
-    const phases = new Float32Array(maxCount);
-    const rng = mulberry32(7);
-
-    let placed = 0;
-    let attempts = 0;
-    while (placed < maxCount && attempts < maxCount * 15) {
-        attempts++;
-        const x = (rng() - 0.5) * 72;
-        const z = (rng() - 0.5) * 72;
-        if (isGrassExcluded(x, z)) continue;
-        if (roomBounds.some((b) => x >= b.minX && x <= b.maxX && z >= b.minZ && z <= b.maxZ)) continue;
-        offsets[placed * 3] = x;
-        offsets[placed * 3 + 1] = getTerrainY(x, z);
-        offsets[placed * 3 + 2] = z;
-        phases[placed] = rng() * Math.PI * 2;
-        placed++;
-    }
-
-    const iGeo = new THREE.InstancedBufferGeometry();
-    iGeo.index = baseGeo.index;
-    iGeo.setAttribute('position', baseGeo.attributes.position);
-    iGeo.setAttribute('uv', baseGeo.attributes.uv);
-    iGeo.setAttribute('aOffset', new THREE.InstancedBufferAttribute(offsets.slice(0, placed * 3), 3));
-    iGeo.setAttribute('aPhase', new THREE.InstancedBufferAttribute(phases.slice(0, placed), 1));
-    iGeo.instanceCount = placed;
-
-    const mesh = new THREE.Mesh(iGeo, mat);
-    mesh.frustumCulled = false;
-    return mesh;
-}
-
-// ── Trees ─────────────────────────────────────────────────────────────────────
-
-interface TreeRef {
-    group: THREE.Group; // whole-tree sway rotates around the base
-    crown: THREE.Mesh;  // extra crown sway on top of whole-tree motion
-    phase: number;
-}
-
-function buildTree(
-    scene: THREE.Scene,
-    toonMat: (c: number, o?: Record<string, unknown>) => THREE.MeshStandardMaterial,
-    x: number,
-    z: number,
-    scale: number,
-    conifer: boolean,
-    collisionBoxes: AABB2D[]
-): TreeRef {
-    const y = getTerrainY(x, z);
-    const group = new THREE.Group();
-    group.position.set(x, y, z);
-
-    // Realistic trunk: 4–7m tall, 0.3–0.5m diameter at base
-    const trunkH = 5.0 * scale;
-    const trunk = new THREE.Mesh(
-        new THREE.CylinderGeometry(0.18 * scale, 0.28 * scale, trunkH, 7),
-        toonMat(0x5c3d1a)
-    );
-    trunk.position.y = trunkH / 2;
-    trunk.castShadow = true;
-    group.add(trunk);
-
-    let crown: THREE.Mesh;
-    if (conifer) {
-        // Gran: smal kjegle, 6–8m høy
-        const coneH = 6.5 * scale;
-        crown = new THREE.Mesh(
-            new THREE.ConeGeometry(2.2 * scale, coneH, 7),
-            toonMat(0x2d6a2d)
-        );
-        // ConeGeometry centre = midpoint, so base sits at trunkH
-        crown.position.y = trunkH + coneH / 2;
-    } else {
-        // Løvtre: bred kuleform krone, 3–4m radius
-        const sphereR = 2.8 * scale;
-        crown = new THREE.Mesh(
-            new THREE.SphereGeometry(sphereR, 9, 7),
-            toonMat(0x3a7a3a)
-        );
-        crown.position.y = trunkH + sphereR * 0.8;
-    }
-    crown.castShadow = true;
-    group.add(crown);
-    scene.add(group);
-
-    const r = 0.30 * scale + 0.4;
-    collisionBoxes.push({ minX: x - r, maxX: x + r, minZ: z - r, maxZ: z + r });
-
-    return { group, crown, phase: Math.random() * Math.PI * 2 };
-}
-
-function buildForest(
-    scene: THREE.Scene,
-    toonMat: (c: number, o?: Record<string, unknown>) => THREE.MeshStandardMaterial,
-    collisionBoxes: AABB2D[]
-): TreeRef[] {
-    const refs: TreeRef[] = [];
-    const rng = mulberry32(42);
-
-    // Dense cluster
-    for (let i = 0; i < 34; i++) {
-        const angle = rng() * Math.PI * 2;
-        const r = 3 + rng() * 14;
-        const x = -9 + Math.cos(angle) * r;
-        const z = -20 + Math.sin(angle) * r;
-        if (Math.abs(x) > 38 || Math.abs(z) > 38) continue;
-        // Keep away from house
-        const hdx = x - -16,
-            hdz = z - -2;
-        if (Math.sqrt(hdx * hdx + hdz * hdz) < 9) continue;
-        const scale = 0.8 + rng() * 0.6;
-        refs.push(buildTree(scene, toonMat, x, z, scale, rng() > 0.35, collisionBoxes));
-    }
-
-    // Scattered trees around the meadow
-    for (let i = 0; i < 10; i++) {
-        const x = (rng() - 0.5) * 62;
-        const z = (rng() - 0.5) * 62;
-        if (x > -25 && x < -4 && z > -8 && z < 5) continue;
-        const wdx = x - 16,
-            wdz = z - 12;
-        if (Math.sqrt(wdx * wdx + wdz * wdz) < 14) continue;
-        if (Math.abs(x) > 36 || Math.abs(z) > 36) continue;
-        const scale = 0.6 + rng() * 0.8;
-        refs.push(buildTree(scene, toonMat, x, z, scale, rng() > 0.5, collisionBoxes));
-    }
-
-    return refs;
-}
-
-// ── Campfire ──────────────────────────────────────────────────────────────────
-
-interface FireRefs {
-    flame1: THREE.Mesh;
-    flame2: THREE.Mesh;
-    light1: THREE.PointLight;
-    light2: THREE.PointLight;
-    baseY: number;
-}
-
-function buildCampfire(
-    scene: THREE.Scene,
-    toonMat: (c: number, o?: Record<string, unknown>) => THREE.MeshStandardMaterial
-): FireRefs {
-    const cx = 7,
-        cz = -22;
-    const baseY = getTerrainY(cx, cz);
-
-    const group = new THREE.Group();
-    group.position.set(cx, baseY, cz);
-
-    // Logs arranged in a star pattern
-    const logRng = mulberry32(77);
-    for (let i = 0; i < 4; i++) {
-        const angle = (i / 4) * Math.PI * 2 + logRng() * 0.3;
-        const log = new THREE.Mesh(
-            new THREE.CylinderGeometry(0.06, 0.09, 0.95, 6),
-            toonMat(0x6b3a20)
-        );
-        log.position.set(Math.cos(angle) * 0.22, 0.1, Math.sin(angle) * 0.22);
-        log.rotation.z = Math.PI / 4;
-        log.rotation.y = angle;
-        log.castShadow = true;
-        group.add(log);
-    }
-
-    // Ember bed
-    const embers = new THREE.Mesh(
-        new THREE.CircleGeometry(0.2, 8),
-        new THREE.MeshStandardMaterial({
-            color: 0xff4400,
-            emissive: 0xff2200,
-            emissiveIntensity: 2.5,
-            roughness: 1.0,
-        })
-    );
-    embers.rotation.x = -Math.PI / 2;
-    embers.position.y = 0.02;
-    group.add(embers);
-
-    // Main flame
-    const flame1 = new THREE.Mesh(
-        new THREE.ConeGeometry(0.18, 0.55, 7),
-        new THREE.MeshStandardMaterial({
-            color: 0xff6600,
-            emissive: 0xff4400,
-            emissiveIntensity: 3.5,
-            roughness: 1.0,
-        })
-    );
-    flame1.position.y = 0.28;
-    group.add(flame1);
-
-    // Inner bright flame
-    const flame2 = new THREE.Mesh(
-        new THREE.ConeGeometry(0.09, 0.32, 6),
-        new THREE.MeshStandardMaterial({
-            color: 0xffcc00,
-            emissive: 0xffaa00,
-            emissiveIntensity: 5.0,
-            roughness: 1.0,
-        })
-    );
-    flame2.position.y = 0.48;
-    group.add(flame2);
-
-    scene.add(group);
-
-    const light1 = new THREE.PointLight(0xff6600, 14, 14);
-    light1.position.set(cx, baseY + 0.8, cz);
-    scene.add(light1);
-
-    const light2 = new THREE.PointLight(0xff9900, 5, 7);
-    light2.position.set(cx, baseY + 1.3, cz);
-    scene.add(light2);
-
-    return { flame1, flame2, light1, light2, baseY };
-}
-
-// ── Shore rocks ───────────────────────────────────────────────────────────────
-
-function buildShoreRocks(
-    scene: THREE.Scene,
-    _toonMat: (c: number, o?: Record<string, unknown>) => THREE.MeshStandardMaterial
-): void {
-    const rng = mulberry32(99);
-    const rockMat = new THREE.MeshStandardMaterial({
-        color: 0x7a7a7a,
-        roughness: 0.95,
-        metalness: 0.0,
-        flatShading: true,
-    });
-    const positions: [number, number][] = [
-        [10, 8], [11, 18], [18, 6], [22, 10], [20, 18], [14, 22], [8, 14], [23, 15],
-    ];
-    for (const [rx, rz] of positions) {
-        const x = rx + (rng() - 0.5) * 1.5;
-        const z = rz + (rng() - 0.5) * 1.5;
-        const y = getTerrainY(x, z);
-        const rock = new THREE.Mesh(new THREE.DodecahedronGeometry(0.28 + rng() * 0.22, 0), rockMat);
-        rock.position.set(x, y + 0.1, z);
-        rock.rotation.set(rng() * Math.PI, rng() * Math.PI, rng() * Math.PI);
-        rock.castShadow = true;
-        scene.add(rock);
-    }
-}
-
-// ── Light test room ───────────────────────────────────────────────────────────
-
-interface LightRoomRefs {
-    lightRefs: HangingLightRef[];
-    innerBounds: AABB2D;
-}
-
-function buildLightTestRoom(
-    scene: THREE.Scene,
-    toonMat: (c: number, o?: Record<string, unknown>) => THREE.MeshStandardMaterial,
-    collisionBoxes: AABB2D[]
-): LightRoomRefs {
-    const cx = 28,
-        cz = -10;
-    const baseY = getTerrainY(cx, cz);
-
-    const room = buildRoom(
-        scene,
-        toonMat,
-        {
-            id: 'lysrom',
-            center: [cx, cz],
-            size: [20, 18],
-            wallHeight: 7,
-            floorColor: 0x1a1a1a,
-            wallColor: 0x222222,
-            roofColor: 0x111111,
-            hasRoof: true,
-            openings: [{ side: 'S', offset: 0, width: 2.2 }],
-        },
-    );
-    void collisionBoxes;
-
-    const lightDefs = [
-        { x: cx, z: cz, color: 0xffffff, intensity: 35, distance: 25 },
-        { x: cx - 7, z: cz - 5, color: 0xff2200, intensity: 18, distance: 18 },
-        { x: cx + 7, z: cz - 5, color: 0x0055ff, intensity: 18, distance: 18 },
-        { x: cx - 7, z: cz + 5, color: 0x00ee44, intensity: 18, distance: 18 },
-        { x: cx + 7, z: cz + 5, color: 0xffaa00, intensity: 18, distance: 18 },
-    ];
-
-    const lightRefs: HangingLightRef[] = [];
-
-    for (const def of lightDefs) {
-        const lightY = baseY + 5.8;
-        const ref = buildHangingLight(scene, {
-            id: `light-${def.x}-${def.z}`,
-            position: [def.x, lightY, def.z],
-            color: def.color,
-            intensity: def.intensity,
-            distance: def.distance,
-        });
-        lightRefs.push(ref);
-    }
-
-    // Test objects: sphere (center), 4 cylinders with varying roughness, reflective disc
-    const sphere = new THREE.Mesh(
-        new THREE.SphereGeometry(0.8, 16, 12),
-        new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.4, metalness: 0.1 })
-    );
-    sphere.position.set(cx, baseY + 0.8, cz);
-    sphere.castShadow = true;
-    scene.add(sphere);
-
-    const cylPositions: [number, number][] = [
-        [cx - 7, cz - 5],
-        [cx + 7, cz - 5],
-        [cx - 7, cz + 5],
-        [cx + 7, cz + 5],
-    ];
-    [0.1, 0.4, 0.7, 1.0].forEach((roughness, i) => {
-        const cyl = new THREE.Mesh(
-            new THREE.CylinderGeometry(0.3, 0.3, 1.2, 12),
-            new THREE.MeshStandardMaterial({ color: 0xaaaaaa, roughness, metalness: 0.0 })
-        );
-        cyl.position.set(cylPositions[i][0], baseY + 0.6, cylPositions[i][1]);
-        cyl.castShadow = true;
-        scene.add(cyl);
-    });
-
-    const disc = new THREE.Mesh(
-        new THREE.CylinderGeometry(1.2, 1.2, 0.05, 24),
-        new THREE.MeshStandardMaterial({ color: 0xcccccc, roughness: 0.05, metalness: 0.95 })
-    );
-    disc.position.set(cx, baseY + 0.03, cz);
-    scene.add(disc);
-
-    return { lightRefs, innerBounds: room.innerBounds };
-}
-
-// ── Main setup ────────────────────────────────────────────────────────────────
-
-export function setupDemoWorldScene(engine: GameEngineRef): void {
-    const { scene, toonMat } = engine;
-    const collisionBoxes = scene.userData.collisionBoxes as AABB2D[];
-
-    scene.userData.getTerrainY = getTerrainY;
-
-    // ── Sky (procedural Preetham atmospheric model) ────────────────────────────
-    scene.background = null; // Sky mesh replaces the flat background color
-    const sky = new Sky();
-    sky.scale.setScalar(10000);
-    scene.add(sky);
-    const skyMat = sky.material as THREE.ShaderMaterial;
-    skyMat.uniforms['turbidity'].value = 6;
-    skyMat.uniforms['rayleigh'].value = 2.2;
-    skyMat.uniforms['mieCoefficient'].value = 0.004;
-    skyMat.uniforms['mieDirectionalG'].value = 0.88;
-    // Sun direction matches DirectionalLight at (30, 50, 20)
-    skyMat.uniforms['sunPosition'].value.set(30, 50, 20).normalize();
-    // Fog color tuned to match sky horizon
-    if (scene.fog) scene.fog.color.set(0xb8cad4);
-
-    // ── Lighting ──────────────────────────────────────────────────────────────
-    const sun = new THREE.DirectionalLight(0xfff5e0, 3.8);
-    sun.position.set(30, 50, 20);
-    sun.castShadow = true;
-    sun.shadow.mapSize.set(2048, 2048);
-    sun.shadow.camera.near = 0.5;
-    sun.shadow.camera.far = 150;
-    sun.shadow.camera.left = -65;
-    sun.shadow.camera.right = 65;
-    sun.shadow.camera.top = 65;
-    sun.shadow.camera.bottom = -65;
-    scene.add(sun);
-
-    scene.add(new THREE.HemisphereLight(0x87ceeb, 0x3d5a2d, 1.2));
-    scene.add(new THREE.AmbientLight(0xfff0d0, 0.4));
-
-    // ── Terrain ───────────────────────────────────────────────────────────────
-    const terrainGeo = new THREE.PlaneGeometry(80, 80, 100, 100);
-    terrainGeo.rotateX(-Math.PI / 2);
-    const terrainPos = terrainGeo.attributes.position as THREE.BufferAttribute;
-    for (let i = 0; i < terrainPos.count; i++) {
-        terrainPos.setY(i, getTerrainY(terrainPos.getX(i), terrainPos.getZ(i)));
-    }
-    terrainPos.needsUpdate = true;
-    terrainGeo.computeVertexNormals();
-
-    const terrainMesh = new THREE.Mesh(
-        terrainGeo,
-        new THREE.MeshStandardMaterial({ color: 0x4a7a35, roughness: 0.9, metalness: 0.0 })
-    );
-    terrainMesh.receiveShadow = true;
-    scene.add(terrainMesh);
-
-    // ── Rooms (built before grass so innerBounds are available) ──────────────
-    const roomA = buildRoom(
-        scene,
-        toonMat,
-        {
-            id: 'romA',
-            center: [-13, -2],
-            size: [8, 6],
-            wallHeight: 3,
-            floorColor: 0xc8a86a,
-            wallColor: 0xe8d8b0,
-            roofColor: 0x8b4513,
-            hasRoof: true,
-            openings: [
-                { side: 'S', offset: 0, width: 1.6 },
-                { side: 'W', offset: 0, width: 1.2 },
-            ],
-        },
-    );
-
-    const roomB = buildRoom(
-        scene,
-        toonMat,
-        {
-            id: 'romB',
-            center: [-19.5, -2],
-            size: [5, 5],
-            wallHeight: 3,
-            floorColor: 0xb89060,
-            wallColor: 0xe0d0a0,
-            roofColor: 0x7a3a10,
-            hasRoof: true,
-            openings: [{ side: 'E', offset: 0, width: 1.2 }],
-        },
-    );
-
-    const lightRoom = buildLightTestRoom(scene, toonMat, collisionBoxes);
-    // Collect inner bounds of all rooms to exclude grass from interiors
-    const roomInnerBounds = [roomA.innerBounds, roomB.innerBounds, lightRoom.innerBounds];
-
-    // ── Water ─────────────────────────────────────────────────────────────────
-    const waterGeo = new THREE.CircleGeometry(11, 64);
-    waterGeo.rotateX(-Math.PI / 2);
-    // Conform each vertex to terrain height so the water sits in the bowl without
-    // clipping at the edges (where terrain rises above a flat water plane).
-    const wPos = waterGeo.attributes.position as THREE.BufferAttribute;
-    const waterCX = 16,
-        waterCZ = 12;
-    for (let i = 0; i < wPos.count; i++) {
-        wPos.setY(i, getTerrainY(waterCX + wPos.getX(i), waterCZ + wPos.getZ(i)) + 0.12);
-    }
-    wPos.needsUpdate = true;
-    waterGeo.computeVertexNormals();
-    const waterMat = new THREE.ShaderMaterial({
-        uniforms: { uTime: { value: 0 } },
-        transparent: true,
-        depthWrite: false,
-        polygonOffset: true,
-        polygonOffsetFactor: -1,
-        polygonOffsetUnits: -1,
-        vertexShader: `
-            uniform float uTime;
             varying vec2 vUv;
-            varying float vH;
             void main() {
                 vUv = uv;
                 vec3 p = position;
-                float wave = sin(p.x * 0.85 + uTime * 1.3) * 0.055
-                           + sin(p.z * 0.65 + uTime * 1.0) * 0.045;
-                p.y += wave;
-                vH = wave;
+                float wave = sin(p.y * 3.0 + uTime * 2.2) * 0.08 + sin(p.x * 4.0 + uTime * 1.6) * 0.04;
+                p.z += wave;
                 gl_Position = projectionMatrix * modelViewMatrix * vec4(p, 1.0);
             }
         `,
         fragmentShader: `
             varying vec2 vUv;
-            varying float vH;
-            uniform float uTime;
             void main() {
-                vec3 deep = vec3(0.06, 0.28, 0.44);
-                vec3 shallow = vec3(0.28, 0.62, 0.72);
-                vec2 c = vUv - 0.5;
-                float edge = smoothstep(0.5, 0.0, length(c));
-                vec3 col = mix(deep, shallow, edge * 0.7 + 0.1);
-                float crest = smoothstep(0.03, 0.06, vH);
-                col = mix(col, vec3(0.65, 0.82, 0.90), crest * 0.35);
-                float shimmer = sin(vUv.x * 28.0 + uTime * 3.8) * sin(vUv.y * 22.0 + uTime * 3.2) * 0.06;
-                col = clamp(col + shimmer, 0.0, 1.0);
-                gl_FragColor = vec4(col, 0.84);
+                vec3 base = vec3(0.92, 0.86, 0.72);
+                float stripe = step(0.5, fract(vUv.x * 3.0));
+                vec3 col = mix(base, vec3(0.78, 0.32, 0.22), stripe * 0.25);
+                gl_FragColor = vec4(col, 1.0);
             }
         `,
     });
-    const waterMesh = new THREE.Mesh(waterGeo, waterMat);
-    waterMesh.position.set(waterCX, 0, waterCZ);
-    scene.add(waterMesh);
+    const sail = new THREE.Mesh(sailGeo, sailMat);
+    sail.position.set(0, 2.2, 0);
+    sail.rotation.y = Math.PI / 2;
+    boatGroup.add(sail);
+    const boatBaseY = -0.35;
+    boatGroup.position.set(36, boatBaseY, 9);
+    boatGroup.rotation.y = -0.4;
+    scene.add(boatGroup);
 
-    // ── Grass (built after rooms so room interiors are excluded) ─────────────
-    const grassMat = buildGrassMaterial();
-    scene.add(buildGrassMesh(grassMat, roomInnerBounds));
+    // ── Trees (engine handles wind shader + foliage) ─────────────────────────
+    for (let i = 0; i < 26; i++) {
+        const x = -36 + rng() * 22;
+        const z = -24 + rng() * 38;
+        if (Math.hypot(x, z) < 8) continue;
+        const r = rng();
+        const type = r > 0.4 ? 'pine' : r > 0.2 ? 'birch' : 'oak';
+        engine.addTree([x, 0, z], type);
+    }
+    // Scattered accent trees
+    engine.addTree([7, 0, 13], 'birch');
+    engine.addTree([-3, 0, 14], 'birch');
+    engine.addTree([12, 0, -2], 'oak');
+    engine.addTree([16, 0, 10], 'birch');
+    engine.addTree([-4, 0, 5], 'oak');
 
-    // ── Forest and trees ──────────────────────────────────────────────────────
-    const treeRefs = buildForest(scene, toonMat, collisionBoxes);
+    // ── Vegetation patches (grass, flowers, reeds) ───────────────────────────
+    engine.addVegetationPatch({ minX: -10, maxX: 20, minZ: -6, maxZ: 16 }, 1.8, 'grass');
+    engine.addVegetationPatch({ minX: -12, maxX: 12, minZ: -18, maxZ: -5 }, 1.2, 'grass');
+    engine.addVegetationPatch({ minX: 3, maxX: 18, minZ: 2, maxZ: 14 }, 0.9, 'flowers');
+    engine.addVegetationPatch({ minX: -8, maxX: 2, minZ: 10, maxZ: 20 }, 2.4, 'reeds');
+    engine.addVegetationPatch({ minX: -35, maxX: -20, minZ: -10, maxZ: 10 }, 1.0, 'grass');
 
-    // ── Campfire ──────────────────────────────────────────────────────────────
-    const fireRefs = buildCampfire(scene, toonMat);
+    // ── Bench + flagpole at spawn ────────────────────────────────────────────
+    const bench = new THREE.Group();
+    const seat = new THREE.Mesh(new THREE.BoxGeometry(2.2, 0.12, 0.5), toonMat(0x6a4828));
+    seat.position.y = 0.5;
+    seat.castShadow = true;
+    seat.userData.solid = true;
+    bench.add(seat);
+    for (const lx of [-0.9, 0.9]) {
+        const leg = new THREE.Mesh(new THREE.BoxGeometry(0.12, 0.5, 0.5), toonMat(0x6a4828));
+        leg.position.set(lx, 0.25, 0);
+        bench.add(leg);
+    }
+    bench.position.set(4, 0, 5);
+    bench.rotation.y = -0.5;
+    scene.add(bench);
 
-    // ── Shore rocks ───────────────────────────────────────────────────────────
-    buildShoreRocks(scene, toonMat);
+    const pole = new THREE.Mesh(
+        new THREE.CylinderGeometry(0.07, 0.07, 6, 8),
+        toonMat(0x4a3820),
+    );
+    pole.position.set(-4, 3, 4);
+    pole.userData.solid = true;
+    pole.castShadow = true;
+    scene.add(pole);
 
-    // ── Fix NPC Y position to terrain ─────────────────────────────────────────
-    for (const child of scene.children) {
-        if (child instanceof THREE.Group && child.userData.npcId === 'bonden') {
-            child.position.y = getTerrainY(child.position.x, child.position.z);
-            break;
-        }
+    const bannerGeo = new THREE.PlaneGeometry(1.6, 1.0, 14, 6);
+    const bannerMat = new THREE.ShaderMaterial({
+        uniforms: { uTime: { value: 0 } },
+        side: THREE.DoubleSide,
+        vertexShader: `
+            uniform float uTime;
+            varying vec2 vUv;
+            void main() {
+                vUv = uv;
+                vec3 p = position;
+                float anchor = smoothstep(0.0, 0.9, (p.x + 0.8) / 1.6);
+                float wave = sin(p.x * 4.0 + uTime * 3.0) * 0.12
+                           + sin(p.y * 5.0 + uTime * 2.2) * 0.04;
+                p.z += wave * anchor;
+                gl_Position = projectionMatrix * modelViewMatrix * vec4(p, 1.0);
+            }
+        `,
+        fragmentShader: `
+            varying vec2 vUv;
+            void main() {
+                vec3 top = vec3(0.88, 0.22, 0.18);
+                vec3 bot = vec3(0.95, 0.62, 0.25);
+                vec3 c = mix(bot, top, vUv.y);
+                float stripe = step(0.5, fract(vUv.x * 4.0));
+                c = mix(c, c * 0.78, stripe * 0.35);
+                gl_FragColor = vec4(c, 1.0);
+            }
+        `,
+    });
+    const banner = new THREE.Mesh(bannerGeo, bannerMat);
+    banner.position.set(-3.2, 4.8, 4);
+    scene.add(banner);
+
+    // ── Mountains in the distance (skybox-like parallax) ─────────────────────
+    const mountainMat = new THREE.MeshStandardMaterial({
+        color: 0x5a6a7a,
+        roughness: 1,
+        metalness: 0,
+        flatShading: true,
+    });
+    const peaks: [number, number, number][] = [
+        [-60, 0, -60], [-40, 0, -65], [-20, 0, -70], [0, 0, -72], [20, 0, -68], [-70, 0, -30],
+        [-75, 0, 0], [-70, 0, 30],
+    ];
+    for (const [px, , pz] of peaks) {
+        const h = 14 + rng() * 10;
+        const peak = new THREE.Mesh(new THREE.ConeGeometry(8 + rng() * 4, h, 5), mountainMat);
+        peak.position.set(px + (rng() - 0.5) * 6, h / 2 - 1, pz + (rng() - 0.5) * 6);
+        peak.rotation.y = rng() * Math.PI;
+        peak.castShadow = false;
+        scene.add(peak);
     }
 
-    // ── Teleport player to correct terrain height ──────────────────────────────
-    engine.teleportPlayer(0, getTerrainY(0, 0) + 0.1, 0);
+    // ── Dialog actions: wire weather + time-of-day controls ──────────────────
+    const weather = config.dialogs.weather_menu;
+    if (weather) {
+        weather.choices[0].action = () => engine.setWeather({ type: 'clear', intensity: 0 });
+        weather.choices[1].action = () => engine.setWeather({ type: 'rain', intensity: 0.5 });
+        weather.choices[2].action = () => engine.setWeather({ type: 'rain', intensity: 1 });
+        weather.choices[3].action = () => engine.setWeather({ type: 'snow', intensity: 0.7 });
+        weather.choices[4].action = () => engine.setWeather({ type: 'fog', intensity: 0.85 });
+    }
+    const tod = config.dialogs.time_menu;
+    if (tod) {
+        tod.choices[0].action = () => engine.setTimeOfDay(0.24);
+        tod.choices[1].action = () => engine.setTimeOfDay(0.5);
+        tod.choices[2].action = () => engine.setTimeOfDay(0.62);
+        tod.choices[3].action = () => engine.setTimeOfDay(0.78);
+        tod.choices[4].action = () => engine.setTimeOfDay(0.03);
+    }
 
-    // Lys-testrommet har sterke innendørskilder — øk bloom for bedre glød
+    // ── Hide chapel roof when player is inside (dollhouse) ───────────────────
+    const chapelBounds = chapel.innerBounds;
+    const chapelRoof = chapel.roof;
+
+    // Bloom boost makes chapel interior glow beautifully
     engine.setBloom(0.55);
 
-    // ── Per-frame animation hook ───────────────────────────────────────────────
+    // ── Per-frame updates ────────────────────────────────────────────────────
     scene.userData._customUpdate = (dt: number, elapsed: number) => {
-        waterMat.uniforms.uTime.value = elapsed;
-        grassMat.uniforms.uTime.value = elapsed;
+        ocean.update(dt);
+        foam.update(dt);
 
-        for (const { group, crown, phase } of treeRefs) {
-            // Whole-tree sway — rotates around the base (realistic wind effect)
-            group.rotation.z = Math.sin(elapsed * 0.65 + phase) * 0.022;
-            group.rotation.x = Math.sin(elapsed * 0.48 + phase * 1.6) * 0.014;
-            // Crown sways more than trunk tip (canopy is looser)
-            crown.rotation.z = Math.sin(elapsed * 1.4 + phase * 0.85) * 0.032;
-            crown.rotation.x = Math.sin(elapsed * 1.1 + phase * 1.2) * 0.018;
+        bannerMat.uniforms.uTime.value = elapsed;
+        sailMat.uniforms.uTime.value = elapsed;
+
+        const tilt = ocean.getWaveTilt(boatGroup.position.x, boatGroup.position.z);
+        boatGroup.rotation.x = tilt.pitch * 0.4;
+        boatGroup.rotation.z = -0.4 + tilt.roll * 0.4;
+        boatGroup.position.y = boatBaseY + tilt.height * 0.5;
+
+        const f1 = Math.sin(elapsed * 6.1) * 0.5 + 0.5;
+        const f2 = Math.sin(elapsed * 4.3 + 1) * 0.5 + 0.5;
+        flame1.scale.set(0.85 + f1 * 0.3, 0.8 + f1 * 0.35, 0.85 + f1 * 0.3);
+        flame2.scale.set(0.7 + f2 * 0.4, 0.6 + f2 * 0.45, 0.7 + f2 * 0.4);
+        flame1.position.y = 0.55 + f1 * 0.14;
+        flame2.position.y = 0.85 + f2 * 0.15;
+        fireLight.intensity = 14 + f1 * 10;
+
+        candleFlame.scale.setScalar(0.85 + Math.sin(elapsed * 12) * 0.2);
+
+        for (const ref of hangingLightRefs) ref.update(dt, elapsed);
+
+        if (chapelRoof) {
+            const p = engine.getPlayerPosition();
+            const inside =
+                p.x >= chapelBounds.minX &&
+                p.x <= chapelBounds.maxX &&
+                p.z >= chapelBounds.minZ &&
+                p.z <= chapelBounds.maxZ;
+            chapelRoof.visible = !inside;
         }
-
-        const flicker = Math.sin(elapsed * 5.3) * 0.5 + 0.5;
-        const flicker2 = Math.sin(elapsed * 4.1 + 1.2) * 0.5 + 0.5;
-        fireRefs.flame1.scale.set(0.9 + flicker * 0.3, 0.8 + flicker * 0.4, 0.9 + flicker * 0.3);
-        fireRefs.flame2.scale.set(0.7 + flicker2 * 0.4, 0.6 + flicker2 * 0.5, 0.7 + flicker2 * 0.4);
-        fireRefs.flame1.position.y = 0.28 + flicker * 0.14;
-        fireRefs.flame2.position.y = 0.48 + flicker2 * 0.18;
-        fireRefs.light1.intensity = 11 + flicker * 7;
-        fireRefs.light2.intensity = 3 + flicker2 * 4;
-
-        const baseLightIntensity = [35, 18, 18, 18, 18];
-        lightRoom.lightRefs.forEach((ref: HangingLightRef, i: number) => {
-            ref.light.intensity = baseLightIntensity[i] + Math.sin(elapsed * 0.8 + i * 1.2) * 2.5;
-            ref.update(dt, elapsed);
-        });
     };
 }

@@ -3,88 +3,210 @@ import { setupDemoWorldScene } from './DemoWorldAssets';
 
 export const demoWorldConfig: GameConfig = {
     id: 'demo-world',
-    title: 'Demoverdenen',
-    subtitle: 'Grafikkdemo · Åpen verden',
+    title: 'Lysalvendalen',
+    subtitle: 'Motor-demo · Full grafikk',
     subject: 'historie',
     description:
-        'En åpen verden med vann, skog, hus og bål. Brukes til å teste engine-funksjoner og grafikkoppgraderinger.',
+        'En åpen demoverden som viser fram hva spillmotoren kan: himmel, hav, vær, vegetasjon, fysikk, lys og indre monolog. Prat med Alvstein for en omvisning.',
     thumbnail: '',
 
     world: {
         preset: 'open',
         backgroundColor: '#a8c8e8',
-        fogDensity: 0.007,
+        fogDensity: 0.005,
     },
 
-    // Ikke migrert til Rapier/userData.solid enda - bruk legacy ingen-kollisjon-fallback.
-    physics: { enabled: false },
+    physics: {
+        enabled: true,
+        playerJump: true,
+        gravity: -18,
+    },
+
+    visual: {
+        postProcessing: 'auto',
+        timeOfDay: 0.42,
+        colorGrading: 'warm',
+        sky: 'procedural',
+        weather: { type: 'clear', intensity: 0 },
+    },
 
     player: {
-        startPosition: [0, 1, 0],
+        startPosition: [0, 1, 8],
         colors: { body: 0x3a5a7a, head: 0xf0c090, legs: 0x4a3020 },
     },
 
     characters: [
         {
-            id: 'bonden',
-            name: 'Bonden',
-            position: [-11, 0, 0],
-            colors: { body: 0x7a5c2e, head: 0xd4a574, legs: 0x4a3520 },
-            characterType: 'farmer',
+            id: 'guide',
+            name: 'Alvstein',
+            position: [2, 0, 3],
+            colors: { body: 0x5a3f66, head: 0xe8b888, legs: 0x3a2a4a },
+            characterType: 'monk',
             defaultEmotion: 'glad',
             marker: true,
+            showName: true,
+        },
+        {
+            id: 'vandrer',
+            name: 'Vandreren',
+            position: [-6, 0, -2],
+            colors: { body: 0x456a4a, head: 0xd4a88a, legs: 0x2a3520 },
+            characterType: 'farmer',
+            defaultEmotion: 'glad',
+            showName: true,
         },
     ],
 
-    quests: [{ phase: 'free', objective: 'Utforsk verdenen fritt.' }],
+    npcRoutes: [
+        {
+            characterId: 'vandrer',
+            waypoints: [
+                [-6, -2],
+                [-14, 4],
+                [-8, 12],
+                [4, 14],
+                [12, 8],
+                [16, -2],
+                [8, -10],
+                [-4, -8],
+            ],
+            mode: 'loop',
+            speed: 1.1,
+            pauseMs: 1400,
+        },
+    ],
+
+    quests: [
+        {
+            phase: 'free',
+            objective: 'Utforsk dalen. Prat med Alvstein (trykk E) for omvisning.',
+        },
+    ],
 
     dialogs: {
-        bonden_greeting: {
-            speaker: 'Bonden',
-            text: 'Velkommen hit! Her kan du gå rundt og utforske alt.',
+        guide_greeting: {
+            speaker: 'Alvstein',
+            text: 'Velkommen til Lysalvendalen! Her kan du se alt motoren vår kan gjøre. Hva vil du prøve?',
             choices: [
-                { text: 'Hva er her å se?', next: 'bonden_2' },
-                { text: 'Takk, jeg utforsker!', next: null },
+                { text: 'Vis meg hva motoren kan', next: 'tour_menu' },
+                { text: 'Fortell om dalen', next: 'about' },
+                { text: 'Jeg vil utforske selv', next: null },
+            ],
+            cameraFraming: 'speaker',
+        },
+        tour_menu: {
+            speaker: 'Alvstein',
+            text: 'Hva skal jeg vise deg nå?',
+            choices: [
+                { text: 'Skift vær', next: 'weather_menu' },
+                { text: 'Skift tid på døgnet', next: 'time_menu' },
+                { text: 'Fortell om dalen', next: 'about' },
+                { text: 'Det holder, takk', next: null },
             ],
         },
-        bonden_2: {
-            speaker: 'Bonden',
-            text: 'Skogen bak huset har et bål langt inne. Og det er et vann nedover i bakken mot øst.',
-            choices: [{ text: 'Takk!', next: null }],
+        weather_menu: {
+            speaker: 'Alvstein',
+            text: 'Hvilket vær skal få råde?',
+            choices: [
+                { text: 'Klart og stille', next: 'tour_menu' },
+                { text: 'Lett regn', next: 'tour_menu' },
+                { text: 'Styrtregn og storm', next: 'tour_menu' },
+                { text: 'Snøfall', next: 'tour_menu' },
+                { text: 'Tett tåke', next: 'tour_menu' },
+                { text: 'Tilbake', next: 'tour_menu' },
+            ],
+        },
+        time_menu: {
+            speaker: 'Alvstein',
+            text: 'Hvilken tid vil du se?',
+            choices: [
+                { text: 'Morgengry', next: 'tour_menu' },
+                { text: 'Middag', next: 'tour_menu' },
+                { text: 'Ettermiddag', next: 'tour_menu' },
+                { text: 'Solnedgang', next: 'tour_menu' },
+                { text: 'Natt', next: 'tour_menu' },
+                { text: 'Tilbake', next: 'tour_menu' },
+            ],
+        },
+        about: {
+            speaker: 'Alvstein',
+            text: 'Alt du ser er bygd fra grunnen av. Himmelen regnes ut fra sola. Havet bølger i sanntid. Gress og banner vaier i vinden. Du kan plukke opp steiner med E og kaste dem med F. Løp rundt og se selv!',
+            choices: [
+                { text: 'Imponerende!', next: 'tour_menu' },
+                { text: 'Takk, jeg utforsker', next: null },
+            ],
+        },
+        vandrer_greeting: {
+            speaker: 'Vandreren',
+            text: 'Hei! Jeg går bare en runde i dalen. Vakkert her, er det ikke?',
+            choices: [
+                { text: 'Helt enig.', next: null },
+                { text: 'Ha en fin tur.', next: null },
+            ],
+            cameraFraming: 'speaker',
         },
     },
 
     monologs: {
-        vann: {
-            id: 'vann',
-            lines: ['Vannet glitrer i lyset. Rolig og stille.'],
+        m_spawn: {
+            id: 'm_spawn',
+            lines: [
+                'Sollyset faller skrått over dalen.',
+                'Gresset vaier - banneret suser.',
+            ],
             once: true,
         },
-        skog: {
-            id: 'skog',
-            lines: ['Trærne tårner seg opp rundt deg. Det lukter mose og jord.'],
+        m_chapel: {
+            id: 'm_chapel',
+            lines: [
+                'Stille. Lyset faller gjennom åpningen.',
+                'Lyktene flakker - et levende mørke.',
+            ],
             once: true,
         },
-        baal: {
-            id: 'baal',
-            lines: ['Bålet sprekker og knaser. Varmen treffer deg fra lang avstand.'],
+        m_bonfire: {
+            id: 'm_bonfire',
+            lines: [
+                'Varmen slår mot deg. Flammene knitrer.',
+                'Her kan du plukke opp steiner (E) og kaste dem (F).',
+            ],
             once: true,
         },
-        testrom: {
-            id: 'testrom',
-            lines: ['Et stort mørkt rom. Lysene kaster fargede skygger på veggene.'],
+        m_dock: {
+            id: 'm_dock',
+            lines: [
+                'Bølgene slår mot pælene under bryggen.',
+                'Båten vugger i takt med havet.',
+            ],
+            once: true,
+        },
+        m_forest: {
+            id: 'm_forest',
+            lines: [
+                'Trærne rager over deg.',
+                'Nålene rasler i vinden.',
+            ],
+            once: true,
+        },
+        m_stones: {
+            id: 'm_stones',
+            lines: [
+                'Steinene står i ring.',
+                'Noen reiste dem for lang tid siden.',
+            ],
             once: true,
         },
     },
 
     monologTriggers: [
-        { id: 't_vann', monologId: 'vann', area: { minX: 10, maxX: 22, minZ: 6, maxZ: 18 } },
-        { id: 't_skog', monologId: 'skog', area: { minX: -8, maxX: 3, minZ: -13, maxZ: -7 } },
-        { id: 't_baal', monologId: 'baal', area: { minX: 4, maxX: 10, minZ: -25, maxZ: -19 } },
-        { id: 't_testrom', monologId: 'testrom', area: { minX: 18, maxX: 38, minZ: -20, maxZ: 0 } },
+        { id: 't_spawn', monologId: 'm_spawn', area: { minX: -3, maxX: 3, minZ: 6, maxZ: 12 } },
+        { id: 't_chapel', monologId: 'm_chapel', area: { minX: -23, maxX: -13, minZ: -22, maxZ: -14 } },
+        { id: 't_bonfire', monologId: 'm_bonfire', area: { minX: 7, maxX: 13, minZ: -12, maxZ: -7 } },
+        { id: 't_dock', monologId: 'm_dock', area: { minX: 24, maxX: 34, minZ: 3, maxZ: 8 } },
+        { id: 't_forest', monologId: 'm_forest', area: { minX: -35, maxX: -22, minZ: -10, maxZ: 8 } },
+        { id: 't_stones', monologId: 'm_stones', area: { minX: -11, maxX: -5, minZ: -22, maxZ: -16 } },
     ],
 
-    endText: 'Du har utforsket demoverdenen.',
-
+    endText: 'Du har utforsket Lysalvendalen.',
     setupScene: setupDemoWorldScene,
 };
