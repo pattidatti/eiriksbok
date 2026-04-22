@@ -1,5 +1,4 @@
 import * as THREE from 'three';
-import type { AABB2D } from '../types';
 
 type ToonMat = (c: number, o?: Record<string, unknown>) => THREE.MeshStandardMaterial;
 
@@ -14,10 +13,19 @@ export interface BuiltBeach {
 export function buildBeach(
     scene: THREE.Scene,
     toonMat: ToonMat,
-    collisionBoxes: AABB2D[]
 ): BuiltBeach {
     const group = new THREE.Group();
     scene.add(group);
+
+    // Usynlig solid grunn - gir PhysicsWorld noe å stå på over hele øya.
+    // Plasseres rett under synlige gulv-lag.
+    const ground = new THREE.Mesh(
+        new THREE.BoxGeometry(120, 0.4, 120),
+        new THREE.MeshBasicMaterial({ visible: false }),
+    );
+    ground.position.set(0, -0.2, -15);
+    ground.userData.solid = true;
+    group.add(ground);
 
     // Hoved-øy: stor flat landmasse
     const islandGeo = new THREE.CircleGeometry(40, 32);
@@ -54,16 +62,8 @@ export function buildBeach(
         rock.rotation.set(Math.random() * 0.5, Math.random() * Math.PI, Math.random() * 0.5);
         rock.castShadow = true;
         rock.receiveShadow = true;
+        rock.userData.solid = true;
         group.add(rock);
-
-        // Kollisjonsboks (runder av til rektangulær)
-        const s = scale + 0.4;
-        collisionBoxes.push({
-            minX: x - s,
-            maxX: x + s,
-            minZ: z - s,
-            maxZ: z + s,
-        });
     }
 
     // Klipper langs venstre side av stien
@@ -86,16 +86,15 @@ export function buildBeach(
     placeRock(16, -8, 2.2);
 
     // Usynlig vegg mot havet - hindrer at spiller vasser ut (langs Z = 6)
-    for (let x = -15; x <= 15; x += 3) {
-        collisionBoxes.push({
-            minX: x - 1.5,
-            maxX: x + 1.5,
-            minZ: 5.5,
-            maxZ: 7.5,
-        });
-    }
+    const oceanWall = new THREE.Mesh(
+        new THREE.BoxGeometry(30, 3, 1),
+        new THREE.MeshBasicMaterial({ visible: false }),
+    );
+    oceanWall.position.set(0, 1.5, 6.5);
+    oceanWall.userData.solid = true;
+    group.add(oceanWall);
 
-    // Noen få busker/gress-tuer for liv
+    // Noen få busker/gress-tuer for liv (ikke solide - bare dekor)
     const grassColor = 0x4a6832;
     for (let i = 0; i < 12; i++) {
         const x = (Math.random() - 0.5) * 24;

@@ -16,6 +16,9 @@ export const demoWorldConfig: GameConfig = {
         fogDensity: 0.007,
     },
 
+    // Ikke migrert til Rapier/userData.solid enda - bruk legacy ingen-kollisjon-fallback.
+    physics: { enabled: false },
+
     player: {
         startPosition: [0, 1, 0],
         colors: { body: 0x3a5a7a, head: 0xf0c090, legs: 0x4a3020 },

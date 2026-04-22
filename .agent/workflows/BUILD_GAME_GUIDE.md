@@ -13,9 +13,9 @@ Dette dokumentet beskriver den komplette prosessen for å opprette et nytt histo
 ```
 GameConfig (MinSpillConfig.ts)
   └── setupScene(engine: GameEngineRef)   ← escape hatch for egne 3D-assets
-        └── engine.scene.userData.collisionBoxes  ← registrer kollisjonsbokser her
+        └── mesh.userData.solid = true    ← Rapier-collider genereres automatisk
 
-GameEngine.ts          ← Three.js scene, renderer, animasjonsloop, input, AABB-kollisjon
+GameEngine.ts          ← Three.js scene, renderer, animasjonsloop, input, Rapier-fysikk
   ├── WorldBuilder.ts      ← Bygger 'workshop'-preset (ett rom)
   ├── CharacterBuilder.ts  ← Toon-shaded NPC-er og samleobjekter
   ├── LightBuilder.ts      ← buildHangingLight: SpotLight + shader-kjegle + støvpartikler
@@ -23,7 +23,9 @@ GameEngine.ts          ← Three.js scene, renderer, animasjonsloop, input, AABB
   ├── systems/             ← Gjenbrukbare subsystemer
   │   ├── MonologSystem.ts ← Indre stemme - ikke-blokkerende tekst med triggervolumer
   │   ├── OceanSystem.ts   ← Animert hav + skum-partikler for båt
-  │   └── RoomSystem.ts    ← Deklarativ rom-bygging med auto-kollisjonsbokser
+  │   ├── PhysicsWorld.ts  ← Rapier3D-fysikk (kollisjon, character controller, raycast)
+  │   ├── InteractableSystem.ts ← Pickup/drop/kast for dynamiske objekter
+  │   └── RoomSystem.ts    ← Deklarativ rom-bygging (vegger markert som solid)
   └── builders/            ← Spill-spesifikke scene-byggere (gjenbrukbare)
       ├── CloisterBuilder.ts   ← Kloster med tre rom + korridor
       ├── BeachBuilder.ts      ← Strand, sti, klipper
@@ -137,7 +139,7 @@ export const minSpillConfig: GameConfig = {
 
 ```typescript
 import * as THREE from 'three';
-import type { GameEngineRef, AABB2D } from '../engine/types';
+import type { GameEngineRef } from '../engine/types';
 
 export function setupMinSpillScene(engine: GameEngineRef): void {
     const { scene, toonMat, config, animateReveal, startEngineAnimation, openPuzzle, triggerEnd } = engine;
@@ -149,13 +151,8 @@ export function setupMinSpillScene(engine: GameEngineRef): void {
     );
     minObjekt.position.set(0, 0.5, -5);
     minObjekt.visible = false;
+    minObjekt.userData.solid = true;   // PhysicsWorld genererer collider automatisk
     scene.add(minObjekt);
-
-    // --- Registrer kollisjonsbokser ---
-    const boxes = scene.userData.collisionBoxes as AABB2D[];
-    // Formel: center ± (half_extent + 0.4)
-    // Eks: objekt ved (0, -5), BoxGeometry(4, _, 2) → halfX=2, halfZ=1
-    boxes.push({ minX: -2.4, maxX: 2.4, minZ: -6.4, maxZ: -3.6 });
 
     // --- Kople dialog-actions ---
     if (config.dialogs.puzzleIntro?.choices[0]) {
@@ -389,23 +386,35 @@ config.dialogs.puzzleWin.choices[0].action  = () => triggerEnd();
 
 ---
 
-## 7. Kollisjonsbokser (AABB2D)
+## 7. Kollisjon (Rapier3D-fysikk, Fase 4+)
 
-Motoren bruker 2D AABB (XZ-planet). `WorldBuilder` registrerer automatisk benker og fat. Egne objekter må registreres manuelt i `setupScene`:
+Kollisjon håndteres automatisk av `PhysicsWorld` (Rapier3D). Hvert objekt som skal være solid merkes med `mesh.userData.solid = true` — motoren traverserer scenen etter init og genererer colliders.
 
 ```typescript
-const boxes = engine.scene.userData.collisionBoxes as AABB2D[];
-
-// Formel: center_x ± (half_width + 0.4),  center_z ± (half_depth + 0.4)
-// Eksempel: BoxGeometry(4.5, _, 2.5) ved posisjon (0, -5):
-//   halfX = 4.5/2 = 2.25 → 2.25 + 0.4 = 2.65
-//   halfZ = 2.5/2 = 1.25 → 1.25 + 0.4 = 1.65
-boxes.push({ minX: -2.65, maxX: 2.65, minZ: -6.65, maxZ: -3.35 });
+const bord = new THREE.Mesh(new THREE.BoxGeometry(4.5, 1, 2.5), toonMat(0x8b5a2b));
+bord.position.set(0, 0.5, -5);
+bord.userData.solid = true;   // PhysicsWorld gir den en cuboid-collider
+scene.add(bord);
 ```
 
-Spillerradius er alltid **0.4 enheter**. Legg til denne radiusen på alle sider av hinderet.
+**Hint via userData** (alle valgfrie):
 
-For roterte objekter (ry = π/2): bytt om X og Z i half-extent-beregningen.
+| Felt | Verdi | Effekt |
+|---|---|---|
+| `solid` | `true` | Gi objektet en static collider (default cuboid fra boundingBox) |
+| `colliderShape` | `'cuboid' \| 'cylinder' \| 'capsule' \| 'sphere' \| 'trimesh'` | Overstyr shape (trimesh er kostbart - bruk kun for kompleks terreng) |
+| `dynamic` | `true` | Gjør objektet til en dynamisk rigid body (må ha `mass`) |
+| `mass` | `number` | Masse for dynamic bodies (kg) |
+| `friction` | `0..1` | Default 0.7 |
+| `restitution` | `0..1` | Default 0 (ingen sprett) |
+| `climbable` | `true` | Sensor-volume for stiger - spilleren klatrer med W/S når overlappende |
+| `pickupable` | `true` | Kombiner med `dynamic=true` og `engine.registerPickup(mesh)` for plukk/kast |
+
+**Gulv må eksplisitt markeres solid** - det finnes ingen auto-ground. Plasser en stor flat boks med `userData.solid = true` i y=0.
+
+Båter/plattformer spilleren *sitter på* (`setPlayerMode('seated')`) skal **ikke** være solide - physics-body-en deaktiveres i seated-modus og scripted animasjon styrer transform.
+
+AABB2D og `scene.userData.collisionBoxes` er fjernet i Fase 4 - ikke bruk.
 
 ---
 
@@ -415,7 +424,9 @@ For roterte objekter (ry = π/2): bytt om X og Z i half-extent-beregningen.
 |---|---|
 | WASD | Bevegelse |
 | Muspek | Kamerarotasjon (pointer lock aktivt) |
-| E | Interaksjon med NPC / samleobjekt |
+| Space | Hopp (når `physics.playerJump` er på) |
+| E | Interaksjon med NPC / samleobjekt / plukk opp / slipp |
+| F | Kast holdt objekt |
 | 1-9 | Velg dialog-alternativ eller puzzle-svar |
 | Klikk på canvas | Aktiverer pointer lock (muselåsing) |
 
@@ -569,8 +580,8 @@ player: { startPosition: [0, 0, 0], colors: { ... } }  // blir overstyrt av setP
 
 // I setupScene:
 const sea = buildSeascape(scene, toonMat);     // hav + båt
-const beach = buildBeach(scene, toonMat, collisionBoxes);
-const cloister = buildCloister(scene, toonMat, collisionBoxes);
+const beach = buildBeach(scene, toonMat);      // strand, sti, klipper (auto-solid)
+const cloister = buildCloister(scene, toonMat); // kloster med 4 rom (auto-solid)
 
 // Start spilleren sittende i båten
 engine.setPlayerMode('seated', { parent: sea.boat, offset: sea.playerSeat });
@@ -588,7 +599,7 @@ scene.userData._customUpdate = (dt, time) => {
 
 ### 12.1 Rom-system (`systems/RoomSystem.ts`)
 
-Deklarativ bygging av rom med vegger, åpninger og auto-genererte kollisjonsbokser. Lager veggsegmenter rundt hver åpning så du slipper å manuelt telle kollisjonsbokser.
+Deklarativ bygging av rom med vegger og åpninger. Hver vegg-mesh merkes automatisk med `userData.solid = true` slik at Rapier genererer colliders.
 
 ```typescript
 import { buildRoom, playerInRoom } from '../engine/systems/RoomSystem';
@@ -602,7 +613,7 @@ const room = buildRoom(scene, toonMat, {
     floorColor: 0x5a4838,
     wallColor: 0x9a8968,
     hasRoof: true,  // default true, sett false for utendørs "rom"
-}, collisionBoxes);
+});
 
 // Tak-dollhouse: skjul taket når spilleren er inne
 if (room.roof) room.roof.visible = !playerInRoom(player, room);
@@ -612,8 +623,8 @@ if (room.roof) room.roof.visible = !playerInRoom(player, room);
 
 ```typescript
 // Bygg alle rom FØR du plasserer gress/scatter
-const romA = buildRoom(scene, toonMat, { ... }, collisionBoxes);
-const romB = buildRoom(scene, toonMat, { ... }, collisionBoxes);
+const romA = buildRoom(scene, toonMat, { ... });
+const romB = buildRoom(scene, toonMat, { ... });
 
 // Samle innerBounds, sjekk mot dem i plasseringssløyfen
 const roomBounds = [romA.innerBounds, romB.innerBounds];
@@ -791,7 +802,9 @@ endText: (engine) => {
 | `src/games/engine/CharacterBuilder.ts` | `drawFace`, `lerpParams`, `EMOTION_PARAMS` - emosjonssystemets tegnelogikk |
 | `src/games/engine/systems/MonologSystem.ts` | Indre monolog med triggere og programmatisk API |
 | `src/games/engine/systems/OceanSystem.ts` | Animert hav + skum-system |
-| `src/games/engine/systems/RoomSystem.ts` | Deklarativ rom-bygging med auto-kollisjon |
+| `src/games/engine/systems/RoomSystem.ts` | Deklarativ rom-bygging (vegger markert solid for Rapier) |
+| `src/games/engine/systems/PhysicsWorld.ts` | Rapier3D-wrapper: character controller, raycast, step |
+| `src/games/engine/systems/InteractableSystem.ts` | Pickup/drop/kast med E og F |
 | `src/games/engine/builders/CloisterBuilder.ts` | Kloster-layout (kapell, korridor, bibliotek, sovesal) |
 | `src/games/engine/builders/BeachBuilder.ts` | Strand, sti, klipper |
 | `src/games/engine/builders/SeascapeBuilder.ts` | Hav + langskip |

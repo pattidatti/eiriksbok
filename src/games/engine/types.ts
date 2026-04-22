@@ -1,8 +1,30 @@
-import type { Group, Scene, MeshStandardMaterial, Light, Vector3 } from 'three';
+import type { Group, Scene, MeshStandardMaterial, Light, Vector3, Mesh } from 'three';
 
 export type SubjectId = 'historie' | 'norsk' | 'krle' | 'samfunnsfag' | 'musikk';
 
+// Rektangulær region på XZ-planet. Brukes til ikke-fysiske ting som trigger-volumer
+// (MonologTrigger) og vegetasjons-patches. Fysisk kollisjon håndteres av PhysicsWorld
+// via mesh.userData.solid - se SolidUserData i systems/PhysicsWorld.ts.
 export type AABB2D = { minX: number; maxX: number; minZ: number; maxZ: number };
+
+// Fysikk-konfigurasjon (Fase 4). Aktivert som standard når GameConfig.physics er undefined.
+export interface PhysicsConfig {
+    enabled?: boolean;              // default true
+    gravity?: number;               // default -18
+    playerJump?: boolean;           // default true
+    playerFallDamage?: boolean;     // default false
+    fallDamageThreshold?: number;   // m/s - absolutt verdi av landings-Y-hastighet; default 12
+    onPlayerFallDamage?: (velocity: number) => void;
+}
+
+// Opsjoner når et objekt registreres som pickupable via engine.registerPickup.
+export interface PickupOptions {
+    holdOffset?: [number, number, number];  // kamera-lokal posisjon, default (0, -0.25, -1.1)
+    throwForce?: number;                    // default 8
+    onPickup?: () => void;
+    onDrop?: () => void;
+    onThrow?: () => void;
+}
 
 export type Emotion = 'glad' | 'worried' | 'surprised' | 'triumphant';
 export type CharacterType = 'scientist' | 'farmer' | 'noble' | 'monk';
@@ -254,6 +276,13 @@ export interface GameEngineRef {
     getQualityTier: () => 'low' | 'medium' | 'high';
     // Hopper over intro-fasen (Fase 5). No-op hvis intro ikke er aktiv.
     skipIntro: () => void;
+    // ── Fase 4 (fysikk + interaksjon) ──
+    // Registrer et objekt som plukkbart. Objektet må ha mesh.userData.solid=true og
+    // dynamic=true for å få en Rapier-rigid body. Hvis fysikk er deaktivert, er dette en no-op.
+    registerPickup: (mesh: Mesh, opts?: PickupOptions) => void;
+    isHoldingItem: () => boolean;
+    dropHeldItem: () => void;
+    throwHeldItem: (force?: number) => void;
 }
 
 export interface GameConfig {
@@ -283,6 +312,8 @@ export interface GameConfig {
     // ── Fase 1-3 utvidelser (alle valgfrie, ingen breaking changes) ──
     visual?: VisualConfig;
     npcRoutes?: NpcRouteConfig[];
+    // ── Fase 4 (fysikk) ──
+    physics?: PhysicsConfig;
     // ── Fase 5 (Intro + QoL) ──
     intro?: IntroConfig;
 }

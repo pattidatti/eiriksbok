@@ -516,7 +516,7 @@ A highly realistic 4K cinematic photograph of [scene], [time period].
 6. **Timeline in article JSON**: Always keep `"timeline": []` in article files. All events go in `global-timeline.json`.
 7. **Learning paths in `lessons`**: Learning paths (`-sti.json`) must be registered under `tools`, not `lessons` in the manifest.
 8. **Relative links in tasks**: Always use absolute paths starting with `/` in learning path task links.
-9. **Mini-spill kollisjonsbokser**: Nye 3D-objekter i `setupScene` trenger manuelle AABB2D-bokser i `engine.scene.userData.collisionBoxes`. Glem dette, og spilleren går rett gjennom objektet. Formel: center ± (half_extent + 0.4).
+9. **Mini-spill kollisjon (Rapier, Fase 4+)**: Nye 3D-objekter som skal være solide må merkes med `mesh.userData.solid = true`. `PhysicsWorld` traverserer scenen og lager colliders automatisk etter init. Valgfri `colliderShape: 'cylinder' | 'capsule' | 'sphere' | 'trimesh'` overstyrer default (cuboid fra boundingBox). Gulv må også ha `solid=true` - det finnes ingen auto-ground. AABB2D og `scene.userData.collisionBoxes` er fjernet fra kollisjons-API-et.
 
 ---
 

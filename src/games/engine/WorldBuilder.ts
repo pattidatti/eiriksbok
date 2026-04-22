@@ -1,5 +1,4 @@
 import * as THREE from 'three';
-import type { AABB2D } from './types';
 
 function makeWoodTex(): THREE.Texture {
     const c = document.createElement('canvas');
@@ -52,6 +51,15 @@ function makeWorkbench(
     toonMat: ToonMatFn
 ): void {
     const g = new THREE.Group();
+    // Solid blokk som dekker hele arbeidsbenken (PhysicsWorld-collider). Usynlig så den
+    // ikke tegnes over de eksisterende beine/hyllene.
+    const collider = new THREE.Mesh(
+        new THREE.BoxGeometry(3, 1.1, 1.2),
+        new THREE.MeshBasicMaterial({ visible: false }),
+    );
+    collider.position.y = 0.55;
+    collider.userData.solid = true;
+    g.add(collider);
     const top = new THREE.Mesh(new THREE.BoxGeometry(3, 0.15, 1.2), toonMat(0x8b5a2b));
     top.position.y = 1; top.castShadow = true; top.receiveShadow = true; g.add(top);
     for (const [lx, lz] of [[-1.3, -0.5], [1.3, -0.5], [-1.3, 0.5], [1.3, 0.5]]) {
@@ -131,6 +139,15 @@ export function buildWorkshopRoom(
     floor.rotation.x = -Math.PI / 2; floor.receiveShadow = true;
     roomGroup.add(floor);
 
+    // Usynlig tykk gulvboks gir PhysicsWorld noe solid å stå på.
+    const floorCollider = new THREE.Mesh(
+        new THREE.BoxGeometry(roomSize, 0.4, roomSize),
+        new THREE.MeshBasicMaterial({ visible: false }),
+    );
+    floorCollider.position.y = -0.2;
+    floorCollider.userData.solid = true;
+    roomGroup.add(floorCollider);
+
     stoneTex.repeat.set(3, 1);
     const wallMat = toonMat(0xa88a6e, { map: stoneTex });
 
@@ -138,6 +155,7 @@ export function buildWorkshopRoom(
         const m = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), wallMat);
         m.position.set(x, y, z); m.rotation.y = ry;
         m.castShadow = true; m.receiveShadow = true;
+        m.userData.solid = true;
         roomGroup.add(m);
     };
     const hw = roomSize / 2;
@@ -207,6 +225,8 @@ export function buildWorkshopRoom(
             toonMat(0x6b4423)
         );
         barrel.position.set(bx, 0.6, bz); barrel.castShadow = true;
+        barrel.userData.solid = true;
+        barrel.userData.colliderShape = 'cylinder';
         for (const by of [0.2, -0.2]) {
             const band = new THREE.Mesh(
                 new THREE.TorusGeometry(0.51, 0.04, 8, 24),
@@ -216,21 +236,6 @@ export function buildWorkshopRoom(
             barrel.add(band);
         }
         roomGroup.add(barrel);
-    }
-
-    // Register collision boxes (obstacle half-extents + player radius 0.4)
-    const boxes = scene.userData.collisionBoxes as AABB2D[] | undefined;
-    if (boxes) {
-        // Workbench at (0, 2), ry=0: 3×1.2 top
-        boxes.push({ minX: -1.9, maxX: 1.9, minZ: 1.0, maxZ: 3.0 });
-        // Workbench at (6, -4), ry=π/2: 1.2×3
-        boxes.push({ minX: 5.0, maxX: 7.0, minZ: -5.9, maxZ: -2.1 });
-        // Workbench at (-5, -6), ry=0: 3×1.2
-        boxes.push({ minX: -6.9, maxX: -3.1, minZ: -7.0, maxZ: -5.0 });
-        // Barrels (radius 0.5)
-        for (const [bx, bz] of barrelPositions) {
-            boxes.push({ minX: bx - 0.9, maxX: bx + 0.9, minZ: bz - 0.9, maxZ: bz + 0.9 });
-        }
     }
 }
 

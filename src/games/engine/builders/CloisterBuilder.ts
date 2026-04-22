@@ -10,6 +10,12 @@ export interface BuiltCloister {
     group: THREE.Group;
 }
 
+// Markerer en mesh som fysisk solid (Fase 4). Hjelper for byggere.
+function markSolid(mesh: THREE.Mesh): THREE.Mesh {
+    mesh.userData.solid = true;
+    return mesh;
+}
+
 // Layout (XZ): Negativ Z = nord (innover øya), positiv Z = sør (mot havet).
 //   Kapell: (0, -30)    - lengst nord, 10x10
 //   Korridor: (0, -22)  - binder rommene, 3x6
@@ -20,7 +26,6 @@ export interface BuiltCloister {
 export function buildCloister(
     scene: THREE.Scene,
     toonMat: ToonMat,
-    collisionBoxes: AABB2D[]
 ): BuiltCloister {
     const group = new THREE.Group();
     scene.add(group);
@@ -74,10 +79,10 @@ export function buildCloister(
         roofColor: 0x3e2e1e,
     };
 
-    const chapel = buildRoom(scene, toonMat, chapelDef, collisionBoxes);
-    const corridor = buildRoom(scene, toonMat, corridorDef, collisionBoxes);
-    const library = buildRoom(scene, toonMat, libraryDef, collisionBoxes);
-    const dormitory = buildRoom(scene, toonMat, dormitoryDef, collisionBoxes);
+    const chapel = buildRoom(scene, toonMat, chapelDef);
+    const corridor = buildRoom(scene, toonMat, corridorDef);
+    const library = buildRoom(scene, toonMat, libraryDef);
+    const dormitory = buildRoom(scene, toonMat, dormitoryDef);
 
     // Kirketårn - synlig fra stranden (plasseres over kapellet)
     const towerBase = new THREE.Mesh(
@@ -86,6 +91,7 @@ export function buildCloister(
     );
     towerBase.position.set(0, 4, -30);
     towerBase.castShadow = true;
+    markSolid(towerBase);
     group.add(towerBase);
 
     const towerRoof = new THREE.Mesh(
@@ -117,12 +123,14 @@ export function buildCloister(
         toonMat(0x5c4228)
     );
     gatePostL.position.set(-1.4, 1.75, -18);
+    markSolid(gatePostL);
     group.add(gatePostL);
     const gatePostR = new THREE.Mesh(
         new THREE.BoxGeometry(0.4, 3.5, 0.4),
         toonMat(0x5c4228)
     );
     gatePostR.position.set(1.4, 1.75, -18);
+    markSolid(gatePostR);
     group.add(gatePostR);
     const gateArch = new THREE.Mesh(
         new THREE.BoxGeometry(3.2, 0.4, 0.4),

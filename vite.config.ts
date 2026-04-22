@@ -15,6 +15,9 @@ export default defineConfig({
       filename: 'stats.html'
     })
   ],
+  optimizeDeps: {
+    exclude: ['@dimforge/rapier3d-compat'],
+  },
   build: {
     rollupOptions: {
       output: {
@@ -22,6 +25,7 @@ export default defineConfig({
           vendor: ['react', 'react-dom', 'react-router-dom', 'framer-motion'],
           ui: ['lucide-react', '@heroicons/react'],
           three: ['three', '@react-three/fiber', '@react-three/drei'],
+          rapier: ['@dimforge/rapier3d-compat'],
           firebase: ['firebase/app', 'firebase/database', 'firebase/auth'],
           charts: ['chart.js', 'react-chartjs-2'],
           d3: ['d3-geo', 'd3-scale', 'topojson-client'],

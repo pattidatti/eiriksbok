@@ -9,6 +9,7 @@ import { DialogBox } from './DialogBox';
 import { PuzzleUI } from './PuzzleUI';
 import { MonologBox } from './MonologBox';
 import { IntroOverlay } from './IntroRunner';
+import { SettingsMenu } from './SettingsMenu';
 
 interface GameCanvasProps {
     config: GameConfig;
@@ -97,6 +98,11 @@ export function GameCanvas({ config }: GameCanvasProps) {
         engineRef.current?.skipIntro();
     }, []);
 
+    const handleResumeFromMenu = useCallback(() => {
+        const canvas = containerRef.current?.querySelector('canvas');
+        canvas?.requestPointerLock();
+    }, []);
+
     return (
         <div
             className="relative w-full overflow-hidden bg-stone-900"
@@ -133,44 +139,9 @@ export function GameCanvas({ config }: GameCanvasProps) {
                 />
             )}
 
-            {/* Pause overlay */}
+            {/* Settings menu (erstatter pause-overlay) */}
             {uiState.started && !uiState.ended && uiState.paused && (
-                <div
-                    style={{
-                        position: 'absolute',
-                        inset: 0,
-                        background: 'rgba(10,6,3,0.72)',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        zIndex: 50,
-                        pointerEvents: 'none',
-                        backdropFilter: 'blur(3px)',
-                    }}
-                >
-                    <p
-                        style={{
-                            color: '#d4a574',
-                            fontFamily: "Georgia, 'Times New Roman', serif",
-                            fontSize: 22,
-                            letterSpacing: 3,
-                            textTransform: 'uppercase',
-                            marginBottom: 12,
-                        }}
-                    >
-                        Pauset
-                    </p>
-                    <p
-                        style={{
-                            color: '#b89968',
-                            fontFamily: "Georgia, 'Times New Roman', serif",
-                            fontSize: 14,
-                        }}
-                    >
-                        Klikk for å fortsette
-                    </p>
-                </div>
+                <SettingsMenu onResume={handleResumeFromMenu} />
             )}
 
             {/* Dialog box */}

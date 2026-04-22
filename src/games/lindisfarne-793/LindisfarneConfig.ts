@@ -25,6 +25,11 @@ export const lindisfarneConfig: GameConfig = {
         postProcessing: 'auto',
     },
 
+    physics: {
+        enabled: true,
+        playerJump: true,
+    },
+
     intro: {
         type: 'title',
         title: 'Lindisfarne',

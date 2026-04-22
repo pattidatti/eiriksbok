@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import type { GameEngineRef, AABB2D } from '../engine/types';
+import type { GameEngineRef } from '../engine/types';
 
 // ─── Steam Engine Assembly ────────────────────────────────────────────────────
 
@@ -180,6 +180,7 @@ export function setupWattLabScene(engine: GameEngineRef): void {
 
     const platform = new THREE.Mesh(new THREE.BoxGeometry(4.5, 0.3, 2.5), toonMat(0x3a2515));
     platform.position.y = 0.15; platform.castShadow = true; platform.receiveShadow = true;
+    platform.userData.solid = true;
     engineGroup.add(platform);
 
     const stone = new THREE.Mesh(new THREE.BoxGeometry(4.2, 0.4, 2.3), toonMat(0x6a6a6a));
@@ -228,6 +229,14 @@ export function setupWattLabScene(engine: GameEngineRef): void {
     // Forge
     const { group: forgeGroup, fireLayers } = buildForge(toonMat);
     forgeGroup.position.set(-7, 0, -7);
+    // Solid-collider for hele smia (usynlig boks dekker base + skorstein)
+    const forgeCollider = new THREE.Mesh(
+        new THREE.BoxGeometry(2.5, 4.2, 2),
+        new THREE.MeshBasicMaterial({ visible: false }),
+    );
+    forgeCollider.position.y = 2.1;
+    forgeCollider.userData.solid = true;
+    forgeGroup.add(forgeCollider);
     scene.add(forgeGroup);
 
     // Animate forge fire
@@ -265,15 +274,6 @@ export function setupWattLabScene(engine: GameEngineRef): void {
     }
     if (config.dialogs.puzzleWin?.choices[0]) {
         config.dialogs.puzzleWin.choices[0].action = () => triggerEnd();
-    }
-
-    // Register collision boxes for game-specific objects (obstacle + player radius 0.4)
-    const boxes = scene.userData.collisionBoxes as AABB2D[] | undefined;
-    if (boxes) {
-        // Engine platform: center (0, -5), BoxGeometry(4.5, 0.3, 2.5)
-        boxes.push({ minX: -2.65, maxX: 2.65, minZ: -6.65, maxZ: -3.35 });
-        // Forge: center (-7, -7), BoxGeometry(2.5, 1.2, 2)
-        boxes.push({ minX: -8.65, maxX: -5.35, minZ: -8.4, maxZ: -5.6 });
     }
 
     // Wire puzzle callbacks

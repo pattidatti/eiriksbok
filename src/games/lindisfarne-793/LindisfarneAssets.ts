@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import type { GameEngineRef, AABB2D } from '../engine/types';
+import type { GameEngineRef } from '../engine/types';
 import { buildSeascape } from '../engine/builders/SeascapeBuilder';
 import { buildBeach } from '../engine/builders/BeachBuilder';
 import { buildCloister, playerInRoom } from '../engine/builders/CloisterBuilder';
@@ -7,7 +7,6 @@ import { buildCloister, playerInRoom } from '../engine/builders/CloisterBuilder'
 // Hele spillet bygges her. Tre faser i én scene.
 export function setupLindisfarneScene(engine: GameEngineRef): void {
     const { scene, toonMat } = engine;
-    const collisionBoxes = scene.userData.collisionBoxes as AABB2D[];
 
     // ───── Fase 1: Hav og båt ─────
     const sea = buildSeascape(scene, toonMat);
@@ -31,12 +30,12 @@ export function setupLindisfarneScene(engine: GameEngineRef): void {
     }
 
     // ───── Fase 2: Strand og sti ─────
-    const beach = buildBeach(scene, toonMat, collisionBoxes);
+    const beach = buildBeach(scene, toonMat);
     // Referanse til beach - brukes i fase-overgang
     void beach;
 
     // ───── Fase 3: Klosteret ─────
-    const cloister = buildCloister(scene, toonMat, collisionBoxes);
+    const cloister = buildCloister(scene, toonMat);
 
     // ───── Plasser Eadfrith i biblioteket ─────
     const eadfrith = findCharacter(scene, 'eadfrith');
@@ -56,12 +55,8 @@ export function setupLindisfarneScene(engine: GameEngineRef): void {
         toonMat(0x4a3020)
     );
     bookStand.position.set(-8.5, 0.6, -21.5);
+    bookStand.userData.solid = true;
     scene.add(bookStand);
-    // Kollisjonsboks for lesepulten
-    collisionBoxes.push({
-        minX: -9.5, maxX: -7.5,
-        minZ: -22.2, maxZ: -20.8,
-    });
 
     const book = new THREE.Mesh(
         new THREE.BoxGeometry(0.7, 0.15, 0.5),
@@ -94,11 +89,8 @@ export function setupLindisfarneScene(engine: GameEngineRef): void {
         toonMat(0x8a7058)
     );
     altar.position.set(0, 0.6, -33.5);
+    altar.userData.solid = true;
     scene.add(altar);
-    collisionBoxes.push({
-        minX: -1.65, maxX: 1.65,
-        minZ: -34.4, maxZ: -32.6,
-    });
 
     // Stort kors bak alteret
     const altarCrossV = new THREE.Mesh(
@@ -136,6 +128,7 @@ export function setupLindisfarneScene(engine: GameEngineRef): void {
             toonMat(0x6a5a42)
         );
         bed.position.set(sx, 0.15, sz);
+        bed.userData.solid = true;
         scene.add(bed);
 
         const pillow = new THREE.Mesh(
@@ -144,12 +137,6 @@ export function setupLindisfarneScene(engine: GameEngineRef): void {
         );
         pillow.position.set(sx, 0.35, sz - 0.7);
         scene.add(pillow);
-
-        // Kollisjonsboks per seng
-        collisionBoxes.push({
-            minX: sx - 0.9, maxX: sx + 0.9,
-            minZ: sz - 1.4, maxZ: sz + 1.4,
-        });
     }
 
     // Et par sko ved siden av en seng (personlig detalj)
@@ -170,11 +157,8 @@ export function setupLindisfarneScene(engine: GameEngineRef): void {
             toonMat(0x4a3020)
         );
         shelf.position.set(-11.3, 1.4, -21 - i * 1.5 + 2);
+        shelf.userData.solid = true;
         scene.add(shelf);
-        collisionBoxes.push({
-            minX: -11.85, maxX: -10.75,
-            minZ: -22.65 - i * 1.5 + 2, maxZ: -19.35 - i * 1.5 + 2,
-        });
     }
 
     // ───── Ytre ring-klipper rundt hele øya (blokkerer utforskning utover kart) ─────
@@ -183,10 +167,13 @@ export function setupLindisfarneScene(engine: GameEngineRef): void {
         const x = Math.cos(ang) * r;
         const z = -15 + Math.sin(ang) * r;
         if (z > 3 && Math.abs(x) < 15) continue; // la stranden være åpen mot havet
-        collisionBoxes.push({
-            minX: x - 2, maxX: x + 2,
-            minZ: z - 2, maxZ: z + 2,
-        });
+        const ringRock = new THREE.Mesh(
+            new THREE.BoxGeometry(4, 3, 4),
+            new THREE.MeshBasicMaterial({ visible: false }),
+        );
+        ringRock.position.set(x, 1.5, z);
+        ringRock.userData.solid = true;
+        scene.add(ringRock);
     }
 
     // ───── Vegetasjon: gress på øya, siv langs vannkanten ─────

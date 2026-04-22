@@ -28,6 +28,9 @@ export const fordFactoryConfig: GameConfig = {
         fogDensity: 0.012,
     },
 
+    // Ikke migrert til Rapier/userData.solid enda - bruk legacy ingen-kollisjon-fallback.
+    physics: { enabled: false },
+
     player: {
         startPosition: [0, 0, 10],
         colors: {

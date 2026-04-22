@@ -26,6 +26,11 @@ export const wattLabConfig: GameConfig = {
         postProcessing: 'auto',
     },
 
+    physics: {
+        enabled: true,
+        playerJump: true,
+    },
+
     player: {
         startPosition: [4, 0, 4],
         colors: { body: 0x3a5a7a, head: 0xf0c090, legs: 0x4a3020 },

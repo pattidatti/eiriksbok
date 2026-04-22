@@ -16,6 +16,7 @@ import type {
     NpcRouteConfig,
     DialogCameraFraming,
     CinematicShot,
+    PickupOptions,
 } from './types';
 import { buildCharacter, buildCollectibleMesh, drawFace, lerpParams, EMOTION_PARAMS, updateCharacterAnim, type BuiltCharacter } from './CharacterBuilder';
 import { buildWorkshopRoom, buildWorkshopLighting } from './WorldBuilder';
@@ -30,6 +31,8 @@ import { VegetationSystem } from './systems/VegetationSystem';
 import { CameraDirector } from './systems/CameraDirector';
 import { AIDirector } from './systems/AIDirector';
 import { createSceneMat } from './SceneMat';
+import type { PhysicsWorld, CharacterControllerHandle } from './systems/PhysicsWorld';
+import type { InteractableSystem } from './systems/InteractableSystem';
 
 // ─── Emotion system ──────────────────────────────────────────────────────────
 
@@ -114,13 +117,24 @@ export class GameEngine {
     private onGround = true;
     private yaw = 0;
     private pitch = 0.3;
+    private targetYaw = 0;
+    private targetPitch = 0.3;
     private mouseLocked = false;
     private keys: Record<string, boolean> = {};
-    private collisionBoxes: AABB2D[] = [];
+    private playerRadius = 0.4;
+    private playerHalfHeight = 0.8;   // halvparten av full kapsel-høyde
+
+    // Fysikk (Fase 4). Initialiseres asynkront etter WASM-lasting. Null hvis deaktivert.
+    private physics: PhysicsWorld | null = null;
+    private playerCC: CharacterControllerHandle | null = null;
+    private interactables: InteractableSystem | null = null;
+    private physicsReady: Promise<void> | null = null;
+    private pendingPickups: { mesh: THREE.Mesh; opts?: PickupOptions }[] = [];
 
     // Camera
     private camPos = new THREE.Vector3();
     private camTarget = new THREE.Vector3();
+    private camDistZoom = 0; // brukerjustert zoom-offset fra musehjul
     private shakeAmount = 0;
     private shakeDuration = 0;
     private shakeTimer = 0;
@@ -281,14 +295,58 @@ export class GameEngine {
         // Init camera basert på faktisk verdensposisjon (setupScene kan ha satt player som
         // barn av et annet objekt via setPlayerMode('seated'), så config.startPosition alene
         // ville gitt en feil start-posisjon og et synlig kamera-snap første frame)
+        this.targetYaw = this.yaw;
+        this.targetPitch = this.pitch;
         const world = new THREE.Vector3();
         this.player.group.getWorldPosition(world);
+        const initPivotY = world.y + 1.7;
         this.camPos.set(
             world.x - Math.sin(this.yaw) * 4.5,
-            world.y + 2.5,
+            initPivotY + Math.sin(this.pitch) * 4.5,
             world.z + Math.cos(this.yaw) * 4.5
         );
-        this.camTarget.set(world.x, world.y + 1.2, world.z);
+        this.camTarget.set(world.x, initPivotY, world.z);
+
+        // Init fysikk asynkront (WASM). physicsReady settes slik at startGame kan awaite.
+        if (options.config.physics?.enabled !== false) {
+            this.physicsReady = this.initPhysics();
+        }
+    }
+
+    private async initPhysics(): Promise<void> {
+        const { PhysicsWorld } = await import('./systems/PhysicsWorld');
+        const { InteractableSystem } = await import('./systems/InteractableSystem');
+        if (this.disposed) return;
+        const gravity = this.config.physics?.gravity ?? -18;
+        this.physics = await PhysicsWorld.create(gravity);
+        if (this.disposed) {
+            this.physics.dispose();
+            this.physics = null;
+            return;
+        }
+        // Registrer alle userData.solid-meshes i scenen
+        this.physics.addStaticFromScene(this.scene);
+        // Lag character controller for spilleren, plassert der player-meshen er
+        const playerWorld = new THREE.Vector3();
+        this.player.group.getWorldPosition(playerWorld);
+        this.playerCC = this.physics.createCharacterController(
+            this.playerRadius,
+            this.playerHalfHeight,
+            playerWorld.y + this.playerHalfHeight,
+        );
+        // Liten spawn-margin (+0.1) så character-controlleren ikke presser capsule ned
+        // i gulvet på første frame (gravity + skin-offset-resolusjon).
+        this.playerCC.body.setTranslation(
+            { x: playerWorld.x, y: playerWorld.y + this.playerHalfHeight + 0.1, z: playerWorld.z },
+            true,
+        );
+        // Hvis spilleren allerede er seated når fysikken blir klar, skru av body
+        if (this.playerMode === 'seated') {
+            this.playerCC.body.setEnabled(false);
+        }
+        this.interactables = new InteractableSystem(this.physics, this.camera, this.scene);
+        for (const p of this.pendingPickups) this.interactables.registerPickup(p.mesh, p.opts);
+        this.pendingPickups.length = 0;
     }
 
     // ─── Public interface for setupScene callbacks ──────────────────────────
@@ -371,8 +429,11 @@ export class GameEngine {
         this.ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
         this.scene.add(this.ambientLight);
 
-        // Shared collision list - WorldBuilder and setupScene both push to this
-        this.scene.userData.collisionBoxes = this.collisionBoxes;
+        // Midlertidig shim: gamle spill (ford-factory, demo-world) pusher fortsatt til
+        // scene.userData.collisionBoxes. PhysicsWorld ignorerer listen, så kollisjonene
+        // blir ikke aktive - men pushen krasjer ikke. TODO: migrér disse spillene til
+        // mesh.userData.solid = true og fjern shim-en.
+        this.scene.userData.collisionBoxes = [];
 
         // Build room
         const preset = this.config.world.preset;
@@ -463,19 +524,26 @@ export class GameEngine {
         }
 
         if (this.config.debug) {
-            this.addDebugCollisionBoxes();
+            this.addDebugSolidVisualizations();
         }
     }
 
-    private addDebugCollisionBoxes(): void {
+    private addDebugSolidVisualizations(): void {
+        // Visualiser alle userData.solid-meshes som grønne wireframes (inklusive usynlige).
         const mat = new THREE.MeshBasicMaterial({ color: 0x00ff44, wireframe: true });
-        for (const box of this.collisionBoxes) {
-            const w = box.maxX - box.minX;
-            const d = box.maxZ - box.minZ;
-            const geo = new THREE.BoxGeometry(w, 2, d);
-            const mesh = new THREE.Mesh(geo, mat);
-            mesh.position.set((box.minX + box.maxX) / 2, 1, (box.minZ + box.maxZ) / 2);
-            this.scene.add(mesh);
+        const queue: THREE.Object3D[] = [this.scene];
+        const visualized = new Set<THREE.Object3D>();
+        while (queue.length) {
+            const obj = queue.pop()!;
+            if (obj.userData.solid && obj instanceof THREE.Mesh && !visualized.has(obj)) {
+                visualized.add(obj);
+                const viz = new THREE.Mesh(obj.geometry, mat);
+                obj.getWorldPosition(viz.position);
+                obj.getWorldQuaternion(viz.quaternion);
+                obj.getWorldScale(viz.scale);
+                this.scene.add(viz);
+            }
+            for (const child of obj.children) queue.push(child);
         }
     }
 
@@ -561,6 +629,14 @@ export class GameEngine {
                     this.player.group.position.copy(world);
                 }
                 this.player.group.position.set(x, y, z);
+                // Hold physics-body synkront slik at ingen kollisjoner fyres fra gammel posisjon
+                if (this.playerCC) {
+                    this.playerCC.body.setTranslation(
+                        { x, y: y + this.playerHalfHeight, z },
+                        true,
+                    );
+                    this.playerCC.body.setEnabled(this.playerMode !== 'seated');
+                }
             },
             registerAnimatedLight: (light, animation, baseIntensity) => {
                 this.animatedLights.push({ light, animation, base: baseIntensity ?? light.intensity });
@@ -598,6 +674,16 @@ export class GameEngine {
             fadeFromBlack: (durationMs?: number) => this.cameraDirector.fadeFromBlack(durationMs),
             getQualityTier: () => this.qualityTier,
             skipIntro: () => this.skipIntro(),
+            registerPickup: (mesh: THREE.Mesh, opts?: PickupOptions) => {
+                if (this.interactables) {
+                    this.interactables.registerPickup(mesh, opts);
+                } else {
+                    this.pendingPickups.push({ mesh, opts });
+                }
+            },
+            isHoldingItem: () => this.interactables?.isHolding() ?? false,
+            dropHeldItem: () => this.interactables?.drop(),
+            throwHeldItem: (force?: number) => this.interactables?.throwHeld(force),
         };
     }
 
@@ -614,6 +700,8 @@ export class GameEngine {
                 this.player.group.position.set(...this.seatOffset);
             }
             this.velocity.set(0, 0, 0);
+            // Rapier-body skal ikke kollidere mens spilleren er seated
+            this.playerCC?.body.setEnabled(false);
         } else if (mode === 'free') {
             // Hvis spilleren var i seat, flytt den tilbake til scenen på verdens-posisjon
             if (this.seatParent && this.player.group.parent === this.seatParent) {
@@ -624,6 +712,16 @@ export class GameEngine {
                 this.player.group.position.copy(world);
             }
             this.seatParent = null;
+            // Sync physics-body til ny verdens-posisjon før vi skrur den på igjen
+            if (this.playerCC) {
+                const wp = new THREE.Vector3();
+                this.player.group.getWorldPosition(wp);
+                this.playerCC.body.setTranslation(
+                    { x: wp.x, y: wp.y + this.playerHalfHeight, z: wp.z },
+                    true,
+                );
+                this.playerCC.body.setEnabled(true);
+            }
         }
     }
 
@@ -666,13 +764,26 @@ export class GameEngine {
             if (e.code === 'KeyE' && !this.dialogActive && !this.introInputBlocked) {
                 this.handleInteract();
             }
+
+            // Kast-tast (F) - kun hvis spilleren holder et objekt
+            if (e.code === 'KeyF' && !this.dialogActive && !this.introInputBlocked) {
+                this.interactables?.tryHandleThrow();
+            }
         };
         const onKeyUp = (e: KeyboardEvent) => { this.keys[e.code] = false; };
 
         const onMouseMove = (e: MouseEvent) => {
             if (!this.mouseLocked) return;
-            this.yaw += e.movementX * 0.003;
-            this.pitch = Math.max(-0.5, Math.min(1.0, this.pitch + e.movementY * 0.003));
+            this.targetYaw += e.movementX * 0.003;
+            // Pitch-konvensjon: positiv = kamera høyere + ser ned. Mer rom oppover enn før.
+            this.targetPitch = Math.max(-1.2, Math.min(1.0, this.targetPitch + e.movementY * 0.003));
+        };
+
+        const onWheel = (e: WheelEvent) => {
+            if (!this.mouseLocked) return;
+            e.preventDefault();
+            const step = 0.5;
+            this.camDistZoom = Math.max(-2.0, Math.min(3.5, this.camDistZoom + Math.sign(e.deltaY) * step));
         };
 
         const onPointerLockChange = () => {
@@ -692,12 +803,14 @@ export class GameEngine {
         window.addEventListener('keydown', onKeyDown);
         window.addEventListener('keyup', onKeyUp);
         window.addEventListener('mousemove', onMouseMove);
+        this.renderer.domElement.addEventListener('wheel', onWheel, { passive: false });
         document.addEventListener('pointerlockchange', onPointerLockChange);
 
         this._cleanupInput = () => {
             window.removeEventListener('keydown', onKeyDown);
             window.removeEventListener('keyup', onKeyUp);
             window.removeEventListener('mousemove', onMouseMove);
+            this.renderer.domElement.removeEventListener('wheel', onWheel);
             document.removeEventListener('pointerlockchange', onPointerLockChange);
         };
     }
@@ -710,16 +823,32 @@ export class GameEngine {
             this.renderer.setSize(window.innerWidth, window.innerHeight);
             this.postProcessing?.resize(window.innerWidth, window.innerHeight);
         };
+        const onVis = () => {
+            // Når fanen blir synlig igjen, dropp akkumulert dt så physics ikke hopper
+            if (!document.hidden) {
+                this.clock.getDelta();
+                this.physics?.resetAccumulator();
+            }
+        };
         window.addEventListener('resize', onResize);
-        this._cleanupResize = () => window.removeEventListener('resize', onResize);
+        document.addEventListener('visibilitychange', onVis);
+        this._cleanupResize = () => {
+            window.removeEventListener('resize', onResize);
+            document.removeEventListener('visibilitychange', onVis);
+        };
     }
     private _cleanupResize: () => void = () => {};
 
     // ─── Game logic ──────────────────────────────────────────────────────────
 
-    startGame(): void {
+    async startGame(): Promise<void> {
         // Idempotent: returner umiddelbart hvis spillet allerede er startet (dobbel-klikk-beskyttelse)
         if (this.gameStarted) return;
+        // Vent på fysikk-WASM hvis den ennå ikke er ferdig lastet
+        if (this.physicsReady) {
+            try { await this.physicsReady; } catch { /* fortsett uansett */ }
+        }
+        if (this.disposed) return;
         this.gameStarted = true;
         const firstQuest = this.config.quests[0];
         this.phase = firstQuest?.phase ?? 'intro';
@@ -787,6 +916,8 @@ export class GameEngine {
     }
 
     private handleInteract(): void {
+        // Pickup/drop vinner hvis InteractableSystem konsumerer tasten
+        if (this.interactables?.tryHandleInteract()) return;
         if (this.nearCharacterId) {
             this.triggerCharacterInteraction(this.nearCharacterId);
         } else if (this.nearCollectibleId) {
@@ -991,22 +1122,6 @@ export class GameEngine {
         this.pushUIState({ questObjective: this.questObjective });
     }
 
-    private resolveCollisions(): void {
-        const r = 0.4;
-        const pos = this.player.group.position;
-        for (const box of this.collisionBoxes) {
-            const ox = Math.min(pos.x + r, box.maxX) - Math.max(pos.x - r, box.minX);
-            const oz = Math.min(pos.z + r, box.maxZ) - Math.max(pos.z - r, box.minZ);
-            if (ox > 0 && oz > 0) {
-                if (ox < oz) {
-                    pos.x += pos.x < (box.minX + box.maxX) / 2 ? -ox : ox;
-                } else {
-                    pos.z += pos.z < (box.minZ + box.maxZ) / 2 ? -oz : oz;
-                }
-            }
-        }
-    }
-
     private checkProximity(): void {
         if (this.dialogActive) {
             this.nearCharacterId = null;
@@ -1117,7 +1232,13 @@ export class GameEngine {
     private animate(): void {
         if (this.disposed) return;
         this.animFrameId = requestAnimationFrame(() => this.animate());
-        const dt = Math.min(0.05, this.clock.getDelta());
+        // Dropp akkumulert dt ved tab-switch eller breakpoint (kan gi hundrevis av millisekunder)
+        let rawDt = this.clock.getDelta();
+        if (document.hidden || rawDt > 0.25) {
+            rawDt = 0;
+            this.physics?.resetAccumulator();
+        }
+        const dt = Math.min(0.05, rawDt);
         this.update(dt);
         this.postProcessing.render();
     }
@@ -1127,7 +1248,8 @@ export class GameEngine {
         this.time += dt;
 
         // Player movement
-        const SPEED = 5, JUMP = 6, GRAV = -18;
+        const WALK_SPEED = 5, RUN_SPEED = 9, JUMP = 6, GRAV = -18;
+        const SPEED = (this.keys['ShiftLeft'] || this.keys['ShiftRight']) ? RUN_SPEED : WALK_SPEED;
         const moveDir = new THREE.Vector3();
 
         const canMove = !this.dialogActive && !this.introInputBlocked && this.playerMode === 'free';
@@ -1143,33 +1265,46 @@ export class GameEngine {
         }
 
         if (this.playerMode === 'free') {
-            this.velocity.x = moveDir.x * SPEED;
-            this.velocity.z = moveDir.z * SPEED;
-            if (this.keys['Space'] && this.onGround && !this.dialogActive) {
-                this.velocity.y = JUMP;
-                this.onGround = false;
-            }
-            this.velocity.y += GRAV * dt;
-            this.player.group.position.addScaledVector(this.velocity, dt);
-            this.resolveCollisions();
-
-            if (this.player.group.position.y <= 0) {
-                this.player.group.position.y = 0;
-                this.velocity.y = 0;
-                this.onGround = true;
-            }
-
-            // Romgrense-clamp kun for lukkede preset (workshop). 'open'-preset lar spillet styre grenser via kollisjonsbokser.
-            if (this.config.world.preset !== 'open') {
-                const hw = (this.config.world.roomSize ?? 20) / 2 - 0.6;
-                this.player.group.position.x = Math.max(-hw, Math.min(hw, this.player.group.position.x));
-                this.player.group.position.z = Math.max(-hw, Math.min(hw, this.player.group.position.z));
+            if (this.physics && this.playerCC) {
+                this.updatePhysicsPlayer(dt, moveDir, SPEED, JUMP, GRAV);
+            } else {
+                // Fallback for umigrerte spill (physics: { enabled: false }) og for frames
+                // før WASM er lastet: gjenskaper den gamle enkle bevegelsen med gravity
+                // og y=0-clamp, uten kollisjon.
+                this.velocity.x = moveDir.x * SPEED;
+                this.velocity.z = moveDir.z * SPEED;
+                if (this.keys['Space'] && this.onGround && !this.dialogActive) {
+                    this.velocity.y = JUMP;
+                    this.onGround = false;
+                }
+                this.velocity.y += GRAV * dt;
+                this.player.group.position.addScaledVector(this.velocity, dt);
+                if (this.player.group.position.y <= 0) {
+                    this.player.group.position.y = 0;
+                    this.velocity.y = 0;
+                    this.onGround = true;
+                }
+                if (this.config.world.preset !== 'open') {
+                    const hw = (this.config.world.roomSize ?? 20) / 2 - 0.6;
+                    this.player.group.position.x = Math.max(-hw, Math.min(hw, this.player.group.position.x));
+                    this.player.group.position.z = Math.max(-hw, Math.min(hw, this.player.group.position.z));
+                }
             }
         } else if (this.playerMode === 'seated') {
             // Spiller-posisjon er lokal til seat-parent; hold den fast ved offset
             this.player.group.position.set(...this.seatOffset);
             this.velocity.set(0, 0, 0);
         }
+
+        // Advance physics-world én eller flere fixed substeps etter input, før vi leser tilbake transform
+        this.physics?.step(dt);
+        this.physics?.syncMeshes();
+        // Hvis fysikk er aktiv og spilleren er i free-modus, synkroniser mesh fra body
+        if (this.physics && this.playerCC && this.playerMode === 'free') {
+            const t = this.playerCC.body.translation();
+            this.player.group.position.set(t.x, t.y - this.playerHalfHeight, t.z);
+        }
+        this.interactables?.update();
 
         // Rotate player to face movement direction
         if (moveDir.lengthSq() > 0.1) {
@@ -1403,39 +1538,59 @@ export class GameEngine {
     }
 
     private updateCamera(dt: number): void {
+        // Input-smoothing: lerpe yaw/pitch mot mus-mål. Lav tid-konstant = responsivt men ikke hakkete.
+        const inputLerp = Math.min(1, dt * 25);
+        this.yaw += (this.targetYaw - this.yaw) * inputLerp;
+        this.pitch += (this.targetPitch - this.pitch) * inputLerp;
+
         // World-posisjon for spilleren (kan være barn av båt/annen gruppe)
         const playerWorld = new THREE.Vector3();
         this.player.group.getWorldPosition(playerWorld);
 
-        // Variabel kameradistanse: krymp når spiller er innendørs (gjenkjennes ved tak-dollhouse-flag)
+        // Pivot-punkt: fast over spillerens skulder. All orbit og look-at er relativt hit.
         const indoors = this.scene.userData._indoors === true;
-        const camDist = indoors ? 2.8 : 4.5;
-        const camH = indoors ? 1.6 : 2.5;
+        const pivotH = indoors ? 1.5 : 1.7;
+        const pivot = new THREE.Vector3(playerWorld.x, playerWorld.y + pivotH, playerWorld.z);
 
-        // Over-the-shoulder: kamera litt til høyre (høyre-vektor = perpendikulær til yaw i XZ)
-        const sideOffset = 0.7;
-        const rightX = Math.cos(this.yaw) * sideOffset;
-        const rightZ = Math.sin(this.yaw) * sideOffset;
+        // Basis-distanse + brukerzoom, clampet per preset
+        const baseDist = indoors ? 2.8 : 4.5;
+        const minDist = indoors ? 1.8 : 3.0;
+        const maxDist = indoors ? 4.0 : 8.0;
+        const camDist = Math.max(minDist, Math.min(maxDist, baseDist + this.camDistZoom));
 
+        // Orbit rundt pivot på sfære (ikke rundt spiller)
+        const cp = Math.cos(this.pitch);
         const idealPos = new THREE.Vector3(
-            playerWorld.x - Math.sin(this.yaw) * camDist * Math.cos(this.pitch) + rightX,
-            playerWorld.y + camH + Math.sin(this.pitch) * camDist,
-            playerWorld.z + Math.cos(this.yaw) * camDist * Math.cos(this.pitch) + rightZ
+            pivot.x - Math.sin(this.yaw) * camDist * cp,
+            pivot.y + Math.sin(this.pitch) * camDist,
+            pivot.z + Math.cos(this.yaw) * camDist * cp
         );
-        idealPos.y = Math.max(0.5, idealPos.y);
 
-        // CameraDirector framing-override (ved dialog): blend kamera nærmere taler
+        // Skulder-offset i KAMERAETS lokale høyre (perpendikulær til forward og world-up).
+        // Look-at får samme offset, så kameraet ikke skjeler - parallell siktelinje.
+        const forward = new THREE.Vector3().subVectors(pivot, idealPos).normalize();
+        const worldUp = new THREE.Vector3(0, 1, 0);
+        const right = new THREE.Vector3().crossVectors(forward, worldUp).normalize();
+        const shoulder = right.multiplyScalar(0.6);
+        idealPos.add(shoulder);
+        const lookTgt = pivot.clone().add(shoulder);
+
+        // CameraDirector framing-override (ved dialog): blend kamera + look-at nærmere taler
         const framing = this.cameraDirector.apply();
         if (framing && framing.weight > 0.001) {
-            // Blend ideal-posisjon mot taler: skyv kamera nærmere langs forskjell mellom player og target
-            const towardSpeaker = new THREE.Vector3().subVectors(framing.target, playerWorld).multiplyScalar(0.4);
+            const towardSpeaker = new THREE.Vector3().subVectors(framing.target, pivot).multiplyScalar(0.4);
             idealPos.addScaledVector(towardSpeaker, framing.weight);
+            lookTgt.lerp(framing.target, framing.weight * 0.7);
         }
 
-        // Kamera-clamp: raycast mot kollisjonsbokser så kamera ikke klipper gjennom vegger
-        const clamped = this.clampCameraAgainstWalls(playerWorld, idealPos);
+        // Kamera-clamp: raycast fra pivot mot kollisjonsbokser så kamera ikke klipper gjennom vegger
+        idealPos.y = Math.max(0.5, idealPos.y);
+        const clamped = this.clampCameraAgainstWalls(pivot, idealPos);
 
-        this.camPos.lerp(clamped, Math.min(1, dt * 8));
+        // Samme lerp-rate på pos og target unngår desync
+        const camLerp = Math.min(1, dt * 10);
+        this.camPos.lerp(clamped, camLerp);
+        this.camTarget.lerp(lookTgt, camLerp);
         this.camera.position.copy(this.camPos);
 
         if (this.shakeDuration > 0) {
@@ -1449,71 +1604,86 @@ export class GameEngine {
             }
         }
 
-        // Siktemål foran spilleren - krymper med pitch så karakteren forblir i bildet ved høy vinkel
-        const lookForward = 6.0 * Math.max(0, Math.cos(this.pitch));
-        const lookTgt = new THREE.Vector3(
-            playerWorld.x + Math.sin(this.yaw) * lookForward,
-            playerWorld.y + 1.2,
-            playerWorld.z - Math.cos(this.yaw) * lookForward
-        );
-        // Hvis CameraDirector er aktiv, blend lookTgt mot speaker
-        if (framing && framing.weight > 0.001) {
-            lookTgt.lerp(framing.target, framing.weight * 0.7);
-        }
-        this.camTarget.lerp(lookTgt, Math.min(1, dt * 10));
         this.camera.lookAt(this.camTarget);
     }
 
-    // Strammer ideell kameraposisjon dersom strålen fra spiller til kamera krysser en kollisjonsboks.
-    // Bruker AABB2D (XZ-planet) - samme enkle representasjon som spiller-kollisjon.
+    // Strammer ideell kameraposisjon dersom strålen fra spiller til kamera krysser en vegg.
+    // Bruker PhysicsWorld.raycastSegmentXZ hvis tilgjengelig; ellers no-op (ingen clamp).
     private clampCameraAgainstWalls(player: THREE.Vector3, ideal: THREE.Vector3): THREE.Vector3 {
+        if (!this.physics) return ideal.clone();
         const MARGIN = 0.3;
         const dx = ideal.x - player.x;
         const dz = ideal.z - player.z;
         const distXZ = Math.hypot(dx, dz);
         if (distXZ < 0.01) return ideal.clone();
-
-        let minT = 1;
-        for (const box of this.collisionBoxes) {
-            // Stråle fra player mot ideal i XZ. Slab-test mot AABB.
-            const t = this.raySegmentVsAABB(player.x, player.z, dx, dz, box);
-            if (t !== null && t < minT) minT = t;
-        }
-
-        if (minT >= 1) return ideal.clone();
-
-        const clampFactor = Math.max(0, minT - MARGIN / distXZ);
+        const t = this.physics.raycastSegmentXZ(player, ideal);
+        if (t >= 1) return ideal.clone();
+        const clampFactor = Math.max(0, t - MARGIN / distXZ);
         return new THREE.Vector3(
-            player.x + dx * clampFactor,
-            player.y + (ideal.y - player.y) * clampFactor + (player.y) * (1 - clampFactor),
-            player.z + dz * clampFactor
+            player.x + (ideal.x - player.x) * clampFactor,
+            player.y + (ideal.y - player.y) * clampFactor,
+            player.z + (ideal.z - player.z) * clampFactor,
         );
     }
 
-    // Returnerer t (0..1) langs (px+t*dx, pz+t*dz) hvor strålen krysser AABB, eller null.
-    private raySegmentVsAABB(px: number, pz: number, dx: number, dz: number, box: AABB2D): number | null {
-        let tmin = 0, tmax = 1;
-        if (Math.abs(dx) < 1e-6) {
-            if (px < box.minX || px > box.maxX) return null;
-        } else {
-            let t1 = (box.minX - px) / dx;
-            let t2 = (box.maxX - px) / dx;
-            if (t1 > t2) [t1, t2] = [t2, t1];
-            tmin = Math.max(tmin, t1);
-            tmax = Math.min(tmax, t2);
-            if (tmin > tmax) return null;
+    // Kalkulerer ønsket bevegelse og kjører character-controlleren. Utfaller i at
+    // body.setNextKinematicTranslation settes; etter physics.step() leses ny posisjon.
+    private verticalVelocity = 0;
+    private updatePhysicsPlayer(
+        dt: number,
+        moveDir: THREE.Vector3,
+        SPEED: number,
+        JUMP: number,
+        GRAV: number,
+    ): void {
+        const cc = this.playerCC!;
+        const bodyPos = cc.body.translation();
+        const jumpEnabled = this.config.physics?.playerJump !== false;
+        const pos = new THREE.Vector3(bodyPos.x, bodyPos.y, bodyPos.z);
+
+        // Ladder-klatring: hvis spilleren overlapper en climbable-sensor, overstyr gravity
+        const climbing = this.physics!.isOverlappingClimbable(pos, this.playerRadius);
+
+        // Hopp (kun hvis grounded forrige frame)
+        if (this.keys['Space'] && jumpEnabled && this.onGround && !this.dialogActive) {
+            this.verticalVelocity = JUMP;
+            this.onGround = false;
         }
-        if (Math.abs(dz) < 1e-6) {
-            if (pz < box.minZ || pz > box.maxZ) return null;
+
+        if (climbing) {
+            // Vertikal bevegelse styrt av W/S; fryse horisontal drift
+            this.verticalVelocity = 0;
+            const climbSpeed = 3;
+            const up = this.keys['KeyW'] ? 1 : this.keys['KeyS'] ? -1 : 0;
+            this.verticalVelocity = up * climbSpeed;
         } else {
-            let t1 = (box.minZ - pz) / dz;
-            let t2 = (box.maxZ - pz) / dz;
-            if (t1 > t2) [t1, t2] = [t2, t1];
-            tmin = Math.max(tmin, t1);
-            tmax = Math.min(tmax, t2);
-            if (tmin > tmax) return null;
+            this.verticalVelocity += GRAV * dt;
         }
-        return tmin > 0.01 ? tmin : null;
+
+        const desired = new THREE.Vector3(
+            moveDir.x * SPEED * dt,
+            this.verticalVelocity * dt,
+            moveDir.z * SPEED * dt,
+        );
+        cc.controller.computeColliderMovement(cc.collider, desired);
+        const corr = cc.controller.computedMovement();
+        cc.body.setNextKinematicTranslation({
+            x: bodyPos.x + corr.x,
+            y: bodyPos.y + corr.y,
+            z: bodyPos.z + corr.z,
+        });
+
+        const grounded = cc.controller.computedGrounded();
+        if (grounded && !this.onGround) {
+            // Landing - sjekk fallskade
+            const impact = -this.verticalVelocity;   // positiv verdi = hardt landing
+            const phys = this.config.physics;
+            if (phys?.playerFallDamage && impact > (phys.fallDamageThreshold ?? 12)) {
+                phys.onPlayerFallDamage?.(impact);
+            }
+        }
+        this.onGround = grounded;
+        if (grounded && this.verticalVelocity < 0) this.verticalVelocity = 0;
     }
 
     // ─── Cleanup ─────────────────────────────────────────────────────────────
@@ -1530,6 +1700,11 @@ export class GameEngine {
         }
         this._cleanupInput();
         this._cleanupResize();
+        this.interactables?.dispose();
+        this.interactables = null;
+        this.physics?.dispose();
+        this.physics = null;
+        this.playerCC = null;
         this.weatherSystem?.dispose();
         this.vegetationSystem?.dispose();
         this.skySystem?.dispose();
