@@ -123,6 +123,7 @@ export class PostProcessingSystem {
     private fxaaPass: FxaaPassLike | null = null;
     private grading: ColorGradingPreset;
     private initialized = false;
+    private enabled = true;
     private time = 0;
 
     constructor(
@@ -239,11 +240,15 @@ export class PostProcessingSystem {
     }
 
     render(): void {
-        if (this.composer) {
+        if (this.enabled && this.composer) {
             this.composer.render();
         } else {
             this.renderer.render(this.scene, this.camera);
         }
+    }
+
+    setEnabled(on: boolean): void {
+        this.enabled = on;
     }
 
     resize(width: number, height: number): void {

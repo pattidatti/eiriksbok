@@ -21,11 +21,18 @@ GameEngine.ts          ← Three.js scene, renderer, animasjonsloop, input, Rapi
   ├── LightBuilder.ts      ← buildHangingLight: SpotLight + shader-kjegle + støvpartikler
   ├── ParticleSystem.ts    ← Støv, gnister, damp
   ├── systems/             ← Gjenbrukbare subsystemer
-  │   ├── MonologSystem.ts ← Indre stemme - ikke-blokkerende tekst med triggervolumer
-  │   ├── OceanSystem.ts   ← Animert hav + skum-partikler for båt
-  │   ├── PhysicsWorld.ts  ← Rapier3D-fysikk (kollisjon, character controller, raycast)
-  │   ├── InteractableSystem.ts ← Pickup/drop/kast for dynamiske objekter
-  │   └── RoomSystem.ts    ← Deklarativ rom-bygging (vegger markert som solid)
+  │   ├── PhysicsWorld.ts          ← Rapier3D: character controller, raycast, fixed timestep
+  │   ├── InteractableSystem.ts    ← Pickup/drop (E) og kast (F) for dynamiske objekter
+  │   ├── PostProcessingSystem.ts  ← EffectComposer: bloom, tone mapping, color grading
+  │   ├── SkySystem.ts             ← Prosedyral himmel
+  │   ├── TimeOfDaySystem.ts       ← Lerp 0-1 driver sol/ambient/sky-farge
+  │   ├── WeatherSystem.ts         ← Regn, snø, tåke
+  │   ├── VegetationSystem.ts      ← Instansiert gress/siv/trær med vind-shader
+  │   ├── CameraDirector.ts        ← Dialog-framing, fade, cinematics
+  │   ├── AIDirector.ts            ← Waypoint-vandring for NPCer
+  │   ├── MonologSystem.ts         ← Indre stemme - ikke-blokkerende tekst + triggere
+  │   ├── OceanSystem.ts           ← Animert hav + skum-partikler for båt
+  │   └── RoomSystem.ts            ← Deklarativ rom-bygging (vegger markert som solid)
   └── builders/            ← Spill-spesifikke scene-byggere (gjenbrukbare)
       ├── CloisterBuilder.ts   ← Kloster med tre rom + korridor
       ├── BeachBuilder.ts      ← Strand, sti, klipper
@@ -292,8 +299,46 @@ interface GameConfig {
 
     // Streng, eller en funksjon som kan lese flagg og returnere variabel slutt-tekst.
     endText: string | ((engine: GameEngineRef) => string);
-    debug?: boolean;            // viser kollisjonsbokser og fase/flagg i HUD
+    debug?: boolean;            // viser userData.solid-wireframes og fase/flagg i HUD
     setupScene?: (engine: GameEngineRef) => void;
+
+    // ── Fase 1-3: visuelle systemer ─────────────────────────────────────────
+    visual?: {
+        postProcessing?: 'auto' | 'low' | 'medium' | 'high';
+        timeOfDay?: number;           // 0-1, driver sol/ambient/sky-farge
+        weather?: { type: 'clear' | 'rain' | 'fog' | 'snow'; intensity: number };
+        colorGrading?: 'warm' | 'cold' | 'sepia' | 'neutral' | 'dawn' | 'dusk';
+        sky?: 'procedural' | 'solid' | 'none';
+    };
+
+    // Fase 3: NPC-er følger waypoint-ruter styrt av AIDirector
+    npcRoutes?: Array<{
+        characterId: string;
+        waypoints: [number, number][];  // x,z
+        mode: 'loop' | 'pingpong' | 'once';
+        speed?: number;
+        pauseMs?: number;
+    }>;
+
+    // ── Fase 4: fysikk (Rapier3D) ───────────────────────────────────────────
+    physics?: {
+        enabled?: boolean;              // default true
+        gravity?: number;               // default -18
+        playerJump?: boolean;           // default true
+        playerFallDamage?: boolean;     // default false
+        fallDamageThreshold?: number;   // m/s, default 12
+        onPlayerFallDamage?: (velocity: number) => void;
+    };
+
+    // ── Fase 5: intro-sekvens ────────────────────────────────────────────────
+    intro?: {
+        type: 'fade' | 'title' | 'none';
+        title?: string;
+        subtitle?: string;
+        durationMs?: number;        // hvor lenge tittelen vises (default 2500)
+        fadeMs?: number;            // fade-inn-varighet (default 700)
+        skippable?: boolean;        // vis Skip-knapp (default true)
+    };
 }
 
 interface MonologNode {
@@ -320,8 +365,10 @@ interface MonologTrigger {
 | Metode / felt | Type | Beskrivelse |
 |---|---|---|
 | `scene` | `THREE.Scene` | Legg til egne 3D-objekter her |
-| `toonMat(color, opts?)` | `() => MeshToonMaterial` | Lag toon-shaded materiale |
+| `toonMat(color, opts?)` | `() => MeshStandardMaterial` | Material-shortcut (navnet er historisk - returnerer standard PBR-materiale) |
+| `sceneMat(color, opts?)` | `() => MeshStandardMaterial` | Material med presets (`'stone'`, `'wood'`, `'metal'`, osv.) |
 | `config` | `GameConfig` | Tilgang til hele spillkonfigurasjonen |
+| `getQualityTier()` | `() => 'low'\|'medium'\|'high'` | Tier valgt basert på GPU - bruk for å velge billig/dyr variant |
 | `animateReveal(group)` | `(Group) => void` | Skaler gruppe fra 0 til 1 med bounce |
 | `startEngineAnimation()` | `() => void` | Starter bevegelig engine-animasjon (slutt-sekvens) |
 | `openPuzzle()` | `() => void` | Åpner puzzle-UI |
@@ -354,6 +401,37 @@ interface MonologTrigger {
 | `playMonolog(id)` | `(string) => void` | Spill indre monolog programmatisk (alternativ til posisjons-trigger) |
 | `hasSeenMonolog(id)` | `(string) => boolean` | Har spilleren sett denne monologen? Brukes for å gate hendelser (f.eks. "først når X er observert") |
 | `schedule(fn, delayMs)` | `(() => void, number) => void` | Som `setTimeout`, men kanselleres automatisk i `dispose()`. **Bruk alltid denne** i stedet for `setTimeout` direkte, ellers risikerer du kall på disposed engine |
+
+### 4.4 Tid, vær og vegetasjon (Fase 1-3)
+
+| Metode | Type | Beskrivelse |
+|---|---|---|
+| `setTimeOfDay(t)` | `(number) => void` | 0-1. Driver sol-retning/farge, ambient-farge, sky-tint |
+| `getSunDirection()` | `() => Vector3` | Nåværende sol-retning (brukes f.eks. for custom shadere) |
+| `setWeather(state)` | `({type, intensity}) => void` | `'clear'\|'rain'\|'fog'\|'snow'` × intensitet 0-1 |
+| `addVegetationPatch(area, density, type?)` | `(AABB2D, number, 'grass'\|'reeds'\|'flowers') => void` | Instansiert vegetasjon i en region |
+| `addTree(pos, type?)` | `([x,y,z], 'pine'\|'oak'\|'birch') => void` | Enkelttre med vind-animasjon |
+| `assignRoute(cfg)` | `(NpcRouteConfig) => void` | Gi en NPC en waypoint-rute (AIDirector) |
+
+### 4.5 Kamera og intro (Fase 2 + 5)
+
+| Metode | Type | Beskrivelse |
+|---|---|---|
+| `setCameraFraming(framing, target?)` | `('speaker'\|'wide', Vector3?) => void` | Styrt av CameraDirector; dialog-noder med `cameraFraming: 'speaker'` kaller dette automatisk |
+| `playCinematic(shots)` | `(CinematicShot[]) => Promise<void>` | Kamera-timeline; stub i dag, utvides når et spill krever det |
+| `fadeToBlack(ms?)` / `fadeFromBlack(ms?)` | `(number?) => Promise<void>` | DOM-overlay-fade via CameraDirector |
+| `skipIntro()` | `() => void` | Hopp over aktiv intro-sekvens |
+
+### 4.6 Fysikk og interaksjon (Fase 4)
+
+| Metode | Type | Beskrivelse |
+|---|---|---|
+| `registerPickup(mesh, opts?)` | `(Mesh, PickupOptions?) => void` | Marker et objekt som plukkbart. Må ha `userData.solid=true, dynamic=true, pickupable=true`. E plukker opp/slipper; F kaster |
+| `isHoldingItem()` | `() => boolean` | Holder spilleren et objekt akkurat nå? |
+| `dropHeldItem()` | `() => void` | Slipp holdt objekt (ingen impuls) |
+| `throwHeldItem(force?)` | `(number?) => void` | Kast holdt objekt i kamera-retning (default force 8) |
+
+`PickupOptions`: `{ holdOffset?: [x,y,z]; throwForce?: number; onPickup?; onDrop?; onThrow?; }`
 
 ---
 
@@ -800,11 +878,19 @@ endText: (engine) => {
 | `src/games/engine/types.ts` | Alle typer: `GameConfig`, `GameEngineRef`, `LightConfig`, `MonologNode`, `RoomDef`, osv. |
 | `src/games/engine/LightBuilder.ts` | `buildHangingLight` - SpotLight + shader-kjegle + støvpartikler. Eksporterer `HangingLightRef`. |
 | `src/games/engine/CharacterBuilder.ts` | `drawFace`, `lerpParams`, `EMOTION_PARAMS` - emosjonssystemets tegnelogikk |
+| `src/games/engine/SceneMat.ts` | Material-presets: stein, tre, stoff, metall, vann, jord |
+| `src/games/engine/systems/PhysicsWorld.ts` | Rapier3D-wrapper: character controller, raycast, fixed timestep |
+| `src/games/engine/systems/InteractableSystem.ts` | Pickup/drop (E) og kast (F) for dynamiske objekter |
+| `src/games/engine/systems/PostProcessingSystem.ts` | EffectComposer med tier-valg: bloom, tone mapping, color grading |
+| `src/games/engine/systems/SkySystem.ts` | Prosedyral himmel koblet til TimeOfDay |
+| `src/games/engine/systems/TimeOfDaySystem.ts` | Lerp 0-1 driver sol/ambient/sky-farge |
+| `src/games/engine/systems/WeatherSystem.ts` | Regn, snø, tåke (partikler + fog override) |
+| `src/games/engine/systems/VegetationSystem.ts` | InstancedMesh-vegetasjon med vind-shader |
+| `src/games/engine/systems/CameraDirector.ts` | Dialog-framing, fade, cinematics |
+| `src/games/engine/systems/AIDirector.ts` | Waypoint-vandring for NPCer |
 | `src/games/engine/systems/MonologSystem.ts` | Indre monolog med triggere og programmatisk API |
 | `src/games/engine/systems/OceanSystem.ts` | Animert hav + skum-system |
 | `src/games/engine/systems/RoomSystem.ts` | Deklarativ rom-bygging (vegger markert solid for Rapier) |
-| `src/games/engine/systems/PhysicsWorld.ts` | Rapier3D-wrapper: character controller, raycast, step |
-| `src/games/engine/systems/InteractableSystem.ts` | Pickup/drop/kast med E og F |
 | `src/games/engine/builders/CloisterBuilder.ts` | Kloster-layout (kapell, korridor, bibliotek, sovesal) |
 | `src/games/engine/builders/BeachBuilder.ts` | Strand, sti, klipper |
 | `src/games/engine/builders/SeascapeBuilder.ts` | Hav + langskip |

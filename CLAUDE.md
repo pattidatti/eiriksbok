@@ -41,6 +41,7 @@ Alt innhold i Eiriksbok skal være forståelig for en gjennomsnittlig 14-åring.
 | CMS | TinaCMS 2 (visual editing at `/admin`) |
 | 3D (artikler) | React Three Fiber + Drei |
 | 3D (mini-spill) | Raw Three.js (imperativ, ingen R3F) |
+| Fysikk (mini-spill) | Rapier3D (`@dimforge/rapier3d-compat`, WASM, lazy-lastet) |
 | Charts | Chart.js + react-chartjs-2 |
 | Maps | d3-geo + topojson-client |
 | Drag-and-drop | @dnd-kit |
@@ -80,16 +81,27 @@ Alt innhold i Eiriksbok skal være forståelig for en gjennomsnittlig 14-åring.
 │   │   └── ...                # Layout, navigation, modals
 │   ├── features/music/        # Music subject feature module
 │   ├── games/
-│   │   ├── engine/            # Gjenbrukbart 3D-spillmotor-rammeverk (raw Three.js)
-│   │   │   ├── types.ts       # GameConfig, DialogNode, MonologNode, RoomDef, PlayerMode, osv.
-│   │   │   ├── GameEngine.ts  # Hoved-orkestrator: scene, renderer, loop, input, kollisjon, flagg
+│   │   ├── engine/            # Gjenbrukbart 3D-spillmotor-rammeverk (raw Three.js + Rapier3D)
+│   │   │   ├── types.ts       # GameConfig, DialogNode, MonologNode, PhysicsConfig, PlayerMode, osv.
+│   │   │   ├── GameEngine.ts  # Hoved-orkestrator: scene, renderer, loop, input, fysikk, flagg
 │   │   │   ├── WorldBuilder.ts    # Bygger 'workshop'-preset (ett lukket rom)
 │   │   │   ├── CharacterBuilder.ts # Toon-shaded karakterer, 4 typer (scientist/farmer/noble/monk)
 │   │   │   ├── ParticleSystem.ts  # Støv, gnister, damp
+│   │   │   ├── LightBuilder.ts    # Hengende SpotLights + shader-baserte lyskjegler
+│   │   │   ├── SceneMat.ts        # Material-presets (stein, tre, metall, osv.)
 │   │   │   ├── systems/       # Gjenbrukbare subsystemer
-│   │   │   │   ├── MonologSystem.ts   # Indre stemme - ikke-blokkerende tekst + triggere
-│   │   │   │   ├── OceanSystem.ts     # Animert hav + skum-partikler
-│   │   │   │   └── RoomSystem.ts      # Deklarativ rom-bygging med auto-kollisjon
+│   │   │   │   ├── PhysicsWorld.ts        # Rapier3D: character controller, raycast, step (Fase 4)
+│   │   │   │   ├── InteractableSystem.ts  # Pickup/drop/kast via E og F (Fase 4)
+│   │   │   │   ├── PostProcessingSystem.ts # EffectComposer: bloom, tone mapping, color grading
+│   │   │   │   ├── SkySystem.ts           # Prosedyral himmel koblet til TimeOfDay
+│   │   │   │   ├── TimeOfDaySystem.ts     # 0-1 lerp driver sol/ambient/sky-farge
+│   │   │   │   ├── WeatherSystem.ts       # Regn, snø, tåke (partikler + fog override)
+│   │   │   │   ├── VegetationSystem.ts    # InstancedMesh-gress/siv/trær med vind-shader
+│   │   │   │   ├── CameraDirector.ts      # Dialog-framing, fade, cinematics
+│   │   │   │   ├── AIDirector.ts          # Waypoint-vandring for NPCer
+│   │   │   │   ├── MonologSystem.ts       # Indre stemme - ikke-blokkerende tekst + triggere
+│   │   │   │   ├── OceanSystem.ts         # Animert hav + skum-partikler
+│   │   │   │   └── RoomSystem.ts          # Deklarativ rom-bygging (vegger markert solid)
 │   │   │   ├── builders/      # Spill-spesifikke scene-byggere (gjenbrukbare)
 │   │   │   │   ├── CloisterBuilder.ts # Kloster (kapell, korridor, bibliotek, sovesal)
 │   │   │   │   ├── BeachBuilder.ts    # Strand, sti, klipper
@@ -97,7 +109,7 @@ Alt innhold i Eiriksbok skal være forståelig for en gjennomsnittlig 14-åring.
 │   │   │   └── components/    # React-wrappere: GameCanvas, DialogBox, MonologBox, PuzzleUI, osv.
 │   │   ├── watt-lab/          # James Watt-spill (ett-rom med samleobjekter + puzzle)
 │   │   │   ├── WattLabConfig.ts   # Komplett GameConfig: verden, karakterer, dialog, puzzle
-│   │   │   └── WattLabAssets.ts   # Spill-spesifikke 3D-objekter + kollisjonsbokser
+│   │   │   └── WattLabAssets.ts   # Spill-spesifikke 3D-objekter (markert userData.solid)
 │   │   ├── lindisfarne-793/   # Vikingraid (fler-fase utendørs: båt, strand, kloster)
 │   │   │   ├── LindisfarneConfig.ts   # GameConfig med 'open'-preset og variabel endText
 │   │   │   ├── LindisfarneAssets.ts   # setupScene: syr sammen hav, båt, strand, kloster
@@ -370,7 +382,7 @@ See `.agent/workflows/LEARNING_PATH_GUIDE.md` for the full JSON schema.
 
 ## Mini-spill-system
 
-Historiske 3D-mini-spill bor under `/oving/spill` og bruker et eget gjenbrukbart rammeverk i `src/games/engine/`. Hvert spill defineres som et TypeScript-objekt (`GameConfig`) - motoren håndterer Three.js, input, dialog, puzzle, kollisjon, indre monolog og flagg. Ingen progresjonlagring.
+Historiske 3D-mini-spill bor under `/oving/spill` og bruker et eget gjenbrukbart rammeverk i `src/games/engine/`. Hvert spill defineres som et TypeScript-objekt (`GameConfig`) - motoren håndterer Three.js, Rapier3D-fysikk, input, dialog, puzzle, indre monolog, værsystem, sky/time-of-day, kamera-direktør og flagg. Ingen progresjonlagring.
 
 **To arketyper støttes:**
 - **Ett-rom-spill** (`world.preset: 'workshop'`) - lukket interiør med samleobjekter og puzzle. Se Watt Lab.
@@ -381,7 +393,7 @@ Historiske 3D-mini-spill bor under `/oving/spill` og bruker et eget gjenbrukbart
 2. Legg til i `HISTORICAL_GAMES` i `src/pages/MiniGamesPage.tsx`
 3. Legg til i `GAME_REGISTRY` i `src/pages/GamePage.tsx`
 
-Se **`.agent/workflows/BUILD_GAME_GUIDE.md`** for komplett guide med skjema, kollisjonsboks-formel, dialog/puzzle/monolog-system, fase-overganger med `engine.setPhase`/`setFlag`, variabel slutt via `endText`-funksjon, og eksempler fra både Watt Lab og Lindisfarne.
+Se **`.agent/workflows/BUILD_GAME_GUIDE.md`** for komplett guide med skjema, `userData.solid`-kollisjon (Rapier), dialog/puzzle/monolog-system, fase-overganger med `engine.setPhase`/`setFlag`, variabel slutt via `endText`-funksjon, pickup/kast via E og F, og eksempler fra både Watt Lab og Lindisfarne.
 
 ---
 
@@ -494,8 +506,10 @@ A highly realistic 4K cinematic photograph of [scene], [time period].
 | `src/App.tsx` | Router setup, context providers |
 | `src/routes.ts` | Lazy-load route factories |
 | `src/lib/firebase.ts` | Firebase configuration |
-| `src/games/engine/types.ts` | Alle typer for mini-spill-systemet (GameConfig, AABB2D, osv.) |
-| `src/games/engine/GameEngine.ts` | Three.js spillmotor — scene, input, loop, kollisjon |
+| `src/games/engine/types.ts` | Alle typer for mini-spill-systemet (GameConfig, PhysicsConfig, PickupOptions, osv.) |
+| `src/games/engine/GameEngine.ts` | Three.js spillmotor — scene, input, loop, Rapier-fysikk, system-orkestrering |
+| `src/games/engine/systems/PhysicsWorld.ts` | Rapier3D-wrapper: character controller, raycast, fixed timestep |
+| `src/games/engine/systems/InteractableSystem.ts` | Pickup/drop (E) og kast (F) for dynamiske objekter |
 | `src/pages/MiniGamesPage.tsx` | Galleriside — legg til nye spill i HISTORICAL_GAMES her |
 | `src/pages/GamePage.tsx` | Enkeltspill-side — legg til spill-ID i GAME_REGISTRY her |
 | `docs/THE_ARCHITECTS_HANDBOOK.md` | Workflow philosophy |

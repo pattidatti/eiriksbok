@@ -15,12 +15,15 @@ export class InteractableSystem {
     private pickups = new Map<THREE.Mesh, PickupRecord>();
     private held: PickupRecord | null = null;
     private holdHelper = new THREE.Object3D();  // ikke lagt til i scene; brukes for transform-beregninger
+    private physics: PhysicsWorld;
+    private camera: THREE.Camera;
+    private scene: THREE.Scene;
 
-    constructor(
-        private physics: PhysicsWorld,
-        private camera: THREE.Camera,
-        private scene: THREE.Scene,
-    ) {}
+    constructor(physics: PhysicsWorld, camera: THREE.Camera, scene: THREE.Scene) {
+        this.physics = physics;
+        this.camera = camera;
+        this.scene = scene;
+    }
 
     registerPickup(mesh: THREE.Mesh, opts: PickupOptions = {}): void {
         this.pickups.set(mesh, {

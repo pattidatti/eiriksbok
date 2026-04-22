@@ -33,15 +33,22 @@ export function buildRoom(
     group.position.set(cx, 0, cz);
     scene.add(group);
 
-    // Gulv - tynn solid boks så fysikken har noe å stå på.
-    const floor = new THREE.Mesh(
-        new THREE.BoxGeometry(w, 0.1, d),
-        toonMat(floorColor),
-    );
+    // Synlig gulv - tynt plan som før. Holder det visuelle uendret for umigrerte spill.
+    const floorGeo = new THREE.PlaneGeometry(w, d);
+    floorGeo.rotateX(-Math.PI / 2);
+    const floor = new THREE.Mesh(floorGeo, toonMat(floorColor));
     floor.receiveShadow = true;
-    floor.position.y = -0.05;
-    floor.userData.solid = true;
+    floor.position.y = 0.01;
     group.add(floor);
+
+    // Separat usynlig solid-boks under gulvet gir PhysicsWorld noe å stå på.
+    const floorCollider = new THREE.Mesh(
+        new THREE.BoxGeometry(w, 0.4, d),
+        new THREE.MeshBasicMaterial({ visible: false }),
+    );
+    floorCollider.position.y = -0.2;
+    floorCollider.userData.solid = true;
+    group.add(floorCollider);
 
     // Tak (valgfritt - dollhouse-logikk setter dette usynlig)
     let roof: THREE.Mesh | null = null;

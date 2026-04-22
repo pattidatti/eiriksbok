@@ -33,6 +33,7 @@ import { AIDirector } from './systems/AIDirector';
 import { createSceneMat } from './SceneMat';
 import type { PhysicsWorld, CharacterControllerHandle } from './systems/PhysicsWorld';
 import type { InteractableSystem } from './systems/InteractableSystem';
+import { getGameSettings, subscribeGameSettings } from './settings/gameSettings';
 
 // ─── Emotion system ──────────────────────────────────────────────────────────
 
@@ -138,6 +139,11 @@ export class GameEngine {
     private shakeAmount = 0;
     private shakeDuration = 0;
     private shakeTimer = 0;
+
+    // Graphics settings state (endring trigger re-kompilering bare ved skyggetype-skifte)
+    private unsubscribeSettings: () => void = () => {};
+    private lastShadowEnabled: boolean | null = null;
+    private lastShadowType: THREE.ShadowMapType | null = null;
 
     // Emotion state per NPC
     private emotionStates = new Map<string, EmotionMorphState>();
@@ -292,6 +298,10 @@ export class GameEngine {
         );
         void this.postProcessing.init();
 
+        // Globale grafikkinnstillinger: apply initial state og lytt på endringer fra meny
+        this.applyGameSettings();
+        this.unsubscribeSettings = subscribeGameSettings(() => this.applyGameSettings());
+
         // Init camera basert på faktisk verdensposisjon (setupScene kan ha satt player som
         // barn av et annet objekt via setPlayerMode('seated'), så config.startPosition alene
         // ville gitt en feil start-posisjon og et synlig kamera-snap første frame)
@@ -311,6 +321,7 @@ export class GameEngine {
         if (options.config.physics?.enabled !== false) {
             this.physicsReady = this.initPhysics();
         }
+
     }
 
     private async initPhysics(): Promise<void> {
@@ -816,12 +827,58 @@ export class GameEngine {
     }
     private _cleanupInput: () => void = () => {};
 
+    // Leser gjeldende globale grafikkinnstillinger og oppdaterer renderer/camera/postprocess.
+    // Trygg å kalle ofte: skygge-materialoppdatering skjer bare ved faktisk skyggetype-endring.
+    private applyGameSettings(): void {
+        const s = getGameSettings().graphics;
+
+        // FOV
+        if (Math.abs(this.camera.fov - s.fov) > 0.01) {
+            this.camera.fov = s.fov;
+            this.camera.updateProjectionMatrix();
+        }
+
+        // Render-skala: base fra kvalitets-tier, multiplisert med brukerens skala
+        const basePR = this.qualityTier === 'low' ? 1 : Math.min(window.devicePixelRatio, 2);
+        this.renderer.setPixelRatio(basePR * s.renderScale);
+        this.postProcessing?.resize(window.innerWidth, window.innerHeight);
+
+        // Skygger: av/lav/høy. Bare flagg material.needsUpdate når type faktisk endres.
+        const wantEnabled = s.shadowQuality !== 'off';
+        const wantType =
+            s.shadowQuality === 'high' ? THREE.PCFSoftShadowMap : THREE.BasicShadowMap;
+        const changed =
+            this.lastShadowEnabled !== wantEnabled ||
+            (wantEnabled && this.lastShadowType !== wantType);
+        if (changed) {
+            this.renderer.shadowMap.enabled = wantEnabled;
+            if (wantEnabled) this.renderer.shadowMap.type = wantType;
+            this.lastShadowEnabled = wantEnabled;
+            this.lastShadowType = wantType;
+            this.scene.traverse((obj) => {
+                const mesh = obj as THREE.Mesh;
+                const mat = mesh.material;
+                if (!mat) return;
+                if (Array.isArray(mat)) {
+                    for (const m of mat) m.needsUpdate = true;
+                } else {
+                    (mat as THREE.Material).needsUpdate = true;
+                }
+            });
+        }
+
+        // Post-processing av/på
+        this.postProcessing?.setEnabled(s.postProcessing);
+    }
+
     private setupResize(): void {
         const onResize = () => {
             this.camera.aspect = window.innerWidth / window.innerHeight;
             this.camera.updateProjectionMatrix();
             this.renderer.setSize(window.innerWidth, window.innerHeight);
             this.postProcessing?.resize(window.innerWidth, window.innerHeight);
+            // Gjenopprett brukerens render-skala og FOV etter size-endring
+            this.applyGameSettings();
         };
         const onVis = () => {
             // Når fanen blir synlig igjen, dropp akkumulert dt så physics ikke hopper
@@ -1700,6 +1757,7 @@ export class GameEngine {
         }
         this._cleanupInput();
         this._cleanupResize();
+        this.unsubscribeSettings();
         this.interactables?.dispose();
         this.interactables = null;
         this.physics?.dispose();

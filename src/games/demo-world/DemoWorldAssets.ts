@@ -425,8 +425,8 @@ function buildLightTestRoom(
             hasRoof: true,
             openings: [{ side: 'S', offset: 0, width: 2.2 }],
         },
-        collisionBoxes
     );
+    void collisionBoxes;
 
     const lightDefs = [
         { x: cx, z: cz, color: 0xffffff, intensity: 35, distance: 25 },
@@ -559,7 +559,6 @@ export function setupDemoWorldScene(engine: GameEngineRef): void {
                 { side: 'W', offset: 0, width: 1.2 },
             ],
         },
-        collisionBoxes
     );
 
     const roomB = buildRoom(
@@ -576,7 +575,6 @@ export function setupDemoWorldScene(engine: GameEngineRef): void {
             hasRoof: true,
             openings: [{ side: 'E', offset: 0, width: 1.2 }],
         },
-        collisionBoxes
     );
 
     const lightRoom = buildLightTestRoom(scene, toonMat, collisionBoxes);

@@ -48,7 +48,6 @@ export function setupFordFactoryScene(engine: GameEngineRef): void {
             wallColor: 0x6a6458,
             hasRoof: false, // fabrikkhall med takvindu - vi ser stålbjelker
         },
-        collisionBoxes
     );
 
     // ───── Belysning (industriell fabrikk, 1913) ─────
