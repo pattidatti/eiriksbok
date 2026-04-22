@@ -19,6 +19,13 @@ export const wattLabConfig: GameConfig = {
         fogDensity: 0.008,
     },
 
+    visual: {
+        sky: 'none',         // innendørs workshop - ingen himmel
+        timeOfDay: 0.5,       // middag - solstråler gjennom vinduene
+        colorGrading: 'warm',
+        postProcessing: 'auto',
+    },
+
     player: {
         startPosition: [4, 0, 4],
         colors: { body: 0x3a5a7a, head: 0xf0c090, legs: 0x4a3020 },

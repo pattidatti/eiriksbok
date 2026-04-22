@@ -11,9 +11,10 @@ interface GameHUDProps {
     showFlash: boolean;
     toast?: string;
     debug?: { phase: string; flags: Record<string, unknown> };
+    qualityTier?: 'low' | 'medium' | 'high';
 }
 
-export function GameHUD({ questObjective, questParts, showInteractPrompt, showFlash, toast, debug }: GameHUDProps) {
+export function GameHUD({ questObjective, questParts, showInteractPrompt, showFlash, toast, debug, qualityTier }: GameHUDProps) {
     return (
         <>
             {/* Quest HUD */}
@@ -150,6 +151,7 @@ export function GameHUD({ questObjective, questParts, showInteractPrompt, showFl
                     }}
                 >
                     <div>fase: {debug.phase}</div>
+                    {qualityTier && <div>tier: {qualityTier}</div>}
                     {Object.entries(debug.flags).map(([k, v]) => (
                         <div key={k}>{k}: {String(v)}</div>
                     ))}

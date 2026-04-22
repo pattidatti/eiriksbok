@@ -166,11 +166,10 @@ export function buildSeascape(
         60
     );
 
-    // Himmel-bakgrunn (enkel stor sphere med gradient-ish farge)
-    scene.background = new THREE.Color(0x7a9ab8);
+    // Fog beholdes for dybde-følelse over havet (SkySystem overtar background).
     scene.fog = new THREE.FogExp2(new THREE.Color(0x9bb3c8), 0.012);
 
-    // Solen (directional light)
+    // Solen (directional light) - registreres på scene så TimeOfDaySystem kan knytte seg til den.
     const sun = new THREE.DirectionalLight(0xfff2d0, 1.2);
     sun.position.set(50, 80, 30);
     sun.castShadow = true;
@@ -182,10 +181,12 @@ export function buildSeascape(
     sun.shadow.camera.top = 50;
     sun.shadow.camera.bottom = -50;
     scene.add(sun);
+    scene.userData._mainSunLight = sun;
 
-    // Himmellys (mykner skyggene)
+    // Himmellys (mykner skyggene) - også registrert så TOD kan justere.
     const hemi = new THREE.HemisphereLight(0xbfd8ee, 0x6a5838, 0.6);
     scene.add(hemi);
+    scene.userData._mainHemiLight = hemi;
 
     // Plasseringer:
     // Øya (Lindisfarne) ligger mot nord (negativ Z) - strand ved z=+3, kloster ved z=-30.

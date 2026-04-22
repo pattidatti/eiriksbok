@@ -14,14 +14,21 @@ Målstil: **stilisert semi-realisme** — pusset, pedagogisk troverdig, ikke too
 
 ## Leveranser (i prioritert rekkefølge)
 
-### Fase 1 — Visuell oppgradering (først)
+### Fase 1A — Sky + stemning (prioritet: låser opp neste spill)
 
 **Nye systemer:**
-- `engine/systems/PostProcessingSystem.ts` — EffectComposer-pipeline med kvalitetstier (`low` | `medium` | `high`). High: SSAO, DOF, motion blur, godrays, vignette, color grading. Low: bare tone mapping + bloom. Auto-detekterer GPU og plukker tier; overstyrbar.
 - `engine/systems/SkySystem.ts` — prosedyral himmel (Sky shader fra three/examples eller egen) med sol-posisjon koblet til TimeOfDay. Volumetriske skyer via billig plane-card-teknikk.
 - `engine/systems/TimeOfDaySystem.ts` — eksponerer `timeOfDay: 0-1` som driver sollys-retning/farge, ambient-farge, sky-tint, godray-intensitet.
+- `engine/systems/PostProcessingSystem.ts` — EffectComposer-pipeline med kvalitetstier (`low` | `medium`). Low: bare tone mapping + bloom. Medium: bloom + subtle color grading. Auto-detekterer GPU; overstyrbar.
+
+> **Chromebook-gate (HARD STOP etter Fase 1A):** Test `PostProcessingSystem` på `low`-tier med 4x CPU throttle i Chrome DevTools. Verifiser at `/oving/spill/lindisfarne-793` holder stabile 30 fps. Gå ikke videre til Fase 1B uten godkjent test.
+
+### Fase 1B — Levende natur (polish etter 1A er stabilt)
+
+**Nye systemer:**
 - `engine/systems/WeatherSystem.ts` — regn, tåke, snø. Partikkel-basert regn + volumetrisk fog override. Per-fase-styrt via `engine.setWeather({type, intensity})`.
 - `engine/systems/VegetationSystem.ts` — InstancedMesh for gress/siv/løv, vind-shader (sin-bølge i vertex-shader med tid og vindretning). Instanced trær med wind-sway på løvverk-mesh.
+- `PostProcessingSystem.ts` `high`-tier: SSAO, DOF, motion blur, godrays, vignette, color grading.
 
 **Materialoppgradering:**
 - Skygger: flytt til soft PCF med høy-res shadow map på `high`, medium på middel, ingen på lav.
@@ -39,17 +46,21 @@ visual?: {
 }
 ```
 
-**Kritiske filer som endres:**
-- `src/games/engine/GameEngine.ts` — integrer EffectComposer, fjern direkte `renderer.render`; driv TimeOfDay/Weather i hovedloopen
+**Kritiske filer som endres (Fase 1A):**
+- `src/games/engine/GameEngine.ts` — integrer EffectComposer, fjern direkte `renderer.render`; driv TimeOfDay i hovedloopen
 - `src/games/engine/types.ts` — nye felt i `GameConfig`
 - `src/games/engine/WorldBuilder.ts` — bruk SkySystem i stedet for solid background
 - `src/games/engine/builders/SeascapeBuilder.ts` — koble til SkySystem og TimeOfDay
 - `src/games/engine/LightBuilder.ts` — shadow-kvalitet knyttet til tier
 
+**Kritiske filer som endres (Fase 1B):**
+- `src/games/engine/GameEngine.ts` — driv WeatherSystem i loopen
+- `src/games/engine/builders/BeachBuilder.ts`, `CloisterBuilder.ts` — VegetationSystem-integrasjon
+
 ### Fase 2 — Kamera + dialog-polish
 
 **Nye systemer:**
-- `engine/systems/CameraDirector.ts` — stakk av kameratilstander. `playCinematic(shots[])` kjører timeline med lerp/ease mellom camera+target-par. `pushDialogFraming(speakerId)` zoomer inn på taler med lett DOF; `pop()` returnerer. Cuts kan trigges fra fase-overganger, dialog-noder, monolog-noder, eller manuelt i `setupScene`.
+- `engine/systems/CameraDirector.ts` — **Minimal version:** `pushDialogFraming(speakerId)` zoomer subtilt inn på aktiv taler med lett DOF-hint; `pop()` returnerer til default kamera. Fade-to-black cut mellom fase-overganger. `playCinematic(shots[])` implementeres som stub og utvides i en fremtidig fase når et konkret spill krever det.
 - Utvidelse av `DialogBox.tsx`:
   - Typewriter (per-tegn reveal, ~30ms/tegn, hopp over med klikk/space)
   - Valg-presentasjon: ikoner per choice, hover-preview av konsekvens (valgfri metadata)
@@ -58,10 +69,9 @@ visual?: {
 
 **GameConfig-utvidelse:**
 ```ts
-cinematics?: Record<string, CinematicShot[]>;
-intro?: { type: 'cut'|'pan'|'fade-title-3d'|'none'; shots?: CinematicShot[] };
+intro?: { type: 'fade'|'none' };
 ```
-`DialogNode` får `cameraFraming?: 'speaker'|'wide'|'custom'` og choices får `icon?: string; consequenceHint?: string`.
+`DialogNode` får `cameraFraming?: 'speaker'|'wide'` og choices får `icon?: string; consequenceHint?: string`.
 
 **Kritiske filer som endres:**
 - `src/games/engine/GameEngine.ts` — eksponere `engine.playCinematic`, `engine.setCameraFraming`
@@ -72,9 +82,10 @@ intro?: { type: 'cut'|'pan'|'fade-title-3d'|'none'; shots?: CinematicShot[] };
 
 **Nye systemer:**
 - `engine/systems/AIDirector.ts` — waypoint-vandring for NPCer. `engine.assignRoute(characterId, waypoints[], options)`. Støtter `loop|pingpong|once`, pauser ved dialog/monolog, kan ha "jobbe"-animasjon ved waypoint (sag, reparere, bære).
-- `engine/systems/FaunaSystem.ts` — billig ambient-life. Fugle-flokker (boids-light med 10-30 instanced fugler), fisk (vert-shader-synkroniserte), sommerfugler (random bob). Alle som InstancedMesh.
-- Utvidelse av `ParticleSystem.ts` — legg til løv/fall-blader, snø, gnistregn.
 - `CharacterBuilder.ts` — enkle gang-animasjoner (bob + svingende armer) drevet av fart; idle breathe.
+- Utvidelse av `ParticleSystem.ts` — legg til løv/fall-blader, snø, gnistregn.
+
+> **Bonus tier (gjøres hvis tid — ikke kjerneleveranse):** `engine/systems/FaunaSystem.ts` — fugle-flokker (boids-light med 10-30 instanced fugler), fisk (vert-shader-synkroniserte), sommerfugler (random bob). Legges til etter at AIDirector er verifisert. Blokkerer ikke Fase 3-release.
 
 **GameConfig-utvidelse:**
 ```ts
@@ -92,7 +103,6 @@ npcRoutes?: { characterId: string; waypoints: [x,z][]; mode: 'loop'|'pingpong'|'
 **Nye systemer:**
 - `engine/systems/PhysicsWorld.ts` — wrapper over `@dimforge/rapier3d-compat`. Initialisert lazily (WebAssembly) per spill. Autogenerer colliders fra scenen: alle `Object3D` med `userData.solid = true` blir statiske (triangle mesh eller cuboid basert på userData-hint). Spilleren blir kinematic character controller.
 - Utvidelse av `PlayerMode`: hopping (`SPACE`), klatring på markerte ladders, fallskade (valgfri), push på dynamic bodies.
-- `engine/systems/VehicleSystem.ts` — båt (flyter på OceanSystem med bølge-responsive transform), hest (arcade-fysikk), vogn (akselerasjon + sving).
 - `engine/systems/InteractableSystem.ts` — pickup/drop/throw for dynamic bodies med E-knapp. Kobler til puzzle-callbacks ("dropp sten på vippe").
 
 **Migrasjon:**
@@ -117,6 +127,8 @@ physics?: {
 - `src/games/lindisfarne-793/LindisfarneAssets.ts` — port
 - `package.json` — legg til `@dimforge/rapier3d-compat`
 - `.agent/workflows/BUILD_GAME_GUIDE.md` — skriv om kollisjons-seksjonen
+
+> **Ute av scope (Fase 4):** `VehicleSystem` (båt, hest, vogn) — legges til i fremtidig fase når et konkret spill krever det.
 
 ### Fase 5 — Intro-system + QoL
 
@@ -167,7 +179,6 @@ physics?: {
 - `src/games/engine/systems/AIDirector.ts`
 - `src/games/engine/systems/FaunaSystem.ts`
 - `src/games/engine/systems/PhysicsWorld.ts`
-- `src/games/engine/systems/VehicleSystem.ts`
 - `src/games/engine/systems/InteractableSystem.ts`
 - `src/games/engine/components/ChoiceButton.tsx`
 - `src/games/engine/components/IntroRunner.ts`
@@ -180,3 +191,5 @@ physics?: {
 - Savegame/progresjonslagring
 - Mobilkontroller (berørings-joystick)
 - AI-generert stemmeskuespill
+- `VehicleSystem` (båt, hest, vogn) — legges til når et konkret spill krever det
+- `CameraDirector` full cinematic timeline med custom shots — stubs i Fase 2, utvides på bestilling

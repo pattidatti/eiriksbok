@@ -8,6 +8,7 @@ import { GameHUD } from './GameHUD';
 import { DialogBox } from './DialogBox';
 import { PuzzleUI } from './PuzzleUI';
 import { MonologBox } from './MonologBox';
+import { IntroOverlay } from './IntroRunner';
 
 interface GameCanvasProps {
     config: GameConfig;
@@ -31,6 +32,7 @@ export function GameCanvas({ config }: GameCanvasProps) {
     const [uiState, setUIState] = useState<GameUIState>(defaultUIState);
     const [toast, setToast] = useState('');
     const toastTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+    const [fadeState, setFadeState] = useState({ opacity: 0, durationMs: 400 });
     const { setFullWidth } = useLayout();
 
     // Expand layout
@@ -55,6 +57,12 @@ export function GameCanvas({ config }: GameCanvasProps) {
                 setToast(name);
                 if (toastTimerRef.current) clearTimeout(toastTimerRef.current);
                 toastTimerRef.current = setTimeout(() => setToast(''), 2000);
+            },
+            onFade: (visible, durationMs) => {
+                return new Promise<void>((resolve) => {
+                    setFadeState({ opacity: visible ? 1 : 0, durationMs });
+                    setTimeout(resolve, durationMs);
+                });
             },
         });
 
@@ -85,6 +93,10 @@ export function GameCanvas({ config }: GameCanvasProps) {
         window.location.reload();
     }, []);
 
+    const handleSkipIntro = useCallback(() => {
+        engineRef.current?.skipIntro();
+    }, []);
+
     return (
         <div
             className="relative w-full overflow-hidden bg-stone-900"
@@ -107,6 +119,17 @@ export function GameCanvas({ config }: GameCanvasProps) {
                     showFlash={!!uiState.showFlash}
                     toast={toast}
                     debug={uiState.debug}
+                    qualityTier={uiState.qualityTier}
+                />
+            )}
+
+            {/* Intro overlay (Fase 5) */}
+            {uiState.started && !uiState.ended && uiState.intro?.active && (
+                <IntroOverlay
+                    title={uiState.intro.title}
+                    subtitle={uiState.intro.subtitle}
+                    skippable={uiState.intro.skippable}
+                    onSkip={handleSkipIntro}
                 />
             )}
 
@@ -166,7 +189,7 @@ export function GameCanvas({ config }: GameCanvasProps) {
             )}
 
             {/* Crosshair */}
-            {uiState.started && !uiState.ended && !uiState.paused && !uiState.dialog && !uiState.puzzle && (
+            {uiState.started && !uiState.ended && !uiState.paused && !uiState.dialog && !uiState.puzzle && !uiState.intro?.active && (
                 <div
                     style={{
                         position: 'absolute',
@@ -188,6 +211,19 @@ export function GameCanvas({ config }: GameCanvasProps) {
             {uiState.ended && (
                 <EndScreen text={uiState.endText} onRestart={handleRestart} />
             )}
+
+            {/* Fade-overlay (CameraDirector) */}
+            <div
+                style={{
+                    position: 'absolute',
+                    inset: 0,
+                    background: '#000',
+                    opacity: fadeState.opacity,
+                    transition: `opacity ${fadeState.durationMs}ms ease-in-out`,
+                    pointerEvents: fadeState.opacity > 0.5 ? 'auto' : 'none',
+                    zIndex: 100,
+                }}
+            />
         </div>
     );
 }

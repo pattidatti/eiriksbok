@@ -270,6 +270,32 @@ export function buildCharacter(
     };
 }
 
+// Animerer en NPC eller spiller basert på userData._isWalking flagg.
+// Brukes både av AIDirector-styrte NPCer og engine player-loop (player setter selv flag).
+export function updateCharacterAnim(char: BuiltCharacter, dt: number): void {
+    const ud = char.group.userData as { _isWalking?: boolean; _walkPhase?: number; _walkSpeed?: number };
+    const walking = !!ud._isWalking;
+    const speed = ud._walkSpeed ?? 1.4;
+
+    if (walking) {
+        ud._walkPhase = (ud._walkPhase ?? 0) + dt * speed * 6;
+        const phase = ud._walkPhase;
+        char.lLeg.rotation.x = Math.sin(phase) * 0.55;
+        char.rLeg.rotation.x = -Math.sin(phase) * 0.55;
+        char.lArm.rotation.x = -Math.sin(phase) * 0.4;
+        char.rArm.rotation.x = Math.sin(phase) * 0.4;
+        char.body.position.y = 0.9 + Math.abs(Math.sin(phase)) * 0.05;
+    } else {
+        // Lerp mot 0
+        const k = Math.min(1, dt * 8);
+        char.lLeg.rotation.x *= 1 - k;
+        char.rLeg.rotation.x *= 1 - k;
+        char.lArm.rotation.x *= 1 - k;
+        char.rArm.rotation.x *= 1 - k;
+        char.body.position.y += (0.9 - char.body.position.y) * k;
+    }
+}
+
 export function buildCollectibleMesh(
     geometry: 'cylinder' | 'torus' | 'sphere' | 'box',
     color: number,

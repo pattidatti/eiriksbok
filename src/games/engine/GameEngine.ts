@@ -9,79 +9,27 @@ import type {
     PlayerMode,
     MonologUIState,
     LightAnimation,
+    SceneMatOpts,
+    WeatherState,
+    VegetationType,
+    TreeType,
+    NpcRouteConfig,
+    DialogCameraFraming,
+    CinematicShot,
 } from './types';
-import { buildCharacter, buildCollectibleMesh, drawFace, lerpParams, EMOTION_PARAMS, type BuiltCharacter } from './CharacterBuilder';
+import { buildCharacter, buildCollectibleMesh, drawFace, lerpParams, EMOTION_PARAMS, updateCharacterAnim, type BuiltCharacter } from './CharacterBuilder';
 import { buildWorkshopRoom, buildWorkshopLighting } from './WorldBuilder';
 import { buildHangingLight, type HangingLightRef } from './LightBuilder';
 import { DustSystem, SparkSystem } from './ParticleSystem';
 import { MonologSystem } from './systems/MonologSystem';
-
-// Single-pass cinematic shader — safe for all devices (Chromebook included).
-// Warmth, vignette, and chromatic aberration in one fullscreen quad.
-const LightweightCinematicShader = {
-    uniforms: {
-        tDiffuse: { value: null },
-        time: { value: 0 }, // retained for API compatibility, unused in shader
-    },
-    vertexShader: `varying vec2 vUv; void main(){ vUv=uv; gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.); }`,
-    fragmentShader: `
-        uniform sampler2D tDiffuse;
-        varying vec2 vUv;
-        void main(){
-            vec2 center = vUv - 0.5;
-            float edge = dot(center, center);
-
-            // Chromatic aberration — zero at centre, peaks at corners
-            float aberr = 0.0018 * edge;
-            float r = texture2D(tDiffuse, vUv + vec2(aberr,  0.0)).r;
-            float g = texture2D(tDiffuse, vUv                   ).g;
-            float b = texture2D(tDiffuse, vUv - vec2(aberr,  0.0)).b;
-            vec4 c = vec4(r, g, b, 1.0);
-
-            // Warm tint (forge atmosphere)
-            c.r = min(1.0, c.r * 1.06);
-            c.b *= 0.93;
-
-            // Vignette
-            c.rgb *= 1.0 - edge * 0.55;
-
-            gl_FragColor = c;
-        }`,
-};
-
-// Extended cinematic shader for high-end — stronger aberration, scene warmth
-const HighEndCinematicShader = {
-    uniforms: {
-        tDiffuse: { value: null },
-        warmth: { value: 0.08 },
-        time: { value: 0 }, // retained for API compatibility, unused in shader
-    },
-    vertexShader: `varying vec2 vUv; void main(){ vUv=uv; gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.); }`,
-    fragmentShader: `
-        uniform sampler2D tDiffuse;
-        uniform float warmth;
-        varying vec2 vUv;
-        void main(){
-            vec2 center = vUv - 0.5;
-            float edge = dot(center, center);
-
-            // Stronger chromatic aberration for high-res screens
-            float aberr = 0.003 * edge;
-            float r = texture2D(tDiffuse, vUv + vec2(aberr,  0.0)).r;
-            float g = texture2D(tDiffuse, vUv                   ).g;
-            float b = texture2D(tDiffuse, vUv - vec2(aberr,  0.0)).b;
-            vec4 c = vec4(r, g, b, 1.0);
-
-            // Warm tint
-            c.r = min(1.0, c.r * (1.0 + warmth));
-            c.b *= (1.0 - warmth * 0.5);
-
-            // Vignette
-            c.rgb *= 1.0 - edge * 0.45;
-
-            gl_FragColor = c;
-        }`,
-};
+import { PostProcessingSystem, resolveTier, type QualityTier } from './systems/PostProcessingSystem';
+import { SkySystem } from './systems/SkySystem';
+import { TimeOfDaySystem } from './systems/TimeOfDaySystem';
+import { WeatherSystem } from './systems/WeatherSystem';
+import { VegetationSystem } from './systems/VegetationSystem';
+import { CameraDirector } from './systems/CameraDirector';
+import { AIDirector } from './systems/AIDirector';
+import { createSceneMat } from './SceneMat';
 
 // ─── Emotion system ──────────────────────────────────────────────────────────
 
@@ -114,6 +62,8 @@ interface EngineOptions {
     onStart: () => void;
     onEnd: (text: string) => void;
     onCollect?: (name: string) => void;
+    // Bro fra CameraDirector til DOM-overlay
+    onFade?: (visible: boolean, durationMs: number) => Promise<void>;
 }
 
 export class GameEngine {
@@ -130,11 +80,19 @@ export class GameEngine {
     private isEnded = false;
 
     // Post-processing (tiered: all devices get lightweight pass, high-end gets bloom too)
-    private composer: unknown = null;
-    private bloomPass: { strength: number; resolution: THREE.Vector2 } | null = null;
-    private bloomTarget = 0.35;
-    private cinematicPass: { uniforms: { time: { value: number } } } | null = null;
-    private fxaaPass: { uniforms: { resolution: { value: { x: number; y: number } } } } | null = null;
+    private postProcessing: PostProcessingSystem;
+    private qualityTier: QualityTier;
+
+    // Visuelle systemer (Fase 1-3)
+    private skySystem: SkySystem | null = null;
+    private timeOfDaySystem: TimeOfDaySystem;
+    private weatherSystem: WeatherSystem | null = null;
+    private vegetationSystem: VegetationSystem | null = null;
+    private cameraDirector: CameraDirector;
+    private aiDirector: AIDirector;
+    private sunLight: THREE.DirectionalLight | null = null;
+    private ambientLight: THREE.AmbientLight | null = null;
+    private hemiLight: THREE.HemisphereLight | null = null;
 
     // State
     private phase = 'intro';
@@ -220,9 +178,17 @@ export class GameEngine {
     // Utestående timeouts satt via engine.schedule - kanselleres ved dispose
     private scheduledTimeouts = new Set<ReturnType<typeof setTimeout>>();
 
+    // Intro-state (Fase 5)
+    private introActive = false;
+    private introTimeout: ReturnType<typeof setTimeout> | null = null;
+    private introInputBlocked = false;
+
     constructor(options: EngineOptions) {
         this.options = options;
         this.config = options.config;
+
+        const visual = options.config.visual ?? {};
+        this.qualityTier = resolveTier(visual.postProcessing ?? 'auto');
 
         this.scene = new THREE.Scene();
         this.scene.background = new THREE.Color(options.config.world.backgroundColor ?? 0x6b5544);
@@ -236,10 +202,8 @@ export class GameEngine {
 
         this.renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
         this.renderer.setSize(window.innerWidth, window.innerHeight);
-
-        const isLowEnd = navigator.hardwareConcurrency <= 4 || window.devicePixelRatio < 1.5;
-        this.renderer.setPixelRatio(isLowEnd ? 1 : Math.min(window.devicePixelRatio, 2));
-        this.renderer.shadowMap.enabled = true;
+        this.renderer.setPixelRatio(this.qualityTier === 'low' ? 1 : Math.min(window.devicePixelRatio, 2));
+        this.renderer.shadowMap.enabled = this.qualityTier !== 'low';
         this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
         this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
         this.renderer.toneMappingExposure = 1.8;
@@ -247,15 +211,72 @@ export class GameEngine {
 
         options.container.appendChild(this.renderer.domElement);
 
+        // Time-of-day + sky må initialiseres FØR buildScene så registrering av sun/ambient kan skje.
+        this.timeOfDaySystem = new TimeOfDaySystem(visual.timeOfDay ?? 0.5);
+        this.cameraDirector = new CameraDirector();
+        this.aiDirector = new AIDirector();
+
+        if (options.onFade) {
+            this.cameraDirector.setFadeCallback(options.onFade);
+        }
+
         this.buildScene();
+
+        // Etter at buildScene har lagt til sun/ambient, knytt dem til TimeOfDay.
+        // Builders (SeascapeBuilder, WorldBuilder) kan ha lagt hovedsol-lys i scene.userData._mainSunLight / _mainHemiLight.
+        const builderSun = this.scene.userData._mainSunLight as THREE.DirectionalLight | undefined;
+        const builderHemi = this.scene.userData._mainHemiLight as THREE.HemisphereLight | undefined;
+        if (builderSun) this.sunLight = builderSun;
+        if (builderHemi) this.hemiLight = builderHemi;
+
+        if (this.sunLight) this.timeOfDaySystem.registerSun(this.sunLight);
+        if (this.ambientLight) this.timeOfDaySystem.registerAmbient(this.ambientLight);
+        if (this.hemiLight) this.timeOfDaySystem.registerHemisphere(this.hemiLight);
+
+        // Sky-system (kun hvis sky === 'procedural')
+        if ((visual.sky ?? (options.config.world.preset === 'open' ? 'procedural' : 'none')) === 'procedural') {
+            this.skySystem = new SkySystem(this.scene);
+            this.timeOfDaySystem.setSky(this.skySystem);
+            void this.skySystem.init().then(() => {
+                this.timeOfDaySystem.setTimeOfDay(this.timeOfDaySystem.getTimeOfDay());
+            });
+        }
+
+        // Initial weather hvis spesifisert
+        if (visual.weather) {
+            if (!this.weatherSystem) {
+                this.weatherSystem = new WeatherSystem(this.scene, this.qualityTier);
+            }
+            this.weatherSystem.setWeather(visual.weather);
+        }
+
+        // Trigg en initial TOD-update slik at lyset stemmer fra første frame
+        this.timeOfDaySystem.update();
+
+        // Initial NPC-routes
+        if (options.config.npcRoutes) {
+            for (const r of options.config.npcRoutes) {
+                this.aiDirector.assignRoute(r);
+            }
+        }
+
+        // Debug-visualisering for AI-waypoints (etter ruter er assigned)
+        if (options.config.debug) {
+            this.addDebugWaypoints();
+        }
+
         this.setupInput();
         this.setupResize();
 
-        if (isLowEnd) {
-            this.setupLowEndCompositor();
-        } else {
-            this.setupHighEndCompositor();
-        }
+        // Post-processing
+        this.postProcessing = new PostProcessingSystem(
+            this.renderer,
+            this.scene,
+            this.camera,
+            this.qualityTier,
+            visual.colorGrading ?? 'warm',
+        );
+        void this.postProcessing.init();
 
         // Init camera basert på faktisk verdensposisjon (setupScene kan ha satt player som
         // barn av et annet objekt via setPlayerMode('seated'), så config.startPosition alene
@@ -273,7 +294,12 @@ export class GameEngine {
     // ─── Public interface for setupScene callbacks ──────────────────────────
 
     toonMat(color: number, opts: Record<string, unknown> = {}): THREE.MeshStandardMaterial {
+        // Bakoverkompatibilitet: thin wrapper rundt sceneMat. Eksisterende kall fungerer uendret.
         return new THREE.MeshStandardMaterial({ color, roughness: 0.8, metalness: 0.0, ...opts } as THREE.MeshStandardMaterialParameters);
+    }
+
+    sceneMat(color: number, opts: SceneMatOpts = {}): THREE.MeshStandardMaterial {
+        return createSceneMat(color, opts, this.config.visual?.colorGrading);
     }
 
     screenFlash(): void {
@@ -341,7 +367,9 @@ export class GameEngine {
     private buildScene(): void {
         // Global ambient baseline - replaces the implicit brightness floor that MeshToonMaterial's
         // gradient map provided (minimum step 80/255 ≈ 0.31). All presets get this.
-        this.scene.add(new THREE.AmbientLight(0xffffff, 0.6));
+        // TimeOfDaySystem overstyrer farge/intensitet hvis aktiv.
+        this.ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+        this.scene.add(this.ambientLight);
 
         // Shared collision list - WorldBuilder and setupScene both push to this
         this.scene.userData.collisionBoxes = this.collisionBoxes;
@@ -451,6 +479,29 @@ export class GameEngine {
         }
     }
 
+    private addDebugWaypoints(): void {
+        const routes = this.aiDirector.getRoutes();
+        if (routes.length === 0) return;
+        const sphereGeo = new THREE.SphereGeometry(0.18, 8, 6);
+        const sphereMat = new THREE.MeshBasicMaterial({ color: 0xffaa22 });
+        const lineMat = new THREE.LineBasicMaterial({ color: 0xffaa22 });
+        for (const route of routes) {
+            // Sfærer for hvert waypoint
+            for (const [x, z] of route.waypoints) {
+                const sphere = new THREE.Mesh(sphereGeo, sphereMat);
+                sphere.position.set(x, 0.18, z);
+                this.scene.add(sphere);
+            }
+            // Linjer mellom waypoints
+            if (route.waypoints.length > 1) {
+                const points = route.waypoints.map(([x, z]) => new THREE.Vector3(x, 0.05, z));
+                const lineGeo = new THREE.BufferGeometry().setFromPoints(points);
+                const line = new THREE.Line(lineGeo, lineMat);
+                this.scene.add(line);
+            }
+        }
+    }
+
     private buildEngineRef(): GameEngineRef {
         return {
             scene: this.scene,
@@ -515,8 +566,38 @@ export class GameEngine {
                 this.animatedLights.push({ light, animation, base: baseIntensity ?? light.intensity });
             },
             setBloom: (strength: number) => {
-                if (this.bloomPass) this.bloomTarget = strength;
+                this.postProcessing?.setBloom(strength);
             },
+            sceneMat: this.sceneMat.bind(this),
+            setTimeOfDay: (t: number) => this.timeOfDaySystem.setTimeOfDay(t),
+            getSunDirection: () => this.timeOfDaySystem.getSunDirection().clone(),
+            setWeather: (state: WeatherState) => {
+                if (!this.weatherSystem) {
+                    this.weatherSystem = new WeatherSystem(this.scene, this.qualityTier);
+                }
+                this.weatherSystem.setWeather(state);
+            },
+            addVegetationPatch: (area: AABB2D, density: number, type: VegetationType = 'grass') => {
+                if (!this.vegetationSystem) {
+                    this.vegetationSystem = new VegetationSystem(this.scene, this.qualityTier);
+                }
+                this.vegetationSystem.addPatch(area, density, type);
+            },
+            addTree: (position: [number, number, number], type: TreeType = 'pine') => {
+                if (!this.vegetationSystem) {
+                    this.vegetationSystem = new VegetationSystem(this.scene, this.qualityTier);
+                }
+                this.vegetationSystem.addTree(position, type);
+            },
+            assignRoute: (cfg: NpcRouteConfig) => this.aiDirector.assignRoute(cfg),
+            setCameraFraming: (framing: DialogCameraFraming, target?: THREE.Vector3) => {
+                this.cameraDirector.setFraming(framing, target);
+            },
+            playCinematic: (shots: CinematicShot[]) => this.cameraDirector.playCinematic(shots),
+            fadeToBlack: (durationMs?: number) => this.cameraDirector.fadeToBlack(durationMs),
+            fadeFromBlack: (durationMs?: number) => this.cameraDirector.fadeFromBlack(durationMs),
+            getQualityTier: () => this.qualityTier,
+            skipIntro: () => this.skipIntro(),
         };
     }
 
@@ -546,82 +627,13 @@ export class GameEngine {
         }
     }
 
-    // Lightweight single-pass compositor — safe for Chromebook
-    private async setupLowEndCompositor(): Promise<void> {
-        try {
-            const [{ EffectComposer }, { RenderPass }, { ShaderPass }, { FXAAShader }] = await Promise.all([
-                import('three/addons/postprocessing/EffectComposer.js'),
-                import('three/addons/postprocessing/RenderPass.js'),
-                import('three/addons/postprocessing/ShaderPass.js'),
-                import('three/addons/shaders/FXAAShader.js'),
-            ]);
-            const composer = new EffectComposer(this.renderer);
-            composer.addPass(new RenderPass(this.scene, this.camera));
-            const pass = new ShaderPass(LightweightCinematicShader);
-            composer.addPass(pass);
-            const fxaaPass = new ShaderPass(FXAAShader);
-            const pr = this.renderer.getPixelRatio();
-            fxaaPass.uniforms['resolution'].value.x = 1 / (window.innerWidth * pr);
-            fxaaPass.uniforms['resolution'].value.y = 1 / (window.innerHeight * pr);
-            composer.addPass(fxaaPass);
-            this.composer = composer;
-            this.cinematicPass = pass as unknown as { uniforms: { time: { value: number } } };
-            this.fxaaPass = fxaaPass as unknown as { uniforms: { resolution: { value: { x: number; y: number } } } };
-        } catch (e) {
-            console.warn('Lightweight compositor unavailable:', e);
-        }
-    }
-
-    // Full pipeline — bloom + cinematic shader + FXAA for high-end devices
-    private async setupHighEndCompositor(): Promise<void> {
-        try {
-            const [
-                { EffectComposer },
-                { RenderPass },
-                { UnrealBloomPass },
-                { ShaderPass },
-                { FXAAShader },
-            ] = await Promise.all([
-                import('three/addons/postprocessing/EffectComposer.js'),
-                import('three/addons/postprocessing/RenderPass.js'),
-                import('three/addons/postprocessing/UnrealBloomPass.js'),
-                import('three/addons/postprocessing/ShaderPass.js'),
-                import('three/addons/shaders/FXAAShader.js'),
-            ]);
-
-            const composer = new EffectComposer(this.renderer);
-            composer.addPass(new RenderPass(this.scene, this.camera));
-
-            const bloomPass = new UnrealBloomPass(
-                new THREE.Vector2(window.innerWidth, window.innerHeight),
-                0.35, 0.7, 0.25  // threshold lowered from 0.78 — fire/emissive now blooms
-            );
-            composer.addPass(bloomPass);
-
-            const cinematicPass = new ShaderPass(HighEndCinematicShader);
-            composer.addPass(cinematicPass);
-
-            const fxaaPass = new ShaderPass(FXAAShader);
-            const pr = this.renderer.getPixelRatio();
-            fxaaPass.uniforms['resolution'].value.x = 1 / (window.innerWidth * pr);
-            fxaaPass.uniforms['resolution'].value.y = 1 / (window.innerHeight * pr);
-            composer.addPass(fxaaPass);
-
-            this.composer = composer;
-            this.bloomPass = bloomPass;
-            this.cinematicPass = cinematicPass as unknown as { uniforms: { time: { value: number } } };
-            this.fxaaPass = fxaaPass as unknown as { uniforms: { resolution: { value: { x: number; y: number } } } };
-        } catch (e) {
-            console.warn('Post-processing unavailable:', e);
-        }
-    }
-
     private setupInput(): void {
         const onKeyDown = (e: KeyboardEvent) => {
             this.keys[e.code] = true;
 
             // Escape = pause / unpause (browser alltid frigir pointer lock ved Escape)
-            if (e.code === 'Escape' && this.gameStarted && !this.isEnded && !this.dialogActive && !this.puzzleActive) {
+            // Blokkeres under intro så pause-overlay ikke krasjer med IntroOverlay
+            if (e.code === 'Escape' && this.gameStarted && !this.isEnded && !this.dialogActive && !this.puzzleActive && !this.introActive) {
                 this.paused = true;
                 this.pushUIState({ paused: true });
                 return;
@@ -650,8 +662,8 @@ export class GameEngine {
                 }
             }
 
-            // Interact key
-            if (e.code === 'KeyE' && !this.dialogActive) {
+            // Interact key (blokkert under intro så brukeren ikke kan trigge dialog midt i tittel-fade)
+            if (e.code === 'KeyE' && !this.dialogActive && !this.introInputBlocked) {
                 this.handleInteract();
             }
         };
@@ -696,14 +708,7 @@ export class GameEngine {
             this.camera.aspect = window.innerWidth / window.innerHeight;
             this.camera.updateProjectionMatrix();
             this.renderer.setSize(window.innerWidth, window.innerHeight);
-            if (this.composer) {
-                (this.composer as { setSize: (w: number, h: number) => void }).setSize(window.innerWidth, window.innerHeight);
-            }
-            if (this.fxaaPass) {
-                const pr = this.renderer.getPixelRatio();
-                this.fxaaPass.uniforms.resolution.value.x = 1 / (window.innerWidth * pr);
-                this.fxaaPass.uniforms.resolution.value.y = 1 / (window.innerHeight * pr);
-            }
+            this.postProcessing?.resize(window.innerWidth, window.innerHeight);
         };
         window.addEventListener('resize', onResize);
         this._cleanupResize = () => window.removeEventListener('resize', onResize);
@@ -713,10 +718,72 @@ export class GameEngine {
     // ─── Game logic ──────────────────────────────────────────────────────────
 
     startGame(): void {
+        // Idempotent: returner umiddelbart hvis spillet allerede er startet (dobbel-klikk-beskyttelse)
+        if (this.gameStarted) return;
         this.gameStarted = true;
         const firstQuest = this.config.quests[0];
         this.phase = firstQuest?.phase ?? 'intro';
-        this.pushUIState();
+
+        const intro = this.config.intro;
+        if (intro && intro.type !== 'none') {
+            void this.runIntro(intro);
+        } else {
+            this.pushUIState();
+        }
+    }
+
+    private async runIntro(intro: NonNullable<GameConfig['intro']>): Promise<void> {
+        this.introActive = true;
+        this.introInputBlocked = true;
+        const fadeMs = intro.fadeMs ?? 700;
+        const holdMs = intro.durationMs ?? 2500;
+        const skippable = intro.skippable !== false;
+
+        // Send intro-state til UI
+        this.pushUIState({
+            intro: {
+                active: true,
+                title: intro.type === 'title' ? intro.title : undefined,
+                subtitle: intro.type === 'title' ? intro.subtitle : undefined,
+                skippable,
+            },
+        });
+
+        // Hver await-grense sjekker introActive så Skip kan avbryte midt i sekvensen
+        // (uten å la "spøkelses"-setTimeout starte etter at endIntro allerede er kjørt).
+        await this.cameraDirector.fadeToBlack(0);
+        if (this.disposed || !this.introActive) return;
+
+        await this.cameraDirector.fadeFromBlack(fadeMs);
+        if (this.disposed || !this.introActive) return;
+
+        // Hold tittelen synlig
+        await new Promise<void>((resolve) => {
+            this.introTimeout = setTimeout(() => {
+                this.introTimeout = null;
+                resolve();
+            }, holdMs);
+        });
+
+        if (this.disposed || !this.introActive) return;
+        this.endIntro();
+    }
+
+    private endIntro(): void {
+        if (!this.introActive) return;
+        if (this.introTimeout) {
+            clearTimeout(this.introTimeout);
+            this.introTimeout = null;
+        }
+        this.introActive = false;
+        this.introInputBlocked = false;
+        this.pushUIState({ intro: null });
+    }
+
+    skipIntro(): void {
+        if (!this.introActive) return;
+        // Hopp over hold-perioden, spilleren får kontroll umiddelbart
+        this.endIntro();
     }
 
     private handleInteract(): void {
@@ -775,12 +842,36 @@ export class GameEngine {
             }
         });
 
+        // CameraDirector: zoom inn på taler hvis cameraFraming === 'speaker'.
+        // Finn karakter med matching id eller name (case-insensitive); ellers fallback til wide.
+        const speakerKey = node.speaker.toLowerCase();
+        let speakerChar = this.characters.get(node.speaker);
+        if (!speakerChar) {
+            for (const [id, char] of this.characters) {
+                if (id.toLowerCase() === speakerKey || char.config?.name?.toLowerCase?.() === speakerKey) {
+                    speakerChar = char;
+                    break;
+                }
+            }
+        }
+        if (node.cameraFraming === 'speaker' && speakerChar) {
+            const world = new THREE.Vector3();
+            speakerChar.group.getWorldPosition(world);
+            world.y += 1.5;
+            this.cameraDirector.pushDialogFraming(world, 'speaker');
+        }
+
         this.pushUIState({
             dialog: {
                 visible: true,
                 speaker: node.speaker,
                 text,
-                choices: node.choices.map((c) => c.text),
+                choices: node.choices.map((c) => ({
+                    text: c.text,
+                    icon: c.icon,
+                    consequenceHint: c.consequenceHint,
+                })),
+                emotion: node.emotion,
             },
         });
     }
@@ -792,6 +883,7 @@ export class GameEngine {
     closeDialog(): void {
         this.dialogActive = false;
         this.currentChoices = [];
+        this.cameraDirector.pop();
         this.pushUIState({ dialog: null });
         if (this.gameStarted && !this.isEnded && !this.paused && !this.puzzleActive) {
             this.renderer.domElement.requestPointerLock();
@@ -974,22 +1066,19 @@ export class GameEngine {
     }
 
     private bloomPulse(peak: number, duration: number): void {
-        if (this.bloomPass) {
-            this.bloomPass.strength = peak;
-            this.bloomTarget = 0.35;
-            setTimeout(() => {
-                if (this.bloomPass) this.bloomPass.strength = this.bloomTarget;
-            }, duration * 1000);
-        }
+        this.postProcessing?.bloomPulse(peak, duration * 1000);
     }
 
     // ─── Push state to React ─────────────────────────────────────────────────
 
+    private activeIntro: GameUIState['intro'] = null;
+
     private pushUIState(override: Partial<GameUIState> = {}): void {
         if (this.isEnded) return;
-        // Persist dialog/puzzle state across calls so per-frame updates don't reset them
+        // Persist dialog/puzzle/intro state across calls so per-frame updates don't reset them
         if ('dialog' in override) this.activeDialog = override.dialog ?? null;
         if ('puzzle' in override) this.activePuzzle = override.puzzle ?? null;
+        if ('intro' in override) this.activeIntro = override.intro ?? null;
 
         const collectibles = this.config.collectibles ?? [];
         const parts = collectibles.map((c) => ({
@@ -1012,6 +1101,8 @@ export class GameEngine {
             debug: this.config.debug
                 ? { phase: this.phase, flags: Object.fromEntries(this.flags) }
                 : undefined,
+            intro: this.activeIntro,
+            qualityTier: this.qualityTier,
         };
 
         this.options.onUIUpdate({ ...base, ...override });
@@ -1028,11 +1119,7 @@ export class GameEngine {
         this.animFrameId = requestAnimationFrame(() => this.animate());
         const dt = Math.min(0.05, this.clock.getDelta());
         this.update(dt);
-        if (this.composer) {
-            (this.composer as { render: () => void }).render();
-        } else {
-            this.renderer.render(this.scene, this.camera);
-        }
+        this.postProcessing.render();
     }
 
     private update(dt: number): void {
@@ -1043,7 +1130,7 @@ export class GameEngine {
         const SPEED = 5, JUMP = 6, GRAV = -18;
         const moveDir = new THREE.Vector3();
 
-        const canMove = !this.dialogActive && this.playerMode === 'free';
+        const canMove = !this.dialogActive && !this.introInputBlocked && this.playerMode === 'free';
 
         if (canMove) {
             const fwd = new THREE.Vector3(Math.sin(this.yaw), 0, -Math.cos(this.yaw));
@@ -1109,15 +1196,22 @@ export class GameEngine {
 
         // NPC animations
         for (const [id, char] of this.characters) {
+            const hasRoute = this.aiDirector.hasRoute(id);
+
             // Sittende eller høytplasserte NPCer (f.eks. mannskap i båt) kan spesifisere
             // en base-Y i userData så sin-bob ikke rykker dem ned til gulvet.
-            const bobBase = (char.group.userData.bobBase as number | undefined) ?? 0;
-            char.group.position.y = bobBase + Math.sin(this.time * 1.5) * 0.03;
-            const toPlayer = new THREE.Vector3().subVectors(
-                this.player.group.position,
-                char.group.position
-            );
-            char.group.rotation.y = Math.atan2(toPlayer.x, toPlayer.z);
+            // NPCer med aktiv rute styres av AIDirector og skal ikke få sin-bob (overstyrer posisjon).
+            if (!hasRoute) {
+                const bobBase = (char.group.userData.bobBase as number | undefined) ?? 0;
+                char.group.position.y = bobBase + Math.sin(this.time * 1.5) * 0.03;
+
+                // Roter mot spiller når i nærheten (kun for stasjonære NPCer)
+                const toPlayer = new THREE.Vector3().subVectors(
+                    this.player.group.position,
+                    char.group.position
+                );
+                char.group.rotation.y = Math.atan2(toPlayer.x, toPlayer.z);
+            }
 
             if (char.marker) {
                 char.marker.position.y = 2.2 + Math.sin(this.time * 3) * 0.12;
@@ -1255,12 +1349,32 @@ export class GameEngine {
         }
         for (const fn of this.lightUpdates) fn(dt, this.time);
 
-        // Post-processing
-        if (this.bloomPass) {
-            this.bloomPass.strength += (this.bloomTarget - this.bloomPass.strength) * dt * 3;
+        // Post-processing tick
+        this.postProcessing.update(dt);
+
+        // TimeOfDay (oppdaterer sun/sky/ambient farger ved endringer)
+        this.timeOfDaySystem.update();
+
+        // Vær (regn/snø/tåke)
+        if (this.weatherSystem) {
+            const playerWorld = new THREE.Vector3();
+            this.player.group.getWorldPosition(playerWorld);
+            this.weatherSystem.update(dt, playerWorld.x, playerWorld.z);
         }
-        if (this.cinematicPass) {
-            this.cinematicPass.uniforms.time.value = this.time;
+
+        // Vegetasjon (vind-shader-tid)
+        this.vegetationSystem?.update(dt);
+
+        // CameraDirector (lerp-state)
+        this.cameraDirector.update(dt);
+
+        // AIDirector (NPC waypoint-vandring) - blokk når dialog/monolog er aktiv
+        const blocked = this.dialogActive || (this.monologSystem?.isActive() ?? false);
+        this.aiDirector.update(dt, this.characters, blocked);
+
+        // Walk-cycle for NPCer (drevet av AI-flagg satt i userData._isWalking)
+        for (const char of this.characters.values()) {
+            updateCharacterAnim(char, dt);
         }
 
         // Handle flash
@@ -1310,6 +1424,14 @@ export class GameEngine {
         );
         idealPos.y = Math.max(0.5, idealPos.y);
 
+        // CameraDirector framing-override (ved dialog): blend kamera nærmere taler
+        const framing = this.cameraDirector.apply();
+        if (framing && framing.weight > 0.001) {
+            // Blend ideal-posisjon mot taler: skyv kamera nærmere langs forskjell mellom player og target
+            const towardSpeaker = new THREE.Vector3().subVectors(framing.target, playerWorld).multiplyScalar(0.4);
+            idealPos.addScaledVector(towardSpeaker, framing.weight);
+        }
+
         // Kamera-clamp: raycast mot kollisjonsbokser så kamera ikke klipper gjennom vegger
         const clamped = this.clampCameraAgainstWalls(playerWorld, idealPos);
 
@@ -1334,6 +1456,10 @@ export class GameEngine {
             playerWorld.y + 1.2,
             playerWorld.z - Math.cos(this.yaw) * lookForward
         );
+        // Hvis CameraDirector er aktiv, blend lookTgt mot speaker
+        if (framing && framing.weight > 0.001) {
+            lookTgt.lerp(framing.target, framing.weight * 0.7);
+        }
         this.camTarget.lerp(lookTgt, Math.min(1, dt * 10));
         this.camera.lookAt(this.camTarget);
     }
@@ -1398,8 +1524,18 @@ export class GameEngine {
         // Kanseller alle planlagte timeouts for å unngå setState på disposed engine
         for (const id of this.scheduledTimeouts) clearTimeout(id);
         this.scheduledTimeouts.clear();
+        if (this.introTimeout) {
+            clearTimeout(this.introTimeout);
+            this.introTimeout = null;
+        }
         this._cleanupInput();
         this._cleanupResize();
+        this.weatherSystem?.dispose();
+        this.vegetationSystem?.dispose();
+        this.skySystem?.dispose();
+        this.cameraDirector.dispose();
+        this.aiDirector.dispose();
+        this.postProcessing?.dispose();
         if (document.pointerLockElement === this.renderer.domElement) {
             document.exitPointerLock();
         }

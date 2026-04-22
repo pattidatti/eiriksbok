@@ -1,4 +1,4 @@
-import type { Group, Scene, MeshStandardMaterial, Light } from 'three';
+import type { Group, Scene, MeshStandardMaterial, Light, Vector3 } from 'three';
 
 export type SubjectId = 'historie' | 'norsk' | 'krle' | 'samfunnsfag' | 'musikk';
 
@@ -11,13 +11,30 @@ export interface DialogChoice {
     text: string;
     next: string | null;
     action?: () => void;
+    // Valgfri dekorasjon for valg-knapp i UI (Fase 2-utvidelse)
+    icon?: string;
+    consequenceHint?: string;
 }
+
+export type DialogCameraFraming = 'speaker' | 'wide';
 
 export interface DialogNode {
     speaker: string;
     text: string | (() => string);
     choices: DialogChoice[];
     onEnd?: () => void;
+    // Hvilken kamera-stil skal CameraDirector bruke når dialogen vises (default 'wide').
+    cameraFraming?: DialogCameraFraming;
+    // Valgfri emotion-tint for ramme rundt dialogboksen (default ingen tint).
+    emotion?: Emotion;
+}
+
+// En komponert kamera-tagning brukt av engine.playCinematic. Stub i Fase 2 — utvides senere.
+export interface CinematicShot {
+    duration: number; // sekunder
+    cameraPos: [number, number, number];
+    lookAt: [number, number, number];
+    fov?: number;
 }
 
 export interface PuzzleOption {
@@ -90,6 +107,49 @@ export interface WorldConfig {
     fogDensity?: number;
 }
 
+// ─── Visual / sky / weather / vegetation (Fase 1-3) ──────────────────────────
+
+export type QualityTierConfig = 'auto' | 'low' | 'medium' | 'high';
+export type SkyMode = 'procedural' | 'solid' | 'none';
+export type ColorGrading = 'warm' | 'cold' | 'sepia' | 'neutral' | 'dawn' | 'dusk';
+export type WeatherType = 'clear' | 'rain' | 'fog' | 'snow';
+export type MaterialPreset = 'stone' | 'wood' | 'cloth' | 'metal' | 'leaf' | 'water' | 'soil';
+export type VegetationType = 'grass' | 'reeds' | 'flowers';
+export type TreeType = 'pine' | 'oak' | 'birch';
+
+export interface WeatherState {
+    type: WeatherType;
+    intensity: number; // 0..1
+}
+
+export interface VisualConfig {
+    postProcessing?: QualityTierConfig;
+    timeOfDay?: number; // 0..1
+    weather?: WeatherState;
+    colorGrading?: ColorGrading;
+    sky?: SkyMode;
+}
+
+export interface NpcRouteConfig {
+    characterId: string;
+    waypoints: [number, number][]; // x,z
+    mode: 'loop' | 'pingpong' | 'once';
+    speed?: number;
+    pauseMs?: number;
+}
+
+// Intro-konfigurasjon (Fase 5). 'fade' = enkel fade-inn fra sort.
+// 'title' = fade + stor title/subtitle på skjermen før spilleren får kontroll.
+// 'none' = ingen intro (spilleren starter umiddelbart).
+export interface IntroConfig {
+    type: 'fade' | 'title' | 'none';
+    title?: string;
+    subtitle?: string;
+    durationMs?: number;       // hvor lenge holdes tittelen synlig (default 2500)
+    fadeMs?: number;           // fade-inn-varighet (default 700)
+    skippable?: boolean;       // vis Skip-knapp (default true)
+}
+
 export interface PlayerConfig {
     startPosition: [number, number, number];
     colors: CharacterColors;
@@ -134,9 +194,22 @@ export interface RoomDef {
 }
 
 // Minimal interface exposed to setupScene callbacks
+export interface SceneMatOpts {
+    preset?: MaterialPreset;
+    roughness?: number;
+    metalness?: number;
+    map?: unknown;
+    transparent?: boolean;
+    opacity?: number;
+    side?: number;
+    emissive?: number;
+    emissiveIntensity?: number;
+}
+
 export interface GameEngineRef {
     scene: Scene;
     toonMat: (color: number, opts?: Record<string, unknown>) => MeshStandardMaterial;
+    sceneMat: (color: number, opts?: SceneMatOpts) => MeshStandardMaterial;
     config: GameConfig;
     screenFlash: () => void;
     cameraShake: (amount: number, duration: number) => void;
@@ -165,6 +238,22 @@ export interface GameEngineRef {
     registerAnimatedLight: (light: Light, animation: LightAnimation, baseIntensity?: number) => void;
     // Sett bloom-styrke (kun effekt på high-end). 0 = av, 0.35 = standard, 0.6 = intenst.
     setBloom: (strength: number) => void;
+    // ── Fase 1-3 utvidelser ──
+    setTimeOfDay: (t: number) => void;
+    getSunDirection: () => Vector3;
+    setWeather: (state: WeatherState) => void;
+    addVegetationPatch: (area: AABB2D, density: number, type?: VegetationType) => void;
+    addTree: (position: [number, number, number], type?: TreeType) => void;
+    assignRoute: (config: NpcRouteConfig) => void;
+    // CameraDirector
+    setCameraFraming: (framing: DialogCameraFraming, target?: Vector3) => void;
+    playCinematic: (shots: CinematicShot[]) => Promise<void>;
+    fadeToBlack: (durationMs?: number) => Promise<void>;
+    fadeFromBlack: (durationMs?: number) => Promise<void>;
+    // Tier (slik at byggere/setupScene kan velge billig/dyr variant)
+    getQualityTier: () => 'low' | 'medium' | 'high';
+    // Hopper over intro-fasen (Fase 5). No-op hvis intro ikke er aktiv.
+    skipIntro: () => void;
 }
 
 export interface GameConfig {
@@ -191,12 +280,23 @@ export interface GameConfig {
     debug?: boolean;
     // Called once after engine initializes - add game-specific 3D and wire puzzle callbacks here
     setupScene?: (engine: GameEngineRef) => void;
+    // ── Fase 1-3 utvidelser (alle valgfrie, ingen breaking changes) ──
+    visual?: VisualConfig;
+    npcRoutes?: NpcRouteConfig[];
+    // ── Fase 5 (Intro + QoL) ──
+    intro?: IntroConfig;
 }
 
 export interface MonologUIState {
     id: string;
     lines: string[];
     currentLine: number;
+}
+
+export interface DialogChoiceUI {
+    text: string;
+    icon?: string;
+    consequenceHint?: string;
 }
 
 export interface GameUIState {
@@ -208,7 +308,8 @@ export interface GameUIState {
         visible: boolean;
         speaker: string;
         text: string;
-        choices: string[];
+        choices: DialogChoiceUI[];
+        emotion?: Emotion;
     } | null;
     puzzle: {
         visible: boolean;
@@ -225,4 +326,7 @@ export interface GameUIState {
     showFlash?: boolean;
     paused?: boolean;
     debug?: { phase: string; flags: Record<string, unknown> };
+    // ── Fase 5 ──
+    intro?: { active: boolean; title?: string; subtitle?: string; skippable: boolean } | null;
+    qualityTier?: 'low' | 'medium' | 'high';
 }

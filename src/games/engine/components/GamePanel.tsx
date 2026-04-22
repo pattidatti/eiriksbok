@@ -1,8 +1,9 @@
 interface GamePanelProps {
     children: React.ReactNode;
+    borderColor?: string;
 }
 
-export function GamePanel({ children }: GamePanelProps) {
+export function GamePanel({ children, borderColor }: GamePanelProps) {
     return (
         <div
             style={{
@@ -12,7 +13,7 @@ export function GamePanel({ children }: GamePanelProps) {
                 transform: 'translateX(-50%)',
                 width: 'min(720px, 90vw)',
                 background: 'rgba(20,12,6,0.95)',
-                border: '3px solid #8b6f47',
+                border: `3px solid ${borderColor ?? '#8b6f47'}`,
                 borderRadius: 6,
                 padding: '22px 28px',
                 boxShadow: '0 8px 40px rgba(0,0,0,0.8), 0 0 60px rgba(139,111,71,0.15)',

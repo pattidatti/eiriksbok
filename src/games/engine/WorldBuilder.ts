@@ -251,6 +251,7 @@ export function buildWorkshopLighting(scene: THREE.Scene): {
     const s = sunLight.shadow.camera;
     s.left = s.bottom = -15; s.right = s.top = 15; s.near = 1; s.far = 40;
     scene.add(sunLight);
+    scene.userData._mainSunLight = sunLight;
 
     const fireLight = new THREE.PointLight(0xff6622, 2.0, 12, 1.5);
     fireLight.position.set(-7, 2.5, -7);

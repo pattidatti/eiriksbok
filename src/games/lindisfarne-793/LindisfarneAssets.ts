@@ -189,6 +189,49 @@ export function setupLindisfarneScene(engine: GameEngineRef): void {
         });
     }
 
+    // ───── Vegetasjon: gress på øya, siv langs vannkanten ─────
+    // Klosteret strekker seg fra ca x=-12 (bibliotek-vest) til x=12 (dormitory-øst), z=-34..-18.
+    // Hold gresset UTENFOR klosterets footprint og til sidene av stien.
+    engine.addVegetationPatch(
+        { minX: -30, maxX: -14, minZ: -22, maxZ: -5 },
+        0.6,
+        'grass',
+    );
+    engine.addVegetationPatch(
+        { minX: 14, maxX: 30, minZ: -22, maxZ: -5 },
+        0.6,
+        'grass',
+    );
+    // Gress NORD for klosteret (bak chapel)
+    engine.addVegetationPatch(
+        { minX: -12, maxX: 12, minZ: -42, maxZ: -36 },
+        0.5,
+        'grass',
+    );
+    // Siv langs strand-linja (rundt vannkanten)
+    engine.addVegetationPatch(
+        { minX: -14, maxX: -5, minZ: -1, maxZ: 4 },
+        0.4,
+        'reeds',
+    );
+    engine.addVegetationPatch(
+        { minX: 5, maxX: 14, minZ: -1, maxZ: 4 },
+        0.4,
+        'reeds',
+    );
+    // Litt blomster i nærheten av klosteret (idyll)
+    engine.addVegetationPatch(
+        { minX: -12, maxX: -6, minZ: -32, maxZ: -28 },
+        0.3,
+        'flowers',
+    );
+
+    // Et par trær oppe på øya (langs ytterkanten, ikke i veien for spilleren)
+    engine.addTree([-22, 0, -28], 'pine');
+    engine.addTree([22, 0, -28], 'pine');
+    engine.addTree([-26, 0, -10], 'birch');
+    engine.addTree([26, 0, -10], 'birch');
+
     // ───── Koble dialog-actions ─────
     // Dialog-valg trigger fase-overganger og flagg
     const dialogs = engine.config.dialogs;
@@ -352,6 +395,8 @@ export function setupLindisfarneScene(engine: GameEngineRef): void {
         engine.setPhase('landing');
         // Teleporter spiller til strand-startpunkt (ved vannkanten)
         engine.teleportPlayer(0, 0, 4);
+        // Lett tåke ved ankomst - støtter stemningen av "noe ukjent venter"
+        engine.setWeather({ type: 'fog', intensity: 0.35 });
     }
 }
 

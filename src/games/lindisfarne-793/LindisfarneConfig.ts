@@ -18,6 +18,37 @@ export const lindisfarneConfig: GameConfig = {
         fogDensity: 0.012,
     },
 
+    visual: {
+        sky: 'procedural',
+        timeOfDay: 0.72,        // sen ettermiddag - varmt sollys ved ankomst
+        colorGrading: 'dawn',
+        postProcessing: 'auto',
+    },
+
+    intro: {
+        type: 'title',
+        title: 'Lindisfarne',
+        subtitle: '8. juni 793',
+        durationMs: 3000,
+        fadeMs: 1000,
+        skippable: true,
+    },
+
+    npcRoutes: [
+        // Eadfrith vandrer rolig mellom skrivepulten og bokhylla i biblioteket
+        {
+            characterId: 'eadfrith',
+            waypoints: [
+                [-8, -22],
+                [-6, -23],
+                [-9, -21],
+            ],
+            mode: 'pingpong',
+            speed: 0.6,
+            pauseMs: 1800,
+        },
+    ],
+
     player: {
         startPosition: [0, 0, 0], // blir overstyrt av setupScene (seated i båten)
         colors: {
