@@ -25,8 +25,8 @@ export const wattLabConfig: GameConfig = {
         colorGrading: 'warm',
         postProcessing: {
             quality: 'auto',
-            bloom: { strength: 0.45, threshold: 0.30, radius: 0.7 },
-            exposure: 1.6,
+            bloom: { strength: 0.2, threshold: 0.6, radius: 0.6 },
+            exposure: 1.1,
         },
     },
 

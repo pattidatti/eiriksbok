@@ -21,8 +21,8 @@ export const skjoldborgConfig: GameConfig = {
 
     openingCinematic: [
         { duration: 3, cameraPos: [0, 18, 30], lookAt: [0, 2, 0], fov: 55, transition: 'fade' },
-        { duration: 3, cameraPos: [16, 8, 2], lookAt: [16, 0, -8], fov: 50, transition: 'cut' },
-        { duration: 2.5, cameraPos: [-14, 6, -8], lookAt: [-14, 0, -18], fov: 48, transition: 'fade' },
+        { duration: 3, cameraPos: [13.5, 2, -5.5], lookAt: [15.5, 0.5, -7.5], fov: 60, transition: 'cut' },
+        { duration: 2.5, cameraPos: [-11, 2, -16], lookAt: [-14, 0.5, -18], fov: 60, transition: 'fade' },
     ],
 
     world: {
@@ -356,7 +356,7 @@ export const skjoldborgConfig: GameConfig = {
     },
 
     dialogs: {
-        bjorg_intro: [
+        bjorg_greeting: [
             {
                 speaker: 'Bjorg',
                 text: 'Ritualet er fullført! Åsene er fornøyde. Vel gjort, fremmed.',
@@ -451,7 +451,7 @@ export const skjoldborgConfig: GameConfig = {
                 { text: 'Tilbake', next: 'bjorg_tour' },
             ],
         },
-        helge_intro: [
+        helge_greeting: [
             {
                 speaker: 'Smed-Helge',
                 text: 'Ringen er smidd! God jobb. Nå kan du ta den med til Volven.',
@@ -481,7 +481,7 @@ export const skjoldborgConfig: GameConfig = {
                 cameraFraming: 'speaker',
             },
         ],
-        volven_intro: [
+        volven_greeting: [
             {
                 speaker: 'Volven',
                 text: 'Ritualet er fullført. Spiritene er tilfredse. Du har trent gudenes øre.',
@@ -517,7 +517,12 @@ export const skjoldborgConfig: GameConfig = {
     monologs: {
         m_spawn: {
             id: 'm_spawn',
-            lines: ['Festningsporten står åpen.', 'Røyk fra ilden - Skjoldborg er levende.'],
+            lines: [
+                'Skjoldborg, 793 e.Kr. Solnedgang.',
+                'Et gammelt norrønt blot-ritual skal holdes i natt.',
+                'Byfolket samler offersakene - og trenger hjelp.',
+                'Gå bort til Bjorg ved porten. Trykk E for å snakke.',
+            ],
             once: true,
         },
         m_smie: {

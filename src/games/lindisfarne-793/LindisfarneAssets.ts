@@ -14,23 +14,29 @@ export function setupLindisfarneScene(engine: GameEngineRef): void {
     // ═══════════════════════════════════════════════════════════════
     const sea = buildSeascape(scene, toonMat);
 
-    // Plasser mannskap som barn av båten
+    // Plasser mannskap som barn av båten. Y senkes 0.75 fra seteposisjon så bena
+    // skjules av skrogkanten og de ser ut til å sitte.
+    const SIT_Y_OFFSET = 0.75;
     const crew = findCrewNPCs(scene);
     if (crew.sigurd) {
         sea.boat.add(crew.sigurd.group);
-        crew.sigurd.group.position.set(...sea.crewSeats.chief);
-        crew.sigurd.group.userData.bobBase = sea.crewSeats.chief[1];
+        const [cx, cy, cz] = sea.crewSeats.chief;
+        crew.sigurd.group.position.set(cx, cy - SIT_Y_OFFSET, cz);
+        crew.sigurd.group.userData.bobBase = cy - SIT_Y_OFFSET;
     }
     if (crew.veteran) {
         sea.boat.add(crew.veteran.group);
-        crew.veteran.group.position.set(...sea.crewSeats.veteran);
-        crew.veteran.group.userData.bobBase = sea.crewSeats.veteran[1];
+        const [vx, vy, vz] = sea.crewSeats.veteran;
+        crew.veteran.group.position.set(vx, vy - SIT_Y_OFFSET, vz);
+        crew.veteran.group.userData.bobBase = vy - SIT_Y_OFFSET;
     }
     if (crew.ulv) {
         sea.boat.add(crew.ulv.group);
-        crew.ulv.group.position.set(...sea.crewSeats.peer);
-        crew.ulv.group.userData.bobBase = sea.crewSeats.peer[1];
+        const [px, py, pz] = sea.crewSeats.peer;
+        crew.ulv.group.position.set(px, py - SIT_Y_OFFSET, pz);
+        crew.ulv.group.userData.bobBase = py - SIT_Y_OFFSET;
     }
+
 
     // ═══════════════════════════════════════════════════════════════
     // FASE 2 — TERRENG: OY MED AS
@@ -43,24 +49,29 @@ export function setupLindisfarneScene(engine: GameEngineRef): void {
     const beach = new THREE.Mesh(new THREE.BoxGeometry(30, 1, 15), sandMat);
     beach.position.set(0, -0.5, -0.5);
     beach.userData.solid = true;
+    beach.receiveShadow = true;
     scene.add(beach);
 
     // Ramp (Z: -8 til -20, stiger fra Y=0 til Y=HILL_H)
+    // Positiv X-rotasjon: sørenden (+Z) dyppes ned (strandnivå), nordenden (-Z) heves (platånivå)
     const rampHoriz = 12;
     const rampLen = Math.sqrt(rampHoriz * rampHoriz + HILL_H * HILL_H);
     const rampAngle = Math.atan2(HILL_H, rampHoriz);
     const ramp = new THREE.Mesh(new THREE.BoxGeometry(8, 0.8, rampLen), pathMat);
-    ramp.rotation.x = -rampAngle;
+    ramp.rotation.x = rampAngle;
     ramp.position.set(0, HILL_H / 2, -14);
     ramp.userData.solid = true;
     ramp.userData.colliderShape = 'trimesh'; // nødvendig for at Rapier skal bruke trimesh-kollider på skrå flate
+    ramp.castShadow = true;
+    ramp.receiveShadow = true;
     scene.add(ramp);
 
     // Ramp-sider (dekorative bergskrenter)
     for (const side of [-1, 1] as const) {
         const slope = new THREE.Mesh(new THREE.BoxGeometry(3, 3, rampLen), rockMat);
-        slope.rotation.x = -rampAngle;
+        slope.rotation.x = rampAngle;
         slope.position.set(side * 5.5, HILL_H / 2 - 1.5, -14);
+        slope.castShadow = true;
         scene.add(slope);
     }
 
@@ -68,6 +79,8 @@ export function setupLindisfarneScene(engine: GameEngineRef): void {
     const plateau = new THREE.Mesh(new THREE.BoxGeometry(44, 2, 28), rockMat);
     plateau.position.set(0, HILL_H - 1, -34);
     plateau.userData.solid = true;
+    plateau.receiveShadow = true;
+    plateau.castShadow = true;
     scene.add(plateau);
 
     // Sti-markering (visuell stripe langs midten av bakken og inn mot porten)
@@ -85,6 +98,8 @@ export function setupLindisfarneScene(engine: GameEngineRef): void {
     function addWall(w: number, h: number, d: number, x: number, y: number, z: number, solid = true): THREE.Mesh {
         const m = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), wallMat);
         m.position.set(x, y, z);
+        m.castShadow = true;
+        m.receiveShadow = true;
         if (solid) m.userData.solid = true;
         scene.add(m);
         return m;
@@ -122,6 +137,8 @@ export function setupLindisfarneScene(engine: GameEngineRef): void {
     const tower = new THREE.Mesh(new THREE.BoxGeometry(3, 6, 3), wallMat);
     tower.position.set(0, HILL_H + 3, -41);
     tower.userData.solid = true;
+    tower.castShadow = true;
+    tower.receiveShadow = true;
     scene.add(tower);
     const towerCone = new THREE.Mesh(new THREE.ConeGeometry(2.1, 2, 4), toonMat(0x5a4a3a));
     towerCone.position.set(0, HILL_H + 7, -41);
@@ -140,6 +157,8 @@ export function setupLindisfarneScene(engine: GameEngineRef): void {
     cloisterFloor.position.set(0, HILL_H + 0.01, -31.5);
     cloisterFloor.receiveShadow = true;
     scene.add(cloisterFloor);
+
+    portBue.castShadow = true;
 
     // Tak (dollhouse - skjules av _customUpdate når spilleren er inne)
     const roofMat = toonMat(0x5a4a3a, { roughness: 0.9 });
@@ -270,18 +289,6 @@ export function setupLindisfarneScene(engine: GameEngineRef): void {
         Array.isArray(d) ? d[0] : d;
     const dialogs = engine.config.dialogs;
 
-    // boatPaused deles mellom onEnd-callbacks og _customUpdate via closure
-    let boatPaused = false;
-
-    const cs1End = asNode(dialogs.scene_boat_1d);
-    if (cs1End) cs1End.onEnd = () => { boatPaused = false; };
-
-    const cs2End = asNode(dialogs.scene_boat_2b);
-    if (cs2End) cs2End.onEnd = () => { boatPaused = false; };
-
-    const cs3End = asNode(dialogs.scene_boat_3b);
-    if (cs3End) cs3End.onEnd = () => { boatPaused = false; beginLanding(); };
-
     // Eadfrith-valg: spar
     const eadSpared = asNode(dialogs.eadfrith_response_spared);
     if (eadSpared) {
@@ -326,28 +333,17 @@ export function setupLindisfarneScene(engine: GameEngineRef): void {
         const phase = engine.getPhase();
 
         if (phase === 'sailing') {
-            if (!boatPaused) {
-                sea.boat.position.z = Math.max(18, sea.boat.position.z - dt * 1.0);
-            }
+            sea.boat.position.z = Math.max(18, sea.boat.position.z - dt * 1.0);
             const tilt = sea.ocean.getWaveTilt(sea.boat.position.x, sea.boat.position.z);
             sea.boat.rotation.z = tilt.roll * 0.35;
             sea.boat.rotation.x = tilt.pitch * 0.2;
             sea.boat.position.y = tilt.height * 0.5;
             sea.boat.rotation.y = Math.PI;
 
-            // Cutscene-triggere - én per terskel-passering
-            if (!engine.getFlag('cs1Done') && sea.boat.position.z <= 42) {
-                engine.setFlag('cs1Done', true);
-                boatPaused = true;
-                engine.openDialog('scene_boat_1');
-            } else if (engine.getFlag('cs1Done') && !engine.getFlag('cs2Done') && sea.boat.position.z <= 35) {
-                engine.setFlag('cs2Done', true);
-                boatPaused = true;
-                engine.openDialog('scene_boat_2');
-            } else if (engine.getFlag('cs2Done') && !engine.getFlag('cs3Done') && sea.boat.position.z <= 22) {
-                engine.setFlag('cs3Done', true);
-                boatPaused = true;
-                engine.openDialog('scene_boat_3');
+            // Automatisk landgang når båten er fremme
+            if (sea.boat.position.z <= 18.1 && !engine.getFlag('landingStarted')) {
+                engine.setFlag('landingStarted', true);
+                engine.schedule(() => beginLanding(), 2500);
             }
         } else {
             sea.boat.position.set(...sea.boatEnd);

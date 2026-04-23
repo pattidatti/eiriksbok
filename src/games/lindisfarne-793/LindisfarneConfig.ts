@@ -102,7 +102,7 @@ export const lindisfarneConfig: GameConfig = {
     ],
 
     quests: [
-        { phase: 'sailing', objective: 'Lytt til mannskapet.' },
+        { phase: 'sailing', objective: '' },
         { phase: 'landing', objective: 'Gå opp stien til klosteret.' },
         { phase: 'approach', objective: 'Finn veien gjennom klosterporten.' },
         { phase: 'cloister', objective: 'Utforsk klosteret. Kapell, bibliotek og sovesal.' },

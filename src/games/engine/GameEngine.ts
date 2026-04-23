@@ -202,6 +202,8 @@ export class GameEngine {
     private camPos = new THREE.Vector3();
     private camTarget = new THREE.Vector3();
     private camDistZoom = 0; // brukerjustert zoom-offset fra musehjul
+    private indoorBlend = 0; // smooth overgang innendors/utendors (0=ute, 1=inne)
+    private wasIndoors = false;
     private shakeAmount = 0;
     private shakeDuration = 0;
     private shakeTimer = 0;
@@ -2573,14 +2575,18 @@ export class GameEngine {
         this.player.group.getWorldPosition(playerWorld);
 
         // Pivot-punkt: fast over spillerens skulder. All orbit og look-at er relativt hit.
-        const indoors = this.scene.userData._indoors === true;
-        const pivotH = indoors ? 1.5 : 1.7;
+        const nowIndoors = this.scene.userData._indoors === true;
+        if (nowIndoors && !this.wasIndoors) this.indoorBlend = 1; // snap inn umiddelbart - unnga wall-clamp-kollaps
+        else this.indoorBlend += ((nowIndoors ? 1 : 0) - this.indoorBlend) * Math.min(1, dt * 4);
+        this.wasIndoors = nowIndoors;
+        const b = this.indoorBlend;
+        const pivotH = THREE.MathUtils.lerp(1.7, 1.5, b);
         const pivot = new THREE.Vector3(playerWorld.x, playerWorld.y + pivotH, playerWorld.z);
 
         // Basis-distanse + brukerzoom, clampet per preset
-        const baseDist = indoors ? 2.8 : 4.5;
-        const minDist = indoors ? 1.8 : 3.0;
-        const maxDist = indoors ? 4.0 : 8.0;
+        const baseDist = THREE.MathUtils.lerp(4.5, 2.8, b);
+        const minDist = THREE.MathUtils.lerp(3.0, 1.8, b);
+        const maxDist = THREE.MathUtils.lerp(8.0, 4.0, b);
         const camDist = Math.max(minDist, Math.min(maxDist, baseDist + this.camDistZoom));
 
         // Orbit rundt pivot på sfære (ikke rundt spiller)
@@ -2648,6 +2654,9 @@ export class GameEngine {
         const t = this.physics.raycastSegmentXZ(player, ideal);
         if (t >= 1) return ideal.clone();
         const clampFactor = Math.max(0, t - MARGIN / distXZ);
+        // Hvis kameraet ville kollapset inn i spilleren (clampFactor naer 0), er et kort
+        // vegg-klipp langt mindre forstyrrende enn svart skjerm - returner idealposisjonen.
+        if (clampFactor < 0.05) return ideal.clone();
         return new THREE.Vector3(
             player.x + (ideal.x - player.x) * clampFactor,
             player.y + (ideal.y - player.y) * clampFactor,

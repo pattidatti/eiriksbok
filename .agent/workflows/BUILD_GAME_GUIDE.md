@@ -575,12 +575,21 @@ Dialogen er et tre av noder. Nøkkelregler:
 
 - `next: 'nodeName'` - gå til neste node (kjør `action` før navigering)
 - `next: null` - lukk dialog (kjør `action` i stedet)
-- Noden `'intro'` åpnes automatisk når spilleren trykker E på NPC første gang
-- Noden `'progress'` åpnes hvis spilleren prater med NPC midt i innsamlingsfasen
+
+**Navngiving av NPC-dialog (kritisk):**
+
+| Spilltype | Konvensjon | Eksempel |
+|-----------|------------|---------|
+| Enkelt-NPC-spill | `intro` | `dialogs: { intro: [...] }` |
+| **Fler-NPC-spill** | **`{charId}_greeting`** | `bjorg_greeting`, `helge_greeting`, `volven_greeting` |
+
+Motoren leter alltid etter `{charId}_greeting` når E trykkes nær en karakter. For enkelt-NPC-spill (Watt Lab-stil) faller den tilbake til `intro`/`progress`/`puzzleIntro`. For alle spill med to eller flere NPCer **må** hvert NPC-dialog hete `{charId}_greeting` — ellers skjer ingenting når spilleren trykker E.
+
+- Noden `'progress'` åpnes hvis spilleren prater med primær-NPC midt i innsamlingsfasen (enkelt-NPC-spill)
 - Noden `'puzzleIntro'` åpnes automatisk når alle samleobjekter er hentet
 - Noden `'puzzleWin'` åpnes automatisk 4 sekunder etter at puzzle er fullført
 
-**OTS-kamera i dialog:** Kameraet bytter automatisk side basert pa antall valg. NPC-kamera (<=1 valg) vises nar NPC snakker; spiller-kamera (>1 valg) vises nar spilleren skal velge. Ingen konfigurasjon nodvendig - se seksjon 4.5 for detaljer.
+**OTS-kamera i dialog:** Kameraet bytter automatisk side basert på antall valg. NPC-kamera (<=1 valg) vises når NPC snakker; spiller-kamera (>1 valg) vises når spilleren skal velge. Ingen konfigurasjon nødvendig - se seksjon 4.5 for detaljer.
 
 For `puzzleIntro` og `puzzleWin` - koble `choices[0].action` i `setupScene`:
 ```typescript
@@ -1255,6 +1264,11 @@ Gå gjennom listen før du starter `npm run dev` på et nytt `open`-preset-spill
 - [ ] Hvis `ssao.enabled: true`: `kernelRadius ≤ 0.15` og `maxDistance ≤ 0.05` for utendørs spill med karakterer
 - [ ] Alle SpotLights inne i lukkede rom har `castShadow: true` (se §16.10)
 - [ ] Alle dør-meshes mot `buildRoom`-åpninger har høyde `wallHeight - 0.6` og sentrum `(wallHeight - 0.6) / 2` (se §16.11)
+- [ ] Terreng og vegger har `castShadow`/`receiveShadow` satt eksplisitt (se §16.12)
+- [ ] Skrå geometri (ramper, bakker) bruker riktig fortegn på `rotation.x` (se §16.13)
+- [ ] Dialog med `cameraFraming: 'speaker'` er ikke blokkert av mast eller annen stor geometri mellom kamera og NPC (se §16.14)
+- [ ] Alle norske tekststrenger (dialog, monolog, quest-titler, endText) er sjekket for manglende å/ø/æ — søk etter ` pa `, ` ma `, ord som slutter på `fort`/`forst` (se §19 for full liste)
+- [ ] Fler-NPC-spill: alle NPC-er har dialog-nøkkel `{charId}_greeting` (ikke `_intro` eller annet — se §5)
 
 ---
 
@@ -1323,6 +1337,101 @@ chamberDoor.position.y = (doorH / 2) - cellarDoorOpenAnim * (doorH / 2 + 0.5);
 ```
 
 Komplett eksempel: `src/games/demo-world/DemoWorldAssets.ts` (chamberDoor-blokken).
+
+---
+
+### 16.12 Terreng og vegger viser ingen skygger
+
+**Symptom:** Solen er synlig og kaster lys, men ingen mesh kaster eller mottar skygge.
+
+**Årsak:** Three.js setter `Mesh.castShadow` og `Mesh.receiveShadow` til `false` som standard. Motoren aktiverer shadow maps på solen (via `SeascapeBuilder` og `buildRoom`), men traverserer ikke scenen og opt-er inn meshes automatisk — det ville vært for dyrt som en global operasjon.
+
+**Løsning:** Sett flaggene eksplisitt på meshes som er visuelle nok til å ha skygge-effekt:
+
+```typescript
+// Terreng
+beach.receiveShadow = true;
+ramp.castShadow = true;
+ramp.receiveShadow = true;
+plateau.castShadow = true;
+plateau.receiveShadow = true;
+
+// Vegger og bygg
+wall.castShadow = true;
+wall.receiveShadow = true;
+
+// Gulv (kun mottar)
+floor.receiveShadow = true;
+```
+
+**Tommelfingerregel:**
+- Flater spilleren går på → `receiveShadow = true`
+- Vegger, tårn, store objekter → begge `true`
+- Små detalj-meshes (knapper, bøker) → kan sløyfes
+
+Innendørs SpotLights trenger i tillegg `castShadow: true` på selve lyset (se §16.10).
+
+---
+
+### 16.13 Ramp-rotasjon: feil fortegn snur stigningsretningen
+
+**Symptom:** Rampen stiger i feil retning — spieleren faller ned der bakken skal gå opp.
+
+**Årsak:** Three.js `rotation.x` er ikke-intuitiv for nordgående ramper (negativ Z = nord):
+
+| `rotation.x` | +Z-enden (sør) | -Z-enden (nord) |
+|---|---|---|
+| `+vinkel` | senkes (strandnivå) | heves (platånivå) ✓ |
+| `-vinkel` | heves (feil) | senkes (feil) ✗ |
+
+**Regel:** For en ramp der spilleren går nordover (mot -Z) og opp, bruk **positivt fortegn**:
+
+```typescript
+const rampAngle = Math.atan2(høydeforskjell, horisontalLengde); // alltid positiv
+
+ramp.rotation.x = rampAngle;   // ✓ sørenden ned, nordenden opp
+// ramp.rotation.x = -rampAngle; ✗ omvendt — ikke gjør dette
+```
+
+Husk at skrå geometri alltid krever `colliderShape: 'trimesh'` for at Rapier skal bruke riktig kolliderform:
+
+```typescript
+ramp.userData.solid = true;
+ramp.userData.colliderShape = 'trimesh'; // uten dette brukes AABB-kuboid som ikke fungerer på skrå
+```
+
+---
+
+### 16.14 `cameraFraming: 'speaker'` blokkert av geometri mellom kamera og NPC
+
+**Symptom:** Under dialog ser spilleren bare en mast, vegg eller annet objekt i stedet for NPC-en som snakker.
+
+**Årsak:** OTS-kameraet posisjonerer seg *bak* spilleren og sikter mot NPC-en. Eventuelle meshes mellom disse to punktene — typisk skipets mast og seil — er ikke gjennomsiktige og blokkerer synet.
+
+**Konkrete situasjoner:**
+- Dialog ombord på skip: masten (lokal z=0) er mellom kameraet (bak spilleren) og mannskapet (fremme). Spesielt ille med bred `PlaneGeometry`-seil.
+- Dialog rett foran en vegg der veggen strekker seg bak spilleren.
+
+**Løsninger:**
+
+1. **Unngå `cameraFraming: 'speaker'`** i disse situasjonene og bruk standard `'wide'` (eller utelat `cameraFraming` — `'wide'` er default).
+
+2. **Skjul blokkerende meshes** under dialogen via `onEnd`/start-hook:
+```typescript
+// Finn seil-meshes én gang etter buildSeascape()
+const sailMeshes: THREE.Mesh[] = [];
+for (const child of sea.boat.children) {
+    if (child instanceof THREE.Mesh && child.geometry instanceof THREE.PlaneGeometry) {
+        sailMeshes.push(child);
+    }
+}
+// I _customUpdate eller dialog-callback:
+for (const m of sailMeshes) m.visible = !dialogOpen;
+```
+
+3. **Flytt NPC bak masten** (til spillersiden) slik at kameralinjen er fri.
+
+**Generell regel:** Sjekk alltid kameralinjen manuelt i første testkjøring ved å trigge dialogen og rotere kameraet — ikke stol på at OTS-vinkelen er fri.
 
 ---
 
@@ -1408,6 +1517,36 @@ Alle typer bruker samme vind-shader. Ingen geometri-endring - kun fargevariant.
 - **ALDRI em-dash (—) eller tankestrek (–)**. Bruk bindestrek (-) i stedet
 - Aktiv form fremfor passiv ("Harald samlet Norge", ikke "Norge ble samlet")
 - Test hver setning: ville en 14-åring forstått dette uten hjelp?
+
+**Vanlige AI-genereringsfeil — søk eksplisitt etter disse før ferdigstilling:**
+
+| Feil form | Riktig |
+|-----------|--------|
+| pa, paa | på |
+| ma | må |
+| ra, ga | rå, gå |
+| forst, forste | først, første |
+| nodvendig | nødvendig |
+| rekkefylge | rekkefølge |
+| fornyde | fornøyde |
+| fullfort, fullforte | fullført, fullførte |
+| gjennomforte, gjennomfores | gjennomførte, gjennomføres |
+| kjareste | kjæreste |
+| forstar | forstår |
+| var (vær-relatert) | vær |
+| dognet | døgnet |
+| Snofalt | Snøfall |
+| take (tåke-relatert) | tåke |
+| ost (retning) | øst |
+| ore | øre |
+| aere | ære |
+| mjod | mjød |
+| bolgene | bølgene |
+| halvmorket | halvmørket |
+| Royk | Røyk |
+| Asene | Åsene |
+
+Raskeste søk: se etter ` pa `, ` ma `, ` ra `, ` ga ` (med mellomrom) og ord som slutter på `fort`, `forst`, `fores` der ø er forventet.
 
 ---
 

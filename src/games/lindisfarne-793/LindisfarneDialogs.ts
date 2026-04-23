@@ -3,60 +3,6 @@ import type { DialogNode } from '../engine/types';
 // Alle NPC-dialoger i Lindisfarne 793. Actions (setFlag, setPhase, triggerEnd) kobles
 // på i LindisfarneAssets.ts siden de krever engine-referansen.
 export const lindisfarneDialogs: Record<string, DialogNode> = {
-    // ───── Cutscene 1 - Spenning (utloses nar baten passerer Z=42) ─────
-    scene_boat_1: {
-        speaker: 'Ulv',
-        text: 'Se! Der er den. Sigurd sier de har gullbeger som denne båten kan drukne i.',
-        cameraFraming: 'speaker',
-        choices: [{ text: '...', next: 'scene_boat_1b' }],
-    },
-    scene_boat_1b: {
-        speaker: 'Høvding Sigurd',
-        text: 'Ro lavt. Vi er ikke der ennå.',
-        cameraFraming: 'speaker',
-        choices: [{ text: '...', next: 'scene_boat_1c' }],
-    },
-    scene_boat_1c: {
-        speaker: 'Ulv',
-        text: 'Men hvis halvparten av munkene sovner under bønnene sine...',
-        cameraFraming: 'speaker',
-        choices: [{ text: '...', next: 'scene_boat_1d' }],
-    },
-    scene_boat_1d: {
-        speaker: 'Høvding Sigurd',
-        text: 'Enn om de ikke gjør det? Ro.',
-        cameraFraming: 'speaker',
-        choices: [{ text: '...', next: null }],
-    },
-
-    // ───── Cutscene 2 - Advarsel (utloses nar baten passerer Z=35) ─────
-    scene_boat_2: {
-        speaker: 'Den eldre',
-        text: 'Grønne øyne. Rene hender. Ingen arr ennå.',
-        cameraFraming: 'speaker',
-        choices: [{ text: '...', next: 'scene_boat_2b' }],
-    },
-    scene_boat_2b: {
-        speaker: 'Den eldre',
-        text: 'Det du gjør der inne i dag - det er ditt. Ikke Sigurds. Ikke mitt. Husk det.',
-        cameraFraming: 'speaker',
-        choices: [{ text: 'Jeg husker det.', next: null }],
-    },
-
-    // ───── Cutscene 3 - Ankomst (utloses nar baten passerer Z=22) ─────
-    scene_boat_3: {
-        speaker: 'Høvding Sigurd',
-        text: 'Se. Øya ligger rett fremfor oss. Klar deg, Torstein.',
-        cameraFraming: 'speaker',
-        choices: [{ text: '...', next: 'scene_boat_3b' }],
-    },
-    scene_boat_3b: {
-        speaker: 'Høvding Sigurd',
-        text: 'Ingen vold mot munkene - med mindre de gir oss grunn. Bønnefalk biter ikke.',
-        cameraFraming: 'speaker',
-        choices: [{ text: 'Jeg forstår.', next: null }],
-    },
-
     // ───── Broder Eadfrith (møtes i biblioteket) ─────
     eadfrith_intercept: {
         speaker: 'Broder Eadfrith',
