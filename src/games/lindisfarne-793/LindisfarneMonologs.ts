@@ -33,6 +33,14 @@ export const lindisfarneMonologs: Record<string, MonologNode> = {
         ],
         once: true,
     },
+    hill_sight: {
+        id: 'hill_sight',
+        lines: [
+            'Klosteret ligger der oppe.',
+            'Høyere enn jeg trodde. Steinmurene stikker opp over åsen.',
+        ],
+        once: true,
+    },
     climbing_path: {
         id: 'climbing_path',
         lines: [
@@ -146,8 +154,8 @@ export const lindisfarneMonologs: Record<string, MonologNode> = {
     },
 };
 
-// AABB-triggere. Koordinater matcher layouten i builders/SeascapeBuilder.ts, BeachBuilder.ts og CloisterBuilder.ts.
-// Husk at spiller-world-posisjon brukes (i seated-mode = båtens posisjon).
+// AABB-triggere. Koordinater matcher ny terreng-layout med ås (HILL_H=4).
+// Z øker sørover (mot havet), minker nordover (inn i klosteret).
 export const lindisfarneTriggers: MonologTrigger[] = [
     // Fase 'landing' - straks spiller teleporteres til strand
     {
@@ -157,17 +165,25 @@ export const lindisfarneTriggers: MonologTrigger[] = [
         requiresPhase: 'landing',
     },
 
-    // Fase 'approach' - når spiller går oppover stien
+    // Fase 'approach' - øverst på strandbakken, første syn av klosteret
+    {
+        id: 't_hill_sight',
+        monologId: 'hill_sight',
+        area: { minX: -4, maxX: 4, minZ: -8, maxZ: -5 },
+        requiresPhase: 'approach',
+    },
+
+    // Fase 'approach' - opp langs stien mot porten
     {
         id: 't_climbing',
         monologId: 'climbing_path',
-        area: { minX: -2.5, maxX: 2.5, minZ: -10, maxZ: -4 },
+        area: { minX: -3, maxX: 3, minZ: -18, maxZ: -12 },
         requiresPhase: 'approach',
     },
     {
         id: 't_gate',
         monologId: 'gate_open',
-        area: { minX: -2.5, maxX: 2.5, minZ: -19, maxZ: -17 },
+        area: { minX: -3, maxX: 3, minZ: -24, maxZ: -22 },
         requiresPhase: 'approach',
     },
 
@@ -175,31 +191,31 @@ export const lindisfarneTriggers: MonologTrigger[] = [
     {
         id: 't_chapel_silence',
         monologId: 'chapel_silence',
-        area: { minX: -4.5, maxX: 4.5, minZ: -32, maxZ: -29 },
+        area: { minX: -4.8, maxX: 4.8, minZ: -33, maxZ: -30 },
     },
     {
         id: 't_chapel_altar',
         monologId: 'chapel_altar',
-        area: { minX: -1.5, maxX: 1.5, minZ: -34, maxZ: -32.5 },
+        area: { minX: -2, maxX: 2, minZ: -39, maxZ: -37 },
     },
     {
         id: 't_library_discovery',
         monologId: 'library_discovery',
-        area: { minX: -11, maxX: -5, minZ: -24, maxZ: -20 },
+        area: { minX: -12, maxX: -5.2, minZ: -37, maxZ: -30 },
     },
     {
         id: 't_library_book',
         monologId: 'library_book',
-        area: { minX: -9.5, maxX: -7.5, minZ: -22.5, maxZ: -21 },
+        area: { minX: -9.5, maxX: -7, minZ: -34, maxZ: -32 },
     },
     {
         id: 't_dormitory_realize',
         monologId: 'dormitory_realization',
-        area: { minX: 4.5, maxX: 11.5, minZ: -25, maxZ: -19 },
+        area: { minX: 5.2, maxX: 12, minZ: -37, maxZ: -30 },
     },
     {
         id: 't_dormitory_personal',
         monologId: 'dormitory_personal',
-        area: { minX: 9, maxX: 10.2, minZ: -21.5, maxZ: -20.5 },
+        area: { minX: 9, maxX: 11, minZ: -35, maxZ: -33 },
     },
 ];

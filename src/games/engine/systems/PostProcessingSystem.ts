@@ -94,13 +94,6 @@ interface SmaaPassLike {
     setSize: (w: number, h: number) => void;
 }
 
-interface SsaoPassLike {
-    kernelRadius: number;
-    minDistance: number;
-    maxDistance: number;
-    setSize: (w: number, h: number) => void;
-    dispose?: () => void;
-}
 
 interface LutPassLike {
     lut: THREE.Data3DTexture | null;
@@ -164,7 +157,6 @@ export class PostProcessingSystem {
     private cinematicPass: CinematicPassLike | null = null;
     private fxaaPass: FxaaPassLike | null = null;
     private smaaPass: SmaaPassLike | null = null;
-    private ssaoPass: SsaoPassLike | null = null;
     private lutPass: LutPassLike | null = null;
     private lutTexture: THREE.Data3DTexture | null = null;
     private godRaysPass: GodRaysPassLike | null = null;
@@ -176,10 +168,6 @@ export class PostProcessingSystem {
     // Config-knotter (Fase 1.2, 1.5, 2.2)
     private bloomStrengthOverride: number | null = null;
     private lutName: string | null = null;
-    private ssaoConfig: { enabled: boolean; kernelRadius: number; minDistance: number; maxDistance: number } = {
-        enabled: false, kernelRadius: 0.5, minDistance: 0.005, maxDistance: 0.1,
-    };
-
     constructor(
         renderer: THREE.WebGLRenderer,
         scene: THREE.Scene,
@@ -197,14 +185,6 @@ export class PostProcessingSystem {
         if (ppConfig?.bloom?.threshold !== undefined) this.bloomThreshold = ppConfig.bloom.threshold;
         if (ppConfig?.bloom?.radius !== undefined) this.bloomRadius = ppConfig.bloom.radius;
         if (ppConfig?.lut) this.lutName = ppConfig.lut;
-        if (ppConfig?.ssao) {
-            this.ssaoConfig = {
-                enabled: ppConfig.ssao.enabled ?? true,
-                kernelRadius: ppConfig.ssao.kernelRadius ?? 0.5,
-                minDistance: ppConfig.ssao.minDistance ?? 0.005,
-                maxDistance: ppConfig.ssao.maxDistance ?? 0.1,
-            };
-        }
         const tierStrength = DEFAULT_BLOOM_STRENGTH[tier];
         this.bloomTarget = this.bloomStrengthOverride ?? tierStrength;
     }
@@ -317,27 +297,6 @@ export class PostProcessingSystem {
         }
     }
 
-    private async maybeAddSsaoPass(composer: unknown): Promise<void> {
-        if (!this.ssaoConfig.enabled) return;
-        try {
-            const { SSAOPass } = await import('three/addons/postprocessing/SSAOPass.js');
-            const pr = this.renderer.getPixelRatio();
-            const pass = new SSAOPass(
-                this.scene,
-                this.camera,
-                window.innerWidth * pr,
-                window.innerHeight * pr,
-            );
-            pass.kernelRadius = this.ssaoConfig.kernelRadius;
-            pass.minDistance = this.ssaoConfig.minDistance;
-            pass.maxDistance = this.ssaoConfig.maxDistance;
-            (composer as { addPass: (p: unknown) => void }).addPass(pass);
-            this.ssaoPass = pass as unknown as SsaoPassLike;
-        } catch (e) {
-            console.warn('SSAOPass load failed:', e);
-        }
-    }
-
     private async maybeAddLutPass(composer: unknown): Promise<void> {
         if (!this.lutName) return;
         try {
@@ -369,7 +328,6 @@ export class PostProcessingSystem {
         ]);
         const composer = new EffectComposer(this.renderer);
         composer.addPass(new RenderPass(this.scene, this.camera));
-        await this.maybeAddSsaoPass(composer);
         const bloomStrength = this.bloomStrengthOverride ?? DEFAULT_BLOOM_STRENGTH.high;
         const bloom = new UnrealBloomPass(
             new THREE.Vector2(window.innerWidth, window.innerHeight),
@@ -429,10 +387,6 @@ export class PostProcessingSystem {
         if (this.smaaPass) {
             const pr = this.renderer.getPixelRatio();
             this.smaaPass.setSize(width * pr, height * pr);
-        }
-        if (this.ssaoPass) {
-            const pr = this.renderer.getPixelRatio();
-            this.ssaoPass.setSize(width * pr, height * pr);
         }
         if (this.bloomPass) {
             this.bloomPass.resolution.set(width, height);
@@ -498,10 +452,6 @@ export class PostProcessingSystem {
         this.cinematicPass = null;
         this.fxaaPass = null;
         this.smaaPass = null;
-        if (this.ssaoPass && typeof this.ssaoPass.dispose === 'function') {
-            this.ssaoPass.dispose();
-        }
-        this.ssaoPass = null;
         this.lutPass = null;
         if (this.lutTexture) {
             this.lutTexture.dispose();

@@ -199,14 +199,6 @@ export interface PostProcessingConfig {
     };
     exposure?: number;       // tone mapping exposure, default 1.8
     lut?: string;            // LUT-preset-navn (Fase 1.5 infra — kun 'neutral' støttet nå)
-    // Fase 2.2: Screen-space ambient occlusion. Kun high-tier har full effekt.
-    // Default: av. Aktiver med { enabled: true } for standard-tuning.
-    ssao?: {
-        enabled?: boolean;
-        kernelRadius?: number;   // default 0.5
-        minDistance?: number;    // default 0.005
-        maxDistance?: number;    // default 0.1
-    };
 }
 
 // Fase 1.3: tetthetskurve for fog over dagen. Alle verdier i FogExp2-density.

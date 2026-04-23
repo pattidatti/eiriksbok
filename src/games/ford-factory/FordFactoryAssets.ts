@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import type { GameEngineRef, AABB2D, DialogNode } from '../engine/types';
 import { buildRoom } from '../engine/systems/RoomSystem';
+import { DustSystem } from '../engine/ParticleSystem';
 
 // ─── Produksjonstilstand ─────────────────────────────────────────────────────
 // Én "bil" på båndet har en Group som beveger seg fra x=-9 til x=+9.
@@ -31,7 +32,7 @@ const WORKER_IDS: readonly StationId[] = ['chassis', 'motor', 'wheels', 'body'];
 // ─── Hovedoppsett ────────────────────────────────────────────────────────────
 
 export function setupFordFactoryScene(engine: GameEngineRef): void {
-    const { scene, toonMat, config, animateReveal, schedule } = engine;
+    const { scene, toonMat, config, animateReveal, schedule, registerAnimatedLight } = engine;
     const collisionBoxes = scene.userData.collisionBoxes as AABB2D[];
 
     // ───── Bygg fabrikkhallen (åpent industrilokale) ─────
@@ -51,10 +52,10 @@ export function setupFordFactoryScene(engine: GameEngineRef): void {
     );
 
     // ───── Belysning (industriell fabrikk, 1913) ─────
-    // Dagslys gjennom takvinduene
-    scene.add(new THREE.HemisphereLight(0xfff0d0, 0x55443a, 2.2));
+    // Dempet dagslys — fabrikken er mørk og stemningsfull
+    scene.add(new THREE.HemisphereLight(0xfff0d0, 0x55443a, 1.3));
 
-    const skylight = new THREE.DirectionalLight(0xffeedd, 2.0);
+    const skylight = new THREE.DirectionalLight(0xffeedd, 1.2);
     skylight.position.set(4, 18, -6);
     skylight.castShadow = true;
     skylight.shadow.mapSize.set(1024, 1024);
@@ -164,6 +165,7 @@ export function setupFordFactoryScene(engine: GameEngineRef): void {
         spot.target.position.set(bx, -5, 0);
         scene.add(spot);
         scene.add(spot.target);
+        registerAnimatedLight(spot, 'flicker-soft', 5.0);
 
         // Gradient lyskjegle: indre + ytre sylinder med shader
         // CylinderGeometry UV: V=1 topp (spiss/nær kilden), V=0 bunn (bred/fjern)
@@ -271,6 +273,133 @@ export function setupFordFactoryScene(engine: GameEngineRef): void {
         win.position.set(wx, 4.5, -12.85);
         scene.add(win);
     }
+
+    // Ekstra lamper i sørområdet (ved inngang/kontor) — samme mønster som båndet
+    for (const lx of [-10, 0, 10]) {
+        const cord2 = new THREE.Mesh(new THREE.CylinderGeometry(0.025, 0.025, 1.0, 6), toonMat(0x1a1a1a));
+        cord2.position.set(lx, 6.3, 8);
+        scene.add(cord2);
+        const shade2 = new THREE.Mesh(
+            new THREE.CylinderGeometry(0.1, 0.42, 0.32, 14, 1, false),
+            toonMat(0x252218)
+        );
+        shade2.position.set(lx, 5.64, 8);
+        scene.add(shade2);
+        const lampColor2 = 0xffdd88;
+        const bulb2 = new THREE.Mesh(
+            new THREE.SphereGeometry(0.07, 8, 8),
+            new THREE.MeshStandardMaterial({ color: lampColor2, emissive: lampColor2, emissiveIntensity: 5.0, roughness: 0.1 })
+        );
+        bulb2.position.set(lx, 5.48, 8);
+        scene.add(bulb2);
+        const glow2 = new THREE.Mesh(
+            new THREE.SphereGeometry(0.26, 10, 8),
+            new THREE.MeshBasicMaterial({ color: lampColor2, transparent: true, opacity: 0.18, blending: THREE.AdditiveBlending, depthWrite: false })
+        );
+        glow2.position.set(lx, 5.48, 8);
+        scene.add(glow2);
+        const spot2 = new THREE.SpotLight(lampColor2, 4.0, 14, 0.44, 0.3, 1.5);
+        spot2.position.set(lx, 5.48, 8);
+        spot2.target.position.set(lx, -5, 8);
+        scene.add(spot2);
+        scene.add(spot2.target);
+        registerAnimatedLight(spot2, 'flicker-soft', 4.0);
+    }
+
+    // ───── Rør langs veggene ─────
+    const pipeMat = toonMat(0x2a2828);
+    const valveMat = toonMat(0x3a3535);
+
+    // Østveggen (x≈15.8): to horisontale løp N-S
+    for (const py of [2.2, 4.2]) {
+        const ep = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.1, 24, 8), pipeMat);
+        ep.rotation.x = Math.PI / 2;
+        ep.position.set(15.8, py, 0);
+        scene.add(ep);
+    }
+    for (const vz of [-9, -3, 3, 9]) {
+        const vp = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.1, 2.2, 8), pipeMat);
+        vp.position.set(15.8, 3.1, vz);
+        scene.add(vp);
+    }
+    for (const vz of [-6, 0, 6]) {
+        const vw = new THREE.Mesh(new THREE.TorusGeometry(0.13, 0.028, 6, 12), valveMat);
+        vw.rotation.z = Math.PI / 2;
+        vw.position.set(15.7, 2.2, vz);
+        scene.add(vw);
+    }
+
+    // Vestvegg (x≈-15.8): ett horisontalt løp
+    const wp = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.1, 24, 8), pipeMat);
+    wp.rotation.x = Math.PI / 2;
+    wp.position.set(-15.8, 2.5, 0);
+    scene.add(wp);
+    const stubW = new THREE.Mesh(new THREE.CylinderGeometry(0.09, 0.09, 2.5, 8), pipeMat);
+    stubW.rotation.z = Math.PI / 2;
+    stubW.position.set(-14.55, 2.5, 8);
+    scene.add(stubW);
+
+    // ───── Lagring: oljefat (østside) ─────
+    const drumMat = toonMat(0x252020);
+    const drumRingMat = toonMat(0x3a3535);
+    for (const [dx, dz] of [[13.5, 5], [14.5, 5.8], [13.8, 7.2], [14.6, 3.2]] as [number, number][]) {
+        const drum = new THREE.Mesh(new THREE.CylinderGeometry(0.44, 0.44, 1.1, 12), drumMat);
+        drum.position.set(dx, 0.55, dz);
+        drum.castShadow = true;
+        scene.add(drum);
+        for (const ry of [0.2, 0.85]) {
+            const ring = new THREE.Mesh(new THREE.TorusGeometry(0.46, 0.04, 6, 14), drumRingMat);
+            ring.rotation.x = Math.PI / 2;
+            ring.position.set(dx, ry, dz);
+            scene.add(ring);
+        }
+        collisionBoxes.push({ minX: dx - 0.55, maxX: dx + 0.55, minZ: dz - 0.55, maxZ: dz + 0.55 });
+    }
+
+    // ───── Lagring: kasser (vestside) ─────
+    const boxMat = toonMat(0x4a3820);
+    const boxEdgeMat = toonMat(0x2a1e10);
+    for (const [cx, cz] of [[-14, 5.5], [-13.2, 7], [-14.5, 7.8]] as [number, number][]) {
+        const box = new THREE.Mesh(new THREE.BoxGeometry(0.9, 0.9, 0.9), boxMat);
+        box.position.set(cx, 0.45, cz);
+        box.castShadow = true;
+        scene.add(box);
+        for (const [ex, ey, ez, ew, eh, ed] of [
+            [0, 0.475, 0, 0.9, 0.06, 0.06],
+            [0, 0.475, 0, 0.06, 0.06, 0.9],
+        ] as [number, number, number, number, number, number][]) {
+            const edge = new THREE.Mesh(new THREE.BoxGeometry(ew, eh, ed), boxEdgeMat);
+            edge.position.set(cx + ex, 0.45 + ey - 0.45, cz + ez);
+            scene.add(edge);
+        }
+        collisionBoxes.push({ minX: cx - 0.55, maxX: cx + 0.55, minZ: cz - 0.55, maxZ: cz + 0.55 });
+    }
+
+    // ───── Fabrikktåke: DustSystem (AdditiveBlending, size 0.06 — naturlig fabrikkatmosfære) ─────
+    const factoryDust = new DustSystem(scene, 350, 34, 7);
+
+    // ───── Tak (stålplate) ─────
+    const roofGeo = new THREE.PlaneGeometry(34, 26);
+    roofGeo.rotateX(Math.PI / 2);
+    const roofMesh = new THREE.Mesh(roofGeo, toonMat(0x252020));
+    roofMesh.position.y = 7;
+    scene.add(roofMesh);
+
+    // ───── Dobbeltdør sørinngang ─────
+    const doorH = 7 - 0.6; // 6.4 — fra gulv til tak minus ramme
+    const doorPanelMat = toonMat(0x3a2e22);
+    for (const dx of [-0.875, 0.875]) {
+        const panel = new THREE.Mesh(new THREE.BoxGeometry(1.75, doorH, 0.12), doorPanelMat);
+        panel.position.set(dx, doorH / 2, 13);
+        scene.add(panel);
+        const railMat = toonMat(0x2a1e14);
+        for (const ry of [1.4, 3.2, 4.8]) {
+            const rail = new THREE.Mesh(new THREE.BoxGeometry(1.65, 0.09, 0.14), railMat);
+            rail.position.set(dx, ry, 13);
+            scene.add(rail);
+        }
+    }
+    collisionBoxes.push({ minX: -1.85, maxX: 1.85, minZ: 12.7, maxZ: 13.4 });
 
     // ───── Samlebåndet ─────
     // Bånd fra x=-9 til x=+9, z=0, høyde 0.7
@@ -630,6 +759,9 @@ export function setupFordFactoryScene(engine: GameEngineRef): void {
 
         // Animer støvpartikler i taklampene
         for (const fn of lampDustUpdates) fn(dt, time);
+
+        // Animer fabrikktåkepartikler
+        factoryDust.update(dt);
     };
 
     // ───── Start intro-monolog kort etter spillstart ─────

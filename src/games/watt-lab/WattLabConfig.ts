@@ -20,11 +20,52 @@ export const wattLabConfig: GameConfig = {
     },
 
     visual: {
-        sky: 'none',         // innendørs workshop - ingen himmel
-        timeOfDay: 0.5,       // middag - solstråler gjennom vinduene
+        sky: 'none',
+        timeOfDay: 0.5,
         colorGrading: 'warm',
-        postProcessing: { bloom: { strength: 0.45, threshold: 0.3, radius: 0.7 }, exposure: 1.6 },
+        postProcessing: {
+            quality: 'auto',
+            bloom: { strength: 0.45, threshold: 0.30, radius: 0.7 },
+            exposure: 1.6,
+        },
     },
+
+    intro: {
+        type: 'title',
+        title: 'Watts Laboratorium',
+        subtitle: 'Glasgow, Skottland · 1765',
+        durationMs: 2500,
+        fadeMs: 700,
+        skippable: true,
+    },
+
+    lights: [
+        {
+            id: 'lamp-main',
+            position: [0, 5.5, 0],
+            color: 0xffeedd,
+            intensity: 4,
+            animation: 'flicker-soft',
+            castShadow: true,
+        },
+        {
+            id: 'lamp-forge',
+            position: [-7, 5.5, -7],
+            color: 0xff8844,
+            intensity: 5,
+            animation: 'flicker',
+            castShadow: true,
+            coneOpacity: 0.22,
+        },
+        {
+            id: 'lamp-platform',
+            position: [0, 5.5, -5],
+            color: 0xffddcc,
+            intensity: 3.5,
+            animation: 'flicker-soft',
+            castShadow: true,
+        },
+    ],
 
     physics: {
         enabled: true,
@@ -85,17 +126,17 @@ export const wattLabConfig: GameConfig = {
         },
         problem: {
             speaker: 'James Watt',
-            text: 'Se her: Hver gang dampen kondenseres inne i sylinderen, må vi varme opp hele sylinderen på nytt. Enorm sløsing av kull! Jeg har en idé — en separat kondensator! Jeg har bygget en platform der borte. Finn delene, så bygger vi maskinen sammen.',
+            text: 'Se her: Hver gang dampen kondenseres inne i sylinderen, må vi varme opp hele sylinderen på nytt. Enorm sløsing av kull! Jeg har en idé - en separat kondensator! Jeg har bygget en platform der borte. Finn delene, så bygger vi maskinen sammen.',
             choices: [{ text: 'Jeg finner delene!', next: 'fetch' }],
         },
         help: {
             speaker: 'James Watt',
-            text: 'Jeg trenger tre deler: en messingsylinder, en ventil, og — viktigst av alt — en kobberbeholder som kan fungere som separat kondensator. Let rundt i verkstedet. De bør være her et sted.',
+            text: 'Jeg trenger tre deler: en messingsylinder, en ventil, og - viktigst av alt - en kobberbeholder som kan fungere som separat kondensator. Let rundt i verkstedet. De bør være her et sted.',
             choices: [{ text: 'På saken!', next: 'fetch' }],
         },
         fetch: {
             speaker: 'James Watt',
-            text: 'Utmerket! Let etter de gule lysene rundt delene. Kom tilbake til meg ved platformen når du har alle tre — så monterer vi maskinen foran dine egne øyne.',
+            text: 'Utmerket! Let etter de gule lysene rundt delene. Kom tilbake til meg ved platformen når du har alle tre, så monterer vi maskinen foran dine egne øyne.',
             choices: [{ text: 'Greit.', next: null }],
             onEnd: () => {},
         },
@@ -106,13 +147,13 @@ export const wattLabConfig: GameConfig = {
         },
         puzzleIntro: {
             speaker: 'James Watt',
-            text: 'Fantastisk! Se på platformen — vi skal bygge maskinen del for del. For hvert riktig svar dukker neste komponent opp. Hvilken rekkefølge skal dampen strømme?',
+            text: 'Fantastisk! Se på platformen - vi skal bygge maskinen del for del. For hvert riktig svar dukker neste komponent opp. Hvilken rekkefølge skal dampen strømme?',
             choices: [
                 {
                     text: 'La oss bygge!',
                     next: null,
                     action: () => {
-                        // This is set dynamically in GameCanvas - engine calls openPuzzle
+                        // Settes dynamisk i setupScene
                     },
                 },
             ],
@@ -137,7 +178,7 @@ export const wattLabConfig: GameConfig = {
                 hint: 'Tenk på hva som varmer opp vannet til damp.',
                 options: [
                     { text: '🔥 Dampkjelen (vann varmes til damp)', correct: true, feedback: 'Riktig! Kjelen produserer dampen.' },
-                    { text: '❄ Kondensatoren', correct: false, feedback: 'Nei — kondensatoren er der dampen ENDER opp, ikke der den starter.' },
+                    { text: '❄ Kondensatoren', correct: false, feedback: 'Nei - kondensatoren er der dampen ENDER opp, ikke der den starter.' },
                 ],
             },
             {
@@ -145,12 +186,12 @@ export const wattLabConfig: GameConfig = {
                 hint: 'Dampen må presse noe for å gjøre nytte for seg.',
                 options: [
                     { text: '⚙ Sylinderen med stempelet', correct: true, feedback: 'Nettopp! Dampen presser stempelet og gjør det mekaniske arbeidet.' },
-                    { text: '📦 Rett tilbake til kjelen', correct: false, feedback: 'Det gir ingen mening — da ville dampen aldri gjort noe arbeid.' },
+                    { text: '📦 Rett tilbake til kjelen', correct: false, feedback: 'Det gir ingen mening - da ville dampen aldri gjort noe arbeid.' },
                 ],
             },
             {
                 question: 'Til slutt: Hvor skal dampen kondenseres?',
-                hint: 'Dette er Watts store idé — kondenseringen må IKKE skje i sylinderen.',
+                hint: 'Dette er Watts store idé - kondenseringen må IKKE skje i sylinderen.',
                 options: [
                     { text: '💧 Den separate kondensatoren', correct: true, feedback: 'GENIALT! Det er dette som er hele oppfinnelsen!' },
                     { text: '🔥 Inne i sylinderen', correct: false, feedback: 'Men det er jo nettopp problemet med Newcomen-maskinen! Sylinderen må holdes varm.' },
@@ -159,7 +200,59 @@ export const wattLabConfig: GameConfig = {
         ],
     },
 
-    endText: 'Du har hjulpet James Watt å oppfinne den separate kondensatoren — forbedringen som gjorde dampmaskinen til motoren bak den industrielle revolusjonen.\n\nDet tok egentlig Watt over 10 år å perfeksjonere den, men i kveld klarte dere det sammen.',
+    monologs: {
+        intro_narration: {
+            id: 'intro_narration',
+            lines: [
+                'Glasgow, Skottland. 1765.',
+                'Her i dette verkstedet er James Watt i ferd med å forandre historien.',
+            ],
+            once: true,
+        },
+        near_forge: {
+            id: 'near_forge',
+            lines: [
+                'Essen brenner. Kjelen produserer damp.',
+                'Men HELE sylinderen kjøles ned etterpå - halvparten av energien forsvinner i luft.',
+                'Det er skandaløst sløsing. Det MÅ finnes en bedre måte.',
+            ],
+            once: true,
+        },
+        found_kondensator: {
+            id: 'found_kondensator',
+            lines: [
+                'Kobberbeholderen.',
+                'Hvis dampen kondenseres HER, utenfor sylinderen, trenger vi aldri kjøle ned sylinderen igjen.',
+            ],
+            once: true,
+        },
+        engine_running: {
+            id: 'engine_running',
+            lines: [
+                'Den beveger seg.',
+                'Svinghjulet snurrer. Stempelet pumper.',
+                'For første gang kondenserer dampen UTENFOR sylinderen.',
+                'Dette er starten på den industrielle revolusjonen.',
+            ],
+            once: true,
+        },
+    },
+
+    monologTriggers: [
+        {
+            id: 't_forge',
+            monologId: 'near_forge',
+            area: { minX: -9.5, maxX: -4.5, minZ: -9.5, maxZ: -4.5 },
+        },
+        {
+            id: 't_kondensator',
+            monologId: 'found_kondensator',
+            area: { minX: -9.5, maxX: -5.5, minZ: 3, maxZ: 7 },
+            requiresPhase: 'collecting',
+        },
+    ],
+
+    endText: 'Du har hjulpet James Watt å oppfinne den separate kondensatoren - forbedringen som gjorde dampmaskinen til motoren bak den industrielle revolusjonen.\n\nDet tok egentlig Watt over 10 år å perfeksjonere den, men i kveld klarte dere det sammen.',
 
     setupScene: setupWattLabScene,
 };

@@ -171,7 +171,7 @@ function buildForge(toonMat: GameEngineRef['toonMat']): {
 // ─── Main setup function ─────────────────────────────────────────────────────
 
 export function setupWattLabScene(engine: GameEngineRef): void {
-    const { scene, toonMat, config, animateReveal, startEngineAnimation, openPuzzle, triggerEnd, setEmotion } = engine;
+    const { scene, toonMat, config, animateReveal, startEngineAnimation, openPuzzle, triggerEnd, setEmotion, playMonolog, schedule } = engine;
 
     // Engine platform
     const engineGroup = new THREE.Group();
@@ -226,6 +226,29 @@ export function setupWattLabScene(engine: GameEngineRef): void {
     pipe2.visible = false;
     engineGroup.add(pipe2);
 
+    // Steam particles - aktiveres når motoren starter
+    const steamGeo = new THREE.BufferGeometry();
+    const STEAM_N = 20;
+    const steamPos = new Float32Array(STEAM_N * 3);
+    steamGeo.setAttribute('position', new THREE.BufferAttribute(steamPos, 3));
+    const steamMat = new THREE.PointsMaterial({
+        color: 0xdddddd, size: 0.18, transparent: true, opacity: 0.35, depthWrite: false,
+    });
+    const steamPoints = new THREE.Points(steamGeo, steamMat);
+    // Worldspace: engineGroup(0,0,-5) + boilerGroup(-1.6, 0.3, 0) + dome-topp (~1.5 opp)
+    steamPoints.position.set(-1.6, 1.8, -5);
+    steamPoints.visible = false;
+    scene.add(steamPoints);
+
+    type SteamVel = { x: number; y: number; z: number; age: number };
+    const steamVels: SteamVel[] = Array.from({ length: STEAM_N }, (_, i) => ({
+        x: (Math.random() - 0.5) * 0.2,
+        y: 0.4 + Math.random() * 0.3,
+        z: (Math.random() - 0.5) * 0.2,
+        age: i / STEAM_N,
+    }));
+    let steamActive = false;
+
     // Forge
     const { group: forgeGroup, fireLayers } = buildForge(toonMat);
     forgeGroup.position.set(-7, 0, -7);
@@ -249,7 +272,7 @@ export function setupWattLabScene(engine: GameEngineRef): void {
         });
     };
 
-    // Engine run animation
+    // Engine run animation + damppartikler
     let runTime = 0;
     const engineRunUpdate = (dt: number) => {
         runTime += dt;
@@ -262,6 +285,26 @@ export function setupWattLabScene(engine: GameEngineRef): void {
 
         const needle = boilerGroup.userData.gaugeNeedle as THREE.Mesh | undefined;
         if (needle) needle.rotation.z = -0.8 + Math.sin(runTime * 8) * 0.05;
+
+        if (steamActive) {
+            for (let i = 0; i < STEAM_N; i++) {
+                const s = steamVels[i];
+                s.age += dt * 0.4;
+                if (s.age > 1) {
+                    s.age = 0;
+                    s.x = (Math.random() - 0.5) * 0.2;
+                    s.y = 0.4 + Math.random() * 0.3;
+                    s.z = (Math.random() - 0.5) * 0.2;
+                    steamPos[i * 3] = 0;
+                    steamPos[i * 3 + 1] = 0;
+                    steamPos[i * 3 + 2] = 0;
+                }
+                steamPos[i * 3] += s.x * dt;
+                steamPos[i * 3 + 1] += s.y * dt;
+                steamPos[i * 3 + 2] += s.z * dt;
+            }
+            steamGeo.attributes.position.needsUpdate = true;
+        }
     };
 
     // Register update functions on the scene so GameEngine can call them
@@ -300,8 +343,15 @@ export function setupWattLabScene(engine: GameEngineRef): void {
             pipe2.visible = true;
             animateReveal(condenserGroup);
             animateReveal(flywheelGroup);
-            setTimeout(() => startEngineAnimation(), 800);
             setEmotion('watt', 'triumphant', 3000);
+            schedule(() => {
+                steamPoints.visible = true;
+                steamActive = true;
+                startEngineAnimation();
+                playMonolog('engine_running');
+            }, 800);
         };
     }
+
+    schedule(() => playMonolog('intro_narration'), 1200);
 }

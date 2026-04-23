@@ -20,8 +20,7 @@ export const lindisfarneConfig: GameConfig = {
 
     visual: {
         sky: 'procedural',
-        timeOfDay: 0.72,        // sen ettermiddag - varmt sollys ved ankomst
-        colorGrading: 'dawn',
+        timeOfDay: 0.72,
         postProcessing: 'auto',
     },
 
@@ -40,13 +39,11 @@ export const lindisfarneConfig: GameConfig = {
     },
 
     npcRoutes: [
-        // Eadfrith vandrer rolig mellom skrivepulten og bokhylla i biblioteket
         {
             characterId: 'eadfrith',
             waypoints: [
-                [-8, -22],
-                [-6, -23],
-                [-9, -21],
+                [-8, -33],
+                [-8, -37],
             ],
             mode: 'pingpong',
             speed: 0.6,
@@ -73,7 +70,7 @@ export const lindisfarneConfig: GameConfig = {
             colors: { body: 0x8a2a1a, head: 0xd4a574, legs: 0x3a2e1e },
             characterType: 'noble',
             defaultEmotion: 'triumphant',
-            marker: true,
+            marker: false,
         },
         {
             id: 'veteran',
@@ -82,7 +79,7 @@ export const lindisfarneConfig: GameConfig = {
             colors: { body: 0x4a4038, head: 0xb8956a, legs: 0x2a221a },
             characterType: 'scientist',
             defaultEmotion: 'worried',
-            marker: true,
+            marker: false,
         },
         {
             id: 'ulv',
@@ -91,12 +88,12 @@ export const lindisfarneConfig: GameConfig = {
             colors: { body: 0x6a8a4a, head: 0xd4a574, legs: 0x3a4028 },
             characterType: 'farmer',
             defaultEmotion: 'glad',
-            marker: true,
+            marker: false,
         },
         {
             id: 'eadfrith',
             name: 'Broder Eadfrith',
-            position: [-8, 0, -22],
+            position: [-8, 4, -35],
             colors: { body: 0x3a2e1e, head: 0xe8c4a0, legs: 0x2a1f14 },
             characterType: 'monk',
             defaultEmotion: 'worried',
@@ -105,7 +102,7 @@ export const lindisfarneConfig: GameConfig = {
     ],
 
     quests: [
-        { phase: 'sailing', objective: 'Snakk med hvert mannskapsmedlem før vi lander.' },
+        { phase: 'sailing', objective: 'Lytt til mannskapet.' },
         { phase: 'landing', objective: 'Gå opp stien til klosteret.' },
         { phase: 'approach', objective: 'Finn veien gjennom klosterporten.' },
         { phase: 'cloister', objective: 'Utforsk klosteret. Kapell, bibliotek og sovesal.' },

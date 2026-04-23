@@ -3,100 +3,58 @@ import type { DialogNode } from '../engine/types';
 // Alle NPC-dialoger i Lindisfarne 793. Actions (setFlag, setPhase, triggerEnd) kobles
 // på i LindisfarneAssets.ts siden de krever engine-referansen.
 export const lindisfarneDialogs: Record<string, DialogNode> = {
-    // ───── Høvding Sigurd (sittende bakerst i båten) ─────
-    sigurd_greeting: {
-        speaker: 'Høvding Sigurd',
-        text: 'Du har ikke sovet i natt, Torstein. Første gang på tokt?',
-        choices: [
-            { text: 'Ja. Jeg har ventet lenge på dette.', next: 'chief_first' },
-            { text: 'Jeg får ikke ro. For mye i hodet.', next: 'chief_restless' },
-        ],
+    // ───── Cutscene 1 - Spenning (utloses nar baten passerer Z=42) ─────
+    scene_boat_1: {
+        speaker: 'Ulv',
+        text: 'Se! Der er den. Sigurd sier de har gullbeger som denne båten kan drukne i.',
+        cameraFraming: 'speaker',
+        choices: [{ text: '...', next: 'scene_boat_1b' }],
     },
-    chief_first: {
+    scene_boat_1b: {
         speaker: 'Høvding Sigurd',
-        text: 'Du skal få noe å fortelle om. Øya vi nærmer oss heter Lindisfarne. De har et kloster der. Gull i veggene, sølv i krusene. Og ingen vakter.',
-        choices: [
-            { text: 'Ingen vakter?', next: 'chief_guards' },
-            { text: 'Hvordan vet vi alt dette?', next: 'chief_intel' },
-        ],
+        text: 'Ro lavt. Vi er ikke der ennå.',
+        cameraFraming: 'speaker',
+        choices: [{ text: '...', next: 'scene_boat_1c' }],
     },
-    chief_restless: {
-        speaker: 'Høvding Sigurd',
-        text: 'Godt. Roligheten er farlig. De som sover best på første tokt, er dem jeg helst ikke har med neste gang. Hold deg nær Ulv når vi er i land. Han er grei.',
-        choices: [{ text: 'Jeg skal det.', next: null }],
+    scene_boat_1c: {
+        speaker: 'Ulv',
+        text: 'Men hvis halvparten av munkene sovner under bønnene sine...',
+        cameraFraming: 'speaker',
+        choices: [{ text: '...', next: 'scene_boat_1d' }],
     },
-    chief_guards: {
+    scene_boat_1d: {
         speaker: 'Høvding Sigurd',
-        text: 'De har bare munker. De ber til en mann som døde på et kors. De tror han passer på dem. Vi skal se hvor godt han gjør jobben sin.',
-        choices: [{ text: 'Jeg forstår.', next: null }],
-    },
-    chief_intel: {
-        speaker: 'Høvding Sigurd',
-        text: 'En handelsmann fra York har fortalt. Stedet er rikt, øya er lav, og sjøen går helt opp på stranda ved flo. Vi lander, tar det vi kan, og er tilbake på havet før solnedgang.',
-        choices: [{ text: 'Ok.', next: null }],
+        text: 'Enn om de ikke gjør det? Ro.',
+        cameraFraming: 'speaker',
+        choices: [{ text: '...', next: null }],
     },
 
-    // Sigurd - landgangs-trigger (vises når alle er snakket med)
-    chief_land: {
-        speaker: 'Høvding Sigurd',
-        text: 'Se. Øya ligger rett fremfor oss. Rull opp seilet. Vi er fremme. Gå i land.',
-        choices: [{ text: 'Jeg går.', next: null }],
-    },
-
-    // ───── Eldre kriger (veteran) - sitter midt i båten ─────
-    veteran_greeting: {
+    // ───── Cutscene 2 - Advarsel (utloses nar baten passerer Z=35) ─────
+    scene_boat_2: {
         speaker: 'Den eldre',
-        text: 'Se på deg. Grønne øyne, rene hender. Ikke noe arr ennå.',
-        choices: [
-            { text: 'Hvorfor er du med på dette?', next: 'veteran_why' },
-            { text: 'Du har vært med før?', next: 'veteran_before' },
-        ],
+        text: 'Grønne øyne. Rene hender. Ingen arr ennå.',
+        cameraFraming: 'speaker',
+        choices: [{ text: '...', next: 'scene_boat_2b' }],
     },
-    veteran_why: {
+    scene_boat_2b: {
         speaker: 'Den eldre',
-        text: 'Jeg var med i Friesland. Jeg var med i Irland. Jeg er med nå fordi jeg ikke kan annet. Noen av oss blir holdt fast av det vi har gjort før.',
-        choices: [{ text: '...', next: 'veteran_warning' }],
-    },
-    veteran_before: {
-        speaker: 'Den eldre',
-        text: 'For mange ganger. Og det blir ikke lettere, gutt. Folk tror det blir lettere. Det blir bare vanligere.',
-        choices: [{ text: '...', next: 'veteran_warning' }],
-    },
-    veteran_warning: {
-        speaker: 'Den eldre',
-        text: 'Jeg skal si deg noe. Det du gjør der inne i dag - det er ditt. Ikke Sigurds. Ikke mitt. Husk det.',
+        text: 'Det du gjør der inne i dag - det er ditt. Ikke Sigurds. Ikke mitt. Husk det.',
+        cameraFraming: 'speaker',
         choices: [{ text: 'Jeg husker det.', next: null }],
     },
 
-    // ───── Ulv (jevnaldrende) - sitter fremme i båten ─────
-    ulv_greeting: {
-        speaker: 'Ulv',
-        text: 'Torstein! Hørte du? Sigurd sier de har gullbeger. Ekte gull. Har du noen gang sett ekte gull?',
-        choices: [
-            { text: 'Aldri. Har du?', next: 'peer_never' },
-            { text: 'Rolig nå, Ulv.', next: 'peer_calm' },
-        ],
+    // ───── Cutscene 3 - Ankomst (utloses nar baten passerer Z=22) ─────
+    scene_boat_3: {
+        speaker: 'Høvding Sigurd',
+        text: 'Se. Øya ligger rett fremfor oss. Klar deg, Torstein.',
+        cameraFraming: 'speaker',
+        choices: [{ text: '...', next: 'scene_boat_3b' }],
     },
-    peer_never: {
-        speaker: 'Ulv',
-        text: 'Nei! Men nå får vi det. Tenk deg hva de der hjemme kommer til å si. Ryktet reiser raskere enn oss tilbake.',
-        choices: [{ text: 'Ja, kanskje.', next: 'peer_plan' }],
-    },
-    peer_calm: {
-        speaker: 'Ulv',
-        text: 'Rolig? Vi har seilt i to dager for dette! Du er vel ikke redd nå?',
-        choices: [
-            { text: 'Ikke redd. Bare - forsiktig.', next: 'peer_plan' },
-            { text: 'Litt, ja.', next: 'peer_plan' },
-        ],
-    },
-    peer_plan: {
-        speaker: 'Ulv',
-        text: 'Vi holder sammen. Hører du meg? Du og jeg. Inn først, ut sist, mest gull. Lov det.',
-        choices: [
-            { text: 'Jeg lover.', next: null },
-            { text: 'Vi får se.', next: null },
-        ],
+    scene_boat_3b: {
+        speaker: 'Høvding Sigurd',
+        text: 'Ingen vold mot munkene - med mindre de gir oss grunn. Bønnefalk biter ikke.',
+        cameraFraming: 'speaker',
+        choices: [{ text: 'Jeg forstår.', next: null }],
     },
 
     // ───── Broder Eadfrith (møtes i biblioteket) ─────

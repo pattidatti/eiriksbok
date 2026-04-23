@@ -24,8 +24,18 @@ export const fordFactoryConfig: GameConfig = {
 
     world: {
         preset: 'open',
-        backgroundColor: '#7a6e60',
-        fogDensity: 0.012,
+        backgroundColor: '#2e2a26',
+        fogDensity: 0.020,
+    },
+
+    visual: {
+        colorGrading: 'sepia',
+        timeOfDay: 0.35,
+        volumetricLight: true,
+        postProcessing: {
+            bloom: { strength: 0.4, threshold: 0.35, radius: 0.7 },
+            exposure: 0.75,
+        },
     },
 
     // Ikke migrert til Rapier/userData.solid enda - bruk legacy ingen-kollisjon-fallback.
