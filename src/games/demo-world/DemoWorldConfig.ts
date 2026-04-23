@@ -28,6 +28,8 @@ export const demoWorldConfig: GameConfig = {
             bloom: { strength: 0.4, threshold: 0.3, radius: 0.7 },
             exposure: 1.65,
             lut: 'neutral',
+            // Fase 2.2: SSAO — kun aktiv på high-tier (placering i pipeline gater det)
+            ssao: { enabled: true, kernelRadius: 0.5, minDistance: 0.005, maxDistance: 0.1 },
         },
         timeOfDay: 0.42,
         colorGrading: 'warm',
@@ -39,6 +41,10 @@ export const demoWorldConfig: GameConfig = {
             day: 0.006,
             dusk: 0.018,
         },
+        // Fase 2.3: Cascaded Shadow Maps — kun high-tier + open-preset
+        shadows: 'cascaded',
+        // Fase 2.5: volumetrisk lys / god rays — kun high-tier + open-preset
+        volumetricLight: true,
     },
 
     player: {

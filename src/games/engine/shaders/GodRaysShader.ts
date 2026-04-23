@@ -3,10 +3,12 @@
 // fullstendig volumetrisk implementasjon — scenens bright pixels (fra bloom-
 // pipelinen) fungerer som lyskilde, og vi lager stråler utover fra sun-punktet.
 
+import * as THREE from 'three';
+
 export const GodRaysShader = {
     uniforms: {
         tDiffuse: { value: null },
-        sunScreenPos: { value: [0.5, 0.85] }, // NDC i [0,1]
+        sunScreenPos: { value: new THREE.Vector2(0.5, 0.85) }, // NDC i [0,1]
         exposure: { value: 0.15 },
         decay: { value: 0.96 },
         density: { value: 0.85 },

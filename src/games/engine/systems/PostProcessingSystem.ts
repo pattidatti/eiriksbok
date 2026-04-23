@@ -110,7 +110,7 @@ interface LutPassLike {
 interface GodRaysPassLike {
     enabled: boolean;
     uniforms: {
-        sunScreenPos: { value: [number, number] | THREE.Vector2 };
+        sunScreenPos: { value: THREE.Vector2 };
         sunVisible: { value: number };
     };
 }
@@ -300,13 +300,7 @@ export class PostProcessingSystem {
     updateGodRays(sunNdcX: number, sunNdcY: number, visible: boolean): void {
         if (!this.godRaysPass) return;
         const u = this.godRaysPass.uniforms;
-        const pos = u.sunScreenPos.value as [number, number] | THREE.Vector2;
-        if (Array.isArray(pos)) {
-            pos[0] = sunNdcX;
-            pos[1] = sunNdcY;
-        } else {
-            pos.set(sunNdcX, sunNdcY);
-        }
+        u.sunScreenPos.value.set(sunNdcX, sunNdcY);
         u.sunVisible.value = visible ? 1.0 : 0.0;
     }
 

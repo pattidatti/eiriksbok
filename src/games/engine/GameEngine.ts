@@ -66,6 +66,8 @@ function easeInOut(t: number): number {
 // Gjenbruksvektorer for god rays-projeksjon (Fase 2.5) — unngår allokering per frame.
 const _sunWorldScratch = new THREE.Vector3();
 const _sunNdcScratch = new THREE.Vector3();
+const _camForwardScratch = new THREE.Vector3();
+const _sunToCamScratch = new THREE.Vector3();
 
 // Godtar både det gamle string-formatet ('auto' | 'low' | 'medium' | 'high') og den nye
 // PostProcessingConfig-objektformen, og returnerer alltid et normalisert objekt.
@@ -348,10 +350,12 @@ export class GameEngine {
         });
 
         // Cascaded shadow maps (Fase 2.3) — opt-in, kun open-preset + high-tier.
+        // Eksisterende sunLight dimmes av ShadowSystem for å unngå dobbel belysning;
+        // CSM lager 3 egne DirectionalLights som tar over både lys og skygger.
         if (visual.shadows === 'cascaded' && options.config.world.preset === 'open' && this.qualityTier === 'high') {
             this.shadowSystem = new ShadowSystem(this.scene, this.camera, this.qualityTier);
             const sunDir = this.timeOfDaySystem.getSunDirection();
-            void this.shadowSystem.init(sunDir).then(() => {
+            void this.shadowSystem.init(sunDir, this.sunLight).then(() => {
                 this.shadowSystem?.registerSceneMaterials();
             });
         }
@@ -1628,17 +1632,25 @@ export class GameEngine {
         }
 
         // Fase 2.5: projiser sol til skjerm-koordinater for god rays-pass.
-        // Solen regnes som synlig kun hvis y>0 (over horisonten) og i kamera-frustum.
+        // Solen regnes som synlig kun hvis over horisonten (y>0), foran kameraet
+        // (sjekket via kamera-forward-akse), og i kamera-frustum.
         {
             const sunDir = this.timeOfDaySystem.getSunDirection();
+            // Plasser "solen" langt borte i sin retning — posisjonert fra kameraet
+            // slik at projeksjonen blir konsistent selv når kameraet flytter seg.
             const sunWorld = _sunWorldScratch.copy(sunDir).multiplyScalar(200).add(this.camera.position);
+            // Dot-produkt med kamera-forward: > 0 betyr foran kameraet. Trengs fordi
+            // Vector3.project() kan gi misvisende NDC for punkter bak kameraet.
+            this.camera.getWorldDirection(_camForwardScratch);
+            const toSun = _sunToCamScratch.copy(sunWorld).sub(this.camera.position);
+            const inFront = toSun.dot(_camForwardScratch) > 0;
             const sunNdc = _sunNdcScratch.copy(sunWorld).project(this.camera);
-            const onScreen = sunNdc.x > -1.4 && sunNdc.x < 1.4 && sunNdc.y > -1.4 && sunNdc.y < 1.4 && sunNdc.z < 1;
+            const onScreen = sunNdc.x > -1.4 && sunNdc.x < 1.4 && sunNdc.y > -1.4 && sunNdc.y < 1.4;
             const aboveHorizon = sunDir.y > 0.05;
             this.postProcessing?.updateGodRays(
                 (sunNdc.x + 1) * 0.5,
                 (sunNdc.y + 1) * 0.5,
-                onScreen && aboveHorizon,
+                onScreen && aboveHorizon && inFront,
             );
         }
 

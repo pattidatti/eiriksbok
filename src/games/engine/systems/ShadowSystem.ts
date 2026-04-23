@@ -12,6 +12,11 @@ export class ShadowSystem {
     private camera: THREE.Camera;
     private tier: QualityTier;
     private registeredMaterials = new WeakSet<THREE.Material>();
+    // Eksisterende sol-lys dimmes når CSM er aktiv for å unngå dobbel belysning.
+    // Vi lagrer original-intensitet slik at dispose() kan gjenopprette den.
+    private replacedSun: THREE.DirectionalLight | null = null;
+    private replacedSunIntensity = 1;
+    private replacedSunCastShadow = false;
 
     constructor(scene: THREE.Scene, camera: THREE.Camera, tier: QualityTier) {
         this.scene = scene;
@@ -19,7 +24,7 @@ export class ShadowSystem {
         this.tier = tier;
     }
 
-    async init(lightDirection: THREE.Vector3): Promise<void> {
+    async init(lightDirection: THREE.Vector3, existingSun: THREE.DirectionalLight | null = null): Promise<void> {
         if (this.tier !== 'high') return;
         try {
             const { CSM } = await import('three/addons/csm/CSM.js');
@@ -35,6 +40,15 @@ export class ShadowSystem {
                 lightIntensity: 1.2,
                 lightMargin: 80,
             });
+            // Dim eksisterende sol-lys slik at CSM-lysene ikke dobler opp belysningen.
+            // Vi beholder referansen slik at dispose() restaurer tilstanden.
+            if (existingSun) {
+                this.replacedSun = existingSun;
+                this.replacedSunIntensity = existingSun.intensity;
+                this.replacedSunCastShadow = existingSun.castShadow;
+                existingSun.intensity = 0;
+                existingSun.castShadow = false;
+            }
         } catch (e) {
             console.warn('CSM load failed:', e);
         }
@@ -77,6 +91,11 @@ export class ShadowSystem {
     }
 
     dispose(): void {
+        if (this.replacedSun) {
+            this.replacedSun.intensity = this.replacedSunIntensity;
+            this.replacedSun.castShadow = this.replacedSunCastShadow;
+            this.replacedSun = null;
+        }
         if (this.csm) {
             this.csm.remove();
             this.csm.dispose();
