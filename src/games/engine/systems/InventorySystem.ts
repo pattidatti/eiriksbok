@@ -111,4 +111,10 @@ export class InventorySystem {
     private notify(): void {
         for (const fn of this.listeners) fn();
     }
+
+    dispose(): void {
+        this.listeners.clear();
+        this.slots.length = 0;
+        this.items.clear();
+    }
 }

@@ -2,7 +2,45 @@ import * as THREE from 'three';
 
 // Fase 4.1: quest-system. Lightweight event-basert: hver quest har en kjede av
 // objectives. Objectives fullføres ved flag-trigger, item-pickup, NPC-samtale,
-// eller posisjon-trigger. Worldspace-markers viser aktive objectives i scenen.
+// eller posisjon-trigger. Worldspace-markers viser aktive objectives i scenen
+// som gule diamant-sprites (sizeAttenuation=false — konstant skjermstørrelse).
+
+// Delt canvas-texture for alle markers. Genereres én gang per prosess.
+let _markerTexture: THREE.CanvasTexture | null = null;
+function getMarkerTexture(): THREE.CanvasTexture {
+    if (_markerTexture) return _markerTexture;
+    const size = 64;
+    const cvs = document.createElement('canvas');
+    cvs.width = size;
+    cvs.height = size;
+    const ctx = cvs.getContext('2d')!;
+    ctx.clearRect(0, 0, size, size);
+    // Gul diamant med mørk kant + svak glød
+    const cx = size / 2;
+    const cy = size / 2;
+    const r = size * 0.36;
+    // Glød
+    const grad = ctx.createRadialGradient(cx, cy, 0, cx, cy, r * 1.6);
+    grad.addColorStop(0, 'rgba(255,220,80,0.55)');
+    grad.addColorStop(1, 'rgba(255,220,80,0)');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, size, size);
+    // Diamant
+    ctx.beginPath();
+    ctx.moveTo(cx, cy - r);
+    ctx.lineTo(cx + r, cy);
+    ctx.lineTo(cx, cy + r);
+    ctx.lineTo(cx - r, cy);
+    ctx.closePath();
+    ctx.fillStyle = '#ffd84a';
+    ctx.fill();
+    ctx.lineWidth = 3;
+    ctx.strokeStyle = '#4a2e00';
+    ctx.stroke();
+    _markerTexture = new THREE.CanvasTexture(cvs);
+    _markerTexture.anisotropy = 4;
+    return _markerTexture;
+}
 
 export interface QuestCondition {
     flag?: string;               // flagget må være truthy
@@ -49,6 +87,9 @@ export class QuestSystem {
     private state = new Map<string, QuestState>();
     private npcTalkedTo = new Set<string>();
     private engineRef: QuestEngineRef;
+    // Fase 4.1 (post-verifisering): worldspace-markers. Key = `${questId}:${objectiveId}`.
+    private markerSprites = new Map<string, THREE.Sprite>();
+    private markerParent: THREE.Scene | null = null;
 
     constructor(defs: QuestDef[], engineRef: QuestEngineRef) {
         this.engineRef = engineRef;
@@ -109,6 +150,35 @@ export class QuestSystem {
         return this.state.get(questId)?.status === 'active';
     }
 
+    /**
+     * Aktiver en quest eksplisitt (fra dialog-action eller scripting). Ignorerer
+     * prerequisites — kall kun hvis konteksten rettferdiggjør det. Returnerer
+     * true hvis statusen endret seg (var locked). No-op hvis allerede active/completed.
+     */
+    startQuest(questId: string): boolean {
+        const state = this.state.get(questId);
+        if (!state) return false;
+        if (state.status !== 'locked') return false;
+        state.status = 'active';
+        return true;
+    }
+
+    /**
+     * Marker et objective som fullført manuelt. Går gjennom samme pipeline som
+     * evaluateCondition — når alle objectives er ferdig, neste update()-tick
+     * setter status=completed og deler ut rewardFlags. Returnerer true hvis
+     * objective ble markert (ikke allerede ferdig).
+     */
+    completeObjective(questId: string, objectiveId: string): boolean {
+        const state = this.state.get(questId);
+        if (!state || state.status !== 'active') return false;
+        const def = this.quests.get(questId);
+        if (!def || !def.objectives.some((o) => o.id === objectiveId)) return false;
+        if (state.completedObjectives.has(objectiveId)) return false;
+        state.completedObjectives.add(objectiveId);
+        return true;
+    }
+
     getAll(): Array<{ def: QuestDef; state: QuestState }> {
         return Array.from(this.quests.values()).map((def) => ({ def, state: this.state.get(def.id)! }));
     }
@@ -132,6 +202,60 @@ export class QuestSystem {
             }
         }
         return out;
+    }
+
+    /**
+     * Synkroniser worldspace-markers med aktive objectives. Lager sprites for nye
+     * markers, oppdaterer posisjon for eksisterende, og fjerner markers for
+     * objectives som er fullført eller nå inaktive.
+     */
+    updateMarkers(scene: THREE.Scene): void {
+        this.markerParent = scene;
+        const active = this.getActiveMarkers();
+        const seen = new Set<string>();
+        for (const { questId, objective, worldPos } of active) {
+            if (!worldPos) continue;
+            const key = `${questId}:${objective.id}`;
+            seen.add(key);
+            let sprite = this.markerSprites.get(key);
+            if (!sprite) {
+                const mat = new THREE.SpriteMaterial({
+                    map: getMarkerTexture(),
+                    transparent: true,
+                    depthTest: false,
+                    depthWrite: false,
+                    sizeAttenuation: false,
+                });
+                sprite = new THREE.Sprite(mat);
+                sprite.scale.set(0.05, 0.05, 1);
+                sprite.renderOrder = 999;
+                scene.add(sprite);
+                this.markerSprites.set(key, sprite);
+            }
+            // Løft markøren litt over worldPos slik at den står tydelig over NPC/objektet.
+            sprite.position.set(worldPos.x, worldPos.y + 2.2, worldPos.z);
+        }
+        // Rydd markers som ikke er aktive lenger
+        for (const [key, sprite] of this.markerSprites) {
+            if (seen.has(key)) continue;
+            scene.remove(sprite);
+            sprite.material.dispose();
+            this.markerSprites.delete(key);
+        }
+    }
+
+    dispose(): void {
+        if (this.markerParent) {
+            for (const sprite of this.markerSprites.values()) {
+                this.markerParent.remove(sprite);
+                sprite.material.dispose();
+            }
+        }
+        this.markerSprites.clear();
+        this.markerParent = null;
+        this.quests.clear();
+        this.state.clear();
+        this.npcTalkedTo.clear();
     }
 
     private evaluateCondition(c: QuestCondition): boolean {

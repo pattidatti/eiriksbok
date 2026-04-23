@@ -399,6 +399,13 @@ export interface GameEngineRef {
     // ── Fase 4.1 (quest) ──
     questIsCompleted: (questId: string) => boolean;
     questIsActive: (questId: string) => boolean;
+    // Aktiver en låst quest eksplisitt (ignorerer prerequisites). Returnerer true
+    // hvis statusen endret seg — no-op hvis allerede active/completed eller ukjent id.
+    startQuest: (questId: string) => boolean;
+    // Marker et objective som fullført manuelt. Går gjennom samme pipeline som
+    // evaluateCondition — når alle objectives er ferdig, neste update()-tick
+    // setter status=completed og deler ut rewardFlags.
+    completeObjective: (questId: string, objectiveId: string) => boolean;
     // ── Fase 4.2 (inventar) ──
     addItem: (itemId: string, count?: number) => boolean;
     removeItem: (itemId: string, count?: number) => boolean;

@@ -1,6 +1,6 @@
 # Motor-Update: Fullstendig Plan for Oppgradering av GameEngine
 
-**Status**: Fase 1-4 ferdig (2026-04-23). Fase 5-6 gjenstår.
+**Status**: Fase 1-4 ferdig og verifisert (2026-04-23). Fase 5-6 gjenstår.
 **Opprettet**: 2026-04-22
 **Mål**: Løfte motoren fra "funksjonell showroom" til "produksjonsklar mini-spillmotor" som kan bære ekte narrative spill.
 
@@ -112,6 +112,24 @@ Alle fem sub-oppgaver implementert og bygger rent. Fase 4 låser opp gameplay-fu
 **Bakoverkompatibilitet**: Eksisterende spill (Watt Lab, Lindisfarne, Ford Factory, Demo-world) måtte få minimale type-narrow-oppdateringer (`!Array.isArray(dialog)` eller `asNode()` helper) fordi `dialogs`-typen nå er union. Alle fire spill kjører uendret ved runtime.
 
 ---
+
+## Verifisering og post-fase-4-cleanup (2026-04-23)
+
+Etter en full kodegjennomgang av de fire fasene ble tre avvik fra den opprinnelige Fase 4-planen avdekket. Alle er lukket:
+
+| Hull | Løsning | Filer |
+|---|---|---|
+| **4.A** Mangler explicit quest-API | `startQuest(id)` + `completeObjective(qId, oId)` på `QuestSystem` og `GameEngineRef`. Dialog-actions kaller dem via closure. | `QuestSystem.ts`, `types.ts`, `GameEngine.ts` |
+| **4.B** Quest-markers rendres ikke | `QuestSystem.updateMarkers(scene)` bygger/oppdaterer/fjerner `THREE.Sprite`-markers (gul diamant, `sizeAttenuation=false`) hver frame. Kalt fra GameEngine-hovedloop. | `QuestSystem.ts`, `GameEngine.ts` |
+| **4.C** Ingen dispose i Quest/Inventory | `dispose()` i begge systemer rydder listeners, states og scene-bundne sprites. Kalt fra `GameEngine.dispose()`. | `QuestSystem.ts`, `InventorySystem.ts`, `GameEngine.ts` |
+
+**Weather-hysteresis-fiks** (`handleWeatherChange`): `_savedIntensity` lagres kun første gang et lys slukkes (forhindrer at rain→snow overskriver originalverdien med 0) og nullstilles ved restore.
+
+**Nye public API-er:**
+- `engine.startQuest(questId)` — aktiverer låst quest eksplisitt
+- `engine.completeObjective(questId, objectiveId)` — markerer objective ferdig manuelt
+
+**Ingen breaking changes.** Alle fire eksisterende spill kompilerer og kjører uendret.
 
 ---
 

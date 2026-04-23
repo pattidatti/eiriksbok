@@ -863,6 +863,8 @@ export class GameEngine {
             setMusicLayer: (layerId, targetVolume, fadeSec) => this.audio.setMusicLayer(layerId, targetVolume, fadeSec),
             questIsCompleted: (id) => this.questSystem?.isCompleted(id) ?? false,
             questIsActive: (id) => this.questSystem?.isActive(id) ?? false,
+            startQuest: (id) => this.questSystem?.startQuest(id) ?? false,
+            completeObjective: (qId, oId) => this.questSystem?.completeObjective(qId, oId) ?? false,
             addItem: (id, count) => this.inventorySystem?.add(id, count) ?? false,
             removeItem: (id, count) => this.inventorySystem?.remove(id, count) ?? false,
             hasItem: (id) => this.inventorySystem?.has(id) ?? false,
@@ -1560,22 +1562,28 @@ export class GameEngine {
     // WeatherSystem. Oppdaterer 'wet'-flagg og kaller config.onWeatherChange.
     private handleWeatherChange(from: import('./types').WeatherType, to: import('./types').WeatherType): void {
         const isWet = to === 'rain' || to === 'snow' || to === 'fog';
+        const wasWet = from === 'rain' || from === 'snow';
         this.flags.set('wet', isWet);
         if (isWet) this.evaluateAudioTriggers({ flag: 'wet' });
         // Fakler med userData._extinguishInRain slukkes i regn/snø.
+        // Vi lagrer _savedIntensity KUN hvis lyset ikke allerede er slukket — ellers
+        // ville rain → snow overskrevet den originale verdien med 0.
         if (to === 'rain' || to === 'snow') {
             this.scene.traverse((obj) => {
                 if (obj.userData._extinguishInRain && (obj as THREE.Light).intensity !== undefined) {
                     const light = obj as THREE.Light;
-                    obj.userData._savedIntensity = light.intensity;
+                    if (obj.userData._savedIntensity === undefined) {
+                        obj.userData._savedIntensity = light.intensity;
+                    }
                     light.intensity = 0;
                 }
             });
-        } else if (from === 'rain' || from === 'snow') {
+        } else if (wasWet) {
             // Gjenopprett lys når været klarner opp.
             this.scene.traverse((obj) => {
                 if (obj.userData._extinguishInRain && typeof obj.userData._savedIntensity === 'number') {
                     (obj as THREE.Light).intensity = obj.userData._savedIntensity;
+                    obj.userData._savedIntensity = undefined;
                 }
             });
         }
@@ -1944,6 +1952,8 @@ export class GameEngine {
 
         // Fase 4.1: evaluer quests — sjekker flagg, inventar, posisjon og NPC-samtaler.
         this.questSystem?.update();
+        // Fase 4.1 (post-verifisering): synkroniser worldspace-markers mot aktive objectives.
+        this.questSystem?.updateMarkers(this.scene);
 
         // CSM: hold sol-retning synkronisert + oppdater cascade-frustum hver frame
         if (this.shadowSystem?.isActive()) {
@@ -2207,6 +2217,10 @@ export class GameEngine {
         this.shadowSystem = null;
         this.inputManager.dispose();
         this.audio.dispose();
+        this.questSystem?.dispose();
+        this.questSystem = null;
+        this.inventorySystem?.dispose();
+        this.inventorySystem = null;
         if (document.pointerLockElement === this.renderer.domElement) {
             document.exitPointerLock();
         }
