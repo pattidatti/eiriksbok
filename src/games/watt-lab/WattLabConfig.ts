@@ -23,7 +23,7 @@ export const wattLabConfig: GameConfig = {
         sky: 'none',         // innendørs workshop - ingen himmel
         timeOfDay: 0.5,       // middag - solstråler gjennom vinduene
         colorGrading: 'warm',
-        postProcessing: 'auto',
+        postProcessing: { bloom: { strength: 0.45, threshold: 0.3, radius: 0.7 }, exposure: 1.6 },
     },
 
     physics: {

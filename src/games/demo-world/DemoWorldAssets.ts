@@ -3,29 +3,7 @@ import type { GameEngineRef, MaterialPreset } from '../engine/types';
 import { buildRoom } from '../engine/systems/RoomSystem';
 import { buildHangingLight, type HangingLightRef } from '../engine/LightBuilder';
 import { OceanSystem, FoamSystem } from '../engine/systems/OceanSystem';
-
-function makeLabelSprite(text: string, color = '#f5e9c8'): THREE.Sprite {
-    const cvs = document.createElement('canvas');
-    cvs.width = 256;
-    cvs.height = 64;
-    const ctx = cvs.getContext('2d')!;
-    ctx.fillStyle = 'rgba(20, 14, 8, 0.85)';
-    ctx.fillRect(0, 0, 256, 64);
-    ctx.strokeStyle = color;
-    ctx.lineWidth = 3;
-    ctx.strokeRect(2, 2, 252, 60);
-    ctx.fillStyle = color;
-    ctx.font = 'bold 30px sans-serif';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.fillText(text, 128, 34);
-    const tex = new THREE.CanvasTexture(cvs);
-    tex.anisotropy = 4;
-    const mat = new THREE.SpriteMaterial({ map: tex, transparent: true });
-    const sprite = new THREE.Sprite(mat);
-    sprite.scale.set(1.4, 0.36, 1);
-    return sprite;
-}
+import { makeLabelSprite } from '../engine/TextureKit';
 
 function mulberry32(seed: number): () => number {
     return function () {
@@ -206,6 +184,7 @@ export function setupDemoWorldScene(engine: GameEngineRef): void {
             angle: 0.6,
             coneHeight: 4.4,
             coneOpacity: 0.16,
+            castShadow: true,
         });
         hangingLightRefs.push(ref);
         engine.registerAnimatedLight(ref.light, 'flicker-soft', ref.light.intensity);
@@ -667,6 +646,7 @@ export function setupDemoWorldScene(engine: GameEngineRef): void {
         emissiveIntensity: 0.6,
         transparent: true,
         opacity: 0.55,
+        side: THREE.DoubleSide,
     });
     const chamberWindow = new THREE.Mesh(
         new THREE.PlaneGeometry(0.8, 0.8),
@@ -688,6 +668,7 @@ export function setupDemoWorldScene(engine: GameEngineRef): void {
         coneHeight: 2.8,
         coneOpacity: 0.22,
         animation: 'steady',
+        castShadow: true,
     });
     engine.registerAnimatedLight(chamberSpot.light, 'steady', chamberSpot.light.intensity);
 
@@ -744,10 +725,10 @@ export function setupDemoWorldScene(engine: GameEngineRef): void {
     // Kammerdør - blokkerer vest-åpningen til quest fullføres. Solid + visuell.
     const doorMat = sceneMat(0x3a2818, { preset: 'wood' });
     const chamberDoor = new THREE.Mesh(
-        new THREE.BoxGeometry(0.18, 2.2, 1.6),
+        new THREE.BoxGeometry(0.18, 2.6, 1.6),
         doorMat,
     );
-    chamberDoor.position.set(chamberBounds.minX, 1.1, chamberCz);
+    chamberDoor.position.set(chamberBounds.minX, 1.3, chamberCz);
     chamberDoor.userData.solid = true;
     chamberDoor.castShadow = true;
     chamberDoor.receiveShadow = true;
@@ -801,7 +782,7 @@ export function setupDemoWorldScene(engine: GameEngineRef): void {
             mapRepeat: [2, 2],
         });
         const panel = new THREE.Mesh(
-            new THREE.PlaneGeometry(panelW, panelH),
+            new THREE.PlaneGeometry(panelW, panelH, 16, 16),
             panelMat,
         );
         panel.position.set(px, 1.9, galleryZ - 0.16);
@@ -812,6 +793,13 @@ export function setupDemoWorldScene(engine: GameEngineRef): void {
         const label = makeLabelSprite(p.label);
         label.position.set(px, 0.9, galleryZ - 0.18);
         scene.add(label);
+    });
+
+    [-30, -26].forEach((lx) => {
+        const gLight = new THREE.PointLight(0xffe8c0, 8, 6, 2);
+        gLight.position.set(lx, 3.2, galleryZ + 1.5);
+        gLight.castShadow = false;
+        scene.add(gLight);
     });
 
     // ────────────────────────────────────────────────────────────────────────
@@ -873,10 +861,75 @@ export function setupDemoWorldScene(engine: GameEngineRef): void {
     }
 
     // ────────────────────────────────────────────────────────────────────────
-    // ── Fase 6.3: Alter-trigger (auto-deliver når 3 runesteiner i inventar) ─
+    // ── Fase 6.3: Alter-interaksjon (E-tast med 3 runesteiner i inventar) ──
     // ────────────────────────────────────────────────────────────────────────
 
-    const alterPos = altar.position.clone();
+    const PART_COUNT = 40;
+    const partPositions = new Float32Array(PART_COUNT * 3);
+    const partVelocities: THREE.Vector3[] = [];
+    for (let i = 0; i < PART_COUNT; i++) {
+        partPositions[i * 3] = altar.position.x;
+        partPositions[i * 3 + 1] = altar.position.y + 0.5;
+        partPositions[i * 3 + 2] = altar.position.z;
+        partVelocities.push(new THREE.Vector3(
+            (Math.random() - 0.5) * 5,
+            Math.random() * 5 + 2,
+            (Math.random() - 0.5) * 5,
+        ));
+    }
+    const partGeo = new THREE.BufferGeometry();
+    partGeo.setAttribute('position', new THREE.BufferAttribute(partPositions, 3));
+    const partMat = new THREE.PointsMaterial({
+        color: 0xffd700,
+        size: 0.18,
+        transparent: true,
+        opacity: 1.0,
+        depthWrite: false,
+    });
+    const altarParticles = new THREE.Points(partGeo, partMat);
+    altarParticles.visible = false;
+    scene.add(altarParticles);
+    let partActive = false;
+    let partT = 0;
+    const PART_DUR = 1.8;
+
+    engine.registerInteract(altar, {
+        radius: 2.5,
+        label: () => {
+            if (engine.getFlag('runes_delivered')) return '';
+            const n = engine.itemCount('runestone');
+            return n >= 3 ? 'Plasser steinene (E)' : `Trenger steiner (${n}/3)`;
+        },
+        onInteract: () => {
+            if (engine.getFlag('runes_delivered')) return;
+            if (engine.itemCount('runestone') < 3) {
+                engine.playMonolog('m_need_stones');
+                return;
+            }
+            engine.removeItem('runestone', 3);
+            engine.setFlag('runes_delivered', true);
+            engine.completeObjective('q_deliver', 'o_alter');
+            engine.screenFlash();
+            engine.cameraShake(0.35, 0.9);
+            const pa = partGeo.attributes.position as THREE.BufferAttribute;
+            for (let i = 0; i < PART_COUNT; i++) {
+                pa.setXYZ(i, altar.position.x, altar.position.y + 0.5, altar.position.z);
+                partVelocities[i].set(
+                    (Math.random() - 0.5) * 5,
+                    Math.random() * 5 + 2,
+                    (Math.random() - 0.5) * 5,
+                );
+            }
+            pa.needsUpdate = true;
+            partMat.opacity = 1.0;
+            altarParticles.visible = true;
+            partActive = true;
+            partT = 0;
+            engine.unregisterInteract(altar);
+            engine.playMonolog('m_alter_delivered');
+        },
+    });
+
     let cellarDoorOpenAnim = 0; // 0 = lukket, 1 = helt åpen
 
     // ── Dialog actions: wire weather + time-of-day controls ──────────────────
@@ -906,6 +959,24 @@ export function setupDemoWorldScene(engine: GameEngineRef): void {
 
     // ── Per-frame updates ────────────────────────────────────────────────────
     scene.userData._customUpdate = (dt: number, elapsed: number) => {
+        if (partActive) {
+            partT += dt;
+            const progress = partT / PART_DUR;
+            const ppa = partGeo.attributes.position as THREE.BufferAttribute;
+            for (let i = 0; i < PART_COUNT; i++) {
+                ppa.setX(i, ppa.getX(i) + partVelocities[i].x * dt);
+                ppa.setY(i, ppa.getY(i) + partVelocities[i].y * dt);
+                ppa.setZ(i, ppa.getZ(i) + partVelocities[i].z * dt);
+                partVelocities[i].y -= 9.8 * dt;
+            }
+            ppa.needsUpdate = true;
+            partMat.opacity = Math.max(0, 1 - progress);
+            if (progress >= 1) {
+                altarParticles.visible = false;
+                partActive = false;
+            }
+        }
+
         ocean.update(dt);
         foam.update(dt);
 
@@ -930,14 +1001,12 @@ export function setupDemoWorldScene(engine: GameEngineRef): void {
         for (const ref of hangingLightRefs) ref.update(dt, elapsed);
 
         const playerPos = engine.getPlayerPosition();
-        if (chapelRoof) {
-            const insideChapel =
-                playerPos.x >= chapelBounds.minX &&
-                playerPos.x <= chapelBounds.maxX &&
-                playerPos.z >= chapelBounds.minZ &&
-                playerPos.z <= chapelBounds.maxZ;
-            chapelRoof.visible = !insideChapel;
-        }
+        const insideChapel =
+            playerPos.x >= chapelBounds.minX &&
+            playerPos.x <= chapelBounds.maxX &&
+            playerPos.z >= chapelBounds.minZ &&
+            playerPos.z <= chapelBounds.maxZ;
+        if (chapelRoof) chapelRoof.visible = !insideChapel;
 
         // Dollhouse for kammeret (skjul både inner-tak og ytter-tak når spilleren er inne)
         const insideChamber =
@@ -948,20 +1017,10 @@ export function setupDemoWorldScene(engine: GameEngineRef): void {
         if (chamberRoofInner) chamberRoofInner.visible = !insideChamber;
         chamberOuterRoof.visible = !insideChamber;
 
-        // Alter-trigger: auto-deliver når spilleren er nær alteret med 3 steiner
-        if (
-            !engine.getFlag('runes_delivered') &&
-            engine.itemCount('runestone') >= 3
-        ) {
-            const dx = playerPos.x - alterPos.x;
-            const dz = playerPos.z - alterPos.z;
-            if (Math.hypot(dx, dz) < 2.0) {
-                engine.removeItem('runestone', 3);
-                engine.setFlag('runes_delivered', true);
-                engine.completeObjective('q_deliver', 'o_alter');
-                engine.playMonolog('m_alter_delivered');
-            }
-        }
+        // Screen-space god rays har ingen dybde-kunnskap og vil sample lyse emissive-piksler
+        // inne i bygninger og tegne lyssjakter som ser ut som om de penetrerer veggene.
+        // Sett _indoors slik at GameEngine kan sla av god rays-passet nar spilleren er inne.
+        scene.userData._indoors = insideChapel || insideChamber;
 
         // Kammerdør: roter åpen + fjern collider når cellar_unlocked er truthy
         if (engine.getFlag('cellar_unlocked') && cellarDoorOpenAnim < 1) {
@@ -971,7 +1030,7 @@ export function setupDemoWorldScene(engine: GameEngineRef): void {
             }
             cellarDoorOpenAnim = Math.min(1, cellarDoorOpenAnim + dt * 0.6);
             // Glid døren nedover i bakken (enkel "lukket → åpen"-anim)
-            chamberDoor.position.y = 1.1 - cellarDoorOpenAnim * 2.4;
+            chamberDoor.position.y = 1.3 - cellarDoorOpenAnim * 2.4;
             if (cellarDoorOpenAnim >= 1) {
                 chamberDoor.visible = false;
             }

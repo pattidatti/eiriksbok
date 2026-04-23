@@ -125,6 +125,7 @@ export interface BuiltCharacter {
     rLeg: THREE.Mesh;
     marker?: THREE.Mesh;
     nameLabel?: THREE.Sprite;
+    interactLabel?: THREE.Sprite;
     faceCanvas?: HTMLCanvasElement;
     faceCtx?: CanvasRenderingContext2D;
     faceTexture?: THREE.CanvasTexture;
@@ -133,37 +134,47 @@ export interface BuiltCharacter {
     defaultEmotion?: Emotion;
 }
 
+function createInteractLabel(): THREE.Sprite {
+    const canvas = document.createElement('canvas');
+    canvas.width = 256;
+    canvas.height = 64;
+    const ctx = canvas.getContext('2d')!;
+    ctx.shadowColor = 'rgba(0,0,0,0.95)';
+    ctx.shadowBlur = 14;
+    ctx.fillStyle = '#ffd45a';
+    ctx.font = 'bold 26px Inter, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('snakk (E)', 128, 32);
+    ctx.shadowBlur = 0;
+    const texture = new THREE.CanvasTexture(canvas);
+    const sprite = new THREE.Sprite(
+        new THREE.SpriteMaterial({ map: texture, transparent: true, depthWrite: false, depthTest: false })
+    );
+    sprite.renderOrder = 999;
+    sprite.scale.set(1.4, 0.35, 1);
+    return sprite;
+}
+
 function createNameLabel(name: string): THREE.Sprite {
     const canvas = document.createElement('canvas');
     canvas.width = 256;
     canvas.height = 64;
     const ctx = canvas.getContext('2d')!;
-
-    ctx.fillStyle = 'rgba(0,0,0,0.6)';
-    const r = 12;
-    ctx.beginPath();
-    ctx.moveTo(r, 0);
-    ctx.lineTo(256 - r, 0);
-    ctx.quadraticCurveTo(256, 0, 256, r);
-    ctx.lineTo(256, 64 - r);
-    ctx.quadraticCurveTo(256, 64, 256 - r, 64);
-    ctx.lineTo(r, 64);
-    ctx.quadraticCurveTo(0, 64, 0, 64 - r);
-    ctx.lineTo(0, r);
-    ctx.quadraticCurveTo(0, 0, r, 0);
-    ctx.closePath();
-    ctx.fill();
-
+    ctx.shadowColor = 'rgba(0,0,0,0.95)';
+    ctx.shadowBlur = 14;
     ctx.fillStyle = '#ffffff';
     ctx.font = 'bold 28px Inter, sans-serif';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     ctx.fillText(name, 128, 32);
+    ctx.shadowBlur = 0;
 
     const texture = new THREE.CanvasTexture(canvas);
     const sprite = new THREE.Sprite(
-        new THREE.SpriteMaterial({ map: texture, transparent: true, depthWrite: false })
+        new THREE.SpriteMaterial({ map: texture, transparent: true, depthWrite: false, depthTest: false })
     );
+    sprite.renderOrder = 999;
     sprite.scale.set(1.4, 0.35, 1);
     return sprite;
 }
@@ -240,10 +251,15 @@ export function buildCharacter(
     if (config.extras) config.extras(g);
 
     let nameLabel: THREE.Sprite | undefined;
+    let interactLabel: THREE.Sprite | undefined;
     if (config.showName !== false) {
         nameLabel = createNameLabel(config.name);
         nameLabel.position.y = 1.95;
         g.add(nameLabel);
+        interactLabel = createInteractLabel();
+        interactLabel.position.y = 2.40;
+        interactLabel.visible = false;
+        g.add(interactLabel);
     }
 
     g.position.set(...config.position);
@@ -262,7 +278,7 @@ export function buildCharacter(
     }
 
     return {
-        group: g, body, head, lArm, rArm, lLeg, rLeg, marker, nameLabel,
+        group: g, body, head, lArm, rArm, lLeg, rLeg, marker, nameLabel, interactLabel,
         faceCanvas, faceCtx, faceTexture,
         characterType: config.characterType,
         currentEmotion: config.defaultEmotion ?? (config.characterType ? 'glad' : undefined),

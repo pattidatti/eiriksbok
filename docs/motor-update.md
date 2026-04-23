@@ -197,6 +197,37 @@ Fem av seks sub-oppgaver implementert (6.5 droppet - fotomodus skal avvikles og 
 
 ---
 
+## Leveranse: PBR-realisme + Prefab-system (2026-04-22)
+
+Tre parallelle oppgraderinger som hever visuell kvalitet og produksjonsfart for alle nye spill. Eksisterende spill (Watt Lab, Lindisfarne, Ford Factory, Demo-world) berøres ikke.
+
+| Oppgave | Status | Filer endret/opprettet |
+|---|---|---|
+| IBL for workshop-preset | ✅ | `GameEngine.ts` (initWorkshopIbl + dispose) |
+| Roughness-kalibrering | ✅ | `SceneMat.ts` (stein 0.95→0.75, tre 0.85→0.70, klede 0.92→0.87, metall 0.40→0.30) |
+| TextureKit.ts + Sobel-normal-kart | ✅ | `TextureKit.ts` (ny, woodKit/stoneKit/fabricKit/dirtKit + modul-cache), `WorldBuilder.ts` (bruker TextureKit) |
+| `registerUpdate` API | ✅ | `types.ts` (GameEngineRef), `GameEngine.ts` (buildEngineRef) |
+| PropKit.ts (8 props) | ✅ | `prefabs/PropKit.ts` (ny) |
+| LightPropKit.ts (4 lys-props) | ✅ | `prefabs/LightPropKit.ts` (ny) |
+| FurnitureKit.ts (5 møbler) | ✅ | `prefabs/FurnitureKit.ts` (ny) |
+| BUILD_GAME_GUIDE.md | ✅ | Seksjoner 19.6/19.7 oppdatert med brukseksempler |
+
+**IBL (Image Based Lighting)**: `RoomEnvironment` fra `three/addons` lazy-lastet kun for `preset: 'workshop'`. PMREMGenerator genererer environment-map én gang og lagres på `scene.environment`. Ryddes i `dispose()`.
+
+**TextureKit**: Canvas-genererte flater (tre, stein, stoff, jord) med Sobel-operator for height→normal konvertering. Modul-level cache (`_woodKit ??= buildKit(...)`) sørger for at N props deler N=1 texturer.
+
+**`registerUpdate(fn)`**: Eksponerer `lightUpdates[]`-arrayet til `setupScene`-callbacken. LightPropKit bruker dette til å synkronisere flammegeometri og lys-intensitet per frame uten å hacke GameEngine direkte.
+
+**PropKit** (`src/games/engine/prefabs/PropKit.ts`): `barrel`, `crate`, `sack`, `chest`, `cauldron`, `scroll`, `anvil`, `well`. Tar `toonMat: ToonMatFn`, returnerer `THREE.Group`. Invisible collider-boks på alle props.
+
+**LightPropKit** (`src/games/engine/prefabs/LightPropKit.ts`): `campfire`, `wallTorch`, `brazier`, `candle`. Tar `engine: GameEngineRef`, er selvregistrerende (lys + animasjon). Returnerer `{ group: THREE.Group }`.
+
+**FurnitureKit** (`src/games/engine/prefabs/FurnitureKit.ts`): `bed`, `table(w?, d?)`, `chair`, `pew`, `altar`. Tar `toonMat: ToonMatFn`, returnerer `THREE.Group`.
+
+**Bakoverkompatibilitet**: Ingen breaking changes. `registerUpdate` er additivt. TextureKit-cachen er modul-scoped og ryddes med `disposeTextureKit()` hvis nødvendig.
+
+---
+
 ## Filosofi
 
 Vi deler arbeidet i seks faser. Hver fase er **selvstendig leverbar**, kan mergest isolert, og etterlater motoren i en bedre tilstand enn forrige fase. Demo-world (Lysalvendalen) er vår referansescene — hver fase skal **synlig forbedre** demoen.

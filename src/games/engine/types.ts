@@ -19,10 +19,24 @@ export interface PhysicsConfig {
     onPlayerFallDamage?: (velocity: number) => void;
 }
 
+// Opsjoner for generelle interaksjonspunkter (alter, dor, hendel etc.) registrert via
+// engine.registerInteract. Spilleren ser en floating label og trykker E for å interagere.
+export interface InteractOptions {
+    // Tekst over objektet. Kan være en funksjon for dynamisk innhold (kalles per frame).
+    // Tom streng = skjul label. Default: 'Trykk E'
+    label?: string | (() => string);
+    // Radius for E-key-registrering og label-synlighet. Default 2.5
+    radius?: number;
+    // Kalles når spilleren trykker E innen radius. Gjør ingenting av seg selv —
+    // kall engine.unregisterInteract(mesh) inni her når interaksjonen er ferdig.
+    onInteract: () => void;
+}
+
 // Opsjoner når et objekt registreres som pickupable via engine.registerPickup.
 export interface PickupOptions {
     holdOffset?: [number, number, number];  // kamera-lokal posisjon, default (0, -0.25, -1.1)
     throwForce?: number;                    // default 8
+    label?: string;                         // floating in-world tekst over objektet, f.eks. 'Plukk opp (E)'
     onPickup?: () => void;
     onDrop?: () => void;
     onThrow?: () => void;
@@ -361,6 +375,8 @@ export interface GameEngineRef {
     schedule: (callback: () => void, delayMs: number) => void;
     // Registrer et SpotLight/PointLight for automatisk animasjon i motorloopen.
     registerAnimatedLight: (light: Light, animation: LightAnimation, baseIntensity?: number) => void;
+    // Registrer en per-frame callback for prefab-animasjoner (flamme-geometri, partikler, lys-sync).
+    registerUpdate: (fn: (dt: number, elapsed: number) => void) => void;
     // Sett bloom-styrke (kun effekt på high-end). 0 = av, 0.35 = standard, 0.6 = intenst.
     // Kan også motta { strength, threshold, radius } for finere kontroll (Fase 1.2).
     setBloom: (strength: number | { strength?: number; threshold?: number; radius?: number }) => void;
@@ -389,6 +405,11 @@ export interface GameEngineRef {
     // ── Fase 4 (fysikk + interaksjon) ──
     // Registrer et objekt som plukkbart. Objektet må ha mesh.userData.solid=true og
     // dynamic=true for å få en Rapier-rigid body. Hvis fysikk er deaktivert, er dette en no-op.
+    // Fase 6+: registrer et statisk interaksjonspunkt (alter, hendel, dor, etc.).
+    // Spilleren ser en floating label og trykker E for å utlose onInteract-callbacken.
+    // Kall unregisterInteract(mesh) nar interaksjonen er brukt opp.
+    registerInteract: (mesh: Mesh, opts: InteractOptions) => void;
+    unregisterInteract: (mesh: Mesh) => void;
     registerPickup: (mesh: Mesh, opts?: PickupOptions) => void;
     isHoldingItem: () => boolean;
     dropHeldItem: () => void;

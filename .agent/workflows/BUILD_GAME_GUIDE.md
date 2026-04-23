@@ -30,7 +30,7 @@ GameEngine.ts          ← Three.js scene, renderer, animasjonsloop, input, Rapi
   │   ├── VegetationSystem.ts      ← Instansiert gress/siv/blomster/lyng/bregner/busker/trær med vind-shader
   │   ├── FaunaSystem.ts           ← Dekorative dyr: fuglflokker, sommerfugler, sau, kyr
   │   ├── DebugHudSystem.ts        ← Stats-samler for F3-overlay (FPS, drawcalls, materialer)
-  │   ├── CameraDirector.ts        ← Dialog-framing, fade, cinematics
+  │   ├── CameraDirector.ts        ← Dialog OTS-kamera (spring-punch, FOV, side-veksling), fade, cinematics
   │   ├── AIDirector.ts            ← Waypoint-vandring for NPCer
   │   ├── MonologSystem.ts         ← Indre stemme - ikke-blokkerende tekst + triggere
   │   ├── OceanSystem.ts           ← Animert hav + skum-partikler for båt
@@ -276,6 +276,7 @@ interface GameConfig {
             action?: () => void;
         }>;
         onEnd?: () => void;
+        cameraFraming?: 'wide';  // 'wide' deaktiverer OTS-kameraet for denne noden; utelatt = OTS aktivt
     }>;
 
     puzzle?: {
@@ -465,7 +466,7 @@ interface MonologTrigger {
 | `toonMat(color, opts?)` | `() => MeshStandardMaterial` | Material-shortcut (navnet er historisk - returnerer standard PBR-materiale) |
 | `sceneMat(color, opts?)` | `() => MeshStandardMaterial` | Material med presets (`'stone'`, `'wood'`, `'metal'`, osv.) |
 | `config` | `GameConfig` | Tilgang til hele spillkonfigurasjonen |
-| `getQualityTier()` | `() => 'low'\|'medium'\|'high'` | Tier valgt basert på GPU - bruk for å velge billig/dyr variant |
+| `getQualityTier()` | `() => 'low'\|'medium'\|'high'` | Tier valgt ved oppstart. Auto-terskler: `low` = cores≤4 eller dpr<1.5 (Chromebook); `high` = cores≥10 og dpr≥1.5 (XPS/MacBook Pro); ellers `medium`. Kan overstyres av bruker i SettingsMenu (gjelder neste oppstart). |
 | `animateReveal(group)` | `(Group) => void` | Skaler gruppe fra 0 til 1 med bounce |
 | `startEngineAnimation()` | `() => void` | Starter bevegelig engine-animasjon (slutt-sekvens) |
 | `openPuzzle()` | `() => void` | Åpner puzzle-UI |
@@ -482,7 +483,7 @@ interface MonologTrigger {
 | Metode | Type | Beskrivelse |
 |---|---|---|
 | `registerAnimatedLight(light, animation, baseIntensity?)` | `(Light, LightAnimation, number?) => void` | Registrer SpotLight/PointLight for motor-animasjon (`'flicker'`, `'flicker-soft'`, `'pulse'`). Brukes for lys opprettet imperativt i `setupScene`. |
-| `setBloom(strength)` | `(number) => void` | Sett bloom-styrke. Standard `0.35`, anbefalt innendørs `0.5-0.6`. Kun effekt på high-end - Chromebook kjører uten bloom. |
+| `setBloom(strength)` | `(number) => void` | Sett bloom-styrke. **Innendørs:** strength `0.4-0.55`, threshold `0.25-0.35`. **Utendørs/dagslys:** strength `0.2-0.25`, threshold `0.6-0.7` (kun lyspunkter glorer). Lav threshold + høy strength gir hvitvasket bilde i sterkt lys. Chromebook (low-tier) kjorer uten bloom. |
 
 ### 4.3 Fler-fase-spill (utendørs / flere scener)
 
@@ -517,10 +518,20 @@ interface MonologTrigger {
 
 | Metode | Type | Beskrivelse |
 |---|---|---|
-| `setCameraFraming(framing, target?)` | `('speaker'\|'wide', Vector3?) => void` | Styrt av CameraDirector; dialog-noder med `cameraFraming: 'speaker'` kaller dette automatisk |
+| `setCameraFraming(framing, target?)` | `('speaker'\|'wide', Vector3?) => void` | Manuell overstyring av dialog-kamera. `'wide'` deaktiverer OTS-effekten. |
 | `playCinematic(shots)` | `(CinematicShot[]) => Promise<void>` | Kamera-timeline; stub i dag, utvides når et spill krever det |
 | `fadeToBlack(ms?)` / `fadeFromBlack(ms?)` | `(number?) => Promise<void>` | DOM-overlay-fade via CameraDirector |
 | `skipIntro()` | `() => void` | Hopp over aktiv intro-sekvens |
+
+**Dialog OTS-kamera (automatisk):**
+Alle dialoger aktiverer automatisk et over-the-shoulder (OTS) kamera sa lenge speakerens karakter-ID finnes i scenen:
+- **NPC-side** (standard): kamera bak spilleren, NPC-en i fokus - brukes nar NPC snakker (<=1 valg)
+- **Spiller-side**: kamera bak NPC-en, spilleren i fokus - brukes automatisk ved reelle valg-noder (>1 valg)
+- **FOV** snevres fra normal (~60 deg) til 45 deg for tele-effekt nar dialog apnes
+- **Overgang inn**: underdamped spring-animasjon (~12% overshoot) gir "punch"-snap pa ~0.35 sek
+- **Overgang ut**: hardt klipp tilbake til gameplay-kamera nar dialog lukkes
+
+For a deaktivere OTS pa en enkelt node: sett `cameraFraming: 'wide'` pa den noden.
 
 ### 4.6 Fysikk og interaksjon (Fase 4)
 
@@ -530,8 +541,31 @@ interface MonologTrigger {
 | `isHoldingItem()` | `() => boolean` | Holder spilleren et objekt akkurat nå? |
 | `dropHeldItem()` | `() => void` | Slipp holdt objekt (ingen impuls) |
 | `throwHeldItem(force?)` | `(number?) => void` | Kast holdt objekt i kamera-retning (default force 8) |
+| `registerInteract(mesh, opts)` | `(Mesh, InteractOptions) => void` | Statisk interaksjonspunkt (alter, dor, hendel). Viser floating label; E utloser `onInteract`. Mesh trenger ikke physics. |
+| `unregisterInteract(mesh)` | `(Mesh) => void` | Fjern et registrert interaksjonspunkt og rydd opp label-sprite. Kall inne i `onInteract` nar interaksjonen er brukt opp. |
 
-`PickupOptions`: `{ holdOffset?: [x,y,z]; throwForce?: number; onPickup?; onDrop?; onThrow?; }`
+`PickupOptions`: `{ holdOffset?: [x,y,z]; throwForce?: number; label?: string; onPickup?; onDrop?; onThrow?; toInventory?: { itemId, count? } }`
+
+`InteractOptions`: `{ label?: string | (() => string); radius?: number; onInteract: () => void }`
+
+**Eksempel - alter som krever 3 gjenstander:**
+```typescript
+engine.registerInteract(altarMesh, {
+    radius: 2.5,
+    label: () => {
+        const n = engine.itemCount('myitem');
+        return n >= 3 ? 'Plasser gjenstander (E)' : `Trenger gjenstander (${n}/3)`;
+    },
+    onInteract: () => {
+        if (engine.itemCount('myitem') < 3) { engine.playMonolog('hint'); return; }
+        engine.removeItem('myitem', 3);
+        engine.setFlag('done', true);
+        engine.screenFlash();
+        engine.unregisterInteract(altarMesh);
+        engine.playMonolog('success');
+    },
+});
+```
 
 ---
 
@@ -545,6 +579,8 @@ Dialogen er et tre av noder. Nøkkelregler:
 - Noden `'progress'` åpnes hvis spilleren prater med NPC midt i innsamlingsfasen
 - Noden `'puzzleIntro'` åpnes automatisk når alle samleobjekter er hentet
 - Noden `'puzzleWin'` åpnes automatisk 4 sekunder etter at puzzle er fullført
+
+**OTS-kamera i dialog:** Kameraet bytter automatisk side basert pa antall valg. NPC-kamera (<=1 valg) vises nar NPC snakker; spiller-kamera (>1 valg) vises nar spilleren skal velge. Ingen konfigurasjon nodvendig - se seksjon 4.5 for detaljer.
 
 For `puzzleIntro` og `puzzleWin` - koble `choices[0].action` i `setupScene`:
 ```typescript
@@ -631,6 +667,8 @@ scene.userData._engineRunUpdate = (dt: number) => { ... };  // motoranimasjon (e
 
 `GameEngine` kaller alle disse automatisk hvert frame hvis de er satt. Bruk alltid `elapsed` (ikke akkumulert `dt`) for sinusbølger og shader-uniforms.
 
+> **Ikke bruk `_customUpdate` for interaksjonslevering.** Mønsteret `if (itemCount >= N && Math.hypot(dx, dz) < 2.0)` gir null feedback til spilleren og er stum ved feil. Bruk `engine.registerInteract(mesh, opts)` i stedet — se seksjon 19.9.
+
 ---
 
 ## 10. Lyssystem (innendørs lyskilder)
@@ -655,7 +693,7 @@ lights: [
         penumbra: 0.35,              // myk kant (0 = skarp); standard 0.35
         coneHeight: 4.0,             // lengde på synlig lysstråle; standard 4.0
         coneOpacity: 0.18,           // synlighet av strålen; standard 0.18
-        castShadow: false,           // dyrt - maks ett lys bør kaste skygge per rom
+        castShadow: true,            // ALLTID true for lys inne i lukkede rom (se §16.10)
     },
 ]
 ```
@@ -687,14 +725,22 @@ scene.userData._customUpdate = (dt, elapsed) => {
 };
 ```
 
-### 10.3 Bloom-boost for mørke rom
+### 10.3 Bloom-tuning
 
 ```typescript
-// I setupScene, etter at alle lys er bygget:
-engine.setBloom(0.55);  // standard 0.35 - øk for mørke innendørs-scener
+// I GameConfig.visual.postProcessing:
+bloom: { strength: 0.22, threshold: 0.65, radius: 0.6 }  // utendørs/dagslys
+bloom: { strength: 0.45, threshold: 0.30, radius: 0.7 }  // innendørs/mørkt
 ```
 
-Effekt kun på high-end enheter. Chromebook kjører uten bloom - sørg for at scenen ser bra ut uten.
+| Scenario | strength | threshold | radius |
+|---|---|---|---|
+| Utendørs dagslys | 0.2-0.25 | 0.6-0.7 | 0.5-0.6 |
+| Innendørs | 0.4-0.55 | 0.25-0.35 | 0.7 |
+
+**Advarsel:** `threshold < 0.4` i en lys utendørs-scene gir hvitvasket bilde - nesten alle piksler bidrar til bloom. Øk threshold til minimum 0.6 for dagslys-scener.
+
+Effekt kun på medium/high-tier. Chromebook (low) kjorer uten bloom - sørg for at scenen ser bra ut uten.
 
 ### 10.4 Animasjonstyper
 
@@ -707,7 +753,7 @@ Effekt kun på high-end enheter. Chromebook kjører uten bloom - sørg for at sc
 
 ### 10.5 Ytelsesregler
 
-- Unngå `castShadow: true` på mer enn ett lys per rom (hvert skygge-SpotLight bruker ekstra render-pass)
+- **Alle SpotLights inne i lukkede rom MÅ ha `castShadow: true`** — uten det blør lyset gjennom veggene (se §16.10). `LightBuilder` setter automatisk `shadow.mapSize.set(512, 512)`, `shadow.camera.far = distance` og `shadow.bias = -0.001`. I rom med 4+ lys: alle trenger `castShadow: true` — for ytelse, bruk `shadow.mapSize.set(256, 256)` på de svakeste.
 - 5-6 SpotLights per scene er trygt. Over 10 kan gi ytelsesproblemer på Chromebook.
 - Støvpartikler (30 per lampe) er billige - CPU-oppdatert BufferGeometry
 
@@ -978,7 +1024,11 @@ endText: (engine) => {
 | `src/games/engine/types.ts` | Alle typer: `GameConfig`, `GameEngineRef`, `LightConfig`, `MonologNode`, `RoomDef`, osv. |
 | `src/games/engine/LightBuilder.ts` | `buildHangingLight` - SpotLight + shader-kjegle + støvpartikler. Eksporterer `HangingLightRef`. |
 | `src/games/engine/CharacterBuilder.ts` | `drawFace`, `lerpParams`, `EMOTION_PARAMS` - emosjonssystemets tegnelogikk |
-| `src/games/engine/SceneMat.ts` | Material-presets: stein, tre, stoff, metall, vann, jord |
+| `src/games/engine/SceneMat.ts` | Material-presets: stein, tre, stoff, metall, vann, jord (kalibrerte PBR-roughness-verdier) |
+| `src/games/engine/TextureKit.ts` | Canvas-genererte texturer + Sobel normal maps: `woodKit()`, `stoneKit()`, `fabricKit()`, `dirtKit()`. Eksporterer også `makeLabelSprite(text, color?, fontSize?)` — bruk denne for alle 3D-label-sprites i egne spill, aldri lag lokale kopier. |
+| `src/games/engine/prefabs/PropKit.ts` | Historiske rekvisitter: `barrel`, `crate`, `sack`, `chest`, `cauldron`, `scroll`, `anvil`, `well` |
+| `src/games/engine/prefabs/LightPropKit.ts` | Selvregistrerende lys-props: `campfire`, `wallTorch`, `brazier`, `candle` — tar `engine: GameEngineRef` |
+| `src/games/engine/prefabs/FurnitureKit.ts` | Interiørmøbler: `bed`, `table`, `chair`, `pew`, `altar` |
 | `src/games/engine/systems/PhysicsWorld.ts` | Rapier3D-wrapper: character controller, raycast, fixed timestep |
 | `src/games/engine/systems/InteractableSystem.ts` | Pickup/drop (E) og kast (F) for dynamiske objekter |
 | `src/games/engine/systems/PostProcessingSystem.ts` | EffectComposer med tier-valg: bloom, tone mapping, color grading |
@@ -1170,7 +1220,23 @@ ground.userData.solid = true;            // ← uten dette faller spilleren gjen
 scene.add(ground);
 ```
 
-### 16.7 Sjekkliste før første testkjøring
+### 16.7 `PlaneGeometry` uten segmenter gjor normal-maps usynlige
+
+`PlaneGeometry(w, h)` lager kun 4 hjornepunkter. Three.js beregner tangentrom per vertex - med 4 punkter er hele flaten en uniform tangentvektor, og normal-maps produserer ingen synlig relieff. Alle paneler vil se identiske og flate ut uavhengig av materialinnstillingene.
+
+```ts
+// Feil - normal/roughness-maps har ingen effekt
+new THREE.PlaneGeometry(1.5, 1.5)
+
+// Riktig - 16x16 segmenter gir nok punkter for tangentromberegning
+new THREE.PlaneGeometry(1.5, 1.5, 16, 16)
+```
+
+Regelen gjelder alle flate plan-geometrier som bruker `normalMap`, `roughnessMap` eller `aoMap` - vegger, skilt, gulvfliser, display-paneler. `BoxGeometry` og `SphereGeometry` har egne segmentparametere og er ikke pavirket av dette.
+
+I tillegg: normal-maps er avhengige av at lys treffer flaten fra en vinkel. Jevnt hemisfaerlys alene er ikke nok - legg til et `PointLight` eller `SpotLight` naer veggen for at relieffet skal synes.
+
+### 16.8 Sjekkliste før første testkjøring
 
 Gå gjennom listen før du starter `npm run dev` på et nytt `open`-preset-spill:
 
@@ -1184,7 +1250,79 @@ Gå gjennom listen før du starter `npm run dev` på et nytt `open`-preset-spill
 - [ ] `FoamSystem`-origin-y og båt-base-y matcher faktisk havnivå
 - [ ] Båter og flytende objekter er plassert i åpent synlig hav, ikke skjult bak land eller strand
 - [ ] Dynamiske pickupable objekter har `linearDamping` + `angularDamping` satt, og bruker `cuboid`-collider (ikke `sphere`)
+- [ ] Interaksjonspunkter (alter, dor, hendel) bruker `engine.registerInteract` - ikke manuell proximity-logikk i `_customUpdate`
 - [ ] Monolog-trigger-områder matcher faktiske verdenskoordinater etter eventuell relokering
+- [ ] Hvis `ssao.enabled: true`: `kernelRadius ≤ 0.15` og `maxDistance ≤ 0.05` for utendørs spill med karakterer
+- [ ] Alle SpotLights inne i lukkede rom har `castShadow: true` (se §16.10)
+- [ ] Alle dør-meshes mot `buildRoom`-åpninger har høyde `wallHeight - 0.6` og sentrum `(wallHeight - 0.6) / 2` (se §16.11)
+
+---
+
+### 16.9 SSAO-halos rundt karakterer og sprites
+
+**Symptom:** Mork halo-ring rundt NPC-er, spilleren eller floating labels nar high-tier er aktivt.
+
+**Årsak:** `ssao.kernelRadius` for stor. SSAO sampler skjermrom-omgivelser - et stort kernel sprenger utenfor geometriens kanter og lager falske skyggekanter mot bakgrunnen. Sprites som mangler `depthTest: false` gar inn i SSAO-prepasset som solid geometri og far egne halos.
+
+**Løsning:**
+```typescript
+// I GameConfig.visual.postProcessing:
+ssao: { enabled: true, kernelRadius: 0.12, minDistance: 0.001, maxDistance: 0.05 }
+```
+
+For sprites opprettet manuelt (utenom `engine.registerPickup`/`engine.registerInteract`): bruk alltid `makeLabelSprite()` fra TextureKit, eller sett eksplisitt:
+```typescript
+sprite.material.depthTest = false;
+sprite.renderOrder = 999;
+```
+
+### 16.10 Innendørs SpotLight uten `castShadow` blør gjennom vegger
+
+`THREE.SpotLight` (og `PointLight`) uten `castShadow: true` beregner belysning som om ingen geometri eksisterer mellom lyskilden og overflaten. Et lys med `distance: 14` inne i et 10×9-rom lyser opp terrenget, trærne og NPCene utenfor bygningen - veggene er usynlige for lysmotoren.
+
+**Løsning:** Bruk alltid `castShadow: true` for lys inne i lukkede rom:
+
+```ts
+buildHangingLight(scene, {
+    // ...
+    castShadow: true,   // ← alltid for innendørs lys
+});
+```
+
+`LightBuilder` setter automatisk `shadow.camera.far = distance` og `shadow.bias = -0.001` når `castShadow: true`. Disse er kritiske: uten `shadow.camera.far = distance` bruker Three.js default `far=500`, noe som sløser oppløsning og gir dårlig skygge-kvalitet.
+
+**Diagnosesteg:** Stå utenfor bygningen og skru av solen (`engine.setTimeOfDay(0.03)` for natt). Er det fortsatt varmt glød fra innendørslysene på utsiden av veggene? Da mangler `castShadow: true`.
+
+**Low-quality tier:** `renderer.shadowMap.enabled = false` på Chromebook low-tier — shadows rendres ikke uavhengig av flagget. Lys-bleeding er akseptabel på low-tier; det er ikke synlig på 1366×768-skjermene.
+
+---
+
+### 16.11 Dørgeometri må fylle RoomSystem-åpningen eksakt
+
+`buildRoom` lager en lintel (overligger) over åpninger: 0.6 enheter høy, plassert øverst i veggen (`y = wallHeight - 0.6` til `y = wallHeight`). Åpningens faktiske spillbare høyde er `wallHeight - 0.6`. En dør-mesh kortere enn dette gir en synlig glipe mellom dørtoppen og lintelens underkant.
+
+**Riktig formel:**
+
+```ts
+const LINTEL_H = 0.6;                        // konstant fra RoomSystem
+const doorH = chamberWallH - LINTEL_H;       // f.eks. 3.2 - 0.6 = 2.6
+const doorW = openingWidth;                  // match openings[].width
+
+const chamberDoor = new THREE.Mesh(
+    new THREE.BoxGeometry(wallThickness, doorH, doorW),
+    doorMat,
+);
+chamberDoor.position.set(wallX, doorH / 2, openingZ);  // senter = doorH/2
+```
+
+Husk å oppdatere animasjoner som bruker start-y: start alltid fra `doorH / 2`, ikke en hardkodet verdi.
+
+```ts
+// Åpne-animasjon - skyv ned i bakken:
+chamberDoor.position.y = (doorH / 2) - cellarDoorOpenAnim * (doorH / 2 + 0.5);
+```
+
+Komplett eksempel: `src/games/demo-world/DemoWorldAssets.ts` (chamberDoor-blokken).
 
 ---
 
@@ -1462,23 +1600,82 @@ npcBehaviors: [
 
 Behavior-typer: `approach` | `flee` | `face` | `alert`. Hysterese på 1.5× distance forhindrer flicker. Sett `setFlag` for å trigge en quest-condition første gang reaksjonen fyrer.
 
-### 19.6 PBR-materialer (Fase 2.1)
+### 19.6 PBR-materialer
 
-`engine.sceneMat(color, opts)` aksepterer normal/roughness/AO-maps. `engine.getTexture(preset, kind)` gir prosedyrale standard-texturer som er cached og delt mellom materialer:
+**IBL (Image Based Lighting)** er automatisk aktivt:
+- `workshop`-preset: `RoomEnvironment` bakes til env-map ved oppstart - alle PBR-materialer reflekterer omgivelseslys uten ekstra kode.
+- `open`-preset + high-tier: `SkySystem` håndterer IBL fra prosedyral himmel (uendret).
+
+**TextureKit** - canvas-genererte texturer med matching Sobel normal maps. Bruk i egne builders:
+
+```ts
+import { woodKit, stoneKit, fabricKit, dirtKit } from '../engine/TextureKit';
+
+const wood = woodKit();
+wood.tex.repeat.set(4, 4);
+wood.normalMap.repeat.set(4, 4);
+const gulvMat = toonMat(0x7a5030, { map: wood.tex, normalMap: wood.normalMap });
+```
+
+Tilgjengelige kits: `woodKit()`, `stoneKit()`, `fabricKit()`, `dirtKit()`. Alle returnerer `{ tex, normalMap }`.
+
+**`makeLabelSprite(text, color?, fontSize?)`** - eneste godkjente måte å lage 3D-label-sprites på. Tekst-kun, ingen bakgrunnsramme, lesbar via canvas `shadowBlur`. Setter alltid `depthTest: false` og `renderOrder: 999` - uten dette vil SSAO-prepasset behandle sprites som solid geometri og lage svarte halos. Aldri lag lokale kopier av denne logikken i spill-filer.
+
+```ts
+import { makeLabelSprite } from '../engine/TextureKit';
+
+const label = makeLabelSprite('Runestein', '#f5e9c8', 28);
+label.position.set(x, y + 1.2, z);
+scene.add(label);
+```
+
+`engine.registerPickup` og `engine.registerInteract` kaller denne internt — du trenger den bare for dekorative labels utenfor interaksjons-systemet.
+
+**`engine.getTexture(preset, kind)`** - eldre API via `TextureManager`, fortsatt gyldig for config-nivå tekstur-tilgang:
 
 ```ts
 const panelMat = engine.sceneMat(0x9a9088, {
     preset: 'stone',
     normalMap:    engine.getTexture('stone', 'normal'),
     roughnessMap: engine.getTexture('stone', 'roughness'),
-    aoMap:        engine.getTexture('stone', 'ao'),
     mapRepeat: [2, 2],
 });
 ```
 
-Tilgjengelige presets: `stone | wood | cloth | metal | leaf | water | soil`. På high-tier scener kombineres dette med IBL fra SkySystem (Fase 2.4) og CSM-skygger (Fase 2.3) automatisk.
+Tilgjengelige presets: `stone | wood | cloth | metal | leaf | water | soil`.
 
-### 19.7 Weather → Gameplay
+### 19.7 Prefab-biblioteker
+
+Tre ferdigbygde biblioteker for historiske scener. Alle props har korrekt `userData.solid` og `colliderShape`.
+
+**PropKit** - rekvisitter (tar `toonMat`, returnerer `THREE.Group`):
+```ts
+import { barrel, crate, sack, chest, cauldron, scroll, anvil, well } from '../engine/prefabs/PropKit';
+
+const b = barrel(engine.toonMat);
+b.position.set(3, 0, -5);
+engine.scene.add(b);
+```
+
+**LightPropKit** - selvregistrerende lys-props (tar `engine`, returnerer `{ group }`):
+```ts
+import { campfire, wallTorch, brazier, candle } from '../engine/prefabs/LightPropKit';
+
+// Lys og flamme-animasjon registreres automatisk — bare plasser gruppen
+const { group } = campfire(engine);
+group.position.set(0, 0, -8);
+```
+
+**FurnitureKit** - interiørmøbler (tar `toonMat`, returnerer `THREE.Group`):
+```ts
+import { bed, table, chair, pew, altar } from '../engine/prefabs/FurnitureKit';
+
+const t = table(engine.toonMat, 2.0, 1.0); // w, d valgfri
+t.position.set(-4, 0, 2);
+engine.scene.add(t);
+```
+
+### 19.8 Weather → Gameplay
 
 ```ts
 onWeatherChange: (from, to, engine) => {
@@ -1507,6 +1704,40 @@ if (engine.getFlag('door_unlocked')) {
 
 Bruk dette sparsomt - prefer å designe verdenen slik at solide objekter ikke trenger å forsvinne. Kall `removeStaticCollider` én gang per mesh.
 
+### 19.9 Custom interaksjonspunkter (`registerInteract`)
+
+For statiske objekter spilleren kan interagere med via E-tasten - alter, hendler, portaler, bokser, skilt. Krever ingen physics-oppsett.
+
+```ts
+engine.registerInteract(mesh, {
+    radius: 2.5,           // E-radius og label-synlighetsradius (x2). Default 2.5
+    label: () => {         // Funksjon = dynamisk tekst per frame
+        const n = engine.itemCount('coin');
+        return n >= 3 ? 'Legg inn mynter (E)' : `Trenger mynter (${n}/3)`;
+    },
+    onInteract: () => {
+        if (engine.itemCount('coin') < 3) {
+            engine.playMonolog('m_need_coins');  // hint, ikke stum avvisning
+            return;
+        }
+        engine.removeItem('coin', 3);
+        engine.setFlag('gate_paid', true);
+        engine.screenFlash();
+        engine.unregisterInteract(mesh);   // rydder opp label + sprite
+        engine.playMonolog('m_gate_opened');
+    },
+});
+```
+
+**Noekkelregler**:
+- `label` kan vaere `string` (fast) eller `() => string` (dynamisk). Canvas tegnes kun pa nytt nar teksten endrer seg.
+- Tom streng fra `label()` skjuler label-spriten automatisk.
+- Kall `engine.unregisterInteract(mesh)` nar interaksjonen er brukt opp - rydder Three.js sprite + texture.
+- `engine.completeObjective(qId, oId)` inne i `onInteract` krever at questen er `active`. Sett heller et flagg med `engine.setFlag` og la quest-systemets `condition: { flag }` ta seg av resten automatisk.
+- **Ikke bruk** `_customUpdate` med manuelle avstandsberegninger og `itemCount`-sjekker for dette - det er stum proximity-logikk uten feedback. Bruk alltid `registerInteract`.
+
+Referanseimplementasjon: alteret i Lysalvendalen (`src/games/demo-world/DemoWorldAssets.ts`).
+
 ---
 
 ## 20. Best practices ("Dette burde du bruke i et nytt spill")
@@ -1521,6 +1752,11 @@ Sjekkliste hentet fra fasene 1-6. Følg disse, og motoren oppfører seg som forv
 **Markering av geometri**:
 - Bruk `markSolid(mesh)`, `markClimbable(mesh)`, `markPickupable(mesh, opts)` fra `engine/sceneUserData` i stedet for direkte `mesh.userData.solid = true`. Typene fanger opp tastefeil.
 - Pickupable objekter må ha `colliderShape: 'cuboid'` (sphere ruller evig i Rapier) og `linearDamping`/`angularDamping` over 0.
+
+**Interaksjon**:
+- Bruk `engine.registerInteract(mesh, opts)` for alt som skal reagere pa E-tasten (alter, dorer, hendler). Aldri manuell proximity-logikk i `_customUpdate`.
+- Gi alltid visuell feedback nar spilleren prover en interaksjon uten a oppfylle betingelsen - `engine.playMonolog('hint')` er nok.
+- Kall `engine.unregisterInteract(mesh)` nar interaksjonen er gjort - ellers klikkar spilleren E pa et objekt som ikke lenger reagerer logisk.
 
 **Per-frame-arbeid**:
 - Bruk `engine.schedule(callback, ms)` i stedet for `setTimeout` i setupScene/dialog-actions. Da kanselleres callbacken automatisk hvis spillet disposes underveis.

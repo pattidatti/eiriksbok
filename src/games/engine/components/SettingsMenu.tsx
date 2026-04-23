@@ -1,5 +1,10 @@
 import { useState } from 'react';
-import { useGameSettings, updateGraphicsSettings, type ShadowQuality } from '../settings/gameSettings';
+import {
+    useGameSettings,
+    updateGraphicsSettings,
+    type ShadowQuality,
+    type QualityTierSetting,
+} from '../settings/gameSettings';
 
 interface SettingsMenuProps {
     onResume: () => void;
@@ -203,6 +208,32 @@ export function SettingsMenu({ onResume, onSave, onLoad, onClearSave, getHasSave
                                 style={{ width: 18, height: 18, cursor: 'pointer' }}
                             />
                         </div>
+
+                        <div style={rowStyle}>
+                            <label htmlFor="settings-quality" style={labelStyle}>
+                                Grafikkvalitet
+                            </label>
+                            <select
+                                id="settings-quality"
+                                value={g.qualityTier}
+                                onChange={(e) =>
+                                    updateGraphicsSettings({
+                                        qualityTier: e.target.value as QualityTierSetting,
+                                    })
+                                }
+                                style={selectStyle}
+                            >
+                                <option value="auto">Automatisk</option>
+                                <option value="low">Lav</option>
+                                <option value="medium">Medium</option>
+                                <option value="high">Høy</option>
+                            </select>
+                        </div>
+                        {g.qualityTier !== 'auto' && (
+                            <p style={{ fontSize: 11, color: 'rgba(212,165,116,0.6)', margin: '-8px 0 12px', textAlign: 'right' }}>
+                                Gjelder ved neste oppstart av spillet
+                            </p>
+                        )}
 
                         <div style={rowStyle}>
                             <label htmlFor="settings-shadow" style={labelStyle}>

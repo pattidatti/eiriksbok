@@ -36,13 +36,13 @@ function cacheKey(color: number, opts: SceneMatOpts, grading: ColorGrading | und
 }
 
 const PRESETS: Record<MaterialPreset, { roughness: number; metalness: number }> = {
-    stone:  { roughness: 0.95, metalness: 0.0 },
-    wood:   { roughness: 0.85, metalness: 0.0 },
-    cloth:  { roughness: 0.92, metalness: 0.0 },
-    metal:  { roughness: 0.40, metalness: 0.85 },
-    leaf:   { roughness: 0.68, metalness: 0.0 },
-    water:  { roughness: 0.20, metalness: 0.0 },
-    soil:   { roughness: 1.00, metalness: 0.0 },
+    stone:  { roughness: 0.75, metalness: 0.0 },
+    wood:   { roughness: 0.70, metalness: 0.0 },
+    cloth:  { roughness: 0.87, metalness: 0.0 },
+    metal:  { roughness: 0.30, metalness: 0.85 },
+    leaf:   { roughness: 0.62, metalness: 0.0 },
+    water:  { roughness: 0.12, metalness: 0.0 },
+    soil:   { roughness: 0.92, metalness: 0.0 },
 };
 
 // Color-grading shifts color HSL slightly so all materials in a scene get a tint

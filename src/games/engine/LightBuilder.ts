@@ -63,6 +63,8 @@ export function buildHangingLight(scene: THREE.Scene, cfg: LightConfig): Hanging
     if (cfg.castShadow) {
         spot.castShadow = true;
         spot.shadow.mapSize.set(512, 512);
+        spot.shadow.camera.far = distance;
+        spot.shadow.bias = -0.001;
     }
     scene.add(spot);
     scene.add(spot.target);

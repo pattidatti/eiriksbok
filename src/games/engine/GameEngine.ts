@@ -150,6 +150,7 @@ export class GameEngine {
     private cameraDirector: CameraDirector;
     private aiDirector: AIDirector;
     private shadowSystem: ShadowSystem | null = null;
+    private roomEnvPmrem: THREE.PMREMGenerator | null = null;
     private sunLight: THREE.DirectionalLight | null = null;
     private ambientLight: THREE.AmbientLight | null = null;
     private hemiLight: THREE.HemisphereLight | null = null;
@@ -192,6 +193,7 @@ export class GameEngine {
     // Fase 5.2: save/load. Alltid aktiv — config.id er påkrevd så save-nøkkel er stabil.
     private saveSystem: SaveSystem | null = null;
     private pendingPickups: { mesh: THREE.Mesh; opts?: PickupOptions }[] = [];
+    private pendingInteracts: { mesh: THREE.Mesh; opts: import('./types').InteractOptions }[] = [];
 
     // Camera
     private camPos = new THREE.Vector3();
@@ -228,6 +230,8 @@ export class GameEngine {
     // Proximity detection
     private nearCharacterId: string | null = null;
     private nearCollectibleId: string | null = null;
+    private nearPickup = false;
+    private nearInteract = false;
 
     // Persistent UI state (survives per-frame pushUIState calls)
     private activeDialog: GameUIState['dialog'] = null;
@@ -272,7 +276,8 @@ export class GameEngine {
 
         const visual = options.config.visual ?? {};
         const ppConfig = extractPostProcessing(visual.postProcessing);
-        this.qualityTier = resolveTier(ppConfig.quality ?? 'auto');
+        const tierSetting = getGameSettings().graphics.qualityTier;
+        this.qualityTier = resolveTier(tierSetting !== 'auto' ? tierSetting : (ppConfig.quality ?? 'auto'));
 
         this.scene = new THREE.Scene();
         this.scene.background = new THREE.Color(options.config.world.backgroundColor ?? 0x6b5544);
@@ -297,7 +302,7 @@ export class GameEngine {
         this.renderer.shadowMap.enabled = this.qualityTier !== 'low';
         this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
         this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
-        this.renderer.toneMappingExposure = ppConfig.exposure ?? 1.8;
+        this.renderer.toneMappingExposure = ppConfig.exposure ?? 1.4;
         this.renderer.outputColorSpace = THREE.SRGBColorSpace;
 
         options.container.appendChild(this.renderer.domElement);
@@ -312,6 +317,7 @@ export class GameEngine {
         }
 
         this.buildScene();
+        this.initWorkshopIbl();
 
         // Etter at buildScene har lagt til sun/ambient, knytt dem til TimeOfDay.
         // Builders (SeascapeBuilder, WorldBuilder) kan ha lagt hovedsol-lys i scene.userData._mainSunLight / _mainHemiLight.
@@ -596,8 +602,11 @@ export class GameEngine {
             this.playerCC.body.setEnabled(false);
         }
         this.interactables = new InteractableSystem(this.physics, this.camera, this.scene);
+        this.interactables.setPlayerGroup(this.player.group);
         for (const p of this.pendingPickups) this.interactables.registerPickup(p.mesh, p.opts);
         this.pendingPickups.length = 0;
+        for (const p of this.pendingInteracts) this.interactables.registerInteract(p.mesh, p.opts);
+        this.pendingInteracts.length = 0;
     }
 
     // ─── Public interface for setupScene callbacks ──────────────────────────
@@ -672,6 +681,19 @@ export class GameEngine {
     // ─── Private setup ───────────────────────────────────────────────────────
 
     private flashPending = false;
+
+    // IBL for innendørs-spill (workshop-preset). RoomEnvironment gir gratis
+    // ambient-refleksjoner på PBR-materialer uten external assets.
+    private initWorkshopIbl(): void {
+        if (this.config.world.preset !== 'workshop') return;
+        void import('three/addons/environments/RoomEnvironment.js').then(({ RoomEnvironment }) => {
+            if (this.disposed) return;
+            const pmrem = new THREE.PMREMGenerator(this.renderer);
+            pmrem.compileEquirectangularShader();
+            this.scene.environment = pmrem.fromScene(new RoomEnvironment()).texture;
+            this.roomEnvPmrem = pmrem;
+        });
+    }
 
     private buildScene(): void {
         // Global ambient baseline - replaces the implicit brightness floor that MeshToonMaterial's
@@ -900,6 +922,9 @@ export class GameEngine {
             registerAnimatedLight: (light, animation, baseIntensity) => {
                 this.animatedLights.push({ light, animation, base: baseIntensity ?? light.intensity });
             },
+            registerUpdate: (fn) => {
+                this.lightUpdates.push(fn);
+            },
             setBloom: (strength) => {
                 this.postProcessing?.setBloom(strength);
             },
@@ -976,6 +1001,14 @@ export class GameEngine {
                     this.pendingPickups.push({ mesh, opts: wrappedOpts });
                 }
             },
+            registerInteract: (mesh, opts) => {
+                if (this.interactables) {
+                    this.interactables.registerInteract(mesh, opts);
+                } else {
+                    this.pendingInteracts.push({ mesh, opts });
+                }
+            },
+            unregisterInteract: (mesh) => this.interactables?.unregisterInteract(mesh),
             isHoldingItem: () => this.interactables?.isHolding() ?? false,
             dropHeldItem: () => this.interactables?.drop(),
             throwHeldItem: (force?: number) => this.interactables?.throwHeld(force),
@@ -1224,6 +1257,8 @@ export class GameEngine {
     async startGame(): Promise<void> {
         // Idempotent: returner umiddelbart hvis spillet allerede er startet (dobbel-klikk-beskyttelse)
         if (this.gameStarted) return;
+        // Lås musen synkront mens vi fortsatt er i bruker-gesture-konteksten (før første await).
+        this.renderer.domElement.requestPointerLock();
         // Vent på fysikk-WASM hvis den ennå ikke er ferdig lastet
         if (this.physicsReady) {
             try { await this.physicsReady; } catch { /* fortsett uansett */ }
@@ -1311,8 +1346,10 @@ export class GameEngine {
     }
 
     private handleInteract(): void {
+        const playerPos = new THREE.Vector3();
+        this.player.group.getWorldPosition(playerPos);
         // Pickup/drop vinner hvis InteractableSystem konsumerer tasten
-        if (this.interactables?.tryHandleInteract()) return;
+        if (this.interactables?.tryHandleInteract(playerPos)) return;
         if (this.nearCharacterId) {
             this.triggerCharacterInteraction(this.nearCharacterId);
         } else if (this.nearCollectibleId) {
@@ -1371,8 +1408,8 @@ export class GameEngine {
             }
         });
 
-        // CameraDirector: zoom inn på taler hvis cameraFraming === 'speaker'.
-        // Finn karakter med matching id eller name (case-insensitive); ellers fallback til wide.
+        // CameraDirector: OTS-kamera for dialog. 'wide' overstyrer og deaktiverer framing.
+        // Finn karakter med matching id eller name (case-insensitive).
         const speakerKey = node.speaker.toLowerCase();
         let speakerChar = this.characters.get(node.speaker);
         if (!speakerChar) {
@@ -1383,11 +1420,19 @@ export class GameEngine {
                 }
             }
         }
-        if (node.cameraFraming === 'speaker' && speakerChar) {
-            const world = new THREE.Vector3();
-            speakerChar.group.getWorldPosition(world);
-            world.y += 1.5;
-            this.cameraDirector.pushDialogFraming(world, 'speaker');
+        if (node.cameraFraming === 'wide') {
+            this.cameraDirector.pop();
+        } else if (speakerChar) {
+            const npcWorld = new THREE.Vector3();
+            speakerChar.group.getWorldPosition(npcWorld);
+            // Ikke legg til y-offset her - CameraDirector beregner hode-hoyde internt
+
+            const playerWorld = new THREE.Vector3();
+            this.player.group.getWorldPosition(playerWorld);
+
+            // NPC-kamera nar NPC snakker, spiller-kamera nar speaker eksplisitt er 'spiller'/'player'
+            const side = (speakerKey === 'spiller' || speakerKey === 'player') ? 'player' : 'npc';
+            this.cameraDirector.pushDialogFraming(npcWorld, playerWorld, side, this.camera.fov);
         }
 
         this.pushUIState({
@@ -1446,7 +1491,24 @@ export class GameEngine {
     closeDialog(): void {
         this.dialogActive = false;
         this.currentChoices = [];
-        this.cameraDirector.pop();
+        this.cameraDirector.pop(); // instant cut
+
+        // Hard cut: snap kamera-state tilbake til gameplay-posisjon umiddelbart
+        const pw = new THREE.Vector3();
+        this.player.group.getWorldPosition(pw);
+        const ind = this.scene.userData._indoors === true;
+        const pivotH = ind ? 1.5 : 1.7;
+        const baseDist = ind ? 2.8 : 4.5;
+        const pivot = pw.clone().add(new THREE.Vector3(0, pivotH, 0));
+        this.camPos.set(
+            pivot.x - Math.sin(this.yaw) * baseDist,
+            pivot.y + 0.5,
+            pivot.z + Math.cos(this.yaw) * baseDist,
+        );
+        this.camTarget.copy(pivot);
+        this.camera.fov = this.cameraDirector.getBaseFov();
+        this.camera.updateProjectionMatrix();
+
         this.pushUIState({ dialog: null });
         if (this.gameStarted && !this.isEnded && !this.paused && !this.puzzleActive) {
             this.renderer.domElement.requestPointerLock();
@@ -1556,6 +1618,9 @@ export class GameEngine {
 
     private checkProximity(): void {
         if (this.dialogActive) {
+            for (const [, char] of this.characters) {
+                if (char.interactLabel) char.interactLabel.visible = false;
+            }
             this.nearCharacterId = null;
             this.nearCollectibleId = null;
             this.pushUIState({ showInteractPrompt: false });
@@ -1595,12 +1660,30 @@ export class GameEngine {
             }
         }
 
-        const changed = nearChar !== this.nearCharacterId || nearCol !== this.nearCollectibleId;
+        let nearPickup = false;
+        let nearInteract = false;
+        if (this.interactables) {
+            nearPickup = this.interactables.getNearbyPickup(playerWorld, 2.5) !== null;
+            nearInteract = this.interactables.getNearbyInteract(playerWorld) !== null;
+        }
+
+        const changed =
+            nearChar !== this.nearCharacterId ||
+            nearCol !== this.nearCollectibleId ||
+            nearPickup !== this.nearPickup ||
+            nearInteract !== this.nearInteract;
+        if (nearChar !== this.nearCharacterId) {
+            for (const [id, char] of this.characters) {
+                if (char.interactLabel) char.interactLabel.visible = id === nearChar;
+            }
+        }
         this.nearCharacterId = nearChar;
         this.nearCollectibleId = nearCol;
+        this.nearPickup = nearPickup;
+        this.nearInteract = nearInteract;
 
         if (changed) {
-            this.pushUIState({ showInteractPrompt: !!(nearChar || nearCol) });
+            this.pushUIState({ showInteractPrompt: !!(nearChar || nearCol || nearPickup || nearInteract) });
         }
     }
 
@@ -1638,7 +1721,7 @@ export class GameEngine {
             started: this.gameStarted,
             questObjective: this.questObjective || this.config.quests[0]?.objective || '',
             questParts: parts,
-            showInteractPrompt: !!(this.nearCharacterId || this.nearCollectibleId),
+            showInteractPrompt: !!(this.nearCharacterId || this.nearCollectibleId || this.nearPickup || this.nearInteract),
             dialog: this.activeDialog,
             puzzle: this.activePuzzle,
             monolog: this.activeMonolog,
@@ -2125,7 +2208,14 @@ export class GameEngine {
         this.audio.update(this.camera.position, _camForwardScratch);
 
         // Fase 4.1: evaluer quests — sjekker flagg, inventar, posisjon og NPC-samtaler.
-        this.questSystem?.update();
+        const changedQuests = this.questSystem?.update() ?? [];
+        if (changedQuests.length > 0) {
+            const active = this.questSystem!.getAll().find((q) => q.state.status === 'active');
+            if (active) {
+                this.questObjective = active.def.description;
+                this.pushUIState({ questObjective: this.questObjective });
+            }
+        }
         // Fase 4.1 (post-verifisering): synkroniser worldspace-markers mot aktive objectives.
         this.questSystem?.updateMarkers(this.scene);
 
@@ -2151,10 +2241,11 @@ export class GameEngine {
             const sunNdc = _sunNdcScratch.copy(sunWorld).project(this.camera);
             const onScreen = sunNdc.x > -1.4 && sunNdc.x < 1.4 && sunNdc.y > -1.4 && sunNdc.y < 1.4;
             const aboveHorizon = sunDir.y > 0.05;
+            const isIndoors = this.scene.userData._indoors === true;
             this.postProcessing?.updateGodRays(
                 (sunNdc.x + 1) * 0.5,
                 (sunNdc.y + 1) * 0.5,
-                onScreen && aboveHorizon && inFront,
+                onScreen && aboveHorizon && inFront && !isIndoors,
             );
         }
 
@@ -2251,12 +2342,16 @@ export class GameEngine {
         idealPos.add(shoulder);
         const lookTgt = pivot.clone().add(shoulder);
 
-        // CameraDirector framing-override (ved dialog): blend kamera + look-at nærmere taler
-        const framing = this.cameraDirector.apply();
-        if (framing && framing.weight > 0.001) {
-            const towardSpeaker = new THREE.Vector3().subVectors(framing.target, pivot).multiplyScalar(0.4);
-            idealPos.addScaledVector(towardSpeaker, framing.weight);
-            lookTgt.lerp(framing.target, framing.weight * 0.7);
+        // CameraDirector OTS-framing (dialog): blend idealPos og lookTgt mot OTS-transform
+        const ots = this.cameraDirector.apply();
+        if (ots && ots.weight > 0.001) {
+            const w = ots.weight;
+            idealPos.lerp(ots.cameraPos, w);
+            lookTgt.lerp(ots.lookAt, w);
+            if (Math.abs(this.camera.fov - ots.fov) > 0.05) {
+                this.camera.fov = ots.fov;
+                this.camera.updateProjectionMatrix();
+            }
         }
 
         // Kamera-clamp: raycast fra pivot mot kollisjonsbokser så kamera ikke klipper gjennom vegger
@@ -2395,6 +2490,12 @@ export class GameEngine {
         this.debugHudSystem = null;
         this.shadowSystem?.dispose();
         this.shadowSystem = null;
+        if (this.scene.environment) {
+            this.scene.environment.dispose();
+            this.scene.environment = null;
+        }
+        this.roomEnvPmrem?.dispose();
+        this.roomEnvPmrem = null;
         this.inputManager.dispose();
         this.audio.dispose();
         this.questSystem?.dispose();

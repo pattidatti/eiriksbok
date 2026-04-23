@@ -8,11 +8,11 @@ export type QualityTier = 'low' | 'medium' | 'high';
 // Bloom-defaults per tier — brukes hvis PostProcessingConfig ikke overstyrer.
 const DEFAULT_BLOOM_STRENGTH: Record<QualityTier, number> = {
     low: 0,
-    medium: 0.35,
-    high: 0.55,
+    medium: 0.22,
+    high: 0.22,
 };
-const DEFAULT_BLOOM_RADIUS = 0.7;
-const DEFAULT_BLOOM_THRESHOLD = 0.25;
+const DEFAULT_BLOOM_RADIUS = 0.6;
+const DEFAULT_BLOOM_THRESHOLD = 0.65;
 
 // Single-pass cinematic shader — safe for all devices (Chromebook included).
 const LightweightCinematicShader = {
@@ -142,6 +142,7 @@ export function detectTier(): QualityTier {
     const cores = navigator.hardwareConcurrency ?? 4;
     const dpr = window.devicePixelRatio ?? 1;
     if (cores <= 4 || dpr < 1.5) return 'low';
+    if (cores >= 10 && dpr >= 1.5) return 'high';
     return 'medium';
 }
 

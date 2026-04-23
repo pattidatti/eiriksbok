@@ -1,6 +1,7 @@
 import { useSyncExternalStore } from 'react';
 
 export type ShadowQuality = 'off' | 'low' | 'high';
+export type QualityTierSetting = 'auto' | 'low' | 'medium' | 'high';
 
 export interface GameSettings {
     graphics: {
@@ -8,6 +9,7 @@ export interface GameSettings {
         shadowQuality: ShadowQuality;
         renderScale: number; // 0.5 - 1.0
         fov: number; // 60 - 100
+        qualityTier: QualityTierSetting;
     };
 }
 
@@ -17,6 +19,7 @@ export const DEFAULT_SETTINGS: GameSettings = {
         shadowQuality: 'high',
         renderScale: 1.0,
         fov: 70,
+        qualityTier: 'auto',
     },
 };
 

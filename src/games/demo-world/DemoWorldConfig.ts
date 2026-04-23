@@ -23,14 +23,7 @@ export const demoWorldConfig: GameConfig = {
     },
 
     visual: {
-        postProcessing: {
-            quality: 'auto',
-            bloom: { strength: 0.4, threshold: 0.3, radius: 0.7 },
-            exposure: 1.65,
-            lut: 'neutral',
-            // Fase 2.2: SSAO - kun aktiv på high-tier (placering i pipeline gater det)
-            ssao: { enabled: true, kernelRadius: 0.5, minDistance: 0.005, maxDistance: 0.1 },
-        },
+        postProcessing: 'auto',
         timeOfDay: 0.42,
         colorGrading: 'warm',
         sky: 'procedural',
@@ -336,6 +329,11 @@ export const demoWorldConfig: GameConfig = {
                 'Noen reiste dem for lang tid siden.',
             ],
             once: true,
+        },
+        m_need_stones: {
+            id: 'm_need_stones',
+            lines: ['Du trenger alle tre runesteinene først.'],
+            once: false,
         },
         m_alter_delivered: {
             id: 'm_alter_delivered',

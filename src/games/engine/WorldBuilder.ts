@@ -1,47 +1,5 @@
 import * as THREE from 'three';
-
-function makeWoodTex(): THREE.Texture {
-    const c = document.createElement('canvas');
-    c.width = 512; c.height = 512;
-    const x = c.getContext('2d')!;
-    x.fillStyle = '#6b4423'; x.fillRect(0, 0, 512, 512);
-    x.strokeStyle = '#2a1810'; x.lineWidth = 2;
-    for (let y = 0; y < 512; y += 51) {
-        x.beginPath(); x.moveTo(0, y); x.lineTo(512, y); x.stroke();
-    }
-    for (let i = 0; i < 120; i++) {
-        x.strokeStyle = `rgba(0,0,0,${Math.random() * 0.06})`;
-        x.beginPath();
-        const y = Math.random() * 512;
-        x.moveTo(0, y);
-        x.bezierCurveTo(150, y + Math.random() * 4 - 2, 350, y + Math.random() * 4 - 2, 512, y);
-        x.stroke();
-    }
-    const t = new THREE.CanvasTexture(c);
-    t.wrapS = t.wrapT = THREE.RepeatWrapping;
-    return t;
-}
-
-function makeStoneTex(): THREE.Texture {
-    const c = document.createElement('canvas');
-    c.width = 512; c.height = 512;
-    const x = c.getContext('2d')!;
-    x.fillStyle = '#9a7d64'; x.fillRect(0, 0, 512, 512);
-    for (let i = 0; i < 300; i++) {
-        x.fillStyle = `rgba(${80 + Math.random() * 40},${60 + Math.random() * 30},${40 + Math.random() * 30},${Math.random() * 0.15})`;
-        x.fillRect(Math.random() * 512, Math.random() * 512, 2 + Math.random() * 8, 2 + Math.random() * 8);
-    }
-    x.strokeStyle = 'rgba(60,40,25,0.3)'; x.lineWidth = 1;
-    for (let y = 0; y < 512; y += 85) {
-        x.beginPath();
-        x.moveTo(0, y + Math.random() * 4);
-        x.lineTo(512, y + Math.random() * 4);
-        x.stroke();
-    }
-    const t = new THREE.CanvasTexture(c);
-    t.wrapS = t.wrapT = THREE.RepeatWrapping;
-    return t;
-}
+import { woodKit, stoneKit } from './TextureKit';
 
 type ToonMatFn = (color: number, opts?: Record<string, unknown>) => THREE.MeshStandardMaterial;
 
@@ -127,14 +85,18 @@ export function buildWorkshopRoom(
     roomSize = 20,
     wallHeight = 6
 ): void {
-    const woodTex = makeWoodTex();
-    const stoneTex = makeStoneTex();
+    const wood = woodKit();
+    wood.tex.repeat.set(4, 4);
+    wood.normalMap.repeat.set(4, 4);
+
+    const stone = stoneKit();
+    stone.tex.repeat.set(3, 1);
+    stone.normalMap.repeat.set(3, 1);
 
     const roomGroup = new THREE.Group();
     scene.add(roomGroup);
 
-    woodTex.repeat.set(4, 4);
-    const floorMat = toonMat(0x7a5030, { map: woodTex });
+    const floorMat = toonMat(0x7a5030, { map: wood.tex, normalMap: wood.normalMap });
     const floor = new THREE.Mesh(new THREE.PlaneGeometry(roomSize, roomSize), floorMat);
     floor.rotation.x = -Math.PI / 2; floor.receiveShadow = true;
     roomGroup.add(floor);
@@ -148,8 +110,7 @@ export function buildWorkshopRoom(
     floorCollider.userData.solid = true;
     roomGroup.add(floorCollider);
 
-    stoneTex.repeat.set(3, 1);
-    const wallMat = toonMat(0xa88a6e, { map: stoneTex });
+    const wallMat = toonMat(0xa88a6e, { map: stone.tex, normalMap: stone.normalMap });
 
     const makeWall = (w: number, h: number, d: number, x: number, y: number, z: number, ry = 0) => {
         const m = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), wallMat);

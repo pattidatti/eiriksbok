@@ -84,13 +84,11 @@ export function GameHUD({ questObjective, questParts, showInteractPrompt, showFl
                         top: 20,
                         left: '50%',
                         transform: 'translateX(-50%)',
-                        background: 'rgba(20,12,6,0.92)',
-                        border: '2px solid #90c090',
                         color: '#90c090',
-                        padding: '8px 20px',
-                        borderRadius: 4,
                         fontSize: 14,
                         fontFamily: "Georgia, 'Times New Roman', serif",
+                        textShadow:
+                            '0 2px 10px rgba(0,0,0,0.95), 0 0 20px rgba(0,0,0,0.7)',
                         animation: 'toastFadeIn 0.3s ease',
                         pointerEvents: 'none',
                         zIndex: 12,
@@ -158,29 +156,6 @@ export function GameHUD({ questObjective, questParts, showInteractPrompt, showFl
                 </div>
             )}
 
-            {/* Interact prompt */}
-            {showInteractPrompt && (
-                <div
-                    style={{
-                        position: 'absolute',
-                        bottom: 90,
-                        left: '50%',
-                        transform: 'translateX(-50%)',
-                        background: 'rgba(30,18,10,0.9)',
-                        border: '2px solid #d4a574',
-                        padding: '10px 22px',
-                        fontSize: 15,
-                        color: '#f4e4c1',
-                        borderRadius: 4,
-                        fontFamily: "Georgia, 'Times New Roman', serif",
-                        pointerEvents: 'none',
-                        animation: 'promptPulse 1.5s infinite',
-                        zIndex: 10,
-                    }}
-                >
-                    Trykk <strong style={{ color: '#d4a574' }}>E</strong> for å interagere
-                </div>
-            )}
 
             {/* Screen flash */}
             {showFlash && (
