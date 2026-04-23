@@ -1,6 +1,6 @@
 # Motor-Update: Fullstendig Plan for Oppgradering av GameEngine
 
-**Status**: Fase 1-2 ferdig (2026-04-23). Fase 3-6 gjenstår.
+**Status**: Fase 1-3 ferdig (2026-04-23). Fase 4-6 gjenstår.
 **Opprettet**: 2026-04-22
 **Mål**: Løfte motoren fra "funksjonell showroom" til "produksjonsklar mini-spillmotor" som kan bære ekte narrative spill.
 
@@ -58,6 +58,32 @@ Alle fem sub-oppgaver implementert og bygger rent. Alt er opt-in og high-tier-ga
 - God rays: kun når `volumetricLight=true` + `world.preset='open'` + `tier='high'`
 
 **Bakoverkompatibilitet**: Watt Lab, Lindisfarne og Ford Factory kjører uten config-endringer. TypeScript + ESLint + Vite build passerer rent.
+
+---
+
+## Leveranse Fase 3 (2026-04-23)
+
+Alle fem sub-oppgaver implementert og bygger rent. Fase 3 gjør motoren *levende* — lyd, fotomodus, og input-abstraksjon.
+
+| Oppgave | Status | Filer |
+|---|---|---|
+| 3.1 AudioSystem | ✅ | `systems/AudioSystem.ts` (Web Audio API, PannerNode for 3D), `GameEngine.ts` (listener-update per frame, audio-trigger-evaluering på onStart/flag/phase) |
+| 3.2 Dynamisk musikk | ✅ | `systems/AudioSystem.ts` (addMusicLayer, setMusicLayer med crossfade), `types.ts` (GameEngineRef) |
+| 3.3 Fotomodus (P) | ✅ | `systems/PhotoModeSystem.ts`, `components/PhotoModeUI.tsx` (slider for exposure, LUT-dropdown, screenshot), `GameCanvas.tsx` (P-tast), `GameEngine.ts` (togglePhotoMode, updatePhotoModeCamera) |
+| 3.4 InputManager | ✅ | `InputManager.ts` (physical→logical action mapping, localStorage-rebinding), integrert parallelt med eksisterende `this.keys` |
+| 3.5 Typed userData | ✅ | `sceneUserData.ts` (markSolid, markClimbable, markPickupable, registerMainSunLight, registerCustomUpdate) |
+
+**Nye public API-er:**
+- `engine.audio.playAmbient/playSpatial/playOneShot` via `engine.playAmbient/playOneShot`
+- `engine.addMusicLayer(id, url) + setMusicLayer(id, volume, fadeSec)` for dynamisk musikk
+- `engine.togglePhotoMode()`, `engine.captureScreenshot()`, `engine.setPhotoExposure/Lut`
+- `engine.inputManager.isDown(action) / wasPressed(action)` med rebinding via localStorage
+- `markSolid(mesh, opts)`, `markClimbable`, `markPickupable` — typede erstattninger for magic strings
+- `GameConfig.audio.tracks: [{ id, url, kind, trigger }]` — deklarativ audio
+
+**Bakoverkompatibilitet**: Alle eksisterende spill kjører uendret. InputManager kjører parallelt med `this.keys` — ingen eksisterende callsites refaktorert.
+
+**P-tast** i alle spill: toggler fotomodus. Fryser tid, aktiverer fri-kamera (WASD + Space/Ctrl for vertikal), og viser UI for exposure og LUT. Screenshot eksporteres som PNG med tidsstempel.
 
 ---
 

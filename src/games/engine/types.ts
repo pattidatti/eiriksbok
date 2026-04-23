@@ -174,6 +174,26 @@ export interface FogDensityCurve {
     night: number;  // ca. t = 0.0 / 1.0
 }
 
+// Fase 3.1: deklarativ audio-konfig. Hvert spor lastes lazy og spilles av
+// i henhold til trigger. `id` brukes av engine.audio.stop(id) / crossfade.
+export interface AudioTrackConfig {
+    id: string;
+    url: string;
+    kind: 'ambient' | 'spatial';
+    volume?: number;
+    loop?: boolean;
+    // Spatial kilder må ha en posisjon (tuple) eller target-id som refererer
+    // til en karakter/collectible i GameConfig.
+    position?: [number, number, number];
+    attachTo?: string; // character id
+    maxDistance?: number;
+    // Når skal sporet spilles?
+    // 'onStart' = spilles ved gameStarted=true
+    // { flag: 'X' } = når flagget først blir truthy
+    // { phase: 'X' } = når setPhase kalles med matching phase
+    trigger: 'onStart' | { flag: string } | { phase: string };
+}
+
 export interface VisualConfig {
     postProcessing?: QualityTierConfig | PostProcessingConfig;
     timeOfDay?: number; // 0..1
@@ -335,6 +355,18 @@ export interface GameEngineRef {
     isHoldingItem: () => boolean;
     dropHeldItem: () => void;
     throwHeldItem: (force?: number) => void;
+    // ── Fase 3.1 (audio) ──
+    // Spill en engangslyd. Spatial hvis `position` er satt.
+    playOneShot: (url: string, opts?: { position?: [number, number, number]; volume?: number }) => void;
+    // Spill en ambient loop. Returnerer handle som kan stoppe eller volumjustere.
+    playAmbient: (url: string, opts?: { loop?: boolean; volume?: number; fadeIn?: number }) => void;
+    // Krever bruker-gesture (klikk) før Web Audio er tillatt; kall etter spill-start.
+    resumeAudio: () => Promise<void>;
+    // ── Fase 3.2 (dynamisk musikk) ──
+    // Legg til et musikk-lag (loop). initialVolume=0 betyr "klar til fade-in".
+    addMusicLayer: (layerId: string, url: string, initialVolume?: number) => Promise<void>;
+    // Fade et musikk-lag til target-volum over `fadeSec` sekunder.
+    setMusicLayer: (layerId: string, targetVolume: number, fadeSec?: number) => void;
 }
 
 export interface GameConfig {
@@ -368,6 +400,11 @@ export interface GameConfig {
     physics?: PhysicsConfig;
     // ── Fase 5 (Intro + QoL) ──
     intro?: IntroConfig;
+    // ── Fase 3.1 (audio) ──
+    audio?: {
+        tracks?: AudioTrackConfig[];
+        masterVolume?: number; // 0..1, default 1
+    };
 }
 
 export interface MonologUIState {

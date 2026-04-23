@@ -12,6 +12,7 @@ import { IntroOverlay } from './IntroRunner';
 import { SettingsMenu } from './SettingsMenu';
 import { DebugHud } from './DebugHud';
 import type { DebugStats } from '../systems/DebugHudSystem';
+import { PhotoModeUI } from './PhotoModeUI';
 
 interface GameCanvasProps {
     config: GameConfig;
@@ -37,18 +38,45 @@ export function GameCanvas({ config }: GameCanvasProps) {
     const toastTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
     const [fadeState, setFadeState] = useState({ opacity: 0, durationMs: 400 });
     const [debugVisible, setDebugVisible] = useState(false);
+    const [photoMode, setPhotoMode] = useState(false);
     const { setFullWidth } = useLayout();
 
-    // F3 toggler Debug-HUD i alle spill (uavhengig av config.debug).
+    // F3 toggler Debug-HUD. P toggler fotomodus (Fase 3.3).
     useEffect(() => {
         const onKey = (e: KeyboardEvent) => {
             if (e.code === 'F3') {
                 e.preventDefault();
                 setDebugVisible((v) => !v);
+            } else if (e.code === 'KeyP' && !e.repeat) {
+                const engine = engineRef.current;
+                if (engine) {
+                    const active = engine.togglePhotoMode();
+                    setPhotoMode(active);
+                }
             }
         };
         window.addEventListener('keydown', onKey);
         return () => window.removeEventListener('keydown', onKey);
+    }, []);
+
+    const handlePhotoScreenshot = useCallback(() => {
+        engineRef.current?.captureScreenshot();
+    }, []);
+
+    const handlePhotoExposure = useCallback((exposure: number) => {
+        engineRef.current?.setPhotoExposure(exposure);
+    }, []);
+
+    const handlePhotoLut = useCallback((name: string | null) => {
+        engineRef.current?.setPhotoLut(name);
+    }, []);
+
+    const handlePhotoExit = useCallback(() => {
+        const engine = engineRef.current;
+        if (engine) {
+            engine.togglePhotoMode();
+            setPhotoMode(false);
+        }
     }, []);
 
     const getDebugStats = useCallback((): DebugStats => {
@@ -214,6 +242,16 @@ export function GameCanvas({ config }: GameCanvasProps) {
 
             {/* Debug-HUD (F3) */}
             {debugVisible && <DebugHud getStats={getDebugStats} />}
+
+            {/* Fotomodus-UI (P) */}
+            {photoMode && (
+                <PhotoModeUI
+                    onScreenshot={handlePhotoScreenshot}
+                    onExposureChange={handlePhotoExposure}
+                    onLutChange={handlePhotoLut}
+                    onExit={handlePhotoExit}
+                />
+            )}
 
             {/* End screen */}
             {uiState.ended && (

@@ -35,6 +35,9 @@ import { ShadowSystem } from './systems/ShadowSystem';
 import { createSceneMat, createToonLikeMat, disposeMaterialCache, getMaterialCacheSize } from './SceneMat';
 import { getProceduralTexture, disposeTextureCache } from './TextureManager';
 import { DebugHudSystem, type DebugStats } from './systems/DebugHudSystem';
+import { InputManager } from './InputManager';
+import { AudioSystem } from './systems/AudioSystem';
+import { PhotoModeSystem } from './systems/PhotoModeSystem';
 import type { PhysicsWorld, CharacterControllerHandle } from './systems/PhysicsWorld';
 import type { InteractableSystem } from './systems/InteractableSystem';
 import { getGameSettings, subscribeGameSettings } from './settings/gameSettings';
@@ -108,6 +111,19 @@ export class GameEngine {
 
     // Debug-HUD (Fase 1.6). Toggle med F3 i GameCanvas.
     private debugHudSystem: DebugHudSystem | null = null;
+
+    // Input-abstraksjon (Fase 3.4). Parallelt med det gamle `keys`-objektet —
+    // eksisterende kode bruker fortsatt this.keys, mens nye features (fotomodus etc.)
+    // kan lese input via inputManager.wasPressed(action).
+    readonly inputManager: InputManager;
+
+    // Audio-system (Fase 3.1). Lazy AudioContext opprettes ved første lyd-kall.
+    readonly audio: AudioSystem;
+    // Audio-spor som venter på flag/phase-trigger. Drenneres av evaluateAudioTriggers().
+    private pendingAudioTracks: import('./types').AudioTrackConfig[] = [];
+
+    // Fotomodus (Fase 3.3). P-tast toggler.
+    readonly photoMode: PhotoModeSystem = new PhotoModeSystem();
 
     // Visuelle systemer (Fase 1-3)
     private skySystem: SkySystem | null = null;
@@ -324,6 +340,22 @@ export class GameEngine {
 
         this.setupInput();
         this.setupResize();
+
+        // Fase 3.4: start InputManager parallelt med det gamle keys-systemet.
+        this.inputManager = new InputManager();
+        this.inputManager.start();
+
+        // Fase 3.1: audio-system. AudioContext opprettes ved første lyd-kall.
+        this.audio = new AudioSystem();
+        if (options.config.audio?.masterVolume !== undefined) {
+            this.audio.setMasterVolume(options.config.audio.masterVolume);
+        }
+        if (options.config.audio?.tracks) {
+            // Del i onStart-spor (spilt ved startGame) og trigger-spor (evalueres fra update).
+            for (const t of options.config.audio.tracks) {
+                this.pendingAudioTracks.push(t);
+            }
+        }
 
         // Post-processing
         this.postProcessing = new PostProcessingSystem(
@@ -656,7 +688,10 @@ export class GameEngine {
             triggerEnd: this.triggerEnd.bind(this),
             updateUI: this.updateUI.bind(this),
             setEmotion: this.setEmotion.bind(this),
-            setFlag: <T>(key: string, value: T) => this.flags.set(key, value),
+            setFlag: <T>(key: string, value: T) => {
+                this.flags.set(key, value);
+                if (value) this.evaluateAudioTriggers({ flag: key });
+            },
             getFlag: <T>(key: string) => this.flags.get(key) as T | undefined,
             setPlayerMode: (mode, opts) => this.setPlayerMode(mode, opts),
             playMonolog: (id: string) => this.monologSystem?.play(id),
@@ -669,6 +704,7 @@ export class GameEngine {
                     this.questObjective = quest.objective;
                     this.pushUIState({ questObjective: this.questObjective });
                 }
+                this.evaluateAudioTriggers({ phase });
             },
             getPhase: () => this.phase,
             openDialog: (key: string) => this.openDialog(key),
@@ -765,6 +801,11 @@ export class GameEngine {
             isHoldingItem: () => this.interactables?.isHolding() ?? false,
             dropHeldItem: () => this.interactables?.drop(),
             throwHeldItem: (force?: number) => this.interactables?.throwHeld(force),
+            playOneShot: (url, opts) => void this.audio.playOneShot(url, opts),
+            playAmbient: (url, opts) => void this.audio.playAmbient(url, opts),
+            resumeAudio: () => this.audio.resume(),
+            addMusicLayer: (layerId, url, initialVolume) => this.audio.addMusicLayer(layerId, url, initialVolume),
+            setMusicLayer: (layerId, targetVolume, fadeSec) => this.audio.setMusicLayer(layerId, targetVolume, fadeSec),
         };
     }
 
@@ -979,6 +1020,10 @@ export class GameEngine {
         this.gameStarted = true;
         const firstQuest = this.config.quests[0];
         this.phase = firstQuest?.phase ?? 'intro';
+
+        // Fase 3.1: spill-start er brukergest — trygt å starte audio-kontekst.
+        void this.audio.resume();
+        this.evaluateAudioTriggers('onStart');
 
         const intro = this.config.intro;
         if (intro && intro.type !== 'none') {
@@ -1366,16 +1411,121 @@ export class GameEngine {
             this.physics?.resetAccumulator();
         }
         const dt = Math.min(0.05, rawDt);
-        this.update(dt);
+        // Fase 3.3: i fotomodus fryser spillet — vi kjører bare fri-kamera-update
+        // og skipper update() slik at tid, NPCer, fysikk osv. står stille.
+        if (this.photoMode.active) {
+            this.updatePhotoModeCamera(dt);
+        } else {
+            this.update(dt);
+        }
         // Debug-HUD leser + resetter renderer.info før render, slik at draw calls
         // akkumuleres gjennom hele post-processing-kjeden.
         this.debugHudSystem?.tick(dt);
         this.postProcessing.render();
+        // Nullstill "just-pressed"-flagg for input-abstraksjonen på slutten av frame.
+        this.inputManager.endFrame();
+    }
+
+    // Fase 3.3: fri-flyging i fotomodus. Bruker samme WASD+mus-states som ordinært,
+    // men flytter kameraet direkte i stedet for spilleren.
+    private updatePhotoModeCamera(dt: number): void {
+        const speed = this.photoMode.flySpeed * (this.keys['ShiftLeft'] || this.keys['ShiftRight'] ? 2.5 : 1);
+        const fwd = new THREE.Vector3(Math.sin(this.yaw), 0, -Math.cos(this.yaw));
+        const right = new THREE.Vector3(Math.cos(this.yaw), 0, Math.sin(this.yaw));
+        const up = new THREE.Vector3(0, 1, 0);
+        const move = new THREE.Vector3();
+        if (this.keys['KeyW']) move.add(fwd);
+        if (this.keys['KeyS']) move.sub(fwd);
+        if (this.keys['KeyD']) move.add(right);
+        if (this.keys['KeyA']) move.sub(right);
+        if (this.keys['Space']) move.add(up);
+        if (this.keys['ControlLeft'] || this.keys['KeyQ']) move.sub(up);
+        if (move.lengthSq() > 0) {
+            move.normalize().multiplyScalar(speed * dt);
+            this.camPos.add(move);
+        }
+        // Se-retningen styres av yaw/pitch fra mus; regn ut kamera-target.
+        this.camTarget.set(
+            this.camPos.x + Math.sin(this.yaw) * Math.cos(this.pitch),
+            this.camPos.y + Math.sin(this.pitch),
+            this.camPos.z - Math.cos(this.yaw) * Math.cos(this.pitch),
+        );
+        this.camera.position.copy(this.camPos);
+        this.camera.lookAt(this.camTarget);
     }
 
     // Samler debug-stats for DebugHud-overlayet (F3). Trygg å kalle når som helst.
     getDebugStats(): DebugStats | null {
         return this.debugHudSystem?.collect() ?? null;
+    }
+
+    // Fase 3.3: toggle fotomodus. Mens aktiv er update() no-op slik at scenen
+    // fryser; kameraet styres fortsatt via mus og gir fri-flyging.
+    togglePhotoMode(): boolean {
+        if (this.photoMode.active) {
+            this.photoMode.exit(this.camPos, this.camTarget);
+        } else {
+            this.photoMode.enter(this.camPos, this.camTarget);
+        }
+        return this.photoMode.active;
+    }
+
+    setPhotoExposure(exposure: number): void {
+        this.photoMode.exposure = exposure;
+        this.renderer.toneMappingExposure = exposure;
+    }
+
+    setPhotoLut(name: string | null): void {
+        this.photoMode.lutName = name;
+        this.postProcessing?.setLut(name);
+    }
+
+    captureScreenshot(): void {
+        // Render én ekstra gang for å fange siste state
+        this.postProcessing?.render();
+        this.photoMode.download(this.renderer.domElement);
+    }
+
+    // Fase 3.1: evaluer audio-triggere. Spor som matcher gjeldende tilstand
+    // startes og fjernes fra pendingAudioTracks. Kalles ved startGame, setPhase
+    // og setFlag — ikke hver frame.
+    private evaluateAudioTriggers(reason: 'onStart' | { flag: string } | { phase: string }): void {
+        const remaining: typeof this.pendingAudioTracks = [];
+        for (const t of this.pendingAudioTracks) {
+            let match = false;
+            if (t.trigger === 'onStart' && reason === 'onStart') match = true;
+            else if (typeof t.trigger === 'object' && typeof reason === 'object') {
+                if ('flag' in t.trigger && 'flag' in reason && t.trigger.flag === reason.flag) match = true;
+                if ('phase' in t.trigger && 'phase' in reason && t.trigger.phase === reason.phase) match = true;
+            }
+            if (match) {
+                this.startAudioTrack(t);
+            } else {
+                remaining.push(t);
+            }
+        }
+        this.pendingAudioTracks = remaining;
+    }
+
+    private startAudioTrack(t: import('./types').AudioTrackConfig): void {
+        if (t.kind === 'ambient') {
+            void this.audio.playAmbient(t.url, { loop: t.loop ?? true, volume: t.volume, fadeIn: 1.0 });
+            return;
+        }
+        // spatial
+        let target: THREE.Object3D | [number, number, number] | null = null;
+        if (t.attachTo) {
+            const char = this.characters.get(t.attachTo);
+            if (char) target = char.group;
+        }
+        if (!target && t.position) target = t.position;
+        if (!target) return;
+        void this.audio.playSpatial(t.url, {
+            position: target,
+            loop: t.loop ?? true,
+            volume: t.volume,
+            maxDistance: t.maxDistance,
+        });
     }
 
     private update(dt: number): void {
@@ -1624,6 +1774,10 @@ export class GameEngine {
 
         // TimeOfDay (oppdaterer sun/sky/ambient farger ved endringer)
         this.timeOfDaySystem.update();
+
+        // Fase 3.1: oppdater audio-listener til kameraets posisjon + forward-vektor.
+        this.camera.getWorldDirection(_camForwardScratch);
+        this.audio.update(this.camera.position, _camForwardScratch);
 
         // CSM: hold sol-retning synkronisert + oppdater cascade-frustum hver frame
         if (this.shadowSystem?.isActive()) {
@@ -1880,6 +2034,8 @@ export class GameEngine {
         this.debugHudSystem = null;
         this.shadowSystem?.dispose();
         this.shadowSystem = null;
+        this.inputManager.dispose();
+        this.audio.dispose();
         if (document.pointerLockElement === this.renderer.domElement) {
             document.exitPointerLock();
         }

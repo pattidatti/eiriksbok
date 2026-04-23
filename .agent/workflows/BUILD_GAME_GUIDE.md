@@ -353,6 +353,22 @@ interface GameConfig {
         onPlayerFallDamage?: (velocity: number) => void;
     };
 
+    // ── Fase 3.1: deklarativ audio ──────────────────────────────────────────
+    audio?: {
+        masterVolume?: number;  // 0..1, default 1
+        tracks?: Array<{
+            id: string;
+            url: string;
+            kind: 'ambient' | 'spatial';
+            volume?: number;
+            loop?: boolean;
+            position?: [number, number, number];  // for spatial
+            attachTo?: string;                    // character id — følger NPC
+            maxDistance?: number;
+            trigger: 'onStart' | { flag: string } | { phase: string };
+        }>;
+    };
+
     // ── Fase 5: intro-sekvens ────────────────────────────────────────────────
     intro?: {
         type: 'fade' | 'title' | 'none';
