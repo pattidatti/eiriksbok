@@ -27,7 +27,8 @@ GameEngine.ts          ← Three.js scene, renderer, animasjonsloop, input, Rapi
   │   ├── SkySystem.ts             ← Prosedyral himmel
   │   ├── TimeOfDaySystem.ts       ← Lerp 0-1 driver sol/ambient/sky-farge
   │   ├── WeatherSystem.ts         ← Regn, snø, tåke (overstyrer TOD-fog mens aktiv)
-  │   ├── VegetationSystem.ts      ← Instansiert gress/siv/trær med vind-shader
+  │   ├── VegetationSystem.ts      ← Instansiert gress/siv/blomster/lyng/bregner/busker/trær med vind-shader
+  │   ├── FaunaSystem.ts           ← Dekorative dyr: fuglflokker, sommerfugler, sau, kyr
   │   ├── DebugHudSystem.ts        ← Stats-samler for F3-overlay (FPS, drawcalls, materialer)
   │   ├── CameraDirector.ts        ← Dialog-framing, fade, cinematics
   │   ├── AIDirector.ts            ← Waypoint-vandring for NPCer
@@ -505,8 +506,11 @@ interface MonologTrigger {
 | `setTimeOfDay(t)` | `(number) => void` | 0-1. Driver sol-retning/farge, ambient-farge, sky-tint |
 | `getSunDirection()` | `() => Vector3` | Nåværende sol-retning (brukes f.eks. for custom shadere) |
 | `setWeather(state)` | `({type, intensity}) => void` | `'clear'\|'rain'\|'fog'\|'snow'` × intensitet 0-1 |
-| `addVegetationPatch(area, density, type?)` | `(AABB2D, number, 'grass'\|'reeds'\|'flowers') => void` | Instansiert vegetasjon i en region |
+| `addVegetationPatch(area, density, type?)` | `(AABB2D, number, VegetationType) => void` | Instansiert vegetasjon i en region. Typer: `'grass'\|'reeds'\|'flowers'\|'heather'\|'wildflowers'\|'ferns'\|'bush'` |
 | `addTree(pos, type?)` | `([x,y,z], 'pine'\|'oak'\|'birch') => void` | Enkelttre med vind-animasjon |
+| `addBirdFlock(center, opts?)` | `([x,y,z], {count?, radius?, altitude?, altitudeSpread?}) => void` | Fuglflokk som sirkler over et punkt. Altitude = hoyde i meter (default 18) |
+| `addButterfly(center, opts?)` | `([x,y,z], {count?, radius?, color?}) => void` | Sommerfugler som flakser i et omrade (color = hex, default 0xff9933) |
+| `addAnimalGroup(kind, bounds, opts?)` | `('sheep'\|'cow', AABB2D, {count?}) => void` | Sau eller kyr som vandrer og beiter innenfor AABB |
 | `assignRoute(cfg)` | `(NpcRouteConfig) => void` | Gi en NPC en waypoint-rute (AIDirector) |
 
 ### 4.5 Kamera og intro (Fase 2 + 5)
@@ -1184,10 +1188,353 @@ Gå gjennom listen før du starter `npm run dev` på et nytt `open`-preset-spill
 
 ---
 
-## 17. Språkregler (kritisk for UI-tekst)
+## 17. Fauna og utvidet vegetasjon
+
+### 17.1 FaunaSystem - dekorative dyr
+
+`FaunaSystem` initialiseres automatisk (lazy) nar du kaller `addBirdFlock`, `addButterfly` eller `addAnimalGroup` fra `setupScene`. Systemet har ingen fysikk-integrasjon - dyrene er rent visuelle.
+
+**Fuglflokker**
+
+```typescript
+// Flokk som sirkler over et punkt pa hoyde 22m med radius 18m
+engine.addBirdFlock([0, 0, 0], { altitude: 22, radius: 18 });
+
+// Hoy, stram sirkelbane
+engine.addBirdFlock([-25, 0, -10], { altitude: 30, radius: 12, altitudeSpread: 3 });
+```
+
+Fuglen er en enkel kryss-form (to kryss-plan). Tier-antall: low=6, medium=12, high=18 per flokk. Flokken forsvinner nar kamera er >60m unna (low), >120m (medium), >200m (high).
+
+**Sommerfugler**
+
+```typescript
+// Oransje sommerfugler nær blomsterpatch
+engine.addButterfly([10, 0, 8], { radius: 5 });
+
+// Rosa sommerfugler med storre vandringsomrade
+engine.addButterfly([3, 0, 14], { color: 0xffaadd, radius: 8 });
+```
+
+Sommerfugler flakser 0.4-1.8m over bakken i Lissajous-monster. CPU-animert vinge-flap (rotation.z). Tier-antall: low=4, medium=8, high=14.
+
+**Beitedyr (sau og ku)**
+
+```typescript
+// Saueflokk i et omrade
+engine.addAnimalGroup('sheep', { minX: -5, maxX: 22, minZ: 5, maxZ: 28 });
+
+// Kyr med eksplisitt antall
+engine.addAnimalGroup('cow', { minX: 15, maxX: 45, minZ: -18, maxZ: 10 }, { count: 3 });
+```
+
+Dyrene vandrer og beiter (70/30 tilstandsmaskin). Vegg-refleksjon holder dem innenfor AABB. Tier-antall: sau low=3/medium=5/high=8, ku low=2/medium=4/high=6.
+
+**Kyr pa high-tier** far horn automatisk. Pa medium+ tier har ku svart flekk.
+
+### 17.2 Utvidede vegetasjonstyper
+
+`addVegetationPatch` stotter na sju typer:
+
+| Type | Utseende | Typisk bruk |
+|---|---|---|
+| `'grass'` | Gront gress | Overalt |
+| `'reeds'` | Hoge siv | Vann-nær |
+| `'flowers'` | Lyse-rosa blomster | Enger |
+| `'heather'` | Lilla/rosa lyng | Heiomrader |
+| `'wildflowers'` | Rod-oransje villblomster | Skogkanter |
+| `'ferns'` | Hoge gronne bregner | Under trær / skog |
+| `'bush'` | Kompakt busk | Skogsrand, steinurer |
+
+```typescript
+engine.addVegetationPatch({ minX: -40, maxX: -22, minZ: -12, maxZ: 8 }, 1.4, 'heather');
+engine.addVegetationPatch({ minX: 8, maxX: 22, minZ: 12, maxZ: 28 }, 0.7, 'ferns');
+engine.addVegetationPatch({ minX: -8, maxX: 6, minZ: 6, maxZ: 18 }, 1.0, 'wildflowers');
+engine.addVegetationPatch({ minX: 5, maxX: 15, minZ: -5, maxZ: 5 }, 0.6, 'bush');
+```
+
+Alle typer bruker samme vind-shader. Ingen geometri-endring - kun fargevariant.
+
+### 17.3 Fallgruver
+
+- **Dyr i vegger**: `addAnimalGroup` plasserer dyr tilfeldig innenfor AABB ved start. Solide Rapier-colliders pavirker IKKE dyrene (de har ingen rigid body). Sett derfor `bounds` til apent terreng uten bygninger inni.
+- **Fugler for lave**: `altitude` er absolutt Y-verdi (verdenskoordinat). Sett hoyt nok sa de ikke klipper gjennom trær eller aker.
+- **Sommerfugler pa feil hoyde**: `center` Y-komponenten er basen - sommerfugler spawner 0.4-1.8m OVER denne. Sett `center[1] = 0` for bakke-niva.
+
+---
+
+## 19. Språkregler (kritisk for UI-tekst)
 
 - Alt innhold på norsk bokmål, forståelig for 14-åring (jf. CLAUDE.md)
 - Bruk alltid korrekte norske tegn: **å, ø, æ** (aldri aa, oe, ae)
 - **ALDRI em-dash (—) eller tankestrek (–)**. Bruk bindestrek (-) i stedet
 - Aktiv form fremfor passiv ("Harald samlet Norge", ikke "Norge ble samlet")
 - Test hver setning: ville en 14-åring forstått dette uten hjelp?
+
+---
+
+## 18. Fase 5-funksjoner (assets, save/load, LOD)
+
+Disse funksjonene er opt-in og kjører uten endringer for eksisterende spill.
+
+### 18.1 GLTF-assets
+
+Deklarer modeller i `GameConfig.assets.defs`. Motoren preloader dem før `startGame()` resolverer:
+
+```ts
+const config: GameConfig = {
+    // ...
+    assets: {
+        defs: [
+            { id: 'cart',   url: '/models/cart.glb' },
+            { id: 'anvil',  url: '/models/anvil.glb' },
+        ],
+        draco: false,  // sett true hvis modellene er DRACO-komprimert
+    },
+};
+```
+
+Bruk via `engine.cloneAsset(id)` (returnerer Promise fordi SkeletonUtils for riggede modeller lastes lazy). `engine.getAsset(id)` returnerer rå-referansen - bruk kun hvis du ikke trenger klon.
+
+**DRACO**: Hvis `draco: true`, kopier decoder-filene til `public/draco/` (fra `node_modules/three/examples/jsm/libs/draco/`). `GLTFLoader` lastes lazy - spill uten `assets` drar ikke inn loader-koden.
+
+### 18.2 Save/load
+
+Aktiveres automatisk for alle spill (bruker `GameConfig.id` som nøkkel). Spiller ser "Lagre", "Last inn" og "Slett lagring" i pause-menyen. Auto-save hvert 30s + debounced på `setFlag`/umiddelbart på `setPhase`.
+
+**Hva som persistes automatisk**: phase, flagg, inventar, quest-progresjon, NPC-rute-indekser + posisjoner, spiller-pos + yaw, time-of-day, vær.
+
+**Hva som IKKE persistes**: spill-spesifikk verden-state som ikke går via flagg (f.eks. prosedyralt plasserte objekter som åpnes/lukkes). All persistent gameplay-state må være flagg-basert.
+
+**Versjonering**: Save-objekter har `version: 1`. Ved schema-endring: bump versjonen - eldre saves returnerer `null` fra `load()` og spilleren starter friskt.
+
+### 18.3 LOD for vegetasjon
+
+Helautomatisk. `engine.addTree([x,y,z], type)` oppretter nå en `THREE.LOD` med tre nivåer:
+- **0-25m** (high): full vind-shader-foliage
+- **25-60m**: simpler geometri uten shader
+- **60m+**: sprite-billboard (cached per `TreeType`)
+
+`addVegetationPatch(...)` kulles helt utenfor tier-avhengig radius. Grenser er tier-justert: low er mer aggressiv enn high.
+
+Ingen konfigurasjon trengs - gir deg 500+ trær på Chromebook uten å fryse FPS.
+
+---
+
+## 19. Fase 4-6 API-er (gameplay-fundament)
+
+Disse systemene er opt-in. Deklarer dem i `GameConfig`, så håndterer motoren resten - inkludert UI, save/load-persistens og worldspace-markører.
+
+### 19.1 Quest-system
+
+Tre quester koblet i kjede (`q_greet` → `q_runes` → `q_deliver`) brukes i Lysalvendalen som referanse:
+
+```ts
+questDefs: [
+    {
+        id: 'q_greet',
+        title: 'Hils på Alvstein',
+        description: 'Snakk med munken nede ved spawn.',
+        objectives: [{
+            id: 'o_talk',
+            label: 'Snakk med Alvstein',
+            condition: { npcTalkedTo: 'guide' },
+            marker: { attachTo: 'guide' },  // gul diamant følger NPCen
+        }],
+        rewardFlags: ['greeted_alvstein'],
+    },
+    {
+        id: 'q_runes',
+        title: 'De tre runesteinene',
+        description: '...',
+        prerequisites: ['q_greet'],
+        objectives: [
+            { id: 'o_r1', label: '...', condition: { flag: 'rune_circle_picked' }, marker: { pos: [-8, 1.2, -19] } },
+            { id: 'o_r2', label: '...', condition: { flag: 'rune_fire_picked' },   marker: { pos: [10, 1.2, -10] } },
+            { id: 'o_r3', label: '...', condition: { flag: 'rune_forest_picked' }, marker: { pos: [-30, 1.2, 0] } },
+        ],
+        rewardFlags: ['runes_complete'],
+    },
+],
+```
+
+**Condition-typer** (én må stemme per objective):
+- `flag: 'X'` - flagget er truthy
+- `itemCollected: 'X'` - itemet er i inventaret
+- `npcTalkedTo: 'X'` - spilleren har trykket E nær NPCen (uavhengig av dialog-utfall)
+- `positionNear: { pos: [x,y,z], radius }` - spilleren er i nærheten
+
+**Auto-flow**:
+- Quest med `prerequisites` starter `locked`. Når alle prereqs er `completed`, motoren flytter den til `active` neste tick.
+- Når alle objectives er ferdig, status → `completed` og `rewardFlags` settes.
+- Spilleren ser quest-loggen ved å trykke **J**.
+
+**Manuelle hooks** (fra dialog-actions eller customUpdate):
+- `engine.startQuest(id)` - aktiver en låst quest direkte (ignorerer prereqs)
+- `engine.completeObjective(qId, oId)` - marker objective ferdig manuelt
+
+### 19.2 Inventar
+
+```ts
+items: [{ id: 'runestone', name: 'Runestein', description: '...', icon: '🪨', stackable: true, maxStack: 3 }],
+inventorySize: 12,
+```
+
+Spilleren ser inventaret med **I**-tasten. API:
+- `engine.addItem(id, count?)`, `engine.removeItem(id, count?)`
+- `engine.hasItem(id)`, `engine.itemCount(id)`
+
+**Pickup-direkte-til-inventar (Fase 6)**: hvis du registrerer et fysisk objekt som pickup med `toInventory`, hopper motoren over hold-i-hånd-fasen og fjerner mesh + collider med en gang:
+
+```ts
+engine.registerPickup(rune, {
+    toInventory: { itemId: 'runestone', count: 1 },
+    onPickup: () => {
+        engine.setFlag('rune_circle_picked', true);  // for quest-condition
+        // ev. fjern visuelle effekter (ringer, partikler) her
+    },
+});
+```
+
+`onPickup` fyrer FØR mesh fjernes, men det fysiske objektet er borte umiddelbart etterpå - ingen drop/throw.
+
+### 19.3 Kondisjonell dialog
+
+Dialog-noder kan være en LISTE av varianter. Motoren velger første variant hvor `condition` matcher; en variant uten condition er fallback (legg den sist):
+
+```ts
+dialogs: {
+    guide_greeting: [
+        {
+            speaker: 'Alvstein',
+            text: 'Du har plassert steinene! Kjelleren er åpen.',
+            condition: { flagsRequired: ['cellar_unlocked'] },
+            choices: [{ text: 'Takk!', next: null }],
+        },
+        {
+            speaker: 'Alvstein',
+            text: 'Du har funnet alle tre! Bring dem til alteret.',
+            condition: { flagsRequired: ['runes_complete'], flagsExcluded: ['runes_delivered'] },
+            choices: [{ text: 'Skal bli.', next: null }],
+        },
+        {
+            speaker: 'Alvstein',
+            text: 'Velkommen til Lysalvendalen! Vil du finne runesteinene?',
+            choices: [{ text: 'Ja', next: null }],  // fallback (uten condition)
+        },
+    ],
+},
+```
+
+**Condition-felt** (alle valgfrie, AND-kombinert):
+- `flagsRequired: string[]` - alle må være truthy
+- `flagsExcluded: string[]` - alle må være falsy
+- `questCompleted: string[]` - alle quest-IDene må ha status `completed`
+- `itemInInventory: string[]` - alle items må finnes
+
+### 19.4 Spatial og ambient audio
+
+```ts
+audio: {
+    masterVolume: 0.7,
+    tracks: [
+        { id: 'wind',  url: '/audio/wind.mp3',  kind: 'ambient', loop: true, volume: 0.4, trigger: 'onStart' },
+        { id: 'fire',  url: '/audio/fire.mp3',  kind: 'spatial', loop: true, volume: 0.8,
+          position: [10, 0.5, -10], maxDistance: 18, trigger: 'onStart' },
+        { id: 'sting', url: '/audio/sting.mp3', kind: 'ambient', volume: 1.0,
+          trigger: { flag: 'boss_appeared' } },
+    ],
+},
+```
+
+**Trigger-varianter**: `'onStart'` | `{ flag: 'X' }` (fyrer når flagget først blir truthy) | `{ phase: 'X' }` (fyrer når setPhase matcher). Spatial lyder følger `position` eller `attachTo: 'characterId'`.
+
+**Manuelle one-shots**: `engine.playOneShot(url, { position?, volume? })`. AudioSystem logger en advarsel ved fetch-feil og fortsetter spillet uforstyrret - manglende lydfiler er ikke fatalt.
+
+### 19.5 NPC-atferd (reaktive)
+
+```ts
+npcBehaviors: [
+    { characterId: 'vandrer', playerReaction: { distance: 4, behavior: 'face' } },
+    { characterId: 'guard',   playerReaction: { distance: 6, behavior: 'approach', speedMultiplier: 1.8 } },
+],
+```
+
+Behavior-typer: `approach` | `flee` | `face` | `alert`. Hysterese på 1.5× distance forhindrer flicker. Sett `setFlag` for å trigge en quest-condition første gang reaksjonen fyrer.
+
+### 19.6 PBR-materialer (Fase 2.1)
+
+`engine.sceneMat(color, opts)` aksepterer normal/roughness/AO-maps. `engine.getTexture(preset, kind)` gir prosedyrale standard-texturer som er cached og delt mellom materialer:
+
+```ts
+const panelMat = engine.sceneMat(0x9a9088, {
+    preset: 'stone',
+    normalMap:    engine.getTexture('stone', 'normal'),
+    roughnessMap: engine.getTexture('stone', 'roughness'),
+    aoMap:        engine.getTexture('stone', 'ao'),
+    mapRepeat: [2, 2],
+});
+```
+
+Tilgjengelige presets: `stone | wood | cloth | metal | leaf | water | soil`. På high-tier scener kombineres dette med IBL fra SkySystem (Fase 2.4) og CSM-skygger (Fase 2.3) automatisk.
+
+### 19.7 Weather → Gameplay
+
+```ts
+onWeatherChange: (from, to, engine) => {
+    if (to === 'rain' || to === 'snow') engine.setFlag('player_wet', true);
+    if (to === 'clear') engine.setFlag('player_wet', false);
+},
+```
+
+Motoren setter også `wet`-flag automatisk og slukker lys merket `mesh.userData._extinguishInRain = true` ved rain/snow.
+
+### 19.8 Statisk geometri som låses opp i runtime (Fase 6)
+
+For dører/blokker som starter solid og åpnes etter en quest:
+
+```ts
+const door = new THREE.Mesh(geo, mat);
+door.userData.solid = true;  // får static collider ved physics-init
+scene.add(door);
+
+// Senere, fra customUpdate eller dialog-action:
+if (engine.getFlag('door_unlocked')) {
+    engine.removeStaticCollider(door);  // fjerner collideren
+    door.removeFromParent();             // eller animer den vekk visuelt
+}
+```
+
+Bruk dette sparsomt - prefer å designe verdenen slik at solide objekter ikke trenger å forsvinne. Kall `removeStaticCollider` én gang per mesh.
+
+---
+
+## 20. Best practices ("Dette burde du bruke i et nytt spill")
+
+Sjekkliste hentet fra fasene 1-6. Følg disse, og motoren oppfører seg som forventet på Chromebook + high-end både.
+
+**Verden + lys (`world.preset: 'open'`)**:
+- Registrer alltid `scene.userData._mainSunLight` (DirectionalLight) og `_mainHemiLight` (HemisphereLight). Uten disse blir scenen nesten svart selv om SkySystem ser riktig ut.
+- Aktiver `visual.shadows: 'cascaded'` + `visual.volumetricLight: true` for utendørs high-tier-spill.
+- Sett `visual.fogDensityCurve` (night/dawn/day/dusk) for naturlig dag/natt-tåke.
+
+**Markering av geometri**:
+- Bruk `markSolid(mesh)`, `markClimbable(mesh)`, `markPickupable(mesh, opts)` fra `engine/sceneUserData` i stedet for direkte `mesh.userData.solid = true`. Typene fanger opp tastefeil.
+- Pickupable objekter må ha `colliderShape: 'cuboid'` (sphere ruller evig i Rapier) og `linearDamping`/`angularDamping` over 0.
+
+**Per-frame-arbeid**:
+- Bruk `engine.schedule(callback, ms)` i stedet for `setTimeout` i setupScene/dialog-actions. Da kanselleres callbacken automatisk hvis spillet disposes underveis.
+- Bruk `engine.registerAnimatedLight(light, animation)` i stedet for å oppdatere `light.intensity` selv - motoren batcher animasjonene.
+- Hold eksplisitte arrays over per-frame-meshes (f.eks. svaiende ringer) heller enn å traverse hele scenen i `_customUpdate`.
+
+**State**:
+- All persistent gameplay-state må gå via `engine.setFlag(key, value)`. Save-systemet plukker bare opp flagg, inventar, quester, NPC-ruter, vær og time-of-day - ingen scene-objekter.
+- Hvis du må huske at en mesh er fjernet, sett et flag og rebuild scenen tilsvarende ved load.
+
+**Dialog**:
+- Gi NPCer `marker: true` på `CharacterConfig` slik at quest-markører kan feste seg via `marker: { attachTo: 'characterId' }`.
+- Bruk array-variant av dialog-noder med `condition` for narrative gjenbesøk - unngå å maintain duplisert dialog i kode.
+
+**Audio**:
+- Ikke hardkod lyd i en `setupScene`-callback. Bruk `audio.tracks` i config slik at save/load og pause virker som forventet.
+- Hold spatial-tracks under 8 stk samtidig (Chromebook har 8-kanals OpenAL-grense de facto).

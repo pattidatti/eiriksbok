@@ -57,4 +57,11 @@ export class PhotoModeSystem {
         a.click();
         document.body.removeChild(a);
     }
+
+    dispose(): void {
+        // PhotoModeSystem holder ingen eksterne ressurser - state nullstilles så
+        // gjentatte init/dispose-sykluser (memory-lekkasjetest) er deterministisk.
+        this.active = false;
+        this.lutName = null;
+    }
 }

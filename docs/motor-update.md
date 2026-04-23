@@ -1,6 +1,6 @@
 # Motor-Update: Fullstendig Plan for Oppgradering av GameEngine
 
-**Status**: Fase 1-4 ferdig og verifisert (2026-04-23). Fase 5-6 gjenstår.
+**Status**: Fase 1-6 ferdig og bygger rent (2026-04-23).
 **Opprettet**: 2026-04-22
 **Mål**: Løfte motoren fra "funksjonell showroom" til "produksjonsklar mini-spillmotor" som kan bære ekte narrative spill.
 
@@ -130,6 +130,70 @@ Etter en full kodegjennomgang av de fire fasene ble tre avvik fra den opprinneli
 - `engine.completeObjective(questId, objectiveId)` — markerer objective ferdig manuelt
 
 **Ingen breaking changes.** Alle fire eksisterende spill kompilerer og kjører uendret.
+
+---
+
+## Leveranse Fase 5 (2026-04-23)
+
+Alle fem sub-oppgaver implementert og bygger rent (tsc -b + eslint + vite build). Fase 5 gjør motoren produksjonsklar for større scener: GLTF-pipeline, save/load, LOD for vegetasjon, dyp dispose-hygiene og ResizeObserver.
+
+| Oppgave | Status | Filer |
+|---|---|---|
+| 5.1 AssetLoader (GLTF + optional DRACO) | ✅ | `AssetLoader.ts` (ny, lazy-import GLTFLoader/DRACOLoader/SkeletonUtils), `GameEngine.ts` (assetsReady-await i startGame, dispose-integrasjon), `types.ts` (AssetDef, `GameConfig.assets`, `engine.getAsset/cloneAsset`) |
+| 5.2 SaveSystem (localStorage + auto-save) | ✅ | `systems/SaveSystem.ts` (ny, hooks-basert for å unngå sirkulær avhengighet), `systems/QuestSystem.ts` + `InventorySystem.ts` + `AIDirector.ts` (serialize/restore), `GameEngine.ts` (buildSaveHooks, setFlag/setPhase-trigger, public save/loadSave/hasSave/clearSave), `components/SettingsMenu.tsx` + `GameCanvas.tsx` (Lagre / Last inn / Slett-knapper i pause-meny) |
+| 5.3 LOD for vegetasjon | ✅ | `systems/VegetationSystem.ts` (THREE.LOD per tre: near/mid/billboard, prosedyrale billboard-texturer via CanvasTexture, grass-patch-culling), `GameEngine.ts` (update sender camera) |
+| 5.4 Dispose-hygiene | ✅ | `utils/sceneDispose.ts` (ny, traverserer scenen og rydder geometrier/materialer/texturer med WeakSet mot dobbel-dispose), `GameEngine.ts` (disposeSceneDeep + scene.clear + scheduledIntervals-set), `systems/PhotoModeSystem.ts` + `MonologSystem.ts` + `OceanSystem.ts` + `FoamSystem` (nye dispose-metoder) |
+| 5.5 ResizeObserver | ✅ | `GameEngine.ts` (setupResize bruker ResizeObserver på options.container, getContainerSize helper, early-return ved 0-size) |
+
+**Nye public API-er:**
+- `engine.getAsset(id)` / `engine.cloneAsset(id)` — pre-lastede GLTF-modeller; cloneAsset bruker SkeletonUtils for riggede modeller.
+- `engine.save()` / `engine.loadSave()` / `engine.hasSave()` / `engine.clearSave()` — localStorage per `gameId`.
+- `GameConfig.assets: { defs: [{id, url, kind?}], draco? }` — opt-in asset-pipeline.
+- `SaveSystem` hooks eksponert i `GameEngineRef` via save/load/hasSave/clearSave.
+
+**Automatiske beteende:**
+- Auto-save hvert 30s (registrert i `scheduledIntervals` så den ryddes deterministisk ved dispose).
+- Debounced save på `setFlag` (2s), umiddelbar save på `setPhase`.
+- Vegetasjon: trær får LOD-nivå automatisk basert på avstand til kamera; gress-patcher kulles utenfor tier-avhengig radius.
+
+**Gating og bakoverkompatibilitet:**
+- AssetLoader kun initialisert hvis `config.assets.defs.length > 0`. GLTFLoader (~50 KB gzipped) lazy-importert.
+- LOD-distanser tier-justert: low=12/30/80m, medium=25/60/120m, high=35/80/180m.
+- SaveSystem bruker versjonsfelt; eldre/mismatchede saves returnerer `null` fra `load()` så spilleren starter friskt.
+- Watt Lab, Lindisfarne, Ford Factory og Demo-world kjører uendret.
+
+**Demo-world**: 500 trær plassert i 220×220m område (fra 26 trær i 22×38m) for å vise LOD-skift i praksis.
+
+---
+
+## Leveranse Fase 6 (2026-04-23)
+
+Fem av seks sub-oppgaver implementert (6.5 droppet - fotomodus skal avvikles og var eneste eksponering for nye LUTs). Alt bygger rent (tsc -b + vite build). Demo-world (Lysalvendalen) er nå en showcase som demonstrerer hver Fase 1-5-feature i én sammenhengende scene.
+
+| Oppgave | Status | Filer |
+|---|---|---|
+| 6.1 Innendørs/utendørs-kontrast | ✅ | `DemoWorldAssets.ts` (hemmelig kammer ved (1, -8) via buildRoom + dør + speil m/ IBL + spotlight m/ shader-kjegle + saltak), `types.ts` + `GameEngine.ts` (ny `engine.removeStaticCollider`) |
+| 6.2 Material-variasjonsvegg | ✅ | `DemoWorldAssets.ts` (6 paneler: stein/tre/klut/metall/blad/jord m/ normal+roughness+AO-maps + label-sprites) |
+| 6.3 Quest-kjede | ✅ | `DemoWorldConfig.ts` (3 questDefs, 1 item, kondisjonell `guide_greeting` med 4 varianter), `DemoWorldAssets.ts` (3 runesteiner m/ ringer, alter-trigger, dør-anim), `InteractableSystem.ts` + `types.ts` + `GameEngine.ts` (PickupOptions.toInventory + auto-addItem-wrap) |
+| 6.4 Spatial audio | ✅ | `DemoWorldConfig.ts` (5 tracks: wind, birds, fire, waves, chapel-drone) - lydfiler er stub-stier; AudioSystem advarer gracefully ved 404 |
+| 6.5 LUT-presets | ⏭ Droppet | Fotomodus skal avvikles, så nye LUT-presets der er bortkastet |
+| 6.6 Dokumentasjon | ✅ | `.agent/workflows/BUILD_GAME_GUIDE.md` (ny seksjon 19: Fase 4-6 API-er; ny seksjon 20: best practices), `CLAUDE.md` (forkortet mini-spill-seksjon + samlet pitfalls), `docs/motor-update.md` (denne leveransen) |
+
+**Nye public API-er:**
+- `PickupOptions.toInventory: { itemId, count? }` - pickup direkte til inventar uten hold-i-hånd-fase. `engine.registerPickup` wrapper `onPickup` slik at `addItem` kalles automatisk; mesh + collider fjernes umiddelbart.
+- `engine.removeStaticCollider(mesh)` - fjern static collider i runtime (for dører/blokker som låses opp av en quest).
+
+**Designvalg under verifisering:** Den opprinnelige planen hadde et underjordisk kjellerrom med trapp ned. Det ble forkastet fordi demo-worldens bakke er én solid 110×110m collider — trappen ville stått inni en solid blokk. Erstattet med et bakkenivå-stenkammer ved (1, -8), åpent område nord-øst for steinringen.
+
+**Demo-flow (60-sekunder showcase):**
+1. Spilleren spawner ved benken. Snakker med Alvstein (E) → q_greet ferdig, q_runes aktiveres.
+2. J-tasten viser questlogg med 3 markører (steinringen, bålet, skogen).
+3. Plukker opp 3 runesteiner (E) - hver kalles addItem automatisk + setter et flag. I-tasten viser inventar.
+4. Går til alteret i kapellet med 3 steiner → auto-deliver, monolog spilles, kammerets dør glir ned.
+5. Det hemmelige kammeret er åpent. Speilet reflekterer himmelen via IBL. Spotlighten gir volumetrisk-kjegle-effekt.
+6. PBR-galleriet (vest for spawn) viser 6 materialer side-om-side med synlig relief.
+
+**Bakoverkompatibilitet**: Watt Lab, Lindisfarne og Ford Factory kjører uendret. `PickupOptions.toInventory` er valgfritt - eksisterende pickups oppfører seg som før.
 
 ---
 

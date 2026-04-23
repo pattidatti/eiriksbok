@@ -128,4 +128,10 @@ export class MonologSystem {
         this.active = null;
         this.pushState(null);
     }
+
+    dispose(): void {
+        this.active = null;
+        this.seen.clear();
+        this.triggers = [];
+    }
 }

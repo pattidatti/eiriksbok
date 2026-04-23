@@ -1,4 +1,4 @@
-import type { Group, Scene, MeshStandardMaterial, Light, Vector3, Mesh } from 'three';
+import type { Group, Scene, MeshStandardMaterial, Light, Vector3, Mesh, Texture, Object3D } from 'three';
 import type { QuestDef } from './systems/QuestSystem';
 import type { ItemDef } from './systems/InventorySystem';
 
@@ -26,6 +26,11 @@ export interface PickupOptions {
     onPickup?: () => void;
     onDrop?: () => void;
     onThrow?: () => void;
+    // Fase 6: pickup-direkte-til-inventar. Når satt, holdes objektet IKKE i hånda;
+    // i stedet kaller motoren engine.addItem(itemId, count) automatisk og fjerner
+    // mesh + fysikk-body umiddelbart. onPickup kalles ETTER addItem (bra for å
+    // fjerne ekstra visuelle effekter eller sette flagg). onDrop/onThrow ignoreres.
+    toInventory?: { itemId: string; count?: number };
 }
 
 export type Emotion = 'glad' | 'worried' | 'surprised' | 'triumphant';
@@ -151,7 +156,8 @@ export type SkyMode = 'procedural' | 'solid' | 'none';
 export type ColorGrading = 'warm' | 'cold' | 'sepia' | 'neutral' | 'dawn' | 'dusk';
 export type WeatherType = 'clear' | 'rain' | 'fog' | 'snow';
 export type MaterialPreset = 'stone' | 'wood' | 'cloth' | 'metal' | 'leaf' | 'water' | 'soil';
-export type VegetationType = 'grass' | 'reeds' | 'flowers';
+export type VegetationType = 'grass' | 'reeds' | 'flowers' | 'heather' | 'wildflowers' | 'ferns' | 'bush';
+export type AnimalKind = 'sheep' | 'cow';
 export type TreeType = 'pine' | 'oak' | 'birch';
 
 export interface WeatherState {
@@ -367,6 +373,9 @@ export interface GameEngineRef {
     setWeather: (state: WeatherState) => void;
     addVegetationPatch: (area: AABB2D, density: number, type?: VegetationType) => void;
     addTree: (position: [number, number, number], type?: TreeType) => void;
+    addBirdFlock: (center: [number, number, number], opts?: { count?: number; radius?: number; altitude?: number; altitudeSpread?: number }) => void;
+    addButterfly: (center: [number, number, number], opts?: { count?: number; radius?: number; color?: number }) => void;
+    addAnimalGroup: (kind: AnimalKind, bounds: AABB2D, opts?: { count?: number }) => void;
     assignRoute: (config: NpcRouteConfig) => void;
     // CameraDirector
     setCameraFraming: (framing: DialogCameraFraming, target?: Vector3) => void;
@@ -384,6 +393,11 @@ export interface GameEngineRef {
     isHoldingItem: () => boolean;
     dropHeldItem: () => void;
     throwHeldItem: (force?: number) => void;
+    // Fase 6: fjern en static collider (lagt til via userData.solid=true) i runtime.
+    // Brukes for dører/blokker som låses opp av en quest. Påvirker ikke mesh-visningen
+    // - kall mesh.removeFromParent() eller anim mesh.position separat for visuell effekt.
+    // No-op hvis fysikk er deaktivert eller mesh ikke har en collider.
+    removeStaticCollider: (mesh: Mesh) => void;
     // ── Fase 3.1 (audio) ──
     // Spill en engangslyd. Spatial hvis `position` er satt.
     playOneShot: (url: string, opts?: { position?: [number, number, number]; volume?: number }) => void;
@@ -411,6 +425,21 @@ export interface GameEngineRef {
     removeItem: (itemId: string, count?: number) => boolean;
     hasItem: (itemId: string) => boolean;
     itemCount: (itemId: string) => number;
+    // ── Fase 5.1 (asset-pipeline) ──
+    // Hent en pre-lastet GLTF-scene eller texture. Returnerer rå-referansen;
+    // bruk cloneAsset for GLTF-scener som skal plasseres flere steder.
+    getAsset: (id: string) => Group | Texture | null;
+    // Dyp-kloner en GLTF-scene. Rigger håndteres via SkeletonUtils ved behov.
+    // Returnerer Promise fordi SkeletonUtils lastes lazy.
+    cloneAsset: (id: string) => Promise<Object3D | null>;
+    // ── Fase 5.2 (save/load) ──
+    // Eksplisitt lagring. Kalles av pause-menyens Lagre-knapp; auto-save skjer
+    // i tillegg hvert 30s og ved setPhase/setFlag (debounced).
+    save: () => boolean;
+    // Last inn save. Returnerer true hvis save fantes og ble gjenopprettet.
+    load: () => boolean;
+    hasSave: () => boolean;
+    clearSave: () => void;
 }
 
 export interface GameConfig {
@@ -467,6 +496,13 @@ export interface GameConfig {
     // (f.eks. fakler slukner i regn). 'wet'-flagget settes automatisk av motoren
     // ved rain/snow/fog og ryddes ved 'clear'.
     onWeatherChange?: (from: WeatherType, to: WeatherType, engine: GameEngineRef) => void;
+    // ── Fase 5.1 (asset-pipeline) ──
+    // GLTF/texture-modeller som pre-lastes før startGame(). Trenger DRACO-decoder
+    // kopiert til public/draco/ hvis { draco: true } settes.
+    assets?: {
+        defs: Array<{ id: string; url: string; kind?: 'gltf' | 'texture' }>;
+        draco?: boolean;
+    };
 }
 
 export interface MonologUIState {

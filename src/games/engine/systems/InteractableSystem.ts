@@ -66,6 +66,18 @@ export class InteractableSystem {
     pickup(mesh: THREE.Mesh): void {
         const rec = this.pickups.get(mesh);
         if (!rec || this.held) return;
+
+        // Fase 6: pickup-direkte-til-inventar. Ikke hold i hånd; fjern fra verden.
+        // onPickup-callbacken må selv kalle engine.addItem(...) - InteractableSystem
+        // har ingen direkte referanse til InventorySystem.
+        if (rec.opts.toInventory) {
+            rec.opts.onPickup?.();
+            this.physics.removeMesh(mesh);
+            mesh.removeFromParent();
+            this.pickups.delete(mesh);
+            return;
+        }
+
         // Deaktiver fysikk mens objektet holdes
         this.physics.setBodyEnabled(mesh, false);
         this.held = rec;

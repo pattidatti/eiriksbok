@@ -25,6 +25,7 @@ export interface OceanOptions {
 
 export class OceanSystem {
     mesh: THREE.Mesh;
+    private scene: THREE.Scene;
     private geometry: THREE.PlaneGeometry;
     private basePositions: Float32Array;
     private time = 0;
@@ -32,6 +33,7 @@ export class OceanSystem {
     private size: number;
 
     constructor(scene: THREE.Scene, toonMat: (c: number, o?: Record<string, unknown>) => THREE.MeshStandardMaterial, opts: OceanOptions = {}) {
+        this.scene = scene;
         this.size = opts.size ?? 200;
         this.segments = opts.segments ?? 64;
         const color = opts.color ?? 0x2b4a66;
@@ -90,17 +92,30 @@ export class OceanSystem {
     setVisible(v: boolean): void {
         this.mesh.visible = v;
     }
+
+    dispose(): void {
+        this.scene.remove(this.mesh);
+        this.geometry.dispose();
+        const mat = this.mesh.material as THREE.Material | THREE.Material[];
+        if (Array.isArray(mat)) {
+            for (const m of mat) m.dispose();
+        } else {
+            mat.dispose();
+        }
+    }
 }
 
 // Enkel skumskyer-system - små hvite partikler langs båtens skrog.
 export class FoamSystem {
     private points: THREE.Points;
+    private scene: THREE.Scene;
     private particles: { x: number; y: number; z: number; vx: number; vy: number; vz: number; life: number; maxLife: number }[] = [];
     private geometry: THREE.BufferGeometry;
     private positions: Float32Array;
     private getOrigin: () => { x: number; y: number; z: number };
 
     constructor(scene: THREE.Scene, getOrigin: () => { x: number; y: number; z: number }, max = 80) {
+        this.scene = scene;
         this.getOrigin = getOrigin;
         this.positions = new Float32Array(max * 3);
         this.geometry = new THREE.BufferGeometry();
@@ -154,5 +169,17 @@ export class FoamSystem {
 
     setVisible(v: boolean): void {
         this.points.visible = v;
+    }
+
+    dispose(): void {
+        this.scene.remove(this.points);
+        this.geometry.dispose();
+        const mat = this.points.material as THREE.Material | THREE.Material[];
+        if (Array.isArray(mat)) {
+            for (const m of mat) m.dispose();
+        } else {
+            mat.dispose();
+        }
+        this.particles = [];
     }
 }

@@ -186,6 +186,19 @@ export function GameCanvas({ config }: GameCanvasProps) {
         canvas?.requestPointerLock();
     }, []);
 
+    // Fase 5.2: save/load-handlers. getHasSave leses av SettingsMenu ved åpning
+    // slik at GameCanvas selv ikke trenger å touche refs under render.
+    const getHasSave = useCallback(() => engineRef.current?.hasSave() ?? false, []);
+    const handleSave = useCallback(() => {
+        engineRef.current?.save();
+    }, []);
+    const handleLoad = useCallback(() => {
+        engineRef.current?.loadSave();
+    }, []);
+    const handleClearSave = useCallback(() => {
+        engineRef.current?.clearSave();
+    }, []);
+
     return (
         <div
             className="relative w-full overflow-hidden bg-stone-900"
@@ -224,7 +237,13 @@ export function GameCanvas({ config }: GameCanvasProps) {
 
             {/* Settings menu (erstatter pause-overlay) */}
             {uiState.started && !uiState.ended && uiState.paused && (
-                <SettingsMenu onResume={handleResumeFromMenu} />
+                <SettingsMenu
+                    onResume={handleResumeFromMenu}
+                    onSave={handleSave}
+                    onLoad={handleLoad}
+                    onClearSave={handleClearSave}
+                    getHasSave={getHasSave}
+                />
             )}
 
             {/* Dialog box */}

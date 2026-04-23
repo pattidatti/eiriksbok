@@ -32,7 +32,9 @@ export class ShadowSystem {
                 camera: this.camera,
                 parent: this.scene,
                 cascades: 3,
-                maxFar: 120,
+                // Dekker hele tree-LOD-rangen (150m på high-tier) slik at skyggen
+                // ikke forsvinner før treet uansett er byttet til billboard.
+                maxFar: 160,
                 mode: 'practical',
                 shadowMapSize: 2048,
                 shadowBias: -0.00015,
@@ -62,6 +64,19 @@ export class ShadowSystem {
         for (const m of mats) {
             if (this.registeredMaterials.has(m)) continue;
             this.csm.setupMaterial(m);
+            // CSM.setupMaterial overskriver onBeforeCompile. Hvis materialet hadde
+            // en egen shader-mod (f.eks. vind på løvverk) må den rekjedes på toppen,
+            // ellers mistes den ved shader-kompilering.
+            const userMod = (m.userData as Record<string, unknown>)?._shaderMod as
+                | ((shader: THREE.WebGLProgramParametersWithUniforms) => void)
+                | undefined;
+            if (userMod) {
+                const csmOnBefore = m.onBeforeCompile;
+                m.onBeforeCompile = (shader, renderer) => {
+                    csmOnBefore.call(m, shader, renderer);
+                    userMod(shader);
+                };
+            }
             this.registeredMaterials.add(m);
         }
     }

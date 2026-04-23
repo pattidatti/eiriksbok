@@ -81,43 +81,13 @@ Alt innhold i Eiriksbok skal være forståelig for en gjennomsnittlig 14-åring.
 │   │   └── ...                # Layout, navigation, modals
 │   ├── features/music/        # Music subject feature module
 │   ├── games/
-│   │   ├── engine/            # Gjenbrukbart 3D-spillmotor-rammeverk (raw Three.js + Rapier3D)
-│   │   │   ├── types.ts       # GameConfig, DialogNode, MonologNode, PhysicsConfig, PlayerMode, osv.
-│   │   │   ├── GameEngine.ts  # Hoved-orkestrator: scene, renderer, loop, input, fysikk, flagg
-│   │   │   ├── WorldBuilder.ts    # Bygger 'workshop'-preset (ett lukket rom)
-│   │   │   ├── CharacterBuilder.ts # Toon-shaded karakterer, 4 typer (scientist/farmer/noble/monk)
-│   │   │   ├── ParticleSystem.ts  # Støv, gnister, damp
-│   │   │   ├── LightBuilder.ts    # Hengende SpotLights + shader-baserte lyskjegler
-│   │   │   ├── SceneMat.ts        # Material-presets (stein, tre, metall, osv.)
-│   │   │   ├── systems/       # Gjenbrukbare subsystemer
-│   │   │   │   ├── PhysicsWorld.ts        # Rapier3D: character controller, raycast, step (Fase 4)
-│   │   │   │   ├── InteractableSystem.ts  # Pickup/drop/kast via E og F (Fase 4)
-│   │   │   │   ├── PostProcessingSystem.ts # EffectComposer: bloom, tone mapping, color grading
-│   │   │   │   ├── SkySystem.ts           # Prosedyral himmel koblet til TimeOfDay
-│   │   │   │   ├── TimeOfDaySystem.ts     # 0-1 lerp driver sol/ambient/sky-farge
-│   │   │   │   ├── WeatherSystem.ts       # Regn, snø, tåke (partikler + fog override)
-│   │   │   │   ├── VegetationSystem.ts    # InstancedMesh-gress/siv/trær med vind-shader
-│   │   │   │   ├── CameraDirector.ts      # Dialog-framing, fade, cinematics
-│   │   │   │   ├── AIDirector.ts          # Waypoint-vandring for NPCer
-│   │   │   │   ├── MonologSystem.ts       # Indre stemme - ikke-blokkerende tekst + triggere
-│   │   │   │   ├── OceanSystem.ts         # Animert hav + skum-partikler
-│   │   │   │   └── RoomSystem.ts          # Deklarativ rom-bygging (vegger markert solid)
-│   │   │   ├── builders/      # Spill-spesifikke scene-byggere (gjenbrukbare)
-│   │   │   │   ├── CloisterBuilder.ts # Kloster (kapell, korridor, bibliotek, sovesal)
-│   │   │   │   ├── BeachBuilder.ts    # Strand, sti, klipper
-│   │   │   │   └── SeascapeBuilder.ts # Hav + himmel + langskip
-│   │   │   └── components/    # React-wrappere: GameCanvas, DialogBox, MonologBox, PuzzleUI, osv.
-│   │   ├── watt-lab/          # James Watt-spill (ett-rom med samleobjekter + puzzle)
-│   │   │   ├── WattLabConfig.ts   # Komplett GameConfig: verden, karakterer, dialog, puzzle
-│   │   │   └── WattLabAssets.ts   # Spill-spesifikke 3D-objekter (markert userData.solid)
-│   │   ├── lindisfarne-793/   # Vikingraid (fler-fase utendørs: båt, strand, kloster)
-│   │   │   ├── LindisfarneConfig.ts   # GameConfig med 'open'-preset og variabel endText
-│   │   │   ├── LindisfarneAssets.ts   # setupScene: syr sammen hav, båt, strand, kloster
-│   │   │   ├── LindisfarneDialogs.ts  # NPC-dialoger (Sigurd, veteran, Ulv, Eadfrith)
-│   │   │   └── LindisfarneMonologs.ts # Indre monolog-noder + triggervolumer
-│   │   ├── chrono-glider/     # Chrono Glider (eksisterende, R3F-basert)
-│   │   ├── concept-snake/     # Konseptslange (eksisterende)
-│   │   ├── word-sorter/       # Ordsortering (eksisterende)
+│   │   ├── engine/            # Mini-spillmotor (Three.js + Rapier3D). API + fallgruver: BUILD_GAME_GUIDE.md
+│   │   ├── demo-world/        # Lysalvendalen — referanse-showcase for alle motor-features
+│   │   ├── watt-lab/          # James Watt-spill (ett-rom)
+│   │   ├── lindisfarne-793/   # Vikingraid (fler-fase utendørs)
+│   │   ├── chrono-glider/     # R3F-basert (eldre arkitektur)
+│   │   ├── concept-snake/     # Konseptslange (eldre)
+│   │   ├── word-sorter/       # Ordsortering (eldre)
 │   │   └── GameRegistry.ts    # Eldre spill-registry (ikke brukt av engine-systemet)
 │   ├── hooks/                 # Custom React hooks
 │   ├── context/               # React context providers (GlossaryContext, LayoutContext)
@@ -382,20 +352,13 @@ See `.agent/workflows/LEARNING_PATH_GUIDE.md` for the full JSON schema.
 
 ## Mini-spill-system
 
-Historiske 3D-mini-spill bor under `/oving/spill` og bruker et eget gjenbrukbart rammeverk i `src/games/engine/`. Hvert spill defineres som et TypeScript-objekt (`GameConfig`) - motoren håndterer Three.js, Rapier3D-fysikk, input, dialog, puzzle, indre monolog, værsystem, sky/time-of-day, kamera-direktør og flagg. Ingen progresjonlagring.
-
-**To arketyper støttes:**
-- **Ett-rom-spill** (`world.preset: 'workshop'`) - lukket interiør med samleobjekter og puzzle. Se Watt Lab.
-- **Fler-fase-spill** (`world.preset: 'open'`) - utendørs / flere scener i én sammenhengende verden. Bruker `systems/` og `builders/` for hav, rom, indre monolog, og spiller-modi (seated/free). Se Lindisfarne 793.
+Historiske 3D-mini-spill bor under `/oving/spill` og bruker et gjenbrukbart rammeverk i `src/games/engine/` (raw Three.js + Rapier3D, lazy-lastet). Hvert spill er et `GameConfig`-objekt med `setupScene`-callback. Motoren håndterer scene, input, fysikk, dialog, quester, inventar, monolog, vær, sky/time-of-day, kamera, audio, og save/load.
 
 **Legge til et nytt spill:**
-1. Opprett `src/games/[id]/[Id]Config.ts` (GameConfig) og `[Id]Assets.ts` (setupScene-callback)
-2. Legg til i `HISTORICAL_GAMES` i `src/pages/MiniGamesPage.tsx`
-3. Legg til i `GAME_REGISTRY` i `src/pages/GamePage.tsx`
+1. Opprett `src/games/[id]/[Id]Config.ts` + `[Id]Assets.ts`
+2. Registrer i `HISTORICAL_GAMES` (`src/pages/MiniGamesPage.tsx`) og `GAME_REGISTRY` (`src/pages/GamePage.tsx`)
 
-Se **`.agent/workflows/BUILD_GAME_GUIDE.md`** for komplett guide med skjema, `userData.solid`-kollisjon (Rapier), dialog/puzzle/monolog-system, fase-overganger med `engine.setPhase`/`setFlag`, variabel slutt via `endText`-funksjon, pickup/kast via E og F, og eksempler fra både Watt Lab og Lindisfarne.
-
-> **Før du tester et nytt `preset: 'open'`-spill - gå gjennom sjekklisten i BUILD_GAME_GUIDE.md §16.7.** Den dekker sol/hemi-registrering, tak-synlighet, hav-overlapp, demping på dynamiske objekter og andre fallgruver som lett oppstår.
+**For alt annet — skjema, API-er, fallgruver, best practices, eksempler — se `.agent/workflows/BUILD_GAME_GUIDE.md`.** Det er den autoritative guiden. Arbeid med mini-spill skal alltid begynne med å lese den.
 
 ---
 
@@ -508,10 +471,7 @@ A highly realistic 4K cinematic photograph of [scene], [time period].
 | `src/App.tsx` | Router setup, context providers |
 | `src/routes.ts` | Lazy-load route factories |
 | `src/lib/firebase.ts` | Firebase configuration |
-| `src/games/engine/types.ts` | Alle typer for mini-spill-systemet (GameConfig, PhysicsConfig, PickupOptions, osv.) |
-| `src/games/engine/GameEngine.ts` | Three.js spillmotor — scene, input, loop, Rapier-fysikk, system-orkestrering |
-| `src/games/engine/systems/PhysicsWorld.ts` | Rapier3D-wrapper: character controller, raycast, fixed timestep |
-| `src/games/engine/systems/InteractableSystem.ts` | Pickup/drop (E) og kast (F) for dynamiske objekter |
+| `src/games/engine/` | Mini-spillmotor (typer, GameEngine, systems/, builders/). Se `BUILD_GAME_GUIDE.md` for API-er. |
 | `src/pages/MiniGamesPage.tsx` | Galleriside — legg til nye spill i HISTORICAL_GAMES her |
 | `src/pages/GamePage.tsx` | Enkeltspill-side — legg til spill-ID i GAME_REGISTRY her |
 | `docs/THE_ARCHITECTS_HANDBOOK.md` | Workflow philosophy |
@@ -532,12 +492,7 @@ A highly realistic 4K cinematic photograph of [scene], [time period].
 6. **Timeline in article JSON**: Always keep `"timeline": []` in article files. All events go in `global-timeline.json`.
 7. **Learning paths in `lessons`**: Learning paths (`-sti.json`) must be registered under `tools`, not `lessons` in the manifest.
 8. **Relative links in tasks**: Always use absolute paths starting with `/` in learning path task links.
-9. **Mini-spill kollisjon (Rapier, Fase 4+)**: Nye 3D-objekter som skal være solide må merkes med `mesh.userData.solid = true`. `PhysicsWorld` traverserer scenen og lager colliders automatisk etter init. Valgfri `colliderShape: 'cylinder' | 'capsule' | 'sphere' | 'trimesh'` overstyrer default (cuboid fra boundingBox). Gulv må også ha `solid=true` - det finnes ingen auto-ground. AABB2D og `scene.userData.collisionBoxes` er fjernet fra kollisjons-API-et.
-10. **Mini-spill `preset: 'open'` uten sol**: Motoren lager kun `AmbientLight` automatisk for open-preset. Uten `scene.userData._mainSunLight` (DirectionalLight) og `_mainHemiLight` (HemisphereLight) registrert i `setupScene` blir scenen nesten svart selv om SkySystem ser riktig ut. Se `BUILD_GAME_GUIDE.md` §16.1.
-11. **Mini-spill tak fra `buildRoom` er usynlig utenfra**: `RoomSystem.buildRoom` bygger tak med normalen pekende nedover (dollhouse-design). For frittstående bygg som sees utenfra, skjul standardtaket (`room.roof.visible = false`) og bygg et saltak manuelt. Se `BUILD_GAME_GUIDE.md` §16.2.
-12. **Mini-spill prosedyrale plasseringer**: `engine.addTree`/`addVegetationPatch`/random-løkker må eksplisitt ekskludere bygge-bounds, ellers lander objekter inne i vegger. Samle `AABB2D[]` og sjekk i plasseringsløkken. Se `BUILD_GAME_GUIDE.md` §16.3.
-13. **Mini-spill hav klipper gjennom land**: `OceanSystem`-bølger har amplitude ~0.7m. Hvis havplanet overlapper solide land-bokser og `mesh.position.y > land_top - 0.7`, stiger bølgetopper gjennom bakken. Løsning: krymp plane (`size`, `center`) unna land OG senk `mesh.position.y` nok. Husk å oppdatere `FoamSystem`-origin-y og båt-base-y. Se `BUILD_GAME_GUIDE.md` §16.4.
-14. **Mini-spill dynamiske objekter ruller evig**: Rapier har default `linearDamping = 0` og `angularDamping = 0`. Sett `userData.linearDamping` og `userData.angularDamping` på dynamiske objekter, og bruk `colliderShape: 'cuboid'` (ikke `'sphere'`) for pickups - sfæriske colliders ruller evig i Rapier. Se `BUILD_GAME_GUIDE.md` §16.5.
+9. **Mini-spill (3D-motor)**: Egne fallgruver for `userData.solid`-kollisjon, sol/hemi-registrering, dollhouse-tak, prosedyrale plasseringer, hav-overlapp og fysikk-damping er dokumentert i `BUILD_GAME_GUIDE.md` §16. Les den seksjonen før du tester et nytt `preset: 'open'`-spill.
 
 ---
 
@@ -554,5 +509,4 @@ A highly realistic 4K cinematic photograph of [scene], [time period].
 - `docs/Design documents/` — Per-topic blueprints
 - `.agent/workflows/LEARNING_PATH_GUIDE.md` — Learning path JSON schema and guide
 - `.agent/workflows/BUILD_GAME_GUIDE.md` — Guide for å lage nye historiske 3D-mini-spill
-- `Ideer/` — Ideas and planning documents (Norwegian)
 - `Ideer/` — Ideas and planning documents (Norwegian)

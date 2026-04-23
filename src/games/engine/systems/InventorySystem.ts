@@ -117,4 +117,18 @@ export class InventorySystem {
         this.slots.length = 0;
         this.items.clear();
     }
+
+    // Fase 5.2: serialisering for SaveSystem.
+    serialize(): InventorySlot[] {
+        // Dyp-kopi så framtidig mutasjon ikke endrer save-data.
+        return this.slots.map((s) => ({ itemId: s.itemId, count: s.count }));
+    }
+
+    restore(slots: InventorySlot[]): void {
+        this.slots = slots
+            .filter((s) => this.items.has(s.itemId) && s.count > 0)
+            .slice(0, this.maxSlots)
+            .map((s) => ({ itemId: s.itemId, count: s.count }));
+        this.notify();
+    }
 }

@@ -270,4 +270,31 @@ export class AIDirector {
         this.routes.clear();
         this.behaviors.clear();
     }
+
+    // Fase 5.2: serialisering for SaveSystem. Lagrer kun progresjon per rute;
+    // posisjoner hentes separat fra selve karakteren.
+    serialize(): Array<{ characterId: string; waypointIndex: number; direction: 1 | -1; pauseRemaining: number; completed: boolean }> {
+        const out: Array<{ characterId: string; waypointIndex: number; direction: 1 | -1; pauseRemaining: number; completed: boolean }> = [];
+        for (const [id, r] of this.routes) {
+            out.push({
+                characterId: id,
+                waypointIndex: r.waypointIndex,
+                direction: r.direction,
+                pauseRemaining: r.pauseRemaining,
+                completed: r.completed,
+            });
+        }
+        return out;
+    }
+
+    restore(data: Array<{ characterId: string; waypointIndex: number; direction: 1 | -1; pauseRemaining: number; completed: boolean }>): void {
+        for (const d of data) {
+            const r = this.routes.get(d.characterId);
+            if (!r) continue;
+            r.waypointIndex = d.waypointIndex;
+            r.direction = d.direction;
+            r.pauseRemaining = d.pauseRemaining;
+            r.completed = d.completed;
+        }
+    }
 }

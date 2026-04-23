@@ -3,6 +3,12 @@ import { useGameSettings, updateGraphicsSettings, type ShadowQuality } from '../
 
 interface SettingsMenuProps {
     onResume: () => void;
+    // Fase 5.2: save/load-callbacks. Knappene vises kun når callback er satt.
+    onSave?: () => void;
+    onLoad?: () => void;
+    onClearSave?: () => void;
+    // Leses én gang når menyen åpnes + bumpes lokalt etter save/slett.
+    getHasSave?: () => boolean;
 }
 
 type View = 'main' | 'graphics';
@@ -81,10 +87,19 @@ const selectStyle: React.CSSProperties = {
     minWidth: 120,
 };
 
-export function SettingsMenu({ onResume }: SettingsMenuProps) {
+export function SettingsMenu({ onResume, onSave, onLoad, onClearSave, getHasSave }: SettingsMenuProps) {
     const [view, setView] = useState<View>('main');
+    const [flash, setFlash] = useState<string | null>(null);
+    // Les hasSave én gang når menyen monteres; local state lar Last inn/Slett
+    // reagere umiddelbart etter save/slett uten å re-query storage.
+    const [hasSave, setHasSave] = useState<boolean>(() => getHasSave?.() ?? false);
     const settings = useGameSettings();
     const g = settings.graphics;
+
+    const showFlash = (msg: string) => {
+        setFlash(msg);
+        setTimeout(() => setFlash((cur) => (cur === msg ? null : cur)), 1500);
+    };
 
     return (
         <div style={overlayStyle} role="dialog" aria-label="Spillmeny">
@@ -122,6 +137,51 @@ export function SettingsMenu({ onResume }: SettingsMenuProps) {
                         >
                             Innstillinger
                         </button>
+                        {onSave && (
+                            <button
+                                type="button"
+                                style={buttonStyle}
+                                onClick={() => {
+                                    onSave();
+                                    setHasSave(true);
+                                    showFlash('Lagret');
+                                }}
+                            >
+                                Lagre
+                            </button>
+                        )}
+                        {onLoad && hasSave && (
+                            <button
+                                type="button"
+                                style={buttonStyle}
+                                onClick={() => {
+                                    onLoad();
+                                    showFlash('Lastet inn');
+                                }}
+                            >
+                                Last inn
+                            </button>
+                        )}
+                        {onClearSave && hasSave && (
+                            <button
+                                type="button"
+                                style={{ ...buttonStyle, borderColor: 'rgba(180,80,60,0.4)', color: '#d8a898' }}
+                                onClick={() => {
+                                    if (confirm('Slette lagret spill? Dette kan ikke angres.')) {
+                                        onClearSave();
+                                        setHasSave(false);
+                                        showFlash('Lagring slettet');
+                                    }
+                                }}
+                            >
+                                Slett lagring
+                            </button>
+                        )}
+                        {flash && (
+                            <p style={{ textAlign: 'center', fontSize: 13, color: '#b89968', marginTop: 10 }}>
+                                {flash}
+                            </p>
+                        )}
                     </>
                 )}
 

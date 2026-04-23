@@ -1,8 +1,31 @@
 import * as THREE from 'three';
-import type { GameEngineRef } from '../engine/types';
+import type { GameEngineRef, MaterialPreset } from '../engine/types';
 import { buildRoom } from '../engine/systems/RoomSystem';
 import { buildHangingLight, type HangingLightRef } from '../engine/LightBuilder';
 import { OceanSystem, FoamSystem } from '../engine/systems/OceanSystem';
+
+function makeLabelSprite(text: string, color = '#f5e9c8'): THREE.Sprite {
+    const cvs = document.createElement('canvas');
+    cvs.width = 256;
+    cvs.height = 64;
+    const ctx = cvs.getContext('2d')!;
+    ctx.fillStyle = 'rgba(20, 14, 8, 0.85)';
+    ctx.fillRect(0, 0, 256, 64);
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 3;
+    ctx.strokeRect(2, 2, 252, 60);
+    ctx.fillStyle = color;
+    ctx.font = 'bold 30px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(text, 128, 34);
+    const tex = new THREE.CanvasTexture(cvs);
+    tex.anisotropy = 4;
+    const mat = new THREE.SpriteMaterial({ map: tex, transparent: true });
+    const sprite = new THREE.Sprite(mat);
+    sprite.scale.set(1.4, 0.36, 1);
+    return sprite;
+}
 
 function mulberry32(seed: number): () => number {
     return function () {
@@ -455,20 +478,29 @@ export function setupDemoWorldScene(engine: GameEngineRef): void {
     // ── Trees (engine handles wind shader + foliage) ─────────────────────────
     const buildingBounds = [
         { minX: -25, maxX: -11, minZ: -24, maxZ: -12 }, // kapell + buffer
+        { minX: -2, maxX: 4, minZ: -11, maxZ: -5 }, // hemmelig kammer (Fase 6.1)
         { minX: -12, maxX: -4, minZ: -23, maxZ: -15 }, // steinring
         { minX: -7, maxX: -1, minZ: 1, maxZ: 7 }, // flaggstang
+        { minX: -34, maxX: -22, minZ: 1, maxZ: 8 }, // PBR-galleri-vegg
     ];
     const insideAnyBuilding = (x: number, z: number) =>
         buildingBounds.some((b) => x >= b.minX && x <= b.maxX && z >= b.minZ && z <= b.maxZ);
 
+    // Fase 5.3-demo: mange trær spredd utover for å vise LOD-systemet i aksjon.
+    // Nære trær rendres med vind-shader, 25m+ bytter til simpler geometri,
+    // 60m+ blir billboard-sprites. Chromebook-baseline (low-tier) culler
+    // tidligere og aggressivt.
     let placed = 0;
     let attempts = 0;
-    while (placed < 26 && attempts < 80) {
+    const TREE_TARGET = 500;
+    const MAX_ATTEMPTS = TREE_TARGET * 4;
+    while (placed < TREE_TARGET && attempts < MAX_ATTEMPTS) {
         attempts++;
-        const x = -36 + rng() * 22;
-        const z = -24 + rng() * 38;
-        if (Math.hypot(x, z) < 8) continue;
-        if (insideAnyBuilding(x, z)) continue;
+        // Utvid området langt utover det opprinnelige så LOD-grensene passeres synlig.
+        const x = -110 + rng() * 220;
+        const z = -110 + rng() * 220;
+        if (Math.hypot(x, z) < 8) continue;                    // hold spawn-området åpent
+        if (x > -40 && x < 20 && z > -25 && z < 20 && insideAnyBuilding(x, z)) continue;
         const r = rng();
         const type = r > 0.4 ? 'pine' : r > 0.2 ? 'birch' : 'oak';
         engine.addTree([x, 0, z], type);
@@ -487,6 +519,17 @@ export function setupDemoWorldScene(engine: GameEngineRef): void {
     engine.addVegetationPatch({ minX: 3, maxX: 18, minZ: 2, maxZ: 14 }, 0.9, 'flowers');
     engine.addVegetationPatch({ minX: -8, maxX: 2, minZ: 10, maxZ: 20 }, 2.4, 'reeds');
     engine.addVegetationPatch({ minX: -35, maxX: -20, minZ: -10, maxZ: 10 }, 1.0, 'grass');
+    engine.addVegetationPatch({ minX: -40, maxX: -22, minZ: -12, maxZ: 8 }, 1.4, 'heather');
+    engine.addVegetationPatch({ minX: 8, maxX: 22, minZ: 12, maxZ: 28 }, 0.7, 'ferns');
+    engine.addVegetationPatch({ minX: -8, maxX: 6, minZ: 6, maxZ: 18 }, 1.0, 'wildflowers');
+
+    // ── Fauna ────────────────────────────────────────────────────────────────
+    engine.addBirdFlock([0, 0, 0], { altitude: 22, radius: 18 });
+    engine.addBirdFlock([-25, 0, -10], { altitude: 30, radius: 12 });
+    engine.addButterfly([10, 0, 8], { radius: 5 });
+    engine.addButterfly([3, 0, 14], { color: 0xffaadd });
+    engine.addAnimalGroup('sheep', { minX: -5, maxX: 22, minZ: 5, maxZ: 28 });
+    engine.addAnimalGroup('cow', { minX: 15, maxX: 45, minZ: -18, maxZ: 10 }, { count: 3 });
 
     // ── Bench + flagpole at spawn ────────────────────────────────────────────
     const bench = new THREE.Group();
@@ -566,6 +609,276 @@ export function setupDemoWorldScene(engine: GameEngineRef): void {
         scene.add(peak);
     }
 
+    // ────────────────────────────────────────────────────────────────────────
+    // ── Fase 6.1: Hemmelig kammer ved siden av kapellet ──────────────────────
+    // ────────────────────────────────────────────────────────────────────────
+    // Et lite stenkammer på bakkenivå, attached til kapellets østre side. Speil
+    // bruker IBL fra SkySystem; en spotlight gjennom takvinduet gir shader-
+    // basert volumetrisk-kjegle. Døren mot vest er solid og låses opp ved at
+    // spilleren plasserer 3 runesteiner på alteret (cellar_unlocked-flagget).
+
+    // Plassering: åpen plass nord-øst for steinringen, vest for bålet.
+    // Klar av stone-ring (sentrum -8,-19 radius 3.2), chapel (sentrum -18,-18),
+    // bål (10,-10) og spawn-området.
+    const chamberCx = 1;
+    const chamberCz = -8;
+    const chamberW = 5;
+    const chamberD = 4;
+    const chamberWallH = 3.2;
+
+    const chamber = buildRoom(scene, toonMat, {
+        id: 'kammer',
+        center: [chamberCx, chamberCz],
+        size: [chamberW, chamberD],
+        wallHeight: chamberWallH,
+        floorColor: 0x4a3a28,
+        wallColor: 0x6a5840,
+        roofColor: 0x2a1a10,
+        hasRoof: true,
+        openings: [{ side: 'W', offset: 0, width: 1.6 }],
+    });
+    const chamberBounds = chamber.innerBounds;
+    const chamberRoofInner = chamber.roof; // standard tak (synlig kun innenfra) - dollhouse-toggle
+
+    // Saltak utenpå (synlig fra utsiden) - skjuler standard-taket fra utsiden.
+    if (chamberRoofInner) chamberRoofInner.visible = true; // beholdes; dollhouse skjuler det
+    const chamberRoofMat = new THREE.MeshStandardMaterial({
+        color: 0x2a1a10,
+        roughness: 0.95,
+        metalness: 0,
+        side: THREE.DoubleSide,
+    });
+    const chamberRoofOver = 0.4;
+    const chamberRoofGeo = new THREE.BoxGeometry(
+        chamberW + 2 * chamberRoofOver,
+        0.18,
+        chamberD + 2 * chamberRoofOver,
+    );
+    const chamberOuterRoof = new THREE.Mesh(chamberRoofGeo, chamberRoofMat);
+    chamberOuterRoof.position.set(chamberCx, chamberWallH + 0.09, chamberCz);
+    chamberOuterRoof.castShadow = true;
+    chamberOuterRoof.receiveShadow = true;
+    scene.add(chamberOuterRoof);
+
+    // Vindu i taket (lysbrønn). Bare visuelt - ingen fysisk åpning.
+    const chamberWindowMat = new THREE.MeshStandardMaterial({
+        color: 0xfff4cc,
+        emissive: 0xfff0a0,
+        emissiveIntensity: 0.6,
+        transparent: true,
+        opacity: 0.55,
+    });
+    const chamberWindow = new THREE.Mesh(
+        new THREE.PlaneGeometry(0.8, 0.8),
+        chamberWindowMat,
+    );
+    chamberWindow.rotation.x = Math.PI / 2;
+    chamberWindow.position.set(chamberCx + 1.0, chamberWallH + 0.2, chamberCz);
+    scene.add(chamberWindow);
+
+    // Spotlight gjennom vinduet med shader-kjegle (visuell volumetrisk effekt)
+    const chamberSpot = buildHangingLight(scene, {
+        id: 'chamber-spot',
+        position: [chamberCx + 1.0, chamberWallH - 0.05, chamberCz],
+        color: 0xfff0c0,
+        intensity: 18,
+        distance: 5.5,
+        angle: 0.45,
+        penumbra: 0.6,
+        coneHeight: 2.8,
+        coneOpacity: 0.22,
+        animation: 'steady',
+    });
+    engine.registerAnimatedLight(chamberSpot.light, 'steady', chamberSpot.light.intensity);
+
+    // Speil på kammerets østvegg - bruker IBL fra SkySystem (Fase 2.4) gratis.
+    const mirrorMat = new THREE.MeshStandardMaterial({
+        color: 0xeaeaf2,
+        metalness: 1.0,
+        roughness: 0.05,
+        envMapIntensity: 1.6,
+    });
+    const mirror = new THREE.Mesh(new THREE.PlaneGeometry(1.4, 1.9), mirrorMat);
+    mirror.position.set(chamberBounds.maxX - 0.05, 1.6, chamberCz);
+    mirror.rotation.y = -Math.PI / 2;
+    scene.add(mirror);
+
+    // Speilramme
+    const frameMat = sceneMat(0x5a3a18, { preset: 'wood' });
+    const mirrorFrame = new THREE.Mesh(
+        new THREE.BoxGeometry(0.08, 2.15, 1.7),
+        frameMat,
+    );
+    mirrorFrame.position.set(chamberBounds.maxX, 1.6, chamberCz);
+    scene.add(mirrorFrame);
+
+    // Skattekiste midt i rommet (visuelt mål for utforskning)
+    const chest = new THREE.Group();
+    const chestBase = new THREE.Mesh(
+        new THREE.BoxGeometry(1.0, 0.5, 0.7),
+        sceneMat(0x6a3a18, { preset: 'wood' }),
+    );
+    chestBase.position.y = 0.25;
+    chestBase.castShadow = true;
+    chestBase.receiveShadow = true;
+    chest.add(chestBase);
+    const chestLid = new THREE.Mesh(
+        new THREE.BoxGeometry(1.0, 0.18, 0.7),
+        sceneMat(0x4a2a10, { preset: 'wood' }),
+    );
+    chestLid.position.y = 0.6;
+    chest.add(chestLid);
+    const chestGlow = new THREE.Mesh(
+        new THREE.BoxGeometry(0.85, 0.05, 0.55),
+        new THREE.MeshStandardMaterial({
+            color: 0xffd070,
+            emissive: 0xffaa30,
+            emissiveIntensity: 4.0,
+        }),
+    );
+    chestGlow.position.y = 0.7;
+    chest.add(chestGlow);
+    chest.position.set(chamberCx - 1.5, 0, chamberCz);
+    scene.add(chest);
+
+    // Kammerdør - blokkerer vest-åpningen til quest fullføres. Solid + visuell.
+    const doorMat = sceneMat(0x3a2818, { preset: 'wood' });
+    const chamberDoor = new THREE.Mesh(
+        new THREE.BoxGeometry(0.18, 2.2, 1.6),
+        doorMat,
+    );
+    chamberDoor.position.set(chamberBounds.minX, 1.1, chamberCz);
+    chamberDoor.userData.solid = true;
+    chamberDoor.castShadow = true;
+    chamberDoor.receiveShadow = true;
+    scene.add(chamberDoor);
+
+    // Dørhåndtak (visuelt) - lite barn av døren
+    const handleMat = sceneMat(0xaa8844, { preset: 'metal' });
+    const handle = new THREE.Mesh(new THREE.SphereGeometry(0.08, 8, 6), handleMat);
+    handle.position.set(-0.12, 0.0, 0.55);
+    chamberDoor.add(handle);
+
+    // ────────────────────────────────────────────────────────────────────────
+    // ── Fase 6.2: PBR-galleri (material-variasjonsvegg) ──────────────────────
+    // ────────────────────────────────────────────────────────────────────────
+    // Seks paneler med ulike preset-materialer + normal/roughness/AO-maps fra
+    // engine.getTexture. Demonstrerer PBR-pipelinen (Fase 2.1) i én blikk.
+
+    const galleryX = -28;
+    const galleryZ = 5;
+    // Bakvegg
+    const galleryBack = new THREE.Mesh(
+        new THREE.BoxGeometry(11, 3.4, 0.3),
+        sceneMat(0x5a4a32, { preset: 'wood' }),
+    );
+    galleryBack.position.set(galleryX, 1.7, galleryZ);
+    galleryBack.userData.solid = true;
+    galleryBack.castShadow = true;
+    galleryBack.receiveShadow = true;
+    scene.add(galleryBack);
+
+    type PanelDef = { preset: MaterialPreset; color: number; label: string };
+    const panels: PanelDef[] = [
+        { preset: 'stone', color: 0x9a9088, label: 'Stein' },
+        { preset: 'wood', color: 0x9a6a3a, label: 'Tre' },
+        { preset: 'cloth', color: 0xc05a4a, label: 'Klut' },
+        { preset: 'metal', color: 0x9a9aa0, label: 'Metall' },
+        { preset: 'leaf', color: 0x4a8a3a, label: 'Blad' },
+        { preset: 'soil', color: 0x6a4828, label: 'Jord' },
+    ];
+    const panelW = 1.5;
+    const panelH = 1.5;
+    const totalSpan = panels.length * panelW + (panels.length - 1) * 0.15;
+    const panelStartX = galleryX - totalSpan / 2 + panelW / 2;
+    panels.forEach((p, i) => {
+        const px = panelStartX + i * (panelW + 0.15);
+        const panelMat = sceneMat(p.color, {
+            preset: p.preset,
+            normalMap: engine.getTexture(p.preset, 'normal'),
+            roughnessMap: engine.getTexture(p.preset, 'roughness'),
+            aoMap: engine.getTexture(p.preset, 'ao'),
+            mapRepeat: [2, 2],
+        });
+        const panel = new THREE.Mesh(
+            new THREE.PlaneGeometry(panelW, panelH),
+            panelMat,
+        );
+        panel.position.set(px, 1.9, galleryZ - 0.16);
+        panel.castShadow = false;
+        panel.receiveShadow = true;
+        scene.add(panel);
+
+        const label = makeLabelSprite(p.label);
+        label.position.set(px, 0.9, galleryZ - 0.18);
+        scene.add(label);
+    });
+
+    // ────────────────────────────────────────────────────────────────────────
+    // ── Fase 6.3: Tre runesteiner (quest-collectibles) ──────────────────────
+    // ────────────────────────────────────────────────────────────────────────
+
+    type RuneSpec = { pos: [number, number, number]; flag: string };
+    const runeSpecs: RuneSpec[] = [
+        { pos: [-7.5, 0.6, -19.5], flag: 'rune_circle_picked' }, // i steinringen
+        { pos: [10, 0.6, -8], flag: 'rune_fire_picked' },         // ved bålet
+        { pos: [-30, 0.6, 0], flag: 'rune_forest_picked' },       // i skogen
+    ];
+    const runeMat = new THREE.MeshStandardMaterial({
+        color: 0x8a7a5a,
+        emissive: 0x4a3a18,
+        emissiveIntensity: 0.6,
+        roughness: 0.45,
+        metalness: 0.15,
+    });
+    const runeRings: { mesh: THREE.Mesh; baseY: number; phase: number }[] = [];
+    for (const spec of runeSpecs) {
+        const rune = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.6, 0.2), runeMat);
+        rune.position.set(...spec.pos);
+        rune.castShadow = true;
+        rune.userData.solid = true;
+        rune.userData.dynamic = true;
+        rune.userData.pickupable = true;
+        rune.userData.mass = 1;
+        rune.userData.colliderShape = 'cuboid';
+        rune.userData.linearDamping = 1.5;
+        rune.userData.angularDamping = 2.4;
+        scene.add(rune);
+
+        // Liten gul ring over runesteinen så den er lett å se
+        const ring = new THREE.Mesh(
+            new THREE.TorusGeometry(0.5, 0.04, 8, 16),
+            new THREE.MeshStandardMaterial({
+                color: 0xffeb88,
+                emissive: 0xffd866,
+                emissiveIntensity: 2.5,
+            }),
+        );
+        ring.rotation.x = Math.PI / 2;
+        ring.position.set(spec.pos[0], spec.pos[1] + 0.7, spec.pos[2]);
+        scene.add(ring);
+        const ringEntry = { mesh: ring, baseY: ring.position.y, phase: Math.random() * Math.PI * 2 };
+        runeRings.push(ringEntry);
+
+        const localFlag = spec.flag;
+        engine.registerPickup(rune, {
+            toInventory: { itemId: 'runestone', count: 1 },
+            onPickup: () => {
+                engine.setFlag(localFlag, true);
+                ring.removeFromParent();
+                const idx = runeRings.indexOf(ringEntry);
+                if (idx >= 0) runeRings.splice(idx, 1);
+            },
+        });
+    }
+
+    // ────────────────────────────────────────────────────────────────────────
+    // ── Fase 6.3: Alter-trigger (auto-deliver når 3 runesteiner i inventar) ─
+    // ────────────────────────────────────────────────────────────────────────
+
+    const alterPos = altar.position.clone();
+    let cellarDoorOpenAnim = 0; // 0 = lukket, 1 = helt åpen
+
     // ── Dialog actions: wire weather + time-of-day controls ──────────────────
     const weather = config.dialogs.weather_menu;
     if (weather && !Array.isArray(weather)) {
@@ -616,14 +929,58 @@ export function setupDemoWorldScene(engine: GameEngineRef): void {
 
         for (const ref of hangingLightRefs) ref.update(dt, elapsed);
 
+        const playerPos = engine.getPlayerPosition();
         if (chapelRoof) {
-            const p = engine.getPlayerPosition();
-            const inside =
-                p.x >= chapelBounds.minX &&
-                p.x <= chapelBounds.maxX &&
-                p.z >= chapelBounds.minZ &&
-                p.z <= chapelBounds.maxZ;
-            chapelRoof.visible = !inside;
+            const insideChapel =
+                playerPos.x >= chapelBounds.minX &&
+                playerPos.x <= chapelBounds.maxX &&
+                playerPos.z >= chapelBounds.minZ &&
+                playerPos.z <= chapelBounds.maxZ;
+            chapelRoof.visible = !insideChapel;
+        }
+
+        // Dollhouse for kammeret (skjul både inner-tak og ytter-tak når spilleren er inne)
+        const insideChamber =
+            playerPos.x >= chamberBounds.minX &&
+            playerPos.x <= chamberBounds.maxX &&
+            playerPos.z >= chamberBounds.minZ &&
+            playerPos.z <= chamberBounds.maxZ;
+        if (chamberRoofInner) chamberRoofInner.visible = !insideChamber;
+        chamberOuterRoof.visible = !insideChamber;
+
+        // Alter-trigger: auto-deliver når spilleren er nær alteret med 3 steiner
+        if (
+            !engine.getFlag('runes_delivered') &&
+            engine.itemCount('runestone') >= 3
+        ) {
+            const dx = playerPos.x - alterPos.x;
+            const dz = playerPos.z - alterPos.z;
+            if (Math.hypot(dx, dz) < 2.0) {
+                engine.removeItem('runestone', 3);
+                engine.setFlag('runes_delivered', true);
+                engine.completeObjective('q_deliver', 'o_alter');
+                engine.playMonolog('m_alter_delivered');
+            }
+        }
+
+        // Kammerdør: roter åpen + fjern collider når cellar_unlocked er truthy
+        if (engine.getFlag('cellar_unlocked') && cellarDoorOpenAnim < 1) {
+            if (cellarDoorOpenAnim === 0) {
+                // Første frame etter unlock: fjern fysisk collider
+                engine.removeStaticCollider(chamberDoor);
+            }
+            cellarDoorOpenAnim = Math.min(1, cellarDoorOpenAnim + dt * 0.6);
+            // Glid døren nedover i bakken (enkel "lukket → åpen"-anim)
+            chamberDoor.position.y = 1.1 - cellarDoorOpenAnim * 2.4;
+            if (cellarDoorOpenAnim >= 1) {
+                chamberDoor.visible = false;
+            }
+        }
+
+        // Animer rune-ringene (de som ennå ikke er plukket)
+        for (const r of runeRings) {
+            r.mesh.position.y = r.baseY + Math.sin(elapsed * 1.8 + r.phase) * 0.08;
+            r.mesh.rotation.z = elapsed * 0.6;
         }
     };
 }

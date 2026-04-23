@@ -29,6 +29,7 @@ import { SkySystem } from './systems/SkySystem';
 import { TimeOfDaySystem } from './systems/TimeOfDaySystem';
 import { WeatherSystem } from './systems/WeatherSystem';
 import { VegetationSystem } from './systems/VegetationSystem';
+import { FaunaSystem } from './systems/FaunaSystem';
 import { CameraDirector } from './systems/CameraDirector';
 import { AIDirector } from './systems/AIDirector';
 import { ShadowSystem } from './systems/ShadowSystem';
@@ -43,6 +44,9 @@ import { InventorySystem } from './systems/InventorySystem';
 import type { PhysicsWorld, CharacterControllerHandle } from './systems/PhysicsWorld';
 import type { InteractableSystem } from './systems/InteractableSystem';
 import { getGameSettings, subscribeGameSettings } from './settings/gameSettings';
+import { disposeSceneDeep } from './utils/sceneDispose';
+import { AssetLoader } from './AssetLoader';
+import { SaveSystem, type SaveHooks, type SerializedNpcPos } from './systems/SaveSystem';
 
 // ─── Emotion system ──────────────────────────────────────────────────────────
 
@@ -142,6 +146,7 @@ export class GameEngine {
     private timeOfDaySystem: TimeOfDaySystem;
     private weatherSystem: WeatherSystem | null = null;
     private vegetationSystem: VegetationSystem | null = null;
+    private faunaSystem: FaunaSystem | null = null;
     private cameraDirector: CameraDirector;
     private aiDirector: AIDirector;
     private shadowSystem: ShadowSystem | null = null;
@@ -181,6 +186,11 @@ export class GameEngine {
     private playerCC: CharacterControllerHandle | null = null;
     private interactables: InteractableSystem | null = null;
     private physicsReady: Promise<void> | null = null;
+    // Fase 5.1: GLTF-assets pre-lastet før startGame (opt-in via config.assets)
+    private assetLoader: AssetLoader | null = null;
+    private assetsReady: Promise<void> | null = null;
+    // Fase 5.2: save/load. Alltid aktiv — config.id er påkrevd så save-nøkkel er stabil.
+    private saveSystem: SaveSystem | null = null;
     private pendingPickups: { mesh: THREE.Mesh; opts?: PickupOptions }[] = [];
 
     // Camera
@@ -248,6 +258,8 @@ export class GameEngine {
 
     // Utestående timeouts satt via engine.schedule - kanselleres ved dispose
     private scheduledTimeouts = new Set<ReturnType<typeof setTimeout>>();
+    // Utestående intervals (f.eks. SaveSystem auto-save) - kanselleres ved dispose
+    private scheduledIntervals = new Set<ReturnType<typeof setInterval>>();
 
     // Intro-state (Fase 5)
     private introActive = false;
@@ -270,7 +282,8 @@ export class GameEngine {
         );
 
         const far = options.config.world.preset === 'open' ? 400 : 100;
-        this.camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, far);
+        const initialSize = this.getContainerSize();
+        this.camera = new THREE.PerspectiveCamera(60, initialSize.width / initialSize.height, 0.1, far);
 
         // preserveDrawingBuffer=true trengs for at canvas.toDataURL() skal returnere
         // det renderede bildet (fotomodus-screenshot, Fase 3.3). Liten ytelseskost.
@@ -279,7 +292,7 @@ export class GameEngine {
             powerPreference: 'high-performance',
             preserveDrawingBuffer: true,
         });
-        this.renderer.setSize(window.innerWidth, window.innerHeight);
+        this.renderer.setSize(initialSize.width, initialSize.height, false);
         this.renderer.setPixelRatio(this.qualityTier === 'low' ? 1 : Math.min(window.devicePixelRatio, 2));
         this.renderer.shadowMap.enabled = this.qualityTier !== 'low';
         this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
@@ -470,6 +483,85 @@ export class GameEngine {
             this.physicsReady = this.initPhysics();
         }
 
+        // Fase 5.1: pre-last GLTF-assets asynkront. startGame venter på assetsReady.
+        const assetCfg = options.config.assets;
+        if (assetCfg && assetCfg.defs.length > 0) {
+            this.assetLoader = new AssetLoader();
+            this.assetsReady = this.assetLoader.preload(assetCfg);
+        }
+
+        // Fase 5.2: save-system (alltid tilgjengelig siden config.id er påkrevd).
+        this.saveSystem = new SaveSystem(options.config.id, this.buildSaveHooks());
+
+    }
+
+    // Fase 5.2: bygger hooks for SaveSystem. Håndterer at systemer som QuestSystem
+    // og InventorySystem er opt-in (null) — retur av tomme arrays/defaults sørger
+    // for at save/load ikke krasjer for minimale spill.
+    private buildSaveHooks(): SaveHooks {
+        return {
+            getPhase: () => this.phase,
+            setPhase: (p) => {
+                this.phase = p;
+                const quest = this.config.quests.find((q) => q.phase === p);
+                if (quest) {
+                    this.questObjective = quest.objective;
+                    this.pushUIState({ questObjective: this.questObjective });
+                }
+            },
+            getFlags: () => this.flags,
+            setFlagsBulk: (entries) => {
+                this.flags.clear();
+                for (const k in entries) this.flags.set(k, entries[k]);
+            },
+            serializeInventory: () => this.inventorySystem?.serialize() ?? [],
+            restoreInventory: (slots) => this.inventorySystem?.restore(slots),
+            serializeQuests: () => this.questSystem?.serialize() ?? { quests: [], npcTalkedTo: [] },
+            restoreQuests: (data) => this.questSystem?.restore(data),
+            serializeRoutes: () => this.aiDirector.serialize(),
+            restoreRoutes: (routes) => this.aiDirector.restore(routes),
+            serializeNpcs: () => {
+                const out: SerializedNpcPos[] = [];
+                for (const [id, ch] of this.characters) {
+                    const p = ch.group.position;
+                    out.push({ id, pos: [p.x, p.y, p.z], rotY: ch.group.rotation.y });
+                }
+                return out;
+            },
+            restoreNpcs: (npcs) => {
+                for (const n of npcs) {
+                    const ch = this.characters.get(n.id);
+                    if (!ch) continue;
+                    ch.group.position.set(n.pos[0], n.pos[1], n.pos[2]);
+                    ch.group.rotation.y = n.rotY;
+                }
+            },
+            getPlayerPose: () => {
+                const world = new THREE.Vector3();
+                this.player.group.getWorldPosition(world);
+                return { pos: [world.x, world.y, world.z], yaw: this.yaw };
+            },
+            setPlayerPose: (pos, yaw) => {
+                // Bruk samme pattern som teleportPlayer i engineRef.
+                if (this.player.group.parent && this.player.group.parent !== this.scene) {
+                    this.player.group.parent.remove(this.player.group);
+                    this.scene.add(this.player.group);
+                }
+                this.player.group.position.set(pos[0], pos[1], pos[2]);
+                this.yaw = yaw;
+                this.targetYaw = yaw;
+                if (this.playerCC) {
+                    this.playerCC.body.setTranslation(
+                        { x: pos[0], y: pos[1] + this.playerHalfHeight, z: pos[2] },
+                        true,
+                    );
+                }
+            },
+            getTimeOfDay: () => this.timeOfDaySystem.getTimeOfDay(),
+            setTimeOfDay: (t) => this.timeOfDaySystem.setTimeOfDay(t),
+            getWeather: () => this.weatherSystem?.getWeather() ?? { type: 'clear', intensity: 0 },
+            setWeather: (w) => this.weatherSystem?.setWeather(w),
+        };
     }
 
     private async initPhysics(): Promise<void> {
@@ -745,6 +837,8 @@ export class GameEngine {
             setFlag: <T>(key: string, value: T) => {
                 this.flags.set(key, value);
                 if (value) this.evaluateAudioTriggers({ flag: key });
+                // Fase 5.2: flag-endringer er narrativt vesentlige — be om debounced save.
+                this.saveSystem?.requestSave();
             },
             getFlag: <T>(key: string) => this.flags.get(key) as T | undefined,
             setPlayerMode: (mode, opts) => this.setPlayerMode(mode, opts),
@@ -759,6 +853,8 @@ export class GameEngine {
                     this.pushUIState({ questObjective: this.questObjective });
                 }
                 this.evaluateAudioTriggers({ phase });
+                // Fase 5.2: fase-skift er et naturlig save-punkt.
+                this.saveSystem?.save();
             },
             getPhase: () => this.phase,
             openDialog: (key: string) => this.openDialog(key),
@@ -837,6 +933,18 @@ export class GameEngine {
                 }
                 this.vegetationSystem.addTree(position, type);
             },
+            addBirdFlock: (center, opts) => {
+                if (!this.faunaSystem) this.faunaSystem = new FaunaSystem(this.scene, this.qualityTier);
+                this.faunaSystem.addBirdFlock(center, opts);
+            },
+            addButterfly: (center, opts) => {
+                if (!this.faunaSystem) this.faunaSystem = new FaunaSystem(this.scene, this.qualityTier);
+                this.faunaSystem.addButterfly(center, opts);
+            },
+            addAnimalGroup: (kind, bounds, opts) => {
+                if (!this.faunaSystem) this.faunaSystem = new FaunaSystem(this.scene, this.qualityTier);
+                this.faunaSystem.addAnimalGroup(kind, bounds, opts);
+            },
             assignRoute: (cfg: NpcRouteConfig) => this.aiDirector.assignRoute(cfg),
             setCameraFraming: (framing: DialogCameraFraming, target?: THREE.Vector3) => {
                 this.cameraDirector.setFraming(framing, target);
@@ -847,15 +955,31 @@ export class GameEngine {
             getQualityTier: () => this.qualityTier,
             skipIntro: () => this.skipIntro(),
             registerPickup: (mesh: THREE.Mesh, opts?: PickupOptions) => {
+                // Fase 6: hvis toInventory er satt, wrap onPickup slik at addItem kalles
+                // automatisk FØR brukerens onPickup. Slik trenger ikke spillkoden å kjenne
+                // til den dobbelte intensjonen (legge i inventar + tilpass-callback).
+                let wrappedOpts = opts;
+                if (opts?.toInventory) {
+                    const userOnPickup = opts.onPickup;
+                    const inv = opts.toInventory;
+                    wrappedOpts = {
+                        ...opts,
+                        onPickup: () => {
+                            this.inventorySystem?.add(inv.itemId, inv.count ?? 1);
+                            userOnPickup?.();
+                        },
+                    };
+                }
                 if (this.interactables) {
-                    this.interactables.registerPickup(mesh, opts);
+                    this.interactables.registerPickup(mesh, wrappedOpts);
                 } else {
-                    this.pendingPickups.push({ mesh, opts });
+                    this.pendingPickups.push({ mesh, opts: wrappedOpts });
                 }
             },
             isHoldingItem: () => this.interactables?.isHolding() ?? false,
             dropHeldItem: () => this.interactables?.drop(),
             throwHeldItem: (force?: number) => this.interactables?.throwHeld(force),
+            removeStaticCollider: (mesh: THREE.Mesh) => this.physics?.removeMesh(mesh),
             playOneShot: (url, opts) => void this.audio.playOneShot(url, opts),
             playAmbient: (url, opts) => void this.audio.playAmbient(url, opts),
             resumeAudio: () => this.audio.resume(),
@@ -869,6 +993,15 @@ export class GameEngine {
             removeItem: (id, count) => this.inventorySystem?.remove(id, count) ?? false,
             hasItem: (id) => this.inventorySystem?.has(id) ?? false,
             itemCount: (id) => this.inventorySystem?.count(id) ?? 0,
+            // Fase 5.1: asset-pipeline. Returnerer null hvis asset ikke er konfigurert
+            // eller ennå ikke ferdig lastet. Assets er garantert klare etter startGame().
+            getAsset: (id) => this.assetLoader?.get(id) ?? null,
+            cloneAsset: async (id) => (await this.assetLoader?.clone(id)) ?? null,
+            // Fase 5.2: save/load
+            save: () => this.saveSystem?.save() ?? false,
+            load: () => this.saveSystem?.restore() ?? false,
+            hasSave: () => this.saveSystem?.hasSave() ?? false,
+            clearSave: () => this.saveSystem?.clear(),
         };
     }
 
@@ -1015,7 +1148,8 @@ export class GameEngine {
         // Render-skala: base fra kvalitets-tier, multiplisert med brukerens skala
         const basePR = this.qualityTier === 'low' ? 1 : Math.min(window.devicePixelRatio, 2);
         this.renderer.setPixelRatio(basePR * s.renderScale);
-        this.postProcessing?.resize(window.innerWidth, window.innerHeight);
+        const sz = this.getContainerSize();
+        this.postProcessing?.resize(sz.width, sz.height);
 
         // Skygger: av/lav/høy. Bare flagg material.needsUpdate når type faktisk endres.
         const wantEnabled = s.shadowQuality !== 'off';
@@ -1045,15 +1179,31 @@ export class GameEngine {
         this.postProcessing?.setEnabled(s.postProcessing);
     }
 
+    private getContainerSize(): { width: number; height: number } {
+        const rect = this.options.container.getBoundingClientRect();
+        // Fallback til window ved initial layout hvis container ikke har målt seg ennå
+        const w = rect.width > 0 ? rect.width : window.innerWidth;
+        const h = rect.height > 0 ? rect.height : window.innerHeight;
+        return { width: w, height: h };
+    }
+
     private setupResize(): void {
-        const onResize = () => {
-            this.camera.aspect = window.innerWidth / window.innerHeight;
+        const applyResize = (width: number, height: number) => {
+            if (width < 1 || height < 1) return; // container ikke synlig enda / minimert
+            this.camera.aspect = width / height;
             this.camera.updateProjectionMatrix();
-            this.renderer.setSize(window.innerWidth, window.innerHeight);
-            this.postProcessing?.resize(window.innerWidth, window.innerHeight);
+            this.renderer.setSize(width, height, false);
+            this.postProcessing?.resize(width, height);
             // Gjenopprett brukerens render-skala og FOV etter size-endring
             this.applyGameSettings();
         };
+        const ro = new ResizeObserver((entries) => {
+            for (const entry of entries) {
+                const { width, height } = entry.contentRect;
+                applyResize(width, height);
+            }
+        });
+        ro.observe(this.options.container);
         const onVis = () => {
             // Når fanen blir synlig igjen, dropp akkumulert dt så physics ikke hopper
             if (!document.hidden) {
@@ -1061,10 +1211,9 @@ export class GameEngine {
                 this.physics?.resetAccumulator();
             }
         };
-        window.addEventListener('resize', onResize);
         document.addEventListener('visibilitychange', onVis);
         this._cleanupResize = () => {
-            window.removeEventListener('resize', onResize);
+            ro.disconnect();
             document.removeEventListener('visibilitychange', onVis);
         };
     }
@@ -1079,6 +1228,10 @@ export class GameEngine {
         if (this.physicsReady) {
             try { await this.physicsReady; } catch { /* fortsett uansett */ }
         }
+        // Fase 5.1: assets må være klare før setupScene kan referere dem
+        if (this.assetsReady) {
+            try { await this.assetsReady; } catch { /* loader rapporterer egne feil */ }
+        }
         if (this.disposed) return;
         this.gameStarted = true;
         const firstQuest = this.config.quests[0];
@@ -1087,6 +1240,13 @@ export class GameEngine {
         // Fase 3.1: spill-start er brukergest — trygt å starte audio-kontekst.
         void this.audio.resume();
         this.evaluateAudioTriggers('onStart');
+
+        // Fase 5.2: start auto-save hvert 30s. Interval-ID registreres i
+        // scheduledIntervals så den ryddes deterministisk ved dispose.
+        if (this.saveSystem) {
+            const intervalId = this.saveSystem.startAutoSave(30000);
+            this.scheduledIntervals.add(intervalId);
+        }
 
         const intro = this.config.intro;
         if (intro && intro.type !== 'none') {
@@ -1657,6 +1817,20 @@ export class GameEngine {
         this.photoMode.download(this.renderer.domElement);
     }
 
+    // Fase 5.2: save/load-API eksponert til React-UI (pause-meny).
+    save(): boolean {
+        return this.saveSystem?.save() ?? false;
+    }
+    loadSave(): boolean {
+        return this.saveSystem?.restore() ?? false;
+    }
+    hasSave(): boolean {
+        return this.saveSystem?.hasSave() ?? false;
+    }
+    clearSave(): void {
+        this.saveSystem?.clear();
+    }
+
     // Fase 3.1: evaluer audio-triggere. Spor som matcher gjeldende tilstand
     // startes og fjernes fra pendingAudioTracks. Kalles ved startGame, setPhase
     // og setFlag — ikke hver frame.
@@ -1992,7 +2166,10 @@ export class GameEngine {
         }
 
         // Vegetasjon (vind-shader-tid)
-        this.vegetationSystem?.update(dt);
+        this.vegetationSystem?.update(dt, this.camera);
+
+        // Fauna (fugler, sommerfugler, beitende dyr)
+        this.faunaSystem?.update(dt, this.camera);
 
         // CameraDirector (lerp-state)
         this.cameraDirector.update(dt);
@@ -2190,9 +2367,11 @@ export class GameEngine {
     dispose(): void {
         this.disposed = true;
         cancelAnimationFrame(this.animFrameId);
-        // Kanseller alle planlagte timeouts for å unngå setState på disposed engine
+        // Kanseller alle planlagte timeouts og intervals for å unngå setState på disposed engine
         for (const id of this.scheduledTimeouts) clearTimeout(id);
         this.scheduledTimeouts.clear();
+        for (const id of this.scheduledIntervals) clearInterval(id);
+        this.scheduledIntervals.clear();
         if (this.introTimeout) {
             clearTimeout(this.introTimeout);
             this.introTimeout = null;
@@ -2207,6 +2386,7 @@ export class GameEngine {
         this.playerCC = null;
         this.weatherSystem?.dispose();
         this.vegetationSystem?.dispose();
+        this.faunaSystem?.dispose();
         this.skySystem?.dispose();
         this.cameraDirector.dispose();
         this.aiDirector.dispose();
@@ -2221,9 +2401,21 @@ export class GameEngine {
         this.questSystem = null;
         this.inventorySystem?.dispose();
         this.inventorySystem = null;
+        this.monologSystem?.dispose();
+        this.monologSystem = null;
+        this.photoMode.dispose();
+        this.assetLoader?.dispose();
+        this.assetLoader = null;
+        this.saveSystem?.dispose();
+        this.saveSystem = null;
         if (document.pointerLockElement === this.renderer.domElement) {
             document.exitPointerLock();
         }
+        // Fase 5.4: traverser scenegrafen og dispose alt spill-spesifikk setupScene
+        // har lagt til (mesh, materialer, texturer) før caches ryddes og renderer slippes.
+        const seen = new WeakSet<object>();
+        disposeSceneDeep(this.scene, seen);
+        this.scene.clear();
         this.renderer.dispose();
         disposeMaterialCache();
         disposeTextureCache();

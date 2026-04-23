@@ -258,6 +258,25 @@ export class QuestSystem {
         this.npcTalkedTo.clear();
     }
 
+    // Fase 5.2: serialisering for SaveSystem. Set → array så JSON.stringify fungerer.
+    serialize(): { quests: Array<{ id: string; status: QuestState['status']; completedObjectives: string[] }>; npcTalkedTo: string[] } {
+        const quests: Array<{ id: string; status: QuestState['status']; completedObjectives: string[] }> = [];
+        for (const s of this.state.values()) {
+            quests.push({ id: s.id, status: s.status, completedObjectives: Array.from(s.completedObjectives) });
+        }
+        return { quests, npcTalkedTo: Array.from(this.npcTalkedTo) };
+    }
+
+    restore(data: { quests: Array<{ id: string; status: QuestState['status']; completedObjectives: string[] }>; npcTalkedTo: string[] }): void {
+        for (const q of data.quests) {
+            const s = this.state.get(q.id);
+            if (!s) continue; // quest fra eldre save-versjon som ikke finnes lenger
+            s.status = q.status;
+            s.completedObjectives = new Set(q.completedObjectives);
+        }
+        this.npcTalkedTo = new Set(data.npcTalkedTo);
+    }
+
     private evaluateCondition(c: QuestCondition): boolean {
         if (c.flag && !this.engineRef.getFlag(c.flag)) return false;
         if (c.itemCollected && !this.engineRef.inventoryHas(c.itemCollected)) return false;
