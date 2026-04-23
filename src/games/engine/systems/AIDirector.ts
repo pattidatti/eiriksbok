@@ -134,8 +134,9 @@ export class AIDirector {
                     if (route.waypointIndex < waypoints.length - 1) {
                         route.waypointIndex++;
                         route.pauseRemaining = route.config.pauseMs ?? 600;
-                    } else {
+                    } else if (!route.completed) {
                         route.completed = true;
+                        route.config.onComplete?.();
                     }
                 }
             } else {

@@ -1,6 +1,12 @@
 import * as THREE from 'three';
 import type { CinematicShot, DialogCameraFraming } from '../types';
 
+interface CinematicOverride {
+    cameraPos: THREE.Vector3;
+    lookAt: THREE.Vector3;
+    fov: number;
+}
+
 interface OTSResult {
     cameraPos: THREE.Vector3;
     lookAt: THREE.Vector3;
@@ -35,6 +41,7 @@ export class CameraDirector {
     private baseFov = 60;
 
     private fadeCallback: FadeCallback | null = null;
+    private cinematicOverride: CinematicOverride | null = null;
 
     setFadeCallback(cb: FadeCallback): void {
         this.fadeCallback = cb;
@@ -170,10 +177,34 @@ export class CameraDirector {
 
     async playCinematic(shots: CinematicShot[]): Promise<void> {
         if (shots.length === 0) return;
-        console.warn(
-            `[CameraDirector] playCinematic stub: ${shots.length} shot(s) requested, ` +
-                `but full cinematic pipeline not implemented in this phase.`,
-        );
+
+        for (const shot of shots) {
+            if (shot.transition === 'fade') {
+                await this.fadeToBlack(300);
+            }
+
+            this.cinematicOverride = {
+                cameraPos: new THREE.Vector3(...shot.cameraPos),
+                lookAt: new THREE.Vector3(...shot.lookAt),
+                fov: shot.fov ?? 60,
+            };
+
+            if (shot.transition === 'fade') {
+                await this.fadeFromBlack(400);
+            }
+
+            await new Promise<void>((resolve) => setTimeout(resolve, shot.duration * 1000));
+        }
+
+        this.cinematicOverride = null;
+    }
+
+    getCinematicOverride(): CinematicOverride | null {
+        return this.cinematicOverride;
+    }
+
+    isCinematicActive(): boolean {
+        return this.cinematicOverride !== null;
     }
 
     isFraming(): boolean {
@@ -182,6 +213,7 @@ export class CameraDirector {
 
     dispose(): void {
         this.fadeCallback = null;
+        this.cinematicOverride = null;
     }
 }
 

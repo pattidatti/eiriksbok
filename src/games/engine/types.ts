@@ -85,12 +85,15 @@ export interface DialogNode {
     condition?: DialogCondition;
 }
 
-// En komponert kamera-tagning brukt av engine.playCinematic. Stub i Fase 2 — utvides senere.
+// En komponert kamera-tagning brukt av engine.playCinematic.
 export interface CinematicShot {
     duration: number; // sekunder
     cameraPos: [number, number, number];
     lookAt: [number, number, number];
     fov?: number;
+    // 'cut' = kameraet teleporterer umiddelbart (standard).
+    // 'fade' = fade til sort, bytt posisjon, fade inn igjen.
+    transition?: 'cut' | 'fade';
 }
 
 export interface PuzzleOption {
@@ -104,6 +107,12 @@ export interface PuzzleStep {
     hint: string;
     options: PuzzleOption[];
     onCorrect?: () => void;
+    // Station mode: korrekt rekkefylge av item-IDer spilleren skal plassere i slots.
+    ingredientSlots?: string[];
+    // Valgfrie visningsnavn per slot (brukes i station-mode UI). Ellers vises index.
+    slotLabels?: string[];
+    correctFeedback?: string;
+    incorrectFeedback?: string;
 }
 
 export interface CharacterColors {
@@ -250,6 +259,8 @@ export interface NpcRouteConfig {
     mode: 'loop' | 'pingpong' | 'once';
     speed?: number;
     pauseMs?: number;
+    // Kalles én gang når NPC-en fullforer en 'once'-rute.
+    onComplete?: () => void;
 }
 
 // Fase 4.3: reaktiv NPC-atferd. Overstyrer midlertidig waypoint-vandring
@@ -361,7 +372,17 @@ export interface GameEngineRef {
     // Nye API-metoder for fler-fase-spill med valg og indre monolog
     setFlag: <T>(key: string, value: T) => void;
     getFlag: <T>(key: string) => T | undefined;
-    setPlayerMode: (mode: PlayerMode, opts?: { parent?: Group; offset?: [number, number, number] }) => void;
+    setPlayerMode: (mode: PlayerMode, opts?: {
+        // 'seated': forelder-gruppe spilleren arver transform fra
+        parent?: Group;
+        offset?: [number, number, number];
+        // 'scripted': NPC spilleren skal folge (followCharacterId = character id)
+        followCharacterId?: string;
+        // Gangfart i m/s (default 1.5)
+        followSpeed?: number;
+        // Avstand bak NPC-en i meter (default 1.5)
+        followOffset?: number;
+    }) => void;
     playMonolog: (id: string) => void;
     hasSeenMonolog: (id: string) => boolean;
     setPhase: (phase: string) => void;
@@ -400,8 +421,16 @@ export interface GameEngineRef {
     fadeFromBlack: (durationMs?: number) => Promise<void>;
     // Tier (slik at byggere/setupScene kan velge billig/dyr variant)
     getQualityTier: () => 'low' | 'medium' | 'high';
+    // Station puzzle: kall med de valgte item-IDene i rekkefylgen spilleren plasserte dem.
+    handleStationSubmit: (selectedItemIds: string[]) => void;
     // Hopper over intro-fasen (Fase 5). No-op hvis intro ikke er aktiv.
     skipIntro: () => void;
+    // ── Timed Activity System ──
+    // Apner en aktivitets-overlay. def kan vare en pre-registrert id (string)
+    // eller en inline ActivityDef. Blokkerer 3D-input til aktiviteten er ferdig.
+    openActivity: (def: ActivityDef | string) => void;
+    // Lukker aktiviteten uten suksess/fail-callbacks (f.eks. spilleren avbryter).
+    closeActivity: () => void;
     // ── Fase 4 (fysikk + interaksjon) ──
     // Registrer et objekt som plukkbart. Objektet må ha mesh.userData.solid=true og
     // dynamic=true for å få en Rapier-rigid body. Hvis fysikk er deaktivert, er dette en no-op.
@@ -479,7 +508,16 @@ export interface GameConfig {
     // Dialogs er indeksert etter key. Fra Fase 4.4 kan verdien være en liste
     // av varianter — første variant hvor DialogCondition stemmer blir valgt.
     dialogs: Record<string, DialogNode | DialogNode[]>;
-    puzzle?: { steps: PuzzleStep[] };
+    puzzle?: {
+        steps: PuzzleStep[];
+        // 'mcq' = flervalg-sporsmal (standard, bakoverkompatibelt).
+        // 'station' = spilleren plasserer gjenstander fra inventar i riktig rekkefylge.
+        mode?: 'mcq' | 'station';
+        // Tittel vist overst i station-overlay (default "Kombiner gjenstander").
+        stationLabel?: string;
+        // Krev at disse item-IDene finnes i inventar for at openPuzzle skal fungere.
+        requiresItems?: string[];
+    };
     // Indre monolog (ikke-blokkerende tekst). Kan trigges via triggervolumer eller engine.playMonolog.
     monologs?: Record<string, MonologNode>;
     monologTriggers?: MonologTrigger[];
@@ -524,6 +562,66 @@ export interface GameConfig {
         defs: Array<{ id: string; url: string; kind?: 'gltf' | 'texture' }>;
         draco?: boolean;
     };
+    // Cinematic-sekvens som spilles automatisk etter intro (for "innled-shot" i spillet).
+    openingCinematic?: CinematicShot[];
+    // Pre-registrerte aktivitets-definisjoner. Kan ogsa opprettes inline i openActivity.
+    activities?: ActivityDef[];
+    // Stealth-deteksjonssystem. Bak if(config.detection) — null kostnad nar ubrukt.
+    detection?: {
+        guards: DetectionGuardConfig[];
+        // Vis deteksjonsmaler i HUD (standard: true)
+        showMeter?: boolean;
+    };
+}
+
+// ─── Detection System ────────────────────────────────────────────────────────
+
+export interface DetectionGuardConfig {
+    characterId: string;
+    // Halvvinkel av synsskjeglet i grader (standard 50 -> 100 grader totalt)
+    visionAngleDeg?: number;
+    // Maks synlighetsavstand i meter (standard 8)
+    visionDistance?: number;
+    // Stigning per sekund nar spilleren er i kjegle (0..1, standard 0.25)
+    detectionRate?: number;
+    // Fall per sekund nar spilleren er ute av kjegle (0..1, standard 0.15)
+    decayRate?: number;
+    // Kalles én gang nar deteksjonsniva nar 1.0
+    onFullDetection?: () => void;
+    // Flagg-navn som settes automatisk ved full deteksjon
+    detectedFlag?: string;
+}
+
+// ─── Timed Activity System ────────────────────────────────────────────────────
+
+export interface ActivityDef {
+    id: string;
+    label: string;
+    prompt: string;
+    // 'rhythm' = trykk MELLOMROM i takt med beat-indikator
+    // 'hold'   = hold MELLOMROM mens feltet fylles
+    // 'sustained' = aktiviteten fyller seg automatisk over tid
+    variant: 'rhythm' | 'hold' | 'sustained';
+    durationMs: number;
+    // Rhythm: beat-intervall i ms (default 800). Hold: ignorert.
+    windowMs?: number;
+    // Andel riktige slag/hold krevd for suksess (0..1, default 0.7). Ignoreres for sustained.
+    successThreshold?: number;
+    onSuccess?: () => void;
+    onFail?: () => void;
+    // Legg automatisk til dette item-et ved suksess
+    rewardItemId?: string;
+    rewardCount?: number;
+}
+
+export interface ActivityUIState {
+    id: string;
+    label: string;
+    prompt: string;
+    variant: ActivityDef['variant'];
+    progress: number;   // 0..1 samlet framdrift
+    beatActive: boolean; // rhythm: beat-indikatoren lyser
+    holdFill: number;   // hold: 0..1 hvor full hold-baren er
 }
 
 export interface MonologUIState {
@@ -558,12 +656,21 @@ export interface GameUIState {
         hint: string;
         feedback: string;
         options: string[];
+        // Station mode-felter
+        mode?: 'mcq' | 'station';
+        stationLabel?: string;
+        ingredientSlots?: string[];   // item-IDer spilleren skal plassere (i orden)
+        slotLabels?: string[];        // visningsnavn per slot
+        availableItems?: { itemId: string; name: string; count: number }[];
     } | null;
     monolog: MonologUIState | null;
+    activity: ActivityUIState | null;
     ended: boolean;
     endText: string;
     showFlash?: boolean;
     paused?: boolean;
+    // 0..1 deteksjonsniva fra DetectionSystem (vises i HUD nar > 0)
+    detectionLevel?: number;
     debug?: { phase: string; flags: Record<string, unknown> };
     // ── Fase 5 ──
     intro?: { active: boolean; title?: string; subtitle?: string; skippable: boolean } | null;

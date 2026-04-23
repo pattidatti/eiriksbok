@@ -14,7 +14,8 @@ interface GameHUDProps {
     qualityTier?: 'low' | 'medium' | 'high';
 }
 
-export function GameHUD({ questObjective, questParts, showInteractPrompt, showFlash, toast, debug, qualityTier }: GameHUDProps) {
+export function GameHUD({ questObjective, questParts, showInteractPrompt: _si, showFlash, toast, debug, qualityTier }: GameHUDProps) {
+    void _si;
     return (
         <>
             {/* Quest HUD */}

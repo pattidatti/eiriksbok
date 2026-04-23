@@ -15,6 +15,7 @@ import type { DebugStats } from '../systems/DebugHudSystem';
 import { PhotoModeUI } from './PhotoModeUI';
 import { QuestLog } from './QuestLog';
 import { InventoryUI } from './InventoryUI';
+import { ActivityOverlay } from './ActivityOverlay';
 
 interface GameCanvasProps {
     config: GameConfig;
@@ -27,6 +28,7 @@ const defaultUIState: GameUIState = {
     showInteractPrompt: false,
     dialog: null,
     puzzle: null,
+    activity: null,
     monolog: null,
     ended: false,
     endText: '',
@@ -173,6 +175,10 @@ export function GameCanvas({ config }: GameCanvasProps) {
         engineRef.current?.handlePuzzleAnswer(index);
     }, []);
 
+    const handleStationSubmit = useCallback((selectedItemIds: string[]) => {
+        engineRef.current?.handleStationSubmit(selectedItemIds);
+    }, []);
+
     const handleRestart = useCallback(() => {
         window.location.reload();
     }, []);
@@ -253,7 +259,50 @@ export function GameCanvas({ config }: GameCanvasProps) {
 
             {/* Puzzle UI */}
             {uiState.started && !uiState.ended && uiState.puzzle && (
-                <PuzzleUI puzzle={uiState.puzzle} onAnswer={handlePuzzleAnswer} />
+                <PuzzleUI
+                    puzzle={uiState.puzzle}
+                    onAnswer={handlePuzzleAnswer}
+                    onStationSubmit={handleStationSubmit}
+                />
+            )}
+
+            {/* Timed Activity */}
+            {uiState.started && !uiState.ended && uiState.activity && (
+                <ActivityOverlay activity={uiState.activity} />
+            )}
+
+            {/* Deteksjonsmaler */}
+            {uiState.started && !uiState.ended && !!uiState.detectionLevel && uiState.detectionLevel > 0.01 && (
+                <div
+                    style={{
+                        position: 'absolute',
+                        top: 16,
+                        left: '50%',
+                        transform: 'translateX(-50%)',
+                        width: 200,
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        gap: 4,
+                        pointerEvents: 'none',
+                        zIndex: 12,
+                    }}
+                >
+                    <div style={{ color: uiState.detectionLevel > 0.75 ? '#ff4444' : '#f5c842', fontSize: 11, fontFamily: 'Inter, sans-serif', letterSpacing: 1, textTransform: 'uppercase', textShadow: '0 1px 4px rgba(0,0,0,0.9)' }}>
+                        Oppdaget
+                    </div>
+                    <div style={{ width: '100%', height: 6, background: 'rgba(0,0,0,0.5)', borderRadius: 3, overflow: 'hidden', border: '1px solid rgba(255,255,255,0.15)' }}>
+                        <div
+                            style={{
+                                height: '100%',
+                                width: `${uiState.detectionLevel * 100}%`,
+                                background: uiState.detectionLevel > 0.75 ? '#ff4444' : '#f5c842',
+                                borderRadius: 3,
+                                transition: 'width 0.1s, background 0.3s',
+                            }}
+                        />
+                    </div>
+                </div>
             )}
 
             {/* Indre monolog (ikke-blokkerende) */}

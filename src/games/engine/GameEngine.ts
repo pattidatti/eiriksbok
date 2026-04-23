@@ -18,7 +18,10 @@ import type {
     CinematicShot,
     PickupOptions,
     PostProcessingConfig,
+    ActivityDef,
 } from './types';
+import { TimedActivitySystem } from './systems/TimedActivitySystem';
+import { DetectionSystem } from './systems/DetectionSystem';
 import { buildCharacter, buildCollectibleMesh, drawFace, lerpParams, EMOTION_PARAMS, updateCharacterAnim, type BuiltCharacter } from './CharacterBuilder';
 import { buildWorkshopRoom, buildWorkshopLighting } from './WorldBuilder';
 import { buildHangingLight, type HangingLightRef } from './LightBuilder';
@@ -236,6 +239,7 @@ export class GameEngine {
     // Persistent UI state (survives per-frame pushUIState calls)
     private activeDialog: GameUIState['dialog'] = null;
     private activePuzzle: GameUIState['puzzle'] = null;
+    private activeActivity: GameUIState['activity'] = null;
 
     // Groups that need scale-in animation
     private revealGroups: THREE.Group[] = [];
@@ -269,6 +273,23 @@ export class GameEngine {
     private introActive = false;
     private introTimeout: ReturnType<typeof setTimeout> | null = null;
     private introInputBlocked = false;
+
+    // Cinematic-state (Fase 6)
+    private cinematicInputBlocked = false;
+
+    // NPC-guided follow state (Fase 6, PlayerMode='scripted')
+    private followCharacterId: string | null = null;
+    private followSpeed = 1.5;
+    private followOffset = 1.5;
+
+    // Timed Activity System (Fase 6)
+    private activitySystem = new TimedActivitySystem();
+    private activityActive = false;
+    private activitySpaceJustPressed = false;
+
+    // Detection System (Fase 6) — null hvis config.detection ikke er satt
+    private detectionSystem: DetectionSystem | null = null;
+    private lastDetectionLevel = 0;
 
     constructor(options: EngineOptions) {
         this.options = options;
@@ -853,6 +874,7 @@ export class GameEngine {
             animateReveal: this.animateReveal.bind(this),
             startEngineAnimation: this.startEngineAnimation.bind(this),
             openPuzzle: this.openPuzzle.bind(this),
+            handleStationSubmit: (ids: string[]) => this.handleStationSubmit(ids),
             triggerEnd: this.triggerEnd.bind(this),
             updateUI: this.updateUI.bind(this),
             setEmotion: this.setEmotion.bind(this),
@@ -974,11 +996,13 @@ export class GameEngine {
             setCameraFraming: (framing: DialogCameraFraming, target?: THREE.Vector3) => {
                 this.cameraDirector.setFraming(framing, target);
             },
-            playCinematic: (shots: CinematicShot[]) => this.cameraDirector.playCinematic(shots),
+            playCinematic: (shots: CinematicShot[]) => this.runCinematic(shots),
             fadeToBlack: (durationMs?: number) => this.cameraDirector.fadeToBlack(durationMs),
             fadeFromBlack: (durationMs?: number) => this.cameraDirector.fadeFromBlack(durationMs),
             getQualityTier: () => this.qualityTier,
             skipIntro: () => this.skipIntro(),
+            openActivity: (def: ActivityDef | string) => this.openActivity(def),
+            closeActivity: () => this.closeActivity(),
             registerPickup: (mesh: THREE.Mesh, opts?: PickupOptions) => {
                 // Fase 6: hvis toInventory er satt, wrap onPickup slik at addItem kalles
                 // automatisk FØR brukerens onPickup. Slik trenger ikke spillkoden å kjenne
@@ -1038,7 +1062,13 @@ export class GameEngine {
         };
     }
 
-    private setPlayerMode(mode: PlayerMode, opts?: { parent?: THREE.Group; offset?: [number, number, number] }): void {
+    private setPlayerMode(mode: PlayerMode, opts?: {
+        parent?: THREE.Group;
+        offset?: [number, number, number];
+        followCharacterId?: string;
+        followSpeed?: number;
+        followOffset?: number;
+    }): void {
         this.playerMode = mode;
         if (mode === 'seated') {
             if (opts?.parent) {
@@ -1052,6 +1082,13 @@ export class GameEngine {
             }
             this.velocity.set(0, 0, 0);
             // Rapier-body skal ikke kollidere mens spilleren er seated
+            this.playerCC?.body.setEnabled(false);
+        } else if (mode === 'scripted') {
+            this.followCharacterId = opts?.followCharacterId ?? null;
+            this.followSpeed = opts?.followSpeed ?? 1.5;
+            this.followOffset = opts?.followOffset ?? 1.5;
+            this.velocity.set(0, 0, 0);
+            // Deaktiver physics-body sa gravity ikke trekker spilleren ned
             this.playerCC?.body.setEnabled(false);
         } else if (mode === 'free') {
             // Hvis spilleren var i seat, flytt den tilbake til scenen på verdens-posisjon
@@ -1082,13 +1119,19 @@ export class GameEngine {
 
             // Escape = pause / unpause (browser alltid frigir pointer lock ved Escape)
             // Blokkeres under intro så pause-overlay ikke krasjer med IntroOverlay
-            if (e.code === 'Escape' && this.gameStarted && !this.isEnded && !this.dialogActive && !this.puzzleActive && !this.introActive) {
+            if (e.code === 'Escape' && this.gameStarted && !this.isEnded && !this.dialogActive && !this.puzzleActive && !this.introActive && !this.cinematicInputBlocked && !this.activityActive) {
                 this.paused = true;
                 this.pushUIState({ paused: true });
                 return;
             }
 
-            // Space = hopp over aktiv monolog (forhindrer også hopp i samme frame)
+            // Space i aktivitet: sett "just pressed"-flagg for rhythm/hold-varianter
+            if (e.code === 'Space' && this.activityActive && !e.repeat) {
+                this.activitySpaceJustPressed = true;
+                return; // forhindre hopp/monolog-skip under aktivitet
+            }
+
+            // Space = hopp over aktiv monolog (forhindrer ogsa hopp i samme frame)
             if (e.code === 'Space' && this.monologSystem?.isActive() && !this.dialogActive) {
                 this.monologSystem.skip();
                 this.keys['Space'] = false;
@@ -1111,13 +1154,13 @@ export class GameEngine {
                 }
             }
 
-            // Interact key (blokkert under intro så brukeren ikke kan trigge dialog midt i tittel-fade)
-            if (e.code === 'KeyE' && !this.dialogActive && !this.introInputBlocked) {
+            // Interact key (blokkert under intro/cinematics sa brukeren ikke kan trigge dialog)
+            if (e.code === 'KeyE' && !this.dialogActive && !this.introInputBlocked && !this.cinematicInputBlocked) {
                 this.handleInteract();
             }
 
             // Kast-tast (F) - kun hvis spilleren holder et objekt
-            if (e.code === 'KeyF' && !this.dialogActive && !this.introInputBlocked) {
+            if (e.code === 'KeyF' && !this.dialogActive && !this.introInputBlocked && !this.cinematicInputBlocked) {
                 this.interactables?.tryHandleThrow();
             }
         };
@@ -1272,6 +1315,11 @@ export class GameEngine {
         const firstQuest = this.config.quests[0];
         this.phase = firstQuest?.phase ?? 'intro';
 
+        // Initialiser DetectionSystem hvis config.detection er satt
+        if (this.config.detection?.guards.length) {
+            this.detectionSystem = new DetectionSystem(this.config.detection.guards);
+        }
+
         // Fase 3.1: spill-start er brukergest — trygt å starte audio-kontekst.
         void this.audio.resume();
         this.evaluateAudioTriggers('onStart');
@@ -1337,6 +1385,71 @@ export class GameEngine {
         this.introActive = false;
         this.introInputBlocked = false;
         this.pushUIState({ intro: null });
+
+        // Spill av eventuell opening cinematic etter intro er ferdig
+        if (this.config.openingCinematic && this.config.openingCinematic.length > 0) {
+            void this.runCinematic(this.config.openingCinematic);
+        }
+    }
+
+    openActivity(defOrId: ActivityDef | string): void {
+        let def: ActivityDef | undefined;
+        if (typeof defOrId === 'string') {
+            def = this.config.activities?.find((a) => a.id === defOrId);
+            if (!def) {
+                console.warn(`[GameEngine] openActivity: ukjent aktivitet-id "${defOrId}"`);
+                return;
+            }
+        } else {
+            def = defOrId;
+        }
+        this.activitySystem.open(def);
+        this.activityActive = true;
+        document.exitPointerLock();
+        this.pushUIState({ activity: this.activitySystem.getProgress() });
+    }
+
+    closeActivity(): void {
+        if (!this.activityActive) return;
+        this.activitySystem.close();
+        this.activityActive = false;
+        this.activitySpaceJustPressed = false;
+        this.pushUIState({ activity: null });
+        if (this.gameStarted && !this.isEnded && !this.paused) {
+            this.renderer.domElement.requestPointerLock();
+        }
+    }
+
+    private finishActivity(result: 'success' | 'fail'): void {
+        // Snapshot def forst, closeActivity rydder systemet
+        const def = this.activitySystem.getProgress();
+        if (!def) return;
+
+        // Finn original ActivityDef for callbacks og reward
+        const originalDef = this.config.activities?.find((a) => a.id === def.id);
+
+        this.closeActivity();
+
+        if (result === 'success') {
+            if (originalDef?.rewardItemId) {
+                this.inventorySystem?.add(originalDef.rewardItemId, originalDef.rewardCount ?? 1);
+            }
+            originalDef?.onSuccess?.();
+        } else {
+            originalDef?.onFail?.();
+        }
+    }
+
+    private async runCinematic(shots: CinematicShot[]): Promise<void> {
+        if (shots.length === 0 || this.disposed) return;
+        this.cinematicInputBlocked = true;
+        try {
+            await this.cameraDirector.playCinematic(shots);
+        } finally {
+            if (!this.disposed) {
+                this.cinematicInputBlocked = false;
+            }
+        }
     }
 
     skipIntro(): void {
@@ -1522,6 +1635,15 @@ export class GameEngine {
     }
 
     openPuzzle(): void {
+        // requiresItems-sjekk: avvis hvis spilleren mangler nodvendige gjenstander
+        const puzzle = this.config.puzzle;
+        if (puzzle?.requiresItems) {
+            const missing = puzzle.requiresItems.filter((id) => !this.inventorySystem?.has(id));
+            if (missing.length > 0) {
+                console.warn(`[GameEngine] openPuzzle: mangler items: ${missing.join(', ')}`);
+                return;
+            }
+        }
         this.closeDialog();
         this.dialogActive = true;
         this.puzzleActive = true;
@@ -1577,6 +1699,19 @@ export class GameEngine {
         const step = puzzle.steps[this.puzzleStepIndex];
         if (!step) return;
 
+        // Station mode: hent tilgjengelige items fra inventar
+        let availableItems: { itemId: string; name: string; count: number }[] | undefined;
+        if (puzzle.mode === 'station' && this.inventorySystem) {
+            availableItems = this.inventorySystem
+                .getSlots()
+                .filter((s) => s.count > 0)
+                .map((s) => ({
+                    itemId: s.itemId,
+                    name: this.inventorySystem!.getItemDef(s.itemId)?.name ?? s.itemId,
+                    count: s.count,
+                }));
+        }
+
         this.pushUIState({
             puzzle: {
                 visible: true,
@@ -1586,8 +1721,53 @@ export class GameEngine {
                 hint: step.hint,
                 feedback: this.puzzleFeedback,
                 options: step.options.map((o) => o.text),
+                mode: puzzle.mode,
+                stationLabel: puzzle.stationLabel,
+                ingredientSlots: step.ingredientSlots,
+                slotLabels: step.slotLabels,
+                availableItems,
             },
         });
+    }
+
+    handleStationSubmit(selectedItemIds: string[]): void {
+        const puzzle = this.config.puzzle;
+        if (!puzzle || puzzle.mode !== 'station') return;
+        const step = puzzle.steps[this.puzzleStepIndex];
+        if (!step?.ingredientSlots) return;
+
+        const correct =
+            selectedItemIds.length === step.ingredientSlots.length &&
+            selectedItemIds.every((id, i) => id === step.ingredientSlots![i]);
+
+        if (correct) {
+            // Fjern brukte items fra inventar
+            for (const itemId of step.ingredientSlots) {
+                this.inventorySystem?.remove(itemId, 1);
+            }
+            this.puzzleFeedback = step.correctFeedback ?? 'Riktig kombinasjon!';
+            step.onCorrect?.();
+            this.puzzleStepIndex++;
+
+            if (this.puzzleStepIndex >= puzzle.steps.length) {
+                this.puzzleSolved = true;
+                this.dialogActive = false;
+                this.puzzleActive = false;
+                this.pushUIState({ puzzle: null });
+                if (this.gameStarted && !this.isEnded && !this.paused) {
+                    this.renderer.domElement.requestPointerLock();
+                }
+                const nextQuest = this.config.quests.find((q) => q.phase === 'puzzleWon');
+                if (nextQuest) this.questObjective = nextQuest.objective;
+                this.pushUIState({ questObjective: this.questObjective });
+                setTimeout(() => this.openDialog('puzzleWin'), 4000);
+            } else {
+                this.renderPuzzleStep();
+            }
+        } else {
+            this.puzzleFeedback = step.incorrectFeedback ?? 'Feil kombinasjon. Prøv igjen.';
+            this.renderPuzzleStep();
+        }
     }
 
     private collectItem(id: string): void {
@@ -1708,6 +1888,7 @@ export class GameEngine {
         // Persist dialog/puzzle/intro state across calls so per-frame updates don't reset them
         if ('dialog' in override) this.activeDialog = override.dialog ?? null;
         if ('puzzle' in override) this.activePuzzle = override.puzzle ?? null;
+        if ('activity' in override) this.activeActivity = override.activity ?? null;
         if ('intro' in override) this.activeIntro = override.intro ?? null;
 
         const collectibles = this.config.collectibles ?? [];
@@ -1724,6 +1905,7 @@ export class GameEngine {
             showInteractPrompt: !!(this.nearCharacterId || this.nearCollectibleId || this.nearPickup || this.nearInteract),
             dialog: this.activeDialog,
             puzzle: this.activePuzzle,
+            activity: this.activeActivity,
             monolog: this.activeMonolog,
             ended: false,
             endText: '',
@@ -1965,7 +2147,7 @@ export class GameEngine {
         const SPEED = (this.keys['ShiftLeft'] || this.keys['ShiftRight']) ? RUN_SPEED : WALK_SPEED;
         const moveDir = new THREE.Vector3();
 
-        const canMove = !this.dialogActive && !this.introInputBlocked && this.playerMode === 'free';
+        const canMove = !this.dialogActive && !this.introInputBlocked && !this.cinematicInputBlocked && !this.activityActive && this.playerMode === 'free';
 
         if (canMove) {
             const fwd = new THREE.Vector3(Math.sin(this.yaw), 0, -Math.cos(this.yaw));
@@ -2006,6 +2188,34 @@ export class GameEngine {
         } else if (this.playerMode === 'seated') {
             // Spiller-posisjon er lokal til seat-parent; hold den fast ved offset
             this.player.group.position.set(...this.seatOffset);
+            this.velocity.set(0, 0, 0);
+        } else if (this.playerMode === 'scripted') {
+            if (this.followCharacterId) {
+                const char = this.characters.get(this.followCharacterId);
+                if (char) {
+                    const charPos = new THREE.Vector3();
+                    char.group.getWorldPosition(charPos);
+                    // Retningsvektor NPC-en ser mot (lokal Z-akse i world-rommet)
+                    const charFwd = new THREE.Vector3(
+                        Math.sin(char.group.rotation.y),
+                        0,
+                        Math.cos(char.group.rotation.y),
+                    );
+                    // Mal-posisjon: bak NPC-en med followOffset meter
+                    const targetPos = charPos.clone()
+                        .addScaledVector(charFwd, -this.followOffset);
+                    // Behold spillerens Y (viktig over ujevnt terreng)
+                    targetPos.y = this.player.group.position.y;
+                    const toTarget = targetPos.clone().sub(this.player.group.position);
+                    const dist = toTarget.length();
+                    if (dist > 0.1) {
+                        const step = Math.min(dist, this.followSpeed * dt);
+                        toTarget.normalize();
+                        this.player.group.position.addScaledVector(toTarget, step);
+                        this.player.group.rotation.y = Math.atan2(toTarget.x, toTarget.z);
+                    }
+                }
+            }
             this.velocity.set(0, 0, 0);
         }
 
@@ -2296,15 +2506,63 @@ export class GameEngine {
             this.monologSystem.update(dt, { x: world.x, z: world.z }, this.phase);
         }
 
-        // Game-spesifikk per-frame hook (kalles etter alt annet så spill kan lese/overskrive posisjon)
+        // Game-spesifikk per-frame hook (kalles etter alt annet sa spill kan lese/overskrive posisjon)
         const customUpdate = this.scene.userData._customUpdate as ((dt: number, time: number) => void) | undefined;
         if (customUpdate) customUpdate(dt, this.time);
+
+        // Timed Activity System tick
+        if (this.activityActive) {
+            const spaceHeld = !!this.keys['Space'];
+            const result = this.activitySystem.update(dt, this.activitySpaceJustPressed, spaceHeld);
+            this.activitySpaceJustPressed = false;
+
+            const prog = this.activitySystem.getProgress();
+            if (prog) this.pushUIState({ activity: prog });
+
+            if (result !== 'ongoing') {
+                this.finishActivity(result);
+            }
+        } else {
+            this.activitySpaceJustPressed = false;
+        }
+
+        // Detection System tick
+        if (this.detectionSystem && this.config.detection) {
+            this.detectionSystem.update(
+                dt,
+                this.player.group,
+                this.characters,
+                this.physics,
+                (k, v) => this.flags.set(k, v),
+            );
+            const level = this.detectionSystem.getLevel();
+            const showMeter = this.config.detection.showMeter !== false;
+            if (showMeter && Math.abs(level - this.lastDetectionLevel) > 0.005) {
+                this.lastDetectionLevel = level;
+                this.pushUIState({ detectionLevel: level });
+            }
+        }
 
         // Camera
         this.updateCamera(dt);
     }
 
     private updateCamera(dt: number): void {
+        // Cinematic override: sett kamera direkte, hopp over orbit-logikken.
+        // Nar cinematicen avsluttes lerper camPos/camTarget seg glatt tilbake.
+        const cinOverride = this.cameraDirector.getCinematicOverride();
+        if (cinOverride) {
+            this.camPos.copy(cinOverride.cameraPos);
+            this.camTarget.copy(cinOverride.lookAt);
+            this.camera.position.copy(this.camPos);
+            this.camera.lookAt(this.camTarget);
+            if (Math.abs(this.camera.fov - cinOverride.fov) > 0.05) {
+                this.camera.fov = cinOverride.fov;
+                this.camera.updateProjectionMatrix();
+            }
+            return;
+        }
+
         // Input-smoothing: lerpe yaw/pitch mot mus-mål. Lav tid-konstant = responsivt men ikke hakkete.
         const inputLerp = Math.min(1, dt * 25);
         this.yaw += (this.targetYaw - this.yaw) * inputLerp;
