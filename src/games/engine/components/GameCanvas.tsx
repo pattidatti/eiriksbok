@@ -13,6 +13,8 @@ import { SettingsMenu } from './SettingsMenu';
 import { DebugHud } from './DebugHud';
 import type { DebugStats } from '../systems/DebugHudSystem';
 import { PhotoModeUI } from './PhotoModeUI';
+import { QuestLog } from './QuestLog';
+import { InventoryUI } from './InventoryUI';
 
 interface GameCanvasProps {
     config: GameConfig;
@@ -39,11 +41,18 @@ export function GameCanvas({ config }: GameCanvasProps) {
     const [fadeState, setFadeState] = useState({ opacity: 0, durationMs: 400 });
     const [debugVisible, setDebugVisible] = useState(false);
     const [photoMode, setPhotoMode] = useState(false);
+    const [questLogVisible, setQuestLogVisible] = useState(false);
+    const [inventoryVisible, setInventoryVisible] = useState(false);
     const { setFullWidth } = useLayout();
 
-    // F3 toggler Debug-HUD. P toggler fotomodus (Fase 3.3).
+    // Globale hurtigtaster: F3 debug, P fotomodus, J quest-log, I inventar.
     useEffect(() => {
         const onKey = (e: KeyboardEvent) => {
+            // Ikke overstyr taster når brukeren skriver i input/textarea
+            const target = e.target as HTMLElement | null;
+            if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable)) {
+                return;
+            }
             if (e.code === 'F3') {
                 e.preventDefault();
                 setDebugVisible((v) => !v);
@@ -53,6 +62,10 @@ export function GameCanvas({ config }: GameCanvasProps) {
                     const active = engine.togglePhotoMode();
                     setPhotoMode(active);
                 }
+            } else if (e.code === 'KeyJ' && !e.repeat) {
+                setQuestLogVisible((v) => !v);
+            } else if (e.code === 'KeyI' && !e.repeat) {
+                setInventoryVisible((v) => !v);
             }
         };
         window.addEventListener('keydown', onKey);
@@ -77,6 +90,14 @@ export function GameCanvas({ config }: GameCanvasProps) {
             engine.togglePhotoMode();
             setPhotoMode(false);
         }
+    }, []);
+
+    const getQuestSnapshot = useCallback(() => {
+        return engineRef.current?.getQuestSnapshot() ?? null;
+    }, []);
+
+    const getInventorySnapshot = useCallback(() => {
+        return engineRef.current?.getInventorySnapshot() ?? null;
     }, []);
 
     const getDebugStats = useCallback((): DebugStats => {
@@ -251,6 +272,16 @@ export function GameCanvas({ config }: GameCanvasProps) {
                     onLutChange={handlePhotoLut}
                     onExit={handlePhotoExit}
                 />
+            )}
+
+            {/* Quest-log (J) */}
+            {questLogVisible && uiState.started && !uiState.ended && (
+                <QuestLog getSnapshot={getQuestSnapshot} onClose={() => setQuestLogVisible(false)} />
+            )}
+
+            {/* Inventar (I) */}
+            {inventoryVisible && uiState.started && !uiState.ended && (
+                <InventoryUI getSnapshot={getInventorySnapshot} onClose={() => setInventoryVisible(false)} />
             )}
 
             {/* End screen */}

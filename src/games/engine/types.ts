@@ -1,4 +1,6 @@
 import type { Group, Scene, MeshStandardMaterial, Light, Vector3, Mesh } from 'three';
+import type { QuestDef } from './systems/QuestSystem';
+import type { ItemDef } from './systems/InventorySystem';
 
 export type SubjectId = 'historie' | 'norsk' | 'krle' | 'samfunnsfag' | 'musikk';
 
@@ -40,6 +42,15 @@ export interface DialogChoice {
 
 export type DialogCameraFraming = 'speaker' | 'wide';
 
+// Fase 4.4: betingelser som avgjør hvilken variant av en dialog som vises.
+// Alle felter kombineres med AND — alle må stemme for at varianten skal matche.
+export interface DialogCondition {
+    flagsRequired?: string[];    // flagget må være truthy
+    flagsExcluded?: string[];    // flagget må være falsy/uendret
+    questCompleted?: string[];   // quest-ID må være completed
+    itemInInventory?: string[];  // item-ID må finnes i inventar
+}
+
 export interface DialogNode {
     speaker: string;
     text: string | (() => string);
@@ -49,6 +60,10 @@ export interface DialogNode {
     cameraFraming?: DialogCameraFraming;
     // Valgfri emotion-tint for ramme rundt dialogboksen (default ingen tint).
     emotion?: Emotion;
+    // Fase 4.4: kun brukt når noden er del av en liste i dialogs[key].
+    // Første variant hvor condition stemmer blir valgt. En node uten condition
+    // fungerer som default/fallback og må komme sist i listen.
+    condition?: DialogCondition;
 }
 
 // En komponert kamera-tagning brukt av engine.playCinematic. Stub i Fase 2 — utvides senere.
@@ -217,6 +232,20 @@ export interface NpcRouteConfig {
     pauseMs?: number;
 }
 
+// Fase 4.3: reaktiv NPC-atferd. Overstyrer midlertidig waypoint-vandring
+// når spilleren kommer innenfor `distance`. Etter at spilleren har trukket
+// seg > distance * 1.5 unna (hysterese), returnerer NPCen til ruten.
+export interface NpcBehaviorConfig {
+    characterId: string;
+    playerReaction?: {
+        distance: number;  // trigger-avstand i meter
+        behavior: 'approach' | 'flee' | 'face' | 'alert';
+        speedMultiplier?: number;  // default 1.5 for approach, 2.0 for flee
+        // Valgfritt flag som settes når reaksjonen trigges første gang.
+        setFlag?: string;
+    };
+}
+
 // Intro-konfigurasjon (Fase 5). 'fade' = enkel fade-inn fra sort.
 // 'title' = fade + stor title/subtitle på skjermen før spilleren får kontroll.
 // 'none' = ingen intro (spilleren starter umiddelbart).
@@ -367,6 +396,14 @@ export interface GameEngineRef {
     addMusicLayer: (layerId: string, url: string, initialVolume?: number) => Promise<void>;
     // Fade et musikk-lag til target-volum over `fadeSec` sekunder.
     setMusicLayer: (layerId: string, targetVolume: number, fadeSec?: number) => void;
+    // ── Fase 4.1 (quest) ──
+    questIsCompleted: (questId: string) => boolean;
+    questIsActive: (questId: string) => boolean;
+    // ── Fase 4.2 (inventar) ──
+    addItem: (itemId: string, count?: number) => boolean;
+    removeItem: (itemId: string, count?: number) => boolean;
+    hasItem: (itemId: string) => boolean;
+    itemCount: (itemId: string) => number;
 }
 
 export interface GameConfig {
@@ -382,7 +419,9 @@ export interface GameConfig {
     collectibles?: CollectibleConfig[];
     lights?: LightConfig[];
     quests: { phase: string; objective: string }[];
-    dialogs: Record<string, DialogNode>;
+    // Dialogs er indeksert etter key. Fra Fase 4.4 kan verdien være en liste
+    // av varianter — første variant hvor DialogCondition stemmer blir valgt.
+    dialogs: Record<string, DialogNode | DialogNode[]>;
     puzzle?: { steps: PuzzleStep[] };
     // Indre monolog (ikke-blokkerende tekst). Kan trigges via triggervolumer eller engine.playMonolog.
     monologs?: Record<string, MonologNode>;
@@ -396,6 +435,8 @@ export interface GameConfig {
     // ── Fase 1-3 utvidelser (alle valgfrie, ingen breaking changes) ──
     visual?: VisualConfig;
     npcRoutes?: NpcRouteConfig[];
+    // Fase 4.3: reaktiv atferd per NPC (overstyrer waypoint-rute ved nær spiller).
+    npcBehaviors?: NpcBehaviorConfig[];
     // ── Fase 4 (fysikk) ──
     physics?: PhysicsConfig;
     // ── Fase 5 (Intro + QoL) ──
@@ -405,6 +446,20 @@ export interface GameConfig {
         tracks?: AudioTrackConfig[];
         masterVolume?: number; // 0..1, default 1
     };
+    // ── Fase 4.1 (quest-system) ──
+    // Deklarative quest-definisjoner. Motoren holder status (active/completed)
+    // og fullfører objectives basert på flagg, item-pickups, NPC-samtaler.
+    questDefs?: QuestDef[];
+    // ── Fase 4.2 (inventar) ──
+    // Item-definisjoner (navn, ikon, stackable). Selve inventar-innholdet er
+    // runtime-state som bygges opp via pickup eller engine.inventory.add().
+    items?: ItemDef[];
+    inventorySize?: number;  // default 16
+    // ── Fase 4.5 (weather → gameplay) ──
+    // Kalles når været endrer seg. Kan sette flagg og trigge gameplay-reaksjoner
+    // (f.eks. fakler slukner i regn). 'wet'-flagget settes automatisk av motoren
+    // ved rain/snow/fog og ryddes ved 'clear'.
+    onWeatherChange?: (from: WeatherType, to: WeatherType, engine: GameEngineRef) => void;
 }
 
 export interface MonologUIState {

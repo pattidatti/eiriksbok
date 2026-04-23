@@ -568,7 +568,7 @@ export function setupDemoWorldScene(engine: GameEngineRef): void {
 
     // ── Dialog actions: wire weather + time-of-day controls ──────────────────
     const weather = config.dialogs.weather_menu;
-    if (weather) {
+    if (weather && !Array.isArray(weather)) {
         weather.choices[0].action = () => engine.setWeather({ type: 'clear', intensity: 0 });
         weather.choices[1].action = () => engine.setWeather({ type: 'rain', intensity: 0.5 });
         weather.choices[2].action = () => engine.setWeather({ type: 'rain', intensity: 1 });
@@ -576,7 +576,7 @@ export function setupDemoWorldScene(engine: GameEngineRef): void {
         weather.choices[4].action = () => engine.setWeather({ type: 'fog', intensity: 0.85 });
     }
     const tod = config.dialogs.time_menu;
-    if (tod) {
+    if (tod && !Array.isArray(tod)) {
         tod.choices[0].action = () => engine.setTimeOfDay(0.24);
         tod.choices[1].action = () => engine.setTimeOfDay(0.5);
         tod.choices[2].action = () => engine.setTimeOfDay(0.62);

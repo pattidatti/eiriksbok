@@ -1,6 +1,6 @@
 # Motor-Update: Fullstendig Plan for Oppgradering av GameEngine
 
-**Status**: Fase 1-3 ferdig (2026-04-23). Fase 4-6 gjenstår.
+**Status**: Fase 1-4 ferdig (2026-04-23). Fase 5-6 gjenstår.
 **Opprettet**: 2026-04-22
 **Mål**: Løfte motoren fra "funksjonell showroom" til "produksjonsklar mini-spillmotor" som kan bære ekte narrative spill.
 
@@ -84,6 +84,32 @@ Alle fem sub-oppgaver implementert og bygger rent. Fase 3 gjør motoren *levende
 **Bakoverkompatibilitet**: Alle eksisterende spill kjører uendret. InputManager kjører parallelt med `this.keys` — ingen eksisterende callsites refaktorert.
 
 **P-tast** i alle spill: toggler fotomodus. Fryser tid, aktiverer fri-kamera (WASD + Space/Ctrl for vertikal), og viser UI for exposure og LUT. Screenshot eksporteres som PNG med tidsstempel.
+
+---
+
+## Leveranse Fase 4 (2026-04-23)
+
+Alle fem sub-oppgaver implementert og bygger rent. Fase 4 låser opp gameplay-fundamentet — quests, inventar, reaktive NPCer, kondisjonell dialog og weather → gameplay-kobling.
+
+| Oppgave | Status | Filer |
+|---|---|---|
+| 4.1 Quest-system | ✅ | `systems/QuestSystem.ts` (locked/active/completed, prerequisites, rewardFlags, markers), `components/QuestLog.tsx` (J-tast) |
+| 4.2 Inventar-system | ✅ | `systems/InventorySystem.ts` (slot-grid, stackable, maxStack), `components/InventoryUI.tsx` (I-tast, 4-kol grid, hover-beskrivelse) |
+| 4.3 NPC behavior tree | ✅ | `systems/AIDirector.ts` utvidet med `assignBehavior` + reactive behaviors (approach/flee/face/alert) med hysterese |
+| 4.4 Kondisjonell dialog | ✅ | `types.ts` (DialogCondition, `dialogs` nå `Record<string, DialogNode \| DialogNode[]>`), `GameEngine.resolveDialog` filtrerer etter condition |
+| 4.5 Weather → Gameplay | ✅ | `WeatherSystem.setChangeListener`, `GameEngine.handleWeatherChange` (auto-setter `wet`-flag, slukker lys med `_extinguishInRain`, kaller `onWeatherChange`-callback) |
+
+**Nye public API-er:**
+- `GameConfig.questDefs: QuestDef[]` + `engine.questIsCompleted(id) / questIsActive(id)`
+- `GameConfig.items: ItemDef[]` + `engine.addItem/removeItem/hasItem/itemCount`
+- `GameConfig.dialogs[key]` kan være array-variant med `condition: DialogCondition` per variant
+- `GameConfig.npcBehaviors: NpcBehaviorConfig[]` — reaktiv atferd per NPC
+- `GameConfig.onWeatherChange(from, to, engine)` — callback ved vær-endring
+- **J-tast**: QuestLog overlay
+- **I-tast**: Inventory overlay
+- `mesh.userData._extinguishInRain = true` + `_savedIntensity`: lys som slukkes automatisk i regn/snø
+
+**Bakoverkompatibilitet**: Eksisterende spill (Watt Lab, Lindisfarne, Ford Factory, Demo-world) måtte få minimale type-narrow-oppdateringer (`!Array.isArray(dialog)` eller `asNode()` helper) fordi `dialogs`-typen nå er union. Alle fire spill kjører uendret ved runtime.
 
 ---
 

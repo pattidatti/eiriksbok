@@ -269,11 +269,13 @@ export function setupWattLabScene(engine: GameEngineRef): void {
     scene.userData._engineRunUpdate = engineRunUpdate;
 
     // Wire dialog action callbacks that need engine methods
-    if (config.dialogs.puzzleIntro?.choices[0]) {
-        config.dialogs.puzzleIntro.choices[0].action = () => openPuzzle();
+    const puzzleIntro = config.dialogs.puzzleIntro;
+    if (puzzleIntro && !Array.isArray(puzzleIntro) && puzzleIntro.choices[0]) {
+        puzzleIntro.choices[0].action = () => openPuzzle();
     }
-    if (config.dialogs.puzzleWin?.choices[0]) {
-        config.dialogs.puzzleWin.choices[0].action = () => triggerEnd();
+    const puzzleWin = config.dialogs.puzzleWin;
+    if (puzzleWin && !Array.isArray(puzzleWin) && puzzleWin.choices[0]) {
+        puzzleWin.choices[0].action = () => triggerEnd();
     }
 
     // Wire puzzle callbacks

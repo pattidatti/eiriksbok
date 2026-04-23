@@ -38,6 +38,8 @@ import { DebugHudSystem, type DebugStats } from './systems/DebugHudSystem';
 import { InputManager } from './InputManager';
 import { AudioSystem } from './systems/AudioSystem';
 import { PhotoModeSystem } from './systems/PhotoModeSystem';
+import { QuestSystem } from './systems/QuestSystem';
+import { InventorySystem } from './systems/InventorySystem';
 import type { PhysicsWorld, CharacterControllerHandle } from './systems/PhysicsWorld';
 import type { InteractableSystem } from './systems/InteractableSystem';
 import { getGameSettings, subscribeGameSettings } from './settings/gameSettings';
@@ -129,6 +131,11 @@ export class GameEngine {
 
     // Fotomodus (Fase 3.3). P-tast toggler.
     readonly photoMode: PhotoModeSystem = new PhotoModeSystem();
+
+    // Quest/inventar (Fase 4). Instansieres hvis config.questDefs eller
+    // config.items er satt — ellers står de som null og condition-sjekker returnerer false.
+    private questSystem: QuestSystem | null = null;
+    private inventorySystem: InventorySystem | null = null;
 
     // Visuelle systemer (Fase 1-3)
     private skySystem: SkySystem | null = null;
@@ -330,6 +337,7 @@ export class GameEngine {
             if (!this.weatherSystem) {
                 this.weatherSystem = new WeatherSystem(this.scene, this.qualityTier);
                 this.weatherSystem.attachTimeOfDay(this.timeOfDaySystem);
+                this.weatherSystem.setChangeListener((from, to) => this.handleWeatherChange(from, to));
             }
             this.weatherSystem.setWeather(visual.weather);
         }
@@ -341,6 +349,12 @@ export class GameEngine {
         if (options.config.npcRoutes) {
             for (const r of options.config.npcRoutes) {
                 this.aiDirector.assignRoute(r);
+            }
+        }
+        // Fase 4.3: reaktive NPC-behaviors
+        if (options.config.npcBehaviors) {
+            for (const b of options.config.npcBehaviors) {
+                this.aiDirector.assignBehavior(b);
             }
         }
 
@@ -355,6 +369,35 @@ export class GameEngine {
         // Fase 3.4: start InputManager parallelt med det gamle keys-systemet.
         this.inputManager = new InputManager();
         this.inputManager.start();
+
+        // Fase 4.2: inventar — opprett FØR quest slik at quest-conditions kan sjekke items.
+        if (options.config.items && options.config.items.length > 0) {
+            this.inventorySystem = new InventorySystem(options.config.items, options.config.inventorySize);
+        }
+
+        // Fase 4.1: quest-system. Trenger engine-ref for flag/inventar/posisjon-lookup.
+        if (options.config.questDefs && options.config.questDefs.length > 0) {
+            this.questSystem = new QuestSystem(options.config.questDefs, {
+                getFlag: (k) => this.flags.get(k),
+                inventoryHas: (id) => this.inventorySystem?.has(id) ?? false,
+                getPlayerPosition: () => {
+                    const v = new THREE.Vector3();
+                    this.player.group.getWorldPosition(v);
+                    return v;
+                },
+                setFlag: (k, v) => {
+                    this.flags.set(k, v);
+                    if (v) this.evaluateAudioTriggers({ flag: k });
+                },
+                getCharacterPosition: (id) => {
+                    const char = this.characters.get(id);
+                    if (!char) return null;
+                    const v = new THREE.Vector3();
+                    char.group.getWorldPosition(v);
+                    return v;
+                },
+            });
+        }
 
         // Fase 3.1: audio-system. AudioContext opprettes ved første lyd-kall.
         this.audio = new AudioSystem();
@@ -778,6 +821,7 @@ export class GameEngine {
                 if (!this.weatherSystem) {
                     this.weatherSystem = new WeatherSystem(this.scene, this.qualityTier);
                     this.weatherSystem.attachTimeOfDay(this.timeOfDaySystem);
+                    this.weatherSystem.setChangeListener((from, to) => this.handleWeatherChange(from, to));
                 }
                 this.weatherSystem.setWeather(state);
             },
@@ -817,6 +861,12 @@ export class GameEngine {
             resumeAudio: () => this.audio.resume(),
             addMusicLayer: (layerId, url, initialVolume) => this.audio.addMusicLayer(layerId, url, initialVolume),
             setMusicLayer: (layerId, targetVolume, fadeSec) => this.audio.setMusicLayer(layerId, targetVolume, fadeSec),
+            questIsCompleted: (id) => this.questSystem?.isCompleted(id) ?? false,
+            questIsActive: (id) => this.questSystem?.isActive(id) ?? false,
+            addItem: (id, count) => this.inventorySystem?.add(id, count) ?? false,
+            removeItem: (id, count) => this.inventorySystem?.remove(id, count) ?? false,
+            hasItem: (id) => this.inventorySystem?.has(id) ?? false,
+            itemCount: (id) => this.inventorySystem?.count(id) ?? 0,
         };
     }
 
@@ -1112,6 +1162,9 @@ export class GameEngine {
         const char = this.characters.get(charId);
         if (!char) return;
 
+        // Fase 4.1: trigger quest-condition "npcTalkedTo".
+        this.questSystem?.markNpcTalkedTo(charId);
+
         // Per-NPC dialog: bruk "{charId}_greeting" hvis den finnes
         if (this.config.dialogs[`${charId}_greeting`]) {
             this.openDialog(`${charId}_greeting`);
@@ -1191,7 +1244,41 @@ export class GameEngine {
     }
 
     private resolveDialog(key: string): DialogNode | undefined {
-        return this.config.dialogs[key];
+        const entry = this.config.dialogs[key];
+        if (!entry) return undefined;
+        if (!Array.isArray(entry)) return entry;
+        // Fase 4.4: variant-array — velg første node hvor condition matcher.
+        // Noder uten condition fungerer som default/fallback og bør komme sist.
+        for (const node of entry) {
+            if (this.evaluateDialogCondition(node.condition)) return node;
+        }
+        return undefined;
+    }
+
+    // Alle betingelser kombineres med AND. Undefined/tom condition = matcher alltid.
+    private evaluateDialogCondition(cond: import('./types').DialogCondition | undefined): boolean {
+        if (!cond) return true;
+        if (cond.flagsRequired) {
+            for (const f of cond.flagsRequired) {
+                if (!this.flags.get(f)) return false;
+            }
+        }
+        if (cond.flagsExcluded) {
+            for (const f of cond.flagsExcluded) {
+                if (this.flags.get(f)) return false;
+            }
+        }
+        if (cond.questCompleted) {
+            for (const q of cond.questCompleted) {
+                if (!this.questSystem?.isCompleted(q)) return false;
+            }
+        }
+        if (cond.itemInInventory) {
+            for (const i of cond.itemInInventory) {
+                if (!this.inventorySystem?.has(i)) return false;
+            }
+        }
+        return true;
     }
 
     closeDialog(): void {
@@ -1467,6 +1554,72 @@ export class GameEngine {
     // Samler debug-stats for DebugHud-overlayet (F3). Trygg å kalle når som helst.
     getDebugStats(): DebugStats | null {
         return this.debugHudSystem?.collect() ?? null;
+    }
+
+    // Fase 4.5: weather → gameplay-koblingen. Settes automatisk som listener på
+    // WeatherSystem. Oppdaterer 'wet'-flagg og kaller config.onWeatherChange.
+    private handleWeatherChange(from: import('./types').WeatherType, to: import('./types').WeatherType): void {
+        const isWet = to === 'rain' || to === 'snow' || to === 'fog';
+        this.flags.set('wet', isWet);
+        if (isWet) this.evaluateAudioTriggers({ flag: 'wet' });
+        // Fakler med userData._extinguishInRain slukkes i regn/snø.
+        if (to === 'rain' || to === 'snow') {
+            this.scene.traverse((obj) => {
+                if (obj.userData._extinguishInRain && (obj as THREE.Light).intensity !== undefined) {
+                    const light = obj as THREE.Light;
+                    obj.userData._savedIntensity = light.intensity;
+                    light.intensity = 0;
+                }
+            });
+        } else if (from === 'rain' || from === 'snow') {
+            // Gjenopprett lys når været klarner opp.
+            this.scene.traverse((obj) => {
+                if (obj.userData._extinguishInRain && typeof obj.userData._savedIntensity === 'number') {
+                    (obj as THREE.Light).intensity = obj.userData._savedIntensity;
+                }
+            });
+        }
+        this.config.onWeatherChange?.(from, to, this.buildEngineRef());
+    }
+
+    // Fase 4.1: snapshot av quest-status for QuestLog-overlayet (J).
+    getQuestSnapshot(): Array<{
+        id: string; title: string; description: string;
+        status: 'locked' | 'active' | 'completed';
+        objectives: Array<{ id: string; label: string; done: boolean }>;
+    }> | null {
+        if (!this.questSystem) return null;
+        return this.questSystem.getAll().map(({ def, state }) => ({
+            id: def.id,
+            title: def.title,
+            description: def.description,
+            status: state.status,
+            objectives: def.objectives.map((o) => ({
+                id: o.id,
+                label: o.label,
+                done: state.completedObjectives.has(o.id),
+            })),
+        }));
+    }
+
+    // Fase 4.2: snapshot av inventar for InventoryUI-overlayet (I).
+    getInventorySnapshot(): {
+        slots: Array<{ itemId: string; count: number; name: string; description: string; icon: string }>;
+        maxSlots: number;
+    } | null {
+        if (!this.inventorySystem) return null;
+        const size = this.config.inventorySize ?? 16;
+        const slots = this.inventorySystem.getSlots().map((s) => {
+            const def = this.inventorySystem!.getItemDef(s.itemId);
+            return {
+                itemId: s.itemId,
+                count: s.count,
+                name: def?.name ?? s.itemId,
+                description: def?.description ?? '',
+                icon: def?.icon ?? '?',
+            };
+        });
+        return { slots, maxSlots: size };
     }
 
     // Fase 3.3: toggle fotomodus. Mens aktiv er update() no-op slik at scenen
@@ -1789,6 +1942,9 @@ export class GameEngine {
         this.camera.getWorldDirection(_camForwardScratch);
         this.audio.update(this.camera.position, _camForwardScratch);
 
+        // Fase 4.1: evaluer quests — sjekker flagg, inventar, posisjon og NPC-samtaler.
+        this.questSystem?.update();
+
         // CSM: hold sol-retning synkronisert + oppdater cascade-frustum hver frame
         if (this.shadowSystem?.isActive()) {
             this.shadowSystem.setLightDirection(this.timeOfDaySystem.getSunDirection());
@@ -1831,9 +1987,14 @@ export class GameEngine {
         // CameraDirector (lerp-state)
         this.cameraDirector.update(dt);
 
-        // AIDirector (NPC waypoint-vandring) - blokk når dialog/monolog er aktiv
+        // AIDirector (NPC waypoint-vandring + reactive behaviors) - blokk når dialog/monolog er aktiv
         const blocked = this.dialogActive || (this.monologSystem?.isActive() ?? false);
-        this.aiDirector.update(dt, this.characters, blocked);
+        const playerWorldPos = new THREE.Vector3();
+        this.player.group.getWorldPosition(playerWorldPos);
+        this.aiDirector.update(dt, this.characters, blocked, playerWorldPos, (k, v) => {
+            this.flags.set(k, v);
+            if (v) this.evaluateAudioTriggers({ flag: k });
+        });
 
         // Walk-cycle for NPCer (drevet av AI-flagg satt i userData._isWalking)
         for (const char of this.characters.values()) {

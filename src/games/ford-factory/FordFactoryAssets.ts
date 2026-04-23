@@ -497,16 +497,18 @@ export function setupFordFactoryScene(engine: GameEngineRef): void {
     config.dialogs.sorensen_greeting = introDialog;
 
     // Koble sorensen_idea siste valg til å sette fase 'placing'
-    if (config.dialogs.sorensen_idea) {
-        config.dialogs.sorensen_idea.choices[0].action = () => {
+    const sorensenIdea = config.dialogs.sorensen_idea;
+    if (sorensenIdea && !Array.isArray(sorensenIdea)) {
+        sorensenIdea.choices[0].action = () => {
             engine.setPhase('placing');
             updateSorensenGreeting();
         };
     }
 
     // Koble five_dollar-valget: sett flag, spill Ford-monolog, gå til ending etter 18s
-    if (config.dialogs.sorensen_five_dollar) {
-        config.dialogs.sorensen_five_dollar.choices[0].action = () => {
+    const sorensenFive = config.dialogs.sorensen_five_dollar;
+    if (sorensenFive && !Array.isArray(sorensenFive)) {
+        sorensenFive.choices[0].action = () => {
             engine.setFlag('fiveDollarDay', true);
             engine.playMonolog('ford_reflection');
             if (endTransitionScheduled) return; // unngå dobbelt-scheduling

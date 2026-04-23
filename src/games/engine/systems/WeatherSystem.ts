@@ -35,11 +35,26 @@ export class WeatherSystem {
         this.timeOfDay = tod;
     }
 
+    // Fase 4.5: gameplay-kobling. Kalles av GameEngine før hver setWeather og
+    // etter weather-endring slik at flagg kan settes/ryddes.
+    private onChangeListener: ((from: WeatherType, to: WeatherType) => void) | null = null;
+    setChangeListener(fn: (from: WeatherType, to: WeatherType) => void): void {
+        this.onChangeListener = fn;
+    }
+
     setWeather(state: WeatherState): void {
+        const previousType = this.current.type;
         this.current = { ...state };
         this.ensureSystemFor(state.type);
         this.applyVisibility();
         this.applyFog();
+        if (previousType !== state.type) {
+            this.onChangeListener?.(previousType, state.type);
+        }
+    }
+
+    getWeather(): WeatherState {
+        return { ...this.current };
     }
 
     private ensureSystemFor(type: WeatherType): void {

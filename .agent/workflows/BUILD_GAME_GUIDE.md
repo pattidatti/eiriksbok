@@ -353,6 +353,63 @@ interface GameConfig {
         onPlayerFallDamage?: (velocity: number) => void;
     };
 
+    // ── Fase 4.1: quest-system ──────────────────────────────────────────────
+    questDefs?: Array<{
+        id: string;
+        title: string;
+        description: string;
+        objectives: Array<{
+            id: string;
+            label: string;
+            condition: {
+                flag?: string;                    // flagget må være truthy
+                itemCollected?: string;           // item-id lagt til i inventar
+                npcTalkedTo?: string;             // character-id spilt dialog med
+                positionNear?: { pos: [number, number, number]; radius: number };
+            };
+            marker?: { attachTo?: string; pos?: [number, number, number] };
+        }>;
+        prerequisites?: string[];                 // andre quests som må fullføres først
+        rewardFlags?: string[];                   // flagg som settes ved fullføring
+    }>;
+
+    // ── Fase 4.2: inventar ──────────────────────────────────────────────────
+    items?: Array<{
+        id: string;
+        name: string;
+        description: string;
+        icon: string;           // emoji eller URL til PNG
+        stackable?: boolean;
+        maxStack?: number;
+    }>;
+    inventorySize?: number;     // default 16
+
+    // ── Fase 4.3: reaktiv NPC-atferd ────────────────────────────────────────
+    npcBehaviors?: Array<{
+        characterId: string;
+        playerReaction?: {
+            distance: number;   // trigger-avstand i meter
+            behavior: 'approach' | 'flee' | 'face' | 'alert';
+            speedMultiplier?: number;
+            setFlag?: string;
+        };
+    }>;
+
+    // ── Fase 4.4: kondisjonell dialog ───────────────────────────────────────
+    // dialogs[key] kan nå være en liste av varianter — første matching velges.
+    // Eksempel:
+    //   dialogs: {
+    //     greeting: [
+    //       { speaker: 'X', text: 'Du har snakket med meg før', condition: { flagsRequired: ['talkedToX'] } },
+    //       { speaker: 'X', text: 'Hei, fremmede' },  // fallback uten condition
+    //     ]
+    //   }
+
+    // ── Fase 4.5: weather → gameplay ────────────────────────────────────────
+    // onWeatherChange kalles når været endrer seg. 'wet'-flag settes automatisk
+    // ved rain/snow/fog. Lys med mesh.userData._extinguishInRain slukkes i regn.
+    onWeatherChange?: (from: WeatherType, to: WeatherType, engine: GameEngineRef) => void;
+
     // ── Fase 3.1: deklarativ audio ──────────────────────────────────────────
     audio?: {
         masterVolume?: number;  // 0..1, default 1

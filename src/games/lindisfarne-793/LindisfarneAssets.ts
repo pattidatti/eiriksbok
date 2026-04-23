@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import type { GameEngineRef } from '../engine/types';
+import type { GameEngineRef, DialogNode } from '../engine/types';
 import { buildSeascape } from '../engine/builders/SeascapeBuilder';
 import { buildBeach } from '../engine/builders/BeachBuilder';
 import { buildCloister, playerInRoom } from '../engine/builders/CloisterBuilder';
@@ -221,29 +221,34 @@ export function setupLindisfarneScene(engine: GameEngineRef): void {
 
     // ───── Koble dialog-actions ─────
     // Dialog-valg trigger fase-overganger og flagg
+    // Lindisfarne bruker ikke Fase 4.4 variant-arrays, så vi narrower til DialogNode.
+    const asNode = (d: DialogNode | DialogNode[] | undefined): DialogNode | undefined =>
+        Array.isArray(d) ? d[0] : d;
     const dialogs = engine.config.dialogs;
 
     // Mannskap-dialoger markerer "snakket med" når valg-trykkes
-    wireMarkAfter(dialogs.sigurd_greeting, engine, 'talkedChief');
-    wireMarkAfter(dialogs.chief_first, engine, 'talkedChief');
-    wireMarkAfter(dialogs.chief_restless, engine, 'talkedChief');
-    wireMarkAfter(dialogs.chief_guards, engine, 'talkedChief');
-    wireMarkAfter(dialogs.chief_intel, engine, 'talkedChief');
+    wireMarkAfter(asNode(dialogs.sigurd_greeting), engine, 'talkedChief');
+    wireMarkAfter(asNode(dialogs.chief_first), engine, 'talkedChief');
+    wireMarkAfter(asNode(dialogs.chief_restless), engine, 'talkedChief');
+    wireMarkAfter(asNode(dialogs.chief_guards), engine, 'talkedChief');
+    wireMarkAfter(asNode(dialogs.chief_intel), engine, 'talkedChief');
 
-    wireMarkAfter(dialogs.veteran_warning, engine, 'talkedVeteran');
-    wireMarkAfter(dialogs.ulv_greeting, engine, 'talkedPeer');
-    wireMarkAfter(dialogs.peer_plan, engine, 'talkedPeer');
+    wireMarkAfter(asNode(dialogs.veteran_warning), engine, 'talkedVeteran');
+    wireMarkAfter(asNode(dialogs.ulv_greeting), engine, 'talkedPeer');
+    wireMarkAfter(asNode(dialogs.peer_plan), engine, 'talkedPeer');
 
     // Når Sigurd sier "Gå i land" - trigger landgang
-    if (dialogs.chief_land) {
-        dialogs.chief_land.choices[0].action = () => {
+    const chiefLand = asNode(dialogs.chief_land);
+    if (chiefLand) {
+        chiefLand.choices[0].action = () => {
             beginLanding();
         };
     }
 
     // Eadfrith-valg: spar
-    if (dialogs.eadfrith_response_spared) {
-        dialogs.eadfrith_response_spared.onEnd = () => {
+    const eadSpared = asNode(dialogs.eadfrith_response_spared);
+    if (eadSpared) {
+        eadSpared.onEnd = () => {
             engine.setFlag('sparedEadfrith', true);
             engine.setPhase('aftermath_spared');
             engine.playMonolog('after_choice_spared');
@@ -255,8 +260,9 @@ export function setupLindisfarneScene(engine: GameEngineRef): void {
     }
 
     // Eadfrith-valg: drep
-    if (dialogs.eadfrith_response_killed) {
-        dialogs.eadfrith_response_killed.onEnd = () => {
+    const eadKilled = asNode(dialogs.eadfrith_response_killed);
+    if (eadKilled) {
+        eadKilled.onEnd = () => {
             engine.setFlag('sparedEadfrith', false);
             engine.setPhase('aftermath_killed');
             engine.cameraShake(0.3, 0.6);
