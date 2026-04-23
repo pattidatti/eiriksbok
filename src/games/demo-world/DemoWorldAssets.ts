@@ -17,6 +17,26 @@ export function setupDemoWorldScene(engine: GameEngineRef): void {
     const { scene, toonMat, sceneMat, config } = engine;
     const rng = mulberry32(13);
 
+    // ── Sol + himmel-lys (drevet av TimeOfDaySystem) ─────────────────────────
+    const sun = new THREE.DirectionalLight(0xfff5e0, 2.4);
+    sun.position.set(60, 90, 40);
+    sun.castShadow = true;
+    sun.shadow.mapSize.set(2048, 2048);
+    sun.shadow.camera.near = 0.5;
+    sun.shadow.camera.far = 200;
+    sun.shadow.camera.left = -70;
+    sun.shadow.camera.right = 70;
+    sun.shadow.camera.top = 70;
+    sun.shadow.camera.bottom = -70;
+    sun.shadow.bias = -0.0005;
+    scene.add(sun);
+    scene.userData._mainSunLight = sun;
+
+    const hemi = new THREE.HemisphereLight(0x9ec6e8, 0x3d5a2d, 0.9);
+    hemi.position.set(0, 50, 0);
+    scene.add(hemi);
+    scene.userData._mainHemiLight = hemi;
+
     // ── Ground (solid base for physics + grass) ──────────────────────────────
     const ground = new THREE.Mesh(
         new THREE.BoxGeometry(110, 1, 110),
@@ -27,12 +47,12 @@ export function setupDemoWorldScene(engine: GameEngineRef): void {
     ground.userData.solid = true;
     scene.add(ground);
 
-    // Sandy beach transitioning to ocean east of the land
+    // Sandy beach transitioning to ocean east of the land (sitter på landkanten x≈50)
     const beach = new THREE.Mesh(
-        new THREE.BoxGeometry(16, 0.9, 100),
+        new THREE.BoxGeometry(14, 0.9, 100),
         new THREE.MeshStandardMaterial({ color: 0xd9c88a, roughness: 1, metalness: 0 }),
     );
-    beach.position.set(30, -0.55, -5);
+    beach.position.set(55, -0.55, -5);
     beach.receiveShadow = true;
     beach.userData.solid = true;
     scene.add(beach);
@@ -55,7 +75,7 @@ export function setupDemoWorldScene(engine: GameEngineRef): void {
     };
     addPath([[0, 8], [0, 0], [-10, -8], [-18, -14]]);
     addPath([[0, 0], [6, -4], [10, -9]]);
-    addPath([[2, 2], [12, 4], [22, 5]]);
+    addPath([[2, 2], [20, 4], [40, 5], [52, 5]]);
 
     // ── Chapel (room system + hanging spotlights) ────────────────────────────
     const chapel = buildRoom(scene, toonMat, {
@@ -69,6 +89,80 @@ export function setupDemoWorldScene(engine: GameEngineRef): void {
         hasRoof: true,
         openings: [{ side: 'S', offset: 0, width: 2.2 }],
     });
+    // RoomSystem lager taket med normalen pekende nedover (synlig kun fra innsiden).
+    // Skjul det flate standardtaket og bygg et skikkelig saltak med gavler oppå.
+    if (chapel.roof) chapel.roof.visible = false;
+    {
+        const cxR = -18;
+        const czR = -18;
+        const chW = 10;
+        const chD = 9;
+        const wallH = 5;
+        const peakH = 2.2;
+        const overhang = 0.5;
+        const halfW = chW / 2 + overhang;
+        const halfD = chD / 2 + overhang;
+        const slopeLen = Math.sqrt(halfW * halfW + peakH * peakH);
+        const tilt = Math.atan2(peakH, halfW);
+
+        const roofMat = new THREE.MeshStandardMaterial({
+            color: 0x3a2818,
+            roughness: 0.92,
+            metalness: 0,
+            side: THREE.DoubleSide,
+        });
+
+        const slopeE = new THREE.Mesh(
+            new THREE.BoxGeometry(slopeLen, 0.12, chD + 2 * overhang),
+            roofMat,
+        );
+        slopeE.rotation.z = -tilt;
+        slopeE.position.set(cxR + Math.cos(tilt) * halfW * 0.5, wallH + peakH / 2, czR);
+        slopeE.castShadow = true;
+        slopeE.receiveShadow = true;
+        scene.add(slopeE);
+
+        const slopeW = new THREE.Mesh(
+            new THREE.BoxGeometry(slopeLen, 0.12, chD + 2 * overhang),
+            roofMat,
+        );
+        slopeW.rotation.z = tilt;
+        slopeW.position.set(cxR - Math.cos(tilt) * halfW * 0.5, wallH + peakH / 2, czR);
+        slopeW.castShadow = true;
+        slopeW.receiveShadow = true;
+        scene.add(slopeW);
+
+        // Gavler (triangelformede endegaver)
+        const gableMat = new THREE.MeshStandardMaterial({
+            color: 0x8e7852,
+            roughness: 0.95,
+            side: THREE.DoubleSide,
+        });
+        const gableShape = new THREE.Shape();
+        gableShape.moveTo(-halfW, 0);
+        gableShape.lineTo(halfW, 0);
+        gableShape.lineTo(0, peakH);
+        gableShape.lineTo(-halfW, 0);
+        const gableGeo = new THREE.ShapeGeometry(gableShape);
+
+        const gableN = new THREE.Mesh(gableGeo, gableMat);
+        gableN.position.set(cxR, wallH, czR - halfD);
+        gableN.rotation.y = Math.PI;
+        scene.add(gableN);
+
+        const gableS = new THREE.Mesh(gableGeo, gableMat);
+        gableS.position.set(cxR, wallH, czR + halfD);
+        scene.add(gableS);
+
+        // Mønekam
+        const ridge = new THREE.Mesh(
+            new THREE.BoxGeometry(0.25, 0.18, chD + 2 * overhang),
+            new THREE.MeshStandardMaterial({ color: 0x2a1a10, roughness: 0.95 }),
+        );
+        ridge.position.set(cxR, wallH + peakH + 0.05, czR);
+        ridge.castShadow = true;
+        scene.add(ridge);
+    }
 
     const hangingLightRefs: HangingLightRef[] = [];
     const lightDefs: { x: number; z: number; color: number; intensity: number }[] = [
@@ -239,25 +333,42 @@ export function setupDemoWorldScene(engine: GameEngineRef): void {
         stone.userData.dynamic = true;
         stone.userData.pickupable = true;
         stone.userData.mass = 2;
-        stone.userData.colliderShape = 'sphere';
+        stone.userData.colliderShape = 'cuboid';
+        stone.userData.friction = 0.9;
+        stone.userData.linearDamping = 1.2;
+        stone.userData.angularDamping = 2.4;
         scene.add(stone);
         engine.registerPickup(stone, { throwForce: 14 });
     }
 
     // ── Dock and ocean ───────────────────────────────────────────────────────
     const dockMat = toonMat(0x7a5a38);
-    for (let i = 0; i < 12; i++) {
-        const plank = new THREE.Mesh(new THREE.BoxGeometry(2.4, 0.12, 0.42), dockMat);
-        plank.position.set(24 + i * 0.5, 0.28, 5);
-        plank.userData.solid = true;
-        plank.castShadow = true;
-        plank.receiveShadow = true;
-        scene.add(plank);
+    // Brygge starter på stranden (x≈52) og strekker seg østover i havet
+    const dockBaseX = 52;
+    const dockEndX = 64;
+    const dockLength = dockEndX - dockBaseX;
+    const dockDeck = new THREE.Mesh(
+        new THREE.BoxGeometry(dockLength, 0.14, 2.0),
+        dockMat,
+    );
+    dockDeck.position.set((dockBaseX + dockEndX) / 2, 0.3, 5);
+    dockDeck.userData.solid = true;
+    dockDeck.castShadow = true;
+    dockDeck.receiveShadow = true;
+    scene.add(dockDeck);
+    // Enkle tverrplanker for å gi bryggen struktur (visuelt, ikke solide)
+    for (let i = 0; i < 14; i++) {
+        const strip = new THREE.Mesh(
+            new THREE.BoxGeometry(0.08, 0.02, 2.0),
+            toonMat(0x5a4020),
+        );
+        strip.position.set(dockBaseX + 0.5 + i * (dockLength / 14), 0.38, 5);
+        scene.add(strip);
     }
-    for (let i = 0; i < 4; i++) {
-        for (const dz of [-0.9, 0.9]) {
-            const post = new THREE.Mesh(new THREE.CylinderGeometry(0.14, 0.14, 1.8, 7), dockMat);
-            post.position.set(24.5 + i * 1.8, 0, 5 + dz);
+    for (let i = 0; i < 5; i++) {
+        for (const dz of [-0.95, 0.95]) {
+            const post = new THREE.Mesh(new THREE.CylinderGeometry(0.14, 0.14, 2.2, 7), dockMat);
+            post.position.set(dockBaseX + 1 + i * 2.5, -0.2, 5 + dz);
             post.userData.solid = true;
             post.castShadow = true;
             scene.add(post);
@@ -265,24 +376,24 @@ export function setupDemoWorldScene(engine: GameEngineRef): void {
     }
 
     const ocean = new OceanSystem(scene, toonMat, {
-        size: 280,
-        segments: 72,
+        size: 180,
+        segments: 64,
         color: 0x285a7a,
-        center: [90, 0],
+        center: [80, 0],
     });
-    ocean.mesh.position.y = -0.45;
+    ocean.mesh.position.y = -1.1;
 
-    const foam = new FoamSystem(scene, () => ({ x: 30, y: -0.3, z: 5 }), 60);
+    const foam = new FoamSystem(scene, () => ({ x: dockEndX, y: -0.9, z: 5 }), 60);
 
-    // Coastal rocks hide the land/ocean seam
+    // Coastal rocks along the shoreline at x≈50 (landkant)
     for (let i = 0; i < 22; i++) {
         const z = -50 + i * 5 + (rng() - 0.5);
-        if (Math.abs(z - 5) < 3.5) continue;
+        if (Math.abs(z - 5) < 3.5) continue; // gi plass til bryggen
         const rock = new THREE.Mesh(
             new THREE.DodecahedronGeometry(0.8 + rng() * 0.8, 0),
             stoneMat,
         );
-        rock.position.set(22 + rng() * 2, -0.1 + rng() * 0.5, z);
+        rock.position.set(48 + rng() * 2, -0.1 + rng() * 0.5, z);
         rock.rotation.set(rng() * Math.PI, rng() * Math.PI, rng() * Math.PI);
         rock.castShadow = true;
         rock.userData.solid = true;
@@ -336,26 +447,39 @@ export function setupDemoWorldScene(engine: GameEngineRef): void {
     sail.position.set(0, 2.2, 0);
     sail.rotation.y = Math.PI / 2;
     boatGroup.add(sail);
-    const boatBaseY = -0.35;
-    boatGroup.position.set(36, boatBaseY, 9);
+    const boatBaseY = -1.0;
+    boatGroup.position.set(70, boatBaseY, 9);
     boatGroup.rotation.y = -0.4;
     scene.add(boatGroup);
 
     // ── Trees (engine handles wind shader + foliage) ─────────────────────────
-    for (let i = 0; i < 26; i++) {
+    const buildingBounds = [
+        { minX: -25, maxX: -11, minZ: -24, maxZ: -12 }, // kapell + buffer
+        { minX: -12, maxX: -4, minZ: -23, maxZ: -15 }, // steinring
+        { minX: -7, maxX: -1, minZ: 1, maxZ: 7 }, // flaggstang
+    ];
+    const insideAnyBuilding = (x: number, z: number) =>
+        buildingBounds.some((b) => x >= b.minX && x <= b.maxX && z >= b.minZ && z <= b.maxZ);
+
+    let placed = 0;
+    let attempts = 0;
+    while (placed < 26 && attempts < 80) {
+        attempts++;
         const x = -36 + rng() * 22;
         const z = -24 + rng() * 38;
         if (Math.hypot(x, z) < 8) continue;
+        if (insideAnyBuilding(x, z)) continue;
         const r = rng();
         const type = r > 0.4 ? 'pine' : r > 0.2 ? 'birch' : 'oak';
         engine.addTree([x, 0, z], type);
+        placed++;
     }
-    // Scattered accent trees
+    // Scattered accent trees (manuelt plasserte, unna bygninger og flaggstang)
     engine.addTree([7, 0, 13], 'birch');
     engine.addTree([-3, 0, 14], 'birch');
     engine.addTree([12, 0, -2], 'oak');
     engine.addTree([16, 0, 10], 'birch');
-    engine.addTree([-4, 0, 5], 'oak');
+    engine.addTree([-11, 0, 6], 'oak');
 
     // ── Vegetation patches (grass, flowers, reeds) ───────────────────────────
     engine.addVegetationPatch({ minX: -10, maxX: 20, minZ: -6, maxZ: 16 }, 1.8, 'grass');

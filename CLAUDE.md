@@ -395,6 +395,8 @@ Historiske 3D-mini-spill bor under `/oving/spill` og bruker et eget gjenbrukbart
 
 Se **`.agent/workflows/BUILD_GAME_GUIDE.md`** for komplett guide med skjema, `userData.solid`-kollisjon (Rapier), dialog/puzzle/monolog-system, fase-overganger med `engine.setPhase`/`setFlag`, variabel slutt via `endText`-funksjon, pickup/kast via E og F, og eksempler fra både Watt Lab og Lindisfarne.
 
+> **Før du tester et nytt `preset: 'open'`-spill - gå gjennom sjekklisten i BUILD_GAME_GUIDE.md §16.7.** Den dekker sol/hemi-registrering, tak-synlighet, hav-overlapp, demping på dynamiske objekter og andre fallgruver som lett oppstår.
+
 ---
 
 ## Code Conventions
@@ -531,6 +533,11 @@ A highly realistic 4K cinematic photograph of [scene], [time period].
 7. **Learning paths in `lessons`**: Learning paths (`-sti.json`) must be registered under `tools`, not `lessons` in the manifest.
 8. **Relative links in tasks**: Always use absolute paths starting with `/` in learning path task links.
 9. **Mini-spill kollisjon (Rapier, Fase 4+)**: Nye 3D-objekter som skal være solide må merkes med `mesh.userData.solid = true`. `PhysicsWorld` traverserer scenen og lager colliders automatisk etter init. Valgfri `colliderShape: 'cylinder' | 'capsule' | 'sphere' | 'trimesh'` overstyrer default (cuboid fra boundingBox). Gulv må også ha `solid=true` - det finnes ingen auto-ground. AABB2D og `scene.userData.collisionBoxes` er fjernet fra kollisjons-API-et.
+10. **Mini-spill `preset: 'open'` uten sol**: Motoren lager kun `AmbientLight` automatisk for open-preset. Uten `scene.userData._mainSunLight` (DirectionalLight) og `_mainHemiLight` (HemisphereLight) registrert i `setupScene` blir scenen nesten svart selv om SkySystem ser riktig ut. Se `BUILD_GAME_GUIDE.md` §16.1.
+11. **Mini-spill tak fra `buildRoom` er usynlig utenfra**: `RoomSystem.buildRoom` bygger tak med normalen pekende nedover (dollhouse-design). For frittstående bygg som sees utenfra, skjul standardtaket (`room.roof.visible = false`) og bygg et saltak manuelt. Se `BUILD_GAME_GUIDE.md` §16.2.
+12. **Mini-spill prosedyrale plasseringer**: `engine.addTree`/`addVegetationPatch`/random-løkker må eksplisitt ekskludere bygge-bounds, ellers lander objekter inne i vegger. Samle `AABB2D[]` og sjekk i plasseringsløkken. Se `BUILD_GAME_GUIDE.md` §16.3.
+13. **Mini-spill hav klipper gjennom land**: `OceanSystem`-bølger har amplitude ~0.7m. Hvis havplanet overlapper solide land-bokser og `mesh.position.y > land_top - 0.7`, stiger bølgetopper gjennom bakken. Løsning: krymp plane (`size`, `center`) unna land OG senk `mesh.position.y` nok. Husk å oppdatere `FoamSystem`-origin-y og båt-base-y. Se `BUILD_GAME_GUIDE.md` §16.4.
+14. **Mini-spill dynamiske objekter ruller evig**: Rapier har default `linearDamping = 0` og `angularDamping = 0`. Sett `userData.linearDamping` og `userData.angularDamping` på dynamiske objekter, og bruk `colliderShape: 'cuboid'` (ikke `'sphere'`) for pickups - sfæriske colliders ruller evig i Rapier. Se `BUILD_GAME_GUIDE.md` §16.5.
 
 ---
 
