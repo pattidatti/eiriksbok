@@ -83,12 +83,29 @@ export class AudioSystem {
     }
 
     private enforceSimultaneousLimit(): void {
-        // Hvis vi er over grensen, stopp eldste gain-node.
+        // Hvis vi er over grensen, stopp eldste gain-node og rydd også i
+        // spatialSources og musicLayers slik at vi ikke oppdaterer døde pannere.
         while (this.allActiveGains.size > MAX_SIMULTANEOUS) {
             const oldest = this.allActiveGains.values().next().value as GainNode | undefined;
             if (!oldest) break;
             oldest.disconnect();
             this.allActiveGains.delete(oldest);
+            // Fjern fra spatialSources hvis gain matcher
+            const sIdx = this.spatialSources.findIndex((s) => s.gain === oldest);
+            if (sIdx >= 0) {
+                const s = this.spatialSources[sIdx];
+                try { s.source.stop(); } catch { /* already stopped */ }
+                s.panner.disconnect();
+                this.spatialSources.splice(sIdx, 1);
+            }
+            // Fjern fra musicLayers hvis gain matcher
+            for (const [id, layer] of this.musicLayers) {
+                if (layer.gain === oldest) {
+                    try { layer.source.stop(); } catch { /* already stopped */ }
+                    this.musicLayers.delete(id);
+                    break;
+                }
+            }
         }
     }
 
@@ -141,8 +158,17 @@ export class AudioSystem {
             panner.connect(gain);
             gain.connect(this.masterGain!);
             source.start();
-            this.spatialSources.push({ source, panner, gain, target: opts.position });
+            const entry = { source, panner, gain, target: opts.position };
+            this.spatialSources.push(entry);
             this.allActiveGains.add(gain);
+            // Rydd opp automatisk når ikke-looping kilde er ferdig.
+            source.onended = () => {
+                const idx = this.spatialSources.indexOf(entry);
+                if (idx >= 0) this.spatialSources.splice(idx, 1);
+                this.allActiveGains.delete(gain);
+                try { panner.disconnect(); } catch { /* already disconnected */ }
+                try { gain.disconnect(); } catch { /* already disconnected */ }
+            };
             this.enforceSimultaneousLimit();
             // Sett initial posisjon synkront slik at lyden ikke starter på 0,0,0.
             this.updateSpatialNode(panner, opts.position);

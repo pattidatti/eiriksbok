@@ -71,6 +71,11 @@ const _sunWorldScratch = new THREE.Vector3();
 const _sunNdcScratch = new THREE.Vector3();
 const _camForwardScratch = new THREE.Vector3();
 const _sunToCamScratch = new THREE.Vector3();
+// Fotomodus scratch (Fase 3.3).
+const _photoFwdScratch = new THREE.Vector3();
+const _photoRightScratch = new THREE.Vector3();
+const _photoMoveScratch = new THREE.Vector3();
+const _photoUpScratch = new THREE.Vector3(0, 1, 0);
 
 // Godtar både det gamle string-formatet ('auto' | 'low' | 'medium' | 'high') og den nye
 // PostProcessingConfig-objektformen, og returnerer alltid et normalisert objekt.
@@ -260,7 +265,13 @@ export class GameEngine {
         const far = options.config.world.preset === 'open' ? 400 : 100;
         this.camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, far);
 
-        this.renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
+        // preserveDrawingBuffer=true trengs for at canvas.toDataURL() skal returnere
+        // det renderede bildet (fotomodus-screenshot, Fase 3.3). Liten ytelseskost.
+        this.renderer = new THREE.WebGLRenderer({
+            antialias: true,
+            powerPreference: 'high-performance',
+            preserveDrawingBuffer: true,
+        });
         this.renderer.setSize(window.innerWidth, window.innerHeight);
         this.renderer.setPixelRatio(this.qualityTier === 'low' ? 1 : Math.min(window.devicePixelRatio, 2));
         this.renderer.shadowMap.enabled = this.qualityTier !== 'low';
@@ -1430,19 +1441,18 @@ export class GameEngine {
     // men flytter kameraet direkte i stedet for spilleren.
     private updatePhotoModeCamera(dt: number): void {
         const speed = this.photoMode.flySpeed * (this.keys['ShiftLeft'] || this.keys['ShiftRight'] ? 2.5 : 1);
-        const fwd = new THREE.Vector3(Math.sin(this.yaw), 0, -Math.cos(this.yaw));
-        const right = new THREE.Vector3(Math.cos(this.yaw), 0, Math.sin(this.yaw));
-        const up = new THREE.Vector3(0, 1, 0);
-        const move = new THREE.Vector3();
-        if (this.keys['KeyW']) move.add(fwd);
-        if (this.keys['KeyS']) move.sub(fwd);
-        if (this.keys['KeyD']) move.add(right);
-        if (this.keys['KeyA']) move.sub(right);
-        if (this.keys['Space']) move.add(up);
-        if (this.keys['ControlLeft'] || this.keys['KeyQ']) move.sub(up);
-        if (move.lengthSq() > 0) {
-            move.normalize().multiplyScalar(speed * dt);
-            this.camPos.add(move);
+        _photoFwdScratch.set(Math.sin(this.yaw), 0, -Math.cos(this.yaw));
+        _photoRightScratch.set(Math.cos(this.yaw), 0, Math.sin(this.yaw));
+        _photoMoveScratch.set(0, 0, 0);
+        if (this.keys['KeyW']) _photoMoveScratch.add(_photoFwdScratch);
+        if (this.keys['KeyS']) _photoMoveScratch.sub(_photoFwdScratch);
+        if (this.keys['KeyD']) _photoMoveScratch.add(_photoRightScratch);
+        if (this.keys['KeyA']) _photoMoveScratch.sub(_photoRightScratch);
+        if (this.keys['Space']) _photoMoveScratch.add(_photoUpScratch);
+        if (this.keys['ControlLeft'] || this.keys['KeyQ']) _photoMoveScratch.sub(_photoUpScratch);
+        if (_photoMoveScratch.lengthSq() > 0) {
+            _photoMoveScratch.normalize().multiplyScalar(speed * dt);
+            this.camPos.add(_photoMoveScratch);
         }
         // Se-retningen styres av yaw/pitch fra mus; regn ut kamera-target.
         this.camTarget.set(
@@ -1481,8 +1491,8 @@ export class GameEngine {
     }
 
     captureScreenshot(): void {
-        // Render én ekstra gang for å fange siste state
-        this.postProcessing?.render();
+        // preserveDrawingBuffer=true gir oss siste render-frame direkte fra canvas.
+        // animate() kjører ~60 FPS så innholdet er garantert ferskt innen 16ms.
         this.photoMode.download(this.renderer.domElement);
     }
 
