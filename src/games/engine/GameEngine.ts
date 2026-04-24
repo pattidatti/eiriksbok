@@ -19,6 +19,9 @@ import type {
     PickupOptions,
     PostProcessingConfig,
     ActivityDef,
+    CharacterConfig,
+    MonologNode,
+    MonologTrigger,
 } from './types';
 import { TimedActivitySystem } from './systems/TimedActivitySystem';
 import { DetectionSystem } from './systems/DetectionSystem';
@@ -44,6 +47,7 @@ import { AudioSystem } from './systems/AudioSystem';
 import { PhotoModeSystem } from './systems/PhotoModeSystem';
 import { QuestSystem } from './systems/QuestSystem';
 import { InventorySystem } from './systems/InventorySystem';
+import { runValidation } from './systems/ConfigValidator';
 import type { PhysicsWorld, CharacterControllerHandle } from './systems/PhysicsWorld';
 import type { InteractableSystem } from './systems/InteractableSystem';
 import { getGameSettings, subscribeGameSettings } from './settings/gameSettings';
@@ -296,6 +300,17 @@ export class GameEngine {
     constructor(options: EngineOptions) {
         this.options = options;
         this.config = options.config;
+
+        // Valider config. Fatale feil kastes før motoren er halvveis konstruert,
+        // slik at agenter ser den eksakte feilen umiddelbart (ikke en nedstrøms crash).
+        const issues = runValidation(this.config);
+        const fatal = issues.filter((i) => i.level === 'fatal');
+        if (fatal.length > 0) {
+            throw new Error(
+                `GameConfig validering feilet med ${fatal.length} fatal feil:\n` +
+                fatal.map((f) => '  - ' + f.message).join('\n')
+            );
+        }
 
         const visual = options.config.visual ?? {};
         const ppConfig = extractPostProcessing(visual.postProcessing);
@@ -792,16 +807,20 @@ export class GameEngine {
             this.collectibleMeshes.set(colCfg.id, { group, config: { id: colCfg.id, name: colCfg.name } });
         }
 
-        // Initialiser MonologSystem hvis spillet har monologs
-        if (this.config.monologs) {
-            this.monologSystem = new MonologSystem(
-                this.config.monologs,
-                this.config.monologTriggers ?? [],
-                (state) => {
-                    this.activeMonolog = state;
-                    this.pushUIState({ monolog: state });
-                }
-            );
+        // Initialiser MonologSystem — alltid, slik at declarative.addMonolog kan
+        // legge til noder på runtime selv om config ikke har monologs.
+        this.monologSystem = new MonologSystem(
+            this.config.monologs ?? {},
+            this.config.monologTriggers ?? [],
+            (state) => {
+                this.activeMonolog = state;
+                this.pushUIState({ monolog: state });
+            }
+        );
+        // Sørg for at config.dialogs er en mutable record (declarative.addNPC
+        // merge-er inn her via registerDialogs).
+        if (!this.config.dialogs) {
+            (this.config as { dialogs: Record<string, DialogNode | DialogNode[]> }).dialogs = {};
         }
 
         // Let game provide custom assets and wire puzzle callbacks
@@ -1061,7 +1080,31 @@ export class GameEngine {
             load: () => this.saveSystem?.restore() ?? false,
             hasSave: () => this.saveSystem?.hasSave() ?? false,
             clearSave: () => this.saveSystem?.clear(),
+            // Deklarativ API
+            addCharacter: (cfg: CharacterConfig) => this.addCharacterRuntime(cfg),
+            registerDialogs: (dialogs: Record<string, DialogNode | DialogNode[]>) => {
+                Object.assign(this.config.dialogs, dialogs);
+            },
+            registerMonolog: (node: MonologNode) => this.monologSystem?.addNode(node),
+            registerMonologTrigger: (trigger: MonologTrigger) => this.monologSystem?.addTrigger(trigger),
         };
+    }
+
+    /**
+     * Legg til en NPC på runtime (brukes av declarative.addNPC).
+     * Parallell til logikken i buildScene som initialiserer NPC-er fra config.characters,
+     * men kalles for NPC-er som defineres deklarativt fra setupScene.
+     */
+    private addCharacterRuntime(cfg: CharacterConfig): void {
+        if (this.characters.has(cfg.id)) {
+            console.warn(`[GameEngine] Character '${cfg.id}' finnes allerede. Hopper over.`);
+            return;
+        }
+        const built = buildCharacter(cfg, this.toonMat.bind(this), this.renderer, this.scene);
+        this.characters.set(cfg.id, { ...built, config: { id: cfg.id, name: cfg.name } });
+        if (cfg.characterType && cfg.defaultEmotion) {
+            this.bodyTargets.set(cfg.id, BODY_TARGETS[cfg.defaultEmotion]);
+        }
     }
 
     private setPlayerMode(mode: PlayerMode, opts?: {
@@ -1570,8 +1613,16 @@ export class GameEngine {
         if (!entry) return undefined;
         if (!Array.isArray(entry)) return entry;
         // Fase 4.4: variant-array — velg første node hvor condition matcher.
-        // Noder uten condition fungerer som default/fallback og bør komme sist.
-        for (const node of entry) {
+        // Sorter slik at noder UTEN condition (fallback) alltid kommer sist. Dette
+        // eliminerer fallgruven der en fallback-node plasseres først og dermed
+        // skygger for variants som skulle matchet.
+        const sorted = [...entry].sort((a, b) => {
+            const aFallback = !a.condition;
+            const bFallback = !b.condition;
+            if (aFallback === bFallback) return 0;
+            return aFallback ? 1 : -1;
+        });
+        for (const node of sorted) {
             if (this.evaluateDialogCondition(node.condition)) return node;
         }
         return undefined;

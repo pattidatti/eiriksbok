@@ -132,8 +132,10 @@ export class PhysicsWorld {
         bodyDesc.setTranslation(bodyPos.x, bodyPos.y, bodyPos.z);
         bodyDesc.setRotation({ x: worldQuat.x, y: worldQuat.y, z: worldQuat.z, w: worldQuat.w });
         if (dynamic) {
-            if (ud.linearDamping !== undefined) bodyDesc.setLinearDamping(ud.linearDamping);
-            if (ud.angularDamping !== undefined) bodyDesc.setAngularDamping(ud.angularDamping);
+            // Sane defaults: uten damping ruller objekter evig (gammel fallgruve §16.5).
+            // Eksplisitte verdier i userData overstyrer.
+            bodyDesc.setLinearDamping(ud.linearDamping ?? 0.3);
+            bodyDesc.setAngularDamping(ud.angularDamping ?? 0.3);
         }
         const body = this.world.createRigidBody(bodyDesc);
 

@@ -6,6 +6,7 @@ import { wattLabConfig } from '../games/watt-lab/WattLabConfig';
 import { lindisfarneConfig } from '../games/lindisfarne-793/LindisfarneConfig';
 import { fordFactoryConfig } from '../games/ford-factory/FordFactoryConfig';
 import { demoWorldConfig } from '../games/demo-world/DemoWorldConfig';
+import { blueprintQuestConfig } from '../games/blueprint-quest/BlueprintQuestConfig';
 import type { GameConfig } from '../games/engine/types';
 
 // Registry: map game IDs to their configs
@@ -15,6 +16,7 @@ const GAME_REGISTRY: Record<string, GameConfig> = {
     'lindisfarne-793': lindisfarneConfig,
     'ford-factory': fordFactoryConfig,
     'demo-world': demoWorldConfig,
+    'sokrates-fengsel': blueprintQuestConfig,
 };
 
 function GameLoader({ gameId }: { gameId: string }) {

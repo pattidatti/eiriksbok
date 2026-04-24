@@ -38,7 +38,14 @@ export class InventorySystem {
     /** Legg til item. Returnerer true hvis det fikk plass (eksisterende stack eller nytt slot). */
     add(itemId: string, count = 1): boolean {
         const def = this.items.get(itemId);
-        if (!def) return false;
+        if (!def) {
+            // Silent fail tidligere. Nå logges feilen tydelig så agenter ser problemet.
+            console.error(
+                `[InventorySystem] Ukjent itemId '${itemId}'. Legg til ItemDef i GameConfig.items. ` +
+                `Registrerte: ${[...this.items.keys()].join(', ') || '(ingen)'}`
+            );
+            return false;
+        }
         if (def.stackable) {
             const max = def.maxStack ?? 99;
             // Forsøk først å legge til i eksisterende stack

@@ -482,6 +482,15 @@ export interface GameEngineRef {
     load: () => boolean;
     hasSave: () => boolean;
     clearSave: () => void;
+    // ── Deklarativ API (Fase 7: builders) ──
+    // Dynamisk NPC-tillegg fra setupScene. Brukes av declarative.addNPC.
+    addCharacter: (cfg: CharacterConfig) => void;
+    // Merge nye dialog-noder inn i config.dialogs. Brukes av declarative.addNPC for å
+    // registrere per-NPC-dialoger uten at konsumenten må sette dem i config.dialogs manuelt.
+    registerDialogs: (dialogs: Record<string, DialogNode | DialogNode[]>) => void;
+    // Legg til en monolog-node + valgfri trigger på runtime.
+    registerMonolog: (node: MonologNode) => void;
+    registerMonologTrigger: (trigger: MonologTrigger) => void;
 }
 
 export interface GameConfig {

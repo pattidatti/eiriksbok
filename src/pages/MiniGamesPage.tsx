@@ -4,10 +4,12 @@ import { wattLabConfig } from '../games/watt-lab/WattLabConfig';
 import { lindisfarneConfig } from '../games/lindisfarne-793/LindisfarneConfig';
 import { fordFactoryConfig } from '../games/ford-factory/FordFactoryConfig';
 import { demoWorldConfig } from '../games/demo-world/DemoWorldConfig';
+import { blueprintQuestConfig } from '../games/blueprint-quest/BlueprintQuestConfig';
 import type { GameConfig } from '../games/engine/types';
 
-// All registered historical games - add new entries here
-const HISTORICAL_GAMES: GameConfig[] = [skjoldborgConfig, wattLabConfig, lindisfarneConfig, fordFactoryConfig, demoWorldConfig];
+// All registered historical games - add new entries here.
+// Blueprint-quest står først som referanse-implementasjon for nye spill.
+const HISTORICAL_GAMES: GameConfig[] = [blueprintQuestConfig, skjoldborgConfig, wattLabConfig, lindisfarneConfig, fordFactoryConfig, demoWorldConfig];
 
 const subjectColors: Record<string, string> = {
     historie: 'bg-amber-100 text-amber-800',

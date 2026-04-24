@@ -112,6 +112,16 @@ export class MonologSystem {
         return this.active !== null;
     }
 
+    /** Legg til en ny monolog-node på runtime (brukes av declarative.addMonolog). */
+    addNode(node: MonologNode): void {
+        this.nodes[node.id] = node;
+    }
+
+    /** Legg til en ny proximity-trigger på runtime. */
+    addTrigger(trigger: MonologTrigger): void {
+        this.triggers.push(trigger);
+    }
+
     // Hopp til neste linje, eller avslutt monologen hvis vi er på siste linje.
     skip(): void {
         if (!this.active) return;
