@@ -114,18 +114,45 @@ export function setupCaesarIdesScene(engine: GameEngineRef): void {
     // ═══════════════════════════════════════════════════════════════════════
     // Aldret romersk marmor: varm elfenbenstone, ikke blenkende hvit.
     const marbleMat = sceneMat(0xc8b090, { preset: 'stone', roughness: 0.65 });
-    // Bakvegg og tak er i skygge - mørkere enn marmoren for kontrast.
-    const shadowMat = sceneMat(0x6a5a44, { preset: 'stone', roughness: 0.9 });
+    // Mørk travertin for gulv og tak — skaper vertikal sandwich-kontrast mot veggene.
+    const floorMat = sceneMat(0x6a4a2e, { preset: 'stone', roughness: 0.85 });
+    // Dyp skygge for tak, kornisje og veggrelieff.
+    const shadowMat = sceneMat(0x3a2a1c, { preset: 'stone', roughness: 0.95 });
+    // Ceremoniell matte / opus sectile-sentrum (cinnober-rød, markerer maktens midtpunkt).
+    const carpetMat = sceneMat(0x7a1e10, { preset: 'stone', roughness: 0.8 });
 
     // Gulv (senater-plan, hevet 0.6m over gatenivå)
     const floor = new THREE.Mesh(
         new THREE.BoxGeometry(SENATE_HALF_W * 2, 0.6, SENATE_HALF_D * 2),
-        marbleMat,
+        floorMat,
     );
     floor.position.set(0, 0.3, SENATE_CENTER_Z);
     floor.receiveShadow = true;
     floor.userData.solid = true;
     scene.add(floor);
+
+    // Sentral rød matte foran Pompey-statuen (der Cæsar faller)
+    const carpet = new THREE.Mesh(
+        new THREE.BoxGeometry(3.5, 0.05, 4.5),
+        carpetMat,
+    );
+    carpet.position.set(0, 0.63, SENATE_BACK_Z + 3.2);
+    carpet.receiveShadow = true;
+    scene.add(carpet);
+
+    // Gull-kantbånd rundt teppet (tynn stripe av messing-farge)
+    const carpetTrimMat = sceneMat(0xa0782a, { preset: 'stone', metalness: 0.5, roughness: 0.4 });
+    for (const edge of ['n', 's', 'e', 'w'] as const) {
+        const isNS = edge === 'n' || edge === 's';
+        const trim = new THREE.Mesh(
+            new THREE.BoxGeometry(isNS ? 3.5 : 0.08, 0.06, isNS ? 0.08 : 4.5),
+            carpetTrimMat,
+        );
+        const dx = edge === 'e' ? 1.75 : edge === 'w' ? -1.75 : 0;
+        const dz = edge === 'n' ? -2.25 : edge === 's' ? 2.25 : 0;
+        trim.position.set(dx, 0.64, SENATE_BACK_Z + 3.2 + dz);
+        scene.add(trim);
+    }
 
     // Sør-vegg (bakre vegg, bak Pompey-statuen)
     const southWall = new THREE.Mesh(
@@ -202,6 +229,63 @@ export function setupCaesarIdesScene(engine: GameEngineRef): void {
         });
     }
 
+    // Indre søylerekke langs østvegg og vestvegg - gir arkitektonisk rytme
+    // og skygger som bryter opp marmoroverflaten. 3 søyler per side.
+    const innerPillarZ = [
+        SENATE_ENTRANCE_Z - 3,
+        SENATE_CENTER_Z,
+        SENATE_BACK_Z + 3,
+    ];
+    for (const side of [-1, 1] as const) {
+        for (let i = 0; i < innerPillarZ.length; i++) {
+            addProp(engine, {
+                id: `inner-pillar-${side > 0 ? 'east' : 'west'}-${i}`,
+                model: 'pillar',
+                pos: [side * (SENATE_HALF_W - 0.9), 0.6, innerPillarZ[i]],
+                solid: false, // indre søyler - ingen kollisjon for jevnere bevegelse
+            });
+        }
+    }
+
+    // Kornisjestripe der vegg møter tak (mørk band rundt hele hallen)
+    const corniceY = WALL_H + 0.2;
+    const corniceThick = 0.25;
+    const corniceDepth = 0.6;
+    // Langsgående (øst og vest)
+    for (const side of [-1, 1] as const) {
+        const cornice = new THREE.Mesh(
+            new THREE.BoxGeometry(corniceDepth, corniceThick, SENATE_HALF_D * 2 + 0.4),
+            shadowMat,
+        );
+        cornice.position.set(side * (SENATE_HALF_W + 0.1), corniceY, SENATE_CENTER_Z);
+        scene.add(cornice);
+    }
+    // Bakvegg-kornisje
+    const corniceBack = new THREE.Mesh(
+        new THREE.BoxGeometry(SENATE_HALF_W * 2 + 0.4, corniceThick, corniceDepth),
+        shadowMat,
+    );
+    corniceBack.position.set(0, corniceY, SENATE_BACK_Z + 0.1);
+    scene.add(corniceBack);
+
+    // Gulvlist der vegg møter gulv (mørk stripe - "skirting")
+    const skirtingH = 0.4;
+    const skirtingY = 0.6 + skirtingH / 2;
+    for (const side of [-1, 1] as const) {
+        const skirt = new THREE.Mesh(
+            new THREE.BoxGeometry(0.15, skirtingH, SENATE_HALF_D * 2),
+            shadowMat,
+        );
+        skirt.position.set(side * (SENATE_HALF_W - 0.08), skirtingY, SENATE_CENTER_Z);
+        scene.add(skirt);
+    }
+    const skirtBack = new THREE.Mesh(
+        new THREE.BoxGeometry(SENATE_HALF_W * 2, skirtingH, 0.15),
+        shadowMat,
+    );
+    skirtBack.position.set(0, skirtingY, SENATE_BACK_Z + 0.08);
+    scene.add(skirtBack);
+
     // ─── Pompey-statuen (Cæsar faller her) ──────────────────────────────────
     const statueStone = sceneMat(0xb89a74, { preset: 'stone', roughness: 0.55 });
     const statue = new THREE.Group();
@@ -277,13 +361,47 @@ export function setupCaesarIdesScene(engine: GameEngineRef): void {
         }
     }
 
-    // Lys i senatshallen (taklys, dempet ettermiddagsstemning)
-    const senateLight = new THREE.PointLight(0xffb870, 10, 18, 1.8);
-    senateLight.position.set(0, WALL_H - 0.2, SENATE_CENTER_Z + 2);
+    // Hovedlys i senatshallen - dempet varm tone, plassert over sentrum
+    const senateLight = new THREE.PointLight(0xffa858, 6, 14, 2.0);
+    senateLight.position.set(0, WALL_H - 0.5, SENATE_CENTER_Z + 1);
     scene.add(senateLight);
 
+    // Vegg-sconce-lys på øst- og vestvegg - skaper lys-øyer og slagskygger
+    // mellom indre søyler, gir rommet dybde og definert arkitektonisk rytme.
+    const sconceHeight = 3.2;
+    const sconceColor = 0xff9040;
+    const sconcePositions: [number, number][] = [
+        [-1, SENATE_ENTRANCE_Z - 3],
+        [-1, SENATE_CENTER_Z],
+        [-1, SENATE_BACK_Z + 3],
+        [1, SENATE_ENTRANCE_Z - 3],
+        [1, SENATE_CENTER_Z],
+        [1, SENATE_BACK_Z + 3],
+    ];
+    for (const [side, sz] of sconcePositions) {
+        const sconce = new THREE.PointLight(sconceColor, 3.5, 6, 2.2);
+        sconce.position.set(side * (SENATE_HALF_W - 1.4), sconceHeight, sz);
+        scene.add(sconce);
+
+        // Liten metall-holder for sconcen (synlig "lampe")
+        const holder = new THREE.Mesh(
+            new THREE.BoxGeometry(0.3, 0.25, 0.2),
+            sceneMat(0x3a2818, { preset: 'metal', metalness: 0.6, roughness: 0.6 }),
+        );
+        holder.position.set(side * (SENATE_HALF_W - 0.2), sconceHeight, sz);
+        scene.add(holder);
+
+        // Emissiv flamme-kjegle på sconcen
+        const flame = new THREE.Mesh(
+            new THREE.ConeGeometry(0.08, 0.22, 6),
+            new THREE.MeshBasicMaterial({ color: 0xffb060 }),
+        );
+        flame.position.set(side * (SENATE_HALF_W - 0.35), sconceHeight + 0.2, sz);
+        scene.add(flame);
+    }
+
     // Sollys gjennom åpningen (retningslys fra nord, ettermiddagstone)
-    const sunShaft = new THREE.DirectionalLight(0xffc080, 0.35);
+    const sunShaft = new THREE.DirectionalLight(0xffc080, 0.3);
     sunShaft.position.set(0, 12, SENATE_ENTRANCE_Z + 6);
     sunShaft.target.position.set(0, 0, SENATE_CENTER_Z);
     scene.add(sunShaft);
