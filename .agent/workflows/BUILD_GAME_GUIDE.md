@@ -2,6 +2,10 @@
 
 **Cookbook for å lage mini-spill til Eiriksbok.** Dette er en oppskrift, ikke en encyklopedi. Følg stegene. Ikke improvisér.
 
+> **FØR du starter bygging:** les eller lag Blueprint først.
+> Se `.agent/workflows/plan_minigame.md` og `docs/Design documents/minigames/README.md`.
+> Spill uten godkjent blueprint er en prototype, ikke et produksjonsklart spill.
+
 ---
 
 ## 1. 3-stegs-oppskrift
@@ -326,6 +330,56 @@ Følg disse konvensjonene **uten unntak**. De gjør koden konsistent og unngår 
 | Item-ID | kebab-case | `gift-beger`, `repstige`, `hammer` |
 | Builder-ID | beskrivende, unik i spillet | `sokrates-bench`, `altar-slot` |
 
+### 5.1 Filstruktur per spill
+
+Et spill består minimum av to filer, tre eller fire hvis innholdet er stort:
+
+| Fil | Når kreves den | Innhold |
+|---|---|---|
+| `<Navn>Config.ts` | alltid | `GameConfig`-objektet (id, items, quests, endText, metadata) |
+| `<Navn>Assets.ts` | alltid | `setupScene`-callback med builder-kall |
+| `<Navn>Dialogs.ts` | **3+ NPCer ELLER 10+ dialog-noder** | `export const *Dialogs: Record<string, DialogNode \| DialogNode[]>` |
+| `<Navn>Monologs.ts` | **5+ monolog-noder ELLER 3+ monolog-triggers** | `export const *Monologs` og trigger-array |
+| `<Navn>Flags.ts` | valgfritt, men anbefalt fra 5+ flagg | `defineFlags({...})` - typed flag-navn (se §10 og `src/games/engine/builders/defineFlags.ts`) |
+
+**Terskel for splitting:** hvis dialog-innholdet i `Assets.ts` passerer ~100 linjer, flytt til separat fil. Da er det lettere å oppdatere tekst uten å forstyrre scene-oppbygging.
+
+**Eksempler i repo:**
+- Enkelt (inline): `src/games/blueprint-quest/`, `src/games/watt-lab/`, `src/games/skjoldborg/`
+- Splittet: `src/games/lindisfarne-793/` (4 filer), `src/games/ford-factory/` (4 filer)
+
+Bruk samme filstruktur konsekvent innenfor ett spill - ikke bland inline og split-av-noen.
+
+### 5.2 Type-sikre flagg-navn (`defineFlags`)
+
+Flagg-navn er strenger. En typo i `engine.setFlag('drakk-gigt', true)` vs `condition: { flagsRequired: ['drakk-gift'] }` kompilerer OK, men condition matcher aldri. Feilen oppdages først under playtest.
+
+**Løsning:** definér flagg som const-map via `defineFlags` og referér navnene gjennom objektet. TypeScript fanger typos på kompileringstid.
+
+```ts
+// DittSpillFlags.ts
+import { defineFlags, type FlagValue } from '@/games/engine/dsl';
+
+export const FLAGS = defineFlags({
+    HAS_CYLINDER: 'watt-has-cylinder',
+    HAS_VALVE:    'watt-has-valve',
+    ENGINE_BUILT: 'watt-engine-built',
+});
+export type Flag = FlagValue<typeof FLAGS>;
+
+// I Config.ts eller setupScene:
+engine.setFlag(FLAGS.HAS_CYLINDER, true);    // ✓ typo-trygt
+engine.getFlag(FLAGS.HAS_VALVE);             // ✓
+// engine.setFlag(FLAGS.HAS_CYLNDER, true);  // ✗ compile-error
+
+// I dialog-condition:
+condition: { flagsRequired: [FLAGS.ENGINE_BUILT] }   // ✓
+```
+
+**Runtime-garantier:** `defineFlags` throw-er hvis to nøkler peker på samme flagg-verdi (duplikat-bug) eller hvis map-en er tom.
+
+**Når kreves det?** Ikke obligatorisk for små spill (≤3 flagg, lineær flyt). Anbefalt fra 5+ flagg og for alle spill med variabel slutt / låste dører / fler-fase narrative.
+
 ---
 
 ## 6. Symptom → Root Cause
@@ -352,21 +406,41 @@ Følg disse konvensjonene **uten unntak**. De gjør koden konsistent og unngår 
 
 Kopier denne sjekklisten til PR-beskrivelsen din. Alle punkter skal være ✓.
 
+**Pedagogisk grunnlag:**
+- [ ] Blueprint finnes i `docs/Design documents/minigames/[id]-blueprint.md` og er markert `Approved`
+- [ ] `config.learningGoals` matcher blueprintens læringsmål (1-3 konkrete mål)
+- [ ] Suksesskriteriene fra blueprinten kan observeres i spillet (dialog, quest, endText)
+- [ ] `config.curriculumTags` peker på LK20-kompetansemål fra blueprinten
+
+**Teknisk kvalitet:**
 - [ ] `npm run build` passerer uten TypeScript-feil
 - [ ] `npm run dev` kjører; åpne spillet, **konsollen er tom for warnings** (eller bare dokumenterte presets-URL-mangler)
+- [ ] `ConfigValidator` rapporterer ingen CRITICAL-issues (INFO kan ignoreres etter vurdering)
 - [ ] Ingen raw `new THREE.*` eller `scene.add` i `*Assets.ts` (unntak: `addRawMesh` i dokumenterte edge-cases)
 - [ ] Alle dialog-IDer følger `{npcId}_*`-konvensjonen for fler-NPC-spill
 - [ ] Alle `itemId`-referanser matcher `config.items`
 - [ ] Alle flagg-referanser er dokumentert (det er klart hvor hver flag settes)
 - [ ] Spilleren kan gjennomføre minst én sluttvariant fra start til `endText`
 - [ ] Alle valg-stier leder til minst én slutt (ingen dead-ends)
+
+**Språk og innhold:**
 - [ ] Norsk tekst bruker riktige tegn (å/ø/æ), korrekt grammatikk
 - [ ] Tekst er forståelig for en 14-åring
 - [ ] Thumbnail viser spillet i galleriet (eller tom string er dokumentert ok)
+
+**Robusthet:**
 - [ ] Save/reload fungerer: spill litt, lukk, åpne igjen - state er intakt
 - [ ] Null tom-scene-bug: hvis spilleren starter på et uventet sted, sjekk `player.startPosition`
 - [ ] Audio-kall krasjer ikke når preset-URL er null (skal være stille no-op)
 - [ ] Ingen synlig FPS-drop under normal bruk på Chromebook (1366x768)
+
+> **Hva ConfigValidator fanger automatisk:** duplikate IDer, ugyldig `characterType`,
+> dialog-array uten fallback, quest-prerequisites som peker på ikke-eksisterende quest,
+> route/behavior/detection som refererer ukjent character, spawn utenfor rom,
+> kamera-bak-vegg (tredjeperson), deklarative flagg-inkonsistenser.
+> **Hva den IKKE fanger** (må verifiseres manuelt): låste dører der flagget aldri settes
+> i noen dialog-action, `setPhase`/`triggerEnd`-kjeder som stopper opp, flagg-typos
+> i action-callbacks (disse kompilerer men matcher aldri).
 
 ---
 

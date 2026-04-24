@@ -500,6 +500,11 @@ export interface GameConfig {
     subject: SubjectId;
     description: string;
     thumbnail: string;
+    // Pedagogisk metadata. Vises på TitleScreen før spilleren starter og brukes
+    // til å etterprøve at spillet leverer det blueprinten lovet.
+    // Skal matche blueprinten i docs/Design documents/minigames/[id]-blueprint.md.
+    learningGoals?: string[];     // 1-3 konkrete læringsmål ("Eleven kan forklare hvorfor X")
+    curriculumTags?: string[];    // LK20-kompetansemål-koder eller fagbegreper
     world: WorldConfig;
     player: PlayerConfig;
     characters: CharacterConfig[];

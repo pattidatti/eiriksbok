@@ -23,6 +23,21 @@ blueprint-quest/
 └── README.md                 # denne filen
 ```
 
+> **Mellomstore/store spill:** Når dialog-innholdet passerer ~100 linjer, eller du har 3+ NPCer med lange dialoger, splitt ut til separate filer:
+>
+> ```
+> ditt-spill/
+> ├── DittSpillConfig.ts      # metadata, items, quests, endText
+> ├── DittSpillAssets.ts      # setupScene
+> ├── DittSpillDialogs.ts     # export const dittSpillDialogs: Record<string, DialogNode | DialogNode[]>
+> ├── DittSpillMonologs.ts    # export const dittSpillMonologs (+ triggers)
+> └── DittSpillFlags.ts       # valgfritt: defineFlags({...}) for typed flag-navn
+> ```
+>
+> Eksempler: `src/games/lindisfarne-793/`, `src/games/ford-factory/`.
+>
+> Se `.agent/workflows/BUILD_GAME_GUIDE.md` §5.1 for full filkonvensjon.
+
 ## Kopier for nytt spill
 
 1. Kopier hele `blueprint-quest/`-mappen til `src/games/ditt-nye-spill/`

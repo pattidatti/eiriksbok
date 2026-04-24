@@ -79,6 +79,56 @@ export function TitleScreen({ config, onStart }: TitleScreenProps) {
                 {config.description}
             </p>
 
+            {config.learningGoals && config.learningGoals.length > 0 && (
+                <div
+                    style={{
+                        maxWidth: '480px',
+                        padding: '14px 22px',
+                        border: '1px solid rgba(212,165,116,0.25)',
+                        borderRadius: 8,
+                        background: 'rgba(26,15,8,0.35)',
+                    }}
+                >
+                    <div
+                        style={{
+                            color: '#d4a574',
+                            fontSize: '11px',
+                            letterSpacing: '3px',
+                            textTransform: 'uppercase',
+                            textAlign: 'center',
+                            marginBottom: 8,
+                        }}
+                    >
+                        Hva lærer du?
+                    </div>
+                    <ul
+                        style={{
+                            listStyle: 'none',
+                            padding: 0,
+                            margin: 0,
+                            color: '#c9b38a',
+                            fontSize: '13px',
+                            lineHeight: 1.6,
+                        }}
+                    >
+                        {config.learningGoals.map((goal, i) => (
+                            <li key={i} style={{ paddingLeft: 14, position: 'relative' }}>
+                                <span
+                                    style={{
+                                        position: 'absolute',
+                                        left: 0,
+                                        color: '#8b6f47',
+                                    }}
+                                >
+                                    ·
+                                </span>
+                                {goal}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            )}
+
             <style>{`
                 @keyframes titleGlow {
                     0%, 100% { text-shadow: 0 0 30px rgba(212,165,116,0.3), 3px 3px 0 #1a0f08; }
