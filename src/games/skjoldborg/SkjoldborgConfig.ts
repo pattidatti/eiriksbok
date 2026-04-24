@@ -8,7 +8,7 @@ export const skjoldborgConfig: GameConfig = {
     subject: 'historie',
     description:
         'Motordemo som viser alle nye systemer: rytme-aktiviteter, stealth-deteksjon, station-puzzle, dynamiske musikk-lag, vær-gameplay og opening cinematic. Ankommer en norrøn festningsby der et blot-ritual skal utføres.',
-    thumbnail: '',
+    thumbnail: '/images/vikingtiden/skjoldborg-thumb.png',
 
     intro: {
         type: 'title',

@@ -8,7 +8,7 @@ export const demoWorldConfig: GameConfig = {
     subject: 'historie',
     description:
         'En åpen demoverden som viser fram hva spillmotoren kan: himmel, hav, vær, vegetasjon, fysikk, lys, quester, inventar og indre monolog. Prat med Alvstein for å starte runeleting.',
-    thumbnail: '',
+    thumbnail: '/images/demo/lysalvendalen-thumb.png',
 
     world: {
         preset: 'open',
