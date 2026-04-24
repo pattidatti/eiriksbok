@@ -399,6 +399,37 @@ condition: { flagsRequired: [FLAGS.ENGINE_BUILT] }   // ✓
 | Scene henger på loading | `config.assets` som ikke eksisterer | Fjern `assets`-defs eller last URL |
 | NPC-en er usynlig | Ugyldig `characterType` | Bruk `'scientist' | 'farmer' | 'noble' | 'monk'` |
 | Gjenstand er statisk, vil ikke plukkes opp | Glemt `addPickup`, brukte `addProp` | Bytt til `addPickup` |
+| Scene er for mørk på tross av `outdoor-dusk`/`outdoor-night` | Dusk/natt-presets alene er *svake* | Legg til manuell `HemisphereLight` (int ≥1.0) + `DirectionalLight` (int ≥1.4) i setupScene. Se §6.1 |
+| Emissive/glødende objekt (flamme, lampe, display) ser grått/brunt ut | `addProp` med `primitive` gir kun `MeshStandardMaterial` uten emissive | Lag meshen med raw THREE: `new THREE.MeshStandardMaterial({ emissive: 0xff6020, emissiveIntensity: 3 })`. Se §6.1 |
+| Quest-markør over NPC forsvinner ikke etter dialog | `questMarker: true` er *startverdi*, ikke automatisk livssyklus | Kall `engine.setCharacterMarkerVisible(id, false)` i dialogens `onEnd` eller i interactable-handleren som markerer fasen ferdig |
+| Spiller kan ikke hoppe | `physics.playerJump` er `false` | Sett `playerJump: true` i GameConfig.physics. Spesielt viktig for utendørs-spill |
+| Stort objekt (mast, tårn) er ikke synlig fra andre ender av dekket | For lavt/tynt | Master ≥12m, flammer/lys ≥5m diameter, emissive + punktlys for distansesynlighet |
+| `primitive: 'sphere'` gir TS-feil «Source has 1 element(s)» | Type krever 3-tuple selv om kommentar sier `[r]` | Bruk `size: [r, r, r]` |
+
+---
+
+## 6.1 Utendørs/skumrings-sjekkliste
+
+`outdoor-dusk`, `outdoor-night` og `preset: 'open'` gir **svært svak** basebelysning. Et dekk/felt som bare bruker disse presetene ser nær svart ut. For alle utendørs-spill med `timeOfDay < 0.3` eller `> 0.7`:
+
+- [ ] **Minst én `HemisphereLight`** som fill (int ≥1.0) — gir grunnlys slik at objekter ikke drukner i skygge.
+- [ ] **Minst én `DirectionalLight`** (int ≥1.4) som «måne»/sol-fill hvis scenen har signatur-objekter som må leses på avstand.
+- [ ] **Lamper/lyskastere som synlige objekter**, ikke bare lyskilder. Bygg mast + arm + boks-hus + emissive front-glass + `SpotLight` inne i huset. Eksempel: `src/games/oljeplattform/OljeplattformAssets.ts` (`addFloodlight`-helper).
+- [ ] **Emissive signatur-objekter** (flammer, varsellys, spak-skilt) må bruke raw THREE.Mesh + `MeshStandardMaterial({ emissive, emissiveIntensity: 2-5 })`. `addProp` støtter ikke dette.
+- [ ] **Signatur-objekter dimensjoneres for synlighet**: Master ≥12m. Flammer ≥5m høye. Emissive materialer ≥2.5 intensitet. Punktlys på flammer ≥100 intensitet, distanse ≥30m.
+- [ ] **Distanse-test**: stå ved motsatt ende av scenen ved spill-start. Er hovedobjektene gjenkjennelige som det de skal være?
+
+**Anti-eksempel (det jeg gjorde først i oljeplattform-spillet):**
+```ts
+// Mast 8m med 0.9m "flamme"-sfære, color 0xff7020 (ingen emissive).
+// Resultat: en brun klump på toppen av en stang. Umulig å se på avstand.
+```
+
+**Riktig:**
+```ts
+// Mast 15m + tre emissive kjegler i stigende opacity + PointLight int 180.
+// Lagt inn pulserende animasjon via registerUpdate for liv.
+```
 
 ---
 
@@ -567,6 +598,89 @@ doors: [{ wall: 'north', openFlag: 'escaped' }]
 ```
 
 Validator oppdager ikke dette ennå. Dobbelsjekk at hver låst dør har minst én mekanisme som låser den opp.
+
+### 8.11 `primitive: 'sphere'` med 1-element size-array
+
+**Feil:**
+```ts
+addProp(engine, { model: { primitive: 'sphere', size: [0.9], color: 0xff7020 }, pos: [0,1,0] });
+// TS-feil: Source has 1 element(s) but target requires 3.
+```
+
+**Riktig:**
+```ts
+addProp(engine, { model: { primitive: 'sphere', size: [0.9, 0.9, 0.9], color: 0xff7020 }, pos: [0,1,0] });
+```
+
+Typen krever `Vec3 | [number, number]` selv om kode-kommentaren i `declarative/types.ts` sier `[radius]`. Runtime bruker `size[0]` som radius, men typesystemet krever tuple-lengde ≥2.
+
+### 8.12 Blanding av `DialogNode.onEnd` og `DialogChoice.action`
+
+**Feil:**
+```ts
+gunnar_flaring: {
+    speaker: 'Gunnar',
+    text: '...',
+    action: () => engine.setFlag('x', true),   // ✗ action hører til DialogChoice, ikke DialogNode
+    choices: [...]
+}
+```
+
+**Riktig:**
+```ts
+// Node-nivå (fires når hele dialogen lukkes):
+gunnar_flaring: {
+    speaker: 'Gunnar', text: '...',
+    onEnd: () => engine.setFlag('x', true),
+    choices: [...]
+}
+
+// Choice-nivå (fires når spilleren velger akkurat det):
+choices: [{ text: 'Ja', next: null, action: () => engine.setFlag('x', true) }]
+```
+
+### 8.13 Usynlig 0.01m-hitbox for `addInteractable`
+
+**Anti-pattern:**
+```ts
+addInteractable(engine, {
+    id: 'lever-interact',
+    model: { primitive: 'box', size: [0.01, 0.01, 0.01], color: 0x000000 },
+    pos: [...],
+    onInteract: () => {...},
+});
+// Resultat: en 1cm svart kube midt i scenen som collider. Fungerer, men hacky.
+```
+
+**Riktig:** plasser `addInteractable` på det faktiske visuelle objektet (gi interactable-meshen en synlig model som *er* spaken/panelet/ventilen). Eller bygg det visuelle med `addProp`-kjeder og bruk `engine.registerInteract(mesh, {...})` på den mest sentrale meshen. Se §9.4.
+
+### 8.14 Glemmer `setCharacterMarkerVisible` etter dialog
+
+`questMarker: true` i `addNPC` setter startverdi. Markøren forsvinner *ikke* automatisk når spilleren snakker med NPC-en. Motoren vet ikke når du anser NPC-en som «ferdig-snakket-med».
+
+**Riktig:** kall `engine.setCharacterMarkerVisible(npcId, false)` i `onEnd` på intro-dialogen, eller i den interactable/puzzle-handleren som markerer neste fase av quest. Sett den til `true` igjen hvis NPC-en får nytt å si senere.
+
+### 8.15 Glemmer `playerJump: true` i utendørs-spill
+
+Default `physics.playerJump` er `false`. For utendørs/åpne spill vil spilleren typisk trykke space og bli frustrert når ingenting skjer. Sett eksplisitt `playerJump: true` med mindre spillet er et strengt interiør-quest.
+
+---
+
+## 8b. Loop-spillbare vs kredittrull-spill
+
+Før du kaller `engine.triggerEnd()`: spør om spillet virkelig er *ferdig*, eller om spilleren kanskje vil utforske litt til.
+
+**Kredittrull (`triggerEnd`):** Spillet har en klar definitiv slutt. Ingen grunn til å fortsette. Eksempel: Sokrates har drukket gift. `endText` vises på slutt-skjermen.
+
+**Loop-spillbart (ingen `triggerEnd`):** Hovedquest fullført, men verden er interessant å utforske etterpå. Eksempel: Oljeplattformen — etter eksport-spaken trekkes, brenner flammetårnet og spilleren kan gå rundt, snakke med Gunnar igjen, se systemet i drift.
+
+For loop-spillbare spill:
+1. **Ikke kall `triggerEnd`**. Lag i stedet en serie `addMonolog`-feiringer med `engine.schedule`-delay mellom seg.
+2. Sett `config.endText` til en kort fallback-streng — vises kun hvis motoren trigger slutt via pause-meny.
+3. Oppdater siste quest-phase sin `objective` til noe som «Utforsk plattformen — din første jobb er gjort.» så spilleren vet at fortsettelse er OK.
+4. La `questMarker`-flyten forsvinne permanent ved siste flagg.
+
+**Tommelfingel:** Hvis det finnes meningsfull aktivitet (dialog-varianter, områder å utforske, visuell transformasjon) etter hovedhandlingen, velg loop-spillbart. Mini-spill i Eiriksbok skal føles som *plasser*, ikke *filmer*.
 
 ---
 

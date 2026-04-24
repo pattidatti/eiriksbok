@@ -87,6 +87,14 @@ Blueprinten skal inneholde seksjonene fra §2.1-§2.4, pluss:
 *   **Dialog-stammer:** Første linje per NPC pluss 1-2 valg-knapper per dialog. Full tekst skrives i build-fasen.
 *   **Låste dører / gating:** Hvis spillet har faser som åpnes av flagg, list `flag → konsekvens`.
 
+### Signatur-visuelle elementer
+
+Tabell over alle objekter/effekter som er avgjørende for spillets identitet. Eksempler: flammetårn, boretårn, maskin, altar, portal, ildsted. Uten konkrete tall her ender bygging med "brun klump på en stang" (se oljeplattform-retrospektiv).
+
+| Element | Minimum-høyde | Emissive? | Animert? | Lys-kilde? |
+| --- | --- | --- | --- | --- |
+| (eks.) Flammetårn | Mast 15m, flamme 5m | Ja — 3 kjegler, emissiveIntensity 2.5-4.5 | Ja — vaiende via registerUpdate | PointLight int ≥100, distance ≥30 |
+
 ### Pedagogisk sjekkliste
 
 Før godkjenning, bekreft:
@@ -96,6 +104,25 @@ Før godkjenning, bekreft:
 - [ ] Valgene i spillet har synlige konsekvenser for læringen
 - [ ] Suksesskriteriene kan observeres (i dialog, quest-slutt eller endText)
 - [ ] Spillet er ikke et bedre alternativ til en artikkel - det utnytter 3D-formatet
+
+### Visuell sjekkliste
+
+For hvert signatur-visuelt element i spillet (flamme, tårn, maskin, lyskaster, hovedstasjon), spesifiser i Blueprint:
+
+- [ ] **Minimums-dimensjoner**: høyde, bredde, diameter i meter. Store objekter som skal være synlige fra andre ender av scenen bør være ≥10-15m.
+- [ ] **Emissive-plan**: Hvilke deler skal gløde? (flamme, display-skjermer, varsellys, lampe-fronter.) `addProp` støtter ikke emissive — disse elementene må bygges med raw THREE i `*Assets.ts`. Se BUILD_GAME_GUIDE §6.1.
+- [ ] **Animasjon**: Hvilke objekter skal leve? (vaiende flamme, blinkende varsellys, pulserende display.) Krever `engine.registerUpdate`.
+- [ ] **Lys-plan**: Hvis utendørs/skumring — hvilke `HemisphereLight`, `DirectionalLight` og synlige lamper (mast+hus+spot) er planlagt? `outdoor-dusk` og `outdoor-night` alene er for mørke. Se BUILD_GAME_GUIDE §6.1.
+- [ ] **Distanse-test**: Beskriv hvordan hovedobjektene skal være synlige fra spilleren sin spawn-posisjon (ikke bare på nært hold).
+
+### Slutt-modell
+
+Velg og begrunn i Blueprint:
+
+- [ ] **Kredittrull** (`triggerEnd` → slutt-skjerm med `endText`): spillet har en klar definitiv slutt.
+- [ ] **Loop-spillbart** (ingen `triggerEnd`, feiring som in-game monologer): verden er interessant å utforske etterpå.
+
+Se BUILD_GAME_GUIDE §8b.
 
 ### Asset-prompts (valgfritt på dette stadiet)
 

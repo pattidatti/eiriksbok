@@ -137,3 +137,44 @@ Oppdater `Status` i toppen av blueprinten ved statusovergang.
 
 Alt annet trenger blueprint - også spill du skal omskrive eller utvide
 vesentlig.
+
+---
+
+## Retrospektiv-læring (generelle lærdommer på tvers av spill)
+
+Oppdateres etter hvert spill som avdekker noe nytt. Sikter å korte ned
+iterasjonene i fremtidige builds.
+
+**Utendørs/skumring er mye mørkere enn presetene tilsier.**
+`preset: 'open'` + `outdoor-dusk` uten manuelle fill-lys gir en nær svart scene.
+Løsning: legg alltid til `HemisphereLight` (int ≥1.0) + `DirectionalLight`
+(int ≥1.4) som fill, og bruk lyskastere som synlige objekter (mast + hus +
+emissive front + `SpotLight`). Se `BUILD_GAME_GUIDE.md §6.1`.
+
+**Signatur-objekter må være større enn man tror.**
+En 8m mast med 0.9m sfære som «flamme» er usynlig fra motsatt ende av et
+22m-radius-dekk. Master bør være ≥12-15m, flammer ≥5m, emissive med
+`emissiveIntensity` 2.5-4.5, og punktlys int ≥100. Blueprint skal
+spesifisere minimum-dimensjoner per signatur-element (se
+`plan_minigame.md` §Signatur-visuelle elementer).
+
+**`addProp` støtter ikke emissive.**
+Alle glødende objekter (flammer, varsellys, displayer, lampe-fronter) må
+bygges med raw THREE.Mesh + `MeshStandardMaterial({ emissive, emissiveIntensity })`.
+Dette er dokumentert escape hatch i BUILD_GAME_GUIDE §9.1.
+
+**Quest-markører har ikke automatisk livssyklus.**
+`questMarker: true` er *startverdi*. Kall
+`engine.setCharacterMarkerVisible(id, false)` manuelt på `onEnd` i dialog
+eller i interactable-handleren som markerer neste fase.
+
+**Playtest alltid i faktisk tid-på-døgnet.**
+Hvis spillet bruker `timeOfDay: 0.8` skal du teste i den belysningen, ikke
+i midt-på-dagen-varianter. Distanse-sjekk: stå ved spawn og verifiser at
+hovedobjektene er gjenkjennelige som det de skal være.
+
+**Slutt-modell er et designvalg, ikke en refleks.**
+Spør: skal spilleren kunne utforske etter hovedquest-en, eller er det en
+klar definitiv slutt? For «plasser» (loop-spillbart) — hopp over
+`triggerEnd` og bruk in-game monologer for feiring. Se
+`BUILD_GAME_GUIDE.md §8b`.
