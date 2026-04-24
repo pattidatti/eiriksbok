@@ -8,6 +8,7 @@ import { fordFactoryConfig } from '../games/ford-factory/FordFactoryConfig';
 import { demoWorldConfig } from '../games/demo-world/DemoWorldConfig';
 import { blueprintQuestConfig } from '../games/blueprint-quest/BlueprintQuestConfig';
 import { oljeplattformConfig } from '../games/oljeplattform/OljeplattformConfig';
+import { caesarIdesConfig } from '../games/caesar-ides/CaesarIdesConfig';
 import type { GameConfig } from '../games/engine/types';
 
 // Registry: map game IDs to their configs
@@ -18,6 +19,7 @@ const GAME_REGISTRY: Record<string, GameConfig> = {
     'ford-factory': fordFactoryConfig,
     'demo-world': demoWorldConfig,
     'sokrates-fengsel': blueprintQuestConfig,
+    'caesar-ides': caesarIdesConfig,
     oljeplattform: oljeplattformConfig,
 };
 

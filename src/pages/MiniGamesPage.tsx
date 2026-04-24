@@ -6,11 +6,12 @@ import { fordFactoryConfig } from '../games/ford-factory/FordFactoryConfig';
 import { demoWorldConfig } from '../games/demo-world/DemoWorldConfig';
 import { blueprintQuestConfig } from '../games/blueprint-quest/BlueprintQuestConfig';
 import { oljeplattformConfig } from '../games/oljeplattform/OljeplattformConfig';
+import { caesarIdesConfig } from '../games/caesar-ides/CaesarIdesConfig';
 import type { GameConfig } from '../games/engine/types';
 
 // All registered historical games - add new entries here.
 // Blueprint-quest står først som referanse-implementasjon for nye spill.
-const HISTORICAL_GAMES: GameConfig[] = [blueprintQuestConfig, skjoldborgConfig, wattLabConfig, lindisfarneConfig, fordFactoryConfig, oljeplattformConfig, demoWorldConfig];
+const HISTORICAL_GAMES: GameConfig[] = [blueprintQuestConfig, skjoldborgConfig, wattLabConfig, lindisfarneConfig, caesarIdesConfig, fordFactoryConfig, oljeplattformConfig, demoWorldConfig];
 
 const subjectColors: Record<string, string> = {
     historie: 'bg-amber-100 text-amber-800',
