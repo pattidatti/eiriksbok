@@ -7,6 +7,7 @@ import { lindisfarneConfig } from '../games/lindisfarne-793/LindisfarneConfig';
 import { fordFactoryConfig } from '../games/ford-factory/FordFactoryConfig';
 import { demoWorldConfig } from '../games/demo-world/DemoWorldConfig';
 import { blueprintQuestConfig } from '../games/blueprint-quest/BlueprintQuestConfig';
+import { oljeplattformConfig } from '../games/oljeplattform/OljeplattformConfig';
 import type { GameConfig } from '../games/engine/types';
 
 // Registry: map game IDs to their configs
@@ -17,6 +18,7 @@ const GAME_REGISTRY: Record<string, GameConfig> = {
     'ford-factory': fordFactoryConfig,
     'demo-world': demoWorldConfig,
     'sokrates-fengsel': blueprintQuestConfig,
+    oljeplattform: oljeplattformConfig,
 };
 
 function GameLoader({ gameId }: { gameId: string }) {
