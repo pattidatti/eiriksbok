@@ -14,6 +14,7 @@
 // Alt gating er flagg-basert. Hver interactable sjekker forrige flagg før dialog
 // som forklarer det pedagogiske poenget.
 
+import * as THREE from 'three';
 import type { GameEngineRef } from '../engine/types';
 import {
     buildOutdoor,
@@ -109,6 +110,198 @@ export function setupOljeplattformScene(engine: GameEngineRef): void {
         });
     }
 
+    // ─── Plattform-lyskastere (industri-floodlights på master) ──────────────
+    // Hver lyskaster består av en stålmast, en horisontal arm, et boks-formet
+    // lampehus og et lysende (emissive) front-"glass". Inne i husetet sitter en
+    // kraftig THREE.SpotLight som faktisk lyser. Raw Three.js her er dokumentert
+    // escape hatch (BUILD_GAME_GUIDE §9.1) - det finnes ingen lys-builder.
+    const addFloodlight = (
+        idPrefix: string,
+        base: [number, number],        // [x, z] - mastens fot på dekket
+        poleHeight: number,            // meter
+        armYaw: number,                // hvilken retning armen peker (radianer, 0 = +X)
+        armLength: number,             // meter ut fra masten
+        target: [number, number, number], // hvor lyset skal treffe
+        color: number,
+        intensity: number,
+        angle: number,
+    ) => {
+        const [bx, bz] = base;
+        // Fot-plate
+        const baseMesh = new THREE.Mesh(
+            new THREE.BoxGeometry(0.7, 0.12, 0.7),
+            new THREE.MeshStandardMaterial({ color: 0x3a3a40, roughness: 0.8 }),
+        );
+        baseMesh.position.set(bx, 0.06, bz);
+        baseMesh.castShadow = true;
+        baseMesh.receiveShadow = true;
+        engine.scene.add(baseMesh);
+        // Mast
+        const pole = new THREE.Mesh(
+            new THREE.CylinderGeometry(0.1, 0.12, poleHeight, 12),
+            new THREE.MeshStandardMaterial({ color: 0x5a5a62, roughness: 0.6, metalness: 0.3 }),
+        );
+        pole.position.set(bx, poleHeight / 2, bz);
+        pole.castShadow = true;
+        engine.scene.add(pole);
+        // Arm (horisontal rørstump)
+        const armMid: [number, number, number] = [
+            bx + Math.cos(armYaw) * (armLength / 2),
+            poleHeight - 0.1,
+            bz + Math.sin(armYaw) * (armLength / 2),
+        ];
+        const arm = new THREE.Mesh(
+            new THREE.CylinderGeometry(0.06, 0.06, armLength, 10),
+            new THREE.MeshStandardMaterial({ color: 0x5a5a62, roughness: 0.6, metalness: 0.3 }),
+        );
+        arm.position.set(armMid[0], armMid[1], armMid[2]);
+        arm.rotation.z = Math.PI / 2;
+        arm.rotation.y = -armYaw;
+        arm.castShadow = true;
+        engine.scene.add(arm);
+        // Lampehus (boks) på enden av armen
+        const housingPos: [number, number, number] = [
+            bx + Math.cos(armYaw) * armLength,
+            poleHeight - 0.2,
+            bz + Math.sin(armYaw) * armLength,
+        ];
+        const housing = new THREE.Mesh(
+            new THREE.BoxGeometry(0.7, 0.5, 0.5),
+            new THREE.MeshStandardMaterial({ color: 0x2a2a30, roughness: 0.7, metalness: 0.4 }),
+        );
+        housing.position.set(housingPos[0], housingPos[1], housingPos[2]);
+        // Roter hus så "front" peker mot target
+        const dx = target[0] - housingPos[0];
+        const dz = target[2] - housingPos[2];
+        const hy = target[1] - housingPos[1];
+        const housingYaw = Math.atan2(dx, dz);
+        const housingPitch = Math.atan2(hy, Math.hypot(dx, dz));
+        housing.rotation.y = housingYaw;
+        housing.rotation.x = housingPitch;
+        housing.castShadow = true;
+        engine.scene.add(housing);
+        // Lysende glassfront på lampehuset - emissive, så det faktisk gløder.
+        const lens = new THREE.Mesh(
+            new THREE.BoxGeometry(0.55, 0.4, 0.05),
+            new THREE.MeshStandardMaterial({
+                color: color,
+                emissive: color,
+                emissiveIntensity: 2.5,
+                roughness: 0.3,
+            }),
+        );
+        lens.position.copy(housing.position);
+        // Flytt lensen litt framover (mot target) fra husets senter
+        const fwd = new THREE.Vector3(
+            Math.sin(housingYaw) * Math.cos(housingPitch),
+            Math.sin(housingPitch),
+            Math.cos(housingYaw) * Math.cos(housingPitch),
+        );
+        lens.position.addScaledVector(fwd, 0.26);
+        lens.rotation.copy(housing.rotation);
+        engine.scene.add(lens);
+        // Selve SpotLight-en, plassert i husets senter, peker mot target
+        const spot = new THREE.SpotLight(color, intensity, 50, angle, 0.4, 1.0);
+        spot.position.set(housingPos[0], housingPos[1], housingPos[2]);
+        spot.target.position.set(target[0], target[1], target[2]);
+        spot.castShadow = true;
+        spot.shadow.mapSize.set(1024, 1024);
+        spot.shadow.camera.near = 0.5;
+        spot.shadow.camera.far = 50;
+        spot.userData._oljeplattformLight = idPrefix;
+        engine.scene.add(spot);
+        engine.scene.add(spot.target);
+        // Synlig lyskjegle: en transparent cone-mesh som antyder lysstrålen i
+        // sen-skumrings-atmosfære (volumetrisk-feel på billig måte).
+        const coneLen = 8;
+        const coneRad = Math.tan(angle) * coneLen;
+        const cone = new THREE.Mesh(
+            new THREE.ConeGeometry(coneRad, coneLen, 16, 1, true),
+            new THREE.MeshBasicMaterial({
+                color,
+                transparent: true,
+                opacity: 0.08,
+                side: THREE.DoubleSide,
+                depthWrite: false,
+            }),
+        );
+        // Cone default: spiss opp (+Y). Vi vil at den peker langs (target - pos).
+        const dir = new THREE.Vector3(
+            target[0] - housingPos[0],
+            target[1] - housingPos[1],
+            target[2] - housingPos[2],
+        ).normalize();
+        cone.position.set(
+            housingPos[0] + dir.x * coneLen / 2,
+            housingPos[1] + dir.y * coneLen / 2,
+            housingPos[2] + dir.z * coneLen / 2,
+        );
+        // Juster rotasjon så cone-aksen matcher dir
+        const up = new THREE.Vector3(0, 1, 0);
+        const quat = new THREE.Quaternion().setFromUnitVectors(up, dir.clone().negate());
+        cone.quaternion.copy(quat);
+        engine.scene.add(cone);
+    };
+
+    // Fire dedikerte arbeidslyskastere rundt stasjonene.
+    // Brønnhodet - varm oransje fra sør-øst
+    addFloodlight(
+        'flood-wellhead',
+        [3.5, 1.5], 5.5, Math.PI, 1.5,
+        [0, 1.2, -2], 0xffb878, 120, Math.PI / 5,
+    );
+    // Separator - kald blåhvit fra øst
+    addFloodlight(
+        'flood-separator',
+        [9, -6], 6.5, Math.PI, 2.0,
+        [5, 2, -6], 0xe0eaff, 110, Math.PI / 5,
+    );
+    // Eksport-panel - varm gul-hvit fra nord
+    addFloodlight(
+        'flood-export',
+        [-6, -13], 5.0, Math.PI / 2, 1.8,
+        [-6, 1.4, -9], 0xffe4b8, 110, Math.PI / 5,
+    );
+    // Helidekket - bred hvit fra mast-toppen i hjørnet
+    addFloodlight(
+        'flood-heli',
+        [15, 15], 8.0, Math.atan2(12 - 15, 10 - 15), 1.2,
+        [10, 0.5, 12], 0xfff5e0, 130, Math.PI / 4.5,
+    );
+
+    // Ekstra fill-belysning: 6 røde varsellys rundt dekket-kanten
+    // (små emissive-sfærer med svak point-light, typisk for plattform-rigger).
+    for (let i = 0; i < 6; i++) {
+        const angle = (i / 6) * Math.PI * 2 + Math.PI / 12;
+        const x = Math.cos(angle) * 21;
+        const z = Math.sin(angle) * 21;
+        const warn = new THREE.Mesh(
+            new THREE.SphereGeometry(0.14, 10, 10),
+            new THREE.MeshStandardMaterial({
+                color: 0xff2010,
+                emissive: 0xff2010,
+                emissiveIntensity: 3,
+            }),
+        );
+        warn.position.set(x, 1.3, z);
+        engine.scene.add(warn);
+        const warnLight = new THREE.PointLight(0xff4020, 8, 6, 2);
+        warnLight.position.set(x, 1.3, z);
+        engine.scene.add(warnLight);
+    }
+
+    // Ekstra ambient fill for dekket som helhet (mindre mørk grunntone).
+    const deckFill = new THREE.HemisphereLight(0xfff0d8, 0x1a2838, 1.2);
+    deckFill.position.set(0, 12, 0);
+    engine.scene.add(deckFill);
+
+    // Sterkere hoved-"mån-"lys ovenfra som basebelysning, siden outdoor-dusk alene
+    // er svært svak.
+    const fillTop = new THREE.DirectionalLight(0xffdab0, 1.4);
+    fillTop.position.set(20, 25, 15);
+    fillTop.castShadow = false; // unngå dobbel-skygge-beregning, sola tar det
+    engine.scene.add(fillTop);
+
     // ─── Gule dekk-striper (rundt sentrum) ───────────────────────────────────
     // Industri-gul sikkerhetsmaling. Ren dekorasjon.
     for (let i = 0; i < 4; i++) {
@@ -185,6 +378,8 @@ export function setupOljeplattformScene(engine: GameEngineRef): void {
             }
             engine.setFlag('visited-wellhead', true);
             engine.setPhase('started');
+            engine.updateUI();
+            engine.setCharacterMarkerVisible('gunnar', false);
             engine.playMonolog('wellhead-first');
         },
     });
@@ -265,6 +460,9 @@ export function setupOljeplattformScene(engine: GameEngineRef): void {
             }
             engine.setFlag('visited-separator', true);
             engine.setPhase('knows-flow');
+            engine.updateUI();
+            // Vis Gunnar-markør igjen - han har nytt å si om fakling.
+            engine.setCharacterMarkerVisible('gunnar', true);
             engine.playMonolog('sep-first');
         },
     });
@@ -327,54 +525,150 @@ export function setupOljeplattformScene(engine: GameEngineRef): void {
             if (engine.getFlag('export-started')) return;
             engine.setFlag('export-started', true);
             engine.setPhase('done');
+            engine.updateUI();
+            engine.setCharacterMarkerVisible('gunnar', false);
+            // Dekket rister når pumpen starter - kraftig, lang shake.
+            engine.cameraShake(0.8, 2.5);
+            engine.schedule(() => engine.cameraShake(0.5, 1.5), 1800);
             engine.playMonolog('exp-activated');
-            // Gi spilleren noen sekunder til å se flammetårnet før slutt-tekst.
-            engine.schedule(() => engine.triggerEnd(), 5000);
+            // Feiring-sekvens spilles in-game som monologer. Ingen triggerEnd -
+            // spilleren skal fritt kunne gå rundt etterpå.
+            engine.schedule(() => engine.playMonolog('exp-congrats'), 7000);
+            engine.schedule(() => {
+                if (engine.getFlag('understands-flaring')) {
+                    engine.playMonolog('exp-flaring-reflection');
+                }
+            }, 15000);
         },
     });
 
     // ─── FLAMMETÅRN (flare stack) ────────────────────────────────────────────
-    // Høy tynn mast med en evig brennende flamme på toppen. Flammen er alltid på
-    // siden plattformer alltid fakler noe gass - men vi intensiverer den
-    // visuelt ved endgame via schedule + partikkel-scale.
-    const flareX = 13, flareZ = -13;
-    // Masten (4 horisontale ringer på 8 meter)
+    // Høy mast (15m) med en stor, tydelig brennende flamme på toppen. Flammen
+    // må være synlig fra hvor som helst på dekket - derfor emissive-materialer,
+    // punktlys og flere lag av oransje glød. Raw Three.js (escape hatch §9.1)
+    // fordi addProp ikke støtter emissive og vi trenger PointLight.
+    const flareX = 14, flareZ = -14;
+    const mastHeight = 15;
+    const flameBaseY = mastHeight; // flammen sitter rett over mast-toppen
+    // Masten
     addProp(engine, {
         id: 'flare-mast',
-        model: { primitive: 'cylinder', size: [0.35, 8.0], color: 0x5a5a62 },
-        pos: [flareX, 4.0, flareZ],
+        model: { primitive: 'cylinder', size: [0.5, mastHeight], color: 0x4a4a52 },
+        pos: [flareX, mastHeight / 2, flareZ],
         material: 'iron',
     });
-    // Ringer rundt masten (visuelt)
-    for (let i = 0; i < 4; i++) {
+    // Ringer rundt masten (visuelt, hver 2.5 m)
+    for (let i = 0; i < 6; i++) {
         addProp(engine, {
             id: `flare-ring-${i}`,
-            model: { primitive: 'cylinder', size: [0.55, 0.15], color: 0xd4a83a },
-            pos: [flareX, 1.5 + i * 1.8, flareZ],
+            model: { primitive: 'cylinder', size: [0.7, 0.18], color: 0xd4a83a },
+            pos: [flareX, 1.5 + i * 2.3, flareZ],
             solid: false,
         });
     }
-    // Flamme-base (emissive oransje sfære)
+    // Fakkel-munnstykke (et litt tykkere "skjørt" på toppen av masten)
     addProp(engine, {
-        id: 'flare-flame-core',
-        model: { primitive: 'sphere', size: [0.9, 0.9, 0.9], color: 0xff7020 },
-        pos: [flareX, 8.5, flareZ],
+        id: 'flare-nozzle',
+        model: { primitive: 'cylinder', size: [0.9, 1.2], color: 0x3a3a42 },
+        pos: [flareX, mastHeight - 0.3, flareZ],
+        material: 'iron',
         solid: false,
-        castShadow: false,
     });
-    // Evig flamme-partikkel
-    addParticle(engine, {
-        id: 'flare-flame',
-        preset: 'torch-flame',
-        pos: [flareX, 8.5, flareZ],
-        scale: 3.0,
+
+    // ── Flammen: tre emissive kjegler/sfærer i forskjellige størrelser ──
+    // Base: stor lys-gul kjerne (mest intens)
+    const flameCore = new THREE.Mesh(
+        new THREE.ConeGeometry(1.3, 3.8, 16),
+        new THREE.MeshStandardMaterial({
+            color: 0xffd070,
+            emissive: 0xffb040,
+            emissiveIntensity: 4.5,
+            transparent: true,
+            opacity: 0.95,
+        }),
+    );
+    flameCore.position.set(flareX, flameBaseY + 1.9, flareZ);
+    flameCore.userData._flareCore = true;
+    engine.scene.add(flameCore);
+
+    // Midt-lag: oransje, litt bredere og høyere
+    const flameMid = new THREE.Mesh(
+        new THREE.ConeGeometry(1.8, 5.2, 16),
+        new THREE.MeshStandardMaterial({
+            color: 0xff8030,
+            emissive: 0xff6020,
+            emissiveIntensity: 3.5,
+            transparent: true,
+            opacity: 0.75,
+        }),
+    );
+    flameMid.position.set(flareX, flameBaseY + 2.6, flareZ);
+    flameMid.userData._flareMid = true;
+    engine.scene.add(flameMid);
+
+    // Ytterlag: mørk-rød glød som spres ut
+    const flameOuter = new THREE.Mesh(
+        new THREE.ConeGeometry(2.6, 7.0, 16),
+        new THREE.MeshStandardMaterial({
+            color: 0xff4018,
+            emissive: 0xe03010,
+            emissiveIntensity: 2.5,
+            transparent: true,
+            opacity: 0.35,
+            depthWrite: false,
+        }),
+    );
+    flameOuter.position.set(flareX, flameBaseY + 3.5, flareZ);
+    flameOuter.userData._flareOuter = true;
+    engine.scene.add(flameOuter);
+
+    // ── Animasjon: flammen vaier og pulserer ──
+    engine.registerUpdate((_dt, elapsed) => {
+        const t = elapsed;
+        const wobble = Math.sin(t * 3.5) * 0.05 + 1.0;
+        const sway = Math.sin(t * 2.2) * 0.12;
+        flameCore.scale.set(wobble, wobble * (1 + Math.sin(t * 4) * 0.08), wobble);
+        flameCore.rotation.z = sway * 0.3;
+        flameMid.scale.set(
+            wobble * 1.02,
+            wobble * (1 + Math.sin(t * 3.3 + 1) * 0.06),
+            wobble * 1.02,
+        );
+        flameMid.rotation.z = sway * 0.5;
+        flameOuter.scale.set(
+            1 + Math.sin(t * 2.1) * 0.08,
+            1 + Math.sin(t * 1.8) * 0.05,
+            1 + Math.sin(t * 2.1) * 0.08,
+        );
+        flameOuter.rotation.z = sway * 0.7;
     });
-    // Røyk over flammen
+
+    // Kraftig punktlys i flammen - lyser opp himmelen og dekket rundt.
+    const flareLight = new THREE.PointLight(0xff7030, 180, 45, 1.6);
+    flareLight.position.set(flareX, flameBaseY + 2.5, flareZ);
+    flareLight.castShadow = true;
+    flareLight.shadow.mapSize.set(512, 512);
+    flareLight.shadow.camera.near = 0.5;
+    flareLight.shadow.camera.far = 45;
+    engine.scene.add(flareLight);
+    // La lyset pulse lett sammen med flammen.
+    engine.registerUpdate((_dt, elapsed) => {
+        flareLight.intensity = 160 + Math.sin(elapsed * 4.1) * 25 + Math.sin(elapsed * 7.3) * 15;
+    });
+
+    // Røyk-partikkel over flammen (bred, driver oppover).
     addParticle(engine, {
         id: 'flare-smoke',
         preset: 'smoke',
-        pos: [flareX, 10.5, flareZ],
-        scale: 2.5,
+        pos: [flareX, flameBaseY + 7.5, flareZ],
+        scale: 4.0,
+    });
+    // Gnist-partikkel fra flamme-basen.
+    addParticle(engine, {
+        id: 'flare-sparks',
+        preset: 'sparks',
+        pos: [flareX, flameBaseY + 0.5, flareZ],
+        scale: 2.0,
     });
 
     // ─── BORETÅRN (derrick) - visuelt tårn i silhuett ────────────────────────
@@ -582,6 +876,9 @@ export function setupOljeplattformScene(engine: GameEngineRef): void {
                         flagsRequired: ['visited-separator'],
                         flagsExcluded: ['export-started'],
                     },
+                    onEnd: () => {
+                        engine.setCharacterMarkerVisible('gunnar', false);
+                    },
                     choices: [
                         { text: 'Hvorfor må gassen fakles?', next: 'gunnar_flaring' },
                         { text: 'Skal gjøre det.', next: null },
@@ -606,6 +903,10 @@ export function setupOljeplattformScene(engine: GameEngineRef): void {
                         'Så du er den nye. Greit. Oljen kommer ikke hit av seg selv - den må ' +
                         'hentes opp, renses, og sendes i land. Tre trinn. Jeg viser deg. ' +
                         'Begynn ved brønnhodet der borte - den røde greia i midten.',
+                    onEnd: () => {
+                        // Spilleren har hørt briefen - fjern markøren slik at fokus går videre.
+                        engine.setCharacterMarkerVisible('gunnar', false);
+                    },
                     choices: [
                         { text: 'Hva er brønnhodet?', next: 'gunnar_what_wellhead' },
                         { text: 'Hvorfor er vi her ute?', next: 'gunnar_why_here' },
@@ -707,6 +1008,28 @@ export function setupOljeplattformScene(engine: GameEngineRef): void {
             'Spaken går tungt ned. Jeg kjenner en dyp vibrasjon gjennom dekket.',
             'Pumpene starter. Oljen går i røret mot Teesside, tre hundre kilometer unna.',
             'Bak meg lyser flammetårnet opp himmelen.',
+        ],
+        once: true,
+        trigger: { type: 'manual' },
+    });
+    addMonolog(engine, {
+        id: 'exp-congrats',
+        lines: [
+            'Flammetårnet lyser opp havet bak meg.',
+            'Den første oljen jeg selv har sendt mot land er på vei gjennom røret til Teesside.',
+            'Gunnar klapper meg på skulderen. "Velkommen offshore."',
+            'Jeg har sett de tre trinnene: brønnhodet henter oljen opp, separatoren skiller ' +
+                'den fra gass og vann, og eksport-røret sender den i land.',
+        ],
+        once: true,
+        trigger: { type: 'manual' },
+    });
+    addMonolog(engine, {
+        id: 'exp-flaring-reflection',
+        lines: [
+            'Jeg vet nå hvorfor flammen brenner. Den holder plattformen trygg - ' +
+                'overskuddsgassen har ingen annen vei å gå.',
+            'Ingenting her er tilfeldig.',
         ],
         once: true,
         trigger: { type: 'manual' },

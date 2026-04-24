@@ -39,7 +39,7 @@ export const oljeplattformConfig: GameConfig = {
 
     physics: {
         enabled: true,
-        playerJump: false,
+        playerJump: true,
         gravity: -18,
     },
 
@@ -86,29 +86,15 @@ export const oljeplattformConfig: GameConfig = {
         },
         {
             phase: 'done',
-            objective: 'Du har fått systemet i gang.',
+            objective: 'Du har fått systemet i gang. Utforsk plattformen.',
         },
     ],
 
-    endText: (engine) => {
-        const understandsFlaring = engine.getFlag('understands-flaring');
-        const base =
-            'Flammetårnet lyser opp havet bak deg. Den første oljen du selv har sendt ' +
-            'mot land er på vei gjennom røret til Teesside. Gunnar klapper deg på skulderen. ' +
-            '"Velkommen offshore."';
-        if (understandsFlaring) {
-            return (
-                base +
-                '\n\nDu vet nå hvorfor flammen brenner. Den holder plattformen trygg - ' +
-                'overskuddsgassen har ingen annen vei å gå. Ingenting her er tilfeldig.'
-            );
-        }
-        return (
-            base +
-            '\n\nDu har sett de tre trinnene: brønnhodet henter oljen opp, separatoren ' +
-            'skiller den fra gass og vann, og eksport-røret sender den i land.'
-        );
-    },
+    // Feiring vises som in-game monologer (se `exp-congrats` og
+    // `exp-flaring-reflection` i OljeplattformAssets.ts). Spillet avsluttes ikke
+    // automatisk - spilleren fortsetter å utforske etter at oppdraget er gjort.
+    // endText er kun fallback hvis motoren trigger slutt via pause-meny o.l.
+    endText: 'Du har startet produksjonen på plattformen.',
 
     setupScene: setupOljeplattformScene,
 };
