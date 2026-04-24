@@ -24,7 +24,8 @@ export function setupBlueprintScene(engine: GameEngineRef): void {
     // Døren er låst til Sokrates har tatt et valg.
     buildRoom(engine, {
         id: 'prison-cell',
-        size: [8, 3.5, 8],
+        // Romshøyde 5m: gir kameraet plass til å svinge opp ved ned-vinkling uten å klippe taket.
+        size: [8, 5, 8],
         floor: 'stone',
         walls: 'stone',
         ceiling: 'stone',

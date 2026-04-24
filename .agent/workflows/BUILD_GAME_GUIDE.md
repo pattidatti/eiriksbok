@@ -66,7 +66,8 @@ Før `npm run dev` første gang:
 - [ ] **CRITICAL** - Låste dører har `openFlag` satt, og minst én puzzle/dialog setter flagget
 - [ ] **INFO** - `thumbnail` peker til et bilde i `public/images/` (ok å være tom string)
 - [ ] **INFO** - All tekst er på norsk bokmål med riktige tegn (å/ø/æ)
-- [ ] **INFO** - Spiller-start-posisjon (`player.startPosition`) er innenfor rommet
+- [ ] **CRITICAL** - `player.startPosition` er **minst 2m fra veggen bak spilleren**. Tredjeperson-kameraet følger ~3m bak; står spilleren nær sørveggen, havner kameraet utenfor rommet og scenen blir usynlig. Plasser spilleren nær midten av rommet (f.eks. `[0, 0, 0]` i et 8x8-rom).
+- [ ] **INFO** - `buildRoom.size[1]` (høyde) er **minst 4m**. Lavere tak gir kamera-klipping når spilleren ser ned (kameraet svinger opp og treffer taket). Motoren clamper automatisk mot tak-collider, men romsligere tak ser bedre ut.
 
 ConfigValidator kaster FATAL og logger CRITICAL/INFO automatisk. Men sjekklisten hjelper deg før du kjører.
 
@@ -332,6 +333,8 @@ Følg disse konvensjonene **uten unntak**. De gjør koden konsistent og unngår 
 | Symptom | Årsak | Løsning |
 |---|---|---|
 | Scene er helt svart | Manglende lys | Sett `lights`-preset i `buildRoom`/`buildOutdoor` |
+| Ser kun en vegg / nesten svart ved start | Kamera havner utenfor rommet | `player.startPosition` er for nær en vegg. Flytt spilleren mot midten (minst 2m fra veggen bak) |
+| Scene forsvinner når jeg vinkler kameraet ned | Kamera klipper gjennom taket | `buildRoom` setter collider på taket, men hvis `size[1]` er < 4m kan kameraet fortsatt treffe. Hev romhøyden |
 | Spiller faller gjennom gulvet | `solid: false` på gulv (bør aldri skje med buildRoom) | Sjekk at du bruker buildRoom - ikke lag gulv manuelt |
 | Gjenstand ruller evig etter dytt | Dynamic body uten damping | Motor setter 0.3 som default fra og med nå; hvis fortsatt problem, sett `dynamic.linearDamping: 0.5` |
 | Dialog åpner seg ikke | Dialog-ID matcher ikke NPC-konvensjon | Bruk `{npcId}_greeting` |
@@ -471,11 +474,15 @@ setupScene: (engine) => addNPC(engine, { id: 'sokrates', ... })  // dobbelt!
 
 Velg ett sted. Anbefaling: la `config.characters: []` være tom, bruk `addNPC` i setupScene.
 
-### 8.9 Glemmer å sette player.startPosition inne i rommet
+### 8.9 Feil plassering av player.startPosition
 
-**Feil:** `player.startPosition: [20, 0, 20]` mens rommet går fra -4 til 4 → spiller står utenfor.
+Det finnes to varianter av denne bommen:
 
-Bruk rom-senterkoordinater som utgangspunkt.
+**Variant A - utenfor rommet:** `player.startPosition: [20, 0, 20]` mens rommet går fra -4 til 4 → spiller spawner utenfor veggene.
+
+**Variant B - for nær vegg (camera clip):** `player.startPosition: [0, 0, 3.5]` i et 8x8-rom (vegg ved Z=4) → spiller er teknisk innenfor, men tredjeperson-kameraet står ~3m bak ved Z~6, utenfor rommet. Resultat: scenen er nesten usynlig ved start.
+
+**Riktig:** Plasser spilleren nær midten. Minst 2m fra veggen bak spilleren (som regel sørveggen, siden kameraet starter sør for spilleren). For et 8x8-rom: `[0, 0, 0]` eller `[0, 0, 0.5]` er trygt.
 
 ### 8.10 Låst dør uten noe som setter flagget
 

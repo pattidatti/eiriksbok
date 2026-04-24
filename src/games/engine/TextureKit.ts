@@ -214,8 +214,17 @@ export function dirtKit(): TexKit {
 
 export function makeLabelSprite(text: string, color = '#f0ddb8', fontSize = 24): THREE.Sprite {
     const cvs = document.createElement('canvas');
-    cvs.width = 256;
+    // Måle-fase: finn faktisk tekst-bredde så canvas ikke klipper lange labels.
+    // Tidligere hardkodet 256px klippet alt over ~20 tegn (f.eks. "Plukk opp giftbeger (E)").
+    const measureCtx = cvs.getContext('2d')!;
+    measureCtx.font = `bold ${fontSize}px sans-serif`;
+    const measuredWidth = measureCtx.measureText(text).width;
+    const padding = 40;
+    const minWidth = 256;
+    cvs.width = Math.max(minWidth, Math.ceil(measuredWidth + padding));
     cvs.height = 56;
+
+    // Canvas-resize resetter 2d-state; hent context på nytt og sett font/stil igjen.
     const ctx = cvs.getContext('2d')!;
     ctx.shadowColor = 'rgba(0,0,0,0.95)';
     ctx.shadowBlur = 14;
@@ -223,12 +232,13 @@ export function makeLabelSprite(text: string, color = '#f0ddb8', fontSize = 24):
     ctx.font = `bold ${fontSize}px sans-serif`;
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-    ctx.fillText(text, 128, 30);
+    ctx.fillText(text, cvs.width / 2, 30);
     ctx.shadowBlur = 0;
     const tex = new THREE.CanvasTexture(cvs);
     const mat = new THREE.SpriteMaterial({ map: tex, transparent: true, depthTest: false });
     const sprite = new THREE.Sprite(mat);
-    sprite.scale.set(1.5, 0.33, 1);
+    // Skaler sprite proporsjonalt med canvas-bredde (1.5 var default for 256px).
+    sprite.scale.set(1.5 * (cvs.width / 256), 0.33, 1);
     sprite.renderOrder = 999;
     return sprite;
 }

@@ -2699,12 +2699,14 @@ export class GameEngine {
         if (!this.physics) return ideal.clone();
         const MARGIN = 0.3;
         const dx = ideal.x - player.x;
+        const dy = ideal.y - player.y;
         const dz = ideal.z - player.z;
-        const distXZ = Math.hypot(dx, dz);
-        if (distXZ < 0.01) return ideal.clone();
+        // Bruk 3D-avstand: XZ-only guard maskerer tak-kollisjon når spilleren ser rett ned.
+        const dist3D = Math.hypot(dx, dy, dz);
+        if (dist3D < 0.01) return ideal.clone();
         const t = this.physics.raycastSegmentXZ(player, ideal);
         if (t >= 1) return ideal.clone();
-        const clampFactor = Math.max(0, t - MARGIN / distXZ);
+        const clampFactor = Math.max(0, t - MARGIN / dist3D);
         // Hvis kameraet ville kollapset inn i spilleren (clampFactor naer 0), er et kort
         // vegg-klipp langt mindre forstyrrende enn svart skjerm - returner idealposisjonen.
         if (clampFactor < 0.05) return ideal.clone();

@@ -191,7 +191,9 @@ export function buildRoom(
         );
         ceiling.position.y = height + thickness / 2;
         ceiling.receiveShadow = true;
-        // Tak trenger ikke collider (spiller kan ikke gå opp dit)
+        // Taket må være solid så clampCameraAgainstWalls-raycasten stopper
+        // tredjepersons-kameraet før det svinger gjennom taket ved ned-vinkling.
+        markPhysics(ceiling, { solid: true, colliderShape: 'cuboid' });
         roomGroup.add(ceiling);
     }
 

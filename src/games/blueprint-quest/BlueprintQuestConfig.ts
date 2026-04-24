@@ -36,7 +36,9 @@ export const blueprintQuestConfig: GameConfig = {
     },
 
     player: {
-        startPosition: [0, 0, 3.5],
+        // Plassert midt i rommet. Tredjeperson-kameraet følger bak spilleren; hvis
+        // startPosition var for nær sørveggen (Z=+4), ville kameraet havne utenfor.
+        startPosition: [0, 0, 0.5],
         colors: {
             body: 0x4a3a28,
             head: 0xd8b898,
