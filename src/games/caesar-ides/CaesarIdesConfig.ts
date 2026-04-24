@@ -20,14 +20,15 @@ export const caesarIdesConfig: GameConfig = {
 
     world: {
         preset: 'open',
-        backgroundColor: '#c8bfa8',
-        fogDensity: 0.006,
+        backgroundColor: '#8a7a5a',
+        fogDensity: 0.003,
     },
 
     visual: {
         sky: 'procedural',
-        timeOfDay: 0.52,
-        postProcessing: 'auto',
+        timeOfDay: 0.62,
+        colorGrading: 'warm',
+        postProcessing: { bloom: { strength: 0.15, threshold: 0.85 }, exposure: 1.2 },
     },
 
     physics: {
@@ -47,9 +48,9 @@ export const caesarIdesConfig: GameConfig = {
     player: {
         startPosition: [0, 0, 8],
         colors: {
-            body: 0xf1e8d4,
-            head: 0xd8b898,
-            legs: 0xe8dcc0,
+            body: 0xd8c098,
+            head: 0xc8a078,
+            legs: 0xc0a878,
         },
     },
 

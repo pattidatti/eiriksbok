@@ -28,7 +28,7 @@ export function setupCaesarIdesScene(engine: GameEngineRef): void {
     // ═══════════════════════════════════════════════════════════════════════
     const ground = new THREE.Mesh(
         new THREE.BoxGeometry(60, 1, 80),
-        sceneMat(0xd6c8a8, { preset: 'stone', roughness: 0.95 }),
+        sceneMat(0x8f7450, { preset: 'soil', roughness: 0.98 }),
     );
     ground.position.set(0, -0.5, -10);
     ground.receiveShadow = true;
@@ -38,7 +38,7 @@ export function setupCaesarIdesScene(engine: GameEngineRef): void {
     // Brolegging foran senatet (mørkere stripe fra gate til trapp)
     const road = new THREE.Mesh(
         new THREE.BoxGeometry(8, 0.05, 30),
-        sceneMat(0xa89880, { preset: 'stone', roughness: 1.0 }),
+        sceneMat(0x5a4a3c, { preset: 'stone', roughness: 1.0 }),
     );
     road.position.set(0, 0.02, 0);
     road.receiveShadow = true;
@@ -51,7 +51,7 @@ export function setupCaesarIdesScene(engine: GameEngineRef): void {
     const fountain = new THREE.Group();
     const basin = new THREE.Mesh(
         new THREE.CylinderGeometry(1.2, 1.4, 0.8, 16),
-        sceneMat(0xece2c8, { preset: 'stone' }),
+        sceneMat(0xa89078, { preset: 'stone', roughness: 0.85 }),
     );
     basin.position.y = 0.4;
     basin.castShadow = true;
@@ -60,13 +60,13 @@ export function setupCaesarIdesScene(engine: GameEngineRef): void {
     fountain.add(basin);
     const waterDisk = new THREE.Mesh(
         new THREE.CylinderGeometry(1.0, 1.0, 0.05, 16),
-        sceneMat(0x6a8a9a, { preset: 'water', metalness: 0.2, roughness: 0.3 }),
+        sceneMat(0x3a5a6a, { preset: 'water', metalness: 0.4, roughness: 0.25 }),
     );
     waterDisk.position.y = 0.78;
     fountain.add(waterDisk);
     const spout = new THREE.Mesh(
         new THREE.CylinderGeometry(0.08, 0.08, 0.6, 8),
-        sceneMat(0xa08a6a, { preset: 'stone' }),
+        sceneMat(0x6a5a48, { preset: 'stone' }),
     );
     spout.position.y = 1.1;
     fountain.add(spout);
@@ -101,7 +101,7 @@ export function setupCaesarIdesScene(engine: GameEngineRef): void {
     // Trappe-platå foran senatet (bredt stentrinn, Z = -16 til -18)
     const stairs = new THREE.Mesh(
         new THREE.BoxGeometry(14, 0.6, 3),
-        sceneMat(0xe8dcc0, { preset: 'stone' }),
+        sceneMat(0xb8a07c, { preset: 'stone', roughness: 0.8 }),
     );
     stairs.position.set(0, 0.3, -17);
     stairs.castShadow = true;
@@ -112,8 +112,10 @@ export function setupCaesarIdesScene(engine: GameEngineRef): void {
     // ═══════════════════════════════════════════════════════════════════════
     // SENATSHALL (Pompey-teateret, rektangulært rom med nord-åpning)
     // ═══════════════════════════════════════════════════════════════════════
-    const marbleMat = sceneMat(0xece2c8, { preset: 'stone', roughness: 0.7 });
-    const shadowMat = sceneMat(0xb8aa88, { preset: 'stone', roughness: 0.9 });
+    // Aldret romersk marmor: varm elfenbenstone, ikke blenkende hvit.
+    const marbleMat = sceneMat(0xc8b090, { preset: 'stone', roughness: 0.65 });
+    // Bakvegg og tak er i skygge - mørkere enn marmoren for kontrast.
+    const shadowMat = sceneMat(0x6a5a44, { preset: 'stone', roughness: 0.9 });
 
     // Gulv (senater-plan, hevet 0.6m over gatenivå)
     const floor = new THREE.Mesh(
@@ -201,11 +203,12 @@ export function setupCaesarIdesScene(engine: GameEngineRef): void {
     }
 
     // ─── Pompey-statuen (Cæsar faller her) ──────────────────────────────────
+    const statueStone = sceneMat(0xb89a74, { preset: 'stone', roughness: 0.55 });
     const statue = new THREE.Group();
-    // Sokkel
+    // Sokkel (mørkere granitt)
     const pedestal = new THREE.Mesh(
         new THREE.BoxGeometry(1.4, 1.2, 1.4),
-        sceneMat(0xd8ccae, { preset: 'stone' }),
+        sceneMat(0x6a5a48, { preset: 'stone', roughness: 0.9 }),
     );
     pedestal.position.y = 0.6;
     pedestal.castShadow = true;
@@ -215,7 +218,7 @@ export function setupCaesarIdesScene(engine: GameEngineRef): void {
     // Torso
     const torso = new THREE.Mesh(
         new THREE.CylinderGeometry(0.32, 0.45, 1.3, 12),
-        sceneMat(0xf0e8d4, { preset: 'stone', roughness: 0.5 }),
+        statueStone,
     );
     torso.position.y = 1.95;
     torso.castShadow = true;
@@ -223,7 +226,7 @@ export function setupCaesarIdesScene(engine: GameEngineRef): void {
     // Hode
     const head = new THREE.Mesh(
         new THREE.SphereGeometry(0.24, 12, 12),
-        sceneMat(0xf0e8d4, { preset: 'stone', roughness: 0.5 }),
+        statueStone,
     );
     head.position.y = 2.78;
     head.castShadow = true;
@@ -231,15 +234,15 @@ export function setupCaesarIdesScene(engine: GameEngineRef): void {
     // Høyre arm (løftet i talestilling)
     const arm = new THREE.Mesh(
         new THREE.CylinderGeometry(0.08, 0.08, 0.9, 8),
-        sceneMat(0xf0e8d4, { preset: 'stone', roughness: 0.5 }),
+        statueStone,
     );
     arm.position.set(0.32, 2.3, 0.1);
     arm.rotation.z = -0.6;
     statue.add(arm);
-    // Toga-drapering (dekorativt slør)
+    // Toga-drapering (dekorativt slør, litt mørkere enn stein)
     const drape = new THREE.Mesh(
         new THREE.ConeGeometry(0.5, 1.1, 10, 1, true),
-        sceneMat(0xe8dfc8, { preset: 'cloth', roughness: 0.8 }),
+        sceneMat(0xa08858, { preset: 'cloth', roughness: 0.85 }),
     );
     drape.position.y = 1.75;
     statue.add(drape);
@@ -247,8 +250,8 @@ export function setupCaesarIdesScene(engine: GameEngineRef): void {
     statue.rotation.y = Math.PI; // vend ansikt mot senator-benkene
     scene.add(statue);
 
-    // Rim-lys på statuen (fra taket)
-    const statueLight = new THREE.PointLight(0xfff0d4, 14, 10, 1.5);
+    // Rim-lys på statuen (fra taket, varmt men dempet)
+    const statueLight = new THREE.PointLight(0xffcf90, 4, 8, 1.8);
     statueLight.position.set(0, WALL_H - 0.5, SENATE_BACK_Z + 1.5);
     scene.add(statueLight);
 
@@ -275,12 +278,12 @@ export function setupCaesarIdesScene(engine: GameEngineRef): void {
     }
 
     // Lys i senatshallen (taklys, dempet ettermiddagsstemning)
-    const senateLight = new THREE.PointLight(0xfff4d8, 26, 24, 1.4);
+    const senateLight = new THREE.PointLight(0xffb870, 10, 18, 1.8);
     senateLight.position.set(0, WALL_H - 0.2, SENATE_CENTER_Z + 2);
     scene.add(senateLight);
 
-    // Sollys gjennom åpningen (retningslys fra nord)
-    const sunShaft = new THREE.DirectionalLight(0xfff0cc, 0.7);
+    // Sollys gjennom åpningen (retningslys fra nord, ettermiddagstone)
+    const sunShaft = new THREE.DirectionalLight(0xffc080, 0.35);
     sunShaft.position.set(0, 12, SENATE_ENTRANCE_Z + 6);
     sunShaft.target.position.set(0, 0, SENATE_CENTER_Z);
     scene.add(sunShaft);
@@ -301,37 +304,37 @@ export function setupCaesarIdesScene(engine: GameEngineRef): void {
     // ═══════════════════════════════════════════════════════════════════════
     // NPC-ER
     // ═══════════════════════════════════════════════════════════════════════
-    // 1. Spurinna - augur, står nær spawn
+    // 1. Spurinna - augur, står nær spawn (oker-brun augur-kappe)
     addNPC(engine, {
         id: 'spurinna',
         name: 'Spurinna',
         characterType: 'monk',
         pos: [-5, 0, 4],
-        colors: { body: 0xe8dfc8, head: 0xc8a078, legs: 0xd4c8a8 }, // hvit augur-kappe
+        colors: { body: 0x8a6a48, head: 0xb88868, legs: 0x6a4a30 },
         emotion: 'worried',
         questMarker: true,
         dialogs: spurinnaDialogs,
     });
 
-    // 2. Cassius - venter ved trappen
+    // 2. Cassius - senator, varm elfenben-toga med mørk rand
     addNPC(engine, {
         id: 'cassius',
         name: 'Gaius Cassius',
         characterType: 'noble',
         pos: [-3, 0, -10],
-        colors: { body: 0xf0e8d4, head: 0xd8b898, legs: 0xe8dcc0 }, // senator-toga
+        colors: { body: 0xc8a878, head: 0xc8a078, legs: 0x7a3a2a },
         emotion: 'triumphant',
         questMarker: true,
         dialogs: cassiusDialogs,
     });
 
-    // 3. Brutus - ved Cassius, mer tilbakeholden
+    // 3. Brutus - litt lysere toga enn Cassius, samme stripe-indikasjon
     addNPC(engine, {
         id: 'brutus',
         name: 'Marcus Brutus',
         characterType: 'noble',
         pos: [3, 0, -10],
-        colors: { body: 0xede4cc, head: 0xd0b088, legs: 0xe0d4b8 },
+        colors: { body: 0xd0b488, head: 0xc09078, legs: 0x7a3a2a },
         emotion: 'worried',
         questMarker: true,
         dialogs: brutusDialogs,
@@ -343,7 +346,7 @@ export function setupCaesarIdesScene(engine: GameEngineRef): void {
         name: 'Gaius Julius Cæsar',
         characterType: 'noble',
         pos: [-22, 0, 14], // skjult bak vest-sypressene
-        colors: { body: 0x8b2b1c, head: 0xd8b898, legs: 0x5a1a10 }, // purpur triumfator-toga
+        colors: { body: 0x7a1e14, head: 0xc8a078, legs: 0x4a1008 }, // purpur triumfator-toga
         emotion: 'triumphant',
         questMarker: false,
         talkable: false, // låst til fase 3
