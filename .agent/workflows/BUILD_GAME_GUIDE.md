@@ -153,6 +153,20 @@ addPickup(engine, {
 });
 ```
 
+**Overflatehøyder** — `pos.y` er posisjonen til *modell-gruppen*, ikke objektets topp. For å plassere et item på en møbel-overflate, bruk disse verdiene (møbel-gruppen plassert på bakken, y=0 som referanse):
+
+| Møbel (`model:`) | Topphøyde (world y) | Anbefalt pickup y |
+|---|---|---|
+| `table` | 0.86 | 0.9 |
+| `bench` | 0.49 | 0.55 |
+| `chair` | 0.54 | 0.6 |
+| `chest` | 0.55 | 0.6 |
+| `lectern` | 1.27 | 1.35 |
+| `altar` | 1.04 | 1.1 |
+| gulv (ingen møbel) | 0.0 | 0.05–0.1 |
+
+**Eksempel**: scroll på bord → `addPickup({ model: 'scroll', pos: [5, 0.9, -5] })`, bord → `addProp({ model: 'table', pos: [5, 0, -5] })`.
+
 **Når bruke**: alle items som skal til inventar.
 
 **Vanlige feil**: `itemId` ikke i `config.items` → validator kaster FATAL.
@@ -214,6 +228,28 @@ addNPC(engine, {
 **Dialog-konvensjon for fler-NPC-spill**: bruk `{npcId}_greeting`, `{npcId}_progress` osv. Motoren åpner `sokrates_greeting` automatisk når spilleren trykker E på Sokrates.
 
 **Variants**: en dialog-verdi kan være array. Da sorteres fallback (uten condition) automatisk sist.
+
+**`talkable`-flagget** (default `true`): Styrer *kun* om navnelabelen vises over hodet på NPC-en. Det blokkerer **ikke** E-key-interaksjon — dialogen åpnes uansett hvis spilleren er nær nok. Bruk `talkable: false` kun for NPCer som skal være visuelt anonyme (ingen navn over hodet), ikke for å forhindre dialog.
+
+**NPC-bevegelse etter dialog** — bruk `engine.assignRoute` i `onEnd` eller `action` for å la en NPC bevege seg etter et dialog-valg. Uten dette vil NPC-en stå stille selv om dialogen sier "Følg meg":
+
+```ts
+caesar_greeting: {
+    speaker: 'Cæsar',
+    text: 'Følg meg inn.',
+    choices: [{ text: 'Ja.', next: null }],
+    onEnd: () => {
+        engine.assignRoute({
+            characterId: 'caesar',
+            waypoints: [[0, -14], [0, -23]],  // [x, z]-par
+            mode: 'once',    // stopper ved siste waypoint
+            speed: 0.9,      // m/s
+        });
+    },
+},
+```
+
+`mode: 'loop'`/`'pingpong'` for patrol. `onComplete` kalles når `'once'`-ruten er ferdig.
 
 ### 3.9 `addMonolog(engine, config)`
 
@@ -660,9 +696,42 @@ addInteractable(engine, {
 
 **Riktig:** kall `engine.setCharacterMarkerVisible(npcId, false)` i `onEnd` på intro-dialogen, eller i den interactable/puzzle-handleren som markerer neste fase av quest. Sett den til `true` igjen hvis NPC-en får nytt å si senere.
 
-### 8.15 Glemmer `playerJump: true` i utendørs-spill
+### 8.15 Glemmer `playerJump: true` ved høydeforskjeller
 
-Default `physics.playerJump` er `false`. For utendørs/åpne spill vil spilleren typisk trykke space og bli frustrert når ingenting skjer. Sett eksplisitt `playerJump: true` med mindre spillet er et strengt interiør-quest.
+Default `physics.playerJump` er `false`. Spillet trenger **eksplisitt `playerJump: true`** i `GameConfig.physics` i disse tilfellene:
+
+- Utendørs/åpne verden (`preset: 'open'`)
+- Spill med trappeplatå, forhøyet gulv eller hevede overflater
+- Enhver scene der spilleren må klatre > ~0.1m for å komme videre
+
+Hvis spilleren møter en usynlig vegg der det visuelt ser ut som en lav kant, er manglende `playerJump: true` den vanligste årsaken.
+
+Sett `playerJump: false` kun i *strengt* interiør-spill der bakken er helt flat og hopp aldri trengs.
+
+### 8.16 Dialog-tekst lover NPC-handling som aldri skjer
+
+Klassisk feil: NPC sier "Følg meg" eller "Jeg henter det" i dialog, men ingen kode flytter NPC-en. Dialogen slutter og NPC-en står stille — spilleren vet ikke at de skal gå selv.
+
+**Riktig**: Kall `engine.assignRoute` (NPC beveger seg) eller `engine.setPlayerMode` (spilleren låses til å følge NPC-en) i `onEnd`/`action`:
+
+```ts
+// NPC leder spilleren et sted
+onEnd: () => {
+    engine.assignRoute({
+        characterId: 'guide-npc',
+        waypoints: [[0, 0], [0, -20]],
+        mode: 'once',
+        speed: 1.2,
+    });
+},
+
+// Alternativ: spilleren "låses" til å følge NPC-en
+onEnd: () => {
+    engine.setPlayerMode('scripted', { followCharacterId: 'guide-npc', followSpeed: 1.2 });
+},
+```
+
+Hvis NPC-en ikke trenger å bevege seg: endre dialog-teksten til "Gå inn" / "Jeg venter her" i stedet for "Følg meg".
 
 ---
 

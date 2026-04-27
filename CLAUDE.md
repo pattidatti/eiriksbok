@@ -492,7 +492,7 @@ A highly realistic 4K cinematic photograph of [scene], [time period].
 6. **Timeline in article JSON**: Always keep `"timeline": []` in article files. All events go in `global-timeline.json`.
 7. **Learning paths in `lessons`**: Learning paths (`-sti.json`) must be registered under `tools`, not `lessons` in the manifest.
 8. **Relative links in tasks**: Always use absolute paths starting with `/` in learning path task links.
-9. **Mini-spill (3D-motor)**: Egne fallgruver for `userData.solid`-kollisjon, sol/hemi-registrering, dollhouse-tak, prosedyrale plasseringer, hav-overlapp og fysikk-damping er dokumentert i `BUILD_GAME_GUIDE.md` §16. Les den seksjonen før du tester et nytt `preset: 'open'`-spill.
+9. **Mini-spill (3D-motor)**: Egne fallgruver for `userData.solid`-kollisjon, sol/hemi-registrering, dollhouse-tak, prosedyrale plasseringer, hav-overlapp og fysikk-damping er dokumentert i `BUILD_GAME_GUIDE.md` §6.1 og §8. Les de seksjonene før du tester et nytt `preset: 'open'`-spill.
 
 ---
 

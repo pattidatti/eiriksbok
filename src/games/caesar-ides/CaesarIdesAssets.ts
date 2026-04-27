@@ -467,7 +467,7 @@ export function setupCaesarIdesScene(engine: GameEngineRef): void {
         colors: { body: 0x7a1e14, head: 0xc8a078, legs: 0x4a1008 }, // purpur triumfator-toga
         emotion: 'triumphant',
         questMarker: false,
-        talkable: false, // låst til fase 3
+        talkable: true,
         dialogs: caesarDialogs,
     });
 
@@ -479,7 +479,7 @@ export function setupCaesarIdesScene(engine: GameEngineRef): void {
         id: 'pickup-letter',
         itemId: 'artemidoros-brev',
         model: 'scroll',
-        pos: [5, 0.7, -5],
+        pos: [5, 0.9, -5],
         label: 'Plukk opp brev (E)',
         audioOnPickup: 'pickup-paper',
     });
@@ -618,6 +618,16 @@ export function setupCaesarIdesScene(engine: GameEngineRef): void {
             // Fjern inngangsbarrieren slik at spilleren kan gå inn
             engine.removeStaticCollider(barrier);
             barrier.visible = false;
+            // Etter at Cæsar har gått til trappa (~6s), ruter han inn i senatet
+            // slik at spilleren kan følge ham naturlig.
+            engine.schedule(() => {
+                engine.assignRoute({
+                    characterId: 'caesar',
+                    waypoints: [[0, -14], [0, -23]],
+                    mode: 'once',
+                    speed: 0.9,
+                });
+            }, 6500);
         }
 
         // Fase 4 trigger: spilleren krysser inn i senatshallen

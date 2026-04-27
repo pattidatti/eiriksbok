@@ -33,7 +33,7 @@ export const caesarIdesConfig: GameConfig = {
 
     physics: {
         enabled: true,
-        playerJump: false,
+        playerJump: true,
     },
 
     intro: {
