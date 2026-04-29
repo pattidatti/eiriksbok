@@ -58,6 +58,7 @@ const InfrastrukturAtlas = React.lazy(routeFactories.InfrastrukturAtlas);
 const VirkemiddelverkstedetPage = React.lazy(routeFactories.VirkemiddelverkstedetPage);
 const MiniGamesPage = React.lazy(routeFactories.MiniGamesPage);
 const GamePage = React.lazy(routeFactories.GamePage);
+const CompetencyGoalsPage = React.lazy(routeFactories.CompetencyGoalsPage);
 
 
 
@@ -111,6 +112,7 @@ const router = createBrowserRouter([
       { path: "oving/virkemidler", element: <VirkemiddelverkstedetPage /> },
       { path: "oving/spill", element: <MiniGamesPage /> },
       { path: "oving/spill/:gameId", element: <GamePage /> },
+      { path: "oving/kompetansemal", element: <CompetencyGoalsPage /> },
       { path: "historie/vikingtiden/detektiv", element: <DetectiveCasePage /> },
       { path: "admin", element: <AdminGuard><AdminDashboard /></AdminGuard> },
       { path: "admin/stats", element: <AdminGuard><StatsPage /></AdminGuard> },
