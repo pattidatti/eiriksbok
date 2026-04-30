@@ -1,9 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Brain, HelpCircle, Clock, MessageCircle, Gamepad2, Plane, History, Users, Search, Compass, Hourglass, Castle, Swords, Pen, Rocket, Landmark } from 'lucide-react';
+import { Brain, HelpCircle, Clock, MessageCircle, Gamepad2, Plane, History, Users, Search, Compass, Hourglass, Castle, Swords, Pen, Rocket, Landmark, GraduationCap } from 'lucide-react';
 
 export const PracticePage: React.FC = () => {
     const modules = [
+        {
+            id: 'kompetansemal',
+            title: 'Kompetansemål',
+            description: 'Se hvilke LK20-mål artikler, læringsstier og spill underbygger.',
+            icon: GraduationCap,
+            color: 'bg-teal-600',
+            link: '/oving/kompetansemal'
+        },
         {
             id: 'historiske-spill',
             title: 'Historiske Spill',
