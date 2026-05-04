@@ -1,5 +1,5 @@
 {
-  "buildId": 1777038420108,
+  "buildId": 1777825290216,
   "contentMap": {
     "adel": [
       "content/concepts/adel.json"
@@ -954,6 +954,18 @@
     ],
     "detective-vardo": [
       "content/interactive/detective/vardo.json"
+    ],
+    "krle-10-trinn": [
+      "content/kompetansemal/krle-10-trinn.json"
+    ],
+    "musikk-10-trinn": [
+      "content/kompetansemal/musikk-10-trinn.json"
+    ],
+    "norsk-10-trinn": [
+      "content/kompetansemal/norsk-10-trinn.json"
+    ],
+    "samfunnsfag-10-trinn": [
+      "content/kompetansemal/samfunnsfag-10-trinn.json"
     ],
     "dygdsetikk": [
       "content/krle/etikk/dygdsetikk.json"
@@ -2087,6 +2099,10 @@
     "interactive/detective/detective-svartedauden": "content/interactive/detective/svartedauden.json",
     "interactive/detective/detective-tungtvann": "content/interactive/detective/tungtvann.json",
     "interactive/detective/detective-vardo": "content/interactive/detective/vardo.json",
+    "kompetansemal/krle-10-trinn.json/krle-10-trinn": "content/kompetansemal/krle-10-trinn.json",
+    "kompetansemal/musikk-10-trinn.json/musikk-10-trinn": "content/kompetansemal/musikk-10-trinn.json",
+    "kompetansemal/norsk-10-trinn.json/norsk-10-trinn": "content/kompetansemal/norsk-10-trinn.json",
+    "kompetansemal/samfunnsfag-10-trinn.json/samfunnsfag-10-trinn": "content/kompetansemal/samfunnsfag-10-trinn.json",
     "krle/etikk/dygdsetikk": "content/krle/etikk/dygdsetikk.json",
     "krle/etikk/intro": "content/krle/etikk/intro.json",
     "krle/etikk/naturrett": "content/krle/etikk/naturrett.json",

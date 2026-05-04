@@ -1,0 +1,94 @@
+{
+    "subject": "musikk",
+    "subjectLabel": "Musikk",
+    "lkCode": "MUS01-02",
+    "lkTitel": "Læreplan i musikk (LK20)",
+    "trinn": "10",
+    "trinnLabel": "Etter 10. trinn",
+    "merknad": "Musikk-faget i Eiriksbok dekker grunnleggende musikkteori, instrumenter, komposisjon og musikkhistorie. Mappingen mellom kompetansemål og innhold blir fylt ut i en senere runde.",
+    "kilde": {
+        "kompetansemaal": "https://www.udir.no/lk20/mus01-02/kompetansemaal-og-vurdering/kv196",
+        "kjennetegn": "https://www.udir.no/lk20/mus01-02"
+    },
+    "goals": [
+        {
+            "id": "mus-10-1",
+            "nummer": 1,
+            "kortNavn": "Utøve musikk og dans",
+            "tekst": "utøve et variert repertoar av musikk, sang, andre vokale uttrykk og dans",
+            "innhold": {}
+        },
+        {
+            "id": "mus-10-2",
+            "nummer": 2,
+            "kortNavn": "Tradisjon og fornyelse",
+            "tekst": "reflektere over hvordan musikalske tradisjoner, inkludert samiske musikktradisjoner, bevares og fornyes",
+            "innhold": {}
+        },
+        {
+            "id": "mus-10-3",
+            "nummer": 3,
+            "kortNavn": "Samarbeide og formidle",
+            "tekst": "samarbeide med andre om å planlegge og gjennomføre øvingsprosesser hvor det inngår selvvalgt sang, andre vokale uttrykk, spill på instrumenter eller dans, og formidle resultatet i gruppe eller individuelt",
+            "innhold": {}
+        },
+        {
+            "id": "mus-10-4",
+            "nummer": 4,
+            "kortNavn": "Skape og programmere",
+            "tekst": "skape og programmere musikalske forløp ved å eksperimentere med lyd fra ulike kilder",
+            "innhold": {}
+        },
+        {
+            "id": "mus-10-5",
+            "nummer": 5,
+            "kortNavn": "Musikalske virkemidler",
+            "tekst": "utforske og formidle musikalske opplevelser og erfaringer, og reflektere over bruk av musikalske virkemidler",
+            "innhold": {}
+        },
+        {
+            "id": "mus-10-6",
+            "nummer": 6,
+            "kortNavn": "Skapende prosesser",
+            "tekst": "lytte og prøve ut ulike uttrykk og begrunne valg i skapende prosesser fra idé til ferdig resultat",
+            "innhold": {}
+        },
+        {
+            "id": "mus-10-7",
+            "nummer": 7,
+            "kortNavn": "Gehør og notasjon",
+            "tekst": "bruke gehør og notasjonsteknikker som støtte i skapende arbeid",
+            "innhold": {}
+        },
+        {
+            "id": "mus-10-8",
+            "nummer": 8,
+            "kortNavn": "Fagbegreper",
+            "tekst": "bruke relevante fagbegreper i skapende arbeid og i refleksjon over prosesser og resultater",
+            "innhold": {}
+        },
+        {
+            "id": "mus-10-9",
+            "nummer": 9,
+            "kortNavn": "Musikk i historie og samtid",
+            "tekst": "utforske og reflektere over hvordan musikk, sang og dans som estetiske uttrykk er påvirket av og uttrykk for historiske og samfunnsmessige forhold, og skape musikalske uttrykk som tar opp utfordringer i samtiden",
+            "innhold": {}
+        },
+        {
+            "id": "mus-10-10",
+            "nummer": 10,
+            "kortNavn": "Musikk og samfunn",
+            "tekst": "utforske og drøfte musikkens og dansens betydning i samfunnet og etiske problemstillinger knyttet til musikalske ytringer og musikkulturer",
+            "innhold": {}
+        }
+    ],
+    "kjennetegn": {
+        "innledning": "Standardiserte kjennetegn på måloppnåelse for musikk er ikke publisert med samme tabellformat som for samfunnsfag. Vurdering bygger på utøvende, skapende og reflekterende kompetanse opp mot kompetansemålene over.",
+        "nivaaer": [
+            { "id": "k2", "karakter": 2, "label": "Karakter 2", "beskrivelse": "Lav kompetanse" },
+            { "id": "k4", "karakter": 4, "label": "Karakter 4", "beskrivelse": "God kompetanse" },
+            { "id": "k6", "karakter": 6, "label": "Karakter 6", "beskrivelse": "Framifrå kompetanse" }
+        ],
+        "kategorier": []
+    }
+}

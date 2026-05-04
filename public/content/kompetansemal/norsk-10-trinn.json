@@ -1,0 +1,136 @@
+{
+    "subject": "norsk",
+    "subjectLabel": "Norsk",
+    "lkCode": "NOR01-06",
+    "lkTitel": "Læreplan i norsk (LK20)",
+    "trinn": "10",
+    "trinnLabel": "Etter 10. trinn",
+    "merknad": "Norsk-faget i Eiriksbok dekker lesing, skriving, litteraturhistorie, retorikk, virkemidler og språkhistorie. Mappingen mellom kompetansemål og innhold blir fylt ut i en senere runde.",
+    "kilde": {
+        "kompetansemaal": "https://www.udir.no/lk20/nor01-06/kompetansemaal-og-vurdering/kv111",
+        "kjennetegn": "https://www.udir.no/lk20/nor01-06"
+    },
+    "goals": [
+        {
+            "id": "nor-10-1",
+            "nummer": 1,
+            "kortNavn": "Lese og reflektere over tekster",
+            "tekst": "lese skjønnlitteratur og sakprosa på bokmål og nynorsk og i oversettelse fra samiske og andre språk, og reflektere over tekstenes formål, innhold, sjangertrekk og virkemidler",
+            "innhold": {}
+        },
+        {
+            "id": "nor-10-2",
+            "nummer": 2,
+            "kortNavn": "Tolke tekster i kontekst",
+            "tekst": "sammenligne og tolke romaner, noveller, lyrikk og andre tekster ut fra historisk kontekst og egen samtid",
+            "innhold": {}
+        },
+        {
+            "id": "nor-10-3",
+            "nummer": 3,
+            "kortNavn": "Lesestrategier",
+            "tekst": "beskrive og reflektere over egen bruk av lesestrategier i lesing av skjønnlitteratur og sakprosa",
+            "innhold": {}
+        },
+        {
+            "id": "nor-10-4",
+            "nummer": 4,
+            "kortNavn": "Svensk og dansk",
+            "tekst": "lytte til og lese tekster på svensk og dansk og gjøre rede for innhold og språklige trekk",
+            "innhold": {}
+        },
+        {
+            "id": "nor-10-5",
+            "nummer": 5,
+            "kortNavn": "Unges livssituasjon i tekst",
+            "tekst": "utforske og reflektere over hvordan tekster framstiller unges livssituasjon",
+            "innhold": {}
+        },
+        {
+            "id": "nor-10-6",
+            "nummer": 6,
+            "kortNavn": "Virkemidler og retorikk",
+            "tekst": "gjenkjenne og bruke språklige virkemidler og retoriske appellformer",
+            "innhold": {}
+        },
+        {
+            "id": "nor-10-7",
+            "nummer": 7,
+            "kortNavn": "Kildebruk og sitering",
+            "tekst": "bruke kilder på en kritisk måte, markere sitater og vise til kilder på en etterrettelig måte i egne tekster",
+            "innhold": {}
+        },
+        {
+            "id": "nor-10-8",
+            "nummer": 8,
+            "kortNavn": "Digitale medier og språk",
+            "tekst": "utforske og vurdere hvordan digitale medier påvirker og endrer språk og kommunikasjon",
+            "innhold": {}
+        },
+        {
+            "id": "nor-10-9",
+            "nummer": 9,
+            "kortNavn": "Saklig argumentasjon",
+            "tekst": "bruke fagspråk og argumentere saklig i diskusjoner, samtaler, muntlige presentasjoner og skriftlige framstillinger om norskfaglige og tverrfaglige temaer",
+            "innhold": {}
+        },
+        {
+            "id": "nor-10-10",
+            "nummer": 10,
+            "kortNavn": "Sjangre og formål",
+            "tekst": "informere, fortelle, argumentere og reflektere i ulike muntlige og skriftlige sjangre og for ulike formål tilpasset mottaker og medium",
+            "innhold": {}
+        },
+        {
+            "id": "nor-10-11",
+            "nummer": 11,
+            "kortNavn": "Hovedmål og sidemål",
+            "tekst": "skrive tekster med funksjonell tekstbinding og riktig tegnsetting og mestre rettskriving og ordbøying på hovedmål og sidemål",
+            "innhold": {}
+        },
+        {
+            "id": "nor-10-12",
+            "nummer": 12,
+            "kortNavn": "Grammatikk og tekstanalyse",
+            "tekst": "bruke fagspråk og kunnskap om grammatikk, tekststruktur og sjanger i samtale om og bearbeiding av tekster",
+            "innhold": {}
+        },
+        {
+            "id": "nor-10-13",
+            "nummer": 13,
+            "kortNavn": "Skape og eksperimentere",
+            "tekst": "uttrykke seg i ulike sjangre og eksperimentere med sjangre på kreative måter",
+            "innhold": {}
+        },
+        {
+            "id": "nor-10-14",
+            "nummer": 14,
+            "kortNavn": "Sammensatte tekster",
+            "tekst": "lage sammensatte tekster og begrunne valg av uttrykksformer",
+            "innhold": {}
+        },
+        {
+            "id": "nor-10-15",
+            "nummer": 15,
+            "kortNavn": "Bokmål, nynorsk og språkpolitikk",
+            "tekst": "forklare den historiske bakgrunnen for bokmål og nynorsk og reflektere over statusen til de offisielle språkene i Norge i dag",
+            "innhold": {}
+        },
+        {
+            "id": "nor-10-16",
+            "nummer": 16,
+            "kortNavn": "Språklig variasjon og holdninger",
+            "tekst": "utforske språklig variasjon og mangfold i Norge og reflektere over holdninger til ulike språk og talespråkvarianter",
+            "innhold": {}
+        }
+    ],
+    "kjennetegn": {
+        "innledning": "Standardiserte kjennetegn på måloppnåelse for norsk er ikke publisert med samme tabellformat som for samfunnsfag. Vurdering bygger på de tre tekstkompetansene (lese, skrive, muntlig) sett opp mot kompetansemålene over.",
+        "nivaaer": [
+            { "id": "k2", "karakter": 2, "label": "Karakter 2", "beskrivelse": "Lav kompetanse" },
+            { "id": "k4", "karakter": 4, "label": "Karakter 4", "beskrivelse": "God kompetanse" },
+            { "id": "k6", "karakter": 6, "label": "Karakter 6", "beskrivelse": "Framifrå kompetanse" }
+        ],
+        "kategorier": []
+    }
+}
