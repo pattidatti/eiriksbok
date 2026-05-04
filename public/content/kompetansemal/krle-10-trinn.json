@@ -5,7 +5,7 @@
     "lkTitel": "Læreplan i KRLE (LK20)",
     "trinn": "10",
     "trinnLabel": "Etter 10. trinn",
-    "merknad": "KRLE-faget i Eiriksbok dekker religioner, livssyn, etikk og filosofihistorie. Mappingen mellom kompetansemål og innhold blir fylt ut i en senere runde.",
+    "merknad": "KRLE-faget i Eiriksbok dekker ni religioner og livssyn, filosofihistorien fra Sokrates til Arendt, og fem etiske teorier. Hvert kompetansemål er knyttet til artiklene, filosofi-questene, tidsreisene, detektivsakene og spillene som best underbygger målet.",
     "kilde": {
         "kompetansemaal": "https://www.udir.no/lk20/rle01-03/kompetansemaal-og-vurdering/kv178",
         "kjennetegn": "https://www.udir.no/lk20/rle01-03"
@@ -16,34 +16,83 @@
             "nummer": 1,
             "kortNavn": "Religionstradisjoner i dag",
             "tekst": "utforske og presentere sentrale trekk ved kristendom og andre religions- og livssynstradisjoner og deres utbredelse i dag",
-            "innhold": {}
+            "innhold": {
+                "artikler": [
+                    { "tittel": "Introduksjon til kristendommen", "link": "/krle/religion/kristendom/intro", "begrunnelse": "Verdens største religion: retninger, utbredelse og kristendommen i Norge i dag." },
+                    { "tittel": "Sentrale trekk i kristendommen", "link": "/krle/religion/kristendom/sentrale-trekk", "begrunnelse": "Kjernen i kristendommen: frelse, treenighet og nestekjærlighet." },
+                    { "tittel": "Sentrale trekk i Islam", "link": "/krle/religion/islam/sentrale-trekk", "begrunnelse": "Tawhid og de fem søyler — kjernen i islam." },
+                    { "tittel": "Introduksjon til Jødedom", "link": "/krle/religion/jodedom/intro", "begrunnelse": "Jødedommens historie, utbredelse og praksis i dag." },
+                    { "tittel": "Introduksjon til Hinduisme", "link": "/krle/religion/hinduisme/intro", "begrunnelse": "Hinduismens mangfold og praksis i dag." },
+                    { "tittel": "Introduksjon til Buddhisme", "link": "/krle/religion/buddhisme/intro", "begrunnelse": "Buddhismens grunnsyn, retninger og global utbredelse." },
+                    { "tittel": "Introduksjon til sikhismen", "link": "/krle/religion/sikhisme/introduksjon", "begrunnelse": "Sikhismens grunnsyn og posisjon i Norge og verden." }
+                ],
+                "spill": [
+                    { "tittel": "Sammenlign Religioner", "link": "/krle/sammenlign", "begrunnelse": "Interaktivt verktøy som setter sentrale trekk side om side." }
+                ]
+            }
         },
         {
             "id": "rle-10-2",
             "nummer": 2,
             "kortNavn": "Religion i historiske endringsprosesser",
             "tekst": "utforske og drøfte hvordan kristendom og andre religioner inngår i historiske endringsprosesser globalt og nasjonalt",
-            "innhold": {}
+            "innhold": {
+                "artikler": [
+                    { "tittel": "Jesus Kristus", "link": "/krle/religion/kristendom/grunnleggere", "begrunnelse": "Hvordan Jesu liv og forkynnelse endret historien." },
+                    { "tittel": "Profeten Muhammad", "link": "/krle/religion/islam/grunnleggere", "begrunnelse": "Muhammads liv og islams raske utbredelse." },
+                    { "tittel": "Abraham og Moses", "link": "/krle/religion/jodedom/grunnleggere", "begrunnelse": "Stamfedrene og det jødiske folkets historie." }
+                ],
+                "detektiv": [
+                    { "tittel": "Slaget ved Stiklestad", "link": "/oving/detektiv/stiklestad", "begrunnelse": "Olav Haraldssons død og kristningen av Norge." },
+                    { "tittel": "Lindisfarne 793", "link": "/oving/detektiv/lindisfarne", "begrunnelse": "Vikingenes raid mot et kristent kloster — møte mellom religioner." },
+                    { "tittel": "Svartedaudens ankomst", "link": "/oving/detektiv/svartedauden", "begrunnelse": "Kirkens rolle og religiøs respons under pestkrisen." },
+                    { "tittel": "Heksejakten i Vardø", "link": "/oving/detektiv/vardo", "begrunnelse": "Religion, frykt og rettsforfølgelse i tidlig nytid." }
+                ],
+                "spill": [
+                    { "tittel": "Lindisfarne 793", "link": "/oving/spill/lindisfarne-793", "begrunnelse": "Førstepersons-opplevelse av møtet mellom hedensk og kristen kultur." }
+                ]
+            }
         },
         {
             "id": "rle-10-3",
             "nummer": 3,
             "kortNavn": "Livssynshumanisme",
             "tekst": "undersøke og presentere sentrale ideer fra livssynshumanisme og andre ikke-religiøse livssyn",
-            "innhold": {}
+            "merknad": "Eiriksbok dekker humanistiske og sekulære tenkere gjennom filosofien. En egen artikkel om Human-Etisk Forbund og livssynshumanisme som organisert livssyn er under planlegging.",
+            "innhold": {
+                "artikler": [
+                    { "tittel": "Hva er filosofi?", "link": "/krle/filosofi/intro", "begrunnelse": "Filosofien som sekulær tradisjon for å stille de store spørsmålene." },
+                    { "tittel": "Friedrich Nietzsche", "link": "/krle/filosofi/nietzsche", "begrunnelse": "Religionskritikk og spørsmålet om mening uten Gud." },
+                    { "tittel": "Simone de Beauvoir", "link": "/krle/filosofi/beauvoir", "begrunnelse": "Eksistensialistisk humanisme og menneskelig frihet." },
+                    { "tittel": "Hannah Arendt", "link": "/krle/filosofi/arendt", "begrunnelse": "Sekulær politisk tenkning om menneskelig handling og dømmekraft." },
+                    { "tittel": "Hva er etikk?", "link": "/krle/etikk/intro", "begrunnelse": "Etikk som rasjonelt fag uavhengig av religiøs forankring." }
+                ]
+            }
         },
         {
             "id": "rle-10-4",
             "nummer": 4,
             "kortNavn": "Religiøst mangfold",
             "tekst": "utforske og presentere religiøst mangfold og religiøse praksiser utenfor etablerte religionssamfunn",
-            "innhold": {}
+            "innhold": {
+                "artikler": [
+                    { "tittel": "Introduksjon til Bahá'í", "link": "/krle/religion/bahai/intro", "begrunnelse": "En ung verdensreligion som vokser globalt." },
+                    { "tittel": "Introduksjon til Jehovas vitner", "link": "/krle/religion/jehovas-vitner/intro", "begrunnelse": "Et nyere kristent trossamfunn med distinkte praksiser." },
+                    { "tittel": "Introduksjon til Mormonisme", "link": "/krle/religion/mormonisme/intro", "begrunnelse": "Siste-dagers-hellige og deres egne hellige tekster." },
+                    { "tittel": "Introduksjon til sikhismen", "link": "/krle/religion/sikhisme/introduksjon", "begrunnelse": "En egen religion som vokste fram mellom hinduisme og islam." },
+                    { "tittel": "Sentrale trekk i Bahá'í", "link": "/krle/religion/bahai/sentrale-trekk", "begrunnelse": "Bahá'í-troens samlende prinsipper." }
+                ],
+                "spill": [
+                    { "tittel": "Sammenlign Religioner", "link": "/krle/sammenlign", "begrunnelse": "Sett mindre kjente trossamfunn ved siden av de store religionene." }
+                ]
+            }
         },
         {
             "id": "rle-10-5",
             "nummer": 5,
             "kortNavn": "Samiske og urfolks tradisjoner",
             "tekst": "gjøre rede for og reflektere over samenes og andre urfolks religions- og livssynstradisjoner",
+            "merknad": "Innhold om samisk religion og andre urfolkstradisjoner er under utvikling. Inntil videre dekkes temaet gjennom samfunnsfag og historie.",
             "innhold": {}
         },
         {
@@ -51,27 +100,61 @@
             "nummer": 6,
             "kortNavn": "Fagbegreper",
             "tekst": "bruke og drøfte fagbegreper om religioner og livssyn",
-            "innhold": {}
+            "innhold": {
+                "artikler": [
+                    { "tittel": "Sentrale trekk i kristendommen", "link": "/krle/religion/kristendom/sentrale-trekk", "begrunnelse": "Treenighet, frelse, nåde, sakrament — sentrale begreper." },
+                    { "tittel": "Sentrale trekk i Islam", "link": "/krle/religion/islam/sentrale-trekk", "begrunnelse": "Tawhid, shahada, umma — kjernebegreper i islam." },
+                    { "tittel": "Sentrale trekk i Jødedommen", "link": "/krle/religion/jodedom/sentrale-trekk", "begrunnelse": "Tora, mitzvot, monoteisme — jødedommens fagbegreper." },
+                    { "tittel": "Sentrale trekk i Hinduismen", "link": "/krle/religion/hinduisme/sentrale-trekk", "begrunnelse": "Dharma, karma, moksha, samsara — sentrale hinduistiske begreper." },
+                    { "tittel": "Sentrale trekk i Buddhismen", "link": "/krle/religion/buddhisme/sentrale-trekk", "begrunnelse": "De fire edle sannheter, nirvana, dharma — buddhistiske kjernebegreper." }
+                ],
+                "spill": [
+                    { "tittel": "Sammenlign Religioner", "link": "/krle/sammenlign", "begrunnelse": "Lær fagbegreper i sammenlignende kontekst." },
+                    { "tittel": "Sammenlign Filosofer", "link": "/krle/filosofi/sammenlign", "begrunnelse": "Filosofiske begreper på tvers av tenkere." }
+                ]
+            }
         },
         {
             "id": "rle-10-7",
             "nummer": 7,
             "kortNavn": "Kildekritikk i religion",
             "tekst": "sammenligne og vurdere kritisk ulike kilder til kunnskap om religioner og livssyn",
-            "innhold": {}
+            "innhold": {
+                "artikler": [
+                    { "tittel": "Bibelen", "link": "/krle/religion/kristendom/hellige-tekster", "begrunnelse": "Hvordan Bibelen ble til og hvordan den leses." },
+                    { "tittel": "Koranen", "link": "/krle/religion/islam/hellige-tekster", "begrunnelse": "Koranens tilblivelse og rolle som primærkilde." },
+                    { "tittel": "Tanakh og Talmud", "link": "/krle/religion/jodedom/hellige-tekster", "begrunnelse": "Tekstlag og tolkningstradisjon i jødedommen." },
+                    { "tittel": "Hva er filosofi?", "link": "/krle/filosofi/intro", "begrunnelse": "Filosofiens metoder for kritisk vurdering av påstander." }
+                ],
+                "detektiv": [
+                    { "tittel": "Heksejakten i Vardø", "link": "/oving/detektiv/vardo", "begrunnelse": "Vurder rettsdokumenter, tilståelser og samtidskilder kritisk." },
+                    { "tittel": "Slaget ved Stiklestad", "link": "/oving/detektiv/stiklestad", "begrunnelse": "Sammenlign religiøst farget og verdslig kildemateriale." }
+                ]
+            }
         },
         {
             "id": "rle-10-8",
             "nummer": 8,
             "kortNavn": "Kjønn og seksualitet i religion",
             "tekst": "gjøre rede for og reflektere over ulike syn på kjønn og seksualitet i kristendom og andre religioner og livssyn",
-            "innhold": {}
+            "merknad": "Mer dyptgående innhold om kjønn og seksualitet i de enkelte religionene er under utvikling.",
+            "innhold": {
+                "artikler": [
+                    { "tittel": "Simone de Beauvoir", "link": "/krle/filosofi/beauvoir", "begrunnelse": "Beauvoirs analyse av kvinnens posisjon i religion og samfunn." },
+                    { "tittel": "Overgangsriter i kristendommen", "link": "/krle/religion/kristendom/overgangsriter", "begrunnelse": "Ekteskap, kjønnsroller og familieliv i kristen tradisjon." },
+                    { "tittel": "Overgangsriter i Islam", "link": "/krle/religion/islam/overgangsriter", "begrunnelse": "Kjønn og familieliv i islamsk tradisjon." }
+                ],
+                "detektiv": [
+                    { "tittel": "Heksejakten i Vardø", "link": "/oving/detektiv/vardo", "begrunnelse": "Hvorfor ble nesten bare kvinner anklaget? Religion og kjønn i tidlig nytid." }
+                ]
+            }
         },
         {
             "id": "rle-10-9",
             "nummer": 9,
             "kortNavn": "Religion i medier og populærkultur",
             "tekst": "utforske og presentere hvordan elementer fra kristendom og andre religioner og livssyn kommer til uttrykk i medier og populærkultur",
+            "merknad": "Innhold om religion i film, musikk og medier er under utvikling.",
             "innhold": {}
         },
         {
@@ -79,42 +162,114 @@
             "nummer": 10,
             "kortNavn": "Etiske ideer i religioner",
             "tekst": "utforske og sammenligne etiske ideer fra sentrale skikkelser i religiøse og livssynsbaserte tradisjoner",
-            "innhold": {}
+            "innhold": {
+                "artikler": [
+                    { "tittel": "Jesus Kristus", "link": "/krle/religion/kristendom/grunnleggere", "begrunnelse": "Bergprekenen og nestekjærlighetsbudet." },
+                    { "tittel": "Profeten Muhammad", "link": "/krle/religion/islam/grunnleggere", "begrunnelse": "Muhammads etiske eksempel og hadith-litteraturen." },
+                    { "tittel": "Siddhartha Gautama (Buddha)", "link": "/krle/religion/buddhisme/grunnleggere", "begrunnelse": "Den åttedelte vei og buddhistisk etikk." },
+                    { "tittel": "Abraham og Moses", "link": "/krle/religion/jodedom/grunnleggere", "begrunnelse": "De ti bud og pakten som etisk grunnlag." },
+                    { "tittel": "Augustin", "link": "/krle/filosofi/augustin", "begrunnelse": "Kristen etikk: arvesynd, nåde og fri vilje." },
+                    { "tittel": "Thomas Aquinas", "link": "/krle/filosofi/aquinas", "begrunnelse": "Naturrett og kristen-aristotelisk etikk." }
+                ],
+                "spill": [
+                    { "tittel": "Sammenlign Religioner", "link": "/krle/sammenlign", "begrunnelse": "Sammenlign etiske idealer på tvers av religioner." }
+                ]
+            }
         },
         {
             "id": "rle-10-11",
             "nummer": 11,
             "kortNavn": "Filosofi og etikk",
             "tekst": "utforske etiske ideer fra sentrale skikkelser i filosofihistorien og anvende ideene til å drøfte aktuelle etiske spørsmål",
-            "innhold": {}
+            "innhold": {
+                "artikler": [
+                    { "tittel": "Hva er etikk?", "link": "/krle/etikk/intro", "begrunnelse": "Innføring i etikkens grunnbegreper og hovedretninger." },
+                    { "tittel": "Dygdsetikk", "link": "/krle/etikk/dygdsetikk", "begrunnelse": "Aristoteles' dygdsetikk og karakterdannelse." },
+                    { "tittel": "Pliktetikk", "link": "/krle/etikk/pliktetikk", "begrunnelse": "Kants kategoriske imperativ og pliktbegrepet." },
+                    { "tittel": "Utilitarisme", "link": "/krle/etikk/utilitarisme", "begrunnelse": "Konsekvensetikk og største lykke-prinsippet." },
+                    { "tittel": "Naturretten", "link": "/krle/etikk/naturrett", "begrunnelse": "Lockes rettighetsteori." },
+                    { "tittel": "Sokrates", "link": "/krle/filosofi/sokrates", "begrunnelse": "Den sokratiske metoden og det gode liv." },
+                    { "tittel": "Aristoteles", "link": "/krle/filosofi/aristoteles", "begrunnelse": "Den gylne middelvei og dygdsetikk." },
+                    { "tittel": "Immanuel Kant", "link": "/krle/filosofi/kant", "begrunnelse": "Pliktetikk og menneskeverd." },
+                    { "tittel": "Hannah Arendt", "link": "/krle/filosofi/arendt", "begrunnelse": "Ondskapens banalitet og moralsk dømmekraft." }
+                ],
+                "spill": [
+                    { "tittel": "Den filosofiske odysséen", "link": "/krle/filosofi/odyssey", "begrunnelse": "Personlig læringsportal gjennom filosofihistorien." },
+                    { "tittel": "Etikk-eksperimentet", "link": "/oving/etikk", "begrunnelse": "Anvend ulike etiske teorier på dilemmaer." },
+                    { "tittel": "Sokrates i fengselet", "link": "/oving/spill/sokrates-fengsel", "begrunnelse": "3D-spill: bør Sokrates drikke giftbegeret? Anvend etiske teorier i praksis." }
+                ]
+            }
         },
         {
             "id": "rle-10-12",
             "nummer": 12,
             "kortNavn": "Perspektiver og uenighet",
             "tekst": "utforske andres perspektiv og håndtere uenighet og meningsbrytning",
-            "innhold": {}
+            "innhold": {
+                "artikler": [
+                    { "tittel": "Sokrates", "link": "/krle/filosofi/sokrates", "begrunnelse": "Den sokratiske metoden: å undersøke gjennom dialog og spørsmål." },
+                    { "tittel": "Friedrich Nietzsche", "link": "/krle/filosofi/nietzsche", "begrunnelse": "Perspektivisme: ulike ståsteder gir ulike sannheter." },
+                    { "tittel": "Hannah Arendt", "link": "/krle/filosofi/arendt", "begrunnelse": "Pluralitet og samtale som politisk grunnvilkår." }
+                ],
+                "spill": [
+                    { "tittel": "Sammenlign Religioner", "link": "/krle/sammenlign", "begrunnelse": "Se ulike trosperspektiver side om side." },
+                    { "tittel": "Sammenlign Filosofer", "link": "/krle/filosofi/sammenlign", "begrunnelse": "Hvordan svarer filosofer ulikt på samme spørsmål?" },
+                    { "tittel": "Sokrates i fengselet", "link": "/oving/spill/sokrates-fengsel", "begrunnelse": "Dialog med Kriton: håndtere uenighet om plikt og loven." }
+                ]
+            }
         },
         {
             "id": "rle-10-13",
             "nummer": 13,
             "kortNavn": "Eksistensielle spørsmål",
             "tekst": "reflektere over eksistensielle spørsmål knyttet til det å vokse opp og leve i et mangfoldig og globalt samfunn",
-            "innhold": {}
+            "innhold": {
+                "artikler": [
+                    { "tittel": "Søren Kierkegaard", "link": "/krle/filosofi/kierkegaard", "begrunnelse": "Eksistensielle stadier, angst og troens sprang." },
+                    { "tittel": "Martin Heidegger", "link": "/krle/filosofi/heidegger", "begrunnelse": "Væren-mot-døden og autentisk eksistens." },
+                    { "tittel": "Friedrich Nietzsche", "link": "/krle/filosofi/nietzsche", "begrunnelse": "Mening i en verden der Gud er død." },
+                    { "tittel": "Simone de Beauvoir", "link": "/krle/filosofi/beauvoir", "begrunnelse": "Frihet, ansvar og det å skape sitt eget liv." },
+                    { "tittel": "Augustin", "link": "/krle/filosofi/augustin", "begrunnelse": "Tid, minne og søken etter mening." }
+                ],
+                "tidsreise": [
+                    { "tittel": "Skyttergravenes ekko (1. verdenskrig)", "link": "/oving/tidsreise/ww1-vestfront", "begrunnelse": "Død, mening og menneskelig vilkår i ekstreme situasjoner." },
+                    { "tittel": "I supermaktenes skygge (Den kalde krigen)", "link": "/oving/tidsreise/kald-krig", "begrunnelse": "Eksistensiell frykt og ideologi i en globalisert konflikt." }
+                ]
+            }
         },
         {
             "id": "rle-10-14",
             "nummer": 14,
             "kortNavn": "Etikk i kommunikasjon",
             "tekst": "identifisere og drøfte etiske problemstillinger knyttet til ulike former for kommunikasjon",
-            "innhold": {}
+            "innhold": {
+                "artikler": [
+                    { "tittel": "Sokrates", "link": "/krle/filosofi/sokrates", "begrunnelse": "Sokratisk dialog som etisk samtaleform." },
+                    { "tittel": "Hva er filosofi?", "link": "/krle/filosofi/intro", "begrunnelse": "Saklig argumentasjon og kritisk tenkning." },
+                    { "tittel": "Hannah Arendt", "link": "/krle/filosofi/arendt", "begrunnelse": "Politisk samtale, sannhet og løgn i offentligheten." }
+                ],
+                "spill": [
+                    { "tittel": "Sokrates i fengselet", "link": "/oving/spill/sokrates-fengsel", "begrunnelse": "Etisk dialog under tidspress med Kriton." }
+                ]
+            }
         },
         {
             "id": "rle-10-15",
             "nummer": 15,
             "kortNavn": "Menneskerettigheter og bærekraft",
             "tekst": "identifisere og drøfte aktuelle etiske problemstillinger knyttet til menneskerettigheter, bærekraft og fattigdom",
-            "innhold": {}
+            "innhold": {
+                "artikler": [
+                    { "tittel": "John Locke", "link": "/krle/filosofi/locke", "begrunnelse": "Naturlige rettigheter — grunnlaget for moderne menneskerettigheter." },
+                    { "tittel": "Naturretten", "link": "/krle/etikk/naturrett", "begrunnelse": "Hvor kommer rettigheter fra, og hvor ufravikelige er de?" },
+                    { "tittel": "Hannah Arendt", "link": "/krle/filosofi/arendt", "begrunnelse": "'Retten til å ha rettigheter' og statsløshet." },
+                    { "tittel": "Ikke-aggresjonsprinsippet", "link": "/krle/etikk/non-aggression", "begrunnelse": "Etisk grunnregel for sameksistens uten tvang." }
+                ],
+                "tidsreise": [
+                    { "tittel": "Veien mot mørket (mellomkrigstiden)", "link": "/oving/tidsreise/mellomkrigstiden-del1", "begrunnelse": "Når menneskerettighetene brytes ned — historiske valg." },
+                    { "tittel": "I supermaktenes skygge (Den kalde krigen)", "link": "/oving/tidsreise/kald-krig", "begrunnelse": "Menneskerettigheter under to konkurrerende ideologier." }
+                ]
+            }
         }
     ],
     "kjennetegn": {

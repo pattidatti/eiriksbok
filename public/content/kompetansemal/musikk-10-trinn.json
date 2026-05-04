@@ -5,7 +5,7 @@
     "lkTitel": "Læreplan i musikk (LK20)",
     "trinn": "10",
     "trinnLabel": "Etter 10. trinn",
-    "merknad": "Musikk-faget i Eiriksbok dekker grunnleggende musikkteori, instrumenter, komposisjon og musikkhistorie. Mappingen mellom kompetansemål og innhold blir fylt ut i en senere runde.",
+    "merknad": "Musikk-faget i Eiriksbok dekker grunnleggende musikkteori (takt, rytme, akkorder, notasjon), instrumentintroer (piano, gitar, bass, trommer), komposisjon med interaktivt verktøy, og oppslagsverk for akkorder og rytmer. Mye av faget er praktisk og foregår i klasserommet — de digitale ressursene støtter teori, øving og skapende arbeid.",
     "kilde": {
         "kompetansemaal": "https://www.udir.no/lk20/mus01-02/kompetansemaal-og-vurdering/kv196",
         "kjennetegn": "https://www.udir.no/lk20/mus01-02"
@@ -16,13 +16,26 @@
             "nummer": 1,
             "kortNavn": "Utøve musikk og dans",
             "tekst": "utøve et variert repertoar av musikk, sang, andre vokale uttrykk og dans",
-            "innhold": {}
+            "merknad": "Selve utøvingen skjer i klasserommet. De digitale ressursene under støtter forberedelse og teknikk på instrument.",
+            "innhold": {
+                "artikler": [
+                    { "tittel": "Piano: Introduksjon", "link": "/musikk/instrumenter/piano-intro", "begrunnelse": "Grunnleggende pianoteknikk for utøving." },
+                    { "tittel": "Gitar: Introduksjon", "link": "/musikk/instrumenter/gitar-intro", "begrunnelse": "Grunnleggende gitarteknikk for utøving." },
+                    { "tittel": "Bass: Introduksjon", "link": "/musikk/instrumenter/bass-intro", "begrunnelse": "Grunnleggende bassteknikk for utøving." },
+                    { "tittel": "Trommer: Introduksjon", "link": "/musikk/instrumenter/trommer-intro", "begrunnelse": "Grunnleggende trommeteknikk for utøving." }
+                ],
+                "spill": [
+                    { "tittel": "Akkordbank", "link": "/musikk/oppslag/akkordbank", "begrunnelse": "Oppslagsverk for akkorder du trenger når du øver." },
+                    { "tittel": "Rytmebank", "link": "/musikk/oppslag/rytmebank", "begrunnelse": "Oppslagsverk for rytmer og grooves." }
+                ]
+            }
         },
         {
             "id": "mus-10-2",
             "nummer": 2,
             "kortNavn": "Tradisjon og fornyelse",
             "tekst": "reflektere over hvordan musikalske tradisjoner, inkludert samiske musikktradisjoner, bevares og fornyes",
+            "merknad": "Innhold om samisk musikk (joik) og andre musikktradisjoner i historisk og samtidig perspektiv er under utvikling.",
             "innhold": {}
         },
         {
@@ -30,48 +43,96 @@
             "nummer": 3,
             "kortNavn": "Samarbeide og formidle",
             "tekst": "samarbeide med andre om å planlegge og gjennomføre øvingsprosesser hvor det inngår selvvalgt sang, andre vokale uttrykk, spill på instrumenter eller dans, og formidle resultatet i gruppe eller individuelt",
-            "innhold": {}
+            "merknad": "Dette målet vurderes hovedsakelig gjennom praktisk gruppearbeid i klasserommet. Vurderingskriteriene gir veiledning.",
+            "innhold": {
+                "artikler": [
+                    { "tittel": "Hva blir vi vurdert i?", "link": "/musikk/vurdering/vurderingskriterier", "begrunnelse": "Hvordan øvings- og samarbeidsprosesser vurderes i musikkfaget." },
+                    { "tittel": "Låtens anatomi", "link": "/musikk/komposisjon/lat-struktur", "begrunnelse": "Forstå låtstruktur — nyttig for å planlegge framføring." }
+                ]
+            }
         },
         {
             "id": "mus-10-4",
             "nummer": 4,
             "kortNavn": "Skape og programmere",
             "tekst": "skape og programmere musikalske forløp ved å eksperimentere med lyd fra ulike kilder",
-            "innhold": {}
+            "innhold": {
+                "spill": [
+                    { "tittel": "Komposisjonsverktøyet", "link": "/musikk/komposisjon", "begrunnelse": "Interaktivt verktøy for å skape og programmere musikalske forløp." }
+                ],
+                "artikler": [
+                    { "tittel": "Låtens anatomi", "link": "/musikk/komposisjon/lat-struktur", "begrunnelse": "Hvordan en låt bygges opp — grunnlag for egen komposisjon." },
+                    { "tittel": "Akkorder og harmoni", "link": "/musikk/grunnleggende/akkorder-og-harmoni", "begrunnelse": "Bygge harmoniske forløp." },
+                    { "tittel": "Takt og rytme", "link": "/musikk/grunnleggende/takt-og-rytme", "begrunnelse": "Programmere rytmiske mønstre." }
+                ]
+            }
         },
         {
             "id": "mus-10-5",
             "nummer": 5,
             "kortNavn": "Musikalske virkemidler",
             "tekst": "utforske og formidle musikalske opplevelser og erfaringer, og reflektere over bruk av musikalske virkemidler",
-            "innhold": {}
+            "innhold": {
+                "artikler": [
+                    { "tittel": "Takt og rytme", "link": "/musikk/grunnleggende/takt-og-rytme", "begrunnelse": "Rytme som musikalsk virkemiddel." },
+                    { "tittel": "Akkorder og harmoni", "link": "/musikk/grunnleggende/akkorder-og-harmoni", "begrunnelse": "Hvordan harmonier skaper stemning." },
+                    { "tittel": "Låtens anatomi", "link": "/musikk/komposisjon/lat-struktur", "begrunnelse": "Hvordan strukturelle valg er virkemidler." }
+                ]
+            }
         },
         {
             "id": "mus-10-6",
             "nummer": 6,
             "kortNavn": "Skapende prosesser",
             "tekst": "lytte og prøve ut ulike uttrykk og begrunne valg i skapende prosesser fra idé til ferdig resultat",
-            "innhold": {}
+            "innhold": {
+                "artikler": [
+                    { "tittel": "Låtens anatomi", "link": "/musikk/komposisjon/lat-struktur", "begrunnelse": "Fra idé til ferdig låt — strukturelle valg." },
+                    { "tittel": "Hva blir vi vurdert i?", "link": "/musikk/vurdering/vurderingskriterier", "begrunnelse": "Begrunne valg i skapende prosesser." }
+                ],
+                "spill": [
+                    { "tittel": "Komposisjonsverktøyet", "link": "/musikk/komposisjon", "begrunnelse": "Prøv ut uttrykk og hør resultatet underveis." }
+                ]
+            }
         },
         {
             "id": "mus-10-7",
             "nummer": 7,
             "kortNavn": "Gehør og notasjon",
             "tekst": "bruke gehør og notasjonsteknikker som støtte i skapende arbeid",
-            "innhold": {}
+            "innhold": {
+                "artikler": [
+                    { "tittel": "Notasjon", "link": "/musikk/grunnleggende/notasjon", "begrunnelse": "Lese og skrive noter." },
+                    { "tittel": "Akkorder og harmoni", "link": "/musikk/grunnleggende/akkorder-og-harmoni", "begrunnelse": "Akkordsymboler og funksjonsanalyse." }
+                ],
+                "spill": [
+                    { "tittel": "Akkordbank", "link": "/musikk/oppslag/akkordbank", "begrunnelse": "Slå opp akkorder med notasjon." },
+                    { "tittel": "Rytmebank", "link": "/musikk/oppslag/rytmebank", "begrunnelse": "Slå opp rytmer i notasjon." },
+                    { "tittel": "Komposisjonsverktøyet", "link": "/musikk/komposisjon", "begrunnelse": "Skrive musikk med notasjonsteknikker." }
+                ]
+            }
         },
         {
             "id": "mus-10-8",
             "nummer": 8,
             "kortNavn": "Fagbegreper",
             "tekst": "bruke relevante fagbegreper i skapende arbeid og i refleksjon over prosesser og resultater",
-            "innhold": {}
+            "innhold": {
+                "artikler": [
+                    { "tittel": "Takt og rytme", "link": "/musikk/grunnleggende/takt-og-rytme", "begrunnelse": "Sentrale rytmiske fagbegreper." },
+                    { "tittel": "Akkorder og harmoni", "link": "/musikk/grunnleggende/akkorder-og-harmoni", "begrunnelse": "Harmonifagbegreper: dur, moll, dominant, subdominant." },
+                    { "tittel": "Notasjon", "link": "/musikk/grunnleggende/notasjon", "begrunnelse": "Fagspråket for å skrive musikk." },
+                    { "tittel": "Låtens anatomi", "link": "/musikk/komposisjon/lat-struktur", "begrunnelse": "Vers, refreng, bro — strukturelle fagbegreper." },
+                    { "tittel": "Hva blir vi vurdert i?", "link": "/musikk/vurdering/vurderingskriterier", "begrunnelse": "Bruke fagspråk i refleksjon over eget arbeid." }
+                ]
+            }
         },
         {
             "id": "mus-10-9",
             "nummer": 9,
             "kortNavn": "Musikk i historie og samtid",
             "tekst": "utforske og reflektere over hvordan musikk, sang og dans som estetiske uttrykk er påvirket av og uttrykk for historiske og samfunnsmessige forhold, og skape musikalske uttrykk som tar opp utfordringer i samtiden",
+            "merknad": "Egne artikler om musikkhistorie og samfunnskritisk musikk er under utvikling.",
             "innhold": {}
         },
         {
@@ -79,6 +140,7 @@
             "nummer": 10,
             "kortNavn": "Musikk og samfunn",
             "tekst": "utforske og drøfte musikkens og dansens betydning i samfunnet og etiske problemstillinger knyttet til musikalske ytringer og musikkulturer",
+            "merknad": "Innhold om musikkindustri, opphavsrett og etiske dilemmaer i musikkulturer er under utvikling.",
             "innhold": {}
         }
     ],

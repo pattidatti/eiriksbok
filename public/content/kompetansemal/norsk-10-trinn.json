@@ -5,7 +5,7 @@
     "lkTitel": "Læreplan i norsk (LK20)",
     "trinn": "10",
     "trinnLabel": "Etter 10. trinn",
-    "merknad": "Norsk-faget i Eiriksbok dekker lesing, skriving, litteraturhistorie, retorikk, virkemidler og språkhistorie. Mappingen mellom kompetansemål og innhold blir fylt ut i en senere runde.",
+    "merknad": "Norsk-faget i Eiriksbok dekker lesing, skriving, litteraturhistorie, retorikk, virkemidler, grammatikk, sjangerkunnskap og et bibliotek med 30+ tekster. Hvert kompetansemål er knyttet til artiklene, læringsstiene, tekstene og spillene som best underbygger målet.",
     "kilde": {
         "kompetansemaal": "https://www.udir.no/lk20/nor01-06/kompetansemaal-og-vurdering/kv111",
         "kjennetegn": "https://www.udir.no/lk20/nor01-06"
@@ -16,112 +16,275 @@
             "nummer": 1,
             "kortNavn": "Lese og reflektere over tekster",
             "tekst": "lese skjønnlitteratur og sakprosa på bokmål og nynorsk og i oversettelse fra samiske og andre språk, og reflektere over tekstenes formål, innhold, sjangertrekk og virkemidler",
-            "innhold": {}
+            "innhold": {
+                "artikler": [
+                    { "tittel": "Tema og budskap", "link": "/norsk/analyse/tema-og-budskap", "begrunnelse": "Hvordan finne mening: fra handling til tolkning." },
+                    { "tittel": "Analysere novelle", "link": "/norsk/analyse/analyse-novelle", "begrunnelse": "Lese og reflektere over noveller." },
+                    { "tittel": "Analysere roman", "link": "/norsk/analyse/analyse-roman", "begrunnelse": "Karakter og utvikling i lange fortellinger." },
+                    { "tittel": "Analysere dikt", "link": "/norsk/analyse/analyse-dikt", "begrunnelse": "Pakke ut komprimert mening i lyrikk." },
+                    { "tittel": "Analysere fagartikkel", "link": "/norsk/analyse/analyse-fagartikkel", "begrunnelse": "Lese og forstå sakprosa." },
+                    { "tittel": "Analysere debattinnlegg", "link": "/norsk/analyse/analyse-debattinnlegg", "begrunnelse": "Avsløre teknikker i argumenterende sakprosa." }
+                ],
+                "stier": [
+                    { "tittel": "Læringssti: Fra lesning til analysetekst", "link": "/norsk/analyse/tekstanalyse-sti", "begrunnelse": "Lære å finne virkemidler, knytte til tema og skrive overbevisende analyser." }
+                ],
+                "spill": [
+                    { "tittel": "Tekstbiblioteket", "link": "/norsk/bibliotek", "begrunnelse": "30+ tekster: noveller, romanutdrag, dikt og sakprosa fra ulike tider." }
+                ]
+            }
         },
         {
             "id": "nor-10-2",
             "nummer": 2,
             "kortNavn": "Tolke tekster i kontekst",
             "tekst": "sammenligne og tolke romaner, noveller, lyrikk og andre tekster ut fra historisk kontekst og egen samtid",
-            "innhold": {}
+            "innhold": {
+                "artikler": [
+                    { "tittel": "Nasjonalromantikken", "link": "/norsk/litteraturhistorie/nasjonalromantikken", "begrunnelse": "Tekster i sin historiske kontekst: 1800-tallets nasjonsbygging." },
+                    { "tittel": "Realismen", "link": "/norsk/litteraturhistorie/realismen", "begrunnelse": "Når litteraturen ville endre samfunnet." },
+                    { "tittel": "Nyromantikken", "link": "/norsk/litteraturhistorie/ny-romantikken", "begrunnelse": "1890-tallets følelser og mystikk." },
+                    { "tittel": "Nyrealismen", "link": "/norsk/litteraturhistorie/ny-realismen", "begrunnelse": "Etter 1905: etikk, historie og hverdag." },
+                    { "tittel": "Tema og budskap", "link": "/norsk/analyse/tema-og-budskap", "begrunnelse": "Tolke tekstens mening i lys av samtid og kontekst." }
+                ],
+                "stier": [
+                    { "tittel": "Læringssti: Romantikken", "link": "/norsk/litteraturhistorie/romantikken-sti", "begrunnelse": "Reise gjennom 1800-tallets følelser og nasjonsbygging." },
+                    { "tittel": "Læringssti: Realismen", "link": "/norsk/litteraturhistorie/realismen-sti", "begrunnelse": "Fra dukkehjem til folkefiender." },
+                    { "tittel": "Læringssti: Nyromantikken", "link": "/norsk/litteraturhistorie/nyromantikken-sti", "begrunnelse": "Reise gjennom 1890-tallets litteratur." },
+                    { "tittel": "Læringssti: Nyrealismen", "link": "/norsk/litteraturhistorie/nyrealismen-sti", "begrunnelse": "Tid for historie, røtter og fabrikkpiper." }
+                ]
+            }
         },
         {
             "id": "nor-10-3",
             "nummer": 3,
             "kortNavn": "Lesestrategier",
             "tekst": "beskrive og reflektere over egen bruk av lesestrategier i lesing av skjønnlitteratur og sakprosa",
-            "innhold": {}
+            "innhold": {
+                "artikler": [
+                    { "tittel": "Analysere novelle", "link": "/norsk/analyse/analyse-novelle", "begrunnelse": "Strukturert lesing: oppbygning, vendepunkt og tolkning." },
+                    { "tittel": "Analysere fagartikkel", "link": "/norsk/analyse/analyse-fagartikkel", "begrunnelse": "Sakprosa-modellen: lese strukturert for å trekke ut innhold." },
+                    { "tittel": "Hvordan skrive reflekterende", "link": "/norsk/skrivehjelp/hvordan-skrive-reflekterende", "begrunnelse": "Reflektere over egen leseopplevelse." },
+                    { "tittel": "Skriftlig eksamen", "link": "/norsk/eksamen/skriftlig", "begrunnelse": "Lesestrategier i eksamenssituasjon." }
+                ],
+                "stier": [
+                    { "tittel": "Læringssti: Hvordan skrive reflekterende", "link": "/norsk/skrivehjelp/reflekterende-skriving-sti", "begrunnelse": "Reflektere over hva og hvordan man leser." }
+                ]
+            }
         },
         {
             "id": "nor-10-4",
             "nummer": 4,
             "kortNavn": "Svensk og dansk",
             "tekst": "lytte til og lese tekster på svensk og dansk og gjøre rede for innhold og språklige trekk",
-            "innhold": {}
+            "merknad": "Egne lese- og lyttetekster på svensk og dansk er under utvikling. Inntil videre dekkes nabospråk delvis gjennom artikkelen om germanske språk.",
+            "innhold": {
+                "artikler": [
+                    { "tittel": "De germanske søskenbarna", "link": "/norsk/sprakhistorie/germanske-sprak", "begrunnelse": "Hvorfor norsk, svensk, dansk, engelsk og tysk er i slekt." }
+                ]
+            }
         },
         {
             "id": "nor-10-5",
             "nummer": 5,
             "kortNavn": "Unges livssituasjon i tekst",
             "tekst": "utforske og reflektere over hvordan tekster framstiller unges livssituasjon",
-            "innhold": {}
+            "innhold": {
+                "spill": [
+                    { "tittel": "Tekstbiblioteket", "link": "/norsk/bibliotek", "begrunnelse": "Tekster som «Aldri godt nok», «Ung gutt i snø», «Karen» og «Karens jul» framstiller unges livsvilkår." }
+                ],
+                "artikler": [
+                    { "tittel": "Aldri godt nok", "link": "/norsk/bibliotek/aldri-godt-nok", "begrunnelse": "Digital novelle om prestasjonspress hos ungdom." },
+                    { "tittel": "Ung gutt i snø", "link": "/norsk/bibliotek/ung-gutt-i-sno", "begrunnelse": "Novelle om en gutts indre liv." },
+                    { "tittel": "Karen", "link": "/norsk/bibliotek/karen", "begrunnelse": "Skjebnen til en ung pike." },
+                    { "tittel": "Karens jul", "link": "/norsk/bibliotek/karens-jul", "begrunnelse": "Klassisk novelle om barnefattigdom." },
+                    { "tittel": "KI-Botox", "link": "/norsk/bibliotek/ki-botox", "begrunnelse": "Samtidstekst om unges liv med kunstig intelligens." }
+                ]
+            }
         },
         {
             "id": "nor-10-6",
             "nummer": 6,
             "kortNavn": "Virkemidler og retorikk",
             "tekst": "gjenkjenne og bruke språklige virkemidler og retoriske appellformer",
-            "innhold": {}
+            "innhold": {
+                "artikler": [
+                    { "tittel": "Hva er retorikk?", "link": "/norsk/retorikk/grunnleggende-retorikk", "begrunnelse": "Innføring i etos, patos og logos." },
+                    { "tittel": "Tidens tannhjul (tid og struktur)", "link": "/norsk/virkemidler/tid-og-struktur", "begrunnelse": "Tidsmanipulering: in medias res, frampek, tilbakeblikk." },
+                    { "tittel": "Språkets farger (bildespråk)", "link": "/norsk/virkemidler/bildesprak-og-effekter", "begrunnelse": "Metafor, sammenligning og tekstrytme." },
+                    { "tittel": "Hvem eier historien? (synsvinkel)", "link": "/norsk/virkemidler/synsvinkel-og-stemme", "begrunnelse": "Synsvinkel, perspektiv og fortellerstemme." },
+                    { "tittel": "Analysere debattinnlegg", "link": "/norsk/analyse/analyse-debattinnlegg", "begrunnelse": "Avsløre etos, patos og logos i argumenterende tekster." }
+                ],
+                "spill": [
+                    { "tittel": "Retorikk-spillet", "link": "/oving/retorikk", "begrunnelse": "Trening i å gjenkjenne retoriske virkemidler." },
+                    { "tittel": "Virkemiddelverkstedet", "link": "/oving/virkemidler", "begrunnelse": "Trening i å gjenkjenne metaforer, symboler og andre virkemidler." },
+                    { "tittel": "Konsept-Slange", "link": "/oving/konsept-snake", "begrunnelse": "Lær virkemiddelbegreper i et raskt arkadespill." }
+                ]
+            }
         },
         {
             "id": "nor-10-7",
             "nummer": 7,
             "kortNavn": "Kildebruk og sitering",
             "tekst": "bruke kilder på en kritisk måte, markere sitater og vise til kilder på en etterrettelig måte i egne tekster",
-            "innhold": {}
+            "innhold": {
+                "artikler": [
+                    { "tittel": "Hvordan føre kilder (APA 7)", "link": "/norsk/skrivehjelp/hvordan-fore-kilder", "begrunnelse": "Hvordan vise til nettsider, video og avis på korrekt måte." },
+                    { "tittel": "Hvordan skrive gode saktekster", "link": "/norsk/skrivehjelp/hvordan-skrive-gode-saktekster", "begrunnelse": "Saklig sakprosa krever ryddig kildebruk." },
+                    { "tittel": "Hvordan drøfte", "link": "/norsk/skrivehjelp/hvordan-drofte", "begrunnelse": "Å drøfte krever å støtte påstander med kilder." }
+                ],
+                "stier": [
+                    { "tittel": "Læringssti: Kildeføring (APA 7)", "link": "/norsk/skrivehjelp/kildeforing-sti", "begrunnelse": "Lær å sitere kilder som en proff, steg for steg." }
+                ],
+                "detektiv": [
+                    { "tittel": "Slaget ved Stiklestad", "link": "/oving/detektiv/stiklestad", "begrunnelse": "Vurder gamle kilder kritisk." },
+                    { "tittel": "Heksejakten i Vardø", "link": "/oving/detektiv/vardo", "begrunnelse": "Hva slags kilder kan man stole på?" }
+                ]
+            }
         },
         {
             "id": "nor-10-8",
             "nummer": 8,
             "kortNavn": "Digitale medier og språk",
             "tekst": "utforske og vurdere hvordan digitale medier påvirker og endrer språk og kommunikasjon",
-            "innhold": {}
+            "innhold": {
+                "artikler": [
+                    { "tittel": "Hvordan lage kortfilm", "link": "/norsk/skrivehjelp/hvordan-lage-kortfilm", "begrunnelse": "Fra manus til ferdig film: digital tekstskaping." },
+                    { "tittel": "Twitter-noveller", "link": "/norsk/bibliotek/twitter-noveller", "begrunnelse": "Eksempel på hvordan digitale medier former nye sjangre." },
+                    { "tittel": "KI-Botox", "link": "/norsk/bibliotek/ki-botox", "begrunnelse": "Samtidstekst om kunstig intelligens og kommunikasjon." },
+                    { "tittel": "Fordummende intelligent teknologi", "link": "/norsk/bibliotek/fordummende-intelligent-teknologi", "begrunnelse": "Sakprosa om hvordan teknologi påvirker oss." }
+                ]
+            }
         },
         {
             "id": "nor-10-9",
             "nummer": 9,
             "kortNavn": "Saklig argumentasjon",
             "tekst": "bruke fagspråk og argumentere saklig i diskusjoner, samtaler, muntlige presentasjoner og skriftlige framstillinger om norskfaglige og tverrfaglige temaer",
-            "innhold": {}
+            "innhold": {
+                "artikler": [
+                    { "tittel": "Hvordan drøfte", "link": "/norsk/skrivehjelp/hvordan-drofte", "begrunnelse": "Påstand, argument, motargument og konklusjon." },
+                    { "tittel": "Debattinnlegg", "link": "/norsk/tekstsjangre/debattinnlegg", "begrunnelse": "Argumenterende tekst for et standpunkt." },
+                    { "tittel": "Hvordan skrive gode saktekster", "link": "/norsk/skrivehjelp/hvordan-skrive-gode-saktekster", "begrunnelse": "Bygge gode avsnitt med tema og bindeord." },
+                    { "tittel": "Muntlig eksamen", "link": "/norsk/eksamen/muntlig", "begrunnelse": "Mestre saklig argumentasjon i samtale." },
+                    { "tittel": "Hva er retorikk?", "link": "/norsk/retorikk/grunnleggende-retorikk", "begrunnelse": "Etos, patos og logos i seriøs argumentasjon." }
+                ]
+            }
         },
         {
             "id": "nor-10-10",
             "nummer": 10,
             "kortNavn": "Sjangre og formål",
             "tekst": "informere, fortelle, argumentere og reflektere i ulike muntlige og skriftlige sjangre og for ulike formål tilpasset mottaker og medium",
-            "innhold": {}
+            "innhold": {
+                "artikler": [
+                    { "tittel": "Novelle", "link": "/norsk/tekstsjangre/novelle", "begrunnelse": "Korte fortellinger med tydelig konflikt." },
+                    { "tittel": "Eventyr", "link": "/norsk/tekstsjangre/eventyr", "begrunnelse": "Magi og overnaturlige vesener." },
+                    { "tittel": "Roman", "link": "/norsk/tekstsjangre/roman", "begrunnelse": "Lange fortellinger med dyp utvikling." },
+                    { "tittel": "Dikt (lyrikk)", "link": "/norsk/tekstsjangre/dikt", "begrunnelse": "Følelser og stemninger i komprimert form." },
+                    { "tittel": "Fagartikkel", "link": "/norsk/tekstsjangre/artikkel", "begrunnelse": "Saklig formidling av kunnskap." },
+                    { "tittel": "Debattinnlegg", "link": "/norsk/tekstsjangre/debattinnlegg", "begrunnelse": "Argumentere for et standpunkt." },
+                    { "tittel": "Kommentar", "link": "/norsk/tekstsjangre/kommentar", "begrunnelse": "Subjektiv analyse med tydelig stemme." },
+                    { "tittel": "Reflekterende tekst", "link": "/norsk/tekstsjangre/reflekterende-tekst", "begrunnelse": "Undring og refleksjon i tekst." },
+                    { "tittel": "Muntlig eksamen", "link": "/norsk/eksamen/muntlig", "begrunnelse": "Tilpasse muntlig framføring til mottaker og formål." }
+                ]
+            }
         },
         {
             "id": "nor-10-11",
             "nummer": 11,
             "kortNavn": "Hovedmål og sidemål",
             "tekst": "skrive tekster med funksjonell tekstbinding og riktig tegnsetting og mestre rettskriving og ordbøying på hovedmål og sidemål",
-            "innhold": {}
+            "merknad": "Sidemålsspesifikt innhold (rettskriving og bøying på nynorsk for bokmålselever, og motsatt) er under utvikling. Foreløpig dekkes grunnlaget gjennom artikler om grammatikk og setningsoppbygging.",
+            "innhold": {
+                "artikler": [
+                    { "tittel": "Setningsanalyse", "link": "/norsk/grammatikk/setningsanalyse", "begrunnelse": "Hvordan analysere setninger." },
+                    { "tittel": "Nivå 1: Grunnmuren (S-V)", "link": "/norsk/setningsoppbygging/niva-1-grunnmuren", "begrunnelse": "Subjekt og verbal — setningens skjelett." },
+                    { "tittel": "Nivå 2: Objekt og adverbial", "link": "/norsk/setningsoppbygging/niva-2-utvidet", "begrunnelse": "Utvide setninger funksjonelt." },
+                    { "tittel": "Nivå 3: V2-regelen", "link": "/norsk/setningsoppbygging/niva-3-v2-regelen", "begrunnelse": "Verbet på plass nummer 2 — hovedregelen i norsk." },
+                    { "tittel": "Nivå 4: Leddsetninger", "link": "/norsk/setningsoppbygging/niva-4-leddsetninger", "begrunnelse": "Setningsbinding og nektelse i leddsetninger." },
+                    { "tittel": "Hvordan skrive gode saktekster", "link": "/norsk/skrivehjelp/hvordan-skrive-gode-saktekster", "begrunnelse": "Bygge gode avsnitt med funksjonell tekstbinding." }
+                ]
+            }
         },
         {
             "id": "nor-10-12",
             "nummer": 12,
             "kortNavn": "Grammatikk og tekstanalyse",
             "tekst": "bruke fagspråk og kunnskap om grammatikk, tekststruktur og sjanger i samtale om og bearbeiding av tekster",
-            "innhold": {}
+            "innhold": {
+                "artikler": [
+                    { "tittel": "Substantiv", "link": "/norsk/ordklasser/substantiv", "begrunnelse": "Konkrete og abstrakte substantiv, kjønn og bøying." },
+                    { "tittel": "Verb", "link": "/norsk/ordklasser/verb", "begrunnelse": "Tider, sterke og svake verb, hjelpeverb." },
+                    { "tittel": "Adjektiv", "link": "/norsk/ordklasser/adjektiv", "begrunnelse": "Samsvarsbøying og gradbøying." },
+                    { "tittel": "Pronomen", "link": "/norsk/ordklasser/pronomen", "begrunnelse": "Personlige, eiendomspronomen og spørrepronomen." },
+                    { "tittel": "Preposisjoner", "link": "/norsk/ordklasser/preposisjoner", "begrunnelse": "Sted, tid og faste uttrykk." },
+                    { "tittel": "Adverb", "link": "/norsk/ordklasser/adverb", "begrunnelse": "Tids-, steds- og måtesadverb." },
+                    { "tittel": "Konjunksjoner og subjunksjoner", "link": "/norsk/ordklasser/konjunksjoner-subjunksjoner", "begrunnelse": "Sideordnings- og underordningsord." },
+                    { "tittel": "Setningsanalyse", "link": "/norsk/grammatikk/setningsanalyse", "begrunnelse": "Analysere setninger med fagspråk." }
+                ],
+                "spill": [
+                    { "tittel": "Ordklasse-sortering", "link": "/norsk/ordklasser/sortering", "begrunnelse": "Trening i å gjenkjenne ordklasser." }
+                ]
+            }
         },
         {
             "id": "nor-10-13",
             "nummer": 13,
             "kortNavn": "Skape og eksperimentere",
             "tekst": "uttrykke seg i ulike sjangre og eksperimentere med sjangre på kreative måter",
-            "innhold": {}
+            "innhold": {
+                "artikler": [
+                    { "tittel": "Skriv bedre historier", "link": "/norsk/skrivehjelp/skriv-bedre-historier", "begrunnelse": "Komplett guide til meningsfulle og engasjerende fortellinger." },
+                    { "tittel": "Hvordan skrive novelle", "link": "/norsk/skrivehjelp/hvordan-skrive-novelle", "begrunnelse": "Tips og triks for å skrive noveller." },
+                    { "tittel": "Hvordan skrive eventyr", "link": "/norsk/skrivehjelp/hvordan-skrive-eventyr", "begrunnelse": "Magi og moral i eventyr du selv skriver." },
+                    { "tittel": "Hvordan skrive dikt", "link": "/norsk/skrivehjelp/hvordan-skrive-dikt", "begrunnelse": "Slipp kreativiteten løs med lyrikk." },
+                    { "tittel": "Hvordan skrive roman", "link": "/norsk/skrivehjelp/hvordan-skrive-roman", "begrunnelse": "Planlegge og skrive lange fortellinger." },
+                    { "tittel": "7 vanlige plot", "link": "/norsk/skrivehjelp/7-vanlige-plot", "begrunnelse": "Sju grunnplott alle fortellinger bygger på." },
+                    { "tittel": "Hvordan skrive dialog", "link": "/norsk/skrivehjelp/hvordan-skrive-dialog", "begrunnelse": "Gylne regler: anførselstegn, replikkskifte, undertekst." },
+                    { "tittel": "Hvordan lage karakterer", "link": "/norsk/skrivehjelp/hvordan-lage-karakterer", "begrunnelse": "Bygge troverdige karakterer fra skjelett til sjel." }
+                ],
+                "stier": [
+                    { "tittel": "Læringssti: Skrive gode historier", "link": "/norsk/virkemidler/skapende-skriving-sti", "begrunnelse": "Bygg ditt eget skriveverktøy fra tema til ferdig novelle." }
+                ]
+            }
         },
         {
             "id": "nor-10-14",
             "nummer": 14,
             "kortNavn": "Sammensatte tekster",
             "tekst": "lage sammensatte tekster og begrunne valg av uttrykksformer",
-            "innhold": {}
+            "innhold": {
+                "artikler": [
+                    { "tittel": "Hvordan lage kortfilm", "link": "/norsk/skrivehjelp/hvordan-lage-kortfilm", "begrunnelse": "Sammensatt tekst: lyd, bilde, klipp og teksting på Chromebook." }
+                ],
+                "spill": [
+                    { "tittel": "Virkemiddelverkstedet", "link": "/oving/virkemidler", "begrunnelse": "Eksperimenter med visuelle og språklige virkemidler." }
+                ]
+            }
         },
         {
             "id": "nor-10-15",
             "nummer": 15,
             "kortNavn": "Bokmål, nynorsk og språkpolitikk",
             "tekst": "forklare den historiske bakgrunnen for bokmål og nynorsk og reflektere over statusen til de offisielle språkene i Norge i dag",
-            "innhold": {}
+            "merknad": "Egne artikler om Aasen, Knudsen og språkstriden er under utvikling. Inntil videre dekkes språkhistorisk bakgrunn gjennom artikkelen om germanske språk.",
+            "innhold": {
+                "artikler": [
+                    { "tittel": "De germanske søskenbarna", "link": "/norsk/sprakhistorie/germanske-sprak", "begrunnelse": "Hvor det norske språket kommer fra." }
+                ]
+            }
         },
         {
             "id": "nor-10-16",
             "nummer": 16,
             "kortNavn": "Språklig variasjon og holdninger",
             "tekst": "utforske språklig variasjon og mangfold i Norge og reflektere over holdninger til ulike språk og talespråkvarianter",
-            "innhold": {}
+            "merknad": "Egne artikler om norske dialekter, sosiolekter og samiske språk er under utvikling.",
+            "innhold": {
+                "artikler": [
+                    { "tittel": "De germanske søskenbarna", "link": "/norsk/sprakhistorie/germanske-sprak", "begrunnelse": "Norsk som del av en større språkfamilie." }
+                ]
+            }
         }
     ],
     "kjennetegn": {
