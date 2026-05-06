@@ -1,5 +1,5 @@
 {
-  "buildId": 1777825290216,
+  "buildId": 1778097553657,
   "contentMap": {
     "adel": [
       "content/concepts/adel.json"
@@ -925,9 +925,6 @@
     "vikingtiden-sti": [
       "content/historie/vikingtiden/vikingtiden-sti.json"
     ],
-    "mongolske-riket": [
-      "content/history/mongolske-riket.json"
-    ],
     "detective-berlinmuren": [
       "content/interactive/detective/berlinmuren.json"
     ],
@@ -954,6 +951,9 @@
     ],
     "detective-vardo": [
       "content/interactive/detective/vardo.json"
+    ],
+    "historie-10-trinn": [
+      "content/kompetansemal/historie-10-trinn.json"
     ],
     "krle-10-trinn": [
       "content/kompetansemal/krle-10-trinn.json"
@@ -1211,6 +1211,9 @@
     ],
     "lat-struktur": [
       "content/musikk/komposisjon/lat-struktur.json"
+    ],
+    "joik": [
+      "content/musikk/musikkhistorie/joik.json"
     ],
     "akkordbank": [
       "content/musikk/oppslag/akkordbank.json"
@@ -2089,7 +2092,6 @@
     "historie/vikingtiden/skipsteknologi": "content/historie/vikingtiden/skipsteknologi.json",
     "historie/vikingtiden/veien-mot-ost": "content/historie/vikingtiden/veien-mot-ost.json",
     "historie/vikingtiden/vikingtiden-sti": "content/historie/vikingtiden/vikingtiden-sti.json",
-    "history/mongolske-riket.json/mongolske-riket": "content/history/mongolske-riket.json",
     "interactive/detective/detective-berlinmuren": "content/interactive/detective/berlinmuren.json",
     "interactive/detective/detective-greenland": "content/interactive/detective/greenland.json",
     "interactive/detective/detective-isdalskvinnen": "content/interactive/detective/isdalskvinnen.json",
@@ -2099,6 +2101,7 @@
     "interactive/detective/detective-svartedauden": "content/interactive/detective/svartedauden.json",
     "interactive/detective/detective-tungtvann": "content/interactive/detective/tungtvann.json",
     "interactive/detective/detective-vardo": "content/interactive/detective/vardo.json",
+    "kompetansemal/historie-10-trinn.json/historie-10-trinn": "content/kompetansemal/historie-10-trinn.json",
     "kompetansemal/krle-10-trinn.json/krle-10-trinn": "content/kompetansemal/krle-10-trinn.json",
     "kompetansemal/musikk-10-trinn.json/musikk-10-trinn": "content/kompetansemal/musikk-10-trinn.json",
     "kompetansemal/norsk-10-trinn.json/norsk-10-trinn": "content/kompetansemal/norsk-10-trinn.json",
@@ -2225,6 +2228,7 @@
     "musikk/instrumenter/piano-intro": "content/musikk/instrumenter/piano-intro.json",
     "musikk/instrumenter/trommer-intro": "content/musikk/instrumenter/trommer-intro.json",
     "musikk/komposisjon/lat-struktur": "content/musikk/komposisjon/lat-struktur.json",
+    "musikk/musikkhistorie/joik": "content/musikk/musikkhistorie/joik.json",
     "musikk/oppslag/akkordbank": "content/musikk/oppslag/akkordbank.json",
     "musikk/oppslag/latskriver": "content/musikk/oppslag/latskriver.json",
     "musikk/oppslag/rytmebank": "content/musikk/oppslag/rytmebank.json",
