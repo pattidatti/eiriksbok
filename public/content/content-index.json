@@ -1,5 +1,5 @@
 {
-  "buildId": 1777825290216,
+  "buildId": 1778095682213,
   "contentMap": {
     "adel": [
       "content/concepts/adel.json"
@@ -808,6 +808,10 @@
     "middelalderen": [
       "content/historie/middelalderen/middelalderen.json"
     ],
+    "mongolske-riket": [
+      "content/historie/middelalderen/mongolske-riket.json",
+      "content/history/mongolske-riket.json"
+    ],
     "svartedauden-sti": [
       "content/historie/middelalderen/svartedauden-sti.json"
     ],
@@ -925,9 +929,6 @@
     "vikingtiden-sti": [
       "content/historie/vikingtiden/vikingtiden-sti.json"
     ],
-    "mongolske-riket": [
-      "content/history/mongolske-riket.json"
-    ],
     "detective-berlinmuren": [
       "content/interactive/detective/berlinmuren.json"
     ],
@@ -954,6 +955,9 @@
     ],
     "detective-vardo": [
       "content/interactive/detective/vardo.json"
+    ],
+    "historie-10-trinn": [
+      "content/kompetansemal/historie-10-trinn.json"
     ],
     "krle-10-trinn": [
       "content/kompetansemal/krle-10-trinn.json"
@@ -2050,6 +2054,7 @@
     "historie/middelalderen/det-hellige-romerske-rike": "content/historie/middelalderen/det-hellige-romerske-rike.json",
     "historie/middelalderen/hanseatene": "content/historie/middelalderen/hanseatene.json",
     "historie/middelalderen/middelalderen": "content/historie/middelalderen/middelalderen.json",
+    "historie/middelalderen/mongolske-riket": "content/historie/middelalderen/mongolske-riket.json",
     "historie/middelalderen/svartedauden-sti": "content/historie/middelalderen/svartedauden-sti.json",
     "historie/middelalderen/svartedauden": "content/historie/middelalderen/svartedauden.json",
     "historie/middelalderen/tidlig-middelalder": "content/historie/middelalderen/tidlig-middelalder.json",
@@ -2099,6 +2104,7 @@
     "interactive/detective/detective-svartedauden": "content/interactive/detective/svartedauden.json",
     "interactive/detective/detective-tungtvann": "content/interactive/detective/tungtvann.json",
     "interactive/detective/detective-vardo": "content/interactive/detective/vardo.json",
+    "kompetansemal/historie-10-trinn.json/historie-10-trinn": "content/kompetansemal/historie-10-trinn.json",
     "kompetansemal/krle-10-trinn.json/krle-10-trinn": "content/kompetansemal/krle-10-trinn.json",
     "kompetansemal/musikk-10-trinn.json/musikk-10-trinn": "content/kompetansemal/musikk-10-trinn.json",
     "kompetansemal/norsk-10-trinn.json/norsk-10-trinn": "content/kompetansemal/norsk-10-trinn.json",
