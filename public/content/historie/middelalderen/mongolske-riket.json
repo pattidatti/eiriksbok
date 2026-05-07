@@ -5,7 +5,7 @@
     "year": "1206–1368",
     "category": "Middelalder",
     "readTime": "9 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/history/mongolske-riket-hero.jpg",
     "details": [
         "Det største sammenhengende landimperiet i historien",
         "Skapt av Djengis Khan i 1206",
@@ -35,6 +35,12 @@
         {
             "type": "text",
             "content": "Denne nomadiske livsstilen skapte krigere av et slag den bofaste verden nesten ikke hadde sett. De mongolske rytterne var mobile på en helt annen måte enn europeiske rustningsryttere. En mongolsk hær kunne dekke over hundre kilometer på én dag, mens riddere i tung rustning slet med å komme halvveis så langt. Og de skjøt piler med nøyaktig sikt selv mens de red i full gallopp. Men steppeliv hadde én stor svakhet: de mongolske stammene var spredt og rivaliserte med hverandre om beitemarkene. I hundrevis av år hadde de sloss seg imellom i stedet for å stå samlet mot omverdenen. Det trengte én mann å endre på."
+        },
+        {
+            "type": "image",
+            "src": "/images/history/mongol_cavalry_charge.png",
+            "caption": "Mongolsk kavaleri: De mongolske rytterne var uovertrufne bueskyttere til hest, i stand til å skyte nøyaktig selv i full galopp.",
+            "alt": "Mongolske ryttere som angriper med pil og bue."
         },
         {
             "type": "header",
@@ -119,6 +125,12 @@
         {
             "type": "text",
             "content": "Mongolene brukte psykologisk krigføring bevisst. De spredte historier om grusomheten sin forut for hæren, slik at mange byer overga seg uten kamp — noe som sparte begge parters liv. De var også fleksible: de hadde ingen tung forsyningskjede og levde av landet de red gjennom. Og de lærte av fiendene. Etter å ha inntatt Beijing tok de kinesiske ingeniører inn i hæren sin og lærte seg å beleire befestede byer med katapulter og belejringstårn."
+        },
+        {
+            "type": "image",
+            "src": "/images/history/mongol_siege_baghdad.png",
+            "caption": "Beleiring av byer: Mongolene lærte beleiringsteknikker av kinesiske og persiske ingeniører, noe de brukte med stor effekt under sine erobringer.",
+            "alt": "Mongolsk hær som beleirer en by."
         },
         {
             "type": "text",
