@@ -2,7 +2,7 @@
     "id": "myklebust-funnet",
     "title": "Skipet som ble brent",
     "description": "Historien om Vestlandets mektigste vikingdynasti, en spektakulær skipsbegravelse og arkeologenes jakt på svarene.",
-    "image": "/images/lessons/vikingtiden/myklebust-hero.png",
+    "image": "/images/lessons/vikingtiden/myklebust-hero.webp",
     "tags": [
         "vikingtiden",
         "arkeologi",
@@ -21,7 +21,7 @@
         },
         {
             "type": "image",
-            "src": "/images/lessons/vikingtiden/nordfjordeid-kart.png",
+            "src": "/images/lessons/vikingtiden/nordfjordeid-kart.webp",
             "caption": "Nordfjordeid: Et strategisk veikryss mellom fjorder og dalfører, der makten ble samlet.",
             "width": "50%"
         },
@@ -167,12 +167,12 @@
         },
         {
             "type": "image",
-            "src": "/images/lessons/vikingtiden/myklebust-utgravning.jpg",
+            "src": "/images/lessons/vikingtiden/myklebust-utgravning.webp",
             "caption": "Sjakten gjennom gravhaugen: Slik ser det ut når arkeologene åpner historiens lag."
         },
         {
             "type": "image",
-            "src": "/images/lessons/vikingtiden/lorange-flaskepost.png",
+            "src": "/images/lessons/vikingtiden/lorange-flaskepost.webp",
             "caption": "Hilsen fra 1874: Anders Lorange la igjen en beskjed i en tom vinflaske fra Tyskland, som en tidskapsel til fremtidens finnere."
         },
         {

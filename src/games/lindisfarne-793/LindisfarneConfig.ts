@@ -10,7 +10,7 @@ export const lindisfarneConfig: GameConfig = {
     subject: 'historie',
     description:
         'Du er Torstein, en ung viking på vei til Lindisfarne. Det du gjør der, bestemmer du selv.',
-    thumbnail: '/images/vikingtiden/lindisfarne-thumb.png',
+    thumbnail: '/images/vikingtiden/lindisfarne-thumb.webp',
 
     world: {
         preset: 'open',

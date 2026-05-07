@@ -5,7 +5,7 @@
     "year": "100 evt.",
     "category": "Antikken",
     "readTime": "16 min read",
-    "heroImage": "/images/romerriket/hero-hverdag.png",
+    "heroImage": "/images/romerriket/hero-hverdag.webp",
     "details": [
         "Bolig: Insula vs Domus",
         "Mat: Garum og brød",
@@ -47,7 +47,7 @@
         },
         {
             "type": "image",
-            "src": "/images/romerriket/thermopolium.png",
+            "src": "/images/romerriket/thermopolium.webp",
             "alt": "Et romersk gatemat-utsalg (thermopolium) med krukker i disken",
             "caption": "Siden de færreste hadde kjøkken hjemme, spiste de fleste romere lunsjen sin ute på gaten hos en 'thermopolium' – antikkens svar på McDonalds."
         },
@@ -61,7 +61,7 @@
         },
         {
             "type": "image",
-            "src": "/images/romerriket/roman-banquet.png",
+            "src": "/images/romerriket/roman-banquet.webp",
             "alt": "Rike romere som ligger til bords og spiser under en bankett",
             "caption": "Et romersk måltid handlet like mye om status og samtale som om mat."
         },
@@ -79,7 +79,7 @@
         },
         {
             "type": "image",
-            "src": "/images/romerriket/roman-school.png",
+            "src": "/images/romerriket/roman-school.webp",
             "alt": "Romerske barn som blir undervist av en lærer utendørs",
             "caption": "Læreren (magister) krevde full konsentrasjon, og feil ble ofte straffet fysisk."
         },

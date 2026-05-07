@@ -9,7 +9,7 @@
         "ideologi",
         "kommunisme"
     ],
-    "heroImage": "/images/historie/forste-verdenskrig/russiske_revolusjon_hero.png",
+    "heroImage": "/images/historie/forste-verdenskrig/russiske_revolusjon_hero.webp",
     "content": [
         {
             "type": "text",
@@ -38,13 +38,13 @@
         },
         {
             "type": "image",
-            "src": "/images/historie/forste-verdenskrig/lenin_taler.png",
+            "src": "/images/historie/forste-verdenskrig/lenin_taler.webp",
             "alt": "Lenin taler til folkemengden fra en pansret bil i Petrograd",
             "caption": "Lenins enkle budskap om 'Brød, Fred og Land' traff en nerve hos det krigstrøtte russiske folket."
         },
         {
             "type": "image",
-            "src": "/images/historie/forste-verdenskrig/vinterpalasset_stormes.png",
+            "src": "/images/historie/forste-verdenskrig/vinterpalasset_stormes.webp",
             "alt": "Bolsjevikene rykker frem mot Vinterpalasset om natten",
             "caption": "Stormingen av Vinterpalasset markerte slutten på den provisoriske regjeringen og starten på bolsjevik-styret."
         },

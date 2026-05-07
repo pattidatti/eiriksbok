@@ -9,7 +9,7 @@
         "soldatliv",
         "psykologi"
     ],
-    "heroImage": "/images/historie/forste-verdenskrig/skyttergravskrig_hero.png",
+    "heroImage": "/images/historie/forste-verdenskrig/skyttergravskrig_hero.webp",
     "content": [
         {
             "type": "text",
@@ -34,7 +34,7 @@
         },
         {
             "type": "image",
-            "src": "/images/historie/forste-verdenskrig/skyttergrav_luftfoto.png",
+            "src": "/images/historie/forste-verdenskrig/skyttergrav_luftfoto.webp",
             "alt": "Luftfoto av skyttergravssystemet",
             "caption": "Sett ovenfra dannet skyttergravene et komplekst sikksakk-mønster (traverser) for å beskytte mot granatnedslag og inntrengere."
         },
@@ -56,7 +56,7 @@
         },
         {
             "type": "image",
-            "src": "/images/historie/forste-verdenskrig/skyttergrav_tverrsnitt.png",
+            "src": "/images/historie/forste-verdenskrig/skyttergrav_tverrsnitt.webp",
             "alt": "Tverrsnitt av en skyttergrav",
             "caption": "Livet i jorda: Soldatene bodde i dype 'dugouts' under bakken mens vaktpostene sto på hevede trinn for å speide mot fienden."
         },

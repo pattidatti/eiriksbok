@@ -5,7 +5,7 @@
     "year": "1602",
     "category": "Kolonialisering",
     "readTime": "5 min lesning",
-    "heroImage": "/images/historie/kolonialisering/voc/hero.png",
+    "heroImage": "/images/historie/kolonialisering/voc/hero.webp",
     "externalUrl": "https://snl.no/handelskompani",
     "fact": "Visste du at VOC (Det nederlandske ostindiske kompani) regnes som verdens første multinasjonale selskap og utstedte verdens første aksjer?",
     "tags": [
@@ -40,7 +40,7 @@
         },
         {
             "type": "image",
-            "src": "/images/historie/kolonialisering/voc/bors.png",
+            "src": "/images/historie/kolonialisering/voc/bors.webp",
             "caption": "Kjøpmenn handler med aksjer i VOC ved børsen i Amsterdam.",
             "alt": "Børsen i Amsterdam på 1600-tallet med kjøpmenn i tradisjonelle klær."
         },
@@ -79,7 +79,7 @@
         },
         {
             "type": "image",
-            "src": "/images/historie/kolonialisering/voc/krydder.png",
+            "src": "/images/historie/kolonialisering/voc/krydder.webp",
             "caption": "Krydderhandel på Maluku-øyene: VOC kontrollerte produksjonen av muskat og nellik.",
             "alt": "Lasteplass på en tropisk øy med tønner med krydder og VOC-skip."
         },
@@ -97,7 +97,7 @@
         },
         {
             "type": "image",
-            "src": "/images/historie/kolonialisering/voc/heren-xvii.png",
+            "src": "/images/historie/kolonialisering/voc/heren-xvii.webp",
             "caption": "Heren XVII: De sytten herrene som ledet VOC fra Amsterdam.",
             "alt": "Møte i styrerommet med kart over Asia."
         },

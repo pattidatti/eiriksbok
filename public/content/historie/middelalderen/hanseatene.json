@@ -2,7 +2,7 @@
     "id": "hanseatene",
     "title": "Hanseatene: Kjøpmennene som formet Norge og Europa gjennom tørrfisk, makt og språk",
     "description": "Da de første tyske skipene, de brede og tunge koggene, seilte inn i Bergens våg på 1200-tallet, markerte det starten på en økonomisk og kulturell revolusjon.",
-    "image": "/images/historie/middelalderen/hanseatene-hero.png",
+    "image": "/images/historie/middelalderen/hanseatene-hero.webp",
     "tags": [
         "historie",
         "norge",
@@ -19,7 +19,7 @@
         },
         {
             "type": "image",
-            "src": "/images/historie/middelalderen/hanseatene-torrfisk.png",
+            "src": "/images/historie/middelalderen/hanseatene-torrfisk.webp",
             "alt": "Enorme tørrfiskhjeller på Bryggen i Bergen",
             "caption": "Tørrfiskens katedral: Tusenvis av fisk henger til tørk på hjeller, selve fundamentet for Bergens rikdom."
         },
@@ -70,7 +70,7 @@
         },
         {
             "type": "image",
-            "src": "/images/historie/middelalderen/bryggen-liv.png",
+            "src": "/images/historie/middelalderen/bryggen-liv.webp",
             "alt": "Travle scener på Bryggen med tørrfisk og tyske kjøpmenn.",
             "caption": "Livet på Bryggen var preget av handel, lukten av tørrfisk og lyden av tysk språk."
         },
@@ -91,7 +91,7 @@
         },
         {
             "type": "image",
-            "src": "/images/historie/middelalderen/hanseatene-jektefart.png",
+            "src": "/images/historie/middelalderen/hanseatene-jektefart.webp",
             "alt": "Jektefart i grov sjø langs norskekysten",
             "caption": "Med livet som innsats: Jektefarten fra Nord-Norge til Bergen var en farefull ferd i åpne båter lastet til ripa med tørrfisk."
         },
@@ -135,7 +135,7 @@
         },
         {
             "type": "image",
-            "src": "/images/historie/middelalderen/hanseatene-stue.png",
+            "src": "/images/historie/middelalderen/hanseatene-stue.webp",
             "alt": "Inne i en hanseatisk handelsstue",
             "caption": "Maktens indre sirkel: Husbonden fører regnskap i handelsstuen, mens geseller og drenger utfører sine plikter i et strengt hierarki."
         },
@@ -179,7 +179,7 @@
         },
         {
             "type": "image",
-            "src": "/images/historie/middelalderen/vitaliebrodrene.png",
+            "src": "/images/historie/middelalderen/vitaliebrodrene.webp",
             "alt": "Nattlig scene med brann og piratskip i Vågen.",
             "caption": "Piratene brenner Bergen i 1429."
         },

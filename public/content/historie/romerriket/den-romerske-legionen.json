@@ -5,7 +5,7 @@
     "year": "100 fvt. - 400 evt.",
     "category": "Antikken",
     "readTime": "19 min read",
-    "heroImage": "/images/romerriket/hero-legion.png",
+    "heroImage": "/images/romerriket/hero-legion.webp",
     "details": [
         "Hærens struktur og rang",
         "Livet i leiren",
@@ -43,7 +43,7 @@
         },
         {
             "type": "image",
-            "src": "/images/romerriket/legionary-portrait.png",
+            "src": "/images/romerriket/legionary-portrait.webp",
             "alt": "Nærbilde av en romersk Centurion i full rustning med krigsmaling og arr",
             "caption": "Centurionen var den mest respekterte og fryktede offiseren i legionen."
         },
@@ -73,7 +73,7 @@
         },
         {
             "type": "image",
-            "src": "/images/romerriket/marching-camp.png",
+            "src": "/images/romerriket/marching-camp.webp",
             "alt": "Oversiktsbilde av en romersk marsjleir (castra) under bygging",
             "caption": "Den romerske marsjleiren var en midlertidig festning som ble bygget hver eneste natt når hæren var på marsj."
         },
@@ -87,7 +87,7 @@
         },
         {
             "type": "image",
-            "src": "/images/romerriket/ballista-action.png",
+            "src": "/images/romerriket/ballista-action.webp",
             "alt": "En romersk ballista som avfyrer en pil under en beleiring",
             "caption": "Romersk ingeniørkunst gjorde det nesten umulig for en by å motstå en beleiring over lang tid."
         },

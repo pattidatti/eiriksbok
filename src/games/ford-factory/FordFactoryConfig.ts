@@ -20,7 +20,7 @@ export const fordFactoryConfig: GameConfig = {
     subject: 'historie',
     description:
         'Du er Henry Ford. Hjelp Charles Sorensen å bygge det første samlebåndet, og se hvordan Model T forandret verden - og arbeiderne.',
-    thumbnail: '/images/industri/ford-factory-thumb.png',
+    thumbnail: '/images/industri/ford-factory-thumb.webp',
 
     world: {
         preset: 'open',

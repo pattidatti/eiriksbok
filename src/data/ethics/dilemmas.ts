@@ -5,7 +5,7 @@ export const dilemmas: EthicalDilemma[] = [
         id: 'trolley-standard',
         title: 'Det Klassiske Sporvognsproblemet',
         scenario: 'En sporvogn har mistet bremsene og raser mot fem banearbeidere som står på sporet. Du står ved en spak. Hvis du drar i den, vil vognen svinge inn på et annet spor der det bare står én arbeider. Hva gjør du?',
-        image: '/images/etikk/trolley_standard.png',
+        image: '/images/etikk/trolley_standard.webp',
         choices: [
             {
                 id: 'pull-lever',
@@ -107,7 +107,7 @@ export const dilemmas: EthicalDilemma[] = [
         id: 'privacy-security',
         title: 'Overvåkning for Sikkerhet',
         scenario: 'Myndighetene ønsker å installere et AI-system som overvåker all privat digital kommunikasjon for å forhindre terrorangrep. Systemet er 99% nøyaktig. Dette vil fjerne alt privatliv, men sannsynligvis redde hundrevis av liv årlig.',
-        image: '/images/etikk/surveillance.png',
+        image: '/images/etikk/surveillance.webp',
         choices: [
             {
                 id: 'accept-surveillance',
@@ -174,7 +174,7 @@ export const dilemmas: EthicalDilemma[] = [
         id: 'ai-care-elderly',
         title: 'AI-roboter i Eldreomsorgen',
         scenario: 'Det er for få pleiere i eldreomsorgen. En ny generasjon roboter kan gi 24/7 omsorg, samtale og medisinsk oppfølging. Robotene virker svært empatiske, men alt er programmert simulering. Skal vi rulle ut dette i stor skala?',
-        image: '/images/etikk/ai_care.png',
+        image: '/images/etikk/ai_care.webp',
         choices: [
             {
                 id: 'use-robots',
@@ -231,7 +231,7 @@ export const dilemmas: EthicalDilemma[] = [
         id: 'wealth-tax',
         title: 'Den Store Formueskatten',
         scenario: 'Staten vurderer å innføre en kraftig ekstraskatt på de 1% rikeste for å fullfinansiere gratis barnehage og tannhelse for alle. Motstandere mener dette er tyveri av opptjente midler, mens tilhengere mener det er nødvendig for sosial rettferdighet.',
-        image: '/images/etikk/wealth_tax.png',
+        image: '/images/etikk/wealth_tax.webp',
         choices: [
             {
                 id: 'apply-tax',
@@ -293,7 +293,7 @@ export const dilemmas: EthicalDilemma[] = [
         id: 'friendship-secret',
         title: 'Vennskapets Hemmelighet',
         scenario: 'Din beste venn tilstår å ha stjålet en dyr klokke fra en butikk. Han er redd og ber deg om å ikke si noe. Politiet spør deg senere om du har sett noe som kan hjelpe i saken. Hva gjør du?',
-        image: '/images/etikk/friendship_secret.png',
+        image: '/images/etikk/friendship_secret.webp',
         choices: [
             {
                 id: 'keep-secret',
@@ -355,7 +355,7 @@ export const dilemmas: EthicalDilemma[] = [
         id: 'climate-sacrifice',
         title: 'Klimaoppofrelsen',
         scenario: 'For å nå utslippsmålene må staten legge ned et stort smelteverk i en liten bygd. Dette vil kutte landets utslipp drastisk, men føre til at de fleste i bygda mister jobben og må flytte.',
-        image: '/images/etikk/climate_sacrifice.png',
+        image: '/images/etikk/climate_sacrifice.webp',
         choices: [
             {
                 id: 'close-factory',
@@ -407,7 +407,7 @@ export const dilemmas: EthicalDilemma[] = [
         id: 'genetic-design',
         title: 'Genetisk Design',
         scenario: 'Ny teknologi gjør det mulig å redigere genene til ufødte barn for å fjerne alvorlig sykdom, men også for å øke intelligens. Skal det være lov å "designe" barn for å gi dem et forsprang i livet?',
-        image: '/images/etikk/genetic_design.png',
+        image: '/images/etikk/genetic_design.webp',
         choices: [
             {
                 id: 'allow-editing',
@@ -454,7 +454,7 @@ export const dilemmas: EthicalDilemma[] = [
         id: 'free-speech-order',
         title: 'Ytringsfrihet og Ro',
         scenario: 'En gruppe vil brenne en hellig tekst offentlig for å vise sin avsky mot religion. Politiet frykter voldelige opptøyer hvis dette skjer. Skal staten prioritere ytringsfriheten eller den offentlige roen?',
-        image: '/images/etikk/free_speech.png',
+        image: '/images/etikk/free_speech.webp',
         choices: [
             {
                 id: 'allow-protest',

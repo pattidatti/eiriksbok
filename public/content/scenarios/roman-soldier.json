@@ -139,7 +139,7 @@
             "choices": [],
             "uiType": "map",
             "mapConfig": {
-                "image": "/images/chronos/roman_fort_map.png",
+                "image": "/images/chronos/roman_fort_map.webp",
                 "points": [
                     {
                         "id": "point_gate",

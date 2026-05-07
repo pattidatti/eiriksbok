@@ -7,7 +7,7 @@
   "year": "1914–1918",
   "category": "Krigføring",
   "readTime": "25 min lesning",
-  "heroImage": "/images/historie/forste-verdenskrig/krigens_lop_hero.png",
+  "heroImage": "/images/historie/forste-verdenskrig/krigens_lop_hero.webp",
   "details": [
     "Schlieffen-planen mislyktes, og krigen stivnet til.",
     "Skyttergravskrig preget Vestfronten.",
@@ -46,7 +46,7 @@
     },
     {
       "type": "image",
-      "src": "/images/historie/forste-verdenskrig/europa_kart_ww1.png",
+      "src": "/images/historie/forste-verdenskrig/europa_kart_ww1.webp",
       "alt": "Kart over Europa 1914",
       "caption": "Europakartet i 1914 med de fastlåste frontlinjene i øst og vest."
     },
@@ -86,7 +86,7 @@
     },
     {
       "type": "image",
-      "src": "/images/historie/forste-verdenskrig/global_kart_ww1.png",
+      "src": "/images/historie/forste-verdenskrig/global_kart_ww1.webp",
       "alt": "Globalt kart over første verdenskrig",
       "caption": "Krigen var global: Konflikter raste i Midtøsten, Afrika og på verdenshavene."
     },
@@ -113,7 +113,7 @@
         "title": "Krigens slutt",
         "items": [
           {
-            "image": "/images/historie/forste-verdenskrig/vogn_armistice_1918.png",
+            "image": "/images/historie/forste-verdenskrig/vogn_armistice_1918.webp",
             "caption": "Jernbanevognen i Compiègne-skogen der våpenhvilen ble signert 11. november 1918.",
             "alt": "Interiøret i Compiègne-vognen"
           }

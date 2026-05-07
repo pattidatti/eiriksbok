@@ -5,7 +5,7 @@
     "year": "27 f.Kr. - 476 evt.",
     "category": "Antikken",
     "readTime": "20 min read",
-    "heroImage": "/images/romerriket/hero-emperors.png",
+    "heroImage": "/images/romerriket/hero-emperors.webp",
     "details": [
         "Fra Augustus til Romulus Augustus",
         "Nero og det første dynastiet",
@@ -44,7 +44,7 @@
         },
         {
             "type": "image",
-            "src": "/images/romerriket/trajan-column.png",
+            "src": "/images/romerriket/trajan-column.webp",
             "alt": "Nærbilde av relieffene på Trajansøylen som viser soldater i kamp",
             "caption": "Trajansøylen fungerte som antikkens propagandaplakat. Den viser den romerske hærens overlegenhet og disiplin."
         },
@@ -54,7 +54,7 @@
         },
         {
             "type": "image",
-            "src": "/images/romerriket/hadrians-wall.png",
+            "src": "/images/romerriket/hadrians-wall.webp",
             "alt": "Hadrians mur som strekker seg over grønne åser i England",
             "caption": "Hadrians mur var opprinnelig hvitkalket og ruvet over landskapet som en klar beskjed: 'Hit, men ikke lenger'."
         },
@@ -72,7 +72,7 @@
         },
         {
             "type": "image",
-            "src": "/images/romerriket/caracalla-baths.png",
+            "src": "/images/romerriket/caracalla-baths.webp",
             "alt": "Interiør av Caracallas bad i antikken med mennesker som bader",
             "caption": "Caracallas bad hadde plass til over 1600 badegjester samtidig. Det var et palass for folket, dekorert med marmor og gull."
         },

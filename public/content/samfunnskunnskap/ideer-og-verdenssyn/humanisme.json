@@ -5,7 +5,7 @@
     "year": "Fra renessansen til moderne rettigheter",
     "category": "Idéhistorie",
     "readTime": "15 min lesing",
-    "heroImage": "/images/lessons/ideer/humanisme_hero.png",
+    "heroImage": "/images/lessons/ideer/humanisme_hero.webp",
     "details": [
         "Hva vil det si å være humanist?",
         "Renessansen: Gjenoppdagelsen av antikken",
@@ -32,7 +32,7 @@
         },
         {
             "type": "image",
-            "src": "/images/lessons/ideer/renaissance_man.png",
+            "src": "/images/lessons/ideer/renaissance_man.webp",
             "caption": "Renessansehumanistene gjenoppdaget antikkens tekster og satte individet i sentrum."
         },
         {

@@ -3,7 +3,7 @@
     "title": "Ekkokamre og informasjonsbobler",
     "subject": "samfunnskunnskap",
     "topic": "mennesket-kultur-samfunn",
-    "image": "/images/lessons/mennesket-kultur-samfunn/ekkokamre_speilhus_hero.png",
+    "image": "/images/lessons/mennesket-kultur-samfunn/ekkokamre_speilhus_hero.webp",
     "content": [
         {
             "type": "text",
@@ -31,7 +31,7 @@
         },
         {
             "type": "image",
-            "src": "/images/lessons/mennesket-kultur-samfunn/ekkokamre_filter_bubbles.png",
+            "src": "/images/lessons/mennesket-kultur-samfunn/ekkokamre_filter_bubbles.webp",
             "alt": "To personer i en park isolert i hver sin digitale informasjonsboble",
             "caption": "Informasjonsboblen skaper en personlig virkelighet basert på dine tidligere klikk."
         },
@@ -109,7 +109,7 @@
         },
         {
             "type": "image",
-            "src": "/images/lessons/mennesket-kultur-samfunn/ekkokamre_canyon_bridge.png",
+            "src": "/images/lessons/mennesket-kultur-samfunn/ekkokamre_canyon_bridge.webp",
             "alt": "En bro i tåken som forbinder to isolerte bygninger på hver sin fjellvegg",
             "caption": "Å utfordre egne meninger er som å bygge bro over en dyp kløft av uenighet."
         },

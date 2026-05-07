@@ -5,7 +5,7 @@
     "year": "79 evt.",
     "category": "Antikken",
     "readTime": "15 min read",
-    "heroImage": "/images/romerriket/hero-pompeii.png",
+    "heroImage": "/images/romerriket/hero-pompeii.webp",
     "details": [
         "Vesuvs utbrudd",
         "Plinius' øyenvitneskildring",
@@ -19,7 +19,7 @@
         },
         {
             "type": "image",
-            "src": "/images/romerriket/vesuvius-eruption.png",
+            "src": "/images/romerriket/vesuvius-eruption.webp",
             "alt": "En dramatisk røyksøyle som stiger opp fra Vesuv, sett fra en villa over bukta",
             "caption": "Utbruddet i år 79 evt. var så voldsomt at det fullstendig endret landskapet rundt Napolibukta."
         },
@@ -49,7 +49,7 @@
         },
         {
             "type": "image",
-            "src": "/images/romerriket/pompeii-victim.png",
+            "src": "/images/romerriket/pompeii-victim.webp",
             "alt": "En gipsavstøpning av et offer i Pompeii",
             "caption": "Gipsavstøpningene viser de siste øyeblikkene til ofrene med hjerteskjærende detaljer."
         },
@@ -75,7 +75,7 @@
         },
         {
             "type": "image",
-            "src": "/images/romerriket/pompeii-street.png",
+            "src": "/images/romerriket/pompeii-street.webp",
             "alt": "En gate i Pompeii med steiner for fotgjengere",
             "caption": "Gatene i Pompeii hadde høye fortau og steiner man kunne gå på for å krysse veien uten å tråkke i søla."
         },

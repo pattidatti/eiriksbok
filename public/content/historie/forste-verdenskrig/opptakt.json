@@ -7,7 +7,7 @@
   "year": "1900–1914",
   "category": "Geopolitikk",
   "readTime": "20 min lesning",
-  "heroImage": "/images/historie/forste-verdenskrig/opptakt_hero.png",
+  "heroImage": "/images/historie/forste-verdenskrig/opptakt_hero.webp",
   "details": [
     "Europa var delt i to store allianseblokker.",
     "Imperialisme og kappløp om kolonier skapte spenning.",
@@ -83,7 +83,7 @@
     },
     {
       "type": "image",
-      "src": "/images/historie/forste-verdenskrig/balkan_map_1914.png",
+      "src": "/images/historie/forste-verdenskrig/balkan_map_1914.webp",
       "alt": "Illustrasjon av Balkan i 1914.",
       "caption": "Balkan i 1914: Et lappeteppe av nasjoner og imperier. *Merk: Kartet er en historisk illustrasjon og kan ha forenklede grenser.*"
     },

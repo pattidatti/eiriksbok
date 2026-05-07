@@ -13,7 +13,7 @@ const cases = [
         difficulty: 'Middels',
         estimatedTime: '20-30 min',
         color: 'bg-emerald-500',
-        image: '/images/detective/greenland_hero.png',
+        image: '/images/detective/greenland_hero.webp',
         link: '/oving/detektiv/greenland'
     },
     {
@@ -25,7 +25,7 @@ const cases = [
         difficulty: 'Middels',
         estimatedTime: '15-20 min',
         color: 'bg-blue-500',
-        image: '/images/detective/stiklestad_hero.png',
+        image: '/images/detective/stiklestad_hero.webp',
         link: '/oving/detektiv/stiklestad'
     },
     {
@@ -37,7 +37,7 @@ const cases = [
         difficulty: 'Høy',
         estimatedTime: '25-30 min',
         color: 'bg-red-500',
-        image: '/images/detective/vardo_hero.png',
+        image: '/images/detective/vardo_hero.webp',
         link: '/oving/detektiv/vardo'
     },
     {
@@ -49,7 +49,7 @@ const cases = [
         difficulty: 'Middels',
         estimatedTime: '20 min',
         color: 'bg-slate-900',
-        image: '/images/detective/svartedauden_hero.png',
+        image: '/images/detective/svartedauden_hero.webp',
         link: '/oving/detektiv/svartedauden'
     },
     {
@@ -61,7 +61,7 @@ const cases = [
         difficulty: 'Middels',
         estimatedTime: '20-25 min',
         color: 'bg-amber-900',
-        image: '/images/detective/lindisfarne_hero.png',
+        image: '/images/detective/lindisfarne_hero.webp',
         link: '/oving/detektiv/lindisfarne'
     },
     {
@@ -73,7 +73,7 @@ const cases = [
         difficulty: 'Middels',
         estimatedTime: '15-20 min',
         color: 'bg-blue-900',
-        image: '/images/detective/karl_xii_hero.png',
+        image: '/images/detective/karl_xii_hero.webp',
         link: '/oving/detektiv/karl-xii'
     },
     {
@@ -85,7 +85,7 @@ const cases = [
         difficulty: 'Høy',
         estimatedTime: '25-30 min',
         color: 'bg-indigo-900',
-        image: '/images/detective/isdalskvinnen_hero.png',
+        image: '/images/detective/isdalskvinnen_hero.webp',
         link: '/oving/detektiv/isdalskvinnen'
     },
     {
@@ -97,7 +97,7 @@ const cases = [
         difficulty: 'Høy',
         estimatedTime: '25-30 min',
         color: 'bg-cyan-900',
-        image: '/images/detective/tungtvann_hero.png',
+        image: '/images/detective/tungtvann_hero.webp',
         link: '/oving/detektiv/tungtvann'
     },
     {
@@ -109,7 +109,7 @@ const cases = [
         difficulty: 'Middels',
         estimatedTime: '20-25 min',
         color: 'bg-slate-700',
-        image: '/images/detective/berlin_wall_hero.png',
+        image: '/images/detective/berlin_wall_hero.webp',
         link: '/oving/detektiv/berlinmuren'
     }
 ];

@@ -7,7 +7,7 @@
   "year": "1914–1918",
   "category": "Teknologi",
   "readTime": "15 min lesning",
-  "heroImage": "/images/historie/forste-verdenskrig/teknologi_hero.png",
+  "heroImage": "/images/historie/forste-verdenskrig/teknologi_hero.webp",
   "details": [
     "Maskingeværet endret krigføringen totalt.",
     "Artilleri forårsaket flest dødsfall.",
@@ -31,7 +31,7 @@
     },
     {
       "type": "image",
-      "src": "/images/historie/forste-verdenskrig/teknologi_maskingevaer.png",
+      "src": "/images/historie/forste-verdenskrig/teknologi_maskingevaer.webp",
       "alt": "Tyske soldater betjener et maskingevær i en skyttergrav",
       "caption": "Den voldsomme ildkraften fra maskingeværer som dette tyske MG08 gjorde det umulig å krysse ingenmannsland."
     },
@@ -79,7 +79,7 @@
     },
     {
       "type": "image",
-      "src": "/images/historie/forste-verdenskrig/teknologi_stridsvogn.png",
+      "src": "/images/historie/forste-verdenskrig/teknologi_stridsvogn.webp",
       "alt": "En britisk Mark IV stridsvogn krysser en skyttergrav",
       "caption": "Stridsvognen ble utviklet for å knuse piggtråd og krysse skyttergraver, her en Mark IV som bryter seg gjennom frontlinjen."
     },

@@ -5,7 +5,7 @@
     "year": "Fra middelalderens autoriteter til dagens data",
     "category": "Idéhistorie",
     "readTime": "15 min lesing",
-    "heroImage": "/images/lessons/ideer/sannhet_hero.png",
+    "heroImage": "/images/lessons/ideer/sannhet_hero.webp",
     "details": [
         "Hva betyr det at noe er 'sant'?",
         "Troens tidsalder: Sannhet som åpenbaring",
@@ -44,7 +44,7 @@
         },
         {
             "type": "image",
-            "src": "/images/lessons/ideer/faith_vs_logic.png",
+            "src": "/images/lessons/ideer/faith_vs_logic.webp",
             "caption": "Fra middelalderens religiøse åpenbaring til moderne vitenskapelig empiri."
         },
         {

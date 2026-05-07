@@ -25,7 +25,7 @@ export const blueprintQuestConfig: GameConfig = {
     description:
         'Sokrates er dømt til døden. Vennen hans Kriton kommer for å hjelpe ham å flykte. ' +
         'Hva skal Sokrates velge: å drikke gift og følge loven, eller å flykte og leve videre?',
-    thumbnail: '/images/filosofi/sokrates-fengsel-thumb.png',
+    thumbnail: '/images/filosofi/sokrates-fengsel-thumb.webp',
 
     world: {
         preset: 'custom',

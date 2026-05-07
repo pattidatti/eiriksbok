@@ -100,7 +100,7 @@
             "backgroundImage": "/images/chronos/medieval_castle_view.jpg",
             "uiType": "map",
             "mapConfig": {
-                "image": "/images/chronos/medieval_castle_map.png",
+                "image": "/images/chronos/medieval_castle_map.webp",
                 "points": [
                     {
                         "id": "pt_throne",

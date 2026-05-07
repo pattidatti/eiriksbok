@@ -5,7 +5,7 @@
     "year": "962 - 1806 evt.",
     "category": "Middelalderen",
     "readTime": "30 min lesning",
-    "heroImage": "/images/lessons/middelalderen/hre_hero.png",
+    "heroImage": "/images/lessons/middelalderen/hre_hero.webp",
     "tags": [
         "historie",
         "middelalderen",
@@ -122,7 +122,7 @@
         },
         {
             "type": "image",
-            "src": "/images/lessons/middelalderen/canossa.png",
+            "src": "/images/lessons/middelalderen/canossa.webp",
             "alt": "Henrik 4. ved Canossa",
             "caption": "Keiser Henrik 4. venter ydmykt på pavens tilgivelse utenfor Canossa-borgen i 1077."
         },
@@ -160,7 +160,7 @@
         },
         {
             "type": "image",
-            "src": "/images/lessons/middelalderen/westphalia.png",
+            "src": "/images/lessons/middelalderen/westphalia.webp",
             "alt": "Freden i Westfalen",
             "caption": "Fredsavtalen i 1648 la grunnlaget for det moderne statssystemet i Europa, men svekket Det hellige romerske rike dramatisk."
         },

@@ -9,7 +9,7 @@
         "sjøfart",
         "jobbetid"
     ],
-    "heroImage": "/images/historie/forste-verdenskrig/norge_ww1_hero.png",
+    "heroImage": "/images/historie/forste-verdenskrig/norge_ww1_hero.webp",
     "content": [
         {
             "type": "text",
@@ -33,7 +33,7 @@
         },
         {
             "type": "image",
-            "src": "/images/historie/forste-verdenskrig/norge_ww1_merchant_navy.png",
+            "src": "/images/historie/forste-verdenskrig/norge_ww1_merchant_navy.webp",
             "alt": "Norsk dampskip i storm under første verdenskrig",
             "caption": "Livet til sjøs var livsfarlig. Mange sjøfolk endte i livbåter etter torpederinger."
         },
@@ -55,7 +55,7 @@
         },
         {
             "type": "image",
-            "src": "/images/historie/forste-verdenskrig/norge_ww1_jobbetid.png",
+            "src": "/images/historie/forste-verdenskrig/norge_ww1_jobbetid.webp",
             "alt": "Fest for nyrike jobbere i Kristiania",
             "caption": "Jobbetiden var preget av vill spekulasjon og overforbruk blant de nyrike."
         },
@@ -69,7 +69,7 @@
         },
         {
             "type": "image",
-            "src": "/images/historie/forste-verdenskrig/norge_ww1_dyrtid.png",
+            "src": "/images/historie/forste-verdenskrig/norge_ww1_dyrtid.webp",
             "alt": "Rasjoneringkø i Kristiania",
             "caption": "Dyrtiden rammet hardt. Vanlige folk måtte stå i lange køer for rasjonerte varer."
         }

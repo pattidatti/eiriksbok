@@ -5,7 +5,7 @@
     "year": "218 evt. - 395 evt.",
     "category": "Antikken",
     "readTime": "22 min read",
-    "heroImage": "/images/romerriket/hero-legitimitet.png",
+    "heroImage": "/images/romerriket/hero-legitimitet.webp",
     "details": [
         "Legitimitet: Retten til å styre",
         "Fra Princeps til Dominus (Herre)",
@@ -52,7 +52,7 @@
         },
         {
             "type": "image",
-            "src": "/images/romerriket/sol-invictus-coin.png",
+            "src": "/images/romerriket/sol-invictus-coin.webp",
             "alt": "Romersk gullmynt med bilde av Sol Invictus med strålekrone",
             "caption": "Selv Konstantin preget mynter med solguden lenge etter at han støttet kristendommen."
         },
@@ -66,7 +66,7 @@
         },
         {
             "type": "image",
-            "src": "/images/romerriket/constantine-vision.png",
+            "src": "/images/romerriket/constantine-vision.webp",
             "alt": "Konstantin ser et lysende kors på himmelen før et slag",
             "caption": "Konstantins visjon gjorde kristendommen til en kriger-religion, ikke bare en fredsreligion."
         },
@@ -84,7 +84,7 @@
         },
         {
             "type": "image",
-            "src": "/images/romerriket/council-nicaea.png",
+            "src": "/images/romerriket/council-nicaea.webp",
             "alt": "Biskoper diskuterer heftig under Kirkemøtet i Nikea med keisere på tronen",
             "caption": "På kirkemøtet i Nikea ble den kristne trosbekjennelsen (som fortsatt brukes i kirken i dag) snekret sammen som en politisk avtale."
         },

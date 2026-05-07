@@ -64,7 +64,7 @@ export const HanseaticTradeMap: React.FC = () => {
                 <div className="absolute inset-0 w-full h-full transform scale-150 origin-[50%_75%] transition-transform duration-700">
                     {/* Background Map */}
                     <img
-                        src="/images/textures/northern-europe-map-bg.png"
+                        src="/images/textures/northern-europe-map-bg.webp"
                         alt="Vintage Map of Northern Europe"
                         className="absolute inset-0 w-full h-full object-cover opacity-80 mix-blend-multiply"
                     />

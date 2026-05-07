@@ -9,7 +9,7 @@ export const caesarIdesConfig: GameConfig = {
     description:
         'Du er Lucius Vorenus Cotta, ung senator. I dag skal senatet møtes i Pompey-teateret. ' +
         'Noe er galt - alle er anspente. Finn ut hvorfor, før dørene lukkes bak deg.',
-    thumbnail: '/images/romerriket/caesar-ides-thumb.png',
+    thumbnail: '/images/romerriket/caesar-ides-thumb.webp',
 
     learningGoals: [
         'Forklare minst to grunner senatorene mente Cæsar truet republikken.',

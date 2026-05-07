@@ -5,7 +5,7 @@
     "year": "100 evt.",
     "category": "Antikken",
     "readTime": "16 min read",
-    "heroImage": "/images/romerriket/hero-handel.png",
+    "heroImage": "/images/romerriket/hero-handel.webp",
     "details": [
         "Verdens første globale økonomi",
         "Kornkammeret Afrika",
@@ -31,7 +31,7 @@
         },
         {
             "type": "image",
-            "src": "/images/romerriket/ostia-warehouse.png",
+            "src": "/images/romerriket/ostia-warehouse.webp",
             "alt": "Innsiden av et romersk lagerhus i Ostia",
             "caption": "Ostia var fylt med enorme lagerhus (Horrea) hvor varer fra hele verden ble lagret før de ble sendt til Roma."
         },
@@ -45,7 +45,7 @@
         },
         {
             "type": "image",
-            "src": "/images/romerriket/roman-cargo-ship.png",
+            "src": "/images/romerriket/roman-cargo-ship.webp",
             "alt": "Et romersk handelsskip på havet",
             "caption": "Store handelsskip fraktet korn fra Egypt og Nord-Afrika for å brødfø Romas befolkning."
         },
@@ -59,7 +59,7 @@
         },
         {
             "type": "image",
-            "src": "/images/romerriket/silk-road-caravan.png",
+            "src": "/images/romerriket/silk-road-caravan.webp",
             "alt": "En karavane på Silkeveien",
             "caption": "Silkeveien var ikke én vei, men et nettverk av ruter der varer ble byttet fra hånd til hånd gjennom ørkener og fjell."
         },

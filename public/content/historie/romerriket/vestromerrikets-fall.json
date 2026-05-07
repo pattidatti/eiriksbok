@@ -5,7 +5,7 @@
     "year": "395 evt. - 476 evt.",
     "category": "Antikken",
     "readTime": "20 min read",
-    "heroImage": "/images/romerriket/hero-fall.png",
+    "heroImage": "/images/romerriket/hero-fall.webp",
     "details": [
         "Folkevandringstiden",
         "Attila og hunerne",
@@ -39,7 +39,7 @@
         },
         {
             "type": "image",
-            "src": "/images/romerriket/attila-hun.png",
+            "src": "/images/romerriket/attila-hun.webp",
             "alt": "Attila huneren til hest med en hær bak seg på steppene",
             "caption": "Attila var så fryktet at gresset sies å ha sluttet å gro der hesten hans tråkket."
         },
@@ -61,7 +61,7 @@
         },
         {
             "type": "image",
-            "src": "/images/romerriket/sack-rome-vandals.png",
+            "src": "/images/romerriket/sack-rome-vandals.webp",
             "alt": "Vandaler som plyndrer Roma i 455, bærer ut gull og statuer",
             "caption": "Ordet 'vandalisme' (ødeleggelse) kommer fra dette folket, selv om de egentlig plyndret ganske organisert."
         },
@@ -71,7 +71,7 @@
         },
         {
             "type": "image",
-            "src": "/images/romerriket/forum-ruins.png",
+            "src": "/images/romerriket/forum-ruins.webp",
             "alt": "Oversiktsbilde av et gjengrodd Forum Romanum i ruiner ved solnedgang",
             "caption": "Forum Romanum, det tidligere hjertet i Romerriket, ble etter hvert et sted der kuer beitet mellom ruinene."
         },

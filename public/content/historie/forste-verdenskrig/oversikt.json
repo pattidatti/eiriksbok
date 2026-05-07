@@ -7,7 +7,7 @@
   "year": "1914–1918",
   "category": "Verden",
   "readTime": "15 min lesning",
-  "heroImage": "/images/historie/forste-verdenskrig/oversikt_hero.png",
+  "heroImage": "/images/historie/forste-verdenskrig/oversikt_hero.webp",
   "details": [
     "Startet med skuddene i Sarajevo i 1914.",
     "Kjempet hovedsakelig i skyttergraver på vestfronten.",
@@ -31,7 +31,7 @@
     },
     {
       "type": "image",
-      "src": "/images/historie/forste-verdenskrig/oversikt_1913_monarker.png",
+      "src": "/images/historie/forste-verdenskrig/oversikt_1913_monarker.webp",
       "caption": "Fetterne som eide verden: Kong George V, Keiser Wilhelm II og Tsar Nicholas II i Berlin, 1913. Året etter var de i krig med hverandre."
     },
     {
@@ -71,7 +71,7 @@
     },
     {
       "type": "image",
-      "src": "/images/historie/forste-verdenskrig/oversikt_industriell_krig.png",
+      "src": "/images/historie/forste-verdenskrig/oversikt_industriell_krig.webp",
       "caption": "Den industrielle krigen: Kvinner produserer artillerigranater i en britisk fabrikk, 1916. Krigen krevde total innsats fra hele samfunnet."
     },
     {
@@ -96,7 +96,7 @@
     },
     {
       "type": "image",
-      "src": "/images/historie/forste-verdenskrig/oversikt_sarajevo_1914.png",
+      "src": "/images/historie/forste-verdenskrig/oversikt_sarajevo_1914.webp",
       "caption": "Skjebnebilen: Erkehertug Franz Ferdinand og hertuginne Sophie i Sarajevo, minutter før skuddene falt."
     },
     {
@@ -126,7 +126,7 @@
     },
     {
       "type": "image",
-      "src": "/images/historie/forste-verdenskrig/oversikt_alpefronten.png",
+      "src": "/images/historie/forste-verdenskrig/oversikt_alpefronten.webp",
       "caption": "Den hvite krigen: I Dolomittene kjempet soldater mot både fienden og naturen i 3000 meters høyde."
     },
     {
@@ -143,7 +143,7 @@
     },
     {
       "type": "image",
-      "src": "/images/historie/forste-verdenskrig/oversikt_fredsavtale.png",
+      "src": "/images/historie/forste-verdenskrig/oversikt_fredsavtale.webp",
       "caption": "Freden i Speilsalen: Diplomater signerer Versailles-traktaten i 1919. Freden markerte slutten på krigen, men sådde også frøene til neste konflikt."
     },
     {

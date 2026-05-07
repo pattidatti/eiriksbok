@@ -5,7 +5,7 @@
     "year": "753 fvt. - 27 fvt.",
     "category": "Antikken",
     "readTime": "15 min read",
-    "heroImage": "/images/romerriket/hero-founding.png",
+    "heroImage": "/images/romerriket/hero-founding.webp",
     "details": [
         "Myten om Romulus og Remus",
         "Kampen mellom patrisiere og plebeiere",
@@ -19,7 +19,7 @@
         },
         {
             "type": "image",
-            "src": "/images/romerriket/romulus-wolf.png",
+            "src": "/images/romerriket/romulus-wolf.webp",
             "alt": "Bronsestatue av ulvinnen som ammer Romulus og Remus",
             "caption": "Den kapitolinske ulvinne: symbolet på Romas mytiske start."
         },
@@ -84,7 +84,7 @@
         },
         {
             "type": "image",
-            "src": "/images/romerriket/roman-senate.png",
+            "src": "/images/romerriket/roman-senate.webp",
             "alt": "Romerske senatorer i hvit toga diskuterer heftig i senatet",
             "caption": "Debattene i Senatet kunne være både høylytte og voldelige."
         },
@@ -110,7 +110,7 @@
         },
         {
             "type": "image",
-            "src": "/images/romerriket/hannibal-alps.png",
+            "src": "/images/romerriket/hannibal-alps.webp",
             "alt": "Maleri av Hannibal som krysser alpene med elefanter i snøstorm",
             "caption": "Hannibals dristige marsj over Alpene sjokkerte romerne."
         },

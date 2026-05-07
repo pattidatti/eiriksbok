@@ -5,7 +5,7 @@
     "year": "476 evt. - I dag",
     "category": "Antikken",
     "readTime": "18 min read",
-    "heroImage": "/images/romerriket/hero-arv.png",
+    "heroImage": "/images/romerriket/hero-arv.webp",
     "details": [
         "Språket vi snakker",
         "Lovene vi følger",
@@ -47,7 +47,7 @@
         },
         {
             "type": "image",
-            "src": "/images/romerriket/justinian-code.png",
+            "src": "/images/romerriket/justinian-code.webp",
             "alt": "Et gammelt romersk manuskript med lovtekster (Corpus Juris Civilis)",
             "caption": "Justinians lovsamling reddet den romerske retten for ettertiden og formet dagens europeiske juss."
         },
@@ -65,7 +65,7 @@
         },
         {
             "type": "image",
-            "src": "/images/romerriket/pantheon-oculus.png",
+            "src": "/images/romerriket/pantheon-oculus.webp",
             "alt": "Innsiden av Pantheon-kuppelen med lysstråle fra oculus",
             "caption": "Kuppelen i Pantheon er fortsatt verdens største kuppel av uarmert betong, 1900 år etter at den ble bygget."
         },
@@ -75,7 +75,7 @@
         },
         {
             "type": "image",
-            "src": "/images/romerriket/pont-du-gard.png",
+            "src": "/images/romerriket/pont-du-gard.webp",
             "alt": "Den romerske akveduktbroen Pont du Gard i Frankrike",
             "caption": "Romerne var mestere i å kontrollere vannet. Akveduktene deres kunne transportere ferskvann over hundrevis av kilometer ved hjelp av tyngdekraften."
         },

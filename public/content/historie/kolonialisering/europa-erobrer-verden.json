@@ -4,7 +4,7 @@
     "description": "500 år med imperialisme, maktkamp og globale imperier.",
     "year": "1492–1956",
     "layout": "rich",
-    "image": "/images/historie/kolonialisering/europa-erobrer-verden-hero.jpg",
+    "image": "/images/historie/kolonialisering/europa-erobrer-verden-hero.webp",
     "tags": [
         "historie",
         "kolonialisme",
@@ -96,7 +96,7 @@
         },
         {
             "type": "image",
-            "src": "/images/historie/kolonialisering/portugisisk-karavell.png",
+            "src": "/images/historie/kolonialisering/portugisisk-karavell.webp",
             "caption": "En portugisisk karavell, skipstypen som muliggjorde de lange reisene over Atlanterhavet.",
             "alt": "Realistisk bilde av en karavell i storm"
         },
@@ -110,7 +110,7 @@
         },
         {
             "type": "image",
-            "src": "/images/historie/kolonialisering/tordesillas-traktaten.png",
+            "src": "/images/historie/kolonialisering/tordesillas-traktaten.webp",
             "caption": "Tordesillas-traktaten (1494) delte verden mellom to supermakter, Spania og Portugal, med pavens velsignelse.",
             "alt": "Maleri som viser signeringen av Tordesillas-traktaten"
         },
@@ -144,7 +144,7 @@
         },
         {
             "type": "image",
-            "src": "/images/historie/kolonialisering/trekanthandelen-havn.png",
+            "src": "/images/historie/kolonialisering/trekanthandelen-havn.webp",
             "caption": "Havner i Europa ble knutepunkter i trekanthandelen, der varer og mennesker ble byttet med enorm profitt.",
             "alt": "Havn i solnedgang med skip og handelsvarer"
         },
@@ -260,7 +260,7 @@
         },
         {
             "type": "image",
-            "src": "/images/historie/kolonialisering/industriell-havn.png",
+            "src": "/images/historie/kolonialisering/industriell-havn.webp",
             "caption": "Det industrielle London på slutten av 1800-tallet, sentrum for verdens største imperium.",
             "alt": "Industriell havn i London med dampskip"
         },

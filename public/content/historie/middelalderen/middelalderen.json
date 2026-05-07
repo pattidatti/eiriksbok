@@ -5,7 +5,7 @@
     "year": "500 - 1500 evt.",
     "category": "Middelalderen",
     "readTime": "25 min lesning",
-    "heroImage": "/images/lessons/middelalderen/middelalder_hero.png",
+    "heroImage": "/images/lessons/middelalderen/middelalder_hero.webp",
     "tags": [
         "Historie",
         "Europa",
@@ -84,7 +84,7 @@
         },
         {
             "type": "image",
-            "src": "/images/lessons/middelalderen/karl_den_store_troner.png",
+            "src": "/images/lessons/middelalderen/karl_den_store_troner.webp",
             "alt": "Karl den store krones til keiser",
             "caption": "Kroningen av Karl den store i år 800 knyttet bånd mellom paven og de europeiske kongene."
         },
@@ -194,7 +194,7 @@
         },
         {
             "type": "image",
-            "src": "/images/lessons/middelalderen/middelalder_markedsplass.png",
+            "src": "/images/lessons/middelalderen/middelalder_markedsplass.webp",
             "alt": "Markedsplass i en middelalderby",
             "caption": "Byene var sentre for handel og håndverk, og tilbød en frihet som ikke fantes på landsbygda: 'Byluft gjør fri'."
         },
@@ -224,7 +224,7 @@
         },
         {
             "type": "image",
-            "src": "/images/lessons/middelalderen/svartedauden_pest.png",
+            "src": "/images/lessons/middelalderen/svartedauden_pest.webp",
             "alt": "Ofre for pesten",
             "caption": "Svartedauden endret de sosiale strukturene i Europa fundamentalt ved å gjøre arbeidskraft til en mangelvare."
         },

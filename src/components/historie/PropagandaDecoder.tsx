@@ -56,7 +56,7 @@ export const PropagandaDecoder: React.FC = () => {
                     {/* Image Area */}
                     <div className="relative group bg-black overflow-hidden aspect-[2/3] md:aspect-auto">
                         <img
-                            src="/images/historie/forste-verdenskrig/propaganda_daddy_web.jpg"
+                            src="/images/historie/forste-verdenskrig/propaganda_daddy_web.webp"
                             alt="Propaganda poster"
                             className="w-full h-full object-cover opacity-90 transition-opacity duration-500 group-hover:opacity-40"
                         />

@@ -2,7 +2,7 @@
     "id": "knut-alvsson",
     "title": "Knut Alvsson – ridderen som trosset kong Hans",
     "description": "Historien om Knut Alvsson, en norsk adelsmann som ledet et opprør mot dansk styre under Kalmarunionen.",
-    "image": "/images/historie/norgeshistorie/knut-alvsson/hero.png",
+    "image": "/images/historie/norgeshistorie/knut-alvsson/hero.webp",
     "tags": [
         "historie",
         "norge",
@@ -40,7 +40,7 @@
         },
         {
             "type": "image",
-            "src": "/images/historie/norgeshistorie/knut-alvsson/romerike.png",
+            "src": "/images/historie/norgeshistorie/knut-alvsson/romerike.webp",
             "caption": "Opprøret på Romerike i 1497: Bøndene slo tilbake mot fogdens harde skattlegging.",
             "alt": "Bønder med økser og ljåer på en høstlig skogsvei."
         },
@@ -54,7 +54,7 @@
         },
         {
             "type": "image",
-            "src": "/images/historie/norgeshistorie/knut-alvsson/allianse.png",
+            "src": "/images/historie/norgeshistorie/knut-alvsson/allianse.webp",
             "caption": "Maktkamp i Norden: Knut Alvsson og Sten Sture planlegger opprøret mot kong Hans.",
             "alt": "To adelsmenn bøyd over kart i et mørkt rom."
         },
@@ -64,7 +64,7 @@
         },
         {
             "type": "image",
-            "src": "/images/historie/norgeshistorie/knut-alvsson/mariakirken.png",
+            "src": "/images/historie/norgeshistorie/knut-alvsson/mariakirken.webp",
             "caption": "En symbolsk handling: Knut ved Mariakirken i Oslo for å markere sin tilknytning til de norske kongene.",
             "alt": "Ridder i rustning i en middelalderkirke."
         },
@@ -74,7 +74,7 @@
         },
         {
             "type": "image",
-            "src": "/images/historie/norgeshistorie/knut-alvsson/oppror.png",
+            "src": "/images/historie/norgeshistorie/knut-alvsson/oppror.webp",
             "caption": "Norske bønder og allmue samler seg til væpnet opprør mot det danske styret i 1501.",
             "alt": "Norske bønder med økser og spyd i en vinterlig skog."
         },
@@ -84,7 +84,7 @@
         },
         {
             "type": "image",
-            "src": "/images/historie/norgeshistorie/knut-alvsson/tunsberghus.png",
+            "src": "/images/historie/norgeshistorie/knut-alvsson/tunsberghus.webp",
             "caption": "Seier: Tunsberghus festning faller i Knuts hender våren 1502.",
             "alt": "Middelalderborg på en klippe med norske flagg."
         },
@@ -94,7 +94,7 @@
         },
         {
             "type": "image",
-            "src": "/images/historie/norgeshistorie/knut-alvsson/landsknekt.png",
+            "src": "/images/historie/norgeshistorie/knut-alvsson/landsknekt.webp",
             "caption": "Landsknektene kommer: Kongens profesjonelle leiesoldater var en fryktinngytende motstander for de norske bøndene.",
             "alt": "Leiesoldater med piker og fargerike klær marsjerer gjennom en liten landsby."
         },
@@ -116,7 +116,7 @@
         },
         {
             "type": "image",
-            "src": "/images/historie/norgeshistorie/knut-alvsson/svik.png",
+            "src": "/images/historie/norgeshistorie/knut-alvsson/svik.webp",
             "caption": "Sviket ved Akershus: Knut Alvsson blir drept i et bakhold på Henrik Krummediges skip.",
             "alt": "Ridder i rød kappe blir angrepet av soldater på et skip i tåke."
         },

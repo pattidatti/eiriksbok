@@ -5,7 +5,7 @@
     "year": "49 fvt. - 14 evt.",
     "category": "Antikken",
     "readTime": "18 min read",
-    "heroImage": "/images/romerriket/hero-augustus.png",
+    "heroImage": "/images/romerriket/hero-augustus.webp",
     "details": [
         "Julius Cæsars borgerkrig",
         "Slaget ved Actium",
@@ -23,7 +23,7 @@
         },
         {
             "type": "image",
-            "src": "/images/romerriket/caesar-rubicon.png",
+            "src": "/images/romerriket/caesar-rubicon.webp",
             "alt": "Julius Cæsar krysser Rubicon med en fakkel om natten",
             "caption": "Natten til 11. januar 49 fvt. sa Cæsar de berømte ordene 'Alea iacta est' (Terningen er kastet) og krysset Rubicon."
         },
@@ -53,7 +53,7 @@
         },
         {
             "type": "image",
-            "src": "/images/romerriket/battle-actium.png",
+            "src": "/images/romerriket/battle-actium.webp",
             "alt": "Sjøslaget ved Actium med brennende skip og kaos",
             "caption": "Ved Actium ble Romas skjebne forseglet. Etter tapet begikk både Antonius og Kleopatra selvmord."
         },
@@ -75,7 +75,7 @@
         },
         {
             "type": "image",
-            "src": "/images/romerriket/pantheon-ancient.png",
+            "src": "/images/romerriket/pantheon-ancient.webp",
             "alt": "Pantheon i Roma slik det kan ha sett ut i antikken med folk utenfor",
             "caption": "Agrippas navn står fortsatt på fasaden til Pantheon i dag, som en hyllest til Augustus' byggmester."
         },

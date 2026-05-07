@@ -2,7 +2,7 @@
     "id": "alv-erlingsson",
     "title": "Alv Erlingsson: Piraten som utfordret kongen",
     "description": "Historien om Norges mektigste adelsmann som ble en fryktet sjørøver og tvang kongen til å bygge Akershus festning.",
-    "image": "/images/historie/norgeshistorie/alv-erlingsson/hero.png",
+    "image": "/images/historie/norgeshistorie/alv-erlingsson/hero.webp",
     "tags": [
         "historie",
         "norge",
@@ -69,7 +69,7 @@
         },
         {
             "type": "image",
-            "src": "/images/historie/norgeshistorie/alv-erlingsson/alv-court.png",
+            "src": "/images/historie/norgeshistorie/alv-erlingsson/alv-court.webp",
             "caption": "Greven av Sarpsborg: I utlandet kalte Alv seg Comes de Saresburg. Han ville at alle skulle tro han var en uavhengig fyrste som styrte seg selv.",
             "alt": "Alv Erlingsson i audiens i England."
         },
@@ -102,7 +102,7 @@
         },
         {
             "type": "image",
-            "src": "/images/historie/norgeshistorie/alv-erlingsson/alv-raid.png",
+            "src": "/images/historie/norgeshistorie/alv-erlingsson/alv-raid.webp",
             "caption": "Sjørøverens rede: Isegran var Alvs base ved Glommas utløp, men det ble også her hans fall startet.",
             "alt": "Isegran festning."
         },
@@ -125,7 +125,7 @@
         },
         {
             "type": "image",
-            "src": "/images/historie/norgeshistorie/alv-erlingsson/alv-death.png",
+            "src": "/images/historie/norgeshistorie/alv-erlingsson/alv-death.webp",
             "caption": "Den siste ferden: Alv endte på steile og hjul i 1290. Det var kongens måte å vise at ingen var mektigere enn staten og loven.",
             "alt": "Et hjul på en stake."
         },

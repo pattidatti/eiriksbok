@@ -3,7 +3,7 @@
     "title": "De store syklusene: Sivilisasjoners vekst og fall",
     "description": "Hvorfor gjentar historien seg? Utforsk de dype mønstrene som styrer nasjoners makt og rikdom.",
     "layout": "rich",
-    "image": "/images/ideer/store-sykluser/dalio-big-cycle.png",
+    "image": "/images/ideer/store-sykluser/dalio-big-cycle.webp",
     "createdDate": "2023-12-22T12:00:00Z",
     "lastUpdated": "2025-04-06T12:00:00Z",
     "tags": [
@@ -27,7 +27,7 @@
         },
         {
             "type": "image",
-            "src": "/images/ideer/store-sykluser/dalio-sterk-leder.png",
+            "src": "/images/ideer/store-sykluser/dalio-sterk-leder.webp",
             "alt": "Illustrasjon av en sterk leder med bred folkelig støtte - fra Dalios video",
             "caption": "En syklus starter alltid med en leder som har bred støtte og bygger effektive systemer."
         },
@@ -57,7 +57,7 @@
         },
         {
             "type": "image",
-            "src": "/images/ideer/store-sykluser/dalio-pengetrykking.png",
+            "src": "/images/ideer/store-sykluser/dalio-pengetrykking.webp",
             "alt": "Illustrasjon som viser at når det trykkes mer penger synker verdien av papirpenger mens verdien av aksjer og gull stiger",
             "caption": "Prinsipp 1: Mer penger i omløp betyr lavere verdi på hver enkelt seddel."
         },
@@ -79,7 +79,7 @@
         },
         {
             "type": "image",
-            "src": "/images/ideer/store-sykluser/dalio-gullstandard.png",
+            "src": "/images/ideer/store-sykluser/dalio-gullstandard.webp",
             "alt": "34 dollar tilsvarte 1 unse gull under Bretton Woods-avtalen",
             "caption": "Frem til 1971 var dollaren knyttet til gull: 34 dollar = 1 unse gull. President Nixon brøt denne koblingen."
         },
@@ -93,7 +93,7 @@
         },
         {
             "type": "image",
-            "src": "/images/ideer/store-sykluser/dalio-stormakter-syklus.png",
+            "src": "/images/ideer/store-sykluser/dalio-stormakter-syklus.webp",
             "alt": "Graf som viser maktbuer for Nederland, Storbritannia, USA og Kina over de siste 500 år",
             "caption": "Stafetten går videre: Nederlandsk dominans ble avløst av britisk, som ble avløst av amerikansk - og nå utfordres av Kina."
         },
@@ -111,7 +111,7 @@
         },
         {
             "type": "image",
-            "src": "/images/ideer/store-sykluser/dalio-reservevaluta.png",
+            "src": "/images/ideer/store-sykluser/dalio-reservevaluta.webp",
             "alt": "Verdenskart som viser dollaren som flyter fra USA til alle verdens land",
             "caption": "Reservevalutaen er verdens felles betalingsmiddel. I dag er det US dollar som spiller denne rollen."
         },
@@ -126,11 +126,11 @@
                 "title": "Intern og ekstern orden",
                 "items": [
                     {
-                        "image": "/images/ideer/store-sykluser/dalio-traktat.png",
+                        "image": "/images/ideer/store-sykluser/dalio-traktat.webp",
                         "caption": "Ekstern orden: Avtaler mellom nasjoner om 'hvordan verden skal henge sammen'. Endres vanligvis gjennom internasjonale kriger."
                     },
                     {
-                        "image": "/images/ideer/store-sykluser/dalio-borgerkrig.png",
+                        "image": "/images/ideer/store-sykluser/dalio-borgerkrig.webp",
                         "caption": "Intern orden: Et lands grunnlov og styringsform. Endres vanligvis gjennom borgerkrig eller revolusjon."
                     }
                 ]
@@ -146,7 +146,7 @@
         },
         {
             "type": "image",
-            "src": "/images/ideer/store-sykluser/dalio-big-cycle.png",
+            "src": "/images/ideer/store-sykluser/dalio-big-cycle.webp",
             "alt": "The Big Cycle - diagram over imperienes oppgang og nedgang med alle 7 faser markert",
             "caption": "Den store buen: Alle imperier følger det samme mønsteret - fra fred og produksjon, via finansbobler og intern konflikt, til ny verdensorden."
         },
@@ -177,7 +177,7 @@
         },
         {
             "type": "image",
-            "src": "/images/ideer/store-sykluser/dalio-utdanning.png",
+            "src": "/images/ideer/store-sykluser/dalio-utdanning.webp",
             "alt": "Illustrasjon av god utdanning med elever og lærer fra Dalios video",
             "caption": "Sterk utdanning er grunnlaget. Uten kunnskap, ingen innovasjon. Uten innovasjon, ingen vekst."
         },
@@ -187,7 +187,7 @@
         },
         {
             "type": "image",
-            "src": "/images/ideer/store-sykluser/dalio-produksjon-handel.png",
+            "src": "/images/ideer/store-sykluser/dalio-produksjon-handel.webp",
             "alt": "Illustrasjon som viser at økt produksjon fører til større andel av verdenshandelen",
             "caption": "Mer produksjon gir større markedsandeler i verdenshandelen - og mer inntekt til å investere videre."
         },
@@ -204,7 +204,7 @@
         },
         {
             "type": "image",
-            "src": "/images/ideer/store-sykluser/dalio-nederland-handel.png",
+            "src": "/images/ideer/store-sykluser/dalio-nederland-handel.webp",
             "alt": "Kart som viser nederlandske handelsskip og handelsruter ut fra Nederland på 1600-tallet",
             "caption": "Nederland på 1600-tallet: Handelsruter i alle retninger. Det lille landet kontrollerte verdenshandelen."
         },
@@ -242,7 +242,7 @@
         },
         {
             "type": "image",
-            "src": "/images/ideer/store-sykluser/dalio-borgerkrig.png",
+            "src": "/images/ideer/store-sykluser/dalio-borgerkrig.webp",
             "alt": "Illustrasjon av borgerkrig - to grupperinger av befolkningen i konfrontasjon",
             "caption": "Indre konflikt: Når ulikheten blir for stor, sprekker samfunnet langs klasseskiller. Borgerkrig er et klassisk symptom på at et imperium er i fall."
         },
@@ -256,7 +256,7 @@
         },
         {
             "type": "image",
-            "src": "/images/ideer/store-sykluser/dalio-internasjonalkrig.png",
+            "src": "/images/ideer/store-sykluser/dalio-internasjonalkrig.webp",
             "alt": "Illustrasjon av internasjonal krig - en ny makt utfordrer den sittende stormakten",
             "caption": "Ekstern konflikt: En ny, stigende makt utfordrer den sittende. Dette er historiens farligste øyeblikk."
         },

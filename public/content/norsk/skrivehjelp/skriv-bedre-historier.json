@@ -4,7 +4,7 @@
     "subject": "norsk",
     "topic": "skrivehjelp",
     "layout": "rich",
-    "heroImage": "/images/topics/skrivehjelp_hero.png",
+    "heroImage": "/images/topics/skrivehjelp_hero.webp",
     "content": [
         {
             "type": "header",
@@ -20,7 +20,7 @@
             "content": [
                 {
                     "type": "image",
-                    "src": "/images/topics/skrivehjelp_handling.png",
+                    "src": "/images/topics/skrivehjelp_handling.webp",
                     "alt": "En reisende ved et veiskille i skogen",
                     "caption": "Handling starter med valg – karakteren din må eie sin egen vei."
                 },
@@ -115,7 +115,7 @@
             "content": [
                 {
                     "type": "image",
-                    "src": "/images/topics/skrivehjelp_dialog.png",
+                    "src": "/images/topics/skrivehjelp_dialog.webp",
                     "alt": "To personer i en intens samtale over et kart",
                     "caption": "Dialog og indre liv skaper dybde og menneskelig kontakt."
                 },
@@ -212,7 +212,7 @@
             "content": [
                 {
                     "type": "image",
-                    "src": "/images/topics/skrivehjelp_stil.png",
+                    "src": "/images/topics/skrivehjelp_stil.webp",
                     "alt": "Nærbilde av en sjakkpiece som plasseres med presisjon",
                     "caption": "Stil handler om presisjon – hver detalj må ha en hensikt."
                 },

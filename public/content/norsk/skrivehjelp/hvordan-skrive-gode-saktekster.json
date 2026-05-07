@@ -4,7 +4,7 @@
     "subject": "norsk",
     "topic": "skrivehjelp",
     "layout": "rich",
-    "heroImage": "/images/lessons/norsk/saktekst_bridge_hero.png",
+    "heroImage": "/images/lessons/norsk/saktekst_bridge_hero.webp",
     "content": [
         {
             "type": "header",
@@ -101,7 +101,7 @@
                 },
                 {
                     "type": "image",
-                    "src": "/images/lessons/norsk/saktekst_sleep_renovation.png",
+                    "src": "/images/lessons/norsk/saktekst_sleep_renovation.webp",
                     "alt": "En person som sover rolig i et nordisk soverom",
                     "caption": "Søvn er som en 'vaskemaskin' for hjernen."
                 },
@@ -125,7 +125,7 @@
                 },
                 {
                     "type": "image",
-                    "src": "/images/lessons/norsk/saktekst_relay_baton.png",
+                    "src": "/images/lessons/norsk/saktekst_relay_baton.webp",
                     "alt": "Stafettveksling",
                     "caption": "Gode overganger fungerer som en stafettveksling mellom avsnittene."
                 },

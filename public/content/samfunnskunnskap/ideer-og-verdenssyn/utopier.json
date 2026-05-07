@@ -5,7 +5,7 @@
     "year": "Fra antikken til i dag",
     "category": "Idéhistorie",
     "readTime": "15 min lesing",
-    "heroImage": "/images/lessons/ideer/utopier_hero.png",
+    "heroImage": "/images/lessons/ideer/utopier_hero.webp",
     "details": [
         "Hva betyr egentlig 'Utopia'?",
         "Platons stat: Den første malen",
@@ -40,7 +40,7 @@
         },
         {
             "type": "image",
-            "src": "/images/lessons/ideer/plato_vs_more.png",
+            "src": "/images/lessons/ideer/plato_vs_more.webp",
             "caption": "Fra Platons filosofiske idealstat til Thomas Mores detaljerte øysamfunn."
         },
         {

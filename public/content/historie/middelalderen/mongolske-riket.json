@@ -5,7 +5,7 @@
     "year": "1206–1368",
     "category": "Middelalder",
     "readTime": "9 min lesning",
-    "heroImage": "/images/history/mongolske-riket-hero.jpg",
+    "heroImage": "/images/history/mongolske-riket-hero.webp",
     "details": [
         "Det største sammenhengende landimperiet i historien",
         "Skapt av Djengis Khan i 1206",
@@ -38,7 +38,7 @@
         },
         {
             "type": "image",
-            "src": "/images/history/mongol_cavalry_charge.png",
+            "src": "/images/history/mongol_cavalry_charge.webp",
             "caption": "Mongolsk kavaleri: De mongolske rytterne var uovertrufne bueskyttere til hest, i stand til å skyte nøyaktig selv i full galopp.",
             "alt": "Mongolske ryttere som angriper med pil og bue."
         },
@@ -128,7 +128,7 @@
         },
         {
             "type": "image",
-            "src": "/images/history/mongol_siege_baghdad.png",
+            "src": "/images/history/mongol_siege_baghdad.webp",
             "caption": "Beleiring av byer: Mongolene lærte beleiringsteknikker av kinesiske og persiske ingeniører, noe de brukte med stor effekt under sine erobringer.",
             "alt": "Mongolsk hær som beleirer en by."
         },

@@ -27,7 +27,7 @@ const TimeTravelHub: React.FC = () => {
             description: 'Stå vakt ved Hadrians mur og hold barbarene unna.',
             icon: Shield,
             color: 'bg-red-900',
-            image: '/images/chronos/roman_fort_map.png',
+            image: '/images/chronos/roman_fort_map.webp',
             disabled: false
         },
         {
@@ -38,7 +38,7 @@ const TimeTravelHub: React.FC = () => {
             description: 'Styr ditt len, døm dine bønder og sikre din ætt i det tysk-romerske riket.',
             icon: Crown,
             color: 'bg-red-950',
-            image: '/images/chronos/medieval_castle_map.png',
+            image: '/images/chronos/medieval_castle_map.webp',
             disabled: false
         },
         {

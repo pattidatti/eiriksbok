@@ -9,7 +9,7 @@
         "propaganda",
         "kvinnekamp"
     ],
-    "heroImage": "/images/historie/forste-verdenskrig/hjemmefronten_hero.png",
+    "heroImage": "/images/historie/forste-verdenskrig/hjemmefronten_hero.webp",
     "content": [
         {
             "type": "text",
@@ -28,11 +28,11 @@
             "title": "Kvinner i nye roller",
             "items": [
                 {
-                    "image": "/images/historie/forste-verdenskrig/kvinner-i-fabrikk.png",
+                    "image": "/images/historie/forste-verdenskrig/kvinner-i-fabrikk.webp",
                     "caption": "Ammunisjonsfabrikker var farlige arbeidsplasser. Kvinnene her ble kalt 'Munitionettes'."
                 },
                 {
-                    "image": "/images/historie/forste-verdenskrig/kvinnelig-trikkeforer.png",
+                    "image": "/images/historie/forste-verdenskrig/kvinnelig-trikkeforer.webp",
                     "caption": "Kvinner overtok også mange offentlige roller, som her som trikkefører i London."
                 }
             ]
@@ -55,7 +55,7 @@
         },
         {
             "type": "image",
-            "src": "/images/historie/forste-verdenskrig/kalrotvinteren.png",
+            "src": "/images/historie/forste-verdenskrig/kalrotvinteren.webp",
             "caption": "Kålrotvinteren 1916-1917: En tysk familie spiser sitt snaue måltid bestående av kålrot og erstatningsbrød."
         },
         {
@@ -81,11 +81,11 @@
             "title": "Løgnens billedgalleri",
             "items": [
                 {
-                    "image": "/images/historie/forste-verdenskrig/propaganda_brute_web.jpg",
+                    "image": "/images/historie/forste-verdenskrig/propaganda_brute_web.webp",
                     "caption": "Fienden ble ofte umenneskeliggjort. 'Destroy This Mad Brute' (1917) fremstiller Tyskland som en gorilla med 'Kultur'-kølle som truer sivilisasjonen."
                 },
                 {
-                    "image": "/images/historie/forste-verdenskrig/propaganda_wait_web.jpg",
+                    "image": "/images/historie/forste-verdenskrig/propaganda_wait_web.webp",
                     "caption": "Rekrutteringsplakater spilte ofte på frykt. 'Will you fight now or wait for this' (1918) viser fienden som invaderer hjemmet ditt."
                 }
             ]

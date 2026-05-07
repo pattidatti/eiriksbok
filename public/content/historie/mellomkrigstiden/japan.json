@@ -5,7 +5,7 @@
     "year": "1918-1941",
     "readTime": "17 minutter",
     "layout": "rich",
-    "heroImage": "/images/mellomkrigstiden/hero_japan.png",
+    "heroImage": "/images/mellomkrigstiden/hero_japan.webp",
     "summary": "Fra Taishō-demokratiet til militarismens triumf – hvordan Japan vandret fra vestlig inspirert modernisme til imperialistisk aggresjon.",
     "content": [
         {
@@ -24,7 +24,7 @@
         },
         {
             "type": "image",
-            "src": "/images/mellomkrigstiden/japan_ginza.png",
+            "src": "/images/mellomkrigstiden/japan_ginza.webp",
             "caption": "Ginza-distriktet i Tokyo på 1920-tallet var sentrum for den nye, vestlige livsstilen. Lysreklamer, biler og 'modan gāru' preget gatebildet.",
             "alt": "Mennesker og biler i Ginza-distriktet under Taishō-demokratiet."
         },
@@ -68,7 +68,7 @@
         },
         {
             "type": "image",
-            "src": "/images/mellomkrigstiden/japan_manchuria.png",
+            "src": "/images/mellomkrigstiden/japan_manchuria.webp",
             "caption": "Japanske soldater på patrulje langs jernbanelinjen i Mandsjuria, 1931. Det kalde landskapet ble åstedet for den første store aggressive handlingen som ledet mot verdenskrigen.",
             "alt": "Japanske soldater i vinterlandskap i Mandsjuria."
         },
@@ -171,7 +171,7 @@
         },
         {
             "type": "image",
-            "src": "/images/mellomkrigstiden/japan_pearl_harbor.png",
+            "src": "/images/mellomkrigstiden/japan_pearl_harbor.webp",
             "caption": "Kido Butai – den japanske hangarskipsflåten – gjør seg klar til angrep ved daggry i desember 1941. Zero-flyene på dekket skulle snart endre historiens gang.",
             "alt": "Japanske Zero-fly på dekket av et hangarskip før angrepet på Pearl Harbor."
         },

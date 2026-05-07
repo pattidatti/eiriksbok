@@ -2,7 +2,7 @@
   "id": "30-aarskrigen",
   "title": "30-årskrigen: Europa i flammer",
   "description": "Den store katastrofen: Da religion og maktkamp rev Europa i fillebiter.",
-  "heroImage": "/images/lessons/lutzen.jpg",
+  "heroImage": "/images/lessons/lutzen.webp",
   "year": "1618-1648",
   "layout": "rich",
   "readTime": "15 min lesning",
@@ -37,7 +37,7 @@
     },
     {
       "type": "image",
-      "src": "/images/lessons/defenestrasjon.png",
+      "src": "/images/lessons/defenestrasjon.webp",
       "alt": "Defenestrasjonen i Praha 1618",
       "caption": "Defenestrasjonen i Praha (1618): Protestantiske opprørere kaster katolske embetsmenn ut av vinduet."
     },

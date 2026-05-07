@@ -19,7 +19,7 @@ export const oljeplattformConfig: GameConfig = {
         'Din første dag offshore. Skiftleder Gunnar skal vise deg hvordan oljen reiser ' +
         'fra havbunnen til tankskipet: gjennom brønnhodet, separatoren og eksport-røret. ' +
         'Før helikopteret kommer med kveldens bemanning skal du ha startet eksport-pumpen selv.',
-    thumbnail: '/images/industri/oljeplattform-thumb.png',
+    thumbnail: '/images/industri/oljeplattform-thumb.webp',
 
     learningGoals: [
         'Eleven kan beskrive de tre hovedtrinnene i oljeproduksjon: brønnhode, separator, eksport.',

@@ -42,14 +42,14 @@ export const TriangularTradeMap: React.FC = () => {
         <div className="w-full max-w-4xl mx-auto my-12 font-serif">
             <div className="relative bg-[#f5f5f0] rounded-lg overflow-hidden shadow-xl border-4 border-double border-stone-300 aspect-[4/3] group">
                 {/* Paper Texture Overlay */}
-                <div className="absolute inset-0 opacity-10 pointer-events-none bg-[url('/images/textures/vintage-paper.jpg')]"></div>
+                <div className="absolute inset-0 opacity-10 pointer-events-none bg-[url('/images/textures/vintage-paper.webp')]"></div>
 
                 {/* Vintage Vignette */}
                 <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_100px_rgba(139,69,19,0.15)]"></div>
 
                 {/* High Fidelity Map Background */}
                 <img
-                    src="/images/textures/atlantic-map-bg.png"
+                    src="/images/textures/atlantic-map-bg.webp"
                     alt="Vintage Map of the Atlantic"
                     className="absolute inset-0 w-full h-full object-cover opacity-80 mix-blend-multiply pointer-events-none"
                 />
