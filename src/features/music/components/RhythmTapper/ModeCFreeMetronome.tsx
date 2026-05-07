@@ -5,6 +5,7 @@ import {
     schedulePlayback,
     startTransport,
     stopTransport,
+    PLAYBACK_START_OFFSET_SEC,
 } from '../../audio/rhythmTransport';
 import { playTapClick } from '../../audio/clickSynths';
 import { TapZone } from './TapZone';
@@ -43,7 +44,7 @@ export function ModeCFreeMetronome({ bpm, onChangeBpm, latencyOffsetMs }: Props)
     }, [bpm]);
 
     const beginInternal = () => {
-        startTimeRef.current = Tone.now() + 0.15;
+        startTimeRef.current = Tone.now() + PLAYBACK_START_OFFSET_SEC;
         schedulePlayback({
             bpm,
             bars: 100,

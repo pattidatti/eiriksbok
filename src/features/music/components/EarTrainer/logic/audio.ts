@@ -1,32 +1,71 @@
 import * as Tone from 'tone';
 import { midiToNoteName } from './levels';
 
+const SAMPLER_TIMEOUT_MS = 15000;
+
 let samplerPromise: Promise<Tone.Sampler> | null = null;
 
+export async function ensureToneStarted(): Promise<void> {
+    if (Tone.context.state !== 'running') {
+        await Tone.start();
+    }
+}
+
 function createSampler(): Promise<Tone.Sampler> {
-    return new Promise((resolve) => {
-        const sampler = new Tone.Sampler({
-            urls: {
-                A1: 'A1.mp3',
-                A2: 'A2.mp3',
-                A3: 'A3.mp3',
-                A4: 'A4.mp3',
-                A5: 'A5.mp3',
-                A6: 'A6.mp3',
-            },
-            baseUrl: 'https://tonejs.github.io/audio/salamander/',
-            release: 1.4,
-            onload: () => resolve(sampler),
-        }).toDestination();
+    return new Promise((resolve, reject) => {
+        let settled = false;
+        const timeout = setTimeout(() => {
+            if (settled) return;
+            settled = true;
+            reject(
+                new Error(
+                    'Piano-lyden tok for lang tid å laste. Sjekk nettverket og prøv igjen.'
+                )
+            );
+        }, SAMPLER_TIMEOUT_MS);
+
+        try {
+            const sampler = new Tone.Sampler({
+                urls: {
+                    A1: 'A1.mp3',
+                    A2: 'A2.mp3',
+                    A3: 'A3.mp3',
+                    A4: 'A4.mp3',
+                    A5: 'A5.mp3',
+                    A6: 'A6.mp3',
+                },
+                baseUrl: 'https://tonejs.github.io/audio/salamander/',
+                release: 1.4,
+                onload: () => {
+                    if (settled) return;
+                    settled = true;
+                    clearTimeout(timeout);
+                    resolve(sampler);
+                },
+                onerror: (err: Error) => {
+                    if (settled) return;
+                    settled = true;
+                    clearTimeout(timeout);
+                    reject(err instanceof Error ? err : new Error('Klarte ikke å laste piano-lyden.'));
+                },
+            }).toDestination();
+        } catch (err) {
+            if (settled) return;
+            settled = true;
+            clearTimeout(timeout);
+            reject(err instanceof Error ? err : new Error('Klarte ikke å starte piano-lyden.'));
+        }
     });
 }
 
 export async function getSampler(): Promise<Tone.Sampler> {
-    if (Tone.context.state !== 'running') {
-        await Tone.start();
-    }
+    await ensureToneStarted();
     if (!samplerPromise) {
         samplerPromise = createSampler();
+        // Allow retry on next call if loading failed
+        samplerPromise.catch(() => {
+            samplerPromise = null;
+        });
     }
     return samplerPromise;
 }

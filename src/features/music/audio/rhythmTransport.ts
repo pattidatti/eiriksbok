@@ -4,6 +4,9 @@ import { playMetronomeAccent, playMetronomeClick } from './clickSynths';
 let started = false;
 const scheduledIds: number[] = [];
 
+export const PLAYBACK_START_OFFSET_SEC = 0.15;
+export const COUNT_IN_START_OFFSET_SEC = 0.1;
+
 export async function ensureAudioReady(): Promise<void> {
     if (Tone.context.state !== 'running') {
         await Tone.start();
@@ -35,7 +38,7 @@ export function scheduleCountIn(opts: CountInOptions): void {
     const { bpm, beats, onTick, onComplete } = opts;
     setBpm(bpm);
     const secondsPerBeat = 60 / bpm;
-    const startOffset = 0.1;
+    const startOffset = COUNT_IN_START_OFFSET_SEC;
 
     for (let i = 0; i < beats; i++) {
         const time = startOffset + i * secondsPerBeat;
@@ -89,7 +92,7 @@ export function schedulePlayback(opts: PlayOptions): void {
     const secondsPerBeat = 60 / bpm;
     const beatsPerBar = timeSignature[0];
     const totalMetronomeBeats = countInBeats + bars * beatsPerBar;
-    const startOffset = 0.15;
+    const startOffset = PLAYBACK_START_OFFSET_SEC;
 
     for (let i = 0; i < totalMetronomeBeats; i++) {
         const time = startOffset + i * secondsPerBeat;

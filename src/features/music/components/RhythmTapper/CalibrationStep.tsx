@@ -62,15 +62,14 @@ export function CalibrationStep({ onComplete, onSkip }: Props) {
         setPhase('countIn');
 
         const secondsPerBeat = 60 / CALIBRATION_BPM;
-        const countInDuration = COUNT_IN_BEATS * secondsPerBeat;
 
         scheduleCountIn({
             bpm: CALIBRATION_BPM,
             beats: COUNT_IN_BEATS + TAPS_REQUIRED,
-            onTick: (beatIndex) => {
+            onTick: (beatIndex, time) => {
                 if (beatIndex === COUNT_IN_BEATS) {
                     setPhase('tapping');
-                    startTimeRef.current = Tone.now();
+                    startTimeRef.current = time;
                 }
             },
             onComplete: () => {
@@ -78,7 +77,6 @@ export function CalibrationStep({ onComplete, onSkip }: Props) {
             },
         });
         startTransport();
-        void countInDuration;
     };
 
     const finalize = (secondsPerBeat: number) => {

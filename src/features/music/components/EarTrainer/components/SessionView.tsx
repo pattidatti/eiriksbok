@@ -1,6 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react';
+import { AlertTriangle } from 'lucide-react';
 import type { Question } from '../logic/questionGenerator';
 import type { ModeId } from '../logic/levels';
+import { ensureToneStarted } from '../logic/audio';
 import { PlayButton } from './PlayButton';
 import { AnswerButtons } from './AnswerButtons';
 import { FeedbackOverlay } from './FeedbackOverlay';
@@ -36,6 +38,7 @@ export const SessionView: React.FC<SessionViewProps> = ({
     const [selected, setSelected] = useState<string | null>(null);
     const [streak, setStreak] = useState(0);
     const [isLoadingAudio, setIsLoadingAudio] = useState(false);
+    const [audioError, setAudioError] = useState<string | null>(null);
     const [bestStreak, setBestStreak] = useState(() => getBestStreak(loadState(), mode, level));
 
     useEffect(() => {
@@ -43,14 +46,28 @@ export const SessionView: React.FC<SessionViewProps> = ({
         setPhase('idle');
         setSelected(null);
         setStreak(0);
+        setAudioError(null);
         setBestStreak(getBestStreak(loadState(), mode, level));
     }, [mode, level, generate]);
 
     const handlePlay = useCallback(async () => {
+        try {
+            await ensureToneStarted();
+        } catch {
+            setAudioError('Nettleseren tillot ikke avspilling. Prøv å klikke en gang til.');
+            return;
+        }
+        setAudioError(null);
         setPhase('playing');
         setIsLoadingAudio(true);
         try {
             await play(question);
+        } catch (err) {
+            const message =
+                err instanceof Error
+                    ? err.message
+                    : 'Klarte ikke å spille av lyden. Prøv igjen.';
+            setAudioError(message);
         } finally {
             setIsLoadingAudio(false);
             setPhase((current) => (current === 'playing' ? 'awaiting' : current));
@@ -88,7 +105,15 @@ export const SessionView: React.FC<SessionViewProps> = ({
 
     const handleReplayBoth = useCallback(async () => {
         if (selected === null) return;
-        await replay(question, selected);
+        try {
+            await replay(question, selected);
+        } catch (err) {
+            const message =
+                err instanceof Error
+                    ? err.message
+                    : 'Klarte ikke å spille av lyden. Prøv igjen.';
+            setAudioError(message);
+        }
     }, [replay, question, selected]);
 
     const isCorrect = selected !== null && selected === question.correctLabel;
@@ -108,6 +133,26 @@ export const SessionView: React.FC<SessionViewProps> = ({
                 forceDisabled={phase === 'feedback'}
                 label={phase === 'idle' ? 'Spill av' : 'Hør igjen'}
             />
+
+            {audioError && (
+                <div
+                    role="alert"
+                    className="flex w-full items-start gap-3 rounded-xl border-2 border-amber-300 bg-amber-50 p-4 text-amber-900"
+                >
+                    <AlertTriangle className="mt-0.5 h-5 w-5 flex-shrink-0" />
+                    <div className="flex-1 text-sm">
+                        <div className="font-semibold">Lyd-problem</div>
+                        <div>{audioError}</div>
+                        <button
+                            type="button"
+                            onClick={handlePlay}
+                            className="mt-2 rounded-lg border border-amber-400 bg-white px-3 py-1 text-sm font-medium text-amber-900 hover:bg-amber-100"
+                        >
+                            Prøv igjen
+                        </button>
+                    </div>
+                </div>
+            )}
 
             <div className="w-full">
                 <AnswerButtons

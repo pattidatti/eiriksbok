@@ -4,15 +4,14 @@ import { QUARTER_NOTE_BEATS } from './rhythmTypes';
 interface LevelRule {
     notes: NoteValue[];
     rests: RestValue[];
-    allowSyncopation: boolean;
 }
 
 const LEVEL_RULES: Record<number, LevelRule> = {
-    1: { notes: ['2n'], rests: [], allowSyncopation: false },
-    2: { notes: ['4n'], rests: [], allowSyncopation: false },
-    3: { notes: ['2n', '4n'], rests: ['4r'], allowSyncopation: false },
-    4: { notes: ['4n', '8n'], rests: ['4r'], allowSyncopation: false },
-    5: { notes: ['4n', '8n', '4n.'], rests: ['8r', '4r'], allowSyncopation: true },
+    1: { notes: ['2n'], rests: [] },
+    2: { notes: ['4n'], rests: [] },
+    3: { notes: ['2n', '4n'], rests: ['4r'] },
+    4: { notes: ['4n', '8n'], rests: ['4r'] },
+    5: { notes: ['4n', '8n', '4n.'], rests: ['8r', '4r'] },
 };
 
 const TOTAL_BEATS = 8;

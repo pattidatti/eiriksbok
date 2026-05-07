@@ -7,9 +7,8 @@ import {
     stopTransport,
 } from '../../audio/rhythmTransport';
 import { playTapClick } from '../../audio/clickSynths';
-import { generatePattern } from '../../lib/rhythmGenerator';
+import { generatePattern, eventsToTapTimes } from '../../lib/rhythmGenerator';
 import { calculateAccuracy } from '../../lib/accuracy';
-import { eventsToTapTimes } from '../../lib/rhythmGenerator';
 import type { AccuracyResult, RhythmPattern } from '../../lib/rhythmTypes';
 import { TapZone } from './TapZone';
 import { MetronomePulse } from './MetronomePulse';
@@ -230,6 +229,10 @@ export function ModeBCallResponse({ level, bpm, latencyOffsetMs, onChangeBpm }: 
                         type="button"
                         onClick={() => {
                             stopTransport();
+                            if (phaseTimeoutRef.current) {
+                                window.clearTimeout(phaseTimeoutRef.current);
+                                phaseTimeoutRef.current = null;
+                            }
                             setPhase('idle');
                         }}
                         className="px-6 py-2.5 bg-white hover:bg-slate-50 border border-slate-300 text-slate-700 font-semibold rounded-lg transition"

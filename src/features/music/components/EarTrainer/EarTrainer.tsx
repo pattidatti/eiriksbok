@@ -30,18 +30,9 @@ export const EarTrainer: React.FC = () => {
         }
     }, [tab, intervalLevel, chordLevel, rhythmLevel]);
 
-    const handleIntervalLevel = (l: number) => {
-        setIntervalLevel(l);
-        saveLastSession('interval', l);
-    };
-    const handleChordLevel = (l: number) => {
-        setChordLevel(l);
-        saveLastSession('chord', l);
-    };
-    const handleRhythmLevel = (l: number) => {
-        setRhythmLevel(l);
-        saveLastSession('rhythm', l);
-    };
+    const handleIntervalLevel = (l: number) => setIntervalLevel(l);
+    const handleChordLevel = (l: number) => setChordLevel(l);
+    const handleRhythmLevel = (l: number) => setRhythmLevel(l);
 
     return (
         <div className="mx-auto w-full max-w-4xl px-4 py-6">
