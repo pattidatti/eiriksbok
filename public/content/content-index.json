@@ -1,5 +1,5 @@
 {
-  "buildId": 1778097553657,
+  "buildId": 1778116970518,
   "contentMap": {
     "adel": [
       "content/concepts/adel.json"
@@ -807,6 +807,9 @@
     ],
     "middelalderen": [
       "content/historie/middelalderen/middelalderen.json"
+    ],
+    "mongolske-riket": [
+      "content/historie/middelalderen/mongolske-riket.json"
     ],
     "svartedauden-sti": [
       "content/historie/middelalderen/svartedauden-sti.json"
@@ -2053,6 +2056,7 @@
     "historie/middelalderen/det-hellige-romerske-rike": "content/historie/middelalderen/det-hellige-romerske-rike.json",
     "historie/middelalderen/hanseatene": "content/historie/middelalderen/hanseatene.json",
     "historie/middelalderen/middelalderen": "content/historie/middelalderen/middelalderen.json",
+    "historie/middelalderen/mongolske-riket": "content/historie/middelalderen/mongolske-riket.json",
     "historie/middelalderen/svartedauden-sti": "content/historie/middelalderen/svartedauden-sti.json",
     "historie/middelalderen/svartedauden": "content/historie/middelalderen/svartedauden.json",
     "historie/middelalderen/tidlig-middelalder": "content/historie/middelalderen/tidlig-middelalder.json",
