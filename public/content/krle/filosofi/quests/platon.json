@@ -2,6 +2,7 @@
     "id": "cave-allegory",
     "title": "Skygger på Veggen",
     "description": "Utforsk sannhetens natur gjennom Platons berømte hulelignelse.",
+    "image": "/images/krle/filosofi/platon.webp",
     "mentor": "Platon",
     "initialStepId": "intro",
     "rewardXp": 500,

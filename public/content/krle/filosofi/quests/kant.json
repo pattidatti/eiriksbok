@@ -2,6 +2,7 @@
     "id": "categorical-imperative",
     "title": "Pliktens Kall",
     "description": "Immanuel Kant stiller det ultimate spørsmålet om moral: Hva om alle gjorde som deg?",
+    "image": "/images/krle/filosofi/kant.webp",
     "mentor": "Kant",
     "initialStepId": "start",
     "rewardXp": 500,

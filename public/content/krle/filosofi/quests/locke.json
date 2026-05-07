@@ -2,6 +2,7 @@
     "id": "property-rights",
     "title": "Hvem Eier Deg?",
     "description": "Utforsk John Lockes tanker om frihet, eiendom og hvorfor vi trenger en stat.",
+    "image": "/images/krle/filosofi/locke.webp",
     "mentor": "Locke",
     "initialStepId": "start",
     "rewardXp": 500,

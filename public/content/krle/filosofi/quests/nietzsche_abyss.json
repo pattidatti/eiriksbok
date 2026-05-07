@@ -2,6 +2,7 @@
     "id": "nietzsche-abyss",
     "title": "Avgrunnen",
     "description": "Nietzsche utfordrer deg til å stirre inn i avgrunnen uten å blunke.",
+    "image": "/images/krle/filosofi/nietzsche.webp",
     "mentor": "Nietzsche",
     "initialStepId": "start",
     "rewardXp": 600,
