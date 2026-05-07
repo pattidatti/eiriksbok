@@ -51,6 +51,8 @@ export const routeFactories: Record<string, PageFactory> = {
     PresentationPage: () => import('./pages/PresentationPage').then(module => ({ default: module.PresentationPage })),
     LearningPathsHub: () => import('./pages/LearningPathsHub').then(module => ({ default: module.LearningPathsHub })),
     CompositionTool: () => import('./features/music/components/composition/CompositionTool').then(module => ({ default: module.CompositionTool })),
+    RhythmTapperPage: () => import('./features/music/pages/RhythmTapperPage'),
+    EarTrainerPage: () => import('./features/music/pages/EarTrainerPage'),
     InfrastrukturAtlas: () => import('./features/infrastruktur/InfrastrukturAtlasPage').then(module => ({ default: module.InfrastrukturAtlasPage })),
     VirkemiddelverkstedetPage: () => import('./pages/VirkemiddelverkstedetPage').then(module => ({ default: module.VirkemiddelverkstedetPage })),
     MiniGamesPage: () => import('./pages/MiniGamesPage').then(module => ({ default: module.MiniGamesPage })),

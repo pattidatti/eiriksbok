@@ -54,6 +54,8 @@ const TimeTravelGamePage = React.lazy(routeFactories.TimeTravelGamePage);
 const PresentationPage = React.lazy(routeFactories.PresentationPage);
 const LearningPathsHub = React.lazy(routeFactories.LearningPathsHub);
 const CompositionTool = React.lazy(routeFactories.CompositionTool);
+const RhythmTapperPage = React.lazy(routeFactories.RhythmTapperPage);
+const EarTrainerPage = React.lazy(routeFactories.EarTrainerPage);
 const InfrastrukturAtlas = React.lazy(routeFactories.InfrastrukturAtlas);
 const VirkemiddelverkstedetPage = React.lazy(routeFactories.VirkemiddelverkstedetPage);
 const MiniGamesPage = React.lazy(routeFactories.MiniGamesPage);
@@ -95,6 +97,8 @@ const router = createBrowserRouter([
       { path: "laeringsstier", element: <LearningPathsHub /> },
       { path: "norsk/virkemidler/desk", element: <WorkstationLayout /> },
       { path: "musikk/komposisjon", element: <CompositionTool /> },
+      { path: "musikk/oving/rytme", element: <RhythmTapperPage /> },
+      { path: "musikk/oving/gehortrening", element: <EarTrainerPage /> },
       { path: "oving", element: <PracticePage /> },
       { path: "quiz", element: <QuizPage /> },
       { path: "oving/flashcards", element: <FlashcardPage /> },

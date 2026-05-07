@@ -4994,6 +4994,20 @@
           "description": "Detaljert notasjon og akkordprogresjon.",
           "link": "/musikk/komposisjon",
           "icon": "music-2"
+        },
+        {
+          "id": "rytmeklikker-tool",
+          "title": "Rytme-klikker",
+          "description": "Tren rytmesansen - trykk i takt og se nøyaktigheten din.",
+          "link": "/musikk/oving/rytme",
+          "icon": "music"
+        },
+        {
+          "id": "gehortrening-tool",
+          "title": "Gehørtrening",
+          "description": "Tren øret til å gjenkjenne intervaller, akkorder og taktarter.",
+          "link": "/musikk/oving/gehortrening",
+          "icon": "ear"
         }
       ],
       "topics": [

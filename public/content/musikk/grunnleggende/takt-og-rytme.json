@@ -44,6 +44,20 @@
             "type": "text",
             "title": "Andre taktarter: Vals (3/4)",
             "content": "Ikke all musikk teller til fire. I en vals teller vi bare til tre: **1 - 2 - 3**. Tenk på 'Julekveldsvisa' eller en klassisk selskapsdans. Da får musikken en mer 'svingende' følelse."
+        },
+        {
+            "type": "text",
+            "title": "Tren rytmesansen",
+            "content": "Det er én ting å lese om rytme - det er noe annet å kjenne den i kroppen. I Rytme-klikkeren får du noter på skjermen og en metronom i øret. Du tapper i takt, og verktøyet måler hvor presis du er - ned til millisekundet."
+        },
+        {
+            "type": "component",
+            "component": "LinkButton",
+            "props": {
+                "to": "/musikk/oving/rytme",
+                "text": "Åpne Rytme-klikkeren",
+                "variant": "primary"
+            }
         }
     ]
 }
