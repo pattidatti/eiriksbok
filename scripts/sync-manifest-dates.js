@@ -92,8 +92,10 @@ async function syncDates() {
     manifest.subjects?.forEach(subject => {
         subject.topics?.forEach(topic => {
             topic.lessons?.forEach(processLesson);
+            topic.tools?.forEach(processLesson);
             topic.subTopics?.forEach(subTopic => {
                 subTopic.lessons?.forEach(processLesson);
+                subTopic.tools?.forEach(processLesson);
             });
         });
     });

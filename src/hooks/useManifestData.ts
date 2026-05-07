@@ -60,7 +60,8 @@ export const useManifestData = () => {
                                     tags: ['Læringssti'],
                                     // Use topic image as fallback if tool doesn't have specific image
                                     image: t.image || t.icon || topic.image,
-                                    createdDate: new Date().toISOString() // Fallback date
+                                    createdDate: t.createdDate,
+                                    lastUpdated: t.lastUpdated
                                 });
                             }
                         });
@@ -94,11 +95,15 @@ export const useManifestData = () => {
                 });
             });
 
-            // Calculate Recent Lessons
+            // Calculate Recent Lessons — sort by createdDate only so trivial
+            // changes (image format, config edits) don't resurface old articles
             const recent = [...lessons].sort((a, b) => {
-                const dateA = a.lastUpdated || a.createdDate || a.date || '0000';
-                const dateB = b.lastUpdated || b.createdDate || b.date || '0000';
-                return dateB.localeCompare(dateA);
+                const dateA = a.createdDate || a.date;
+                const dateB = b.createdDate || b.date;
+                if (!dateA && !dateB) return 0;
+                if (!dateA) return 1;
+                if (!dateB) return -1;
+                return new Date(dateB).getTime() - new Date(dateA).getTime();
             }).slice(0, 4);
 
             startTransition(() => {

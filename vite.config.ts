@@ -19,6 +19,7 @@ export default defineConfig({
     exclude: ['@dimforge/rapier3d-compat'],
   },
   build: {
+    chunkSizeWarningLimit: 1500,
     rollupOptions: {
       output: {
         manualChunks: {

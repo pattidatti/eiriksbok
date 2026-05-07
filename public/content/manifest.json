@@ -318,7 +318,7 @@
                 "refleksjon"
               ],
               "createdDate": "2026-02-06T11:55:26+01:00",
-              "lastUpdated": "2026-02-06T11:55:26+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             }
           ]
         },
@@ -363,7 +363,9 @@
               "title": "Læringssti: Skrive gode historier",
               "description": "Bygg din egen verktøykasse for skjønnlitterær skriving — fra tema og karakter til ferdig novelle.",
               "link": "/norsk/virkemidler/skapende-skriving-sti",
-              "icon": "map"
+              "icon": "map",
+              "createdDate": "2026-03-09T14:10:48+01:00",
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "virkemiddelverkstedet",
@@ -384,7 +386,7 @@
               ],
               "image": "/images/lessons/norsk/virkemidler/tid-hero.webp",
               "createdDate": "2026-01-27T09:16:58+01:00",
-              "lastUpdated": "2026-03-18T19:47:09+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "bildesprak-og-effekter",
@@ -396,7 +398,7 @@
               ],
               "image": "/images/lessons/norsk/virkemidler/bilder-hero.webp",
               "createdDate": "2026-01-27T09:16:58+01:00",
-              "lastUpdated": "2026-03-18T19:47:09+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "synsvinkel-og-stemme",
@@ -408,7 +410,7 @@
               ],
               "image": "/images/lessons/norsk/virkemidler/synsvinkel-hero.webp",
               "createdDate": "2026-01-27T09:16:58+01:00",
-              "lastUpdated": "2026-03-18T19:47:09+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             }
           ]
         },
@@ -423,7 +425,9 @@
               "title": "Læringssti: Fra lesning til analysetekst",
               "description": "Lær å finne virkemidler, koble dem til tema, og skrive overbevisende analysetekster.",
               "link": "/norsk/analyse/tekstanalyse-sti",
-              "icon": "map"
+              "icon": "map",
+              "createdDate": "2026-03-10T13:05:18+01:00",
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             }
           ],
           "lessons": [
@@ -438,7 +442,7 @@
                 "budskap"
               ],
               "createdDate": "2026-02-05T10:32:12+01:00",
-              "lastUpdated": "2026-02-16T10:27:17+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "analyse-novelle",
@@ -450,7 +454,7 @@
                 "novelle"
               ],
               "createdDate": "2026-02-02T15:09:02+01:00",
-              "lastUpdated": "2026-02-13T20:03:29+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "analyse-eventyr",
@@ -462,7 +466,7 @@
                 "eventyr"
               ],
               "createdDate": "2026-02-02T15:09:02+01:00",
-              "lastUpdated": "2026-02-13T20:03:29+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "analyse-dikt",
@@ -474,7 +478,7 @@
                 "dikt"
               ],
               "createdDate": "2026-02-02T15:09:02+01:00",
-              "lastUpdated": "2026-03-18T19:47:09+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "analyse-roman",
@@ -486,7 +490,7 @@
                 "roman"
               ],
               "createdDate": "2026-02-02T15:09:02+01:00",
-              "lastUpdated": "2026-02-13T20:03:29+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "analyse-fagartikkel",
@@ -498,7 +502,7 @@
                 "fagartikkel"
               ],
               "createdDate": "2026-02-02T15:09:02+01:00",
-              "lastUpdated": "2026-02-13T20:03:29+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "analyse-debattinnlegg",
@@ -510,7 +514,7 @@
                 "debatt"
               ],
               "createdDate": "2026-02-02T15:09:02+01:00",
-              "lastUpdated": "2026-02-13T20:03:29+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "analyse-kommentar",
@@ -522,7 +526,7 @@
                 "kommentar"
               ],
               "createdDate": "2026-02-02T15:09:02+01:00",
-              "lastUpdated": "2026-02-13T20:03:29+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             }
           ]
         },
@@ -537,28 +541,36 @@
               "title": "Læringssti: Romantikken",
               "description": "Da Norge fant sin sjel. En reise gjennom 1800-tallets føleri og nasjonsbygging.",
               "link": "/norsk/litteraturhistorie/romantikken-sti",
-              "icon": "map"
+              "icon": "map",
+              "createdDate": "2026-01-06T10:30:26+01:00",
+              "lastUpdated": "2026-01-06T15:10:18+01:00"
             },
             {
               "id": "realismen-sti",
               "title": "Læringssti: Realismen",
               "description": "Fra dukkehjem til folkefiender. Når litteraturen skulle forandre samfunnet.",
               "link": "/norsk/litteraturhistorie/realismen-sti",
-              "icon": "map"
+              "icon": "map",
+              "createdDate": "2026-01-06T10:30:26+01:00",
+              "lastUpdated": "2026-01-06T15:10:18+01:00"
             },
             {
               "id": "nyromantikken-sti",
               "title": "Læringssti: Nyromantikken",
               "description": "En reise gjennom 1890-årenes litteratur.",
               "link": "/norsk/litteraturhistorie/nyromantikken-sti",
-              "icon": "map"
+              "icon": "map",
+              "createdDate": "2026-01-06T09:22:07+01:00",
+              "lastUpdated": "2026-01-15T20:55:53+01:00"
             },
             {
               "id": "nyrealismen-sti",
               "title": "Læringssti: Nyrealismen",
               "description": "Etter 1905 skulle landet bygges. En tid for historie, røtter og fabrikkpiper.",
               "link": "/norsk/litteraturhistorie/nyrealismen-sti",
-              "icon": "map"
+              "icon": "map",
+              "createdDate": "2026-01-06T10:30:26+01:00",
+              "lastUpdated": "2026-01-06T15:10:18+01:00"
             }
           ],
           "lessons": [
@@ -650,14 +662,18 @@
               "title": "Læringssti: Hvordan skrive reflekterende",
               "description": "Bli en mester i å tenke og skrive dypere.",
               "link": "/norsk/skrivehjelp/reflekterende-skriving-sti",
-              "icon": "map"
+              "icon": "map",
+              "createdDate": "2026-01-20T09:21:05+01:00",
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "kildeforing-sti",
               "title": "Læringssti: Kildeføring (APA 7)",
               "description": "Lær å føre kilder som en proff — steg for steg.",
               "link": "/norsk/skrivehjelp/kildeforing-sti",
-              "icon": "map"
+              "icon": "map",
+              "createdDate": "2026-03-09T14:10:48+01:00",
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             }
           ],
           "lessons": [
@@ -672,7 +688,7 @@
                 "tips"
               ],
               "createdDate": "2026-01-19T09:39:31+01:00",
-              "lastUpdated": "2026-02-02T10:29:59+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "hvordan-skrive-reflekterende",
@@ -685,7 +701,7 @@
                 "norsk"
               ],
               "createdDate": "2026-01-20T09:21:05+01:00",
-              "lastUpdated": "2026-01-20T09:21:05+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "hvordan-drofte",
@@ -712,7 +728,7 @@
                 "tips"
               ],
               "createdDate": "2026-01-19T13:47:47+01:00",
-              "lastUpdated": "2026-01-19T13:52:26+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "hvordan-fore-kilder",
@@ -725,7 +741,7 @@
                 "apa7"
               ],
               "createdDate": "2026-01-15T12:17:18+01:00",
-              "lastUpdated": "2026-03-09T14:10:48+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "hvordan-skrive-novelle",
@@ -812,7 +828,7 @@
                 "fortelling"
               ],
               "createdDate": "2026-02-02T13:55:57+01:00",
-              "lastUpdated": "2026-02-02T13:55:57+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "hvordan-lage-kortfilm",
@@ -889,7 +905,7 @@
                 "systemer"
               ],
               "createdDate": "2025-12-16T11:49:04+01:00",
-              "lastUpdated": "2026-01-14T10:21:48+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "pengesystem-vs-naturalhandel",
@@ -902,7 +918,7 @@
                 "historie"
               ],
               "createdDate": "2026-01-14T10:21:48+01:00",
-              "lastUpdated": "2026-01-14T10:21:48+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "arbeidsspesialisering",
@@ -977,7 +993,7 @@
                 "historie"
               ],
               "createdDate": "2026-01-14T10:21:48+01:00",
-              "lastUpdated": "2026-01-15T09:12:52+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "migrasjon-push-pull",
@@ -990,7 +1006,7 @@
                 "samfunn"
               ],
               "createdDate": "2026-01-14T10:21:48+01:00",
-              "lastUpdated": "2026-01-15T09:12:52+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "malthus-vs-boserup",
@@ -1003,7 +1019,7 @@
                 "innovasjon"
               ],
               "createdDate": "2026-01-14T10:21:48+01:00",
-              "lastUpdated": "2026-01-15T09:12:52+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "fattigdom",
@@ -1016,7 +1032,7 @@
                 "samfunn"
               ],
               "createdDate": "2026-01-14T10:21:48+01:00",
-              "lastUpdated": "2026-01-15T10:00:09+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "urbanisering",
@@ -1042,7 +1058,7 @@
                 "vitenskap"
               ],
               "createdDate": "2026-01-14T10:21:48+01:00",
-              "lastUpdated": "2026-01-14T12:45:28+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "finland-levekar",
@@ -1055,7 +1071,7 @@
                 "levekår"
               ],
               "createdDate": "2026-01-15T12:06:24+01:00",
-              "lastUpdated": "2026-01-15T12:50:06+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "intro",
@@ -1066,7 +1082,7 @@
                 "befolkning"
               ],
               "createdDate": "2025-12-21T13:37:14+01:00",
-              "lastUpdated": "2025-12-23T11:47:37+01:00",
+              "lastUpdated": "2026-05-07T09:32:27+02:00",
               "image": "/images/lessons/demografi/demografi_overgang_hero.webp"
             }
           ]
@@ -1082,7 +1098,9 @@
               "title": "Utforsk Styringsformer",
               "description": "Sammenlign ulike måter å styre et land på.",
               "link": "/samfunnskunnskap/styringsformer/utforsk",
-              "icon": "sparkles"
+              "icon": "sparkles",
+              "createdDate": "2025-11-27T20:04:50+01:00",
+              "lastUpdated": "2025-12-09T13:47:48+01:00"
             }
           ],
           "lessons": [
@@ -1097,7 +1115,7 @@
                 "weber"
               ],
               "createdDate": "2025-12-21T23:17:57+01:00",
-              "lastUpdated": "2025-12-22T23:53:21+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "antikken-visjoner",
@@ -1111,7 +1129,7 @@
                 "sparta"
               ],
               "createdDate": "2025-12-21T23:17:57+01:00",
-              "lastUpdated": "2025-12-22T23:53:21+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "monarkiet",
@@ -1124,7 +1142,7 @@
                 "norge"
               ],
               "createdDate": "2025-12-21T23:17:57+01:00",
-              "lastUpdated": "2025-12-22T23:53:21+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "opplysningstid",
@@ -1137,7 +1155,7 @@
                 "rettigheter"
               ],
               "createdDate": "2025-12-21T23:17:57+01:00",
-              "lastUpdated": "2025-12-22T23:53:21+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "demokrati-ansikter",
@@ -1150,7 +1168,7 @@
                 "valg"
               ],
               "createdDate": "2025-12-21T23:17:57+01:00",
-              "lastUpdated": "2025-12-22T23:53:21+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "elitenes-herredomme",
@@ -1163,7 +1181,7 @@
                 "eliter"
               ],
               "createdDate": "2025-12-21T23:17:57+01:00",
-              "lastUpdated": "2025-12-22T23:53:21+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "diktaturet",
@@ -1176,7 +1194,7 @@
                 "arendt"
               ],
               "createdDate": "2025-12-21T23:17:57+01:00",
-              "lastUpdated": "2025-12-22T23:53:21+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "uten-hersker",
@@ -1190,7 +1208,7 @@
                 "frihet"
               ],
               "createdDate": "2025-12-21T23:17:57+01:00",
-              "lastUpdated": "2025-12-22T23:53:21+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "teokrati-teknokrati",
@@ -1203,7 +1221,7 @@
                 "vitenskap"
               ],
               "createdDate": "2025-12-21T23:17:57+01:00",
-              "lastUpdated": "2025-12-22T23:53:21+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "foydalisme",
@@ -1216,7 +1234,7 @@
                 "middelalder"
               ],
               "createdDate": "2025-12-22T09:35:32+01:00",
-              "lastUpdated": "2025-12-22T23:53:21+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "stortinget",
@@ -1229,7 +1247,7 @@
                 "demokrati"
               ],
               "createdDate": "2025-12-22T21:11:33+01:00",
-              "lastUpdated": "2025-12-22T23:53:21+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             }
           ]
         },
@@ -1250,7 +1268,7 @@
                 "atferd"
               ],
               "createdDate": "2025-12-21T20:32:19+01:00",
-              "lastUpdated": "2025-12-21T20:32:19+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "ytringsvett-vs-ytringsmot",
@@ -1263,7 +1281,7 @@
                 "debatt"
               ],
               "createdDate": "2025-12-21T20:32:19+01:00",
-              "lastUpdated": "2025-12-21T20:32:19+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "ekkokamre",
@@ -1276,7 +1294,7 @@
                 "polarisering"
               ],
               "createdDate": "2025-12-21T20:32:19+01:00",
-              "lastUpdated": "2026-01-19T14:07:37+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "kjendismakt",
@@ -1289,7 +1307,7 @@
                 "influensere"
               ],
               "createdDate": "2025-12-21T20:32:19+01:00",
-              "lastUpdated": "2025-12-21T20:32:19+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "robotene-kommer",
@@ -1302,7 +1320,7 @@
                 "fremtid"
               ],
               "createdDate": "2025-12-21T20:32:19+01:00",
-              "lastUpdated": "2025-12-21T20:32:19+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             }
           ]
         },
@@ -1317,7 +1335,9 @@
               "title": "Læringssti: Imperienes sykluser",
               "description": "Forstå hvorfor stormakter stiger og faller - og hva det betyr for verden i dag.",
               "link": "/samfunnskunnskap/ideer-og-verdenssyn/store-sykluser-sti",
-              "icon": "map"
+              "icon": "map",
+              "createdDate": "2026-04-06T19:50:08+02:00",
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             }
           ],
           "lessons": [
@@ -1334,7 +1354,7 @@
                 "eskatologi"
               ],
               "createdDate": "2025-12-21T20:32:19+01:00",
-              "lastUpdated": "2025-12-22T11:15:15+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "utopier",
@@ -1349,7 +1369,7 @@
                 "utopi"
               ],
               "createdDate": "2025-12-21T20:32:19+01:00",
-              "lastUpdated": "2025-12-22T11:15:15+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "naturens-sjel",
@@ -1364,7 +1384,7 @@
                 "økologi"
               ],
               "createdDate": "2025-12-21T20:32:19+01:00",
-              "lastUpdated": "2025-12-22T11:15:15+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "sannhetens-historie",
@@ -1379,7 +1399,7 @@
                 "teknologi"
               ],
               "createdDate": "2025-12-21T20:32:19+01:00",
-              "lastUpdated": "2025-12-22T21:11:33+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "humanisme",
@@ -1394,7 +1414,7 @@
                 "rettigheter"
               ],
               "createdDate": "2025-12-21T20:32:19+01:00",
-              "lastUpdated": "2025-12-22T11:15:15+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "framskrittstro",
@@ -1409,7 +1429,7 @@
                 "fremtid"
               ],
               "createdDate": "2025-12-21T20:32:19+01:00",
-              "lastUpdated": "2025-12-23T23:10:22+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "det-unormale",
@@ -1424,7 +1444,7 @@
                 "samfunn"
               ],
               "createdDate": "2025-12-21T20:32:19+01:00",
-              "lastUpdated": "2025-12-23T23:10:22+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "casus-belli",
@@ -1454,7 +1474,7 @@
                 "samfunn"
               ],
               "createdDate": "2025-12-22T12:00:34+01:00",
-              "lastUpdated": "2026-04-06T20:02:29+02:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "fn",
@@ -1491,7 +1511,9 @@
               "title": "Læringssti: Verdens årer",
               "description": "Utforsk nettverkene som holder verden i gang — fra oljerørledninger til internettkabler.",
               "link": "/samfunnskunnskap/handel-og-infrastruktur/handel-og-infrastruktur-sti",
-              "icon": "map"
+              "icon": "map",
+              "createdDate": "2026-03-12T10:16:35+01:00",
+              "lastUpdated": "2026-03-12T10:46:17+01:00"
             }
           ],
           "lessons": [
@@ -1674,7 +1696,7 @@
               "image": "/images/detective/vardo_hero.webp",
               "icon": "search",
               "createdDate": "2025-12-25T19:43:00+01:00",
-              "lastUpdated": "2025-12-25T21:27:38+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "detective-karl-xii",
@@ -1684,7 +1706,7 @@
               "image": "/images/detective/karl_xii_hero.webp",
               "icon": "search",
               "createdDate": "2025-12-25T21:27:38+01:00",
-              "lastUpdated": "2025-12-25T21:27:38+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "detective-isdalskvinnen",
@@ -1694,7 +1716,7 @@
               "image": "/images/detective/isdalskvinnen_hero.webp",
               "icon": "search",
               "createdDate": "2025-12-25T21:27:38+01:00",
-              "lastUpdated": "2025-12-25T21:27:38+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "detective-tungtvann",
@@ -1704,7 +1726,7 @@
               "image": "/images/detective/tungtvann_hero.webp",
               "icon": "search",
               "createdDate": "2025-12-25T21:27:38+01:00",
-              "lastUpdated": "2025-12-25T21:27:38+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "norge-for-vikingene",
@@ -1718,7 +1740,7 @@
                 "jernalder"
               ],
               "createdDate": "2025-12-04T20:11:57+01:00",
-              "lastUpdated": "2026-01-17T12:51:02+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "klimakrisen-536",
@@ -1735,7 +1757,7 @@
                 "fimbulvinter"
               ],
               "createdDate": "2025-12-05T20:37:16+01:00",
-              "lastUpdated": "2025-12-05T23:05:03+01:00",
+              "lastUpdated": "2026-05-07T09:32:27+02:00",
               "definitions": [
                 {
                   "term": "Fimbulvinter",
@@ -1769,7 +1791,7 @@
                 "adel"
               ],
               "createdDate": "2026-01-30T00:14:38+01:00",
-              "lastUpdated": "2026-02-13T08:28:24+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "knut-alvsson",
@@ -1783,7 +1805,7 @@
                 "middelalder"
               ],
               "createdDate": "2025-12-05T20:37:16+01:00",
-              "lastUpdated": "2026-02-25T14:24:15+01:00",
+              "lastUpdated": "2026-05-07T09:32:27+02:00",
               "definitions": [
                 {
                   "term": "Senmiddelalderen",
@@ -1823,7 +1845,7 @@
                 "industrialisering"
               ],
               "createdDate": "2025-12-12T10:22:51+01:00",
-              "lastUpdated": "2025-12-12T11:58:55+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "hanseatene",
@@ -1837,7 +1859,7 @@
                 "bergen"
               ],
               "createdDate": "2026-01-30T14:38:55+01:00",
-              "lastUpdated": "2026-01-31T13:22:20+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             }
           ]
         },
@@ -1862,7 +1884,7 @@
                 "unionsoppløsning"
               ],
               "createdDate": "2025-12-25T00:02:52+01:00",
-              "lastUpdated": "2025-12-25T00:02:52+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             }
           ]
         },
@@ -1882,7 +1904,7 @@
                 "oversikt"
               ],
               "createdDate": "2025-12-21T14:35:48+01:00",
-              "lastUpdated": "2025-12-24T23:23:27+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "bakgrunn",
@@ -1894,7 +1916,7 @@
                 "bakgrunn"
               ],
               "createdDate": "2025-11-27T20:04:50+01:00",
-              "lastUpdated": "2025-12-24T23:23:27+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "krigens-lop",
@@ -1906,7 +1928,7 @@
                 "slag"
               ],
               "createdDate": "2025-12-21T14:35:48+01:00",
-              "lastUpdated": "2025-12-24T23:23:27+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "teknologi",
@@ -1918,7 +1940,7 @@
                 "våpen"
               ],
               "createdDate": "2025-12-21T14:35:48+01:00",
-              "lastUpdated": "2025-12-24T23:23:27+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "konsentrasjonsleirene",
@@ -1931,7 +1953,7 @@
                 "auschwitz"
               ],
               "createdDate": "2025-12-22T10:14:27+01:00",
-              "lastUpdated": "2025-12-22T11:15:15+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "konsekvenser",
@@ -1943,7 +1965,7 @@
                 "politikk"
               ],
               "createdDate": "2025-12-21T14:35:48+01:00",
-              "lastUpdated": "2025-12-24T23:23:27+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             }
           ]
         },
@@ -1958,21 +1980,27 @@
               "title": "WW1-sti",
               "description": "Følg første verdenskrig fra 1914 til 1918.",
               "link": "/historie/forste-verdenskrig/ww1-sti",
-              "icon": "map"
+              "icon": "map",
+              "createdDate": "2026-01-18T18:32:30+01:00",
+              "lastUpdated": "2026-02-17T09:58:14+01:00"
             },
             {
               "id": "ww1-vestfront",
               "title": "Tidsreise: Soldat ved Vestfronten",
               "description": "Tre uker i skyttergravene ved Somme. Overlev artilleri, gass og ingenmannsland — og ta stilling til om en ordre alltid skal adlydes.",
               "link": "/oving/tidsreise/ww1-vestfront",
-              "icon": "clock"
+              "icon": "clock",
+              "createdDate": "2026-03-07T23:23:47+01:00",
+              "lastUpdated": "2026-03-12T23:21:10+01:00"
             },
             {
               "id": "nikolaj-ii",
               "title": "Tidsreise: Tsarens Skjebne",
               "description": "Spill som Nikolaj II — fra Juli-krisen 1914 til revolusjonen 1917. Kan du endre historiens løp?",
               "link": "/oving/tidsreise/nikolaj-ii",
-              "icon": "crown"
+              "icon": "crown",
+              "createdDate": "2026-03-12T15:16:56+01:00",
+              "lastUpdated": "2026-03-14T21:17:17+01:00"
             }
           ],
           "lessons": [
@@ -2000,7 +2028,7 @@
                 "kommunisme"
               ],
               "createdDate": "2026-01-18T19:18:35+01:00",
-              "lastUpdated": "2026-01-21T14:37:48+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "hjemmefronten",
@@ -2013,7 +2041,7 @@
                 "økonomi"
               ],
               "createdDate": "2026-01-18T18:32:30+01:00",
-              "lastUpdated": "2026-01-22T13:06:50+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "oversikt",
@@ -2025,7 +2053,7 @@
                 "oversikt"
               ],
               "createdDate": "2025-12-21T14:35:48+01:00",
-              "lastUpdated": "2025-12-24T23:23:27+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "opptakt",
@@ -2037,7 +2065,7 @@
                 "opptakt"
               ],
               "createdDate": "2025-12-21T14:35:48+01:00",
-              "lastUpdated": "2026-02-03T10:03:44+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "krigens-lop",
@@ -2049,7 +2077,7 @@
                 "slag"
               ],
               "createdDate": "2025-12-21T14:35:48+01:00",
-              "lastUpdated": "2025-12-24T23:23:27+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "teknologi",
@@ -2061,7 +2089,7 @@
                 "våpen"
               ],
               "createdDate": "2025-12-21T14:35:48+01:00",
-              "lastUpdated": "2025-12-24T23:23:27+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "norge-under-ww1",
@@ -2074,7 +2102,7 @@
                 "nøytralitet"
               ],
               "createdDate": "2026-01-18T19:18:35+01:00",
-              "lastUpdated": "2026-01-22T14:39:34+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "tyske-revolusjon",
@@ -2087,7 +2115,7 @@
                 "politikk"
               ],
               "createdDate": "2026-01-18T19:18:35+01:00",
-              "lastUpdated": "2026-01-18T20:40:13+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "konsekvenser",
@@ -2099,7 +2127,7 @@
                 "politikk"
               ],
               "createdDate": "2025-12-21T14:35:48+01:00",
-              "lastUpdated": "2025-12-24T23:23:27+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             }
           ]
         },
@@ -2114,21 +2142,27 @@
               "title": "Læringssti: Mellomkrigstiden",
               "description": "En reise gjennom kriser og konflikter mellom de to verdenskrigene.",
               "link": "/historie/mellomkrigstiden/mellomkrigstiden-sti",
-              "icon": "map"
+              "icon": "map",
+              "createdDate": "2026-01-18T22:34:44+01:00",
+              "lastUpdated": "2026-01-19T20:13:43+01:00"
             },
             {
               "id": "mellomkrigstiden-del1",
               "title": "Tidsreise: Veien mot mørket - Del 1 (1919-1929)",
               "description": "Spill som vitne til mellomkrigstiden - fra Versailles til børskrakket.",
               "link": "/oving/tidsreise/mellomkrigstiden-del1",
-              "icon": "clock"
+              "icon": "clock",
+              "createdDate": "2026-03-17T13:45:01+01:00",
+              "lastUpdated": "2026-03-17T13:45:01+01:00"
             },
             {
               "id": "mellomkrigstiden-del2",
               "title": "Tidsreise: Veien mot mørket - Del 2 (1930-1939)",
               "description": "Fra Hitlers maktovertakelse til 1. september 1939.",
               "link": "/oving/tidsreise/mellomkrigstiden-del2",
-              "icon": "clock"
+              "icon": "clock",
+              "createdDate": "2026-03-17T13:45:01+01:00",
+              "lastUpdated": "2026-03-17T20:26:41+01:00"
             }
           ],
           "lessons": [
@@ -2143,7 +2177,7 @@
                 "fred"
               ],
               "createdDate": "2025-12-21T14:35:48+01:00",
-              "lastUpdated": "2025-12-24T23:23:27+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "usa",
@@ -2156,7 +2190,7 @@
                 "jazz"
               ],
               "createdDate": "2026-01-18T22:34:44+01:00",
-              "lastUpdated": "2026-01-31T13:32:13+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "borskrakk",
@@ -2182,7 +2216,7 @@
                 "velferdsstat"
               ],
               "createdDate": "2026-01-18T22:34:44+01:00",
-              "lastUpdated": "2026-01-31T13:32:13+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "sovjet",
@@ -2195,7 +2229,7 @@
                 "totalitarisme"
               ],
               "createdDate": "2026-01-18T22:34:44+01:00",
-              "lastUpdated": "2026-01-18T23:13:44+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "midtoesten",
@@ -2208,7 +2242,7 @@
                 "mandat"
               ],
               "createdDate": "2026-01-18T22:34:44+01:00",
-              "lastUpdated": "2026-01-31T13:32:13+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "kultur",
@@ -2247,7 +2281,7 @@
                 "politikk"
               ],
               "createdDate": "2026-01-18T22:34:44+01:00",
-              "lastUpdated": "2026-01-31T13:32:13+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "tyskland",
@@ -2260,7 +2294,7 @@
                 "politikk"
               ],
               "createdDate": "2026-01-18T22:34:44+01:00",
-              "lastUpdated": "2026-01-31T13:32:13+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "spania",
@@ -2273,7 +2307,7 @@
                 "ideologi"
               ],
               "createdDate": "2026-01-18T22:34:44+01:00",
-              "lastUpdated": "2026-01-31T13:22:20+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "japan",
@@ -2286,7 +2320,7 @@
                 "krig"
               ],
               "createdDate": "2026-01-18T22:34:44+01:00",
-              "lastUpdated": "2026-01-31T13:22:20+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             }
           ]
         },
@@ -2301,14 +2335,18 @@
               "title": "Læringssti: Den Kalde Krigen",
               "description": "Bli med agenten 'Null' på oppdrag gjennom jernteppet.",
               "link": "/historie/den-kalde-krigen/kald-krig-sti",
-              "icon": "map"
+              "icon": "map",
+              "createdDate": "2025-12-22T23:14:08+01:00",
+              "lastUpdated": "2026-04-21T13:07:21+02:00"
             },
             {
               "id": "kald-krig",
               "title": "I Supermaktenes Skygge",
               "description": "Fra Potsdams ruiner til Berlinmurens fall - du er vitne til den kaldeste krigen verden har sett.",
               "link": "/oving/tidsreise/kald-krig",
-              "icon": "clock"
+              "icon": "clock",
+              "createdDate": "2026-03-13T13:54:43+01:00",
+              "lastUpdated": "2026-03-18T10:08:39+01:00"
             }
           ],
           "lessons": [
@@ -2323,7 +2361,7 @@
                 "atomvåpen"
               ],
               "createdDate": "2025-12-21T14:35:48+01:00",
-              "lastUpdated": "2025-12-24T23:23:27+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "nato-vs-warszawa",
@@ -2349,7 +2387,7 @@
                 "proxy-krig"
               ],
               "createdDate": "2025-12-21T13:37:14+01:00",
-              "lastUpdated": "2026-01-22T14:39:34+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "atomvapenkapplopet",
@@ -2414,7 +2452,7 @@
                 "protest"
               ],
               "createdDate": "2025-12-21T13:37:14+01:00",
-              "lastUpdated": "2025-12-24T23:17:17+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "berlinmuren",
@@ -2440,7 +2478,7 @@
                 "1989"
               ],
               "createdDate": "2025-12-21T13:37:14+01:00",
-              "lastUpdated": "2025-12-24T23:17:17+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "suez-krisen",
@@ -2453,7 +2491,7 @@
                 "fn"
               ],
               "createdDate": "2025-12-21T13:37:14+01:00",
-              "lastUpdated": "2026-02-11T09:21:54+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "peace-lines-belfast",
@@ -2528,7 +2566,7 @@
                 "reformasjonen"
               ],
               "createdDate": "2025-12-06T19:29:39+01:00",
-              "lastUpdated": "2025-12-23T23:48:22+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             }
           ]
         },
@@ -2560,7 +2598,7 @@
                 "global-historie"
               ],
               "createdDate": "2025-12-22T12:00:34+01:00",
-              "lastUpdated": "2026-03-15T13:47:53+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "verdenshandel-for-oppdagelsesreisene",
@@ -2586,7 +2624,7 @@
                 "imperium"
               ],
               "createdDate": "2025-12-22T11:15:15+01:00",
-              "lastUpdated": "2025-12-22T11:15:15+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "portugisisk-kolonialisering",
@@ -2599,7 +2637,7 @@
                 "portugal"
               ],
               "createdDate": "2025-12-22T11:15:15+01:00",
-              "lastUpdated": "2025-12-22T11:15:15+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "trekanthandelen",
@@ -2614,7 +2652,7 @@
                 "afrika"
               ],
               "createdDate": "2025-11-27T20:04:50+01:00",
-              "lastUpdated": "2026-01-23T14:43:02+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "britisk-imperium",
@@ -2627,7 +2665,7 @@
                 "storbritannia"
               ],
               "createdDate": "2025-12-22T11:15:15+01:00",
-              "lastUpdated": "2025-12-22T12:00:34+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "fransk-kolonirike",
@@ -2640,7 +2678,7 @@
                 "frankrike"
               ],
               "createdDate": "2025-12-22T11:15:15+01:00",
-              "lastUpdated": "2025-12-22T12:00:34+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "voc",
@@ -2654,7 +2692,7 @@
                 "økonomi"
               ],
               "image": "/images/historie/kolonialisering/voc/hero.webp",
-              "lastUpdated": "2025-12-24T23:38:49+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "eic",
@@ -2684,7 +2722,9 @@
               "description": "Følg frihetskampen gjennom 200 år og 3 kontinenter.",
               "type": "learning-path",
               "icon": "map",
-              "link": "/historie/dekolonisering/dekolonisering-sti"
+              "link": "/historie/dekolonisering/dekolonisering-sti",
+              "createdDate": "2026-01-16T10:43:34+01:00",
+              "lastUpdated": "2026-01-16T12:00:25+01:00"
             }
           ],
           "lessons": [
@@ -2700,7 +2740,7 @@
                 "kart"
               ],
               "createdDate": "2025-12-21T14:35:48+01:00",
-              "lastUpdated": "2025-12-24T23:23:27+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "usa-frigjoring",
@@ -2714,7 +2754,7 @@
                 "revolusjon"
               ],
               "createdDate": "2026-01-16T10:43:34+01:00",
-              "lastUpdated": "2026-01-16T10:43:34+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "haiti",
@@ -2728,7 +2768,7 @@
                 "slaveri"
               ],
               "createdDate": "2026-01-16T10:43:34+01:00",
-              "lastUpdated": "2026-01-16T10:43:34+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "latin-amerika",
@@ -2742,7 +2782,7 @@
                 "bolivar"
               ],
               "createdDate": "2026-01-16T10:43:34+01:00",
-              "lastUpdated": "2026-01-16T10:43:34+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "midtosten-mandater",
@@ -2756,7 +2796,7 @@
                 "osmanriket"
               ],
               "createdDate": "2026-01-16T10:43:34+01:00",
-              "lastUpdated": "2026-01-16T10:43:34+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "india",
@@ -2770,7 +2810,7 @@
                 "gandhi"
               ],
               "createdDate": "2026-01-16T10:43:34+01:00",
-              "lastUpdated": "2026-01-16T10:43:34+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "sorost-asia",
@@ -2784,7 +2824,7 @@
                 "vietnam"
               ],
               "createdDate": "2026-01-16T10:43:34+01:00",
-              "lastUpdated": "2026-01-16T10:43:34+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "ghana-panafrikanisme",
@@ -2798,7 +2838,7 @@
                 "ghana"
               ],
               "createdDate": "2026-01-16T10:43:34+01:00",
-              "lastUpdated": "2026-01-16T10:43:34+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "frigjoringskrigene",
@@ -2812,7 +2852,7 @@
                 "algerie"
               ],
               "createdDate": "2026-01-16T10:43:34+01:00",
-              "lastUpdated": "2026-01-16T10:43:34+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "kongo",
@@ -2826,7 +2866,7 @@
                 "kald-krig"
               ],
               "createdDate": "2026-01-16T10:43:34+01:00",
-              "lastUpdated": "2026-01-16T10:43:34+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "siste-skanse",
@@ -2840,7 +2880,7 @@
                 "apartheid"
               ],
               "createdDate": "2026-01-16T10:43:34+01:00",
-              "lastUpdated": "2026-01-16T10:43:34+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "apartheid-syd-afrika",
@@ -2900,7 +2940,9 @@
               "title": "Læringssti: Vikingtiden",
               "description": "En omfattende reise gjennom vikingenes verden, frem mot din egen fordypningsoppgave.",
               "link": "/historie/vikingtiden/vikingtiden-sti",
-              "icon": "map"
+              "icon": "map",
+              "createdDate": "2025-12-22T21:11:33+01:00",
+              "lastUpdated": "2025-12-23T14:29:34+01:00"
             },
             {
               "id": "detective-greenland",
@@ -2908,7 +2950,9 @@
               "description": "Hva skjedde med de norrøne bosetningene på Grønland? Undersøk bevisene og løs gåten.",
               "link": "/historie/vikingtiden/detektiv",
               "image": "/images/detective/greenland_hero.webp",
-              "icon": "search"
+              "icon": "search",
+              "createdDate": "2025-12-25T15:08:53+01:00",
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "detective-stiklestad",
@@ -2916,7 +2960,9 @@
               "description": "Døde Olav den hellige som en kriger eller en martyr? Finn sannheten i kildene.",
               "link": "/oving/detektiv/stiklestad",
               "image": "/images/detective/stiklestad_hero.webp",
-              "icon": "search"
+              "icon": "search",
+              "createdDate": "2025-12-25T19:43:00+01:00",
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "detective-lindisfarne",
@@ -2924,7 +2970,9 @@
               "description": "Et lyn fra klar himmel? Undersøk om vikingene hadde motiver for angrepet.",
               "link": "/oving/detektiv/lindisfarne",
               "image": "/images/detective/lindisfarne_hero.webp",
-              "icon": "search"
+              "icon": "search",
+              "createdDate": "2025-12-25T19:53:34+01:00",
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             }
           ],
           "lessons": [
@@ -2953,7 +3001,7 @@
                 "skip"
               ],
               "createdDate": "2025-12-22T21:11:33+01:00",
-              "lastUpdated": "2025-12-23T23:10:22+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "myklebust-funnet",
@@ -2967,7 +3015,7 @@
                 "norge"
               ],
               "createdDate": "2026-01-30T20:51:50+01:00",
-              "lastUpdated": "2026-01-31T12:59:44+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "samfunn-og-rett",
@@ -2995,7 +3043,7 @@
                 "karl-den-store"
               ],
               "createdDate": "2025-12-09T23:20:17+01:00",
-              "lastUpdated": "2025-12-12T09:20:03+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "karl-den-store",
@@ -3009,7 +3057,7 @@
                 "karl-den-store"
               ],
               "createdDate": "2025-12-09T23:20:17+01:00",
-              "lastUpdated": "2025-12-12T09:20:03+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "asatro",
@@ -3023,7 +3071,7 @@
                 "guder"
               ],
               "createdDate": "2025-12-09T23:20:17+01:00",
-              "lastUpdated": "2025-12-22T21:11:33+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "rikssamlingen",
@@ -3036,7 +3084,7 @@
                 "rikssamlingen"
               ],
               "createdDate": "2025-11-28T18:28:18+01:00",
-              "lastUpdated": "2025-12-22T21:11:33+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "danelagen",
@@ -3049,7 +3097,7 @@
                 "vikingtiden"
               ],
               "createdDate": "2025-12-09T23:20:17+01:00",
-              "lastUpdated": "2025-12-12T09:20:03+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "veien-mot-ost",
@@ -3063,7 +3111,7 @@
                 "vikingtiden"
               ],
               "createdDate": "2025-12-09T23:20:17+01:00",
-              "lastUpdated": "2025-12-12T09:20:03+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "oppdagelsesreiser",
@@ -3077,7 +3125,7 @@
                 "amerika"
               ],
               "createdDate": "2025-12-22T21:11:33+01:00",
-              "lastUpdated": "2025-12-22T21:11:33+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "kristningen-av-norge",
@@ -3091,7 +3139,7 @@
                 "stiklestad"
               ],
               "createdDate": "2025-12-09T23:20:17+01:00",
-              "lastUpdated": "2025-12-22T21:11:33+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "normandie",
@@ -3105,7 +3153,7 @@
                 "vikingtiden"
               ],
               "createdDate": "2025-12-09T23:20:17+01:00",
-              "lastUpdated": "2025-12-12T09:20:03+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             }
           ]
         },
@@ -3120,7 +3168,9 @@
               "title": "Læringssti: Svartedauden",
               "description": "En guidet reise gjennom pestens historie med oppgaver og refleksjon.",
               "link": "/historie/middelalderen/svartedauden-sti",
-              "icon": "map"
+              "icon": "map",
+              "createdDate": "2025-12-22T21:11:33+01:00",
+              "lastUpdated": "2025-12-23T14:29:34+01:00"
             },
             {
               "id": "detective-svartedauden",
@@ -3128,7 +3178,9 @@
               "description": "Kom pesten til Bergen eller Oslo først? Løs mysteriet bak norgeshistoriens største katastrofe.",
               "link": "/oving/detektiv/svartedauden",
               "image": "/images/detective/svartedauden_hero.webp",
-              "icon": "search"
+              "icon": "search",
+              "createdDate": "2025-12-25T19:43:00+01:00",
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             }
           ],
           "lessons": [
@@ -3156,7 +3208,7 @@
                 "europa"
               ],
               "createdDate": "2025-12-20T23:36:59+01:00",
-              "lastUpdated": "2025-12-22T09:35:32+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "svartedauden",
@@ -3171,7 +3223,7 @@
                 "sykdom"
               ],
               "createdDate": "2025-11-28T18:28:18+01:00",
-              "lastUpdated": "2025-12-22T14:35:44+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "hanseatene",
@@ -3186,7 +3238,7 @@
                 "middelalderen"
               ],
               "createdDate": "2026-01-30T14:38:55+01:00",
-              "lastUpdated": "2026-01-31T13:22:20+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "boktrykkerkunsten",
@@ -3200,7 +3252,7 @@
                 "bøker"
               ],
               "createdDate": "2025-11-30T12:37:47+01:00",
-              "lastUpdated": "2025-12-21T00:04:37+01:00",
+              "lastUpdated": "2026-05-07T09:32:27+02:00",
               "definitions": [
                 {
                   "term": "Mainz",
@@ -3241,7 +3293,7 @@
                 "keiser"
               ],
               "createdDate": "2025-12-21T20:32:19+01:00",
-              "lastUpdated": "2025-12-21T20:32:19+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "detective-berlinmuren",
@@ -3251,7 +3303,7 @@
               "image": "/images/detective/berlin_wall_hero.webp",
               "icon": "search",
               "createdDate": "2025-12-25T21:27:38+01:00",
-              "lastUpdated": "2025-12-25T21:27:38+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "mongolske-riket",
@@ -3266,7 +3318,7 @@
                 "mongolene"
               ],
               "createdDate": "2026-01-07T09:56:43+01:00",
-              "lastUpdated": "2026-05-07T08:49:31+02:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             }
           ]
         },
@@ -3281,7 +3333,9 @@
               "title": "Læringssti: Romerriket",
               "description": "Bli med legionæren Markus, keiser Augustus og gladiatoren Spartacus på en reise gjennom Romerriket.",
               "link": "/historie/romerriket/romerriket-sti",
-              "icon": "map"
+              "icon": "map",
+              "createdDate": "2025-12-22T21:35:57+01:00",
+              "lastUpdated": "2026-01-10T13:08:45+01:00"
             }
           ],
           "lessons": [
@@ -3296,7 +3350,7 @@
                 "republikk"
               ],
               "createdDate": "2025-12-20T09:30:18+01:00",
-              "lastUpdated": "2025-12-21T13:37:14+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "augustus-og-keiserdomme",
@@ -3310,7 +3364,7 @@
                 "keiser"
               ],
               "createdDate": "2025-12-20T09:30:18+01:00",
-              "lastUpdated": "2025-12-20T21:07:10+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "romerske-keisere",
@@ -3324,7 +3378,7 @@
                 "biografi"
               ],
               "createdDate": "2025-12-20T09:30:18+01:00",
-              "lastUpdated": "2025-12-20T21:07:10+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "legitimitet-og-kristendom",
@@ -3339,7 +3393,7 @@
                 "politikk"
               ],
               "createdDate": "2025-12-20T20:05:32+01:00",
-              "lastUpdated": "2025-12-21T13:37:14+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "handel-og-silkeveien",
@@ -3354,7 +3408,7 @@
                 "globalisering"
               ],
               "createdDate": "2025-12-20T20:33:08+01:00",
-              "lastUpdated": "2025-12-21T13:37:14+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "pompeii",
@@ -3368,7 +3422,7 @@
                 "arkeologi"
               ],
               "createdDate": "2025-12-20T20:33:08+01:00",
-              "lastUpdated": "2025-12-21T13:37:14+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "diokletian",
@@ -3416,7 +3470,7 @@
                 "teknologi"
               ],
               "createdDate": "2025-12-20T20:33:08+01:00",
-              "lastUpdated": "2025-12-21T13:37:14+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "hverdagsliv-i-roma",
@@ -3431,7 +3485,7 @@
                 "hverdagsliv"
               ],
               "createdDate": "2025-12-20T20:33:08+01:00",
-              "lastUpdated": "2025-12-21T13:37:14+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "arven-etter-romerriket",
@@ -3446,7 +3500,7 @@
                 "politikk"
               ],
               "createdDate": "2025-12-20T20:19:26+01:00",
-              "lastUpdated": "2025-12-21T13:37:14+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "vestromerrikets-fall",
@@ -3460,7 +3514,7 @@
                 "historie"
               ],
               "createdDate": "2025-12-20T09:30:18+01:00",
-              "lastUpdated": "2025-12-21T13:37:14+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "romerske-guder",
@@ -3599,7 +3653,7 @@
                     "intro"
                   ],
                   "createdDate": "2025-12-21T13:37:14+01:00",
-                  "lastUpdated": "2025-12-23T11:47:37+01:00"
+                  "lastUpdated": "2026-05-07T09:32:27+02:00"
                 },
                 {
                   "id": "sentrale-trekk",
@@ -3813,7 +3867,7 @@
                     "intro"
                   ],
                   "createdDate": "2025-12-21T13:37:14+01:00",
-                  "lastUpdated": "2025-12-23T11:47:37+01:00"
+                  "lastUpdated": "2026-05-07T09:32:27+02:00"
                 }
               ]
             },
@@ -3924,7 +3978,7 @@
                     "intro"
                   ],
                   "createdDate": "2025-12-21T13:37:14+01:00",
-                  "lastUpdated": "2025-12-23T11:47:37+01:00"
+                  "lastUpdated": "2026-05-07T09:32:27+02:00"
                 }
               ]
             },
@@ -4035,7 +4089,7 @@
                     "intro"
                   ],
                   "createdDate": "2025-12-21T13:37:14+01:00",
-                  "lastUpdated": "2025-12-23T11:47:37+01:00"
+                  "lastUpdated": "2026-05-07T09:32:27+02:00"
                 }
               ]
             },
@@ -4146,7 +4200,7 @@
                     "intro"
                   ],
                   "createdDate": "2025-12-21T13:37:14+01:00",
-                  "lastUpdated": "2025-12-23T11:47:37+01:00"
+                  "lastUpdated": "2026-05-07T09:32:27+02:00"
                 }
               ]
             },
@@ -4280,7 +4334,7 @@
                     "intro"
                   ],
                   "createdDate": "2025-12-21T13:37:14+01:00",
-                  "lastUpdated": "2025-12-23T11:47:37+01:00"
+                  "lastUpdated": "2026-05-07T09:32:27+02:00"
                 }
               ]
             },
@@ -4391,7 +4445,7 @@
                     "intro"
                   ],
                   "createdDate": "2025-12-21T13:37:14+01:00",
-                  "lastUpdated": "2025-12-23T11:47:37+01:00"
+                  "lastUpdated": "2026-05-07T09:32:27+02:00"
                 }
               ]
             },
@@ -4502,7 +4556,7 @@
                     "intro"
                   ],
                   "createdDate": "2025-12-21T13:37:14+01:00",
-                  "lastUpdated": "2025-12-23T11:47:37+01:00"
+                  "lastUpdated": "2026-05-07T09:32:27+02:00"
                 }
               ]
             },
@@ -4559,7 +4613,7 @@
                     "intro"
                   ],
                   "createdDate": "2025-12-21T13:37:14+01:00",
-                  "lastUpdated": "2025-12-23T11:47:37+01:00"
+                  "lastUpdated": "2026-05-07T09:32:27+02:00"
                 }
               ]
             }
@@ -4600,7 +4654,7 @@
                 "epistemologi"
               ],
               "createdDate": "2025-12-21T13:37:14+01:00",
-              "lastUpdated": "2025-12-23T11:47:37+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "sokrates",
@@ -4613,7 +4667,7 @@
                 "metode"
               ],
               "createdDate": "2025-12-21T13:37:14+01:00",
-              "lastUpdated": "2025-12-23T11:47:37+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "platon",
@@ -4626,7 +4680,7 @@
                 "idélære"
               ],
               "createdDate": "2025-12-21T13:37:14+01:00",
-              "lastUpdated": "2025-12-23T11:47:37+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "aristoteles",
@@ -4639,7 +4693,7 @@
                 "logikk"
               ],
               "createdDate": "2025-12-21T13:37:14+01:00",
-              "lastUpdated": "2025-12-23T11:47:37+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "augustin",
@@ -4652,7 +4706,7 @@
                 "middelalder"
               ],
               "createdDate": "2025-12-21T13:37:14+01:00",
-              "lastUpdated": "2025-12-23T11:47:37+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "aquinas",
@@ -4665,7 +4719,7 @@
                 "aquinas"
               ],
               "createdDate": "2025-12-21T13:37:14+01:00",
-              "lastUpdated": "2025-12-23T11:47:37+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "descartes",
@@ -4678,7 +4732,7 @@
                 "descartes"
               ],
               "createdDate": "2025-12-21T13:37:14+01:00",
-              "lastUpdated": "2025-12-23T11:47:37+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "locke",
@@ -4691,7 +4745,7 @@
                 "locke"
               ],
               "createdDate": "2025-12-21T13:37:14+01:00",
-              "lastUpdated": "2025-12-23T11:47:37+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "hume",
@@ -4718,7 +4772,7 @@
                 "kant"
               ],
               "createdDate": "2025-12-21T13:37:14+01:00",
-              "lastUpdated": "2025-12-23T11:47:37+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "kierkegaard",
@@ -4731,7 +4785,7 @@
                 "kierkegaard"
               ],
               "createdDate": "2025-12-21T13:37:14+01:00",
-              "lastUpdated": "2025-12-23T11:47:37+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "nietzsche",
@@ -4744,7 +4798,7 @@
                 "nietzsche"
               ],
               "createdDate": "2025-12-21T13:37:14+01:00",
-              "lastUpdated": "2025-12-23T11:47:37+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "mises",
@@ -4757,7 +4811,7 @@
                 "mises"
               ],
               "createdDate": "2025-12-21T13:37:14+01:00",
-              "lastUpdated": "2025-12-23T11:47:37+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "heidegger",
@@ -4770,7 +4824,7 @@
                 "eksistens"
               ],
               "createdDate": "2025-12-21T13:37:14+01:00",
-              "lastUpdated": "2025-12-23T11:47:37+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "arendt",
@@ -4783,7 +4837,7 @@
                 "politisk"
               ],
               "createdDate": "2025-12-21T13:37:14+01:00",
-              "lastUpdated": "2025-12-23T11:47:37+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "beauvoir",
@@ -4796,7 +4850,7 @@
                 "beauvoir"
               ],
               "createdDate": "2025-12-21T13:37:14+01:00",
-              "lastUpdated": "2025-12-23T11:47:37+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "rothbard",
@@ -4809,7 +4863,7 @@
                 "rothbard"
               ],
               "createdDate": "2025-12-21T13:37:14+01:00",
-              "lastUpdated": "2025-12-23T11:47:37+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             }
           ]
         },
@@ -4840,7 +4894,7 @@
                 "moral"
               ],
               "createdDate": "2025-12-21T13:37:14+01:00",
-              "lastUpdated": "2025-12-23T11:47:37+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "utilitarisme",
@@ -4854,7 +4908,7 @@
                 "mill"
               ],
               "createdDate": "2025-12-21T13:37:14+01:00",
-              "lastUpdated": "2025-12-23T11:47:37+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "pliktetikk",
@@ -4868,7 +4922,7 @@
                 "imperativ"
               ],
               "createdDate": "2025-12-21T13:37:14+01:00",
-              "lastUpdated": "2025-12-23T11:47:37+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "dygdsetikk",
@@ -4882,7 +4936,7 @@
                 "karakter"
               ],
               "createdDate": "2025-12-21T13:37:14+01:00",
-              "lastUpdated": "2025-12-23T11:47:37+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "naturrett",
@@ -4896,7 +4950,7 @@
                 "rettigheter"
               ],
               "createdDate": "2025-12-21T13:37:14+01:00",
-              "lastUpdated": "2025-12-23T11:47:37+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "non-aggression",
@@ -4910,7 +4964,7 @@
                 "eiendom"
               ],
               "createdDate": "2025-12-21T13:37:14+01:00",
-              "lastUpdated": "2025-12-23T11:47:37+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             }
           ]
         }
