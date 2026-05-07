@@ -229,6 +229,7 @@ export const QuizPlayer: React.FC = () => {
         const playerId = sessionStorage.getItem('quiz_player_id');
         if (!playerId) return;
 
+        // eslint-disable-next-line react-hooks/purity -- event handler, not render path
         const now = Date.now();
         setAnswerTime(now);
         setSelectedOption(option);

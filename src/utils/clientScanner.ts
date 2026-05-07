@@ -55,7 +55,7 @@ export const runClientSideScan = async (
 
         // 2. Frequency
         const cleanText = fullText
-            .replace(/[*_#\[\]()]/g, '')
+            .replace(/[*_#[\]()]/g, '')
             .replace(/[.,:;?!"]/g, ' ')
             .toLowerCase();
 

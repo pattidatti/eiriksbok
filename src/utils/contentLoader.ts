@@ -1,6 +1,4 @@
 import type { Lesson, Manifest, Philosopher, ManifestLesson } from '../types';
-// @ts-ignore
-// import { contentMap, hierarchicalContentMap } from '../generated/contentMap'; // REMOVED
 
 // --- Registry Types ---
 interface ContentIndex {
