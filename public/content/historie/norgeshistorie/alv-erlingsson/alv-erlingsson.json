@@ -13,12 +13,43 @@
         "akershus"
     ],
     "layout": "rich",
-    "year": "ca. 1260-1290",
-    "timeline": [],
+    "year": "ca. 1260–1290",
+    "timeline": [
+        {
+            "year": 1260,
+            "title": "Født som aristokrat",
+            "description": "Alv blir født inn i Tanberg-ætten, en av Norges aller mektigste familier."
+        },
+        {
+            "year": 1276,
+            "title": "Jarl av Sarpsborg",
+            "description": "Blir kongens mektigste mann i øst og styrer fra borgen Isegran."
+        },
+        {
+            "year": 1286,
+            "title": "Sjørøver-hæren fra England",
+            "description": "Låner penger og henter profesjonelle sjørøvere fra Cinque Ports i England."
+        },
+        {
+            "year": 1287,
+            "title": "Opprør og Akershus",
+            "description": "Alv angriper Oslo. Som svar begynner kongen å bygge Akershus festning."
+        },
+        {
+            "year": 1287,
+            "title": "Massakren på Isegran",
+            "description": "Sykdom og krig fører til at 400 av Alvs menn dør når hertugen tar hevn."
+        },
+        {
+            "year": 1290,
+            "title": "En grusom slutt",
+            "description": "Alv blir knust på steile og hjul utenfor Helsingborg."
+        }
+    ],
     "content": [
         {
             "type": "text",
-            "content": "Han hadde makt, penger og kontakter over hele Europa. Alv Erlingsson var ikke hvem som helst - han var en ridder som trodde han var viktigere enn loven. Men det som begynte som en flott karriere som kongens høyre hånd, endte opp i en voldsspiral av sjørøveri, svik og et brutalt drap på et kjerrehjul. Dette skjedde i middelalderen, en tid der noen få mektige familier styrte nesten alt i Norge."
+            "content": "Han hadde makt, penger og kontakter over hele Europa. Alv Erlingsson var ikke hvem som helst – han var en ridder som trodde han var viktigere enn loven. Men det som begynte som en flott karriere som kongens høyre hånd, endte opp i en voldsspiral av sjørøveri, svik og et brutalt drap på et kjerrehjul. Dette skjedde i middelalderen, en tid der noen få mektige familier styrte nesten alt i Norge."
         },
         {
             "type": "header",
@@ -146,7 +177,7 @@
         },
         {
             "type": "text",
-            "content": "Etter at Alv døde, endret alt seg i Norge. Den nye kongen, Haakon V, sørget for at ingen adelsmenn lenger fikk ha egne hærer eller bygge egne borger. Han flyttet hovedstaden til Oslo og gjorde Akershus til landets sentrum. Tiden med uavhengige riddere var over - nå var det kongens lov som gjaldt for alle sammen."
+            "content": "Etter at Alv døde, endret alt seg i Norge. Den nye kongen, Haakon V, sørget for at ingen adelsmenn lenger fikk ha egne hærer eller bygge egne borger. Han flyttet hovedstaden til Oslo og gjorde Akershus til landets sentrum. Tiden med uavhengige riddere var over – nå var det kongens lov som gjaldt for alle sammen."
         }
     ],
     "quiz": [
