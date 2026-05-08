@@ -76,8 +76,10 @@ async function syncDates() {
         const dates = gitDates || fsDates;
         if (!dates) return;
 
-        // Only set createdDate if missing — never overwrite existing values
-        if (!lesson.createdDate && dates.created) {
+        // Set createdDate if missing, or if it's still the bulk-migration placeholder from Dec 2025
+        const MIGRATION_PLACEHOLDER = '2023-01-01T12:00:00Z';
+        const isPlaceholder = lesson.createdDate === MIGRATION_PLACEHOLDER;
+        if ((!lesson.createdDate || isPlaceholder) && dates.created) {
             lesson.createdDate = dates.created;
             changed = true;
         }
