@@ -1,5 +1,5 @@
 {
-  "buildId": 1778144502704,
+  "buildId": 1778223593473,
   "contentMap": {
     "adel": [
       "content/concepts/adel.json"
@@ -762,6 +762,9 @@
     ],
     "trekanthandelen": [
       "content/historie/kolonialisering/trekanthandelen.json"
+    ],
+    "verdenshandel-for-oppdagelsesreisene": [
+      "content/historie/kolonialisering/verdenshandel-for-oppdagelsesreisene.json"
     ],
     "voc": [
       "content/historie/kolonialisering/voc.json"
@@ -2037,6 +2040,7 @@
     "historie/kolonialisering/portugisisk-kolonialisering": "content/historie/kolonialisering/portugisisk-kolonialisering.json",
     "historie/kolonialisering/spansk-kolonialisering": "content/historie/kolonialisering/spansk-kolonialisering.json",
     "historie/kolonialisering/trekanthandelen": "content/historie/kolonialisering/trekanthandelen.json",
+    "historie/kolonialisering/verdenshandel-for-oppdagelsesreisene": "content/historie/kolonialisering/verdenshandel-for-oppdagelsesreisene.json",
     "historie/kolonialisering/voc": "content/historie/kolonialisering/voc.json",
     "historie/mellomkrigstiden/borskrakk": "content/historie/mellomkrigstiden/borskrakk.json",
     "historie/mellomkrigstiden/folkeforbundet": "content/historie/mellomkrigstiden/folkeforbundet.json",
