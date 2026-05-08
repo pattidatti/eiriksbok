@@ -94,7 +94,13 @@
         },
         {
             "type": "text",
-            "content": "Alv Erlingsson levde som en fredløs sjørøver i noen år etter flukten, og seilte mellom havner rundt Nordsjøen. Men i 1290 ble han gjenkjent i Danmark. Danskene husket byene han hadde brent ned, og de hadde ingen grunn til å vise nåde. Han ble stilt for retten og dømt til den mest ydmykende og smertefulle dødstraff som fantes: steile og hjul. Bøddelen knuste beinene hans og armene med tunge slag mens han ennå levde. Kroppen ble deretter flettet inn i et kjerrehjul og satt på stang for å vises fram som advarsel. At en adelsmann og en ridder ble utsatt for en slik straff — vanligvis forbeholdt de laveste kriminelle — var et bevisst signal: ingen, uansett rang, var hevet over loven. Alv Erlingsson ble henrettet utenfor Helsingborg, langt fra hjembygda hans på Ringerike."
+            "content": "Alv Erlingsson levde som en fredløs sjørøver i noen år etter flukten, og seilte mellom havner rundt Nordsjøen. Men i 1290 ble han gjenkjent i Danmark. Danskene husket byene han hadde brent ned, og de hadde ingen grunn til å vise nåde. Han ble stilt for retten og dømt til den mest ydmykende og smertefulle dødstraff som fantes: steile og hjul. Bøddelen knuste beinene hans og armene med tunge slag mens han ennå levde. Kroppen ble deretter flettet inn i et kjerrehjul og satt på stang for å vises fram som advarsel. At en adelsmann og en ridder ble utsatt for en slik straff - vanligvis forbeholdt de laveste kriminelle - var et bevisst signal: ingen, uansett rang, var hevet over loven. Alv Erlingsson ble henrettet utenfor Helsingborg, langt fra hjembygda hans på Ringerike."
+        },
+        {
+            "type": "image",
+            "src": "/images/historie/norgeshistorie/alv-erlingsson/alv-death.webp",
+            "caption": "Den siste ferden: Alv endte på steile og hjul i 1290. Det var kongens måte å vise at ingen var mektigere enn staten og loven.",
+            "alt": "Et hjul på en stake."
         },
         {
             "type": "header",
@@ -200,5 +206,31 @@
                 ]
             }
         }
-    ]
+    ],
+    "lessonPlan": {
+        "learningObjectives": [
+            "Forklare sammenhengen mellom Alv Erlingssons opprør og byggingen av Akershus festning.",
+            "Beskrive maktkampen mellom de rike adelsfamiliene og kongehuset i norsk middelalder.",
+            "Reflektere over hvordan kilder og perspektiv former hvem vi husker som helter og skurker."
+        ],
+        "preReading": [
+            "Hvis du var konge, hvordan ville du stoppet en adelsmann som hadde sin egen hær av pirater?",
+            "Hva betyr det å ha makt i middelalderen sammenlignet med i dag?"
+        ],
+        "whileReading": [
+            "Lær deg navnet på borgen til Alv og hvorfor den ble brent ned.",
+            "Hva kalte Alv seg når han var i utlandet, og hvorfor?"
+        ],
+        "postReading": [
+            "Hvorfor tror du hertug Haakon valgte å bygge en borg av stein istedenfor tre etter angrepet?",
+            "Alv var en av de siste frie ridderne i Norge. Hva tror du ble annerledes i landet da slike menn forsvant?",
+            "Var Alv Erlingsson en helt som kjempet for Norge, eller bare en egoistisk sjørøver? Begrunn svaret ditt."
+        ],
+        "writingTask": [
+            "**Forsvarsadvokaten:** Se for deg at du er Alv Erlingssons forsvarer i rettssaken i Danmark i 1290. Skriv en tale der du prøver å overbevise dommerne om at Alv ikke bare var en forbryter, men en mann som kjempet for sin ære og mot Hansaens makt. Bruk detaljer fra teksten for å begrunne saken din.",
+            "**Ridderens siste natt:** Skriv et brev eller et dagboknotat fra Alv selv, skrevet i fengselet i Helsingborg kvelden før han skal henrettes. Han reflekterer over livet sitt: fra å være kongens nærmeste venn til å ende opp som en utstøtt pirat. Angrer han på drapet på Hallkjell Krøkedans, og hva tenker han om at navnet hans vil huskes for alltid?",
+            "**Breaking News fra middelalderen:** Skriv en nyhetsartikkel eller et live-intervju fra Fredrikstad i 1287, rett etter at borgen Isegran er brent ned. Intervju en overlevende soldat eller en livredd innbygger i byen. Hvordan opplevde de Alvs svik og hertugens brutale hevn?",
+            "**Alv i det 21. århundre:** Hvis Alv Erlingsson levde i dag, hvem ville han vært? En rebelsk teknommilliardær, en beryktet hacker som angriper store selskaper, eller en kontroversiell politiker? Lag en karakterbeskrivelse eller en kort historie der du plasserer Alvs personlighet og ambisjoner i vår moderne verden."
+        ]
+    }
 }
