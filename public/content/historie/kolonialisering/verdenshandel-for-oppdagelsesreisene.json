@@ -9,7 +9,7 @@
     "details": [
         "Arabiske kjøpmenn kontrollerte handelen i Indiahavet i over 500 år",
         "Pepper fra India kostet opptil 100 ganger mer i Europa enn der det ble dyrket",
-        "Osmannernes overtakelse av Konstantinopel i 1453 tvang frem de europeiske oppdagelsesreisene"
+        "Portugals utforsking av Afrika startet i 1415 — 38 år FØR Konstantinopel falt"
     ],
     "content": [
         {
@@ -79,27 +79,27 @@
         },
         {
             "type": "header",
-            "text": "1453: Porten slår igjen"
+            "text": "1453 — og et historisk misforståelse"
         },
         {
             "type": "text",
-            "content": "I 1453 skjedde noe som rystet hele den kristne verden: Det osmanske riket under sultan Mehmed II inntok Konstantinopel. Den bysantinske keiseren falt i forsvar av sine egne bymurer. Slik ble det satt strek for et rike som hadde eksistert i over tusen år. For Europa var katastrofen ikke bare religiøs og politisk — den var handelsmessig. Osmansk toll og kontroll over Silkvei-rutene gjordet den allerede dyre handelen enda dyrere. Pepper som hadde kostet ti gullmynter kostet nå femten. Venezia forsøkte straks å forhandle med sultanen, for de trengte handelen mer enn de brydde seg om religiøse skiller. Men resten av Europa ropte på korstogsinnats."
+            "content": "I 1453 inntok det osmanske riket Konstantinopel. Det rystet den kristne verden. Men hadde det noe å si for krydderhandelen? Det er her en populær myte slipper til. Mange lærebøker hevder at osmanske veisperringer fikk krydderprisene til å skyte i været og tvang Portugal og Spania til å lete etter nye sjøveier. Historikere har vist at dette ikke stemmer. Det avgjørende poenget er geografi: de viktigste krydderrutene gikk ikke gjennom Konstantinopel. De gikk gjennom Egypt, kontrollert av det egyptiske Mamluk-sultanatet — et eget rike som osmanene ikke overtok før i 1517, seksti år etter Konstantinopels fall. Historikeren Frederic Lane gikk gjennom venetianske handelsbøker og fant at pepperpriser i Venezia faktisk falt gjennom hele 1400-tallet. De steg ikke etter 1453. Venezia inngikk dessuten handelsavtale med osmanene allerede i april 1454 — ett år etter fallet. Handelen fortsatte nesten uten avbrudd."
         },
         {
             "type": "text",
-            "content": "Det var i dette presset — høyere priser, usikre ruter og behovet for et alternativ — at de store oppdagelsesreisene ble til. Portugal, et lite land ytterst i Europa, hadde i tiår lurt langs Afrikas kyst og stilt spørsmålet: hva om man seiler rundt Afrika og direkte til India? Det var ikke nysgjerrighet alene som drev fram oppdagelsene. Det var desperat økonomi. Da Vasco da Gama ankom Kalikut i 1498, var det ikke for å lære om fremmede kulturer. Han kom for å kutte ut alle mellommennene og handle direkte."
+            "content": "Så hvorfor dro portugiserne ut på havet? Svaret er at de allerede hadde gjort det — i over 38 år da Konstantinopel falt. Portugal begynte sin systematiske utforsking av Afrikas kyst i 1415 med erobringen av Ceuta. Motivene var sammensatte: religiøst korstogspreg, jakten på afrikansk gull, og en lønnsom handel med slaver til sukkerplantasjene på Madeira. Da kong João II tok makten i 1481, formaliserte han planen om å nå India sjøveien — ikke fordi osmanske tollavgifter var uutholdelige, men fordi han ville kutte ut alle mellommennene og gi Portugal et eget handelsmonopol. Konstantinopels fall i 1453 forsterket en kristen følelse av press, men det var ikke den gnisten som tente oppdagelsesreisene. Den gnisten brant allerede siden 1415."
         },
         {
             "type": "component",
             "name": "ScenarioRoleplay",
             "props": {
                 "title": "Veneziansk kjøpmann, 1453",
-                "intro": "Konstantinopel har nettopp falt til osmanene. Du er en rik kjøpmann i Venezia. Krydderprisene stiger. Hva gjør du?",
+                "intro": "Konstantinopel har nettopp falt til osmanene. Du er en rik kjøpmann i Venezia. Ingen vet ennå hva dette betyr for handelen. Hva gjør du?",
                 "startId": "start",
                 "scenarios": [
                     {
                         "id": "start",
-                        "text": "Det er mai 1453. En budbringer ankommer kanalen utenfor palatset ditt med nyheten: Konstantinopel har falt. Hundrevis av venezianske kjøpmenn er fanget i byen. Dine handelskontakter der er borte. Osmansk toll vil snart gjøre krydderhandelen enda dyrere enn den allerede er. Du har kapital nok til å investere, men usikkerheten er enorm. Hva velger du?",
+                        "text": "Det er mai 1453. En budbringer ankommer kanalen utenfor palatset ditt med nyheten: Konstantinopel har falt. Noen av dine handelskontakter i byen er fanget. Ingen vet ennå hva osmanene vil gjøre med handelsrettighetene. Dine konkurrenter i Genova er nervøse. Dine rådgivere mener usikkerheten er midlertidig — de viktigste krydderrutene dine går jo gjennom Egypt, ikke Konstantinopel. Men det er likevel et vendepunkt. Hva velger du?",
                         "options": [
                             {
                                 "label": "Forhandle med osmanene om nye handelsrettigheter",
@@ -117,17 +117,17 @@
                     },
                     {
                         "id": "forhandl",
-                        "text": "Du sender delegater til sultan Mehmed II. Det viser seg at osmanene er pragmatiske handelsmenn. I 1454 inngår Venezia en avtale om handelsrettigheter i Konstantinopel. Men tollsatsene er dobbelt så høye som under bysantinerne. Krydderprisene stiger. Du tjener fremdeles penger, men marginene krymper år for år. Venezia overlever som handelsmakt i hundre år til, men gradvis mister byen sin dominans til de nye havnasjonene langs Atlanterhavet.",
+                        "text": "Du sender delegater til sultan Mehmed II. Det viser seg at dette var riktig trekk: osmanene er pragmatiske handelsmenn som vil ha inntekter. Allerede i april 1454 inngår Venezia en handelsavtale med det nye osmanske regimet. Konstantinopel fortsetter som handelsby under ny ledelse. Forretningene dine normaliserer seg raskt. Men du er klok nok til å forstå at dette er midlertidig stabilitet. Portugal har allerede utforsket Afrikas kyst i nesten 40 år. Dersom de en dag runder Afrikas sørspiss og når India direkte, vil hele kryddersystemet bli disrupted — ikke av osmanene, men av portugisiske skip.",
                         "options": []
                     },
                     {
                         "id": "egypt",
-                        "text": "Du bygger opp handelskontakter i Kairo og Alexandria. Her møtes arabiske karavaner fra Rødehavet med europeiske kjøpmenn. Handelen går gjennom Egypt og Levanten som før — men nå uten Konstantinopel som knutepunkt. Det fungerer godt en stund. Men ni år etter at du bestemte deg, hører du rykter om at portugiserne har funnet et seilbart pass rundt den afrikanske kystens sørspiss. Dersom de lykkes med å nå India sjøveien, vil hele kryddersystemet kollapse innen en generasjon.",
+                        "text": "Du forsterker handelskontaktene i Kairo og Alexandria. Det viser seg å være det riktige valget. Krydderrutene gjennom Egypt fungerer nesten upåvirket av det som skjedde i Konstantinopel. Det egyptiske Mamluk-sultanatet er ikke osmanene — de har kontrollert denne ruten i hundre år og holder den åpen. Handelen flyter videre. Problemet er noe helt annet: i 1498 ankommer en portugisisk flåte under Vasco da Gama direkte til Kalikut i India — uten å bruke noen mellommenn i det hele tatt. Trusselen mot veneziansk handel kom ikke fra osmannene. Den kom fra Atlanterhavet.",
                         "options": []
                     },
                     {
                         "id": "portugal",
-                        "text": "Du tar en sjanse og sender penger til Lisboa, der portugisiske oppdagere planlegger ekspedisjoner sørover langs Afrikas kyst. Det virker som galskap — ingen vet om man faktisk kan seile rundt Afrika. Men om 45 år ankommer Vasco da Gama India sjøveien, og krydder fra India koster plutselig en brøkdel av det som er normalt i dag. De som investerte tidlig i den portugisiske handelsruten, ble rikere enn noen veneziansk kjøpmann hadde drømt om. Du mistet monopolet — men du vant fremtiden.",
+                        "text": "Du tar en sjanse og sender penger til Lisboa, der portugisiske oppdagere allerede i 40 år har utforsket Afrikas kyst. De fleste i Venezia ler av deg. Men du har sett tallene: portugal hentet allerede afrikansk gull og slaver på 1440-tallet. Nå er målet India. Om 45 år ankommer Vasco da Gama India sjøveien, og krydder fra India begynner å komme til Europa uten arabiske eller venetianske mellommenn. Du har mistet monopolet ditt — men ved å investere i den portugisiske ruten tidlig, er du med på profittene fra den nye ordenen. Verden har skiftet.",
                         "options": []
                     }
                 ]
@@ -143,7 +143,7 @@
         },
         {
             "type": "text",
-            "content": "Og det viktigste av alt: de europeiske oppdagelsesreisene på 1400- og 1500-tallet var ikke et plutselig eventyr drevet av nysgjerrighet. De var det logiske neste steget i en lang kjede av handelsintensjoner. Columbus dro ikke vestover for å oppdage Amerika — han prøvde å finne en kortere sjørute til de samme krydderne som venetianerne importerte gjennom Midtøsten. Verden han fant var allerede knyttet til resten av kloden gjennom handelsruter han aldri ante eksisterte. De store oppdagelsesreisene var ikke starten på et globalt nettverk. De var en europeisk inngripen i et nettverk som allerede hadde eksistert i tusenvis av år."
+            "content": "Og det viktigste av alt: de europeiske oppdagelsesreisene på 1400- og 1500-tallet var ikke et plutselig eventyr drevet av osmansk press. Portugal hadde allerede utforsket Afrikas kyst i årtier drevet av korstogsideologi, afrikansk gull og slavehandel til sukkerplantasjene på Madeira. Columbus dro ikke vestover for å oppdage Amerika — han prøvde å finne en kortere sjørute til de samme krydderne som venetianerne importerte gjennom Egypt. Verden han fant var allerede knyttet til resten av kloden gjennom handelsruter han aldri ante eksisterte. De store oppdagelsesreisene var ikke starten på et globalt nettverk. De var en europeisk inngripen i et nettverk som allerede hadde eksistert i tusenvis av år — og den gamle nettverket gjennom Egypt var faktisk så seiglivet at det så sent som i 1600 fraktet fire ganger mer krydder enn de portugisiske sjørutene."
         }
     ],
     "timeline": [],
