@@ -134,6 +134,48 @@
             "content": "Henrettelsen skjedde utenfor byen Helsingborg. Bøddelen knuste Alvs bein og armer med tunge slag mens han ennå levde, før kroppen ble flettet inn i et kjerrehjul. Der ble han liggende til skrekk og advarsel for alle andre. Selv om han døde som en kriminell, skrev noen i ettertid at Norges ære falt sammen med ham. De så på ham som den siste av de store, frie ridderne som nektet å bøye seg."
         },
         {
+            "type": "header",
+            "text": "Hvem fikk skrive historien om Alv?"
+        },
+        {
+            "type": "text",
+            "content": "Her begynner den virkelig interessante delen av historien. For nesten alt vi vet om Alv Erlingsson, kommer fra kilder skrevet av hans fiender - kongemakten og Hansaen. De kalte ham sjørøver, lovbryter og forræder. Men tenk deg at du hørte historien fra Alvs egne menn, eller fra bøndene som hadde lidt under hanseatenes makt i norske byer. De ville kanskje fortalt om en mann som kjempet mot fremmede kjøpmenn som satt på Norges rikdommer. De ville fortalt om en jarl som mente han hadde lov til å ta hevn for den behandlingen hans menn hadde fått. Noen norske krønikeskrivere noterte faktisk at da Alv falt, falt også noe av Norges ære. Historien er alltid fortalt fra et ståsted. Den som vinner, får definere hvem taperen var."
+        },
+        {
+            "type": "component",
+            "name": "PerspectivePrism",
+            "props": {
+                "title": "Tre perspektiver på Alv Erlingsson",
+                "instruction": "Dra for å se saken fra ulike sider. Hvem hadde rett til å definere hvem Alv var?",
+                "sides": [
+                    {
+                        "id": "kongen",
+                        "title": "Hertug Haakon (vinneren)",
+                        "color": "#c0392b",
+                        "icon": "👑",
+                        "content": "Alv Erlingsson var en forræder og en kriminell. Han stjal penger i kongens navn, drepte kongens sendebud under fredsflagget, og brente ned norske byer. Han var en trussel mot hele riket. Dommen - steile og hjul - var rettferdig. Ingen er hevet over loven, ikke engang en jarl.",
+                        "sourceCredit": "Basert på kongelige kildeskrifter fra ca. 1290"
+                    },
+                    {
+                        "id": "hansaen",
+                        "title": "De hanseatiske kjøpmennene",
+                        "color": "#2c3e50",
+                        "icon": "⚓",
+                        "content": "Alv Erlingsson var en pirat og en morder. Han angrep fredelige handelsskip, massakrerte mannskap og brente ned byene Horsens og Kalundborg. Han var ikke en ridder med ære - han var en røver som brukte en politisk krangel som unnskyldning for å berike seg selv. Norge måtte betale 6000 mark sølv for det han gjorde.",
+                        "sourceCredit": "Basert på hanseatiske handelsdokumenter fra 1280-1290"
+                    },
+                    {
+                        "id": "folket",
+                        "title": "Alvs tilhengere (taperne)",
+                        "color": "#27ae60",
+                        "icon": "🗡️",
+                        "content": "Alv kjempet mot fremmede kjøpmenn som kontrollerte Norges handel og tok Norges rikdommer ut av landet. Han var en av de siste frie norske jarlene - en mann som nektet å bøye seg for en kongemakt som ble stadig mer sentralisert. Da han falt, falt noe av norsk selvstendighet med ham.",
+                        "sourceCredit": "Basert på fragmentariske norske krøniker og sagn fra 1300-tallet"
+                    }
+                ]
+            }
+        },
+        {
             "type": "text",
             "content": "Etter at Alv døde, endret alt seg i Norge. Den nye kongen, Haakon V, sørget for at ingen adelsmenn lenger fikk ha egne hærer eller bygge egne borger. Han flyttet hovedstaden til Oslo og gjorde Akershus til landets sentrum. Tiden med uavhengige riddere var over – nå var det kongens lov som gjaldt for alle sammen."
         }
