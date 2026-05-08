@@ -3883,9 +3883,26 @@
       ]
     },
     {
-      "id": "alv-erlingsson-isegran-fall",
-      "title": "Massakren på Isegran og angrepet på Oslo",
-      "description": "Etter at Alv dreper kongens høvedsmann Hallkjell Krøkedans, brenner hertug Haakon ned Isegran. Alv hevner seg ved å angripe Oslo, og kongen begynner straks å bygge Akershus festning som svar.",
+      "id": "alv-erlingsson-isegran-massakre",
+      "title": "Massakren på Isegran",
+      "description": "Sykdom og krig fører til at 400 av Alvs menn dør når hertug Haakon tar hevn for drapet på Hallkjell Krøkedans og brenner ned borgen.",
+      "startDate": 1287,
+      "endDate": null,
+      "displayDate": "1287",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "norgeshistorie",
+      "link": "/historie/norgeshistorie/alv-erlingsson",
+      "tags": [
+        "norge",
+        "middelalder",
+        "isegran"
+      ]
+    },
+    {
+      "id": "alv-erlingsson-akershus-fodes",
+      "title": "Opprør og Akershus festning",
+      "description": "Alv angriper Oslo etter tapet av Isegran. Som direkte svar begynner kongen å bygge Akershus festning av stein.",
       "startDate": 1287,
       "endDate": null,
       "displayDate": "1287",
@@ -3897,7 +3914,7 @@
         "norge",
         "middelalder",
         "akershus",
-        "sjørøveri"
+        "oslo"
       ]
     },
     {
