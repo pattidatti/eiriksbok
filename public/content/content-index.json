@@ -1,5 +1,5 @@
 {
-  "buildId": 1778289680310,
+  "buildId": 1778351050179,
   "contentMap": {
     "adel": [
       "content/concepts/adel.json"
@@ -1191,6 +1191,9 @@
       "content/krle/religion/islam/skapelse/artikkel.json",
       "content/krle/religion/kristendom/skapelse/artikkel.json"
     ],
+    "kirkesamfunn": [
+      "content/krle/religion/kristendom/kirkesamfunn.json"
+    ],
     "paulus-og-misjonen": [
       "content/krle/religion/kristendom/paulus-og-misjonen.json"
     ],
@@ -2216,6 +2219,7 @@
     "krle/religion/kristendom/gudsbilde": "content/krle/religion/kristendom/gudsbilde/artikkel.json",
     "krle/religion/kristendom/hellige-tekster": "content/krle/religion/kristendom/hellige-tekster/artikkel.json",
     "krle/religion/kristendom/intro": "content/krle/religion/kristendom/intro/artikkel.json",
+    "krle/religion/kristendom/kirkesamfunn": "content/krle/religion/kristendom/kirkesamfunn.json",
     "krle/religion/kristendom/overgangsriter": "content/krle/religion/kristendom/overgangsriter/artikkel.json",
     "krle/religion/kristendom/paulus-og-misjonen": "content/krle/religion/kristendom/paulus-og-misjonen.json",
     "krle/religion/kristendom/sentrale-trekk": "content/krle/religion/kristendom/sentrale-trekk/artikkel.json",
