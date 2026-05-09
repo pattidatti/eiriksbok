@@ -1,0 +1,414 @@
+{
+    "id": "paulus-og-misjonen",
+    "title": "Paulus og misjonen",
+    "subject": "krle",
+    "topic": "religion",
+    "religion": "kristendom",
+    "layout": "rich",
+    "year": "ca. 5–67 e.Kr.",
+    "category": "Kristendom",
+    "readTime": "10 min lesning",
+    "heroImage": "/images/krle/religion/kristendom_hero.webp",
+    "dimension": "narrative",
+    "comparison_tags": [
+        "misjon",
+        "kirke",
+        "spredning"
+    ],
+    "details": [
+        "Paulus var først en streng forfølger av kristne, men ble en av deres viktigste ledere.",
+        "På Apostelmøtet i Jerusalem rundt år 49 ble det bestemt at også ikke-jøder kunne bli kristne.",
+        "Paulus reiste tre lange misjonsreiser rundt Middelhavet og grunnla nye menigheter.",
+        "Brevene han skrev utgjør en stor del av Det nye testamentet.",
+        "Uten Paulus hadde kristendommen kanskje forblitt en liten jødisk gruppe."
+    ],
+    "content": [
+        {
+            "type": "header",
+            "text": "En mann på vei til Damaskus"
+        },
+        {
+            "type": "text",
+            "content": "Tenk deg en mann som rir mot byen Damaskus en varm dag rundt år 34 e.Kr. Han heter Saulus og er sint. I sadeltaskene har han brev som gir ham rett til å arrestere kristne og føre dem tilbake til Jerusalem. Saulus mener at de kristne er farlige bedragere som ødelegger den jødiske troen, og han vil stoppe dem."
+        },
+        {
+            "type": "text",
+            "content": "Plutselig kommer det et lys så sterkt at han faller av hesten. En stemme spør: «Hvorfor forfølger du meg?» Da Saulus reiser seg, er han blind. Han må ledes inn i Damaskus. Tre dager senere får han synet tilbake, lar seg døpe og bytter navn til Paulus. Mannen som skulle drepe kristendommen, blir den som sprer den til hele Romerriket. Det er en av historiens største snuoperasjoner."
+        },
+        {
+            "type": "header",
+            "text": "Hvem var Saulus før forvandlingen?"
+        },
+        {
+            "type": "text",
+            "content": "Saulus ble født i byen Tarsos i dagens Tyrkia, sannsynligvis rundt år 5 e.Kr. Han kom fra en jødisk familie, men var også romersk borger. Det var sjeldent og verdifullt: en romersk borger kunne ikke piskes uten dom og hadde rett til å anke saken sin helt opp til keiseren. Faren hans drev sannsynligvis med teltmaking, og Saulus lærte seg det samme håndverket. Hele livet kunne han brødfø seg selv ved å sy telt."
+        },
+        {
+            "type": "text",
+            "content": "Som ung student reiste Saulus til Jerusalem og lærte hos en av de mest kjente jødiske lærerne, Gamaliel. Han ble en farisé, det vil si en jøde som la stor vekt på å følge alle reglene i Loven nøye. Når de første kristne begynte å si at Jesus var Messias, så Saulus dette som farlig vranglære. Han var til og med til stede da den første kristne, Stefanus, ble steinet til døde. Bibelen forteller at Saulus passet på klærne til de som kastet steiner."
+        },
+        {
+            "type": "header",
+            "text": "Et stort spørsmål: Hvem kan bli kristen?"
+        },
+        {
+            "type": "text",
+            "content": "Etter at Paulus ble kristen, oppsto det en hard strid blant Jesu etterfølgere. Striden handlet om hvem som kunne bli med. Jesus selv var jøde. Disiplene var jøder. Den første menigheten i Jerusalem holdt seg til de jødiske matreglene og lot guttebarn bli omskåret slik Loven krevde. For mange av de første kristne var dette en selvfølge: hvis du ville følge Jesus, måtte du også bli en jøde."
+        },
+        {
+            "type": "text",
+            "content": "Men Paulus så det annerledes. På sine reiser møtte han mange greske og romerske mennesker som ville tro på Jesus. Skulle disse også omskjæres som voksne menn? Skulle de slutte å spise svinekjøtt og holde alle de jødiske helgedagene? Paulus mente at troen på Jesus var nok. Hverken jødisk lov eller fødsel skulle være kravet. Dette var en revolusjon som kunne sprenge hele bevegelsen i to."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Tre vanskelige ord forklart",
+                "items": [
+                    {
+                        "label": "Hedning",
+                        "value": "Det jødiske ordet for alle som ikke var jøder. Det var en gruppebetegnelse, ikke en fornærmelse."
+                    },
+                    {
+                        "label": "Omskjæring",
+                        "value": "En gammel jødisk skikk der en liten bit hud blir fjernet fra guttebarnet kort tid etter fødselen. For jøder var det et synlig tegn på pakten med Gud."
+                    },
+                    {
+                        "label": "Apostel",
+                        "value": "Et gresk ord som betyr utsending. Det var navnet på de tolv disiplene og noen få andre, som Paulus, som ble sendt ut for å fortelle om Jesus."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Apostelmøtet i Jerusalem"
+        },
+        {
+            "type": "text",
+            "content": "Rundt år 49 reiste Paulus til Jerusalem for å møte Peter, Jakob og de andre lederne. De samlet seg til det vi i dag kaller Apostelmøtet. Det var det første store møtet i kirkens historie, og resultatet kunne forme alt som kom siden. Skulle kristendommen være en jødisk gren med strenge regler, eller en åpen tro for alle folkeslag?"
+        },
+        {
+            "type": "text",
+            "content": "Diskusjonen var hard. Til slutt vant Paulus fram. Lederne bestemte at ikke-jøder ikke trengte å bli omskåret eller følge alle de jødiske matreglene. De ble bare bedt om å holde seg unna avgudsmat og leve rent. Med dette ble kristendommen åpnet for hele verden. Hvis Paulus hadde tapt diskusjonen, ville kristendommen kanskje ha blitt værende som en liten jødisk sekt i Midtøsten."
+        },
+        {
+            "type": "component",
+            "name": "ScenarioRoleplay",
+            "props": {
+                "title": "Apostelmøtet i Jerusalem, år 49",
+                "intro": "Du er en av delegatene på Apostelmøtet. Lederne sitter i ring og diskuterer. Spørsmålet ligger på bordet: Skal nye, ikke-jødiske kristne måtte følge den jødiske loven?",
+                "startId": "start",
+                "scenarios": [
+                    {
+                        "id": "start",
+                        "text": "Du har reist langt for å være med på dette møtet. Stemningen er anspent. På den ene siden står Paulus og Barnabas, som har sett hvordan grekere og romere tar imot Jesus med åpne armer. På den andre siden står flere fra Jerusalem-menigheten som mener loven må holdes. Hva tenker du først?",
+                        "options": [
+                            {
+                                "label": "Loven må følges. Jesus var jøde, og slik må vi alle bli.",
+                                "nextId": "konservativ"
+                            },
+                            {
+                                "label": "Troen er det viktigste. Loven er for jøder, ikke for alle.",
+                                "nextId": "apen"
+                            },
+                            {
+                                "label": "Jeg er usikker. Jeg vil høre flere argumenter.",
+                                "nextId": "lytter"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "konservativ",
+                        "text": "Du argumenterer for at de nye må omskjæres. En eldre kvinne reiser seg og spør: «Mener du virkelig at en grekisk farmer som er 50 år gammel skal måtte gjennom dette? Vil han da heller velge å fortsette å tilbe sine gamle guder?»",
+                        "options": [
+                            {
+                                "label": "Ja. Hvis ikke, så er ikke troen ekte.",
+                                "nextId": "konservativ-slutt"
+                            },
+                            {
+                                "label": "Kanskje du har rett. Jeg må tenke meg om.",
+                                "nextId": "lytter"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "konservativ-slutt",
+                        "text": "Du holder fast på din mening. Senere viser det seg at de fleste lederne er uenige med deg. Møtet bestemmer at nye troende ikke trenger å omskjæres. Du innser at hvis ditt syn hadde vunnet, ville få ikke-jøder ha turt å bli kristne. Nå strømmer det inn nye medlemmer fra hele Middelhavet.",
+                        "options": []
+                    },
+                    {
+                        "id": "apen",
+                        "text": "Du støtter Paulus. En tradisjonell leder svarer: «Men Jesus levde som jøde og fulgte loven. Hvordan kan vi droppe det han selv holdt hellig?» Hva svarer du?",
+                        "options": [
+                            {
+                                "label": "Jesus brydde seg om hjertet, ikke om regler.",
+                                "nextId": "apen-slutt"
+                            },
+                            {
+                                "label": "Loven gjelder for jøder. Andre folk har andre veier til Gud.",
+                                "nextId": "apen-slutt"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "apen-slutt",
+                        "text": "Møtet ender med et kompromiss: ikke-jøder slipper omskjæring og de fleste matreglene. De skal bare holde seg unna avgudsmat og leve rent. Paulus reiser hjem og forteller den gode nyheten. I løpet av de neste tiårene vokser kirkene rundt Middelhavet raskt. Du har vært med på å åpne kristendommen for hele verden.",
+                        "options": []
+                    },
+                    {
+                        "id": "lytter",
+                        "text": "Du sier ikke noe ennå. Først snakker Peter om hvordan han har sett ikke-jøder få Den hellige ånd. Så forteller Paulus om alle de nye troende han har døpt. Til slutt foreslår Jakob et kompromiss: ingen omskjæring, men noen enkle regler. Hva tenker du nå?",
+                        "options": [
+                            {
+                                "label": "Det er klokt. Jeg støtter forslaget.",
+                                "nextId": "apen-slutt"
+                            },
+                            {
+                                "label": "Jeg er fortsatt skeptisk, men aksepterer flertallet.",
+                                "nextId": "apen-slutt"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Tre lange reiser"
+        },
+        {
+            "type": "text",
+            "content": "Etter Apostelmøtet la Paulus ut på det vi kaller hans tre store misjonsreiser. På den første reisen tok han med seg Barnabas til Kypros og deler av dagens Tyrkia. På den andre reisen krysset han for første gang over til Europa og grunnla menigheter i greske byer som Filippi, Tessalonika og Korint. På den tredje reisen brukte han nesten tre år i den store byen Efesos."
+        },
+        {
+            "type": "text",
+            "content": "Reisene var ikke enkle. Paulus skriver selv at han ble pisket, forlist tre ganger, kastet i fengsel, sultet, frøs og var hjemløs. Likevel grunnla han menigheter i by etter by. Mønsteret var det samme: han kom til en by, gikk først til synagogen og talte til jødene. Når noen ikke ville høre, gikk han til hedningene. Mange av dem tok imot budskapet med glede."
+        },
+        {
+            "type": "component",
+            "name": "TimelineComponent",
+            "props": {
+                "compact": true,
+                "events": [
+                    {
+                        "year": "ca. 5",
+                        "title": "Saulus blir født i Tarsos",
+                        "description": "Han vokser opp som jøde og romersk borger."
+                    },
+                    {
+                        "year": "ca. 34",
+                        "title": "Møtet på Damaskus-veien",
+                        "description": "Saulus blir blind, ser lyset, døpes og bytter navn til Paulus."
+                    },
+                    {
+                        "year": "46–48",
+                        "title": "Første misjonsreise",
+                        "description": "Paulus og Barnabas reiser til Kypros og det indre Tyrkia."
+                    },
+                    {
+                        "year": "49",
+                        "title": "Apostelmøtet i Jerusalem",
+                        "description": "Det blir bestemt at hedninger ikke trenger å omskjæres."
+                    },
+                    {
+                        "year": "49–52",
+                        "title": "Andre misjonsreise",
+                        "description": "Paulus krysser over til Europa og grunnlegger menigheter i Hellas."
+                    },
+                    {
+                        "year": "53–57",
+                        "title": "Tredje misjonsreise",
+                        "description": "Paulus bruker nesten tre år i Efesos og skriver flere viktige brev."
+                    },
+                    {
+                        "year": "ca. 60",
+                        "title": "Reise til Roma",
+                        "description": "Paulus blir arrestert og fraktet til Roma som romersk borger."
+                    },
+                    {
+                        "year": "ca. 64–67",
+                        "title": "Døden i Roma",
+                        "description": "Paulus blir trolig henrettet under keiser Nero."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Brevene som ble en bok"
+        },
+        {
+            "type": "text",
+            "content": "Når Paulus var ute på reise, hørte han ofte at en av menighetene hans hadde problemer. Noen kranglet om hvem som var størst. Andre var usikre på hva de skulle tro om døden. Atter andre hadde latt seg lure av falske lærere. Paulus svarte med å skrive brev. Han fant en venn med pen håndskrift, dikterte budskapet høyt og sendte brevet med en pålitelig kurer."
+        },
+        {
+            "type": "text",
+            "content": "I starten var brevene ment for én menighet om gangen. Men menighetene tok vare på dem, kopierte dem og sendte dem videre. Sakte men sikkert ble brevene samlet inn. I dag finner vi tretten brev i Det nye testamentet som har Paulus som forfatter, blant dem Romerbrevet, de to Korinterbrevene og Galaterbrevet. Sammen med de fire evangeliene er disse brevene ryggraden i kristen lære. Når en prest holder preken i dag, er sjansen stor for at hun bygger på noe Paulus skrev for nesten 2000 år siden."
+        },
+        {
+            "type": "header",
+            "text": "Før og etter Apostelmøtet"
+        },
+        {
+            "type": "component",
+            "name": "Comparison",
+            "props": {
+                "title": "Hva betydde Apostelmøtet?",
+                "leftTitle": "Før møtet (år 30–49)",
+                "rightTitle": "Etter møtet (år 49 og senere)",
+                "items": [
+                    {
+                        "label": "Hvem kunne bli kristen?",
+                        "left": "Stort sett bare jøder eller folk som hadde blitt jøder.",
+                        "right": "Alle folkeslag, uten å bli jøder først."
+                    },
+                    {
+                        "label": "Krav til menn",
+                        "left": "Omskjæring, jødiske matregler.",
+                        "right": "Bare tro på Jesus og enkle leveregler."
+                    },
+                    {
+                        "label": "Geografisk tyngdepunkt",
+                        "left": "Jerusalem og Midtøsten.",
+                        "right": "Hele Middelhavet, snart også Europa."
+                    },
+                    {
+                        "label": "Antall troende",
+                        "left": "Noen tusen.",
+                        "right": "Vokser raskt til hundretusener i løpet av et par hundre år."
+                    },
+                    {
+                        "label": "Språk",
+                        "left": "Mest arameisk og hebraisk.",
+                        "right": "Mest gresk, etter hvert latin."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Fra forfølger til martyr"
+        },
+        {
+            "type": "text",
+            "content": "Etter den tredje misjonsreisen reiste Paulus tilbake til Jerusalem. Der ble han arrestert. Som romersk borger anket han saken sin, og rundt år 60 ble han ført til Roma. Han satt i en slags husarrest i to år og fortsatte å skrive brev og ta imot besøk. Bibelen sier ikke nøyaktig hvordan livet hans endte, men sterk tradisjon forteller at han ble halshugget under keiser Nero noen år senere. Halshugging var dødsstraffen som romerske borgere hadde rett til."
+        },
+        {
+            "type": "text",
+            "content": "Mannen som en gang red mot Damaskus for å fengsle kristne, døde selv som kristen i Roma. Bevegelsen han hjalp å bygge ble snart altfor stor til å forsvinne. Tre hundre år etter at Paulus døde, var kristendommen blitt Romerrikets offisielle religion. Tusen år senere hadde den nådd helt opp til Norge og Eirik Blodøkses gamle jaktmarker."
+        },
+        {
+            "type": "header",
+            "text": "Hvorfor er Paulus viktig i dag?"
+        },
+        {
+            "type": "text",
+            "content": "Hvis du går inn i en kirke i Norge på en søndag, vil du nesten alltid høre noe Paulus har skrevet. Bryllup, begravelse, dåp og konfirmasjon henter ofte ord fra brevene hans. Tanken om at alle mennesker er like for Gud, uansett etnisitet, kjønn eller status, er noe Paulus formulerte tydelig. Han skrev: «Her er ikke jøde eller greker, ikke slave eller fri, ikke mann eller kvinne. Dere er alle én i Kristus Jesus.»"
+        },
+        {
+            "type": "text",
+            "content": "Mange diskuterer Paulus i dag. Noen mener han var en frigjører som åpnet troen for hele verden. Andre mener han var streng og konservativ, særlig når det gjelder kvinners rolle. Begge sider kan finne tekster som støtter deres syn. Det viser at Paulus var en kompleks skikkelse, og at brevene hans fortsatt påvirker hvordan mennesker tenker om religion, frihet og rettferdighet nesten 2000 år etter at de ble skrevet."
+        },
+        {
+            "type": "header",
+            "text": "Test deg selv"
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hva het Paulus før han ble kristen?",
+                        "options": [
+                            "Peter",
+                            "Saulus",
+                            "Stefanus",
+                            "Barnabas"
+                        ],
+                        "correct": 1,
+                        "explanation": "Han het Saulus og var en streng farisé som forfulgte de første kristne. Etter møtet på Damaskus-veien byttet han navn til Paulus."
+                    },
+                    {
+                        "question": "Hva ble bestemt på Apostelmøtet i Jerusalem rundt år 49?",
+                        "options": [
+                            "At kvinner skulle bli prester",
+                            "At alle kristne måtte snakke gresk",
+                            "At ikke-jøder kunne bli kristne uten å omskjæres",
+                            "At Bibelen skulle skrives ned"
+                        ],
+                        "correct": 2,
+                        "explanation": "Møtet bestemte at hedninger ikke trengte å bli jøder først. Det åpnet kristendommen for hele verden."
+                    },
+                    {
+                        "question": "Hva drev Paulus med for å brødfø seg på reisene?",
+                        "options": [
+                            "Han laget telt",
+                            "Han fisket",
+                            "Han var lege",
+                            "Han var soldat"
+                        ],
+                        "correct": 0,
+                        "explanation": "Paulus var lært opp som teltmaker. Det gjorde at han kunne forsørge seg selv og ikke være avhengig av menighetene han besøkte."
+                    },
+                    {
+                        "question": "Hvor mange misjonsreiser regner vi vanligvis med at Paulus gjorde?",
+                        "options": [
+                            "En",
+                            "To",
+                            "Tre",
+                            "Fem"
+                        ],
+                        "correct": 2,
+                        "explanation": "Paulus regnes med å ha gjort tre store misjonsreiser, pluss reisen til Roma som fange."
+                    },
+                    {
+                        "question": "Hva var brevene fra Paulus først ment som?",
+                        "options": [
+                            "Hellige tekster for hele kirken",
+                            "Veiledning til en bestemt menighet han kjente",
+                            "Lover som måtte følges",
+                            "Sangtekster"
+                        ],
+                        "correct": 1,
+                        "explanation": "Brevene var i utgangspunktet praktiske svar til menigheter han kjente. Først senere ble de samlet inn og regnet som hellig skrift."
+                    }
+                ]
+            }
+        }
+    ],
+    "concepts": [
+        {
+            "id": "apostel",
+            "term": "Apostel",
+            "definition": "En utsending. Et navn på de tolv disiplene og noen få andre, som Paulus, som ble sendt for å fortelle om Jesus."
+        },
+        {
+            "id": "hedning",
+            "term": "Hedning",
+            "definition": "Et jødisk ord for alle som ikke var jøder. Det var en gruppebetegnelse, ikke en fornærmelse."
+        },
+        {
+            "id": "farise",
+            "term": "Farisé",
+            "definition": "En jøde som la stor vekt på å følge alle reglene i Loven nøye. Saulus var farisé før han ble kristen."
+        },
+        {
+            "id": "misjon",
+            "term": "Misjon",
+            "definition": "Å reise ut for å fortelle andre om sin tro og prøve å overbevise dem."
+        },
+        {
+            "id": "apostelmotet",
+            "term": "Apostelmøtet",
+            "definition": "Det første store møtet i kirkens historie, holdt i Jerusalem rundt år 49. Her ble det bestemt at ikke-jøder kunne bli kristne uten å omskjæres."
+        }
+    ],
+    "quote": {
+        "text": "Her er ikke jøde eller greker, ikke slave eller fri, ikke mann eller kvinne. Dere er alle én i Kristus Jesus.",
+        "source": "Paulus",
+        "reference": "Galaterbrevet 3:28"
+    },
+    "timeline": []
+}
