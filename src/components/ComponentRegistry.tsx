@@ -72,6 +72,7 @@ const GasAttackSim = lazy(() => import('./content/interactive/GasAttackSim').the
 const TsarsDilemma = lazy(() => import('./content/interactive/TsarsDilemma').then(m => ({ default: m.default })));
 const HermeneuticCircle = lazy(() => import('./content/interactive/HermeneuticCircle').then(m => ({ default: m.HermeneuticCircle })));
 const CyprusPeaceTalks = lazy(() => import('./content/interactive/CyprusPeaceTalks').then(m => ({ default: m.CyprusPeaceTalks })));
+const DenStoreAkselerasjonen = lazy(() => import('./content/interactive/DenStoreAkselerasjonen').then(m => ({ default: m.DenStoreAkselerasjonen })));
 
 // Skapende Skriving (Creative Writing)
 const StoryElementMixer = lazy(() => import('./content/interactive/StoryElementMixer').then(m => ({ default: m.StoryElementMixer })));
@@ -195,6 +196,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     TsarsDilemma,
     HermeneuticCircle,
     CyprusPeaceTalks,
+    DenStoreAkselerasjonen,
     StoryElementMixer,
     ThemeDigger,
     PlotDNA,

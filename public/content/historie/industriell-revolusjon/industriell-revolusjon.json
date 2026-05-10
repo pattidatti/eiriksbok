@@ -5,7 +5,7 @@
     "year": "1760-1840",
     "category": "Verdenshistorie",
     "readTime": "9 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/historie/industriell-revolusjon/hero.webp",
     "details": [
         "Begynte i England rundt 1760 og spredte seg til resten av Europa og USA",
         "Dampmaskinen erstattet muskel-, vind- og vannkraft som hovedenergikilde",
@@ -98,6 +98,12 @@
             "content": "Før revolusjonen ble klær laget hjemme. Mor spant tråden, far satt ved vevstolen, barna kardet ull. En kjøpmann reiste rundt og samlet inn ferdige stoffer. Dette kalles husflid. Når dampmaskinen kunne drive vevstoler, ble alt dette samlet på ett sted. Hundrevis av maskiner i samme bygg, drevet av én stor maskin via reimer og aksler. Arbeidsfolk kom om morgenen, gikk hjem om kvelden, og fikk lønn etter timer eller stykker."
         },
         {
+            "type": "image",
+            "src": "/images/historie/industriell-revolusjon/textile-mill.webp",
+            "alt": "Innsiden av en tekstilfabrikk på 1800-tallet med store dampdrevne spinnemaskiner",
+            "caption": "Maskinene i de nye fabrikkene var store, farlige og ble drevet av damp i stedet for muskelkraft."
+        },
+        {
             "type": "component",
             "name": "Comparison",
             "props": {
@@ -143,6 +149,12 @@
             "content": "Da fabrikkene trakk arbeidsfolk inn til byene, vokste byene raskere enn noen gang. Manchester hadde 25 000 innbyggere i 1772. Sytti år senere bodde det 350 000 mennesker der — fjorten ganger flere. Liverpool, Birmingham og London opplevde det samme. Men byene var ikke bygd for så mange. Folk presset seg sammen i kjellere og leiegårder. Avløpet rant i åpne renner. Kolera og tyfus drepte tusenvis hver gang det brøt ut."
         },
         {
+            "type": "image",
+            "src": "/images/historie/industriell-revolusjon/slums.webp",
+            "alt": "Trang og skitne bakgater i en industriby på 1800-tallet",
+            "caption": "Boligforholdene for de nye fabrikkarbeiderne var ofte ekstremt dårlige, med trange leiegårder og elendig hygiene."
+        },
+        {
             "type": "text",
             "content": "Arbeidsdagen var lang og hard. Tolv til fjorten timer var vanlig, seks dager i uka. Maskinene tok ikke pauser, og det gjorde ikke arbeiderne heller. Verst var det for barna. Små fingre kunne komme til mellom maskinene og knytte tråder som hadde ryket. Sjuåringer jobbet ved spinnemaskiner. Ulykker var vanlig, og dem som mistet en hånd, mistet også jobben."
         },
@@ -175,6 +187,11 @@
         {
             "type": "text",
             "content": "Den industrielle revolusjonen er den største endringen i hvordan mennesker lever siden landbruket ble oppfunnet for tolv tusen år siden. Den gjorde noen få land enormt rike og la grunnlaget for biler, fly, antibiotika og internett. Samtidig skapte den en ny fattigdom i byene, brente kull i mengder vi merker som klimakrise i dag, og ga europeiske stater den militære overlegenheten som drev kolonialiseringen videre. Verden vi lever i — på godt og vondt — ble formet i disse åtti årene."
+        },
+        {
+            "type": "component",
+            "name": "DenStoreAkselerasjonen",
+            "props": {}
         },
         {
             "type": "component",
