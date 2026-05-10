@@ -1,0 +1,273 @@
+{
+    "id": "industriell-revolusjon",
+    "title": "Den industrielle revolusjonen",
+    "layout": "rich",
+    "year": "1760-1840",
+    "category": "Verdenshistorie",
+    "readTime": "9 min lesning",
+    "heroImage": "/images/placeholder.webp",
+    "details": [
+        "Begynte i England rundt 1760 og spredte seg til resten av Europa og USA",
+        "Dampmaskinen erstattet muskel-, vind- og vannkraft som hovedenergikilde",
+        "Folk flyttet fra landet til byene og fra hjemmeproduksjon til fabrikker",
+        "La grunnlaget for moderne velstand, men også for trangboddhet, barnearbeid og forurensning"
+    ],
+    "tags": [
+        "historie",
+        "industri",
+        "england",
+        "dampmaskin",
+        "1800-tallet"
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Tenk deg at du er ti år gammel og lever i England i 1760. Hjemmet ditt er en liten stue der mor spinner ull ved vinduet, far rister ut frø av lin på låven, og lillesøster passer geita. Det dere ikke lager selv, har dere ikke. Strømmen kommer ikke i en stikkontakt — den finnes ikke. Lyset om kvelden er en talglampe. Hverdagen din ligner mer på besteforeldrenes barndom enn på din egen voksne tid. I løpet av de neste åtti årene skal alt dette snus på hodet."
+        },
+        {
+            "type": "text",
+            "content": "Den industrielle revolusjonen er navnet på denne snuoperasjonen. Den begynte i England rundt 1760, spredte seg til resten av Europa og USA, og gjorde slutt på en verden der nesten all energi kom fra muskler, vind og vann. I stedet kom dampmaskiner, fabrikker, jernbaner og store byer. Det var ikke bare nye maskiner som kom — selve livet til vanlige folk ble bygd om fra grunnen av."
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "content": "Hvorfor akkurat England?"
+        },
+        {
+            "type": "text",
+            "content": "Mange land hadde smarte folk og rike kjøpmenn på 1700-tallet. Hvorfor startet revolusjonen i England, og ikke i Frankrike eller Kina? Historikere peker på en sjelden god kombinasjon av forhold som alle traff samtidig."
+        },
+        {
+            "type": "list",
+            "items": [
+                "Mye kull i bakken — og kullet lå nær overflaten, så det var billig å hente opp.",
+                "Et stort kolonirike som ga England både råvarer (bomull fra India og Amerika) og store markeder å selge til.",
+                "Banker og lover som beskyttet eierskap, så investorer turte å satse penger på risikable oppfinnelser.",
+                "En stor gruppe arbeidsfolk på landsbygda som hadde mistet jorda si etter at adelen gjerdet inn fellesarealer."
+            ]
+        },
+        {
+            "type": "text",
+            "content": "Da disse forholdene møtte hverandre, oppstod en stappfull verktøykasse. Oppfinnere kunne tjene penger på ideene sine. Fabrikkeiere fant lett arbeidere som trengte lønn. Skip kunne frakte produktene ut i hele verden. Resultatet var en eksplosjon av nye maskiner og prosesser i løpet av bare noen tiår."
+        },
+        {
+            "type": "component",
+            "name": "TimelineComponent",
+            "props": {
+                "title": "Nøkkelhendelser i den første industrielle revolusjonen",
+                "compact": true,
+                "events": [
+                    { "year": 1709, "description": "Abraham Darby smelter jern med koks i stedet for trekull — lager billig støpejern." },
+                    { "year": 1733, "description": "John Kay finner opp den flyvende skyttelen og firedobler hastigheten på veving." },
+                    { "year": 1769, "description": "James Watt tar patent på den separate kondensatoren og gjør dampmaskinen virkelig kraftig." },
+                    { "year": 1779, "description": "Verdens første jernbro bygges over Severn-elven og viser at jern kan bære enorme laster." },
+                    { "year": 1784, "description": "Edmund Cartwright lager den første mekaniske vevstolen som kan drives av damp." },
+                    { "year": 1825, "description": "Stockton-til-Darlington blir verdens første offentlige jernbane med damplokomotiv." },
+                    { "year": 1840, "description": "Britiske fabrikker står for nesten halvparten av all industriproduksjon i verden." }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "content": "Dampmaskinen: en lommeflaske med energi"
+        },
+        {
+            "type": "text",
+            "content": "Den viktigste oppfinnelsen var dampmaskinen. For å skjønne hvor stor saken var, må du tenke på hvor du fikk energi fra før. Vil du male korn? Bygg en møllevinge ved en elv. Vil du ha en mølle uten elv? Vent på vinden. Vil du flytte noe tungt? Spenn for en hest, eller bruk armer og rygg. All energi var bundet til ett bestemt sted eller én bestemt værtype."
+        },
+        {
+            "type": "text",
+            "content": "Dampmaskinen var som en lommeflaske med energi. Du putter kull i den ene enden og får mekanisk arbeid ut i den andre — uansett om det blåser eller ikke, uansett om du står ved en elv eller midt i en by. Nå kunne en fabrikk plasseres der det var arbeidsfolk og kunder, ikke der det fantes en foss. Et lokomotiv kunne dra hundre tonn varer uten å bli sliten."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Hvor sterk var Watts dampmaskin?",
+                "content": "James Watt målte motorens styrke i hestekrefter for at kjøpere skulle skjønne det. En tidlig Watt-maskin tilsvarte rundt ti hester som jobbet samtidig — døgnet rundt, uten mat eller hvile. På 1820-tallet bygde man maskiner på 100 hestekrefter. I dag har en vanlig liten bil omtrent like mange. Vil du selv prøve å hjelpe Watt å fullføre den separate kondensatoren? Spill [Watts laboratorium](/oving/spill/watt-lab)."
+            }
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "content": "Fra hjem til fabrikk"
+        },
+        {
+            "type": "text",
+            "content": "Før revolusjonen ble klær laget hjemme. Mor spant tråden, far satt ved vevstolen, barna kardet ull. En kjøpmann reiste rundt og samlet inn ferdige stoffer. Dette kalles husflid. Når dampmaskinen kunne drive vevstoler, ble alt dette samlet på ett sted. Hundrevis av maskiner i samme bygg, drevet av én stor maskin via reimer og aksler. Arbeidsfolk kom om morgenen, gikk hjem om kvelden, og fikk lønn etter timer eller stykker."
+        },
+        {
+            "type": "component",
+            "name": "Comparison",
+            "props": {
+                "title": "Husflid mot fabrikk",
+                "leftTitle": "Hjemmet (før 1780)",
+                "rightTitle": "Fabrikken (etter 1820)",
+                "items": [
+                    {
+                        "label": "Hvor jobber du?",
+                        "left": "I egen stue, ofte hele familien sammen",
+                        "right": "I et stort bygg sammen med hundrevis av fremmede"
+                    },
+                    {
+                        "label": "Hvem bestemmer farten?",
+                        "left": "Du selv. Lyset, været og kroppen styrer dagen.",
+                        "right": "Fabrikkfløyten og maskinen. Den stopper aldri."
+                    },
+                    {
+                        "label": "Hva tjener du?",
+                        "left": "Det du klarer å selge — varierer mye",
+                        "right": "Lønn per time eller per stykk"
+                    },
+                    {
+                        "label": "Hva skjer hvis du blir syk?",
+                        "left": "Familien hjelper, men inntekten faller",
+                        "right": "Du får ikke lønn, og kan miste jobben"
+                    },
+                    {
+                        "label": "Hvem produserer mest?",
+                        "left": "Én vever lager kanskje to meter stoff per dag",
+                        "right": "En fabrikkarbeider styrer maskiner som lager hundrevis av meter"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "content": "Byene fylles opp"
+        },
+        {
+            "type": "text",
+            "content": "Da fabrikkene trakk arbeidsfolk inn til byene, vokste byene raskere enn noen gang. Manchester hadde 25 000 innbyggere i 1772. Sytti år senere bodde det 350 000 mennesker der — fjorten ganger flere. Liverpool, Birmingham og London opplevde det samme. Men byene var ikke bygd for så mange. Folk presset seg sammen i kjellere og leiegårder. Avløpet rant i åpne renner. Kolera og tyfus drepte tusenvis hver gang det brøt ut."
+        },
+        {
+            "type": "text",
+            "content": "Arbeidsdagen var lang og hard. Tolv til fjorten timer var vanlig, seks dager i uka. Maskinene tok ikke pauser, og det gjorde ikke arbeiderne heller. Verst var det for barna. Små fingre kunne komme til mellom maskinene og knytte tråder som hadde ryket. Sjuåringer jobbet ved spinnemaskiner. Ulykker var vanlig, og dem som mistet en hånd, mistet også jobben."
+        },
+        {
+            "type": "component",
+            "name": "QuoteBlock",
+            "props": {
+                "text": "I disse mørke, sataniske møllene...",
+                "author": "William Blake (1808), om Englands fabrikker"
+            }
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "content": "Motstand og endring"
+        },
+        {
+            "type": "text",
+            "content": "Ikke alle var begeistret. I 1811 begynte en gruppe vevere i Nottingham å bryte seg inn i fabrikker og knuse de nye maskinene. De kalte seg luddittene etter en figur som het Ned Ludd. Dommerne hengte mange av dem. Andre prøvde å organisere seg i fagforeninger for å kreve bedre lønn og kortere dager. I starten var fagforeninger ulovlige, men sakte men sikkert vant arbeiderne fram med kravene sine."
+        },
+        {
+            "type": "text",
+            "content": "Politikerne måtte etter hvert reagere. I 1833 vedtok det britiske parlamentet en lov som forbød barnearbeid under ni år, og barn under tretten kunne ikke jobbe mer enn ni timer. I 1847 kom ti-timers-loven for kvinner og barn. Hver lov var et lite skritt mot arbeidsforhold vi vil kjenne igjen i dag. Dette tok mange tiår, og kampen pågår fortsatt i mange land."
+        },
+        {
+            "type": "header",
+            "level": 2,
+            "content": "Hva sitter vi igjen med?"
+        },
+        {
+            "type": "text",
+            "content": "Den industrielle revolusjonen er den største endringen i hvordan mennesker lever siden landbruket ble oppfunnet for tolv tusen år siden. Den gjorde noen få land enormt rike og la grunnlaget for biler, fly, antibiotika og internett. Samtidig skapte den en ny fattigdom i byene, brente kull i mengder vi merker som klimakrise i dag, og ga europeiske stater den militære overlegenheten som drev kolonialiseringen videre. Verden vi lever i — på godt og vondt — ble formet i disse åtti årene."
+        },
+        {
+            "type": "component",
+            "name": "InterdisciplinaryBridge",
+            "props": {
+                "title": "Industrialiseringens ringvirkninger",
+                "centerEvent": "Den industrielle revolusjonen",
+                "nodes": [
+                    {
+                        "subject": "Hamskiftet i Norge",
+                        "text": "Norge fikk sin egen industrialisering omtrent femti år etter England. Bønder ble til arbeidere, og samfunnet ble snudd på hodet.",
+                        "color": "#10b981",
+                        "link": "/historie/norgeshistorie/hamskiftet"
+                    },
+                    {
+                        "subject": "Kolonialisering",
+                        "text": "Fabrikkene trengte bomull, gummi og olje. Europeiske stater tok kontroll over store deler av Afrika og Asia for å sikre råvarene.",
+                        "color": "#f59e0b",
+                        "link": "/historie/kolonialisering/eic"
+                    },
+                    {
+                        "subject": "Robotene kommer",
+                        "text": "Den industrielle revolusjonen erstattet muskler. AI-revolusjonen i dag prøver å erstatte hjernen. Mange spør seg det samme nå som luddittene gjorde i 1811.",
+                        "color": "#6366f1",
+                        "link": "/samfunnskunnskap/mennesket-kultur-samfunn/robotene-kommer"
+                    },
+                    {
+                        "subject": "Framskrittstroen",
+                        "text": "Damp, jernbane og telegraf fikk folk til å tro at framskritt var uunngåelig. Dette tankegodset preget filosofi, politikk og moral i hundre år.",
+                        "color": "#8b5cf6",
+                        "link": "/samfunnskunnskap/ideer-og-verdenssyn/framskrittstro"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hvilket land startet den industrielle revolusjonen?",
+                        "options": [
+                            "Frankrike",
+                            "England",
+                            "Tyskland",
+                            "USA"
+                        ],
+                        "answer": "England"
+                    },
+                    {
+                        "question": "Hvilken energikilde gjorde dampmaskinen forskjellig fra det folk hadde brukt før?",
+                        "options": [
+                            "Vannkraft fra elver",
+                            "Vindmøller",
+                            "Kull som ble brent for å lage damp",
+                            "Solenergi"
+                        ],
+                        "answer": "Kull som ble brent for å lage damp"
+                    },
+                    {
+                        "question": "Hvem var luddittene?",
+                        "options": [
+                            "En politisk gruppe som ville innføre kongedømme",
+                            "Arbeidere som knuste fabrikkmaskiner i protest",
+                            "Oppfinnere som konkurrerte med James Watt",
+                            "Banker som finansierte fabrikkene"
+                        ],
+                        "answer": "Arbeidere som knuste fabrikkmaskiner i protest"
+                    },
+                    {
+                        "question": "Hva endret seg mest for vanlige folk under den industrielle revolusjonen?",
+                        "options": [
+                            "Maten ble mer variert",
+                            "De flyttet fra landsbygda til byene og fikk lønnsarbeid på fabrikk",
+                            "De begynte å reise på ferie",
+                            "De fikk stemmerett"
+                        ],
+                        "answer": "De flyttet fra landsbygda til byene og fikk lønnsarbeid på fabrikk"
+                    },
+                    {
+                        "question": "Hvorfor er den industrielle revolusjonen viktig for klimakrisen i dag?",
+                        "options": [
+                            "Den førte til at folk fikk mer fritid",
+                            "Den gjorde at engelsk ble verdensspråk",
+                            "Den startet stor bruk av kull og fossil energi som gir CO2-utslipp",
+                            "Den gjorde at jordbruket forsvant helt"
+                        ],
+                        "answer": "Den startet stor bruk av kull og fossil energi som gir CO2-utslipp"
+                    }
+                ]
+            }
+        }
+    ],
+    "timeline": []
+}

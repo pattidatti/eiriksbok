@@ -1,5 +1,5 @@
 {
-  "buildId": 1778351050179,
+  "buildId": 1778376038904,
   "contentMap": {
     "adel": [
       "content/concepts/adel.json"
@@ -738,6 +738,9 @@
     ],
     "ww1-sti": [
       "content/historie/forste-verdenskrig/ww1-sti.json"
+    ],
+    "industriell-revolusjon": [
+      "content/historie/industriell-revolusjon/industriell-revolusjon.json"
     ],
     "jordbruk-og-sivilisasjoner": [
       "content/historie/jordbruk-og-sivilisasjoner/jordbruk-og-sivilisasjoner.json"
@@ -2038,6 +2041,7 @@
     "historie/forste-verdenskrig/teknologi": "content/historie/forste-verdenskrig/teknologi.json",
     "historie/forste-verdenskrig/tyske-revolusjon": "content/historie/forste-verdenskrig/tyske-revolusjon.json",
     "historie/forste-verdenskrig/ww1-sti": "content/historie/forste-verdenskrig/ww1-sti.json",
+    "historie/industriell-revolusjon/industriell-revolusjon": "content/historie/industriell-revolusjon/industriell-revolusjon.json",
     "historie/jordbruk-og-sivilisasjoner/jordbruk-og-sivilisasjoner": "content/historie/jordbruk-og-sivilisasjoner/jordbruk-og-sivilisasjoner.json",
     "historie/kolonialisering/britisk-imperium": "content/historie/kolonialisering/britisk-imperium.json",
     "historie/kolonialisering/eic": "content/historie/kolonialisering/eic.json",
