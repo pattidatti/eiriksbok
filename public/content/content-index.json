@@ -1,5 +1,5 @@
 {
-  "buildId": 1778376038904,
+  "buildId": 1778442034357,
   "contentMap": {
     "adel": [
       "content/concepts/adel.json"
@@ -846,6 +846,9 @@
     ],
     "30-aarskrigen": [
       "content/historie/reformasjonen/30-aarskrigen.json"
+    ],
+    "martin-luther": [
+      "content/historie/reformasjonen/martin-luther.json"
     ],
     "arven-etter-romerriket": [
       "content/historie/romerriket/arven-etter-romerriket.json"
@@ -2081,6 +2084,7 @@
     "historie/norgeshistorie/norge-for-vikingene/norge-for-vikingene": "content/historie/norgeshistorie/norge-for-vikingene/artikkel.json",
     "historie/perserriket/perserriket": "content/historie/perserriket/artikkel.json",
     "historie/reformasjonen/30-aarskrigen": "content/historie/reformasjonen/30-aarskrigen.json",
+    "historie/reformasjonen/martin-luther": "content/historie/reformasjonen/martin-luther.json",
     "historie/romerriket/arven-etter-romerriket": "content/historie/romerriket/arven-etter-romerriket.json",
     "historie/romerriket/augustus-og-keiserdomme": "content/historie/romerriket/augustus-og-keiserdomme.json",
     "historie/romerriket/den-romerske-legionen": "content/historie/romerriket/den-romerske-legionen.json",
