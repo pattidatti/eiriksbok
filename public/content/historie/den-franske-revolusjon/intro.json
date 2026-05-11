@@ -1,0 +1,70 @@
+{
+    "id": "intro",
+    "title": "Den franske revolusjon",
+    "layout": "rich",
+    "year": "1789-1799",
+    "category": "Europa",
+    "readTime": "5 min lesning",
+    "heroImage": "/images/placeholder.webp",
+    "details": [
+        "Begynte med stormingen av Bastillen 14. juli 1789.",
+        "Kongedømmet ble avskaffet og Ludvig 16. henrettet.",
+        "Erklæringen om menneskerettighetene formet moderne demokratier."
+    ],
+    "tags": [
+        "frankrike",
+        "revolusjon",
+        "opplysningstid",
+        "menneskerettigheter",
+        "1700-tallet"
+    ],
+    "createdDate": "2026-05-11T00:00:00Z",
+    "lastUpdated": "2026-05-11T00:00:00Z",
+    "content": [
+        {
+            "type": "text",
+            "content": "Den franske revolusjon var en av de viktigste hendelsene i Europas historie. I løpet av ti år, fra 1789 til 1799, snudde franskmennene samfunnet sitt på hodet. De kastet kongen, fant opp ideen om at alle mennesker er like, og inspirerte folk over hele verden til å kreve frihet."
+        },
+        {
+            "type": "header",
+            "text": "Hvorfor skjedde det?"
+        },
+        {
+            "type": "text",
+            "content": "Frankrike på 1700-tallet var et land med store forskjeller. Kongen og adelen levde i sus og dus i slottet i Versailles, mens vanlige folk knapt hadde mat. Landet var nesten konkurs etter krigene, og kong Ludvig 16. og dronning Marie Antoinette ble symboler på all urettferdigheten.\n\nSamtidig hadde filosofer som Voltaire og Rousseau begynt å spre nye ideer. Hvorfor skulle noen være født som konger og andre som bønder? Hvorfor skulle ikke alle ha samme rettigheter? Disse tankene fra opplysningstiden ulmet rundt om i Europa."
+        },
+        {
+            "type": "header",
+            "text": "Bastillen faller"
+        },
+        {
+            "type": "text",
+            "content": "Den 14. juli 1789 stormet folk i Paris festningen Bastillen. Den var et fengsel, men også et symbol på kongens makt til å sperre inne hvem som helst. Da den falt, var det som om hele det gamle systemet begynte å rakne.\n\nKort tid etter vedtok nasjonalforsamlingen «Erklæringen om menneskets og borgerens rettigheter». Den slo fast at alle mennesker er født frie og like, og at de har rettigheter ingen konge kan ta fra dem. Tre ord ble revolusjonens motto: frihet, likhet, brorskap."
+        },
+        {
+            "type": "header",
+            "text": "Skrekkveldet"
+        },
+        {
+            "type": "text",
+            "content": "Revolusjonen ble brutal. Kong Ludvig 16. ble dømt for forræderi og halshogd med giljotinen i 1793. Det samme ble dronning Marie Antoinette noen måneder senere.\n\nEn radikal leder ved navn Maximilien Robespierre tok over. Han mente at revolusjonen måtte beskyttes for enhver pris, og fikk tusenvis henrettet. Tiden kalles «skrekkveldet». Til slutt vendte folk seg mot Robespierre selv, og han endte under giljotinen i 1794."
+        },
+        {
+            "type": "header",
+            "text": "Napoleon overtar"
+        },
+        {
+            "type": "text",
+            "content": "Etter år med kaos grep en ung general makten i 1799. Han het Napoleon Bonaparte, og han skulle snart krone seg selv til keiser. Napoleon tok mange av revolusjonens ideer med seg, men gjorde Frankrike til et krigerrike som skulle sette hele Europa i brann i over et tiår."
+        },
+        {
+            "type": "header",
+            "text": "Hvorfor er den så viktig?"
+        },
+        {
+            "type": "text",
+            "content": "Den franske revolusjon viste at vanlige folk kunne styrte en konge. Den spredte tanken om at staten finnes for folkets skyld, ikke omvendt. Ideer om menneskerettigheter, demokrati og likhet for loven kom inn i nesten alle grunnlover som ble skrevet etterpå.\n\nSamtidig viste revolusjonen at idealer kan tippe over i blodbad. Den er fortsatt et speil vi holder opp når vi diskuterer hvor langt det er lov å gå for å skape et bedre samfunn."
+        }
+    ],
+    "timeline": []
+}
