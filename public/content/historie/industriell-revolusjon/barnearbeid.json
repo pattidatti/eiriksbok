@@ -1,0 +1,391 @@
+{
+    "id": "barnearbeid",
+    "title": "Barnearbeid i fabrikkene",
+    "layout": "rich",
+    "year": "1780-1880",
+    "category": "Industriell revolusjon",
+    "readTime": "9 min lesning",
+    "heroImage": "/images/placeholder.webp",
+    "details": [
+        "Barn helt ned i fem-seks års alder jobbet 12 timer om dagen i fabrikker og kullgruver",
+        "De var billige, små og lydige - akkurat det fabrikkeierne trengte",
+        "Britiske parlamentsundersøkelser dokumenterte forholdene og førte til de første barnevernslovene"
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Mary er åtte år. Hun bor i Manchester, England, året er 1832. Hver morgen klokka fem hører hun fabrikkfløyten ute på gata. Hun spiser et stykke brød mens hun går de tjue minuttene til fabrikken. Inne er det varmt, fuktig og fullt av støv fra bomullen. Mary sin jobb er å krabbe under de store vevemaskinene og hekte sammen tråder som ryker. Maskinen stopper ikke. Hun må være rask. Hvis hun blir trøtt og er for sein, kan hun miste hånda. Klokka åtte om kvelden går hun hjem. Søsteren hennes Anne er bare seks år og jobber ved siden av henne. Slik så hverdagen ut for over en million barn i Storbritannia på den tida."
+        },
+        {
+            "type": "header",
+            "text": "Hvorfor brukte fabrikkene barn?"
+        },
+        {
+            "type": "text",
+            "content": "Da dampmaskinene begynte å drive fabrikker rundt 1780, trengte eierne mange hender. Voksne menn kostet mye i lønn. Barn kostet bare en fjerdedel eller mindre. Barn var også små, så de kunne krype inn på trange steder under maskinene og rydde opp uten å skru av motoren. Og barn protesterte sjeldent - de gjorde som de fikk beskjed om, og turte ikke å si fra om at maten var dårlig eller at formannen slo."
+        },
+        {
+            "type": "text",
+            "content": "Mange fattige familier hadde ikke noe valg. Foreldrene tjente for lite til å fø en hel familie. Barna måtte jobbe for at alle skulle få mat. Lønna deres ble lagt rett i mors hånd hver lørdag kveld. På 1830-tallet var omtrent en tredjedel av alle arbeidere i britiske bomullsfabrikker under atten år gamle. Tusenvis var under ti. I noen fabrikker var de fleste arbeiderne barn."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Sadler-komiteen 1832",
+                "content": "Det britiske parlamentet bestemte i 1832 å undersøke hva som skjedde i fabrikkene. Politikeren Michael Sadler ledet en komité som hørte hundrevis av vitner. Barn fortalte om timene, juling og ulykker. Voksne arbeidere fortalte om at små barn besvimte ved maskinene. Rapporten sjokkerte hele landet og endret hva folk mente om fabrikkarbeid."
+            }
+        },
+        {
+            "type": "component",
+            "name": "Comparison",
+            "props": {
+                "title": "Et barneliv før og etter fabrikken",
+                "leftTitle": "Bondegutt på landet (1750)",
+                "rightTitle": "Fabrikkjente i byen (1830)",
+                "items": [
+                    {
+                        "label": "Når begynner dagen?",
+                        "left": "Når sola står opp, sammen med familien",
+                        "right": "Klokka fem om morgenen, til fabrikkfløyta"
+                    },
+                    {
+                        "label": "Hvor lenge jobber du?",
+                        "left": "Vekslende - mye om sommeren, lite om vinteren",
+                        "right": "Tolv til fjorten timer hver dag, hele året"
+                    },
+                    {
+                        "label": "Hvem er sjefen?",
+                        "left": "Foreldre eller en bonde du kjenner",
+                        "right": "En formann som kan slå deg med stokk"
+                    },
+                    {
+                        "label": "Hva med skole?",
+                        "left": "Lite skole, men du lærer av familien",
+                        "right": "Ingen skole - du er for trøtt på søndag"
+                    },
+                    {
+                        "label": "Hva med farer?",
+                        "left": "Dyr, vær, sykdom",
+                        "right": "Maskiner som river hender og hår, lungesykdom av støv"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Hverdagen i fabrikken"
+        },
+        {
+            "type": "text",
+            "content": "Inne i en bomullsfabrikk i 1830 var lufta tykk av fint støv. Vinduene var stengt, fordi tørr luft fikk trådene til å ryke. Mange barn fikk en lungesykdom som het bomullslunge - de hostet blod og fikk problemer med å puste resten av livet. Maskinene var høye og bråkete, og barna ble ofte tunghørte over tid. Dårlige sko ga sår på føttene, fordi gulvet var vått av olje fra maskinene."
+        },
+        {
+            "type": "text",
+            "content": "Den vanligste oppgaven var å plukke opp tråder eller bomull som falt på golvet, eller å hekte sammen tråder som røk. Hender på små barn ble fanget i hjul og tannhjul. Beretninger fra leger forteller om barn som mistet fingre, hender og hår. Mange ble skadet for livet."
+        },
+        {
+            "type": "text",
+            "content": "Andre barn jobbet i kullgruver. Der trakk de tunge vogner gjennom mørke ganger, ofte på alle fire fordi gangene var for lave for voksne. Noen barn så aldri dagslys på hverdager. De gikk inn i gruva før soloppgang og kom ut etter solnedgang. De yngste barna satt alene i timevis ved luker som styrte lufta i gruva. Hvis de sovnet, kunne hele gruva fylles med farlige gasser."
+        },
+        {
+            "type": "component",
+            "name": "QuoteBlock",
+            "props": {
+                "text": "Når jeg ble for trøtt til å stå, slo formannen meg med en skinnreim. Jeg var redd for å sovne på vakt. En gang stakk jeg fingrene mine inn i maskinen for å holde meg våken med smerten.",
+                "author": "Elizabeth Bentley, 23 år, vitnesbyrd til Sadler-komiteen 1832. Hun begynte i fabrikken da hun var seks."
+            }
+        },
+        {
+            "type": "header",
+            "text": "Lovene som beskyttet barna"
+        },
+        {
+            "type": "text",
+            "content": "Folk i hele Storbritannia leste sjokkerende historier i avisene. Diktere som William Blake skrev om de mørke møllene som spiste opp barna. Rike forretningsmenn og prester begynte å kreve at noe måtte gjøres. Likevel kom endringene sakte. Fabrikkeierne klaget over at lover ville ødelegge handelen og gjøre England fattig. Men sakte vant de som ville beskytte barna fram, en lov om gangen."
+        },
+        {
+            "type": "text",
+            "content": "Den første virkelige loven kom i 1833. Den forbød barn under ni år å jobbe i tekstilfabrikker. Den sa også at barn mellom ni og tretten år ikke kunne jobbe mer enn ni timer om dagen. Aller viktigst: loven krevde at inspektører faktisk gikk inn i fabrikkene og sjekket. Senere lover gikk lengre. I 1842 ble det forbudt for kvinner og barn under ti år å jobbe under bakken i gruver. I 1878 fikk alle barn rett på minst noen år på skole."
+        },
+        {
+            "type": "component",
+            "name": "TimelineComponent",
+            "props": {
+                "title": "Britiske fabrikklover",
+                "compact": true,
+                "events": [
+                    {
+                        "year": 1802,
+                        "description": "Den første fabrikkloven setter grense på tolv timer dagsverk for lærlinger - men ble nesten ikke håndhevet."
+                    },
+                    {
+                        "year": 1819,
+                        "description": "Barn under ni år får ikke jobbe i bomullsfabrikker. Loven gjelder bare bomull, og inspektører finnes nesten ikke."
+                    },
+                    {
+                        "year": 1833,
+                        "description": "Fabrikkloven av 1833 forbyr barnearbeid under ni år i tekstilfabrikker og oppretter ekte inspektører."
+                    },
+                    {
+                        "year": 1842,
+                        "description": "Gruveloven forbyr kvinner og barn under ti år å jobbe under bakken i kullgruver."
+                    },
+                    {
+                        "year": 1847,
+                        "description": "Ti-timersloven gir kvinner og unge under atten år rett til en arbeidsdag på maks ti timer."
+                    },
+                    {
+                        "year": 1878,
+                        "description": "Fabrikkloven samler alle reglene og gjør obligatorisk skole til ti år for alle barn."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "component",
+            "name": "ScenarioRoleplay",
+            "props": {
+                "title": "Manchester 1832 - hva ville du gjort?",
+                "intro": "Du lever i Manchester på 1830-tallet. Hva slags posisjon vil du se verden fra?",
+                "startId": "velg-rolle",
+                "scenarios": [
+                    {
+                        "id": "velg-rolle",
+                        "text": "Hvem vil du være?",
+                        "options": [
+                            {
+                                "label": "Thomas, 10 år, jobber i bomullsfabrikk",
+                                "nextId": "thomas-start"
+                            },
+                            {
+                                "label": "Mr. Whitaker, fabrikkeier med 200 ansatte",
+                                "nextId": "whitaker-start"
+                            },
+                            {
+                                "label": "Anne, mor til tre, gift med arbeidsledig vever",
+                                "nextId": "anne-start"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "thomas-start",
+                        "text": "Du er Thomas. Klokka er fem om morgenen. Du har sovet bare fem timer. Maskinene starter om en halvtime. Du har vondt i ryggen fra i går. Hva tenker du?",
+                        "options": [
+                            {
+                                "label": "Jeg er sliten, men familien trenger pengene mine",
+                                "nextId": "thomas-jobb"
+                            },
+                            {
+                                "label": "Jeg klarer ikke mer - jeg later som jeg er syk",
+                                "nextId": "thomas-syk"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "thomas-jobb",
+                        "text": "Du går på jobb. Klokka tre om ettermiddagen står du og krabber under vevemaskinen. Tråden fanger seg i fingrene dine. Du klarer å rive deg løs, men neglen blir igjen. Du blør, men du må fortsette. Hva tenker du nå?",
+                        "options": [
+                            {
+                                "label": "Slik er livet. Mine foreldre opplevde verre",
+                                "nextId": "thomas-slutt"
+                            },
+                            {
+                                "label": "Dette er galt. Hvorfor må barn jobbe slik?",
+                                "nextId": "thomas-slutt"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "thomas-syk",
+                        "text": "Du blir hjemme. Mor blir sint. Far er stille. Når du ikke jobber, mister familien fem shilling den uka - nok til brød for en hel uke. Lillebror gråter om kvelden av sult.",
+                        "options": [
+                            {
+                                "label": "I morgen må jeg på jobb igjen, uansett",
+                                "nextId": "thomas-slutt"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "thomas-slutt",
+                        "text": "Tretti år senere - hvis du overlever - er du voksen og kanskje selv blitt far. Lovene er endret. Dine barn må ikke krabbe under maskiner. Men hva har slitet gjort med deg?",
+                        "options": []
+                    },
+                    {
+                        "id": "whitaker-start",
+                        "text": "Du eier en fabrikk med 200 arbeidere. Halvparten er barn under fjorten. Du betaler dem en fjerdedel av voksenlønn. Inntektene er gode. Avisene skriver kritisk om fabrikkene. Hva gjør du?",
+                        "options": [
+                            {
+                                "label": "Skriver i avisa at kritikerne overdriver",
+                                "nextId": "whitaker-svar1"
+                            },
+                            {
+                                "label": "Frivillig kort arbeidstid for barn, før loven kommer",
+                                "nextId": "whitaker-svar2"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "whitaker-svar1",
+                        "text": "Du forsvarer fabrikkeierne. Du argumenterer at barna ville sultet uten arbeid, og at staten ikke skal blande seg i privat handel. Andre eiere er enige med deg. Men parlamentet vedtar loven likevel.",
+                        "options": [
+                            {
+                                "label": "Var det smart å kjempe imot?",
+                                "nextId": "whitaker-slutt"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "whitaker-svar2",
+                        "text": "Du innfører ni timers dag for barn. Naboeierne ler av deg. Men du oppdager noe rart - barna gjør færre feil, og produksjonen øker. Du sparer på sykefravær.",
+                        "options": [
+                            {
+                                "label": "Burde alle gjort dette tidligere?",
+                                "nextId": "whitaker-slutt"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "whitaker-slutt",
+                        "text": "Lovene kom uansett. Spørsmålet er om du var med på å gjøre dem - eller mot dem. Hvordan vil folk huske deg?",
+                        "options": []
+                    },
+                    {
+                        "id": "anne-start",
+                        "text": "Du er Anne. Mannen din mistet jobben da en dampvev erstattet ham. Dere har tre barn: åtte, ti og tretten år. Dere har ikke nok mat. Hva gjør du?",
+                        "options": [
+                            {
+                                "label": "Sender alle tre på fabrikk - de små overlever kanskje ikke",
+                                "nextId": "anne-svar1"
+                            },
+                            {
+                                "label": "Sender bare den eldste - de små må få være barn",
+                                "nextId": "anne-svar2"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "anne-svar1",
+                        "text": "Tre lønninger gir mat til familien. Men etter ett år hoster den minste blod. Du er redd hun har bomullslunge. Du ber til Gud om at hun ikke skal dø.",
+                        "options": [
+                            {
+                                "label": "Hva slags valg er dette?",
+                                "nextId": "anne-slutt"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "anne-svar2",
+                        "text": "Bare den eldste tjener. Det er ikke nok. Dere bytter ut middag mot tynn suppe. De små vokser ikke som de skal. Naboer kaller deg dum. Du vet ikke om du gjorde rett.",
+                        "options": [
+                            {
+                                "label": "Burde samfunnet gitt deg et annet valg?",
+                                "nextId": "anne-slutt"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "anne-slutt",
+                        "text": "Barndommen din var nok hard. Men valgene dine som mor er enda hardere. Ingen lov hjelper deg i 1832. Du må tro at det blir bedre for barnebarna.",
+                        "options": []
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Finnes barnearbeid ennå?"
+        },
+        {
+            "type": "text",
+            "content": "Mange tror barnearbeid hører fortida til. Det stemmer ikke. Internasjonale tall fra FN viser at omtrent 160 millioner barn jobber i verden i dag. De fleste i Afrika og Asia. Mange plukker kakao, jobber på kaffegårder eller syr klær. Noen av varene havner i norske butikker."
+        },
+        {
+            "type": "text",
+            "content": "Den engelske historien viser oss noe viktig: når noen tjener mye på at andre lider, kommer endring sakte. Lover hjelper, men det krever at vanlige folk leser, snakker og krever bedre forhold. Elizabeth Bentley fikk aldri en bedre barndom. Men barnebarna hennes fikk det bedre fordi noen turte å fortelle historien hennes."
+        },
+        {
+            "type": "component",
+            "name": "InterdisciplinaryBridge",
+            "props": {
+                "title": "Barnearbeid på tvers av fagene",
+                "centerEvent": "Barnearbeidet i fabrikkene",
+                "nodes": [
+                    {
+                        "subject": "Hamskiftet i Norge",
+                        "text": "Norge fikk fabrikker omtrent femti år etter England. Også her jobbet barn ved spinneriene i Bergen og Trondheim. Norske lover om barnearbeid kom på 1890-tallet.",
+                        "color": "#10b981",
+                        "link": "/historie/norgeshistorie/hamskiftet"
+                    },
+                    {
+                        "subject": "Etikk: Utilitarisme",
+                        "text": "Filosofen Jeremy Bentham mente at lover skulle gi mest mulig lykke til flest mulig. Var lite arbeid for barn bedre eller verre for samfunnet? Slike spørsmål startet moderne etikk.",
+                        "color": "#8b5cf6",
+                        "link": "/krle/filosofi/utilitarisme"
+                    },
+                    {
+                        "subject": "Arbeidsliv i dag",
+                        "text": "FNs barnekonvensjon fra 1989 sier at alle barn har rett til skole og hvile. Norge var blant de første som signerte. Likevel jobber mange unge i verden under farlige forhold.",
+                        "color": "#f59e0b",
+                        "link": "/samfunnskunnskap/arbeidsliv/intro"
+                    },
+                    {
+                        "subject": "Robotene kommer",
+                        "text": "Maskinene tok først bort jobber for voksne vevere. Nå tar nye maskiner over jobber igjen. Hvilke verdier vil vi holde fast på når arbeidet endrer seg på nytt?",
+                        "color": "#6366f1",
+                        "link": "/samfunnskunnskap/mennesket-kultur-samfunn/robotene-kommer"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hvorfor brukte fabrikkene barn på 1800-tallet?",
+                        "options": [
+                            "Barn likte fabrikkarbeid bedre enn skole",
+                            "Barn var billige, små og protesterte sjelden",
+                            "Loven krevde at familier sendte barn på jobb",
+                            "Voksne ville heller jobbe i landbruket"
+                        ],
+                        "answer": "Barn var billige, små og protesterte sjelden"
+                    },
+                    {
+                        "question": "Hva var Sadler-komiteen?",
+                        "options": [
+                            "En gruppe fabrikkeiere som ville beholde barnearbeid",
+                            "En politiundersøkelse av ulykker i Manchester",
+                            "En parlamentskomité som dokumenterte forholdene i fabrikkene",
+                            "En forening for fattige arbeidere"
+                        ],
+                        "answer": "En parlamentskomité som dokumenterte forholdene i fabrikkene"
+                    },
+                    {
+                        "question": "Hva gjorde fabrikkloven av 1833?",
+                        "options": [
+                            "Forbød all fabrikkdrift i Storbritannia",
+                            "Forbød barn under ni år å jobbe i tekstilfabrikker",
+                            "Bestemte at barn skulle gå på skole til de var atten",
+                            "Ga alle arbeidere stemmerett"
+                        ],
+                        "answer": "Forbød barn under ni år å jobbe i tekstilfabrikker"
+                    },
+                    {
+                        "question": "Finnes barnearbeid i verden i dag?",
+                        "options": [
+                            "Nei, det forsvant helt etter 1900",
+                            "Bare i krigssoner",
+                            "Ja, FN regner med rundt 160 millioner barn",
+                            "Bare i fattige deler av Europa"
+                        ],
+                        "answer": "Ja, FN regner med rundt 160 millioner barn"
+                    }
+                ]
+            }
+        }
+    ],
+    "timeline": []
+}
