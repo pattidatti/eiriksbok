@@ -1,5 +1,5 @@
 {
-  "buildId": 1778480785440,
+  "buildId": 1778485566009,
   "contentMap": {
     "adel": [
       "content/concepts/adel.json"
@@ -678,6 +678,19 @@
     "demo-artikkel": [
       "content/historie/demo-artikkel/demo-artikkel.json"
     ],
+    "intro": [
+      "content/historie/den-franske-revolusjon/intro.json",
+      "content/krle/etikk/intro.json",
+      "content/krle/filosofi/intro.json",
+      "content/krle/religion/bahai/intro.json",
+      "content/krle/religion/buddhisme/intro.json",
+      "content/krle/religion/hinduisme/intro.json",
+      "content/krle/religion/jehovas-vitner/intro.json",
+      "content/krle/religion/jodedom/intro.json",
+      "content/krle/religion/kristendom/intro/artikkel.json",
+      "content/krle/religion/mormonisme/intro.json",
+      "content/samfunnskunnskap/demografi/intro.json"
+    ],
     "atomvapenkapplopet": [
       "content/historie/den-kalde-krigen/atomvapenkapplopet.json"
     ],
@@ -984,18 +997,6 @@
     ],
     "dygdsetikk": [
       "content/krle/etikk/dygdsetikk.json"
-    ],
-    "intro": [
-      "content/krle/etikk/intro.json",
-      "content/krle/filosofi/intro.json",
-      "content/krle/religion/bahai/intro.json",
-      "content/krle/religion/buddhisme/intro.json",
-      "content/krle/religion/hinduisme/intro.json",
-      "content/krle/religion/jehovas-vitner/intro.json",
-      "content/krle/religion/jodedom/intro.json",
-      "content/krle/religion/kristendom/intro/artikkel.json",
-      "content/krle/religion/mormonisme/intro.json",
-      "content/samfunnskunnskap/demografi/intro.json"
     ],
     "naturrett": [
       "content/krle/etikk/naturrett.json"
@@ -2024,6 +2025,7 @@
     "historie/dekolonisering/sorost-asia": "content/historie/dekolonisering/sorost-asia.json",
     "historie/dekolonisering/usa-frigjoring": "content/historie/dekolonisering/usa-frigjoring.json",
     "historie/demo-artikkel/demo-artikkel": "content/historie/demo-artikkel/demo-artikkel.json",
+    "historie/den-franske-revolusjon/intro": "content/historie/den-franske-revolusjon/intro.json",
     "historie/den-kalde-krigen/atomvapenkapplopet": "content/historie/den-kalde-krigen/atomvapenkapplopet.json",
     "historie/den-kalde-krigen/berlinmuren": "content/historie/den-kalde-krigen/berlinmuren.json",
     "historie/den-kalde-krigen/cuba-krisen": "content/historie/den-kalde-krigen/cuba-krisen.json",

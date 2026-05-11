@@ -2564,6 +2564,30 @@
           ]
         },
         {
+          "id": "den-franske-revolusjon",
+          "title": "Den franske revolusjon",
+          "description": "Bastillen, giljotinen, og hvordan vanlige folk styrtet en konge i 1789.",
+          "image": "/images/placeholder.webp",
+          "lessons": [
+            {
+              "id": "intro",
+              "title": "Den franske revolusjon",
+              "description": "En kort introduksjon til hendelsene 1789-1799 og hvordan de formet moderne demokrati.",
+              "image": "/images/placeholder.webp",
+              "layout": "rich",
+              "tags": [
+                "frankrike",
+                "revolusjon",
+                "opplysningstid",
+                "menneskerettigheter",
+                "1700-tallet"
+              ],
+              "createdDate": "2026-05-11T00:00:00Z",
+              "lastUpdated": "2026-05-11T00:00:00Z"
+            }
+          ]
+        },
+        {
           "id": "reformasjonen",
           "title": "Reformasjonen og Religionskrig",
           "description": "Europa i endring: Tro, makt og 30-årskrigen.",
