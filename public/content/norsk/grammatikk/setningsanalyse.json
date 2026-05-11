@@ -21,15 +21,15 @@
         },
         {
             "type": "text",
-            "content": "**Verbalet** er selve kjernen i setningen. Det forteller oss hva som skjer eller hva som gjøres. Verbalet er alltid et verb. For å finne verbalet kan du spørre: 'Hva er det som skjer?'. I setningen 'Hunden løper', er 'løper' verbalet."
+            "content": "Verbalet er selve kjernen i setningen. Det forteller oss hva som skjer eller hva som gjøres. Verbalet er alltid et verb. For å finne verbalet kan du spørre: 'Hva er det som skjer?'. I setningen 'Hunden løper', er 'løper' verbalet."
         },
         {
             "type": "text",
-            "content": "**Subjektet** er den eller det som utfører handlingen i setningen. Når du har funnet verbalet, kan du finne subjektet ved å spørre: 'Hvem eller hva er det som [verbal]?'. I setningen 'Hunden løper', spør vi 'Hvem er det som løper?'. Svaret er 'Hunden', som da er subjektet."
+            "content": "Subjektet er den eller det som utfører handlingen i setningen. Når du har funnet verbalet, kan du finne subjektet ved å spørre: 'Hvem eller hva er det som [verbal]?'. I setningen 'Hunden løper', spør vi 'Hvem er det som løper?'. Svaret er 'Hunden', som da er subjektet."
         },
         {
             "type": "text",
-            "content": "**Objektet** er det leddet handlingen retter seg mot eller går ut over. Ikke alle setninger har objekt. Du finner det ved å spørre: 'Hva [verbal] [subjekt]?'. I setningen 'Jeg spiser eplet', er 'spiser' verbal og 'Jeg' subjekt. Da spør vi: 'Hva spiser jeg?'. Svaret er 'eplet', som dermed er objektet."
+            "content": "Objektet er det leddet handlingen retter seg mot eller går ut over. Ikke alle setninger har objekt. Du finner det ved å spørre: 'Hva [verbal] [subjekt]?'. I setningen 'Jeg spiser eplet', er 'spiser' verbal og 'Jeg' subjekt. Da spør vi: 'Hva spiser jeg?'. Svaret er 'eplet', som dermed er objektet."
         }
     ],
     "concepts": [

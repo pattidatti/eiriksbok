@@ -16,7 +16,7 @@
         },
         {
             "type": "text",
-            "content": "Pronomen betyr 'i stedet for navn'. Tenk deg hvis vi måtte si navnet på folk hele tiden: 'Per gikk til Per sin bil fordi Per ville kjøre'. Det blir slitsomt! Derfor sier vi heller: 'Per gikk til **SIN** bil fordi **HAN** ville kjøre'."
+            "content": "Pronomen betyr 'i stedet for navn'. Tenk deg hvis vi måtte si navnet på folk hele tiden: 'Per gikk til Per sin bil fordi Per ville kjøre'. Det blir slitsomt! Derfor sier vi heller: 'Per gikk til SIN bil fordi HAN ville kjøre'."
         },
         {
             "type": "component",
@@ -78,7 +78,7 @@
         },
         {
             "type": "text",
-            "content": "Vi bruker ofte **Det** når vi snakker om noe generelt, eller været. 'Det regner'. Vi kaller det et formelt subjekt - det betyr ingenting, men må være der for at setningen skal virke."
+            "content": "Vi bruker ofte Det når vi snakker om noe generelt, eller været. 'Det regner'. Vi kaller det et formelt subjekt - det betyr ingenting, men må være der for at setningen skal virke."
         }
     ],
     "createdDate": "2023-12-09T14:00:00Z",

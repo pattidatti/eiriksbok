@@ -9,7 +9,7 @@
         },
         {
             "type": "text",
-            "content": "I mange språk (som engelsk) kan verbet flytte litt på seg. Men i norsk fortellende helsetninger er det én regel som gjelder uansett: **Verbet skal stå på plass nummer to.**\n\nDette kalles **V2-regelen**."
+            "content": "I mange språk (som engelsk) kan verbet flytte litt på seg. Men i norsk fortellende helsetninger er det én regel som gjelder uansett: Verbet skal stå på plass nummer to.\n\nDette kalles V2-regelen."
         },
         {
             "type": "component",
@@ -39,7 +39,7 @@
         },
         {
             "type": "text",
-            "content": "Når vi starter setningen med noe annet enn Subjektet (for eksempel et tidsadverb som \"I dag\"), må Subjektet og Verbalet bytte plass. Dette kaller vi **inversjon**.\n\n*   Vanlig: *Jeg (S) **går** (V) på skolen i dag.* (S-V-A)\n*   Inversjon: *I dag (A) **går** (V) jeg (S) på skolen.* (A-V-S)\n\nLegg merke til at verbet (**går**) står trygt på plass nummer 2 i begge setningene!"
+            "content": "Når vi starter setningen med noe annet enn Subjektet (for eksempel et tidsadverb som \"I dag\"), må Subjektet og Verbalet bytte plass. Dette kaller vi inversjon.\n\n*   Vanlig: *Jeg (S) går (V) på skolen i dag.* (S-V-A)\n*   Inversjon: *I dag (A) går (V) jeg (S) på skolen.* (A-V-S)\n\nLegg merke til at verbet (går) står trygt på plass nummer 2 i begge setningene!"
         },
         {
             "type": "header",

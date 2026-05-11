@@ -20,7 +20,7 @@
         },
         {
             "type": "text",
-            "content": "**Eksempler:** *Beowulf*, *Jaws*, *Star Wars (A New Hope)*, *Harry Potter*."
+            "content": "Eksempler: *Beowulf*, *Jaws*, *Star Wars (A New Hope)*, *Harry Potter*."
         },
         {
             "type": "component",
@@ -66,7 +66,7 @@
         },
         {
             "type": "text",
-            "content": "**Eksempler:** *Askepott*, *Aladdin*, *Jane Eyre*, *Den stygge andungen*."
+            "content": "Eksempler: *Askepott*, *Aladdin*, *Jane Eyre*, *Den stygge andungen*."
         },
         {
             "type": "component",
@@ -108,7 +108,7 @@
         },
         {
             "type": "text",
-            "content": "**Eksempler:** *Ringenes Herre*, *Odysseen*, *Indiana Jones*."
+            "content": "Eksempler: *Ringenes Herre*, *Odysseen*, *Indiana Jones*."
         },
         {
             "type": "component",
@@ -150,7 +150,7 @@
         },
         {
             "type": "text",
-            "content": "**Eksempler:** *Alice i Eventyrland*, *Trollmannen fra Oz*, *Narnia*."
+            "content": "Eksempler: *Alice i Eventyrland*, *Trollmannen fra Oz*, *Narnia*."
         },
         {
             "type": "component",
@@ -196,7 +196,7 @@
         },
         {
             "type": "text",
-            "content": "**Eksempler:** *En midtsommernattsdrøm*, *Bridget Jones' dagbok*, *Stolthet og fordom*."
+            "content": "Eksempler: *En midtsommernattsdrøm*, *Bridget Jones' dagbok*, *Stolthet og fordom*."
         },
         {
             "type": "component",
@@ -238,7 +238,7 @@
         },
         {
             "type": "text",
-            "content": "**Eksempler:** *Macbeth*, *Romeo og Julie*, *Breaking Bad*."
+            "content": "Eksempler: *Macbeth*, *Romeo og Julie*, *Breaking Bad*."
         },
         {
             "type": "component",
@@ -280,7 +280,7 @@
         },
         {
             "type": "text",
-            "content": "**Eksempler:** *Skjønnheten og udyret*, *En julefortelling*, *Grusomme meg*."
+            "content": "Eksempler: *Skjønnheten og udyret*, *En julefortelling*, *Grusomme meg*."
         },
         {
             "type": "component",
