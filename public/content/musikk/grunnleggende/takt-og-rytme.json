@@ -6,17 +6,17 @@
         {
             "type": "text",
             "title": "Puls: Musikkens klokke",
-            "content": "Se for deg en klokke som tikker. *Tikk-takk-tikk-takk*. Dette jevne slaget er det vi kaller **puls**. Når du tramper takten til en sang på radioen, tramper du pulsen.\n\nUten en fast puls vil musikken føles rotete. Det er grunnmuren alt annet bygges på."
+            "content": "Se for deg en klokke som tikker. *Tikk-takk-tikk-takk*. Dette jevne slaget er det vi kaller puls. Når du tramper takten til en sang på radioen, tramper du pulsen.\n\nUten en fast puls vil musikken føles rotete. Det er grunnmuren alt annet bygges på."
         },
         {
             "type": "text",
             "title": "Takt: Å telle til fire",
-            "content": "For å holde orden på pulsslagene, deler vi dem inn i grupper. Dette kalles en **takt**.\n\nDen aller vanligste inndelingen i pop og rock er å telle til fire. Prøv å si høyt: **1 - 2 - 3 - 4**. Når du kommer til 4, begynner du på 1 igjen. Dette er en 4/4-takt."
+            "content": "For å holde orden på pulsslagene, deler vi dem inn i grupper. Dette kalles en takt.\n\nDen aller vanligste inndelingen i pop og rock er å telle til fire. Prøv å si høyt: 1 - 2 - 3 - 4. Når du kommer til 4, begynner du på 1 igjen. Dette er en 4/4-takt."
         },
         {
             "type": "text",
             "title": "Prøv selv: Bygg en 4/4-takt",
-            "content": "Nedfor ser du vår **Beat Builder**. Den er delt inn i 16 ruter. Hver rute er en liten del av takten.\n\n**Oppgave:**"
+            "content": "Nedfor ser du vår Beat Builder. Den er delt inn i 16 ruter. Hver rute er en liten del av takten.\n\nOppgave:"
         },
         {
             "type": "list",
@@ -38,12 +38,12 @@
         {
             "type": "text",
             "title": "Noteverdier: Hvor lenge varer en tone?",
-            "content": "I Beat Builderen over så du at hver takt var delt inn i 16 små ruter. Hver av disse kalles en **sekstendelsnote**.\n\n* **Helnote**: Varer hele takten (alle 16 ruter).\n* **Fjerdedelsnote**: Varer 1/4 av takten (4 ruter). Det er disse du trampet til i sted (kick på 1, 5, 9, 13).\n* **Åttedelsnote**: Varer 1/8 av takten (2 ruter). Brukes ofte på Hi-hat."
+            "content": "I Beat Builderen over så du at hver takt var delt inn i 16 små ruter. Hver av disse kalles en sekstendelsnote.\n\n* Helnote: Varer hele takten (alle 16 ruter).\n* Fjerdedelsnote: Varer 1/4 av takten (4 ruter). Det er disse du trampet til i sted (kick på 1, 5, 9, 13).\n* Åttedelsnote: Varer 1/8 av takten (2 ruter). Brukes ofte på Hi-hat."
         },
         {
             "type": "text",
             "title": "Andre taktarter: Vals (3/4)",
-            "content": "Ikke all musikk teller til fire. I en vals teller vi bare til tre: **1 - 2 - 3**. Tenk på 'Julekveldsvisa' eller en klassisk selskapsdans. Da får musikken en mer 'svingende' følelse."
+            "content": "Ikke all musikk teller til fire. I en vals teller vi bare til tre: 1 - 2 - 3. Tenk på 'Julekveldsvisa' eller en klassisk selskapsdans. Da får musikken en mer 'svingende' følelse."
         },
         {
             "type": "text",

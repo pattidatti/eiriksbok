@@ -6,7 +6,7 @@
         {
             "type": "text",
             "title": "Tangentene: Hvit og Svart",
-            "content": "På pianoet har vi hvite og svarte tangenter. De hvite kaller vi **stamtoner**. De heter C, D, E, F, G, A og H (eller B på engelsk).\n\nDe svarte tangentene er halvtoner (kryss eller b). De brukes for å spille skalaer som ikke bare er C-dur."
+            "content": "På pianoet har vi hvite og svarte tangenter. De hvite kaller vi stamtoner. De heter C, D, E, F, G, A og H (eller B på engelsk).\n\nDe svarte tangentene er halvtoner (kryss eller b). De brukes for å spille skalaer som ikke bare er C-dur."
         },
         {
             "type": "component",
@@ -15,12 +15,12 @@
         {
             "type": "text",
             "title": "Oppgave 1: Finn C",
-            "content": "Se på pianoet over. Ser du at de svarte tangentene kommer i grupper på to og tre?\n\n**Tonen C** finner du alltid rett til venstre for gruppen med **to svarte tangenter**.\n\n*   Prøv å finne alle C-ene på pianoet over.\n*   Trykk på dem. Hører du at de er like, men den ene er lysere enn den andre? Dette kalles en **oktav**."
+            "content": "Se på pianoet over. Ser du at de svarte tangentene kommer i grupper på to og tre?\n\nTonen C finner du alltid rett til venstre for gruppen med to svarte tangenter.\n\n*   Prøv å finne alle C-ene på pianoet over.\n*   Trykk på dem. Hører du at de er like, men den ene er lysere enn den andre? Dette kalles en oktav."
         },
         {
             "type": "text",
             "title": "Oppgave 2: Din første akkord",
-            "content": "Vi skal spille en **C-dur akkord**. En akkord er når du spiller flere toner samtidig."
+            "content": "Vi skal spille en C-dur akkord. En akkord er når du spiller flere toner samtidig."
         },
         {
             "type": "list",

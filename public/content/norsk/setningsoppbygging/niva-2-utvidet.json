@@ -9,7 +9,7 @@
         },
         {
             "type": "text",
-            "content": "Vi vet at **S + V** er nok til å lage en setning (f.eks. *\"Jens spiser\"*). Men det er litt kjedelig! Vi vil gjerne vite *hva* han spiser, og kanskje *når* han spiser.\n\nDerfor utvider vi setningen med to nye ledd:\n1.  **Objekt (O)**: Hvem eller hva handlingen går ut over.\n2.  **Adverbial (A)**: Tid, sted eller måte."
+            "content": "Vi vet at S + V er nok til å lage en setning (f.eks. *\"Jens spiser\"*). Men det er litt kjedelig! Vi vil gjerne vite *hva* han spiser, og kanskje *når* han spiser.\n\nDerfor utvider vi setningen med to nye ledd:\n1.  Objekt (O): Hvem eller hva handlingen går ut over.\n2.  Adverbial (A): Tid, sted eller måte."
         },
         {
             "type": "header",
@@ -17,7 +17,7 @@
         },
         {
             "type": "text",
-            "content": "Objektet forteller oss *hva* som blir spist, kjøpt, slått eller sett. \n\n*   Ex: *\"Jens (S) spiser (V) **et eple (O)**.\"*\n*   Ex: *\"Marit (S) kjøper (V) **bil (O)**.\"*"
+            "content": "Objektet forteller oss *hva* som blir spist, kjøpt, slått eller sett. \n\n*   Ex: *\"Jens (S) spiser (V) et eple (O).\"*\n*   Ex: *\"Marit (S) kjøper (V) bil (O).\"*"
         },
         {
             "type": "header",
@@ -25,7 +25,7 @@
         },
         {
             "type": "text",
-            "content": "Adverbialet gir oss ekstra informasjon om omstendighetene. Det svarer ofte på *Når? Hvor?* eller *Hvordan?*.\n\n*   Ex: *\"Jens spiser et eple **i dag (A)**.\"* (Tid)\n*   Ex: *\"Jens spiser et eple **på kjøkkenet (A)**.\"* (Sted)\n*   Ex: *\"Jens spiser et eple **raskt (A)**.\"* (Måte)"
+            "content": "Adverbialet gir oss ekstra informasjon om omstendighetene. Det svarer ofte på *Når? Hvor?* eller *Hvordan?*.\n\n*   Ex: *\"Jens spiser et eple i dag (A).\"* (Tid)\n*   Ex: *\"Jens spiser et eple på kjøkkenet (A).\"* (Sted)\n*   Ex: *\"Jens spiser et eple raskt (A).\"* (Måte)"
         },
         {
             "type": "header",
@@ -33,7 +33,7 @@
         },
         {
             "type": "text",
-            "content": "Sett sammen ordene til en logisk setning som følger **S - V - O - A** mønsteret."
+            "content": "Sett sammen ordene til en logisk setning som følger S - V - O - A mønsteret."
         },
         {
             "type": "component",
@@ -72,7 +72,7 @@
         },
         {
             "type": "text",
-            "content": "**Husk**: På norsk kan vi flytte litt på disse klossene, men det er én streng regel vi ALDRI må bryte. Den skal vi se på i neste nivå!"
+            "content": "Husk: På norsk kan vi flytte litt på disse klossene, men det er én streng regel vi ALDRI må bryte. Den skal vi se på i neste nivå!"
         }
     ]
 }

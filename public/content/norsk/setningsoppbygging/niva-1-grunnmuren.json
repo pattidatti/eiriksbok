@@ -9,7 +9,7 @@
         },
         {
             "type": "text",
-            "content": "For at en samling med ord skal kunne kalles en **setning**, må den inneholde to ting:\n\n1.  **Verbal** (Hva som skjer) \n2.  **Subjekt** (Hvem som gjør det)\n\nDette kaller vi setningens **grunnmur**. Uten disse faller setningen sammen."
+            "content": "For at en samling med ord skal kunne kalles en setning, må den inneholde to ting:\n\n1.  Verbal (Hva som skjer) \n2.  Subjekt (Hvem som gjør det)\n\nDette kaller vi setningens grunnmur. Uten disse faller setningen sammen."
         },
         {
             "type": "component",
@@ -36,7 +36,7 @@
         },
         {
             "type": "text",
-            "content": "For å analysere en setning, starter vi alltid med å finne **Verbalet**.\n\n*   **Verbal (V)**: Forteller hva som skjer eller gjøres. Det er alltid et verb.\n*   **Subjekt (S)**: Den, det eller de som utfører handlingen. Vi finner det ved å spørre: *\"Hvem eller hva + verbal?\"*"
+            "content": "For å analysere en setning, starter vi alltid med å finne Verbalet.\n\n*   Verbal (V): Forteller hva som skjer eller gjøres. Det er alltid et verb.\n*   Subjekt (S): Den, det eller de som utfører handlingen. Vi finner det ved å spørre: *\"Hvem eller hva + verbal?\"*"
         },
         {
             "type": "header",
@@ -44,7 +44,7 @@
         },
         {
             "type": "text",
-            "content": "Marker **Subjektet** (den som gjør noe) med grønn farge, og **Verbalet** (det som skjer) med rød farge."
+            "content": "Marker Subjektet (den som gjør noe) med grønn farge, og Verbalet (det som skjer) med rød farge."
         },
         {
             "type": "component",
@@ -82,7 +82,7 @@
         },
         {
             "type": "text",
-            "content": "Når vi har S og V på plass, har vi en **helsetning**. Det er den minste byggeklossen i språket vårt. Men ofte vil vi si mer enn bare hvem som gjør noe. Da må vi utvide setningen i neste nivå!"
+            "content": "Når vi har S og V på plass, har vi en helsetning. Det er den minste byggeklossen i språket vårt. Men ofte vil vi si mer enn bare hvem som gjør noe. Da må vi utvide setningen i neste nivå!"
         }
     ]
 }

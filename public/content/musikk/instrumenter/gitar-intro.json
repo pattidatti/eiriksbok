@@ -21,7 +21,7 @@
         },
         {
             "type": "text",
-            "content": "**Huskeregle:** *En Annen Dag Gikk Bjørn Egentlig*."
+            "content": "Huskeregle: *En Annen Dag Gikk Bjørn Egentlig*."
         },
         {
             "type": "component",
@@ -38,7 +38,7 @@
         {
             "type": "text",
             "title": "Oppgave 2: E-moll (Verdens enkleste grep)",
-            "content": "Vi skal ta et grep som heter **Em** (E-moll). Det er ofte det første grepet man lærer."
+            "content": "Vi skal ta et grep som heter Em (E-moll). Det er ofte det første grepet man lærer."
         },
         {
             "type": "list",

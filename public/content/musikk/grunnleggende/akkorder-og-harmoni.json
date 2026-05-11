@@ -6,7 +6,7 @@
         {
             "type": "text",
             "title": "Hva er en akkord?",
-            "content": "Når du spiller én tangent på pianoet, får du en **tone**. Når du spiller tre eller flere samtidig, får du en **akkord**.\n\nHarmoni handler om hvordan disse akkordene passer sammen. Det er det som gir musikken følelser."
+            "content": "Når du spiller én tangent på pianoet, får du en tone. Når du spiller tre eller flere samtidig, får du en akkord.\n\nHarmoni handler om hvordan disse akkordene passer sammen. Det er det som gir musikken følelser."
         },
         {
             "type": "component",
@@ -15,7 +15,7 @@
         {
             "type": "text",
             "title": "Treklanger: Musikkens byggesteiner",
-            "content": "Den enkleste akkorden kaller vi en **treklang**. Den består av tre toner:"
+            "content": "Den enkleste akkorden kaller vi en treklang. Den består av tre toner:"
         },
         {
             "type": "list",
@@ -32,12 +32,12 @@
         {
             "type": "text",
             "title": "Oppgave: Dur (Glad) vs. Moll (Trist)",
-            "content": "Bruk pianoet over til å høre forskjellen:\n\n**C-Dur (Glad):**\n*   Finn C, E og G.\n*   Spill dem samtidig.\n*   Høres det lyst og åpent ut?\n\n**C-Moll (Trist):**\n*   Finn C og G igjen (de er like).\n*   Men i stedet for E (hvit), flytt fingeren ned til **Eb** (den svarte tangenten rett til venstre for E).\n*   Spill C, Eb og G.\n*   Hører du at det ble mørkere og mer alvorlig?"
+            "content": "Bruk pianoet over til å høre forskjellen:\n\nC-Dur (Glad):\n*   Finn C, E og G.\n*   Spill dem samtidig.\n*   Høres det lyst og åpent ut?\n\nC-Moll (Trist):\n*   Finn C og G igjen (de er like).\n*   Men i stedet for E (hvit), flytt fingeren ned til Eb (den svarte tangenten rett til venstre for E).\n*   Spill C, Eb og G.\n*   Hører du at det ble mørkere og mer alvorlig?"
         },
         {
             "type": "text",
             "title": "Hvorfor heter det Dur og Moll?",
-            "content": "*   **Dur** kommer fra latin *durus* som betyr 'hard'.\n*   **Moll** kommer fra *mollis* som betyr 'myk'.\n\nI dag tenker vi ofte at Dur er 'glad' og Moll er 'trist', men det finnes mange glade sanger i moll og triste sanger i dur!"
+            "content": "*   Dur kommer fra latin *durus* som betyr 'hard'.\n*   Moll kommer fra *mollis* som betyr 'myk'.\n\nI dag tenker vi ofte at Dur er 'glad' og Moll er 'trist', men det finnes mange glade sanger i moll og triste sanger i dur!"
         }
     ]
 }
