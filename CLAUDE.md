@@ -6,7 +6,7 @@ This file provides guidance for AI assistants working on this codebase.
 
 ## Project Overview
 
-**Gravity Eiriksbok** is a Norwegian digital textbook (lærebok) for middle/high school students, deployed at https://bok.haaland.de/. It covers *Historie* (History), *Norsk* (Norwegian Language), *KRLE* (Religion & Ethics), *Samfunnsfag* (Social Studies), and *Musikk* (Music) through immersive, interactive lessons.
+**Gravity Eiriksbok** is a Norwegian digital textbook (lærebok) for middle/high school students, deployed at https://bok.haaland.de/. It covers *Historie* (History), *Norsk* (Norwegian Language), *KRLE* (Religion & Ethics), *Samfunnskunnskap* (Social Studies), and *Musikk* (Music) through immersive, interactive lessons.
 
 The core philosophy: content is *architected* before it is *built*. A Blueprint defines a topic's soul, narrative arc, and visual identity before any JSON or code is written.
 
@@ -62,7 +62,14 @@ Alt innhold i Eiriksbok skal være forståelig for en gjennomsnittlig 14-åring.
 │   │   ├── historie/          # History subject folder
 │   │   ├── norsk/             # Norwegian subject folder
 │   │   ├── krle/              # KRLE subject folder
-│   │   └── samfunnsfag/       # Social Studies subject folder
+│   │   ├── samfunnskunnskap/  # Social Studies subject folder
+│   │   ├── musikk/            # Music subject folder
+│   │   ├── interactive/       # Detective cases and other interactive content data
+│   │   ├── scenarios/         # Time-travel scenario JSON files
+│   │   ├── kompetansemal/     # Curriculum competence-goal mappings
+│   │   ├── people/            # Person gallery data
+│   │   ├── concepts/          # Flashcard concept JSON (TinaCMS-managed)
+│   │   └── config/            # Misc content configuration
 │   ├── data/
 │   │   ├── concepts.json      # Auto-generated flashcard concept database
 │   │   ├── glossary.json      # Auto-generated glossary
@@ -79,12 +86,19 @@ Alt innhold i Eiriksbok skal være forståelig for en gjennomsnittlig 14-åring.
 │   │   ├── games/             # Mini-game components
 │   │   ├── ui/                # Generic UI primitives
 │   │   └── ...                # Layout, navigation, modals
-│   ├── features/music/        # Music subject feature module
+│   ├── features/
+│   │   ├── music/             # Music subject feature module
+│   │   └── infrastruktur/     # Infrastruktur-Atlas (samfunnskunnskap)
 │   ├── games/
-│   │   ├── engine/            # Mini-spillmotor (Three.js + Rapier3D). API + fallgruver: BUILD_GAME_GUIDE.md
+│   │   ├── engine/            # Mini-spillmotor (Three.js + Rapier3D). Underkataloger: systems/, builders/, declarative/, dsl/, prefabs/, shaders/, settings/, utils/. API + fallgruver: BUILD_GAME_GUIDE.md
 │   │   ├── demo-world/        # Lysalvendalen — referanse-showcase for alle motor-features
 │   │   ├── watt-lab/          # James Watt-spill (ett-rom)
 │   │   ├── lindisfarne-793/   # Vikingraid (fler-fase utendørs)
+│   │   ├── caesar-ides/       # Idene mars — Roma-scenario
+│   │   ├── skjoldborg/        # Slaget ved Stamford Bridge — skjoldborg-scenario
+│   │   ├── ford-factory/      # Ford-fabrikken — samlebånd og industrialisering
+│   │   ├── oljeplattform/     # Norsk oljeeventyr — plattform-scenario
+│   │   ├── blueprint-quest/   # Designsystem-demo for engine
 │   │   ├── chrono-glider/     # R3F-basert (eldre arkitektur)
 │   │   ├── concept-snake/     # Konseptslange (eldre)
 │   │   ├── word-sorter/       # Ordsortering (eldre)
@@ -100,7 +114,14 @@ Alt innhold i Eiriksbok skal være forståelig for en gjennomsnittlig 14-åring.
 │   ├── Design documents/      # Topic blueprints ([topic]-blueprint.md)
 │   └── THE_ARCHITECTS_HANDBOOK.md
 ├── .agent/workflows/          # AI agent workflow definitions
-│   └── LEARNING_PATH_GUIDE.md # Guide for creating learning paths
+│   ├── LEARNING_PATH_GUIDE.md # Guide for creating learning paths
+│   ├── BUILD_GAME_GUIDE.md    # Guide for 3D-mini-spillmotoren
+│   ├── plan_topic.md / build_topic.md
+│   ├── plan_article.md / plan_krle_article.md
+│   ├── plan_scenario.md / build_scenario.md
+│   ├── plan_learning_path.md / build_learning_path.md
+│   ├── plan_minigame.md / build_interactive.md
+│   └── ...                    # Flere arkitekt-/byggemodul-workflows
 ├── tina/                      # TinaCMS configuration
 └── Ideer/                     # Planning/ideas documents (Norwegian)
 ```
@@ -110,14 +131,16 @@ Alt innhold i Eiriksbok skal være forståelig for en gjennomsnittlig 14-åring.
 ## Development Commands
 
 ```bash
-npm install          # Install dependencies
-npm run dev          # Start dev server at localhost:5173 (auto-runs scan:content first)
-npm run build        # Production build (scan:content + tsc + vite build + copy-404.js)
-npm run lint         # ESLint check
-npm run preview      # Preview production build
-npm run tina-dev     # Start with TinaCMS visual editor (go to /admin)
-npm run scan:content # Regenerate content-index.json + sync manifest dates
-npm run scan:concepts # Scan articles for potential new flashcard concepts
+npm install            # Install dependencies
+npm run dev            # Start dev server at localhost:5173 (auto-runs scan:content first)
+npm run build          # Production build (gen-version + scan:content + optimize-images + tsc -b + vite build + copy-404.js)
+npm run lint           # ESLint check
+npm run preview        # Preview production build
+npm run tina-dev       # Start with TinaCMS visual editor (go to /admin)
+npm run scan:content   # Regenerate content-index.json + sync manifest dates
+npm run scan:concepts  # Scan articles for potential new flashcard concepts
+npm run optimize-images # Convert PNG/JPG under public/ to WebP (kjøres automatisk i build)
+npm run gen-version    # Write public/version.json (epoch timestamp; brukt av PWA-update-prompt)
 ```
 
 > After `git pull`, always run `npm install` if `package.json` changed.
@@ -138,22 +161,58 @@ The app uses a manifest-driven routing system:
 
 /norsk/bibliotek                Text library
 /norsk/bibliotek/:textId        Text reader
+/norsk/virkemidler/desk         Virkemiddel-verksted (skrivebord-layout)
+/norsk/ordklasser/sortering     Ordklassesortering (drag-and-drop)
 /tidslinje                      Global timeline
 /laeringsstier                  Learning paths hub
+/persongalleri                  Person gallery
+/colonization                   Kolonisering-kart (verdenshistorie)
+/infrastruktur-atlas            Infrastruktur-Atlas (samfunnskunnskap)
+
+/musikk/komposisjon             Komposisjonsverktøy (notesett)
+/musikk/oving/rytme             Rytmetrening (Rhythm Tapper)
+/musikk/oving/gehortrening      Gehørtrening
+
 /oving                          Practice hub
 /oving/flashcards               Flashcards
-/oving/quiz                     Quiz
+/oving/quiz                     Quiz (alias /quiz)
 /oving/chrono                   Chrono card game
+/oving/chrono-glider            Chrono Glider (R3F)
+/oving/konsept-snake            Konseptslange (norsk-spill)
+/oving/retorikk                 Retorikk-spill
+/oving/hengemann                Hengemann (ordgjetting)
+/oving/virkemidler              Virkemiddel-verkstedet
 /oving/dungeon                  Dungeon quiz game
+/oving/detektiv                 Detektiv-hub
 /oving/detektiv/:caseId         Detective case
 /oving/etikk                    Ethics experiment
-/oving/tidsreise/:scenarioId    Time travel game
+/oving/tidsreise                Tidsreise-hub
+/oving/tidsreise/:scenarioId    Time travel scenario
 /oving/spill                    Mini-spill galleri (historiske 3D-spill)
 /oving/spill/:gameId            Enkelt mini-spill (f.eks. /oving/spill/watt-lab)
+/oving/kompetansemal            Kompetansemål-oversikt
+
 /quiz-battle                    Multiplayer quiz lobby
+/quiz-battle/host/:pin          Host-skjerm (admin-guarded)
+/quiz-battle/play/:pin          Spiller-klient
+/quiz-battle/admin-999          Quiz-admin (admin-guarded)
+
 /krle/sammenlign                Religion comparison
+/krle/sammenlign/tema/:tag      Topic comparison på tvers av religioner
+/krle/religion/:religionId      Religion-detaljside (7-dimensjons-modell)
 /krle/filosofi/odyssey          Philosophy odyssey
+/krle/filosofi/sammenlign       Philosophy comparison
+
+/historie/vikingtiden/detektiv  Vikingtid-detektivsak (snarvei)
+
 /admin                          Admin dashboard (guarded)
+/admin/stats                    Bruksstatistikk
+/admin/inventory                Innholdsinventar
+/admin/links                    Lenkesjekk
+/admin/scanner                  Innholdsskanner
+
+/:subjectId/:topicId/present/:lessonId             Presentasjonsmodus for leksjon
+/:subjectId/:topicId/present/:lessonId/projector   Presentasjon — projektor-view
 ```
 
 ---
@@ -296,6 +355,10 @@ Interactive components in articles are referenced by string name in JSON and res
 | `QuoteBlock` | Styled quote |
 | `Gallery` | Image gallery |
 | `GlossaryTooltip` | Concept tooltip |
+| `HanseaticTradeMap` | Hansa-handelsrutekart med byer/varer |
+| `CableBreakSim` | Simulering av kabelbrudd (infrastruktur-atlas) |
+| `PropagandaDecoder` | Avkode propagandaplakater (etterkrigstid) |
+| `NuclearSimulator` | Kjernevåpen-yield-simulator |
 
 Full list in `src/components/ComponentRegistry.tsx`.
 
@@ -501,12 +564,21 @@ A highly realistic 4K cinematic photograph of [scene], [time period].
 - `docs/THE_ARCHITECTS_HANDBOOK.md` — Philosophy and workflow manifesto
 - `docs/CONTENT_SYSTEM.md` — Full content system reference (layouts, feature systems, troubleshooting)
 - `docs/CONTENT_STYLE_GUIDE.md` — Writing style rules
+- `docs/ARTICLE_STANDARD.md` — Standardformat og kvalitetskrav for artikler
 - `docs/TECHNICAL_ARCHITECTURE.md` — Architecture overview
 - `docs/DEVELOPER_SETUP.md` — Machine setup guide
+- `docs/HVORDAN_DETTE_FUNGERER.md` — Plain-norwegian forklaring av hele systemet
+- `docs/TERMINOLOGI_OG_STRUKTUR.md` — Terminologi og struktur-referanse
+- `docs/NAVIGATION_PROPOSALS.md` — Forslag/historikk for navigasjon
 - `docs/image-style-guide.md` — Image generation and WebP optimization
 - `docs/DETEKTIV_GUIDE.md` — Detective case system
+- `docs/SCENARIO_DESIGN_GUIDE.md` — Tidsreise-scenario design
 - `docs/KRLE_PEDAGOGICAL_GUIDE.md` — KRLE content guidelines
+- `docs/motor-update.md` — Mini-spillmotor changelog/oppgraderingsnotat
 - `docs/Design documents/` — Per-topic blueprints
+- `docs/laereplaner/` — Læreplaner og kompetansemål per fag
 - `.agent/workflows/LEARNING_PATH_GUIDE.md` — Learning path JSON schema and guide
 - `.agent/workflows/BUILD_GAME_GUIDE.md` — Guide for å lage nye historiske 3D-mini-spill
+- `.agent/workflows/plan_minigame.md` — Designfase for nytt mini-spill
+- `.agent/workflows/build_interactive.md` — Bygge ny interaktiv komponent
 - `Ideer/` — Ideas and planning documents (Norwegian)
