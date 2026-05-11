@@ -247,6 +247,185 @@
         },
         {
             "type": "header",
+            "text": "Tolke oppgaven",
+            "level": 2
+        },
+        {
+            "type": "paragraph",
+            "text": "Den vanligste grunnen til at elever taper karakter på eksamen er ikke dårlig skriving. Det er at de svarer på halve oppgaven. Norske eksamensoppgaver har nesten alltid flere ledd, bundet sammen med små ord som «og», «samt» eller «i tillegg». Hvert ledd er en egen jobb du må gjøre. Tren deg nedenfor: bryt opp fem realistiske oppgaver og lær hva sensor leter etter i hvert ledd."
+        },
+        {
+            "type": "component",
+            "name": "OppgaveTolker",
+            "props": {
+                "title": "Tolke oppgaven",
+                "tasks": [
+                    {
+                        "id": "kortsvar-1",
+                        "label": "Kortsvar - oppvarming",
+                        "source": "1 deloppgave",
+                        "taskText": "Gjør rede for hvilket tema som dominerer i diktet.",
+                        "parts": [
+                            {
+                                "id": "k1-p1",
+                                "phrase": "Gjør rede for hvilket tema som dominerer i diktet",
+                                "commandWord": "gjor_rede",
+                                "focus": "Identifiser temaet og vis at du ser hvordan diktet kretser rundt det.",
+                                "checklist": [
+                                    "Si tydelig hva temaet er, med dine egne ord.",
+                                    "Pek på minst to steder i diktet der temaet kommer frem.",
+                                    "Bruk fagspråk og minst ett sitat som bevis."
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": "kortsvar-2",
+                        "label": "Kortsvar - novelleanalyse",
+                        "source": "2 deloppgaver",
+                        "taskText": "Gjør rede for hvilket tema som dominerer i novellen, og analyser hvordan synsvinkelen forsterker dette temaet.",
+                        "parts": [
+                            {
+                                "id": "k2-p1",
+                                "phrase": "Gjør rede for hvilket tema som dominerer i novellen",
+                                "commandWord": "gjor_rede",
+                                "focus": "Slå fast hva novellen egentlig handler om på et dypere plan enn handlingen.",
+                                "checklist": [
+                                    "Formuler temaet i én klar setning.",
+                                    "Vis to-tre steder i teksten der temaet kommer til syne.",
+                                    "Skill mellom motiv (det konkrete) og tema (det abstrakte)."
+                                ]
+                            },
+                            {
+                                "id": "k2-p2",
+                                "phrase": "analyser hvordan synsvinkelen forsterker dette temaet",
+                                "commandWord": "analyser",
+                                "focus": "Forklar hvilken synsvinkel som er valgt og hvordan den får leseren til å oppleve temaet sterkere.",
+                                "checklist": [
+                                    "Navngi synsvinkelen (1.-person, autoral, personal m.m.).",
+                                    "Vis et konkret tekststed der synsvinkelen styrer hva leseren får vite.",
+                                    "Forklar effekten: hvordan gjør synsvinkelen temaet sterkere?"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": "langsvar-1",
+                        "label": "Langsvar - saktekst",
+                        "source": "3 deloppgaver",
+                        "taskText": "Drøft påstanden om at sosiale medier skader unges psykiske helse. Sammenlign minst to perspektiver, og bruk eksempler fra vedlegg 1 og 2.",
+                        "parts": [
+                            {
+                                "id": "l1-p1",
+                                "phrase": "Drøft påstanden om at sosiale medier skader unges psykiske helse",
+                                "commandWord": "drofte",
+                                "focus": "Veg argumenter for og mot påstanden og lande på en begrunnet konklusjon.",
+                                "checklist": [
+                                    "Bruk PAMK-modellen: påstand, argument, motargument, konklusjon.",
+                                    "Vis at du ser saken fra flere sider før du konkluderer.",
+                                    "Konkluder tydelig - en drøfting uten standpunkt blir flat."
+                                ]
+                            },
+                            {
+                                "id": "l1-p2",
+                                "phrase": "Sammenlign minst to perspektiver",
+                                "commandWord": "sammenlign",
+                                "focus": "Sett to ulike syn opp mot hverandre og pek på både likheter og forskjeller.",
+                                "checklist": [
+                                    "Velg to klart forskjellige perspektiver (f.eks. forsker vs. ungdom).",
+                                    "Vis både hva de er enige om og hva de er uenige om.",
+                                    "Bruk koblingsord som «mens», «derimot», «i motsetning til»."
+                                ]
+                            },
+                            {
+                                "id": "l1-p3",
+                                "phrase": "bruk eksempler fra vedlegg 1 og 2",
+                                "commandWord": "eksempler",
+                                "focus": "Hent konkrete eksempler fra de oppgitte vedleggene, ikke fra hodet ditt.",
+                                "checklist": [
+                                    "Vis minst ett eksempel fra hvert vedlegg.",
+                                    "Sitér eller henvis tydelig, og fyll inn kildereferanse.",
+                                    "Knytt eksempelet direkte til argumentet ditt."
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": "langsvar-2",
+                        "label": "Langsvar - reflekterende tekst",
+                        "source": "3 deloppgaver",
+                        "taskText": "Reflekter over hva det vil si å være modig i dag. Bruk eksempler fra to av tekstene du har lest, og vurder hvilket eksempel som best viser modig handling.",
+                        "parts": [
+                            {
+                                "id": "l2-p1",
+                                "phrase": "Reflekter over hva det vil si å være modig i dag",
+                                "commandWord": "reflekter",
+                                "focus": "Tenk åpent og personlig, og knytt mot til erfaringer og verdier i dag.",
+                                "checklist": [
+                                    "Knytt temaet til egne erfaringer eller observasjoner.",
+                                    "Still spørsmål før du konkluderer - reflekterende tekst tåler tvil.",
+                                    "Vis at mot kan bety flere ting (fysisk, moralsk, sosialt)."
+                                ]
+                            },
+                            {
+                                "id": "l2-p2",
+                                "phrase": "Bruk eksempler fra to av tekstene du har lest",
+                                "commandWord": "eksempler",
+                                "focus": "Hent eksempler fra navngitte tekster du har lest, ikke generelle påstander.",
+                                "checklist": [
+                                    "Velg eksempler fra to forskjellige tekster.",
+                                    "Forklar kort hva som skjer i hvert eksempel.",
+                                    "Vis hvorfor nettopp dette er et eksempel på mot."
+                                ]
+                            },
+                            {
+                                "id": "l2-p3",
+                                "phrase": "vurder hvilket eksempel som best viser modig handling",
+                                "commandWord": "vurder",
+                                "focus": "Velg ett av eksemplene og begrunn hvorfor det er det sterkeste eksempelet.",
+                                "checklist": [
+                                    "Vær tydelig på hvilket eksempel du velger.",
+                                    "Begrunn valget med kriterier (offer, risiko, virkning).",
+                                    "Bruk sammenlignende ord: «sterkest», «tydeligst», «mest overbevisende»."
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": "kortsvar-3",
+                        "label": "Kortsvar - sammenlignende",
+                        "source": "2 deloppgaver",
+                        "taskText": "Sammenlign hvordan de to diktene behandler temaet ensomhet, og vurder hvilket dikt som etterlater sterkest inntrykk på leseren.",
+                        "parts": [
+                            {
+                                "id": "k3-p1",
+                                "phrase": "Sammenlign hvordan de to diktene behandler temaet ensomhet",
+                                "commandWord": "sammenlign",
+                                "focus": "Sett diktene opp mot hverandre og se på likheter og forskjeller i behandlingen av temaet.",
+                                "checklist": [
+                                    "Skriv om begge diktene parallelt, ikke ett om gangen.",
+                                    "Sammenlign virkemidler: bildespråk, kontraster, rytme.",
+                                    "Vis både hva de har til felles og hva som skiller dem."
+                                ]
+                            },
+                            {
+                                "id": "k3-p2",
+                                "phrase": "vurder hvilket dikt som etterlater sterkest inntrykk på leseren",
+                                "commandWord": "vurder",
+                                "focus": "Ta et standpunkt om hvilket dikt som virker sterkest, og begrunn med litterære grep.",
+                                "checklist": [
+                                    "Velg ett av diktene og si det tydelig.",
+                                    "Begrunn med konkrete virkemidler i diktet.",
+                                    "Knytt virkemiddelet til effekten på leseren."
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
             "text": "Sjekkliste for eksamensdagen",
             "level": 2
         },

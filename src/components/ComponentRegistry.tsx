@@ -90,6 +90,7 @@ const ShotTypeExplorer = lazy(() => import('./content/interactive/ShotTypeExplor
 const QuoteWeaver = lazy(() => import('./content/interactive/QuoteWeaver').then(m => ({ default: m.QuoteWeaver })));
 const ParagraphBuilder = lazy(() => import('./content/interactive/ParagraphBuilder').then(m => ({ default: m.ParagraphBuilder })));
 const ArgumentScaffold = lazy(() => import('./content/interactive/ArgumentScaffold').then(m => ({ default: m.ArgumentScaffold })));
+const OppgaveTolker = lazy(() => import('./content/interactive/OppgaveTolker').then(m => ({ default: m.OppgaveTolker })));
 
 // Demography
 const DTMSimulator = lazy(() => import('./content/interactive/demography/DTMSimulator').then(m => ({ default: m.DTMSimulator })));
@@ -210,6 +211,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     QuoteWeaver,
     ParagraphBuilder,
     ArgumentScaffold,
+    OppgaveTolker,
     TriangularTradeMap: lazy(() => import('./content/interactive/TriangularTradeMap').then(m => ({ default: m.TriangularTradeMap }))),
     CensorTask: lazy(() => import('./historie/CensorTask').then(m => ({ default: m.CensorTask }))),
     PropagandaDecoder: lazy(() => import('./historie/PropagandaDecoder').then(m => ({ default: m.PropagandaDecoder }))),
