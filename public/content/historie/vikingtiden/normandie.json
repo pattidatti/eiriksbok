@@ -34,7 +34,19 @@
         {
             "type": "text",
             "title": "Erobrerne av verden",
-            "content": "Normannerne satt ikke stille i Frankrike. De var kanskje blitt kristne og snakket fransk, men de var fortsatt vikinger i hjertet. De ville ha mer.\n\n-   1066: Vilhelm Erobreren (Rollos tipp-tipp-oldebarn) invaderte England, drepte kongen og erstattet hele den engelske adelen med normannere. Fransk ble overklassespråket i England i 300 år.\n-   Italia og Sicilia: Andre normannere dro til Middelhavet. Der slåss de mot arabere og bysantinere og grunnla sitt eget kongerike på Sicilia. De var fryktet i hele Middelhavet.\n-   Korstogene: Da korstogene startet, var det ofte normanniske riddere som ledet an i fronten.\n\nIronisk nok var det etterkommere av vikinger (normannerne) som til slutt knuste vikingtiden ved Stamford Bridge og Hastings i 1066."
+            "content": "Normannerne satt ikke stille i Frankrike. De var kanskje blitt kristne og snakket fransk, men de var fortsatt vikinger i hjertet. De ville ha mer."
+        },
+        {
+            "type": "list",
+            "items": [
+                "1066: Vilhelm Erobreren (Rollos tipp-tipp-oldebarn) invaderte England, drepte kongen og erstattet hele den engelske adelen med normannere. Fransk ble overklassespråket i England i 300 år.",
+                "Italia og Sicilia: Andre normannere dro til Middelhavet. Der slåss de mot arabere og bysantinere og grunnla sitt eget kongerike på Sicilia. De var fryktet i hele Middelhavet.",
+                "Korstogene: Da korstogene startet, var det ofte normanniske riddere som ledet an i fronten."
+            ]
+        },
+        {
+            "type": "text",
+            "content": "Ironisk nok var det etterkommere av vikinger (normannerne) som til slutt knuste vikingtiden ved Stamford Bridge og Hastings i 1066."
         },
         {
             "type": "text",
