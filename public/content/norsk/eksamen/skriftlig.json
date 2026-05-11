@@ -275,7 +275,9 @@
                                     "Si tydelig hva temaet er, med dine egne ord.",
                                     "Pek på minst to steder i diktet der temaet kommer frem.",
                                     "Bruk fagspråk og minst ett sitat som bevis."
-                                ]
+                                ],
+                                "sampleOpening": "Hovedtemaet i diktet er ensomhet. Vi ser det tydelig i flere strofer der ...",
+                                "commonMistake": "Å gjenfortelle hva diktet handler om, i stedet for å peke på temaet som ligger bak handlingen."
                             }
                         ]
                     },
@@ -294,7 +296,9 @@
                                     "Formuler temaet i én klar setning.",
                                     "Vis to-tre steder i teksten der temaet kommer til syne.",
                                     "Skill mellom motiv (det konkrete) og tema (det abstrakte)."
-                                ]
+                                ],
+                                "sampleOpening": "Novellen handler først og fremst om savn etter en man har mistet, ikke bare om hendelsen som beskrives.",
+                                "commonMistake": "Å blande motivet (den konkrete handlingen) med temaet (det dypere budskapet under)."
                             },
                             {
                                 "id": "k2-p2",
@@ -305,7 +309,9 @@
                                     "Navngi synsvinkelen (1.-person, autoral, personal m.m.).",
                                     "Vis et konkret tekststed der synsvinkelen styrer hva leseren får vite.",
                                     "Forklar effekten: hvordan gjør synsvinkelen temaet sterkere?"
-                                ]
+                                ],
+                                "sampleOpening": "Novellen er fortalt med personal synsvinkel der vi ser alt gjennom hovedpersonens øyne, og dette gjør at ...",
+                                "commonMistake": "Å bare slå fast hvilken synsvinkel som brukes, uten å forklare hvilken effekt den har på leseren."
                             }
                         ]
                     },
@@ -319,12 +325,14 @@
                                 "id": "l1-p1",
                                 "phrase": "Drøft påstanden om at sosiale medier skader unges psykiske helse",
                                 "commandWord": "drofte",
-                                "focus": "Veg argumenter for og mot påstanden og lande på en begrunnet konklusjon.",
+                                "focus": "Vei argumenter for og mot påstanden og land på en begrunnet konklusjon.",
                                 "checklist": [
                                     "Bruk PAMK-modellen: påstand, argument, motargument, konklusjon.",
                                     "Vis at du ser saken fra flere sider før du konkluderer.",
                                     "Konkluder tydelig - en drøfting uten standpunkt blir flat."
-                                ]
+                                ],
+                                "sampleOpening": "Påstanden om at sosiale medier skader unges psykiske helse har sterke argumenter på begge sider.",
+                                "commonMistake": "Å liste for- og motargumenter uten å lande på et tydelig standpunkt til slutt."
                             },
                             {
                                 "id": "l1-p2",
@@ -335,7 +343,9 @@
                                     "Velg to klart forskjellige perspektiver (f.eks. forsker vs. ungdom).",
                                     "Vis både hva de er enige om og hva de er uenige om.",
                                     "Bruk koblingsord som «mens», «derimot», «i motsetning til»."
-                                ]
+                                ],
+                                "sampleOpening": "Mens forskere ofte vektlegger algoritmenes rolle, peker ungdom selv på det sosiale presset blant venner.",
+                                "commonMistake": "Å beskrive perspektivene hver for seg uten å sette dem opp mot hverandre."
                             },
                             {
                                 "id": "l1-p3",
@@ -346,7 +356,9 @@
                                     "Vis minst ett eksempel fra hvert vedlegg.",
                                     "Sitér eller henvis tydelig, og fyll inn kildereferanse.",
                                     "Knytt eksempelet direkte til argumentet ditt."
-                                ]
+                                ],
+                                "sampleOpening": "I vedlegg 1 viser undersøkelsen at ..., og i vedlegg 2 forteller en ungdom om ...",
+                                "commonMistake": "Å glemme å henvise til vedleggene, eller å bruke generelle eksempler fra hodet i stedet."
                             }
                         ]
                     },
@@ -365,7 +377,9 @@
                                     "Knytt temaet til egne erfaringer eller observasjoner.",
                                     "Still spørsmål før du konkluderer - reflekterende tekst tåler tvil.",
                                     "Vis at mot kan bety flere ting (fysisk, moralsk, sosialt)."
-                                ]
+                                ],
+                                "sampleOpening": "Hva betyr det egentlig å være modig i dag? For meg handler mot mest om å stå opp for ...",
+                                "commonMistake": "Å skrive en argumentasjon med klart standpunkt - reflekterende tekst tåler tvil og åpne spørsmål."
                             },
                             {
                                 "id": "l2-p2",
@@ -376,7 +390,9 @@
                                     "Velg eksempler fra to forskjellige tekster.",
                                     "Forklar kort hva som skjer i hvert eksempel.",
                                     "Vis hvorfor nettopp dette er et eksempel på mot."
-                                ]
+                                ],
+                                "sampleOpening": "I novellen «X» av Y møter vi en hovedperson som velger å ..., og det viser mot fordi ...",
+                                "commonMistake": "Å snakke generelt om mot uten å forankre det i konkrete tekster og hendelser."
                             },
                             {
                                 "id": "l2-p3",
@@ -387,7 +403,9 @@
                                     "Vær tydelig på hvilket eksempel du velger.",
                                     "Begrunn valget med kriterier (offer, risiko, virkning).",
                                     "Bruk sammenlignende ord: «sterkest», «tydeligst», «mest overbevisende»."
-                                ]
+                                ],
+                                "sampleOpening": "Av de to eksemplene mener jeg at ... viser modig handling sterkest, særlig fordi ...",
+                                "commonMistake": "Å unngå å velge - en vurdering krever at du tar standpunkt og begrunner det."
                             }
                         ]
                     },
@@ -406,7 +424,9 @@
                                     "Skriv om begge diktene parallelt, ikke ett om gangen.",
                                     "Sammenlign virkemidler: bildespråk, kontraster, rytme.",
                                     "Vis både hva de har til felles og hva som skiller dem."
-                                ]
+                                ],
+                                "sampleOpening": "Begge diktene utforsker ensomhet, men der det første bruker kontraster, bygger det andre på gjentakelse.",
+                                "commonMistake": "Å skrive om ett dikt først og deretter det andre, uten å koble dem sammen underveis."
                             },
                             {
                                 "id": "k3-p2",
@@ -417,7 +437,9 @@
                                     "Velg ett av diktene og si det tydelig.",
                                     "Begrunn med konkrete virkemidler i diktet.",
                                     "Knytt virkemiddelet til effekten på leseren."
-                                ]
+                                ],
+                                "sampleOpening": "Etter min mening er det dikt nummer to som etterlater sterkest inntrykk, særlig på grunn av ...",
+                                "commonMistake": "Å begrunne med «jeg liker det best» uten å peke på konkrete virkemidler i diktet."
                             }
                         ]
                     }

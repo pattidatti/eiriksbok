@@ -1,6 +1,17 @@
 import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Check, X, RefreshCw, ArrowRight, ListChecks, Sparkles } from 'lucide-react';
+import {
+    Check,
+    X,
+    RefreshCw,
+    ArrowRight,
+    ListChecks,
+    Sparkles,
+    Compass,
+    ChevronDown,
+    AlertTriangle,
+    Lightbulb,
+} from 'lucide-react';
 import confetti from 'canvas-confetti';
 
 type CommandKey =
@@ -15,6 +26,8 @@ type CommandKey =
 
 interface CommandStyle {
     label: string;
+    definition: string;
+    example: string;
     bg: string;
     border: string;
     text: string;
@@ -24,6 +37,9 @@ interface CommandStyle {
 const COMMAND_STYLES: Record<CommandKey, CommandStyle> = {
     gjor_rede: {
         label: 'Gjør rede for',
+        definition:
+            'Beskriv tydelig hva noe er, så leseren forstår det. Du skal forklare innholdet, ikke mene noe om det selv.',
+        example: 'F.eks. «Gjør rede for hva en metafor er» - du forklarer hva en metafor er og gir et eksempel.',
         bg: 'bg-emerald-100',
         border: 'border-emerald-300',
         text: 'text-emerald-800',
@@ -31,6 +47,8 @@ const COMMAND_STYLES: Record<CommandKey, CommandStyle> = {
     },
     forklar: {
         label: 'Forklar',
+        definition: 'Gjør tydelig hva noe betyr eller hvorfor det skjer. Vis sammenhengene bak.',
+        example: 'F.eks. «Forklar hvorfor synsvinkelen er viktig» - du viser hva synsvinkelen gjør med leseopplevelsen.',
         bg: 'bg-teal-100',
         border: 'border-teal-300',
         text: 'text-teal-800',
@@ -38,6 +56,9 @@ const COMMAND_STYLES: Record<CommandKey, CommandStyle> = {
     },
     analyser: {
         label: 'Analyser',
+        definition:
+            'Bryt teksten ned i deler. Se på hvordan virkemidlene fungerer og hva de gjør med teksten - ikke bare hva som skjer.',
+        example: 'F.eks. «Analyser bildespråket» - du peker på konkrete bilder og forklarer hvilken effekt de har.',
         bg: 'bg-violet-100',
         border: 'border-violet-300',
         text: 'text-violet-800',
@@ -45,6 +66,9 @@ const COMMAND_STYLES: Record<CommandKey, CommandStyle> = {
     },
     drofte: {
         label: 'Drøft',
+        definition:
+            'Vei argumenter for og mot. Vis at saken har flere sider, og konkluder med et standpunkt du kan begrunne.',
+        example: 'F.eks. «Drøft påstanden» - finn 2-3 argumenter for, 2-3 mot, og ta et tydelig standpunkt til slutt.',
         bg: 'bg-orange-100',
         border: 'border-orange-300',
         text: 'text-orange-800',
@@ -52,6 +76,10 @@ const COMMAND_STYLES: Record<CommandKey, CommandStyle> = {
     },
     reflekter: {
         label: 'Reflekter',
+        definition:
+            'Tenk gjennom temaet i ro. Du kan koble til egne erfaringer og verdier, og det er greit å være i tvil.',
+        example:
+            'F.eks. «Reflekter over hva som er rettferdig» - du tenker høyt på papiret og kan stille spørsmål før du svarer.',
         bg: 'bg-sky-100',
         border: 'border-sky-300',
         text: 'text-sky-800',
@@ -59,6 +87,9 @@ const COMMAND_STYLES: Record<CommandKey, CommandStyle> = {
     },
     sammenlign: {
         label: 'Sammenlign',
+        definition:
+            'Vis både likheter og forskjeller mellom to eller flere ting. Skriv om dem parallelt, ikke ett om gangen.',
+        example: 'F.eks. «Sammenlign de to diktene» - pek på hva de har felles og hvor de skiller seg.',
         bg: 'bg-indigo-100',
         border: 'border-indigo-300',
         text: 'text-indigo-800',
@@ -66,6 +97,9 @@ const COMMAND_STYLES: Record<CommandKey, CommandStyle> = {
     },
     eksempler: {
         label: 'Bruk eksempler',
+        definition:
+            'Hent konkrete eksempler fra en navngitt tekst, et vedlegg eller en kilde. Generelle påstander teller ikke.',
+        example: 'F.eks. «Bruk eksempler fra vedlegg 1» - du siterer eller henviser konkret til vedlegg 1.',
         bg: 'bg-amber-100',
         border: 'border-amber-300',
         text: 'text-amber-800',
@@ -73,6 +107,8 @@ const COMMAND_STYLES: Record<CommandKey, CommandStyle> = {
     },
     vurder: {
         label: 'Vurder',
+        definition: 'Bedøm verdi eller kvalitet. Si hva du mener, men begrunn med kriterier - ikke bare smak.',
+        example: 'F.eks. «Vurder argumentet» - du sier om det er sterkt eller svakt, og forklarer hvorfor.',
         bg: 'bg-rose-100',
         border: 'border-rose-300',
         text: 'text-rose-800',
@@ -86,6 +122,8 @@ interface TolkePart {
     commandWord: CommandKey;
     focus: string;
     checklist: string[];
+    sampleOpening?: string;
+    commonMistake?: string;
 }
 
 interface TolkeOppgave {
@@ -112,6 +150,7 @@ export const OppgaveTolker: React.FC<OppgaveTolkerProps> = ({ title = 'Tolke opp
     const [classifications, setClassifications] = useState<Record<string, CommandKey>>({});
     const [classifyChecked, setClassifyChecked] = useState(false);
     const [completed, setCompleted] = useState(false);
+    const [compassOpen, setCompassOpen] = useState(false);
 
     const task = tasks[taskIndex];
     const correctCount = task?.parts.length ?? 0;
@@ -197,9 +236,22 @@ export const OppgaveTolker: React.FC<OppgaveTolkerProps> = ({ title = 'Tolke opp
             className="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden my-8 max-w-4xl mx-auto"
         >
             <div className="bg-gradient-to-r from-slate-900 to-slate-800 text-white p-5">
-                <div className="flex items-center gap-3 mb-3">
-                    <ListChecks className="w-6 h-6 text-amber-300" />
-                    <h3 className="font-bold text-lg">{title}</h3>
+                <div className="flex items-center justify-between gap-3 mb-3 flex-wrap">
+                    <div className="flex items-center gap-3">
+                        <ListChecks className="w-6 h-6 text-amber-300" />
+                        <h3 className="font-bold text-lg">{title}</h3>
+                    </div>
+                    <button
+                        onClick={() => setCompassOpen((v) => !v)}
+                        className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 text-sm font-medium transition-colors"
+                        aria-expanded={compassOpen}
+                    >
+                        <Compass className="w-4 h-4" />
+                        Hva betyr kommandoordene?
+                        <ChevronDown
+                            className={`w-4 h-4 transition-transform ${compassOpen ? 'rotate-180' : ''}`}
+                        />
+                    </button>
                 </div>
                 <div className="flex gap-2 items-center flex-wrap">
                     {tasks.map((_, i) => (
@@ -219,6 +271,45 @@ export const OppgaveTolker: React.FC<OppgaveTolkerProps> = ({ title = 'Tolke opp
                     </span>
                 </div>
             </div>
+
+            <AnimatePresence initial={false}>
+                {compassOpen && (
+                    <motion.div
+                        key="compass"
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.25 }}
+                        className="overflow-hidden border-b border-slate-200 bg-slate-50"
+                    >
+                        <div className="p-5">
+                            <p className="text-sm text-slate-600 mb-4">
+                                Kommandoordene styrer <em>hva</em> du skal gjøre i svaret. Det er den viktigste forskjellen
+                                mellom å svare på oppgaven og å bomme på den.
+                            </p>
+                            <div className="grid sm:grid-cols-2 gap-3">
+                                {(Object.keys(COMMAND_STYLES) as CommandKey[]).map((key) => {
+                                    const style = COMMAND_STYLES[key];
+                                    return (
+                                        <div
+                                            key={key}
+                                            className={`rounded-lg border ${style.border} ${style.bg} p-3`}
+                                        >
+                                            <div
+                                                className={`inline-block px-2 py-0.5 rounded-full text-xs font-bold text-white ${style.chipBg} mb-2`}
+                                            >
+                                                {style.label}
+                                            </div>
+                                            <p className={`text-sm ${style.text} mb-1`}>{style.definition}</p>
+                                            <p className="text-xs text-slate-600 italic">{style.example}</p>
+                                        </div>
+                                    );
+                                })}
+                            </div>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
 
             {completed ? (
                 <div className="p-8 text-center">
@@ -428,23 +519,46 @@ export const OppgaveTolker: React.FC<OppgaveTolkerProps> = ({ title = 'Tolke opp
                                                         );
                                                     })}
                                                 </div>
-                                                {classifyChecked && (
-                                                    <div
-                                                        className={`mt-3 text-sm flex items-center gap-2 ${isCorrect ? 'text-emerald-700' : 'text-rose-700'}`}
+                                                {!classifyChecked && userCmd && (
+                                                    <motion.div
+                                                        initial={{ opacity: 0, y: -4 }}
+                                                        animate={{ opacity: 1, y: 0 }}
+                                                        className={`mt-3 rounded-lg p-3 text-sm border ${COMMAND_STYLES[userCmd].border} ${COMMAND_STYLES[userCmd].bg} ${COMMAND_STYLES[userCmd].text}`}
                                                     >
-                                                        {isCorrect ? (
-                                                            <Check className="w-4 h-4" />
-                                                        ) : (
-                                                            <X className="w-4 h-4" />
-                                                        )}
-                                                        {isCorrect ? (
-                                                            'Riktig!'
-                                                        ) : (
-                                                            <>
-                                                                Riktig svar er{' '}
-                                                                <strong>{COMMAND_STYLES[part.commandWord].label}</strong>.
-                                                            </>
-                                                        )}
+                                                        <strong>«{COMMAND_STYLES[userCmd].label}» betyr:</strong>{' '}
+                                                        {COMMAND_STYLES[userCmd].definition}
+                                                    </motion.div>
+                                                )}
+                                                {classifyChecked && (
+                                                    <div className="mt-3 space-y-2">
+                                                        <div
+                                                            className={`text-sm flex items-center gap-2 ${isCorrect ? 'text-emerald-700' : 'text-rose-700'}`}
+                                                        >
+                                                            {isCorrect ? (
+                                                                <Check className="w-4 h-4" />
+                                                            ) : (
+                                                                <X className="w-4 h-4" />
+                                                            )}
+                                                            {isCorrect ? (
+                                                                'Riktig!'
+                                                            ) : (
+                                                                <>
+                                                                    Riktig svar er{' '}
+                                                                    <strong>
+                                                                        {COMMAND_STYLES[part.commandWord].label}
+                                                                    </strong>
+                                                                    .
+                                                                </>
+                                                            )}
+                                                        </div>
+                                                        <div
+                                                            className={`rounded-lg p-3 text-sm border ${COMMAND_STYLES[part.commandWord].border} ${COMMAND_STYLES[part.commandWord].bg} ${COMMAND_STYLES[part.commandWord].text}`}
+                                                        >
+                                                            <strong>
+                                                                «{COMMAND_STYLES[part.commandWord].label}» betyr:
+                                                            </strong>{' '}
+                                                            {COMMAND_STYLES[part.commandWord].definition}
+                                                        </div>
                                                     </div>
                                                 )}
                                             </div>
@@ -505,11 +619,19 @@ export const OppgaveTolker: React.FC<OppgaveTolkerProps> = ({ title = 'Tolke opp
                                                     </span>
                                                 </div>
                                                 <p className="italic text-slate-600 text-sm mb-3">«{part.phrase}»</p>
+                                                <div
+                                                    className={`rounded-lg p-3 mb-3 text-sm border ${style.border} ${style.bg}`}
+                                                >
+                                                    <div className={`font-bold mb-1 ${style.text}`}>
+                                                        Hva «{style.label}» betyr:
+                                                    </div>
+                                                    <p className={`${style.text}`}>{style.definition}</p>
+                                                </div>
                                                 <div className="bg-slate-50 rounded-lg p-3 mb-3 text-sm">
                                                     <span className="font-bold text-slate-700">Fokus:</span>{' '}
                                                     <span className="text-slate-700">{part.focus}</span>
                                                 </div>
-                                                <div>
+                                                <div className="mb-3">
                                                     <div className="text-sm font-bold text-slate-700 mb-2">
                                                         Sensor venter at du:
                                                     </div>
@@ -525,6 +647,26 @@ export const OppgaveTolker: React.FC<OppgaveTolkerProps> = ({ title = 'Tolke opp
                                                         ))}
                                                     </ul>
                                                 </div>
+                                                {part.sampleOpening && (
+                                                    <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-3 mb-3 text-sm">
+                                                        <div className="font-bold text-emerald-800 mb-1 flex items-center gap-1.5">
+                                                            <Lightbulb className="w-4 h-4" />
+                                                            Slik kan du begynne svaret:
+                                                        </div>
+                                                        <p className="italic text-emerald-900 font-serif">
+                                                            «{part.sampleOpening}»
+                                                        </p>
+                                                    </div>
+                                                )}
+                                                {part.commonMistake && (
+                                                    <div className="bg-rose-50 border border-rose-200 rounded-lg p-3 text-sm">
+                                                        <div className="font-bold text-rose-800 mb-1 flex items-center gap-1.5">
+                                                            <AlertTriangle className="w-4 h-4" />
+                                                            Vanlig fallgruve:
+                                                        </div>
+                                                        <p className="text-rose-900">{part.commonMistake}</p>
+                                                    </div>
+                                                )}
                                             </div>
                                         );
                                     })}
