@@ -17,6 +17,7 @@ interface ChronoCardProps {
     onClick?: () => void;
     className?: string;
     showDescriptionWhenUnrevealed?: boolean;
+    compact?: boolean;
 }
 
 export const ChronoCard: React.FC<ChronoCardProps> = ({
@@ -24,11 +25,13 @@ export const ChronoCard: React.FC<ChronoCardProps> = ({
     isRevealed = false,
     onClick,
     className = '',
-    showDescriptionWhenUnrevealed = true
+    showDescriptionWhenUnrevealed = true,
+    compact = false,
 }) => {
+    const sizeClass = compact ? 'w-48 h-60' : 'w-56 h-72';
     return (
         <motion.div
-            className={`relative w-56 h-72 perspective-1000 cursor-pointer select-none ${className}`}
+            className={`relative ${sizeClass} perspective-1000 cursor-pointer select-none ${className}`}
             onClick={onClick}
             whileHover={{ y: -5 }}
         >

@@ -1,8 +1,25 @@
 {
     "id": "svartedauden-detective",
     "engine": "historical-detective",
+    "schemaVersion": 2,
     "title": "Svartedaudens Ankomst: Da Skipet kom til Vågen",
     "description": "Kom pesten virkelig med et skip til Bergen i 1349, eller var den i Norge mye tidligere? Løs gåten bak norgeshistoriens største katastrofe.",
+    "theme": "medieval-cold",
+    "period": "1349",
+    "location": "Bergen / Oslo",
+    "difficulty": "Middels",
+    "estimatedTime": "20 min",
+    "epoch": "middelalder",
+    "kompetansemaal": [
+        "HIS10-2",
+        "HIS10-5"
+    ],
+    "relatedArticles": [
+        {
+            "title": "Svartedauden",
+            "path": "/historie/middelalderen/svartedauden"
+        }
+    ],
     "briefing": {
         "title": "Oppdrag: Pestens Spor",
         "context": "Året er 1349. Et skip fra England seiler inn til Bergen. Kort tid etter dør halve byen. Dette er den klassiske fortellingen om Svartedaudens ankomst til Norge.",
@@ -14,20 +31,22 @@
     "status": {
         "trustLevel": 100,
         "evidenceCollected": 0,
-        "totalEvidence": 3
+        "totalEvidence": 2
     },
     "suspects": [
         {
             "id": "bergen",
             "name": "Bergen-hypotesen",
             "description": "Den tradisjonelle historien om pestskipet fra England.",
-            "icon": "🚢"
+            "icon": "🚢",
+            "color": "#38bdf8"
         },
         {
             "id": "oslo",
             "name": "Oslo-hypotesen",
             "description": "Var pesten i Oslo allerede vinteren 1348/49?",
-            "icon": "🏰"
+            "icon": "🏰",
+            "color": "#fbbf24"
         }
     ],
     "steps": [
@@ -55,7 +74,12 @@
                         {
                             "id": "clue-bergen-start",
                             "text": "Et skip kalt en kogg",
-                            "insight": "Dette bekrefter den sterke tradisjonen om at Bergen var inngangsporten i 1349. Men det utelukker ikke at pesten fantes andre steder."
+                            "insight": "Dette bekrefter den sterke tradisjonen om at Bergen var inngangsporten i 1349. Men det utelukker ikke at pesten fantes andre steder.",
+                            "supports": [
+                                "bergen"
+                            ],
+                            "weight": 2,
+                            "method": "samtidighet"
                         }
                     ]
                 }
@@ -76,7 +100,7 @@
                     },
                     "provenance": "Et juridisk dokument (diplom) fra Oslo som beskriver donasjon til et nytt alter i Domkirken.",
                     "uncertainty": "Dokumentet nevner ikke ordet 'pest' direkte, men St. Sebastian var den viktigste vernehelgenen mot nettopp pest.",
-                    "introduction": "Nå skal vi se på et 'diplom' fra Oslo. Et diplom var et juridisk dokument i middelalderen, ofte skrevet på skinn (pergament). Dette dokumentet er datert februar 1349 – hele fem måneder FØR pestskipet visstnok kom til Bergen.",
+                    "introduction": "Nå skal vi se på et 'diplom' fra Oslo. Et diplom var et juridisk dokument i middelalderen, ofte skrevet på skinn (pergament). Dette dokumentet er datert februar 1349 - hele fem måneder FØR pestskipet visstnok kom til Bergen.",
                     "original": "Til ære for Gud og den hellige martyr Sebastian...",
                     "interpretation": "Dette er et brev som beskriver at noen gir penger og land til kirken i Oslo for å bygge et nytt alter. Alteret skal være til ære for Sankt Sebastian.",
                     "guidance": "Dette beviset er en 'skjult ledetråd'. Sankt Sebastian var ikke en hvilken som helst helgen; han var den personen folk ba til når de var redde for pest. Spørsmålet en detektiv må stille er: Hvorfor bygge et helt nytt alter til pest-helgenen i Oslo i februar, hvis pesten ikke skulle komme til landet før i juli? Dette beviset tyder kraftig på at Svartedauden kanskje allerede herjet i Oslo-området vinteren 1348/1349. Kanskje den kom landveien fra Sverige eller med et annet skip vi ikke har hørt om? Det utfordrer hele ideen om at Bergen var først.",
@@ -85,7 +109,12 @@
                         {
                             "id": "clue-oslo-early",
                             "text": "hellige martyr Sebastian",
-                            "insight": "Donasjonen til dette alteret skjedde fem måneder før 'pestskipet' i Bergen, noe som styrker teorien om et tidligere utbrudd i Oslo."
+                            "insight": "Donasjonen til dette alteret skjedde fem måneder før 'pestskipet' i Bergen, noe som styrker teorien om et tidligere utbrudd i Oslo.",
+                            "supports": [
+                                "oslo"
+                            ],
+                            "weight": 3,
+                            "method": "kontekstualisering"
                         }
                     ]
                 }
@@ -94,16 +123,26 @@
     ],
     "conclusion_engine": {
         "question": "Hva viser de samlede bevisene om Svartedaudens ankomst?",
+        "minimumEvidence": 2,
         "options": [
             {
                 "id": "a",
                 "text": "Annalene fra Island er de eneste vi kan stole på.",
-                "feedback": "Annalene gir et godt bilde av Bergen, men de overser diplomene fra Oslo som peker mot en tidligere start."
+                "feedback": "Annalene gir et godt bilde av Bergen, men de overser diplomene fra Oslo som peker mot en tidligere start.",
+                "correct": false,
+                "supportedBy": [
+                    "clue-bergen-start"
+                ]
             },
             {
                 "id": "b",
                 "text": "Pesten kom sannsynligvis i flere bølger, både til Oslo og Bergen.",
-                "feedback": "Riktig! Bevisene tyder på at pesten kanskje kom til Oslo allerede høsten 1348, lå i dvale over vinteren, og så ble forsterket av skipet som kom til Bergen sommeren 1349."
+                "feedback": "Riktig! Bevisene tyder på at pesten kanskje kom til Oslo allerede høsten 1348, lå i dvale over vinteren, og så ble forsterket av skipet som kom til Bergen sommeren 1349.",
+                "correct": true,
+                "supportedBy": [
+                    "clue-bergen-start",
+                    "clue-oslo-early"
+                ]
             }
         ]
     }

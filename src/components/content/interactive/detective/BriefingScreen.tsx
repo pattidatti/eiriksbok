@@ -10,36 +10,62 @@ interface BriefingScreenProps {
 
 export const BriefingScreen: React.FC<BriefingScreenProps> = ({ briefing, onStart }) => {
     return (
-        <div className="flex-1 flex items-center justify-center p-4 md:p-6 bg-[#0a0c10]">
+        <div className="relative flex-1 flex items-center justify-center p-4 md:p-6 bg-[var(--det-bg)] overflow-hidden">
+            {/* Stor backdrop med hero-bilde */}
+            {briefing.image && (
+                <div className="absolute inset-0 pointer-events-none">
+                    <img
+                        src={briefing.image}
+                        alt=""
+                        className="w-full h-full object-cover opacity-30"
+                        style={{ filter: 'blur(2px) saturate(0.7)' }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-b from-[var(--det-bg)]/70 via-[var(--det-bg)]/40 to-[var(--det-bg)]" />
+                </div>
+            )}
+
             <motion.div
                 initial={{ opacity: 0, scale: 0.97 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="max-w-3xl w-full bg-slate-900/50 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden shadow-2xl flex flex-col md:flex-row"
+                className="relative max-w-3xl w-full bg-[var(--det-surface)]/80 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden shadow-2xl flex flex-col md:flex-row"
             >
-                {/* Visual side */}
-                <div className="md:w-1/3 relative bg-indigo-600 flex flex-col items-center justify-center text-white text-center py-8 md:py-0 overflow-hidden min-h-[120px] md:min-h-0">
+                {/* Visuell side */}
+                <div
+                    className="md:w-1/3 relative flex flex-col items-center justify-center text-white text-center py-8 md:py-0 overflow-hidden min-h-[140px] md:min-h-0"
+                    style={{
+                        background:
+                            'linear-gradient(135deg, color-mix(in srgb, var(--det-accent) 50%, transparent), color-mix(in srgb, var(--det-accent) 15%, transparent))',
+                    }}
+                >
                     {briefing.image ? (
                         <>
                             <img
                                 src={briefing.image}
                                 alt=""
-                                className="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-60"
+                                className="absolute inset-0 w-full h-full object-cover opacity-70"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-indigo-900 via-transparent to-indigo-900/50" />
+                            <div
+                                className="absolute inset-0"
+                                style={{
+                                    background:
+                                        'linear-gradient(to top, color-mix(in srgb, var(--det-bg) 80%, transparent), transparent 70%)',
+                                }}
+                            />
                         </>
-                    ) : (
-                        <div className="absolute inset-0 bg-indigo-600" />
-                    )}
+                    ) : null}
 
                     <div className="relative z-10 w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-md border border-white/30 shadow-xl">
                         <Search className="w-8 h-8 text-white" />
                     </div>
                 </div>
 
-                {/* Content side */}
+                {/* Innholdsside */}
                 <div className="md:w-2/3 p-6 md:p-8 space-y-5">
                     <div>
-                        <span className="text-[10px] font-bold text-indigo-400 uppercase tracking-widest">
+                        <span
+                            className="text-xs font-bold uppercase tracking-widest"
+                            style={{ color: 'var(--det-accent)' }}
+                        >
                             Nytt oppdrag
                         </span>
                         <h1 className="text-2xl md:text-3xl font-display font-bold text-white mt-1">
@@ -47,19 +73,32 @@ export const BriefingScreen: React.FC<BriefingScreenProps> = ({ briefing, onStar
                         </h1>
                     </div>
 
-                    {/* Combined narrative - context, mystery, mission as flowing prose */}
-                    <div className="space-y-3 text-sm leading-relaxed">
-                        <p className="text-slate-300">{briefing.context}</p>
-                        <p className="text-amber-200/90 font-medium">{briefing.mystery}</p>
-                        <p className="text-emerald-200/90 font-semibold">{briefing.mission}</p>
+                    <div className="space-y-3 text-base leading-relaxed">
+                        <p className="text-slate-200">{briefing.context}</p>
+                        <p
+                            className="font-medium"
+                            style={{
+                                color: 'color-mix(in srgb, var(--det-warning) 75%, white)',
+                            }}
+                        >
+                            {briefing.mystery}
+                        </p>
+                        <p
+                            className="font-semibold"
+                            style={{
+                                color: 'color-mix(in srgb, var(--det-evidence) 75%, white)',
+                            }}
+                        >
+                            {briefing.mission}
+                        </p>
                         {briefing.stakes && (
-                            <p className="text-slate-500 text-xs italic">{briefing.stakes}</p>
+                            <p className="text-slate-400 text-sm italic">{briefing.stakes}</p>
                         )}
                     </div>
 
                     <button
                         onClick={onStart}
-                        className="w-full md:w-auto px-8 py-3 bg-white text-slate-900 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-slate-200 transition-all hover:scale-[1.02] active:scale-[0.98] shadow-xl shadow-white/5"
+                        className="w-full md:w-auto px-8 py-3 bg-white text-slate-900 rounded-xl font-bold text-base flex items-center justify-center gap-2 hover:bg-slate-200 transition-all hover:scale-[1.02] active:scale-[0.98] shadow-xl shadow-white/5"
                     >
                         Start etterforskningen
                         <ChevronRight className="w-5 h-5" />

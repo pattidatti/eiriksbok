@@ -1,8 +1,25 @@
 {
     "id": "berlinmuren-fall",
     "engine": "historical-detective",
+    "schemaVersion": 2,
     "title": "Muren som falt ved en feil: Berlin 1989",
     "description": "Var det massivt folkeopprør eller en klønete byråkrat som egentlig åpnet Berlinmuren? Undersøk kaoset den 9. november.",
+    "theme": "cold-war",
+    "period": "1989",
+    "location": "Berlin",
+    "difficulty": "Middels",
+    "estimatedTime": "20-25 min",
+    "epoch": "samtid",
+    "kompetansemaal": [
+        "HIS10-7",
+        "HIS10-9"
+    ],
+    "relatedArticles": [
+        {
+            "title": "Berlinmurens fall",
+            "path": "/historie"
+        }
+    ],
     "briefing": {
         "title": "Oppdrag: Portene åpnes",
         "context": "9. november 1989. Berlin har vært delt i to i 28 år. Presset mot DDR-regimet er enormt, men ingen forventer at muren skal falle akkurat i kveld. Under en direktesendt pressekonferanse skjer det utrolige.",
@@ -14,20 +31,22 @@
     "status": {
         "trustLevel": 100,
         "evidenceCollected": 0,
-        "totalEvidence": 4
+        "totalEvidence": 2
     },
     "suspects": [
         {
             "id": "human-error",
             "name": "Menneskelig Svikt",
             "description": "En travel byråkrat som ikke hadde lest notatene sine.",
-            "icon": "📝"
+            "icon": "📝",
+            "color": "#fbbf24"
         },
         {
             "id": "people-power",
             "name": "Folkets Press",
             "description": "Demonstrasjonene tvang regimet til å gi etter uansett.",
-            "icon": "✊"
+            "icon": "✊",
+            "color": "#f87171"
         }
     ],
     "steps": [
@@ -52,7 +71,12 @@
                         {
                             "id": "clue-immediately",
                             "text": "med en gang. Umiddelbart.",
-                            "insight": "Dette var den utløsende faktoren. Svaret var ikke planlagt, men det ga folkemengden det klarsignalet de trengte for å dra til grenseovergangene."
+                            "insight": "Dette var den utløsende faktoren. Svaret var ikke planlagt, men det ga folkemengden det klarsignalet de trengte for å dra til grenseovergangene.",
+                            "supports": [
+                                "human-error"
+                            ],
+                            "weight": 3,
+                            "method": "samtidighet"
                         }
                     ]
                 }
@@ -79,7 +103,12 @@
                         {
                             "id": "clue-tomorrow",
                             "text": "Ab morgen, den 10. November",
-                            "insight": "Dette beviser at Schabowski leste feil eller ignorerte tidsbegrensningen i dokumentet, noe som skapte det totale kaoset ved muren."
+                            "insight": "Dette beviser at Schabowski leste feil eller ignorerte tidsbegrensningen i dokumentet, noe som skapte det totale kaoset ved muren.",
+                            "supports": [
+                                "human-error"
+                            ],
+                            "weight": 3,
+                            "method": "motkilde"
                         }
                     ]
                 }
@@ -88,16 +117,24 @@
     ],
     "conclusion_engine": {
         "question": "Hvorfor falt muren akkurat kvelden den 9. november?",
+        "minimumEvidence": 2,
         "options": [
             {
                 "id": "a",
                 "text": "Regimet hadde bestemt seg for å rive muren den kvelden som en gave til folket.",
-                "feedback": "Feil. Dokumentene viser at de ønsket en kontrollert prosess som skulle starte dagen etter med søknader."
+                "feedback": "Feil. Dokumentene viser at de ønsket en kontrollert prosess som skulle starte dagen etter med søknader.",
+                "correct": false,
+                "supportedBy": []
             },
             {
                 "id": "b",
                 "text": "En feilaktig uttalelse på TV tvang fram en åpning som vaktene ikke var klare for.",
-                "feedback": "Riktig! Schabowskis svar 'umiddelbart' skapte et press ved grensen som vaktene ikke kunne håndtere uten ordre, og de valgte til slutt å åpne portene."
+                "feedback": "Riktig! Schabowskis svar 'umiddelbart' skapte et press ved grensen som vaktene ikke kunne håndtere uten ordre, og de valgte til slutt å åpne portene.",
+                "correct": true,
+                "supportedBy": [
+                    "clue-immediately",
+                    "clue-tomorrow"
+                ]
             }
         ]
     }

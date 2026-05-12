@@ -1,8 +1,25 @@
 {
     "id": "karl-xii-mysteriet",
     "engine": "historical-detective",
+    "schemaVersion": 2,
     "title": "Mysteriet i Skyttergraven: Karl XIIs død",
     "description": "Ble den svenske krigerkongen drept av en norsk kule, eller var det et snikmord fra hans egne rekker? Undersøk bevisene fra 1718.",
+    "theme": "enlightenment",
+    "period": "1718",
+    "location": "Halden",
+    "difficulty": "Middels",
+    "estimatedTime": "15-20 min",
+    "epoch": "tidlig-moderne",
+    "kompetansemaal": [
+        "HIS10-3",
+        "HIS10-5"
+    ],
+    "relatedArticles": [
+        {
+            "title": "Den store nordiske krig",
+            "path": "/historie/middelalderen"
+        }
+    ],
     "briefing": {
         "title": "Oppdrag: Kongens Fall",
         "context": "11. desember 1718. Karl XII inspiserer de fremre skyttergravene ved Fredriksten festning i Halden. Plutselig blir han truffet av et skudd i tinningen og dør umiddelbart.",
@@ -14,20 +31,22 @@
     "status": {
         "trustLevel": 100,
         "evidenceCollected": 0,
-        "totalEvidence": 4
+        "totalEvidence": 2
     },
     "suspects": [
         {
             "id": "norway",
             "name": "Norsk Skytter",
             "description": "En heldig (eller dyktig) soldat fra festningen.",
-            "icon": "🇳🇴"
+            "icon": "🇳🇴",
+            "color": "#34d399"
         },
         {
             "id": "conspiracy",
             "name": "Svensk Snikmorder",
             "description": "Noen i kongens egen stab som ville ha fred.",
-            "icon": "🇸🇪"
+            "icon": "🇸🇪",
+            "color": "#fbbf24"
         }
     ],
     "steps": [
@@ -52,7 +71,12 @@
                         {
                             "id": "clue-sound",
                             "text": "slår to fingre mot hånden",
-                            "insight": "Lyden av treffet antyder at prosjektilet ikke hadde ekstremt høy fart, noe som er viktig for å vurdere avstanden skytteren sto på."
+                            "insight": "Lyden av treffet antyder at prosjektilet ikke hadde ekstremt høy fart, noe som er viktig for å vurdere avstanden skytteren sto på.",
+                            "supports": [
+                                "norway"
+                            ],
+                            "weight": 2,
+                            "method": "samtidighet"
                         }
                     ]
                 }
@@ -79,7 +103,12 @@
                         {
                             "id": "clue-button-dna",
                             "text": "DNA-spor antyder kongens blod",
-                            "insight": "Selv om det er kongens blod på knappen, betyr det ikke nødvendigvis at det var denne som drepte ham – den kan ha vært i kontakt med såret etterpå."
+                            "insight": "Selv om det er kongens blod på knappen, betyr det ikke nødvendigvis at det var denne som drepte ham - den kan ha vært i kontakt med såret etterpå.",
+                            "supports": [
+                                "conspiracy"
+                            ],
+                            "weight": 1,
+                            "method": "motkilde"
                         }
                     ]
                 }
@@ -88,16 +117,25 @@
     ],
     "conclusion_engine": {
         "question": "Hva er den mest sannsynlige forklaringen på Karl XIIs død basert på bevisene?",
+        "minimumEvidence": 2,
         "options": [
             {
                 "id": "a",
                 "text": "Han ble drept av en snikmorder med en magisk kuleknapp.",
-                "feedback": "Dette er en spennende legende, men ballistikken støtter ikke at en knapp kunne forårsake de skadene kongen fikk."
+                "feedback": "Dette er en spennende legende, men ballistikken støtter ikke at en knapp kunne forårsake de skadene kongen fikk.",
+                "correct": false,
+                "supportedBy": [
+                    "clue-button-dna"
+                ]
             },
             {
                 "id": "b",
                 "text": "Han ble truffet av et tilfeldig skudd fra den norske festningen.",
-                "feedback": "Riktig! De fleste bevis peker på at kongen stakk hodet for høyt opp fra skyttergraven og ble truffet av en blykule eller en kanonskrå fra de norske forsvarerne."
+                "feedback": "Riktig! De fleste bevis peker på at kongen stakk hodet for høyt opp fra skyttergraven og ble truffet av en blykule eller en kanonskrå fra de norske forsvarerne.",
+                "correct": true,
+                "supportedBy": [
+                    "clue-sound"
+                ]
             }
         ]
     }

@@ -1,8 +1,19 @@
 {
     "id": "vardo-hekseprosesser",
     "engine": "historical-detective",
+    "schemaVersion": 2,
     "title": "Heksejakten i Vardø (1662)",
     "description": "Hva førte til at en liten fiskerlandsby i Finnmark ble åsted for noen av Europas mest brutale hekseprosesser? Gå bak protokollene.",
+    "theme": "enlightenment",
+    "period": "1621 - 1663",
+    "location": "Finnmark",
+    "difficulty": "Høy",
+    "estimatedTime": "25-30 min",
+    "epoch": "tidlig-moderne",
+    "kompetansemaal": ["HIS10-3", "HIS10-5"],
+    "relatedArticles": [
+        { "title": "Hekseprosessene i Finnmark", "path": "/historie/middelalderen" }
+    ],
     "briefing": {
         "title": "Oppdrag: Vardø-mysteriet",
         "context": "Vinteren 1662 herjes Finnmark av frykt. To dusin kvinner i Vardø anklages for å ha inngått pakt med djevelen på fjellet Domen. De anklages for å ha senket skip med trolldom.",
@@ -21,19 +32,22 @@
             "id": "climate",
             "name": "Naturkrefter",
             "description": "Førte ekstremvær til jakt på syndebukker?",
-            "icon": "🌊"
+            "icon": "🌊",
+            "color": "#38bdf8"
         },
         {
             "id": "legal",
             "name": "Rettslig Maktmisbruk",
             "description": "Var det lokale embetsmenn som drev prosessen?",
-            "icon": "⚖️"
+            "icon": "⚖️",
+            "color": "#f59e0b"
         },
         {
             "id": "religion",
             "name": "Religiøs Frykt",
             "description": "Frykten for djevelen i nordområdene.",
-            "icon": "📜"
+            "icon": "📜",
+            "color": "#a78bfa"
         }
     ],
     "steps": [
@@ -55,13 +69,16 @@
                     "introduction": "Det første vi skal undersøke er en 'tingbok' fra Vardø. En tingbok er en slags dagbok fra rettssalen, der sorenskriveren skrev ned alt som skjedde under rettssakene. I denne kilden fra 1663 møter vi Ingeborg Iversdatter, som er anklaget for å være en heks.",
                     "original": "Ingeborg Iversdatter ble kastet på vannet... Hun fløt opp som en dupp, hvilket var et sikkert tegn på hennes pakt.",
                     "translation": "Ingeborg Iversdatter ble ført til vannprøven... Hun fløt umiddelbart opp, som bevis på at vannet avviste henne på grunn av synden.",
-                    "guidance": "Her ser vi 'vannprøven' i bruk. I middelalderen og tidlig nytid trodde man at vannet var et hellig element som ville avvise alt som var urent eller syndig. Hvis en kvinne fløt, betydde det at vannet 'spyttet henne ut' fordi hun var en heks. Hvis hun sank, var hun uskyldig. Dette beviset viser oss hvordan overtro ble brukt som en juridisk sannhet. Legg merke til hvordan Ingeborg beskrives som 'en dupp' – en dehumaniserende måte å beskrive et menneske i en livsfarlig situasjon på. Dette er ikke en rettferdig rettssak, men en prosess drevet av religiøs frykt.",
+                    "guidance": "Her ser vi 'vannprøven' i bruk. I middelalderen og tidlig nytid trodde man at vannet var et hellig element som ville avvise alt som var urent eller syndig. Hvis en kvinne fløt, betydde det at vannet 'spyttet henne ut' fordi hun var en heks. Hvis hun sank, var hun uskyldig. Dette beviset viser oss hvordan overtro ble brukt som en juridisk sannhet. Legg merke til hvordan Ingeborg beskrives som 'en dupp' - en dehumaniserende måte å beskrive et menneske i en livsfarlig situasjon på. Dette er ikke en rettferdig rettssak, men en prosess drevet av religiøs frykt.",
                     "hint": "Dette ble ansett som et 'vitenskapelig' bevis i 1662, men viser oss i dag hvordan overtro overstyrte logikk.",
                     "clues": [
                         {
                             "id": "clue-water-test",
                             "text": "fløt opp som en dupp",
-                            "insight": "Vannprøven var et 'omvendt bevis'. Uansett hva som skjedde, var kvinnen i livsfare. Dette viser hvordan rettssystemet ble brukt til å bekrefte overtro."
+                            "insight": "Vannprøven var et 'omvendt bevis'. Uansett hva som skjedde, var kvinnen i livsfare. Dette viser hvordan rettssystemet ble brukt til å bekrefte overtro.",
+                            "supports": ["religion", "legal"],
+                            "weight": 2,
+                            "method": "bias-deteksjon"
                         }
                     ]
                 }
@@ -91,7 +108,10 @@
                         {
                             "id": "clue-legal-critique",
                             "text": "dømmes på annet enn sanne bevis",
-                            "insight": "Dette viser at rettssystemet var under internt press og at noen innså at bevisene var fabrikkert gjennom tortur."
+                            "insight": "Dette viser at rettssystemet var under internt press og at noen innså at bevisene var fabrikkert gjennom tortur.",
+                            "supports": ["legal"],
+                            "weight": 2,
+                            "method": "motkilde"
                         }
                     ]
                 }
@@ -118,7 +138,10 @@
                         {
                             "id": "clue-collective-myth",
                             "text": "fløy på koster og hunder",
-                            "insight": "Disse fantastiske elementene viser at tilståelsene ikke var basert på virkelighet, men på kjente eventyrmotiver som ble presset fram under avhør."
+                            "insight": "Disse fantastiske elementene viser at tilståelsene ikke var basert på virkelighet, men på kjente eventyrmotiver som ble presset fram under avhør.",
+                            "supports": ["religion"],
+                            "weight": 1,
+                            "method": "kontekstualisering"
                         }
                     ]
                 }
@@ -127,16 +150,21 @@
     ],
     "conclusion_engine": {
         "question": "Hva var den viktigste faktoren som holdt hekseprosessene gående i Vardø?",
+        "minimumEvidence": 2,
         "options": [
             {
                 "id": "a",
                 "text": "Ekte magi som truet kongedømmet.",
-                "feedback": "Det finnes ingen historiske bevis for at heksene faktisk utførte magi, kun deres egne torturerte tilståelser."
+                "feedback": "Det finnes ingen historiske bevis for at heksene faktisk utførte magi, kun deres egne torturerte tilståelser.",
+                "correct": false,
+                "supportedBy": []
             },
             {
                 "id": "b",
                 "text": "En blanding av overtro, ekstremvær og et rettssystem som godtok tortur.",
-                "feedback": "Riktig! Frykt for havet og stormene kombinert med brutale rettsmetoder skapte en spiral av anklager som var umulig å stoppe uten innblanding ovenfra."
+                "feedback": "Riktig! Frykt for havet og stormene kombinert med brutale rettsmetoder skapte en spiral av anklager som var umulig å stoppe uten innblanding ovenfra.",
+                "correct": true,
+                "supportedBy": ["clue-water-test", "clue-legal-critique", "clue-collective-myth"]
             }
         ]
     }

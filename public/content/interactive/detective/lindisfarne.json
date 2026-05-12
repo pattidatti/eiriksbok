@@ -1,8 +1,19 @@
 {
     "id": "lindisfarne-detective",
     "engine": "historical-detective",
+    "schemaVersion": 2,
     "title": "Lindisfarne 793: Et lyn fra klar himmel?",
     "description": "Var vikingtiden et plutselig sjokk, eller var 793 bare toppen av isfjellet? Undersøk bevisene for kontakt før det store angrepet.",
+    "theme": "viking-sea",
+    "period": "793",
+    "location": "Lindisfarne, England",
+    "difficulty": "Middels",
+    "estimatedTime": "20-25 min",
+    "epoch": "middelalder",
+    "kompetansemaal": ["HIS10-1", "HIS10-5"],
+    "relatedArticles": [
+        { "title": "Vikingtiden - oversikt", "path": "/historie/vikingtiden" }
+    ],
     "briefing": {
         "title": "Oppdrag: Angrepet på Hellige Øy",
         "context": "8. juni 793: En dag som rystet den kristne verden. 'Hedenske menn' angriper klosteret på Lindisfarne, plyndrer skattene og dreper munkene. Tradisjonelt regnes dette som starten på vikingtiden.",
@@ -21,19 +32,22 @@
             "id": "unprovoked",
             "name": "Plutselig Rovraid",
             "description": "Opportunistiske sjørøvere på jakt etter lettbytte.",
-            "icon": "💎"
+            "icon": "💎",
+            "color": "#fbbf24"
         },
         {
             "id": "retaliation",
             "name": "Religiøs Krig",
             "description": "Gjengjeldelse for kristen ekspansjon og tvangsomvending i sør.",
-            "icon": "⚔️"
+            "icon": "⚔️",
+            "color": "#f87171"
         },
         {
             "id": "escalation",
             "name": "Politisk Opptrapping",
             "description": "Resultatet av langvarig kontakt og økende spenning.",
-            "icon": "📈"
+            "icon": "📈",
+            "color": "#34d399"
         }
     ],
     "steps": [
@@ -61,7 +75,10 @@
                         {
                             "id": "clue-fiery-dragons",
                             "text": "brennende drager ble sett i luften",
-                            "insight": "Munkene tolket angrepet som en overnaturlig katastrofe. Dette viser hvor sjokkert og uforberedt de var – eller ønsket å fremstå."
+                            "insight": "Munkene tolket angrepet som en overnaturlig katastrofe. Dette viser hvor sjokkert og uforberedt de var - eller ønsket å fremstå.",
+                            "supports": ["unprovoked"],
+                            "weight": 1,
+                            "method": "bias-deteksjon"
                         }
                     ]
                 }
@@ -91,7 +108,10 @@
                         {
                             "id": "clue-unprecedented",
                             "text": "Aldri før har en slik redsel hendt",
-                            "insight": "Alkuin hevder dette er helt nytt. Men visste han om det som skjedde fire år tidligere i Portland?"
+                            "insight": "Alkuin hevder dette er helt nytt. Men visste han om det som skjedde fire år tidligere i Portland?",
+                            "supports": ["retaliation"],
+                            "weight": 2,
+                            "method": "bias-deteksjon"
                         }
                     ]
                 }
@@ -112,7 +132,7 @@
                     },
                     "provenance": "En kortere notis skrevet før det store sjokket i 793.",
                     "uncertainty": "Notisen er kortfattet og nevner bare tre skip. Det ble kanskje ikke sett på som starten på en 'æra' før Lindisfarne skjedde.",
-                    "introduction": "Sporet som endrer alt: Vi må se på en annen notis i 'Den angelsaksiske krønike', men denne gangen fra år 789 – fire år FØR Lindisfarne. Dette er et bevis som ofte blir glemt fordi det ikke skjedde ved et kjent kloster. Det beskriver et møte på sørkysten av England.",
+                    "introduction": "Sporet som endrer alt: Vi må se på en annen notis i 'Den angelsaksiske krønike', men denne gangen fra år 789 - fire år FØR Lindisfarne. Dette er et bevis som ofte blir glemt fordi det ikke skjedde ved et kjent kloster. Det beskriver et møte på sørkysten av England.",
                     "original": "...and he wolde hie drifan to þæs cyninges tune... and hiene mon þær ofslog.",
                     "translation": "...og reeven (en lokal embetsmann) ville drive dem til kongens gård fordi han trodde de var handelsmenn som skulle betale skatt... og der slo de ham i hjel. Dette var de første skipene fra dansker som oppsøkte landet.",
                     "guidance": "Dette er røykteppet vårt! Her ser vi at 'vikingene' (som her faktisk kom fra Hordaland i Norge) ikke kom som monstre eller straff fra Gud, men som handelsmenn. De ble møtt av en lokal tjenestemann (en 'reeve') som krevde skatt. Konflikten startet altså ikke med religion, men med penger og byråkrati. Vikingene nektet å bli styrt, og drepte tjenestemannen. Dette beviser at Lindisfarne ikke var det første møtet, men kanskje det første angrepet som var planlagt som et hevnraid eller en plyndring etter at de hadde blitt dårlig behandlet tidligere.",
@@ -121,7 +141,10 @@
                         {
                             "id": "clue-portland",
                             "text": "drive dem til kongens gård",
-                            "insight": "Vikingene kom ikke for å plyndre kirker med en gang. De ble møtt som handelsmenn som nektet å betale skatt. Dette tyder på en konflikt som startet med handel, ikke religion."
+                            "insight": "Vikingene kom ikke for å plyndre kirker med en gang. De ble møtt som handelsmenn som nektet å betale skatt. Dette tyder på en konflikt som startet med handel, ikke religion.",
+                            "supports": ["escalation"],
+                            "weight": 3,
+                            "method": "korroborering"
                         }
                     ]
                 }
@@ -144,13 +167,16 @@
                     "uncertainty": "Vikingene skrev ikke ned sin side av saken. Vi må gjette om de visste hva som skjedde med naboene sine, sakserne.",
                     "introduction": "Det siste vi skal undersøke er de 'Frankiske riksannalene'. Dette er den offisielle historien til frankerne (forfedrene til dagens tyskere og franskmenn). På slutten av 700-tallet var de ledet av Karl den store, som drev en brutal krig for å kristne naboene sine, sakserne. Dette skjedde rett sør for Danmark.",
                     "interpretation": "Karl den store ødela saksernes helligdom Irminsul i 772 (et hellig tre som symboliserte verden). Han henrettet 4500 saksere i Verden i 782 fordi de nektet å bli kristne. Danske-kongen Sigfred ga de saksiske flyktningene fristed og beskyttelse.",
-                    "guidance": "Her må vi koble punktene! Mens Alkuin og munkene i England snakket om angrepet som 'umotivert', ser vi her en helt annen sammenheng. Karl den Store (som Alkuin jobbet for!) massakrerte saksere fordi de var hedninger, og ødela deres helligste symbol, verdenstreet Irminsul. Vikingene delte samme religion som sakserne. Angrepet på Lindisfarne – de kristnes helligste øy i Nord-England – kan sees på som et 'øye for øye'-svar. Ved å brenne klosteret, viste vikingene at de kunne slå tilbake mot de kristnes helligdommer, akkurat som Karl den store hadde gjort mot deres.",
+                    "guidance": "Her må vi koble punktene! Mens Alkuin og munkene i England snakket om angrepet som 'umotivert', ser vi her en helt annen sammenheng. Karl den Store (som Alkuin jobbet for!) massakrerte saksere fordi de var hedninger, og ødela deres helligste symbol, verdenstreet Irminsul. Vikingene delte samme religion som sakserne. Angrepet på Lindisfarne - de kristnes helligste øy i Nord-England - kan sees på som et 'øye for øye'-svar. Ved å brenne klosteret, viste vikingene at de kunne slå tilbake mot de kristnes helligdommer, akkurat som Karl den store hadde gjort mot deres.",
                     "hint": "Tenk på symbolikken. Hva skjer hvis en konge ødelegger din helligdom? Hvor angriper du tilbake?",
                     "clues": [
                         {
                             "id": "clue-irminsul",
                             "text": "ødela saksernes helligdom Irminsul",
-                            "insight": "Når de kristne ødela hedenske helligdommer i sør, kan angrepet på Lindisfarne ha vært et direkte svar – å vise at de kristnes guder var like sårbare."
+                            "insight": "Når de kristne ødela hedenske helligdommer i sør, kan angrepet på Lindisfarne ha vært et direkte svar - å vise at de kristnes guder var like sårbare.",
+                            "supports": ["retaliation", "escalation"],
+                            "weight": 2,
+                            "method": "kontekstualisering"
                         }
                     ]
                 }
@@ -159,16 +185,21 @@
     ],
     "conclusion_engine": {
         "question": "Var Lindisfarne et lyn fra klar himmel?",
+        "minimumEvidence": 2,
         "options": [
             {
                 "id": "a",
                 "text": "Ja, det var et totalt uforutsigbart angrep på uskyldige munker.",
-                "feedback": "Munkene ønsket å fremstille det slik, men Portland-angrepet i 789 og spenningen mot frankerne viser at kontakten og faren var der allerede."
+                "feedback": "Munkene ønsket å fremstille det slik, men Portland-angrepet i 789 og spenningen mot frankerne viser at kontakten og faren var der allerede.",
+                "correct": false,
+                "supportedBy": ["clue-fiery-dragons", "clue-unprecedented"]
             },
             {
                 "id": "b",
                 "text": "Nei, det var sannsynligvis en blanding av økonomisk press og religiøs gjengjeldelse.",
-                "feedback": "Riktig! Bevisene tyder på at vikingene kjente de kristnes svakheter gjennom handel, og at de kan ha følt seg truet av kristendommens aggressive fremmarsj i Saksa og Nord-Tyskland."
+                "feedback": "Riktig! Bevisene tyder på at vikingene kjente de kristnes svakheter gjennom handel, og at de kan ha følt seg truet av kristendommens aggressive fremmarsj i Saksa og Nord-Tyskland.",
+                "correct": true,
+                "supportedBy": ["clue-portland", "clue-irminsul"]
             }
         ]
     }

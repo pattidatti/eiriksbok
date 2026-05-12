@@ -1,0 +1,167 @@
+{
+  "cases": [
+    {
+      "id": "isdalskvinnen",
+      "title": "Gåten i Isdalen: Spion eller tragisk skjebne?",
+      "description": "I 1970 ble en kvinne funnet død i en isolert dal i Bergen. Alle merker var fjernet fra klærne hennes. Hvem var hun egentlig?",
+      "image": "/images/detective/isdalskvinnen_hero.webp",
+      "period": "1970",
+      "location": "Bergen",
+      "difficulty": "Høy",
+      "estimatedTime": "25-30 min",
+      "theme": "modern-investigation",
+      "epoch": "samtid",
+      "totalEvidence": 2,
+      "schemaVersion": 2,
+      "kompetansemaal": [
+        "HIS10-7",
+        "HIS10-9"
+      ]
+    },
+    {
+      "id": "vardo",
+      "title": "Heksejakten i Vardø (1662)",
+      "description": "Hva førte til at en liten fiskerlandsby i Finnmark ble åsted for noen av Europas mest brutale hekseprosesser? Gå bak protokollene.",
+      "image": "/images/detective/vardo_hero.webp",
+      "period": "1621 - 1663",
+      "location": "Finnmark",
+      "difficulty": "Høy",
+      "estimatedTime": "25-30 min",
+      "theme": "enlightenment",
+      "epoch": "tidlig-moderne",
+      "totalEvidence": 3,
+      "schemaVersion": 2,
+      "kompetansemaal": [
+        "HIS10-3",
+        "HIS10-5"
+      ]
+    },
+    {
+      "id": "tungtvann",
+      "title": "Jakten på Tungtvannet: Sabotasjen på Vemork",
+      "description": "Hvordan klarte en liten gruppe norske sabotører å stanse Hitlers drøm om en atombombe? Undersøk de topphemmelige rapportene.",
+      "image": "/images/detective/tungtvann_hero.webp",
+      "period": "1942 - 1944",
+      "location": "Rjukan",
+      "difficulty": "Høy",
+      "estimatedTime": "25-30 min",
+      "theme": "cold-war",
+      "epoch": "moderne",
+      "totalEvidence": 2,
+      "schemaVersion": 2,
+      "kompetansemaal": [
+        "HIS10-7",
+        "HIS10-9"
+      ]
+    },
+    {
+      "id": "lindisfarne",
+      "title": "Lindisfarne 793: Et lyn fra klar himmel?",
+      "description": "Var vikingtiden et plutselig sjokk, eller var 793 bare toppen av isfjellet? Undersøk bevisene for kontakt før det store angrepet.",
+      "image": "/images/detective/lindisfarne_hero.webp",
+      "period": "793",
+      "location": "Lindisfarne, England",
+      "difficulty": "Middels",
+      "estimatedTime": "20-25 min",
+      "theme": "viking-sea",
+      "epoch": "middelalder",
+      "totalEvidence": 4,
+      "schemaVersion": 2,
+      "kompetansemaal": [
+        "HIS10-1",
+        "HIS10-5"
+      ]
+    },
+    {
+      "id": "berlinmuren",
+      "title": "Muren som falt ved en feil: Berlin 1989",
+      "description": "Var det massivt folkeopprør eller en klønete byråkrat som egentlig åpnet Berlinmuren? Undersøk kaoset den 9. november.",
+      "image": "/images/detective/berlin_wall_hero.webp",
+      "period": "1989",
+      "location": "Berlin",
+      "difficulty": "Middels",
+      "estimatedTime": "20-25 min",
+      "theme": "cold-war",
+      "epoch": "samtid",
+      "totalEvidence": 2,
+      "schemaVersion": 2,
+      "kompetansemaal": [
+        "HIS10-7",
+        "HIS10-9"
+      ]
+    },
+    {
+      "id": "karl-xii",
+      "title": "Mysteriet i Skyttergraven: Karl XIIs død",
+      "description": "Ble den svenske krigerkongen drept av en norsk kule, eller var det et snikmord fra hans egne rekker? Undersøk bevisene fra 1718.",
+      "image": "/images/detective/karl_xii_hero.webp",
+      "period": "1718",
+      "location": "Halden",
+      "difficulty": "Middels",
+      "estimatedTime": "15-20 min",
+      "theme": "enlightenment",
+      "epoch": "tidlig-moderne",
+      "totalEvidence": 2,
+      "schemaVersion": 2,
+      "kompetansemaal": [
+        "HIS10-3",
+        "HIS10-5"
+      ]
+    },
+    {
+      "id": "greenland",
+      "title": "Mysteriet på Grønland",
+      "description": "Hvorfor forsvant den norrøne bosetningen på Grønland etter 500 år? Undersøk sporene de etterlot seg.",
+      "image": "/images/detective/greenland_hero.webp",
+      "period": "1200 - 1450",
+      "location": "Grønland",
+      "difficulty": "Middels",
+      "estimatedTime": "20-30 min",
+      "theme": "medieval-cold",
+      "epoch": "middelalder",
+      "totalEvidence": 4,
+      "schemaVersion": 2,
+      "kompetansemaal": [
+        "HIS10-2",
+        "HIS10-5",
+        "HIS10-7"
+      ]
+    },
+    {
+      "id": "stiklestad",
+      "title": "Slaget ved Stiklestad: Myte eller Virkelighet?",
+      "description": "Hvordan døde Olav Haraldsson egentlig? Undersøk splittelsen mellom samtidens kvad og senere tiders helgenfortellinger.",
+      "image": "/images/detective/stiklestad_hero.webp",
+      "period": "1030",
+      "location": "Nord-Trøndelag",
+      "difficulty": "Middels",
+      "estimatedTime": "15-20 min",
+      "theme": "viking-sea",
+      "epoch": "middelalder",
+      "totalEvidence": 2,
+      "schemaVersion": 2,
+      "kompetansemaal": [
+        "HIS10-1",
+        "HIS10-5"
+      ]
+    },
+    {
+      "id": "svartedauden",
+      "title": "Svartedaudens Ankomst: Da Skipet kom til Vågen",
+      "description": "Kom pesten virkelig med et skip til Bergen i 1349, eller var den i Norge mye tidligere? Løs gåten bak norgeshistoriens største katastrofe.",
+      "image": "/images/detective/svartedauden_hero.webp",
+      "period": "1349",
+      "location": "Bergen / Oslo",
+      "difficulty": "Middels",
+      "estimatedTime": "20 min",
+      "theme": "medieval-cold",
+      "epoch": "middelalder",
+      "totalEvidence": 2,
+      "schemaVersion": 2,
+      "kompetansemaal": [
+        "HIS10-2",
+        "HIS10-5"
+      ]
+    }
+  ]
+}

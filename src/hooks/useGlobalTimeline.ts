@@ -6,15 +6,34 @@ const fetchGlobalTimeline = async (): Promise<GlobalTimelineEvent[]> => {
     if (!response.ok) throw new Error('Failed to load global timeline');
 
     const data = await response.json();
-    let events: GlobalTimelineEvent[] = [];
+    let raw: GlobalTimelineEvent[] = [];
 
     if (Array.isArray(data)) {
-        events = data;
+        raw = data;
     } else if (data && typeof data === 'object' && Array.isArray(data.events)) {
-        events = data.events;
+        raw = data.events;
     }
 
-    return events.sort((a, b) => b.startDate - a.startDate);
+    const seen = new Map<string, GlobalTimelineEvent>();
+    const skipped: string[] = [];
+    for (const event of raw) {
+        if (!event.subjectId || typeof event.startDate !== 'number') {
+            skipped.push(event.id ?? event.title ?? '(uten id)');
+            continue;
+        }
+        if (!seen.has(event.id)) {
+            seen.set(event.id, event);
+        }
+    }
+
+    if (skipped.length > 0 && typeof console !== 'undefined') {
+        console.warn(
+            `[timeline] Hoppet over ${skipped.length} ugyldige events (mangler subjectId eller startDate):`,
+            skipped
+        );
+    }
+
+    return Array.from(seen.values()).sort((a, b) => a.startDate - b.startDate);
 };
 
 export const useGlobalTimeline = () => {

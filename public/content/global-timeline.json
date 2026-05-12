@@ -300,37 +300,46 @@
     },
     {
       "id": "jamestown",
-      "year": "1607",
       "title": "Jamestown grunnlegges",
       "description": "Første permanente engelske koloni i Amerika.",
-      "category": "historie"
+      "startDate": 1607,
+      "endDate": null,
+      "displayDate": "1607",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "kolonialisering",
+      "link": "/historie/kolonialisering/britisk-imperium",
+      "tags": [
+        "kolonialisering",
+        "usa",
+        "storbritannia"
+      ]
     },
     {
       "id": "quebec",
-      "year": "1608",
       "title": "Quebec grunnlegges",
       "description": "Starten på Det franske Nord-Amerika.",
-      "category": "historie"
-    },
-    {
-      "id": "sikhisme-khalsa-grunnleggelse",
-      "title": "Khalsa-fellesskapet grunnlegges",
-      "description": "Den tiende guruen, Guru Gobind Singh, etablerer Khalsa-fellesskapet ved Vaisakhi-feiringen. Dette gir sikhismen en tydeligere identitet og ytre kjennetegn.",
-      "date": 1699,
+      "startDate": 1608,
+      "endDate": null,
+      "displayDate": "1608",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "kolonialisering",
+      "link": "/historie/kolonialisering/fransk-kolonirike",
       "tags": [
-        "religion",
-        "sikhisme",
-        "ritual"
-      ],
-      "subjectId": "krle",
-      "topicId": "religion",
-      "link": "/krle/religion/sikhisme/sentrale-trekk"
+        "kolonialisering",
+        "frankrike",
+        "nord-amerika"
+      ]
     },
     {
       "id": "sikhisme-khalsa-grunnleggelse",
       "title": "Khalsa-fellesskapet grunnlegges",
       "description": "Den tiende guruen, Guru Gobind Singh, etablerer Khalsa-fellesskapet ved Vaisakhi-feiringen. Dette gir sikhismen en tydeligere identitet og ytre kjennetegn.",
-      "date": 1699,
+      "startDate": 1699,
+      "endDate": null,
+      "displayDate": "1699",
+      "type": "sub-event",
       "tags": [
         "religion",
         "sikhisme",
@@ -344,21 +353,10 @@
       "id": "sikhisme-nanak-fodsel",
       "title": "Guru Nanak blir født",
       "description": "Grunnleggeren av sikhismen, Guru Nanak, blir født i Punjab. Han forkynner budskapet om at alle mennesker er like og at det bare finnes én Gud.",
-      "date": 1469,
-      "tags": [
-        "religion",
-        "sikhisme",
-        "grunnleggere"
-      ],
-      "subjectId": "krle",
-      "topicId": "religion",
-      "link": "/krle/religion/sikhisme/grunnleggere"
-    },
-    {
-      "id": "sikhisme-nanak-fodsel",
-      "title": "Guru Nanak blir født",
-      "description": "Grunnleggeren av sikhismen, Guru Nanak, blir født i Punjab. Han forkynner budskapet om at alle mennesker er like og at det bare finnes én Gud.",
-      "date": 1469,
+      "startDate": 1469,
+      "endDate": null,
+      "displayDate": "1469",
+      "type": "sub-event",
       "tags": [
         "religion",
         "sikhisme",
@@ -370,10 +368,21 @@
     },
     {
       "id": "sju-aars-krigen",
-      "year": "1756",
       "title": "Sjuårskrigen",
       "description": "Global konflikt som sikrer britisk dominans.",
-      "category": "historie"
+      "startDate": 1756,
+      "endDate": 1763,
+      "displayDate": "1756 - 1763",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "kolonialisering",
+      "link": "/historie/kolonialisering/fransk-kolonirike",
+      "tags": [
+        "kolonialisering",
+        "krig",
+        "frankrike",
+        "storbritannia"
+      ]
     },
     {
       "id": "romerske-keisere",

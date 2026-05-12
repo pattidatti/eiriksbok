@@ -1,8 +1,25 @@
 {
     "id": "stiklestad-detektiv",
     "engine": "historical-detective",
+    "schemaVersion": 2,
     "title": "Slaget ved Stiklestad: Myte eller Virkelighet?",
     "description": "Hvordan døde Olav Haraldsson egentlig? Undersøk splittelsen mellom samtidens kvad og senere tiders helgenfortellinger.",
+    "theme": "viking-sea",
+    "period": "1030",
+    "location": "Nord-Trøndelag",
+    "difficulty": "Middels",
+    "estimatedTime": "15-20 min",
+    "epoch": "middelalder",
+    "kompetansemaal": [
+        "HIS10-1",
+        "HIS10-5"
+    ],
+    "relatedArticles": [
+        {
+            "title": "Olav den hellige",
+            "path": "/historie/vikingtiden"
+        }
+    ],
     "briefing": {
         "title": "Oppdrag: Kongens Fall",
         "context": "29. juli 1030 møtes kong Olav og en enorm bondehær på Stiklestad. Dette slaget regnes som kristendommens definitive gjennombrudd i Norge, men mye av det vi 'vet' ble skrevet ned 200 år senere.",
@@ -14,20 +31,22 @@
     "status": {
         "trustLevel": 100,
         "evidenceCollected": 0,
-        "totalEvidence": 3
+        "totalEvidence": 2
     },
     "suspects": [
         {
             "id": "assassination",
             "name": "Attentat",
             "description": "Ble han drept av spesifikke menn med personlige motiver?",
-            "icon": "🗡️"
+            "icon": "🗡️",
+            "color": "#f87171"
         },
         {
             "id": "legend",
             "name": "Historisk Konstruksjon",
             "description": "Er detaljene diktet opp for å gjøre ham til helgen?",
-            "icon": "✨"
+            "icon": "✨",
+            "color": "#fbbf24"
         }
     ],
     "steps": [
@@ -55,7 +74,12 @@
                         {
                             "id": "clue-skald-silence",
                             "text": "rant fra pannen",
-                            "insight": "Merkverdig nok nevner ikke Sigvat de tre berømte drapsmennene (Tore Hund, Kalv Arnesson, Thorstein Knarresmed) som Snorre fokuserer så sterkt på."
+                            "insight": "Merkverdig nok nevner ikke Sigvat de tre berømte drapsmennene (Tore Hund, Kalv Arnesson, Thorstein Knarresmed) som Snorre fokuserer så sterkt på.",
+                            "supports": [
+                                "legend"
+                            ],
+                            "weight": 2,
+                            "method": "samtidighet"
                         }
                     ]
                 }
@@ -85,7 +109,12 @@
                         {
                             "id": "clue-detailed-narrative",
                             "text": "stakk spydet opp under brynjen",
-                            "insight": "Disse detaljene dukker først opp i skriftlige kilder over 150 år etter slaget, noe som tyder på en gradvis legendedannelse."
+                            "insight": "Disse detaljene dukker først opp i skriftlige kilder over 150 år etter slaget, noe som tyder på en gradvis legendedannelse.",
+                            "supports": [
+                                "legend"
+                            ],
+                            "weight": 3,
+                            "method": "bias-deteksjon"
                         }
                     ]
                 }
@@ -94,16 +123,24 @@
     ],
     "conclusion_engine": {
         "question": "Hvorfor er kildene om Stiklestad så forskjellige?",
+        "minimumEvidence": 2,
         "options": [
             {
                 "id": "a",
                 "text": "Sagaforfatterne hadde bedre tilgang til vitner.",
-                "feedback": "Feil. Det er umulig å ha bedre vitner 200 år etterpå enn de som levde mens det skjedde."
+                "feedback": "Feil. Det er umulig å ha bedre vitner 200 år etterpå enn de som levde mens det skjedde.",
+                "correct": false,
+                "supportedBy": []
             },
             {
                 "id": "b",
                 "text": "Historien ble 'pyntet på' for å tjene kirken og kongemakten.",
-                "feedback": "Riktig! Ved å gjøre Olav til en hellig martyr som døde for troen, fikk både kirken og de senere kongene mer makt. Detaljene vi lærer i dag er ofte en blanding av tro og historie."
+                "feedback": "Riktig! Ved å gjøre Olav til en hellig martyr som døde for troen, fikk både kirken og de senere kongene mer makt. Detaljene vi lærer i dag er ofte en blanding av tro og historie.",
+                "correct": true,
+                "supportedBy": [
+                    "clue-skald-silence",
+                    "clue-detailed-narrative"
+                ]
             }
         ]
     }

@@ -1,8 +1,19 @@
 {
     "id": "greenland-detective",
     "engine": "historical-detective",
+    "schemaVersion": 2,
     "title": "Mysteriet på Grønland",
     "description": "Hvorfor forsvant den norrøne bosetningen på Grønland etter 500 år? Undersøk sporene de etterlot seg.",
+    "theme": "medieval-cold",
+    "period": "1200 - 1450",
+    "location": "Grønland",
+    "difficulty": "Middels",
+    "estimatedTime": "20-30 min",
+    "epoch": "middelalder",
+    "kompetansemaal": ["HIS10-2", "HIS10-5", "HIS10-7"],
+    "relatedArticles": [
+        { "title": "Norrøn bosetning på Grønland", "path": "/historie/middelalderen" }
+    ],
     "briefing": {
         "title": "Oppdrag: Grønlands forsvunne nordboere",
         "context": "Rundt år 985 slo Erik Raude seg ned på Grønland. I nesten 500 år blomstret samfunnet, med kirker, gårder og handel. Men på 1400-tallet ble det helt stille. Da skipene fra Norge endelig kom tilbake på 1700-tallet, var alle borte.",
@@ -21,19 +32,22 @@
             "id": "climate",
             "name": "Klimaendringer",
             "description": "Den lille istid gjorde det umulig å drive landbruk.",
-            "icon": "❄️"
+            "icon": "❄️",
+            "color": "#7dd3fc"
         },
         {
             "id": "economy",
             "name": "Økonomisk Kollaps",
             "description": "Markedet for hvalrosstann forsvant på grunn av elfenben fra Afrika.",
-            "icon": "💰"
+            "icon": "💰",
+            "color": "#fbbf24"
         },
         {
             "id": "conflict",
             "name": "Konflikt",
             "description": "Angrep fra inuitter eller sjørøvere utryddet bosetningen.",
-            "icon": "⚔️"
+            "icon": "⚔️",
+            "color": "#f87171"
         }
     ],
     "steps": [
@@ -61,7 +75,10 @@
                         {
                             "id": "clue-fiery-dragons",
                             "text": "brennende drager ble sett i luften",
-                            "insight": "Munkene tolket angrepet som en overnaturlig katastrofe. Dette viser hvor sjokkert og uforberedt de var – eller ønsket å fremstå."
+                            "insight": "Munkene tolket angrepet som en overnaturlig katastrofe. Dette viser hvor sjokkert og uforberedt de var - eller ønsket å fremstå.",
+                            "supports": [],
+                            "weight": 1,
+                            "method": "bias-deteksjon"
                         }
                     ]
                 }
@@ -91,7 +108,10 @@
                         {
                             "id": "clue-hvalsey-normal",
                             "text": "alt virket normalt",
-                            "insight": "Ingen tegn til nød eller krig i 1408. Dette svekker teorien om at de ble utryddet av inuitter eller sjørøvere på dette tidspunktet."
+                            "insight": "Ingen tegn til nød eller krig i 1408. Dette svekker teorien om at de ble utryddet av inuitter eller sjørøvere på dette tidspunktet.",
+                            "supports": ["economy", "climate"],
+                            "weight": 2,
+                            "method": "motkilde"
                         }
                     ]
                 }
@@ -112,7 +132,7 @@
                     },
                     "provenance": "Moderne vitenskapelig analyse av elfenben funnet i middelalderens Europa.",
                     "uncertainty": "Vi kan ikke vite nøyaktig når markedet kollapset, men vi ser en klar trend mot afrikansk elfenben på 1400-tallet.",
-                    "introduction": "Nyt bevis: For å forstå hvorfor nordboerne forsvant, må vi se på pengene. Det første vi skal se på her er data fra handelen med 'hvit gull' – altså hvalrosstann og elfenben. Det var dette menneskene på Grønland levde av.",
+                    "introduction": "Nyt bevis: For å forstå hvorfor nordboerne forsvant, må vi se på pengene. Det første vi skal se på her er data fra handelen med 'hvit gull' - altså hvalrosstann og elfenben. Det var dette menneskene på Grønland levde av.",
                     "interpretation": "Før 1300 kom nesten alt elfenben i Europa fra Grønland. Etter 1400 ble markedet oversvømt av billigere elfenben fra elefanter i Afrika. Prisen på hvalrosstann stupte.",
                     "guidance": "Her ser vi den økonomiske katastrofen svart på hvitt. Menneskene på Grønland var helt avhengige av å bytte til seg jern og tømmer fra Europa ved å selge hvalrosstann. Da afrikansk elefant-elfenben ble mer tilgjengelig og billigere på 1400-tallet, mistet grønlendingene sin eneste 'inntekt'. Uten penger kom det ingen skip, og uten skip fikk de ikke verktøyene de trengte for å overleve. Dette beviset tyder på at de ikke ble drept, men at de rett og slett ble fattige og isolerte.",
                     "hint": "Tenk på Grønland som en bedrift som mistet sin eneste kunde. Hva gjør de ansatte da?",
@@ -120,7 +140,10 @@
                         {
                             "id": "clue-ivory-collapse",
                             "text": "Prisen på hvalrosstann stupte",
-                            "insight": "Dette beviser en økonomisk krise. Uten handel kunne de ikke få tak i jern eller tømmer, som var nødvendig for å overleve på Grønland."
+                            "insight": "Dette beviser en økonomisk krise. Uten handel kunne de ikke få tak i jern eller tømmer, som var nødvendig for å overleve på Grønland.",
+                            "supports": ["economy"],
+                            "weight": 3,
+                            "method": "korroborering"
                         }
                     ]
                 }
@@ -149,7 +172,10 @@
                         {
                             "id": "clue-little-ice-age",
                             "text": "havisen gjorde skipstrafikk mye farligere",
-                            "insight": "Isolering var kanskje den viktigste årsaken. Uten kontakt med omverdenen var kolonien dødsdømt."
+                            "insight": "Isolering var kanskje den viktigste årsaken. Uten kontakt med omverdenen var kolonien dødsdømt.",
+                            "supports": ["climate"],
+                            "weight": 3,
+                            "method": "korroborering"
                         }
                     ]
                 }
@@ -158,16 +184,21 @@
     ],
     "conclusion_engine": {
         "question": "Hvorfor forsvant de norrøne fra Grønland?",
+        "minimumEvidence": 2,
         "options": [
             {
                 "id": "a",
                 "text": "De ble utryddet i krig med inuitter og sjørøvere.",
-                "feedback": "Det finnes lite arkeologisk bevis for store slag. Bryllupet i 1408 tyder på et fredelig samfunn helt mot slutten."
+                "feedback": "Det finnes lite arkeologisk bevis for store slag. Bryllupet i 1408 tyder på et fredelig samfunn helt mot slutten.",
+                "correct": false,
+                "supportedBy": []
             },
             {
                 "id": "b",
                 "text": "En kombinasjon av økonomisk kollaps (elfenben) og klimaendringer gjorde det umulig å bli.",
-                "feedback": "Riktig! Bevisene tyder på en gradvis forlatelse av øya ettersom livsgrunnlaget forsvant og kulden tok over."
+                "feedback": "Riktig! Bevisene tyder på en gradvis forlatelse av øya ettersom livsgrunnlaget forsvant og kulden tok over.",
+                "correct": true,
+                "supportedBy": ["clue-hvalsey-normal", "clue-ivory-collapse", "clue-little-ice-age"]
             }
         ]
     }

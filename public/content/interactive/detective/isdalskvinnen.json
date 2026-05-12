@@ -1,8 +1,25 @@
 {
     "id": "isdalskvinnen-mysteriet",
     "engine": "historical-detective",
+    "schemaVersion": 2,
     "title": "Gåten i Isdalen: Spion eller tragisk skjebne?",
     "description": "I 1970 ble en kvinne funnet død i en isolert dal i Bergen. Alle merker var fjernet fra klærne hennes. Hvem var hun egentlig?",
+    "theme": "modern-investigation",
+    "period": "1970",
+    "location": "Bergen",
+    "difficulty": "Høy",
+    "estimatedTime": "25-30 min",
+    "epoch": "samtid",
+    "kompetansemaal": [
+        "HIS10-7",
+        "HIS10-9"
+    ],
+    "relatedArticles": [
+        {
+            "title": "Den kalde krigen",
+            "path": "/historie"
+        }
+    ],
     "briefing": {
         "title": "Oppdrag: Den ukjente kvinnen",
         "context": "November 1970. En turgåer finner liket av en kvinne i Isdalen. Rundt henne ligger krukker med sovemedisin, brente objekter og en mystisk koffert på jernbanestasjonen i Bergen.",
@@ -14,20 +31,22 @@
     "status": {
         "trustLevel": 100,
         "evidenceCollected": 0,
-        "totalEvidence": 4
+        "totalEvidence": 2
     },
     "suspects": [
         {
             "id": "spy",
             "name": "Kaldkrigs-spion",
             "description": "Hun overvåket kanskje de norske Penguin-missilene for en fremmed makt.",
-            "icon": "🕵️‍♀️"
+            "icon": "🕵️‍♀️",
+            "color": "#a78bfa"
         },
         {
             "id": "criminal",
             "name": "Kriminell på flukt",
             "description": "En person involvert i diamanthandel eller sjekksvindel.",
-            "icon": "💼"
+            "icon": "💼",
+            "color": "#fbbf24"
         }
     ],
     "steps": [
@@ -52,7 +71,12 @@
                         {
                             "id": "clue-encryption",
                             "text": "bokstavene sto for byer og datoer",
-                            "insight": "Dette beviser at kvinnen var svært bevisst på å skjule reisemønsteret sitt for utenforstående, noe som er typisk for etterretningsvirksomhet."
+                            "insight": "Dette beviser at kvinnen var svært bevisst på å skjule reisemønsteret sitt for utenforstående, noe som er typisk for etterretningsvirksomhet.",
+                            "supports": [
+                                "spy"
+                            ],
+                            "weight": 3,
+                            "method": "bias-deteksjon"
                         }
                     ]
                 }
@@ -79,7 +103,12 @@
                         {
                             "id": "clue-central-europe",
                             "text": "Frankrike/Tyskland",
-                            "insight": "Opprinnelsen i hjertet av Europa stemmer godt overens med teoriene om at hun jobbet for en europeisk etterretningstjeneste under den kalde krigen."
+                            "insight": "Opprinnelsen i hjertet av Europa stemmer godt overens med teoriene om at hun jobbet for en europeisk etterretningstjeneste under den kalde krigen.",
+                            "supports": [
+                                "spy"
+                            ],
+                            "weight": 2,
+                            "method": "korroborering"
                         }
                     ]
                 }
@@ -88,16 +117,24 @@
     ],
     "conclusion_engine": {
         "question": "Hvilken konklusjon støttes best av både de kodede loggene og de moderne isotopanalysene?",
+        "minimumEvidence": 2,
         "options": [
             {
                 "id": "a",
                 "text": "Hun var en lokal kvinne fra Bergen med psykiske problemer.",
-                "feedback": "Feil. Vitenskapen beviser at de vokste opp i Sentral-Europa, og koffertene hennes viser et profesjonelt system for å skjule identitet."
+                "feedback": "Feil. Vitenskapen beviser at de vokste opp i Sentral-Europa, og koffertene hennes viser et profesjonelt system for å skjule identitet.",
+                "correct": false,
+                "supportedBy": []
             },
             {
                 "id": "b",
                 "text": "Hun var sannsynligvis en kurer eller agent involvert i etterretning.",
-                "feedback": "Riktig! De mange identitetene, den kodede reiseloggen og de fjernede merkelappene peker alle mot en person som levde et farlig og uoffisielt liv under den kalde krigen."
+                "feedback": "Riktig! De mange identitetene, den kodede reiseloggen og de fjernede merkelappene peker alle mot en person som levde et farlig og uoffisielt liv under den kalde krigen.",
+                "correct": true,
+                "supportedBy": [
+                    "clue-encryption",
+                    "clue-central-europe"
+                ]
             }
         ]
     }

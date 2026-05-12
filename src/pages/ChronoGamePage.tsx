@@ -1,8 +1,11 @@
 import React, { useState, useMemo } from 'react';
+import { AnimatePresence } from 'framer-motion';
 import { useGlobalTimeline } from '../hooks/useGlobalTimeline';
 import { useManifest } from '../hooks/useManifest';
 import { ChronoBoard } from '../components/games/chrono/ChronoBoard';
 import { ChronoSetup, type ChronoFilterOptions } from '../components/games/chrono/ChronoSetup';
+import { ChronoTutorial } from '../components/games/chrono/ChronoTutorial';
+import { hasSeenTutorial } from '../utils/chronoStats';
 import { PageSkeleton } from '../components/Skeleton';
 import { Link } from 'react-router-dom';
 import { useLayout } from '../context/LayoutContext';
@@ -14,6 +17,7 @@ const ChronoGamePage: React.FC = () => {
     const [gameState, setGameState] = useState<'setup' | 'playing'>('setup');
     const [filteredEvents, setFilteredEvents] = useState<any[]>([]);
     const [difficulty, setDifficulty] = useState<'easy' | 'medium' | 'hard'>('medium');
+    const [showTutorial, setShowTutorial] = useState<boolean>(() => !hasSeenTutorial());
 
     React.useEffect(() => {
         setFullWidth(false); // No longer 100% widescreen
@@ -113,16 +117,29 @@ const ChronoGamePage: React.FC = () => {
                             Chrono Cards
                         </h1>
                     </div>
-                    {gameState === 'playing' && (
+                    <div className="flex items-center gap-2">
                         <button
-                            onClick={() => setGameState('setup')}
+                            onClick={() => setShowTutorial(true)}
                             className="text-xs font-bold text-slate-400 hover:text-indigo-600 transition-colors bg-slate-50 px-3 py-1.5 rounded-lg border border-slate-100"
+                            title="Vis introduksjon"
                         >
-                            Endre valg av emne og periode
+                            Hjelp
                         </button>
-                    )}
+                        {gameState === 'playing' && (
+                            <button
+                                onClick={() => setGameState('setup')}
+                                className="text-xs font-bold text-slate-400 hover:text-indigo-600 transition-colors bg-slate-50 px-3 py-1.5 rounded-lg border border-slate-100"
+                            >
+                                Endre valg
+                            </button>
+                        )}
+                    </div>
                 </div>
             </header>
+
+            <AnimatePresence>
+                {showTutorial && <ChronoTutorial onComplete={() => setShowTutorial(false)} />}
+            </AnimatePresence>
 
             {/* Game Content */}
             <main className="max-w-6xl mx-auto px-4 py-4 sm:py-8 font-sans">

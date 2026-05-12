@@ -215,7 +215,7 @@ export interface GlobalTimelineEvent {
     startDate: number;
     endDate?: number | null;
     displayDate: string;
-    type: 'lesson' | 'text' | 'event';
+    type: 'lesson' | 'text' | 'event' | 'sub-event';
     subjectId: string;
     topicId?: string;
     link: string;

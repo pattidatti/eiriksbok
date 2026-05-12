@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Filter, Play, Check, BookOpen, Layers } from 'lucide-react';
+import { Filter, Play, Check, BookOpen, Layers, Target, Flame, History } from 'lucide-react';
+import { getStats } from '../../../utils/chronoStats';
 
 export interface ChronoFilterOptions {
     subjects: string[];
@@ -29,12 +30,16 @@ export const ChronoSetup: React.FC<ChronoSetupProps> = ({
     const [yearRange] = useState<[number, number]>([minYear, maxYear]);
     const [difficulty, setDifficulty] = useState<'easy' | 'medium' | 'hard'>('medium');
     const [highscore, setHighscore] = useState(0);
+    const [stats] = useState(() => getStats());
 
     // Load Highscore
     React.useEffect(() => {
         const saved = localStorage.getItem('chrono_highscore');
         if (saved) setHighscore(parseInt(saved, 10));
     }, []);
+
+    const accuracy = stats.totalAttempts > 0 ? Math.round((stats.totalCorrect / stats.totalAttempts) * 100) : null;
+    const failedCount = Object.keys(stats.failedEventIds).length;
 
     const toggleSubject = (subject: string) => {
         setSelectedSubjects(prev =>
@@ -87,6 +92,41 @@ export const ChronoSetup: React.FC<ChronoSetupProps> = ({
                 </div>
 
                 <div className="p-6 space-y-8">
+                    {/* Personal stats (only after first game) */}
+                    {stats.totalGames > 0 && (
+                        <section className="bg-slate-50 border border-slate-100 rounded-2xl p-4">
+                            <div className="flex items-center gap-2 mb-3">
+                                <History className="w-4 h-4 text-slate-500" />
+                                <h3 className="text-xs font-black text-slate-600 uppercase tracking-widest">Din spillstatus</h3>
+                            </div>
+                            <div className="grid grid-cols-3 gap-3">
+                                <div className="text-center">
+                                    <span className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest">Runder</span>
+                                    <span className="text-xl font-black text-slate-800">{stats.totalGames}</span>
+                                </div>
+                                <div className="text-center">
+                                    <span className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest">Beste streak</span>
+                                    <span className="text-xl font-black text-orange-500 flex items-center justify-center gap-1">
+                                        <Flame className="w-4 h-4" />
+                                        {stats.bestStreak}
+                                    </span>
+                                </div>
+                                <div className="text-center">
+                                    <span className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest">Treffrate</span>
+                                    <span className="text-xl font-black text-emerald-600">{accuracy !== null ? `${accuracy}%` : '-'}</span>
+                                </div>
+                            </div>
+                            {failedCount > 0 && (
+                                <div className="mt-3 flex items-start gap-2 text-[11px] text-slate-500">
+                                    <Target className="w-3.5 h-3.5 mt-0.5 text-rose-500 shrink-0" />
+                                    <span>
+                                        Du har slitt med <strong className="text-slate-700">{failedCount}</strong> kort før. De dukker opp oftere så du får øvd ekstra på dem.
+                                    </span>
+                                </div>
+                            )}
+                        </section>
+                    )}
+
                     {/* Subjects */}
                     <section>
                         <h3 className="text-sm font-bold text-slate-800 mb-3 flex items-center gap-2">

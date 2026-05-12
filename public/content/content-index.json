@@ -1,5 +1,5 @@
 {
-  "buildId": 1778591027431,
+  "buildId": 1778613242700,
   "contentMap": {
     "adel": [
       "content/concepts/adel.json"
@@ -964,6 +964,9 @@
     ],
     "vikingtiden-sti": [
       "content/historie/vikingtiden/vikingtiden-sti.json"
+    ],
+    "detective-_index": [
+      "content/interactive/detective/_index.json"
     ],
     "detective-berlinmuren": [
       "content/interactive/detective/berlinmuren.json"
@@ -2142,6 +2145,7 @@
     "historie/vikingtiden/skipsteknologi": "content/historie/vikingtiden/skipsteknologi.json",
     "historie/vikingtiden/veien-mot-ost": "content/historie/vikingtiden/veien-mot-ost.json",
     "historie/vikingtiden/vikingtiden-sti": "content/historie/vikingtiden/vikingtiden-sti.json",
+    "interactive/detective/detective-_index": "content/interactive/detective/_index.json",
     "interactive/detective/detective-berlinmuren": "content/interactive/detective/berlinmuren.json",
     "interactive/detective/detective-greenland": "content/interactive/detective/greenland.json",
     "interactive/detective/detective-isdalskvinnen": "content/interactive/detective/isdalskvinnen.json",
