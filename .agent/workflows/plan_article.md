@@ -29,7 +29,25 @@ Focus on the "Soul" of the content before writing any code.
 - **Core Sections:** Use `header` blocks (NOT nested sections).
 - **Summary:** Concise wrap-up or "Deep Dive" conclusion.
 
-### 3. Layout & Components
+### 3. Signaturkomponent (obligatorisk)
+
+Hver artikkel skal ha **én signaturkomponent** — en interaktiv komponent som understreker, forsterker eller lærer bort artikkelens viktigste poeng (kjernen du definerte i 1. Pedagogical Vision). Signaturkomponenten er hovedlæringsmotoren i artikkelen, ikke et tilbehør.
+
+**Designkrav (ikke-forhandlbart):**
+- Brukervennlig: en 14-åring forstår hva hen skal gjøre innen 5 sekunder.
+- Oversiktlig: én pedagogisk kjerne, ingen overlessing.
+- Gøy: umiddelbar visuell respons. Framer Motion for state-endringer, juicy suksessanimasjon ved fullføring.
+- Lærerik: eleven sitter igjen med en konkret innsikt etter interaksjonen.
+- Visuelt: lys base, rounded-xl, Lucide-ikoner. Ingen mørk default-bakgrunn.
+- Ingen intern scrolling. Fungerer på 1366×768 (Chromebook-baseline).
+
+**Standard: lag ny komponent.** Les hele `.agent/workflows/build_interactive.md` og følg den slavisk. Skriv komponenten til `src/components/content/interactive/[Navn].tsx`, registrer i `src/components/ComponentRegistry.tsx`, og bruk i artikkel-JSON som `{ "type": "component", "name": "[Navn]", "props": { ... } }`.
+
+**Unntak — gjenbruk:** Hvis en eksisterende custom-komponent treffer kjernepoenget like perfekt som en ny ville gjort, kan den gjenbrukes. I tvil — lag ny.
+
+**Standard-komponenter (Quiz, FactBox, bilder, osv.) brukes i tillegg**, ikke i stedet for signaturkomponenten.
+
+### 4. Layout & Components
 - **Rich Layout (`"layout": "rich"`):** 
     - Required for historical topics with timelines.
     - Includes interactive sidebar with TOC and map links.
