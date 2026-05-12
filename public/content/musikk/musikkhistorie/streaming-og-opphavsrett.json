@@ -1,0 +1,285 @@
+{
+    "id": "streaming-og-opphavsrett",
+    "title": "Streaming og opphavsrett: Hvem får betalt når du hører musikk?",
+    "layout": "rich",
+    "year": "2008 – i dag",
+    "category": "Musikk og samfunn",
+    "readTime": "10 min lesning",
+    "heroImage": "/images/placeholder.webp",
+    "details": [
+        "Én avspilling på Spotify gir artisten omtrent tre øre",
+        "En artist må ha rundt en kvart million avspillinger i måneden for å tjene en norsk minstelønn",
+        "Opphavsretten varer i 70 år etter at komponisten dør"
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Du sitter på bussen. Du tar opp telefonen, åpner Spotify og trykker på favorittlåten din. Den begynner å spille i ørene dine. Akkurat i det øyeblikket starter en helt usynlig maskin å fordele penger. En tidels brøk av et øre forlater Spotify og begynner en lang reise mellom plateselskaper, rettighetsorganisasjoner, låtskrivere og til slutt — kanskje — den artisten du faktisk hører på. Veldig mange voksne i musikkbransjen krangler om denne maskinen. Mange artister mener den er urettferdig. Andre mener den har reddet musikken. Hvem har rett?"
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Tenåring med hodetelefoner som lytter til musikk på telefonen sin",
+            "caption": "Hver gang noen trykker «play» starter en pengestrøm — men hvem får hva?"
+        },
+        {
+            "type": "header",
+            "text": "Slik fungerer streaming"
+        },
+        {
+            "type": "text",
+            "content": "Før i tiden kjøpte folk musikk. Du gikk i platebutikken, plukket en CD til 200 kroner og tok den med hjem. Den var din. I 2008 kom en svensk tjeneste som het Spotify og snudde alt på hodet. Ideen var rett fram: i stedet for å eie musikken, leier du tilgang til all musikk i verden. Du betaler omtrent hundre kroner i måneden, og kan høre alt så mye du vil. Tjenester som Apple Music, YouTube Music og Tidal følger samme oppskrift."
+        },
+        {
+            "type": "text",
+            "content": "Spotify betaler ikke hver artist direkte for hver avspilling du gjør. I stedet samler de inn pengene fra alle abonnenter, trekker fra det de selv skal ha (rundt 30 prosent), og deler resten ut til artistene basert på hvor stor andel av alle avspillinger som gikk til hver enkelt. Hvis du hører bare på Karpe en hel måned, går mer av dine penger til Karpe. Hvis du hører like mye på alle artister, blir andelene jevnere fordelt."
+        },
+        {
+            "type": "text",
+            "content": "Hver enkelt avspilling gir likevel veldig lite. Tallene endrer seg, men en god tommelfingerregel er at én stream gir mellom tre og fem øre til hele kjeden som står bak låten. Artisten selv får ofte bare en liten del av dette. For å tjene en vanlig norsk månedslønn på rundt 35 000 kroner må en artist altså ha mange hundre tusen avspillinger hver eneste måned — bare på Spotify."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Tallene bak en stream",
+                "items": [
+                    "1 stream på Spotify gir cirka 0,003 dollar (omtrent 3 øre)",
+                    "En artist trenger rundt 250 000 streams i måneden for å tjene minstelønn",
+                    "Spotify hadde over 600 millioner brukere i 2024",
+                    "Av disse betaler omtrent halvparten for abonnement"
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Pengestrømmen — hvem får hva?"
+        },
+        {
+            "type": "text",
+            "content": "Den lille pengesummen som forlater Spotify når du trykker play, deles ikke i to. Den deles i mange biter. Hver bit går til en aktør som har en eller annen rolle i at låten finnes og kan spilles. La oss følge pengene gjennom kjeden."
+        },
+        {
+            "type": "component",
+            "name": "Hierarchy",
+            "props": {
+                "title": "Pengefordelingen bak én stream",
+                "items": [
+                    {
+                        "title": "Streamingtjenesten (Spotify, Apple Music, Tidal)",
+                        "description": "Tar omtrent 30 prosent av dine abonnementspenger for å drifte plattformen, betale ansatte og tjene penger til eierne sine."
+                    },
+                    {
+                        "title": "Plateselskapet",
+                        "description": "Får den største delen av artistens halvdel — ofte 50 til 80 prosent. Plateselskapet betalte for innspilling, markedsføring og distribusjon, og tar derfor en høy andel før artisten ser noe."
+                    },
+                    {
+                        "title": "Artisten (utøveren)",
+                        "description": "Sitter ofte igjen med 10 til 20 prosent av sin del. Hvis bandet er flere personer, deles dette mellom dem. Artister uten plateselskap kan beholde mye mer selv, men må også gjøre alt arbeidet."
+                    },
+                    {
+                        "title": "Låtskriveren og komponisten",
+                        "description": "Får egne royalties fordi de skapte selve sangen og teksten. Disse pengene går gjennom rettighetsorganisasjoner som TONO i Norge, som passer på at låtskriveren får sin del."
+                    },
+                    {
+                        "title": "Produsenten og musikerne",
+                        "description": "Folk som spilte instrumenter, sang kor eller mikset låten i studio. De kan ha avtaler om en liten prosentandel, men ofte er de bare betalt en gang for jobben."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "text",
+            "content": "Når du legger sammen alle disse leddene, forstår du hvorfor mange artister er sinte. Selv om låten deres blir spilt en million ganger, kan artisten selv sitte igjen med kanskje 3 000 til 10 000 kroner. Plateselskapet tjener mye mer på den samme låten. Det er denne fordelingen som har skapt en av de største kranglene i moderne musikkhistorie."
+        },
+        {
+            "type": "component",
+            "name": "QuoteBlock",
+            "props": {
+                "text": "Musikk skal ikke være gratis. Jeg håper at artister ikke gir bort musikken sin og forventer at kunsten deres ikke skal gi noen verdi tilbake. Plateselskaper, streamingtjenester og fans må alle gjenkjenne dette.",
+                "author": "Taylor Swift, da hun fjernet katalogen sin fra Spotify i 2014"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Hva er opphavsrett egentlig?"
+        },
+        {
+            "type": "text",
+            "content": "For å forstå hvorfor pengene fordeles slik de gjør, må vi forstå opphavsrett. Opphavsrett er en lov som sier at den som lager noe kreativt — en sang, en bok, et bilde, en film — eier det de har laget. Andre kan ikke bare kopiere det og bruke det uten lov. Reglene ble laget for å gi kunstnere mulighet til å tjene penger på arbeidet sitt."
+        },
+        {
+            "type": "text",
+            "content": "I en sang er det egentlig to opphavsretter. Den ene er retten til selve sangen — melodien, akkordene og teksten. Den eies av låtskriveren. Den andre er retten til opptaket — den konkrete innspillingen du faktisk hører. Den eies oftest av plateselskapet, fordi de betalte for studiotiden. Når noen vil bruke en sang, må de få lov fra begge eierne. Det er derfor det er så komplisert å fordele pengene fra streaming."
+        },
+        {
+            "type": "text",
+            "content": "Opphavsretten i Norge varer i 70 år etter at den som skapte verket dør. Etter det er verket fritt — alle kan bruke det uten å betale noen. Det er derfor du kan høre Beethoven gratis hvor som helst, mens Beyoncé koster. Beethoven døde i 1827. Hans melodier tilhører nå hele menneskeheten."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Studio med mikrofon og lydutstyr, opptaksskjermer og blendet lys",
+            "caption": "I studioet skapes både komposisjonen og opptaket — to ulike opphavsretter som lever videre i tiår etterpå."
+        },
+        {
+            "type": "header",
+            "text": "De etiske dilemmaene"
+        },
+        {
+            "type": "text",
+            "content": "Hva er egentlig rettferdig? Spørsmålet høres enkelt ut, men har ikke noe enkelt svar. Mange mener at dagens system er urettferdig fordi artister får så lite per stream. Andre mener at streaming faktisk har gjort musikk mer tilgjengelig enn noen gang — folk i fattige land har nå tilgang til den samme musikken som folk i rike land, til en lav pris. Begge synene har gode argumenter."
+        },
+        {
+            "type": "text",
+            "content": "Et annet vanskelig spørsmål handler om hvem som egentlig skaper en låt. Mange moderne popsanger er laget av et team — en låtskriver i Sverige, en produsent i Los Angeles, en sanger i Korea. Hvem skal eie sangen? Hvem skal ha mest? Og hva med kunstig intelligens som nå kan lage musikk som høres ut som ekte artister? Hvis en KI-modell er trent på Taylor Swifts sanger, og deretter lager en låt som høres ut som henne — har den brutt opphavsretten?"
+        },
+        {
+            "type": "text",
+            "content": "Et tredje dilemma er kulturell appropriasjon. Hvem eier en musikalsk tradisjon? Joiken er et godt eksempel: når en ikke-samisk artist lager en pop-låt med joik i, skal artisten få lov til det? Skal det samiske folket få betalt? Joiken har ingen enkelt komponist som kan kreve royalties, men den er likevel en levende kulturarv. Slike spørsmål blir stadig viktigere i en verden der musikk reiser raskere enn noen gang."
+        },
+        {
+            "type": "component",
+            "name": "ScenarioRoleplay",
+            "props": {
+                "title": "Du er ny artist — hva velger du?",
+                "intro": "Du er 17 år og har akkurat lastet opp din første låt på en distribusjonstjeneste. Telefonen ringer. To selskaper vil ha deg. Hva svarer du?",
+                "startId": "start",
+                "scenarios": [
+                    {
+                        "id": "start",
+                        "text": "Et stort plateselskap tilbyr en kontrakt: de tar 80 prosent av strømmeinntektene, men lover å bruke en million kroner på markedsføring slik at du blir kjent. Et lite uavhengig selskap tilbyr en avtale der du beholder 70 prosent selv, men du må gjøre mesteparten av markedsføringen selv. Du kan også droppe begge og fortsette helt på egen hånd. Hva velger du?",
+                        "options": [
+                            { "label": "Jeg signerer med det store plateselskapet. 20 prosent av noe er bedre enn 70 prosent av ingenting.", "nextId": "stor", "outcome": "neutral" },
+                            { "label": "Jeg velger det lille selskapet. Jeg vil eie mer av egen musikk, selv om det blir mer arbeid.", "nextId": "liten", "outcome": "neutral" },
+                            { "label": "Jeg dropper begge og fortsetter helt selv. Jeg vil eie alt.", "nextId": "alene", "outcome": "neutral" }
+                        ]
+                    },
+                    {
+                        "id": "stor",
+                        "text": "Du har valgt den klassiske veien. Mange store stjerner har gjort det samme. Risikoen er at hvis ikke låtene dine slår an raskt, kan kontrakten holde deg bundet i flere år uten at du tjener noe. Plateselskapet bestemmer mye av musikken og bildet ditt."
+                    },
+                    {
+                        "id": "liten",
+                        "text": "Du har valgt en moderne uavhengig vei. Mange unge artister gjør det samme i dag og bruker TikTok og Instagram for å bygge fans. Hvis en låt slår an, beholder du mye mer selv. Men veksten kan være tregere og mer usikker."
+                    },
+                    {
+                        "id": "alene",
+                        "text": "Du er nå en helt uavhengig artist. Du beholder all inntekt, men du må også betale alle utgifter selv: studio, markedsføring, juss og distribusjon. Mange klarer dette i dag takket være billige verktøy, men det krever at du jobber som både artist og bedriftsleder."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Hva kan en lytter gjøre?"
+        },
+        {
+            "type": "text",
+            "content": "Det er lett å føle at en enkeltperson ikke kan gjøre noe. Men det stemmer ikke helt. Hver gang du velger hvordan du hører musikk, gjør du et lite valg om hvordan pengene flyter. Hvis du går på konsert, går nesten alle pengene direkte til artisten. Hvis du kjøper en t-skjorte fra bandet eller en vinylplate, går mye mer til den som skapte musikken enn en stream gjør."
+        },
+        {
+            "type": "text",
+            "content": "Du kan også følge artister direkte på plattformer som Bandcamp eller Patreon, der de beholder mye mer av pengene. Du kan dele musikken deres med venner. Og du kan tenke kritisk over de nye etiske spørsmålene som dukker opp — for eksempel når en KI lager musikk i stilen til en levende artist uten tillatelse. Hvordan vi som lyttere svarer på slike spørsmål vil forme musikkbransjen i mange tiår framover."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Konsertpublikum med løftede hender foran scene med artist",
+            "caption": "En konsertbillett gir artisten din langt mer enn tusenvis av streams gjør."
+        },
+        {
+            "type": "component",
+            "name": "InterdisciplinaryBridge",
+            "props": {
+                "title": "Streaming og opphavsrett på tvers av fagene",
+                "centerEvent": "Musikkbransjens digitale revolusjon",
+                "nodes": [
+                    {
+                        "subject": "Musikk: Joik",
+                        "text": "Joiken finnes nå på Spotify side om side med pop og rap. Hvem eier en tradisjon som ingen enkeltperson har laget? Spørsmålet om kulturell rett blir stadig viktigere når urgammel musikk møter ny teknologi.",
+                        "color": "#10b981",
+                        "link": "/musikk/musikkhistorie/joik"
+                    },
+                    {
+                        "subject": "KRLE: Utilitarisme",
+                        "text": "Filosofen Jeremy Bentham mente at en handling er god hvis den gir mest mulig lykke til flest mulig. Er streaming en moralsk god ting fordi millioner får billig musikk — selv om hver artist tjener mindre?",
+                        "color": "#8b5cf6",
+                        "link": "/krle/etikk/utilitarisme"
+                    },
+                    {
+                        "subject": "Samfunn: Fremtidens arbeidsliv",
+                        "text": "Streaming er et eksempel på hvordan ny teknologi kan endre et helt marked på få år. Det samme skjer nå i mange yrker — roboter, KI og digitale plattformer flytter makt mellom dem som skaper og dem som eier verktøyene.",
+                        "color": "#f59e0b",
+                        "link": "/samfunnskunnskap/arbeidsliv/fremtidens-arbeidsliv"
+                    },
+                    {
+                        "subject": "Historie: Industriell revolusjon",
+                        "text": "Da maskiner kom inn i tekstilfabrikker for 200 år siden, forandret det hvem som tjente penger på arbeidet. Nye teknologier flytter alltid makt mellom dem som skaper og dem som eier verktøyene.",
+                        "color": "#6366f1",
+                        "link": "/historie/industriell-revolusjon/industriell-revolusjon"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Omtrent hvor mye tjener en artist for én avspilling på Spotify?",
+                        "options": [
+                            "Cirka 10 kroner",
+                            "Cirka 1 krone",
+                            "Cirka 3 øre",
+                            "Ingenting i det hele tatt"
+                        ],
+                        "answer": "Cirka 3 øre"
+                    },
+                    {
+                        "question": "Hvilke to ulike opphavsretter finnes i en sang?",
+                        "options": [
+                            "Retten til melodien og retten til covermusikken",
+                            "Retten til selve sangen og retten til opptaket",
+                            "Retten til Spotify og retten til Apple Music",
+                            "Retten til artisten og retten til managementet"
+                        ],
+                        "answer": "Retten til selve sangen og retten til opptaket"
+                    },
+                    {
+                        "question": "Hvor lenge varer opphavsretten i Norge?",
+                        "options": [
+                            "Til artisten dør",
+                            "I 25 år etter at sangen ble laget",
+                            "I 70 år etter at den som skapte verket dør",
+                            "For alltid"
+                        ],
+                        "answer": "I 70 år etter at den som skapte verket dør"
+                    },
+                    {
+                        "question": "Hva er TONO?",
+                        "options": [
+                            "En norsk streamingtjeneste",
+                            "En rettighetsorganisasjon som krever inn penger til låtskrivere",
+                            "Et plateselskap eid av staten",
+                            "En lov som regulerer streaming"
+                        ],
+                        "answer": "En rettighetsorganisasjon som krever inn penger til låtskrivere"
+                    },
+                    {
+                        "question": "Hvilket valg gir artisten mest penger per kjøp?",
+                        "options": [
+                            "Du hører låten på Spotify",
+                            "Du ser musikkvideoen på YouTube",
+                            "Du kjøper en konsertbillett eller t-skjorte direkte",
+                            "Du laster ned låten ulovlig fra en delingsside"
+                        ],
+                        "answer": "Du kjøper en konsertbillett eller t-skjorte direkte"
+                    }
+                ]
+            }
+        }
+    ],
+    "timeline": []
+}

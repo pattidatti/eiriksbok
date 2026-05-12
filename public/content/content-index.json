@@ -1,5 +1,5 @@
 {
-  "buildId": 1778588322958,
+  "buildId": 1778591027431,
   "contentMap": {
     "adel": [
       "content/concepts/adel.json"
@@ -1252,6 +1252,9 @@
     "joik": [
       "content/musikk/musikkhistorie/joik.json"
     ],
+    "streaming-og-opphavsrett": [
+      "content/musikk/musikkhistorie/streaming-og-opphavsrett.json"
+    ],
     "akkordbank": [
       "content/musikk/oppslag/akkordbank.json"
     ],
@@ -2279,6 +2282,7 @@
     "musikk/instrumenter/trommer-intro": "content/musikk/instrumenter/trommer-intro.json",
     "musikk/komposisjon/lat-struktur": "content/musikk/komposisjon/lat-struktur.json",
     "musikk/musikkhistorie/joik": "content/musikk/musikkhistorie/joik.json",
+    "musikk/musikkhistorie/streaming-og-opphavsrett": "content/musikk/musikkhistorie/streaming-og-opphavsrett.json",
     "musikk/oppslag/akkordbank": "content/musikk/oppslag/akkordbank.json",
     "musikk/oppslag/latskriver": "content/musikk/oppslag/latskriver.json",
     "musikk/oppslag/rytmebank": "content/musikk/oppslag/rytmebank.json",
