@@ -1,0 +1,292 @@
+{
+    "id": "stormingen-av-bastillen",
+    "title": "Stormingen av Bastillen",
+    "layout": "rich",
+    "year": "1789",
+    "category": "Europa",
+    "readTime": "8 min lesning",
+    "heroImage": "/images/placeholder.webp",
+    "details": [
+        "Den 14. juli 1789 stormet folk i Paris festningen Bastillen.",
+        "Festningen var et symbol på kongens makt til å fengsle hvem som helst.",
+        "Dagen markerer starten på den franske revolusjon og er Frankrikes nasjonaldag i dag."
+    ],
+    "tags": [
+        "frankrike",
+        "revolusjon",
+        "bastillen",
+        "1789",
+        "1700-tallet",
+        "menneskerettigheter"
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Tenk deg en steinmur som er trettito meter høy. Den er nesten tre meter tjukk. Den ruver over takene i Paris som en grå kjempe, og åtte runde tårn vokter den fra hjørnene. Inne sitter det fanger. Ingen vet riktig hvor mange, og ingen vet hvem de er. Folk på gata kaller bygningen for «Bastillen». De hater den. Den 14. juli 1789 bestemmer de seg for at den må falle."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Bastillen sett fra gatene i Paris en sommerdag i 1789, høye steintårn over takene",
+            "caption": "Bastillen var bygd som forsvarsverk på 1300-tallet og senere gjort om til fengsel."
+        },
+        {
+            "type": "header",
+            "text": "Festningen som folk hatet"
+        },
+        {
+            "type": "text",
+            "content": "Bastillen var ikke et vanlig fengsel. Kongen kunne sende hvem han ville dit, helt uten dom og rettssak. Det fantes et brev som het lettre de cachet. Hvis kongen skrev navnet ditt på et slikt brev, kunne soldatene hente deg om natten. Du visste ikke hvorfor du satt der. Du visste ikke når du kom ut.\n\nFor folk i Paris var Bastillen et bilde på alt som var galt med Frankrike. Den minnet dem om at de ikke hadde rettigheter. Den minnet dem om at en konge i Versailles bestemte over livene deres uten å spørre. Mange forfattere og kjente menn hadde sittet der. Filosofen Voltaire ble fengslet to ganger. Hver gang han kom ut, skrev han enda skarpere mot adelens makt."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Bastillen — visste du dette?",
+                "items": [
+                    "Festningen ble bygd rundt 1370 som et forsvarsverk mot engelske angrep.",
+                    "Murene var nesten tre meter tjukke og opptil trettito meter høye.",
+                    "Den 14. juli 1789 satt det bare sju fanger inne: fire pengeforfalskere, to gale menn og en greve.",
+                    "Festningen hadde også et stort lager av krutt — det var dette folk egentlig kom for.",
+                    "Etter stormingen ble Bastillen revet stein for stein i løpet av et år."
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Sommeren da alt brant"
+        },
+        {
+            "type": "text",
+            "content": "Sommeren 1789 var Frankrike i krise. Det hadde vært dårlig høst i flere år. Brødet kostet nesten en hel dagslønn for en vanlig arbeider. Folk sultet. Samtidig kalte kongen inn det som het stenderforsamlingen, en slags nasjonalforsamling som ikke hadde møttes på 175 år. De fattige håpet at de endelig skulle få si sin mening.\n\nDet gikk dårlig. Adelen og prestene ville stemme på gamlemåten, slik at de to gruppene alltid kunne overstemme det tredje, vanlige folk. Da samlet det tredje stand seg på en tennisbane og sverget at de ikke skulle gå hjem før Frankrike fikk en ny grunnlov. De kalte seg «Nasjonalforsamlingen».\n\nKongen ble nervøs. Han sendte tyske leiesoldater til Paris. Folk i byen tolket det som et tegn på at han ville knuse forsamlingen med makt. Frykten gikk fra gate til gate som en flamme."
+        },
+        {
+            "type": "header",
+            "text": "Morgenen den 14. juli"
+        },
+        {
+            "type": "text",
+            "content": "På morgenen den 14. juli våknet Paris av kirkeklokker. Tusenvis av mennesker hadde allerede vært i bevegelse siden grålysningen. Dagen før hadde de stormet et arsenal og fått tak i nesten tretti tusen geværer. Men de manglet krutt. Uten krutt var geværene bare jernrør.\n\nOg krutt fantes ett sted: i kjelleren under Bastillen.\n\nEn gigantisk folkemengde, kanskje tjue tusen mennesker, samlet seg utenfor festningen. Det var håndverkere, fiskedamer, smeder, vinhandlere og en og annen frafallen soldat. De ropte at de ville snakke med kommandanten, Bernard-René de Launay. Han slapp inn et utvalg på fire menn og lot dem spise frokost mens han tenkte seg om."
+        },
+        {
+            "type": "header",
+            "text": "Stormen"
+        },
+        {
+            "type": "text",
+            "content": "Klokken halv to om ettermiddagen ble folk utenfor utålmodige. Noen klatret opp på taket av et tilstøtende hus og kappet kjettingene som holdt vindebrua oppe. Brua dundret ned. Folket strømmet inn på den ytre gårdsplassen.\n\nDe Launay trodde det var et angrep. Han ga ordre om å skyte. Kanonene og musikettene smalt. Røyk fylte gårdsplassen. På bare et par timer ble nesten hundre angripere drept eller såret. Bare én soldat falt på Bastillens side.\n\nMen folkemengden trakk seg ikke. Tvert imot kom det forsterkninger, blant annet en gruppe gardesoldater som hadde hoppet av kongens hær og tatt med seg fem store kanoner. Da kanonene ble rullet i stilling utenfor hovedporten, forsto de Launay at det var over. Han ville helst sprenge hele festningen, men soldatene hans nektet. Klokken fem på ettermiddagen heiste han et hvitt flagg og åpnet porten."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Folkemengde stormer inn i Bastillens gårdsplass 14. juli 1789, røyk og kanoner",
+            "caption": "Kampen varte i omtrent fire timer. Nesten hundre angripere mistet livet."
+        },
+        {
+            "type": "component",
+            "name": "QuoteBlock",
+            "props": {
+                "quote": "— Men dette er jo et opprør! — Nei, sire. Det er en revolusjon.",
+                "author": "Hertugen av Liancourt vekker kong Ludvig 16. natten 14.–15. juli 1789"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Etterspillet"
+        },
+        {
+            "type": "text",
+            "content": "Folk strømmet inn i festningen og frigjorde de sju fangene. To av dem var så forvirret av årevis i mørket at de knapt forsto hva som skjedde. Greven som satt der etter et brev fra sin egen familie, ble båret ut på skuldrene som en helt.\n\nFor kommandanten ble det verre. De Launay ble dratt ut og slept gjennom gatene. På veien til rådhuset ble han slått i hjel av folkemengden. Hodet hans ble satt på en lansestang og båret rundt i Paris.\n\nKong Ludvig 16. lå og sov i Versailles da Bastillen falt. I dagboken sin hadde han skrevet ett ord om dagen: «Rien», som betyr «ingenting». Han hadde vært på jakt. Natten etter måtte han vekkes av en hertug, og det var da han spurte om dette var et opprør. Han fikk svaret som er blitt sitert siden: «Nei, sire. Det er en revolusjon.»"
+        },
+        {
+            "type": "component",
+            "name": "DragDropTimeline",
+            "props": {
+                "title": "14. juli 1789 — sett hendelsene i riktig rekkefølge",
+                "events": [
+                    {
+                        "id": "h1",
+                        "year": 1789,
+                        "label": "Morgen: folkemengden stormer arsenalet Hôtel des Invalides og tar tretti tusen geværer"
+                    },
+                    {
+                        "id": "h2",
+                        "year": 1789,
+                        "label": "Formiddag: rundt tjue tusen samlet utenfor Bastillen, krever krutt"
+                    },
+                    {
+                        "id": "h3",
+                        "year": 1789,
+                        "label": "Halv to: vindebrua kappes ned, folket strømmer inn på ytre gårdsplass"
+                    },
+                    {
+                        "id": "h4",
+                        "year": 1789,
+                        "label": "To til fem: kamp, kanoner, nesten hundre angripere dør"
+                    },
+                    {
+                        "id": "h5",
+                        "year": 1789,
+                        "label": "Klokken fem: kommandant de Launay overgir festningen"
+                    },
+                    {
+                        "id": "h6",
+                        "year": 1789,
+                        "label": "Kveld: Bastillen er erobret, de Launay blir drept i gatene"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Hvorfor 14. juli ble verdens viktigste dag"
+        },
+        {
+            "type": "text",
+            "content": "Sett med dagens øyne kan stormingen virke som en liten hendelse. Det var bare sju fanger. Festningen var nesten tom. Selve kampen varte i bare fire timer. Hvorfor er denne dagen så viktig?\n\nSvaret ligger i hva folk forsto. For første gang på lenge hadde vanlige franskmenn tatt en kongelig festning med våpen i hånd. Kongen hadde ikke klart å stoppe dem. Det betydde at makten ikke lenger lå hos én mann i Versailles. Den lå et helt nytt sted: hos folket i Paris.\n\nNoen uker senere vedtok Nasjonalforsamlingen «Erklæringen om menneskets og borgerens rettigheter». Den slo fast at alle mennesker er født frie og like. Den slo fast at ingen kan fengsles uten lov og dom — en direkte reaksjon på det Bastillen hadde stått for.\n\nIdéen om at folket selv eier landet sitt spredte seg fra Frankrike til hele Europa, til Amerika og videre. I dag finner vi den i nesten alle grunnlover, også vår egen fra 1814. Den 14. juli er fortsatt Frankrikes nasjonaldag, med militærparade på Champs-Élysées og fyrverkeri over Eiffeltårnet. Det er ikke en feiring av at sju fanger ble fri. Det er en feiring av at et helt folk fant ut at det kunne stå opp mot makten."
+        },
+        {
+            "type": "component",
+            "name": "ScenarioRoleplay",
+            "props": {
+                "title": "Paris, morgenen 14. juli 1789",
+                "intro": "Du er sytten år og lærling hos en skomaker i Saint-Antoine, et fattig strøk i Paris. I går kveld hørte du at folk har stjålet geværer fra arsenalet. Nå banker det på døra. Det er nabogutten din, og han har et gevær over skulderen.",
+                "startId": "start",
+                "scenarios": [
+                    {
+                        "id": "start",
+                        "text": "«Vi marsjerer mot Bastillen,» sier han. «Vi trenger krutt til geværene. Bli med! Hvis vi vinner, blir Paris fritt.» Mester roper inne i verkstedet at det er arbeid å gjøre. Søstrene dine er sju og ni år. Moren din er død. Faren din er soldat i kongens hær.\n\nHva gjør du?",
+                        "options": [
+                            {
+                                "label": "Jeg blir med. Hvis ikke vi tar Bastillen i dag, mister vi sjansen for alltid.",
+                                "nextId": "med"
+                            },
+                            {
+                                "label": "Jeg blir hjemme. Søstrene mine trenger meg om noe går galt.",
+                                "nextId": "hjemme"
+                            },
+                            {
+                                "label": "Jeg løper til Versailles og advarer kongens menn. De gir kanskje belønning.",
+                                "nextId": "advarer"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "med",
+                        "text": "Du marsjerer med tusenvis av andre. Du ser kanonkulen som dreper venninnen din. Du roper sammen med folkemengden når flagget heises. Om kvelden er du sliten, sotsvart og helt forandret. Du har vært med på noe som hele Europa kommer til å snakke om i hundre år.\n\nMen du har også sett mennesker dø på begge sider, og du sover dårlig den natten. Du har valgt en side. Du kan ikke gå tilbake.",
+                        "options": []
+                    },
+                    {
+                        "id": "hjemme",
+                        "text": "Du blir hjemme og passer søstrene dine. Hele dagen hører du skudd og rop fra de andre kvarterene. Når naboen kommer tilbake om kvelden, forteller han at Bastillen har falt og at byen er fri.\n\nDu føler en blanding av lettelse og skam. Du var ikke med da det skjedde. Men søstrene dine er trygge. Du har valgt familien framfor revolusjonen. Det er også et valg.",
+                        "options": []
+                    },
+                    {
+                        "id": "advarer",
+                        "text": "Du løper de tolv kilometerne til Versailles. Når du kommer fram, er kongen på jakt. Ingen vil ta imot deg. På veien tilbake møter du flyktninger som forteller at Bastillen har falt for flere timer siden.\n\nNaboene dine får snart vite hva du prøvde på. De snakker ikke til deg lenger. Du må flytte fra Saint-Antoine. Du finner ut at det å sette seg mot folkets vilje også er et valg som koster.",
+                        "options": []
+                    }
+                ]
+            }
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Plass i Paris der Bastillen sto, i dag med July-søylen midt på et åpent torg",
+            "caption": "Bastillen ble revet etter stormingen. I dag står July-søylen på samme sted."
+        },
+        {
+            "type": "component",
+            "name": "InterdisciplinaryBridge",
+            "props": {
+                "title": "Stormingen av Bastillen på tvers av fagene",
+                "centerEvent": "14. juli 1789 — folket tar en kongelig festning",
+                "nodes": [
+                    {
+                        "subject": "Resten av revolusjonen",
+                        "text": "Bastillen var bare starten. De neste ti årene ble kongen henrettet, Robespierre tok makten, og Napoleon overtok. Les videre om hvordan revolusjonen utviklet seg.",
+                        "color": "#ef4444",
+                        "link": "/historie/den-franske-revolusjon/intro"
+                    },
+                    {
+                        "subject": "Skrekkveldet",
+                        "text": "Bare fire år etter Bastillen begynte revolusjonen å spise sine egne barn. Robespierre sendte tusenvis til giljotinen i navnet til den samme friheten folk kjempet for 14. juli.",
+                        "color": "#8b5cf6",
+                        "link": "/historie/den-franske-revolusjon/robespierre-og-skrekkveldet"
+                    },
+                    {
+                        "subject": "Norges grunnlov",
+                        "text": "Idéene fra 1789 reiste videre til Eidsvoll i 1814. Den norske grunnloven hentet rett fra Erklæringen om menneskerettighetene da den slo fast at ingen kan fengsles uten lov og dom.",
+                        "color": "#6366f1",
+                        "link": "/samfunnskunnskap/styringsformer/grunnloven"
+                    },
+                    {
+                        "subject": "Hva er et symbol?",
+                        "text": "Bastillen ble revet, men dagen lever videre. Når en bygning eller et flagg blir et symbol, kan det bære store ideer. Tenk på Berlin-muren i 1989 eller Twin Towers i 2001 — symboler kan forandre verden.",
+                        "color": "#10b981",
+                        "link": "/norsk/virkemidler"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hvilken dag stormet folk Bastillen?",
+                        "options": [
+                            "4. juli 1789",
+                            "14. juli 1789",
+                            "1. august 1789",
+                            "5. mai 1789"
+                        ],
+                        "answer": "14. juli 1789"
+                    },
+                    {
+                        "question": "Hva kom folkemengden egentlig for å hente i Bastillen?",
+                        "options": [
+                            "Krutt til geværene",
+                            "Gull fra kongens kasse",
+                            "Politiske fanger",
+                            "Mat til de sultne"
+                        ],
+                        "answer": "Krutt til geværene"
+                    },
+                    {
+                        "question": "Hvor mange fanger satt i Bastillen den 14. juli 1789?",
+                        "options": [
+                            "Sju",
+                            "Sytti",
+                            "Tre hundre",
+                            "Over tusen"
+                        ],
+                        "answer": "Sju"
+                    },
+                    {
+                        "question": "Hva skrev kong Ludvig 16. i dagboken sin 14. juli 1789?",
+                        "options": [
+                            "«Revolusjon»",
+                            "«Ingenting» (Rien)",
+                            "«Krig»",
+                            "«Bastillen er falt»"
+                        ],
+                        "answer": "«Ingenting» (Rien)"
+                    },
+                    {
+                        "question": "Hvorfor er 14. juli viktig i dag?",
+                        "options": [
+                            "Det er Frankrikes nasjonaldag og starten på den franske revolusjon",
+                            "Det er dagen Napoleon ble keiser",
+                            "Det er dagen Erklæringen om menneskerettighetene ble vedtatt",
+                            "Det er dagen kongen ble henrettet"
+                        ],
+                        "answer": "Det er Frankrikes nasjonaldag og starten på den franske revolusjon"
+                    }
+                ]
+            }
+        }
+    ],
+    "timeline": []
+}

@@ -2,605 +2,6 @@
   "id": "global-timeline",
   "events": [
     {
-      "id": "ceuta-conquest",
-      "title": "Erobringen av Ceuta",
-      "description": "Portugal erobrer byen Ceuta i Nord-Afrika, starten på den europeiske ekspansjonen.",
-      "startDate": 1415,
-      "endDate": null,
-      "displayDate": "1415",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "kolonialisering",
-      "link": "/historie/kolonialisering/portugisisk-kolonialisering",
-      "tags": [
-        "krig",
-        "portugal",
-        "afrika"
-      ]
-    },
-    {
-      "id": "dias-cape",
-      "title": "Dias runder Kapp det gode håp",
-      "description": "Bartolomeu Dias åpner sjøveien til India ved å runde Afrikas sørspiss.",
-      "startDate": 1488,
-      "endDate": null,
-      "displayDate": "1488",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "kolonialisering",
-      "link": "/historie/kolonialisering/portugisisk-kolonialisering",
-      "tags": [
-        "oppdagelse",
-        "portugal",
-        "afrika"
-      ]
-    },
-    {
-      "id": "dagama-india",
-      "title": "Vasco da Gama når India",
-      "description": "Sjøveien til India er funnet, og Portugal kan handle krydder direkte.",
-      "startDate": 1498,
-      "endDate": null,
-      "displayDate": "1498",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "kolonialisering",
-      "link": "/historie/kolonialisering/portugisisk-kolonialisering",
-      "tags": [
-        "handel",
-        "portugal",
-        "india"
-      ]
-    },
-    {
-      "id": "cabral-brasil",
-      "title": "Cabral oppdager Brasil",
-      "description": "Portugal gjør krav på Sør-Amerikas største land.",
-      "startDate": 1500,
-      "endDate": null,
-      "displayDate": "1500",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "kolonialisering",
-      "link": "/historie/kolonialisering/portugisisk-kolonialisering",
-      "tags": [
-        "oppdagelse",
-        "portugal",
-        "brasil"
-      ]
-    },
-    {
-      "id": "malacca-conquest",
-      "title": "Erobringen av Malakka",
-      "description": "Portugal tar kontroll over krydderhandelen i Sørøst-Asia.",
-      "startDate": 1511,
-      "endDate": null,
-      "displayDate": "1511",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "kolonialisering",
-      "link": "/historie/kolonialisering/portugisisk-kolonialisering",
-      "tags": [
-        "krig",
-        "portugal",
-        "asia"
-      ]
-    },
-    {
-      "id": "jamestown",
-      "year": "1607",
-      "title": "Jamestown grunnlegges",
-      "description": "Første permanente engelske koloni i Amerika.",
-      "category": "historie"
-    },
-    {
-      "id": "quebec",
-      "year": "1608",
-      "title": "Quebec grunnlegges",
-      "description": "Starten på Det franske Nord-Amerika.",
-      "category": "historie"
-    },
-    {
-      "id": "sju-aars-krigen",
-      "year": "1756",
-      "title": "Sjuårskrigen",
-      "description": "Global konflikt som sikrer britisk dominans.",
-      "category": "historie"
-    },
-    {
-      "id": "columbus-arrival",
-      "title": "Columbus når Amerika",
-      "description": "Christofer Columbus ankommer Karibia og innleder den spanske koloniseringen av Amerika.",
-      "startDate": 1492,
-      "endDate": null,
-      "displayDate": "1492",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "kolonialisering",
-      "link": "/historie/kolonialisering/spansk-kolonialisering",
-      "tags": [
-        "oppdagelse",
-        "spania",
-        "amerika"
-      ]
-    },
-    {
-      "id": "tordesillas-treaty",
-      "title": "Tordesillastraktaten",
-      "description": "Paven deler verden i to mellom Spania og Portugal.",
-      "startDate": 1494,
-      "endDate": null,
-      "displayDate": "1494",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "kolonialisering",
-      "link": "/historie/kolonialisering/spansk-kolonialisering",
-      "tags": [
-        "diplomati",
-        "spania",
-        "portugal"
-      ]
-    },
-    {
-      "id": "europeisk-hegemoni",
-      "title": "Europeisk hegemoni",
-      "description": "En 500-årig periode der europeiske stormakter dominerte verden politisk, økonomisk og kulturelt.",
-      "startDate": 1492,
-      "endDate": 1956,
-      "displayDate": "1492 - 1956",
-      "type": "lesson",
-      "subjectId": "historie",
-      "topicId": "kolonialisering",
-      "link": "/historie/kolonialisering/europa-erobrer-verden",
-      "tags": [
-        "global-historie",
-        "imperialisme",
-        "kolonialisme"
-      ]
-    },
-    {
-      "id": "cortes-mexico",
-      "title": "Cortés erobrer Mexico",
-      "description": "Aztekerrikets fall markerer starten på Spanias herredømme på fastlandet.",
-      "startDate": 1521,
-      "endDate": null,
-      "displayDate": "1521",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "kolonialisering",
-      "link": "/historie/kolonialisering/spansk-kolonialisering",
-      "tags": [
-        "krig",
-        "aztekere",
-        "mexico"
-      ]
-    },
-    {
-      "id": "pizarro-peru",
-      "title": "Pizarro erobrer Peru",
-      "description": "Inkariket faller for Francisco Pizarros styrker.",
-      "startDate": 1533,
-      "endDate": null,
-      "displayDate": "1533",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "kolonialisering",
-      "link": "/historie/kolonialisering/spansk-kolonialisering",
-      "tags": [
-        "krig",
-        "inka",
-        "peru"
-      ]
-    },
-    {
-      "id": "potosi-silver",
-      "title": "Sølvfunnet i Potosí",
-      "description": "Verdens største sølvforekomst oppdages i dagens Bolivia, og finansierer det spanske imperiet.",
-      "startDate": 1545,
-      "endDate": null,
-      "displayDate": "1545",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "kolonialisering",
-      "link": "/historie/kolonialisering/spansk-kolonialisering",
-      "tags": [
-        "økonomi",
-        "sølv",
-        "bolivia"
-      ]
-    },
-    {
-      "id": "dachau-opens",
-      "title": "Dachau åpnes",
-      "description": "Den første konsentrasjonsleiren etableres, opprinnelig for politiske fanger.",
-      "startDate": 1933,
-      "endDate": null,
-      "displayDate": "1933",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "andre-verdenskrig",
-      "link": "/historie/andre-verdenskrig/konsentrasjonsleirene",
-      "tags": [
-        "tyskland",
-        "nazisme",
-        "leire"
-      ]
-    },
-    {
-      "id": "wannsee-conference",
-      "title": "Wannsee-konferansen",
-      "description": "Nazistoppene planlegger 'den endelige løsningen' “ industrialisert folkemord.",
-      "startDate": 1942,
-      "endDate": null,
-      "displayDate": "1942",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "andre-verdenskrig",
-      "link": "/historie/andre-verdenskrig/konsentrasjonsleirene",
-      "tags": [
-        "holocaust",
-        "jøder",
-        "folkemord"
-      ]
-    },
-    {
-      "id": "auschwitz-liberation",
-      "title": "Frigjøringen av Auschwitz",
-      "description": "Sovjetiske styrker frigjør leiren og verden får se omfanget av holocaust.",
-      "startDate": 1945,
-      "endDate": null,
-      "displayDate": "1945",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "andre-verdenskrig",
-      "link": "/historie/andre-verdenskrig/konsentrasjonsleirene",
-      "tags": [
-        "frigjøring",
-        "holocaust",
-        "sovjet"
-      ]
-    },
-    {
-      "id": "foucault-madness",
-      "title": "Galskapens historie",
-      "description": "Michel Foucault utgir sitt banebrytende verk om hvordan samfunnet har definert og stengt ute de 'umormale' gjennom tidene.",
-      "startDate": 1961,
-      "endDate": null,
-      "displayDate": "1961",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "ideer-og-verdenssyn",
-      "link": "/samfunnskunnskap/ideer-og-verdenssyn/det-unormale",
-      "tags": [
-        "filosofi",
-        "historie",
-        "psykologi"
-      ]
-    },
-    {
-      "id": "norge-diagnose-1972",
-      "title": "Homofili-diagnosen fjernes",
-      "description": "Et eksempel på hvordan medisinske definisjoner av 'normalitet' endrer seg i takt med samfunnet.",
-      "startDate": 1972,
-      "endDate": null,
-      "displayDate": "1972",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "ideer-og-verdenssyn",
-      "link": "/samfunnskunnskap/ideer-og-verdenssyn/det-unormale",
-      "tags": [
-        "historie",
-        "rettigheter",
-        "norge"
-      ]
-    },
-    {
-      "id": "crystal-palace",
-      "title": "Verdensutstillingen i London",
-      "description": "The Great Exhibition i Crystal Palace markerer høydepunktet for victorianernes tro på industrielt og teknologisk framskritt.",
-      "startDate": 1851,
-      "endDate": null,
-      "displayDate": "1851",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "ideer-og-verdenssyn",
-      "link": "/samfunnskunnskap/ideer-og-verdenssyn/framskrittstro",
-      "tags": [
-        "historie",
-        "teknologi",
-        "storbritannia"
-      ]
-    },
-    {
-      "id": "roman-club-limits",
-      "title": "Limits to Growth",
-      "description": "Romerklubbens rapport utfordrer ideen om uendelig økonomisk vekst på en begrenset planet.",
-      "startDate": 1972,
-      "endDate": null,
-      "displayDate": "1972",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "ideer-og-verdenssyn",
-      "link": "/samfunnskunnskap/ideer-og-verdenssyn/framskrittstro",
-      "tags": [
-        "miljø",
-        "økonomi",
-        "fremtid"
-      ]
-    },
-    {
-      "id": "mirandola-dignity",
-      "title": "Tale om menneskets verdighet",
-      "description": "Giovanni Pico della Mirandola utgir et av humanismens viktigste skrifter om menneskets frihet og potensial.",
-      "startDate": 1486,
-      "endDate": null,
-      "displayDate": "1486",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "ideer-og-verdenssyn",
-      "link": "/samfunnskunnskap/ideer-og-verdenssyn/humanisme",
-      "tags": [
-        "renessansen",
-        "filosofi",
-        "humanisme"
-      ]
-    },
-    {
-      "id": "un-human-rights",
-      "title": "FNs menneskerettserklæring",
-      "description": "Etter andre verdenskrig samler verden seg om universelle rettigheter for alle mennesker “ en seier for humanistiske verdier.",
-      "startDate": 1948,
-      "endDate": null,
-      "displayDate": "1948",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "ideer-og-verdenssyn",
-      "link": "/samfunnskunnskap/ideer-og-verdenssyn/humanisme",
-      "tags": [
-        "historie",
-        "globalt",
-        "rettigheter"
-      ]
-    },
-    {
-      "id": "galileo-trial",
-      "title": "Galileos rettssak",
-      "description": "Kirken dømmer Galileo for å hevde at jorden går rundt solen “ et avgjørende øyeblikk i kampen mellom autoritet og observasjon.",
-      "startDate": 1633,
-      "endDate": null,
-      "displayDate": "1633",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "ideer-og-verdenssyn",
-      "link": "/samfunnskunnskap/ideer-og-verdenssyn/sannhetens-historie",
-      "tags": [
-        "vitenskap",
-        "historie",
-        "sannhet"
-      ]
-    },
-    {
-      "id": "google-founding",
-      "title": "Google grunnlegges",
-      "description": "Starten på en ny era der algoritmer begynner å sortere og definere hva som er relevant informasjon for menneskeheten.",
-      "startDate": 1998,
-      "endDate": null,
-      "displayDate": "1998",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "ideer-og-verdenssyn",
-      "link": "/samfunnskunnskap/ideer-og-verdenssyn/sannhetens-historie",
-      "tags": [
-        "teknologi",
-        "historie",
-        "sannhet"
-      ]
-    },
-    {
-      "id": "chatgpt-launch",
-      "title": "ChatGPT lanseres",
-      "description": "Generativ AI introduserer en ny form for sannsynlighetsbasert informasjon som utfordrer tradisjonelle sannhetsbegreper.",
-      "startDate": 2022,
-      "endDate": null,
-      "displayDate": "2022",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "ideer-og-verdenssyn",
-      "link": "/samfunnskunnskap/ideer-og-verdenssyn/sannhetens-historie",
-      "tags": [
-        "teknologi",
-        "fremtid",
-        "sannhet"
-      ]
-    },
-    {
-      "id": "descartes-method",
-      "title": "Descartes: Naturen som maskin",
-      "description": "René Descartes utgir 'Om metoden', som legger grunnlaget for det mekanistiske verdensbildet.",
-      "startDate": 1637,
-      "endDate": null,
-      "displayDate": "1637",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "ideer-og-verdenssyn",
-      "link": "/samfunnskunnskap/ideer-og-verdenssyn/naturens-sjel",
-      "tags": [
-        "filosofi",
-        "vitenskap",
-        "natur"
-      ]
-    },
-    {
-      "id": "silent-spring",
-      "title": "Silent Spring utgis",
-      "description": "Rachel Carsons bok starter den moderne miljøbevegelsen ved å advare mot giftstoffer i naturen.",
-      "startDate": 1962,
-      "endDate": null,
-      "displayDate": "1962",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "ideer-og-verdenssyn",
-      "link": "/samfunnskunnskap/ideer-og-verdenssyn/naturens-sjel",
-      "tags": [
-        "økologi",
-        "historie",
-        "natur"
-      ]
-    },
-    {
-      "id": "blue-marble",
-      "title": "The Blue Marble",
-      "description": "Det første fargebildet av hele jorden fra verdensrommet endrer menneskehetens syn på planeten som en sårbar helhet.",
-      "startDate": 1972,
-      "endDate": null,
-      "displayDate": "1972",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "ideer-og-verdenssyn",
-      "link": "/samfunnskunnskap/ideer-og-verdenssyn/naturens-sjel",
-      "tags": [
-        "vitenskap",
-        "globalt",
-        "natur"
-      ]
-    },
-    {
-      "id": "platons-staten",
-      "title": "Platons Staten",
-      "description": "Filosofen Platon skriver sitt mest kjente verk om idealstaten og rettferdighet.",
-      "startDate": -375,
-      "endDate": null,
-      "displayDate": "ca. 375 fvt.",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "ideer-og-verdenssyn",
-      "link": "/samfunnskunnskap/ideer-og-verdenssyn/utopier",
-      "tags": [
-        "filosofi",
-        "hellas",
-        "utopi"
-      ]
-    },
-    {
-      "id": "thomas-more-utopia",
-      "title": "Thomas Mores Utopia",
-      "description": "Utgivelsen av boken som ga navn til hele sjangeren om det perfekte samfunn.",
-      "startDate": 1516,
-      "endDate": null,
-      "displayDate": "1516",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "ideer-og-verdenssyn",
-      "link": "/samfunnskunnskap/ideer-og-verdenssyn/utopier",
-      "tags": [
-        "renessansen",
-        "litteratur",
-        "utopi"
-      ]
-    },
-    {
-      "id": "new-harmony-owen",
-      "title": "New Harmony grunnlegges",
-      "description": "Robert Owen forsøker å skape et utopisk sosialistisk samfunn i USA.",
-      "startDate": 1825,
-      "endDate": null,
-      "displayDate": "1825",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "ideer-og-verdenssyn",
-      "link": "/samfunnskunnskap/ideer-og-verdenssyn/utopier",
-      "tags": [
-        "ideologi",
-        "usa",
-        "utopi"
-      ]
-    },
-    {
-      "id": "orwell-1984",
-      "title": "1984 utgis",
-      "description": "George Orwells dystopiske advarsel mot totalitære samfunn preger etterkrigstiden.",
-      "startDate": 1949,
-      "endDate": null,
-      "displayDate": "1949",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "ideer-og-verdenssyn",
-      "link": "/samfunnskunnskap/ideer-og-verdenssyn/utopier",
-      "tags": [
-        "litteratur",
-        "den-kalde-krigen",
-        "dystopi"
-      ]
-    },
-    {
-      "id": "frashokereti",
-      "title": "Frashokereti: Zoroastrismens dommedag",
-      "description": "Den eldste systematiske forestillingen om en lineær verdensende der det gode seirer over det onde.",
-      "startDate": -1000,
-      "endDate": null,
-      "displayDate": "ca. 1000 fvt.",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "ideer-og-verdenssyn",
-      "link": "/samfunnskunnskap/ideer-og-verdenssyn/eskatologi",
-      "tags": [
-        "religion",
-        "persia",
-        "eskatologi"
-      ]
-    },
-    {
-      "id": "miller-disappointment",
-      "title": "Den store skuffelsen",
-      "description": "Tusenvis av tilhengere av William Miller ventet på Jesu gjenkomst, noe som førte til dannelsen av nye trossamfunn.",
-      "startDate": 1844,
-      "endDate": null,
-      "displayDate": "1844",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "ideer-og-verdenssyn",
-      "link": "/samfunnskunnskap/ideer-og-verdenssyn/eskatologi",
-      "tags": [
-        "religion",
-        "usa",
-        "eskatologi"
-      ]
-    },
-    {
-      "id": "ozonlaget-avtalen",
-      "title": "Montreal-protokollen (Ozonlaget)",
-      "description": "En global avtale for å redde atmosfæren, ofte sett på som menneskehetens første suksessfulle 'avverging' av en moderne apokalypse.",
-      "startDate": 1987,
-      "endDate": null,
-      "displayDate": "1987",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "ideer-og-verdenssyn",
-      "link": "/samfunnskunnskap/ideer-og-verdenssyn/eskatologi",
-      "tags": [
-        "miljø",
-        "globalt",
-        "eskatologi"
-      ]
-    },
-    {
-      "id": "y2k-millennium",
-      "title": "Y2K: Millennium-frykten",
-      "description": "Global frykt for at datasystemer skulle kollapse ved tusenårsskiftet.",
-      "startDate": 2000,
-      "endDate": null,
-      "displayDate": "2000",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "ideer-og-verdenssyn",
-      "link": "/samfunnskunnskap/ideer-og-verdenssyn/eskatologi",
-      "tags": [
-        "teknologi",
-        "globalt",
-        "eskatologi"
-      ]
-    },
-    {
       "id": "menneskets-tidlige-historie",
       "title": "Menneskets tidlige historie",
       "description": "Fra nomader i Afrika til spredning over hele kloden.",
@@ -709,6 +110,23 @@
       ]
     },
     {
+      "id": "frashokereti",
+      "title": "Frashokereti: Zoroastrismens dommedag",
+      "description": "Den eldste systematiske forestillingen om en lineær verdensende der det gode seirer over det onde.",
+      "startDate": -1000,
+      "endDate": null,
+      "displayDate": "ca. 1000 fvt.",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "ideer-og-verdenssyn",
+      "link": "/samfunnskunnskap/ideer-og-verdenssyn/eskatologi",
+      "tags": [
+        "religion",
+        "persia",
+        "eskatologi"
+      ]
+    },
+    {
       "id": "romersk-start",
       "title": "Romas grunnleggelse og republikken",
       "description": "Fra ulvebarn to maktbalanse i senatet.",
@@ -723,6 +141,125 @@
         "antikken",
         "roma",
         "republikk"
+      ]
+    },
+    {
+      "id": "athen-demokrati",
+      "title": "Demokratiet i Athen",
+      "description": "Verdens første direkte demokrati blomstrer i Athen.",
+      "startDate": -508,
+      "endDate": -322,
+      "displayDate": "508 fvt. - 322 fvt.",
+      "type": "sub-event",
+      "subjectId": "samfunnsfag",
+      "topicId": "styringsformer",
+      "link": "/samfunnskunnskap/styringsformer/antikken-visjoner",
+      "tags": [
+        "historie",
+        "athen",
+        "demokrati"
+      ]
+    },
+    {
+      "id": "peloponnesian-casus",
+      "title": "Peloponneserkrigen",
+      "description": "Spartas frykt for Athens makt blir den virkelige årsaken til krigen, tross mange offisielle begrunnelser.",
+      "startDate": -431,
+      "endDate": null,
+      "displayDate": "431 fvt.",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "ideer-og-verdenssyn",
+      "link": "/samfunnskunnskap/ideer-og-verdenssyn/casus-belli",
+      "tags": [
+        "antikken",
+        "hellas",
+        "politikk"
+      ]
+    },
+    {
+      "id": "sokrates-dod",
+      "title": "Sokrates dømmes til døden",
+      "description": "Filosofiens far tømmer giftbegeret i Athen.",
+      "startDate": -399,
+      "endDate": null,
+      "displayDate": "399 f.Kr.",
+      "type": "sub-event",
+      "subjectId": "krle",
+      "topicId": "filosofi",
+      "link": "/krle/filosofi/sokrates",
+      "tags": [
+        "filosofi",
+        "hellas",
+        "etikk"
+      ]
+    },
+    {
+      "id": "sokrates-dod",
+      "title": "Sokrates' død",
+      "description": "Filosofen Sokrates dømmes til døden i Athen, et tidlig eksempel på ytringsmot.",
+      "startDate": -399,
+      "endDate": null,
+      "displayDate": "399 fvt.",
+      "type": "sub-event",
+      "subjectId": "samfunnskunnskap",
+      "topicId": "mennesket-kultur-samfunn",
+      "link": "/samfunnskunnskap/mennesket-kultur-samfunn/ytringsvett-vs-ytringsmot",
+      "tags": [
+        "filosofi",
+        "ytringsfrihet",
+        "athen"
+      ]
+    },
+    {
+      "id": "platon-staten",
+      "title": "Platon: Staten",
+      "description": "Verket som definerte vestlig politisk filosofi.",
+      "startDate": -375,
+      "endDate": null,
+      "displayDate": "ca. 375 f.Kr.",
+      "type": "sub-event",
+      "subjectId": "krle",
+      "topicId": "filosofi",
+      "link": "/krle/filosofi/platon",
+      "tags": [
+        "filosofi",
+        "politikk",
+        "idealisme"
+      ]
+    },
+    {
+      "id": "platons-staten",
+      "title": "Platons Staten",
+      "description": "Filosofen Platon skriver sitt mest kjente verk om idealstaten og rettferdighet.",
+      "startDate": -375,
+      "endDate": null,
+      "displayDate": "ca. 375 fvt.",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "ideer-og-verdenssyn",
+      "link": "/samfunnskunnskap/ideer-og-verdenssyn/utopier",
+      "tags": [
+        "filosofi",
+        "hellas",
+        "utopi"
+      ]
+    },
+    {
+      "id": "aristoteles-etikk",
+      "title": "Den nikomakiske etikk",
+      "description": "Aristoteles definerer dygdsetikken og den gylne middelvei.",
+      "startDate": -340,
+      "endDate": null,
+      "displayDate": "ca. 340 f.Kr.",
+      "type": "sub-event",
+      "subjectId": "krle",
+      "topicId": "etikk",
+      "link": "/krle/etikk/dygdsetikk",
+      "tags": [
+        "etikk",
+        "filosofi",
+        "lykke"
       ]
     },
     {
@@ -760,6 +297,83 @@
         "augustus",
         "keiser"
       ]
+    },
+    {
+      "id": "jamestown",
+      "year": "1607",
+      "title": "Jamestown grunnlegges",
+      "description": "Første permanente engelske koloni i Amerika.",
+      "category": "historie"
+    },
+    {
+      "id": "quebec",
+      "year": "1608",
+      "title": "Quebec grunnlegges",
+      "description": "Starten på Det franske Nord-Amerika.",
+      "category": "historie"
+    },
+    {
+      "id": "sikhisme-khalsa-grunnleggelse",
+      "title": "Khalsa-fellesskapet grunnlegges",
+      "description": "Den tiende guruen, Guru Gobind Singh, etablerer Khalsa-fellesskapet ved Vaisakhi-feiringen. Dette gir sikhismen en tydeligere identitet og ytre kjennetegn.",
+      "date": 1699,
+      "tags": [
+        "religion",
+        "sikhisme",
+        "ritual"
+      ],
+      "subjectId": "krle",
+      "topicId": "religion",
+      "link": "/krle/religion/sikhisme/sentrale-trekk"
+    },
+    {
+      "id": "sikhisme-khalsa-grunnleggelse",
+      "title": "Khalsa-fellesskapet grunnlegges",
+      "description": "Den tiende guruen, Guru Gobind Singh, etablerer Khalsa-fellesskapet ved Vaisakhi-feiringen. Dette gir sikhismen en tydeligere identitet og ytre kjennetegn.",
+      "date": 1699,
+      "tags": [
+        "religion",
+        "sikhisme",
+        "ritual"
+      ],
+      "subjectId": "krle",
+      "topicId": "religion",
+      "link": "/krle/religion/sikhisme/sentrale-trekk"
+    },
+    {
+      "id": "sikhisme-nanak-fodsel",
+      "title": "Guru Nanak blir født",
+      "description": "Grunnleggeren av sikhismen, Guru Nanak, blir født i Punjab. Han forkynner budskapet om at alle mennesker er like og at det bare finnes én Gud.",
+      "date": 1469,
+      "tags": [
+        "religion",
+        "sikhisme",
+        "grunnleggere"
+      ],
+      "subjectId": "krle",
+      "topicId": "religion",
+      "link": "/krle/religion/sikhisme/grunnleggere"
+    },
+    {
+      "id": "sikhisme-nanak-fodsel",
+      "title": "Guru Nanak blir født",
+      "description": "Grunnleggeren av sikhismen, Guru Nanak, blir født i Punjab. Han forkynner budskapet om at alle mennesker er like og at det bare finnes én Gud.",
+      "date": 1469,
+      "tags": [
+        "religion",
+        "sikhisme",
+        "grunnleggere"
+      ],
+      "subjectId": "krle",
+      "topicId": "religion",
+      "link": "/krle/religion/sikhisme/grunnleggere"
+    },
+    {
+      "id": "sju-aars-krigen",
+      "year": "1756",
+      "title": "Sjuårskrigen",
+      "description": "Global konflikt som sikrer britisk dominans.",
+      "category": "historie"
     },
     {
       "id": "romerske-keisere",
@@ -851,6 +465,57 @@
       ]
     },
     {
+      "id": "tetrarkiet-etablert",
+      "title": "Tetrarkiet etableres",
+      "description": "Diokletian deler makten mellom fire keisere for å sikre Romerrikets stabilitet.",
+      "startDate": 293,
+      "endDate": null,
+      "displayDate": "293",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "romerriket",
+      "link": "/historie/romerriket/diokletian",
+      "tags": [
+        "politikk",
+        "romerriket",
+        "maktfordeling"
+      ]
+    },
+    {
+      "id": "maksimalpris-ediktet",
+      "title": "Ediktet om maksimalpriser",
+      "description": "Diokletian forsøker å bremse inflasjonen med drakoniske pristiltak.",
+      "startDate": 301,
+      "endDate": null,
+      "displayDate": "301",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "romerriket",
+      "link": "/historie/romerriket/diokletian",
+      "tags": [
+        "økonomi",
+        "inflasjon",
+        "romerriket"
+      ]
+    },
+    {
+      "id": "diokletian-abdikerer",
+      "title": "Diokletian abdikerer",
+      "description": "Den eneste romerske keiseren som frivillig trekker seg tilbake for å dyrke kål i Split.",
+      "startDate": 305,
+      "endDate": null,
+      "displayDate": "305",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "romerriket",
+      "link": "/historie/romerriket/diokletian",
+      "tags": [
+        "historie",
+        "romerriket",
+        "biografi"
+      ]
+    },
+    {
       "id": "vestromerrikets-fall",
       "title": "Vestromerrikets fall",
       "description": "Et dypdykk i årsakene til det store imperiets kollaps.",
@@ -866,6 +531,23 @@
         "roma",
         "kollaps",
         "historie"
+      ]
+    },
+    {
+      "id": "augustin-gudsstaten",
+      "title": "Augustin: Om Gudsstaten",
+      "description": "Kristendommens forsvar mot Romas fall.",
+      "startDate": 426,
+      "endDate": null,
+      "displayDate": "426",
+      "type": "sub-event",
+      "subjectId": "krle",
+      "topicId": "filosofi",
+      "link": "/krle/filosofi/augustin",
+      "tags": [
+        "filosofi",
+        "religion",
+        "mellomalderen"
       ]
     },
     {
@@ -887,6 +569,40 @@
       ]
     },
     {
+      "id": "vestromerrikets-fall",
+      "title": "Vestromerrikets fall",
+      "description": "Den siste vestromerske keiseren, Romulus Augustulus, avsettes. Dette regnes ofte som starten på middelalderen.",
+      "startDate": 476,
+      "endDate": null,
+      "displayDate": "476",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "middelalderen",
+      "link": "/historie/middelalderen/tidlig-middelalder",
+      "tags": [
+        "historie",
+        "romerriket",
+        "middelalderen"
+      ]
+    },
+    {
+      "id": "klodvigs-daap",
+      "title": "Klodvig lar seg døpe",
+      "description": "Frankerkongen Klodvig konverterer til katolisismen, noe som sikrer alliansen mellom frankerne og kirken.",
+      "startDate": 496,
+      "endDate": null,
+      "displayDate": "496",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "middelalderen",
+      "link": "/historie/middelalderen/tidlig-middelalder",
+      "tags": [
+        "historie",
+        "frankerriket",
+        "religion"
+      ]
+    },
+    {
       "id": "middelalderen",
       "title": "Middelalderen",
       "description": "En tusenårig forvandling i Europa.",
@@ -901,91 +617,6 @@
         "norge",
         "middelalder",
         "lov"
-      ]
-    },
-    {
-      "id": "voc-founding",
-      "title": "VOC stiftes",
-      "description": "Det nederlandske ostindiske kompani blir verdens første aksjeselskap og symboliserer starten på det nederlandske hegemoniet.",
-      "startDate": 1602,
-      "endDate": null,
-      "displayDate": "1602",
-      "type": "sub-event",
-      "subjectId": "samfunnskunnskap",
-      "topicId": "ideer-og-verdenssyn",
-      "link": "/samfunnskunnskap/ideer-og-verdenssyn/store-sykluser",
-      "tags": [
-        "økonomi",
-        "handel",
-        "nederland"
-      ]
-    },
-    {
-      "id": "napoleon-end",
-      "title": "Slutten på Napoleonskrigene",
-      "description": "Slaget ved Waterloo markerer slutten på Frankrikes utfordring og starten på Pax Britannica “ Storbritannias hundreårige fred.",
-      "startDate": 1815,
-      "endDate": null,
-      "displayDate": "1815",
-      "type": "sub-event",
-      "subjectId": "samfunnskunnskap",
-      "topicId": "ideer-og-verdenssyn",
-      "link": "/samfunnskunnskap/ideer-og-verdenssyn/store-sykluser",
-      "tags": [
-        "historie",
-        "storbritannia",
-        "krig"
-      ]
-    },
-    {
-      "id": "bretton-woods",
-      "title": "Bretton Woods-konferansen",
-      "description": "Grunnlaget for den moderne verdensøkonomien legges, med dollaren som den globale reservevalutaen under USAs ledelse.",
-      "startDate": 1944,
-      "endDate": null,
-      "displayDate": "1944",
-      "type": "sub-event",
-      "subjectId": "samfunnskunnskap",
-      "topicId": "ideer-og-verdenssyn",
-      "link": "/samfunnskunnskap/ideer-og-verdenssyn/store-sykluser",
-      "tags": [
-        "økonomi",
-        "usa",
-        "globalt"
-      ]
-    },
-    {
-      "id": "federal-reserve-1913",
-      "title": "Federal Reserve grunnlegges",
-      "description": "USA oppretter sin sentralbank. For første gang kan et sentralt organ sette prisen på penger i verdens største økonomi.",
-      "startDate": 1913,
-      "endDate": null,
-      "displayDate": "1913",
-      "type": "event",
-      "subjectId": "samfunnskunnskap",
-      "topicId": "okonomi",
-      "link": "/samfunnskunnskap/okonomi/naturlig-rente",
-      "tags": [
-        "økonomi",
-        "sentralbank",
-        "rente"
-      ]
-    },
-    {
-      "id": "nixon-sjokket-1971",
-      "title": "Nixon-sjokket: Gullstandarden avvikles",
-      "description": "President Nixon avslutter dollarens gullkonvertibilitet. Verdens pengesystem blir rent fiat-basert.",
-      "startDate": 1971,
-      "endDate": null,
-      "displayDate": "15. august 1971",
-      "type": "event",
-      "subjectId": "samfunnskunnskap",
-      "topicId": "okonomi",
-      "link": "/samfunnskunnskap/okonomi/naturlig-rente",
-      "tags": [
-        "økonomi",
-        "rente",
-        "penger"
       ]
     },
     {
@@ -1005,6 +636,23 @@
         "klima",
         "folkevandring",
         "fimbulvinter"
+      ]
+    },
+    {
+      "id": "battle-of-tours",
+      "title": "Slaget ved Tours",
+      "description": "Karl Martell stanser den islamske ekspansjonen inn i Frankrike, et avgjørende øyeblikk for Europas fremtid.",
+      "startDate": 732,
+      "endDate": null,
+      "displayDate": "732",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "middelalderen",
+      "link": "/historie/middelalderen/tidlig-middelalder",
+      "tags": [
+        "krig",
+        "frankerriket",
+        "islam"
       ]
     },
     {
@@ -1101,6 +749,23 @@
       ]
     },
     {
+      "id": "karl-den-store-krone",
+      "title": "Karl den store krones til keiser",
+      "description": "Paven kroner Karl den store til romersk keiser i Roma, noe som markerer dannelsen av et nytt kristent imperium i vest.",
+      "startDate": 800,
+      "endDate": null,
+      "displayDate": "800",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "middelalderen",
+      "link": "/historie/middelalderen/tidlig-middelalder",
+      "tags": [
+        "historie",
+        "keiser",
+        "karl-den-store"
+      ]
+    },
+    {
       "id": "myklebust-skipet",
       "title": "Myklebust-skipet brennes",
       "description": "En spektakulær begravelse der Norges største vikingskip brennes i en haug på Nordfjordeid.",
@@ -1115,23 +780,6 @@
         "vikingtiden",
         "arkeologi",
         "ritualer"
-      ]
-    },
-    {
-      "id": "slaget-ved-solskjel",
-      "title": "Slaget ved Solskjel",
-      "description": "Maktkampen om Vestlandet: Kong Audbjørn av Fjordane faller mot Harald Hårfagre.",
-      "startDate": 863,
-      "endDate": null,
-      "displayDate": "863",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "vikingtiden",
-      "link": "/historie/vikingtiden/myklebust-funnet",
-      "tags": [
-        "vikingtiden",
-        "krig",
-        "rikssamlingen"
       ]
     },
     {
@@ -1153,19 +801,19 @@
       ]
     },
     {
-      "id": "rikssamlingen",
-      "title": "Rikssamlingen",
-      "description": "Harald Hårfagre og samlingen av Norge.",
-      "startDate": 865,
-      "endDate": 933,
-      "displayDate": "865-933",
-      "type": "lesson",
+      "id": "slaget-ved-solskjel",
+      "title": "Slaget ved Solskjel",
+      "description": "Maktkampen om Vestlandet: Kong Audbjørn av Fjordane faller mot Harald Hårfagre.",
+      "startDate": 863,
+      "endDate": null,
+      "displayDate": "863",
+      "type": "sub-event",
       "subjectId": "historie",
       "topicId": "vikingtiden",
-      "link": "/historie/vikingtiden/rikssamlingen",
+      "link": "/historie/vikingtiden/myklebust-funnet",
       "tags": [
-        "historie",
-        "norge",
+        "vikingtiden",
+        "krig",
         "rikssamlingen"
       ]
     },
@@ -1184,6 +832,23 @@
         "england",
         "krig",
         "vikingtiden"
+      ]
+    },
+    {
+      "id": "rikssamlingen",
+      "title": "Rikssamlingen",
+      "description": "Harald Hårfagre og samlingen av Norge.",
+      "startDate": 865,
+      "endDate": 933,
+      "displayDate": "865-933",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "vikingtiden",
+      "link": "/historie/vikingtiden/rikssamlingen",
+      "tags": [
+        "historie",
+        "norge",
+        "rikssamlingen"
       ]
     },
     {
@@ -1259,6 +924,90 @@
       ]
     },
     {
+      "id": "genghis-khan-unification",
+      "title": "Genghis Khan samler mongolene",
+      "description": "Temüjin utnevnes til Genghis Khan og starter erobringen av det eurasiske kontinentet.",
+      "startDate": 1206,
+      "endDate": null,
+      "displayDate": "1206",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "middelalder",
+      "link": "/historie/middelalder/mongolske-riket",
+      "tags": [
+        "mongolene",
+        "erobring",
+        "asia"
+      ]
+    },
+    {
+      "id": "mongol-invasion-europe",
+      "title": "Mongolene invaderer Europa",
+      "description": "Mongolske horder beseirer russiske, polske og ungarske hærer og når utkanten av Wien.",
+      "startDate": 1241,
+      "endDate": null,
+      "displayDate": "1241",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "middelalder",
+      "link": "/historie/middelalder/mongolske-riket",
+      "tags": [
+        "krig",
+        "europa",
+        "mongolene"
+      ]
+    },
+    {
+      "id": "stockholm-founding",
+      "title": "Stockholm grunnlegges",
+      "description": "Birger Jarl grunnlegger Stockholm.",
+      "startDate": 1252,
+      "endDate": null,
+      "displayDate": "1252",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "sveriges-historie",
+      "link": "/historie/sveriges-historie/sveriges-historie",
+      "tags": [
+        "sverige",
+        "bygger"
+      ]
+    },
+    {
+      "id": "baghdad-fall",
+      "title": "Bagdads fall",
+      "description": "Hulagu Khan erobrer Bagdad, noe som markerer slutten på den islamske gullalderen.",
+      "startDate": 1258,
+      "endDate": null,
+      "displayDate": "1258",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "middelalder",
+      "link": "/historie/middelalder/mongolske-riket",
+      "tags": [
+        "krig",
+        "islam",
+        "midtausten"
+      ]
+    },
+    {
+      "id": "aquinas-summa",
+      "title": "Summa Theologica",
+      "description": "Thomas Aquinas forener tro og fornuft.",
+      "startDate": 1274,
+      "endDate": null,
+      "displayDate": "1274",
+      "type": "sub-event",
+      "subjectId": "krle",
+      "topicId": "filosofi",
+      "link": "/krle/filosofi/aquinas",
+      "tags": [
+        "filosofi",
+        "teologi",
+        "skolastikk"
+      ]
+    },
+    {
       "id": "svartedauden",
       "title": "Svartedauden",
       "description": "Pesten som endret Norge.",
@@ -1311,6 +1060,40 @@
       ]
     },
     {
+      "id": "kalmar-union-start",
+      "title": "Kalmarunionen inngås",
+      "description": "Norge, Sverige og Danmark samles i en union under dronning Margrete.",
+      "startDate": 1397,
+      "endDate": 1523,
+      "displayDate": "1397",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "sveriges-historie",
+      "link": "/historie/sveriges-historie/sveriges-historie",
+      "tags": [
+        "union",
+        "politikk",
+        "norden"
+      ]
+    },
+    {
+      "id": "ceuta-conquest",
+      "title": "Erobringen av Ceuta",
+      "description": "Portugal erobrer byen Ceuta i Nord-Afrika, starten på den europeiske ekspansjonen.",
+      "startDate": 1415,
+      "endDate": null,
+      "displayDate": "1415",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "kolonialisering",
+      "link": "/historie/kolonialisering/portugisisk-kolonialisering",
+      "tags": [
+        "krig",
+        "portugal",
+        "afrika"
+      ]
+    },
+    {
       "id": "vitaliebrodrene-plyndring",
       "title": "Vitaliebrødrene plyndrer Bergen",
       "description": "Hanseatiske pirater angriper byen i to omganger og brenner ned kongsgården.",
@@ -1325,24 +1108,6 @@
         "krig",
         "sjørøveri",
         "bergen"
-      ]
-    },
-    {
-      "id": "munkeliv-drapet",
-      "title": "Drapet på Olav Nilsson",
-      "description": "Hanseatene angriper Munkeliv kloster, brenner det ned og dreper høvedsmannen.",
-      "startDate": 1455,
-      "endDate": null,
-      "displayDate": "1455",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "middelalderen",
-      "link": "/historie/middelalderen/hanseatene",
-      "tags": [
-        "konflikt",
-        "hansa",
-        "bergen",
-        "kirke"
       ]
     },
     {
@@ -1382,6 +1147,126 @@
       ]
     },
     {
+      "id": "munkeliv-drapet",
+      "title": "Drapet på Olav Nilsson",
+      "description": "Hanseatene angriper Munkeliv kloster, brenner det ned og dreper høvedsmannen.",
+      "startDate": 1455,
+      "endDate": null,
+      "displayDate": "1455",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "middelalderen",
+      "link": "/historie/middelalderen/hanseatene",
+      "tags": [
+        "konflikt",
+        "hansa",
+        "bergen",
+        "kirke"
+      ]
+    },
+    {
+      "id": "mirandola-dignity",
+      "title": "Tale om menneskets verdighet",
+      "description": "Giovanni Pico della Mirandola utgir et av humanismens viktigste skrifter om menneskets frihet og potensial.",
+      "startDate": 1486,
+      "endDate": null,
+      "displayDate": "1486",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "ideer-og-verdenssyn",
+      "link": "/samfunnskunnskap/ideer-og-verdenssyn/humanisme",
+      "tags": [
+        "renessansen",
+        "filosofi",
+        "humanisme"
+      ]
+    },
+    {
+      "id": "dias-cape",
+      "title": "Dias runder Kapp det gode håp",
+      "description": "Bartolomeu Dias åpner sjøveien til India ved å runde Afrikas sørspiss.",
+      "startDate": 1488,
+      "endDate": null,
+      "displayDate": "1488",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "kolonialisering",
+      "link": "/historie/kolonialisering/portugisisk-kolonialisering",
+      "tags": [
+        "oppdagelse",
+        "portugal",
+        "afrika"
+      ]
+    },
+    {
+      "id": "columbus-arrival",
+      "title": "Columbus når Amerika",
+      "description": "Christofer Columbus ankommer Karibia og innleder den spanske koloniseringen av Amerika.",
+      "startDate": 1492,
+      "endDate": null,
+      "displayDate": "1492",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "kolonialisering",
+      "link": "/historie/kolonialisering/spansk-kolonialisering",
+      "tags": [
+        "oppdagelse",
+        "spania",
+        "amerika"
+      ]
+    },
+    {
+      "id": "europeisk-hegemoni",
+      "title": "Europeisk hegemoni",
+      "description": "En 500-årig periode der europeiske stormakter dominerte verden politisk, økonomisk og kulturelt.",
+      "startDate": 1492,
+      "endDate": 1956,
+      "displayDate": "1492 - 1956",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "kolonialisering",
+      "link": "/historie/kolonialisering/europa-erobrer-verden",
+      "tags": [
+        "global-historie",
+        "imperialisme",
+        "kolonialisme"
+      ]
+    },
+    {
+      "id": "tordesillas-treaty",
+      "title": "Tordesillastraktaten",
+      "description": "Paven deler verden i to mellom Spania og Portugal.",
+      "startDate": 1494,
+      "endDate": null,
+      "displayDate": "1494",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "kolonialisering",
+      "link": "/historie/kolonialisering/spansk-kolonialisering",
+      "tags": [
+        "diplomati",
+        "spania",
+        "portugal"
+      ]
+    },
+    {
+      "id": "dagama-india",
+      "title": "Vasco da Gama når India",
+      "description": "Sjøveien til India er funnet, og Portugal kan handle krydder direkte.",
+      "startDate": 1498,
+      "endDate": null,
+      "displayDate": "1498",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "kolonialisering",
+      "link": "/historie/kolonialisering/portugisisk-kolonialisering",
+      "tags": [
+        "handel",
+        "portugal",
+        "india"
+      ]
+    },
+    {
       "id": "boktrykkerkunsten-sub-2",
       "title": "Masseproduksjon",
       "description": "Over 20 millioner bøker er trykket i Europa.",
@@ -1400,6 +1285,57 @@
       ]
     },
     {
+      "id": "cabral-brasil",
+      "title": "Cabral oppdager Brasil",
+      "description": "Portugal gjør krav på Sør-Amerikas største land.",
+      "startDate": 1500,
+      "endDate": null,
+      "displayDate": "1500",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "kolonialisering",
+      "link": "/historie/kolonialisering/portugisisk-kolonialisering",
+      "tags": [
+        "oppdagelse",
+        "portugal",
+        "brasil"
+      ]
+    },
+    {
+      "id": "malacca-conquest",
+      "title": "Erobringen av Malakka",
+      "description": "Portugal tar kontroll over krydderhandelen i Sørøst-Asia.",
+      "startDate": 1511,
+      "endDate": null,
+      "displayDate": "1511",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "kolonialisering",
+      "link": "/historie/kolonialisering/portugisisk-kolonialisering",
+      "tags": [
+        "krig",
+        "portugal",
+        "asia"
+      ]
+    },
+    {
+      "id": "thomas-more-utopia",
+      "title": "Thomas Mores Utopia",
+      "description": "Utgivelsen av boken som ga navn til hele sjangeren om det perfekte samfunn.",
+      "startDate": 1516,
+      "endDate": null,
+      "displayDate": "1516",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "ideer-og-verdenssyn",
+      "link": "/samfunnskunnskap/ideer-og-verdenssyn/utopier",
+      "tags": [
+        "renessansen",
+        "litteratur",
+        "utopi"
+      ]
+    },
+    {
       "id": "boktrykkerkunsten-sub-3",
       "title": "Reformasjonen",
       "description": "Martin Luthers teser spres raskt over hele Europa takket være trykkpressen.",
@@ -1415,6 +1351,108 @@
         "teknologi",
         "renessansen",
         "bøker"
+      ]
+    },
+    {
+      "id": "danseplagen-strasbourg",
+      "title": "Danseplagen i Strasbourg",
+      "description": "Hundrevis av mennesker danser ukontrollert i gatene, et ekstremt eksempel på flokkmentalitet.",
+      "startDate": 1518,
+      "endDate": null,
+      "displayDate": "1518",
+      "type": "sub-event",
+      "subjectId": "samfunnskunnskap",
+      "topicId": "mennesket-kultur-samfunn",
+      "link": "/samfunnskunnskap/mennesket-kultur-samfunn/flokkmentalitet",
+      "tags": [
+        "psykologi",
+        "historie",
+        "flokkmentalitet"
+      ]
+    },
+    {
+      "id": "cortes-mexico",
+      "title": "Cortés erobrer Mexico",
+      "description": "Aztekerrikets fall markerer starten på Spanias herredømme på fastlandet.",
+      "startDate": 1521,
+      "endDate": null,
+      "displayDate": "1521",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "kolonialisering",
+      "link": "/historie/kolonialisering/spansk-kolonialisering",
+      "tags": [
+        "krig",
+        "aztekere",
+        "mexico"
+      ]
+    },
+    {
+      "id": "gustav-vasa-king",
+      "title": "Gustav Vasa valgt til konge",
+      "description": "Markerer slutten på Kalmarunionen og starten på det moderne Sverige.",
+      "startDate": 1523,
+      "endDate": null,
+      "displayDate": "1523",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "sveriges-historie",
+      "link": "/historie/sveriges-historie/sveriges-historie",
+      "tags": [
+        "konge",
+        "selvstendighet",
+        "vasa"
+      ]
+    },
+    {
+      "id": "pizarro-peru",
+      "title": "Pizarro erobrer Peru",
+      "description": "Inkariket faller for Francisco Pizarros styrker.",
+      "startDate": 1533,
+      "endDate": null,
+      "displayDate": "1533",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "kolonialisering",
+      "link": "/historie/kolonialisering/spansk-kolonialisering",
+      "tags": [
+        "krig",
+        "inka",
+        "peru"
+      ]
+    },
+    {
+      "id": "potosi-silver",
+      "title": "Sølvfunnet i Potosí",
+      "description": "Verdens største sølvforekomst oppdages i dagens Bolivia, og finansierer det spanske imperiet.",
+      "startDate": 1545,
+      "endDate": null,
+      "displayDate": "1545",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "kolonialisering",
+      "link": "/historie/kolonialisering/spansk-kolonialisering",
+      "tags": [
+        "økonomi",
+        "sølv",
+        "bolivia"
+      ]
+    },
+    {
+      "id": "den-spanske-armada-1588",
+      "title": "Den spanske armada",
+      "description": "Filip II invaderer England med religiøs og politisk legitimering.",
+      "startDate": 1588,
+      "endDate": null,
+      "displayDate": "1588",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "ideer-og-verdenssyn",
+      "link": "/samfunnskunnskap/ideer-og-verdenssyn/casus-belli",
+      "tags": [
+        "renessansen",
+        "krig",
+        "religion"
       ]
     },
     {
@@ -1472,6 +1510,23 @@
       ]
     },
     {
+      "id": "voc-founding",
+      "title": "VOC stiftes",
+      "description": "Det nederlandske ostindiske kompani blir verdens første aksjeselskap og symboliserer starten på det nederlandske hegemoniet.",
+      "startDate": 1602,
+      "endDate": null,
+      "displayDate": "1602",
+      "type": "sub-event",
+      "subjectId": "samfunnskunnskap",
+      "topicId": "ideer-og-verdenssyn",
+      "link": "/samfunnskunnskap/ideer-og-verdenssyn/store-sykluser",
+      "tags": [
+        "økonomi",
+        "handel",
+        "nederland"
+      ]
+    },
+    {
       "id": "30-aarskrigen",
       "title": "30-årskrigen",
       "description": "Den store katastrofen som formet det moderne Europa.",
@@ -1487,6 +1542,193 @@
         "krig",
         "europa",
         "reformasjonen"
+      ]
+    },
+    {
+      "id": "praha-defenestrasjon-1618",
+      "title": "Defenestrasjonen i Praha",
+      "description": "Tre embetsmenn kastes ut av et vindu, noe som blir den utløsende årsaken til 30-årskrigen.",
+      "startDate": 1618,
+      "endDate": null,
+      "displayDate": "1618",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "ideer-og-verdenssyn",
+      "link": "/samfunnskunnskap/ideer-og-verdenssyn/casus-belli",
+      "tags": [
+        "reformasjonen",
+        "krig",
+        "europa"
+      ]
+    },
+    {
+      "id": "lutzen-battle",
+      "title": "Slaget ved Lützen",
+      "description": "Gustav II Adolf faller i kamp under 30-årskrigen.",
+      "startDate": 1632,
+      "endDate": null,
+      "displayDate": "1632",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "sveriges-historie",
+      "link": "/historie/sveriges-historie/sveriges-historie",
+      "tags": [
+        "krig",
+        "stormaktstid",
+        "konge"
+      ]
+    },
+    {
+      "id": "galileo-trial",
+      "title": "Galileos rettssak",
+      "description": "Kirken dømmer Galileo for å hevde at jorden går rundt solen “ et avgjørende øyeblikk i kampen mellom autoritet og observasjon.",
+      "startDate": 1633,
+      "endDate": null,
+      "displayDate": "1633",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "ideer-og-verdenssyn",
+      "link": "/samfunnskunnskap/ideer-og-verdenssyn/sannhetens-historie",
+      "tags": [
+        "vitenskap",
+        "historie",
+        "sannhet"
+      ]
+    },
+    {
+      "id": "tulipanmanien",
+      "title": "Tulipanmanien",
+      "description": "Verdens første dokumenterte økonomiske boble drevet av flokkmentalitet i Nederland.",
+      "startDate": 1634,
+      "endDate": 1637,
+      "displayDate": "1634-1637",
+      "type": "sub-event",
+      "subjectId": "samfunnskunnskap",
+      "topicId": "mennesket-kultur-samfunn",
+      "link": "/samfunnskunnskap/mennesket-kultur-samfunn/flokkmentalitet",
+      "tags": [
+        "økonomi",
+        "flokkmentalitet",
+        "nederland"
+      ]
+    },
+    {
+      "id": "descartes-method",
+      "title": "Descartes: Naturen som maskin",
+      "description": "René Descartes utgir 'Om metoden', som legger grunnlaget for det mekanistiske verdensbildet.",
+      "startDate": 1637,
+      "endDate": null,
+      "displayDate": "1637",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "ideer-og-verdenssyn",
+      "link": "/samfunnskunnskap/ideer-og-verdenssyn/naturens-sjel",
+      "tags": [
+        "filosofi",
+        "vitenskap",
+        "natur"
+      ]
+    },
+    {
+      "id": "descartes-meditasjoner",
+      "title": "Meditasjoner over filosofiens grunnlag",
+      "description": "'Cogito, ergo sum' “ Descartes grunnlegger moderne filosofi.",
+      "startDate": 1641,
+      "endDate": null,
+      "displayDate": "1641",
+      "type": "sub-event",
+      "subjectId": "krle",
+      "topicId": "filosofi",
+      "link": "/krle/filosofi/descartes",
+      "tags": [
+        "filosofi",
+        "rasjonalisme",
+        "erkjennelse"
+      ]
+    },
+    {
+      "id": "ludvig-xiv-absolutisme",
+      "title": "Solkongen og eneveldet",
+      "description": "Ludvig XIV av Frankrike styrer som eneveldig monark ('Staten, det er jeg').",
+      "startDate": 1643,
+      "endDate": 1715,
+      "displayDate": "1643 - 1715",
+      "type": "sub-event",
+      "subjectId": "samfunnsfag",
+      "topicId": "styringsformer",
+      "link": "/samfunnskunnskap/styringsformer/monarkiet",
+      "tags": [
+        "historie",
+        "enevelde",
+        "frankrike"
+      ]
+    },
+    {
+      "id": "locke-treatises",
+      "title": "To avhandlinger om styresettet",
+      "description": "John Locke legger grunnlaget for liberalismen og maktfordeling.",
+      "startDate": 1689,
+      "endDate": null,
+      "displayDate": "1689",
+      "type": "sub-event",
+      "subjectId": "krle",
+      "topicId": "filosofi",
+      "link": "/krle/filosofi/locke",
+      "tags": [
+        "filosofi",
+        "politikk",
+        "empirisme"
+      ]
+    },
+    {
+      "id": "locke-treatises",
+      "title": "John Locke: Two Treatises",
+      "description": "John Locke utgir sitt viktigste politiske verk om naturlige rettigheter og samfunnskontrakten.",
+      "startDate": 1689,
+      "endDate": null,
+      "displayDate": "1689",
+      "type": "sub-event",
+      "subjectId": "samfunnsfag",
+      "topicId": "styringsformer",
+      "link": "/samfunnskunnskap/styringsformer/opplysningstid",
+      "tags": [
+        "filosofi",
+        "opplysningstiden",
+        "rettigheter"
+      ]
+    },
+    {
+      "id": "david-hume",
+      "title": "David Hume",
+      "description": "Den skotske filosofen David Hume utgir 'A Treatise of Human Nature', et av de viktigste verkene i vestlig filosofi.",
+      "startDate": 1739,
+      "endDate": 1776,
+      "displayDate": "1739 - 1776",
+      "type": "sub-event",
+      "subjectId": "krle",
+      "topicId": "filosofi",
+      "link": "/krle/filosofi/hume",
+      "tags": [
+        "filosofi",
+        "opplysningstid",
+        "empirisme"
+      ]
+    },
+    {
+      "id": "montesquieu-spirit-laws",
+      "title": "Montesquieu: Maktens tredeling",
+      "description": "Verket 'Lovenes ånd' utgis, som legger grunnlaget for maktfordelingsprinsippet.",
+      "startDate": 1748,
+      "endDate": null,
+      "displayDate": "1748",
+      "type": "sub-event",
+      "subjectId": "samfunnsfag",
+      "topicId": "styringsformer",
+      "link": "/samfunnskunnskap/styringsformer/opplysningstid",
+      "tags": [
+        "filosofi",
+        "opplysningstiden",
+        "maktfordeling"
       ]
     },
     {
@@ -1508,6 +1750,142 @@
       ]
     },
     {
+      "id": "rousseau-social-contract",
+      "title": "Rousseau: Samfunnskontrakten",
+      "description": "Jean-Jacques Rousseau utgir 'Du contrat social', som inspirerer til folkesuverenitet.",
+      "startDate": 1762,
+      "endDate": null,
+      "displayDate": "1762",
+      "type": "sub-event",
+      "subjectId": "samfunnsfag",
+      "topicId": "styringsformer",
+      "link": "/samfunnskunnskap/styringsformer/opplysningstid",
+      "tags": [
+        "filosofi",
+        "opplysningstiden",
+        "folkevilje"
+      ]
+    },
+    {
+      "id": "kant-moral",
+      "title": "Grunnlegging av moralens metafysikk",
+      "description": "Immanuel Kant formulerer det kategoriske imperativ.",
+      "startDate": 1785,
+      "endDate": null,
+      "displayDate": "1785",
+      "type": "sub-event",
+      "subjectId": "krle",
+      "topicId": "etikk",
+      "link": "/krle/etikk/pliktetikk",
+      "tags": [
+        "etikk",
+        "filosofi",
+        "plikt"
+      ]
+    },
+    {
+      "id": "stormingen-av-bastillen",
+      "title": "Stormingen av Bastillen",
+      "description": "Folkemengden i Paris stormer festningen Bastillen. Dagen blir starten på den franske revolusjon og senere Frankrikes nasjonaldag.",
+      "startDate": 1789,
+      "endDate": null,
+      "displayDate": "14. juli 1789",
+      "type": "event",
+      "subjectId": "historie",
+      "topicId": "den-franske-revolusjon",
+      "link": "/historie/den-franske-revolusjon/stormingen-av-bastillen",
+      "tags": [
+        "frankrike",
+        "revolusjon",
+        "bastillen",
+        "1700-tallet"
+      ]
+    },
+    {
+      "id": "luddittene",
+      "title": "Luddittene",
+      "description": "Engelske tekstilarbeidere knuser maskiner i protest mot automatisering.",
+      "startDate": 1811,
+      "endDate": 1816,
+      "displayDate": "1811-1816",
+      "type": "sub-event",
+      "subjectId": "samfunnskunnskap",
+      "topicId": "mennesket-kultur-samfunn",
+      "link": "/samfunnskunnskap/mennesket-kultur-samfunn/robotene-kommer",
+      "tags": [
+        "teknologi",
+        "historie",
+        "arbeid"
+      ]
+    },
+    {
+      "id": "norge-grunnlov-1814",
+      "title": "Norges Grunnlov",
+      "description": "Norge får sin egen grunnlov på Eidsvoll, basert på opplysningstidens idealer.",
+      "startDate": 1814,
+      "endDate": null,
+      "displayDate": "1814",
+      "type": "sub-event",
+      "subjectId": "samfunnsfag",
+      "topicId": "styringsformer",
+      "link": "/samfunnskunnskap/styringsformer/monarkiet",
+      "tags": [
+        "historie",
+        "norge",
+        "demokrati"
+      ]
+    },
+    {
+      "id": "union-1814-start",
+      "title": "Union med Norge",
+      "description": "Sverige tvinger Danmark til å avstå Norge etter Napoleonskrigene.",
+      "startDate": 1814,
+      "endDate": 1905,
+      "displayDate": "1814",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "sveriges-historie",
+      "link": "/historie/sveriges-historie/sveriges-historie",
+      "tags": [
+        "union",
+        "diplomati"
+      ]
+    },
+    {
+      "id": "napoleon-end",
+      "title": "Slutten på Napoleonskrigene",
+      "description": "Slaget ved Waterloo markerer slutten på Frankrikes utfordring og starten på Pax Britannica “ Storbritannias hundreårige fred.",
+      "startDate": 1815,
+      "endDate": null,
+      "displayDate": "1815",
+      "type": "sub-event",
+      "subjectId": "samfunnskunnskap",
+      "topicId": "ideer-og-verdenssyn",
+      "link": "/samfunnskunnskap/ideer-og-verdenssyn/store-sykluser",
+      "tags": [
+        "historie",
+        "storbritannia",
+        "krig"
+      ]
+    },
+    {
+      "id": "new-harmony-owen",
+      "title": "New Harmony grunnlegges",
+      "description": "Robert Owen forsøker å skape et utopisk sosialistisk samfunn i USA.",
+      "startDate": 1825,
+      "endDate": null,
+      "displayDate": "1825",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "ideer-og-verdenssyn",
+      "link": "/samfunnskunnskap/ideer-og-verdenssyn/utopier",
+      "tags": [
+        "ideologi",
+        "usa",
+        "utopi"
+      ]
+    },
+    {
       "id": "hamskiftet",
       "title": "Hamskiftet",
       "description": "Norge skifter ham: Fra bonde til arbeider.",
@@ -1525,6 +1903,40 @@
       ]
     },
     {
+      "id": "kierkegaard-enten-eller",
+      "title": "Enten “ Eller",
+      "description": "Søren Kierkegaard utforsker livsstadiene og det eksistensielle valget.",
+      "startDate": 1843,
+      "endDate": null,
+      "displayDate": "1843",
+      "type": "sub-event",
+      "subjectId": "krle",
+      "topicId": "filosofi",
+      "link": "/krle/filosofi/kierkegaard",
+      "tags": [
+        "filosofi",
+        "eksistensialisme",
+        "tro"
+      ]
+    },
+    {
+      "id": "miller-disappointment",
+      "title": "Den store skuffelsen",
+      "description": "Tusenvis av tilhengere av William Miller ventet på Jesu gjenkomst, noe som førte til dannelsen av nye trossamfunn.",
+      "startDate": 1844,
+      "endDate": null,
+      "displayDate": "1844",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "ideer-og-verdenssyn",
+      "link": "/samfunnskunnskap/ideer-og-verdenssyn/eskatologi",
+      "tags": [
+        "religion",
+        "usa",
+        "eskatologi"
+      ]
+    },
+    {
       "id": "piken-med-svovelstikkene",
       "title": "Piken med svovelstikkene",
       "description": "Utgitt av H.C. Andersen",
@@ -1534,6 +1946,23 @@
       "type": "text",
       "subjectId": "norsk",
       "link": "/norsk/bibliotek?text=piken-med-svovelstikkene"
+    },
+    {
+      "id": "crystal-palace",
+      "title": "Verdensutstillingen i London",
+      "description": "The Great Exhibition i Crystal Palace markerer høydepunktet for victorianernes tro på industrielt og teknologisk framskritt.",
+      "startDate": 1851,
+      "endDate": null,
+      "displayDate": "1851",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "ideer-og-verdenssyn",
+      "link": "/samfunnskunnskap/ideer-og-verdenssyn/framskrittstro",
+      "tags": [
+        "historie",
+        "teknologi",
+        "storbritannia"
+      ]
     },
     {
       "id": "eic-sub-2",
@@ -1569,6 +1998,40 @@
         "imperialisme",
         "india",
         "storbritannia"
+      ]
+    },
+    {
+      "id": "john-stuart-mill-liberty",
+      "title": "John Stuart Mill: 'On Liberty'",
+      "description": "Utgivelsen av et av liberalismens viktigste verk om ytringsfrihet.",
+      "startDate": 1859,
+      "endDate": null,
+      "displayDate": "1859",
+      "type": "sub-event",
+      "subjectId": "samfunnskunnskap",
+      "topicId": "mennesket-kultur-samfunn",
+      "link": "/samfunnskunnskap/mennesket-kultur-samfunn/ytringsvett-vs-ytringsmot",
+      "tags": [
+        "filosofi",
+        "ytringsfrihet",
+        "liberalisme"
+      ]
+    },
+    {
+      "id": "mill-on-liberty",
+      "title": "Om friheten",
+      "description": "John Stuart Mills forsvar for ytringsfrihet og individualisme.",
+      "startDate": 1859,
+      "endDate": null,
+      "displayDate": "1859",
+      "type": "sub-event",
+      "subjectId": "krle",
+      "topicId": "filosofi",
+      "link": "/krle/etikk/utilitarisme",
+      "tags": [
+        "filosofi",
+        "politikk",
+        "frihet"
       ]
     },
     {
@@ -1623,6 +2086,23 @@
       "link": "/norsk/bibliotek?text=karen"
     },
     {
+      "id": "nietzsche-zarathustra",
+      "title": "Slik talte Zarathustra",
+      "description": "Friedrich Nietzsche forkynner 'Guds død' og overmennesket.",
+      "startDate": 1883,
+      "endDate": null,
+      "displayDate": "1883",
+      "type": "sub-event",
+      "subjectId": "krle",
+      "topicId": "filosofi",
+      "link": "/krle/filosofi/nietzsche",
+      "tags": [
+        "filosofi",
+        "eksistensialisme",
+        "nihilisme"
+      ]
+    },
+    {
       "id": "dypfryst",
       "title": "Dypfryst",
       "description": "Utgitt av Roald Dahl",
@@ -1632,6 +2112,137 @@
       "type": "text",
       "subjectId": "norsk",
       "link": "/norsk/bibliotek?text=dypfryst"
+    },
+    {
+      "id": "union-dissolution-1905",
+      "title": "Unionsoppløsningen",
+      "description": "Sverige og Norge skiller lag fredelig etter Karlstad-forhandlingene.",
+      "startDate": 1905,
+      "endDate": null,
+      "displayDate": "1905",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "sveriges-historie",
+      "link": "/historie/sveriges-historie/sveriges-historie",
+      "tags": [
+        "fred",
+        "selvstendighet",
+        "diplomati"
+      ]
+    },
+    {
+      "id": "federal-reserve-1913",
+      "title": "Federal Reserve grunnlegges",
+      "description": "USA oppretter sin sentralbank. For første gang kan et sentralt organ sette prisen på penger i verdens største økonomi.",
+      "startDate": 1913,
+      "endDate": null,
+      "displayDate": "1913",
+      "type": "event",
+      "subjectId": "samfunnskunnskap",
+      "topicId": "okonomi",
+      "link": "/samfunnskunnskap/okonomi/naturlig-rente",
+      "tags": [
+        "økonomi",
+        "sentralbank",
+        "rente"
+      ]
+    },
+    {
+      "id": "belgia-1914-casus",
+      "title": "Invasjonen av Belgia",
+      "description": "Tysklands brudd på Belgias nøytralitet gir Storbritannia en legitim Casus Belli for å gå inn i krigen.",
+      "startDate": 1914,
+      "endDate": null,
+      "displayDate": "1914",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "ideer-og-verdenssyn",
+      "link": "/samfunnskunnskap/ideer-og-verdenssyn/casus-belli",
+      "tags": [
+        "krig",
+        "diplomati",
+        "første-verdenskrig"
+      ]
+    },
+    {
+      "id": "forste-verdenskrig-event",
+      "title": "Første verdenskrig",
+      "description": "Den store krigen som endret europakartet.",
+      "startDate": 1914,
+      "endDate": 1918,
+      "displayDate": "1914-1918",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "forste-verdenskrig",
+      "link": "/historie/forste-verdenskrig/oversikt",
+      "tags": [
+        "krig",
+        "europa"
+      ]
+    },
+    {
+      "id": "skuddene-i-sarajevo",
+      "title": "Skuddene i Sarajevo",
+      "description": "Erkehertug Franz Ferdinand skytes, noe som utløser krigen.",
+      "startDate": 1914,
+      "endDate": null,
+      "displayDate": "28. juni 1914",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "forste-verdenskrig",
+      "link": "/historie/forste-verdenskrig/oversikt",
+      "tags": [
+        "krig",
+        "opptakt"
+      ]
+    },
+    {
+      "id": "slaget-ved-somme",
+      "title": "Slaget ved Somme",
+      "description": "Den blodigste dagen i britisk militærhistorie.",
+      "startDate": 1916,
+      "endDate": null,
+      "displayDate": "1. juli 1916",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "forste-verdenskrig",
+      "link": "/historie/forste-verdenskrig/skyttergravskrig",
+      "tags": [
+        "krig",
+        "slag"
+      ]
+    },
+    {
+      "id": "bolsjevik-revolusjon",
+      "title": "Bolsjevik-revolusjonen",
+      "description": "Lenin tar makten i Russland.",
+      "startDate": 1917,
+      "endDate": null,
+      "displayDate": "7. november 1917",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "forste-verdenskrig",
+      "link": "/historie/forste-verdenskrig/russiske-revolusjon",
+      "tags": [
+        "revolusjon",
+        "russland"
+      ]
+    },
+    {
+      "id": "usa-krig-1917",
+      "title": "USA går med i krigen",
+      "description": "USA erklærer krig mot Tyskland.",
+      "startDate": 1917,
+      "endDate": null,
+      "displayDate": "6. april 1917",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "forste-verdenskrig",
+      "link": "/historie/forste-verdenskrig/oversikt",
+      "tags": [
+        "krig",
+        "usa"
+      ]
     },
     {
       "id": "bakgrunn",
@@ -1648,6 +2259,341 @@
         "krig",
         "historie",
         "konflikt"
+      ]
+    },
+    {
+      "id": "vapenhvilen-1918",
+      "title": "Våpenhvilen",
+      "description": "Kanonene stilner på vestfronten.",
+      "startDate": 1918,
+      "endDate": null,
+      "displayDate": "11. november 1918",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "forste-verdenskrig",
+      "link": "/historie/forste-verdenskrig/oversikt",
+      "tags": [
+        "fred",
+        "krigsslutt"
+      ]
+    },
+    {
+      "id": "versailles-traktaten",
+      "title": "Versailles-traktaten",
+      "description": "Den offisielle fredsavtalen signeres.",
+      "startDate": 1919,
+      "endDate": null,
+      "displayDate": "28. juni 1919",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "forste-verdenskrig",
+      "link": "/historie/forste-verdenskrig/oversikt",
+      "tags": [
+        "fred",
+        "diplomati"
+      ]
+    },
+    {
+      "id": "irland-deles",
+      "title": "Irland deles i to",
+      "description": "Nord-Irland forblir britisk. Seks nordlige fylker skilles fra resten av øya, og frøet til tiår med konflikt såes.",
+      "startDate": 1920,
+      "endDate": null,
+      "displayDate": "1920",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "den-kalde-krigen",
+      "link": "/historie/den-kalde-krigen/peace-lines-belfast",
+      "tags": [
+        "irland",
+        "belfast",
+        "delte-samfunn",
+        "the-troubles"
+      ]
+    },
+    {
+      "id": "heidegger-vaeren",
+      "title": "Væren og tid",
+      "description": "Martin Heidegger analyserer hva det vil si å være til.",
+      "startDate": 1927,
+      "endDate": null,
+      "displayDate": "1927",
+      "type": "sub-event",
+      "subjectId": "krle",
+      "topicId": "filosofi",
+      "link": "/krle/filosofi/heidegger",
+      "tags": [
+        "filosofi",
+        "fenomenologi",
+        "eksistens"
+      ]
+    },
+    {
+      "id": "edward-bernays-propaganda",
+      "title": "Torches of Freedom",
+      "description": "Edward Bernays revolusjonerer PR ved å koble røyking til kvinnefrigjøring.",
+      "startDate": 1929,
+      "endDate": null,
+      "displayDate": "1929",
+      "type": "sub-event",
+      "subjectId": "samfunnskunnskap",
+      "topicId": "mennesket-kultur-samfunn",
+      "link": "/samfunnskunnskap/mennesket-kultur-samfunn/kjendismakt",
+      "tags": [
+        "pr",
+        "media",
+        "psykologi"
+      ]
+    },
+    {
+      "id": "mukden-incident-1931",
+      "title": "Mukden-hendelsen",
+      "description": "Japan fabrikkerer en eksplosjon i Mandsjuria som påskudd for invasjon. En forkastet Casus Belli.",
+      "startDate": 1931,
+      "endDate": null,
+      "displayDate": "1931",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "ideer-og-verdenssyn",
+      "link": "/samfunnskunnskap/ideer-og-verdenssyn/casus-belli",
+      "tags": [
+        "krig",
+        "japan",
+        "mandsjuria"
+      ]
+    },
+    {
+      "id": "dachau-opens",
+      "title": "Dachau åpnes",
+      "description": "Den første konsentrasjonsleiren etableres, opprinnelig for politiske fanger.",
+      "startDate": 1933,
+      "endDate": null,
+      "displayDate": "1933",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "andre-verdenskrig",
+      "link": "/historie/andre-verdenskrig/konsentrasjonsleirene",
+      "tags": [
+        "tyskland",
+        "nazisme",
+        "leire"
+      ]
+    },
+    {
+      "id": "hitler-makt",
+      "title": "Hitler tar makten",
+      "description": "Adolf Hitler blir rikskansler i Tyskland.",
+      "startDate": 1933,
+      "endDate": null,
+      "displayDate": "1933",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "andre-verdenskrig",
+      "link": "/historie/andre-verdenskrig/bakgrunn",
+      "tags": [
+        "politikk",
+        "tyskland"
+      ]
+    },
+    {
+      "id": "anarki-catalonia",
+      "title": "Anarkismen i Catalonia",
+      "description": "Under den spanske borgerkrigen styres store deler av Catalonia etter anarkistiske prinsipper.",
+      "startDate": 1936,
+      "endDate": 1939,
+      "displayDate": "1936 - 1939",
+      "type": "sub-event",
+      "subjectId": "samfunnsfag",
+      "topicId": "styringsformer",
+      "link": "/samfunnskunnskap/styringsformer/uten-hersker",
+      "tags": [
+        "historie",
+        "anarkisme",
+        "spania"
+      ]
+    },
+    {
+      "id": "andre-verdenskrig-event",
+      "title": "Andre verdenskrig",
+      "description": "Verdenshistoriens største og dødeligste konflikt.",
+      "startDate": 1939,
+      "endDate": 1945,
+      "displayDate": "1939-1945",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "andre-verdenskrig",
+      "link": "/historie/andre-verdenskrig/oversikt",
+      "tags": [
+        "krig",
+        "verden"
+      ]
+    },
+    {
+      "id": "gleiwitz-1939-casus",
+      "title": "Gleiwitz-provokasjonen",
+      "description": "SS utfører et falskt angrep på en tysk radiostasjon for å rettferdiggjøre invasjonen av Polen.",
+      "startDate": 1939,
+      "endDate": null,
+      "displayDate": "1939",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "ideer-og-verdenssyn",
+      "link": "/samfunnskunnskap/ideer-og-verdenssyn/casus-belli",
+      "tags": [
+        "krig",
+        "tyskland",
+        "andre-verdenskrig"
+      ]
+    },
+    {
+      "id": "angrepet-pa-norge",
+      "title": "Angrepet på Norge",
+      "description": "Tyskland invaderer Norge.",
+      "startDate": 1940,
+      "endDate": 1945,
+      "displayDate": "9. april 1940",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "andre-verdenskrig",
+      "link": "/historie/andre-verdenskrig/krigens-lop",
+      "tags": [
+        "norge",
+        "krig"
+      ]
+    },
+    {
+      "id": "stalingrad",
+      "title": "Slaget om Stalingrad",
+      "description": "Krigen snur på æ˜stfronten.",
+      "startDate": 1942,
+      "endDate": 1943,
+      "displayDate": "1942-1943",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "andre-verdenskrig",
+      "link": "/historie/andre-verdenskrig/krigens-lop",
+      "tags": [
+        "krig",
+        "slag"
+      ]
+    },
+    {
+      "id": "wannsee-conference",
+      "title": "Wannsee-konferansen",
+      "description": "Nazistoppene planlegger 'den endelige løsningen' “ industrialisert folkemord.",
+      "startDate": 1942,
+      "endDate": null,
+      "displayDate": "1942",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "andre-verdenskrig",
+      "link": "/historie/andre-verdenskrig/konsentrasjonsleirene",
+      "tags": [
+        "holocaust",
+        "jøder",
+        "folkemord"
+      ]
+    },
+    {
+      "id": "bretton-woods",
+      "title": "Bretton Woods-konferansen",
+      "description": "Grunnlaget for den moderne verdensøkonomien legges, med dollaren som den globale reservevalutaen under USAs ledelse.",
+      "startDate": 1944,
+      "endDate": null,
+      "displayDate": "1944",
+      "type": "sub-event",
+      "subjectId": "samfunnskunnskap",
+      "topicId": "ideer-og-verdenssyn",
+      "link": "/samfunnskunnskap/ideer-og-verdenssyn/store-sykluser",
+      "tags": [
+        "økonomi",
+        "usa",
+        "globalt"
+      ]
+    },
+    {
+      "id": "d-dagen",
+      "title": "D-dagen",
+      "description": "De allierte går i land i Normandie.",
+      "startDate": 1944,
+      "endDate": null,
+      "displayDate": "6. juni 1944",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "andre-verdenskrig",
+      "link": "/historie/andre-verdenskrig/krigens-lop",
+      "tags": [
+        "krig",
+        "slag"
+      ]
+    },
+    {
+      "id": "atombombene",
+      "title": "Atombombene over Japan",
+      "description": "Hiroshima og Nagasaki bombes, krigen slutter.",
+      "startDate": 1945,
+      "endDate": null,
+      "displayDate": "August 1945",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "andre-verdenskrig",
+      "link": "/historie/andre-verdenskrig/krigens-lop",
+      "tags": [
+        "krig",
+        "teknologi"
+      ]
+    },
+    {
+      "id": "atomvapenkapplopet",
+      "title": "Atomvåpenkappløpet",
+      "description": "Terrorbalanse og kampen for overlevelse.",
+      "startDate": 1945,
+      "endDate": 1991,
+      "displayDate": "1945“1991",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "den-kalde-krigen",
+      "link": "/historie/den-kalde-krigen/atomvapenkapplopet",
+      "tags": [
+        "atomvåpen",
+        "mad",
+        "nedrustning",
+        "kappløp"
+      ]
+    },
+    {
+      "id": "auschwitz-liberation",
+      "title": "Frigjøringen av Auschwitz",
+      "description": "Sovjetiske styrker frigjør leiren og verden får se omfanget av holocaust.",
+      "startDate": 1945,
+      "endDate": null,
+      "displayDate": "1945",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "andre-verdenskrig",
+      "link": "/historie/andre-verdenskrig/konsentrasjonsleirene",
+      "tags": [
+        "frigjøring",
+        "holocaust",
+        "sovjet"
+      ]
+    },
+    {
+      "id": "kultur",
+      "title": "Kultur under den kalde krigen",
+      "description": "Film, sport og musikk som ideologisk slagmark.",
+      "startDate": 1945,
+      "endDate": 1991,
+      "displayDate": "1945“1991",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "den-kalde-krigen",
+      "link": "/historie/den-kalde-krigen/kultur",
+      "tags": [
+        "kultur",
+        "propaganda",
+        "film",
+        "sport"
       ]
     },
     {
@@ -1689,42 +2635,6 @@
       ]
     },
     {
-      "id": "atomvapenkapplopet",
-      "title": "Atomvåpenkappløpet",
-      "description": "Terrorbalanse og kampen for overlevelse.",
-      "startDate": 1945,
-      "endDate": 1991,
-      "displayDate": "1945“1991",
-      "type": "lesson",
-      "subjectId": "historie",
-      "topicId": "den-kalde-krigen",
-      "link": "/historie/den-kalde-krigen/atomvapenkapplopet",
-      "tags": [
-        "atomvåpen",
-        "mad",
-        "nedrustning",
-        "kappløp"
-      ]
-    },
-    {
-      "id": "kultur",
-      "title": "Kultur under den kalde krigen",
-      "description": "Film, sport og musikk som ideologisk slagmark.",
-      "startDate": 1945,
-      "endDate": 1991,
-      "displayDate": "1945“1991",
-      "type": "lesson",
-      "subjectId": "historie",
-      "topicId": "den-kalde-krigen",
-      "link": "/historie/den-kalde-krigen/kultur",
-      "tags": [
-        "kultur",
-        "propaganda",
-        "film",
-        "sport"
-      ]
-    },
-    {
       "id": "oversikt-sub-1",
       "title": "Jernteppet-talen",
       "description": "Churchill advarer mot sovjetisk dominans i æ˜st-Europa.",
@@ -1760,6 +2670,35 @@
         "stormakt",
         "usa",
         "sovjet"
+      ]
+    },
+    {
+      "id": "alt-blir-som-for",
+      "title": "Alt blir som før",
+      "description": "Utgitt av Ari Behn",
+      "startDate": 1948,
+      "endDate": null,
+      "displayDate": "1948",
+      "type": "text",
+      "subjectId": "norsk",
+      "link": "/norsk/bibliotek?text=alt-blir-som-for"
+    },
+    {
+      "id": "apartheid-innfores",
+      "title": "Apartheid innføres i Sør-Afrika",
+      "description": "National Party vinner valget og begynner å lovfeste raseskillelse systematisk gjennom en rekke diskrimineringslover.",
+      "startDate": 1948,
+      "endDate": 1994,
+      "displayDate": "1948–1994",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/apartheid-syd-afrika",
+      "tags": [
+        "apartheid",
+        "sør-afrika",
+        "segregering",
+        "delte-samfunn"
       ]
     },
     {
@@ -1801,15 +2740,38 @@
       ]
     },
     {
-      "id": "alt-blir-som-for",
-      "title": "Alt blir som før",
-      "description": "Utgitt av Ari Behn",
+      "id": "un-human-rights",
+      "title": "FNs menneskerettserklæring",
+      "description": "Etter andre verdenskrig samler verden seg om universelle rettigheter for alle mennesker “ en seier for humanistiske verdier.",
       "startDate": 1948,
       "endDate": null,
       "displayDate": "1948",
-      "type": "text",
-      "subjectId": "norsk",
-      "link": "/norsk/bibliotek?text=alt-blir-som-for"
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "ideer-og-verdenssyn",
+      "link": "/samfunnskunnskap/ideer-og-verdenssyn/humanisme",
+      "tags": [
+        "historie",
+        "globalt",
+        "rettigheter"
+      ]
+    },
+    {
+      "id": "beauvoir-kjonn",
+      "title": "Det annet kjønn",
+      "description": "Simone de Beauvoir analyserer kvinnens stilling: 'Man fødes ikke som kvinne, man blir det'.",
+      "startDate": 1949,
+      "endDate": null,
+      "displayDate": "1949",
+      "type": "sub-event",
+      "subjectId": "krle",
+      "topicId": "filosofi",
+      "link": "/krle/filosofi/beauvoir",
+      "tags": [
+        "filosofi",
+        "feminisme",
+        "eksistensialisme"
+      ]
     },
     {
       "id": "nato-vs-warszawa",
@@ -1845,6 +2807,23 @@
         "warszawapakten",
         "allianser",
         "europa"
+      ]
+    },
+    {
+      "id": "orwell-1984",
+      "title": "1984 utgis",
+      "description": "George Orwells dystopiske advarsel mot totalitære samfunn preger etterkrigstiden.",
+      "startDate": 1949,
+      "endDate": null,
+      "displayDate": "1949",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "ideer-og-verdenssyn",
+      "link": "/samfunnskunnskap/ideer-og-verdenssyn/utopier",
+      "tags": [
+        "litteratur",
+        "den-kalde-krigen",
+        "dystopi"
       ]
     },
     {
@@ -1884,6 +2863,57 @@
       ]
     },
     {
+      "id": "arendt-totalitarisme",
+      "title": "Totalitarismens opprinnelse",
+      "description": "Hannah Arendt analyserer nazismen og stalinismen.",
+      "startDate": 1951,
+      "endDate": null,
+      "displayDate": "1951",
+      "type": "sub-event",
+      "subjectId": "krle",
+      "topicId": "filosofi",
+      "link": "/krle/filosofi/arendt",
+      "tags": [
+        "filosofi",
+        "politikk",
+        "historie"
+      ]
+    },
+    {
+      "id": "asch-experiment",
+      "title": "Asch-eksperimentet",
+      "description": "Solomon Asch demonstrerer kraften i gruppekonformitet.",
+      "startDate": 1951,
+      "endDate": null,
+      "displayDate": "1951",
+      "type": "sub-event",
+      "subjectId": "samfunnskunnskap",
+      "topicId": "mennesket-kultur-samfunn",
+      "link": "/samfunnskunnskap/mennesket-kultur-samfunn/flokkmentalitet",
+      "tags": [
+        "psykologi",
+        "forskning"
+      ]
+    },
+    {
+      "id": "korea-dmz-etablert",
+      "title": "DMZ etableres i Korea",
+      "description": "Koreakrigen avsluttes med en våpenhvile. En 250 km lang demilitarisert sone deler halvøya. Ingen fredsavtale er signert.",
+      "startDate": 1953,
+      "endDate": null,
+      "displayDate": "1953",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "den-kalde-krigen",
+      "link": "/historie/den-kalde-krigen/korea-dmz",
+      "tags": [
+        "korea",
+        "asia",
+        "delte-samfunn",
+        "kald-krig"
+      ]
+    },
+    {
       "id": "koreakrigen-sub-1",
       "title": "Våpenhvile i Korea",
       "description": "Krigen pauses, men en formell fredsavtale mangler.",
@@ -1902,24 +2932,6 @@
       ]
     },
     {
-      "id": "vietnamkrigen",
-      "title": "Vietnamkrigen",
-      "description": "En splittende krig som rystet supermakten USA.",
-      "startDate": 1955,
-      "endDate": 1975,
-      "displayDate": "1955“1975",
-      "type": "lesson",
-      "subjectId": "historie",
-      "topicId": "den-kalde-krigen",
-      "link": "/historie/den-kalde-krigen/vietnamkrigen",
-      "tags": [
-        "vietnam",
-        "krig",
-        "usa",
-        "protest"
-      ]
-    },
-    {
       "id": "nato-vs-warszawa-sub-1",
       "title": "Warszawapakten",
       "description": "Sovjetunionen og æ˜stblokken danner sin egen militærallianse.",
@@ -1935,6 +2947,42 @@
         "warszawapakten",
         "allianser",
         "europa"
+      ]
+    },
+    {
+      "id": "rosa-parks",
+      "title": "Rosa Parks nekter å gi fra seg plassen",
+      "description": "Rosa Parks nekter å gi fra seg bussplassen sin i Montgomery, Alabama. Montgomery Bus Boycott begynner.",
+      "startDate": 1955,
+      "endDate": null,
+      "displayDate": "1955",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/jim-crow-lovene",
+      "tags": [
+        "usa",
+        "segregering",
+        "borgerrettigheter",
+        "delte-samfunn"
+      ]
+    },
+    {
+      "id": "vietnamkrigen",
+      "title": "Vietnamkrigen",
+      "description": "En splittende krig som rystet supermakten USA.",
+      "startDate": 1955,
+      "endDate": 1975,
+      "displayDate": "1955“1975",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "den-kalde-krigen",
+      "link": "/historie/den-kalde-krigen/vietnamkrigen",
+      "tags": [
+        "vietnam",
+        "krig",
+        "usa",
+        "protest"
       ]
     },
     {
@@ -2010,21 +3058,20 @@
       ]
     },
     {
-      "id": "romkapplopet-sub-1",
-      "title": "Første menneske i rommet",
-      "description": "Yuri Gagarin fullfører et kretsløp rundt jorda.",
-      "startDate": 1961,
+      "id": "sharpeville-massakren",
+      "title": "Sharpeville-massakren",
+      "description": "69 ubevæpnede demonstranter mot passloven drept av politiet i Sharpeville, Sør-Afrika.",
+      "startDate": 1960,
       "endDate": null,
-      "displayDate": "1961",
+      "displayDate": "1960",
       "type": "sub-event",
       "subjectId": "historie",
-      "topicId": "den-kalde-krigen",
-      "link": "/historie/den-kalde-krigen/romkapplopet",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/apartheid-syd-afrika",
       "tags": [
-        "romfart",
-        "sputnik",
-        "apollo",
-        "teknologi"
+        "apartheid",
+        "sør-afrika",
+        "delte-samfunn"
       ]
     },
     {
@@ -2061,6 +3108,41 @@
         "mur",
         "tyskland",
         "jernteppet"
+      ]
+    },
+    {
+      "id": "foucault-madness",
+      "title": "Galskapens historie",
+      "description": "Michel Foucault utgir sitt banebrytende verk om hvordan samfunnet har definert og stengt ute de 'umormale' gjennom tidene.",
+      "startDate": 1961,
+      "endDate": null,
+      "displayDate": "1961",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "ideer-og-verdenssyn",
+      "link": "/samfunnskunnskap/ideer-og-verdenssyn/det-unormale",
+      "tags": [
+        "filosofi",
+        "historie",
+        "psykologi"
+      ]
+    },
+    {
+      "id": "romkapplopet-sub-1",
+      "title": "Første menneske i rommet",
+      "description": "Yuri Gagarin fullfører et kretsløp rundt jorda.",
+      "startDate": 1961,
+      "endDate": null,
+      "displayDate": "1961",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "den-kalde-krigen",
+      "link": "/historie/den-kalde-krigen/romkapplopet",
+      "tags": [
+        "romfart",
+        "sputnik",
+        "apollo",
+        "teknologi"
       ]
     },
     {
@@ -2111,6 +3193,75 @@
       "link": "/norsk/bibliotek?text=det-usynlige-barnet"
     },
     {
+      "id": "rothbard-mes",
+      "title": "Man, Economy, and State",
+      "description": "Murray Rothbards hovedverk om østerriksk økonomi og praxeologi.",
+      "startDate": 1962,
+      "endDate": null,
+      "displayDate": "1962",
+      "type": "sub-event",
+      "subjectId": "krle",
+      "topicId": "filosofi",
+      "link": "/krle/filosofi/rothbard",
+      "tags": [
+        "økonomi",
+        "filosofi",
+        "frihet"
+      ]
+    },
+    {
+      "id": "silent-spring",
+      "title": "Silent Spring utgis",
+      "description": "Rachel Carsons bok starter den moderne miljøbevegelsen ved å advare mot giftstoffer i naturen.",
+      "startDate": 1962,
+      "endDate": null,
+      "displayDate": "1962",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "ideer-og-verdenssyn",
+      "link": "/samfunnskunnskap/ideer-og-verdenssyn/naturens-sjel",
+      "tags": [
+        "økologi",
+        "historie",
+        "natur"
+      ]
+    },
+    {
+      "id": "arendt-eichmann",
+      "title": "Eichmann i Jerusalem",
+      "description": "Arendt rapporterer fra rettssaken og lanserer begrepet 'ondskapens banalitet'.",
+      "startDate": 1963,
+      "endDate": null,
+      "displayDate": "1963",
+      "type": "sub-event",
+      "subjectId": "krle",
+      "topicId": "filosofi",
+      "link": "/krle/filosofi/arendt",
+      "tags": [
+        "filosofi",
+        "etikk",
+        "rettferdighet"
+      ]
+    },
+    {
+      "id": "civil-rights-act",
+      "title": "Civil Rights Act",
+      "description": "USA forbyr rasediskriminering ved lov. Jim Crow-lovene er formelt over – nesten 100 år etter at slaveriet ble avskaffet.",
+      "startDate": 1964,
+      "endDate": null,
+      "displayDate": "1964",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/jim-crow-lovene",
+      "tags": [
+        "usa",
+        "segregering",
+        "borgerrettigheter",
+        "delte-samfunn"
+      ]
+    },
+    {
       "id": "vietnamkrigen-sub-0",
       "title": "Tonkinbukta-episoden",
       "description": "USA trapper opp sitt militære engasjement i Vietnam.",
@@ -2129,6 +3280,43 @@
       ]
     },
     {
+      "id": "the-troubles-starter",
+      "title": "The Troubles begynner",
+      "description": "Borgerrettsbevegelsen i Nord-Irland møtes med vold. Konflikten mellom katolikker og protestanter eskalerer.",
+      "startDate": 1968,
+      "endDate": 1998,
+      "displayDate": "1968–1998",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "den-kalde-krigen",
+      "link": "/historie/den-kalde-krigen/peace-lines-belfast",
+      "tags": [
+        "irland",
+        "belfast",
+        "konflikt",
+        "delte-samfunn",
+        "the-troubles"
+      ]
+    },
+    {
+      "id": "peace-lines-1969",
+      "title": "Første Peace Lines reises",
+      "description": "Britiske soldater setter opp provisoriske barrierer mellom katolske og protestantiske nabolag i Belfast etter pogromlignende angrep.",
+      "startDate": 1969,
+      "endDate": null,
+      "displayDate": "1969",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "den-kalde-krigen",
+      "link": "/historie/den-kalde-krigen/peace-lines-belfast",
+      "tags": [
+        "irland",
+        "belfast",
+        "delte-samfunn",
+        "the-troubles"
+      ]
+    },
+    {
       "id": "romkapplopet-sub-2",
       "title": "Månelandingen",
       "description": "Apollo 11 lander på månen; USA vinner kappløpet.",
@@ -2144,6 +3332,128 @@
         "sputnik",
         "apollo",
         "teknologi"
+      ]
+    },
+    {
+      "id": "nixon-sjokket-1971",
+      "title": "Nixon-sjokket: Gullstandarden avvikles",
+      "description": "President Nixon avslutter dollarens gullkonvertibilitet. Verdens pengesystem blir rent fiat-basert.",
+      "startDate": 1971,
+      "endDate": null,
+      "displayDate": "15. august 1971",
+      "type": "event",
+      "subjectId": "samfunnskunnskap",
+      "topicId": "okonomi",
+      "link": "/samfunnskunnskap/okonomi/naturlig-rente",
+      "tags": [
+        "økonomi",
+        "rente",
+        "penger"
+      ]
+    },
+    {
+      "id": "bloody-sunday",
+      "title": "Bloody Sunday",
+      "description": "Britiske fallskjermsoldater dreper 14 ubevæpnede demonstranter i Derry. Hendelsen rekrutterte tusenvis til IRA.",
+      "startDate": 1972,
+      "endDate": null,
+      "displayDate": "1972",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "den-kalde-krigen",
+      "link": "/historie/den-kalde-krigen/peace-lines-belfast",
+      "tags": [
+        "irland",
+        "belfast",
+        "konflikt",
+        "delte-samfunn",
+        "the-troubles"
+      ]
+    },
+    {
+      "id": "blue-marble",
+      "title": "The Blue Marble",
+      "description": "Det første fargebildet av hele jorden fra verdensrommet endrer menneskehetens syn på planeten som en sårbar helhet.",
+      "startDate": 1972,
+      "endDate": null,
+      "displayDate": "1972",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "ideer-og-verdenssyn",
+      "link": "/samfunnskunnskap/ideer-og-verdenssyn/naturens-sjel",
+      "tags": [
+        "vitenskap",
+        "globalt",
+        "natur"
+      ]
+    },
+    {
+      "id": "norge-diagnose-1972",
+      "title": "Homofili-diagnosen fjernes",
+      "description": "Et eksempel på hvordan medisinske definisjoner av 'normalitet' endrer seg i takt med samfunnet.",
+      "startDate": 1972,
+      "endDate": null,
+      "displayDate": "1972",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "ideer-og-verdenssyn",
+      "link": "/samfunnskunnskap/ideer-og-verdenssyn/det-unormale",
+      "tags": [
+        "historie",
+        "rettigheter",
+        "norge"
+      ]
+    },
+    {
+      "id": "roman-club-limits",
+      "title": "Limits to Growth",
+      "description": "Romerklubbens rapport utfordrer ideen om uendelig økonomisk vekst på en begrenset planet.",
+      "startDate": 1972,
+      "endDate": null,
+      "displayDate": "1972",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "ideer-og-verdenssyn",
+      "link": "/samfunnskunnskap/ideer-og-verdenssyn/framskrittstro",
+      "tags": [
+        "miljø",
+        "økonomi",
+        "fremtid"
+      ]
+    },
+    {
+      "id": "kypros-delt",
+      "title": "Kypros deles",
+      "description": "Tyrkia invaderer etter et gresk militærkupp. 160 000 gresk-kyprioter og 45 000 tyrkisk-kyprioter tvinges fra hjemmene sine.",
+      "startDate": 1974,
+      "endDate": null,
+      "displayDate": "1974",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "den-kalde-krigen",
+      "link": "/historie/den-kalde-krigen/kypros-delingslinjen",
+      "tags": [
+        "kypros",
+        "europa",
+        "konflikt",
+        "delte-samfunn"
+      ]
+    },
+    {
+      "id": "singer-animal",
+      "title": "Animal Liberation",
+      "description": "Peter Singer utvider utilitarismen til å inkludere dyr.",
+      "startDate": 1975,
+      "endDate": null,
+      "displayDate": "1975",
+      "type": "sub-event",
+      "subjectId": "krle",
+      "topicId": "etikk",
+      "link": "/krle/etikk/utilitarisme",
+      "tags": [
+        "etikk",
+        "dyrerettigheter",
+        "utilitarisme"
       ]
     },
     {
@@ -2212,6 +3522,23 @@
       ]
     },
     {
+      "id": "ozonlaget-avtalen",
+      "title": "Montreal-protokollen (Ozonlaget)",
+      "description": "En global avtale for å redde atmosfæren, ofte sett på som menneskehetens første suksessfulle 'avverging' av en moderne apokalypse.",
+      "startDate": 1987,
+      "endDate": null,
+      "displayDate": "1987",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "ideer-og-verdenssyn",
+      "link": "/samfunnskunnskap/ideer-og-verdenssyn/eskatologi",
+      "tags": [
+        "miljø",
+        "globalt",
+        "eskatologi"
+      ]
+    },
+    {
       "id": "berlinmuren-sub-1",
       "title": "Berlinmurens fall",
       "description": "Presset fra befolkningen fører til at portene åpnes 9. november.",
@@ -2230,6 +3557,41 @@
       ]
     },
     {
+      "id": "kuwait-1990-casus",
+      "title": "Invasjonen av Kuwait",
+      "description": "Iraks invasjon blir møtt med en nesten enstemmig internasjonal fordømmelse og legitim motaksjon.",
+      "startDate": 1990,
+      "endDate": null,
+      "displayDate": "1990",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "ideer-og-verdenssyn",
+      "link": "/samfunnskunnskap/ideer-og-verdenssyn/casus-belli",
+      "tags": [
+        "krig",
+        "fn",
+        "midtøsten"
+      ]
+    },
+    {
+      "id": "mandela-fri",
+      "title": "Mandela løslates etter 27 år",
+      "description": "Nelson Mandela går ut av Victor Verster-fengslet. Fire år seinere vinner han Sør-Afrikas første frie valg.",
+      "startDate": 1990,
+      "endDate": null,
+      "displayDate": "1990",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/apartheid-syd-afrika",
+      "tags": [
+        "apartheid",
+        "sør-afrika",
+        "mandela",
+        "delte-samfunn"
+      ]
+    },
+    {
       "id": "veien-mot-slutt-sub-1",
       "title": "Sovjetunionens fall",
       "description": "Unionen oppløses; den kalde krigen er offisielt over.",
@@ -2245,6 +3607,111 @@
         "gorbatsjov",
         "1989",
         "frihet"
+      ]
+    },
+    {
+      "id": "deep-blue-kasparov",
+      "title": "Deep Blue slår Kasparov",
+      "description": "En datamaskin slår for første gang verdensmesteren i sjakk.",
+      "startDate": 1997,
+      "endDate": null,
+      "displayDate": "1997",
+      "type": "sub-event",
+      "subjectId": "samfunnskunnskap",
+      "topicId": "mennesket-kultur-samfunn",
+      "link": "/samfunnskunnskap/mennesket-kultur-samfunn/robotene-kommer",
+      "tags": [
+        "ai",
+        "teknologi",
+        "sjakk"
+      ]
+    },
+    {
+      "id": "belfast-avtalen",
+      "title": "Belfast-avtalen (Good Friday Agreement)",
+      "description": "Historisk fredsavtale avslutter The Troubles. IRA legger ned våpnene. Men Peace Lines i Belfast blir stående.",
+      "startDate": 1998,
+      "endDate": null,
+      "displayDate": "1998",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "den-kalde-krigen",
+      "link": "/historie/den-kalde-krigen/peace-lines-belfast",
+      "tags": [
+        "irland",
+        "belfast",
+        "fred",
+        "delte-samfunn",
+        "the-troubles"
+      ]
+    },
+    {
+      "id": "google-founding",
+      "title": "Google grunnlegges",
+      "description": "Starten på en ny era der algoritmer begynner å sortere og definere hva som er relevant informasjon for menneskeheten.",
+      "startDate": 1998,
+      "endDate": null,
+      "displayDate": "1998",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "ideer-og-verdenssyn",
+      "link": "/samfunnskunnskap/ideer-og-verdenssyn/sannhetens-historie",
+      "tags": [
+        "teknologi",
+        "historie",
+        "sannhet"
+      ]
+    },
+    {
+      "id": "y2k-millennium",
+      "title": "Y2K: Millennium-frykten",
+      "description": "Global frykt for at datasystemer skulle kollapse ved tusenårsskiftet.",
+      "startDate": 2000,
+      "endDate": null,
+      "displayDate": "2000",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "ideer-og-verdenssyn",
+      "link": "/samfunnskunnskap/ideer-og-verdenssyn/eskatologi",
+      "tags": [
+        "teknologi",
+        "globalt",
+        "eskatologi"
+      ]
+    },
+    {
+      "id": "vestbredden-barriere",
+      "title": "Separasjonsbarrieren på Vestbredden",
+      "description": "Israel begynner å bygge en 700 km lang barriere langs og delvis inne på Vestbredden. FNs domstol erklærer deler av den folkerettsstridig.",
+      "startDate": 2002,
+      "endDate": null,
+      "displayDate": "2002",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/israel-palestina-muren",
+      "tags": [
+        "israel",
+        "palestina",
+        "midtøsten",
+        "delte-samfunn"
+      ]
+    },
+    {
+      "id": "iraq-2003-casus",
+      "title": "Invasjonen av Irak",
+      "description": "USA invaderer Irak med påstander om masseødeleggelseswåpen. En Casus Belli som senere ble sterkt kritisert.",
+      "startDate": 2003,
+      "endDate": null,
+      "displayDate": "2003",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "ideer-og-verdenssyn",
+      "link": "/samfunnskunnskap/ideer-og-verdenssyn/casus-belli",
+      "tags": [
+        "krig",
+        "usa",
+        "irak"
       ]
     },
     {
@@ -2279,638 +3746,6 @@
       "type": "text",
       "subjectId": "norsk",
       "link": "/norsk/bibliotek?text=doden"
-    },
-    {
-      "id": "sokrates-dod",
-      "title": "Sokrates dømmes til døden",
-      "description": "Filosofiens far tømmer giftbegeret i Athen.",
-      "startDate": -399,
-      "endDate": null,
-      "displayDate": "399 f.Kr.",
-      "type": "sub-event",
-      "subjectId": "krle",
-      "topicId": "filosofi",
-      "link": "/krle/filosofi/sokrates",
-      "tags": [
-        "filosofi",
-        "hellas",
-        "etikk"
-      ]
-    },
-    {
-      "id": "platon-staten",
-      "title": "Platon: Staten",
-      "description": "Verket som definerte vestlig politisk filosofi.",
-      "startDate": -375,
-      "endDate": null,
-      "displayDate": "ca. 375 f.Kr.",
-      "type": "sub-event",
-      "subjectId": "krle",
-      "topicId": "filosofi",
-      "link": "/krle/filosofi/platon",
-      "tags": [
-        "filosofi",
-        "politikk",
-        "idealisme"
-      ]
-    },
-    {
-      "id": "aristoteles-etikk",
-      "title": "Den nikomakiske etikk",
-      "description": "Aristoteles definerer dygdsetikken og den gylne middelvei.",
-      "startDate": -340,
-      "endDate": null,
-      "displayDate": "ca. 340 f.Kr.",
-      "type": "sub-event",
-      "subjectId": "krle",
-      "topicId": "etikk",
-      "link": "/krle/etikk/dygdsetikk",
-      "tags": [
-        "etikk",
-        "filosofi",
-        "lykke"
-      ]
-    },
-    {
-      "id": "augustin-gudsstaten",
-      "title": "Augustin: Om Gudsstaten",
-      "description": "Kristendommens forsvar mot Romas fall.",
-      "startDate": 426,
-      "endDate": null,
-      "displayDate": "426",
-      "type": "sub-event",
-      "subjectId": "krle",
-      "topicId": "filosofi",
-      "link": "/krle/filosofi/augustin",
-      "tags": [
-        "filosofi",
-        "religion",
-        "mellomalderen"
-      ]
-    },
-    {
-      "id": "aquinas-summa",
-      "title": "Summa Theologica",
-      "description": "Thomas Aquinas forener tro og fornuft.",
-      "startDate": 1274,
-      "endDate": null,
-      "displayDate": "1274",
-      "type": "sub-event",
-      "subjectId": "krle",
-      "topicId": "filosofi",
-      "link": "/krle/filosofi/aquinas",
-      "tags": [
-        "filosofi",
-        "teologi",
-        "skolastikk"
-      ]
-    },
-    {
-      "id": "descartes-meditasjoner",
-      "title": "Meditasjoner over filosofiens grunnlag",
-      "description": "'Cogito, ergo sum' “ Descartes grunnlegger moderne filosofi.",
-      "startDate": 1641,
-      "endDate": null,
-      "displayDate": "1641",
-      "type": "sub-event",
-      "subjectId": "krle",
-      "topicId": "filosofi",
-      "link": "/krle/filosofi/descartes",
-      "tags": [
-        "filosofi",
-        "rasjonalisme",
-        "erkjennelse"
-      ]
-    },
-    {
-      "id": "locke-treatises",
-      "title": "To avhandlinger om styresettet",
-      "description": "John Locke legger grunnlaget for liberalismen og maktfordeling.",
-      "startDate": 1689,
-      "endDate": null,
-      "displayDate": "1689",
-      "type": "sub-event",
-      "subjectId": "krle",
-      "topicId": "filosofi",
-      "link": "/krle/filosofi/locke",
-      "tags": [
-        "filosofi",
-        "politikk",
-        "empirisme"
-      ]
-    },
-    {
-      "id": "kant-moral",
-      "title": "Grunnlegging av moralens metafysikk",
-      "description": "Immanuel Kant formulerer det kategoriske imperativ.",
-      "startDate": 1785,
-      "endDate": null,
-      "displayDate": "1785",
-      "type": "sub-event",
-      "subjectId": "krle",
-      "topicId": "etikk",
-      "link": "/krle/etikk/pliktetikk",
-      "tags": [
-        "etikk",
-        "filosofi",
-        "plikt"
-      ]
-    },
-    {
-      "id": "kierkegaard-enten-eller",
-      "title": "Enten “ Eller",
-      "description": "Søren Kierkegaard utforsker livsstadiene og det eksistensielle valget.",
-      "startDate": 1843,
-      "endDate": null,
-      "displayDate": "1843",
-      "type": "sub-event",
-      "subjectId": "krle",
-      "topicId": "filosofi",
-      "link": "/krle/filosofi/kierkegaard",
-      "tags": [
-        "filosofi",
-        "eksistensialisme",
-        "tro"
-      ]
-    },
-    {
-      "id": "mill-on-liberty",
-      "title": "Om friheten",
-      "description": "John Stuart Mills forsvar for ytringsfrihet og individualisme.",
-      "startDate": 1859,
-      "endDate": null,
-      "displayDate": "1859",
-      "type": "sub-event",
-      "subjectId": "krle",
-      "topicId": "filosofi",
-      "link": "/krle/etikk/utilitarisme",
-      "tags": [
-        "filosofi",
-        "politikk",
-        "frihet"
-      ]
-    },
-    {
-      "id": "nietzsche-zarathustra",
-      "title": "Slik talte Zarathustra",
-      "description": "Friedrich Nietzsche forkynner 'Guds død' og overmennesket.",
-      "startDate": 1883,
-      "endDate": null,
-      "displayDate": "1883",
-      "type": "sub-event",
-      "subjectId": "krle",
-      "topicId": "filosofi",
-      "link": "/krle/filosofi/nietzsche",
-      "tags": [
-        "filosofi",
-        "eksistensialisme",
-        "nihilisme"
-      ]
-    },
-    {
-      "id": "heidegger-vaeren",
-      "title": "Væren og tid",
-      "description": "Martin Heidegger analyserer hva det vil si å være til.",
-      "startDate": 1927,
-      "endDate": null,
-      "displayDate": "1927",
-      "type": "sub-event",
-      "subjectId": "krle",
-      "topicId": "filosofi",
-      "link": "/krle/filosofi/heidegger",
-      "tags": [
-        "filosofi",
-        "fenomenologi",
-        "eksistens"
-      ]
-    },
-    {
-      "id": "beauvoir-kjonn",
-      "title": "Det annet kjønn",
-      "description": "Simone de Beauvoir analyserer kvinnens stilling: 'Man fødes ikke som kvinne, man blir det'.",
-      "startDate": 1949,
-      "endDate": null,
-      "displayDate": "1949",
-      "type": "sub-event",
-      "subjectId": "krle",
-      "topicId": "filosofi",
-      "link": "/krle/filosofi/beauvoir",
-      "tags": [
-        "filosofi",
-        "feminisme",
-        "eksistensialisme"
-      ]
-    },
-    {
-      "id": "arendt-totalitarisme",
-      "title": "Totalitarismens opprinnelse",
-      "description": "Hannah Arendt analyserer nazismen og stalinismen.",
-      "startDate": 1951,
-      "endDate": null,
-      "displayDate": "1951",
-      "type": "sub-event",
-      "subjectId": "krle",
-      "topicId": "filosofi",
-      "link": "/krle/filosofi/arendt",
-      "tags": [
-        "filosofi",
-        "politikk",
-        "historie"
-      ]
-    },
-    {
-      "id": "rothbard-mes",
-      "title": "Man, Economy, and State",
-      "description": "Murray Rothbards hovedverk om østerriksk økonomi og praxeologi.",
-      "startDate": 1962,
-      "endDate": null,
-      "displayDate": "1962",
-      "type": "sub-event",
-      "subjectId": "krle",
-      "topicId": "filosofi",
-      "link": "/krle/filosofi/rothbard",
-      "tags": [
-        "økonomi",
-        "filosofi",
-        "frihet"
-      ]
-    },
-    {
-      "id": "arendt-eichmann",
-      "title": "Eichmann i Jerusalem",
-      "description": "Arendt rapporterer fra rettssaken og lanserer begrepet 'ondskapens banalitet'.",
-      "startDate": 1963,
-      "endDate": null,
-      "displayDate": "1963",
-      "type": "sub-event",
-      "subjectId": "krle",
-      "topicId": "filosofi",
-      "link": "/krle/filosofi/arendt",
-      "tags": [
-        "filosofi",
-        "etikk",
-        "rettferdighet"
-      ]
-    },
-    {
-      "id": "singer-animal",
-      "title": "Animal Liberation",
-      "description": "Peter Singer utvider utilitarismen til å inkludere dyr.",
-      "startDate": 1975,
-      "endDate": null,
-      "displayDate": "1975",
-      "type": "sub-event",
-      "subjectId": "krle",
-      "topicId": "etikk",
-      "link": "/krle/etikk/utilitarisme",
-      "tags": [
-        "etikk",
-        "dyrerettigheter",
-        "utilitarisme"
-      ]
-    },
-    {
-      "id": "forste-verdenskrig-event",
-      "title": "Første verdenskrig",
-      "description": "Den store krigen som endret europakartet.",
-      "startDate": 1914,
-      "endDate": 1918,
-      "displayDate": "1914-1918",
-      "type": "lesson",
-      "subjectId": "historie",
-      "topicId": "forste-verdenskrig",
-      "link": "/historie/forste-verdenskrig/oversikt",
-      "tags": [
-        "krig",
-        "europa"
-      ]
-    },
-    {
-      "id": "skuddene-i-sarajevo",
-      "title": "Skuddene i Sarajevo",
-      "description": "Erkehertug Franz Ferdinand skytes, noe som utløser krigen.",
-      "startDate": 1914,
-      "endDate": null,
-      "displayDate": "28. juni 1914",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "forste-verdenskrig",
-      "link": "/historie/forste-verdenskrig/oversikt",
-      "tags": [
-        "krig",
-        "opptakt"
-      ]
-    },
-    {
-      "id": "slaget-ved-somme",
-      "title": "Slaget ved Somme",
-      "description": "Den blodigste dagen i britisk militærhistorie.",
-      "startDate": 1916,
-      "endDate": null,
-      "displayDate": "1. juli 1916",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "forste-verdenskrig",
-      "link": "/historie/forste-verdenskrig/skyttergravskrig",
-      "tags": [
-        "krig",
-        "slag"
-      ]
-    },
-    {
-      "id": "usa-krig-1917",
-      "title": "USA går med i krigen",
-      "description": "USA erklærer krig mot Tyskland.",
-      "startDate": 1917,
-      "endDate": null,
-      "displayDate": "6. april 1917",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "forste-verdenskrig",
-      "link": "/historie/forste-verdenskrig/oversikt",
-      "tags": [
-        "krig",
-        "usa"
-      ]
-    },
-    {
-      "id": "bolsjevik-revolusjon",
-      "title": "Bolsjevik-revolusjonen",
-      "description": "Lenin tar makten i Russland.",
-      "startDate": 1917,
-      "endDate": null,
-      "displayDate": "7. november 1917",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "forste-verdenskrig",
-      "link": "/historie/forste-verdenskrig/russiske-revolusjon",
-      "tags": [
-        "revolusjon",
-        "russland"
-      ]
-    },
-    {
-      "id": "vapenhvilen-1918",
-      "title": "Våpenhvilen",
-      "description": "Kanonene stilner på vestfronten.",
-      "startDate": 1918,
-      "endDate": null,
-      "displayDate": "11. november 1918",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "forste-verdenskrig",
-      "link": "/historie/forste-verdenskrig/oversikt",
-      "tags": [
-        "fred",
-        "krigsslutt"
-      ]
-    },
-    {
-      "id": "versailles-traktaten",
-      "title": "Versailles-traktaten",
-      "description": "Den offisielle fredsavtalen signeres.",
-      "startDate": 1919,
-      "endDate": null,
-      "displayDate": "28. juni 1919",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "forste-verdenskrig",
-      "link": "/historie/forste-verdenskrig/oversikt",
-      "tags": [
-        "fred",
-        "diplomati"
-      ]
-    },
-    {
-      "id": "andre-verdenskrig-event",
-      "title": "Andre verdenskrig",
-      "description": "Verdenshistoriens største og dødeligste konflikt.",
-      "startDate": 1939,
-      "endDate": 1945,
-      "displayDate": "1939-1945",
-      "type": "lesson",
-      "subjectId": "historie",
-      "topicId": "andre-verdenskrig",
-      "link": "/historie/andre-verdenskrig/oversikt",
-      "tags": [
-        "krig",
-        "verden"
-      ]
-    },
-    {
-      "id": "hitler-makt",
-      "title": "Hitler tar makten",
-      "description": "Adolf Hitler blir rikskansler i Tyskland.",
-      "startDate": 1933,
-      "endDate": null,
-      "displayDate": "1933",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "andre-verdenskrig",
-      "link": "/historie/andre-verdenskrig/bakgrunn",
-      "tags": [
-        "politikk",
-        "tyskland"
-      ]
-    },
-    {
-      "id": "angrepet-pa-norge",
-      "title": "Angrepet på Norge",
-      "description": "Tyskland invaderer Norge.",
-      "startDate": 1940,
-      "endDate": 1945,
-      "displayDate": "9. april 1940",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "andre-verdenskrig",
-      "link": "/historie/andre-verdenskrig/krigens-lop",
-      "tags": [
-        "norge",
-        "krig"
-      ]
-    },
-    {
-      "id": "stalingrad",
-      "title": "Slaget om Stalingrad",
-      "description": "Krigen snur på æ˜stfronten.",
-      "startDate": 1942,
-      "endDate": 1943,
-      "displayDate": "1942-1943",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "andre-verdenskrig",
-      "link": "/historie/andre-verdenskrig/krigens-lop",
-      "tags": [
-        "krig",
-        "slag"
-      ]
-    },
-    {
-      "id": "d-dagen",
-      "title": "D-dagen",
-      "description": "De allierte går i land i Normandie.",
-      "startDate": 1944,
-      "endDate": null,
-      "displayDate": "6. juni 1944",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "andre-verdenskrig",
-      "link": "/historie/andre-verdenskrig/krigens-lop",
-      "tags": [
-        "krig",
-        "slag"
-      ]
-    },
-    {
-      "id": "atombombene",
-      "title": "Atombombene over Japan",
-      "description": "Hiroshima og Nagasaki bombes, krigen slutter.",
-      "startDate": 1945,
-      "endDate": null,
-      "displayDate": "August 1945",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "andre-verdenskrig",
-      "link": "/historie/andre-verdenskrig/krigens-lop",
-      "tags": [
-        "krig",
-        "teknologi"
-      ]
-    },
-    {
-      "id": "sokrates-dod",
-      "title": "Sokrates' død",
-      "description": "Filosofen Sokrates dømmes til døden i Athen, et tidlig eksempel på ytringsmot.",
-      "startDate": -399,
-      "endDate": null,
-      "displayDate": "399 fvt.",
-      "type": "sub-event",
-      "subjectId": "samfunnskunnskap",
-      "topicId": "mennesket-kultur-samfunn",
-      "link": "/samfunnskunnskap/mennesket-kultur-samfunn/ytringsvett-vs-ytringsmot",
-      "tags": [
-        "filosofi",
-        "ytringsfrihet",
-        "athen"
-      ]
-    },
-    {
-      "id": "danseplagen-strasbourg",
-      "title": "Danseplagen i Strasbourg",
-      "description": "Hundrevis av mennesker danser ukontrollert i gatene, et ekstremt eksempel på flokkmentalitet.",
-      "startDate": 1518,
-      "endDate": null,
-      "displayDate": "1518",
-      "type": "sub-event",
-      "subjectId": "samfunnskunnskap",
-      "topicId": "mennesket-kultur-samfunn",
-      "link": "/samfunnskunnskap/mennesket-kultur-samfunn/flokkmentalitet",
-      "tags": [
-        "psykologi",
-        "historie",
-        "flokkmentalitet"
-      ]
-    },
-    {
-      "id": "tulipanmanien",
-      "title": "Tulipanmanien",
-      "description": "Verdens første dokumenterte økonomiske boble drevet av flokkmentalitet i Nederland.",
-      "startDate": 1634,
-      "endDate": 1637,
-      "displayDate": "1634-1637",
-      "type": "sub-event",
-      "subjectId": "samfunnskunnskap",
-      "topicId": "mennesket-kultur-samfunn",
-      "link": "/samfunnskunnskap/mennesket-kultur-samfunn/flokkmentalitet",
-      "tags": [
-        "økonomi",
-        "flokkmentalitet",
-        "nederland"
-      ]
-    },
-    {
-      "id": "luddittene",
-      "title": "Luddittene",
-      "description": "Engelske tekstilarbeidere knuser maskiner i protest mot automatisering.",
-      "startDate": 1811,
-      "endDate": 1816,
-      "displayDate": "1811-1816",
-      "type": "sub-event",
-      "subjectId": "samfunnskunnskap",
-      "topicId": "mennesket-kultur-samfunn",
-      "link": "/samfunnskunnskap/mennesket-kultur-samfunn/robotene-kommer",
-      "tags": [
-        "teknologi",
-        "historie",
-        "arbeid"
-      ]
-    },
-    {
-      "id": "john-stuart-mill-liberty",
-      "title": "John Stuart Mill: 'On Liberty'",
-      "description": "Utgivelsen av et av liberalismens viktigste verk om ytringsfrihet.",
-      "startDate": 1859,
-      "endDate": null,
-      "displayDate": "1859",
-      "type": "sub-event",
-      "subjectId": "samfunnskunnskap",
-      "topicId": "mennesket-kultur-samfunn",
-      "link": "/samfunnskunnskap/mennesket-kultur-samfunn/ytringsvett-vs-ytringsmot",
-      "tags": [
-        "filosofi",
-        "ytringsfrihet",
-        "liberalisme"
-      ]
-    },
-    {
-      "id": "edward-bernays-propaganda",
-      "title": "Torches of Freedom",
-      "description": "Edward Bernays revolusjonerer PR ved å koble røyking til kvinnefrigjøring.",
-      "startDate": 1929,
-      "endDate": null,
-      "displayDate": "1929",
-      "type": "sub-event",
-      "subjectId": "samfunnskunnskap",
-      "topicId": "mennesket-kultur-samfunn",
-      "link": "/samfunnskunnskap/mennesket-kultur-samfunn/kjendismakt",
-      "tags": [
-        "pr",
-        "media",
-        "psykologi"
-      ]
-    },
-    {
-      "id": "asch-experiment",
-      "title": "Asch-eksperimentet",
-      "description": "Solomon Asch demonstrerer kraften i gruppekonformitet.",
-      "startDate": 1951,
-      "endDate": null,
-      "displayDate": "1951",
-      "type": "sub-event",
-      "subjectId": "samfunnskunnskap",
-      "topicId": "mennesket-kultur-samfunn",
-      "link": "/samfunnskunnskap/mennesket-kultur-samfunn/flokkmentalitet",
-      "tags": [
-        "psykologi",
-        "forskning"
-      ]
-    },
-    {
-      "id": "deep-blue-kasparov",
-      "title": "Deep Blue slår Kasparov",
-      "description": "En datamaskin slår for første gang verdensmesteren i sjakk.",
-      "startDate": 1997,
-      "endDate": null,
-      "displayDate": "1997",
-      "type": "sub-event",
-      "subjectId": "samfunnskunnskap",
-      "topicId": "mennesket-kultur-samfunn",
-      "link": "/samfunnskunnskap/mennesket-kultur-samfunn/robotene-kommer",
-      "tags": [
-        "ai",
-        "teknologi",
-        "sjakk"
-      ]
     },
     {
       "id": "eli-pariser-filter-bubble",
@@ -2982,6 +3817,23 @@
     {
       "id": "chatgpt-launch",
       "title": "ChatGPT lanseres",
+      "description": "Generativ AI introduserer en ny form for sannsynlighetsbasert informasjon som utfordrer tradisjonelle sannhetsbegreper.",
+      "startDate": 2022,
+      "endDate": null,
+      "displayDate": "2022",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "ideer-og-verdenssyn",
+      "link": "/samfunnskunnskap/ideer-og-verdenssyn/sannhetens-historie",
+      "tags": [
+        "teknologi",
+        "fremtid",
+        "sannhet"
+      ]
+    },
+    {
+      "id": "chatgpt-launch",
+      "title": "ChatGPT lanseres",
       "description": "OpenAI lanserer ChatGPT, som starter en bølge av AI-interesse.",
       "startDate": 2022,
       "endDate": null,
@@ -2994,840 +3846,6 @@
         "ai",
         "teknologi",
         "fremtid"
-      ]
-    },
-    {
-      "id": "belgia-1914-casus",
-      "title": "Invasjonen av Belgia",
-      "description": "Tysklands brudd på Belgias nøytralitet gir Storbritannia en legitim Casus Belli for å gå inn i krigen.",
-      "startDate": 1914,
-      "endDate": null,
-      "displayDate": "1914",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "ideer-og-verdenssyn",
-      "link": "/samfunnskunnskap/ideer-og-verdenssyn/casus-belli",
-      "tags": [
-        "krig",
-        "diplomati",
-        "første-verdenskrig"
-      ]
-    },
-    {
-      "id": "mukden-incident-1931",
-      "title": "Mukden-hendelsen",
-      "description": "Japan fabrikkerer en eksplosjon i Mandsjuria som påskudd for invasjon. En forkastet Casus Belli.",
-      "startDate": 1931,
-      "endDate": null,
-      "displayDate": "1931",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "ideer-og-verdenssyn",
-      "link": "/samfunnskunnskap/ideer-og-verdenssyn/casus-belli",
-      "tags": [
-        "krig",
-        "japan",
-        "mandsjuria"
-      ]
-    },
-    {
-      "id": "gleiwitz-1939-casus",
-      "title": "Gleiwitz-provokasjonen",
-      "description": "SS utfører et falskt angrep på en tysk radiostasjon for å rettferdiggjøre invasjonen av Polen.",
-      "startDate": 1939,
-      "endDate": null,
-      "displayDate": "1939",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "ideer-og-verdenssyn",
-      "link": "/samfunnskunnskap/ideer-og-verdenssyn/casus-belli",
-      "tags": [
-        "krig",
-        "tyskland",
-        "andre-verdenskrig"
-      ]
-    },
-    {
-      "id": "kuwait-1990-casus",
-      "title": "Invasjonen av Kuwait",
-      "description": "Iraks invasjon blir møtt med en nesten enstemmig internasjonal fordømmelse og legitim motaksjon.",
-      "startDate": 1990,
-      "endDate": null,
-      "displayDate": "1990",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "ideer-og-verdenssyn",
-      "link": "/samfunnskunnskap/ideer-og-verdenssyn/casus-belli",
-      "tags": [
-        "krig",
-        "fn",
-        "midtøsten"
-      ]
-    },
-    {
-      "id": "iraq-2003-casus",
-      "title": "Invasjonen av Irak",
-      "description": "USA invaderer Irak med påstander om masseødeleggelseswåpen. En Casus Belli som senere ble sterkt kritisert.",
-      "startDate": 2003,
-      "endDate": null,
-      "displayDate": "2003",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "ideer-og-verdenssyn",
-      "link": "/samfunnskunnskap/ideer-og-verdenssyn/casus-belli",
-      "tags": [
-        "krig",
-        "usa",
-        "irak"
-      ]
-    },
-    {
-      "id": "peloponnesian-casus",
-      "title": "Peloponneserkrigen",
-      "description": "Spartas frykt for Athens makt blir den virkelige årsaken til krigen, tross mange offisielle begrunnelser.",
-      "startDate": -431,
-      "endDate": null,
-      "displayDate": "431 fvt.",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "ideer-og-verdenssyn",
-      "link": "/samfunnskunnskap/ideer-og-verdenssyn/casus-belli",
-      "tags": [
-        "antikken",
-        "hellas",
-        "politikk"
-      ]
-    },
-    {
-      "id": "praha-defenestrasjon-1618",
-      "title": "Defenestrasjonen i Praha",
-      "description": "Tre embetsmenn kastes ut av et vindu, noe som blir den utløsende årsaken til 30-årskrigen.",
-      "startDate": 1618,
-      "endDate": null,
-      "displayDate": "1618",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "ideer-og-verdenssyn",
-      "link": "/samfunnskunnskap/ideer-og-verdenssyn/casus-belli",
-      "tags": [
-        "reformasjonen",
-        "krig",
-        "europa"
-      ]
-    },
-    {
-      "id": "den-spanske-armada-1588",
-      "title": "Den spanske armada",
-      "description": "Filip II invaderer England med religiøs og politisk legitimering.",
-      "startDate": 1588,
-      "endDate": null,
-      "displayDate": "1588",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "ideer-og-verdenssyn",
-      "link": "/samfunnskunnskap/ideer-og-verdenssyn/casus-belli",
-      "tags": [
-        "renessansen",
-        "krig",
-        "religion"
-      ]
-    },
-    {
-      "id": "athen-demokrati",
-      "title": "Demokratiet i Athen",
-      "description": "Verdens første direkte demokrati blomstrer i Athen.",
-      "startDate": -508,
-      "endDate": -322,
-      "displayDate": "508 fvt. - 322 fvt.",
-      "type": "sub-event",
-      "subjectId": "samfunnsfag",
-      "topicId": "styringsformer",
-      "link": "/samfunnskunnskap/styringsformer/antikken-visjoner",
-      "tags": [
-        "historie",
-        "athen",
-        "demokrati"
-      ]
-    },
-    {
-      "id": "ludvig-xiv-absolutisme",
-      "title": "Solkongen og eneveldet",
-      "description": "Ludvig XIV av Frankrike styrer som eneveldig monark ('Staten, det er jeg').",
-      "startDate": 1643,
-      "endDate": 1715,
-      "displayDate": "1643 - 1715",
-      "type": "sub-event",
-      "subjectId": "samfunnsfag",
-      "topicId": "styringsformer",
-      "link": "/samfunnskunnskap/styringsformer/monarkiet",
-      "tags": [
-        "historie",
-        "enevelde",
-        "frankrike"
-      ]
-    },
-    {
-      "id": "locke-treatises",
-      "title": "John Locke: Two Treatises",
-      "description": "John Locke utgir sitt viktigste politiske verk om naturlige rettigheter og samfunnskontrakten.",
-      "startDate": 1689,
-      "endDate": null,
-      "displayDate": "1689",
-      "type": "sub-event",
-      "subjectId": "samfunnsfag",
-      "topicId": "styringsformer",
-      "link": "/samfunnskunnskap/styringsformer/opplysningstid",
-      "tags": [
-        "filosofi",
-        "opplysningstiden",
-        "rettigheter"
-      ]
-    },
-    {
-      "id": "montesquieu-spirit-laws",
-      "title": "Montesquieu: Maktens tredeling",
-      "description": "Verket 'Lovenes ånd' utgis, som legger grunnlaget for maktfordelingsprinsippet.",
-      "startDate": 1748,
-      "endDate": null,
-      "displayDate": "1748",
-      "type": "sub-event",
-      "subjectId": "samfunnsfag",
-      "topicId": "styringsformer",
-      "link": "/samfunnskunnskap/styringsformer/opplysningstid",
-      "tags": [
-        "filosofi",
-        "opplysningstiden",
-        "maktfordeling"
-      ]
-    },
-    {
-      "id": "rousseau-social-contract",
-      "title": "Rousseau: Samfunnskontrakten",
-      "description": "Jean-Jacques Rousseau utgir 'Du contrat social', som inspirerer til folkesuverenitet.",
-      "startDate": 1762,
-      "endDate": null,
-      "displayDate": "1762",
-      "type": "sub-event",
-      "subjectId": "samfunnsfag",
-      "topicId": "styringsformer",
-      "link": "/samfunnskunnskap/styringsformer/opplysningstid",
-      "tags": [
-        "filosofi",
-        "opplysningstiden",
-        "folkevilje"
-      ]
-    },
-    {
-      "id": "norge-grunnlov-1814",
-      "title": "Norges Grunnlov",
-      "description": "Norge får sin egen grunnlov på Eidsvoll, basert på opplysningstidens idealer.",
-      "startDate": 1814,
-      "endDate": null,
-      "displayDate": "1814",
-      "type": "sub-event",
-      "subjectId": "samfunnsfag",
-      "topicId": "styringsformer",
-      "link": "/samfunnskunnskap/styringsformer/monarkiet",
-      "tags": [
-        "historie",
-        "norge",
-        "demokrati"
-      ]
-    },
-    {
-      "id": "anarki-catalonia",
-      "title": "Anarkismen i Catalonia",
-      "description": "Under den spanske borgerkrigen styres store deler av Catalonia etter anarkistiske prinsipper.",
-      "startDate": 1936,
-      "endDate": 1939,
-      "displayDate": "1936 - 1939",
-      "type": "sub-event",
-      "subjectId": "samfunnsfag",
-      "topicId": "styringsformer",
-      "link": "/samfunnskunnskap/styringsformer/uten-hersker",
-      "tags": [
-        "historie",
-        "anarkisme",
-        "spania"
-      ]
-    },
-    {
-      "id": "david-hume",
-      "title": "David Hume",
-      "description": "Den skotske filosofen David Hume utgir 'A Treatise of Human Nature', et av de viktigste verkene i vestlig filosofi.",
-      "startDate": 1739,
-      "endDate": 1776,
-      "displayDate": "1739 - 1776",
-      "type": "sub-event",
-      "subjectId": "krle",
-      "topicId": "filosofi",
-      "link": "/krle/filosofi/hume",
-      "tags": [
-        "filosofi",
-        "opplysningstid",
-        "empirisme"
-      ]
-    },
-    {
-      "id": "tetrarkiet-etablert",
-      "title": "Tetrarkiet etableres",
-      "description": "Diokletian deler makten mellom fire keisere for å sikre Romerrikets stabilitet.",
-      "startDate": 293,
-      "endDate": null,
-      "displayDate": "293",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "romerriket",
-      "link": "/historie/romerriket/diokletian",
-      "tags": [
-        "politikk",
-        "romerriket",
-        "maktfordeling"
-      ]
-    },
-    {
-      "id": "maksimalpris-ediktet",
-      "title": "Ediktet om maksimalpriser",
-      "description": "Diokletian forsøker å bremse inflasjonen med drakoniske pristiltak.",
-      "startDate": 301,
-      "endDate": null,
-      "displayDate": "301",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "romerriket",
-      "link": "/historie/romerriket/diokletian",
-      "tags": [
-        "økonomi",
-        "inflasjon",
-        "romerriket"
-      ]
-    },
-    {
-      "id": "diokletian-abdikerer",
-      "title": "Diokletian abdikerer",
-      "description": "Den eneste romerske keiseren som frivillig trekker seg tilbake for å dyrke kål i Split.",
-      "startDate": 305,
-      "endDate": null,
-      "displayDate": "305",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "romerriket",
-      "link": "/historie/romerriket/diokletian",
-      "tags": [
-        "historie",
-        "romerriket",
-        "biografi"
-      ]
-    },
-    {
-      "id": "sikhisme-nanak-fodsel",
-      "title": "Guru Nanak blir født",
-      "description": "Grunnleggeren av sikhismen, Guru Nanak, blir født i Punjab. Han forkynner budskapet om at alle mennesker er like og at det bare finnes én Gud.",
-      "date": 1469,
-      "tags": [
-        "religion",
-        "sikhisme",
-        "grunnleggere"
-      ],
-      "subjectId": "krle",
-      "topicId": "religion",
-      "link": "/krle/religion/sikhisme/grunnleggere"
-    },
-    {
-      "id": "sikhisme-khalsa-grunnleggelse",
-      "title": "Khalsa-fellesskapet grunnlegges",
-      "description": "Den tiende guruen, Guru Gobind Singh, etablerer Khalsa-fellesskapet ved Vaisakhi-feiringen. Dette gir sikhismen en tydeligere identitet og ytre kjennetegn.",
-      "date": 1699,
-      "tags": [
-        "religion",
-        "sikhisme",
-        "ritual"
-      ],
-      "subjectId": "krle",
-      "topicId": "religion",
-      "link": "/krle/religion/sikhisme/sentrale-trekk"
-    },
-    {
-      "id": "sikhisme-nanak-fodsel",
-      "title": "Guru Nanak blir født",
-      "description": "Grunnleggeren av sikhismen, Guru Nanak, blir født i Punjab. Han forkynner budskapet om at alle mennesker er like og at det bare finnes én Gud.",
-      "date": 1469,
-      "tags": [
-        "religion",
-        "sikhisme",
-        "grunnleggere"
-      ],
-      "subjectId": "krle",
-      "topicId": "religion",
-      "link": "/krle/religion/sikhisme/grunnleggere"
-    },
-    {
-      "id": "sikhisme-khalsa-grunnleggelse",
-      "title": "Khalsa-fellesskapet grunnlegges",
-      "description": "Den tiende guruen, Guru Gobind Singh, etablerer Khalsa-fellesskapet ved Vaisakhi-feiringen. Dette gir sikhismen en tydeligere identitet og ytre kjennetegn.",
-      "date": 1699,
-      "tags": [
-        "religion",
-        "sikhisme",
-        "ritual"
-      ],
-      "subjectId": "krle",
-      "topicId": "religion",
-      "link": "/krle/religion/sikhisme/sentrale-trekk"
-    },
-    {
-      "id": "vestromerrikets-fall",
-      "title": "Vestromerrikets fall",
-      "description": "Den siste vestromerske keiseren, Romulus Augustulus, avsettes. Dette regnes ofte som starten på middelalderen.",
-      "startDate": 476,
-      "endDate": null,
-      "displayDate": "476",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "middelalderen",
-      "link": "/historie/middelalderen/tidlig-middelalder",
-      "tags": [
-        "historie",
-        "romerriket",
-        "middelalderen"
-      ]
-    },
-    {
-      "id": "klodvigs-daap",
-      "title": "Klodvig lar seg døpe",
-      "description": "Frankerkongen Klodvig konverterer til katolisismen, noe som sikrer alliansen mellom frankerne og kirken.",
-      "startDate": 496,
-      "endDate": null,
-      "displayDate": "496",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "middelalderen",
-      "link": "/historie/middelalderen/tidlig-middelalder",
-      "tags": [
-        "historie",
-        "frankerriket",
-        "religion"
-      ]
-    },
-    {
-      "id": "battle-of-tours",
-      "title": "Slaget ved Tours",
-      "description": "Karl Martell stanser den islamske ekspansjonen inn i Frankrike, et avgjørende øyeblikk for Europas fremtid.",
-      "startDate": 732,
-      "endDate": null,
-      "displayDate": "732",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "middelalderen",
-      "link": "/historie/middelalderen/tidlig-middelalder",
-      "tags": [
-        "krig",
-        "frankerriket",
-        "islam"
-      ]
-    },
-    {
-      "id": "karl-den-store-krone",
-      "title": "Karl den store krones til keiser",
-      "description": "Paven kroner Karl den store til romersk keiser i Roma, noe som markerer dannelsen av et nytt kristent imperium i vest.",
-      "startDate": 800,
-      "endDate": null,
-      "displayDate": "800",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "middelalderen",
-      "link": "/historie/middelalderen/tidlig-middelalder",
-      "tags": [
-        "historie",
-        "keiser",
-        "karl-den-store"
-      ]
-    },
-    {
-      "id": "stockholm-founding",
-      "title": "Stockholm grunnlegges",
-      "description": "Birger Jarl grunnlegger Stockholm.",
-      "startDate": 1252,
-      "endDate": null,
-      "displayDate": "1252",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "sveriges-historie",
-      "link": "/historie/sveriges-historie/sveriges-historie",
-      "tags": [
-        "sverige",
-        "bygger"
-      ]
-    },
-    {
-      "id": "kalmar-union-start",
-      "title": "Kalmarunionen inngås",
-      "description": "Norge, Sverige og Danmark samles i en union under dronning Margrete.",
-      "startDate": 1397,
-      "endDate": 1523,
-      "displayDate": "1397",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "sveriges-historie",
-      "link": "/historie/sveriges-historie/sveriges-historie",
-      "tags": [
-        "union",
-        "politikk",
-        "norden"
-      ]
-    },
-    {
-      "id": "gustav-vasa-king",
-      "title": "Gustav Vasa valgt til konge",
-      "description": "Markerer slutten på Kalmarunionen og starten på det moderne Sverige.",
-      "startDate": 1523,
-      "endDate": null,
-      "displayDate": "1523",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "sveriges-historie",
-      "link": "/historie/sveriges-historie/sveriges-historie",
-      "tags": [
-        "konge",
-        "selvstendighet",
-        "vasa"
-      ]
-    },
-    {
-      "id": "lutzen-battle",
-      "title": "Slaget ved Lützen",
-      "description": "Gustav II Adolf faller i kamp under 30-årskrigen.",
-      "startDate": 1632,
-      "endDate": null,
-      "displayDate": "1632",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "sveriges-historie",
-      "link": "/historie/sveriges-historie/sveriges-historie",
-      "tags": [
-        "krig",
-        "stormaktstid",
-        "konge"
-      ]
-    },
-    {
-      "id": "union-1814-start",
-      "title": "Union med Norge",
-      "description": "Sverige tvinger Danmark til å avstå Norge etter Napoleonskrigene.",
-      "startDate": 1814,
-      "endDate": 1905,
-      "displayDate": "1814",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "sveriges-historie",
-      "link": "/historie/sveriges-historie/sveriges-historie",
-      "tags": [
-        "union",
-        "diplomati"
-      ]
-    },
-    {
-      "id": "union-dissolution-1905",
-      "title": "Unionsoppløsningen",
-      "description": "Sverige og Norge skiller lag fredelig etter Karlstad-forhandlingene.",
-      "startDate": 1905,
-      "endDate": null,
-      "displayDate": "1905",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "sveriges-historie",
-      "link": "/historie/sveriges-historie/sveriges-historie",
-      "tags": [
-        "fred",
-        "selvstendighet",
-        "diplomati"
-      ]
-    },
-    {
-      "id": "genghis-khan-unification",
-      "title": "Genghis Khan samler mongolene",
-      "description": "Temüjin utnevnes til Genghis Khan og starter erobringen av det eurasiske kontinentet.",
-      "startDate": 1206,
-      "endDate": null,
-      "displayDate": "1206",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "middelalder",
-      "link": "/historie/middelalder/mongolske-riket",
-      "tags": [
-        "mongolene",
-        "erobring",
-        "asia"
-      ]
-    },
-    {
-      "id": "mongol-invasion-europe",
-      "title": "Mongolene invaderer Europa",
-      "description": "Mongolske horder beseirer russiske, polske og ungarske hærer og når utkanten av Wien.",
-      "startDate": 1241,
-      "endDate": null,
-      "displayDate": "1241",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "middelalder",
-      "link": "/historie/middelalder/mongolske-riket",
-      "tags": [
-        "krig",
-        "europa",
-        "mongolene"
-      ]
-    },
-    {
-      "id": "baghdad-fall",
-      "title": "Bagdads fall",
-      "description": "Hulagu Khan erobrer Bagdad, noe som markerer slutten på den islamske gullalderen.",
-      "startDate": 1258,
-      "endDate": null,
-      "displayDate": "1258",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "middelalder",
-      "link": "/historie/middelalder/mongolske-riket",
-      "tags": [
-        "krig",
-        "islam",
-        "midtausten"
-      ]
-    },
-    {
-      "id": "irland-deles",
-      "title": "Irland deles i to",
-      "description": "Nord-Irland forblir britisk. Seks nordlige fylker skilles fra resten av øya, og frøet til tiår med konflikt såes.",
-      "startDate": 1920,
-      "endDate": null,
-      "displayDate": "1920",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "den-kalde-krigen",
-      "link": "/historie/den-kalde-krigen/peace-lines-belfast",
-      "tags": [
-        "irland",
-        "belfast",
-        "delte-samfunn",
-        "the-troubles"
-      ]
-    },
-    {
-      "id": "the-troubles-starter",
-      "title": "The Troubles begynner",
-      "description": "Borgerrettsbevegelsen i Nord-Irland møtes med vold. Konflikten mellom katolikker og protestanter eskalerer.",
-      "startDate": 1968,
-      "endDate": 1998,
-      "displayDate": "1968–1998",
-      "type": "lesson",
-      "subjectId": "historie",
-      "topicId": "den-kalde-krigen",
-      "link": "/historie/den-kalde-krigen/peace-lines-belfast",
-      "tags": [
-        "irland",
-        "belfast",
-        "konflikt",
-        "delte-samfunn",
-        "the-troubles"
-      ]
-    },
-    {
-      "id": "peace-lines-1969",
-      "title": "Første Peace Lines reises",
-      "description": "Britiske soldater setter opp provisoriske barrierer mellom katolske og protestantiske nabolag i Belfast etter pogromlignende angrep.",
-      "startDate": 1969,
-      "endDate": null,
-      "displayDate": "1969",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "den-kalde-krigen",
-      "link": "/historie/den-kalde-krigen/peace-lines-belfast",
-      "tags": [
-        "irland",
-        "belfast",
-        "delte-samfunn",
-        "the-troubles"
-      ]
-    },
-    {
-      "id": "bloody-sunday",
-      "title": "Bloody Sunday",
-      "description": "Britiske fallskjermsoldater dreper 14 ubevæpnede demonstranter i Derry. Hendelsen rekrutterte tusenvis til IRA.",
-      "startDate": 1972,
-      "endDate": null,
-      "displayDate": "1972",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "den-kalde-krigen",
-      "link": "/historie/den-kalde-krigen/peace-lines-belfast",
-      "tags": [
-        "irland",
-        "belfast",
-        "konflikt",
-        "delte-samfunn",
-        "the-troubles"
-      ]
-    },
-    {
-      "id": "belfast-avtalen",
-      "title": "Belfast-avtalen (Good Friday Agreement)",
-      "description": "Historisk fredsavtale avslutter The Troubles. IRA legger ned våpnene. Men Peace Lines i Belfast blir stående.",
-      "startDate": 1998,
-      "endDate": null,
-      "displayDate": "1998",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "den-kalde-krigen",
-      "link": "/historie/den-kalde-krigen/peace-lines-belfast",
-      "tags": [
-        "irland",
-        "belfast",
-        "fred",
-        "delte-samfunn",
-        "the-troubles"
-      ]
-    },
-    {
-      "id": "apartheid-innfores",
-      "title": "Apartheid innføres i Sør-Afrika",
-      "description": "National Party vinner valget og begynner å lovfeste raseskillelse systematisk gjennom en rekke diskrimineringslover.",
-      "startDate": 1948,
-      "endDate": 1994,
-      "displayDate": "1948–1994",
-      "type": "lesson",
-      "subjectId": "historie",
-      "topicId": "dekolonisering",
-      "link": "/historie/dekolonisering/apartheid-syd-afrika",
-      "tags": [
-        "apartheid",
-        "sør-afrika",
-        "segregering",
-        "delte-samfunn"
-      ]
-    },
-    {
-      "id": "sharpeville-massakren",
-      "title": "Sharpeville-massakren",
-      "description": "69 ubevæpnede demonstranter mot passloven drept av politiet i Sharpeville, Sør-Afrika.",
-      "startDate": 1960,
-      "endDate": null,
-      "displayDate": "1960",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "dekolonisering",
-      "link": "/historie/dekolonisering/apartheid-syd-afrika",
-      "tags": [
-        "apartheid",
-        "sør-afrika",
-        "delte-samfunn"
-      ]
-    },
-    {
-      "id": "mandela-fri",
-      "title": "Mandela løslates etter 27 år",
-      "description": "Nelson Mandela går ut av Victor Verster-fengslet. Fire år seinere vinner han Sør-Afrikas første frie valg.",
-      "startDate": 1990,
-      "endDate": null,
-      "displayDate": "1990",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "dekolonisering",
-      "link": "/historie/dekolonisering/apartheid-syd-afrika",
-      "tags": [
-        "apartheid",
-        "sør-afrika",
-        "mandela",
-        "delte-samfunn"
-      ]
-    },
-    {
-      "id": "rosa-parks",
-      "title": "Rosa Parks nekter å gi fra seg plassen",
-      "description": "Rosa Parks nekter å gi fra seg bussplassen sin i Montgomery, Alabama. Montgomery Bus Boycott begynner.",
-      "startDate": 1955,
-      "endDate": null,
-      "displayDate": "1955",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "dekolonisering",
-      "link": "/historie/dekolonisering/jim-crow-lovene",
-      "tags": [
-        "usa",
-        "segregering",
-        "borgerrettigheter",
-        "delte-samfunn"
-      ]
-    },
-    {
-      "id": "civil-rights-act",
-      "title": "Civil Rights Act",
-      "description": "USA forbyr rasediskriminering ved lov. Jim Crow-lovene er formelt over – nesten 100 år etter at slaveriet ble avskaffet.",
-      "startDate": 1964,
-      "endDate": null,
-      "displayDate": "1964",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "dekolonisering",
-      "link": "/historie/dekolonisering/jim-crow-lovene",
-      "tags": [
-        "usa",
-        "segregering",
-        "borgerrettigheter",
-        "delte-samfunn"
-      ]
-    },
-    {
-      "id": "kypros-delt",
-      "title": "Kypros deles",
-      "description": "Tyrkia invaderer etter et gresk militærkupp. 160 000 gresk-kyprioter og 45 000 tyrkisk-kyprioter tvinges fra hjemmene sine.",
-      "startDate": 1974,
-      "endDate": null,
-      "displayDate": "1974",
-      "type": "lesson",
-      "subjectId": "historie",
-      "topicId": "den-kalde-krigen",
-      "link": "/historie/den-kalde-krigen/kypros-delingslinjen",
-      "tags": [
-        "kypros",
-        "europa",
-        "konflikt",
-        "delte-samfunn"
-      ]
-    },
-    {
-      "id": "korea-dmz-etablert",
-      "title": "DMZ etableres i Korea",
-      "description": "Koreakrigen avsluttes med en våpenhvile. En 250 km lang demilitarisert sone deler halvøya. Ingen fredsavtale er signert.",
-      "startDate": 1953,
-      "endDate": null,
-      "displayDate": "1953",
-      "type": "lesson",
-      "subjectId": "historie",
-      "topicId": "den-kalde-krigen",
-      "link": "/historie/den-kalde-krigen/korea-dmz",
-      "tags": [
-        "korea",
-        "asia",
-        "delte-samfunn",
-        "kald-krig"
-      ]
-    },
-    {
-      "id": "vestbredden-barriere",
-      "title": "Separasjonsbarrieren på Vestbredden",
-      "description": "Israel begynner å bygge en 700 km lang barriere langs og delvis inne på Vestbredden. FNs domstol erklærer deler av den folkerettsstridig.",
-      "startDate": 2002,
-      "endDate": null,
-      "displayDate": "2002",
-      "type": "lesson",
-      "subjectId": "historie",
-      "topicId": "dekolonisering",
-      "link": "/historie/dekolonisering/israel-palestina-muren",
-      "tags": [
-        "israel",
-        "palestina",
-        "midtøsten",
-        "delte-samfunn"
       ]
     }
   ]
