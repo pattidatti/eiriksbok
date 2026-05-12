@@ -5,7 +5,7 @@
     "year": "1793-1794",
     "category": "Europa",
     "readTime": "9 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/den-franske-revolusjon/robespierre-og-skrekkveldet-hero.webp",
     "details": [
         "Maximilien Robespierre ledet Velferdskomiteen som styrte Frankrike under skrekkveldet.",
         "Omtrent seksten tusen mennesker ble henrettet med giljotinen mellom 1793 og 1794.",
@@ -26,7 +26,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/den-franske-revolusjon/robespierre-og-skrekkveldet-hero.webp",
             "alt": "Portrett av Maximilien Robespierre, fransk advokat og revolusjonsleder, ca. 1791",
             "caption": "Robespierre var liten av vekst, alltid pent kledd og bar pudret parykk."
         },
@@ -78,7 +78,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/den-franske-revolusjon/robespierre-og-skrekkveldet-01.webp",
             "alt": "Folkemengde samlet rundt giljotinen på Place de la Révolution i Paris under skrekkveldet 1793",
             "caption": "Henrettelsene ble en folkeforestilling. Noen avishandlere solgte lister over dagens ofre."
         },
@@ -187,7 +187,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/den-franske-revolusjon/robespierre-og-skrekkveldet-02.webp",
             "alt": "Tomt torg i Paris med spor av blod og kastet løpesedler etter Robespierres fall i juli 1794",
             "caption": "Da Robespierre falt, sluttet drapene nesten over natten. Folk våget å puste igjen."
         },

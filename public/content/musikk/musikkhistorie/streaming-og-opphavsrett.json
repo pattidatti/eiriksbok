@@ -5,7 +5,7 @@
     "year": "2008 – i dag",
     "category": "Musikk og samfunn",
     "readTime": "10 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/musikkhistorie/streaming-og-opphavsrett-hero.webp",
     "details": [
         "Én avspilling på Spotify gir artisten omtrent tre øre",
         "En artist må ha rundt en kvart million avspillinger i måneden for å tjene en norsk minstelønn",
@@ -18,7 +18,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/musikkhistorie/streaming-og-opphavsrett-01.webp",
             "alt": "Tenåring med hodetelefoner som lytter til musikk på telefonen sin",
             "caption": "Hver gang noen trykker «play» starter en pengestrøm — men hvem får hva?"
         },
@@ -118,7 +118,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/musikkhistorie/streaming-og-opphavsrett-02.webp",
             "alt": "Studio med mikrofon og lydutstyr, opptaksskjermer og blendet lys",
             "caption": "I studioet skapes både komposisjonen og opptaket — to ulike opphavsretter som lever videre i tiår etterpå."
         },
@@ -184,7 +184,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/musikkhistorie/streaming-og-opphavsrett-03.webp",
             "alt": "Konsertpublikum med løftede hender foran scene med artist",
             "caption": "En konsertbillett gir artisten din langt mer enn tusenvis av streams gjør."
         },

@@ -5,7 +5,7 @@
     "year": "1789",
     "category": "Europa",
     "readTime": "8 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/den-franske-revolusjon/stormingen-av-bastillen-hero.webp",
     "details": [
         "Den 14. juli 1789 stormet folk i Paris festningen Bastillen.",
         "Festningen var et symbol på kongens makt til å fengsle hvem som helst.",
@@ -26,7 +26,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/den-franske-revolusjon/stormingen-av-bastillen-hero.webp",
             "alt": "Bastillen sett fra gatene i Paris en sommerdag i 1789, høye steintårn over takene",
             "caption": "Bastillen var bygd som forsvarsverk på 1300-tallet og senere gjort om til fengsel."
         },
@@ -78,7 +78,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/den-franske-revolusjon/stormingen-av-bastillen-01.webp",
             "alt": "Folkemengde stormer inn i Bastillens gårdsplass 14. juli 1789, røyk og kanoner",
             "caption": "Kampen varte i omtrent fire timer. Nesten hundre angripere mistet livet."
         },
@@ -191,7 +191,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/den-franske-revolusjon/stormingen-av-bastillen-02.webp",
             "alt": "Plass i Paris der Bastillen sto, i dag med July-søylen midt på et åpent torg",
             "caption": "Bastillen ble revet etter stormingen. I dag står July-søylen på samme sted."
         },

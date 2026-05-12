@@ -5,7 +5,7 @@
     "year": "3500 fvt – 539 fvt",
     "category": "Tidlige sivilisasjoner",
     "readTime": "8 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/jordbruk-og-sivilisasjoner/mesopotamia-hero.webp",
     "details": [
         "Verdens første byer vokste fram her rundt 3500 fvt.",
         "Kileskriften er den eldste skriften vi kjenner.",
@@ -18,7 +18,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/jordbruk-og-sivilisasjoner/mesopotamia-hero.webp",
             "alt": "Tenåringsgutt med leirtavle i en travel sumerisk by ved soloppgang",
             "caption": "Uruk var sannsynligvis verdens første storby. På sitt største bodde det rundt 50 000 mennesker her."
         },
@@ -85,7 +85,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/jordbruk-og-sivilisasjoner/mesopotamia-01.webp",
             "alt": "Nærbilde av en leirtavle med kileskrift, opplyst av varmt sidelys",
             "caption": "En leirtavle med kileskrift. De fleste vi har funnet handler om handel og regnskap — ikke om konger og slag."
         },
@@ -169,7 +169,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/jordbruk-og-sivilisasjoner/mesopotamia-02.webp",
             "alt": "Rekonstruert ziggurat i Ur ved solnedgang, ørken i bakgrunnen",
             "caption": "Den store zigguraten i Ur, slik den kan ha sett ut. Trappetrinnene førte opp til et tempel på toppen."
         },
