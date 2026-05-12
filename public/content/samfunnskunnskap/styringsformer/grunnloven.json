@@ -1,0 +1,210 @@
+{
+    "id": "grunnloven",
+    "title": "Grunnloven 1814: Da Norge fikk en ny start",
+    "layout": "rich",
+    "year": "1814",
+    "category": "Norges politiske grunnmur",
+    "readTime": "9 min lesning",
+    "heroImage": "/images/placeholder.webp",
+    "details": [
+        "Skrevet på fem uker av 112 menn samlet på Eidsvoll våren 1814.",
+        "Verdens nest eldste grunnlov som fortsatt er i bruk — bare USAs er eldre.",
+        "Bygget på maktfordelingens prinsipp: ingen aktør skal kunne styre alene.",
+        "Endres bare gjennom en streng prosess som krever to ulike storting.",
+        "Feires hvert år 17. mai med barnetog i hele landet."
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Hver 17. mai går barn i tog med flagg og roper hurra. Men hvorfor akkurat denne datoen? Svaret ligger i et hus utenfor Oslo, der 112 menn for litt over to hundre år siden satt og kranglet om hvordan Norge skulle styres. Da de var ferdige, hadde de skrevet et dokument som fortsatt bestemmer hvordan landet vårt fungerer i dag."
+        },
+        {
+            "type": "text",
+            "content": "Grunnloven er Norges viktigste lov. Alle andre lover må følge den. Den forteller hvem som har makt, hvordan makten skal fordeles, og hvilke rettigheter folk har. Uten Grunnloven ville Norge vært et helt annet land."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Eidsvollsbygningen i vårsol med flaggstang og hage foran",
+            "caption": "Eidsvollsbygningen, der Norges grunnlov ble skrevet våren 1814."
+        },
+        {
+            "type": "header",
+            "text": "Veien til Eidsvoll"
+        },
+        {
+            "type": "text",
+            "content": "Norge hadde vært i union med Danmark i over fire hundre år. Men Danmark støttet Napoleon, og da Napoleon tapte krigen, måtte Danmark gi fra seg Norge til Sverige i Kielfreden i januar 1814. Nordmenn var sinte. De ville ikke bytte herre uten å bli spurt."
+        },
+        {
+            "type": "text",
+            "content": "Den danske prinsen Christian Frederik så sjansen sin. Han var stattholder i Norge, og han ville beholde landet. Han kalte sammen rike og innflytelsesrike menn fra hele landet. De skulle samles på Eidsvoll og lage en grunnlov før Sverige rakk å gripe inn."
+        },
+        {
+            "type": "text",
+            "content": "10. april 1814 møttes 112 valgte menn på Eidsvoll. Bønder, prester, embetsmenn og handelsfolk satt rundt samme bord. De hadde fem uker på seg. De jobbet seks dager i uken. De diskuterte hardt, drakk mye kaffe, og leste i bøker av franske og amerikanske tenkere. 17. mai 1814 var dokumentet ferdig."
+        },
+        {
+            "type": "header",
+            "text": "Maktfordelingens hemmelighet"
+        },
+        {
+            "type": "text",
+            "content": "Eidsvollsmennene fryktet én ting mer enn alt annet: at en konge eller en regjering skulle bli for mektig og bestemme over folket uten kontroll. Løsningen deres var inspirert av den franske tenkeren Montesquieu, som hadde dødd over femti år tidligere. Han skrev at makten i en stat må deles i tre, slik at ingen kan misbruke den."
+        },
+        {
+            "type": "text",
+            "content": "I praksis betyr det at Stortinget lager lovene, regjeringen utfører dem, og domstolene avgjør om noen har brutt dem. Hver av de tre kan stoppe de andre hvis de prøver å gå for langt. Det er som tre venner som låner hverandres nøkler: ingen av dem kan låse seg inne i huset alene."
+        },
+        {
+            "type": "component",
+            "name": "MaktfordelingMatch",
+            "props": {
+                "title": "Hvem bestemmer hva?",
+                "intro": "Test deg selv: hvilken statsmakt har ansvar?"
+            }
+        },
+        {
+            "type": "header",
+            "text": "De tre statsmaktene"
+        },
+        {
+            "type": "list",
+            "items": [
+                "Stortinget — den lovgivende makten. 169 valgte representanter lager nye lover, vedtar statsbudsjettet og kontrollerer regjeringen.",
+                "Regjeringen — den utøvende makten. Statsministeren og statsrådene styrer den daglige driften av landet og setter Stortingets lover ut i livet.",
+                "Domstolene — den dømmende makten. Tingretten, lagmannsretten og Høyesterett tolker loven. Høyesterett har siste ord."
+            ]
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Verdens nest eldste",
+                "content": "Bare USAs grunnlov fra 1787 er eldre enn vår. Frankrikes har blitt skrevet om femten ganger siden 1791. Norges Grunnlov har vært i bruk uten avbrudd siden 1814 — det er ganske utrolig."
+            }
+        },
+        {
+            "type": "header",
+            "text": "Grunnloven har endret seg med Norge"
+        },
+        {
+            "type": "text",
+            "content": "Grunnloven fra 1814 var moderne for sin tid, men den var ikke perfekt. Bare menn med eiendom kunne stemme. Jøder fikk ikke lov til å komme inn i landet. Kongen hadde mye mer makt enn i dag. Heldigvis kan Grunnloven endres — men det er ikke lett."
+        },
+        {
+            "type": "text",
+            "content": "For å endre Grunnloven må Stortinget først foreslå endringen, så må det gå et nytt valg, og så må det nye Stortinget vedta endringen med to tredjedels flertall. Det betyr at en endring tar minst fire år. Det er meningen. Eidsvollsmennene ville at hver generasjon skulle tenke seg godt om før de tuklet med fundamentet."
+        },
+        {
+            "type": "list",
+            "items": [
+                "1851 — Jødeparagrafen oppheves. Henrik Wergeland kjempet for dette i mange år, men døde før det skjedde.",
+                "1884 — Parlamentarismen innføres. Regjeringen må heretter ha støtte i Stortinget.",
+                "1898 — Alminnelig stemmerett for menn over 25 år.",
+                "1913 — Kvinner får samme stemmerett som menn. Norge var blant de første landene i verden.",
+                "1956 — Forbudet mot jesuitter oppheves.",
+                "2014 — Et stort menneskerettighetskapittel skrives inn til 200-årsjubileet."
+            ]
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Norske barn i bunad og dressko marsjerer i 17. mai-tog med flagg",
+            "caption": "17. mai er Grunnlovens fødselsdag. Hvert år feirer Norge dagen med barnetog."
+        },
+        {
+            "type": "header",
+            "text": "Hvorfor varer Grunnloven?"
+        },
+        {
+            "type": "text",
+            "content": "Mange land har skrevet nye grunnlover hver gang det har vært krig, revolusjon eller statskupp. Norge har klart seg uten. Hvorfor? En grunn er at endringsprosessen er treg, så ingen kan presse gjennom drastiske endringer i et øyeblikks raseri. En annen er at folket faktisk bryr seg. 17. mai-feiringen er ikke bare et show — den minner oss om at Grunnloven er vår, ikke kongens eller regjeringens."
+        },
+        {
+            "type": "text",
+            "content": "Selv under okkupasjonen i andre verdenskrig holdt nordmenn fast ved Grunnloven. Da nazistene ville sette den til side, fikk de hele befolkningen mot seg. Lærere nektet å undervise nazistisk pensum. Prester nektet å forkynne det Quisling ville. Grunnloven hadde blitt en del av folkesjelen, ikke bare et stykke papir."
+        },
+        {
+            "type": "component",
+            "name": "QuoteBlock",
+            "props": {
+                "quote": "Ytringsfrihet bør finne sted.",
+                "author": "Grunnloven § 100, første setning",
+                "context": "Slik begynner paragrafen som beskytter retten din til å si hva du mener — i klasserommet, i avisa eller på TikTok."
+            }
+        },
+        {
+            "type": "header",
+            "text": "Grunnloven i dag"
+        },
+        {
+            "type": "text",
+            "content": "Hver gang Stortinget vedtar en ny lov, sjekkes den opp mot Grunnloven. Hvis Høyesterett mener en lov bryter Grunnloven, kan domstolen sette loven til side. Det skjedde for eksempel i klimasaken i 2020, da miljøorganisasjoner brukte Grunnlovens § 112 om retten til et sunt miljø for å utfordre oljeleting i Barentshavet."
+        },
+        {
+            "type": "text",
+            "content": "Grunnloven gir også Norge en konge, men kongens makt er stort sett symbolsk. Han signerer lover, åpner Stortinget og representerer Norge. Noen mener vi bør bytte til republikk og velge presidenten vår. Andre mener kongen er en viktig del av norsk identitet. Diskusjonen er en grunnlovsdebatt — og slike debatter er nettopp det Grunnloven er laget for å tåle."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Stortingssalen sett ovenfra med representanter på plass under en avstemning",
+            "caption": "Stortinget vedtar nye lover — men ingen lov kan stride mot Grunnloven."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hvor mange menn samlet seg på Eidsvoll for å skrive Grunnloven?",
+                        "options": ["72", "112", "169", "200"],
+                        "correctAnswer": 1,
+                        "explanation": "112 valgte representanter satt på Eidsvoll i fem uker våren 1814."
+                    },
+                    {
+                        "question": "Hva kalles prinsippet om at makten skal deles mellom Storting, regjering og domstoler?",
+                        "options": [
+                            "Parlamentarismen",
+                            "Demokratiet",
+                            "Maktfordelingsprinsippet",
+                            "Føydalismen"
+                        ],
+                        "correctAnswer": 2,
+                        "explanation": "Maktfordelingsprinsippet, hentet fra Montesquieu, er Grunnlovens hjerte."
+                    },
+                    {
+                        "question": "Hvilket år fikk norske kvinner stemmerett på lik linje med menn?",
+                        "options": ["1898", "1905", "1913", "1945"],
+                        "correctAnswer": 2,
+                        "explanation": "I 1913 ble Norge ett av de første landene i verden med full stemmerett for kvinner."
+                    },
+                    {
+                        "question": "Hvor mye flertall trengs i Stortinget for å endre Grunnloven?",
+                        "options": [
+                            "Vanlig flertall",
+                            "Tre fjerdedeler",
+                            "To tredjedeler",
+                            "Hele Stortinget må stemme ja"
+                        ],
+                        "correctAnswer": 2,
+                        "explanation": "Det kreves to tredjedels flertall — og forslaget må vedtas av to ulike storting med valg imellom."
+                    },
+                    {
+                        "question": "Hvilken statsmakt avgjør om en ny lov bryter Grunnloven?",
+                        "options": [
+                            "Stortinget",
+                            "Regjeringen",
+                            "Kongen",
+                            "Domstolene"
+                        ],
+                        "correctAnswer": 3,
+                        "explanation": "Domstolene tolker loven. Høyesterett kan sette en lov til side hvis den strider mot Grunnloven."
+                    }
+                ]
+            }
+        }
+    ],
+    "timeline": []
+}
