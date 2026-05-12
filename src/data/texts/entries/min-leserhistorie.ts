@@ -8,7 +8,7 @@ export const minLeserhistorie: TextEntry = {
     language: 'bm.',
     theme: ['Leseglede', 'Identitet', 'Oppvekst'],
     publishedYear: 2024,
-    createdDate: new Date().toISOString(),
+    createdDate: '2026-01-20T09:21:00',
     definitions: [
         { term: "Sjangre", definition: "Ulike typer eller kategorier av tekster, for eksempel krim, drama eller romanse." },
         { term: "Lillesøster-bøkene", definition: "En populær barnebokserie av Kari Grossmann." },

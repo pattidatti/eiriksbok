@@ -8,7 +8,7 @@ export const ibnFadlanReisebeskrivelse: TextEntry = {
     language: 'bm.',
     theme: ['Vikingtid', 'Kulturmøter', 'Ritualer'],
     publishedYear: 922,
-    createdDate: new Date().toISOString(),
+    createdDate: '2026-01-30T21:40:00',
     definitions: [
         { term: "nabid", definition: "En fermentert drikk, sannsynligvis mjød eller sterk fruktvin." },
         { term: "dibag", definition: "Et kostbart silkestoff (brokade), ofte importert fra Bysants eller Persia." },

@@ -8,7 +8,7 @@ export const aldriGodtNok: TextEntry = {
     language: 'bm.',
     theme: ['Selvbilde', 'Kroppspress', 'Sosiale medier'],
     publishedYear: 2024,
-    createdDate: new Date().toISOString(),
+    createdDate: '2026-02-05T10:00:00',
     definitions: [
         { term: "friminutt", definition: "Pause mellom skoletimene." },
         { term: "urealistiske", definition: "Noe som ikke er mulig å oppnå i virkeligheten." },
