@@ -2550,7 +2550,7 @@
               "id": "industriell-revolusjon",
               "title": "Den industrielle revolusjonen",
               "description": "England 1760-1840: Hvordan dampmaskiner, fabrikker og jernbaner snudde verden på hodet.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/historie/industriell-revolusjon/hero.webp",
               "tags": [
                 "historie",
                 "industri",
@@ -2565,7 +2565,7 @@
               "id": "barnearbeid",
               "title": "Barnearbeid i fabrikkene",
               "description": "Hvordan barn helt ned i fem år bar den industrielle revolusjonen på smale skuldre - og hvordan lovene endelig kom.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/industriell-revolusjon/barnearbeid-hero.webp",
               "tags": [
                 "historie",
                 "industri",
@@ -2583,13 +2583,13 @@
           "id": "den-franske-revolusjon",
           "title": "Den franske revolusjon",
           "description": "Bastillen, giljotinen, og hvordan vanlige folk styrtet en konge i 1789.",
-          "image": "/images/placeholder.webp",
+          "image": "/images/den-franske-revolusjon/intro-hero.webp",
           "lessons": [
             {
               "id": "intro",
               "title": "Den franske revolusjon",
               "description": "En kort introduksjon til hendelsene 1789-1799 og hvordan de formet moderne demokrati.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/den-franske-revolusjon/intro-hero.webp",
               "layout": "rich",
               "tags": [
                 "frankrike",
@@ -2645,7 +2645,7 @@
               "id": "martin-luther",
               "title": "Martin Luther og reformasjonen",
               "description": "En munk, en hammer og en kirkedør: Hvordan 95 setninger i 1517 splittet kristendommen i to.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/reformasjonen/martin-luther-hero.webp",
               "layout": "rich",
               "tags": [
                 "reformasjonen",
@@ -2676,7 +2676,7 @@
               "id": "reformasjonen-i-norge",
               "title": "Reformasjonen i Norge",
               "description": "Hvordan en dansk konge tvang fram protestantismen i Norge i 1537 — og samtidig avskaffet det norske riket.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/reformasjonen/reformasjonen-i-norge-hero.webp",
               "layout": "rich",
               "tags": [
                 "reformasjonen",
@@ -5323,13 +5323,13 @@
           "id": "musikkhistorie",
           "title": "Musikk og samfunn",
           "description": "Musikk i historisk og kulturelt perspektiv.",
-          "image": "/images/placeholder.webp",
+          "image": "/images/musikkhistorie/joik-hero.webp",
           "lessons": [
             {
               "id": "joik",
               "title": "Joik: Stemmen til det samiske folket",
               "description": "Joiken er Europas eldste sangform. Lær om joikens natur, dens forbud og dens sterke comeback.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/musikkhistorie/joik-hero.webp",
               "tags": [
                 "musikk",
                 "samisk",
