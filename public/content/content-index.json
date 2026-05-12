@@ -1,5 +1,5 @@
 {
-  "buildId": 1778489297922,
+  "buildId": 1778570747527,
   "contentMap": {
     "adel": [
       "content/concepts/adel.json"
@@ -760,6 +760,9 @@
     ],
     "jordbruk-og-sivilisasjoner": [
       "content/historie/jordbruk-og-sivilisasjoner/jordbruk-og-sivilisasjoner.json"
+    ],
+    "mesopotamia": [
+      "content/historie/jordbruk-og-sivilisasjoner/mesopotamia.json"
     ],
     "britisk-imperium": [
       "content/historie/kolonialisering/britisk-imperium.json"
@@ -2058,6 +2061,7 @@
     "historie/industriell-revolusjon/barnearbeid": "content/historie/industriell-revolusjon/barnearbeid.json",
     "historie/industriell-revolusjon/industriell-revolusjon": "content/historie/industriell-revolusjon/industriell-revolusjon.json",
     "historie/jordbruk-og-sivilisasjoner/jordbruk-og-sivilisasjoner": "content/historie/jordbruk-og-sivilisasjoner/jordbruk-og-sivilisasjoner.json",
+    "historie/jordbruk-og-sivilisasjoner/mesopotamia": "content/historie/jordbruk-og-sivilisasjoner/mesopotamia.json",
     "historie/kolonialisering/britisk-imperium": "content/historie/kolonialisering/britisk-imperium.json",
     "historie/kolonialisering/eic": "content/historie/kolonialisering/eic.json",
     "historie/kolonialisering/europa-erobrer-verden": "content/historie/kolonialisering/europa-erobrer-verden.json",
