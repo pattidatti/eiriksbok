@@ -1,5 +1,5 @@
 {
-  "buildId": 1778614025845,
+  "buildId": 1778616196310,
   "contentMap": {
     "adel": [
       "content/concepts/adel.json"
@@ -1780,6 +1780,9 @@
     "foydalisme": [
       "content/samfunnskunnskap/styringsformer/foydalisme.json"
     ],
+    "grunnloven": [
+      "content/samfunnskunnskap/styringsformer/grunnloven.json"
+    ],
     "makt-og-legitimitet": [
       "content/samfunnskunnskap/styringsformer/makt-og-legitimitet.json"
     ],
@@ -2469,6 +2472,7 @@
     "samfunnskunnskap/styringsformer/diktaturet": "content/samfunnskunnskap/styringsformer/diktaturet.json",
     "samfunnskunnskap/styringsformer/elitenes-herredomme": "content/samfunnskunnskap/styringsformer/elitenes-herredomme.json",
     "samfunnskunnskap/styringsformer/foydalisme": "content/samfunnskunnskap/styringsformer/foydalisme.json",
+    "samfunnskunnskap/styringsformer/grunnloven": "content/samfunnskunnskap/styringsformer/grunnloven.json",
     "samfunnskunnskap/styringsformer/makt-og-legitimitet": "content/samfunnskunnskap/styringsformer/makt-og-legitimitet.json",
     "samfunnskunnskap/styringsformer/monarkiet": "content/samfunnskunnskap/styringsformer/monarkiet.json",
     "samfunnskunnskap/styringsformer/opplysningstid": "content/samfunnskunnskap/styringsformer/opplysningstid.json",
