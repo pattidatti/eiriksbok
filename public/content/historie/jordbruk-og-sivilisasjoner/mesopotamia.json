@@ -1,0 +1,275 @@
+{
+    "id": "mesopotamia",
+    "title": "Mesopotamia: Sivilisasjonens vugge",
+    "layout": "rich",
+    "year": "3500 fvt – 539 fvt",
+    "category": "Tidlige sivilisasjoner",
+    "readTime": "8 min lesning",
+    "heroImage": "/images/placeholder.webp",
+    "details": [
+        "Verdens første byer vokste fram her rundt 3500 fvt.",
+        "Kileskriften er den eldste skriften vi kjenner.",
+        "Hammurabis lov er en av historiens første skrevne lovsamlinger."
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "En gutt på rundt fjorten år går gjennom de støvete gatene i byen Uruk. Året er 3000 fvt. Han holder en liten leirtavle i hånden. På den har faren risset inn antall sekker bygg som familien skylder i skatt. Hvis gutten mister tavla, har faren ingen kvittering på at gjelden er betalt. Skriften, byene og kongene som krever skatt — alt dette var splitter nytt for omtrent fem tusen år siden. Og det dukket først opp i et område vi kaller Mesopotamia."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Tenåringsgutt med leirtavle i en travel sumerisk by ved soloppgang",
+            "caption": "Uruk var sannsynligvis verdens første storby. På sitt største bodde det rundt 50 000 mennesker her."
+        },
+        {
+            "type": "header",
+            "text": "Mellom to elver"
+        },
+        {
+            "type": "text",
+            "content": "Ordet Mesopotamia kommer fra gresk og betyr 'landet mellom elvene'. De to elvene er Eufrat og Tigris. De renner sørover gjennom dagens Irak og munner ut i Persiabukta. Området ligger i den fruktbare halvmånen — et belte med god jord som strekker seg fra Egypt opp gjennom Midtøsten."
+        },
+        {
+            "type": "text",
+            "content": "Hvert år flommet elvene over og la igjen et tykt lag med næringsrikt slam. Det gjorde jorda lett å dyrke. Men flommene kom ikke alltid når bøndene trengte vann. Derfor måtte de grave kanaler og bygge demninger. For å holde slike anlegg ved like, måtte mange mennesker samarbeide. Det er en av grunnene til at de første byene oppstod akkurat her."
+        },
+        {
+            "type": "header",
+            "text": "Sumererne bygger verdens første byer"
+        },
+        {
+            "type": "text",
+            "content": "Rundt 3500 fvt. begynte folket vi kaller sumererne å samle seg i store byer. Uruk, Ur og Eridu var blant de viktigste. Inne i bymurene kunne tusenvis av mennesker leve sammen. Ikke alle dyrket jorda. Noen ble håndverkere, andre prester, soldater eller kjøpmenn. Denne arbeidsdelingen — at folk gjør ulike jobber — er kanskje den viktigste oppfinnelsen i hele historien."
+        },
+        {
+            "type": "text",
+            "content": "Midt i byene reiste sumererne enorme tempelbygg som vi kaller ziggurater. En ziggurat så ut som en pyramide med trappetrinn. Den var byens midtpunkt: tempel, kornlager og rådhus i samme bygning. På toppen mente folk at gudene møtte menneskene."
+        },
+        {
+            "type": "component",
+            "name": "Hierarchy",
+            "props": {
+                "title": "Samfunnet i en sumerisk by",
+                "items": [
+                    {
+                        "title": "Konge og prester",
+                        "description": "Kongen styrte byen og ble sett på som gudenes utvalgte. Prestene tolket gudenes vilje og bestemte over tempelet."
+                    },
+                    {
+                        "title": "Skrivere og kjøpmenn",
+                        "description": "En liten gruppe som kunne lese og skrive. De holdt orden på handel, skatter og avtaler — en svært mektig posisjon."
+                    },
+                    {
+                        "title": "Håndverkere og bønder",
+                        "description": "Flertallet av befolkningen. Bøndene dyrket korn, gjetet sauer og bygde kanaler. Håndverkere lagde alt fra leirkrukker til våpen."
+                    },
+                    {
+                        "title": "Slaver",
+                        "description": "Krigsfanger eller folk som hadde måttet selge seg selv på grunn av gjeld. De arbeidet i tempel, hjem og på markene."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Kileskrift: skriften som forandret alt"
+        },
+        {
+            "type": "text",
+            "content": "Sumererne fant opp skrift rundt 3200 fvt. Det skjedde ikke fordi de ville skrive dikt. Det skjedde fordi tempelet trengte å holde styr på sekker med bygg, antall sauer og hvor mye hver bonde skyldte. Skrift er altså født av regnskap, ikke av kunst."
+        },
+        {
+            "type": "text",
+            "content": "Skriften ble laget ved å presse en spiss pinne av siv ned i våt leire. Tegnene fikk form som små kiler — derfor heter den kileskrift. Når leira tørket, fikk man en hard tavle som kunne lagres. Tusenvis av slike tavler er bevart. På dem leser vi om gamle krangler om eiendom, brev mellom mødre og barn, oppskrifter på øl og verdens eldste epos: Gilgamesh-eposet."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Nærbilde av en leirtavle med kileskrift, opplyst av varmt sidelys",
+            "caption": "En leirtavle med kileskrift. De fleste vi har funnet handler om handel og regnskap — ikke om konger og slag."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Bare noen få kunne lese",
+                "content": "Det krevde mange års skolegang å lære kileskriften. Forskere tror at under fem prosent av befolkningen kunne lese. Skrivere ble lært opp i egne skoler som het 'tavle-hus', der elevene øvde ved å kopiere tekster om og om igjen på leirtavler. En elev som gjorde feil, kunne bli slått av læreren."
+            }
+        },
+        {
+            "type": "header",
+            "text": "Akkadia og Babylon tar over"
+        },
+        {
+            "type": "text",
+            "content": "Sumererne styrte ikke alltid området. Rundt 2334 fvt. samlet en konge som het Sargon den store alle sumernes byer under sitt styre. Han bygde det vi kaller det akkadiske riket — verdens første store rike. Etter Sargon fulgte flere bølger av nye herskere. Babylon ble den nye storbyen, og en konge der ble særlig kjent: Hammurabi."
+        },
+        {
+            "type": "header",
+            "text": "Hammurabis lov: øye for øye"
+        },
+        {
+            "type": "text",
+            "content": "Rundt 1750 fvt. samlet Hammurabi 282 lover på en stor svart steinsøyle. Den står i dag på museet Louvre i Paris. Loven gjelder alt fra ekteskap og handel til straff for tyveri. Tanken bak var enkel: alle skulle vite reglene på forhånd, og kongen skulle ikke kunne dømme tilfeldig."
+        },
+        {
+            "type": "component",
+            "name": "QuoteBlock",
+            "props": {
+                "quote": "Hvis en mann ødelegger øyet til en annen mann, skal hans eget øye ødelegges.",
+                "source": "Hammurabis lov, paragraf 196"
+            }
+        },
+        {
+            "type": "text",
+            "content": "Loven er ikke rettferdig slik vi forstår det i dag. Straffen var ulik etter hvilket samfunnslag du tilhørte. Hvis en rik mann skadet en fattig, slapp den rike ofte unna med en pengebot. Skadet en fattig mann en rik, kunne straffen være døden. Likevel er Hammurabis lov et viktig steg: makten ble bundet av nedskrevne regler, ikke bare av kongens humør."
+        },
+        {
+            "type": "component",
+            "name": "TimelineComponent",
+            "props": {
+                "title": "Tre store faser i Mesopotamia",
+                "compact": true,
+                "events": [
+                    {
+                        "date": "3500 fvt",
+                        "title": "Sumererne grunnlegger byene",
+                        "description": "Uruk, Ur og Eridu vokser fram. Kileskriften oppstår. Verdens første høykultur."
+                    },
+                    {
+                        "date": "2334 fvt",
+                        "title": "Sargon samler riket",
+                        "description": "Det akkadiske riket blir verdens første storrike. Akkadisk språk overtar etter sumerisk."
+                    },
+                    {
+                        "date": "1750 fvt",
+                        "title": "Hammurabis Babylon",
+                        "description": "Babylon blir områdets sentrum. Hammurabi skriver ned 282 lover på en steinsøyle."
+                    },
+                    {
+                        "date": "539 fvt",
+                        "title": "Perserne erobrer Babylon",
+                        "description": "Kong Kyros av Persia tar Babylon uten kamp. Mesopotamia blir en del av det persiske storriket."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Arven etter Mesopotamia"
+        },
+        {
+            "type": "text",
+            "content": "Vi bruker fortsatt mange ting som ble oppfunnet i Mesopotamia. Timen din har 60 minutter og minuttet 60 sekunder — det er en arv fra sumerernes tallsystem som bygde på 60. Sirkelen har 360 grader av samme grunn. Hjulet, plogen og seilbåten ble også utviklet her. Selve ideen om en by med lover, skattekontor og skole er sumerernes oppfinnelse."
+        },
+        {
+            "type": "text",
+            "content": "Når kong Kyros av Persia erobret Babylon i 539 fvt., gikk Mesopotamia inn i et nytt kapittel. Men ingenting forsvant. Kileskriften ble brukt i hundrevis av år til. Lovene og byene levde videre under nye herskere. Mesopotamia hadde lagt grunnsteinen. På denne grunnsteinen ble alle senere sivilisasjoner i Midtøsten bygget."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Rekonstruert ziggurat i Ur ved solnedgang, ørken i bakgrunnen",
+            "caption": "Den store zigguraten i Ur, slik den kan ha sett ut. Trappetrinnene førte opp til et tempel på toppen."
+        },
+        {
+            "type": "component",
+            "name": "InterdisciplinaryBridge",
+            "props": {
+                "title": "Mesopotamias spor i historien",
+                "centerEvent": "Mesopotamia",
+                "nodes": [
+                    {
+                        "subject": "Jordbruksrevolusjonen",
+                        "text": "Uten overgangen fra jegere til fastboende bønder hadde det aldri vært nok mat til å bygge byer som Uruk. Mesopotamia er resultatet av jordbruksrevolusjonen.",
+                        "color": "#10b981",
+                        "link": "/historie/jordbruk-og-sivilisasjoner/jordbruk-og-sivilisasjoner"
+                    },
+                    {
+                        "subject": "Perserriket",
+                        "text": "Da Kyros tok Babylon i 539 fvt., overtok perserne Mesopotamias byer, lover og handelsruter. Det persiske storriket arvet en ferdig sivilisasjon.",
+                        "color": "#6366f1",
+                        "link": "/historie/perserriket/artikkel"
+                    },
+                    {
+                        "subject": "Monarki som styreform",
+                        "text": "De første kongene som hevdet å være valgt av gudene, satt i Mesopotamia. Tanken om kongen som bindeledd mellom himmel og jord ble videreført helt fram til moderne tid.",
+                        "color": "#f59e0b",
+                        "link": "/samfunnskunnskap/styringsformer/monarkiet"
+                    },
+                    {
+                        "subject": "Romerriket",
+                        "text": "Romerne brukte hjulet, skriften og bystyret som Mesopotamia hadde funnet opp tusen år tidligere. Mange romerske ideer hadde mesopotamiske røtter.",
+                        "color": "#ec4899",
+                        "link": "/historie/romerriket/romersk-start"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hva betyr ordet Mesopotamia?",
+                        "options": [
+                            "Sivilisasjonens vugge",
+                            "Landet mellom elvene",
+                            "Solens land",
+                            "Den fruktbare halvmånen"
+                        ],
+                        "answer": "Landet mellom elvene",
+                        "explanation": "Ordet er gresk og viser til området mellom Eufrat og Tigris."
+                    },
+                    {
+                        "question": "Hvorfor fant sumererne opp skrift?",
+                        "options": [
+                            "For å skrive dikt og fortellinger",
+                            "For å sende brev mellom byer",
+                            "For å holde regnskap over korn, skatt og handel",
+                            "For å ære gudene"
+                        ],
+                        "answer": "For å holde regnskap over korn, skatt og handel",
+                        "explanation": "De aller fleste leirtavlene vi har funnet, handler om handel og skatt. Skriften er født av regnskap."
+                    },
+                    {
+                        "question": "Hva var en ziggurat?",
+                        "options": [
+                            "En kongegrav",
+                            "Et stort trappepyramide-tempel i byens midte",
+                            "En militær festning",
+                            "En kanal som ledet vann"
+                        ],
+                        "answer": "Et stort trappepyramide-tempel i byens midte",
+                        "explanation": "Zigguraten var byens sentrum: tempel, kornlager og rådhus i én bygning."
+                    },
+                    {
+                        "question": "Hvorfor er Hammurabis lov viktig, selv om den ikke er rettferdig for oss i dag?",
+                        "options": [
+                            "Den ga rike og fattige samme straff",
+                            "Den ga kongen ubegrenset makt",
+                            "Den bandt makten til skrevne regler alle kunne kjenne",
+                            "Den avskaffet slaveri"
+                        ],
+                        "answer": "Den bandt makten til skrevne regler alle kunne kjenne",
+                        "explanation": "Selv om straffene var ulike for ulike samfunnslag, var dette en av de første gangene loven sto skrevet og kongen ikke kunne dømme helt fritt."
+                    },
+                    {
+                        "question": "Hvilken moderne ting har røtter i sumerernes tallsystem?",
+                        "options": [
+                            "Året har 365 dager",
+                            "Timen har 60 minutter",
+                            "Uka har 7 dager",
+                            "Måneden har 30 dager"
+                        ],
+                        "answer": "Timen har 60 minutter",
+                        "explanation": "Sumererne brukte et tallsystem som bygde på 60. Derfor har timen 60 minutter og sirkelen 360 grader."
+                    }
+                ]
+            }
+        }
+    ],
+    "timeline": []
+}
