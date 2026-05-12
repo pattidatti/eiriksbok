@@ -5339,6 +5339,21 @@
               ],
               "createdDate": "2026-05-06T00:00:00Z",
               "lastUpdated": "2026-05-12T09:08:05+02:00"
+            },
+            {
+              "id": "streaming-og-opphavsrett",
+              "title": "Streaming og opphavsrett",
+              "description": "Hvem får egentlig betalt når du hører favorittlåten på Spotify? En reise gjennom pengestrømmen, rettighetene og de etiske dilemmaene i moderne musikkbransje.",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "musikk",
+                "streaming",
+                "opphavsrett",
+                "etikk",
+                "musikkindustri"
+              ],
+              "createdDate": "2026-05-12T00:00:00Z",
+              "lastUpdated": "2026-05-12T13:03:35.470Z"
             }
           ]
         },
