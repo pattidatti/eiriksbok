@@ -95,20 +95,23 @@ Lagre genererte bilder i riktig WebP-format, maks 1600px bredde for inline, 1600
 
 ---
 
-## Steg 6: Oppdater artikkel-JSON
+## Steg 6: Oppdater artikkel-JSON og manifest.json
 
 For hvert generert bilde, oppdater JSON-filen:
 
-**Hero-bilde** - bytt ut i toppnivå-feltet:
+**Hero-bilde** - bytt ut i toppnivå-feltet i selve artikkelen (`public/content/[sti].json`):
 ```json
 "heroImage": "/images/vikingtiden/rikssamlingen-hero.webp"
 ```
 
-**Inline-bilder** - bytt ut `src` i den aktuelle blokken. Behold `alt` og `caption` som de er.
+**Kortet i manifest.json** - Hero-bildet brukes også på artikkel-kortet! Finn artikkelen din i `public/content/manifest.json` og oppdater `image`-feltet der til samme path som hero-bildet.
+
+**Inline-bilder** - bytt ut `src` i den aktuelle blokken i artikkel-JSON. Behold `alt` og `caption` som de er.
 
 Verifiser at JSON fortsatt er gyldig etter endringene:
 ```bash
 python3 -c "import json; json.load(open('public/content/[sti].json')); print('OK')"
+python3 -c "import json; json.load(open('public/content/manifest.json')); print('OK')"
 ```
 
 ---
