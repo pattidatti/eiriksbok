@@ -1,0 +1,170 @@
+{
+    "id": "napoleon",
+    "title": "Napoleon Bonaparte",
+    "layout": "rich",
+    "year": "1769-1821",
+    "category": "Frankrike og Europa",
+    "readTime": "9 min lesning",
+    "heroImage": "/images/placeholder.webp",
+    "details": [
+        "Korsikaneren som ble keiser",
+        "Code Civil endret europeisk lov for alltid",
+        "Felttoget i Russland (1812) knekte hæren",
+        "Endte sine dager i eksil på Sankt Helena"
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "I 1799 sto Frankrike midt i en revolusjon som hadde gått fra håp til kaos. Kongen var halshogd, skrekkveldet hadde tatt tusenvis av liv, og staten manglet en leder med vilje og våpen. Da steg en ung general inn på scenen. Han kom fra øya Korsika, var bare 30 år gammel, og hadde alt vunnet slag i Italia og Egypt. Han het Napoleon Bonaparte. Innen ti år hadde han kronet seg selv til keiser og lagt store deler av Europa under sin fot."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Ung Napoleon i offiseruniform under den franske revolusjonen",
+            "caption": "Napoleon var ferdig på militærskolen 16 år gammel og fikk sitt store gjennombrudd i Italia."
+        },
+        {
+            "type": "header",
+            "text": "Statskuppet og Code Civil"
+        },
+        {
+            "type": "text",
+            "content": "Den 9. november 1799 marsjerte Napoleon inn i nasjonalforsamlingen med soldatene sine og tvang frem et nytt styre. Han kalte seg førstekonsul. Tre menn skulle styre Frankrike, men i praksis var det Napoleon alene som bestemte. Han ryddet opp i et land i ruiner. Banken stod på randen av kollaps, og veiene var fulle av røvere. Napoleon bygget nye veier, startet skoler og opprettet en sentralbank. Det viktigste var en stor lovbok som ble samlet i 1804 og fikk navnet Code Civil. Lovboken sa at alle borgere var like for loven. Adelens privilegier var borte. Bønder kunne eie sin egen jord. Sønner kunne ikke lenger arve alt fordi de var førstefødte. Lovboken spredte seg til mange land i Europa og lever videre i moderne rett."
+        },
+        {
+            "type": "text",
+            "content": "Men Napoleon ga ikke folket frihet til å si hva de ville. Antall aviser i Paris ble kuttet fra 73 til bare 4. Politisjefen Joseph Fouché bygget opp et hemmelig politi som åpnet brev og overvåket borgere. Frihet for loven betød ikke frihet til å kritisere keiseren."
+        },
+        {
+            "type": "header",
+            "text": "Keiserkroningen 1804"
+        },
+        {
+            "type": "text",
+            "content": "Den 2. desember 1804 sto Napoleon foran alteret i Notre-Dame i Paris. Paven hadde kommet hele veien fra Roma for å krone ham. Men i et siste øyeblikk grep Napoleon kronen selv og satte den på sitt eget hode. Meldingen var tydelig: makten kom fra ham selv, ikke fra Gud eller paven. Republikken Frankrike var nå et keiserdømme. Mannen som hadde reist seg i revolusjonens navn, hadde gjort seg selv til en ny konge."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Napoleon krones til keiser i Notre-Dame 1804",
+            "caption": "Kroningen i Notre-Dame i 1804. Maleriet av Jacques-Louis David viser øyeblikket Napoleon kroner sin kone Joséphine."
+        },
+        {
+            "type": "header",
+            "text": "Europa under Napoleon"
+        },
+        {
+            "type": "text",
+            "content": "I årene som fulgte vant Napoleon slag etter slag. Han slo den østerrikske og russiske hæren ved Austerlitz i 1805. Han knuste Preussen ved Jena i 1806. Han satte sine brødre på troner i Spania, Holland og Italia. På sitt høyeste hadde imperiet hans nesten hele Europa vest for Russland. Overalt der franske soldater marsjerte, kom også Code Civil med dem. Føydalismen ble avskaffet i tysk og italiensk område. Jøder fikk borgerrettigheter for første gang."
+        },
+        {
+            "type": "text",
+            "content": "Likevel var det krig nesten hvert eneste år. Millioner av soldater og sivile døde. Hvert land som ble erobret, måtte betale skatt til Frankrike og sende unge menn til Napoleons hær. Mange begynte å hate franskmennene. I Spania reiste folket seg i en folkekrig som kostet Napoleon dyrt. Ordet «gerilja» kommer faktisk fra denne krigen."
+        },
+        {
+            "type": "header",
+            "text": "Russland og fallet"
+        },
+        {
+            "type": "text",
+            "content": "Sommeren 1812 marsjerte Napoleon østover med over 600 000 soldater. Målet var Moskva. Russerne nektet å møte ham i ett stort slag. I stedet trakk de seg tilbake og brente alt på veien. Da Napoleon endelig nådde Moskva, fant han en tom og brennende by. Vinteren kom tidlig. På hjemveien sank temperaturen til 30 minusgrader. Soldater frøs i hjel i tusenvis. Av de 600 000 kom bare rundt 100 000 tilbake."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Napoleons tilbaketog fra Moskva i snøstorm 1812",
+            "caption": "Tilbaketoget fra Russland i 1812 ble Napoleons største nederlag."
+        },
+        {
+            "type": "text",
+            "content": "Resten av Europa kjente blod og samlet seg mot ham. I 1814 var fienden i Paris. Napoleon ble sendt i eksil på øya Elba. Men han slapp ikke så lett. Mindre enn ett år senere flyktet han, samlet en ny hær og forsøkte et siste felttog. Det endte ved Waterloo i Belgia 18. juni 1815. Han tapte. Denne gangen ble han sendt langt vekk, til den lille øya Sankt Helena midt i Atlanterhavet. Der døde han i 1821, bare 51 år gammel."
+        },
+        {
+            "type": "header",
+            "text": "Reformator eller diktator?"
+        },
+        {
+            "type": "text",
+            "content": "Var Napoleon en helt eller en skurk? Spørsmålet er fortsatt levende. Han startet kriger som drepte millioner og kronet seg selv til keiser. Samtidig spredte han lover og idéer som forandret Europa for alltid. Han er kanskje historiens beste eksempel på at en og samme person kan være begge deler. La oss prøve å sortere arven hans:"
+        },
+        {
+            "type": "component",
+            "name": "NapoleonsArv",
+            "props": {}
+        },
+        {
+            "type": "header",
+            "text": "Hva ble igjen?"
+        },
+        {
+            "type": "text",
+            "content": "Napoleons hær er borte. Imperiet hans er borte. Men Code Civil lever fortsatt. I Frankrike, Belgia, Nederland, Italia, Spania, Romania og deler av Tyskland bygger moderne lov på Napoleons bok fra 1804. Tanken om at alle borgere er like for loven, uavhengig av familie og fødsel, kom fra opplysningstiden, men det var Napoleon som skrev den ned og spredte den med soldater og lovbøker. Det er det største paradokset i historien hans: en enehersker som spredte borgerrettigheter."
+        },
+        {
+            "type": "list",
+            "items": [
+                "Code Civil (1804) brukes fremdeles som grunnlag for lov i mange land",
+                "Konseptet om karriere etter dyktighet, ikke familie, ble en moderne norm",
+                "Metersystemet og felles målestokker ble standarder under Napoleon",
+                "Den moderne nasjonalstaten med felles lover og skoler ble formet i denne perioden"
+            ]
+        },
+        {
+            "type": "text",
+            "content": "Etter Napoleon samlet de store maktene seg i Wien i 1814 og 1815 for å gjenopprette gamle konger og grenser. De ville helst late som om revolusjonen aldri hadde skjedd. Men de kunne ikke viske ut idéene som Napoleons soldater hadde båret med seg over hele Europa. Bønder som hadde sluppet fri fra føydalherrer, ville ikke tilbake. Borgere som hadde fått stemmerett i Code Civil, godtok ikke å miste den igjen. Veien mot moderne demokrati var åpnet, selv om det skulle ta lang tid før folk faktisk fikk lov til å bestemme selv."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hva er Code Civil?",
+                        "options": [
+                            "En militær strategibok",
+                            "En lovbok som ga alle borgere lik rett for loven",
+                            "En liste over Napoleons fiender",
+                            "Et religiøst dokument"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "Code Civil fra 1804 samlet alle franske lover. Den slo fast at adelens privilegier var borte og at alle borgere var like for loven."
+                    },
+                    {
+                        "question": "Hvorfor ble Napoleons felttog mot Russland i 1812 en katastrofe?",
+                        "options": [
+                            "Russerne hadde flere soldater enn ham",
+                            "Han ble snikmyrdet underveis",
+                            "Russerne trakk seg tilbake og brente alt, og vinteren tok knekken på hæren",
+                            "Paven forbød felttoget"
+                        ],
+                        "correctIndex": 2,
+                        "explanation": "Russerne brukte en taktikk som kalles brent jord. De ødela mat og hus før de trakk seg tilbake. Vinteren og sult drepte titusenvis av Napoleons soldater på veien hjem."
+                    },
+                    {
+                        "question": "Hva symboliserte kroningen i Notre-Dame i 1804?",
+                        "options": [
+                            "At Napoleon var fattig og trengte støtte fra paven",
+                            "At Frankrike ble katolsk igjen",
+                            "At Napoleon mente makten kom fra ham selv, ikke fra paven eller Gud",
+                            "At republikken skulle vare for alltid"
+                        ],
+                        "correctIndex": 2,
+                        "explanation": "Da Napoleon grep kronen og satte den på sitt eget hode, viste han at han ikke trengte velsignelse fra paven. Han var sin egen mester."
+                    },
+                    {
+                        "question": "Hvorfor kaller mange Napoleon for et paradoks?",
+                        "options": [
+                            "Han skiftet navn flere ganger",
+                            "Han var samtidig en reformator som spredte borgerrettigheter og en enehersker som kuttet pressefrihet",
+                            "Han var korsikaner, ikke franskmann",
+                            "Han ble kronet to ganger"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "Det er nettopp paradokset som gjør Napoleon så interessant. Han spredte idéen om borgerrettigheter samtidig som han styrte med streng sensur og hemmelig politi."
+                    }
+                ]
+            }
+        }
+    ],
+    "timeline": []
+}
