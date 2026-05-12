@@ -113,37 +113,24 @@ python3 -c "import json; json.load(open('public/content/[sti].json')); print('OK
 
 ---
 
-## Steg 7: Commit og PR
+## Steg 7: Commit direkte til main
 
 ```bash
 git config user.email "pattidatti@gmail.com"
 git config user.name "Eiriksbok Image Agent"
 
 DATO=$(date +%Y%m%d)
-git checkout -b "auto-images/batch-${DATO}"
+
+# Sørg for at vi er på main
+git checkout main
+git pull
 
 # Legg til bilder og oppdaterte JSONer
 git add public/images/
 git add public/content/
 
 git commit -m "bilder: legg til genererte artikkelbilder (${DATO})"
-git push origin HEAD
-
-gh pr create \
-  --title "Bilder: batch $(date +%Y-%m-%d)" \
-  --body "## Automatisk bildegenerering
-
-Generert hero-bilde og inline-bilder for artikler med placeholder.webp.
-
-### Behandlede artikler
-[list: tittel — antall bilder generert]
-
-### Genererte filer
-[list: filstier]
-
-### Merk
-Kontroller bildekvaliteten visuelt før merge. Trykk på bildene i PR-fildifferansen for forhåndsvisning." \
-  --repo pattidatti/eiriksbok
+git push origin main
 ```
 
 ---
