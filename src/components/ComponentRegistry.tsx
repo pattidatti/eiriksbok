@@ -73,6 +73,7 @@ const TsarsDilemma = lazy(() => import('./content/interactive/TsarsDilemma').the
 const HermeneuticCircle = lazy(() => import('./content/interactive/HermeneuticCircle').then(m => ({ default: m.HermeneuticCircle })));
 const CyprusPeaceTalks = lazy(() => import('./content/interactive/CyprusPeaceTalks').then(m => ({ default: m.CyprusPeaceTalks })));
 const DenStoreAkselerasjonen = lazy(() => import('./content/interactive/DenStoreAkselerasjonen').then(m => ({ default: m.DenStoreAkselerasjonen })));
+const MaktfordelingMatch = lazy(() => import('./content/interactive/MaktfordelingMatch').then(m => ({ default: m.MaktfordelingMatch })));
 
 // Skapende Skriving (Creative Writing)
 const StoryElementMixer = lazy(() => import('./content/interactive/StoryElementMixer').then(m => ({ default: m.StoryElementMixer })));
@@ -198,6 +199,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     HermeneuticCircle,
     CyprusPeaceTalks,
     DenStoreAkselerasjonen,
+    MaktfordelingMatch,
     StoryElementMixer,
     ThemeDigger,
     PlotDNA,
