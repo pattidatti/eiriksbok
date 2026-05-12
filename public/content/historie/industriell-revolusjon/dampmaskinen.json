@@ -1,0 +1,247 @@
+{
+    "id": "dampmaskinen",
+    "title": "Dampmaskinen: oppfinnelsen som forandret alt",
+    "layout": "rich",
+    "year": "1712-1825",
+    "category": "Industriell revolusjon",
+    "readTime": "9 min lesning",
+    "heroImage": "/images/placeholder.webp",
+    "details": [
+        "James Watt fant opp den separate kondensatoren i 1765 og gjorde dampmaskinen fire ganger mer effektiv",
+        "Dampmaskinen var den første motoren som kunne lage sterk energi hvor som helst, uavhengig av elv eller vind",
+        "Watts oppfinnelse drev fabrikker, lokomotiver og skip, og startet den industrielle revolusjonen for alvor"
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Det er en kald søndag morgen i mai 1765. En ung mann går alene gjennom en park i Glasgow i Skottland. Han heter James Watt, er 29 år gammel og lager presisjonsinstrumenter for universitetet. I lomma har han en gåte han ikke får sove av. Sjefen hans har bedt ham reparere en liten modell av en dampmaskin. Den virker, men sløser energi som om noen helte vann i en bøtte med hull i. Mens Watt går forbi en gammel kirke, slår tanken ned i ham som et lyn: dampen må kjøles ned i et eget rom, ikke i selve sylinderen. Han stopper opp på stien. Han skjønner ikke det selv ennå, men han har akkurat funnet opp den maskinen som skal endre hele verden."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Ung mann i 1700-talls drakt går gjennom park med en liten dampmaskinmodell i hånda, tidlig morgenlys",
+            "caption": "James Watt fikk ideen til den separate kondensatoren på en søndagstur i Glasgow Green i 1765."
+        },
+        {
+            "type": "header",
+            "text": "Maskinen som drakk seg selv full"
+        },
+        {
+            "type": "text",
+            "content": "For å skjønne hva Watt gjorde, må vi se på maskinen som fantes før. I 1712 bygde en britisk smed som het Thomas Newcomen den første brukbare dampmaskinen. Den ble brukt til å pumpe vann ut av kullgruver. Maskinen virket slik: man kokte vann i en kjele, slapp dampen inn i en stor sylinder, og sprøytet så kaldt vann inn for å kjøle ned dampen. Når dampen kondenserte til væske, ble det vakuum inne i sylinderen, og lufttrykket utenfor presset stempelet ned. Stempelet trakk i en pumpestang. Så åpnet ventilen igjen, og det hele begynte på nytt."
+        },
+        {
+            "type": "text",
+            "content": "Problemet var enkelt og enormt: hver gang sylinderen ble fylt med damp, måtte den varmes opp. Hver gang dampen ble kondensert, måtte sylinderen kjøles ned. Opp og ned, varm og kald, mange ganger i minuttet. Tre fjerdedeler av kullet ble brukt bare til å varme opp den samme jernsylinderen om og om igjen. Newcomen-maskinen var som å koke vann i en kjele og deretter helle isvann oppi før hver kopp te."
+        },
+        {
+            "type": "header",
+            "text": "Den separate kondensatoren"
+        },
+        {
+            "type": "text",
+            "content": "Watts idé var rett og slett genial: hva om dampen i stedet kunne ledes inn i et eget kammer ved siden av, og kondenseres der? Da kunne hovedsylinderen holde seg varm hele tiden. Han kalte det egne kammeret en separat kondensator. Resultatet ble forbløffende. En Watt-maskin brukte bare en fjerdedel så mye kull som en Newcomen-maskin for å gjøre samme arbeid. Det betydde at den kunne stå på steder uten egen kullgruve under seg. Den kunne plasseres hvor som helst."
+        },
+        {
+            "type": "component",
+            "name": "Comparison",
+            "props": {
+                "title": "Newcomen vs. Watt",
+                "leftTitle": "Newcomen (1712)",
+                "rightTitle": "Watt (1769)",
+                "items": [
+                    {
+                        "label": "Hvor kondenseres dampen?",
+                        "left": "I selve sylinderen — den blir varm og kald i ett sett",
+                        "right": "I en egen kondensator — sylinderen holder seg varm"
+                    },
+                    {
+                        "label": "Kullforbruk",
+                        "left": "Cirka fire ganger så mye kull per arbeid",
+                        "right": "Bruker en fjerdedel — mye billigere å drive"
+                    },
+                    {
+                        "label": "Hvor kunne den stå?",
+                        "left": "Helst rett ved en kullgruve, fordi den slukte brensel",
+                        "right": "Hvor som helst — også i byer langt fra kull"
+                    },
+                    {
+                        "label": "Hva drev den?",
+                        "left": "Bare vannpumper i gruver",
+                        "right": "Senere også fabrikker, lokomotiver og skip"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Watt møter Boulton"
+        },
+        {
+            "type": "text",
+            "content": "Watt var en oppfinner, men ikke en forretningsmann. Han hadde få penger og brukte nesten ti år på å få maskinen til å virke i full størrelse. I 1775 møtte han Matthew Boulton, en rik fabrikkeier fra byen Birmingham. Boulton hadde en stor metallfabrikk og en visjon: han ville selge dampmaskiner til hele verden. De to inngikk et partnerskap. Boulton dekket utgiftene, ga Watt verksted og verktøy, og fikset patentene. Watt kunne endelig konsentrere seg om å oppfinne. Sammen bygde de firmaet Boulton & Watt, som leverte over 450 dampmaskiner mellom 1775 og 1800."
+        },
+        {
+            "type": "header",
+            "text": "Hva er en hestekraft?"
+        },
+        {
+            "type": "text",
+            "content": "Et problem dukket opp da maskinene skulle selges: hvordan forklarer du hvor sterk en maskin er? De første kundene var bryggeri- og gruveeiere som var vant til å bruke hester til å trekke pumper og kverner. Watt satte seg derfor ned med et stoppeur og målte hvor mye en gjennomsnittlig hest klarte å løfte i løpet av et minutt. Tallet han kom fram til kalte han én hestekraft. Da kunne en kjøper si: «Jeg trenger en maskin som erstatter ti hester», og Watt visste nøyaktig hva han skulle bygge."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Watt — enheten",
+                "content": "I dag måler vi effekt i watt — en enhet oppkalt etter James Watt. En lyspære bruker for eksempel 10 watt, mens en vaskemaskin trekker rundt 2000 watt. Tallet beskriver hvor mye energi noe bruker eller leverer hvert sekund. James Watt døde i 1819, men navnet hans står fortsatt på hver eneste strømregning i verden."
+            }
+        },
+        {
+            "type": "header",
+            "text": "Fra pumpe til lokomotiv"
+        },
+        {
+            "type": "text",
+            "content": "Watts maskin ble først brukt til pumper. Men snart begynte oppfinnere å koble dampkraft til alt mulig. I 1785 bygde Boulton & Watt en maskin som kunne dreie et hjul jevnt rundt. Nå kunne man drive vevstoler, spinnmaskiner og kverner. Lange lærreimer hang i taket i fabrikkene og fordelte kraften fra én stor maskin til hundrevis av små. I 1807 testet amerikaneren Robert Fulton et dampskip på elva Hudson. I 1825 åpnet den engelske ingeniøren George Stephenson verdens første passasjerjernbane mellom byene Stockton og Darlington. Et damplokomotiv kunne dra hundre tonn varer i 25 km/t, dag og natt, uten å bli sliten."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Engelsk fabrikkhall fra 1820 med stor dampmaskin i midten og reimer som driver vevstoler langs veggene",
+            "caption": "En stor dampmaskin kunne drive hundrevis av vevstoler samtidig — fabrikken erstattet husflid."
+        },
+        {
+            "type": "header",
+            "text": "Hvorfor er dette så viktig?"
+        },
+        {
+            "type": "text",
+            "content": "Før dampmaskinen kom all energi enten fra menneskemuskler, dyr, vind eller rennende vann. Hver av disse hadde en grense. En hest blir trøtt. Vinden stilner. Elven fryser om vinteren. Dampmaskinen hadde ingen slik grense — bare last på mer kull, så går den videre. Og enda viktigere: den kunne flyttes. En foss kan ikke flyttes til en by, men en dampmaskin kan settes opp hvor folk bor og hvor varene skal selges. Det er denne ene egenskapen — kraft uavhengig av sted og vær — som gjorde fabrikker, jernbane, storbyer og hele den moderne verden mulig."
+        },
+        {
+            "type": "text",
+            "content": "Vil du selv forsøke å bygge Watts berømte kondensator? Spill [Watts laboratorium](/oving/spill/watt-lab) og se om du kan finne riktig løsning før Boulton mister tålmodigheten."
+        },
+        {
+            "type": "component",
+            "name": "TimelineComponent",
+            "props": {
+                "compact": true,
+                "events": [
+                    { "year": 1712, "description": "Thomas Newcomen bygger den første brukbare dampmaskinen for å pumpe gruver." },
+                    { "year": 1765, "description": "James Watt får ideen til den separate kondensatoren på en søndagstur i Glasgow Green." },
+                    { "year": 1775, "description": "Watt går i partnerskap med Matthew Boulton i Birmingham." },
+                    { "year": 1782, "description": "Watt finner opp roterende bevegelse — nå kan dampmaskinen drive fabrikker." },
+                    { "year": 1807, "description": "Robert Fulton tester verdens første kommersielle dampskip på Hudson." },
+                    { "year": 1825, "description": "George Stephenson åpner den første passasjerjernbanen mellom Stockton og Darlington." }
+                ]
+            }
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Tidlig damplokomotiv fra 1825 trekker tog gjennom engelsk landskap med tilskuere langs sporet",
+            "caption": "Stephensons «Locomotion No. 1» åpnet jernbanealderen i 1825 — sjokket var like stort som da fly kom 100 år senere."
+        },
+        {
+            "type": "header",
+            "text": "Watts arv"
+        },
+        {
+            "type": "text",
+            "content": "Da James Watt døde i 1819, hadde Storbritannia rundt 5000 dampmaskiner i drift. Femti år senere var tallet over 60 000. Hver eneste fabrikk, hver eneste jernbane, hver eneste dampbåt skyldte sin eksistens til den unge instrumentmakeren som ikke fikk sove av en defekt modellmaskin. Watt selv var en stille og forsiktig mann som helst ville eksperimentere alene. Han ville sannsynligvis ha blitt forvirret om han fikk vite at navnet hans nå brukes hver gang noen skrur på en lyspære eller måler effekten til en motor."
+        },
+        {
+            "type": "component",
+            "name": "InterdisciplinaryBridge",
+            "props": {
+                "title": "Hva henger sammen med dampmaskinen?",
+                "nodes": [
+                    {
+                        "subject": "Historie",
+                        "title": "Barnearbeid i fabrikkene",
+                        "description": "Dampkraft skapte fabrikker — fabrikker skapte barnearbeid.",
+                        "link": "/historie/industriell-revolusjon/barnearbeid"
+                    },
+                    {
+                        "subject": "Historie",
+                        "title": "Den industrielle revolusjonen",
+                        "description": "Det store bildet av forandringen Watts maskin satte i gang.",
+                        "link": "/historie/industriell-revolusjon/industriell-revolusjon"
+                    },
+                    {
+                        "subject": "Samfunn",
+                        "title": "Arbeidsspesialisering",
+                        "description": "Hvorfor det å dele opp arbeid gjorde fabrikkene så effektive.",
+                        "link": "/samfunnskunnskap/okonomi/arbeidsspesialisering"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hva var det viktigste problemet med Newcomen-maskinen som Watt løste?",
+                        "options": [
+                            "Den var for stor til å passe i fabrikker",
+                            "Den varmet opp og kjølte ned samme sylinder, og sløste tre fjerdedeler av kullet",
+                            "Den klarte ikke å lage damp",
+                            "Den kunne bare brukes til lokomotiver"
+                        ],
+                        "answer": 1,
+                        "explanation": "Newcomen kondenserte dampen i selve hovedsylinderen, så jernet måtte varmes opp på nytt hvert sekund. Watts separate kondensator løste akkurat dette problemet."
+                    },
+                    {
+                        "question": "Hva er en hestekraft?",
+                        "options": [
+                            "Vekten en hest kan bære",
+                            "Mengden hester som trekker en vogn",
+                            "Hvor mye arbeid en gjennomsnittlig hest gjør i minuttet",
+                            "Hvor raskt en hest kan løpe"
+                        ],
+                        "answer": 2,
+                        "explanation": "Watt målte hvor mye en gjennomsnittlig hest klarte å løfte per minutt, slik at kunder lett kunne sammenligne maskinen hans med dyrene de var vant til å bruke."
+                    },
+                    {
+                        "question": "Hvem var Matthew Boulton?",
+                        "options": [
+                            "En oppfinner som konkurrerte mot Watt",
+                            "En rik fabrikkeier som ble Watts partner og finansierte dampmaskinene",
+                            "Kongen av England",
+                            "Mannen som bygde det første lokomotivet"
+                        ],
+                        "answer": 1,
+                        "explanation": "Boulton hadde penger, fabrikk og forretningssans. Uten partnerskapet hans hadde Watt sannsynligvis aldri klart å sette ideen i produksjon."
+                    },
+                    {
+                        "question": "Hvorfor var det så viktig at dampmaskinen kunne stå hvor som helst?",
+                        "options": [
+                            "Den var penere enn andre maskiner",
+                            "Den trengte ikke kull",
+                            "Fabrikker kunne plasseres der det var arbeidere og kunder, ikke bare der det fantes elver eller fosser",
+                            "Den var enklere å bygge enn vannmøller"
+                        ],
+                        "answer": 2,
+                        "explanation": "Vann- og vindkraft var bundet til ett bestemt sted. Dampkraft var flyttbar, og det åpnet for fabrikker i byer og lokomotiver på skinner."
+                    },
+                    {
+                        "question": "Hvilken enhet bruker vi i dag som er oppkalt etter James Watt?",
+                        "options": [
+                            "Newton — enhet for kraft",
+                            "Watt — enhet for effekt",
+                            "Joule — enhet for energi",
+                            "Volt — enhet for spenning"
+                        ],
+                        "answer": 1,
+                        "explanation": "Effekten til alt fra lyspærer til vaskemaskiner måles i watt. Tallet sier hvor mye energi noe bruker eller leverer per sekund."
+                    }
+                ]
+            }
+        }
+    ],
+    "timeline": []
+}
