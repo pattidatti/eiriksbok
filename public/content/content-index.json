@@ -1,5 +1,5 @@
 {
-  "buildId": 1778548748314,
+  "buildId": 1778568234143,
   "contentMap": {
     "adel": [
       "content/concepts/adel.json"
@@ -1011,8 +1011,7 @@
       "content/krle/etikk/pliktetikk.json"
     ],
     "utilitarisme": [
-      "content/krle/etikk/utilitarisme.json",
-      "content/krle/filosofi/utilitarisme.json"
+      "content/krle/etikk/utilitarisme.json"
     ],
     "aquinas": [
       "content/krle/filosofi/aquinas.json"
@@ -2187,7 +2186,6 @@
     "krle/filosofi/quests/quest-sokrates_gadfly": "content/krle/filosofi/quests/sokrates_gadfly.json",
     "krle/filosofi/rothbard": "content/krle/filosofi/rothbard.json",
     "krle/filosofi/sokrates": "content/krle/filosofi/sokrates.json",
-    "krle/filosofi/utilitarisme": "content/krle/filosofi/utilitarisme.json",
     "krle/religion/bahai/bonn": "content/krle/religion/bahai/bonn/artikkel.json",
     "krle/religion/bahai/frelse": "content/krle/religion/bahai/frelse/artikkel.json",
     "krle/religion/bahai/grunnleggere": "content/krle/religion/bahai/grunnleggere/artikkel.json",

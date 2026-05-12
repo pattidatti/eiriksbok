@@ -4908,21 +4908,6 @@
               "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
-              "id": "utilitarisme",
-              "title": "Utilitarisme",
-              "description": "Nytteetikken: størst mulig lykke for flest mulig.",
-              "image": "/images/filosofi/utilitarisme_hero.webp",
-              "tags": [
-                "filosofi",
-                "etikk",
-                "nytteetikk",
-                "bentham",
-                "mill"
-              ],
-              "createdDate": "2026-05-12T00:00:00Z",
-              "lastUpdated": "2026-05-07T09:32:27+02:00"
-            },
-            {
               "id": "kierkegaard",
               "title": "Søren Kierkegaard",
               "description": "Eksistensens tre stadier.",
