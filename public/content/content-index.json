@@ -1,5 +1,5 @@
 {
-  "buildId": 1778570747527,
+  "buildId": 1778580804213,
   "contentMap": {
     "adel": [
       "content/concepts/adel.json"
@@ -690,6 +690,9 @@
       "content/krle/religion/kristendom/intro/artikkel.json",
       "content/krle/religion/mormonisme/intro.json",
       "content/samfunnskunnskap/demografi/intro.json"
+    ],
+    "robespierre-og-skrekkveldet": [
+      "content/historie/den-franske-revolusjon/robespierre-og-skrekkveldet.json"
     ],
     "atomvapenkapplopet": [
       "content/historie/den-kalde-krigen/atomvapenkapplopet.json"
@@ -2032,6 +2035,7 @@
     "historie/dekolonisering/usa-frigjoring": "content/historie/dekolonisering/usa-frigjoring.json",
     "historie/demo-artikkel/demo-artikkel": "content/historie/demo-artikkel/demo-artikkel.json",
     "historie/den-franske-revolusjon/intro": "content/historie/den-franske-revolusjon/intro.json",
+    "historie/den-franske-revolusjon/robespierre-og-skrekkveldet": "content/historie/den-franske-revolusjon/robespierre-og-skrekkveldet.json",
     "historie/den-kalde-krigen/atomvapenkapplopet": "content/historie/den-kalde-krigen/atomvapenkapplopet.json",
     "historie/den-kalde-krigen/berlinmuren": "content/historie/den-kalde-krigen/berlinmuren.json",
     "historie/den-kalde-krigen/cuba-krisen": "content/historie/den-kalde-krigen/cuba-krisen.json",
