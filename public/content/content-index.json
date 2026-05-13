@@ -1,5 +1,5 @@
 {
-  "buildId": 1778616196310,
+  "buildId": 1778655398918,
   "contentMap": {
     "adel": [
       "content/concepts/adel.json"
@@ -691,6 +691,9 @@
       "content/krle/religion/mormonisme/intro.json",
       "content/samfunnskunnskap/demografi/intro.json"
     ],
+    "napoleon": [
+      "content/historie/den-franske-revolusjon/napoleon.json"
+    ],
     "robespierre-og-skrekkveldet": [
       "content/historie/den-franske-revolusjon/robespierre-og-skrekkveldet.json"
     ],
@@ -766,6 +769,9 @@
     ],
     "industriell-revolusjon": [
       "content/historie/industriell-revolusjon/industriell-revolusjon.json"
+    ],
+    "jernbanen": [
+      "content/historie/industriell-revolusjon/jernbanen.json"
     ],
     "jordbruk-og-sivilisasjoner": [
       "content/historie/jordbruk-og-sivilisasjoner/jordbruk-og-sivilisasjoner.json"
@@ -2050,6 +2056,7 @@
     "historie/dekolonisering/usa-frigjoring": "content/historie/dekolonisering/usa-frigjoring.json",
     "historie/demo-artikkel/demo-artikkel": "content/historie/demo-artikkel/demo-artikkel.json",
     "historie/den-franske-revolusjon/intro": "content/historie/den-franske-revolusjon/intro.json",
+    "historie/den-franske-revolusjon/napoleon": "content/historie/den-franske-revolusjon/napoleon.json",
     "historie/den-franske-revolusjon/robespierre-og-skrekkveldet": "content/historie/den-franske-revolusjon/robespierre-og-skrekkveldet.json",
     "historie/den-franske-revolusjon/stormingen-av-bastillen": "content/historie/den-franske-revolusjon/stormingen-av-bastillen.json",
     "historie/den-kalde-krigen/atomvapenkapplopet": "content/historie/den-kalde-krigen/atomvapenkapplopet.json",
@@ -2081,6 +2088,7 @@
     "historie/industriell-revolusjon/barnearbeid": "content/historie/industriell-revolusjon/barnearbeid.json",
     "historie/industriell-revolusjon/dampmaskinen": "content/historie/industriell-revolusjon/dampmaskinen.json",
     "historie/industriell-revolusjon/industriell-revolusjon": "content/historie/industriell-revolusjon/industriell-revolusjon.json",
+    "historie/industriell-revolusjon/jernbanen": "content/historie/industriell-revolusjon/jernbanen.json",
     "historie/jordbruk-og-sivilisasjoner/jordbruk-og-sivilisasjoner": "content/historie/jordbruk-og-sivilisasjoner/jordbruk-og-sivilisasjoner.json",
     "historie/jordbruk-og-sivilisasjoner/mesopotamia": "content/historie/jordbruk-og-sivilisasjoner/mesopotamia.json",
     "historie/kolonialisering/britisk-imperium": "content/historie/kolonialisering/britisk-imperium.json",
