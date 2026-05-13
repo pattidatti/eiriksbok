@@ -25,6 +25,13 @@ export interface Bar {
 
 export type InstrumentType = 'Vokal' | 'Trommer' | 'Bass' | 'Gitar' | 'Piano';
 
+export type ScaleType = 'Major' | 'Minor';
+
+export interface SongKey {
+    root: string; // 'C', 'C#', 'D', ... 'B' (NOTES_SHARP-format)
+    scale: ScaleType;
+}
+
 export interface Section {
     id: string;
     type: SectionType;
@@ -40,6 +47,7 @@ export interface Composition {
     title: string;
     tempo: number;
     sections: Section[];
+    key?: SongKey; // valgfri tonart for hele sangen
     creatorId?: string; // Randomly generated ID stored in LocalStorage
     createdAt?: number;
     lastModified?: number;

@@ -39,6 +39,20 @@ export function getDiatonicChords(root: Note, scaleType: 'Major' | 'Minor'): { r
     });
 }
 
+// Format a chord (root + quality) as a human-readable label like "C", "Am", "F#°"
+export function formatChord(root: Note, quality: string): string {
+    switch (quality) {
+        case 'Major': return root;
+        case 'Minor': return `${root}m`;
+        case 'Dim': return `${root}°`;
+        case '7': return `${root}7`;
+        case 'Maj7': return `${root}maj7`;
+        case 'Min7': return `${root}m7`;
+        case 'Sus4': return `${root}sus4`;
+        default: return `${root}${quality}`;
+    }
+}
+
 export function getChordNotes(root: Note, quality: keyof typeof CHORD_QUALITIES): Note[] {
     const rootIndex = NOTES_SHARP.indexOf(root);
     if (rootIndex === -1) return [];

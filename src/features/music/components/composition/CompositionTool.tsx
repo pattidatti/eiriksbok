@@ -7,6 +7,7 @@ import { getCreatorId } from './utils';
 import { RhythmPalette } from './RhythmPalette';
 import { ProjectManager } from './ProjectManager';
 import { SectionAdder } from './SectionAdder';
+import { KeySelector } from './KeySelector';
 import { DndContext, closestCenter, KeyboardSensor, PointerSensor, useSensor, useSensors } from '@dnd-kit/core';
 import { SortableContext, sortableKeyboardCoordinates, verticalListSortingStrategy } from '@dnd-kit/sortable';
 import { SectionItem } from './SectionItem';
@@ -29,6 +30,7 @@ export const CompositionTool: React.FC = () => {
 
         // Actions
         renameComposition,
+        setKey,
         addSection,
         removeSection,
         moveSection,
@@ -37,6 +39,8 @@ export const CompositionTool: React.FC = () => {
         updateBar,
         updateBarLyrics,
         addChord,
+        updateChord,
+        moveChord,
         removeChord,
         toggleInstrument,
 
@@ -160,6 +164,9 @@ export const CompositionTool: React.FC = () => {
                             {isCopied ? <Check size={14} /> : <Share2 size={14} />}
                             <span>{isCopied ? 'Kopiert!' : 'Del'}</span>
                         </button>
+
+                        {/* Tonart-velger */}
+                        <KeySelector value={composition.key} onChange={setKey} />
                     </div>
 
                     {/* Presence Bubble */}
@@ -238,10 +245,13 @@ export const CompositionTool: React.FC = () => {
                                         section={section}
                                         selectedDuration={selectedDuration}
                                         isRestMode={isRestMode}
+                                        songKey={composition.key}
                                         updateSection={updateSection}
                                         updateSectionBars={updateSectionBars}
                                         updateBar={updateBar}
                                         addChord={addChord}
+                                        updateChord={updateChord}
+                                        moveChord={moveChord}
                                         removeChord={removeChord}
                                         toggleInstrument={toggleInstrument}
                                         removeSection={removeSection}

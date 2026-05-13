@@ -1,16 +1,30 @@
 import React from 'react';
 import { motion, LayoutGroup } from 'framer-motion';
-import type { Bar, NoteDuration, NoteType } from './types';
+import { Trash2 } from 'lucide-react';
+import type { Bar, NoteDuration, NoteType, SongKey } from './types';
+import { getDiatonicChords, formatChord } from '../../utils/musicTheory';
 
 interface NotationEditorProps {
     bars: Bar[];
     color: string;
     selectedDuration: NoteDuration;
     isRestMode: boolean;
+    songKey?: SongKey;
     onUpdateBar: (barId: string, nodeIndex: number, duration: NoteDuration, isRest: boolean) => void;
     onAddChord: (barId: string, beat: number, chord: string) => void;
+    onUpdateChord: (barId: string, chordIndex: number, newChord: string) => void;
+    onMoveChord: (barId: string, chordIndex: number, toBeat: number) => void;
     onRemoveChord: (barId: string, chordIndex: number) => void;
     onUpdateLyrics: (barId: string, text: string) => void;
+}
+
+interface EditingChord {
+    barId: string;
+    beat: number;
+    x: number;
+    y: number;
+    chordIndex?: number;   // satt når vi redigerer en eksisterende akkord
+    initialValue?: string; // forhåndsutfylt verdi
 }
 
 export const NotationEditor: React.FC<NotationEditorProps> = ({
@@ -18,12 +32,53 @@ export const NotationEditor: React.FC<NotationEditorProps> = ({
     color,
     selectedDuration,
     isRestMode,
+    songKey,
     onUpdateBar,
     onAddChord,
+    onUpdateChord,
+    onMoveChord,
     onRemoveChord,
     onUpdateLyrics
 }) => {
-    const [editingChord, setEditingChord] = React.useState<{ barId: string, beat: number, x: number, y: number } | null>(null);
+    const [editingChord, setEditingChord] = React.useState<EditingChord | null>(null);
+    const draggedChord = React.useRef<{ barId: string, chordIndex: number } | null>(null);
+    const [dragActive, setDragActive] = React.useState(false);
+
+    const handleChordDragStart = (barId: string, chordIndex: number) => {
+        draggedChord.current = { barId, chordIndex };
+        setDragActive(true);
+    };
+    const handleChordDragEnd = () => {
+        draggedChord.current = null;
+        setDragActive(false);
+    };
+    const handleChordDrop = (targetBarId: string, targetBeat: number) => {
+        const src = draggedChord.current;
+        draggedChord.current = null;
+        setDragActive(false);
+        if (!src) return;
+        if (src.barId !== targetBarId) return; // begrenset til samme takt foreløpig
+        onMoveChord(targetBarId, src.chordIndex, targetBeat);
+    };
+
+    const commitChord = (value: string) => {
+        if (!editingChord) return;
+        const trimmed = value.trim();
+        if (editingChord.chordIndex !== undefined) {
+            // Redigerer eksisterende akkord
+            if (trimmed) {
+                onUpdateChord(editingChord.barId, editingChord.chordIndex, trimmed);
+            } else {
+                // Tom verdi = fjern
+                onRemoveChord(editingChord.barId, editingChord.chordIndex);
+            }
+        } else if (trimmed) {
+            onAddChord(editingChord.barId, editingChord.beat, trimmed);
+        }
+        setEditingChord(null);
+    };
+
+    const diatonic = songKey ? getDiatonicChords(songKey.root, songKey.scale) : [];
 
     return (
         <div className="w-full relative" onClick={() => setEditingChord(null)}>
@@ -35,9 +90,20 @@ export const NotationEditor: React.FC<NotationEditorProps> = ({
                                 bar={bar}
                                 index={barIndex + 1}
                                 color={color}
-                                onNodeClick={(idx) => onUpdateBar(bar.id, idx, selectedDuration, isRestMode)}
-                                onRemoveChord={(idx) => onRemoveChord(bar.id, idx)}
+                                dragActive={dragActive}
+                                onNodeClick={(idx) => {
+                                    const node = bar.nodes[idx];
+                                    // Toggle: klikk på eksisterende note (ikke i pause-modus) gjør den til pause
+                                    if (node && node.type === 'note' && !isRestMode) {
+                                        onUpdateBar(bar.id, idx, node.duration, true);
+                                    } else {
+                                        onUpdateBar(bar.id, idx, selectedDuration, isRestMode);
+                                    }
+                                }}
                                 setEditingChord={setEditingChord}
+                                onChordDragStart={(idx) => handleChordDragStart(bar.id, idx)}
+                                onChordDragEnd={handleChordDragEnd}
+                                onChordDrop={(beat) => handleChordDrop(bar.id, beat)}
                                 onUpdateLyrics={(text) => onUpdateLyrics(bar.id, text)}
                             />
                         </div>
@@ -48,34 +114,120 @@ export const NotationEditor: React.FC<NotationEditorProps> = ({
 
             {/* Inline Chord Input Overlay */}
             {editingChord && (
-                <div
-                    className="fixed z-50 bg-white shadow-xl rounded-lg border border-indigo-200 p-1 flex flex-col gap-1 animate-in fade-in zoom-in-95 duration-100"
-                    style={{ left: editingChord.x - 20, top: editingChord.y - 10 }}
-                    onClick={(e: React.MouseEvent) => {
-                        e.stopPropagation(); // Critical: Prevent click from bubbling to the container which closes it
-                    }}
-                >
-                    <input
-                        autoFocus
-                        placeholder="Am7..."
-                        className="w-20 px-2 py-1 text-sm font-bold font-serif outline-none bg-transparent"
-                        onKeyDown={(e) => {
-                            if (e.key === 'Enter') {
-                                const val = e.currentTarget.value.trim();
-                                if (val) onAddChord(editingChord.barId, editingChord.beat, val);
-                                setEditingChord(null);
-                            }
-                            if (e.key === 'Escape') setEditingChord(null);
-                        }}
-                        onBlur={(e) => {
-                            const val = e.currentTarget.value.trim();
-                            if (val) onAddChord(editingChord.barId, editingChord.beat, val);
+                <ChordEditorPopover
+                    key={`${editingChord.barId}-${editingChord.beat}-${editingChord.chordIndex ?? 'new'}`}
+                    x={editingChord.x}
+                    y={editingChord.y}
+                    initialValue={editingChord.initialValue ?? ''}
+                    isEditing={editingChord.chordIndex !== undefined}
+                    diatonic={diatonic}
+                    onCommit={commitChord}
+                    onDelete={editingChord.chordIndex !== undefined
+                        ? () => {
+                            onRemoveChord(editingChord.barId, editingChord.chordIndex!);
                             setEditingChord(null);
-                        }}
-                    />
-                    <div className="text-[9px] text-slate-400 px-1 font-sans">Trykk Enter</div>
+                        }
+                        : undefined}
+                    onCancel={() => setEditingChord(null)}
+                />
+            )}
+        </div>
+    );
+};
+
+// --- Chord Editor Popover ---
+
+interface ChordEditorPopoverProps {
+    x: number;
+    y: number;
+    initialValue: string;
+    isEditing: boolean;
+    diatonic: { root: string, quality: string, degree: number }[];
+    onCommit: (value: string) => void;
+    onDelete?: () => void;
+    onCancel: () => void;
+}
+
+const ChordEditorPopover: React.FC<ChordEditorPopoverProps> = ({
+    x, y, initialValue, isEditing, diatonic, onCommit, onDelete, onCancel
+}) => {
+    const [value, setValue] = React.useState(initialValue);
+    const committedRef = React.useRef(false);
+
+    const commit = (next: string) => {
+        if (committedRef.current) return;
+        committedRef.current = true;
+        onCommit(next);
+    };
+
+    return (
+        <div
+            className="fixed z-50 bg-white shadow-xl rounded-lg border border-indigo-200 p-2 flex flex-col gap-1.5 animate-in fade-in zoom-in-95 duration-100"
+            style={{ left: x - 20, top: y - 10, maxWidth: 240 }}
+            onClick={(e: React.MouseEvent) => e.stopPropagation()}
+        >
+            {/* Diatoniske quick-picks */}
+            {diatonic.length > 0 && (
+                <div className="flex flex-wrap gap-1 pb-1.5 border-b border-slate-100">
+                    {diatonic.map((c) => {
+                        const label = formatChord(c.root, c.quality);
+                        return (
+                            <button
+                                key={`${c.degree}-${label}`}
+                                type="button"
+                                onMouseDown={(e) => {
+                                    // Forhindre at input-feltet mister fokus og kjører onBlur før klikket registreres
+                                    e.preventDefault();
+                                    commit(label);
+                                }}
+                                className="px-2 py-0.5 text-xs font-serif font-bold bg-indigo-50 hover:bg-indigo-100 text-indigo-800 rounded border border-indigo-100 transition-colors"
+                                title={`Trinn ${c.degree} i tonarten`}
+                            >
+                                {label}
+                            </button>
+                        );
+                    })}
                 </div>
             )}
+
+            <div className="flex items-center gap-1">
+                <input
+                    autoFocus
+                    value={value}
+                    onChange={(e) => setValue(e.target.value)}
+                    placeholder="Am7..."
+                    className="w-24 px-2 py-1 text-sm font-bold font-serif outline-none bg-transparent"
+                    onKeyDown={(e) => {
+                        if (e.key === 'Enter') {
+                            e.preventDefault();
+                            commit(value);
+                        }
+                        if (e.key === 'Escape') {
+                            committedRef.current = true; // unngå at onBlur skriver
+                            onCancel();
+                        }
+                    }}
+                    onBlur={() => commit(value)}
+                />
+                {isEditing && onDelete && (
+                    <button
+                        type="button"
+                        onMouseDown={(e) => {
+                            // unngå blur-commit før delete kjører
+                            e.preventDefault();
+                            committedRef.current = true;
+                            onDelete();
+                        }}
+                        title="Fjern akkord"
+                        className="p-1 text-slate-400 hover:text-red-600 hover:bg-red-50 rounded transition-colors"
+                    >
+                        <Trash2 size={12} />
+                    </button>
+                )}
+            </div>
+            <div className="text-[9px] text-slate-400 px-1 font-sans">
+                {isEditing ? 'Enter for å lagre · tom = fjern' : 'Enter for å legge til'}
+            </div>
         </div>
     );
 };
@@ -86,11 +238,15 @@ const BarView: React.FC<{
     bar: Bar,
     index: number,
     color: string,
+    dragActive: boolean,
     onNodeClick: (nodeIndex: number) => void,
-    onRemoveChord: (index: number) => void,
-    setEditingChord: (data: { barId: string, beat: number, x: number, y: number }) => void,
+    setEditingChord: (data: EditingChord) => void,
+    onChordDragStart: (chordIndex: number) => void,
+    onChordDragEnd: () => void,
+    onChordDrop: (beat: number) => void,
     onUpdateLyrics: (text: string) => void
-}> = ({ bar, index, color, onNodeClick, onRemoveChord, setEditingChord, onUpdateLyrics }) => {
+}> = ({ bar, index, color, dragActive, onNodeClick, setEditingChord, onChordDragStart, onChordDragEnd, onChordDrop, onUpdateLyrics }) => {
+    const [hoveredBeat, setHoveredBeat] = React.useState<number | null>(null);
 
     return (
         <div className={`relative w-full min-h-[140px] border-r-0 border-b border-slate-100 flex flex-col group transition-all hover:bg-white/50 rounded-xl hover:shadow-sm pb-1`}>
@@ -131,24 +287,64 @@ const BarView: React.FC<{
                             >
                                 {/* Chord Zone (Above Note) - Higher elevation */}
                                 <div
-                                    className="absolute -top-6 inset-x-0 h-10 flex items-center justify-center cursor-text z-30"
+                                    className={`absolute -top-6 inset-x-0 h-10 flex items-center justify-center cursor-text z-30 rounded transition-colors ${
+                                        hoveredBeat === beatPos ? 'bg-indigo-100/60 ring-2 ring-indigo-300' : ''
+                                    }`}
                                     onClick={(e: React.MouseEvent) => {
+                                        if (nodeChord) return; // klikk på pillen håndteres egen onClick
                                         e.stopPropagation();
                                         const rect = e.currentTarget.getBoundingClientRect();
                                         setEditingChord({ barId: bar.id, beat: beatPos, x: rect.left + rect.width / 2, y: rect.top });
+                                    }}
+                                    onDragOver={(e: React.DragEvent) => {
+                                        if (!dragActive) return;
+                                        e.preventDefault();
+                                        e.dataTransfer.dropEffect = 'move';
+                                        if (hoveredBeat !== beatPos) setHoveredBeat(beatPos);
+                                    }}
+                                    onDragLeave={() => {
+                                        if (hoveredBeat === beatPos) setHoveredBeat(null);
+                                    }}
+                                    onDrop={(e: React.DragEvent) => {
+                                        e.preventDefault();
+                                        setHoveredBeat(null);
+                                        onChordDrop(beatPos);
                                     }}
                                 >
                                     {nodeChord ? (
                                         <motion.div
                                             initial={{ scale: 0 }}
                                             animate={{ scale: 1 }}
+                                            draggable
+                                            onDragStart={(e: any) => {
+                                                const currentChords = bar.chords || [];
+                                                const idx = currentChords.indexOf(nodeChord);
+                                                if (idx === -1) return;
+                                                // Native HTML5 dataTransfer kreves for at drag faktisk skal fungere i alle nettlesere
+                                                if (e.dataTransfer) {
+                                                    e.dataTransfer.effectAllowed = 'move';
+                                                    e.dataTransfer.setData('text/plain', String(idx));
+                                                }
+                                                onChordDragStart(idx);
+                                            }}
+                                            onDragEnd={() => onChordDragEnd()}
                                             onClick={(e: React.MouseEvent) => {
                                                 e.stopPropagation();
                                                 const currentChords = bar.chords || [];
                                                 const idx = currentChords.indexOf(nodeChord);
-                                                if (idx !== -1 && confirm(`Slette ${nodeChord.chord}?`)) onRemoveChord(idx);
+                                                if (idx === -1) return;
+                                                const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
+                                                setEditingChord({
+                                                    barId: bar.id,
+                                                    beat: beatPos,
+                                                    x: rect.left + rect.width / 2,
+                                                    y: rect.top,
+                                                    chordIndex: idx,
+                                                    initialValue: nodeChord.chord,
+                                                });
                                             }}
-                                            className={`bg-white/95 backdrop-blur-sm px-2.5 py-0.5 rounded text-slate-900 font-serif text-[15px] font-black shadow-lg border-2 ${color.replace('bg-', 'border-').replace('-100', '-300')} hover:bg-red-50 hover:border-red-200 hover:text-red-700 transition-colors cursor-pointer`}
+                                            className={`bg-white/95 backdrop-blur-sm px-2.5 py-0.5 rounded text-slate-900 font-serif text-[15px] font-black shadow-lg border-2 ${color.replace('bg-', 'border-').replace('-100', '-300')} hover:bg-indigo-50 hover:border-indigo-300 transition-colors cursor-grab active:cursor-grabbing select-none`}
+                                            title="Klikk for å endre · dra for å flytte"
                                         >
                                             {nodeChord.chord}
                                         </motion.div>

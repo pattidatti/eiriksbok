@@ -3,17 +3,20 @@ import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import { LayoutGrid, Repeat, Trash2 } from 'lucide-react';
 import { NotationEditor } from './NotationEditor';
-import type { Section, NoteDuration, InstrumentType } from './types';
+import type { Section, NoteDuration, InstrumentType, SongKey } from './types';
 
 interface SectionItemProps {
     section: Section;
     selectedDuration: NoteDuration;
     isRestMode: boolean;
+    songKey?: SongKey;
     updateSection: (id: string, updates: Partial<Section>) => void;
     updateSectionBars: (id: string, count: number) => void;
     updateBar: (sectionId: string, barId: string, index: number, duration: NoteDuration, isRest: boolean) => void;
     addChord: (sectionId: string, barId: string, beatIndex: number, chord: string) => void;
     removeChord: (sectionId: string, barId: string, chordIndex: number) => void;
+    updateChord: (sectionId: string, barId: string, chordIndex: number, newChord: string) => void;
+    moveChord: (sectionId: string, barId: string, chordIndex: number, toBeat: number) => void;
     toggleInstrument: (sectionId: string, instrument: InstrumentType) => void;
     removeSection: (id: string) => void;
     onUpdateLyrics?: (sectionId: string, barId: string, text: string) => void;
@@ -24,11 +27,14 @@ export const SectionItem: React.FC<SectionItemProps> = ({
     section,
     selectedDuration,
     isRestMode,
+    songKey,
     updateSection,
     updateSectionBars,
     updateBar,
     addChord,
     removeChord,
+    updateChord,
+    moveChord,
     toggleInstrument,
     removeSection,
     onUpdateLyrics,
@@ -175,9 +181,12 @@ export const SectionItem: React.FC<SectionItemProps> = ({
                     color={section.color}
                     selectedDuration={selectedDuration}
                     isRestMode={isRestMode}
+                    songKey={songKey}
                     onUpdateBar={(barId, nodeIndex, duration, isRest) => updateBar(section.id, barId, nodeIndex, duration, isRest)}
                     onAddChord={(barId, beat, chord) => addChord(section.id, barId, beat, chord)}
                     onRemoveChord={(barId, chordIdx) => removeChord(section.id, barId, chordIdx)}
+                    onUpdateChord={(barId, chordIdx, newChord) => updateChord(section.id, barId, chordIdx, newChord)}
+                    onMoveChord={(barId, chordIdx, toBeat) => moveChord(section.id, barId, chordIdx, toBeat)}
                     onUpdateLyrics={(barId, text) => onUpdateLyrics && onUpdateLyrics(section.id, barId, text)}
                 />
             </div>

@@ -2,13 +2,14 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import { ref, onValue, set, remove, push, serverTimestamp, onDisconnect, update } from 'firebase/database';
 import { db } from '../../../../lib/firebase';
 import { v4 as uuidv4 } from 'uuid';
-import type { Composition, Section, Bar, NoteDuration, SectionType, InstrumentType, RhythmNode } from './types';
+import type { Composition, Section, Bar, NoteDuration, SectionType, InstrumentType, RhythmNode, SongKey } from './types';
 import { getCreatorId, generateShortId, MY_SONGS_KEY } from './utils';
 import { calculateNewNodes } from './compositionLogic';
 
 // --- Action Types ---
 type CompositionAction =
     | { type: 'SET_TITLE', title: string }
+    | { type: 'SET_KEY', key: SongKey | null }
     | { type: 'ADD_SECTION', sectionType: SectionType }
     | { type: 'REMOVE_SECTION', sectionId: string }
     | { type: 'MOVE_SECTION', sectionId: string, overId: string }
@@ -17,6 +18,8 @@ type CompositionAction =
     | { type: 'UPDATE_BAR_NODES', sectionId: string, barId: string, nodes: RhythmNode[] }
     | { type: 'UPDATE_BAR_LYRICS', sectionId: string, barId: string, text: string }
     | { type: 'ADD_CHORD', sectionId: string, barId: string, beat: number, chord: string }
+    | { type: 'UPDATE_CHORD', sectionId: string, barId: string, chordIndex: number, chord: string }
+    | { type: 'MOVE_CHORD', sectionId: string, barId: string, chordIndex: number, toBeat: number }
     | { type: 'REMOVE_CHORD', sectionId: string, barId: string, chordIndex: number }
     | { type: 'TOGGLE_INSTRUMENT', sectionId: string, instrument: InstrumentType };
 
@@ -126,6 +129,16 @@ export const useRealtimeComposition = () => {
             case 'SET_TITLE': {
                 nextComposition.title = action.title;
                 if (!isDraft) fbUpdates[`${basePath}/title`] = action.title;
+                break;
+            }
+            case 'SET_KEY': {
+                if (action.key) {
+                    nextComposition.key = action.key;
+                    if (!isDraft) fbUpdates[`${basePath}/key`] = action.key;
+                } else {
+                    delete nextComposition.key;
+                    if (!isDraft) fbUpdates[`${basePath}/key`] = null;
+                }
                 break;
             }
             case 'ADD_SECTION': {
@@ -243,6 +256,48 @@ export const useRealtimeComposition = () => {
                 }
                 break;
             }
+            case 'UPDATE_CHORD': {
+                const { sIndex, bIndex } = getIndices(action.sectionId, action.barId) || {};
+                if (sIndex === undefined || bIndex === undefined) return;
+
+                const chords = nextComposition.sections[sIndex].bars[bIndex].chords || [];
+                if (action.chordIndex < 0 || action.chordIndex >= chords.length) return;
+
+                const newChords = [...chords];
+                newChords[action.chordIndex] = { ...newChords[action.chordIndex], chord: action.chord };
+                nextComposition.sections[sIndex].bars[bIndex].chords = newChords;
+
+                if (!isDraft) {
+                    fbUpdates[`${basePath}/sections/${sIndex}/bars/${bIndex}/chords`] = newChords;
+                }
+                break;
+            }
+            case 'MOVE_CHORD': {
+                const { sIndex, bIndex } = getIndices(action.sectionId, action.barId) || {};
+                if (sIndex === undefined || bIndex === undefined) return;
+
+                const chords = nextComposition.sections[sIndex].bars[bIndex].chords || [];
+                if (action.chordIndex < 0 || action.chordIndex >= chords.length) return;
+                if (Math.abs(chords[action.chordIndex].beatPosition - action.toBeat) < 0.1) return;
+
+                const newChords = [...chords];
+                const moving = { ...newChords[action.chordIndex] };
+                // Hvis det allerede ligger en akkord på målslaget — bytt plass (swap)
+                const occupantIndex = newChords.findIndex((c, i) =>
+                    i !== action.chordIndex && Math.abs(c.beatPosition - action.toBeat) < 0.1
+                );
+                if (occupantIndex !== -1) {
+                    const occupant = { ...newChords[occupantIndex] };
+                    newChords[occupantIndex] = { ...occupant, beatPosition: moving.beatPosition };
+                }
+                newChords[action.chordIndex] = { ...moving, beatPosition: action.toBeat };
+                nextComposition.sections[sIndex].bars[bIndex].chords = newChords;
+
+                if (!isDraft) {
+                    fbUpdates[`${basePath}/sections/${sIndex}/bars/${bIndex}/chords`] = newChords;
+                }
+                break;
+            }
             case 'REMOVE_CHORD': {
                 const { sIndex, bIndex } = getIndices(action.sectionId, action.barId) || {};
                 if (sIndex === undefined || bIndex === undefined) return;
@@ -326,6 +381,7 @@ export const useRealtimeComposition = () => {
     // ... wrapping functions ...
 
     const renameComposition = (title: string) => dispatch({ type: 'SET_TITLE', title });
+    const setKey = (key: SongKey | null) => dispatch({ type: 'SET_KEY', key });
     const addSection = (type: SectionType) => dispatch({ type: 'ADD_SECTION', sectionType: type });
     const removeSection = (id: string) => dispatch({ type: 'REMOVE_SECTION', sectionId: id });
     const moveSection = (id: string, overId: string) => dispatch({ type: 'MOVE_SECTION', sectionId: id, overId });
@@ -347,6 +403,8 @@ export const useRealtimeComposition = () => {
 
     const updateBarLyrics = (sectionId: string, barId: string, text: string) => dispatch({ type: 'UPDATE_BAR_LYRICS', sectionId, barId, text });
     const addChord = (sectionId: string, barId: string, beat: number, chord: string) => dispatch({ type: 'ADD_CHORD', sectionId, barId, beat, chord });
+    const updateChord = (sectionId: string, barId: string, chordIndex: number, chord: string) => dispatch({ type: 'UPDATE_CHORD', sectionId, barId, chordIndex, chord });
+    const moveChord = (sectionId: string, barId: string, chordIndex: number, toBeat: number) => dispatch({ type: 'MOVE_CHORD', sectionId, barId, chordIndex, toBeat });
     const removeChord = (sectionId: string, barId: string, chordIndex: number) => dispatch({ type: 'REMOVE_CHORD', sectionId, barId, chordIndex });
     const toggleInstrument = (sectionId: string, instrument: InstrumentType) => dispatch({ type: 'TOGGLE_INSTRUMENT', sectionId, instrument });
 
@@ -404,6 +462,7 @@ export const useRealtimeComposition = () => {
 
         // Actions
         renameComposition,
+        setKey,
         addSection,
         removeSection,
         moveSection,
@@ -412,6 +471,8 @@ export const useRealtimeComposition = () => {
         updateBar,
         updateBarLyrics,
         addChord,
+        updateChord,
+        moveChord,
         removeChord,
         toggleInstrument,
 
