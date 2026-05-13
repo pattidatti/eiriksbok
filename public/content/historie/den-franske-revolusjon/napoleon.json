@@ -5,7 +5,7 @@
     "year": "1769-1821",
     "category": "Frankrike og Europa",
     "readTime": "9 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/den-franske-revolusjon/napoleon-hero.webp",
     "details": [
         "Korsikaneren som ble keiser",
         "Code Civil endret europeisk lov for alltid",
@@ -19,7 +19,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/den-franske-revolusjon/napoleon-hero.webp",
             "alt": "Ung Napoleon i offiseruniform under den franske revolusjonen",
             "caption": "Napoleon var ferdig på militærskolen 16 år gammel og fikk sitt store gjennombrudd i Italia."
         },
@@ -45,7 +45,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/den-franske-revolusjon/napoleon-01.webp",
             "alt": "Napoleon krones til keiser i Notre-Dame 1804",
             "caption": "Kroningen i Notre-Dame i 1804. Maleriet av Jacques-Louis David viser øyeblikket Napoleon kroner sin kone Joséphine."
         },
@@ -71,7 +71,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/den-franske-revolusjon/napoleon-02.webp",
             "alt": "Napoleons tilbaketog fra Moskva i snøstorm 1812",
             "caption": "Tilbaketoget fra Russland i 1812 ble Napoleons største nederlag."
         },

@@ -1253,7 +1253,7 @@
               "id": "grunnloven",
               "title": "Grunnloven 1814",
               "description": "Hvordan 112 menn på Eidsvoll skrev en grunnlov som fortsatt styrer Norge.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/styringsformer/grunnloven-hero.webp",
               "tags": [
                 "norge",
                 "demokrati",
@@ -2595,7 +2595,7 @@
               "id": "dampmaskinen",
               "title": "Dampmaskinen: oppfinnelsen som forandret alt",
               "description": "Hvordan James Watt og den separate kondensatoren ga verden flyttbar kraft og startet den industrielle revolusjonen for alvor.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/industriell-revolusjon/dampmaskinen-hero.webp",
               "tags": [
                 "historie",
                 "industri",
@@ -2611,7 +2611,7 @@
               "id": "jernbanen",
               "title": "Jernbanen: maskinen som krympet verden",
               "description": "Hvordan damplokomotivet kuttet reisetid fra dager til timer, tvang fram standardtid, og bygde nettverket som forvandlet industrien til et samfunn.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/industriell-revolusjon/jernbanen-hero.webp",
               "tags": [
                 "historie",
                 "industri",
@@ -2683,7 +2683,7 @@
               "id": "napoleon",
               "title": "Napoleon Bonaparte",
               "description": "Fra korsikansk soldat til keiser til eksil på Sankt Helena: hvordan Napoleon var både reformator og diktator, og hvorfor Code Civil overlevde ham.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/den-franske-revolusjon/napoleon-hero.webp",
               "tags": [
                 "frankrike",
                 "napoleon",

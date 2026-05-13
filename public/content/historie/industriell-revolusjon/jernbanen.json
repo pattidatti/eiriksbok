@@ -5,7 +5,7 @@
     "year": "1825-1909",
     "category": "Industriell revolusjon",
     "readTime": "9 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/industriell-revolusjon/jernbanen-hero.webp",
     "details": [
         "Den første passasjerjernbanen åpnet i England i 1825 og kuttet lange reiser fra dager til timer",
         "Jernbanen tvang fram standardtid - før måtte hver by stille klokken etter sola si",
@@ -18,7 +18,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/industriell-revolusjon/jernbanen-hero.webp",
             "alt": "Tidlig damplokomotiv slipper ut hvit røyk mens det kjører forbi engelske grønne enger i 1830-tallet",
             "caption": "Damplokomotivet ga verden en ny slags kraft - uten trette muskler, uten vind å vente på."
         },
@@ -48,7 +48,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/industriell-revolusjon/jernbanen-01.webp",
             "alt": "Lokomotivet Rocket fra 1830 med svart skorstein og messingdetaljer står på et jernbanespor mens en folkemengde ser på",
             "caption": "Stephensons «Rocket» vant den berømte Rainhill-konkurransen i 1829 og ble blåkopien for moderne lokomotiver."
         },
@@ -93,7 +93,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/industriell-revolusjon/jernbanen-02.webp",
             "alt": "Travel jernbanestasjon med dampende lokomotiv, reisende i 1800-talls klær og bærere som flytter kofferter på perrongen",
             "caption": "Stasjonene ble samfunnets nye torg - en møteplass for posten, varene, avisene og menneskene."
         },

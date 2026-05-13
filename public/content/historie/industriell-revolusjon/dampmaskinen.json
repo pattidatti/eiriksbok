@@ -5,7 +5,7 @@
     "year": "1712-1825",
     "category": "Industriell revolusjon",
     "readTime": "9 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/industriell-revolusjon/dampmaskinen-hero.webp",
     "details": [
         "James Watt fant opp den separate kondensatoren i 1765 og gjorde dampmaskinen fire ganger mer effektiv",
         "Dampmaskinen var den første motoren som kunne lage sterk energi hvor som helst, uavhengig av elv eller vind",
@@ -18,7 +18,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/industriell-revolusjon/dampmaskinen-hero.webp",
             "alt": "Ung mann i 1700-talls drakt går gjennom park med en liten dampmaskinmodell i hånda, tidlig morgenlys",
             "caption": "James Watt fikk ideen til den separate kondensatoren på en søndagstur i Glasgow Green i 1765."
         },
@@ -107,7 +107,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/industriell-revolusjon/dampmaskinen-01.webp",
             "alt": "Engelsk fabrikkhall fra 1820 med stor dampmaskin i midten og reimer som driver vevstoler langs veggene",
             "caption": "En stor dampmaskin kunne drive hundrevis av vevstoler samtidig — fabrikken erstattet husflid."
         },
@@ -140,7 +140,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/industriell-revolusjon/dampmaskinen-02.webp",
             "alt": "Tidlig damplokomotiv fra 1825 trekker tog gjennom engelsk landskap med tilskuere langs sporet",
             "caption": "Stephensons «Locomotion No. 1» åpnet jernbanealderen i 1825 — sjokket var like stort som da fly kom 100 år senere."
         },

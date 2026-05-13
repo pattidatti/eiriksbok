@@ -5,7 +5,7 @@
     "year": "1814",
     "category": "Norges politiske grunnmur",
     "readTime": "9 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/styringsformer/grunnloven-hero.webp",
     "details": [
         "Skrevet på fem uker av 112 menn samlet på Eidsvoll våren 1814.",
         "Verdens nest eldste grunnlov som fortsatt er i bruk — bare USAs er eldre.",
@@ -24,7 +24,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/styringsformer/grunnloven-hero.webp",
             "alt": "Eidsvollsbygningen i vårsol med flaggstang og hage foran",
             "caption": "Eidsvollsbygningen, der Norges grunnlov ble skrevet våren 1814."
         },
@@ -109,7 +109,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/styringsformer/grunnloven-01.webp",
             "alt": "Norske barn i bunad og dressko marsjerer i 17. mai-tog med flagg",
             "caption": "17. mai er Grunnlovens fødselsdag. Hvert år feirer Norge dagen med barnetog."
         },
@@ -148,7 +148,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/styringsformer/grunnloven-02.webp",
             "alt": "Stortingssalen sett ovenfra med representanter på plass under en avstemning",
             "caption": "Stortinget vedtar nye lover — men ingen lov kan stride mot Grunnloven."
         },
