@@ -931,7 +931,7 @@
                 "spesialisering"
               ],
               "createdDate": "2026-01-14T10:21:48+01:00",
-              "lastUpdated": "2026-01-14T10:21:48+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "inflasjon-og-rente",
@@ -1045,7 +1045,7 @@
                 "historie"
               ],
               "createdDate": "2026-01-14T10:21:48+01:00",
-              "lastUpdated": "2026-01-14T10:21:48+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "teknologi-helse",
@@ -1082,7 +1082,7 @@
                 "befolkning"
               ],
               "createdDate": "2025-12-21T13:37:14+01:00",
-              "lastUpdated": "2026-05-12T09:08:05+02:00",
+              "lastUpdated": "2026-05-07T09:32:27+02:00",
               "image": "/images/lessons/demografi/demografi_overgang_hero.webp"
             }
           ]
@@ -1473,7 +1473,7 @@
                 "rettsvitenskap"
               ],
               "createdDate": "2026-02-04T09:36:05+01:00",
-              "lastUpdated": "2026-02-04T09:36:05+01:00"
+              "lastUpdated": "2026-01-21T08:31:05+01:00"
             },
             {
               "id": "store-sykluser",
@@ -2029,7 +2029,7 @@
                 "soldatliv"
               ],
               "createdDate": "2025-12-23T23:48:22+01:00",
-              "lastUpdated": "2025-12-23T23:48:22+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "russiske-revolusjon",
@@ -2217,7 +2217,7 @@
                 "børskrakk"
               ],
               "createdDate": "2026-01-18T23:13:44+01:00",
-              "lastUpdated": "2026-01-18T23:13:44+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "norge",
@@ -2269,7 +2269,7 @@
                 "vitenskap"
               ],
               "createdDate": "2025-12-21T13:37:14+01:00",
-              "lastUpdated": "2025-12-24T09:59:36+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "folkeforbundet",
@@ -2282,7 +2282,7 @@
                 "diplomati"
               ],
               "createdDate": "2025-12-23T23:48:22+01:00",
-              "lastUpdated": "2025-12-23T23:48:22+01:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "italia",
@@ -2923,7 +2923,7 @@
                 "kart"
               ],
               "createdDate": "2025-12-21T14:35:48+01:00",
-              "lastUpdated": "2026-05-07T09:32:27+02:00"
+              "lastUpdated": "2026-05-11T09:50:27+02:00"
             },
             {
               "id": "usa-frigjoring",
@@ -3851,7 +3851,7 @@
                     "intro"
                   ],
                   "createdDate": "2025-12-21T13:37:14+01:00",
-                  "lastUpdated": "2026-05-12T09:08:05+02:00"
+                  "lastUpdated": "2026-03-15T21:57:26+01:00"
                 },
                 {
                   "id": "sentrale-trekk",
@@ -3863,7 +3863,7 @@
                     "sentrale_trekk"
                   ],
                   "createdDate": "2025-12-04T13:10:30+01:00",
-                  "lastUpdated": "2025-12-04T13:39:40+01:00"
+                  "lastUpdated": "2026-03-15T21:57:26+01:00"
                 },
                 {
                   "id": "grunnleggere",
@@ -3876,7 +3876,7 @@
                     "narrative"
                   ],
                   "createdDate": "2025-12-04T14:04:03+01:00",
-                  "lastUpdated": "2025-12-04T14:04:03+01:00"
+                  "lastUpdated": "2026-03-15T21:57:26+01:00"
                 },
                 {
                   "id": "gudsbilde",
@@ -3889,7 +3889,7 @@
                     "doctrinal"
                   ],
                   "createdDate": "2025-12-04T14:04:03+01:00",
-                  "lastUpdated": "2025-12-04T14:04:03+01:00"
+                  "lastUpdated": "2026-03-15T21:57:26+01:00"
                 },
                 {
                   "id": "hellige-tekster",
@@ -3902,7 +3902,7 @@
                     "narrative"
                   ],
                   "createdDate": "2025-12-04T14:04:03+01:00",
-                  "lastUpdated": "2025-12-04T14:04:03+01:00"
+                  "lastUpdated": "2026-03-15T21:57:26+01:00"
                 },
                 {
                   "id": "frelse",
@@ -3915,7 +3915,7 @@
                     "doctrinal"
                   ],
                   "createdDate": "2025-12-04T14:04:03+01:00",
-                  "lastUpdated": "2025-12-04T14:04:03+01:00"
+                  "lastUpdated": "2026-03-15T21:57:26+01:00"
                 },
                 {
                   "id": "bonn",
@@ -3928,7 +3928,7 @@
                     "ritual"
                   ],
                   "createdDate": "2025-12-04T13:10:30+01:00",
-                  "lastUpdated": "2025-12-04T13:39:40+01:00"
+                  "lastUpdated": "2026-03-15T21:57:26+01:00"
                 },
                 {
                   "id": "overgangsriter",
@@ -3941,7 +3941,7 @@
                     "ritual"
                   ],
                   "createdDate": "2025-12-04T13:10:30+01:00",
-                  "lastUpdated": "2025-12-04T13:39:40+01:00"
+                  "lastUpdated": "2026-03-15T21:57:26+01:00"
                 },
                 {
                   "id": "skapelse",
@@ -3954,7 +3954,7 @@
                     "narrative"
                   ],
                   "createdDate": "2025-12-02T22:54:02+01:00",
-                  "lastUpdated": "2025-12-04T22:48:37+01:00"
+                  "lastUpdated": "2026-03-15T21:57:26+01:00"
                 },
                 {
                   "id": "paulus-og-misjonen",
@@ -4032,7 +4032,7 @@
                     "ritual"
                   ],
                   "createdDate": "2025-12-04T13:10:30+01:00",
-                  "lastUpdated": "2025-12-04T13:39:40+01:00"
+                  "lastUpdated": "2025-12-04T22:48:37+01:00"
                 },
                 {
                   "id": "overgangsriter",
@@ -4220,7 +4220,7 @@
                     "intro"
                   ],
                   "createdDate": "2025-12-21T13:37:14+01:00",
-                  "lastUpdated": "2026-05-12T09:08:05+02:00"
+                  "lastUpdated": "2025-12-04T13:10:30+01:00"
                 }
               ]
             },
@@ -4331,7 +4331,7 @@
                     "intro"
                   ],
                   "createdDate": "2025-12-21T13:37:14+01:00",
-                  "lastUpdated": "2026-05-12T09:08:05+02:00"
+                  "lastUpdated": "2025-12-04T13:10:30+01:00"
                 }
               ]
             },
@@ -4442,7 +4442,7 @@
                     "intro"
                   ],
                   "createdDate": "2025-12-21T13:37:14+01:00",
-                  "lastUpdated": "2026-05-12T09:08:05+02:00"
+                  "lastUpdated": "2025-12-04T13:10:30+01:00"
                 }
               ]
             },
@@ -4576,7 +4576,7 @@
                     "intro"
                   ],
                   "createdDate": "2025-12-21T13:37:14+01:00",
-                  "lastUpdated": "2026-05-12T09:08:05+02:00"
+                  "lastUpdated": "2025-12-04T13:10:30+01:00"
                 }
               ]
             },
@@ -4687,7 +4687,7 @@
                     "intro"
                   ],
                   "createdDate": "2025-12-21T13:37:14+01:00",
-                  "lastUpdated": "2026-05-12T09:08:05+02:00"
+                  "lastUpdated": "2025-12-04T13:10:30+01:00"
                 }
               ]
             },
@@ -4798,7 +4798,7 @@
                     "intro"
                   ],
                   "createdDate": "2025-12-21T13:37:14+01:00",
-                  "lastUpdated": "2026-05-12T09:08:05+02:00"
+                  "lastUpdated": "2025-12-04T13:10:30+01:00"
                 }
               ]
             },
@@ -4819,7 +4819,7 @@
                     "sentrale_trekk"
                   ],
                   "createdDate": "2025-12-04T13:10:30+01:00",
-                  "lastUpdated": "2025-12-04T13:39:40+01:00"
+                  "lastUpdated": "2025-12-25T10:12:32+01:00"
                 },
                 {
                   "id": "grunnleggere",
@@ -4831,7 +4831,7 @@
                     "grunnleggere"
                   ],
                   "createdDate": "2025-12-04T14:04:03+01:00",
-                  "lastUpdated": "2025-12-04T14:04:03+01:00"
+                  "lastUpdated": "2025-12-25T10:12:32+01:00"
                 },
                 {
                   "id": "hellige-tekster",
@@ -4843,7 +4843,7 @@
                     "hellige-tekster"
                   ],
                   "createdDate": "2025-12-04T14:04:03+01:00",
-                  "lastUpdated": "2025-12-04T14:04:03+01:00"
+                  "lastUpdated": "2025-12-25T10:12:32+01:00"
                 },
                 {
                   "id": "intro",
@@ -4896,7 +4896,7 @@
                 "epistemologi"
               ],
               "createdDate": "2025-12-21T13:37:14+01:00",
-              "lastUpdated": "2026-05-12T09:08:05+02:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "sokrates",
@@ -5136,7 +5136,7 @@
                 "moral"
               ],
               "createdDate": "2025-12-21T13:37:14+01:00",
-              "lastUpdated": "2026-05-12T09:08:05+02:00"
+              "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
               "id": "utilitarisme",

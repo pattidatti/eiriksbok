@@ -52,22 +52,29 @@ async function syncDates() {
     const contentIndex = JSON.parse(fs.readFileSync(CONTENT_INDEX_PATH, 'utf8'));
     let changed = false;
 
-    // Helper to find file path by ID
-    function getFilePath(id) {
-        // Try exact match in contentMap
+    // Helper to find file path using hierarchical lookup (collision-free),
+    // with flat contentMap as fallback for unique IDs.
+    function getFilePath(id, subjectId, topicId, subTopicId) {
+        if (subjectId && topicId) {
+            const hierarchyKey = subTopicId
+                ? `${subjectId}/${topicId}/${subTopicId}/${id}`.toLowerCase()
+                : `${subjectId}/${topicId}/${id}`.toLowerCase();
+            const relPath = contentIndex.hierarchicalMap?.[hierarchyKey];
+            if (relPath) {
+                return path.join(PUBLIC_DIR, relPath);
+            }
+        }
         const paths = contentIndex.contentMap[id];
-        if (paths && paths.length > 0) {
-            // If multiple, we might have a collision, but let's take the first one for now
-            // In a better system, we'd use hierarchical keys
+        if (paths && paths.length === 1) {
             return path.join(PUBLIC_DIR, paths[0]);
         }
         return null;
     }
 
-    function processLesson(lesson) {
+    function processLesson(lesson, subjectId, topicId, subTopicId) {
         if (!lesson.id) return;
 
-        const filePath = getFilePath(lesson.id);
+        const filePath = getFilePath(lesson.id, subjectId, topicId, subTopicId);
         if (!filePath) return;
 
         const gitDates = getGitDates(filePath);
@@ -90,14 +97,14 @@ async function syncDates() {
         }
     }
 
-    // Traverse manifest
+    // Traverse manifest, threading subject/topic/subTopic context through.
     manifest.subjects?.forEach(subject => {
         subject.topics?.forEach(topic => {
-            topic.lessons?.forEach(processLesson);
-            topic.tools?.forEach(processLesson);
+            topic.lessons?.forEach(lesson => processLesson(lesson, subject.id, topic.id));
+            topic.tools?.forEach(tool => processLesson(tool, subject.id, topic.id));
             topic.subTopics?.forEach(subTopic => {
-                subTopic.lessons?.forEach(processLesson);
-                subTopic.tools?.forEach(processLesson);
+                subTopic.lessons?.forEach(lesson => processLesson(lesson, subject.id, topic.id, subTopic.id));
+                subTopic.tools?.forEach(tool => processLesson(tool, subject.id, topic.id, subTopic.id));
             });
         });
     });

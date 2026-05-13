@@ -52,37 +52,64 @@ function scanDirectory(dir) {
 
             const isQuest = parts.includes('quests');
             const isDetective = parts.includes('detective');
+            const isConcept = parts[1] === 'concepts';
+
+            // Two IDs are computed:
+            //   manifestId  -> the URL-slug as it appears in manifest.json lesson.id
+            //                  (used to build hierarchicalMap key so contentLoader can match
+            //                   `subject/topic/[subTopic]/lessonId` lookups)
+            //   flatId      -> a unique key for the flat contentMap (collision-free)
+            let manifestId = '';
+            let flatId = '';
 
             // Strategy 1: "Artikkel" Pattern (Religions)
-            // content/religion/bahai/bonn/artikkel.json -> "bahai-bonn"
+            // content/krle/religion/bahai/bonn/artikkel.json
+            //   manifestId = "bonn"  (matches manifest lesson.id)
+            //   flatId     = "bahai-bonn"  (unique across religions)
             if (file === 'artikkel.json') {
-                id = parentFolder;
+                manifestId = parentFolder;
+                flatId = grandparentFolder ? `${grandparentFolder}-${parentFolder}` : parentFolder;
             }
             // Strategy 2: Quests & Detective Game Content
+            // Existing behavior: prefix in both maps (these are not manifest lessons).
             else if (isQuest) {
-                id = `quest-${filenameNoExt}`;
+                manifestId = `quest-${filenameNoExt}`;
+                flatId = manifestId;
             }
             else if (isDetective) {
-                id = `detective-${filenameNoExt}`;
+                manifestId = `detective-${filenameNoExt}`;
+                flatId = manifestId;
             }
-            // Strategy 3: Generic Filenames 
-            // content/history/ww2/oversikt.json -> "ww2-oversikt"
+            // Strategy 3: Concept Files
+            // content/concepts/urbanisering.json
+            //   manifestId = "urbanisering" (concepts aren't lessons; key is unused but stable)
+            //   flatId     = "concept-urbanisering"
+            else if (isConcept) {
+                manifestId = filenameNoExt;
+                flatId = `concept-${filenameNoExt}`;
+            }
+            // Strategy 4: Generic Filenames
+            // content/historie/andre-verdenskrig/oversikt.json
+            //   manifestId = "oversikt"  (matches manifest lesson.id, used in URL)
+            //   flatId     = "andre-verdenskrig-oversikt"  (unique across topics)
             else if (genericBlocklist.includes(filenameNoExt)) {
-                id = filenameNoExt;
+                manifestId = filenameNoExt;
+                flatId = `${parentFolder}-${filenameNoExt}`;
             }
-            // Strategy 4: Standard
+            // Strategy 5: Standard
             else {
-                id = filenameNoExt;
+                manifestId = filenameNoExt;
+                flatId = filenameNoExt;
             }
 
-            // 1. Add to Collision-Aware Flat Map
-            if (!collisionMap[id]) {
-                collisionMap[id] = [];
+            // 1. Add to Collision-Aware Flat Map (keyed by unique flatId)
+            if (!collisionMap[flatId]) {
+                collisionMap[flatId] = [];
             }
-            collisionMap[id].push(relativePath);
+            collisionMap[flatId].push(relativePath);
 
-            // 2. Build Hierarchical Key
-            // We want to support: 
+            // 2. Build Hierarchical Key (keyed by manifestId — matches lesson.id from manifest.json)
+            // Supports:
             // - subject/topic/lesson
             // - subject/topic/subtopic/lesson
             let subject = parts[1]; // content/[subject]/...
@@ -90,8 +117,8 @@ function scanDirectory(dir) {
             let subtopic = parts.length > 4 ? parts[3] : null;
 
             const hierarchyKey = subtopic
-                ? `${subject}/${topic}/${subtopic}/${id}`.toLowerCase()
-                : `${subject}/${topic}/${id}`.toLowerCase();
+                ? `${subject}/${topic}/${subtopic}/${manifestId}`.toLowerCase()
+                : `${subject}/${topic}/${manifestId}`.toLowerCase();
 
             hierarchicalMap[hierarchyKey] = relativePath;
         }
