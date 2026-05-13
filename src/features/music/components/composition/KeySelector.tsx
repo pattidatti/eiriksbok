@@ -57,6 +57,12 @@ export const KeySelector: React.FC<KeySelectorProps> = ({ value, onChange }) => 
         setIsOpen(false);
     };
 
+    const handleScaleChange = (scale: ScaleType) => {
+        setPendingScale(scale);
+        // Hvis tonart allerede er valgt, oppdater den umiddelbart
+        if (value) onChange({ root: value.root, scale });
+    };
+
     const handleClear = () => {
         onChange(null);
         setIsOpen(false);
@@ -127,7 +133,7 @@ export const KeySelector: React.FC<KeySelectorProps> = ({ value, onChange }) => 
                             {(['Major', 'Minor'] as ScaleType[]).map((s) => (
                                 <button
                                     key={s}
-                                    onClick={() => setPendingScale(s)}
+                                    onClick={() => handleScaleChange(s)}
                                     className={`
                                         flex-1 py-1.5 rounded-md text-[10px] font-black uppercase tracking-widest transition-all
                                         ${pendingScale === s
