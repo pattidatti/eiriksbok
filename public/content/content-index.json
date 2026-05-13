@@ -1,5 +1,5 @@
 {
-  "buildId": 1778655398918,
+  "buildId": 1778658828485,
   "contentMap": {
     "adel": [
       "content/concepts/adel.json"
@@ -607,6 +607,9 @@
     ],
     "global-timeline": [
       "content/global-timeline.json"
+    ],
+    "global-timeline.manual": [
+      "content/global-timeline.manual.json"
     ],
     "bakgrunn": [
       "content/historie/andre-verdenskrig/bakgrunn.json"
@@ -2033,6 +2036,7 @@
     "concepts/zimmermann-telegrammet.json/zimmermann-telegrammet": "content/concepts/zimmermann-telegrammet.json",
     "config/scanner-config.json/scanner-config": "content/config/scanner-config.json",
     "global-timeline.json/undefined/global-timeline": "content/global-timeline.json",
+    "global-timeline.manual.json/undefined/global-timeline.manual": "content/global-timeline.manual.json",
     "historie/andre-verdenskrig/bakgrunn": "content/historie/andre-verdenskrig/bakgrunn.json",
     "historie/andre-verdenskrig/konsekvenser": "content/historie/andre-verdenskrig/konsekvenser.json",
     "historie/andre-verdenskrig/konsentrasjonsleirene": "content/historie/andre-verdenskrig/konsentrasjonsleirene.json",

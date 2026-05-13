@@ -76,7 +76,7 @@
     {
       "id": "jordbruk-og-sivilisasjoner-sub-2",
       "title": "Jordbruk i Norge",
-      "description": "De første bøndene etablerer seg på æ˜stlandet.",
+      "description": "De første bøndene etablerer seg på Østlandet.",
       "startDate": -4000,
       "endDate": null,
       "displayDate": "4000 fvt",
@@ -89,6 +89,25 @@
         "steinalder",
         "sivilisasjon",
         "teknologi"
+      ]
+    },
+    {
+      "id": "mesopotamia",
+      "title": "Mesopotamia: Sivilisasjonens vugge",
+      "description": "Verdens første byer, skrift og lover oppstår mellom elvene Eufrat og Tigris.",
+      "startDate": -3500,
+      "endDate": -539,
+      "displayDate": "3500 fvt – 539 fvt",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "jordbruk-og-sivilisasjoner",
+      "link": "/historie/jordbruk-og-sivilisasjoner/mesopotamia",
+      "tags": [
+        "mesopotamia",
+        "sumer",
+        "babylon",
+        "kileskrift",
+        "sivilisasjon"
       ]
     },
     {
@@ -175,23 +194,6 @@
         "antikken",
         "hellas",
         "politikk"
-      ]
-    },
-    {
-      "id": "sokrates-dod",
-      "title": "Sokrates dømmes til døden",
-      "description": "Filosofiens far tømmer giftbegeret i Athen.",
-      "startDate": -399,
-      "endDate": null,
-      "displayDate": "399 f.Kr.",
-      "type": "sub-event",
-      "subjectId": "krle",
-      "topicId": "filosofi",
-      "link": "/krle/filosofi/sokrates",
-      "tags": [
-        "filosofi",
-        "hellas",
-        "etikk"
       ]
     },
     {
@@ -296,92 +298,6 @@
         "roma",
         "augustus",
         "keiser"
-      ]
-    },
-    {
-      "id": "jamestown",
-      "title": "Jamestown grunnlegges",
-      "description": "Første permanente engelske koloni i Amerika.",
-      "startDate": 1607,
-      "endDate": null,
-      "displayDate": "1607",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "kolonialisering",
-      "link": "/historie/kolonialisering/britisk-imperium",
-      "tags": [
-        "kolonialisering",
-        "usa",
-        "storbritannia"
-      ]
-    },
-    {
-      "id": "quebec",
-      "title": "Quebec grunnlegges",
-      "description": "Starten på Det franske Nord-Amerika.",
-      "startDate": 1608,
-      "endDate": null,
-      "displayDate": "1608",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "kolonialisering",
-      "link": "/historie/kolonialisering/fransk-kolonirike",
-      "tags": [
-        "kolonialisering",
-        "frankrike",
-        "nord-amerika"
-      ]
-    },
-    {
-      "id": "sikhisme-khalsa-grunnleggelse",
-      "title": "Khalsa-fellesskapet grunnlegges",
-      "description": "Den tiende guruen, Guru Gobind Singh, etablerer Khalsa-fellesskapet ved Vaisakhi-feiringen. Dette gir sikhismen en tydeligere identitet og ytre kjennetegn.",
-      "startDate": 1699,
-      "endDate": null,
-      "displayDate": "1699",
-      "type": "sub-event",
-      "tags": [
-        "religion",
-        "sikhisme",
-        "ritual"
-      ],
-      "subjectId": "krle",
-      "topicId": "religion",
-      "link": "/krle/religion/sikhisme/sentrale-trekk"
-    },
-    {
-      "id": "sikhisme-nanak-fodsel",
-      "title": "Guru Nanak blir født",
-      "description": "Grunnleggeren av sikhismen, Guru Nanak, blir født i Punjab. Han forkynner budskapet om at alle mennesker er like og at det bare finnes én Gud.",
-      "startDate": 1469,
-      "endDate": null,
-      "displayDate": "1469",
-      "type": "sub-event",
-      "tags": [
-        "religion",
-        "sikhisme",
-        "grunnleggere"
-      ],
-      "subjectId": "krle",
-      "topicId": "religion",
-      "link": "/krle/religion/sikhisme/grunnleggere"
-    },
-    {
-      "id": "sju-aars-krigen",
-      "title": "Sjuårskrigen",
-      "description": "Global konflikt som sikrer britisk dominans.",
-      "startDate": 1756,
-      "endDate": 1763,
-      "displayDate": "1756 - 1763",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "kolonialisering",
-      "link": "/historie/kolonialisering/fransk-kolonirike",
-      "tags": [
-        "kolonialisering",
-        "krig",
-        "frankrike",
-        "storbritannia"
       ]
     },
     {
@@ -525,6 +441,24 @@
       ]
     },
     {
+      "id": "vestromerrikets-fall-middelalder-ref",
+      "title": "Vestromerrikets fall",
+      "description": "Et dypdykk i årsakene til det store imperiets kollaps.",
+      "startDate": 395,
+      "endDate": 476,
+      "displayDate": "395 evt. - 476 evt.",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "romerriket",
+      "link": "/historie/romerriket/vestromerrikets-fall",
+      "tags": [
+        "antikken",
+        "roma",
+        "kollaps",
+        "historie"
+      ]
+    },
+    {
       "id": "vestromerrikets-fall",
       "title": "Vestromerrikets fall",
       "description": "Et dypdykk i årsakene til det store imperiets kollaps.",
@@ -578,23 +512,6 @@
       ]
     },
     {
-      "id": "vestromerrikets-fall",
-      "title": "Vestromerrikets fall",
-      "description": "Den siste vestromerske keiseren, Romulus Augustulus, avsettes. Dette regnes ofte som starten på middelalderen.",
-      "startDate": 476,
-      "endDate": null,
-      "displayDate": "476",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "middelalderen",
-      "link": "/historie/middelalderen/tidlig-middelalder",
-      "tags": [
-        "historie",
-        "romerriket",
-        "middelalderen"
-      ]
-    },
-    {
       "id": "klodvigs-daap",
       "title": "Klodvig lar seg døpe",
       "description": "Frankerkongen Klodvig konverterer til katolisismen, noe som sikrer alliansen mellom frankerne og kirken.",
@@ -612,6 +529,25 @@
       ]
     },
     {
+      "id": "germanske-sprak",
+      "title": "De germanske søskenbarna",
+      "description": "Hvorfor norsk, engelsk og tysk er i slekt.",
+      "startDate": 500,
+      "endDate": null,
+      "displayDate": "ca. 500 f.Kr.–i dag",
+      "type": "lesson",
+      "subjectId": "norsk",
+      "topicId": "sprakhistorie",
+      "link": "/norsk/sprakhistorie/germanske-sprak",
+      "tags": [
+        "språkhistorie",
+        "germansk",
+        "indoeuropeisk",
+        "norrønt",
+        "språkfamilie"
+      ]
+    },
+    {
       "id": "middelalderen",
       "title": "Middelalderen",
       "description": "En tusenårig forvandling i Europa.",
@@ -623,14 +559,31 @@
       "topicId": "middelalderen",
       "link": "/historie/middelalderen/middelalderen",
       "tags": [
-        "norge",
-        "middelalder",
-        "lov"
+        "historie",
+        "middelalderen",
+        "europa"
+      ]
+    },
+    {
+      "id": "tidlig-middelalder",
+      "title": "Tidlig middelalder: Folkevandring og forvandling",
+      "description": "Fra Romerrikets fall til Karl den store: Hvordan det moderne Europa ble til.",
+      "startDate": 500,
+      "endDate": 1000,
+      "displayDate": "500 - 1000 evt.",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "middelalderen",
+      "link": "/historie/middelalderen/tidlig-middelalder",
+      "tags": [
+        "historie",
+        "middelalderen",
+        "folkevandringstiden"
       ]
     },
     {
       "id": "klimakrisen-536",
-      "title": "536 - æ…ret da solen forsvant",
+      "title": "536 - Året da solen forsvant",
       "description": "Klimakrisen som kan være virkelighetens Fimbulvinter.",
       "startDate": 536,
       "endDate": null,
@@ -645,6 +598,23 @@
         "klima",
         "folkevandring",
         "fimbulvinter"
+      ]
+    },
+    {
+      "id": "verdenshandel-for-oppdagelsesreisene",
+      "title": "Verdenshandel før oppdagelsesreisene",
+      "description": "Handel med krydder og luksusvarer før 1500.",
+      "startDate": 700,
+      "endDate": 1500,
+      "displayDate": "700–1500",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "kolonialisering",
+      "link": "/historie/kolonialisering/verdenshandel-for-oppdagelsesreisene",
+      "tags": [
+        "handel",
+        "middelalderen",
+        "silkeveien"
       ]
     },
     {
@@ -680,6 +650,42 @@
         "europa",
         "middelalder",
         "karl-den-store"
+      ]
+    },
+    {
+      "id": "skipsteknologi",
+      "title": "Skipet: Vikingtidens teknologi",
+      "description": "Uten de klinkbygde skipene ville vikingtiden aldri ha skjedd.",
+      "startDate": 750,
+      "endDate": 1066,
+      "displayDate": "750-1066",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "vikingtiden",
+      "link": "/historie/vikingtiden/skipsteknologi",
+      "tags": [
+        "historie",
+        "vikingtiden",
+        "teknologi",
+        "skip"
+      ]
+    },
+    {
+      "id": "samfunn-og-rett",
+      "title": "Samfunn og Rett",
+      "description": "Vikingtiden handlet om mer enn krig. Det var et samfunn med strenge lover og ære.",
+      "startDate": 750,
+      "endDate": 1066,
+      "displayDate": "750-1066",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "vikingtiden",
+      "link": "/historie/vikingtiden/samfunn-og-rett",
+      "tags": [
+        "historie",
+        "vikingtiden",
+        "samfunn",
+        "lov"
       ]
     },
     {
@@ -720,8 +726,8 @@
     },
     {
       "id": "artikkel",
-      "title": "Vikingtiden",
-      "description": "En oversikt over perioden.",
+      "title": "Vikingtiden: En oversikt",
+      "description": "En omfattende oversikt over perioden, fra Lindisfarne til Stamford Bridge.",
       "startDate": 793,
       "endDate": 1066,
       "displayDate": "793-1066",
@@ -793,7 +799,7 @@
     },
     {
       "id": "veien-mot-ost",
-      "title": "Veien mot æ˜st",
+      "title": "Veien mot Øst",
       "description": "Mens norske og danske vikinger dro vestover, dro svenskene østover. De grunnla Russland.",
       "startDate": 862,
       "endDate": 1050,
@@ -827,6 +833,23 @@
       ]
     },
     {
+      "id": "rikssamlingen",
+      "title": "Rikssamlingen",
+      "description": "Harald Hårfagre og samlingen av Norge.",
+      "startDate": 865,
+      "endDate": 933,
+      "displayDate": "865-933",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "vikingtiden",
+      "link": "/historie/vikingtiden/rikssamlingen",
+      "tags": [
+        "historie",
+        "norge",
+        "rikssamlingen"
+      ]
+    },
+    {
       "id": "danelagen",
       "title": "Danelagen: Da England var norsk",
       "description": "Historien om hvordan vikingene erobret halve England og nesten vant alt.",
@@ -844,20 +867,21 @@
       ]
     },
     {
-      "id": "rikssamlingen",
-      "title": "Rikssamlingen",
-      "description": "Harald Hårfagre og samlingen av Norge.",
-      "startDate": 865,
-      "endDate": 933,
-      "displayDate": "865-933",
+      "id": "oppdagelsesreiser",
+      "title": "Oppdagelsesreiser i Vesterled",
+      "description": "Vikingene var de første europeerne som krysset Atlanterhavet.",
+      "startDate": 870,
+      "endDate": 1000,
+      "displayDate": "870-1000",
       "type": "lesson",
       "subjectId": "historie",
       "topicId": "vikingtiden",
-      "link": "/historie/vikingtiden/rikssamlingen",
+      "link": "/historie/vikingtiden/oppdagelsesreiser",
       "tags": [
         "historie",
-        "norge",
-        "rikssamlingen"
+        "vikingtiden",
+        "oppdagelse",
+        "amerika"
       ]
     },
     {
@@ -877,6 +901,18 @@
         "riddere",
         "vikingtiden"
       ]
+    },
+    {
+      "id": "ibn-fadlan-reisebeskrivelse",
+      "title": "Ibn Fadlans reisebeskrivelse",
+      "description": "Utgitt av Ahmad ibn Fadlan",
+      "startDate": 922,
+      "endDate": null,
+      "displayDate": "922",
+      "type": "text",
+      "subjectId": "norsk",
+      "link": "/norsk/bibliotek?text=ibn-fadlan-reisebeskrivelse",
+      "tags": []
     },
     {
       "id": "det-hellige-romerske-rike",
@@ -899,10 +935,10 @@
     {
       "id": "kristningen-av-norge",
       "title": "Kristningen: Dåp eller Død",
-      "description": "Hvordan Norge gikk fra å blot til Odin til å bygge stavkirker “ med sverd i hånd.",
+      "description": "Hvordan Norge gikk fra å blot til Odin til å bygge stavkirker – med sverd i hånd.",
       "startDate": 995,
-      "endDate": 1030,
-      "displayDate": "995-1030",
+      "endDate": 1066,
+      "displayDate": "995-1066",
       "type": "lesson",
       "subjectId": "historie",
       "topicId": "vikingtiden",
@@ -933,6 +969,18 @@
       ]
     },
     {
+      "id": "havamal",
+      "title": "Håvamål",
+      "description": "Utgitt av Ukjent (Den høyes tale)",
+      "startDate": 1200,
+      "endDate": null,
+      "displayDate": "1200",
+      "type": "text",
+      "subjectId": "norsk",
+      "link": "/norsk/bibliotek?text=havamal",
+      "tags": []
+    },
+    {
       "id": "genghis-khan-unification",
       "title": "Genghis Khan samler mongolene",
       "description": "Temüjin utnevnes til Genghis Khan og starter erobringen av det eurasiske kontinentet.",
@@ -947,6 +995,24 @@
         "mongolene",
         "erobring",
         "asia"
+      ]
+    },
+    {
+      "id": "mongolske-riket",
+      "title": "Det Mongolske Riket",
+      "description": "Stormen fra øst som endret verdenshistorien.",
+      "startDate": 1206,
+      "endDate": 1368,
+      "displayDate": "1206–1368",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "middelalderen",
+      "link": "/historie/middelalderen/mongolske-riket",
+      "tags": [
+        "historie",
+        "middelalder",
+        "asia",
+        "mongolene"
       ]
     },
     {
@@ -980,6 +1046,25 @@
       "tags": [
         "sverige",
         "bygger"
+      ]
+    },
+    {
+      "id": "sveriges-historie",
+      "title": "Sveriges historie: Fra østfarere til moderne nasjon",
+      "description": "En reise gjennom Sveriges dramatiske historie.",
+      "startDate": 1252,
+      "endDate": 1905,
+      "displayDate": "1252–1905",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "sveriges-historie",
+      "link": "/historie/sveriges-historie/sveriges-historie",
+      "tags": [
+        "sverige",
+        "historie",
+        "stormaktstid",
+        "vasa",
+        "unionsoppløsning"
       ]
     },
     {
@@ -1017,21 +1102,22 @@
       ]
     },
     {
-      "id": "svartedauden",
-      "title": "Svartedauden",
-      "description": "Pesten som endret Norge.",
-      "startDate": 1349,
+      "id": "alv-erlingsson",
+      "title": "Alv Erlingsson: Piratjarlen",
+      "description": "Historien om Alv Erlingsson, kongens favoritt som ble Norges mest beryktede sjørøver.",
+      "startDate": 1290,
       "endDate": null,
-      "displayDate": "1349",
+      "displayDate": "1290",
       "type": "lesson",
       "subjectId": "historie",
-      "topicId": "middelalderen",
-      "link": "/historie/middelalderen/svartedauden",
+      "topicId": "norgeshistorie",
+      "link": "/historie/norgeshistorie/alv-erlingsson",
       "tags": [
-        "pest",
-        "middelalder",
+        "historie",
         "norge",
-        "sykdom"
+        "middelalder",
+        "sjørøveri",
+        "adel"
       ]
     },
     {
@@ -1049,6 +1135,24 @@
         "historie",
         "norge",
         "pest"
+      ]
+    },
+    {
+      "id": "svartedauden",
+      "title": "Svartedauden",
+      "description": "Pesten som endret Norge.",
+      "startDate": 1349,
+      "endDate": null,
+      "displayDate": "1349",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "middelalderen",
+      "link": "/historie/middelalderen/svartedauden",
+      "tags": [
+        "pest",
+        "middelalder",
+        "norge",
+        "sykdom"
       ]
     },
     {
@@ -1174,6 +1278,23 @@
       ]
     },
     {
+      "id": "sikhisme-nanak-fodsel",
+      "title": "Guru Nanak blir født",
+      "description": "Grunnleggeren av sikhismen, Guru Nanak, blir født i Punjab. Han forkynner budskapet om at alle mennesker er like og at det bare finnes én Gud.",
+      "startDate": 1469,
+      "endDate": null,
+      "displayDate": "1469",
+      "type": "sub-event",
+      "tags": [
+        "religion",
+        "sikhisme",
+        "grunnleggere"
+      ],
+      "subjectId": "krle",
+      "topicId": "religion",
+      "link": "/krle/religion/sikhisme/grunnleggere"
+    },
+    {
       "id": "mirandola-dignity",
       "title": "Tale om menneskets verdighet",
       "description": "Giovanni Pico della Mirandola utgir et av humanismens viktigste skrifter om menneskets frihet og potensial.",
@@ -1242,6 +1363,24 @@
       ]
     },
     {
+      "id": "europa-erobrer-verden",
+      "title": "Europa erobrer verden",
+      "description": "500 år med imperialisme, maktkamp og globale imperier.",
+      "startDate": 1492,
+      "endDate": 1956,
+      "displayDate": "1492–1956",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "kolonialisering",
+      "link": "/historie/kolonialisering/europa-erobrer-verden",
+      "tags": [
+        "historie",
+        "kolonialisme",
+        "imperialisme",
+        "global-historie"
+      ]
+    },
+    {
       "id": "tordesillas-treaty",
       "title": "Tordesillastraktaten",
       "description": "Paven deler verden i to mellom Spania og Portugal.",
@@ -1276,6 +1415,23 @@
       ]
     },
     {
+      "id": "cabral-brasil",
+      "title": "Cabral oppdager Brasil",
+      "description": "Portugal gjør krav på Sør-Amerikas største land.",
+      "startDate": 1500,
+      "endDate": null,
+      "displayDate": "1500",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "kolonialisering",
+      "link": "/historie/kolonialisering/portugisisk-kolonialisering",
+      "tags": [
+        "oppdagelse",
+        "portugal",
+        "brasil"
+      ]
+    },
+    {
       "id": "boktrykkerkunsten-sub-2",
       "title": "Masseproduksjon",
       "description": "Over 20 millioner bøker er trykket i Europa.",
@@ -1291,23 +1447,6 @@
         "teknologi",
         "renessansen",
         "bøker"
-      ]
-    },
-    {
-      "id": "cabral-brasil",
-      "title": "Cabral oppdager Brasil",
-      "description": "Portugal gjør krav på Sør-Amerikas største land.",
-      "startDate": 1500,
-      "endDate": null,
-      "displayDate": "1500",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "kolonialisering",
-      "link": "/historie/kolonialisering/portugisisk-kolonialisering",
-      "tags": [
-        "oppdagelse",
-        "portugal",
-        "brasil"
       ]
     },
     {
@@ -1342,6 +1481,25 @@
         "renessansen",
         "litteratur",
         "utopi"
+      ]
+    },
+    {
+      "id": "martin-luther",
+      "title": "Martin Luther og reformasjonen",
+      "description": "En munk, en hammer og en kirkedør: Hvordan 95 setninger i 1517 splittet kristendommen i to.",
+      "startDate": 1517,
+      "endDate": 1555,
+      "displayDate": "1517-1555",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "reformasjonen",
+      "link": "/historie/reformasjonen/martin-luther",
+      "tags": [
+        "reformasjonen",
+        "luther",
+        "religion",
+        "europa",
+        "1500-tallet"
       ]
     },
     {
@@ -1431,6 +1589,26 @@
       ]
     },
     {
+      "id": "reformasjonen-i-norge",
+      "title": "Reformasjonen i Norge",
+      "description": "Hvordan en dansk konge tvang fram protestantismen i Norge i 1537 — og samtidig avskaffet det norske riket.",
+      "startDate": 1536,
+      "endDate": 1537,
+      "displayDate": "1536-1537",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "reformasjonen",
+      "link": "/historie/reformasjonen/reformasjonen-i-norge",
+      "tags": [
+        "reformasjonen",
+        "norge",
+        "christian-iii",
+        "olav-engelbrektsson",
+        "danmark-norge",
+        "1500-tallet"
+      ]
+    },
+    {
       "id": "potosi-silver",
       "title": "Sølvfunnet i Potosí",
       "description": "Verdens største sølvforekomst oppdages i dagens Bolivia, og finansierer det spanske imperiet.",
@@ -1501,6 +1679,23 @@
       ]
     },
     {
+      "id": "voc-founding",
+      "title": "VOC stiftes",
+      "description": "Det nederlandske ostindiske kompani blir verdens første aksjeselskap og symboliserer starten på det nederlandske hegemoniet.",
+      "startDate": 1602,
+      "endDate": null,
+      "displayDate": "1602",
+      "type": "sub-event",
+      "subjectId": "samfunnskunnskap",
+      "topicId": "ideer-og-verdenssyn",
+      "link": "/samfunnskunnskap/ideer-og-verdenssyn/store-sykluser",
+      "tags": [
+        "økonomi",
+        "handel",
+        "nederland"
+      ]
+    },
+    {
       "id": "voc",
       "title": "Det nederlandske ostindiske kompani (VOC)",
       "description": "Verdens første aksjeselskap og et globalt handelsimperium.",
@@ -1519,20 +1714,54 @@
       ]
     },
     {
-      "id": "voc-founding",
-      "title": "VOC stiftes",
-      "description": "Det nederlandske ostindiske kompani blir verdens første aksjeselskap og symboliserer starten på det nederlandske hegemoniet.",
-      "startDate": 1602,
+      "id": "jamestown",
+      "title": "Jamestown grunnlegges",
+      "description": "Første permanente engelske koloni i Amerika.",
+      "startDate": 1607,
       "endDate": null,
-      "displayDate": "1602",
+      "displayDate": "1607",
       "type": "sub-event",
-      "subjectId": "samfunnskunnskap",
-      "topicId": "ideer-og-verdenssyn",
-      "link": "/samfunnskunnskap/ideer-og-verdenssyn/store-sykluser",
+      "subjectId": "historie",
+      "topicId": "kolonialisering",
+      "link": "/historie/kolonialisering/britisk-imperium",
       "tags": [
-        "økonomi",
-        "handel",
-        "nederland"
+        "kolonialisering",
+        "usa",
+        "storbritannia"
+      ]
+    },
+    {
+      "id": "quebec",
+      "title": "Quebec grunnlegges",
+      "description": "Starten på Det franske Nord-Amerika.",
+      "startDate": 1608,
+      "endDate": null,
+      "displayDate": "1608",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "kolonialisering",
+      "link": "/historie/kolonialisering/fransk-kolonirike",
+      "tags": [
+        "kolonialisering",
+        "frankrike",
+        "nord-amerika"
+      ]
+    },
+    {
+      "id": "praha-defenestrasjon-1618",
+      "title": "Defenestrasjonen i Praha",
+      "description": "Tre embetsmenn kastes ut av et vindu, noe som blir den utløsende årsaken til 30-årskrigen.",
+      "startDate": 1618,
+      "endDate": null,
+      "displayDate": "1618",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "ideer-og-verdenssyn",
+      "link": "/samfunnskunnskap/ideer-og-verdenssyn/casus-belli",
+      "tags": [
+        "reformasjonen",
+        "krig",
+        "europa"
       ]
     },
     {
@@ -1551,23 +1780,6 @@
         "krig",
         "europa",
         "reformasjonen"
-      ]
-    },
-    {
-      "id": "praha-defenestrasjon-1618",
-      "title": "Defenestrasjonen i Praha",
-      "description": "Tre embetsmenn kastes ut av et vindu, noe som blir den utløsende årsaken til 30-årskrigen.",
-      "startDate": 1618,
-      "endDate": null,
-      "displayDate": "1618",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "ideer-og-verdenssyn",
-      "link": "/samfunnskunnskap/ideer-og-verdenssyn/casus-belli",
-      "tags": [
-        "reformasjonen",
-        "krig",
-        "europa"
       ]
     },
     {
@@ -1674,23 +1886,6 @@
     },
     {
       "id": "locke-treatises",
-      "title": "To avhandlinger om styresettet",
-      "description": "John Locke legger grunnlaget for liberalismen og maktfordeling.",
-      "startDate": 1689,
-      "endDate": null,
-      "displayDate": "1689",
-      "type": "sub-event",
-      "subjectId": "krle",
-      "topicId": "filosofi",
-      "link": "/krle/filosofi/locke",
-      "tags": [
-        "filosofi",
-        "politikk",
-        "empirisme"
-      ]
-    },
-    {
-      "id": "locke-treatises",
       "title": "John Locke: Two Treatises",
       "description": "John Locke utgir sitt viktigste politiske verk om naturlige rettigheter og samfunnskontrakten.",
       "startDate": 1689,
@@ -1704,6 +1899,43 @@
         "filosofi",
         "opplysningstiden",
         "rettigheter"
+      ]
+    },
+    {
+      "id": "sikhisme-khalsa-grunnleggelse",
+      "title": "Khalsa-fellesskapet grunnlegges",
+      "description": "Den tiende guruen, Guru Gobind Singh, etablerer Khalsa-fellesskapet ved Vaisakhi-feiringen. Dette gir sikhismen en tydeligere identitet og ytre kjennetegn.",
+      "startDate": 1699,
+      "endDate": null,
+      "displayDate": "1699",
+      "type": "sub-event",
+      "tags": [
+        "religion",
+        "sikhisme",
+        "ritual"
+      ],
+      "subjectId": "krle",
+      "topicId": "religion",
+      "link": "/krle/religion/sikhisme/sentrale-trekk"
+    },
+    {
+      "id": "dampmaskinen",
+      "title": "Dampmaskinen: oppfinnelsen som forandret alt",
+      "description": "Hvordan James Watt og den separate kondensatoren ga verden flyttbar kraft og startet den industrielle revolusjonen for alvor.",
+      "startDate": 1712,
+      "endDate": 1825,
+      "displayDate": "1712-1825",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "industriell-revolusjon",
+      "link": "/historie/industriell-revolusjon/dampmaskinen",
+      "tags": [
+        "historie",
+        "industri",
+        "dampmaskin",
+        "james-watt",
+        "teknologi",
+        "1700-tallet"
       ]
     },
     {
@@ -1741,6 +1973,24 @@
       ]
     },
     {
+      "id": "sju-aars-krigen",
+      "title": "Sjuårskrigen",
+      "description": "Global konflikt som sikrer britisk dominans.",
+      "startDate": 1756,
+      "endDate": 1763,
+      "displayDate": "1756 - 1763",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "kolonialisering",
+      "link": "/historie/kolonialisering/fransk-kolonirike",
+      "tags": [
+        "kolonialisering",
+        "krig",
+        "frankrike",
+        "storbritannia"
+      ]
+    },
+    {
       "id": "eic-sub-1",
       "title": "Slaget ved Plassey",
       "description": "Robert Clive beseirer herskeren av Bengal, starten på britisk styre.",
@@ -1756,6 +2006,25 @@
         "imperialisme",
         "india",
         "storbritannia"
+      ]
+    },
+    {
+      "id": "industriell-revolusjon",
+      "title": "Industriell Revolusjon",
+      "description": "Fra bonde- til industrisamfunn.",
+      "startDate": 1760,
+      "endDate": 1840,
+      "displayDate": "1760-1840",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "industriell-revolusjon",
+      "link": "/historie/industriell-revolusjon/industriell-revolusjon",
+      "tags": [
+        "historie",
+        "industri",
+        "england",
+        "dampmaskin",
+        "1800-tallet"
       ]
     },
     {
@@ -1776,6 +2045,118 @@
       ]
     },
     {
+      "id": "napoleon",
+      "title": "Napoleon Bonaparte",
+      "description": "Fra korsikansk soldat til keiser til eksil på Sankt Helena: hvordan Napoleon var både reformator og diktator, og hvorfor Code Civil overlevde ham.",
+      "startDate": 1769,
+      "endDate": 1821,
+      "displayDate": "1769-1821",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "den-franske-revolusjon",
+      "link": "/historie/den-franske-revolusjon/napoleon",
+      "tags": [
+        "frankrike",
+        "napoleon",
+        "code-civil",
+        "keiser",
+        "1800-tallet",
+        "europa"
+      ]
+    },
+    {
+      "id": "usa-frigjoring-sub-0",
+      "title": "The Boston Tea Party",
+      "description": "Protest mot britiske skatter.",
+      "startDate": 1773,
+      "endDate": null,
+      "displayDate": "1773",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/usa-frigjoring",
+      "tags": [
+        "historie",
+        "dekolonisering",
+        "usa",
+        "revolusjon"
+      ]
+    },
+    {
+      "id": "usa-frigjoring",
+      "title": "USA: Den første dominobrikken",
+      "description": "Hvordan 13 kolonier slo verdens mektigste imperium.",
+      "startDate": 1776,
+      "endDate": 1783,
+      "displayDate": "1776-1783",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/usa-frigjoring",
+      "tags": [
+        "historie",
+        "dekolonisering",
+        "usa",
+        "revolusjon"
+      ]
+    },
+    {
+      "id": "usa-frigjoring-sub-1",
+      "title": "Uavhengighetserklæringen",
+      "description": "4. juli: USA erklærer seg uavhengige.",
+      "startDate": 1776,
+      "endDate": null,
+      "displayDate": "1776",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/usa-frigjoring",
+      "tags": [
+        "historie",
+        "dekolonisering",
+        "usa",
+        "revolusjon"
+      ]
+    },
+    {
+      "id": "barnearbeid",
+      "title": "Barnearbeid i fabrikkene",
+      "description": "Hvordan barn helt ned i fem år bar den industrielle revolusjonen på smale skuldre - og hvordan lovene endelig kom.",
+      "startDate": 1780,
+      "endDate": 1880,
+      "displayDate": "1780-1880",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "industriell-revolusjon",
+      "link": "/historie/industriell-revolusjon/barnearbeid",
+      "tags": [
+        "historie",
+        "industri",
+        "england",
+        "barnearbeid",
+        "etikk",
+        "1800-tallet"
+      ]
+    },
+    {
+      "id": "usa-frigjoring-sub-2",
+      "title": "Parisavtalen",
+      "description": "Storbritannia anerkjenner USA som egen nasjon.",
+      "startDate": 1783,
+      "endDate": null,
+      "displayDate": "1783",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/usa-frigjoring",
+      "tags": [
+        "historie",
+        "dekolonisering",
+        "usa",
+        "revolusjon"
+      ]
+    },
+    {
       "id": "kant-moral",
       "title": "Grunnlegging av moralens metafysikk",
       "description": "Immanuel Kant formulerer det kategoriske imperativ.",
@@ -1793,13 +2174,32 @@
       ]
     },
     {
+      "id": "intro",
+      "title": "Den franske revolusjon",
+      "description": "En kort introduksjon til hendelsene 1789-1799 og hvordan de formet moderne demokrati.",
+      "startDate": 1789,
+      "endDate": 1799,
+      "displayDate": "1789-1799",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "den-franske-revolusjon",
+      "link": "/historie/den-franske-revolusjon/intro",
+      "tags": [
+        "frankrike",
+        "revolusjon",
+        "opplysningstid",
+        "menneskerettigheter",
+        "1700-tallet"
+      ]
+    },
+    {
       "id": "stormingen-av-bastillen",
       "title": "Stormingen av Bastillen",
-      "description": "Folkemengden i Paris stormer festningen Bastillen. Dagen blir starten på den franske revolusjon og senere Frankrikes nasjonaldag.",
+      "description": "14. juli 1789: Hvordan en gammel festning ble symbolet på at folket selv kunne velte en konge.",
       "startDate": 1789,
       "endDate": null,
-      "displayDate": "14. juli 1789",
-      "type": "event",
+      "displayDate": "1789",
+      "type": "lesson",
       "subjectId": "historie",
       "topicId": "den-franske-revolusjon",
       "link": "/historie/den-franske-revolusjon/stormingen-av-bastillen",
@@ -1807,7 +2207,191 @@
         "frankrike",
         "revolusjon",
         "bastillen",
-        "1700-tallet"
+        "1789",
+        "1700-tallet",
+        "menneskerettigheter"
+      ]
+    },
+    {
+      "id": "usa-frigjoring-sub-3",
+      "title": "Grunnloven",
+      "description": "USA får sin konstitusjon og George Washington blir president.",
+      "startDate": 1789,
+      "endDate": null,
+      "displayDate": "1789",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/usa-frigjoring",
+      "tags": [
+        "historie",
+        "dekolonisering",
+        "usa",
+        "revolusjon"
+      ]
+    },
+    {
+      "id": "haiti",
+      "title": "Haiti: Den glemte revolusjonen",
+      "description": "Det eneste vellykkede slaveopprøret i historien.",
+      "startDate": 1791,
+      "endDate": 1804,
+      "displayDate": "1791-1804",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/haiti",
+      "tags": [
+        "historie",
+        "dekolonisering",
+        "haiti",
+        "slaveri"
+      ]
+    },
+    {
+      "id": "haiti-sub-0",
+      "title": "Slaveopprøret starter",
+      "description": "Voodoo-seremonien ved Bois Caïman tenner gnisten.",
+      "startDate": 1791,
+      "endDate": null,
+      "displayDate": "1791",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/haiti",
+      "tags": [
+        "historie",
+        "dekolonisering",
+        "haiti",
+        "slaveri"
+      ]
+    },
+    {
+      "id": "robespierre-og-skrekkveldet",
+      "title": "Robespierre og skrekkveldet",
+      "description": "Hvordan en idealistisk advokat ble leder for det blodigste året i den franske revolusjon.",
+      "startDate": 1793,
+      "endDate": 1794,
+      "displayDate": "1793-1794",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "den-franske-revolusjon",
+      "link": "/historie/den-franske-revolusjon/robespierre-og-skrekkveldet",
+      "tags": [
+        "frankrike",
+        "revolusjon",
+        "robespierre",
+        "skrekkveldet",
+        "1700-tallet",
+        "etikk"
+      ]
+    },
+    {
+      "id": "haiti-sub-1",
+      "title": "Frankrike avskaffer slaveriet",
+      "description": "Et forsøk på å beholde kontrollen over kolonien.",
+      "startDate": 1794,
+      "endDate": null,
+      "displayDate": "1794",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/haiti",
+      "tags": [
+        "historie",
+        "dekolonisering",
+        "haiti",
+        "slaveri"
+      ]
+    },
+    {
+      "id": "haiti-sub-2",
+      "title": "Napoleon slår tilbake",
+      "description": "Sender en hær for å gjeninnføre slaveriet.",
+      "startDate": 1802,
+      "endDate": null,
+      "displayDate": "1802",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/haiti",
+      "tags": [
+        "historie",
+        "dekolonisering",
+        "haiti",
+        "slaveri"
+      ]
+    },
+    {
+      "id": "haiti-sub-3",
+      "title": "Uavhengighet",
+      "description": "Jean-Jacques Dessalines erklærer Haiti fritt.",
+      "startDate": 1804,
+      "endDate": null,
+      "displayDate": "1804",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/haiti",
+      "tags": [
+        "historie",
+        "dekolonisering",
+        "haiti",
+        "slaveri"
+      ]
+    },
+    {
+      "id": "latin-amerika",
+      "title": "Latin-Amerika: Bolívars Drøm",
+      "description": "Elitenes frigjøring og drømmen som brast.",
+      "startDate": 1808,
+      "endDate": 1833,
+      "displayDate": "1808-1833",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/latin-amerika",
+      "tags": [
+        "historie",
+        "dekolonisering",
+        "latin-amerika",
+        "bolivar"
+      ]
+    },
+    {
+      "id": "latin-amerika-sub-0",
+      "title": "Napoleon invaderer Spania",
+      "description": "Maktvakuum i koloniene.",
+      "startDate": 1808,
+      "endDate": null,
+      "displayDate": "1808",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/latin-amerika",
+      "tags": [
+        "historie",
+        "dekolonisering",
+        "latin-amerika",
+        "bolivar"
+      ]
+    },
+    {
+      "id": "latin-amerika-sub-1",
+      "title": "Revolusjonene starter",
+      "description": "Juntaer tar makten i Caracas og Buenos Aires.",
+      "startDate": 1810,
+      "endDate": null,
+      "displayDate": "1810",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/latin-amerika",
+      "tags": [
+        "historie",
+        "dekolonisering",
+        "latin-amerika",
+        "bolivar"
       ]
     },
     {
@@ -1861,6 +2445,24 @@
       ]
     },
     {
+      "id": "grunnloven",
+      "title": "Grunnloven 1814",
+      "description": "Hvordan 112 menn på Eidsvoll skrev en grunnlov som fortsatt styrer Norge.",
+      "startDate": 1814,
+      "endDate": null,
+      "displayDate": "1814",
+      "type": "lesson",
+      "subjectId": "samfunnskunnskap",
+      "topicId": "styringsformer",
+      "link": "/samfunnskunnskap/styringsformer/grunnloven",
+      "tags": [
+        "norge",
+        "demokrati",
+        "rettsstat",
+        "1814"
+      ]
+    },
+    {
       "id": "napoleon-end",
       "title": "Slutten på Napoleonskrigene",
       "description": "Slaget ved Waterloo markerer slutten på Frankrikes utfordring og starten på Pax Britannica “ Storbritannias hundreårige fred.",
@@ -1878,6 +2480,42 @@
       ]
     },
     {
+      "id": "latin-amerika-sub-2",
+      "title": "Gran Colombia",
+      "description": "Bolívar grunnlegger en storrepublikk.",
+      "startDate": 1819,
+      "endDate": null,
+      "displayDate": "1819",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/latin-amerika",
+      "tags": [
+        "historie",
+        "dekolonisering",
+        "latin-amerika",
+        "bolivar"
+      ]
+    },
+    {
+      "id": "latin-amerika-sub-3",
+      "title": "Slaget ved Ayacucho",
+      "description": "Det siste spanske nederlaget i Sør-Amerika.",
+      "startDate": 1824,
+      "endDate": null,
+      "displayDate": "1824",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/latin-amerika",
+      "tags": [
+        "historie",
+        "dekolonisering",
+        "latin-amerika",
+        "bolivar"
+      ]
+    },
+    {
       "id": "new-harmony-owen",
       "title": "New Harmony grunnlegges",
       "description": "Robert Owen forsøker å skape et utopisk sosialistisk samfunn i USA.",
@@ -1892,6 +2530,26 @@
         "ideologi",
         "usa",
         "utopi"
+      ]
+    },
+    {
+      "id": "jernbanen",
+      "title": "Jernbanen: maskinen som krympet verden",
+      "description": "Hvordan damplokomotivet kuttet reisetid fra dager til timer, tvang fram standardtid, og bygde nettverket som forvandlet industrien til et samfunn.",
+      "startDate": 1825,
+      "endDate": 1909,
+      "displayDate": "1825-1909",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "industriell-revolusjon",
+      "link": "/historie/industriell-revolusjon/jernbanen",
+      "tags": [
+        "historie",
+        "industri",
+        "jernbanen",
+        "transport",
+        "teknologi",
+        "1800-tallet"
       ]
     },
     {
@@ -1954,7 +2612,25 @@
       "displayDate": "1845",
       "type": "text",
       "subjectId": "norsk",
-      "link": "/norsk/bibliotek?text=piken-med-svovelstikkene"
+      "link": "/norsk/bibliotek?text=piken-med-svovelstikkene",
+      "tags": []
+    },
+    {
+      "id": "fagforeninger",
+      "title": "Fra ufrihet til organisering",
+      "description": "Fra industrielle opprør til den norske modellen. Oppdag kampen som ga oss dagens rettigheter.",
+      "startDate": 1848,
+      "endDate": null,
+      "displayDate": "1848",
+      "type": "lesson",
+      "subjectId": "samfunnskunnskap",
+      "topicId": "arbeidsliv",
+      "link": "/samfunnskunnskap/arbeidsliv/fagforeninger",
+      "tags": [
+        "arbeidsliv",
+        "historie",
+        "fagforening"
+      ]
     },
     {
       "id": "crystal-palace",
@@ -2052,7 +2728,8 @@
       "displayDate": "1860",
       "type": "text",
       "subjectId": "norsk",
-      "link": "/norsk/bibliotek?text=faderen"
+      "link": "/norsk/bibliotek?text=faderen",
+      "tags": []
     },
     {
       "id": "eic-sub-4",
@@ -2073,6 +2750,25 @@
       ]
     },
     {
+      "id": "jim-crow-lovene",
+      "title": "Jim Crow: «Separate but equal»",
+      "description": "Vannfontener, busser og drømmer – slik delte Jim Crow-lovene det amerikanske sør.",
+      "startDate": 1877,
+      "endDate": 1965,
+      "displayDate": "1877–1965",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/jim-crow-lovene",
+      "tags": [
+        "usa",
+        "segregering",
+        "borgerrettigheter",
+        "delte-samfunn",
+        "martin-luther-king"
+      ]
+    },
+    {
       "id": "en-middag",
       "title": "En middag",
       "description": "Utgitt av Alexander Kielland",
@@ -2081,7 +2777,8 @@
       "displayDate": "1879",
       "type": "text",
       "subjectId": "norsk",
-      "link": "/norsk/bibliotek?text=en-middag"
+      "link": "/norsk/bibliotek?text=en-middag",
+      "tags": []
     },
     {
       "id": "karen",
@@ -2092,7 +2789,8 @@
       "displayDate": "1882",
       "type": "text",
       "subjectId": "norsk",
-      "link": "/norsk/bibliotek?text=karen"
+      "link": "/norsk/bibliotek?text=karen",
+      "tags": []
     },
     {
       "id": "nietzsche-zarathustra",
@@ -2121,6 +2819,112 @@
       "type": "text",
       "subjectId": "norsk",
       "link": "/norsk/bibliotek?text=dypfryst"
+    },
+    {
+      "id": "kongo-sub-0",
+      "title": "Kong Leopolds private eiendom",
+      "description": "Kongo Free State etableres. Terrorvelde.",
+      "startDate": 1885,
+      "endDate": null,
+      "displayDate": "1885",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/kongo",
+      "tags": [
+        "historie",
+        "dekolonisering",
+        "kongo",
+        "kald-krig"
+      ]
+    },
+    {
+      "id": "karens-jul",
+      "title": "Karens jul",
+      "description": "Utgitt av Amalie Skram",
+      "startDate": 1885,
+      "endDate": null,
+      "displayDate": "1885",
+      "type": "text",
+      "subjectId": "norsk",
+      "link": "/norsk/bibliotek?text=karens-jul",
+      "tags": []
+    },
+    {
+      "id": "fandango",
+      "title": "Fandango",
+      "description": "Utgitt av Vilhelm Krag",
+      "startDate": 1890,
+      "endDate": null,
+      "displayDate": "1890",
+      "type": "text",
+      "subjectId": "norsk",
+      "link": "/norsk/bibliotek?text=fandango",
+      "tags": []
+    },
+    {
+      "id": "sult-utdrag",
+      "title": "Sult (Utdrag)",
+      "description": "Utgitt av Knut Hamsun",
+      "startDate": 1890,
+      "endDate": null,
+      "displayDate": "1890",
+      "type": "text",
+      "subjectId": "norsk",
+      "link": "/norsk/bibliotek?text=sult-utdrag",
+      "tags": []
+    },
+    {
+      "id": "isak-og-bronopresten",
+      "title": "Isak og Brønnøypresten",
+      "description": "Utgitt av Jonas Lie",
+      "startDate": 1891,
+      "endDate": null,
+      "displayDate": "1891",
+      "type": "text",
+      "subjectId": "norsk",
+      "link": "/norsk/bibliotek?text=isak-og-bronopresten",
+      "tags": []
+    },
+    {
+      "id": "jeg-ser",
+      "title": "Jeg ser",
+      "description": "Utgitt av Sigbjørn Obstfelder",
+      "startDate": 1893,
+      "endDate": null,
+      "displayDate": "1893",
+      "type": "text",
+      "subjectId": "norsk",
+      "link": "/norsk/bibliotek?text=jeg-ser",
+      "tags": []
+    },
+    {
+      "id": "haugtussa-utdrag",
+      "title": "Haugtussa (Til deg, du hei)",
+      "description": "Utgitt av Arne Garborg",
+      "startDate": 1895,
+      "endDate": null,
+      "displayDate": "1895",
+      "type": "text",
+      "subjectId": "norsk",
+      "link": "/norsk/bibliotek?text=haugtussa-utdrag",
+      "tags": []
+    },
+    {
+      "id": "opptakt",
+      "title": "Opptakten",
+      "description": "Skuddene i Sarajevo og veien mot krig.",
+      "startDate": 1900,
+      "endDate": 1914,
+      "displayDate": "1900–1914",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "forste-verdenskrig",
+      "link": "/historie/forste-verdenskrig/opptakt",
+      "tags": [
+        "geopolitikk",
+        "opptakt"
+      ]
     },
     {
       "id": "union-dissolution-1905",
@@ -2222,6 +3026,59 @@
       ]
     },
     {
+      "id": "midtoesten",
+      "title": "Det nye Midtøsten",
+      "description": "Da kartet ble tegnet: Sykes-Picot og mandatsystemet.",
+      "startDate": 1916,
+      "endDate": 1939,
+      "displayDate": "1916-1939",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "mellomkrigstiden",
+      "link": "/historie/mellomkrigstiden/midtoesten",
+      "tags": [
+        "midtøsten",
+        "geopolitikk",
+        "mandat"
+      ]
+    },
+    {
+      "id": "midtosten-mandater",
+      "title": "Midtøsten: Streker i sanden",
+      "description": "Sykes-Picot, Osmanrikets fall og løftebruddene.",
+      "startDate": 1916,
+      "endDate": 1948,
+      "displayDate": "1916-1948",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/midtosten-mandater",
+      "tags": [
+        "historie",
+        "dekolonisering",
+        "midtøsten",
+        "osmanriket"
+      ]
+    },
+    {
+      "id": "midtosten-mandater-sub-0",
+      "title": "Sykes-Picot-avtalen",
+      "description": "Hemmelig avtale mellom Storbritannia og Frankrike.",
+      "startDate": 1916,
+      "endDate": null,
+      "displayDate": "1916",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/midtosten-mandater",
+      "tags": [
+        "historie",
+        "dekolonisering",
+        "midtøsten",
+        "osmanriket"
+      ]
+    },
+    {
       "id": "bolsjevik-revolusjon",
       "title": "Bolsjevik-revolusjonen",
       "description": "Lenin tar makten i Russland.",
@@ -2254,20 +3111,21 @@
       ]
     },
     {
-      "id": "bakgrunn",
-      "title": "Bakgrunn",
-      "description": "Bakgrunnen for krigen.",
-      "startDate": 1918,
-      "endDate": 1939,
-      "displayDate": "1918“1939",
-      "type": "lesson",
+      "id": "midtosten-mandater-sub-1",
+      "title": "Balfour-erklæringen",
+      "description": "Storbritannia støtter et jødisk hjemland i Palestina.",
+      "startDate": 1917,
+      "endDate": null,
+      "displayDate": "1917",
+      "type": "sub-event",
       "subjectId": "historie",
-      "topicId": "andre-verdenskrig",
-      "link": "/historie/andre-verdenskrig/bakgrunn",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/midtosten-mandater",
       "tags": [
-        "krig",
         "historie",
-        "konflikt"
+        "dekolonisering",
+        "midtøsten",
+        "osmanriket"
       ]
     },
     {
@@ -2287,6 +3145,76 @@
       ]
     },
     {
+      "id": "norge",
+      "title": "Klassekamp i Norge",
+      "description": "Menstad-slaget og grunnlaget for velferdsstaten.",
+      "startDate": 1918,
+      "endDate": 1939,
+      "displayDate": "1918-1939",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "mellomkrigstiden",
+      "link": "/historie/mellomkrigstiden/norge",
+      "tags": [
+        "norge",
+        "politikk",
+        "velferdsstat"
+      ]
+    },
+    {
+      "id": "kultur",
+      "title": "Modernismens eksplosjon",
+      "description": "Kultur og vitenskap: Fra Einstein til Bauhaus.",
+      "startDate": 1918,
+      "endDate": 1939,
+      "displayDate": "1918-1939",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "mellomkrigstiden",
+      "link": "/historie/mellomkrigstiden/kultur",
+      "tags": [
+        "kultur",
+        "modernisme",
+        "vitenskap",
+        "media",
+        "propaganda"
+      ]
+    },
+    {
+      "id": "tyskland",
+      "title": "Fra Weimar til mørke",
+      "description": "Tyskland: Hyperinflasjon og Hitlers vei til makten.",
+      "startDate": 1918,
+      "endDate": 1933,
+      "displayDate": "1918-1933",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "mellomkrigstiden",
+      "link": "/historie/mellomkrigstiden/tyskland",
+      "tags": [
+        "tyskland",
+        "nazi",
+        "politikk"
+      ]
+    },
+    {
+      "id": "japan",
+      "title": "Solens rike i øst",
+      "description": "Japan: Fra modernisme til militarisme.",
+      "startDate": 1918,
+      "endDate": 1941,
+      "displayDate": "1918-1941",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "mellomkrigstiden",
+      "link": "/historie/mellomkrigstiden/japan",
+      "tags": [
+        "japan",
+        "militarisme",
+        "krig"
+      ]
+    },
+    {
       "id": "versailles-traktaten",
       "title": "Versailles-traktaten",
       "description": "Den offisielle fredsavtalen signeres.",
@@ -2300,6 +3228,92 @@
       "tags": [
         "fred",
         "diplomati"
+      ]
+    },
+    {
+      "id": "bakgrunn",
+      "title": "Geopolitikk og Opptakt",
+      "description": "Veien mot krig: Hitler, Versailles og appeasement.",
+      "startDate": 1919,
+      "endDate": 1939,
+      "displayDate": "1919–1939",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "andre-verdenskrig",
+      "link": "/historie/andre-verdenskrig/bakgrunn",
+      "tags": [
+        "geopolitikk",
+        "bakgrunn"
+      ]
+    },
+    {
+      "id": "usa",
+      "title": "The Roaring Twenties",
+      "description": "USA i mellomkrigstiden: Fra fest til depresjon.",
+      "startDate": 1919,
+      "endDate": 1939,
+      "displayDate": "1919-1939",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "mellomkrigstiden",
+      "link": "/historie/mellomkrigstiden/usa",
+      "tags": [
+        "usa",
+        "økonomi",
+        "jazz"
+      ]
+    },
+    {
+      "id": "italia",
+      "title": "Fascismens fødsel",
+      "description": "Mussolini og veien mot totalitær makt.",
+      "startDate": 1919,
+      "endDate": 1939,
+      "displayDate": "1919-1939",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "mellomkrigstiden",
+      "link": "/historie/mellomkrigstiden/italia",
+      "tags": [
+        "italia",
+        "fascisme",
+        "politikk"
+      ]
+    },
+    {
+      "id": "india",
+      "title": "India: Sjelenes frigjøring",
+      "description": "Gandhi, ikke-vold og den blodige delingen.",
+      "startDate": 1919,
+      "endDate": 1947,
+      "displayDate": "1919-1947",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/india",
+      "tags": [
+        "historie",
+        "dekolonisering",
+        "india",
+        "gandhi"
+      ]
+    },
+    {
+      "id": "india-sub-0",
+      "title": "Amritsar-massakren",
+      "description": "Britiske soldater skyter mot ubevæpnede demonstranter.",
+      "startDate": 1919,
+      "endDate": null,
+      "displayDate": "1919",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/india",
+      "tags": [
+        "historie",
+        "dekolonisering",
+        "india",
+        "gandhi"
       ]
     },
     {
@@ -2318,6 +3332,58 @@
         "belfast",
         "delte-samfunn",
         "the-troubles"
+      ]
+    },
+    {
+      "id": "folkeforbundet",
+      "title": "Drømmen om fred",
+      "description": "Folkeforbundet: Idealismen som feilet.",
+      "startDate": 1920,
+      "endDate": 1939,
+      "displayDate": "1920-1939",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "mellomkrigstiden",
+      "link": "/historie/mellomkrigstiden/folkeforbundet",
+      "tags": [
+        "politikk",
+        "fred",
+        "diplomati"
+      ]
+    },
+    {
+      "id": "midtosten-mandater-sub-2",
+      "title": "San Remo-konferansen",
+      "description": "Mandatområdene opprettes (Frankrike får Syria/Libanon, UK får Palestina/Irak).",
+      "startDate": 1920,
+      "endDate": null,
+      "displayDate": "1920",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/midtosten-mandater",
+      "tags": [
+        "historie",
+        "dekolonisering",
+        "midtøsten",
+        "osmanriket"
+      ]
+    },
+    {
+      "id": "sovjet",
+      "title": "Stalins jernhånd",
+      "description": "Soviet under Stalin: Industrialisering og terror.",
+      "startDate": 1924,
+      "endDate": 1939,
+      "displayDate": "1924-1939",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "mellomkrigstiden",
+      "link": "/historie/mellomkrigstiden/sovjet",
+      "tags": [
+        "sovjet",
+        "stalin",
+        "totalitarisme"
       ]
     },
     {
@@ -2352,6 +3418,41 @@
         "pr",
         "media",
         "psykologi"
+      ]
+    },
+    {
+      "id": "borskrakk",
+      "title": "Det store krakket",
+      "description": "Keynes vs. Hayek: Årsaker og løsninger på den økonomiske krisen.",
+      "startDate": 1929,
+      "endDate": 1933,
+      "displayDate": "1929-1933",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "mellomkrigstiden",
+      "link": "/historie/mellomkrigstiden/borskrakk",
+      "tags": [
+        "økonomi",
+        "krise",
+        "børskrakk"
+      ]
+    },
+    {
+      "id": "india-sub-1",
+      "title": "Saltmarsjen",
+      "description": "Gandhi går 40 mil for å lage ulovlig salt.",
+      "startDate": 1930,
+      "endDate": null,
+      "displayDate": "1930",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/india",
+      "tags": [
+        "historie",
+        "dekolonisering",
+        "india",
+        "gandhi"
       ]
     },
     {
@@ -2405,6 +3506,57 @@
       ]
     },
     {
+      "id": "konsentrasjonsleirene",
+      "title": "Konsentrasjonsleirene",
+      "description": "Holocaust og det industrielle massemordet.",
+      "startDate": 1933,
+      "endDate": 1945,
+      "displayDate": "1933–1945",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "andre-verdenskrig",
+      "link": "/historie/andre-verdenskrig/konsentrasjonsleirene",
+      "tags": [
+        "holocaust",
+        "folkemord",
+        "auschwitz"
+      ]
+    },
+    {
+      "id": "konsentrasjonsleirene-sub-0",
+      "title": "Dachau åpnes",
+      "description": "Den første konsentrasjonsleiren etableres for politiske fanger.",
+      "startDate": 1933,
+      "endDate": null,
+      "displayDate": "1933",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "andre-verdenskrig",
+      "link": "/historie/andre-verdenskrig/konsentrasjonsleirene",
+      "tags": [
+        "holocaust",
+        "folkemord",
+        "auschwitz"
+      ]
+    },
+    {
+      "id": "konsentrasjonsleirene-sub-1",
+      "title": "Nürnberglovene",
+      "description": "Jøder fratas statsborgerskap og rettigheter i Tyskland.",
+      "startDate": 1935,
+      "endDate": null,
+      "displayDate": "1935",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "andre-verdenskrig",
+      "link": "/historie/andre-verdenskrig/konsentrasjonsleirene",
+      "tags": [
+        "holocaust",
+        "folkemord",
+        "auschwitz"
+      ]
+    },
+    {
       "id": "anarki-catalonia",
       "title": "Anarkismen i Catalonia",
       "description": "Under den spanske borgerkrigen styres store deler av Catalonia etter anarkistiske prinsipper.",
@@ -2419,6 +3571,40 @@
         "historie",
         "anarkisme",
         "spania"
+      ]
+    },
+    {
+      "id": "spania",
+      "title": "Den spanske borgerkrigen",
+      "description": "Generalprøven på andre verdenskrig.",
+      "startDate": 1936,
+      "endDate": 1939,
+      "displayDate": "1936-1939",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "mellomkrigstiden",
+      "link": "/historie/mellomkrigstiden/spania",
+      "tags": [
+        "spania",
+        "borgerkrig",
+        "ideologi"
+      ]
+    },
+    {
+      "id": "konsentrasjonsleirene-sub-2",
+      "title": "Krystallnatten",
+      "description": "Massivt pogrom mot jøder; tusenvis sendes til leire.",
+      "startDate": 1938,
+      "endDate": null,
+      "displayDate": "1938",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "andre-verdenskrig",
+      "link": "/historie/andre-verdenskrig/konsentrasjonsleirene",
+      "tags": [
+        "holocaust",
+        "folkemord",
+        "auschwitz"
       ]
     },
     {
@@ -2455,6 +3641,60 @@
       ]
     },
     {
+      "id": "oversikt",
+      "title": "Oversikt",
+      "description": "En introduksjon til andre verdenskrig.",
+      "startDate": 1939,
+      "endDate": 1945,
+      "displayDate": "1939–1945",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "andre-verdenskrig",
+      "link": "/historie/andre-verdenskrig/oversikt",
+      "tags": [
+        "krig",
+        "oversikt",
+        "historie",
+        "fred",
+        "kald-krig",
+        "atomvåpen",
+        "dekolonisering",
+        "kart"
+      ]
+    },
+    {
+      "id": "krigens-lop",
+      "title": "Krigens løp",
+      "description": "Fra Blitzkrieg til atombomben.",
+      "startDate": 1939,
+      "endDate": 1945,
+      "displayDate": "1939–1945",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "andre-verdenskrig",
+      "link": "/historie/andre-verdenskrig/krigens-lop",
+      "tags": [
+        "krigføring",
+        "slag"
+      ]
+    },
+    {
+      "id": "teknologi",
+      "title": "Teknologi",
+      "description": "Radar, Enigma og atombomben.",
+      "startDate": 1939,
+      "endDate": 1945,
+      "displayDate": "1939–1945",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "andre-verdenskrig",
+      "link": "/historie/andre-verdenskrig/teknologi",
+      "tags": [
+        "teknologi",
+        "våpen"
+      ]
+    },
+    {
       "id": "angrepet-pa-norge",
       "title": "Angrepet på Norge",
       "description": "Tyskland invaderer Norge.",
@@ -2468,6 +3708,58 @@
       "tags": [
         "norge",
         "krig"
+      ]
+    },
+    {
+      "id": "konsentrasjonsleirene-sub-3",
+      "title": "Auschwitz I",
+      "description": "Stamleiren i Auschwitz åpnes, først for polske fanger.",
+      "startDate": 1940,
+      "endDate": null,
+      "displayDate": "1940",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "andre-verdenskrig",
+      "link": "/historie/andre-verdenskrig/konsentrasjonsleirene",
+      "tags": [
+        "holocaust",
+        "folkemord",
+        "auschwitz"
+      ]
+    },
+    {
+      "id": "sorost-asia",
+      "title": "Sørøst-Asia: Vakuumet etter Japan",
+      "description": "Hvordan myten om hvit overlegenhet ble knust.",
+      "startDate": 1940,
+      "endDate": 1954,
+      "displayDate": "1940-1954",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/sorost-asia",
+      "tags": [
+        "historie",
+        "dekolonisering",
+        "indonesia",
+        "vietnam"
+      ]
+    },
+    {
+      "id": "konsentrasjonsleirene-sub-4",
+      "title": "Aktion T4",
+      "description": "Eutanasi-programmet som ble en forløper til gasskamrene.",
+      "startDate": 1941,
+      "endDate": null,
+      "displayDate": "1941",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "andre-verdenskrig",
+      "link": "/historie/andre-verdenskrig/konsentrasjonsleirene",
+      "tags": [
+        "holocaust",
+        "folkemord",
+        "auschwitz"
       ]
     },
     {
@@ -2504,6 +3796,59 @@
       ]
     },
     {
+      "id": "konsentrasjonsleirene-sub-5",
+      "title": "Wannsee-konferansen",
+      "description": "Nazistene planlegger 'den endelige løsningen'; utryddelsesleirene settes i full drift.",
+      "startDate": 1942,
+      "endDate": null,
+      "displayDate": "1942",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "andre-verdenskrig",
+      "link": "/historie/andre-verdenskrig/konsentrasjonsleirene",
+      "tags": [
+        "holocaust",
+        "folkemord",
+        "auschwitz"
+      ]
+    },
+    {
+      "id": "india-sub-2",
+      "title": "Quit India Movement",
+      "description": "Massiv sivil ulydighet under 2. verdenskrig.",
+      "startDate": 1942,
+      "endDate": null,
+      "displayDate": "1942",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/india",
+      "tags": [
+        "historie",
+        "dekolonisering",
+        "india",
+        "gandhi"
+      ]
+    },
+    {
+      "id": "sorost-asia-sub-0",
+      "title": "Singapore faller",
+      "description": "Japan overtar europeiske kolonier lynraskt.",
+      "startDate": 1942,
+      "endDate": null,
+      "displayDate": "1942",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/sorost-asia",
+      "tags": [
+        "historie",
+        "dekolonisering",
+        "indonesia",
+        "vietnam"
+      ]
+    },
+    {
       "id": "bretton-woods",
       "title": "Bretton Woods-konferansen",
       "description": "Grunnlaget for den moderne verdensøkonomien legges, med dollaren som den globale reservevalutaen under USAs ledelse.",
@@ -2537,6 +3882,23 @@
       ]
     },
     {
+      "id": "konsentrasjonsleirene-sub-6",
+      "title": "Dødsmarsjene",
+      "description": "Evakuering av leirene foran de fremrykkende allierte.",
+      "startDate": 1944,
+      "endDate": null,
+      "displayDate": "1944",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "andre-verdenskrig",
+      "link": "/historie/andre-verdenskrig/konsentrasjonsleirene",
+      "tags": [
+        "holocaust",
+        "folkemord",
+        "auschwitz"
+      ]
+    },
+    {
       "id": "atombombene",
       "title": "Atombombene over Japan",
       "description": "Hiroshima og Nagasaki bombes, krigen slutter.",
@@ -2550,24 +3912,6 @@
       "tags": [
         "krig",
         "teknologi"
-      ]
-    },
-    {
-      "id": "atomvapenkapplopet",
-      "title": "Atomvåpenkappløpet",
-      "description": "Terrorbalanse og kampen for overlevelse.",
-      "startDate": 1945,
-      "endDate": 1991,
-      "displayDate": "1945“1991",
-      "type": "lesson",
-      "subjectId": "historie",
-      "topicId": "den-kalde-krigen",
-      "link": "/historie/den-kalde-krigen/atomvapenkapplopet",
-      "tags": [
-        "atomvåpen",
-        "mad",
-        "nedrustning",
-        "kappløp"
       ]
     },
     {
@@ -2588,7 +3932,7 @@
       ]
     },
     {
-      "id": "kultur",
+      "id": "kultur-kald-krig",
       "title": "Kultur under den kalde krigen",
       "description": "Film, sport og musikk som ideologisk slagmark.",
       "startDate": 1945,
@@ -2606,7 +3950,7 @@
       ]
     },
     {
-      "id": "oversikt",
+      "id": "oversikt-kald-krig",
       "title": "Oversikt over den kalde krigen",
       "description": "Hva var den kalde krigen, og hvorfor skjedde den?",
       "startDate": 1945,
@@ -2625,6 +3969,57 @@
       ]
     },
     {
+      "id": "fn",
+      "title": "Forente Nasjoner (FN)",
+      "description": "Verdens sikkerhetsråd og kampen for fred etter 1945.",
+      "startDate": 1945,
+      "endDate": null,
+      "displayDate": "1945 - i dag",
+      "type": "lesson",
+      "subjectId": "samfunnskunnskap",
+      "topicId": "ideer-og-verdenssyn",
+      "link": "/samfunnskunnskap/ideer-og-verdenssyn/fn",
+      "tags": [
+        "historie",
+        "politikk",
+        "samfunn",
+        "fn"
+      ]
+    },
+    {
+      "id": "konsentrasjonsleirene-sub-7",
+      "title": "Frigjøringen",
+      "description": "Allierte styrker frigjør leirene og avslører grusomhetene.",
+      "startDate": 1945,
+      "endDate": null,
+      "displayDate": "1945",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "andre-verdenskrig",
+      "link": "/historie/andre-verdenskrig/konsentrasjonsleirene",
+      "tags": [
+        "holocaust",
+        "folkemord",
+        "auschwitz"
+      ]
+    },
+    {
+      "id": "konsekvenser",
+      "title": "Konsekvenser",
+      "description": "Den kalde krigen og FN.",
+      "startDate": 1945,
+      "endDate": 1991,
+      "displayDate": "1945–1991",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "andre-verdenskrig",
+      "link": "/historie/andre-verdenskrig/konsekvenser",
+      "tags": [
+        "konsekvenser",
+        "politikk"
+      ]
+    },
+    {
       "id": "oversikt-sub-0",
       "title": "Den kalde krigen starter",
       "description": "Oppløsningen av alliansen mot Nazityskland.",
@@ -2636,17 +4031,50 @@
       "topicId": "den-kalde-krigen",
       "link": "/historie/den-kalde-krigen/oversikt",
       "tags": [
-        "oversikt",
-        "ideologi",
-        "stormakt",
-        "usa",
-        "sovjet"
+        "historie",
+        "kald-krig",
+        "atomvåpen"
+      ]
+    },
+    {
+      "id": "atomvapenkapplopet",
+      "title": "Atomvåpenkappløpet",
+      "description": "Terrorbalanse og frykten for dommedag.",
+      "startDate": 1945,
+      "endDate": 1991,
+      "displayDate": "1945–1991",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "den-kalde-krigen",
+      "link": "/historie/den-kalde-krigen/atomvapenkapplopet",
+      "tags": [
+        "teknologi",
+        "atomvåpen",
+        "frykt"
+      ]
+    },
+    {
+      "id": "sorost-asia-sub-1",
+      "title": "Maktvakuum",
+      "description": "Japan overgir seg. Nasjonalister erklærer uavhengighet.",
+      "startDate": 1945,
+      "endDate": null,
+      "displayDate": "1945",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/sorost-asia",
+      "tags": [
+        "historie",
+        "dekolonisering",
+        "indonesia",
+        "vietnam"
       ]
     },
     {
       "id": "oversikt-sub-1",
       "title": "Jernteppet-talen",
-      "description": "Churchill advarer mot sovjetisk dominans i æ˜st-Europa.",
+      "description": "Churchill advarer mot sovjetisk dominans i Øst-Europa.",
       "startDate": 1946,
       "endDate": null,
       "displayDate": "1946",
@@ -2655,11 +4083,45 @@
       "topicId": "den-kalde-krigen",
       "link": "/historie/den-kalde-krigen/oversikt",
       "tags": [
-        "oversikt",
-        "ideologi",
-        "stormakt",
-        "usa",
-        "sovjet"
+        "historie",
+        "kald-krig",
+        "atomvåpen"
+      ]
+    },
+    {
+      "id": "frigjoringskrigene",
+      "title": "Algerie & Vietnam: Krigens vei",
+      "description": "Når kolonimakten nekter å dra.",
+      "startDate": 1946,
+      "endDate": 1962,
+      "displayDate": "1946-1962",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/frigjoringskrigene",
+      "tags": [
+        "historie",
+        "dekolonisering",
+        "krig",
+        "algerie"
+      ]
+    },
+    {
+      "id": "frigjoringskrigene-sub-0",
+      "title": "Indokina-krigen starter",
+      "description": "Ho Chi Minh kjemper mot fransk retur.",
+      "startDate": 1946,
+      "endDate": null,
+      "displayDate": "1946",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/frigjoringskrigene",
+      "tags": [
+        "historie",
+        "dekolonisering",
+        "krig",
+        "algerie"
       ]
     },
     {
@@ -2674,11 +4136,45 @@
       "topicId": "den-kalde-krigen",
       "link": "/historie/den-kalde-krigen/oversikt",
       "tags": [
-        "oversikt",
-        "ideologi",
-        "stormakt",
-        "usa",
-        "sovjet"
+        "historie",
+        "kald-krig",
+        "atomvåpen"
+      ]
+    },
+    {
+      "id": "india-sub-3",
+      "title": "Uavhengighet og Deling",
+      "description": "India og Pakistan blir to stater.",
+      "startDate": 1947,
+      "endDate": null,
+      "displayDate": "1947",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/india",
+      "tags": [
+        "historie",
+        "dekolonisering",
+        "india",
+        "gandhi"
+      ]
+    },
+    {
+      "id": "ghana-panafrikanisme-sub-0",
+      "title": "UGCC dannes",
+      "description": "Det første nasjonalistpartiet i Gullkysten.",
+      "startDate": 1947,
+      "endDate": null,
+      "displayDate": "1947",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/ghana-panafrikanisme",
+      "tags": [
+        "historie",
+        "dekolonisering",
+        "afrika",
+        "ghana"
       ]
     },
     {
@@ -2711,44 +4207,6 @@
       ]
     },
     {
-      "id": "oversikt-sub-3",
-      "title": "Marshallplanen",
-      "description": "æ˜konomisk hjelp til gjenoppbygging av Europa.",
-      "startDate": 1948,
-      "endDate": null,
-      "displayDate": "1948",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "den-kalde-krigen",
-      "link": "/historie/den-kalde-krigen/oversikt",
-      "tags": [
-        "oversikt",
-        "ideologi",
-        "stormakt",
-        "usa",
-        "sovjet"
-      ]
-    },
-    {
-      "id": "oversikt-sub-4",
-      "title": "Berlin-blokaden",
-      "description": "Sovjet stenger veiene til Berlin; luftbroen starter.",
-      "startDate": 1948,
-      "endDate": null,
-      "displayDate": "1948",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "den-kalde-krigen",
-      "link": "/historie/den-kalde-krigen/oversikt",
-      "tags": [
-        "oversikt",
-        "ideologi",
-        "stormakt",
-        "usa",
-        "sovjet"
-      ]
-    },
-    {
       "id": "un-human-rights",
       "title": "FNs menneskerettserklæring",
       "description": "Etter andre verdenskrig samler verden seg om universelle rettigheter for alle mennesker “ en seier for humanistiske verdier.",
@@ -2766,6 +4224,89 @@
       ]
     },
     {
+      "id": "oversikt-sub-3",
+      "title": "Marshallplanen",
+      "description": "Økonomisk hjelp til gjenoppbygging av Europa.",
+      "startDate": 1948,
+      "endDate": null,
+      "displayDate": "1948",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "den-kalde-krigen",
+      "link": "/historie/den-kalde-krigen/oversikt",
+      "tags": [
+        "historie",
+        "kald-krig",
+        "atomvåpen"
+      ]
+    },
+    {
+      "id": "oversikt-sub-4",
+      "title": "Berlin-blokaden",
+      "description": "Sovjet stenger veiene til Berlin; luftbroen starter.",
+      "startDate": 1948,
+      "endDate": null,
+      "displayDate": "1948",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "den-kalde-krigen",
+      "link": "/historie/den-kalde-krigen/oversikt",
+      "tags": [
+        "historie",
+        "kald-krig",
+        "atomvåpen"
+      ]
+    },
+    {
+      "id": "midtosten-mandater-sub-3",
+      "title": "Israel opprettes",
+      "description": "Det britiske mandatet opphører.",
+      "startDate": 1948,
+      "endDate": null,
+      "displayDate": "1948",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/midtosten-mandater",
+      "tags": [
+        "historie",
+        "dekolonisering",
+        "midtøsten",
+        "osmanriket"
+      ]
+    },
+    {
+      "id": "apartheid-syd-afrika",
+      "title": "Apartheid: Et samfunn delt i lov",
+      "description": "Passbøker, townships og 27 år i fengsel – slik delte apartheid Sør-Afrika.",
+      "startDate": 1948,
+      "endDate": 1994,
+      "displayDate": "1948–1994",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/apartheid-syd-afrika",
+      "tags": [
+        "apartheid",
+        "sør-afrika",
+        "segregering",
+        "delte-samfunn",
+        "mandela"
+      ]
+    },
+    {
+      "id": "a-drepe-et-barn",
+      "title": "Å drepe et barn",
+      "description": "Utgitt av Stig Dagerman",
+      "startDate": 1948,
+      "endDate": null,
+      "displayDate": "1948",
+      "type": "text",
+      "subjectId": "norsk",
+      "link": "/norsk/bibliotek?text=a-drepe-et-barn",
+      "tags": []
+    },
+    {
       "id": "beauvoir-kjonn",
       "title": "Det annet kjønn",
       "description": "Simone de Beauvoir analyserer kvinnens stilling: 'Man fødes ikke som kvinne, man blir det'.",
@@ -2780,42 +4321,6 @@
         "filosofi",
         "feminisme",
         "eksistensialisme"
-      ]
-    },
-    {
-      "id": "nato-vs-warszawa",
-      "title": "NATO vs. Warszawapakten",
-      "description": "Alliansene som delte verden i to.",
-      "startDate": 1949,
-      "endDate": 1991,
-      "displayDate": "1949“1991",
-      "type": "lesson",
-      "subjectId": "historie",
-      "topicId": "den-kalde-krigen",
-      "link": "/historie/den-kalde-krigen/nato-vs-warszawa",
-      "tags": [
-        "nato",
-        "warszawapakten",
-        "allianser",
-        "europa"
-      ]
-    },
-    {
-      "id": "nato-vs-warszawa-sub-0",
-      "title": "NATO stiftes",
-      "description": "Forsvarsalliansen mellom vestlige demokratier opprettes.",
-      "startDate": 1949,
-      "endDate": null,
-      "displayDate": "1949",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "den-kalde-krigen",
-      "link": "/historie/den-kalde-krigen/nato-vs-warszawa",
-      "tags": [
-        "nato",
-        "warszawapakten",
-        "allianser",
-        "europa"
       ]
     },
     {
@@ -2836,21 +4341,72 @@
       ]
     },
     {
+      "id": "nato-vs-warszawa",
+      "title": "NATO vs Warszawa",
+      "description": "To mektige allianser står mot hverandre.",
+      "startDate": 1949,
+      "endDate": 1991,
+      "displayDate": "1949–1991",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "den-kalde-krigen",
+      "link": "/historie/den-kalde-krigen/nato-vs-warszawa",
+      "tags": [
+        "allianser",
+        "nato",
+        "geopolitikk"
+      ]
+    },
+    {
+      "id": "nato-vs-warszawa-sub-0",
+      "title": "NATO stiftes",
+      "description": "Forsvarsalliansen mellom vestlige demokratier opprettes.",
+      "startDate": 1949,
+      "endDate": null,
+      "displayDate": "1949",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "den-kalde-krigen",
+      "link": "/historie/den-kalde-krigen/nato-vs-warszawa",
+      "tags": [
+        "allianser",
+        "nato",
+        "geopolitikk"
+      ]
+    },
+    {
+      "id": "sorost-asia-sub-2",
+      "title": "Indonesia fritt",
+      "description": "Nederland gir opp kolonien etter 4 års krig.",
+      "startDate": 1949,
+      "endDate": null,
+      "displayDate": "1949",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/sorost-asia",
+      "tags": [
+        "historie",
+        "dekolonisering",
+        "indonesia",
+        "vietnam"
+      ]
+    },
+    {
       "id": "koreakrigen",
       "title": "Koreakrigen",
-      "description": "Den første store varme krigen i den kalde krigen.",
+      "description": "Den kalde krigen blir varm i Asia.",
       "startDate": 1950,
       "endDate": 1953,
-      "displayDate": "1950“1953",
+      "displayDate": "1950–1953",
       "type": "lesson",
       "subjectId": "historie",
       "topicId": "den-kalde-krigen",
       "link": "/historie/den-kalde-krigen/koreakrigen",
       "tags": [
-        "korea",
         "krig",
-        "proksykrig",
-        "asia"
+        "asia",
+        "proxy-krig"
       ]
     },
     {
@@ -2865,10 +4421,9 @@
       "topicId": "den-kalde-krigen",
       "link": "/historie/den-kalde-krigen/koreakrigen",
       "tags": [
-        "korea",
         "krig",
-        "proksykrig",
-        "asia"
+        "asia",
+        "proxy-krig"
       ]
     },
     {
@@ -2905,6 +4460,24 @@
       ]
     },
     {
+      "id": "frontfagmodellen",
+      "title": "Norges lønnsmaskin",
+      "description": "Motoren i norsk økonomi. Forstå systemet som balanserer lønn, eksport og rettferdighet.",
+      "startDate": 1952,
+      "endDate": null,
+      "displayDate": "1952",
+      "type": "lesson",
+      "subjectId": "samfunnskunnskap",
+      "topicId": "arbeidsliv",
+      "link": "/samfunnskunnskap/arbeidsliv/frontfagmodellen",
+      "tags": [
+        "arbeidsliv",
+        "økonomi",
+        "lønn",
+        "frontfag"
+      ]
+    },
+    {
       "id": "korea-dmz-etablert",
       "title": "DMZ etableres i Korea",
       "description": "Koreakrigen avsluttes med en våpenhvile. En 250 km lang demilitarisert sone deler halvøya. Ingen fredsavtale er signert.",
@@ -2934,28 +4507,64 @@
       "topicId": "den-kalde-krigen",
       "link": "/historie/den-kalde-krigen/koreakrigen",
       "tags": [
-        "korea",
         "krig",
-        "proksykrig",
-        "asia"
+        "asia",
+        "proxy-krig"
       ]
     },
     {
-      "id": "nato-vs-warszawa-sub-1",
-      "title": "Warszawapakten",
-      "description": "Sovjetunionen og æ˜stblokken danner sin egen militærallianse.",
-      "startDate": 1955,
+      "id": "korea-dmz",
+      "title": "DMZ: Grensen verden glemte å åpne",
+      "description": "Den mest militariserte grensen i verden – og et utilsiktet naturreservat.",
+      "startDate": 1953,
       "endDate": null,
-      "displayDate": "1955",
-      "type": "sub-event",
+      "displayDate": "1953–i dag",
+      "type": "lesson",
       "subjectId": "historie",
       "topicId": "den-kalde-krigen",
-      "link": "/historie/den-kalde-krigen/nato-vs-warszawa",
+      "link": "/historie/den-kalde-krigen/korea-dmz",
       "tags": [
-        "nato",
-        "warszawapakten",
-        "allianser",
-        "europa"
+        "korea",
+        "asia",
+        "konflikt",
+        "delte-samfunn",
+        "atomvåpen"
+      ]
+    },
+    {
+      "id": "sorost-asia-sub-3",
+      "title": "Dien Bien Phu",
+      "description": "Frankrike lider nederlag i Vietnam.",
+      "startDate": 1954,
+      "endDate": null,
+      "displayDate": "1954",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/sorost-asia",
+      "tags": [
+        "historie",
+        "dekolonisering",
+        "indonesia",
+        "vietnam"
+      ]
+    },
+    {
+      "id": "frigjoringskrigene-sub-1",
+      "title": "Dien Bien Phu",
+      "description": "Fransk nederlag i Vietnam. Krigen i Algerie starter samme år.",
+      "startDate": 1954,
+      "endDate": null,
+      "displayDate": "1954",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/frigjoringskrigene",
+      "tags": [
+        "historie",
+        "dekolonisering",
+        "krig",
+        "algerie"
       ]
     },
     {
@@ -2977,27 +4586,43 @@
       ]
     },
     {
+      "id": "nato-vs-warszawa-sub-1",
+      "title": "Warszawapakten",
+      "description": "Sovjetunionen og Østblokken danner sin egen militærallianse.",
+      "startDate": 1955,
+      "endDate": null,
+      "displayDate": "1955",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "den-kalde-krigen",
+      "link": "/historie/den-kalde-krigen/nato-vs-warszawa",
+      "tags": [
+        "allianser",
+        "nato",
+        "geopolitikk"
+      ]
+    },
+    {
       "id": "vietnamkrigen",
       "title": "Vietnamkrigen",
-      "description": "En splittende krig som rystet supermakten USA.",
+      "description": "En supermakt kjører seg fast i jungelen.",
       "startDate": 1955,
       "endDate": 1975,
-      "displayDate": "1955“1975",
+      "displayDate": "1955–1975",
       "type": "lesson",
       "subjectId": "historie",
       "topicId": "den-kalde-krigen",
       "link": "/historie/den-kalde-krigen/vietnamkrigen",
       "tags": [
-        "vietnam",
         "krig",
-        "usa",
+        "asia",
         "protest"
       ]
     },
     {
       "id": "suez-krisen",
-      "title": "Suez-krisen",
-      "description": "Konflikten om kanalen og slutten på de gamle imperiene.",
+      "title": "Suezkrisen",
+      "description": "Når gamle stormakter mister grepet.",
       "startDate": 1956,
       "endDate": null,
       "displayDate": "1956",
@@ -3006,10 +4631,9 @@
       "topicId": "den-kalde-krigen",
       "link": "/historie/den-kalde-krigen/suez-krisen",
       "tags": [
-        "suez",
-        "kris",
-        "egypt",
-        "imperialisme"
+        "midtøsten",
+        "konflikt",
+        "fn"
       ]
     },
     {
@@ -3024,28 +4648,26 @@
       "topicId": "den-kalde-krigen",
       "link": "/historie/den-kalde-krigen/suez-krisen",
       "tags": [
-        "suez",
-        "kris",
-        "egypt",
-        "imperialisme"
+        "midtøsten",
+        "konflikt",
+        "fn"
       ]
     },
     {
       "id": "romkapplopet",
       "title": "Romkappløpet",
-      "description": "Mannen på månen og kampen om verdensrommet.",
+      "description": "Kampen om stjernene: Sputnik og Apollo.",
       "startDate": 1957,
       "endDate": 1975,
-      "displayDate": "1957“1975",
+      "displayDate": "1957–1975",
       "type": "lesson",
       "subjectId": "historie",
       "topicId": "den-kalde-krigen",
       "link": "/historie/den-kalde-krigen/romkapplopet",
       "tags": [
+        "teknologi",
         "romfart",
-        "sputnik",
-        "apollo",
-        "teknologi"
+        "prestisje"
       ]
     },
     {
@@ -3060,10 +4682,63 @@
       "topicId": "den-kalde-krigen",
       "link": "/historie/den-kalde-krigen/romkapplopet",
       "tags": [
+        "teknologi",
         "romfart",
-        "sputnik",
-        "apollo",
-        "teknologi"
+        "prestisje"
+      ]
+    },
+    {
+      "id": "ghana-panafrikanisme",
+      "title": "Ghana & Pan-Afrikanismen",
+      "description": "Nkrumah og drømmen om et forent Afrika.",
+      "startDate": 1957,
+      "endDate": 1966,
+      "displayDate": "1957-1966",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/ghana-panafrikanisme",
+      "tags": [
+        "historie",
+        "dekolonisering",
+        "afrika",
+        "ghana"
+      ]
+    },
+    {
+      "id": "ghana-panafrikanisme-sub-1",
+      "title": "Uavhengighet",
+      "description": "Gullkysten blir til Ghana.",
+      "startDate": 1957,
+      "endDate": null,
+      "displayDate": "1957",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/ghana-panafrikanisme",
+      "tags": [
+        "historie",
+        "dekolonisering",
+        "afrika",
+        "ghana"
+      ]
+    },
+    {
+      "id": "frigjoringskrigene-sub-2",
+      "title": "Slaget om Alger",
+      "description": "Urban geriljakrig og fransk bruk av tortur.",
+      "startDate": 1957,
+      "endDate": null,
+      "displayDate": "1957",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/frigjoringskrigene",
+      "tags": [
+        "historie",
+        "dekolonisering",
+        "krig",
+        "algerie"
       ]
     },
     {
@@ -3084,39 +4759,39 @@
       ]
     },
     {
-      "id": "berlinmuren",
-      "title": "Berlinmuren",
-      "description": "Symbolet på det delte Europa.",
-      "startDate": 1961,
-      "endDate": 1989,
-      "displayDate": "1961“1989",
+      "id": "kongo",
+      "title": "Kongo: Kaos i hjertet av Afrika",
+      "description": "Lumumba, CIA og ressursforbannelsen.",
+      "startDate": 1960,
+      "endDate": 1965,
+      "displayDate": "1960-1965",
       "type": "lesson",
       "subjectId": "historie",
-      "topicId": "den-kalde-krigen",
-      "link": "/historie/den-kalde-krigen/berlinmuren",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/kongo",
       "tags": [
-        "berlin",
-        "mur",
-        "tyskland",
-        "jernteppet"
+        "historie",
+        "dekolonisering",
+        "kongo",
+        "kald-krig"
       ]
     },
     {
-      "id": "berlinmuren-sub-0",
-      "title": "Berlinmuren bygges",
-      "description": "Grensene i Berlin stenges brått natt til 13. august.",
-      "startDate": 1961,
+      "id": "kongo-sub-1",
+      "title": "30. juni: Uavhengighet",
+      "description": "Belgia trekker seg ut over natten. Lumumba blir statsminister.",
+      "startDate": 1960,
       "endDate": null,
-      "displayDate": "1961",
+      "displayDate": "1960",
       "type": "sub-event",
       "subjectId": "historie",
-      "topicId": "den-kalde-krigen",
-      "link": "/historie/den-kalde-krigen/berlinmuren",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/kongo",
       "tags": [
-        "berlin",
-        "mur",
-        "tyskland",
-        "jernteppet"
+        "historie",
+        "dekolonisering",
+        "kongo",
+        "kald-krig"
       ]
     },
     {
@@ -3148,58 +4823,98 @@
       "topicId": "den-kalde-krigen",
       "link": "/historie/den-kalde-krigen/romkapplopet",
       "tags": [
+        "teknologi",
         "romfart",
-        "sputnik",
-        "apollo",
-        "teknologi"
+        "prestisje"
       ]
     },
     {
-      "id": "cuba-krisen",
-      "title": "Cuba-krisen",
-      "description": "De 13 dagene som nesten avsluttet verden.",
-      "startDate": 1962,
-      "endDate": null,
-      "displayDate": "1962",
+      "id": "berlinmuren",
+      "title": "Berlinmuren",
+      "description": "Symbolet på skillet mellom Øst og vest.",
+      "startDate": 1961,
+      "endDate": 1989,
+      "displayDate": "1961–1989",
       "type": "lesson",
       "subjectId": "historie",
       "topicId": "den-kalde-krigen",
-      "link": "/historie/den-kalde-krigen/cuba-krisen",
+      "link": "/historie/den-kalde-krigen/berlinmuren",
       "tags": [
-        "cuba",
-        "atomvåpen",
-        "kennedy",
-        "khrusjtsjov"
+        "tyskland",
+        "jernteppet",
+        "symbol"
       ]
     },
     {
-      "id": "cuba-krisen-sub-0",
-      "title": "Cuba-krisen",
-      "description": "Verden på kanten av atomragnarok i 13 dager i oktober.",
-      "startDate": 1962,
+      "id": "berlinmuren-sub-0",
+      "title": "Berlinmuren bygges",
+      "description": "Grensene i Berlin stenges brått natt til 13. august.",
+      "startDate": 1961,
       "endDate": null,
-      "displayDate": "1962",
+      "displayDate": "1961",
       "type": "sub-event",
       "subjectId": "historie",
       "topicId": "den-kalde-krigen",
-      "link": "/historie/den-kalde-krigen/cuba-krisen",
+      "link": "/historie/den-kalde-krigen/berlinmuren",
       "tags": [
-        "cuba",
-        "atomvåpen",
-        "kennedy",
-        "khrusjtsjov"
+        "tyskland",
+        "jernteppet",
+        "symbol"
       ]
     },
     {
-      "id": "det-usynlige-barnet",
-      "title": "Det usynlige barnet",
-      "description": "Utgitt av Tove Jansson",
-      "startDate": 1962,
+      "id": "kongo-sub-2",
+      "title": "Lumumba myrdes",
+      "description": "Drept av separatister med hjelp fra Belgia og CIA.",
+      "startDate": 1961,
       "endDate": null,
-      "displayDate": "1962",
-      "type": "text",
-      "subjectId": "norsk",
-      "link": "/norsk/bibliotek?text=det-usynlige-barnet"
+      "displayDate": "1961",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/kongo",
+      "tags": [
+        "historie",
+        "dekolonisering",
+        "kongo",
+        "kald-krig"
+      ]
+    },
+    {
+      "id": "siste-skanse",
+      "title": "Det Siste Imperiet",
+      "description": "Portugals fall og slutten på Apartheid.",
+      "startDate": 1961,
+      "endDate": 1994,
+      "displayDate": "1961-1994",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/siste-skanse",
+      "tags": [
+        "historie",
+        "dekolonisering",
+        "portugal",
+        "apartheid"
+      ]
+    },
+    {
+      "id": "siste-skanse-sub-0",
+      "title": "Krigen i Angola starter",
+      "description": "Portugal nekter å gi slipp på koloniene.",
+      "startDate": 1961,
+      "endDate": null,
+      "displayDate": "1961",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/siste-skanse",
+      "tags": [
+        "historie",
+        "dekolonisering",
+        "portugal",
+        "apartheid"
+      ]
     },
     {
       "id": "rothbard-mes",
@@ -3236,6 +4951,70 @@
       ]
     },
     {
+      "id": "cuba-krisen",
+      "title": "Cubakrisen",
+      "description": "13 dager da verden holdt pusten.",
+      "startDate": 1962,
+      "endDate": null,
+      "displayDate": "1962",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "den-kalde-krigen",
+      "link": "/historie/den-kalde-krigen/cuba-krisen",
+      "tags": [
+        "krise",
+        "diplomati",
+        "kennedy"
+      ]
+    },
+    {
+      "id": "cuba-krisen-sub-0",
+      "title": "Cuba-krisen",
+      "description": "Verden på kanten av atomragnarok i 13 dager i oktober.",
+      "startDate": 1962,
+      "endDate": null,
+      "displayDate": "1962",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "den-kalde-krigen",
+      "link": "/historie/den-kalde-krigen/cuba-krisen",
+      "tags": [
+        "krise",
+        "diplomati",
+        "kennedy"
+      ]
+    },
+    {
+      "id": "frigjoringskrigene-sub-3",
+      "title": "Évian-avtalen",
+      "description": "Algerie blir uavhengig. 900 000 franskmenn flykter.",
+      "startDate": 1962,
+      "endDate": null,
+      "displayDate": "1962",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/frigjoringskrigene",
+      "tags": [
+        "historie",
+        "dekolonisering",
+        "krig",
+        "algerie"
+      ]
+    },
+    {
+      "id": "det-usynlige-barnet",
+      "title": "Det usynlige barnet",
+      "description": "Utgitt av Tove Jansson",
+      "startDate": 1962,
+      "endDate": null,
+      "displayDate": "1962",
+      "type": "text",
+      "subjectId": "norsk",
+      "link": "/norsk/bibliotek?text=det-usynlige-barnet",
+      "tags": []
+    },
+    {
       "id": "arendt-eichmann",
       "title": "Eichmann i Jerusalem",
       "description": "Arendt rapporterer fra rettssaken og lanserer begrepet 'ondskapens banalitet'.",
@@ -3250,6 +5029,24 @@
         "filosofi",
         "etikk",
         "rettferdighet"
+      ]
+    },
+    {
+      "id": "ghana-panafrikanisme-sub-2",
+      "title": "OAU opprettes",
+      "description": "Organisasjonen for afrikansk enhet grunnlegges i Addis Abeba.",
+      "startDate": 1963,
+      "endDate": null,
+      "displayDate": "1963",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/ghana-panafrikanisme",
+      "tags": [
+        "historie",
+        "dekolonisering",
+        "afrika",
+        "ghana"
       ]
     },
     {
@@ -3282,10 +5079,45 @@
       "topicId": "den-kalde-krigen",
       "link": "/historie/den-kalde-krigen/vietnamkrigen",
       "tags": [
-        "vietnam",
         "krig",
-        "usa",
+        "asia",
         "protest"
+      ]
+    },
+    {
+      "id": "kongo-sub-3",
+      "title": "Mobutu tar makten",
+      "description": "Starter et kleptokrati som varer i 30 år.",
+      "startDate": 1965,
+      "endDate": null,
+      "displayDate": "1965",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/kongo",
+      "tags": [
+        "historie",
+        "dekolonisering",
+        "kongo",
+        "kald-krig"
+      ]
+    },
+    {
+      "id": "ghana-panafrikanisme-sub-3",
+      "title": "Kupp mot Nkrumah",
+      "description": "Drømmen om enhet møter harde realiteter.",
+      "startDate": 1966,
+      "endDate": null,
+      "displayDate": "1966",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/ghana-panafrikanisme",
+      "tags": [
+        "historie",
+        "dekolonisering",
+        "afrika",
+        "ghana"
       ]
     },
     {
@@ -3337,10 +5169,28 @@
       "topicId": "den-kalde-krigen",
       "link": "/historie/den-kalde-krigen/romkapplopet",
       "tags": [
+        "teknologi",
         "romfart",
-        "sputnik",
-        "apollo",
-        "teknologi"
+        "prestisje"
+      ]
+    },
+    {
+      "id": "peace-lines-belfast",
+      "title": "Peace Lines: Murene som deler Belfast",
+      "description": "Fra irsk deling i 1920 til 99 murer som fortsatt skiller nabolag i dag.",
+      "startDate": 1969,
+      "endDate": null,
+      "displayDate": "1969–i dag",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "den-kalde-krigen",
+      "link": "/historie/den-kalde-krigen/peace-lines-belfast",
+      "tags": [
+        "irland",
+        "belfast",
+        "konflikt",
+        "delte-samfunn",
+        "the-troubles"
       ]
     },
     {
@@ -3449,6 +5299,43 @@
       ]
     },
     {
+      "id": "kypros-delingslinjen",
+      "title": "Kypros: Europas siste delte by",
+      "description": "Den grønne linjen, spøkelsesbyen Varosha og Nicosia – Europas eneste delte hovedstad.",
+      "startDate": 1974,
+      "endDate": null,
+      "displayDate": "1974–i dag",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "den-kalde-krigen",
+      "link": "/historie/den-kalde-krigen/kypros-delingslinjen",
+      "tags": [
+        "kypros",
+        "europa",
+        "konflikt",
+        "delte-samfunn",
+        "tyrkia"
+      ]
+    },
+    {
+      "id": "siste-skanse-sub-1",
+      "title": "Nellikrevolusjonen",
+      "description": "Diktaturet i Portugal faller. Koloniene får frihet.",
+      "startDate": 1974,
+      "endDate": null,
+      "displayDate": "1974",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/siste-skanse",
+      "tags": [
+        "historie",
+        "dekolonisering",
+        "portugal",
+        "apartheid"
+      ]
+    },
+    {
       "id": "singer-animal",
       "title": "Animal Liberation",
       "description": "Peter Singer utvider utilitarismen til å inkludere dyr.",
@@ -3477,10 +5364,26 @@
       "topicId": "den-kalde-krigen",
       "link": "/historie/den-kalde-krigen/vietnamkrigen",
       "tags": [
-        "vietnam",
         "krig",
-        "usa",
+        "asia",
         "protest"
+      ]
+    },
+    {
+      "id": "arbeidsrett",
+      "title": "Spillereglene i arbeidslivet",
+      "description": "Spillereglene bak drømmejobben. Lær om arbeidsmiljøloven, rettigheter og plikter.",
+      "startDate": 1977,
+      "endDate": null,
+      "displayDate": "1977",
+      "type": "lesson",
+      "subjectId": "samfunnskunnskap",
+      "topicId": "arbeidsliv",
+      "link": "/samfunnskunnskap/arbeidsliv/arbeidsrett",
+      "tags": [
+        "arbeidsliv",
+        "rettigheter",
+        "lov"
       ]
     },
     {
@@ -3492,24 +5395,24 @@
       "displayDate": "1983",
       "type": "text",
       "subjectId": "norsk",
-      "link": "/norsk/bibliotek?text=mennesker-pa-kafe"
+      "link": "/norsk/bibliotek?text=mennesker-pa-kafe",
+      "tags": []
     },
     {
       "id": "veien-mot-slutt",
       "title": "Veien mot slutten",
-      "description": "Murens fall og Sovjetunionens sammenbrudd.",
+      "description": "Sovjetunionens fall og krigens slutt.",
       "startDate": 1985,
       "endDate": 1991,
-      "displayDate": "1985“1991",
+      "displayDate": "1985–1991",
       "type": "lesson",
       "subjectId": "historie",
       "topicId": "den-kalde-krigen",
       "link": "/historie/den-kalde-krigen/veien-mot-slutt",
       "tags": [
-        "slutt",
-        "gorbatsjov",
-        "1989",
-        "frihet"
+        "politikk",
+        "glasnost",
+        "1989"
       ]
     },
     {
@@ -3524,10 +5427,9 @@
       "topicId": "den-kalde-krigen",
       "link": "/historie/den-kalde-krigen/veien-mot-slutt",
       "tags": [
-        "slutt",
-        "gorbatsjov",
-        "1989",
-        "frihet"
+        "politikk",
+        "glasnost",
+        "1989"
       ]
     },
     {
@@ -3559,10 +5461,9 @@
       "topicId": "den-kalde-krigen",
       "link": "/historie/den-kalde-krigen/berlinmuren",
       "tags": [
-        "berlin",
-        "mur",
         "tyskland",
-        "jernteppet"
+        "jernteppet",
+        "symbol"
       ]
     },
     {
@@ -3601,6 +5502,24 @@
       ]
     },
     {
+      "id": "siste-skanse-sub-2",
+      "title": "Nelson Mandela løslates",
+      "description": "Begynnelsen på slutten for Apartheid.",
+      "startDate": 1990,
+      "endDate": null,
+      "displayDate": "1990",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/siste-skanse",
+      "tags": [
+        "historie",
+        "dekolonisering",
+        "portugal",
+        "apartheid"
+      ]
+    },
+    {
       "id": "veien-mot-slutt-sub-1",
       "title": "Sovjetunionens fall",
       "description": "Unionen oppløses; den kalde krigen er offisielt over.",
@@ -3612,10 +5531,27 @@
       "topicId": "den-kalde-krigen",
       "link": "/historie/den-kalde-krigen/veien-mot-slutt",
       "tags": [
-        "slutt",
-        "gorbatsjov",
-        "1989",
-        "frihet"
+        "politikk",
+        "glasnost",
+        "1989"
+      ]
+    },
+    {
+      "id": "siste-skanse-sub-3",
+      "title": "Det nye Sør-Afrika",
+      "description": "Frie valg. Dekoloniseringen er (nesten) fullført.",
+      "startDate": 1994,
+      "endDate": null,
+      "displayDate": "1994",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/siste-skanse",
+      "tags": [
+        "historie",
+        "dekolonisering",
+        "portugal",
+        "apartheid"
       ]
     },
     {
@@ -3707,6 +5643,25 @@
       ]
     },
     {
+      "id": "israel-palestina-muren",
+      "title": "Muren på Vestbredden: Sikkerhet eller okkupasjon?",
+      "description": "700 km med betong og gjerde – og to folk med helt ulike svar på hva den betyr.",
+      "startDate": 2002,
+      "endDate": null,
+      "displayDate": "2002–i dag",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/israel-palestina-muren",
+      "tags": [
+        "israel",
+        "palestina",
+        "midtøsten",
+        "delte-samfunn",
+        "okkupasjon"
+      ]
+    },
+    {
       "id": "iraq-2003-casus",
       "title": "Invasjonen av Irak",
       "description": "USA invaderer Irak med påstander om masseødeleggelseswåpen. En Casus Belli som senere ble sterkt kritisert.",
@@ -3726,13 +5681,14 @@
     {
       "id": "hjorten-i-skogbrynet",
       "title": "Hjorten i skogbrynet",
-      "description": "Utgitt av Gunnhild æ˜yehaug",
+      "description": "Utgitt av Gunnhild Øyehaug",
       "startDate": 2008,
       "endDate": null,
       "displayDate": "2008",
       "type": "text",
       "subjectId": "norsk",
-      "link": "/norsk/bibliotek?text=hjorten-i-skogbrynet"
+      "link": "/norsk/bibliotek?text=hjorten-i-skogbrynet",
+      "tags": []
     },
     {
       "id": "twitter-noveller",
@@ -3746,15 +5702,16 @@
       "link": "/norsk/bibliotek?text=twitter-noveller"
     },
     {
-      "id": "doden",
-      "title": "Døden",
-      "description": "Utgitt av Ragnar Hovland",
-      "startDate": 2011,
+      "id": "barsakh",
+      "title": "Barsakh",
+      "description": "Utgitt av Simon Stranger",
+      "startDate": 2009,
       "endDate": null,
-      "displayDate": "2011",
+      "displayDate": "2009",
       "type": "text",
       "subjectId": "norsk",
-      "link": "/norsk/bibliotek?text=doden"
+      "link": "/norsk/bibliotek?text=barsakh",
+      "tags": []
     },
     {
       "id": "eli-pariser-filter-bubble",
@@ -3772,6 +5729,18 @@
         "sosiale-medier",
         "polarisering"
       ]
+    },
+    {
+      "id": "doden",
+      "title": "Døden",
+      "description": "Utgitt av Ragnar Hovland",
+      "startDate": 2011,
+      "endDate": null,
+      "displayDate": "2011",
+      "type": "text",
+      "subjectId": "norsk",
+      "link": "/norsk/bibliotek?text=doden",
+      "tags": []
     },
     {
       "id": "snowden-leaks",
@@ -3826,23 +5795,6 @@
     {
       "id": "chatgpt-launch",
       "title": "ChatGPT lanseres",
-      "description": "Generativ AI introduserer en ny form for sannsynlighetsbasert informasjon som utfordrer tradisjonelle sannhetsbegreper.",
-      "startDate": 2022,
-      "endDate": null,
-      "displayDate": "2022",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "ideer-og-verdenssyn",
-      "link": "/samfunnskunnskap/ideer-og-verdenssyn/sannhetens-historie",
-      "tags": [
-        "teknologi",
-        "fremtid",
-        "sannhet"
-      ]
-    },
-    {
-      "id": "chatgpt-launch",
-      "title": "ChatGPT lanseres",
       "description": "OpenAI lanserer ChatGPT, som starter en bølge av AI-interesse.",
       "startDate": 2022,
       "endDate": null,
@@ -3855,6 +5807,187 @@
         "ai",
         "teknologi",
         "fremtid"
+      ]
+    },
+    {
+      "id": "global-handel-oversikt",
+      "title": "Verden er én maskin",
+      "description": "Hvordan global handel fungerer og hvorfor alle land er avhengige av hverandre.",
+      "startDate": 2024,
+      "endDate": null,
+      "displayDate": "2024",
+      "type": "lesson",
+      "subjectId": "samfunnskunnskap",
+      "topicId": "handel-og-infrastruktur",
+      "link": "/samfunnskunnskap/handel-og-infrastruktur/global-handel-oversikt",
+      "tags": [
+        "handel",
+        "globalisering",
+        "økonomi",
+        "infrastruktur"
+      ]
+    },
+    {
+      "id": "energi-og-rorledninger",
+      "title": "Olje, gass og rørledningene",
+      "description": "Hvordan verdens energi transporteres — og hva som skjer når rørene stenges.",
+      "startDate": 2024,
+      "endDate": null,
+      "displayDate": "2024",
+      "type": "lesson",
+      "subjectId": "samfunnskunnskap",
+      "topicId": "handel-og-infrastruktur",
+      "link": "/samfunnskunnskap/handel-og-infrastruktur/energi-og-rorledninger",
+      "tags": [
+        "energi",
+        "olje",
+        "gass",
+        "rørledninger",
+        "geopolitikk"
+      ]
+    },
+    {
+      "id": "internett-kabler",
+      "title": "Internett på havbunnen",
+      "description": "99 % av internetttrafikken går gjennom undersjøiske kabler. Hva skjer når de kuttes?",
+      "startDate": 2024,
+      "endDate": null,
+      "displayDate": "2024",
+      "type": "lesson",
+      "subjectId": "samfunnskunnskap",
+      "topicId": "handel-og-infrastruktur",
+      "link": "/samfunnskunnskap/handel-og-infrastruktur/internett-kabler",
+      "tags": [
+        "internett",
+        "kabler",
+        "teknologi",
+        "infrastruktur",
+        "geopolitikk"
+      ]
+    },
+    {
+      "id": "mat-og-skipsfart",
+      "title": "Maten din og havet",
+      "description": "90 % av all handel fraktes med skip. Følg maten din fra åker til tallerken — via hav.",
+      "startDate": 2024,
+      "endDate": null,
+      "displayDate": "2024",
+      "type": "lesson",
+      "subjectId": "samfunnskunnskap",
+      "topicId": "handel-og-infrastruktur",
+      "link": "/samfunnskunnskap/handel-og-infrastruktur/mat-og-skipsfart",
+      "tags": [
+        "skipsfart",
+        "mat",
+        "handel",
+        "logistikk"
+      ]
+    },
+    {
+      "id": "saarbare-nettverk",
+      "title": "Når nettverkene brister",
+      "description": "Hva skjer med verden når infrastrukturen svikter? Om sårbarhet, flaskehalser og resiliens.",
+      "startDate": 2024,
+      "endDate": null,
+      "displayDate": "2024",
+      "type": "lesson",
+      "subjectId": "samfunnskunnskap",
+      "topicId": "handel-og-infrastruktur",
+      "link": "/samfunnskunnskap/handel-og-infrastruktur/saarbare-nettverk",
+      "tags": [
+        "sårbarhet",
+        "infrastruktur",
+        "geopolitikk",
+        "sikkerhet"
+      ]
+    },
+    {
+      "id": "lonn-og-ulikhet",
+      "title": "Hvem tjener hva?",
+      "description": "Hvorfor er lønnsforskjellene så små i Norge? Dypdykk i Gini-koeffisient og fordeling.",
+      "startDate": 2024,
+      "endDate": null,
+      "displayDate": "2024",
+      "type": "lesson",
+      "subjectId": "samfunnskunnskap",
+      "topicId": "arbeidsliv",
+      "link": "/samfunnskunnskap/arbeidsliv/lonn-og-ulikhet",
+      "tags": [
+        "arbeidsliv",
+        "økonomi",
+        "ulikhet"
+      ]
+    },
+    {
+      "id": "aldri-godt-nok",
+      "title": "Aldri godt nok",
+      "description": "Utgitt av Karolina",
+      "startDate": 2024,
+      "endDate": null,
+      "displayDate": "2024",
+      "type": "text",
+      "subjectId": "norsk",
+      "link": "/norsk/bibliotek?text=aldri-godt-nok",
+      "tags": []
+    },
+    {
+      "id": "min-leserhistorie",
+      "title": "Min leserhistorie",
+      "description": "Utgitt av Alise (15 år)",
+      "startDate": 2024,
+      "endDate": null,
+      "displayDate": "2024",
+      "type": "text",
+      "subjectId": "norsk",
+      "link": "/norsk/bibliotek?text=min-leserhistorie",
+      "tags": []
+    },
+    {
+      "id": "fremtidens-arbeidsliv",
+      "title": "Roboter, gig og frihet",
+      "description": "Naviger i et arbeidsliv i endring. Om AI, gig-økonomi og ferdighetene du trenger.",
+      "startDate": 2025,
+      "endDate": null,
+      "displayDate": "2025",
+      "type": "lesson",
+      "subjectId": "samfunnskunnskap",
+      "topicId": "arbeidsliv",
+      "link": "/samfunnskunnskap/arbeidsliv/fremtidens-arbeidsliv",
+      "tags": [
+        "arbeidsliv",
+        "fremtid",
+        "ai",
+        "gig"
+      ]
+    },
+    {
+      "id": "ki-botox",
+      "title": "KI er Botox for hjernen",
+      "description": "Utgitt av Andreas Birger Johansen",
+      "startDate": 2025,
+      "endDate": null,
+      "displayDate": "2025",
+      "type": "text",
+      "subjectId": "norsk",
+      "link": "/norsk/bibliotek?text=ki-botox",
+      "tags": []
+    },
+    {
+      "id": "hvordan-drofte",
+      "title": "Hvordan drøfte",
+      "description": "Lær å skrive drøftende tekster som virkelig holder: Påstand, argument, motargument og konklusjon — med eksempler fra alle fag.",
+      "startDate": 2026,
+      "endDate": null,
+      "displayDate": "2026",
+      "type": "lesson",
+      "subjectId": "norsk",
+      "topicId": "skrivehjelp",
+      "link": "/norsk/skrivehjelp/hvordan-drofte",
+      "tags": [
+        "skrivehjelp",
+        "drøfting",
+        "argumentasjon",
+        "saktekst"
       ]
     }
   ]

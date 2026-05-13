@@ -1,18 +1,24 @@
 
 import fs from 'fs';
 import path from 'path';
-import { fileURLToPath } from 'url';
+import { fileURLToPath, pathToFileURL } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const CONTENT_DIR = path.join(__dirname, '../public/content');
-const MANIFEST_PATH = path.join(CONTENT_DIR, 'manifest.json');
-const TEXT_LIBRARY_PATH = path.join(__dirname, '../src/data/textLibraryData.ts');
-const OUTPUT_PATH = path.join(CONTENT_DIR, 'global-timeline.json');
+export const CONTENT_DIR = path.join(__dirname, '../public/content');
+export const MANIFEST_PATH = path.join(CONTENT_DIR, 'manifest.json');
+export const TEXT_ENTRIES_DIR = path.join(__dirname, '../src/data/texts/entries');
+export const MANUAL_PATH = path.join(CONTENT_DIR, 'global-timeline.manual.json');
+export const OUTPUT_PATH = path.join(CONTENT_DIR, 'global-timeline.json');
+
+// Minimum antall tekstbibliotek-events vi forventer å finne. Faller den under dette
+// uten en bevisst sletting av tekster, har sannsynligvis filformatet eller stien
+// endret seg — vi vil heller hard-feile enn å publisere en stille tom tidslinje.
+const TEXT_LIBRARY_MIN_EXPECTED = 5;
 
 // Helper to parse year strings like "1918–1939", "1885", "550 fvt", "-500-476"
-function parseYearString(yearStr) {
+export function parseYearString(yearStr) {
     if (!yearStr) return null;
 
     // Clean string (replace en-dash with hyphen, trim)
@@ -70,41 +76,67 @@ function parseYearString(yearStr) {
     return null;
 }
 
-// Helper to extract text library data using regex
-function extractTextLibraryData() {
-    try {
-        const content = fs.readFileSync(TEXT_LIBRARY_PATH, 'utf-8');
-        const events = [];
-
-        // Regex to find objects with publishedYear
-        // This is a simplified parser and assumes a consistent format
-        const entryRegex = /{\s*id:\s*'([^']+)',[\s\S]*?title:\s*'([^']+)',[\s\S]*?author:\s*'([^']+)',[\s\S]*?publishedYear:\s*(\d{4})/g;
-
-        let match;
-        while ((match = entryRegex.exec(content)) !== null) {
-            events.push({
-                id: match[1],
-                title: match[2],
-                description: `Utgitt av ${match[3]}`,
-                startDate: parseInt(match[4]),
-                endDate: null,
-                displayDate: match[4],
-                type: 'text',
-                subjectId: 'norsk',
-                link: `/norsk/bibliotek?text=${match[1]}`
-            });
-        }
-
-        console.log(`Found ${events.length} text library entries.`);
+// Hent tekstbibliotek-events ved å scanne hver fil under src/data/texts/entries/.
+// Hver fil er én TextEntry; vi plukker id, title, author og publishedYear via regex.
+// Tekster uten publishedYear hoppes stille over (de har ingen plass i tidslinja).
+export function extractTextLibraryData() {
+    const events = [];
+    if (!fs.existsSync(TEXT_ENTRIES_DIR)) {
+        console.warn(`[timeline] Text entries dir not found: ${TEXT_ENTRIES_DIR}`);
         return events;
-    } catch (error) {
-        console.error('Error reading text library:', error);
+    }
+
+    const files = fs.readdirSync(TEXT_ENTRIES_DIR).filter((f) => f.endsWith('.ts'));
+
+    const extract = (content, key) => {
+        // Tolerer både enkle og doble fnutter, og raw numbers for publishedYear.
+        const re = new RegExp(`${key}\\s*:\\s*(?:'([^']+)'|"([^"]+)"|(\\d+))`);
+        const m = content.match(re);
+        if (!m) return null;
+        return m[1] ?? m[2] ?? m[3] ?? null;
+    };
+
+    for (const file of files) {
+        const filePath = path.join(TEXT_ENTRIES_DIR, file);
+        const content = fs.readFileSync(filePath, 'utf-8');
+        const id = extract(content, 'id');
+        const title = extract(content, 'title');
+        const author = extract(content, 'author');
+        const yearStr = extract(content, 'publishedYear');
+        if (!id || !title || !yearStr) continue;
+        const year = parseInt(yearStr, 10);
+        if (!Number.isFinite(year)) continue;
+        events.push({
+            id,
+            title,
+            description: author ? `Utgitt av ${author}` : '',
+            startDate: year,
+            endDate: null,
+            displayDate: String(year),
+            type: 'text',
+            subjectId: 'norsk',
+            link: `/norsk/bibliotek?text=${id}`,
+            tags: [],
+        });
+    }
+
+    console.error(`[timeline] Found ${events.length} text library entries (scanned ${files.length} files).`);
+    return events;
+}
+
+// Les hand-kuraterte events fra manual-fila. Returnerer tom liste hvis fila mangler.
+export function extractManualEvents() {
+    if (!fs.existsSync(MANUAL_PATH)) {
         return [];
     }
+    const raw = JSON.parse(fs.readFileSync(MANUAL_PATH, 'utf-8'));
+    const events = Array.isArray(raw) ? raw : Array.isArray(raw?.events) ? raw.events : [];
+    console.error(`[timeline] Loaded ${events.length} manual events from global-timeline.manual.json`);
+    return events;
 }
 
 // Recursive function to traverse manifest
-function traverseManifest(node, subjectId = null, topicId = null, events = []) {
+export function traverseManifest(node, subjectId = null, topicId = null, events = []) {
     // Set context
     if (node.id && ['norsk', 'samfunnskunnskap', 'historie', 'krle'].includes(node.id)) {
         subjectId = node.id;
@@ -223,54 +255,74 @@ function traverseManifest(node, subjectId = null, topicId = null, events = []) {
     return events;
 }
 
-async function generate() {
-    console.log('Starting timeline generation...');
+export async function generate() {
+    console.log('[timeline] Starting generation...');
 
-    // Use a Map to deduplicate events by ID
     const eventMap = new Map();
+    const counts = { manual: 0, lessons: 0, subEvents: 0, texts: 0, duplicateIds: 0 };
 
-    // Helper to add or merge event
-    const addEvent = (event) => {
+    // addEvent gir manual events forrang: hvis en id allerede finnes, hopper vi
+    // over senere innslag. Manual går derfor først i pipelinen.
+    const addEvent = (event, category) => {
         if (eventMap.has(event.id)) {
+            counts.duplicateIds += 1;
+            // Merge tags konservativt — vi vil ikke miste manuelle tags ved kollisjon
             const existing = eventMap.get(event.id);
-            // Merge tags if new event has them and existing doesn't (or merge arrays)
             if (event.tags && event.tags.length > 0) {
-                const combinedTags = new Set([...(existing.tags || []), ...event.tags]);
-                existing.tags = Array.from(combinedTags);
+                const combined = new Set([...(existing.tags || []), ...event.tags]);
+                existing.tags = Array.from(combined);
             }
-            // Update other fields if they are missing in existing?
-            // Usually the second occurrence (Lesson) has more specific data than the first (Topic)
-            // So maybe we should overwrite some fields?
-            if (!existing.description && event.description) existing.description = event.description;
-        } else {
-            eventMap.set(event.id, event);
+            return;
         }
+        eventMap.set(event.id, event);
+        counts[category] = (counts[category] || 0) + 1;
     };
 
-    // 1. Process Manifest
-    try {
-        const manifestContent = fs.readFileSync(MANIFEST_PATH, 'utf-8');
-        const manifest = JSON.parse(manifestContent);
-        const lessonEvents = traverseManifest(manifest);
-        console.log(`Found ${lessonEvents.length} lesson events (before dedup).`);
-        lessonEvents.forEach(addEvent);
-    } catch (error) {
-        console.error('Error processing manifest:', error);
+    // 1. Manual events (vinner ved id-kollisjon)
+    const manualEvents = extractManualEvents();
+    for (const ev of manualEvents) {
+        addEvent(ev, 'manual');
     }
 
-    // 2. Process Text Library
+    // 2. Manifest + per-lesson timeline[] sub-events
+    const manifest = JSON.parse(fs.readFileSync(MANIFEST_PATH, 'utf-8'));
+    const lessonEvents = traverseManifest(manifest);
+    for (const ev of lessonEvents) {
+        addEvent(ev, ev.type === 'sub-event' ? 'subEvents' : 'lessons');
+    }
+
+    // 3. Text library
     const textEvents = extractTextLibraryData();
-    textEvents.forEach(addEvent);
+    if (textEvents.length < TEXT_LIBRARY_MIN_EXPECTED) {
+        console.error(
+            `[timeline] FATAL: fant kun ${textEvents.length} tekstbibliotek-events ` +
+                `(forventet minst ${TEXT_LIBRARY_MIN_EXPECTED}). Har formatet på src/data/texts/entries/*.ts endret seg?`
+        );
+        process.exit(1);
+    }
+    for (const ev of textEvents) {
+        addEvent(ev, 'texts');
+    }
 
-    // Convert Map to array
-    const allEvents = Array.from(eventMap.values());
+    const allEvents = Array.from(eventMap.values()).sort((a, b) => a.startDate - b.startDate);
 
-    // 3. Sort by start date
-    allEvents.sort((a, b) => a.startDate - b.startDate);
+    const output = {
+        id: 'global-timeline',
+        events: allEvents,
+    };
 
-    // 4. Write output
-    fs.writeFileSync(OUTPUT_PATH, JSON.stringify(allEvents, null, 2));
-    console.log(`Successfully wrote ${allEvents.length} events to ${OUTPUT_PATH}`);
+    // Atomisk skriving: tmp -> rename. Aldri etterlat en halvskrevet fil.
+    const tmpPath = `${OUTPUT_PATH}.tmp`;
+    fs.writeFileSync(tmpPath, JSON.stringify(output, null, 2) + '\n');
+    fs.renameSync(tmpPath, OUTPUT_PATH);
+
+    console.log(
+        `[timeline] Wrote ${allEvents.length} events ` +
+            `(manual=${counts.manual}, lessons=${counts.lessons}, sub-events=${counts.subEvents}, ` +
+            `texts=${counts.texts}, dedupe-skipped=${counts.duplicateIds}) → ${path.relative(process.cwd(), OUTPUT_PATH)}`
+    );
 }
 
-generate();
+if (import.meta.url === pathToFileURL(process.argv[1]).href) {
+    generate();
+}

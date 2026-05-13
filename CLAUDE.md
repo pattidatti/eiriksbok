@@ -552,7 +552,7 @@ A highly realistic 4K cinematic photograph of [scene], [time period].
 3. **Nested section blocks**: The content renderer does not support nested `section` blocks — use `header` blocks for section separation.
 4. **Bold in article text**: Never use `**bold**` in article body text. Use the concepts system.
 5. **Markdown lists in text blocks**: Use `{ "type": "list" }` blocks instead.
-6. **Timeline in article JSON**: Always keep `"timeline": []` in article files. All events go in `global-timeline.json`.
+6. **Timeline-data i artikler**: Sett `year` (eller `date`) på toppnivå i artikkel-JSON-en for at artikkelen skal vises som event i `/tidslinje`. Sub-events for samme artikkel legges i artikkelens `timeline[]`-array (de blir automatisk plukket opp). `public/content/global-timeline.json` regenereres av `scripts/generate-timeline.js` (kjøres som del av `npm run scan:content`) — **ikke rediger fila direkte**. Hand-kuraterte events uten tilhørende leksjon legges i `public/content/global-timeline.manual.json`.
 7. **Learning paths in `lessons`**: Learning paths (`-sti.json`) must be registered under `tools`, not `lessons` in the manifest.
 8. **Relative links in tasks**: Always use absolute paths starting with `/` in learning path task links.
 9. **Mini-spill (3D-motor)**: Egne fallgruver for `userData.solid`-kollisjon, sol/hemi-registrering, dollhouse-tak, prosedyrale plasseringer, hav-overlapp og fysikk-damping er dokumentert i `BUILD_GAME_GUIDE.md` §6.1 og §8. Les de seksjonene før du tester et nytt `preset: 'open'`-spill.

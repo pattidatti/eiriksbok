@@ -113,7 +113,7 @@ Focus on the "Bones" of the JSON structure.
 - **Lists:** Use `{ "type": "list", "items": [...] }`. NEVER use markdown `-` lists.
 
 ### 3. Global Data Sync
-- **Timeline:** Add events to `public/content/global-timeline.json`.
+- **Timeline:** Sett `year` (eller `date`) på artikkel-JSON-objektet for at artikkelen skal havne i `/tidslinje`. Sub-events for samme artikkel legges i artikkelens egen `timeline[]`-array. `global-timeline.json` regenereres automatisk av `npm run scan:content` — **ikke rediger fila direkte**. Hand-kuraterte events uten tilhørende leksjon legges i `public/content/global-timeline.manual.json`.
 - **Glossary & People:** 
     - Add new technical terms to `public/content/concepts/`.
     - Add historical figures to `public/content/people/` (MUST include `lifespan` and `link`).
