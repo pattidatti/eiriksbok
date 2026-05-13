@@ -75,6 +75,7 @@ const CyprusPeaceTalks = lazy(() => import('./content/interactive/CyprusPeaceTal
 const DenStoreAkselerasjonen = lazy(() => import('./content/interactive/DenStoreAkselerasjonen').then(m => ({ default: m.DenStoreAkselerasjonen })));
 const MaktfordelingMatch = lazy(() => import('./content/interactive/MaktfordelingMatch').then(m => ({ default: m.MaktfordelingMatch })));
 const NapoleonsArv = lazy(() => import('./content/interactive/NapoleonsArv').then(m => ({ default: m.NapoleonsArv })));
+const JernbaneReisesammenligning = lazy(() => import('./content/interactive/JernbaneReisesammenligning').then(m => ({ default: m.JernbaneReisesammenligning })));
 
 // Skapende Skriving (Creative Writing)
 const StoryElementMixer = lazy(() => import('./content/interactive/StoryElementMixer').then(m => ({ default: m.StoryElementMixer })));
@@ -202,6 +203,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     DenStoreAkselerasjonen,
     MaktfordelingMatch,
     NapoleonsArv,
+    JernbaneReisesammenligning,
     StoryElementMixer,
     ThemeDigger,
     PlotDNA,
