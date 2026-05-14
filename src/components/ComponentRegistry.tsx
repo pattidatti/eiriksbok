@@ -133,6 +133,7 @@ const SongStructureBuilder = lazy(() => import('../features/music/components/Son
 const ArrangementPlanner = lazy(() => import('../features/music/components/ArrangementPlanner').then(m => ({ default: m.ArrangementPlanner })));
 const SongwriterStudio = lazy(() => import('../features/music/components/SongwriterStudio').then(m => ({ default: m.SongwriterStudio })));
 const ProtestsangAnalyse = lazy(() => import('./content/interactive/ProtestsangAnalyse').then(m => ({ default: m.ProtestsangAnalyse })));
+const NilenFlomSyklus = lazy(() => import('./content/interactive/NilenFlomSyklus').then(m => ({ default: m.NilenFlomSyklus })));
 
 export const componentRegistry: Record<string, React.ComponentType<any>> = {
     // Core
@@ -266,6 +267,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     ArrangementPlanner,
     SongwriterStudio,
     ProtestsangAnalyse,
+    NilenFlomSyklus,
     Gallery,
     gallery: Gallery,
     comparison: Comparison,
