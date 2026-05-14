@@ -1,0 +1,213 @@
+{
+  "id": "mottreformasjonen",
+  "title": "Mottreformasjonen",
+  "description": "Da Luther splittet kirken, slo Roma tilbake: med jesuitter, kirkemøte og forbudte bøker. Slik ble Europa for alltid delt i to.",
+  "layout": "rich",
+  "year": "1540-1648",
+  "category": "Reformasjonen",
+  "readTime": "9 min lesning",
+  "heroImage": "/images/placeholder.webp",
+  "details": [
+    "Kirken svarte på Luther med Tridentinerkonsilet (1545–1563), Jesuittordenen (1540) og Inkvisisjonen.",
+    "Mottreformasjonen var ingen tilbakegang — den var en strategisk fornyelse av Den katolske kirke.",
+    "Resultatet er fortsatt synlig: det religiøse kartet over Europa fra rundt 1650 ligger nesten fast i dag."
+  ],
+  "tags": [
+    "reformasjonen",
+    "katolisisme",
+    "jesuittene",
+    "trento",
+    "europa",
+    "1500-tallet"
+  ],
+  "timeline": [],
+  "content": [
+    {
+      "type": "text",
+      "content": "Året er 1521. En spansk soldat ligger i en seng i Pamplona og hater livet. En kanonkule har knust beinet hans, og han kommer aldri til å gå normalt igjen. Mannen heter Iñigo López de Loyola, og han har drømt om å bli en stor ridder. Nå er den drømmen knust. Mens han venter på at beinet skal gro, ber han om eventyrbøker. Men det eneste sykehuset har, er en biografi om Jesus og fortellinger om helgener. Han leser dem. Og noe rart skjer: en ny drøm tar over. Han skal ikke lenger kjempe for en konge. Han skal kjempe for paven."
+    },
+    {
+      "type": "header",
+      "text": "Kirken får sjokk"
+    },
+    {
+      "type": "text",
+      "content": "Mens Loyola lå og leste, raste reformasjonen i Tyskland. Hvert år meldte nye fyrster og byer overgang til protestantismen. Mer enn halve Tyskland, hele Skandinavia, store deler av Sveits og snart også England, gled vekk fra paven. Inntekter og makt forsvant. Inne i Vatikanet var det mange som lenge nektet å forstå hvor alvorlig krisen var."
+    },
+    {
+      "type": "text",
+      "content": "Men på 1530-tallet ble det klart at Den katolske kirke ikke kunne sitte stille. Den måtte gjøre to ting samtidig: forsvare seg mot Luther, og rydde opp i sine egne problemer. Denne brede fornyelsen kalles mottreformasjonen. Den fikk tre hovedverktøy."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Den unge spanske adelsmannen Ignatius Loyola i seng med skadet bein, leser religiøse bøker ved levende lys",
+      "caption": "Ignatius Loyola i Pamplona, 1521: En kanonkule i beinet sendte ham fra hærveien til klostercellen."
+    },
+    {
+      "type": "header",
+      "text": "Verktøy 1: Tridentinerkonsilet"
+    },
+    {
+      "type": "text",
+      "content": "I 1545 kalte paven sammen et stort kirkemøte i den lille byen Trento i Nord-Italia. Møtet ble en kjempemaraton. Det varte i 18 år, med tre lange pauser, og samlet biskoper, prester og lærde fra hele den katolske verden. Resultatet ble en lang liste vedtak som forklarte nøyaktig hva katolikker tror på."
+    },
+    {
+      "type": "text",
+      "content": "Møtet avviste mange av Luthers påstander punkt for punkt. Frelse kommer ved tro OG gjerninger, ikke ved tro alene. Bibelen er hellig, men kirkens gamle tradisjon er en like viktig kilde til sannhet. Det finnes sju sakramenter, ikke to. Paven er kirkens øverste leder, slik han alltid har vært. Samtidig vedtok møtet noe Luther hadde rett i: avlatshandel ble forbudt, prester skulle utdannes ordentlig, og hvert bispedømme måtte starte egne seminarer."
+    },
+    {
+      "type": "component",
+      "name": "FactBox",
+      "props": {
+        "title": "Hva er et konsil?",
+        "content": "Et konsil er et stort kirkemøte der biskoper fra hele kirken samles for å bestemme lære og regler. Tridentinerkonsilet (1545–1563) regnes som det viktigste i kirkens historie etter konsilet i Nikea i år 325."
+      }
+    },
+    {
+      "type": "header",
+      "text": "Verktøy 2: Jesuittene"
+    },
+    {
+      "type": "text",
+      "content": "Mens biskopene møttes i Trento, hadde Loyola allerede satt sin nye drøm ut i livet. I 1540 godkjente paven en helt ny munkeorden: Jesu Selskap, eller jesuittene. Ordenen var bygd som en hær. Den hadde en «general» på toppen, militær lydighet, og et fjerde løfte ved siden av de vanlige munkeløftene: absolutt troskap til paven. Hvor paven enn pekte, skulle jesuitten reise."
+    },
+    {
+      "type": "text",
+      "content": "Jesuittene ble pavens skarpeste våpen. De grunnla skoler over hele Europa og ble snart kjent for å gi den beste utdanningen man kunne få. Også protestantiske familier sendte sønnene sine dit. Andre jesuitter reiste lenger: til India, Kina, Japan, Brasil og Paraguay. Misjonæren Frans Xavier døpte over hundre tusen mennesker i Asia. I Sør-Amerika bygget jesuittene egne misjoner — landsbyer der nyomvendte indianere fikk bo, lære og arbeide under jesuittenes beskyttelse."
+    },
+    {
+      "type": "header",
+      "text": "Verktøy 3: Inkvisisjon og forbudte bøker"
+    },
+    {
+      "type": "text",
+      "content": "Det tredje verktøyet var hardere. Kirken hadde lenge hatt domstoler som dømte folk for kjetteri, men nå ble disse skjerpet. I 1542 opprettet paven Den romerske inkvisisjonen, og i Spania hadde inkvisisjonen allerede operert i nesten et hundreår. Forhør, tortur og bål skulle skremme folk fra å tenke protestantiske tanker."
+    },
+    {
+      "type": "text",
+      "content": "I 1559 fikk verden også en helt ny ting: en offisiell liste over bøker katolikker ikke fikk lese. Den het Index Librorum Prohibitorum — den forbudte-bok-listen. Verker av Luther, Kalvin og senere blant andre Galileo, Descartes og Voltaire havnet på lista. Bøker ble brent på torgene, trykkerier ble stengt, og hver biskop fikk plikt til å sjekke hva som ble solgt i sitt område. Listen ble ikke avskaffet før i 1966."
+    },
+    {
+      "type": "component",
+      "name": "MottreformasjonsVerktoy",
+      "props": {
+        "title": "Pavens verktøykasse"
+      }
+    },
+    {
+      "type": "header",
+      "text": "Kunsten som rebrand"
+    },
+    {
+      "type": "text",
+      "content": "Mottreformasjonen var ikke bare regler og forbud. Den var også sanser. Mens protestantene fjernet bilder og statuer fra kirkene sine, gikk katolikkene motsatt vei. De dekorerte tak og vegger med dramatiske malerier, gylne altertavler og lysspill som skulle få den troende til å gispe. Denne nye stilen fikk navnet barokk."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Innsiden av en barokk katolsk kirke med gylne altertavler, store malerier og solstråler gjennom kuppelen",
+      "caption": "En barokk kirke skulle treffe sansene før hodet rakk å tvile. Lys, gull og dramatiske malerier var det katolske svaret på Luthers nakne prekestoler og enkle ord."
+    },
+    {
+      "type": "text",
+      "content": "Komponister som Palestrina skrev musikk som skulle løfte deg mot himmelen. Malere som Caravaggio og Bernini viste Bibelens fortellinger som om de skjedde nå, med blod, smerte og henrykkelse. Tanken var enkel: hvis Luther bygget sin kirke på det skrevne ordet, skulle Roma bygge sin på opplevelsen. Den som ble tatt av en katolsk gudstjeneste, ville aldri gå over til de tørre protestantene."
+    },
+    {
+      "type": "header",
+      "text": "Kartet som frøs fast"
+    },
+    {
+      "type": "text",
+      "content": "Resultatet av hundre års mottreformasjon var slående. Polen, Ungarn, Bayern og Frankrike forble eller ble igjen helt katolske. Spania og Italia ble strengere katolske enn noensinne. Sør-Tyskland og Østerrike vant kirken tilbake. Skandinavia, Nord-Tyskland, Nederland, Skottland og England forble protestantiske."
+    },
+    {
+      "type": "text",
+      "content": "Den geografiske delingen ble forseglet med blod i [30-årskrigen](/historie/reformasjonen/30-aarskrigen) (1618–1648). Da freden i Westfalen ble undertegnet, var grensen mellom katolsk og protestantisk Europa nesten der den ligger i dag. Norge, som havnet under [Danmark-Norge og en luthersk konge](/historie/reformasjonen/reformasjonen-i-norge), ble en del av det protestantiske nord — og er det fortsatt."
+    },
+    {
+      "type": "component",
+      "name": "QuoteBlock",
+      "props": {
+        "quote": "Vi må alltid være rede til å tro at det som ser hvitt ut for meg, er svart, dersom kirken har bestemt det slik.",
+        "author": "Ignatius Loyola, fra «Åndelige øvelser» (1548)"
+      }
+    },
+    {
+      "type": "header",
+      "text": "Arven"
+    },
+    {
+      "type": "text",
+      "content": "Mottreformasjonen handlet ikke bare om å vinne tilbake tapt mark. Den endret katolisismen for alltid. Prester ble bedre utdannet, vanlige folk fikk bedre opplæring i sin egen tro, og misjonen gjorde kirken global på en helt ny måte. Samtidig satte inkvisisjonen og bok-forbudet et bittert spor: i mange katolske land ble vitenskap, fri tenkning og pressefrihet bremset i flere hundre år. Astronomen Galileo måtte trekke tilbake påstanden om at jorden går rundt sola. Først i 1992 erkjente paven offentlig at kirken hadde tatt feil i Galileo-saken."
+    },
+    {
+      "type": "text",
+      "content": "Når du i dag ser at Sør-Europa er katolsk og Skandinavia er luthersk, ser du resultatet av to bevegelser som svarte hverandre: Luthers reformasjon og Roms svar. Mottreformasjonen er bevis på at en gammel og mektig institusjon kan fornye seg selv — så lenge den klarer å se i speilet."
+    },
+    {
+      "type": "component",
+      "name": "Quiz",
+      "props": {
+        "title": "Sjekk om du har forstått",
+        "questions": [
+          {
+            "question": "Hva var Tridentinerkonsilet?",
+            "options": [
+              "Et hemmelig møte mellom paven og keiseren",
+              "Et stort kirkemøte (1545–1563) der katolsk lære ble avklart",
+              "Et slag der katolikker beseiret protestantene",
+              "En lov som forbød katolikker å gifte seg"
+            ],
+            "correctAnswer": 1,
+            "explanation": "Konsilet samlet biskoper i byen Trento og varte i 18 år. Det avklarte katolsk lære og innførte viktige reformer som presteseminarer og forbud mot avlatshandel."
+          },
+          {
+            "question": "Hva gjorde Jesuittordenen unik?",
+            "options": [
+              "De levde i ørkenen og snakket ikke",
+              "De bygget skoler og drev misjon i hele verden, med absolutt lydighet til paven",
+              "De nektet å lese Bibelen",
+              "De var den eneste kvinneordenen i kirken"
+            ],
+            "correctAnswer": 1,
+            "explanation": "Jesuittene fungerte som pavens spesialstyrke. De grunnla Europas beste skoler og reiste til India, Kina, Japan og Sør-Amerika som misjonærer."
+          },
+          {
+            "question": "Hva var Index Librorum Prohibitorum?",
+            "options": [
+              "En bok om kirkens regler for prester",
+              "Pavens samling av bønner",
+              "En offisiell liste over bøker katolikker ikke fikk lese",
+              "Et leksikon over alle helgener"
+            ],
+            "correctAnswer": 2,
+            "explanation": "Index ble innført i 1559 og fungerte som en svarteliste. Verker av Luther, Galileo, Descartes og Voltaire endte på lista. Den ble ikke avskaffet før i 1966."
+          },
+          {
+            "question": "Hvilken kunststil ble forbundet med mottreformasjonen?",
+            "options": [
+              "Gotikk",
+              "Barokk",
+              "Renessanse",
+              "Romantikk"
+            ],
+            "correctAnswer": 1,
+            "explanation": "Barokken ble den katolske kirkens visuelle svar. Malerier, statuer og lysspill skulle treffe sansene og bekrefte at den katolske gudstjenesten var mer enn bare ord."
+          },
+          {
+            "question": "Hvorfor sier vi at Europas religiøse kart «frøs fast» rundt 1650?",
+            "options": [
+              "Fordi paven forbød folk å bytte religion",
+              "Fordi 30-årskrigen endte og grensene mellom katolsk og protestantisk har holdt seg nesten like siden",
+              "Fordi det ble for kaldt til å reise mellom landene",
+              "Fordi alle ble katolikker igjen"
+            ],
+            "correctAnswer": 1,
+            "explanation": "Etter freden i Westfalen i 1648 lå det religiøse kartet i hovedsak fast. Sør-Europa forble katolsk, Nord-Europa forble protestantisk — slik vi fortsatt ser det i dag."
+          }
+        ]
+      }
+    }
+  ]
+}
