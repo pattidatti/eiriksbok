@@ -134,6 +134,7 @@ const ArrangementPlanner = lazy(() => import('../features/music/components/Arran
 const SongwriterStudio = lazy(() => import('../features/music/components/SongwriterStudio').then(m => ({ default: m.SongwriterStudio })));
 const ProtestsangAnalyse = lazy(() => import('./content/interactive/ProtestsangAnalyse').then(m => ({ default: m.ProtestsangAnalyse })));
 const NilenFlomSyklus = lazy(() => import('./content/interactive/NilenFlomSyklus').then(m => ({ default: m.NilenFlomSyklus })));
+const IndusMysteryBoard = lazy(() => import('./content/interactive/IndusMysteryBoard').then(m => ({ default: m.IndusMysteryBoard })));
 
 export const componentRegistry: Record<string, React.ComponentType<any>> = {
     // Core
@@ -268,6 +269,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     SongwriterStudio,
     ProtestsangAnalyse,
     NilenFlomSyklus,
+    IndusMysteryBoard,
     Gallery,
     gallery: Gallery,
     comparison: Comparison,

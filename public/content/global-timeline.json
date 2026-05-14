@@ -149,6 +149,26 @@
       ]
     },
     {
+      "id": "indusdalen",
+      "title": "Indusdalen: Sivilisasjonen som forsvant",
+      "description": "Verdens første planlagte byer — fredelige, avanserte og fortsatt et mysterium.",
+      "startDate": -2600,
+      "endDate": -1900,
+      "displayDate": "2600 fvt – 1900 fvt",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "jordbruk-og-sivilisasjoner",
+      "link": "/historie/jordbruk-og-sivilisasjoner/indusdalen",
+      "tags": [
+        "indusdalen",
+        "mohenjo-daro",
+        "harappa",
+        "tidlig-sivilisasjon",
+        "arkeologi",
+        "sivilisasjon"
+      ]
+    },
+    {
       "id": "jordbruk-og-sivilisasjoner-sub-3",
       "title": "Stridsøksfolket",
       "description": "Nye folkegrupper kommer til Norge.",
