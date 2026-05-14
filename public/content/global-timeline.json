@@ -20,6 +20,24 @@
       ]
     },
     {
+      "id": "den-kognitive-revolusjonen",
+      "title": "Den kognitive revolusjonen",
+      "description": "Hvordan et nytt språk i hjernen for 70 000 år siden gjorde Homo sapiens til den eneste arten som dominerer kloden.",
+      "startDate": -70000,
+      "endDate": null,
+      "displayDate": "-70000",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "menneskets-tidlige-historie",
+      "link": "/historie/menneskets-tidlige-historie/den-kognitive-revolusjonen",
+      "tags": [
+        "forhistorie",
+        "evolusjon",
+        "homo-sapiens",
+        "kultur"
+      ]
+    },
+    {
       "id": "jordbruk-og-sivilisasjoner",
       "title": "Jordbruk og Sivilisasjoner",
       "description": "Mennesket slår seg til ro: Fra nomade til fastboende med husdyr.",

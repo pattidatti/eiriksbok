@@ -1,0 +1,211 @@
+{
+    "id": "den-kognitive-revolusjonen",
+    "title": "Den kognitive revolusjonen",
+    "layout": "rich",
+    "subject": "historie",
+    "topic": "menneskets-tidlige-historie",
+    "year": "-70000",
+    "category": "Tidlig historie",
+    "readTime": "8 min lesning",
+    "heroImage": "/images/placeholder.webp",
+    "details": [
+        "Homo sapiens utviklet et helt nytt språk for rundt 70 000 år siden.",
+        "Vi er den eneste arten som kan snakke om ting som ikke finnes.",
+        "Felles myter er limet som lar millioner av fremmede samarbeide."
+    ],
+    "fact": "Du tror på minst tre fiktive ting akkurat nå: penger, lover og at landet ditt finnes som noe mer enn streker på et kart.",
+    "tags": [
+        "forhistorie",
+        "evolusjon",
+        "homo-sapiens",
+        "kultur"
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "For rundt 17 000 år siden gikk en ungdom inn i en mørk hule i Sør-Frankrike med en brennende fakkel i hånden og malte en hest på veggen. Hesten er ikke der lenger. Steinen er. Men maleriet finnes fortsatt, og det forteller oss noe ingen annen art kunne ha fortalt: at mennesker tenkte på dyr selv når dyrene ikke var i rommet. Vi laget bilder av det vi husket og det vi drømte om."
+        },
+        {
+            "type": "text",
+            "content": "Dette var ikke alltid mulig. Homo sapiens hadde levd i over hundre tusen år før noen begynte å lage kunst, bygge båter eller pynte seg med smykker. Så skjedde det noe stort i hodet vårt. Forskere kaller det den kognitive revolusjonen, og den begynte for rundt 70 000 år siden."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Hulemaleri av en hest opplyst av en fakkel i en mørk fransk hule",
+            "caption": "Hulemaleriene er noe av det eldste beviset på at mennesker tenkte på dyr selv når dyrene ikke var i rommet."
+        },
+        {
+            "type": "header",
+            "text": "Hva endret seg for 70 000 år siden?"
+        },
+        {
+            "type": "text",
+            "content": "Ingen vet helt sikkert hva som skjedde. Den vanligste forklaringen er en liten endring i genene som styrer hjernen. Resultatet var et nytt og mye mer fleksibelt språk."
+        },
+        {
+            "type": "text",
+            "content": "Mange dyr har språk. Apekatter kan rope ulike alarmer for ulike fiender. Et rop for ørn, et annet for slange. Men ingen aper kan fortelle en venn om en slange de så i går, eller advare mot en slange som kanskje kommer i morgen. Mennesker kan."
+        },
+        {
+            "type": "text",
+            "content": "Det vi fikk var ikke bare flere ord. Vi fikk evnen til å snakke om ting som ikke er her nå. Om fortid og fremtid. Om mulige farer og mulige løsninger. Om hva som hadde skjedd dersom vi hadde valgt annerledes. Det høres enkelt ut. Det er det ikke. Det er en av de mest uvanlige tingene en hjerne kan gjøre."
+        },
+        {
+            "type": "text",
+            "content": "Det nye språket gjorde også at vi kunne lære av folk vi aldri hadde møtt. En jeger kunne fortelle sønnen sin om et vannhull bestefaren hadde funnet. Sønnen kunne fortelle det videre til neste generasjon. På den måten samlet hver flokk opp kunnskap som vokste år etter år, mens dyrene rundt oss måtte begynne på nytt hver gang en ny generasjon ble født."
+        },
+        {
+            "type": "header",
+            "text": "Å snakke om det som ikke finnes"
+        },
+        {
+            "type": "text",
+            "content": "Det aller rareste mennesket gjør, er å snakke om ting som aldri har eksistert i det hele tatt. Du har aldri sett en alv. Eller en gud. Eller et selskap. Eller en grunnlov. Likevel kan du snakke om dem som om de er ekte, og folk rundt deg forstår hva du mener."
+        },
+        {
+            "type": "text",
+            "content": "Dette kalles fiktive virkeligheter. De finnes ikke i naturen. Du kan ikke peke på dem. Men de styrer livene våre. En sjimpanseflokk har ingen aksjeselskaper. Ingen religioner. Ingen lover. Vi har alle deler — og vi handler etter dem hver eneste dag."
+        },
+        {
+            "type": "component",
+            "name": "FiksjonensKraft",
+            "props": {
+                "title": "Hva binder mennesker sammen?"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Felles myter — limet i samfunnet"
+        },
+        {
+            "type": "text",
+            "content": "En liten gruppe på ti mennesker kan samarbeide fordi alle kjenner hverandre. En stamme på hundre fordi alle har felles familie og felles minner. Men hvor mange mennesker kan du egentlig kjenne godt? Forskere tror tallet ligger rundt 150."
+        },
+        {
+            "type": "text",
+            "content": "Hvis du vil bygge en pyramide, trenger du ti tusen mennesker. Hvis du vil drive en stor by, trenger du en million. Hvis du vil sende et menneske til månen, trenger du flere hundre tusen som samarbeider over flere år. Hvordan får du tusenvis av fremmede til å trekke i samme retning?"
+        },
+        {
+            "type": "text",
+            "content": "Svaret er felles historier. Det egyptiske folket bygde pyramidene fordi de alle trodde at faraoen var en gud. Romerske soldater marsjerte til verdens ende fordi de trodde på Roma. Norge fungerer fordi nesten alle som bor her tror på de samme lovene, det samme språket, den samme historien om hvem vi er. Du kan ikke se Norge. Du kan se fjell og hus og elver. Men Norge selv er en idé som lever i hodene våre."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Arbeidere bygger den store pyramiden i Giza under en gyllen ettermiddagshimmel",
+            "caption": "Pyramidene er beviset på at felles myter kan løfte tonnetunge steinblokker. Ti tusen fremmede måtte tro på samme gud for å bygge dette."
+        },
+        {
+            "type": "header",
+            "text": "Hvorfor neandertalerne tapte"
+        },
+        {
+            "type": "text",
+            "content": "Da Homo sapiens kom til Europa, fantes det allerede andre mennesker der. Neandertalerne hadde levd i Europa i hundretusenvis av år. De var sterkere enn oss, hadde større hjerner og overlevde harde vintre. Vi var små, magre afrikanere som plutselig dukket opp i et kaldt og fremmed landskap."
+        },
+        {
+            "type": "text",
+            "content": "Likevel forsvant neandertalerne for rundt 30 000 år siden. Hvorfor? Den beste forklaringen er at vi ikke var smartere som enkeltpersoner. Vi var bedre til å samarbeide i store grupper. Neandertalerne levde i små familier på rundt tjue personer. Homo sapiens kunne samle hundrevis av mennesker mot et felles mål, fordi vi delte de samme mytene og historiene."
+        },
+        {
+            "type": "text",
+            "content": "Når en flokk Homo sapiens møtte en familie neandertalere, var resultatet gitt. Det er det samme prinsippet som gjør at et fotballag som spiller sammen vinner over elleve flinke enkeltspillere som aldri har trent sammen."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "DNA-en din inneholder neandertalere",
+                "content": "Genetikere har funnet ut at de fleste mennesker utenfor Afrika har mellom 1 og 4 prosent neandertaler-DNA. Forfedrene våre møtte og fikk barn med neandertalere før de forsvant. En liten del av dem lever altså videre i oss."
+            }
+        },
+        {
+            "type": "header",
+            "text": "Den varige arven"
+        },
+        {
+            "type": "text",
+            "content": "Alt mennesker har bygd siden den kognitive revolusjonen, hviler på den samme superkraften: vi forteller historier sammen. Religioner samler milliarder rundt felles bønner. Penger får fremmede til å bytte varer uten å stole på hverandre personlig. Internasjonale lover gjør at fly fra Norge kan lande trygt i Japan. Wikipedia fungerer fordi millioner av mennesker tror på den samme ideen: at kunnskap skal være gratis."
+        },
+        {
+            "type": "text",
+            "content": "Når du leser denne artikkelen, deltar du i den samme revolusjonen som begynte i en hule for 70 000 år siden. Bokstavene foran deg er bare blekk og piksler. Ordene har ingen kraft i seg selv. Men du og jeg har blitt enige om at de betyr noe — og derfor kan jeg sende en idé fra mitt hode til ditt."
+        },
+        {
+            "type": "text",
+            "content": "Det er ganske utrolig, når du tenker etter."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Stor folkemengde med tente lys på en festplass om natten",
+            "caption": "Fra hulemalerier til konserter med titusener av tilskuere — felles historier samler oss fortsatt."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "title": "Sjekk om du forstod",
+                "questions": [
+                    {
+                        "question": "Hva mener forskere skjedde for rundt 70 000 år siden?",
+                        "options": [
+                            "Mennesker oppdaget ilden for første gang",
+                            "Homo sapiens fikk et nytt og mer fleksibelt språk",
+                            "Neandertalerne lærte å bygge byer",
+                            "Klimaet ble varmere og isen smeltet"
+                        ],
+                        "correct": 1,
+                        "explanation": "Den kognitive revolusjonen handler om at språket og tankene våre ble mye mer fleksible. Vi kunne plutselig snakke om ting som ikke var foran oss."
+                    },
+                    {
+                        "question": "Hva er en fiktiv virkelighet?",
+                        "options": [
+                            "En løgn noen forteller bevisst",
+                            "En drøm man har om natten",
+                            "Noe som ikke finnes i naturen, men som mange tror på sammen",
+                            "En film eller bok"
+                        ],
+                        "correct": 2,
+                        "explanation": "Penger, lover, religioner og nasjoner er fiktive virkeligheter. De er ekte fordi vi sammen bestemmer at de er ekte."
+                    },
+                    {
+                        "question": "Hvorfor klarte Homo sapiens å vinne over neandertalerne?",
+                        "options": [
+                            "Vi var sterkere og hadde større hjerner",
+                            "Vi hadde bedre våpen av jern",
+                            "Vi kunne samarbeide i mye større grupper",
+                            "Vi tålte kulde bedre"
+                        ],
+                        "correct": 2,
+                        "explanation": "Neandertalerne var faktisk sterkere og hadde litt større hjerner. Men de levde i små familier. Vi kunne samle hundrevis rundt felles myter."
+                    },
+                    {
+                        "question": "Hvor mange mennesker tror forskere at vi kan kjenne godt?",
+                        "options": [
+                            "Rundt 15",
+                            "Rundt 150",
+                            "Rundt 1 500",
+                            "Det er ingen grense"
+                        ],
+                        "correct": 1,
+                        "explanation": "Tallet kalles Dunbars tall etter forskeren som regnet det ut. Etter 150 trenger vi felles regler og historier for å fungere sammen."
+                    },
+                    {
+                        "question": "Hva har hulemalerier, penger og grunnlover felles?",
+                        "options": [
+                            "De er alle laget av papir",
+                            "De er alle bevis på menneskets evne til å samles om ideer",
+                            "De ble alle oppfunnet i Egypt",
+                            "De er alle eldre enn 50 000 år"
+                        ],
+                        "correct": 1,
+                        "explanation": "Alle tre er produkter av den kognitive revolusjonen. Vi kan forestille oss ting sammen, og så få dem til å virke i den ekte verden."
+                    }
+                ]
+            }
+        }
+    ],
+    "timeline": []
+}
