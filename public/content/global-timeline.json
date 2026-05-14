@@ -74,6 +74,28 @@
       ]
     },
     {
+      "id": "kina",
+      "title": "Det gamle Kina: Sivilisasjonen ved Den gule elven",
+      "description": "Den fjerde elvedalssivilisasjonen — silke, papir og ideen om Himmelens mandat.",
+      "startDate": -5000,
+      "endDate": 220,
+      "displayDate": "5000 fvt – 220 evt",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "jordbruk-og-sivilisasjoner",
+      "link": "/historie/jordbruk-og-sivilisasjoner/kina",
+      "tags": [
+        "kina",
+        "huang-he",
+        "shang",
+        "zhou",
+        "qin",
+        "han",
+        "silkeveien",
+        "sivilisasjon"
+      ]
+    },
+    {
       "id": "jordbruk-og-sivilisasjoner-sub-1",
       "title": "Elvedalssivilisasjoner",
       "description": "De første store sivilisasjonene oppstår i Mesopotamia og Egypt.",

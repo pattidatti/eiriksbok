@@ -1,5 +1,5 @@
 {
-  "buildId": 1778790943489,
+  "buildId": 1778792416612,
   "contentMap": {
     "concept-adel": [
       "content/concepts/adel.json"
@@ -780,6 +780,9 @@
     ],
     "jordbruk-og-sivilisasjoner": [
       "content/historie/jordbruk-og-sivilisasjoner/jordbruk-og-sivilisasjoner.json"
+    ],
+    "kina": [
+      "content/historie/jordbruk-og-sivilisasjoner/kina.json"
     ],
     "mesopotamia": [
       "content/historie/jordbruk-og-sivilisasjoner/mesopotamia.json"
@@ -2270,6 +2273,7 @@
     "historie/jordbruk-og-sivilisasjoner/egypt": "content/historie/jordbruk-og-sivilisasjoner/egypt.json",
     "historie/jordbruk-og-sivilisasjoner/indusdalen": "content/historie/jordbruk-og-sivilisasjoner/indusdalen.json",
     "historie/jordbruk-og-sivilisasjoner/jordbruk-og-sivilisasjoner": "content/historie/jordbruk-og-sivilisasjoner/jordbruk-og-sivilisasjoner.json",
+    "historie/jordbruk-og-sivilisasjoner/kina": "content/historie/jordbruk-og-sivilisasjoner/kina.json",
     "historie/jordbruk-og-sivilisasjoner/mesopotamia": "content/historie/jordbruk-og-sivilisasjoner/mesopotamia.json",
     "historie/kolonialisering/britisk-imperium": "content/historie/kolonialisering/britisk-imperium.json",
     "historie/kolonialisering/eic": "content/historie/kolonialisering/eic.json",
