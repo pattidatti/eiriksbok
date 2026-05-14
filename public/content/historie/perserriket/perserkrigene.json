@@ -1,0 +1,177 @@
+{
+    "id": "perserkrigene",
+    "title": "Perserkrigene: Da Hellas trosset verdens største rike",
+    "layout": "rich",
+    "year": "499-449 fvt",
+    "category": "Antikken",
+    "readTime": "8 min lesning",
+    "heroImage": "/images/placeholder.webp",
+    "tags": ["antikken", "hellas", "perserriket", "krig", "demokrati"],
+    "details": [
+        "Tre slag — Marathon, Thermopylae og Salamis — avgjorde krigen.",
+        "Et lite, splittet Hellas slo verdens største rike.",
+        "Seieren la grunnlaget for den greske gullalderen og Athens demokrati."
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "I september 490 fvt løp en gresk soldat omkring fire mil fra slettelandet Marathon til Athen. Da han kom fram, ropte han ett ord før han falt død om: «Nike!» — vi har seiret. Det var det mange grekere knapt hadde våget å håpe på. De hadde nettopp slått en hær fra verdens største rike."
+        },
+        {
+            "type": "text",
+            "content": "Perserkrigene varte i over femti år. De besto egentlig av to store invasjoner og mange mindre slag. På den ene siden sto Perserriket — det største og rikeste imperiet verden hadde sett. På den andre sto et knippe greske bystater som ofte kranglet seg imellom. Likevel var det grekerne som vant. Hvordan kunne det skje?"
+        },
+        {
+            "type": "header",
+            "text": "Et imperium møter en flokk bystater"
+        },
+        {
+            "type": "text",
+            "content": "Under kong Dareios I dekket Perserriket alt fra Egypt i vest til India i øst. Kongen kunne mønstre hærer på flere hundre tusen soldater. Hellas, derimot, var ikke ett land. Det var en samling små bystater som Athen, Sparta, Korint og Theben. Hver by hadde sin egen hær, sine egne lover og sin egen byguddom. De kranglet ofte mer med hverandre enn med fremmede."
+        },
+        {
+            "type": "text",
+            "content": "Konflikten begynte i Lilleasia, det vi i dag kaller Tyrkia. Greske byer langs kysten lå under persisk styre. I 499 fvt gjorde de opprør, og Athen sendte skip for å hjelpe. Opprøret ble slått ned, men perserkongen glemte ikke at Athen hadde blandet seg inn. Han ville straffe dem."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Kart over det persiske riket og de greske bystatene rundt år 500 fvt",
+            "caption": "Hellas var små bystater i kanten av et veldig rike. På kartet ser Persia ut som en kjempe ved siden av en flokk myrer."
+        },
+        {
+            "type": "header",
+            "text": "Marathon — der falanksen knuste myten"
+        },
+        {
+            "type": "text",
+            "content": "I 490 fvt landsatte perserne en hær på den smale sletta ved Marathon, en dagsmarsj fra Athen. Athen sendte rundt ti tusen soldater. Perserne hadde mer enn det dobbelte. Likevel valgte de athenske hærførerne å angripe først."
+        },
+        {
+            "type": "text",
+            "content": "Grekerne stilte opp i falanks: en tett mur av menn skulder ved skulder, hver med et stort rundt skjold og et langt spyd. Falanksen var vanskelig å bryte forfra. Da grekerne løp mot persiske buer, stoppet de tunge skjoldene de fleste pilene. Da nærkampen begynte, var lange greske spyd og kraftig rustning bedre enn lette persiske våpen. Persisk overtall fikk aldri brette seg ut på den smale sletta, og de tapte slaget."
+        },
+        {
+            "type": "text",
+            "content": "Seieren ga grekerne et nytt slags selvbilde. Persia var ikke uovervinnelig. En liten, fri bystat med tunge skjold og smart valg av terreng kunne slå et imperium."
+        },
+        {
+            "type": "header",
+            "text": "Strategi-laben: tre slag, ett mønster"
+        },
+        {
+            "type": "component",
+            "name": "BattleTacticsSim",
+            "props": {}
+        },
+        {
+            "type": "header",
+            "text": "Thermopylae — 300 mann i et trangt pass"
+        },
+        {
+            "type": "text",
+            "content": "Ti år senere kom perserne tilbake. Den nye kongen, Xerxes, ville ikke straffe Athen. Han ville knuse hele Hellas. Hæren hans var enorm. Greske kilder snakker om en million mann; historikere i dag tror det var nærmere hundre tusen, men det var likevel en hær som var større enn noe Hellas hadde sett."
+        },
+        {
+            "type": "text",
+            "content": "For å sinke den persiske marsjen, samlet grekerne en liten styrke ved Thermopylae, et trangt fjellpass mellom høye fjell og havet. Den spartanske kongen Leonidas ledet bare tre hundre spartanere og noen tusen forbundsfeller. På den smaleste delen av passet var det ikke plass til mer enn en håndfull soldater i bredden. Persisk overtall ble nytteløst. I to dager kunne de bare sende inn et fåtall av sine soldater om gangen, og spartansk trening avgjorde resten."
+        },
+        {
+            "type": "text",
+            "content": "Til slutt avslørte en gresk forræder en sti rundt passet. Da Leonidas skjønte at perserne kom bakfra, sendte han de fleste hjem. Spartanerne og noen få andre ble igjen og kjempet til siste mann. Slaget var et nederlag, men Hellas vant tid — tid til å samle en flåte ved en liten øy ved navn Salamis."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Greske triremer rammer persiske skip i et trangt sund",
+            "caption": "Greske triremer var raske og hadde en ramme-baug i bronse. I et trangt sund gjorde de størst skade."
+        },
+        {
+            "type": "header",
+            "text": "Salamis — havslaget som avgjorde alt"
+        },
+        {
+            "type": "text",
+            "content": "Xerxes brente Athen til grunnen, men selve folket var trygt evakuert. Den athenske lederen Themistokles overtalte grekerne til å satse alt på ett siste sjøslag. Han lokket den store persiske flåten inn i sundet mellom øya Salamis og fastlandet. Der var det knapt plass til skipene å snu seg."
+        },
+        {
+            "type": "text",
+            "content": "Greske triremer var raske krigsskip drevet av tre rader årer og utstyrt med en spiss bronsebaug. De rammet inn siden på persiske skip og brakk dem opp. I det trange sundet kunne bare et fåtall persiske skip kjempe om gangen, mens resten lå i veien for sine egne. Persisk overtall ble en hindring. Da slaget var over, lå hundrevis av persiske skip på bunnen. Xerxes så det selv fra en trone på land, og forsto at krigen var tapt."
+        },
+        {
+            "type": "header",
+            "text": "Hva betyr alt dette?"
+        },
+        {
+            "type": "text",
+            "content": "Etter Salamis trakk Xerxes seg hjem med det meste av hæren. Den hærstyrken som ble igjen tapte slaget ved Plataea året etter, og Persia ga til slutt opp drømmen om å erobre Hellas. Krigen tok ikke helt slutt før 449 fvt, men Hellas var trygt."
+        },
+        {
+            "type": "text",
+            "content": "Seieren forandret alt. Athen fikk en gullalder med filosofi, teater og kunst. Det athenske demokratiet — der vanlige menn stemte i folkeforsamlingen — fikk en ny styrke som modell. Grekerne fortalte historiene om Marathon, Thermopylae og Salamis igjen og igjen, og de ble en del av identiteten deres: små frie folk kunne slå store imperier hvis de var smarte nok."
+        },
+        {
+            "type": "list",
+            "items": [
+                "Hellas vant ikke fordi de var flest, men fordi de tvang Persia inn i trange terreng der overtall ikke kunne brettes ut.",
+                "Falanks, smale pass og trange sund nøytraliserte persisk styrke i hvert av de tre store slagene.",
+                "Seieren ga Athen en gullalder og demokratiet et historisk eksempel på at fri styreform kunne overleve."
+            ]
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "title": "Sjekk forståelsen",
+                "questions": [
+                    {
+                        "question": "Hvor mange store slag avgjorde Perserkrigene?",
+                        "options": ["Ett", "To", "Tre", "Fem"],
+                        "correctAnswer": 2,
+                        "explanation": "Marathon, Thermopylae og Salamis er de tre slagene som blir husket som vendepunktene."
+                    },
+                    {
+                        "question": "Hva var en falanks?",
+                        "options": [
+                            "Et persisk kavaleri",
+                            "En tett formasjon av soldater med store skjold og lange spyd",
+                            "Et gresk havområde",
+                            "En type krigsskip"
+                        ],
+                        "correctAnswer": 1,
+                        "explanation": "Falanksen var grekernes signaturformasjon — en mur av skjold og spyd som var vanskelig å bryte forfra."
+                    },
+                    {
+                        "question": "Hvilken gresk by ledet forsvaret ved Thermopylae?",
+                        "options": ["Athen", "Korint", "Sparta", "Theben"],
+                        "correctAnswer": 2,
+                        "explanation": "Kong Leonidas av Sparta ledet de tre hundre spartanerne og forbundsfellene som holdt passet."
+                    },
+                    {
+                        "question": "Hvorfor lokket Themistokles den persiske flåten inn i Salamis-sundet?",
+                        "options": [
+                            "Sundet var dypt og perfekt for store skip",
+                            "Det trange sundet gjorde at persisk overtall ikke kunne brukes",
+                            "Han ville unngå kamp",
+                            "Athen var nær og lett å forsvare derfra"
+                        ],
+                        "correctAnswer": 1,
+                        "explanation": "I sundet kunne bare et fåtall persiske skip kjempe samtidig, mens resten lå i veien for sine egne. Mindre flåte, smartere terreng."
+                    },
+                    {
+                        "question": "Hva ble en av de viktigste følgene av seieren over Persia?",
+                        "options": [
+                            "Hellas ble ett samlet kongerike",
+                            "Persia tok over hele Egypt",
+                            "Athen fikk en kulturell gullalder og demokratiet styrket seg",
+                            "Alle grekere ble persiske borgere"
+                        ],
+                        "correctAnswer": 2,
+                        "explanation": "Etter krigen kom Athens gullalder — med filosofi, teater og et styrket demokrati som senere ble en modell for andre samfunn."
+                    }
+                ]
+            }
+        }
+    ],
+    "timeline": []
+}

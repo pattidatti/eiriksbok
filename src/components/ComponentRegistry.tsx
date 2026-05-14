@@ -76,6 +76,7 @@ const DenStoreAkselerasjonen = lazy(() => import('./content/interactive/DenStore
 const MaktfordelingMatch = lazy(() => import('./content/interactive/MaktfordelingMatch').then(m => ({ default: m.MaktfordelingMatch })));
 const NapoleonsArv = lazy(() => import('./content/interactive/NapoleonsArv').then(m => ({ default: m.NapoleonsArv })));
 const JernbaneReisesammenligning = lazy(() => import('./content/interactive/JernbaneReisesammenligning').then(m => ({ default: m.JernbaneReisesammenligning })));
+const BattleTacticsSim = lazy(() => import('./content/interactive/BattleTacticsSim').then(m => ({ default: m.BattleTacticsSim })));
 
 // Skapende Skriving (Creative Writing)
 const StoryElementMixer = lazy(() => import('./content/interactive/StoryElementMixer').then(m => ({ default: m.StoryElementMixer })));
@@ -204,6 +205,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     MaktfordelingMatch,
     NapoleonsArv,
     JernbaneReisesammenligning,
+    BattleTacticsSim,
     StoryElementMixer,
     ThemeDigger,
     PlotDNA,

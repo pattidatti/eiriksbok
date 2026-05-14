@@ -529,6 +529,25 @@
       ]
     },
     {
+      "id": "perserkrigene",
+      "title": "Perserkrigene",
+      "description": "Hvordan en flokk greske bystater slo verdens største rike — i tre avgjørende slag.",
+      "startDate": 499,
+      "endDate": -449,
+      "displayDate": "499-449 fvt",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "perserriket",
+      "link": "/historie/perserriket/perserkrigene",
+      "tags": [
+        "antikken",
+        "hellas",
+        "perserriket",
+        "krig",
+        "demokrati"
+      ]
+    },
+    {
       "id": "germanske-sprak",
       "title": "De germanske søskenbarna",
       "description": "Hvorfor norsk, engelsk og tysk er i slekt.",
