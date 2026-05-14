@@ -2755,7 +2755,7 @@
               "id": "mottreformasjonen",
               "title": "Mottreformasjonen",
               "description": "Da Luther splittet kirken, slo Roma tilbake: med jesuitter, kirkemøte og forbudte bøker. Slik ble Europa for alltid delt i to.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/reformasjonen/mottreformasjonen-hero.webp",
               "layout": "rich",
               "tags": [
                 "reformasjonen",
@@ -3833,7 +3833,7 @@
               "id": "den-kognitive-revolusjonen",
               "title": "Den kognitive revolusjonen",
               "description": "Hvordan et nytt språk i hjernen for 70 000 år siden gjorde Homo sapiens til den eneste arten som dominerer kloden.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/menneskets-tidlige-historie/den-kognitive-revolusjonen-hero.webp",
               "tags": [
                 "forhistorie",
                 "evolusjon",
@@ -5467,7 +5467,7 @@
               "id": "protestmusikk",
               "title": "Protestmusikk: Når sanger forandrer verden",
               "description": "Fra Billie Holidays Strange Fruit til Mitt lille land — hvordan protestsanger gir navn til en urett og samler mennesker til handling.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/musikkhistorie/protestmusikk-hero.webp",
               "tags": [
                 "musikk",
                 "protest",

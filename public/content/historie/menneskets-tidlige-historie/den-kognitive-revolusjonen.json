@@ -7,7 +7,7 @@
     "year": "-70000",
     "category": "Tidlig historie",
     "readTime": "8 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/menneskets-tidlige-historie/den-kognitive-revolusjonen-hero.webp",
     "details": [
         "Homo sapiens utviklet et helt nytt språk for rundt 70 000 år siden.",
         "Vi er den eneste arten som kan snakke om ting som ikke finnes.",
@@ -31,7 +31,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/menneskets-tidlige-historie/den-kognitive-revolusjonen-01.webp",
             "alt": "Hulemaleri av en hest opplyst av en fakkel i en mørk fransk hule",
             "caption": "Hulemaleriene er noe av det eldste beviset på at mennesker tenkte på dyr selv når dyrene ikke var i rommet."
         },
@@ -92,7 +92,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/menneskets-tidlige-historie/den-kognitive-revolusjonen-02.webp",
             "alt": "Arbeidere bygger den store pyramiden i Giza under en gyllen ettermiddagshimmel",
             "caption": "Pyramidene er beviset på at felles myter kan løfte tonnetunge steinblokker. Ti tusen fremmede måtte tro på samme gud for å bygge dette."
         },
@@ -138,7 +138,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/menneskets-tidlige-historie/den-kognitive-revolusjonen-03.webp",
             "alt": "Stor folkemengde med tente lys på en festplass om natten",
             "caption": "Fra hulemalerier til konserter med titusener av tilskuere — felles historier samler oss fortsatt."
         },

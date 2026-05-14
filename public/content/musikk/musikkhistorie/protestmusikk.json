@@ -5,7 +5,7 @@
     "year": "1939 – i dag",
     "category": "Musikk og samfunn",
     "readTime": "9 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/musikkhistorie/protestmusikk-hero.webp",
     "details": [
         "En sang kan samle tusen mennesker mot en urett — uten et eneste våpen",
         "Strange Fruit, Blowin' in the Wind og Mitt lille land følger samme oppskrift",
@@ -26,7 +26,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/musikkhistorie/protestmusikk-01.webp",
             "alt": "Billie Holiday står i et spotlys foran en mikrofon i en mørklagt klubb i 1939",
             "caption": "Billie Holiday i Café Society. Sangen Strange Fruit ble framført på slutten av hvert show — alltid med slukkede lys."
         },
@@ -63,7 +63,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/musikkhistorie/protestmusikk-02.webp",
             "alt": "Stor folkemengde med roser på Rådhusplassen i Oslo etter terrorangrepet 22. juli 2011",
             "caption": "Rosetoget i Oslo, 25. juli 2011. Rundt 200 000 mennesker samlet seg og sang Mitt lille land sammen."
         },
