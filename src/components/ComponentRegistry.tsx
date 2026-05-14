@@ -135,6 +135,7 @@ const SongwriterStudio = lazy(() => import('../features/music/components/Songwri
 const ProtestsangAnalyse = lazy(() => import('./content/interactive/ProtestsangAnalyse').then(m => ({ default: m.ProtestsangAnalyse })));
 const NilenFlomSyklus = lazy(() => import('./content/interactive/NilenFlomSyklus').then(m => ({ default: m.NilenFlomSyklus })));
 const IndusMysteryBoard = lazy(() => import('./content/interactive/IndusMysteryBoard').then(m => ({ default: m.IndusMysteryBoard })));
+const HimmelensMandat = lazy(() => import('./content/interactive/HimmelensMandat').then(m => ({ default: m.HimmelensMandat })));
 
 export const componentRegistry: Record<string, React.ComponentType<any>> = {
     // Core
@@ -270,6 +271,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     ProtestsangAnalyse,
     NilenFlomSyklus,
     IndusMysteryBoard,
+    HimmelensMandat,
     Gallery,
     gallery: Gallery,
     comparison: Comparison,
