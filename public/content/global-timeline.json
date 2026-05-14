@@ -129,6 +129,26 @@
       ]
     },
     {
+      "id": "egypt",
+      "title": "Det gamle Egypt: Riket ved Nilen",
+      "description": "Hvordan Nilens årlige flom skapte en sivilisasjon som varte i tre tusen år.",
+      "startDate": -3100,
+      "endDate": -30,
+      "displayDate": "3100 fvt – 30 fvt",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "jordbruk-og-sivilisasjoner",
+      "link": "/historie/jordbruk-og-sivilisasjoner/egypt",
+      "tags": [
+        "egypt",
+        "nilen",
+        "farao",
+        "pyramide",
+        "hieroglyfer",
+        "sivilisasjon"
+      ]
+    },
+    {
       "id": "jordbruk-og-sivilisasjoner-sub-3",
       "title": "Stridsøksfolket",
       "description": "Nye folkegrupper kommer til Norge.",

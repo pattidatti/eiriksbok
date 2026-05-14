@@ -1,5 +1,5 @@
 {
-  "buildId": 1778780276962,
+  "buildId": 1778781792441,
   "contentMap": {
     "concept-adel": [
       "content/concepts/adel.json"
@@ -771,6 +771,9 @@
     ],
     "jernbanen": [
       "content/historie/industriell-revolusjon/jernbanen.json"
+    ],
+    "egypt": [
+      "content/historie/jordbruk-og-sivilisasjoner/egypt.json"
     ],
     "jordbruk-og-sivilisasjoner": [
       "content/historie/jordbruk-og-sivilisasjoner/jordbruk-og-sivilisasjoner.json"
@@ -2261,6 +2264,7 @@
     "historie/industriell-revolusjon/dampmaskinen": "content/historie/industriell-revolusjon/dampmaskinen.json",
     "historie/industriell-revolusjon/industriell-revolusjon": "content/historie/industriell-revolusjon/industriell-revolusjon.json",
     "historie/industriell-revolusjon/jernbanen": "content/historie/industriell-revolusjon/jernbanen.json",
+    "historie/jordbruk-og-sivilisasjoner/egypt": "content/historie/jordbruk-og-sivilisasjoner/egypt.json",
     "historie/jordbruk-og-sivilisasjoner/jordbruk-og-sivilisasjoner": "content/historie/jordbruk-og-sivilisasjoner/jordbruk-og-sivilisasjoner.json",
     "historie/jordbruk-og-sivilisasjoner/mesopotamia": "content/historie/jordbruk-og-sivilisasjoner/mesopotamia.json",
     "historie/kolonialisering/britisk-imperium": "content/historie/kolonialisering/britisk-imperium.json",

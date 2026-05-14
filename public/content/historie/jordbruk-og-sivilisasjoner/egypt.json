@@ -1,0 +1,222 @@
+{
+    "id": "egypt",
+    "title": "Det gamle Egypt: Riket ved Nilen",
+    "layout": "rich",
+    "year": "3100 fvt – 30 fvt",
+    "category": "Tidlige sivilisasjoner",
+    "readTime": "8 min lesning",
+    "heroImage": "/images/placeholder.webp",
+    "details": [
+        "Egypt overlevde i over tre tusen år — ingen annen tidlig sivilisasjon kom i nærheten.",
+        "Nilens årlige flom ga rik jord og styrte hele samfunnet.",
+        "Faraoen var både konge og gud i én og samme person.",
+        "Hieroglyfene ble løst av en stein funnet i 1799."
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Tenk deg en jente på fjorten år som står på en mursteinsmur i Theben. Året er 1300 fvt. Hun ser ut over et landskap som er forvandlet. For en måned siden var det grønne åkre overalt. Nå ligger alt under brunt vann så langt øyet rekker. Bare templene og byene stikker opp som øyer. Familien hennes er ikke redd. De vet at vannet kommer hvert år, og at det legger igjen et tykt lag med fet, mørk jord som gir dem rik avling. Uten denne flommen hadde det ikke vært noe Egypt."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Ungdom ser ut over flommende Nil med templer som stikker opp som øyer i soloppgang",
+            "caption": "Hvert år flommet Nilen over og forvandlet Egypt til et innhav. Bønder kalte flommen for «Hapis gave» — etter elveguden Hapi."
+        },
+        {
+            "type": "header",
+            "text": "Den lange elven"
+        },
+        {
+            "type": "text",
+            "content": "Nilen er verdens lengste elv. Den renner 6650 kilometer fra fjellene i Etiopia og det indre av Afrika, nordover gjennom det som i dag er Sudan og Egypt, og munner ut i Middelhavet. Hele Egypt er bygget langs denne ene elven. På begge sider ligger Sahara — en av verdens hardeste ørkener. Egypterne kalte selv landet sitt for Kemet, «det svarte landet», fordi jorda langs elven var så mørk og fruktbar. Ørkenen rundt kalte de Deshret, «det røde landet»."
+        },
+        {
+            "type": "text",
+            "content": "Bare en smal grønn stripe på hver side av elven kunne dyrkes. Nesten alle egyptere bodde innenfor noen få kilometer fra Nilen. Det betyr at hele riket var langt og smalt — over tusen kilometer fra sør til nord, men sjelden mer enn tjue kilometer bredt."
+        },
+        {
+            "type": "header",
+            "text": "Året styres av flommen"
+        },
+        {
+            "type": "text",
+            "content": "Egypterne hadde et helt eget kalender-år, og det var ikke delt inn i fire årstider som vårt. Det var delt inn i tre sesonger, og alle tre handlet om hva Nilen gjorde. Når flommen kom i juli, sto markene under vann. Bøndene hadde ikke noe å gjøre på åkrene, så faraoen kunne sette dem til å bygge pyramider og templer. Når vannet trakk seg tilbake i november, måtte alle ut og så korn i den nye, våte jorda. Når solen brant som sterkest i april og mai, høstet de kornet og fylte kornlagrene før neste flom."
+        },
+        {
+            "type": "text",
+            "content": "Denne forutsigbarheten er kanskje den viktigste grunnen til at Egypt ble så stabilt. Bøndene visste når de skulle arbeide og når de skulle hvile. Kongen visste når han kunne kreve skatt. Prestene kunne planlegge festene. Alt fulgte elven."
+        },
+        {
+            "type": "component",
+            "name": "NilenFlomSyklus",
+            "props": {
+                "title": "Nilens årshjul"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Faraoen — gud og konge i én"
+        },
+        {
+            "type": "text",
+            "content": "I de fleste tidlige rikene var kongen utvalgt av gudene. I Egypt gikk man enda lenger: faraoen var selv en gud. Han var den levende kroppen til guden Horus på jorda. Når han døde, ble han til Osiris, dødens herre. Denne ideen ga faraoen helt enestående makt. Ingen kunne stille spørsmål ved noe en gud bestemte."
+        },
+        {
+            "type": "text",
+            "content": "Faraoen styrte gjennom en stor stab av embetsmenn. Den viktigste het visiren og fungerte omtrent som en statsminister. Under visiren satt skattefogder, dommere, prester og hærførere. Mange tusen lese- og skrivekyndige tjenestemenn holdt orden på hvor mye korn hver bonde skulle gi, hvor mange soldater hver landsby skulle stille, og hvor mye gull som kom inn fra gruvene i sør."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Et rike som varte i tre tusen år",
+                "content": "Den egyptiske sivilisasjonen varte fra omtrent 3100 fvt., da kong Narmer samlet Øvre og Nedre Egypt, til 30 fvt., da Kleopatra døde og Roma tok over. Det er over tre tusen år — lengre enn tiden fra Jesus til oss. Sammenlign med Romerriket, som bare varte rundt fem hundre år."
+            }
+        },
+        {
+            "type": "header",
+            "text": "Pyramidene: gravferd for evigheten"
+        },
+        {
+            "type": "text",
+            "content": "Faraoen var gud, men kroppen hans var menneskelig. Når han døde, måtte sjelen finne tilbake til kroppen i livet etter dette. Derfor måtte kroppen bevares. Egypterne ble verdens beste på balsamering. De fjernet hjernen, vasket kroppen i salt, smurte den i olje og linbandasjer, og la den i en kiste — en mumie. Sammen med kroppen la de mat, gull, klær og til og med tjenere i form av små figurer som skulle våkne til liv i dødsriket."
+        },
+        {
+            "type": "text",
+            "content": "Pyramidene er enorme graver bygget for å beskytte faraoens mumie. Den største, Khufus pyramide ved Giza, ble bygget rundt 2560 fvt. Den er 147 meter høy og består av rundt 2,3 millioner steinblokker, mange på flere tonn. Den var verdens høyeste bygning i 3800 år, helt til Eiffeltårnet ble bygd i 1889."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "De tre store pyramidene ved Giza fotografert ved soloppgang fra sør",
+            "caption": "Pyramidene ved Giza ble bygget for omtrent 4500 år siden. Mange tror slavene bygde dem — men forskerne mener i dag at de fleste arbeiderne var vanlige bønder som arbeidet under flomsesongen."
+        },
+        {
+            "type": "header",
+            "text": "Hieroglyfer og papyrus"
+        },
+        {
+            "type": "text",
+            "content": "Egypterne fant opp sin egen skrift omtrent samtidig som sumererne i Mesopotamia, rundt 3200 fvt. Hieroglyfene er bilder: en ugle, et øye, en sittende mann, en stilk siv. Hvert bilde kunne stå for en lyd, et ord eller en idé. Det krevde mange års skolegang å lære alle de hundrevis av tegnene."
+        },
+        {
+            "type": "text",
+            "content": "Egypterne skrev mest på papyrus — en slags tidlig papir laget av sivplanten som vokste langs Nilen. Det ga skrivere noe lett og fleksibelt å skrive på. Tusenvis av papyrusruller er bevart fordi tørr ørkenluft konserverer dem nesten perfekt."
+        },
+        {
+            "type": "text",
+            "content": "Da Romerriket falt, ble hieroglyfene glemt. I over tusen år forsto ingen hva tegnene betydde. Først i 1799 fant en fransk soldat i Egypt en svart stein med samme tekst skrevet tre ganger: én gang i hieroglyfer, én gang i en enklere egyptisk skrift, og én gang på gresk. Denne Rosettastenen lot forskerne endelig knekke koden i 1822. Med ett kunne man lese tre tusen år med begravde historier."
+        },
+        {
+            "type": "header",
+            "text": "Egypts arv"
+        },
+        {
+            "type": "text",
+            "content": "Egypt påvirket alle de store rikene som kom etterpå. Grekerne reiste til Egypt og lærte om matematikk, medisin og astronomi. Mange greske filosofer, deriblant Platon, mente å ha hentet ideer fra egyptiske prester. Romerne tok over Egypt i 30 fvt., og kornet fra Nilen ble brød til romernes byer. Senere ble Egypt et viktig kristent område, og enda senere et muslimsk land."
+        },
+        {
+            "type": "text",
+            "content": "Selv i dag finner vi spor av Egypt overalt. Vi snakker om obelisker, sfinkser og pyramider. Bibelhistoriene om Josef og Moses er fortellinger fra det gamle Egypt. Og hver gang noen blir fascinert av en mumie eller en pyramide, lever den eldgamle sivilisasjonen ved Nilen videre."
+        },
+        {
+            "type": "component",
+            "name": "InterdisciplinaryBridge",
+            "props": {
+                "title": "Egypts spor i historien",
+                "centerEvent": "Det gamle Egypt",
+                "nodes": [
+                    {
+                        "subject": "Mesopotamia",
+                        "text": "Egypt og Mesopotamia oppsto omtrent samtidig, begge langs store elver. Mens Mesopotamia ofte ble erobret, lå Egypt beskyttet av ørken og hav og kunne utvikle seg i fred i tusenvis av år.",
+                        "color": "#10b981",
+                        "link": "/historie/jordbruk-og-sivilisasjoner/mesopotamia"
+                    },
+                    {
+                        "subject": "Perserriket",
+                        "text": "Da Kambyses II erobret Egypt i 525 fvt., ble Egypt en del av Perserriket. Perserne lærte mye av egyptisk administrasjon og religiøs toleranse.",
+                        "color": "#6366f1",
+                        "link": "/historie/perserriket/artikkel"
+                    },
+                    {
+                        "subject": "Romerriket",
+                        "text": "Kleopatra var Egypts siste farao. Etter hennes død i 30 fvt. ble Egypt romersk provins. Egyptisk korn mettet hele Roma — det var Imperiets matkammer.",
+                        "color": "#ec4899",
+                        "link": "/historie/romerriket/augustus-og-keiserdomme"
+                    },
+                    {
+                        "subject": "Monoteismen",
+                        "text": "Farao Akhnaton prøvde rundt 1350 fvt. å erstatte alle egyptiske guder med én — solguden Aton. Mange forskere mener dette er det tidligste forsøket på monoteisme, lenge før jødedommen.",
+                        "color": "#f59e0b",
+                        "link": "/krle/religion/jodedom/intro"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hva het de tre egyptiske sesongene?",
+                        "options": [
+                            "Vår, sommer, høst",
+                            "Akhet, Peret, Shemu",
+                            "Hapi, Horus, Osiris",
+                            "Kemet, Deshret, Theben"
+                        ],
+                        "answer": "Akhet, Peret, Shemu",
+                        "explanation": "Akhet var flomtid, Peret var såtid, Shemu var innhøstingstid. Hele året fulgte Nilen."
+                    },
+                    {
+                        "question": "Hvorfor var Nilens årlige flom så viktig for Egypt?",
+                        "options": [
+                            "Den ga drikkevann i ørkenen",
+                            "Den førte fisk inn i åkrene",
+                            "Den la igjen et tykt lag næringsrikt slam som gjorde jorda fruktbar",
+                            "Den skremte bort fiender fra nabolandene"
+                        ],
+                        "answer": "Den la igjen et tykt lag næringsrikt slam som gjorde jorda fruktbar",
+                        "explanation": "Det mørke slammet fra Etiopia gjorde at egypterne kunne dyrke samme jord år etter år uten å gjødsle."
+                    },
+                    {
+                        "question": "Hva var spesielt med faraoens stilling?",
+                        "options": [
+                            "Han var folkevalgt hvert femte år",
+                            "Han var både gud og konge i én og samme person",
+                            "Han delte makten likt med visiren",
+                            "Han var alltid kvinne"
+                        ],
+                        "answer": "Han var både gud og konge i én og samme person",
+                        "explanation": "Faraoen ble regnet som den levende Horus på jorda. Det ga ham en makt ingen andre konger hadde."
+                    },
+                    {
+                        "question": "Hvor lenge varte den egyptiske sivilisasjonen omtrent?",
+                        "options": [
+                            "Omtrent 500 år",
+                            "Omtrent 1000 år",
+                            "Omtrent 3000 år",
+                            "Omtrent 5000 år"
+                        ],
+                        "answer": "Omtrent 3000 år",
+                        "explanation": "Fra Narmer samlet riket rundt 3100 fvt. til Kleopatras død i 30 fvt. — over tre tusen år. Ingen annen tidlig sivilisasjon varte så lenge."
+                    },
+                    {
+                        "question": "Hvordan klarte forskere endelig å lese hieroglyfene?",
+                        "options": [
+                            "De fant en gammel ordbok i en pyramide",
+                            "De brukte tidlige datamaskiner på 1900-tallet",
+                            "De fant Rosettastenen med samme tekst på tre skrifter",
+                            "De spurte etterkommere av egypterne"
+                        ],
+                        "answer": "De fant Rosettastenen med samme tekst på tre skrifter",
+                        "explanation": "Rosettastenen ble funnet i 1799 og inneholdt samme tekst i hieroglyfer, demotisk skrift og gresk. Det lot Champollion knekke koden i 1822."
+                    }
+                ]
+            }
+        }
+    ],
+    "timeline": []
+}
