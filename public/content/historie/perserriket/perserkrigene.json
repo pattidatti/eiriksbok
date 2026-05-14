@@ -5,7 +5,7 @@
     "year": "499-449 fvt",
     "category": "Antikken",
     "readTime": "8 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/perserriket/perserkrigene-hero.webp",
     "tags": ["antikken", "hellas", "perserriket", "krig", "demokrati"],
     "details": [
         "Tre slag — Marathon, Thermopylae og Salamis — avgjorde krigen.",
@@ -35,7 +35,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/perserriket/perserkrigene-01.webp",
             "alt": "Kart over det persiske riket og de greske bystatene rundt år 500 fvt",
             "caption": "Hellas var små bystater i kanten av et veldig rike. På kartet ser Persia ut som en kjempe ved siden av en flokk myrer."
         },
@@ -82,7 +82,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/perserriket/perserkrigene-02.webp",
             "alt": "Greske triremer rammer persiske skip i et trangt sund",
             "caption": "Greske triremer var raske og hadde en ramme-baug i bronse. I et trangt sund gjorde de størst skade."
         },
