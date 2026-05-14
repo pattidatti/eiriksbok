@@ -1,5 +1,5 @@
 {
-  "buildId": 1778721751395,
+  "buildId": 1778742758001,
   "contentMap": {
     "concept-adel": [
       "content/concepts/adel.json"
@@ -843,6 +843,9 @@
     ],
     "usa": [
       "content/historie/mellomkrigstiden/usa.json"
+    ],
+    "den-kognitive-revolusjonen": [
+      "content/historie/menneskets-tidlige-historie/den-kognitive-revolusjonen.json"
     ],
     "menneskets-tidlige-historie": [
       "content/historie/menneskets-tidlige-historie/menneskets-tidlige-historie.json"
@@ -2276,6 +2279,7 @@
     "historie/mellomkrigstiden/spania": "content/historie/mellomkrigstiden/spania.json",
     "historie/mellomkrigstiden/tyskland": "content/historie/mellomkrigstiden/tyskland.json",
     "historie/mellomkrigstiden/usa": "content/historie/mellomkrigstiden/usa.json",
+    "historie/menneskets-tidlige-historie/den-kognitive-revolusjonen": "content/historie/menneskets-tidlige-historie/den-kognitive-revolusjonen.json",
     "historie/menneskets-tidlige-historie/menneskets-tidlige-historie": "content/historie/menneskets-tidlige-historie/menneskets-tidlige-historie.json",
     "historie/middelalderen/boktrykkerkunsten": "content/historie/middelalderen/boktrykkerkunsten.json",
     "historie/middelalderen/det-hellige-romerske-rike": "content/historie/middelalderen/det-hellige-romerske-rike.json",
