@@ -1,5 +1,5 @@
 {
-  "buildId": 1778665810365,
+  "buildId": 1778721751395,
   "contentMap": {
     "concept-adel": [
       "content/concepts/adel.json"
@@ -888,6 +888,9 @@
     ],
     "historie-perserriket": [
       "content/historie/perserriket/artikkel.json"
+    ],
+    "perserkrigene": [
+      "content/historie/perserriket/perserkrigene.json"
     ],
     "30-aarskrigen": [
       "content/historie/reformasjonen/30-aarskrigen.json"
@@ -2288,6 +2291,7 @@
     "historie/norgeshistorie/knut-alvsson/knut-alvsson": "content/historie/norgeshistorie/knut-alvsson/artikkel.json",
     "historie/norgeshistorie/norge-for-vikingene/norge-for-vikingene": "content/historie/norgeshistorie/norge-for-vikingene/artikkel.json",
     "historie/perserriket/perserriket": "content/historie/perserriket/artikkel.json",
+    "historie/perserriket/perserkrigene": "content/historie/perserriket/perserkrigene.json",
     "historie/reformasjonen/30-aarskrigen": "content/historie/reformasjonen/30-aarskrigen.json",
     "historie/reformasjonen/martin-luther": "content/historie/reformasjonen/martin-luther.json",
     "historie/reformasjonen/reformasjonen-i-norge": "content/historie/reformasjonen/reformasjonen-i-norge.json",
