@@ -1549,6 +1549,25 @@
       ]
     },
     {
+      "id": "zarathustra-og-zoroastrismen",
+      "title": "Zarathustra og zoroastrismen",
+      "description": "En liten religion fra Persia som ga verden ideer om Satan, dommens dag og kampen mellom godt og ondt.",
+      "startDate": 1500,
+      "endDate": -500,
+      "displayDate": "1500-500 fvt",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "perserriket",
+      "link": "/historie/perserriket/zarathustra-og-zoroastrismen",
+      "tags": [
+        "antikken",
+        "perserriket",
+        "religion",
+        "zoroastrismen",
+        "krle"
+      ]
+    },
+    {
       "id": "malacca-conquest",
       "title": "Erobringen av Malakka",
       "description": "Portugal tar kontroll over krydderhandelen i Sørøst-Asia.",
