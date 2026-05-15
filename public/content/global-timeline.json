@@ -700,6 +700,26 @@
       ]
     },
     {
+      "id": "kyros-den-store",
+      "title": "Kyros den store",
+      "description": "Grunnleggeren av Perserriket vant ved å la folk beholde gudene, språket og lovene sine — verdens første verdensimperium ble bygd på toleranse, ikke terror.",
+      "startDate": 590,
+      "endDate": -530,
+      "displayDate": "590-530 fvt",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "perserriket",
+      "link": "/historie/perserriket/kyros-den-store",
+      "tags": [
+        "antikken",
+        "perserriket",
+        "kyros",
+        "imperium",
+        "religion",
+        "toleranse"
+      ]
+    },
+    {
       "id": "verdenshandel-for-oppdagelsesreisene",
       "title": "Verdenshandel før oppdagelsesreisene",
       "description": "Handel med krydder og luksusvarer før 1500.",
