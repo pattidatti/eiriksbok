@@ -1,5 +1,5 @@
 {
-  "buildId": 1778867334085,
+  "buildId": 1778871028461,
   "contentMap": {
     "concept-adel": [
       "content/concepts/adel.json"
@@ -900,6 +900,9 @@
     ],
     "historie-perserriket": [
       "content/historie/perserriket/artikkel.json"
+    ],
+    "kyros-den-store": [
+      "content/historie/perserriket/kyros-den-store.json"
     ],
     "perserkrigene": [
       "content/historie/perserriket/perserkrigene.json"
@@ -2325,6 +2328,7 @@
     "historie/norgeshistorie/knut-alvsson/knut-alvsson": "content/historie/norgeshistorie/knut-alvsson/artikkel.json",
     "historie/norgeshistorie/norge-for-vikingene/norge-for-vikingene": "content/historie/norgeshistorie/norge-for-vikingene/artikkel.json",
     "historie/perserriket/perserriket": "content/historie/perserriket/artikkel.json",
+    "historie/perserriket/kyros-den-store": "content/historie/perserriket/kyros-den-store.json",
     "historie/perserriket/perserkrigene": "content/historie/perserriket/perserkrigene.json",
     "historie/perserriket/zarathustra-og-zoroastrismen": "content/historie/perserriket/zarathustra-og-zoroastrismen.json",
     "historie/reformasjonen/30-aarskrigen": "content/historie/reformasjonen/30-aarskrigen.json",
