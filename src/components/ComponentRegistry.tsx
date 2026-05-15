@@ -79,6 +79,7 @@ const JernbaneReisesammenligning = lazy(() => import('./content/interactive/Jern
 const FiksjonensKraft = lazy(() => import('./content/interactive/FiksjonensKraft').then(m => ({ default: m.FiksjonensKraft })));
 const BattleTacticsSim = lazy(() => import('./content/interactive/BattleTacticsSim').then(m => ({ default: m.BattleTacticsSim })));
 const MottreformasjonsVerktoy = lazy(() => import('./content/interactive/MottreformasjonsVerktoy').then(m => ({ default: m.MottreformasjonsVerktoy })));
+const LovensSmutthull = lazy(() => import('./content/interactive/LovensSmutthull').then(m => ({ default: m.LovensSmutthull })));
 
 // Skapende Skriving (Creative Writing)
 const StoryElementMixer = lazy(() => import('./content/interactive/StoryElementMixer').then(m => ({ default: m.StoryElementMixer })));
@@ -215,6 +216,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     FiksjonensKraft,
     BattleTacticsSim,
     MottreformasjonsVerktoy,
+    LovensSmutthull,
     StoryElementMixer,
     ThemeDigger,
     PlotDNA,

@@ -1656,6 +1656,25 @@
       ]
     },
     {
+      "id": "stockholm-blodbadet",
+      "title": "Stockholms blodbad",
+      "description": "Hvordan Christian II brukte et juridisk smutthull til å henrette nesten 100 svenske adelsmenn i 1520 — og dermed sprengte Kalmarunionen.",
+      "startDate": 1520,
+      "endDate": null,
+      "displayDate": "1520",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "sveriges-historie",
+      "link": "/historie/sveriges-historie/stockholm-blodbadet",
+      "tags": [
+        "sverige",
+        "kalmarunionen",
+        "christian-ii",
+        "gustav-vasa",
+        "vendepunkt"
+      ]
+    },
+    {
       "id": "cortes-mexico",
       "title": "Cortés erobrer Mexico",
       "description": "Aztekerrikets fall markerer starten på Spanias herredømme på fastlandet.",
