@@ -136,6 +136,7 @@ const ProtestsangAnalyse = lazy(() => import('./content/interactive/ProtestsangA
 const NilenFlomSyklus = lazy(() => import('./content/interactive/NilenFlomSyklus').then(m => ({ default: m.NilenFlomSyklus })));
 const IndusMysteryBoard = lazy(() => import('./content/interactive/IndusMysteryBoard').then(m => ({ default: m.IndusMysteryBoard })));
 const HimmelensMandat = lazy(() => import('./content/interactive/HimmelensMandat').then(m => ({ default: m.HimmelensMandat })));
+const ThoughtsWordsDeeds = lazy(() => import('./content/interactive/ThoughtsWordsDeeds').then(m => ({ default: m.ThoughtsWordsDeeds })));
 
 export const componentRegistry: Record<string, React.ComponentType<any>> = {
     // Core
@@ -272,6 +273,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     NilenFlomSyklus,
     IndusMysteryBoard,
     HimmelensMandat,
+    ThoughtsWordsDeeds,
     Gallery,
     gallery: Gallery,
     comparison: Comparison,

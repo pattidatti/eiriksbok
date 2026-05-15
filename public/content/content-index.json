@@ -1,5 +1,5 @@
 {
-  "buildId": 1778792416612,
+  "buildId": 1778807541562,
   "contentMap": {
     "concept-adel": [
       "content/concepts/adel.json"
@@ -903,6 +903,9 @@
     ],
     "perserkrigene": [
       "content/historie/perserriket/perserkrigene.json"
+    ],
+    "zarathustra-og-zoroastrismen": [
+      "content/historie/perserriket/zarathustra-og-zoroastrismen.json"
     ],
     "30-aarskrigen": [
       "content/historie/reformasjonen/30-aarskrigen.json"
@@ -2314,6 +2317,7 @@
     "historie/norgeshistorie/norge-for-vikingene/norge-for-vikingene": "content/historie/norgeshistorie/norge-for-vikingene/artikkel.json",
     "historie/perserriket/perserriket": "content/historie/perserriket/artikkel.json",
     "historie/perserriket/perserkrigene": "content/historie/perserriket/perserkrigene.json",
+    "historie/perserriket/zarathustra-og-zoroastrismen": "content/historie/perserriket/zarathustra-og-zoroastrismen.json",
     "historie/reformasjonen/30-aarskrigen": "content/historie/reformasjonen/30-aarskrigen.json",
     "historie/reformasjonen/martin-luther": "content/historie/reformasjonen/martin-luther.json",
     "historie/reformasjonen/mottreformasjonen": "content/historie/reformasjonen/mottreformasjonen.json",
