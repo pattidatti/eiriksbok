@@ -5,7 +5,7 @@
     "year": "3100 fvt – 30 fvt",
     "category": "Tidlige sivilisasjoner",
     "readTime": "8 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/jordbruk-og-sivilisasjoner/egypt-hero.webp",
     "details": [
         "Egypt overlevde i over tre tusen år — ingen annen tidlig sivilisasjon kom i nærheten.",
         "Nilens årlige flom ga rik jord og styrte hele samfunnet.",
@@ -19,7 +19,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/jordbruk-og-sivilisasjoner/egypt-hero.webp",
             "alt": "Ungdom ser ut over flommende Nil med templer som stikker opp som øyer i soloppgang",
             "caption": "Hvert år flommet Nilen over og forvandlet Egypt til et innhav. Bønder kalte flommen for «Hapis gave» — etter elveguden Hapi."
         },
@@ -88,7 +88,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/jordbruk-og-sivilisasjoner/egypt-01.webp",
             "alt": "De tre store pyramidene ved Giza fotografert ved soloppgang fra sør",
             "caption": "Pyramidene ved Giza ble bygget for omtrent 4500 år siden. Mange tror slavene bygde dem — men forskerne mener i dag at de fleste arbeiderne var vanlige bønder som arbeidet under flomsesongen."
         },

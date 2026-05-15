@@ -5,7 +5,7 @@
     "year": "5000 fvt – 220 evt",
     "category": "Tidlige sivilisasjoner",
     "readTime": "9 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/jordbruk-og-sivilisasjoner/kina-hero.webp",
     "details": [
         "Den gule elven (Huang He) ble både livgiver og «Kinas sorg» — den fôret avlingene, men flommet over hundrevis av ganger.",
         "Kineserne fant opp silke, papir, kompass og krutt lenge før Europa kjente til dem.",
@@ -18,7 +18,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/jordbruk-og-sivilisasjoner/kina-hero.webp",
             "alt": "Tenåringsjente i enkle klær ser ut over bred gulgrå elv i morgenlys, terrassemarker på åssidene",
             "caption": "Den gule elven fikk navnet sitt fra den fine, gule jorda — løss — som vannet drar med seg fra åssidene."
         },
@@ -79,7 +79,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/jordbruk-og-sivilisasjoner/kina-01.webp",
             "alt": "Rekker av terrakottakrigere i en mørk grav, sett ovenfra i støvete lys",
             "caption": "Qin Shi Huangdi tok 700 000 arbeidere med seg i graven — eller rettere sagt, han fikk dem til å forme leire-soldater som skulle bevokte ham i evigheten."
         },
@@ -101,7 +101,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/jordbruk-og-sivilisasjoner/kina-02.webp",
             "alt": "Kinesisk håndverker spinner silketråd fra hvite kokonger ved en lav benk i et tre-tun",
             "caption": "Silke kommer fra kokongene til silkeormen. Kineserne holdt fremgangsmåten hemmelig i over tusen år."
         },
