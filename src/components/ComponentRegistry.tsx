@@ -80,6 +80,7 @@ const FiksjonensKraft = lazy(() => import('./content/interactive/FiksjonensKraft
 const BattleTacticsSim = lazy(() => import('./content/interactive/BattleTacticsSim').then(m => ({ default: m.BattleTacticsSim })));
 const MottreformasjonsVerktoy = lazy(() => import('./content/interactive/MottreformasjonsVerktoy').then(m => ({ default: m.MottreformasjonsVerktoy })));
 const LovensSmutthull = lazy(() => import('./content/interactive/LovensSmutthull').then(m => ({ default: m.LovensSmutthull })));
+const SprakBaneVelger = lazy(() => import('./content/interactive/SprakBaneVelger').then(m => ({ default: m.SprakBaneVelger })));
 
 // Skapende Skriving (Creative Writing)
 const StoryElementMixer = lazy(() => import('./content/interactive/StoryElementMixer').then(m => ({ default: m.StoryElementMixer })));
@@ -218,6 +219,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     BattleTacticsSim,
     MottreformasjonsVerktoy,
     LovensSmutthull,
+    SprakBaneVelger,
     StoryElementMixer,
     ThemeDigger,
     PlotDNA,

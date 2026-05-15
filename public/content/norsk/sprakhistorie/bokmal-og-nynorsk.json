@@ -1,0 +1,166 @@
+{
+    "id": "bokmal-og-nynorsk",
+    "title": "Bokmål og nynorsk: Hvordan Norge fikk to skriftspråk",
+    "layout": "rich",
+    "year": "1814-i dag",
+    "category": "Språkhistorie",
+    "readTime": "9 min lesning",
+    "heroImage": "/images/placeholder.webp",
+    "details": [
+        "Ivar Aasen samlet bygdedialekter og bygde landsmål (senere nynorsk) fra bunnen av.",
+        "Knud Knudsen fornorsket dansk gradvis, og det skriftspråket ble til riksmål og deretter bokmål.",
+        "Begge skriftspråkene har vært likestilte ved lov siden 1885."
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Ivar Aasen var 28 år da han la ut på vandring sommeren 1842. Han hadde ryggsekk, notatbok og en plan: å reise fra bygd til bygd og skrive ned hvordan folk faktisk snakket. I løpet av fire år gikk han over fjell og fjorder fra Sunnmøre i sør til Troms i nord. Han fylte bøker med ord, bøyninger og setninger han hørte i fjøs, kjøkken og rundt kaffebordet hos lokale prester. Da han kom hjem, hadde han noe ingen andre hadde: et atlas over norske dialekter."
+        },
+        {
+            "type": "header",
+            "text": "Et land med to skriftspråk?"
+        },
+        {
+            "type": "text",
+            "content": "Norge er ett av få land i verden med to offisielle skriftspråk. Begge heter norsk, men ser litt ulike ut. Bokmål er mest brukt i aviser, lærebøker og på sosiale medier. Nynorsk bruker rundt 10-15 prosent av elevene som hovedmål, særlig på Vestlandet og i fjellbygdene. Hvorfor har vi to? Svaret ligger 200 år tilbake, og det har med Danmark å gjøre."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Ung mann med ryggsekk og notatbok står på en sti i norsk fjellandskap, 1840-tallet",
+            "caption": "Ivar Aasen vandret fra bygd til bygd og noterte ned dialektord — grunnarbeidet for det som ble nynorsk."
+        },
+        {
+            "type": "header",
+            "text": "1814: Norge blir norsk igjen, men språket er dansk"
+        },
+        {
+            "type": "text",
+            "content": "I 400 år hadde Norge vært i union med Danmark. All skrift var på dansk: lover, bøker, aviser, kirken, skolen. Dansk var språket de utdannede brukte, og det var dansk man lærte å lese og skrive. Folk i bygdene snakket norske dialekter, men ingen skrev dem ned. Det norrøne språket fra vikingtiden hadde levd videre i bygdene gjennom hundrevis av år, mens de som leste og skrev gradvis byttet over til dansk. Resultatet var et merkelig dobbeltliv: nordmenn snakket norsk, men skrev dansk."
+        },
+        {
+            "type": "text",
+            "content": "Da Norge fikk egen grunnlov i 1814 og senere gikk i union med Sverige, satt nordmenn med et stort spørsmål: vi har eget land og egen grunnlov, men hvorfor har vi ikke et eget skriftspråk? Diktere som Henrik Wergeland begynte å smugle norske ord inn i dansken. Eventyrsamlerne Asbjørnsen og Moe skrev ned folkeeventyr i et språk som var dansk på utsiden, men full av norske vendinger og rytmer. Likevel var skriftspråket i bunn og grunn fortsatt dansk."
+        },
+        {
+            "type": "header",
+            "text": "To menn, to ulike svar"
+        },
+        {
+            "type": "text",
+            "content": "På 1840-tallet kom det to forskjellige løsninger, og de kom samtidig. Ivar Aasen mente at det ekte norske språket bodde i bygdedialektene, særlig på Vestlandet. Dialektene hadde holdt seg nær det norrøne, mens dansken hadde slipt seg ned i Danmark. Aasen samlet dialektene systematisk og bygde et nytt skriftspråk fra grunnen av. Han kalte det landsmål. Det navnet ble senere endret til nynorsk."
+        },
+        {
+            "type": "text",
+            "content": "Knud Knudsen tenkte stikk motsatt. Han var lærer i Christiania og syntes Aasens prosjekt var for radikalt. Hvorfor lage et helt nytt språk når vi allerede har et skriftspråk som alle skolebarn kan? Knudsens idé var enkel: ta dansken slik den var, og bytt gradvis ut de mest danske ordene med norske former. Han ville skrive sten i stedet for steen, og etter hvert stein. Det Knudsen fornorsket, ble til slutt riksmål, og fra 1929 fikk det navnet bokmål."
+        },
+        {
+            "type": "component",
+            "name": "SprakBaneVelger",
+            "props": {
+                "title": "Hvor kommer ordet fra?"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Striden tar fart"
+        },
+        {
+            "type": "text",
+            "content": "Fra slutten av 1800-tallet og gjennom hele 1900-tallet kranglet nordmenn om hvilket skriftspråk som var det riktige. Skoler valgte side. Aviser valgte side. Politikere kjempet i Stortinget om bøyninger og endelser. På 1930-tallet prøvde regjeringen å løse problemet ved å lage samnorsk: en plan om å smelte bokmål og nynorsk sammen til ett språk i fremtiden. Folk reagerte sterkt. Mødre rev sider ut av lærebøkene fordi formene var endret, og protestene fikk navnet foreldreaksjonen. Etter mange år ga staten opp samnorsk-prosjektet."
+        },
+        {
+            "type": "text",
+            "content": "Striden var ikke bare om språk. Den handlet også om makt og klasse. Nynorsk ble ofte sett på som bygdas språk, mens bokmål var språket i byene og blant de utdannede. Forfattere som Tarjei Vesaas og Olav H. Hauge skrev sine viktigste verk på nynorsk og viste at språket kunne bære stor litteratur. Samtidig fortsatte de fleste avisene å skrive bokmål, og det ble språket som rådde i radioen og senere på fjernsynet."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Stortingssalen på 1950-tallet, politikere i debatt med papirer på pultene",
+            "caption": "Språkdebatten preget norsk politikk i over hundre år. Hver eneste rettskrivingsendring ble en stor strid."
+        },
+        {
+            "type": "header",
+            "text": "Lovverket: to likestilte språk"
+        },
+        {
+            "type": "text",
+            "content": "I 1885 vedtok Stortinget at landsmål og det dansk-norske skriftspråket skulle være likestilte. Det var det første mållovsvedtaket i Europa der to skriftspråk for samme befolkning fikk like rettigheter. I dag bestemmer Språklova fra 2022 at staten skal bruke begge. Kommuner kan velge om de er bokmåls-, nynorsk- eller språknøytrale. Elever har rett til lærebøker på sitt hovedmål, og alle elever lærer både hovedmål og sidemål på skolen."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Tall i dag",
+                "icon": "info",
+                "content": "Rundt 85-88 prosent av norske elever har bokmål som hovedmål. Mellom 12-15 prosent har nynorsk. Nynorsk står sterkest i kommunene på Vestlandet og i indre fjellbygder. Begge språkene må læres på skolen — det er derfor sidemål er et eget fagområde i norsk."
+            }
+        },
+        {
+            "type": "header",
+            "text": "Hvorfor beholde to skriftspråk?"
+        },
+        {
+            "type": "text",
+            "content": "Mange spør om det ikke ville være enklere å velge ett. Argumentet for å beholde begge er at språk handler om identitet og tilhørighet. En elev som vokser opp i Volda eller på Voss og snakker en dialekt som ligner nynorsk, kjenner seg igjen når hen leser nynorsk. På samme måte føler en ungdom fra Oslo seg hjemme i bokmål. Begge språkene speiler ulike måter å være norsk på, og de holder en stor del av landets historie levende."
+        },
+        {
+            "type": "text",
+            "content": "Det finnes også et praktisk argument. Når elever lærer både hovedmål og sidemål, ser de hvordan språk kan variere, og de blir mer bevisste på sin egen dialekt. I tillegg gjør de to skriftspråkene det lettere å forstå svensk og dansk, fordi nynorsk og bokmål til sammen dekker en stor del av variasjonen i de nordiske språkene. Det er ikke et tegn på splittelse at Norge har to skriftspråk — det er et tegn på at det er plass til flere måter å snakke samme språk på."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hva het skriftspråket Ivar Aasen bygde opp?",
+                        "options": ["Riksmål", "Landsmål", "Samnorsk", "Dansk-norsk"],
+                        "correctIndex": 1,
+                        "explanation": "Aasen kalte sitt nye skriftspråk landsmål. Navnet ble endret til nynorsk i 1929."
+                    },
+                    {
+                        "question": "Hva var Knud Knudsens metode?",
+                        "options": [
+                            "Samle dialekter fra hele Norge",
+                            "Lage et helt nytt språk fra norrønt",
+                            "Fornorske dansken gradvis",
+                            "Innføre svensk som hovedmål"
+                        ],
+                        "correctIndex": 2,
+                        "explanation": "Knudsen mente det var enklest å bytte ut danske ord og bøyninger med norske former, litt etter litt."
+                    },
+                    {
+                        "question": "Når ble de to skriftspråkene likestilte i lov?",
+                        "options": ["1814", "1885", "1905", "1929"],
+                        "correctIndex": 1,
+                        "explanation": "Jamstillingsvedtaket i 1885 ga landsmål og dansk-norsk lik status i skole og forvaltning."
+                    },
+                    {
+                        "question": "Hva var samnorsk-prosjektet?",
+                        "options": [
+                            "Et forsøk på å smelte bokmål og nynorsk sammen til ett språk",
+                            "En plan om å innføre dansk som offisielt språk",
+                            "En liste over ord som var forbudt i skolen",
+                            "Et nytt navn for nynorsk"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "På 1900-tallet prøvde staten å bygge bro mellom de to skriftspråkene. Folk reagerte sterkt, og prosjektet ble til slutt skrinlagt."
+                    },
+                    {
+                        "question": "Hvorfor ligner nynorsk-ord ofte mer på norrøne ord enn på dansk?",
+                        "options": [
+                            "Aasen oversatte direkte fra islandsk",
+                            "Dansk har endret seg lite siden middelalderen",
+                            "Bygdedialektene holdt seg nær det norrøne, og nynorsk bygger på dem",
+                            "Nynorsk ble bestemt av Stortinget i 1814"
+                        ],
+                        "correctIndex": 2,
+                        "explanation": "Mens dansk skriftspråk endret seg mye over hundrevis av år, holdt mange norske dialekter på eldre former. Aasen brukte disse dialektene som grunnmur for nynorsk."
+                    }
+                ]
+            }
+        }
+    ],
+    "timeline": []
+}

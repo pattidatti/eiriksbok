@@ -1,5 +1,5 @@
 {
-  "buildId": 1778841695340,
+  "buildId": 1778867334085,
   "contentMap": {
     "concept-adel": [
       "content/concepts/adel.json"
@@ -1594,6 +1594,9 @@
     "skriv-bedre-historier": [
       "content/norsk/skrivehjelp/skriv-bedre-historier.json"
     ],
+    "bokmal-og-nynorsk": [
+      "content/norsk/sprakhistorie/bokmal-og-nynorsk.json"
+    ],
     "germanske-sprak": [
       "content/norsk/sprakhistorie/germanske-sprak.json"
     ],
@@ -2553,6 +2556,7 @@
     "norsk/skrivehjelp/kildeforing-sti": "content/norsk/skrivehjelp/kildeforing-sti.json",
     "norsk/skrivehjelp/reflekterende-skriving-sti": "content/norsk/skrivehjelp/reflekterende-skriving-sti.json",
     "norsk/skrivehjelp/skriv-bedre-historier": "content/norsk/skrivehjelp/skriv-bedre-historier.json",
+    "norsk/sprakhistorie/bokmal-og-nynorsk": "content/norsk/sprakhistorie/bokmal-og-nynorsk.json",
     "norsk/sprakhistorie/germanske-sprak": "content/norsk/sprakhistorie/germanske-sprak.json",
     "norsk/tekstsjangre/tekstsjangre": "content/norsk/tekstsjangre/artikkel.json",
     "norsk/tekstsjangre/debattinnlegg": "content/norsk/tekstsjangre/debattinnlegg.json",
