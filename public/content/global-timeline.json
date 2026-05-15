@@ -2602,6 +2602,25 @@
       ]
     },
     {
+      "id": "bokmal-og-nynorsk",
+      "title": "Bokmål og nynorsk: Hvordan Norge fikk to skriftspråk",
+      "description": "Ivar Aasen, Knud Knudsen og den lange språkstriden som ga Norge to offisielle skriftspråk.",
+      "startDate": 1814,
+      "endDate": null,
+      "displayDate": "1814-i dag",
+      "type": "lesson",
+      "subjectId": "norsk",
+      "topicId": "sprakhistorie",
+      "link": "/norsk/sprakhistorie/bokmal-og-nynorsk",
+      "tags": [
+        "språkhistorie",
+        "bokmål",
+        "nynorsk",
+        "Ivar Aasen",
+        "språkpolitikk"
+      ]
+    },
+    {
       "id": "grunnloven",
       "title": "Grunnloven 1814",
       "description": "Hvordan 112 menn på Eidsvoll skrev en grunnlov som fortsatt styrer Norge.",
