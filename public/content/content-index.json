@@ -1,5 +1,5 @@
 {
-  "buildId": 1778840385119,
+  "buildId": 1778841695340,
   "contentMap": {
     "concept-adel": [
       "content/concepts/adel.json"
@@ -1429,6 +1429,9 @@
     "lat-struktur": [
       "content/musikk/komposisjon/lat-struktur.json"
     ],
+    "jazzens-fodsel": [
+      "content/musikk/musikkhistorie/jazzens-fodsel.json"
+    ],
     "joik": [
       "content/musikk/musikkhistorie/joik.json"
     ],
@@ -2495,6 +2498,7 @@
     "musikk/instrumenter/piano-intro": "content/musikk/instrumenter/piano-intro.json",
     "musikk/instrumenter/trommer-intro": "content/musikk/instrumenter/trommer-intro.json",
     "musikk/komposisjon/lat-struktur": "content/musikk/komposisjon/lat-struktur.json",
+    "musikk/musikkhistorie/jazzens-fodsel": "content/musikk/musikkhistorie/jazzens-fodsel.json",
     "musikk/musikkhistorie/joik": "content/musikk/musikkhistorie/joik.json",
     "musikk/musikkhistorie/protestmusikk": "content/musikk/musikkhistorie/protestmusikk.json",
     "musikk/musikkhistorie/streaming-og-opphavsrett": "content/musikk/musikkhistorie/streaming-og-opphavsrett.json",

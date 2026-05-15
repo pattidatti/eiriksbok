@@ -134,6 +134,7 @@ const SongStructureBuilder = lazy(() => import('../features/music/components/Son
 const ArrangementPlanner = lazy(() => import('../features/music/components/ArrangementPlanner').then(m => ({ default: m.ArrangementPlanner })));
 const SongwriterStudio = lazy(() => import('../features/music/components/SongwriterStudio').then(m => ({ default: m.SongwriterStudio })));
 const ProtestsangAnalyse = lazy(() => import('./content/interactive/ProtestsangAnalyse').then(m => ({ default: m.ProtestsangAnalyse })));
+const BluesNoteVerksted = lazy(() => import('./content/interactive/BluesNoteVerksted').then(m => ({ default: m.BluesNoteVerksted })));
 const NilenFlomSyklus = lazy(() => import('./content/interactive/NilenFlomSyklus').then(m => ({ default: m.NilenFlomSyklus })));
 const IndusMysteryBoard = lazy(() => import('./content/interactive/IndusMysteryBoard').then(m => ({ default: m.IndusMysteryBoard })));
 const HimmelensMandat = lazy(() => import('./content/interactive/HimmelensMandat').then(m => ({ default: m.HimmelensMandat })));
@@ -272,6 +273,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     ArrangementPlanner,
     SongwriterStudio,
     ProtestsangAnalyse,
+    BluesNoteVerksted,
     NilenFlomSyklus,
     IndusMysteryBoard,
     HimmelensMandat,
