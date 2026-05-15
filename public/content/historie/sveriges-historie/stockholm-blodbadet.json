@@ -1,0 +1,210 @@
+{
+    "id": "stockholm-blodbadet",
+    "title": "Stockholms blodbad",
+    "layout": "rich",
+    "year": "1520",
+    "category": "Sverige",
+    "readTime": "8 min lesning",
+    "heroImage": "/images/placeholder.webp",
+    "details": [
+        "Christian II av Danmark lot henrette nesten 100 svenske adelsmenn etter sin kroning i Stockholm i november 1520.",
+        "Tyrannen brukte et juridisk smutthull: hans amnesti dekket «forbrytelser mot kronen», men ikke anklager om kjetteri.",
+        "Drapene ble starten på slutten for Kalmarunionen og banet vei for Gustav Vasa og det moderne Sverige."
+    ],
+    "subject": "historie",
+    "topic": "sveriges-historie",
+    "tags": [
+        "sverige",
+        "kalmarunionen",
+        "christian-ii",
+        "gustav-vasa",
+        "vendepunkt"
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "På morgenen 9. november 1520 lå snøen tung over Stortorget i Stockholm. Folk samlet seg rundt et bål av papirer og bøker som brant midt på torget. Rundt bålet sto svenske adelsmenn i lenker. En etter en ble de ført frem til bøddelens øks. Da kvelden falt, var nesten hundre menn døde — biskoper, borgermestere, rådgivere og krigerne deres. Blant tilskuerne sto en ung adelsmann ved navn Gustav Eriksson Vasa. Han hadde nettopp mistet faren sin. Tre år senere skulle han ta tilbake hele Sverige."
+        },
+        {
+            "type": "header",
+            "text": "Et land i union, et folk i tvil"
+        },
+        {
+            "type": "text",
+            "content": "Sverige hadde siden 1397 vært en del av Kalmarunionen. Tre kongeriker — Danmark, Norge og Sverige — under én konge. Tanken bak unionen var god: et samlet Norden som kunne stå imot Hansaen og andre stormakter. Men i praksis ble unionen styrt fra København, og mange svensker følte at deres land ble behandlet som en provins."
+        },
+        {
+            "type": "text",
+            "content": "Motstanden hadde sin egen lederfigur: Sten Sture den yngre, en svensk riksforstander som nektet å bøye seg for kong Christian II av Danmark. I 1520 falt Sten Sture på isen ved Bogesund, dødelig såret i kamp mot danske tropper. Den ledige lederplassen var en åpen invitasjon. Christian II tok den."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Snødekt middelaldertorg med katedral og bål av papirer i forgrunnen",
+            "caption": "Stortorget i Stockholm, der dommene ble lest opp og henrettelsene gjennomført."
+        },
+        {
+            "type": "header",
+            "text": "Kroningsfesten — eller fellen"
+        },
+        {
+            "type": "text",
+            "content": "Christian II marsjerte inn i Stockholm høsten 1520 og lot seg krone til konge av Sverige 4. november. Han hadde med seg et brev som skulle berolige svenskene: et amnesti, et løfte om tilgivelse for alle som hadde kjempet mot ham. Adelen og biskopene la ned våpnene og kom til kroningsfesten i tillit. Festen varte i tre dager — vin, mat og taler om fred mellom brødrefolkene."
+        },
+        {
+            "type": "text",
+            "content": "På kvelden 7. november ble portene til slottet stengt. Vakter med spyd stilte seg foran dørene. Christian II reiste seg, og ved siden av ham sto biskop Gustav Trolle. Trolle hadde en lang liste — navnene på alle som hadde tatt parti for Sten Sture og avsatt ham som erkebiskop noen år før. Christian II la frem listen som en anklage, ikke om forræderi, men om kjetteri — synder mot Den hellige kirke. Saken ble overført til en kirkelig domstol. Biskop Hans Brask undertegnet et domsbrev før daggry. Innen middag dagen etter var halshuggingen i full gang."
+        },
+        {
+            "type": "component",
+            "name": "LovensSmutthull",
+            "props": {
+                "title": "Lovens smutthull"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Hvorfor virket trikset?"
+        },
+        {
+            "type": "text",
+            "content": "I middelalderen fantes det to parallelle rettssystem. Kongens domstoler dømte i saker om politisk forræderi, mord og handel. Kirkens domstoler dømte i saker om tro, lære og moral. De var helt atskilte. Når Christian II flyttet anklagen fra «opprør mot kongen» til «kjetteri mot kirken», skiftet han hele spillebrettet. Amnesti-brevet hans gjaldt bare det kongelige system — det første brettet. Kjetteri-anklagen havnet på det andre brettet, der løftet ikke virket."
+        },
+        {
+            "type": "text",
+            "content": "Dette var et triks som var lovlig på papiret, men brøt med all rettsfølelse. Christian II hadde latt offerene sine komme inn under et amnesti han visste han kunne omgå. Tilliten til kongelige løfter ble knust i hele Norden. Den svenske adelen skjønte at unionen ikke kunne reformeres. Den måtte rives."
+        },
+        {
+            "type": "header",
+            "text": "Tre dager med øks og bål"
+        },
+        {
+            "type": "text",
+            "content": "Henrettelsene varte fra 8. til 10. november 1520. Først ble to biskoper halshugget — et brudd med kirkeretten som skulle skjerme geistlige fra dødsstraff. Deretter fulgte tretten medlemmer av rådet, tre borgermestere, fjorten rådmenn og rundt seksti vanlige borgere og krigere. Likene ble liggende på torget i flere dager før de ble brent på et stort bål. Også Sten Stures grav ble åpnet, og liket hans brent. Christian II ville fjerne hver eneste fysiske påminnelse om motstanden."
+        },
+        {
+            "type": "component",
+            "name": "QuoteBlock",
+            "props": {
+                "author": "Olaus Petri, svensk reformator og samtidig vitne",
+                "content": "Han kalte det rettferdighet, men det var hevn kledd i kappe."
+            }
+        },
+        {
+            "type": "header",
+            "text": "Gustav Vasa flykter"
+        },
+        {
+            "type": "text",
+            "content": "Den unge Gustav Vasa hadde nettopp returnert fra et fangenskap i Danmark da blodbadet skjedde. Hans far, Erik Johansson, var blant de halshugde. Gustav Vasa skjønte at hvis han ble igjen i Stockholm, var han neste på listen. Han flyktet nordover til Dalarna, en region kjent for stridslystne bønder og kobberminer."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Ung mann i pelskledd vinterdrakt på ski i tett granskog, dramatisk sollys",
+            "caption": "Gustav Vasa flyktet på ski gjennom Dalarna for å samle bøndene til opprør."
+        },
+        {
+            "type": "text",
+            "content": "Først ville ikke bøndene høre på ham. Han var bare en ung adelsmann uten hær og uten penger. Men da nyheten om blodbadet nådde Dalarna, snudde stemningen. To skiløpere ble sendt etter Gustav Vasa for å hente ham tilbake. Den dramatiske skituren huskes i dag gjennom det årlige Vasaloppet — verdens største langrennsløp."
+        },
+        {
+            "type": "header",
+            "text": "Slutten på Kalmarunionen"
+        },
+        {
+            "type": "text",
+            "content": "Gustav Vasa samlet en bondehær. Han fikk lån av Hansabyen Lübeck til å kjøpe våpen og leiesoldater. I tre år kjempet han mot de danske troppene i Sverige. Stockholm falt 17. juni 1523. Bare ti dager senere ble Gustav Vasa valgt til konge av Sverige. Kalmarunionen var død. Christian II — som hadde regnet med å samle Norden under sin krone — mistet både Sverige og senere sin egen trone i Danmark."
+        },
+        {
+            "type": "text",
+            "content": "Stockholms blodbad er en av historiens mest dramatiske eksempler på hvordan vold kan slå tilbake mot den som bruker den. Christian II ville knuse motstanden ved å fjerne lederne. I stedet ga han svenskene en helt klar grunn til å aldri stole på Danmark igjen. Han skapte selv den fienden han fryktet mest."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Visste du at?",
+                "content": "Christian II fikk tilnavnet «Christian Tyrann» i Sverige, men i Danmark ble han senere husket som «Christian den gode» — en konge som forsøkte å begrense adelens makt og styrke vanlige borgere. Samme person, to helt ulike historier."
+            }
+        },
+        {
+            "type": "header",
+            "text": "Hva blodbadet lærer oss"
+        },
+        {
+            "type": "text",
+            "content": "Stockholms blodbad er ikke bare en gammel historie om dansker og svensker. Det er en advarsel om hvor lett makthavere kan misbruke loven hvis ingen våger å protestere. Christian II handlet «innenfor regelverket» — men brukte regelverket på en måte som alle visste var urettferdig. Når lov og rettferdighet ikke lenger henger sammen, mister staten sin legitimitet. Det er den læringen Gustav Vasa tok med seg, og det er en lærdom som fortsatt gjelder i dag."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Bronsestatue av Gustav Vasa på sokkel i moderne svensk park",
+            "caption": "Gustav Vasa hyldes i dag som grunnleggeren av det moderne Sverige."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hva var Stockholms blodbad?",
+                        "options": [
+                            "Et slag på sjøen mellom danske og svenske flåter",
+                            "En massehenrettelse av svenske adelsmenn etter Christian IIs kroning i 1520",
+                            "En pestepidemi som rammet Stockholm vinteren 1520",
+                            "En bondeoppstand i Dalarna"
+                        ],
+                        "answer": 1,
+                        "explanation": "Christian II av Danmark lot nesten 100 svenske adelsmenn, biskoper og borgere halshugge på Stortorget i Stockholm 8.–10. november 1520, kort tid etter sin egen kroning til konge av Sverige."
+                    },
+                    {
+                        "question": "Hvorfor stoppet ikke amnesti-brevet henrettelsene?",
+                        "options": [
+                            "Brevet var forfalsket",
+                            "Adelsmennene takket nei til amnestiet",
+                            "Brevet dekket bare forbrytelser mot kongen, ikke anklager om kjetteri mot kirken",
+                            "Christian II ombestemte seg etter kroningen"
+                        ],
+                        "answer": 2,
+                        "explanation": "Christian II flyttet anklagen fra den kongelige domstolen til kirkens domstol. Amnesti-brevet gjaldt bare forbrytelser «mot kronen» — kjetteri var en sak for kirken, og falt utenfor brevets dekning."
+                    },
+                    {
+                        "question": "Hvilken konsekvens fikk blodbadet for Kalmarunionen?",
+                        "options": [
+                            "Unionen ble styrket",
+                            "Unionen ble flyttet til Stockholm",
+                            "Unionen brøt sammen da Sverige rev seg løs under Gustav Vasa",
+                            "Unionen ble utvidet til å omfatte Finland"
+                        ],
+                        "answer": 2,
+                        "explanation": "Tilliten til danske løfter var knust. Gustav Vasa samlet en bondehær i Dalarna, og i 1523 ble Sverige selvstendig. Kalmarunionen var død."
+                    },
+                    {
+                        "question": "Hvem var Gustav Vasa, og hva er hans rolle i historien?",
+                        "options": [
+                            "En dansk hærfører som ledet henrettelsene",
+                            "En ung svensk adelsmann som mistet faren i blodbadet og senere ble konge av Sverige",
+                            "Biskopen som signerte domsbrevet",
+                            "En tysk leiesoldat i Christian IIs hær"
+                        ],
+                        "answer": 1,
+                        "explanation": "Gustav Vasas far var blant de halshugde. Gustav flyktet til Dalarna, samlet et opprør, og ble valgt til konge av et selvstendig Sverige i 1523."
+                    },
+                    {
+                        "question": "Hva er hovedlærdommen fra Stockholms blodbad?",
+                        "options": [
+                            "At kongemakt alltid vinner i lengden",
+                            "At det er farlig å reise om vinteren i Sverige",
+                            "At makthavere kan misbruke loven ved å flytte saker til en domstol der løftene deres ikke gjelder",
+                            "At kirken alltid bør stå over staten"
+                        ],
+                        "answer": 2,
+                        "explanation": "Christian II handlet teknisk innenfor regelverket, men brukte to parallelle rettssystem til å bryte sitt eget løfte. Når lov og rettferdighet skiller lag, mister staten sin legitimitet."
+                    }
+                ]
+            }
+        }
+    ],
+    "timeline": []
+}

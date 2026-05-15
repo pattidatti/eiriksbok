@@ -1,5 +1,5 @@
 {
-  "buildId": 1778807541562,
+  "buildId": 1778840385119,
   "contentMap": {
     "concept-adel": [
       "content/concepts/adel.json"
@@ -957,6 +957,9 @@
     ],
     "vestromerrikets-fall": [
       "content/historie/romerriket/vestromerrikets-fall.json"
+    ],
+    "stockholm-blodbadet": [
+      "content/historie/sveriges-historie/stockholm-blodbadet.json"
     ],
     "sveriges-historie-sveriges-historie": [
       "content/historie/sveriges-historie/sveriges-historie/artikkel.json"
@@ -2335,6 +2338,7 @@
     "historie/romerriket/romerske-guder": "content/historie/romerriket/romerske-guder.json",
     "historie/romerriket/romerske-keisere": "content/historie/romerriket/romerske-keisere.json",
     "historie/romerriket/vestromerrikets-fall": "content/historie/romerriket/vestromerrikets-fall.json",
+    "historie/sveriges-historie/stockholm-blodbadet": "content/historie/sveriges-historie/stockholm-blodbadet.json",
     "historie/sveriges-historie/sveriges-historie/sveriges-historie": "content/historie/sveriges-historie/sveriges-historie/artikkel.json",
     "historie/test-artikkel.json/test-artikkel": "content/historie/test-artikkel.json",
     "historie/vikingtiden/vikingtiden": "content/historie/vikingtiden/artikkel.json",
