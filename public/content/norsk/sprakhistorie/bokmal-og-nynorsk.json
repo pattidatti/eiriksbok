@@ -5,7 +5,7 @@
     "year": "1814-i dag",
     "category": "Språkhistorie",
     "readTime": "9 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/sprakhistorie/bokmal-og-nynorsk-hero.webp",
     "details": [
         "Ivar Aasen samlet bygdedialekter og bygde landsmål (senere nynorsk) fra bunnen av.",
         "Knud Knudsen fornorsket dansk gradvis, og det skriftspråket ble til riksmål og deretter bokmål.",
@@ -26,7 +26,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/sprakhistorie/bokmal-og-nynorsk-01.webp",
             "alt": "Ung mann med ryggsekk og notatbok står på en sti i norsk fjellandskap, 1840-tallet",
             "caption": "Ivar Aasen vandret fra bygd til bygd og noterte ned dialektord — grunnarbeidet for det som ble nynorsk."
         },
@@ -75,7 +75,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/sprakhistorie/bokmal-og-nynorsk-02.webp",
             "alt": "Stortingssalen på 1950-tallet, politikere i debatt med papirer på pultene",
             "caption": "Språkdebatten preget norsk politikk i over hundre år. Hver eneste rettskrivingsendring ble en stor strid."
         },

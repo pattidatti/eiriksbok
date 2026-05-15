@@ -5,7 +5,7 @@
     "year": "1900-1950",
     "category": "Musikk og samfunn",
     "readTime": "10 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/musikkhistorie/jazzens-fodsel-hero.webp",
     "details": [
         "Jazz oppsto i New Orleans rundt år 1900",
         "Den blandet afrikansk rytmetradisjon med europeisk harmonilære",
@@ -19,7 +19,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/musikkhistorie/jazzens-fodsel-01.webp",
             "alt": "Et jazzband med trompet, klarinett, banjo og kontrabass spiller på en veranda i New Orleans rundt 1910",
             "caption": "Tidlige jazzband i New Orleans samlet musikere fra mange ulike kulturer."
         },
@@ -72,7 +72,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/musikkhistorie/jazzens-fodsel-02.webp",
             "alt": "Louis Armstrong spiller trompet i nærbilde, kinnene puster ut, øynene lukket i konsentrasjon",
             "caption": "Louis Armstrong tok jazzen ut av New Orleans og inn i hele verden."
         },
@@ -102,7 +102,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/musikkhistorie/jazzens-fodsel-03.webp",
             "alt": "Billie Holiday synger i en spotlys på en jazzklubb, hodet bøyd bakover, en hvit blomst i håret",
             "caption": "Billie Holiday brukte stemmen sin til å fortelle sannheter andre var redde for å si."
         },

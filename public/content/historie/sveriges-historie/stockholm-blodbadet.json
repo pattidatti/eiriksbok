@@ -5,7 +5,7 @@
     "year": "1520",
     "category": "Sverige",
     "readTime": "8 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/sveriges-historie/stockholm-blodbadet-hero.webp",
     "details": [
         "Christian II av Danmark lot henrette nesten 100 svenske adelsmenn etter sin kroning i Stockholm i november 1520.",
         "Tyrannen brukte et juridisk smutthull: hans amnesti dekket «forbrytelser mot kronen», men ikke anklager om kjetteri.",
@@ -39,7 +39,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/sveriges-historie/stockholm-blodbadet-01.webp",
             "alt": "Snødekt middelaldertorg med katedral og bål av papirer i forgrunnen",
             "caption": "Stortorget i Stockholm, der dommene ble lest opp og henrettelsene gjennomført."
         },
@@ -100,7 +100,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/sveriges-historie/stockholm-blodbadet-02.webp",
             "alt": "Ung mann i pelskledd vinterdrakt på ski i tett granskog, dramatisk sollys",
             "caption": "Gustav Vasa flyktet på ski gjennom Dalarna for å samle bøndene til opprør."
         },
@@ -138,7 +138,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/sveriges-historie/stockholm-blodbadet-03.webp",
             "alt": "Bronsestatue av Gustav Vasa på sokkel i moderne svensk park",
             "caption": "Gustav Vasa hyldes i dag som grunnleggeren av det moderne Sverige."
         },
