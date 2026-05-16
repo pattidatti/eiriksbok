@@ -56,6 +56,24 @@
       ]
     },
     {
+      "id": "den-jordbruksrevolusjonen",
+      "title": "Den jordbruksrevolusjonen",
+      "description": "Hvordan menneskene byttet vandring mot åker — og hvordan hveten temmet oss like mye som vi temmet den.",
+      "startDate": -12000,
+      "endDate": -8000,
+      "displayDate": "12000 fvt - 8000 fvt",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "menneskets-tidlige-historie",
+      "link": "/historie/menneskets-tidlige-historie/den-jordbruksrevolusjonen",
+      "tags": [
+        "forhistorie",
+        "jordbruk",
+        "steinalder",
+        "sivilisasjon"
+      ]
+    },
+    {
       "id": "jordbruk-og-sivilisasjoner-sub-0",
       "title": "Jordbruket oppstår",
       "description": "Mennesker i 'Den fruktbare halvmåne' begynner å dyrke jorden.",
