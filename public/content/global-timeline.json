@@ -1925,6 +1925,26 @@
       ]
     },
     {
+      "id": "stormaktstiden",
+      "title": "Stormaktstiden — Sveriges gullalder",
+      "description": "Hvordan et fattig kornland reiste seg til Europas frykt på 50 år — og falt på ett eneste slag ved Poltava 1709.",
+      "startDate": 1611,
+      "endDate": 1721,
+      "displayDate": "1611-1721",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "sveriges-historie",
+      "link": "/historie/sveriges-historie/stormaktstiden",
+      "tags": [
+        "sverige",
+        "stormaktstid",
+        "karl-xii",
+        "gustav-ii-adolf",
+        "30-aarskrigen",
+        "poltava"
+      ]
+    },
+    {
       "id": "praha-defenestrasjon-1618",
       "title": "Defenestrasjonen i Praha",
       "description": "Tre embetsmenn kastes ut av et vindu, noe som blir den utløsende årsaken til 30-årskrigen.",
