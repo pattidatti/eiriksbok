@@ -1,0 +1,230 @@
+{
+    "id": "stormaktstiden",
+    "title": "Stormaktstiden — Sveriges gullalder",
+    "layout": "rich",
+    "year": "1611-1721",
+    "category": "Sveriges historie",
+    "readTime": "9 min lesning",
+    "heroImage": "/images/placeholder.webp",
+    "subject": "historie",
+    "topic": "Sveriges historie",
+    "details": [
+        "I 110 år var Sverige en av Europas tre største militærmakter.",
+        "Gustav II Adolf bygde Europas mest moderne hær på 1620-tallet.",
+        "Karl XII tapte stormaktstiden i ett eneste slag — Poltava 1709."
+    ],
+    "tags": [
+        "sverige",
+        "stormaktstid",
+        "karl-xii",
+        "gustav-ii-adolf",
+        "30-aarskrigen",
+        "poltava"
+    ],
+    "fact": "Visste du at Karl XII ble skutt utenfor Fredriksten festning i Halden, og at norske soldater fortsatt diskuterer hvem som avfyrte det dødelige skuddet?",
+    "content": [
+        {
+            "type": "text",
+            "content": "30. november 1718 falt en mann i en grøft utenfor Fredriksten festning i Halden. Han hadde en kappe, en hatt og et lite hull i venstre tinning. Mannen var Karl XII, Sveriges konge — Europas mest fryktede kriger. Da liket hans ble fraktet hjem over grensen, fulgte hele stormaktstiden med ham i kista."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Karl XII faller ved Fredriksten festning i Halden 1718, snødekt vinternatt",
+            "caption": "30. november 1718 ved Fredriksten — kongen som døde i grøfta tok stormaktstiden med seg."
+        },
+        {
+            "type": "header",
+            "text": "Hvordan et fattig land ble en stormakt"
+        },
+        {
+            "type": "text",
+            "content": "Rundt år 1600 var Sverige et lite, fattig kornland med rundt en million innbyggere. Hundre år senere kontrollerte landet hele Østersjøen, og generaler i Paris og London visste hva svenske soldater var i stand til. Hva skjedde?"
+        },
+        {
+            "type": "text",
+            "content": "Svaret heter Gustav II Adolf. Han ble konge i 1611, bare 17 år gammel. Mens andre konger ansatte leiesoldater fra Tyskland, gjorde Gustav II Adolf noe radikalt: han innførte verneplikt. Alle norske og svenske bondesønner over 15 år kunne kalles inn. Det ga Sverige en stor, billig hær som faktisk kjempet for sitt eget land."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Gustav Adolfs militære revolusjon",
+                "content": "Han delte hæren inn i mindre, mobile enheter. Kanonene ble lette nok til at to mann kunne dra dem rundt på slagmarken. Soldatene fikk patroner med både kule og krutt — som lot dem skyte tre ganger så fort. Disse ideene kopierte resten av Europa, og Gustav II Adolf ble kalt «moderne krigføringens far»."
+            }
+        },
+        {
+            "type": "header",
+            "text": "Inn i 30-årskrigen"
+        },
+        {
+            "type": "text",
+            "content": "I 1618 brøt 30-årskrigen ut i Tyskland. Det var en blodig kamp mellom katolikker og protestanter, og i begynnelsen vant katolikkene alt. Mange protestantiske fyrster ble fordrevet. Gustav II Adolf var selv lutheraner, og han fryktet at en katolsk seier ville true Sverige."
+        },
+        {
+            "type": "text",
+            "content": "Sommeren 1630 gikk han i land i Pommern med 13 000 soldater. Krigen snudde nesten over natten. Den svenske hæren marsjerte sørover, knuste keiserens hær ved Breitenfeld, og pløyde gjennom Tyskland. Men i november 1632 falt Gustav II Adolf selv ved Lützen. Hesten kom tilbake til leiren uten rytter. Kongen lå død i gjørma."
+        },
+        {
+            "type": "text",
+            "content": "Likevel fortsatte hæren hans. Da freden ble undertegnet i Westfalen i 1648, fikk Sverige Pommern, Bremen, Wismar og flere viktige havner. Sverige hadde sikret seg en plass ved Europas bord."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Kart over Sveriges territorium ved Westfalske fred 1648 med tyske besittelser markert",
+            "caption": "Ved Westfalske fred i 1648 kontrollerte Sverige store deler av Nord-Tyskland og hele Østersjøkysten."
+        },
+        {
+            "type": "header",
+            "text": "Skåne blir svensk"
+        },
+        {
+            "type": "text",
+            "content": "Vinteren 1657–58 frøs Storebælt til. Karl X Gustav, den nye kongen, så sjansen sin. Han marsjerte hele hæren over isen fra Jylland til Sjælland — et vågestykke som hadde drept dem alle hvis isen brast. Det gjorde den ikke. Danmark måtte gi opp."
+        },
+        {
+            "type": "text",
+            "content": "I Roskildefreden 1658 mistet Danmark Skåne, Halland, Blekinge og Bohuslen. Det er grensene som fortsatt gjelder mellom Sverige, Danmark og Norge i dag. På bare 50 år hadde Sverige vokst fra et fattig kornland til en gigant."
+        },
+        {
+            "type": "header",
+            "text": "Velg som en konge"
+        },
+        {
+            "type": "text",
+            "content": "Stormaktstiden var en lang rekke valg mellom krig og fred. Hver gang Sverige vant nytt land, måtte hæren strekkes lenger og pengekassa fylles på nytt. Prøv hvordan det føltes å bestemme:"
+        },
+        {
+            "type": "component",
+            "name": "StormaktVagskal",
+            "props": {}
+        },
+        {
+            "type": "header",
+            "text": "Krigerkongen Karl XII"
+        },
+        {
+            "type": "text",
+            "content": "I 1700 var Karl XII bare 18 år gammel. Da angrep Danmark, Russland og Polen Sverige samtidig. De trodde de hadde en lett seier — en ung konge uten erfaring. De tok feil."
+        },
+        {
+            "type": "text",
+            "content": "Karl XII slo Danmark på tre uker. Så marsjerte han mot Russland. I november 1700 møtte han tsar Peter den store ved festningen Narva. Tsaren hadde 40 000 menn. Karl XII hadde 8 000. En snøstorm blåste rett i ansiktet på russerne. Sverige vant. Russerne mistet 9 000 soldater. Sverige mistet 600."
+        },
+        {
+            "type": "text",
+            "content": "Etter Narva ble Karl XII tilbedt som en gud i hele Europa. Han kunne nå sluttet fred på sine egne betingelser. Men han nektet. Han ville knuse fienden helt."
+        },
+        {
+            "type": "header",
+            "text": "Katastrofen ved Poltava"
+        },
+        {
+            "type": "text",
+            "content": "Karl XII jaget russerne i åtte år. Han vant slag etter slag, men aldri det avgjørende. I 1708 marsjerte han dypt inn i Ukraina med 25 000 utslitte soldater. Vinteren ble den verste på 500 år. Soldater frøs i hjel rundt leirbålene."
+        },
+        {
+            "type": "text",
+            "content": "Den 27. juni 1709 møtte den utsultede svenske hæren tsarens nye hær ved Poltava. Russerne hadde lært av Narva. De hadde fått franske offiserer til å trene seg. De hadde dobbelt så mange menn og fire ganger så mange kanoner. På noen få timer ble hele den svenske hæren tilintetgjort. Karl XII selv flyktet til Tyrkia og var borte i fem år."
+        },
+        {
+            "type": "component",
+            "name": "QuoteBlock",
+            "props": {
+                "quote": "Mine herrer, jeg trodde dere visste at det er kongen jeg adlyder, ikke Sverige.",
+                "author": "Karl XII",
+                "context": "Da rådet hans tryglet om fred etter Poltava."
+            }
+        },
+        {
+            "type": "header",
+            "text": "Slutten ved Fredriksten"
+        },
+        {
+            "type": "text",
+            "content": "Karl XII kom hjem i 1715. Hæren var borte. Pengekassa var tom. Bøndene sultet. Likevel angrep han Norge to ganger for å tvinge Danmark til fred. I november 1718 sto han ved Fredriksten festning i Halden og kikket over festningsmuren. Da kom skuddet."
+        },
+        {
+            "type": "text",
+            "content": "Var det en norsk skytter? Eller en svensk soldat som var lei av krigen? Vi vet det fortsatt ikke. Det vi vet, er at Sverige slutter fred kort etter. I Nystadtraktaten 1721 mistet Sverige Livland, Estland, Ingermanland og det meste av besittelsene i Tyskland. Russland tok plassen som ny stormakt i nord."
+        },
+        {
+            "type": "header",
+            "text": "Hva lærte stormaktstiden oss?"
+        },
+        {
+            "type": "text",
+            "content": "Sverige reiste seg på 50 år og falt på ett slag. Historikere kaller det «overstrekning»: et land som vokser raskere enn det klarer å forsvare seg. Karl XII vant ni av ti slag — men det tiende slaget tok alt. Lærdommen er enkel: stormakter faller ikke bare når de taper. De faller når kostnaden av å holde det de har vunnet, blir større enn gevinsten."
+        },
+        {
+            "type": "text",
+            "content": "Etter 1721 ble Sverige et fredelig land igjen. Riksdagen tok makta fra kongene. Vitenskapsmennene fikk plass der generalene hadde stått. Carl von Linné, Anders Celsius og senere Alfred Nobel var produkter av den nye, stille tiden. Stormaktstiden var slutt — men minnet om den ligger igjen i Skånes svenske språk, i ruinene ved Halden, og i en grav i Stockholms Riddarholmskyrkan der Karl XII fortsatt hviler."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "title": "Test deg selv",
+                "questions": [
+                    {
+                        "question": "Hvilken konge regnes som grunnleggeren av Sveriges stormaktstid?",
+                        "options": [
+                            "Karl XII",
+                            "Karl X Gustav",
+                            "Gustav II Adolf",
+                            "Gustav Vasa"
+                        ],
+                        "correct": 2,
+                        "explanation": "Gustav II Adolf bygde den moderne hæren og førte Sverige inn i 30-årskrigen i 1630."
+                    },
+                    {
+                        "question": "Hvilken fredsavtale ga Sverige Skåne, Halland, Blekinge og Bohuslen?",
+                        "options": [
+                            "Westfalske fred 1648",
+                            "Roskildefreden 1658",
+                            "Nystadtraktaten 1721",
+                            "Brömsebrofreden 1645"
+                        ],
+                        "correct": 1,
+                        "explanation": "Roskildefreden i 1658, etter Karl X Gustavs marsj over isen, ga Sverige områdene som fortsatt er svenske i dag."
+                    },
+                    {
+                        "question": "Hva skjedde ved Poltava i 1709?",
+                        "options": [
+                            "Karl XII vant sitt største slag",
+                            "Russland knuste den svenske hæren",
+                            "Sverige inntok Moskva",
+                            "Karl XII ble drept"
+                        ],
+                        "correct": 1,
+                        "explanation": "Ved Poltava ble Karl XIIs hær tilintetgjort av tsar Peter den stores nye, moderne hær. Det var slutten på Sverige som stormakt."
+                    },
+                    {
+                        "question": "Hvor og når døde Karl XII?",
+                        "options": [
+                            "I Stockholm, 1721",
+                            "I Russland, etter Poltava 1709",
+                            "Ved Fredriksten festning i Halden, 1718",
+                            "I Tyrkia, 1714"
+                        ],
+                        "correct": 2,
+                        "explanation": "Karl XII ble skutt 30. november 1718 mens han beleiret Fredriksten festning i Halden. Hvem som avfyrte skuddet er fortsatt et mysterium."
+                    },
+                    {
+                        "question": "Hva er hovedlærdommen av stormaktstiden?",
+                        "options": [
+                            "Store hærer vinner alltid",
+                            "Stormakter faller når kostnaden av krig overskrider gevinsten",
+                            "Religion er viktigere enn økonomi",
+                            "Det er lurt å angripe på vinteren"
+                        ],
+                        "correct": 1,
+                        "explanation": "Sverige vokste fortere enn det klarte å forsvare. Karl XII vant ni av ti slag, men det tiende tok alt. Det kalles «overstrekning»."
+                    }
+                ]
+            }
+        }
+    ],
+    "timeline": []
+}
