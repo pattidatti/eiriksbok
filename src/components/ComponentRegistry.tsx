@@ -142,6 +142,7 @@ const IndusMysteryBoard = lazy(() => import('./content/interactive/IndusMysteryB
 const HimmelensMandat = lazy(() => import('./content/interactive/HimmelensMandat').then(m => ({ default: m.HimmelensMandat })));
 const ThoughtsWordsDeeds = lazy(() => import('./content/interactive/ThoughtsWordsDeeds').then(m => ({ default: m.ThoughtsWordsDeeds })));
 const KyrosValget = lazy(() => import('./content/interactive/KyrosValget').then(m => ({ default: m.KyrosValget })));
+const FarmerVsForager = lazy(() => import('./content/interactive/FarmerVsForager').then(m => ({ default: m.FarmerVsForager })));
 
 export const componentRegistry: Record<string, React.ComponentType<any>> = {
     // Core
@@ -284,6 +285,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     HimmelensMandat,
     ThoughtsWordsDeeds,
     KyrosValget,
+    FarmerVsForager,
     Gallery,
     gallery: Gallery,
     comparison: Comparison,
