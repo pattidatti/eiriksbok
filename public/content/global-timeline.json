@@ -92,6 +92,24 @@
       ]
     },
     {
+      "id": "gobekli-tepe",
+      "title": "Göbekli Tepe — tempelet eldre enn jordbruket",
+      "description": "Et 11 500 år gammelt tempelanlegg i Tyrkia som snur teorien om sivilisasjon på hodet: religion kan ha drevet jordbruket fram, ikke omvendt.",
+      "startDate": -9500,
+      "endDate": null,
+      "displayDate": "9500 fvt",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "menneskets-tidlige-historie",
+      "link": "/historie/menneskets-tidlige-historie/gobekli-tepe",
+      "tags": [
+        "forhistorie",
+        "religion",
+        "steinalder",
+        "arkeologi"
+      ]
+    },
+    {
       "id": "kina",
       "title": "Det gamle Kina: Sivilisasjonen ved Den gule elven",
       "description": "Den fjerde elvedalssivilisasjonen — silke, papir og ideen om Himmelens mandat.",
