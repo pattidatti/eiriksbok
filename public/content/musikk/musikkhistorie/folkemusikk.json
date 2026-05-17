@@ -5,7 +5,7 @@
     "year": "1500-tallet til i dag",
     "category": "Musikk og tradisjon",
     "readTime": "9 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/musikk/musikkhistorie/folkemusikk-hero.webp",
     "details": [
         "Hardingfela har ekstra strenger som vibrerer av seg selv",
         "Slåtter er dansemelodier overlevert uten noter",
@@ -42,7 +42,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/musikk/musikkhistorie/folkemusikk-01.webp",
             "alt": "Hardingfele med dekor av rosemaling og drakhode, lagt på rødt tøy",
             "caption": "Ei norsk hardingfele med pyntet hode og rosemaling. De fire ekstra strengene løper under fingerbrettet."
         },
@@ -105,7 +105,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/musikk/musikkhistorie/folkemusikk-02.webp",
             "alt": "Spelemannslag øver i en folkemusikkstue, hardingfeler ligger på et bord",
             "caption": "Et spelemannslag øver. Slåttene lever der to felemusikere møtes og prøver å huske den samme rytmen."
         },
