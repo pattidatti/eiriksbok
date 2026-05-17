@@ -145,6 +145,7 @@ const ThoughtsWordsDeeds = lazy(() => import('./content/interactive/ThoughtsWord
 const KyrosValget = lazy(() => import('./content/interactive/KyrosValget').then(m => ({ default: m.KyrosValget })));
 const FarmerVsForager = lazy(() => import('./content/interactive/FarmerVsForager').then(m => ({ default: m.FarmerVsForager })));
 const VasaMaktSpaker = lazy(() => import('./content/interactive/VasaMaktSpaker').then(m => ({ default: m.VasaMaktSpaker })));
+const Radikaliseringstrappa = lazy(() => import('./content/interactive/Radikaliseringstrappa').then(m => ({ default: m.Radikaliseringstrappa })));
 
 export const componentRegistry: Record<string, React.ComponentType<any>> = {
     // Core
@@ -290,6 +291,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     KyrosValget,
     FarmerVsForager,
     VasaMaktSpaker,
+    Radikaliseringstrappa,
     Gallery,
     gallery: Gallery,
     comparison: Comparison,
