@@ -5,7 +5,7 @@
     "year": "2011",
     "category": "Norge",
     "readTime": "9 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/norgeshistorie/22-juli-2011-hero.webp",
     "details": [
         "77 mennesker mistet livet — 8 i regjeringskvartalet, 69 på Utøya",
         "Gjerningsmannen handlet alene, drevet av høyreekstreme ideer han hadde bygd opp over år",
@@ -31,7 +31,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/norgeshistorie/22-juli-2011-01.webp",
             "alt": "Røyk stiger fra det skadde regjeringskvartalet i Oslo sentrum",
             "caption": "Bilbomben i regjeringskvartalet skadet flere bygg og drepte åtte mennesker."
         },
@@ -135,7 +135,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/norgeshistorie/22-juli-2011-02.webp",
             "alt": "Hvite roser foran et minnesmerke for ofrene fra 22. juli",
             "caption": "Roser foran et minnested for ofrene fra 22. juli — fortsatt et samlingspunkt år etter angrepet."
         },

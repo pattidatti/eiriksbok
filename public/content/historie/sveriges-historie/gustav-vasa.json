@@ -5,7 +5,7 @@
     "year": "1496-1560",
     "category": "Sveriges historie",
     "readTime": "9 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/sveriges-historie/gustav-vasa-hero.webp",
     "details": [
         "Endte Kalmarunionen og gjorde Sverige selvstendig i 1523",
         "Brukte reformasjonen til å ta kirkens land og gull",
@@ -18,7 +18,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/sveriges-historie/gustav-vasa-01.webp",
             "alt": "Ung mann på ski jaktes gjennom snøkledd dalaskog 1521",
             "caption": "Ifølge legenden flyktet Gustav Vasa på ski gjennom Dalarna. I dag minnes hendelsen i skirennet Vasaloppet, som går samme rute hvert år."
         },
@@ -87,7 +87,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/sveriges-historie/gustav-vasa-02.webp",
             "alt": "Konge med skjegg og krone holder regnskapsbok ved tronstol",
             "caption": "Gustav Vasa regjerte til han døde i 1560. Han er kanskje den første nordiske kongen som styrte et land som om det var et stort gods — med regnskap, fogder og hardt grep om hver krone."
         },

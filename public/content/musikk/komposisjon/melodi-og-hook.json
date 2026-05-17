@@ -7,7 +7,7 @@
     "year": "1950–i dag",
     "category": "Komposisjon",
     "readTime": "8 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/komposisjon/melodi-og-hook-hero.webp",
     "details": [
         "En hook er en kort musikalsk bit som er bygd for å huskes.",
         "Gode hooker er korte, gjentas og bruker få sprang i tonene.",
@@ -48,7 +48,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/komposisjon/melodi-og-hook-01.webp",
             "alt": "Ungdom synger med en hook fra en låt på en busstur",
             "caption": "Ørehengeren — den biten du nynner videre etter at låten er ferdig."
         },
@@ -102,7 +102,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/komposisjon/melodi-og-hook-02.webp",
             "alt": "TikTok-skjerm med en kort musikkbit som spiller",
             "caption": "På TikTok teller de første sju sekundene. Det er der hooken må sitte."
         },

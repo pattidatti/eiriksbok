@@ -5,7 +5,7 @@
     "year": "1611-1721",
     "category": "Sveriges historie",
     "readTime": "9 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/sveriges-historie/stormaktstiden-hero.webp",
     "subject": "historie",
     "topic": "Sveriges historie",
     "details": [
@@ -29,7 +29,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/sveriges-historie/stormaktstiden-01.webp",
             "alt": "Karl XII faller ved Fredriksten festning i Halden 1718, snødekt vinternatt",
             "caption": "30. november 1718 ved Fredriksten — kongen som døde i grøfta tok stormaktstiden med seg."
         },
@@ -71,7 +71,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/sveriges-historie/stormaktstiden-02.webp",
             "alt": "Kart over Sveriges territorium ved Westfalske fred 1648 med tyske besittelser markert",
             "caption": "Ved Westfalske fred i 1648 kontrollerte Sverige store deler av Nord-Tyskland og hele Østersjøkysten."
         },

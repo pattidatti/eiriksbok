@@ -5,7 +5,7 @@
     "year": "12000 fvt - 8000 fvt",
     "category": "Verdenshistorie",
     "readTime": "9 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/menneskets-tidlige-historie/den-jordbruksrevolusjonen-hero.webp",
     "details": [
         "For 12 000 år siden begynte mennesker å dyrke korn og temme dyr — det største skiftet i menneskets historie",
         "Jordbruket vokste fram uavhengig på minst syv ulike steder i verden",
@@ -30,7 +30,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/menneskets-tidlige-historie/den-jordbruksrevolusjonen-01.webp",
             "alt": "Tidlig steinalderbonde med plog i ferd med å så frø på en åker ved en elv",
             "caption": "Et tidlig jordbrukssamfunn ved en elv. Bare en håndfull mennesker, men begynnelsen på en helt ny måte å leve på."
         },
@@ -89,7 +89,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/menneskets-tidlige-historie/den-jordbruksrevolusjonen-02.webp",
             "alt": "Sammenligning av to skjeletter side om side — en høyere jeger og en kortere bonde",
             "caption": "Knokler forteller sannheten. Bønder ble kortere, fikk dårligere tenner og mer slitte ledd enn jegerne de etterfulgte."
         },
@@ -123,7 +123,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/menneskets-tidlige-historie/den-jordbruksrevolusjonen-03.webp",
             "alt": "Utsikt over en moderne storby med skyskrapere og myldrende mennesker",
             "caption": "Alt det moderne mennesker har bygget — byer, lover, teknologi — hviler på grunnlaget jordbruksrevolusjonen la for 12 000 år siden."
         },
