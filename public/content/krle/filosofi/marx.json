@@ -1,0 +1,177 @@
+{
+    "id": "marx",
+    "title": "Karl Marx",
+    "subject": "krle",
+    "topic": "filosofi",
+    "layout": "rich",
+    "year": "1818-1883",
+    "category": "Filosofi",
+    "readTime": "10 min lesning",
+    "heroImage": "/images/placeholder.webp",
+    "dimension": "etikk",
+    "comparison_tags": [
+        "klassekamp",
+        "merverdi",
+        "historisk-materialisme"
+    ],
+    "details": [
+        "Tysk filosof, økonom og samfunnskritiker (1818-1883).",
+        "Mente at historien drives av en kamp mellom samfunnsklasser.",
+        "Utviklet teorien om merverdi: profitt kommer fra arbeidernes ubetalte arbeid.",
+        "Skrev Det kommunistiske manifest sammen med Friedrich Engels i 1848.",
+        "Hans ideer formet hele arbeiderbevegelsen, Sovjetunionen og dagens velferdsstat."
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Karl Marx (1818-1883) vokste opp i en jødisk-tysk advokatfamilie og var et lysende hode på universitetet. Han studerte jus og filosofi, men endte opp som journalist, eksilflyktning og verdens mest leste samfunnskritiker. Da han bodde i London på 1850-tallet, satt han hver dag på lesesalen i British Museum og prøvde å finne svaret på ett brennende spørsmål: Hvorfor blir noen så fryktelig rike i den nye industriverdenen, mens de som faktisk lager varene, knapt har mat på bordet?"
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Karl Marx sittende ved skrivebordet i British Museum med bøker og notater rundt seg",
+            "caption": "Marx tilbrakte tiår på lesesalen i British Museum mens han skrev hovedverket Kapitalen."
+        },
+        {
+            "type": "header",
+            "text": "Et liv i industrialiseringens sjokk"
+        },
+        {
+            "type": "text",
+            "content": "Marx levde midt i den [industrielle revolusjonen](/historie/industriell-revolusjon/industriell-revolusjon). Han så barn på fem år krype under spinnmaskinene i Manchester. Han så bønder presset av jorda og inn i fabrikker som spydde svart røyk over hustakene. Og han så hvordan en helt ny gruppe — fabrikkeierne — ble eventyrlig rike på arbeidet til disse menneskene.\n\nMarx mente at noe revolusjonerende hadde skjedd: For første gang i historien fantes det to klasser som var fullstendig avhengige av hverandre, men samtidig hadde motsatte interesser. Han kalte dem borgerskapet (de som eide fabrikkene) og proletariatet (de som bare hadde sin egen arbeidskraft å selge). Konflikten mellom dem var ifølge Marx historiens motor."
+        },
+        {
+            "type": "header",
+            "text": "Klassekampen som historiens drivkraft"
+        },
+        {
+            "type": "text",
+            "content": "Tidligere filosofer som [Platon](/krle/filosofi/platon) og [Kant](/krle/filosofi/kant) hadde lett etter evige sannheter i ideenes verden. Marx snudde dette på hodet. Han sa at det ikke er ideer som forandrer samfunnet, men kampen om hvem som eier maten, redskapene og fabrikkene. Dette kalles historisk materialisme.\n\nI antikken kjempet slaver mot herrer. I middelalderen kjempet bønder mot adelen. I dag, mente Marx, kjemper arbeidere mot kapitaleierne. Hver gang en gammel klasse blir styrtet, dukker en ny konflikt opp. Marx var overbevist om at denne siste kampen — mellom arbeider og kapitalist — ville bli den endelige. Etter den, hevdet han, ville klassesamfunnet være over."
+        },
+        {
+            "type": "component",
+            "name": "QuoteBlock",
+            "props": {
+                "text": "Historien til alle samfunn fram til i dag er historien om klassekamper.",
+                "author": "Karl Marx & Friedrich Engels, Det kommunistiske manifest (1848)"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Merverdien: hvor profitt egentlig kommer fra"
+        },
+        {
+            "type": "text",
+            "content": "Marx sin viktigste oppdagelse handler om hva som skjer på selve fabrikkgulvet. Tenk deg en sydame som lager skjorter for 1000 kroner om dagen, men får 200 kroner i lønn. Hvor blir det av de resterende 800 kronene?\n\nMarx kalte denne forskjellen merverdi. Det er denne ubetalte arbeidsmengden eieren stikker i lomma som profitt. Du må ikke jukse med vekta eller stjele varer for å bli rik som kapitalist — du bare betaler arbeidstakeren for noen av timene, og beholder verdien fra resten. Hele systemet, mente Marx, hviler på denne stille utbyttingen som blir gjemt bak lønnsslippen. Test selv hvordan dette ser ut i praksis:"
+        },
+        {
+            "type": "component",
+            "name": "MerverdiSlider",
+            "props": {
+                "title": "Merverdimaskinen"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Fremmedgjøring: når arbeidet stjeler livet ditt"
+        },
+        {
+            "type": "text",
+            "content": "Marx mente at i den gamle håndverkstida laget en sko­maker en hel sko fra start til slutt. Han kjente leret, formet det, så det ferdige resultatet og kjente stolthet. I fabrikken er det helt annerledes: én arbeider syr på sålen hele dagen, en annen knytter snørebåndet, en tredje stempler logoen. Ingen ser hva de egentlig hjelper med å lage.\n\nDette kalte Marx fremmedgjøring. Mennesket blir fjernet fra sitt eget arbeid, fra sluttproduktet og til slutt fra seg selv. Du blir en del av en maskin du ikke kontrollerer. Mange mener begrepet er like aktuelt i dag — tenk på lagerarbeidere som styres av en app som forteller dem hvor de skal gå, eller [bartendere på et kjedested](/samfunnskunnskap/arbeidsliv/fremtidens-arbeidsliv) som ikke har lov til å improvisere en eneste drink."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Industriarbeidere ved et samlebånd i en victoriansk fabrikk med dampmaskiner og sentralhjul",
+            "caption": "Samlebåndet delte arbeidet i bittesmå biter — og med det, mente Marx, ble mennesket fremmed for sitt eget arbeid."
+        },
+        {
+            "type": "header",
+            "text": "Det kommunistiske manifest og revolusjonen"
+        },
+        {
+            "type": "text",
+            "content": "I 1848, samme år som det brøt ut revolusjoner over hele Europa, ga Marx og kameraten Friedrich Engels ut Det kommunistiske manifest. Det er på bare 30 sider, men det er et av de mest leste politiske skriftene i verdenshistorien.\n\nManifestet sier at arbeiderne i alle land må slå seg sammen, ta over fabrikkene, og bygge et samfunn der produksjonsmidlene — fabrikker, jord, maskiner — eies i fellesskap. Da, mente Marx, ville utbyttingen forsvinne. Han trodde dette ville skje av seg selv: når kapitalismen kollapset under sin egen vekt, ville arbeiderne reise seg. Det er denne tanken som senere skulle inspirere både [den russiske revolusjonen i 1917](/historie/forste-verdenskrig/russiske-revolusjon) og [den lange kalde krigen](/historie/den-kalde-krigen/oversikt) som fulgte."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Engels — vennen som finansierte revolusjonen",
+                "content": "Marx var lutfattig store deler av livet og ble forsørget av sin beste venn Friedrich Engels. Det artige er at Engels selv var en rik fabrikkeier i Manchester. Han brukte profitten fra fabrikken sin til å finansiere bøkene som forklarte hvordan fabrikker utbyttet arbeidere. Engels redigerte og fullførte mye av Marx sitt hovedverk Kapitalen etter at Marx døde."
+            }
+        },
+        {
+            "type": "header",
+            "text": "Kritikk og ettermæle"
+        },
+        {
+            "type": "text",
+            "content": "Marx er en av filosofene som har vært mest både elsket og hatet. På den ene siden formet ideene hans hele arbeiderbevegelsen, fagforeninger, åtte-timers-dagen og det meste av velferdsstaten vi i Norge tar for gitt. På den andre siden ble ideene hans brukt som rettferdiggjøring for diktaturer i Sovjetunionen, Kina og Nord-Korea, der titalls millioner mennesker døde under partistyret.\n\nFilosofer som [Mises](/krle/filosofi/mises) og [Hannah Arendt](/krle/filosofi/arendt) kritiserte Marx hardt. De mente at når staten tar over alt, forsvinner ikke makten — den samles bare hos et nytt herskersjikt, partiet. Andre kritiserte at Marx undervurderte hvordan kapitalismen klarer å reformere seg selv: åtte-timers-dagen, sykelønn og demokrati var nettopp tiltak som dempet konflikten han trodde var uunngåelig. I Norge ble dette tydelig allerede med [kriseforliket i 1935](/historie/mellomkrigstiden/norge), som banet vei for trepartssamarbeidet mellom stat, arbeidsgivere og fagforeninger.\n\nLikevel: hvis du noen gang har spurt deg selv hvorfor noen blir rike på andres arbeid, hvorfor du føler deg som et tannhjul på jobben, eller hvorfor klasse fortsatt betyr noe, har du tenkt en marxistisk tanke. Det er kanskje hans største ettermæle: vi diskuterer fortsatt verden i hans språk."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hva mente Marx var historiens drivkraft?",
+                        "options": [
+                            "Religiøs tro og guddommelig styring",
+                            "Klassekampen mellom dem som eier og dem som arbeider",
+                            "Store enkeltpersoner som forandrer alt",
+                            "Naturkatastrofer og klimaendringer"
+                        ],
+                        "correctAnswer": 1,
+                        "explanation": "Marx kalte sin metode historisk materialisme: konflikten om hvem som eier produksjonsmidlene driver samfunnet framover."
+                    },
+                    {
+                        "question": "Hva er merverdi i Marx sin teori?",
+                        "options": [
+                            "Skatten staten krever inn fra bedriftene",
+                            "Den ekstra verdien en vare får når den fraktes med skip",
+                            "Forskjellen mellom verdien arbeideren skaper og lønnen hun får",
+                            "Bonusen toppledere får på slutten av året"
+                        ],
+                        "correctAnswer": 2,
+                        "explanation": "Merverdien er det Marx kalte 'kapitalismens hemmelighet': arbeidsgiveren betaler bare for noen av timene arbeideren jobber, og beholder resten som profitt."
+                    },
+                    {
+                        "question": "Hva mente Marx med fremmedgjøring?",
+                        "options": [
+                            "At innvandrere ble dårlig behandlet i fabrikkene",
+                            "At arbeideren blir adskilt fra sitt eget arbeid og produkt",
+                            "At fabrikkene flyttes til andre land",
+                            "At religionen tar over folks tanker"
+                        ],
+                        "correctAnswer": 1,
+                        "explanation": "Når du bare gjør én liten oppgave på et samlebånd, mister du både stoltheten over et ferdig produkt og kontrollen over arbeidet ditt."
+                    },
+                    {
+                        "question": "Hvilket verk skrev Marx og Engels sammen i 1848?",
+                        "options": [
+                            "Kapitalen",
+                            "Sosialismens fremtid",
+                            "Det kommunistiske manifest",
+                            "Statens opphav"
+                        ],
+                        "correctAnswer": 2,
+                        "explanation": "Det kommunistiske manifest er på bare 30 sider, men er ett av de mest leste politiske skriftene noensinne."
+                    },
+                    {
+                        "question": "Hvilken klasse mente Marx ville styrte kapitalismen?",
+                        "options": [
+                            "Bøndene som ble presset av jorda",
+                            "Det dannede borgerskapet",
+                            "Proletariatet, arbeiderne i fabrikkene",
+                            "Studentene og intellektuelle"
+                        ],
+                        "correctAnswer": 2,
+                        "explanation": "Marx mente at industriarbeiderne — proletariatet — ville organisere seg og ta over produksjonsmidlene når kapitalismens kriser ble for store."
+                    }
+                ]
+            }
+        }
+    ],
+    "createdDate": "2026-05-17T00:00:00Z"
+}

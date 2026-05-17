@@ -1,5 +1,5 @@
 {
-  "buildId": 1779043889166,
+  "buildId": 1779046903516,
   "contentMap": {
     "concept-adel": [
       "content/concepts/adel.json"
@@ -1131,6 +1131,9 @@
     ],
     "locke": [
       "content/krle/filosofi/locke.json"
+    ],
+    "marx": [
+      "content/krle/filosofi/marx.json"
     ],
     "mises": [
       "content/krle/filosofi/mises.json"
@@ -2432,6 +2435,7 @@
     "krle/filosofi/kant": "content/krle/filosofi/kant.json",
     "krle/filosofi/kierkegaard": "content/krle/filosofi/kierkegaard.json",
     "krle/filosofi/locke": "content/krle/filosofi/locke.json",
+    "krle/filosofi/marx": "content/krle/filosofi/marx.json",
     "krle/filosofi/mises": "content/krle/filosofi/mises.json",
     "krle/filosofi/nietzsche": "content/krle/filosofi/nietzsche.json",
     "krle/filosofi/platon": "content/krle/filosofi/platon.json",
