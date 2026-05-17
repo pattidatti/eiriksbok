@@ -1535,6 +1535,25 @@
       ]
     },
     {
+      "id": "gustav-vasa",
+      "title": "Gustav Vasa — Sveriges grunnlegger",
+      "description": "Hvordan en jaget adelsmann brukte opprør, reformasjon og byråkrati til å gjøre Sverige selvstendig og moderne — på 37 år.",
+      "startDate": 1496,
+      "endDate": 1560,
+      "displayDate": "1496-1560",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "sveriges-historie",
+      "link": "/historie/sveriges-historie/gustav-vasa",
+      "tags": [
+        "sverige",
+        "gustav-vasa",
+        "reformasjonen",
+        "kalmarunionen",
+        "statsbygging"
+      ]
+    },
+    {
       "id": "dagama-india",
       "title": "Vasco da Gama når India",
       "description": "Sjøveien til India er funnet, og Portugal kan handle krydder direkte.",
