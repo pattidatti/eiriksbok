@@ -1,5 +1,5 @@
 {
-  "buildId": 1779022079429,
+  "buildId": 1779039942921,
   "contentMap": {
     "concept-adel": [
       "content/concepts/adel.json"
@@ -1450,6 +1450,9 @@
     "melodi-og-hook": [
       "content/musikk/komposisjon/melodi-og-hook.json"
     ],
+    "folkemusikk": [
+      "content/musikk/musikkhistorie/folkemusikk.json"
+    ],
     "jazzens-fodsel": [
       "content/musikk/musikkhistorie/jazzens-fodsel.json"
     ],
@@ -2529,6 +2532,7 @@
     "musikk/instrumenter/trommer-intro": "content/musikk/instrumenter/trommer-intro.json",
     "musikk/komposisjon/lat-struktur": "content/musikk/komposisjon/lat-struktur.json",
     "musikk/komposisjon/melodi-og-hook": "content/musikk/komposisjon/melodi-og-hook.json",
+    "musikk/musikkhistorie/folkemusikk": "content/musikk/musikkhistorie/folkemusikk.json",
     "musikk/musikkhistorie/jazzens-fodsel": "content/musikk/musikkhistorie/jazzens-fodsel.json",
     "musikk/musikkhistorie/joik": "content/musikk/musikkhistorie/joik.json",
     "musikk/musikkhistorie/protestmusikk": "content/musikk/musikkhistorie/protestmusikk.json",
