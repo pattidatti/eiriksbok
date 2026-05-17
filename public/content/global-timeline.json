@@ -557,6 +557,26 @@
       ]
     },
     {
+      "id": "aleksander-den-store",
+      "title": "Aleksander den store",
+      "description": "Eleven av Aristoteles ble verdens største erobrer på 13 år. Men hans virkelige arv er hellenismen — kulturen som blandet gresk og persisk og varte i 1000 år.",
+      "startDate": 356,
+      "endDate": -323,
+      "displayDate": "356-323 fvt",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "perserriket",
+      "link": "/historie/perserriket/aleksander-den-store",
+      "tags": [
+        "antikken",
+        "perserriket",
+        "aleksander",
+        "hellas",
+        "hellenisme",
+        "imperium"
+      ]
+    },
+    {
       "id": "vestromerrikets-fall-middelalder-ref",
       "title": "Vestromerrikets fall",
       "description": "Et dypdykk i årsakene til det store imperiets kollaps.",

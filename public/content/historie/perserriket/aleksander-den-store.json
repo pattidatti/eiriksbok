@@ -1,0 +1,204 @@
+{
+    "id": "aleksander-den-store",
+    "title": "Aleksander den store: Eleven som erobret verden",
+    "layout": "rich",
+    "year": "356-323 fvt",
+    "category": "Antikken",
+    "readTime": "10 min lesning",
+    "heroImage": "/images/placeholder.webp",
+    "details": [
+        "Aleksander var bare 20 år gammel da han ble konge — og 32 da han døde. På de tretten årene erobret han et område fra Hellas til India.",
+        "Han tapte aldri et slag. Men det viktigste var ikke seirene — det var hva han gjorde med fienden etterpå.",
+        "Aleksander spredte gresk språk, byggekunst og tenkning fra Egypt til Afghanistan. Denne blandingskulturen kalles hellenismen og varte i over 1000 år."
+    ],
+    "content": [
+        {
+            "type": "header",
+            "text": "Eleven som arvet et helt rike"
+        },
+        {
+            "type": "text",
+            "content": "Sommeren 336 fvt sitter en 20 år gammel mann og hører på en beskjed som forandrer livet hans. Faren, kong Filip II av Makedonia, er blitt myrdet på sin egen datters bryllup. En livvakt har stukket ham med kniv. Filip etterlater seg et rike i Nord-Hellas og en hær som er den mest disiplinerte i Europa. Den unge mannen heter Aleksander. Han har ingen militære seirer å vise til ennå. Generalene tror han er for ung. Bystatene i sør ser sin sjanse til å gjøre opprør."
+        },
+        {
+            "type": "text",
+            "content": "Innen ti år vil han ha lagt under seg det største riket verden har sett. Innen tretten år er han død. Og likevel skal folk i 2000 år snakke om ham som om han fortsatt lever. Hvorfor?"
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Aleksander den store på hesten Buchefalos i full rustning under et slag mot persiske soldater",
+            "caption": "Aleksander red i front av sine egne soldater. Det er en av grunnene til at de fulgte ham helt til India."
+        },
+        {
+            "type": "header",
+            "text": "En lærer som het Aristoteles"
+        },
+        {
+            "type": "text",
+            "content": "Faren Filip ansatte den beste læreren han kunne finne for sønnen sin. Det var filosofen Aristoteles. I tre år leste Aleksander om logikk, biologi og politikk under ham. Aristoteles ga ham også et eksemplar av Iliaden, det greske heltediktet om krigeren Akilles. Aleksander sov med boka under puta resten av livet."
+        },
+        {
+            "type": "text",
+            "content": "Det er lett å tro at Aristoteles formet Aleksander til en filosof. Men det stemmer ikke helt. Aleksander tok med seg kjærligheten til kunnskap, ja. Men han tok også med seg drømmen om å bli som Akilles: en helt som faktisk gjorde noe. Da han krysset over til Asia, dro han først til byen Troja for å hilse på Akilles sin grav."
+        },
+        {
+            "type": "header",
+            "text": "Det persiske riket faller"
+        },
+        {
+            "type": "text",
+            "content": "Aleksander krysset Hellesponten i 334 fvt med rundt 40 000 soldater. Mot seg hadde han Dareios III, stor-kongen av Persia. Det persiske riket var verdens største på den tiden. Det strakte seg fra Egypt til India og hadde minst ti ganger så mange folk og soldater som Aleksander."
+        },
+        {
+            "type": "text",
+            "content": "Likevel vant Aleksander. Først ved Granikos-elven, så ved Issos, og til slutt i det avgjørende slaget ved Gaugamela i 331 fvt. Tre store slag, alle vant. Han tapte aldri et eneste slag i hele livet. Hans hemmelighet var hesteryttere som angrep i kile-formasjon, lange greske spyd kalt sarissa, og en lederstil hvor han selv red i fronten."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Hvorfor tapte Persia?",
+                "content": "Persia hadde flere soldater, men hæren var sammensatt av folk fra mange ulike provinser som ikke kjente hverandre. Aleksander sin hær var trent sammen i flere år. I tillegg hadde de en konge som red i fronten — ikke en som flyktet når slaget gikk dårlig. Dareios III flyktet to ganger fra Aleksander. Til slutt ble han drept av sine egne menn."
+            }
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Kart over Aleksanders erobringer fra Hellas gjennom Egypt og Persia til India, med byer han grunnla markert",
+            "caption": "Aleksanders ekspansjon. Han grunnla over 70 nye byer på veien — de fleste het Aleksandria."
+        },
+        {
+            "type": "header",
+            "text": "Den store integratoren"
+        },
+        {
+            "type": "text",
+            "content": "Her er det interessante. Det var ikke seirene som gjorde Aleksander til «den store». Det var det han gjorde med de tapende. Han kunne ha brent ned hver by, drept hver leder og tatt med seg gullet hjem. Det var hva mange erobrere gjorde. Aleksander valgte annerledes."
+        },
+        {
+            "type": "text",
+            "content": "Han lot persiske ledere beholde stillingene sine. Han adopterte persiske skikker selv. Han kledde seg i persisk drakt. Han giftet seg med en lokal høvdingdatter. Han trente persiske soldater i gresk taktikk og blandet dem med greske enheter. For mange av hans egne generaler var dette uutholdelig. Hvorfor skulle den greske seierherren oppføre seg som en perser?"
+        },
+        {
+            "type": "text",
+            "content": "Men Aleksander forstod noe de ikke forstod. Et imperium som hater erobreren sin, holder bare så lenge soldatene står i hver by. Et imperium som ser erobreren som «en av oss», kan styres lenge etter at erobreren er død. Prøv selv hvilke valg han tok — og hvordan de formet historien."
+        },
+        {
+            "type": "component",
+            "name": "AleksandersValg",
+            "props": {
+                "title": "Aleksanders valg: Erobrer eller integrator?"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Hellenismen — kulturen som overlevde sin skaper"
+        },
+        {
+            "type": "text",
+            "content": "Resultatet av Aleksanders valg har et navn: hellenismen. Det er ordet for den blandingskulturen som vokste fram der gresk møtte persisk, egyptisk og indisk. På et språk-nivå betyr det at gresk ble brukt fra Egypt til Afghanistan i nesten 1000 år. Da forfatterne av Det nye testamentet skrev om Jesus, skrev de på gresk, ikke arameisk. Det var Aleksanders språk-arv som gjorde det mulig."
+        },
+        {
+            "type": "text",
+            "content": "I Egypt grunnla han Aleksandria, byen som senere skulle huse verdens største bibliotek. I dagens Afghanistan oppstod en kunststil kalt Gandhara, der buddha-statuer plutselig fikk greske ansiktstrekk og kappe. Da romerne senere bygde sitt imperium, kopierte de hellenistisk arkitektur, filosofi og kunst. Hellenismen er Aleksanders virkelige arv — ikke seirene, men den nye blanding-kulturen."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Antikk Buddha-statue fra Gandhara med greske trekk — kappe, krøllet hår, realistiske ansiktstrekk",
+            "caption": "En Buddha med gresk ansikt. Gandhara-kunsten i dagens Afghanistan og Pakistan blandet gresk skulpturteknikk med buddhistisk innhold."
+        },
+        {
+            "type": "header",
+            "text": "Døden og det splittede imperiet"
+        },
+        {
+            "type": "text",
+            "content": "I juni 323 fvt blir Aleksander syk i Babylon. Han har feber i ti dager. Han kan ikke snakke til slutt. Han er bare 32 år gammel. Da hans menn spør hvem som skal arve riket, sier han angivelig: «Den sterkeste». Det er kanskje en myte — men det som skjedde etterpå, viser at det ikke spilte noen rolle hva han sa. Han hadde ingen voksen tronarving. Roxana er gravid, men barnet er ikke født ennå."
+        },
+        {
+            "type": "text",
+            "content": "Det enorme imperiet splittes mellom hans generaler. I Egypt tar Ptolemaios over og starter et nytt kongedømme som skal vare i 300 år — det siste medlemmet er Kleopatra. I Asia tar Selevkos over et område fra Tyrkia til India. I Makedonia tar Antigonos over hjemlandet. Imperiet blir altså til tre store hellenistiske kongedømmer. Men gresk kultur lever videre i alle tre, og deler den gjennom 1000 år."
+        },
+        {
+            "type": "component",
+            "name": "QuoteBlock",
+            "props": {
+                "quote": "Det finnes ingenting umulig for den som vil prøve.",
+                "author": "Aleksander den store"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Hvorfor han fortsatt kalles «den store»"
+        },
+        {
+            "type": "text",
+            "content": "Aleksander døde for over 2300 år siden. Likevel kjenner alle navnet hans. Hvorfor? Det er ikke fordi han vant flest slag. Mange har vunnet flere. Det er ikke fordi imperiet hans varte lenge — det varte ikke engang ut hans eget århundre. Det er fordi han endret hvordan kulturer kan møtes. Før Aleksander var verden delt i strenge sivilisasjoner som krigfòr hverandre. Etter Aleksander fantes det et stort hellenistisk område hvor folk kunne reise, handle og lære av hverandre."
+        },
+        {
+            "type": "text",
+            "content": "Det er også derfor romerne, som kom etter, ble en kopi av hellenismen. Romerske templer ligner greske templer. Romerske filosofer skrev på gresk når de ville være seriøse. Romerske keisere lot seg male som hellenistiske konger. Hadde ikke Aleksander valgt integrasjon, ville antikken vi kjenner i dag — alt fra Sokrates til Bibelen til romerske akvedukter — sett helt annerledes ut."
+        },
+        {
+            "type": "text",
+            "content": "Aleksander var ikke perfekt. Han brente Persepolis. Han drepte sin egen venn Kleitos i en fyllesyk krangel. Mot slutten ble han paranoid og henrettet flere av sine egne generaler. Men hovedmønsteret i hans liv er klart: han forsøkte å smelte sammen heller enn å utslette. Det er hellenismens hemmelighet — og grunnen til at han fortsatt kalles «den store»."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "title": "Sjekk forståelsen",
+                "questions": [
+                    {
+                        "question": "Hvor gammel var Aleksander da han ble konge?",
+                        "options": ["16", "20", "25", "32"],
+                        "correctIndex": 1,
+                        "explanation": "Aleksander ble konge i 336 fvt, 20 år gammel, etter at faren Filip II ble myrdet."
+                    },
+                    {
+                        "question": "Hvem var Aleksanders lærer?",
+                        "options": ["Sokrates", "Platon", "Aristoteles", "Diogenes"],
+                        "correctIndex": 2,
+                        "explanation": "Filosofen Aristoteles var Aleksanders lærer i tre år. Aleksander tok med seg Iliaden på sine erobringstog."
+                    },
+                    {
+                        "question": "Hva er hellenismen?",
+                        "options": [
+                            "En gresk gud",
+                            "En gresk-fokusert kultur som spredte seg fra Egypt til India etter Aleksander",
+                            "Et persisk kongedømme",
+                            "Et politisk system i Athen"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "Hellenismen er den blandingskulturen som vokste fram der gresk språk og kunst møtte lokale kulturer i Aleksanders erobringsområder."
+                    },
+                    {
+                        "question": "Hvorfor blir Aleksander kalt «den store»?",
+                        "options": [
+                            "Fordi han var fysisk høyere enn andre konger",
+                            "Fordi imperiet hans varte i 1000 år",
+                            "Fordi han endret hvordan kulturer kunne møtes og blande seg",
+                            "Fordi han bygde verdens største tempel"
+                        ],
+                        "correctIndex": 2,
+                        "explanation": "Det var ikke seirene, men hva han gjorde med fienden etterpå — han integrerte kulturer i stedet for å utslette dem."
+                    },
+                    {
+                        "question": "Hva skjedde med imperiet etter Aleksander døde?",
+                        "options": [
+                            "Det forble samlet under hans sønn",
+                            "Det ble overtatt av perserne igjen",
+                            "Det ble splittet i flere hellenistiske kongedømmer styrt av hans generaler",
+                            "Det ble erobret av romerne med en gang"
+                        ],
+                        "correctIndex": 2,
+                        "explanation": "Aleksander hadde ingen voksen tronarving. Hans generaler delte imperiet i blant annet Ptolemeernes Egypt og Selevkidenes Asia."
+                    }
+                ]
+            }
+        }
+    ],
+    "timeline": []
+}
