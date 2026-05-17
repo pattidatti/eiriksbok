@@ -2771,6 +2771,23 @@
       ]
     },
     {
+      "id": "marx",
+      "title": "Karl Marx",
+      "description": "Klassekamp, merverdi og kapitalismens kritikk.",
+      "startDate": 1818,
+      "endDate": 1883,
+      "displayDate": "1818-1883",
+      "type": "lesson",
+      "subjectId": "krle",
+      "topicId": "filosofi",
+      "link": "/krle/filosofi/marx",
+      "tags": [
+        "filosofi",
+        "klassekamp",
+        "marx"
+      ]
+    },
+    {
       "id": "latin-amerika-sub-2",
       "title": "Gran Colombia",
       "description": "Bolívar grunnlegger en storrepublikk.",
