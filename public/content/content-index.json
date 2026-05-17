@@ -1,5 +1,5 @@
 {
-  "buildId": 1779019852131,
+  "buildId": 1779022079429,
   "contentMap": {
     "concept-adel": [
       "content/concepts/adel.json"
@@ -858,6 +858,9 @@
     ],
     "den-kognitive-revolusjonen": [
       "content/historie/menneskets-tidlige-historie/den-kognitive-revolusjonen.json"
+    ],
+    "gobekli-tepe": [
+      "content/historie/menneskets-tidlige-historie/gobekli-tepe.json"
     ],
     "menneskets-tidlige-historie": [
       "content/historie/menneskets-tidlige-historie/menneskets-tidlige-historie.json"
@@ -2329,6 +2332,7 @@
     "historie/mellomkrigstiden/usa": "content/historie/mellomkrigstiden/usa.json",
     "historie/menneskets-tidlige-historie/den-jordbruksrevolusjonen": "content/historie/menneskets-tidlige-historie/den-jordbruksrevolusjonen.json",
     "historie/menneskets-tidlige-historie/den-kognitive-revolusjonen": "content/historie/menneskets-tidlige-historie/den-kognitive-revolusjonen.json",
+    "historie/menneskets-tidlige-historie/gobekli-tepe": "content/historie/menneskets-tidlige-historie/gobekli-tepe.json",
     "historie/menneskets-tidlige-historie/menneskets-tidlige-historie": "content/historie/menneskets-tidlige-historie/menneskets-tidlige-historie.json",
     "historie/middelalderen/boktrykkerkunsten": "content/historie/middelalderen/boktrykkerkunsten.json",
     "historie/middelalderen/det-hellige-romerske-rike": "content/historie/middelalderen/det-hellige-romerske-rike.json",
