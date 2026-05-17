@@ -1,0 +1,206 @@
+{
+    "id": "22-juli-2011",
+    "title": "22. juli 2011 — terrorangrepet på Norge",
+    "layout": "rich",
+    "year": "2011",
+    "category": "Norge",
+    "readTime": "9 min lesning",
+    "heroImage": "/images/placeholder.webp",
+    "details": [
+        "77 mennesker mistet livet — 8 i regjeringskvartalet, 69 på Utøya",
+        "Gjerningsmannen handlet alene, drevet av høyreekstreme ideer han hadde bygd opp over år",
+        "Norges svar ble «mer demokrati, mer åpenhet og mer menneskelighet»",
+        "Læreplanen krever at alle norske elever lærer om denne dagen"
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Fredag 22. juli 2011. Klokken nærmer seg halv fire. Det er fellesferie, regjeringskvartalet i Oslo er nesten tomt, og himmelen er overskyet. Få minutter senere blir Norge endret for alltid."
+        },
+        {
+            "type": "header",
+            "text": "Klokken 15:25 — bomben i Oslo"
+        },
+        {
+            "type": "text",
+            "content": "En hvit varebil parkeres rett utenfor Høyblokka der statsministerens kontor ligger. I bilen er det rundt 950 kilo hjemmelaget sprengstoff. Gjerningsmannen forlater bilen, går rolig vekk og setter seg i en annen bil. Klokken 15:25 detonerer bomben."
+        },
+        {
+            "type": "text",
+            "content": "Smellen høres over hele sentrum. Vinduer knuses i et stort område, fasader rives av blokkene, og glasskår og betongbiter ligger strødd i gatene. Åtte mennesker mister livet i og rundt regjeringskvartalet, og flere titalls blir alvorlig skadd. Brannvesenet og politiet tror først at det er en gasseksplosjon, før de skjønner at det er en terrorbombe."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Røyk stiger fra det skadde regjeringskvartalet i Oslo sentrum",
+            "caption": "Bilbomben i regjeringskvartalet skadet flere bygg og drepte åtte mennesker."
+        },
+        {
+            "type": "header",
+            "text": "Klokken 17:21 — angrepet på Utøya"
+        },
+        {
+            "type": "text",
+            "content": "Mens politiet og redningsmannskaper kjemper i Oslo, kjører gjerningsmannen mot Tyrifjorden. Han er kledd i politiuniform og bærer falske ID-papirer. På land ved fergeleiet til Utøya snakker han med vaktene. Han sier at han skal sjekke sikkerheten etter bomben."
+        },
+        {
+            "type": "text",
+            "content": "På øya pågår AUFs sommerleir — rundt 560 ungdommer og voksne er samlet. Da fergen legger til, går mannen i land med våpen og begynner å skyte. Han jakter ungdommene i over en time. Mange svømmer ut i det kalde vannet for å komme seg unna. Båter fra hytter i nærheten kjører ut for å plukke folk opp av vannet, mens skuddene fortsatt høres fra øya."
+        },
+        {
+            "type": "text",
+            "content": "Politiets innsatsstyrke kommer fram klokken 18:25. Da har 69 mennesker på Utøya blitt drept, de fleste under 20 år. Gjerningsmannen overgir seg uten å gjøre motstand."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Tallene fra 22. juli",
+                "items": [
+                    "77 drepte totalt",
+                    "8 drept i regjeringskvartalet, 69 drept på Utøya",
+                    "Over 300 fysisk skadde",
+                    "Tusenvis ble psykisk berørt — pårørende, overlevende, redningsfolk",
+                    "Gjennomsnittsalderen på de drepte på Utøya: 19 år"
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Hvem og hvorfor?"
+        },
+        {
+            "type": "text",
+            "content": "Gjerningsmannen var en 32 år gammel norsk mann. Han hadde verken samarbeidspartnere eller forbindelser til kjente terrorgrupper. Politiet kaller en slik gjerningsperson en «ensom ulv» — en som planlegger og handler helt på egen hånd."
+        },
+        {
+            "type": "text",
+            "content": "Men ideene hans kom ikke fra ingenting. I årevis hadde han lest og skrevet på høyreekstreme nettsteder, der innvandring ble framstilt som en planlagt invasjon og politikere ble beskrevet som forrædere. Han lagde sitt eget manifest på 1 500 sider og sendte det ut til over 1 000 mottakere kort før angrepet. I manifestet rettferdiggjorde han volden som et «forsvar» av Europa."
+        },
+        {
+            "type": "text",
+            "content": "Han hadde valgt AUF som mål fordi Arbeiderpartiet hadde regjeringsmakten og fordi han mente partiet sto bak en innvandringspolitikk han hatet. På den måten ble unge mennesker — som verken bestemte politikken eller var ansvarlige for noe — målet for en voksen manns vrede."
+        },
+        {
+            "type": "text",
+            "content": "Hvordan kunne en helt vanlig nordmann ende opp med å planlegge massedrap? Det skjedde ikke over natten. Radikalisering er en gradvis prosess der ideer, miljø og isolasjon trekker en person stadig lenger vekk fra resten av samfunnet — gjerne over flere år. Trinn for trinn blir det normalt å tenke på vold som en løsning."
+        },
+        {
+            "type": "component",
+            "name": "Radikaliseringstrappa",
+            "props": {
+                "title": "Radikaliseringstrappa — fra nysgjerrig til farlig"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Norges svar: mer demokrati, ikke mindre"
+        },
+        {
+            "type": "text",
+            "content": "Mange land har svart på terror med strengere lover, mer overvåkning og hardere ord. Norge valgte en annen vei. I dagene etter angrepet samlet hundretusener seg i rosetog i hele landet. Folk gikk i stillhet med roser i hånden — et stille men sterkt budskap om at hatet ikke skulle få det siste ordet."
+        },
+        {
+            "type": "text",
+            "content": "Statsminister Jens Stoltenberg holdt taler som ble lagt merke til langt utenfor Norges grenser. Han nektet å la angrepet endre hva slags samfunn Norge skulle være."
+        },
+        {
+            "type": "component",
+            "name": "QuoteBlock",
+            "props": {
+                "quote": "Vi skal svare med mer demokrati, mer åpenhet og mer menneskelighet. Men aldri naivitet.",
+                "author": "Jens Stoltenberg",
+                "context": "Tale i Oslo Domkirke, 24. juli 2011"
+            }
+        },
+        {
+            "type": "text",
+            "content": "Rettssaken mot gjerningsmannen startet våren 2012. Han ble dømt til 21 års forvaring — den strengeste straffen norsk lov tillater. Forvaring betyr at straffen kan forlenges hvis han fortsatt anses som farlig når tiden er ute. Underveis i rettssaken nektet han å vise anger, og forsøkte å bruke rettsalen som scene for ideene sine. Domstolen og mediene møtte ham med saklighet, ikke sensasjon."
+        },
+        {
+            "type": "header",
+            "text": "Arven etter 22. juli"
+        },
+        {
+            "type": "text",
+            "content": "Mer enn ti år etter angrepet bærer Norge fortsatt spor av denne dagen. Regjeringskvartalet bygges opp på nytt, men annerledes. På Utøya står Hegnhuset, et lyst og åpent bygg som både er minnested og læringsarena for nye AUF-leirer. På Sørbråten ved Tyrifjorden ligger et nasjonalt minnested med navnene på de drepte."
+        },
+        {
+            "type": "text",
+            "content": "Forskere, journalister og lærere har brukt mye tid på å forstå hva som gikk galt — i forkant, under selve angrepet og i ettertid. Gjørv-kommisjonen viste at flere tegn ble oversett og at politiet brukte for lang tid til Utøya. Erfaringene har endret hvordan politiet trener på krise, hvordan PST følger med på voldelige miljøer på nett, og hvordan skoler og helsetjenester samarbeider rundt unge som er på vei inn i ekstreme miljøer."
+        },
+        {
+            "type": "text",
+            "content": "Samtidig fortsetter samtalen om hvordan vi skal snakke om ekstreme meninger på nett uten å gi dem mer oksygen, og hvordan vi tar vare på dem som overlevde og dem som mistet noen. AUF og Støttegruppa etter 22. juli minner stadig om at terror ikke skal få lov til å gjøre demokratiet kaldere eller stillere."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Hvite roser foran et minnesmerke for ofrene fra 22. juli",
+            "caption": "Roser foran et minnested for ofrene fra 22. juli — fortsatt et samlingspunkt år etter angrepet."
+        },
+        {
+            "type": "text",
+            "content": "22. juli 2011 er nå pensum i norsk skole — ikke fordi vi skal frykte at det skjer igjen, men fordi et åpent samfunn må kjenne sin egen sårbarhet og sine egne kvaliteter. Demokratiet ble ikke knust den dagen. Det fikk vondt, men det reiste seg."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hva skjedde klokken 15:25 den 22. juli 2011?",
+                        "options": [
+                            "Bilbomben i regjeringskvartalet i Oslo eksploderte",
+                            "Skytingen på Utøya begynte",
+                            "Politiet pågrep gjerningsmannen",
+                            "Statsminister Stoltenberg holdt sin første tale"
+                        ],
+                        "correctAnswer": 0,
+                        "explanation": "Bilbomben med rundt 950 kilo sprengstoff detonerte utenfor Høyblokka klokken 15:25. Skytingen på Utøya begynte først nesten to timer senere."
+                    },
+                    {
+                        "question": "Hvor mange mennesker mistet livet til sammen den 22. juli?",
+                        "options": ["33", "69", "77", "88"],
+                        "correctAnswer": 2,
+                        "explanation": "Totalt 77 mennesker ble drept — 8 i regjeringskvartalet og 69 på Utøya. De fleste på Utøya var under 20 år."
+                    },
+                    {
+                        "question": "Hva mente Stoltenberg med «mer demokrati, mer åpenhet og mer menneskelighet»?",
+                        "options": [
+                            "At politiet trengte flere våpen og strengere lover",
+                            "At Norge skulle svare på terror ved å holde fast på åpne, demokratiske verdier",
+                            "At Norge skulle utlevere flere personer mistenkt for terror",
+                            "At skolene skulle slutte å snakke om vanskelige tema"
+                        ],
+                        "correctAnswer": 1,
+                        "explanation": "Stoltenberg avviste at terroren skulle gjøre Norge mer lukket eller mistenksomt. Svaret skulle være å forsterke demokratiet, ikke begrense det."
+                    },
+                    {
+                        "question": "Hva er en «ensom ulv» i en terrorsammenheng?",
+                        "options": [
+                            "En politimann som jobber alene under et angrep",
+                            "En person som planlegger og utfører et angrep helt på egen hånd",
+                            "En politiker som er imot terrorlovgivning",
+                            "En soldat som har deltatt i krig"
+                        ],
+                        "correctAnswer": 1,
+                        "explanation": "En ensom ulv handler uten et organisert nettverk. Det gjør angrepene vanskeligere for politiet å oppdage på forhånd, fordi det er færre kommunikasjonsspor å følge."
+                    },
+                    {
+                        "question": "Hvorfor er radikalisering ofte en lang prosess og ikke en plutselig hendelse?",
+                        "options": [
+                            "Fordi det krever en lang utdannelse å bli ekstremist",
+                            "Fordi en person trinn for trinn endrer hva som føles normalt, ofte gjennom miljø, nett og isolasjon",
+                            "Fordi politiet vanligvis hindrer raske endringer i meninger",
+                            "Fordi staten betaler folk for å vente med å handle"
+                        ],
+                        "correctAnswer": 1,
+                        "explanation": "Radikalisering skjer som regel gjennom mange små steg over tid. Det gjør at det finnes flere muligheter underveis for venner, familie eller fagfolk til å bryte mønsteret."
+                    }
+                ]
+            }
+        }
+    ],
+    "timeline": []
+}

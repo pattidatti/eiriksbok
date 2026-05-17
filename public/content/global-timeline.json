@@ -5984,6 +5984,26 @@
       ]
     },
     {
+      "id": "22-juli-2011",
+      "title": "22. juli 2011 — terrorangrepet på Norge",
+      "description": "Dagen et terrorangrep rammet regjeringskvartalet og Utøya — og hvordan Norge svarte med mer demokrati.",
+      "startDate": 2011,
+      "endDate": null,
+      "displayDate": "2011",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "norgeshistorie",
+      "link": "/historie/norgeshistorie/22-juli-2011",
+      "tags": [
+        "historie",
+        "norge",
+        "samtidshistorie",
+        "terror",
+        "demokrati",
+        "radikalisering"
+      ]
+    },
+    {
       "id": "doden",
       "title": "Døden",
       "description": "Utgitt av Ragnar Hovland",

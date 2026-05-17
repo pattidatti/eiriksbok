@@ -1,5 +1,5 @@
 {
-  "buildId": 1779017629241,
+  "buildId": 1779019852131,
   "contentMap": {
     "concept-adel": [
       "content/concepts/adel.json"
@@ -885,6 +885,9 @@
     ],
     "tidlig-middelalder": [
       "content/historie/middelalderen/tidlig-middelalder.json"
+    ],
+    "22-juli-2011": [
+      "content/historie/norgeshistorie/22-juli-2011.json"
     ],
     "alv-erlingsson": [
       "content/historie/norgeshistorie/alv-erlingsson/alv-erlingsson.json"
@@ -2335,6 +2338,7 @@
     "historie/middelalderen/svartedauden-sti": "content/historie/middelalderen/svartedauden-sti.json",
     "historie/middelalderen/svartedauden": "content/historie/middelalderen/svartedauden.json",
     "historie/middelalderen/tidlig-middelalder": "content/historie/middelalderen/tidlig-middelalder.json",
+    "historie/norgeshistorie/22-juli-2011": "content/historie/norgeshistorie/22-juli-2011.json",
     "historie/norgeshistorie/alv-erlingsson/alv-erlingsson": "content/historie/norgeshistorie/alv-erlingsson/alv-erlingsson.json",
     "historie/norgeshistorie/hamskiftet/hamskiftet": "content/historie/norgeshistorie/hamskiftet/artikkel.json",
     "historie/norgeshistorie/klimakrisen-536/klimakrisen-536": "content/historie/norgeshistorie/klimakrisen-536/artikkel.json",
