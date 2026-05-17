@@ -149,6 +149,7 @@ const VasaMaktSpaker = lazy(() => import('./content/interactive/VasaMaktSpaker')
 const Radikaliseringstrappa = lazy(() => import('./content/interactive/Radikaliseringstrappa').then(m => ({ default: m.Radikaliseringstrappa })));
 const KausalitetsVri = lazy(() => import('./content/interactive/KausalitetsVri').then(m => ({ default: m.KausalitetsVri })));
 const TradisjonFornyelseVever = lazy(() => import('./content/interactive/TradisjonFornyelseVever').then(m => ({ default: m.TradisjonFornyelseVever })));
+const OkkupasjonensValg = lazy(() => import('./content/interactive/OkkupasjonensValg').then(m => ({ default: m.OkkupasjonensValg })));
 
 export const componentRegistry: Record<string, React.ComponentType<any>> = {
     // Core
@@ -298,6 +299,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     Radikaliseringstrappa,
     KausalitetsVri,
     TradisjonFornyelseVever,
+    OkkupasjonensValg,
     Gallery,
     gallery: Gallery,
     comparison: Comparison,
