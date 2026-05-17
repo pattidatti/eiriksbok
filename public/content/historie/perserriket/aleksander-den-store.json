@@ -5,7 +5,7 @@
     "year": "356-323 fvt",
     "category": "Antikken",
     "readTime": "10 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/perserriket/aleksander-den-store-hero.webp",
     "details": [
         "Aleksander var bare 20 år gammel da han ble konge — og 32 da han døde. På de tretten årene erobret han et område fra Hellas til India.",
         "Han tapte aldri et slag. Men det viktigste var ikke seirene — det var hva han gjorde med fienden etterpå.",
@@ -26,7 +26,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/perserriket/aleksander-den-store-hero.webp",
             "alt": "Aleksander den store på hesten Buchefalos i full rustning under et slag mot persiske soldater",
             "caption": "Aleksander red i front av sine egne soldater. Det er en av grunnene til at de fulgte ham helt til India."
         },
@@ -64,7 +64,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/perserriket/aleksander-den-store-01.webp",
             "alt": "Kart over Aleksanders erobringer fra Hellas gjennom Egypt og Persia til India, med byer han grunnla markert",
             "caption": "Aleksanders ekspansjon. Han grunnla over 70 nye byer på veien — de fleste het Aleksandria."
         },
@@ -105,7 +105,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/perserriket/aleksander-den-store-02.webp",
             "alt": "Antikk Buddha-statue fra Gandhara med greske trekk — kappe, krøllet hår, realistiske ansiktstrekk",
             "caption": "En Buddha med gresk ansikt. Gandhara-kunsten i dagens Afghanistan og Pakistan blandet gresk skulpturteknikk med buddhistisk innhold."
         },

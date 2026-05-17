@@ -5,7 +5,7 @@
     "year": "1940-1945",
     "category": "Andre verdenskrig",
     "readTime": "10 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/andre-verdenskrig/norge-under-okkupasjonen-hero.webp",
     "details": [
         "9. april 1940 våknet Norge til tyske bombefly over Oslo og krigsskip i fjordene",
         "Kongen og regjeringen sa nei til Quisling og styrte landet fra eksil i London",
@@ -18,7 +18,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/andre-verdenskrig/norge-under-okkupasjonen-01.webp",
             "alt": "Tyske krigsskip i Drøbaksundet 9. april 1940, kanonene på Oscarsborg festning skyter",
             "caption": "Oscarsborg festning åpner ild mot tyske krigsskip i Drøbaksundet, natten 9. april 1940."
         },
@@ -99,7 +99,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/andre-verdenskrig/norge-under-okkupasjonen-02.webp",
             "alt": "Lasteskipet Donau ved Oslo havn november 1942, jødiske familier blir ført ombord",
             "caption": "Lasteskipet Donau forlot Oslo havn 26. november 1942 med 532 norske jøder. De fleste ble drept i Auschwitz."
         },
@@ -189,7 +189,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/andre-verdenskrig/norge-under-okkupasjonen-03.webp",
             "alt": "Frigjøringsdagen 8. mai 1945, folkemengde med norske flagg i Karl Johans gate Oslo",
             "caption": "Karl Johans gate, Oslo, 8. mai 1945 — folkefest etter fem år med okkupasjon."
         },
