@@ -143,6 +143,7 @@ const IndusMysteryBoard = lazy(() => import('./content/interactive/IndusMysteryB
 const HimmelensMandat = lazy(() => import('./content/interactive/HimmelensMandat').then(m => ({ default: m.HimmelensMandat })));
 const ThoughtsWordsDeeds = lazy(() => import('./content/interactive/ThoughtsWordsDeeds').then(m => ({ default: m.ThoughtsWordsDeeds })));
 const KyrosValget = lazy(() => import('./content/interactive/KyrosValget').then(m => ({ default: m.KyrosValget })));
+const AleksandersValg = lazy(() => import('./content/interactive/AleksandersValg').then(m => ({ default: m.AleksandersValg })));
 const FarmerVsForager = lazy(() => import('./content/interactive/FarmerVsForager').then(m => ({ default: m.FarmerVsForager })));
 const VasaMaktSpaker = lazy(() => import('./content/interactive/VasaMaktSpaker').then(m => ({ default: m.VasaMaktSpaker })));
 const Radikaliseringstrappa = lazy(() => import('./content/interactive/Radikaliseringstrappa').then(m => ({ default: m.Radikaliseringstrappa })));
@@ -291,6 +292,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     HimmelensMandat,
     ThoughtsWordsDeeds,
     KyrosValget,
+    AleksandersValg,
     FarmerVsForager,
     VasaMaktSpaker,
     Radikaliseringstrappa,

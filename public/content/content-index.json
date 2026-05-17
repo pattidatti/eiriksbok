@@ -1,5 +1,5 @@
 {
-  "buildId": 1779039942921,
+  "buildId": 1779041306668,
   "contentMap": {
     "concept-adel": [
       "content/concepts/adel.json"
@@ -906,6 +906,9 @@
     ],
     "norgeshistorie-norge-for-vikingene": [
       "content/historie/norgeshistorie/norge-for-vikingene/artikkel.json"
+    ],
+    "aleksander-den-store": [
+      "content/historie/perserriket/aleksander-den-store.json"
     ],
     "historie-perserriket": [
       "content/historie/perserriket/artikkel.json"
@@ -2351,6 +2354,7 @@
     "historie/norgeshistorie/klimakrisen-536/klimakrisen-536": "content/historie/norgeshistorie/klimakrisen-536/artikkel.json",
     "historie/norgeshistorie/knut-alvsson/knut-alvsson": "content/historie/norgeshistorie/knut-alvsson/artikkel.json",
     "historie/norgeshistorie/norge-for-vikingene/norge-for-vikingene": "content/historie/norgeshistorie/norge-for-vikingene/artikkel.json",
+    "historie/perserriket/aleksander-den-store": "content/historie/perserriket/aleksander-den-store.json",
     "historie/perserriket/perserriket": "content/historie/perserriket/artikkel.json",
     "historie/perserriket/kyros-den-store": "content/historie/perserriket/kyros-den-store.json",
     "historie/perserriket/perserkrigene": "content/historie/perserriket/perserkrigene.json",
