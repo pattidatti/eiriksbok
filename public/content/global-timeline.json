@@ -4019,6 +4019,25 @@
       ]
     },
     {
+      "id": "norge-under-okkupasjonen",
+      "title": "Norge under okkupasjonen",
+      "description": "Fra 9. april 1940 til 8. mai 1945: Quisling, hjemmefronten, Holocaust og hverdagsmotstand.",
+      "startDate": 1940,
+      "endDate": 1945,
+      "displayDate": "1940-1945",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "andre-verdenskrig",
+      "link": "/historie/andre-verdenskrig/norge-under-okkupasjonen",
+      "tags": [
+        "norge",
+        "okkupasjon",
+        "hjemmefronten",
+        "quisling",
+        "holocaust"
+      ]
+    },
+    {
       "id": "sorost-asia",
       "title": "Sørøst-Asia: Vakuumet etter Japan",
       "description": "Hvordan myten om hvit overlegenhet ble knust.",
