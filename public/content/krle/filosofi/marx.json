@@ -7,7 +7,7 @@
     "year": "1818-1883",
     "category": "Filosofi",
     "readTime": "10 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/filosofi/marx-hero.webp",
     "dimension": "etikk",
     "comparison_tags": [
         "klassekamp",
@@ -28,7 +28,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/filosofi/marx-01.webp",
             "alt": "Karl Marx sittende ved skrivebordet i British Museum med bøker og notater rundt seg",
             "caption": "Marx tilbrakte tiår på lesesalen i British Museum mens han skrev hovedverket Kapitalen."
         },
@@ -81,7 +81,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/filosofi/marx-02.webp",
             "alt": "Industriarbeidere ved et samlebånd i en victoriansk fabrikk med dampmaskiner og sentralhjul",
             "caption": "Samlebåndet delte arbeidet i bittesmå biter — og med det, mente Marx, ble mennesket fremmed for sitt eget arbeid."
         },

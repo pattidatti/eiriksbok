@@ -5,7 +5,7 @@
     "year": "1350-1600",
     "category": "Europa",
     "readTime": "9 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/renessansen/oversikt-hero.webp",
     "details": [
         "Renessansen var en gjenfødelse (rebirth) av antikkens ideer i Europa.",
         "Startet i italienske byer som Firenze rundt 1350.",
@@ -35,7 +35,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/renessansen/oversikt-01.webp",
             "alt": "Italiensk renessanseby med brede gater, kuppelkirker og rike kjøpmenn på torget",
             "caption": "Firenze på 1400-tallet var sentrum for renessansen. Rike bankierfamilier som Medici betalte kunstnere og lærde."
         },
@@ -73,7 +73,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/renessansen/oversikt-02.webp",
             "alt": "Renessansemaleri med tre figurer i forgrunnen, perspektivlinjer mot horisont, og dybde i landskapet bak",
             "caption": "Renessansemalere oppdaget perspektivet. Gulvfliser, vinduer og veier smalner inn mot ett punkt — akkurat slik øyet faktisk ser verden."
         },

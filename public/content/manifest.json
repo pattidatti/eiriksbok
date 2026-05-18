@@ -2796,13 +2796,13 @@
           "id": "renessansen",
           "title": "Renessansen",
           "description": "Gjenfødelsen av antikken — humanisme, kunst og det moderne menneskets fødsel.",
-          "image": "/images/placeholder.webp",
+          "image": "/images/renessansen/oversikt-hero.webp",
           "lessons": [
             {
               "id": "oversikt",
               "title": "Renessansen: Gjenfødelsen av antikken",
               "description": "Hvordan italienske byer på 1400-tallet gjenoppdaget antikkens ideer og endret synet på mennesket for alltid.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/renessansen/oversikt-hero.webp",
               "tags": [
                 "renessansen",
                 "europa",
@@ -5323,7 +5323,7 @@
               "id": "marx",
               "title": "Karl Marx",
               "description": "Klassekamp, merverdi og kapitalismens kritikk.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/filosofi/marx-hero.webp",
               "tags": [
                 "filosofi",
                 "klassekamp",
