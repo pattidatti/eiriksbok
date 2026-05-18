@@ -1,0 +1,187 @@
+{
+    "id": "oversikt",
+    "title": "Renessansen: Gjenfødelsen av antikken",
+    "layout": "rich",
+    "year": "1350-1600",
+    "category": "Europa",
+    "readTime": "9 min lesning",
+    "heroImage": "/images/placeholder.webp",
+    "details": [
+        "Renessansen var en gjenfødelse (rebirth) av antikkens ideer i Europa.",
+        "Startet i italienske byer som Firenze rundt 1350.",
+        "Endret synet på mennesket: fra brikke under Gud til hovedperson i eget liv.",
+        "La grunnlaget for både reformasjonen, vitenskapen og det moderne verdensbildet."
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "I 1417 satt en italiensk bokjeger ved navn Poggio Bracciolini i et tysk kloster og bladde i en gammel bunke pergamenter. Plutselig stoppet han. Han holdt et tusen år gammelt dikt i hendene. En lang, glemt tekst av den romerske forfatteren Lukrets. Ingen hadde lest den siden Romerriket falt. Han fikk skriveren til å kopiere hver eneste linje. Da han kom hjem til Firenze, eksploderte ideene. Antikken var ikke død — den lå bare og ventet i støvete biblioteker."
+        },
+        {
+            "type": "text",
+            "content": "Slike funn skjedde overalt i Europa på 1400-tallet. Lærde menn lette frem greske og romerske bøker som hadde vært glemt i over tusen år. Når de leste dem, oppdaget de noe som rystet dem: de gamle hadde tenkt på en helt annen måte enn middelalderens kirke. De hadde målt stjerner, diskutert demokrati, malt mennesker som så ut som mennesker, og skrevet om følelser og kropp uten å skamme seg. Denne gjenoppdagelsen skulle gi navn til en helt ny tid: renessansen — som rett og slett betyr 'gjenfødelse'."
+        },
+        {
+            "type": "header",
+            "content": "Hvor og når begynte det?"
+        },
+        {
+            "type": "text",
+            "content": "Renessansen startet i Italia rundt 1350 og bredte seg gradvis nordover. Den varte til omtrent 1600. Italia ble bressbåten av flere grunner. For det første var Italia tett på antikkens ruiner — romerske templer, statuer og veier stod overalt og minnet folk om at det hadde vært en storslått sivilisasjon før dem. For det andre var italienske byer som Firenze, Venezia, Milano og Roma rike. Handel med Østen hadde gjort kjøpmennene styrtrike, og rike folk har råd til å betale kunstnere og lærde."
+        },
+        {
+            "type": "text",
+            "content": "For det tredje skjedde det noe dramatisk i 1453: den østromerske byen Konstantinopel falt til osmanene. Lærde greske munker flyktet vestover, og de hadde med seg det de kunne bære av gamle bøker. Plutselig kunne italienerne lese Platon og Aristoteles på originalspråket. Og for det fjerde — kanskje viktigst av alt — kom boktrykkerkunsten. Da Gutenberg laget den moderne trykkpressen rundt 1440, kunne ideer plutselig spre seg lynraskt over hele Europa. Det som tok en munk et helt år å skrive av, kunne nå trykkes på noen timer."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Italiensk renessanseby med brede gater, kuppelkirker og rike kjøpmenn på torget",
+            "caption": "Firenze på 1400-tallet var sentrum for renessansen. Rike bankierfamilier som Medici betalte kunstnere og lærde."
+        },
+        {
+            "type": "header",
+            "content": "Et nytt syn på mennesket"
+        },
+        {
+            "type": "text",
+            "content": "Det største skiftet var ikke at folk fikk nye verktøy. Det var at de fikk et nytt syn på hva mennesket er. I middelalderen lærte kirken at mennesket var en syndig, liten sjel på vei mot Gud. Du skulle være ydmyk, lydig, og ikke tro for godt om deg selv. Det jordiske livet var bare en kort prøvelse før det evige livet i himmelen."
+        },
+        {
+            "type": "text",
+            "content": "Renessansens tenkere snudde dette på hodet. De kalte seg humanister, fordi de satte mennesket (humanus på latin) i sentrum. Den unge italieneren Pico della Mirandola skrev i 1486 en tale han kalte 'Om menneskets verdighet'. Der lot han Gud snakke direkte til mennesket: 'Jeg har ikke gitt deg en fast plass eller en fast skikkelse. Du kan stige opp til det guddommelige, eller synke til det dyriske. Du velger selv.' For en 1400-tallsleser var dette eksplosivt. Mennesket var ikke lenger en brikke — det var hovedpersonen."
+        },
+        {
+            "type": "component",
+            "name": "RenessansePerspektiv",
+            "props": {
+                "title": "Renessansens perspektivskifte",
+                "intro": "Velg et spørsmål og se hvordan svaret skiftet fra middelalder til renessanse."
+            }
+        },
+        {
+            "type": "header",
+            "content": "Kunsten lærer å se på nytt"
+        },
+        {
+            "type": "text",
+            "content": "Det nye menneskesynet kom tydeligst til syne i kunsten. Middelalderens malerier var flate, med gullbakgrunner. Helgener var størst, vanlige folk var små. Bildene viste hva som var hellig, ikke hva øyet faktisk så. Renessansens malere kastet alt dette. De studerte anatomi ved å dissekere lik. De tegnet matematisk perspektiv, slik at gulvflisene smalnet inn mot et forsvinnings­punkt. De malte lys og skygge så mennesker så ut som mennesker av kjøtt og blod."
+        },
+        {
+            "type": "text",
+            "content": "Leonardo da Vinci ble symbolet på dette nye mennesket. Han var maler, ingeniør, anatom, oppfinner og naturforsker — alt på én gang. Han fyllte notatbøker med skisser av helikoptre, fosterets utvikling i livmoren, og hvordan vannet beveger seg i en elv. Idealet hans var det renessansen kalte 'l'uomo universale' — det universelle menneske, som kunne litt av alt. Michelangelo malte Det sixtinske kapell, Rafael lagde Skolen i Aten der alle antikkens filosofer møtes, og Brunelleschi bygde Firenze-katedralens enorme kuppel uten å bruke tegninger fra Romerriket — bare matematikk og dristighet."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Renessansemaleri med tre figurer i forgrunnen, perspektivlinjer mot horisont, og dybde i landskapet bak",
+            "caption": "Renessansemalere oppdaget perspektivet. Gulvfliser, vinduer og veier smalner inn mot ett punkt — akkurat slik øyet faktisk ser verden."
+        },
+        {
+            "type": "header",
+            "content": "Vitenskapen tør å spørre"
+        },
+        {
+            "type": "text",
+            "content": "Renessansens humanister leste antikkens vitenskapsmenn og oppdaget at de gamle hadde målt, talt og stilt spørsmål. Når kirken sa 'sola står stille, jorden står i midten av verden', begynte folk å tenke: hvorfor stoler vi bare på autoriteter? Kan vi sjekke selv? Nikolaus Kopernikus satte solen i sentrum av modellen sin i 1543. Hundre år senere skulle Galileo Galilei peke en kikkert mot himmelen og se Jupiters måner med sine egne øyne. Vitenskapsrevolusjonen var i gang."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Visste du?",
+                "content": "Leonardo da Vinci skrev notater speilvendt — fra høyre til venstre — så ingen kunne stjele ideene hans. Han var venstrehendt og fortsatt en av de mest kjente menneskene i historien, men i sin egen samtid ble han nesten mer kjent som en flink ingeniør og fest-arrangør enn som maler."
+            }
+        },
+        {
+            "type": "header",
+            "content": "Renessansen sprer seg nordover"
+        },
+        {
+            "type": "text",
+            "content": "På 1500-tallet bredte renessansen seg ut av Italia. I Nord-Europa fikk den et alvorligere preg. Den nederlandske humanisten Erasmus av Rotterdam skrev nye, kritiske utgaver av Bibelen. Den engelske statsmannen Thomas More skrev boken Utopia om et perfekt samfunn. Den tyske kunstneren Albrecht Dürer reiste til Italia for å lære perspektiv. Og når Martin Luther i 1517 slo opp sine 95 teser, var det dypt påvirket av renessansens ånd: ikke stol blindt på autoriteter, les selv, tenk selv. Reformasjonen var renessansens religiøse storebror."
+        },
+        {
+            "type": "header",
+            "content": "Hva ble igjen?"
+        },
+        {
+            "type": "text",
+            "content": "Renessansen tok slutt rundt 1600, men idéene gikk aldri tilbake. Selve tanken om at mennesket har verdighet, kan tenke selv og kan endre verden, lever videre i opplysningstiden, i menneskerettighetene, og i hele det moderne vestlige verdensbildet. Når vi i dag mener at hver person har rett til å mene noe, at vitenskap skal bygge på observasjon, eller at en god utdannelse gir deg verktøy til å forstå verden — så lever vi fortsatt på renessansens skuldre. Den gamle bokjegeren Poggio visste det ikke da han satt i klosteret i 1417, men han var med på å starte en revolusjon som aldri tok slutt."
+        },
+        {
+            "type": "list",
+            "items": [
+                "Renessansen (ca. 1350-1600) var en gjenfødelse av antikkens ideer i Europa.",
+                "Italia var første arnested — på grunn av antikkens ruiner, rike byer og greske flyktninger etter 1453.",
+                "Humanismen satte mennesket i sentrum: vi er ikke brikker, men hovedpersoner.",
+                "Kunsten oppdaget perspektiv, anatomi og lys; vitenskapen lærte å spørre og sjekke selv.",
+                "Renessansen banet vei for reformasjonen, vitenskapsrevolusjonen og det moderne menneskesynet."
+            ]
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hva betyr ordet 'renessanse'?",
+                        "options": [
+                            "Gjenfødelse",
+                            "Opplysning",
+                            "Frigjøring",
+                            "Reform"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "Renessanse kommer fra italiensk og betyr 'gjenfødelse' — en gjenfødelse av antikkens ideer."
+                    },
+                    {
+                        "question": "Hvilken by regnes som renessansens fødested?",
+                        "options": [
+                            "Roma",
+                            "Firenze",
+                            "Venezia",
+                            "Athen"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "Firenze var sentrum for renessansen, drevet av rike bankfamilier som Medici som betalte kunstnere og lærde."
+                    },
+                    {
+                        "question": "Hva mente humanistene var det viktigste?",
+                        "options": [
+                            "Kirkens autoritet",
+                            "Mennesket og dets potensial",
+                            "Krig og erobring",
+                            "Naturen og dyrene"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "Humanistene (fra latin humanus = menneske) mente mennesket var hovedpersonen — med verdighet, fornuft og uendelig potensial."
+                    },
+                    {
+                        "question": "Hva skjedde i 1453 som hjalp renessansen?",
+                        "options": [
+                            "Romerriket falt",
+                            "Konstantinopel ble erobret av osmanene, og greske lærde flyktet til Italia med gamle bøker",
+                            "Gutenberg fant opp trykkpressen",
+                            "Columbus oppdaget Amerika"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "Da Konstantinopel falt i 1453, flyktet greske lærde til Italia og hadde med seg manuskripter av Platon, Aristoteles og andre antikke tenkere."
+                    },
+                    {
+                        "question": "Hva er en 'l'uomo universale'?",
+                        "options": [
+                            "En person som har reist verden rundt",
+                            "En person som kan litt av alt — kunst, vitenskap, sport, filosofi",
+                            "Den øverste pave",
+                            "En romersk keiser"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "'Det universelle menneske' var renessansens ideal: en allsidig person som mestret kunst, vitenskap, kropp og tanke. Leonardo da Vinci var idealet."
+                    }
+                ]
+            }
+        }
+    ],
+    "timeline": []
+}
