@@ -82,6 +82,7 @@ const MottreformasjonsVerktoy = lazy(() => import('./content/interactive/Mottref
 const LovensSmutthull = lazy(() => import('./content/interactive/LovensSmutthull').then(m => ({ default: m.LovensSmutthull })));
 const SprakBaneVelger = lazy(() => import('./content/interactive/SprakBaneVelger').then(m => ({ default: m.SprakBaneVelger })));
 const StormaktVagskal = lazy(() => import('./content/interactive/StormaktVagskal').then(m => ({ default: m.StormaktVagskal })));
+const LeonardoNotatbok = lazy(() => import('./content/interactive/LeonardoNotatbok').then(m => ({ default: m.LeonardoNotatbok })));
 
 // Skapende Skriving (Creative Writing)
 const StoryElementMixer = lazy(() => import('./content/interactive/StoryElementMixer').then(m => ({ default: m.StoryElementMixer })));
@@ -233,6 +234,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     LovensSmutthull,
     SprakBaneVelger,
     StormaktVagskal,
+    LeonardoNotatbok,
     StoryElementMixer,
     ThemeDigger,
     PlotDNA,

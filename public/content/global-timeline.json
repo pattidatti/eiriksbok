@@ -1435,6 +1435,26 @@
       ]
     },
     {
+      "id": "leonardo-da-vinci",
+      "title": "Leonardo da Vinci — mannen som ville vite alt",
+      "description": "Leonardo levde kunst og vitenskap som én ting. Møt renessansemennesket som tegnet hjertet for å male mennesker bedre.",
+      "startDate": 1452,
+      "endDate": 1519,
+      "displayDate": "1452-1519",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "renessansen",
+      "link": "/historie/renessansen/leonardo-da-vinci",
+      "tags": [
+        "renessansen",
+        "leonardo-da-vinci",
+        "kunst",
+        "vitenskap",
+        "italia",
+        "humanisme"
+      ]
+    },
+    {
       "id": "munkeliv-drapet",
       "title": "Drapet på Olav Nilsson",
       "description": "Hanseatene angriper Munkeliv kloster, brenner det ned og dreper høvedsmannen.",
