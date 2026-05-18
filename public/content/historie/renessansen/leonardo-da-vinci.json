@@ -1,0 +1,209 @@
+{
+    "id": "leonardo-da-vinci",
+    "title": "Leonardo da Vinci — mannen som ville vite alt",
+    "layout": "rich",
+    "year": "1452-1519",
+    "category": "Europa",
+    "readTime": "9 min lesning",
+    "heroImage": "/images/placeholder.webp",
+    "details": [
+        "Leonardo da Vinci levde fra 1452 til 1519, midt i den italienske renessansen.",
+        "Han var maler, ingeniør, anatom og oppfinner — alt i én person.",
+        "Notatbøkene hans inneholder over 7000 sider med skisser og tanker.",
+        "Han skrev mye av notatene speilvendt, fra høyre til venstre.",
+        "Mona Lisa og Nattverden er to av verdens mest kjente malerier."
+    ],
+    "externalUrl": "https://snl.no/Leonardo_da_Vinci",
+    "content": [
+        {
+            "type": "text",
+            "content": "Tenk deg en ung mann som sniker seg ned i kjelleren på et sykehus om natten. Det er bare et stearinlys og en kniv. På bordet ligger et menneske som ble hengt tidligere på dagen. Mannen tegner. Han tegner ribbeina, han tegner musklene i armen, han tegner hjertet med klaffene som åpner og lukker seg. Han vil forstå hvordan vi er bygd innvendig. Hvorfor? Fordi han vil male oss riktig utvendig."
+        },
+        {
+            "type": "text",
+            "content": "Mannen heter Leonardo da Vinci. Han lever i Italia på 1500-tallet, og han er kanskje det merkeligste mennesket som noen gang har levd. For Leonardo nøyer seg ikke med å være maler. Han er også ingeniør, anatom, oppfinner, kanalbygger og våpensmed. På fritiden tegner han fugler i flukt fordi han vil bygge en flygemaskin."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Leonardo da Vinci ved arbeidsbordet sitt med skisser av anatomi og flymaskiner rundt seg",
+            "caption": "Leonardos arbeidsbord var et kaos av tegninger, beinrester, oppfinnelser og notater — alle i én rotete blanding av fag."
+        },
+        {
+            "type": "header",
+            "text": "Et uekte barn fra fjellene"
+        },
+        {
+            "type": "text",
+            "content": "Leonardo ble født i 1452 i en liten landsby som het Vinci, like utenfor Firenze. «Da Vinci» betyr rett og slett «fra Vinci». Han var sønn av en ung notarius og ei bondejente som ikke var gift. På den tiden ble uekte barn ofte sett ned på, og Leonardo fikk aldri skikkelig skolegang. Han lærte ikke latin, og han måtte være selvlært i alt han senere ble god til."
+        },
+        {
+            "type": "text",
+            "content": "Det er noe av det merkeligste med ham. Mannen som visste mest om alt mulig, ble aldri tatt opp på noe universitet. Han kalte seg selv «omo sanza lettere» — en mann uten bokstaver. Likevel ble han renessansens største geni. Han stolte på øynene sine og hendene sine, ikke på hva gamle bøker sa."
+        },
+        {
+            "type": "header",
+            "text": "Lærling hos en mester"
+        },
+        {
+            "type": "text",
+            "content": "Da Leonardo var rundt fjorten år, ble han sendt til byen Firenze for å bli lærling hos en kjent kunstner som het Andrea del Verrocchio. Verrocchios verksted var en travel plass. Der lærte unge gutter å blande maling, hugge marmor, støpe bronse og tegne. Leonardo lærte alt sammen. Det fortelles at han allerede som ung lærling malte en engel i et av Verrocchios bilder — og at den var så vakker at mesteren ble misunnelig og la fra seg pensselen for godt."
+        },
+        {
+            "type": "text",
+            "content": "Det var her, i Verrocchios verksted, Leonardo lærte renessansens viktigste regel: en kunstner er ikke bare en håndverker. En kunstner skal forstå verden. For å male et tre riktig må du studere hvordan grener vokser. For å male en hånd må du vite hva som er inni den."
+        },
+        {
+            "type": "component",
+            "name": "LeonardoNotatbok",
+            "props": {
+                "title": "Leonardos notatbok",
+                "intro": "Bla gjennom fem skisser fra Leonardos notatbøker. Hvilket fagområde hører hver av dem til?"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Det «universale mennesket»"
+        },
+        {
+            "type": "text",
+            "content": "Når historikere snakker om renessansen, bruker de et italiensk uttrykk: «uomo universale». Det betyr «det universale mennesket» — en person som mestrer alt, som ikke deler verden opp i fag, men ser den som én helhet. Leonardo er det perfekte eksempelet. For ham var en hånd og en maskin laget av samme grunnregler. Vann og blod fulgte de samme lovene. Lys i et maleri og lys gjennom et øye var det samme problemet."
+        },
+        {
+            "type": "text",
+            "content": "I middelalderen hadde menneskene flest tenkt at verden var et mysterium man bare skulle leve i, ikke forstå. Gud styrte alt, og det var nok. Renessansen snudde dette opp ned. Leonardo og folk som ham trodde at hvis du så nøye nok etter, kunne du forstå hvordan alt henger sammen. Og hvis du forsto det, kunne du også gjenskape det. Du kunne bygge maskiner som lignet kroppen. Du kunne male bilder som lignet livet."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Speilskrift",
+                "content": "Leonardo skrev mye av notatene sine speilvendt — fra høyre til venstre, slik at bokstavene må holdes opp mot et speil for å kunne leses. Hvorfor? Det er ingen helt sikker forklaring. Noen tror han ville beskytte ideene sine. Andre mener det var enklere fordi han var venstrehendt og slapp å smøre ut blekket. Uansett gjorde det notatene hans til en kode som tok flere hundre år å oppdage."
+            }
+        },
+        {
+            "type": "header",
+            "text": "Brevet til hertugen"
+        },
+        {
+            "type": "text",
+            "content": "I 1482 var Leonardo ferdig som lærling og trengte jobb. Han skrev et brev til hertugen av Milano, Ludovico Sforza. Brevet er bevart, og det er forbløffende. I de første ti punktene snakker Leonardo om hva han kan lage av krigsmaskiner: kanoner, broer som kan flyttes raskt, undervannsbåter for å bore hull i fiendens skip. Helt nederst, nesten som en ettertanke, nevner han at han også kan male litt."
+        },
+        {
+            "type": "text",
+            "content": "Det forteller oss noe viktig om renessansen. Selv geniene måtte tjene penger, og fyrster betalte best for våpen. Leonardo fikk jobben, og i Milano fikk han nesten tjue år til å gjøre nøyaktig hva han ville. Han malte Nattverden på veggen i et kloster, han designet kanaler gjennom byen, og han fylte sider på sider med skisser av flymaskiner, dykkerdrakter og giljotiner."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Naerbilde av en aapnet renessanse-notatbok med speilskrift og en detaljert skisse av en flymaskin",
+            "caption": "Notatbøkene hans har over 7000 sider. De fleste var ferdige da han døde, men ingen ble noensinne utgitt i hans levetid."
+        },
+        {
+            "type": "header",
+            "text": "Smilet som ikke vil slutte"
+        },
+        {
+            "type": "text",
+            "content": "Mot slutten av livet bodde Leonardo i Frankrike, invitert av kong Frans I. Han hadde med seg et lite tre-panel som han hadde malt på i mange år. I dag kaller vi det Mona Lisa. Det er bare 77 centimeter høyt og henger på Louvre i Paris. Hvert år kommer det rundt ti millioner mennesker bare for å se det."
+        },
+        {
+            "type": "text",
+            "content": "Hva er det med dette bildet? Det er ikke størrelsen. Det er smilet. Leonardo brukte en teknikk han kalte sfumato — myke overganger uten skarpe linjer, slik øyet faktisk ser. Hjørnene av munnen er litt uskarpe, så ansiktet skifter uttrykk avhengig av hvor du ser. Når du ser direkte på smilet, virker det nesten borte. Når du ser på øynene, dukker det opp igjen. Det er anatomi, lysstudier og kunst smeltet sammen til ett bilde."
+        },
+        {
+            "type": "header",
+            "text": "Han fullførte nesten ingenting"
+        },
+        {
+            "type": "text",
+            "content": "Her er et paradoks: Leonardo regnes som verdens største geni, men han fullførte nesten ingenting. Mange av maleriene hans ble aldri ferdige. Nattverden begynte å falle av veggen kort tid etter at han var ferdig fordi han prøvde ut en ny malingsteknikk som ikke virket. Bronsstatuen av en kjempehest som han brukte tolv år på å designe, ble aldri støpt fordi bronsen ble brukt til kanoner i stedet."
+        },
+        {
+            "type": "text",
+            "content": "Notatbøkene hans ble heller aldri utgitt. Han skrev tusenvis av sider med oppfinnelser og ideer, men de lå skjult i kister i flere hundre år. Da forskere på 1800-tallet endelig leste dem, oppdaget de at Leonardo hadde tenkt ut helikopteret, fallskjermen, kontaktlinser og solenergi — lenge før noen andre. Men fordi han aldri viste det fram, kunne ingen bygge videre på det."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Mona Lisa i en gylden ramme paa en mork museumsvegg med varmt opplys",
+            "caption": "Mona Lisa måler bare 77 x 53 cm. Smilet skifter etter hvor du fester blikket — et triks Leonardo lærte av å studere hvordan øyet og lyset virker sammen."
+        },
+        {
+            "type": "header",
+            "text": "Hva gjorde Leonardo viktig?"
+        },
+        {
+            "type": "text",
+            "content": "Hvorfor husker vi en mann som aldri fikk fullført ting? Fordi Leonardo viste hva et menneske kan være. Han var et levende bevis på renessansens viktigste idé: at vi ikke bare er små brikker i en plan vi ikke forstår. Vi kan se. Vi kan tegne det vi ser. Vi kan koble det sammen. Vi kan lære alt, hvis vi tør å være nysgjerrige."
+        },
+        {
+            "type": "text",
+            "content": "I dag deler vi verden opp i fag på skolen. Kunst, naturfag, matematikk, kroppsøving. Leonardo ville ledd av det. For ham var alt det samme: én verden, ett menneske, én blanding av spørsmål. Når du tegner et tre i tegnetimen og samtidig lærer om vannets kretsløp i naturfag, så gjør du det Leonardo gjorde hver dag. Du er litt av et renessansemenneske selv."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hva betyr uttrykket «uomo universale»?",
+                        "options": [
+                            "Et menneske fra hele verden",
+                            "Et menneske som mestrer mange fag og ser dem som én helhet",
+                            "En person som reiser mye",
+                            "En keiser med makt over alle"
+                        ],
+                        "correctAnswer": 1,
+                        "explanation": "«Uomo universale» er italiensk for «det universale mennesket» — renessansens ideal om en person som behersker både kunst, vitenskap og håndverk."
+                    },
+                    {
+                        "question": "Hvorfor dissekerte Leonardo lik?",
+                        "options": [
+                            "Han var lege på et sykehus",
+                            "Han ville lære medisin og operere folk",
+                            "Han ville forstå kroppens bygning for å male mennesker bedre",
+                            "Han trodde på magi og brukte likene til ritualer"
+                        ],
+                        "correctAnswer": 2,
+                        "explanation": "Leonardo studerte anatomi fordi han mente en kunstner måtte forstå kroppen innvendig for å fremstille den riktig utvendig. Han dissekerte over 30 lik."
+                    },
+                    {
+                        "question": "Hva er sfumato?",
+                        "options": [
+                            "Navnet på Leonardos verksted",
+                            "En malingsteknikk med myke overganger uten skarpe linjer",
+                            "Et italiensk dessertnavn",
+                            "En type pensel"
+                        ],
+                        "correctAnswer": 1,
+                        "explanation": "Sfumato kommer fra ordet «fumo» (røyk). Det er teknikken Leonardo brukte for å gjøre overgangene i Mona Lisas ansikt så myke at smilet ser ut til å bevege seg."
+                    },
+                    {
+                        "question": "Hvorfor skrev Leonardo notatene sine speilvendt?",
+                        "options": [
+                            "Det er ingen helt sikker forklaring — det var sannsynligvis fordi han var venstrehendt eller ville beskytte ideene",
+                            "Han hadde dårlig syn",
+                            "Det var vanlig i renessansen",
+                            "Han kjente ikke italiensk"
+                        ],
+                        "correctAnswer": 0,
+                        "explanation": "Forskere er ikke enige. Mange tror det var praktisk fordi Leonardo var venstrehendt og dermed unngikk å smøre ut blekket. Andre mener han ville holde ideene hemmelige."
+                    },
+                    {
+                        "question": "Hva er det viktigste poenget med Leonardo da Vinci som renessansemenneske?",
+                        "options": [
+                            "At han var den rikeste mannen i Italia",
+                            "At han fullførte alle prosjektene sine",
+                            "At han koblet kunst, vitenskap og ingeniørkunst som én sammenhengende verden",
+                            "At han oppfant elektrisiteten"
+                        ],
+                        "correctAnswer": 2,
+                        "explanation": "Leonardo viser renessansens kjerneidé: at fagene ikke er adskilte, men ulike måter å forstå den samme verden på. Det er kjernen i begrepet «uomo universale»."
+                    }
+                ]
+            }
+        }
+    ],
+    "timeline": []
+}
