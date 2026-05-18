@@ -1898,6 +1898,26 @@
       ]
     },
     {
+      "id": "galileo-galilei",
+      "title": "Galileo Galilei: Mannen som så himmelen først",
+      "description": "Med en hjemmelaget kikkert og et stridig sinn beviste Galileo at jorden beveger seg — og la grunnlaget for moderne vitenskap.",
+      "startDate": 1564,
+      "endDate": 1642,
+      "displayDate": "1564-1642",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "renessansen",
+      "link": "/historie/renessansen/galileo-galilei",
+      "tags": [
+        "renessansen",
+        "galileo",
+        "vitenskap",
+        "astronomi",
+        "kirken",
+        "italia"
+      ]
+    },
+    {
       "id": "den-spanske-armada-1588",
       "title": "Den spanske armada",
       "description": "Filip II invaderer England med religiøs og politisk legitimering.",
