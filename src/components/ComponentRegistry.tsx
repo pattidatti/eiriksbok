@@ -151,6 +151,7 @@ const KausalitetsVri = lazy(() => import('./content/interactive/KausalitetsVri')
 const TradisjonFornyelseVever = lazy(() => import('./content/interactive/TradisjonFornyelseVever').then(m => ({ default: m.TradisjonFornyelseVever })));
 const OkkupasjonensValg = lazy(() => import('./content/interactive/OkkupasjonensValg').then(m => ({ default: m.OkkupasjonensValg })));
 const MerverdiSlider = lazy(() => import('./content/interactive/MerverdiSlider').then(m => ({ default: m.MerverdiSlider })));
+const RenessansePerspektiv = lazy(() => import('./content/interactive/RenessansePerspektiv').then(m => ({ default: m.RenessansePerspektiv })));
 
 export const componentRegistry: Record<string, React.ComponentType<any>> = {
     // Core
@@ -302,6 +303,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     TradisjonFornyelseVever,
     OkkupasjonensValg,
     MerverdiSlider,
+    RenessansePerspektiv,
     Gallery,
     gallery: Gallery,
     comparison: Comparison,
