@@ -1490,6 +1490,26 @@
       "link": "/krle/religion/sikhisme/grunnleggere"
     },
     {
+      "id": "michelangelo",
+      "title": "Michelangelo: Han som hugde mennesker ut av stein",
+      "description": "Han trodde figuren allerede lå i marmoren. Han skulpterte David og Pietà, malte Det sixtinske kapell og gjorde kunstneren til et geni.",
+      "startDate": 1475,
+      "endDate": 1564,
+      "displayDate": "1475-1564",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "renessansen",
+      "link": "/historie/renessansen/michelangelo",
+      "tags": [
+        "renessansen",
+        "michelangelo",
+        "kunst",
+        "skulptur",
+        "italia",
+        "firenze"
+      ]
+    },
+    {
       "id": "mirandola-dignity",
       "title": "Tale om menneskets verdighet",
       "description": "Giovanni Pico della Mirandola utgir et av humanismens viktigste skrifter om menneskets frihet og potensial.",
