@@ -1,0 +1,180 @@
+{
+    "id": "michelangelo",
+    "title": "Michelangelo: Han som hugde mennesker ut av stein",
+    "layout": "rich",
+    "year": "1475-1564",
+    "category": "Europa",
+    "readTime": "8 min lesning",
+    "heroImage": "/images/placeholder.webp",
+    "details": [
+        "Michelangelo levde nesten 89 år og preget renessansen i to generasjoner.",
+        "Han skulpterte David, Pietà og Moses, og malte taket i Det sixtinske kapell.",
+        "Han trodde figuren allerede lå inne i marmoren — han bare meislet bort det som ikke hørte til.",
+        "Sammen med Leonardo og Rafael er han renessansens mest kjente kunstner."
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "En septemberdag i 1501 stod en lang, mager mann og stirret på en kassert marmorblokk. Blokken var over fem meter høy. Den hadde stått ute i regn og solskinn i tjuefem år, og to andre billedhuggere hadde gitt opp på den. Den var for smal, sa de. Den hadde for mye sprekk i. Men Michelangelo Buonarroti var seksogtyve år og hadde nettopp skrevet under på kontrakten. Han skulle hugge en David ut av denne blokken. Tre år senere stod Davids skulptur ferdig i Firenze, og folk kom langveisfra for å se ham. Mannen som hadde gjort det umulige, kalte de ham."
+        },
+        {
+            "type": "text",
+            "content": "Michelangelo ble født i en liten landsby i Toscana i 1475. Som barn ble han sendt bort til en steinhugger på landet, og han sa selv senere at han fikk meiselen og marmorstøvet inn i blodet før han kunne lese. Han hadde et hardt forhold til faren, som mente at å hugge i stein var arbeid for vanlige folk. Men da Michelangelo var tretten, fikk han plass som læregutt hos en av Firenzes beste malere. Snart oppdaget den rike fyrsten Lorenzo de' Medici den unge gutten, og hentet ham til sitt palass."
+        },
+        {
+            "type": "header",
+            "content": "Statuen ligger allerede i steinen"
+        },
+        {
+            "type": "text",
+            "content": "Hos Medici-familien lærte Michelangelo noe som skulle prege ham resten av livet. Han fikk se gamle, ekte greske og romerske skulpturer i hagen. Han så hvordan antikkens mestere hadde formet mennesker som så ut som ekte mennesker — med spente muskler, sterke ben og rolige ansikter. Han ville lære det samme. Han ba om lov til å studere anatomi på likene i et kloster, og han kunne stå hele dagen og se på en kropp for å forstå hvordan armen festet seg til skulderen."
+        },
+        {
+            "type": "text",
+            "content": "Av denne lange iakttagelsen kom en idé som ble hans signatur: figuren ligger allerede ferdig inne i marmorblokken. Billedhuggerens jobb er ikke å skape den, men å finne den. Han skal lytte til steinen, se hva den vil bli, og slå bort alt som ikke hører til. «Jeg så engelen i marmoren,» skrev han, «og jeg meislet til jeg satte ham fri.» Dette var helt nytt. Middelalderens kunstnere hadde sett seg selv som flittige håndverkere som tegnet det kirken bestemte. Michelangelo så seg selv som en frigjører."
+        },
+        {
+            "type": "component",
+            "name": "MichelangeloMarmor",
+            "props": {
+                "title": "Frigjør figuren fra marmoren",
+                "intro": "Velg en statue og slå løs marmorflisene én for én. Figuren ligger allerede der inne.",
+                "quote": "«Jeg så engelen i marmoren, og jeg meislet til jeg satte ham fri.»"
+            }
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Marmorskulptur av en ung mann med slynge på skulderen, kraftige skuldre og rolig blikk vendt mot horisonten",
+            "caption": "Davids skulptur ble Firenze sitt symbol på mot. Han er gjengitt rett før kampen, ikke etter — Michelangelo ville fange øyeblikket før beslutningen."
+        },
+        {
+            "type": "header",
+            "content": "Pietà — sorg hugget i marmor"
+        },
+        {
+            "type": "text",
+            "content": "Da Michelangelo var bare tjuefire år gammel, fikk han et oppdrag i Roma. Han skulle lage en skulptur av Maria som holder den døde Jesus i fanget. Folk hadde sett mange slike bilder før, men ingen som dette. Marias kropp er for ung, nesten yngre enn sønnens. Hennes ansikt er rolig, ikke fortvilet. Hun ser ned på Jesus med en taus sorg som rommer hele verdens lidelse uten å rope. Når folk så Pietà i Peterskirken, ville de ikke tro at en så ung mann hadde laget den. Da Michelangelo hørte at folk gav æren til en annen, snek han seg inn i kirken om natten og ristet inn navnet sitt på Marias bryststropp. Det er den eneste skulpturen han noen gang signerte."
+        },
+        {
+            "type": "header",
+            "content": "Taket som ble en hel verden"
+        },
+        {
+            "type": "text",
+            "content": "I 1508 fikk Michelangelo et oppdrag han ikke ville ha. Pave Julius II ba ham male taket i Det sixtinske kapell. Michelangelo svarte at han var billedhugger, ikke maler. Han ville helst si nei. Men paven var Pavens, og man sa ikke nei til ham. I fire og et halvt år lå Michelangelo på et stillas tjue meter over gulvet og malte. Han fikk vondt i nakken, maling rant i øynene, og ryggen hans ble bøyd skjevt. Han skrev et fortvilet dikt til en venn: «Magen min er presset opp i strupen, og skjegget mitt peker opp mot himmelen.»"
+        },
+        {
+            "type": "text",
+            "content": "Men resultatet ble en av kunsthistoriens mest berømte arbeider. Han malte 343 figurer på over 500 kvadratmeter. På midten av taket viser han skapelsen: Gud strekker fingeren mot Adam, og bare en liten centimeter skiller dem. Det er som om hele universet henger i det lille gapet mellom de to fingertuppene. Folk som så det første gang, mente at en så stor visjon ikke kunne komme fra et menneske alene."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Storslått freskemaleri i taket av et kapell, med kraftige mannskropper og dramatisk lys",
+            "caption": "Skapelsen av Adam ble malt under ekstreme forhold. Michelangelo lå på ryggen i nesten fem år og malte mens kalken dryppet ned på ham."
+        },
+        {
+            "type": "header",
+            "content": "En sint, ensom helt"
+        },
+        {
+            "type": "text",
+            "content": "Michelangelo var ikke en sjarmerende mann. Han kranglet med paver, slo en gang til Leonardo da Vinci verbalt på offentlig torg, og hadde få nære venner. Han spiste lite, sov i klærne sine, og brydde seg sjelden om å vaske seg. Han var dypt religiøs og brant mange av sine egne tegninger på dødsleiet fordi han syntes de var for verdslige. Men når han hugde, glemte han alt annet. Mens han arbeidet på Moses-skulpturen, sies det at han slo skulpturen på kneet med hammeren da han var ferdig, og ropte: «Hvorfor snakker du ikke?» Han hadde gjort marmoren så levende at han ventet svar."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Visste du?",
+                "content": "Michelangelo og Leonardo da Vinci kunne ikke utstå hverandre. De var rivaler i Firenze og fikk en gang i oppdrag å male to slagscener i samme rom — på hver sin vegg. Ingen av maleriene ble fullført. Men Leonardo var førti år eldre, og Michelangelo overlevde ham med 45 år. Da Leonardo døde i Frankrike i 1519, var Michelangelo bare midt i livet — og hadde over førti år igjen å skape i."
+            }
+        },
+        {
+            "type": "header",
+            "content": "Hva renessansen lærte av ham"
+        },
+        {
+            "type": "text",
+            "content": "Da Michelangelo døde i Roma i 1564, var han åttini år gammel. Han hadde levd så lenge at han hadde sett to århundrer skifte ansikt. Han hadde arbeidet for ni paver. Han hadde overlevd pesten, krigene og kjettersaker. Og han hadde forandret hva folk trodde et menneske kunne lage. Etter Michelangelo var det ikke lenger nok å være en flink håndverker. En kunstner kunne være en geni. En kunstner kunne fortelle Gud hvordan Adam så ut. En kunstner kunne sette engelen fri fra steinen."
+        },
+        {
+            "type": "text",
+            "content": "Dette var den dypeste forandringen renessansen gav oss. Ideen om at et enkelt menneske, med riktig blikk og riktig mot, kan se noe ingen andre har sett før — og lage det. Den ideen ligger fortsatt under hvordan vi tenker om kunst, vitenskap og oppfinnelser i dag. Hver gang en ung person tenker «kanskje jeg kan skape noe nytt», står de på Michelangelos skuldre."
+        },
+        {
+            "type": "list",
+            "items": [
+                "Michelangelo Buonarroti (1475-1564) var billedhugger, maler, arkitekt og dikter — selv det rene renessanseidealet.",
+                "Hans store skulpturer er Pietà (1499), David (1504) og Moses (1515).",
+                "Han malte Det sixtinske kapells tak i Roma fra 1508 til 1512, mens han lå på ryggen tjue meter over gulvet.",
+                "Han mente at figuren allerede lå skjult i marmoren, og at hans jobb var å meisle bort det som ikke hørte til.",
+                "Etter ham ble ideen om kunstneren som geni — som en frigjører av skjult skjønnhet — en del av det vestlige verdensbildet."
+            ]
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hva mente Michelangelo at en billedhugger gjorde?",
+                        "options": [
+                            "Tegnet et bilde på steinen og fulgte tegningen",
+                            "Frigjorde en figur som allerede lå inne i marmorblokken",
+                            "Limte sammen små biter til en stor figur",
+                            "Tok mål etter en ekte person og kopierte kroppen"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "Michelangelo trodde figuren allerede lå skjult inne i steinen. Billedhuggerens jobb var å meisle bort alt som ikke hørte til, slik at figuren ble fri."
+                    },
+                    {
+                        "question": "Hvilken av disse er IKKE laget av Michelangelo?",
+                        "options": [
+                            "Davids skulptur",
+                            "Pietà",
+                            "Mona Lisa",
+                            "Taket i Det sixtinske kapell"
+                        ],
+                        "correctIndex": 2,
+                        "explanation": "Mona Lisa er malt av Leonardo da Vinci, ikke Michelangelo. De to var rivaler i Firenze."
+                    },
+                    {
+                        "question": "Hvor lenge arbeidet Michelangelo med taket i Det sixtinske kapell?",
+                        "options": [
+                            "Ett år",
+                            "To år",
+                            "Fire og et halvt år",
+                            "Ti år"
+                        ],
+                        "correctIndex": 2,
+                        "explanation": "Han lå på et stillas i over fire år og malte mens han fikk vondt i nakken og maling i øynene. Resultatet ble 343 figurer på over 500 kvadratmeter."
+                    },
+                    {
+                        "question": "Hva er spesielt med Pietà-skulpturen?",
+                        "options": [
+                            "Den er det største marmorverket i verden",
+                            "Det er den eneste skulpturen Michelangelo signerte",
+                            "Den ble laget av to kunstnere sammen",
+                            "Den er ikke ferdig"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "Michelangelo ristet inn navnet sitt på Marias bryststropp en natt, fordi han hørte folk trodde noen andre hadde laget skulpturen. Det er det eneste verket han signerte."
+                    },
+                    {
+                        "question": "Hvordan endret Michelangelo synet på hva en kunstner var?",
+                        "options": [
+                            "Han viste at kunstnere bare burde male religiøse motiver",
+                            "Han mente kunstnere skulle være anonyme håndverkere",
+                            "Han gjorde kunstneren til et geni som kunne skape ny skjønnhet selv",
+                            "Han mente alle kunstnere måtte være rike"
+                        ],
+                        "correctIndex": 2,
+                        "explanation": "Før renessansen var kunstnere flittige håndverkere som fulgte kirkens bestilling. Michelangelo gjorde kunstneren til en geni-figur — en som kunne se og skape noe nytt. Den ideen lever fortsatt."
+                    }
+                ]
+            }
+        }
+    ],
+    "timeline": []
+}

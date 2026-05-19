@@ -1,5 +1,5 @@
 {
-  "buildId": 1779088570006,
+  "buildId": 1779153556689,
   "contentMap": {
     "concept-adel": [
       "content/concepts/adel.json"
@@ -942,6 +942,9 @@
     ],
     "leonardo-da-vinci": [
       "content/historie/renessansen/leonardo-da-vinci.json"
+    ],
+    "michelangelo": [
+      "content/historie/renessansen/michelangelo.json"
     ],
     "renessansen-oversikt": [
       "content/historie/renessansen/oversikt.json"
@@ -2381,6 +2384,7 @@
     "historie/reformasjonen/reformasjonen-i-norge": "content/historie/reformasjonen/reformasjonen-i-norge.json",
     "historie/renessansen/galileo-galilei": "content/historie/renessansen/galileo-galilei.json",
     "historie/renessansen/leonardo-da-vinci": "content/historie/renessansen/leonardo-da-vinci.json",
+    "historie/renessansen/michelangelo": "content/historie/renessansen/michelangelo.json",
     "historie/renessansen/oversikt": "content/historie/renessansen/oversikt.json",
     "historie/romerriket/arven-etter-romerriket": "content/historie/romerriket/arven-etter-romerriket.json",
     "historie/romerriket/augustus-og-keiserdomme": "content/historie/romerriket/augustus-og-keiserdomme.json",

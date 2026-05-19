@@ -84,6 +84,7 @@ const SprakBaneVelger = lazy(() => import('./content/interactive/SprakBaneVelger
 const StormaktVagskal = lazy(() => import('./content/interactive/StormaktVagskal').then(m => ({ default: m.StormaktVagskal })));
 const LeonardoNotatbok = lazy(() => import('./content/interactive/LeonardoNotatbok').then(m => ({ default: m.LeonardoNotatbok })));
 const GalileoTelescope = lazy(() => import('./content/interactive/GalileoTelescope').then(m => ({ default: m.GalileoTelescope })));
+const MichelangeloMarmor = lazy(() => import('./content/interactive/MichelangeloMarmor').then(m => ({ default: m.MichelangeloMarmor })));
 
 // Skapende Skriving (Creative Writing)
 const StoryElementMixer = lazy(() => import('./content/interactive/StoryElementMixer').then(m => ({ default: m.StoryElementMixer })));
@@ -237,6 +238,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     StormaktVagskal,
     LeonardoNotatbok,
     GalileoTelescope,
+    MichelangeloMarmor,
     StoryElementMixer,
     ThemeDigger,
     PlotDNA,
