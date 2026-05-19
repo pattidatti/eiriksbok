@@ -155,6 +155,7 @@ const TradisjonFornyelseVever = lazy(() => import('./content/interactive/Tradisj
 const OkkupasjonensValg = lazy(() => import('./content/interactive/OkkupasjonensValg').then(m => ({ default: m.OkkupasjonensValg })));
 const MerverdiSlider = lazy(() => import('./content/interactive/MerverdiSlider').then(m => ({ default: m.MerverdiSlider })));
 const RenessansePerspektiv = lazy(() => import('./content/interactive/RenessansePerspektiv').then(m => ({ default: m.RenessansePerspektiv })));
+const NorrontOrdmatch = lazy(() => import('./content/interactive/NorrontOrdmatch').then(m => ({ default: m.NorrontOrdmatch })));
 
 export const componentRegistry: Record<string, React.ComponentType<any>> = {
     // Core
@@ -310,6 +311,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     OkkupasjonensValg,
     MerverdiSlider,
     RenessansePerspektiv,
+    NorrontOrdmatch,
     Gallery,
     gallery: Gallery,
     comparison: Comparison,

@@ -1,5 +1,5 @@
 {
-  "buildId": 1779153556689,
+  "buildId": 1779177290379,
   "contentMap": {
     "concept-adel": [
       "content/concepts/adel.json"
@@ -1645,6 +1645,9 @@
     "germanske-sprak": [
       "content/norsk/sprakhistorie/germanske-sprak.json"
     ],
+    "norront": [
+      "content/norsk/sprakhistorie/norront.json"
+    ],
     "norsk-tekstsjangre": [
       "content/norsk/tekstsjangre/artikkel.json"
     ],
@@ -2618,6 +2621,7 @@
     "norsk/skrivehjelp/skriv-bedre-historier": "content/norsk/skrivehjelp/skriv-bedre-historier.json",
     "norsk/sprakhistorie/bokmal-og-nynorsk": "content/norsk/sprakhistorie/bokmal-og-nynorsk.json",
     "norsk/sprakhistorie/germanske-sprak": "content/norsk/sprakhistorie/germanske-sprak.json",
+    "norsk/sprakhistorie/norront": "content/norsk/sprakhistorie/norront.json",
     "norsk/tekstsjangre/tekstsjangre": "content/norsk/tekstsjangre/artikkel.json",
     "norsk/tekstsjangre/debattinnlegg": "content/norsk/tekstsjangre/debattinnlegg.json",
     "norsk/tekstsjangre/dikt": "content/norsk/tekstsjangre/dikt.json",
