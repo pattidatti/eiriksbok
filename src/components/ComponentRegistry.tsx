@@ -141,6 +141,7 @@ const SongwriterStudio = lazy(() => import('../features/music/components/Songwri
 const ProtestsangAnalyse = lazy(() => import('./content/interactive/ProtestsangAnalyse').then(m => ({ default: m.ProtestsangAnalyse })));
 const BluesNoteVerksted = lazy(() => import('./content/interactive/BluesNoteVerksted').then(m => ({ default: m.BluesNoteVerksted })));
 const HookOppdageren = lazy(() => import('./content/interactive/HookOppdageren').then(m => ({ default: m.HookOppdageren })));
+const StemningsMixer = lazy(() => import('./content/interactive/StemningsMixer').then(m => ({ default: m.StemningsMixer })));
 const NilenFlomSyklus = lazy(() => import('./content/interactive/NilenFlomSyklus').then(m => ({ default: m.NilenFlomSyklus })));
 const IndusMysteryBoard = lazy(() => import('./content/interactive/IndusMysteryBoard').then(m => ({ default: m.IndusMysteryBoard })));
 const HimmelensMandat = lazy(() => import('./content/interactive/HimmelensMandat').then(m => ({ default: m.HimmelensMandat })));
@@ -297,6 +298,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     ProtestsangAnalyse,
     BluesNoteVerksted,
     HookOppdageren,
+    StemningsMixer,
     NilenFlomSyklus,
     IndusMysteryBoard,
     HimmelensMandat,
