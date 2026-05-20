@@ -51,7 +51,11 @@ export const ProjectorView: React.FC<ProjectorViewProps> = ({ data }) => {
                 </div>
             )}
 
-            <div className="relative z-10 h-full flex flex-col p-16 md:p-24">
+            <div className={`relative z-10 h-full flex flex-col ${
+                currentSlide.layout === 'interactive'
+                    ? 'px-6 md:px-10 pt-16 md:pt-20 pb-10'
+                    : 'p-10 md:p-16'
+            }`}>
                 <AnimatePresence mode="wait">
                     <motion.div
                         key={state.currentSlideIndex}
@@ -59,7 +63,7 @@ export const ProjectorView: React.FC<ProjectorViewProps> = ({ data }) => {
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: -50 }}
                         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                        className="flex-1 flex flex-col"
+                        className="flex-1 flex flex-col min-h-0"
                     >
                         {/* Layout: TITLE */}
                         {currentSlide.layout === 'title' && (
@@ -110,16 +114,18 @@ export const ProjectorView: React.FC<ProjectorViewProps> = ({ data }) => {
 
                         {/* Layout: INTERACTIVE */}
                         {currentSlide.layout === 'interactive' && currentSlide.component && (
-                            <div className="flex-1 flex flex-col">
-                                <h2 className="text-2xl font-bold text-indigo-400 mb-8 uppercase tracking-widest">
+                            <div className="flex-1 flex flex-col min-h-0">
+                                <h2 className="text-lg md:text-xl font-bold text-indigo-300 mb-3 uppercase tracking-widest shrink-0">
                                     {currentSlide.title}
                                 </h2>
-                                <div className="flex-1 bg-white/5 rounded-3xl border border-white/10 overflow-hidden shadow-2xl relative">
-                                    {(() => {
-                                        const Component = getComponent(currentSlide.component.name);
-                                        if (!Component) return <div className="p-8">Component {currentSlide.component.name} not found.</div>;
-                                        return <Component {...currentSlide.component.props} />;
-                                    })()}
+                                <div className="flex-1 min-h-0 bg-white/5 rounded-2xl border border-white/10 shadow-2xl relative">
+                                    <div className="absolute inset-0 overflow-y-auto overflow-x-hidden">
+                                        {(() => {
+                                            const Component = getComponent(currentSlide.component.name);
+                                            if (!Component) return <div className="p-8">Component {currentSlide.component.name} not found.</div>;
+                                            return <Component {...currentSlide.component.props} />;
+                                        })()}
+                                    </div>
                                 </div>
                             </div>
                         )}
