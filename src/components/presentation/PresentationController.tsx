@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import {
     ChevronLeft,
     Monitor,
@@ -6,24 +6,58 @@ import {
     Eye,
     EyeOff,
     MessageSquare,
-    Library
+    Library,
+    ExternalLink,
+    Pause,
+    BookOpen
 } from 'lucide-react';
-import type { PresentationData } from '../../types';
+import type { PresentationData, LearningPathStep } from '../../types';
 import { usePresentationSync } from '../../hooks/usePresentationSync';
+import { SlideEraTimeline } from './SlideEraTimeline';
 
 interface PresentationControllerProps {
     data: PresentationData;
     onClose: () => void;
+    steps?: LearningPathStep[];
 }
 
-export const PresentationController: React.FC<PresentationControllerProps> = ({ data, onClose }) => {
+const findFirstInternalLink = (step: LearningPathStep | undefined): string | null => {
+    if (!step?.links) return null;
+    for (const link of step.links) {
+        const isExternal = link.external || link.url.startsWith('http');
+        if (!isExternal) return link.url;
+    }
+    return null;
+};
+
+export const PresentationController: React.FC<PresentationControllerProps> = ({ data, onClose, steps }) => {
     const { state, updateState } = usePresentationSync(data.id, 'controller');
     const [elapsedSeconds, setElapsedSeconds] = useState(0);
 
     const currentSlide = data.slides[state.currentSlideIndex] || data.slides[0] || { title: 'Laster...', layout: 'title' };
 
+    // Map stepId -> step for quick lookup
+    const stepIndexById = useMemo(() => {
+        const map = new Map<string, { step: LearningPathStep; index: number }>();
+        (steps || []).forEach((s, i) => map.set(s.id, { step: s, index: i }));
+        return map;
+    }, [steps]);
+
+    const linkedStep = currentSlide.linksToStepId ? stepIndexById.get(currentSlide.linksToStepId) : null;
+    const linkedArticleUrl = findFirstInternalLink(linkedStep?.step);
+
+    // First slide index per step (used for jump-to-step)
+    const firstSlideIndexByStep = useMemo(() => {
+        const map = new Map<string, number>();
+        data.slides.forEach((slide, idx) => {
+            if (slide.linksToStepId && !map.has(slide.linksToStepId)) {
+                map.set(slide.linksToStepId, idx);
+            }
+        });
+        return map;
+    }, [data.slides]);
+
     // Reset to first slide on initial load if we are the controller and it's a fresh mounting
-    // Use a ref to track if we've already done this to allow refreshes to persist
     const hasInitialReset = React.useRef(false);
     useEffect(() => {
         if (!hasInitialReset.current) {
@@ -39,6 +73,24 @@ export const PresentationController: React.FC<PresentationControllerProps> = ({ 
         return () => clearInterval(interval);
     }, []);
 
+    // Keyboard navigation
+    useEffect(() => {
+        const handler = (e: KeyboardEvent) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                e.preventDefault();
+                next();
+            } else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                prev();
+            } else if (e.key === 'b' || e.key === 'B') {
+                toggleBlackout();
+            }
+        };
+        window.addEventListener('keydown', handler);
+        return () => window.removeEventListener('keydown', handler);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [state]);
+
     const formatTime = (totalSeconds: number) => {
         const mins = Math.floor(totalSeconds / 60);
         const secs = totalSeconds % 60;
@@ -53,7 +105,6 @@ export const PresentationController: React.FC<PresentationControllerProps> = ({ 
     };
 
     const next = () => {
-        // If there are more reveals in current slide, do those first
         if (currentSlide.points && state.currentRevealIndex < currentSlide.points.length - 1) {
             updateState({ currentRevealIndex: state.currentRevealIndex + 1 });
         } else if (state.currentSlideIndex < data.slides.length - 1) {
@@ -76,6 +127,10 @@ export const PresentationController: React.FC<PresentationControllerProps> = ({ 
         }
     };
 
+    const jumpToSlide = (idx: number) => {
+        updateState({ currentSlideIndex: idx, currentRevealIndex: -1 });
+    };
+
     const toggleBlackout = () => updateState({ isBlackout: !state.isBlackout });
 
     const openProjectorWindow = () => {
@@ -86,29 +141,37 @@ export const PresentationController: React.FC<PresentationControllerProps> = ({ 
         );
     };
 
+    const phaseLabel = currentSlide.phase
+        ? { opptakt: 'Akt 1 — Opptakt', konfrontasjon: 'Akt 2 — Konfrontasjon', resolusjon: 'Akt 3 — Resolusjon' }[currentSlide.phase]
+        : null;
+
+    const isTaskPause = currentSlide.layout === 'task-pause' || currentSlide.pauseForTask;
+
     return (
         <div className="fixed inset-0 bg-slate-900 text-white flex flex-col font-sans select-none overflow-hidden">
             {/* Header / Stats */}
-            <div className="bg-slate-800 p-4 flex justify-between items-center border-b border-white/10">
-                <div className="flex items-center gap-6">
-                    <button onClick={onClose} className="p-2 hover:bg-white/10 rounded-lg" title="Lukk">
+            <div className="bg-slate-800 p-4 flex justify-between items-center border-b border-white/10 gap-4">
+                <div className="flex items-center gap-4 min-w-0">
+                    <button onClick={onClose} className="p-2 hover:bg-white/10 rounded-lg flex-shrink-0" title="Lukk">
                         <Library className="w-5 h-5" />
                     </button>
-                    <h2 className="text-xl font-bold truncate max-w-sm">{data.title}</h2>
-                    <span className="text-[10px] text-slate-500 font-mono mt-1 px-2 py-0.5 border border-white/10 rounded uppercase">
-                        ID: {data.id} | {data.slides.length} Lysbilder
-                    </span>
+                    <h2 className="text-lg font-bold truncate">{data.title}</h2>
+                    {phaseLabel && (
+                        <span className="hidden lg:inline text-[10px] text-amber-300 font-bold mt-0.5 px-2 py-0.5 border border-amber-300/30 rounded uppercase tracking-widest flex-shrink-0">
+                            {phaseLabel}
+                        </span>
+                    )}
                 </div>
 
-                <div className="flex items-center gap-6">
-                    <div className="flex items-center gap-2 text-indigo-300 font-mono text-xl">
+                <div className="flex items-center gap-4 flex-shrink-0">
+                    <div className="flex items-center gap-2 text-indigo-300 font-mono text-lg">
                         <Clock className="w-5 h-5" />
                         {formatTime(elapsedSeconds)}
                     </div>
-                    <div className="text-slate-400 font-mono">
-                        Slide {state.currentSlideIndex + 1} / {data.slides.length}
+                    <div className="text-slate-400 font-mono text-sm">
+                        {state.currentSlideIndex + 1} / {data.slides.length}
                     </div>
-                    <div className="h-6 w-[1px] bg-white/10 mx-2" />
+                    <div className="h-6 w-[1px] bg-white/10" />
                     <button
                         onClick={resetPresentation}
                         className="p-2 text-slate-400 hover:text-white hover:bg-white/10 rounded-lg transition-all"
@@ -118,41 +181,133 @@ export const PresentationController: React.FC<PresentationControllerProps> = ({ 
                     </button>
                     <button
                         onClick={openProjectorWindow}
-                        className="bg-indigo-600 hover:bg-indigo-500 px-4 py-2 rounded-lg flex items-center gap-2 font-bold transition-colors"
+                        className="bg-indigo-600 hover:bg-indigo-500 px-4 py-2 rounded-lg flex items-center gap-2 font-bold transition-colors text-sm"
                     >
                         <Monitor className="w-4 h-4" />
-                        Åpne Prosjektør
+                        Åpne projektør
                     </button>
                 </div>
             </div>
+
+            {/* Step progress bar (only if we have learning path steps) */}
+            {steps && steps.length > 0 && (
+                <div className="bg-slate-850 bg-slate-800/60 px-6 py-3 border-b border-white/5">
+                    <div className="flex items-center gap-2">
+                        <span className="text-[10px] text-slate-500 uppercase tracking-widest font-bold mr-2">
+                            Læringssti
+                        </span>
+                        <div className="flex-1 flex items-center gap-1.5 flex-wrap">
+                            {steps.map((s, i) => {
+                                const isActive = linkedStep?.index === i;
+                                const targetIdx = firstSlideIndexByStep.get(s.id);
+                                const isClickable = targetIdx !== undefined;
+                                return (
+                                    <button
+                                        key={s.id}
+                                        onClick={() => isClickable && jumpToSlide(targetIdx!)}
+                                        disabled={!isClickable}
+                                        title={`${i + 1}. ${s.title}`}
+                                        className={`group flex items-center gap-1.5 px-2 py-1 rounded-md transition-all ${
+                                            isActive
+                                                ? 'bg-indigo-500 text-white'
+                                                : isClickable
+                                                    ? 'bg-white/5 text-slate-400 hover:bg-white/10 hover:text-white cursor-pointer'
+                                                    : 'bg-white/5 text-slate-600 cursor-not-allowed opacity-60'
+                                        }`}
+                                    >
+                                        <span className="text-[10px] font-mono font-bold">
+                                            {i + 1}
+                                        </span>
+                                        <span className="hidden xl:inline text-xs truncate max-w-[140px]">
+                                            {s.title}
+                                        </span>
+                                    </button>
+                                );
+                            })}
+                        </div>
+                    </div>
+                </div>
+            )}
 
             {/* Main Dashboard Area */}
             <div className="flex-1 flex overflow-hidden">
                 {/* Left: Slide Preview & Local Navigation */}
                 <div className="w-2/3 flex flex-col p-6">
-                    <div className="flex-1 bg-slate-950 rounded-2xl border border-white/5 relative overflow-hidden flex flex-col p-12">
-                        <span className="text-indigo-500 font-bold uppercase tracking-widest text-sm mb-4">
-                            Prosjektør-preview
+                    <div className={`flex-1 rounded-2xl border relative overflow-hidden flex flex-col p-12 ${
+                        isTaskPause ? 'bg-amber-950/40 border-amber-500/30' : 'bg-slate-950 border-white/5'
+                    }`}>
+                        {currentSlide.layout !== 'title' && !isTaskPause && (currentSlide.year !== undefined || currentSlide.yearRange) && (
+                            <div className="-mx-12 -mt-12 mb-6 pt-4 px-2 bg-slate-900/40 border-b border-white/5">
+                                <SlideEraTimeline
+                                    year={currentSlide.year}
+                                    yearRange={currentSlide.yearRange}
+                                    variant="controller"
+                                />
+                            </div>
+                        )}
+                        <span className={`font-bold uppercase tracking-widest text-sm mb-4 ${
+                            isTaskPause ? 'text-amber-400' : 'text-indigo-500'
+                        }`}>
+                            {isTaskPause ? 'Pause for oppgave' : 'Projektør-preview'}
                         </span>
-                        <h1 className="text-5xl font-bold mb-8">{currentSlide.title}</h1>
-                        <div className="space-y-6">
+                        <h1 className="text-4xl font-bold mb-6">{currentSlide.title}</h1>
+
+                        {isTaskPause && currentSlide.taskPrompt && (
+                            <div className="text-2xl text-amber-100 leading-relaxed mb-6">
+                                {currentSlide.taskPrompt}
+                            </div>
+                        )}
+
+                        <div className="space-y-4">
                             {currentSlide.points?.map((p, idx) => (
                                 <div
                                     key={p.id}
-                                    className={`text-2xl transition-opacity duration-300 ${idx <= state.currentRevealIndex ? 'opacity-100' : 'opacity-20 text-slate-500'}`}
+                                    className={`text-xl transition-opacity duration-300 ${idx <= state.currentRevealIndex ? 'opacity-100' : 'opacity-20 text-slate-500'}`}
                                 >
                                     • {p.text}
                                 </div>
                             ))}
                         </div>
+
+                        {linkedStep && (
+                            <div className="mt-auto pt-6 flex items-center gap-3 flex-wrap">
+                                <span className="text-[10px] uppercase tracking-widest text-slate-500 font-bold">
+                                    Hører til steg {linkedStep.index + 1}: {linkedStep.step.title}
+                                </span>
+                                {linkedArticleUrl && (
+                                    <a
+                                        href={linkedArticleUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="ml-auto inline-flex items-center gap-1.5 px-3 py-1.5 bg-indigo-600/20 text-indigo-300 hover:bg-indigo-600/40 rounded-lg text-xs font-bold border border-indigo-500/30"
+                                    >
+                                        <BookOpen className="w-3 h-3" />
+                                        Åpne artikkel
+                                        <ExternalLink className="w-3 h-3" />
+                                    </a>
+                                )}
+                            </div>
+                        )}
                     </div>
 
                     {/* Controls Bar */}
                     <div className="mt-6 flex justify-between items-center bg-slate-800 p-4 rounded-2xl">
                         <div className="flex gap-4">
-                            <button onClick={toggleBlackout} className={`p-4 rounded-xl transition-colors ${state.isBlackout ? 'bg-red-500 text-white' : 'hover:bg-white/10 text-slate-300'}`}>
+                            <button
+                                onClick={toggleBlackout}
+                                className={`p-4 rounded-xl transition-colors ${state.isBlackout ? 'bg-red-500 text-white' : 'hover:bg-white/10 text-slate-300'}`}
+                                title="Skjul/vis projektor (B)"
+                            >
                                 {state.isBlackout ? <EyeOff /> : <Eye />}
                             </button>
+                            {isTaskPause && (
+                                <div className="flex items-center gap-2 px-4 py-2 bg-amber-900/30 border border-amber-500/30 rounded-xl text-amber-200">
+                                    <Pause className="w-4 h-4" />
+                                    <span className="text-sm font-bold">
+                                        Elevene jobber{currentSlide.suggestedMinutes ? ` (~${currentSlide.suggestedMinutes} min)` : ''}
+                                    </span>
+                                </div>
+                            )}
                         </div>
 
                         <div className="flex items-center gap-6">
@@ -168,15 +323,20 @@ export const PresentationController: React.FC<PresentationControllerProps> = ({ 
 
                 {/* Right: Auto-Notes Engine */}
                 <div className="w-1/3 border-l border-white/10 bg-slate-800/50 p-6 flex flex-col gap-6 overflow-y-auto">
+                    {phaseLabel && (
+                        <div className="text-[10px] text-amber-300 font-bold px-2 py-1 border border-amber-300/30 rounded uppercase tracking-widest self-start">
+                            {phaseLabel}
+                        </div>
+                    )}
                     <section>
                         <h3 className="flex items-center gap-2 text-indigo-400 font-bold mb-4 uppercase tracking-wider text-sm">
                             <MessageSquare className="w-4 h-4" />
-                            Lærernotater (Dybde)
+                            Lærernotater
                         </h3>
-                        <div className="bg-slate-900 rounded-xl p-6 border border-white/5 leading-relaxed text-xl text-slate-200">
+                        <div className="bg-slate-900 rounded-xl p-5 border border-white/5 leading-relaxed text-base text-slate-200">
                             {currentSlide.teacherNotes ? (
                                 currentSlide.teacherNotes.split('\n\n').map((p, i) => (
-                                    <p key={i} className="mb-4">{p}</p>
+                                    <p key={i} className="mb-3 last:mb-0">{p}</p>
                                 ))
                             ) : (
                                 <span className="text-slate-500 italic">Ingen spesifikke notater for denne sliden.</span>
@@ -190,13 +350,29 @@ export const PresentationController: React.FC<PresentationControllerProps> = ({ 
                                 <Library className="w-4 h-4" />
                                 Diskusjonspunkter
                             </h3>
-                            <ul className="space-y-4">
+                            <ul className="space-y-3">
                                 {currentSlide.talkingPoints.map((tp, i) => (
-                                    <li key={i} className="bg-emerald-900/20 border border-emerald-500/20 rounded-xl p-4 text-emerald-100">
+                                    <li key={i} className="bg-emerald-900/20 border border-emerald-500/20 rounded-xl p-3 text-emerald-100 text-sm">
                                         {tp}
                                     </li>
                                 ))}
                             </ul>
+                        </section>
+                    )}
+
+                    {linkedStep && (
+                        <section>
+                            <h3 className="flex items-center gap-2 text-slate-400 font-bold mb-3 uppercase tracking-wider text-xs">
+                                <BookOpen className="w-3 h-3" />
+                                Aktiv læringssti-steg
+                            </h3>
+                            <div className="bg-slate-900/60 rounded-xl p-4 border border-white/5">
+                                <div className="text-[10px] uppercase tracking-widest text-slate-500 mb-1">
+                                    Steg {linkedStep.index + 1}
+                                </div>
+                                <div className="font-bold text-slate-100 mb-1">{linkedStep.step.title}</div>
+                                <div className="text-xs text-slate-400 italic">{linkedStep.step.type}</div>
+                            </div>
                         </section>
                     )}
                 </div>

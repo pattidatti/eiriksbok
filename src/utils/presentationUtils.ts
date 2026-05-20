@@ -85,6 +85,11 @@ export const mapContentToPresentation = (
                 });
             }
 
+            // Convert tasks (string | LearningPathTask) to plain strings for talkingPoints
+            const talkingPoints: string[] | undefined = step.tasks
+                ? step.tasks.map((t: any) => (typeof t === 'string' ? t : t.text))
+                : undefined;
+
             slides.push({
                 id: slideId,
                 title: step.title || `Del ${index + 1}`,
@@ -92,10 +97,12 @@ export const mapContentToPresentation = (
                 summary: step.content ? step.content.substring(0, 150) + '...' : undefined,
                 points: points,
                 teacherNotes: step.content,
-                talkingPoints: step.tasks,
+                talkingPoints,
                 image: heroImage,
                 component: step.component,
-                visualEffect: 'scale'
+                visualEffect: 'scale',
+                linksToStepId: step.id,
+                phase: step.phase
             });
         });
     }

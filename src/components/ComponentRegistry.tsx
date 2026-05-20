@@ -29,6 +29,7 @@ const GrammarRuleCard = lazy(() => import('./content/interactive/GrammarRuleCard
 const TextHighlighter = lazy(() => import('./content/interactive/TextHighlighter').then(m => ({ default: m.TextHighlighter })));
 const SentenceBuilder = lazy(() => import('./content/interactive/SentenceBuilder').then(m => ({ default: m.SentenceBuilder })));
 const RomanPantheonExplorer = lazy(() => import('./content/interactive/RomanPantheonExplorer').then(m => ({ default: m.RomanPantheonExplorer })));
+const RomanExpansionMap = lazy(() => import('./content/interactive/RomanExpansionMap').then(m => ({ default: m.RomanExpansionMap })));
 const TrolleyProblem = lazy(() => import('./content/interactive/TrolleyProblem').then(m => ({ default: m.TrolleyProblem })));
 const GoldenMeanSlider = lazy(() => import('./content/interactive/GoldenMeanSlider').then(m => ({ default: m.GoldenMeanSlider })));
 const CategoricalImperativeTester = lazy(() => import('./content/interactive/CategoricalImperativeTester').then(m => ({ default: m.CategoricalImperativeTester })));
@@ -184,6 +185,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     TextHighlighter,
     SentenceBuilder,
     RomanPantheonExplorer,
+    RomanExpansionMap,
     TrolleyProblem,
     GoldenMeanSlider,
     CategoricalImperativeTester,

@@ -83,6 +83,7 @@ export const PresentationPage: React.FC = () => {
     return (
         <PresentationController
             data={presentationData}
+            steps={lesson.learningPathData?.steps}
             onClose={() => navigate(-1)}
         />
     );

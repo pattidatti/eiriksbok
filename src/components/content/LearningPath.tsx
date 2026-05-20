@@ -16,7 +16,7 @@ import {
     Check
 } from 'lucide-react';
 import type { LearningPathData, LearningPathStep, LearningPathTask } from '../../types';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { getComponent } from '../ComponentRegistry';
 
 interface LearningPathProps {
@@ -121,7 +121,22 @@ const CopyTasksButton: React.FC<{ tasks: (string | LearningPathTask)[]; stepNumb
 export const LearningPath: React.FC<LearningPathProps> = ({ data }) => {
     const { entries } = useGlossary();
     const navigate = useNavigate();
-    const location = useLocation();
+    const params = useParams<{
+        subjectId: string;
+        topicId: string;
+        subTopicId?: string;
+        lessonId: string;
+    }>();
+
+    const hasPresentation = !!data.presentation && Array.isArray(data.presentation.slides) && data.presentation.slides.length > 0;
+    const presentationTarget = React.useMemo(() => {
+        const { subjectId, topicId, subTopicId, lessonId } = params;
+        if (!subjectId || !topicId || !lessonId) return null;
+        const stiId = data.id || lessonId;
+        return subTopicId
+            ? `/${subjectId}/${topicId}/${subTopicId}/present/${stiId}`
+            : `/${subjectId}/${topicId}/present/${stiId}`;
+    }, [params, data.id]);
 
     return (
         <div className="max-w-4xl mx-auto py-8 px-6">
@@ -137,6 +152,18 @@ export const LearningPath: React.FC<LearningPathProps> = ({ data }) => {
                     <p className="text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
                         {renderInlineMarkdown(data.description, entries)}
                     </p>
+                    {hasPresentation && presentationTarget && (
+                        <motion.button
+                            onClick={() => navigate(presentationTarget)}
+                            whileHover={{ scale: 1.03 }}
+                            whileTap={{ scale: 0.97 }}
+                            className="mt-6 inline-flex items-center gap-2 px-5 py-2.5 bg-indigo-600 text-white rounded-xl text-sm font-bold shadow-md shadow-indigo-200 hover:bg-indigo-700 transition-colors"
+                            title="Start lærer-presentasjon for denne læringsstien"
+                        >
+                            <Monitor className="w-4 h-4" />
+                            Start lysbilder for denne stien
+                        </motion.button>
+                    )}
                 </motion.div>
             </header>
 
@@ -152,22 +179,13 @@ export const LearningPath: React.FC<LearningPathProps> = ({ data }) => {
                         return (
                             <React.Fragment key={step.id}>
                                 {showPhase && (
-                                    <div className="relative pl-14 py-4 flex items-center justify-between">
+                                    <div className="relative pl-14 py-4 flex items-center">
                                         <div className="absolute left-0 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center z-10">
                                             <div className="w-3 h-3 rounded-full bg-slate-300 border-2 border-white" />
                                         </div>
                                         <h2 className="text-sm font-bold uppercase tracking-widest text-slate-400">
                                             Fase: {step.phase}
                                         </h2>
-
-                                        <button
-                                            onClick={() => navigate(`${location.pathname}/present`)}
-                                            className="flex items-center gap-2 px-3 py-1.5 bg-indigo-50 text-indigo-600 rounded-lg text-xs font-bold hover:bg-indigo-100 transition-colors border border-indigo-200/50"
-                                            title="Start presentasjon"
-                                        >
-                                            <Monitor className="w-3 h-3" />
-                                            Lysbilder
-                                        </button>
                                     </div>
                                 )}
                                 <motion.div

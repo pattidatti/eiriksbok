@@ -299,7 +299,10 @@ export type SlideLayout =
     | 'interactive'// Full-screen focused component
     | 'quote'      // Large quote focus
     | 'discussion' // Discussion prompts/tasks focus
+    | 'task-pause' // Students work in the learning path; teacher pauses
     | 'summary';   // Wrap-up points
+
+export type SlidePhase = 'opptakt' | 'konfrontasjon' | 'resolusjon';
 
 export interface SlideRevealItem {
     id: string;
@@ -334,6 +337,18 @@ export interface Slide {
 
     // Source tracking
     sourceBlockId?: string; // Reference back to the original content block
+
+    // Symbiosis with the learning path
+    linksToStepId?: string;       // The learning-path step this slide belongs to
+    phase?: SlidePhase;           // Which act of the 3-act arc this slide belongs to
+    pauseForTask?: boolean;       // Marks a slide where students work in the path
+    taskPrompt?: string;          // Short task prompt shown big on projector for task-pause slides
+    suggestedMinutes?: number;    // Optional teacher hint for how long the pause should last
+
+    // Historical anchoring
+    year?: number;                // Negative for BCE (-509 = 509 BCE), positive for CE
+    yearRange?: [number, number]; // Slide covers a period (e.g. Pax Romana)
+    yearLabel?: string;           // Display override: "27 f.Kr", "200-tallet"
 }
 
 export interface PresentationData {
