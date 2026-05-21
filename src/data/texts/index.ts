@@ -32,6 +32,7 @@ import { enFolkefiendeUtdrag } from './entries/en-folkefiende-utdrag';
 import { kristinLavransdatterUtdrag } from './entries/kristin-lavransdatter-utdrag';
 import { storbyNattUtdrag } from './entries/storby-natt-utdrag';
 import { minLeserhistorie } from './entries/min-leserhistorie';
+import { solvknapper } from './entries/solvknapper';
 
 export const textLibraryData: TextEntry[] = [
     aDrepeEtBarn,
@@ -67,4 +68,5 @@ export const textLibraryData: TextEntry[] = [
     twitterNoveller,
     ungGuttISno,
     minLeserhistorie,
+    solvknapper,
 ];

@@ -40,6 +40,7 @@ const subjectColors: Record<string, string> = {
     krle: 'bg-purple-100 text-purple-800',
     samfunnsfag: 'bg-green-100 text-green-800',
     musikk: 'bg-pink-100 text-pink-800',
+    annet: 'bg-slate-100 text-slate-700',
 };
 
 const subjectLabels: Record<string, string> = {
@@ -48,6 +49,7 @@ const subjectLabels: Record<string, string> = {
     krle: 'KRLE',
     samfunnsfag: 'Samfunnsfag',
     musikk: 'Musikk',
+    annet: 'Annet',
 };
 
 export function MiniGamesPage() {
@@ -116,6 +118,65 @@ export function MiniGamesPage() {
                                 </div>
                             </div>
                         </Link>
+                    ))}
+
+                    {EXTERNAL_GAMES.map((game) => (
+                        <a
+                            key={game.id}
+                            href={game.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group relative bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-slate-100 transition-all duration-300"
+                        >
+                            {/* Thumbnail */}
+                            <div className="relative h-44 bg-stone-800 overflow-hidden">
+                                {game.thumbnail ? (
+                                    <img
+                                        src={game.thumbnail}
+                                        alt={game.title}
+                                        className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                                        onError={(e) => {
+                                            (e.currentTarget as HTMLImageElement).style.display = 'none';
+                                        }}
+                                    />
+                                ) : null}
+                                <div className="absolute inset-0 bg-gradient-to-t from-stone-900/80 to-transparent" />
+                                <div className="absolute bottom-3 left-4 right-4">
+                                    <h2 className="text-xl font-display font-bold text-white leading-tight">
+                                        {game.title}
+                                    </h2>
+                                    <p className="text-xs text-stone-300 mt-0.5 tracking-widest uppercase">
+                                        {game.subtitle}
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* Info */}
+                            <div className="p-4">
+                                <div className="flex items-center gap-2 mb-2">
+                                    <span
+                                        className={`text-xs px-2 py-0.5 rounded-full font-medium ${
+                                            subjectColors[game.subject] ?? 'bg-slate-100 text-slate-700'
+                                        }`}
+                                    >
+                                        {subjectLabels[game.subject] ?? game.subject}
+                                    </span>
+                                    <span className="text-xs px-2 py-0.5 rounded-full font-medium bg-sky-100 text-sky-700">
+                                        Eksternt spill
+                                    </span>
+                                </div>
+                                <p className="text-sm text-slate-600 leading-relaxed line-clamp-2">
+                                    {game.description}
+                                </p>
+                            </div>
+
+                            {/* Play button */}
+                            <div className="px-4 pb-4">
+                                <div className="w-full py-2 rounded-xl bg-sky-600 text-white text-center text-sm font-semibold group-hover:bg-sky-500 transition-colors duration-200">
+                                    Spill nå - åpner i ny fane
+                                </div>
+                            </div>
+                        </a>
                     ))}
 
                     {/* Coming soon placeholder */}
