@@ -1164,6 +1164,25 @@
       ]
     },
     {
+      "id": "korstogene",
+      "title": "Korstogene",
+      "description": "Hellig krig, propaganda og kulturmøte mellom Europa og den islamske verden.",
+      "startDate": 1095,
+      "endDate": 1291,
+      "displayDate": "1095-1291",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "middelalderen",
+      "link": "/historie/middelalderen/korstogene",
+      "tags": [
+        "historie",
+        "middelalderen",
+        "religion",
+        "krig",
+        "kulturmote"
+      ]
+    },
+    {
       "id": "havamal",
       "title": "Håvamål",
       "description": "Utgitt av Ukjent (Den høyes tale)",
@@ -6421,6 +6440,18 @@
         "argumentasjon",
         "saktekst"
       ]
+    },
+    {
+      "id": "solvknapper",
+      "title": "Sølvknapper",
+      "description": "Utgitt av Eiriksbok",
+      "startDate": 2026,
+      "endDate": null,
+      "displayDate": "2026",
+      "type": "text",
+      "subjectId": "norsk",
+      "link": "/norsk/bibliotek?text=solvknapper",
+      "tags": []
     }
   ]
 }
