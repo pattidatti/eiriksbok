@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 
 interface PresentationState {
     currentSlideIndex: number;
@@ -20,46 +20,46 @@ export const usePresentationSync = (presentationId: string, role: 'controller' |
 
     const [channel] = useState(() => new BroadcastChannel(`pres-sync-${presentationId}`));
 
-    // Listen for state updates from the other side
+    // Mirror state in a ref so sync-request responses always read the latest
+    // committed value without re-binding listeners on every state change.
+    const stateRef = useRef(state);
+    useEffect(() => {
+        stateRef.current = state;
+    }, [state]);
+
+    // Single message listener for the lifetime of the hook. Handles both
+    // STATE_UPDATE (controller→projector and vice versa) and SYNC_REQUEST
+    // (newly opened projector asks the controller for current state).
     useEffect(() => {
         const handleMessage = (event: MessageEvent) => {
             if (event.data.type === 'STATE_UPDATE') {
                 setState(event.data.state);
+            } else if (event.data.type === 'SYNC_REQUEST' && role === 'controller') {
+                channel.postMessage({ type: 'STATE_UPDATE', state: stateRef.current });
             }
         };
 
         channel.addEventListener('message', handleMessage);
 
-        // Initial sync request from projector
         if (role === 'projector') {
             channel.postMessage({ type: 'SYNC_REQUEST' });
         }
 
         return () => {
             channel.removeEventListener('message', handleMessage);
+            channel.close();
         };
     }, [channel, role]);
 
-    // Handle sync requests (usually from a newly opened projector window)
-    useEffect(() => {
-        if (role === 'controller') {
-            const handleSyncRequest = (event: MessageEvent) => {
-                if (event.data.type === 'SYNC_REQUEST') {
-                    channel.postMessage({ type: 'STATE_UPDATE', state });
-                }
-            };
-            channel.addEventListener('message', handleSyncRequest);
-            return () => channel.removeEventListener('message', handleSyncRequest);
-        }
-    }, [channel, role, state]);
-
-    const updateState = useCallback((newState: Partial<PresentationState>) => {
-        if (role === 'controller') {
-            const updated = { ...state, ...newState };
-            setState(updated);
+    const updateState = useCallback((newState: Partial<PresentationState> | ((prev: PresentationState) => Partial<PresentationState>)) => {
+        if (role !== 'controller') return;
+        setState(prev => {
+            const patch = typeof newState === 'function' ? newState(prev) : newState;
+            const updated = { ...prev, ...patch };
             channel.postMessage({ type: 'STATE_UPDATE', state: updated });
-        }
-    }, [channel, role, state]);
+            return updated;
+        });
+    }, [channel, role]);
 
     return {
         state,

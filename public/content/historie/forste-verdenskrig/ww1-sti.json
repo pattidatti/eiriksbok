@@ -555,7 +555,19 @@
             "title": "Første verdenskrig: Sivilisasjonens selvmord",
             "config": {
                 "theme": "dark",
-                "autoGenerateFromContent": false
+                "autoGenerateFromContent": false,
+                "timeline": {
+                    "start": 1900,
+                    "end": 1939,
+                    "milestones": [
+                        { "year": 1914, "label": "Sarajevo og krigsutbrudd", "kind": "major" },
+                        { "year": 1916, "label": "Verdun og Somme", "kind": "minor" },
+                        { "year": 1917, "label": "USA inn, Russland ut", "kind": "minor" },
+                        { "year": 1918, "label": "Våpenhvile 11. november", "kind": "major" },
+                        { "year": 1919, "label": "Versaillesfreden", "kind": "minor" },
+                        { "year": 1939, "label": "Andre verdenskrig", "kind": "major" }
+                    ]
+                }
             },
             "slides": [
                 {

@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { PresentationData } from '../../types';
 import { usePresentationSync } from '../../hooks/usePresentationSync';
 import { getComponent } from '../ComponentRegistry';
 import { SlideEraTimeline } from './SlideEraTimeline';
+import { resolveTimelineConfig } from './resolveTimelineConfig';
 
 interface ProjectorViewProps {
     data: PresentationData;
@@ -13,6 +14,7 @@ export const ProjectorView: React.FC<ProjectorViewProps> = ({ data }) => {
     const { state } = usePresentationSync(data.id, 'projector');
 
     const currentSlide = data.slides[state.currentSlideIndex] || data.slides[0];
+    const timeline = React.useMemo(() => resolveTimelineConfig(data), [data]);
 
     if (state.isBlackout) {
         return <div className="fixed inset-0 bg-black z-[9999]" />;
@@ -41,11 +43,14 @@ export const ProjectorView: React.FC<ProjectorViewProps> = ({ data }) => {
             </AnimatePresence>
 
             {/* Era timeline header (skipped on title/task-pause for cleaner look) */}
-            {currentSlide.layout !== 'title' && currentSlide.layout !== 'task-pause' && (currentSlide.year !== undefined || currentSlide.yearRange) && (
+            {timeline && currentSlide.layout !== 'title' && currentSlide.layout !== 'task-pause' && (currentSlide.year !== undefined || currentSlide.yearRange) && (
                 <div className="absolute top-0 left-0 right-0 z-20 pt-6">
                     <SlideEraTimeline
                         year={currentSlide.year}
                         yearRange={currentSlide.yearRange}
+                        start={timeline.start}
+                        end={timeline.end}
+                        milestones={timeline.milestones}
                         variant="projector"
                     />
                 </div>
@@ -123,7 +128,18 @@ export const ProjectorView: React.FC<ProjectorViewProps> = ({ data }) => {
                                         {(() => {
                                             const Component = getComponent(currentSlide.component.name);
                                             if (!Component) return <div className="p-8">Component {currentSlide.component.name} not found.</div>;
-                                            return <Component {...currentSlide.component.props} />;
+                                            return (
+                                                <Suspense fallback={
+                                                    <div className="absolute inset-0 flex items-center justify-center">
+                                                        <div className="flex flex-col items-center gap-3 text-indigo-300">
+                                                            <div className="w-10 h-10 border-4 border-indigo-400 border-t-transparent rounded-full animate-spin" />
+                                                            <span className="text-xs font-bold uppercase tracking-widest">Laster komponent…</span>
+                                                        </div>
+                                                    </div>
+                                                }>
+                                                    <Component {...currentSlide.component.props} />
+                                                </Suspense>
+                                            );
                                         })()}
                                     </div>
                                 </div>

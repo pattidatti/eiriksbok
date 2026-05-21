@@ -14,6 +14,7 @@ import {
 import type { PresentationData, LearningPathStep } from '../../types';
 import { usePresentationSync } from '../../hooks/usePresentationSync';
 import { SlideEraTimeline } from './SlideEraTimeline';
+import { resolveTimelineConfig } from './resolveTimelineConfig';
 
 interface PresentationControllerProps {
     data: PresentationData;
@@ -35,6 +36,7 @@ export const PresentationController: React.FC<PresentationControllerProps> = ({ 
     const [elapsedSeconds, setElapsedSeconds] = useState(0);
 
     const currentSlide = data.slides[state.currentSlideIndex] || data.slides[0] || { title: 'Laster...', layout: 'title' };
+    const timeline = useMemo(() => resolveTimelineConfig(data), [data]);
 
     // Map stepId -> step for quick lookup
     const stepIndexById = useMemo(() => {
@@ -73,24 +75,6 @@ export const PresentationController: React.FC<PresentationControllerProps> = ({ 
         return () => clearInterval(interval);
     }, []);
 
-    // Keyboard navigation
-    useEffect(() => {
-        const handler = (e: KeyboardEvent) => {
-            if (e.key === 'ArrowRight' || e.key === ' ') {
-                e.preventDefault();
-                next();
-            } else if (e.key === 'ArrowLeft') {
-                e.preventDefault();
-                prev();
-            } else if (e.key === 'b' || e.key === 'B') {
-                toggleBlackout();
-            }
-        };
-        window.addEventListener('keydown', handler);
-        return () => window.removeEventListener('keydown', handler);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [state]);
-
     const formatTime = (totalSeconds: number) => {
         const mins = Math.floor(totalSeconds / 60);
         const secs = totalSeconds % 60;
@@ -104,34 +88,79 @@ export const PresentationController: React.FC<PresentationControllerProps> = ({ 
         }
     };
 
+    // Points on task-pause / interactive / title / quote / summary slides are
+    // shown all at once on the projector. Only content/discussion/comparison
+    // slides use staggered reveals. Treat the rest as single-step slides so
+    // NESTE advances slide-by-slide.
+    const slideUsesReveal = (slide: typeof currentSlide) =>
+        (slide.layout === 'content' || slide.layout === 'discussion' || slide.layout === 'comparison')
+        && Array.isArray(slide.points)
+        && slide.points.length > 0;
+
     const next = () => {
-        if (currentSlide.points && state.currentRevealIndex < currentSlide.points.length - 1) {
-            updateState({ currentRevealIndex: state.currentRevealIndex + 1 });
-        } else if (state.currentSlideIndex < data.slides.length - 1) {
-            updateState({
-                currentSlideIndex: state.currentSlideIndex + 1,
-                currentRevealIndex: -1
-            });
-        }
+        updateState(prev => {
+            const slide = data.slides[prev.currentSlideIndex];
+            if (slide && slideUsesReveal(slide) && prev.currentRevealIndex < slide.points!.length - 1) {
+                return { currentRevealIndex: prev.currentRevealIndex + 1 };
+            }
+            if (prev.currentSlideIndex < data.slides.length - 1) {
+                return { currentSlideIndex: prev.currentSlideIndex + 1, currentRevealIndex: -1 };
+            }
+            return {};
+        });
     };
 
     const prev = () => {
-        if (state.currentRevealIndex >= 0) {
-            updateState({ currentRevealIndex: state.currentRevealIndex - 1 });
-        } else if (state.currentSlideIndex > 0) {
-            const previousSlide = data.slides[state.currentSlideIndex - 1];
-            updateState({
-                currentSlideIndex: state.currentSlideIndex - 1,
-                currentRevealIndex: (previousSlide.points?.length || 0) - 1
-            });
-        }
+        updateState(prevState => {
+            const slide = data.slides[prevState.currentSlideIndex];
+            if (slide && slideUsesReveal(slide) && prevState.currentRevealIndex >= 0) {
+                return { currentRevealIndex: prevState.currentRevealIndex - 1 };
+            }
+            if (prevState.currentSlideIndex > 0) {
+                const previousSlide = data.slides[prevState.currentSlideIndex - 1];
+                const lastReveal = previousSlide && slideUsesReveal(previousSlide)
+                    ? (previousSlide.points!.length - 1)
+                    : -1;
+                return { currentSlideIndex: prevState.currentSlideIndex - 1, currentRevealIndex: lastReveal };
+            }
+            return {};
+        });
     };
 
     const jumpToSlide = (idx: number) => {
         updateState({ currentSlideIndex: idx, currentRevealIndex: -1 });
+        // Drop focus so Space/Enter don't re-trigger this button later.
+        if (document.activeElement instanceof HTMLElement) document.activeElement.blur();
     };
 
-    const toggleBlackout = () => updateState({ isBlackout: !state.isBlackout });
+    const toggleBlackout = () => updateState(prev => ({ isBlackout: !prev.isBlackout }));
+
+    // Keyboard navigation. Bound once with a ref so handlers always reach the
+    // latest next/prev/toggleBlackout closures without re-attaching listeners.
+    // We intentionally DO NOT bind Space: a focused step-progress button would
+    // re-activate on Space and jump back to that step's first slide.
+    const navRef = React.useRef({ next, prev, toggleBlackout });
+    useEffect(() => {
+        navRef.current = { next, prev, toggleBlackout };
+    });
+    useEffect(() => {
+        const handler = (e: KeyboardEvent) => {
+            const target = e.target as HTMLElement | null;
+            if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA')) return;
+
+            if (e.key === 'ArrowRight' || e.key === 'PageDown') {
+                e.preventDefault();
+                navRef.current.next();
+            } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+                e.preventDefault();
+                navRef.current.prev();
+            } else if (e.key === 'b' || e.key === 'B') {
+                navRef.current.toggleBlackout();
+            }
+        };
+        window.addEventListener('keydown', handler);
+        return () => window.removeEventListener('keydown', handler);
+    }, []);
 
     const openProjectorWindow = () => {
         window.open(
@@ -236,11 +265,14 @@ export const PresentationController: React.FC<PresentationControllerProps> = ({ 
                     <div className={`flex-1 rounded-2xl border relative overflow-hidden flex flex-col p-12 ${
                         isTaskPause ? 'bg-amber-950/40 border-amber-500/30' : 'bg-slate-950 border-white/5'
                     }`}>
-                        {currentSlide.layout !== 'title' && !isTaskPause && (currentSlide.year !== undefined || currentSlide.yearRange) && (
+                        {timeline && currentSlide.layout !== 'title' && !isTaskPause && (currentSlide.year !== undefined || currentSlide.yearRange) && (
                             <div className="-mx-12 -mt-12 mb-6 pt-4 px-2 bg-slate-900/40 border-b border-white/5">
                                 <SlideEraTimeline
                                     year={currentSlide.year}
                                     yearRange={currentSlide.yearRange}
+                                    start={timeline.start}
+                                    end={timeline.end}
+                                    milestones={timeline.milestones}
                                     variant="controller"
                                 />
                             </div>

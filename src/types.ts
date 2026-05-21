@@ -351,6 +351,18 @@ export interface Slide {
     yearLabel?: string;           // Display override: "27 f.Kr", "200-tallet"
 }
 
+export interface TimelineMilestone {
+    year: number;
+    label: string;
+    kind: 'major' | 'minor';
+}
+
+export interface TimelineConfig {
+    start: number;
+    end: number;
+    milestones?: TimelineMilestone[];
+}
+
 export interface PresentationData {
     id: string;
     title: string;
@@ -360,5 +372,6 @@ export interface PresentationData {
         transitionSpeed?: number;
         showTimer?: boolean;
         autoGenerateFromContent?: boolean; // If true, we use the mapper
+        timeline?: TimelineConfig;         // Scale + milestones for the top timeline strip
     };
 }

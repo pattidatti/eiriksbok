@@ -462,7 +462,20 @@
             "title": "Romerriket: En reise gjennom tid",
             "config": {
                 "theme": "dark",
-                "autoGenerateFromContent": false
+                "autoGenerateFromContent": false,
+                "timeline": {
+                    "start": -753,
+                    "end": 476,
+                    "milestones": [
+                        { "year": -753, "label": "Roma grunnlegges", "kind": "major" },
+                        { "year": -509, "label": "Republikken", "kind": "major" },
+                        { "year": -27, "label": "Augustus", "kind": "major" },
+                        { "year": 79, "label": "Pompeii", "kind": "minor" },
+                        { "year": 117, "label": "Største utstrekning", "kind": "minor" },
+                        { "year": 313, "label": "Milano-ediktet", "kind": "major" },
+                        { "year": 476, "label": "Vestrikets fall", "kind": "major" }
+                    ]
+                }
             },
             "slides": [
                 {

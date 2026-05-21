@@ -18,7 +18,7 @@ description: Bygger en kurert lysbildepresentasjon (presentation-blokk) for en e
 * **Skjema:** `src/types.ts` — `Slide`, `SlideLayout`, `SlidePhase`, `PresentationData`.
 * **Layouts:** `src/components/presentation/ProjectorView.tsx` — hvilke layouts som faktisk støttes på projektor (`title`, `content`, `comparison`, `interactive`, `quote`, `discussion`, `task-pause`, `summary`).
 * **Komponenter:** `src/components/ComponentRegistry.tsx` — kun komponenter som er registrert her kan brukes i `interactive`-slides.
-* **Tidslinje:** `src/components/presentation/romanTimelineMilestones.ts` — `formatYearLabel` og `SlideEraTimeline` er Roma-spesifikke i dag. For andre emner brukes felter `year`/`yearRange` selv om topp-tidslinjen ikke vises ennå.
+* **Tidslinje:** `src/components/presentation/SlideEraTimeline.tsx` + `resolveTimelineConfig.ts`. Topp-tidslinjen er nå **per-presentasjon**: skala og milepæler hentes fra `presentation.config.timeline`. Det finnes **ingen hardkodet fallback** til noe spesifikt emne. Hvis `config.timeline` mangler, utleder appen `start`/`end` fra slidenes år (uten milepæler).
 
 ---
 
@@ -47,12 +47,40 @@ description: Bygger en kurert lysbildepresentasjon (presentation-blokk) for en e
 * For historie-stier: bruk faktisk historisk år. Negative tall for f.Kr (`-509`), positive for e.Kr (`313`).
 * For ikke-historie-stier (norsk, KRLE, samfunnskunnskap): bruk `yearLabel` som tekst i stedet hvis årstall ikke er relevant — eller hopp over feltet.
 
-### 3.3 Bilder
+### 3.3 Tidslinje-config (obligatorisk hvis slides har år)
+
+Topp-tidslinje-stripen i ProjectorView og Controller leser **alltid** sin skala og milepæler fra `presentation.config.timeline`. Det er **ingen hardkodet fallback til noen epoke**. Hvis du glemmer denne, vil tidslinjen auto-utledes fra slidenes år (ingen milepæler), som er en lavkvalitetsfallback.
+
+**For å unngå at en sti viser et annet emnes tidslinje, MÅ presentation.config.timeline alltid settes når slides har år:**
+
+```json
+"config": {
+  "theme": "dark",
+  "autoGenerateFromContent": false,
+  "timeline": {
+    "start": <første år, f.eks. -753 eller 1900>,
+    "end": <siste år, f.eks. 476 eller 1939>,
+    "milestones": [
+      { "year": <år>, "label": "<kort beskrivelse>", "kind": "major" },
+      { "year": <år>, "label": "<...>", "kind": "minor" }
+    ]
+  }
+}
+```
+
+**Regler:**
+* `start` skal være mindre enn eller lik det laveste slide-året i stien.
+* `end` skal være større enn eller lik det høyeste slide-året.
+* 3-7 milepæler er passe. Bruk `major` for politiske/strukturelle skifter (riket grunnlegges, krig bryter ut, fred sluttes), `minor` for hendelser (slag, viktig dokument).
+* Milepælene må være **emnespesifikke** og må *ikke* være kopiert fra et annet emne. Sjekk doblets at årene gir mening for *denne* stien.
+* For ikke-historiske stier uten konkrete år: dropp `timeline` helt og dropp `year`/`yearRange` på slidene. Da skjules tidslinje-stripen.
+
+### 3.4 Bilder
 
 * Bruk kun lokale bilder fra `public/images/[topicId]/`. **Aldri Unsplash eller eksterne URL-er.**
 * Sjekk hvilke bilder som finnes før du velger. Hvis du trenger et bilde som ikke finnes, marker det i sluttrapporten som "manglende bilde" i stedet for å lage en URL som ikke fungerer.
 
-### 3.4 Interaktive komponenter
+### 3.5 Interaktive komponenter
 
 * Bruk komponenter som allerede er brukt i selve stiens steg når det er mulig — det skaper symbiose ("nå viser jeg den samme PackTheBag som dere skal gjøre").
 * Generelle komponenter som ofte passer: `MapCarousel`, `DragDropTimeline`, `Quiz`, `FactBox`, `Gallery`, `BiasLens`.
@@ -60,7 +88,7 @@ description: Bygger en kurert lysbildepresentasjon (presentation-blokk) for en e
 * Andre emner kan ha sine egne — sjekk `ComponentRegistry.tsx`.
 * **Test at komponenten faktisk fungerer i full-screen.** Hvis komponenten er optimalisert for smal artikkel-spalte (`prose`-bredde), vil den ofte se forlatt ut i en projektør. Marker problemet i sluttrapporten.
 
-### 3.5 Språk og stil (obligatorisk)
+### 3.6 Språk og stil (obligatorisk)
 
 * **14-åring-norsk** (CLAUDE.md). Korte setninger, hverdagsord. Forklar fagbegreper når de innføres.
 * **Bokmål, korrekte tegn:** å, ø, æ. Aldri `aa`, `oe`, `ae`.
@@ -204,11 +232,19 @@ Ikke gå over 18 slides. Slå sammen lignende steg til én slide hvis nødvendig
      "title": "[Stiens tittel, kort og slående]",
      "config": {
        "theme": "dark",
-       "autoGenerateFromContent": false
+       "autoGenerateFromContent": false,
+       "timeline": {
+         "start": <første år for STIENS emne>,
+         "end": <siste år for STIENS emne>,
+         "milestones": [
+           { "year": <år>, "label": "<emnespesifikk hendelse>", "kind": "major" }
+         ]
+       }
      },
      "slides": [ ... ]
    }
    ```
+   **Aldri kopier timeline-blokken fra et annet emne.** Bygg den fra bunnen basert på stiens egne årstall.
 3. **Komprimert formatering for slides:** Bruk ett-linjes objekter for `points`-elementer (slik Romerriket gjør), full struktur for selve slide-objektene.
 
 ---
@@ -224,6 +260,8 @@ Sjekkliste:
 - [ ] **Hver fase representert minst én gang:** `opptakt`, `konfrontasjon`, `resolusjon`.
 - [ ] **Minst 2 task-pause-slides** (helst 3 — en per akt).
 - [ ] **Alle år er konsistente** med årstallene som er nevnt i stegtekstene.
+- [ ] **`config.timeline` finnes hvis noen slide har år.** `start` ≤ minste slide-år. `end` ≥ største slide-år. 3-7 milepæler, alle innenfor `[start, end]`.
+- [ ] **Tidslinjens milepæler hører til STIENS emne**, ikke et annet emne. Hvis du ser milepæler som "Augustus" eller "Republikken" i en WW1-sti, har du kopiert fra Romerriket — start på nytt.
 - [ ] **Ingen em-dash (—), tankestrek (–), eller bold (`**`)** i `title`, `summary`, `teacherNotes`, `talkingPoints`, eller `points[].text`.
 - [ ] **Ingen "aa", "oe", "ae"** der det skal være "å", "ø", "æ".
 - [ ] **`teacherNotes` er skrevet til lærer**, ikke som elevtekst.
