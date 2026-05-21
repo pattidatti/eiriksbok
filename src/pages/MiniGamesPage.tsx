@@ -9,6 +9,27 @@ import { oljeplattformConfig } from '../games/oljeplattform/OljeplattformConfig'
 import { caesarIdesConfig } from '../games/caesar-ides/CaesarIdesConfig';
 import type { GameConfig } from '../games/engine/types';
 
+interface ExternalGame {
+    id: string;
+    title: string;
+    subtitle: string;
+    description: string;
+    url: string;
+    thumbnail?: string;
+    subject: string;
+}
+
+const EXTERNAL_GAMES: ExternalGame[] = [
+    {
+        id: 'antwars',
+        title: 'Antwars',
+        subtitle: 'Strategi',
+        description: 'Et sanntids strategispill der du kommanderer maur i kamp om territorium og ressurser.',
+        url: 'https://pattidatti.github.io/frontline-rts/',
+        subject: 'annet',
+    },
+];
+
 // All registered historical games - add new entries here.
 // Blueprint-quest står først som referanse-implementasjon for nye spill.
 const HISTORICAL_GAMES: GameConfig[] = [blueprintQuestConfig, skjoldborgConfig, wattLabConfig, lindisfarneConfig, caesarIdesConfig, fordFactoryConfig, oljeplattformConfig, demoWorldConfig];
