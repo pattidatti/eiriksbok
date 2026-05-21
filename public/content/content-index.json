@@ -1,5 +1,5 @@
 {
-  "buildId": 1779194736529,
+  "buildId": 1779326625318,
   "contentMap": {
     "concept-adel": [
       "content/concepts/adel.json"
@@ -1453,6 +1453,9 @@
     "takt-og-rytme": [
       "content/musikk/grunnleggende/takt-og-rytme.json"
     ],
+    "tonearter-og-skalaer": [
+      "content/musikk/grunnleggende/tonearter-og-skalaer.json"
+    ],
     "bass-intro": [
       "content/musikk/instrumenter/bass-intro.json"
     ],
@@ -2557,6 +2560,7 @@
     "musikk/grunnleggende/akkorder-og-harmoni": "content/musikk/grunnleggende/akkorder-og-harmoni.json",
     "musikk/grunnleggende/notasjon": "content/musikk/grunnleggende/notasjon.json",
     "musikk/grunnleggende/takt-og-rytme": "content/musikk/grunnleggende/takt-og-rytme.json",
+    "musikk/grunnleggende/tonearter-og-skalaer": "content/musikk/grunnleggende/tonearter-og-skalaer.json",
     "musikk/instrumenter/bass-intro": "content/musikk/instrumenter/bass-intro.json",
     "musikk/instrumenter/gitar-intro": "content/musikk/instrumenter/gitar-intro.json",
     "musikk/instrumenter/piano-intro": "content/musikk/instrumenter/piano-intro.json",

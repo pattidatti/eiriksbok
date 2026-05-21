@@ -157,6 +157,7 @@ const OkkupasjonensValg = lazy(() => import('./content/interactive/Okkupasjonens
 const MerverdiSlider = lazy(() => import('./content/interactive/MerverdiSlider').then(m => ({ default: m.MerverdiSlider })));
 const RenessansePerspektiv = lazy(() => import('./content/interactive/RenessansePerspektiv').then(m => ({ default: m.RenessansePerspektiv })));
 const NorrontOrdmatch = lazy(() => import('./content/interactive/NorrontOrdmatch').then(m => ({ default: m.NorrontOrdmatch })));
+const SkalaSammenligner = lazy(() => import('./content/interactive/SkalaSammenligner').then(m => ({ default: m.SkalaSammenligner })));
 
 export const componentRegistry: Record<string, React.ComponentType<any>> = {
     // Core
@@ -314,6 +315,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     MerverdiSlider,
     RenessansePerspektiv,
     NorrontOrdmatch,
+    SkalaSammenligner,
     Gallery,
     gallery: Gallery,
     comparison: Comparison,
