@@ -549,6 +549,421 @@
                     }
                 ]
             }
-        ]
+        ],
+        "presentation": {
+            "id": "ww1-sti-pres",
+            "title": "Første verdenskrig: Sivilisasjonens selvmord",
+            "config": {
+                "theme": "dark",
+                "autoGenerateFromContent": false
+            },
+            "slides": [
+                {
+                    "id": "pres-intro",
+                    "title": "FØRSTE VERDENSKRIG",
+                    "layout": "title",
+                    "summary": "Fra Belle Époque til Versailles - 1914-1918",
+                    "phase": "opptakt",
+                    "yearRange": [1913, 1919],
+                    "image": "/images/historie/forste-verdenskrig/oversikt_hero.webp",
+                    "teacherNotes": "Velkommen til en av historiens største katastrofer. I løpet av fire år forsvant en hel verden. Stormakter falt, monarkier kollapset, og 17 millioner mennesker døde.\n\nStart med å spørre klassen: Hva tenker dere på når jeg sier 'verdenskrig'? Klarer dere å forestille dere at hele Europa stod i flammer for litt over 100 år siden?"
+                },
+                {
+                    "id": "pres-belle-epoque",
+                    "title": "Den vakre tiden",
+                    "layout": "content",
+                    "summary": "Europa i 1913 - tre fettere styrte verden",
+                    "phase": "opptakt",
+                    "linksToStepId": "step-0",
+                    "year": 1913,
+                    "points": [
+                        { "id": "p1", "text": "Belle Époque: lang fred, tro på fremtiden", "type": "bullet" },
+                        { "id": "p2", "text": "Tre fettere på Europas troner: George, Wilhelm, Nikolaj", "type": "bullet" },
+                        { "id": "p3", "text": "Under overflaten: nasjonalisme, kappløp, allianser", "type": "bullet" }
+                    ],
+                    "image": "/images/historie/forste-verdenskrig/oversikt_1913_monarker.webp",
+                    "teacherNotes": "Forklar at de tre mektigste mennene i Europa var fettere. Kongene møttes til familiebryllup og skrev vennlige brev. Likevel endte de opp med å slakte hverandres folk.\n\nDen lange freden hadde gjort folk blinde for hva krig faktisk var. Mange trodde på en kort, ren og heroisk krig.",
+                    "talkingPoints": [
+                        "Hvorfor kan lang fred faktisk gjøre et samfunn mer sårbart for krig?",
+                        "Hva ville du tenkt om sjefen din var fetter til sjefen for nabolandet?"
+                    ]
+                },
+                {
+                    "id": "pres-pause-oversikt",
+                    "title": "Les og svar: Stille før stormen",
+                    "layout": "task-pause",
+                    "phase": "opptakt",
+                    "linksToStepId": "step-0",
+                    "year": 1913,
+                    "pauseForTask": true,
+                    "suggestedMinutes": 15,
+                    "taskPrompt": "Les artikkelen 'Oversikt over krigen: Stille før stormen' og svar på oppgavene i Steg 0.",
+                    "points": [
+                        { "id": "tp1", "text": "Hvilken periode kalles Belle Époque?", "type": "bullet" },
+                        { "id": "tp2", "text": "Hva betydde det at Europa 'eide' verden?", "type": "bullet" },
+                        { "id": "tp3", "text": "Hvorfor er det farlig å glemme hva krig er?", "type": "bullet" }
+                    ],
+                    "image": "/images/historie/forste-verdenskrig/oversikt_hero.webp",
+                    "teacherNotes": "Gi elevene 15 minutter til å lese artikkelen og svare. Gå rundt og hjelp de som strever. Be dem være ekstra oppmerksomme på beskrivelsen av imperialisme og alliansene.\n\nNår tiden er ute, samle klassen og fortsett til Sarajevo."
+                },
+                {
+                    "id": "pres-sarajevo",
+                    "title": "Skuddet i Sarajevo",
+                    "layout": "content",
+                    "summary": "To skudd som drepte 17 millioner",
+                    "phase": "opptakt",
+                    "linksToStepId": "step-1",
+                    "year": 1914,
+                    "points": [
+                        { "id": "p1", "text": "28. juni 1914: Franz Ferdinand drepes", "type": "bullet" },
+                        { "id": "p2", "text": "Gjerningsmann: Gavrilo Princip, serbisk nasjonalist", "type": "bullet" },
+                        { "id": "p3", "text": "Alliansene gjør lokal krise til verdenskrig", "type": "bullet" }
+                    ],
+                    "image": "/images/historie/forste-verdenskrig/oversikt_sarajevo_1914.webp",
+                    "teacherNotes": "Fortell historien levende: Sjåføren tok feil vei, bilen rygget, og plutselig stod Princip ansikt til ansikt med tronarvingen. Han skjøt to ganger. Ferdinand sa 'Det er ingenting' før han døde.\n\nForklar at uten allianser hadde dette vært en lokal krise. Med alliansene ble det en kjedereaksjon ingen kunne stoppe.",
+                    "talkingPoints": [
+                        "Hvordan kan et lite tilfeldig sammentreff endre verden?",
+                        "Er det riktig å straffe et helt folk for en enkeltpersons gjerning?"
+                    ]
+                },
+                {
+                    "id": "pres-prism",
+                    "title": "Hvem har skylden?",
+                    "layout": "interactive",
+                    "phase": "opptakt",
+                    "linksToStepId": "step-prism",
+                    "year": 1914,
+                    "component": {
+                        "name": "PerspectivePrism",
+                        "props": {
+                            "title": "Juli 1914: Hvem har skylden?",
+                            "instruction": "Dra prismen sidelengs for å rotere. Klikk på pilene for å navigere.",
+                            "sides": [
+                                {
+                                    "id": "austria",
+                                    "title": "Østerrike-Ungarn",
+                                    "color": "#1e3a8a",
+                                    "icon": "🦅",
+                                    "content": "Vi må forsvare oss. Tronarvingen vår er myrdet. Serbia nekter å samarbeide. Hvis vi ikke reagerer nå, vil riket gå i oppløsning.\n\nDette er et spørsmål om ære.",
+                                    "sourceCredit": "Franz Joseph I"
+                                },
+                                {
+                                    "id": "serbia",
+                                    "title": "Serbia",
+                                    "color": "#b91c1c",
+                                    "icon": "⚔️",
+                                    "content": "Vi kjemper for frihet. Østerrike-Ungarn har undertrykt oss lenge nok. Vi lar dem ikke diktere våre lover og krenke vår suverenitet.\n\nBedre grav enn slave!",
+                                    "sourceCredit": "Nikola Pašić"
+                                },
+                                {
+                                    "id": "germany",
+                                    "title": "Tyskland",
+                                    "color": "#0f172a",
+                                    "icon": "🛡️",
+                                    "content": "Lojalitet fremfor alt. Vi må støtte vår allierte Østerrike. Russland mobiliserer, og vi er omringet. Vi må slå til før vi blir knust.\n\nTroskap til døden.",
+                                    "sourceCredit": "Kaiser Wilhelm II"
+                                },
+                                {
+                                    "id": "russia",
+                                    "title": "Russland",
+                                    "color": "#15803d",
+                                    "icon": "🐻",
+                                    "content": "Beskytter av de svake. Vi er storebror for de slaviske folkene. Vi kan ikke se på at Østerrike knuser lille Serbia. Det ville være et svik.\n\nIngen skal røre våre brødre.",
+                                    "sourceCredit": "Tsar Nicholas II"
+                                }
+                            ]
+                        }
+                    },
+                    "teacherNotes": "Roter prismen i klassen og les opp hvert lands begrunnelse. Stopp etter hver side og spør: 'Forstår dere hvorfor de tenkte slik?'\n\nPoenget er ikke å peke ut én skyldig, men å vise at alle parter mente de hadde rett. Det er nettopp det som gjør krig så vanskelig å unngå."
+                },
+                {
+                    "id": "pres-pause-juli",
+                    "title": "Spill: Diplomat i juli 1914",
+                    "layout": "task-pause",
+                    "phase": "opptakt",
+                    "linksToStepId": "step-1",
+                    "year": 1914,
+                    "pauseForTask": true,
+                    "suggestedMinutes": 20,
+                    "taskPrompt": "Les artikkelen 'Opptakt' og spill rollespillet 'Juli-krisen' i Steg 1.",
+                    "points": [
+                        { "id": "tp1", "text": "Prøv minst to ulike valg i rollespillet", "type": "bullet" },
+                        { "id": "tp2", "text": "Hvorfor førte alliansesystemet til verdenskrig?", "type": "bullet" },
+                        { "id": "tp3", "text": "Hva betyr 'blankofullmakt'?", "type": "bullet" }
+                    ],
+                    "image": "/images/historie/forste-verdenskrig/opptakt_hero.webp",
+                    "teacherNotes": "Elevene jobber individuelt i 20 minutter. Be dem prøve flere stier i rollespillet. Be dem notere ned hvilke valg som førte til krig og hvilke som ledet til fred.\n\nNår klassen samles, spør: Hvor mange klarte å unngå krigen? Var det realistisk?"
+                },
+                {
+                    "id": "pres-kart",
+                    "title": "Europa i endring",
+                    "layout": "interactive",
+                    "phase": "opptakt",
+                    "linksToStepId": "step-4-maps",
+                    "yearRange": [1900, 1918],
+                    "component": {
+                        "name": "MapCarousel",
+                        "props": {
+                            "title": "Historiske kart",
+                            "items": [
+                                {
+                                    "image": "/content/historie/forste-verdenskrig/assets/europa-map-1900.webp",
+                                    "caption": "Europa i 1900: Stormaktene og grensene før alliansene ble låst.",
+                                    "alt": "Kart over Europa 1900"
+                                },
+                                {
+                                    "image": "/content/historie/forste-verdenskrig/assets/domino-effect-map.webp",
+                                    "caption": "Dominoeffekten: Hvordan alliansene dro landene inn i krigen sommeren 1914.",
+                                    "alt": "Kart over krigens spredning"
+                                },
+                                {
+                                    "image": "/content/historie/forste-verdenskrig/assets/sykes-picot-map.webp",
+                                    "caption": "En global konflikt: Planleggingen av det nye Midtøsten (Sykes-Picot).",
+                                    "alt": "Kart over Sykes-Picot"
+                                }
+                            ]
+                        }
+                    },
+                    "teacherNotes": "Bla gjennom kartene sammen med klassen. Vis hvordan Tyskland var bokstavelig talt omringet av fiender mot øst og vest. Pek på Balkan og forklar hvorfor området kalles 'Europas kruttønne'.\n\nVis Sykes-Picot-kartet for å understreke at krigen var global - også Midtøsten ble omformet av europeiske skrivebord.",
+                    "talkingPoints": [
+                        "Hva betyr det at Tyskland følte seg 'omringet'?",
+                        "Hvordan kan grenser tegnet i Europa skape problemer i Midtøsten enda i dag?"
+                    ]
+                },
+                {
+                    "id": "pres-schlieffen",
+                    "title": "Hjemme til jul!",
+                    "layout": "content",
+                    "summary": "Schlieffen-planen og kappløpet mot havet",
+                    "phase": "konfrontasjon",
+                    "linksToStepId": "step-2-part1",
+                    "year": 1914,
+                    "points": [
+                        { "id": "p1", "text": "Soldater marsjerer ut med blomster i geværet", "type": "bullet" },
+                        { "id": "p2", "text": "Schlieffen-planen: knus Frankrike på seks uker", "type": "bullet" },
+                        { "id": "p3", "text": "Tyskland angriper gjennom nøytrale Belgia", "type": "bullet" },
+                        { "id": "p4", "text": "Slaget ved Marne stopper bevegelseskrigen", "type": "bullet" }
+                    ],
+                    "image": "/images/historie/forste-verdenskrig/krigens_lop_hero.webp",
+                    "teacherNotes": "Fortell hvordan alle land trodde på en kort krig. Tyskland trodde de skulle vinne på seks uker. Frankrike planla offensiv. Britene sa 'Hjemme til jul'.\n\nMarne-slaget reddet Frankrike. Tyskerne ble stoppet 50 km fra Paris. Begge sider gravde seg ned, og bevegelseskrigen ble til skyttergravskrig.",
+                    "talkingPoints": [
+                        "Hvorfor trodde alle på en kort krig?",
+                        "Hva skjer med en plan når den møter virkeligheten?"
+                    ]
+                },
+                {
+                    "id": "pres-skyttergrav",
+                    "title": "Ned i gjørma",
+                    "layout": "content",
+                    "summary": "Skyttergravens helvete: rotter, lus og granater",
+                    "phase": "konfrontasjon",
+                    "linksToStepId": "step-3",
+                    "yearRange": [1914, 1918],
+                    "points": [
+                        { "id": "p1", "text": "700 km skyttergrav fra Sveits til Nordsjøen", "type": "bullet" },
+                        { "id": "p2", "text": "Ingenmannsland: piggtråd, gjørme og død", "type": "bullet" },
+                        { "id": "p3", "text": "Skyttergravsfot, granatsjokk, søvnmangel", "type": "bullet" },
+                        { "id": "p4", "text": "Live and let live: stille avtaler om ikke å skyte", "type": "bullet" }
+                    ],
+                    "image": "/images/historie/forste-verdenskrig/skyttergravskrig_hero.webp",
+                    "teacherNotes": "Beskriv lukten: avføring, lik, gjørme, røyk, gass. Soldater bodde i ukesvis i hull i bakken. Rotter ble så store at de spiste lik. Lus i alle klær.\n\nFortell om 'granatsjokk' - PTSD før vi hadde et navn for det. I starten ble slike soldater skutt for feighet.",
+                    "talkingPoints": [
+                        "Hvordan tror du det hadde vært å sove i en skyttergrav i en uke?",
+                        "Hvorfor laget noen soldater stille avtaler om ikke å skyte?"
+                    ]
+                },
+                {
+                    "id": "pres-pack",
+                    "title": "Pakk sekken for fronten",
+                    "layout": "interactive",
+                    "phase": "konfrontasjon",
+                    "linksToStepId": "step-3",
+                    "yearRange": [1914, 1918],
+                    "component": {
+                        "name": "PackTheBag",
+                        "props": {
+                            "capacity": 100,
+                            "targetValue": 60,
+                            "instruction": "Pakk sekken for skyttergraven. Husk: Tørre føtter redder liv.",
+                            "items": [
+                                { "id": "socks", "name": "Tørre sokker", "weight": 10, "value": 50, "icon": "🧦", "description": "Motvirker skyttergravsfot." },
+                                { "id": "shovel", "name": "Spade", "weight": 30, "value": 40, "icon": "⛏️", "description": "Ditt viktigste våpen for å overleve artilleri." },
+                                { "id": "rifle", "name": "Gevær", "weight": 40, "value": 20, "icon": "🔫", "description": "Tungt, men påkrevd." },
+                                { "id": "chocolate", "name": "Sjokolade", "weight": 5, "value": 15, "icon": "🍫", "description": "Kortvarig energi og trøst." },
+                                { "id": "book", "name": "Bok", "weight": 10, "value": 5, "icon": "📖", "description": "Tidsfordriv i ventetiden." }
+                            ]
+                        }
+                    },
+                    "teacherNotes": "La en elev styre PackTheBag mens resten av klassen roper ut hva som er viktigst. Diskuter overraskelsen: Tørre sokker var faktisk viktigere enn geværet. Spaden reddet flere liv enn våpnene.\n\nPoenget: Krigen handlet om utholdenhet, ikke heroisme."
+                },
+                {
+                    "id": "pres-teknologi",
+                    "title": "Dødens industri",
+                    "layout": "content",
+                    "summary": "Når fabrikkene tar over slagmarken",
+                    "phase": "konfrontasjon",
+                    "linksToStepId": "step-4",
+                    "yearRange": [1914, 1918],
+                    "points": [
+                        { "id": "p1", "text": "Maskingeværet: 600 skudd i minuttet", "type": "bullet" },
+                        { "id": "p2", "text": "Artilleri står for over halvparten av dødsfallene", "type": "bullet" },
+                        { "id": "p3", "text": "Giftgass, fly, stridsvogner og ubåter", "type": "bullet" },
+                        { "id": "p4", "text": "Tapperhet betyr lite mot en maskin", "type": "bullet" }
+                    ],
+                    "image": "/images/historie/forste-verdenskrig/teknologi_hero.webp",
+                    "teacherNotes": "Forklar at dette var den første industrielle krigen. Fabrikker hjemme pumpet ut ammunisjon i hundretusenvis. Et menneske ble bare et mål for en maskin.\n\nFortell om de første stridsvognene som ble kalt 'tanks' fordi britene skjulte dem som vanntanker under transport.",
+                    "talkingPoints": [
+                        "Gjør teknologi krig mer eller mindre menneskelig?",
+                        "Er det forskjell på å drepe med en kniv og å trykke på en knapp?"
+                    ]
+                },
+                {
+                    "id": "pres-pause-slaktehus",
+                    "title": "Les: Slaktehuset 1916-1918",
+                    "layout": "task-pause",
+                    "phase": "konfrontasjon",
+                    "linksToStepId": "step-2-part2",
+                    "yearRange": [1916, 1918],
+                    "pauseForTask": true,
+                    "suggestedMinutes": 20,
+                    "taskPrompt": "Les videre i artikkelen 'Krigens løp' og besvar oppgavene om Verdun, Somme og krigens vendepunkt.",
+                    "points": [
+                        { "id": "tp1", "text": "Hva var målet med slaget ved Verdun?", "type": "bullet" },
+                        { "id": "tp2", "text": "Hva skjedde første dag ved Somme?", "type": "bullet" },
+                        { "id": "tp3", "text": "Hvorfor ble USA dratt inn i krigen?", "type": "bullet" }
+                    ],
+                    "image": "/images/historie/forste-verdenskrig/oversikt_industriell_krig.webp",
+                    "teacherNotes": "Elevene leser i 20 minutter. Be dem være ekstra oppmerksomme på utmattelseskrigen - målet var ikke å erobre, men å drepe flere enn fienden klarte å erstatte.\n\nDel ut tallene: 1 million døde ved Somme. 700.000 ved Verdun. Be dem regne ut tap per dag."
+                },
+                {
+                    "id": "pres-russland",
+                    "title": "Rød storm i øst",
+                    "layout": "content",
+                    "summary": "Lenin, fred og brød",
+                    "phase": "resolusjon",
+                    "linksToStepId": "step-5",
+                    "year": 1917,
+                    "points": [
+                        { "id": "p1", "text": "Russland kollapser innenfra: sult og opprør", "type": "bullet" },
+                        { "id": "p2", "text": "Tyskland sender Lenin hjem i et forseglet tog", "type": "bullet" },
+                        { "id": "p3", "text": "Slagord: Fred, brød og jord", "type": "bullet" },
+                        { "id": "p4", "text": "Brest-Litovsk: Russland gir bort enorme områder", "type": "bullet" }
+                    ],
+                    "image": "/images/historie/forste-verdenskrig/lenin_taler.webp",
+                    "teacherNotes": "Fortell den utrolige historien om at Tyskland smuglet Lenin gjennom sitt eget land i et forseglet tog - som en bakteriebombe for å sabotere Russland.\n\nDet virket. Russland trakk seg ut. Men det skapte også Sovjetunionen og et helt nytt kapittel i verdenshistorien.",
+                    "talkingPoints": [
+                        "Hva er det med slagord som 'Fred, brød og jord' som gjør folk lojale?",
+                        "Kunne Russland unngått revolusjon hvis tsaren hadde trukket seg ut av krigen tidligere?"
+                    ]
+                },
+                {
+                    "id": "pres-hjemmefronten",
+                    "title": "Sult, propaganda og Canary Girls",
+                    "layout": "content",
+                    "summary": "Total krig: Skillet mellom soldat og sivil forsvinner",
+                    "phase": "resolusjon",
+                    "linksToStepId": "step-6",
+                    "yearRange": [1914, 1918],
+                    "points": [
+                        { "id": "p1", "text": "Total krig: Hele samfunnet er våpen", "type": "bullet" },
+                        { "id": "p2", "text": "Canary Girls: Kvinner i ammunisjonsfabrikker", "type": "bullet" },
+                        { "id": "p3", "text": "Kålrotvinteren 1916: tysk sult som britisk våpen", "type": "bullet" },
+                        { "id": "p4", "text": "Propaganda gjør fienden umenneskelig", "type": "bullet" }
+                    ],
+                    "image": "/images/historie/forste-verdenskrig/kalrotvinteren.webp",
+                    "teacherNotes": "Forklar Canary Girls: De jobbet med eksplosiver som farget huden gul. Mange ble syke eller døde. Men kvinner fikk sin første erfaring med lønnet arbeid i stor skala - et viktig steg mot stemmerett.\n\nVis et propagandaplakat hvis tid: bilde av fienden som monstre. Hvorfor virket dette så bra?",
+                    "talkingPoints": [
+                        "Er det greit å bruke sult som våpen mot vanlige folk?",
+                        "Hvordan klarer propaganda å gjøre vanlige folk til 'monstre'?"
+                    ]
+                },
+                {
+                    "id": "pres-norge",
+                    "title": "Den nøytrale allierte",
+                    "layout": "content",
+                    "summary": "Norge: Tjente seg rik, mistet 2000 sjøfolk",
+                    "phase": "resolusjon",
+                    "linksToStepId": "step-7",
+                    "yearRange": [1914, 1918],
+                    "points": [
+                        { "id": "p1", "text": "Norge erklærer seg nøytralt - men presses av britene", "type": "bullet" },
+                        { "id": "p2", "text": "Handelsflåten seiler for de allierte", "type": "bullet" },
+                        { "id": "p3", "text": "Tyske ubåter senker norske skip: 2000 døde", "type": "bullet" },
+                        { "id": "p4", "text": "Jobbetiden: noen blir styrtrike, mange sulter", "type": "bullet" }
+                    ],
+                    "image": "/images/historie/forste-verdenskrig/norge_ww1_hero.webp",
+                    "teacherNotes": "Fortell at Norge formelt var nøytralt, men i praksis støttet de allierte. Norske sjøfolk var blant krigens ukjente helter - de holdt forsyningslinjene åpne under konstant torpedo-trussel.\n\nForklar 'torpedonervene': sjøfolk som ble nervøse vrak etter måneder med dødsfrykt på havet.",
+                    "talkingPoints": [
+                        "Kan et land egentlig være helt nøytralt i en verdenskrig?",
+                        "Er det rettferdig at noen tjener seg rike mens andre sulter i samme krise?"
+                    ]
+                },
+                {
+                    "id": "pres-kollaps",
+                    "title": "Tysklands kollaps",
+                    "layout": "content",
+                    "summary": "Mytteri i Kiel og dolkesjøtlegenden",
+                    "phase": "resolusjon",
+                    "linksToStepId": "step-8",
+                    "year": 1918,
+                    "points": [
+                        { "id": "p1", "text": "Matrosene i Kiel nekter å seile mot døden", "type": "bullet" },
+                        { "id": "p2", "text": "Opprøret sprer seg - keiseren flykter", "type": "bullet" },
+                        { "id": "p3", "text": "11. november: våpenhvile i en togvogn", "type": "bullet" },
+                        { "id": "p4", "text": "Dolkesjøtlegenden: hæren ble 'forrådt' hjemme", "type": "bullet" }
+                    ],
+                    "image": "/images/historie/forste-verdenskrig/vogn_armistice_1918.webp",
+                    "teacherNotes": "Den tyske flåten skulle på et siste selvmordstokt. Matrosene sa nei. Det startet en revolusjon som veltet keiseren på dager.\n\nDolkesjøtlegenden er ekstremt viktig: Generalene tapte krigen, men løy og sa at hæren ble dolket i ryggen av sosialister og jøder. Denne myten ble drivstoff for Hitler 15 år senere.",
+                    "talkingPoints": [
+                        "Hvorfor er det så farlig når ledere lyver om nederlag?",
+                        "Kan en løgn være farligere enn en bombe på lang sikt?"
+                    ]
+                },
+                {
+                    "id": "pres-versailles",
+                    "title": "Veien mot ny krig",
+                    "layout": "interactive",
+                    "phase": "resolusjon",
+                    "linksToStepId": "step-9",
+                    "yearRange": [1919, 1939],
+                    "component": {
+                        "name": "DragDropTimeline",
+                        "props": {
+                            "title": "Veien mot stupet",
+                            "instruction": "Sett hendelsene i riktig rekkefølge for å se hvordan freden førte til ny krig.",
+                            "events": [
+                                { "id": "e1", "year": 1919, "label": "Versailles-traktaten" },
+                                { "id": "e2", "year": 1923, "label": "Hyperinflasjon i Tyskland" },
+                                { "id": "e3", "year": 1929, "label": "Børskrakket i USA" },
+                                { "id": "e4", "year": 1933, "label": "Hitler blir rikskansler" },
+                                { "id": "e5", "year": 1939, "label": "Invasjonen av Polen" }
+                            ]
+                        }
+                    },
+                    "teacherNotes": "Sorter hendelsene sammen med klassen. Hver brikke representerer et steg på veien mot andre verdenskrig.\n\nPoeng: Versailles-traktaten var så hard mot Tyskland at den nesten garanterte ny krig. Artikkel 231 ga Tyskland ene-skylden. Reparasjonene ødela økonomien. Hitler kunne love hevn.",
+                    "talkingPoints": [
+                        "Kunne en mer rettferdig fredsavtale ha hindret Hitlers vei til makten?",
+                        "Hva skjer med et folk når de blir tvunget til å si at alt er deres feil?"
+                    ]
+                },
+                {
+                    "id": "pres-summary",
+                    "title": "Freden som feilet",
+                    "layout": "summary",
+                    "summary": "20 år mellom to verdenskriger",
+                    "phase": "resolusjon",
+                    "linksToStepId": "step-9",
+                    "yearRange": [1914, 1939],
+                    "points": [
+                        { "id": "s1", "text": "Allianser og stolthet gjorde lokal krise til katastrofe", "type": "summary" },
+                        { "id": "s2", "text": "Industriell krig endret hva mennesket kan gjøre mot mennesket", "type": "summary" },
+                        { "id": "s3", "text": "En dårlig fred skapte grobunn for en ny krig", "type": "summary" },
+                        { "id": "s4", "text": "Sivile ble for første gang legitime mål", "type": "summary" }
+                    ],
+                    "image": "/images/historie/forste-verdenskrig/konsekvenser_hero.webp",
+                    "teacherNotes": "Avslutt med å knytte krigen til vår tid. Mange av dagens grenser, konflikter og verdensorganisasjoner kan spores tilbake til 1914-1918.\n\nFN er Folkeforbundets etterfølger. EU ble bygget for å hindre at Europa skulle slakte hverandre igjen. Midtøsten-grensene er fortsatt en bombe fra Sykes-Picot.\n\nSpør: Hva lærte verden av denne krigen - og hva lærte vi ikke?"
+                }
+            ]
+        }
     }
 }
