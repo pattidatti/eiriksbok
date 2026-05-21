@@ -6,6 +6,7 @@ import { textLibraryData, type TextEntry } from '../data/textLibraryData';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { Tooltip } from '../components/Tooltip';
 import { useTTS } from '../hooks/useTTS';
+import { usePreGeneratedAudio } from '../hooks/usePreGeneratedAudio';
 import { cleanMarkdown } from '../utils/speechUtils';
 
 
@@ -83,7 +84,10 @@ export const TextReaderPage: React.FC = () => {
 
     usePageTitle(displayTitle || 'Les tekst');
 
-    const { speak, pause, resume, cancel, playBlock, isPlaying, isPaused, hasVoice, activeBlockIndex, rate, setRate } = useTTS();
+    const preGen = usePreGeneratedAudio(textId ?? '');
+    const fallbackTTS = useTTS();
+    const { speak, pause, resume, cancel, playBlock, isPlaying, isPaused, hasVoice, activeBlockIndex, rate, setRate } =
+        preGen.isAvailable ? preGen : fallbackTTS;
 
     // Calculate speech blocks and mapping
     const speechData = useMemo(() => {
@@ -437,16 +441,36 @@ export const TextReaderPage: React.FC = () => {
                                         )}
 
                                         {isActive && !isSplitView && (
-                                            <div className="absolute -left-16 top-2 hidden md:flex items-center justify-center w-8 h-8">
+                                            <div
+                                                className="absolute -left-16 top-1 hidden md:flex flex-col items-center gap-1"
+                                                onClick={(e) => e.stopPropagation()}
+                                            >
                                                 <motion.div
                                                     animate={{ scale: [1, 1.2, 1] }}
                                                     transition={{
                                                         duration: 1.5,
                                                         repeat: Infinity,
+                                                        ease: 'easeInOut',
                                                     }}
                                                 >
                                                     <Volume2 className="w-5 h-5 text-yellow-600" />
                                                 </motion.div>
+                                                <button
+                                                    onClick={handleListenClick}
+                                                    className="w-8 h-8 flex items-center justify-center rounded-full bg-indigo-600 text-white hover:bg-indigo-700 transition-colors shadow-sm"
+                                                    title={isPaused ? 'Fortsett' : 'Pause'}
+                                                >
+                                                    {isPaused
+                                                        ? <Play className="w-3.5 h-3.5 ml-0.5" />
+                                                        : <Pause className="w-3.5 h-3.5" />}
+                                                </button>
+                                                <button
+                                                    onClick={cancel}
+                                                    className="w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 text-slate-500 hover:bg-red-50 hover:text-red-500 transition-colors shadow-sm"
+                                                    title="Stopp"
+                                                >
+                                                    <Square className="w-3 h-3" />
+                                                </button>
                                             </div>
                                         )}
                                         <div className={`text-slate-800 ${textEntry.genre === 'Dikt' ? 'whitespace-pre-line' : ''}`}>

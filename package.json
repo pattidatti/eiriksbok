@@ -14,7 +14,8 @@
     "tina-build": "tinacms build && vite build",
     "scan:concepts": "node scripts/scan-concepts.js",
     "gen-version": "echo \"{\\\"version\\\": \\\"$(date +%s)\\\"}\" > public/version.json",
-    "optimize-images": "node scripts/optimize-images.js"
+    "optimize-images": "node scripts/optimize-images.js",
+    "gen:bibliotek-audio": "tsx scripts/generate-bibliotek-audio.ts"
   },
   "dependencies": {
     "@dimforge/rapier3d-compat": "^0.19.3",
@@ -74,6 +75,7 @@
     "rollup-plugin-visualizer": "^6.0.5",
     "sharp": "^0.32.6",
     "tailwindcss": "^4.1.17",
+    "tsx": "^4.22.3",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.46.4",
     "vite": "^5.4.11",
