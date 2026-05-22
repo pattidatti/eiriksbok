@@ -1,5 +1,5 @@
 {
-  "buildId": 1779352181620,
+  "buildId": 1779413174412,
   "contentMap": {
     "concept-adel": [
       "content/concepts/adel.json"
@@ -1152,6 +1152,9 @@
     ],
     "mises": [
       "content/krle/filosofi/mises.json"
+    ],
+    "montesquieu": [
+      "content/krle/filosofi/montesquieu.json"
     ],
     "nietzsche": [
       "content/krle/filosofi/nietzsche.json"
@@ -2463,6 +2466,7 @@
     "krle/filosofi/locke": "content/krle/filosofi/locke.json",
     "krle/filosofi/marx": "content/krle/filosofi/marx.json",
     "krle/filosofi/mises": "content/krle/filosofi/mises.json",
+    "krle/filosofi/montesquieu": "content/krle/filosofi/montesquieu.json",
     "krle/filosofi/nietzsche": "content/krle/filosofi/nietzsche.json",
     "krle/filosofi/platon": "content/krle/filosofi/platon.json",
     "krle/filosofi/quests/quest-aquinas": "content/krle/filosofi/quests/aquinas.json",

@@ -2273,6 +2273,24 @@
       ]
     },
     {
+      "id": "montesquieu",
+      "title": "Montesquieu",
+      "description": "Maktens tredeling — filosofen bak Grunnlovens hjerte.",
+      "startDate": 1689,
+      "endDate": 1755,
+      "displayDate": "1689-1755",
+      "type": "lesson",
+      "subjectId": "krle",
+      "topicId": "filosofi",
+      "link": "/krle/filosofi/montesquieu",
+      "tags": [
+        "filosofi",
+        "opplysningstiden",
+        "maktfordeling",
+        "montesquieu"
+      ]
+    },
+    {
       "id": "sikhisme-khalsa-grunnleggelse",
       "title": "Khalsa-fellesskapet grunnlegges",
       "description": "Den tiende guruen, Guru Gobind Singh, etablerer Khalsa-fellesskapet ved Vaisakhi-feiringen. Dette gir sikhismen en tydeligere identitet og ytre kjennetegn.",

@@ -1,0 +1,207 @@
+{
+    "id": "montesquieu",
+    "title": "Montesquieu",
+    "subject": "krle",
+    "topic": "filosofi",
+    "layout": "rich",
+    "year": "1689-1755",
+    "category": "Opplysningstiden",
+    "readTime": "12 min lesning",
+    "heroImage": "/images/placeholder.webp",
+    "dimension": "samfunnssyn",
+    "comparison_tags": [
+        "maktfordeling",
+        "konstitusjonalisme",
+        "opplysningstiden"
+    ],
+    "details": [
+        "Fransk filosof og dommer som formulerte prinsippet om maktens tredeling.",
+        "Hovedverk: «Lovenes ånd» (1748), skrevet over 20 år.",
+        "Mente at frihet bare er trygg når lovgivende, utøvende og dømmende makt holdes adskilt.",
+        "Direkte inspirasjon for den amerikanske grunnloven (1787) og Norges Grunnlov (1814).",
+        "Reiste til England for å studere parlamentet — og kom hjem med en idé som forandret verden."
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Frankrike på 1700-tallet var en stat der kongen var alt. Ludvig 14. skal ha sagt «L'État, c'est moi» — staten, det er meg. Han laget lovene, sendte soldatene sine for å håndheve dem, og bestemte hvem som skulle dømmes. Ingen i Frankrike kunne klage seg fri fra kongens vilje. Det er denne verdenen Charles-Louis de Secondat, baron av Montesquieu, vokste opp i — og brukte hele livet sitt på å motbevise."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Portrett av Montesquieu i parykk og kappe, sittende ved skrivebord med bok og kart over Europa",
+            "caption": "Charles-Louis de Secondat, baron de Montesquieu (1689–1755). Filosof, dommer og en av opplysningstidens viktigste tenkere."
+        },
+        {
+            "type": "header",
+            "text": "Fra dommerstol til filosofstol"
+        },
+        {
+            "type": "text",
+            "content": "Montesquieu ble født inn i en adelig familie nær Bordeaux i 1689. Faren døde tidlig, og som ung mann arvet Charles-Louis ikke bare familiens vingårder, men også et embete som dommer i byens høyesterett. I tolv år satt han bak dommerstolen og så hvordan rettferdighet egentlig virket — eller ikke virket — under det franske eneveldet."
+        },
+        {
+            "type": "text",
+            "content": "Han mistrivdes i dommerrollen. I 1726 solgte han embetet, flyttet til Paris og kastet seg over skriving og forskning. Han ville forstå hvorfor noen samfunn skapte frie borgere, mens andre skapte slaver. Hva var forskjellen mellom et land der folk kunne snakke fritt, og et land der ord kunne sende deg i fengsel? Hvorfor virket de samme lovene rettferdige i ett land og urettferdige i et annet? Han satte seg fore å reise ut og finne svaret med egne øyne."
+        },
+        {
+            "type": "header",
+            "text": "Reisen som forandret alt"
+        },
+        {
+            "type": "text",
+            "content": "Mellom 1728 og 1731 reiste Montesquieu gjennom Europa. Han observerte hvordan ulike land styrte seg selv. Mest av alt ble han fanget av England. Der så han noe som ikke fantes i Frankrike: et parlament som vedtok lovene, en regjering som måtte stå til ansvar overfor parlamentet, og dommere som var uavhengige av kongen."
+        },
+        {
+            "type": "text",
+            "content": "England hadde nettopp gått gjennom sin egen revolusjon i 1688, der parlamentet kastet en konge som trodde han kunne styre alene. Etterpå hadde de bygd noe nytt: et system der makten var fordelt på flere institusjoner. Montesquieu noterte det han så, og dro hjem med en idé i bagasjen."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Britisk parlament på 1700-tallet med medlemmer som debatterer i rom med trepaneler og lyse vinduer",
+            "caption": "Det britiske parlamentet var Montesquieus levende laboratorium. Her så han at makt kunne deles — og at frihet vokser i sprekkene mellom institusjonene."
+        },
+        {
+            "type": "header",
+            "text": "Lovenes ånd"
+        },
+        {
+            "type": "text",
+            "content": "I 1748, etter tjue års arbeid, ga Montesquieu ut «De l'esprit des lois» — Lovenes ånd. Boka var en murstein på over tusen sider. Men midt i den lå én tanke som skulle endre verden: i et fritt samfunn må makten deles i tre. Han kalte dem den lovgivende, den utøvende og den dømmende makt."
+        },
+        {
+            "type": "list",
+            "items": [
+                "Den lovgivende makten lager reglene som alle må følge.",
+                "Den utøvende makten passer på at reglene blir fulgt i hverdagen.",
+                "Den dømmende makten avgjør om noen har brutt en regel — og hva straffen skal være."
+            ]
+        },
+        {
+            "type": "text",
+            "content": "«Når den lovgivende og den utøvende makten er samlet i én person eller én forsamling,» skrev Montesquieu, «finnes det ingen frihet.» For da kan den samme makten lage urettferdige lover og umiddelbart håndheve dem. Og hvis den dømmende makten også er samlet med de andre, kan dommeren bli lovgiver og bøddel på en gang. Da forsvinner all rettssikkerhet."
+        },
+        {
+            "type": "header",
+            "text": "Hvorfor det fungerer"
+        },
+        {
+            "type": "text",
+            "content": "Montesquieus geni var ikke bare å beskrive problemet, men å peke på løsningen. Hvis de tre maktene er adskilt, vil de holde hverandre i sjakk. Stortinget kan ikke vedta en lov uten at regjeringen må håndheve den. Regjeringen kan ikke straffe noen uten at en uavhengig domstol først har avgjort skylden. Domstolen kan ikke finne på nye regler — den må følge lovene Stortinget har vedtatt."
+        },
+        {
+            "type": "text",
+            "content": "Hver gren passer på de andre. Når noen prøver å misbruke makten, er det noen andre der til å stoppe dem. Det er som tre lag i et sikkerhetsnett. Montesquieu kalte det «balansen mellom maktene»."
+        },
+        {
+            "type": "component",
+            "name": "Makttredelingen",
+            "props": {
+                "title": "Hva skjer når makten samles?",
+                "intro": "Klikk deg gjennom de fire stegene og se hva som skjer med friheten."
+            }
+        },
+        {
+            "type": "header",
+            "text": "Ideen reiser over havet"
+        },
+        {
+            "type": "text",
+            "content": "Da Montesquieu døde i 1755, var boka hans allerede oversatt til mange språk. Tretti år senere, da de amerikanske statene skulle bygge sin nye nasjon, satt grunnlovsfedrene med «Lovenes ånd» på pulten. James Madison, en av arkitektene bak USAs grunnlov, kalte Montesquieu «oraklet som alltid blir konsultert». Den amerikanske grunnloven fra 1787 deler makten nøyaktig slik Montesquieu foreskrev: Kongressen lager lover, presidenten håndhever dem, Høyesterett tolker dem."
+        },
+        {
+            "type": "text",
+            "content": "I 1814, da norske representanter samlet seg på Eidsvoll for å skrive Grunnloven, var Montesquieu enda mer aktuell. Eidsvollsmennene hadde lest boka hans og kopiert ideen rett inn: Stortinget lager lover (§ 49), Kongen og senere regjeringen utøver makt (§ 3), og uavhengige domstoler dømmer (§ 88). Maktfordelingsprinsippet er selve hjertet i Grunnloven — og det kommer rett fra en fransk filosof som døde 59 år før Eidsvoll."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Eidsvollsmennene i 1814 samlet rundt et bord med papirer og fjærpenner, skriver Grunnloven",
+            "caption": "Eidsvoll, 1814: Når norske representanter skrev Grunnloven, lå Montesquieus «Lovenes ånd» på bordet. Maktfordelingen i § 49, § 3 og § 88 er hans arv."
+        },
+        {
+            "type": "header",
+            "text": "Hvorfor det fortsatt betyr noe"
+        },
+        {
+            "type": "text",
+            "content": "Du kan se Montesquieus arv hver dag uten å vite det. Når en domstol avgjør at regjeringen ikke kan deportere noen uten lovlig grunn — det er maktfordeling. Når Stortinget krever at statsministeren svarer på spørsmål i spørretimen — det er maktfordeling. Når en politibetjent ikke kan bestemme straffen selv, men må overlate saken til retten — det er maktfordeling."
+        },
+        {
+            "type": "text",
+            "content": "Men prinsippet er skjørt. I vår tid har flere land sett at en sterk leder forsøker å overta de andre maktgrenene. Når domstolen blir lojal mot presidenten, eller parlamentet blir en stempelmaskin for regjeringen, raser systemet sammen i sakte film. Montesquieu visste det allerede i 1748: makten må deles for at friheten skal overleve. Det er hans gave til oss — og vår oppgave å beskytte den."
+        },
+        {
+            "type": "text",
+            "content": "Montesquieu sto i en kjede av tenkere som [Locke](/krle/filosofi/locke) før ham og [Kant](/krle/filosofi/kant) etter ham, og hans ideer flyter videre inn i debattene om [makt og legitimitet](/samfunnskunnskap/styringsformer/makt-og-legitimitet) og [Grunnloven](/samfunnskunnskap/styringsformer/grunnloven). Han er sjelden den mest berømte filosofen i historiebøkene, men ingen annen har formet hverdagen din mer enn baronen fra Bordeaux."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "title": "Sjekk forståelsen",
+                "questions": [
+                    {
+                        "question": "Hva er Montesquieus viktigste idé?",
+                        "options": [
+                            "At kongen alltid har rett",
+                            "At staten må deles i tre maktgrener som holder hverandre i sjakk",
+                            "At alle mennesker er født onde",
+                            "At religion må styre staten"
+                        ],
+                        "correctAnswer": 1,
+                        "explanation": "Maktfordeling i tre uavhengige grener — lovgivende, utøvende og dømmende — er kjernen i Montesquieus filosofi."
+                    },
+                    {
+                        "question": "Hvor reiste Montesquieu for å studere et fungerende parlament?",
+                        "options": [
+                            "Tyskland",
+                            "Italia",
+                            "England",
+                            "Spania"
+                        ],
+                        "correctAnswer": 2,
+                        "explanation": "Montesquieu tilbrakte to år i England (1729–1731) og observerte parlamentet og det uavhengige rettsvesenet."
+                    },
+                    {
+                        "question": "Hva het Montesquieus hovedverk?",
+                        "options": [
+                            "Samfunnskontrakten",
+                            "Lovenes ånd",
+                            "Leviathan",
+                            "Om sjelens udødelighet"
+                        ],
+                        "correctAnswer": 1,
+                        "explanation": "«De l'esprit des lois» — «Lovenes ånd» — ble utgitt i 1748 etter tjue års arbeid."
+                    },
+                    {
+                        "question": "Hvilken norsk lov bygger direkte på Montesquieus prinsipp om maktfordeling?",
+                        "options": [
+                            "Folketrygdloven",
+                            "Skatteloven",
+                            "Grunnloven av 1814",
+                            "Straffeloven"
+                        ],
+                        "correctAnswer": 2,
+                        "explanation": "Grunnloven fra 1814 deler makten mellom Stortinget (§ 49), regjeringen (§ 3) og domstolene (§ 88) — direkte inspirert av Montesquieu."
+                    },
+                    {
+                        "question": "Hva mente Montesquieu skjer hvis lovgivende og utøvende makt samles i én person?",
+                        "options": [
+                            "Det blir mer effektivt og bedre",
+                            "Det forsvinner ingenting viktig",
+                            "Friheten forsvinner — den samme makten kan lage urettferdige lover og håndheve dem umiddelbart",
+                            "Folk blir gladere"
+                        ],
+                        "correctAnswer": 2,
+                        "explanation": "Montesquieu skrev rett ut: «Når den lovgivende og den utøvende makten er samlet i én person eller én forsamling, finnes det ingen frihet.»"
+                    }
+                ]
+            }
+        }
+    ],
+    "timeline": [],
+    "createdDate": "2026-05-22T00:00:00Z",
+    "lastUpdated": "2026-05-22T00:00:00Z"
+}
