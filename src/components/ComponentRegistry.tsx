@@ -75,6 +75,7 @@ const HermeneuticCircle = lazy(() => import('./content/interactive/HermeneuticCi
 const CyprusPeaceTalks = lazy(() => import('./content/interactive/CyprusPeaceTalks').then(m => ({ default: m.CyprusPeaceTalks })));
 const DenStoreAkselerasjonen = lazy(() => import('./content/interactive/DenStoreAkselerasjonen').then(m => ({ default: m.DenStoreAkselerasjonen })));
 const MaktfordelingMatch = lazy(() => import('./content/interactive/MaktfordelingMatch').then(m => ({ default: m.MaktfordelingMatch })));
+const Makttredelingen = lazy(() => import('./content/interactive/Makttredelingen').then(m => ({ default: m.Makttredelingen })));
 const NapoleonsArv = lazy(() => import('./content/interactive/NapoleonsArv').then(m => ({ default: m.NapoleonsArv })));
 const JernbaneReisesammenligning = lazy(() => import('./content/interactive/JernbaneReisesammenligning').then(m => ({ default: m.JernbaneReisesammenligning })));
 const FiksjonensKraft = lazy(() => import('./content/interactive/FiksjonensKraft').then(m => ({ default: m.FiksjonensKraft })));
@@ -233,6 +234,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     CyprusPeaceTalks,
     DenStoreAkselerasjonen,
     MaktfordelingMatch,
+    Makttredelingen,
     NapoleonsArv,
     JernbaneReisesammenligning,
     FiksjonensKraft,
