@@ -1742,6 +1742,26 @@
       ]
     },
     {
+      "id": "kalvin-og-kalvinismen",
+      "title": "Johan Calvin og kalvinismen",
+      "description": "En streng fransk advokat gjorde Geneve om til den protestantiske verdens hovedstad — og la grunnlaget for moderne arbeidsmoral og kapitalisme.",
+      "startDate": 1509,
+      "endDate": 1564,
+      "displayDate": "1509-1564",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "reformasjonen",
+      "link": "/historie/reformasjonen/kalvin-og-kalvinismen",
+      "tags": [
+        "reformasjonen",
+        "calvin",
+        "kalvinisme",
+        "predestinasjon",
+        "geneve",
+        "1500-tallet"
+      ]
+    },
+    {
       "id": "malacca-conquest",
       "title": "Erobringen av Malakka",
       "description": "Portugal tar kontroll over krydderhandelen i Sørøst-Asia.",
