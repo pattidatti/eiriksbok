@@ -160,6 +160,7 @@ const RenessansePerspektiv = lazy(() => import('./content/interactive/Renessanse
 const NorrontOrdmatch = lazy(() => import('./content/interactive/NorrontOrdmatch').then(m => ({ default: m.NorrontOrdmatch })));
 const SkalaSammenligner = lazy(() => import('./content/interactive/SkalaSammenligner').then(m => ({ default: m.SkalaSammenligner })));
 const KorstogMotiver = lazy(() => import('./content/interactive/KorstogMotiver').then(m => ({ default: m.KorstogMotiver })));
+const KalvinParadokset = lazy(() => import('./content/interactive/KalvinParadokset').then(m => ({ default: m.KalvinParadokset })));
 
 export const componentRegistry: Record<string, React.ComponentType<any>> = {
     // Core
@@ -320,6 +321,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     NorrontOrdmatch,
     SkalaSammenligner,
     KorstogMotiver,
+    KalvinParadokset,
     Gallery,
     gallery: Gallery,
     comparison: Comparison,
