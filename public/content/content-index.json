@@ -1,5 +1,5 @@
 {
-  "buildId": 1779499243709,
+  "buildId": 1779585143954,
   "contentMap": {
     "concept-adel": [
       "content/concepts/adel.json"
@@ -1546,6 +1546,9 @@
     "setningsanalyse": [
       "content/norsk/grammatikk/setningsanalyse.json"
     ],
+    "tegnsetting": [
+      "content/norsk/grammatikk/tegnsetting.json"
+    ],
     "nasjonalromantikken": [
       "content/norsk/litteraturhistorie/nasjonalromantikken.json"
     ],
@@ -2600,6 +2603,7 @@
     "norsk/eksamen/muntlig": "content/norsk/eksamen/muntlig.json",
     "norsk/eksamen/skriftlig": "content/norsk/eksamen/skriftlig.json",
     "norsk/grammatikk/setningsanalyse": "content/norsk/grammatikk/setningsanalyse.json",
+    "norsk/grammatikk/tegnsetting": "content/norsk/grammatikk/tegnsetting.json",
     "norsk/litteraturhistorie/nasjonalromantikken": "content/norsk/litteraturhistorie/nasjonalromantikken.json",
     "norsk/litteraturhistorie/ny-realismen": "content/norsk/litteraturhistorie/ny-realismen.json",
     "norsk/litteraturhistorie/ny-romantikken": "content/norsk/litteraturhistorie/ny-romantikken.json",
