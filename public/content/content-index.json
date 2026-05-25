@@ -1,5 +1,5 @@
 {
-  "buildId": 1779585143954,
+  "buildId": 1779672043216,
   "contentMap": {
     "concept-adel": [
       "content/concepts/adel.json"
@@ -1477,6 +1477,9 @@
     "trommer-intro": [
       "content/musikk/instrumenter/trommer-intro.json"
     ],
+    "dynamikk-og-uttrykk": [
+      "content/musikk/komposisjon/dynamikk-og-uttrykk.json"
+    ],
     "lat-struktur": [
       "content/musikk/komposisjon/lat-struktur.json"
     ],
@@ -2580,6 +2583,7 @@
     "musikk/instrumenter/gitar-intro": "content/musikk/instrumenter/gitar-intro.json",
     "musikk/instrumenter/piano-intro": "content/musikk/instrumenter/piano-intro.json",
     "musikk/instrumenter/trommer-intro": "content/musikk/instrumenter/trommer-intro.json",
+    "musikk/komposisjon/dynamikk-og-uttrykk": "content/musikk/komposisjon/dynamikk-og-uttrykk.json",
     "musikk/komposisjon/lat-struktur": "content/musikk/komposisjon/lat-struktur.json",
     "musikk/komposisjon/melodi-og-hook": "content/musikk/komposisjon/melodi-og-hook.json",
     "musikk/musikkhistorie/folkemusikk": "content/musikk/musikkhistorie/folkemusikk.json",
