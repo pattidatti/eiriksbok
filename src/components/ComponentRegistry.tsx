@@ -162,6 +162,7 @@ const SkalaSammenligner = lazy(() => import('./content/interactive/SkalaSammenli
 const KorstogMotiver = lazy(() => import('./content/interactive/KorstogMotiver').then(m => ({ default: m.KorstogMotiver })));
 const KalvinParadokset = lazy(() => import('./content/interactive/KalvinParadokset').then(m => ({ default: m.KalvinParadokset })));
 const KommaRedder = lazy(() => import('./content/interactive/KommaRedder').then(m => ({ default: m.KommaRedder })));
+const DynamicsPlayground = lazy(() => import('./content/interactive/DynamicsPlayground').then(m => ({ default: m.DynamicsPlayground })));
 
 export const componentRegistry: Record<string, React.ComponentType<any>> = {
     // Core
@@ -324,6 +325,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     KorstogMotiver,
     KalvinParadokset,
     KommaRedder,
+    DynamicsPlayground,
     Gallery,
     gallery: Gallery,
     comparison: Comparison,
