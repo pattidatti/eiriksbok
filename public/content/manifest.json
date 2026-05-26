@@ -4399,6 +4399,21 @@
                   ],
                   "createdDate": "2026-05-11T00:00:00Z",
                   "lastUpdated": "2026-05-15T03:16:44+02:00"
+                },
+                {
+                  "id": "baptistene",
+                  "title": "Baptistene: frihet gjennom dåpen",
+                  "description": "Frikirken som definerer seg ved ett prinsipp: bare troende kan døpes. Fra Amsterdam 1609 til borgerrettighetsbevegelsen.",
+                  "image": "/images/krle/religion/kristendom_hero.webp",
+                  "tags": [
+                    "kristendom",
+                    "baptistene",
+                    "frikirke",
+                    "dap",
+                    "voksendap"
+                  ],
+                  "createdDate": "2026-05-26T00:00:00Z",
+                  "lastUpdated": "2026-05-26T00:00:00Z"
                 }
               ]
             },

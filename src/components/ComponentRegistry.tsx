@@ -164,6 +164,7 @@ const KalvinParadokset = lazy(() => import('./content/interactive/KalvinParadoks
 const KommaRedder = lazy(() => import('./content/interactive/KommaRedder').then(m => ({ default: m.KommaRedder })));
 const DynamicsPlayground = lazy(() => import('./content/interactive/DynamicsPlayground').then(m => ({ default: m.DynamicsPlayground })));
 const SamplingLab = lazy(() => import('./content/interactive/SamplingLab').then(m => ({ default: m.SamplingLab })));
+const BaptismComparator = lazy(() => import('./content/interactive/BaptismComparator').then(m => ({ default: m.BaptismComparator })));
 
 export const componentRegistry: Record<string, React.ComponentType<any>> = {
     // Core
@@ -328,6 +329,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     KommaRedder,
     DynamicsPlayground,
     SamplingLab,
+    BaptismComparator,
     Gallery,
     gallery: Gallery,
     comparison: Comparison,

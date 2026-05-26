@@ -1,0 +1,264 @@
+{
+    "id": "baptistene",
+    "title": "Baptistene: frihet gjennom dåpen",
+    "subject": "krle",
+    "topic": "religion",
+    "religion": "kristendom",
+    "layout": "rich",
+    "year": "1609",
+    "dimension": "social",
+    "comparison_tags": ["baptistene", "frikirke", "dap", "voksendap", "protestanter"],
+    "category": "Kristendom",
+    "readTime": "9 min lesning",
+    "heroImage": "/images/krle/religion/kristendom_hero.webp",
+    "details": [
+        "Baptistene krever at dåpen er et bevisst valg - spedbarnsdåp godtas ikke.",
+        "Bevegelsen startet i Amsterdam i 1609 og er i dag en av verdens største frikirker.",
+        "Norsk Baptistsamfunn ble grunnlagt i 1860 og var den første frikirken i Norge.",
+        "Martin Luther King Jr. og Jimmy Carter var begge baptister.",
+        "Baptistene har over 170 millioner medlemmer globalt."
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Tenk deg at du er fjorten år og blir fortalt at du allerede er kristen. Du ble døpt som spedbarn. Du husker det ikke, du valgte det ikke, og du vet knapt hva det betyr. Baptistene sier: det teller ikke. Tro er noe du velger, og dåpen er beviset på at du har valgt."
+        },
+        {
+            "type": "text",
+            "content": "Dette ene prinsippet skiller baptistene fra nesten alle andre kristne kirker i verden. Det høres kanskje enkelt ut, men det er faktisk en revolusjonerende tanke - og den har formet en hel bevegelse med over 170 millioner tilhengere."
+        },
+        {
+            "type": "header",
+            "text": "En radikal idé i Amsterdam"
+        },
+        {
+            "type": "text",
+            "content": "Vi er i Amsterdam, år 1609. England er farlig for visse kristne. En gruppe protestanter - separatister - har flyktet til Nederland fordi den engelske statskirkens regler kveler dem. De vil tilbe Gud slik de mener Bibelen sier, ikke slik staten bestemmer."
+        },
+        {
+            "type": "text",
+            "content": "Lederen heter John Smyth. Han er tidligere anglikansk prest og har begynt å stille et spørsmål ingen i hans krets våger å stille høyt: Hva om barnedåpen er feil? Bibelen viser Jesus som voksen, bevisst og villig da han ble døpt av Johannes. Apostlene i Jerusalem ble først kalt til omvendelse - deretter døpt. Ingen spebarn i sikte."
+        },
+        {
+            "type": "text",
+            "content": "I 1609 gjør Smyth noe dramatisk: han døper seg selv og resten av gruppen på nytt - som voksne, med viten og vilje. Det er begynnelsen på baptistbevegelsen. Noen i gruppen syntes selvdåp var galt, og lot seg heller døpe av Mennonittene - en annen frikirke. Bevegelsen vokste i to retninger fra start."
+        },
+        {
+            "type": "component",
+            "name": "QuoteBlock",
+            "props": {
+                "text": "Omvend dere, og la dere alle døpe i Jesu Kristi navn til syndenes forlatelse.",
+                "source": "Apostlenes gjerninger 2,38",
+                "context": "Dette verset er hjørnestenen i baptistenes dåpsteologi. Omvendelsen kommer først - dåpen etterpå."
+            }
+        },
+        {
+            "type": "header",
+            "text": "Hva baptistene tror"
+        },
+        {
+            "type": "text",
+            "content": "Baptistene er protestanter, men de skiller seg fra lutheranere og reformerte på ett avgjørende punkt: dåpen er ikke et nådemiddel som gir frelse. Frelse kommer av tro alene. Dåpen er et offentlig vitnesbyrd om en tro som allerede er der. Det kalles trosdåp eller bekjennelsesdåp."
+        },
+        {
+            "type": "text",
+            "content": "Av dette følger noe viktig: kirken kan bare bestå av mennesker som bevisst har valgt å tro. Ingen er født inn i kirken. Menigheten er et frivillig fellesskap av troende - ikke et folkekirkesystem der alle er med automatisk. Dette prinsippet kalles gjerne kongeprestdømmet: alle troende har direkte tilgang til Gud, ingen prest er nødvendig som mellomledd."
+        },
+        {
+            "type": "text",
+            "content": "Baptistene var også tidlig ute med å kreve skille mellom kirke og stat. Roger Williams, en av de første baptistene i Amerika, grunnla Providence i 1636 som det første sted i verden med full religionsfrihet. Den ideen ble siden innbakt i den amerikanske grunnloven."
+        },
+        {
+            "type": "component",
+            "name": "BaptismComparator",
+            "props": {
+                "title": "Tre kirker om dåpen"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Baptistene i Norge"
+        },
+        {
+            "type": "text",
+            "content": "I Norge var baptistene pionerer. Da Frederick Rymker i 1858 reiste rundt i norske byer og forkynte, ble han møtt med mistenksomhet og motstand. Den norske statskirkens monopol var lovbestemt. Å danne egne trossamfunn var ikke bare uvanlig - det var ulovlig."
+        },
+        {
+            "type": "text",
+            "content": "I 1860 ble Norsk Baptistsamfunn stiftet i Frederikshald (dagens Halden) - og ble dermed den første frikirken i Norge. Dissenterlovene ble endret gradvis, men fullt religionsfrihet kom ikke før på 1900-tallet. Baptistene i Norge har aldri vært mange, men de banet vei for alle frie trossamfunn som fulgte."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Norsk Baptistsamfunn i dag",
+                "items": [
+                    {
+                        "label": "Grunnlagt",
+                        "value": "1860 i Halden - Norges første frikirke"
+                    },
+                    {
+                        "label": "Størrelse",
+                        "value": "Ca. 9 000 medlemmer fordelt på rundt 70 menigheter"
+                    },
+                    {
+                        "label": "Dåpspraksis",
+                        "value": "Full neddykking for troende over konfirmasjonsalder"
+                    },
+                    {
+                        "label": "Tilknytning",
+                        "value": "Medlem av Baptistenes Verdensallianse (BWA)"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Baptistene i verden"
+        },
+        {
+            "type": "text",
+            "content": "Globalt er baptistene en av de største protestantiske familiene. I USA er Southern Baptist Convention alene den største protestantiske kirken, med over 13 millioner medlemmer. Afroamerikanske baptistmenigheter spilte en avgjørende rolle i borgerrettighetsbevegelsen på 1960-tallet."
+        },
+        {
+            "type": "text",
+            "content": "Martin Luther King Jr. var baptistprest. Han brukte sin preken og sin kirke som plattform for den ikke-voldelige kampen mot raseskille. Jimmy Carter, USAs 39. president, underviste søndagsskole i sin lokale baptistmenighet helt til høy alder. Baptistene er ikke bare en religion - de er en bevegelse med dype historiske røtter i frihet og rettferdighet."
+        },
+        {
+            "type": "component",
+            "name": "TimelineComponent",
+            "props": {
+                "compact": true,
+                "events": [
+                    {
+                        "year": "1609",
+                        "title": "John Smyth grunnlegger baptistbevegelsen",
+                        "description": "I Amsterdam døper Smyth seg selv og sin gruppe som voksne, bevisste kristne. Bevegelsen er i gang."
+                    },
+                    {
+                        "year": "1612",
+                        "title": "Baptistene vender tilbake til England",
+                        "description": "Thomas Helwys grunnlegger den første baptistmenigheten på engelsk jord, i London."
+                    },
+                    {
+                        "year": "1636",
+                        "title": "Roger Williams og religionsfrihet",
+                        "description": "Williams grunnlegger Providence i Rhode Island med full religionsfrihet - et radikalt eksperiment."
+                    },
+                    {
+                        "year": "1845",
+                        "title": "Southern Baptist Convention",
+                        "description": "Baptistene i USA splitter seg over slaverispørsmålet. Sørstatsbaptistene danner sin egen konvensjon."
+                    },
+                    {
+                        "year": "1860",
+                        "title": "Norsk Baptistsamfunn stiftes",
+                        "description": "I Halden dannes Norges første frikirke. Baptistene åpner veien for religionsfrihet i Norge."
+                    },
+                    {
+                        "year": "1905",
+                        "title": "Baptistenes Verdensallianse (BWA)",
+                        "description": "Over 200 baptistsamfunn fra hele verden samles i London og danner en global fellesorganisasjon."
+                    },
+                    {
+                        "year": "1965",
+                        "title": "Martin Luther King Jr. og borgerrettigheter",
+                        "description": "Baptistprest og leder for borgerrettighetsbevegelsen. Hans «I Have a Dream»-tale er et av historiens mest kjente taler."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "title": "Test deg selv",
+                "questions": [
+                    {
+                        "question": "Hva er det viktigste kjennetegnet ved baptistenes dåpssyn?",
+                        "options": [
+                            "Dåpen foregår alltid i elven",
+                            "Bare bevisste troende kan døpes",
+                            "Dåpen utføres av paven",
+                            "Bare barn under ett år kan døpes"
+                        ],
+                        "correct": 1,
+                        "explanation": "Baptistene praktiserer trosdåp: kun den som selv bekjenner troen kan bli døpt. Spedbarn kan ikke ta et slikt valg."
+                    },
+                    {
+                        "question": "Hvem grunnla baptistbevegelsen, og i hvilket land?",
+                        "options": [
+                            "Martin Luther i Tyskland",
+                            "Roger Williams i Amerika",
+                            "John Smyth i Nederland",
+                            "John Calvin i Sveits"
+                        ],
+                        "correct": 2,
+                        "explanation": "John Smyth startet bevegelsen i Amsterdam i 1609 etter å ha flyktet fra England med sin separatistgruppe."
+                    },
+                    {
+                        "question": "Hva betyr 'kongeprestdømmet' i baptistisk teologi?",
+                        "options": [
+                            "At kongen leder kirken",
+                            "At alle troende har direkte tilgang til Gud uten prest som mellomledd",
+                            "At bare prester kan døpe",
+                            "At kirken og staten er ett"
+                        ],
+                        "correct": 1,
+                        "explanation": "Kongeprestdømmet betyr at alle troende er egne prester for Gud. Ingen trenger en menneskelig prest mellom seg og Gud."
+                    },
+                    {
+                        "question": "Hva var Norsk Baptistsamfunn, stiftet i 1860?",
+                        "options": [
+                            "Den første lutherske frikirken",
+                            "Den første frikirken i Norge",
+                            "En statlig godkjent dissentermenighet",
+                            "En avdeling av Den norske kirke"
+                        ],
+                        "correct": 1,
+                        "explanation": "Norsk Baptistsamfunn var den første frikirken i Norge, stiftet i Halden i 1860. Baptistene banet vei for full religionsfrihet."
+                    },
+                    {
+                        "question": "Hvilken av disse var baptistprest og borgerrettighetsleder?",
+                        "options": [
+                            "John F. Kennedy",
+                            "Nelson Mandela",
+                            "Martin Luther King Jr.",
+                            "Mahatma Gandhi"
+                        ],
+                        "correct": 2,
+                        "explanation": "Martin Luther King Jr. var baptistprest og den mest kjente lederen av den ikke-voldelige borgerrettighetsbevegelsen i USA på 1960-tallet."
+                    }
+                ]
+            }
+        }
+    ],
+    "concepts": [
+        {
+            "id": "trosdap",
+            "term": "Trosdåp",
+            "definition": "Dåp som utføres på en person som selv bekjenner sin tro. Baptistenes alternativ til barnedåp."
+        },
+        {
+            "id": "frikirke",
+            "term": "Frikirke",
+            "definition": "Et trossamfunn som er uavhengig av staten og statskirken. Baptistene var pionerer for frikirker i Norge."
+        },
+        {
+            "id": "kongeprestdomme",
+            "term": "Kongeprestdømmet",
+            "definition": "Læren om at alle kristne har direkte tilgang til Gud - ingen menneskelig prest er nødvendig som mellomledd."
+        },
+        {
+            "id": "separatister",
+            "term": "Separatister",
+            "definition": "Protestanter på 1500-1600-tallet som ville skille seg helt fra statskirken, ikke bare reformere den innenfra."
+        }
+    ],
+    "quote": {
+        "text": "Ingen regjering kan kreve noen form for religiøs hengivenhet.",
+        "source": "Thomas Helwys",
+        "reference": "Et shor Declaration of the Mystery of Iniquity, 1612"
+    },
+    "timeline": []
+}

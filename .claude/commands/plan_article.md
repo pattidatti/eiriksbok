@@ -17,7 +17,7 @@ Focus on the "Soul" of the content before writing any code.
 - **Fail Condition:** If no blueprint exists, STOP. Ask user to run `/plan_subject` phase 1 first.
 
 ### 1. Pedagogical Vision
-- **Tone:** Wondering, pedagogical, and narrative-driven.
+- **Tone:** Wondering, pedagogical, and narrative-driven. 
 - **Tone:** Derived from Blueprint.
 - **Method:** Implement the "Mental Model" defined in the Blueprint.
 - **Complexity:** Explain complex concepts (e.g., "Feudalisme") in an accessible way.
@@ -29,8 +29,26 @@ Focus on the "Soul" of the content before writing any code.
 - **Core Sections:** Use `header` blocks (NOT nested sections).
 - **Summary:** Concise wrap-up or "Deep Dive" conclusion.
 
-### 3. Layout & Components
-- **Rich Layout (`"layout": "rich"`):**
+### 3. Signaturkomponent (obligatorisk)
+
+Hver artikkel skal ha **én signaturkomponent** — en interaktiv komponent som understreker, forsterker eller lærer bort artikkelens viktigste poeng (kjernen du definerte i 1. Pedagogical Vision). Signaturkomponenten er hovedlæringsmotoren i artikkelen, ikke et tilbehør.
+
+**Designkrav (ikke-forhandlbart):**
+- Brukervennlig: en 14-åring forstår hva hen skal gjøre innen 5 sekunder.
+- Oversiktlig: én pedagogisk kjerne, ingen overlessing.
+- Gøy: umiddelbar visuell respons. Framer Motion for state-endringer, juicy suksessanimasjon ved fullføring.
+- Lærerik: eleven sitter igjen med en konkret innsikt etter interaksjonen.
+- Visuelt: lys base, rounded-xl, Lucide-ikoner. Ingen mørk default-bakgrunn.
+- Ingen intern scrolling. Fungerer på 1366×768 (Chromebook-baseline).
+
+**Standard: lag ny komponent.** Les hele `.agent/workflows/build_interactive.md` og følg den slavisk. Skriv komponenten til `src/components/content/interactive/[Navn].tsx`, registrer i `src/components/ComponentRegistry.tsx`, og bruk i artikkel-JSON som `{ "type": "component", "name": "[Navn]", "props": { ... } }`.
+
+**Unntak — gjenbruk:** Hvis en eksisterende custom-komponent treffer kjernepoenget like perfekt som en ny ville gjort, kan den gjenbrukes. I tvil — lag ny.
+
+**Standard-komponenter (Quiz, FactBox, bilder, osv.) brukes i tillegg**, ikke i stedet for signaturkomponenten.
+
+### 4. Layout & Components
+- **Rich Layout (`"layout": "rich"`):** 
     - Required for historical topics with timelines.
     - Includes interactive sidebar with TOC and map links.
 - **Component Selection:**
@@ -72,6 +90,7 @@ Focus on the "Soul" of the content before writing any code.
     - **Assessment:**
         - `Quiz`: 3-5 questions at the end.
     - **General Rule:** Make a model that underscores what the article is about. Make it interactive, beautiful, fun, and insightful.
+    - **Lager du ny komponent?** Følg `/build_interactive`-skillet for designprinsipper og teknisk implementasjon.
 
 
 
@@ -94,8 +113,8 @@ Focus on the "Bones" of the JSON structure.
 - **Lists:** Use `{ "type": "list", "items": [...] }`. NEVER use markdown `-` lists.
 
 ### 3. Global Data Sync
-- **Timeline:** Add events to `public/content/global-timeline.json`.
-- **Glossary & People:**
+- **Timeline:** Sett `year` (eller `date`) på artikkel-JSON-objektet for at artikkelen skal havne i `/tidslinje`. Sub-events for samme artikkel legges i artikkelens egen `timeline[]`-array. `global-timeline.json` regenereres automatisk av `npm run scan:content` — **ikke rediger fila direkte**. Hand-kuraterte events uten tilhørende leksjon legges i `public/content/global-timeline.manual.json`.
+- **Glossary & People:** 
     - Add new technical terms to `public/content/concepts/`.
     - Add historical figures to `public/content/people/` (MUST include `lifespan` and `link`).
 - **Quiz:** Add 3-5 multiple-choice questions to the article JSON (under a `quiz` field).
@@ -125,5 +144,5 @@ Final polish and technical checks.
 ---
 
 ## Usage
-Simply state: **"Plan en ny artikkel om [tema] ved å bruke /plan_article"**.
+Simply state: **"Plan en ny artikkel om [tema] ved å bruke /plan_article"**. 
 I will then present the plan for Phase 1. When you say **"GO"**, I proceed to Phase 2 and 3.
