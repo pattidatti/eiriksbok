@@ -51,6 +51,20 @@
             ]
         },
         {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Penger gjennom historien",
+                "variant": "grid",
+                "items": [
+                    { "label": "Salt (Roma)", "value": "Romerske soldater fikk deler av lønnen i salt. Derav det engelske ordet salary, fra latin salarium." },
+                    { "label": "Kauriskjell", "value": "Disse glatte hvite skjellene ble brukt som penger i Asia og Afrika i over 4000 år. Lette å telle, vanskelige å forfalske." },
+                    { "label": "Steinpenger (Yap)", "value": "På Yap-øyene i Stillehavet brukte man steinskiver på størrelse med bil som valuta. Man trengte ikke flytte dem - alle visste hvem som eide hva." },
+                    { "label": "Sigaretter (krig)", "value": "I krigsfangeleire under 2. verdenskrig ble sigaretter spontant til valuta. Selv ikke-røykere samlet dem, fordi alle ville ha dem." }
+                ]
+            }
+        },
+        {
             "type": "header",
             "content": "Tillit: Fra gull til papir"
         },
@@ -63,6 +77,12 @@
             "content": "I dag har de fleste penger ingen fysisk verdi i seg selv. De er såkalte fiat-penger (latin for la det bli). Verdien kommer utelukkende fra vår felles tillit til at staten og andre mennesker vil godta dem som betaling."
         },
         {
+            "type": "quote",
+            "content": "Penger eksisterer ikke av natur, men ved menneskelig overenskomst. Vi kan gjøre dem verdiløse - men bare så lenge vi alle er enige om det.",
+            "author": "Aristoteles",
+            "source": "Nikomakisk etikk (ca. 350 f.Kr.)"
+        },
+        {
             "type": "header",
             "content": "Prøv selv: Friksjons-måleren"
         },
@@ -73,6 +93,10 @@
         {
             "type": "text",
             "content": "Uten penger stopper spesialiseringen opp. Hvis du er ekspert på å bygge fioliner, men nesten ingen trenger en fiolin akkurat i dag, ville du ha sultet uten penger. Penger gjør det mulig for oss å samarbeide på tvers av tid og avstand."
+        },
+        {
+            "type": "component",
+            "name": "SpecializationSlider"
         },
         {
             "type": "task",
