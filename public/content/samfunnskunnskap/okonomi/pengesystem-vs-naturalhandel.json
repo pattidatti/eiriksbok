@@ -6,6 +6,7 @@
     "heroImage": "/images/lessons/okonomi/okonomi_penger_hero.webp",
     "status": "published",
     "layout": "rich",
+    "readTime": "6 min lesning",
     "tags": [
         "økonomi",
         "penger",
@@ -15,35 +16,55 @@
     "content": [
         {
             "type": "text",
-            "value": "I dag tar vi penger for gitt. Du tæpper kortet, og vips, så er lunsjen betalt. Men penger er egentlig en av menneskehetens mest geniale oppfinnelser. For å forstå hvorfor, må vi dra tilbake til en tid der penger ikke fantes: byttehandelen (naturalhandel)."
+            "content": "I dag tar vi penger for gitt. Du tæpper kortet, og vips, så er lunsjen betalt. Men penger er egentlig en av menneskehetens mest geniale oppfinnelser. For å forstå hvorfor, må vi dra tilbake til en tid der penger ikke fantes: byttehandelen."
         },
         {
             "type": "header",
-            "value": "Problemet med byttehandel: Den doble tilfeldigheten"
+            "content": "Problemet med byttehandel: Den doble tilfeldigheten"
         },
         {
             "type": "text",
-            "value": "Naturalhandel fungerer fint i små grupper der alle kjenner alle. Jeg gir deg fisk, du gir meg ved. Men straks samfunnet blir større, oppstår et stort problem: *Double Coincidence of Wants* (den doble tilfeldigheten av behov).\n\nHvis jeg har fisk og trenger en ny øks, hjelper det ikke at jeg finner en øksemaker – hvis øksemakeren ikke vil ha fisk akkurat nå! Kanskje han trenger salt? Da må jeg først finne noen som har salt og vil ha fisk, og så bytte saltet mot øksen. Dette skaper enormt mye **friksjon** i økonomien."
-        },
-        {
-            "type": "header",
-            "value": "Løsningen: En felles hukommelse"
+            "content": "Naturalhandel fungerer fint i små grupper der alle kjenner alle. Jeg gir deg fisk, du gir meg ved. Men straks samfunnet blir større, oppstår et stort problem: den doble tilfeldigheten av behov."
         },
         {
             "type": "text",
-            "value": "Penger løser dette ved å fungere som et mellomledd. I stedet for å bytte vare mot vare, bytter vi vare mot *penger*. Penger er i bunn og grunn en felles hukommelse over hvem som har gjort noe for fellesskapet.\n\nHistorisk har vi brukt mange ting som penger:\n*   **Salt:** Romerske soldater fikk deler av lønnen i salt (derav ordet *salary*).\n*   **Kauriskjell:** Brukt som valuta i store deler av Asia og Afrika i århundrer.\n*   **Gull og sølv:** Foretrukket fordi det var sjeldent, holdbart og vanskelig å forfalske."
+            "content": "Hvis jeg har fisk og trenger en ny øks, hjelper det ikke at jeg finner en øksemaker - hvis øksemakeren ikke vil ha fisk akkurat nå! Kanskje han trenger salt? Da må jeg først finne noen som har salt og vil ha fisk, og så bytte saltet mot øksen. Dette skaper enorm friksjon i økonomien."
         },
         {
             "type": "header",
-            "value": "Tillit: Fra gull til papir"
+            "content": "Løsningen: En felles hukommelse"
         },
         {
             "type": "text",
-            "value": "Gull er tungt å bære på. Etter hvert begynte folk å låse gullet sitt inn i hvelv hos gullsmeder (de første bankene) og fikk en kvittering i retur. Snart begynte folk å handle med kvitteringene i stedet for det faktiske gullet. \n\nI dag har de fleste penger ingen fysisk verdi i seg selv. De er såkalte *fiat-penger* (latin for «la det bli»). Verdien kommer utelukkende fra vår felles **tillit** til at staten og andre mennesker vil godta dem som betaling."
+            "content": "Penger løser dette ved å fungere som et mellomledd. I stedet for å bytte vare mot vare, bytter vi vare mot penger. Penger er i bunn og grunn en felles hukommelse over hvem som har gjort noe for fellesskapet."
+        },
+        {
+            "type": "text",
+            "content": "Historisk har vi brukt mange ulike ting som penger:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "Salt: Romerske soldater fikk deler av lønnen i salt (derav ordet salary).",
+                "Kauriskjell: Brukt som valuta i store deler av Asia og Afrika i århundrer.",
+                "Gull og sølv: Foretrukket fordi det var sjeldent, holdbart og vanskelig å forfalske."
+            ]
         },
         {
             "type": "header",
-            "value": "Prøv selv: Friksjons-måleren"
+            "content": "Tillit: Fra gull til papir"
+        },
+        {
+            "type": "text",
+            "content": "Gull er tungt å bære på. Etter hvert begynte folk å låse gullet sitt inn i hvelv hos gullsmeder - de første bankene - og fikk en kvittering i retur. Snart begynte folk å handle med kvitteringene i stedet for det faktiske gullet."
+        },
+        {
+            "type": "text",
+            "content": "I dag har de fleste penger ingen fysisk verdi i seg selv. De er såkalte fiat-penger (latin for la det bli). Verdien kommer utelukkende fra vår felles tillit til at staten og andre mennesker vil godta dem som betaling."
+        },
+        {
+            "type": "header",
+            "content": "Prøv selv: Friksjons-måleren"
         },
         {
             "type": "component",
@@ -51,11 +72,27 @@
         },
         {
             "type": "text",
-            "value": "Uten penger stopper spesialiseringen opp. Hvis du er en ekspert på å bygge fioliner, men nesten ingen trenger en fiolin akkurat i dag, ville du ha sultet uten penger. Penger gjør det mulig for oss å samarbeide på tvers av tid og avstand."
+            "content": "Uten penger stopper spesialiseringen opp. Hvis du er ekspert på å bygge fioliner, men nesten ingen trenger en fiolin akkurat i dag, ville du ha sultet uten penger. Penger gjør det mulig for oss å samarbeide på tvers av tid og avstand."
+        },
+        {
+            "type": "task",
+            "title": "Oppgave 1: Hva vet du?",
+            "content": "Hva mener vi med \"den doble tilfeldigheten\"? Forklar begrepet med et eget eksempel fra hverdagen - ikke fisk og øks."
+        },
+        {
+            "type": "task",
+            "title": "Oppgave 2: Forstå ideen",
+            "content": "Artikkelen sier at penger er \"en felles hukommelse over hvem som har gjort noe for fellesskapet\". Forklar hva dette betyr. Hva er det pengene egentlig husker når du selger noe?"
+        },
+        {
+            "type": "task",
+            "title": "Oppgave 3: Drøft",
+            "content": "Fiat-penger er kun verdt noe fordi vi stoler på at andre godtar dem. Hva tror du ville skjedd med tilliten til norske kroner hvis Norges Bank plutselig trykte dobbelt så mange sedler - uten at det ble produsert mer varer? Hva sier det om forholdet mellom penger og tillit?"
         }
     ],
     "quiz": [
         {
+            "id": "q1",
             "question": "Hva kalles problemet der to personer må ønske akkurat det den andre har for å kunne bytte?",
             "options": [
                 "Den doble tilfeldigheten",
@@ -66,6 +103,7 @@
             "correctAnswer": 0
         },
         {
+            "id": "q2",
             "question": "Hvorfor ble gull foretrukket som penger historisk?",
             "options": [
                 "Det smakte godt",
@@ -74,6 +112,19 @@
                 "Det ble funnet overalt i skogen"
             ],
             "correctAnswer": 2
+        },
+        {
+            "id": "q3",
+            "question": "Hva er fiat-penger?",
+            "options": [
+                "Penger laget av gull og sølv",
+                "Penger hvis verdi kun hviler på felles tillit, ikke fysisk verdi",
+                "Digitale kryptovalutaer",
+                "Penger brukt i byttehandel"
+            ],
+            "correctAnswer": 1
         }
-    ]
+    ],
+    "timeline": [],
+    "createdDate": "2026-01-01T00:00:00Z"
 }
