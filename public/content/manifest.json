@@ -1025,7 +1025,7 @@
                 "sentralbank"
               ],
               "createdDate": "2026-03-17T11:06:26+01:00",
-              "lastUpdated": "2026-03-17T11:06:26+01:00"
+              "lastUpdated": "2026-05-26T20:28:26+02:00"
             }
           ]
         },
@@ -4435,7 +4435,8 @@
                     "den-hellige-ånd",
                     "pinse"
                   ],
-                  "createdDate": "2026-05-26T00:00:00Z"
+                  "createdDate": "2026-05-26T00:00:00Z",
+                  "lastUpdated": "2026-05-26T20:28:26+02:00"
                 }
               ]
             },

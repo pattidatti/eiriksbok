@@ -6,7 +6,7 @@
     "year": "ca. 700–1350",
     "category": "Språk",
     "readTime": "9 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/sprakhistorie/norront-hero.webp",
     "details": [
         "Norrønt ble snakket i Norge, Island, Færøyene og deler av de britiske øyer i ca. 600 år.",
         "Det hadde fire kasus, tre kjønn og kompliserte verbbøyninger — alt det moderne norsk har mistet.",
@@ -29,7 +29,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/sprakhistorie/norront-01.webp",
             "alt": "Pergamentside fra norrøn saga med håndskrevet runeskrift og illuminerte bokstaver, varmt lys fra stearinlys ved siden av",
             "caption": "En sagaside fra middelalderen. Norrønt ble skrevet både med runer og med det latinske alfabetet."
         },
@@ -109,7 +109,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/sprakhistorie/norront-02.webp",
             "alt": "Sammenligningstabell med norrøne ord og moderne norske ord på en gammel tavle, krittstreker og lys bakgrunn",
             "caption": "Norrønt hadde fire kasus og tre kjønn. Moderne norsk har trimmet bort det meste."
         },
@@ -139,7 +139,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/sprakhistorie/norront-03.webp",
             "alt": "Norsk fjordlandskap fra fugleperspektiv med en gammel bygd nederst, navneskilt som viser stedsnavn med endelsene -vik og -nes",
             "caption": "Stedsnavnene rundt deg er et levende museum av norrønt språk."
         },

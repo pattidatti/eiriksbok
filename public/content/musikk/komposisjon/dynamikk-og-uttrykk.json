@@ -7,7 +7,7 @@
     "year": "Fra antikken til i dag",
     "category": "Komposisjon",
     "readTime": "8 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/komposisjon/dynamikk-og-uttrykk-hero.webp",
     "details": [
         "Dynamikk handler om forskjellen mellom svakt og sterkt i musikk.",
         "Kontrast mellom stille og høyt er det som gir en låt følelse.",
@@ -47,7 +47,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/komposisjon/dynamikk-og-uttrykk-01.webp",
             "alt": "Noteark med dynamikkmerker under notelinjene",
             "caption": "Dynamikkmerker forteller musikeren hvor svakt eller sterkt en frase skal spilles."
         },
@@ -93,7 +93,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/komposisjon/dynamikk-og-uttrykk-02.webp",
             "alt": "Orkester som spiller med full kraft i en konsertsal",
             "caption": "Et orkester kan gå fra hviskende svakt til øredøvende sterkt — det er dynamikk i praksis."
         },
@@ -131,7 +131,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/komposisjon/dynamikk-og-uttrykk-03.webp",
             "alt": "Ungdom som øver på gitar med fokusert blikk",
             "caption": "Å øve på dynamikk er like viktig som å øve på toner og rytme."
         },

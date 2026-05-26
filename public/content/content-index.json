@@ -1,5 +1,5 @@
 {
-  "buildId": 1779818591657,
+  "buildId": 1779820664962,
   "contentMap": {
     "concept-adel": [
       "content/concepts/adel.json"
@@ -1411,6 +1411,9 @@
     "paulus-og-misjonen": [
       "content/krle/religion/kristendom/paulus-og-misjonen.json"
     ],
+    "pinse": [
+      "content/krle/religion/kristendom/pinse.json"
+    ],
     "sakramentene": [
       "content/krle/religion/kristendom/sakramentene.json"
     ],
@@ -2567,6 +2570,7 @@
     "krle/religion/kristendom/kirkesamfunn": "content/krle/religion/kristendom/kirkesamfunn.json",
     "krle/religion/kristendom/overgangsriter": "content/krle/religion/kristendom/overgangsriter/artikkel.json",
     "krle/religion/kristendom/paulus-og-misjonen": "content/krle/religion/kristendom/paulus-og-misjonen.json",
+    "krle/religion/kristendom/pinse": "content/krle/religion/kristendom/pinse.json",
     "krle/religion/kristendom/sakramentene": "content/krle/religion/kristendom/sakramentene.json",
     "krle/religion/kristendom/sentrale-trekk": "content/krle/religion/kristendom/sentrale-trekk/artikkel.json",
     "krle/religion/kristendom/skapelse": "content/krle/religion/kristendom/skapelse/artikkel.json",

@@ -7,7 +7,7 @@
     "year": "Språk",
     "category": "Grammatikk",
     "readTime": "7 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/grammatikk/tegnsetting-hero.webp",
     "externalUrl": "https://www.sprakradet.no/sprakhjelp/Skriverad/Tegnsetting/",
     "details": [
         "Tegnsetting styrer rytmen og meningen i alt du skriver.",
@@ -25,7 +25,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/grammatikk/tegnsetting-01.webp",
             "alt": "En blyantstrek skiller to ord i en setning",
             "caption": "Tegnsetting er den lille streken som forhindrer at meningen kolliderer."
         },
@@ -93,7 +93,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/grammatikk/tegnsetting-02.webp",
             "alt": "To ungdommer i samtale med synlige replikker over hodene",
             "caption": "Anførselstegn er måten leseren hører hvem som snakker."
         },

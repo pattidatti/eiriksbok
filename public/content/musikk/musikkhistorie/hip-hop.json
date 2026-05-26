@@ -5,7 +5,7 @@
     "year": "1973",
     "category": "Musikk og samfunn",
     "readTime": "9 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/musikkhistorie/hip-hop-hero.webp",
     "details": [
         "Hip-hop oppsto i Bronx, New York, på 1970-tallet",
         "Musikken vokste ut av fattigdom, rasisme og kreativitet",
@@ -19,7 +19,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/musikkhistorie/hip-hop-01.webp",
             "alt": "Ungdommer danser breakdance på et fortau i Bronx på 1970-tallet, store høyttalere i bakgrunnen",
             "caption": "Gatehjørnene i Bronx ble hip-hopens første scene."
         },
@@ -81,7 +81,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/musikkhistorie/hip-hop-02.webp",
             "alt": "Nærbilde av en DJ som legger nåla på en vinylplate, fargerikt lys i bakgrunnen",
             "caption": "DJen er hip-hopens dirigent — den som velger, klipper og setter sammen lydene."
         },
@@ -111,7 +111,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/musikkhistorie/hip-hop-03.webp",
             "alt": "En rapper på en stor scene foran et publikum med hendene i været, fargerike scenelys",
             "caption": "Fra bakgårder i Bronx til verdens største arenaer — hip-hop ble en global kraft."
         },
