@@ -199,6 +199,16 @@
             "name": "HayekTriangle"
         },
         {
+            "type": "component",
+            "name": "OkonomiVerdenLink",
+            "props": {
+                "preset": "naturlig-likevekt",
+                "view": "cockpit",
+                "label": "Prøv selv: Bryt den naturlige renten",
+                "description": "Åpne Økonomi-Verden i sandkasse-modus. Senk styringsrenten under den naturlige og se hva som skjer med produksjonsstrukturen, prisene og arbeidsledigheten."
+            }
+        },
+        {
             "type": "text",
             "content": "Når sentralbanken setter renten under den naturlige renten, sender den et falskt signal til økonomien: Folk har visst blitt mer tålmodige! Det er masse sparing tilgjengelig! Entreprenørene starter lange, ambisiøse prosjekter - nye skyskrapere, teknologisatsinger, gruvedrift. Men problemet er at folk ikke har spart mer. De faktiske ressursene finnes ikke. Resultatet er at prosjektene ikke kan fullføres."
         },
@@ -369,6 +379,26 @@
                 "Bedrifter investerer aldri uten kunstig lav rente"
             ],
             "correctAnswer": 0
+        },
+        {
+            "type": "component",
+            "name": "OkonomiVerdenLink",
+            "props": {
+                "preset": "weimar-1923",
+                "view": "cockpit",
+                "label": "Tidskapsel: Weimar 1923",
+                "description": "Klarer du å stoppe hyperinflasjonen før samfunnet kollapser? Last den historiske tidskapselen i Økonomi-Verden og prøv deg som sentralbanksjef."
+            }
+        },
+        {
+            "type": "component",
+            "name": "OkonomiVerdenLink",
+            "props": {
+                "preset": "frimarked",
+                "view": "cockpit",
+                "label": "Slipp markedet fri: Rothbards drøm",
+                "description": "Slå av sentralbanken, skattene og reguleringene. Se hva som skjer når renten faktisk får være naturlig — og om økonomien klarer seg uten en sentral planlegger."
+            }
         }
     ],
     "timeline": [],

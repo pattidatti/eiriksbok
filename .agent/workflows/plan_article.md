@@ -124,10 +124,24 @@ Focus on the "Bones" of the JSON structure.
 ## Phase 3: Visuals & Verification
 Final polish and technical checks.
 
-### 1. Image Generation
-- **Style:** Use image-style-guide.md
-- **Path:** `public/images/<topic>/<article-id>-hero.jpg`.
-- **Consistency:** Ensure the hero image matches the card image in Topic overview.
+### 1. Bilder — sett inn plassholdere
+Artikler skal alltid ha bildeplassholdere i JSON slik at `generate_article_images.md` kan generere bilder i batch etterpå. Ingen bilder genereres manuelt her.
+
+**Hero-bilde** (toppnivå i artikkel-JSON):
+```json
+"heroImage": "/images/placeholder.webp"
+```
+Sett samtidig `"image": "/images/placeholder.webp"` i manifest-oppføringen for artikkelen.
+
+**Inline bilder (2-3 stk, fordelt gjennom artikkelen):**
+Plasser én bildblokk etter hvert hoveds-seksjon. `alt` og `caption` må være beskrivende nok til at Gemini-prompts kan skrives automatisk fra dem:
+```json
+{ "type": "image", "src": "/images/placeholder.webp",
+  "alt": "Konkret motiv som bildet skal vise, f.eks. 'Norske vikingskip i havn'",
+  "caption": "Kort forklaring av bildet, f.eks. 'Langskip brukt på raids rundt 900-tallet'" }
+```
+
+Bilder genereres etterpå manuelt i Antigravity med workflowen `generate_article_images.md`.
 
 ### 2. Verification Checklist
 **Audit:** Run an audit using the `article-implementation` skill.

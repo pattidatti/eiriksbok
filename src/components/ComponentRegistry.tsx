@@ -62,6 +62,7 @@ const RomanDefenseModel = lazy(() => import('./content/interactive/RomanDefenseM
 const DetectiveEngine = lazy(() => import('./content/interactive/detective/DetectiveEngine').then(m => ({ default: m.DetectiveEngine })));
 const PerspectivePrism = lazy(() => import('./content/interactive/PerspectivePrism').then(m => ({ default: m.PerspectivePrism })));
 const PovertySimulation = lazy(() => import('./content/interactive/PovertySimulation').then(m => ({ default: m.PovertySimulation })));
+const OkonomiVerdenLink = lazy(() => import('./content/interactive/okonomi/OkonomiVerdenLink').then(m => ({ default: m.OkonomiVerdenLink })));
 const BiasLens = lazy(() => import('./learning-path/BiasLens').then(m => ({ default: m.BiasLens })));
 const AllianceChain = lazy(() => import('./content/interactive/AllianceChain').then(m => ({ default: m.AllianceChain })));
 const PowderKeg = lazy(() => import('./content/interactive/PowderKeg').then(m => ({ default: m.PowderKeg })));
@@ -165,6 +166,7 @@ const KommaRedder = lazy(() => import('./content/interactive/KommaRedder').then(
 const DynamicsPlayground = lazy(() => import('./content/interactive/DynamicsPlayground').then(m => ({ default: m.DynamicsPlayground })));
 const SamplingLab = lazy(() => import('./content/interactive/SamplingLab').then(m => ({ default: m.SamplingLab })));
 const BaptismComparator = lazy(() => import('./content/interactive/BaptismComparator').then(m => ({ default: m.BaptismComparator })));
+const PinseNasjoner = lazy(() => import('./content/interactive/PinseNasjoner').then(m => ({ default: m.PinseNasjoner })));
 
 export const componentRegistry: Record<string, React.ComponentType<any>> = {
     // Core
@@ -226,6 +228,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     DetectiveEngine,
     PerspectivePrism,
     PovertySimulation,
+    OkonomiVerdenLink,
     BiasLens,
     AllianceChain,
     PowderKeg,
@@ -330,6 +333,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     DynamicsPlayground,
     SamplingLab,
     BaptismComparator,
+    PinseNasjoner,
     Gallery,
     gallery: Gallery,
     comparison: Comparison,

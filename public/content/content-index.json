@@ -1,5 +1,5 @@
 {
-  "buildId": 1779758320763,
+  "buildId": 1779818591657,
   "contentMap": {
     "concept-adel": [
       "content/concepts/adel.json"
@@ -1381,6 +1381,9 @@
     "jodedom-sentrale-trekk": [
       "content/krle/religion/jodedom/sentrale-trekk/artikkel.json"
     ],
+    "baptistene": [
+      "content/krle/religion/kristendom/baptistene.json"
+    ],
     "kristendom-bonn": [
       "content/krle/religion/kristendom/bonn/artikkel.json"
     ],
@@ -2554,6 +2557,7 @@
     "krle/religion/jodedom/intro": "content/krle/religion/jodedom/intro.json",
     "krle/religion/jodedom/overgangsriter": "content/krle/religion/jodedom/overgangsriter/artikkel.json",
     "krle/religion/jodedom/sentrale-trekk": "content/krle/religion/jodedom/sentrale-trekk/artikkel.json",
+    "krle/religion/kristendom/baptistene": "content/krle/religion/kristendom/baptistene.json",
     "krle/religion/kristendom/bonn": "content/krle/religion/kristendom/bonn/artikkel.json",
     "krle/religion/kristendom/frelse": "content/krle/religion/kristendom/frelse/artikkel.json",
     "krle/religion/kristendom/grunnleggere": "content/krle/religion/kristendom/grunnleggere/artikkel.json",

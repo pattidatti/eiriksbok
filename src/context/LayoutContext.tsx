@@ -21,6 +21,7 @@ const FULL_WIDTH_PATHS = [
     '/oving/etikk',
     '/oving/simulering',
     '/infrastruktur-atlas',
+    '/samfunnskunnskap/okonomi/verden',
     '/oving/spill/',
 ];
 

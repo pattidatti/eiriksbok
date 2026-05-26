@@ -1,0 +1,273 @@
+{
+    "id": "pinse",
+    "title": "Pinse: Den dagen kirken ble til",
+    "subject": "krle",
+    "topic": "religion",
+    "religion": "kristendom",
+    "layout": "rich",
+    "year": "ca. 30 e.Kr.",
+    "category": "Kristendom",
+    "readTime": "8 min lesning",
+    "heroImage": "/images/krle/religion/kristendom_hero.webp",
+    "dimension": "ritual",
+    "comparison_tags": ["pinse", "høytider", "den-hellige-ånd", "kristendom"],
+    "details": [
+        "Pinse feires 50 dager etter påske og markerer Den hellige ånds komme.",
+        "På den første pinsedagen ble over 3000 mennesker døpt — kirken var født.",
+        "Folk fra hele den kjente verden hørte evangeliet på sitt eget morsmål.",
+        "Ordet 'pinse' kommer fra det greske 'Pentekosté', som betyr 'den femtiende dag'.",
+        "Pinsevenner er i dag den raskest voksende kristne bevegelsen i verden."
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Tenk deg en gruppe på 120 mennesker. De er samlet i et hus i Jerusalem, og dørene er låst. Det er gått 50 dager siden påske, og de vet ikke helt hva som vil skje videre. Disiplene har sett Jesus stå opp fra de døde og stige opp til himmelen. Nå sitter de og venter på noe Jesus kalte «et løfte fra Gud»."
+        },
+        {
+            "type": "header",
+            "text": "Jerusalem, 50 dager etter påske"
+        },
+        {
+            "type": "text",
+            "content": "Det er den jødiske høytiden Shavuot, og Jerusalem er fullpakket med pilgrimmer fra hele den kjente verden. Folk har reist fra Persia, Egypt, Libya, Roma og Arabia for å feire. Byen summer av fremmede språk og dialekter. Midt i alt dette sitter disiplene samlet på ett sted — og venter."
+        },
+        {
+            "type": "header",
+            "text": "Lyd som av en stor vind"
+        },
+        {
+            "type": "text",
+            "content": "Plutselig skjer det noe merkelig. En lyd som av en kraftig storm fyller hele huset, selv om det er stille ute. Så ser de det: noe som ligner ildtunger setter seg ned på hodene til alle i rommet. Og alle begynner å snakke på språk de aldri har lært."
+        },
+        {
+            "type": "component",
+            "name": "QuoteBlock",
+            "props": {
+                "text": "Det viste seg for dem tunger som av ild, og de fordelte seg og satte seg på hver enkelt av dem. Da ble de alle fylt av Den hellige ånd, og de begynte å tale i andre tunger, etter som Ånden gav dem å forkynne.",
+                "source": "Bibelen",
+                "reference": "Apostlenes gjerninger 2:3-4"
+            }
+        },
+        {
+            "type": "text",
+            "content": "Folk utenfor hører lyden og strømmer til. Og noe rart skjer: alle som er der, hører disiplene tale på sitt eget morsmål. En mann fra Persia hører persisk. En fra Egypt hører egyptisk. Folkemengden er forvirret og fascinert. Noen tror rett og slett at disiplene er fulle."
+        },
+        {
+            "type": "header",
+            "text": "Peter taler til mengden"
+        },
+        {
+            "type": "text",
+            "content": "Det er her noe slående skjer. Peter — mannen som bare uker tidligere nektet tre ganger å kjenne Jesus da han ble arrestert — reiser seg og holder en stor og modig tale foran en folkemengde. Han er ikke lenger redd. Han forklarer hva som skjer: dette er ikke fyll, dette er Den hellige ånd som profeten Joel for lenge siden spådde ville komme over alle mennesker."
+        },
+        {
+            "type": "text",
+            "content": "Så forteller Peter historien om Jesus — hans liv, hans død, hans oppstandelse. Noe i talen treffer. Ifølge Apostlenes gjerninger lot 3000 mennesker seg døpe den dagen. En liten gruppe redde disipler hadde forvandlet seg til en menighet. Kirken var født."
+        },
+        {
+            "type": "header",
+            "text": "Hva er Den hellige ånd?"
+        },
+        {
+            "type": "text",
+            "content": "Hvem er egentlig Den hellige ånd? I kristen tro er Den hellige ånd den tredje personen i treenigheten — Faderen, Sønnen og Den hellige ånd. Der Faderen er Gud som skaper, og Sønnen (Jesus) er Gud som ble menneske, er Den hellige ånd Gud som virker i og gjennom mennesker."
+        },
+        {
+            "type": "text",
+            "content": "Det greske ordet for ånd er pneuma, som også betyr pust eller vind. Det hebraiske ordet er ruach og betyr det samme. Ånden er Guds livgivende nærvær — det som forvandles og beveger. Som vind er Den hellige ånd usynlig, men man ser godt hva den gjør."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Tre begreper å kjenne",
+                "items": [
+                    {
+                        "label": "Den hellige ånd",
+                        "value": "Den tredje personen i treenigheten. Guds nærvær og kraft som virker i og gjennom mennesker."
+                    },
+                    {
+                        "label": "Tungetale",
+                        "value": "Evnen til å tale på ukjente språk, gitt av Den hellige ånd. Kalles også «glossolalia» fra gresk."
+                    },
+                    {
+                        "label": "Pentekosté",
+                        "value": "Gresk for «den femtiende dag». Det er her det norske ordet «pinse» kommer fra."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Nasjonene som hørte sitt eget språk"
+        },
+        {
+            "type": "text",
+            "content": "Apostlenes gjerninger lister opp 15 nasjoner og folk som var til stede i Jerusalem den dagen. For den første kirken var dette viktig å fortelle. Evangeliet var ikke bare for ett folk — det var for alle folk. Det som skjedde i Jerusalem var ikke en lokal hendelse, det var startskuddet for en verdensreligion."
+        },
+        {
+            "type": "component",
+            "name": "PinseNasjoner",
+            "props": {
+                "title": "Nasjonene på pinsedagen"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Pinse og den jødiske Shavuot"
+        },
+        {
+            "type": "text",
+            "content": "Det er ingen tilfeldighet at pinsedagen skjedde nettopp under Shavuot. Den jødiske høytiden feires 50 dager etter påske, og det er det greske ordet for «den femtiende dag» — Pentekosté — som har gitt oss det norske ordet «pinse». Shavuot markerer at Gud ga Toraen, loven, til Moses på Sinai-fjellet."
+        },
+        {
+            "type": "text",
+            "content": "Mange kristne teologer har sett en dyp sammenheng mellom de to høytidene. På Sinai ga Gud loven skrevet på steintavler. På pinsedagen ga Gud sin ånd, som ifølge profeten Jeremia skulle skrive loven på menneskenes hjerter. Det nye og det gamle henger tett sammen."
+        },
+        {
+            "type": "header",
+            "text": "Pinsevenner i dag"
+        },
+        {
+            "type": "text",
+            "content": "I 1906 brøt det ut en religiøs vekkelse i Los Angeles som ble kalt Azusa Street-vekkelsen. Folk begynte å tale i tunger og oppleve det de mente var Den hellige ånd på en direkte og overveldende måte — akkurat som i Apostlenes gjerninger 2. Bevegelsen spredte seg raskt over hele verden."
+        },
+        {
+            "type": "text",
+            "content": "Til Norge kom den med pastor Thomas Ball Barratt i 1907. Han hadde opplevd tungetale i New York og tok erfaringen med seg hjem. I dag er pinsevenner den nest største kristne bevegelsen i landet, etter Den norske kirke. Globalt er den pinsekristne og karismatiske bevegelsen den raskest voksende delen av kristendommen — med over 600 millioner tilhengere."
+        },
+        {
+            "type": "header",
+            "text": "Pinse i Norge"
+        },
+        {
+            "type": "text",
+            "content": "I Norge er pinse en offisiell høytid med to røde dager — første og andre pinsedag. De fleste vet at det er en kristen høytid og forbinder det med vår og lange helger. I kirkene holdes det pinsenattverd, lovsang og ofte utendørsgudstjenester. Symbolene for pinse er ild og den hvite duen — tegn på Den hellige ånd."
+        },
+        {
+            "type": "header",
+            "text": "Fra Jerusalem til verden"
+        },
+        {
+            "type": "component",
+            "name": "TimelineComponent",
+            "props": {
+                "compact": true,
+                "events": [
+                    {
+                        "year": "ca. 30 e.Kr.",
+                        "title": "Den første pinsedagen",
+                        "description": "Den hellige ånd kommer over disiplene i Jerusalem. 3000 blir døpt på én dag."
+                    },
+                    {
+                        "year": "ca. 50 e.Kr.",
+                        "title": "Paulus brev om åndens gaver",
+                        "description": "Paulus skriver om tungetale og andre åndens gaver i sitt brev til menigheten i Korint."
+                    },
+                    {
+                        "year": "300-tallet",
+                        "title": "Pinse blir kirkelig høytid",
+                        "description": "Pinse etableres som én av de tre store kirkelige høytidene — sammen med påske og jul."
+                    },
+                    {
+                        "year": "1906",
+                        "title": "Azusa Street-vekkelsen",
+                        "description": "En pinsekraften vekkelse starter i Los Angeles og sprer seg over hele verden."
+                    },
+                    {
+                        "year": "1907",
+                        "title": "Pinsevekkelse i Norge",
+                        "description": "Thomas Ball Barratt bringer pinsevekkelsen til Kristiania (Oslo). Det norske pinseforbundet vokser frem."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "title": "Test deg selv",
+                "questions": [
+                    {
+                        "question": "Hva betyr det greske ordet «Pentekosté»?",
+                        "options": [
+                            "Den femtiende dag",
+                            "Den hellige ild",
+                            "Den nye begynnelse"
+                        ],
+                        "answer": "Den femtiende dag"
+                    },
+                    {
+                        "question": "Hva skjedde med disiplene da Den hellige ånd kom over dem?",
+                        "options": [
+                            "De fikk syn og helbredet syke",
+                            "De begynte å tale på språk de aldri hadde lært",
+                            "De ble usynlige for fiendene sine"
+                        ],
+                        "answer": "De begynte å tale på språk de aldri hadde lært"
+                    },
+                    {
+                        "question": "Hvilken jødisk høytid falt sammen med den første pinsedagen?",
+                        "options": [
+                            "Pesach (Påske)",
+                            "Shavuot",
+                            "Jom Kippur"
+                        ],
+                        "answer": "Shavuot"
+                    },
+                    {
+                        "question": "Hvem brakte pinsevekkelsen til Norge i 1907?",
+                        "options": [
+                            "Martin Luther",
+                            "Hans Nielsen Hauge",
+                            "Thomas Ball Barratt"
+                        ],
+                        "answer": "Thomas Ball Barratt"
+                    },
+                    {
+                        "question": "Hva er Den hellige ånd ifølge kristen tro?",
+                        "options": [
+                            "En engel som beskytter kirken",
+                            "Den tredje personen i treenigheten",
+                            "Et symbol på Jesu oppstandelse"
+                        ],
+                        "answer": "Den tredje personen i treenigheten"
+                    }
+                ]
+            }
+        }
+    ],
+    "concepts": [
+        {
+            "id": "pinse",
+            "term": "Pinse",
+            "definition": "Kristen høytid 50 dager etter påske, som markerer at Den hellige ånd kom over disiplene i Jerusalem."
+        },
+        {
+            "id": "den-hellige-and",
+            "term": "Den hellige ånd",
+            "definition": "Den tredje personen i den kristne treenigheten. Guds nærvær og kraft som virker i og gjennom mennesker."
+        },
+        {
+            "id": "tungetale",
+            "term": "Tungetale",
+            "definition": "Evnen til å tale på ukjente språk, tilskrevet Den hellige ånd. Kalles også glossolalia fra gresk."
+        },
+        {
+            "id": "shavuot",
+            "term": "Shavuot",
+            "definition": "Jødisk høytid 50 dager etter påske. Feirer at Gud ga Toraen til Moses på Sinai-fjellet."
+        },
+        {
+            "id": "pinsevenner",
+            "term": "Pinsevenner",
+            "definition": "Kristen bevegelse som legger stor vekt på Den hellige ånd, tungetale og direkte religiøse opplevelser."
+        }
+    ],
+    "quote": {
+        "text": "Det viste seg for dem tunger som av ild, og de fordelte seg og satte seg på hver enkelt av dem.",
+        "source": "Bibelen",
+        "reference": "Apostlenes gjerninger 2:3"
+    },
+    "timeline": []
+}
