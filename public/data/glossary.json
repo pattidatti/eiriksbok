@@ -18,11 +18,21 @@
     "subject": "historie"
   },
   {
+    "term": "Ærlighet",
+    "definition": "Å snakke sant og handle uten å lyve. Sentral dyd i de fleste etiske systemer.",
+    "type": "concept"
+  },
+  {
     "term": "agens",
     "definition": "Evnen til å handle og påvirke sine egne omgivelser. En karakter med agens tar egne valg som driver historien fremover, i stedet for å bare reagere på det som skjer.",
     "subject": "norsk",
     "topic": "skrivehjelp",
     "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "Ahura Mazda",
+    "definition": "Den gode skaperguden i zoroastrismen, en av verdens første monoteistiske religioner. Står i evig kamp mot ondskapens makt, Angra Mainyu.",
     "type": "concept"
   },
   {
@@ -74,6 +84,11 @@
     "type": "concept"
   },
   {
+    "term": "Angra Mainyu",
+    "definition": "Det ondes prinsipp i zoroastrismen, motsetningen til Ahura Mazda. Modellen for jødedommens og kristendommens djevelfigur.",
+    "type": "concept"
+  },
+  {
     "term": "Anschluss",
     "definition": "Tysklands annektering (innlemmelse) av Østerrike i 1938.",
     "subject": "historie",
@@ -82,11 +97,32 @@
     "type": "concept"
   },
   {
+    "term": "Antisemittisme",
+    "definition": "Fordommer og hat rettet mot jøder. Har røtter i middelalderen, men nådde sitt mest brutale uttrykk i nazistenes Holocaust.",
+    "type": "concept"
+  },
+  {
+    "term": "Arbeidsmiljøloven",
+    "definition": "Den norske loven som beskytter arbeidstakere. Den regulerer blant annet arbeidstid, ferie, oppsigelse og sikkerhet på arbeidsplassen.",
+    "type": "concept",
+    "tags": [
+      "arbeidsliv",
+      "rettigheter",
+      "lov"
+    ],
+    "subject": "samfunnskunnskap"
+  },
+  {
     "id": "arbeidsspesialisering",
     "term": "Arbeidsspesialisering",
     "definition": "Når en produksjonsprosess deles opp i mindre enkeltoppgaver, slik at hver arbeider blir spesialist på sin del av prosessen. Dette øker effektiviteten betydelig.",
     "type": "concept",
     "link": "/samfunnskunnskap/okonomi/arbeidsspesialisering"
+  },
+  {
+    "term": "Argumentasjon",
+    "definition": "Måten man bygger opp grunner for et synspunkt. God argumentasjon består av en påstand, et belegg og en bakenforliggende grunn som binder dem sammen.",
+    "type": "concept"
   },
   {
     "term": "armada",
@@ -122,6 +158,11 @@
     "type": "concept"
   },
   {
+    "term": "Autoritet",
+    "definition": "Anerkjent rett til å bestemme. Max Weber skilte mellom tradisjonell, karismatisk og rasjonell-juridisk autoritet.",
+    "type": "concept"
+  },
+  {
     "term": "Avkolonisering",
     "definition": "Prosessen der kolonier blir selvstendige stater.",
     "subject": "historie",
@@ -143,9 +184,24 @@
     "subject": "historie"
   },
   {
+    "term": "Bevissthet",
+    "definition": "Å være våken og oppleve verden. En av filosofiens største gåter: Hvordan oppstår indre opplevelse av fysisk hjerneaktivitet?",
+    "type": "concept"
+  },
+  {
     "term": "Bindeord",
     "definition": "Ord eller faste uttrykk som binder sammen setninger eller avsnitt (f.eks. 'derfor', 'men', 'på den andre siden').",
     "links": [],
+    "type": "concept"
+  },
+  {
+    "term": "Biologi",
+    "definition": "Vitenskapen om levende organismer - fra bakterier til hvaler. Studerer hvordan liv oppstår, fungerer og utvikler seg.",
+    "type": "concept"
+  },
+  {
+    "term": "Bitterhet",
+    "definition": "Vedvarende vrede over urett man har opplevd. Tyskland etter Versailles-freden var preget av nasjonal bitterhet.",
     "type": "concept"
   },
   {
@@ -154,6 +210,11 @@
     "subject": "historie",
     "topic": "forste-verdenskrig",
     "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "Bletchley Park",
+    "definition": "Britisk anlegg der kodeknekkere ledet av Alan Turing knekte den tyske Enigma-koden under andre verdenskrig. Arbeidet var hemmelig i 30 år etter krigen.",
     "type": "concept"
   },
   {
@@ -170,6 +231,11 @@
     "subject": "historie",
     "topic": "forste-verdenskrig",
     "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "Bloody Sunday",
+    "definition": "Søndag 30. januar 1972 da britiske soldater skjøt og drepte 14 ubevæpnede demonstranter i Derry, Nord-Irland. Hendelsen radikaliserte konflikten.",
     "type": "concept"
   },
   {
@@ -195,6 +261,16 @@
     "type": "concept"
   },
   {
+    "term": "Bretton Woods",
+    "definition": "Konferanse i USA i 1944 som la grunnlaget for etterkrigstidens økonomiske system. Dollar ble verdens reservevaluta og Verdensbanken og IMF ble grunnlagt.",
+    "type": "concept"
+  },
+  {
+    "term": "Brutalitet",
+    "definition": "Ekstrem voldelighet uten medfølelse. Et begrep som ofte brukes om krigføring, undertrykkelse og diktaturers behandling av motstandere.",
+    "type": "concept"
+  },
+  {
     "term": "Budskap",
     "definition": "Det forfatteren ønsker å formidle til leseren gjennom teksten. Ofte en moral, en lærdom eller en holdning til temaet som utforskes.",
     "subject": "norsk",
@@ -205,6 +281,11 @@
     ],
     "type": "concept",
     "link": "/norsk/analyse/tema-og-budskap"
+  },
+  {
+    "term": "Byråkrati",
+    "definition": "Organisasjon som styres av regler og embetsmenn som behandler alle likt etter loven. Sosiologen Max Weber så det som moderne samfunns ryggrad.",
+    "type": "concept"
   },
   {
     "id": "bysants",
@@ -232,6 +313,26 @@
     "link": "/samfunnskunnskap/ideer-og-verdenssyn/casus-belli"
   },
   {
+    "term": "Civil Rights Act",
+    "definition": "Amerikansk lov fra 1964 som forbød diskriminering basert på rase, hudfarge, religion eller kjønn. President Lyndon B. Johnson signerte loven.",
+    "type": "concept"
+  },
+  {
+    "term": "Code Civil",
+    "definition": "Napoleon-koden fra 1804 - Frankrikes sivillovbok. Likhet for loven, religionsfrihet og eiendomsrett ble lovfestet og spredt over Europa.",
+    "type": "concept"
+  },
+  {
+    "term": "Corpus Juris Civilis",
+    "definition": "Romersk lovsamling utgitt av keiser Justinian rundt år 530. Den ble gjenoppdaget på 1100-tallet og er grunnlaget for europeisk rett.",
+    "type": "concept"
+  },
+  {
+    "term": "Cura Annonae",
+    "definition": "Romerrikets korndistribusjon - gratis eller billig korn til Romas innbyggere. «Brød og sirkus» holdt befolkningen rolig.",
+    "type": "concept"
+  },
+  {
     "term": "D-dagen",
     "definition": "Den allierte invasjonen av Normandie i Frankrike 6. juni 1944.",
     "subject": "historie",
@@ -249,6 +350,16 @@
       "tyskland"
     ],
     "subject": "historie"
+  },
+  {
+    "term": "Das Ding an sich",
+    "definition": "Kants begrep om «tingen i seg selv» - virkeligheten slik den faktisk er, uavhengig av hvordan vi opplever den. Den kan vi aldri kjenne direkte.",
+    "type": "concept"
+  },
+  {
+    "term": "Das Man",
+    "definition": "Heideggers begrep om «manmennesket» - det upersonlige «folk sier», «folk gjør». En tilstand der man slutter å ta egne valg.",
+    "type": "concept"
   },
   {
     "term": "De allierte",
@@ -320,6 +431,16 @@
     "type": "concept"
   },
   {
+    "term": "Det kategoriske imperativ",
+    "definition": "Kants etiske grunnregel: Handle bare etter en regel du samtidig kan ønske skal være lov for alle mennesker.",
+    "type": "concept"
+  },
+  {
+    "term": "Det Østindiske Kompani",
+    "definition": "Nederlandsk variant av det britiske: VOC (1602-1799) - verdens første aksjeselskap. Dominerte handelen med Asia.",
+    "type": "concept"
+  },
+  {
     "term": "Diktatur",
     "definition": "En styreform der makten er konsentrert hos én person eller en liten gruppe, uten demokratisk kontroll eller frie valg.",
     "type": "concept",
@@ -351,11 +472,52 @@
     "subject": "historie"
   },
   {
+    "term": "Dygdsetikk",
+    "definition": "Etisk teori med røtter hos Aristoteles. Det viktige er ikke regler eller konsekvenser, men hvilken karakter du utvikler.",
+    "type": "concept",
+    "link": "/krle/etikk/dygdsetikk"
+  },
+  {
+    "term": "East India Company",
+    "definition": "Britisk handelskompani som styrte India i over hundre år. Selskapet hadde sin egen hær og forvaltet større territorier enn de fleste stater.",
+    "type": "concept"
+  },
+  {
+    "term": "Eiendom",
+    "definition": "Noe som tilhører en bestemt person eller gruppe, med rett til å bruke, selge eller gi det bort. Begrepet om privat eiendom står sentralt i kapitalismen.",
+    "type": "concept"
+  },
+  {
+    "term": "Eksistensialisme",
+    "definition": "Filosofisk retning som hevder at mennesket først eksisterer, så skaper det selv sin essens. Hovedtenkere: Kierkegaard, Sartre, Beauvoir.",
+    "type": "concept"
+  },
+  {
+    "term": "Ekstremisme",
+    "definition": "Ytterliggående politiske eller religiøse holdninger som avviser kompromisser. Ekstremister mener at deres syn er det eneste rette.",
+    "type": "concept"
+  },
+  {
+    "term": "Ekteskap",
+    "definition": "Avtale mellom to mennesker om å leve sammen som familie, med juridiske, økonomiske og ofte religiøse rettigheter og plikter.",
+    "type": "concept"
+  },
+  {
+    "term": "Empirisme",
+    "definition": "Filosofisk syn om at all kunnskap kommer fra sansene og erfaring. Står i motsetning til rasjonalisme, som vektlegger fornuften.",
+    "type": "concept"
+  },
+  {
     "term": "Enigma",
     "definition": "En tysk krypteringsmaskin brukt til å sende hemmelige meldinger under andre verdenskrig.",
     "subject": "historie",
     "topic": "andre-verdenskrig",
     "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "Ensomhet",
+    "definition": "Følelsen av å være avskåret fra andre mennesker. Et voksende samfunnsproblem i moderne samfunn.",
     "type": "concept"
   },
   {
@@ -365,6 +527,12 @@
     "topic": "forste-verdenskrig",
     "tags": [],
     "type": "concept"
+  },
+  {
+    "term": "Eskatologi",
+    "definition": "Læren om verdens ende og livet etter døden. Sentral i kristendom, islam og jødedom.",
+    "type": "concept",
+    "link": "/samfunnskunnskap/ideer-og-verdenssyn/eskatologi"
   },
   {
     "term": "Etos",
@@ -386,11 +554,37 @@
     "type": "concept"
   },
   {
+    "term": "Fagforening",
+    "definition": "En organisasjon der arbeidstakere går sammen for å kjempe for bedre lønn og arbeidsvilkår. Istedenfor at hver enkelt forhandler alene, står man sterkere sammen.",
+    "type": "concept",
+    "tags": [
+      "arbeidsliv",
+      "organisering"
+    ],
+    "subject": "samfunnskunnskap"
+  },
+  {
     "term": "Fascisme",
     "definition": "En autoritær, nasjonalistisk ideologi som sto sterkt i Italia og Tyskland (nazisme).",
     "subject": "historie",
     "topic": "andre-verdenskrig",
     "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "Fattigdom",
+    "definition": "Å mangle det man trenger for å leve et verdig liv. Absolutt fattigdom betyr at man mangler mat og tak over hodet; relativ fattigdom betyr at man har mye mindre enn andre i samme samfunn.",
+    "type": "concept",
+    "link": "/samfunnskunnskap/demografi/fattigdom"
+  },
+  {
+    "term": "Federal Reserve",
+    "definition": "USAs sentralbank, opprettet i 1913. Styrer renten og pengemengden i USA og påvirker økonomien i hele verden.",
+    "type": "concept"
+  },
+  {
+    "term": "Fellesskap",
+    "definition": "En gruppe mennesker som hører sammen og deler verdier, mål eller skjebne. Familie, venner, klasse og nasjon er alle fellesskap.",
     "type": "concept"
   },
   {
@@ -405,6 +599,11 @@
     "subject": "historie"
   },
   {
+    "term": "Filosofi",
+    "definition": "Læren om de store spørsmålene: Hva er virkelig? Hva er rett? Hva er kunnskap? Ordet betyr «kjærlighet til visdom» på gresk.",
+    "type": "concept"
+  },
+  {
     "term": "Førromersk jernalder",
     "definition": "Den eldste delen av jernalderen i Norden, som strekker seg fra ca. 500 fvt. til begynnelsen av vår tidsregning.",
     "type": "concept",
@@ -414,6 +613,11 @@
       "historie"
     ],
     "subject": "historie"
+  },
+  {
+    "term": "Føydalisme",
+    "definition": "Samfunnssystem i middelalderens Europa der adelen fikk land av kongen mot å stille soldater, og bøndene jobbet jorda for adelen mot beskyttelse.",
+    "type": "concept"
   },
   {
     "term": "Folkeforbundet",
@@ -437,6 +641,24 @@
     "link": "/historie/middelalderen/tidlig-middelalder"
   },
   {
+    "term": "Frihet",
+    "definition": "Å kunne velge selv hva man vil gjøre, tro og si. Skiller mellom frihet FRA (tvang, undertrykkelse) og frihet TIL (å delta, ytre seg).",
+    "type": "concept",
+    "link": "/samfunnskunnskap/arbeidsliv/fremtidens-arbeidsliv"
+  },
+  {
+    "term": "Frontfagmodellen",
+    "definition": "Den norske modellen for lønnsdannelse. Eksportindustrien forhandler lønn først og setter normen for resten av arbeidslivet. Poenget er at lønningene ikke skal vokse raskere enn det bedriftene som konkurrerer med utlandet tåler.",
+    "type": "concept",
+    "tags": [
+      "arbeidsliv",
+      "økonomi",
+      "lønn"
+    ],
+    "subject": "samfunnskunnskap",
+    "link": "/samfunnskunnskap/arbeidsliv/frontfagmodellen"
+  },
+  {
     "term": "Fullmaktsloven",
     "definition": "En lov vedtatt i Tyskland i 1933 som ga Adolf Hitler og hans regjering rett til å vedta lover uten å gå veien om riksdagen. Dette gjorde ham i praksis til diktator.",
     "type": "concept",
@@ -448,6 +670,33 @@
     "subject": "historie"
   },
   {
+    "term": "Generasjon",
+    "definition": "Alle som er født omtrent samtidig og deler de samme erfaringene. Hver generasjon preges av sin egen tid: krig, krise eller velstand.",
+    "type": "concept"
+  },
+  {
+    "term": "Gig-økonomi",
+    "definition": "En arbeidsform der folk tar korte oppdrag istedenfor faste jobber. Eksempler er Uber-sjåfører, Foodora-bud og frilansere. Disse har ofte ikke de samme rettighetene som fast ansatte.",
+    "type": "concept",
+    "tags": [
+      "arbeidsliv",
+      "økonomi",
+      "fremtid"
+    ],
+    "subject": "samfunnskunnskap"
+  },
+  {
+    "term": "Gini-koeffisient",
+    "definition": "Et tall mellom 0 og 1 som måler hvor ulike inntektene i et land er. 0 betyr at alle tjener likt, 1 betyr at en person har alt. Norge ligger rundt 0,27, blant de mest like i verden.",
+    "type": "concept",
+    "tags": [
+      "økonomi",
+      "ulikhet",
+      "statistikk"
+    ],
+    "subject": "samfunnskunnskap"
+  },
+  {
     "term": "Glasnost",
     "definition": "En reformpolitik lansert av Mikhail Gorbatsjov i Sovjetunionen på 1980-tallet. Ordet betyr 'åpenhet', og målet var å skape mer gjennomsiktighet i staten og mer ytringsfrihet for borgerne.",
     "subject": "historie",
@@ -457,6 +706,21 @@
       "reform",
       "frihet"
     ],
+    "type": "concept"
+  },
+  {
+    "term": "Göbekli Tepe",
+    "definition": "Arkeologisk sted i Tyrkia med tempelanlegg som er 12 000 år gamle - eldre enn jordbruket. Funnet utfordrer hvordan vi forstår sivilisasjonens start.",
+    "type": "concept"
+  },
+  {
+    "term": "Good Friday Agreement",
+    "definition": "Fredsavtalen som avsluttet konflikten i Nord-Irland i 1998. Den ble forhandlet fram med hjelp fra president Bill Clinton.",
+    "type": "concept"
+  },
+  {
+    "term": "Group Areas Act",
+    "definition": "Sørafrikansk lov fra 1950 som tvang ulike rasegrupper til å bo i adskilte områder. Millioner ble tvunget til å flytte.",
     "type": "concept"
   },
   {
@@ -553,6 +817,11 @@
     "type": "concept"
   },
   {
+    "term": "Helhet",
+    "definition": "Det fullstendige bildet, som er mer enn summen av delene. Å se helhet er sentralt i filosofi, vitenskap og kunstforståelse.",
+    "type": "concept"
+  },
+  {
     "term": "Helsetning",
     "definition": "En setning som kan stå alene og gi fullstendig mening. Den inneholder minst et subjekt og et verbal.",
     "type": "concept",
@@ -581,6 +850,11 @@
     "type": "concept"
   },
   {
+    "term": "Hierarki",
+    "definition": "Et system der noen står over andre i rang og makt. Finnes i kirker, hærer, bedrifter og dyresamfunn.",
+    "type": "concept"
+  },
+  {
     "term": "Holocaust",
     "definition": "Det nasjonalsosialistiske Tysklands systematiske folkemord på jøder og andre minoriteter.",
     "subject": "historie",
@@ -601,6 +875,17 @@
     "subject": "historie"
   },
   {
+    "term": "Humanisme",
+    "definition": "Livssyn som setter mennesket i sentrum og bygger på fornuft, etikk og menneskeverd uten religion. Har røtter i renessansen.",
+    "type": "concept",
+    "link": "/samfunnskunnskap/ideer-og-verdenssyn/humanisme"
+  },
+  {
+    "term": "Humes giljotin",
+    "definition": "Filosofisk regel oppkalt etter David Hume: man kan ikke utlede en moralsk «bør» fra en faktisk «er». Hva som er, sier ikke noe om hva som bør være.",
+    "type": "concept"
+  },
+  {
     "term": "Hyperinflasjon",
     "definition": "En ekstremt rask og ukontrollert økning i priser. Pengene mister sin verdi så fort at folk må ha trillebårer med sedler for å kjøpe helt vanlige varer som brød.",
     "type": "concept",
@@ -612,11 +897,26 @@
     "subject": "historie"
   },
   {
+    "term": "Identitet",
+    "definition": "Det som gjør deg til deg - kjønn, språk, kultur, tro, gruppetilhørighet. Identitet kan både samle og skille mennesker.",
+    "type": "concept"
+  },
+  {
+    "term": "Ideologi",
+    "definition": "Et helhetlig sett med ideer om hvordan samfunnet bør være. Liberalisme, sosialisme og konservatisme er eksempler på politiske ideologier.",
+    "type": "concept"
+  },
+  {
     "term": "imperialisme",
     "definition": "En politikk der en stat forsøker å skaffe seg politisk, kulturell, økonomisk eller militært herredømme utover sine egne grenser.",
     "subject": "historie",
     "topic": "kolonialisering",
     "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "Index Librorum Prohibitorum",
+    "definition": "Den katolske kirkes liste over forbudte bøker, opprettet i 1559. Den ble avskaffet i 1966. Mange klassikere som Galileo og Voltaire sto på listen.",
     "type": "concept"
   },
   {
@@ -628,11 +928,22 @@
     "type": "concept"
   },
   {
+    "term": "Inflasjon",
+    "definition": "Når prisene generelt stiger og pengene blir mindre verdt. Litt inflasjon er normalt, men løpsk inflasjon (hyperinflasjon) kan ødelegge en økonomi.",
+    "type": "concept",
+    "link": "/samfunnskunnskap/okonomi/inflasjon-og-rente"
+  },
+  {
     "term": "Ingenmannsland",
     "definition": "Området mellom de to fiendtlige skyttergravslinjene, ofte dekket av piggtråd og kratere.",
     "subject": "historie",
     "topic": "forste-verdenskrig",
     "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "Innovasjon",
+    "definition": "Når noen finner opp eller forbedrer noe slik at det skaper ny verdi - en idé, et produkt eller en måte å gjøre ting på.",
     "type": "concept"
   },
   {
@@ -645,6 +956,11 @@
       "maktkamp"
     ],
     "subject": "historie"
+  },
+  {
+    "term": "Jazz Age",
+    "definition": "Engelsk: «jazzalderen». Tilnavnet på 1920-tallet i USA, da jazzen erobret klubbene, kvinner fikk stemmerett og kulturen brøt med tradisjonene.",
+    "type": "concept"
   },
   {
     "term": "Jazz",
@@ -661,6 +977,11 @@
       "europa",
       "grense"
     ],
+    "type": "concept"
+  },
+  {
+    "term": "Jim Crow-lovene",
+    "definition": "Lover i amerikanske sørstater fra 1870-tallet til 1965 som påla raseskille på skoler, busser, vannposter og restauranter. Navnet kommer fra en rasistisk sceneskikkelse.",
     "type": "concept"
   },
   {
@@ -774,6 +1095,11 @@
     "type": "concept"
   },
   {
+    "term": "Kjærlighet",
+    "definition": "Sterk omsorg for en annen. Grekerne hadde fire ord: eros (lidenskap), filia (vennskap), storge (familie) og agape (uselvisk kjærlighet).",
+    "type": "concept"
+  },
+  {
     "term": "koloni",
     "definition": "Et område som ligger utenfor moderlandet, men som styres av det.",
     "subject": "historie",
@@ -807,11 +1133,26 @@
     "subject": "historie"
   },
   {
+    "term": "Konfirmasjon",
+    "definition": "Overgangsritual som markerer at en ung person blir voksen. I kristen tradisjon bekreftes dåpen; i Norge har vi også borgerlig konfirmasjon.",
+    "type": "concept"
+  },
+  {
+    "term": "Kreativitet",
+    "definition": "Evnen til å skape noe nytt og verdifullt. Drives ofte fram av kombinasjonen av tvang (begrensninger) og frihet.",
+    "type": "concept"
+  },
+  {
     "term": "Krigserstatning",
     "definition": "Økonomisk kompensasjon som den tapende part i en krig må betale til seierherrene for skadene som er påført.",
     "subject": "historie",
     "topic": "forste-verdenskrig",
     "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "Kriminalitet",
+    "definition": "Handlinger som bryter med lover. Hva som regnes som kriminelt, varierer mellom land og endrer seg over tid.",
     "type": "concept"
   },
   {
@@ -824,6 +1165,11 @@
       "politikk"
     ],
     "subject": "historie"
+  },
+  {
+    "term": "Kunnskap",
+    "definition": "Det vi vet og kan begrunne. Filosofer skiller mellom å kjenne til noe (informasjon), å forstå hvorfor (innsikt), og å vite hvordan (ferdighet).",
+    "type": "concept"
   },
   {
     "term": "langar",
@@ -855,11 +1201,22 @@
     "subject": "norsk"
   },
   {
+    "term": "Legitimitet",
+    "definition": "Når folk anerkjenner at en hersker eller en lov har rett til å bestemme. Uten legitimitet må makten holdes oppe med vold.",
+    "type": "concept",
+    "link": "/samfunnskunnskap/styringsformer/makt-og-legitimitet"
+  },
+  {
     "term": "Leiesoldater",
     "definition": "Soldater som kjemper for betaling, ikke for et land eller en sak. Ofte brutale mot sivilbefolkningen.",
     "subject": "historie",
     "topic": "reformasjonen",
     "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "Liberalisme",
+    "definition": "Politisk ideologi som vektlegger individets frihet, eiendomsrett og begrenset statsmakt. Vokste fram under opplysningstiden.",
     "type": "concept"
   },
   {
@@ -872,6 +1229,16 @@
       "appellformer"
     ],
     "subject": "norsk"
+  },
+  {
+    "term": "Lojalitet",
+    "definition": "Trofasthet mot en person, gruppe eller idé. Lojalitet kan være en dyd, men kan også føre folk til å forsvare urett.",
+    "type": "concept"
+  },
+  {
+    "term": "Lydighet",
+    "definition": "Å gjøre som man får beskjed om. Stanley Milgrams eksperimenter viste hvor langt vanlige mennesker går for å lyde autoriteter.",
+    "type": "concept"
   },
   {
     "term": "Lydrike",
@@ -932,6 +1299,21 @@
     "type": "concept"
   },
   {
+    "term": "Meditasjon",
+    "definition": "Øvelse der man fokuserer oppmerksomheten for å oppnå indre ro eller åndelig innsikt. Sentral i buddhismen, hinduismen og kristen mystikk.",
+    "type": "concept"
+  },
+  {
+    "term": "Menneskeheten",
+    "definition": "Alle mennesker som art - nåtidens, fortidens og framtidens. Begrepet brukes ofte når vi snakker om felles ansvar, som klima eller atomvåpen.",
+    "type": "concept"
+  },
+  {
+    "term": "Menneskerettigheter",
+    "definition": "Grunnleggende rettigheter alle mennesker har bare fordi de er mennesker - uavhengig av kjønn, hudfarge, religion eller hvor de bor. Vedtatt av FN i 1948.",
+    "type": "concept"
+  },
+  {
     "id": "meritokrati",
     "term": "Meritokrati",
     "definition": "Et system der makt og ansvar fordeles basert på evner og ferdigheter, fremfor arv eller sosial status.",
@@ -962,6 +1344,16 @@
     ],
     "subject": "historie",
     "link": "/historie/middelalderen/tidlig-middelalder"
+  },
+  {
+    "term": "Migrasjon",
+    "definition": "Når mennesker flytter fra ett område til et annet. Folkevandringer har formet historie og kultur i alle tidsepoker.",
+    "type": "concept"
+  },
+  {
+    "term": "Mission Civilisatrice",
+    "definition": "Fransk: «sivilisasjonsoppdraget». Frankrikes selvrettferdige rettferdiggjøring av koloniseringen - de skulle bringe sivilisasjon til andre folk.",
+    "type": "concept"
   },
   {
     "term": "Molotov-Ribbentrop-pakten",
@@ -997,6 +1389,22 @@
     "type": "concept"
   },
   {
+    "term": "Mutual Assured Destruction",
+    "definition": "Doktrinen om gjensidig garantert ødeleggelse. USA og Sovjet hadde så mange atomvåpen at angrep ville ødelegge begge - derfor turte ingen angripe.",
+    "type": "concept"
+  },
+  {
+    "term": "Nasjon",
+    "definition": "En gruppe mennesker som føler de hører sammen gjennom språk, historie og kultur. En stat er den politiske organisasjonen, en nasjon er fellesskapsfølelsen.",
+    "type": "concept",
+    "link": "/historie/sveriges-historie/sveriges-historie"
+  },
+  {
+    "term": "Nasjonal Samling",
+    "definition": "Vidkun Quislings nazistparti, grunnlagt i 1933. Det var det eneste tillatte partiet i Norge under tysk okkupasjon 1940-1945.",
+    "type": "concept"
+  },
+  {
     "term": "Nasjonalisere",
     "aliases": [
       "nasjonalisering",
@@ -1029,6 +1437,12 @@
     "type": "concept"
   },
   {
+    "term": "Naturrett",
+    "definition": "Læren om at det finnes lover og rettigheter som gjelder for alle mennesker, basert på naturen eller fornuften - ikke bare på vedtatte lover.",
+    "type": "concept",
+    "link": "/krle/etikk/naturrett"
+  },
+  {
     "term": "Nazisme",
     "definition": "En form for fascisme utviklet av Hitler og nazistpartiet i Tyskland. I tillegg til nasjonalisme og autoritært styre, er nazismen sterkt rasistisk og antisemittisk.",
     "type": "concept"
@@ -1036,6 +1450,21 @@
   {
     "term": "The New Deal",
     "definition": "En rekke økonomiske reformer og programmer innført av president Roosevelt for å bekjempe depresjonen i USA gjennom statlig inngripen og støtte.",
+    "type": "concept"
+  },
+  {
+    "term": "Nøytralitet",
+    "definition": "Å stå utenfor en konflikt og ikke ta side. Sveits og Sverige har vært nøytrale i flere kriger; Norges nøytralitet brøt sammen 9. april 1940.",
+    "type": "concept"
+  },
+  {
+    "term": "Norges Bank",
+    "definition": "Norges sentralbank, opprettet i 1816. Styrer renten, gir ut penger og forvalter Oljefondet på vegne av staten.",
+    "type": "concept"
+  },
+  {
+    "term": "Norges Grunnlov",
+    "definition": "Norges grunnleggende lov, vedtatt på Eidsvoll 17. mai 1814. En av verdens eldste grunnlover som fortsatt er i bruk, bygger på maktfordeling.",
     "type": "concept"
   },
   {
@@ -1064,6 +1493,11 @@
     "subject": "samfunnskunnskap"
   },
   {
+    "term": "Observasjon",
+    "definition": "Å se nøye etter for å samle informasjon. Grunnlaget for all naturvitenskap.",
+    "type": "concept"
+  },
+  {
     "term": "oligarki",
     "definition": "En liten gruppe mennesker (fåmannsvelde) har all makten. Ofte er dette de rikeste i samfunnet, eller en militærjunta.",
     "subject": "samfunnskunnskap",
@@ -1084,6 +1518,11 @@
       "produksjon"
     ],
     "subject": "samfunnskunnskap"
+  },
+  {
+    "term": "Ondskap",
+    "definition": "Bevisst valg om å påføre andre skade. Filosofer har diskutert om ondskap er en kraft i seg selv, eller bare fravær av godt.",
+    "type": "concept"
   },
   {
     "term": "Operasjon Barbarossa",
@@ -1114,6 +1553,11 @@
     "type": "concept"
   },
   {
+    "term": "Organisasjon",
+    "definition": "En strukturert gruppe mennesker som jobber mot felles mål, med fordelte roller og regler. Bedrifter, idrettslag og FN er alle organisasjoner.",
+    "type": "concept"
+  },
+  {
     "term": "parlamentarisk republikk",
     "definition": "Republikk der parlamentet har mest makt. Presidenten har ofte en seremoniell rolle. Eksempel: Island eller Tyskland. Regjeringen utgår fra parlamentet.",
     "subject": "samfunnskunnskap",
@@ -1127,6 +1571,11 @@
     "subject": "samfunnskunnskap",
     "topic": "styringsformer",
     "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "Parlamentarisme",
+    "definition": "Styreform der regjeringen må ha tillit hos folkevalgte i parlamentet. Norge fikk parlamentarisme i 1884.",
     "type": "concept"
   },
   {
@@ -1152,6 +1601,16 @@
     "subject": "norsk"
   },
   {
+    "term": "Pax Britannica",
+    "definition": "Den fredsperioden 1815-1914 da Storbritannia dominerte verdenshandelen og forhindret stormaktskrig. Bygde på Royal Navys overlegenhet.",
+    "type": "concept"
+  },
+  {
+    "term": "Pax Deorum",
+    "definition": "Latin: «gudenes fred». Romerne mente at gudenes godvilje måtte sikres gjennom riktige ritualer, eller katastrofer ville ramme staten.",
+    "type": "concept"
+  },
+  {
     "id": "pax-mongolica",
     "term": "Pax Mongolica",
     "definition": "En periode med relativ stabilitet og fred i Eurasia på 1200- og 1300-tallet under det mongolske herredømmet, som muliggjorde trygg handel langs Silkeveien.",
@@ -1175,6 +1634,11 @@
     "subject": "historie"
   },
   {
+    "term": "Pearl Harbor",
+    "definition": "Amerikansk marinebase på Hawaii. Japans overraskelsesangrep 7. desember 1941 dro USA inn i andre verdenskrig.",
+    "type": "concept"
+  },
+  {
     "term": "Penicillin",
     "definition": "En type antibiotika som dreper bakterier og forhindrer infeksjoner.",
     "subject": "historie",
@@ -1192,6 +1656,22 @@
       "økonomi",
       "reform"
     ],
+    "type": "concept"
+  },
+  {
+    "term": "Pliktetikk",
+    "definition": "Etisk teori som sier at handlinger er riktige eller gale i seg selv, ikke pga. konsekvensene. Knyttet til Immanuel Kant og det kategoriske imperativ.",
+    "type": "concept",
+    "link": "/krle/etikk/pliktetikk"
+  },
+  {
+    "term": "Pontifex Maximus",
+    "definition": "Den øverste prest i romersk religion. Først en politisk tittel, så overtatt av keiserne og senere av paven.",
+    "type": "concept"
+  },
+  {
+    "term": "Population Registration Act",
+    "definition": "Sørafrikansk lov fra 1950 som klassifiserte alle innbyggere etter rase. En av apartheid-systemets grunnlover.",
     "type": "concept"
   },
   {
@@ -1230,6 +1710,16 @@
     "type": "concept"
   },
   {
+    "term": "Rasisme",
+    "definition": "Å skille mellom mennesker ut fra hudfarge eller etnisk opphav, og behandle noen som mindre verdt. Bygger på den falske ideen om at det finnes ulike menneskeraser.",
+    "type": "concept"
+  },
+  {
+    "term": "Realisme",
+    "definition": "Litterær periode i siste halvdel av 1800-tallet som ville vise samfunnet som det var, med fattigdom, urettferdighet og dobbeltmoral. Sentrale forfattere: Kielland og Ibsen.",
+    "type": "concept"
+  },
+  {
     "id": "refleksjon",
     "term": "Refleksjon",
     "definition": "Å tenke grundig over noe fra flere sider for å oppnå dypere forståelse. I skriving betyr det å undersøke egne tanker, spørsmål og vurderinger i møte med et tema eller en tekst.",
@@ -1246,6 +1736,11 @@
     "type": "concept"
   },
   {
+    "term": "Reformasjon",
+    "definition": "Reformbevegelsen som splittet den katolske kirken på 1500-tallet. Den startet med Martin Luther i 1517 og førte til at protestantismen oppsto.",
+    "type": "concept"
+  },
+  {
     "term": "Rekognosering",
     "definition": "Militær speiding for å samle informasjon om fiendens posisjoner og styrker.",
     "subject": "historie",
@@ -1256,6 +1751,11 @@
   {
     "term": "Relativitetsteorien",
     "definition": "Albert Einsteins fysiske teorier som endret vår forståelse av tid, rom, masse og energi. Den består av den spesielle og den generelle relativitetsteorien.",
+    "type": "concept"
+  },
+  {
+    "term": "Religionsfrihet",
+    "definition": "Retten til selv å velge tro og praktisere religion uten forfølgelse. Innebærer også retten til å ikke tro.",
     "type": "concept"
   },
   {
@@ -1296,6 +1796,16 @@
     "type": "concept"
   },
   {
+    "term": "Rettferdighet",
+    "definition": "At alle får det de fortjener etter rettferdige regler. Det kan bety lik fordeling, lik mulighet, eller at folk får igjen for det de gjør.",
+    "type": "concept"
+  },
+  {
+    "term": "Rettigheter",
+    "definition": "Det folk har krav på fra fellesskapet eller staten - som å si sin mening, eie noe, eller bli behandlet rettferdig.",
+    "type": "concept"
+  },
+  {
     "term": "Rhinen",
     "definition": "En av Europas lengste og viktigste elver. I antikken utgjorde den sammen med Donau mye av den nordlige grensen (limes) for Romerriket.",
     "type": "concept",
@@ -1318,8 +1828,23 @@
     "subject": "historie"
   },
   {
+    "term": "Rikdom",
+    "definition": "Å ha mer enn man trenger - ofte målt i penger, men også som tid, helse eller kunnskap. Hvordan rikdom fordeles bestemmer mye av et samfunns konflikter.",
+    "type": "concept"
+  },
+  {
     "term": "Det glade 20-tall",
     "definition": "Betegnelse på 1920-tallet i USA og Vest-Europa, preget av økonomisk oppgang, kulturell blomstring, jazzmusikk og nye sosiale friheter.",
+    "type": "concept"
+  },
+  {
+    "term": "Røde Kors",
+    "definition": "Internasjonal humanitær organisasjon grunnlagt av Henry Dunant etter slaget ved Solferino i 1859. Hjelper sårede soldater og sivile i krig.",
+    "type": "concept"
+  },
+  {
+    "term": "Royal Navy",
+    "definition": "Storbritannias marine, verdens mektigste fra 1700-tallet til midten av 1900-tallet. Royal Navys herredømme gjorde Pax Britannica mulig.",
     "type": "concept"
   },
   {
@@ -1332,6 +1857,27 @@
       "uttrykk"
     ],
     "subject": "historie"
+  },
+  {
+    "term": "Sårbarhet",
+    "definition": "Når man kan bli skadet eller såret. Å vise sårbarhet kan være både en svakhet og en styrke i menneskelige relasjoner.",
+    "type": "concept"
+  },
+  {
+    "term": "Samfunnskontrakt",
+    "definition": "Filosofisk idé om at staten oppstår fra en avtale mellom borgerne. Hobbes, Locke og Rousseau utviklet ulike versjoner av denne teorien.",
+    "type": "concept"
+  },
+  {
+    "term": "Sannhet",
+    "definition": "Det som faktisk stemmer med virkeligheten. Filosofer skiller mellom sannhet som overensstemmelse med fakta, sannhet som indre opplevelse, og sannhet som det vi blir enige om.",
+    "type": "concept",
+    "link": "/samfunnskunnskap/ideer-og-verdenssyn/sannhetens-historie"
+  },
+  {
+    "term": "Sapere aude",
+    "definition": "Latin: «Våg å tenke selv!» Immanuel Kants motto for opplysningstiden. En oppfordring til å bruke egen fornuft i stedet for å stole på autoriteter.",
+    "type": "concept"
   },
   {
     "term": "Schlieffen-planen",
@@ -1347,6 +1893,11 @@
     "subject": "historie",
     "topic": "forste-verdenskrig",
     "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "Selvstendighet",
+    "definition": "Å klare seg selv og stå på egne bein. Både en personlig dyd og et politisk mål for nasjoner.",
     "type": "concept"
   },
   {
@@ -1401,6 +1952,11 @@
     "type": "concept"
   },
   {
+    "term": "Sivilisasjon",
+    "definition": "Et samfunn med byer, skrift, statsmakt og spesialiserte yrker. De tidligste sivilisasjonene oppsto langs store elver for rundt 5000 år siden.",
+    "type": "concept"
+  },
+  {
     "term": "Skagerrak",
     "definition": "Havområdet mellom Sør-Norge, Nord-Jylland og det vestlige Sverige. Området har historisk sett vært en strategisk viktig ferdselsåre for skipstrafikken inn og ut av Østersjøen.",
     "type": "concept",
@@ -1422,11 +1978,26 @@
     "link": "/historie/forste-verdenskrig/skyttergravskrig"
   },
   {
+    "term": "Sol Invictus",
+    "definition": "Romersk solgud, populær fra 200-tallet. Mange kjennetegn ved kulten ble senere overtatt av kristendommen, blant annet feiringen av 25. desember.",
+    "type": "concept"
+  },
+  {
     "term": "sosialisme",
     "definition": "Produksjonsmidlene eies eller kontrolleres av fellesskapet (staten). Politisk bestemt hva som skal produseres (Planøkonomi). Målet er likere fordeling.",
     "subject": "samfunnskunnskap",
     "topic": "demografi-okonomi",
     "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "Spekulasjon",
+    "definition": "Å investere i håp om kortsiktig gevinst, ofte i risikable verdier. Spekulasjon var en viktig årsak til børskrakket i 1929.",
+    "type": "concept"
+  },
+  {
+    "term": "Stabilitet",
+    "definition": "Når samfunn, økonomi eller politiske systemer er forutsigbare og fungerer over tid. Brå endringer kan skape uro.",
     "type": "concept"
   },
   {
@@ -1438,11 +2009,21 @@
     "type": "concept"
   },
   {
+    "term": "Stamford Bridge",
+    "definition": "Slag i England 25. september 1066 der Harald Hardråde og hans vikinger ble beseiret av engelskmennene. Markerer slutten på vikingtiden.",
+    "type": "concept"
+  },
+  {
     "term": "Østfronten",
     "definition": "Krigssonen i Øst-Europa, mellom Tyskland/Østerrike-Ungarn og Russland.",
     "subject": "historie",
     "topic": "forste-verdenskrig",
     "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "Stolthet",
+    "definition": "Følelse av selvverd og glede over hva man eller ens gruppe har oppnådd. Nasjonalfølelse er ofte knyttet til kollektiv stolthet.",
     "type": "concept"
   },
   {
@@ -1456,6 +2037,21 @@
     ],
     "subject": "historie",
     "link": "/historie/sveriges-historie/sveriges-historie"
+  },
+  {
+    "term": "Strange Fruit",
+    "definition": "Billie Holidays sang fra 1939 om lynsjing av svarte i Sør-statene. «Sørstatenes trær bærer en merkelig frukt.» En av musikkhistoriens viktigste protestsanger.",
+    "type": "concept"
+  },
+  {
+    "term": "Streikerett",
+    "definition": "Arbeidstakernes rett til å legge ned arbeidet for å presse gjennom krav i lønnsforhandlinger. I Norge kan man bare streike når tariffavtalen er utløpt.",
+    "type": "concept",
+    "tags": [
+      "arbeidsliv",
+      "rettigheter"
+    ],
+    "subject": "samfunnskunnskap"
   },
   {
     "term": "Stridsvogn",
@@ -1517,6 +2113,11 @@
     "subject": "historie"
   },
   {
+    "term": "Sykdom",
+    "definition": "Når kroppen eller psyken ikke fungerer som den skal. Hva som regnes som sykdom har endret seg gjennom historien og varierer mellom kulturer.",
+    "type": "concept"
+  },
+  {
     "term": "Sykes-Picot-avtalen",
     "definition": "En hemmelig avtale fra 1916 mellom Storbritannia og Frankrike om å dele Det osmanske rikets arabiske provinser mellom seg etter krigen. Avtalen la grunnlaget for mange av dagens grenser i Midtøsten.",
     "type": "concept",
@@ -1540,6 +2141,16 @@
     "type": "concept"
   },
   {
+    "term": "Tariffavtale",
+    "definition": "En skriftlig avtale mellom en fagforening og en arbeidsgiver om lønn og arbeidsvilkår. Avtalen gjelder for en bestemt periode, vanligvis to år.",
+    "type": "concept",
+    "tags": [
+      "arbeidsliv",
+      "rettigheter"
+    ],
+    "subject": "samfunnskunnskap"
+  },
+  {
     "term": "te",
     "definition": "En drikk laget av blader fra tebusken. Ble ekstremt populært i Storbritannia på 1700-tallet.",
     "subject": "historie",
@@ -1556,11 +2167,22 @@
     "type": "concept"
   },
   {
+    "term": "Teknologi",
+    "definition": "Verktøy, maskiner og metoder vi lager for å løse oppgaver. Hver ny teknologi endrer både hvordan vi lever og hvordan samfunnet vårt fungerer.",
+    "type": "concept",
+    "link": "/historie/forste-verdenskrig/teknologi"
+  },
+  {
     "term": "tekstil",
     "definition": "Stoffer og klær. Bomullstekstiler fra India var svært ettertraktet i Europa.",
     "subject": "historie",
     "topic": "kolonialisering",
     "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "Telegrafen",
+    "definition": "Verdens første elektriske kommunikasjonsapparat, oppfunnet på 1830-tallet. Den gjorde det mulig å sende meldinger over hele verden på minutter.",
     "type": "concept"
   },
   {
@@ -1589,6 +2211,22 @@
     "type": "concept"
   },
   {
+    "term": "Teologi",
+    "definition": "Læren om Gud og religion. Studerer hvordan tro forholder seg til fornuft, historie og etikk.",
+    "type": "concept"
+  },
+  {
+    "term": "The Roaring Twenties",
+    "definition": "De brølende 20-årene - perioden etter første verdenskrig med økonomisk boom, jazz, biler og frigjøring. Endte brått med børskrakket i 1929.",
+    "type": "concept",
+    "link": "/historie/mellomkrigstiden/usa"
+  },
+  {
+    "term": "The Troubles",
+    "definition": "Konflikten i Nord-Irland 1968-1998 mellom katolske nasjonalister og protestantiske unionister. Over 3500 mennesker mistet livet.",
+    "type": "concept"
+  },
+  {
     "term": "Tidspreferanse",
     "aliases": [
       "tidspreferansen",
@@ -1604,6 +2242,11 @@
       "sparing"
     ],
     "subject": "samfunnskunnskap"
+  },
+  {
+    "term": "Tilhørighet",
+    "definition": "Å føle seg som en del av et fellesskap. Et grunnleggende menneskelig behov, ifølge psykolog Abraham Maslow.",
+    "type": "concept"
   },
   {
     "term": "Total krig",
@@ -1644,6 +2287,11 @@
     "subject": "historie"
   },
   {
+    "term": "Treenigheten",
+    "definition": "Den kristne læren om at Gud er én, men finnes som tre personer: Faderen, Sønnen og Den hellige ånd. Sentral forskjell mellom kristendom og jødedom/islam.",
+    "type": "concept"
+  },
+  {
     "term": "Truman-doktrinen",
     "definition": "En utenrikspolitisk strategi lansert av USAs president Harry S. Truman i 1947, som slo fast at USA skulle støtte frie folk og demokratier som ble truet av kommunistisk aggresjon eller autoritære regimer.",
     "subject": "historie",
@@ -1656,11 +2304,31 @@
     "type": "concept"
   },
   {
+    "term": "Trygghet",
+    "definition": "Følelsen av å være beskyttet mot fare. Stater eksisterer i stor grad for å gi innbyggerne trygghet.",
+    "type": "concept"
+  },
+  {
+    "term": "Tsar Bomba",
+    "definition": "Verdens kraftigste atombombe noensinne, sprengt av Sovjet i 1961. Sprengkraften var 3000 ganger sterkere enn Hiroshima-bomben.",
+    "type": "concept"
+  },
+  {
+    "term": "Uavhengighet",
+    "definition": "Å bestemme over seg selv uten å være underlagt andre. Brukes om personer, om land som blir selvstendige, og om institusjoner som domstoler.",
+    "type": "concept"
+  },
+  {
     "term": "Uinnskrenket ubåtkrig",
     "definition": "En type sjøkrig hvor ubåter senker fartøy uten forvarsel, også nøytrale handelsskip.",
     "subject": "historie",
     "topic": "forste-verdenskrig",
     "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "Ulikhet",
+    "definition": "Forskjeller mellom mennesker i inntekt, makt, helse eller muligheter. Stor ulikhet skaper ofte sosial uro og politiske konflikter.",
     "type": "concept"
   },
   {
@@ -1699,6 +2367,17 @@
     "link": "/samfunnskunnskap/demografi/urbanisering"
   },
   {
+    "term": "Urettferdighet",
+    "definition": "Når noen blir behandlet feil ut fra det de fortjener eller har krav på. Opplevd urettferdighet er ofte gnisten som tenner opprør.",
+    "type": "concept"
+  },
+  {
+    "term": "Utilitarisme",
+    "definition": "Etisk teori som sier at det riktige er det som gir mest mulig lykke til flest mulig. Utviklet av Bentham og Mill på 1800-tallet.",
+    "type": "concept",
+    "link": "/krle/etikk/utilitarisme"
+  },
+  {
     "term": "Utmattelseskrig",
     "definition": "En krigføring hvor målet er å slite ut fiendens ressurser og mannskap fremfor å vinne raske territorielle seire.",
     "subject": "historie",
@@ -1727,6 +2406,11 @@
     "subject": "historie"
   },
   {
+    "term": "Vennskap",
+    "definition": "Et nært, frivillig forhold mellom mennesker som liker hverandre. Aristoteles mente ekte vennskap er en av forutsetningene for et godt liv.",
+    "type": "concept"
+  },
+  {
     "term": "Verbalet",
     "definition": "Den delen av en setning som forteller hva som skjer eller hva som gjøres. Det består alltid av ett eller flere verb.",
     "type": "concept",
@@ -1736,6 +2420,11 @@
       "setningsanalyse"
     ],
     "subject": "norsk"
+  },
+  {
+    "term": "Verdighet",
+    "definition": "Følelsen av å bli behandlet med respekt som menneske. Menneskerettighetene bygger på ideen om alle menneskers iboende verdighet.",
+    "type": "concept"
   },
   {
     "term": "Versailles-traktaten",
@@ -1768,6 +2457,26 @@
     "type": "concept"
   },
   {
+    "term": "Virkelighet",
+    "definition": "Alt som faktisk eksisterer, uavhengig av hva vi tror eller ønsker. Filosofer har diskutert i tusenvis av år om vi noen gang kan se virkeligheten som den er.",
+    "type": "concept"
+  },
+  {
+    "term": "Visdom",
+    "definition": "Å kunne bruke kunnskap og erfaring til å gjøre kloke valg. Skiller seg fra ren kunnskap ved at det handler om dømmekraft og innsikt i livet.",
+    "type": "concept"
+  },
+  {
+    "term": "Vitenskap",
+    "definition": "Systematisk måte å finne ut hvordan verden henger sammen. Bygger på observasjon, eksperiment og at andre kan etterprøve resultatene.",
+    "type": "concept"
+  },
+  {
+    "term": "Wall Street",
+    "definition": "Gate i New York som er sentrum for verdens finansmarkeder. Børskrakket der i 1929 utløste den store depresjonen.",
+    "type": "concept"
+  },
+  {
     "term": "Weimarrepublikken",
     "definition": "Betegnelsen på den demokratiske tyske staten som eksisterte fra 1919 til 1933.",
     "subject": "historie",
@@ -1785,6 +2494,11 @@
         "url": "/historie/middelalder/mongolske-riket"
       }
     ],
+    "type": "concept"
+  },
+  {
+    "term": "Ytringsfrihet",
+    "definition": "Retten til å si og skrive det man mener, også upopulære meninger. Grunnloven §100 og menneskerettighetene beskytter ytringsfriheten.",
     "type": "concept"
   },
   {
@@ -1816,6 +2530,54 @@
     ],
     "term": "Adam Smith",
     "type": "person"
+  },
+  {
+    "term": "Adolf Eichmann",
+    "definition": "SS-offiser som organiserte transporten av jøder til konsentrasjonsleirene. Han ble fanget i Argentina og henrettet i Israel.",
+    "type": "person",
+    "tags": [
+      "nazisme",
+      "holocaust",
+      "krigsforbrytelse"
+    ],
+    "subject": "historie",
+    "lifespan": "1906 - 1962"
+  },
+  {
+    "term": "Alexander Kielland",
+    "definition": "Norsk realist-forfatter fra Stavanger. Han skrev om sosial urettferdighet og brukte ironi som våpen i romaner som «Garman & Worse».",
+    "type": "person",
+    "tags": [
+      "realisme",
+      "forfatter",
+      "1800-tallet"
+    ],
+    "subject": "norsk",
+    "lifespan": "1849 - 1906"
+  },
+  {
+    "term": "Alv Erlingsson",
+    "definition": "Norsk stormann og admiral som drev sjørøveri mot hanseatene. Han ble henrettet på hjul og steile i Helsingborg i 1290.",
+    "type": "person",
+    "tags": [
+      "norge",
+      "middelalder",
+      "pirat"
+    ],
+    "subject": "historie",
+    "lifespan": "1240 - 1290"
+  },
+  {
+    "term": "Amalie Skram",
+    "definition": "Norsk realist og naturalist som skrev usentimentalt om ekteskap, sinnssykdom og kvinners vilkår. Romanen «Hellemyrsfolket» er en milepæl i norsk litteratur.",
+    "type": "person",
+    "tags": [
+      "realisme",
+      "naturalisme",
+      "1800-tallet"
+    ],
+    "subject": "norsk",
+    "lifespan": "1846 - 1905"
   },
   {
     "id": "anders-lorange",
@@ -1886,6 +2648,18 @@
     "link": "/historie/antikken/princeps-til-guds-utvalgte"
   },
   {
+    "term": "Bartolomé de Las Casas",
+    "definition": "Spansk prest og kolonist som ble forsvarer av indianernes rettigheter. Han argumenterte tidlig for at alle mennesker har like rettigheter.",
+    "type": "person",
+    "tags": [
+      "kolonisering",
+      "menneskerettigheter",
+      "spania"
+    ],
+    "subject": "historie",
+    "lifespan": "1484 - 1566"
+  },
+  {
     "id": "bartolomeus-voet",
     "name": "Bartolomeus Voet",
     "type": "person",
@@ -1916,6 +2690,54 @@
     "link": "/samfunnskunnskap/okonomi/naturlig-rente"
   },
   {
+    "term": "Bi Sheng",
+    "definition": "Kinesisk oppfinner som laget verdens første typer av leire 400 år før Gutenberg. Boktrykkerkunsten ble likevel ikke utbredt i Kina pga. kompleksiteten i skriftspråket.",
+    "type": "person",
+    "tags": [
+      "kina",
+      "oppfinner",
+      "boktrykkerkunst"
+    ],
+    "subject": "historie",
+    "lifespan": "990 - 1051"
+  },
+  {
+    "term": "Bill Clinton",
+    "definition": "USAs 42. president (1993-2001). Hans Good Friday-avtale bidro til fred i Nord-Irland.",
+    "type": "person",
+    "tags": [
+      "usa",
+      "samtid",
+      "politikk"
+    ],
+    "subject": "samfunnskunnskap",
+    "lifespan": "1946 - "
+  },
+  {
+    "term": "Billie Holiday",
+    "definition": "Afroamerikansk jazz-sangerinne med en stemme uten like. Sangen «Strange Fruit» om lynsjing av svarte ble en av musikkhistoriens viktigste protestsanger.",
+    "type": "person",
+    "tags": [
+      "jazz",
+      "usa",
+      "rasisme"
+    ],
+    "subject": "musikk",
+    "lifespan": "1915 - 1959"
+  },
+  {
+    "term": "Birger Eriksen",
+    "definition": "Norsk oberst som kommanderte Oscarsborg festning 9. april 1940. Han ga ordren «Enten faller jeg i unåde, eller jeg blir hengt - fyr!» og senket krysseren Blücher.",
+    "type": "person",
+    "tags": [
+      "norge",
+      "krigen",
+      "oscarsborg"
+    ],
+    "subject": "historie",
+    "lifespan": "1875 - 1958"
+  },
+  {
     "term": "Birger Jarl",
     "definition": "Svensk jarl og statsmann på 1200-tallet. Han regnes som grunnleggeren av Stockholm og arkitekten bak et samlet svensk riksstyre gjennom sine 'fridlover'.",
     "type": "person",
@@ -1927,6 +2749,30 @@
     "subject": "historie",
     "lifespan": "ca. 1210 – 1266",
     "link": "/historie/sveriges-historie/sveriges-historie"
+  },
+  {
+    "term": "Bjørn Hofmann",
+    "definition": "Norsk medisin-etiker og filosof. Han skriver om hva som er sykdom, og om hvordan teknologi endrer hva det vil si å være menneske.",
+    "type": "person",
+    "tags": [
+      "filosofi",
+      "medisinsk-etikk",
+      "samtid"
+    ],
+    "subject": "krle",
+    "lifespan": "1965 - "
+  },
+  {
+    "term": "Bjørnstjerne Bjørnson",
+    "definition": "Norsk forfatter, dikter og samfunnsdebattant. Han skrev «Ja, vi elsker dette landet» og fikk Nobelprisen i litteratur i 1903.",
+    "type": "person",
+    "tags": [
+      "nasjonalromantikk",
+      "forfatter",
+      "nobelprisvinner"
+    ],
+    "subject": "norsk",
+    "lifespan": "1832 - 1910"
   },
   {
     "term": "Eugen von Böhm-Bawerk",
@@ -1946,6 +2792,19 @@
     "link": "/samfunnskunnskap/okonomi/naturlig-rente"
   },
   {
+    "term": "Christian II",
+    "definition": "Dansk-norsk konge (1513-1523) som ble berømt og fryktet etter Stockholms blodbad i 1520. Han mistet tronen i et opprør og levde resten av livet i fangenskap.",
+    "type": "person",
+    "tags": [
+      "danmark",
+      "norge",
+      "union",
+      "middelalder"
+    ],
+    "subject": "historie",
+    "lifespan": "1481 - 1559"
+  },
+  {
     "term": "Klodvig I",
     "definition": "Frankerkonge som samlet de frankiske stammene og grunnla merovingerdynastiet. Hans dåp i 496 regnes som et vendepunkt i europeisk historie, da det knyttet frankerne til den katolske kirke.",
     "type": "person",
@@ -1957,6 +2816,29 @@
     "subject": "historie",
     "lifespan": "ca. 466 – 511",
     "link": "/historie/middelalderen/tidlig-middelalder"
+  },
+  {
+    "term": "Dareios III",
+    "definition": "Den siste persiske storkongen, beseiret av Aleksander den store i tre slag. Han ble drept av sine egne menn på flukt.",
+    "type": "person",
+    "tags": [
+      "persia",
+      "antikken",
+      "aleksander"
+    ],
+    "subject": "historie",
+    "lifespan": "380 - 330 f.Kr."
+  },
+  {
+    "term": "David Cameron",
+    "definition": "Britisk statsminister 2010-2016, som utskrev folkeavstemningen om Brexit. Han gikk av da Storbritannia stemte for å forlate EU.",
+    "type": "person",
+    "tags": [
+      "storbritannia",
+      "samtid"
+    ],
+    "subject": "samfunnskunnskap",
+    "lifespan": "1966 - "
   },
   {
     "term": "David Hume",
@@ -1983,6 +2865,18 @@
     "subject": "historie",
     "lifespan": "ca. 244 e.Kr. – 311 e.Kr.",
     "link": "/historie/romerriket/diokletian"
+  },
+  {
+    "term": "Donald Trump",
+    "definition": "Amerikansk forretningsmann og politiker, USAs 45. og 47. president. Hans politiske stil og bruk av sosiale medier har endret amerikansk politikk dypt.",
+    "type": "person",
+    "tags": [
+      "usa",
+      "samtid",
+      "politikk"
+    ],
+    "subject": "samfunnskunnskap",
+    "lifespan": "1946 - "
   },
   {
     "term": "Douglas MacArthur",
@@ -2029,6 +2923,30 @@
     "lifespan": "1890 - 1969"
   },
   {
+    "term": "Edvard Grieg",
+    "definition": "Norges mest kjente komponist. Han skrev «Peer Gynt-suiten» og «Klaverkonsert i a-moll», og brukte norsk folkemusikk som inspirasjon.",
+    "type": "person",
+    "tags": [
+      "komponist",
+      "norge",
+      "romantikken"
+    ],
+    "subject": "musikk",
+    "lifespan": "1843 - 1907"
+  },
+  {
+    "term": "Edward Bernays",
+    "definition": "Østerriksk-amerikansk «PR-pioner» og nevø av Sigmund Freud. Han skapte moderne reklame ved å koble produkter til ubevisste begjær.",
+    "type": "person",
+    "tags": [
+      "propaganda",
+      "pr",
+      "medier"
+    ],
+    "subject": "samfunnskunnskap",
+    "lifespan": "1891 - 1995"
+  },
+  {
     "term": "Albert Einstein",
     "definition": "Einstein revolusjonerte fysikken med sin relativitetsteori. Han ble et globalt kulturikon i mellomkrigstiden.",
     "type": "person",
@@ -2053,6 +2971,18 @@
     "lifespan": "1268 - 1299"
   },
   {
+    "term": "Eirik Raude",
+    "definition": "Norsk-islandsk viking som ble forvist og oppdaget Grønland. Han ga øya det innbydende navnet for å lokke nybyggere.",
+    "type": "person",
+    "tags": [
+      "vikingtid",
+      "island",
+      "gronland"
+    ],
+    "subject": "historie",
+    "lifespan": "950 - 1003"
+  },
+  {
     "term": "Duke Ellington",
     "definition": "Ellington var en av jazzhistoriens viktigste komponister og ledet et berømt storband som spilte på Cotton Club i Harlem.",
     "type": "person",
@@ -2064,6 +2994,18 @@
     ],
     "subject": "historie",
     "lifespan": "1899 - 1974"
+  },
+  {
+    "term": "Ernest Hemingway",
+    "definition": "Amerikansk forfatter kjent for sin korte, knappe stil. Han fikk Nobelprisen i 1954 for «Den gamle mannen og havet».",
+    "type": "person",
+    "tags": [
+      "litteratur",
+      "usa",
+      "1900-tallet"
+    ],
+    "subject": "norsk",
+    "lifespan": "1899 - 1961"
   },
   {
     "id": "ester-boserup",
@@ -2103,6 +3045,29 @@
     "image": "/images/people/franz-ferdinand.jpg"
   },
   {
+    "term": "Fredrik Barbarossa",
+    "definition": "Tysk-romersk keiser kjent for sitt røde skjegg (Barbarossa). Han ledet det tredje korstoget og druknet i en elv på veien til Jerusalem.",
+    "type": "person",
+    "tags": [
+      "middelalder",
+      "tyskland",
+      "keiser"
+    ],
+    "subject": "historie",
+    "lifespan": "1122 - 1190"
+  },
+  {
+    "term": "Friedrich Engels",
+    "definition": "Tysk fabrikkeier og forfatter, Marx sin nære venn og medforfatter av «Det kommunistiske manifest». Han finansierte Marx i mange år.",
+    "type": "person",
+    "tags": [
+      "kommunisme",
+      "sosialisme"
+    ],
+    "subject": "samfunnskunnskap",
+    "lifespan": "1820 - 1895"
+  },
+  {
     "term": "Friedrich Hayek",
     "aliases": [
       "Hayek",
@@ -2135,6 +3100,17 @@
     "link": "/filosofi/eksistensialisme/friedrich-nietzsche"
   },
   {
+    "term": "Frode Grytten",
+    "definition": "Norsk forfatter og novellemester. Han skriver om hverdagsfolk på vestlandet med varme og humor.",
+    "type": "person",
+    "tags": [
+      "samtidslitteratur",
+      "novelle"
+    ],
+    "subject": "norsk",
+    "lifespan": "1960 - "
+  },
+  {
     "term": "Gaius Octavius",
     "definition": "Bedre kjent som Augustus, den første romerske keiseren. Han forvandlet den romerske republikken til et keiserriket etter borgerkrigen mot Marcus Antonius.",
     "type": "person",
@@ -2146,6 +3122,18 @@
     "subject": "historie",
     "lifespan": "63 f.Kr. – 14 e.Kr.",
     "link": "/historie/romerriket/augustus"
+  },
+  {
+    "term": "Galileo Galilei",
+    "definition": "Italiensk astronom som så at jorden går rundt sola gjennom teleskopet sitt. Kirken tvang ham til å trekke det tilbake.",
+    "type": "person",
+    "tags": [
+      "vitenskap",
+      "astronomi",
+      "renessanse"
+    ],
+    "subject": "historie",
+    "lifespan": "1564 - 1642"
   },
   {
     "term": "Gamal Abdel Nasser",
@@ -2166,6 +3154,18 @@
     ]
   },
   {
+    "term": "Garry Kasparov",
+    "definition": "Russisk sjakkmester, verdensmester i 20 år. I 1997 tapte han mot IBMs Deep Blue, et historisk øyeblikk for kunstig intelligens.",
+    "type": "person",
+    "tags": [
+      "sjakk",
+      "ai",
+      "samtid"
+    ],
+    "subject": "samfunnskunnskap",
+    "lifespan": "1963 - "
+  },
+  {
     "term": "Gavrilo Princip",
     "definition": "Serbisk nasjonalist og medlem av den revolusjonære gruppen Ung Bosnia. Han utførte attentatet på Franz Ferdinand i Sarajevo 28. juni 1914.",
     "type": "person",
@@ -2183,6 +3183,102 @@
     "image": "/images/people/genghis-khan.jpg",
     "link": "/historie/middelalder/mongolske-riket",
     "type": "person"
+  },
+  {
+    "term": "Georg Brandes",
+    "definition": "Dansk litteraturkritiker som krevde at litteraturen skulle «sette problemer under debatt». Hans krav startet realismen i Norden.",
+    "type": "person",
+    "tags": [
+      "realisme",
+      "kritiker",
+      "1800-tallet"
+    ],
+    "subject": "norsk",
+    "lifespan": "1842 - 1927"
+  },
+  {
+    "term": "George Orwell",
+    "definition": "Britisk forfatter som skrev «1984» og «Animal Farm». Han advarte mot overvåking og totalitære stater, og ga oss begrepet «storebror ser deg».",
+    "type": "person",
+    "tags": [
+      "forfatter",
+      "dystopi",
+      "totalitarisme"
+    ],
+    "subject": "norsk",
+    "lifespan": "1903 - 1950"
+  },
+  {
+    "term": "George Stephenson",
+    "definition": "Engelsk ingeniør og «jernbanens far». Han bygde den første offentlige passasjerjernbanen og lokomotivet «Rocket» i 1829.",
+    "type": "person",
+    "tags": [
+      "industri",
+      "jernbane",
+      "oppfinner"
+    ],
+    "subject": "historie",
+    "lifespan": "1781 - 1848"
+  },
+  {
+    "term": "George V",
+    "definition": "Britisk konge fra 1910 til 1936. Han endret kongefamiliens navn fra Saxe-Coburg-Gotha til Windsor under første verdenskrig, fordi det første hørtes for tysk ut.",
+    "type": "person",
+    "tags": [
+      "storbritannia",
+      "krigen",
+      "monarki"
+    ],
+    "subject": "historie",
+    "lifespan": "1865 - 1936"
+  },
+  {
+    "term": "Georges Clemenceau",
+    "definition": "Frankrikes statsminister under første verdenskrig. Han krevde at Tyskland skulle straffes hardt i Versailles-traktaten i 1919.",
+    "type": "person",
+    "tags": [
+      "frankrike",
+      "krigen",
+      "versailles"
+    ],
+    "subject": "historie",
+    "lifespan": "1841 - 1929"
+  },
+  {
+    "term": "Giordano Bruno",
+    "definition": "Italiensk filosof og astronom som hevdet at universet var uendelig og inneholdt utallige sole. Inkvisisjonen brente ham som kjetter.",
+    "type": "person",
+    "tags": [
+      "vitenskap",
+      "renessanse",
+      "kjettersk"
+    ],
+    "subject": "historie",
+    "lifespan": "1548 - 1600"
+  },
+  {
+    "term": "Grandmaster Flash",
+    "definition": "Hip-hop-pionér som utviklet platespillet til et instrument med scratching og kryssfading. En av sjangerens viktigste innovatører.",
+    "type": "person",
+    "tags": [
+      "hiphop",
+      "usa",
+      "pionér"
+    ],
+    "subject": "musikk",
+    "lifespan": "1958 - "
+  },
+  {
+    "term": "Guillaume Farel",
+    "definition": "Fransk reformator som overtalte Calvin til å bli i Genève. Han startet reformasjonen i den fransktalende delen av Sveits.",
+    "type": "person",
+    "tags": [
+      "reformasjon",
+      "sveits",
+      "kalvinismen"
+    ],
+    "subject": "krle",
+    "lifespan": "1489 - 1565"
   },
   {
     "term": "Guru Gobind Singh",
@@ -2224,6 +3320,18 @@
     "link": "/historie/reformasjonen/30-arskrigen"
   },
   {
+    "term": "Gustav Trolle",
+    "definition": "Svensk erkebiskop og hovedaktør bak Stockholms blodbad i 1520. Han var alliert med Christian II mot svensk uavhengighet.",
+    "type": "person",
+    "tags": [
+      "sverige",
+      "reformasjon",
+      "erkebiskop"
+    ],
+    "subject": "historie",
+    "lifespan": "1488 - 1535"
+  },
+  {
     "term": "Gustav Vasa",
     "definition": "Konge av Sverige fra 1523 til 1560. Han førte Sverige ut av Kalmarunionen, gjennomførte reformasjonen og la grunnlaget for den moderne svenske nasjonalstaten.",
     "type": "person",
@@ -2234,7 +3342,68 @@
     ],
     "subject": "historie",
     "lifespan": "1496 – 1560",
-    "link": "/historie/sveriges-historie/sveriges-historie"
+    "link": "/historie/sveriges-historie/gustav-vasa"
+  },
+  {
+    "term": "Håkon den Gode",
+    "definition": "Sønn av Harald Hårfagre, vokste opp i England som kristen. Han forsøkte å innføre kristendommen i Norge, men måtte gi opp.",
+    "type": "person",
+    "tags": [
+      "vikingtid",
+      "norge",
+      "konge"
+    ],
+    "subject": "historie",
+    "lifespan": "920 - 961"
+  },
+  {
+    "term": "Haakon VII",
+    "definition": "Norges konge fra 1905 til 1957. Han ble symbolet på norsk motstand under andre verdenskrig med sitt «Nei!» til tyske krav om Quisling-regjering.",
+    "type": "person",
+    "tags": [
+      "norge",
+      "krigen",
+      "monarki"
+    ],
+    "subject": "historie",
+    "lifespan": "1872 - 1957"
+  },
+  {
+    "term": "Hannah Arendt",
+    "definition": "Tysk-jødisk filosof som flyktet fra nazistene. Hun skrev om totalitarisme og laget uttrykket «det ondes banalitet» om Eichmann.",
+    "type": "person",
+    "tags": [
+      "filosofi",
+      "totalitarisme",
+      "holocaust"
+    ],
+    "subject": "krle",
+    "lifespan": "1906 - 1975",
+    "link": "/krle/filosofi/arendt"
+  },
+  {
+    "term": "Hannibal Barca",
+    "definition": "Karthagisk general som krysset Alpene med elefanter og angrep Roma fra nord. Han slo romerne flere ganger, men tapte til slutt krigen.",
+    "type": "person",
+    "tags": [
+      "kartago",
+      "romerriket",
+      "antikken"
+    ],
+    "subject": "historie",
+    "lifespan": "247 - 183 f.Kr."
+  },
+  {
+    "term": "Harald Hardråde",
+    "definition": "Norsk viking-konge som hadde tjent som leiesoldat i Bysants. Han falt ved Stamford Bridge i England i 1066, ofte kalt slutten på vikingtiden.",
+    "type": "person",
+    "tags": [
+      "vikingtid",
+      "norge",
+      "konge"
+    ],
+    "subject": "historie",
+    "lifespan": "1015 - 1066"
   },
   {
     "id": "harald-harfagre",
@@ -2268,6 +3437,18 @@
     "lifespan": "1884 - 1972"
   },
   {
+    "term": "Henrik Ibsen",
+    "definition": "Norges største dramatiker og verdens mest spilte etter Shakespeare. Han skrev «Et dukkehjem», «Peer Gynt» og «En folkefiende», og rev sløret av samfunnets dobbeltmoral.",
+    "type": "person",
+    "tags": [
+      "realisme",
+      "drama",
+      "1800-tallet"
+    ],
+    "subject": "norsk",
+    "lifespan": "1828 - 1906"
+  },
+  {
     "term": "Henrik Krummedige",
     "definition": "Dansk-norsk adelsmann og riksråd, kjent for sin bitre maktkamp mot Knut Alvsson på begynnelsen av 1500-tallet.",
     "type": "person",
@@ -2279,6 +3460,18 @@
     "subject": "historie",
     "lifespan": "ca. 1464 – 1530",
     "link": "/historie/middelalder/knut-alvsson"
+  },
+  {
+    "term": "Henrik Wergeland",
+    "definition": "Norsk dikter, samfunnsbygger og talsmann for jødene. Han skrev 17. mai inn i nordmannens hjerte og kjempet for et eget norsk skriftspråk.",
+    "type": "person",
+    "tags": [
+      "nasjonalromantikk",
+      "dikter",
+      "1800-tallet"
+    ],
+    "subject": "norsk",
+    "lifespan": "1808 - 1845"
   },
   {
     "term": "Adolf Hitler",
@@ -2295,6 +3488,126 @@
     "lifespan": "1889 - 1945"
   },
   {
+    "term": "Ho Chi Minh",
+    "definition": "Vietnamesisk kommunistleder som ledet kampen mot fransk kolonistyre og senere mot USA. Hovedstaden Saigon ble omdøpt til Ho Chi Minh-byen etter hans seier.",
+    "type": "person",
+    "tags": [
+      "vietnam",
+      "kommunisme",
+      "kolonisering"
+    ],
+    "subject": "historie",
+    "lifespan": "1890 - 1969"
+  },
+  {
+    "term": "Hugo Grotius",
+    "definition": "Nederlandsk jurist som regnes som folkerettens far. Han argumenterte for at det finnes naturlige lover som gjelder også mellom stater.",
+    "type": "person",
+    "tags": [
+      "filosofi",
+      "naturrett",
+      "folkerett"
+    ],
+    "subject": "krle",
+    "lifespan": "1583 - 1645"
+  },
+  {
+    "term": "Ibn Fadlan",
+    "definition": "Arabisk diplomat og forfatter som møtte rusvikinger ved Volga rundt år 921. Reisebrevet hans er en av de viktigste kildene til vikingenes ritualer.",
+    "type": "person",
+    "tags": [
+      "vikingtid",
+      "islam",
+      "reisende"
+    ],
+    "subject": "historie",
+    "lifespan": "877 - 960"
+  },
+  {
+    "term": "Immanuel Kant",
+    "definition": "Tysk opplysningsfilosof som formulerte det kategoriske imperativ: gjør bare det du kan ønske skal være lov for alle. Sentralt i pliktetikken.",
+    "type": "person",
+    "tags": [
+      "filosofi",
+      "opplysningstid",
+      "etikk"
+    ],
+    "subject": "krle",
+    "lifespan": "1724 - 1804",
+    "link": "/krle/filosofi/kant"
+  },
+  {
+    "term": "Isaac Newton",
+    "definition": "Engelsk fysiker og matematiker som oppdaget gravitasjonsloven og bevegelseslovene. Han skapte grunnlaget for moderne fysikk.",
+    "type": "person",
+    "tags": [
+      "vitenskap",
+      "opplysningstid",
+      "fysikk"
+    ],
+    "subject": "historie",
+    "lifespan": "1643 - 1727"
+  },
+  {
+    "term": "Ivar Aasen",
+    "definition": "Norsk språkforsker som reiste rundt og samlet dialekter. Han bygde et helt nytt skriftspråk - landsmålet - som senere ble til nynorsk.",
+    "type": "person",
+    "tags": [
+      "nynorsk",
+      "språk",
+      "nasjonalromantikk"
+    ],
+    "subject": "norsk",
+    "lifespan": "1813 - 1896"
+  },
+  {
+    "term": "James Watt",
+    "definition": "Skotsk oppfinner som forbedret dampmaskinen og gjorde den effektiv nok til å drive fabrikker og tog. Han startet den industrielle revolusjonen.",
+    "type": "person",
+    "tags": [
+      "industri",
+      "oppfinner",
+      "dampmaskin"
+    ],
+    "subject": "historie",
+    "lifespan": "1736 - 1819"
+  },
+  {
+    "term": "Jan Hus",
+    "definition": "Tsjekkisk prest som kritiserte kirken hundre år før Luther. Han ble brent som kjetter, men ideene hans levde videre i reformasjonen.",
+    "type": "person",
+    "tags": [
+      "reformasjon",
+      "kristendom",
+      "martyr"
+    ],
+    "subject": "krle",
+    "lifespan": "1372 - 1415"
+  },
+  {
+    "term": "Jean-Jacques Rousseau",
+    "definition": "Fransk filosof som mente at mennesket er født fritt, men er overalt i lenker. Tankene hans inspirerte den franske revolusjon.",
+    "type": "person",
+    "tags": [
+      "filosofi",
+      "opplysningstid",
+      "samfunnskontrakt"
+    ],
+    "subject": "krle",
+    "lifespan": "1712 - 1778"
+  },
+  {
+    "term": "Jean-Paul Sartre",
+    "definition": "Fransk filosof, eksistensialismens viktigste tenker. Han hevdet at vi er «dømt til frihet» - vi må selv skape mening i et meningsløst univers.",
+    "type": "person",
+    "tags": [
+      "filosofi",
+      "eksistensialisme"
+    ],
+    "subject": "krle",
+    "lifespan": "1905 - 1980"
+  },
+  {
     "term": "Jeanne d’Arc",
     "definition": "En fransk nasjonalhelt og helgen som ledet den franske hæren til flere viktige seire under Hundreårskrigen mot England.",
     "type": "person",
@@ -2306,6 +3619,76 @@
     "subject": "historie",
     "lifespan": "ca. 1412 – 1431",
     "link": "/historie/middelalder/jeanne-d-arc"
+  },
+  {
+    "term": "Jeremy Bentham",
+    "definition": "Engelsk filosof og grunnlegger av utilitarismen. Han mente lover bør gi «størst mulig lykke til flest mulig» og designet det panoptiske fengsel.",
+    "type": "person",
+    "tags": [
+      "filosofi",
+      "utilitarisme"
+    ],
+    "subject": "krle",
+    "lifespan": "1748 - 1832"
+  },
+  {
+    "term": "Jimmy Carter",
+    "definition": "USAs 39. president (1977-1981) og baptist. Etter presidenttiden vant han Nobels fredspris for sitt arbeid med menneskerettigheter.",
+    "type": "person",
+    "tags": [
+      "usa",
+      "religion"
+    ],
+    "subject": "samfunnskunnskap",
+    "lifespan": "1924 - 2024"
+  },
+  {
+    "term": "Johan Calvin",
+    "definition": "Fransk reformator som grunnla kalvinismen i Genève. Han la vekt på predestinasjon - at Gud på forhånd har bestemt hvem som blir frelst.",
+    "type": "person",
+    "tags": [
+      "reformasjon",
+      "kristendom",
+      "kalvinisme"
+    ],
+    "subject": "krle",
+    "lifespan": "1509 - 1564"
+  },
+  {
+    "term": "Johan Nygaardsvold",
+    "definition": "Norsk statsminister fra Arbeiderpartiet (1935-1945). Han ledet eksilregjeringen i London under andre verdenskrig.",
+    "type": "person",
+    "tags": [
+      "norge",
+      "krigen",
+      "statsminister"
+    ],
+    "subject": "historie",
+    "lifespan": "1879 - 1952"
+  },
+  {
+    "term": "John F. Kennedy",
+    "definition": "USAs 35. president, kjent som JFK. Han ledet landet gjennom Cuba-krisen og lovet å sende en mann til månen. Ble myrdet i Dallas i 1963.",
+    "type": "person",
+    "tags": [
+      "usa",
+      "kald-krig",
+      "cuba"
+    ],
+    "subject": "samfunnskunnskap",
+    "lifespan": "1917 - 1963"
+  },
+  {
+    "term": "John Knox",
+    "definition": "Skotsk reformator som førte Skottland inn i protestantismen. Han grunnla den presbyterianske kirken.",
+    "type": "person",
+    "tags": [
+      "reformasjon",
+      "skottland",
+      "protestantisme"
+    ],
+    "subject": "krle",
+    "lifespan": "1514 - 1572"
   },
   {
     "term": "John Locke",
@@ -2321,6 +3704,41 @@
     "link": "/filosofi/opplysningstid/john-locke"
   },
   {
+    "term": "John Stuart Mill",
+    "definition": "Britisk filosof og forkjemper for utilitarismen - at det riktige er å skape mest mulig lykke for flest mulig. Han kjempet også for kvinners stemmerett.",
+    "type": "person",
+    "tags": [
+      "filosofi",
+      "utilitarisme",
+      "liberalisme"
+    ],
+    "subject": "krle",
+    "lifespan": "1806 - 1873"
+  },
+  {
+    "term": "Jon Henrik Fjällgren",
+    "definition": "Samisk-svensk joiker som ble landskjent gjennom Talang Sverige. Han har gjort joiken populær blant nye generasjoner.",
+    "type": "person",
+    "tags": [
+      "samisk",
+      "joik"
+    ],
+    "subject": "musikk",
+    "lifespan": "1987 - "
+  },
+  {
+    "term": "Joseph Smith",
+    "definition": "Amerikansk religionsstifter som grunnla mormonkirken etter at han sa han hadde fått åpenbaringer fra en engel. Han ble drept av en lynsjemobb i 1844.",
+    "type": "person",
+    "tags": [
+      "mormonisme",
+      "religion",
+      "usa"
+    ],
+    "subject": "krle",
+    "lifespan": "1805 - 1844"
+  },
+  {
     "term": "Julius Cæsar",
     "definition": "Romersk statsmann, general og forfatter som spilte en kritisk rolle i hendelsene som førte til slutten på den romerske republikken og fremveksten av Romerriket.",
     "type": "person",
@@ -2332,6 +3750,18 @@
     "subject": "historie",
     "lifespan": "100 f.Kr. – 44 f.Kr.",
     "link": "/historie/romerriket/caesar"
+  },
+  {
+    "term": "Justinian",
+    "definition": "Bysantinsk keiser som samlet romersk lov i «Corpus Juris Civilis», grunnlaget for moderne rettsvitenskap. Bygde også Hagia Sofia i Konstantinopel.",
+    "type": "person",
+    "tags": [
+      "bysants",
+      "romerriket",
+      "middelalder"
+    ],
+    "subject": "historie",
+    "lifespan": "482 - 565"
   },
   {
     "term": "Karl den store",
@@ -2347,6 +3777,55 @@
     "link": "/historie/middelalder/karl-den-store"
   },
   {
+    "term": "Karl Liebknecht",
+    "definition": "Tysk sosialist og medstifter av Spartakus-forbundet. Han ble drept sammen med Rosa Luxemburg etter det mislykte opprøret i 1919.",
+    "type": "person",
+    "tags": [
+      "kommunisme",
+      "tyskland",
+      "revolusjon"
+    ],
+    "subject": "historie",
+    "lifespan": "1871 - 1919"
+  },
+  {
+    "term": "Karl Marx",
+    "definition": "Tysk filosof og økonom som mente historien drives av klassekamp. Hans bok «Kapitalen» ble grunnlaget for kommunismen.",
+    "type": "person",
+    "tags": [
+      "kommunisme",
+      "sosialisme",
+      "filosofi"
+    ],
+    "subject": "samfunnskunnskap",
+    "lifespan": "1818 - 1883",
+    "link": "/krle/filosofi/marx"
+  },
+  {
+    "term": "Karl X Gustav",
+    "definition": "Svensk konge som førte Sverige inn i en rekke kriger. Han marsjerte over isen til Danmark i 1658 og tvang fram Roskilde-freden.",
+    "type": "person",
+    "tags": [
+      "sverige",
+      "stormaktstiden",
+      "krig"
+    ],
+    "subject": "historie",
+    "lifespan": "1622 - 1660"
+  },
+  {
+    "term": "Karl XII",
+    "definition": "Svensk krigerkonge som førte Sverige inn i den store nordiske krigen. Han ble drept ved Fredriksten festning i Halden, og med ham endte Sveriges stormaktstid.",
+    "type": "person",
+    "tags": [
+      "sverige",
+      "stormakt",
+      "krig"
+    ],
+    "subject": "historie",
+    "lifespan": "1682 - 1718"
+  },
+  {
     "term": "John Maynard Keynes",
     "definition": "Keynes argumenterte for at staten burde bruke penger i nedgangstider for å stimulere økonomien, en teori som ble svært innflytelsesrik.",
     "type": "person",
@@ -2357,6 +3836,17 @@
     ],
     "subject": "historie",
     "lifespan": "1883 - 1946"
+  },
+  {
+    "term": "Klaus Schmidt",
+    "definition": "Tysk arkeolog som ledet utgravningene av Göbekli Tepe i Tyrkia. Han fant et tempel som er 12 000 år gammelt - eldre enn jordbruket.",
+    "type": "person",
+    "tags": [
+      "arkeologi",
+      "gobekli-tepe"
+    ],
+    "subject": "historie",
+    "lifespan": "1953 - 2014"
   },
   {
     "term": "Kleopatra",
@@ -2372,6 +3862,18 @@
     "link": "/historie/romerriket/caesar"
   },
   {
+    "term": "Knud Knudsen",
+    "definition": "Norsk språkmann som ville fornorske dansken steg for steg. Arbeidet hans ble grunnlaget for bokmålet.",
+    "type": "person",
+    "tags": [
+      "bokmål",
+      "språk",
+      "1800-tallet"
+    ],
+    "subject": "norsk",
+    "lifespan": "1812 - 1895"
+  },
+  {
     "term": "Knut Alvsson",
     "definition": "Norsk adelsmann og ridder som ledet et opprør mot den danske kong Hans i 1501. Han ble drept av Henrik Krummedige under forhandlinger.",
     "type": "person",
@@ -2383,6 +3885,43 @@
     "subject": "historie",
     "lifespan": "ca. 1455 – 1502",
     "link": "/historie/middelalder/knut-alvsson"
+  },
+  {
+    "term": "Knut Alvsson",
+    "definition": "Norsk ridder og stormann som ledet et opprør mot dansk overherredømme. Han ble drept under et fredsmøte i Oslo i 1502, og Henrik Ibsen skrev et drama om ham.",
+    "type": "person",
+    "tags": [
+      "middelalder",
+      "norge",
+      "opprør"
+    ],
+    "subject": "historie",
+    "lifespan": "1455 - 1502",
+    "link": "/historie/norgeshistorie/knut-alvsson"
+  },
+  {
+    "term": "Knut den Mektige",
+    "definition": "Dansk viking-konge som regjerte over et storrike med Danmark, England og Norge. Riket falt fra hverandre etter hans død.",
+    "type": "person",
+    "tags": [
+      "vikingtid",
+      "england",
+      "danmark"
+    ],
+    "subject": "historie",
+    "lifespan": "995 - 1035"
+  },
+  {
+    "term": "Knut Hamsun",
+    "definition": "Norsk forfatter som fikk Nobelprisen i 1920 for «Markens grøde». Han skrev banebrytende moderne romaner, men ble nasjonalsosialist under krigen.",
+    "type": "person",
+    "tags": [
+      "nyromantikk",
+      "forfatter",
+      "nobelprisvinner"
+    ],
+    "subject": "norsk",
+    "lifespan": "1859 - 1952"
   },
   {
     "term": "Haakon V Magnusson",
@@ -2399,6 +3938,30 @@
     "lifespan": "1270 - 1319"
   },
   {
+    "term": "Kong Hans",
+    "definition": "Dansk-norsk konge fra 1483 til 1513, far til Christian II. Han prøvde å holde Kalmarunionen samlet, men tapte mot svenskene.",
+    "type": "person",
+    "tags": [
+      "danmark",
+      "norge",
+      "union"
+    ],
+    "subject": "historie",
+    "lifespan": "1455 - 1513"
+  },
+  {
+    "term": "Kool Herc",
+    "definition": "Jamaicansk-amerikansk DJ regnet som hip-hopens far. På fester i Bronx på 70-tallet fant han på «break-loopen» som ble grunnlaget for hip-hop.",
+    "type": "person",
+    "tags": [
+      "hiphop",
+      "usa",
+      "samtid"
+    ],
+    "subject": "musikk",
+    "lifespan": "1955 - "
+  },
+  {
     "id": "kublai-khan",
     "term": "Kublai Khan",
     "lifespan": "1215 - 1294",
@@ -2406,6 +3969,89 @@
     "image": "/images/people/kublai-khan.jpg",
     "link": "/historie/middelalder/mongolske-riket",
     "type": "person"
+  },
+  {
+    "term": "Kwame Nkrumah",
+    "definition": "Ghanas første president og en av lederne for pan-afrikanismen. Han ledet Ghana til uavhengighet fra Storbritannia i 1957 - den første kolonien sør for Sahara som ble fri.",
+    "type": "person",
+    "tags": [
+      "ghana",
+      "pan-afrikanisme",
+      "avkolonisering"
+    ],
+    "subject": "samfunnskunnskap",
+    "lifespan": "1909 - 1972"
+  },
+  {
+    "term": "Leiv Eiriksson",
+    "definition": "Sønn av Eirik Raude. Han nådde Nord-Amerika rundt år 1000, nesten 500 år før Columbus, og kalte landet Vinland.",
+    "type": "person",
+    "tags": [
+      "vikingtid",
+      "amerika",
+      "oppdager"
+    ],
+    "subject": "historie",
+    "lifespan": "970 - 1020"
+  },
+  {
+    "term": "Ludvig XIV",
+    "definition": "Frankrikes «Solkonge». Han regjerte 72 år med enevelde og bygde Versailles. Sitatet «L'État, c'est moi» («Staten, det er meg») oppsummerer hans makt.",
+    "type": "person",
+    "tags": [
+      "frankrike",
+      "enevelde",
+      "1600-tallet"
+    ],
+    "subject": "historie",
+    "lifespan": "1638 - 1715"
+  },
+  {
+    "term": "Ludwig von Mises",
+    "definition": "Østerriksk økonom og leder av den østerrikske skolen. Han mente at planøkonomi alltid feiler fordi sentrale planleggere ikke kan ha nok informasjon.",
+    "type": "person",
+    "tags": [
+      "økonomi",
+      "liberalisme"
+    ],
+    "subject": "samfunnskunnskap",
+    "lifespan": "1881 - 1973",
+    "link": "/krle/filosofi/mises"
+  },
+  {
+    "term": "Luigi Facta",
+    "definition": "Italias siste statsminister før Mussolini. Han nektet å erklære unntakstilstand under Marsjen mot Roma i 1922, og banet vei for fascismen.",
+    "type": "person",
+    "tags": [
+      "italia",
+      "fascisme"
+    ],
+    "subject": "historie",
+    "lifespan": "1861 - 1930"
+  },
+  {
+    "term": "Lyndon B. Johnson",
+    "definition": "USAs 36. president (1963-1969). Han fikk gjennom Civil Rights Act som forbød rasediskriminering, men ble samtidig dypt upopulær på grunn av Vietnamkrigen.",
+    "type": "person",
+    "tags": [
+      "usa",
+      "borgerrettigheter",
+      "vietnam"
+    ],
+    "subject": "samfunnskunnskap",
+    "lifespan": "1908 - 1973"
+  },
+  {
+    "term": "Lysander Spooner",
+    "definition": "Amerikansk advokat og anarkist. Han nektet for at den amerikanske grunnloven kunne binde noen som ikke hadde skrevet under på den.",
+    "type": "person",
+    "tags": [
+      "filosofi",
+      "anarkisme",
+      "usa"
+    ],
+    "subject": "krle",
+    "lifespan": "1808 - 1887"
   },
   {
     "term": "Magnus Lagabøte",
@@ -2421,6 +4067,30 @@
     "lifespan": "1238 - 1280"
   },
   {
+    "term": "Mao Zedong",
+    "definition": "Leder for det kinesiske kommunistpartiet og grunnlegger av Folkerepublikken Kina i 1949. Hans «store sprang framover» og kulturrevolusjon kostet titalls millioner menneskeliv.",
+    "type": "person",
+    "tags": [
+      "kina",
+      "kommunisme",
+      "revolusjon"
+    ],
+    "subject": "historie",
+    "lifespan": "1893 - 1976"
+  },
+  {
+    "term": "Marco Polo",
+    "definition": "Venetiansk handelsmann som reiste til Mongolriket og tjenestegjorde hos Kublai Khan. Reisebrevet hans åpnet Europas øyne for Østen.",
+    "type": "person",
+    "tags": [
+      "middelalder",
+      "handel",
+      "kina"
+    ],
+    "subject": "historie",
+    "lifespan": "1254 - 1324"
+  },
+  {
     "term": "Marcus Antonius",
     "definition": "Romersk politiker og general som var en nær støttespiller for Julius Cæsar. Han er mest kjent for sitt forhold til Kleopatra og maktkampen mot Octavius.",
     "type": "person",
@@ -2432,6 +4102,66 @@
     "subject": "historie",
     "lifespan": "83 f.Kr. – 30 f.Kr.",
     "link": "/historie/romerriket/augustus"
+  },
+  {
+    "term": "Marcus Aurelius",
+    "definition": "Romersk keiser og stoisk filosof. Han er kjent for boka «Meditasjoner», som han skrev til seg selv.",
+    "type": "person",
+    "tags": [
+      "romerriket",
+      "keiser",
+      "stoisisme"
+    ],
+    "subject": "historie",
+    "lifespan": "121 - 180"
+  },
+  {
+    "term": "Marcus Thrane",
+    "definition": "Norsk arbeiderbevegelsens far. Han organiserte landets første arbeiderforeninger i 1849 og krevde stemmerett for alle menn. Ble dømt til fengsel for sin agitasjon.",
+    "type": "person",
+    "tags": [
+      "arbeiderbevegelse",
+      "norge",
+      "1800-tallet"
+    ],
+    "subject": "historie",
+    "lifespan": "1817 - 1890"
+  },
+  {
+    "term": "Margrete Valdemarsdatter",
+    "definition": "Dansk dronning som samlet Danmark, Norge og Sverige i Kalmarunionen i 1397. Hun var Nordens reelle hersker i over 30 år.",
+    "type": "person",
+    "tags": [
+      "middelalder",
+      "danmark",
+      "kalmarunionen"
+    ],
+    "subject": "historie",
+    "lifespan": "1353 - 1412"
+  },
+  {
+    "term": "Mari Boine",
+    "definition": "Samisk artist som har gjort joik kjent over hele verden. Hun blander joik med jazz og rock, og synger ofte om samenes historie og urett.",
+    "type": "person",
+    "tags": [
+      "samisk",
+      "joik",
+      "musikk"
+    ],
+    "subject": "musikk",
+    "lifespan": "1956 - "
+  },
+  {
+    "term": "Marie Antoinette",
+    "definition": "Fransk dronning, gift med Ludvig XVI. Hun ble symbol på adelens ødsling og ble halshugd i den franske revolusjon.",
+    "type": "person",
+    "tags": [
+      "frankrike",
+      "revolusjon",
+      "monarki"
+    ],
+    "subject": "historie",
+    "lifespan": "1755 - 1793"
   },
   {
     "term": "Mario Draghi",
@@ -2464,6 +4194,90 @@
     "link": "/filosofi/eksistensialisme/martin-heidegger"
   },
   {
+    "term": "Martin Luther King Jr.",
+    "definition": "Amerikansk prest og leder for den ikke-voldelige borgerrettighetsbevegelsen. Han holdt talen «I have a dream» i 1963 og ble myrdet i 1968.",
+    "type": "person",
+    "tags": [
+      "usa",
+      "borgerrettigheter",
+      "ikkevold"
+    ],
+    "subject": "samfunnskunnskap",
+    "lifespan": "1929 - 1968"
+  },
+  {
+    "term": "Martin Luther",
+    "definition": "Tysk munk og teolog som startet reformasjonen i 1517 ved å protestere mot avlatshandel. Han mente at troen alene gir frelse, og delte kristendommen i to.",
+    "type": "person",
+    "tags": [
+      "reformasjon",
+      "kristendom",
+      "protestantisme"
+    ],
+    "subject": "krle",
+    "lifespan": "1483 - 1546"
+  },
+  {
+    "term": "Matthew Boulton",
+    "definition": "Engelsk fabrikkeier som var James Watts forretningspartner. Sammen gjorde de dampmaskinen til en kommersiell suksess.",
+    "type": "person",
+    "tags": [
+      "industri",
+      "oppfinner",
+      "dampmaskin"
+    ],
+    "subject": "historie",
+    "lifespan": "1728 - 1809"
+  },
+  {
+    "term": "Max Weber",
+    "definition": "Tysk sosiolog som knyttet kapitalismens vekst til den protestantiske arbeidsmoralen. En av sosiologiens grunnleggere.",
+    "type": "person",
+    "tags": [
+      "sosiologi",
+      "protestantisme",
+      "byråkrati"
+    ],
+    "subject": "samfunnskunnskap",
+    "lifespan": "1864 - 1920"
+  },
+  {
+    "term": "Maximilien Robespierre",
+    "definition": "Fransk advokat og revolusjonær som ledet skrekkveldet i 1793-94. Tusenvis ble halshugd under hans styre, og til slutt mistet han selv hodet.",
+    "type": "person",
+    "tags": [
+      "frankrike",
+      "revolusjon",
+      "skrekkvelde"
+    ],
+    "subject": "historie",
+    "lifespan": "1758 - 1794"
+  },
+  {
+    "term": "Michael Servetus",
+    "definition": "Spansk teolog og lege som benektet treenighetslæren. Han ble brent som kjetter i Calvins Genève, et eksempel på reformasjonens intoleranse.",
+    "type": "person",
+    "tags": [
+      "reformasjon",
+      "kristendom",
+      "kjettersk"
+    ],
+    "subject": "krle",
+    "lifespan": "1511 - 1553"
+  },
+  {
+    "term": "Michel Foucault",
+    "definition": "Fransk filosof som studerte hvordan makt fungerer gjennom institusjoner som skoler, sykehus og fengsler. Han spurte hvem som bestemmer hva som er «normalt».",
+    "type": "person",
+    "tags": [
+      "filosofi",
+      "makt",
+      "samfunn"
+    ],
+    "subject": "krle",
+    "lifespan": "1926 - 1984"
+  },
+  {
     "term": "Mikhail Gorbatsjov",
     "aliases": [
       "Gorbatsjov",
@@ -2481,6 +4295,19 @@
     "lifespan": "1931 - 2022"
   },
   {
+    "term": "Murray Rothbard",
+    "definition": "Amerikansk økonom og filosof, grunnlegger av anarko-kapitalismen. Han mente staten i seg selv er aggressiv vold.",
+    "type": "person",
+    "tags": [
+      "økonomi",
+      "anarko-kapitalisme",
+      "liberalisme"
+    ],
+    "subject": "samfunnskunnskap",
+    "lifespan": "1926 - 1995",
+    "link": "/krle/filosofi/rothbard"
+  },
+  {
     "term": "Benito Mussolini",
     "definition": "Benito Mussolini grunnla fascismen og styrte Italia som diktator fra 1922 til 1943. Han allierte seg med Hitler under andre verdenskrig.",
     "type": "person",
@@ -2492,6 +4319,55 @@
     ],
     "subject": "historie",
     "lifespan": "1883 - 1945"
+  },
+  {
+    "term": "Napoleon Bonaparte",
+    "definition": "Fransk general som kuppet til seg makten etter revolusjonen og kronet seg selv til keiser. Han erobret store deler av Europa før han tapte ved Waterloo i 1815.",
+    "type": "person",
+    "tags": [
+      "frankrike",
+      "krig",
+      "keiser"
+    ],
+    "subject": "historie",
+    "lifespan": "1769 - 1821",
+    "link": "/historie/den-franske-revolusjon/napoleon"
+  },
+  {
+    "term": "Ned Ludd",
+    "definition": "Halvt legendarisk arbeider som skal ha knust to strikkemaskiner i protest mot industrialiseringen. Luddittene tok navnet hans og angrep fabrikker fra 1811.",
+    "type": "person",
+    "tags": [
+      "industri",
+      "opprør",
+      "luddittene"
+    ],
+    "subject": "historie",
+    "lifespan": "cirka 1779"
+  },
+  {
+    "term": "Nelson Mandela",
+    "definition": "Sør-afrikansk frihetskjemper som satt 27 år i fengsel for kampen mot apartheid. I 1994 ble han landets første svarte president.",
+    "type": "person",
+    "tags": [
+      "sør-afrika",
+      "apartheid",
+      "menneskerettigheter"
+    ],
+    "subject": "samfunnskunnskap",
+    "lifespan": "1918 - 2013"
+  },
+  {
+    "term": "Neville Chamberlain",
+    "definition": "Britisk statsminister som forsøkte å unngå krig med Hitler gjennom ettergivenhetspolitikk. Etter München-avtalen i 1938 sa han at det ville bli «fred i vår tid».",
+    "type": "person",
+    "tags": [
+      "storbritannia",
+      "mellomkrigstid",
+      "krigen"
+    ],
+    "subject": "historie",
+    "lifespan": "1869 - 1940"
   },
   {
     "term": "Nicholas II",
@@ -2521,6 +4397,78 @@
     ]
   },
   {
+    "term": "Nikolaus Kopernikus",
+    "definition": "Polsk astronom som foreslo at jorda går rundt sola, ikke omvendt. Han ventet med å publisere teorien til han lå på dødsleiet.",
+    "type": "person",
+    "tags": [
+      "vitenskap",
+      "renessanse",
+      "astronomi"
+    ],
+    "subject": "historie",
+    "lifespan": "1473 - 1543"
+  },
+  {
+    "term": "Odd Aukrust",
+    "definition": "Norsk økonom som utviklet «Aukrust-modellen» - forklaringen på hvordan lønninger i Norge styres av eksportindustriens konkurranseevne.",
+    "type": "person",
+    "tags": [
+      "økonomi",
+      "norge",
+      "lonnsmaskin"
+    ],
+    "subject": "samfunnskunnskap",
+    "lifespan": "1915 - 2008"
+  },
+  {
+    "term": "Olav Engelbrektsson",
+    "definition": "Norges siste katolske erkebiskop, leder for riksrådet. Han kjempet mot den danske kongens reformasjon og måtte rømme landet i 1537.",
+    "type": "person",
+    "tags": [
+      "reformasjonen",
+      "norge",
+      "katolisisme"
+    ],
+    "subject": "historie",
+    "lifespan": "1480 - 1538"
+  },
+  {
+    "term": "Olav Haraldsson",
+    "definition": "Norsk viking-konge, senere Olav den hellige. Han falt i slaget ved Stiklestad og ble Norges nasjonalhelgen.",
+    "type": "person",
+    "tags": [
+      "vikingtid",
+      "norge",
+      "helgen"
+    ],
+    "subject": "historie",
+    "lifespan": "995 - 1030"
+  },
+  {
+    "term": "Olav Nilsson",
+    "definition": "Norsk høvedsmann på Bergenhus som ble drept av tyske hanseater i 1455. Drapet ble aldri straffet av Kalmarunionens konger.",
+    "type": "person",
+    "tags": [
+      "middelalder",
+      "norge",
+      "hanseatene"
+    ],
+    "subject": "historie",
+    "lifespan": "1410 - 1455"
+  },
+  {
+    "term": "Olav Tryggvason",
+    "definition": "Norsk viking-konge som tvangskristnet Norge rundt år 1000. Han falt i slaget ved Svolder.",
+    "type": "person",
+    "tags": [
+      "vikingtid",
+      "norge",
+      "kristning"
+    ],
+    "subject": "historie",
+    "lifespan": "963 - 1000"
+  },
+  {
     "term": "Oscar II",
     "definition": "Konge av Sverige (1872–1907) og Norge (1872–1905). Han var den siste kongen i personalunionen mellom de to landene og spilte en viktig rolle i den fredelige unionsoppløsningen.",
     "type": "person",
@@ -2534,6 +4482,52 @@
     "link": "/historie/sveriges-historie/sveriges-historie"
   },
   {
+    "term": "Patrice Lumumba",
+    "definition": "Kongos første statsminister etter selvstendigheten fra Belgia. Han ble drept etter bare noen måneder, med hjelp fra vestlige etterretningstjenester.",
+    "type": "person",
+    "tags": [
+      "kongo",
+      "avkolonisering"
+    ],
+    "subject": "samfunnskunnskap",
+    "lifespan": "1925 - 1961"
+  },
+  {
+    "term": "Pave Urban II",
+    "definition": "Paven som i 1095 holdt talen som startet det første korstoget. Han lovet syndsforlatelse til alle som tok seg til Jerusalem.",
+    "type": "person",
+    "tags": [
+      "middelalder",
+      "korstog",
+      "pavedømmet"
+    ],
+    "subject": "krle",
+    "lifespan": "1042 - 1099"
+  },
+  {
+    "term": "Peter Kropotkin",
+    "definition": "Russisk fyrste som ble en av anarko-kommunismens viktigste tenkere. Han hevdet at gjensidig hjelp er en sterkere drivkraft i naturen enn konkurranse.",
+    "type": "person",
+    "tags": [
+      "anarkisme",
+      "russland"
+    ],
+    "subject": "samfunnskunnskap",
+    "lifespan": "1842 - 1921"
+  },
+  {
+    "term": "Peter Singer",
+    "definition": "Australsk filosof og utilitarist. Han er kjent for argumentene for dyrerettigheter og effektiv altruisme.",
+    "type": "person",
+    "tags": [
+      "filosofi",
+      "etikk",
+      "dyrerettigheter"
+    ],
+    "subject": "krle",
+    "lifespan": "1946 - "
+  },
+  {
     "term": "Platon",
     "definition": "Gresk filosof og elev av Sokrates. Han grunnla Akademiet i Athen og er kjent for hulelignelsen og sine dialoger om staten.",
     "type": "person",
@@ -2545,6 +4539,43 @@
     "subject": "historie",
     "lifespan": "ca. 427 f.Kr. – 347 f.Kr.",
     "link": "/historie/antikken/platon-og-aristoteles"
+  },
+  {
+    "term": "Qin Shi Huangdi",
+    "definition": "Kinas første keiser, som samlet rivaliserende kongedømmer til ett rike. Han bygde den første versjonen av Den kinesiske mur og terrakottahæren i graven sin.",
+    "type": "person",
+    "tags": [
+      "kina",
+      "antikken",
+      "keiser"
+    ],
+    "subject": "historie",
+    "lifespan": "259 - 210 f.Kr."
+  },
+  {
+    "term": "Ray Dalio",
+    "definition": "Amerikansk investor og grunnlegger av hedgefondet Bridgewater. Han skriver om sykluser i historien og hvordan stormakter stiger og faller.",
+    "type": "person",
+    "tags": [
+      "økonomi",
+      "investor",
+      "samtid"
+    ],
+    "subject": "samfunnskunnskap",
+    "lifespan": "1949 - "
+  },
+  {
+    "term": "René Descartes",
+    "definition": "Fransk filosof som regnes som rasjonalismens far. Hans «Jeg tenker, derfor er jeg» (cogito ergo sum) ble selve startskuddet for moderne filosofi.",
+    "type": "person",
+    "tags": [
+      "filosofi",
+      "rasjonalisme",
+      "opplysningstid"
+    ],
+    "subject": "krle",
+    "lifespan": "1596 - 1650",
+    "link": "/krle/filosofi/descartes"
   },
   {
     "term": "Richard Nixon",
@@ -2562,6 +4593,29 @@
     "subject": "samfunnskunnskap",
     "lifespan": "1913 - 1994",
     "link": "/samfunnskunnskap/okonomi/naturlig-rente"
+  },
+  {
+    "term": "Robert Michels",
+    "definition": "Tysk-italiensk sosiolog som formulerte «jernloven om oligarki»: at alle organisasjoner til slutt blir styrt av en liten elite, selv demokratiske.",
+    "type": "person",
+    "tags": [
+      "sosiologi",
+      "demokrati"
+    ],
+    "subject": "samfunnskunnskap",
+    "lifespan": "1876 - 1936"
+  },
+  {
+    "term": "Robert Nozick",
+    "definition": "Amerikansk filosof, libertariansk tenker. Han mente staten kun bør sikre minimumsoppgaver som forsvar og rettsapparat.",
+    "type": "person",
+    "tags": [
+      "filosofi",
+      "liberalisme",
+      "samtid"
+    ],
+    "subject": "krle",
+    "lifespan": "1938 - 2002"
   },
   {
     "term": "Ronald Reagan",
@@ -2593,6 +4647,54 @@
     "lifespan": "1882 - 1945"
   },
   {
+    "term": "Rosa Luxemburg",
+    "definition": "Polsk-tysk marxist og revolusjonær. Hun ledet det mislykte Spartakus-opprøret i Berlin i 1919 og ble drept av høyreekstreme soldater.",
+    "type": "person",
+    "tags": [
+      "kommunisme",
+      "tyskland",
+      "revolusjon"
+    ],
+    "subject": "historie",
+    "lifespan": "1871 - 1919"
+  },
+  {
+    "term": "Rosa Parks",
+    "definition": "Afroamerikansk kvinne som i 1955 nektet å gi setet sitt til en hvit mann på bussen i Alabama. Aksjonen tente borgerrettighetsbevegelsen.",
+    "type": "person",
+    "tags": [
+      "usa",
+      "rasisme",
+      "borgerrettigheter"
+    ],
+    "subject": "samfunnskunnskap",
+    "lifespan": "1913 - 2005"
+  },
+  {
+    "term": "Samuel de Champlain",
+    "definition": "Fransk oppdager og grunnlegger av byen Quebec i 1608. Han bygde Frankrikes koloniimperium i Nord-Amerika.",
+    "type": "person",
+    "tags": [
+      "kolonisering",
+      "frankrike",
+      "kanada"
+    ],
+    "subject": "historie",
+    "lifespan": "1574 - 1635"
+  },
+  {
+    "term": "Scipio Africanus",
+    "definition": "Romersk general som beseiret Hannibal i slaget ved Zama i 202 f.Kr. Han fikk tilnavnet «Africanus» for sin seier over Karthago.",
+    "type": "person",
+    "tags": [
+      "romerriket",
+      "antikken",
+      "general"
+    ],
+    "subject": "historie",
+    "lifespan": "236 - 183 f.Kr."
+  },
+  {
     "term": "Haile Selassie",
     "definition": "Haile Selassie appellerte forgjeves til Folkeforbundet da Italia invaderte Etiopia i 1935, og ble et symbol på motstand mot fascisme.",
     "type": "person",
@@ -2603,6 +4705,18 @@
     ],
     "subject": "historie",
     "lifespan": "1892 - 1975"
+  },
+  {
+    "term": "Sigbjørn Obstfelder",
+    "definition": "Norsk symbolist-dikter, kjent for «Jeg ser». Han skrev om fremmedhet og angsten i den moderne byen, og døde ung av tuberkulose.",
+    "type": "person",
+    "tags": [
+      "symbolisme",
+      "dikter",
+      "1800-tallet"
+    ],
+    "subject": "norsk",
+    "lifespan": "1866 - 1900"
   },
   {
     "term": "Bessie Smith",
@@ -2630,6 +4744,17 @@
     "link": "/historie/antikken/sokrates"
   },
   {
+    "term": "Solomon Asch",
+    "definition": "Polsk-amerikansk psykolog. Hans berømte eksperimenter på 1950-tallet viste hvor lett folk gir etter for gruppepress, selv når svaret åpenbart er feil.",
+    "type": "person",
+    "tags": [
+      "psykologi",
+      "konformitet"
+    ],
+    "subject": "samfunnskunnskap",
+    "lifespan": "1907 - 1996"
+  },
+  {
     "term": "Josef Stalin",
     "definition": "Josef Stalin var Sovjetunionens leder som industrialiserte landet med brutale midler og ledet det gjennom andre verdenskrig.",
     "type": "person",
@@ -2641,6 +4766,30 @@
     ],
     "subject": "historie",
     "lifespan": "1878 - 1953"
+  },
+  {
+    "term": "Sten Sture",
+    "definition": "Sveriges riksforstander som ledet kampen mot Kalmarunionen. Han ble drept i krigen mot Christian II, og hans nederlag førte til Stockholms blodbad.",
+    "type": "person",
+    "tags": [
+      "sverige",
+      "union",
+      "middelalder"
+    ],
+    "subject": "historie",
+    "lifespan": "1493 - 1520"
+  },
+  {
+    "term": "Tarjei Vesaas",
+    "definition": "Norsk forfatter som skrev på nynorsk. Romanene «Is-slottet» og «Fuglane» bruker enkle ord til å si store ting om mennesket og naturen.",
+    "type": "person",
+    "tags": [
+      "1900-tallet",
+      "modernisme",
+      "nynorsk"
+    ],
+    "subject": "norsk",
+    "lifespan": "1897 - 1970"
   },
   {
     "term": "Thomas Aquinas",
@@ -2656,6 +4805,18 @@
     "link": "/filosofi/middelalder/thomas-aquinas"
   },
   {
+    "term": "Thomas Hobbes",
+    "definition": "Engelsk filosof som mente at uten en sterk stat ville livet være «ensomt, fattig, motbydelig, brutalt og kort». Faren for kaos krever en samfunnskontrakt.",
+    "type": "person",
+    "tags": [
+      "filosofi",
+      "samfunnskontrakt",
+      "opplysningstid"
+    ],
+    "subject": "krle",
+    "lifespan": "1588 - 1679"
+  },
+  {
     "id": "thomas-malthus",
     "name": "Thomas Malthus",
     "lifespan": "1766–1834",
@@ -2668,6 +4829,55 @@
     ],
     "term": "Thomas Malthus",
     "type": "person"
+  },
+  {
+    "term": "Thomas More",
+    "definition": "Engelsk filosof og statsmann som skrev «Utopia» (1516) om et perfekt samfunn. Han ble halshugd da han nektet å godta Henrik VIIIs brudd med paven.",
+    "type": "person",
+    "tags": [
+      "renessanse",
+      "humanisme",
+      "utopi"
+    ],
+    "subject": "historie",
+    "lifespan": "1478 - 1535"
+  },
+  {
+    "term": "Vidkun Quisling",
+    "definition": "Norsk offiser og politiker som samarbeidet med nazistene under okkupasjonen. Han ble dømt for landsforræderi og skutt. Navnet hans ble et internasjonalt skjellsord for forrædere.",
+    "type": "person",
+    "tags": [
+      "krigen",
+      "norge",
+      "nazisme",
+      "landssvik"
+    ],
+    "subject": "historie",
+    "lifespan": "1887 - 1945"
+  },
+  {
+    "term": "Vilhelm Erobreren",
+    "definition": "Hertug av Normandie som invaderte England i 1066 og vant slaget ved Hastings. Han ble engelsk konge og innførte normannisk kultur og språk.",
+    "type": "person",
+    "tags": [
+      "vikingtid",
+      "england",
+      "normannerne"
+    ],
+    "subject": "historie",
+    "lifespan": "1028 - 1087"
+  },
+  {
+    "term": "Vilhelm Krag",
+    "definition": "Norsk dikter og en av nyromantikkens fremste stemmer. Han skrev stemningsfulle dikt om Sørlandets natur og melankoli.",
+    "type": "person",
+    "tags": [
+      "nyromantikk",
+      "dikter",
+      "1800-tallet"
+    ],
+    "subject": "norsk",
+    "lifespan": "1871 - 1933"
   },
   {
     "term": "Vladimir Lenin",
@@ -2693,6 +4903,18 @@
     "image": "/images/people/wilhelm-ii.jpg"
   },
   {
+    "term": "Winston Churchill",
+    "definition": "Britisk statsminister under andre verdenskrig. Hans taler ga briter mot til å holde ut mens Tyskland bombet London.",
+    "type": "person",
+    "tags": [
+      "storbritannia",
+      "krigen",
+      "statsleder"
+    ],
+    "subject": "historie",
+    "lifespan": "1874 - 1965"
+  },
+  {
     "term": "Woodrow Wilson",
     "definition": "USAs 28. president. Han ledet USA gjennom første verdenskrig og var en av hovedarkitektene bak fredsavtalen i Versailles og stiftelsen av Folkeforbundet.",
     "type": "person",
@@ -2701,5 +4923,42 @@
     "topic": "forste-verdenskrig",
     "subject": "historie",
     "image": "/images/people/woodrow-wilson.jpg"
+  },
+  {
+    "term": "Yuri Gagarin",
+    "definition": "Sovjetisk kosmonaut som 12. april 1961 ble det første mennesket i verdensrommet. Reisen varte 108 minutter og var et nederlag for USA i romkappløpet.",
+    "type": "person",
+    "tags": [
+      "rommet",
+      "sovjet",
+      "romkappløpet"
+    ],
+    "subject": "historie",
+    "lifespan": "1934 - 1968"
+  },
+  {
+    "term": "Zarathustra",
+    "definition": "Persisk profet og grunnlegger av zoroastrismen, en av verdens eldste religioner. Han lærte om en kosmisk kamp mellom godt (Ahura Mazda) og ondt (Angra Mainyu).",
+    "type": "person",
+    "tags": [
+      "zoroastrisme",
+      "religion",
+      "persia"
+    ],
+    "subject": "krle",
+    "lifespan": "cirka 1500 - 1000 f.Kr.",
+    "link": "/historie/perserriket/zarathustra-og-zoroastrismen"
+  },
+  {
+    "term": "Zheng He",
+    "definition": "Kinesisk admiral som ledet syv store ekspedisjoner i Indiahavet og helt til Afrika. Skipene hans var fire ganger så store som Columbus sine, hundre år tidligere.",
+    "type": "person",
+    "tags": [
+      "kina",
+      "sjøfart",
+      "oppdager"
+    ],
+    "subject": "historie",
+    "lifespan": "1371 - 1433"
   }
 ]
