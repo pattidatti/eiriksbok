@@ -2878,7 +2878,7 @@
               "id": "michelangelo",
               "title": "Michelangelo: Han som hugde mennesker ut av stein",
               "description": "Han trodde figuren allerede lå i marmoren. Han skulpterte David og Pietà, malte Det sixtinske kapell og gjorde kunstneren til et geni.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/renessansen/michelangelo-hero.webp",
               "tags": [
                 "renessansen",
                 "michelangelo",
@@ -2967,7 +2967,7 @@
               "id": "kalvin-og-kalvinismen",
               "title": "Johan Calvin og kalvinismen",
               "description": "En streng fransk advokat gjorde Geneve om til den protestantiske verdens hovedstad — og la grunnlaget for moderne arbeidsmoral og kapitalisme.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/reformasjonen/kalvin-og-kalvinismen-hero.webp",
               "layout": "rich",
               "tags": [
                 "reformasjonen",
@@ -3657,7 +3657,7 @@
               "id": "korstogene",
               "title": "Korstogene",
               "description": "Hellig krig, propaganda og kulturmøte mellom Europa og den islamske verden.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/middelalderen/korstogene-hero.webp",
               "layout": "rich",
               "tags": [
                 "historie",
@@ -5393,7 +5393,7 @@
               "id": "montesquieu",
               "title": "Montesquieu",
               "description": "Maktens tredeling — filosofen bak Grunnlovens hjerte.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/filosofi/montesquieu-hero.webp",
               "tags": [
                 "filosofi",
                 "opplysningstiden",
@@ -5729,7 +5729,7 @@
               "id": "tonearter-og-skalaer",
               "title": "Tonearter og skalaer",
               "description": "Hvorfor høres dur glad og moll trist ut? Lær hvordan én tone kan endre hele stemningen i en sang.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/grunnleggende/tonearter-og-skalaer-hero.webp",
               "tags": [
                 "musikk",
                 "teori",

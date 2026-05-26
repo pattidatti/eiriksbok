@@ -6,7 +6,7 @@
     "year": "1509-1564",
     "category": "Reformasjonen",
     "readTime": "9 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/reformasjonen/kalvin-og-kalvinismen-hero.webp",
     "details": [
         "Calvin gjorde Geneve om til en streng modellby for den reformerte kirken.",
         "Læren om predestinasjon: Gud har på forhånd valgt hvem som skal bli frelst.",
@@ -41,7 +41,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/reformasjonen/kalvin-og-kalvinismen-01.webp",
             "alt": "Portrett av Johan Calvin med svart kappe og lærd holdning ved skrivebord med åpne bøker",
             "caption": "Calvin var jurist før han ble teolog. Den juridiske skarpheten preget hele læren hans."
         },
@@ -99,7 +99,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/reformasjonen/kalvin-og-kalvinismen-02.webp",
             "alt": "Et kalvinistisk handelsskip ved kaien i Amsterdam med kjøpmenn som teller penger og fører regnskap",
             "caption": "Det kalvinistiske Nederland ble Europas rikeste land på 1600-tallet. Tro, handel og regnskap gikk hånd i hånd."
         },

@@ -7,7 +7,7 @@
     "year": "1689-1755",
     "category": "Opplysningstiden",
     "readTime": "12 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/filosofi/montesquieu-hero.webp",
     "dimension": "samfunnssyn",
     "comparison_tags": [
         "maktfordeling",
@@ -28,7 +28,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/filosofi/montesquieu-01.webp",
             "alt": "Portrett av Montesquieu i parykk og kappe, sittende ved skrivebord med bok og kart over Europa",
             "caption": "Charles-Louis de Secondat, baron de Montesquieu (1689–1755). Filosof, dommer og en av opplysningstidens viktigste tenkere."
         },
@@ -58,7 +58,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/filosofi/montesquieu-02.webp",
             "alt": "Britisk parlament på 1700-tallet med medlemmer som debatterer i rom med trepaneler og lyse vinduer",
             "caption": "Det britiske parlamentet var Montesquieus levende laboratorium. Her så han at makt kunne deles — og at frihet vokser i sprekkene mellom institusjonene."
         },
@@ -116,7 +116,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/filosofi/montesquieu-03.webp",
             "alt": "Eidsvollsmennene i 1814 samlet rundt et bord med papirer og fjærpenner, skriver Grunnloven",
             "caption": "Eidsvoll, 1814: Når norske representanter skrev Grunnloven, lå Montesquieus «Lovenes ånd» på bordet. Maktfordelingen i § 49, § 3 og § 88 er hans arv."
         },

@@ -6,7 +6,7 @@
     "year": "1095-1291",
     "category": "Europa og Midtøsten",
     "readTime": "10 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/middelalderen/korstogene-hero.webp",
     "details": [
         "Korstogene var åtte store militære felttog fra Europa til Midtøsten, fra 1095 til 1291.",
         "Pave Urban 2. utløste det første korstoget med en tale i Clermont som lovet syndsforlatelse til alle som dro.",
@@ -28,7 +28,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/middelalderen/korstogene-01.webp",
             "alt": "Pave Urban 2. holder tale til en stor folkemengde på et åpent jorde i Clermont, 1095",
             "caption": "Pavens tale i Clermont 1095. Mange historikere mener dette var middelalderens største propagandaøyeblikk."
         },
@@ -55,7 +55,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/middelalderen/korstogene-02.webp",
             "alt": "Et marked i en middelaldersk havneby med arabiske kjøpmenn, krydder, silke og europeiske riddere som handler side om side",
             "caption": "Korstogene åpnet handelsveier som førte krydder, sukker og papir til Europa for første gang."
         },

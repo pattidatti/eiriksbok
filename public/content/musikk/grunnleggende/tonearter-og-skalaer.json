@@ -5,7 +5,7 @@
     "year": "Fra antikken til i dag",
     "category": "Det grunnleggende",
     "readTime": "9 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/grunnleggende/tonearter-og-skalaer-hero.webp",
     "ingress": "Hvorfor høres en sang glad ut, og en annen trist? Svaret ligger i skalaen — og forskjellen kan være så liten som én eneste tone.",
     "details": [
         "En skala er et mønster av toner som starter på grunntonen og slutter på samme tone én oktav høyere.",
@@ -21,7 +21,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/grunnleggende/tonearter-og-skalaer-01.webp",
             "alt": "Nærbilde av et piano der noen tangenter er fargelagt for å vise en skala",
             "caption": "En skala er som en stige av toner. Mønsteret av steg bestemmer stemningen."
         },
@@ -90,7 +90,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/grunnleggende/tonearter-og-skalaer-02.webp",
             "alt": "Notelinje med tonearten G-dur markert med ett kryss foran F",
             "caption": "Tonearten står helt først på notelinjen. Krysset eller b-tegnet gjelder for hele stykket."
         },
@@ -136,7 +136,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/grunnleggende/tonearter-og-skalaer-03.webp",
             "alt": "To kurver side om side som viser samme melodi i dur og moll, dur er gul og moll er bla",
             "caption": "Samme melodi, to ulike skalaer. Vi hører lyset og skyggen i hvert eneste sekund."
         },

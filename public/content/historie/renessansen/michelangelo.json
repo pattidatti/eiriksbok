@@ -5,7 +5,7 @@
     "year": "1475-1564",
     "category": "Europa",
     "readTime": "8 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/renessansen/michelangelo-hero.webp",
     "details": [
         "Michelangelo levde nesten 89 år og preget renessansen i to generasjoner.",
         "Han skulpterte David, Pietà og Moses, og malte taket i Det sixtinske kapell.",
@@ -44,7 +44,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/renessansen/michelangelo-01.webp",
             "alt": "Marmorskulptur av en ung mann med slynge på skulderen, kraftige skuldre og rolig blikk vendt mot horisonten",
             "caption": "Davids skulptur ble Firenze sitt symbol på mot. Han er gjengitt rett før kampen, ikke etter — Michelangelo ville fange øyeblikket før beslutningen."
         },
@@ -70,7 +70,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/renessansen/michelangelo-02.webp",
             "alt": "Storslått freskemaleri i taket av et kapell, med kraftige mannskropper og dramatisk lys",
             "caption": "Skapelsen av Adam ble malt under ekstreme forhold. Michelangelo lå på ryggen i nesten fem år og malte mens kalken dryppet ned på ham."
         },
