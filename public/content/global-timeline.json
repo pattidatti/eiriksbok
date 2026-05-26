@@ -2492,6 +2492,23 @@
       ]
     },
     {
+      "id": "okonomiske-skoler",
+      "title": "Ulike økonomiske skoler",
+      "description": "Hvorfor uenes økonomer om kriser, rente og inflasjon? Et grunnriss av de fire store retningene.",
+      "startDate": 1776,
+      "endDate": null,
+      "displayDate": "1776",
+      "type": "lesson",
+      "subjectId": "samfunnskunnskap",
+      "topicId": "okonomi",
+      "link": "/samfunnskunnskap/okonomi/okonomiske-skoler",
+      "tags": [
+        "økonomi",
+        "økonomiske skoler",
+        "teori"
+      ]
+    },
+    {
       "id": "usa-frigjoring",
       "title": "USA: Den første dominobrikken",
       "description": "Hvordan 13 kolonier slo verdens mektigste imperium.",

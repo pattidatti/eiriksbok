@@ -1,5 +1,5 @@
 {
-  "buildId": 1779820664962,
+  "buildId": 1779824425925,
   "contentMap": {
     "concept-adel": [
       "content/concepts/adel.json"
@@ -2032,6 +2032,9 @@
     "naturlig-rente": [
       "content/samfunnskunnskap/okonomi/naturlig-rente.json"
     ],
+    "okonomiske-skoler": [
+      "content/samfunnskunnskap/okonomi/okonomiske-skoler.json"
+    ],
     "pengesystem-vs-naturalhandel": [
       "content/samfunnskunnskap/okonomi/pengesystem-vs-naturalhandel.json"
     ],
@@ -2777,6 +2780,7 @@
     "samfunnskunnskap/okonomi/finanskriser": "content/samfunnskunnskap/okonomi/finanskriser.json",
     "samfunnskunnskap/okonomi/inflasjon-og-rente": "content/samfunnskunnskap/okonomi/inflasjon-og-rente.json",
     "samfunnskunnskap/okonomi/naturlig-rente": "content/samfunnskunnskap/okonomi/naturlig-rente.json",
+    "samfunnskunnskap/okonomi/okonomiske-skoler": "content/samfunnskunnskap/okonomi/okonomiske-skoler.json",
     "samfunnskunnskap/okonomi/pengesystem-vs-naturalhandel": "content/samfunnskunnskap/okonomi/pengesystem-vs-naturalhandel.json",
     "samfunnskunnskap/okonomi/produksjon": "content/samfunnskunnskap/okonomi/produksjon.json",
     "samfunnskunnskap/styringsformer/antikken-visjoner": "content/samfunnskunnskap/styringsformer/antikken-visjoner.json",

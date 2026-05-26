@@ -10,6 +10,9 @@ import { SpeedControls } from './components/SpeedControls';
 import { GodControlPanel } from './components/GodControlPanel';
 import { InfoDrawer } from './components/InfoDrawer';
 import { PresetBanner } from './components/PresetBanner';
+import { ModelDisclaimerButton } from './components/ModelDisclaimerModal';
+import { PhaseTransitionFlash } from './components/PhaseTransitionFlash';
+import { ReflectionModal } from './components/ReflectionModal';
 import { CockpitView } from './views/cockpit/CockpitView';
 import { TriangleView } from './views/triangle/TriangleView';
 import { VillageView } from './views/village/VillageView';
@@ -57,6 +60,7 @@ export function OkonomiVerdenPage() {
                 <div className="flex-1 flex justify-center min-w-0 px-2">
                     <ViewTabs />
                 </div>
+                <ModelDisclaimerButton />
                 <SpeedControls />
                 <button
                     type="button"
@@ -69,6 +73,8 @@ export function OkonomiVerdenPage() {
             </header>
 
             {presetId && <PresetBanner />}
+            <PhaseTransitionFlash />
+            <ReflectionModal />
 
             <main className="flex-1 flex overflow-hidden">
                 <section className="flex-1 overflow-hidden">

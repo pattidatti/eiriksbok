@@ -1,10 +1,12 @@
 import type { SimState, GodControls } from '../types';
 
-const BASE_RATE = 5;
-const TIME_PREF_TO_RATE = 20;
-const MALINVESTMENT_BUST_THRESHOLD = 60;
-const BUST_DURATION = 80;
-const RECOVERY_DURATION = 60;
+// Konstanter valgt for at en 14-åring skal kjenne igjen sammenhengen innen 1-3 minutter spilletid,
+// ikke for realisme. En tick svarer cirka til to ukers økonomisk tid (TICKS_PER_YEAR = 60).
+const BASE_RATE = 5; // Grunnrente i prosent, omtrent som langsiktig snitt i moderne vestlige økonomier.
+const TIME_PREF_TO_RATE = 20; // Hvor sterkt gjennomsnittlig tålmodighet (0..1) drar i naturlig rente.
+const MALINVESTMENT_BUST_THRESHOLD = 60; // Når 'feilinvestering' krysser dette nivået utløses en krise.
+const BUST_DURATION = 80; // Krisen varer cirka 80 ticks (~ 1,3 simulert år) - lenge nok til at eleven ser konsekvensene.
+const RECOVERY_DURATION = 60; // Restitusjon før økonomien er tilbake i 'expansion'.
 
 export function averageTimePreference(state: SimState): number {
     if (state.agents.length === 0) return 0.5;
@@ -103,8 +105,24 @@ export function applyPriceCeiling(state: SimState, controls: GodControls): void 
     if (!controls.priceCeiling.enabled) return;
     const consumerStage = state.stages[0];
     if (consumerStage.price > controls.priceCeiling.level) {
+        // Hvor mye over taket markedsprisen ligger - jo mer "spent" tak, jo verre vareknapphet.
+        const overshoot = (consumerStage.price - controls.priceCeiling.level) / controls.priceCeiling.level;
         consumerStage.price = controls.priceCeiling.level;
-        consumerStage.output *= 0.97;
+        // Sterk output-reduksjon så elever ser tydelig vareknapphet og ledighet
+        // når pristaket binder. Skalert med hvor mye taket bindes.
+        const reductionFactor = Math.max(0.85, 0.92 - overshoot * 0.1);
+        consumerStage.output *= reductionFactor;
+        // Permitterer noen arbeidere i forbruksleddet for å gjøre effekten synlig i Village.
+        if (overshoot > 0.05) {
+            const workers = state.agents.filter(
+                (a) => a.role === 'worker' && a.stageEmployer === consumerStage.id
+            );
+            const layoffs = Math.min(workers.length, Math.ceil(workers.length * overshoot * 0.4));
+            for (let i = 0; i < layoffs; i++) {
+                workers[i].stageEmployer = null;
+                workers[i].mood = 'unemployed';
+            }
+        }
     }
 }
 
@@ -150,7 +168,7 @@ export function applyMalinvestmentDelta(state: SimState, delta: number): void {
     state.malinvestment = Math.max(0, state.malinvestment + delta);
 }
 
-export const AUSTRIAN_CONSTANTS = {
+export const MODEL_CONSTANTS = {
     BASE_RATE,
     MALINVESTMENT_BUST_THRESHOLD,
     BUST_DURATION,

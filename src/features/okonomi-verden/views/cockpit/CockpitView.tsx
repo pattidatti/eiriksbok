@@ -1,4 +1,4 @@
-import { useMemo, useEffect, useState } from 'react';
+import { useMemo, useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Line } from 'react-chartjs-2';
 import {
@@ -20,8 +20,11 @@ import {
     AlertOctagon,
     Activity,
     Sparkles,
+    Scale,
+    Camera,
+    X,
 } from 'lucide-react';
-import { useWorldStore } from '../../store/worldStore';
+import { useWorldStore, type RunSnapshot } from '../../store/worldStore';
 import type { KeyMetrics, Phase } from '../../types';
 
 ChartJS.register(
@@ -73,6 +76,9 @@ export function CockpitView() {
     const history = useWorldStore((s) => s.sim.history);
     const sim = useWorldStore((s) => s.sim);
     const controls = useWorldStore((s) => s.controls);
+    const snapshots = useWorldStore((s) => s.snapshots);
+    const saveSnapshot = useWorldStore((s) => s.saveSnapshot);
+    const deleteSnapshot = useWorldStore((s) => s.deleteSnapshot);
 
     const latest = history[history.length - 1];
     const phase = PHASE_STYLES[sim.phase];
@@ -103,7 +109,7 @@ export function CockpitView() {
                 </AnimatePresence>
             </header>
 
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
                 <KPI
                     icon={Activity}
                     label="Inflasjon"
@@ -135,16 +141,30 @@ export function CockpitView() {
                     decimals={0}
                     tone={latest && latest.malinvestment > 40 ? 'rose' : latest && latest.malinvestment > 20 ? 'amber' : 'emerald'}
                 />
+                <KPI
+                    icon={Scale}
+                    label="Ulikhet (Gini)"
+                    value={latest ? latest.gini : 0}
+                    decimals={2}
+                    tone={latest && latest.gini > 0.5 ? 'rose' : latest && latest.gini > 0.35 ? 'amber' : 'emerald'}
+                />
             </div>
+
+            <SnapshotBar
+                history={history}
+                snapshots={snapshots}
+                onSave={saveSnapshot}
+                onDelete={deleteSnapshot}
+            />
 
             <div className="grid grid-cols-1 xl:grid-cols-2 gap-5">
                 <ChartCard
                     title="Rente: naturlig vs. styringsrente"
-                    description="Når styringsrenten ligger under den naturlige, akkumulerer feilinvesteringer."
+                    description="Når styringsrenten ligger under den naturlige, samler det seg opp feilinvesteringer i modellen."
                     icon={TrendingUp}
                     tone="indigo"
                 >
-                    <RateChart history={history} />
+                    <RateChart history={history} snapshots={snapshots} />
                 </ChartCard>
 
                 <ChartCard
@@ -153,7 +173,7 @@ export function CockpitView() {
                     icon={Activity}
                     tone="amber"
                 >
-                    <InflationChart history={history} />
+                    <InflationChart history={history} snapshots={snapshots} />
                 </ChartCard>
 
                 <ChartCard
@@ -162,11 +182,11 @@ export function CockpitView() {
                     icon={Users}
                     tone="rose"
                 >
-                    <UnemploymentChart history={history} />
+                    <UnemploymentChart history={history} snapshots={snapshots} />
                 </ChartCard>
 
                 <ChartCard
-                    title="Produksjonsstruktur (live Hayek-triangel)"
+                    title="Produksjonsstruktur"
                     description="Hvor mange arbeidere som er sysselsatt i hvert produksjonsledd akkurat nå."
                     icon={Triangle}
                     tone="emerald"
@@ -213,9 +233,9 @@ export function CockpitView() {
             </div>
 
             <p className="text-xs text-slate-500 leading-relaxed pt-2">
-                Modellen er en pedagogisk forenkling fundert i den østerrikske skolen
-                (Menger - Mises - Hayek - Böhm-Bawerk). Tall og dynamikk er kalibrert for å vise
-                sammenhenger, ikke for å gi økonomiske prognoser.
+                Simuleringen er en pedagogisk forenkling kalibrert for å vise sammenhenger, ikke
+                gi prognoser. Modellen bygger på antakelser fra én økonomisk skole - se "Om
+                modellen" i toppen for hva andre skoler ville tolket annerledes.
             </p>
         </div>
     );
@@ -288,8 +308,9 @@ function KPI({
 
 function useCountUp(target: number, decimals: number): string {
     const [shown, setShown] = useState(target);
+    const shownRef = useRef(target);
     useEffect(() => {
-        const start = shown;
+        const start = shownRef.current;
         const startTime = performance.now();
         const duration = 250;
         let raf = 0;
@@ -297,6 +318,7 @@ function useCountUp(target: number, decimals: number): string {
             const p = Math.min(1, (t - startTime) / duration);
             const eased = 1 - Math.pow(1 - p, 3);
             const v = start + (target - start) * eased;
+            shownRef.current = v;
             setShown(v);
             if (p < 1) raf = requestAnimationFrame(tick);
         };
@@ -380,14 +402,36 @@ const baseChartOptions = {
     },
 };
 
-function buildLabels(history: KeyMetrics[]): string[] {
-    return history.map((h) => String(h.tick));
+function snapshotDataset(
+    snap: RunSnapshot,
+    metric: keyof KeyMetrics,
+    labelSuffix: string
+) {
+    return {
+        label: `${snap.label} - ${labelSuffix}`,
+        data: snap.history.map((h) => h[metric] as number),
+        borderColor: snap.color,
+        backgroundColor: 'transparent',
+        fill: false,
+        pointRadius: 0,
+        borderWidth: 2,
+        borderDash: [2, 4],
+        tension: 0.4,
+    };
 }
 
-function RateChart({ history }: { history: KeyMetrics[] }) {
+function maxLabels(history: KeyMetrics[], snapshots: RunSnapshot[]): string[] {
+    const longest = snapshots.reduce<KeyMetrics[]>(
+        (acc, s) => (s.history.length > acc.length ? s.history : acc),
+        history
+    );
+    return longest.map((h) => String(h.tick));
+}
+
+function RateChart({ history, snapshots }: { history: KeyMetrics[]; snapshots: RunSnapshot[] }) {
     const data = useMemo(
         () => ({
-            labels: buildLabels(history),
+            labels: maxLabels(history, snapshots),
             datasets: [
                 {
                     label: 'Naturlig rente',
@@ -410,17 +454,18 @@ function RateChart({ history }: { history: KeyMetrics[] }) {
                     borderDash: [6, 4],
                     tension: 0.4,
                 },
+                ...snapshots.map((s) => snapshotDataset(s, 'policyRate', 'styring')),
             ],
         }),
-        [history]
+        [history, snapshots]
     );
     return <Line data={data} options={baseChartOptions} />;
 }
 
-function InflationChart({ history }: { history: KeyMetrics[] }) {
+function InflationChart({ history, snapshots }: { history: KeyMetrics[]; snapshots: RunSnapshot[] }) {
     const data = useMemo(
         () => ({
-            labels: buildLabels(history),
+            labels: maxLabels(history, snapshots),
             datasets: [
                 {
                     label: 'Inflasjon (%/år)',
@@ -432,17 +477,18 @@ function InflationChart({ history }: { history: KeyMetrics[] }) {
                     borderWidth: 3,
                     tension: 0.4,
                 },
+                ...snapshots.map((s) => snapshotDataset(s, 'inflation', 'inflasjon')),
             ],
         }),
-        [history]
+        [history, snapshots]
     );
     return <Line data={data} options={baseChartOptions} />;
 }
 
-function UnemploymentChart({ history }: { history: KeyMetrics[] }) {
+function UnemploymentChart({ history, snapshots }: { history: KeyMetrics[]; snapshots: RunSnapshot[] }) {
     const data = useMemo(
         () => ({
-            labels: buildLabels(history),
+            labels: maxLabels(history, snapshots),
             datasets: [
                 {
                     label: 'Arbeidsledighet (%)',
@@ -454,11 +500,79 @@ function UnemploymentChart({ history }: { history: KeyMetrics[] }) {
                     borderWidth: 3,
                     tension: 0.4,
                 },
+                ...snapshots.map((s) => snapshotDataset(s, 'unemployment', 'ledighet')),
             ],
         }),
-        [history]
+        [history, snapshots]
     );
     return <Line data={data} options={baseChartOptions} />;
+}
+
+function SnapshotBar({
+    history,
+    snapshots,
+    onSave,
+    onDelete,
+}: {
+    history: KeyMetrics[];
+    snapshots: RunSnapshot[];
+    onSave: (label?: string) => void;
+    onDelete: (id: string) => void;
+}) {
+    const canSave = history.length >= 5 && snapshots.length < 3;
+    return (
+        <div className="bg-white border border-slate-200/70 rounded-2xl p-4 shadow-sm flex flex-wrap items-center gap-3">
+            <div className="flex items-center gap-2">
+                <span className="flex items-center justify-center w-9 h-9 rounded-xl bg-indigo-100 text-indigo-700">
+                    <Camera size={16} />
+                </span>
+                <div>
+                    <h3 className="text-sm font-bold text-slate-900 leading-tight">
+                        Sammenlign kjøringer
+                    </h3>
+                    <p className="text-[11px] text-slate-500 leading-tight">
+                        Lagre opp til 3 kjøringer for å se forskjeller på grafene.
+                    </p>
+                </div>
+            </div>
+            <div className="flex-1 flex flex-wrap items-center gap-2 min-w-0">
+                {snapshots.map((s) => (
+                    <span
+                        key={s.id}
+                        className="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold text-white shadow-sm"
+                        style={{ backgroundColor: s.color }}
+                    >
+                        {s.label}
+                        <button
+                            type="button"
+                            onClick={() => onDelete(s.id)}
+                            className="hover:bg-white/20 rounded-full p-0.5 active:scale-95"
+                            aria-label={`Slett ${s.label}`}
+                        >
+                            <X size={11} />
+                        </button>
+                    </span>
+                ))}
+                {snapshots.length === 0 && (
+                    <span className="text-xs text-slate-400 italic">
+                        Ingen lagrede kjøringer ennå
+                    </span>
+                )}
+            </div>
+            <button
+                type="button"
+                onClick={() => {
+                    const label = window.prompt('Navn på kjøringen:', `Kjøring ${snapshots.length + 1}`);
+                    if (label !== null) onSave(label);
+                }}
+                disabled={!canSave}
+                className="flex items-center gap-2 px-3 py-2 rounded-xl bg-gradient-to-br from-indigo-500 to-indigo-600 text-white text-xs font-bold shadow-md hover:shadow-lg active:scale-95 transition-all disabled:opacity-40 disabled:cursor-not-allowed"
+            >
+                <Camera size={13} />
+                Lagre denne kjøringen
+            </button>
+        </div>
+    );
 }
 
 function StageBars() {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Brain, HelpCircle, Clock, MessageCircle, Gamepad2, Plane, History, Users, Search, Compass, Hourglass, Castle, Swords, Pen, Rocket, Landmark, GraduationCap } from 'lucide-react';
+import { Brain, HelpCircle, Clock, MessageCircle, Gamepad2, Plane, History, Users, Search, Compass, Hourglass, Castle, Swords, Pen, Rocket, Landmark, GraduationCap, Globe2 } from 'lucide-react';
 
 export const PracticePage: React.FC = () => {
     const modules = [
@@ -131,6 +131,14 @@ export const PracticePage: React.FC = () => {
             icon: Hourglass,
             color: 'bg-rose-900',
             link: '/oving/tidsreise'
+        },
+        {
+            id: 'okonomi-verden',
+            title: 'Økonomi-Verden',
+            description: 'Spill gud i en levende økonomi. Vri på rente, penger og regulering og se hva som skjer.',
+            icon: Globe2,
+            color: 'bg-amber-600',
+            link: '/samfunnskunnskap/okonomi/verden'
         },
         {
             id: 'krigsringen',

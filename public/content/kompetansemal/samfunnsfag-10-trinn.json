@@ -281,7 +281,11 @@
                     { "tittel": "Naturlig rente", "link": "/samfunnskunnskap/okonomi/naturlig-rente", "begrunnelse": "Hvorfor rente eksisterer og hvordan den virker." },
                     { "tittel": "Finanskriser", "link": "/samfunnskunnskap/okonomi/finanskriser", "begrunnelse": "Når økonomien går galt — og hvem som rammes." },
                     { "tittel": "Produksjon", "link": "/samfunnskunnskap/okonomi/produksjon", "begrunnelse": "Grunnleggende økonomi: hvordan verdier skapes." },
-                    { "tittel": "Arbeidsspesialisering", "link": "/samfunnskunnskap/okonomi/arbeidsspesialisering", "begrunnelse": "Hvorfor moderne samfunn er så produktive." }
+                    { "tittel": "Arbeidsspesialisering", "link": "/samfunnskunnskap/okonomi/arbeidsspesialisering", "begrunnelse": "Hvorfor moderne samfunn er så produktive." },
+                    { "tittel": "Ulike økonomiske skoler", "link": "/samfunnskunnskap/okonomi/okonomiske-skoler", "begrunnelse": "Forstå at økonomer er uenige, og hvorfor det betyr noe for valgene vi tar." }
+                ],
+                "verktoy": [
+                    { "tittel": "Økonomi-Verden", "link": "/samfunnskunnskap/okonomi/verden", "begrunnelse": "Eleven justerer rente, pengetrykk og regulering og ser konsekvenser for arbeid, priser og kriser. Tre kapsler tilbyr historiske scenarioer (frimarked, balanse, Weimar 1923)." }
                 ]
             }
         },

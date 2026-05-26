@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Quote, RefreshCw, BookOpen, ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useWorldStore } from '../store/worldStore';
-import { selectQuote } from '../data/austrian-quotes';
+import { selectQuote, lensOf, LENS_LABELS } from '../data/economic-thinkers';
 import { findCapsule } from '../data/presets';
 
 const ARTICLE_TITLES: Record<string, string> = {
@@ -13,6 +13,7 @@ const ARTICLE_TITLES: Record<string, string> = {
     finanskriser: 'Finanskriser',
     produksjon: 'Produksjon',
     arbeidsspesialisering: 'Arbeidsspesialisering',
+    'okonomiske-skoler': 'Ulike økonomiske skoler',
 };
 
 export function InfoDrawer() {
@@ -41,6 +42,7 @@ export function InfoDrawer() {
         [controls.policyRate, controls.freeMarket, naturalRate, sim.money.inflation, sim.phase, activeView, quoteSeed]
     );
 
+    const lens = lensOf(quote);
     const capsule = findCapsule(presetId);
     const linkedArticles = capsule?.linkedArticles ?? defaultArticlesForView(activeView);
 
@@ -60,7 +62,7 @@ export function InfoDrawer() {
                 />
                 <div className="flex items-center justify-between mb-2 relative">
                     <h3 className="text-xs uppercase tracking-wider text-amber-700 font-bold flex items-center gap-1.5">
-                        Hva sier Hayek?
+                        Tankesmie
                     </h3>
                     <button
                         type="button"
@@ -74,9 +76,14 @@ export function InfoDrawer() {
                 <blockquote className="text-sm text-slate-800 leading-relaxed font-serif italic relative">
                     "{quote.text}"
                 </blockquote>
-                <footer className="mt-3 text-xs text-amber-900/80 font-medium relative">
-                    {quote.author}
-                    {quote.source && <span className="text-amber-700/60"> · {quote.source}</span>}
+                <footer className="mt-3 text-xs text-amber-900/80 font-medium relative flex flex-wrap items-center gap-x-2 gap-y-1">
+                    <span>{quote.author}</span>
+                    {quote.source && <span className="text-amber-700/60">· {quote.source}</span>}
+                    {lens && (
+                        <span className="ml-auto text-[10px] uppercase tracking-wider bg-amber-200/60 text-amber-900 px-2 py-0.5 rounded-full font-bold">
+                            {LENS_LABELS[lens]}
+                        </span>
+                    )}
                 </footer>
             </motion.div>
 
@@ -104,15 +111,17 @@ export function InfoDrawer() {
             </div>
 
             <p className="text-[11px] text-slate-500 leading-relaxed px-1">
-                Modellen følger den østerrikske skolen (Menger - Mises - Hayek - Böhm-Bawerk). Pedagogisk forenkling, ikke en prognose.
+                Simuleringen er en pedagogisk forenkling. Den bygger på antakelser fra
+                <em> Austrian Business Cycle Theory</em>; andre økonomiske skoler ville modellert
+                noe annerledes. Se "Om modellen" i toppen.
             </p>
         </aside>
     );
 }
 
 function defaultArticlesForView(view: string): string[] {
-    if (view === 'triangle') return ['naturlig-rente', 'inflasjon-og-rente'];
+    if (view === 'triangle') return ['naturlig-rente', 'inflasjon-og-rente', 'okonomiske-skoler'];
     if (view === 'village') return ['arbeidsspesialisering', 'produksjon'];
     if (view === 'atlas') return ['produksjon', 'pengesystem-vs-naturalhandel'];
-    return ['naturlig-rente', 'inflasjon-og-rente', 'finanskriser'];
+    return ['naturlig-rente', 'inflasjon-og-rente', 'okonomiske-skoler', 'finanskriser'];
 }

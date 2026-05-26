@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
-import { Library, Wind, Scale, Flame, Play, BookOpen, Target, Check } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Library, Wind, Scale, Flame, Play, BookOpen, Target, Check, GraduationCap, ExternalLink } from 'lucide-react';
 import { useWorldStore } from '../../store/worldStore';
 import { CAPSULES } from '../../data/presets';
 import type { Capsule } from '../../types';
@@ -139,6 +140,29 @@ export function CapsulesView() {
                 bytte til triangel, landsby eller atlas for å se det samme datagrunnlaget på andre
                 måter. Avslutt kapselen med X-knappen i bannerlinjen.
             </p>
+
+            <div className="mt-2 max-w-2xl bg-indigo-50/70 border border-indigo-200/70 rounded-2xl p-4 flex items-start gap-3">
+                <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-indigo-100 text-indigo-700 flex-shrink-0">
+                    <GraduationCap size={18} />
+                </span>
+                <div className="flex-1">
+                    <h3 className="text-sm font-bold text-slate-900 leading-tight">
+                        For lærere
+                    </h3>
+                    <p className="text-sm text-slate-700 leading-snug mt-0.5">
+                        Økonomi-Verden støtter kompetansemål 12 i samfunnsfag 10. trinn -
+                        "vurdere korleis arbeid, inntekt og forbruk kan påverke personleg
+                        økonomi, levestandard og livskvalitet".
+                    </p>
+                    <Link
+                        to="/oving/kompetansemal"
+                        className="mt-2 inline-flex items-center gap-1 text-sm font-bold text-indigo-700 hover:text-indigo-900"
+                    >
+                        Se alle kompetansemål
+                        <ExternalLink size={12} />
+                    </Link>
+                </div>
+            </div>
         </div>
     );
 }

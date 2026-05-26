@@ -25,8 +25,8 @@ export function TriangleView() {
     const modeConfig = {
         natural: {
             icon: CheckCircle,
-            title: 'Naturlig likevekt',
-            text: 'Rente og sparing er i takt. Hvert produksjonsledd får akkurat de ressursene det trenger. Bærekraftig vekst.',
+            title: 'Rente i balanse',
+            text: 'Rente og sparing er i takt. Hvert produksjonsledd får ressursene det trenger. Stabil vekst.',
             color: 'emerald',
             bg: 'bg-emerald-50',
             border: 'border-emerald-300',
@@ -35,8 +35,8 @@ export function TriangleView() {
         },
         low: {
             icon: AlertTriangle,
-            title: 'Kunstig lav rente',
-            text: 'Ressurser flommer inn i lange, kapitaltunge prosjekter. Forbruket lider. En boble bygger seg opp - hør tikkingen.',
+            title: 'Renten er for lav',
+            text: 'Pengene strømmer inn i tunge, langsiktige prosjekter. Forbruket sliter. Modellen viser at en boble bygger seg opp.',
             color: 'rose',
             bg: 'bg-rose-50',
             border: 'border-rose-300',
@@ -45,8 +45,8 @@ export function TriangleView() {
         },
         high: {
             icon: TrendingDown,
-            title: 'Stram rente',
-            text: 'Penger holdes nær forbrukeren. Langsiktige investeringer utsettes. Veksten bremses, men strukturen er ærlig.',
+            title: 'Renten er stram',
+            text: 'Pengene blir værende nær forbrukeren. Store, langsiktige investeringer utsettes. Veksten bremses opp.',
             color: 'sky',
             bg: 'bg-sky-50',
             border: 'border-sky-300',
@@ -65,7 +65,7 @@ export function TriangleView() {
                         <span className="flex items-center justify-center w-12 h-12 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 shadow-md shadow-indigo-300/40">
                             <TriangleIcon size={22} className="text-white" />
                         </span>
-                        Hayeks produksjonstriangel
+                        Produksjons-triangelet
                     </h1>
                     <p className="text-base lg:text-lg text-slate-600 mt-1">
                         Bredden på hvert ledd viser hvor mange arbeidere som jobber der akkurat nå.

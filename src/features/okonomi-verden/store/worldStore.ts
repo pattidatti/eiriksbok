@@ -1,9 +1,19 @@
 import { create } from 'zustand';
-import type { SimState, GodControls, ViewKind } from '../types';
+import type { SimState, GodControls, ViewKind, KeyMetrics } from '../types';
 import { createInitialState, DEFAULT_GOD_CONTROLS, FREE_MARKET_CONTROLS } from '../engine/initialState';
 import { tick as runTick } from '../engine/simulation';
 
 export type Speed = 0 | 1 | 2 | 4;
+
+export interface RunSnapshot {
+    id: string;
+    label: string;
+    color: string;
+    history: KeyMetrics[];
+}
+
+const SNAPSHOT_COLORS = ['#a855f7', '#ec4899', '#f59e0b', '#0ea5e9'];
+const MAX_SNAPSHOTS = 3;
 
 interface WorldStore {
     sim: SimState;
@@ -13,6 +23,7 @@ interface WorldStore {
     presetId: string | null;
     activeBeatIndex: number;
     quoteSeed: number;
+    snapshots: RunSnapshot[];
 
     setActiveView: (v: ViewKind) => void;
     setSpeed: (s: Speed) => void;
@@ -34,6 +45,10 @@ interface WorldStore {
 
     advanceTicks: (n: number) => void;
     rollQuoteSeed: () => void;
+
+    saveSnapshot: (label?: string) => void;
+    deleteSnapshot: (id: string) => void;
+    clearSnapshots: () => void;
 }
 
 export const useWorldStore = create<WorldStore>((set, get) => ({
@@ -44,6 +59,7 @@ export const useWorldStore = create<WorldStore>((set, get) => ({
     presetId: null,
     activeBeatIndex: -1,
     quoteSeed: 0,
+    snapshots: [],
 
     setActiveView: (v) => set({ activeView: v }),
     setSpeed: (s) => set({ speed: s }),
@@ -130,6 +146,27 @@ export const useWorldStore = create<WorldStore>((set, get) => ({
     },
 
     rollQuoteSeed: () => set((s) => ({ quoteSeed: s.quoteSeed + 1 })),
+
+    saveSnapshot: (label) =>
+        set((state) => {
+            if (state.sim.history.length < 5) return state;
+            const usedColors = new Set(state.snapshots.map((s) => s.color));
+            const color = SNAPSHOT_COLORS.find((c) => !usedColors.has(c)) ?? SNAPSHOT_COLORS[0];
+            const finalLabel = label?.trim() || `Kjøring ${state.snapshots.length + 1}`;
+            const next: RunSnapshot = {
+                id: `snap-${Date.now()}`,
+                label: finalLabel,
+                color,
+                history: state.sim.history.map((h) => ({ ...h })),
+            };
+            const snapshots = [...state.snapshots, next].slice(-MAX_SNAPSHOTS);
+            return { snapshots };
+        }),
+
+    deleteSnapshot: (id) =>
+        set((state) => ({ snapshots: state.snapshots.filter((s) => s.id !== id) })),
+
+    clearSnapshots: () => set({ snapshots: [] }),
 }));
 
 function clamp(n: number, lo: number, hi: number): number {

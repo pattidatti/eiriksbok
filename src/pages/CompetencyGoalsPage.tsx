@@ -11,6 +11,7 @@ import {
     ExternalLink,
     ChevronDown,
     GraduationCap,
+    Wrench,
 } from 'lucide-react';
 import { usePageTitle } from '../hooks/usePageTitle';
 
@@ -32,6 +33,7 @@ type Goal = {
         tidsreise?: ContentItem[];
         detektiv?: ContentItem[];
         spill?: ContentItem[];
+        verktoy?: ContentItem[];
     };
 };
 
@@ -77,6 +79,7 @@ const sectionMeta: Record<
     tidsreise: { label: 'Tidsreiser', icon: Hourglass, color: 'bg-rose-50 text-rose-700 border-rose-100' },
     detektiv: { label: 'Detektivsaker', icon: Search, color: 'bg-amber-50 text-amber-700 border-amber-100' },
     spill: { label: 'Mini-spill', icon: Gamepad2, color: 'bg-cyan-50 text-cyan-700 border-cyan-100' },
+    verktoy: { label: 'Verktøy', icon: Wrench, color: 'bg-purple-50 text-purple-700 border-purple-100' },
 };
 
 const countContent = (goal: Goal): number =>

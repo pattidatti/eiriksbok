@@ -1,0 +1,365 @@
+{
+    "id": "okonomiske-skoler",
+    "title": "Ulike økonomiske skoler",
+    "description": "Hvorfor uenes økonomer om kriser, rente og inflasjon? Et grunnriss av de fire store retningene.",
+    "image": "/images/topics/okonomi_hero.webp",
+    "heroImage": "/images/topics/okonomi_hero.webp",
+    "layout": "rich",
+    "readTime": "12 min lesning",
+    "year": "1776",
+    "category": "Økonomi",
+    "tags": [
+        "økonomi",
+        "økonomiske skoler",
+        "teori",
+        "keynes",
+        "hayek",
+        "friedman"
+    ],
+    "details": [
+        "Klassisk og østerriksk skole mener markedet koordinerer seg selv",
+        "Keynesianere mener staten må gripe inn i kriser",
+        "Monetarister mener pengemengden er det avgjørende styringsverktøyet",
+        "Post-keynesianere fokuserer på finansiell ustabilitet og ulikhet"
+    ],
+    "createdDate": "2026-05-26T00:00:00Z",
+    "lastUpdated": "2026-05-26T00:00:00Z",
+    "concepts": [
+        {
+            "id": "oesterriksk-skole",
+            "term": "Østerriksk skole",
+            "aliases": ["østerrikske økonomer", "østerriksk økonomi", "klassisk skole"],
+            "definition": "Økonomiretning som mener markedet koordinerer seg selv gjennom prissignaler, og at statlige inngrep - særlig i renten - skaper feilinvesteringer og kriser."
+        },
+        {
+            "id": "keynesiansk-skole",
+            "term": "Keynesiansk skole",
+            "aliases": ["keynesiansk", "keynesianerne", "keynesiansk økonomi"],
+            "definition": "Økonomiretning etter John Maynard Keynes som mener staten og sentralbanken bør stimulere etterspørselen i nedgangstider for å hindre langvarig arbeidsledighet."
+        },
+        {
+            "id": "monetarisme",
+            "term": "Monetarisme",
+            "aliases": ["monetaristisk", "monetaristene"],
+            "definition": "Økonomiretning etter Milton Friedman som mener inflasjon alltid skyldes for rask vekst i pengemengden, og at sentralbanken bør følge klare regler fremfor skjønn."
+        },
+        {
+            "id": "post-keynesiansk",
+            "term": "Post-keynesiansk skole",
+            "aliases": ["post-keynesianske", "strukturell skole"],
+            "definition": "Økonomiretning som vektlegger finanssektorens ustabilitet, ulikhet og at markeder ikke er selvkorrigerende."
+        },
+        {
+            "id": "minsky-oyeblikket",
+            "term": "Minsky-øyeblikket",
+            "aliases": ["Minsky moment", "Minskys øyeblikk"],
+            "definition": "Det øyeblikket en finansboble sprekker og plutselig kreditttørke setter inn - oppkalt etter Hyman Minsky som forutslo at stabilitet avler ustabilitet."
+        },
+        {
+            "id": "stabilitetens-paradoks",
+            "term": "Stabilitetens paradoks",
+            "aliases": ["Minskys paradoks"],
+            "definition": "Hyman Minskys observasjon at jo lenger en økonomi er stabil, jo mer risiko tar bankene - noe som til slutt gjør systemet ustabilt."
+        },
+        {
+            "id": "multiplikatoreffekten",
+            "term": "Multiplikatoreffekten",
+            "aliases": ["multiplikatoren", "keynesiansk multiplikator"],
+            "definition": "Keynesiansk idé om at statlige utgifter i en lavkonjunktur forsterkes: en krone brukt av staten kan gi mer enn en krone i økt samlet etterspørsel."
+        },
+        {
+            "id": "pengemengden",
+            "term": "Pengemengden",
+            "aliases": ["pengemengdevekst", "pengetilbud"],
+            "definition": "Den totale mengden penger i omløp i en økonomi. Monetaristene mener kontrollert, stabil vekst i pengemengden er nøkkelen til lav inflasjon."
+        },
+        {
+            "id": "feilinvestering",
+            "term": "Feilinvestering",
+            "aliases": ["feilinvesteringer", "malinvestment"],
+            "definition": "Østerriksk begrep for investeringer som bare er lønnsomme fordi renten er kunstig lav, og som avdekkes som ulønnsomme når renten normaliseres."
+        },
+        {
+            "id": "boom-bust",
+            "term": "Boom-bust-syklus",
+            "aliases": ["konjunktursyklus", "boom og bust", "oppgangstid og krise"],
+            "definition": "Mønsteret der en periode med sterk vekst etterfølges av en krise. Østerrikske økonomer mener dette skyldes kunstig kredittekspansjon fra sentralbanken."
+        }
+    ],
+    "quiz": [
+        {
+            "id": "q1",
+            "question": "Hva er det viktigste skillet mellom den østerrikske og den keynesianske skolen?",
+            "options": [
+                "Østerrikerne mener markedet retter opp feil selv - keynesianerne mener staten må gripe inn",
+                "Østerrikerne er kun opptatt av inflasjon, keynesianerne kun av ulikhet",
+                "Keynesianerne støtter gullstandard, østerrikerne vil ha fiat-penger",
+                "Det er ingen reell forskjell - begge vil ha lav rente"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q2",
+            "question": "Hva mener monetaristene er den viktigste årsaken til inflasjon?",
+            "options": [
+                "For rask vekst i pengemengden",
+                "For høy arbeidsledighet",
+                "For lav statsgjeld",
+                "For mange importvarer"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q3",
+            "question": "Hva kalles Hyman Minskys observasjon om at stabilitet avler ustabilitet?",
+            "options": [
+                "Stabilitetens paradoks",
+                "Den naturlige renten",
+                "Multiplikatoreffekten",
+                "Boom-bust-syklusen"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q4",
+            "question": "Økonomi-Verden-simuleringen er primært bygget på antakelser fra hvilken skole?",
+            "options": [
+                "Den østerrikske skolen",
+                "Den keynesianske skolen",
+                "Monetarismen",
+                "Post-keynesiansk skole"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q5",
+            "question": "En keynesianer og en østerriksk økonom ser begge at arbeidsledigheten stiger. Hva er den viktigste forskjellen i diagnosen?",
+            "options": [
+                "Keynesianeren vil at staten skal stimulere - østerrikeren vil at markedet skal rydde opp selv",
+                "Keynesianeren vil senke skatten - østerrikeren vil øke pengemengden",
+                "Begge mener sentralbanken er årsaken",
+                "Keynesianeren mener det er et rent monetært problem"
+            ],
+            "correctAnswer": 0
+        }
+    ],
+    "content": [
+        {
+            "type": "header",
+            "content": "Hvorfor uenes økonomer?"
+        },
+        {
+            "type": "text",
+            "content": "Hvis du har sett en debatt om økonomi på tv, har du kanskje undret deg: hvorfor sier den ene at vi må stramme inn, mens den andre sier vi må bruke mer? De er ofte uenige fordi de tilhører ulike skoler innen økonomi. En skole er en måte å se på hvordan økonomien henger sammen. Du kan tenke på det som ulike briller. Setter du på den ene, ser du tydelig én ting. Setter du på den andre, ser du noe annet."
+        },
+        {
+            "type": "text",
+            "content": "Det viktige er at de fire skolene ikke er uenige om fakta. De er uenige om hvilke antakelser som er riktige. Hvem bør vi stole på - markedet eller staten? Hva skaper inflasjon? Kan kriser kurere seg selv? Svaret avhenger av hvilke briller du setter på."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "De fire store skolene",
+                "content": "Østerriksk/klassisk: markedet ordner opp selv, statlige inngrep skaper kriser. Keynesiansk: markedet kan svikte alvorlig, staten må gripe inn. Monetarisme: styr pengemengden stabilt, resten ordner seg. Post-keynesiansk: finanssektoren skaper ustabilitet, ulikhet er et strukturproblem."
+            }
+        },
+        {
+            "type": "header",
+            "content": "1. Klassisk og østerriksk skole"
+        },
+        {
+            "type": "text",
+            "content": "De østerrikske økonomene mener at markedet stort sett ordner opp selv. Renten skal bestemmes av hvor tålmodige folk er og hvor mye de sparer. En høy naturlig rente betyr at folk vil ha penger nå - de sparer lite. En lav naturlig rente betyr at folk er tålmodige og sparer mye. Slik sender renten et signal til investorene om hva slags prosjekter det er grunnlag for."
+        },
+        {
+            "type": "text",
+            "content": "Problemet oppstår når sentralbanker holder renten kunstig lav - lavere enn den naturlige. Da ser det ut som om folk sparer mer enn de gjør. Bedrifter starter langsiktige prosjekter det ikke er reell etterspørsel etter. Dette er feilinvesteringer. Når renten til slutt normaliseres, avsløres det at prosjektene ikke var lønnsomme. Da raser de, og det blir krise. Østerrikerne kaller dette boom-bust-syklusen - og de mener den er skapt av sentralbanken, ikke av markedet."
+        },
+        {
+            "type": "quote",
+            "content": "Å tro at sentralplanleggere kan sette en bedre rente enn markedet er å tro at noen få mennesker vet mer enn alle de millionene som sparer og låner.",
+            "author": "Basert på Friedrich Hayek",
+            "source": "The Pure Theory of Capital (1941)"
+        },
+        {
+            "type": "text",
+            "content": "Kjente navn: Ludwig von Mises, Friedrich Hayek, Eugen von Böhm-Bawerk. Det er denne brillen Økonomi-Verden bruker når den simulerer feilinvesteringer og kriser. Vil du gå dypere inn i teorien? Les artikkelen om [den naturlige renten](/samfunnskunnskap/okonomi/naturlig-rente)."
+        },
+        {
+            "type": "header",
+            "content": "2. Keynesiansk skole"
+        },
+        {
+            "type": "text",
+            "content": "Den britiske økonomen John Maynard Keynes så hvordan arbeidsledigheten gikk i taket på 1930-tallet uten at markedet klarte å snu seg selv. Han mente at i en krise tør verken bedrifter eller folk å bruke penger. Da sparer alle - noe som høres fornuftig ut for den enkelte, men som gjør krisen verre for samfunnet. Keynes kalte dette spareparadokset."
+        },
+        {
+            "type": "text",
+            "content": "Løsningen var at staten måtte ta over rollen som bruker. Bygge veier, ansette folk, holde hjulene i gang. Og her kommer det lure: pengene staten bruker, sirkulerer i samfunnet. En krone til en arbeider brukes i butikken, som betaler sin leverandør, som betaler sine ansatte. En krone statlig forbruk kan gi mer enn en krone i total aktivitet. Det er multiplikatoreffekten."
+        },
+        {
+            "type": "quote",
+            "content": "På lang sikt er vi alle døde. Økonomer setter seg selv altfor enkle og for lite nyttige oppgaver i stormfulle tider hvis de bare kan fortelle oss at stormen er over og at markedet vil rette seg selv.",
+            "author": "John Maynard Keynes",
+            "source": "A Tract on Monetary Reform (1923)"
+        },
+        {
+            "type": "text",
+            "content": "Keynesianere mener altså at markedet kan svikte alvorlig, og at staten har en viktig rolle som motvekt. Kjente navn i dag: Paul Krugman, Joseph Stiglitz, Mariana Mazzucato."
+        },
+        {
+            "type": "header",
+            "content": "3. Monetarisme"
+        },
+        {
+            "type": "text",
+            "content": "Milton Friedman og hans tilhengere mener at inflasjon nesten alltid kommer av at det blir trykt for mye penger. Mengden penger i omløp bestemmer prisnivået. Dobler du pengemengden uten at produksjonen øker, stiger prisene. Friedman var også uenig med Keynes om hva som skapte den store depresjonen: ifølge ham var det sentralbanken som lot pengemengden krympe, ikke markedet som sviktet."
+        },
+        {
+            "type": "text",
+            "content": "Friedman tok dette et skritt videre med det han kalte k-prosent-regelen: sentralbanken bør øke pengemengden med en fast, forutsigbar prosent hvert år - uavhengig av konjunkturene. Ingen skjønn, ingen overraskelser. Da vet bedrifter og husholdninger hva de kan forvente, og prisene holder seg stabile."
+        },
+        {
+            "type": "text",
+            "content": "Monetaristene støtter altså markedet og sentralbanken, men de vil at sentralbanken skal følge regler fremfor å gjette seg frem til hva som er best i øyeblikket."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Monetaristenes nøkkelidé",
+                "content": "Inflasjon er alltid og overalt et monetært fenomen. Styr pengemengden stabilt og forutsigbart, og det meste retter seg selv. Sentralbanker bør aldri la seg friste til å stimulere gjennom brå endringer i pengemengden."
+            }
+        },
+        {
+            "type": "header",
+            "content": "4. Post-keynesiansk og strukturell skole"
+        },
+        {
+            "type": "text",
+            "content": "Hyman Minsky pekte på noe nesten ingen andre la merke til: jo lenger ting går bra, jo mer risiko tar bankene. Folk låner mer enn de burde, og sikkerheten for lånene blir stadig svakere. Minsky kalte dette stabilitetens paradoks - stabilitet avler ustabilitet. Når regningen til slutt kommer, kan hele finanssystemet kollapse på en gang."
+        },
+        {
+            "type": "text",
+            "content": "Det øyeblikket alt snur kalles i dag Minsky-øyeblikket. I 2008 kollapset boligmarkedet i USA og utløste en global finanskrise. Mange økonomer som aldri hadde hørt om Minsky, gjenoppdaget ham plutselig - han hadde forutsagt akkurat dette mønsteret. Les mer om krisemekanismene i artikkelen om [finanskriser](/samfunnskunnskap/okonomi/finanskriser)."
+        },
+        {
+            "type": "text",
+            "content": "Andre i denne tradisjonen, som Thomas Piketty, er opptatt av ulikhet. Piketty viste at kapitaleiere historisk sett har fått høyere avkastning enn den generelle veksten i samfunnet. Det betyr at de som eier mye, over tid eier mer og mer av kaken - og at de som jobber, til slutt ikke har nok kjøpekraft til å holde etterspørselen oppe."
+        },
+        {
+            "type": "header",
+            "content": "Samme krise - fire diagnoser"
+        },
+        {
+            "type": "text",
+            "content": "Det som skiller skolene er ikke hvilke tall de leser - det er hvilke antakelser de starter med. Retter markedet seg selv? Er inflasjon alltid et pengefenomen? Kan finanssektoren destabilisere seg selv? Ulike svar gir ulike diagnoser. Velg en krise nedenfor og se hvordan hver skole ville forklare den."
+        },
+        {
+            "type": "component",
+            "name": "EconomicSchoolsDiagnosis",
+            "props": {
+                "scenarios": [
+                    {
+                        "id": "arbeidsledighet",
+                        "label": "Høy arbeidsledighet",
+                        "description": "10% av arbeidsstyrken er uten jobb. Hva bør gjøres?"
+                    },
+                    {
+                        "id": "inflasjon",
+                        "label": "Høy inflasjon",
+                        "description": "Prisene stiger 8% per år. Hverdagsvarekjøp blir dyrere."
+                    },
+                    {
+                        "id": "lavvekst",
+                        "label": "Stagnasjon",
+                        "description": "BNP har stått stille i to år. Bedrifter investerer ikke."
+                    }
+                ],
+                "schools": [
+                    {
+                        "id": "oesterriksk",
+                        "name": "Østerriksk/klassisk",
+                        "color": "amber",
+                        "thinkers": "Hayek, Mises",
+                        "diagnoses": {
+                            "arbeidsledighet": "Markedet rydder opp selv. Staten skapte problemet med kunstig lav rente som bygde bobler. La prisene og lønningene justere seg fritt - da finner ressursene sin naturlige plass.",
+                            "inflasjon": "Sentralbanken trykte for mye penger eller holdt renten kunstig lav. Stopp kredittekspansjonen og la markedet absorbere overskuddet.",
+                            "lavvekst": "Reguleringer og skatter hindrer investeringer. Fjern barrierer slik at markedet finner nye lønnsomme muligheter. Ikke la staten gjette seg frem til løsninger."
+                        }
+                    },
+                    {
+                        "id": "keynesiansk",
+                        "name": "Keynesiansk",
+                        "color": "blue",
+                        "thinkers": "Keynes, Krugman",
+                        "diagnoses": {
+                            "arbeidsledighet": "Markedet klarer ikke å løse dette selv - etterspørselen er for svak. Staten må stimulere: bygge veier, ansette folk, holde hjulene i gang via multiplikatoreffekten.",
+                            "inflasjon": "Hev renten og stram inn statsbudsjettet for å dempe etterspørselen. Men ikke for raskt - da risikerer vi å skape ny arbeidsledighet.",
+                            "lavvekst": "Budsjettet er for stramt. Øk offentlige investeringer for å gi privat sektor noe å bygge videre på."
+                        }
+                    },
+                    {
+                        "id": "monetaristisk",
+                        "name": "Monetaristisk",
+                        "color": "green",
+                        "thinkers": "Friedman",
+                        "diagnoses": {
+                            "arbeidsledighet": "Midlertidig - markedet vil rydde opp hvis sentralbanken lar være å overreagere. Hold pengemengden stabil.",
+                            "inflasjon": "Inflasjon er alltid et monetært fenomen. Sentralbanken lot pengemengden vokse for raskt. Stram inn pengemengdeveksten gradvis og forutsigbart.",
+                            "lavvekst": "Sentralbanken bør holde stabil, forutsigbar vekst i pengemengden. Ikke overreager med stimulanser - det skaper bare ny ustabilitet."
+                        }
+                    },
+                    {
+                        "id": "post-keynesiansk",
+                        "name": "Post-keynesiansk",
+                        "color": "purple",
+                        "thinkers": "Minsky, Piketty",
+                        "diagnoses": {
+                            "arbeidsledighet": "Ulikhet er strukturproblemet: de rike sparer alt, vanlige folk har ikke nok å bruke. Omfordel gjennom skatt og invester i offentlige tjenester.",
+                            "inflasjon": "Sjekk om store bedrifter utnytter markedsmakt til å ta urimelig høye marginer. Reguleringer er vel så viktig som pengemengden.",
+                            "lavvekst": "Finanssektoren suger kapital fra realøkonomien. Reguler banker hardere og styrk arbeidernes kjøpekraft."
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "content": "Hva betyr dette for Økonomi-Verden?"
+        },
+        {
+            "type": "text",
+            "content": "Simuleringen bygger inn antakelser fra den østerrikske skolen. Det betyr at i denne modellen vil for lav rente bygge bobler, frimarkedet uten inngrep vil holde seg stabilt over tid, og pengetrykk vil føre til inflasjon. Det er en konsistent modell - men ikke den eneste mulige."
+        },
+        {
+            "type": "text",
+            "content": "En keynesianer ville sagt: ja, men hva med 1930-tallet, da markedet ikke selv klarte å skape jobber igjen? En monetarist ville sagt: pengemengden er det viktigste, ikke renten alene. En post-keynesianer ville sagt: dere ser ikke etter bobler der de faktisk vokser, i finanssektoren."
+        },
+        {
+            "type": "text",
+            "content": "Når du spiller, tenk kritisk: hva viser modellen deg, og hva får den ikke med seg? Det er en bedre øvelse i samfunnskunnskap enn å pugge svar."
+        },
+        {
+            "type": "list",
+            "items": [
+                "Alle fire skolene ser de samme tallene - de er uenige om hvilke antakelser som er riktige",
+                "Østerriksk skole: markedet vet best, sentralbankinngrep skaper kriser",
+                "Keynesiansk skole: markedet kan svikte, staten må stimulere etterspørselen",
+                "Monetarisme: stabil pengemengdevekst er nøkkelen til stabil økonomi",
+                "Post-keynesiansk skole: finanssektoren og ulikhet er de virkelige farene"
+            ]
+        },
+        {
+            "type": "component",
+            "name": "OkonomiVerdenLink",
+            "props": {
+                "view": "cockpit",
+                "label": "Prøv selv: Hvem har rett om krisen?",
+                "description": "Åpne Økonomi-Verden og test hva som skjer når du følger rådet fra hver skole. Senk renten som en keynesianer - eller la markedet rydde opp som en østerriker."
+            }
+        }
+    ],
+    "timeline": []
+}

@@ -10,16 +10,16 @@ interface Tooltip {
 
 const TOOLTIPS: Record<string, Tooltip> = {
     freeMarket: {
-        label: 'Frimarked-modus',
-        body: 'Slå av sentralbanken. Styringsrenten følger den naturlige renten automatisk, og pengetrykket stopper. Rothbards og Hayeks drøm.',
+        label: 'Marked uten sentralbank',
+        body: 'Slå av sentralbanken. Renten følger det folk faktisk sparer og låner, og pengemengden vokser ikke. I denne modellen blir resultatet stabilt - andre økonomiske skoler ville sagt at markedet alene kan bomme stygt på kriser.',
     },
     policyRate: {
         label: 'Styringsrente',
-        body: 'Sentralbankens rente. Når den ligger under den naturlige renten, oppstår feilinvesteringer (Hayek/Mises).',
+        body: 'Renten sentralbanken bestemmer. Når den ligger langt under det folk faktisk vil låne ut for, bygger økonomien for mye på lån (det modellen kaller feilinvestering).',
     },
     moneyGrowth: {
         label: 'Pengetrykk per år',
-        body: 'Hvor raskt pengemengden vokser. Høyt pengetrykk gir inflasjon, først i de stadiene som ligger nærmest kreditten (Cantillon-effekt).',
+        body: 'Hvor raskt pengemengden vokser. Mye pengetrykk gir inflasjon. I denne modellen treffer pengene de tyngste produksjonsleddene først (kalt Cantillon-effekten).',
     },
     taxRate: {
         label: 'Skattenivå',
@@ -27,19 +27,19 @@ const TOOLTIPS: Record<string, Tooltip> = {
     },
     publicSpend: {
         label: 'Offentlig forbruk',
-        body: 'Hvor stor andel av økonomien som styres politisk i stedet for av markedet.',
+        body: 'Hvor stor del av økonomien som styres av politiske valg framfor av markedet.',
     },
     priceCeiling: {
         label: 'Pristak',
-        body: 'Lovbestemt makspris på forbruksvarer. Skaper varemangel, prisene kan ikke lenger signalisere knapphet.',
+        body: 'Lovbestemt makspris på forbruksvarer. Skaper ofte vareknapphet fordi prisene ikke lenger viser hvor knapt noe er.',
     },
     wageFloor: {
         label: 'Lønnsgulv',
-        body: 'Minimumslønn. Skaper arbeidsledighet hos de minst produktive arbeiderne.',
+        body: 'Minimumslønn. Kan gi arbeidsledighet hos de som er minst produktive, fordi det blir for dyrt å ansette dem.',
     },
     regulation: {
         label: 'Reguleringsbyrde',
-        body: 'Generelt regelverk for næringslivet. Bremser entreprenørskap og kapitaldannelse.',
+        body: 'Hvor mange regler bedriftene må følge. Mye regulering bremser nyetableringer og kapitaloppbygging.',
     },
 };
 
@@ -87,15 +87,15 @@ export function GodControlPanel() {
                 </div>
                 <div className="min-w-0 flex-1">
                     <div className="text-sm font-bold text-amber-900 leading-tight">
-                        Frigjør markedet
+                        Slå av alle inngrep
                     </div>
                     <div className="text-xs text-amber-800/80 leading-snug mt-0.5">
-                        Ingen sentralbank, ingen skatt, ingen regulering.
+                        Test scenarioet uten sentralbank, skatt eller regulering.
                     </div>
                 </div>
             </motion.button>
 
-            <Section title="Frimarked" icon={Wind}>
+            <Section title="Marked uten sentralbank" icon={Wind}>
                 <Toggle
                     id="freeMarket"
                     enabled={controls.freeMarket}
@@ -107,7 +107,7 @@ export function GodControlPanel() {
                         animate={{ opacity: 1, y: 0 }}
                         className="text-xs text-amber-800/90 leading-snug bg-amber-50 border border-amber-200/70 rounded-lg p-2.5 -mt-1"
                     >
-                        Sentralbanken er av. Renten følger naturlig nivå, pengetrykket er null.
+                        Sentralbanken er av. Renten settes av sparing og lån, pengemengden er fast.
                     </motion.p>
                 )}
             </Section>

@@ -121,6 +121,7 @@ const TradeLoopComponent = lazy(() => import('./content/interactive/okonomi/Trad
 const SpecializationSlider = lazy(() => import('./content/interactive/okonomi/SpecializationSlider').then(m => ({ default: m.SpecializationSlider })));
 const LoanableFundsMarket = lazy(() => import('./content/interactive/okonomi/LoanableFundsMarket').then(m => ({ default: m.LoanableFundsMarket })));
 const HayekTriangle = lazy(() => import('./content/interactive/okonomi/HayekTriangle').then(m => ({ default: m.HayekTriangle })));
+const EconomicSchoolsDiagnosis = lazy(() => import('./content/interactive/okonomi/EconomicSchoolsDiagnosis').then(m => ({ default: m.EconomicSchoolsDiagnosis })));
 
 // Arbeidsliv
 const WageNegotiationSim = lazy(() => import('./content/interactive/arbeidsliv/WageNegotiationSim').then(m => ({ default: m.WageNegotiationSim })));
@@ -288,6 +289,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     SpecializationSlider,
     LoanableFundsMarket,
     HayekTriangle,
+    EconomicSchoolsDiagnosis,
 
     // Arbeidsliv
     WageNegotiationSim,

@@ -3,9 +3,9 @@ import type { Capsule } from '../types';
 export const CAPSULES: Capsule[] = [
     {
         id: 'frimarked',
-        title: 'Det frie markedet',
-        subtitle: 'Rothbards og Hayeks drøm',
-        summary: 'Ingen sentralbank. Ingen skatt. Ingen regulering. Bare frivillige bytter mellom mennesker. Hva slags samfunn vokser fram?',
+        title: 'Marked uten inngrep',
+        subtitle: 'Hva skjer hvis ingen styrer?',
+        summary: 'Ingen sentralbank, ingen skatt, ingen regler for bedriftene. Bare frivillig handel mellom mennesker. Klarer økonomien seg selv?',
         icon: 'wind',
         initialControls: {
             policyRate: 5,
@@ -24,7 +24,7 @@ export const CAPSULES: Capsule[] = [
         objectives: [
             {
                 id: 'no-bust',
-                text: 'Bevar fri likevekt uten å trigge bust i 300 ticks',
+                text: 'Hold økonomien stabil i 300 ticks uten at en krise rammer',
                 metric: 'malinvestment',
                 threshold: 20,
                 direction: 'below',
@@ -33,26 +33,26 @@ export const CAPSULES: Capsule[] = [
         narrativeBeats: [
             {
                 atTick: 0,
-                title: 'Markedet er fritt',
-                body: 'Pengemengden er fast. Renten settes av de som faktisk sparer og låner. Ingen sentral planlegger gjetter på riktig nivå — millioner av enkeltvalg gjør jobben sammen.',
+                title: 'Ingen styrer økonomien',
+                body: 'Pengemengden er låst fast. Renten settes av folk som faktisk sparer og låner. Ingen sentralbank gjetter på riktig nivå. Ulike skoler er uenige om hva som vil skje - i denne modellen blir det stabilt. Prøv det og se.',
                 quote: {
-                    text: 'I et fritt marked formidler prisene sannheten om knapphet og tålmodighet. Når staten roter med dem, blir hele systemet blind.',
-                    author: 'Murray Rothbard (parafrasert)',
+                    text: 'I et fritt marked formidler prisene sannheten om hvor knapt noe er, og hvor tålmodige folk er. Når noen roter med prisene, mister vi signalet.',
+                    author: 'Friedrich Hayek (parafrasert)',
                 },
             },
             {
                 atTick: 200,
-                title: 'Stabil orden',
-                body: 'Legg merke til at naturlig rente og styringsrente er identiske — for det er bare én rente når markedet får bestemme. Ingen feilinvestering hoper seg opp. Ingen kunstig boom. Bare reell vekst basert på reell sparing.',
+                title: 'Stabil orden - i denne modellen',
+                body: 'Naturlig rente og styringsrente er like, fordi det bare finnes én rente når markedet bestemmer. Ingen feilinvestering bygger seg opp. Husk: denne modellen antar at markedet alltid finner balansen selv. En keynesianer ville pekt på 1930-tallet og vært uenig.',
             },
         ],
-        linkedArticles: ['naturlig-rente', 'pengesystem-vs-naturalhandel', 'produksjon'],
+        linkedArticles: ['naturlig-rente', 'pengesystem-vs-naturalhandel', 'produksjon', 'okonomiske-skoler'],
     },
     {
         id: 'naturlig-likevekt',
-        title: 'Naturlig likevekt',
-        subtitle: 'Sandkasse-baseline',
-        summary: 'Et fritt marked der sentralbanken setter rente nær den naturlige. Prøv å holde balansen, eller eksperimenter med å vri.',
+        title: 'Balansens land',
+        subtitle: 'Vanlig økonomi - prøv selv',
+        summary: 'Sentralbanken setter rente nær det folk faktisk vil låne ut for. Liten skatt og lite inngrep. Klarer du å holde balansen, eller vil du eksperimentere?',
         icon: 'scale',
         initialControls: {
             policyRate: 5,
@@ -80,20 +80,20 @@ export const CAPSULES: Capsule[] = [
             {
                 atTick: 0,
                 title: 'Velkommen til balansens land',
-                body: 'Folk sparer og bruker som de selv vil. Renten gjenspeiler tålmodigheten deres. Sentralbanken har lagt seg tett opp mot den naturlige renten — for nå.',
+                body: 'Folk sparer og bruker som de selv vil. Renten gjenspeiler hvor tålmodige de er. Sentralbanken ligger tett opp mot dette nivået - foreløpig. Hva skjer hvis du senker renten, eller skrur opp pengetrykket? Prøv.',
                 quote: {
-                    text: 'Den naturlige renten oppstår der spareres tålmodighet møter investorers behov for kapital.',
-                    author: 'Eugen von Böhm-Bawerk',
+                    text: 'Renten finner sitt nivå der dem som vil spare møter dem som vil låne.',
+                    author: 'Eugen von Böhm-Bawerk (parafrasert)',
                 },
             },
         ],
-        linkedArticles: ['naturlig-rente', 'inflasjon-og-rente'],
+        linkedArticles: ['naturlig-rente', 'inflasjon-og-rente', 'okonomiske-skoler'],
     },
     {
         id: 'weimar-1923',
         title: 'Weimar 1923',
         subtitle: 'Når pengene mister mening',
-        summary: 'Tyskland trykker penger for å betale krigsgjeld. Trykkpressen går varm. Klarer du å bremse hyperinflasjonen før samfunnet kollapser?',
+        summary: 'Tyskland trykker penger for å betale krigsgjeld. Trykkpressen går varm. Klarer du å stoppe hyperinflasjonen før samfunnet kollapser?',
         icon: 'flame',
         initialControls: {
             policyRate: 4,
@@ -121,19 +121,19 @@ export const CAPSULES: Capsule[] = [
             {
                 atTick: 0,
                 title: 'Trykkpressen ruller',
-                body: 'Riksbanken har skrudd opp pengetrykket for å betale krigserstatninger. Priser stiger raskere enn lønninger. Folk begynner å miste tilliten til pengene.',
+                body: 'Riksbanken trykker penger for å betale krigserstatninger til seierherrene. Prisene stiger raskere enn lønningene. Folk begynner å miste tilliten til pengene. Historisk: dette ble ikke løst med rentepolitikk alene - tyskerne måtte til slutt innføre en helt ny valuta.',
                 quote: {
-                    text: 'Den første konsekvensen av inflasjon er at den ødelegger sparingen. Den andre er at den ødelegger tilliten.',
-                    author: 'Ludwig von Mises',
+                    text: 'Inflasjon spiser opp sparingen først. Så spiser den opp tilliten.',
+                    author: 'Ludwig von Mises (parafrasert)',
                 },
             },
             {
                 atTick: 100,
                 title: 'Tilliten brister',
-                body: 'Hvis ingen stanser trykkpressen nå, blir pengene snart verdiløse. Spør deg selv: hva slags rentepolitikk og pengepolitikk trengs for å gjenopprette stabilitet?',
+                body: 'Hvis ingen stanser trykkpressen, blir pengene snart verdiløse. Hva slags rentepolitikk og pengepolitikk trengs for å snu? Husk at modellen forenkler - i virkeligheten spilte også Versailles-erstatningene og Ruhr-okkupasjonen en stor rolle.',
             },
         ],
-        linkedArticles: ['inflasjon-og-rente', 'naturlig-rente', 'pengesystem-vs-naturalhandel'],
+        linkedArticles: ['inflasjon-og-rente', 'naturlig-rente', 'pengesystem-vs-naturalhandel', 'okonomiske-skoler'],
     },
 ];
 

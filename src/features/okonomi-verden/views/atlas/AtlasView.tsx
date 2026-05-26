@@ -17,7 +17,7 @@ const LAYERS: LayerDef[] = [
     {
         id: 'money',
         label: 'Pengeflyt',
-        description: 'Hvor pengene flyter inn først (Cantillon).',
+        description: 'Hvem får pengene først når pengemengden vokser (Cantillon-effekten).',
         color: '#f59e0b',
         icon: Coins,
     },
@@ -38,7 +38,7 @@ const LAYERS: LayerDef[] = [
     {
         id: 'capital',
         label: 'Kapital',
-        description: 'Verktoy og maskiner per ledd.',
+        description: 'Verktøy og maskiner per ledd.',
         color: '#6366f1',
         icon: Briefcase,
     },
@@ -203,7 +203,7 @@ export function AtlasView() {
                     })}
 
                     <text x="450" y="380" textAnchor="middle" fontSize="13" fontWeight="600" fill="#64748b">
-                        Råvarer flyter mot venstre, ferdigvarer mot venstre. Penger gjør motsatt.
+                        Råvarer flyter mot venstre, ferdigvarer mot forbrukeren. Penger gjør motsatt.
                     </text>
                 </svg>
             </div>

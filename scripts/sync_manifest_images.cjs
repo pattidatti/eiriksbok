@@ -48,8 +48,8 @@ function syncImages() {
 }
 
 function processLesson(subjectId, topicId, subTopicId, lesson) {
-    // Skip if image is already set
-    if (lesson.image && lesson.image.trim() !== '') {
+    // Skip if image is already set and is not a placeholder
+    if (lesson.image && lesson.image.trim() !== '' && lesson.image !== '/images/placeholder.webp') {
         return 0;
     }
 
