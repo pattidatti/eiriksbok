@@ -5,7 +5,7 @@
   "year": "1900–i dag",
   "category": "Komposisjon",
   "readTime": "8 min lesning",
-  "heroImage": "/images/placeholder.webp",
+  "heroImage": "/images/komposisjon/tekstskriving-hero.webp",
   "details": [
     "Konkrete bilder slår generelle følelser",
     "Rim og rytme må passe melodien",
@@ -22,7 +22,7 @@
     },
     {
       "type": "image",
-      "src": "/images/placeholder.webp",
+      "src": "/images/komposisjon/tekstskriving-01.webp",
       "alt": "En ungdom som skriver i en notatbok med hodetelefoner rundt halsen",
       "caption": "De fleste låtskrivere starter med en notatbok og en idé."
     },
@@ -67,7 +67,7 @@
     },
     {
       "type": "image",
-      "src": "/images/placeholder.webp",
+      "src": "/images/komposisjon/tekstskriving-02.webp",
       "alt": "Notatbok med overstrøkne ord og nye linjer skrevet mellom linjene",
       "caption": "Gode tekster handler om omskriving. Første utkast er bare starten."
     },
@@ -117,7 +117,7 @@
     },
     {
       "type": "image",
-      "src": "/images/placeholder.webp",
+      "src": "/images/komposisjon/tekstskriving-03.webp",
       "alt": "Håndskrevet tekst med piler som viser hvilke stavelser som treffer sterke slag",
       "caption": "Sterke ord skal lande på sterke slag i melodien."
     },

@@ -5,7 +5,7 @@
     "year": "Fra antikken til i dag",
     "category": "Musikkhistorie",
     "readTime": "8 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/musikkhistorie/gamle-toner-nye-stemmer-hero.webp",
     "details": [
         "Musikktradisjoner overlever fordi noen tør å forandre dem",
         "Tradisjon og fornyelse er to sider av samme mynt",
@@ -43,7 +43,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/musikkhistorie/gamle-toner-nye-stemmer-01.webp",
             "alt": "Spellemann med hardingfele på en fjellgård i Telemark",
             "caption": "Norsk folkemusikk har overlevd i hundrevis av år ved å gå fra fele til fele, fra stemme til stemme."
         },
@@ -81,7 +81,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/musikkhistorie/gamle-toner-nye-stemmer-02.webp",
             "alt": "Moderne artist på scenen med blanding av tradisjonelle og elektroniske instrumenter",
             "caption": "Når gamle melodier møter nye instrumenter, oppstår det noe som er verken helt gammelt eller helt nytt."
         },
@@ -118,7 +118,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/musikkhistorie/gamle-toner-nye-stemmer-03.webp",
             "alt": "Rekke med ulike musikkinstrumenter fra forskjellige tidsepoker og kulturer",
             "caption": "Fra bukkehorn til synthesizer — verktøyene endrer seg, men behovet for å lage musikk er det samme."
         },
