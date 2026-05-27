@@ -12,19 +12,19 @@ const STEPS: StepInfo[] = [
     {
         label: 'Steg 1: Missilsalget',
         explanation:
-            'USA selger Hawk-missiler til Iran (1985-1986). Iran betaler rundt 30 millioner dollar - et hemmelig vapen­handel med en erklart fiende Reagan offentlig kalte en "terroristnasjon".',
+            'USA selger Hawk-missiler til Iran (1985-1986). Iran betaler rundt 30 millioner dollar - et hemmelig våpensalg til en erklært fiende Reagan offentlig kalte en "terroristnasjon".',
         colorClass: 'border-amber-200 bg-amber-50 text-amber-800',
     },
     {
-        label: 'Steg 2: De hemmelige kontoane',
+        label: 'Steg 2: De hemmelige kontoene',
         explanation:
             'Oliver North oppretter hemmelige sveitsiske bankkontoer. Overskuddet fra missilsalget havner der - helt utenom Kongressens innsyn og kontroll.',
         colorClass: 'border-orange-200 bg-orange-50 text-orange-800',
     },
     {
-        label: 'Steg 3: Det ulovlige kretslopet',
+        label: 'Steg 3: Det ulovlige kretsløpet',
         explanation:
-            'Pengene sendes videre til Contra-geriljaen i Nicaragua - stikk i strid med Boland-tillegget (1984), som uttrykkelig forbod Kongressen a finansiere Contras.',
+            'Pengene sendes videre til Contra-geriljaen i Nicaragua - stikk i strid med Boland-tillegget (1984), som uttrykkelig forbød Kongressen å finansiere Contras.',
         colorClass: 'border-rose-200 bg-rose-50 text-rose-800',
     },
 ];
@@ -36,7 +36,7 @@ const ACTORS = [
     { id: 'contras', label: 'Contras', sub: 'Nicaragua', icon: Users, activeBg: 'bg-green-50 border-green-300 text-green-700' },
 ];
 
-export function IranContraSpor({ title = 'Det forbudte kretslopet' }: { title?: string }) {
+export function IranContraSpor({ title = 'Det forbudte kretsløpet' }: { title?: string }) {
     const [step, setStep] = useState(0);
     const isComplete = step >= 4;
 
@@ -161,8 +161,8 @@ export function IranContraSpor({ title = 'Det forbudte kretslopet' }: { title?: 
                     >
                         <div className="text-rose-700 font-bold text-base mb-1.5">ULOVLIG KRETS AVDEKKET</div>
                         <div className="text-rose-600 text-xs leading-relaxed">
-                            Reagan-administrasjonen hadde omgatt Boland-tillegget ved a rute vapen­penger gjennom Iran til Contra-geriljaen i Nicaragua.
-                            Da libanesiske Al-Shiraa avslarte nettverket i november 1986, ble det en konstitusjonell krise i USA.
+                            Reagan-administrasjonen hadde omgått Boland-tillegget ved å rute våpenpenger gjennom Iran til Contra-geriljaen i Nicaragua.
+                            Da libanesiske Al-Shiraa avslørte nettverket i november 1986, ble det en konstitusjonell krise i USA.
                         </div>
                     </motion.div>
                 )}
@@ -176,7 +176,7 @@ export function IranContraSpor({ title = 'Det forbudte kretslopet' }: { title?: 
                         className="rounded-lg border border-slate-100 bg-slate-50 p-3.5 mb-4 text-center"
                     >
                         <p className="text-slate-500 text-xs">
-                            Klikk pa knappen nedenfor for a avsloere hvordan pengene flosset i det hemmelige nettverket.
+                            Klikk på knappen nedenfor for å se hvordan pengene strømmet gjennom det hemmelige nettverket.
                         </p>
                     </motion.div>
                 )}
@@ -200,9 +200,9 @@ export function IranContraSpor({ title = 'Det forbudte kretslopet' }: { title?: 
                         className="flex items-center gap-1.5 rounded-full bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-medium px-4 py-2 transition-colors"
                     >
                         {step === 0
-                            ? 'Start avsloringen'
+                            ? 'Start avsløringen'
                             : step === 3
-                              ? 'Se det ulovlige kretslopet'
+                              ? 'Se det ulovlige kretsløpet'
                               : 'Avdekk neste steg'}
                         <ChevronRight size={13} />
                     </motion.button>
