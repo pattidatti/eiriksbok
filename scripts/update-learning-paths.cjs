@@ -38,7 +38,7 @@ function scanLearningPaths() {
     const learningPaths = [];
 
     allFiles.forEach(file => {
-        if (file.endsWith('-sti.json')) {
+        if (/-sti(-v2)?\.json$/.test(file)) {
             try {
                 const content = fs.readFileSync(file, 'utf8');
                 const data = JSON.parse(content);
@@ -67,8 +67,10 @@ function scanLearningPaths() {
                 }
 
                 // Use explicit values if present, otherwise inferred
-                const subjectId = data.targetSubjectId || data.learningPathData?.targetSubjectId || inferredSubject;
-                const topicId = data.targetTopicId || data.learningPathData?.targetTopicId || inferredTopic;
+                const pathData = data.learningPathV2Data || data.learningPathData;
+                const subjectId = data.targetSubjectId || pathData?.targetSubjectId || inferredSubject;
+                const topicId = data.targetTopicId || pathData?.targetTopicId || inferredTopic;
+                const isV2 = !!data.learningPathV2Data || data.layout === 'learning-path-v2';
 
                 // Construct the link URL
                 // Route: /:subjectId/:topicId/:lessonId
@@ -78,14 +80,15 @@ function scanLearningPaths() {
                 const metadata = {
                     id: data.id,
                     title: data.title,
-                    description: data.description || data.learningPathData?.description || "",
+                    description: data.description || pathData?.description || "",
                     subjectId: subjectId,
                     subjectName: SUBJECTS[subjectId]?.name || subjectId,
                     topicId: topicId,
                     year: data.year,
                     readTime: data.readTime,
                     path: linkUrl, // Use the correct application route
-                    fileRelativePath: relativePath
+                    fileRelativePath: relativePath,
+                    version: isV2 ? 2 : 1
                 };
 
                 learningPaths.push(metadata);

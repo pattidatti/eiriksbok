@@ -1,0 +1,136 @@
+{
+    "id": "caged-system",
+    "title": "CAGED-systemet",
+    "ingress": "Alle gitarister lærer de fem åpne grunngrep. Få av dem vet at disse fem formene skjuler et komplett kart over hele gripebrettet.",
+    "content": [
+        {
+            "type": "text",
+            "title": "Hva er CAGED?",
+            "content": "Et åpent C-grep, et åpent A-grep, G, E og D. De fem åpne grunngrep du lærte i begynnelsen er ikke bare fem isolerte posisjoner. De er fem former som kobler seg sammen og dekker hele gitarhalsen fra bånd 0 til bånd 12.\n\nSystemet kalles CAGED etter forbokstavene til de fem formene. Ideen er enkel: når du lærer disse fem formene og forstår hvordan de henger sammen, kan du spille akkorder og soloer i hvilken som helst toneart - og i hvilken som helst posisjon på halsen."
+        },
+        {
+            "type": "header",
+            "text": "De fem formene"
+        },
+        {
+            "type": "text",
+            "content": "Hver form er oppkalt etter det åpne grepet den ligner på. C-formen ser ut som et åpent C-grep. A-formen ser ut som et åpent A-grep. Slik er det for alle fem.\n\nDet som gjør systemet kraftig: når du barréer en form - det vil si legger en finger over alle strengene som en kapo - kan du spille den akkorden i alle tonearter. Formen flytter seg, men fingersettingen inni formen forblir den samme."
+        },
+        {
+            "type": "list",
+            "items": [
+                "C-formen: Grunntonen sitter på A-strengen (bånd 3 i C). Kjent som det åpne C-grep.",
+                "A-formen: Grunntonen sitter på A-strengen, åpen. Den klassiske barre-formen for H, D, F# og lignende.",
+                "G-formen: Grunntonen sitter på begge E-strengene (bånd 3 i G). Dekker alle seks strenger.",
+                "E-formen: Grunntonen på lav E-streng, åpen. Den vanligste barre-formen - F dur er E-form på bånd 1.",
+                "D-formen: Grunntonen på D-strengen, åpen. Bruker bare fire strenger - perfekt i høye register."
+            ]
+        },
+        {
+            "type": "component",
+            "name": "CAGEDExplorer",
+            "props": {
+                "showSoloToggle": true
+            }
+        },
+        {
+            "type": "header",
+            "text": "Kjeden: Slik henger de sammen"
+        },
+        {
+            "type": "text",
+            "content": "Det viktige med CAGED er ikke de fem formene i seg selv - det er at de henger på hverandre langs halsen.\n\nTa C-dur som eksempel. Det åpne C-grepet er C-formen. Men du kan også spille C-dur i A-formen på bånd 3. Og i G-formen på bånd 5. Og i E-formen på bånd 8. Og i D-formen på bånd 10. Fem ulike steder å spille den samme akkorden - og mellom hvert sted er det et sammenhengende system av toner du kan bruke."
+        },
+        {
+            "type": "text",
+            "content": "Det er her solospilling begynner. Når du kjenner en form, kjenner du allerede de tonene som er tilgjengelige rundt den akkorden. Prøver du 'Vis soloposisjoner' i utforskeren over, ser du at pentatonskalaen bor naturlig inne i akkordformen."
+        },
+        {
+            "type": "header",
+            "text": "CAGED og solospilling"
+        },
+        {
+            "type": "text",
+            "content": "De fleste nybegynnere lærer én soloposisjon: boks 1 av den mollpentatoniske skalaen. Det er en fin start, men etter et par måneder hører man seg selv spille de samme tonene om og om igjen.\n\nCAGED løser dette. Pentatonskalaen har ikke bare én boks - den har fem, og de korresponderer direkte med de fem CAGED-formene. Når du kan C-formen, kan du også soloposisjonen rundt C-formen. Når du lærer A-formen, får du tilgang til neste soloposisjon. Slik bygger du deg gradvis oppover halsen."
+        },
+        {
+            "type": "text",
+            "content": "Klikk 'Vis soloposisjoner' i utforskeren og se hvordan de grønn-markerte tonene fyller ut rommene mellom akkordtonene. Det er i disse rommene de beste gitaristene bor."
+        },
+        {
+            "type": "header",
+            "text": "Metodisk øving: Slik gjør du det"
+        },
+        {
+            "type": "text",
+            "content": "CAGED er enkelt å forstå, men tar tid å internalisere. Her er en øveplan som fungerer:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "Uke 1-2: Lær C-formen i C-dur. Finn alle C-grunntoner på A-strengen.",
+                "Uke 3-4: Lær A-formen i A-dur. Koble den til C-formen: A-formen tar over der C-formen slutter.",
+                "Uke 5-6: Legg til G-formen. Nå kjenner du tre sammenhengende posisjoner.",
+                "Uke 7-8: E-formen. Dette er den klassiske barre-posisjonen - kanskje du kan den fra før?",
+                "Uke 9-10: D-formen fullfører kjeden. Du dekker hele halsen.",
+                "Deretter: Transponer. Ta alle fem formene i G-dur. Så i D-dur. Så i andre tonearter."
+            ]
+        },
+        {
+            "type": "text",
+            "content": "Husk: det er ikke poenget å memorisere alle posisjonene på én gang. Lær én form grundig, spill litt i den, og gå videre til neste. Gitarister med tjue års erfaring bruker fortsatt CAGED - det er det beste verktøyet du kan investere tid i."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hva betyr bokstavene i CAGED?",
+                        "options": [
+                            "Fem ulike gitarteknikker",
+                            "De fem åpne grunngrep (C, A, G, E, D)",
+                            "Fem ulike tonearter",
+                            "En type barre-teknikk"
+                        ],
+                        "correctAnswer": 1,
+                        "explanation": "CAGED er oppkalt etter de fem åpne grunngrep: C, A, G, E og D. Disse formene kan forskyves opp halsen og danner et sammenhengende system."
+                    },
+                    {
+                        "question": "Hvor sitter grunntonen i E-formen?",
+                        "options": [
+                            "På A-strengen, bånd 2",
+                            "På D-strengen, åpen",
+                            "På lav E-streng, åpen",
+                            "På G-strengen, bånd 1"
+                        ],
+                        "correctAnswer": 2,
+                        "explanation": "I E-formen sitter grunntonen på lav E-streng, åpen. Det åpne E-dur-grepet er E-formen i sin naturlige posisjon."
+                    },
+                    {
+                        "question": "Hvilken form bruker bare de fire tynneste strengene?",
+                        "options": [
+                            "A-formen",
+                            "G-formen",
+                            "C-formen",
+                            "D-formen"
+                        ],
+                        "correctAnswer": 3,
+                        "explanation": "D-formen bruker bare D-, G-, B- og høy E-streng. De to tykkeste strengene dempes. Perfekt i høye solopassasjer."
+                    },
+                    {
+                        "question": "Hva er sammenhengen mellom CAGED og solospilling?",
+                        "options": [
+                            "CAGED er bare for akkorder, ikke soloer",
+                            "Pentatonskalaens fem posisjoner korresponderer direkte med de fem CAGED-formene",
+                            "Du må lære CAGED ferdig før du kan begynne med soloer",
+                            "CAGED brukes kun i jazz"
+                        ],
+                        "correctAnswer": 1,
+                        "explanation": "Pentatonskalaen har fem boksposisjoner som korresponderer direkte med de fem CAGED-formene. Når du lærer en CAGED-form, får du automatisk tilgang til den tilsvarende soloposisjonen."
+                    }
+                ]
+            }
+        }
+    ]
+}

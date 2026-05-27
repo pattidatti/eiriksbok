@@ -146,6 +146,9 @@ const CAGEDExplorer = lazy(() => import('./content/interactive/CAGEDExplorer').t
 const ProtestsangAnalyse = lazy(() => import('./content/interactive/ProtestsangAnalyse').then(m => ({ default: m.ProtestsangAnalyse })));
 const BluesNoteVerksted = lazy(() => import('./content/interactive/BluesNoteVerksted').then(m => ({ default: m.BluesNoteVerksted })));
 const HookOppdageren = lazy(() => import('./content/interactive/HookOppdageren').then(m => ({ default: m.HookOppdageren })));
+const ProgresjonAnalysator = lazy(() => import('./content/interactive/ProgresjonAnalysator').then(m => ({ default: m.ProgresjonAnalysator })));
+const SoloSammenligner = lazy(() => import('./content/interactive/SoloSammenligner').then(m => ({ default: m.SoloSammenligner })));
+const AkkordskiftePraksis = lazy(() => import('./content/interactive/AkkordskiftePraksis').then(m => ({ default: m.AkkordskiftePraksis })));
 const NilenFlomSyklus = lazy(() => import('./content/interactive/NilenFlomSyklus').then(m => ({ default: m.NilenFlomSyklus })));
 const IndusMysteryBoard = lazy(() => import('./content/interactive/IndusMysteryBoard').then(m => ({ default: m.IndusMysteryBoard })));
 const HimmelensMandat = lazy(() => import('./content/interactive/HimmelensMandat').then(m => ({ default: m.HimmelensMandat })));
@@ -319,6 +322,9 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     ProtestsangAnalyse,
     BluesNoteVerksted,
     HookOppdageren,
+    ProgresjonAnalysator,
+    SoloSammenligner,
+    AkkordskiftePraksis,
     NilenFlomSyklus,
     IndusMysteryBoard,
     HimmelensMandat,

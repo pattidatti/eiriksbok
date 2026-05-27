@@ -1,4 +1,4 @@
-import { LayoutDashboard, Triangle, Home, Library, Layers } from 'lucide-react';
+import { LayoutDashboard, Triangle, Home, Library, Layers, Zap } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useWorldStore } from '../store/worldStore';
 import type { ViewKind } from '../types';
@@ -10,6 +10,7 @@ interface TabDef {
 }
 
 const TABS: TabDef[] = [
+    { id: 'live', label: 'Live', icon: Zap },
     { id: 'cockpit', label: 'Cockpit', icon: LayoutDashboard },
     { id: 'triangle', label: 'Triangel', icon: Triangle },
     { id: 'village', label: 'Landsby', icon: Home },

@@ -4,7 +4,7 @@ import { useWorldStore } from './worldStore';
 import type { ViewKind } from '../types';
 import { CAPSULES } from '../data/presets';
 
-const ALL_VIEWS: ViewKind[] = ['cockpit', 'triangle', 'village', 'capsules', 'atlas'];
+const ALL_VIEWS: ViewKind[] = ['live', 'cockpit', 'triangle', 'village', 'capsules', 'atlas'];
 
 export function useWorldUrlSync(): void {
     const [searchParams, setSearchParams] = useSearchParams();

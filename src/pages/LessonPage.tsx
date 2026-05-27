@@ -182,6 +182,7 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
             topicId: topicId,
             learningPaths: relevantLearningPaths,
             learningPathData: lesson.learningPathData,
+            learningPathV2Data: lesson.learningPathV2Data,
             lessonPlan: lesson.lessonPlan
         };
     }, [lesson, lessonImage, subjectId, topicId, relevantLearningPaths]);
@@ -199,7 +200,9 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
     // 1. Initial lesson query is loading
     // 2. We have no lesson data yet but are still fetching (initial mounting phase)
     // 3. We have a lesson layout that REQUIRES learningPathData, but it's missing while fetching
-    const isIncompletePathData = lesson?.layout === 'learning-path' && (!lesson?.learningPathData || !lesson.learningPathData.steps);
+    const isIncompletePathData =
+        (lesson?.layout === 'learning-path' && (!lesson?.learningPathData || !lesson.learningPathData.steps)) ||
+        (lesson?.layout === 'learning-path-v2' && (!lesson?.learningPathV2Data || !lesson.learningPathV2Data.steps));
     const loading = lessonLoading || (!lesson && isFetching) || (isIncompletePathData && isFetching);
 
     if (loading) return <LessonSkeleton />;
@@ -210,6 +213,9 @@ export const LessonPage: React.FC<{ lessonIdOverride?: string }> = ({ lessonIdOv
 
     // Data Validation Guard - only show error if NOT fetching AND data is incomplete
     if (lesson && lesson.layout === 'learning-path' && !lesson.learningPathData && !isFetching) {
+        return <LearningPathErrorState type="data" onRetry={() => refetch()} />;
+    }
+    if (lesson && lesson.layout === 'learning-path-v2' && !lesson.learningPathV2Data && !isFetching) {
         return <LearningPathErrorState type="data" onRetry={() => refetch()} />;
     }
 

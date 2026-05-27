@@ -1,5 +1,5 @@
 {
-  "buildId": 1779878332971,
+  "buildId": 1779880500390,
   "contentMap": {
     "concept-adel": [
       "content/concepts/adel.json"
@@ -1870,6 +1870,9 @@
     "piano-intro": [
       "content/musikk/instrumenter/piano-intro.json"
     ],
+    "solo-og-grunntoner": [
+      "content/musikk/instrumenter/solo-og-grunntoner.json"
+    ],
     "trommer-intro": [
       "content/musikk/instrumenter/trommer-intro.json"
     ],
@@ -3505,6 +3508,7 @@
     "musikk/instrumenter/caged-system": "content/musikk/instrumenter/caged-system.json",
     "musikk/instrumenter/gitar-intro": "content/musikk/instrumenter/gitar-intro.json",
     "musikk/instrumenter/piano-intro": "content/musikk/instrumenter/piano-intro.json",
+    "musikk/instrumenter/solo-og-grunntoner": "content/musikk/instrumenter/solo-og-grunntoner.json",
     "musikk/instrumenter/trommer-intro": "content/musikk/instrumenter/trommer-intro.json",
     "musikk/komposisjon/dynamikk-og-uttrykk": "content/musikk/komposisjon/dynamikk-og-uttrykk.json",
     "musikk/komposisjon/lat-struktur": "content/musikk/komposisjon/lat-struktur.json",

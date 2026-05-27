@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-04-06T17:42:31.020Z",
-  "count": 17,
+  "updatedAt": "2026-05-27T11:32:05.380Z",
+  "count": 18,
   "paths": [
     {
       "id": "romerriket-sti",
@@ -12,7 +12,21 @@
       "year": "753 f.Kr - 476 e.Kr",
       "readTime": "3-4 timer",
       "path": "/historie/romerriket/romerriket-sti",
-      "fileRelativePath": "historie/romerriket/romerriket-sti.json"
+      "fileRelativePath": "historie/romerriket/romerriket-sti.json",
+      "version": 1
+    },
+    {
+      "id": "romerriket-sti-v2",
+      "title": "Læringssti: Romerriket (V2)",
+      "description": "Pilot for den nye sti-motoren. Du leser, øver, reflekterer og bygger en tidslinje - hver oppgave verifiserer at du har lært før du går videre.",
+      "subjectId": "historie",
+      "subjectName": "Historie",
+      "topicId": "romerriket",
+      "year": "753 f.Kr - 476 e.Kr",
+      "readTime": "1,5-2 timer",
+      "path": "/historie/romerriket/romerriket-sti-v2",
+      "fileRelativePath": "historie/romerriket/romerriket-sti-v2.json",
+      "version": 2
     },
     {
       "id": "vikingtiden-sti",
@@ -24,7 +38,8 @@
       "year": "750-1066",
       "readTime": "2-3 timer aktiv læring",
       "path": "/historie/vikingtiden/vikingtiden-sti",
-      "fileRelativePath": "historie/vikingtiden/vikingtiden-sti.json"
+      "fileRelativePath": "historie/vikingtiden/vikingtiden-sti.json",
+      "version": 1
     },
     {
       "id": "svartedauden-sti",
@@ -36,7 +51,8 @@
       "year": "1347-1351",
       "readTime": "15 min aktiv læring",
       "path": "/historie/middelalderen/svartedauden-sti",
-      "fileRelativePath": "historie/middelalderen/svartedauden-sti.json"
+      "fileRelativePath": "historie/middelalderen/svartedauden-sti.json",
+      "version": 1
     },
     {
       "id": "dekolonisering-sti",
@@ -48,7 +64,8 @@
       "year": "1776 - 1994",
       "readTime": "3-4 timer",
       "path": "/historie/dekolonisering/dekolonisering-sti",
-      "fileRelativePath": "historie/dekolonisering/dekolonisering-sti.json"
+      "fileRelativePath": "historie/dekolonisering/dekolonisering-sti.json",
+      "version": 1
     },
     {
       "id": "ww1-sti",
@@ -60,7 +77,8 @@
       "year": "1914 - 1918",
       "readTime": "4-5 timer",
       "path": "/historie/forste-verdenskrig/ww1-sti",
-      "fileRelativePath": "historie/forste-verdenskrig/ww1-sti.json"
+      "fileRelativePath": "historie/forste-verdenskrig/ww1-sti.json",
+      "version": 1
     },
     {
       "id": "mellomkrigstiden-sti",
@@ -72,7 +90,8 @@
       "year": "1918-1939",
       "readTime": "3-4 timer",
       "path": "/historie/mellomkrigstiden/mellomkrigstiden-sti",
-      "fileRelativePath": "historie/mellomkrigstiden/mellomkrigstiden-sti.json"
+      "fileRelativePath": "historie/mellomkrigstiden/mellomkrigstiden-sti.json",
+      "version": 1
     },
     {
       "id": "kald-krig-sti",
@@ -84,7 +103,8 @@
       "year": "1945 - 1991",
       "readTime": "4-5 timer",
       "path": "/historie/den-kalde-krigen/kald-krig-sti",
-      "fileRelativePath": "historie/den-kalde-krigen/kald-krig-sti.json"
+      "fileRelativePath": "historie/den-kalde-krigen/kald-krig-sti.json",
+      "version": 1
     },
     {
       "id": "romantikken-sti",
@@ -96,7 +116,8 @@
       "year": "1830-1870",
       "readTime": "30-45 min",
       "path": "/norsk/litteraturhistorie/romantikken-sti",
-      "fileRelativePath": "norsk/litteraturhistorie/romantikken-sti.json"
+      "fileRelativePath": "norsk/litteraturhistorie/romantikken-sti.json",
+      "version": 1
     },
     {
       "id": "realismen-sti",
@@ -108,7 +129,8 @@
       "year": "1870-1890",
       "readTime": "35-50 min",
       "path": "/norsk/litteraturhistorie/realismen-sti",
-      "fileRelativePath": "norsk/litteraturhistorie/realismen-sti.json"
+      "fileRelativePath": "norsk/litteraturhistorie/realismen-sti.json",
+      "version": 1
     },
     {
       "id": "nyromantikken-sti",
@@ -120,7 +142,8 @@
       "year": "1890-1905",
       "readTime": "45-60 min",
       "path": "/norsk/litteraturhistorie/nyromantikken-sti",
-      "fileRelativePath": "norsk/litteraturhistorie/nyromantikken-sti.json"
+      "fileRelativePath": "norsk/litteraturhistorie/nyromantikken-sti.json",
+      "version": 1
     },
     {
       "id": "nyrealismen-sti",
@@ -132,7 +155,8 @@
       "year": "1905-1940",
       "readTime": "30-45 min",
       "path": "/norsk/litteraturhistorie/nyrealismen-sti",
-      "fileRelativePath": "norsk/litteraturhistorie/nyrealismen-sti.json"
+      "fileRelativePath": "norsk/litteraturhistorie/nyrealismen-sti.json",
+      "version": 1
     },
     {
       "id": "reflekterende-skriving-sti",
@@ -144,7 +168,8 @@
       "year": "2024",
       "readTime": "45 minutter",
       "path": "/norsk/skrivehjelp/reflekterende-skriving-sti",
-      "fileRelativePath": "norsk/skrivehjelp/reflekterende-skriving-sti.json"
+      "fileRelativePath": "norsk/skrivehjelp/reflekterende-skriving-sti.json",
+      "version": 1
     },
     {
       "id": "kildeforing-sti",
@@ -156,7 +181,8 @@
       "year": "2024",
       "readTime": "1.5–2 timer",
       "path": "/norsk/skrivehjelp/kildeforing-sti",
-      "fileRelativePath": "norsk/skrivehjelp/kildeforing-sti.json"
+      "fileRelativePath": "norsk/skrivehjelp/kildeforing-sti.json",
+      "version": 1
     },
     {
       "id": "tekstanalyse-sti",
@@ -167,7 +193,8 @@
       "topicId": "analyse",
       "readTime": "4–6 timer",
       "path": "/norsk/analyse/tekstanalyse-sti",
-      "fileRelativePath": "norsk/analyse/tekstanalyse-sti.json"
+      "fileRelativePath": "norsk/analyse/tekstanalyse-sti.json",
+      "version": 1
     },
     {
       "id": "skapende-skriving-sti",
@@ -178,7 +205,8 @@
       "topicId": "virkemidler",
       "readTime": "4–5 timer",
       "path": "/norsk/virkemidler/skapende-skriving-sti",
-      "fileRelativePath": "norsk/virkemidler/skapende-skriving-sti.json"
+      "fileRelativePath": "norsk/virkemidler/skapende-skriving-sti.json",
+      "version": 1
     },
     {
       "id": "store-sykluser-sti",
@@ -190,7 +218,8 @@
       "year": "Fra 1600 til i dag",
       "readTime": "45-60 min",
       "path": "/samfunnskunnskap/ideer-og-verdenssyn/store-sykluser-sti",
-      "fileRelativePath": "samfunnskunnskap/ideer-og-verdenssyn/store-sykluser-sti.json"
+      "fileRelativePath": "samfunnskunnskap/ideer-og-verdenssyn/store-sykluser-sti.json",
+      "version": 1
     },
     {
       "id": "handel-og-infrastruktur-sti",
@@ -200,7 +229,8 @@
       "subjectName": "Samfunnskunnskap",
       "topicId": "handel-og-infrastruktur",
       "path": "/samfunnskunnskap/handel-og-infrastruktur/handel-og-infrastruktur-sti",
-      "fileRelativePath": "samfunnskunnskap/handel-og-infrastruktur/handel-og-infrastruktur-sti.json"
+      "fileRelativePath": "samfunnskunnskap/handel-og-infrastruktur/handel-og-infrastruktur-sti.json",
+      "version": 1
     }
   ]
 }

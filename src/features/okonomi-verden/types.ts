@@ -1,6 +1,6 @@
 export type Role = 'worker' | 'saver' | 'entrepreneur' | 'consumer';
 export type Mood = 'happy' | 'struggling' | 'unemployed';
-export type ViewKind = 'cockpit' | 'triangle' | 'village' | 'capsules' | 'atlas';
+export type ViewKind = 'live' | 'cockpit' | 'triangle' | 'village' | 'capsules' | 'atlas';
 export type Phase = 'expansion' | 'boom' | 'bust' | 'recovery';
 
 export interface Agent {

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import type { LearningPathMetadata } from '../../types/LearningPath';
-import { Clock, ChevronRight } from 'lucide-react';
+import { Clock, ChevronRight, Sparkles } from 'lucide-react';
 
 const borderColors: Record<string, string> = {
     historie: 'border-l-amber-500',
@@ -14,24 +14,34 @@ const borderColors: Record<string, string> = {
 
 export const PathRow = ({ path }: { path: LearningPathMetadata }) => {
     const borderColor = borderColors[path.subjectId] || borderColors.annet;
-    const title = path.title.replace('Laeringssti: ', '').replace('Læringssti: ', '');
+    const title = path.title.replace('Laeringssti: ', '').replace('Læringssti: ', '').replace(' (V2)', '');
+    const isV2 = path.version === 2;
 
     return (
         <Link to={path.path} className="block group">
             <div
                 className={`
                     border-l-[3px] ${borderColor}
-                    bg-white/60 backdrop-blur-sm
+                    ${isV2 ? 'bg-gradient-to-r from-indigo-50/80 to-white ring-1 ring-indigo-200' : 'bg-white/60'}
+                    backdrop-blur-sm
                     hover:bg-white/80 hover:shadow-sm
                     rounded-r-lg px-4 py-3
                     transition-all duration-200
                 `}
             >
-                {/* Line 1: Title + arrow */}
+                {/* Line 1: Title + V2-badge + arrow */}
                 <div className="flex items-center justify-between gap-3">
-                    <span className="font-display font-semibold text-slate-800 truncate group-hover:text-indigo-700 transition-colors">
-                        {title}
-                    </span>
+                    <div className="flex items-center gap-2 min-w-0">
+                        <span className="font-display font-semibold text-slate-800 truncate group-hover:text-indigo-700 transition-colors">
+                            {title}
+                        </span>
+                        {isV2 && (
+                            <span className="flex-shrink-0 inline-flex items-center gap-1 bg-gradient-to-r from-indigo-500 to-purple-500 text-white text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full shadow-sm">
+                                <Sparkles size={10} />
+                                Ny motor
+                            </span>
+                        )}
+                    </div>
                     <ChevronRight
                         size={14}
                         className="flex-shrink-0 text-slate-300 group-hover:text-indigo-500 group-hover:translate-x-0.5 transition-all"

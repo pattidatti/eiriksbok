@@ -13,7 +13,8 @@ import { useNavigate } from 'react-router-dom';
 import { ArticleContent } from './ArticleContent';
 import { RichSidebar } from './RichSidebar';
 import { LearningPath } from './content/LearningPath';
-import type { ContentBlock, LearningPathData, MapData, Concept } from '../types';
+import { LearningPathV2 } from './content/LearningPathV2';
+import type { ContentBlock, LearningPathData, LearningPathV2Data, MapData, Concept } from '../types';
 import { useTTS } from '../hooks/useTTS';
 import { cleanForTTS } from '../utils/speechUtils';
 import { useGlobalTimeline } from '../hooks/useGlobalTimeline';
@@ -29,7 +30,7 @@ export type ArticleData = {
     year: string;
     title: string;
     description: string;
-    layout?: 'standard' | 'rich' | 'tool' | 'learning-path';
+    layout?: 'standard' | 'rich' | 'tool' | 'learning-path' | 'learning-path-v2';
     content: ContentBlock[];
     details: string[];
     icon?: React.ReactNode;
@@ -45,6 +46,7 @@ export type ArticleData = {
     topicId?: string;
     subjectId?: string;
     learningPathData?: LearningPathData;
+    learningPathV2Data?: LearningPathV2Data;
     learningPaths?: { id: string; title: string; url: string }[];
     lessonPlan?: import('../types').LessonPlan;
 };
@@ -342,9 +344,11 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, f
             )}
 
             {/* Main Content Container */}
-            <div className={`${(event.layout === 'tool' || event.layout === 'learning-path') ? 'w-full' : 'max-w-6xl mx-auto px-6'}`}>
-                <div className={`${(event.layout === 'tool' || event.layout === 'learning-path') ? 'w-full' : 'bg-white rounded-3xl p-5 md:p-10'}`}>
-                    {event.layout === 'learning-path' && event.learningPathData ? (
+            <div className={`${(event.layout === 'tool' || event.layout === 'learning-path' || event.layout === 'learning-path-v2') ? 'w-full' : 'max-w-6xl mx-auto px-6'}`}>
+                <div className={`${(event.layout === 'tool' || event.layout === 'learning-path' || event.layout === 'learning-path-v2') ? 'w-full' : 'bg-white rounded-3xl p-5 md:p-10'}`}>
+                    {event.layout === 'learning-path-v2' && event.learningPathV2Data ? (
+                        <LearningPathV2 data={event.learningPathV2Data} />
+                    ) : event.layout === 'learning-path' && event.learningPathData ? (
                         <LearningPath data={event.learningPathData} />
                     ) : (
                         <div className={`grid gap-8 md:gap-12 ${event.layout === 'tool' ? 'grid-cols-1 w-full' : 'grid-cols-1 lg:grid-cols-[1fr_350px]'}`}>

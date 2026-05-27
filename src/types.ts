@@ -73,7 +73,7 @@ export interface Lesson {
     details?: string[];
     keyPoints?: string[];
     externalUrl?: string;
-    layout?: 'standard' | 'rich' | 'tool' | 'learning-path';
+    layout?: 'standard' | 'rich' | 'tool' | 'learning-path' | 'learning-path-v2';
     year?: string;
     category?: string;
     // Legacy fields for backward compatibility
@@ -89,6 +89,7 @@ export interface Lesson {
     quote?: Quote;
     flashcards?: { front: string; back: string }[];
     learningPathData?: LearningPathData;
+    learningPathV2Data?: LearningPathV2Data;
     learningPaths?: { id: string; title: string; url: string }[];
     presentation?: PresentationData;
     lessonPlan?: LessonPlan;
@@ -116,7 +117,7 @@ export interface ManifestLesson {
     id: string;
     title: string;
     year?: string;
-    layout?: 'standard' | 'rich' | 'tool' | 'learning-path';
+    layout?: 'standard' | 'rich' | 'tool' | 'learning-path' | 'learning-path-v2';
     date?: string;
     createdDate?: string;
     updatedDate?: string;
@@ -288,6 +289,103 @@ export interface LearningPathData {
     targetTopicId?: string;
     targetSubjectId?: string;
     presentation?: PresentationData;
+}
+
+// --- Learning Path V2: orchestrating engine ---
+// Side om side med klassisk LearningPath. Triggers når lesson.layout === 'learning-path-v2'
+// og lesson.learningPathV2Data finnes. Se docs/LEARNING_PATH_V2.md når den eksisterer.
+
+export type StepKindV2 =
+    | 'read-article'    // les artikkel + komprehensjons-sjekk
+    | 'interactive'     // krever fullføring av en ComponentRegistry-komponent
+    | 'scenario'        // spawner et tidsreise-scenario
+    | 'detective'       // spawner en detektivsak
+    | 'reflection'      // fritekstsvar som lagres
+    | 'concept-drill'   // flashcard-runde over konsepter
+    | 'mini-quiz'       // 3-7 spm med valgfri branching
+    | 'multiplayer'     // (Fase 3) Quiz Battle
+    | 'synthesis';      // avsluttende artefakt
+
+export interface ComprehensionQuestion {
+    question: string;
+    options: string[];
+    correct: number; // index of correct option
+    explanation?: string;
+}
+
+export interface CompletionCriteriaV2 {
+    // mini-quiz / read-article comprehension / concept-drill
+    minScore?: number; // 0-1, default 0.7
+    // reflection
+    minLength?: number; // minimum tegn
+    // read-article
+    comprehensionQuestions?: ComprehensionQuestion[];
+    // interactive — komponenten må kalle onComplete
+    requireComponentComplete?: boolean;
+    // scenario/detective — fullføring spores via flagg
+    externalCompletionFlag?: string;
+}
+
+export interface StepV2 {
+    id: string;
+    title: string;
+    kind: StepKindV2;
+    phase?: string; // "Akt 1: Opptakten"
+    intro: string;  // narrativ guidetekst
+
+    // read-article
+    articleUrl?: string;
+    articleTitle?: string;
+
+    // interactive
+    component?: { name: string; props?: Record<string, unknown> };
+
+    // scenario
+    scenarioId?: string;
+
+    // detective
+    detectiveCaseId?: string;
+
+    // mini-quiz
+    questions?: ComprehensionQuestion[];
+
+    // concept-drill
+    conceptIds?: string[];
+    conceptDrills?: Array<{ term: string; definition: string }>;
+
+    // reflection
+    reflectionPrompt?: string;
+    reflectionPlaceholder?: string;
+
+    // synthesis
+    synthesisType?: 'timeline-builder' | 'concept-map' | 'free-text';
+    synthesisPrompt?: string;
+    synthesisItems?: Array<{ id: string; label: string; year?: number }>; // for timeline-builder
+
+    completion: CompletionCriteriaV2;
+
+    branches?: {
+        onMastery?: string;  // hopp hit ved god score
+        onStruggle?: string; // forsterkningsteg
+    };
+
+    conceptsIntroduced?: string[]; // concept-IDer registrert på profil
+    competencyGoals?: string[];    // kompetansemål-IDer
+}
+
+export interface LearningPathV2Data {
+    id: string;
+    version: 2;
+    title: string;
+    description: string;
+    estimatedMinutes?: number;
+    targetSubjectId?: string;
+    targetTopicId?: string;
+    steps: StepV2[];
+    synthesis?: {
+        title: string;
+        intro: string;
+    };
 }
 
 // --- Presentation & Slide System ---

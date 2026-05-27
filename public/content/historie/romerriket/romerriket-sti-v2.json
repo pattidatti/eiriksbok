@@ -1,0 +1,373 @@
+{
+    "id": "romerriket-sti-v2",
+    "title": "Læringssti: Romerriket (V2)",
+    "description": "Pilot for den nye sti-motoren. Du leser, øver, reflekterer og bygger en tidslinje - hver oppgave verifiserer at du har lært før du går videre.",
+    "layout": "learning-path-v2",
+    "category": "Læringssti",
+    "year": "753 f.Kr - 476 e.Kr",
+    "readTime": "1,5-2 timer",
+    "learningPathV2Data": {
+        "id": "romerriket-sti-v2",
+        "version": 2,
+        "title": "Romerriket: en reise med ekte læringsbevis",
+        "description": "Du starter ved Romas vugge og følger riket gjennom oppgang, storhetstid og fall. På veien må du vise at du har forstått - gjennom quiz, refleksjon, et tidsreise-scenario og en avsluttende tidslinje du bygger selv.",
+        "estimatedMinutes": 90,
+        "targetSubjectId": "historie",
+        "targetTopicId": "romerriket",
+        "steps": [
+            {
+                "id": "republikken",
+                "kind": "read-article",
+                "phase": "Akt 1: En republikk blir til",
+                "title": "Fra landsby til republikk",
+                "intro": "Du står på Palatin-høyden. Under deg ser du en liten samling gjeterhytter ved Tiberen. Ingen kan vite at dette skal bli verdens hovedstad. Les hvordan byen kastet sin siste konge og fant opp en helt ny måte å styre på.",
+                "articleUrl": "/historie/romerriket/romersk-start",
+                "articleTitle": "Romersk start: Republikken",
+                "conceptsIntroduced": ["SPQR", "Patrisier", "Plebeier", "Senatet", "Konsul"],
+                "competencyGoals": [],
+                "completion": {
+                    "minScore": 0.6,
+                    "comprehensionQuestions": [
+                        {
+                            "question": "Hva betyr forkortelsen SPQR?",
+                            "options": [
+                                "Statens Pengeskatt og Quirinusbønnen Romas",
+                                "Senatet og folket i Roma (Senatus Populusque Romanus)",
+                                "Soldater, prester, quaestorer og rådmenn",
+                                "Solens Pakt med Quirites Romarum"
+                            ],
+                            "correct": 1,
+                            "explanation": "SPQR sto skrevet på alle offisielle skilt, mynter og legionsbannere. Det viste at all makt egentlig kom fra senatet og folket sammen - ikke fra én konge."
+                        },
+                        {
+                            "question": "Hva var den viktigste forskjellen mellom patrisiere og plebeiere?",
+                            "options": [
+                                "Patrisierne var krigere, plebeierne var bønder",
+                                "Patrisierne var byboere, plebeierne bodde på landet",
+                                "Patrisierne var de gamle aristokratiske familiene med makt; plebeierne var alle andre frie borgere",
+                                "Patrisierne var rike, plebeierne var slaver"
+                            ],
+                            "correct": 2,
+                            "explanation": "Patrisierne kom fra Romas grunnleggerfamilier og hadde i starten enerett til de viktigste embetene. Plebeierne - bønder, håndverkere, småhandlere - måtte kjempe seg til rettigheter gjennom flere hundre år."
+                        },
+                        {
+                            "question": "Hvorfor ble det valgt to konsuler i stedet for én?",
+                            "options": [
+                                "Slik at de kunne holde øye med hverandre og hindre at noen ble eneveldig",
+                                "Fordi Roma hadde to hovedstader",
+                                "Fordi det var tradisjon fra Hellas",
+                                "Fordi senatet ikke kunne bli enige om én kandidat"
+                            ],
+                            "correct": 0,
+                            "explanation": "Etter at den siste kongen ble jaget bort, var romerne livredde for enmannsstyre. To konsuler med vetorett over hverandre var deres garanti mot tyranni."
+                        },
+                        {
+                            "question": "Hva var 'De tolv tavlene'?",
+                            "options": [
+                                "Tolv ofringer til romerske guder hvert år",
+                                "Romas første nedskrevne lover, slått opp på Forum for at alle skulle kunne lese dem",
+                                "Tolv keisere i en bestemt rekkefølge",
+                                "Et kart over alle provinsene i riket"
+                            ],
+                            "correct": 1,
+                            "explanation": "Før dette kjente bare patrisierne lovene - og kunne tolke dem som de ville. Da plebeierne tvang frem skriftlige lover på tolv bronsetavler, ble loven for første gang lik for alle frie borgere."
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "legion-pakking",
+                "kind": "interactive",
+                "phase": "Akt 1: En republikk blir til",
+                "title": "Legionær-sekken: pakk for marsj",
+                "intro": "Året er 107 f.Kr. Du har vervet deg til hæren for å unnslippe fattigdommen i Romas bakgater. Daglige marsjer på 3 mil, full oppakning, ringbrynje på ryggen. Centurionen sjekker sekken din. Har du husket det viktigste?",
+                "component": {
+                    "name": "PackTheBag",
+                    "props": {
+                        "capacity": 40,
+                        "targetValue": 80,
+                        "title": "Legionær-sekken",
+                        "descriptionOverride": "Pakk det viktigste utstyret innenfor vektgrensen. Velg klokt - sverdet alene gjør deg ikke til en legionær.",
+                        "overweightLabel": "Sekken er for tung for en lang marsj!",
+                        "successLabel": "Legionæren er klar for tjeneste!",
+                        "items": [
+                            { "id": "gladius", "name": "Gladius (sverd)", "weight": 2, "value": 30, "icon": "🗡️" },
+                            { "id": "scutum", "name": "Scutum (skjold)", "weight": 10, "value": 40, "icon": "🛡️" },
+                            { "id": "pilum", "name": "Pilum (spyd)", "weight": 4, "value": 20, "icon": "🔱" },
+                            { "id": "rations", "name": "Rasjoner (korn/kjøtt)", "weight": 5, "value": 25, "icon": "🥩" },
+                            { "id": "wine", "name": "Vinblandet vann", "weight": 3, "value": 10, "icon": "🍷" },
+                            { "id": "armor", "name": "Lorica Hamata (ringbrynje)", "weight": 9, "value": 35, "icon": "👕" },
+                            { "id": "caligae", "name": "Caligae (sandaler)", "weight": 1, "value": 5, "icon": "👡" },
+                            { "id": "tent", "name": "Telt (delt med 7 andre)", "weight": 15, "value": 10, "icon": "⛺" }
+                        ]
+                    }
+                },
+                "conceptsIntroduced": ["Gladius", "Pilum", "Scutum", "Legionær"],
+                "completion": {
+                    "requireComponentComplete": true
+                }
+            },
+            {
+                "id": "republikk-drill",
+                "kind": "concept-drill",
+                "phase": "Akt 1: En republikk blir til",
+                "title": "Drill: republikkens nøkkelbegreper",
+                "intro": "Du har lest om hvordan republikken fungerer, og pakket en legionær-sekk. Nå skal du drille begrepene helt fast. Du ser definisjonen - velg riktig begrep. Du må klare minst fem av seks for å gå videre.",
+                "conceptDrills": [
+                    {
+                        "term": "SPQR",
+                        "definition": "Forkortelsen som sto på alle offisielle skilt og legionsbannere. Betyr 'Senatet og folket i Roma' - og minnet alle på at makten kom fra to kilder, ikke fra én konge."
+                    },
+                    {
+                        "term": "Patrisier",
+                        "definition": "De gamle aristokratiske familiene som stammet fra Romas grunnleggere. Hadde i starten enerett til de viktigste embetene."
+                    },
+                    {
+                        "term": "Plebeier",
+                        "definition": "De vanlige frie borgerne - bønder, håndverkere, småhandlere. Måtte kjempe seg til rettigheter gjennom flere hundre år."
+                    },
+                    {
+                        "term": "Konsul",
+                        "definition": "Det øverste embetet i republikken. Det ble valgt to av dem hvert år, med vetorett over hverandre, slik at ingen kunne bli eneveldig."
+                    },
+                    {
+                        "term": "Senatet",
+                        "definition": "Forsamlingen av de mest erfarne politikerne og tidligere konsulene. Diskuterte alt fra utenrikspolitikk til statsfinanser og hadde stor uformell makt."
+                    },
+                    {
+                        "term": "Legionær",
+                        "definition": "En profesjonell romersk soldat etter Marius' reform. Tjente i 25 år, marsjerte 3 mil daglig med full oppakning og fikk jord som pensjon."
+                    }
+                ],
+                "completion": {
+                    "minScore": 0.8
+                }
+            },
+            {
+                "id": "augustus",
+                "kind": "read-article",
+                "phase": "Akt 2: Keiserne og Pax Romana",
+                "title": "Augustus og keiserdømmet",
+                "intro": "Borgerkrigene har revet republikken i stykker. En ung mann stiger frem fra asken og lover fred - men prisen er friheten. Les om hvordan Augustus klarte det Cæsar ikke klarte.",
+                "articleUrl": "/historie/romerriket/augustus-og-keiserdomme",
+                "articleTitle": "Augustus og keiserdømmet",
+                "conceptsIntroduced": ["Augustus", "Princeps", "Pax Romana", "Keiser"],
+                "completion": {
+                    "minScore": 0.7,
+                    "comprehensionQuestions": [
+                        {
+                            "question": "Hvordan unngikk Augustus å bli drept som adoptivfaren Cæsar?",
+                            "options": [
+                                "Han kalte seg aldri konge eller diktator, men 'førsteborger' (Princeps) - og lot senatet beholde sine titler",
+                                "Han bodde i et hemmelig palass og viste seg sjelden i Roma",
+                                "Han hadde livvakter rundt seg døgnet rundt",
+                                "Han ga senatet uavhengighet og styrte bare hæren"
+                            ],
+                            "correct": 0,
+                            "explanation": "Cæsar ble drept fordi han åpent grep tyrannmakten. Augustus lærte av det: han holdt på de gamle republikanske titlene som fasade, men samlet i praksis all reell makt hos seg selv. Senatet trodde de styrte. Det gjorde de ikke."
+                        },
+                        {
+                            "question": "Hva er Pax Romana?",
+                            "options": [
+                                "Augustus' personlige livvakt",
+                                "En statue Augustus reiste til ære for fredsgudinnen",
+                                "Den ca. 200 år lange perioden med stort sett indre fred i hele Middelhavsverdenen",
+                                "En lov som gjorde det forbudt å erklære krig"
+                            ],
+                            "correct": 2,
+                            "explanation": "'Den romerske freden' var ikke fravær av all vold, men en periode (ca. 27 f.Kr-180 e.Kr) hvor handel, kultur og infrastruktur blomstret fordi riket ikke ble splittet av store indre kriger."
+                        },
+                        {
+                            "question": "Hva betyr tittelen 'Augustus'?",
+                            "options": [
+                                "Krigeren",
+                                "Den opphøyde / den ærverdige",
+                                "Den førstefødte",
+                                "Soltjeneren"
+                            ],
+                            "correct": 1,
+                            "explanation": "Tittelen ble gitt ham av senatet i 27 f.Kr. Den ga ham nesten religiøs status uten å være konge - et politisk geni-trekk."
+                        }
+                    ]
+                },
+                "branches": {
+                    "onStruggle": "augustus"
+                }
+            },
+            {
+                "id": "tidsreise",
+                "kind": "scenario",
+                "phase": "Akt 2: Keiserne og Pax Romana",
+                "title": "Tidsreise: lev som romersk soldat",
+                "intro": "Nok teori. Nå skal du selv inn i støvet. Du våkner som rekrutt i en romersk legion. Hvert valg du tar former hva som skjer videre - overlever du marsjen, slaget og keiserens vrede?",
+                "scenarioId": "roman-soldier",
+                "completion": {
+                    "externalCompletionFlag": "roman-soldier-completed"
+                }
+            },
+            {
+                "id": "keisere-quiz",
+                "kind": "mini-quiz",
+                "phase": "Akt 2: Keiserne og Pax Romana",
+                "title": "Keisergalleriet: galskap og genialitet",
+                "intro": "Du vandrer gjennom keiserpalasset på Palatin. Trajan og Marcus Aurelius styrte med visdom - Nero og Caligula var mareritt. Hvor godt kjenner du dem?",
+                "questions": [
+                    {
+                        "question": "Hvilken keiser ble berømt for å være en filosof og skrev 'Meditasjoner'?",
+                        "options": ["Nero", "Trajan", "Marcus Aurelius", "Caligula"],
+                        "correct": 2,
+                        "explanation": "Marcus Aurelius er den siste av de 'fem gode keiserne'. Hans personlige notater - skrevet for ham selv, ikke for publisering - leses fortsatt som et hovedverk i stoisk filosofi."
+                    },
+                    {
+                        "question": "Hvilken keiser ble beryktet for å ha gjort kristendommen til en tillatt religion i riket?",
+                        "options": ["Nero", "Diokletian", "Konstantin", "Augustus"],
+                        "correct": 2,
+                        "explanation": "Konstantin ga med Milanoediktet i 313 e.Kr full religionsfrihet til de kristne - et vendepunkt som forvandlet kirken fra forfulgt sekt til riksreligion."
+                    },
+                    {
+                        "question": "Under hvilken keiser nådde Romerriket sin største utstrekning?",
+                        "options": ["Augustus", "Trajan", "Nero", "Hadrian"],
+                        "correct": 1,
+                        "explanation": "Under Trajan (98-117 e.Kr) strakte riket seg fra Skottland til Mesopotamia. Hans etterfølger Hadrian trakk seg frivillig tilbake fra de mest sårbare grenseområdene."
+                    },
+                    {
+                        "question": "Hva er Nero mest beryktet for?",
+                        "options": [
+                            "Å ha bygget Colosseum",
+                            "Å ha blitt anklaget for å stå bak storbrannen i Roma og deretter skylde på de kristne",
+                            "Å ha sluttet med slaveri i riket",
+                            "Å ha erobret Britannia"
+                        ],
+                        "correct": 1,
+                        "explanation": "Brannen i Roma i 64 e.Kr ødela halve byen. Det er omdiskutert om Nero faktisk startet den, men det er sikkert at han brukte de kristne som syndebukker - den første store kristenforfølgelsen."
+                    }
+                ],
+                "conceptsIntroduced": ["Marcus Aurelius", "Trajan", "Konstantin", "Nero"],
+                "completion": {
+                    "minScore": 0.75
+                }
+            },
+            {
+                "id": "brod-og-sirkus",
+                "kind": "reflection",
+                "phase": "Akt 3: Livet i riket",
+                "title": "Brød og sirkus - og oss",
+                "intro": "Panem et circenses. Du sitter på tribunen i Colosseum sammen med 50 000 andre. Keiseren vet at så lenge folket er mette og underholdt, vil de ikke gjøre opprør. Men er det noe vi kan kjenne igjen i dag?",
+                "reflectionPrompt": "Reflekter: har vi noe som tilsvarer 'brød og sirkus' i Norge i 2026? Tenk på hva makthavere (politikere, eiere av plattformer som TikTok, store mediekonserner) kan vinne på at folk er mette og underholdt. Skriv et lite avsnitt (60-200 ord) hvor du gir minst ett konkret eksempel og forklarer hva det har felles med romernes brød og sirkus.",
+                "reflectionPlaceholder": "Et eksempel kunne være...",
+                "completion": {
+                    "minLength": 60
+                }
+            },
+            {
+                "id": "fallet",
+                "kind": "read-article",
+                "phase": "Akt 3: Livet i riket",
+                "title": "Vestromerrikets fall",
+                "intro": "Riket som hersket i tusen år rakner. Indre splid, dyre kriger, sviktende økonomi og folkevandringer fra øst - flere ting går galt samtidig. Les hvorfor det vestromerske riket faller i 476 e.Kr.",
+                "articleUrl": "/historie/romerriket/vestromerrikets-fall",
+                "articleTitle": "Vestromerrikets fall",
+                "conceptsIntroduced": ["Folkevandringen", "Odoaker", "Vestromerriket", "Østromerriket"],
+                "completion": {
+                    "minScore": 0.6,
+                    "comprehensionQuestions": [
+                        {
+                            "question": "Når faller Vestromerriket vanligvis sagt å falle?",
+                            "options": ["410 e.Kr", "476 e.Kr", "330 e.Kr", "1453 e.Kr"],
+                            "correct": 1,
+                            "explanation": "I 476 e.Kr ble den siste vestromerske keiseren Romulus Augustulus avsatt av den germanske kongen Odoaker. (Det østromerske riket levde derimot videre helt til 1453.)"
+                        },
+                        {
+                            "question": "Hva er det IKKE en viktig grunn til at Vestromerriket falt?",
+                            "options": [
+                                "Sviktende økonomi og pengeforringelse",
+                                "Konstante folkevandringer og press fra germanske stammer",
+                                "At kristendommen forbød romerne å bære våpen",
+                                "Politisk ustabilitet med stadige borgerkriger og dårlige keisere"
+                            ],
+                            "correct": 2,
+                            "explanation": "Dette er en gammel myte. Kristne romere kjempet i hæren hele tiden. De ekte årsakene var sammensatte - ingen enkeltårsak forklarer det alene."
+                        },
+                        {
+                            "question": "Hva skjedde med Østromerriket etter Vestromerrikets fall?",
+                            "options": [
+                                "Det falt i samme år",
+                                "Det levde videre som det bysantinske riket i nesten tusen år til",
+                                "Det ble en del av Persia",
+                                "Det ble grunnlagt på nytt av Karl den store"
+                            ],
+                            "correct": 1,
+                            "explanation": "Med hovedstad i Konstantinopel levde det østromerske (bysantinske) riket videre helt til osmanene erobret byen i 1453. På mange måter falt 'Roma' altså to ganger, med tusen års mellomrom."
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "keisertid-drill",
+                "kind": "concept-drill",
+                "phase": "Akt 3: Livet i riket",
+                "title": "Drill: keisertidens nøkkelbegreper",
+                "intro": "Før du bygger den endelige tidslinjen, drill begrepene fra Akt 2 og Akt 3. Vis at du kan plassere både keisere, fenomener og krefter som rev riket i stykker.",
+                "conceptDrills": [
+                    {
+                        "term": "Augustus",
+                        "definition": "Cæsars adoptivsønn som ble Romas første keiser. Lærte av Cæsars feil og holdt på de gamle republikanske titlene som fasade, mens han samlet all reell makt hos seg selv."
+                    },
+                    {
+                        "term": "Pax Romana",
+                        "definition": "Ca. 200 år (27 f.Kr-180 e.Kr) med stort sett indre fred i hele Middelhavsverdenen. Handel, kultur og infrastruktur blomstret fordi riket ikke ble splittet av store interne kriger."
+                    },
+                    {
+                        "term": "Princeps",
+                        "definition": "Tittelen Augustus brukte i stedet for konge eller diktator. Betyr 'førsteborger' - en bevisst beskjeden tittel som skjulte at han hadde samlet all makt."
+                    },
+                    {
+                        "term": "Marcus Aurelius",
+                        "definition": "Den siste av de 'fem gode keiserne'. Skrev personlige notater (Meditasjoner) som fortsatt leses som et hovedverk i stoisk filosofi."
+                    },
+                    {
+                        "term": "Konstantin",
+                        "definition": "Keiseren som med Milanoediktet i 313 e.Kr ga full religionsfrihet til de kristne - et vendepunkt som forvandlet kirken fra forfulgt sekt til riksreligion."
+                    },
+                    {
+                        "term": "Folkevandringen",
+                        "definition": "Periode hvor germanske og andre stammer trengte inn over rikets grenser, ofte presset østfra av nye folkegrupper. En av flere samvirkende årsaker til Vestromerrikets fall."
+                    },
+                    {
+                        "term": "Odoaker",
+                        "definition": "Den germanske kongen som i 476 e.Kr avsatte den siste vestromerske keiseren Romulus Augustulus - hendelsen historikere bruker som symbolsk slutt på Vestromerriket."
+                    }
+                ],
+                "completion": {
+                    "minScore": 0.8
+                }
+            },
+            {
+                "id": "tidslinje-syntese",
+                "kind": "synthesis",
+                "phase": "Akt 3: Livet i riket",
+                "title": "Bygg Romerrikets tidslinje",
+                "intro": "Nå skal du sette det hele sammen. Du har en bunke hendelser fra hele Romerrikets historie. Dra dem i kronologisk rekkefølge - bevis at du forstår hvordan riket utviklet seg fra liten landsby til verdensmakt og videre til fall.",
+                "synthesisType": "timeline-builder",
+                "synthesisPrompt": "Plasser disse hendelsene i kronologisk rekkefølge - eldst øverst. Bruk det du vet om hvert tema, og se på årstallene først når du sjekker svaret.",
+                "synthesisItems": [
+                    { "id": "republikk", "label": "Republikken grunnlegges (siste konge jages bort)", "year": -509 },
+                    { "id": "marius", "label": "Marius reformerer hæren - fattige får verve seg", "year": -107 },
+                    { "id": "augustus", "label": "Augustus blir den første keiseren", "year": -27 },
+                    { "id": "pompeii", "label": "Vesuv begraver Pompeii", "year": 79 },
+                    { "id": "trajan", "label": "Trajan: riket på sitt aller største", "year": 117 },
+                    { "id": "konstantin", "label": "Konstantin tillater kristendommen", "year": 313 },
+                    { "id": "fallet", "label": "Vestromerriket faller", "year": 476 },
+                    { "id": "ostromerriket", "label": "Konstantinopel faller - Østromerriket slutter", "year": 1453 }
+                ],
+                "completion": {
+                    "minScore": 0.5
+                }
+            }
+        ],
+        "synthesis": {
+            "title": "Du har levd Romerrikets historie",
+            "intro": "Fra landsbyens første konge til Konstantinopels fall: du har lest, øvd, reflektert og bygget tidslinjen selv. Det er ekte læring - ikke bare lest."
+        }
+    }
+}
