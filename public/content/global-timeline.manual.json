@@ -1,6 +1,19 @@
 {
   "events": [
     {
+      "id": "iran-contra-avsloering",
+      "title": "Iran-Contra-skandalen avslores",
+      "description": "Det libanesiske bladet Al-Shiraa avslorer at USA hemmelig solgte missiler til Iran og brukte pengene til å finansiere Contra-geriljaen i Nicaragua, i strid med Kongressens Boland-tillegg.",
+      "startDate": 1986,
+      "endDate": null,
+      "displayDate": "1986",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "den-kalde-krigen",
+      "link": "/historie/den-kalde-krigen/iran-contra",
+      "tags": ["USA", "den kalde krigen", "Reagan", "Nicaragua", "skandale"]
+    },
+    {
       "id": "frashokereti",
       "title": "Frashokereti: Zoroastrismens dommedag",
       "description": "Den eldste systematiske forestillingen om en lineær verdensende der det gode seirer over det onde.",

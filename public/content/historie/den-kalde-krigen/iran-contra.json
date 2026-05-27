@@ -1,0 +1,186 @@
+{
+    "id": "iran-contra",
+    "title": "Iran-Contra-skandalen",
+    "subject": "historie",
+    "layout": "rich",
+    "year": "1986",
+    "category": "Kald krig",
+    "readTime": "12 min lesning",
+    "heroImage": "/images/historie/den-kalde-krigen/iran-contra-hero.webp",
+    "details": [
+        "Reagan-administrasjonen solgte hemmelig våpen til Iran i 1985-1986",
+        "Overskuddet gikk ulovlig til Contra-geriljaen i Nicaragua",
+        "Boland-tillegget (1984) hadde uttrykkelig forbudt slik finansiering",
+        "14 tjenestemenn ble tiltalt; skandalen skadet Reagans ettermale"
+    ],
+    "externalUrl": "https://snl.no/Iran-Contra-affæren",
+    "timeline": [],
+    "content": [
+        {
+            "type": "text",
+            "content": "Tenk deg at presidenten i USA, mannen som høylytt kaller Iran et terroristregime og nekter å forhandle med terrorister, i hemmelighet sender missiler til dette terroristlandet. Og bruker pengene til å drive en ulovlig krig på en annen kant av kloden. Det er akkurat hva som skjedde i 1985 og 1986. Iran-Contra-skandalen avslørte at Ronald Reagan og noen av hans nærmeste medarbeidere hadde handlet i det skjulte - fordi de mente hensikten heiliggjorde midlene.\n\nSkandalen besto av to hemmelige operasjoner som hang sammen på en måte som brøt både amerikanske lover og Reagans egne offentlige løfter."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Tre aktorer - ett hemmelig nettverk",
+                "content": "Iran-Contra involverte tre grupper som normalt ikke hadde noe med hverandre å gjore. Reagan-administrasjonen/CIA sto for planlegging og gjennomforing. Iran (som Reagan offentlig hadde fordokt som terroristnasjon) mottok missilene og betalte. Contra-geriljaen i Nicaragua mottok pengene - pengene Kongressen hadde uttrykkelig forbudt å sende dem."
+            }
+        },
+        {
+            "type": "header",
+            "text": "Bakgrunn: Reagan og kommunistfrykten i Latin-Amerika"
+        },
+        {
+            "type": "text",
+            "content": "I 1979 tok Sandinistene makten i Nicaragua gjennom en revolusjon. Sandinistene var en venstreorientert bevegelse, og president Reagan fryktet at de ville spre kommunismen i Latin-Amerika - akkurat slik Vietnam hadde spredt det i Asia. Reagan-doktrinen sa klart: USA skal aktivt stoette frihetskjempere som kjemper mot kommunistiske regjeringer verden over.\n\nContras var en geriljagruppe som kjempet mot Sandinist-regjeringen. Problemet var at CIA allerede i 1984 hadde blitt avsloert i å legge miner i nicaraguanske havner - en krigshandling mot et land USA formelt var i fred med. Kongressen reagerte med Boland-tillegget: Fra nå av er det forbudt å gi militær hjelp til Contras med midler fra den amerikanske regjeringen. Reagan måtte finne en annen vei."
+        },
+        {
+            "type": "header",
+            "text": "Det doble spillet: Gisler og missiler"
+        },
+        {
+            "type": "text",
+            "content": "Samtidig hadde Hezbollah-militser i Libanon tatt sju amerikanere som gisler. Reagan sa offentlig at han aldri ville forhandle med terrorister. Men bak kulissene jobbet National Security Advisor Robert McFarlane og oberstloeytnant Oliver North med en plan.\n\nIran var midt i en blodig krig mot Irak og trengte Hawk-missiler for å bekjempe irakiske luftangrep. Og Iran hadde innflytelse over Hezbollah - de kunne presse dem til å frigi gislene. Planen: Selg missiler til Iran i hemmelighet. Iran frigir gisler. Overskuddet fra salget kanaliseres til Contras - utenom Kongressen.\n\nSalget skjedde i 1985 og 1986, med en israelsk agent som mellommann. Rundt 30 millioner dollar havnet på hemmelige bankkontoer Oliver North kontrollerte. Og derfra ble pengene sendt videre til Contras i Nicaragua."
+        },
+        {
+            "type": "component",
+            "name": "IranContraSpor",
+            "props": {
+                "title": "Det forbudte kretslopet"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Avsloringen"
+        },
+        {
+            "type": "text",
+            "content": "Skandalen sprakk fra to kanter på én gang. I oktober 1986 ble et lastfly skutt ned over Nicaragua. Piloten Eugene Hasenfus overlevde og fortalte at han transporterte våpen til Contras for CIA. En måned senere avslørte det libanesiske bladet Al-Shiraa missilsalget til Iran.\n\nReagan nektet alt, men historiene holdt ikke vann. Interne dokumenter ble funnet på Oliver Norths kontor. En av Norths assistenter ble tatt i å makulere papirer og smugle ut dokumenter i klærne sine. Justisdepartementet fant bevis for at pengene fra Iran-salget hadde gått til Contras.\n\n25. november 1986 kunngjorde Reagan at han visste om missilsalget, men hevdet å ikke ha kjent til Contra-overforingene. Oliver North og John Poindexter ble sparket."
+        },
+        {
+            "type": "header",
+            "text": "Oliver North i Kongressen"
+        },
+        {
+            "type": "text",
+            "content": "Sommeren 1987 ble Oliver North kalt inn til horinger i Senatet. Han møtte i full militæruniform, rakrygget og disiplinert - og forsvarte alt han hadde gjort.\n\nNorth sa at han handlet etter ordrer, at han trodde han hjalp frihetskjempere mot kommunismen, og at han var stolt av det. Vitnemålet hans ble en nasjonal begivenhet: millioner av amerikanere fulgte horingene på TV. Mange så North som en helt som ofret seg for USA. Andre så ham som en som hadde brutt grunnloven i det stille."
+        },
+        {
+            "type": "component",
+            "name": "Comparison",
+            "props": {
+                "title": "To syn på Oliver North",
+                "leftTitle": "Helten",
+                "rightTitle": "Lovbryteren",
+                "items": [
+                    {
+                        "label": "Handling",
+                        "left": "Hjalp frihetskjempere mot kommunismen",
+                        "right": "Brot Boland-tillegget, en lov vedtatt av Kongressen"
+                    },
+                    {
+                        "label": "Motiv",
+                        "left": "Overbevist om å gjore det riktige for USA",
+                        "right": "Tok avgjorelser som bare presidenten og Kongressen kan ta"
+                    },
+                    {
+                        "label": "Metode",
+                        "left": "Handlet raskt og effektivt i en krisesituasjon",
+                        "right": "Logde til Kongressen, makulerte bevis, brot tjenesteed"
+                    },
+                    {
+                        "label": "Konsekvens",
+                        "left": "Contras overlevde, noen gisler ble frigi",
+                        "right": "Grunnlovens maktfordeling ble satt til side i hemmelighet"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Konsekvenser og det vi kan laere"
+        },
+        {
+            "type": "text",
+            "content": "14 tjenestemenn ble tiltalt. 11 ble funnet skyldige. Oliver North fikk tre års betinget dom og bøter. Men i 1992 benådet president George H.W. Bush - som selv hadde vart visepresident under Reagan - McFarlane, North og fem andre. North fikk alle sine domfellelser omgjort av formelle grunner.\n\nSkandalen svekket Reagans siste år som president kraftig. Meningsmålingene falt bratt da han i mars 1987 til slutt erkjente at vapen­salget til Iran faktisk hadde skjedd, selv om han ikke mente det var en feil.\n\nDet virkelige spoersmålet er ikke hvem som ble straffet. Det er om en president kan sette sine egne mål over landets lover. Iran-Contra viser hva som kan skje når svaret er ja - og hva som skjer med tilliten mellom et folk og dets regjering når den svikter."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hva het geriljagruppen i Nicaragua som Reagan ville støtte?",
+                        "options": ["Taliban", "Contras", "Sandinistene", "Hezbollah"],
+                        "answer": "Contras"
+                    },
+                    {
+                        "question": "Hva forbød Boland-tillegget fra 1984?",
+                        "options": [
+                            "Salg av missiler til Iran",
+                            "Støtte til cubanske kommunister",
+                            "Militær hjelp til Contras fra den amerikanske regjeringen",
+                            "CIA-operasjoner i Midtøsten"
+                        ],
+                        "answer": "Militær hjelp til Contras fra den amerikanske regjeringen"
+                    },
+                    {
+                        "question": "Hvem organiserte den hemmelige pengeflyten for Reagan-administrasjonen?",
+                        "options": ["William Casey", "Oliver North", "John Poindexter", "George H.W. Bush"],
+                        "answer": "Oliver North"
+                    },
+                    {
+                        "question": "Hvem avslørte missilsalget til Iran i november 1986?",
+                        "options": [
+                            "CIA selv",
+                            "Det libanesiske bladet Al-Shiraa",
+                            "Den amerikanske kongressen",
+                            "FN-inspektorer"
+                        ],
+                        "answer": "Det libanesiske bladet Al-Shiraa"
+                    }
+                ]
+            }
+        }
+    ],
+    "quiz": [
+        {
+            "id": "q1",
+            "question": "Hva het geriljagruppen i Nicaragua som Reagan ville støtte?",
+            "options": ["Taliban", "Contras", "Sandinistene", "Hezbollah"],
+            "correctAnswer": 1
+        },
+        {
+            "id": "q2",
+            "question": "Hva forbød Boland-tillegget fra 1984?",
+            "options": [
+                "Salg av missiler til Iran",
+                "Støtte til cubanske kommunister",
+                "Militær hjelp til Contras fra den amerikanske regjeringen",
+                "CIA-operasjoner i Midtøsten"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": "q3",
+            "question": "Hvem organiserte den hemmelige pengeflyten for Reagan-administrasjonen?",
+            "options": ["William Casey", "Oliver North", "John Poindexter", "George H.W. Bush"],
+            "correctAnswer": 1
+        },
+        {
+            "id": "q4",
+            "question": "Hvem avslørte missilsalget til Iran i november 1986?",
+            "options": [
+                "CIA selv",
+                "Det libanesiske bladet Al-Shiraa",
+                "Den amerikanske kongressen",
+                "FN-inspektorer"
+            ],
+            "correctAnswer": 1
+        }
+    ],
+    "createdDate": "2026-05-27T00:00:00Z",
+    "lastUpdated": "2026-05-27T00:00:00Z"
+}

@@ -170,6 +170,7 @@ const BaptismComparator = lazy(() => import('./content/interactive/BaptismCompar
 const PinseNasjoner = lazy(() => import('./content/interactive/PinseNasjoner').then(m => ({ default: m.PinseNasjoner })));
 const TradisjonEllerNytt = lazy(() => import('./content/interactive/TradisjonEllerNytt').then(m => ({ default: m.TradisjonEllerNytt })));
 const TekstVerksted = lazy(() => import('./content/interactive/TekstVerksted').then(m => ({ default: m.TekstVerksted })));
+const IranContraSpor = lazy(() => import('./content/interactive/IranContraSpor').then(m => ({ default: m.IranContraSpor })));
 
 export const componentRegistry: Record<string, React.ComponentType<any>> = {
     // Core
@@ -340,6 +341,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     PinseNasjoner,
     TradisjonEllerNytt,
     TekstVerksted,
+    IranContraSpor,
     Gallery,
     gallery: Gallery,
     comparison: Comparison,

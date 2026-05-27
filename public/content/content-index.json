@@ -1,5 +1,5 @@
 {
-  "buildId": 1779860101039,
+  "buildId": 1779867489392,
   "contentMap": {
     "concept-adel": [
       "content/concepts/adel.json"
@@ -1069,6 +1069,9 @@
     "cuba-krisen": [
       "content/historie/den-kalde-krigen/cuba-krisen.json"
     ],
+    "iran-contra": [
+      "content/historie/den-kalde-krigen/iran-contra.json"
+    ],
     "kald-krig-sti": [
       "content/historie/den-kalde-krigen/kald-krig-sti.json"
     ],
@@ -1356,6 +1359,9 @@
     ],
     "pompeii": [
       "content/historie/romerriket/pompeii.json"
+    ],
+    "romerriket-sti-v2": [
+      "content/historie/romerriket/romerriket-sti-v2.json"
     ],
     "romerriket-sti": [
       "content/historie/romerriket/romerriket-sti.json"
@@ -2371,6 +2377,9 @@
     "john-locke": [
       "content/people/john-locke.json"
     ],
+    "john-poindexter": [
+      "content/people/john-poindexter.json"
+    ],
     "john-stuart-mill": [
       "content/people/john-stuart-mill.json"
     ],
@@ -2553,6 +2562,9 @@
     ],
     "olav-tryggvason": [
       "content/people/olav-tryggvason.json"
+    ],
+    "oliver-north": [
+      "content/people/oliver-north.json"
     ],
     "oscar-ii": [
       "content/people/oscar-ii.json"
@@ -3221,6 +3233,7 @@
     "historie/den-kalde-krigen/atomvapenkapplopet": "content/historie/den-kalde-krigen/atomvapenkapplopet.json",
     "historie/den-kalde-krigen/berlinmuren": "content/historie/den-kalde-krigen/berlinmuren.json",
     "historie/den-kalde-krigen/cuba-krisen": "content/historie/den-kalde-krigen/cuba-krisen.json",
+    "historie/den-kalde-krigen/iran-contra": "content/historie/den-kalde-krigen/iran-contra.json",
     "historie/den-kalde-krigen/kald-krig-sti": "content/historie/den-kalde-krigen/kald-krig-sti.json",
     "historie/den-kalde-krigen/korea-dmz": "content/historie/den-kalde-krigen/korea-dmz.json",
     "historie/den-kalde-krigen/koreakrigen": "content/historie/den-kalde-krigen/koreakrigen.json",
@@ -3316,6 +3329,7 @@
     "historie/romerriket/hverdagsliv-i-roma": "content/historie/romerriket/hverdagsliv-i-roma.json",
     "historie/romerriket/legitimitet-og-kristendom": "content/historie/romerriket/legitimitet-og-kristendom.json",
     "historie/romerriket/pompeii": "content/historie/romerriket/pompeii.json",
+    "historie/romerriket/romerriket-sti-v2": "content/historie/romerriket/romerriket-sti-v2.json",
     "historie/romerriket/romerriket-sti": "content/historie/romerriket/romerriket-sti.json",
     "historie/romerriket/romersk-start": "content/historie/romerriket/romersk-start.json",
     "historie/romerriket/romerske-guder": "content/historie/romerriket/romerske-guder.json",
@@ -3656,6 +3670,7 @@
     "people/john-f-kennedy.json/john-f-kennedy": "content/people/john-f-kennedy.json",
     "people/john-knox.json/john-knox": "content/people/john-knox.json",
     "people/john-locke.json/john-locke": "content/people/john-locke.json",
+    "people/john-poindexter.json/john-poindexter": "content/people/john-poindexter.json",
     "people/john-stuart-mill.json/john-stuart-mill": "content/people/john-stuart-mill.json",
     "people/jon-henrik-fjallgren.json/jon-henrik-fjallgren": "content/people/jon-henrik-fjallgren.json",
     "people/joseph-smith.json/joseph-smith": "content/people/joseph-smith.json",
@@ -3718,6 +3733,7 @@
     "people/olav-haraldsson.json/olav-haraldsson": "content/people/olav-haraldsson.json",
     "people/olav-nilsson.json/olav-nilsson": "content/people/olav-nilsson.json",
     "people/olav-tryggvason.json/olav-tryggvason": "content/people/olav-tryggvason.json",
+    "people/oliver-north.json/oliver-north": "content/people/oliver-north.json",
     "people/oscar-ii.json/oscar-ii": "content/people/oscar-ii.json",
     "people/patrice-lumumba.json/patrice-lumumba": "content/people/patrice-lumumba.json",
     "people/pave-urban-ii.json/pave-urban-ii": "content/people/pave-urban-ii.json",
