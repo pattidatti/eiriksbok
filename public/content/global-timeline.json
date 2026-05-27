@@ -3112,6 +3112,26 @@
       ]
     },
     {
+      "id": "dopapirets-historie",
+      "title": "Dopapirets historie",
+      "description": "Fra romernes fellessponge og kinesisk papir på 500-tallet til industriell masseproduksjon. Historien om en gjenstand alle tar for gitt.",
+      "startDate": 1857,
+      "endDate": null,
+      "displayDate": "1857",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "industriell-revolusjon",
+      "link": "/historie/industriell-revolusjon/dopapirets-historie",
+      "tags": [
+        "teknologi",
+        "industri",
+        "hverdagsliv",
+        "hygiene",
+        "oppfinnelser",
+        "1800-tallet"
+      ]
+    },
+    {
       "id": "eic-sub-2",
       "title": "Sepoy-opprøret",
       "description": "Stort opprør blant indiske soldater mot kompaniets styre.",

@@ -1,5 +1,5 @@
 {
-  "buildId": 1779867489392,
+  "buildId": 1779878332971,
   "contentMap": {
     "concept-adel": [
       "content/concepts/adel.json"
@@ -1147,6 +1147,9 @@
     "dampmaskinen": [
       "content/historie/industriell-revolusjon/dampmaskinen.json"
     ],
+    "dopapirets-historie": [
+      "content/historie/industriell-revolusjon/dopapirets-historie.json"
+    ],
     "industriell-revolusjon": [
       "content/historie/industriell-revolusjon/industriell-revolusjon.json"
     ],
@@ -1857,6 +1860,9 @@
     ],
     "bass-intro": [
       "content/musikk/instrumenter/bass-intro.json"
+    ],
+    "caged-system": [
+      "content/musikk/instrumenter/caged-system.json"
     ],
     "gitar-intro": [
       "content/musikk/instrumenter/gitar-intro.json"
@@ -3259,6 +3265,7 @@
     "historie/forste-verdenskrig/ww1-sti": "content/historie/forste-verdenskrig/ww1-sti.json",
     "historie/industriell-revolusjon/barnearbeid": "content/historie/industriell-revolusjon/barnearbeid.json",
     "historie/industriell-revolusjon/dampmaskinen": "content/historie/industriell-revolusjon/dampmaskinen.json",
+    "historie/industriell-revolusjon/dopapirets-historie": "content/historie/industriell-revolusjon/dopapirets-historie.json",
     "historie/industriell-revolusjon/industriell-revolusjon": "content/historie/industriell-revolusjon/industriell-revolusjon.json",
     "historie/industriell-revolusjon/jernbanen": "content/historie/industriell-revolusjon/jernbanen.json",
     "historie/jordbruk-og-sivilisasjoner/egypt": "content/historie/jordbruk-og-sivilisasjoner/egypt.json",
@@ -3495,6 +3502,7 @@
     "musikk/grunnleggende/takt-og-rytme": "content/musikk/grunnleggende/takt-og-rytme.json",
     "musikk/grunnleggende/tonearter-og-skalaer": "content/musikk/grunnleggende/tonearter-og-skalaer.json",
     "musikk/instrumenter/bass-intro": "content/musikk/instrumenter/bass-intro.json",
+    "musikk/instrumenter/caged-system": "content/musikk/instrumenter/caged-system.json",
     "musikk/instrumenter/gitar-intro": "content/musikk/instrumenter/gitar-intro.json",
     "musikk/instrumenter/piano-intro": "content/musikk/instrumenter/piano-intro.json",
     "musikk/instrumenter/trommer-intro": "content/musikk/instrumenter/trommer-intro.json",

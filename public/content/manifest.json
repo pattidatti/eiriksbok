@@ -2712,7 +2712,7 @@
                 "kald-krig"
               ],
               "createdDate": "2026-05-27T00:00:00Z",
-              "lastUpdated": "2026-05-27T07:21:34.005Z"
+              "lastUpdated": "2026-05-27T10:22:04+02:00"
             }
           ]
         },
@@ -2784,6 +2784,23 @@
               ],
               "createdDate": "2026-05-13T00:00:00Z",
               "lastUpdated": "2026-05-13T09:06:54+02:00"
+            },
+            {
+              "id": "dopapirets-historie",
+              "title": "Dopapirets historie",
+              "description": "Fra romernes fellessponge og kinesisk papir på 500-tallet til industriell masseproduksjon. Historien om en gjenstand alle tar for gitt.",
+              "image": "/images/industriell-revolusjon/dopapirets-historie-hero.webp",
+              "layout": "rich",
+              "tags": [
+                "teknologi",
+                "industri",
+                "hverdagsliv",
+                "hygiene",
+                "oppfinnelser",
+                "1800-tallet"
+              ],
+              "createdDate": "2026-05-27T00:00:00Z",
+              "lastUpdated": "2026-05-27T10:12:14.941Z"
             }
           ]
         },
@@ -3811,7 +3828,7 @@
               "link": "/historie/romerriket/romerriket-sti-v2",
               "icon": "map",
               "createdDate": "2026-05-27T00:00:00+02:00",
-              "lastUpdated": "2026-05-27T07:24:29.734Z"
+              "lastUpdated": "2026-05-27T07:43:28.778Z"
             }
           ],
           "lessons": [
@@ -5848,6 +5865,21 @@
               ],
               "createdDate": "2025-12-13T22:43:33+01:00",
               "lastUpdated": "2026-05-11T09:50:27+02:00"
+            },
+            {
+              "id": "caged-system",
+              "title": "CAGED-systemet",
+              "description": "Laer de fem grunnformene som gir deg tilgang til hele gitarhalsen - og soloposisjoner overalt.",
+              "image": "/images/instrumenter/caged-system-hero.webp",
+              "tags": [
+                "musikk",
+                "gitar",
+                "teknikk",
+                "caged",
+                "solo"
+              ],
+              "createdDate": "2026-05-27T00:00:00Z",
+              "lastUpdated": "2026-05-27T10:09:45.272Z"
             },
             {
               "id": "bass-intro",

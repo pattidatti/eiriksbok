@@ -142,6 +142,7 @@ const ChordLibrary = lazy(() => import('../features/music/components/ChordLibrar
 const SongStructureBuilder = lazy(() => import('../features/music/components/SongStructureBuilder').then(m => ({ default: m.SongStructureBuilder })));
 const ArrangementPlanner = lazy(() => import('../features/music/components/ArrangementPlanner').then(m => ({ default: m.ArrangementPlanner })));
 const SongwriterStudio = lazy(() => import('../features/music/components/SongwriterStudio').then(m => ({ default: m.SongwriterStudio })));
+const CAGEDExplorer = lazy(() => import('./content/interactive/CAGEDExplorer').then(m => ({ default: m.CAGEDExplorer })));
 const ProtestsangAnalyse = lazy(() => import('./content/interactive/ProtestsangAnalyse').then(m => ({ default: m.ProtestsangAnalyse })));
 const BluesNoteVerksted = lazy(() => import('./content/interactive/BluesNoteVerksted').then(m => ({ default: m.BluesNoteVerksted })));
 const HookOppdageren = lazy(() => import('./content/interactive/HookOppdageren').then(m => ({ default: m.HookOppdageren })));
@@ -171,6 +172,7 @@ const PinseNasjoner = lazy(() => import('./content/interactive/PinseNasjoner').t
 const TradisjonEllerNytt = lazy(() => import('./content/interactive/TradisjonEllerNytt').then(m => ({ default: m.TradisjonEllerNytt })));
 const TekstVerksted = lazy(() => import('./content/interactive/TekstVerksted').then(m => ({ default: m.TekstVerksted })));
 const IranContraSpor = lazy(() => import('./content/interactive/IranContraSpor').then(m => ({ default: m.IranContraSpor })));
+const HygieneTidsreise = lazy(() => import('./content/interactive/HygieneTidsreise').then(m => ({ default: m.HygieneTidsreise })));
 
 export const componentRegistry: Record<string, React.ComponentType<any>> = {
     // Core
@@ -306,6 +308,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     TimelineSlider,
 
     // Music
+    CAGEDExplorer,
     VirtualPiano,
     FretboardExplorer,
     BeatBuilder,
@@ -342,6 +345,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     TradisjonEllerNytt,
     TekstVerksted,
     IranContraSpor,
+    HygieneTidsreise,
     Gallery,
     gallery: Gallery,
     comparison: Comparison,

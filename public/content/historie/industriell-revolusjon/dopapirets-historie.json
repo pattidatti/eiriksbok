@@ -1,0 +1,186 @@
+{
+    "id": "dopapirets-historie",
+    "title": "Dopapirets historie",
+    "layout": "rich",
+    "year": "1857",
+    "category": "Teknologi og hverdagsliv",
+    "readTime": "7 min lesning",
+    "heroImage": "/images/industriell-revolusjon/dopapirets-historie-hero.webp",
+    "details": [
+        "Norge er blant verdens største dopapirforbrukere med rundt 164 ruller per person per år",
+        "Kineserne brukte papir til hygiene allerede på 500-600-tallet - over 1000 år før resten av verden",
+        "Det første kommersielle dopapiret ble solgt i USA i 1857, lenge etter industrialiseringen startet"
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "En gjennomsnittlig nordmann bruker rundt 164 ruller dopapir i året. Du finner det på badet, på jobben, på skolen - det er bare der. Men så sent som i 1857 fantes det ikke kommersielt dopapir i verden. Hva brukte folk da? Svaret er både fascinerende og litt ubehagelig."
+        },
+        {
+            "type": "image",
+            "src": "/images/industriell-revolusjon/dopapirets-historie-hero.webp",
+            "alt": "Papirfabrikk fra 1880-tallet med store maskiner som lager papirruller, arbeidere i forgrunnen",
+            "caption": "Industrialiseringen gjorde det mulig å produsere papir i store mengder - og det forandret hverdagslivet for millioner av mennesker."
+        },
+        {
+            "type": "header",
+            "text": "Romerne hadde en fellessponge"
+        },
+        {
+            "type": "text",
+            "content": "I det gamle Roma fantes det offentlige latriner - lange stenbenkene med hull i, bygd over rennende vann. Romerne var faktisk ganske hygieniske: de skylte bort avfall med vann, og hadde et system for å holde det rent. Men til selve hygienen brukte de noe som gjerne får folk til å sette kaffen ned: en svamp på en lang stokk, kalt tersorium. Den ble skylt i saltvann eller eddik etter bruk, og deretter lagt i en bøtte for neste bruker. En fellessponge for alle."
+        },
+        {
+            "type": "text",
+            "content": "Grekerne hadde en annen løsning. De brukte flate steiner og lerskår - en praksis som avslørte noe interessant: det greske ordet for disse steinene var ostraka. Det er det samme ordet de brukte når de stemte bort politikere de ikke likte. På ostrakisering-dagen riste borgerne navnet på en upopulær politiker på et leirskår - og brukte deretter skåret til noe annet. Historien sier ikke om politikernes navn forsvant i kloakken, men det er fristende å tenke seg at det hadde en slags poetisk rettferdighet."
+        },
+        {
+            "type": "header",
+            "text": "Kina og papirets fødsel"
+        },
+        {
+            "type": "text",
+            "content": "Mens romerne og grekerne syslet med svamper og steiner, oppfant en kinesisk hoffmann ved navn Cai Lun noe revolusjonerende rundt år 105 e.Kr.: papir laget av bark, hemp og filler. Teknologien spredte seg gradvis gjennom det kinesiske riket, og allerede på 500-600-tallet begynte kinesiske hoffmenn å bruke papirark til hygiene. Keiser Hongwu var så begeistret at han bestilte 720 000 hygienepapirark per år bare til hoffet."
+        },
+        {
+            "type": "text",
+            "content": "Europa fikk ikke vite om dette på mange hundre år. Papirproduksjonen spredte seg vestover langs silkeveien, men ideen om å bruke papir til hygiene kom aldri med. Mens kineserne hadde papir på badet i middelalderen, kløvet europeerne seg videre med mose, høy og lapper av stoff - og hadde ikke peiling på at de gikk glipp av noe."
+        },
+        {
+            "type": "component",
+            "name": "HygieneTidsreise",
+            "props": {}
+        },
+        {
+            "type": "header",
+            "text": "Det industrielle gjennombruddet"
+        },
+        {
+            "type": "text",
+            "content": "Det var amerikaneren Joseph Gayetty som i 1857 lanserte verdens første kommersielle hygienepapir. Han kalte det Gayetty's Medicated Paper, solgte det i pakker med 500 flate ark til 50 cent, og hadde trykket sitt eget navn på hvert eneste ark. Gayetty markedsførte produktet som medisinsk nødvendig og hevdet det forebygget hemoroider. Salget var skuffende - folk forsto ikke hvorfor de skulle betale for noe de like godt kunne få gratis fra nærmeste avis."
+        },
+        {
+            "type": "text",
+            "content": "Gjennombruddet kom i 1890, da brødrene Scott - Clarence og E. Irvin Scott - begynte å selge toalettpapiret på ruller. De var flaue over produktet og markedsførte det anonymt, under andre merkevarers navn. Men ideen slo an. I 1891 tok en oppfinner ved navn Seth Wheeler patent på den perforerte papirrulle - og i patenttegningene er det tydelig at papiret skal henge med enden over, ikke under. Striden om riktig retning er teknisk sett løst siden 1891."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Visste du at...",
+                "content": "Seth Wheelers patent fra 1891 er det første offisielle dokumentet som viser riktig retning på toalettpapirrullen - med enden over toppen. Det tok altså 133 år å avslutte diskusjonen, selv om svaret har ligget i et patentarkiv hele tiden."
+            }
+        },
+        {
+            "type": "header",
+            "text": "Fra luksus til norsk hverdagsvare"
+        },
+        {
+            "type": "text",
+            "content": "I begynnelsen var toalettpapiret en luksusvare. Bare velstående familier hadde råd til det. Aviser, kataloger og annen trykt skrift fortsatte å fylle utedoene langt inn på 1900-tallet. I Norge fantes utedoer som standard i de fleste hjem frem til etter andre verdenskrig - og innenlands WC og toalettpapirrull ble en del av normalen først i etterkrigstiden, da velstand og infrastruktur spredte seg ut over landet."
+        },
+        {
+            "type": "text",
+            "content": "To ganger i moderne tid har toalettpapiret blitt et symbol på noe større enn hygiene. Under den store depresjonen på 1930-tallet hamstret folk toalettpapiret fordi de fryktet mangel. I mars 2020, da koronaviruset spredde seg over verden, sto hyllene tomme i butikker fra Oslo til Sydney. Folk kjøpte hundrevis av ruller selv om viruset ikke hadde noe med toalettpapirbehov å gjøre. Psykologer kaller det hamstringsatferd - at vi griper etter det mest grunnleggende vi kan kontrollere når verden kjennes ukontrollerbar."
+        },
+        {
+            "type": "text",
+            "content": "I dag er nordmenn blant verdens flittigste toalettpapirsforbrukere med rundt 164 ruller per person per år, mot USAs 141. Til sammenligning bruker en gjennomsnittlig kineser rundt 49 ruller. Hva vi bruker som hygieneredskap sier mer om vår kultur og velstand enn vi kanskje liker å innrømme. Se artikkelen om [hverdagslivet i Roma](/historie/romerriket/hverdagsliv-i-roma) for mer om romernes overraskende moderne tilnærming til sanitær infrastruktur."
+        },
+        {
+            "type": "component",
+            "name": "TimelineComponent",
+            "props": {
+                "compact": true,
+                "events": [
+                    { "year": 105, "description": "Cai Lun oppfinner papir i Kina." },
+                    { "year": 581, "description": "Kinesiske hoffmenn bruker papirark til hygiene - verdens første." },
+                    { "year": 1857, "description": "Joseph Gayetty lanserer verdens første kommersielle hygienepapir i USA." },
+                    { "year": 1890, "description": "Scott-brødrene introduserer toalettpapiret på rull." },
+                    { "year": 1891, "description": "Seth Wheeler tar patent på perforert papirrulle - med enden over toppen." },
+                    { "year": 1960, "description": "Innendørs WC og toalettpapirrull blir norsk standard i etterkrigstiden." }
+                ]
+            }
+        },
+        {
+            "type": "component",
+            "name": "InterdisciplinaryBridge",
+            "props": {
+                "title": "Hva henger sammen med dopapirhistorien?",
+                "nodes": [
+                    {
+                        "subject": "Historie",
+                        "title": "Den industrielle revolusjonen",
+                        "description": "Masseproduksjon av papir var avhengig av dampmaskinene og fabrikkene fra industrialiseringen.",
+                        "link": "/historie/industriell-revolusjon/industriell-revolusjon"
+                    },
+                    {
+                        "subject": "Historie",
+                        "title": "Hverdagslivet i Roma",
+                        "description": "Romerne hadde avansert sanitærsystem - inkludert de beryktede offentlige latrinene.",
+                        "link": "/historie/romerriket/hverdagsliv-i-roma"
+                    },
+                    {
+                        "subject": "Historie",
+                        "title": "Dampmaskinen",
+                        "description": "Dampkraft drev papirfabrikkene som gjorde toalettpapiret til en massevare.",
+                        "link": "/historie/industriell-revolusjon/dampmaskinen"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hva kalte romerne hygieneredskapet de brukte i offentlige latriner?",
+                        "options": [
+                            "Aqua hygienus",
+                            "Tersorium",
+                            "Ostraka",
+                            "Papyrus sanitum"
+                        ],
+                        "correctAnswer": 1,
+                        "explanation": "Tersorium var en svamp festet til en lang stokk. Den ble skylt i saltvann eller eddik mellom brukerne og var tilgjengelig for alle besøkende i offentlige latriner."
+                    },
+                    {
+                        "question": "Hvilket land brukte papir til hygiene over 1000 år før resten av verden?",
+                        "options": [
+                            "Egypt",
+                            "Roma",
+                            "Kina",
+                            "India"
+                        ],
+                        "correctAnswer": 2,
+                        "explanation": "Kineserne oppfant papir rundt år 105 e.Kr. og begynte å bruke det til hygiene allerede på 500-600-tallet. Europa fikk ikke med seg denne ideen på mange hundre år."
+                    },
+                    {
+                        "question": "Hvem lanserte det første kommersielle hygienepapiret i 1857?",
+                        "options": [
+                            "Seth Wheeler",
+                            "Scott-brødrene",
+                            "Joseph Gayetty",
+                            "James Watt"
+                        ],
+                        "correctAnswer": 2,
+                        "explanation": "Joseph Gayetty lanserte Gayetty's Medicated Paper i 1857. Han trykket til og med sitt eget navn på hvert ark, men salget var skuffende fordi folk ikke forsto poenget."
+                    },
+                    {
+                        "question": "Hva viste Seth Wheelers patent fra 1891 om retningen på toalettpapirrullen?",
+                        "options": [
+                            "Papiret skal henge med enden under",
+                            "Det spiller ingen rolle hvilken vei",
+                            "Papiret skal henge med enden over toppen",
+                            "Patentet nevner ikke retning"
+                        ],
+                        "correctAnswer": 2,
+                        "explanation": "Wheelers patent inneholder tydelige tegninger som viser at papiret skal henge med enden over toppen. Diskusjonen om riktig retning er altså teknisk løst - den er bare ikke kjent nok."
+                    }
+                ]
+            }
+        }
+    ],
+    "timeline": []
+}
