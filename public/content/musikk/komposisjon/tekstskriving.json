@@ -1,0 +1,200 @@
+{
+  "id": "tekstskriving",
+  "title": "Tekstskriving: Fra idé til ferdig låttekst",
+  "layout": "rich",
+  "year": "1900–i dag",
+  "category": "Komposisjon",
+  "readTime": "8 min lesning",
+  "heroImage": "/images/placeholder.webp",
+  "details": [
+    "Konkrete bilder slår generelle følelser",
+    "Rim og rytme må passe melodien",
+    "Vers forteller historien, refrenget oppsummerer følelsen"
+  ],
+  "content": [
+    {
+      "type": "text",
+      "content": "Du har sikkert sunget med på en sang uten å tenke over ordene. Kanskje du bare husker refrenget, eller den ene linjen som alltid setter seg fast. Men noen har skrevet de ordene. Noen satt med en tom side og valgte akkurat de riktige ordene for akkurat den følelsen. Tekstskriving er kunsten å finne de ordene."
+    },
+    {
+      "type": "text",
+      "content": "Det fine er at du ikke trenger å være poet for å skrive en god sangtekst. Du trenger bare tre ting: noe du har lyst til å si, vilje til å skrive om på nytt, og noen enkle verktøy som gjør teksten sterkere. Denne artikkelen gir deg de verktøyene."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "En ungdom som skriver i en notatbok med hodetelefoner rundt halsen",
+      "caption": "De fleste låtskrivere starter med en notatbok og en idé."
+    },
+    {
+      "type": "header",
+      "text": "Vis, ikke fortell"
+    },
+    {
+      "type": "text",
+      "content": "Den viktigste regelen i tekstskriving er like enkel som den er vanskelig å følge: vis, ikke fortell. Å skrive «jeg er trist» er å fortelle. Å skrive «skoene dine står fortsatt ved døra mi» er å vise. Forskjellen er enorm. Når du viser, lar du lytteren selv kjenne følelsen i kroppen. Når du forteller, holder du lytteren på armlengdes avstand."
+    },
+    {
+      "type": "text",
+      "content": "Tenk på forskjellen mellom en venn som sier «det var skummelt» og en som sier «hendene skalv så mye at jeg mistet telefonen tre ganger». Den andre versjonen er sterkere fordi den gir deg et bilde. Hjernen din lager filmen selv."
+    },
+    {
+      "type": "text",
+      "content": "Profesjonelle låtskrivere bruker konkrete detaljer i stedet for abstrakte ord. I stedet for kjærlighet skriver de om kaffekoppen som fortsatt er varm. I stedet for ensomhet skriver de om en tom stol ved middagsbordet. I stedet for frihet skriver de om vinden i håret på en motorsykkel."
+    },
+    {
+      "type": "component",
+      "name": "TekstVerksted",
+      "props": {
+        "title": "Vis, ikke fortell"
+      }
+    },
+    {
+      "type": "header",
+      "text": "Rimets rolle"
+    },
+    {
+      "type": "text",
+      "content": "Rim gjør teksten lettere å huske. De skaper en rytmisk forventning hos lytteren, og når rimet treffer, føles det tilfredsstillende. Men rim er et verktøy, ikke en tvangstrøye. Hvis du vrir og vrenger på setningen bare for å få den til å rime, ødelegger du det du prøver å si."
+    },
+    {
+      "type": "text",
+      "content": "Det finnes flere typer rim. Parrim er når to linjer etter hverandre rimer: «Jeg går ut i natten kald / og finner deg ved vannets fall.» Kryssrim er når annenhver linje rimer: ABAB. Halvrim er når bare den siste vokalen eller konsonanten matcher, som «vann» og «mann». Halvrim gir en mykere effekt og føles ofte mer naturlig enn perfekte rim."
+    },
+    {
+      "type": "text",
+      "content": "Mange moderne artister dropper rim helt i versene og sparer dem til refrenget. Det gir versene en uformell, fortellende tone, mens refrenget føles strammere og mer minneverdig. Prøv dette selv: skriv et vers uten rim der du forteller en historie. Skriv så et refreng med rim som oppsummerer følelsen."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Notatbok med overstrøkne ord og nye linjer skrevet mellom linjene",
+      "caption": "Gode tekster handler om omskriving. Første utkast er bare starten."
+    },
+    {
+      "type": "header",
+      "text": "Vers, refreng og bro"
+    },
+    {
+      "type": "text",
+      "content": "En sangtekst er ikke bare et dikt satt til musikk. Den har en struktur som jobber sammen med melodien. Verset forteller historien. Det gir oss nye detaljer, nye bilder, nye vendinger. Hvert vers har som regel samme melodi, men forskjellig tekst."
+    },
+    {
+      "type": "text",
+      "content": "Refrenget er det motsatte. Det har samme tekst og samme melodi hver gang det kommer. Refrenget oppsummerer kjernen i sangen. Det er følelsen kokt ned til én setning eller ett bilde. Når noen husker en sang, husker de nesten alltid refrenget."
+    },
+    {
+      "type": "text",
+      "content": "Broen er den delen som bare dukker opp én gang, vanligvis etter det andre refrenget. Broen bryter mønsteret. Den gir lytteren et nytt perspektiv, en overraskelse, eller et øyeblikk med refleksjon. Tenk på broen som vendepunktet i en film: det er her noe endrer seg."
+    },
+    {
+      "type": "component",
+      "name": "FactBox",
+      "props": {
+        "title": "Tre vanlige låtstrukturer",
+        "items": [
+          "Vers – Refreng – Vers – Refreng (den enkleste)",
+          "Vers – Refreng – Vers – Refreng – Bro – Refreng (den vanligste i pop)",
+          "Vers – Vers – Refreng – Vers – Refreng (brukt i mange ballader)"
+        ]
+      }
+    },
+    {
+      "type": "header",
+      "text": "Ord og melodi: et partnerskap"
+    },
+    {
+      "type": "text",
+      "content": "Teksten må passe melodien som en hanske. Hvis melodien stiger opp på et ord, føles det naturlig at ordet også har energi. Hvis melodien er rolig og lav, passer det med korte, myke ord. Lange ord med mange stavelser trenger plass i melodien. Korte, harde ord passer i raske partier."
+    },
+    {
+      "type": "text",
+      "content": "Prøv å synge teksten din høyt mens du skriver. Kjenn etter om ordene glir lett over tunga eller om du snubler. Hvis du snubler, er det et tegn på at teksten ikke passer rytmen. Flytt ord, bytt ut lange ord med korte, eller endre rekkefølgen på setningen."
+    },
+    {
+      "type": "text",
+      "content": "Legg merke til at de sterkeste ordene i en linje bør lande på de sterkeste slagene i takten. Hvis det viktigste ordet havner på et svakt slag, mister det kraften sin. Prøv å flytte det viktige ordet til starten eller slutten av linjen, der det får mest oppmerksomhet."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Håndskrevet tekst med piler som viser hvilke stavelser som treffer sterke slag",
+      "caption": "Sterke ord skal lande på sterke slag i melodien."
+    },
+    {
+      "type": "header",
+      "text": "Slik kommer du i gang"
+    },
+    {
+      "type": "text",
+      "content": "Det vanskeligste med tekstskriving er å starte. Her er en enkel metode. Velg en følelse du kjenner godt: glede, sjalusi, nervøsitet, lengsel. Skriv ned fem konkrete minner knyttet til den følelsen. Ikke tenk på rim eller melodi ennå. Bare skriv det du ser for deg."
+    },
+    {
+      "type": "text",
+      "content": "Når du har fem minner, velg de to sterkeste. Skriv dem ut som korte setninger. En av dem blir sannsynligvis åpningslinjen i verset ditt. Den andre kan bli kjernen i refrenget. Resten fyller du inn med detaljer som støtter historien."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Start med en følelse du kjenner i kroppen",
+        "Skriv ned konkrete minner og bilder knyttet til følelsen",
+        "Velg de sterkeste bildene og bygg verset rundt dem",
+        "Lag et refreng som oppsummerer følelsen i én setning",
+        "Syng teksten høyt og kjenn om ordene passer rytmen"
+      ]
+    },
+    {
+      "type": "text",
+      "content": "Husk at ingen skriver en perfekt tekst på første forsøk. Profesjonelle låtskrivere skriver om igjen og igjen. De kutter linjer de er glad i, bytter ut ord som nesten passer med ord som passer perfekt, og tester teksten på andre mennesker. Den viktigste egenskapen en låtskriver kan ha er ikke talent, men tålmodighet."
+    },
+    {
+      "type": "component",
+      "name": "Quiz",
+      "props": {
+        "questions": [
+          {
+            "question": "Hva betyr «vis, ikke fortell» i tekstskriving?",
+            "options": [
+              "Bruk konkrete bilder i stedet for generelle ord om følelser",
+              "Vis teksten til noen andre før du er ferdig",
+              "Bruk så mange adjektiver som mulig",
+              "Skriv alltid i jeg-form"
+            ],
+            "answer": 0
+          },
+          {
+            "question": "Hva er forskjellen mellom et vers og et refreng?",
+            "options": [
+              "Verset er alltid kortere enn refrenget",
+              "Verset forteller historien med ny tekst, refrenget gjentar samme tekst og oppsummerer følelsen",
+              "Refrenget er alltid det første som kommer i en sang",
+              "Verset har alltid rim, refrenget har aldri rim"
+            ],
+            "answer": 1
+          },
+          {
+            "question": "Hva er en bro i en sang?",
+            "options": [
+              "Et annet ord for refrenget",
+              "Instrumentaldelen i midten av sangen",
+              "En del som dukker opp én gang og gir et nytt perspektiv",
+              "De første to linjene i sangen"
+            ],
+            "answer": 2
+          },
+          {
+            "question": "Hvorfor bør sterke ord lande på sterke slag i melodien?",
+            "options": [
+              "Fordi det er en musikkregel som ikke kan brytes",
+              "Fordi det gjør det lettere å huske teksten",
+              "Fordi ordene får mer kraft og oppmerksomhet der",
+              "Fordi det gjør det lettere å rime"
+            ],
+            "answer": 2
+          }
+        ]
+      }
+    }
+  ],
+  "timeline": []
+}
