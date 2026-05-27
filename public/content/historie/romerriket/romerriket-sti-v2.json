@@ -25,6 +25,14 @@
                 "articleTitle": "Romersk start: Republikken",
                 "conceptsIntroduced": ["SPQR", "Patrisier", "Plebeier", "Senatet", "Konsul"],
                 "competencyGoals": [],
+                "openTasks": [
+                    "Forklar med dine egne ord hvorfor romerne var så redde for å ha en konge.",
+                    "Hvem var Romas legendariske grunnleggere, og hva sier myten om dem?",
+                    "Hvordan fungerte maktfordelingen mellom de to konsulene og senatet?",
+                    "Hvorfor var det viktig at lovene (De tolv tavlene) ble skrevet ned og hengt opp offentlig?",
+                    "Nevn én viktig årsak til at Roma havnet i krig med Kartago (Punerkrigene).",
+                    "Drøft: Hva slags fordeler og ulemper hadde plebeierne av å være tallrike, men fattige?"
+                ],
                 "completion": {
                     "minScore": 0.6,
                     "comprehensionQuestions": [
@@ -103,6 +111,14 @@
                     }
                 },
                 "conceptsIntroduced": ["Gladius", "Pilum", "Scutum", "Legionær"],
+                "openTasks": [
+                    "Hvilke nye utstyrskrav innførte Marius for soldatene, og hvorfor?",
+                    "Hvorfor ble soldatene kalt 'Marius' muldyr'?",
+                    "Hva var formålet med pilum (kastespydet) i åpningen av et slag?",
+                    "Beskriv kort hvordan testudo-formasjonen (skilpadden) beskyttet mot piler.",
+                    "Hvorfor var det attraktivt for fattige romere å verve seg i 25 år?",
+                    "Drøft: Hva skjedde med lojaliteten i hæren når soldatene fikk jord av generalen sin, ikke av staten?"
+                ],
                 "completion": {
                     "requireComponentComplete": true
                 }
@@ -139,6 +155,13 @@
                         "definition": "En profesjonell romersk soldat etter Marius' reform. Tjente i 25 år, marsjerte 3 mil daglig med full oppakning og fikk jord som pensjon."
                     }
                 ],
+                "openTasks": [
+                    "Lag dine egne setninger der du bruker tre av begrepene riktig.",
+                    "Forklar SPQR til en venn som aldri har hørt om Roma. Bruk maks tre setninger.",
+                    "Hvorfor måtte plebeierne kjempe så lenge for rettigheter? Skriv en kort forklaring.",
+                    "Sammenlign rollen til en konsul med en moderne statsminister - hva er likt og hva er ulikt?",
+                    "Tegn et enkelt diagram som viser maktforholdet mellom senatet, konsulene og folket."
+                ],
                 "completion": {
                     "minScore": 0.8
                 }
@@ -152,6 +175,14 @@
                 "articleUrl": "/historie/romerriket/augustus-og-keiserdomme",
                 "articleTitle": "Augustus og keiserdømmet",
                 "conceptsIntroduced": ["Augustus", "Princeps", "Pax Romana", "Keiser"],
+                "openTasks": [
+                    "Hvem var Augustus' berømte adoptivfar?",
+                    "Forklar med dine egne ord hvordan Augustus klarte å samle all makt uten å bli drept som adoptivfaren.",
+                    "Hvorfor kalte han seg 'Princeps' (førsteborger) i stedet for keiser eller konge?",
+                    "Hvordan brukte Augustus kunst og litteratur (som Aeneiden) til å bygge sin egen storhet?",
+                    "Drøft påstanden: 'Augustus ofret friheten for å gi folket fred.' Var det verdt det?",
+                    "Pax Romana varte i ca. 200 år. Nevn én ting som blomstret i denne perioden, og forklar hvorfor."
+                ],
                 "completion": {
                     "minScore": 0.7,
                     "comprehensionQuestions": [
@@ -201,6 +232,13 @@
                 "title": "Tidsreise: lev som romersk soldat",
                 "intro": "Nok teori. Nå skal du selv inn i støvet. Du våkner som rekrutt i en romersk legion. Hvert valg du tar former hva som skjer videre - overlever du marsjen, slaget og keiserens vrede?",
                 "scenarioId": "roman-soldier",
+                "openTasks": [
+                    "Beskriv en typisk dag i legionen: hva spiste man, hvor langt marsjerte man, hvor sov man?",
+                    "Hva slags valg fikk du som soldat i scenarioet, og hvorfor er disse valgene troverdige?",
+                    "Hvilke følelser tror du virkelige soldater hadde før et stort slag? Skriv tre setninger som om du var en av dem.",
+                    "Drøft: Var den romerske hæren mest en lønnsarbeider-organisasjon eller mest en familie? Begrunn svaret.",
+                    "Hvis du var legionær og generalen din bød på opprør mot keiseren, hva ville du gjort? Hvorfor?"
+                ],
                 "completion": {
                     "externalCompletionFlag": "roman-soldier-completed"
                 }
@@ -243,6 +281,13 @@
                     }
                 ],
                 "conceptsIntroduced": ["Marcus Aurelius", "Trajan", "Konstantin", "Nero"],
+                "openTasks": [
+                    "Nevn to 'gode' og to 'gale' keisere, og gi én grunn for hver.",
+                    "Hva slags person var Marcus Aurelius? Bruk verket hans Meditasjoner som kilde.",
+                    "Hvordan utvidet Trajan riket til sin største utstrekning?",
+                    "Hvorfor var Milanoediktet i 313 et vendepunkt for kristne i riket?",
+                    "Drøft: Hvilken keiser ville du levd best under, og hvorfor?"
+                ],
                 "completion": {
                     "minScore": 0.75
                 }
@@ -255,6 +300,13 @@
                 "intro": "Panem et circenses. Du sitter på tribunen i Colosseum sammen med 50 000 andre. Keiseren vet at så lenge folket er mette og underholdt, vil de ikke gjøre opprør. Men er det noe vi kan kjenne igjen i dag?",
                 "reflectionPrompt": "Reflekter: har vi noe som tilsvarer 'brød og sirkus' i Norge i 2026? Tenk på hva makthavere (politikere, eiere av plattformer som TikTok, store mediekonserner) kan vinne på at folk er mette og underholdt. Skriv et lite avsnitt (60-200 ord) hvor du gir minst ett konkret eksempel og forklarer hva det har felles med romernes brød og sirkus.",
                 "reflectionPlaceholder": "Et eksempel kunne være...",
+                "openTasks": [
+                    "Hvorfor var det så viktig for keiseren å gi 'brød og sirkus' til folket?",
+                    "Hvem var gladiatorene, og kunne de bli frie? Hvordan?",
+                    "Hva slags publikum tror du satt på tribunen i Colosseum? Var det blandet eller delt?",
+                    "Drøft i par: Er det 'usunt' at vi i dag har så mye underholdning tilgjengelig? Eller er det bare lurt politisk?",
+                    "Skriv en kort tekst fra perspektivet til en plebeier som nettopp har fått gratis brød og en billett til arena."
+                ],
                 "completion": {
                     "minLength": 60
                 }
@@ -268,6 +320,14 @@
                 "articleUrl": "/historie/romerriket/vestromerrikets-fall",
                 "articleTitle": "Vestromerrikets fall",
                 "conceptsIntroduced": ["Folkevandringen", "Odoaker", "Vestromerriket", "Østromerriket"],
+                "openTasks": [
+                    "Nevn tre årsaker til at Vestromerriket falt.",
+                    "Hvem var hunnerne, og hvordan satte de fart i folkevandringen?",
+                    "Hvorfor klarte Østromerriket (Bysants) å overleve i nesten tusen år til?",
+                    "Drøft: Var fallet en 'plutselig kollaps' eller en lang prosess? Begrunn.",
+                    "Forklar hvorfor det er en myte at kristendommen 'gjorde romerne svake'.",
+                    "Skriv en kort tekst fra perspektivet til en romersk soldat i 476 som hører at keiseren er avsatt."
+                ],
                 "completion": {
                     "minScore": 0.6,
                     "comprehensionQuestions": [
@@ -338,6 +398,13 @@
                         "definition": "Den germanske kongen som i 476 e.Kr avsatte den siste vestromerske keiseren Romulus Augustulus - hendelsen historikere bruker som symbolsk slutt på Vestromerriket."
                     }
                 ],
+                "openTasks": [
+                    "Plasser Augustus, Marcus Aurelius og Konstantin i kronologisk rekkefølge, og forklar hva de er kjent for.",
+                    "Lag en setning der du bruker 'Pax Romana' riktig.",
+                    "Hvorfor er året 476 viktig - og hvorfor er det også litt misvisende?",
+                    "Forklar med dine egne ord hva 'folkevandringen' var. Bruk maks tre setninger.",
+                    "Drøft: Hva slags 'arv' etter Marcus Aurelius og Konstantin kan vi se i dag?"
+                ],
                 "completion": {
                     "minScore": 0.8
                 }
@@ -359,6 +426,14 @@
                     { "id": "konstantin", "label": "Konstantin tillater kristendommen", "year": 313 },
                     { "id": "fallet", "label": "Vestromerriket faller", "year": 476 },
                     { "id": "ostromerriket", "label": "Konstantinopel faller - Østromerriket slutter", "year": 1453 }
+                ],
+                "openTasks": [
+                    "Hvilken hendelse på tidslinjen overrasket deg mest, og hvorfor?",
+                    "Velg én hendelse og forklar hvordan riket hadde sett annerledes ut om den ikke hadde skjedd.",
+                    "Drøft: Var Romerriket et godt sted å leve? Husk å spørre for hvem.",
+                    "Sammenlign Romerriket med et imperium fra en annen verdensdel (for eksempel Han-dynastiet i Kina). Nevn én likhet og én forskjell.",
+                    "Finn fem ord i norsk språk som kommer fra latin.",
+                    "Reflekter: Hva fra romersk tid (lover, språk, byggverk) møter du faktisk i hverdagen din i 2026?"
                 ],
                 "completion": {
                     "minScore": 0.5

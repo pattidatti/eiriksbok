@@ -63,7 +63,7 @@ export const QuizRunner: React.FC<QuizRunnerProps> = ({
     const correctCountSoFar = answers.filter((a, i) => a === questions[i].correct).length;
 
     return (
-        <div className="bg-white rounded-2xl border border-slate-200 p-6 md:p-8 shadow-sm">
+        <div className="bg-white rounded-2xl border border-slate-200 p-4 md:p-6 shadow-sm">
             {title && (
                 <h3 className="text-xl font-bold text-slate-800 mb-1">{title}</h3>
             )}

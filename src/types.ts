@@ -371,6 +371,9 @@ export interface StepV2 {
 
     conceptsIntroduced?: string[]; // concept-IDer registrert på profil
     competencyGoals?: string[];    // kompetansemål-IDer
+
+    // åpne diskusjons-/skriveoppgaver per steg (ikke validert, ment for lærer/elev)
+    openTasks?: (string | LearningPathTask)[];
 }
 
 export interface LearningPathV2Data {

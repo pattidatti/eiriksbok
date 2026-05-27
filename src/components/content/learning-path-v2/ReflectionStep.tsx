@@ -25,7 +25,7 @@ export const ReflectionStep: React.FC<StepRendererProps> = ({
         <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-white rounded-2xl border border-slate-200 p-6 md:p-8 shadow-sm"
+            className="bg-white rounded-2xl border border-slate-200 p-4 md:p-6 shadow-sm"
         >
             <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center">
