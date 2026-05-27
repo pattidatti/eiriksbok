@@ -1,5 +1,5 @@
 {
-  "buildId": 1779827824966,
+  "buildId": 1779844910520,
   "contentMap": {
     "concept-adel": [
       "content/concepts/adel.json"
@@ -1870,6 +1870,9 @@
     "melodi-og-hook": [
       "content/musikk/komposisjon/melodi-og-hook.json"
     ],
+    "tekstskriving": [
+      "content/musikk/komposisjon/tekstskriving.json"
+    ],
     "folkemusikk": [
       "content/musikk/musikkhistorie/folkemusikk.json"
     ],
@@ -3484,6 +3487,7 @@
     "musikk/komposisjon/dynamikk-og-uttrykk": "content/musikk/komposisjon/dynamikk-og-uttrykk.json",
     "musikk/komposisjon/lat-struktur": "content/musikk/komposisjon/lat-struktur.json",
     "musikk/komposisjon/melodi-og-hook": "content/musikk/komposisjon/melodi-og-hook.json",
+    "musikk/komposisjon/tekstskriving": "content/musikk/komposisjon/tekstskriving.json",
     "musikk/musikkhistorie/folkemusikk": "content/musikk/musikkhistorie/folkemusikk.json",
     "musikk/musikkhistorie/gamle-toner-nye-stemmer": "content/musikk/musikkhistorie/gamle-toner-nye-stemmer.json",
     "musikk/musikkhistorie/hip-hop": "content/musikk/musikkhistorie/hip-hop.json",
