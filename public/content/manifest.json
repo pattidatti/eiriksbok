@@ -3828,7 +3828,7 @@
               "link": "/historie/romerriket/romerriket-sti-v2",
               "icon": "map",
               "createdDate": "2026-05-27T00:00:00+02:00",
-              "lastUpdated": "2026-05-27T07:43:28.778Z"
+              "lastUpdated": "2026-05-27T13:43:36+02:00"
             }
           ],
           "lessons": [
@@ -5508,7 +5508,7 @@
                 "hume"
               ],
               "createdDate": "2025-12-22T23:53:21+01:00",
-              "lastUpdated": "2025-12-22T23:53:21+01:00"
+              "lastUpdated": "2026-05-27T14:42:41+02:00"
             },
             {
               "id": "kant",
@@ -5879,7 +5879,7 @@
                 "solo"
               ],
               "createdDate": "2026-05-27T00:00:00Z",
-              "lastUpdated": "2026-05-27T10:09:45.272Z"
+              "lastUpdated": "2026-05-27T13:43:36+02:00"
             },
             {
               "id": "solo-og-grunntoner",
@@ -5894,7 +5894,7 @@
                 "grunntone"
               ],
               "createdDate": "2026-05-27T00:00:00Z",
-              "lastUpdated": "2026-05-27T11:14:17.247Z"
+              "lastUpdated": "2026-05-27T13:43:36+02:00"
             },
             {
               "id": "bass-intro",
