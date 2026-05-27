@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle2, XCircle, ArrowRight } from 'lucide-react';
 import type { ComprehensionQuestion } from '../../../types';
+import { useStepSounds } from '../../../hooks/useStepSounds';
 
 interface QuizRunnerProps {
     questions: ComprehensionQuestion[];
@@ -23,6 +24,7 @@ export const QuizRunner: React.FC<QuizRunnerProps> = ({
     const [selected, setSelected] = useState<number | null>(null);
     const [showFeedback, setShowFeedback] = useState(false);
     const [attempt, setAttempt] = useState(1);
+    const sounds = useStepSounds();
 
     const question = questions[currentIdx];
     const isLast = currentIdx === questions.length - 1;
@@ -30,11 +32,13 @@ export const QuizRunner: React.FC<QuizRunnerProps> = ({
     const handleSelect = (idx: number) => {
         if (showFeedback) return;
         setSelected(idx);
+        sounds.play('select');
     };
 
     const handleConfirm = () => {
         if (selected === null) return;
         setShowFeedback(true);
+        sounds.play(selected === question.correct ? 'correct' : 'incorrect');
     };
 
     const handleNext = () => {
@@ -47,8 +51,10 @@ export const QuizRunner: React.FC<QuizRunnerProps> = ({
             const correctCount = nextAnswers.filter((a, i) => a === questions[i].correct).length;
             const score = correctCount / questions.length;
             if (score >= minScore) {
+                sounds.play('complete');
                 onPass(score, nextAnswers);
             } else {
+                sounds.play('incorrect');
                 // Reset for ny runde
                 setAttempt(attempt + 1);
                 setCurrentIdx(0);

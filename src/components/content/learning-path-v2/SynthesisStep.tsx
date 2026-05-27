@@ -1,7 +1,8 @@
 import React, { useMemo, useState } from 'react';
-import { motion } from 'framer-motion';
-import { Sparkles, Save, CheckCircle2, GripVertical } from 'lucide-react';
+import { motion, Reorder, useDragControls } from 'framer-motion';
+import { Sparkles, Save, CheckCircle2, GripVertical, RotateCcw } from 'lucide-react';
 import type { StepRendererProps } from './types';
+import { useStepSounds } from '../../../hooks/useStepSounds';
 
 // To synthesis-typer:
 // - 'timeline-builder': eleven drar hendelser i kronologisk rekkefølge.
@@ -22,6 +23,7 @@ export const SynthesisStep: React.FC<StepRendererProps> = (props) => {
 interface TimelineArtifact {
     order: string[];
     correct: boolean;
+    correctCount?: number;
 }
 
 const TimelineBuilder: React.FC<StepRendererProps> = ({
@@ -31,8 +33,8 @@ const TimelineBuilder: React.FC<StepRendererProps> = ({
     isAlreadyCompleted,
 }) => {
     const items = useMemo(() => step.synthesisItems ?? [], [step.synthesisItems]);
+    const sounds = useStepSounds();
 
-    // Riktig rekkefølge basert på year ascending. Hvis ingen year, beholder original.
     const correctOrder = useMemo(
         () =>
             [...items]
@@ -41,7 +43,6 @@ const TimelineBuilder: React.FC<StepRendererProps> = ({
         [items]
     );
 
-    // Stokk om rekkefølgen ved oppstart (deterministisk reversering for stabilitet).
     const initialOrder = useMemo(() => {
         const stored = previousResponse?.artifact as TimelineArtifact | undefined;
         if (stored && Array.isArray(stored.order)) {
@@ -54,27 +55,31 @@ const TimelineBuilder: React.FC<StepRendererProps> = ({
     const [checked, setChecked] = useState(false);
     const [done, setDone] = useState(isAlreadyCompleted);
 
-    const move = (idx: number, dir: -1 | 1) => {
-        const next = idx + dir;
-        if (next < 0 || next >= order.length) return;
-        const copy = [...order];
-        [copy[idx], copy[next]] = [copy[next], copy[idx]];
-        setOrder(copy);
+    const correctCount = order.filter((id, i) => id === correctOrder[i]).length;
+    const isCorrect = correctCount === order.length;
+
+    const handleReorder = (next: string[]) => {
+        setOrder(next);
         if (checked) setChecked(false);
     };
 
-    const isCorrect = order.every((id, i) => id === correctOrder[i]);
-
     const handleCheck = () => {
         setChecked(true);
+        sounds.play(isCorrect ? 'correct' : 'incorrect');
+    };
+
+    const handleShuffle = () => {
+        setOrder([...order].sort(() => Math.random() - 0.5));
+        setChecked(false);
     };
 
     const handleSave = () => {
         setDone(true);
+        sounds.play('complete');
         onComplete({
             completed: true,
-            score: isCorrect ? 1 : 0.5,
-            artifact: { order, correct: isCorrect },
+            score: correctCount / order.length,
+            artifact: { order, correct: isCorrect, correctCount },
         });
     };
 
@@ -96,75 +101,62 @@ const TimelineBuilder: React.FC<StepRendererProps> = ({
             <h3 className="text-2xl font-bold text-slate-900 mb-3">{step.title}</h3>
 
             {step.synthesisPrompt && (
-                <p className="text-slate-700 leading-relaxed mb-6">{step.synthesisPrompt}</p>
+                <p className="text-slate-700 leading-relaxed mb-4">{step.synthesisPrompt}</p>
             )}
 
-            <div className="space-y-2 mb-5">
+            <p className="text-xs text-slate-500 italic mb-4">
+                Tips: dra hendelsene opp eller ned ved å holde inne kortet. Eldst skal øverst.
+            </p>
+
+            <Reorder.Group
+                axis="y"
+                values={order}
+                onReorder={handleReorder}
+                className="space-y-2 mb-5"
+            >
                 {order.map((id, idx) => {
                     const item = items.find((i) => i.id === id);
                     if (!item) return null;
-                    const placedCorrectly = checked && id === correctOrder[idx];
-                    const placedWrong = checked && id !== correctOrder[idx];
                     return (
-                        <div
+                        <TimelineRow
                             key={id}
-                            className={`flex items-center gap-3 bg-white rounded-xl p-3 border-2 transition ${
-                                placedCorrectly
-                                    ? 'border-emerald-400 bg-emerald-50'
-                                    : placedWrong
-                                      ? 'border-rose-300 bg-rose-50'
-                                      : 'border-slate-200'
-                            }`}
-                        >
-                            <span className="font-mono text-xs text-slate-400 w-6">
-                                {idx + 1}.
-                            </span>
-                            <GripVertical className="w-4 h-4 text-slate-300" />
-                            <span className="flex-1 text-slate-800 font-medium">{item.label}</span>
-                            {checked && item.year !== undefined && (
-                                <span className="text-xs font-mono text-slate-500">
-                                    {item.year < 0 ? `${-item.year} f.Kr` : `${item.year} e.Kr`}
-                                </span>
-                            )}
-                            <div className="flex flex-col">
-                                <button
-                                    onClick={() => move(idx, -1)}
-                                    disabled={idx === 0}
-                                    className="text-xs px-2 py-0.5 text-slate-500 hover:text-slate-900 disabled:opacity-30"
-                                    aria-label="Flytt opp"
-                                >
-                                    ▲
-                                </button>
-                                <button
-                                    onClick={() => move(idx, 1)}
-                                    disabled={idx === order.length - 1}
-                                    className="text-xs px-2 py-0.5 text-slate-500 hover:text-slate-900 disabled:opacity-30"
-                                    aria-label="Flytt ned"
-                                >
-                                    ▼
-                                </button>
-                            </div>
-                        </div>
+                            id={id}
+                            label={item.label}
+                            year={item.year}
+                            index={idx}
+                            checked={checked}
+                            placedCorrectly={checked && id === correctOrder[idx]}
+                            onPick={() => sounds.play('pick')}
+                            onDrop={() => sounds.play('drop')}
+                        />
                     );
                 })}
-            </div>
+            </Reorder.Group>
 
             {checked && (
-                <div
-                    className={`rounded-xl p-4 mb-5 ${isCorrect ? 'bg-emerald-50 border border-emerald-200' : 'bg-amber-50 border border-amber-200'}`}
+                <motion.div
+                    initial={{ opacity: 0, y: 6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className={`rounded-xl p-4 mb-5 ${
+                        isCorrect
+                            ? 'bg-emerald-50 border border-emerald-200'
+                            : 'bg-amber-50 border border-amber-200'
+                    }`}
                 >
                     <p
-                        className={`font-bold text-sm ${isCorrect ? 'text-emerald-900' : 'text-amber-900'}`}
+                        className={`font-bold text-sm ${
+                            isCorrect ? 'text-emerald-900' : 'text-amber-900'
+                        }`}
                     >
                         {isCorrect
-                            ? 'Perfekt! Du har lagt hendelsene i riktig rekkefølge.'
-                            : 'Noen hendelser er på feil plass. Se på årstallene og flytt dem til de stemmer.'}
+                            ? 'Perfekt! Alle hendelsene er på riktig plass.'
+                            : `Du har ${correctCount} av ${order.length} på riktig plass. Sjekk årstallene under hver rad og dra de røde til rett sted.`}
                     </p>
-                </div>
+                </motion.div>
             )}
 
             <div className="flex flex-wrap gap-3">
-                {!checked && (
+                {!done && (
                     <button
                         onClick={handleCheck}
                         className="inline-flex items-center gap-2 px-5 py-3 bg-amber-600 text-white rounded-xl text-sm font-bold shadow hover:bg-amber-700 transition"
@@ -173,24 +165,108 @@ const TimelineBuilder: React.FC<StepRendererProps> = ({
                     </button>
                 )}
                 {checked && !done && (
-                    <button
-                        onClick={handleSave}
-                        className="inline-flex items-center gap-2 px-5 py-3 bg-slate-900 text-white rounded-xl text-sm font-bold shadow hover:bg-slate-800 transition"
-                    >
-                        <Save className="w-4 h-4" />
-                        Lagre tidslinjen min
-                    </button>
+                    <>
+                        <button
+                            onClick={handleSave}
+                            className="inline-flex items-center gap-2 px-5 py-3 bg-slate-900 text-white rounded-xl text-sm font-bold shadow hover:bg-slate-800 transition"
+                        >
+                            <Save className="w-4 h-4" />
+                            Lagre tidslinjen min
+                        </button>
+                        {!isCorrect && (
+                            <button
+                                onClick={handleShuffle}
+                                className="inline-flex items-center gap-2 px-4 py-3 text-sm font-semibold text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-xl transition"
+                            >
+                                <RotateCcw className="w-4 h-4" />
+                                Stokk om
+                            </button>
+                        )}
+                    </>
                 )}
                 {done && (
                     <div className="bg-emerald-50 border border-emerald-200 rounded-xl px-4 py-3 flex items-center gap-3">
                         <CheckCircle2 className="w-5 h-5 text-emerald-600" />
                         <span className="text-emerald-900 font-semibold text-sm">
                             Tidslinje lagret som artefakt
+                            {!isCorrect && ` (${correctCount}/${order.length} på riktig plass)`}
                         </span>
                     </div>
                 )}
             </div>
         </motion.div>
+    );
+};
+
+interface TimelineRowProps {
+    id: string;
+    label: string;
+    year?: number;
+    index: number;
+    checked: boolean;
+    placedCorrectly: boolean;
+    onPick: () => void;
+    onDrop: () => void;
+}
+
+const TimelineRow: React.FC<TimelineRowProps> = ({
+    id,
+    label,
+    year,
+    index,
+    checked,
+    placedCorrectly,
+    onPick,
+    onDrop,
+}) => {
+    const controls = useDragControls();
+
+    const baseCls =
+        'flex items-center gap-3 bg-white rounded-xl p-3 border-2 transition select-none';
+    const stateCls = checked
+        ? placedCorrectly
+            ? 'border-emerald-400 bg-emerald-50'
+            : 'border-rose-300 bg-rose-50'
+        : 'border-slate-200 hover:border-amber-300';
+
+    return (
+        <Reorder.Item
+            value={id}
+            dragListener={false}
+            dragControls={controls}
+            onDragStart={onPick}
+            onDragEnd={onDrop}
+            whileDrag={{ scale: 1.02, boxShadow: '0 10px 25px rgba(0,0,0,0.12)' }}
+            animate={
+                checked && !placedCorrectly
+                    ? { x: [0, -4, 4, -3, 3, 0] }
+                    : { x: 0 }
+            }
+            transition={{ duration: 0.35 }}
+            className={`${baseCls} ${stateCls}`}
+        >
+            <span className="font-mono text-xs text-slate-400 w-6 flex-shrink-0">
+                {index + 1}.
+            </span>
+            <button
+                type="button"
+                onPointerDown={(e) => controls.start(e)}
+                className="cursor-grab active:cursor-grabbing touch-none p-1 -m-1 text-slate-300 hover:text-slate-500"
+                aria-label="Dra for å flytte"
+            >
+                <GripVertical className="w-4 h-4" />
+            </button>
+            <span className="flex-1 text-slate-800 font-medium text-sm md:text-base">{label}</span>
+            {checked && year !== undefined && (
+                <span
+                    className={`text-xs font-mono ${
+                        placedCorrectly ? 'text-emerald-700' : 'text-rose-700'
+                    }`}
+                >
+                    {year < 0 ? `${-year} f.Kr` : `${year} e.Kr`}
+                </span>
+            )}
+        </Reorder.Item>
     );
 };
 
@@ -209,10 +285,12 @@ const FreeTextSynthesis: React.FC<StepRendererProps> = ({
     const stored = previousResponse?.artifact as FreeTextArtifact | undefined;
     const [text, setText] = useState(stored?.text ?? previousResponse?.text ?? '');
     const [saved, setSaved] = useState(isAlreadyCompleted);
+    const sounds = useStepSounds();
     const minLength = step.completion.minLength ?? 120;
 
     const handleSave = () => {
         if (text.trim().length < minLength) return;
+        sounds.play('complete');
         onComplete({ artifact: { text: text.trim() }, text: text.trim(), completed: true });
         setSaved(true);
     };

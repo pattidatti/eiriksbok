@@ -297,14 +297,57 @@ export interface LearningPathData {
 
 export type StepKindV2 =
     | 'read-article'    // les artikkel + komprehensjons-sjekk
+    | 'inline-article'  // artikkel rendres i steget med ankrede sjekk-spørsmål
     | 'interactive'     // krever fullføring av en ComponentRegistry-komponent
     | 'scenario'        // spawner et tidsreise-scenario
     | 'detective'       // spawner en detektivsak
     | 'reflection'      // fritekstsvar som lagres
     | 'concept-drill'   // flashcard-runde over konsepter
     | 'mini-quiz'       // 3-7 spm med valgfri branching
+    | 'micro-game'      // lett innebygd mikro-spill (canvas/svg)
+    | 'dialog-tree'     // Twine-aktig dialog med branching valg
+    | 'map-quest'       // klikkbare hotspots på stilisert kart
     | 'multiplayer'     // (Fase 3) Quiz Battle
     | 'synthesis';      // avsluttende artefakt
+
+export interface DialogChoice {
+    id: string;
+    text: string;
+    nextNodeId?: string;       // hopp hit; mangler -> dialog slutt
+    score?: number;            // 0-1, kun siste valg teller for completion
+    feedback?: string;         // valgfri ettertanke når valget tas
+}
+
+export interface DialogNode {
+    id: string;
+    speaker?: string;          // f.eks. "Cicero"
+    portrait?: string;         // emoji eller bildesti
+    text: string;
+    choices?: DialogChoice[];
+    isEnding?: boolean;        // hvis true: vis ferdig-knapp, ingen choices
+    endingTone?: 'good' | 'neutral' | 'bad';
+}
+
+export interface DialogTree {
+    startNodeId: string;
+    nodes: Record<string, DialogNode>;
+}
+
+export interface MapQuestHotspot {
+    id: string;
+    label: string;
+    x: number;                 // 0-100 prosent av viewBox
+    y: number;                 // 0-100 prosent av viewBox
+    order: number;             // riktig kronologisk plassering (1-indeksert)
+    detail?: string;           // vises etter klikk
+}
+
+export interface MapQuestData {
+    mapImage?: string;         // valgfri bakgrunnsbilde (SVG eller raster)
+    viewBox?: string;          // default "0 0 1000 600"
+    hotspots: MapQuestHotspot[];
+    completionMessage?: string;
+}
 
 export interface ComprehensionQuestion {
     question: string;
@@ -362,6 +405,19 @@ export interface StepV2 {
     synthesisPrompt?: string;
     synthesisItems?: Array<{ id: string; label: string; year?: number }>; // for timeline-builder
 
+    // micro-game
+    microGameId?: string;             // ID i microGameRegistry
+    microGameProps?: Record<string, unknown>;
+
+    // inline-article
+    articleAnchors?: ArticleAnchor[]; // sjekkspørsmål mellom seksjoner
+
+    // dialog-tree
+    dialogTree?: DialogTree;
+
+    // map-quest
+    mapQuest?: MapQuestData;
+
     completion: CompletionCriteriaV2;
 
     branches?: {
@@ -374,6 +430,30 @@ export interface StepV2 {
 
     // åpne diskusjons-/skriveoppgaver per steg (ikke validert, ment for lærer/elev)
     openTasks?: (string | LearningPathTask)[];
+
+    // pekere til artikler / eksterne kilder elev kan bruke for å svare på openTasks
+    resources?: StepResource[];
+}
+
+export interface ArticleAnchor {
+    afterBlockIndex: number;          // sjekkspørsmål vises etter block N i artikkelens content[]
+    question: ComprehensionQuestion;
+}
+
+export interface StepResource {
+    title: string;
+    url: string;                      // intern: "/historie/..." eller ekstern URL
+    description?: string;             // 1-linje hint om hva ressursen dekker
+    kind?: 'article' | 'external' | 'video';
+}
+
+export interface EpochTheme {
+    id: string;                       // f.eks. "roman", "viking"
+    primary: string;                  // CSS color (hex/rgb/oklch) — signaturfarge
+    accent: string;                   // sekundær aksent for buttons/progress
+    paper: string;                    // bakgrunns-tint for kort/scener
+    ink: string;                      // dyp tekstfarge
+    bannerLabel?: string;             // valgfri kort epoke-label
 }
 
 export interface LearningPathV2Data {
@@ -384,6 +464,7 @@ export interface LearningPathV2Data {
     estimatedMinutes?: number;
     targetSubjectId?: string;
     targetTopicId?: string;
+    epochTheme?: EpochTheme;
     steps: StepV2[];
     synthesis?: {
         title: string;

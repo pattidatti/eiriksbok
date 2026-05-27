@@ -111,6 +111,14 @@
                     }
                 },
                 "conceptsIntroduced": ["Gladius", "Pilum", "Scutum", "Legionær"],
+                "resources": [
+                    {
+                        "title": "Den romerske legionen",
+                        "url": "/historie/romerriket/den-romerske-legionen",
+                        "description": "Hovedartikkel om Marius-reformen, utstyr, formasjoner og soldatlivet.",
+                        "kind": "article"
+                    }
+                ],
                 "openTasks": [
                     "Hvilke nye utstyrskrav innførte Marius for soldatene, og hvorfor?",
                     "Hvorfor ble soldatene kalt 'Marius' muldyr'?",
@@ -167,6 +175,102 @@
                 }
             },
             {
+                "id": "hannibal-kart",
+                "kind": "map-quest",
+                "phase": "Akt 1: En republikk blir til",
+                "title": "Hannibals marsj over Alpene",
+                "intro": "218 f.Kr. Den unge feltherren Hannibal Barkas har en plan så vill at romerne ikke tror det er mulig: marsjere fra Spania, over Pyreneene og Alpene, og angripe Italia bakfra. Han har 50 000 soldater, 37 elefanter - og en blodig ed å oppfylle. Følg ruten hans.",
+                "mapQuest": {
+                    "viewBox": "0 0 1000 600",
+                    "completionMessage": "Du har sporet en av antikkens dristigste militærmarsjer.",
+                    "hotspots": [
+                        {
+                            "id": "carthage-start",
+                            "label": "Kartago",
+                            "x": 50,
+                            "y": 75,
+                            "order": 1,
+                            "detail": "Hannibal vokser opp i Kartago etter Romas seier i første punerkrig. Som niåring sverger han evig hat mot Roma ved farens alter."
+                        },
+                        {
+                            "id": "cartagena",
+                            "label": "Cartagena",
+                            "x": 25,
+                            "y": 50,
+                            "order": 2,
+                            "detail": "Fra Cartagena (det kartagiske Spania) starter Hannibal sin marsj i 218 f.Kr med rundt 50 000 soldater og 37 krigselefanter."
+                        },
+                        {
+                            "id": "pyrenees",
+                            "label": "Pyreneene",
+                            "x": 40,
+                            "y": 42,
+                            "order": 3,
+                            "detail": "Hannibal krysser Pyreneene og taper allerede tusenvis av soldater i sammenstøt med lokale stammer."
+                        },
+                        {
+                            "id": "alps",
+                            "label": "Alpene",
+                            "x": 53,
+                            "y": 30,
+                            "order": 4,
+                            "detail": "Den brutale Alpe-overgangen om vinteren tar nesten halve hæren. Mange elefanter dør i kulda. Men romerne aner ingenting."
+                        },
+                        {
+                            "id": "po-valley",
+                            "label": "Po-dalen",
+                            "x": 60,
+                            "y": 38,
+                            "order": 5,
+                            "detail": "I Po-dalen samler Hannibal seg, knuser den første romerske hæren ved Trebia, og vinner gallere som forsterkninger."
+                        },
+                        {
+                            "id": "trasimene",
+                            "label": "Trasimenosjøen",
+                            "x": 68,
+                            "y": 47,
+                            "order": 6,
+                            "detail": "217 f.Kr: Hannibal lurer den romerske konsulen Flaminius inn i en bakhold ved Trasimenosjøen. 15 000 romere drepes på én morgen."
+                        },
+                        {
+                            "id": "cannae",
+                            "label": "Cannae",
+                            "x": 78,
+                            "y": 58,
+                            "order": 7,
+                            "detail": "216 f.Kr: Slaget ved Cannae. Hannibal omringer 80 000 romere med en mindre styrke - en av historiens største taktiske triumfer. Roma står på randen av kollaps."
+                        },
+                        {
+                            "id": "zama",
+                            "label": "Zama",
+                            "x": 55,
+                            "y": 80,
+                            "order": 8,
+                            "detail": "202 f.Kr: Hannibal kalles hjem til Afrika og taper det avgjørende slaget ved Zama mot Scipio Africanus. Kartago er knust."
+                        }
+                    ]
+                },
+                "conceptsIntroduced": ["Hannibal", "Punerkrigene", "Cannae", "Scipio Africanus"],
+                "resources": [
+                    {
+                        "title": "Romas grunnleggelse og republikken",
+                        "url": "/historie/romerriket/romersk-start",
+                        "description": "Dekker Punerkrigene og kampen mot Kartago.",
+                        "kind": "article"
+                    }
+                ],
+                "openTasks": [
+                    "Hvorfor var Alpe-overgangen så sjokkerende for romerne?",
+                    "Hva var Hannibals taktiske geni-trekk ved slaget ved Cannae?",
+                    "Hvorfor klarte ikke Hannibal å erobre selve byen Roma etter Cannae?",
+                    "Hva gjorde Scipio Africanus annerledes som lærte ham å beseire Hannibal?",
+                    "Drøft: Hvorfor husker historien Hannibal som et militærgeni selv om han til slutt tapte?"
+                ],
+                "completion": {
+                    "minScore": 0.6
+                }
+            },
+            {
                 "id": "augustus",
                 "kind": "read-article",
                 "phase": "Akt 2: Keiserne og Pax Romana",
@@ -220,9 +324,141 @@
                             "explanation": "Tittelen ble gitt ham av senatet i 27 f.Kr. Den ga ham nesten religiøs status uten å være konge - et politisk geni-trekk."
                         }
                     ]
+                }
+            },
+            {
+                "id": "cicero-senatet",
+                "kind": "dialog-tree",
+                "phase": "Akt 2: Keiserne og Pax Romana",
+                "title": "Cicero i senatet: ordet mot sverdet",
+                "intro": "63 f.Kr. Catilina planlegger statskupp. Cicero, en advokat fra middelklassen som har klatret til konsul, må overbevise senatet om å handle. Du står ved siden av ham og hjelper ham velge ordene.",
+                "dialogTree": {
+                    "startNodeId": "intro",
+                    "nodes": {
+                        "intro": {
+                            "id": "intro",
+                            "speaker": "Cicero",
+                            "portrait": "🏛️",
+                            "text": "Vi vet at Catilina planlegger å brenne ned Roma og myrde senatet. Men jeg har ingen rettssak ennå - bare rykter. Senatorene ser på meg som en oppkomling. Hvordan skal jeg åpne talen?",
+                            "choices": [
+                                {
+                                    "id": "direct",
+                                    "text": "Åpne med en direkte anklage: 'Quo usque tandem abutere, Catilina, patientia nostra?' — 'Hvor lenge skal du misbruke vår tålmodighet, Catilina?'",
+                                    "nextNodeId": "after-direct",
+                                    "feedback": "Dette er hva Cicero faktisk sa. Den åpningssetningen er en av de mest kjente i hele retorikkhistorien — direkte, personlig, og uten å nevne bevis han ikke har."
+                                },
+                                {
+                                    "id": "evidence",
+                                    "text": "Start med å liste opp bevisene mot Catilina, så folk vet det er en sak.",
+                                    "nextNodeId": "after-evidence",
+                                    "feedback": "Pragmatisk, men svakt: du har lite hardt bevis. Bevisene blir lett motbevist - og Catilina kan flykte før senatet bestemmer seg."
+                                },
+                                {
+                                    "id": "humble",
+                                    "text": "Begynn ydmykt: 'Jeg er kanskje bare en advokat, men...'",
+                                    "nextNodeId": "after-humble",
+                                    "feedback": "Romersk politikk har ingen sympati for ydmykhet. Senatet ser på det som svakhet - og Catilina utnytter det umiddelbart."
+                                }
+                            ]
+                        },
+                        "after-direct": {
+                            "id": "after-direct",
+                            "speaker": "Cicero",
+                            "portrait": "🏛️",
+                            "text": "Catilina rødmer av sinne. Senatorene rundt ham trekker seg unna - ingen tør sitte ved siden av en mann jeg har utpekt som forræder. Men han forsøker å forsvare seg: 'Cicero er en homo novus - en oppkomling - som hater de gamle familiene!'\n\nHva svarer jeg?",
+                            "choices": [
+                                {
+                                    "id": "appeal-republic",
+                                    "text": "Appellér til republikken selv: 'Senatorer, det er ikke jeg som anklager - det er fedrelandets ånd som taler gjennom meg.'",
+                                    "nextNodeId": "ending-good",
+                                    "feedback": "Mesterlig: du gjør det umulig for Catilina å angripe deg uten å angripe republikken selv. Dette er klassisk romersk retorikk."
+                                },
+                                {
+                                    "id": "personal",
+                                    "text": "Personlig motangrep: 'Catilina, du har drept din egen kone for å kunne gifte deg på nytt!'",
+                                    "nextNodeId": "ending-mid",
+                                    "feedback": "Sterk, men risikabelt. Du blir trukket inn i en personlig krangel som distraherer fra det egentlige spørsmålet."
+                                }
+                            ]
+                        },
+                        "after-evidence": {
+                            "id": "after-evidence",
+                            "speaker": "Cicero",
+                            "portrait": "🏛️",
+                            "text": "Senatorene lytter, men en av Catilinas allierte reiser seg: 'Hvor er disse brevene? Hvor er vitnene? Du har ingenting!' Salen mister fokus. Catilina smiler.\n\nDet er for sent å redde åpningen. Skal jeg avbryte og prøve igjen?",
+                            "choices": [
+                                {
+                                    "id": "abandon",
+                                    "text": "Sett deg ned og forhandle med Catilina i hemmelighet i stedet.",
+                                    "nextNodeId": "ending-bad",
+                                    "feedback": "Den historiske Cicero gjorde aldri dette. Han forsto at det er bedre å feile høyt enn å hvile stille - politikken belønner mot."
+                                }
+                            ]
+                        },
+                        "after-humble": {
+                            "id": "after-humble",
+                            "speaker": "Cicero",
+                            "portrait": "🏛️",
+                            "text": "Catilina ler høyt. 'Endelig innrømmer den selvgode advokaten at han ikke hører hjemme her!' Senatorene mumler. Du har gitt motstanderen et åpent mål.",
+                            "choices": [
+                                {
+                                    "id": "salvage",
+                                    "text": "Forsøk å redde det: 'Men en homo novus ser kanskje truslene tydeligere fordi han ikke er forblindet av lojalitet til de gamle slekter.'",
+                                    "nextNodeId": "ending-mid",
+                                    "feedback": "Bra forsøk. Du snur svakheten til styrke - men nå må du jobbe oppoverbakke resten av talen."
+                                }
+                            ]
+                        },
+                        "ending-good": {
+                            "id": "ending-good",
+                            "speaker": "Cicero",
+                            "portrait": "🏛️",
+                            "text": "Senatet vedtar samme kveld at konsulene skal 'sørge for at staten ikke tar skade' - i praksis full krigsfullmakt. Catilina flykter fra Roma før morgenen gryr. Republikken er reddet - foreløpig.\n\nDu har sett hvordan ord, ikke sverd, kan vinne politikk. Cicero kalles 'Pater Patriae' - fedrelandets far.",
+                            "isEnding": true,
+                            "endingTone": "good"
+                        },
+                        "ending-mid": {
+                            "id": "ending-mid",
+                            "speaker": "Cicero",
+                            "portrait": "🏛️",
+                            "text": "Catilina blir bortvist, men ikke knust. Det blir nødvendig med tre taler til før senatet handler. Du vant - men knapt. Republikken viste seg å være tregere og mer splittet enn du håpet.",
+                            "isEnding": true,
+                            "endingTone": "neutral"
+                        },
+                        "ending-bad": {
+                            "id": "ending-bad",
+                            "speaker": "Cicero",
+                            "portrait": "🏛️",
+                            "text": "Catilina vinner tid. Konspirasjonen blomstrer. Når det endelig kommer kupp-forsøk, må Roma kjempe i gatene. Du innser at retorikkens kraft krever mot - ikke listighet.",
+                            "isEnding": true,
+                            "endingTone": "bad"
+                        }
+                    }
                 },
-                "branches": {
-                    "onStruggle": "augustus"
+                "conceptsIntroduced": ["Cicero", "Catilina", "Retorikk", "Homo novus"],
+                "resources": [
+                    {
+                        "title": "Romas grunnleggelse og republikken",
+                        "url": "/historie/romerriket/romersk-start",
+                        "description": "Forklarer senatet, konsulene og republikkens slutt.",
+                        "kind": "article"
+                    },
+                    {
+                        "title": "Fra republikk til keiserdømme: Augustus",
+                        "url": "/historie/romerriket/augustus-og-keiserdomme",
+                        "description": "Konteksten Cicero kjempet imot — Caesar og republikkens fall.",
+                        "kind": "article"
+                    }
+                ],
+                "openTasks": [
+                    "Hva betyr 'homo novus' og hvorfor var det vanskelig for Cicero å bli respektert i Roma?",
+                    "Cicero kalles 'antikkens største taler'. Skriv tre setninger om hva som gjorde talene hans så virkningsfulle.",
+                    "Hvordan kunne et samfunn ledes så mye av ord (taler i senatet) i en tid uten skriftspråk for de fleste?",
+                    "Drøft: Hva ville Cicero sagt om dagens politiske debatter på TV og sosiale medier?",
+                    "Skriv en kort 'tale' (10-15 setninger) som forsvarer eller angriper en gjenkjennelig sak i din egen tid, i Ciceros stil."
+                ],
+                "completion": {
+                    "minScore": 0.6
                 }
             },
             {
@@ -232,6 +468,20 @@
                 "title": "Tidsreise: lev som romersk soldat",
                 "intro": "Nok teori. Nå skal du selv inn i støvet. Du våkner som rekrutt i en romersk legion. Hvert valg du tar former hva som skjer videre - overlever du marsjen, slaget og keiserens vrede?",
                 "scenarioId": "roman-soldier",
+                "resources": [
+                    {
+                        "title": "Den romerske legionen",
+                        "url": "/historie/romerriket/den-romerske-legionen",
+                        "description": "Dagliglivet, marsjruter, utstyr og lojalitet.",
+                        "kind": "article"
+                    },
+                    {
+                        "title": "Hverdagslivet i Roma",
+                        "url": "/historie/romerriket/hverdagsliv-i-roma",
+                        "description": "Hva soldatene kom hjem til mellom felttogene.",
+                        "kind": "article"
+                    }
+                ],
                 "openTasks": [
                     "Beskriv en typisk dag i legionen: hva spiste man, hvor langt marsjerte man, hvor sov man?",
                     "Hva slags valg fikk du som soldat i scenarioet, og hvorfor er disse valgene troverdige?",
@@ -290,6 +540,60 @@
                 ],
                 "completion": {
                     "minScore": 0.75
+                }
+            },
+            {
+                "id": "colosseum-bygges",
+                "kind": "micro-game",
+                "phase": "Akt 3: Livet i riket",
+                "title": "Colosseum reiser seg",
+                "intro": "70 e.Kr. Keiser Vespasian står på det som var Neros private innsjø og bestemmer at her - midt i Roma - skal det reises et folkets monument. Den største amfiteateret verden har sett. Roter modellen og klikk etasjene i byggerekkefølge, fra grunnen og opp.",
+                "microGameId": "colosseum-3d",
+                "conceptsIntroduced": ["Colosseum", "Vespasian", "Amfiteater", "Dorisk", "Jonisk", "Korintisk"],
+                "resources": [
+                    {
+                        "title": "Hverdagslivet i Roma",
+                        "url": "/historie/romerriket/hverdagsliv-i-roma",
+                        "description": "Dekker Colosseum, gladiatorkamper og romerske badene.",
+                        "kind": "article"
+                    }
+                ],
+                "openTasks": [
+                    "Hvorfor valgte Vespasian å bygge Colosseum akkurat der Neros innsjø lå?",
+                    "Hva er forskjellen på dorisk, jonisk og korintisk søylestil? Tegn enkle skisser.",
+                    "Hvor mange tilskuere kunne Colosseum ta? Hvor lang tid tok det å fylle og tømme det?",
+                    "Hva var velariet, og hvordan ble det festet til den fjerde etasjen?",
+                    "Drøft: Hvorfor bygde romerne så enorme offentlige rom (Colosseum, Pantheon, badene) - var det først og fremst religion, politikk eller kultur?"
+                ],
+                "completion": {
+                    "requireComponentComplete": true
+                }
+            },
+            {
+                "id": "gladius-duell",
+                "kind": "micro-game",
+                "phase": "Akt 3: Livet i riket",
+                "title": "Inn på arenaen: gladius-duell",
+                "intro": "Sanden suger lyden. 50 000 hjerter banker over deg. Du har gladius i hånden, lette ringbrynje på kroppen og motstanderen tre meter unna. Hvert sekund teller. Les motstanderens bevegelser - eller fall.",
+                "microGameId": "gladius-duell",
+                "conceptsIntroduced": ["Gladiator", "Gladius", "Arena"],
+                "resources": [
+                    {
+                        "title": "Hverdagslivet i Roma",
+                        "url": "/historie/romerriket/hverdagsliv-i-roma",
+                        "description": "Hovedartikkelen om Colosseum, gladiatorer og brød-og-sirkus-politikken.",
+                        "kind": "article"
+                    }
+                ],
+                "openTasks": [
+                    "Hvem var gladiatorene egentlig? Var de alltid slaver, eller var det også frie menn?",
+                    "Hvilke typer gladiator-kategorier fantes (f.eks. murmillo, retiarius)? Velg én og beskriv kort.",
+                    "Hvor ofte døde en gladiator i kamp? Sjekk om antakelsene dine stemmer.",
+                    "Hvorfor tror du folket elsket disse kampene så høyt?",
+                    "Drøft: Hva ligner mest på gladiator-kampene i dag - boksing, MMA, fotballkamper eller noe helt annet?"
+                ],
+                "completion": {
+                    "requireComponentComplete": true
                 }
             },
             {

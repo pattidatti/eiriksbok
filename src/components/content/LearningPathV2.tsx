@@ -10,12 +10,18 @@ import {
     RotateCcw,
     Sparkles,
     Trophy,
+    Volume2,
+    VolumeX,
+    Presentation,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import type { LearningPathV2Data, StepV2 } from '../../types';
 import { useLearningPathProfile } from '../../stores/useLearningPathProfile';
 import type { StepResponse } from '../../stores/useLearningPathProfile';
 import { useGlossary } from '../../context/GlossaryContext';
+import { useStepSounds } from '../../hooks/useStepSounds';
+import { useClassroomMode } from '../../hooks/useClassroomMode';
+import { resolveEpochTheme, epochThemeCssVars } from './learning-path-v2/epochThemes';
 import { ReadArticleStep } from './learning-path-v2/ReadArticleStep';
 import { MiniQuizStep } from './learning-path-v2/MiniQuizStep';
 import { ReflectionStep } from './learning-path-v2/ReflectionStep';
@@ -23,6 +29,11 @@ import { InteractiveStep } from './learning-path-v2/InteractiveStep';
 import { ScenarioStep } from './learning-path-v2/ScenarioStep';
 import { SynthesisStep } from './learning-path-v2/SynthesisStep';
 import { ConceptDrillStep } from './learning-path-v2/ConceptDrillStep';
+import { InlineArticleStep } from './learning-path-v2/InlineArticleStep';
+import { MicroGameStep } from './learning-path-v2/MicroGameStep';
+import { DialogTreeStep } from './learning-path-v2/DialogTreeStep';
+import { MapQuestStep } from './learning-path-v2/MapQuestStep';
+import { LearningPathPass } from './learning-path-v2/LearningPathPass';
 import { StepperTopBar } from './learning-path-v2/StepperTopBar';
 import { OpenTasksPanel } from './learning-path-v2/OpenTasksPanel';
 
@@ -34,12 +45,16 @@ type Tab = 'activity' | 'tasks' | 'concepts';
 
 const STEP_KIND_LABELS: Record<StepV2['kind'], { label: string; cls: string }> = {
     'read-article': { label: 'Les artikkel', cls: 'bg-indigo-100 text-indigo-700' },
+    'inline-article': { label: 'Les artikkel', cls: 'bg-indigo-100 text-indigo-700' },
     interactive: { label: 'Interaktiv', cls: 'bg-amber-100 text-amber-700' },
     scenario: { label: 'Tidsreise', cls: 'bg-purple-100 text-purple-700' },
     detective: { label: 'Detektiv', cls: 'bg-slate-200 text-slate-700' },
     reflection: { label: 'Refleksjon', cls: 'bg-blue-100 text-blue-700' },
     'concept-drill': { label: 'Begreper', cls: 'bg-teal-100 text-teal-700' },
     'mini-quiz': { label: 'Quiz', cls: 'bg-rose-100 text-rose-700' },
+    'micro-game': { label: 'Mikro-spill', cls: 'bg-amber-100 text-amber-800' },
+    'dialog-tree': { label: 'Dialog', cls: 'bg-amber-100 text-amber-800' },
+    'map-quest': { label: 'Kart-oppdrag', cls: 'bg-emerald-100 text-emerald-800' },
     multiplayer: { label: 'Klasserom', cls: 'bg-pink-100 text-pink-700' },
     synthesis: { label: 'Syntese', cls: 'bg-orange-100 text-orange-700' },
 };
@@ -66,6 +81,15 @@ export const LearningPathV2: React.FC<LearningPathV2Props> = ({ data }) => {
     );
     const [tab, setTab] = useState<Tab>('activity');
     const [showFinished, setShowFinished] = useState<boolean>(!!pathState?.finishedAt);
+    const sounds = useStepSounds();
+    const [muted, setMutedState] = useState(sounds.isMuted());
+    const { classroom, toggle: toggleClassroom } = useClassroomMode();
+
+    const toggleMute = () => {
+        const next = !muted;
+        sounds.setMuted(next);
+        setMutedState(next);
+    };
 
     const activeStep = useMemo(
         () => data.steps.find((s) => s.id === activeStepId) ?? data.steps[0],
@@ -78,6 +102,12 @@ export const LearningPathV2: React.FC<LearningPathV2Props> = ({ data }) => {
     const progressPct = totalSteps === 0 ? 0 : (completedCount / totalSteps) * 100;
 
     const goToStep = (stepId: string) => {
+        if (stepId !== activeStepId) {
+            const prevStep = data.steps.find((s) => s.id === activeStepId);
+            const nextStep = data.steps.find((s) => s.id === stepId);
+            const isPhaseChange = prevStep && nextStep && prevStep.phase !== nextStep.phase;
+            sounds.play(isPhaseChange ? 'sceneChange' : 'advance');
+        }
         setActiveStepId(stepId);
         profile.setCurrentStep(data.id, stepId);
         setTab('activity');
@@ -118,6 +148,7 @@ export const LearningPathV2: React.FC<LearningPathV2Props> = ({ data }) => {
         if (activeIndex >= 0 && activeIndex < data.steps.length - 1) {
             goToStep(data.steps[activeIndex + 1].id);
         } else {
+            sounds.play('complete');
             profile.finishPath(data.id);
             setShowFinished(true);
         }
@@ -182,8 +213,31 @@ export const LearningPathV2: React.FC<LearningPathV2Props> = ({ data }) => {
 
     if (!activeStep) return null;
 
+    const theme = resolveEpochTheme(data.epochTheme, data.targetSubjectId, data.targetTopicId);
+    const themeStyle = epochThemeCssVars(theme);
+
     return (
-        <div className="max-w-5xl mx-auto py-6 px-3 md:px-6">
+        <div
+            className={`${classroom ? 'max-w-7xl' : 'max-w-5xl'} mx-auto py-6 px-3 md:px-6`}
+            style={themeStyle}
+            data-epoch={theme?.id}
+            data-classroom={classroom}
+        >
+            {theme && (
+                <div
+                    className="mb-3 inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest"
+                    style={{
+                        backgroundColor: theme.paper,
+                        color: theme.primary,
+                        borderWidth: 1,
+                        borderStyle: 'solid',
+                        borderColor: theme.primary,
+                    }}
+                >
+                    <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: theme.accent }} />
+                    {theme.bannerLabel ?? theme.id}
+                </div>
+            )}
             {/* Kompakt header */}
             <header className="mb-5">
                 <div className="flex items-start justify-between gap-4 mb-3">
@@ -195,14 +249,45 @@ export const LearningPathV2: React.FC<LearningPathV2Props> = ({ data }) => {
                             {completedCount} av {totalSteps} steg fullført
                         </p>
                     </div>
-                    <button
-                        onClick={handleReset}
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-slate-500 hover:text-rose-600 hover:bg-rose-50 rounded-lg transition flex-shrink-0"
-                        title="Nullstill all fremdrift"
-                    >
-                        <RotateCcw className="w-3.5 h-3.5" />
-                        <span className="hidden md:inline">Nullstill</span>
-                    </button>
+                    <div className="flex items-center gap-1 flex-shrink-0">
+                        <button
+                            onClick={toggleClassroom}
+                            className={`inline-flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-semibold rounded-lg transition ${
+                                classroom
+                                    ? 'bg-amber-100 text-amber-700 hover:bg-amber-200'
+                                    : 'text-slate-500 hover:text-amber-700 hover:bg-amber-50'
+                            }`}
+                            title={
+                                classroom
+                                    ? 'Avslutt klasserom-modus'
+                                    : 'Klasserom-modus (større tekst)'
+                            }
+                            aria-label="Klasserom-modus"
+                        >
+                            <Presentation className="w-3.5 h-3.5" />
+                            <span className="hidden md:inline">{classroom ? 'På' : 'Klasserom'}</span>
+                        </button>
+                        <button
+                            onClick={toggleMute}
+                            className="inline-flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-semibold text-slate-500 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg transition"
+                            title={muted ? 'Slå på lyd' : 'Slå av lyd'}
+                            aria-label={muted ? 'Slå på lyd' : 'Slå av lyd'}
+                        >
+                            {muted ? (
+                                <VolumeX className="w-3.5 h-3.5" />
+                            ) : (
+                                <Volume2 className="w-3.5 h-3.5" />
+                            )}
+                        </button>
+                        <button
+                            onClick={handleReset}
+                            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-slate-500 hover:text-rose-600 hover:bg-rose-50 rounded-lg transition"
+                            title="Nullstill all fremdrift"
+                        >
+                            <RotateCcw className="w-3.5 h-3.5" />
+                            <span className="hidden md:inline">Nullstill</span>
+                        </button>
+                    </div>
                 </div>
                 <div className="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
                     <motion.div
@@ -215,12 +300,14 @@ export const LearningPathV2: React.FC<LearningPathV2Props> = ({ data }) => {
             </header>
 
             {/* Stepper */}
-            <StepperTopBar
-                steps={data.steps}
-                activeStepId={activeStep.id}
-                completedStepIds={pathState?.completedStepIds ?? []}
-                onSelectStep={goToStep}
-            />
+            {!classroom && (
+                <StepperTopBar
+                    steps={data.steps}
+                    activeStepId={activeStep.id}
+                    completedStepIds={pathState?.completedStepIds ?? []}
+                    onSelectStep={goToStep}
+                />
+            )}
 
             {/* Aktivt steg */}
             <main className="mt-6">
@@ -248,6 +335,7 @@ export const LearningPathV2: React.FC<LearningPathV2Props> = ({ data }) => {
                             onPrev={handlePrev}
                             isFirst={activeIndex === 0}
                             isLast={activeIndex === totalSteps - 1}
+                            classroom={classroom}
                         />
                     </motion.div>
                 </AnimatePresence>
@@ -331,6 +419,7 @@ interface StepViewProps {
     onPrev: () => void;
     isFirst: boolean;
     isLast: boolean;
+    classroom: boolean;
 }
 
 const StepView: React.FC<StepViewProps> = ({
@@ -347,6 +436,7 @@ const StepView: React.FC<StepViewProps> = ({
     onPrev,
     isFirst,
     isLast,
+    classroom,
 }) => {
     // StepView remountes pr. steg-id (key i parent), så initial state stemmer alltid.
     const [justCompleted, setJustCompleted] = useState(isAlreadyCompleted);
@@ -357,6 +447,8 @@ const StepView: React.FC<StepViewProps> = ({
     };
 
     const hasOpenTasks = !!step.openTasks && step.openTasks.length > 0;
+    const hasResources = !!step.resources && step.resources.length > 0;
+    const hasTasksTab = hasOpenTasks || hasResources;
     const hasConcepts = !!step.conceptsIntroduced && step.conceptsIntroduced.length > 0;
 
     const renderActivity = () => {
@@ -370,6 +462,8 @@ const StepView: React.FC<StepViewProps> = ({
         switch (step.kind) {
             case 'read-article':
                 return <ReadArticleStep {...props} />;
+            case 'inline-article':
+                return <InlineArticleStep {...props} />;
             case 'mini-quiz':
                 return <MiniQuizStep {...props} />;
             case 'reflection':
@@ -382,6 +476,12 @@ const StepView: React.FC<StepViewProps> = ({
                 return <SynthesisStep {...props} />;
             case 'concept-drill':
                 return <ConceptDrillStep {...props} />;
+            case 'micro-game':
+                return <MicroGameStep {...props} />;
+            case 'dialog-tree':
+                return <DialogTreeStep {...props} />;
+            case 'map-quest':
+                return <MapQuestStep {...props} />;
             case 'detective':
             case 'multiplayer':
                 return (
@@ -421,7 +521,11 @@ const StepView: React.FC<StepViewProps> = ({
                             </span>
                         )}
                     </div>
-                    <h2 className="text-2xl md:text-3xl font-display font-bold text-slate-900 leading-tight">
+                    <h2
+                        className={`font-display font-bold text-slate-900 leading-tight ${
+                            classroom ? 'text-4xl md:text-6xl' : 'text-2xl md:text-3xl'
+                        }`}
+                    >
                         {step.title}
                     </h2>
                 </div>
@@ -429,38 +533,49 @@ const StepView: React.FC<StepViewProps> = ({
 
             {/* Intro */}
             {step.intro && (
-                <p className="text-slate-700 leading-relaxed text-base md:text-lg mb-5">
+                <p
+                    className={`text-slate-700 leading-relaxed mb-5 ${
+                        classroom ? 'text-xl md:text-2xl' : 'text-base md:text-lg'
+                    }`}
+                >
                     {step.intro}
                 </p>
             )}
 
-            {/* Tabs */}
-            <div className="border-b border-slate-200 mb-5 flex items-center gap-1 overflow-x-auto">
-                <TabButton
-                    icon={<Play className="w-4 h-4" />}
-                    label="Aktivitet"
-                    isActive={tab === 'activity'}
-                    onClick={() => onTabChange('activity')}
-                />
-                {hasOpenTasks && (
+            {/* Tabs (skjules i klasserom-modus) */}
+            {!classroom && (
+                <div className="border-b border-slate-200 mb-5 flex items-center gap-1 overflow-x-auto">
                     <TabButton
-                        icon={<FileText className="w-4 h-4" />}
-                        label="Oppgaver"
-                        count={step.openTasks!.length}
-                        isActive={tab === 'tasks'}
-                        onClick={() => onTabChange('tasks')}
+                        icon={<Play className="w-4 h-4" />}
+                        label="Aktivitet"
+                        isActive={tab === 'activity'}
+                        onClick={() => onTabChange('activity')}
                     />
-                )}
-                {hasConcepts && (
-                    <TabButton
-                        icon={<Library className="w-4 h-4" />}
-                        label="Begreper"
-                        count={step.conceptsIntroduced!.length}
-                        isActive={tab === 'concepts'}
-                        onClick={() => onTabChange('concepts')}
-                    />
-                )}
-            </div>
+                    {hasTasksTab && (
+                        <TabButton
+                            icon={<FileText className="w-4 h-4" />}
+                            label={hasOpenTasks ? 'Oppgaver' : 'Kilder'}
+                            count={
+                                hasOpenTasks
+                                    ? step.openTasks!.length
+                                    : step.resources!.length
+                            }
+                            isActive={tab === 'tasks'}
+                            highlight={(isAlreadyCompleted || justCompleted) && tab !== 'tasks'}
+                            onClick={() => onTabChange('tasks')}
+                        />
+                    )}
+                    {hasConcepts && (
+                        <TabButton
+                            icon={<Library className="w-4 h-4" />}
+                            label="Begreper"
+                            count={step.conceptsIntroduced!.length}
+                            isActive={tab === 'concepts'}
+                            onClick={() => onTabChange('concepts')}
+                        />
+                    )}
+                </div>
+            )}
 
             {/* Tab content */}
             <AnimatePresence mode="wait">
@@ -471,9 +586,36 @@ const StepView: React.FC<StepViewProps> = ({
                     exit={{ opacity: 0, y: -4 }}
                     transition={{ duration: 0.18 }}
                 >
-                    {tab === 'activity' && renderActivity()}
-                    {tab === 'tasks' && hasOpenTasks && (
-                        <OpenTasksPanel tasks={step.openTasks!} stepNumber={stepNumber} />
+                    {tab === 'activity' && (
+                        <>
+                            {renderActivity()}
+                            {(isAlreadyCompleted || justCompleted) && hasTasksTab && (
+                                <motion.button
+                                    initial={{ opacity: 0, y: 8 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.2 }}
+                                    onClick={() => onTabChange('tasks')}
+                                    className="mt-4 w-full flex items-center justify-between gap-3 px-4 py-3 bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200 rounded-xl text-left hover:from-amber-100 hover:to-orange-100 transition group"
+                                >
+                                    <span className="flex items-center gap-3 text-amber-900">
+                                        <FileText className="w-5 h-5 text-amber-600 flex-shrink-0" />
+                                        <span className="text-sm font-semibold">
+                                            {hasOpenTasks
+                                                ? `${step.openTasks!.length} oppgaver klare for skrivebok eller diskusjon`
+                                                : `${step.resources!.length} kilder du kan bruke videre`}
+                                        </span>
+                                    </span>
+                                    <ArrowRight className="w-4 h-4 text-amber-600 group-hover:translate-x-0.5 transition" />
+                                </motion.button>
+                            )}
+                        </>
+                    )}
+                    {tab === 'tasks' && hasTasksTab && (
+                        <OpenTasksPanel
+                            tasks={step.openTasks ?? []}
+                            stepNumber={stepNumber}
+                            resources={step.resources}
+                        />
                     )}
                     {tab === 'concepts' && hasConcepts && (
                         <ConceptsPanel concepts={step.conceptsIntroduced!} />
@@ -515,14 +657,17 @@ const TabButton: React.FC<{
     label: string;
     count?: number;
     isActive: boolean;
+    highlight?: boolean;
     onClick: () => void;
-}> = ({ icon, label, count, isActive, onClick }) => (
+}> = ({ icon, label, count, isActive, highlight = false, onClick }) => (
     <button
         onClick={onClick}
         className={`relative inline-flex items-center gap-2 px-4 py-2.5 text-sm font-bold transition border-b-2 -mb-px whitespace-nowrap ${
             isActive
                 ? 'text-indigo-700 border-indigo-600'
-                : 'text-slate-500 border-transparent hover:text-slate-800 hover:border-slate-300'
+                : highlight
+                  ? 'text-amber-700 border-transparent hover:text-amber-800 hover:border-amber-300'
+                  : 'text-slate-500 border-transparent hover:text-slate-800 hover:border-slate-300'
         }`}
     >
         {icon}
@@ -530,11 +675,21 @@ const TabButton: React.FC<{
         {count !== undefined && (
             <span
                 className={`px-1.5 py-0.5 rounded-full text-[10px] font-mono ${
-                    isActive ? 'bg-indigo-100 text-indigo-700' : 'bg-slate-100 text-slate-500'
+                    isActive
+                        ? 'bg-indigo-100 text-indigo-700'
+                        : highlight
+                          ? 'bg-amber-100 text-amber-800'
+                          : 'bg-slate-100 text-slate-500'
                 }`}
             >
                 {count}
             </span>
+        )}
+        {highlight && !isActive && (
+            <span
+                className="absolute top-2 right-2 w-2 h-2 rounded-full bg-amber-500 animate-pulse"
+                aria-hidden
+            />
         )}
     </button>
 );
@@ -594,6 +749,7 @@ const FinishedOverlay: React.FC<{
 }> = ({ data, onClose, onReset }) => {
     const masteryScore = useLearningPathProfile((s) => s.getMasteryScore(data.id));
     const pathState = useLearningPathProfile((s) => s.paths[data.id]);
+    const [showPass, setShowPass] = useState(false);
     const reflections = pathState
         ? Object.entries(pathState.responses)
               .filter(([, r]) => r.text)
@@ -603,6 +759,17 @@ const FinishedOverlay: React.FC<{
                   text: r.text!,
               }))
         : [];
+
+    if (showPass && pathState) {
+        return (
+            <LearningPathPass
+                data={data}
+                pathState={pathState}
+                masteryScore={masteryScore}
+                onClose={() => setShowPass(false)}
+            />
+        );
+    }
 
     return (
         <motion.div
@@ -688,6 +855,14 @@ const FinishedOverlay: React.FC<{
                         >
                             <ArrowLeft className="w-4 h-4" />
                             Tilbake til stien
+                        </button>
+
+                        <button
+                            onClick={() => setShowPass(true)}
+                            className="inline-flex items-center gap-2 px-5 py-3 bg-amber-500 text-slate-950 rounded-xl text-sm font-bold shadow-lg hover:bg-amber-400 transition"
+                        >
+                            <Trophy className="w-4 h-4" />
+                            Vis passet ditt
                         </button>
 
                         {data.targetTopicId && (
