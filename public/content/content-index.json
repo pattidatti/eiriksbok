@@ -1,5 +1,5 @@
 {
-  "buildId": 1779995108055,
+  "buildId": 1779996066568,
   "contentMap": {
     "concept-adel": [
       "content/concepts/adel.json"
@@ -1840,6 +1840,9 @@
     "mormonisme-sentrale-trekk": [
       "content/krle/religion/mormonisme/sentrale-trekk/artikkel.json"
     ],
+    "samisk-intro": [
+      "content/krle/religion/samisk/intro.json"
+    ],
     "sikhisme-grunnleggere": [
       "content/krle/religion/sikhisme/grunnleggere/artikkel.json"
     ],
@@ -3507,6 +3510,7 @@
     "krle/religion/mormonisme/intro": "content/krle/religion/mormonisme/intro.json",
     "krle/religion/mormonisme/overgangsriter": "content/krle/religion/mormonisme/overgangsriter/artikkel.json",
     "krle/religion/mormonisme/sentrale-trekk": "content/krle/religion/mormonisme/sentrale-trekk/artikkel.json",
+    "krle/religion/samisk/intro": "content/krle/religion/samisk/intro.json",
     "krle/religion/sikhisme/grunnleggere": "content/krle/religion/sikhisme/grunnleggere/artikkel.json",
     "krle/religion/sikhisme/hellige-tekster": "content/krle/religion/sikhisme/hellige-tekster/artikkel.json",
     "krle/religion/sikhisme/introduksjon": "content/krle/religion/sikhisme/introduksjon/artikkel.json",
