@@ -1,0 +1,192 @@
+{
+  "id": "unionsopplosningen-1905",
+  "title": "Unionsoppløsningen 1905",
+  "layout": "rich",
+  "year": "1905",
+  "category": "Norgeshistorie",
+  "readTime": "8 min lesning",
+  "heroImage": "/images/placeholder.webp",
+  "details": [
+    "Norge brøt ut av unionen med Sverige fredelig i 1905",
+    "Folkeavstemningen ga nesten enstemmig ja til selvstendighet",
+    "Karlstad-forhandlingene hindret krig mellom brødrefolk"
+  ],
+  "externalUrl": "https://snl.no/unionsoppl%C3%B8sningen_i_1905",
+  "content": [
+    {
+      "type": "text",
+      "content": "Den 7. juni 1905 reiste stortingspresident Carl Berner seg i salen og leste opp et vedtak som forandret Norges historie for alltid. Stortinget erklærte at unionen med Sverige var oppløst. Kong Oscar II var ikke lenger Norges konge. I løpet av noen minutter gikk Norge fra å være den lille partneren i et tvangsekteskap, til å stå helt alene som selvstendig nasjon. Men ville Sverige godta det? Eller ville det ende med krig?"
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Stortingssalen i Kristiania 7. juni 1905",
+      "caption": "Stortinget erklærte unionen med Sverige oppløst 7. juni 1905."
+    },
+    {
+      "type": "header",
+      "text": "En union som aldri fungerte"
+    },
+    {
+      "type": "text",
+      "content": "Unionen mellom Norge og Sverige ble til i 1814, etter at Danmark tapte Napoleonskrigene og måtte gi fra seg Norge. Nordmennene rakk å skrive sin egen grunnlov på Eidsvoll, men ble likevel tvunget inn i en personalunion med Sverige. Det betød at de to landene delte konge, men ellers styrte seg selv. I praksis følte mange nordmenn at Sverige bestemte for mye."
+    },
+    {
+      "type": "text",
+      "content": "Utover 1800-tallet vokste norsk nasjonalisme. Folkehøyskoler, norsk språkpolitikk og 17. mai-feiringen skapte en sterkere norsk identitet. Forfattere som Henrik Ibsen og Bjørnstjerne Bjørnson skrev om norsk frihet og selvstyre. Samtidig ble Norge et stadig rikere land takket være skipsfart og handel. Den norske handelsflåten var en av verdens største. Nordmennene spurte seg: Hvorfor trenger vi egentlig Sverige?"
+    },
+    {
+      "type": "header",
+      "text": "Konsulatsaken: Dråpen som fikk begeret til å renne over"
+    },
+    {
+      "type": "text",
+      "content": "Det som til slutt utløste bruddet var en tilsynelatende liten sak: konsulatene. Norge ville ha egne konsuler i utlandet. Konsuler er en slags handelsrepresentanter som hjelper landets borgere og næringsliv i fremmede byer. Sverige nektet. For nordmennene ble dette et symbol på at Sverige ikke behandlet dem som likeverdige."
+    },
+    {
+      "type": "text",
+      "content": "I 1905 vedtok Stortinget en lov om egne norske konsuler. Kong Oscar II nektet å godkjenne loven. Den norske regjeringen leverte da sin avskjed, og kongen sa at han ikke kunne danne en ny regjering. Stortinget grep muligheten: Hvis kongen ikke kan styre Norge, er unionen i praksis oppløst."
+    },
+    {
+      "type": "component",
+      "name": "FactBox",
+      "props": {
+        "title": "Visste du?",
+        "content": "Konsulatsaken handlet ikke bare om konsuler. Den handlet om hvem som bestemte over Norges forhold til resten av verden. Så lenge Sverige styrte utenrikspolitikken, var Norge ikke helt selvstendig."
+      }
+    },
+    {
+      "type": "header",
+      "text": "7. juni — et dristig vedtak"
+    },
+    {
+      "type": "text",
+      "content": "Vedtaket den 7. juni 1905 var et enormt sjansespill. Stortinget påsto at unionen allerede var oppløst, fordi kongen ikke lenger kunne utføre sine plikter. Det var en juridisk snarvei som mange i Europa stusset over. Sverige var rasende. Begge land begynte å mobilisere soldater langs grensen. I flere uker sto tusenvis av norske og svenske soldater klare til kamp."
+    },
+    {
+      "type": "text",
+      "content": "Men ingen ville egentlig krig. Norske og svenske familier hadde bånd på tvers av grensen. Svenske arbeidere nektet å marsjere mot sine norske brødre, og den svenske arbeiderbevegelsen protesterte høylytt mot tanken på krig. Mange husket at forrige krig mellom landene, i 1814, hadde vært kort og meningsløs. Stormaktene i Europa presset også på for en fredelig løsning. England, Frankrike og Russland hadde alle interesser i et stabilt Norden og ville ikke ha krig så nær sine egne grenser."
+    },
+    {
+      "type": "header",
+      "text": "Folkeavstemningen: Et overveldende ja"
+    },
+    {
+      "type": "text",
+      "content": "Sverige krevde bevis for at nordmennene virkelig ville ut av unionen. Svaret ble en folkeavstemning den 13. august 1905. Resultatet var et av de mest ensidige i historien: 368 208 stemte for oppløsning, bare 184 stemte mot. Over 99 prosent sa ja til et selvstendig Norge. Resultatet ga Norge enorm legitimitet. Hele verden kunne se at dette var folkets vilje, ikke bare politikernes."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Folkeavstemning i norsk by i august 1905",
+      "caption": "Folkeavstemningen 13. august 1905 ga nesten enstemmig ja til selvstendighet."
+    },
+    {
+      "type": "header",
+      "text": "Karlstad-forhandlingene: Diplomatenes kamp"
+    },
+    {
+      "type": "text",
+      "content": "Selv om folket hadde sagt ja, gjenstod de vanskeligste ukene. I september 1905 møttes norske og svenske forhandlere i den svenske byen Karlstad. Stemningen var spent. Sverige krevde at Norge rev festningene langs grensen. Norge mente festningene var nødvendig forsvar. Begge sider visste at feil ord kunne utløse krig."
+    },
+    {
+      "type": "text",
+      "content": "Etter intense forhandlinger kom de fram til et kompromiss. Norge godtok å rive grensefestningene. Til gjengjeld ble det opprettet en nøytral sone langs grensen der ingen av landene kunne ha soldater. Reinbeiterettighetene til samer som krysset grensen ble også sikret. Den 23. september 1905 ble Karlstad-avtalen undertegnet. Da telegrammene nådde Kristiania og Stockholm, pustet begge folk lettet ut. Freden var sikret."
+    },
+    {
+      "type": "component",
+      "name": "KarlstadForhandling",
+      "props": {}
+    },
+    {
+      "type": "header",
+      "text": "En ny konge og en ny nasjon"
+    },
+    {
+      "type": "text",
+      "content": "Med friheten sikret, trengte Norge en konge. Sverige hadde tilbudt en prins fra den svenske kongefamilien Bernadotte, men Norge takket nei. I stedet ble den danske prinsen Carl tilbudt tronen. Nok en folkeavstemning ble holdt i november, og et klart flertall stemte for å beholde monarkiet. Prins Carl tok det norske navnet Haakon VII, og sønnen hans fikk navnet Olav. Den 25. november 1905 kom den nye kongefamilien til Kristiania. En ny epoke var begynt."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Haakon VII ankommer Kristiania med kongefamilien i 1905",
+      "caption": "Prins Carl av Danmark ble Norges første selvstendige konge og tok navnet Haakon VII."
+    },
+    {
+      "type": "header",
+      "text": "Hvorfor er 1905 viktig?"
+    },
+    {
+      "type": "text",
+      "content": "Unionsoppløsningen i 1905 er spesiell fordi den skjedde fredelig. De fleste land som har kjempet seg til selvstendighet, har gjort det gjennom krig og vold. Tenk på den amerikanske uavhengighetskrigen, den franske revolusjonen eller frigjøringskrigene i Afrika og Asia. Norge klarte det med folkeavstemninger, forhandlinger og kompromisser. Det er en av grunnene til at 1905 fortsatt feires som et vendepunkt i norsk historie."
+    },
+    {
+      "type": "text",
+      "content": "Forholdet mellom Norge og Sverige ble raskt godt igjen etter 1905. Allerede få år senere samarbeidet landene tett, og under begge verdenskrigene sto de på samme side. I dag er Norge og Sverige nære allierte, handelspartnere og venner. Hundretusener av nordmenn og svensker krysser grensen daglig for å jobbe, handle og besøke familie. Den fredelige skilsmissen i 1905 viste at det går an å løse selv de dypeste konflikter uten å ty til våpen, så lenge begge sider er villige til å gi og ta."
+    },
+    {
+      "type": "component",
+      "name": "Quiz",
+      "props": {
+        "questions": [
+          {
+            "question": "Hva var konsulatsaken?",
+            "options": [
+              "Striden om Norges rett til egne konsuler i utlandet",
+              "En strid om hvem som skulle bli norsk statsminister",
+              "En konflikt om fiskerettigheter i Nordsjøen",
+              "En uenighet om skattesystemet i Norge"
+            ],
+            "correctIndex": 0,
+            "explanation": "Konsulatsaken handlet om Norges rett til egne konsuler. Den ble symbolet på norsk ønske om full selvstendighet."
+          },
+          {
+            "question": "Hva skjedde 7. juni 1905?",
+            "options": [
+              "Norge og Sverige gikk til krig",
+              "Stortinget erklærte unionen med Sverige oppløst",
+              "Kong Oscar II abdiserte frivillig",
+              "Karlstad-forhandlingene begynte"
+            ],
+            "correctIndex": 1,
+            "explanation": "7. juni 1905 vedtok Stortinget at unionen med Sverige var oppløst, fordi kongen ikke lenger kunne utføre sine plikter."
+          },
+          {
+            "question": "Hvor mange stemte MOT selvstendighet i folkeavstemningen 1905?",
+            "options": [
+              "Omtrent 50 000",
+              "Omtrent 10 000",
+              "184",
+              "Ingen — det var enstemmig"
+            ],
+            "correctIndex": 2,
+            "explanation": "Bare 184 personer stemte mot oppløsning. 368 208 stemte ja — over 99 prosent."
+          },
+          {
+            "question": "Hva ble Norge enig om i Karlstad-avtalen?",
+            "options": [
+              "Å betale erstatning til Sverige",
+              "Å rive grensefestningene og opprette en nøytral sone",
+              "Å la en svensk prins bli norsk konge",
+              "Å dele oljeinntektene med Sverige"
+            ],
+            "correctIndex": 1,
+            "explanation": "Norge godtok å rive grensefestningene langs grensen, og det ble opprettet en nøytral sone uten soldater."
+          },
+          {
+            "question": "Hvem ble Norges nye konge etter 1905?",
+            "options": [
+              "En svensk prins fra Bernadotte-familien",
+              "En norsk adelsmann fra Trondheim",
+              "Den danske prinsen Carl, som tok navnet Haakon VII",
+              "Norge ble republikk uten konge"
+            ],
+            "correctIndex": 2,
+            "explanation": "Den danske prinsen Carl ble valgt i folkeavstemning og tok det norske kongenavnet Haakon VII."
+          }
+        ]
+      }
+    }
+  ],
+  "timeline": []
+}

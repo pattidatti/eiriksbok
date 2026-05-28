@@ -167,6 +167,7 @@ const NorrontOrdmatch = lazy(() => import('./content/interactive/NorrontOrdmatch
 const SkalaSammenligner = lazy(() => import('./content/interactive/SkalaSammenligner').then(m => ({ default: m.SkalaSammenligner })));
 const KorstogMotiver = lazy(() => import('./content/interactive/KorstogMotiver').then(m => ({ default: m.KorstogMotiver })));
 const KalvinParadokset = lazy(() => import('./content/interactive/KalvinParadokset').then(m => ({ default: m.KalvinParadokset })));
+const KarlstadForhandling = lazy(() => import('./content/interactive/KarlstadForhandling').then(m => ({ default: m.KarlstadForhandling })));
 const KommaRedder = lazy(() => import('./content/interactive/KommaRedder').then(m => ({ default: m.KommaRedder })));
 const DynamicsPlayground = lazy(() => import('./content/interactive/DynamicsPlayground').then(m => ({ default: m.DynamicsPlayground })));
 const SamplingLab = lazy(() => import('./content/interactive/SamplingLab').then(m => ({ default: m.SamplingLab })));
@@ -343,6 +344,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     SkalaSammenligner,
     KorstogMotiver,
     KalvinParadokset,
+    KarlstadForhandling,
     KommaRedder,
     DynamicsPlayground,
     SamplingLab,

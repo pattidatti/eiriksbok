@@ -3426,6 +3426,25 @@
       ]
     },
     {
+      "id": "unionsopplosningen-1905",
+      "title": "Unionsoppløsningen 1905",
+      "description": "Hvordan Norge brøt ut av unionen med Sverige fredelig gjennom folkeavstemning og forhandlinger.",
+      "startDate": 1905,
+      "endDate": null,
+      "displayDate": "1905",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "norgeshistorie",
+      "link": "/historie/norgeshistorie/unionsopplosningen-1905",
+      "tags": [
+        "norge",
+        "union",
+        "selvstendighet",
+        "diplomati",
+        "1905"
+      ]
+    },
+    {
       "id": "federal-reserve-1913",
       "title": "Federal Reserve grunnlegges",
       "description": "USA oppretter sin sentralbank. For første gang kan et sentralt organ sette prisen på penger i verdens største økonomi.",
