@@ -35,6 +35,23 @@ export interface TimelineImageResult {
 // Returnerer bilde-src for et event, eller null hvis ingen finnes. Anroperen
 // bruker eraColor til å vise en epoke-fargestripe i stedet, slik at kort uten
 // bilde fortsatt ser intensjonelle ut (ikke tomme bokser).
+// Last hele bilde-mapsen én gang og returner den. Brukt av parent-komponenter
+// som klassifiserer mange events samtidig (f.eks. magisk-modus tidslinje).
+export function useTimelineImageMap(): Record<string, string> | null {
+    const [map, setMap] = useState<Record<string, string> | null>(cache);
+    useEffect(() => {
+        if (map !== null) return;
+        let cancelled = false;
+        loadImageMap().then((data) => {
+            if (!cancelled) setMap(data);
+        });
+        return () => {
+            cancelled = true;
+        };
+    }, [map]);
+    return map;
+}
+
 export function useTimelineImage(event: GlobalTimelineEvent | null): TimelineImageResult {
     const [map, setMap] = useState<Record<string, string> | null>(cache);
 
