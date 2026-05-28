@@ -10,6 +10,8 @@ export type Handedness = 'right' | 'left';
 export interface GitarstudioSettings {
     rootNote: string;
     scaleFamily: ScaleFamily;
+    chordScale: ScaleFamily;
+    scalesLinked: boolean;
     genre: Genre;
     bpm: number;
     toneLabel: ToneLabel;
@@ -23,6 +25,8 @@ export interface GitarstudioSettings {
 export const DEFAULT_SETTINGS: GitarstudioSettings = {
     rootNote: 'A',
     scaleFamily: 'pentatonic-minor',
+    chordScale: 'pentatonic-minor',
+    scalesLinked: true,
     genre: 'rock',
     bpm: 110,
     toneLabel: 'note',
@@ -39,7 +43,7 @@ export const FRETBOARD_SIZE_HEIGHTS: Record<FretboardSize, string> = {
     large: 'clamp(280px, 48vh, 460px)',
 };
 
-const STORAGE_KEY = 'gitarstudio.settings.v1';
+const STORAGE_KEY = 'gitarstudio.settings.v2';
 
 function read(): GitarstudioSettings {
     try {

@@ -4,7 +4,7 @@ import { ProgressionPanel } from './ProgressionBuilder';
 import { Transport } from './Transport';
 import { FullFretboard } from './FullFretboard';
 import { SettingsPanel } from './SettingsPanel';
-import { SCALES } from '../../theory/scaleEngine';
+import { SCALES, isMinorish, type ScaleFamily } from '../../theory/scaleEngine';
 import { GENRES, type Genre } from '../../audio/genrePresets';
 import { useBackingTrack } from '../../hooks/useBackingTrack';
 import { previewNote, setStemMute } from '../../audio/backingTrackEngine';
@@ -25,16 +25,9 @@ const INITIAL_CHORDS: PresetChord[] = [
     { root: 'G', quality: 'Major' },
 ];
 
-function deriveKeyMode(chord: PresetChord | undefined): 'Major' | 'Minor' {
-    if (!chord) return 'Minor';
-    const isMinor = chord.quality === 'Minor' || chord.quality === 'Min7' || chord.quality === 'Dim';
-    return isMinor ? 'Minor' : 'Major';
-}
-
 export function Gitarstudio() {
     const { settings, update, reset } = useGitarstudioSettings();
     const [chords, setChords] = useState<PresetChord[]>(INITIAL_CHORDS);
-    const [keyMode, setKeyMode] = useState<'Major' | 'Minor'>(() => deriveKeyMode(INITIAL_CHORDS[0]));
     const [saveOpen, setSaveOpen] = useState(false);
     const [loadOpen, setLoadOpen] = useState(false);
     const [stemMutes, setStemMutes] = useState({ drums: false, bass: false, comp: false });
@@ -101,21 +94,29 @@ export function Gitarstudio() {
 
     const handleClear = () => setChords([]);
 
-    const handleLoadProgression = (
-        loaded: PresetChord[],
-        suggestedRoot?: string,
-        suggestedMode?: 'Major' | 'Minor'
-    ) => {
+    const handleLoadProgression = (loaded: PresetChord[], suggestedRoot?: string) => {
         setChords(loaded);
         if (suggestedRoot) {
             update('rootNote', suggestedRoot);
         } else if (loaded.length > 0) {
             update('rootNote', loaded[0].root);
         }
-        if (suggestedMode) {
-            setKeyMode(suggestedMode);
-            update('scaleFamily', suggestedMode === 'Minor' ? 'pentatonic-minor' : 'pentatonic-major');
-        }
+    };
+
+    const handleChordScaleChange = (s: ScaleFamily) => {
+        update('chordScale', s);
+        if (settings.scalesLinked) update('scaleFamily', s);
+    };
+
+    const handleFretboardScaleChange = (s: ScaleFamily) => {
+        update('scaleFamily', s);
+        if (settings.scalesLinked) update('chordScale', s);
+    };
+
+    const handleToggleScalesLinked = () => {
+        const next = !settings.scalesLinked;
+        update('scalesLinked', next);
+        if (next) update('chordScale', settings.scaleFamily);
     };
 
     const handleGenreChange = (g: Genre) => {
@@ -134,25 +135,28 @@ export function Gitarstudio() {
     }, []);
 
     const handleRandomProgression = () => {
+        const minor = isMinorish(settings.chordScale);
         const pool = PROGRESSION_PATTERNS.filter(
-            (p) =>
-                p.keyType === 'any' ||
-                (keyMode === 'Major' ? p.keyType === 'major' : p.keyType === 'minor')
+            (p) => p.keyType === 'any' || (minor ? p.keyType === 'minor' : p.keyType === 'major')
         );
         const pick = pool[Math.floor(Math.random() * pool.length)];
-        handleLoadProgression(transposePattern(pick.pattern, settings.rootNote), settings.rootNote, keyMode);
+        handleLoadProgression(transposePattern(pick.pattern, settings.rootNote), settings.rootNote);
     };
 
     return (
         <div className="h-[calc(100vh-64px)] w-full bg-gradient-to-br from-slate-100 via-slate-50 to-rose-50/30 flex flex-col overflow-hidden p-3 gap-2">
             <StudioCommandBar
                 rootNote={settings.rootNote}
-                scaleFamily={settings.scaleFamily}
+                chordScale={settings.chordScale}
+                fretboardScale={settings.scaleFamily}
+                scalesLinked={settings.scalesLinked}
                 genre={settings.genre}
                 isPlaying={isPlaying}
                 toneLabel={settings.toneLabel}
                 onRootChange={(v) => update('rootNote', v)}
-                onScaleChange={(v) => update('scaleFamily', v)}
+                onChordScaleChange={handleChordScaleChange}
+                onFretboardScaleChange={handleFretboardScaleChange}
+                onToggleScalesLinked={handleToggleScalesLinked}
                 onGenreChange={handleGenreChange}
                 onToneLabelChange={(v) => update('toneLabel', v)}
                 rightSlot={
@@ -178,8 +182,7 @@ export function Gitarstudio() {
                 onRemove={handleRemove}
                 onClear={handleClear}
                 rootNote={settings.rootNote}
-                keyMode={keyMode}
-                onKeyModeChange={setKeyMode}
+                chordScale={settings.chordScale}
                 onAddChord={handleAddChord}
                 onLoadProgression={handleLoadProgression}
                 onRandomProgression={handleRandomProgression}

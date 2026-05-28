@@ -5,6 +5,7 @@ import {
     transposePattern,
     type PresetChord,
 } from '../../theory/progressionPresets';
+import { SCALES, isMinorish, type ScaleFamily } from '../../theory/scaleEngine';
 import { useProgressionStorage } from '../../hooks/useProgressionStorage';
 
 type PresetGenreFilter = 'all' | 'rock' | 'blues' | 'pop' | 'jazz' | 'classic';
@@ -24,14 +25,9 @@ interface ProgressionPanelProps {
     onRemove: (index: number) => void;
     onClear: () => void;
     rootNote: string;
-    keyMode: 'Major' | 'Minor';
-    onKeyModeChange: (mode: 'Major' | 'Minor') => void;
+    chordScale: ScaleFamily;
     onAddChord: (chord: PresetChord) => void;
-    onLoadProgression: (
-        chords: PresetChord[],
-        suggestedRoot?: string,
-        suggestedMode?: 'Major' | 'Minor'
-    ) => void;
+    onLoadProgression: (chords: PresetChord[], suggestedRoot?: string) => void;
     onRandomProgression: () => void;
     saveDialogOpen: boolean;
     loadDialogOpen: boolean;
@@ -49,8 +45,7 @@ export function ProgressionPanel({
     onRemove,
     onClear,
     rootNote,
-    keyMode,
-    onKeyModeChange,
+    chordScale,
     onAddChord,
     onLoadProgression,
     onRandomProgression,
@@ -63,27 +58,30 @@ export function ProgressionPanel({
     onCloseSave,
     onCloseLoad,
 }: ProgressionPanelProps) {
-    const diatonic = useMemo(() => getDiatonicChords(rootNote, keyMode), [rootNote, keyMode]);
+    const isMinor = isMinorish(chordScale);
+    const scaleLabel = SCALES[chordScale].label;
+    const diatonic = useMemo(
+        () => getDiatonicChords(rootNote, isMinor ? 'Minor' : 'Major'),
+        [rootNote, isMinor]
+    );
     const { saved, save, remove } = useProgressionStorage();
     const [saveName, setSaveName] = useState('');
     const [presetGenre, setPresetGenre] = useState<PresetGenreFilter>('all');
     const [builderOpen, setBuilderOpen] = useState(false);
 
-    // All patterns valid for current key mode, transposed to current root
+    // All patterns valid for current chord-scale character, transposed to current root
     const transposedPresets = useMemo(() => {
         return PROGRESSION_PATTERNS.filter(
-            (p) =>
-                p.keyType === 'any' ||
-                (keyMode === 'Major' ? p.keyType === 'major' : p.keyType === 'minor')
+            (p) => p.keyType === 'any' || (isMinor ? p.keyType === 'minor' : p.keyType === 'major')
         ).map((p) => ({
             ...p,
             chords: transposePattern(p.pattern, rootNote),
         }));
-    }, [rootNote, keyMode]);
+    }, [rootNote, isMinor]);
 
     useEffect(() => {
         setPresetGenre('all');
-    }, [rootNote, keyMode]);
+    }, [rootNote, isMinor]);
 
     const filteredPresets = useMemo(() => {
         if (presetGenre === 'all') return transposedPresets;
@@ -98,7 +96,7 @@ export function ProgressionPanel({
                 <div className="flex items-center justify-between mb-2">
                     <div className="flex items-center gap-1">
                         <span className="text-[9px] uppercase tracking-wider text-slate-400 font-bold mr-1">
-                            {rootNote} {keyMode === 'Major' ? 'dur' : 'moll'}
+                            {rootNote} {scaleLabel}
                         </span>
                         {GENRE_TABS.map((tab) => (
                             <button
@@ -135,7 +133,7 @@ export function ProgressionPanel({
                                 name={p.name}
                                 chords={p.chords}
                                 description={p.description}
-                                onLoad={() => onLoadProgression(p.chords, rootNote, keyMode)}
+                                onLoad={() => onLoadProgression(p.chords, rootNote)}
                             />
                         ))}
                     </div>
@@ -198,38 +196,14 @@ export function ProgressionPanel({
                         Legg til akkorder manuelt
                     </span>
                     <span className="text-[10px] text-slate-400">
-                        — {rootNote} {keyMode === 'Major' ? 'dur' : 'moll'}
+                        - {rootNote} {scaleLabel}
                     </span>
                 </div>
                 <ChevronIcon open={builderOpen} />
             </button>
 
             {builderOpen && (
-                <div className="px-4 pb-2.5 border-t border-slate-100">
-                    <div className="flex items-center justify-between gap-3 py-1.5 flex-wrap">
-                        <div className="flex gap-1 bg-slate-100 p-0.5 rounded-md border border-slate-200">
-                            <button
-                                onClick={() => onKeyModeChange('Major')}
-                                className={`px-2 py-0.5 rounded text-xs font-bold transition-colors ${
-                                    keyMode === 'Major'
-                                        ? 'bg-white shadow text-slate-800'
-                                        : 'text-slate-500'
-                                }`}
-                            >
-                                Dur
-                            </button>
-                            <button
-                                onClick={() => onKeyModeChange('Minor')}
-                                className={`px-2 py-0.5 rounded text-xs font-bold transition-colors ${
-                                    keyMode === 'Minor'
-                                        ? 'bg-white shadow text-slate-800'
-                                        : 'text-slate-500'
-                                }`}
-                            >
-                                Moll
-                            </button>
-                        </div>
-                    </div>
+                <div className="px-4 pb-2.5 pt-1.5 border-t border-slate-100">
                     <div className="flex flex-wrap items-center gap-1.5">
                         {diatonic.map((chord, i) => {
                             const roman = romanNumeral(chord.degree, chord.quality);

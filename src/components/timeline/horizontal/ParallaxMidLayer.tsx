@@ -1,6 +1,9 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { motion, type MotionValue } from 'framer-motion';
 import { ERA_BOUNDS, TOTAL_WIDTH, getYearLandmarks, formatYear } from '../../../utils/timelineLayout';
+
+// Statiske data — beregnes én gang på modul-load.
+const LANDMARKS = getYearLandmarks();
 
 interface Props {
     x: MotionValue<number>;
@@ -11,7 +14,6 @@ interface Props {
 // Beveger seg langsommere enn forgrunnen (0.6× via x-multiplikator i parent),
 // så det føles som en bakvegg av historie elever beveger seg gjennom.
 export const ParallaxMidLayer: React.FC<Props> = ({ x, viewportWidth }) => {
-    const landmarks = useMemo(() => getYearLandmarks(), []);
 
     return (
         <motion.div
@@ -43,7 +45,7 @@ export const ParallaxMidLayer: React.FC<Props> = ({ x, viewportWidth }) => {
             })}
 
             {/* Årstall-landemerker — plassert nær bunnen, over tidsaksen */}
-            {landmarks.map((mark) => (
+            {LANDMARKS.map((mark) => (
                 <div
                     key={mark.year}
                     className="absolute -translate-x-1/2 select-none font-display font-bold leading-none"

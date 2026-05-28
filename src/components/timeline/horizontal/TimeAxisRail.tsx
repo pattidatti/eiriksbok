@@ -1,23 +1,34 @@
-import React, { useMemo } from 'react';
-import { motion, useTransform, type MotionValue } from 'framer-motion';
-import { ERA_BOUNDS, formatYear, TOTAL_WIDTH } from '../../../utils/timelineLayout';
-import { getEraForYear } from '../../../data/timelineEras';
+import React, { useState } from 'react';
+import { motion, useMotionValueEvent, useTransform, type MotionValue } from 'framer-motion';
+import { ERA_BOUNDS, formatYear, TOTAL_WIDTH, xToYear } from '../../../utils/timelineLayout';
+import { getEraForYear, ERAS } from '../../../data/timelineEras';
 
 interface Props {
-    currentYear: number;
     scrollProgress: MotionValue<number>;
+    horizontalDistance: number;
+    viewportWidth: number;
 }
 
 // Tynn akse nederst med epoke-bånd + flytende "current year"-lesetall.
-// Hele aksen er en sammendrag-strek i full bredde, ikke parallax — den representerer
-// hele tidsspennet i komprimert form, mens scene-en over driver det utvidede synet.
-export const TimeAxisRail: React.FC<Props> = ({ currentYear, scrollProgress }) => {
-    const era = useMemo(() => getEraForYear(currentYear), [currentYear]);
+// Vi tar inn MotionValue direkte (ikke et tall) og holder currentYear-state lokalt
+// her, slik at parent ikke re-rendrer på hver scroll-tick.
+export const TimeAxisRail: React.FC<Props> = ({
+    scrollProgress,
+    horizontalDistance,
+    viewportWidth,
+}) => {
+    const [currentYear, setCurrentYear] = useState<number>(ERAS[0].startYear);
+
+    useMotionValueEvent(scrollProgress, 'change', (latest) => {
+        const xVal = latest * horizontalDistance;
+        setCurrentYear(xToYear(xVal + viewportWidth / 2));
+    });
+
+    const era = getEraForYear(currentYear);
     const progressPct = useTransform(scrollProgress, [0, 1], ['0%', '100%']);
 
     return (
         <div className="absolute bottom-0 left-0 right-0 z-10 bg-slate-950/85 backdrop-blur-sm">
-            {/* Stor current-year readout */}
             <div className="flex items-center justify-between px-6 py-3 text-white">
                 <div className="flex items-baseline gap-3">
                     <span
@@ -35,7 +46,6 @@ export const TimeAxisRail: React.FC<Props> = ({ currentYear, scrollProgress }) =
                 </div>
             </div>
 
-            {/* Komprimert epoke-bånd */}
             <div className="relative h-2 w-full overflow-hidden">
                 {ERA_BOUNDS.map(({ era: e, xStart, xEnd }) => (
                     <div
@@ -49,7 +59,6 @@ export const TimeAxisRail: React.FC<Props> = ({ currentYear, scrollProgress }) =
                         }}
                     />
                 ))}
-                {/* Posisjons-indikator */}
                 <motion.div
                     className="absolute top-0 h-full w-0.5 bg-white shadow-[0_0_8px_rgba(255,255,255,0.8)]"
                     style={{ left: progressPct }}

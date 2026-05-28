@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
-import { getEraForYear } from '../data/timelineEras';
+import { ERAS, getEraForYear } from '../data/timelineEras';
 import type { GlobalTimelineEvent } from '../types';
+
+const FALLBACK_ERA = ERAS[ERAS.length - 1];
 
 // Manifestet over event→bilde-koblinger genereres av scripts/generate-timeline-images.mjs.
 // Vi laster det én gang på modulnivå (samme livssyklus som useGlobalTimeline) og deler
@@ -48,7 +50,7 @@ export function useTimelineImage(event: GlobalTimelineEvent | null): TimelineIma
     }, [map]);
 
     if (!event) {
-        return { src: null, eraId: 'var-tid', eraColor: '#db2777' };
+        return { src: null, eraId: FALLBACK_ERA.id, eraColor: FALLBACK_ERA.color };
     }
 
     const era = getEraForYear(event.startDate);

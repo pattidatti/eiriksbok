@@ -89,6 +89,19 @@ export const SCALES: Record<ScaleFamily, ScaleDefinition> = {
     },
 };
 
+const MINORISH_SCALES: ReadonlySet<ScaleFamily> = new Set([
+    'pentatonic-minor',
+    'blues',
+    'minor',
+    'dorian',
+    'phrygian',
+    'locrian',
+]);
+
+export function isMinorish(family: ScaleFamily): boolean {
+    return MINORISH_SCALES.has(family);
+}
+
 export const SCALE_ORDER: ScaleFamily[] = [
     'pentatonic-minor',
     'pentatonic-major',
