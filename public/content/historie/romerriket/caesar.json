@@ -1,0 +1,182 @@
+{
+    "id": "caesar",
+    "title": "Julius Cæsar — mannen som knuste republikken",
+    "layout": "rich",
+    "year": "100 fvt. - 44 fvt.",
+    "category": "Antikken",
+    "readTime": "10 min lesning",
+    "heroImage": "/images/placeholder.webp",
+    "details": [
+        "Erobret Gallia på åtte år",
+        "Krysset Rubicon og startet borgerkrig",
+        "Reformerte kalenderen vi nesten bruker i dag",
+        "Drept av sine egne venner — men hans navn lever videre som «keiser»"
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Det er januar år 49 fvt. En mann står ved en liten elv i Nord-Italia. Bak ham står 5 000 lojale soldater. Foran ham ligger Roma — byen som har gjort ham rik, berømt og hatet. Hvis han krysser elven med soldatene sine, bryter han loven. Hvis han sender soldatene hjem, dør han sannsynligvis. Mannen heter Gaius Julius Cæsar. Han trekker pusten, og sier de tre ordene som forandrer historien: «Alea iacta est» — terningen er kastet."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Julius Cæsar i romersk rustning ved bredden av elven Rubicon med soldater bak seg",
+            "caption": "Ved Rubicon, 49 fvt. — øyeblikket der den romerske republikken fikk dødsstøtet."
+        },
+        {
+            "type": "header",
+            "content": "Den unge mannen som ville opp"
+        },
+        {
+            "type": "text",
+            "content": "Cæsar ble født i år 100 fvt. inn i en gammel, men ikke spesielt rik adelsfamilie. Faren døde da han var 16, og Cæsar måtte tidlig lære å klare seg selv. Han var smart, sjarmerende og en god taler. Men det viktigste: han var sulten. I et Roma der hundrevis av familier kjempet om noen få topp-posisjoner, måtte han vinne hvert spill."
+        },
+        {
+            "type": "text",
+            "content": "Som ung politiker tok han opp enorme lån for å betale for festspill og bestikkelser. Det var måten å bygge popularitet på. Da han ble valgt til konsul i 59 fvt., hadde han så mye gjeld at fiendene hans håpet han ville bli ruinert. Cæsars løsning var enkel: bli guvernør i Gallia, slå et folk i krig, og send slaver og gull hjem. Krig var den raskeste veien til rikdom."
+        },
+        {
+            "type": "header",
+            "content": "Åtte år i Gallia"
+        },
+        {
+            "type": "text",
+            "content": "Fra 58 til 50 fvt. ledet Cæsar romerske legioner gjennom det som i dag er Frankrike, Belgia og deler av Tyskland. Han skrev senere selv om felttogene i boken «De Bello Gallico» — en bok som ungdom over hele Europa fortsatt leser på latintimene. I sine egne ord var han alltid den smarteste, alltid den modigste, alltid den som reddet dagen."
+        },
+        {
+            "type": "text",
+            "content": "Virkeligheten var blodigere enn boken. Cæsar drepte trolig over en million mennesker og solgte minst like mange som slaver. Han brente landsbyer, sultet ut byer og hugget av hendene på fanger. Men i Roma var han en helt. Gullet han sendte hjem fylte tempelhvelvene. Soldatene hans elsket ham fordi han delte byttet rettferdig og kjempet ved siden av dem. Senatet, derimot, ble livredd. En general med så mye penger, så mange soldater og så stor popularitet — det var nøyaktig den typen mann republikken var bygget for å stoppe."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Romerske legionærer marsjerer gjennom en gallisk skog med skjold og standarter",
+            "caption": "Cæsars legioner i Gallia — åtte år med erobring som finansierte hans politiske karriere."
+        },
+        {
+            "type": "header",
+            "content": "Valget ved Rubicon"
+        },
+        {
+            "type": "text",
+            "content": "I år 49 fvt. krevde senatet at Cæsar la ned kommandoen og kom hjem som privatperson. Loven var klar: ingen general fikk krysse elven Rubicon med hæren sin. Å gjøre det var høyforræderi. Men Cæsar visste også hva som ventet ham i Roma uten soldater — fiender som hatet ham, anklager om krigsforbrytelser, og sannsynligvis dødsstraff. Han hadde tre valg, og alle var dårlige."
+        },
+        {
+            "type": "component",
+            "name": "RubiconChoice",
+            "props": {
+                "title": "Ved Rubicon, januar 49 fvt."
+            }
+        },
+        {
+            "type": "header",
+            "content": "Diktator på livstid"
+        },
+        {
+            "type": "text",
+            "content": "Borgerkrigen tok fire år. Cæsar jaget motstanderne sine fra Italia til Hellas til Egypt til Spania. Han vant alle slagene. Da støvet la seg i år 45 fvt., var han alene på toppen. Senatet ga ham tittelen «dictator perpetuo» — diktator på livstid. I republikken var diktator opprinnelig en nødtittel som varte i seks måneder. På livstid betydde noe nytt: en konge i alt annet enn navnet."
+        },
+        {
+            "type": "text",
+            "content": "Cæsar brukte makten sin. Han ga jord til soldatene sine. Han ga romersk borgerskap til mennesker i provinsene. Han startet store byggeprosjekter for å gi de fattige arbeid. Og han reformerte kalenderen. Den gamle romerske kalenderen var rotete og upresis. Cæsar fikk astronomer fra Alexandria til å lage en ny med 365 dager og et skuddår hvert fjerde år. Det er nesten den samme kalenderen vi bruker i dag — bare litt justert av paven 1 600 år senere."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Måneden som heter Cæsar",
+                "content": "Den sjuende måneden i året het opprinnelig «Quintilis» — den femte. Etter at Cæsar døde, ble den omdøpt til «Julius» til ære for ham. På norsk: juli. Hans grandnevø Augustus fikk august oppkalt etter seg på samme måte. To måneder i året bærer fortsatt navnene deres."
+            }
+        },
+        {
+            "type": "header",
+            "content": "Idene mars"
+        },
+        {
+            "type": "text",
+            "content": "Den 15. mars år 44 fvt. — Idene mars, som romerne kalte det — gikk Cæsar til senatsmøtet. Han var advart. En spåkone hadde sagt «vokt deg for Idene mars». Hans egen kone hadde drømt mareritt. Men Cæsar trodde ikke på spådommer. Inne i senatet ventet rundt seksti senatorer med dolker skjult under togaene. De stormet mot ham. Cæsar prøvde å forsvare seg, men da han så vennen Marcus Brutus blant morderne, ga han opp. «Et tu, Brute?» — også du, Brutus? — skal han ha sagt før han dekket ansiktet med togaen og lot dolkene falle. Han fikk 23 stikk."
+        },
+        {
+            "type": "text",
+            "content": "Morderne trodde de hadde reddet republikken. De tok grusomt feil. Folket elsket Cæsar og hatet senatorene som hadde drept ham. Roma kastet seg ut i en ny borgerkrig, enda verre enn den forrige. Cæsars adopterte sønn, den unge Oktavian, knuste til slutt alle motstandere og ble Romas første offisielle keiser under navnet Augustus. Republikken var ferdig — for godt."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Romerske senatorer med dolker omringer Cæsar i marmorhallen til senatet",
+            "caption": "Idene mars, 44 fvt. — drapet som skulle redde republikken, men i stedet sikret keiserdømmet."
+        },
+        {
+            "type": "header",
+            "content": "Et navn som ble en tittel"
+        },
+        {
+            "type": "text",
+            "content": "Cæsar levde bare 56 år, men navnet hans overlevde i 2 000. I Tyskland het keiseren «Kaiser». I Russland het han «Tsar». Begge ordene kommer rett fra «Cæsar». Når noen i dag sier at en politiker «krysser sin Rubicon», mener de at vedkommende har gjort et valg som ikke kan trekkes tilbake. Cæsars liv er ett av historiens beste eksempler på at én person, på rett sted til rett tid, faktisk kan endre alt — på godt og vondt."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hva betyr Cæsars berømte uttalelse «Alea iacta est»?",
+                        "options": [
+                            "Veien er klar",
+                            "Terningen er kastet",
+                            "Roma må styres",
+                            "Gud være med oss"
+                        ],
+                        "correctAnswer": 1,
+                        "explanation": "«Alea iacta est» — terningen er kastet. Cæsar sa det da han krysset Rubicon og bestemte seg for borgerkrig."
+                    },
+                    {
+                        "question": "Hvorfor var det forbudt for Cæsar å krysse Rubicon med hæren sin?",
+                        "options": [
+                            "Elven var hellig for Mars",
+                            "Loven sa at ingen general fikk komme med hær til Italia",
+                            "Rubicon tilhørte et fiendtlig folk",
+                            "Det var midt på vinteren"
+                        ],
+                        "correctAnswer": 1,
+                        "explanation": "Rubicon markerte grensen til Italia. Romersk lov forbød generaler å bringe hæren over — det skulle hindre nettopp det Cæsar gjorde: militærkupp."
+                    },
+                    {
+                        "question": "Hva het Cæsars adopterte sønn som ble Romas første keiser?",
+                        "options": [
+                            "Marcus Brutus",
+                            "Marcus Antonius",
+                            "Oktavian (Augustus)",
+                            "Pompeius"
+                        ],
+                        "correctAnswer": 2,
+                        "explanation": "Oktavian, Cæsars grandnevø og adopterte sønn, vant maktkampen etter drapet og tok navnet Augustus som Romas første keiser."
+                    },
+                    {
+                        "question": "Hvilken reform gjorde Cæsar som vi fortsatt bruker i dag?",
+                        "options": [
+                            "Han innførte demokrati",
+                            "Han laget en ny kalender med 365 dager og skuddår",
+                            "Han skrev grunnloven til Roma",
+                            "Han avskaffet slaveriet"
+                        ],
+                        "correctAnswer": 1,
+                        "explanation": "Den julianske kalenderen — Cæsars verk — er nesten identisk med den vi bruker i dag, bare litt justert i 1582."
+                    },
+                    {
+                        "question": "Hvorfor ble Cæsar drept den 15. mars 44 fvt.?",
+                        "options": [
+                            "Senatorene mente han ville bli konge og knuse republikken",
+                            "Han hadde tapt en krig mot Egypt",
+                            "Folket hadde mistet troen på ham",
+                            "Hans egne soldater hadde gjort opprør"
+                        ],
+                        "correctAnswer": 0,
+                        "explanation": "Rundt seksti senatorer fryktet at Cæsars makt på livstid betydde slutten for republikken. Drapet skulle redde den — men førte i stedet til keiserdømmet."
+                    }
+                ]
+            }
+        }
+    ],
+    "timeline": []
+}

@@ -381,6 +381,24 @@
       ]
     },
     {
+      "id": "caesar",
+      "title": "Julius Cæsar — mannen som knuste republikken",
+      "description": "Generalen som krysset Rubicon, knuste 460 år gammelt styre — og ble drept av sine egne venner.",
+      "startDate": -100,
+      "endDate": -44,
+      "displayDate": "100 fvt. - 44 fvt.",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "romerriket",
+      "link": "/historie/romerriket/caesar",
+      "tags": [
+        "antikken",
+        "roma",
+        "republikk",
+        "caesar"
+      ]
+    },
+    {
       "id": "den-romerske-legionen",
       "title": "Den romerske legionen",
       "description": "Utforsk antikkens mest effektive krigsmaskin: trening, utstyr og de legendariske formasjonene.",
