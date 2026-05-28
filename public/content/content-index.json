@@ -1,5 +1,5 @@
 {
-  "buildId": 1779996066568,
+  "buildId": 1779996970950,
   "contentMap": {
     "concept-adel": [
       "content/concepts/adel.json"
@@ -1350,6 +1350,9 @@
     ],
     "augustus-og-keiserdomme": [
       "content/historie/romerriket/augustus-og-keiserdomme.json"
+    ],
+    "caesar": [
+      "content/historie/romerriket/caesar.json"
     ],
     "den-romerske-legionen": [
       "content/historie/romerriket/den-romerske-legionen.json"
@@ -3347,6 +3350,7 @@
     "historie/renessansen/oversikt": "content/historie/renessansen/oversikt.json",
     "historie/romerriket/arven-etter-romerriket": "content/historie/romerriket/arven-etter-romerriket.json",
     "historie/romerriket/augustus-og-keiserdomme": "content/historie/romerriket/augustus-og-keiserdomme.json",
+    "historie/romerriket/caesar": "content/historie/romerriket/caesar.json",
     "historie/romerriket/den-romerske-legionen": "content/historie/romerriket/den-romerske-legionen.json",
     "historie/romerriket/diokletian": "content/historie/romerriket/diokletian.json",
     "historie/romerriket/handel-og-silkeveien": "content/historie/romerriket/handel-og-silkeveien.json",

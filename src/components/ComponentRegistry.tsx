@@ -179,6 +179,7 @@ const IranContraSpor = lazy(() => import('./content/interactive/IranContraSpor')
 const HygieneTidsreise = lazy(() => import('./content/interactive/HygieneTidsreise').then(m => ({ default: m.HygieneTidsreise })));
 const RetorikkMikseren = lazy(() => import('./content/interactive/RetorikkMikseren').then(m => ({ default: m.RetorikkMikseren })));
 const RunebommeExplorer = lazy(() => import('./content/interactive/RunebommeExplorer').then(m => ({ default: m.RunebommeExplorer })));
+const RubiconChoice = lazy(() => import('./content/interactive/RubiconChoice').then(m => ({ default: m.RubiconChoice })));
 
 export const componentRegistry: Record<string, React.ComponentType<any>> = {
     // Core
@@ -358,6 +359,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     HygieneTidsreise,
     RetorikkMikseren,
     RunebommeExplorer,
+    RubiconChoice,
     Gallery,
     gallery: Gallery,
     comparison: Comparison,
