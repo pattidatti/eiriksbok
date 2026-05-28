@@ -10,7 +10,7 @@ const ERA_WIDTHS: Record<string, number> = {
     middelalder: 2200,
     'tidlig-moderne': 1600,
     opplysning: 2200,
-    '1900-tallet': 2600,
+    '1900-tallet': 6000,
     'var-tid': 1600,
 };
 

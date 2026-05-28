@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { motion } from 'framer-motion';
 import type { GlobalTimelineEvent } from '../../../types';
 import { useTimelineImage } from '../../../hooks/useTimelineImage';
@@ -8,20 +8,23 @@ interface HorizontalEventCardProps {
     event: GlobalTimelineEvent;
     x: number;
     laneOffset: number;
-    onClick: () => void;
+    onEventClick: (event: GlobalTimelineEvent) => void;
     isSelected: boolean;
 }
 
 export const HorizontalEventCard: React.FC<HorizontalEventCardProps> = React.memo(
-    ({ event, x, laneOffset, onClick, isSelected }) => {
+    ({ event, x, laneOffset, onEventClick, isSelected }) => {
         const { src, eraColor } = useTimelineImage(event);
+        // Stabil onClick basert på event-id + dispatcher fra parent. Parent sender
+        // samme onEventClick-referanse mellom rendre, så React.memo holder.
+        const handleClick = useCallback(() => onEventClick(event), [event, onEventClick]);
 
         return (
             <motion.button
                 type="button"
-                onClick={onClick}
+                onClick={handleClick}
                 aria-label={`${event.title} (${event.displayDate})`}
-                className="absolute left-0 top-1/2 w-[220px] -translate-x-1/2 cursor-pointer select-none overflow-hidden rounded-xl bg-white text-left shadow-[0_8px_24px_-8px_rgba(0,0,0,0.6)] ring-1 ring-black/10 outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
+                className="absolute left-0 top-1/2 w-[140px] -translate-x-1/2 cursor-pointer select-none overflow-hidden rounded-xl bg-white text-left shadow-[0_8px_24px_-8px_rgba(0,0,0,0.6)] ring-1 ring-black/10 outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
                 style={{
                     transform: `translate3d(${x}px, calc(-50% + ${laneOffset}px), 0)`,
                     willChange: 'transform',
@@ -31,7 +34,6 @@ export const HorizontalEventCard: React.FC<HorizontalEventCardProps> = React.mem
                 }}
                 whileHover={{
                     scale: 1.06,
-                    zIndex: 20,
                     transition: { type: 'spring', stiffness: 320, damping: 22 },
                 }}
                 whileTap={{ scale: 0.97 }}
@@ -52,14 +54,14 @@ export const HorizontalEventCard: React.FC<HorizontalEventCardProps> = React.mem
                         style={{ background: eraColor }}
                     />
                 </div>
-                <div className="px-3 py-2">
+                <div className="px-2 py-1.5">
                     <div
-                        className="mb-0.5 font-display text-[10px] font-bold uppercase tracking-wider"
+                        className="mb-0.5 font-display text-[9px] font-bold uppercase tracking-wider"
                         style={{ color: eraColor }}
                     >
                         {event.displayDate}
                     </div>
-                    <div className="line-clamp-2 text-[13px] font-semibold leading-tight text-slate-900">
+                    <div className="line-clamp-2 text-[11px] font-semibold leading-tight text-slate-900">
                         {event.title}
                     </div>
                 </div>
