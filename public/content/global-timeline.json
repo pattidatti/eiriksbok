@@ -3428,7 +3428,7 @@
     {
       "id": "unionsopplosningen-1905",
       "title": "Unionsoppløsningen 1905",
-      "description": "Hvordan Norge brøt ut av unionen med Sverige fredelig gjennom folkeavstemning og forhandlinger.",
+      "description": "Hvordan unionen med Sverige ble fredelig oppløst etter en spent sommer i 1905.",
       "startDate": 1905,
       "endDate": null,
       "displayDate": "1905",
@@ -3437,11 +3437,11 @@
       "topicId": "norgeshistorie",
       "link": "/historie/norgeshistorie/unionsopplosningen-1905",
       "tags": [
+        "historie",
         "norge",
-        "union",
+        "norgeshistorie",
         "selvstendighet",
-        "diplomati",
-        "1905"
+        "unionsoppløsning"
       ]
     },
     {

@@ -53,6 +53,7 @@ export const routeFactories: Record<string, PageFactory> = {
     CompositionTool: () => import('./features/music/components/composition/CompositionTool').then(module => ({ default: module.CompositionTool })),
     RhythmTapperPage: () => import('./features/music/pages/RhythmTapperPage'),
     EarTrainerPage: () => import('./features/music/pages/EarTrainerPage'),
+    GitarstudioPage: () => import('./features/music/pages/GitarstudioPage'),
     InfrastrukturAtlas: () => import('./features/infrastruktur/InfrastrukturAtlasPage').then(module => ({ default: module.InfrastrukturAtlasPage })),
     OkonomiVerden: () => import('./features/okonomi-verden/OkonomiVerdenPage').then(module => ({ default: module.OkonomiVerdenPage })),
     VirkemiddelverkstedetPage: () => import('./pages/VirkemiddelverkstedetPage').then(module => ({ default: module.VirkemiddelverkstedetPage })),

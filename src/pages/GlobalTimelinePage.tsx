@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { Sparkles, List } from 'lucide-react';
 import { TimelineView } from '../components/TimelineView';
 import { useGlobalTimeline } from '../hooks/useGlobalTimeline';
 import { EraRibbon } from '../components/timeline/EraRibbon';
@@ -9,14 +10,17 @@ import {
 } from '../components/timeline/TimelineFilters';
 import { EmptyState } from '../components/timeline/EmptyState';
 import { TimelinePeek } from '../components/timeline/TimelinePeek';
+import { HorizontalTimelineMode } from '../components/timeline/horizontal/HorizontalTimelineMode';
 import { getEraForYear, type Era } from '../data/timelineEras';
 import type { GlobalTimelineEvent } from '../types';
+
+type TimelineMode = 'klassisk' | 'magisk';
 
 const DEFAULT_FILTERS: TimelineFiltersState = {
     query: '',
     subjects: [],
     tags: [],
-    sort: 'asc',
+    sort: 'desc',
     showConnections: false,
 };
 
@@ -31,6 +35,24 @@ const GlobalTimelinePage: React.FC = () => {
     const [peekEvent, setPeekEvent] = useState<GlobalTimelineEvent | null>(null);
     const [hasInitialised, setHasInitialised] = useState(false);
     const [searchParams, setSearchParams] = useSearchParams();
+    const mode: TimelineMode = searchParams.get('mode') === 'magisk' ? 'magisk' : 'klassisk';
+
+    const handleModeChange = useCallback(
+        (next: TimelineMode) => {
+            setSearchParams(
+                (prev) => {
+                    const params = new URLSearchParams(prev);
+                    if (next === 'magisk') params.set('mode', 'magisk');
+                    else params.delete('mode');
+                    return params;
+                },
+                { replace: true }
+            );
+            // Scroll til toppen ved bytte slik at magisk-modus starter ved forhistorie
+            if (typeof window !== 'undefined') window.scrollTo({ top: 0, behavior: 'auto' });
+        },
+        [setSearchParams]
+    );
 
     const filteredEvents = useMemo(() => {
         const q = filters.query.trim().toLowerCase();
@@ -163,16 +185,37 @@ const GlobalTimelinePage: React.FC = () => {
         );
     }
 
+    if (mode === 'magisk') {
+        return (
+            <div className="relative">
+                <ModeToggle mode={mode} onChange={handleModeChange} variant="overlay" />
+                <HorizontalTimelineMode
+                    events={sortedEvents}
+                    onEventClick={handleEventClick}
+                    selectedEventId={peekEvent?.id ?? null}
+                />
+                <TimelinePeek
+                    event={peekEvent}
+                    onClose={handlePeekClose}
+                    onTagClick={handleTagFromPeek}
+                />
+            </div>
+        );
+    }
+
     return (
         <div className="max-w-7xl mx-auto px-4 py-8 md:py-12">
-            <header className="mb-6">
-                <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-2">
-                    Tidslinje
-                </h1>
-                <p className="text-base md:text-lg text-slate-600 max-w-2xl">
-                    Utforsk historien på tvers av fag. Klikk på en epoke for å hoppe,
-                    eller bruk søket og filtrene for å finne en spesifikk hendelse.
-                </p>
+            <header className="mb-6 flex flex-wrap items-start justify-between gap-4">
+                <div>
+                    <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-2">
+                        Tidslinje
+                    </h1>
+                    <p className="text-base md:text-lg text-slate-600 max-w-2xl">
+                        Utforsk historien på tvers av fag. Klikk på en epoke for å hoppe,
+                        eller bruk søket og filtrene for å finne en spesifikk hendelse.
+                    </p>
+                </div>
+                <ModeToggle mode={mode} onChange={handleModeChange} variant="inline" />
             </header>
 
             <div className="sticky top-0 z-30 -mx-4 px-4 pt-2 pb-3 bg-gradient-to-b from-slate-50 via-slate-50/95 to-transparent space-y-3">
@@ -213,6 +256,54 @@ const GlobalTimelinePage: React.FC = () => {
                 onClose={handlePeekClose}
                 onTagClick={handleTagFromPeek}
             />
+        </div>
+    );
+};
+
+interface ModeToggleProps {
+    mode: TimelineMode;
+    onChange: (next: TimelineMode) => void;
+    variant: 'inline' | 'overlay';
+}
+
+const ModeToggle: React.FC<ModeToggleProps> = ({ mode, onChange, variant }) => {
+    const baseBtn =
+        'flex items-center gap-2 px-3 py-2 text-sm font-semibold transition-colors rounded-lg';
+    const wrapperClass =
+        variant === 'overlay'
+            ? 'fixed top-20 right-6 z-40 flex gap-1 rounded-xl bg-slate-900/80 p-1 backdrop-blur ring-1 ring-white/10'
+            : 'flex gap-1 rounded-xl bg-slate-100 p-1 ring-1 ring-slate-200';
+    const activeClass =
+        variant === 'overlay'
+            ? 'bg-white text-slate-900'
+            : 'bg-white text-slate-900 shadow-sm';
+    const inactiveClass =
+        variant === 'overlay'
+            ? 'text-white/80 hover:text-white'
+            : 'text-slate-600 hover:text-slate-900';
+
+    return (
+        <div className={wrapperClass} role="tablist" aria-label="Tidslinje-modus">
+            <button
+                type="button"
+                role="tab"
+                aria-selected={mode === 'klassisk'}
+                onClick={() => onChange('klassisk')}
+                className={`${baseBtn} ${mode === 'klassisk' ? activeClass : inactiveClass}`}
+            >
+                <List size={16} />
+                Klassisk
+            </button>
+            <button
+                type="button"
+                role="tab"
+                aria-selected={mode === 'magisk'}
+                onClick={() => onChange('magisk')}
+                className={`${baseBtn} ${mode === 'magisk' ? activeClass : inactiveClass}`}
+            >
+                <Sparkles size={16} />
+                Magisk
+            </button>
         </div>
     );
 };

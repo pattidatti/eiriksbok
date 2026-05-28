@@ -23,6 +23,7 @@ const FULL_WIDTH_PATHS = [
     '/infrastruktur-atlas',
     '/samfunnskunnskap/okonomi/verden',
     '/oving/spill/',
+    '/musikk/gitarstudio',
 ];
 
 export const LayoutProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
