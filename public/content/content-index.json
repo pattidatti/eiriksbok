@@ -1,5 +1,5 @@
 {
-  "buildId": 1779996970950,
+  "buildId": 1779999917572,
   "contentMap": {
     "concept-adel": [
       "content/concepts/adel.json"
@@ -93,6 +93,9 @@
     ],
     "concept-blitzkrieg": [
       "content/concepts/blitzkrieg.json"
+    ],
+    "concept-blodhevn": [
+      "content/concepts/blodhevn.json"
     ],
     "concept-blokade": [
       "content/concepts/blokade.json"
@@ -463,6 +466,9 @@
     "concept-leiesoldater": [
       "content/concepts/leiesoldater.json"
     ],
+    "concept-lex-salica": [
+      "content/concepts/lex-salica.json"
+    ],
     "concept-liberalisme": [
       "content/concepts/liberalisme.json"
     ],
@@ -486,6 +492,9 @@
     ],
     "concept-manhattan-prosjektet": [
       "content/concepts/manhattan-prosjektet.json"
+    ],
+    "concept-mannebot": [
+      "content/concepts/mannebot.json"
     ],
     "concept-marshallhjelpen": [
       "content/concepts/marshallhjelpen.json"
@@ -958,6 +967,9 @@
     "concept-weimarrepublikken": [
       "content/concepts/weimarrepublikken.json"
     ],
+    "concept-wergild": [
+      "content/concepts/wergild.json"
+    ],
     "concept-yam": [
       "content/concepts/yam.json"
     ],
@@ -1200,6 +1212,9 @@
     ],
     "voc": [
       "content/historie/kolonialisering/voc.json"
+    ],
+    "wergild": [
+      "content/historie/lov-og-rett/wergild.json"
     ],
     "borskrakk": [
       "content/historie/mellomkrigstiden/borskrakk.json"
@@ -2932,6 +2947,7 @@
     "concepts/blankoblankett.json/blankoblankett": "content/concepts/blankoblankett.json",
     "concepts/bletchley-park.json/bletchley-park": "content/concepts/bletchley-park.json",
     "concepts/blitzkrieg.json/blitzkrieg": "content/concepts/blitzkrieg.json",
+    "concepts/blodhevn.json/blodhevn": "content/concepts/blodhevn.json",
     "concepts/blokade.json/blokade": "content/concepts/blokade.json",
     "concepts/bloody-sunday.json/bloody-sunday": "content/concepts/bloody-sunday.json",
     "concepts/boddel.json/boddel": "content/concepts/boddel.json",
@@ -3055,6 +3071,7 @@
     "concepts/leddsetning.json/leddsetning": "content/concepts/leddsetning.json",
     "concepts/legitimitet.json/legitimitet": "content/concepts/legitimitet.json",
     "concepts/leiesoldater.json/leiesoldater": "content/concepts/leiesoldater.json",
+    "concepts/lex-salica.json/lex-salica": "content/concepts/lex-salica.json",
     "concepts/liberalisme.json/liberalisme": "content/concepts/liberalisme.json",
     "concepts/logos.json/logos": "content/concepts/logos.json",
     "concepts/lojalitet.json/lojalitet": "content/concepts/lojalitet.json",
@@ -3063,6 +3080,7 @@
     "concepts/mad.json/mad": "content/concepts/mad.json",
     "concepts/mandatomrde.json/mandatomrde": "content/concepts/mandatomrde.json",
     "concepts/manhattan-prosjektet.json/manhattan-prosjektet": "content/concepts/manhattan-prosjektet.json",
+    "concepts/mannebot.json/mannebot": "content/concepts/mannebot.json",
     "concepts/marshallhjelpen.json/marshallhjelpen": "content/concepts/marshallhjelpen.json",
     "concepts/meditasjon.json/meditasjon": "content/concepts/meditasjon.json",
     "concepts/menneskeheten.json/menneskeheten": "content/concepts/menneskeheten.json",
@@ -3220,6 +3238,7 @@
     "concepts/vitenskap.json/vitenskap": "content/concepts/vitenskap.json",
     "concepts/wall-street.json/wall-street": "content/concepts/wall-street.json",
     "concepts/weimarrepublikken.json/weimarrepublikken": "content/concepts/weimarrepublikken.json",
+    "concepts/wergild.json/wergild": "content/concepts/wergild.json",
     "concepts/yam.json/yam": "content/concepts/yam.json",
     "concepts/ytringsfrihet.json/ytringsfrihet": "content/concepts/ytringsfrihet.json",
     "concepts/zeppeliner.json/zeppeliner": "content/concepts/zeppeliner.json",
@@ -3301,6 +3320,7 @@
     "historie/kolonialisering/trekanthandelen": "content/historie/kolonialisering/trekanthandelen.json",
     "historie/kolonialisering/verdenshandel-for-oppdagelsesreisene": "content/historie/kolonialisering/verdenshandel-for-oppdagelsesreisene.json",
     "historie/kolonialisering/voc": "content/historie/kolonialisering/voc.json",
+    "historie/lov-og-rett/wergild": "content/historie/lov-og-rett/wergild.json",
     "historie/mellomkrigstiden/borskrakk": "content/historie/mellomkrigstiden/borskrakk.json",
     "historie/mellomkrigstiden/folkeforbundet": "content/historie/mellomkrigstiden/folkeforbundet.json",
     "historie/mellomkrigstiden/italia": "content/historie/mellomkrigstiden/italia.json",

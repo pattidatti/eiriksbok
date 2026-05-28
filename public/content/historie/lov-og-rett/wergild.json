@@ -1,0 +1,211 @@
+{
+    "id": "wergild",
+    "title": "Wergild - drapets pris",
+    "subject": "Historie",
+    "topic": "Lov og rett",
+    "description": "I tidlig middelalder hadde drap en fast pris. Den varierte etter offerets status, og avslørte hierarkiet ned til siste sølvmynt.",
+    "tags": [
+        "wergild",
+        "lov",
+        "middelalder",
+        "germansk",
+        "rettsutvikling"
+    ],
+    "year": "500-1274",
+    "image": "/images/historie/lov-og-rett/wergild-hero.webp",
+    "heroImage": "/images/historie/lov-og-rett/wergild-hero.webp",
+    "layout": "rich",
+    "readTime": "8 min lesning",
+    "details": [
+        "Wergild satte fast pris på drap.",
+        "Prisen avslørte offerets sosiale status.",
+        "Systemet erstattet blodhevn med betaling."
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Det er år 600 et sted i Gallia. En fri bonde finner sin bror drept i åkeren. I dag ville politiet kommet. Men det finnes ingen politi. Det finnes ingen statsadvokat. Det finnes ikke engang en stat slik vi tenker på den. Bonden har bare to valg: ta hevn med sverd, eller kreve betaling. Han vet hva broren var verdt. Det står skrevet i loven. 200 solidi - prisen på en fri frank."
+        },
+        {
+            "type": "text",
+            "content": "Dette systemet kalles wergild, etter de gamle germanske ordene wer (mann) og gild (betaling). På norrønt het det mannebot. I flere hundre år styrte slike pristabeller hvordan folk i Nord-Europa løste sine verste konflikter."
+        },
+        {
+            "type": "header",
+            "text": "Blodhevn eller bot"
+        },
+        {
+            "type": "text",
+            "content": "Før wergild kom, hadde germanske folk én vei å gå når noen i ætten ble drept: hevn. Familien hadde rett og plikt til å drepe gjerningsmannen eller noen i hans ætt. Problemet var åpenbart. Hvert drap fødte et nytt drap. Konflikter mellom familier kunne vare i generasjoner og rive hele bygder fra hverandre."
+        },
+        {
+            "type": "text",
+            "content": "Wergild brøt spiralen. Hvis ætten godtok pengene, var saken avsluttet. Drapsmannen levde, men ble fattig. Den drepte ble erstattet med sølv. Begge familier kunne fortsette å leve i samme bygd uten å frykte at den andre kom om natten."
+        },
+        {
+            "type": "text",
+            "content": "Det viktige var at valget lå hos ætten. De kunne fortsatt nekte boten og kreve hevn. Loven sa bare hvor mye drapsmannen måtte betale hvis familien godtok. Det var et lite, men avgjørende skritt mot at samfunnet, ikke familien, bestemte hvordan vold skulle straffes."
+        },
+        {
+            "type": "header",
+            "text": "Pristabellen"
+        },
+        {
+            "type": "text",
+            "content": "Det første store skrittet ble tatt i Frankerriket. Rundt år 500 lot kong Klodvig den saliske loven (Lex Salica) skrive ned. Det var en av Europas eldste nedskrevne lover. I den fantes en pristabell som listet hver tenkelig forbrytelse: drap, lemlestelse, ran, fornærmelse. Hver hadde sin sats."
+        },
+        {
+            "type": "text",
+            "content": "Pristabellen var ikke nøytral. En edelmann var verdt seks ganger en fri bonde. En romer som levde under frankisk styre var verdt halvparten av en frank. En træl hadde ingen wergild i det hele tatt - eieren fikk erstatning som for et drept dyr. Loven satte ikke bare en pris på drap. Den satte en pris på menneskelig verdi, og prisen sa rett ut at noen mennesker var mer verdt enn andre."
+        },
+        {
+            "type": "component",
+            "name": "WergildCalculator",
+            "props": {}
+        },
+        {
+            "type": "header",
+            "text": "Fra Wessex til Gulating"
+        },
+        {
+            "type": "text",
+            "content": "Wergild spredte seg over hele det germanske Europa. Anglosakserne i England hadde sine tabeller, der en thegn (lavadelsmann) var verdt seks ganger en ceorl (fri bonde), og kongen så mye at ingen privat slekt kunne betale. Friserne, langobardene og burgunderne hadde sine egne varianter."
+        },
+        {
+            "type": "text",
+            "content": "I Norge ble systemet kalt mannebot og finnes i de eldste lovene vi har, Gulatingsloven og Frostatingsloven fra 1100-tallet. Her var en hauld, en odelsbonde med ætt langt tilbake, verdt 27 sølvmark. En vanlig fribonde var verdt 12 mark, en frigitt 6, og en træl bare 3 - og de gikk til eieren. Vil du se hele vikingtidens samfunn rundt dette, finner du tinget og ætten i full bredde i [Samfunn og rett i vikingtiden](/historie/vikingtiden/samfunn-og-rett). Wergild var den kontante prisen i bunnen av det hele."
+        },
+        {
+            "type": "text",
+            "content": "Det siste store wergild-systemet i Norge ble samlet av kong Magnus Lagabøte i hans landslov fra 1274. Men da var systemet allerede på vei ut. Loven var i ferd med å bli noe annet."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Kvinnens wergild",
+                "content": "Reglene for kvinner varierte mye. I Lex Salica var en kvinne i fertile år verdt det dobbelte av en mann med samme status, fordi hun kunne føde nye krigere. Eldre kvinner falt tilbake til vanlig pris. I norrøn lov var prisen mer lik mellom kjønnene, men det var alltid en mannlig slektning som mottok pengene."
+            }
+        },
+        {
+            "type": "header",
+            "text": "Hvorfor systemet forsvant"
+        },
+        {
+            "type": "text",
+            "content": "Wergild fungerte i samfunn uten sterk sentralmakt. Når kongen vokste seg sterk nok til å kreve at drap angikk ham, og ikke bare den drepte familien, mistet systemet sin grunn. Kongen ville ha bot betalt til seg, ikke til ætten. Han ville ha makt til å henrette mordere, ikke la dem kjøpe seg fri."
+        },
+        {
+            "type": "text",
+            "content": "Kristendommen dro i samme retning. Kirken lærte at drap var en synd mot Gud, ikke bare en skade mot en familie. Synden kunne ikke kjøpes bort med sølv. Den måtte straffes."
+        },
+        {
+            "type": "text",
+            "content": "Sammen drev kongemakt og kirke wergild ut av Europa. I England forsvant det med normannerne etter 1066. I Norge bygget Magnus Lagabøtes landslov fra 1274 et nytt system der kongen straffet, og bøtene gikk til ham. På 1500-tallet var wergild over hele Vest-Europa stort sett et historisk minne."
+        },
+        {
+            "type": "component",
+            "name": "QuoteBlock",
+            "props": {
+                "text": "Med lov skal land byggjast, og ikkje med ulov øydast.",
+                "author": "Frostatingsloven, ca. 1200"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Hva ble igjen?"
+        },
+        {
+            "type": "text",
+            "content": "Wergild forsvant, men ideen om at skade kan måles i penger forsvant aldri. Hver gang en domstol i dag tilkjenner ménerstatning til en skadelidt, eller oppreisning til pårørende etter et drap, lever det videre. Forskjellen er at ingen i dag kan slippe straff ved å betale boten. Sølvet kommer i tillegg til straffen, ikke i stedet for."
+        },
+        {
+            "type": "text",
+            "content": "Den andre arven er mer urovekkende. Wergild lærte oss at samfunn graderer menneskelig verdi. Vi tenker ikke lenger at en bonde er verdt en sjettedel av en adelsmann. Men forsikringer, erstatningsoppgjør og rettsmedisinske beregninger setter fortsatt tall på menneskeliv - bare med andre kriterier enn ætt. Pristabellen er ikke borte. Den er bare ompusset."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hva betyr ordet wergild?",
+                        "options": [
+                            "Mann-betaling (pris for drap)",
+                            "Gull til kongen",
+                            "Slavehandel",
+                            "Krigsskatt"
+                        ],
+                        "answer": "Mann-betaling (pris for drap)",
+                        "explanation": "Ordet kommer fra de gamle germanske ordene wer (mann) og gild (betaling). På norrønt het det mannebot."
+                    },
+                    {
+                        "question": "Hva var hovedformålet med wergild?",
+                        "options": [
+                            "Å bryte spiralen med blodhevn mellom ætter",
+                            "Å skaffe penger til kongen",
+                            "Å straffe morderne hardere",
+                            "Å holde slavene på plass"
+                        ],
+                        "answer": "Å bryte spiralen med blodhevn mellom ætter",
+                        "explanation": "Wergild ga familier et alternativ til hevn. Ved å godta boten kunne de stoppe konflikten istedenfor å la den vare i generasjoner."
+                    },
+                    {
+                        "question": "Hvor mye var en hauld (odelsbonde) verdt etter Gulatingsloven?",
+                        "options": [
+                            "27 sølvmark",
+                            "12 sølvmark",
+                            "100 solidi",
+                            "1200 shillings"
+                        ],
+                        "answer": "27 sølvmark",
+                        "explanation": "Hauld var den høyeste rangen blant frie bønder i norrøn rett, og hadde høyest mannebot - over dobbelt så mye som en vanlig fribonde."
+                    },
+                    {
+                        "question": "Hvorfor forsvant wergild-systemet?",
+                        "options": [
+                            "Kongemakt og kirke ville at staten skulle straffe drap, ikke familien",
+                            "Folk hadde ikke nok sølv lenger",
+                            "Slavene gjorde opprør",
+                            "Det ble for dyrt for de rike"
+                        ],
+                        "answer": "Kongemakt og kirke ville at staten skulle straffe drap, ikke familien",
+                        "explanation": "Sterke konger ville ha bøtene til seg selv, og kirken så drap som synd mot Gud som ikke kunne kjøpes bort. Begge dro mot en sentralisert strafferett."
+                    }
+                ]
+            }
+        }
+    ],
+    "timeline": [
+        {
+            "id": "lex-salica-500",
+            "title": "Lex Salica nedskrives",
+            "description": "Kong Klodvig av frankerne lar nedskrive en av Europas eldste lover, med detaljert wergild-tabell.",
+            "startDate": 500,
+            "displayDate": "Ca. 500"
+        },
+        {
+            "id": "wessex-wergild-700",
+            "title": "Anglosaksisk wergild",
+            "description": "Kong Ines lover i Wessex fastsetter wergild for thegn, ceorl og slave.",
+            "startDate": 694,
+            "displayDate": "Ca. 700"
+        },
+        {
+            "id": "gulating-wergild-1100",
+            "title": "Gulatingsloven kodifiseres",
+            "description": "Norges eldste landskapslov samler regler om mannebot og bot for skade.",
+            "startDate": 1100,
+            "displayDate": "1100-tallet"
+        },
+        {
+            "id": "magnus-lagabote-1274",
+            "title": "Magnus Lagabøtes landslov",
+            "description": "Den siste store wergild-loven i Norge. Kongen tar over rollen som straffemyndighet.",
+            "startDate": 1274,
+            "displayDate": "1274"
+        }
+    ],
+    "createdDate": "2026-05-28T00:00:00Z",
+    "lastUpdated": "2026-05-28T00:00:00Z"
+}

@@ -721,6 +721,25 @@
       ]
     },
     {
+      "id": "wergild",
+      "title": "Wergild - drapets pris",
+      "description": "I tidlig middelalder hadde drap en fast pris. Den varierte etter offerets status, og avslørte hierarkiet ned til siste sølvmynt.",
+      "startDate": 500,
+      "endDate": 1274,
+      "displayDate": "500-1274",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "lov-og-rett",
+      "link": "/historie/lov-og-rett/wergild",
+      "tags": [
+        "wergild",
+        "lov",
+        "middelalder",
+        "germansk",
+        "rettsutvikling"
+      ]
+    },
+    {
       "id": "middelalderen",
       "title": "Middelalderen",
       "description": "En tusenårig forvandling i Europa.",

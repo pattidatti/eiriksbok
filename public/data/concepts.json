@@ -1,10 +1,63 @@
 [
   {
+    "id": "adel",
+    "term": "Adel",
+    "aliases": [
+      "adelen",
+      "adelskap",
+      "adelig",
+      "adelige"
+    ],
+    "definition": "En samfunnsklasse som historisk har hatt særskilte privilegier, ofte arvelige, som fritak for skatt og enerett til visse embeter.",
+    "type": "concept",
+    "tags": [
+      "samfunn",
+      "historie",
+      "makt",
+      "privilegier"
+    ],
+    "subject": "historie"
+  },
+  {
+    "id": "aerlighet",
+    "term": "Ærlighet",
+    "definition": "Å snakke sant og handle uten å lyve. Sentral dyd i de fleste etiske systemer."
+  },
+  {
+    "id": "agens",
+    "term": "agens",
+    "definition": "Evnen til å handle og påvirke sine egne omgivelser. En karakter med agens tar egne valg som driver historien fremover, i stedet for å bare reagere på det som skjer.",
+    "subject": "norsk",
+    "topic": "skrivehjelp",
+    "tags": []
+  },
+  {
+    "id": "ahura-mazda",
+    "term": "Ahura Mazda",
+    "definition": "Den gode skaperguden i zoroastrismen, en av verdens første monoteistiske religioner. Står i evig kamp mot ondskapens makt, Angra Mainyu."
+  },
+  {
+    "id": "aksemaktene",
+    "term": "Aksemaktene",
+    "definition": "Alliansen mellom Tyskland, Italia og Japan.",
+    "subject": "historie",
+    "topic": "andre-verdenskrig",
+    "tags": []
+  },
+  {
     "id": "aksjeselskap",
     "term": "aksjeselskap",
     "definition": "En selskapsform der eierne har fordelt eierskapet gjennom aksjer. Man risikerer bare å tape pengene man har betalt for aksjene.",
     "subject": "historie",
     "topic": "kolonialisering",
+    "tags": []
+  },
+  {
+    "id": "allianse",
+    "term": "Allianse",
+    "definition": "En avtale mellom land om gjensidig støtte, ofte militært, hvis et av landene blir angrepet.",
+    "subject": "historie",
+    "topic": "forste-verdenskrig",
     "tags": []
   },
   {
@@ -32,6 +85,79 @@
     "tags": []
   },
   {
+    "id": "anforselstegn",
+    "title": "Anførselstegn",
+    "explanation": "Tegn som brukes for å markere direkte tale eller sitater. På norsk bruker vi ofte « » eller \" \". I denne guiden bruker vi \" \".",
+    "usage": "Husk å sette anførselstegn før og etter det personen sier.",
+    "links": []
+  },
+  {
+    "id": "angra-mainyu",
+    "term": "Angra Mainyu",
+    "definition": "Det ondes prinsipp i zoroastrismen, motsetningen til Ahura Mazda. Modellen for jødedommens og kristendommens djevelfigur."
+  },
+  {
+    "id": "anschluss",
+    "term": "Anschluss",
+    "definition": "Tysklands annektering (innlemmelse) av Østerrike i 1938.",
+    "subject": "historie",
+    "topic": "andre-verdenskrig",
+    "tags": []
+  },
+  {
+    "id": "antisemittisme",
+    "term": "Antisemittisme",
+    "definition": "Fordommer og hat rettet mot jøder. Har røtter i middelalderen, men nådde sitt mest brutale uttrykk i nazistenes Holocaust."
+  },
+  {
+    "id": "arbeidsmiljoloven",
+    "term": "Arbeidsmiljøloven",
+    "definition": "Den norske loven som beskytter arbeidstakere. Den regulerer blant annet arbeidstid, ferie, oppsigelse og sikkerhet på arbeidsplassen.",
+    "type": "concept",
+    "tags": [
+      "arbeidsliv",
+      "rettigheter",
+      "lov"
+    ],
+    "subject": "samfunnskunnskap"
+  },
+  {
+    "id": "arbeidsspesialisering",
+    "term": "Arbeidsspesialisering",
+    "definition": "Når en produksjonsprosess deles opp i mindre enkeltoppgaver, slik at hver arbeider blir spesialist på sin del av prosessen. Dette øker effektiviteten betydelig."
+  },
+  {
+    "id": "argumentasjon",
+    "term": "Argumentasjon",
+    "definition": "Måten man bygger opp grunner for et synspunkt. God argumentasjon består av en påstand, et belegg og en bakenforliggende grunn som binder dem sammen."
+  },
+  {
+    "id": "armada",
+    "term": "armada",
+    "aliases": [
+      "armadaen",
+      "armadaer",
+      "armadaene"
+    ],
+    "definition": "En stor flåte av krigsskip, mest kjent fra den spanske armadaen i 1588.",
+    "subject": "historie",
+    "tags": [
+      "krig",
+      "flåte",
+      "spania",
+      "historie"
+    ],
+    "type": "concept"
+  },
+  {
+    "id": "artilleri",
+    "term": "Artilleri",
+    "definition": "Tunge skytevåpen som kanoner og bombekastere, ment for å skyte over lange avstander.",
+    "subject": "historie",
+    "topic": "forste-verdenskrig",
+    "tags": []
+  },
+  {
     "id": "autoritaert-diktatur",
     "term": "autoritært diktatur",
     "definition": "Folket får ikke være med å bestemme, men kan til en viss grad mene ting. Staten kontrollerer politikken, men lar folk leve livene sine relativt fritt ellers.",
@@ -40,12 +166,319 @@
     "tags": []
   },
   {
-    "id": "diktatur",
-    "term": "diktatur",
-    "definition": "All makt er samlet hos én person eller en liten gruppe. Makten er ofte tatt med vold (kupp). Befolkningen har liten eller ingen mulighet til å påvirke styret.",
-    "subject": "samfunnskunnskap",
-    "topic": "styringsformer",
+    "id": "autoritet",
+    "term": "Autoritet",
+    "definition": "Anerkjent rett til å bestemme. Max Weber skilte mellom tradisjonell, karismatisk og rasjonell-juridisk autoritet."
+  },
+  {
+    "id": "avkolonisering",
+    "term": "Avkolonisering",
+    "definition": "Prosessen der kolonier blir selvstendige stater.",
+    "subject": "historie",
+    "topic": "andre-verdenskrig",
     "tags": []
+  },
+  {
+    "id": "avsnitt",
+    "term": "Avsnitt",
+    "definition": "En del av en tekst som består av en eller flere setninger som henger sammen og handler om det samme temaet.",
+    "links": []
+  },
+  {
+    "id": "balfour-erklaeringen",
+    "term": "Balfour-erklæringen",
+    "definition": "En formell uttalelse fra den britiske regjeringen i 1917 som uttrykte støtte til opprettelsen av et «nasjonalt hjem for det jødiske folk» i Palestina.",
+    "type": "concept",
+    "topic": "forste-verdenskrig",
+    "subject": "historie"
+  },
+  {
+    "id": "bevissthet",
+    "term": "Bevissthet",
+    "definition": "Å være våken og oppleve verden. En av filosofiens største gåter: Hvordan oppstår indre opplevelse av fysisk hjerneaktivitet?"
+  },
+  {
+    "id": "bindeord",
+    "term": "Bindeord",
+    "definition": "Ord eller faste uttrykk som binder sammen setninger eller avsnitt (f.eks. 'derfor', 'men', 'på den andre siden').",
+    "links": []
+  },
+  {
+    "id": "biologi",
+    "term": "Biologi",
+    "definition": "Vitenskapen om levende organismer - fra bakterier til hvaler. Studerer hvordan liv oppstår, fungerer og utvikler seg."
+  },
+  {
+    "id": "bitterhet",
+    "term": "Bitterhet",
+    "definition": "Vedvarende vrede over urett man har opplevd. Tyskland etter Versailles-freden var preget av nasjonal bitterhet."
+  },
+  {
+    "id": "blankoblankett",
+    "term": "Blankoblankett",
+    "definition": "Fullmakt eller uforbeholden støtte. Refererer til Tysklands løfte til Østerrike-Ungarn i 1914.",
+    "subject": "historie",
+    "topic": "forste-verdenskrig",
+    "tags": []
+  },
+  {
+    "id": "bletchley-park",
+    "term": "Bletchley Park",
+    "definition": "Britisk anlegg der kodeknekkere ledet av Alan Turing knekte den tyske Enigma-koden under andre verdenskrig. Arbeidet var hemmelig i 30 år etter krigen."
+  },
+  {
+    "id": "blitzkrieg",
+    "term": "Blitzkrieg",
+    "definition": "Tysk strategi basert på raske, koordinerte angrep med fly og panservogner.",
+    "subject": "historie",
+    "topic": "andre-verdenskrig",
+    "tags": []
+  },
+  {
+    "id": "blodhevn",
+    "term": "Blodhevn",
+    "aliases": [
+      "vendetta",
+      "ætt-hevn"
+    ],
+    "definition": "Privat hevn for drap der offerets familie hadde rett til å drepe gjerningsmannen eller noen i hans ætt. Ofte førte det til lange voldsspiraler mellom familier. Wergild ble utviklet som alternativ.",
+    "type": "concept",
+    "tags": [
+      "lov",
+      "vikingtiden",
+      "germansk",
+      "konflikt"
+    ],
+    "subject": "historie"
+  },
+  {
+    "id": "blokade",
+    "term": "Blokade",
+    "definition": "Å stenge av forsyninger til et land ved bruk av militærmakt, oftest skip.",
+    "subject": "historie",
+    "topic": "forste-verdenskrig",
+    "tags": []
+  },
+  {
+    "id": "bloody-sunday",
+    "term": "Bloody Sunday",
+    "definition": "Søndag 30. januar 1972 da britiske soldater skjøt og drepte 14 ubevæpnede demonstranter i Derry, Nord-Irland. Hendelsen radikaliserte konflikten."
+  },
+  {
+    "id": "boddel",
+    "term": "Bøddel",
+    "aliases": [
+      "bøddelen",
+      "bødler",
+      "bødlene"
+    ],
+    "definition": "En person som hadde som yrke å fullbyrde dødsstraffer og utføre fysiske avstraffelser på vegne av myndighetene.",
+    "type": "concept",
+    "tags": [
+      "historie",
+      "rettsvesen",
+      "straff",
+      "samfunn"
+    ],
+    "subject": "historie"
+  },
+  {
+    "id": "borskrakk",
+    "term": "Børskrakket 1929",
+    "definition": "Det plutselige og dramatiske fallet i aksjekursene på Wall Street i oktober 1929. Krakket markerte starten på den store depresjonen som rammet hele verden."
+  },
+  {
+    "id": "bretton-woods",
+    "term": "Bretton Woods",
+    "definition": "Konferanse i USA i 1944 som la grunnlaget for etterkrigstidens økonomiske system. Dollar ble verdens reservevaluta og Verdensbanken og IMF ble grunnlagt."
+  },
+  {
+    "id": "brutalitet",
+    "term": "Brutalitet",
+    "definition": "Ekstrem voldelighet uten medfølelse. Et begrep som ofte brukes om krigføring, undertrykkelse og diktaturers behandling av motstandere."
+  },
+  {
+    "id": "budskap",
+    "term": "Budskap",
+    "definition": "Det forfatteren ønsker å formidle til leseren gjennom teksten. Ofte en moral, en lærdom eller en holdning til temaet som utforskes.",
+    "subject": "norsk",
+    "topic": "skrivehjelp",
+    "tags": [
+      "litterær analyse",
+      "skriving"
+    ],
+    "type": "concept"
+  },
+  {
+    "id": "byraakrati",
+    "term": "Byråkrati",
+    "definition": "Organisasjon som styres av regler og embetsmenn som behandler alle likt etter loven. Sosiologen Max Weber så det som moderne samfunns ryggrad."
+  },
+  {
+    "id": "bysants",
+    "term": "Bysants",
+    "type": "concept",
+    "definition": "Det østromerske riket, med hovedstad i Konstantinopel (Miklagard). Et viktig imperium i middelalderen som hadde stor kulturell og økonomisk innflytelse på vikingene gjennom handel og leiesoldattjeneste (væringgarden).",
+    "tags": [
+      "imperium",
+      "middelalderen",
+      "handel",
+      "historie"
+    ]
+  },
+  {
+    "id": "casus-belli",
+    "term": "Casus belli",
+    "aliases": [],
+    "definition": "Latinsk uttrykk som betyr 'grunn til krig'. Brukes om en hendelse eller handling som gir en stat påskudd til å erklære krig.",
+    "type": "concept",
+    "tags": [
+      "diplomati",
+      "krig",
+      "latin"
+    ],
+    "subject": "historie"
+  },
+  {
+    "id": "civil-rights-act",
+    "term": "Civil Rights Act",
+    "definition": "Amerikansk lov fra 1964 som forbød diskriminering basert på rase, hudfarge, religion eller kjønn. President Lyndon B. Johnson signerte loven."
+  },
+  {
+    "id": "code-civil",
+    "term": "Code Civil",
+    "definition": "Napoleon-koden fra 1804 - Frankrikes sivillovbok. Likhet for loven, religionsfrihet og eiendomsrett ble lovfestet og spredt over Europa."
+  },
+  {
+    "id": "corpus-juris-civilis",
+    "term": "Corpus Juris Civilis",
+    "definition": "Romersk lovsamling utgitt av keiser Justinian rundt år 530. Den ble gjenoppdaget på 1100-tallet og er grunnlaget for europeisk rett."
+  },
+  {
+    "id": "cura-annonae",
+    "term": "Cura Annonae",
+    "definition": "Romerrikets korndistribusjon - gratis eller billig korn til Romas innbyggere. «Brød og sirkus» holdt befolkningen rolig."
+  },
+  {
+    "id": "d-dagen",
+    "term": "D-dagen",
+    "definition": "Den allierte invasjonen av Normandie i Frankrike 6. juni 1944.",
+    "subject": "historie",
+    "topic": "andre-verdenskrig",
+    "tags": []
+  },
+  {
+    "id": "dachau",
+    "term": "Dachau",
+    "definition": "Den første konsentrasjonsleiren etablert av nazistene i Tyskland (1933). Den fungerte som modell for alle senere leirer.",
+    "type": "concept",
+    "tags": [
+      "andre verdenskrig",
+      "holocaust",
+      "tyskland"
+    ],
+    "subject": "historie"
+  },
+  {
+    "id": "das-ding-an-sich",
+    "term": "Das Ding an sich",
+    "definition": "Kants begrep om «tingen i seg selv» - virkeligheten slik den faktisk er, uavhengig av hvordan vi opplever den. Den kan vi aldri kjenne direkte."
+  },
+  {
+    "id": "das-man",
+    "term": "Das Man",
+    "definition": "Heideggers begrep om «manmennesket» - det upersonlige «folk sier», «folk gjør». En tilstand der man slutter å ta egne valg."
+  },
+  {
+    "id": "de-allierte",
+    "term": "De allierte",
+    "definition": "Alliansen som kjempet mot Aksemaktene, ledet av Storbritannia, USA og Sovjetunionen.",
+    "subject": "historie",
+    "topic": "andre-verdenskrig",
+    "tags": []
+  },
+  {
+    "id": "de-forente-nasjoner-fn",
+    "term": "De forente nasjoner (FN)",
+    "definition": "Internasjonal organisasjon grunnlagt i 1945 for å fremme fred, samarbeid og menneskerettigheter.",
+    "subject": "historie",
+    "topic": "andre-verdenskrig",
+    "tags": []
+  },
+  {
+    "id": "defenestrasjon",
+    "term": "Defenestrasjon",
+    "definition": "Handlingen å kaste noen ut av et vindu (fra latin 'fenestra' = vindu).",
+    "subject": "historie",
+    "topic": "reformasjonen",
+    "tags": []
+  },
+  {
+    "id": "delegat",
+    "term": "Delegat",
+    "definition": "En person som er valgt eller utnevnt til å representere en gruppe, for eksempel et land i en fredsforhandling.",
+    "type": "concept",
+    "tags": [
+      "diplomati",
+      "politikk"
+    ],
+    "subject": "historie"
+  },
+  {
+    "id": "demilitarisert",
+    "term": "Demilitarisert",
+    "definition": "Et område der det ikke er lov å ha militære styrker, våpen eller forsvarsanlegg.",
+    "type": "concept",
+    "tags": [
+      "militæret",
+      "geografi",
+      "internasjonal politikk"
+    ],
+    "subject": "historie"
+  },
+  {
+    "id": "demografisk-overgang",
+    "term": "Den demografiske overgangen",
+    "definition": "En modell som beskriver overgangen fra høye fødsels- og dødsrater til lave, en prosess som skjer når et land gjennomgår industriell utvikling og modernisering."
+  },
+  {
+    "id": "demokrati",
+    "term": "Demokrati",
+    "definition": "En styreform hvor makten ligger hos folket, enten direkte eller gjennom valgte representanter. Demokratiet ble utfordret av totalitære regimer i mellomkrigstiden."
+  },
+  {
+    "id": "dendrokronologi",
+    "term": "dendrokronologi",
+    "definition": "Metode for å datere treverk ved å telle og analysere årringer. Brukes blant annet til å studere tidligere klimaforhold.",
+    "subject": "historie",
+    "topic": "klimakrisen-536",
+    "tags": [
+      "arkeologi",
+      "klima",
+      "metode"
+    ]
+  },
+  {
+    "id": "det-kategoriske-imperativ",
+    "term": "Det kategoriske imperativ",
+    "definition": "Kants etiske grunnregel: Handle bare etter en regel du samtidig kan ønske skal være lov for alle mennesker."
+  },
+  {
+    "id": "det-oestindiske-kompani",
+    "term": "Det Østindiske Kompani",
+    "definition": "Nederlandsk variant av det britiske: VOC (1602-1799) - verdens første aksjeselskap. Dominerte handelen med Asia."
+  },
+  {
+    "id": "diktatur",
+    "term": "Diktatur",
+    "definition": "En styreform der makten er konsentrert hos én person eller en liten gruppe, uten demokratisk kontroll eller frie valg.",
+    "type": "concept",
+    "tags": [
+      "styreform",
+      "samfunnsfag",
+      "politikk"
+    ],
+    "subject": "historie"
   },
   {
     "id": "direkte-demokrati",
@@ -56,12 +489,458 @@
     "tags": []
   },
   {
-    "id": "dronning-elizabeth-i",
-    "term": "dronning elizabeth i",
-    "definition": "Dronning av England fra 1558 til 1603. Hun ga EIC monopol på handel med Østen.",
+    "id": "dolkestotlegenden",
+    "term": "Dolkestøtlegenden",
+    "definition": "En konspirasjonsteori og myte om at den tyske hæren aldri tapte på slagmarken under første verdenskrig, men ble 'dolket i ryggen' av politikere, sosialister og jøder på hjemmebane.",
+    "type": "concept",
+    "tags": [
+      "tyskland",
+      "propaganda",
+      "første verdenskrig"
+    ],
+    "subject": "historie"
+  },
+  {
+    "id": "dygdsetikk",
+    "term": "Dygdsetikk",
+    "definition": "Etisk teori med røtter hos Aristoteles. Det viktige er ikke regler eller konsekvenser, men hvilken karakter du utvikler."
+  },
+  {
+    "id": "east-india-company",
+    "term": "East India Company",
+    "definition": "Britisk handelskompani som styrte India i over hundre år. Selskapet hadde sin egen hær og forvaltet større territorier enn de fleste stater."
+  },
+  {
+    "id": "eiendom",
+    "term": "Eiendom",
+    "definition": "Noe som tilhører en bestemt person eller gruppe, med rett til å bruke, selge eller gi det bort. Begrepet om privat eiendom står sentralt i kapitalismen."
+  },
+  {
+    "id": "eksistensialisme",
+    "term": "Eksistensialisme",
+    "definition": "Filosofisk retning som hevder at mennesket først eksisterer, så skaper det selv sin essens. Hovedtenkere: Kierkegaard, Sartre, Beauvoir."
+  },
+  {
+    "id": "ekstremisme",
+    "term": "Ekstremisme",
+    "definition": "Ytterliggående politiske eller religiøse holdninger som avviser kompromisser. Ekstremister mener at deres syn er det eneste rette."
+  },
+  {
+    "id": "ekteskap",
+    "term": "Ekteskap",
+    "definition": "Avtale mellom to mennesker om å leve sammen som familie, med juridiske, økonomiske og ofte religiøse rettigheter og plikter."
+  },
+  {
+    "id": "empirisme",
+    "term": "Empirisme",
+    "definition": "Filosofisk syn om at all kunnskap kommer fra sansene og erfaring. Står i motsetning til rasjonalisme, som vektlegger fornuften."
+  },
+  {
+    "id": "enigma",
+    "term": "Enigma",
+    "definition": "En tysk krypteringsmaskin brukt til å sende hemmelige meldinger under andre verdenskrig.",
     "subject": "historie",
-    "topic": "kolonialisering",
+    "topic": "andre-verdenskrig",
     "tags": []
+  },
+  {
+    "id": "ensomhet",
+    "term": "Ensomhet",
+    "definition": "Følelsen av å være avskåret fra andre mennesker. Et voksende samfunnsproblem i moderne samfunn."
+  },
+  {
+    "id": "ententen",
+    "term": "Ententen",
+    "definition": "Alliansen mellom Frankrike, Storbritannia og Russland (senere også Italia og USA).",
+    "subject": "historie",
+    "topic": "forste-verdenskrig",
+    "tags": []
+  },
+  {
+    "id": "eskatologi",
+    "term": "Eskatologi",
+    "definition": "Læren om verdens ende og livet etter døden. Sentral i kristendom, islam og jødedom."
+  },
+  {
+    "id": "etos",
+    "term": "Etos",
+    "definition": "En av de tre retoriske appellformene. Handler om avsenderens troverdighet, karakter og moralske autoritet.",
+    "type": "concept",
+    "tags": [
+      "retorikk",
+      "norsk",
+      "appellformer"
+    ],
+    "subject": "norsk"
+  },
+  {
+    "id": "ettergivenhetspolitikk",
+    "term": "Ettergivenhetspolitikk",
+    "definition": "Politikken om å gi etter for en aggressors krav i håp om å unngå krig (Appeasement).",
+    "subject": "historie",
+    "topic": "andre-verdenskrig",
+    "tags": []
+  },
+  {
+    "id": "fagforening",
+    "term": "Fagforening",
+    "definition": "En organisasjon der arbeidstakere går sammen for å kjempe for bedre lønn og arbeidsvilkår. Istedenfor at hver enkelt forhandler alene, står man sterkere sammen.",
+    "type": "concept",
+    "tags": [
+      "arbeidsliv",
+      "organisering"
+    ],
+    "subject": "samfunnskunnskap"
+  },
+  {
+    "id": "fascisme",
+    "term": "Fascisme",
+    "definition": "En autoritær, nasjonalistisk ideologi som sto sterkt i Italia og Tyskland (nazisme).",
+    "subject": "historie",
+    "topic": "andre-verdenskrig",
+    "tags": []
+  },
+  {
+    "id": "fattigdom",
+    "term": "Fattigdom",
+    "definition": "Å mangle det man trenger for å leve et verdig liv. Absolutt fattigdom betyr at man mangler mat og tak over hodet; relativ fattigdom betyr at man har mye mindre enn andre i samme samfunn."
+  },
+  {
+    "id": "federal-reserve",
+    "term": "Federal Reserve",
+    "definition": "USAs sentralbank, opprettet i 1913. Styrer renten og pengemengden i USA og påvirker økonomien i hele verden."
+  },
+  {
+    "id": "fellesskap",
+    "term": "Fellesskap",
+    "definition": "En gruppe mennesker som hører sammen og deler verdier, mål eller skjebne. Familie, venner, klasse og nasjon er alle fellesskap."
+  },
+  {
+    "id": "femarsplan",
+    "term": "Femårsplaner",
+    "definition": "Økonomiske planer i Sovjetunionen som fastsatte mål for produksjon fem år frem i tid. Målet var ofte en ekstremt rask industrialisering av landet.",
+    "type": "concept",
+    "tags": [
+      "sovjetunionen",
+      "stalin",
+      "økonomi"
+    ],
+    "subject": "historie"
+  },
+  {
+    "id": "filosofi",
+    "term": "Filosofi",
+    "definition": "Læren om de store spørsmålene: Hva er virkelig? Hva er rett? Hva er kunnskap? Ordet betyr «kjærlighet til visdom» på gresk."
+  },
+  {
+    "id": "foerromersk-jernalder",
+    "term": "Førromersk jernalder",
+    "definition": "Den eldste delen av jernalderen i Norden, som strekker seg fra ca. 500 fvt. til begynnelsen av vår tidsregning.",
+    "type": "concept",
+    "tags": [
+      "jernalder",
+      "norge",
+      "historie"
+    ],
+    "subject": "historie"
+  },
+  {
+    "id": "foeydalisme",
+    "term": "Føydalisme",
+    "definition": "Samfunnssystem i middelalderens Europa der adelen fikk land av kongen mot å stille soldater, og bøndene jobbet jorda for adelen mot beskyttelse."
+  },
+  {
+    "id": "folkeforbundet",
+    "term": "Folkeforbundet",
+    "definition": "En internasjonal organisasjon opprettet etter krigen for å sikre fred og internasjonalt samarbeid.",
+    "subject": "historie",
+    "topic": "forste-verdenskrig",
+    "tags": []
+  },
+  {
+    "id": "folkevandringstiden",
+    "term": "Folkevandringstiden",
+    "definition": "En periode i Europas historie preget av store folkeforflytninger, spesielt på 300- til 500-tallet. Den markerer overgangen fra antikken til middelalderen.",
+    "type": "concept",
+    "tags": [
+      "historie",
+      "middelalder",
+      "migrasjon"
+    ],
+    "subject": "historie",
+    "link": "/historie/middelalderen/tidlig-middelalder"
+  },
+  {
+    "id": "frihet",
+    "term": "Frihet",
+    "definition": "Å kunne velge selv hva man vil gjøre, tro og si. Skiller mellom frihet FRA (tvang, undertrykkelse) og frihet TIL (å delta, ytre seg)."
+  },
+  {
+    "id": "frontfagmodellen",
+    "term": "Frontfagmodellen",
+    "definition": "Den norske modellen for lønnsdannelse. Eksportindustrien forhandler lønn først og setter normen for resten av arbeidslivet. Poenget er at lønningene ikke skal vokse raskere enn det bedriftene som konkurrerer med utlandet tåler.",
+    "type": "concept",
+    "tags": [
+      "arbeidsliv",
+      "økonomi",
+      "lønn"
+    ],
+    "subject": "samfunnskunnskap"
+  },
+  {
+    "id": "fullmaktsloven",
+    "term": "Fullmaktsloven",
+    "definition": "En lov vedtatt i Tyskland i 1933 som ga Adolf Hitler og hans regjering rett til å vedta lover uten å gå veien om riksdagen. Dette gjorde ham i praksis til diktator.",
+    "type": "concept",
+    "tags": [
+      "tyskland",
+      "nazisme",
+      "diktatur"
+    ],
+    "subject": "historie"
+  },
+  {
+    "id": "generasjon",
+    "term": "Generasjon",
+    "definition": "Alle som er født omtrent samtidig og deler de samme erfaringene. Hver generasjon preges av sin egen tid: krig, krise eller velstand."
+  },
+  {
+    "id": "gig-okonomi",
+    "term": "Gig-økonomi",
+    "definition": "En arbeidsform der folk tar korte oppdrag istedenfor faste jobber. Eksempler er Uber-sjåfører, Foodora-bud og frilansere. Disse har ofte ikke de samme rettighetene som fast ansatte.",
+    "type": "concept",
+    "tags": [
+      "arbeidsliv",
+      "økonomi",
+      "fremtid"
+    ],
+    "subject": "samfunnskunnskap"
+  },
+  {
+    "id": "gini-koeffisient",
+    "term": "Gini-koeffisient",
+    "definition": "Et tall mellom 0 og 1 som måler hvor ulike inntektene i et land er. 0 betyr at alle tjener likt, 1 betyr at en person har alt. Norge ligger rundt 0,27, blant de mest like i verden.",
+    "type": "concept",
+    "tags": [
+      "økonomi",
+      "ulikhet",
+      "statistikk"
+    ],
+    "subject": "samfunnskunnskap"
+  },
+  {
+    "id": "glasnost",
+    "term": "Glasnost",
+    "definition": "En reformpolitik lansert av Mikhail Gorbatsjov i Sovjetunionen på 1980-tallet. Ordet betyr 'åpenhet', og målet var å skape mer gjennomsiktighet i staten og mer ytringsfrihet for borgerne.",
+    "subject": "historie",
+    "topic": "den-kalde-krigen",
+    "tags": [
+      "sovjet",
+      "reform",
+      "frihet"
+    ]
+  },
+  {
+    "id": "goebekli-tepe",
+    "term": "Göbekli Tepe",
+    "definition": "Arkeologisk sted i Tyrkia med tempelanlegg som er 12 000 år gamle - eldre enn jordbruket. Funnet utfordrer hvordan vi forstår sivilisasjonens start."
+  },
+  {
+    "id": "good-friday-agreement",
+    "term": "Good Friday Agreement",
+    "definition": "Fredsavtalen som avsluttet konflikten i Nord-Irland i 1998. Den ble forhandlet fram med hjelp fra president Bill Clinton."
+  },
+  {
+    "id": "group-areas-act",
+    "term": "Group Areas Act",
+    "definition": "Sørafrikansk lov fra 1950 som tvang ulike rasegrupper til å bo i adskilte områder. Millioner ble tvunget til å flytte."
+  },
+  {
+    "id": "gulag",
+    "term": "Gulag",
+    "definition": "Et system av tvangsarbeidsleirer i Sovjetunionen der millioner av politiske fanger og kriminelle ble sendt for å utføre hardt arbeid under umenneskelige forhold.",
+    "type": "concept",
+    "tags": [
+      "sovjetunionen",
+      "stalin",
+      "undertrykkelse"
+    ],
+    "subject": "historie"
+  },
+  {
+    "id": "gullstandard",
+    "term": "Gullstandard",
+    "aliases": [
+      "gullstandarden",
+      "gullankeret"
+    ],
+    "definition": "Et pengesystem der valutaens verdi er knyttet til gull. Dette begrenser sentralbankens evne til å trykke penger og manipulere renten, fordi pengemengden ikke kan vokse raskere enn gullbeholdningen.",
+    "type": "concept",
+    "tags": [
+      "økonomi",
+      "penger",
+      "rente"
+    ],
+    "subject": "samfunnskunnskap"
+  },
+  {
+    "id": "gurdwara",
+    "term": "gurdwara",
+    "definition": "Sikhismens gudshus. Navnet betyr 'porten til guruen'.",
+    "subject": "krle",
+    "topic": "religion",
+    "tags": [
+      "sikhisme"
+    ]
+  },
+  {
+    "id": "guru-gobind-singh",
+    "term": "Guru Gobind Singh",
+    "definition": "Den tiende menneskelige guruen (1666–1708), som etablerte Khalsa-fellesskapet og overførte autoriteten til Guru Granth Sahib.",
+    "subject": "krle",
+    "topic": "religion",
+    "tags": [
+      "sikhisme",
+      "grunnleggere"
+    ]
+  },
+  {
+    "id": "guru-granth-sahib",
+    "term": "Guru Granth Sahib",
+    "definition": "Sikhismens hellige bok og nåværende åndelige guru. Den inneholder hymner fra sikh-guruene og andre religiøse lærde.",
+    "subject": "krle",
+    "topic": "religion",
+    "tags": [
+      "sikhisme",
+      "hellige-tekster"
+    ]
+  },
+  {
+    "id": "guru-nanak",
+    "term": "Guru Nanak",
+    "definition": "Den første av sikhismens ti guruer og grunnleggeren av religionen (1469–1539). Han forkynte likhet og troen på én Gud.",
+    "subject": "krle",
+    "topic": "religion",
+    "tags": [
+      "sikhisme",
+      "grunnleggere"
+    ]
+  },
+  {
+    "id": "guru",
+    "term": "guru",
+    "definition": "En åndelig lærer. I sikhismen refererer det til de ti menneskelige guruene og den hellige boken Guru Granth Sahib.",
+    "subject": "krle",
+    "topic": "religion",
+    "tags": [
+      "sikhisme"
+    ]
+  },
+  {
+    "id": "habsburgerne",
+    "term": "Habsburgerne",
+    "definition": "Det mektige kongehuset som styrte Det tysk-romerske riket, Spania og Østerrike.",
+    "subject": "historie",
+    "topic": "reformasjonen",
+    "tags": []
+  },
+  {
+    "id": "hamartia",
+    "term": "Hamartia",
+    "definition": "Et begrep fra gammelgresk som betyr «den fatale feilen». Det viser til en karakterbrist eller en feilvurdering hos helten som fører til deres fall eller store utfordringer.",
+    "link": "/norsk/skrivehjelp/hvordan-lage-karakterer"
+  },
+  {
+    "id": "helhet",
+    "term": "Helhet",
+    "definition": "Det fullstendige bildet, som er mer enn summen av delene. Å se helhet er sentralt i filosofi, vitenskap og kunstforståelse."
+  },
+  {
+    "id": "helsetning",
+    "term": "Helsetning",
+    "definition": "En setning som kan stå alene og gi fullstendig mening. Den inneholder minst et subjekt og et verbal.",
+    "type": "concept",
+    "tags": [
+      "grammatikk",
+      "norsk",
+      "setningsanalyse"
+    ],
+    "subject": "norsk"
+  },
+  {
+    "id": "hermeneutisk-sirkel",
+    "term": "Hermeneutisk sirkel",
+    "aliases": [
+      "hermeneutisk sirkel",
+      "den hermeneutiske sirkel",
+      "den hermeneutiske sirkelen",
+      "hermeneutiske sirkel"
+    ],
+    "definition": "En tolkningsmodell som forklarer hvordan vi forstår en tekst gjennom en vekselvirkning mellom enkeltdeler og helhet. For å forstå helheten må vi forstå delene, og for å forstå delene må vi ha en forståelse av helheten.",
+    "subject": "norsk",
+    "tags": [
+      "analyse",
+      "tolkning",
+      "filosofi"
+    ]
+  },
+  {
+    "id": "hierarki",
+    "term": "Hierarki",
+    "definition": "Et system der noen står over andre i rang og makt. Finnes i kirker, hærer, bedrifter og dyresamfunn."
+  },
+  {
+    "id": "holocaust",
+    "term": "Holocaust",
+    "definition": "Det nasjonalsosialistiske Tysklands systematiske folkemord på jøder og andre minoriteter.",
+    "subject": "historie",
+    "topic": "andre-verdenskrig",
+    "tags": []
+  },
+  {
+    "id": "holodomor",
+    "term": "Holodomor",
+    "definition": "En menneskeskapt hungersnød i Ukraina i 1932–1933, forårsaket av Stalins tvangskollektivisering. Flere millioner mennesker døde av sult.",
+    "type": "concept",
+    "tags": [
+      "sovjetunionen",
+      "ukraina",
+      "stalin",
+      "folkemord"
+    ],
+    "subject": "historie"
+  },
+  {
+    "id": "humanisme",
+    "term": "Humanisme",
+    "definition": "Livssyn som setter mennesket i sentrum og bygger på fornuft, etikk og menneskeverd uten religion. Har røtter i renessansen."
+  },
+  {
+    "id": "humes-giljotin",
+    "term": "Humes giljotin",
+    "definition": "Filosofisk regel oppkalt etter David Hume: man kan ikke utlede en moralsk «bør» fra en faktisk «er». Hva som er, sier ikke noe om hva som bør være."
+  },
+  {
+    "id": "hyperinflasjon",
+    "term": "Hyperinflasjon",
+    "definition": "En ekstremt rask og ukontrollert økning i priser. Pengene mister sin verdi så fort at folk må ha trillebårer med sedler for å kjøpe helt vanlige varer som brød.",
+    "type": "concept",
+    "tags": [
+      "økonomi",
+      "weimarrepublikken",
+      "tyskland"
+    ],
+    "subject": "historie"
+  },
+  {
+    "id": "identitet",
+    "term": "Identitet",
+    "definition": "Det som gjør deg til deg - kjønn, språk, kultur, tro, gruppetilhørighet. Identitet kan både samle og skille mennesker."
+  },
+  {
+    "id": "ideologi",
+    "term": "Ideologi",
+    "definition": "Et helhetlig sett med ideer om hvordan samfunnet bør være. Liberalisme, sosialisme og konservatisme er eksempler på politiske ideologier."
   },
   {
     "id": "imperialisme",
@@ -72,12 +951,200 @@
     "tags": []
   },
   {
+    "id": "index-librorum-prohibitorum",
+    "term": "Index Librorum Prohibitorum",
+    "definition": "Den katolske kirkes liste over forbudte bøker, opprettet i 1559. Den ble avskaffet i 1966. Mange klassikere som Galileo og Voltaire sto på listen."
+  },
+  {
+    "id": "indirekte-tale",
+    "title": "Indirekte tale",
+    "explanation": "Når man refererer hva noen har sagt, uten å bruke de nøyaktige ordene.",
+    "usage": "Eksempel: 'Han sa at han var sulten' (Indirekte) vs 'Jeg er sulten,' sa han (Direkte).",
+    "links": []
+  },
+  {
+    "id": "indre-monolog",
+    "term": "indre monolog",
+    "definition": "En teknikk der forfatteren skriver karakterens tanker direkte. Ofte markert med tankestrek eller kursiv, eller flettet inn i teksten. Gir leseren direkte tilgang til karakterens hode.",
+    "subject": "norsk",
+    "topic": "skrivehjelp",
+    "tags": []
+  },
+  {
+    "id": "inflasjon",
+    "term": "Inflasjon",
+    "definition": "Når prisene generelt stiger og pengene blir mindre verdt. Litt inflasjon er normalt, men løpsk inflasjon (hyperinflasjon) kan ødelegge en økonomi."
+  },
+  {
+    "id": "ingenmannsland",
+    "term": "Ingenmannsland",
+    "definition": "Området mellom de to fiendtlige skyttergravslinjene, ofte dekket av piggtråd og kratere.",
+    "subject": "historie",
+    "topic": "forste-verdenskrig",
+    "tags": []
+  },
+  {
+    "id": "innovasjon",
+    "term": "Innovasjon",
+    "definition": "Når noen finner opp eller forbedrer noe slik at det skaper ny verdi - en idé, et produkt eller en måte å gjøre ting på."
+  },
+  {
+    "id": "investiturstriden",
+    "term": "Investiturstriden",
+    "definition": "En konflikt mellom kirken og staten i middelalderen (ca. 1075–1122) om hvem som hadde rett til å utnevne biskoper og abbeder.",
+    "type": "concept",
+    "tags": [
+      "middelalder",
+      "kirken",
+      "maktkamp"
+    ],
+    "subject": "historie"
+  },
+  {
+    "id": "jazz-age",
+    "term": "Jazz Age",
+    "definition": "Engelsk: «jazzalderen». Tilnavnet på 1920-tallet i USA, da jazzen erobret klubbene, kvinner fikk stemmerett og kulturen brøt med tradisjonene."
+  },
+  {
+    "id": "jazz",
+    "term": "Jazz",
+    "definition": "En musikksjanger som oppsto i det afroamerikanske miljøet i USA tidlig på 1900-tallet. Kjennetegnes av spilleglede, improvisasjon og synkoperte rytmer."
+  },
+  {
+    "id": "jernteppet",
+    "term": "Jernteppet",
+    "definition": "Et begrep brukt om den politiske, ideologiske og fysiske grensen som delte Europa i to maktblokker fra 1945 til 1991: Vestblokken (støttet av USA) og Østblokken (støttet av Sovjetunionen).",
+    "subject": "historie",
+    "topic": "den-kalde-krigen",
+    "tags": [
+      "kald-krig",
+      "europa",
+      "grense"
+    ]
+  },
+  {
+    "id": "jim-crow-lovene",
+    "term": "Jim Crow-lovene",
+    "definition": "Lover i amerikanske sørstater fra 1870-tallet til 1965 som påla raseskille på skoler, busser, vannposter og restauranter. Navnet kommer fra en rasistisk sceneskikkelse."
+  },
+  {
+    "id": "justinianerpesten",
+    "term": "justinianerpesten",
+    "definition": "En pandemi som rammet Østromerriket og store deler av Europa fra 541 e.Kr. Den skyldtes pestbakterien Yersinia pestis og brøt ut i kjølvannet av klimakrisen i 536.",
+    "subject": "historie",
+    "topic": "klimakrisen-536",
+    "tags": [
+      "pest",
+      "sykdom",
+      "middelalder"
+    ]
+  },
+  {
+    "id": "justinianske-pest",
+    "term": "Justinianske pest",
+    "definition": "En omfattende pandemi på 500-tallet (fra 541 evt.) som rammet Østromerriket og store deler av Europa. Det var det første kjente utbruddet av byllepest i historien.",
+    "type": "concept",
+    "tags": [
+      "middelalder",
+      "sykdom",
+      "pest"
+    ],
+    "subject": "historie"
+  },
+  {
+    "id": "kalmarunionen",
+    "term": "Kalmarunionen",
+    "definition": "En personalunion mellom kongerikene Danmark, Norge og Sverige (inkludert Finland) som varte fra 1397 til 1523. Unionen ble styrt fra Danmark, noe som førte til stadige konflikter med den svenske adelen.",
+    "type": "concept",
+    "tags": [
+      "union",
+      "middelalder",
+      "norden"
+    ],
+    "subject": "historie",
+    "link": "/historie/sveriges-historie/sveriges-historie"
+  },
+  {
     "id": "kapitalisme",
     "term": "kapitalisme",
     "definition": "Markedsøkonomi. Produksjon er privat eiendom. Styres av tilbud og etterspørsel (profitt og tap). Kundene \"bestemmer\" hva som lages.",
     "subject": "samfunnskunnskap",
     "topic": "demografi-okonomi",
     "tags": []
+  },
+  {
+    "id": "kapitalstruktur",
+    "term": "Kapitalstruktur",
+    "aliases": [
+      "kapitalstrukturen",
+      "produksjonsstrukturen",
+      "produksjonsstruktur"
+    ],
+    "definition": "Den østerrikske skolens begrep for hvordan produksjon er organisert i lag over tid - fra råvarer og gruvedrift (langt fra forbrukeren) til ferdigvarer i butikken (nært forbrukeren). Kunstig lav rente forlenger denne kjeden og skaper feilinvesteringer.",
+    "type": "concept",
+    "tags": [
+      "økonomi",
+      "østerriksk skole",
+      "produksjon",
+      "rente"
+    ],
+    "subject": "samfunnskunnskap"
+  },
+  {
+    "id": "karakterarketyper",
+    "term": "Karakterarketyper",
+    "definition": "Universelle rollemønstre eller «grunntyper» av karakterer som går igjen i historier på tvers av kulturer, som for eksempel Helten, Mentoren, Skyggen eller Hjelperen.",
+    "link": "/norsk/skrivehjelp/hvordan-lage-karakterer"
+  },
+  {
+    "id": "karakterutvikling",
+    "term": "Karakterutvikling",
+    "definition": "Prosessen der en karakter i en historie endrer seg, vokser eller lærer noe nytt som følge av hendelsene de opplever. God karakterutvikling gjør at figurene føles levende og tredimensjonale.",
+    "link": "/norsk/skrivehjelp/hvordan-lage-karakterer"
+  },
+  {
+    "id": "keynesiansk-okonomi",
+    "term": "Keynesiansk",
+    "aliases": [
+      "keynesianske",
+      "keynesianerne",
+      "keynesiansk økonomi",
+      "keynesianisme"
+    ],
+    "definition": "Økonomiretning bygget på John Maynard Keynes' teorier. Mener at staten og sentralbanken bør stimulere etterspørselen aktivt i nedgangstider for å unngå langvarig arbeidsledighet, fordi lønninger og priser er trege til å justere seg selv.",
+    "type": "concept",
+    "tags": [
+      "økonomi",
+      "politikk",
+      "sentralbank"
+    ],
+    "subject": "samfunnskunnskap"
+  },
+  {
+    "id": "khalsa",
+    "term": "khalsa",
+    "definition": "Fellesskapet av innviede sikher som lover å følge sikhismens regler strengt og bære de fem K-ene.",
+    "subject": "krle",
+    "topic": "religion",
+    "tags": [
+      "sikhisme"
+    ]
+  },
+  {
+    "id": "kirtan",
+    "term": "Kirtan",
+    "definition": "Lovsang og musikalsk fremføring av hymner fra Guru Granth Sahib, som er en sentral del av sikh-tilbedelse.",
+    "subject": "krle",
+    "topic": "religion",
+    "tags": [
+      "sikhisme",
+      "ritual"
+    ]
+  },
+  {
+    "id": "kjaerlighet",
+    "term": "Kjærlighet",
+    "definition": "Sterk omsorg for en annen. Grekerne hadde fire ord: eros (lidenskap), filia (vennskap), storge (familie) og agape (uselvisk kjærlighet)."
   },
   {
     "id": "koloni",
@@ -88,6 +1155,12 @@
     "tags": []
   },
   {
+    "id": "kommentarsetning",
+    "term": "Kommentarsetning",
+    "definition": "Setninger som utdyper, forklarer eller gir eksempler på det som ble presentert i temasetningen.",
+    "links": []
+  },
+  {
     "id": "kommunisme",
     "term": "kommunisme",
     "definition": "Et klasseløst samfunn der all eiendom er felles. I teorien statsløst (som anarko-kommunisme), men i praksis ofte brukt om stater med streng planøkonomi.",
@@ -96,11 +1169,282 @@
     "tags": []
   },
   {
+    "id": "komsakulturen",
+    "term": "Komsakulturen",
+    "definition": "En eldre steinalderkultur i Finnmark og Nord-Troms, datert til ca. 9000–7000 fvt. Navnet kommer fra Komsa-fjellet ved Alta.",
+    "type": "concept",
+    "tags": [
+      "steinader",
+      "norge",
+      "arkeologi"
+    ],
+    "subject": "historie"
+  },
+  {
+    "id": "konfirmasjon",
+    "term": "Konfirmasjon",
+    "definition": "Overgangsritual som markerer at en ung person blir voksen. I kristen tradisjon bekreftes dåpen; i Norge har vi også borgerlig konfirmasjon."
+  },
+  {
+    "id": "kreativitet",
+    "term": "Kreativitet",
+    "definition": "Evnen til å skape noe nytt og verdifullt. Drives ofte fram av kombinasjonen av tvang (begrensninger) og frihet."
+  },
+  {
+    "id": "krigserstatning",
+    "term": "Krigserstatning",
+    "definition": "Økonomisk kompensasjon som den tapende part i en krig må betale til seierherrene for skadene som er påført.",
+    "subject": "historie",
+    "topic": "forste-verdenskrig",
+    "tags": []
+  },
+  {
+    "id": "kriminalitet",
+    "term": "Kriminalitet",
+    "definition": "Handlinger som bryter med lover. Hva som regnes som kriminelt, varierer mellom land og endrer seg over tid."
+  },
+  {
+    "id": "kriseforliket",
+    "term": "Kriseforliket",
+    "definition": "En politisk avtale i Norge i 1935 mellom Arbeiderpartiet og Bondepartiet. Avtalen bidro til å stabilisere landet under den økonomiske krisen og la grunnlaget for den moderne velferdsstaten.",
+    "type": "concept",
+    "tags": [
+      "norgeshistorie",
+      "mellomkrigstiden",
+      "politikk"
+    ],
+    "subject": "historie"
+  },
+  {
+    "id": "kunnskap",
+    "term": "Kunnskap",
+    "definition": "Det vi vet og kan begrunne. Filosofer skiller mellom å kjenne til noe (informasjon), å forstå hvorfor (innsikt), og å vite hvordan (ferdighet)."
+  },
+  {
+    "id": "langar",
+    "term": "langar",
+    "definition": "Det åpne kjøkkenet i en Gurdwara der gratis vegetarmat serveres til alle, uavhengig av bakgrunn, som et symbol på likhet.",
+    "subject": "krle",
+    "topic": "religion",
+    "tags": [
+      "sikhisme"
+    ]
+  },
+  {
+    "id": "lebensraum",
+    "term": "Lebensraum",
+    "definition": "Tysk for \"livsrom\". Nazistenes idé om at det tyske folket trengte mer landområder, spesielt i Øst-Europa.",
+    "subject": "historie",
+    "topic": "andre-verdenskrig",
+    "tags": []
+  },
+  {
+    "id": "leddsetning",
+    "term": "Leddsetning",
+    "definition": "En setning som ikke kan stå alene og gi mening, men som fungerer som et ledd i en annen setning (helsetning). Begynner ofte med en subjunksjon (som 'da', 'fordi', 'hvis').",
+    "type": "concept",
+    "tags": [
+      "grammatikk",
+      "norsk",
+      "setningsanalyse"
+    ],
+    "subject": "norsk"
+  },
+  {
+    "id": "legitimitet",
+    "term": "Legitimitet",
+    "definition": "Når folk anerkjenner at en hersker eller en lov har rett til å bestemme. Uten legitimitet må makten holdes oppe med vold."
+  },
+  {
+    "id": "leiesoldater",
+    "term": "Leiesoldater",
+    "definition": "Soldater som kjemper for betaling, ikke for et land eller en sak. Ofte brutale mot sivilbefolkningen.",
+    "subject": "historie",
+    "topic": "reformasjonen",
+    "tags": []
+  },
+  {
+    "id": "lex-salica",
+    "term": "Lex Salica",
+    "aliases": [
+      "salisk lov",
+      "den saliske loven"
+    ],
+    "definition": "Frankisk lovsamling fra ca. 500 e.Kr., nedskrevet under kong Klodvig. En av Europas eldste nedskrevne lover, med en detaljert pristabell for drap, lemlestelse og andre forbrytelser.",
+    "type": "concept",
+    "tags": [
+      "lov",
+      "middelalder",
+      "frankisk",
+      "germansk"
+    ],
+    "subject": "historie"
+  },
+  {
+    "id": "liberalisme",
+    "term": "Liberalisme",
+    "definition": "Politisk ideologi som vektlegger individets frihet, eiendomsrett og begrenset statsmakt. Vokste fram under opplysningstiden."
+  },
+  {
+    "id": "logos",
+    "term": "Logos",
+    "definition": "En av de tre retoriske appellformene. Handler om logisk argumentasjon, fakta og saklig innhold.",
+    "type": "concept",
+    "tags": [
+      "retorikk",
+      "norsk",
+      "appellformer"
+    ],
+    "subject": "norsk"
+  },
+  {
+    "id": "lojalitet",
+    "term": "Lojalitet",
+    "definition": "Trofasthet mot en person, gruppe eller idé. Lojalitet kan være en dyd, men kan også føre folk til å forsvare urett."
+  },
+  {
+    "id": "lydighet",
+    "term": "Lydighet",
+    "definition": "Å gjøre som man får beskjed om. Stanley Milgrams eksperimenter viste hvor langt vanlige mennesker går for å lyde autoriteter."
+  },
+  {
+    "id": "lydrike",
+    "term": "Lydrike",
+    "aliases": [
+      "lydriket",
+      "lydriker",
+      "lydrikene"
+    ],
+    "definition": "Et land som formelt er selvstendig, men som i realiteten styres av en annen stat. Brukes ofte om Norges status under Danmark etter 1536 (Lydriketiden).",
+    "subject": "historie",
+    "tags": [
+      "danmark-norge",
+      "politikk",
+      "union",
+      "makt"
+    ],
+    "type": "concept"
+  },
+  {
+    "id": "mad",
+    "term": "MAD",
+    "definition": "Forkortelse for 'Mutual Assured Destruction' (gjensidig garantert ødeleggelse). En militærstrategisk doktrine der bruk av atomvåpen av to parter vil føre til total utslettelse av begge, noe som hindrer angrep.",
+    "subject": "historie",
+    "topic": "den-kalde-krigen",
+    "tags": [
+      "atomvåpen",
+      "strategi",
+      "sikkerhet"
+    ]
+  },
+  {
+    "id": "mandatomrde",
+    "term": "Mandatområde",
+    "definition": "Et område som administreres av en stat på vegne av Folkeforbundet (senere FN), ofte en tidligere koloni.",
+    "subject": "historie",
+    "topic": "forste-verdenskrig",
+    "tags": []
+  },
+  {
+    "id": "manhattan-prosjektet",
+    "term": "Manhattan-prosjektet",
+    "definition": "Det hemmelige amerikanske forskningsprosjektet som utviklet de første atombombene.",
+    "subject": "historie",
+    "topic": "andre-verdenskrig",
+    "tags": []
+  },
+  {
+    "id": "mannebot",
+    "term": "Mannebot",
+    "aliases": [
+      "manngjeld"
+    ],
+    "definition": "Norrønt navn for wergild. Den faste boten en drapsmann måtte betale til offerets ætt, satt etter offerets sosiale status. Sentral i Gulatingsloven og Frostatingsloven.",
+    "type": "concept",
+    "tags": [
+      "lov",
+      "vikingtiden",
+      "middelalder",
+      "norront"
+    ],
+    "subject": "historie"
+  },
+  {
+    "id": "marshallhjelpen",
+    "term": "Marshallhjelpen",
+    "definition": "Et omfattende amerikansk økonomisk hjelpeprogram (1948-1952) rettet mot gjenoppbyggingen av Europa etter andre verdenskrig. Målet var å skape økonomisk stabilitet og hindre kommunistisk innflytelse.",
+    "subject": "historie",
+    "topic": "den-kalde-krigen",
+    "tags": [
+      "økonomi",
+      "hjelp",
+      "usa",
+      "europa"
+    ]
+  },
+  {
+    "id": "meditasjon",
+    "term": "Meditasjon",
+    "definition": "Øvelse der man fokuserer oppmerksomheten for å oppnå indre ro eller åndelig innsikt. Sentral i buddhismen, hinduismen og kristen mystikk."
+  },
+  {
+    "id": "menneskeheten",
+    "term": "Menneskeheten",
+    "definition": "Alle mennesker som art - nåtidens, fortidens og framtidens. Begrepet brukes ofte når vi snakker om felles ansvar, som klima eller atomvåpen."
+  },
+  {
+    "id": "menneskerettigheter",
+    "term": "Menneskerettigheter",
+    "definition": "Grunnleggende rettigheter alle mennesker har bare fordi de er mennesker - uavhengig av kjønn, hudfarge, religion eller hvor de bor. Vedtatt av FN i 1948."
+  },
+  {
+    "id": "meritokrati",
+    "term": "Meritokrati",
+    "definition": "Et system der makt og ansvar fordeles basert på evner og ferdigheter, fremfor arv eller sosial status.",
+    "links": [
+      {
+        "title": "Det Mongolske Riket",
+        "url": "/historie/middelalder/mongolske-riket"
+      }
+    ]
+  },
+  {
     "id": "merkantilisme",
     "term": "merkantilisme",
     "definition": "En økonomisk politikk der målet var å samle mest mulig gull og sølv i statskassen ved å eksportere mer enn man importerte.",
     "subject": "historie",
     "topic": "kolonialisering",
+    "tags": []
+  },
+  {
+    "id": "merovingerne",
+    "term": "Merovingerne",
+    "definition": "Det første kongedynastiet som styrte Frankerriket, fra midten av 400-tallet til 751. De ble sett på som 'langhårede konger' og hadde en semi-legendarisk status.",
+    "type": "concept",
+    "tags": [
+      "historie",
+      "frankrike",
+      "dynasti"
+    ],
+    "subject": "historie",
+    "link": "/historie/middelalderen/tidlig-middelalder"
+  },
+  {
+    "id": "migrasjon",
+    "term": "Migrasjon",
+    "definition": "Når mennesker flytter fra ett område til et annet. Folkevandringer har formet historie og kultur i alle tidsepoker."
+  },
+  {
+    "id": "mission-civilisatrice",
+    "term": "Mission Civilisatrice",
+    "definition": "Fransk: «sivilisasjonsoppdraget». Frankrikes selvrettferdige rettferdiggjøring av koloniseringen - de skulle bringe sivilisasjon til andre folk."
+  },
+  {
+    "id": "molotov-ribbentrop-pakten",
+    "term": "Molotov-Ribbentrop-pakten",
+    "definition": "Ikke-angrepspakten mellom Tyskland og Sovjetunionen inngått like før krigsutbruddet i 1939.",
+    "subject": "historie",
+    "topic": "andre-verdenskrig",
     "tags": []
   },
   {
@@ -120,11 +1464,155 @@
     "tags": []
   },
   {
+    "id": "motiv",
+    "term": "motiv",
+    "definition": "Drivkraften bak en karakters handlinger. Det de ønsker å oppnå eller unngå. Uten et tydelig motiv blir karakteren ofte passiv og handlingen retningsløs.",
+    "subject": "norsk",
+    "topic": "skrivehjelp",
+    "tags": []
+  },
+  {
+    "id": "mutual-assured-destruction",
+    "term": "Mutual Assured Destruction",
+    "definition": "Doktrinen om gjensidig garantert ødeleggelse. USA og Sovjet hadde så mange atomvåpen at angrep ville ødelegge begge - derfor turte ingen angripe."
+  },
+  {
+    "id": "nasjon",
+    "term": "Nasjon",
+    "definition": "En gruppe mennesker som føler de hører sammen gjennom språk, historie og kultur. En stat er den politiske organisasjonen, en nasjon er fellesskapsfølelsen."
+  },
+  {
+    "id": "nasjonal-samling",
+    "term": "Nasjonal Samling",
+    "definition": "Vidkun Quislings nazistparti, grunnlagt i 1933. Det var det eneste tillatte partiet i Norge under tysk okkupasjon 1940-1945."
+  },
+  {
+    "id": "nasjonalisere",
+    "term": "Nasjonalisere",
+    "aliases": [
+      "nasjonalisering",
+      "nasjonalisert",
+      "nasjonaliserte",
+      "nasjonaliserer"
+    ],
+    "definition": "Å overføre privat eiendom, som bedrifter, naturressurser eller infrastruktur, til statlig eie eller kontroll.",
+    "type": "concept",
+    "tags": [
+      "politikk",
+      "økonomi",
+      "stat",
+      "eiendom"
+    ],
+    "subject": "historie"
+  },
+  {
+    "id": "nasjonalisme",
+    "term": "Nasjonalisme",
+    "definition": "En ideologi som hevder at hver nasjon (folkegruppe) skal ha sin egen stat.",
+    "subject": "historie",
+    "topic": "forste-verdenskrig",
+    "tags": []
+  },
+  {
+    "id": "naturalhandel",
+    "term": "Naturalhandel (Byttehandel)",
+    "definition": "En økonomisk ordning der man bytter varer eller tjenester direkte mot hverandre uten å bruke penger som mellomledd."
+  },
+  {
+    "id": "naturrett",
+    "term": "Naturrett",
+    "definition": "Læren om at det finnes lover og rettigheter som gjelder for alle mennesker, basert på naturen eller fornuften - ikke bare på vedtatte lover."
+  },
+  {
+    "id": "nazisme",
+    "term": "Nazisme",
+    "definition": "En form for fascisme utviklet av Hitler og nazistpartiet i Tyskland. I tillegg til nasjonalisme og autoritært styre, er nazismen sterkt rasistisk og antisemittisk."
+  },
+  {
+    "id": "new-deal",
+    "term": "The New Deal",
+    "definition": "En rekke økonomiske reformer og programmer innført av president Roosevelt for å bekjempe depresjonen i USA gjennom statlig inngripen og støtte."
+  },
+  {
+    "id": "noeytralitet",
+    "term": "Nøytralitet",
+    "definition": "Å stå utenfor en konflikt og ikke ta side. Sveits og Sverige har vært nøytrale i flere kriger; Norges nøytralitet brøt sammen 9. april 1940."
+  },
+  {
+    "id": "norges-bank",
+    "term": "Norges Bank",
+    "definition": "Norges sentralbank, opprettet i 1816. Styrer renten, gir ut penger og forvalter Oljefondet på vegne av staten."
+  },
+  {
+    "id": "norges-grunnlov",
+    "term": "Norges Grunnlov",
+    "definition": "Norges grunnleggende lov, vedtatt på Eidsvoll 17. mai 1814. En av verdens eldste grunnlover som fortsatt er i bruk, bygger på maktfordeling."
+  },
+  {
+    "id": "nrnbergprosessene",
+    "term": "Nürnbergprosessene",
+    "definition": "Rettssakene mot ledende nazister etter krigen, der prinsippet om individuelt ansvar for krigsforbrytelser ble knesatt.",
+    "subject": "historie",
+    "topic": "andre-verdenskrig",
+    "tags": []
+  },
+  {
+    "id": "nullrentepolitikk",
+    "term": "Nullrentepolitikk",
+    "aliases": [
+      "nullrentepolitikken",
+      "ZIRP",
+      "Zero Interest Rate Policy"
+    ],
+    "definition": "Sentralbankpolitikk der styringsrenten settes til null eller under null for å stimulere til låneopptak og investering. Brukt bredt etter finanskrisen i 2008 av Federal Reserve, Den europeiske sentralbanken og Bank of Japan.",
+    "type": "concept",
+    "tags": [
+      "økonomi",
+      "sentralbank",
+      "rente",
+      "finanskrise"
+    ],
+    "subject": "samfunnskunnskap"
+  },
+  {
+    "id": "observasjon",
+    "term": "Observasjon",
+    "definition": "Å se nøye etter for å samle informasjon. Grunnlaget for all naturvitenskap."
+  },
+  {
     "id": "oligarki",
     "term": "oligarki",
     "definition": "En liten gruppe mennesker (fåmannsvelde) har all makten. Ofte er dette de rikeste i samfunnet, eller en militærjunta.",
     "subject": "samfunnskunnskap",
     "topic": "styringsformer",
+    "tags": []
+  },
+  {
+    "id": "omveisproduksjon",
+    "term": "Omveisproduksjon",
+    "aliases": [
+      "omveisproduksjonen"
+    ],
+    "definition": "Produksjonsprosesser som tar lengre tid men gir høyere avkastning. For eksempel å bygge en maskin som lager varer, fremfor å lage varene for hånd. Lav rente stimulerer slike langsiktige prosesser.",
+    "type": "concept",
+    "tags": [
+      "økonomi",
+      "østerriksk skole",
+      "produksjon"
+    ],
+    "subject": "samfunnskunnskap"
+  },
+  {
+    "id": "ondskap",
+    "term": "Ondskap",
+    "definition": "Bevisst valg om å påføre andre skade. Filosofer har diskutert om ondskap er en kraft i seg selv, eller bare fravær av godt."
+  },
+  {
+    "id": "operasjon-barbarossa",
+    "term": "Operasjon Barbarossa",
+    "definition": "Kodenavnet på Tysklands invasjon av Sovjetunionen i 1941.",
+    "subject": "historie",
+    "topic": "andre-verdenskrig",
     "tags": []
   },
   {
@@ -134,6 +1622,23 @@
     "subject": "historie",
     "topic": "kolonialisering",
     "tags": []
+  },
+  {
+    "id": "oppdemming",
+    "term": "Oppdemming",
+    "definition": "Amerikansk utenrikspolitisk strategi (Containment) under den kalde krigen. Målet var å hindre at sovjetisk makt og kommunistisk ideologi spredte seg til nye land og områder.",
+    "subject": "historie",
+    "topic": "den-kalde-krigen",
+    "tags": [
+      "strategi",
+      "usa",
+      "utenrikspolitikk"
+    ]
+  },
+  {
+    "id": "organisasjon",
+    "term": "Organisasjon",
+    "definition": "En strukturert gruppe mennesker som jobber mot felles mål, med fordelte roller og regler. Bedrifter, idrettslag og FN er alle organisasjoner."
   },
   {
     "id": "parlamentarisk-republikk",
@@ -152,12 +1657,196 @@
     "tags": []
   },
   {
+    "id": "parlamentarisme",
+    "term": "Parlamentarisme",
+    "definition": "Styreform der regjeringen må ha tillit hos folkevalgte i parlamentet. Norge fikk parlamentarisme i 1884."
+  },
+  {
+    "id": "pasifisme",
+    "term": "Pasifisme",
+    "definition": "En grunnleggende holdning som tar avstand fra bruk av vold og krig for å løse konflikter. Pasifister arbeider for fredelige løsninger.",
+    "type": "concept",
+    "tags": [
+      "første verdenskrig",
+      "fred",
+      "ideologi"
+    ],
+    "subject": "historie"
+  },
+  {
+    "id": "patos",
+    "term": "Patos",
+    "definition": "En av de tre retoriske appellformene. Handler om å vekke følelser hos mottakeren.",
+    "type": "concept",
+    "tags": [
+      "retorikk",
+      "norsk",
+      "appellformer"
+    ],
+    "subject": "norsk"
+  },
+  {
+    "id": "pax-britannica",
+    "term": "Pax Britannica",
+    "definition": "Den fredsperioden 1815-1914 da Storbritannia dominerte verdenshandelen og forhindret stormaktskrig. Bygde på Royal Navys overlegenhet."
+  },
+  {
+    "id": "pax-deorum",
+    "term": "Pax Deorum",
+    "definition": "Latin: «gudenes fred». Romerne mente at gudenes godvilje måtte sikres gjennom riktige ritualer, eller katastrofer ville ramme staten."
+  },
+  {
+    "id": "pax-mongolica",
+    "term": "Pax Mongolica",
+    "definition": "En periode med relativ stabilitet og fred i Eurasia på 1200- og 1300-tallet under det mongolske herredømmet, som muliggjorde trygg handel langs Silkeveien.",
+    "links": [
+      {
+        "title": "Det Mongolske Riket",
+        "url": "/historie/middelalder/mongolske-riket"
+      }
+    ]
+  },
+  {
+    "id": "pax-romana",
+    "term": "Pax Romana",
+    "definition": "En lang periode med relativ fred og stabilitet i Romerriket, som varte fra Augustus' regjeringstid til slutten av det 2. århundre evt.",
+    "type": "concept",
+    "tags": [
+      "roma",
+      "antikken",
+      "fred"
+    ],
+    "subject": "historie"
+  },
+  {
+    "id": "pearl-harbor",
+    "term": "Pearl Harbor",
+    "definition": "Amerikansk marinebase på Hawaii. Japans overraskelsesangrep 7. desember 1941 dro USA inn i andre verdenskrig."
+  },
+  {
+    "id": "penicillin",
+    "term": "Penicillin",
+    "definition": "En type antibiotika som dreper bakterier og forhindrer infeksjoner.",
+    "subject": "historie",
+    "topic": "andre-verdenskrig",
+    "tags": []
+  },
+  {
+    "id": "perestrojka",
+    "term": "Perestrojka",
+    "definition": "En politisk og økonomisk reformpolitik (omstrukturering) innført av Mikhail Gorbatsjov i Sovjetunionen på 1980-tallet. Målet var å modernisere og effektivisere det sovjetiske systemet.",
+    "subject": "historie",
+    "topic": "den-kalde-krigen",
+    "tags": [
+      "sovjet",
+      "økonomi",
+      "reform"
+    ]
+  },
+  {
+    "id": "pliktetikk",
+    "term": "Pliktetikk",
+    "definition": "Etisk teori som sier at handlinger er riktige eller gale i seg selv, ikke pga. konsekvensene. Knyttet til Immanuel Kant og det kategoriske imperativ."
+  },
+  {
+    "id": "pontifex-maximus",
+    "term": "Pontifex Maximus",
+    "definition": "Den øverste prest i romersk religion. Først en politisk tittel, så overtatt av keiserne og senere av paven."
+  },
+  {
+    "id": "population-registration-act",
+    "term": "Population Registration Act",
+    "definition": "Sørafrikansk lov fra 1950 som klassifiserte alle innbyggere etter rase. En av apartheid-systemets grunnlover."
+  },
+  {
+    "id": "pragmatisme",
+    "term": "Pragmatisme",
+    "definition": "En tenkemåte som vektlegger praktiske resultater og løsninger fremfor teoretiske prinsipper eller ideologi. I politikken handler det ofte om å finne løsninger som fungerer (realpolitikk).",
+    "type": "concept",
+    "tags": [
+      "politikk",
+      "filosofi",
+      "styringsformer"
+    ],
+    "subject": "samfunnskunnskap"
+  },
+  {
     "id": "president-republikk",
     "term": "president-republikk",
     "definition": "Demokrati der presidenten har mye makt og velges uavhengig av parlamentet. Eksempel: USA. Presidenten leder regjeringen og kan ikke enkelt kastes av kongressen.",
     "subject": "samfunnskunnskap",
     "topic": "styringsformer",
     "tags": []
+  },
+  {
+    "id": "radar",
+    "term": "Radar",
+    "definition": "Teknologi som bruker radiobølger til å fastslå avstand, retning og hastighet til gjenstander som fly og skip.",
+    "subject": "historie",
+    "topic": "andre-verdenskrig",
+    "tags": []
+  },
+  {
+    "id": "raf",
+    "term": "RAF",
+    "definition": "Royal Air Force, Tyrkias flyvåpen som forsvarte landet under slaget om Storbritannia.",
+    "subject": "historie",
+    "topic": "andre-verdenskrig",
+    "tags": []
+  },
+  {
+    "id": "rasisme",
+    "term": "Rasisme",
+    "definition": "Å skille mellom mennesker ut fra hudfarge eller etnisk opphav, og behandle noen som mindre verdt. Bygger på den falske ideen om at det finnes ulike menneskeraser."
+  },
+  {
+    "id": "realisme",
+    "term": "Realisme",
+    "definition": "Litterær periode i siste halvdel av 1800-tallet som ville vise samfunnet som det var, med fattigdom, urettferdighet og dobbeltmoral. Sentrale forfattere: Kielland og Ibsen."
+  },
+  {
+    "id": "refleksjon",
+    "term": "Refleksjon",
+    "definition": "Å tenke grundig over noe fra flere sider for å oppnå dypere forståelse. I skriving betyr det å undersøke egne tanker, spørsmål og vurderinger i møte med et tema eller en tekst.",
+    "context": "Norsk",
+    "links": []
+  },
+  {
+    "id": "refleksjonsmarkorer",
+    "term": "Refleksjonsmarkører",
+    "definition": "Ord og uttrykk som signaliserer til leseren at forfatteren tenker selv og vurderer saken (f.eks. 'kanskje', 'det kan virke som', 'på den ene siden').",
+    "context": "Norsk",
+    "links": []
+  },
+  {
+    "id": "reformasjon",
+    "term": "Reformasjon",
+    "definition": "Reformbevegelsen som splittet den katolske kirken på 1500-tallet. Den startet med Martin Luther i 1517 og førte til at protestantismen oppsto."
+  },
+  {
+    "id": "rekognosering",
+    "term": "Rekognosering",
+    "definition": "Militær speiding for å samle informasjon om fiendens posisjoner og styrker.",
+    "subject": "historie",
+    "topic": "forste-verdenskrig",
+    "tags": []
+  },
+  {
+    "id": "relativitetsteorien",
+    "term": "Relativitetsteorien",
+    "definition": "Albert Einsteins fysiske teorier som endret vår forståelse av tid, rom, masse og energi. Den består av den spesielle og den generelle relativitetsteorien."
+  },
+  {
+    "id": "religionsfrihet",
+    "term": "Religionsfrihet",
+    "definition": "Retten til selv å velge tro og praktisere religion uten forfølgelse. Innebærer også retten til å ikke tro."
+  },
+  {
+    "id": "replikk",
+    "title": "Replikk",
+    "explanation": "Det som blir sagt av en person i en tekst eller et skuespill.",
+    "usage": "Hver nye replikk skal starte på en ny linje når en ny person snakker.",
+    "links": []
   },
   {
     "id": "representativt-demokrati",
@@ -176,6 +1865,161 @@
     "tags": []
   },
   {
+    "id": "rettferdiggjore",
+    "term": "Rettferdiggjøre",
+    "aliases": [
+      "rettferdiggjør",
+      "rettferdiggjorde",
+      "rettferdiggjort",
+      "rettferdiggjøring",
+      "rettferdiggjores"
+    ],
+    "definition": "Å forsvare, begrunne eller forklare hvorfor en handling eller beslutning er riktig eller nødvendig. I historisk sammenheng brukes det ofte om hvordan ledere eller stater forsvarer krigshandlinger eller politiske valg. Se også: [[Casus belli]] (grunn til krig).",
+    "subject": "historie",
+    "tags": [
+      "begrep",
+      "forklaring"
+    ],
+    "links": [
+      "casus-belli"
+    ],
+    "type": "concept"
+  },
+  {
+    "id": "rettferdighet",
+    "term": "Rettferdighet",
+    "definition": "At alle får det de fortjener etter rettferdige regler. Det kan bety lik fordeling, lik mulighet, eller at folk får igjen for det de gjør."
+  },
+  {
+    "id": "rettigheter",
+    "term": "Rettigheter",
+    "definition": "Det folk har krav på fra fellesskapet eller staten - som å si sin mening, eie noe, eller bli behandlet rettferdig."
+  },
+  {
+    "id": "rhinen",
+    "term": "Rhinen",
+    "definition": "En av Europas lengste og viktigste elver. I antikken utgjorde den sammen med Donau mye av den nordlige grensen (limes) for Romerriket.",
+    "type": "concept",
+    "tags": [
+      "geografi",
+      "europa",
+      "roma"
+    ],
+    "subject": "historie"
+  },
+  {
+    "id": "rhinland",
+    "term": "Rhinland",
+    "definition": "Et område i Vest-Tyskland langs elven Rhinen. Etter første verdenskrig ble det bestemt at området skulle være demilitarisert for å beskytte Frankrike mot nye angrep.",
+    "type": "concept",
+    "tags": [
+      "tyskland",
+      "geografi",
+      "mellomkrigstiden"
+    ],
+    "subject": "historie"
+  },
+  {
+    "id": "rikdom",
+    "term": "Rikdom",
+    "definition": "Å ha mer enn man trenger - ofte målt i penger, men også som tid, helse eller kunnskap. Hvordan rikdom fordeles bestemmer mye av et samfunns konflikter."
+  },
+  {
+    "id": "roaring-20s",
+    "term": "Det glade 20-tall",
+    "definition": "Betegnelse på 1920-tallet i USA og Vest-Europa, preget av økonomisk oppgang, kulturell blomstring, jazzmusikk og nye sosiale friheter."
+  },
+  {
+    "id": "roede-kors",
+    "term": "Røde Kors",
+    "definition": "Internasjonal humanitær organisasjon grunnlagt av Henry Dunant etter slaget ved Solferino i 1859. Hjelper sårede soldater og sivile i krig."
+  },
+  {
+    "id": "royal-navy",
+    "term": "Royal Navy",
+    "definition": "Storbritannias marine, verdens mektigste fra 1700-tallet til midten av 1900-tallet. Royal Navys herredømme gjorde Pax Britannica mulig."
+  },
+  {
+    "id": "rubicon",
+    "term": "Rubicon",
+    "definition": "En liten elv i Nord-Italia. Da Julius Cæsar krysset elven med sin hær i 49 fvt., brøt han romersk lov og startet en borgerkrig. Uttrykket 'å krysse Rubicon' betyr å ta en ugjenkallelig beslutning.",
+    "type": "concept",
+    "tags": [
+      "roma",
+      "historie",
+      "uttrykk"
+    ],
+    "subject": "historie"
+  },
+  {
+    "id": "saarbarhet",
+    "term": "Sårbarhet",
+    "definition": "Når man kan bli skadet eller såret. Å vise sårbarhet kan være både en svakhet og en styrke i menneskelige relasjoner."
+  },
+  {
+    "id": "samfunnskontrakt",
+    "term": "Samfunnskontrakt",
+    "definition": "Filosofisk idé om at staten oppstår fra en avtale mellom borgerne. Hobbes, Locke og Rousseau utviklet ulike versjoner av denne teorien."
+  },
+  {
+    "id": "sannhet",
+    "term": "Sannhet",
+    "definition": "Det som faktisk stemmer med virkeligheten. Filosofer skiller mellom sannhet som overensstemmelse med fakta, sannhet som indre opplevelse, og sannhet som det vi blir enige om."
+  },
+  {
+    "id": "sapere-aude",
+    "term": "Sapere aude",
+    "definition": "Latin: «Våg å tenke selv!» Immanuel Kants motto for opplysningstiden. En oppfordring til å bruke egen fornuft i stedet for å stole på autoriteter."
+  },
+  {
+    "id": "schlieffen-planen",
+    "term": "Schlieffen-planen",
+    "definition": "Tysklands krigsplan for å unngå en tofrontskrig ved å slå ut Frankrike raskt før Russland rakk å mobilisere.",
+    "subject": "historie",
+    "topic": "forste-verdenskrig",
+    "tags": []
+  },
+  {
+    "id": "selvbestemmelsesrett",
+    "term": "Selvbestemmelsesrett",
+    "definition": "Prinsippet om at et folk har rett til å styre seg selv og velge sin egen statstilhørighet.",
+    "subject": "historie",
+    "topic": "forste-verdenskrig",
+    "tags": []
+  },
+  {
+    "id": "selvstendighet",
+    "term": "Selvstendighet",
+    "definition": "Å klare seg selv og stå på egne bein. Både en personlig dyd og et politisk mål for nasjoner."
+  },
+  {
+    "id": "senantikken",
+    "term": "senantikken",
+    "definition": "Overgangsperioden mellom antikken og middelalderen, ca. 200–600 e.Kr. Preget av store endringer i Romerriket, kristendommens fremvekst og folkevandringer.",
+    "subject": "historie",
+    "topic": "klimakrisen-536",
+    "tags": [
+      "periode",
+      "romerriket"
+    ]
+  },
+  {
+    "id": "sennepsgass",
+    "term": "Sennepsgass",
+    "definition": "En kjemisk stridsgass som gir blemmer på hud og i lunger, brukt under første verdenskrig.",
+    "subject": "historie",
+    "topic": "forste-verdenskrig",
+    "tags": []
+  },
+  {
+    "id": "sentralmaktene",
+    "term": "Sentralmaktene",
+    "definition": "Alliansen mellom Tyskland, Østerrike-Ungarn og Det osmanske riket.",
+    "subject": "historie",
+    "topic": "forste-verdenskrig",
+    "tags": []
+  },
+  {
     "id": "sepoy",
     "term": "sepoy",
     "definition": "Indisk soldat i tjeneste for en europeisk makt, spesielt Storbritannia.",
@@ -184,12 +2028,233 @@
     "tags": []
   },
   {
+    "id": "show-dont-tell",
+    "term": "Show, don't tell",
+    "definition": "En skriveteknikk der man viser hva som skjer eller hva en karakter føler gjennom handlinger, sanser og detaljer, i stedet for å bare fortelle det direkte til leseren (f.eks. ved å beskrive skjelvende hender i stedet for å skrive «han var redd»).",
+    "link": "/norsk/skrivehjelp/hvordan-lage-karakterer"
+  },
+  {
+    "id": "sikh",
+    "term": "sikh",
+    "definition": "Betyr 'elev'. En tilhenger av sikhismen.",
+    "subject": "krle",
+    "topic": "religion",
+    "tags": [
+      "sikhisme"
+    ]
+  },
+  {
+    "id": "sivilisasjon",
+    "term": "Sivilisasjon",
+    "definition": "Et samfunn med byer, skrift, statsmakt og spesialiserte yrker. De tidligste sivilisasjonene oppsto langs store elver for rundt 5000 år siden."
+  },
+  {
+    "id": "skagerrak",
+    "term": "Skagerrak",
+    "definition": "Havområdet mellom Sør-Norge, Nord-Jylland og det vestlige Sverige. Området har historisk sett vært en strategisk viktig ferdselsåre for skipstrafikken inn og ut av Østersjøen.",
+    "type": "concept",
+    "tags": [
+      "geografi",
+      "handel",
+      "krigshistorie",
+      "hav"
+    ],
+    "subject": "historie"
+  },
+  {
+    "id": "skyttergravskrig",
+    "term": "Skyttergravskrig",
+    "definition": "En form for krigføring hvor soldatene beskytter seg i utgravde grøfter, ofte preget av stillstand.",
+    "subject": "historie",
+    "topic": "forste-verdenskrig",
+    "tags": []
+  },
+  {
+    "id": "sol-invictus",
+    "term": "Sol Invictus",
+    "definition": "Romersk solgud, populær fra 200-tallet. Mange kjennetegn ved kulten ble senere overtatt av kristendommen, blant annet feiringen av 25. desember."
+  },
+  {
     "id": "sosialisme",
     "term": "sosialisme",
     "definition": "Produksjonsmidlene eies eller kontrolleres av fellesskapet (staten). Politisk bestemt hva som skal produseres (Planøkonomi). Målet er likere fordeling.",
     "subject": "samfunnskunnskap",
     "topic": "demografi-okonomi",
     "tags": []
+  },
+  {
+    "id": "spekulasjon",
+    "term": "Spekulasjon",
+    "definition": "Å investere i håp om kortsiktig gevinst, ofte i risikable verdier. Spekulasjon var en viktig årsak til børskrakket i 1929."
+  },
+  {
+    "id": "stabilitet",
+    "term": "Stabilitet",
+    "definition": "Når samfunn, økonomi eller politiske systemer er forutsigbare og fungerer over tid. Brå endringer kan skape uro."
+  },
+  {
+    "id": "stalingrad",
+    "term": "Stalingrad",
+    "definition": "By i Russland der et avgjørende slag fant sted; vendepunktet på Østfronten.",
+    "subject": "historie",
+    "topic": "andre-verdenskrig",
+    "tags": []
+  },
+  {
+    "id": "stamford-bridge",
+    "term": "Stamford Bridge",
+    "definition": "Slag i England 25. september 1066 der Harald Hardråde og hans vikinger ble beseiret av engelskmennene. Markerer slutten på vikingtiden."
+  },
+  {
+    "id": "stfronten",
+    "term": "Østfronten",
+    "definition": "Krigssonen i Øst-Europa, mellom Tyskland/Østerrike-Ungarn og Russland.",
+    "subject": "historie",
+    "topic": "forste-verdenskrig",
+    "tags": []
+  },
+  {
+    "id": "stolthet",
+    "term": "Stolthet",
+    "definition": "Følelse av selvverd og glede over hva man eller ens gruppe har oppnådd. Nasjonalfølelse er ofte knyttet til kollektiv stolthet."
+  },
+  {
+    "id": "stormaktstiden",
+    "term": "Stormaktstiden",
+    "definition": "En periode i Sveriges historie mellom 1611 og 1718 der landet var en av Europas ledende stormakter, med kontroll over store deler av Østersjøregionen.",
+    "type": "concept",
+    "tags": [
+      "stormakt",
+      "sverige",
+      "krig"
+    ],
+    "subject": "historie",
+    "link": "/historie/sveriges-historie/sveriges-historie"
+  },
+  {
+    "id": "strange-fruit",
+    "term": "Strange Fruit",
+    "definition": "Billie Holidays sang fra 1939 om lynsjing av svarte i Sør-statene. «Sørstatenes trær bærer en merkelig frukt.» En av musikkhistoriens viktigste protestsanger."
+  },
+  {
+    "id": "streikerett",
+    "term": "Streikerett",
+    "definition": "Arbeidstakernes rett til å legge ned arbeidet for å presse gjennom krav i lønnsforhandlinger. I Norge kan man bare streike når tariffavtalen er utløpt.",
+    "type": "concept",
+    "tags": [
+      "arbeidsliv",
+      "rettigheter"
+    ],
+    "subject": "samfunnskunnskap"
+  },
+  {
+    "id": "stridsvogn",
+    "term": "Stridsvogn",
+    "definition": "Et pansret motorkjøretøy med belter og bevæpning (tank), utviklet for å bryte gjennom skyttergraver.",
+    "subject": "historie",
+    "topic": "forste-verdenskrig",
+    "tags": []
+  },
+  {
+    "id": "subjektet",
+    "term": "Subjektet",
+    "definition": "Den delen av en setning som forteller hvem eller hva som utfører handlingen (verbalet).",
+    "type": "concept",
+    "tags": [
+      "grammatikk",
+      "norsk",
+      "setningsanalyse"
+    ],
+    "subject": "norsk"
+  },
+  {
+    "id": "subtekst",
+    "title": "Subtekst",
+    "explanation": "Det som ligger under overflaten av teksten. Hva personene egentlig mener, føler eller tenker, men ikke sier høyt.",
+    "usage": "God dialog har ofte mye subtekst. De snakker om været, men krangler egentlig om ekteskapet.",
+    "links": []
+  },
+  {
+    "id": "suverenitet",
+    "term": "Suverenitet",
+    "aliases": [
+      "suveren",
+      "suverent",
+      "suverene",
+      "suvereniteten",
+      "suverenitetshåndhevelse"
+    ],
+    "definition": "Å ha den øverste makten eller myndigheten over et område eller seg selv. I politisk sammenheng betyr det at en stat er selvstendig og har rett til å styre sine egne indre forhold uten innblanding utenfra. Se også: [[Suverenitetsprinsippet]].",
+    "subject": "samfunnskunnskap",
+    "tags": [
+      "politikk",
+      "makt",
+      "selvstendighet"
+    ],
+    "links": [
+      "suverenitetsprinsippet"
+    ],
+    "type": "concept"
+  },
+  {
+    "id": "suverenitetsprinsippet",
+    "term": "Suverenitetsprinsippet",
+    "definition": "Ideen om at en stat bestemmer over seg selv, uten innblanding fra andre stater eller paven.",
+    "subject": "historie",
+    "topic": "reformasjonen",
+    "tags": []
+  },
+  {
+    "id": "svartskjortene",
+    "term": "Svartskjortene",
+    "definition": "De væpnede gruppene til de italienske fascistene under Mussolini. De brukte vold og trusler mot politiske motstandere.",
+    "type": "concept",
+    "tags": [
+      "fascisme",
+      "italia",
+      "vold"
+    ],
+    "subject": "historie"
+  },
+  {
+    "id": "sykdom",
+    "term": "Sykdom",
+    "definition": "Når kroppen eller psyken ikke fungerer som den skal. Hva som regnes som sykdom har endret seg gjennom historien og varierer mellom kulturer."
+  },
+  {
+    "id": "sykes-picot",
+    "term": "Sykes-Picot-avtalen",
+    "definition": "En hemmelig avtale fra 1916 mellom Storbritannia og Frankrike om å dele Det osmanske rikets arabiske provinser mellom seg etter krigen. Avtalen la grunnlaget for mange av dagens grenser i Midtøsten.",
+    "type": "concept",
+    "topic": "forste-verdenskrig",
+    "subject": "historie"
+  },
+  {
+    "id": "synsvinkel",
+    "term": "synsvinkel",
+    "definition": "Perspektivet fortellingen sees fra. Det avgjør hva leseren får vite og ikke. Vanlige synsvinkler er personal (førsteperson 'jeg' eller tredjeperson 'han/hun') og autoral (allvitende eller refererende).",
+    "subject": "norsk",
+    "topic": "skrivehjelp",
+    "tags": []
+  },
+  {
+    "id": "tankereferat",
+    "term": "tankereferat",
+    "definition": "En teknikk der forfatteren gjenforteller hva en karakter tenker, uten å bruke direkte sitat. Skaper mer avstand enn indre monolog.",
+    "subject": "norsk",
+    "topic": "skrivehjelp",
+    "tags": []
+  },
+  {
+    "id": "tariffavtale",
+    "term": "Tariffavtale",
+    "definition": "En skriftlig avtale mellom en fagforening og en arbeidsgiver om lønn og arbeidsvilkår. Avtalen gjelder for en bestemt periode, vanligvis to år.",
+    "type": "concept",
+    "tags": [
+      "arbeidsliv",
+      "rettigheter"
+    ],
+    "subject": "samfunnskunnskap"
   },
   {
     "id": "te",
@@ -208,12 +2273,40 @@
     "tags": []
   },
   {
+    "id": "teknologi",
+    "term": "Teknologi",
+    "definition": "Verktøy, maskiner og metoder vi lager for å løse oppgaver. Hver ny teknologi endrer både hvordan vi lever og hvordan samfunnet vårt fungerer."
+  },
+  {
     "id": "tekstil",
     "term": "tekstil",
     "definition": "Stoffer og klær. Bomullstekstiler fra India var svært ettertraktet i Europa.",
     "subject": "historie",
     "topic": "kolonialisering",
     "tags": []
+  },
+  {
+    "id": "telegrafen",
+    "term": "Telegrafen",
+    "definition": "Verdens første elektriske kommunikasjonsapparat, oppfunnet på 1830-tallet. Den gjorde det mulig å sende meldinger over hele verden på minutter."
+  },
+  {
+    "id": "tema",
+    "term": "Tema",
+    "definition": "Det teksten dypest sett handler om på et abstrakt plan. Ofte et universelt menneskelig spørsmål eller en konflikt som tekstens handling illustrerer.",
+    "subject": "norsk",
+    "topic": "skrivehjelp",
+    "tags": [
+      "litterær analyse",
+      "skriving"
+    ],
+    "type": "concept"
+  },
+  {
+    "id": "temasetning",
+    "term": "Temasetning",
+    "definition": "Den første setningen i et avsnitt som forteller hva avsnittet skal handle om. Den fungerer som et løfte til leseren.",
+    "links": []
   },
   {
     "id": "teokrati",
@@ -224,11 +2317,329 @@
     "tags": []
   },
   {
+    "id": "teologi",
+    "term": "Teologi",
+    "definition": "Læren om Gud og religion. Studerer hvordan tro forholder seg til fornuft, historie og etikk."
+  },
+  {
+    "id": "the-roaring-twenties",
+    "term": "The Roaring Twenties",
+    "definition": "De brølende 20-årene - perioden etter første verdenskrig med økonomisk boom, jazz, biler og frigjøring. Endte brått med børskrakket i 1929."
+  },
+  {
+    "id": "the-troubles",
+    "term": "The Troubles",
+    "definition": "Konflikten i Nord-Irland 1968-1998 mellom katolske nasjonalister og protestantiske unionister. Over 3500 mennesker mistet livet."
+  },
+  {
+    "id": "tidspreferanse",
+    "term": "Tidspreferanse",
+    "aliases": [
+      "tidspreferansen",
+      "tidspreferanser",
+      "tidspreferansene"
+    ],
+    "definition": "Hvor mye mer vi verdsetter goder i dag sammenlignet med i fremtiden. Høy tidspreferanse betyr at du er utålmodig og vil ha alt nå. Lav tidspreferanse betyr at du er tålmodig og villig til å spare. Summen av alles tidspreferanse i samfunnet bestemmer den naturlige renten.",
+    "type": "concept",
+    "tags": [
+      "økonomi",
+      "østerriksk skole",
+      "rente",
+      "sparing"
+    ],
+    "subject": "samfunnskunnskap"
+  },
+  {
+    "id": "tilhoerighet",
+    "term": "Tilhørighet",
+    "definition": "Å føle seg som en del av et fellesskap. Et grunnleggende menneskelig behov, ifølge psykolog Abraham Maslow."
+  },
+  {
+    "id": "total-krig",
+    "term": "Total krig",
+    "definition": "En krigføring der alle samfunnets ressurser mobiliseres, og skillet mellom militære og sivile mål forsvinner.",
+    "subject": "historie",
+    "topic": "andre-verdenskrig",
+    "tags": []
+  },
+  {
     "id": "totalitaert-diktatur",
     "term": "totalitært diktatur",
     "definition": "Staten kontrollerer absolutt alt, inkludert hva folk tenker og mener. Ingen frihet. Ekstrem overvåkning og propaganda. Eksempel: Nord-Korea.",
     "subject": "samfunnskunnskap",
     "topic": "styringsformer",
+    "tags": []
+  },
+  {
+    "id": "traktat",
+    "term": "Traktat",
+    "definition": "En formell og bindende avtale mellom to eller flere stater, ofte brukt om fredsavtaler etter en krig.",
+    "type": "concept",
+    "tags": [
+      "diplomati",
+      "fredsavtale",
+      "politikk"
+    ],
+    "subject": "historie"
+  },
+  {
+    "id": "traktbegerkulturen",
+    "term": "Traktbegerkulturen",
+    "definition": "Den første jordbrukskulturen i Sør-Norge og Nord-Europa, kjennetegnet av karakteristiske traktformede leirkar.",
+    "type": "concept",
+    "tags": [
+      "steinalder",
+      "jordbruk",
+      "norge"
+    ],
+    "subject": "historie"
+  },
+  {
+    "id": "treenigheten",
+    "term": "Treenigheten",
+    "definition": "Den kristne læren om at Gud er én, men finnes som tre personer: Faderen, Sønnen og Den hellige ånd. Sentral forskjell mellom kristendom og jødedom/islam."
+  },
+  {
+    "id": "truman-doktrinen",
+    "term": "Truman-doktrinen",
+    "definition": "En utenrikspolitisk strategi lansert av USAs president Harry S. Truman i 1947, som slo fast at USA skulle støtte frie folk og demokratier som ble truet av kommunistisk aggresjon eller autoritære regimer.",
+    "subject": "historie",
+    "topic": "den-kalde-krigen",
+    "tags": [
+      "usa",
+      "utenrikspolitikk",
+      "oppdemming"
+    ]
+  },
+  {
+    "id": "trygghet",
+    "term": "Trygghet",
+    "definition": "Følelsen av å være beskyttet mot fare. Stater eksisterer i stor grad for å gi innbyggerne trygghet."
+  },
+  {
+    "id": "tsar-bomba",
+    "term": "Tsar Bomba",
+    "definition": "Verdens kraftigste atombombe noensinne, sprengt av Sovjet i 1961. Sprengkraften var 3000 ganger sterkere enn Hiroshima-bomben."
+  },
+  {
+    "id": "uavhengighet",
+    "term": "Uavhengighet",
+    "definition": "Å bestemme over seg selv uten å være underlagt andre. Brukes om personer, om land som blir selvstendige, og om institusjoner som domstoler."
+  },
+  {
+    "id": "uinnskrenket-ubtkrig",
+    "term": "Uinnskrenket ubåtkrig",
+    "definition": "En type sjøkrig hvor ubåter senker fartøy uten forvarsel, også nøytrale handelsskip.",
+    "subject": "historie",
+    "topic": "forste-verdenskrig",
+    "tags": []
+  },
+  {
+    "id": "ulikhet",
+    "term": "Ulikhet",
+    "definition": "Forskjeller mellom mennesker i inntekt, makt, helse eller muligheter. Stor ulikhet skaper ofte sosial uro og politiske konflikter."
+  },
+  {
+    "id": "ultimatum",
+    "term": "Ultimatum",
+    "definition": "Et endelig krav som må oppfylles innen en viss tidsfrist for å unngå alvorlige konsekvenser, ofte krig.",
+    "subject": "historie",
+    "topic": "forste-verdenskrig",
+    "tags": []
+  },
+  {
+    "id": "undring",
+    "term": "Undring",
+    "definition": "En åpen og nysgjerrig måte å nærme seg en tekst eller et tema på. Det handler om å stille spørsmål uten nødvendigvis å ha et ferdig svar, og utforske ulike muligheter.",
+    "context": "Norsk",
+    "links": []
+  },
+  {
+    "id": "unionsopplosningen-1905",
+    "term": "Unionsoppløsningen 1905",
+    "definition": "Den fredelige avslutningen på personalunionen mellom Sverige og Norge. Etter intense forhandlinger i Karlstad anerkjente Sverige Norges selvstendighet i oktober 1905.",
+    "type": "concept",
+    "tags": [
+      "union",
+      "fred",
+      "norge-sverige"
+    ],
+    "subject": "historie",
+    "link": "/historie/sveriges-historie/sveriges-historie"
+  },
+  {
+    "id": "urbanisering",
+    "term": "Urbanisering",
+    "definition": "En prosess der befolkningen flytter fra landsbygda til byer og tettsteder, slik at byområdene vokser og blir viktigere."
+  },
+  {
+    "id": "urettferdighet",
+    "term": "Urettferdighet",
+    "definition": "Når noen blir behandlet feil ut fra det de fortjener eller har krav på. Opplevd urettferdighet er ofte gnisten som tenner opprør."
+  },
+  {
+    "id": "utilitarisme",
+    "term": "Utilitarisme",
+    "definition": "Etisk teori som sier at det riktige er det som gir mest mulig lykke til flest mulig. Utviklet av Bentham og Mill på 1800-tallet."
+  },
+  {
+    "id": "utmattelseskrig",
+    "term": "Utmattelseskrig",
+    "definition": "En krigføring hvor målet er å slite ut fiendens ressurser og mannskap fremfor å vinne raske territorielle seire.",
+    "subject": "historie",
+    "topic": "forste-verdenskrig",
+    "tags": []
+  },
+  {
+    "id": "v2",
+    "term": "V2",
+    "definition": "Verdens første langdistanse ballistiske rakett, utviklet av Tyskland.",
+    "subject": "historie",
+    "topic": "andre-verdenskrig",
+    "tags": []
+  },
+  {
+    "id": "vanaere",
+    "term": "Vanære",
+    "definition": "Tap av ære, dyp skam eller skjendsel. I eldre tider var ære og vanære sentrale begreper for ens sosiale status og rettssikkerhet.",
+    "type": "concept",
+    "tags": [
+      "kultur",
+      "historie",
+      "samfunn",
+      "moral"
+    ],
+    "subject": "historie"
+  },
+  {
+    "id": "vennskap",
+    "term": "Vennskap",
+    "definition": "Et nært, frivillig forhold mellom mennesker som liker hverandre. Aristoteles mente ekte vennskap er en av forutsetningene for et godt liv."
+  },
+  {
+    "id": "verbalet",
+    "term": "Verbalet",
+    "definition": "Den delen av en setning som forteller hva som skjer eller hva som gjøres. Det består alltid av ett eller flere verb.",
+    "type": "concept",
+    "tags": [
+      "grammatikk",
+      "norsk",
+      "setningsanalyse"
+    ],
+    "subject": "norsk"
+  },
+  {
+    "id": "verdighet",
+    "term": "Verdighet",
+    "definition": "Følelsen av å bli behandlet med respekt som menneske. Menneskerettighetene bygger på ideen om alle menneskers iboende verdighet."
+  },
+  {
+    "id": "versailles-traktaten",
+    "term": "Versailles-traktaten",
+    "definition": "Fredsavtalen fra 1919 som offisielt avsluttet første verdenskrig og påla Tyskland svært harde betingelser, inkludert enorme krigserstatninger.",
+    "type": "concept",
+    "tags": [
+      "første verdenskrig",
+      "tyskland",
+      "fredsavtale"
+    ],
+    "subject": "historie"
+  },
+  {
+    "id": "versaillestraktaten",
+    "term": "Versaillestraktaten",
+    "definition": "Fredsavtalen fra 1919 som offisielt avsluttet første verdenskrig og påla Tyskland svært harde betingelser, inkludert enorme krigserstatninger.",
+    "type": "concept",
+    "tags": [
+      "første verdenskrig",
+      "tyskland",
+      "fredsavtale"
+    ],
+    "subject": "historie"
+  },
+  {
+    "id": "vestfronten",
+    "term": "Vestfronten",
+    "definition": "Krigssonen i Vest-Europa, hovedsakelig i Frankrike og Belgia.",
+    "subject": "historie",
+    "topic": "forste-verdenskrig",
+    "tags": []
+  },
+  {
+    "id": "virkelighet",
+    "term": "Virkelighet",
+    "definition": "Alt som faktisk eksisterer, uavhengig av hva vi tror eller ønsker. Filosofer har diskutert i tusenvis av år om vi noen gang kan se virkeligheten som den er."
+  },
+  {
+    "id": "visdom",
+    "term": "Visdom",
+    "definition": "Å kunne bruke kunnskap og erfaring til å gjøre kloke valg. Skiller seg fra ren kunnskap ved at det handler om dømmekraft og innsikt i livet."
+  },
+  {
+    "id": "vitenskap",
+    "term": "Vitenskap",
+    "definition": "Systematisk måte å finne ut hvordan verden henger sammen. Bygger på observasjon, eksperiment og at andre kan etterprøve resultatene."
+  },
+  {
+    "id": "wall-street",
+    "term": "Wall Street",
+    "definition": "Gate i New York som er sentrum for verdens finansmarkeder. Børskrakket der i 1929 utløste den store depresjonen."
+  },
+  {
+    "id": "weimarrepublikken",
+    "term": "Weimarrepublikken",
+    "definition": "Betegnelsen på den demokratiske tyske staten som eksisterte fra 1919 til 1933.",
+    "subject": "historie",
+    "topic": "forste-verdenskrig",
+    "tags": []
+  },
+  {
+    "id": "wergild",
+    "term": "Wergild",
+    "aliases": [
+      "wergeld",
+      "weregild"
+    ],
+    "definition": "Fast pris for drap i germansk middelalderrett. Beløpet ble bestemt av offerets sosiale status og betalt til offerets familie som alternativ til blodhevn. På norrønt: mannebot.",
+    "type": "concept",
+    "tags": [
+      "lov",
+      "middelalder",
+      "germansk",
+      "rettsutvikling"
+    ],
+    "subject": "historie"
+  },
+  {
+    "id": "yam",
+    "term": "Yam",
+    "definition": "Mongolenes effektive post- og kommunikasjonsnettverk, bestående av faste skyss-stasjoner med friske hester.",
+    "links": [
+      {
+        "title": "Det Mongolske Riket",
+        "url": "/historie/middelalder/mongolske-riket"
+      }
+    ]
+  },
+  {
+    "id": "ytringsfrihet",
+    "term": "Ytringsfrihet",
+    "definition": "Retten til å si og skrive det man mener, også upopulære meninger. Grunnloven §100 og menneskerettighetene beskytter ytringsfriheten."
+  },
+  {
+    "id": "zeppeliner",
+    "term": "Zeppeliner",
+    "definition": "Et stort, styrbart luftskip med stivt skjelett, brukt til bombing og speiding.",
+    "subject": "historie",
+    "topic": "forste-verdenskrig",
+    "tags": []
+  },
+  {
+    "id": "zimmermann-telegrammet",
+    "term": "Zimmermann-telegrammet",
+    "definition": "Et hemmelig telegram fra Tyskland til Mexico som bidro til å trekke USA inn i krigen.",
+    "subject": "historie",
+    "topic": "forste-verdenskrig",
     "tags": []
   }
 ]

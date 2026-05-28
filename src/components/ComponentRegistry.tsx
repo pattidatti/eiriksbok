@@ -369,6 +369,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     HanseaticLedger: lazy(() => import('./content/interactive/hanseatene/HanseaticLedger').then(m => ({ default: m.HanseaticLedger }))),
     HanseaticTradeMap: lazy(() => import('./content/interactive/hanseatene/HanseaticTradeMap').then(m => ({ default: m.HanseaticTradeMap }))),
     SpiceRoutePrice: lazy(() => import('./content/interactive/SpiceRoutePrice').then(m => ({ default: m.SpiceRoutePrice }))),
+    WergildCalculator: lazy(() => import('./content/interactive/WergildCalculator').then(m => ({ default: m.WergildCalculator }))),
     MythVsEvidence: lazy(() => import('./content/interactive/MythVsEvidence').then(m => ({ default: m.MythVsEvidence }))),
 
     // Handel og infrastruktur
