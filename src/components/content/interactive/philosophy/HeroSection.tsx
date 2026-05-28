@@ -22,8 +22,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ profile, progress, onS
                         <Trophy className="text-white" size={40} />
                     </div>
                     <div>
-                        <h2 className="text-3xl font-display font-black text-white mb-2">Odysseen er fullfort!</h2>
-                        <p className="text-white/80 text-sm">Du har samtalet med alle filosofene. Niva {profile.level}: {getLevelTitle(profile.level)}.</p>
+                        <h2 className="text-3xl font-display font-black text-white mb-2">Odysseen er fullført!</h2>
+                        <p className="text-white/80 text-sm">Du har samtalt med alle filosofene. Nivå {profile.level}: {getLevelTitle(profile.level)}.</p>
                     </div>
                 </div>
             </section>
@@ -75,7 +75,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ profile, progress, onS
                     </button>
                     <div className="flex items-center gap-2 px-4 py-3 rounded-2xl bg-white/10 backdrop-blur border border-white/10 text-white/60 text-xs font-bold">
                         <ArrowRight size={14} />
-                        {progress.completed}/{progress.total} fullfort
+                        {progress.completed}/{progress.total} fullført
                     </div>
                 </div>
             </div>

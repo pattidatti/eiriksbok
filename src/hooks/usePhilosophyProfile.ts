@@ -32,14 +32,14 @@ const ACHIEVEMENTS: Achievement[] = [
     {
         id: 'first-quest',
         title: 'Nysgjerrig',
-        description: 'Fullfort din forste filosofiske dialog.',
+        description: 'Fullført din første filosofiske dialog.',
         icon: 'sparkles',
         condition: (p) => p.completedQuests.length >= 1,
     },
     {
         id: 'antikken-komplett',
         title: 'Oldtidskjenner',
-        description: 'Fullfort alle dialoger fra Antikken.',
+        description: 'Fullført alle dialoger fra Antikken.',
         icon: 'scroll',
         condition: (p) => {
             const antikkenIds = Object.values(QUEST_REGISTRY)
@@ -51,21 +51,21 @@ const ACHIEVEMENTS: Achievement[] = [
     {
         id: 'five-quests',
         title: 'Filosof',
-        description: 'Fullfort fem filosofiske dialoger.',
+        description: 'Fullført fem filosofiske dialoger.',
         icon: 'brain',
         condition: (p) => p.completedQuests.length >= 5,
     },
     {
         id: 'ten-quests',
         title: 'Dyptenker',
-        description: 'Fullfort ti filosofiske dialoger.',
+        description: 'Fullført ti filosofiske dialoger.',
         icon: 'graduation-cap',
         condition: (p) => p.completedQuests.length >= 10,
     },
     {
         id: 'all-primary',
         title: 'Mester av Odysseen',
-        description: 'Fullfort alle primerdialoger.',
+        description: 'Fullført alle primærdialoger.',
         icon: 'trophy',
         condition: (p) => {
             const primaryIds = Object.values(QUEST_REGISTRY)

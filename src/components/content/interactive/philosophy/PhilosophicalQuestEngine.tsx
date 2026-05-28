@@ -9,7 +9,6 @@ import { QuestCompletionScreen } from './QuestCompletionScreen';
 interface PhilosophicalQuestEngineProps {
     quest: PhilosophyQuest;
     mentorImage?: string;
-    onComplete?: () => void;
     onExit?: () => void;
     onStartNextQuest?: (questId: string) => void;
 }
@@ -17,7 +16,6 @@ interface PhilosophicalQuestEngineProps {
 export const PhilosophicalQuestEngine: React.FC<PhilosophicalQuestEngineProps> = ({
     quest,
     mentorImage,
-    onComplete,
     onExit,
     onStartNextQuest,
 }) => {
@@ -80,7 +78,6 @@ export const PhilosophicalQuestEngine: React.FC<PhilosophicalQuestEngineProps> =
             completeQuest(quest.id, quest.rewardXp);
             clearQuestProgress();
             setIsCompleted(true);
-            onComplete?.();
         } else {
             setHistory(prev => [...prev, currentStepId]);
             setCurrentStepId(stepId);

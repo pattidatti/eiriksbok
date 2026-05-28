@@ -86,7 +86,6 @@ export const PhilosophyOdysseyPage: React.FC = () => {
                                 quest={activeQuest}
                                 mentorImage={mentorImagePath}
                                 onExit={() => setActiveQuest(null)}
-                                onComplete={() => setActiveQuest(null)}
                                 onStartNextQuest={(questId) => {
                                     setActiveQuest(null);
                                     setActiveQuestId(questId);

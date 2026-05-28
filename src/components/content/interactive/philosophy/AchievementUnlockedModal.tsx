@@ -34,6 +34,15 @@ export const AchievementUnlockedModal: React.FC<AchievementUnlockedModalProps> =
         return () => clearTimeout(t);
     }, [achievements.length]);
 
+    useEffect(() => {
+        if (achievements.length === 0) return;
+        const onKey = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') onDismiss();
+        };
+        window.addEventListener('keydown', onKey);
+        return () => window.removeEventListener('keydown', onKey);
+    }, [achievements.length, onDismiss]);
+
     if (achievements.length === 0) return null;
 
     return (
@@ -50,6 +59,9 @@ export const AchievementUnlockedModal: React.FC<AchievementUnlockedModalProps> =
                     animate={{ scale: 1, y: 0, opacity: 1 }}
                     exit={{ scale: 0.9, opacity: 0 }}
                     transition={{ type: 'spring', stiffness: 280, damping: 22 }}
+                    role="dialog"
+                    aria-modal="true"
+                    aria-labelledby="achievement-modal-title"
                     className="relative bg-gradient-to-br from-amber-50 to-white rounded-3xl shadow-2xl max-w-md w-full p-8 border border-amber-200"
                     onClick={(e) => e.stopPropagation()}
                 >
@@ -81,6 +93,7 @@ export const AchievementUnlockedModal: React.FC<AchievementUnlockedModalProps> =
                         </motion.p>
 
                         <motion.h2
+                            id="achievement-modal-title"
                             initial={{ y: 10, opacity: 0 }}
                             animate={{ y: 0, opacity: 1 }}
                             transition={{ delay: 0.4 }}
