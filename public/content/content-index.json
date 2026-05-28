@@ -1,5 +1,5 @@
 {
-  "buildId": 1779993021921,
+  "buildId": 1779995108055,
   "contentMap": {
     "concept-adel": [
       "content/concepts/adel.json"
@@ -2014,6 +2014,9 @@
     "grunnleggende-retorikk": [
       "content/norsk/retorikk/grunnleggende-retorikk.json"
     ],
+    "retoriske-grep": [
+      "content/norsk/retorikk/retoriske-grep.json"
+    ],
     "niva-1-grunnmuren": [
       "content/norsk/setningsoppbygging/niva-1-grunnmuren.json"
     ],
@@ -3562,6 +3565,7 @@
     "norsk/ordklasser/substantiv": "content/norsk/ordklasser/substantiv.json",
     "norsk/ordklasser/verb": "content/norsk/ordklasser/verb.json",
     "norsk/retorikk/grunnleggende-retorikk": "content/norsk/retorikk/grunnleggende-retorikk.json",
+    "norsk/retorikk/retoriske-grep": "content/norsk/retorikk/retoriske-grep.json",
     "norsk/setningsoppbygging/niva-1-grunnmuren": "content/norsk/setningsoppbygging/niva-1-grunnmuren.json",
     "norsk/setningsoppbygging/niva-2-utvidet": "content/norsk/setningsoppbygging/niva-2-utvidet.json",
     "norsk/setningsoppbygging/niva-3-v2-regelen": "content/norsk/setningsoppbygging/niva-3-v2-regelen.json",

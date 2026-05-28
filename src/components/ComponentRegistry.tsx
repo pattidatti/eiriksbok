@@ -177,6 +177,7 @@ const TradisjonEllerNytt = lazy(() => import('./content/interactive/TradisjonEll
 const TekstVerksted = lazy(() => import('./content/interactive/TekstVerksted').then(m => ({ default: m.TekstVerksted })));
 const IranContraSpor = lazy(() => import('./content/interactive/IranContraSpor').then(m => ({ default: m.IranContraSpor })));
 const HygieneTidsreise = lazy(() => import('./content/interactive/HygieneTidsreise').then(m => ({ default: m.HygieneTidsreise })));
+const RetorikkMikseren = lazy(() => import('./content/interactive/RetorikkMikseren').then(m => ({ default: m.RetorikkMikseren })));
 
 export const componentRegistry: Record<string, React.ComponentType<any>> = {
     // Core
@@ -354,6 +355,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     TekstVerksted,
     IranContraSpor,
     HygieneTidsreise,
+    RetorikkMikseren,
     Gallery,
     gallery: Gallery,
     comparison: Comparison,
