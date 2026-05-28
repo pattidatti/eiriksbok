@@ -49,7 +49,7 @@ export const PhilosophyOdysseyPage: React.FC = () => {
     if (!profileLoaded) return <PageSkeleton />;
 
     const mentorImagePath = activeQuest
-        ? `/images/filosofi/${activeQuest.mentor.toLowerCase().replace(/ /g, '_')}_hero.png`
+        ? `/images/filosofi/${activeQuest.mentor.toLowerCase().replace(/ /g, '_')}_hero.webp`
         : undefined;
 
     return (

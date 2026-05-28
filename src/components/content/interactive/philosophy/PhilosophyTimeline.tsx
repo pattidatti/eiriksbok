@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle, ChevronRight, Sparkles, BookOpen, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { PHILOSOPHY_NETWORK } from '../../../../data/philosophy/network';
+import { PHILOSOPHY_NETWORK, formatBirthShort, formatLifespan } from '../../../../data/philosophy/network';
 import type { NetworkNode } from '../../../../data/philosophy/network';
 import type { Era } from '../../../../data/philosophy/types';
 import { ERA_LABELS } from '../../../../data/philosophy/types';
@@ -122,7 +122,7 @@ export const PhilosophyTimeline: React.FC<PhilosophyTimelineProps> = ({ onStartQ
                                                         'border-white'
                                                     }`}>
                                                         <img
-                                                            src={`/images/filosofi/${node.id}_hero.png`}
+                                                            src={`/images/filosofi/${node.id}_hero.webp`}
                                                             alt={node.name}
                                                             className="w-full h-full object-cover"
                                                             loading="lazy"
@@ -134,11 +134,16 @@ export const PhilosophyTimeline: React.FC<PhilosophyTimelineProps> = ({ onStartQ
                                                         </div>
                                                     )}
                                                 </div>
-                                                <span className={`text-[10px] font-bold leading-tight text-center max-w-[60px] ${
-                                                    isSelected ? 'text-indigo-700' : 'text-slate-600'
-                                                }`}>
-                                                    {node.name}
-                                                </span>
+                                                <div className="flex flex-col items-center leading-tight max-w-[64px]">
+                                                    <span className={`text-[10px] font-bold text-center ${
+                                                        isSelected ? 'text-indigo-700' : 'text-slate-600'
+                                                    }`}>
+                                                        {node.name}
+                                                    </span>
+                                                    <span className="text-[8px] text-slate-400 font-medium mt-0.5">
+                                                        {formatBirthShort(node)}
+                                                    </span>
+                                                </div>
                                             </button>
                                         </React.Fragment>
                                     );
@@ -164,16 +169,19 @@ export const PhilosophyTimeline: React.FC<PhilosophyTimelineProps> = ({ onStartQ
                                 <div className="flex items-center gap-3">
                                     <div className="w-12 h-12 rounded-xl overflow-hidden border-2" style={{ borderColor: selectedNode.color }}>
                                         <img
-                                            src={`/images/filosofi/${selectedNode.id}_hero.png`}
+                                            src={`/images/filosofi/${selectedNode.id}_hero.webp`}
                                             alt={selectedNode.name}
                                             className="w-full h-full object-cover"
                                         />
                                     </div>
                                     <div>
-                                        <div className="flex items-center gap-2">
+                                        <div className="flex items-center gap-2 flex-wrap">
                                             <h4 className="text-lg font-black">{selectedNode.name}</h4>
                                             <span className={`px-2 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-widest ${ERA_STYLES[selectedNode.era].bg} ${ERA_STYLES[selectedNode.era].text}`}>
                                                 {selectedNode.period}
+                                            </span>
+                                            <span className="text-[10px] font-bold text-slate-500 tabular-nums">
+                                                {formatLifespan(selectedNode)}
                                             </span>
                                         </div>
                                         <p className="text-sm text-slate-500 mt-0.5">{selectedNode.description}</p>
@@ -243,7 +251,7 @@ function InfluenceChips({ label, nodes, onSelect, emptyText }: {
                             className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-700 text-[10px] font-bold hover:bg-indigo-100 transition-colors"
                         >
                             <div className="w-3.5 h-3.5 rounded-full overflow-hidden">
-                                <img src={`/images/filosofi/${node.id}_hero.png`} alt="" className="w-full h-full object-cover" />
+                                <img src={`/images/filosofi/${node.id}_hero.webp`} alt="" className="w-full h-full object-cover" />
                             </div>
                             {node.name}
                         </button>

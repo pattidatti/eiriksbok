@@ -115,7 +115,7 @@ const QuestCard: React.FC<QuestCardProps> = ({ quest, profile, index, onSelect, 
     const isLocked = quest.prerequisites.some(
         prereq => !profile.completedQuests.includes(prereq)
     );
-    const imagePath = `/images/filosofi/${quest.philosopherId}_hero.png`;
+    const imagePath = `/images/filosofi/${quest.philosopherId}_hero.webp`;
     const philosopherName = quest.philosopherId.charAt(0).toUpperCase() + quest.philosopherId.slice(1);
 
     return (
@@ -123,17 +123,19 @@ const QuestCard: React.FC<QuestCardProps> = ({ quest, profile, index, onSelect, 
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.04 }}
+            whileHover={isLocked ? undefined : { y: -3, scale: 1.015 }}
+            whileTap={isLocked ? undefined : { scale: 0.985 }}
             disabled={isLocked}
             onClick={() => !isLocked && onSelect(quest.id)}
             className={`
-                relative w-full text-left rounded-2xl border overflow-hidden transition-all group
+                relative w-full text-left rounded-2xl border overflow-hidden transition-colors group
                 ${isLocked
                     ? 'opacity-50 cursor-not-allowed bg-slate-50 border-slate-100'
                     : isCompleted
-                        ? 'bg-indigo-50/50 border-indigo-100 hover:border-indigo-300 hover:shadow-md cursor-pointer'
+                        ? 'bg-indigo-50/50 border-indigo-100 hover:border-indigo-300 hover:shadow-lg hover:shadow-indigo-500/10 cursor-pointer'
                         : hasResume
-                            ? 'bg-amber-50/50 border-amber-200 hover:border-amber-400 hover:shadow-md cursor-pointer'
-                            : 'bg-white border-slate-200 hover:border-indigo-300 hover:shadow-md cursor-pointer'
+                            ? 'bg-amber-50/50 border-amber-200 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-500/15 cursor-pointer'
+                            : 'bg-white border-slate-200 hover:border-indigo-400 hover:shadow-lg hover:shadow-indigo-500/15 cursor-pointer'
                 }
             `}
         >
@@ -147,13 +149,16 @@ const QuestCard: React.FC<QuestCardProps> = ({ quest, profile, index, onSelect, 
 
             <div className="flex gap-3 p-3.5">
                 {/* Philosopher thumbnail */}
-                <div className={`w-12 h-12 rounded-xl overflow-hidden bg-slate-100 shrink-0 ${quest.isSecondary ? 'ring-2 ring-amber-300 ring-offset-1' : ''}`}>
+                <div className={`relative w-12 h-12 rounded-xl overflow-hidden bg-slate-100 shrink-0 ${quest.isSecondary ? 'ring-2 ring-amber-300 ring-offset-1' : ''}`}>
                     <img
                         src={imagePath}
                         alt={philosopherName}
-                        className={`w-full h-full object-cover ${isLocked ? 'grayscale' : ''}`}
+                        className={`w-full h-full object-cover transition-transform duration-500 ${isLocked ? 'grayscale' : 'group-hover:scale-110'}`}
                         loading="lazy"
                     />
+                    {!isLocked && (
+                        <div className="absolute inset-0 ring-2 ring-indigo-400/0 group-hover:ring-indigo-400/40 rounded-xl transition-all" />
+                    )}
                 </div>
 
                 <div className="flex-1 min-w-0">

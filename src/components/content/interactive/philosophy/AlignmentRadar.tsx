@@ -20,8 +20,8 @@ interface AlignmentRadarProps {
 }
 
 const RADAR_AXES: PhilosophyAxis[] = [
-    'rationalism', 'idealism', 'stoicism',
-    'individualism', 'existentialism', 'skepticism',
+    'rationalism', 'idealism', 'stoicism', 'individualism', 'existentialism', 'skepticism',
+    'empiricism', 'materialism', 'epicureanism', 'collectivism', 'essentialism', 'dogmatism',
 ];
 
 export const AlignmentRadar: React.FC<AlignmentRadarProps> = ({ alignment, compact = false }) => {
@@ -70,10 +70,11 @@ export const AlignmentRadar: React.FC<AlignmentRadarProps> = ({ alignment, compa
                 },
                 pointLabels: {
                     font: {
-                        size: compact ? 10 : 12,
+                        size: compact ? 9 : 11,
                         weight: 700 as const,
                     },
                     color: '#64748b',
+                    padding: 4,
                 },
             },
         },

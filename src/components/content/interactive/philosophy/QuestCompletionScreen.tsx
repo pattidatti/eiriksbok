@@ -1,22 +1,48 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Zap, Trophy, ArrowRight, Star, Sparkles, MessageCircle } from 'lucide-react';
-import type { PhilosophyQuest } from '../../../../data/philosophy/types';
+import { Zap, Trophy, ArrowRight, Star, Sparkles, MessageCircle, Target, Compass } from 'lucide-react';
+import type { DialogueChoice, PhilosophyAxis, PhilosophyQuest } from '../../../../data/philosophy/types';
+import { AXIS_DESCRIPTIONS, AXIS_LABELS } from '../../../../data/philosophy/types';
 import { usePhilosophyProfile } from '../../../../hooks/usePhilosophyProfile';
-import { getLevelTitle, getNextQuest } from '../../../../data/philosophy/questRegistry';
+import { findQuestConfig, getLevelTitle, getNextQuest } from '../../../../data/philosophy/questRegistry';
+import { AchievementUnlockedModal } from './AchievementUnlockedModal';
 import confetti from 'canvas-confetti';
 
 interface QuestCompletionScreenProps {
     quest: PhilosophyQuest;
+    choicesMade?: DialogueChoice[];
+    newlyEarnedAchievementIds?: string[];
     onClose: () => void;
     onStartNextQuest?: (questId: string) => void;
 }
 
-export const QuestCompletionScreen: React.FC<QuestCompletionScreenProps> = ({ quest, onClose, onStartNextQuest }) => {
-    const { profile, earnedAchievements } = usePhilosophyProfile();
+export const QuestCompletionScreen: React.FC<QuestCompletionScreenProps> = ({ quest, choicesMade = [], newlyEarnedAchievementIds = [], onClose, onStartNextQuest }) => {
+    const { profile, ACHIEVEMENTS } = usePhilosophyProfile();
     const [xpAnimated, setXpAnimated] = useState(0);
+    const [achievementModalDismissed, setAchievementModalDismissed] = useState(false);
 
     const nextQuest = getNextQuest(profile);
+    const questConfig = findQuestConfig(quest.id);
+    const newlyEarnedAchievements = useMemo(
+        () => ACHIEVEMENTS.filter(a => newlyEarnedAchievementIds.includes(a.id)),
+        [ACHIEVEMENTS, newlyEarnedAchievementIds]
+    );
+
+    const aggregatedImpact = useMemo(() => {
+        const totals: Partial<Record<PhilosophyAxis, number>> = {};
+        for (const choice of choicesMade) {
+            if (!choice.impact) continue;
+            for (const [axis, value] of Object.entries(choice.impact)) {
+                if (!value) continue;
+                const key = axis as PhilosophyAxis;
+                totals[key] = (totals[key] || 0) + value;
+            }
+        }
+        return Object.entries(totals)
+            .filter(([, v]) => v && v !== 0)
+            .sort(([, a], [, b]) => Math.abs(b!) - Math.abs(a!))
+            .slice(0, 3) as [PhilosophyAxis, number][];
+    }, [choicesMade]);
 
     useEffect(() => {
         confetti({
@@ -37,12 +63,14 @@ export const QuestCompletionScreen: React.FC<QuestCompletionScreenProps> = ({ qu
         return () => clearInterval(interval);
     }, [quest.rewardXp]);
 
-    const latestAchievement = earnedAchievements.length > 0
-        ? earnedAchievements[earnedAchievements.length - 1]
-        : null;
-
     return (
         <div className="flex flex-col items-center justify-center min-h-[500px] text-center p-6 relative overflow-hidden">
+            {!achievementModalDismissed && newlyEarnedAchievements.length > 0 && (
+                <AchievementUnlockedModal
+                    achievements={newlyEarnedAchievements}
+                    onDismiss={() => setAchievementModalDismissed(true)}
+                />
+            )}
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-indigo-50/50 to-transparent pointer-events-none" />
 
             <motion.div
@@ -71,6 +99,52 @@ export const QuestCompletionScreen: React.FC<QuestCompletionScreenProps> = ({ qu
                 Du har navigert gjennom &laquo;{quest.title}&raquo; med visdom.
             </motion.p>
 
+            {/* Learning Goal — hva du nettopp lærte */}
+            {questConfig?.learningGoal && (
+                <motion.div
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.5 }}
+                    className="mb-5 w-full max-w-md bg-indigo-50 border border-indigo-100 rounded-2xl p-5 text-left relative z-10"
+                >
+                    <div className="flex items-center gap-2 mb-2">
+                        <Target size={14} className="text-indigo-500" />
+                        <p className="text-[10px] font-bold text-indigo-600 uppercase tracking-widest">Hva du lærte</p>
+                    </div>
+                    <p className="text-sm text-slate-700 leading-relaxed">{questConfig.learningGoal}</p>
+                </motion.div>
+            )}
+
+            {/* Dominant Alignment — dine valg flyttet kompasset hit */}
+            {aggregatedImpact.length > 0 && (
+                <motion.div
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.55 }}
+                    className="mb-5 w-full max-w-md bg-white border border-slate-200 rounded-2xl p-5 text-left relative z-10"
+                >
+                    <div className="flex items-center gap-2 mb-3">
+                        <Compass size={14} className="text-purple-500" />
+                        <p className="text-[10px] font-bold text-purple-600 uppercase tracking-widest">Dine valg trakk deg mot</p>
+                    </div>
+                    <ul className="space-y-2">
+                        {aggregatedImpact.map(([axis, value]) => {
+                            const positive = value > 0;
+                            return (
+                                <li key={axis} className="flex items-baseline gap-2">
+                                    <span className={`text-[10px] font-black uppercase tracking-widest shrink-0 px-2 py-0.5 rounded-md ${
+                                        positive ? 'bg-emerald-50 text-emerald-700' : 'bg-rose-50 text-rose-700'
+                                    }`}>
+                                        {positive ? '↑' : '↓'} {AXIS_LABELS[axis]} {positive ? '+' : ''}{value}
+                                    </span>
+                                    <span className="text-[11px] text-slate-600 leading-snug">{AXIS_DESCRIPTIONS[axis]}</span>
+                                </li>
+                            );
+                        })}
+                    </ul>
+                </motion.div>
+            )}
+
             <div className="grid grid-cols-2 gap-3 w-full max-w-xs mb-6 relative z-10">
                 <motion.div
                     initial={{ x: -20, opacity: 0 }}
@@ -98,19 +172,6 @@ export const QuestCompletionScreen: React.FC<QuestCompletionScreenProps> = ({ qu
                     </div>
                 </motion.div>
             </div>
-
-            {/* Achievement */}
-            {latestAchievement && (
-                <motion.div
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 0.8 }}
-                    className="mb-6 px-4 py-2.5 rounded-2xl bg-amber-50 border border-amber-200 text-amber-800 text-sm font-bold flex items-center gap-2"
-                >
-                    <Star size={14} className="text-amber-500" />
-                    Nytt merke: {latestAchievement.title}
-                </motion.div>
-            )}
 
             {/* Reflection Questions */}
             {quest.reflectionQuestions && quest.reflectionQuestions.length > 0 && (

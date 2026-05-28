@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { PhilosophyQuest, DialogueChoice, PhilosophyAxis } from '../../../../data/philosophy/types';
-import { AXIS_LABELS } from '../../../../data/philosophy/types';
+import { AXIS_LABELS, AXIS_DESCRIPTIONS } from '../../../../data/philosophy/types';
 import { Sparkles, MessageSquare, ArrowRight, Brain, Zap, History, Lightbulb } from 'lucide-react';
 import { usePhilosophyProfile } from '../../../../hooks/usePhilosophyProfile';
 import { QuestCompletionScreen } from './QuestCompletionScreen';
@@ -21,7 +21,7 @@ export const PhilosophicalQuestEngine: React.FC<PhilosophicalQuestEngineProps> =
     onExit,
     onStartNextQuest,
 }) => {
-    const { updateAlignment, completeQuest, questProgress, saveQuestProgress, clearQuestProgress } = usePhilosophyProfile();
+    const { profile, updateAlignment, completeQuest, questProgress, saveQuestProgress, clearQuestProgress, ACHIEVEMENTS } = usePhilosophyProfile();
 
     // Resume from saved progress if available
     const resumed = questProgress?.questId === quest.id ? questProgress : null;
@@ -30,6 +30,8 @@ export const PhilosophicalQuestEngine: React.FC<PhilosophicalQuestEngineProps> =
     const [isCompleted, setIsCompleted] = useState(false);
     const [pendingFeedback, setPendingFeedback] = useState<{ text: string; nextStepId?: string; impact?: Partial<Record<PhilosophyAxis, number>> } | null>(null);
     const [alignmentDelta, setAlignmentDelta] = useState<Partial<Record<PhilosophyAxis, number>> | null>(null);
+    const [choicesMade, setChoicesMade] = useState<DialogueChoice[]>([]);
+    const [newlyEarnedAchievementIds, setNewlyEarnedAchievementIds] = useState<string[]>([]);
 
     // Save progress whenever step changes
     useEffect(() => {
@@ -50,6 +52,8 @@ export const PhilosophicalQuestEngine: React.FC<PhilosophicalQuestEngineProps> =
         return (
             <QuestCompletionScreen
                 quest={quest}
+                choicesMade={choicesMade}
+                newlyEarnedAchievementIds={newlyEarnedAchievementIds}
                 onClose={onExit || (() => {})}
                 onStartNextQuest={onStartNextQuest}
             />
@@ -62,6 +66,17 @@ export const PhilosophicalQuestEngine: React.FC<PhilosophicalQuestEngineProps> =
 
     const navigateTo = (stepId?: string) => {
         if (!stepId || stepId === 'End') {
+            // Detect achievements that will be unlocked by completing this quest
+            const futureProfile = {
+                ...profile,
+                completedQuests: profile.completedQuests.includes(quest.id)
+                    ? profile.completedQuests
+                    : [...profile.completedQuests, quest.id],
+            };
+            const willEarn = ACHIEVEMENTS.filter(a => a.condition(futureProfile)).map(a => a.id);
+            const newOnes = willEarn.filter(id => !profile.achievements.includes(id));
+            setNewlyEarnedAchievementIds(newOnes);
+
             completeQuest(quest.id, quest.rewardXp);
             clearQuestProgress();
             setIsCompleted(true);
@@ -73,6 +88,7 @@ export const PhilosophicalQuestEngine: React.FC<PhilosophicalQuestEngineProps> =
     };
 
     const handleChoice = (choice: DialogueChoice) => {
+        setChoicesMade(prev => [...prev, choice]);
         if (choice.impact) {
             updateAlignment(choice.impact);
         }
@@ -215,19 +231,11 @@ export const PhilosophicalQuestEngine: React.FC<PhilosophicalQuestEngineProps> =
                                 initial={{ opacity: 0, y: -10 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -10 }}
-                                className="absolute -top-2 left-0 right-0 z-10 flex flex-wrap gap-1.5 justify-center"
+                                className="absolute -top-2 left-0 right-0 z-10 flex flex-col gap-1.5 items-center"
                             >
-                                {Object.entries(alignmentDelta).map(([axis, value]) => {
-                                    if (!value) return null;
-                                    const label = AXIS_LABELS[axis as PhilosophyAxis] || axis;
-                                    return (
-                                        <span key={axis} className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${
-                                            value > 0 ? 'bg-emerald-50 text-emerald-700' : 'bg-red-50 text-red-600'
-                                        }`}>
-                                            {value > 0 ? '+' : ''}{value} {label}
-                                        </span>
-                                    );
-                                })}
+                                {Object.entries(alignmentDelta).map(([axis, value]) => (
+                                    <AlignmentDeltaPill key={axis} axis={axis as PhilosophyAxis} value={value} />
+                                ))}
                             </motion.div>
                         )}
                     </AnimatePresence>
@@ -243,18 +251,10 @@ export const PhilosophicalQuestEngine: React.FC<PhilosophicalQuestEngineProps> =
                             >
                                 {/* Show delta inside feedback card */}
                                 {pendingFeedback.impact && Object.keys(pendingFeedback.impact).length > 0 && (
-                                    <div className="flex flex-wrap gap-1.5">
-                                        {Object.entries(pendingFeedback.impact).map(([axis, value]) => {
-                                            if (!value) return null;
-                                            const label = AXIS_LABELS[axis as PhilosophyAxis] || axis;
-                                            return (
-                                                <span key={axis} className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${
-                                                    value > 0 ? 'bg-emerald-50 text-emerald-700' : 'bg-red-50 text-red-600'
-                                                }`}>
-                                                    {value > 0 ? '+' : ''}{value} {label}
-                                                </span>
-                                            );
-                                        })}
+                                    <div className="flex flex-col gap-1.5">
+                                        {Object.entries(pendingFeedback.impact).map(([axis, value]) => (
+                                            <AlignmentDeltaPill key={axis} axis={axis as PhilosophyAxis} value={value} />
+                                        ))}
                                     </div>
                                 )}
 
@@ -331,6 +331,32 @@ export const PhilosophicalQuestEngine: React.FC<PhilosophicalQuestEngineProps> =
                     </span>
                 </div>
             </footer>
+        </div>
+    );
+};
+
+interface AlignmentDeltaPillProps {
+    axis: PhilosophyAxis;
+    value: number | undefined;
+}
+
+const AlignmentDeltaPill: React.FC<AlignmentDeltaPillProps> = ({ axis, value }) => {
+    if (!value) return null;
+    const label = AXIS_LABELS[axis] || axis;
+    const description = AXIS_DESCRIPTIONS[axis];
+    const positive = value > 0;
+    return (
+        <div className={`flex items-baseline gap-2 px-3 py-1.5 rounded-xl border ${
+            positive
+                ? 'bg-emerald-50 border-emerald-100'
+                : 'bg-rose-50 border-rose-100'
+        }`}>
+            <span className={`text-[10px] font-black uppercase tracking-widest shrink-0 ${
+                positive ? 'text-emerald-700' : 'text-rose-700'
+            }`}>
+                {positive ? '↑' : '↓'} {label} {positive ? '+' : ''}{value}
+            </span>
+            <span className="text-[11px] text-slate-600 leading-snug">{description}</span>
         </div>
     );
 };

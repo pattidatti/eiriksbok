@@ -30,13 +30,20 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ profile, progress, onS
         );
     }
 
-    const imagePath = `/images/filosofi/${nextQuest.philosopherId}_hero.png`;
+    const imagePath = `/images/filosofi/${nextQuest.philosopherId}_hero.webp`;
 
     return (
         <section className="relative rounded-3xl bg-indigo-600 overflow-hidden shadow-xl group">
             <div className="absolute inset-0 bg-gradient-to-br from-indigo-500 to-purple-800" />
-            <div className="absolute top-0 right-0 w-1/2 h-full overflow-hidden opacity-30 mix-blend-overlay group-hover:opacity-50 transition-opacity duration-700">
-                <img src={imagePath} alt={nextQuest.philosopherId} className="object-cover h-full w-full object-top" />
+            <div className="absolute top-0 right-0 w-1/2 h-full overflow-hidden opacity-30 mix-blend-overlay group-hover:opacity-55 transition-opacity duration-700">
+                <motion.img
+                    src={imagePath}
+                    alt={nextQuest.philosopherId}
+                    className="object-cover h-full w-full object-top"
+                    initial={{ scale: 1.05 }}
+                    animate={{ scale: 1.18 }}
+                    transition={{ duration: 22, repeat: Infinity, repeatType: 'reverse', ease: 'easeInOut' }}
+                />
             </div>
 
             <div className="relative z-10 p-8 md:p-10 max-w-xl">
