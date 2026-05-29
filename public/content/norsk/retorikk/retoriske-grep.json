@@ -7,7 +7,7 @@
     "year": "Fra antikken til i dag",
     "category": "Retorikk",
     "readTime": "9 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/retorikk/retoriske-grep-hero.webp",
     "fact": "Gjentakelse av samme ord i begynnelsen av flere setninger kalles anafora. Martin Luther Kings tale «I have a dream» bruker dette grepet hele 16 ganger.",
     "details": [
         "Retoriske grep er konkrete teknikker som gjør en setning slagkraftig og minneverdig.",
@@ -32,7 +32,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/retorikk/retoriske-grep-01.webp",
             "alt": "Kvinnelig taler på scene foran stort publikum, varmt scenelys, hånden løftet i et bevegende øyeblikk",
             "caption": "Gode talere bygger setninger som krever oppmerksomhet. Hvert grep har en bevisst effekt."
         },
@@ -76,12 +76,27 @@
                                 "icon": "repeat",
                                 "color": "indigo",
                                 "segments": [
-                                    { "text": "Vi må handle", "highlight": true },
-                                    { "text": ". " },
-                                    { "text": "Vi må endre", "highlight": true },
-                                    { "text": ". " },
-                                    { "text": "Vi må gjøre det nå", "highlight": true },
-                                    { "text": "." }
+                                    {
+                                        "text": "Vi må handle",
+                                        "highlight": true
+                                    },
+                                    {
+                                        "text": ". "
+                                    },
+                                    {
+                                        "text": "Vi må endre",
+                                        "highlight": true
+                                    },
+                                    {
+                                        "text": ". "
+                                    },
+                                    {
+                                        "text": "Vi må gjøre det nå",
+                                        "highlight": true
+                                    },
+                                    {
+                                        "text": "."
+                                    }
                                 ],
                                 "effect": "Gjentakelsen av «vi må» bygger opp et trommeslag som krever respons. Hjernen merker at noe er viktig fordi det banker."
                             },
@@ -91,9 +106,16 @@
                                 "icon": "layers",
                                 "color": "emerald",
                                 "segments": [
-                                    { "text": "Vi må handle " },
-                                    { "text": "raskt, modig og samlet", "highlight": true },
-                                    { "text": " - nå." }
+                                    {
+                                        "text": "Vi må handle "
+                                    },
+                                    {
+                                        "text": "raskt, modig og samlet",
+                                        "highlight": true
+                                    },
+                                    {
+                                        "text": " - nå."
+                                    }
                                 ],
                                 "effect": "Tre ord i rad føles komplett. To virker tilfeldig, fire blir mye. Tre lander."
                             },
@@ -103,11 +125,23 @@
                                 "icon": "compare",
                                 "color": "rose",
                                 "segments": [
-                                    { "text": "Vi kan " },
-                                    { "text": "vente og miste alt", "highlight": true },
-                                    { "text": ", eller " },
-                                    { "text": "handle og redde noe", "highlight": true },
-                                    { "text": "." }
+                                    {
+                                        "text": "Vi kan "
+                                    },
+                                    {
+                                        "text": "vente og miste alt",
+                                        "highlight": true
+                                    },
+                                    {
+                                        "text": ", eller "
+                                    },
+                                    {
+                                        "text": "handle og redde noe",
+                                        "highlight": true
+                                    },
+                                    {
+                                        "text": "."
+                                    }
                                 ],
                                 "effect": "To motpoler stilt opp ved siden av hverandre tvinger fram et valg. Lytteren må velge side."
                             },
@@ -117,8 +151,13 @@
                                 "icon": "question",
                                 "color": "amber",
                                 "segments": [
-                                    { "text": "Vi må gjøre noe med klimaet nå - " },
-                                    { "text": "eller vil vi vente til det er for sent?", "highlight": true }
+                                    {
+                                        "text": "Vi må gjøre noe med klimaet nå - "
+                                    },
+                                    {
+                                        "text": "eller vil vi vente til det er for sent?",
+                                        "highlight": true
+                                    }
                                 ],
                                 "effect": "Spørsmålet inviterer lytteren inn. Du svarer i hodet ditt, og dermed har taleren fått deg til å være enig."
                             },
@@ -128,9 +167,16 @@
                                 "icon": "type",
                                 "color": "sky",
                                 "segments": [
-                                    { "text": "Vi sitter i " },
-                                    { "text": "et tog uten bremser", "highlight": true },
-                                    { "text": " - og bare vi kan trekke i nødbremsen." }
+                                    {
+                                        "text": "Vi sitter i "
+                                    },
+                                    {
+                                        "text": "et tog uten bremser",
+                                        "highlight": true
+                                    },
+                                    {
+                                        "text": " - og bare vi kan trekke i nødbremsen."
+                                    }
                                 ],
                                 "effect": "Et abstrakt problem blir et konkret bilde. Hjernen husker bilder mye lettere enn tall og fakta."
                             },
@@ -140,9 +186,16 @@
                                 "icon": "megaphone",
                                 "color": "violet",
                                 "segments": [
-                                    { "text": "Vi må " },
-                                    { "text": "snakke om det, lære om det, og handle på det", "highlight": true },
-                                    { "text": " - før det er for sent." }
+                                    {
+                                        "text": "Vi må "
+                                    },
+                                    {
+                                        "text": "snakke om det, lære om det, og handle på det",
+                                        "highlight": true
+                                    },
+                                    {
+                                        "text": " - før det er for sent."
+                                    }
                                 ],
                                 "effect": "Stigende intensitet: hvert ledd er sterkere enn det forrige. Bygger spenning mot et høydepunkt."
                             }
@@ -158,12 +211,27 @@
                                 "icon": "repeat",
                                 "color": "indigo",
                                 "segments": [
-                                    { "text": "Vi trenger tid til å tenke", "highlight": true },
-                                    { "text": ". " },
-                                    { "text": "Vi trenger tid til å puste", "highlight": true },
-                                    { "text": ". " },
-                                    { "text": "Vi trenger tid til å leve", "highlight": true },
-                                    { "text": "." }
+                                    {
+                                        "text": "Vi trenger tid til å tenke",
+                                        "highlight": true
+                                    },
+                                    {
+                                        "text": ". "
+                                    },
+                                    {
+                                        "text": "Vi trenger tid til å puste",
+                                        "highlight": true
+                                    },
+                                    {
+                                        "text": ". "
+                                    },
+                                    {
+                                        "text": "Vi trenger tid til å leve",
+                                        "highlight": true
+                                    },
+                                    {
+                                        "text": "."
+                                    }
                                 ],
                                 "effect": "«Vi trenger tid til å» gjentas tre ganger og bygger seg opp som et krav som ikke kan ignoreres."
                             },
@@ -173,9 +241,16 @@
                                 "icon": "layers",
                                 "color": "emerald",
                                 "segments": [
-                                    { "text": "Mer fritid gir oss " },
-                                    { "text": "bedre søvn, bedre venner og bedre karakterer", "highlight": true },
-                                    { "text": "." }
+                                    {
+                                        "text": "Mer fritid gir oss "
+                                    },
+                                    {
+                                        "text": "bedre søvn, bedre venner og bedre karakterer",
+                                        "highlight": true
+                                    },
+                                    {
+                                        "text": "."
+                                    }
                                 ],
                                 "effect": "Tre fordeler i rad føles som et komplett argument. Lytteren oppfatter det som en hel pakke."
                             },
@@ -185,11 +260,23 @@
                                 "icon": "compare",
                                 "color": "rose",
                                 "segments": [
-                                    { "text": "I dag har vi " },
-                                    { "text": "lekser uten ende", "highlight": true },
-                                    { "text": ". I morgen kunne vi hatt " },
-                                    { "text": "luft til å lære", "highlight": true },
-                                    { "text": "." }
+                                    {
+                                        "text": "I dag har vi "
+                                    },
+                                    {
+                                        "text": "lekser uten ende",
+                                        "highlight": true
+                                    },
+                                    {
+                                        "text": ". I morgen kunne vi hatt "
+                                    },
+                                    {
+                                        "text": "luft til å lære",
+                                        "highlight": true
+                                    },
+                                    {
+                                        "text": "."
+                                    }
                                 ],
                                 "effect": "Dagens problem stilles direkte opp mot en bedre fremtid. Forskjellen blir tydelig og motiverende."
                             },
@@ -199,8 +286,13 @@
                                 "icon": "question",
                                 "color": "amber",
                                 "segments": [
-                                    { "text": "Skolen skal lære oss å tenke - " },
-                                    { "text": "men når får vi egentlig tid til det?", "highlight": true }
+                                    {
+                                        "text": "Skolen skal lære oss å tenke - "
+                                    },
+                                    {
+                                        "text": "men når får vi egentlig tid til det?",
+                                        "highlight": true
+                                    }
                                 ],
                                 "effect": "Spørsmålet får lytteren til å innse problemet selv. Det føles mer overbevisende enn å bli fortalt."
                             },
@@ -210,9 +302,16 @@
                                 "icon": "type",
                                 "color": "sky",
                                 "segments": [
-                                    { "text": "Hjernen vår er en " },
-                                    { "text": "muskel som trenger hvile", "highlight": true },
-                                    { "text": " mellom øktene." }
+                                    {
+                                        "text": "Hjernen vår er en "
+                                    },
+                                    {
+                                        "text": "muskel som trenger hvile",
+                                        "highlight": true
+                                    },
+                                    {
+                                        "text": " mellom øktene."
+                                    }
                                 ],
                                 "effect": "Et abstrakt prinsipp om læring blir konkret og lett å forstå. Alle vet hvordan en sliten muskel kjennes."
                             },
@@ -222,9 +321,16 @@
                                 "icon": "megaphone",
                                 "color": "violet",
                                 "segments": [
-                                    { "text": "Mer fritid gir oss " },
-                                    { "text": "bedre dager, bedre uker, og et bedre liv", "highlight": true },
-                                    { "text": "." }
+                                    {
+                                        "text": "Mer fritid gir oss "
+                                    },
+                                    {
+                                        "text": "bedre dager, bedre uker, og et bedre liv",
+                                        "highlight": true
+                                    },
+                                    {
+                                        "text": "."
+                                    }
                                 ],
                                 "effect": "Stigningen fra dag til uke til liv gjør at argumentet vokser i tyngde for hvert ord."
                             }
@@ -259,7 +365,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/retorikk/retoriske-grep-02.webp",
             "alt": "Tenåring som ser på reklametavle med stort retorisk spørsmål i moderne by",
             "caption": "Reklame er full av retoriske spørsmål. De plasserer deg som lytter inne i historien."
         },
@@ -318,13 +424,23 @@
                 "questions": [
                     {
                         "question": "Hva kalles grepet når flere setninger starter med samme ord?",
-                        "options": ["Anafora", "Klimaks", "Metafor", "Treklang"],
+                        "options": [
+                            "Anafora",
+                            "Klimaks",
+                            "Metafor",
+                            "Treklang"
+                        ],
                         "correctAnswer": 0,
                         "explanation": "Anafora er gjentakelse i begynnelsen av setninger - tenk på Martin Luther Kings «I have a dream»."
                     },
                     {
                         "question": "Hvilket grep bruker Cæsar med setningen «Veni, vidi, vici»?",
-                        "options": ["Kontrast", "Treklang", "Retorisk spørsmål", "Anafora"],
+                        "options": [
+                            "Kontrast",
+                            "Treklang",
+                            "Retorisk spørsmål",
+                            "Anafora"
+                        ],
                         "correctAnswer": 1,
                         "explanation": "Tre ledd i rad - «Jeg kom, jeg så, jeg seiret» - er treklang. Tre er det magiske tallet i retorikk."
                     },
@@ -352,7 +468,12 @@
                     },
                     {
                         "question": "Hvilket grep gjenkjenner du i «Først kom han for tidlig, så for sent, til slutt aldri»?",
-                        "options": ["Anafora", "Metafor", "Klimaks", "Retorisk spørsmål"],
+                        "options": [
+                            "Anafora",
+                            "Metafor",
+                            "Klimaks",
+                            "Retorisk spørsmål"
+                        ],
                         "correctAnswer": 2,
                         "explanation": "Klimaks - stigende intensitet fra ledd til ledd. Spenningen vokser mot et høydepunkt."
                     }

@@ -5,10 +5,15 @@
     "year": "800-i dag",
     "category": "Urfolks religion",
     "readTime": "9 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/samisk/intro-hero.webp",
     "religion": "samisk",
     "dimension": "ritual",
-    "comparison_tags": ["natur", "forfedre", "sjamanisme", "urfolk"],
+    "comparison_tags": [
+        "natur",
+        "forfedre",
+        "sjamanisme",
+        "urfolk"
+    ],
     "details": [
         "I samisk religion er naturen selv hellig — fjell, vann og dyr har sin egen ånd.",
         "Noaiden var brua mellom denne verden og åndeverdenen, og brukte runebommen som verktøy.",
@@ -21,7 +26,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/samisk/intro-01.webp",
             "alt": "Snødekt samisk vidde med en lavvu og røyk om vinteren",
             "caption": "Naturen var ikke et bakteppe — den var selve det hellige rommet."
         },
@@ -87,7 +92,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/samisk/intro-02.webp",
             "alt": "Misjonær fra 1700-tallet brenner samiske runebommer og ofresteder",
             "caption": "Runebommene ble brent. Sieidiene ble veltet. Joiken ble forbudt."
         },

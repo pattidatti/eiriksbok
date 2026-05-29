@@ -367,7 +367,7 @@
               "id": "retoriske-grep",
               "title": "Retoriske grep og figurer",
               "description": "Anafora, treklang, kontrast og fire andre verktøy som forvandler flate setninger til slagkraftige.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/retorikk/retoriske-grep-hero.webp",
               "tags": [
                 "retorikk",
                 "språk",
@@ -3675,7 +3675,7 @@
                 "rettsutvikling"
               ],
               "createdDate": "2026-05-28T00:00:00Z",
-              "lastUpdated": "2026-05-28T20:25:08.972Z"
+              "lastUpdated": "2026-05-28T22:30:45+02:00"
             }
           ]
         },
@@ -3903,7 +3903,7 @@
               "id": "caesar",
               "title": "Julius Cæsar — mannen som knuste republikken",
               "description": "Generalen som krysset Rubicon, knuste 460 år gammelt styre — og ble drept av sine egne venner.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/romerriket/caesar-hero.webp",
               "tags": [
                 "antikken",
                 "roma",
@@ -5424,14 +5424,14 @@
               "id": "samisk",
               "title": "Samisk religion",
               "description": "Urfolksreligion med trommer, sieidier og åndeverden.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/samisk/intro-hero.webp",
               "link": "/krle/religion/samisk",
               "lessons": [
                 {
                   "id": "intro",
                   "title": "Trommen, naturen og forfedrene",
                   "description": "Samisk religion: noaiden, runebommen, sieidi og forfedrene i Jábmiidáibmu.",
-                  "image": "/images/placeholder.webp",
+                  "image": "/images/samisk/intro-hero.webp",
                   "tags": [
                     "samisk",
                     "urfolk",
