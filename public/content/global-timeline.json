@@ -1353,6 +1353,26 @@
       ]
     },
     {
+      "id": "magnus-landslov",
+      "title": "Magnus Lagabøtes landslov - én lov for hele Norge",
+      "description": "I 1274 fikk Norge sin første felles lov. Magnus Lagabøte gjorde slutt på blodhevn og ga kongen makt til å straffe. Det var begynnelsen på rettsstaten.",
+      "startDate": 1274,
+      "endDate": null,
+      "displayDate": "1274",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "lov-og-rett",
+      "link": "/historie/lov-og-rett/magnus-landslov",
+      "tags": [
+        "landsloven",
+        "magnus-lagabote",
+        "rettsstat",
+        "middelalder",
+        "norgeshistorie",
+        "rettsutvikling"
+      ]
+    },
+    {
       "id": "alv-erlingsson",
       "title": "Alv Erlingsson: Piratjarlen",
       "description": "Historien om Alv Erlingsson, kongens favoritt som ble Norges mest beryktede sjørøver.",

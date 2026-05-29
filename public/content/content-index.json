@@ -1,5 +1,5 @@
 {
-  "buildId": 1780033039798,
+  "buildId": 1780017641188,
   "contentMap": {
     "concept-adel": [
       "content/concepts/adel.json"
@@ -1212,6 +1212,9 @@
     ],
     "voc": [
       "content/historie/kolonialisering/voc.json"
+    ],
+    "magnus-landslov": [
+      "content/historie/lov-og-rett/magnus-landslov.json"
     ],
     "wergild": [
       "content/historie/lov-og-rett/wergild.json"
@@ -3320,6 +3323,7 @@
     "historie/kolonialisering/trekanthandelen": "content/historie/kolonialisering/trekanthandelen.json",
     "historie/kolonialisering/verdenshandel-for-oppdagelsesreisene": "content/historie/kolonialisering/verdenshandel-for-oppdagelsesreisene.json",
     "historie/kolonialisering/voc": "content/historie/kolonialisering/voc.json",
+    "historie/lov-og-rett/magnus-landslov": "content/historie/lov-og-rett/magnus-landslov.json",
     "historie/lov-og-rett/wergild": "content/historie/lov-og-rett/wergild.json",
     "historie/mellomkrigstiden/borskrakk": "content/historie/mellomkrigstiden/borskrakk.json",
     "historie/mellomkrigstiden/folkeforbundet": "content/historie/mellomkrigstiden/folkeforbundet.json",
