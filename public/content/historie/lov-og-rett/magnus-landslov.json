@@ -13,8 +13,8 @@
         "rettsutvikling"
     ],
     "year": "1274",
-    "image": "/images/placeholder.webp",
-    "heroImage": "/images/placeholder.webp",
+    "image": "/images/lov-og-rett/magnus-landslov-hero.webp",
+    "heroImage": "/images/lov-og-rett/magnus-landslov-hero.webp",
     "layout": "rich",
     "category": "Norgeshistorie",
     "readTime": "9 min lesning",
@@ -71,7 +71,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/lov-og-rett/magnus-landslov-01.webp",
             "alt": "Magnus Lagabøte sitter med skrivere som arbeider med lovbøker i et middelaldersk kongelig kanselli",
             "caption": "Magnus Lagabøte arbeider med skrivere og lovkyndige menn for å samle landskapslovene til én lovbok."
         },
@@ -128,7 +128,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/lov-og-rett/magnus-landslov-02.webp",
             "alt": "Et åpent middelaldersk lovmanuskript på pergament med initialer i rødt og gull, foran et trekors og en kongeskrone",
             "caption": "Et middelaldersk lovmanuskript. Landsloven ble skrevet på pergament og kopiert i mange eksemplarer slik at hvert ting hadde sin egen bok."
         },
