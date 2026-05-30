@@ -371,6 +371,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     SpiceRoutePrice: lazy(() => import('./content/interactive/SpiceRoutePrice').then(m => ({ default: m.SpiceRoutePrice }))),
     WergildCalculator: lazy(() => import('./content/interactive/WergildCalculator').then(m => ({ default: m.WergildCalculator }))),
     LandskapslovSammenligner: lazy(() => import('./content/interactive/LandskapslovSammenligner').then(m => ({ default: m.LandskapslovSammenligner }))),
+    BevisVeier: lazy(() => import('./content/interactive/BevisVeier').then(m => ({ default: m.BevisVeier }))),
     MythVsEvidence: lazy(() => import('./content/interactive/MythVsEvidence').then(m => ({ default: m.MythVsEvidence }))),
 
     // Handel og infrastruktur

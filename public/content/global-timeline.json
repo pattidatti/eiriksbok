@@ -2054,6 +2054,27 @@
       ]
     },
     {
+      "id": "hekseprosessene",
+      "title": "Hekseprosessene - når retten gikk vill",
+      "description": "Mellom 1570 og 1695 ble rundt 300 mennesker dømt til døden for trolldom i Norge. Tortur, umulige prøver og dårlige bevis viser hvordan rettssikkerhet kan svikte - og hvorfor moderne rett er bygget på at tvilen kommer den anklagede til gode.",
+      "startDate": 1570,
+      "endDate": 1695,
+      "displayDate": "1570-1695",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "lov-og-rett",
+      "link": "/historie/lov-og-rett/hekseprosessene",
+      "tags": [
+        "hekseprosesser",
+        "vardo",
+        "finnmark",
+        "rettsutvikling",
+        "rettssikkerhet",
+        "tortur",
+        "norgeshistorie"
+      ]
+    },
+    {
       "id": "den-spanske-armada-1588",
       "title": "Den spanske armada",
       "description": "Filip II invaderer England med religiøs og politisk legitimering.",
