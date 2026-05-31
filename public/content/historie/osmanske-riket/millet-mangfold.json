@@ -1,0 +1,143 @@
+{
+  "id": "millet-mangfold",
+  "title": "Et rike av mange folk",
+  "layout": "rich",
+  "year": "1492",
+  "category": "Det osmanske riket",
+  "readTime": "8 min lesning",
+  "heroImage": "/images/placeholder.webp",
+  "details": [
+    "I riket levde muslimer, kristne og jøder side om side, hver gruppe under sine egne lover og ledere.",
+    "Dette kalles millet-systemet, og det ga religiøse minoriteter frihet, men ikke full likhet.",
+    "Mens Europa jaget jøder bort og førte religionskriger, ønsket sultanen de samme menneskene velkommen."
+  ],
+  "externalUrl": "https://snl.no/millet-systemet",
+  "content": [
+    {
+      "type": "text",
+      "content": "I 1492 skjedde to ting på en gang i to deler av verden. I Spania ble jødene jaget ut av landet hvis de ikke ville bli kristne. Tusenvis måtte forlate hjemmene sine med det de kunne bære. Samtidig, langt mot øst, sendte den osmanske sultanen skip for å hente dem. 'Dere kaller den spanske kongen klok,' skal han ha sagt, 'men han har gjort sitt eget land fattigere og mitt rikere.' Hvordan kunne ett rike ta imot folk som andre jaget bort?"
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Travel basar med kjøpmenn fra mange folkeslag, krydder og tekstiler",
+      "caption": "I rikets byer møttes folk fra mange land og religioner. Mangfoldet var en av rikets store styrker."
+    },
+    {
+      "type": "header",
+      "text": "Mange folk under én sultan"
+    },
+    {
+      "type": "text",
+      "content": "Det osmanske riket var aldri et land med ett folk og én tro. Innenfor grensene bodde det tyrkere, arabere, grekere, armenere, serbere, jøder og mange flere. De aller fleste var ikke tyrkere, og svært mange var ikke muslimer. Likevel klarte sultanene å holde alt dette sammen i hundrevis av år. Nøkkelen var en smart ordning vi kaller millet-systemet."
+    },
+    {
+      "type": "text",
+      "content": "Tenk på hvor annerledes dette var fra resten av verden på samme tid. I Europa raste det snart blodige religionskriger. Etter at [Martin Luther](/historie/reformasjonen/martin-luther) brøt med den katolske kirken, ble kristne delt i fiendtlige leirer som drepte hverandre i Guds navn. I det osmanske riket levde derimot tre store religioner side om side under den samme herskeren."
+    },
+    {
+      "type": "component",
+      "name": "MilletExplorer",
+      "props": {
+        "title": "Millet-systemet: frihet, men ikke likhet"
+      }
+    },
+    {
+      "type": "header",
+      "text": "Hvordan systemet fungerte"
+    },
+    {
+      "type": "text",
+      "content": "Tanken bak millet-systemet var enkel. I stedet for å tvinge alle til å bli like, lot sultanen hver religiøs gruppe styre seg selv. Hver millet hadde sin egen leder, som svarte direkte til sultanen. De kristne fulgte sine egne kirkelover, jødene sine, og muslimene sharia. Saker om ekteskap, arv og tro ble avgjort innenfor hver gruppe, etter deres egne regler."
+    },
+    {
+      "type": "text",
+      "content": "Dette ga folk en frihet som var sjelden i datidens verden. En jøde eller en kristen kunne dyrke troen sin, drive handel og leve trygt. Men friheten hadde en pris, og den ble betalt i skatt og i status."
+    },
+    {
+      "type": "component",
+      "name": "FactBox",
+      "props": {
+        "title": "Frihet, men ikke likhet",
+        "content": "Ikke-muslimer betalte en egen skatt som het cizye, som muslimer slapp. De fikk vanligvis ikke bære våpen, og det fantes regler for hvordan de skulle kle seg og bygge. De høyeste embetene var stort sett forbeholdt muslimer. Med andre ord: alle fikk leve etter sin egen tro, men de var ikke like for loven. Det var toleranse på osmansk vis."
+      }
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "En moské, en kirke og en synagoge i samme bygate",
+      "caption": "Moské, kirke og synagoge kunne ligge i samme by. Hver gruppe levde under sine egne lover."
+    },
+    {
+      "type": "header",
+      "text": "En styrke som ble en bruddlinje"
+    },
+    {
+      "type": "text",
+      "content": "Så lenge riket var sterkt, var mangfoldet en kjempefordel. Armenske og greske kjøpmenn knyttet handelsbånd til hele verden. Jødiske leger og lærde brakte kunnskap til hoffet. Folk med ulik bakgrunn fylte ulike roller, og til sammen gjorde de riket rikt og levende."
+    },
+    {
+      "type": "text",
+      "content": "Men det samme mangfoldet kunne bli farlig hvis riket ble svakt. Når hver gruppe hadde sin egen identitet, sin egen leder og sitt eget språk, var det lettere for dem å begynne å drømme om egne nasjoner. Mange hundre år senere, da nasjonalismens tanker spredte seg, ble nettopp dette en av bruddlinjene som rev riket fra hverandre. Det som hadde vært en styrke, ble til slutt en svakhet."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Folkemengde med faner og flagg fra ulike folkegrupper i en bygate",
+      "caption": "Da nasjonalismen vokste fram, begynte folkegruppene å drømme om egne land. Da ble mangfoldet en bruddlinje."
+    },
+    {
+      "type": "component",
+      "name": "Quiz",
+      "props": {
+        "questions": [
+          {
+            "question": "Hva var millet-systemet?",
+            "options": [
+              "En hær av leiesoldater",
+              "En ordning der hver religiøs gruppe styrte seg selv under sine egne lover og ledere",
+              "En type skatt på korn",
+              "Et nytt språk"
+            ],
+            "answer": 1,
+            "explanation": "I millet-systemet lot sultanen hver religiøs gruppe styre sine egne saker etter sine egne lover, med sin egen leder som svarte til sultanen."
+          },
+          {
+            "question": "Hvordan skilte riket seg fra Europa i synet på religion?",
+            "options": [
+              "Riket forbød all religion",
+              "Mens Europa førte religionskriger, lot riket flere religioner leve side om side",
+              "Riket hadde bare én religion, akkurat som Europa",
+              "Riket tvang alle til å bli jøder"
+            ],
+            "answer": 1,
+            "explanation": "Mens Europa ble revet av religionskriger etter reformasjonen, levde muslimer, kristne og jøder side om side i det osmanske riket under den samme herskeren."
+          },
+          {
+            "question": "Hva menes med 'frihet, men ikke likhet'?",
+            "options": [
+              "Alle var helt like for loven",
+              "Ikke-muslimer fikk dyrke sin tro, men betalte ekstra skatt og hadde lavere status",
+              "Ingen fikk lov til å tro på noe",
+              "Bare muslimer fikk bo i riket"
+            ],
+            "answer": 1,
+            "explanation": "Kristne og jøder fikk leve etter sin egen tro, men de betalte en egen skatt (cizye), fikk ofte ikke bære våpen, og de høyeste embetene var stort sett forbeholdt muslimer."
+          },
+          {
+            "question": "Hvordan kunne mangfoldet bli en svakhet?",
+            "options": [
+              "Folk glemte språket sitt",
+              "Da nasjonalismen vokste fram, ville hver gruppe ha sitt eget land, og det rev riket fra hverandre",
+              "Det ble for mange moskeer",
+              "Sultanen ble lei av handel"
+            ],
+            "answer": 1,
+            "explanation": "Når hver gruppe hadde egen identitet, leder og språk, ble det lettere å drømme om egne nasjoner. Da nasjonalismen spredte seg, ble mangfoldet en bruddlinje som bidro til å rive riket fra hverandre."
+          }
+        ]
+      }
+    }
+  ],
+  "timeline": []
+}

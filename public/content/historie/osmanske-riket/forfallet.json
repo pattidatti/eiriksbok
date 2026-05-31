@@ -1,0 +1,181 @@
+{
+  "id": "forfallet",
+  "title": "\"Europas syke mann\"",
+  "layout": "rich",
+  "year": "1683-1908",
+  "category": "Det osmanske riket",
+  "readTime": "9 min lesning",
+  "heroImage": "/images/placeholder.webp",
+  "details": [
+    "Etter nederlaget ved Wien i 1683 begynte et langt forfall der riket tapte krig etter krig.",
+    "Mens Europa industrialiserte seg og ble sterkere, sakket riket akterut og ble kalt 'Europas syke mann'.",
+    "Reformforsøk som Tanzimat skulle redde riket, mens nasjonalisme på Balkan rev det fra hverandre."
+  ],
+  "externalUrl": "https://snl.no/Det_osmanske_riket",
+  "content": [
+    {
+      "type": "text",
+      "content": "Hvordan dør et imperium? Sjelden med et brak. Som oftest skjer det sakte, over så lang tid at folk knapt merker det mens det skjer. Slik var det med Det osmanske riket. Fra å være kjempen hele Europa fryktet, ble det over to hundre år langsomt svakere, til stormaktene begynte å kalle det 'Europas syke mann', en gammel og skrøpelig pasient de bare ventet skulle dø, så de kunne dele arven."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Falmet osmansk palass i regn med soldater i gammeldagse uniformer",
+      "caption": "Fra fryktet kjempe til 'Europas syke mann': forfallet kom sakte, over mer enn to hundre år."
+    },
+    {
+      "type": "header",
+      "text": "Vendepunktet ved Wien"
+    },
+    {
+      "type": "text",
+      "content": "I 1683 prøvde osmanerne en siste gang å ta Wien. Denne gangen gikk det galt. En kristen hjelpehær kom forsvarerne til unnsetning og slo den osmanske hæren grundig. Det var samme by som hadde skremt Europa under Süleyman halvannet hundreår tidligere. Men nå snudde det. For første gang måtte riket gi fra seg store landområder i en fredsavtale. Veksten var over. Nå begynte krympingen."
+    },
+    {
+      "type": "component",
+      "name": "LineChart",
+      "props": {
+        "title": "Et rike som krymper (anslag)",
+        "datasetLabel": "Rikets areal (mill. km²)",
+        "xAxisLabel": "Årstall",
+        "yAxisLabel": "Areal i mill. km²",
+        "color": "rgb(190, 24, 24)",
+        "data": [
+          { "year": 1683, "value": 5.2 },
+          { "year": 1699, "value": 4.5 },
+          { "year": 1800, "value": 3.4 },
+          { "year": 1878, "value": 2.5 },
+          { "year": 1913, "value": 1.6 }
+        ]
+      }
+    },
+    {
+      "type": "header",
+      "text": "Hvorfor sakket riket akterut?"
+    },
+    {
+      "type": "text",
+      "content": "Riket gjorde ikke nødvendigvis så mye galt. Problemet var at resten av verden begynte å løpe fortere. I Europa kom den vitenskapelige revolusjonen, og senere den industrielle revolusjonen, med fabrikker, dampmaskiner og nye våpen. Europeiske hærer ble moderne og effektive. Osmanerne, som lenge hadde vært best i klassen, holdt for lenge fast på gamle måter å gjøre ting på."
+    },
+    {
+      "type": "text",
+      "content": "Janitsjarene, som en gang var verdens fremste soldater, var blitt en bremsekloss. De nektet å endre seg og gjorde opprør mot reformer. Først i 1826 klarte sultanen å bli kvitt dem. Men da hadde riket allerede tapt mye verdifull tid. Spørsmålet alle stilte, var: kan riket reddes ved å forandre seg, eller er det allerede for sent?"
+    },
+    {
+      "type": "component",
+      "name": "Comparison",
+      "props": {
+        "title": "Reform eller stagnasjon?",
+        "leftTitle": "De som ville reformere",
+        "rightTitle": "De som ville bevare",
+        "items": [
+          {
+            "label": "Synet på Europa",
+            "left": "Vi må lære av Europa for å overleve",
+            "right": "Europeiske skikker truer vår egen kultur og tro"
+          },
+          {
+            "label": "Hæren",
+            "left": "Bygg en moderne hær etter europeisk mønster",
+            "right": "Behold de gamle ordningene vi kjenner"
+          },
+          {
+            "label": "Lover og skoler",
+            "left": "Nye lover og skoler for hele riket",
+            "right": "Hold fast på det som alltid har fungert"
+          },
+          {
+            "label": "Risikoen",
+            "left": "For sakte reform, og riket faller fra hverandre",
+            "right": "For mye forandring kan splitte riket innenfra"
+          }
+        ]
+      }
+    },
+    {
+      "type": "header",
+      "text": "Tanzimat: forsøket på å redde riket"
+    },
+    {
+      "type": "text",
+      "content": "På 1800-tallet satte herskerne i gang en stor reformbølge som kalles Tanzimat, et ord som betyr 'omorganisering'. De bygde nye skoler, la jernbaner, moderniserte hæren og lagde lover som skulle gi alle innbyggere, uansett tro, mer like rettigheter. Det var et modig forsøk. Men reformer koster penger, og riket var fattig. Mye ble lånt fra europeiske banker, og dermed fikk de samme stormaktene enda mer makt over riket."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Damplokomotiv ved en ny jernbanestasjon i en osmansk by",
+      "caption": "Tanzimat-reformene brakte jernbaner, skoler og nye lover. Men de ble dyre, og riket måtte låne fra Europa."
+    },
+    {
+      "type": "header",
+      "text": "Balkan tar fyr"
+    },
+    {
+      "type": "text",
+      "content": "Samtidig spredte en ny og farlig idé seg: nasjonalismen. Tanken var at hvert folk burde ha sitt eget land. På Balkan, der grekere, serbere, bulgarere og andre folk hadde levd under sultanen i hundrevis av år, vokste det fram drømmer om frihet. Den ene etter den andre gjorde opprør og rev seg løs, ofte med hjelp fra stormakter som ville svekke riket."
+    },
+    {
+      "type": "text",
+      "content": "Balkan ble en gryte full av spenninger mellom folk, religioner og stormakter. Området fikk etter hvert kallenavnet 'Europas kruttønne', fordi alle visste at en eneste gnist kunne tenne en storkrig. Og det var akkurat det som skjedde: noen år senere ble [et skudd på Balkan](/historie/forste-verdenskrig/opptakt) gnisten som tente første verdenskrig, krigen som til slutt skulle gjøre slutt på hele riket."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Opprørere med flagg på en fjellskråning på Balkan",
+      "caption": "Ett etter ett rev folkene på Balkan seg løs. Området ble kalt 'Europas kruttønne'."
+    },
+    {
+      "type": "component",
+      "name": "Quiz",
+      "props": {
+        "questions": [
+          {
+            "question": "Hva var vendepunktet som markerte starten på forfallet?",
+            "options": [
+              "Erobringen av Konstantinopel i 1453",
+              "Nederlaget ved Wien i 1683, da riket for første gang måtte gi fra seg store områder",
+              "Süleymans død",
+              "Oppfinnelsen av kaffe"
+            ],
+            "answer": 1,
+            "explanation": "I 1683 ble den osmanske hæren slått ved Wien. For første gang måtte riket gi fra seg store landområder i en fredsavtale. Veksten var over, og krympingen begynte."
+          },
+          {
+            "question": "Hvorfor sakket riket akterut i forhold til Europa?",
+            "options": [
+              "Det fikk for mange innbyggere",
+              "Resten av verden løp fortere med vitenskap og industri, mens riket holdt for lenge på gamle måter",
+              "Det sluttet å handle helt",
+              "Klimaet ble for kaldt"
+            ],
+            "answer": 1,
+            "explanation": "Europa fikk den vitenskapelige og industrielle revolusjonen med fabrikker og moderne hærer. Osmanerne, som lenge hadde vært best, holdt for lenge fast på gamle ordninger."
+          },
+          {
+            "question": "Hva var Tanzimat?",
+            "options": [
+              "En ny religion",
+              "En stor reformbølge på 1800-tallet med nye skoler, jernbaner, moderne hær og likere rettigheter",
+              "En type kanon",
+              "Navnet på en sultan"
+            ],
+            "answer": 1,
+            "explanation": "Tanzimat betyr 'omorganisering'. Det var et modig forsøk på å redde riket med nye skoler, jernbaner, en moderne hær og lover som ga innbyggerne likere rettigheter."
+          },
+          {
+            "question": "Hvorfor ble Balkan kalt 'Europas kruttønne'?",
+            "options": [
+              "Det ble produsert krutt der",
+              "Spenningene mellom folk, religioner og stormakter var så store at en gnist kunne tenne en storkrig",
+              "Det var mange vulkaner der",
+              "Folk laget fyrverkeri"
+            ],
+            "answer": 1,
+            "explanation": "På Balkan rev folkene seg løs med hjelp fra stormakter, og spenningene var enorme. Alle visste at en gnist kunne tenne en storkrig, og det var nettopp det som skjedde i 1914."
+          }
+        ]
+      }
+    }
+  ],
+  "timeline": []
+}

@@ -1,0 +1,158 @@
+{
+  "id": "handel-og-kultur",
+  "title": "Handel, kaffe og kunst",
+  "layout": "rich",
+  "year": "1555",
+  "category": "Det osmanske riket",
+  "readTime": "8 min lesning",
+  "heroImage": "/images/placeholder.webp",
+  "details": [
+    "Riket lå midt på handelsrutene mellom øst og vest og tjente stort på toll og varer.",
+    "Verdens første kaffehus åpnet i Istanbul, og kaffevanen spredte seg derfra til hele Europa.",
+    "Osmansk kunst lever videre i arkitektur, blå İznik-fliser og ord vi fortsatt bruker."
+  ],
+  "externalUrl": "https://snl.no/Det_osmanske_riket",
+  "content": [
+    {
+      "type": "text",
+      "content": "Når du tar en kakao eller ser noen drikke kaffe på en kafé, henger du sammen med Det osmanske riket på en måte du kanskje ikke vet om. For mange av varene, vanene og ordene vi tar for gitt i dag, reiste en gang gjennom rikets travle byer. Osmanerne var ikke bare krigere og lovgivere. De satt midt i verdens travleste veikryss, og det gjorde dem til en handels- og kulturmakt."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Travelt kaffehus på 1600-tallet med dampende kopper og menn i samtale",
+      "caption": "Verdens første kaffehus åpnet i Istanbul. Her møttes folk for å snakke, spille og diskutere nyheter."
+    },
+    {
+      "type": "header",
+      "text": "Verdens første kaffehus"
+    },
+    {
+      "type": "text",
+      "content": "På 1500-tallet åpnet det noe helt nytt i Istanbul: kaffehus. Kaffebønnene kom fra Jemen lengst sør på Den arabiske halvøy, og den mørke, sterke drikken ble raskt populær. Men kaffehuset var mer enn et sted å drikke. Det ble et sted å møtes. Her satt folk i timevis, spilte sjakk og brettspill, hørte fortellinger og diskuterte siste nytt. Noen herskere ble til og med nervøse for alt folk snakket om der inne. Derfra spredte vanen seg til hele Europa, og kaféen ble født."
+    },
+    {
+      "type": "text",
+      "content": "Men kaffe var bare én av utallige varer som passerte gjennom riket. La oss følge noen av dem og se hvorfor dette krysset var så verdifullt."
+    },
+    {
+      "type": "component",
+      "name": "OttomanCrossroads",
+      "props": {
+        "title": "Istanbul: verdens travleste veikryss"
+      }
+    },
+    {
+      "type": "header",
+      "text": "Kontroll over Silkeveien"
+    },
+    {
+      "type": "text",
+      "content": "Den gamle handelsveien mellom Europa og Asia kalles ofte Silkeveien. Langs den reiste silke fra Kina, krydder fra India og edelstener fra fjerne land, helt fram til markedene i Europa. Og nesten alt måtte gjennom osmansk land. For hver karavane som passerte, kunne riket kreve toll. Det gjorde sultanene styrtrike, men det gjorde også varene dyre når de endelig nådde Europa."
+    },
+    {
+      "type": "text",
+      "content": "Denne kontrollen skapte misunnelse. Europeiske kjøpmenn drømte om å komme utenom mellommennene og handle direkte med Østen. Akkurat den drømmen drev fram [de store oppdagelsesreisene](/historie/kolonialisering/verdenshandel-for-oppdagelsesreisene), da europeerne seilte rundt Afrika og over Atlanteren for å finne nye veier til krydderet og rikdommen. På den måten var osmansk handelsmakt en av de skjulte grunnene til at verden ble knyttet sammen med skip."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Kamelkaravane lastet med varer på vei mot en by med kupler",
+      "caption": "Karavaner med silke og krydder måtte gjennom osmansk land. Tollen gjorde riket rikt og varene dyre i Europa."
+    },
+    {
+      "type": "header",
+      "text": "En kultur som satte spor"
+    },
+    {
+      "type": "text",
+      "content": "Rikdom ble til kunst. Sultanene brukte formuene sine på å gjøre byene vakre. Arkitekten Mimar Sinan reiste enorme moskeer med kupler som ser ut til å sveve. Håndverkere laget de berømte İznik-flisene, dekorert med blomster og mønstre i dyp blå og rød farge. Veggene i palasser og moskeer ble kledd i disse flisene, og fargene lyser fortsatt sterkt etter 500 år."
+    },
+    {
+      "type": "component",
+      "name": "Gallery",
+      "props": {
+        "title": "Arven etter riket",
+        "items": [
+          {
+            "image": "/images/placeholder.webp",
+            "alt": "Vegg dekket av blå og røde İznik-fliser med blomstermønster",
+            "caption": "İznik-flisene med sine blomster i dyp blå og rød pryder fortsatt moskeer og palasser."
+          },
+          {
+            "image": "/images/placeholder.webp",
+            "alt": "Stor kuppelmoské tegnet av arkitekten Sinan sett nedenfra",
+            "caption": "Sinans svevende kupler regnes blant verdens vakreste byggverk."
+          }
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "content": "Arven stopper ikke ved fliser og kupler. Den lever videre i språket vårt. Ord som kiosk, sofa, kaviar og tulipan har reist til oss via det osmanske riket. Tulipanen, som vi gjerne forbinder med Nederland, var faktisk en yndlingsblomst ved det osmanske hoffet lenge før den ble berømt i Europa. Hver gang du sier 'kiosk' eller setter deg i en 'sofa', bruker du et lite minne om riket."
+    },
+    {
+      "type": "text",
+      "content": "Slik var Det osmanske riket på sitt beste: et sted der varer, ideer og kunst fra mange verdener møttes og ble til noe nytt. Så lenge handelen rant og kassene var fulle, blomstret kulturen. Men ingen gullalder varer evig. Etter hvert begynte de samme rutene å miste verdi, og riket som hadde tjent på å sitte i veikrysset, skulle snart oppdage at verden var i ferd med å kjøre forbi det."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Fargerike tulipaner i en osmansk hage foran et palass",
+      "caption": "Tulipanen var en yndlingsblomst ved hoffet lenge før den ble berømt i Nederland."
+    },
+    {
+      "type": "component",
+      "name": "Quiz",
+      "props": {
+        "questions": [
+          {
+            "question": "Hvorfor var kaffehusene i Istanbul mer enn bare et sted å drikke kaffe?",
+            "options": [
+              "De solgte også mat",
+              "De var møtesteder der folk snakket, spilte og diskuterte nyheter",
+              "De var åpne bare for soldater",
+              "De lå inne i palasset"
+            ],
+            "answer": 1,
+            "explanation": "Kaffehuset ble et sted å møtes. Folk satt i timevis, spilte spill og diskuterte siste nytt. Vanen spredte seg derfra til hele Europa."
+          },
+          {
+            "question": "Hvordan tjente riket på handelen mellom øst og vest?",
+            "options": [
+              "Det laget alle varene selv",
+              "Det krevde toll på varene som passerte gjennom osmansk land",
+              "Det fikk varer i gave fra Kina",
+              "Det stjal alle skipene"
+            ],
+            "answer": 1,
+            "explanation": "Nesten all handel langs Silkeveien måtte gjennom osmansk land. Riket krevde toll på det som passerte, noe som gjorde sultanene rike og varene dyre i Europa."
+          },
+          {
+            "question": "Hva var en viktig følge av at riket kontrollerte handelsrutene?",
+            "options": [
+              "Europa sluttet å handle helt",
+              "Europeerne lette etter sjøveier utenom riket, noe som drev fram oppdagelsesreisene",
+              "Alle ble venner",
+              "Silkeveien forsvant over natten"
+            ],
+            "answer": 1,
+            "explanation": "Fordi varene ble dyre, drømte europeiske kjøpmenn om å handle direkte med Østen. Den drømmen drev fram de store oppdagelsesreisene rundt Afrika og over Atlanteren."
+          },
+          {
+            "question": "Hvilken arv etter riket lever videre i dag?",
+            "options": [
+              "Bare gamle våpen",
+              "Arkitektur, İznik-fliser og ord som kiosk, sofa og tulipan",
+              "Ingenting har overlevd",
+              "Bare navnet Istanbul"
+            ],
+            "answer": 1,
+            "explanation": "Arven lever i Sinans moskeer, de blå İznik-flisene og i ord vi bruker daglig, som kiosk, sofa og tulipan."
+          }
+        ]
+      }
+    }
+  ],
+  "timeline": []
+}

@@ -1,0 +1,176 @@
+{
+  "id": "sammenbruddet",
+  "title": "Sammenbruddet og det nye Tyrkia",
+  "layout": "rich",
+  "year": "1914-1923",
+  "category": "Det osmanske riket",
+  "readTime": "9 min lesning",
+  "heroImage": "/images/placeholder.webp",
+  "details": [
+    "Riket gikk inn i første verdenskrig på Tysklands side og kjempet blant annet det blodige slaget ved Gallipoli.",
+    "Under krigen ble over en million armenere drept i det som regnes som et folkemord.",
+    "Etter nederlaget brøt riket sammen. Mustafa Kemal Atatürk bygde republikken Tyrkia, mens Sykes-Picot-avtalen tegnet dagens Midtøsten."
+  ],
+  "externalUrl": "https://snl.no/Det_osmanske_riket",
+  "content": [
+    {
+      "type": "text",
+      "content": "Alle imperier får en siste handling. For Det osmanske riket kom den i skyttergravene under første verdenskrig. Et rike som hadde stått i over 600 år, skulle nå brytes ned på bare noen få år. Men ut av sammenbruddet vokste det fram noe nytt: en moderne republikk, og et kart over Midtøsten som verden fortsatt krangler om i dag."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Slitne soldater i skyttergraver ved Dardanellene med røyk over stredet",
+      "caption": "Ved Gallipoli kjempet osmanske soldater hardt og holdt stredet. Det ble en av de blodigste kampene i krigen."
+    },
+    {
+      "type": "header",
+      "text": "Inn i en verdenskrig"
+    },
+    {
+      "type": "text",
+      "content": "Da første verdenskrig brøt ut i 1914, valgte riket å gå inn på samme side som Tyskland. Det var et stort sjansespill. Sultanen håpet at en seier kunne gi tilbake noe av den gamle styrken og kanskje vinne tilbake tapte områder. I stedet ble det starten på slutten."
+    },
+    {
+      "type": "text",
+      "content": "Et av de mest kjente slagene sto ved Gallipoli, en smal landtunge som vokter sundet inn mot Istanbul. I 1915 prøvde britiske og franske styrker å tvinge seg gjennom. Men de osmanske soldatene gravde seg ned og holdt stand i måned etter måned. Begge sider mistet enorme mengder menn. Til slutt måtte angriperne trekke seg tilbake. For osmanerne var det en sjelden seier, men den reddet ikke riket."
+    },
+    {
+      "type": "component",
+      "name": "TimelineComponent",
+      "props": {
+        "compact": true,
+        "events": [
+          { "year": 1914, "description": "Riket går inn i første verdenskrig på Tysklands side." },
+          { "year": 1915, "description": "Slaget ved Gallipoli. Osmanske styrker holder stredet, men tapene er enorme på begge sider." },
+          { "year": 1915, "description": "Folkemordet på armenerne begynner. Over en million mennesker mister livet." },
+          { "year": 1918, "description": "Krigen er tapt. Seierherrene okkuperer deler av riket, også Istanbul." },
+          { "year": 1923, "description": "Republikken Tyrkia opprettes, og Mustafa Kemal Atatürk blir landets første president." }
+        ]
+      }
+    },
+    {
+      "type": "header",
+      "text": "Folkemordet på armenerne"
+    },
+    {
+      "type": "text",
+      "content": "Midt under krigen skjedde en av de mørkeste hendelsene i rikets historie. De osmanske myndighetene mistenkte den armenske folkegruppen, som var kristne, for å holde med fienden. I 1915 ble armenere over hele riket arrestert, drevet bort fra hjemmene sine og sendt på lange dødsmarsjer gjennom ørkenen. Mange ble drept med en gang, andre døde av sult og utmattelse underveis."
+    },
+    {
+      "type": "text",
+      "content": "Over en million mennesker mistet livet. I dag regner historikere og de fleste land dette som et folkemord, et planlagt forsøk på å utslette en hel folkegruppe. Det er en del av historien som fortsatt vekker sterke følelser og strid, blant annet fordi dagens Tyrkia er uenig i ordet folkemord. Å vite hva som skjedde, er viktig for å forstå hvor farlig det blir når en stat vender seg mot sine egne innbyggere."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Tom landsby og en lang rad mennesker på vandring gjennom øde landskap",
+      "caption": "I 1915 ble over en million armenere drept eller drevet på dødsmarsjer. Det regnes som et folkemord."
+    },
+    {
+      "type": "header",
+      "text": "Et rike går i oppløsning"
+    },
+    {
+      "type": "text",
+      "content": "I 1918 var krigen tapt. Tyskland og dets allierte hadde mistet, og riket lå knust. Seierherrene rykket inn og okkuperte store deler av landet, til og med selve hovedstaden Istanbul. Det så ut som om riket skulle bli delt opp og fordelt mellom Storbritannia, Frankrike og andre. For mange tyrkere føltes det som den dypeste ydmykelse: utlendinger styrte i hjertet av riket deres."
+    },
+    {
+      "type": "text",
+      "content": "Men ut av ydmykelsen reiste det seg en mann. Han het Mustafa Kemal, en general som hadde gjort seg bemerket nettopp ved Gallipoli. Han nektet å godta at landet skulle deles. Han samlet en ny hær, drev de fremmede styrkene ut og bygde noe helt nytt på ruinene av riket: republikken Tyrkia. Sultanen ble avsatt, og i 1923 ble Mustafa Kemal landets første president. Senere fikk han æresnavnet Atatürk, som betyr 'tyrkernes far'."
+    },
+    {
+      "type": "header",
+      "text": "Kartet som ble tegnet på nytt"
+    },
+    {
+      "type": "text",
+      "content": "Mens tyrkerne bygde sin egen stat, ble resten av riket delt opp. Allerede under krigen hadde britiske og franske diplomater i hemmelighet blitt enige om hvordan de skulle dele Midtøsten mellom seg. Avtalen kalles Sykes-Picot, etter de to mennene som forhandlet den. Med linjaler og blyant tegnet de grenser på et kart, ofte rette streker tvers gjennom områder der det bodde mange ulike folk."
+    },
+    {
+      "type": "component",
+      "name": "MapRedrawn",
+      "props": {
+        "title": "Kartet vi fortsatt krangler om"
+      }
+    },
+    {
+      "type": "text",
+      "content": "Mange av landene vi kjenner i dag, som Irak, Syria, Libanon og Jordan, fikk grensene sine på denne måten. De ble ikke tegnet etter hvor folk faktisk bodde, men etter hva stormaktene ønsket. Det er en viktig grunn til at det fortsatt er så mye uro i [Midtøsten](/historie/mellomkrigstiden/midtoesten), og en av de mest direkte [følgene av første verdenskrig](/historie/forste-verdenskrig/konsekvenser)."
+    },
+    {
+      "type": "text",
+      "content": "Slik endte historien om Det osmanske riket. Fra Osmans lille flokk ryttere, gjennom 1453 og gullalderen under Süleyman, til skyttergravene ved Gallipoli. Riket forsvant, men sporene er overalt: i landegrensene på Midtøsten-kartet, i Tyrkia, og i en historie som hjelper oss å forstå vår egen tid bedre."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Folkemengde feirer med flagg foran en ny regjeringsbygning i 1923",
+      "caption": "I 1923 ble republikken Tyrkia født. Atatürk bygde en moderne stat på ruinene av det 600 år gamle riket."
+    },
+    {
+      "type": "component",
+      "name": "Quiz",
+      "props": {
+        "questions": [
+          {
+            "question": "På hvilken side gikk riket inn i første verdenskrig?",
+            "options": [
+              "På Storbritannias side",
+              "På Tysklands side",
+              "Det holdt seg nøytralt hele krigen",
+              "På Russlands side"
+            ],
+            "answer": 1,
+            "explanation": "Riket valgte å gå inn på samme side som Tyskland i 1914, i håp om å vinne tilbake gammel styrke. I stedet ble det starten på slutten."
+          },
+          {
+            "question": "Hva skjedde ved Gallipoli i 1915?",
+            "options": [
+              "Riket overga seg uten kamp",
+              "Osmanske styrker holdt stredet mot britiske og franske angrep, men tapene var enorme",
+              "Byen Istanbul ble erobret",
+              "Det ble inngått fred"
+            ],
+            "answer": 1,
+            "explanation": "Ved Gallipoli gravde de osmanske soldatene seg ned og holdt stand i måneder. Angriperne måtte til slutt trekke seg, men begge sider mistet enormt mange menn."
+          },
+          {
+            "question": "Hva regnes folkemordet på armenerne som?",
+            "options": [
+              "En vanlig flytting",
+              "Et planlagt forsøk på å utslette en hel folkegruppe, der over en million mennesker døde",
+              "En naturkatastrofe",
+              "En liten konflikt uten ofre"
+            ],
+            "answer": 1,
+            "explanation": "I 1915 ble armenere drevet bort og sendt på dødsmarsjer. Over en million mistet livet. I dag regner historikere og de fleste land dette som et folkemord."
+          },
+          {
+            "question": "Hvem bygde republikken Tyrkia på ruinene av riket?",
+            "options": [
+              "Den siste sultanen",
+              "Mustafa Kemal, senere kalt Atatürk",
+              "En britisk general",
+              "Mehmet Erobreren"
+            ],
+            "answer": 1,
+            "explanation": "Mustafa Kemal, kjent fra Gallipoli, drev ut de fremmede styrkene og opprettet republikken Tyrkia. I 1923 ble han landets første president og fikk senere navnet Atatürk."
+          },
+          {
+            "question": "Hva var Sykes-Picot-avtalen?",
+            "options": [
+              "En handelsavtale om krydder",
+              "En hemmelig avtale der Storbritannia og Frankrike delte Midtøsten mellom seg og tegnet nye grenser",
+              "En fredsavtale mellom Norge og Tyrkia",
+              "En lov om kaffehus"
+            ],
+            "answer": 1,
+            "explanation": "Sykes-Picot var en hemmelig avtale der britiske og franske diplomater delte Midtøsten og tegnet grenser med linjal. Mange av dagens land, som Irak og Syria, fikk grensene sine slik."
+          }
+        ]
+      }
+    }
+  ],
+  "timeline": []
+}

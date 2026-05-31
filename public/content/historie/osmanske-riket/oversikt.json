@@ -1,0 +1,147 @@
+{
+  "id": "oversikt",
+  "title": "Riket mellom to verdener",
+  "layout": "rich",
+  "year": "1299-1922",
+  "category": "Det osmanske riket",
+  "readTime": "8 min lesning",
+  "heroImage": "/images/placeholder.webp",
+  "details": [
+    "Det osmanske riket varte i over 600 år, fra rundt 1299 til 1922, og strakte seg på det meste over tre kontinenter.",
+    "Hovedstaden Istanbul lå akkurat der Europa møter Asia, og kontrollen over dette krysset ga riket både rikdom og makt.",
+    "Riket var en bro mellom øst og vest - men endte som en barriere stormaktene ville dele mellom seg."
+  ],
+  "externalUrl": "https://snl.no/Det_osmanske_riket",
+  "content": [
+    {
+      "type": "text",
+      "content": "Tenk deg et rike så stort at du kunne reise i måneder uten å komme ut av det. Et rike der folk ba til Gud på arabisk, gresk, hebraisk og tyrkisk, og der varer fra Kina og krydder fra India passerte gjennom de samme portene. Dette var Det osmanske riket. I over 600 år styrte sultanene et imperium på tre kontinenter, fra hjertet av en eneste by. Historien deres begynner med en liten flokk krigere og ender med en verdenskrig som tegnet kartet vi fortsatt krangler om i dag."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Istanbuls silhuett ved soloppgang med kupler og minareter mot Bosporos",
+      "caption": "Istanbul, rikets hjerte, lå akkurat der Europa møter Asia. Den som eide byen, eide porten mellom to verdensdeler."
+    },
+    {
+      "type": "component",
+      "name": "OttomanEraSlider",
+      "props": {
+        "title": "Dra gjennom 600 år: bro eller barriere?"
+      }
+    },
+    {
+      "type": "header",
+      "text": "Et rike på tre kontinenter"
+    },
+    {
+      "type": "text",
+      "content": "På sitt største dekket riket land i Europa, Asia og Afrika på en gang. I nord lå Ungarn og det meste av Balkan. I øst strakte grensen seg langt inn i dagens Irak og Iran. I sør lå de hellige byene Mekka og Medina, og hele kysten av Nord-Afrika fra Egypt til Algerie. Hvis du hadde stått på en høyde i Istanbul, ville du visst at ordrene dine kunne nå soldater både i Wien-traktene og i ørkenen utenfor Bagdad."
+    },
+    {
+      "type": "text",
+      "content": "Dette var ikke det første storriket i området. Tusen år tidligere hadde [perserne styrt et rike](/historie/perserriket/artikkel) over mange av de samme landene. Osmanerne arvet en region som lenge hadde vært et knutepunkt mellom verdensdeler, og de gjorde den til sin egen."
+    },
+    {
+      "type": "header",
+      "text": "Hvorfor akkurat her?"
+    },
+    {
+      "type": "text",
+      "content": "Hemmeligheten bak rikets makt lå i kartet. Hovedstaden Istanbul ligger ved et smalt sund som heter Bosporos. Her er det bare noen hundre meter med vann mellom Europa og Asia. All handel mellom de to verdensdelene, og mye av handelen mellom Europa og Asia ellers, måtte før eller siden passere et sted osmanerne kontrollerte. Den som styrte krysset, kunne kreve toll, sette priser og bestemme hvem som fikk slippe gjennom."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Gammelt kart som viser handelsruter mellom Europa og Asia gjennom Midtøsten",
+      "caption": "Handelen mellom øst og vest måtte gjennom osmansk land. Det gjorde riket rikt - og fikk europeerne til å lete etter en sjøvei utenom."
+    },
+    {
+      "type": "text",
+      "content": "Denne plasseringen var en velsignelse, men også en forbannelse. Så lenge riket var sterkt, var det en bro der varer og ideer møttes og skapte rikdom. Da riket ble svakt, ble det heller en barriere: en hindring som europeiske stormakter ville rive ned og dele mellom seg."
+    },
+    {
+      "type": "header",
+      "text": "Mange folk, mange tro"
+    },
+    {
+      "type": "text",
+      "content": "Det fantes ikke ett osmansk folk. I riket bodde tyrkere, arabere, grekere, armenere, serbere, jøder og mange andre. De aller fleste var ikke tyrkere, og svært mange var ikke muslimer. Likevel klarte sultanene å holde dette lappeteppet av folk og religioner sammen i hundrevis av år. Hvordan de fikk det til, er en av de mest spennende delene av historien."
+    },
+    {
+      "type": "component",
+      "name": "FactBox",
+      "props": {
+        "title": "Riket i tall",
+        "content": "Riket varte i over 600 år, lengre enn de fleste land har eksistert. På det meste bodde det kanskje 30 millioner mennesker innenfor grensene. Hovedstaden hadde tre navn gjennom historien: Bysants, så Konstantinopel, og til slutt Istanbul. I dag ligger den i Tyrkia, men er fortsatt en av verdens største byer."
+      }
+    },
+    {
+      "type": "header",
+      "text": "Fra grensekrigere til 'Europas syke mann'"
+    },
+    {
+      "type": "text",
+      "content": "I de neste artiklene følger vi hele reisen. Vi starter med Osman og den lille flokken hans, opplever det skjebnesvangre året 1453 da byen Konstantinopel falt, og ser gullalderen under Süleyman den store. Vi går inn bak palassmurene, møter slavehæren som ble rikets mektigste menn, og ser hvordan så mange folk kunne leve side om side. Til slutt ser vi hvordan kjempen sakte ble kalt 'Europas syke mann', før den brøt sammen i 1918 og fødte dagens Tyrkia og Midtøsten."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Osmanske kupler og minareter i kveldslys over en travel by",
+      "caption": "Arven etter riket lever videre i språk, mat, arkitektur og grensene på dagens Midtøsten-kart."
+    },
+    {
+      "type": "component",
+      "name": "Quiz",
+      "props": {
+        "questions": [
+          {
+            "question": "Omtrent hvor lenge varte Det osmanske riket?",
+            "options": [
+              "Rundt 100 år",
+              "Rundt 300 år",
+              "Over 600 år",
+              "Akkurat 50 år"
+            ],
+            "answer": 2,
+            "explanation": "Riket varte fra rundt 1299 til 1922, altså i over 600 år. Det er lengre enn de fleste land har eksistert."
+          },
+          {
+            "question": "Hvorfor ga plasseringen til Istanbul riket så mye makt?",
+            "options": [
+              "Byen lå langt unna alle andre land",
+              "Byen lå ved krysset mellom Europa og Asia, der handelen måtte passere",
+              "Byen hadde gull i bakken",
+              "Byen var den eneste i verden med havn"
+            ],
+            "answer": 1,
+            "explanation": "Istanbul ligger ved sundet Bosporos, der Europa møter Asia. Handelen mellom verdensdelene måtte passere her, så riket kunne kreve toll og styre hvem som slapp gjennom."
+          },
+          {
+            "question": "Hva kjennetegnet befolkningen i riket?",
+            "options": [
+              "Alle var tyrkere og muslimer",
+              "Det bodde mange ulike folk med ulik tro side om side",
+              "Bare kristne fikk bo der",
+              "Det bodde nesten ingen mennesker der"
+            ],
+            "answer": 1,
+            "explanation": "Riket var et lappeteppe av folk: tyrkere, arabere, grekere, armenere, jøder og mange flere. De fleste var verken tyrkere eller muslimer, men levde likevel sammen i hundrevis av år."
+          },
+          {
+            "question": "Hva menes med at riket var både en bro og en barriere?",
+            "options": [
+              "Det hadde mange ekte broer over elver",
+              "Da det var sterkt knyttet det øst og vest sammen, men da det ble svakt ville stormaktene dele det opp",
+              "Det bygde en mur rundt hele riket",
+              "Broen falt sammen i 1453"
+            ],
+            "answer": 1,
+            "explanation": "Så lenge riket var sterkt, var krysset en bro der varer og ideer møttes. Da det ble svakt, ble den samme plasseringen en barriere som stormaktene ville rive ned og dele mellom seg."
+          }
+        ]
+      }
+    }
+  ],
+  "timeline": []
+}

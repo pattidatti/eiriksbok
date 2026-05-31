@@ -61,6 +61,15 @@ const FoodPreservationExplorer = lazy(() => import('./content/interactive/FoodPr
 const HerdImmunityExplorer = lazy(() => import('./content/interactive/HerdImmunityExplorer').then(m => ({ default: m.HerdImmunityExplorer })));
 const MessageSpeedExplorer = lazy(() => import('./content/interactive/MessageSpeedExplorer').then(m => ({ default: m.MessageSpeedExplorer })));
 const StitchSpeedRace = lazy(() => import('./content/interactive/StitchSpeedRace').then(m => ({ default: m.StitchSpeedRace })));
+// Det osmanske riket
+const OttomanEraSlider = lazy(() => import('./content/interactive/OttomanEraSlider').then(m => ({ default: m.OttomanEraSlider })));
+const OsmanDreamTree = lazy(() => import('./content/interactive/OsmanDreamTree').then(m => ({ default: m.OsmanDreamTree })));
+const LawgiverOrConqueror = lazy(() => import('./content/interactive/LawgiverOrConqueror').then(m => ({ default: m.LawgiverOrConqueror })));
+const DevsirmeJourney = lazy(() => import('./content/interactive/DevsirmeJourney').then(m => ({ default: m.DevsirmeJourney })));
+const MilletExplorer = lazy(() => import('./content/interactive/MilletExplorer').then(m => ({ default: m.MilletExplorer })));
+const TopkapiCourt = lazy(() => import('./content/interactive/TopkapiCourt').then(m => ({ default: m.TopkapiCourt })));
+const OttomanCrossroads = lazy(() => import('./content/interactive/OttomanCrossroads').then(m => ({ default: m.OttomanCrossroads })));
+const MapRedrawn = lazy(() => import('./content/interactive/MapRedrawn').then(m => ({ default: m.MapRedrawn })));
 const GlossaryTooltip = lazy(() => import('./content/interactive/GlossaryTooltip').then(m => ({ default: m.GlossaryTooltip })));
 const ScenarioRoleplay = lazy(() => import('./content/interactive/ScenarioRoleplay').then(m => ({ default: m.ScenarioRoleplay })));
 const DragDropTimeline = lazy(() => import('./content/interactive/DragDropTimeline').then(m => ({ default: m.DragDropTimeline })));
@@ -251,6 +260,14 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     HerdImmunityExplorer,
     MessageSpeedExplorer,
     StitchSpeedRace,
+    OttomanEraSlider,
+    OsmanDreamTree,
+    LawgiverOrConqueror,
+    DevsirmeJourney,
+    MilletExplorer,
+    TopkapiCourt,
+    OttomanCrossroads,
+    MapRedrawn,
     GlossaryTooltip,
     ScenarioRoleplay,
     DragDropTimeline,

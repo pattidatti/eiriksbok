@@ -1,0 +1,147 @@
+{
+  "id": "osman-og-oppkomsten",
+  "title": "Fra grensekrigere til imperium",
+  "layout": "rich",
+  "year": "1299",
+  "category": "Det osmanske riket",
+  "readTime": "8 min lesning",
+  "heroImage": "/images/placeholder.webp",
+  "details": [
+    "Riket er oppkalt etter Osman, en kriger som rundt år 1300 ledet en liten flokk ryttere i grenselandet i Anatolia.",
+    "Osmanerne vokste i tomrommet etter et svekket Bysants, dels ved erobring og dels ved smarte allianser.",
+    "På under hundre år gikk de fra en flokk grensekrigere til den sterkeste makten på Balkan."
+  ],
+  "externalUrl": "https://snl.no/Osman_1",
+  "content": [
+    {
+      "type": "text",
+      "content": "Alle store riker begynner et sted. Romerriket begynte med en liten by. Det osmanske riket begynte med en mann, en flokk ryttere og en drøm. Mannen het Osman, og det er etter ham hele riket fikk navnet sitt. På norsk sier vi 'osmansk', og på engelsk 'Ottoman', men begge kommer fra det samme navnet: Osman."
+    },
+    {
+      "type": "component",
+      "name": "QuoteBlock",
+      "props": {
+        "text": "Et tre vokste opp av brystet hans. Skyggen dekket hele verden, og under grenene rant det elver og reiste seg fjell.",
+        "author": "Sagnet om Osmans drøm"
+      }
+    },
+    {
+      "type": "text",
+      "content": "Slik forteller et gammelt sagn om en drøm Osman skal ha hatt. Et tre vokste ut av brystet hans, og grenene bredte seg over fjell og elver til de dekket hele verden. Folk tolket drømmen som et tegn: ætten hans skulle skape et veldig rike. Vi vet ikke om drømmen virkelig fant sted, men den forteller noe sant om hvordan riket vokste, gren for gren, fra en liten begynnelse."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Ung kriger i lær og ringbrynje på en høyde ved bysantinske ruiner i morgenlys",
+      "caption": "Osman og mennene hans levde i grenselandet, der det gamle Bysants møtte de tyrkiske rikene i øst."
+    },
+    {
+      "type": "header",
+      "text": "Krigere i et grenseland"
+    },
+    {
+      "type": "text",
+      "content": "Osman og mennene hans var det folk kalte ghazi-krigere. Det var ryttere som levde av å kjempe i grenselandet mellom det kristne Bysants og de muslimske rikene i Anatolia, området som i dag er Tyrkia. De var dyktige til hest, raske og harde, og de tjente på krigsbytte og land de tok."
+    },
+    {
+      "type": "text",
+      "content": "Tidspunktet var perfekt for noen som ville vokse. Det gamle Øst-Romerriket, som vi kaller Bysants, hadde styrt området i tusen år, men nå var det utslitt og svakt. Det var blitt rammet av indre strid og av [korstogene](/historie/middelalderen/korstogene), der kristne hærer fra Europa hadde herjet og svekket det. Mellom det døende Bysants og de oppdelte tyrkiske statene oppsto et tomrom. Osman fylte det."
+    },
+    {
+      "type": "component",
+      "name": "OsmanDreamTree",
+      "props": {
+        "title": "Se riket vokse, gren for gren"
+      }
+    },
+    {
+      "type": "header",
+      "text": "Sverd og smarte avtaler"
+    },
+    {
+      "type": "text",
+      "content": "Mange tror at riker bare vokser gjennom krig. Osmanerne vokste like mye gjennom kløkt. De giftet seg inn i nabofamilier, inngikk avtaler med lokale herskere og lot ofte folk beholde sin egen tro og sine egne skikker når de underla seg et område. For en bonde kunne det faktisk være tryggere å leve under en sterk osmansk hersker enn under en svak og kranglete bysantinsk en."
+    },
+    {
+      "type": "text",
+      "content": "Sønnen og sønnesønnene til Osman fortsatte det han hadde startet. De erobret den store byen Bursa og gjorde den til hovedstad. De krysset stredet og satte for første gang foten i Europa. Og i 1389 møtte de en serbisk hær på Kosovosletta. Slaget ble blodig, men da røyken la seg, var osmanerne den sterkeste makten på hele Balkan."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Osmanske ryttere krysser et smalt sund med båter mot Europa",
+      "caption": "Da hæren krysset over til Europa, sto osmanerne for første gang med begge bein på to kontinenter."
+    },
+    {
+      "type": "header",
+      "text": "En disiplinert hær"
+    },
+    {
+      "type": "text",
+      "content": "Det som virkelig skilte osmanerne fra naboene, var at de bygde en fast og disiplinert hær. Mens andre herskere måtte samle sammen krigere på nytt for hver kamp, hadde sultanen soldater som var trent, lønnet og lojale hele året. Denne slagkraften gjorde at riket kunne fortsette å vokse i generasjon etter generasjon."
+    },
+    {
+      "type": "text",
+      "content": "På litt over hundre år var altså flokken til Osman blitt til en regional stormakt. Treet i drømmen hadde begynt å spre grenene sine. Men den aller største grenen, den som skulle gjøre osmanerne verdenskjente, hang fortsatt og ventet: en eldgammel by med de sterkeste murene i verden, Konstantinopel."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Osmansk leir med telt og faner på en høyde ved solnedgang",
+      "caption": "Fra en flokk grensekrigere til herre over Balkan: nå rettet osmanerne blikket mot det største byttet av alle."
+    },
+    {
+      "type": "component",
+      "name": "Quiz",
+      "props": {
+        "questions": [
+          {
+            "question": "Hvor kommer navnet 'Det osmanske riket' fra?",
+            "options": [
+              "Fra en by som het Osman",
+              "Fra krigeren Osman, som grunnla ætten",
+              "Fra et tyrkisk ord for sverd",
+              "Fra en gud i en gammel religion"
+            ],
+            "answer": 1,
+            "explanation": "Riket er oppkalt etter Osman, krigeren som ledet den første flokken. Både 'osmansk' og det engelske 'Ottoman' kommer fra navnet hans."
+          },
+          {
+            "question": "Hva var en ghazi-kriger?",
+            "options": [
+              "En munk som ba for hæren",
+              "En rytter som levde av å kjempe i grenselandet",
+              "En kjøpmann fra Kina",
+              "En bonde som dyrket korn"
+            ],
+            "answer": 1,
+            "explanation": "Ghazi-krigerne var ryttere som kjempet i grenselandet mellom det kristne Bysants og de muslimske rikene. De tjente på land og krigsbytte."
+          },
+          {
+            "question": "Hvorfor var det lett for osmanerne å vokse akkurat da?",
+            "options": [
+              "Fordi det gamle Bysants var svekket og det var oppstått et tomrom",
+              "Fordi ingen andre bodde i området",
+              "Fordi de hadde kanoner allerede",
+              "Fordi Europa ga dem land i gave"
+            ],
+            "answer": 0,
+            "explanation": "Det tusen år gamle Bysants var utslitt etter indre strid og korstog. Mellom det døende Bysants og de oppdelte tyrkiske statene oppsto et tomrom som Osman fylte."
+          },
+          {
+            "question": "Hvordan vokste riket, i tillegg til gjennom krig?",
+            "options": [
+              "Ved å kjøpe land med gull",
+              "Ved giftermål og smarte allianser med naboene",
+              "Ved å sende brev til paven",
+              "Ved å bygge skip"
+            ],
+            "answer": 1,
+            "explanation": "Osmanerne giftet seg inn i nabofamilier og inngikk avtaler. De lot ofte folk beholde sin egen tro, så det kunne være tryggere å leve under en sterk osmansk hersker enn under en svak bysantinsk."
+          }
+        ]
+      }
+    }
+  ],
+  "timeline": []
+}

@@ -2856,7 +2856,7 @@
                 "oppfinnelser"
               ],
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-05-31T15:50:46+02:00"
+              "lastUpdated": "2026-05-31T19:42:45+02:00"
             },
             {
               "id": "vann-og-vindmolla",
@@ -2873,7 +2873,7 @@
                 "oppfinnelser"
               ],
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-05-31T15:50:46+02:00"
+              "lastUpdated": "2026-05-31T19:42:45+02:00"
             },
             {
               "id": "klokka",
@@ -2890,7 +2890,7 @@
                 "oppfinnelser"
               ],
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-05-31T15:50:46+02:00"
+              "lastUpdated": "2026-05-31T19:42:45+02:00"
             },
             {
               "id": "boktrykkerkunsten",
@@ -2907,7 +2907,7 @@
                 "oppfinnelser"
               ],
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-05-31T15:50:46+02:00"
+              "lastUpdated": "2026-05-31T19:42:45+02:00"
             },
             {
               "id": "vann-og-kloakk",
@@ -2924,7 +2924,7 @@
                 "oppfinnelser"
               ],
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-05-31T15:50:46+02:00"
+              "lastUpdated": "2026-05-31T19:42:45+02:00"
             },
             {
               "id": "elektrisiteten",
@@ -2941,7 +2941,7 @@
                 "oppfinnelser"
               ],
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-05-31T15:50:46+02:00"
+              "lastUpdated": "2026-05-31T19:42:45+02:00"
             },
             {
               "id": "kjoleskapet",
@@ -2958,7 +2958,7 @@
                 "oppfinnelser"
               ],
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-05-31T15:50:46+02:00"
+              "lastUpdated": "2026-05-31T19:42:45+02:00"
             },
             {
               "id": "vaksiner-og-antibiotika",
@@ -2975,7 +2975,7 @@
                 "oppfinnelser"
               ],
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-05-31T15:50:46+02:00"
+              "lastUpdated": "2026-05-31T19:42:45+02:00"
             },
             {
               "id": "telefonen",
@@ -2992,7 +2992,7 @@
                 "oppfinnelser"
               ],
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-05-31T15:50:46+02:00"
+              "lastUpdated": "2026-05-31T19:42:45+02:00"
             },
             {
               "id": "symaskinen",
@@ -3009,7 +3009,7 @@
                 "oppfinnelser"
               ],
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-05-31T15:50:46+02:00"
+              "lastUpdated": "2026-05-31T19:42:45+02:00"
             }
           ]
         },
@@ -3886,7 +3886,7 @@
                 "norgeshistorie"
               ],
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-05-31T15:50:46+02:00"
+              "lastUpdated": "2026-05-31T19:19:21+02:00"
             }
           ]
         },
@@ -4302,6 +4302,184 @@
               ],
               "createdDate": "2025-12-21T00:04:37+01:00",
               "lastUpdated": "2025-12-21T13:37:14+01:00"
+            }
+          ]
+        },
+        {
+          "id": "osmanske-riket",
+          "title": "Det osmanske riket: Imperiet mellom øst og vest",
+          "description": "Historien om et 600 år langt imperium på tre kontinenter, fra en flokk grensekrigere ved ruinene av Romerriket til 'Europas syke mann' som brøt sammen i en verdenskrig.",
+          "image": "/images/placeholder.webp",
+          "lessons": [
+            {
+              "id": "oversikt",
+              "title": "Riket mellom to verdener",
+              "description": "Et rike på tre kontinenter, styrt fra én by. Hvorfor posisjonen mellom Europa og Asia ga osmanerne både rikdom og makt.",
+              "image": "/images/placeholder.webp",
+              "layout": "rich",
+              "tags": [
+                "osmanske-riket",
+                "imperium",
+                "historie",
+                "midtøsten",
+                "handel"
+              ],
+              "year": "1299-1922",
+              "createdDate": "2026-05-31T00:00:00Z",
+              "lastUpdated": "2026-05-31T17:59:47.042Z"
+            },
+            {
+              "id": "osman-og-oppkomsten",
+              "title": "Fra grensekrigere til imperium",
+              "description": "Hvordan en liten flokk ghazi-krigere under Osman vokste i tomrommet etter et døende Bysants og ble en regional stormakt.",
+              "image": "/images/placeholder.webp",
+              "layout": "rich",
+              "tags": [
+                "osmanske-riket",
+                "imperium",
+                "historie",
+                "osman",
+                "balkan"
+              ],
+              "year": "1299",
+              "createdDate": "2026-05-31T00:00:00Z",
+              "lastUpdated": "2026-05-31T18:00:45.994Z"
+            },
+            {
+              "id": "konstantinopels-fall",
+              "title": "1453: Da Konstantinopel falt",
+              "description": "Mehmet 2.s gigantiske kanoner mot verdens sterkeste bymurer. Hvorfor fallet av den tusen år gamle byen ble et vendepunkt for hele verden.",
+              "image": "/images/placeholder.webp",
+              "layout": "rich",
+              "tags": [
+                "osmanske-riket",
+                "imperium",
+                "historie",
+                "konstantinopel",
+                "krig"
+              ],
+              "year": "1453",
+              "createdDate": "2026-05-31T00:00:00Z",
+              "lastUpdated": "2026-05-31T18:02:25.858Z"
+            },
+            {
+              "id": "suleyman-gullalderen",
+              "title": "Süleyman den store og gullalderen",
+              "description": "Rikets høydepunkt under 'Lovgiveren': erobrer ute ved Wiens porter, lovgiver hjemme. Militær makt, lov og kultur på sitt mektigste.",
+              "image": "/images/placeholder.webp",
+              "layout": "rich",
+              "tags": [
+                "osmanske-riket",
+                "imperium",
+                "historie",
+                "süleyman",
+                "gullalder"
+              ],
+              "year": "1520-1566",
+              "createdDate": "2026-05-31T00:00:00Z",
+              "lastUpdated": "2026-05-31T18:03:29.157Z"
+            },
+            {
+              "id": "janitsjarene",
+              "title": "Janitsjarene: sultanens slavehær",
+              "description": "Devşirme-systemet der kristne gutter fra Balkan ble sultanens elitesoldater, og hvordan slaver kunne bli rikets mektigste menn.",
+              "image": "/images/placeholder.webp",
+              "layout": "rich",
+              "tags": [
+                "osmanske-riket",
+                "imperium",
+                "historie",
+                "janitsjarer",
+                "hær"
+              ],
+              "year": "1383-1826",
+              "createdDate": "2026-05-31T00:00:00Z",
+              "lastUpdated": "2026-05-31T18:04:35.585Z"
+            },
+            {
+              "id": "millet-mangfold",
+              "title": "Et rike av mange folk",
+              "description": "Millet-systemet, der muslimer, kristne og jøder levde side om side under egne lover. Toleranse på osmansk vis: frihet, men ikke likhet.",
+              "image": "/images/placeholder.webp",
+              "layout": "rich",
+              "tags": [
+                "osmanske-riket",
+                "imperium",
+                "historie",
+                "religion",
+                "mangfold"
+              ],
+              "year": "1492",
+              "createdDate": "2026-05-31T00:00:00Z",
+              "lastUpdated": "2026-05-31T18:05:32.697Z"
+            },
+            {
+              "id": "topkapi-palasset",
+              "title": "Topkapı: maktens palass",
+              "description": "Hvordan makt faktisk fungerte bak palassmurene: sultanen, storvesiren og haremet i et spill av seremoni, intriger og kvinnemakt.",
+              "image": "/images/placeholder.webp",
+              "layout": "rich",
+              "tags": [
+                "osmanske-riket",
+                "imperium",
+                "historie",
+                "makt",
+                "topkapi"
+              ],
+              "year": "1465",
+              "createdDate": "2026-05-31T00:00:00Z",
+              "lastUpdated": "2026-05-31T18:06:31.952Z"
+            },
+            {
+              "id": "handel-og-kultur",
+              "title": "Handel, kaffe og kunst",
+              "description": "Rikets rolle som handelsknutepunkt og kulturell stormakt: verdens første kaffehus, kontroll over Silkeveien, Sinans kupler og İznik-fliser.",
+              "image": "/images/placeholder.webp",
+              "layout": "rich",
+              "tags": [
+                "osmanske-riket",
+                "imperium",
+                "historie",
+                "handel",
+                "kultur"
+              ],
+              "year": "1555",
+              "createdDate": "2026-05-31T00:00:00Z",
+              "lastUpdated": "2026-05-31T18:07:37.590Z"
+            },
+            {
+              "id": "forfallet",
+              "title": "\"Europas syke mann\"",
+              "description": "Det lange forfallet etter Wien 1683: tapte kriger, Tanzimat-reformene og nasjonalisme på Balkan som gjorde riket til 'Europas kruttønne'.",
+              "image": "/images/placeholder.webp",
+              "layout": "rich",
+              "tags": [
+                "osmanske-riket",
+                "imperium",
+                "historie",
+                "forfall",
+                "balkan"
+              ],
+              "year": "1683-1908",
+              "createdDate": "2026-05-31T00:00:00Z",
+              "lastUpdated": "2026-05-31T18:08:48.645Z"
+            },
+            {
+              "id": "sammenbruddet",
+              "title": "Sammenbruddet og det nye Tyrkia",
+              "description": "Rikets endelikt i første verdenskrig: Gallipoli, folkemordet på armenerne, Atatürks republikk og Sykes-Picot-avtalen som tegnet dagens Midtøsten.",
+              "image": "/images/placeholder.webp",
+              "layout": "rich",
+              "tags": [
+                "osmanske-riket",
+                "imperium",
+                "historie",
+                "forste-verdenskrig",
+                "tyrkia"
+              ],
+              "year": "1914-1923",
+              "createdDate": "2026-05-31T00:00:00Z",
+              "lastUpdated": "2026-05-31T18:10:03.108Z"
             }
           ]
         },

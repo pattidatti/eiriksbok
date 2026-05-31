@@ -1,0 +1,147 @@
+{
+  "id": "janitsjarene",
+  "title": "Janitsjarene: sultanens slavehær",
+  "layout": "rich",
+  "year": "1383-1826",
+  "category": "Det osmanske riket",
+  "readTime": "8 min lesning",
+  "heroImage": "/images/placeholder.webp",
+  "details": [
+    "Janitsjarene var sultanens elitesoldater, hentet som kristne gutter fra Balkan gjennom devşirme-systemet.",
+    "Guttene ble formelt slaver, men de mest dyktige kunne stige helt til topps i riket.",
+    "Til slutt ble janitsjarene så mektige at de kunne avsette sultaner, og i 1826 ble de oppløst med makt."
+  ],
+  "externalUrl": "https://snl.no/janitsjarer",
+  "content": [
+    {
+      "type": "text",
+      "content": "Tenk deg at staten kunne komme til hjembygda di, peke på de smarteste og sterkeste barna og ta dem med seg for godt. Det høres grusomt ut. Men i Det osmanske riket var dette en vei som kunne ende med at en fattig bondegutt ble en av rikets mektigste menn. Historien om janitsjarene er en av de merkeligste i hele verdenshistorien, full av tvang og muligheter på samme tid."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Ung janitsjarsoldat i hvit hodeplagg og blå kappe foran steinkaserne",
+      "caption": "Janitsjarene var rikets fryktede elitesoldater. Mange av dem startet som kristne gutter på Balkan."
+    },
+    {
+      "type": "header",
+      "text": "Barnetributten"
+    },
+    {
+      "type": "text",
+      "content": "Hvert femte år eller så reiste sultanens menn rundt i de kristne landsbyene på Balkan. Der valgte de ut gutter, ofte mellom åtte og atten år. De friskeste og mest lovende ble skrevet inn i en bok og ført bort fra familiene sine. Dette systemet kalte osmanerne devşirme, et ord som betyr 'innsamling'. På norsk sier vi gjerne barnetributten."
+    },
+    {
+      "type": "text",
+      "content": "Guttene ble formelt sultanens slaver. De ble muslimer, lærte tyrkisk og fikk en hard oppdragelse langt hjemmefra. For familiene var det en sorg å miste et barn. Men for guttene selv kunne det åpne dører ingen bonde ellers fikk se. Følg veien til en slik gutt og kjenn selv på hvor vanskelig det er å dømme dette systemet."
+    },
+    {
+      "type": "component",
+      "name": "DevsirmeJourney",
+      "props": {
+        "title": "Devşirme: slaveri eller karrierestige?"
+      }
+    },
+    {
+      "type": "header",
+      "text": "En hær uten like"
+    },
+    {
+      "type": "text",
+      "content": "De fleste guttene endte som janitsjarer, sultanens stående elitehær. Mens fienden måtte rope sammen krigere på nytt for hver kamp, hadde janitsjarene trent sammen hele livet. De var lønnet, disiplinerte og lojale bare mot sultanen. De var også blant de første soldatene i verden som brukte håndvåpen med krutt i stor skala. I kamp etter kamp gjorde de utslaget."
+    },
+    {
+      "type": "text",
+      "content": "Janitsjarene levde sammen i egne kaserner, nesten som en stor familie. De spiste fra de samme store grytene, og kjelene ble et symbol for hele korpset. Når janitsjarene var misfornøyde, veltet de grytene sine, og alle skjønte at det var alvor."
+    },
+    {
+      "type": "component",
+      "name": "QuoteBlock",
+      "props": {
+        "text": "Disse soldatene var sultanens høyre hånd. Han kledde dem, lønnet dem og stolte på dem mer enn på sine egne slektninger.",
+        "author": "En europeisk ambassadør på 1500-tallet"
+      }
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Janitsjarer samlet rundt store kobbergryter i en kaserne",
+      "caption": "De store grytene var et symbol for korpset. Å velte dem var janitsjarenes måte å si fra på."
+    },
+    {
+      "type": "header",
+      "text": "Slaver som ble for mektige"
+    },
+    {
+      "type": "text",
+      "content": "Her ligger det merkeligste ved hele systemet. Disse mennene var slaver, men noen av dem ble rikets virkelige makthavere. De flinkeste guttene ble ikke soldater, men ble utdannet i palasset. De kunne stige til topps som guvernører, generaler og til og med storvesir, sjefen for hele rikets styre. En gjeterunge fra en fjellandsby kunne altså ende som den nest mektigste mannen i riket, bare etter sultanen selv."
+    },
+    {
+      "type": "text",
+      "content": "Men makt har en bakside. Etter hvert ble janitsjarene klar over hvor sterke de var. De krevde høyere lønn, de blandet seg i politikken, og de gjorde opprør når de ble misfornøyde. Flere sultaner ble avsatt, og noen til og med drept, av sin egen elitehær. Den styrken som en gang gjorde riket mektig, var blitt en trussel mot herskeren selv."
+    },
+    {
+      "type": "text",
+      "content": "Til slutt ble det for mye. I 1826 bestemte sultan Mahmud 2. seg for å bli kvitt dem. Da janitsjarene gjorde opprør igjen, slo han hardt tilbake og oppløste hele korpset med makt. Etter nesten 500 år var historien om sultanens slavehær over. Det sier mye om systemet at det både hadde løftet fattige gutter til topps og til slutt måtte knuses for at sultanen skulle få beholde makten."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Soldater i nye uniformer marsjerer mens gamle faner ligger igjen",
+      "caption": "I 1826 oppløste sultanen janitsjarene med makt. En 500 år gammel ordning var over."
+    },
+    {
+      "type": "component",
+      "name": "Quiz",
+      "props": {
+        "questions": [
+          {
+            "question": "Hva var devşirme, eller barnetributten?",
+            "options": [
+              "En skatt som ble betalt i korn",
+              "Et system der kristne gutter på Balkan ble hentet ut til tjeneste for sultanen",
+              "En religiøs høytid",
+              "En type våpen"
+            ],
+            "answer": 1,
+            "explanation": "Devşirme betyr 'innsamling'. Sultanens menn hentet ut lovende kristne gutter fra landsbyene på Balkan. Guttene ble muslimer og slaver i sultanens tjeneste."
+          },
+          {
+            "question": "Hva gjorde janitsjarene til en så sterk hær?",
+            "options": [
+              "De var flere millioner soldater",
+              "De var fast trent, lønnet, disiplinerte og brukte krutt-tidlig",
+              "De hadde fly og kanoner fra starten",
+              "De kjempet bare når de hadde lyst"
+            ],
+            "answer": 1,
+            "explanation": "Janitsjarene var en stående hær som trente sammen hele livet, var lønnet og lojale mot sultanen. De var også blant de første som brukte håndvåpen med krutt i stor skala."
+          },
+          {
+            "question": "Hva er det merkeligste paradokset ved janitsjarene?",
+            "options": [
+              "De var slaver, men de dyktigste kunne bli rikets mektigste menn",
+              "De var rike, men ville ikke kjempe",
+              "De var muslimer som ikke trodde på noe",
+              "De var barn hele livet"
+            ],
+            "answer": 0,
+            "explanation": "Selv om de formelt var slaver, kunne de flinkeste stige til topps. En gjeterunge fra en fjellandsby kunne ende som storvesir, rikets nest mektigste mann."
+          },
+          {
+            "question": "Hvorfor ble janitsjarene oppløst i 1826?",
+            "options": [
+              "De ønsket selv å slutte",
+              "De var blitt så mektige at de truet sultanen, som til slutt knuste dem med makt",
+              "Det fantes ikke flere gutter å hente",
+              "De tapte en krig mot Norge"
+            ],
+            "answer": 1,
+            "explanation": "Janitsjarene var blitt så sterke at de kunne avsette sultaner. I 1826 slo sultan Mahmud 2. hardt tilbake mot et opprør og oppløste hele korpset."
+          }
+        ]
+      }
+    }
+  ],
+  "timeline": []
+}
