@@ -180,6 +180,7 @@ const HygieneTidsreise = lazy(() => import('./content/interactive/HygieneTidsrei
 const RetorikkMikseren = lazy(() => import('./content/interactive/RetorikkMikseren').then(m => ({ default: m.RetorikkMikseren })));
 const RunebommeExplorer = lazy(() => import('./content/interactive/RunebommeExplorer').then(m => ({ default: m.RunebommeExplorer })));
 const RubiconChoice = lazy(() => import('./content/interactive/RubiconChoice').then(m => ({ default: m.RubiconChoice })));
+const HekseprosessLogikk = lazy(() => import('./content/interactive/HekseprosessLogikk').then(m => ({ default: m.HekseprosessLogikk })));
 
 export const componentRegistry: Record<string, React.ComponentType<any>> = {
     // Core
@@ -371,6 +372,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     SpiceRoutePrice: lazy(() => import('./content/interactive/SpiceRoutePrice').then(m => ({ default: m.SpiceRoutePrice }))),
     WergildCalculator: lazy(() => import('./content/interactive/WergildCalculator').then(m => ({ default: m.WergildCalculator }))),
     LandskapslovSammenligner: lazy(() => import('./content/interactive/LandskapslovSammenligner').then(m => ({ default: m.LandskapslovSammenligner }))),
+    HekseprosessLogikk,
     MythVsEvidence: lazy(() => import('./content/interactive/MythVsEvidence').then(m => ({ default: m.MythVsEvidence }))),
 
     // Handel og infrastruktur

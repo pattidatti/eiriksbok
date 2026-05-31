@@ -2054,6 +2054,27 @@
       ]
     },
     {
+      "id": "hekseprosessene",
+      "title": "Hekseprosessene - når frykten styrte retten",
+      "description": "Mellom 1567 og 1696 ble om lag 350 mennesker brent som hekser i Norge. De fleste var fattige kvinner i Finnmark. Loven var formelt på plass - men logikken var lukket.",
+      "startDate": 1567,
+      "endDate": 1696,
+      "displayDate": "1567-1696",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "lov-og-rett",
+      "link": "/historie/lov-og-rett/hekseprosessene",
+      "tags": [
+        "hekseprosessene",
+        "trolldom",
+        "vardo",
+        "finnmark",
+        "rettsstat",
+        "kvinnehistorie",
+        "norgeshistorie"
+      ]
+    },
+    {
       "id": "den-spanske-armada-1588",
       "title": "Den spanske armada",
       "description": "Filip II invaderer England med religiøs og politisk legitimering.",
