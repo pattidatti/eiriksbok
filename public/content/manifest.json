@@ -2873,7 +2873,7 @@
                 "oppfinnelser"
               ],
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-05-31T11:35:08.993Z"
+              "lastUpdated": "2026-05-31T13:45:51+02:00"
             },
             {
               "id": "klokka",
@@ -2890,7 +2890,7 @@
                 "oppfinnelser"
               ],
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-05-31T11:35:21.016Z"
+              "lastUpdated": "2026-05-31T13:45:51+02:00"
             },
             {
               "id": "boktrykkerkunsten",
@@ -2907,7 +2907,7 @@
                 "oppfinnelser"
               ],
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-05-31T11:35:38.400Z"
+              "lastUpdated": "2026-05-31T13:45:51+02:00"
             },
             {
               "id": "vann-og-kloakk",
@@ -2924,7 +2924,7 @@
                 "oppfinnelser"
               ],
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-05-31T11:36:33.236Z"
+              "lastUpdated": "2026-05-31T13:45:51+02:00"
             },
             {
               "id": "elektrisiteten",
@@ -2941,7 +2941,7 @@
                 "oppfinnelser"
               ],
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-05-31T11:36:08.386Z"
+              "lastUpdated": "2026-05-31T13:45:51+02:00"
             },
             {
               "id": "kjoleskapet",
@@ -2958,7 +2958,7 @@
                 "oppfinnelser"
               ],
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-05-31T11:40:47.376Z"
+              "lastUpdated": "2026-05-31T13:45:51+02:00"
             },
             {
               "id": "vaksiner-og-antibiotika",
@@ -2975,7 +2975,7 @@
                 "oppfinnelser"
               ],
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-05-31T11:37:04.739Z"
+              "lastUpdated": "2026-05-31T13:45:51+02:00"
             },
             {
               "id": "telefonen",
@@ -2992,7 +2992,7 @@
                 "oppfinnelser"
               ],
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-05-31T11:37:58.976Z"
+              "lastUpdated": "2026-05-31T13:45:51+02:00"
             },
             {
               "id": "symaskinen",
@@ -3009,7 +3009,7 @@
                 "oppfinnelser"
               ],
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-05-31T11:38:28.484Z"
+              "lastUpdated": "2026-05-31T13:45:51+02:00"
             }
           ]
         },
@@ -3875,7 +3875,7 @@
               "id": "hekseprosessene",
               "title": "Hekseprosessene - når frykten styrte retten",
               "description": "Mellom 1567 og 1696 ble om lag 350 mennesker brent som hekser i Norge. De fleste var fattige kvinner i Finnmark. Loven var formelt på plass - men logikken var lukket.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/historie/lov-og-rett/hekseprosessene-hero.webp",
               "tags": [
                 "hekseprosessene",
                 "trolldom",
@@ -4401,7 +4401,7 @@
               "id": "jordbruk-og-sivilisasjoner",
               "title": "Jordbruk og Sivilisasjoner",
               "description": "Det store skiftet: hvordan overgangen fra jeger til bonde skapte de første byene - og hva vi vant og tapte på veien.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/jordbruk-og-sivilisasjoner/jordbruk-og-sivilisasjoner-hero.webp",
               "tags": [
                 "jordbruk",
                 "steinalder",

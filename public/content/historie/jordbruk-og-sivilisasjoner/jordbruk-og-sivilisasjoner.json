@@ -7,7 +7,7 @@
     "year": "12000 fvt - 4000 fvt",
     "category": "Tidlige sivilisasjoner",
     "readTime": "9 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/jordbruk-og-sivilisasjoner/jordbruk-og-sivilisasjoner-hero.webp",
     "fact": "Visste du at de første bøndene ble lavere og fikk dårligere tenner enn jegerne og sankerne som levde før dem?",
     "details": [
         "Jordbruket oppstod i Den fruktbare halvmåne for rundt 10 000 år siden.",
@@ -27,7 +27,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/jordbruk-og-sivilisasjoner/jordbruk-og-sivilisasjoner-01.webp",
             "alt": "Jegerfamilie på vandring i åpent steinalderlandskap",
             "caption": "I titusenvis av år levde menneskene som jegere og sankere, alltid på vandring."
         },
@@ -62,7 +62,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/jordbruk-og-sivilisasjoner/jordbruk-og-sivilisasjoner-02.webp",
             "alt": "Tidlig steinalderlandsby med åkrer og hus av leire",
             "caption": "De første bøndene bygde små landsbyer rett ved åkrene sine."
         },
@@ -108,7 +108,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/jordbruk-og-sivilisasjoner/jordbruk-og-sivilisasjoner-03.webp",
             "alt": "Norsk steinalderbonde rydder åker i kupert landskap",
             "caption": "På Østlandet ryddet de første bøndene åkrer rundt 4000 fvt."
         },
