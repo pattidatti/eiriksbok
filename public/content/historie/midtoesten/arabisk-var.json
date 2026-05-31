@@ -1,0 +1,205 @@
+{
+  "id": "arabisk-var",
+  "title": "Den arabiske våren",
+  "layout": "rich",
+  "year": "2010-2014",
+  "category": "Midtøsten",
+  "readTime": "9 min lesning",
+  "heroImage": "/images/placeholder.webp",
+  "details": [
+    "Den arabiske våren begynte da Mohamed Bouazizi, en tunisisk fruktselger, satte fyr på seg selv 17. desember 2010.",
+    "Innen et år hadde folkeopprør veltet regjeringene i Tunisia, Egypt, Libya og Jemen.",
+    "Syria endte ikke i demokrati, men i en borgerkrig som drepte 500 000 mennesker og fordrev 12 millioner."
+  ],
+  "externalUrl": "https://snl.no/arabiske_v%C3%A5ren",
+  "content": [
+    {
+      "type": "text",
+      "content": "17. desember 2010 stilte Mohamed Bouazizi vogna si med frukt og grovnsaker på et fortau i den lille tunisiske byen Sidi Bouzid. Han var 26 år gammel og hadde solgt frukt siden han var ti. Familien var avhengig av pengene han tjente. En byrakrat kom bort og krevde at han skulle betale bestikkelse. Da han nektet, slo hun ham og tok varene hans. Bouazizi gikk til kommunehuset for a klage. Ingen ville ta imot ham. Han kjopte bensin, gikk tilbake til fortauet og satte fyr pa seg selv. Ilden spredte seg videre - til Tunisia, Egypt, Libya, Syria og resten av Midtosten."
+    },
+    {
+      "type": "text",
+      "content": "Bouazizi var ingen politisk aktivist. Han hadde ingen parti-tilhørighet og holdt ingen taler. Han var en ung mann som ble ydmyket en gang for mye. Det er nettopp det som gjor historien sa kraftfull. Millioner av arabere kjente seg igjen: styrt av diktatorer, plaget av korrupsjon, uten mulighet til a komme seg opp og frem. Da Bouazizi dode av brandskadene 4. januar 2011, hadde demonstrasjonene allerede spredt seg over hele Tunisia."
+    },
+    {
+      "type": "component",
+      "name": "FactBox",
+      "props": {
+        "title": "Hva var den arabiske våren?",
+        "content": "Den arabiske våren var en bølge av folkeopprør som feide gjennom den arabiske verden fra desember 2010. Navn etter den politiske «våren» - en ny begynnelse. Opprørene var drevet av unge mennesker som krevde demokrati, slutt på korrupsjon og bedre levekår. I noen land lyktes de. I andre endte det i krig."
+      }
+    },
+    {
+      "type": "header",
+      "text": "Sosiale medier som vapen"
+    },
+    {
+      "type": "text",
+      "content": "En ting skilte den arabiske våren fra tidligere opprør: Twitter og Facebook. Demonstranter koordinerte markeringer i sanntid via mobiltelefon. Videoer fra opprørene spredde seg rundt i verden pa sekunder. Regjeringene kontrollerte aviser og TV, men kunne ikke stanse internett - i hvert fall ikke raskt nok. Unge tunisiere og egyptere organiserte seg i grupper pa nettet, avtalte motetid og -sted, og spredte budskapet videre. Verden fulgte med pa direkten."
+    },
+    {
+      "type": "header",
+      "text": "Tunisia: Den eneste suksessen"
+    },
+    {
+      "type": "text",
+      "content": "President Zine el-Abidine Ben Ali hadde styrt Tunisia med hard hand siden 1987. Da demonstrasjonene eksploderte i januar 2011, forsøkte han a sla dem ned med politi og trassel. Det virket ikke. 14. januar 2011 flyktet Ben Ali til Saudi-Arabia. Han var den forste arabiske diktatoren som ble felt av eget folk. Tunisia gjennomforte valg, vedtok en ny grunnlov og bygde opp fungerende demokratiske institusjoner. Veien var skrobbete og det ble flere kriser underveis - men Tunisia forblir den eneste arabiske varstaten som faktisk klarte overgangen til demokrati."
+    },
+    {
+      "type": "header",
+      "text": "Egypt: Militæret vinner til slutt"
+    },
+    {
+      "type": "text",
+      "content": "18 dager. Sa lenge varte demonstrasjonene pa Tahrir-plassen i Kairo for president Hosni Mubarak gikk av i februar 2011. En million egyptere hadde fylt plassen, verden jublet. Men demokratiet varte ikke lenge. Islamistpartiet Det muslimske brorskap vant valget. Presidenten de satte inn, Mohamed Morsi, begynte a samle makt. I 2013 gjennomforte militteret statskupp. General Abdel Fattah el-Sisi tok makten - og har holdt den siden. Sisi fengsel og torturerer opposisjonelle i et omfang som far Mubaraks regime til a se mildt ut. Revolusjonen spiste barna sine."
+    },
+    {
+      "type": "component",
+      "name": "Gallery",
+      "props": {
+        "images": [
+          {
+            "src": "/images/placeholder.webp",
+            "alt": "Tahrir-plassen i Kairo",
+            "caption": "Tahrir-plassen i Kairo, januar 2011: en million egyptere krever Mubaraks avgang."
+          },
+          {
+            "src": "/images/placeholder.webp",
+            "alt": "Gaddafi i Tripoli",
+            "caption": "Gaddafi i Tripoli etter at opprørerne hadde omringet byen, 2011."
+          },
+          {
+            "src": "/images/placeholder.webp",
+            "alt": "Syriske flyktninger",
+            "caption": "Syriske flyktninger pa vei mot Europa, 2015 - konsekvensen av borgerkrigen."
+          }
+        ]
+      }
+    },
+    {
+      "type": "header",
+      "text": "Libya: Makttomrommet"
+    },
+    {
+      "type": "text",
+      "content": "Muammar Gaddafi hadde styrt Libya siden 1969. Da opprørerne reiste seg i 2011, svarte han med a bombe egne byer. NATO gikk inn med fly og stopper massakren. Opprørerne vant - og Gaddafi ble funnet gjemt i et dreneringsror utenfor hjembyen sin. Han ble drept pa stedet av egne motstandere i oktober 2011. Men sa? Libya hadde ingen fungerende statsinstitusjoneer etter 42 ar med Gaddafis enmannsstyre. Militsgrupper, stammer og rivaliserende regjeringer delte landet mellom seg. Libya er fremdeles ikke en normal stat."
+    },
+    {
+      "type": "header",
+      "text": "Bahrain: Opprøret som ble knust"
+    },
+    {
+      "type": "text",
+      "content": "I Bahrain - en liten oljerik øystat i Persiabukta - marsjerte demonstranter til Pearl-rundkjøringen i Manama i februar 2011. De fleste var sjiamuslimer som krevde rettigheter i et land styrt av et sunnidynasti. Kongen ba om hjelp. Saudi-Arabia sendte 1 500 soldater inn over grensen. Opprøret ble slatt ned. Pearl-monumentet ble revet. Mange demonstranter ble arrestert, noen torturert. Storstedelen av verden kikket en annen vei - Bahrain huser USAs femte flate."
+    },
+    {
+      "type": "header",
+      "text": "Syria: Revolusjonen som ble en katastrofe"
+    },
+    {
+      "type": "text",
+      "content": "I Syria begynte det fredfelig - graffiti pa vegger i byen Daraa, arrestasjon av tenagringer, protester. President Bashar al-Assad svarte med skarp skyting. I stedet for a trekke seg tilbake trappe han opp. Det venslet fred på gater forvandlet seg til geriljkrig, og til slutt full borgerkrig. Pa den ene siden: Assad, støttet av Russland og Iran. Pa den andre siden: hundrevis av opprørsgrupper med svært ulike mal, delvis støttet av vestlige land og Gulfen. I kaosen som oppsto vokste Den islamske staten (IS) fram - en terrororganisasjon som utnyttet det statslose omradet i Syria og Irak til a bygge sitt eget brutale styre."
+    },
+    {
+      "type": "text",
+      "content": "IS rekrutterte aktivt unge menn - noen fra Syria og Irak, mange fra Europa og andre deler av verden. Borgerkrigen hadde skapt et rekrutteringsgrunnlag: desperate menn uten fremtid, et ødeleggende hat mot Assad-regimet, og et makttomrom der IS kunne tilby identitet, fellesskap og svar. Se pa trappene nedenfor - de viser hvordan radikalisering skjer, steg for steg."
+    },
+    {
+      "type": "component",
+      "name": "Radikaliseringstrappa",
+      "props": {}
+    },
+    {
+      "type": "text",
+      "content": "500 000 mennesker mistet livet i Syria. 12 millioner ble drevet pa flukt - halvparten av landets befolkning. Millioner av syrere søkte tilflukt i Tyrkia, Libanon og Jordan. Hundretusener krysset Middelhavet til Europa i 2015, noe som skapte den største flyktningkrisen i Europa siden andre verdenskrig. Assad satt fremdeles med makten i 2024 - men uten kontroll over hele landet."
+    },
+    {
+      "type": "component",
+      "name": "QuoteBlock",
+      "props": {
+        "text": "Vi ropte «frihet» og fikk en krig. Vi ropte «demokrati» og fikk diktatorer tilbake. Men vi ropte - og det kan ingen ta fra oss.",
+        "author": "Syrisk opposisjonsaktivist, 2013"
+      }
+    },
+    {
+      "type": "header",
+      "text": "Hva gikk galt?"
+    },
+    {
+      "type": "text",
+      "content": "Den arabiske varen startet med et genuint folkeønske om verdighet og frihet. Men demokrati er mer enn a velte en diktator. Det krever fungerende institusjoner, et sivilt samfunn, politiske partier, en uavhengig rettsvesen - ting som tar generasjoner a bygge. I land der stammelojalitet, sekterisme og stormaktsinteresser hadde formet politikken i arhuner, fylte ikke demokratiet tomrommet etter diktatoren. Militaeret, islamistiske grupper eller utenlandske makter grep inn i stedet."
+    },
+    {
+      "type": "text",
+      "content": "Saudi-Arabia og Iran kjempet om innflytelse gjennom opprørsstyrker og regjeringer. USA og Russland sto pa motsatte sider i Syria. Vest-makten grep inn i Libya - og trakk seg ut etter Gaddafi falt, uten plan for hva som kom etter. Dromt om frihet motte virkeligheten av geopolitikk, religion og stamme. Tunisia klarte det - kanskje fordi landet var mer homogent, mer urbanisert, og fordi militaeret valgte a holde seg utenfor. Men Tunisia er unntaket, ikke regelen."
+    },
+    {
+      "type": "component",
+      "name": "TimelineComponent",
+      "props": {
+        "compact": true,
+        "events": [
+          { "year": 2010, "description": "Mohamed Bouazizi setter fyr på seg selv i Tunisia, 17. desember." },
+          { "year": 2011, "description": "Ben Ali flykter fra Tunisia (januar). Mubarak gar av i Egypt (februar). Borgerkrig bryter ut i Libya og Syria." },
+          { "year": 2011, "description": "Gaddafi drept av opprørere i oktober. NATO trekker seg ut av Libya." },
+          { "year": 2013, "description": "Militaerkupp i Egypt. General el-Sisi tar makten." },
+          { "year": 2014, "description": "IS erklarer kalifat i Syria og Irak." },
+          { "year": 2015, "description": "Flyktningkrise i Europa - over en million ankommer via Middelhavet." }
+        ]
+      }
+    },
+    {
+      "type": "component",
+      "name": "Quiz",
+      "props": {
+        "questions": [
+          {
+            "question": "Hvem var Mohamed Bouazizi, og hvorfor ble han et symbol på den arabiske våren?",
+            "options": [
+              "En opposjonspolitiker som ble fengslet av Ben Ali",
+              "En ung fruktselger som satte fyr på seg selv etter å ha blitt ydmyket av en byråkrat",
+              "En journalist som avslørte korrupsjon i den tunisiske regjeringen",
+              "En militæroffiser som ledet opprøret mot Ben Ali"
+            ],
+            "answer": 1,
+            "explanation": "Bouazizi var ingen politisk aktivist - han var en ung mann som solgte frukt for å forsørge familien. Da en byråkrat tok varene hans og nektet å høre på klagen hans, satte han fyr på seg selv i protest. Millioner av arabere kjente seg igjen i ydmykelsen hans."
+          },
+          {
+            "question": "Hvilket land er regnet som den eneste vellykkede demokratiovergangen etter den arabiske våren?",
+            "options": [
+              "Egypt",
+              "Libya",
+              "Tunisia",
+              "Syria"
+            ],
+            "answer": 2,
+            "explanation": "Tunisia er det eneste landet der den arabiske våren førte til et fungerende demokrati. De andre landene endte enten i militærstyre (Egypt), kaos (Libya) eller borgerkrig (Syria)."
+          },
+          {
+            "question": "Hva skjedde i Egypt etter at Mubarak gikk av i 2011?",
+            "options": [
+              "Egypt fikk et stabilt demokrati som fungerer den dag i dag",
+              "Islamistpartiet vant valget, men militæret gjennomførte kupp i 2013 og General el-Sisi tok makten",
+              "Libya invaderte Egypt og tok kontroll over landet",
+              "USA sendte tropper for å sikre demokratiet"
+            ],
+            "answer": 1,
+            "explanation": "Etter Mubaraks fall vant Det muslimske brorskap valget, men general el-Sisi gjennomførte statskupp i 2013. Sisi styrer Egypt i dag med enda hardere hånd enn Mubarak gjorde."
+          },
+          {
+            "question": "Hva er en av de viktigste grunnene til at den arabiske våren ikke lyktes i de fleste land?",
+            "options": [
+              "Demonstrantene hadde ikke tilgang til sosiale medier",
+              "Diktatorene var for populære til at noen ville protestere",
+              "Å velte en diktator er ikke nok - demokrati krever institusjoner, partier og sivilt samfunn som tar tid å bygge",
+              "FN grep inn og stanset alle revolusjonene"
+            ],
+            "answer": 2,
+            "explanation": "Den arabiske våren viste at det er lettere å rive ned et gammelt styre enn å bygge noe nytt. Uten fungerende institusjoner, uavhengig rettsvesen og politisk kultur fylte militæret, islamistgrupper eller kaos tomrommet etter diktatoren."
+          }
+        ]
+      }
+    }
+  ],
+  "timeline": []
+}

@@ -1,0 +1,210 @@
+{
+  "id": "kald-krig-midtosten",
+  "title": "Den kalde krigen i Midtøsten",
+  "layout": "rich",
+  "year": "1946-1989",
+  "category": "Midtøsten",
+  "readTime": "9 min lesning",
+  "heroImage": "/images/placeholder.webp",
+  "details": [
+    "CIA og britisk etterretning styrtet Irans demokratisk valgte statsminister Mosaddegh i 1953.",
+    "USA støttet Saddam Hussein på 1980-tallet - inkludert med kjemisk våpen - mot Iran.",
+    "Sovjet invaderte Afghanistan i 1979. USA finansierte mujahedin-motstandere - noen av dem ble senere til al-Qaida."
+  ],
+  "externalUrl": "https://snl.no/den_kalde_krigen",
+  "content": [
+    {
+      "type": "text",
+      "content": "I august 1953 var Mohammad Mosaddegh Irans statsminister - valgt av folket, populær og fast bestemt på å ta tilbake landets olje. Det britiske selskapet Anglo-Iranian Oil Company hadde i årevis tatt ut store rikdommer fra iransk jord, mens iranskfolket fikk lite igjen. Mosaddegh ville nasjonalisere olja - gjøre den til felleseie. Svaret fra Storbritannia og USA var enkelt: de bestakk generaler, betalte opprørere og iscenesatte et kupp. Mosaddegh ble arrestert. Sjahen - kongen - kom til makten igjen. Oljerikdommen forble under vestlig kontroll."
+    },
+    {
+      "type": "text",
+      "content": "Dette var den kalde krigens logikk i praksis. USA og Sovjet kjempet ikke bare med raketter og militærbaser - de kjempet om innflytelse over hele verden. Midtøsten var et av de viktigste slagfeltene, fordi regionen hadde noe begge supermaktene trengte: olje, strategiske havner og politisk vekt."
+    },
+    {
+      "type": "header",
+      "text": "Suez-krisen: da Europa måtte bøye seg"
+    },
+    {
+      "type": "text",
+      "content": "Tre år etter Mosaddegh-kuppet skjedde noe overraskende i Egypt. Den egyptiske presidenten Gamal Abdel Nasser nasjonaliserte Suez-kanalen - vannveien som forbinder Middelhavet med Rødehavet. Storbritannia og Frankrike, som hadde kontrollert kanalen i tiår, gikk til angrep sammen med Israel. De regnet med at USA ville støtte dem. De tok feil."
+    },
+    {
+      "type": "text",
+      "content": "President Eisenhower i USA var rasende. Han fryktet at angrepet ville drive arabiske land over til Sovjet. Han presset Storbritannia og Frankrike til å trekke seg tilbake - og de måtte adlyde. Det var et tydelig signal om hvem som nå bestemte i Vesten. Suez-krisen markerte slutten på britisk og fransk stormakt i Midtøsten. USA tok over rollen."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Suez-kanalen fra luften",
+      "caption": "Suez-kanalen forbinder Middelhavet med Rødehavet - en av verdens viktigste sjøveier."
+    },
+    {
+      "type": "header",
+      "text": "Arabisk nasjonalisme og kald krig"
+    },
+    {
+      "type": "text",
+      "content": "Nasser ble en helt i den arabiske verden. Han representerte noe nytt: arabisk nasjonalisme - tanken om at arabiske folk skulle styre seg selv, uten å bli kontrollert av europeiske makter. Denne bevegelsen var et direkte svar på kolonitiden, da Frankrike og Storbritannia hadde delt opp Midtøsten som de ville etter første verdenskrig."
+    },
+    {
+      "type": "text",
+      "content": "Sovjet så en mulighet. De støttet Egypt og Syria med våpen og rådgivere. USA svarte med å støtte de landene som holdt seg vestlige - Saudi-Arabia og, frem til 1979, Iran under sjahen. Midtøsten ble et sjakkbrett der to supermakter flyttet brikker uten særlig hensyn til vanlige mennesker i regionen."
+    },
+    {
+      "type": "component",
+      "name": "TimelineComponent",
+      "props": {
+        "compact": true,
+        "events": [
+          { "year": 1953, "description": "CIA og britisk etterretning styrter Mosaddegh i Iran. Sjahen tar makten." },
+          { "year": 1956, "description": "Suez-krisen: Nasser nasjonaliserer kanalen. USA tvinger Storbritannia og Frankrike tilbake." },
+          { "year": 1967, "description": "Seksdagerskrigen: Israel besetter Vestbredden, Gaza og Sinai." },
+          { "year": 1973, "description": "Yom Kippur-krigen. USA redder Israel med massivt militert utstyr." },
+          { "year": 1979, "description": "Den iranske revolusjonen styrter sjahen. Sovjet invaderer Afghanistan." },
+          { "year": 1980, "description": "Iran-Irak-krigen begynner. USA støtter Irak." },
+          { "year": 1988, "description": "Iran-Irak-krigen slutter etter åtte år og kanskje en million døde." },
+          { "year": 1989, "description": "Sovjet trekker seg ut av Afghanistan. Mujahedin-nettverkene spres videre." }
+        ]
+      }
+    },
+    {
+      "type": "header",
+      "text": "USA og Israel - en nær allianse"
+    },
+    {
+      "type": "text",
+      "content": "Etter Yom Kippur-krigen i 1973 - da Egypt og Syria angrep Israel - ble båndet mellom USA og Israel sterkere enn noensinne. USA fløy inn enorme mengder militert utstyr for å hjelpe Israel. Arabiske land svarte med oljeboikott mot USA. Bensinprisene eksploderte i Vesten."
+    },
+    {
+      "type": "text",
+      "content": "Fra dette punktet var USA og Israel faste allierte. Israel fikk store mengder amerikansk militerhjelp hvert eneste år. USA brukte vetoretten i FN for å beskytte Israel mot kritiske resolusjoner. For arabiske folk - og for Iran - ble USA sett på som en direkte støttespiller for okkupasjonen av palestinsk land."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Kart over Midtøsten med allianser under den kalde krigen",
+      "caption": "USA og Sovjet bygget opp ulike alliansenett i Midtøsten gjennom den kalde krigen."
+    },
+    {
+      "type": "header",
+      "text": "Iran 1979 - revolusjonen som snudde alt"
+    },
+    {
+      "type": "text",
+      "content": "I 1979 kollapset det amerikanske systemet i Iran. En folkelig revolusjon styrtet sjahen - han som hadde sittet ved makten etter kuppet i 1953. Ayatollah Khomeini tok over og etablerte en islamsk republikk. Den nye iranske staten hatet USA like mye som Sovjet. Amerikanske gisler ble holdt fanget i 444 dager."
+    },
+    {
+      "type": "text",
+      "content": "USA mistet sin viktigste allierte i regionen med et slag. Svaret kom raskt: støtte Irak. Da Saddam Hussein angrep Iran i 1980 og startet en av de blodigste krigene i det 20. århundre, fikk han etterretning, penger og tilgang til kjemiske stoffer fra Vesten - inkludert fra USA. Krigen varte åtte år. Mellom 500 000 og en million mennesker døde."
+    },
+    {
+      "type": "component",
+      "name": "IranContraSpor",
+      "props": {}
+    },
+    {
+      "type": "header",
+      "text": "Afghanistan - frøet til fremtiden"
+    },
+    {
+      "type": "text",
+      "content": "Samme år som den iranske revolusjonen - i desember 1979 - invaderte Sovjet Afghanistan. De ville støtte den kommunistiske regjeringen der. USA så en gyllen mulighet: gi Sovjet sitt eget Vietnam."
+    },
+    {
+      "type": "text",
+      "content": "CIA pumpet milliarder av dollar inn i Afghanistan. Pengene gikk til islamske motstandskjempere - kalt mujahedin. Saudi-Arabia bidro med like mye. Pakistan lot etterretningen sin koordinere strømmene av penger og våpen. Mujahedin kjempet hardt. Sovjet tapte. I 1989 trakk de seg ut, svekket og ydmyket."
+    },
+    {
+      "type": "text",
+      "content": "Men da krigen var over, glemte USA Afghanistan. Landet ble liggende i aske, med tusenvis av bevæpnede krigere uten jobb og med ekstrem religiøs overbevisning. Noen av nettverkene som CIA hadde bygget opp, ble grunnlaget for det som siden ble al-Qaida."
+    },
+    {
+      "type": "component",
+      "name": "QuoteBlock",
+      "props": {
+        "text": "Vi skapte al-Qaida for å slåss mot Sovjet. Vi skapte et monster.",
+        "author": "Tilskrevet flere amerikanske analytikere - debattert opprinnelse"
+      }
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Mujahedin-krigere i Afghanistan på 1980-tallet",
+      "caption": "USA finansierte afghanske mujahedin gjennom hele 1980-tallet i kampen mot Sovjet."
+    },
+    {
+      "type": "header",
+      "text": "Arven etter den kalde krigen"
+    },
+    {
+      "type": "text",
+      "content": "Da den kalde krigen tok slutt rundt 1991, hadde Midtøsten betalt en enorm pris. Iranske demokrater husket kuppet i 1953 - og dermed hva vestlig demokrati egentlig betydde for dem. Irakere hadde opplevd åtte år med krig. Afghanere levde i ruiner. Palestinere var fortsatt under okkupasjon."
+    },
+    {
+      "type": "text",
+      "content": "USA og Sovjet hadde begge brukt regionen som et verktøy i sin globale rivalitet. Lokale ledere hadde spilt supermaktene mot hverandre og brukt pengene og våpnene til å holde seg ved makten. Det som vokste ut av dette - hat mot Vesten, religiøs ekstremisme, ustabile stater og uløste konflikter - formet Midtøsten langt inn i det 21. århundre. Terrorangrepene den 11. september 2001, krigen i Irak i 2003, og krisen i Afghanistan i 2021 er alle direkte konsekvenser av avgjørelser tatt under den kalde krigen."
+    },
+    {
+      "type": "component",
+      "name": "FactBox",
+      "props": {
+        "title": "Hva er den kalde krigen?",
+        "content": "Den kalde krigen (1947-1991) var en politisk og militaer rivalisering mellom USA og Sovjet-unionen. De to supermaktene kjempet aldri direkte mot hverandre, men støttet ulike sider i konflikter over hele verden - i Asia, Afrika, Latin-Amerika og Midtøsten. Krigen endte da Sovjet-unionen kollapset i 1991."
+      }
+    },
+    {
+      "type": "component",
+      "name": "Quiz",
+      "props": {
+        "questions": [
+          {
+            "question": "Hvorfor styrtet CIA og britisk etterretning Mosaddegh i 1953?",
+            "options": [
+              "Han ville nasjonalisere Irans olje",
+              "Han var kommunist og alliert med Sovjet",
+              "Han angrep Israel militaert",
+              "Han nektet å betale internasjonal gjeld"
+            ],
+            "answer": 0,
+            "explanation": "Mosaddegh ville at iranerne selv skulle kontrollere landets oljeinntekter. Det truet det britiske selskapets profitt, og Storbritannia og USA valgte å fjerne ham."
+          },
+          {
+            "question": "Hva skjedde under Suez-krisen i 1956?",
+            "options": [
+              "Sovjet invaderte Egypt og okkuperte kanalen",
+              "USA tvang Storbritannia og Frankrike til å trekke seg tilbake fra Egypt",
+              "Israel og Egypt inngikk fredsavtale",
+              "Nasser ble styrtet av en militaerjunta"
+            ],
+            "answer": 1,
+            "explanation": "USA fryktet at angrepet ville drive arabiske land mot Sovjet. Eisenhower presset de europeiske maktene til å gi seg - og de adlød. Det markerte slutten på europeisk stormakt i regionen."
+          },
+          {
+            "question": "Hvem finansierte mujahedin-krigerne i Afghanistan på 1980-tallet?",
+            "options": [
+              "Sovjet-unionen og Kina",
+              "Iran og Tyrkia",
+              "USA og Saudi-Arabia",
+              "Frankrike og Storbritannia"
+            ],
+            "answer": 2,
+            "explanation": "CIA pumpet milliarder inn i Afghanistan via Pakistan. Saudi-Arabia bidro med tilsvarende beløp. Malet var å gi Sovjet et kostbart og utmattende krig - noe som lyktes, men skapte nye problemer etterpå."
+          },
+          {
+            "question": "Hvilken konsekvens fikk den kalde krigen i Midtøsten for fremtiden?",
+            "options": [
+              "Regionen ble stabil og demokratisk etter 1991",
+              "USA og Sovjet ble enige om en fredelig deling av innflytelse",
+              "Hat mot Vesten, ustabile stater og ekstremistnettverk som la grunnlaget for konflikter etter 1991",
+              "Israel og arabiske land inngikk en felles fredsavtale"
+            ],
+            "answer": 2,
+            "explanation": "Arven etter den kalde krigen i Midtøsten inkluderer terrorangrepene 11. september 2001, krigen i Irak og Afghanistanskrigen - alle med direkte rot i avgjørelser tatt mellom 1950 og 1989."
+          }
+        ]
+      }
+    }
+  ],
+  "timeline": []
+}

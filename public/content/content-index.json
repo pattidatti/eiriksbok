@@ -1,5 +1,5 @@
 {
-  "buildId": 1780247928485,
+  "buildId": 1780254526434,
   "contentMap": {
     "concept-adel": [
       "content/concepts/adel.json"
@@ -72,6 +72,9 @@
     ],
     "concept-balfour-erklaeringen": [
       "content/concepts/balfour-erklaeringen.json"
+    ],
+    "concept-bananrepublikk": [
+      "content/concepts/bananrepublikk.json"
     ],
     "concept-bevissthet": [
       "content/concepts/bevissthet.json"
@@ -181,6 +184,9 @@
     "concept-det-oestindiske-kompani": [
       "content/concepts/det-oestindiske-kompani.json"
     ],
+    "concept-devsirme": [
+      "content/concepts/devsirme.json"
+    ],
     "concept-diktatur": [
       "content/concepts/diktatur.json"
     ],
@@ -273,6 +279,9 @@
     ],
     "concept-generasjon": [
       "content/concepts/generasjon.json"
+    ],
+    "concept-ghazi": [
+      "content/concepts/ghazi.json"
     ],
     "concept-gig-okonomi": [
       "content/concepts/gig-okonomi.json"
@@ -376,6 +385,9 @@
     "concept-investiturstriden": [
       "content/concepts/investiturstriden.json"
     ],
+    "concept-janitsjar": [
+      "content/concepts/janitsjar.json"
+    ],
     "concept-jazz-age": [
       "content/concepts/jazz-age.json"
     ],
@@ -393,6 +405,9 @@
     ],
     "concept-justinianske-pest": [
       "content/concepts/justinianske-pest.json"
+    ],
+    "concept-kalifat": [
+      "content/concepts/kalifat.json"
     ],
     "concept-kalmarunionen": [
       "content/concepts/kalmarunionen.json"
@@ -520,6 +535,9 @@
     "concept-migrasjon": [
       "content/concepts/migrasjon.json"
     ],
+    "concept-millet": [
+      "content/concepts/millet.json"
+    ],
     "concept-mission-civilisatrice": [
       "content/concepts/mission-civilisatrice.json"
     ],
@@ -546,6 +564,9 @@
     ],
     "concept-nasjonalisere": [
       "content/concepts/nasjonalisere.json"
+    ],
+    "concept-nasjonalisering": [
+      "content/concepts/nasjonalisering.json"
     ],
     "concept-nasjonalisme": [
       "content/concepts/nasjonalisme.json"
@@ -576,6 +597,9 @@
     ],
     "concept-nullrentepolitikk": [
       "content/concepts/nullrentepolitikk.json"
+    ],
+    "concept-nykolonialisme": [
+      "content/concepts/nykolonialisme.json"
     ],
     "concept-observasjon": [
       "content/concepts/observasjon.json"
@@ -636,6 +660,9 @@
     ],
     "concept-perestrojka": [
       "content/concepts/perestrojka.json"
+    ],
+    "concept-petrodollar": [
+      "content/concepts/petrodollar.json"
     ],
     "concept-pliktetikk": [
       "content/concepts/pliktetikk.json"
@@ -796,6 +823,9 @@
     "concept-stormaktstiden": [
       "content/concepts/stormaktstiden.json"
     ],
+    "concept-storvesir": [
+      "content/concepts/storvesir.json"
+    ],
     "concept-strange-fruit": [
       "content/concepts/strange-fruit.json"
     ],
@@ -805,11 +835,17 @@
     "concept-stridsvogn": [
       "content/concepts/stridsvogn.json"
     ],
+    "concept-strukturtilpasning": [
+      "content/concepts/strukturtilpasning.json"
+    ],
     "concept-subjektet": [
       "content/concepts/subjektet.json"
     ],
     "concept-subtekst": [
       "content/concepts/subtekst.json"
+    ],
+    "concept-sultan": [
+      "content/concepts/sultan.json"
     ],
     "concept-suverenitet": [
       "content/concepts/suverenitet.json"
@@ -831,6 +867,9 @@
     ],
     "concept-tankereferat": [
       "content/concepts/tankereferat.json"
+    ],
+    "concept-tanzimat": [
+      "content/concepts/tanzimat.json"
     ],
     "concept-tariffavtale": [
       "content/concepts/tariffavtale.json"
@@ -1027,6 +1066,9 @@
     "ghana-panafrikanisme": [
       "content/historie/dekolonisering/ghana-panafrikanisme.json"
     ],
+    "guatemala-1954": [
+      "content/historie/dekolonisering/guatemala-1954.json"
+    ],
     "haiti": [
       "content/historie/dekolonisering/haiti.json"
     ],
@@ -1047,6 +1089,12 @@
     ],
     "midtosten-mandater": [
       "content/historie/dekolonisering/midtosten-mandater.json"
+    ],
+    "nykolonialisme": [
+      "content/historie/dekolonisering/nykolonialisme.json"
+    ],
+    "okonomiske-leiemordere": [
+      "content/historie/dekolonisering/okonomiske-leiemordere.json"
     ],
     "dekolonisering-oversikt": [
       "content/historie/dekolonisering/oversikt.json"
@@ -1081,8 +1129,14 @@
     "den-kalde-krigen-berlinmuren": [
       "content/historie/den-kalde-krigen/berlinmuren.json"
     ],
+    "chile-1973": [
+      "content/historie/den-kalde-krigen/chile-1973.json"
+    ],
     "cuba-krisen": [
       "content/historie/den-kalde-krigen/cuba-krisen.json"
+    ],
+    "indonesia-1965": [
+      "content/historie/den-kalde-krigen/indonesia-1965.json"
     ],
     "iran-contra": [
       "content/historie/den-kalde-krigen/iran-contra.json"
@@ -1104,6 +1158,9 @@
     ],
     "nato-vs-warszawa": [
       "content/historie/den-kalde-krigen/nato-vs-warszawa.json"
+    ],
+    "operasjon-ajax": [
+      "content/historie/den-kalde-krigen/operasjon-ajax.json"
     ],
     "den-kalde-krigen-oversikt": [
       "content/historie/den-kalde-krigen/oversikt.json"
@@ -1185,6 +1242,36 @@
     ],
     "mesopotamia": [
       "content/historie/jordbruk-og-sivilisasjoner/mesopotamia.json"
+    ],
+    "borgerkrigen": [
+      "content/historie/kinas-historie/borgerkrigen.json"
+    ],
+    "deng-og-reformene": [
+      "content/historie/kinas-historie/deng-og-reformene.json"
+    ],
+    "dynastiene": [
+      "content/historie/kinas-historie/dynastiene.json"
+    ],
+    "kina-supermakt": [
+      "content/historie/kinas-historie/kina-supermakt.json"
+    ],
+    "mao-og-revolusjonen": [
+      "content/historie/kinas-historie/mao-og-revolusjonen.json"
+    ],
+    "opiumskrigene": [
+      "content/historie/kinas-historie/opiumskrigene.json"
+    ],
+    "kinas-historie-oversikt": [
+      "content/historie/kinas-historie/oversikt.json"
+    ],
+    "silkeveien": [
+      "content/historie/kinas-historie/silkeveien.json"
+    ],
+    "store-spranget": [
+      "content/historie/kinas-historie/store-spranget.json"
+    ],
+    "tiananmen-1989": [
+      "content/historie/kinas-historie/tiananmen-1989.json"
     ],
     "britisk-imperium": [
       "content/historie/kolonialisering/britisk-imperium.json"
@@ -1301,6 +1388,42 @@
     "tidlig-middelalder": [
       "content/historie/middelalderen/tidlig-middelalder.json"
     ],
+    "arabisk-var": [
+      "content/historie/midtoesten/arabisk-var.json"
+    ],
+    "golfkrigene": [
+      "content/historie/midtoesten/golfkrigene.json"
+    ],
+    "iran-revolusjonen": [
+      "content/historie/midtoesten/iran-revolusjonen.json"
+    ],
+    "islams-fodsel": [
+      "content/historie/midtoesten/islams-fodsel.json"
+    ],
+    "islamsk-gullaldet": [
+      "content/historie/midtoesten/islamsk-gullaldet.json"
+    ],
+    "israel-og-palestina": [
+      "content/historie/midtoesten/israel-og-palestina.json"
+    ],
+    "kald-krig-midtosten": [
+      "content/historie/midtoesten/kald-krig-midtosten.json"
+    ],
+    "krigen-mot-terror": [
+      "content/historie/midtoesten/krigen-mot-terror.json"
+    ],
+    "midtoesten-i-dag": [
+      "content/historie/midtoesten/midtoesten-i-dag.json"
+    ],
+    "olje-og-makt": [
+      "content/historie/midtoesten/olje-og-makt.json"
+    ],
+    "orientering": [
+      "content/historie/midtoesten/orientering.json"
+    ],
+    "sykes-picot": [
+      "content/historie/midtoesten/sykes-picot.json"
+    ],
     "22-juli-2011": [
       "content/historie/norgeshistorie/22-juli-2011.json"
     ],
@@ -1322,6 +1445,36 @@
     ],
     "unionsopplosningen-1905": [
       "content/historie/norgeshistorie/unionsopplosningen-1905.json"
+    ],
+    "forfallet": [
+      "content/historie/osmanske-riket/forfallet.json"
+    ],
+    "handel-og-kultur": [
+      "content/historie/osmanske-riket/handel-og-kultur.json"
+    ],
+    "janitsjarene": [
+      "content/historie/osmanske-riket/janitsjarene.json"
+    ],
+    "konstantinopels-fall": [
+      "content/historie/osmanske-riket/konstantinopels-fall.json"
+    ],
+    "millet-mangfold": [
+      "content/historie/osmanske-riket/millet-mangfold.json"
+    ],
+    "osman-og-oppkomsten": [
+      "content/historie/osmanske-riket/osman-og-oppkomsten.json"
+    ],
+    "osmanske-riket-oversikt": [
+      "content/historie/osmanske-riket/oversikt.json"
+    ],
+    "sammenbruddet": [
+      "content/historie/osmanske-riket/sammenbruddet.json"
+    ],
+    "suleyman-gullalderen": [
+      "content/historie/osmanske-riket/suleyman-gullalderen.json"
+    ],
+    "topkapi-palasset": [
+      "content/historie/osmanske-riket/topkapi-palasset.json"
     ],
     "aleksander-den-store": [
       "content/historie/perserriket/aleksander-den-store.json"
@@ -2585,6 +2738,9 @@
     "maximilien-robespierre": [
       "content/people/maximilien-robespierre.json"
     ],
+    "mehmed-2": [
+      "content/people/mehmed-2.json"
+    ],
     "michael-servetus": [
       "content/people/michael-servetus.json"
     ],
@@ -2599,6 +2755,9 @@
     ],
     "mussolini": [
       "content/people/mussolini.json"
+    ],
+    "mustafa-kemal-ataturk": [
+      "content/people/mustafa-kemal-ataturk.json"
     ],
     "napoleon-bonaparte": [
       "content/people/napoleon-bonaparte.json"
@@ -2641,6 +2800,9 @@
     ],
     "oscar-ii": [
       "content/people/oscar-ii.json"
+    ],
+    "osman-1": [
+      "content/people/osman-1.json"
     ],
     "patrice-lumumba": [
       "content/people/patrice-lumumba.json"
@@ -2713,6 +2875,9 @@
     ],
     "sten-sture": [
       "content/people/sten-sture.json"
+    ],
+    "suleyman-1": [
+      "content/people/suleyman-1.json"
     ],
     "tarjei-vesaas": [
       "content/people/tarjei-vesaas.json"
@@ -2810,6 +2975,9 @@
     "handel-og-infrastruktur-sti": [
       "content/samfunnskunnskap/handel-og-infrastruktur/handel-og-infrastruktur-sti.json"
     ],
+    "imf-og-verdensbanken": [
+      "content/samfunnskunnskap/handel-og-infrastruktur/imf-og-verdensbanken.json"
+    ],
     "internett-kabler": [
       "content/samfunnskunnskap/handel-og-infrastruktur/internett-kabler.json"
     ],
@@ -2884,6 +3052,9 @@
     ],
     "pengesystem-vs-naturalhandel": [
       "content/samfunnskunnskap/okonomi/pengesystem-vs-naturalhandel.json"
+    ],
+    "petrodollaren": [
+      "content/samfunnskunnskap/okonomi/petrodollaren.json"
     ],
     "produksjon": [
       "content/samfunnskunnskap/okonomi/produksjon.json"
@@ -2974,6 +3145,7 @@
     "concepts/avkolonisering.json/avkolonisering": "content/concepts/avkolonisering.json",
     "concepts/avsnitt.json/avsnitt": "content/concepts/avsnitt.json",
     "concepts/balfour-erklaeringen.json/balfour-erklaeringen": "content/concepts/balfour-erklaeringen.json",
+    "concepts/bananrepublikk.json/bananrepublikk": "content/concepts/bananrepublikk.json",
     "concepts/bevissthet.json/bevissthet": "content/concepts/bevissthet.json",
     "concepts/bindeord.json/bindeord": "content/concepts/bindeord.json",
     "concepts/biologi.json/biologi": "content/concepts/biologi.json",
@@ -3010,6 +3182,7 @@
     "concepts/dendrokronologi.json/dendrokronologi": "content/concepts/dendrokronologi.json",
     "concepts/det-kategoriske-imperativ.json/det-kategoriske-imperativ": "content/concepts/det-kategoriske-imperativ.json",
     "concepts/det-oestindiske-kompani.json/det-oestindiske-kompani": "content/concepts/det-oestindiske-kompani.json",
+    "concepts/devsirme.json/devsirme": "content/concepts/devsirme.json",
     "concepts/diktatur.json/diktatur": "content/concepts/diktatur.json",
     "concepts/direkte-demokrati.json/direkte-demokrati": "content/concepts/direkte-demokrati.json",
     "concepts/dolkestotlegenden.json/dolkestotlegenden": "content/concepts/dolkestotlegenden.json",
@@ -3041,6 +3214,7 @@
     "concepts/frontfagmodellen.json/frontfagmodellen": "content/concepts/frontfagmodellen.json",
     "concepts/fullmaktsloven.json/fullmaktsloven": "content/concepts/fullmaktsloven.json",
     "concepts/generasjon.json/generasjon": "content/concepts/generasjon.json",
+    "concepts/ghazi.json/ghazi": "content/concepts/ghazi.json",
     "concepts/gig-okonomi.json/gig-okonomi": "content/concepts/gig-okonomi.json",
     "concepts/gini-koeffisient.json/gini-koeffisient": "content/concepts/gini-koeffisient.json",
     "concepts/glasnost.json/glasnost": "content/concepts/glasnost.json",
@@ -3075,12 +3249,14 @@
     "concepts/ingenmannsland.json/ingenmannsland": "content/concepts/ingenmannsland.json",
     "concepts/innovasjon.json/innovasjon": "content/concepts/innovasjon.json",
     "concepts/investiturstriden.json/investiturstriden": "content/concepts/investiturstriden.json",
+    "concepts/janitsjar.json/janitsjar": "content/concepts/janitsjar.json",
     "concepts/jazz-age.json/jazz-age": "content/concepts/jazz-age.json",
     "concepts/jazz.json/jazz": "content/concepts/jazz.json",
     "concepts/jernteppet.json/jernteppet": "content/concepts/jernteppet.json",
     "concepts/jim-crow-lovene.json/jim-crow-lovene": "content/concepts/jim-crow-lovene.json",
     "concepts/justinianerpesten.json/justinianerpesten": "content/concepts/justinianerpesten.json",
     "concepts/justinianske-pest.json/justinianske-pest": "content/concepts/justinianske-pest.json",
+    "concepts/kalifat.json/kalifat": "content/concepts/kalifat.json",
     "concepts/kalmarunionen.json/kalmarunionen": "content/concepts/kalmarunionen.json",
     "concepts/kapitalisme.json/kapitalisme": "content/concepts/kapitalisme.json",
     "concepts/kapitalstruktur.json/kapitalstruktur": "content/concepts/kapitalstruktur.json",
@@ -3123,6 +3299,7 @@
     "concepts/merkantilisme.json/merkantilisme": "content/concepts/merkantilisme.json",
     "concepts/merovingerne.json/merovingerne": "content/concepts/merovingerne.json",
     "concepts/migrasjon.json/migrasjon": "content/concepts/migrasjon.json",
+    "concepts/millet.json/millet": "content/concepts/millet.json",
     "concepts/mission-civilisatrice.json/mission-civilisatrice": "content/concepts/mission-civilisatrice.json",
     "concepts/molotov-ribbentrop-pakten.json/molotov-ribbentrop-pakten": "content/concepts/molotov-ribbentrop-pakten.json",
     "concepts/monarki.json/monarki": "content/concepts/monarki.json",
@@ -3132,6 +3309,7 @@
     "concepts/nasjon.json/nasjon": "content/concepts/nasjon.json",
     "concepts/nasjonal-samling.json/nasjonal-samling": "content/concepts/nasjonal-samling.json",
     "concepts/nasjonalisere.json/nasjonalisere": "content/concepts/nasjonalisere.json",
+    "concepts/nasjonalisering.json/nasjonalisering": "content/concepts/nasjonalisering.json",
     "concepts/nasjonalisme.json/nasjonalisme": "content/concepts/nasjonalisme.json",
     "concepts/naturalhandel.json/naturalhandel": "content/concepts/naturalhandel.json",
     "concepts/naturrett.json/naturrett": "content/concepts/naturrett.json",
@@ -3142,6 +3320,7 @@
     "concepts/norges-grunnlov.json/norges-grunnlov": "content/concepts/norges-grunnlov.json",
     "concepts/nrnbergprosessene.json/nrnbergprosessene": "content/concepts/nrnbergprosessene.json",
     "concepts/nullrentepolitikk.json/nullrentepolitikk": "content/concepts/nullrentepolitikk.json",
+    "concepts/nykolonialisme.json/nykolonialisme": "content/concepts/nykolonialisme.json",
     "concepts/observasjon.json/observasjon": "content/concepts/observasjon.json",
     "concepts/oligarki.json/oligarki": "content/concepts/oligarki.json",
     "concepts/omveisproduksjon.json/omveisproduksjon": "content/concepts/omveisproduksjon.json",
@@ -3162,6 +3341,7 @@
     "concepts/pearl-harbor.json/pearl-harbor": "content/concepts/pearl-harbor.json",
     "concepts/penicillin.json/penicillin": "content/concepts/penicillin.json",
     "concepts/perestrojka.json/perestrojka": "content/concepts/perestrojka.json",
+    "concepts/petrodollar.json/petrodollar": "content/concepts/petrodollar.json",
     "concepts/pliktetikk.json/pliktetikk": "content/concepts/pliktetikk.json",
     "concepts/pontifex-maximus.json/pontifex-maximus": "content/concepts/pontifex-maximus.json",
     "concepts/population-registration-act.json/population-registration-act": "content/concepts/population-registration-act.json",
@@ -3215,11 +3395,14 @@
     "concepts/stfronten.json/stfronten": "content/concepts/stfronten.json",
     "concepts/stolthet.json/stolthet": "content/concepts/stolthet.json",
     "concepts/stormaktstiden.json/stormaktstiden": "content/concepts/stormaktstiden.json",
+    "concepts/storvesir.json/storvesir": "content/concepts/storvesir.json",
     "concepts/strange-fruit.json/strange-fruit": "content/concepts/strange-fruit.json",
     "concepts/streikerett.json/streikerett": "content/concepts/streikerett.json",
     "concepts/stridsvogn.json/stridsvogn": "content/concepts/stridsvogn.json",
+    "concepts/strukturtilpasning.json/strukturtilpasning": "content/concepts/strukturtilpasning.json",
     "concepts/subjektet.json/subjektet": "content/concepts/subjektet.json",
     "concepts/subtekst.json/subtekst": "content/concepts/subtekst.json",
+    "concepts/sultan.json/sultan": "content/concepts/sultan.json",
     "concepts/suverenitet.json/suverenitet": "content/concepts/suverenitet.json",
     "concepts/suverenitetsprinsippet.json/suverenitetsprinsippet": "content/concepts/suverenitetsprinsippet.json",
     "concepts/svartskjortene.json/svartskjortene": "content/concepts/svartskjortene.json",
@@ -3227,6 +3410,7 @@
     "concepts/sykes-picot.json/sykes-picot": "content/concepts/sykes-picot.json",
     "concepts/synsvinkel.json/synsvinkel": "content/concepts/synsvinkel.json",
     "concepts/tankereferat.json/tankereferat": "content/concepts/tankereferat.json",
+    "concepts/tanzimat.json/tanzimat": "content/concepts/tanzimat.json",
     "concepts/tariffavtale.json/tariffavtale": "content/concepts/tariffavtale.json",
     "concepts/te.json/te": "content/concepts/te.json",
     "concepts/teknokrati.json/teknokrati": "content/concepts/teknokrati.json",
@@ -3292,6 +3476,7 @@
     "historie/dekolonisering/dekolonisering-sti": "content/historie/dekolonisering/dekolonisering-sti.json",
     "historie/dekolonisering/frigjoringskrigene": "content/historie/dekolonisering/frigjoringskrigene.json",
     "historie/dekolonisering/ghana-panafrikanisme": "content/historie/dekolonisering/ghana-panafrikanisme.json",
+    "historie/dekolonisering/guatemala-1954": "content/historie/dekolonisering/guatemala-1954.json",
     "historie/dekolonisering/haiti": "content/historie/dekolonisering/haiti.json",
     "historie/dekolonisering/india": "content/historie/dekolonisering/india.json",
     "historie/dekolonisering/israel-palestina-muren": "content/historie/dekolonisering/israel-palestina-muren.json",
@@ -3299,6 +3484,8 @@
     "historie/dekolonisering/kongo": "content/historie/dekolonisering/kongo.json",
     "historie/dekolonisering/latin-amerika": "content/historie/dekolonisering/latin-amerika.json",
     "historie/dekolonisering/midtosten-mandater": "content/historie/dekolonisering/midtosten-mandater.json",
+    "historie/dekolonisering/nykolonialisme": "content/historie/dekolonisering/nykolonialisme.json",
+    "historie/dekolonisering/okonomiske-leiemordere": "content/historie/dekolonisering/okonomiske-leiemordere.json",
     "historie/dekolonisering/oversikt": "content/historie/dekolonisering/oversikt.json",
     "historie/dekolonisering/siste-skanse": "content/historie/dekolonisering/siste-skanse.json",
     "historie/dekolonisering/sorost-asia": "content/historie/dekolonisering/sorost-asia.json",
@@ -3310,7 +3497,9 @@
     "historie/den-franske-revolusjon/stormingen-av-bastillen": "content/historie/den-franske-revolusjon/stormingen-av-bastillen.json",
     "historie/den-kalde-krigen/atomvapenkapplopet": "content/historie/den-kalde-krigen/atomvapenkapplopet.json",
     "historie/den-kalde-krigen/berlinmuren": "content/historie/den-kalde-krigen/berlinmuren.json",
+    "historie/den-kalde-krigen/chile-1973": "content/historie/den-kalde-krigen/chile-1973.json",
     "historie/den-kalde-krigen/cuba-krisen": "content/historie/den-kalde-krigen/cuba-krisen.json",
+    "historie/den-kalde-krigen/indonesia-1965": "content/historie/den-kalde-krigen/indonesia-1965.json",
     "historie/den-kalde-krigen/iran-contra": "content/historie/den-kalde-krigen/iran-contra.json",
     "historie/den-kalde-krigen/kald-krig-sti": "content/historie/den-kalde-krigen/kald-krig-sti.json",
     "historie/den-kalde-krigen/korea-dmz": "content/historie/den-kalde-krigen/korea-dmz.json",
@@ -3318,6 +3507,7 @@
     "historie/den-kalde-krigen/kultur": "content/historie/den-kalde-krigen/kultur.json",
     "historie/den-kalde-krigen/kypros-delingslinjen": "content/historie/den-kalde-krigen/kypros-delingslinjen.json",
     "historie/den-kalde-krigen/nato-vs-warszawa": "content/historie/den-kalde-krigen/nato-vs-warszawa.json",
+    "historie/den-kalde-krigen/operasjon-ajax": "content/historie/den-kalde-krigen/operasjon-ajax.json",
     "historie/den-kalde-krigen/oversikt": "content/historie/den-kalde-krigen/oversikt.json",
     "historie/den-kalde-krigen/peace-lines-belfast": "content/historie/den-kalde-krigen/peace-lines-belfast.json",
     "historie/den-kalde-krigen/romkapplopet": "content/historie/den-kalde-krigen/romkapplopet.json",
@@ -3345,6 +3535,16 @@
     "historie/jordbruk-og-sivilisasjoner/jordbruk-og-sivilisasjoner": "content/historie/jordbruk-og-sivilisasjoner/jordbruk-og-sivilisasjoner.json",
     "historie/jordbruk-og-sivilisasjoner/kina": "content/historie/jordbruk-og-sivilisasjoner/kina.json",
     "historie/jordbruk-og-sivilisasjoner/mesopotamia": "content/historie/jordbruk-og-sivilisasjoner/mesopotamia.json",
+    "historie/kinas-historie/borgerkrigen": "content/historie/kinas-historie/borgerkrigen.json",
+    "historie/kinas-historie/deng-og-reformene": "content/historie/kinas-historie/deng-og-reformene.json",
+    "historie/kinas-historie/dynastiene": "content/historie/kinas-historie/dynastiene.json",
+    "historie/kinas-historie/kina-supermakt": "content/historie/kinas-historie/kina-supermakt.json",
+    "historie/kinas-historie/mao-og-revolusjonen": "content/historie/kinas-historie/mao-og-revolusjonen.json",
+    "historie/kinas-historie/opiumskrigene": "content/historie/kinas-historie/opiumskrigene.json",
+    "historie/kinas-historie/oversikt": "content/historie/kinas-historie/oversikt.json",
+    "historie/kinas-historie/silkeveien": "content/historie/kinas-historie/silkeveien.json",
+    "historie/kinas-historie/store-spranget": "content/historie/kinas-historie/store-spranget.json",
+    "historie/kinas-historie/tiananmen-1989": "content/historie/kinas-historie/tiananmen-1989.json",
     "historie/kolonialisering/britisk-imperium": "content/historie/kolonialisering/britisk-imperium.json",
     "historie/kolonialisering/eic": "content/historie/kolonialisering/eic.json",
     "historie/kolonialisering/europa-erobrer-verden": "content/historie/kolonialisering/europa-erobrer-verden.json",
@@ -3383,6 +3583,18 @@
     "historie/middelalderen/svartedauden-sti": "content/historie/middelalderen/svartedauden-sti.json",
     "historie/middelalderen/svartedauden": "content/historie/middelalderen/svartedauden.json",
     "historie/middelalderen/tidlig-middelalder": "content/historie/middelalderen/tidlig-middelalder.json",
+    "historie/midtoesten/arabisk-var": "content/historie/midtoesten/arabisk-var.json",
+    "historie/midtoesten/golfkrigene": "content/historie/midtoesten/golfkrigene.json",
+    "historie/midtoesten/iran-revolusjonen": "content/historie/midtoesten/iran-revolusjonen.json",
+    "historie/midtoesten/islams-fodsel": "content/historie/midtoesten/islams-fodsel.json",
+    "historie/midtoesten/islamsk-gullaldet": "content/historie/midtoesten/islamsk-gullaldet.json",
+    "historie/midtoesten/israel-og-palestina": "content/historie/midtoesten/israel-og-palestina.json",
+    "historie/midtoesten/kald-krig-midtosten": "content/historie/midtoesten/kald-krig-midtosten.json",
+    "historie/midtoesten/krigen-mot-terror": "content/historie/midtoesten/krigen-mot-terror.json",
+    "historie/midtoesten/midtoesten-i-dag": "content/historie/midtoesten/midtoesten-i-dag.json",
+    "historie/midtoesten/olje-og-makt": "content/historie/midtoesten/olje-og-makt.json",
+    "historie/midtoesten/orientering": "content/historie/midtoesten/orientering.json",
+    "historie/midtoesten/sykes-picot": "content/historie/midtoesten/sykes-picot.json",
     "historie/norgeshistorie/22-juli-2011": "content/historie/norgeshistorie/22-juli-2011.json",
     "historie/norgeshistorie/alv-erlingsson/alv-erlingsson": "content/historie/norgeshistorie/alv-erlingsson/alv-erlingsson.json",
     "historie/norgeshistorie/hamskiftet/hamskiftet": "content/historie/norgeshistorie/hamskiftet/artikkel.json",
@@ -3390,6 +3602,16 @@
     "historie/norgeshistorie/knut-alvsson/knut-alvsson": "content/historie/norgeshistorie/knut-alvsson/artikkel.json",
     "historie/norgeshistorie/norge-for-vikingene/norge-for-vikingene": "content/historie/norgeshistorie/norge-for-vikingene/artikkel.json",
     "historie/norgeshistorie/unionsopplosningen-1905": "content/historie/norgeshistorie/unionsopplosningen-1905.json",
+    "historie/osmanske-riket/forfallet": "content/historie/osmanske-riket/forfallet.json",
+    "historie/osmanske-riket/handel-og-kultur": "content/historie/osmanske-riket/handel-og-kultur.json",
+    "historie/osmanske-riket/janitsjarene": "content/historie/osmanske-riket/janitsjarene.json",
+    "historie/osmanske-riket/konstantinopels-fall": "content/historie/osmanske-riket/konstantinopels-fall.json",
+    "historie/osmanske-riket/millet-mangfold": "content/historie/osmanske-riket/millet-mangfold.json",
+    "historie/osmanske-riket/osman-og-oppkomsten": "content/historie/osmanske-riket/osman-og-oppkomsten.json",
+    "historie/osmanske-riket/oversikt": "content/historie/osmanske-riket/oversikt.json",
+    "historie/osmanske-riket/sammenbruddet": "content/historie/osmanske-riket/sammenbruddet.json",
+    "historie/osmanske-riket/suleyman-gullalderen": "content/historie/osmanske-riket/suleyman-gullalderen.json",
+    "historie/osmanske-riket/topkapi-palasset": "content/historie/osmanske-riket/topkapi-palasset.json",
     "historie/perserriket/aleksander-den-store": "content/historie/perserriket/aleksander-den-store.json",
     "historie/perserriket/perserriket": "content/historie/perserriket/artikkel.json",
     "historie/perserriket/kyros-den-store": "content/historie/perserriket/kyros-den-store.json",
@@ -3814,11 +4036,13 @@
     "people/matthew-boulton.json/matthew-boulton": "content/people/matthew-boulton.json",
     "people/max-weber.json/max-weber": "content/people/max-weber.json",
     "people/maximilien-robespierre.json/maximilien-robespierre": "content/people/maximilien-robespierre.json",
+    "people/mehmed-2.json/mehmed-2": "content/people/mehmed-2.json",
     "people/michael-servetus.json/michael-servetus": "content/people/michael-servetus.json",
     "people/michel-foucault.json/michel-foucault": "content/people/michel-foucault.json",
     "people/mikhail-gorbatsjov.json/mikhail-gorbatsjov": "content/people/mikhail-gorbatsjov.json",
     "people/murray-rothbard.json/murray-rothbard": "content/people/murray-rothbard.json",
     "people/mussolini.json/mussolini": "content/people/mussolini.json",
+    "people/mustafa-kemal-ataturk.json/mustafa-kemal-ataturk": "content/people/mustafa-kemal-ataturk.json",
     "people/napoleon-bonaparte.json/napoleon-bonaparte": "content/people/napoleon-bonaparte.json",
     "people/ned-ludd.json/ned-ludd": "content/people/ned-ludd.json",
     "people/nelson-mandela.json/nelson-mandela": "content/people/nelson-mandela.json",
@@ -3833,6 +4057,7 @@
     "people/olav-tryggvason.json/olav-tryggvason": "content/people/olav-tryggvason.json",
     "people/oliver-north.json/oliver-north": "content/people/oliver-north.json",
     "people/oscar-ii.json/oscar-ii": "content/people/oscar-ii.json",
+    "people/osman-1.json/osman-1": "content/people/osman-1.json",
     "people/patrice-lumumba.json/patrice-lumumba": "content/people/patrice-lumumba.json",
     "people/pave-urban-ii.json/pave-urban-ii": "content/people/pave-urban-ii.json",
     "people/peter-kropotkin.json/peter-kropotkin": "content/people/peter-kropotkin.json",
@@ -3857,6 +4082,7 @@
     "people/solomon-asch.json/solomon-asch": "content/people/solomon-asch.json",
     "people/stalin.json/stalin": "content/people/stalin.json",
     "people/sten-sture.json/sten-sture": "content/people/sten-sture.json",
+    "people/suleyman-1.json/suleyman-1": "content/people/suleyman-1.json",
     "people/tarjei-vesaas.json/tarjei-vesaas": "content/people/tarjei-vesaas.json",
     "people/thomas-aquinas.json/thomas-aquinas": "content/people/thomas-aquinas.json",
     "people/thomas-hobbes.json/thomas-hobbes": "content/people/thomas-hobbes.json",
@@ -3889,6 +4115,7 @@
     "samfunnskunnskap/handel-og-infrastruktur/energi-og-rorledninger": "content/samfunnskunnskap/handel-og-infrastruktur/energi-og-rorledninger.json",
     "samfunnskunnskap/handel-og-infrastruktur/global-handel-oversikt": "content/samfunnskunnskap/handel-og-infrastruktur/global-handel-oversikt.json",
     "samfunnskunnskap/handel-og-infrastruktur/handel-og-infrastruktur-sti": "content/samfunnskunnskap/handel-og-infrastruktur/handel-og-infrastruktur-sti.json",
+    "samfunnskunnskap/handel-og-infrastruktur/imf-og-verdensbanken": "content/samfunnskunnskap/handel-og-infrastruktur/imf-og-verdensbanken.json",
     "samfunnskunnskap/handel-og-infrastruktur/internett-kabler": "content/samfunnskunnskap/handel-og-infrastruktur/internett-kabler.json",
     "samfunnskunnskap/handel-og-infrastruktur/mat-og-skipsfart": "content/samfunnskunnskap/handel-og-infrastruktur/mat-og-skipsfart.json",
     "samfunnskunnskap/handel-og-infrastruktur/saarbare-nettverk": "content/samfunnskunnskap/handel-og-infrastruktur/saarbare-nettverk.json",
@@ -3914,6 +4141,7 @@
     "samfunnskunnskap/okonomi/naturlig-rente": "content/samfunnskunnskap/okonomi/naturlig-rente.json",
     "samfunnskunnskap/okonomi/okonomiske-skoler": "content/samfunnskunnskap/okonomi/okonomiske-skoler.json",
     "samfunnskunnskap/okonomi/pengesystem-vs-naturalhandel": "content/samfunnskunnskap/okonomi/pengesystem-vs-naturalhandel.json",
+    "samfunnskunnskap/okonomi/petrodollaren": "content/samfunnskunnskap/okonomi/petrodollaren.json",
     "samfunnskunnskap/okonomi/produksjon": "content/samfunnskunnskap/okonomi/produksjon.json",
     "samfunnskunnskap/styringsformer/antikken-visjoner": "content/samfunnskunnskap/styringsformer/antikken-visjoner.json",
     "samfunnskunnskap/styringsformer/demokrati-ansikter": "content/samfunnskunnskap/styringsformer/demokrati-ansikter.json",

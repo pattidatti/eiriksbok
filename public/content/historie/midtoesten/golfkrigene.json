@@ -1,0 +1,278 @@
+{
+  "id": "golfkrigene",
+  "title": "Golfkrigene: Fra Kuwait til Irak",
+  "layout": "rich",
+  "year": "1990-2011",
+  "category": "Midtøsten",
+  "readTime": "9 min lesning",
+  "heroImage": "/images/placeholder.webp",
+  "details": [
+    "Saddam Hussein invaderte Kuwait i august 1990. En koalisjon på 35 land svarte.",
+    "Golfkrigen 1991 er en av historiens mest effektive militæroperasjoner: 100 timers bakkekrig.",
+    "2003-invasjonen fant aldri masseødeleggelsesvåpnene den ble begrunnet med. De fantes ikke."
+  ],
+  "externalUrl": "https://snl.no/Golfkrigen",
+  "content": [
+    {
+      "type": "text",
+      "content": "På 1980-tallet var Saddam Hussein Vestens venn i Midtøsten. USA delte etterretning med ham. Vestlige land solgte ham våpen og teknologi - inkludert kjemiske stoffer han brukte mot egne borgere og iranske soldater. Han var nyttig fordi han sloss mot Iran, som USA hatet etter revolusjonen i 1979. Så invaderte han feil land."
+    },
+    {
+      "type": "header",
+      "text": "Et land på randen"
+    },
+    {
+      "type": "text",
+      "content": "Etter åtte års brutal krig mot Iran (1980-1988) var Irak nesten konkurs. Saddam hadde brukt opp landets oljepenger og lånt store summer fra nabolandene. Kuwait hadde gitt Irak lån under krigen, og Saddam mente nå at Kuwait takket for lite. Han anklaget Kuwait for å pumpe olje fra et felt han hevdet lå under iraksk jord - Rumaila-feltet, som strekker seg over grensen mellom de to landene. Saddam krevde at gjelden ble slettet og at oljeprisene ble hevet. Kuwait nektet."
+    },
+    {
+      "type": "text",
+      "content": "Den 2. august 1990 rullet irakske stridsvogner inn i Kuwait. På under 12 timer var det lille landet okkupert. Kongen flyktet til Saudi-Arabia. Verden ble sjokkert - ikke bare over at det skjedde, men over hvor raskt det gikk."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Irakske stridsvogner i Kuwait 1990",
+      "caption": "Irakske styrker okkuperte Kuwait på rekordtid i august 1990."
+    },
+    {
+      "type": "component",
+      "name": "FactBox",
+      "props": {
+        "title": "Kuwait i tall",
+        "content": "Kuwait er et lite land - omtrent på størrelse med Vestfold og Telemark til sammen. Men det sitter på nesten 10 prosent av verdens kjente oljereserver. Det var mye av grunnen til at verden reagerte så kraftig på invasjonen."
+      }
+    },
+    {
+      "type": "header",
+      "text": "Verden samler seg"
+    },
+    {
+      "type": "text",
+      "content": "FNs sikkerhetsråd handlet raskt. De krevde at Irak trakk seg ut. Da Saddam nektet, godkjente FN militær makt for å frigjøre Kuwait - et klart mandat som ga koalisjonen legitimitet. 35 land stilte opp. USA ledet, og Saudi-Arabia stilte sin jord til rådighet som base for angrepet. Koalisjonen samlet rundt 700 000 soldater i regionen i løpet av høsten 1990."
+    },
+    {
+      "type": "text",
+      "content": "Den 17. januar 1991 startet Operasjon Desert Storm med et av historiens mest intense luftangrep. I 38 dager bombet koalisjonsfly irakske militærstillinger, infrastruktur og kommandosentre. Irak svarte med Scud-raketter mot Israel og Saudi-Arabia - et forsøk på å splitte koalisjonen ved å dra Israel inn i krigen. Det lyktes ikke."
+    },
+    {
+      "type": "component",
+      "name": "TimelineComponent",
+      "props": {
+        "compact": true,
+        "events": [
+          { "year": 1980, "description": "Iran-Irak-krigen starter. USA støtter Saddam." },
+          { "year": 1988, "description": "Iran-Irak-krigen slutter. Irak er nesten konkurs." },
+          { "year": 1990, "description": "Irak invaderer Kuwait 2. august. FN krever tilbaketrekning." },
+          { "year": 1991, "description": "Operasjon Desert Storm: 38 dagers luftkrig, 100 timers bakkekrig. Kuwait frigjort." },
+          { "year": 2003, "description": "USA invaderer Irak. Saddam Hussein fanges og henrettes i 2006." },
+          { "year": 2011, "description": "Siste amerikanske soldater forlater Irak." }
+        ]
+      }
+    },
+    {
+      "type": "header",
+      "text": "100 timer på bakken"
+    },
+    {
+      "type": "text",
+      "content": "Den 24. februar 1991 startet bakkekrigen. Koalisjonen hadde forberedt et klassisk frontalt angrep mot Kuwait, men det var et luremanøver. Den egentlige styrken svingte langt vest inn i Irak for å omringe de irakske styrkene - det militære kaller det en avskjæringsbevegelse. Irakske soldater ga opp i massevis. Mange hadde ikke mat, vann eller fungerende utstyr etter uker med bombing."
+    },
+    {
+      "type": "text",
+      "content": "Etter 100 timer erklærte president George H.W. Bush våpenhvile. Kuwait var fritt. Men nå kom det store spørsmålet: skulle koalisjonen fortsette til Bagdad og fjerne Saddam?"
+    },
+    {
+      "type": "component",
+      "name": "BattleTacticsSim",
+      "props": {
+        "title": "Golfkrigen 1991: taktiske beslutninger",
+        "intro": "Sett deg i rollen som koalisjonsgeneral. Forstå de taktiske valgene som avgjorde krigen.",
+        "battles": [
+          {
+            "id": "b1",
+            "name": "Luftkrig eller bakkekrig?",
+            "year": "1991",
+            "icon": "shield",
+            "setup": "Det er januar 1991. Koalisjonen er klar til å angripe. Irak har et av verdens største landforsvaret og brukte kjemiske våpen i forrige krig. Et direkte bakkeangrep kan koste tusenvis av liv.",
+            "forces": "Koalisjonen: 700 000 soldater, 2 000 fly, full luftherredømme. Irak: 400 000 soldater i Kuwait, mange i skyttergraver.",
+            "question": "Hva er den beste åpningstaktikken?",
+            "choices": [
+              {
+                "id": "a",
+                "label": "Gå rett inn med bakkestyrker for å overraske Irak",
+                "explanation": "Feil. Uten luftkontroll ville iraksk artilleri og panserstyrker gjort bakkekrigen mye blodigere. Overraskelsesmomentet ville ikke oppveie tapene.",
+                "correct": false
+              },
+              {
+                "id": "b",
+                "label": "Start med 38 dagers luftkrig for å ødelegge iraksk forsvar",
+                "explanation": "Riktig. Luftkrigen svekket iraksk kommando, logistikk og moral dramatisk. Da bakken kom, ga irakske soldater opp i tusentall. Koalisjonen mistet under 300 soldater totalt.",
+                "correct": true
+              }
+            ],
+            "winningFactor": "Luftherredømme var avgjørende. Moderne krig avhenger av å kontrollere luftrommet - den som gjør det, bestemmer tempo og vilkar for hele kampanjen."
+          },
+          {
+            "id": "b2",
+            "name": "Stopp ved Kuwait eller fortsett til Bagdad?",
+            "year": "1991",
+            "icon": "shield",
+            "setup": "Kuwait er frigjort. Saddam Hussein sitter fortsatt med makten. Koalisjonsstyrkene kan nå marsjere til Bagdad på to dager. Det er nesten ingen motstand igjen.",
+            "forces": "Koalisjonen er inne i Irak. Den irakske hæren er knust. Men FN-mandatet sier kun 'frigjør Kuwait'.",
+            "question": "Skal koalisjonen fortsette til Bagdad og fjerne Saddam?",
+            "choices": [
+              {
+                "id": "a",
+                "label": "Fortsett til Bagdad og ta Saddam",
+                "explanation": "Fristende, men problematisk. FN-mandatet dekket ikke regimeskifte. Arabia og andre arabiske allierte hadde aldri gått med på dette. Koalisjonen ville brutt folkeretten og mistet legitimitet.",
+                "correct": false
+              },
+              {
+                "id": "b",
+                "label": "Stopp. Oppdraget er fullfort - Kuwait er fritt",
+                "explanation": "Riktig i 1991. Bush-administrasjonen fryktet et maktvakuum i Irak som kunne destabilisere hele regionen. Tolv år med sanksjoner fulgte - med enorme lidelser for sivilbefolkningen.",
+                "correct": true
+              }
+            ],
+            "winningFactor": "Mandatets grenser er ikke bare juridiske formaliteter - de holder allianser sammen. Uten det arabiske samarbeidet kunne ikke Vesten ha vunnet krigen i det hele tatt."
+          }
+        ],
+        "synthesis": "Golfkrigen 1991 viste at presis militaer makt med klare mål kan vinne raskt. Men den viste også at det a la en diktator sitte igjen - med sanksjoner som straff - rammet vanlige irakere hardest. Rundt 500 000 barn dode av sykdom og underernæring i lopet av 1990-arene. Det ble froen til 2003."
+      }
+    },
+    {
+      "type": "header",
+      "text": "Saddam overlever - og sanksjonene biter"
+    },
+    {
+      "type": "text",
+      "content": "Saddam beholdt makten. Han slo ned opprør fra shia-muslimer i sør og kurdere i nord med brutalt vold. FN innførte strenge sanksjoner - Irak fikk nesten ikke importere varer, og oljeinntektene ble sperret. Tanken var å presse Saddam til å gi opp. I stedet rammet sanksjonene den vanlige befolkningen. Sykehusene manglet medisiner. Hundretusener av barn døde av sykdommer som burde vært enkle å behandle. Saddam satt trygt i palasset sitt."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Irakiske sivile under sanksjonsperioden på 1990-tallet",
+      "caption": "Sanksjonene på 1990-tallet rammet den irakiske sivilbefolkningen langt hardere enn regimet."
+    },
+    {
+      "type": "header",
+      "text": "11. september og en ny krig"
+    },
+    {
+      "type": "text",
+      "content": "Den 11. september 2001 ble alt forandret. Al-Qaida angrep New York og Washington. Snart pekte Bush-administrasjonen mot Irak - ikke fordi Irak sto bak angrepet (det gjorde Afghanistan og al-Qaida), men fordi USA mente Saddam hadde masseødeleggelsesvåpen og kontakter med terrorister. Etterretningen var tynn, men argumentene var overbeviste nok for Kongressen og deler av opinionen."
+    },
+    {
+      "type": "text",
+      "content": "I mars 2003 invaderte USA og Storbritannia Irak - uten FN-mandat denne gangen. Strategien het \"sjokk og ærefrykt\": så massivt og raskt at irakisk motstand brøt ned. Bagdad falt på tre uker. Saddam flyktet og ble fanget i et jordskjul i desember 2003. Han ble henrettet i 2006."
+    },
+    {
+      "type": "component",
+      "name": "MapCarousel",
+      "props": {
+        "title": "Irak i endring",
+        "items": [
+          {
+            "image": "/images/placeholder.webp",
+            "caption": "Kuwait-invasjonen august 1990: Irakske styrker okkuperte hele Kuwait pa under ett dogn og rykket mot grensen til Saudi-Arabia.",
+            "alt": "Kart over Kuwait-invasjonen 1990"
+          },
+          {
+            "image": "/images/placeholder.webp",
+            "caption": "Koalisjonsangrepet februar 1991: Hovedangrepet svingte langt vest inn i Irak for a omringe de irakske styrkene i Kuwait - ikke bare presse dem rett ut.",
+            "alt": "Kart over koalisjonsangrepet 1991"
+          },
+          {
+            "image": "/images/placeholder.webp",
+            "caption": "Maktvakuumet etter 2003: Etter Saddams fall delte Irak seg langs sekteriske linjer. Sunniene tapte makten, shiaene tok den, kurderne vant autonomi - og IS fylte tomrommet pa 2010-tallet.",
+            "alt": "Kart over maktfordelingen i Irak etter 2003"
+          }
+        ]
+      }
+    },
+    {
+      "type": "header",
+      "text": "Ingen våpen - men kaos"
+    },
+    {
+      "type": "text",
+      "content": "Masseødeleggelsesvåpnene dukket aldri opp. Irak hadde ikke dem. Begrunnelsen for krigen falt bort. USA ble sittende i et land de ikke hadde planlagt for - uten fungerende statsapparat, med etniske og religiøse grupper som hadde hatefulle historier seg imellom, og med en befolkning som fort gikk fra lettelse over Saddams fall til sinne over okkupasjonen."
+    },
+    {
+      "type": "text",
+      "content": "Opprøret vokste. Shia-militsene sloss mot USA. Sunni-islamister dannet grupper som senere ble til IS - Den islamske stat. Da de siste amerikanske soldatene forlot Irak i 2011, etterlot de et land der vold og ustabilitet hadde kostet hundretusener av liv. Maktvakuumet Saddam etterlot seg ble aldri fylt av det demokratiet USA hadde lovet."
+    },
+    {
+      "type": "component",
+      "name": "QuoteBlock",
+      "props": {
+        "text": "Vi vet at Saddam Hussein har masseødeleggelsesvåpen.",
+        "author": "Colin Powell, USAs utenriksminister, til FNs sikkerhetsråd i februar 2003"
+      }
+    },
+    {
+      "type": "text",
+      "content": "Golfkrigene illustrerer noe viktig om moderne konflikt: det er lett å vinne en krig, men mye vanskeligere å vinne freden. 1991-krigen nådde sitt mål raskt og presist. 2003-krigen manglet plan for dagen etter seieren - og det kostet mer enn selve invasjonen. Lærdommene fra Irak formet vestlig utenrikspolitikk i årtier etterpå."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Irak i ruiner etter 2003-invasjonen",
+      "caption": "Etter invasjonen i 2003 sto USA overfor et land uten fungerende statsapparat og med dype indre motsetninger."
+    },
+    {
+      "type": "component",
+      "name": "Quiz",
+      "props": {
+        "questions": [
+          {
+            "question": "Hvorfor invaderte Irak Kuwait i 1990?",
+            "options": [
+              "Irak ville kontrollere Hormuzstredet",
+              "Saddam krevde at Kuwait slettet iraksk gjeld og anklagde dem for å stjele olje fra Rumaila-feltet",
+              "Kuwait hadde angrept irakske soldater langs grensen",
+              "FN hadde bedt Irak om å overta kontrollen med Kuwait"
+            ],
+            "answer": 1,
+            "explanation": "Irak var nesten konkurs etter krigen mot Iran. Saddam krevde at Kuwait slettet gjelden og anklaget dem for å pumpe olje fra Rumaila-feltet, som Irak mente var iraksk."
+          },
+          {
+            "question": "Hvor lenge varte bakkeoffensiven som frigjorde Kuwait i 1991?",
+            "options": [
+              "38 dager",
+              "14 dager",
+              "100 timer",
+              "6 uker"
+            ],
+            "answer": 2,
+            "explanation": "Bakkeoffensiven varte bare 100 timer. Den lange fasen var luftkrigen, som foregikk i 38 dager og svekket iraksk forsvar kraftig."
+          },
+          {
+            "question": "Hva var den offisielle begrunnelsen for USAs invasjon av Irak i 2003?",
+            "options": [
+              "Irak hadde deltatt i angrepene 11. september 2001",
+              "Irak hadde brukt kjemiske våpen mot Kuwait",
+              "Irak skal ha hatt masseødeleggelsesvåpen",
+              "FN hadde bedt USA om å fjerne Saddam Hussein"
+            ],
+            "answer": 2,
+            "explanation": "USA hevdet at Irak hadde masseødeleggelsesvåpen. Ingen ble funnet etter invasjonen. FN hadde heller ikke gitt mandat til denne krigen."
+          },
+          {
+            "question": "Hva var en av de viktigste konsekvensene av at Saddam Hussein ble fjernet i 2003?",
+            "options": [
+              "Irak ble raskt et stabilt demokrati",
+              "Iran mistet sin viktigste allierte i regionen",
+              "Et maktvakuum oppsto som ekstremistgrupper som IS fylte",
+              "Kuwait og Irak normaliserte forholdet umiddelbart"
+            ],
+            "answer": 2,
+            "explanation": "Uten Saddam og uten et fungerende statsapparat oppsto et maktvakuum. Etniske og religiose motsetninger eksploderte, og grupper som al-Qaida i Irak - forloberen til IS - vokste frem."
+          }
+        ]
+      }
+    }
+  ],
+  "timeline": []
+}

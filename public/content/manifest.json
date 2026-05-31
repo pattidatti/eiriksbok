@@ -1053,6 +1053,21 @@
               ],
               "createdDate": "2026-05-26T20:30:00+02:00",
               "lastUpdated": "2026-05-26T21:42:30+02:00"
+            },
+            {
+              "id": "petrodollaren",
+              "title": "Petrodollaren: Hvorfor olje måles i dollar",
+              "description": "Nesten all olje i verden selges i dollar. Oljepenger blir til lån, og lån blir til gjeld - drivstoffet i hele systemet.",
+              "image": "/images/samfunnskunnskap/okonomi/petrodollaren_hero.webp",
+              "tags": [
+                "økonomi",
+                "olje",
+                "dollar",
+                "opec",
+                "nykolonialisme"
+              ],
+              "createdDate": "2026-05-31T00:00:00Z",
+              "lastUpdated": "2026-05-31T19:08:37.388Z"
             }
           ]
         },
@@ -1687,6 +1702,22 @@
               ],
               "createdDate": "2026-03-12T10:16:35+01:00",
               "lastUpdated": "2026-03-12T10:46:17+01:00"
+            },
+            {
+              "id": "imf-og-verdensbanken",
+              "title": "Gjeld som våpen: IMF og Verdensbanken",
+              "description": "To mektige banker ble født for å hjelpe verden - men lånene deres kommer med krav som kan ramme de fattigste.",
+              "image": "/images/samfunnskunnskap/handel-og-infrastruktur/imf-og-verdensbanken_hero.webp",
+              "layout": "rich",
+              "tags": [
+                "økonomi",
+                "imf",
+                "verdensbanken",
+                "gjeld",
+                "nykolonialisme"
+              ],
+              "createdDate": "2026-05-31T00:00:00Z",
+              "lastUpdated": "2026-05-31T19:04:43.195Z"
             }
           ]
         },
@@ -2744,6 +2775,53 @@
               ],
               "createdDate": "2026-05-27T00:00:00Z",
               "lastUpdated": "2026-05-27T10:22:04+02:00"
+            },
+            {
+              "id": "operasjon-ajax",
+              "title": "Operasjon Ajax: Da oljen ble verdt et kupp",
+              "description": "Iran valgte selv å eie oljen sin - og ble straffet for det. Det første store CIA-kuppet, og hvordan det slo tilbake.",
+              "image": "/images/historie/den-kalde-krigen/operasjon-ajax_hero.webp",
+              "tags": [
+                "historie",
+                "kald-krig",
+                "iran",
+                "olje",
+                "cia",
+                "nykolonialisme"
+              ],
+              "createdDate": "2026-05-31T00:00:00Z",
+              "lastUpdated": "2026-05-31T18:43:15.910Z"
+            },
+            {
+              "id": "chile-1973",
+              "title": "Få økonomien til å skrike: Kuppet i Chile",
+              "description": "USA kvalte Chiles økonomi i stedet for å invadere. Resultatet ble 17 år med diktatur under Pinochet.",
+              "image": "/images/historie/den-kalde-krigen/chile-1973_hero.webp",
+              "tags": [
+                "historie",
+                "kald-krig",
+                "chile",
+                "allende",
+                "pinochet",
+                "nykolonialisme"
+              ],
+              "createdDate": "2026-05-31T00:00:00Z",
+              "lastUpdated": "2026-05-31T18:44:24.733Z"
+            },
+            {
+              "id": "indonesia-1965",
+              "title": "Jakarta-metoden: Indonesias glemte tragedie",
+              "description": "Et av etterkrigstidens største massedrap, med vestlig støtte. Volden ble en oppskrift andre land kopierte.",
+              "image": "/images/historie/den-kalde-krigen/indonesia-1965_hero.webp",
+              "tags": [
+                "historie",
+                "kald-krig",
+                "indonesia",
+                "suharto",
+                "nykolonialisme"
+              ],
+              "createdDate": "2026-05-31T00:00:00Z",
+              "lastUpdated": "2026-05-31T19:07:03.573Z"
             }
           ]
         },
@@ -3460,6 +3538,50 @@
               ],
               "createdDate": "2026-01-16T10:43:34+01:00",
               "lastUpdated": "2026-05-11T09:50:27+02:00"
+            },
+            {
+              "id": "okonomiske-leiemordere",
+              "title": "Økonomiske leiemordere: Slik kjøpes et helt land",
+              "description": "Du trenger ikke en hær for å erobre et land - du trenger et lån. Om John Perkins og nykolonialismen.",
+              "image": "/images/historie/dekolonisering/okonomiske-leiemordere_hero.webp",
+              "tags": [
+                "historie",
+                "dekolonisering",
+                "nykolonialisme",
+                "kald-krig",
+                "økonomi"
+              ],
+              "createdDate": "2026-05-31T00:00:00Z",
+              "lastUpdated": "2026-05-31T19:00:06.771Z"
+            },
+            {
+              "id": "guatemala-1954",
+              "title": "Bananrepublikken: Da et fruktselskap styrtet en regjering",
+              "description": "Ett amerikansk fruktselskap eide nesten alt i Guatemala. CIA-kuppet i 1954 utløste 36 år med borgerkrig.",
+              "image": "/images/historie/dekolonisering/guatemala-1954_hero.webp",
+              "tags": [
+                "historie",
+                "dekolonisering",
+                "guatemala",
+                "united-fruit",
+                "nykolonialisme"
+              ],
+              "createdDate": "2026-05-31T00:00:00Z",
+              "lastUpdated": "2026-05-31T19:03:36.344Z"
+            },
+            {
+              "id": "nykolonialisme",
+              "title": "Nykolonialisme: Kolonimakt uten kolonier",
+              "description": "Koloniene ble frie, men forble styrt på en ny måte. Samme mål som før, ny metode: lån, selskaper og gjeld.",
+              "image": "/images/historie/dekolonisering/nykolonialisme_hero.webp",
+              "tags": [
+                "historie",
+                "dekolonisering",
+                "nykolonialisme",
+                "globalisering"
+              ],
+              "createdDate": "2026-05-31T00:00:00Z",
+              "lastUpdated": "2026-05-31T19:08:03.440Z"
             },
             {
               "id": "midtosten-mandater",
@@ -4326,7 +4448,7 @@
               ],
               "year": "1299-1922",
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-05-31T17:59:47.042Z"
+              "lastUpdated": "2026-05-31T20:18:42+02:00"
             },
             {
               "id": "osman-og-oppkomsten",
@@ -4343,7 +4465,7 @@
               ],
               "year": "1299",
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-05-31T18:00:45.994Z"
+              "lastUpdated": "2026-05-31T20:18:42+02:00"
             },
             {
               "id": "konstantinopels-fall",
@@ -4360,7 +4482,7 @@
               ],
               "year": "1453",
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-05-31T18:02:25.858Z"
+              "lastUpdated": "2026-05-31T20:18:42+02:00"
             },
             {
               "id": "suleyman-gullalderen",
@@ -4377,7 +4499,7 @@
               ],
               "year": "1520-1566",
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-05-31T18:03:29.157Z"
+              "lastUpdated": "2026-05-31T20:18:42+02:00"
             },
             {
               "id": "janitsjarene",
@@ -4394,7 +4516,7 @@
               ],
               "year": "1383-1826",
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-05-31T18:04:35.585Z"
+              "lastUpdated": "2026-05-31T20:18:42+02:00"
             },
             {
               "id": "millet-mangfold",
@@ -4411,7 +4533,7 @@
               ],
               "year": "1492",
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-05-31T18:05:32.697Z"
+              "lastUpdated": "2026-05-31T20:18:42+02:00"
             },
             {
               "id": "topkapi-palasset",
@@ -4428,7 +4550,7 @@
               ],
               "year": "1465",
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-05-31T18:06:31.952Z"
+              "lastUpdated": "2026-05-31T20:18:42+02:00"
             },
             {
               "id": "handel-og-kultur",
@@ -4445,7 +4567,7 @@
               ],
               "year": "1555",
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-05-31T18:07:37.590Z"
+              "lastUpdated": "2026-05-31T20:18:42+02:00"
             },
             {
               "id": "forfallet",
@@ -4462,7 +4584,7 @@
               ],
               "year": "1683-1908",
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-05-31T18:08:48.645Z"
+              "lastUpdated": "2026-05-31T20:18:42+02:00"
             },
             {
               "id": "sammenbruddet",
@@ -4479,7 +4601,7 @@
               ],
               "year": "1914-1923",
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-05-31T18:10:03.108Z"
+              "lastUpdated": "2026-05-31T20:18:42+02:00"
             }
           ]
         },
@@ -4717,6 +4839,308 @@
               ],
               "createdDate": "2026-05-17T00:00:00Z",
               "lastUpdated": "2026-05-17T21:34:20+02:00"
+            }
+          ]
+        },
+        {
+          "id": "kinas-historie",
+          "title": "Kinas historie",
+          "description": "Fra de første dynastiene til verdens nest største økonomi - 3000 år med sivilisasjon, revolusjon og vekst.",
+          "image": "/images/placeholder.webp",
+          "lessons": [
+            {
+              "id": "oversikt",
+              "title": "Midtens rike: 3000 år i korte trekk",
+              "description": "Dynastisyklusen, konfusianisme og Kinas selvbilde som verdens sentrum.",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "kina",
+                "dynastier",
+                "sivilisasjon"
+              ],
+              "createdDate": "2026-05-31T00:00:00Z",
+              "lastUpdated": "2026-05-31T18:24:33.961Z"
+            },
+            {
+              "id": "dynastiene",
+              "title": "De store dynastiene: Keisere og sivilisasjon",
+              "description": "Fire oppfinnelser som endret verden og det keiserlige eksamenssystemet.",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "kina",
+                "dynastier",
+                "oppfinnelser"
+              ],
+              "createdDate": "2026-05-31T00:00:00Z",
+              "lastUpdated": "2026-05-31T18:26:10.434Z"
+            },
+            {
+              "id": "silkeveien",
+              "title": "Silkeveien: Da Kina handlet med verden",
+              "description": "1500 år med handel, religion og sykdom langs de store karavanerutene.",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "kina",
+                "handel",
+                "silkeveien"
+              ],
+              "createdDate": "2026-05-31T00:00:00Z",
+              "lastUpdated": "2026-05-31T18:27:30.163Z"
+            },
+            {
+              "id": "opiumskrigene",
+              "title": "Ydmykelsen: Opiumskrigene og europeisk imperialisme",
+              "description": "Britene selger narkotika til kinesere for å betale for te - og krigen som fulgte.",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "kina",
+                "imperialisme",
+                "opium"
+              ],
+              "createdDate": "2026-05-31T00:00:00Z",
+              "lastUpdated": "2026-05-31T18:29:02.296Z"
+            },
+            {
+              "id": "borgerkrigen",
+              "title": "Republikkens fall: Borgerkrig og revolusjon",
+              "description": "Fra keiserdømmets fall i 1912 til Maos seier i 1949.",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "kina",
+                "borgerkrig",
+                "mao"
+              ],
+              "createdDate": "2026-05-31T00:00:00Z",
+              "lastUpdated": "2026-05-31T18:30:24.618Z"
+            },
+            {
+              "id": "mao-og-revolusjonen",
+              "title": "Mao Zedong: Revolusjonens far",
+              "description": "Hvem var Mao, og hva betød revolusjonen for Kinas befolkning?",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "kina",
+                "mao",
+                "kommunisme"
+              ],
+              "createdDate": "2026-05-31T00:00:00Z",
+              "lastUpdated": "2026-05-31T18:31:22.183Z"
+            },
+            {
+              "id": "store-spranget",
+              "title": "Det store spranget og kulturrevolusjonen",
+              "description": "To av 1900-tallets største menneskeskapte katastrofer.",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "kina",
+                "mao",
+                "hungersnød"
+              ],
+              "createdDate": "2026-05-31T00:00:00Z",
+              "lastUpdated": "2026-05-31T18:32:41.702Z"
+            },
+            {
+              "id": "deng-og-reformene",
+              "title": "Deng Xiaoping: Kina åpner for verden",
+              "description": "Reform og åpning etter 1978 - og veien fra fattigdom til supermakt.",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "kina",
+                "deng",
+                "økonomi"
+              ],
+              "createdDate": "2026-05-31T00:00:00Z",
+              "lastUpdated": "2026-05-31T18:33:50.300Z"
+            },
+            {
+              "id": "tiananmen-1989",
+              "title": "Tiananmen 1989: Da studentene krevde frihet",
+              "description": "Demonstrasjonene, massakren og bildet verden husker.",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "kina",
+                "tiananmen",
+                "demokrati"
+              ],
+              "createdDate": "2026-05-31T00:00:00Z",
+              "lastUpdated": "2026-05-31T18:35:17.974Z"
+            },
+            {
+              "id": "kina-supermakt",
+              "title": "Kina som supermakt",
+              "description": "Fra verdens fabrikk til geopolitisk stormakt - og hva det betyr for verden.",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "kina",
+                "supermakt",
+                "xi-jinping"
+              ],
+              "createdDate": "2026-05-31T00:00:00Z",
+              "lastUpdated": "2026-05-31T18:36:42.504Z"
+            }
+          ]
+        },
+        {
+          "id": "midtoesten",
+          "title": "Midtøsten",
+          "description": "Fra profet til petroleum - historien bak en av verdens mest komplekse regioner.",
+          "image": "/images/placeholder.webp",
+          "lessons": [
+            {
+              "id": "orientering",
+              "title": "Orientering: Kart, folk og religioner",
+              "description": "Hvem bor i Midtøsten, hva tror de på, og hvorfor er regionen så kompleks?",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "midtosten",
+                "islam",
+                "geografi"
+              ],
+              "createdDate": "2026-05-31T00:00:00Z",
+              "lastUpdated": "2026-05-31T18:39:51.209Z"
+            },
+            {
+              "id": "islams-fodsel",
+              "title": "Islams fødsel: Muhammed og de første kalifatene",
+              "description": "Fra Mekka 610 til et rike fra Spania til India på 100 år.",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "midtosten",
+                "islam",
+                "muhammed"
+              ],
+              "createdDate": "2026-05-31T00:00:00Z",
+              "lastUpdated": "2026-05-31T18:41:10.288Z"
+            },
+            {
+              "id": "islamsk-gullaldet",
+              "title": "Det islamske gullaldet: Da Bagdad var verdens kunnskapssenter",
+              "description": "Abbasidenes gullalder og islams bidrag til vitenskap og kultur.",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "midtosten",
+                "islam",
+                "vitenskap"
+              ],
+              "createdDate": "2026-05-31T00:00:00Z",
+              "lastUpdated": "2026-05-31T18:42:14.399Z"
+            },
+            {
+              "id": "sykes-picot",
+              "title": "Sykes-Picot: Da Vesten tegnet Midtøstens kart",
+              "description": "Den hemmelige avtalen som skapte kunstige grenser - og moderne konflikter.",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "midtosten",
+                "imperialisme",
+                "grenser"
+              ],
+              "createdDate": "2026-05-31T00:00:00Z",
+              "lastUpdated": "2026-05-31T18:43:54.365Z"
+            },
+            {
+              "id": "israel-og-palestina",
+              "title": "Israel og Palestina: Et land, to folk",
+              "description": "Fra Balfour-erklæringen til Gaza - en av historiens mest komplekse konflikter.",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "midtosten",
+                "israel",
+                "palestina"
+              ],
+              "createdDate": "2026-05-31T00:00:00Z",
+              "lastUpdated": "2026-05-31T18:45:23.519Z"
+            },
+            {
+              "id": "olje-og-makt",
+              "title": "Olje og makt: Ressursen som endret alt",
+              "description": "OPEC, oljekrisen 1973 og oljens rolle som geopolitisk våpen.",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "midtosten",
+                "olje",
+                "opec"
+              ],
+              "createdDate": "2026-05-31T00:00:00Z",
+              "lastUpdated": "2026-05-31T18:46:44.011Z"
+            },
+            {
+              "id": "kald-krig-midtosten",
+              "title": "Den kalde krigen i Midtøsten",
+              "description": "CIA-kupp, proxy-kriger og supermaktenes spill om Midtøstens sjel.",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "midtosten",
+                "kaldkrig",
+                "cia"
+              ],
+              "createdDate": "2026-05-31T00:00:00Z",
+              "lastUpdated": "2026-05-31T18:47:59.062Z"
+            },
+            {
+              "id": "iran-revolusjonen",
+              "title": "Den iranske revolusjonen 1979",
+              "description": "Et folk styrter sin konge - og skaper verdens eneste islamske republikk.",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "midtosten",
+                "iran",
+                "revolusjon"
+              ],
+              "createdDate": "2026-05-31T00:00:00Z",
+              "lastUpdated": "2026-05-31T18:49:16.065Z"
+            },
+            {
+              "id": "golfkrigene",
+              "title": "Golfkrigene: Fra Kuwait til Irak",
+              "description": "Fra Saddams invasjon av Kuwait til maktvakuumet som skapte IS.",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "midtosten",
+                "irak",
+                "golfkrig"
+              ],
+              "createdDate": "2026-05-31T00:00:00Z",
+              "lastUpdated": "2026-05-31T18:51:00.243Z"
+            },
+            {
+              "id": "krigen-mot-terror",
+              "title": "11. september og krigen mot terror",
+              "description": "Fra 9/11 til 20 år i Afghanistan - og hva krigen etterlot seg.",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "midtosten",
+                "terror",
+                "afghanistan"
+              ],
+              "createdDate": "2026-05-31T00:00:00Z",
+              "lastUpdated": "2026-05-31T18:52:13.182Z"
+            },
+            {
+              "id": "arabisk-var",
+              "title": "Den arabiske våren",
+              "description": "Håp, revolusjon og borgerkrig - hvordan en fruktselger endret en hel region.",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "midtosten",
+                "arabiskvaar",
+                "demokrati"
+              ],
+              "createdDate": "2026-05-31T00:00:00Z",
+              "lastUpdated": "2026-05-31T18:53:36.464Z"
+            },
+            {
+              "id": "midtoesten-i-dag",
+              "title": "Midtøsten i dag: Konflikt og framtid",
+              "description": "Et rammeverk for å forstå nyheter fra regionen - konflikter, aktører og fremtidsutsikter.",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "midtosten",
+                "is",
+                "iran"
+              ],
+              "createdDate": "2026-05-31T00:00:00Z",
+              "lastUpdated": "2026-05-31T18:55:11.107Z"
             }
           ]
         }

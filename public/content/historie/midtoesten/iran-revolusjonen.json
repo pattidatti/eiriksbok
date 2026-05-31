@@ -1,0 +1,180 @@
+{
+  "id": "iran-revolusjonen",
+  "title": "Den iranske revolusjonen 1979",
+  "layout": "rich",
+  "year": "1978-1981",
+  "category": "Midtøsten",
+  "readTime": "9 min lesning",
+  "heroImage": "/images/placeholder.webp",
+  "details": [
+    "Den iranske revolusjonen var den eneste vellykkede islamistiske revolusjonen i historien.",
+    "Sjahen Mohammed Reza Pahlavi hadde det hemmelige politiet SAVAK til å tortere og fengsle opposisjonen.",
+    "Ayatollah Khomeini levde i eksil i Frankrike da revolusjonen skjedde - og landet til en enorm folkemengde."
+  ],
+  "externalUrl": "https://snl.no/den_iranske_revolusjon",
+  "content": [
+    {
+      "type": "text",
+      "content": "I januar 1979 pakket kongen av Iran koffertene sine og forlot landet for alltid. Mohammed Reza Pahlavi, sjahen som Vesten hadde elsket og støttet i tre tiår, flyktet fra sitt eget folk. Noen uker senere landet en 76 år gammel religiøs leder på flyplassen i Teheran - og ble møtt av millioner av jublende iranere. Det som skjedde i Iran i 1979 snudde opp ned på hele Midtøsten og påvirker verden den dag i dag."
+    },
+    {
+      "type": "header",
+      "text": "Sjahen og den hvite revolusjonen"
+    },
+    {
+      "type": "text",
+      "content": "Sjahen hadde styrt Iran siden 1941. På 1960-tallet satte han i gang store reformer han kalte den hvite revolusjonen: kvinner fikk stemmerett, jord ble delt ut til bønder, og landet ble modernisert og sekularisert i raskt tempo. Fabrikker ble bygget, universiteter åpnet, og oljepengene strømmet inn. For mange iranere i byene ga dette bedre liv."
+    },
+    {
+      "type": "text",
+      "content": "Men moderniteten kom med en pris. Sjahen styrte som diktator. Hans hemmelige politi, SAVAK, fengslet, torturerte og drepte opposisjonelle. Religiøse ledere ble tiet i hjel. Kritikere forsvant. Mange iranere opplevde at oljepengene gikk til en liten elite og til vestlige selskaper - ikke til vanlige folk. Korrupsjonen var åpenbar, og gapet mellom fattig og rik vokste."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Mohammed Reza Pahlavi, sjahen av Iran",
+      "caption": "Sjahen Mohammed Reza Pahlavi var USAs viktigste allierte i Midtøsten - men hatet av store deler av sitt eget folk."
+    },
+    {
+      "type": "header",
+      "text": "Kassettbånd som revolusjonsvåpen"
+    },
+    {
+      "type": "text",
+      "content": "Ayatollah Ruhollah Khomeini var Irans mektigste religiøse leder. Han hadde kritisert sjahen åpent siden 1960-tallet og levde i eksil - først i Irak, deretter i en liten by utenfor Paris. Sjahen trodde han var ufarlig så lenge han var ute av landet. Det var en fatal feil."
+    },
+    {
+      "type": "text",
+      "content": "Fra Frankrike sendte Khomeini taler på kassettbånd inn i Iran. Båndene ble smuglet over grensen, kopiert og spredt fra moské til moské. I en tid uten internett var dette revolusjonerende. Millioner av iranere hørte stemmen hans i kjellere og bakgårder. Han fortalte dem at sjahen var korrupt, at USA kontrollerte Iran, og at islamsk styre var løsningen. Den iranske revolusjonen er kanskje den første i historien som ble ledet via lydopptak."
+    },
+    {
+      "type": "header",
+      "text": "Opprøret vokser"
+    },
+    {
+      "type": "text",
+      "content": "I 1978 eksploderte uroen. Demonstrasjoner spredte seg fra by til by. Oljearbeidere gikk til streik og stanset landets viktigste inntektskilde. Bazarene - de tradisjonelle markedsplassene som var livsnerven i iransk økonomi - stengte dørene. Sjahen prøvde å slå ned protestene med makt. I september 1978 skjøt hæren inn i en folkemengde i Teheran. Dusinvis ble drept. Dagen ble kalt Svart fredag - og skapte enda mer raseri."
+    },
+    {
+      "type": "text",
+      "content": "Det som til slutt knakk sjahens makt var at hæren nektet å fortsette. Soldater er også sønner og brødre. Mange nektet å skyte på sine egne. Da hæren erklærte seg nøytral i januar 1979, var det over. Sjahen forlot Iran den 16. januar. Han kom aldri tilbake."
+    },
+    {
+      "type": "component",
+      "name": "DragDropTimeline",
+      "props": {
+        "title": "Revolusjonen: ordne fasene",
+        "events": [
+          { "id": "e1", "label": "Sjahen kunngjør reformer - for sent", "year": 1978 },
+          { "id": "e2", "label": "Svart fredag: hæren skyter inn i folkemengden", "year": 1978 },
+          { "id": "e3", "label": "Sjahen flykter fra Iran", "year": 1979 },
+          { "id": "e4", "label": "Khomeini lander i Teheran til millioner av jublende tilhengere", "year": 1979 },
+          { "id": "e5", "label": "Den islamske republikken Iran proklameres", "year": 1979 },
+          { "id": "e6", "label": "Studenter stormer den amerikanske ambassaden og tar 52 gisler", "year": 1979 },
+          { "id": "e7", "label": "Irak invaderer Iran. Krigen begynner.", "year": 1980 }
+        ]
+      }
+    },
+    {
+      "type": "header",
+      "text": "Khomeini og den islamske republikken"
+    },
+    {
+      "type": "text",
+      "content": "Den 1. februar 1979 landet Khomeinis fly i Teheran. Over fem millioner mennesker var i gatene for å ta imot ham. En journalist spurte hva han følte etter 14 år i eksil. Han svarte: ingenting. Det kalde svaret sa mye om mannen."
+    },
+    {
+      "type": "text",
+      "content": "Khomeini innførte et styresett ingen hadde sett maken til: velayet-e faqih - de islamske lærdes styre. Tanken er at en høyt utdannet religiøs leder, en faqih, skal lede staten fordi bare han forstår Guds lov godt nok. Khomeini ble den øverste lederen - over presidenten, over parlamentet, over hæren. Iran ble ikke et demokrati. Det ble en islamsk republikk der religionen hadde siste ord i alt."
+    },
+    {
+      "type": "component",
+      "name": "QuoteBlock",
+      "props": {
+        "text": "Vi ville ha frihet. Vi fikk Khomeini.",
+        "author": "Iransk student, sitert i Le Monde 1980"
+      }
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Gisler i den amerikanske ambassaden i Teheran",
+      "caption": "I 444 dager holdt iranske studenter 52 amerikanere som gisler. Krisen ødela forholdet mellom USA og Iran for generasjoner."
+    },
+    {
+      "type": "header",
+      "text": "Gislene og den ødelagte alliansen"
+    },
+    {
+      "type": "text",
+      "content": "I november 1979 stormet en gruppe iranske studenter den amerikanske ambassaden i Teheran og tok 52 diplomater og ansatte som gisler. De krevde at USA skulle sende tilbake sjahen - som da var i USA for medisinsk behandling - slik at han kunne stilles for retten i Iran. USA nektet. Gislene ble holdt i 444 dager."
+    },
+    {
+      "type": "text",
+      "content": "Gisselkrisen ble en ydmykelse for USA. President Jimmy Carter greide ikke å redde dem. En militær redningsaksjon mislyktes i ørkenen og kostet åtte amerikanske soldater livet. Gislene ble ikke løslatt før Ronald Reagan ble president i januar 1981 - et sammentreff som har skapt debatt helt siden. Forholdet mellom USA og Iran var knust, og det er det fremdeles."
+    },
+    {
+      "type": "header",
+      "text": "Krig og splittelse"
+    },
+    {
+      "type": "text",
+      "content": "I september 1980 invaderte nabolandet Irak, ledet av Saddam Hussein, Iran. Irak fryktet at Khomeinis revolusjon skulle spre seg til Iraks sjia-muslimske befolkning. Saudi-Arabia og de fleste arabiske landene støttet Irak. USA støttet også Irak - selv om de visste at Saddam brukte kjemiske våpen. Krigen varte i åtte år og kostet over en million liv."
+    },
+    {
+      "type": "text",
+      "content": "Konflikten mellom Iran og Irak avslørte en dypere splittelse i islam: sunni mot shia. Irak og Saudi-Arabia er sunni-dominerte. Iran er det største shia-landet i verden. Denne spenningen - mellom sunni-arabiske stater og shia-Iran - er grunnmuren i Midtøstens konflikter den dag i dag. [Les mer om denne spenningen i artikkelen om Saudi-Arabia og Iran.](/historie/midtoesten/saudi-iran)"
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Kart over Midtøsten med sunni- og shia-majoritetsland markert",
+      "caption": "Den iranske revolusjonen utløste en regional rivalitet mellom sunni-dominerte arabiske stater og shia-Iran som fortsatt preger Midtøsten."
+    },
+    {
+      "type": "header",
+      "text": "Hvorfor 1979 forandret alt"
+    },
+    {
+      "type": "text",
+      "content": "Den iranske revolusjonen er det viktigste enkeltåret i moderne Midtøsten-historie. For det første viste den at en folkelig bevegelse kunne velte en moderniserende diktator støttet av USA. For det andre skapte den den eneste islamistiske staten som har overlevd til i dag. For det tredje utløste den sunni-shia-rivaliseringen som driver krig og konflikt fra Jemen til Syria til Libanon. Og for det fjerde definerte den fiendskapet mellom Iran og USA - et fiendskap som fremdeles preger atomforhandlinger, sanksjoner og krig i regionen."
+    },
+    {
+      "type": "text",
+      "content": "Mange av de iranerne som jublet i februar 1979 angret senere bittert. Revolusjonen de drømte om - en revolusjon for frihet og rettferdighet - ble kapret av et religiøst regime som forfulgte opposisjonelle like brutalt som sjahen hadde gjort. Men forandringen de utløste, det kan ingen ta tilbake."
+    },
+    {
+      "type": "component",
+      "name": "Quiz",
+      "props": {
+        "questions": [
+          {
+            "question": "Hva kalte sjahen sine store reformer på 1960-tallet?",
+            "options": ["Den grønne revolusjonen", "Den hvite revolusjonen", "Den islamske revolusjonen", "Den demokratiske revolusjonen"],
+            "answer": 1,
+            "explanation": "Den hvite revolusjonen var sjahens moderniseringsprogram som inkluderte jordreform, stemmerett for kvinner og sekularisering - men ble gjennomfort uten demokrati."
+          },
+          {
+            "question": "Hvordan spredte Khomeini budskapet sitt til iranere mens han levde i eksil?",
+            "options": ["Via hemmelig radio", "Via kassettbånd smuglet inn i landet", "Via brev til moskéene", "Via hemmelige møter i Iran"],
+            "answer": 1,
+            "explanation": "Khomeini spilte inn taler på kassettbånd i Frankrike. Båndene ble smuglet inn i Iran og kopiert og spredt fra moské til moské - en revolusjonær bruk av teknologien på den tiden."
+          },
+          {
+            "question": "Hva er velayet-e faqih?",
+            "options": ["Irans hemmelige politi under sjahen", "Prinsippet om at islamske lærde skal lede staten", "Navnet på den iranske grunnloven", "En militær kommandostruktur"],
+            "answer": 1,
+            "explanation": "Velayet-e faqih betyr de islamske lærdes styre. Khomeini innforte dette prinsippet, som gir den høyeste religiøse lederen øverste makt over all politikk i Iran."
+          },
+          {
+            "question": "Hvor lenge holdt iranske studenter de 52 amerikanske gislene fanget?",
+            "options": ["52 dager", "180 dager", "444 dager", "Over 2 år"],
+            "answer": 2,
+            "explanation": "De 52 amerikanske gislene ble holdt i 444 dager fra november 1979 til januar 1981. Krisen ødela forholdet mellom USA og Iran og ydmyket president Jimmy Carter."
+          }
+        ]
+      }
+    }
+  ],
+  "timeline": []
+}

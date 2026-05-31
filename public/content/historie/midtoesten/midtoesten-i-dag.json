@@ -1,0 +1,249 @@
+{
+  "id": "midtoesten-i-dag",
+  "title": "Midtøsten i dag: Konflikt og framtid",
+  "layout": "rich",
+  "year": "2011 - i dag",
+  "category": "Midtøsten",
+  "readTime": "9 min lesning",
+  "heroImage": "/images/placeholder.webp",
+  "details": [
+    "I 2024 pågikk aktive militære konflikter i Syria, Jemen, Libya og Israel-Gaza.",
+    "IS mistet sitt fysiske \"kalifat\" i 2019, men ideologien lever videre og inspirerer angrep over hele verden.",
+    "Iran og Saudi-Arabia kjemper om innflytelse i hele Midtøsten - en proxy-krig som preger alle konflikter."
+  ],
+  "externalUrl": "https://snl.no/Midtosten",
+  "content": [
+    {
+      "type": "text",
+      "content": "Seks aktive militærkonflikter i én region. Millioner på flukt. Byer bombet til grus. Når du leser nyheter om Midtøsten, er det lett å tenke at krig er regionens naturlige tilstand - at folk der bare slåss fordi de alltid har gjort det. Den tanken er feil. Det som skjer i Midtøsten i dag er resultatet av 100 år med spesifikke valg: kolonigrenser trukket med linjal, diktatorer støttet for oljens skyld, og invasjoner som ødela stater uten å bygge nye. Historien forklarer - om den ikke unnskylder."
+    },
+    {
+      "type": "header",
+      "text": "IS: Fra stat til skygge"
+    },
+    {
+      "type": "text",
+      "content": "I 2014 erklærte den islamistiske gruppen IS et eget «kalifat» på størrelse med Storbritannia, på tvers av Syria og Irak. De kontrollerte byer, tok skatter, hadde en hær - og spredte terror i hele verden. I 2019 mistet de det siste territoriet. Men IS finnes fortsatt. Organisasjonen har gått fra å være en stat til å bli en bevegelse - uten fast landområde, men med celler i Afrika, Sørøst-Asia og Europa. Ideologien som drev IS rekrutterte folk fra over 100 land, inkludert Norge. Den ideologien er ikke borte fordi et flagg ble tatt ned."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Kart over Midtøsten med konfliktområder markert",
+      "caption": "Midtøsten i 2024: Aktive konflikter preger store deler av regionen."
+    },
+    {
+      "type": "header",
+      "text": "Den store proxy-krigen: Saudi-Arabia mot Iran"
+    },
+    {
+      "type": "text",
+      "content": "Bak de fleste konfliktene i Midtøsten finner du den samme skillelinjen: Saudi-Arabia mot Iran. Saudi-Arabia er et sunnimuslimsk kongedømme med enorme oljeinntekter og nære bånd til USA. Iran er en shiamuslimsk republikk som har vært isolert fra Vesten siden revolusjonen i 1979. Begge ønsker å dominere regionen - og begge gjør det ved å støtte ulike sider i andres kriger. I Jemen støtter Saudi-Arabia regjeringen, Iran støtter Houthi-opprørerne. I Syria støttet Iran Assad, Saudi-Arabia støttet opprørere. I Libanon støtter Iran Hizbollah. Denne konkurransen kalles en proxy-krig - de slåss gjennom andre, ikke mot hverandre direkte."
+    },
+    {
+      "type": "component",
+      "name": "FactBox",
+      "props": {
+        "title": "Hva er en proxy-krig?",
+        "content": "En proxy-krig er en konflikt der to stormakter støtter hver sin side uten å kjempe mot hverandre direkte. Iran og Saudi-Arabia har ikke erklært krig mot hverandre, men bruker penger, våpen og rådgivere til å påvirke konflikter i Jemen, Syria, Irak og Libanon. Resultatet er at disse landenes egne konflikter forlenges og forverres."
+      }
+    },
+    {
+      "type": "header",
+      "text": "Jemen: Den glemte krisen"
+    },
+    {
+      "type": "text",
+      "content": "Jemen er et av verdens fattigste land - og siden 2015 har det vært rammet av det FN kaller verdens største humanitære krise. Saudi-Arabia leder en militærkoalisjon som bomber Houthi-opprørerne fra luften. Iran støtter Houthiene med våpen. I midten sitter Jemens sivile befolkning: over 20 000 luftangrep, millioner på randen av sult, og sykdommer som kolera som drepte tusenvis. Konflikten får lite norsk mediedekning - dels fordi den ikke involverer vestlige soldater, dels fordi den er komplisert. Men for Jemens 35 millioner innbyggere er det like fullt en katastrofe."
+    },
+    {
+      "type": "header",
+      "text": "Syria: Vunnet krig, ødelagt land"
+    },
+    {
+      "type": "text",
+      "content": "Da den arabiske våren kom til Syria i 2011, protesterte folk mot president Bashar al-Assad. Han svarte med vold. Borgerkrigen som fulgte drepte over 300 000 mennesker og drev 13 millioner på flukt - halvparten av landets befolkning. Assad vant krigen, støttet av Russlands bomber og Irans tropper. Men han styrer nå et land i ruiner. Økonomi, infrastruktur og tillit er ødelagt. Millioner av syrere bor fremdeles i naboland som Tyrkia, Libanon og Jordan - eller i Europa. Mange norske syrere vet ikke om de noen gang kan reise hjem."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Ruiner i en syrisk by etter borgerkrigen",
+      "caption": "Syria etter borgerkrigen: Assad vant militært, men landet er i ruiner."
+    },
+    {
+      "type": "header",
+      "text": "Israel-Gaza: En gammel konflikt, ny eskalering"
+    },
+    {
+      "type": "text",
+      "content": "Den 7. oktober 2023 angrep Hamas Israel fra Gaza - og drepte rundt 1200 mennesker i det dødeligste angrepet mot jøder siden Holocaust. Israel svarte med en massiv militæroffensiv i Gaza. Innen 2024 var over 30 000 palestinere drept og store deler av Gaza jevnet med jorden. Konflikten mellom israelere og palestinere er ikke ny - den handler om land, stat og identitet, og går tilbake til Israels opprettelse i 1948 og de [palestinske flyktningene](/historie/midtoesten/naksba-og-israels-opprettelse) som fulgte. Angrepet i 2023 var en ny og ekstrem eskalering, men røttene er dype. Du kan lese mer om bakgrunnen i artikkelen om [Sykes-Picot og kolonitiden](/historie/midtoesten/sykes-picot)."
+    },
+    {
+      "type": "header",
+      "text": "Nye spillere: Tyrkia, Russland og Kina"
+    },
+    {
+      "type": "text",
+      "content": "Midtøsten er ikke lenger bare et slagfelt for USA og lokale makter. Russland kom inn i Syria i 2015 - og viste at det ville bruke militærmakt for å beholde allierte. Tyrkia, som er NATO-medlem, har soldater i Syria og Libya, og bruker Midtøsten for å fremme egne interesser. Kina holder seg unna kriger, men investerer tungt i regionen gjennom sin Belte og vei-initiativ. I 2023 meglte Kina en historisk normalisering av forholdet mellom Saudi-Arabia og Iran - noe som viste at amerikansk dominans i regionen ikke lenger er selvfølgelig."
+    },
+    {
+      "type": "component",
+      "name": "Comparison",
+      "props": {
+        "title": "Midtøsten 1920 og i dag",
+        "leftTitle": "1920: Etter Sykes-Picot",
+        "rightTitle": "2024: Situasjonen i dag",
+        "items": [
+          {
+            "label": "Grenser",
+            "left": "Nye grenser trukket av Frankrike og Storbritannia, uten hensyn til etnisitet eller religion",
+            "right": "De samme grensene skaper fortsatt spenninger mellom folkegrupper tvunget inn i kunstige stater"
+          },
+          {
+            "label": "Stormaktspåvirkning",
+            "left": "Frankrike og Storbritannia kontrollerer regionen direkte som kolonimakter",
+            "right": "USA, Russland, Kina, Iran og Saudi-Arabia konkurrerer om innflytelse - ingen dominerer alene"
+          },
+          {
+            "label": "Demokrati",
+            "left": "Ingen demokratiske stater - bare kolonier og kongedømmer",
+            "right": "Svært få fungerende demokratier - mange land styres av militærjuntaer, konger eller diktatorer"
+          },
+          {
+            "label": "Religiøs konflikt",
+            "left": "Religionsforskjeller brukes av kolonimakter for å splitte og herske",
+            "right": "Sunni-shia-rivaliseringen mellom Saudi-Arabia og Iran preger nesten alle konflikter"
+          }
+        ]
+      }
+    },
+    {
+      "type": "header",
+      "text": "Hva betyr dette for Norge?"
+    },
+    {
+      "type": "text",
+      "content": "Midtøsten er ikke langt unna for Norge. Norsk økonomi er bygget på olje - og oljeprisen settes i stor grad av hva som skjer i Saudi-Arabia og Gulf-statene. Flyktningkrisen i 2015 brakte hundretusener av syrere til Europa, og rundt 40 000 til Norge. Norske soldater har tjenestegjort i Afghanistan og Irak. Og terrorangrep inspirert av IS-ideologi har rammet Europa - også norske mål. Norge er heller ikke nøytral: vi er NATO-allierte med USA og selger våpen til Saudi-Arabia, en av de stridende partene i Jemen."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Flyktningbåt i Middelhavet",
+      "caption": "Millioner av mennesker har flyktet fra konflikter i Midtøsten - mange via Middelhavet."
+    },
+    {
+      "type": "component",
+      "name": "DebateSimulator",
+      "props": {
+        "topic": "Har Vesten et ansvar for kaos i Midtøsten i dag?",
+        "opponentName": "Konservativ kommentator",
+        "context": "Debatten handler om Vestens historiske rolle i Midtøsten og hvem som bærer ansvaret for situasjonen i dag.",
+        "arguments": [
+          {
+            "id": "a1",
+            "text": "Sykes-Picot-avtalen fra 1916 delte Midtøsten i kunstige stater som skapte grunnlaget for dagens konflikter.",
+            "strength": 5,
+            "type": "laws",
+            "response": "Grensene var uheldige, men folk i regionen har hatt over 100 år på å bygge fungerende stater. Ingen kan klandre kolonitiden for alt."
+          },
+          {
+            "id": "a2",
+            "text": "USA og Vesten støttet diktatorer som Saddam Hussein og Mubarak i årevis, og undergravde demokratiutvikling.",
+            "strength": 4,
+            "type": "honor",
+            "response": "Vesten støttet stabilitet, ikke undertrykkelse. Alternativet var kaos - akkurat det vi ser nå etter at diktatorene falt."
+          },
+          {
+            "id": "a3",
+            "text": "Invasjonen av Irak i 2003 ødela statssystemet og skapte direkte et vakuum som IS fylte.",
+            "strength": 6,
+            "type": "honor",
+            "response": "Saddam Hussein var en massedreper. Å la ham sitte ville ha vært verre. Ingen visste at krigen ville utvikle seg slik."
+          },
+          {
+            "id": "a4",
+            "text": "Vestlige land tjener milliarder på våpensalg til Saudi-Arabia, som bruker disse i Jemen-krigen.",
+            "strength": 4,
+            "type": "mercy",
+            "response": "Våpensalg skjer med eksportkontroll. Saudi-Arabia er et suverent land som selv velger sine konflikter."
+          },
+          {
+            "id": "a5",
+            "text": "Vesten har et ansvar overfor flyktningene konflikten skaper - mange flykter fra kriger vi har bidratt til.",
+            "strength": 3,
+            "type": "mercy",
+            "response": "Europa kan ikke ta imot alle flyktninger i verden. Ansvaret ligger hos landene som faktisk driver krig."
+          },
+          {
+            "id": "a6",
+            "text": "Å nekte ansvar er å gjenta historien. Uten kritisk refleksjon vil vestlige land gjøre de samme feilene igjen.",
+            "strength": 3,
+            "type": "laws",
+            "response": "Selvkritikk er bra, men det løser ikke problemet. Regionale aktører som Iran og Saudi-Arabia driver konfliktene nå."
+          }
+        ],
+        "winningScore": 15
+      }
+    },
+    {
+      "type": "header",
+      "text": "Ikke evig krig - men etterlevninger"
+    },
+    {
+      "type": "text",
+      "content": "Midtøsten er ikke et sted der folk er «skapt for krig». Det er et område der dårlige grenser, utenlandsk innblanding og manglende demokratiutvikling har stablet opp konflikter i generasjoner. Mange av de som bor der ønsker det samme som folk flest: trygghet, arbeid og en fremtid for barna sine. Det finnes også tegn til håp. Jemen-krigen har sett forsiktige fredsforhandlinger. Sudan og Marokko har normalisert forholdet til Israel. Unge arabere bruker sosiale medier til å utfordre korrupte ledere. Historien i Midtøsten er ikke ferdigskrevet - og å forstå hva som skapte kaoset er første skritt mot å endre det."
+    },
+    {
+      "type": "component",
+      "name": "Quiz",
+      "props": {
+        "questions": [
+          {
+            "question": "Hva menes med en «proxy-krig»?",
+            "options": [
+              "En krig der to stormakter kjemper direkte mot hverandre",
+              "En krig der stormakter støtter ulike sider uten å kjempe mot hverandre direkte",
+              "En krig der FN styrer militæroperasjonene",
+              "En krig som bare vises på internett"
+            ],
+            "answer": 1,
+            "explanation": "En proxy-krig er når to makter - som Iran og Saudi-Arabia - støtter hver sin side i andres konflikter, uten å erklære krig mot hverandre direkte."
+          },
+          {
+            "question": "Hvilken krise beskrives som verdens største humanitære katastrofe?",
+            "options": [
+              "Syria-borgerkrigen",
+              "Israel-Gaza-konflikten",
+              "Jemen-krigen",
+              "IS-krigen i Irak"
+            ],
+            "answer": 2,
+            "explanation": "FN har kalt Jemen-krigen verdens største humanitære krise. Millioner er på randen av sult og landet er nesten fullstendig ødelagt etter år med bombing."
+          },
+          {
+            "question": "Hva skjedde med IS etter at de mistet territoriet sitt i 2019?",
+            "options": [
+              "Organisasjonen oppløste seg helt",
+              "De inngikk fredsavtale med Irak",
+              "De gikk over til å bli en bevegelse med celler i mange land",
+              "De dannet en ny stat i Libya"
+            ],
+            "answer": 2,
+            "explanation": "IS mistet sitt fysiske «kalifat» i 2019, men organisasjonen lever videre som en desentralisert bevegelse med celler i Afrika, Asia og Europa. Ideologien sprer seg fortsatt."
+          },
+          {
+            "question": "Hvilken avtale fra 1916 la grunnlaget for mange av dagens konflikter i Midtøsten?",
+            "options": [
+              "Balfour-erklæringen",
+              "Sykes-Picot-avtalen",
+              "Oslo-avtalen",
+              "Camp David-avtalen"
+            ],
+            "answer": 1,
+            "explanation": "Sykes-Picot-avtalen av 1916 delte Midtøsten mellom Frankrike og Storbritannia. Grensene ble trukket uten hensyn til etnisitet eller religion, og skapte kunstige stater som fortsatt er kilde til konflikter."
+          }
+        ]
+      }
+    }
+  ],
+  "timeline": []
+}

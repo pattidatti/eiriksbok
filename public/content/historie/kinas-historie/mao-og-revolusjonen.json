@@ -1,0 +1,181 @@
+{
+  "id": "mao-og-revolusjonen",
+  "title": "Mao Zedong: Revolusjonens far",
+  "layout": "rich",
+  "year": "1949-1959",
+  "category": "Kinas historie",
+  "readTime": "9 min lesning",
+  "heroImage": "/images/placeholder.webp",
+  "details": [
+    "Mao Zedong etablerte en ettpartistat der kommunistpartiet kontrollerer alle aspekter av livet.",
+    "Landreformen ga jord til 300 millioner bønder - men henrettet hundretusener av godseierne.",
+    "Mao sa: \"Politisk makt kommer fra geværet.\" Han mente det."
+  ],
+  "externalUrl": "https://snl.no/Mao_Zedong",
+  "content": [
+    {
+      "type": "text",
+      "content": "1. oktober 1949. Mao Zedong sto på Den himmelske freds port i Beijing og ropte ut over folkemengden: \"Det kinesiske folket har reist seg!\" Millioner jublet. Hundre år med ydmykelse fra europeiske makter, japansk okkupasjon og borgerkrig var over. Men hva betød det egentlig - at folket hadde reist seg? Det kom an på hvem du spurte."
+    },
+    {
+      "type": "text",
+      "content": "For bøndene betydde det jord. For intellektuelle betydde det frihet til å bygge et nytt Kina. For godseierne og kritikerne av kommunistpartiet betydde det noe helt annet."
+    },
+    {
+      "type": "header",
+      "text": "Bondegutten som endret Kina"
+    },
+    {
+      "type": "text",
+      "content": "Mao Zedong ble født i 1893 i Shaoshan, en liten landsby i Hunan-provinsen. Faren var en velstående bonde, og familien hadde nok mat - men Kina rundt dem var i oppløsning. Keiserdynastiet falt i 1912. Krig og kaos fulgte. Den unge Mao leste, tenkte og ble rasende på urettferdigheten han så rundt seg."
+    },
+    {
+      "type": "text",
+      "content": "I 1921 var han blant grunnleggerne av det kinesiske kommunistpartiet. I de neste tiårene bygde han en hær av bønder, overlevde den lange marsjen gjennom ulendt terreng, og beseiret til slutt sine motstandere. Da han sto på Den himmelske freds port i 1949, hadde han kjempet i over 20 år. Han var 55 år gammel og hersker over verdens mest folkerike land."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Mao Zedong på Den himmelske freds port i Beijing, 1949",
+      "caption": "1. oktober 1949: Mao proklamerer Folkerepublikken Kina fra Den himmelske freds port."
+    },
+    {
+      "type": "header",
+      "text": "Jord til bøndene - og terror til godseierne"
+    },
+    {
+      "type": "text",
+      "content": "Det første Mao gjorde var å gjennomføre landreformen. Kina var et bondeland - over 80 prosent av befolkningen bodde på landsbygda. De fleste leide jord av rike godseiere og levde i fattigdom. Mao lovet å endre dette, og han holdt løftet."
+    },
+    {
+      "type": "text",
+      "content": "I løpet av noen år fikk 300 millioner bønder jord. Det var en historisk omfordeling av rikdom. Men prisen var blodig. Godseierne ble stilt for folkemøter der landsbyboerne ropte anklagene sine. Mange ble henrettet - anslag varierer fra 500 000 til to millioner mennesker. Landreformen var frigjøring og terror på én gang."
+    },
+    {
+      "type": "component",
+      "name": "QuoteBlock",
+      "props": {
+        "text": "Den politiske makten kommer fra geværet.",
+        "author": "Mao Zedong, 1938"
+      }
+    },
+    {
+      "type": "header",
+      "text": "Partiet kontrollerer alt"
+    },
+    {
+      "type": "text",
+      "content": "Mao bygde ikke bare en stat - han bygde en ettpartistat der kommunistpartiet styrer alt. Aviser skriver det partiet vil ha skrevet. Skolene underviser i marxisme og Maos tanker. Kunstnere maler bilder av lykkelige arbeidere og smilende bønder. Ingen konkurrerende partier får stille til valg. Ingen kan kritisere Mao offentlig uten risiko."
+    },
+    {
+      "type": "text",
+      "content": "Dette systemet er ikke tilfeldig. Det er bevisst konstruert for å holde partiet ved makten. Mao hadde sett hva som skjedde i land der opposisjonen fikk vokse seg sterk. Han ville ikke gjøre samme feil."
+    },
+    {
+      "type": "component",
+      "name": "TotalitarianSandbox",
+      "props": {}
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Kinesiske propagandaplakater fra 1950-tallet med Mao og glade arbeidere",
+      "caption": "Propagandaplakater fra 1950-tallet fremstilte Mao som folkets far og kommunismen som veien til lykke."
+    },
+    {
+      "type": "header",
+      "text": "Koreakrigen: Maos sann prøve"
+    },
+    {
+      "type": "text",
+      "content": "I 1950 invaderte Nord-Korea Sør-Korea. USA gikk inn på Sør-Koreas side. Da amerikanske styrker nærmet seg den kinesiske grensen, bestemte Mao seg for å handle. Han sendte hundretusener av kinesiske soldater inn i krigen."
+    },
+    {
+      "type": "text",
+      "content": "Det var en enorm risiko. Kina var utmattet etter år med krig. Mao visste det. Likevel sendte han soldatene - og blant dem sin egen sønn, Mao Anying. Sønnen døde i et amerikanske luftangrep i november 1950. Mao fikk beskjeden, sa lite, og fortsatte å lede krigen. Koreakrigen endte i 1953 uten klar seier for noen side, men Kina hadde vist at de kunne stå opp mot verdens mektigste militærmakt."
+    },
+    {
+      "type": "header",
+      "text": "Hundre blomster og fellen som ble satt"
+    },
+    {
+      "type": "text",
+      "content": "I 1956 overrasket Mao alle. Han inviterte intellektuelle og kritikere til å komme med sin mening. \"La hundre blomster blomstre,\" sa han. \"La hundre tankeskoler konkurrere.\" Det virket som om Mao åpnet for ekte debatt."
+    },
+    {
+      "type": "text",
+      "content": "Kritikken kom. Professorer, journalister og embetsmenn pekte på partiets feil, byråkratiet, korrupsjonen og undertrykkingen. De stolte på Maos ord. Det var en feil. I 1957 slo Mao til mot dem alle i det han kalte anti-høyreskampanjen. Hundretusenvis ble stemplet som høyreekstremister og sendt til arbeidsleirer. Hundre blomster-kampanjen var blitt en felle - eller i det minste ble den brukt som én."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Kinesiske intellektuelle samlet til politisk kampanjemøte på 1950-tallet",
+      "caption": "Politiske kampanjemøter var hverdagen i Folkerepublikken - alle måtte delta og vise lojalitet."
+    },
+    {
+      "type": "header",
+      "text": "Strateg eller administrator?"
+    },
+    {
+      "type": "text",
+      "content": "Historikere er enige om én ting: Mao var en genial militær og politisk strateg. Han vant borgerkrigen mot alle odds. Han holdt landet samlet. Han bygde en stat fra ruinene av krig og kaos."
+    },
+    {
+      "type": "text",
+      "content": "Men som administrator var han katastrofal. Han forstod ikke økonomi. Han ignorerte eksperter som advarte ham. Han lot ideologi styre avgjørelser som burde vært styrt av kunnskap. Og da han mot slutten av 1950-tallet bestemte seg for å forvandle Kina til en industriell stormakt på rekordtid, la han grunnlaget for den verste hungersnøden i menneskehetens historie. Den historien - Det store spranget - kommer i [neste artikkel](/historie/kinas-historie/det-store-spranget)."
+    },
+    {
+      "type": "component",
+      "name": "Quiz",
+      "props": {
+        "questions": [
+          {
+            "question": "Hva ropte Mao Zedong da han proklamerte Folkerepublikken Kina 1. oktober 1949?",
+            "options": [
+              "\"Det kinesiske folket har reist seg!\"",
+              "\"Kommunismen seirer!\"",
+              "\"Kina er fritt fra imperialismen!\"",
+              "\"Folkets hær har seiret!\""
+            ],
+            "answer": 0,
+            "explanation": "Mao Zedong sto på Den himmelske freds port og ropte: \"Det kinesiske folket har reist seg!\" - en setning som har blitt et av historiens mest kjente sitater fra 1900-tallet."
+          },
+          {
+            "question": "Hva skjedde med godseiere under Kinas landreform på begynnelsen av 1950-tallet?",
+            "options": [
+              "De fikk beholde halvparten av jorda si",
+              "De ble sendt ut av landet",
+              "Mange ble stilt for folkemøter og henrettet",
+              "De fikk kompensasjon og lov til å starte bedrifter"
+            ],
+            "answer": 2,
+            "explanation": "Landreformen ga jord til hundrevis av millioner bønder, men mange godseiere ble stilt for folkemøter der de ble anklaget og mange henrettet. Anslag varierer fra 500 000 til to millioner drepte."
+          },
+          {
+            "question": "Hva var Hundre blomster-kampanjen, og hva ble resultatet?",
+            "options": [
+              "En kampanje for å plante skog - den lyktes delvis",
+              "Mao inviterte til kritikk, men fengslet dem som kritiserte",
+              "En kunstkampanje som skapte kinesisk nasjonalkunst",
+              "Et program for å øke matproduksjonen på landsbygda"
+            ],
+            "answer": 1,
+            "explanation": "Hundre blomster-kampanjen (1956-57) inviterte intellektuelle til å komme med kritikk. Da kritikken kom, slo Mao til mot kritikerne i anti-høyreskampanjen. Hundretusenvis ble stemplet som fiender og sendt til arbeidsleirer."
+          },
+          {
+            "question": "Hva viser historikere er Maos største svakhet som leder?",
+            "options": [
+              "Han var feig i krig og overlot kommandoen til andre",
+              "Han hadde ingen evne til å inspirere folk rundt seg",
+              "Han var en dyktig strateg, men en katastrofal administrator",
+              "Han forstod ikke hvordan han skulle bygge en hær"
+            ],
+            "answer": 2,
+            "explanation": "Historikere anerkjenner Mao som en genial militær og politisk strateg, men som administrator var han katastrofal. Han ignorerte eksperter, lot ideologi styre praktiske avgjørelser, og la grunnlaget for store katastrofer som Det store spranget."
+          }
+        ]
+      }
+    }
+  ],
+  "timeline": []
+}

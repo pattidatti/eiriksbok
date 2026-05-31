@@ -1,0 +1,174 @@
+{
+  "id": "islamsk-gullaldet",
+  "title": "Det islamske gullaldet: Da Bagdad var verdens kunnskapssenter",
+  "layout": "rich",
+  "year": "750-1258",
+  "category": "Midtøsten",
+  "readTime": "8 min lesning",
+  "heroImage": "/images/placeholder.webp",
+  "details": [
+    "Bagdad under Abbasidene var trolig verdens største by med kanskje én million innbyggere rundt år 900.",
+    "Muslimske lærde oversatte og videreformidlet gresk, persisk og indisk kunnskap til Europa.",
+    "Algebra, algoritme og alkohol er alle arabiske ord - og det er ingen tilfeldighet."
+  ],
+  "externalUrl": "https://snl.no/islamsk_gullaldar",
+  "content": [
+    {
+      "type": "text",
+      "content": "Algebra er et arabisk ord. Det kom fra Bagdad. Mens Europa på 800-tallet levde i det vi kaller mørk middelalder - med få bøker, lite handel og knapt noen byer - foregikk det noe helt annet i Midtøsten. Der blomstret vitenskap, filosofi og kunst i en periode historikere kaller det islamske gullaldet. Bagdad var midtpunktet, og byens lærde forandret verden for alltid."
+    },
+    {
+      "type": "header",
+      "text": "Fra Umayyadene til Abbasidene"
+    },
+    {
+      "type": "text",
+      "content": "Etter profeten Muhammeds død i 632 spredte islam seg raskt over store deler av verden. Det første store islamske dynastiet het Umayyadene og styrte fra Damaskus. Men i 750 kom en revolusjon. En ny herskerslekt, Abbasidene, tok makten og flyttet tyngdepunktet østover. De grunnla en splitter ny by midt i Mesopotamia - der elvene Tigris og Eufrat renner nær hverandre. Den nye hovedstaden fikk navnet Bagdad, og den ble bygd opp fra grunnen av fra år 762."
+    },
+    {
+      "type": "text",
+      "content": "Bagdad ble planlagt som en sirkulær by, og veksten var eksplosiv. Rundt år 900 bodde kanskje én million mennesker der - noe som gjorde den til verdens trolig største by. Kalif Harun al-Rashid, som du kanskje kjenner fra eventyret om Tusen og én natt, styrte byen på høyden av sin prakt. Men det var ikke bare rikdom og makt som preget Abbasidene. Det var også en brennende tørst etter kunnskap."
+    },
+    {
+      "type": "header",
+      "text": "Visdomshuset - verdens første forskningssenter"
+    },
+    {
+      "type": "text",
+      "content": "Tidlig på 800-tallet grunnla kalif Harun al-Rashid og hans sønn al-Mamun det som kalles Bayt al-Hikma - Visdomshuset. Det var ikke bare et bibliotek. Det var et oversettelsessenter, en akademi og et møtested for de skarpeste hjernene fra hele den islamske verden. Hit kom lærde fra Persia, India, Hellas og Egypt. De brakte med seg bøker på gresk, persisk, sanskrit og syrisk."
+    },
+    {
+      "type": "text",
+      "content": "Oversettelsesarbeidet var gigantisk. Aristoteles' filosofi, Euklids geometri, Ptolemaios' astronomi og Galens medisin - alt ble oversatt til arabisk og studert, kommentert og videreutviklet. Lærde i Bagdad tok ikke bare vare på gammel kunnskap. De bygde ny kunnskap oppå den. Det var dette som gjorde gullaldet virkelig gyllent."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Rekonstruksjon av Visdomshuset i Bagdad",
+      "caption": "En rekonstruksjon av Bayt al-Hikma - Visdomshuset i Bagdad, der lærde fra hele verden oversatte og utviklet kunnskap på 800-900-tallet."
+    },
+    {
+      "type": "header",
+      "text": "De store tenkerne"
+    },
+    {
+      "type": "text",
+      "content": "Muhammad ibn Musa al-Khwarizmi var matematiker ved Visdomshuset rundt år 820. Han skrev en bok der han systematiserte metoder for å løse ligninger. Tittelen på boken inneholdt ordet al-jabr - og det er derfra vi har fatt ordet algebra. Selve navnet hans, latinisert til Algoritmi, ga oss et annet ord vi bruker daglig: algoritme. En algoritme er rett og slett en steg-for-steg-fremgangsmåte for å løse et problem - noe datamaskiner bruker milliarder av ganger per sekund."
+    },
+    {
+      "type": "text",
+      "content": "Ibn Sina, kjent i Europa som Avicenna, levde fra 980 til 1037. Han skrev en legebok kalt Medisinens kanon som ble brukt som standardverk ved europeiske universiteter i over 600 år. Al-Biruni kartla jordens omkretsens med overraskende presisjon og beskrev India med en grundighet ingen europeere kunne matche. Muhammad al-Idrisi tegnet på 1100-tallet et verdenskart for den normanniske kongen Roger II av Sicilia - et av de mest nøyaktige kartene fra middelalderen."
+    },
+    {
+      "type": "component",
+      "name": "Gallery",
+      "props": {
+        "images": [
+          {
+            "src": "/images/placeholder.webp",
+            "alt": "Al-Azhar-moskeen i Kairo",
+            "caption": "Al-Azhar-moskeen i Kairo, grunnlagt i 970, er ett av de eldste universitetene i verden og et symbol på islamsk lærdom."
+          },
+          {
+            "src": "/images/placeholder.webp",
+            "alt": "Middelalders islamsk medisinsk manuskript",
+            "caption": "Et illustrert islamsk manuskript om medisin fra 1200-tallet. Ibn Sinas medisinske skrifter ble brukt ved europeiske universiteter i hundrevis av år."
+          },
+          {
+            "src": "/images/placeholder.webp",
+            "alt": "Rekonstruksjon av Visdomshuset i Bagdad",
+            "caption": "Visdomshuset samlet lærde fra hele den kjente verden og var kjernen i det islamske gullaldet."
+          }
+        ]
+      }
+    },
+    {
+      "type": "header",
+      "text": "Arabiske tall og kaffe"
+    },
+    {
+      "type": "text",
+      "content": "Tallene du bruker - 0, 1, 2, 3 og så videre - kalles arabiske tall. Men de ble egentlig oppfunnet i India. Det var islamske lærde som tok dem med seg vestover og spredte dem til Europa, der folk ellers slet med å gjøre regnestykker med romertall. Prøv selv å multiplisere XLVII med CXIX. Med arabiske tall er det enkelt: 47 ganger 119. Det er ikke tilfeldig at europeerne byttet system."
+    },
+    {
+      "type": "text",
+      "content": "Kaffe er en annen gave fra denne perioden. Kaffetreet vokste opprinnelig i Etiopia, men det var i Jemen på 900-tallet at man begynte å brenne og koke bønnene til en drikk. Derfra spredte kaffehus seg til Mekka og Kairo - verdens aller første kaffehus. Disse stedene var ikke bare steder for å drikke. De var møtesteder for diskusjon, musikk og politikk. Det er en rett linje fra kaffehusene i middelalderens Kairo til kaffehusene i 1700-tallets London der opplysningstidens ideer ble utvekslet."
+    },
+    {
+      "type": "component",
+      "name": "FactBox",
+      "props": {
+        "title": "Arabiske ord i norsk",
+        "content": "En rekke hverdagsord er arabiske: algebra (al-jabr), algoritme (fra al-Khwarizmi), alkohol (al-kuhul), admiral (amir al-bahr), sukker (sukkar), sofa (suffah), kaffe (qahwa). Neste gang du regner algebra, bruker du et arabisk ord."
+      }
+    },
+    {
+      "type": "header",
+      "text": "Mongolene brenner Bagdad"
+    },
+    {
+      "type": "text",
+      "content": "I 1258 kom katastrofen. Mongolene under Hulagu Khan, et barnebarn av Djengis Khan, beleiret Bagdad med en enorm hær. Etter noen uker falt byen. Det som fulgte var en av historiens mest brutale plyndringer. Abbasid-kalifen ble drept. Hundretusener av innbyggere mistet livet. Og bibliotekene - de fantastiske samlingene av kunnskap fra Visdomshuset og andre steder - ble kastet i elven Tigris."
+    },
+    {
+      "type": "text",
+      "content": "Ifølge en gammel legende farget blekket fra alle de ødelagte bøkene elven svart i dager. Om det er sant eller ei, vet vi ikke. Men det forteller oss noe om hvordan folk tenkte på tapet. Det var ikke bare en by som ble ødelagt. Det var en sivilisasjon. Gullaldet var over."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Mongolenes beleiringen av Bagdad 1258",
+      "caption": "Mongolenes ødeleggelse av Bagdad i 1258 satte en brutal sluttstrek for det islamske gullaldets blomstringstid."
+    },
+    {
+      "type": "header",
+      "text": "Arven som forandret Europa"
+    },
+    {
+      "type": "text",
+      "content": "Men kunnskapen overlevde - for den hadde allerede spredt seg. Lærde i islamske byer som Toledo i Spania, Palermo på Sicilia og Kairo fortsatte arbeidet. Europeiske studenter og munker reiste til disse byene for å lese arabiske oversettelser av greske tekster - og oversette dem videre til latin. Aristoteles kom tilbake til Europa via Bagdad. Matematikken fra India kom til Europa via de islamske lærde."
+    },
+    {
+      "type": "text",
+      "content": "Uten det islamske gullaldet, ingen europeisk renessanse. Det er historikernes dom. De store europeiske tenkerne på 1300- og 1400-tallet bygde på et fundament som muslimske lærde hadde lagt ferdig gjennom fem hundre år med tålmodig arbeid. Neste gang du løser en algebraoppgave, husker du hvem du kan takke."
+    },
+    {
+      "type": "component",
+      "name": "Quiz",
+      "props": {
+        "questions": [
+          {
+            "question": "Hva betyr Bayt al-Hikma på norsk?",
+            "options": ["Gullpalasset", "Visdomshuset", "Biblioteket i Kairo", "Kunnskapstårnet"],
+            "answer": 1,
+            "explanation": "Bayt al-Hikma betyr Visdomshuset og var et oversettelsessenter og akademi i Bagdad der lærde fra hele verden arbeidet."
+          },
+          {
+            "question": "Hvilket ord er oppkalt etter matematikeren al-Khwarizmi?",
+            "options": ["Algebra", "Algoritme", "Alkohol", "Admiral"],
+            "answer": 1,
+            "explanation": "Algoritme kommer fra det latiniserte navnet Algoritmi. Al-Khwarizmi ga oss også algebra, fra tittelen på en av hans bøker."
+          },
+          {
+            "question": "Hvem ødela Bagdad i 1258 og satte en slutt på gullaldet?",
+            "options": ["Korsfarerne", "Osmanene", "Mongolene", "Perserne"],
+            "answer": 2,
+            "explanation": "Mongolene under Hulagu Khan beleiret og plyndret Bagdad i 1258. Bibliotekene ble ødelagt og abbasid-kalifen drept."
+          },
+          {
+            "question": "Hva er riktig om arabiske tall?",
+            "options": [
+              "De ble oppfunnet av arabiske lærde i Bagdad",
+              "De ble oppfunnet i India og spredt av islamske lærde til Europa",
+              "De er de samme som romertallene, bare skrevet annerledes",
+              "De ble oppfunnet av greske matematikere"
+            ],
+            "answer": 1,
+            "explanation": "Tallsystemet ble opprinnelig utviklet i India. Islamske lærde tok det med seg vestover og introduserte det for Europa, der det erstattet romertallene."
+          }
+        ]
+      }
+    }
+  ],
+  "timeline": []
+}

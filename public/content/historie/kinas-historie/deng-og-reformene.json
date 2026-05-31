@@ -1,0 +1,207 @@
+{
+  "id": "deng-og-reformene",
+  "title": "Deng Xiaoping: Kina åpner for verden",
+  "layout": "rich",
+  "year": "1978-1997",
+  "category": "Kinas historie",
+  "readTime": "9 min lesning",
+  "heroImage": "/images/placeholder.webp",
+  "details": [
+    "Deng Xiaoping ble tre ganger kastet ut av lederskapet - og tre ganger kom han tilbake.",
+    "De spesielle økonomiske sonene, som Shenzhen, var eksperiment-byer der markedsøkonomi fikk lov til å fungere.",
+    "Fra 1978 til 2000 vokste Kinas økonomi seks ganger. 800 millioner mennesker løftet seg ut av fattigdom."
+  ],
+  "externalUrl": "https://snl.no/Deng_Xiaoping",
+  "content": [
+    {
+      "type": "text",
+      "content": "\"Det spiller ingen rolle om katten er svart eller hvit, bare den fanger mus.\" Det var Deng Xiaopings svar til alle som spurte om markedsøkonomi virkelig passet inn i et kommunistisk land. Han brydde seg ikke om ideologi. Han brydde seg om resultater. Og resultatene han skapte endret verden."
+    },
+    {
+      "type": "header",
+      "text": "Mannen som nektet å gi seg"
+    },
+    {
+      "type": "text",
+      "content": "Deng Xiaoping hadde kjempet side om side med Mao Zedong i tiår. Han var en av Kinas mektigste menn da Mao startet kulturrevolusjonen i 1966. Men Mao ønsket ikke mektige rivaler - og Deng passet ikke inn i den nye revolusjonen. Han ble kastet ut av alt, sendt til å jobbe på en traktor i en avsidesliggende provins."
+    },
+    {
+      "type": "text",
+      "content": "Deng kom tilbake. Ble kastet ut igjen. Kom tilbake igjen. Tre ganger ble han fjernet fra makten, og tre ganger klatret han opp igjen. Da Mao døde i 1976, var Deng klar. I 1978 tok han kontrollen over Kina - og han hadde en plan."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Deng Xiaoping på 1970-tallet",
+      "caption": "Deng Xiaoping overlevde kulturrevolusjonen og ble Kinas mektigste leder etter Maos død i 1976."
+    },
+    {
+      "type": "header",
+      "text": "De fire moderniseringene"
+    },
+    {
+      "type": "text",
+      "content": "Deng forkynte fire mål som Kina skulle nå innen år 2000: modernisere landbruket, industrien, forsvaret og vitenskapen. Tanken var enkel - Kina var fattig fordi det lå etter. Løsningen var å hente inn kunnskap og kapital fra resten av verden, bruke det Kina trengte, og ta igjen tapt tid."
+    },
+    {
+      "type": "text",
+      "content": "Det første steget var bondene. Frem til 1978 drev kinesiske bønder på kollektive gårder der alt overskudd gikk til staten. Deng ga dem lov til å selge det de dyrket utover kvoten sin - på egne vilkår. Matproduksjonen steg dramatisk på få år. Bondene tjente penger for første gang."
+    },
+    {
+      "type": "header",
+      "text": "Shenzhen: eksperimentet som lyktes"
+    },
+    {
+      "type": "text",
+      "content": "I 1979 pekte Deng på et lite fiskertettsted like nord for Hongkong: Shenzhen. Her skulle Kina prøve noe nytt. En spesiell økonomisk sone - et område der utenlandske selskaper kunne investere, der folk kunne tjene og bruke penger fritt, der markedsøkonomi fikk virke. Resten av Kina forble kommunistisk. Men i Shenzhen gjaldt andre regler."
+    },
+    {
+      "type": "component",
+      "name": "FactBox",
+      "props": {
+        "title": "Shenzhen: fra landsby til storby",
+        "content": "I 1979 bodde det omtrent 30 000 mennesker i Shenzhen. Det var en liten fiskerlandsby sør i Guangdong-provinsen. Deng Xiaoping valgte stedet til Kinas første spesielle økonomiske sone. Fabrikker, skyskrapere og motorveier skjøt opp i rekordfart. I år 2000 hadde Shenzhen 12 millioner innbyggere - og var blitt en av verdens raskest voksende byer gjennom historien. I dag er Shenzhen hjemsted for selskaper som Huawei og Tencent."
+      }
+    },
+    {
+      "type": "text",
+      "content": "Eksperimentet fungerte. Fabrikker kom. Jobber kom. Penger kom. Deng åpnet flere soner langs kysten. Investeringer strømmet inn fra Hongkong, Taiwan, Japan og USA. Kina ble raskt en produksjonsgigant - klær, elektronikk og maskiner rullet ut av fabrikkhallene i enorme mengder."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Shenzhen skyline på 1990-tallet",
+      "caption": "Shenzhen vokste fra fiskerlandsby til metropol i løpet av ett tiår - et synlig bevis på at Dengs reformer virket."
+    },
+    {
+      "type": "header",
+      "text": "Selvmotsigelse eller genistrek?"
+    },
+    {
+      "type": "text",
+      "content": "Var det ikke rart - et kommunistisk parti som tillot kapitalisme? Deng hadde et svar: \"Sosialisme med kinesiske kjennetegn.\" Han nektet å bruke ordet kapitalisme, men lot markedskreftene virke i stadig større deler av økonomien. Partiet beholdt makten over politikken. Men i butikkene, på fabrikken og i banker fikk prisene og fortjenesten bestemme."
+    },
+    {
+      "type": "text",
+      "content": "Kritikere kalte det hykleri. Tilhengerne kalte det pragmatisme - det eneste som virket. Tallene ga Deng rett. Kinas økonomi doblet seg på 1980-tallet. Og doblet seg igjen på 1990-tallet."
+    },
+    {
+      "type": "component",
+      "name": "PlotGraph",
+      "props": {
+        "title": "Kinas BNP per innbygger 1978-2000",
+        "description": "Dengs reformer satte i gang en vekst verden aldri hadde sett maken til",
+        "xAxisLabel": "Prosent av perioden (0=1978, 100=2000)",
+        "yAxisLabel": "Relativ velstandsindeks (0-100)",
+        "points": [
+          {"x": 0, "y": 5},
+          {"x": 10, "y": 8},
+          {"x": 20, "y": 12},
+          {"x": 30, "y": 16},
+          {"x": 40, "y": 22},
+          {"x": 50, "y": 30},
+          {"x": 60, "y": 42},
+          {"x": 70, "y": 55},
+          {"x": 80, "y": 68},
+          {"x": 90, "y": 80},
+          {"x": 100, "y": 95}
+        ]
+      }
+    },
+    {
+      "type": "header",
+      "text": "Vekst og skyggesider"
+    },
+    {
+      "type": "text",
+      "content": "800 millioner kinesere klatret ut av fattigdom i tiårene etter 1978. Det er den raskeste fattigdomsreduksjonen i menneskehetens historie. Forventet levealder steg. Leseferdighet steg. Byer vokste."
+    },
+    {
+      "type": "text",
+      "content": "Men ikke alle vant like mye. Bønder på landsbygda ble hengende etter byboere. Korrupsjonen vokste i takt med pengene - partimedlemmer brukte kontaktene sine til å berike seg selv. Ulikheten i Kina, som hadde vært liten under Mao, skjøt i været. Noen ble rike. Mange ble middels velstående. Og en del ble hengende igjen."
+    },
+    {
+      "type": "header",
+      "text": "Det som ikke endret seg"
+    },
+    {
+      "type": "text",
+      "content": "Deng lot markedene være frie. Men politikken var ikke fri. Kommunistpartiet beholdt full kontroll over hvem som styrte, hva aviser kunne skrive og hva folk kunne si offentlig. Da studenter i 1989 samlet seg på Den himmelske freds plass i Beijing og krevde demokrati og pressefrihet, svarte Deng med militær. [Les mer om Tiananmen i neste artikkel.](/historie/kinas-historie/tiananmen)"
+    },
+    {
+      "type": "text",
+      "content": "Det var grensen. Velstand, ja. Frihet til å kjope og selge, ja. Men politisk opposisjon - aldri. Deng skilte skarpt mellom okonomisk og politisk liberalisering. Han mente Kina trengte det forste, men ikke det andre."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Kinesisk fabrikk på 1980-tallet",
+      "caption": "Nye fabrikker langs kysten trakk millioner av kinesere fra landsbygda til byene i løpet av 1980- og 1990-tallet."
+    },
+    {
+      "type": "header",
+      "text": "Arven etter Deng"
+    },
+    {
+      "type": "text",
+      "content": "Deng Xiaoping trakk seg fra sine offisielle verv i 1992, men beholdt innflytelse til han døde i 1997. Han rakk å se Hongkong vende tilbake til Kina fra britisk styre - et mål han hadde jobbet mot i mange år."
+    },
+    {
+      "type": "text",
+      "content": "Lederen som styrer Kina i dag - Xi Jinping - bygger videre på den modellen Deng skapte. Sterk okonomisk vekst. Sterk stat. Lite politisk toleranse. Xi har til og med strammer til der Deng lot det slappe litt. Det er Dengs modell, men i en hardere utgave. Katten fanger fortsatt mus - men den har skarpe klor."
+    },
+    {
+      "type": "component",
+      "name": "Quiz",
+      "props": {
+        "questions": [
+          {
+            "question": "Hva mente Deng Xiaoping med uttrykket om svart og hvit katt?",
+            "options": [
+              "At Kina burde velge mellom kommunisme og kapitalisme",
+              "At det viktigste er om politikken gir resultater, ikke hvilken ideologi den bygger på",
+              "At fattige og rike kinesere fortjente like mye",
+              "At Kina måtte kopiere vestlige land"
+            ],
+            "answer": 1,
+            "explanation": "Deng var pragmatiker - han brydde seg om hva som virket, ikke om det passet inn i kommunistisk ideologi. Katten som fanger mus er den gode katten, uansett farge."
+          },
+          {
+            "question": "Hva var de spesielle okonomiske sonene?",
+            "options": [
+              "Områder der kommunistpartiet hadde ekstra streng kontroll",
+              "Byer som fikk lov til å drive markedsøkonomi mens resten av Kina forble kommunistisk",
+              "Militærbaser langs kysten",
+              "Universiteter der vestlig kunnskap ble undervist"
+            ],
+            "answer": 1,
+            "explanation": "I sonene som Shenzhen fikk utenlandske selskaper investere fritt og markedsøkonomi virke - det var et kontrollert eksperiment som Deng utvidet da det lyktes."
+          },
+          {
+            "question": "Hva skjedde med Shenzhen etter at det ble en spesiell okonomisk sone i 1979?",
+            "options": [
+              "Befolkningen sank fordi folk foretrakk Hongkong",
+              "Det ble et militærsenter uten sivil industri",
+              "Byen vokste fra 30 000 til 12 millioner innbyggere innen år 2000",
+              "Eksperimentet mislyktes og sonen ble lagt ned"
+            ],
+            "answer": 2,
+            "explanation": "Shenzhen er et av historiens mest dramatiske byutviklings-eksempler. Fra liten fiskerlandsby til millionby på ett tiår - drevet av utenlandske investeringer og kinesisk arbeidskraft."
+          },
+          {
+            "question": "Hva endret Deng Xiaoping IKKE i Kina?",
+            "options": [
+              "Landbrukspolitikken",
+              "Mulighetene til å drive privat handel",
+              "Kommunistpartiets politiske makt",
+              "Kinas forhold til utenlandske investorer"
+            ],
+            "answer": 2,
+            "explanation": "Deng tillot markedsokonomiske reformer, men holdt partiet fullstendig utenfor kritikk. Da studenter krevde demokrati i 1989, slo han det ned med militær makt."
+          }
+        ]
+      }
+    }
+  ],
+  "timeline": []
+}

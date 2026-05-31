@@ -1,0 +1,195 @@
+{
+  "id": "krigen-mot-terror",
+  "title": "11. september og krigen mot terror",
+  "layout": "rich",
+  "year": "2001-2021",
+  "category": "Midtøsten",
+  "readTime": "9 min lesning",
+  "heroImage": "/images/placeholder.webp",
+  "details": [
+    "11. september 2001 drepte 19 kaprer fra al-Qaida nesten 3000 mennesker i USA.",
+    "USA invaderte Afghanistan i oktober 2001 og Irak i mars 2003 - to svært ulike operasjoner med ulike resultat.",
+    "Da USA trakk seg ut av Afghanistan i 2021, var Taliban tilbake ved makten - som om krigen aldri hadde skjedd."
+  ],
+  "externalUrl": "https://snl.no/11._september-angrepene",
+  "content": [
+    {
+      "type": "text",
+      "content": "Klokken 08:46 tirsdag morgen 11. september 2001 treffer det første flyet tårnet. Det er American Airlines flight 11. Det er ikke en ulykke. En time og 42 minutter senere har verden endret seg for alltid."
+    },
+    {
+      "type": "text",
+      "content": "Totalt kapret 19 menn fire passasjerfly den morgenen. To fly ble styrtet inn i World Trade Center i New York. Et tredje traff Pentagon - USA sitt forsvarsdepartement utenfor Washington. Det fjerde, United Airlines flight 93, krasjet i en åker i Pennsylvania etter at passasjerene prøvde å ta tilbake kontrollen. Nesten 3000 mennesker mistet livet. Det var det dødeligste terrorangrepet i historien."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "World Trade Center i flammer 11. september 2001",
+      "caption": "De to tårnene til World Trade Center i New York i flammer etter angrepene 11. september 2001."
+    },
+    {
+      "type": "header",
+      "text": "Hvem stod bak?"
+    },
+    {
+      "type": "text",
+      "content": "Bak angrepene stod al-Qaida, en militantislamistisk terrororganisasjon ledet av Osama bin Laden. Al-Qaida vokste frem på 1980-tallet under den afghanske krigen mot Sovjet. Da Sovjet invaderte Afghanistan i 1979, strømmet krigere fra hele den muslimske verden til for å kjempe. USA og Saudi-Arabia støttet disse krigsherrene med penger og våpen fordi de ville stoppe kommunismens spredning. Bin Laden var en av dem som kom for å kjempe. Da Sovjet trakk seg ut i 1989, satt disse krigsherrene igjen med trening, nettverk og et mål - og nå rettet de blikket mot Vesten."
+    },
+    {
+      "type": "text",
+      "content": "Bin Laden mente USA blandet seg for mye inn i muslimske land, særlig etter at amerikanske soldater ble stasjonert i Saudi-Arabia under Gulfkrigen i 1990. Han erklærte jihad - hellig krig - mot USA. Al-Qaida planla angrepene i hemmelighet i årevis, trente kaprerene i flysimulatorer og koordinerte alt fra Afghanistan der Taliban-regimet ga dem fritt spillerom."
+    },
+    {
+      "type": "header",
+      "text": "USA svarer: krigen mot terror"
+    },
+    {
+      "type": "text",
+      "content": "President George W. Bush erklærte umiddelbart \"krigen mot terror\". Det var ikke en krig mot ett land, men mot en idé - mot terrorisme som politisk virkemiddel. Problemet med en slik krig er at den ikke har noe klart sluttmål. Når er terror beseiret? Ingen visste svaret."
+    },
+    {
+      "type": "text",
+      "content": "I oktober 2001 invaderte USA og allierte styrker Afghanistan. Oppdraget var klart: fjerne Taliban-regimet som beskyttet al-Qaida, og ta bin Laden. Taliban falt overraskende raskt. Innen desember kontrollerte USA Kabul og de store byene. Bin Laden flyktet til fjellene ved Tora Bora nær grensen til Pakistan - og slapp unna. Det skulle ta ti år før han ble drept av amerikanske spesialstyrker i Pakistan i 2011."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Amerikanske soldater i Afghanistan",
+      "caption": "Amerikanske soldater på patrulje i Afghanistan. USA hadde soldater i landet fra 2001 til 2021."
+    },
+    {
+      "type": "header",
+      "text": "Irak 2003: den omstridte krigen"
+    },
+    {
+      "type": "text",
+      "content": "I mars 2003 invaderte USA Irak - og denne gangen var verden langt mindre enig. Bush-administrasjonen hevdet at Iraks diktator Saddam Hussein hadde masseødeleggelsesvapen og samarbeidet med al-Qaida. Begge påstandene viste seg å være feil. Det fantes ingen masseødeleggelsesvapen. Det fantes ingen reell kobling mellom Saddam og al-Qaida - faktisk var Saddam en erkefiende av islamistgrupper som al-Qaida."
+    },
+    {
+      "type": "text",
+      "content": "Saddam Hussein ble styrtet og senere henrettet. Men etterpå kom kaos. Irak hadde i årtier vært holdt sammen med jernhånd av Saddam. Da han falt, brøt gammelt hat mellom ulike grupper ut i åpen strid. Amerikanerne hadde ingen god plan for hva som skulle skje etter krigen. Landet gled ut i borgerkrig. Av ruinene vokste en ny og enda mer brutal gruppe frem - Den islamske stat, kjent som IS eller Daesh."
+    },
+    {
+      "type": "component",
+      "name": "Comparison",
+      "props": {
+        "title": "Afghanistan 2001 og Irak 2003: to ulike kriger",
+        "leftTitle": "Afghanistan 2001",
+        "rightTitle": "Irak 2003",
+        "items": [
+          {
+            "label": "Mandat",
+            "left": "FN-støttet. NATO utløste artikkel 5 - et angrep på en er et angrep på alle.",
+            "right": "Omstridt. Frankrike og Tyskland nektet å delta. FN ga ikke godkjenning."
+          },
+          {
+            "label": "Begrunnelse",
+            "left": "Al-Qaida opererte fra Afghanistan med Taliban-regimets velsignelse.",
+            "right": "Påstander om masseødeleggelsesvapen og al-Qaida-kobling - begge viste seg å være feil."
+          },
+          {
+            "label": "Militært resultat",
+            "left": "Taliban falt raskt. Kabul tatt på uker.",
+            "right": "Saddam Hussein styrtet raskt. Men deretter: kaos og borgerkrig."
+          },
+          {
+            "label": "Langsiktig arv",
+            "left": "Taliban tilbake ved makten i 2021 - samme som i 1996.",
+            "right": "IS vokste frem fra ruinene. Irak ustabilt i årtier."
+          }
+        ]
+      }
+    },
+    {
+      "type": "header",
+      "text": "Pris og omdømme"
+    },
+    {
+      "type": "text",
+      "content": "Krigen mot terror skadet også USA sitt eget omdømme. I Abu Ghraib-fengselet i Irak ble irakiske fanger mishandlet og ydmyket av amerikanske soldater. Bildene ble spredt over hele verden og sjokkerte. På Guantanamo-basen på Cuba ble mistenkte terrorister holdt uten rettssak i årevis, i strid med internasjonal lov. Mange av dem hadde aldri gjort noe galt. USA hadde startet krigen som den angrepne part med verdens sympati - men tapte mye av den sympatien underveis."
+    },
+    {
+      "type": "component",
+      "name": "FactBox",
+      "props": {
+        "title": "Krigen mot terror i tall",
+        "content": "Omtrent 900 000 mennesker ble drept direkte og indirekte i krigene i Afghanistan, Irak og Pakistan etter 2001 - inkludert titusener av sivile. USA brukte anslagsvis 8000 milliarder dollar totalt. Rundt 38 millioner mennesker ble drevet på flukt i Afghanistan, Irak, Pakistan og Syria som en direkte følge av krigene. Afghanistan-krigen alene kostet USA over 2300 milliarder dollar og varte i 20 år - den lengste krigen i amerikansk historie."
+      }
+    },
+    {
+      "type": "header",
+      "text": "20 år - og tilbake til start"
+    },
+    {
+      "type": "text",
+      "content": "I august 2021 gjennomførte USA den siste tilbaketrekningen fra Afghanistan. Bilder fra Kabul flyplass viste desperate afghanske borgere som klamret seg til hjulene på avreisende amerikanske militærfly. Taliban marsjerte inn i Kabul uten kamp. Det var de samme Taliban som hadde styrt Afghanistan i 1996, og som ble styrtet i 2001. Etter 20 år, 2300 milliarder dollar og tusenvis av liv - var alt tilbake til utgangspunktet."
+    },
+    {
+      "type": "text",
+      "content": "Hva lærte verden av krigen mot terror? At militærmakt kan styrte et regime, men ikke bygge et demokrati. At å invadere et land uten plan for etterpå skaper et maktvakuum der noe verre kan vokse frem. At terror ikke kan \"beseires\" med bomber alene - fordi terror er en taktikk, ikke en hær. Og kanskje viktigst: at frykt kan få demokratier til å gjøre ting de senere angrer på, som å fengsle uskyldige uten rettssak og bruke tortur."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Taliban-styrker i Kabul 2021",
+      "caption": "Taliban rykket inn i Kabul i august 2021 etter at USA fullførte tilbaketrekningen av sine soldater."
+    },
+    {
+      "type": "text",
+      "content": "Angrepene 11. september forandret verden. De satte i gang to lange og kostbare kriger. De endret måten stater overvåker borgerne sine på. De skapte nye spenninger mellom Vesten og den muslimske verden. Og de viste at en liten gruppe, med enkle virkemidler, kan utfordre verdens mektigste supermakt. Leksen er ikke enkel - men den er viktig å forstå."
+    },
+    {
+      "type": "component",
+      "name": "Quiz",
+      "props": {
+        "questions": [
+          {
+            "question": "Hvem stod bak angrepene 11. september 2001?",
+            "options": [
+              "Taliban-regimet i Afghanistan",
+              "Al-Qaida, ledet av Osama bin Laden",
+              "Saddam Husseins Irak",
+              "Den islamske staten (IS)"
+            ],
+            "answer": 1,
+            "explanation": "Al-Qaida, ledet av Osama bin Laden, planla og gjennomforte angrepene. Taliban ga al-Qaida beskyttelse i Afghanistan, men stod ikke direkte bak angrepene."
+          },
+          {
+            "question": "Hvilken av disse pastandene om Irak-krigen i 2003 viste seg a vaere riktig?",
+            "options": [
+              "Irak hadde masseodeleggelsesvapen",
+              "Saddam Hussein samarbeidet aktivt med al-Qaida",
+              "Verken masseodeleggelsesvapen eller al-Qaida-kobling fantes",
+              "FN godkjente invasjonen"
+            ],
+            "answer": 2,
+            "explanation": "Begge de viktigste begrunnelsene for Irak-krigen viste seg a vaere feil. Det fantes ingen masseodeleggelsesvapen, og det fantes ingen reell kobling mellom Saddam Hussein og al-Qaida."
+          },
+          {
+            "question": "Hva skjedde i Afghanistan i august 2021?",
+            "options": [
+              "USA vant krigen og opprettet et stabilt demokrati",
+              "Al-Qaida tok makten pa nytt",
+              "Taliban rykket inn i Kabul etter at USA trakk seg ut",
+              "Afghanistan ble delt i to stater"
+            ],
+            "answer": 2,
+            "explanation": "Etter 20 ar og over 2300 milliarder dollar trakk USA seg ut i 2021. Taliban marsjerte inn i Kabul uten kamp og tok makten - de samme Taliban som hadde styrt landet for 2001."
+          },
+          {
+            "question": "Hvilke hendelser svekket USA sitt omdamme under krigen mot terror?",
+            "options": [
+              "Drapet pa Osama bin Laden og tilbaketrekningen fra Afghanistan",
+              "Mishandling av fanger i Abu Ghraib og fengsling uten rettssak pa Guantanamo",
+              "Invasjonen av Afghanistan og bombing av Tora Bora",
+              "Opprettelsen av Nato-koalisjonen og artikkel 5"
+            ],
+            "answer": 1,
+            "explanation": "Bildene fra Abu Ghraib-fengselet og forholdene pa Guantanamo-basen sjokkerte verden. USA hadde startet krigen med verdens sympati etter 11. september, men tapte mye av den gjennom disse handlingene."
+          }
+        ]
+      }
+    }
+  ],
+  "timeline": []
+}

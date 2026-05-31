@@ -1,0 +1,217 @@
+{
+  "id": "olje-og-makt",
+  "title": "Olje og makt: Ressursen som endret alt",
+  "layout": "rich",
+  "year": "1908-i dag",
+  "category": "Midtøsten",
+  "readTime": "8 min lesning",
+  "heroImage": "/images/placeholder.webp",
+  "details": [
+    "To tredjedeler av verdens kjente oljereserver ligger i Midtøsten og Persiabukta-området.",
+    "Under oljekrisen i 1973 doblet prisen seg på tre måneder. Europeiske land innførte bilkjøringsforbud på søndager.",
+    "Saudi-Arabia tjener i snitt 800 000 dollar per minutt på oljeeksport."
+  ],
+  "externalUrl": "https://snl.no/OPEC",
+  "content": [
+    {
+      "type": "text",
+      "content": "Oktober 1973. Arabiske land skrur igjen oljeventilen. Innen tre dager er bensinstasjoner langs hele USA tomme. I Europa innforer regjeringer bilkjøringsforbud pa søndager. Fabrikker stanser produksjonen. Folk køer i timevis for a tanke opp det lille som er igjen. Alt dette skjer ikke fordi oljen er slutt - men fordi noen bestemmer seg for a holde den tilbake."
+    },
+    {
+      "type": "text",
+      "content": "Det er et av historiens tydeligste eksempler pa hva olje egentlig er: ikke bare drivstoff, men makt."
+    },
+    {
+      "type": "header",
+      "text": "De første oljefunnene: En annens ressurs"
+    },
+    {
+      "type": "text",
+      "content": "I 1908 pumper britiske ingeniører opp olje i Persia - det landet vi i dag kaller Iran. Det er første gang man finner olje i Midtøsten, og det endrer alt. I 1927 følger Irak, og i 1938 treffer man sprekken i Saudi-Arabia som viser seg a bli en av verdens rikeste oljekjeldene gjennom tidene."
+    },
+    {
+      "type": "text",
+      "content": "Men hvem eier denne oljen? I begynnelsen er svaret enkelt: ikke araberne. Britiske og amerikanske selskaper kontrollerer produksjonen, infrastrukturen og prisene. Anglo-Persian Oil Company - som senere blir til BP - tar opp olje i Iran og sender overskuddet til London. Lokale regjeringer far en liten andel. Det arabiske folk, ingenting."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Oljetarn i ørken i Midtøsten tidlig 1900-tall",
+      "caption": "De første oljefeltene i Midtøsten ble kontrollert av europeiske og amerikanske selskaper."
+    },
+    {
+      "type": "header",
+      "text": "OPEC: Araberne tar tilbake kontrollen"
+    },
+    {
+      "type": "text",
+      "content": "I 1960 samler fem land seg i Bagdad: Iran, Irak, Kuwait, Saudi-Arabia og Venezuela. De grunnlegger OPEC - Organisasjonen av oljeeksporterende land. Malet er enkelt: fa kontroll over egne ressurser og fa bedre betalt."
+    },
+    {
+      "type": "text",
+      "content": "Gjennom 1960- og 1970-arene skjer det en bølge av nasjonaliseringer. Libya, under den nye lederen Muammar Gaddafi, nasjonaliserer oljeindustrien i 1969. Irak gjør det samme i 1972. Saudi-Arabia fullfører sin overtakelse av Aramco i 1980. Meldingen er klar: oljen tilhorer folket i landet den kommer fra - ikke utenlandske selskaper."
+    },
+    {
+      "type": "component",
+      "name": "TimelineComponent",
+      "props": {
+        "compact": true,
+        "events": [
+          { "year": 1908, "description": "Olje funnet i Persia (Iran) - britisk kontroll" },
+          { "year": 1938, "description": "Massivt oljefunn i Saudi-Arabia" },
+          { "year": 1960, "description": "OPEC grunnlegges i Bagdad" },
+          { "year": 1969, "description": "Libya nasjonaliserer oljeindustrien" },
+          { "year": 1972, "description": "Irak nasjonaliserer oljeindustrien" },
+          { "year": 1973, "description": "Oljekrisen - OPEC-embargo mot Vesten" },
+          { "year": 1980, "description": "Saudi-Arabia fullforer overtakelse av Aramco" }
+        ]
+      }
+    },
+    {
+      "type": "header",
+      "text": "Oljekrisen 1973: Vapen av olje"
+    },
+    {
+      "type": "text",
+      "content": "6. oktober 1973 angriper Egypt og Syria Israel i det som kalles Yom Kippur-krigen. USA og andre vestlige land støtter Israel med vapen og penger. Som svar pa denne støtten annonserer arabiske OPEC-land en oljeembargo - de nekter a selge olje til land som støtter Israel."
+    },
+    {
+      "type": "text",
+      "content": "Konsekvensene er umiddelbare og dramatiske. Pa bare tre maneder firedobles oljeprisen. I USA innfores rasjonering. President Nixon ber amerikanere om a skru ned termostaten og slokke julepyntlysene. I Nederland kjorer folk med hest og kjerre pa motorveiene, fordi biler er forbudt pa søndager. Verdensøkonomien vaker."
+    },
+    {
+      "type": "component",
+      "name": "LineChart",
+      "props": {
+        "title": "Råoljeprisen 1960-2000",
+        "datasetLabel": "Dollar per fat (2020-dollar)",
+        "xAxisLabel": "År",
+        "yAxisLabel": "Dollar per fat",
+        "data": [
+          { "year": 1960, "value": 12 },
+          { "year": 1965, "value": 12 },
+          { "year": 1970, "value": 13 },
+          { "year": 1973, "value": 16 },
+          { "year": 1974, "value": 48 },
+          { "year": 1978, "value": 50 },
+          { "year": 1980, "value": 100 },
+          { "year": 1985, "value": 58 },
+          { "year": 1990, "value": 40 },
+          { "year": 1995, "value": 35 },
+          { "year": 2000, "value": 42 }
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "content": "Oljekrisen forandrer verden permanent. Vestlige land begynner a lete etter olje hjemme - det er derfor Norge starter sin storstilte oljeutvinning i Nordsjøen pa 1970-tallet. Biler blir designet til a bruke mindre bensin. Forskning pa alternative energikilder far plutselig penger. Og verden forstar for alvor at olje ikke bare er handelsvare - det er et politisk vapen."
+    },
+    {
+      "type": "header",
+      "text": "Oljerikdom: Velsignelse eller forbannelse?"
+    },
+    {
+      "type": "text",
+      "content": "For Gulf-statene som Saudi-Arabia, Kuwait og De forente arabiske emirater medfører oljerikdommen en ekstrem velstandsøkning. Disse landene bygger moderne byer, gratis helsetjenester, gratis utdanning og subsidiert strøm for sine borgere. Dubai forvandler seg fra en liten fiskerlandsby til en skyskraper-by pa noen far decennier."
+    },
+    {
+      "type": "component",
+      "name": "FactBox",
+      "props": {
+        "title": "Oljerikdom og ulikhet",
+        "content": "Qatar er et av verdens rikeste land malt per innbygger, med en gjennomsnittsinntekt blant de høyeste i verden. Landet har gratis helsehjelp, gratis skole og ingen inntektsskatt for egne borgere. Yemen, som ligger like ved - pa den arabiske halvøya - er et av verdens fattigste land, med millioner i akutt sult og en ødeleggende borgerkrig. Begge land er i Midtøsten. Forskjellen handler ikke om geografi, men om hvem som sitter pa oljereservene."
+      }
+    },
+    {
+      "type": "text",
+      "content": "Men oljerikdom er ikke alltid en velsignelse. Økonomer kaller det oljeforbannelsen: land som plutselig far enorme inntekter fra ett eneste produkt, slutter gjerne a bygge opp andre næringer. Nar oljeprisen faller, faller hele landet med den. Dessuten flyter pengene ofte til toppen - til kongehus og eliter - mens vanlige folk ser lite av rikdommen. Irak, Libya og Nigeria er alle oljerike land med store fattigdomsproblemer og politisk ustabilitet."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Moderne skyskrapere i Dubai ved siden av ørkenlandskap",
+      "caption": "Gulf-statene brukte oljerikdommen til a bygge noen av verdens mest moderne byer pa fa decennier."
+    },
+    {
+      "type": "header",
+      "text": "Petrodollars og politiske dilemmaer"
+    },
+    {
+      "type": "text",
+      "content": "Nar Vesten kjøper olje, betaler de i dollar. Disse dollarmilliardene - kalt petrodollars - havner i de oljeproduserende landenes statskasser. Pengene investeres tilbake i vestlige banker, aksjemarkeder og eiendom. Saudi-Arabia eier for eksempel store andeler i vestlige selskaper og banker. Qatar eier deler av kjente europeiske fotballklubber og luksuriøse hotellkjeder."
+    },
+    {
+      "type": "text",
+      "content": "Dette skaper et politisk dilemma for vestlige demokratier. Saudi-Arabia er et absolutt monarki uten frie valg, med sterke begrensninger pa kvinners rettigheter og hard undertrykking av opposisjon. Likevel er landet en av Vestens viktigste allierte, fordi ingen vestlig regjering har rad til a miste tilgangen til Saudi-arabisk olje og kapital. Olje gjør det vanskelig a kreve demokrati og menneskerettigheter av land man er avhengig av."
+    },
+    {
+      "type": "header",
+      "text": "Olje og klima: Et globalt problem"
+    },
+    {
+      "type": "text",
+      "content": "Olje er en regional ressurs, men klimaendringene det skaper er et globalt problem. Midtøsten er paradoksalt nok en av regionene som rammes hardest av klimaendringer. Temperaturer som allerede er blant de høyeste i verden stiger videre. Tørke og vannmangel truer jordbruk og drikkevann. Havniva-stigning truer kyststater."
+    },
+    {
+      "type": "text",
+      "content": "Mange Gulf-stater investerer na tungt i solenergi og fornybar teknologi. Saudi-Arabia planlegger a bygge verdens største solkraftanlegg. De vet at oljealderen har en slutt. Spørsmalet er om de rekker a omstille seg før det skjer - og om resten av verden rekker det før klimaendringene blir ukontrollerbare."
+    },
+    {
+      "type": "text",
+      "content": "Olje formet Midtøsten, og Midtøstens olje formet verden. Fra de første britiske oljeboringene i Persia i 1908 til OPEC-embargoen som rystet verdensøkonomien, til petrodollar-nettverkene som binder Vesten og arabiske monarker sammen i dag - ressursen under ørkensanden har alltid vært mer enn drivstoff. Den er makt, politikk og skjebne pa en gang. Les mer om [konflikter i Midtøsten](/historie/midtoesten) og [den kalde krigen](/historie/den-kalde-krigen) for a forsta det større bildet."
+    },
+    {
+      "type": "component",
+      "name": "Quiz",
+      "props": {
+        "questions": [
+          {
+            "question": "Hva var den direkte arsaken til oljekrisen i 1973?",
+            "options": [
+              "Oljen var i ferd med a ta slutt i Midtøsten",
+              "OPEC innforte embargo som svar pa vestlig støtte til Israel i Yom Kippur-krigen",
+              "En stor eksplosjon ødela de viktigste oljeledningene i Saudi-Arabia",
+              "USA innforte importforbud pa arabisk olje"
+            ],
+            "answer": 1,
+            "explanation": "OPEC-landene innforte en oljeembargo mot Vesten som direkte svar pa at USA og andre vestlige land støttet Israel med vapen og penger under Yom Kippur-krigen i oktober 1973."
+          },
+          {
+            "question": "Hva mener man med oljeforbannelsen?",
+            "options": [
+              "At olje fører til miljøkatastrofer og klimaendringer",
+              "At oljerike land ofte slutter a bygge andre næringer og far politisk ustabilitet",
+              "At olje alltid forer til krig mellom naboland",
+              "At oljeinntekter alltid forer til inflasjon og økt fattigdom"
+            ],
+            "answer": 1,
+            "explanation": "Oljeforbannelsen beskriver fenomenet der land med store oljeinntekter gjerne slutter a bygge opp andre næringer, nar oljeprisen faller rammer det hele landet, og rikdommen flyter ofte til elitene mens vanlige folk ser lite av den."
+          },
+          {
+            "question": "Nar ble OPEC grunnlagt, og hvor?",
+            "options": [
+              "I 1945 i Cairo, Egypt",
+              "I 1955 i Riyadh, Saudi-Arabia",
+              "I 1960 i Bagdad, Irak",
+              "I 1973 i Geneve, Sveits"
+            ],
+            "answer": 2,
+            "explanation": "OPEC ble grunnlagt i 1960 i Bagdad av fem land: Iran, Irak, Kuwait, Saudi-Arabia og Venezuela. Malet var a fa kontroll over egne oljeressurser og fa bedre betalt for oljen."
+          },
+          {
+            "question": "Hva er petrodollars?",
+            "options": [
+              "En spesiell valuta brukt i oljebransjen",
+              "Dollar-inntekter som oljeproduserende land far nar de selger olje",
+              "Penger USA trykker for a betale for militær tilstedeværelse i Midtøsten",
+              "En type oljefond som alle OPEC-land ma bidra til"
+            ],
+            "answer": 1,
+            "explanation": "Petrodollars er de dollar-inntektene oljeproduserende land far nar de selger olje, siden olje handles i amerikanske dollar. Disse pengene investeres gjerne tilbake i vestlige markeder og skaper tette finansielle band mellom oljestatene og Vesten."
+          }
+        ]
+      }
+    }
+  ],
+  "timeline": []
+}

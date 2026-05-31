@@ -1,0 +1,197 @@
+{
+  "id": "orientering",
+  "title": "Orientering: Kart, folk og religioner",
+  "layout": "rich",
+  "year": "3000 fvt - i dag",
+  "category": "Midtøsten",
+  "readTime": "7 min lesning",
+  "heroImage": "/images/placeholder.webp",
+  "details": [
+    "Midtøsten er ikke ett folk, ett land eller én religion - begrepet dekker over 20 land og dusinvis av folkegrupper.",
+    "Skillet mellom sunni og shia islam handler ikke om dogmer, men om hvem som skulle lede islam etter Muhammeds død.",
+    "Arabere, persere og tyrkere er tre ulike folkegrupper med ulike språk og kulturer, men felles islamsk arv."
+  ],
+  "externalUrl": "https://snl.no/Midtosten",
+  "content": [
+    {
+      "type": "text",
+      "content": "Ingen som bor i Midtøsten kaller hjemstedet sitt for \"Midtøsten\". En iraner sier han er fra Iran. En egypter sier hun er fra Egypt. Begrepet ble oppfunnet av en britisk marineoffiser i 1902 for å beskrive havområdene mellom den britiske basen i India og kanalen i Egypt. Siden da har begrepet hengt fast - men det sier mer om europeisk perspektiv enn om regionen selv."
+    },
+    {
+      "type": "header",
+      "text": "Hvilke land snakker vi om?"
+    },
+    {
+      "type": "text",
+      "content": "Det finnes ingen offisiell liste over hvilke land som tilhører Midtøsten, og ulike kilder trekker grensen ulikt. Kjernen er gjerne landene rundt Persiabukta og Middelhavet: Egypt, Israel, Palestina, Jordan, Libanon, Syria, Irak, Iran, Saudi-Arabia, Kuwait, Bahrain, Qatar, De forente arabiske emirater, Oman og Jemen. Tyrkia og de nordafrikanske landene som Libya, Tunisia, Algerie og Marokko regnes av og til med, av og til ikke. Alt i alt handler vi om en region like stor som Europa med rundt 400 millioner innbyggere."
+    },
+    {
+      "type": "component",
+      "name": "MapCarousel",
+      "props": {
+        "title": "Midtøstens geografi",
+        "items": [
+          {
+            "image": "/images/placeholder.webp",
+            "caption": "Det politiske kartet viser over 20 stater med svært ulike størrelser - fra gigantiske Saudi-Arabia til bitte lille Bahrain. Grensene ble i stor grad trukket av europeiske kolonimakter etter første verdenskrig, uten særlig hensyn til hvem som bodde der.",
+            "alt": "Politisk kart over Midtøsten"
+          },
+          {
+            "image": "/images/placeholder.webp",
+            "caption": "Den religiøse fordelingen viser at sunnimuslimer dominerer i de fleste arabiske land, mens shiamuslimer er i flertall i Iran, Irak og Bahrain. Israel er den eneste jødiske staten. Libanon har et komplisert religiøst mosaikk av kristne, shia og sunni.",
+            "alt": "Kart over religiøs fordeling i Midtøsten"
+          },
+          {
+            "image": "/images/placeholder.webp",
+            "caption": "Oljekartet avslører en enorm ubalanse. Golfstatene - Saudi-Arabia, Kuwait, UAE, Qatar og Irak - sitter på mesteparten av verdens kjente oljereserver. Land som Jordan, Libanon og Egypt har lite olje og er langt fattigere. Olje forklarer mye av den geopolitiske interessen i regionen.",
+            "alt": "Kart over oljereserver i Midtøsten"
+          }
+        ]
+      }
+    },
+    {
+      "type": "header",
+      "text": "Folkene - ikke ett, men mange"
+    },
+    {
+      "type": "text",
+      "content": "Det vanligste misforstanden om Midtøsten er at alle er arabere. Det stemmer ikke. Arabere er den største gruppen og bor i et belte fra Marokko i vest til Irak i øst - alle snakker varianter av arabisk. Men iranerne er persere og snakker farsi, et indoeuropeisk språk beslektet med norsk. Tyrkerne bor i Tyrkia og snakker tyrkisk, som tilhører en helt annen språkfamilie. Disse tre folkene - arabere, persere og tyrkere - har bygd tre av historiens mektigste imperier og konkurrert om makt i regionen i over tusen år."
+    },
+    {
+      "type": "text",
+      "content": "Så er det kurderne. De er rundt 30-40 millioner mennesker spredt over Tyrkia, Syria, Irak og Iran - uten en egen stat. Kurderne har kjempet lenge for selvstendighet, men ingen av landene de bor i ønsker å gi fra seg territorium. Dette gjør kurderne til et av verdens største folk uten eget hjemland, og kurderspørsmålet er en av de fastlåste konfliktene i regionen."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Kurdiske familier i en by i Nord-Irak",
+      "caption": "Kurderne er Midtøstens største folk uten en egen stat. De fleste bor i fjellområdene der Tyrkia, Syria, Irak og Iran møtes."
+    },
+    {
+      "type": "header",
+      "text": "Tre verdensreligioner fra ett lite hjørne"
+    },
+    {
+      "type": "text",
+      "content": "Jerusalem er en by på størrelse med Stavanger. Allikevel har den gitt verden tre av de største religionene. Jødedommen er eldst - den vokste frem i Kanaan for rundt 3500 år siden og er basert på pakten mellom Gud og Abrahams folk. Kristendommen ble grunnlagt av Jesus fra Nasaret rundt år 30, og islam av profeten Muhammed i Mekka rundt år 610. Alle tre regner Abraham som stamfar, alle tre har Jerusalem som hellig by, og alle tre leser fra overlappende hellige tekster. Allikevel har de tre religionene vært i konflikt med hverandre i store deler av sin felles historie."
+    },
+    {
+      "type": "header",
+      "text": "Sunni og shia: en splittelse med 1400 år"
+    },
+    {
+      "type": "text",
+      "content": "Muhammed døde i 632 uten å ha utpekt en arvtaker. Det oppsto raskt strid om hvem som skulle lede muslimene videre. En gruppe mente lederskapet burde gå til Muhammeds svigersønn og fetter Ali - disse ble kalt shia (fra arabisk \"shiat Ali\", Alis tilhengere). En annen gruppe mente man skulle velge den mest skikkede blant de troende - disse ble kalt sunni (fra \"sunnah\", Muhammeds tradisjon). Alis sønn Husain ble drept i slaget ved Karbala i 680, og dette traumet lever den dag i dag som den sentrale hendelsen i shiaislam."
+    },
+    {
+      "type": "text",
+      "content": "Skillet mellom sunni og shia handler ikke primært om teologiske dogmer - begge gruppene ber fem ganger om dagen, faster i ramadan og har tro på Koranen. Splittelsen er politisk og historisk. I dag er rundt 85 prosent av verdens muslimer sunnier. Shiamuslimer er i flertall i Iran, Irak, Bahrain og deler av Libanon. Saudi-Arabia er den ledende sunninasjonen, og rivaliseringen mellom Saudi-Arabia og Iran er i stor grad en moderne utgave av den gamle sunni-shia-konflikten."
+    },
+    {
+      "type": "component",
+      "name": "Comparison",
+      "props": {
+        "title": "Sunni og shia: likheter og forskjeller",
+        "leftTitle": "Sunni (~85%)",
+        "rightTitle": "Shia (~15%)",
+        "items": [
+          {
+            "label": "Opprinnelse",
+            "left": "Mente lederskapet skulle velges blant de troende etter Muhammeds død",
+            "right": "Mente lederskapet tilhørte Muhammeds familie - spesielt svigersønnen Ali"
+          },
+          {
+            "label": "Hvem leder?",
+            "left": "Kalifer og sultaner gjennom historien - i dag religiøse lærde uten politisk makt",
+            "right": "Imamer anses som Guds representanter pa jord - i Iran har ayatollaen politisk makt"
+          },
+          {
+            "label": "Dominerende land",
+            "left": "Saudi-Arabia, Tyrkia, Egypt, Pakistan, Indonesia",
+            "right": "Iran, Irak, Bahrain, deler av Libanon og Syria"
+          },
+          {
+            "label": "Politisk betydning i dag",
+            "left": "Saudi-Arabia bruker oljepenger til a spre wahhabistisk sunniislam globalt",
+            "right": "Iran eksporterer shiarevolusjonen og stotter shiagrupper i Irak, Libanon og Jemen"
+          }
+        ]
+      }
+    },
+    {
+      "type": "header",
+      "text": "Olje endret alt"
+    },
+    {
+      "type": "text",
+      "content": "På 1900-tallet oppdaget vestlige selskaper enorme oljereserver under Persiabukta. Det forandret regionen fullstendig. Land som Saudi-Arabia, Kuwait og UAE ble i løpet av et par tiår omgjort fra ørkenøkonomier til noen av verdens rikeste stater per innbygger. Land uten olje - som Jordan, Libanon og Jemen - slet videre med fattigdom. Denne ubalansen har skapt spenninger som ennå ikke er løst. Den har også gitt vestlige stormakter sterk interesse i å kontrollere hvem som styrer i regionen - og det har ført til utenlandsk innblanding med store konsekvenser."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Oljeraffineri i Saudi-Arabia med flammer og industrianlegg",
+      "caption": "Golfstatene sitter på rundt halvparten av verdens kjente oljereserver. Olje har gitt noen land enorm rikdom - og gjort dem til mål for geopolitisk interesse fra alle verdenshjørner."
+    },
+    {
+      "type": "header",
+      "text": "Tre akser for a forstå nyhetene"
+    },
+    {
+      "type": "text",
+      "content": "Midtøsten virker kaotisk i nyhetsbildet. Men de fleste konflikter kan forklares gjennom tre akser. Den første er sunni mot shia - som oftest Saudi-Arabia mot Iran. Den andre er arabere mot ikke-arabere - der arabiske land ser annerledes på tyrkisk og iransk maktutvidelse enn på hverandre. Den tredje er olje mot ikke-olje - der oljerike land har penger til å kjøpe innflytelse, mens fattige land er avhengige av støtte utenfra. Neste gang du leser om en konflikt i regionen, spør deg: Hvem er sunni, hvem er shia? Er dette arabere eller ikke? Har landet olje? Svarene gir deg et kart over hvem som støtter hvem - og hvorfor."
+    },
+    {
+      "type": "component",
+      "name": "Quiz",
+      "props": {
+        "questions": [
+          {
+            "question": "Hvem oppfant begrepet \"Midtøsten\", og når?",
+            "options": [
+              "En britisk marineoffiser i 1902",
+              "FN i 1945 da de delte opp regionen",
+              "Arabiske nasjonalister på 1800-tallet",
+              "Amerikanske geografer under den kalde krigen"
+            ],
+            "answer": 0,
+            "explanation": "En britisk marineoffiser brukte begrepet i 1902 for å beskrive havomradene mellom India og Egypt. Begrepet reflekterer et europeisk perspektiv - folk i regionen bruker det ikke om seg selv."
+          },
+          {
+            "question": "Hva er den viktigste arsakene til skillet mellom sunni og shia?",
+            "options": [
+              "De er uenige om Koranen er Guds ord",
+              "Sunnier ber fem ganger om dagen, shia bare tre ganger",
+              "Strid om hvem som skulle lede muslimene etter Muhammeds dod i 632",
+              "Geografiske forskjeller mellom arabere og persere"
+            ],
+            "answer": 2,
+            "explanation": "Splittelsen handler ikke om teologi, men om politisk lederskap. Shia mente lederretten tilhorte Muhammeds familie, sunni mente man skulle velge den mest skikkede. Striden begynte umiddelbart etter Muhammeds dod i 632."
+          },
+          {
+            "question": "Kurderne beskrives som et av verdens storste folk uten egen stat. Hvor mange kurdere finnes det?",
+            "options": [
+              "Rundt 2-3 millioner",
+              "Rundt 10 millioner",
+              "Rundt 30-40 millioner",
+              "Over 100 millioner"
+            ],
+            "answer": 2,
+            "explanation": "Det bor rundt 30-40 millioner kurdere spredt over Tyrkia, Syria, Irak og Iran. Ingen av disse landene onsker a gi fra seg territorium til en kurdisk stat, noe som gjor kurdersporsmalets til en av regionens fastlaste konflikter."
+          },
+          {
+            "question": "Hvilke tre akser hjelper deg a forstaa konflikter i Midtosten?",
+            "options": [
+              "Demokrati/diktatur, rik/fattig, by/land",
+              "Sunni/shia, arabere/ikke-arabere, olje/ikke-olje",
+              "Islam/kristendom/jodedom, vest/ost, gammel/ny",
+              "USA/Russland/Kina, nord/sor, kyst/innland"
+            ],
+            "answer": 1,
+            "explanation": "De tre aksene sunni/shia, arabere/ikke-arabere og olje/ikke-olje gir deg et kart over hvem som stotter hvem i regionale konflikter. Saudi-Arabia (sunni, arabisk, oljerik) og Iran (shia, persisk, oljerik) er de to dominerende motpolene."
+          }
+        ]
+      }
+    }
+  ],
+  "timeline": []
+}

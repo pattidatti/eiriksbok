@@ -1,0 +1,237 @@
+{
+  "id": "israel-og-palestina",
+  "title": "Israel og Palestina: Et land, to folk",
+  "layout": "rich",
+  "year": "1917-i dag",
+  "category": "Midtøsten",
+  "readTime": "10 min lesning",
+  "heroImage": "/images/placeholder.webp",
+  "details": [
+    "Balfour-erklæringen 1917 lovte jødene et nasjonalt hjemsted i et område der 700 000 arabere allerede bodde.",
+    "I 1948 ble 700 000 palestinere drevet på flukt under det araberne kaller nakba - katastrofen.",
+    "6-dagerskrigen i 1967 ga Israel kontroll over Vestbredden, Gazastripen, Sinai-halvøya og Golanhøydene."
+  ],
+  "externalUrl": "https://snl.no/Israel-Palestina-konflikten",
+  "content": [
+    {
+      "type": "text",
+      "content": "Det finnes konflikter der den ene siden har rett og den andre tar feil. Og så finnes det konflikter der begge sider har rett - og det er disse som er vanskeligst å løse. Israel-Palestina-konflikten er en av dem. Her møtes to folk med to historier, to traumer og to sterke krav på det samme landet."
+    },
+    {
+      "type": "header",
+      "text": "En politisk drøm tar form"
+    },
+    {
+      "type": "text",
+      "content": "På slutten av 1800-tallet oppsto det en bevegelse kalt sionismen. Den var ikke bare religiøs - den var politisk. Grunnleggeren Theodor Herzl mente at jøder aldri ville bli trygge i Europa så lenge de var en minoritet. Løsningen var en egen jødisk stat. Herzl ønsket opprinnelig å se på Argentina eller Uganda, men valget falt til slutt på det historiske landet Israel, som jøder kaller Eretz Israel. På arabisk heter det samme området Palestina."
+    },
+    {
+      "type": "text",
+      "content": "Da Herzl lagde planene sine, bodde det rundt 500 000 arabiske palestinere i området. Noen jøder bodde der også, men de var i klart mindretall. Det britiske imperiet kontrollerte store deler av Midtøsten, og i 1917 sendte den britiske utenriksministeren et brev til den jødiske lederen Lord Rothschild. Brevet er kjent som Balfour-erklæringen, og det lovet støtte til et nasjonalt hjemsted for jøder i Palestina - men la til at ingenting skulle gjøres som skadet rettighetene til befolkningen som allerede bodde der. Det var et løfte som viste seg umulig å holde."
+    },
+    {
+      "type": "component",
+      "name": "FactBox",
+      "props": {
+        "title": "Balfour-erklæringen 1917",
+        "content": "Brevet fra britisk utenriksminister Arthur James Balfour til den jødiske lederen Lord Rothschild lovet britisk støtte til et nasjonalt hjemsted for jøder i Palestina. Palestinerne ble ikke konsultert. Erklæringen er fortsatt kontroversiell og regnes av mange palestinere som starten på en urettferdig prosess."
+      }
+    },
+    {
+      "type": "header",
+      "text": "Spenning under britisk styre"
+    },
+    {
+      "type": "text",
+      "content": "I perioden 1920 til 1948 styrte Storbritannia Palestina under et såkalt mandat fra Folkeforbundet. I disse tiårene kom hundretusener av jødiske immigranter til området, mange på flukt fra antisemittisme i Europa. Den arabiske befolkningen var skeptisk - og etter hvert fiendtlig. De fryktet at de ville bli fortrengt i sitt eget hjemland. Det brøt ut voldsomme opprør og angrep fra begge sider."
+    },
+    {
+      "type": "text",
+      "content": "Så kom Holocaust. Da nazistene drepte seks millioner jøder under andre verdenskrig, snudde verden seg. Overlevende fra konsentrasjonsleirene hadde ingensteder å gå - mange europeiske land tok ikke imot dem. Presset for å opprette en jødisk stat ble enormt. For sionistene var dette beviset på at Herzl hadde hatt rett: uten en egen stat var jøder alltid sårbare."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Jødiske immigranter ankommer Palestina under britisk mandat",
+      "caption": "Jødiske immigranter ankommer Palestina i mellomkrigstiden. Mange flyktet fra forfølgelse i Europa."
+    },
+    {
+      "type": "header",
+      "text": "FN deler landet - krigen begynner"
+    },
+    {
+      "type": "text",
+      "content": "I 1947 bestemte FN at Palestina skulle deles i to stater: én jødisk og én arabisk. Jerusalem skulle bli en internasjonal by. Jødene aksepterte planen. De arabiske landene og palestinerne avviste den. De mente det var urettferdig at de skulle gi fra seg halvparten av et land de hadde bodd i, til en befolkning som i stor grad hadde kommet utenfra."
+    },
+    {
+      "type": "text",
+      "content": "Den 14. mai 1948 erklærte David Ben-Gurion staten Israel. Dagen etter angrep Egypt, Jordan, Syria, Irak og Libanon den nyopprettede staten. De arabiske lederne lovet å knuse Israel. Det gikk ikke slik. Israel vant krigen og endte med mer territorium enn FN-planen hadde gitt dem. Men prisen var enorm for palestinerne: rundt 700 000 mennesker flyktet eller ble fordrevet fra hjemmene sine. Araberne kaller dette nakba - katastrofen. Det er et sår som fortsatt blør."
+    },
+    {
+      "type": "component",
+      "name": "TimelineComponent",
+      "props": {
+        "compact": true,
+        "events": [
+          { "year": 1917, "description": "Balfour-erklæringen: Storbritannia lover støtte til jødisk hjemsted i Palestina" },
+          { "year": 1947, "description": "FN vedtar delingsplan for Palestina" },
+          { "year": 1948, "description": "Israel erklærer uavhengighet. Nakba: 700 000 palestinere på flukt" },
+          { "year": 1967, "description": "6-dagerskrigen: Israel tar Vestbredden, Gaza, Sinai og Golanhøydene" },
+          { "year": 1993, "description": "Oslo-avtalen signeres. Rabin og Arafat håndhilser på hverandre" },
+          { "year": 1995, "description": "Yitzhak Rabin drepes av israelsk ekstremist" },
+          { "year": 2006, "description": "Hamas vinner valget i Gaza. Konflikten mellom Hamas og Israel eskalerer" }
+        ]
+      }
+    },
+    {
+      "type": "header",
+      "text": "1967: Seks dager som endret alt"
+    },
+    {
+      "type": "text",
+      "content": "I juni 1967 fryktet Israel at nabolandene planla et nytt angrep. Landet valgte å slå til først. På bare seks dager beseiret den israelske hæren Egypt, Jordan og Syria. Israel tok kontroll over Sinai-halvøya og Gazastripen fra Egypt, Vestbredden og Øst-Jerusalem fra Jordan, og Golanhøydene fra Syria. Det israelske territoriet ble mer enn tredoblet."
+    },
+    {
+      "type": "text",
+      "content": "Nå bodde det en million palestinere under israelsk okkupasjon på Vestbredden og i Gaza. FNs sikkerhetsråd vedtok resolusjon 242, som krevde at Israel trakk seg tilbake fra de okkuperte områdene. Det har ikke skjedd. I stedet har Israel over tiårene bygd jødiske bosetninger på Vestbredden, noe de fleste land i verden anser som ulovlig under folkeretten."
+    },
+    {
+      "type": "component",
+      "name": "MapCarousel",
+      "props": {
+        "title": "Territoriet i endring",
+        "items": [
+          {
+            "image": "/images/placeholder.webp",
+            "caption": "FNs delingsplan 1947: to stater, med Jerusalem som internasjonal by under FN-administrasjon",
+            "alt": "Kart over FNs delingsplan for Palestina 1947"
+          },
+          {
+            "image": "/images/placeholder.webp",
+            "caption": "Israel etter 1948-krigen: staten vokste utover FN-planen. Egypten kontrollerte Gaza, Jordan kontrollerte Vestbredden",
+            "alt": "Kart over Israel og arabisk-kontrollerte områder etter 1948-krigen"
+          },
+          {
+            "image": "/images/placeholder.webp",
+            "caption": "Israel og de okkuperte områdene etter 6-dagerskrigen 1967: Vestbredden, Gaza, Sinai og Golanhøydene under israelsk kontroll",
+            "alt": "Kart over Israel og okkuperte områder etter 6-dagerskrigen 1967"
+          }
+        ]
+      }
+    },
+    {
+      "type": "header",
+      "text": "En fredspris og en pistol"
+    },
+    {
+      "type": "text",
+      "content": "På 1990-tallet kom det som skulle bli det største gjennombruddet for fred. I Oslo forhandlet Israel og PLO - den palestinske frigjøringsorganisasjonen ledet av Yasser Arafat - i hemmelighet. Resultatet var Oslo-avtalen, signert i 1993. For første gang anerkjente Israel og PLO hverandre formelt. Arafat og Israels statsminister Yitzhak Rabin håndhilste på hverandre foran det hvite hus, med president Clinton smilende mellom dem. Begge fikk Nobels fredspris."
+    },
+    {
+      "type": "text",
+      "content": "Men freden varte ikke. Den 4. november 1995 ble Rabin skutt og drept av en ung israelsk nasjonalist som mente fredsprosessen var et svik mot det jødiske folk. Med Rabin forsvant mye av viljen til kompromiss. Forhandlingene stoppet opp, volden økte, og tilliten mellom de to folkene ble stadig mindre."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Minnesmerke for Yitzhak Rabin i Tel Aviv",
+      "caption": "Rabin-plassen i Tel Aviv, oppkalt etter statsministeren som ble drept i 1995. Han er for mange et symbol på en fredsdrøm som ble knust."
+    },
+    {
+      "type": "header",
+      "text": "Situasjonen i dag"
+    },
+    {
+      "type": "text",
+      "content": "I dag er bildet mer delt enn noensinne. Vestbredden styres delvis av den palestinske selvstyremyndigheten (PA), men Israel kontrollerer store deler og har over 700 000 jødiske bosetere bosatt der - et tall som fortsatt vokser. Gaza ble i 2005 forlatt av Israel, men siden 2007 har den islamistiske bevegelsen Hamas styrt der. Hamas anerkjenner ikke Israel og har avfyrt raketter mot israelske byer. Israel og Egypt har lagt en blokade rundt Gaza."
+    },
+    {
+      "type": "text",
+      "content": "Det finnes ingen enkel løsning på en konflikt som er så gammel og så sammenvevd med identitet, religion og overlevelse. De fleste land i verden støtter offisielt en tostatsløsning - to separate stater som lever side om side i fred. Men for hvert år som går, ser denne løsningen vanskeligere ut å gjennomføre. Bosetningene vokser, tilliten er lav, og ekstremistene på begge sider er sterkere enn fredskreftene."
+    },
+    {
+      "type": "component",
+      "name": "PerspectivePrism",
+      "props": {
+        "title": "Tre perspektiver på én konflikt",
+        "instruction": "Dra for å se konflikten fra ulike sider",
+        "sides": [
+          {
+            "id": "israelsi",
+            "title": "Israelsk perspektiv",
+            "color": "#3b82f6",
+            "content": "Israel er det eneste stedet i verden der jøder er et flertall og kan beskytte seg selv. Etter Holocaust er en jødisk stat ikke et ønske - det er en nødvendighet. Statens grunnleggelse i 1948 var en gjenfødelse av et historisk hjemland. Terrortruslene er reelle og krever sterke tiltak.",
+            "sourceCredit": "Israelske myndigheters offisielle posisjon"
+          },
+          {
+            "id": "palestinsk",
+            "title": "Palestinsk perspektiv",
+            "color": "#10b981",
+            "content": "Palestinere bodde i dette landet i generasjoner. Nakba i 1948 fordrev 700 000 mennesker fra hjemmene sine. Okkupasjonen av Vestbredden har vart siden 1967. Det er ikke terrorisme å kjempe for retten til å vende hjem.",
+            "sourceCredit": "PLO og palestinske sivile samfunnsorganisasjoner"
+          },
+          {
+            "id": "internasjonal",
+            "title": "Internasjonal rett",
+            "color": "#f59e0b",
+            "content": "FNs sikkerhetsråd har ved mange anledninger erklært israelsk bosetting på okkupert område som ulovlig. Begge parter har brutt folkerettslige normer. En tostatsløsning er offisielt målet for de fleste land, men virker stadig fjernere.",
+            "sourceCredit": "FN og ICJ"
+          }
+        ]
+      }
+    },
+    {
+      "type": "component",
+      "name": "Quiz",
+      "props": {
+        "questions": [
+          {
+            "question": "Hva var Balfour-erklæringen?",
+            "options": [
+              "Et britisk brev som lovet støtte til et jødisk hjemsted i Palestina",
+              "En FN-resolusjon om deling av Palestina",
+              "En fredsavtale mellom Israel og Egypt",
+              "En erklæring om palestinsk selvstendighet"
+            ],
+            "answer": 0,
+            "explanation": "Balfour-erklæringen fra 1917 var et brev fra britisk utenriksminister Arthur James Balfour som lovet britisk støtte til et nasjonalt hjemsted for jøder i Palestina."
+          },
+          {
+            "question": "Hva kaller araberne hendelsene i 1948 da 700 000 palestinere flyktet?",
+            "options": [
+              "Intifadaen",
+              "Nakba",
+              "Jihad",
+              "Fatah"
+            ],
+            "answer": 1,
+            "explanation": "Nakba betyr 'katastrofen' på arabisk og er det palestinerne kaller flukten og fordrivelsen av rundt 700 000 palestinere under krigen i 1948."
+          },
+          {
+            "question": "Hvilke områder tok Israel kontroll over under 6-dagerskrigen i 1967?",
+            "options": [
+              "Libanon, Syria, Jordan og Egypt",
+              "Vestbredden, Gaza, Sinai og Golanhøydene",
+              "Gaza, Vestbredden og hele Jerusalem",
+              "Sinai, Suezkanalen og Jordandalen"
+            ],
+            "answer": 1,
+            "explanation": "Under 6-dagerskrigen i juni 1967 tok Israel kontroll over Vestbredden og Øst-Jerusalem fra Jordan, Gazastripen og Sinai-halvøya fra Egypt, og Golanhøydene fra Syria."
+          },
+          {
+            "question": "Hva var Oslo-avtalen?",
+            "options": [
+              "En avtale der arabiske land anerkjente Israel",
+              "En FN-plan for deling av Jerusalem",
+              "En avtale der Israel og PLO anerkjente hverandre formelt",
+              "En norsk meglingsplan som aldri ble signert"
+            ],
+            "answer": 2,
+            "explanation": "Oslo-avtalen fra 1993 var et historisk gjennombrudd der Israel og PLO for første gang anerkjente hverandre formelt. Den ble forhandlet fram i Oslo og signert i Washington."
+          }
+        ]
+      }
+    }
+  ],
+  "timeline": []
+}

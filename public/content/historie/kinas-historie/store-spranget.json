@@ -1,0 +1,258 @@
+{
+  "id": "store-spranget",
+  "title": "Det store spranget og kulturrevolusjonen",
+  "layout": "rich",
+  "year": "1958-1976",
+  "category": "Kinas historie",
+  "readTime": "9 min lesning",
+  "heroImage": "/images/placeholder.webp",
+  "details": [
+    "Det store spranget fremover (1958-62) forårsaket en hungersnød som drepte mellom 15 og 55 millioner mennesker.",
+    "Under kulturrevolusjonen ble lærere, leger og intellektuelle sendt til omskoleirleirer på landsbygda.",
+    "Rødegardistene - ungdommer mellom 14 og 25 år - ødela templer, bøker og kunstgjenstander over hele landet."
+  ],
+  "externalUrl": "https://snl.no/Det_store_spranget",
+  "content": [
+    {
+      "type": "text",
+      "content": "Tenk deg at du er bonde i Kina i 1958. En dag kommer partiets folk til landsbyen din og tar kjøkkenredskapene dine - grytene, spaklene, knivene. Alt av jern. De vil smelte det om til stål i en enkel ovn i bakgården. Du lurer på hva familien skal lage mat med. Men du tør ikke spørre."
+    },
+    {
+      "type": "text",
+      "content": "Dette var virkeligheten under Det store spranget fremover, Mao Zedongs storstilte plan for å gjøre Kina til en industriell stormakt. Mao ville at Kina skulle ta igjen Storbritannia i stålproduksjon innen 15 ar. Resultatet ble en av historiens verste katastrofer."
+    },
+    {
+      "type": "header",
+      "text": "Mao tar kontroll"
+    },
+    {
+      "type": "text",
+      "content": "Etter at kommunistpartiet tok makten i 1949 under [borgerkrigen](/historie/kinas-historie/borgerkrigen-og-kommunismen), begynte Mao Zedong å omforme Kina etter sovjetisk modell. Bønder ble tvunget inn i kollektiver - store fellesgårder der alle eide alt i fellesskap og ingen bestemte over sin egen jord."
+    },
+    {
+      "type": "text",
+      "content": "I 1958 lanserte Mao Det store spranget fremover. Planen var enkel i teorien: Kina skulle på rekordtid bli en moderne industri- og landbruksnasjon. Kvoter for kornproduksjon ble satt til det dobbelte av det som var mulig. Og ingen torde si at det var urealistisk."
+    },
+    {
+      "type": "component",
+      "name": "FactBox",
+      "props": {
+        "title": "Hva er et kollektiv?",
+        "content": "Et kollektiv er en stor fellesgård der hundrevis eller tusenvis av familier jobber sammen. Under Mao eide staten jorda, og bøndene fikk betalt i poeng basert på arbeidsinnsats - ikke i penger eller mat de selv produserte. Det gav lite motivasjon til å jobbe hardt."
+      }
+    },
+    {
+      "type": "header",
+      "text": "Frykten for dårlige nyheter"
+    },
+    {
+      "type": "text",
+      "content": "Det farligste med Det store spranget var ikke bare de urealistiske planene. Det farligste var at ingen torde si sannheten. Lokale partiledere som rapporterte lave avlinger risikerte å bli stemplet som sabotører eller fiender av revolusjonen. Så de løy."
+    },
+    {
+      "type": "text",
+      "content": "Partiledere over hele landet meldte inn fantastiske tall. En landsby rapporterte avlinger på ti ganger det faktiske. Staten trodde på tallene og krevde mer korn. Kornet ble sendt til byene og til eksport - mens bøndene sultet. Folk spiste bark, gress og til slutt ingenting."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Kinesiske bønder jobber på et kollektiv under Det store spranget",
+      "caption": "Millioner av kinesiske bønder ble samlet i store kollektiver der de arbeidet for statens kvoter."
+    },
+    {
+      "type": "component",
+      "name": "LineChart",
+      "props": {
+        "title": "Kinesisk kornproduksjon under Det store spranget",
+        "datasetLabel": "Millioner tonn",
+        "xAxisLabel": "År",
+        "yAxisLabel": "Millioner tonn korn",
+        "data": [
+          { "year": 1956, "value": 192 },
+          { "year": 1957, "value": 195 },
+          { "year": 1958, "value": 200 },
+          { "year": 1959, "value": 170 },
+          { "year": 1960, "value": 143 },
+          { "year": 1961, "value": 148 },
+          { "year": 1962, "value": 160 },
+          { "year": 1963, "value": 170 }
+        ]
+      }
+    },
+    {
+      "type": "header",
+      "text": "Den menneskeskapte hungersnøden"
+    },
+    {
+      "type": "text",
+      "content": "Mellom 1959 og 1961 rammet en hungersnød Kina. Den var ikke skapt av tørke eller naturkatastrofer - den var skapt av politikk. Historikere anslår at mellom 15 og 55 millioner mennesker døde. Det nøyaktige tallet vet vi ikke, fordi det kinesiske kommunistpartiet fortsatt holder arkivene hemmelige. Temaet er i stor grad sensurert i Kina den dag i dag."
+    },
+    {
+      "type": "text",
+      "content": "Familier mistet barna sine. Landsbyer ble tomme. Og alt dette skjedde mens Mao satt i Beijing og fikk rapporter om rekordavlinger."
+    },
+    {
+      "type": "component",
+      "name": "Comparison",
+      "props": {
+        "title": "Løfter og virkelighet",
+        "leftTitle": "Maos løfte (1958)",
+        "rightTitle": "Virkeligheten (1962)",
+        "items": [
+          {
+            "label": "Stålproduksjon",
+            "left": "Ta igjen Storbritannia innen 15 ar",
+            "right": "Millioner av ubrukelig bakgards-stal. Redskapene er borte."
+          },
+          {
+            "label": "Matproduksjon",
+            "left": "Overflod. Kornkvoter settes til det dobbelte.",
+            "right": "45 millioner dor av sult. Bonder spiser bark."
+          },
+          {
+            "label": "Industri",
+            "left": "Storbyer skal bli industrielle giganter.",
+            "right": "Arbeidere sendes ut pa landet. Fabrikkene stopper."
+          }
+        ]
+      }
+    },
+    {
+      "type": "header",
+      "text": "Maos fall - og korte comeback"
+    },
+    {
+      "type": "text",
+      "content": "Etter katastrofen mistet Mao noe av sin makt i partiet. Deng Xiaoping og Liu Shaoqi tok over den praktiske styringen av Kina og begynte forsiktig å liberalisere landbruket. Bøndene fikk lov til å dyrke litt for seg selv igjen. Produksjonen begynte sakte å ta seg opp."
+    },
+    {
+      "type": "text",
+      "content": "Men Mao godtok ikke å bli satt til side. Han så på Deng og Liu som forrædere - menn som ville bringe kapitalismen tilbake. I 1966 slo han tilbake med det som skulle bli hans aller mest ødeleggende prosjekt."
+    },
+    {
+      "type": "header",
+      "text": "Kulturrevolusjonen starter"
+    },
+    {
+      "type": "text",
+      "content": "I 1966 kunngjorde Mao kulturrevolusjonen. Målet var å rense Kina for alt som var gammelt, vestlig eller kapitalistisk. Det ekte målet var å knuse politiske motstandere og gjenvinne full kontroll."
+    },
+    {
+      "type": "text",
+      "content": "Mao henvendte seg direkte til ungdommen. Han opprettet Rødegardistene - en massebevegelse av unge mellom 14 og 25 ar som fikk i oppgave å oppdage og straffe fiender av revolusjonen. De fikk uniformer, røde armbind og en liten rød bok med Maos sitater. Og de fikk makt."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Unge Rødegardister med Maos lille røde bok under kulturrevolusjonen",
+      "caption": "Rødegardistene - unge kinesere mobilisert av Mao - gikk til angrep på alt de oppfattet som fiender av revolusjonen."
+    },
+    {
+      "type": "component",
+      "name": "QuoteBlock",
+      "props": {
+        "text": "Det er riktig å gjøre opprør.",
+        "author": "Mao Zedong, fra Den lille røde boka"
+      }
+    },
+    {
+      "type": "header",
+      "text": "Rødegardistene herjer"
+    },
+    {
+      "type": "text",
+      "content": "Rødegardistene stormet skoler, universiteter og templer. De brant bøker, knuste statuer og malte over kunstgjenstander. Alt som smakte av tradisjon eller vestlig kultur ble sett på som farlig. Konfucius-templer ble vandalisert. Biblioteker ble tømt."
+    },
+    {
+      "type": "text",
+      "content": "Lærere ble dratt ut av klasserommet og tvunget til å stå foran folkemengder som skrek anklager mot dem. Leger, forfattere og kunstnere ble sendt til omskoleirleirer på landsbygda - steder der de skulle lære seg ydmykhet gjennom tungt fysisk arbeid. Mange overlevde ikke. Andre satt der i ar uten rettssak eller dom."
+    },
+    {
+      "type": "text",
+      "content": "Det gikk også ut over familier. Barn anklaget foreldre. Ektefeller anklaget hverandre. Å vise lojalitet til Mao var tryggere enn å vise lojalitet til sin egen familie."
+    },
+    {
+      "type": "header",
+      "text": "En generasjon uten utdanning"
+    },
+    {
+      "type": "text",
+      "content": "Universiteter og videregående skoler ble stengt i ar. En hel generasjon kinesere - kalt den tapte generasjonen - vokste opp uten ordentlig skolegang. Hundrevis av millioner liv ble påvirket. Det skapte et hull i kinesisk kompetanse og kultur som tok tiár å reparere."
+    },
+    {
+      "type": "text",
+      "content": "Kulturrevolusjonen varte offisielt til Maos død i 1976, men den mest intense perioden var de første fire arene. Da var landet i kaos. Til slutt måtte Mao sende hæren inn for å kontrollere Rødegardistene han selv hadde sluppet løs."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Kina i kaos under kulturrevolusjonen",
+      "caption": "Kulturrevolusjonen skapte kaos i hele Kina fra 1966 til Maos død i 1976."
+    },
+    {
+      "type": "header",
+      "text": "Maos død og veien videre"
+    },
+    {
+      "type": "text",
+      "content": "Da Mao Zedong døde i september 1976, var Kina utmattet. Landet hadde gjennomgått to store katastrofer på under 20 ar - begge skapt av Maos ideologi og fryktkultur. Kort tid etter Maos død ble de fire lederne som hadde drevet kulturrevolusjonen videre - kjent som Banden av fire, inkludert Maos kone Jiang Qing - arrestert og stilt for retten."
+    },
+    {
+      "type": "text",
+      "content": "Deng Xiaoping kom tilbake til makten. Han tok Kina i en helt ny retning - mot markedsokonomi og åpenhet for handel med omverdenen. Det er historien om [Kinas vekst til supermakt](/historie/kinas-historie/kinas-vekst). Men arret etter Det store spranget og kulturrevolusjonen sitter fortsatt dypt i det kinesiske samfunnet."
+    },
+    {
+      "type": "component",
+      "name": "Quiz",
+      "props": {
+        "questions": [
+          {
+            "question": "Hva var hovedmalet med Det store spranget fremover (1958)?",
+            "options": [
+              "Å gjøre Kina til en militær stormakt",
+              "Å ta igjen Storbritannia i stålproduksjon på 15 ar",
+              "Å bygge opp Kinas utdanningssystem",
+              "Å innføre demokrati i Kina"
+            ],
+            "answer": 1,
+            "explanation": "Mao ville at Kina raskt skulle bli en industriell stormakt og ta igjen Storbritannia i stålproduksjon. Det forte til at bønder ble tvunget til å smelte kokkeredskaper i bakgardsovner istedenfor å dyrke mat."
+          },
+          {
+            "question": "Hvorfor rapporterte lokale partiledere falske, positive tall under Det store spranget?",
+            "options": [
+              "De ville fremme Kina internasjonalt",
+              "De trodde virkelig på planens suksess",
+              "De fryktet å bli straffet for dårlige nyheter",
+              "De fikk bonus for høye tall"
+            ],
+            "answer": 2,
+            "explanation": "Å rapportere dårlige resultater kunne fore til anklager om sabotasje eller fiendtlighet mot revolusjonen. Derfor løy lederne oppover i systemet - og resulterte i at staten krevde mer korn fra bøndene som allerede sultet."
+          },
+          {
+            "question": "Hvem var Rødegardistene?",
+            "options": [
+              "Maos personlige livvakter",
+              "Unge kinesere mellom 14 og 25 ar mobilisert av Mao",
+              "Kinesiske soldater stasjonert i grenseområder",
+              "Eldre kommunistpartimedlemmer"
+            ],
+            "answer": 1,
+            "explanation": "Rødegardistene var en massebevegelse av unge kinesere som Mao brukte til å angripe det han kalte fiender av revolusjonen. De ødela kulturminner, forfulgte lærere og tvang folk til å delta i offentlige skamrituelle."
+          },
+          {
+            "question": "Hva skjedde da Mao Zedong døde i 1976?",
+            "options": [
+              "Kina ble et demokrati",
+              "Kulturrevolusjonen fortsatte under nye ledere",
+              "Banden av fire ble arrestert og Deng Xiaoping kom til makten",
+              "Kina gjenforentes med Taiwan"
+            ],
+            "answer": 2,
+            "explanation": "Etter Maos død i september 1976 ble de fire lederne som hadde drevet kulturrevolusjonen videre - Banden av fire - raskt arrestert. Deng Xiaoping tok over og satte Kina på en ny kurs mot markedsokonomi og reform."
+          }
+        ]
+      }
+    }
+  ],
+  "timeline": []
+}

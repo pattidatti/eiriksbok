@@ -1,0 +1,234 @@
+{
+  "id": "kina-supermakt",
+  "title": "Kina som supermakt",
+  "layout": "rich",
+  "year": "2000 - i dag",
+  "category": "Kinas historie",
+  "readTime": "9 min lesning",
+  "heroImage": "/images/placeholder.webp",
+  "details": [
+    "Kina er verdens største økonomi målt i kjøpekraft og verdens største eksportør av varer.",
+    "Xi Jinping har konsolidert mer makt enn noen kinesisk leder siden Mao - og fjernet grensen for antall presidentperioder.",
+    "Belte- og vei-initiativet er et investeringsprogram i over 140 land, kalt av noen \"den nye silkeveien\"."
+  ],
+  "externalUrl": "https://snl.no/Kina",
+  "content": [
+    {
+      "type": "text",
+      "content": "Halvparten av verdens solpaneler kommer fra Kina. Seksti prosent av verdens sement produseres der. Hvert år selges det flere biler i Kina enn i USA og Europa til sammen. Kina er ikke lenger et fattig land som syr billige T-skjorter - det er en supermakt som konkurrerer med USA om teknologi, innflytelse og fremtiden."
+    },
+    {
+      "type": "text",
+      "content": "Hvordan skjedde det så fort? Og hva betyr det for resten av verden?"
+    },
+    {
+      "type": "component",
+      "name": "FactBox",
+      "props": {
+        "title": "Kina i tall",
+        "content": "Befolkning: 1,4 milliarder mennesker - nesten 200 ganger Norges befolkning. BNP: nr. 2 i verden målt i nominell verdi, men nr. 1 målt i kjøpekraft. Kina produserer rundt 30% av verdens industrivarer. Det er verdens største eksportør og importør av energi. Over 400 millioner kinesere er løftet ut av fattigdom siden 1980."
+      }
+    },
+    {
+      "type": "header",
+      "text": "Verdens fabrikk"
+    },
+    {
+      "type": "text",
+      "content": "I desember 2001 ble Kina medlem av Verdens handelsorganisasjon (WTO). Det åpnet grensene for kinesiske varer på en helt ny måte. Utenlandske selskaper strømmet inn for å bygge fabrikker der lønningene var lave og arbeiderne mange. På bare noen tiår ble Kina \"verdens fabrikk\" - stedet der alt fra mobiltelefoner til møbler ble laget."
+    },
+    {
+      "type": "text",
+      "content": "Veksten var svimlende. Hundrevis av millioner kinesere flyttet fra landsbygda til byene. Nye skyskrapere, motorveier og høyhastighetstog endret landet. En hel generasjon vokste opp med bedre mat, bedre utdanning og bedre fremtidsutsikter enn foreldrene deres hadde hatt."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Kinesisk fabrikk med arbeidere ved samlebånd",
+      "caption": "Kina ble på kort tid verdens største produsent av industrivarer."
+    },
+    {
+      "type": "header",
+      "text": "Xi Jinping og \"Kinas drøm\""
+    },
+    {
+      "type": "text",
+      "content": "I 2012 tok Xi Jinping makten i Kina. Han var annerledes enn sine forgjengere - mer selvsikker, mer nasjonalistisk og langt mer villig til å bruke statsmakten. Xi snakket om \"Kinas drøm\" - en visjon om at Kina skulle gjenreise sin storhet og ta sin rettmessige plass i verden."
+    },
+    {
+      "type": "text",
+      "content": "Under Xi har partiet strammet grepet om pressen, internett og samfunnslivet. Kritikere av regjeringen tier eller havner i fengsel. I 2018 fjernet han grensen for hvor mange perioder en president kan sitte - noe som i praksis gjør ham til leder på livstid. Mange sammenligner makten hans med Maos, den revolusjonære lederen som styrte Kina fra 1949 til sin død i 1976."
+    },
+    {
+      "type": "header",
+      "text": "Den nye silkeveien"
+    },
+    {
+      "type": "text",
+      "content": "I 2013 lanserte Xi Jinping et gigantisk investeringsprogram kalt Belte- og vei-initiativet. Tanken er å bygge veier, jernbaner, havner og kraftverk i over 140 land - fra Afrika til Sørøst-Asia og Europa. Kina låner ut penger og sender ingeniører. Til gjengjeld får kinesiske selskaper kontrakter og Kina får innflytelse."
+    },
+    {
+      "type": "text",
+      "content": "Tilhengerne sier at initiativet hjelper fattige land med infrastruktur de ikke har råd til selv. Kritikerne advarer mot det de kaller \"gjeldsfellen\" - at land som ikke klarer å betale tilbake lånet, kan miste kontroll over havner og annen strategisk infrastruktur. Sri Lanka mistet en havn til Kina i 2017 etter at de ikke klarte å betale gjelden."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Kart over Belte- og vei-initiativets ruter",
+      "caption": "Belte- og vei-initiativet strekker seg gjennom Asia, Afrika og Europa."
+    },
+    {
+      "type": "header",
+      "text": "Taiwan og Hong Kong"
+    },
+    {
+      "type": "text",
+      "content": "Taiwan er en øy sørvest for Kina med 23 millioner innbyggere og sitt eget demokratiske styre. Kina ser på Taiwan som en opprørsk provins som en gang skal gjenforenes med fastlandet - med makt om nødvendig. Taiwan ser seg selv som et selvstendig land. USA selger våpen til Taiwan og sier at en kinesisk invasjon ville ha alvorlige konsekvenser. Spenningen mellom Kina, Taiwan og USA er en av verdens farligste konflikter."
+    },
+    {
+      "type": "text",
+      "content": "Hong Kong ble levert tilbake fra Storbritannia til Kina i 1997 med et løfte: byen skulle beholde sine friheter og sitt demokrati i 50 år under prinsippet \"ett land, to systemer\". I 2019 brøt store demonstrasjoner ut da mange hongkongere fryktet at Kina ville innsnevre frihetene. I 2020 innførte Beijing en ny sikkerhetslov som i praksis kriminaliserte opposisjon. Mange demokratiforkjempere ble arrestert. Pressefriheten forsvant. \"Ett land, to systemer\" hadde falt."
+    },
+    {
+      "type": "header",
+      "text": "Teknologikrigen"
+    },
+    {
+      "type": "text",
+      "content": "USA og Kina kjemper ikke med våpen - de kjemper om teknologi. Kinesiske selskaper som Huawei er verdensledende innen 5G-nettverk, den teknologien som gjør mobilnett superraske. USA mener Huawei kan spionere for den kinesiske staten og har presset allierte land til å forby kinesisk utstyr i sine nettverk. Norge valgte å ikke bruke Huawei i sitt 5G-nett."
+    },
+    {
+      "type": "text",
+      "content": "Den viktigste fronten er halvledere - de bitte lille brikkene inne i all elektronikk. USA har innført strenge forbud mot å eksportere avanserte halvledere til Kina. Uten dem kan ikke Kina bygge de mest avanserte datamaskinene som trengs for kunstig intelligens og militærteknologi. Kina svarer med å investere enorme summer i å utvikle egne halvledere. Hvem som vinner denne kapploepet kan forme maktbalansen i tiår framover."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Halvleder-brikker på en produksjonslinje",
+      "caption": "Halvledere - bittesmå brikker av silisium - er blitt et geopolitisk stridsspørsmål."
+    },
+    {
+      "type": "component",
+      "name": "DebateSimulator",
+      "props": {
+        "topic": "Er Kinas vekst til supermakt en trussel mot verdensfreden?",
+        "opponentName": "Kinesisk diplomat",
+        "context": "Du debatterer med en representant for den kinesiske regjeringen om Kinas rolle i verden. Han sier Kina bare vil ha fred og utvikling. Du representerer et vestlig perspektiv.",
+        "arguments": [
+          {
+            "id": "a1",
+            "text": "Kina undertrykker sin egen befolkning. Ingen pressefrihet, ingen frie valg - det er ikke en fredelig makt.",
+            "strength": 4,
+            "type": "honor",
+            "response": "Vestlige land har ikke rett til å definere demokrati for andre kulturer. Kina har løftet 400 millioner ut av fattigdom - det er mer enn noe vestlig system har klart."
+          },
+          {
+            "id": "a2",
+            "text": "Belte- og vei-initiativet bruker gjeld som et politisk verktøy for å skaffe seg innflytelse i fattige land.",
+            "strength": 5,
+            "type": "laws",
+            "response": "Vi investerer i infrastruktur de fattige landene trenger. IMF og Verdensbanken har stilt krav i årevis uten å bygge en eneste vei."
+          },
+          {
+            "id": "a3",
+            "text": "Taiwan er et demokrati med 23 millioner innbyggere. Kinas trusler mot Taiwan destabiliserer hele Asia.",
+            "strength": 6,
+            "type": "honor",
+            "response": "Taiwan er en del av Kina. Dette er et indre anliggende. USA selger våpen og provoserer - det er USA som destabiliserer regionen."
+          },
+          {
+            "id": "a4",
+            "text": "Kina og USA er verdens to største utslippsnasjonene. Samarbeid om klima er umulig uten Kina.",
+            "strength": 3,
+            "type": "mercy",
+            "response": "Kina leder verden innen sol- og vindkraft. Vi bygger mer fornybar energi enn alle andre land til sammen."
+          },
+          {
+            "id": "a5",
+            "text": "Teknologikrigen med USA skaper farlige spenninger. Kina forsøker å dominere kunstig intelligens og 5G for militære formål.",
+            "strength": 5,
+            "type": "laws",
+            "response": "USA har forsøkt å stoppe Kinas teknologiutvikling med sanksjoner. Vi forsvarer bare retten til å utvikle oss selv."
+          },
+          {
+            "id": "a6",
+            "text": "Hong Kong viste at Kinas løfter ikke er verdt noe. \"Ett land, to systemer\" ble brutt på under 25 år.",
+            "strength": 4,
+            "type": "honor",
+            "response": "Hong Kong er trygt og stabilt. Det var utenlandsk innblanding som skapte uro. Vi gjenopprettet orden."
+          }
+        ],
+        "winningScore": 15
+      }
+    },
+    {
+      "type": "header",
+      "text": "Midtens rike vil tilbake til sentrum"
+    },
+    {
+      "type": "text",
+      "content": "For å forstå Kinas ambisjoner må man forstå historien. I hundrevis av år var Kina verdens mektigste sivilisasjon. De oppfant papiret, trykkekunsten og kruttet. De kalte seg \"Zhongguo\" - Midtens rike - fordi de trodde de befant seg i sentrum av verden. Så kom de to hundre ydmykelsenes tid: krig, kolonisering og svakhet. Opiumskrigene på 1800-tallet, Japan som invaderte på 1930-tallet, borgerkrig."
+    },
+    {
+      "type": "text",
+      "content": "Kinas vekst handler ikke bare om penger og makt. Det handler om gjenreisning. \"Kinas drøm\" er i bunn og grunn drømmen om å komme tilbake til der man mener man alltid hørte hjemme - i sentrum av verdenshistorien. Den drivkraften gjør Kina til en kraft verden ikke kan ignorere, verken som samarbeidspartner i klimakampen eller som konkurrent om teknologi og innflytelse."
+    },
+    {
+      "type": "text",
+      "content": "For Norge og andre små land betyr Kinas vekst at verden ikke lenger har ett tyngdepunkt. Vi lever i en tid der to giganter - USA og Kina - konkurrerer om å forme framtiden. Hvem som vinner, og på hvilke betingelser, vil påvirke alle land på jorda."
+    },
+    {
+      "type": "component",
+      "name": "Quiz",
+      "props": {
+        "questions": [
+          {
+            "question": "Hva skjedde da Kina ble medlem av WTO i 2001?",
+            "options": [
+              "Kina fikk atomvåpen",
+              "Kinesiske varer fikk mye lettere tilgang til verdensmarkedet",
+              "Kina innførte demokrati",
+              "USA og Kina inngikk en militær avtale"
+            ],
+            "answer": 1,
+            "explanation": "WTO-medlemskapet åpnet grensene for kinesiske varer og hjalp Kina med å bli 'verdens fabrikk'."
+          },
+          {
+            "question": "Hva er Belte- og vei-initiativet?",
+            "options": [
+              "Et kinesisk program for å bygge infrastruktur i over 140 land",
+              "En militær allianse mellom asiatiske land",
+              "Et handelsavtale mellom Kina og EU",
+              "Et program for å fremme demokrati i Asia"
+            ],
+            "answer": 0,
+            "explanation": "Belte- og vei-initiativet er et gigantisk investeringsprogram der Kina finansierer og bygger veier, jernbaner og havner i over 140 land."
+          },
+          {
+            "question": "Hva mener Kina om Taiwan?",
+            "options": [
+              "Taiwan er et naboland Kina gjerne vil handle med",
+              "Taiwan er en del av Kina som skal gjenforenes med fastlandet",
+              "Taiwan bør bli et selvstendig land med FN-støtte",
+              "Taiwan er en amerikansk militærbase"
+            ],
+            "answer": 1,
+            "explanation": "Kina ser på Taiwan som en opprørsk provins og sier at gjenforening er et mål - om nødvendig med makt."
+          },
+          {
+            "question": "Hvorfor er halvledere et stridsspørsmål mellom USA og Kina?",
+            "options": [
+              "Fordi Kina eier alle halvleder-fabrikker i verden",
+              "Fordi halvledere brukes til å lage mat",
+              "Fordi avanserte halvledere er nødvendige for kunstig intelligens og militærteknologi",
+              "Fordi USA vil selge halvledere til Kina for å tjene penger"
+            ],
+            "answer": 2,
+            "explanation": "Halvledere er hjernen i all moderne teknologi. USA har forbudt eksport av de mest avanserte halvlederne til Kina for å bremse kinesisk teknologiutvikling."
+          }
+        ]
+      }
+    }
+  ],
+  "timeline": []
+}

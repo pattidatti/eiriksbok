@@ -1,0 +1,180 @@
+{
+  "id": "oversikt",
+  "title": "Midtens rike: 3000 år i korte trekk",
+  "layout": "rich",
+  "year": "2200 fvt - i dag",
+  "category": "Kinas historie",
+  "readTime": "8 min lesning",
+  "heroImage": "/images/placeholder.webp",
+  "details": [
+    "Kina er en av verdens eldste sivilisasjoner, med en sammenhengende statshistorie på over 2000 år.",
+    "Dynastisyklusen - rikets oppgang og fall - er nøkkelen til å forstå hele kinesisk historie.",
+    "Begrepet \"Midtens rike\" (Zhongguo) viser at kineserne lenge trodde de bodde i verdens sentrum."
+  ],
+  "externalUrl": "https://snl.no/Kinas_historie",
+  "content": [
+    {
+      "type": "text",
+      "content": "Tenk deg at du er keiser. Du styrer ikke bare fordi du er sterk eller rik - du styrer fordi himmelen selv har valgt deg. Keiseren i Kina bar tittelen \"Himmelens sønn\", og makten hans ble kalt Himmelens mandat. Det betydde at så lenge keiseren styrte rettferdig og folket hadde det bra, støttet himmelen ham. Men hvis hungersnød, flom og opprør begynte? Da hadde keiseren mistet mandatet - og noen andre måtte ta over."
+    },
+    {
+      "type": "component",
+      "name": "HimmelensMandat",
+      "props": {}
+    },
+    {
+      "type": "text",
+      "content": "Denne ideen om Himmelens mandat er nøkkelen til å forstå kinesisk historie. Den forklarer noe som skjer igjen og igjen gjennom 3000 år: et dynasti stiger, blomstrer og faller. Historikere kaller det dynastisyklusen."
+    },
+    {
+      "type": "header",
+      "text": "Dynastisyklusen: oppgang og fall"
+    },
+    {
+      "type": "text",
+      "content": "Mønsteret er nesten alltid det samme. Et nytt dynasti vinner makten gjennom krig. Den nye keiseren bygger sterke institusjoner, senker skatter og gjenoppretter ro. Landet blomstrer. Men etter noen generasjoner begynner embetsmennene å tenke mer på sin egen lomme enn på folket. Skatteinnkrevingen blir hardere. Bønder sulter. Flommer og tørke tolkes som tegn fra himmelen. Til slutt bryter opprøret løs - og et nytt dynasti overtar."
+    },
+    {
+      "type": "text",
+      "content": "Dette er ikke bare historisk tilfeldighet. Det er et mønster kineserne selv kjente igjen og beskrev. De forsto historien som syklisk - som årstidene. Noe avsluttes alltid for at noe nytt skal begynne."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Kinesisk keiserpalasset Forbidden City i Beijing",
+      "caption": "Den forbudte by i Beijing ble bygget av Ming-dynastiet på 1400-tallet og var hjemmet til 24 keisere."
+    },
+    {
+      "type": "header",
+      "text": "Konfusianisme: ideen som holdt Kina sammen"
+    },
+    {
+      "type": "text",
+      "content": "Hvordan styrer man et land som er større enn hele Europa med millioner av innbyggere? Kinas svar var Konfusianisme - en tankeretning skapt av filosofen Konfucius rundt 500 fvt. Han mente at et godt samfunn bygger på respekt: sønnen respekterer faren, undersåtten respekterer keiseren, alle respekterer lærde menn."
+    },
+    {
+      "type": "text",
+      "content": "For å bli embetsmann i Kina måtte du bestå en streng eksamen. Eksamenene testet kunnskap om Konfucius sine skrifter og klassisk kinesisk litteratur. Systemet var unikt i verden - ikke fødsel, men kunnskap skulle avgjøre hvem som styrte. I praksis var det fremdeles de rike som hadde råd til å studere, men idealet om den lærde embetsmannen formet kinesisk kultur dypt og varig."
+    },
+    {
+      "type": "header",
+      "text": "De store dynastiene"
+    },
+    {
+      "type": "text",
+      "content": "Kinas lange historie er enklest å forstå gjennom de store dynastiene. Hvert av dem la igjen noe som fortsatt preger Kina i dag."
+    },
+    {
+      "type": "component",
+      "name": "TimelineComponent",
+      "props": {
+        "compact": true,
+        "events": [
+          { "year": -221, "description": "Qin Shi Huang samler Kina til ett rike - det første keiserdømmet." },
+          { "year": 206, "description": "Han-dynastiet: 400 år med stabilitet, Silkeveien åpner." },
+          { "year": 618, "description": "Tang-dynastiet: Kinas gullalder - rikdom, kunst og handel." },
+          { "year": 1271, "description": "Mongol-dynastiet (Yuan) tar makten. Kublai Khan hersker over det meste av Asia." },
+          { "year": 1368, "description": "Ming-dynastiet bygger den store muren og sender flåte ut i verden." },
+          { "year": 1644, "description": "Qing-dynastiet (manchuerne) tar makten. Det varer til 1912." }
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "content": "Qin Shi Huang samlet i år 221 fvt en haug med krigsstater til ett rike. Han standardiserte skriftspråket, vektene og myntsystemet - og han begynte å bygge det som skulle bli Den store muren. Han var brutal og effektiv. Etter ham kom Han-dynastiet, som ga Kina 400 år med stabilitet og åpnet Silkeveien mot vest. Navnet \"han\" bruker kinesere fortsatt om seg selv."
+    },
+    {
+      "type": "text",
+      "content": "Tang-dynastiet regnes som Kinas gullalder. Hovedstaden Chang'an var verdens største by - et kosmopolitisk sentrum der kjøpmenn, munker og diplomater fra hele Asia møttes. Song-dynastiet som fulgte var ikke militært sterkt, men det var her trykkekunsten, papiret og kompasset ble tatt i bruk. Kinas handel vokste, og byene blomstret."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Den kinesiske muren snor seg over fjellene",
+      "caption": "Den store muren ble utvidet kraftig under Ming-dynastiet på 1400- og 1500-tallet for å stoppe nomadefolkene i nord."
+    },
+    {
+      "type": "text",
+      "content": "Ming-dynastiet er kjent for den store muren og for den enorme flåten admiral Zheng He ledet ut i verdenshavene på 1400-tallet - skipsfarten nådde Afrika. Men keiserne snudde om og stengte landet. Da europeerne kom med sine skip to generasjoner senere, fant de en stormakt som ikke lenger så utover. Qing-dynastiet, ledet av manchuerne utenfra, styrte fra 1644 til 1912 - og møtte til slutt kollisjonen med europeisk imperialisme."
+    },
+    {
+      "type": "header",
+      "text": "Midtens rike møter verden"
+    },
+    {
+      "type": "component",
+      "name": "FactBox",
+      "props": {
+        "title": "Hva betyr \"Zhongguo\"?",
+        "content": "Det kinesiske navnet på Kina - Zhongguo - betyr bokstavelig talt \"midtriket\" eller \"landet i midten\". Kineserne så lenge sitt eget land som sivilisasjonens kjerne. Fremmede folk var \"barbarer\" i periferien. Da europeerne begynte å presse seg inn på 1800-tallet, var det en dyp kulturell sjokk - ikke bare et militært nederlag."
+      }
+    },
+    {
+      "type": "text",
+      "content": "I over tusen år betraktet Kina seg som verdens sentrum. Nabofolk betalte tributt og anerkjente keiserens overherredømme. Det fungerte lenge, fordi Kina faktisk var den rikeste og mest avanserte sivilisasjonen i sin del av verden. Men på 1800-tallet endret alt seg. Britiske skip med kanoner tvang Kina til å åpne sine havner og selge opium. Qing-dynastiet, som allerede slet med interne opprør, klarte ikke å møte utfordringen. I 1912 falt det siste dynastiet."
+    },
+    {
+      "type": "text",
+      "content": "Det er her Kinas moderne historie begynner - en tid full av borgerkrig, japansk invasjon, revolusjon og til slutt etableringen av Folkerepublikken Kina i 1949. Men for å forstå alt det, må vi først kjenne 3000 år med dynastier, filosofer og keisere. Du har nå det første grunnlaget. I artiklene som følger, skal vi dykke dypere inn i hvert kapittel av denne fascinerende historien."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Kart over Kinas dynastier og territorium gjennom historien",
+      "caption": "Kinas grenser har endret seg dramatisk gjennom dynastiene - fra de tidlige statene langs Huang He til det enorme Qing-riket."
+    },
+    {
+      "type": "component",
+      "name": "Quiz",
+      "props": {
+        "questions": [
+          {
+            "question": "Hva menes med \"Himmelens mandat\"?",
+            "options": [
+              "Keiserens rett til å styre, gitt av himmelen så lenge han styrte rettferdig",
+              "En religiøs tekst som keiseren måtte lese hvert år",
+              "En militær tittel gitt til den sterkeste hærføreren",
+              "En avtale mellom keiseren og de mektigste adelsmennene"
+            ],
+            "answer": 0,
+            "explanation": "Himmelens mandat var ideen om at keiseren hadde rett til å styre fordi himmelen støttet ham - men bare så lenge han styrte rettferdig. Opprør og naturkatastrofer ble tolket som tegn på at mandatet var tapt."
+          },
+          {
+            "question": "Hvilken filosof la grunnlaget for den konfusianske tankegangen som formet kinesisk styresett?",
+            "options": [
+              "Laozi",
+              "Sun Tzu",
+              "Konfucius",
+              "Mencius"
+            ],
+            "answer": 2,
+            "explanation": "Konfucius (551-479 fvt) utviklet en tankeretning basert på respekt, plikter og kunnskap. Hans ideer ble grunnlaget for det kinesiske embetsmannssystemet i over 2000 år."
+          },
+          {
+            "question": "Hvilket dynasti regnes som Kinas gullalder, med verdens største by og intens handel?",
+            "options": [
+              "Qin-dynastiet",
+              "Han-dynastiet",
+              "Ming-dynastiet",
+              "Tang-dynastiet"
+            ],
+            "answer": 3,
+            "explanation": "Tang-dynastiet (618-907) regnes som Kinas gullalder. Hovedstaden Chang'an var verdens største by og et kosmopolitisk sentrum for handel, kunst og kultur."
+          },
+          {
+            "question": "Hva betyr det kinesiske navnet på Kina - Zhongguo?",
+            "options": [
+              "Det gamle landet",
+              "Midtriket eller landet i midten",
+              "Dragens hjemsted",
+              "Det store riket"
+            ],
+            "answer": 1,
+            "explanation": "Zhongguo betyr \"midtriket\" - landet i midten av verden. Kineserne betraktet lenge sitt eget land som sivilisasjonens sentrum, og fremmede folk som barbarer i periferien."
+          }
+        ]
+      }
+    }
+  ],
+  "timeline": []
+}

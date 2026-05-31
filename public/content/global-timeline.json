@@ -153,6 +153,23 @@
       ]
     },
     {
+      "id": "orientering",
+      "title": "Orientering: Kart, folk og religioner",
+      "description": "Hvem bor i Midtøsten, hva tror de på, og hvorfor er regionen så kompleks?",
+      "startDate": -3000,
+      "endDate": null,
+      "displayDate": "3000 fvt - i dag",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "midtoesten",
+      "link": "/historie/midtoesten/orientering",
+      "tags": [
+        "midtosten",
+        "islam",
+        "geografi"
+      ]
+    },
+    {
       "id": "indusdalen",
       "title": "Indusdalen: Sivilisasjonen som forsvant",
       "description": "Verdens første planlagte byer — fredelige, avanserte og fortsatt et mysterium.",
@@ -306,6 +323,40 @@
         "etikk",
         "filosofi",
         "lykke"
+      ]
+    },
+    {
+      "id": "dynastiene",
+      "title": "De store dynastiene: Keisere og sivilisasjon",
+      "description": "Fire oppfinnelser som endret verden og det keiserlige eksamenssystemet.",
+      "startDate": -221,
+      "endDate": 1912,
+      "displayDate": "221 fvt - 1912",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "kinas-historie",
+      "link": "/historie/kinas-historie/dynastiene",
+      "tags": [
+        "kina",
+        "dynastier",
+        "oppfinnelser"
+      ]
+    },
+    {
+      "id": "silkeveien",
+      "title": "Silkeveien: Da Kina handlet med verden",
+      "description": "1500 år med handel, religion og sykdom langs de store karavanerutene.",
+      "startDate": -130,
+      "endDate": 1453,
+      "displayDate": "130 fvt - 1453",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "kinas-historie",
+      "link": "/historie/kinas-historie/silkeveien",
+      "tags": [
+        "kina",
+        "handel",
+        "silkeveien"
       ]
     },
     {
@@ -741,6 +792,23 @@
       ]
     },
     {
+      "id": "islams-fodsel",
+      "title": "Islams fødsel: Muhammed og de første kalifatene",
+      "description": "Fra Mekka 610 til et rike fra Spania til India på 100 år.",
+      "startDate": 570,
+      "endDate": 750,
+      "displayDate": "570-750",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "midtoesten",
+      "link": "/historie/midtoesten/islams-fodsel",
+      "tags": [
+        "midtosten",
+        "islam",
+        "muhammed"
+      ]
+    },
+    {
       "id": "kyros-den-store",
       "title": "Kyros den store",
       "description": "Grunnleggeren av Perserriket vant ved å la folk beholde gudene, språket og lovene sine — verdens første verdensimperium ble bygd på toleranse, ikke terror.",
@@ -866,6 +934,23 @@
         "vikingtiden",
         "samfunn",
         "lov"
+      ]
+    },
+    {
+      "id": "islamsk-gullaldet",
+      "title": "Det islamske gullaldet: Da Bagdad var verdens kunnskapssenter",
+      "description": "Abbasidenes gullalder og islams bidrag til vitenskap og kultur.",
+      "startDate": 750,
+      "endDate": 1258,
+      "displayDate": "750-1258",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "midtoesten",
+      "link": "/historie/midtoesten/islamsk-gullaldet",
+      "tags": [
+        "midtosten",
+        "islam",
+        "vitenskap"
       ]
     },
     {
@@ -1360,6 +1445,25 @@
       ]
     },
     {
+      "id": "osman-og-oppkomsten",
+      "title": "Fra grensekrigere til imperium",
+      "description": "Hvordan en liten flokk ghazi-krigere under Osman vokste i tomrommet etter et døende Bysants og ble en regional stormakt.",
+      "startDate": 1299,
+      "endDate": null,
+      "displayDate": "1299",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "osmanske-riket",
+      "link": "/historie/osmanske-riket/osman-og-oppkomsten",
+      "tags": [
+        "osmanske-riket",
+        "imperium",
+        "historie",
+        "osman",
+        "balkan"
+      ]
+    },
+    {
       "id": "klokka",
       "title": "Klokka som styrte livet",
       "description": "I tusenvis av år styrte sola døgnet. Da den mekaniske klokka kom, fikk vi like timer, faste arbeidsdager og til slutt standardtid for hele verden.",
@@ -1429,6 +1533,25 @@
         "handel",
         "bergen",
         "hansa"
+      ]
+    },
+    {
+      "id": "janitsjarene",
+      "title": "Janitsjarene: sultanens slavehær",
+      "description": "Devşirme-systemet der kristne gutter fra Balkan ble sultanens elitesoldater, og hvordan slaver kunne bli rikets mektigste menn.",
+      "startDate": 1383,
+      "endDate": 1826,
+      "displayDate": "1383-1826",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "osmanske-riket",
+      "link": "/historie/osmanske-riket/janitsjarene",
+      "tags": [
+        "osmanske-riket",
+        "imperium",
+        "historie",
+        "janitsjarer",
+        "hær"
       ]
     },
     {
@@ -1542,6 +1665,25 @@
       ]
     },
     {
+      "id": "konstantinopels-fall",
+      "title": "1453: Da Konstantinopel falt",
+      "description": "Mehmet 2.s gigantiske kanoner mot verdens sterkeste bymurer. Hvorfor fallet av den tusen år gamle byen ble et vendepunkt for hele verden.",
+      "startDate": 1453,
+      "endDate": null,
+      "displayDate": "1453",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "osmanske-riket",
+      "link": "/historie/osmanske-riket/konstantinopels-fall",
+      "tags": [
+        "osmanske-riket",
+        "imperium",
+        "historie",
+        "konstantinopel",
+        "krig"
+      ]
+    },
+    {
       "id": "munkeliv-drapet",
       "title": "Drapet på Olav Nilsson",
       "description": "Hanseatene angriper Munkeliv kloster, brenner det ned og dreper høvedsmannen.",
@@ -1557,6 +1699,25 @@
         "hansa",
         "bergen",
         "kirke"
+      ]
+    },
+    {
+      "id": "topkapi-palasset",
+      "title": "Topkapı: maktens palass",
+      "description": "Hvordan makt faktisk fungerte bak palassmurene: sultanen, storvesiren og haremet i et spill av seremoni, intriger og kvinnemakt.",
+      "startDate": 1465,
+      "endDate": null,
+      "displayDate": "1465",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "osmanske-riket",
+      "link": "/historie/osmanske-riket/topkapi-palasset",
+      "tags": [
+        "osmanske-riket",
+        "imperium",
+        "historie",
+        "makt",
+        "topkapi"
       ]
     },
     {
@@ -1680,6 +1841,25 @@
         "kolonialisme",
         "imperialisme",
         "global-historie"
+      ]
+    },
+    {
+      "id": "millet-mangfold",
+      "title": "Et rike av mange folk",
+      "description": "Millet-systemet, der muslimer, kristne og jøder levde side om side under egne lover. Toleranse på osmansk vis: frihet, men ikke likhet.",
+      "startDate": 1492,
+      "endDate": null,
+      "displayDate": "1492",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "osmanske-riket",
+      "link": "/historie/osmanske-riket/millet-mangfold",
+      "tags": [
+        "osmanske-riket",
+        "imperium",
+        "historie",
+        "religion",
+        "mangfold"
       ]
     },
     {
@@ -1917,6 +2097,25 @@
       ]
     },
     {
+      "id": "suleyman-gullalderen",
+      "title": "Süleyman den store og gullalderen",
+      "description": "Rikets høydepunkt under 'Lovgiveren': erobrer ute ved Wiens porter, lovgiver hjemme. Militær makt, lov og kultur på sitt mektigste.",
+      "startDate": 1520,
+      "endDate": 1566,
+      "displayDate": "1520-1566",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "osmanske-riket",
+      "link": "/historie/osmanske-riket/suleyman-gullalderen",
+      "tags": [
+        "osmanske-riket",
+        "imperium",
+        "historie",
+        "süleyman",
+        "gullalder"
+      ]
+    },
+    {
       "id": "cortes-mexico",
       "title": "Cortés erobrer Mexico",
       "description": "Aztekerrikets fall markerer starten på Spanias herredømme på fastlandet.",
@@ -2022,6 +2221,25 @@
         "økonomi",
         "sølv",
         "bolivia"
+      ]
+    },
+    {
+      "id": "handel-og-kultur",
+      "title": "Handel, kaffe og kunst",
+      "description": "Rikets rolle som handelsknutepunkt og kulturell stormakt: verdens første kaffehus, kontroll over Silkeveien, Sinans kupler og İznik-fliser.",
+      "startDate": 1555,
+      "endDate": null,
+      "displayDate": "1555",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "osmanske-riket",
+      "link": "/historie/osmanske-riket/handel-og-kultur",
+      "tags": [
+        "osmanske-riket",
+        "imperium",
+        "historie",
+        "handel",
+        "kultur"
       ]
     },
     {
@@ -2342,6 +2560,25 @@
         "historie",
         "enevelde",
         "frankrike"
+      ]
+    },
+    {
+      "id": "forfallet",
+      "title": "\"Europas syke mann\"",
+      "description": "Det lange forfallet etter Wien 1683: tapte kriger, Tanzimat-reformene og nasjonalisme på Balkan som gjorde riket til 'Europas kruttønne'.",
+      "startDate": 1683,
+      "endDate": 1908,
+      "displayDate": "1683-1908",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "osmanske-riket",
+      "link": "/historie/osmanske-riket/forfallet",
+      "tags": [
+        "osmanske-riket",
+        "imperium",
+        "historie",
+        "forfall",
+        "balkan"
       ]
     },
     {
@@ -3124,6 +3361,23 @@
       ]
     },
     {
+      "id": "opiumskrigene",
+      "title": "Ydmykelsen: Opiumskrigene og europeisk imperialisme",
+      "description": "Britene selger narkotika til kinesere for å betale for te - og krigen som fulgte.",
+      "startDate": 1839,
+      "endDate": 1842,
+      "displayDate": "1839-1842",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "kinas-historie",
+      "link": "/historie/kinas-historie/opiumskrigene",
+      "tags": [
+        "kina",
+        "imperialisme",
+        "opium"
+      ]
+    },
+    {
       "id": "hamskiftet",
       "title": "Hamskiftet",
       "description": "Norge skifter ham: Fra bonde til arbeider.",
@@ -3634,6 +3888,40 @@
       ]
     },
     {
+      "id": "olje-og-makt",
+      "title": "Olje og makt: Ressursen som endret alt",
+      "description": "OPEC, oljekrisen 1973 og oljens rolle som geopolitisk våpen.",
+      "startDate": 1908,
+      "endDate": null,
+      "displayDate": "1908-i dag",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "midtoesten",
+      "link": "/historie/midtoesten/olje-og-makt",
+      "tags": [
+        "midtosten",
+        "olje",
+        "opec"
+      ]
+    },
+    {
+      "id": "borgerkrigen",
+      "title": "Republikkens fall: Borgerkrig og revolusjon",
+      "description": "Fra keiserdømmets fall i 1912 til Maos seier i 1949.",
+      "startDate": 1911,
+      "endDate": 1949,
+      "displayDate": "1911-1949",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "kinas-historie",
+      "link": "/historie/kinas-historie/borgerkrigen",
+      "tags": [
+        "kina",
+        "borgerkrig",
+        "mao"
+      ]
+    },
+    {
       "id": "federal-reserve-1913",
       "title": "Federal Reserve grunnlegges",
       "description": "USA oppretter sin sentralbank. For første gang kan et sentralt organ sette prisen på penger i verdens største økonomi.",
@@ -3697,6 +3985,25 @@
       "tags": [
         "krig",
         "opptakt"
+      ]
+    },
+    {
+      "id": "sammenbruddet",
+      "title": "Sammenbruddet og det nye Tyrkia",
+      "description": "Rikets endelikt i første verdenskrig: Gallipoli, folkemordet på armenerne, Atatürks republikk og Sykes-Picot-avtalen som tegnet dagens Midtøsten.",
+      "startDate": 1914,
+      "endDate": 1923,
+      "displayDate": "1914-1923",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "osmanske-riket",
+      "link": "/historie/osmanske-riket/sammenbruddet",
+      "tags": [
+        "osmanske-riket",
+        "imperium",
+        "historie",
+        "forste-verdenskrig",
+        "tyrkia"
       ]
     },
     {
@@ -3769,6 +4076,23 @@
       ]
     },
     {
+      "id": "sykes-picot",
+      "title": "Sykes-Picot: Da Vesten tegnet Midtøstens kart",
+      "description": "Den hemmelige avtalen som skapte kunstige grenser - og moderne konflikter.",
+      "startDate": 1916,
+      "endDate": 1923,
+      "displayDate": "1916-1923",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "midtoesten",
+      "link": "/historie/midtoesten/sykes-picot",
+      "tags": [
+        "midtosten",
+        "imperialisme",
+        "grenser"
+      ]
+    },
+    {
       "id": "bolsjevik-revolusjon",
       "title": "Bolsjevik-revolusjonen",
       "description": "Lenin tar makten i Russland.",
@@ -3816,6 +4140,23 @@
         "dekolonisering",
         "midtøsten",
         "osmanriket"
+      ]
+    },
+    {
+      "id": "israel-og-palestina",
+      "title": "Israel og Palestina: Et land, to folk",
+      "description": "Fra Balfour-erklæringen til Gaza - en av historiens mest komplekse konflikter.",
+      "startDate": 1917,
+      "endDate": null,
+      "displayDate": "1917-i dag",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "midtoesten",
+      "link": "/historie/midtoesten/israel-og-palestina",
+      "tags": [
+        "midtosten",
+        "israel",
+        "palestina"
       ]
     },
     {
@@ -4354,7 +4695,14 @@
         "kunst",
         "vitenskap",
         "dekolonisering",
-        "kart"
+        "kart",
+        "osmanske-riket",
+        "imperium",
+        "midtøsten",
+        "handel",
+        "kina",
+        "dynastier",
+        "sivilisasjon"
       ]
     },
     {
@@ -4593,6 +4941,44 @@
       "tags": [
         "krig",
         "slag"
+      ]
+    },
+    {
+      "id": "imf-og-verdensbanken",
+      "title": "Gjeld som våpen: IMF og Verdensbanken",
+      "description": "To mektige banker ble født for å hjelpe verden - men lånene deres kommer med krav som kan ramme de fattigste.",
+      "startDate": 1944,
+      "endDate": null,
+      "displayDate": "1944",
+      "type": "lesson",
+      "subjectId": "samfunnskunnskap",
+      "topicId": "handel-og-infrastruktur",
+      "link": "/samfunnskunnskap/handel-og-infrastruktur/imf-og-verdensbanken",
+      "tags": [
+        "økonomi",
+        "imf",
+        "verdensbanken",
+        "gjeld",
+        "nykolonialisme"
+      ]
+    },
+    {
+      "id": "imf-og-verdensbanken-sub-0",
+      "title": "Bretton Woods",
+      "description": "IMF og Verdensbanken opprettes for å stabilisere verdensøkonomien.",
+      "startDate": 1944,
+      "endDate": null,
+      "displayDate": "1944",
+      "type": "sub-event",
+      "subjectId": "samfunnskunnskap",
+      "topicId": "handel-og-infrastruktur",
+      "link": "/samfunnskunnskap/handel-og-infrastruktur/imf-og-verdensbanken",
+      "tags": [
+        "økonomi",
+        "imf",
+        "verdensbanken",
+        "gjeld",
+        "nykolonialisme"
       ]
     },
     {
@@ -4836,6 +5222,23 @@
         "dekolonisering",
         "krig",
         "algerie"
+      ]
+    },
+    {
+      "id": "kald-krig-midtosten",
+      "title": "Den kalde krigen i Midtøsten",
+      "description": "CIA-kupp, proxy-kriger og supermaktenes spill om Midtøstens sjel.",
+      "startDate": 1946,
+      "endDate": 1989,
+      "displayDate": "1946-1989",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "midtoesten",
+      "link": "/historie/midtoesten/kald-krig-midtosten",
+      "tags": [
+        "midtosten",
+        "kaldkrig",
+        "cia"
       ]
     },
     {
@@ -5089,6 +5492,25 @@
       ]
     },
     {
+      "id": "indonesia-1965-sub-0",
+      "title": "Indonesia blir fritt",
+      "description": "Løsriver seg fra Nederland. Sukarno blir leder.",
+      "startDate": 1949,
+      "endDate": null,
+      "displayDate": "1949",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "den-kalde-krigen",
+      "link": "/historie/den-kalde-krigen/indonesia-1965",
+      "tags": [
+        "historie",
+        "kald-krig",
+        "indonesia",
+        "suharto",
+        "nykolonialisme"
+      ]
+    },
+    {
       "id": "sorost-asia-sub-2",
       "title": "Indonesia fritt",
       "description": "Nederland gir opp kolonien etter 4 års krig.",
@@ -5104,6 +5526,23 @@
         "dekolonisering",
         "indonesia",
         "vietnam"
+      ]
+    },
+    {
+      "id": "mao-og-revolusjonen",
+      "title": "Mao Zedong: Revolusjonens far",
+      "description": "Hvem var Mao, og hva betød revolusjonen for Kinas befolkning?",
+      "startDate": 1949,
+      "endDate": 1959,
+      "displayDate": "1949-1959",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "kinas-historie",
+      "link": "/historie/kinas-historie/mao-og-revolusjonen",
+      "tags": [
+        "kina",
+        "mao",
+        "kommunisme"
       ]
     },
     {
@@ -5171,6 +5610,45 @@
       "tags": [
         "psykologi",
         "forskning"
+      ]
+    },
+    {
+      "id": "operasjon-ajax-sub-0",
+      "title": "Oljen blir iransk",
+      "description": "Mossadeq nasjonaliserer oljen. Folket jubler.",
+      "startDate": 1951,
+      "endDate": null,
+      "displayDate": "1951",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "den-kalde-krigen",
+      "link": "/historie/den-kalde-krigen/operasjon-ajax",
+      "tags": [
+        "historie",
+        "kald-krig",
+        "iran",
+        "olje",
+        "cia",
+        "nykolonialisme"
+      ]
+    },
+    {
+      "id": "guatemala-1954-sub-0",
+      "title": "Árbenz blir president",
+      "description": "Lover jordreform til fattige bønder.",
+      "startDate": 1951,
+      "endDate": null,
+      "displayDate": "1951",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/guatemala-1954",
+      "tags": [
+        "historie",
+        "dekolonisering",
+        "guatemala",
+        "united-fruit",
+        "nykolonialisme"
       ]
     },
     {
@@ -5243,6 +5721,141 @@
         "konflikt",
         "delte-samfunn",
         "atomvåpen"
+      ]
+    },
+    {
+      "id": "operasjon-ajax",
+      "title": "Operasjon Ajax: Da oljen ble verdt et kupp",
+      "description": "Iran valgte selv å eie oljen sin - og ble straffet for det. Det første store CIA-kuppet, og hvordan det slo tilbake.",
+      "startDate": 1953,
+      "endDate": null,
+      "displayDate": "1953",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "den-kalde-krigen",
+      "link": "/historie/den-kalde-krigen/operasjon-ajax",
+      "tags": [
+        "historie",
+        "kald-krig",
+        "iran",
+        "olje",
+        "cia",
+        "nykolonialisme"
+      ]
+    },
+    {
+      "id": "operasjon-ajax-sub-1",
+      "title": "Operasjon Ajax",
+      "description": "CIA og britene velter Mossadeq. Sjahen får makten.",
+      "startDate": 1953,
+      "endDate": null,
+      "displayDate": "1953",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "den-kalde-krigen",
+      "link": "/historie/den-kalde-krigen/operasjon-ajax",
+      "tags": [
+        "historie",
+        "kald-krig",
+        "iran",
+        "olje",
+        "cia",
+        "nykolonialisme"
+      ]
+    },
+    {
+      "id": "okonomiske-leiemordere",
+      "title": "Økonomiske leiemordere: Slik kjøpes et helt land",
+      "description": "Du trenger ikke en hær for å erobre et land - du trenger et lån. Om John Perkins og nykolonialismen.",
+      "startDate": 1953,
+      "endDate": 2004,
+      "displayDate": "1953-2004",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/okonomiske-leiemordere",
+      "tags": [
+        "historie",
+        "dekolonisering",
+        "nykolonialisme",
+        "kald-krig",
+        "økonomi"
+      ]
+    },
+    {
+      "id": "okonomiske-leiemordere-sub-0",
+      "title": "Kuppet i Iran",
+      "description": "Statsminister Mossadeq fjernes etter at han nasjonaliserte oljen.",
+      "startDate": 1953,
+      "endDate": null,
+      "displayDate": "1953",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/okonomiske-leiemordere",
+      "tags": [
+        "historie",
+        "dekolonisering",
+        "nykolonialisme",
+        "kald-krig",
+        "økonomi"
+      ]
+    },
+    {
+      "id": "guatemala-1954-sub-1",
+      "title": "Jorda deles ut",
+      "description": "United Fruit mister ubrukt land. Selskapet raser.",
+      "startDate": 1953,
+      "endDate": null,
+      "displayDate": "1953",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/guatemala-1954",
+      "tags": [
+        "historie",
+        "dekolonisering",
+        "guatemala",
+        "united-fruit",
+        "nykolonialisme"
+      ]
+    },
+    {
+      "id": "guatemala-1954",
+      "title": "Bananrepublikken: Da et fruktselskap styrtet en regjering",
+      "description": "Ett amerikansk fruktselskap eide nesten alt i Guatemala. CIA-kuppet i 1954 utløste 36 år med borgerkrig.",
+      "startDate": 1954,
+      "endDate": null,
+      "displayDate": "1954",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/guatemala-1954",
+      "tags": [
+        "historie",
+        "dekolonisering",
+        "guatemala",
+        "united-fruit",
+        "nykolonialisme"
+      ]
+    },
+    {
+      "id": "guatemala-1954-sub-2",
+      "title": "Kuppet",
+      "description": "CIA velter Árbenz. Borgerkrig følger.",
+      "startDate": 1954,
+      "endDate": null,
+      "displayDate": "1954",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/guatemala-1954",
+      "tags": [
+        "historie",
+        "dekolonisering",
+        "guatemala",
+        "united-fruit",
+        "nykolonialisme"
       ]
     },
     {
@@ -5453,6 +6066,23 @@
         "dekolonisering",
         "krig",
         "algerie"
+      ]
+    },
+    {
+      "id": "store-spranget",
+      "title": "Det store spranget og kulturrevolusjonen",
+      "description": "To av 1900-tallets største menneskeskapte katastrofer.",
+      "startDate": 1958,
+      "endDate": 1976,
+      "displayDate": "1958-1976",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "kinas-historie",
+      "link": "/historie/kinas-historie/store-spranget",
+      "tags": [
+        "kina",
+        "mao",
+        "hungersnød"
       ]
     },
     {
@@ -5799,6 +6429,44 @@
       ]
     },
     {
+      "id": "indonesia-1965",
+      "title": "Jakarta-metoden: Indonesias glemte tragedie",
+      "description": "Et av etterkrigstidens største massedrap, med vestlig støtte. Volden ble en oppskrift andre land kopierte.",
+      "startDate": 1965,
+      "endDate": null,
+      "displayDate": "1965",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "den-kalde-krigen",
+      "link": "/historie/den-kalde-krigen/indonesia-1965",
+      "tags": [
+        "historie",
+        "kald-krig",
+        "indonesia",
+        "suharto",
+        "nykolonialisme"
+      ]
+    },
+    {
+      "id": "indonesia-1965-sub-1",
+      "title": "Kuppforsøk og massedrap",
+      "description": "Hæren gir kommunistene skylden. Drapene starter.",
+      "startDate": 1965,
+      "endDate": null,
+      "displayDate": "1965",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "den-kalde-krigen",
+      "link": "/historie/den-kalde-krigen/indonesia-1965",
+      "tags": [
+        "historie",
+        "kald-krig",
+        "indonesia",
+        "suharto",
+        "nykolonialisme"
+      ]
+    },
+    {
       "id": "kongo-sub-3",
       "title": "Mobutu tar makten",
       "description": "Starter et kleptokrati som varer i 30 år.",
@@ -5832,6 +6500,25 @@
         "dekolonisering",
         "afrika",
         "ghana"
+      ]
+    },
+    {
+      "id": "indonesia-1965-sub-2",
+      "title": "Suharto tar makten",
+      "description": "Åpner Indonesia for vestlige selskaper.",
+      "startDate": 1967,
+      "endDate": null,
+      "displayDate": "1967",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "den-kalde-krigen",
+      "link": "/historie/den-kalde-krigen/indonesia-1965",
+      "tags": [
+        "historie",
+        "kald-krig",
+        "indonesia",
+        "suharto",
+        "nykolonialisme"
       ]
     },
     {
@@ -5908,6 +6595,26 @@
       ]
     },
     {
+      "id": "chile-1973-sub-0",
+      "title": "Allende vinner valget",
+      "description": "Chile velger en sosialist som vil nasjonalisere kobberet.",
+      "startDate": 1970,
+      "endDate": null,
+      "displayDate": "1970",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "den-kalde-krigen",
+      "link": "/historie/den-kalde-krigen/chile-1973",
+      "tags": [
+        "historie",
+        "kald-krig",
+        "chile",
+        "allende",
+        "pinochet",
+        "nykolonialisme"
+      ]
+    },
+    {
       "id": "nixon-sjokket-1971",
       "title": "Nixon-sjokket: Gullstandarden avvikles",
       "description": "President Nixon avslutter dollarens gullkonvertibilitet. Verdens pengesystem blir rent fiat-basert.",
@@ -5922,6 +6629,45 @@
         "økonomi",
         "rente",
         "penger"
+      ]
+    },
+    {
+      "id": "petrodollaren-sub-0",
+      "title": "Gullet slippes",
+      "description": "USA kobler dollaren fra gull. Pengene flyter friere.",
+      "startDate": 1971,
+      "endDate": null,
+      "displayDate": "1971",
+      "type": "sub-event",
+      "subjectId": "samfunnskunnskap",
+      "topicId": "okonomi",
+      "link": "/samfunnskunnskap/okonomi/petrodollaren",
+      "tags": [
+        "økonomi",
+        "olje",
+        "dollar",
+        "opec",
+        "nykolonialisme"
+      ]
+    },
+    {
+      "id": "chile-1973-sub-1",
+      "title": "Økonomisk krigføring",
+      "description": "USA stopper lån og finansierer streiker og uro.",
+      "startDate": 1971,
+      "endDate": 73,
+      "displayDate": "1971-73",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "den-kalde-krigen",
+      "link": "/historie/den-kalde-krigen/chile-1973",
+      "tags": [
+        "historie",
+        "kald-krig",
+        "chile",
+        "allende",
+        "pinochet",
+        "nykolonialisme"
       ]
     },
     {
@@ -5995,6 +6741,103 @@
       ]
     },
     {
+      "id": "petrodollaren",
+      "title": "Petrodollaren: Hvorfor olje måles i dollar",
+      "description": "Nesten all olje i verden selges i dollar. Oljepenger blir til lån, og lån blir til gjeld - drivstoffet i hele systemet.",
+      "startDate": 1973,
+      "endDate": null,
+      "displayDate": "1973",
+      "type": "lesson",
+      "subjectId": "samfunnskunnskap",
+      "topicId": "okonomi",
+      "link": "/samfunnskunnskap/okonomi/petrodollaren",
+      "tags": [
+        "økonomi",
+        "olje",
+        "dollar",
+        "opec",
+        "nykolonialisme"
+      ]
+    },
+    {
+      "id": "petrodollaren-sub-1",
+      "title": "Oljekrisen",
+      "description": "OPEC stanser oljesalg til Vesten. Prisene firedobles.",
+      "startDate": 1973,
+      "endDate": null,
+      "displayDate": "1973",
+      "type": "sub-event",
+      "subjectId": "samfunnskunnskap",
+      "topicId": "okonomi",
+      "link": "/samfunnskunnskap/okonomi/petrodollaren",
+      "tags": [
+        "økonomi",
+        "olje",
+        "dollar",
+        "opec",
+        "nykolonialisme"
+      ]
+    },
+    {
+      "id": "chile-1973",
+      "title": "Få økonomien til å skrike: Kuppet i Chile",
+      "description": "USA kvalte Chiles økonomi i stedet for å invadere. Resultatet ble 17 år med diktatur under Pinochet.",
+      "startDate": 1973,
+      "endDate": null,
+      "displayDate": "1973",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "den-kalde-krigen",
+      "link": "/historie/den-kalde-krigen/chile-1973",
+      "tags": [
+        "historie",
+        "kald-krig",
+        "chile",
+        "allende",
+        "pinochet",
+        "nykolonialisme"
+      ]
+    },
+    {
+      "id": "chile-1973-sub-2",
+      "title": "Militærkuppet",
+      "description": "11. september tar general Pinochet makten.",
+      "startDate": 1973,
+      "endDate": null,
+      "displayDate": "1973",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "den-kalde-krigen",
+      "link": "/historie/den-kalde-krigen/chile-1973",
+      "tags": [
+        "historie",
+        "kald-krig",
+        "chile",
+        "allende",
+        "pinochet",
+        "nykolonialisme"
+      ]
+    },
+    {
+      "id": "okonomiske-leiemordere-sub-1",
+      "title": "Kuppet i Chile",
+      "description": "President Allende styrtes. Pinochet tar makten.",
+      "startDate": 1973,
+      "endDate": null,
+      "displayDate": "1973",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/okonomiske-leiemordere",
+      "tags": [
+        "historie",
+        "dekolonisering",
+        "nykolonialisme",
+        "kald-krig",
+        "økonomi"
+      ]
+    },
+    {
       "id": "kypros-delt",
       "title": "Kypros deles",
       "description": "Tyrkia invaderer etter et gresk militærkupp. 160 000 gresk-kyprioter og 45 000 tyrkisk-kyprioter tvinges fra hjemmene sine.",
@@ -6010,6 +6853,25 @@
         "europa",
         "konflikt",
         "delte-samfunn"
+      ]
+    },
+    {
+      "id": "petrodollaren-sub-2",
+      "title": "Petrodollar-avtalen",
+      "description": "Oljen selges i dollar, og dollarene havner i vestlige banker.",
+      "startDate": 1974,
+      "endDate": null,
+      "displayDate": "1974",
+      "type": "sub-event",
+      "subjectId": "samfunnskunnskap",
+      "topicId": "okonomi",
+      "link": "/samfunnskunnskap/okonomi/petrodollaren",
+      "tags": [
+        "økonomi",
+        "olje",
+        "dollar",
+        "opec",
+        "nykolonialisme"
       ]
     },
     {
@@ -6098,6 +6960,79 @@
         "arbeidsliv",
         "rettigheter",
         "lov"
+      ]
+    },
+    {
+      "id": "deng-og-reformene",
+      "title": "Deng Xiaoping: Kina åpner for verden",
+      "description": "Reform og åpning etter 1978 - og veien fra fattigdom til supermakt.",
+      "startDate": 1978,
+      "endDate": 1997,
+      "displayDate": "1978-1997",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "kinas-historie",
+      "link": "/historie/kinas-historie/deng-og-reformene",
+      "tags": [
+        "kina",
+        "deng",
+        "økonomi"
+      ]
+    },
+    {
+      "id": "iran-revolusjonen",
+      "title": "Den iranske revolusjonen 1979",
+      "description": "Et folk styrter sin konge - og skaper verdens eneste islamske republikk.",
+      "startDate": 1978,
+      "endDate": 1981,
+      "displayDate": "1978-1981",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "midtoesten",
+      "link": "/historie/midtoesten/iran-revolusjonen",
+      "tags": [
+        "midtosten",
+        "iran",
+        "revolusjon"
+      ]
+    },
+    {
+      "id": "operasjon-ajax-sub-2",
+      "title": "Revolusjonen",
+      "description": "Sjahen styrtes. Iran blir USAs fiende.",
+      "startDate": 1979,
+      "endDate": null,
+      "displayDate": "1979",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "den-kalde-krigen",
+      "link": "/historie/den-kalde-krigen/operasjon-ajax",
+      "tags": [
+        "historie",
+        "kald-krig",
+        "iran",
+        "olje",
+        "cia",
+        "nykolonialisme"
+      ]
+    },
+    {
+      "id": "imf-og-verdensbanken-sub-1",
+      "title": "Strukturtilpasning",
+      "description": "Fattige land får lån mot at de kutter og privatiserer.",
+      "startDate": 1980,
+      "endDate": null,
+      "displayDate": "1980-tallet",
+      "type": "sub-event",
+      "subjectId": "samfunnskunnskap",
+      "topicId": "handel-og-infrastruktur",
+      "link": "/samfunnskunnskap/handel-og-infrastruktur/imf-og-verdensbanken",
+      "tags": [
+        "økonomi",
+        "imf",
+        "verdensbanken",
+        "gjeld",
+        "nykolonialisme"
       ]
     },
     {
@@ -6220,6 +7155,23 @@
       ]
     },
     {
+      "id": "tiananmen-1989",
+      "title": "Tiananmen 1989: Da studentene krevde frihet",
+      "description": "Demonstrasjonene, massakren og bildet verden husker.",
+      "startDate": 1989,
+      "endDate": null,
+      "displayDate": "1989",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "kinas-historie",
+      "link": "/historie/kinas-historie/tiananmen-1989",
+      "tags": [
+        "kina",
+        "tiananmen",
+        "demokrati"
+      ]
+    },
+    {
       "id": "kuwait-1990-casus",
       "title": "Invasjonen av Kuwait",
       "description": "Iraks invasjon blir møtt med en nesten enstemmig internasjonal fordømmelse og legitim motaksjon.",
@@ -6270,6 +7222,23 @@
         "dekolonisering",
         "portugal",
         "apartheid"
+      ]
+    },
+    {
+      "id": "golfkrigene",
+      "title": "Golfkrigene: Fra Kuwait til Irak",
+      "description": "Fra Saddams invasjon av Kuwait til maktvakuumet som skapte IS.",
+      "startDate": 1990,
+      "endDate": 2011,
+      "displayDate": "1990-2011",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "midtoesten",
+      "link": "/historie/midtoesten/golfkrigene",
+      "tags": [
+        "midtosten",
+        "irak",
+        "golfkrig"
       ]
     },
     {
@@ -6378,6 +7347,59 @@
       ]
     },
     {
+      "id": "imf-og-verdensbanken-sub-2",
+      "title": "Vannkrigen i Bolivia",
+      "description": "Privatisering av vann utløser opprør i Cochabamba.",
+      "startDate": 2000,
+      "endDate": null,
+      "displayDate": "2000",
+      "type": "sub-event",
+      "subjectId": "samfunnskunnskap",
+      "topicId": "handel-og-infrastruktur",
+      "link": "/samfunnskunnskap/handel-og-infrastruktur/imf-og-verdensbanken",
+      "tags": [
+        "økonomi",
+        "imf",
+        "verdensbanken",
+        "gjeld",
+        "nykolonialisme"
+      ]
+    },
+    {
+      "id": "kina-supermakt",
+      "title": "Kina som supermakt",
+      "description": "Fra verdens fabrikk til geopolitisk stormakt - og hva det betyr for verden.",
+      "startDate": 2000,
+      "endDate": null,
+      "displayDate": "2000 - i dag",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "kinas-historie",
+      "link": "/historie/kinas-historie/kina-supermakt",
+      "tags": [
+        "kina",
+        "supermakt",
+        "xi-jinping"
+      ]
+    },
+    {
+      "id": "krigen-mot-terror",
+      "title": "11. september og krigen mot terror",
+      "description": "Fra 9/11 til 20 år i Afghanistan - og hva krigen etterlot seg.",
+      "startDate": 2001,
+      "endDate": 2021,
+      "displayDate": "2001-2021",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "midtoesten",
+      "link": "/historie/midtoesten/krigen-mot-terror",
+      "tags": [
+        "midtosten",
+        "terror",
+        "afghanistan"
+      ]
+    },
+    {
       "id": "vestbredden-barriere",
       "title": "Separasjonsbarrieren på Vestbredden",
       "description": "Israel begynner å bygge en 700 km lang barriere langs og delvis inne på Vestbredden. FNs domstol erklærer deler av den folkerettsstridig.",
@@ -6432,6 +7454,25 @@
       ]
     },
     {
+      "id": "okonomiske-leiemordere-sub-2",
+      "title": "Boken kommer",
+      "description": "John Perkins utgir 'Confessions of an Economic Hit Man'.",
+      "startDate": 2004,
+      "endDate": null,
+      "displayDate": "2004",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/okonomiske-leiemordere",
+      "tags": [
+        "historie",
+        "dekolonisering",
+        "nykolonialisme",
+        "kald-krig",
+        "økonomi"
+      ]
+    },
+    {
       "id": "hjorten-i-skogbrynet",
       "title": "Hjorten i skogbrynet",
       "description": "Utgitt av Gunnhild Øyehaug",
@@ -6465,6 +7506,23 @@
       "subjectId": "norsk",
       "link": "/norsk/bibliotek?text=barsakh",
       "tags": []
+    },
+    {
+      "id": "arabisk-var",
+      "title": "Den arabiske våren",
+      "description": "Håp, revolusjon og borgerkrig - hvordan en fruktselger endret en hel region.",
+      "startDate": 2010,
+      "endDate": 2014,
+      "displayDate": "2010-2014",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "midtoesten",
+      "link": "/historie/midtoesten/arabisk-var",
+      "tags": [
+        "midtosten",
+        "arabiskvaar",
+        "demokrati"
+      ]
     },
     {
       "id": "eli-pariser-filter-bubble",
@@ -6501,6 +7559,23 @@
         "terror",
         "demokrati",
         "radikalisering"
+      ]
+    },
+    {
+      "id": "midtoesten-i-dag",
+      "title": "Midtøsten i dag: Konflikt og framtid",
+      "description": "Et rammeverk for å forstå nyheter fra regionen - konflikter, aktører og fremtidsutsikter.",
+      "startDate": 2011,
+      "endDate": null,
+      "displayDate": "2011 - i dag",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "midtoesten",
+      "link": "/historie/midtoesten/midtoesten-i-dag",
+      "tags": [
+        "midtosten",
+        "is",
+        "iran"
       ]
     },
     {

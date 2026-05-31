@@ -1,0 +1,196 @@
+{
+  "id": "islams-fodsel",
+  "title": "Islams fødsel: Muhammed og de første kalifatene",
+  "layout": "rich",
+  "year": "570-750",
+  "category": "Midtøsten",
+  "readTime": "8 min lesning",
+  "heroImage": "/images/placeholder.webp",
+  "details": [
+    "Muhammed ble født i Mekka rundt år 570 og mottok ifølge islam sine første åpenbaringer i år 610.",
+    "På 100 år ekspanderte det islamske riket fra Arabia til Spania i vest og til Indus-elven i øst.",
+    "Splittelsen mellom sunni og shia oppsto etter Muhammeds død i 632, da striden om etterfølgelsen startet."
+  ],
+  "externalUrl": "https://snl.no/islam",
+  "content": [
+    {
+      "type": "text",
+      "content": "Mekka, år 610. En kjøpmann på 40 år klatrer opp i fjellet utenfor byen og setter seg alene i Hira-hulen. Han heter Muhammed og har gjort dette mange ganger - søkt stillhet og ettertanke. Men denne natten skjer noe som ifølge milliarder av troende endrer verdenshistorien for alltid. Det som starter i en hule, vokser på hundre år til et rike som strekker seg fra Spania til India."
+    },
+    {
+      "type": "header",
+      "text": "Arabia før islam"
+    },
+    {
+      "type": "text",
+      "content": "Arabia på 600-tallet var ikke et tomt ødemark. Mekka lå ved et viktig knutepunkt for handelsruter mellom Sør-Arabia, Syria og Egypt. Kamelkaravaner fraktet krydder, silke og gull gjennom ørkenen. Mekka hadde også en sentral religiøs posisjon - byen var hjemsted for Ka'baen, et hellig tempel som samlet folk fra hele Arabia til valfart."
+    },
+    {
+      "type": "text",
+      "content": "De arabiske stammene dyrket hundrevis av guder og ånder. Ka'baen rommet statuer av mange ulike guddommer. Men araberne kjente også til de store monoteistiske religionene: jødedommen hadde sterke samfunn i Arabia, kristendommen spredte seg fra Syria og Egypt, og zoroastrismen dominerte i Persia i øst. Ideen om én gud var ikke fremmed - men den hadde ikke fått fotfeste blant de fleste arabere."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Kart over handelsrutene i Arabia på 600-tallet",
+      "caption": "Mekka lå strategisk til langs de viktigste handelsrutene i Arabia."
+    },
+    {
+      "type": "header",
+      "text": "Muhammed: kjøpmann og profet"
+    },
+    {
+      "type": "text",
+      "content": "Muhammed ble født rundt år 570 i Mekka. Han mistet foreldrene tidlig og vokste opp hos slektninger. Som ung mann jobbet han for en velstående enke ved navn Khadija, og de giftet seg. Han var kjent som pålitelig og ærlig - araberne kalte ham al-Amin, den tillitsverdige."
+    },
+    {
+      "type": "text",
+      "content": "I år 610 opplevde Muhammed det han beskrev som en åpenbaring fra engelen Gabriel i Hira-hulen. Han mottok ifølge islam ord fra Gud - ord som senere ble samlet i Koranen. De første årene forkynte han i det stille, mest til familie og nære venner. Men etter hvert som tilhengerskaren vokste, økte også motstanden. De mektige familiene i Mekka tjente penger på valfarten til Ka'baen, og en religion som erklærte at alle guder bortsett fra én var falske, truet inntektene deres direkte."
+    },
+    {
+      "type": "component",
+      "name": "TimelineComponent",
+      "props": {
+        "compact": true,
+        "events": [
+          { "year": 610, "description": "Muhammed mottar de første åpenbaringene i Hira-hulen nær Mekka." },
+          { "year": 622, "description": "Hijra: flukten fra Mekka til Medina. Islamsk kalender starter herfra." },
+          { "year": 630, "description": "Mekka inntas av Muhammed og muslimene. De fleste arabiske stammer konverterer." },
+          { "year": 632, "description": "Muhammed dør. Striden om etterfølgelsen begynner umiddelbart." },
+          { "year": 661, "description": "Ali ibn Abi Talib, Muhammeds fetter og svigersønn, drapes. Shia-islams martyrkirke starter." },
+          { "year": 711, "description": "Muslimske hærer krysser Gibraltarstredet og invaderer Spania." }
+        ]
+      }
+    },
+    {
+      "type": "header",
+      "text": "Hijra: flukten som ble et vendepunkt"
+    },
+    {
+      "type": "text",
+      "content": "I år 622 ble presset i Mekka for stort. Muhammed og hans tilhengere flyktet til byen Medina, rundt 400 kilometer nord for Mekka. Dette vendepunktet kalles hijra - arabisk for utvandring. Det islamske tidsregningen starter herfra, ikke fra Muhammeds fødsel eller de første åpenbaringene. Hijra markerer ikke bare en geografisk reise - det er øyeblikket islam blir noe mer enn en religion."
+    },
+    {
+      "type": "text",
+      "content": "I Medina fungerte Muhammed som både religiøs leder og politisk leder. Han forhandlet avtaler mellom stridende stammer, bygde opp et administrativt system og ledet militære kampanjer. I år 630 marsjerte han tilbake til Mekka med en hær, inntok byen nesten uten blodsutgytelse og ryddet Ka'baen for gudestattuer. De fleste arabiske stammer anerkjente ham som leder. Da han døde i 632, hadde han forent det meste av Arabia under ett styre for første gang i historien."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Illustrasjon av Medina som politisk og religiøst sentrum på 600-tallet",
+      "caption": "I Medina ble islam både en religion og en politisk makt."
+    },
+    {
+      "type": "header",
+      "text": "De fire rettledede kalifene og den store ekspansjonen"
+    },
+    {
+      "type": "text",
+      "content": "Muhammed etterlot seg ingen klar etterfølger, og spørsmålet om hvem som skulle lede det muslimske samfunnet etter ham, skapte umiddelbar strid. De fire første lederne - kalt de rettledede kalifene - styrte fra 632 til 661."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Abu Bakr (632-634): Muhammeds svigerfar og nærmeste venn. Knuste opprør fra stammer som ville løsrive seg etter profetens død.",
+        "Umar ibn al-Khattab (634-644): Under hans styre ekspanderte riket dramatisk. Egypt, Syria og store deler av Persia ble erobret.",
+        "Uthman ibn Affan (644-656): Samlet Koranen i én offisiell versjon. Ble myrdet, noe som forsterket den politiske krisen.",
+        "Ali ibn Abi Talib (656-661): Muhammeds fetter og svigersønn. Drept i 661. Hans tilhengere ble kjernen i det som ble shia-islam."
+      ]
+    },
+    {
+      "type": "text",
+      "content": "På bare to tiår rev muslimske hærer ned det vestromerske Persia og tok store deler fra Bysants. Det gikk forbausende raskt - delvis fordi begge stormaktene var utmattet av tiår med krig mot hverandre, delvis fordi mange lokale befolkninger ikke kjempet hardt for sine gamle herrer."
+    },
+    {
+      "type": "header",
+      "text": "Sunni og shia: et politisk brudd"
+    },
+    {
+      "type": "text",
+      "content": "Splittelsen mellom sunni og shia handler ikke i utgangspunktet om teologi - den handler om politikk. Hvem har rett til å lede det muslimske samfunnet? Sunni-muslimer mente at lederskapet skulle velges blant Muhammeds tilhengere. Shia-muslimer mente at lederskapet tilhørte Muhammeds familie, spesielt hans fetter og svigersønn Ali og Alis etterkommere."
+    },
+    {
+      "type": "text",
+      "content": "Da Ali ble drept i 661, og hans sønn Husayn senere ble massakrert i slaget ved Karbala i 680, ble disse hendelsene til hellige martyrfortellinger for shia-islam. Sorgen over Husayns død markeres fremdeles av hundremillioner shia-muslimer hvert år. Det som startet som en arvefølgestrid, ble over generasjoner til dype religiøse og kulturelle forskjeller."
+    },
+    {
+      "type": "component",
+      "name": "QuoteBlock",
+      "props": {
+        "text": "Lær, selv om det er i Kina.",
+        "author": "Tilskrevet Muhammed - symboliserer islams vekt på kunnskap"
+      }
+    },
+    {
+      "type": "header",
+      "text": "Umayyadene og riket som strakte seg fra Spania til India"
+    },
+    {
+      "type": "text",
+      "content": "Etter Alis død tok Muawiya, en politiker fra Mekka, makten og grunnla Umayyadedynastiet. Maktsete ble flyttet fra Arabia til Damaskus i Syria. Under Umayyadene ble det islamske riket et ekte verdensrike. I år 711 krysset muslimske hærer Gibraltarstredet og inntok nesten hele den iberiske halvøya på noen få år. Mot øst nådde riket til Indus-elven i dagens Pakistan."
+    },
+    {
+      "type": "text",
+      "content": "Dette riket ble ikke bare holdt sammen av militær makt - arabisk språk, islamsk lov og en felles kultur bandt regionene sammen. Handelsnettverket ekspanderte, og byene blomstret. Grunnlaget for det som skulle bli [islamsk gullaldet](/historie/midtoesten/islamsk-gullaldet) var lagt - en periode da muslimske lærde ledet verden innen matematikk, astronomi, medisin og filosofi. Arven fra dette imperiet lever videre i [Det osmanske riket](/historie/osmanske-riket/oversikt), som tusen år senere arvet mye av den politiske og religiøse tradisjonen."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Kart over det islamske rikets ekspansjon fra 622 til 750",
+      "caption": "På litt over hundre år ekspanderte det islamske riket fra Arabia til Spania og India."
+    },
+    {
+      "type": "component",
+      "name": "Quiz",
+      "props": {
+        "questions": [
+          {
+            "question": "Hva skjedde med Muhammed i Hira-hulen i år 610?",
+            "options": [
+              "Han flyktet fra Mekka til Medina",
+              "Han mottok ifølge islam sine første åpenbaringer",
+              "Han inntok Mekka med en hær",
+              "Han grunnla det første islamske dynastiet"
+            ],
+            "answer": 1,
+            "explanation": "I år 610 opplevde Muhammed det han beskrev som en åpenbaring fra engelen Gabriel i Hira-hulen nær Mekka. Dette regnes som starten på islams profetiske tradisjon."
+          },
+          {
+            "question": "Hva er hijra?",
+            "options": [
+              "Muhammeds fødsel i Mekka",
+              "Innsamlingen av Koranen",
+              "Flukten fra Mekka til Medina i 622",
+              "Slaget der muslimene beseiret Persia"
+            ],
+            "answer": 2,
+            "explanation": "Hijra betyr utvandring på arabisk og viser til Muhammeds flukt fra Mekka til Medina i år 622. Den islamske kalenderen starter fra dette året, fordi det markerte islamsk samfunnsbygging."
+          },
+          {
+            "question": "Hva handler splittelsen mellom sunni og shia om?",
+            "options": [
+              "Ulike tolkninger av Koranen",
+              "Spørsmålet om hvem som skulle lede det muslimske samfunnet etter Muhammed",
+              "Ulike bønneritualer",
+              "Strid om plasseringen av den hellige by"
+            ],
+            "answer": 1,
+            "explanation": "Splittelsen handler opprinnelig om politisk lederskap, ikke teologi. Shia-muslimer mente lederskapet tilhørte Muhammeds familie, mens sunni-muslimer støttet valgte ledere blant tilhengerne."
+          },
+          {
+            "question": "Hvilken by ble hovedsete for Umayyadedynastiet?",
+            "options": [
+              "Mekka",
+              "Medina",
+              "Kairo",
+              "Damaskus"
+            ],
+            "answer": 3,
+            "explanation": "Da Muawiya grunnla Umayyadedynastiet etter 661, flyttet han maktsetet fra Arabia til Damaskus i Syria. Dette markerte at det islamske riket hadde vokst fra et arabisk stammesamfunn til et ekte verdensrike."
+          }
+        ]
+      }
+    }
+  ],
+  "timeline": []
+}

@@ -1,0 +1,215 @@
+{
+  "id": "borgerkrigen",
+  "title": "Republikkens fall: Borgerkrig og revolusjon",
+  "layout": "rich",
+  "year": "1911-1949",
+  "category": "Kinas historie",
+  "readTime": "9 min lesning",
+  "heroImage": "/images/placeholder.webp",
+  "details": [
+    "I 1911 ble det 2000 år gamle keisersystemet avviklet på under et år.",
+    "Den lange marsjen (1934-35) var en flyktningstrekk på 10 000 kilometer som gjorde Mao til legende.",
+    "Den japanske invasjonen 1937-1945 svekket Kuomintang og styrket kommunistenes folkelige støtte."
+  ],
+  "externalUrl": "https://snl.no/borgerkrigen_i_Kina",
+  "content": [
+    {
+      "type": "text",
+      "content": "Det er 1911, og en seksåring sitter alene på den gylne tronen i Den forbudte by i Beijing. Han heter Puyi, og han er Kinas siste keiser. Utenfor murene koker landet i opprør. Keiserdømmets 2000 år gamle verden holder på å kollapse - og ingen vet hva som skal komme i stedet."
+    },
+    {
+      "type": "header",
+      "text": "Et imperium faller"
+    },
+    {
+      "type": "text",
+      "content": "Qing-dynastiet hadde styrt Kina siden 1644, men på 1800-tallet begynte det å rakne. To ydmykende opiumskriger mot Storbritannia tvang Kina til å åpne handelshavner og gi fra seg kontroll. Bokseopprøret i 1900 endte med at åtte fremmede nasjoner marsjerte inn i Beijing. Hoffet flyktet."
+    },
+    {
+      "type": "text",
+      "content": "Innen 1911 var troen på keisermakten borte. En militær revolusjon i byen Wuhan spredte seg som ild i tørt gress gjennom landet. På bare noen måneder abdiserte den lille keiseren Puyi, og i januar 1912 ble Republikken Kina erklært."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Den forbudte by i Beijing",
+      "caption": "Den forbudte by - sete for kinesiske keisere i 500 år - ble forlatt av dynastiet i 1912."
+    },
+    {
+      "type": "header",
+      "text": "Sun Yat-sens tre prinsipper"
+    },
+    {
+      "type": "text",
+      "content": "Legen og revolusjonæren Sun Yat-sen sto bak republikken. Han hadde kjempet for den i årtier fra eksil i Japan, Amerika og Europa. Hans politiske program - de tre prinsippene - skulle forvandle Kina: nasjonalisme (ett samlet folk, fritt fra fremmed dominans), demokrati (folket skulle styre) og folkets velferd (et rettferdig samfunn for de fattige)."
+    },
+    {
+      "type": "text",
+      "content": "Men drømmen ble aldri virkelighet. Sun Yat-sen hadde ingen hær og ingen penger. For å samle landet måtte han inngå kompromisser med militærgeneralen Yuan Shikai, som raskt tok over makten og forsøkte å gjøre seg selv til ny keiser. Da Yuan døde i 1916, falt Kina fra hverandre."
+    },
+    {
+      "type": "header",
+      "text": "Krigsherretiden - et splittet land"
+    },
+    {
+      "type": "text",
+      "content": "Fra 1916 til 1928 kontrollerte lokale militærledere - kalt krigsherrer - hver sin del av Kina. De hadde egne hærer, tok inn egne skatter og kjempet stadig mot hverandre. Bøndene betalte prisen. Det fantes ingen nasjonal regjering som fungerte. Kina var ikke ett land, men mange små kongedømmer i krig."
+    },
+    {
+      "type": "header",
+      "text": "Allianse og forræderi"
+    },
+    {
+      "type": "text",
+      "content": "Sun Yat-sens parti, Kuomintang (KMT), samarbeidet fra 1923 med det nyopprettede Kinesiske kommunistpartiet (KKP). Begge ville samle Kina og kvitte seg med krigsherrene. Med hjelp fra Sovjetunionen bygde de en felles hær og satte i gang den store nordmarsjen for å erobre landet."
+    },
+    {
+      "type": "text",
+      "content": "Men da Sun Yat-sen døde i 1925, tok den militære generalen Chiang Kai-shek over KMT - og han stolte ikke på kommunistene. I april 1927 slo han til. I Sjanghai ble tusenvis av kommunister og fagforeningsledere arrestert og skutt på en eneste natt. Alliansen var knust. Borgerkrigen var i gang."
+    },
+    {
+      "type": "component",
+      "name": "DragDropTimeline",
+      "props": {
+        "title": "Kinas vei til revolusjon: ordne hendelsene",
+        "events": [
+          { "id": "evt1", "label": "Sun Yat-sen utropar Republikken Kina", "year": 1912 },
+          { "id": "evt2", "label": "Sjanghai-massakren - Kuomintang angriper kommunistene", "year": 1927 },
+          { "id": "evt3", "label": "Den lange marsjen begynner", "year": 1934 },
+          { "id": "evt4", "label": "Japan invaderer Kina", "year": 1937 },
+          { "id": "evt5", "label": "Japan overgir seg - borgerkrigen gjenopptas", "year": 1945 },
+          { "id": "evt6", "label": "Mao proklamerer Folkerepublikken Kina", "year": 1949 }
+        ]
+      }
+    },
+    {
+      "type": "header",
+      "text": "Den lange marsjen"
+    },
+    {
+      "type": "text",
+      "content": "Kuomintang omringet de kommunistiske styrkene og tvang dem ut av sine baser i sør. I oktober 1934 brøt 86 000 kommunister gjennom fiendtlige linjer og begynte å gå. De gikk i ett år. De krysset 18 fjellkjeder og 24 elver. De marsjerte gjennom sump og snøstorm. Da de nådde fram til det nordlige Shaanxi-provinsen i oktober 1935, var bare 8 000 igjen i live."
+    },
+    {
+      "type": "text",
+      "content": "Men marsjen skapte en legende. Mao Zedong, som tok ledelsen underveis, ble symbolet på styrke og offervilje. De overlevende var herdet av prøvelsene. Kommunistpartiet hadde fått sin skapelsesmyte - og sin udiskutable leder."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Rød hær på marsj gjennom fjellene",
+      "caption": "Den lange marsjen 1934-35 gikk gjennom av Kinas hardeste terreng. Færre enn én av ti soldater overlevde."
+    },
+    {
+      "type": "header",
+      "text": "Japan invaderer - alt endrer seg"
+    },
+    {
+      "type": "text",
+      "content": "I juli 1937 angrep Japan Kina for fullt. Det som fulgte var en av historiens mest brutale kriger. Japan tok byene raskt, men greide aldri å kontrollere landsbygda. I Nanjing drepte japanske soldater anslagsvis 200 000 sivile og krigsfanger på noen uker - en hendelse kinesere kaller den store massakren i Nanjing."
+    },
+    {
+      "type": "text",
+      "content": "Chiang Kai-sheks regjering flyktet innover i landet og holdt seg borte fra de verste kampene. Kommunistene, derimot, kjempet geriljakrig direkte mot japanerne ute i landsbyene. De hjalp bøndene, redistribuerte jord og bygde lokal administrasjon. Da krigen var over i 1945, hadde kommunistene vunnet noe Chiang hadde tapt: folkets tillit."
+    },
+    {
+      "type": "component",
+      "name": "Gallery",
+      "props": {
+        "images": [
+          {
+            "src": "/images/placeholder.webp",
+            "alt": "Sun Yat-sen",
+            "caption": "Sun Yat-sen (1866-1925) - Republikkens grunnlegger og forfatter av de tre prinsippene. Hylet som landsfarens far av både KMT og KKP."
+          },
+          {
+            "src": "/images/placeholder.webp",
+            "alt": "Mao Zedong",
+            "caption": "Mao Zedong (1893-1976) - Leder av kommunistpartiet fra den lange marsjen og fram til sin død. Proklamerte Folkerepublikken 1. oktober 1949."
+          },
+          {
+            "src": "/images/placeholder.webp",
+            "alt": "Chiang Kai-shek",
+            "caption": "Chiang Kai-shek (1887-1975) - Leder av Kuomintang og Republikken Kina. Tapte borgerkrigen og flyktet til Taiwan i 1949."
+          }
+        ]
+      }
+    },
+    {
+      "type": "header",
+      "text": "Den avgjørende kampen"
+    },
+    {
+      "type": "text",
+      "content": "Etter Japans nederlag i august 1945 brøt borgerkrigen ut for alvor. USA støttet Chiang med penger og utstyr. Sovjetunionen ga kommunistene tilgang til japanske våpen fra Mandsjuria. Men det avgjørende var ikke utstyr - det var moral og tillit."
+    },
+    {
+      "type": "text",
+      "content": "Kuomintang-styrkene var preget av korrupsjon. Offiserer stjal soldatenes lønn. Pengetrykking skapte galopperende inflasjon som utraderte sparepengene til millioner av familier. Bøndene, som utgjorde det store flertallet av befolkningen, valgte side - og de valgte kommunistene som hadde lovet dem jord og rettferdighet. Kuomintangs hær smeltet bort. Hele divisjoner skiftet side."
+    },
+    {
+      "type": "text",
+      "content": "I april 1949 krysset den røde hæren Yangtzielven. I løpet av sommeren falt by etter by. Chiang Kai-shek og to millioner tilhengere flyktet til øya Taiwan. Der grunnla han et nytt Republikken Kina som eksisterer den dag i dag."
+    },
+    {
+      "type": "header",
+      "text": "1. oktober 1949"
+    },
+    {
+      "type": "text",
+      "content": "Mao Zedong sto på Tiananmen-portens talerstol og så ut over en halvmillion jubilerende kinesere. Med sterk stemme erklærte han: Det kinesiske folket har reist seg. Det 2000 år gamle keiserdømmets fall, to tiår med borgerkrig, åtte år med japansk okkupasjon - alt det ledet hit. Folkerepublikken Kina var grunnlagt."
+    },
+    {
+      "type": "text",
+      "content": "For verden var det et sjokk. Den største nasjonen på jord - med en fjerdedel av menneskeheten - hadde blitt kommunistisk. For Kinas bønder var det slutten på generasjoners fattigdom og ydmykelse. Og for den lille eks-keiseren Puyi, som levde som vanlig borger i Beijing, var sirkelen sluttet: landet han hadde arvet som seksåring, var nå fullstendig forandret."
+    },
+    {
+      "type": "component",
+      "name": "Quiz",
+      "props": {
+        "questions": [
+          {
+            "question": "Hva het Kinas siste keiser, som abdiserte i 1912?",
+            "options": ["Yuan Shikai", "Sun Yat-sen", "Puyi", "Chiang Kai-shek"],
+            "answer": 2,
+            "explanation": "Puyi var bare seks år gammel da han abdiserte. Han er kjent som Kinas siste keiser og levde senere et vanlig liv som borger i Folkerepublikken."
+          },
+          {
+            "question": "Hva var den lange marsjen?",
+            "options": [
+              "En handelsrute mellom Beijing og Sjanghai",
+              "En flyktningsmarsj der kommunistene gikk 10 000 km for å unnslippe Kuomintang",
+              "En japansk invasjon av Nord-Kina",
+              "Sun Yat-sens felttog mot krigsherrene"
+            ],
+            "answer": 1,
+            "explanation": "Den lange marsjen (1934-35) var en tilbaketrekking der kommunistenes røde hær gikk ca. 10 000 km gjennom fjell og sump for å unnslippe Kuomintangs omringning. Av 86 000 som startet, overlevde bare rundt 8 000."
+          },
+          {
+            "question": "Hvorfor tapte Kuomintang borgerkrigen mot kommunistene?",
+            "options": [
+              "De hadde ingen hær og ingen utstyr",
+              "USA trakk støtten allerede i 1946",
+              "Korrupsjon, inflasjon og tap av folkets tillit undergravde styrkene deres",
+              "Mao hadde langt flere soldater fra starten av"
+            ],
+            "answer": 2,
+            "explanation": "Kuomintang led under utbredt korrupsjon der offiserer stjal soldaters lønn, og galopperende inflasjon som rammet vanlige folk hardt. Kommunistene vant bondebefolkningens tillit ved å hjelpe dem direkte. Hele Kuomintang-divisjoner skiftet side."
+          },
+          {
+            "question": "Hva skjedde 1. oktober 1949?",
+            "options": [
+              "Japan angrep Kina for andre gang",
+              "Chiang Kai-shek flyktet til Taiwan",
+              "Sun Yat-sen grunnla Republikken Kina",
+              "Mao Zedong proklamerte Folkerepublikken Kina fra Tiananmen-porten"
+            ],
+            "answer": 3,
+            "explanation": "1. oktober 1949 sto Mao Zedong på Tiananmen-porten og proklamerte Folkerepublikken Kina. Denne datoen feires som nasjonaldag i Kina den dag i dag."
+          }
+        ]
+      }
+    }
+  ],
+  "timeline": []
+}

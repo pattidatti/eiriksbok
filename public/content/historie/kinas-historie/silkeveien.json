@@ -1,0 +1,203 @@
+{
+  "id": "silkeveien",
+  "title": "Silkeveien: Da Kina handlet med verden",
+  "layout": "rich",
+  "year": "130 fvt - 1453",
+  "category": "Kinas historie",
+  "readTime": "8 min lesning",
+  "heroImage": "/images/placeholder.webp",
+  "details": [
+    "Silkeveien var ikke en enkelt vei, men et nettverk av handelsruter fra Kina til Middelhavet.",
+    "Kina hadde monopol på silkeproduksjon i over 1000 år - å avsløre hemmeligheten var dødsstraff.",
+    "Langs rutene reiste ikke bare varer, men ideer, religioner og sykdommer - inkludert svartepesten."
+  ],
+  "externalUrl": "https://snl.no/silkeveien",
+  "content": [
+    {
+      "type": "text",
+      "content": "Karavanen forlater Chang'an i grålysninga. Hundrevis av kameler bærer baller av skinnende silkestoff. Foran dem ligger to års reise gjennom ørkener, fjell og fremmede riker. Målet er Roma. De fleste av mennene som driver karavanen, har aldri sett Roma - og vil aldri se det. Men silken vil komme fram."
+    },
+    {
+      "type": "text",
+      "content": "Silkeveien var ikke en enkelt vei man kunne slå opp på et kart. Det var et nettverk av handelsruter som bandt Kina til Sentral-Asia, India, Persia, Arabia og til slutt Middelhavet. Fra omtrent 130 fvt til 1453 evt knyttet disse rutene sammen de største sivilisasjonene i verden. Ingen planla det slik - det vokste fram fordi det lønnet seg."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Kamelkaravane i ørkenen langs Silkeveien",
+      "caption": "Kamelkaravaner var de viktigste transportmidlene langs landrutene. En kamel kunne bære opp mot 300 kilo og tålte den krevende ørkenterrenget."
+    },
+    {
+      "type": "component",
+      "name": "MapCarousel",
+      "props": {
+        "title": "Silkeveiens ruter",
+        "items": [
+          {
+            "image": "/images/placeholder.webp",
+            "caption": "Landrutene gikk fra Chang'an i Kina gjennom Sentral-Asia, Persia og til Middelhavet. Turen tok måneder.",
+            "alt": "Kart over Silkeveiens landruter"
+          },
+          {
+            "image": "/images/placeholder.webp",
+            "caption": "Sjørutene knyttet Kina til India, Arabia og Øst-Afrika. Kinesisk keramikk er funnet så langt vest som i Egypt.",
+            "alt": "Kart over Silkeveiens sjøruter"
+          }
+        ]
+      }
+    },
+    {
+      "type": "header",
+      "text": "Mer enn silke"
+    },
+    {
+      "type": "text",
+      "content": "Navnet «Silkeveien» er misvisende. Silke var viktig, men rutene fraktet alt mulig. Fra Kina gikk keramikk, te, papir og jernvarer vestover. Vestfra kom glass, gull, sølv, ull og lapis lazuli - den blå steinen som kunstnere brukte til å blande maling. Fra India kom krydder, elfenben og bomull. Fra Arabia kom parfyme og edelstener."
+    },
+    {
+      "type": "text",
+      "content": "Det som gjorde silken spesiell, var prisen. I Roma kunne en kilo silke koste like mye som en kilo gull. Romerske senatorers koner etterspurte det skinnende stoffet, og romarriktet blødde gull for å få tak i det. Noen romerske politikere klaget over at gullet forlot riket for å betale for asiatisk luksus. De hadde et poeng - handelsbalansen var ensidig."
+    },
+    {
+      "type": "component",
+      "name": "FactBox",
+      "props": {
+        "title": "Hva reiste langs silkeveien?",
+        "content": "Silkeveien brakte varer, religion og sykdommer i begge retninger. Vestover gikk silke, keramikk, te og papir fra Kina. Østover kom glass, gull og ull fra Roma og Persia. Men det usynlige var like viktig: buddhismen spredte seg inn i Kina langs disse rutene, islam fulgte kjøpmennene østover, og på 1340-tallet reiste svartepesten med rottelopper i handelsbyttene - og utslettet opp mot halvparten av Europas befolkning."
+      }
+    },
+    {
+      "type": "header",
+      "text": "Hemmeligheten som kostet livet"
+    },
+    {
+      "type": "text",
+      "content": "I over tusen år visste ingen utenfor Kina hvordan silke ble laget. Silke kommer fra kokonger spunnet av silkeormer - larvene til sommerfuglen Bombyx mori. Kineserne voktet hemmeligheten med livet. Å smugle ut silkeormer eller mulbærfrø - treet larvene spiser - var ifølge loven straffbart med døden."
+    },
+    {
+      "type": "text",
+      "content": "Monopolet varte helt til 550 evt. Da sendte den østromerske keiseren Justinian to nestorianske munker til Kina. De gjemte silkeormegg i hule staver av bambus og smuglet dem ut. Bysants lærte å produsere silke selv, og monopolet var brutt. Men da hadde Kina allerede tjent formuer på hemmeligheten i mer enn ti århundrer."
+    },
+    {
+      "type": "component",
+      "name": "QuoteBlock",
+      "props": {
+        "text": "Vi er ikke naboer med Kina, men vi er forbundet gjennom handel og kunnskap.",
+        "author": "Arabisk geograf Ibn Khurradadhbih, 800-tallet"
+      }
+    },
+    {
+      "type": "header",
+      "text": "Hvem reiste egentlig?"
+    },
+    {
+      "type": "text",
+      "content": "Her er en overraskelse: kineserne selv reiste sjelden langs hele ruten. Det var sogdiske kjøpmenn fra dagens Usbekistan og Tadsjikistan som dominerte landhandelen i århundrer. De snakket mange språk, hadde nettverk av familier spredt langs hele ruten, og visste hvilke gaver man ga til hvilke herskere for å slippe trygt gjennom. Arabiske kjøpmenn tok over sjøhandelen og kontrollerte rutene via Persiabukta og Det indiske hav."
+    },
+    {
+      "type": "text",
+      "content": "Silkeveien var altså et stafettløp. Varene skiftet hender mange ganger mellom Kina og Roma. Hver mellommann tok sin fortjeneste, og det forklarer hvorfor silken var så dyr når den endelig nådde vestlige markeder. Ingen enkelt karavane reiste hele veien."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Sogdiske kjøpmenn med handelsvarer",
+      "caption": "Sogdiske kjøpmenn var Silkeveiens ryggmarg i århundrer. Funn av sogdiske brev og mynter viser hvor langt nettverket deres rakk."
+    },
+    {
+      "type": "header",
+      "text": "Ideer og sykdommer på reise"
+    },
+    {
+      "type": "text",
+      "content": "Karavanerutene fraktet mer enn varer. Buddhismen reiste fra India inn i Kina langs disse veiene i løpet av de første århundrene evt. Kinesiske pilegrimsmunker som Xuanzang reiste vestover til India for å hente buddhistiske tekster. Islam fulgte de arabiske kjøpmennene østover og slo rot i Sentral-Asia. Kristendommen nådde Kina via nestorianske misjonærer. Rutene var ikke bare handelsveger - de var informasjonsmotorveier."
+    },
+    {
+      "type": "text",
+      "content": "Men noe langt farligere reiste også disse veiene. På 1340-tallet spredte svartepesten seg vestover fra Sentral-Asia langs handelsrutene. Bakterien Yersinia pestis levde i rottelopper i handelsbyttene. Den nådde Krimhalvøya i 1346, og derfra seilte den med handelsskip til Europa. Svartepesten drepte mellom en tredjedel og halvparten av Europas befolkning. Aldri hadde handelsforbindelsene fått så dramatiske konsekvenser."
+    },
+    {
+      "type": "header",
+      "text": "Mongolene åpner veiene"
+    },
+    {
+      "type": "text",
+      "content": "På 1200-tallet skjedde noe uvanlig. Mongolene under Djengis Khan og hans arvtakere erobret et imperium som strakte seg fra Stillehavet til Øst-Europa - det største sammenhengende landimperiet i historien. Det som fulgte, kalles Pax Mongolica - den mongolske freden. For første gang på lenge var hele landveien fra Kina til Europa under ett styre."
+    },
+    {
+      "type": "text",
+      "content": "Det ble tryggere å reise. Mongolene organiserte posthus og vaktstyrker langs rutene. Det var i denne perioden at den venetianske kjøpmannen Marco Polo reiste til Kina og tilbrakte 17 år ved Kublai Khans hoff. Boken han skrev etterpå, ga europeerne en ny og detaljert beskrivelse av Østen - og økte nysgjerrigheten for det som lå i Øst."
+    },
+    {
+      "type": "header",
+      "text": "Slutten - og det som kom etter"
+    },
+    {
+      "type": "text",
+      "content": "I 1453 falt Konstantinopel til det osmanske riket. Osmanerne kontrollerte nå krysningspunktet mellom Europa og Asia, og europeiske kjøpmenn måtte betale høye tollavgifter for å handle gjennom osmanenes territorium. Det ble plutselig lønnsomt å finne en annen vei."
+    },
+    {
+      "type": "text",
+      "content": "Portugisiske sjøfarere seide sørover langs Afrika og fant sjøveien til India i 1498. Colombus seilte vestover og snublet over Amerika i 1492. De store geografiske oppdagelsene var ikke tilfeldige - de var et direkte svar på at landveiene til Asia ble dyrere og farligere. Silkeveien ble ikke borte over natten, men handelen tok gradvis sjøveien i stedet. En epoke var over."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Konstantinopel og det osmanske riket",
+      "caption": "Da osmanerne inntok Konstantinopel i 1453, ble europeiske handelsmenn tvunget til å finne nye ruter til Asia - og det utløste oppdagelsestiden."
+    },
+    {
+      "type": "component",
+      "name": "Quiz",
+      "props": {
+        "questions": [
+          {
+            "question": "Hvem dominerte handelen langs Silkeveiens landruter i mange århundrer?",
+            "options": [
+              "Kinesiske keisere og deres tjenere",
+              "Sogdiske kjøpmenn fra Sentral-Asia",
+              "Romerske handelsmenn fra Italia",
+              "Indiske pilegrimsmunker"
+            ],
+            "answer": 1,
+            "explanation": "Sogdiske kjøpmenn fra dagens Usbekistan og Tadsjikistan dominerte landhandelen. De snakket mange språk og hadde familiebaserte handelsnettverk langs hele ruten."
+          },
+          {
+            "question": "Hvordan ble Kinas silkemonopol brutt rundt 550 evt?",
+            "options": [
+              "En kinesisk kjøpmann solgte hemmeligheten til India for en stor sum gull",
+              "Europeerne oppdaget silkeormer tilfeldig i Sentral-Asia",
+              "To bysantinske munker smuglet silkeormegg ut av Kina i hule bambuspinner",
+              "Mongolene erobret Kina og avslørte hemmeligheten for omverdenen"
+            ],
+            "answer": 2,
+            "explanation": "Keiser Justinians munker gjemte silkeormegg i hule staver av bambus og smuglet dem ut av Kina. Dermed lærte Bysants å produsere silke selv og monopolet var brutt."
+          },
+          {
+            "question": "Hva er Pax Mongolica?",
+            "options": [
+              "En fredstraktat mellom Kina og Roma signert i Mongolia",
+              "En periode med relativt trygg handel gjennom det mongolske imperiet",
+              "Et mongolsk regelverk for hvordan silke skulle handles",
+              "Den mongolske betegnelsen for Silkeveien"
+            ],
+            "answer": 1,
+            "explanation": "Pax Mongolica betyr den mongolske freden. Da mongolene kontrollerte et sammenhengende rike fra Stillehavet til Øst-Europa, ble reisen langs Silkeveien tryggere og enklere enn på lenge."
+          },
+          {
+            "question": "Hva var den direkte årsaken til at europeerne begynte å lete etter sjøveier til Asia?",
+            "options": [
+              "De ville bevise at jorda var rund",
+              "Osmanerne inntok Konstantinopel i 1453, noe som gjorde landveiene dyrere",
+              "Silkeveien ble ødelagt av et stort jordskjelv",
+              "Kina stengte grensene sine for all utenlandsk handel"
+            ],
+            "answer": 1,
+            "explanation": "Da osmanerne tok Konstantinopel i 1453 og kontrollerte handelsveiene, ble det for dyrt å handle gjennom dem. Europeiske makter finansierte sjøekspedisjoner for å finne alternative ruter - noe som utløste oppdagelsestiden."
+          }
+        ]
+      }
+    }
+  ],
+  "timeline": []
+}
