@@ -103,7 +103,7 @@
         },
         {
             "type": "text",
-            "content": "Watts maskin ble først brukt til pumper. Men snart begynte oppfinnere å koble dampkraft til alt mulig. I 1785 bygde Boulton & Watt en maskin som kunne dreie et hjul jevnt rundt. Nå kunne man drive vevstoler, spinnmaskiner og kverner. Lange lærreimer hang i taket i fabrikkene og fordelte kraften fra én stor maskin til hundrevis av små. I 1807 testet amerikaneren Robert Fulton et dampskip på elva Hudson. I 1825 åpnet den engelske ingeniøren George Stephenson verdens første passasjerjernbane mellom byene Stockton og Darlington. Et damplokomotiv kunne dra hundre tonn varer i 25 km/t, dag og natt, uten å bli sliten."
+            "content": "Watts maskin ble først brukt til pumper. Men snart begynte oppfinnere å koble dampkraft til alt mulig. I 1785 bygde Boulton & Watt en maskin som kunne dreie et hjul jevnt rundt. Nå kunne man drive vevstoler, spinnmaskiner og kverner. Lange lærreimer hang i taket i fabrikkene og fordelte kraften fra én stor maskin til hundrevis av små. Inne i fabrikken fikk hver arbeider gjerne én liten oppgave hele dagen, en måte å jobbe på som heter [arbeidsspesialisering](/samfunnskunnskap/okonomi/arbeidsspesialisering). I 1807 testet amerikaneren Robert Fulton et dampskip på elva Hudson. I 1825 åpnet den engelske ingeniøren George Stephenson verdens første passasjerjernbane mellom byene Stockton og Darlington. Et damplokomotiv kunne dra hundre tonn varer i 25 km/t, dag og natt, uten å bli sliten."
         },
         {
             "type": "image",
@@ -117,7 +117,7 @@
         },
         {
             "type": "text",
-            "content": "Før dampmaskinen kom all energi enten fra menneskemuskler, dyr, vind eller rennende vann. Hver av disse hadde en grense. En hest blir trøtt. Vinden stilner. Elven fryser om vinteren. Dampmaskinen hadde ingen slik grense — bare last på mer kull, så går den videre. Og enda viktigere: den kunne flyttes. En foss kan ikke flyttes til en by, men en dampmaskin kan settes opp hvor folk bor og hvor varene skal selges. Det er denne ene egenskapen — kraft uavhengig av sted og vær — som gjorde fabrikker, jernbane, storbyer og hele den moderne verden mulig."
+            "content": "Før dampmaskinen kom all energi enten fra menneskemuskler, dyr, vind eller rennende vann. Hver av disse hadde en grense. En hest blir trøtt. Vinden stilner. Elven fryser om vinteren. Dampmaskinen hadde ingen slik grense, bare last på mer kull, så går den videre. Og enda viktigere: den kunne flyttes. En foss kan ikke flyttes til en by, men en dampmaskin kan settes opp hvor folk bor og hvor varene skal selges. Det er denne ene egenskapen, kraft uavhengig av sted og vær, som gjorde fabrikker, jernbane, storbyer og hele den moderne verden mulig. Hele denne store forandringen kaller vi [den industrielle revolusjonen](/historie/industriell-revolusjon/industriell-revolusjon)."
         },
         {
             "type": "text",
@@ -150,35 +150,7 @@
         },
         {
             "type": "text",
-            "content": "Da James Watt døde i 1819, hadde Storbritannia rundt 5000 dampmaskiner i drift. Femti år senere var tallet over 60 000. Hver eneste fabrikk, hver eneste jernbane, hver eneste dampbåt skyldte sin eksistens til den unge instrumentmakeren som ikke fikk sove av en defekt modellmaskin. Watt selv var en stille og forsiktig mann som helst ville eksperimentere alene. Han ville sannsynligvis ha blitt forvirret om han fikk vite at navnet hans nå brukes hver gang noen skrur på en lyspære eller måler effekten til en motor."
-        },
-        {
-            "type": "component",
-            "name": "InterdisciplinaryBridge",
-            "props": {
-                "title": "Hva henger sammen med dampmaskinen?",
-                "centerEvent": "Dampmaskinen",
-                "nodes": [
-                    {
-                        "subject": "Historie",
-                        "title": "Barnearbeid i fabrikkene",
-                        "text": "Dampkraft skapte fabrikker — fabrikker skapte barnearbeid.",
-                        "link": "/historie/industriell-revolusjon/barnearbeid"
-                    },
-                    {
-                        "subject": "Historie",
-                        "title": "Den industrielle revolusjonen",
-                        "text": "Det store bildet av forandringen Watts maskin satte i gang.",
-                        "link": "/historie/industriell-revolusjon/industriell-revolusjon"
-                    },
-                    {
-                        "subject": "Samfunn",
-                        "title": "Arbeidsspesialisering",
-                        "text": "Hvorfor det å dele opp arbeid gjorde fabrikkene så effektive.",
-                        "link": "/samfunnskunnskap/okonomi/arbeidsspesialisering"
-                    }
-                ]
-            }
+            "content": "Da James Watt døde i 1819, hadde Storbritannia rundt 5000 dampmaskiner i drift. Femti år senere var tallet over 60 000. Hver eneste fabrikk, hver eneste jernbane, hver eneste dampbåt skyldte sin eksistens til den unge instrumentmakeren som ikke fikk sove av en defekt modellmaskin. Men maskinene hadde også en mørk side. De samme fabrikkene som dampkraften skapte, fylte hallene med billig og lydig arbeidskraft, og mange av arbeiderne var barn. Du kan lese om livet deres i [Barnearbeid i fabrikkene](/historie/industriell-revolusjon/barnearbeid). Watt selv var en stille og forsiktig mann som helst ville eksperimentere alene. Han ville sannsynligvis ha blitt forvirret om han fikk vite at navnet hans nå brukes hver gang noen skrur på en lyspære eller måler effekten til en motor."
         },
         {
             "type": "component",

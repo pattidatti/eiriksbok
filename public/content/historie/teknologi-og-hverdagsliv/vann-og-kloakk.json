@@ -29,7 +29,7 @@
         },
         {
             "type": "text",
-            "content": "Sykdommen het kolera. Den var skremmende rask. En frisk person kunne våkne om morgenen, bli syk til lunsj, og være død før kvelden. Kolera gir så kraftig diaré at kroppen tørker helt ut på noen få timer. På det verste døde tusenvis av mennesker i en by på bare noen uker. Hele familier kunne forsvinne. Og det aller mest skremmende var at ingen visste hvorfor det skjedde, eller hvordan man kunne stoppe det."
+            "content": "Sykdommen het kolera. Den var skremmende rask. En frisk person kunne våkne om morgenen, bli syk til lunsj, og være død før kvelden. Kolera gir så kraftig diaré at kroppen tørker helt ut på noen få timer. På det verste døde tusenvis av mennesker i en by på bare noen uker. Hele familier kunne forsvinne. Det minnet om [svartedauden](/historie/middelalderen/svartedauden) noen hundre år før, da en sykdom ingen forsto tømte hele Europa for mennesker. Og det aller mest skremmende var at ingen visste hvorfor det skjedde, eller hvordan man kunne stoppe det."
         },
         {
             "type": "text",
@@ -110,11 +110,11 @@
         },
         {
             "type": "text",
-            "content": "Det tok tid før alle trodde på Snow, men sannheten lot seg ikke skjule. Litt etter litt forsto byene at de måtte skille det rene vannet fra det skitne. Dette ble en av de største byggeoppgavene i historien. Under London la ingeniøren Joseph Bazalgette over to tusen kilometer med kloakkrør for å føre avføringen langt bort fra folk. Andre byer fulgte etter. De bygde renseanlegg som filtrerte vannet, og senere begynte de å tilsette litt klor som dreper bakterier. Plutselig kunne man åpne en kran og drikke trygt."
+            "content": "Det tok tid før alle trodde på Snow, men sannheten lot seg ikke skjule. Litt etter litt forsto byene at de måtte skille det rene vannet fra det skitne. Dette ble en av de største byggeoppgavene i historien. Under London la ingeniøren Joseph Bazalgette over to tusen kilometer med kloakkrør for å føre avføringen langt bort fra folk. Andre byer fulgte etter. De bygde renseanlegg som filtrerte vannet, og senere begynte de å tilsette litt klor som dreper bakterier. Plutselig kunne man åpne en kran og drikke trygt. Slik ble vannet en del av de usynlige [nettverkene](/samfunnskunnskap/handel-og-infrastruktur/saarbare-nettverk) som vi alle er avhengige av, på samme måte som strøm og data renner gjennom rør og kabler vi sjelden tenker på."
         },
         {
             "type": "text",
-            "content": "Resultatet var enormt. Kolera, tyfus og en rekke andre vannbårne sykdommer nesten forsvant fra de rike landene. Spedbarn som før døde i hopetall, fikk vokse opp. Mange forskere mener at rent vann og kloakk har reddet flere menneskeliv enn noen medisin noensinne. Det merkelige er at vi nesten aldri tenker på det. Røret under gata er usynlig, kloakken er ute av syne, og kranen bare virker. Det er kanskje den mest oversette revolusjonen i hele historien."
+            "content": "Resultatet var enormt. Kolera, tyfus og en rekke andre vannbårne sykdommer nesten forsvant fra de rike landene. Spedbarn som før døde i hopetall, fikk vokse opp. Mange forskere mener at rent vann og kloakk har reddet flere menneskeliv enn noen medisin noensinne, til og med mer enn [vaksiner og antibiotika](/historie/teknologi-og-hverdagsliv/vaksiner-og-antibiotika), som kom litt senere og fikk all æren. Det merkelige er at vi nesten aldri tenker på det. Røret under gata er usynlig, kloakken er ute av syne, og kranen bare virker. Det er kanskje den mest oversette revolusjonen i hele historien."
         },
         {
             "type": "image",
@@ -148,34 +148,6 @@
                     { "year": 1858, "description": "Den store stanken i London tvinger fram en plan om et helt nytt kloakksystem." },
                     { "year": 1875, "description": "Bazalgettes kloakknett under London står ferdig og fører avføringen langt bort fra drikkevannet." },
                     { "year": 1908, "description": "Byer begynner å tilsette klor i vannet, og vannbårne sykdommer faller dramatisk." }
-                ]
-            }
-        },
-        {
-            "type": "component",
-            "name": "InterdisciplinaryBridge",
-            "props": {
-                "title": "Hva henger sammen med rent vann og kloakk?",
-                "centerEvent": "Rent vann",
-                "nodes": [
-                    {
-                        "subject": "Samfunn",
-                        "title": "Sårbare nettverk",
-                        "text": "Vann, strøm og data renner gjennom usynlige nett vi alle er avhengige av. Hva skjer når de svikter?",
-                        "link": "/samfunnskunnskap/handel-og-infrastruktur/saarbare-nettverk"
-                    },
-                    {
-                        "subject": "Historie",
-                        "title": "Vaksiner og antibiotika",
-                        "text": "Den andre store helserevolusjonen: medisinen som forlenget livet enda mer.",
-                        "link": "/historie/teknologi-og-hverdagsliv/vaksiner-og-antibiotika"
-                    },
-                    {
-                        "subject": "Historie",
-                        "title": "Svartedauden",
-                        "text": "Før folk forsto smitte, kunne en sykdom tømme hele Europa for mennesker.",
-                        "link": "/historie/middelalderen/svartedauden"
-                    }
                 ]
             }
         },

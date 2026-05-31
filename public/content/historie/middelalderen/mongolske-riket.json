@@ -229,45 +229,11 @@
         },
         {
             "type": "text",
-            "content": "Men det virkelig skjebnesvangre kom langs de trygge handelsveiene. Pesten — i Europa kalt Svartedauden — oppsto sannsynligvis i Sentral-Asia og spredte seg langs silkeveiruten vest- og sørover. Ironisk nok bidro Pax Mongolica til å formidle sykdommen raskt og vidt. De trygge veiene var like åpne for sykdom som for silke og krydder. I 1347 nådde pesten Konstantinopel og Krimhalvøya. I 1349 nådde den Bergen. Omtrent halvparten av Europas befolkning døde i løpet av noen tiår."
+            "content": "Men det virkelig skjebnesvangre kom langs de trygge handelsveiene. Pesten, i Europa kalt [Svartedauden](/historie/middelalderen/svartedauden), oppsto sannsynligvis i Sentral-Asia og spredte seg langs silkeveiruten vest- og sørover. Ironisk nok bidro Pax Mongolica til å formidle sykdommen raskt og vidt. De trygge veiene var like åpne for sykdom som for silke og krydder. I 1347 nådde pesten Konstantinopel og Krimhalvøya. I 1349 nådde den Bergen. Omtrent halvparten av Europas befolkning døde i løpet av noen tiår."
         },
         {
             "type": "text",
-            "content": "Det mongolske rikets siste del i Kina — Yuan-dynastiet — falt i 1368 da Ming-dynastiet drev mongolene tilbake til steppene. Men arven deres besto. Mongolene hadde knyttet øst og vest tettere sammen enn noen gang tidligere og vist verden at nomader fra steppene kunne endre løpet til verdenshistorien. De tyrkiske dynastiene som fulgte i Sentral-Asia og India — som Osmanske riket og Mughal-riket — var alle inspirert av den mongolske arven. Djengis Khans barnebarn regnes fortsatt som en av de største genetiske forfedrene i Sentral-Asia."
-        },
-        {
-            "type": "component",
-            "name": "InterdisciplinaryBridge",
-            "props": {
-                "title": "Det mongolske rikets ringvirkninger",
-                "centerEvent": "Det mongolske riket",
-                "nodes": [
-                    {
-                        "subject": "Svartedauden",
-                        "text": "Pax Mongolicas trygge handelsveier spredte ikke bare varer — de spredte også pesten. Svartedauden reiste langs silkeveiruten og drepte halvparten av Europa.",
-                        "color": "#6366f1",
-                        "link": "/historie/middelalderen/svartedauden"
-                    },
-                    {
-                        "subject": "Hanseatene",
-                        "text": "Da mongolsk styre ble svekket og handelsveiene øst-vest ble farlige igjen, fylte Hansabyene hullet. Nordeuropeiske kjøpmenn overtok handelen på de kortere, trygge havrutene.",
-                        "color": "#10b981",
-                        "link": "/historie/middelalderen/hanseatene"
-                    },
-                    {
-                        "subject": "Oppdagelsesreisene",
-                        "text": "Etter at mongolsk styre falt, ble landveiene til Asia farlige igjen. Europa søkte sjøveier til Kina — og fant Amerika i stedet.",
-                        "color": "#f59e0b",
-                        "link": "/historie/kolonialisering/europa-erobrer-verden"
-                    },
-                    {
-                        "subject": "Geografi og levekår",
-                        "text": "Mongolenes rike viste hvordan geografi — de åpne steppene og de lange handelsveiene — direkte påvirket politikk, økonomi og folkehelse over hele Eurasia.",
-                        "color": "#ec4899",
-                        "link": "/historie/middelalderen/middelalderen"
-                    }
-                ]
-            }
+            "content": "Det mongolske rikets siste del i Kina, Yuan-dynastiet, falt i 1368 da Ming-dynastiet drev mongolene tilbake til steppene. Da mongolsk styre ble svekket og landveiene øst-vest ble farlige igjen, fylte [Hansabyene](/historie/middelalderen/hanseatene) hullet og overtok mye av handelen på de kortere, tryggere havrutene i Nord-Europa. Senere søkte Europa nye sjøveier til Kina fordi landeveiene var stengt, og endte i stedet med å [erobre Amerika](/historie/kolonialisering/europa-erobrer-verden). Men arven etter mongolene besto. Mongolene hadde knyttet øst og vest tettere sammen enn noen gang tidligere og vist verden at nomader fra steppene kunne endre løpet til verdenshistorien. De tyrkiske dynastiene som fulgte i Sentral-Asia og India, som Osmanske riket og Mughal-riket, var alle inspirert av den mongolske arven. Djengis Khans barnebarn regnes fortsatt som en av de største genetiske forfedrene i Sentral-Asia."
         },
         {
             "type": "component",

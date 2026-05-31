@@ -45,7 +45,7 @@
         },
         {
             "type": "text",
-            "content": "Nå skjedde noe nesten ufattelig for folk på den tiden. Et elektrisk signal beveger seg gjennom en kabel nesten like fort som lyset. En beskjed som før brukte dager med hest, kunne nå nå fram på minutter. Folk satte opp telegraftråder langs jernbanesporene over hele verden, og i 1866 lyktes det å legge en kabel helt over bunnen av Atlanteren. For første gang kunne en melding krysse havet på minutter i stedet for uker. Verden hadde plutselig krympet."
+            "content": "Nå skjedde noe nesten ufattelig for folk på den tiden. Et elektrisk signal beveger seg gjennom en kabel nesten like fort som lyset. En beskjed som før brukte dager med hest, kunne nå nå fram på minutter. Folk satte opp telegraftråder langs [jernbanesporene](/historie/industriell-revolusjon/jernbanen) over hele verden, og i 1866 lyktes det å legge en kabel helt over bunnen av Atlanteren. For første gang kunne en melding krysse havet på minutter i stedet for uker. Verden hadde plutselig krympet."
         },
         {
             "type": "component",
@@ -124,7 +124,7 @@
         },
         {
             "type": "text",
-            "content": "Telegrafen og telefonen la grunnlaget for hele den sammenkoblede verdenen vi lever i nå. Tenk på hvor mye av livet ditt som bygger på å sende beskjeder fort. Du sender en melding til en venn og får svar på sekunder. En lege i Norge kan rådføre seg med en kollega i et annet land mens en operasjon pågår. Penger, nyheter og avtaler farer rundt jorda på et øyeblikk. Alt dette begynte med en enkel idé: at en beskjed ikke trenger å reise like sakte som en hest eller et skip, hvis vi sender den som elektrisitet i stedet."
+            "content": "Telegrafen og telefonen la grunnlaget for hele den sammenkoblede verdenen vi lever i nå. Tenk på hvor mye av livet ditt som bygger på å sende beskjeder fort. Du sender en melding til en venn og får svar på sekunder. En lege i Norge kan rådføre seg med en kollega i et annet land mens en operasjon pågår. Penger, nyheter og avtaler farer rundt jorda på et øyeblikk. Beskjedene dine reiser fortsatt gjennom [kabler på havbunnen](/samfunnskunnskap/handel-og-infrastruktur/internett-kabler), akkurat som den aller første telegrafkabelen over Atlanteren. Alt dette begynte med en enkel idé: at en beskjed ikke trenger å reise like sakte som en hest eller et skip, hvis vi sender den som elektrisitet i stedet. Oppfinnelsene var en del av den store industrielle revolusjonen, der [dampmaskinen](/historie/industriell-revolusjon/dampmaskinen) ga kraften og fabrikkene som forandret samfunnet."
         },
         {
             "type": "text",
@@ -148,34 +148,6 @@
                     { "year": 1866, "description": "En kabel legges over bunnen av Atlanteren, og en melding krysser havet på minutter." },
                     { "year": 1876, "description": "Alexander Graham Bell tar patent på telefonen, og stemmen kan reise gjennom tråden." },
                     { "year": 1881, "description": "Norges første telefonsentral åpner, og folk i byene kan ringe hverandre." }
-                ]
-            }
-        },
-        {
-            "type": "component",
-            "name": "InterdisciplinaryBridge",
-            "props": {
-                "title": "Hva henger sammen med telegraf og telefon?",
-                "centerEvent": "Kommunikasjon",
-                "nodes": [
-                    {
-                        "subject": "Samfunn",
-                        "title": "Internett-kabler",
-                        "text": "Dagens beskjeder farer fortsatt gjennom kabler over havbunnen, akkurat som den første telegrafkabelen.",
-                        "link": "/samfunnskunnskap/handel-og-infrastruktur/internett-kabler"
-                    },
-                    {
-                        "subject": "Historie",
-                        "title": "Jernbanen",
-                        "text": "Telegraftrådene fulgte ofte jernbanesporene, og sammen knyttet de landet tettere sammen.",
-                        "link": "/historie/industriell-revolusjon/jernbanen"
-                    },
-                    {
-                        "subject": "Historie",
-                        "title": "Dampmaskinen",
-                        "text": "Den industrielle revolusjonen ga kraften og fabrikkene som gjorde de nye oppfinnelsene mulige.",
-                        "link": "/historie/industriell-revolusjon/dampmaskinen"
-                    }
                 ]
             }
         },

@@ -21,7 +21,7 @@ Focus on the "Soul" of the content before writing any code.
 - **Tone:** Derived from Blueprint.
 - **Method:** Implement the "Mental Model" defined in the Blueprint.
 - **Complexity:** Explain complex concepts (e.g., "Feudalisme") in an accessible way.
-- **Cross-linking:** Identify other articles or topics mentioned that should be linked (interndisiplinær kobling).
+- **Cross-linking:** Identify other articles eleven naturlig vil ha nytte av, og lenk til dem **inne i brødteksten** der temaet nevnes. Tverrfaglig/interndisiplinær kobling er innlenker i prosaen, IKKE en samle-komponent på bunnen av artikkelen.
 
 ### 2. Content Structure
 - **Length:** 1200 - 3000+ words (Dybdeartikler: 4000+).
@@ -59,7 +59,7 @@ Hver artikkel skal ha **én signaturkomponent** — en interaktiv komponent som 
         - `FactBox`: For technical details/summaries.
         - `GlossaryTooltip`: For inline definitions (automatic, but can be manual).
         - `TextHighlighter` / `SentenceBuilder` / `GrammarRuleCard`: For deep language analysis.
-        - `InterdisciplinaryBridge`: Vis tverrfaglige sammenhenger nederst i artikkelen. Eksakt prop-skjema (bruk `centerEvent` + node-felt `text`, IKKE `description`/`title`): `{ "type": "component", "name": "InterdisciplinaryBridge", "props": { "title": "Se sammenhengen", "centerEvent": "<kort tema for midten>", "nodes": [ { "subject": "<fag>", "text": "<én setning om koblingen>", "link": "/absolutt/sti", "color": "#6366f1" } ] } }`
+        - **Tverrfaglig kobling = innlenker, ikke komponent.** Når artikkelen henger sammen med andre temaer, lenk til dem naturlig i brødteksten med `[tekst](/absolutt/sti)` der temaet nevnes (2-4 stykker per artikkel). IKKE lag en samle-komponent på bunnen. (`InterdisciplinaryBridge` finnes fortsatt for spesialtilfeller, men skal ikke brukes som standard.)
     - **Media & Visuals:**
         - `Gallery`: [NEW] For image collections (use consistent aspect ratios).
         - `TimelineComponent`: Use inside articles with `compact: true`.
@@ -110,7 +110,7 @@ Focus on the "Bones" of the JSON structure.
 - **Flat Content:** The `content` array MUST be flat.
 - **Components:** Select appropriate interactive blocks from the `article-implementation` catalog.
 - **No Markdown Bolding:** Never use `**text**` for emphasis. Use the concept system.
-- **Cross-linking:** Use `[Link Text](/subject/topic/article-id)` for internal links.
+- **Cross-linking:** Vev 2-4 naturlige innlenker inn i brødteksten med `[Link Text](/subject/topic/article-id)` der andre temaer nevnes. Dette er måten tverrfaglig kobling gjøres på — ikke en egen komponent.
 - **Lists:** Use `{ "type": "list", "items": [...] }`. NEVER use markdown `-` lists.
 - **Bilder (obligatorisk):** Artikkelen MÅ ha `"heroImage": "/images/placeholder.webp"` på toppnivå, og 3 inline bildebokser fordelt i content-arrayen. Eksakte plasseringer: (1) rett etter åpningsteksten, (2) ved et dramatisk vendepunkt midt i artikkelen, (3) etter siste hoveddel (før Quiz). `alt`-teksten (5-10 ord, norsk) beskriver konkret hva bildet skal vise — den brukes av bildegenererings-workflowen. Eksempel:
   ```json

@@ -128,7 +128,7 @@
         },
         {
             "type": "text",
-            "content": "Hva er egentlig rettferdig? Spørsmålet høres enkelt ut, men har ikke noe enkelt svar. Mange mener at dagens system er urettferdig fordi artister får så lite per stream. Andre mener at streaming faktisk har gjort musikk mer tilgjengelig enn noen gang — folk i fattige land har nå tilgang til den samme musikken som folk i rike land, til en lav pris. Begge synene har gode argumenter."
+            "content": "Hva er egentlig rettferdig? Spørsmålet høres enkelt ut, men har ikke noe enkelt svar. Mange mener at dagens system er urettferdig fordi artister får så lite per stream. Andre mener at streaming faktisk har gjort musikk mer tilgjengelig enn noen gang: folk i fattige land har nå tilgang til den samme musikken som folk i rike land, til en lav pris. Tankegangen om at flest mulig bør få mest mulig glede er kjent fra [utilitarismen](/krle/etikk/utilitarisme), og begge synene har gode argumenter."
         },
         {
             "type": "text",
@@ -136,7 +136,7 @@
         },
         {
             "type": "text",
-            "content": "Et tredje dilemma er kulturell appropriasjon. Hvem eier en musikalsk tradisjon? Joiken er et godt eksempel: når en ikke-samisk artist lager en pop-låt med joik i, skal artisten få lov til det? Skal det samiske folket få betalt? Joiken har ingen enkelt komponist som kan kreve royalties, men den er likevel en levende kulturarv. Slike spørsmål blir stadig viktigere i en verden der musikk reiser raskere enn noen gang."
+            "content": "Et tredje dilemma er kulturell appropriasjon. Hvem eier en musikalsk tradisjon? [Joiken](/musikk/musikkhistorie/joik) er et godt eksempel: når en ikke-samisk artist lager en pop-låt med joik i, skal artisten få lov til det? Skal det samiske folket få betalt? Joiken har ingen enkelt komponist som kan kreve royalties, men den er likevel en levende kulturarv. Slike spørsmål blir stadig viktigere i en verden der musikk reiser raskere enn noen gang."
         },
         {
             "type": "component",
@@ -180,47 +180,13 @@
         },
         {
             "type": "text",
-            "content": "Du kan også følge artister direkte på plattformer som Bandcamp eller Patreon, der de beholder mye mer av pengene. Du kan dele musikken deres med venner. Og du kan tenke kritisk over de nye etiske spørsmålene som dukker opp — for eksempel når en KI lager musikk i stilen til en levende artist uten tillatelse. Hvordan vi som lyttere svarer på slike spørsmål vil forme musikkbransjen i mange tiår framover."
+            "content": "Du kan også følge artister direkte på plattformer som Bandcamp eller Patreon, der de beholder mye mer av pengene. Du kan dele musikken deres med venner. Og du kan tenke kritisk over de nye etiske spørsmålene som dukker opp, for eksempel når en KI lager musikk i stilen til en levende artist uten tillatelse. Akkurat som [den industrielle revolusjonen](/historie/industriell-revolusjon/industriell-revolusjon) flyttet makt fra håndverkere til fabrikkeiere, flytter strømmeteknologien makt mellom dem som skaper og dem som eier plattformene. Det samme skiftet preger nå mange yrker, og er en viktig del av [fremtidens arbeidsliv](/samfunnskunnskap/arbeidsliv/fremtidens-arbeidsliv). Hvordan vi som lyttere svarer på slike spørsmål vil forme musikkbransjen i mange tiår framover."
         },
         {
             "type": "image",
             "src": "/images/musikkhistorie/streaming-og-opphavsrett-03.webp",
             "alt": "Konsertpublikum med løftede hender foran scene med artist",
             "caption": "En konsertbillett gir artisten din langt mer enn tusenvis av streams gjør."
-        },
-        {
-            "type": "component",
-            "name": "InterdisciplinaryBridge",
-            "props": {
-                "title": "Streaming og opphavsrett på tvers av fagene",
-                "centerEvent": "Musikkbransjens digitale revolusjon",
-                "nodes": [
-                    {
-                        "subject": "Musikk: Joik",
-                        "text": "Joiken finnes nå på Spotify side om side med pop og rap. Hvem eier en tradisjon som ingen enkeltperson har laget? Spørsmålet om kulturell rett blir stadig viktigere når urgammel musikk møter ny teknologi.",
-                        "color": "#10b981",
-                        "link": "/musikk/musikkhistorie/joik"
-                    },
-                    {
-                        "subject": "KRLE: Utilitarisme",
-                        "text": "Filosofen Jeremy Bentham mente at en handling er god hvis den gir mest mulig lykke til flest mulig. Er streaming en moralsk god ting fordi millioner får billig musikk — selv om hver artist tjener mindre?",
-                        "color": "#8b5cf6",
-                        "link": "/krle/etikk/utilitarisme"
-                    },
-                    {
-                        "subject": "Samfunn: Fremtidens arbeidsliv",
-                        "text": "Streaming er et eksempel på hvordan ny teknologi kan endre et helt marked på få år. Det samme skjer nå i mange yrker — roboter, KI og digitale plattformer flytter makt mellom dem som skaper og dem som eier verktøyene.",
-                        "color": "#f59e0b",
-                        "link": "/samfunnskunnskap/arbeidsliv/fremtidens-arbeidsliv"
-                    },
-                    {
-                        "subject": "Historie: Industriell revolusjon",
-                        "text": "Da maskiner kom inn i tekstilfabrikker for 200 år siden, forandret det hvem som tjente penger på arbeidet. Nye teknologier flytter alltid makt mellom dem som skaper og dem som eier verktøyene.",
-                        "color": "#6366f1",
-                        "link": "/historie/industriell-revolusjon/industriell-revolusjon"
-                    }
-                ]
-            }
         },
         {
             "type": "component",

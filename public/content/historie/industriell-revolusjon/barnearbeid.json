@@ -26,7 +26,7 @@
         },
         {
             "type": "text",
-            "content": "Mange fattige familier hadde ikke noe valg. Foreldrene tjente for lite til å fø en hel familie. Barna måtte jobbe for at alle skulle få mat. Lønna deres ble lagt rett i mors hånd hver lørdag kveld. På 1830-tallet var omtrent en tredjedel av alle arbeidere i britiske bomullsfabrikker under atten år gamle. Tusenvis var under ti. I noen fabrikker var de fleste arbeiderne barn."
+            "content": "Mange fattige familier hadde ikke noe valg. Foreldrene tjente for lite til å fø en hel familie. Barna måtte jobbe for at alle skulle få mat. Lønna deres ble lagt rett i mors hånd hver lørdag kveld. På 1830-tallet var omtrent en tredjedel av alle arbeidere i britiske bomullsfabrikker under atten år gamle. Tusenvis var under ti. I noen fabrikker var de fleste arbeiderne barn. Det samme skjedde i Norge da fabrikkene kom rundt femti år senere. Også her satt barn ved spinneriene i Bergen og Trondheim, slik du kan lese om i [Hamskiftet](/historie/norgeshistorie/hamskiftet)."
         },
         {
             "type": "component",
@@ -102,7 +102,7 @@
         },
         {
             "type": "text",
-            "content": "Folk i hele Storbritannia leste sjokkerende historier i avisene. Diktere som William Blake skrev om de mørke møllene som spiste opp barna. Rike forretningsmenn og prester begynte å kreve at noe måtte gjøres. Likevel kom endringene sakte. Fabrikkeierne klaget over at lover ville ødelegge handelen og gjøre England fattig. Men sakte vant de som ville beskytte barna fram, en lov om gangen."
+            "content": "Folk i hele Storbritannia leste sjokkerende historier i avisene. Diktere som William Blake skrev om de mørke møllene som spiste opp barna. Rike forretningsmenn og prester begynte å kreve at noe måtte gjøres. Samtidig spurte tenkere som Jeremy Bentham hva som egentlig var best for samfunnet som helhet. Han mente lover burde gi mest mulig lykke til flest mulig, en tanke du møter igjen i [utilitarismen](/krle/etikk/utilitarisme). Likevel kom endringene sakte. Fabrikkeierne klaget over at lover ville ødelegge handelen og gjøre England fattig. Men sakte vant de som ville beskytte barna fram, en lov om gangen."
         },
         {
             "type": "text",
@@ -302,41 +302,7 @@
         },
         {
             "type": "text",
-            "content": "Den engelske historien viser oss noe viktig: når noen tjener mye på at andre lider, kommer endring sakte. Lover hjelper, men det krever at vanlige folk leser, snakker og krever bedre forhold. Elizabeth Bentley fikk aldri en bedre barndom. Men barnebarna hennes fikk det bedre fordi noen turte å fortelle historien hennes. Utforsk epoken selv i [Watt-laboratoriet](/oving/spill/watt-lab) — et mini-spill om industrialiseringens tid."
-        },
-        {
-            "type": "component",
-            "name": "InterdisciplinaryBridge",
-            "props": {
-                "title": "Barnearbeid på tvers av fagene",
-                "centerEvent": "Barnearbeidet i fabrikkene",
-                "nodes": [
-                    {
-                        "subject": "Hamskiftet i Norge",
-                        "text": "Norge fikk fabrikker omtrent femti år etter England. Også her jobbet barn ved spinneriene i Bergen og Trondheim. Norske lover om barnearbeid kom på 1890-tallet.",
-                        "color": "#10b981",
-                        "link": "/historie/norgeshistorie/hamskiftet"
-                    },
-                    {
-                        "subject": "Etikk: Utilitarisme",
-                        "text": "Filosofen Jeremy Bentham mente at lover skulle gi mest mulig lykke til flest mulig. Var lite arbeid for barn bedre eller verre for samfunnet? Slike spørsmål startet moderne etikk.",
-                        "color": "#8b5cf6",
-                        "link": "/krle/etikk/utilitarisme"
-                    },
-                    {
-                        "subject": "Arbeidsliv i dag",
-                        "text": "FNs barnekonvensjon fra 1989 sier at alle barn har rett til skole og hvile. Norge var blant de første som signerte. Likevel jobber mange unge i verden under farlige forhold.",
-                        "color": "#f59e0b",
-                        "link": "/samfunnskunnskap/arbeidsliv/intro"
-                    },
-                    {
-                        "subject": "Robotene kommer",
-                        "text": "Maskinene tok først bort jobber for voksne vevere. Nå tar nye maskiner over jobber igjen. Hvilke verdier vil vi holde fast på når arbeidet endrer seg på nytt?",
-                        "color": "#6366f1",
-                        "link": "/samfunnskunnskap/mennesket-kultur-samfunn/robotene-kommer"
-                    }
-                ]
-            }
+            "content": "Den engelske historien viser oss noe viktig: når noen tjener mye på at andre lider, kommer endring sakte. Lover hjelper, men det krever at vanlige folk leser, snakker og krever bedre forhold. Maskinene tok først bort jobbene til de voksne veverne, og i dag tar nye maskiner over arbeid på nytt. Det er den samme spenningen som dukker opp i [Robotene kommer](/samfunnskunnskap/mennesket-kultur-samfunn/robotene-kommer). Elizabeth Bentley fikk aldri en bedre barndom. Men barnebarna hennes fikk det bedre fordi noen turte å fortelle historien hennes. Utforsk epoken selv i [Watt-laboratoriet](/oving/spill/watt-lab), et mini-spill om industrialiseringens tid."
         },
         {
             "type": "component",

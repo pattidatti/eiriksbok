@@ -26,7 +26,7 @@
         },
         {
             "type": "text",
-            "content": "Den industrielle revolusjonen er navnet på denne snuoperasjonen. Den begynte i England rundt 1760, spredte seg til resten av Europa og USA, og gjorde slutt på en verden der nesten all energi kom fra muskler, vind og vann. I stedet kom dampmaskiner, fabrikker, jernbaner og store byer. Det var ikke bare nye maskiner som kom — selve livet til vanlige folk ble bygd om fra grunnen av."
+            "content": "Den industrielle revolusjonen er navnet på denne snuoperasjonen. Den begynte i England rundt 1760, spredte seg til resten av Europa og USA, og gjorde slutt på en verden der nesten all energi kom fra muskler, vind og vann. Til Norge kom forandringen omtrent femti år senere, da bønder ble til arbeidere i det vi kaller [Hamskiftet](/historie/norgeshistorie/hamskiftet). I stedet for husflid kom dampmaskiner, fabrikker, jernbaner og store byer. Det var ikke bare nye maskiner som kom, selve livet til vanlige folk ble bygd om fra grunnen av."
         },
         {
             "type": "header",
@@ -41,7 +41,7 @@
             "type": "list",
             "items": [
                 "Mye kull i bakken — og kullet lå nær overflaten, så det var billig å hente opp.",
-                "Et stort kolonirike som ga England både råvarer (bomull fra India og Amerika) og store markeder å selge til.",
+                "Et stort kolonirike som ga England både råvarer (bomull fra India og Amerika) og store markeder å selge til. Selskaper som [Det britiske ostindiske kompani](/historie/kolonialisering/eic) styrte mye av denne handelen.",
                 "Banker og lover som beskyttet eierskap, så investorer turte å satse penger på risikable oppfinnelser.",
                 "En stor gruppe arbeidsfolk på landsbygda som hadde mistet jorda si etter at adelen gjerdet inn fellesarealer."
             ]
@@ -173,7 +173,7 @@
         },
         {
             "type": "text",
-            "content": "Ikke alle var begeistret. I 1811 begynte en gruppe vevere i Nottingham å bryte seg inn i fabrikker og knuse de nye maskinene. De kalte seg luddittene etter en figur som het Ned Ludd. Dommerne hengte mange av dem. Andre prøvde å organisere seg i fagforeninger for å kreve bedre lønn og kortere dager. I starten var fagforeninger ulovlige, men sakte men sikkert vant arbeiderne fram med kravene sine."
+            "content": "Ikke alle var begeistret. I 1811 begynte en gruppe vevere i Nottingham å bryte seg inn i fabrikker og knuse de nye maskinene. De kalte seg luddittene etter en figur som het Ned Ludd. Dommerne hengte mange av dem. Mange spør seg det samme i dag når kunstig intelligens tar over arbeid, en frykt du kan utforske videre i [Robotene kommer](/samfunnskunnskap/mennesket-kultur-samfunn/robotene-kommer). Andre prøvde å organisere seg i fagforeninger for å kreve bedre lønn og kortere dager. I starten var fagforeninger ulovlige, men sakte men sikkert vant arbeiderne fram med kravene sine."
         },
         {
             "type": "text",
@@ -192,40 +192,6 @@
             "type": "component",
             "name": "DenStoreAkselerasjonen",
             "props": {}
-        },
-        {
-            "type": "component",
-            "name": "InterdisciplinaryBridge",
-            "props": {
-                "title": "Industrialiseringens ringvirkninger",
-                "centerEvent": "Den industrielle revolusjonen",
-                "nodes": [
-                    {
-                        "subject": "Hamskiftet i Norge",
-                        "text": "Norge fikk sin egen industrialisering omtrent femti år etter England. Bønder ble til arbeidere, og samfunnet ble snudd på hodet.",
-                        "color": "#10b981",
-                        "link": "/historie/norgeshistorie/hamskiftet"
-                    },
-                    {
-                        "subject": "Kolonialisering",
-                        "text": "Fabrikkene trengte bomull, gummi og olje. Europeiske stater tok kontroll over store deler av Afrika og Asia for å sikre råvarene.",
-                        "color": "#f59e0b",
-                        "link": "/historie/kolonialisering/eic"
-                    },
-                    {
-                        "subject": "Robotene kommer",
-                        "text": "Den industrielle revolusjonen erstattet muskler. AI-revolusjonen i dag prøver å erstatte hjernen. Mange spør seg det samme nå som luddittene gjorde i 1811.",
-                        "color": "#6366f1",
-                        "link": "/samfunnskunnskap/mennesket-kultur-samfunn/robotene-kommer"
-                    },
-                    {
-                        "subject": "Framskrittstroen",
-                        "text": "Damp, jernbane og telegraf fikk folk til å tro at framskritt var uunngåelig. Dette tankegodset preget filosofi, politikk og moral i hundre år.",
-                        "color": "#8b5cf6",
-                        "link": "/samfunnskunnskap/ideer-og-verdenssyn/framskrittstro"
-                    }
-                ]
-            }
         },
         {
             "type": "component",

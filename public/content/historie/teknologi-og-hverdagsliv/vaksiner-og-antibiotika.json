@@ -29,7 +29,7 @@
         },
         {
             "type": "text",
-            "content": "Før 1800-tallet visste ingen hva som egentlig gjorde folk syke. Mange trodde sykdom kom av dårlig luft eller straff fra Gud. De minste levende tingene som finnes, bakterier og virus, var fortsatt usynlige for menneskene. Bakterier er bittesmå levende celler, mens virus er enda mindre og må inn i kroppen din for å lage flere av seg selv. Begge kan gjøre oss syke, og før i tiden hadde legene ingen våpen mot dem. En koppe-epidemi kunne tømme en hel landsby. Halvparten av alle barn døde før de ble voksne i mange land. Døden var en helt vanlig gjest i hjemmet, og folk var vant til å miste søsken og venner mens de fortsatt var små."
+            "content": "Før 1800-tallet visste ingen hva som egentlig gjorde folk syke. Mange trodde sykdom kom av dårlig luft eller straff fra Gud. De minste levende tingene som finnes, bakterier og virus, var fortsatt usynlige for menneskene. Bakterier er bittesmå levende celler, mens virus er enda mindre og må inn i kroppen din for å lage flere av seg selv. Begge kan gjøre oss syke, og før i tiden hadde legene ingen våpen mot dem. En koppe-epidemi kunne tømme en hel landsby. Noen hundre år tidligere hadde [svartedauden](/historie/middelalderen/svartedauden) drept en tredjedel av alle i Europa, helt uten at noen kunne stoppe den. Halvparten av alle barn døde før de ble voksne i mange land. Døden var en helt vanlig gjest i hjemmet, og folk var vant til å miste søsken og venner mens de fortsatt var små."
         },
         {
             "type": "header",
@@ -139,7 +139,7 @@
         },
         {
             "type": "text",
-            "content": "Historien om vaksiner og antibiotika er derfor ikke ferdig. To enkle ideer, en kukoppe og en glemt skål med muggsopp, forandret hva det vil si å være menneske. Vi sørger ikke lenger over halvparten av barna våre, og en betent rift er ikke lenger en dødsdom. Men oppfinnelser som redder liv må også passes på. Neste gang du får en vaksine eller en kur som gjør deg frisk på noen dager, er det verdt å huske hvor nytt og hvor skjørt dette egentlig er."
+            "content": "Historien om vaksiner og antibiotika er derfor ikke ferdig. To enkle ideer, en kukoppe og en glemt skål med muggsopp, forandret hva det vil si å være menneske. Likevel var ikke medisinen alene om å redde oss. Like viktig var arbeidet med [rent vann og kloakk](/historie/teknologi-og-hverdagsliv/vann-og-kloakk), som stoppet mange sykdommer før de i det hele tatt rakk å gjøre noen syk. Vi sørger ikke lenger over halvparten av barna våre, og en betent rift er ikke lenger en dødsdom. Men oppfinnelser som redder liv må også passes på. Neste gang du får en vaksine eller en kur som gjør deg frisk på noen dager, er det verdt å huske hvor nytt og hvor skjørt dette egentlig er."
         },
         {
             "type": "component",
@@ -153,34 +153,6 @@
                     { "year": 1942, "description": "Penicillin lages i store mengder og redder soldater under andre verdenskrig." },
                     { "year": 1955, "description": "Jonas Salk lager en vaksine mot polio, en sykdom som lammet tusenvis av barn." },
                     { "year": 1980, "description": "Verden erklærer at kopper er utryddet, den eneste menneskesykdommen vi har klart å fjerne helt." }
-                ]
-            }
-        },
-        {
-            "type": "component",
-            "name": "InterdisciplinaryBridge",
-            "props": {
-                "title": "Hva henger sammen med vaksiner og antibiotika?",
-                "centerEvent": "Medisinen",
-                "nodes": [
-                    {
-                        "subject": "Historie",
-                        "title": "Rent vann og kloakk",
-                        "text": "Det som reddet enda flere liv enn medisin: rør og renseanlegg som stoppet sykdom før den startet.",
-                        "link": "/historie/teknologi-og-hverdagsliv/vann-og-kloakk"
-                    },
-                    {
-                        "subject": "Historie",
-                        "title": "Svartedauden",
-                        "text": "Pesten som drepte en tredjedel av Europa, i en tid uten vaksiner eller antibiotika.",
-                        "link": "/historie/middelalderen/svartedauden"
-                    },
-                    {
-                        "subject": "Naturfag",
-                        "title": "Bakterier og virus",
-                        "text": "Hva er egentlig forskjellen på de usynlige tingene som gjør oss syke?",
-                        "link": "/historie/teknologi-og-hverdagsliv/vaksiner-og-antibiotika"
-                    }
                 ]
             }
         },

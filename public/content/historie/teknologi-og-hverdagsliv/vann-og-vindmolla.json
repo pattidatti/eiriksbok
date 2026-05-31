@@ -146,34 +146,6 @@
         },
         {
             "type": "component",
-            "name": "InterdisciplinaryBridge",
-            "props": {
-                "title": "Hva henger sammen med vann- og vindmølla?",
-                "centerEvent": "Møllene",
-                "nodes": [
-                    {
-                        "subject": "Historie",
-                        "title": "Dampmaskinen",
-                        "text": "Kraften som endelig ble fri fra elv og vind, og kunne tas med hvor som helst.",
-                        "link": "/historie/industriell-revolusjon/dampmaskinen"
-                    },
-                    {
-                        "subject": "Historie",
-                        "title": "Jordbrukets historie",
-                        "text": "Samme idé på åkeren: nye redskaper som lot mennesker gjøre mindre tungt arbeid.",
-                        "link": "/historie/teknologi-og-hverdagsliv/jordbrukets-historie"
-                    },
-                    {
-                        "subject": "Naturfag",
-                        "title": "Energi og bevegelse",
-                        "text": "Møllene gjør energien i rennende vann og blåsende vind om til nyttig arbeid.",
-                        "link": "/historie/teknologi-og-hverdagsliv"
-                    }
-                ]
-            }
-        },
-        {
-            "type": "component",
             "name": "Quiz",
             "props": {
                 "questions": [

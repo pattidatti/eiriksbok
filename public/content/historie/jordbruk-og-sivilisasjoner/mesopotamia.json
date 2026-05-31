@@ -44,7 +44,7 @@
         },
         {
             "type": "text",
-            "content": "Midt i byene reiste sumererne enorme tempelbygg som vi kaller ziggurater. En ziggurat så ut som en pyramide med trappetrinn. Den var byens midtpunkt: tempel, kornlager og rådhus i samme bygning. På toppen mente folk at gudene møtte menneskene."
+            "content": "Midt i byene reiste sumererne enorme tempelbygg som vi kaller ziggurater. En ziggurat så ut som en pyramide med trappetrinn. Den var byens midtpunkt: tempel, kornlager og rådhus i samme bygning. På toppen mente folk at gudene møtte menneskene. De første kongene som hevdet å være valgt av gudene, satt nettopp her i Mesopotamia. Tanken om [kongen som bindeledd mellom himmel og jord](/samfunnskunnskap/styringsformer/monarkiet) levde videre helt fram til moderne tid."
         },
         {
             "type": "component",
@@ -165,47 +165,13 @@
         },
         {
             "type": "text",
-            "content": "Når kong Kyros av Persia erobret Babylon i 539 fvt., gikk Mesopotamia inn i et nytt kapittel. Men ingenting forsvant. Kileskriften ble brukt i hundrevis av år til. Lovene og byene levde videre under nye herskere. Mesopotamia hadde lagt grunnsteinen. På denne grunnsteinen ble alle senere sivilisasjoner i Midtøsten bygget."
+            "content": "Når kong Kyros av Persia erobret Babylon i 539 fvt., gikk Mesopotamia inn i et nytt kapittel. [Det persiske storriket](/historie/perserriket/artikkel) overtok byene, lovene og handelsrutene nesten ferdige. Men ingenting forsvant. Kileskriften ble brukt i hundrevis av år til. Lovene og byene levde videre under nye herskere. Senere brukte også [romerne](/historie/romerriket/romersk-start) hjulet, skriften og bystyret som mesopotamierne hadde funnet opp tusen år tidligere. Mesopotamia hadde lagt grunnsteinen. På denne grunnsteinen ble alle senere sivilisasjoner i Midtøsten bygget."
         },
         {
             "type": "image",
             "src": "/images/jordbruk-og-sivilisasjoner/mesopotamia-02.webp",
             "alt": "Rekonstruert ziggurat i Ur ved solnedgang, ørken i bakgrunnen",
             "caption": "Den store zigguraten i Ur, slik den kan ha sett ut. Trappetrinnene førte opp til et tempel på toppen."
-        },
-        {
-            "type": "component",
-            "name": "InterdisciplinaryBridge",
-            "props": {
-                "title": "Mesopotamias spor i historien",
-                "centerEvent": "Mesopotamia",
-                "nodes": [
-                    {
-                        "subject": "Jordbruksrevolusjonen",
-                        "text": "Uten overgangen fra jegere til fastboende bønder hadde det aldri vært nok mat til å bygge byer som Uruk. Mesopotamia er resultatet av jordbruksrevolusjonen.",
-                        "color": "#10b981",
-                        "link": "/historie/jordbruk-og-sivilisasjoner/jordbruk-og-sivilisasjoner"
-                    },
-                    {
-                        "subject": "Perserriket",
-                        "text": "Da Kyros tok Babylon i 539 fvt., overtok perserne Mesopotamias byer, lover og handelsruter. Det persiske storriket arvet en ferdig sivilisasjon.",
-                        "color": "#6366f1",
-                        "link": "/historie/perserriket/artikkel"
-                    },
-                    {
-                        "subject": "Monarki som styreform",
-                        "text": "De første kongene som hevdet å være valgt av gudene, satt i Mesopotamia. Tanken om kongen som bindeledd mellom himmel og jord ble videreført helt fram til moderne tid.",
-                        "color": "#f59e0b",
-                        "link": "/samfunnskunnskap/styringsformer/monarkiet"
-                    },
-                    {
-                        "subject": "Romerriket",
-                        "text": "Romerne brukte hjulet, skriften og bystyret som Mesopotamia hadde funnet opp tusen år tidligere. Mange romerske ideer hadde mesopotamiske røtter.",
-                        "color": "#ec4899",
-                        "link": "/historie/romerriket/romersk-start"
-                    }
-                ]
-            }
         },
         {
             "type": "component",

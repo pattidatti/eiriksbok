@@ -39,7 +39,7 @@
         },
         {
             "type": "text",
-            "content": "Hvorfor begynte dette akkurat nå? Magnus Lagabøtes landslov fra 1274 hadde regler mot trolldom, men det førte sjelden til dødsstraff. Det som forandret alt var en ny forordning fra Danmark i 1617. Norge var i union med Danmark, så loven gjaldt her også. Forordningen sa at dømte hekser skulle brennes levende. Den gjorde også noe juridisk farlig: den åpnet for at en mistenkt heks kunne dømmes på vitnemål fra andre tiltalte. Det betydde at en eneste tilståelse - ofte fremtvunget med tortur - kunne dra med seg flere."
+            "content": "Hvorfor begynte dette akkurat nå? [Magnus Lagabøtes landslov](/historie/lov-og-rett/magnus-landslov) fra 1274 hadde regler mot trolldom, men det førte sjelden til dødsstraff. Det som forandret alt var en ny forordning fra Danmark i 1617. Norge var i union med Danmark, så loven gjaldt her også. Forordningen sa at dømte hekser skulle brennes levende. Den gjorde også noe juridisk farlig: den åpnet for at en mistenkt heks kunne dømmes på vitnemål fra andre tiltalte. Det betydde at en eneste tilståelse - ofte fremtvunget med tortur - kunne dra med seg flere."
         },
         {
             "type": "image",
@@ -57,7 +57,7 @@
         },
         {
             "type": "text",
-            "content": "Tre grupper var mest utsatt. Eldre, fattige kvinner som levde i utkanten av lokalsamfunnet. De som hadde kunnskap om urter og naturmedisin - det vi i dag ville kalt folkemedisin. Og samer, særlig samiske menn som ble assosiert med runebommer og noaidekunst. I Finnmark var noen av de første tiltalte samiske noaider. Senere ble de fleste anklagde fra nordnorske fiskerbygder."
+            "content": "Tre grupper var mest utsatt. Eldre, fattige kvinner som levde i utkanten av lokalsamfunnet. De som hadde kunnskap om urter og naturmedisin - det vi i dag ville kalt folkemedisin. Og samer, særlig samiske menn som ble assosiert med runebommer og noaidekunst. I Finnmark var noen av de første tiltalte samiske noaider, religiøse ledere fra [samisk religion](/krle/religion/samisk/intro). Senere ble de fleste anklagde fra nordnorske fiskerbygder."
         },
         {
             "type": "text",
@@ -110,7 +110,7 @@
         },
         {
             "type": "text",
-            "content": "Når en kvinne tilsto, måtte hun navngi andre hun hadde danset med på heksesabbat. Slik vokste sakene som kjedereaksjoner. I Vardø-saken i 1621 startet det med én kvinne. I løpet av få måneder satt et tjuetalls bak lås og slå. I 1662 skjedde det igjen i Vardø, da nye prosesser brente tjue nye kvinner. Slik kunne enkelthendelser velte hele bygder."
+            "content": "Når en kvinne tilsto, måtte hun navngi andre hun hadde danset med på heksesabbat. Slik vokste sakene som kjedereaksjoner. I Vardø-saken i 1621 startet det med én kvinne. I løpet av få måneder satt et tjuetalls bak lås og slå. Du kan selv [etterforske Vardø-prosessene som detektiv](/oving/detektiv/vardo) og se hvordan bevisene hang sammen. I 1662 skjedde det igjen i Vardø, da nye prosesser brente tjue nye kvinner. Slik kunne enkelthendelser velte hele bygder."
         },
         {
             "type": "component",
@@ -149,34 +149,6 @@
         {
             "type": "text",
             "content": "Hekseprosessene står som en advarsel. Når en domstol blir et sted der utfallet er bestemt på forhånd, slutter den å være en domstol. Når en mistanke ikke kan tilbakevises, er det ikke lenger en mistanke - det er en konklusjon. Magnus Lagabøtes drøm fra 1274 var at loven skulle beskytte den enkelte mot vilkårlig vold. I Vardø i 1621 forsvant den drømmen for en stund. Den måtte vinnes tilbake."
-        },
-        {
-            "type": "component",
-            "name": "InterdisciplinaryBridge",
-            "props": {
-                "title": "Se sammenhengen",
-                "centerEvent": "Hekseprosessene",
-                "nodes": [
-                    {
-                        "subject": "Historie",
-                        "title": "Magnus Lagabøtes landslov",
-                        "text": "Den norske rettsstaten begynte med å forby blodhevn - men beskyttet ikke mot massehysteri.",
-                        "link": "/historie/lov-og-rett/magnus-landslov"
-                    },
-                    {
-                        "subject": "Detektiv",
-                        "title": "Vardø-mysteriet",
-                        "text": "Etterforsk Vardø-prosessene fra 1621 selv som detektiv.",
-                        "link": "/oving/detektiv/vardo"
-                    },
-                    {
-                        "subject": "KRLE",
-                        "title": "Samisk religion",
-                        "text": "Mange av de første anklagde i Finnmark var samiske noaider.",
-                        "link": "/krle/religion/samisk/intro"
-                    }
-                ]
-            }
         },
         {
             "type": "header",

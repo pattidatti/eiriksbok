@@ -67,6 +67,10 @@
             "content": "Faraoen styrte gjennom en stor stab av embetsmenn. Den viktigste het visiren og fungerte omtrent som en statsminister. Under visiren satt skattefogder, dommere, prester og hærførere. Mange tusen lese- og skrivekyndige tjenestemenn holdt orden på hvor mye korn hver bonde skulle gi, hvor mange soldater hver landsby skulle stille, og hvor mye gull som kom inn fra gruvene i sør."
         },
         {
+            "type": "text",
+            "content": "Egypterne dyrket mange guder. Men rundt 1350 fvt. prøvde farao Akhnaton noe helt nytt: han ville at folk skulle tilbe bare én gud, solguden Aton. Mange forskere mener dette er det tidligste forsøket på å tro på én gud, lenge før [jødedommen](/krle/religion/jodedom) vokste fram. Forsøket holdt ikke - etter Akhnatons død gikk egypterne tilbake til de gamle gudene sine."
+        },
+        {
             "type": "component",
             "name": "FactBox",
             "props": {
@@ -114,45 +118,11 @@
         },
         {
             "type": "text",
-            "content": "Egypt påvirket alle de store rikene som kom etterpå. Grekerne reiste til Egypt og lærte om matematikk, medisin og astronomi. Mange greske filosofer, deriblant Platon, mente å ha hentet ideer fra egyptiske prester. Romerne tok over Egypt i 30 fvt., og kornet fra Nilen ble brød til romernes byer. Senere ble Egypt et viktig kristent område, og enda senere et muslimsk land."
+            "content": "Egypt vokste fram omtrent samtidig som nabolandet [Mesopotamia](/historie/jordbruk-og-sivilisasjoner/mesopotamia), begge langs store elver. Men mens Mesopotamia stadig ble erobret, lå Egypt godt beskyttet av ørken og hav og fikk utvikle seg i fred i tusenvis av år. Egypt påvirket alle de store rikene som kom etterpå. Grekerne reiste til Egypt og lærte om matematikk, medisin og astronomi. Mange greske filosofer, deriblant Platon, mente å ha hentet ideer fra egyptiske prester. Romerne tok over Egypt i 30 fvt., og kornet fra Nilen ble brød til [byene i Romerriket](/historie/romerriket/augustus-og-keiserdomme). Senere ble Egypt et viktig kristent område, og enda senere et muslimsk land."
         },
         {
             "type": "text",
             "content": "Selv i dag finner vi spor av Egypt overalt. Vi snakker om obelisker, sfinkser og pyramider. Bibelhistoriene om Josef og Moses er fortellinger fra det gamle Egypt. Og hver gang noen blir fascinert av en mumie eller en pyramide, lever den eldgamle sivilisasjonen ved Nilen videre."
-        },
-        {
-            "type": "component",
-            "name": "InterdisciplinaryBridge",
-            "props": {
-                "title": "Egypts spor i historien",
-                "centerEvent": "Det gamle Egypt",
-                "nodes": [
-                    {
-                        "subject": "Mesopotamia",
-                        "text": "Egypt og Mesopotamia oppsto omtrent samtidig, begge langs store elver. Mens Mesopotamia ofte ble erobret, lå Egypt beskyttet av ørken og hav og kunne utvikle seg i fred i tusenvis av år.",
-                        "color": "#10b981",
-                        "link": "/historie/jordbruk-og-sivilisasjoner/mesopotamia"
-                    },
-                    {
-                        "subject": "Perserriket",
-                        "text": "Da Kambyses II erobret Egypt i 525 fvt., ble Egypt en del av Perserriket. Perserne lærte mye av egyptisk administrasjon og religiøs toleranse.",
-                        "color": "#6366f1",
-                        "link": "/historie/perserriket/artikkel"
-                    },
-                    {
-                        "subject": "Romerriket",
-                        "text": "Kleopatra var Egypts siste farao. Etter hennes død i 30 fvt. ble Egypt romersk provins. Egyptisk korn mettet hele Roma — det var Imperiets matkammer.",
-                        "color": "#ec4899",
-                        "link": "/historie/romerriket/augustus-og-keiserdomme"
-                    },
-                    {
-                        "subject": "Monoteismen",
-                        "text": "Farao Akhnaton prøvde rundt 1350 fvt. å erstatte alle egyptiske guder med én — solguden Aton. Mange forskere mener dette er det tidligste forsøket på monoteisme, lenge før jødedommen.",
-                        "color": "#f59e0b",
-                        "link": "/krle/religion/jodedom/intro"
-                    }
-                ]
-            }
         },
         {
             "type": "component",

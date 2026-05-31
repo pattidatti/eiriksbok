@@ -42,7 +42,7 @@
         },
         {
             "type": "text",
-            "content": "Lovene handlet mest om bot og oppgjør mellom familier. Hvis noen ble drept, skulle drapsmannens ætt betale mannebot til den dreptes ætt. Hvis ætten nektet boten, kunne de ta blodhevn. Det betydde at de hadde lov til å drepe drapsmannen tilbake. Slik holdt voldsspiralen seg gående i generasjon etter generasjon."
+            "content": "Lovene handlet mest om bot og oppgjør mellom familier. Hvis noen ble drept, skulle drapsmannens ætt betale [mannebot](/historie/lov-og-rett/wergild) til den dreptes ætt - en fast pris for hvert liv, betalt mellom familier. Hvis ætten nektet boten, kunne de ta blodhevn. Det betydde at de hadde lov til å drepe drapsmannen tilbake. Slik holdt voldsspiralen seg gående i generasjon etter generasjon."
         },
         {
             "type": "text",
@@ -116,7 +116,7 @@
         },
         {
             "type": "text",
-            "content": "Setningen står helt i begynnelsen av Magnus' landslov. Den ble så viktig at den senere kom inn i den norske Grunnloven av 1814, der den fortsatt brukes som mottoet for hele rettsstaten. Tanken er enkel: et samfunn holdes sammen av lover som alle følger. Uten lov - ulov - faller alt fra hverandre."
+            "content": "Setningen står helt i begynnelsen av Magnus' landslov. Den ble så viktig at den senere kom inn i [den norske Grunnloven av 1814](/samfunnskunnskap/styringsformer/grunnloven), der den fortsatt brukes som mottoet for hele rettsstaten. Tanken er enkel: et samfunn holdes sammen av lover som alle følger. Uten lov - ulov - faller alt fra hverandre."
         },
         {
             "type": "header",
@@ -150,35 +150,7 @@
         },
         {
             "type": "text",
-            "content": "Dette skjedde sakte. Folk fortsatte å føle at slekten skyldte dem hjelp. Blodhevn forsvant ikke over natten. Men loven trakk en strek i sanden. Den sa at staten har monopol på vold. Den ideen er fortsatt grunnsteinen i det norske rettssystemet i dag. Når politiet kommer og pågriper noen, eller når en domstol gir straff, hviler det på det Magnus skrev ned i 1274."
-        },
-        {
-            "type": "component",
-            "name": "InterdisciplinaryBridge",
-            "props": {
-                "title": "Se sammenhengen",
-                "centerEvent": "Landsloven",
-                "nodes": [
-                    {
-                        "subject": "Historie",
-                        "title": "Wergild - drapets pris",
-                        "text": "Systemet Magnus erstattet: fast pris for hvert liv, betalt mellom familier.",
-                        "link": "/historie/lov-og-rett/wergild"
-                    },
-                    {
-                        "subject": "Samfunnskunnskap",
-                        "title": "Grunnloven 1814",
-                        "text": "Setningen Med lov skal landet bygges kom inn i Grunnloven 540 år senere.",
-                        "link": "/samfunnskunnskap/styringsformer/grunnloven"
-                    },
-                    {
-                        "subject": "Samfunnskunnskap",
-                        "title": "Makt og legitimitet",
-                        "text": "Hvorfor staten har enerett på vold - et arvet prinsipp fra Landsloven.",
-                        "link": "/samfunnskunnskap/styringsformer/makt-og-legitimitet"
-                    }
-                ]
-            }
+            "content": "Dette skjedde sakte. Folk fortsatte å føle at slekten skyldte dem hjelp. Blodhevn forsvant ikke over natten. Men loven trakk en strek i sanden. Den sa at [staten har monopol på vold](/samfunnskunnskap/styringsformer/makt-og-legitimitet). Den ideen er fortsatt grunnsteinen i det norske rettssystemet i dag. Når politiet kommer og pågriper noen, eller når en domstol gir straff, hviler det på det Magnus skrev ned i 1274."
         },
         {
             "type": "header",

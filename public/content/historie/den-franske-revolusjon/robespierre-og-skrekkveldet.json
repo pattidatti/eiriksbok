@@ -50,7 +50,7 @@
         },
         {
             "type": "text",
-            "content": "Robespierre vokste opp i en bitteliten leilighet etter at moren hans døde og faren forsvant. Han måtte betale studiene sine selv. Han ble en dyktig advokat og tok ofte saker for folk som ikke hadde råd til å forsvare seg. Klassekameratene husket ham som en stille gutt som leste hele tiden og aldri var med på leker.\n\nDa revolusjonen begynte i 1789, ble han valgt inn i nasjonalforsamlingen i Paris. Der ble han kjent for én ting: han var prinsippfast. Han krevde at slaveriet skulle avskaffes. Han var mot dødsstraff, selv for de verste forbryterne. Han mente at alle menn skulle få stemmerett, ikke bare de rike. Få trodde han ville få det som han ville, men han ga seg aldri. Få store talere hadde svakere stemme enn ham, men alle hørte etter når han snakket.\n\nDen store helten hans var filosofen Jean-Jacques Rousseau. Rousseau hadde skrevet at et samfunn må bygge på «folkets allmenne vilje». Det vil si: lovene skal speile det vanlige folk mener er rett, ikke det kongen eller adelen vil ha. Robespierre tok dette dypt på alvor. Han trodde at revolusjonen kunne lage et helt nytt menneske: en borger som tenkte på fellesskapet før seg selv."
+            "content": "Robespierre vokste opp i en bitteliten leilighet etter at moren hans døde og faren forsvant. Han måtte betale studiene sine selv. Han ble en dyktig advokat og tok ofte saker for folk som ikke hadde råd til å forsvare seg. Klassekameratene husket ham som en stille gutt som leste hele tiden og aldri var med på leker.\n\nDa revolusjonen begynte i 1789, ble han valgt inn i nasjonalforsamlingen i Paris. Der ble han kjent for én ting: han var prinsippfast. Han krevde at slaveriet skulle avskaffes. Han var mot dødsstraff, selv for de verste forbryterne. Han mente at alle menn skulle få stemmerett, ikke bare de rike. Få trodde han ville få det som han ville, men han ga seg aldri. Få store talere hadde svakere stemme enn ham, men alle hørte etter når han snakket.\n\nDen store helten hans var filosofen Jean-Jacques Rousseau, en av de viktigste tenkerne i [opplysningstiden](/samfunnskunnskap/styringsformer/opplysningstid). Rousseau hadde skrevet at et samfunn må bygge på «folkets allmenne vilje». Det vil si: lovene skal speile det vanlige folk mener er rett, ikke det kongen eller adelen vil ha. Robespierre tok dette dypt på alvor. Han trodde at revolusjonen kunne lage et helt nytt menneske: en borger som tenkte på fellesskapet før seg selv."
         },
         {
             "type": "header",
@@ -183,47 +183,13 @@
         },
         {
             "type": "text",
-            "content": "Robespierre er fortsatt omstridt blant historikere. Noen kaller ham en idealist som mistet kontrollen i en krisetid. Andre ser ham som en tidlig diktator som rettferdiggjorde drap i godhetens navn. Det finnes statuer av ham noen steder, og hatske karikaturer andre steder.\n\nEttertiden lærte to ting av ham. Den ene er at gode ideer ikke alltid gir gode handlinger. En person kan kjempe for menneskerettigheter og samtidig sende uskyldige til døden. Den andre er at makt uten kontroll kan korrumpere selv en som starter med rene hensikter. Etter skrekkveldet prøvde franskmennene å bygge inn flere bremser i statsmakten, slik at ingen leder skulle få så frie hender igjen.\n\nSpørsmålet han etterlater er like aktuelt i dag: når et samfunn føler seg truet av krig, terror eller krise, hvor langt har vi lov til å gå for å beskytte det? Skal politiet kunne arrestere folk uten bevis? Skal aviser kunne stenges hvis de skriver «farlige» meninger? Robespierre svarte «så langt som nødvendig», og det svaret kostet ham hodet."
+            "content": "Robespierre er fortsatt omstridt blant historikere. Noen kaller ham en idealist som mistet kontrollen i en krisetid. Andre ser ham som en tidlig diktator som rettferdiggjorde drap i godhetens navn. Det finnes statuer av ham noen steder, og hatske karikaturer andre steder.\n\nEttertiden lærte to ting av ham. Den ene er at gode ideer ikke alltid gir gode handlinger. En person kan kjempe for menneskerettigheter og samtidig sende uskyldige til døden. Den andre er at makt uten kontroll kan korrumpere selv en som starter med rene hensikter. Etter skrekkveldet prøvde franskmennene å bygge inn flere bremser i statsmakten, slik at ingen leder skulle få så frie hender igjen. Den samme ideen ser vi i Norge i dag, der [Stortinget](/samfunnskunnskap/styringsformer/stortinget), regjeringen og domstolene skal kontrollere hverandre.\n\nSpørsmålet han etterlater er like aktuelt i dag: når et samfunn føler seg truet av krig, terror eller krise, hvor langt har vi lov til å gå for å beskytte det? Skal politiet kunne arrestere folk uten bevis? Skal aviser kunne stenges hvis de skriver «farlige» meninger? Robespierre svarte «så langt som nødvendig», og det svaret kostet ham hodet. Innen [pliktetikken](/krle/etikk/pliktetikk) finnes et motsvar: en handling er gal hvis den ikke kan gjøres til en regel for alle. Skal det være rett å drepe «forrædere» uten rettssak, må det være rett for alle å gjøre det."
         },
         {
             "type": "image",
             "src": "/images/den-franske-revolusjon/robespierre-og-skrekkveldet-02.webp",
             "alt": "Tomt torg i Paris med spor av blod og kastet løpesedler etter Robespierres fall i juli 1794",
             "caption": "Da Robespierre falt, sluttet drapene nesten over natten. Folk våget å puste igjen."
-        },
-        {
-            "type": "component",
-            "name": "InterdisciplinaryBridge",
-            "props": {
-                "title": "Skrekkveldet på tvers av fagene",
-                "centerEvent": "Robespierre og spørsmålet om mål og midler",
-                "nodes": [
-                    {
-                        "subject": "Etikk: Pliktetikk",
-                        "text": "Filosofen Immanuel Kant mente at en handling er gal hvis den ikke kan gjøres til en regel for alle. Hvis det er rett å drepe «forrædere» uten rettssak, blir det rett for alle å gjøre det. Kant ville sagt at Robespierre brøt sin egen tankegang.",
-                        "color": "#8b5cf6",
-                        "link": "/krle/etikk/pliktetikk"
-                    },
-                    {
-                        "subject": "Demokratiets røtter",
-                        "text": "Etter Robespierre ble det viktig å skille makten i flere deler. Domstoler, forsamling og regjering skal kontrollere hverandre. Mange av disse ideene finner vi igjen i FN-pakten i dag.",
-                        "color": "#10b981",
-                        "link": "/samfunnskunnskap/ideer-og-verdenssyn/fn"
-                    },
-                    {
-                        "subject": "Opplysningstiden",
-                        "text": "Robespierre leste Rousseau som om det var en bibel. Men opplysningstidens filosofer var uenige. Voltaire ville aldri godtatt drap i fornuftens navn. Idéene kan brukes mot hverandre.",
-                        "color": "#f59e0b",
-                        "link": "/samfunnskunnskap/styringsformer/opplysningstid"
-                    },
-                    {
-                        "subject": "Maktens tredeling i Norge",
-                        "text": "Norge har bygget inn vern mot at én leder kan få for mye makt. Stortinget vedtar lover, regjeringen styrer landet, og domstolene dømmer. De tre delene skal kontrollere hverandre. Robespierre samlet alt på én hånd. Det gikk dårlig.",
-                        "color": "#6366f1",
-                        "link": "/samfunnskunnskap/styringsformer/stortinget"
-                    }
-                ]
-            }
         },
         {
             "type": "component",

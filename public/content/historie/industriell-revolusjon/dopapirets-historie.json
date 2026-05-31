@@ -57,11 +57,11 @@
         },
         {
             "type": "text",
-            "content": "Det var amerikaneren Joseph Gayetty som i 1857 lanserte verdens første kommersielle hygienepapir. Han kalte det Gayetty's Medicated Paper, solgte det i pakker med 500 flate ark til 50 cent, og hadde trykket sitt eget navn på hvert eneste ark. Gayetty markedsførte produktet som medisinsk nødvendig og hevdet det forebygget hemoroider. Salget var skuffende - folk forsto ikke hvorfor de skulle betale for noe de like godt kunne få gratis fra nærmeste avis."
+            "content": "At papir i det hele tatt ble billig nok til daglig bruk, skyldtes [den industrielle revolusjonen](/historie/industriell-revolusjon/industriell-revolusjon). Det var amerikaneren Joseph Gayetty som i 1857 lanserte verdens første kommersielle hygienepapir. Han kalte det Gayetty's Medicated Paper, solgte det i pakker med 500 flate ark til 50 cent, og hadde trykket sitt eget navn på hvert eneste ark. Gayetty markedsførte produktet som medisinsk nødvendig og hevdet det forebygget hemoroider. Salget var skuffende - folk forsto ikke hvorfor de skulle betale for noe de like godt kunne få gratis fra nærmeste avis."
         },
         {
             "type": "text",
-            "content": "Gjennombruddet kom i 1890, da brødrene Scott - Clarence og E. Irvin Scott - begynte å selge toalettpapiret på ruller. De var flaue over produktet og markedsførte det anonymt, under andre merkevarers navn. Men ideen slo an. I 1891 tok en oppfinner ved navn Seth Wheeler patent på den perforerte papirrulle - og i patenttegningene er det tydelig at papiret skal henge med enden over, ikke under. Striden om riktig retning er teknisk sett løst siden 1891."
+            "content": "Gjennombruddet kom i 1890, da brødrene Scott - Clarence og E. Irvin Scott - begynte å selge toalettpapiret på ruller. De var flaue over produktet og markedsførte det anonymt, under andre merkevarers navn. Men ideen slo an. Papirfabrikkene som spydde ut ruller på rad og rekke, ble drevet av [dampmaskinen](/historie/industriell-revolusjon/dampmaskinen), den samme oppfinnelsen som hadde gjort fabrikker mulig overalt. I 1891 tok en oppfinner ved navn Seth Wheeler patent på den perforerte papirrulle - og i patenttegningene er det tydelig at papiret skal henge med enden over, ikke under. Striden om riktig retning er teknisk sett løst siden 1891."
         },
         {
             "type": "component",
@@ -99,34 +99,6 @@
                     { "year": 1890, "description": "Scott-brødrene introduserer toalettpapiret på rull." },
                     { "year": 1891, "description": "Seth Wheeler tar patent på perforert papirrulle - med enden over toppen." },
                     { "year": 1960, "description": "Innendørs WC og toalettpapirrull blir norsk standard i etterkrigstiden." }
-                ]
-            }
-        },
-        {
-            "type": "component",
-            "name": "InterdisciplinaryBridge",
-            "props": {
-                "title": "Hva henger sammen med dopapirhistorien?",
-                "centerEvent": "Dopapiret",
-                "nodes": [
-                    {
-                        "subject": "Historie",
-                        "title": "Den industrielle revolusjonen",
-                        "text": "Masseproduksjon av papir var avhengig av dampmaskinene og fabrikkene fra industrialiseringen.",
-                        "link": "/historie/industriell-revolusjon/industriell-revolusjon"
-                    },
-                    {
-                        "subject": "Historie",
-                        "title": "Hverdagslivet i Roma",
-                        "text": "Romerne hadde avansert sanitærsystem - inkludert de beryktede offentlige latrinene.",
-                        "link": "/historie/romerriket/hverdagsliv-i-roma"
-                    },
-                    {
-                        "subject": "Historie",
-                        "title": "Dampmaskinen",
-                        "text": "Dampkraft drev papirfabrikkene som gjorde toalettpapiret til en massevare.",
-                        "link": "/historie/industriell-revolusjon/dampmaskinen"
-                    }
                 ]
             }
         },

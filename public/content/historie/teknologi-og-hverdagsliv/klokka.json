@@ -102,7 +102,7 @@
         },
         {
             "type": "text",
-            "content": "Den største forandringen kom med fabrikkene på 1700- og 1800-tallet. På en gård bestemte sola og været hva du gjorde. I en fabrikk var det klokka som bestemte. Maskinene gikk hele tiden, og eieren ville at arbeiderne skulle komme presis, jobbe et fast antall timer, og slutte presis. En fløyte ulte når skiftet begynte og når det sluttet. Kom du for sent, ble du trukket i lønn."
+            "content": "Den største forandringen kom med fabrikkene på 1700- og 1800-tallet. På en gård bestemte sola og været hva du gjorde, slik det hadde gjort helt siden [jordbruket startet](/historie/teknologi-og-hverdagsliv/jordbrukets-historie). I en fabrikk var det klokka som bestemte. Maskinene ble drevet av [dampmaskinen](/historie/industriell-revolusjon/dampmaskinen) og gikk hele tiden, og eieren ville at arbeiderne skulle komme presis, jobbe et fast antall timer, og slutte presis. En fløyte ulte når skiftet begynte og når det sluttet. Kom du for sent, ble du trukket i lønn."
         },
         {
             "type": "text",
@@ -114,7 +114,7 @@
         },
         {
             "type": "text",
-            "content": "Selv på 1800-tallet hadde det vært ett problem igjen: hver by stilte klokka si etter sin egen sol. Når sola sto høyest i Bergen, var den ennå ikke helt på topp i Oslo lenger øst. Så lenge folk reiste sakte, spilte det ingen rolle. Men så kom jernbanen, og toget gikk fort. Et tog som skulle gå 12.00, hvilken by sin klokke skulle det følge? Togtabellene ble et eneste rot, og det skjedde ulykker fordi klokkene ikke stemte overens."
+            "content": "Selv på 1800-tallet hadde det vært ett problem igjen: hver by stilte klokka si etter sin egen sol. Når sola sto høyest i Bergen, var den ennå ikke helt på topp i Oslo lenger øst. Så lenge folk reiste sakte, spilte det ingen rolle. Men så kom [jernbanen](/historie/industriell-revolusjon/jernbanen), og toget gikk fort. Et tog som skulle gå 12.00, hvilken by sin klokke skulle det følge? Togtabellene ble et eneste rot, og det skjedde ulykker fordi klokkene ikke stemte overens."
         },
         {
             "type": "text",
@@ -152,34 +152,6 @@
                     { "year": 1656, "description": "Pendelen gjør klokkene mye mer nøyaktige, og de begynner å vise minutter." },
                     { "year": 1800, "description": "Masseproduserte klokker blir så billige at vanlige folk kan eie sin egen." },
                     { "year": 1884, "description": "Verden deles inn i tidssoner med standardtid, slik at togene kan gå etter samme klokke." }
-                ]
-            }
-        },
-        {
-            "type": "component",
-            "name": "InterdisciplinaryBridge",
-            "props": {
-                "title": "Hva henger sammen med klokka?",
-                "centerEvent": "Klokka",
-                "nodes": [
-                    {
-                        "subject": "Historie",
-                        "title": "Jernbanen og standardtid",
-                        "text": "Togene som gikk for fort tvang fram én felles klokke for hele land.",
-                        "link": "/historie/industriell-revolusjon/jernbanen"
-                    },
-                    {
-                        "subject": "Historie",
-                        "title": "Dampmaskinen",
-                        "text": "Kraften som drev fabrikkene der klokka bestemte arbeidsdagen.",
-                        "link": "/historie/industriell-revolusjon/dampmaskinen"
-                    },
-                    {
-                        "subject": "Teknologi og hverdagsliv",
-                        "title": "Jordbrukets historie",
-                        "text": "På gården styrte sola og årstidene arbeidet, lenge før klokka tok over.",
-                        "link": "/historie/teknologi-og-hverdagsliv/jordbrukets-historie"
-                    }
                 ]
             }
         },

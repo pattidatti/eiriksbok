@@ -235,45 +235,11 @@
     },
     {
       "type": "text",
-      "content": "Reformasjonen var altså ikke bare et religionsskifte i Norge. Det var en politisk omveltning som tok fra landet en stor del av selvstyret. I 274 år, fra 1537 til 1814, var Norge ikke et eget rike, men en dansk provins. Norske gutter dro til København for å studere. Lovene ble skrevet på dansk. Embetsmennene snakket dansk. Det er en stor grunn til at vi i dag har et bokmål som ligner sterkt på dansk: språket fulgte makten."
+      "content": "Reformasjonen var altså ikke bare et religionsskifte i Norge. Det var en politisk omveltning som tok fra landet en stor del av selvstyret. I 274 år, fra 1537 til 1814, var Norge ikke et eget rike, men en dansk provins. Norske gutter dro til København for å studere. Lovene ble skrevet på dansk. Embetsmennene snakket dansk. Det er en stor grunn til at vi i dag har et bokmål som ligner sterkt på dansk: språket fulgte makten. Begge er [germanske språk](/norsk/sprakhistorie/germanske-sprak) i utgangspunktet, men de 300 årene med dansk kirke- og embetsspråk knyttet dem enda tettere sammen."
     },
     {
       "type": "text",
       "content": "Samtidig brakte reformasjonen også noen positive endringer med tid. Etter hvert kom det skoler i nesten alle bygder, fordi protestantismen krevde at folk skulle kunne lese Bibelen selv. Konfirmasjonen ble innført som en slags eksamen i kristendomskunnskap, og den løftet leseferdigheten i hele landet. På 1700-tallet kunne flere nordmenn lese enn i mange andre land i Europa. Det er et av paradoksene i historien: en tvungen religion la grunnlaget for et land der vanlige folk kunne lese og tenke selv."
-    },
-    {
-      "type": "component",
-      "name": "InterdisciplinaryBridge",
-      "props": {
-        "title": "Hvordan reformasjonen fortsatt former Norge",
-        "centerEvent": "Reformasjonen i Norge 1537",
-        "nodes": [
-          {
-            "subject": "Politikk",
-            "text": "Norge mistet selvstendigheten i 1537 og fikk den ikke tilbake før i 1814. Mye av vår senere kamp for nasjonal identitet handlet om å gjenvinne det som forsvant her.",
-            "color": "#10b981",
-            "link": "/historie/reformasjonen/martin-luther"
-          },
-          {
-            "subject": "Språk",
-            "text": "Kirken brukte dansk i 300 år. Det er hovedgrunnen til at bokmål i dag står så nær dansk skriftspråk.",
-            "color": "#ec4899",
-            "link": "/norsk/sprakhistorie/germanske-sprak"
-          },
-          {
-            "subject": "Religion",
-            "text": "Norge er fortsatt et hovedsakelig luthersk land. Den evangelisk-lutherske kirken var statskirke helt fram til 2012.",
-            "color": "#f59e0b",
-            "link": "/krle/religion/kristendom/kirkesamfunn"
-          },
-          {
-            "subject": "Økonomi",
-            "text": "Da kongen overtok kirkens jord, fikk han enorme inntekter. Mye av jorda ble senere solgt videre til en ny gruppe embetsmenn og jordeiere.",
-            "color": "#6366f1",
-            "link": "/historie/reformasjonen/30-aarskrigen"
-          }
-        ]
-      }
     },
     {
       "type": "header",
@@ -281,7 +247,7 @@
     },
     {
       "type": "text",
-      "content": "Reformasjonen i Norge er en historie om hva som skjer når store endringer kommer ovenfra og uten dialog. Folket ble ikke spurt. Tradisjoner som hadde levd i 500 år ble forbudt over natten. Men historien er også en påminnelse om at slike skifter sjelden er rene tap eller rene seire. Norge mistet selvstendigheten, men fikk på sikt skoler. Tapte helgenene, men fikk en bibel folk faktisk kunne lese. Et fag som historie hjelper oss å holde begge sider av regnskapet åpne samtidig, uten å forenkle det til en enkel moralhistorie."
+      "content": "Reformasjonen i Norge er en historie om hva som skjer når store endringer kommer ovenfra og uten dialog. Folket ble ikke spurt. Tradisjoner som hadde levd i 500 år ble forbudt over natten. Men historien er også en påminnelse om at slike skifter sjelden er rene tap eller rene seire. Norge mistet selvstendigheten, men fikk på sikt skoler. Tapte helgenene, men fikk en bibel folk faktisk kunne lese. Sporene er der fortsatt: Norge er i dag et hovedsakelig luthersk land, og du kan se hvordan det henger sammen med andre [kristne kirkesamfunn](/krle/religion/kristendom/kirkesamfunn). Et fag som historie hjelper oss å holde begge sider av regnskapet åpne samtidig, uten å forenkle det til en enkel moralhistorie."
     },
     {
       "type": "component",

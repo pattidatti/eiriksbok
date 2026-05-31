@@ -74,7 +74,7 @@
         },
         {
             "type": "text",
-            "content": "Mens Luther la vekten på sola fide — frelse ved tro alene — gikk Calvin ett skritt videre. Hvordan kan mennesker ha tro? Bare fordi Gud gir dem den. Og hvem gir Gud troen til? Dem han har valgt. Når valgte han? Før verden ble skapt. Dette kalles predestinasjonslæren. Gud har bestemt på forhånd hvem som skal bli frelst og hvem som skal gå fortapt. Du kan ikke fortjene plassen din. Du kan ikke kjøpe den. Du kan ikke engang vite om du har den."
+            "content": "Mens [Luther](/historie/reformasjonen/martin-luther) la vekten på sola fide - frelse ved tro alene - gikk Calvin ett skritt videre. Hvordan kan mennesker ha tro? Bare fordi Gud gir dem den. Og hvem gir Gud troen til? Dem han har valgt. Når valgte han? Før verden ble skapt. Dette kalles predestinasjonslæren. Gud har bestemt på forhånd hvem som skal bli frelst og hvem som skal gå fortapt. Du kan ikke fortjene plassen din. Du kan ikke kjøpe den. Du kan ikke engang vite om du har den."
         },
         {
             "type": "text",
@@ -91,7 +91,7 @@
         },
         {
             "type": "text",
-            "content": "Mens Luthers lære stort sett ble værende i Tyskland og Skandinavia, spredte Calvins lære seg lenger. I Skottland ledet John Knox en hard og folkelig reformasjon på 1560-tallet. Den skotske kirken — presbyterianerne — bygde et samfunn med strenge moralregler og brede skoler. Skotske barn lærte å lese tidlig, slik at de selv kunne studere Bibelen."
+            "content": "Mens Luthers lære stort sett ble værende i Tyskland og Skandinavia, spredte Calvins lære seg lenger. I Skottland ledet John Knox en hard og folkelig reformasjon på 1560-tallet. Den skotske kirken, presbyterianerne, bygde et samfunn med strenge moralregler og brede skoler. Skotske barn lærte å lese tidlig, slik at de selv kunne studere Bibelen. Presbyterianerne er ett av flere [reformerte kirkesamfunn](/krle/religion/kristendom/kirkesamfunn) som fortsatt bygger på Calvins lære i dag."
         },
         {
             "type": "text",
@@ -117,7 +117,7 @@
         },
         {
             "type": "text",
-            "content": "Webers svar var Calvins paradoks. Predestinasjonen skapte en evig uro hos den troende: er jeg blant de utvalgte? For å berolige seg selv kastet folk seg over arbeidet. Suksess i yrket ble lest som et tegn på at Gud så med velbehag på dem. Men luksus var fortsatt synd. Du fikk altså rikdom du ikke fikk lov til å sløse med. Hva gjør man da? Man sparer og investerer. Man bygger fabrikker, kjøper skip, ansetter folk. Slik ble pengene satt i arbeid igjen og igjen — og det er nettopp dette som er kjernen i kapitalismen."
+            "content": "Webers svar var Calvins paradoks. Predestinasjonen skapte en evig uro hos den troende: er jeg blant de utvalgte? For å berolige seg selv kastet folk seg over arbeidet. Suksess i yrket ble lest som et tegn på at Gud så med velbehag på dem. Men luksus var fortsatt synd. Du fikk altså rikdom du ikke fikk lov til å sløse med. Hva gjør man da? Man sparer og investerer. Man bygger fabrikker, kjøper skip, ansetter folk. Slik ble pengene satt i arbeid igjen og igjen, og det er nettopp dette som er kjernen i kapitalismen. Sparingen og disiplinen som Calvin krevde, kan ses som en tidlig kime til hele tankegangen bak [moderne arbeidsdeling og produksjon](/samfunnskunnskap/okonomi/arbeidsspesialisering)."
         },
         {
             "type": "component",
@@ -161,40 +161,6 @@
         {
             "type": "text",
             "content": "Samtidig hadde kalvinismen sin mørke side. Strengheten kunne bli grusom. Hekseprosesser blomstret like mye i protestantiske områder som katolske. Tanken om at noen er utvalgt og andre fortapt har vært brukt til å rettferdiggjøre alt fra slaveri til økonomisk ulikhet. Som med de fleste store ideer i historien handler arven om både lys og skygge."
-        },
-        {
-            "type": "component",
-            "name": "InterdisciplinaryBridge",
-            "props": {
-                "title": "Kalvinismens forgreininger",
-                "centerEvent": "Kalvinismen",
-                "nodes": [
-                    {
-                        "subject": "Religion",
-                        "text": "Reformerte kirker, presbyterianere, puritanere og baptister bygger fortsatt på Calvins lære. Til sammen er det rundt 75 millioner kalvinister i verden i dag.",
-                        "color": "#f59e0b",
-                        "link": "/krle/religion/kristendom/kirkesamfunn"
-                    },
-                    {
-                        "subject": "Økonomi",
-                        "text": "Max Webers tese: den protestantiske arbeidsetikken la grunnlaget for moderne kapitalisme. Sparing, investering og selvdisiplin ble dyder.",
-                        "color": "#10b981",
-                        "link": "/samfunnskunnskap/okonomi/arbeidsspesialisering"
-                    },
-                    {
-                        "subject": "Politikk",
-                        "text": "Kalvinistiske bevegelser var med på å forme tidlig demokrati i Nederland, Skottland og USA. Tanken om at alle står likt for Gud kunne brukes også politisk.",
-                        "color": "#6366f1",
-                        "link": "/historie/reformasjonen/martin-luther"
-                    },
-                    {
-                        "subject": "Filosofi",
-                        "text": "Diskusjonen om fri vilje vs. forutbestemmelse fortsatte i opplysningstiden. Calvin pekte fram mot debatten om determinisme og ansvar.",
-                        "color": "#ec4899",
-                        "link": "/krle/filosofi/kant"
-                    }
-                ]
-            }
         },
         {
             "type": "component",

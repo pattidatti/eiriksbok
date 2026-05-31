@@ -38,40 +38,6 @@
         },
         {
             "type": "component",
-            "name": "InterdisciplinaryBridge",
-            "props": {
-                "title": "Svartedaudens ringvirkninger",
-                "centerEvent": "Svartedauden",
-                "nodes": [
-                    {
-                        "subject": "Økonomi",
-                        "text": "Dødsfallene skapte akutt mangel på arbeidskraft. Dette tvang adelen til å gi bøndene bedre lønn og mer frihet.",
-                        "color": "#10b981",
-                        "link": "/samfunnskunnskap/okonomi/intro"
-                    },
-                    {
-                        "subject": "Religion",
-                        "text": "Mange prester døde under pleie av syke. Folk begynte å tvile på kirkens makt da bønn ikke hjalp.",
-                        "color": "#f59e0b",
-                        "link": "/samfunnskunnskap/religion/intro"
-                    },
-                    {
-                        "subject": "Samfunn",
-                        "text": "Feudalsystemet raknet i hele Europa. I Norge ble staten kraftig svekket da embetsverket forsvant.",
-                        "color": "#6366f1",
-                        "link": "/samfunnskunnskap/samfunn/intro"
-                    },
-                    {
-                        "subject": "Kultur",
-                        "text": "Døden ble et dominerende motiv i kunst og litteratur (Pesta). Livssynet ble mer realistisk og dystert.",
-                        "color": "#ec4899",
-                        "link": "/samfunnskunnskap/kultur/intro"
-                    }
-                ]
-            }
-        },
-        {
-            "type": "component",
             "name": "FactBox",
             "props": {
                 "content": "Svartedauden drepte halvparten av Norges befolkning, men førte til bedre kår for de som overlevde."

@@ -110,7 +110,7 @@
         },
         {
             "type": "text",
-            "content": "Da strømmen først var i veggen, ble det fort tydelig at den kunne mer enn å lyse. Den samme ledningen kunne drive maskiner. Etter hvert kom det elektriske apparater som forandret hverdagen, særlig hjemme. En elektrisk komfyr slapp å fyre med ved. Et strykejern ble varmt på et øyeblikk i stedet for at man måtte varme det på ovnen. Senere kom vaskemaskinen, støvsugeren og kjøleskapet."
+            "content": "Da strømmen først var i veggen, ble det fort tydelig at den kunne mer enn å lyse. Den samme ledningen kunne drive maskiner. Der [dampmaskinen](/historie/industriell-revolusjon/dampmaskinen) først hadde gitt fabrikkene kraft uten muskler, kunne strømmen nå sende den kraften helt inn i en vanlig stue. Etter hvert kom det elektriske apparater som forandret hverdagen, særlig hjemme. En elektrisk komfyr slapp å fyre med ved. Et strykejern ble varmt på et øyeblikk i stedet for at man måtte varme det på ovnen. Senere kom vaskemaskinen, støvsugeren og [kjøleskapet](/historie/teknologi-og-hverdagsliv/kjoleskapet), som lot folk ha fersk mat i huset hele året."
         },
         {
             "type": "text",
@@ -153,34 +153,6 @@
                     { "year": 1885, "description": "Hammerfest får elektrisk gatelys, som en av de første byene i Europa." },
                     { "year": 1891, "description": "Vekselstrøm vinner strømkrigen og blir standarden for å sende strøm over lange avstander." },
                     { "year": 1920, "description": "Elektriske apparater som komfyr, strykejern og vaskemaskin sprer seg i hjemmene." }
-                ]
-            }
-        },
-        {
-            "type": "component",
-            "name": "InterdisciplinaryBridge",
-            "props": {
-                "title": "Hva henger sammen med elektrisiteten?",
-                "centerEvent": "Elektrisk lys",
-                "nodes": [
-                    {
-                        "subject": "Historie",
-                        "title": "Dampmaskinen",
-                        "text": "Den forrige store kraftrevolusjonen, som gjorde at maskiner kunne drives uten muskler.",
-                        "link": "/historie/industriell-revolusjon/dampmaskinen"
-                    },
-                    {
-                        "subject": "Historie",
-                        "title": "Kjøleskapet",
-                        "text": "Et av de elektriske apparatene som strømmen i veggen gjorde mulig hjemme.",
-                        "link": "/historie/teknologi-og-hverdagsliv/kjoleskapet"
-                    },
-                    {
-                        "subject": "Samfunn",
-                        "title": "Husarbeid og likestilling",
-                        "text": "De elektriske apparatene frigjorde tid og gjorde det lettere for kvinner å ta jobb utenfor hjemmet.",
-                        "link": "/samfunnskunnskap/demografi/malthus-vs-boserup"
-                    }
                 ]
             }
         },

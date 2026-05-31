@@ -102,7 +102,7 @@
         },
         {
             "type": "text",
-            "content": "Når bøker ble billige, ble det plutselig verdt å lære seg å lese. Hvorfor skulle en bonde bruke tid på lesing hvis han aldri kom til å se en bok i hele sitt liv? Nå fantes det noe å lese. Flere og flere lærte bokstavene, og etterspørselen etter bøker vokste enda mer. Det ble en sløyfe som drev seg selv: billige bøker ga flere lesere, og flere lesere ga grunn til å trykke enda flere bøker."
+            "content": "Når bøker ble billige, ble det plutselig verdt å lære seg å lese. Hvorfor skulle en bonde bruke tid på lesing hvis han aldri kom til å se en bok i hele sitt liv? Nå fantes det noe å lese. Flere og flere lærte bokstavene, og snart kom det bøker på folks eget [morsmål](/norsk) i stedet for bare på latin. Etterspørselen etter bøker vokste enda mer. Det ble en sløyfe som drev seg selv: billige bøker ga flere lesere, og flere lesere ga grunn til å trykke enda flere bøker."
         },
         {
             "type": "component",
@@ -118,7 +118,7 @@
         },
         {
             "type": "text",
-            "content": "Da ideer kunne trykkes raskt og spres vidt, mistet de mektige kontrollen over hva folk fikk vite. Det merket kirken godt. I 1517 hengte en munk som het Martin Luther opp en liste med kritikk mot kirken. Tidligere ville en slik protest blitt glemt på et lite sted. Men nå ble teksten hans trykt opp i tusenvis og spredt over hele Tyskland på få uker. Reformasjonen, det store oppgjøret som splittet den vestlige kirken, hadde neppe blitt det den ble uten trykkpressen i ryggen."
+            "content": "Da ideer kunne trykkes raskt og spres vidt, mistet de mektige kontrollen over hva folk fikk vite. Det merket kirken godt. I 1517 hengte en munk som het [Martin Luther](/historie/reformasjonen/martin-luther) opp en liste med kritikk mot kirken. Tidligere ville en slik protest blitt glemt på et lite sted. Men nå ble teksten hans trykt opp i tusenvis og spredt over hele Tyskland på få uker. Reformasjonen, det store oppgjøret som splittet den vestlige kirken, hadde neppe blitt det den ble uten trykkpressen i ryggen."
         },
         {
             "type": "component",
@@ -144,7 +144,7 @@
         },
         {
             "type": "text",
-            "content": "Plogen ga mer mat. Trykkpressen ga mer kunnskap. Begge gjorde noe som før var sjeldent og dyrt, til noe vanlig og billig. Før pressen var lesing og lærdom forbeholdt en liten elite. Etter pressen ble kunnskap noe vanlige folk kunne eie, lese og dele. Neste gang du blar i en bok, scroller på en skjerm eller leser en nyhet, kan du tenke på at alt dette startet med tusenvis av små blybokstaver og en mann som klarte å sette dem sammen på nytt."
+            "content": "[Plogen ga mer mat](/historie/teknologi-og-hverdagsliv/jordbrukets-historie). Trykkpressen ga mer kunnskap. Begge gjorde noe som før var sjeldent og dyrt, til noe vanlig og billig. Før pressen var lesing og lærdom forbeholdt en liten elite. Etter pressen ble kunnskap noe vanlige folk kunne eie, lese og dele. Neste gang du blar i en bok, scroller på en skjerm eller leser en nyhet, kan du tenke på at alt dette startet med tusenvis av små blybokstaver og en mann som klarte å sette dem sammen på nytt."
         },
         {
             "type": "component",
@@ -165,34 +165,6 @@
                     { "year": 1500, "description": "Trykkerier finnes over hele Europa, og millioner av bøker er allerede trykt." },
                     { "year": 1517, "description": "Martin Luthers kritikk spres raskt med trykkpressen og tenner reformasjonen." },
                     { "year": 1605, "description": "En av verdens første aviser trykkes i Europa." }
-                ]
-            }
-        },
-        {
-            "type": "component",
-            "name": "InterdisciplinaryBridge",
-            "props": {
-                "title": "Hva henger sammen med boktrykkerkunsten?",
-                "centerEvent": "Trykkpressen",
-                "nodes": [
-                    {
-                        "subject": "Historie",
-                        "title": "Reformasjonen",
-                        "text": "Martin Luthers ideer spredte seg lynraskt fordi de kunne trykkes og deles.",
-                        "link": "/historie/reformasjonen/martin-luther"
-                    },
-                    {
-                        "subject": "Historie",
-                        "title": "Jordbrukets historie",
-                        "text": "En annen stille revolusjon: ny teknologi gjorde noe dyrt og sjeldent til noe vanlig.",
-                        "link": "/historie/teknologi-og-hverdagsliv/jordbrukets-historie"
-                    },
-                    {
-                        "subject": "Norsk",
-                        "title": "Skriftspråk og lesing",
-                        "text": "Billige bøker lærte folk flest å lese og skrive på sitt eget språk.",
-                        "link": "/norsk"
-                    }
                 ]
             }
         },

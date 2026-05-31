@@ -130,7 +130,7 @@
     },
     {
       "type": "text",
-      "content": "Luthers tyske bibel la også grunnlaget for moderne tysk skriftspråk. Han skrev som folk faktisk snakket, ikke som lærde prester. Det samme skjedde senere med dansk og norsk: Bibelen og salmebøker på folkespråket løftet skriftspråket vårt."
+      "content": "Luthers tyske bibel la også grunnlaget for moderne tysk skriftspråk. Han skrev som folk faktisk snakket, ikke som lærde prester. Det samme skjedde senere med dansk og norsk: Bibelen og salmebøker på folkespråket løftet skriftspråket vårt. Tysk, dansk og norsk er alle [germanske språk](/norsk/sprakhistorie/germanske-sprak), og oversettelsene av Bibelen var med på å forme hvordan vi skriver dem i dag."
     },
     {
       "type": "header",
@@ -138,7 +138,7 @@
     },
     {
       "type": "text",
-      "content": "Den nye bevegelsen fikk navnet protestantisme i 1529, etter at lutherske fyrster protesterte mot et katolsk forbud. Snart sto Europa med to konkurrerende kristendommer som var enige om Jesus, men uenige om nesten alt annet."
+      "content": "Den nye bevegelsen fikk navnet protestantisme i 1529, etter at lutherske fyrster protesterte mot et katolsk forbud. Snart sto Europa med to konkurrerende [kristendommer](/krle/religion/kristendom/intro) som var enige om Jesus, men uenige om nesten alt annet."
     },
     {
       "type": "component",
@@ -291,40 +291,6 @@
     {
       "type": "text",
       "content": "Luther var ikke den første som kritiserte paven. John Wycliffe i England og Jan Hus i Tsjekkia hadde sagt mye av det samme hundre år tidligere, men ble brent på bålet. Hvorfor lyktes Luther? Tre ting kom sammen samtidig: en ny teknologi som spredte ideer raskere enn kirken kunne stoppe dem, en politisk situasjon der tyske fyrster så en sjanse til å frigjøre seg fra paven og keiseren, og et religiøst behov hos vanlige folk som var trette av kirkens grådighet."
-    },
-    {
-      "type": "component",
-      "name": "InterdisciplinaryBridge",
-      "props": {
-        "title": "Reformasjonens ringvirkninger",
-        "centerEvent": "Reformasjonen",
-        "nodes": [
-          {
-            "subject": "Religion",
-            "text": "Kristendommen ble splittet i katolikker og protestanter for alltid. I dag finnes det rundt 45 000 ulike protestantiske kirkesamfunn.",
-            "color": "#f59e0b",
-            "link": "/krle/religion/kristendom/intro"
-          },
-          {
-            "subject": "Teknologi",
-            "text": "Boktrykkerpressen ble Luthers viktigste våpen. Den viste at ny teknologi kan velte gamle maktstrukturer.",
-            "color": "#6366f1",
-            "link": "/historie/middelalderen/boktrykkerkunsten"
-          },
-          {
-            "subject": "Politikk",
-            "text": "Tyske fyrster fikk rett til å velge religion. Det var et tidlig steg mot ideen om suverene nasjonalstater.",
-            "color": "#10b981",
-            "link": "/historie/reformasjonen/30-aarskrigen"
-          },
-          {
-            "subject": "Språk",
-            "text": "Bibelen ble oversatt til folkespråk over hele Europa. Det skapte grunnlag for moderne tysk, dansk og norsk skriftspråk.",
-            "color": "#ec4899",
-            "link": "/norsk/sprakhistorie/germanske-sprak"
-          }
-        ]
-      }
     },
     {
       "type": "header",

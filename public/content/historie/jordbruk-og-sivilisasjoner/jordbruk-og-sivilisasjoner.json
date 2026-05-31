@@ -114,40 +114,6 @@
         },
         {
             "type": "component",
-            "name": "InterdisciplinaryBridge",
-            "props": {
-                "title": "Hvor jordbruket førte",
-                "centerEvent": "Jordbruksrevolusjonen",
-                "nodes": [
-                    {
-                        "subject": "Mesopotamia",
-                        "text": "Overskuddet fra åkrene gjorde at sumererne kunne bygge verdens første byer mellom Eufrat og Tigris.",
-                        "color": "#10b981",
-                        "link": "/historie/jordbruk-og-sivilisasjoner/mesopotamia"
-                    },
-                    {
-                        "subject": "Det gamle Egypt",
-                        "text": "Nilens årlige flom ga så rik jord at Egypt kunne fø en hel sivilisasjon i over tre tusen år.",
-                        "color": "#f59e0b",
-                        "link": "/historie/jordbruk-og-sivilisasjoner/egypt"
-                    },
-                    {
-                        "subject": "Indusdalen",
-                        "text": "Ved elven Indus bygde folk verdens første nøye planlagte byer, med rette gater og kloakk.",
-                        "color": "#6366f1",
-                        "link": "/historie/jordbruk-og-sivilisasjoner/indusdalen"
-                    },
-                    {
-                        "subject": "Det gamle Kina",
-                        "text": "Ved Den gule elven vokste den fjerde store elvedalssivilisasjonen fram, med silke, papir og keisere.",
-                        "color": "#ec4899",
-                        "link": "/historie/jordbruk-og-sivilisasjoner/kina"
-                    }
-                ]
-            }
-        },
-        {
-            "type": "component",
             "name": "Quiz",
             "props": {
                 "questions": [

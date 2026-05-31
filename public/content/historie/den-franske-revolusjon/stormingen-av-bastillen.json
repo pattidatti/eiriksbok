@@ -143,7 +143,7 @@
         },
         {
             "type": "text",
-            "content": "Sett med dagens øyne kan stormingen virke som en liten hendelse. Det var bare sju fanger. Festningen var nesten tom. Selve kampen varte i bare fire timer. Hvorfor er denne dagen så viktig?\n\nSvaret ligger i hva folk forsto. For første gang på lenge hadde vanlige franskmenn tatt en kongelig festning med våpen i hånd. Kongen hadde ikke klart å stoppe dem. Det betydde at makten ikke lenger lå hos én mann i Versailles. Den lå et helt nytt sted: hos folket i Paris.\n\nNoen uker senere vedtok Nasjonalforsamlingen «Erklæringen om menneskets og borgerens rettigheter». Den slo fast at alle mennesker er født frie og like. Den slo fast at ingen kan fengsles uten lov og dom — en direkte reaksjon på det Bastillen hadde stått for.\n\nIdéen om at folket selv eier landet sitt spredte seg fra Frankrike til hele Europa, til Amerika og videre. I dag finner vi den i nesten alle grunnlover, også vår egen fra 1814. Den 14. juli er fortsatt Frankrikes nasjonaldag, med militærparade på Champs-Élysées og fyrverkeri over Eiffeltårnet. Det er ikke en feiring av at sju fanger ble fri. Det er en feiring av at et helt folk fant ut at det kunne stå opp mot makten."
+            "content": "Sett med dagens øyne kan stormingen virke som en liten hendelse. Det var bare sju fanger. Festningen var nesten tom. Selve kampen varte i bare fire timer. Hvorfor er denne dagen så viktig?\n\nSvaret ligger i hva folk forsto. For første gang på lenge hadde vanlige franskmenn tatt en kongelig festning med våpen i hånd. Kongen hadde ikke klart å stoppe dem. Det betydde at makten ikke lenger lå hos én mann i Versailles. Den lå et helt nytt sted: hos folket i Paris.\n\nNoen uker senere vedtok Nasjonalforsamlingen «Erklæringen om menneskets og borgerens rettigheter». Den slo fast at alle mennesker er født frie og like. Den slo fast at ingen kan fengsles uten lov og dom — en direkte reaksjon på det Bastillen hadde stått for.\n\nIdéen om at folket selv eier landet sitt spredte seg fra Frankrike til hele Europa, til Amerika og videre. I dag finner vi den i nesten alle grunnlover, også vår egen [norske grunnlov fra 1814](/samfunnskunnskap/styringsformer/grunnloven), som slo fast det samme prinsippet om at ingen kan fengsles uten lov og dom. Den 14. juli er fortsatt Frankrikes nasjonaldag, med militærparade på Champs-Élysées og fyrverkeri over Eiffeltårnet. Det er ikke en feiring av at sju fanger ble fri. Det er en feiring av at et helt folk fant ut at det kunne stå opp mot makten.\n\nMen Bastillen var bare starten. Du kan lese videre om [hvordan revolusjonen utviklet seg](/historie/den-franske-revolusjon/intro) gjennom de neste ti årene. Allerede fire år senere begynte revolusjonen å spise sine egne barn, da [Robespierre og skrekkveldet](/historie/den-franske-revolusjon/robespierre-og-skrekkveldet) sendte tusenvis til giljotinen i navnet til den samme friheten folk kjempet for 14. juli."
         },
         {
             "type": "component",
@@ -194,40 +194,6 @@
             "src": "/images/den-franske-revolusjon/stormingen-av-bastillen-02.webp",
             "alt": "Plass i Paris der Bastillen sto, i dag med July-søylen midt på et åpent torg",
             "caption": "Bastillen ble revet etter stormingen. I dag står July-søylen på samme sted."
-        },
-        {
-            "type": "component",
-            "name": "InterdisciplinaryBridge",
-            "props": {
-                "title": "Stormingen av Bastillen på tvers av fagene",
-                "centerEvent": "14. juli 1789 — folket tar en kongelig festning",
-                "nodes": [
-                    {
-                        "subject": "Resten av revolusjonen",
-                        "text": "Bastillen var bare starten. De neste ti årene ble kongen henrettet, Robespierre tok makten, og Napoleon overtok. Les videre om hvordan revolusjonen utviklet seg.",
-                        "color": "#ef4444",
-                        "link": "/historie/den-franske-revolusjon/intro"
-                    },
-                    {
-                        "subject": "Skrekkveldet",
-                        "text": "Bare fire år etter Bastillen begynte revolusjonen å spise sine egne barn. Robespierre sendte tusenvis til giljotinen i navnet til den samme friheten folk kjempet for 14. juli.",
-                        "color": "#8b5cf6",
-                        "link": "/historie/den-franske-revolusjon/robespierre-og-skrekkveldet"
-                    },
-                    {
-                        "subject": "Norges grunnlov",
-                        "text": "Idéene fra 1789 reiste videre til Eidsvoll i 1814. Den norske grunnloven hentet rett fra Erklæringen om menneskerettighetene da den slo fast at ingen kan fengsles uten lov og dom.",
-                        "color": "#6366f1",
-                        "link": "/samfunnskunnskap/styringsformer/grunnloven"
-                    },
-                    {
-                        "subject": "Hva er et symbol?",
-                        "text": "Bastillen ble revet, men dagen lever videre. Når en bygning eller et flagg blir et symbol, kan det bære store ideer. Tenk på Berlin-muren i 1989 eller Twin Towers i 2001 — symboler kan forandre verden.",
-                        "color": "#10b981",
-                        "link": "/norsk/virkemidler"
-                    }
-                ]
-            }
         },
         {
             "type": "component",

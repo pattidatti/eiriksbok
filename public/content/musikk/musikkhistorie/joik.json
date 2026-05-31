@@ -66,7 +66,7 @@
         },
         {
             "type": "text",
-            "content": "Fra 1600-tallet og utover begynte den kristne kirken å sende prester og misjonærer til samenes landområder. De hadde ett klart mål: å kristne samene og gjøre dem til lydige undersåtter av den norske og svenske staten. For kirken og myndighetene var noaidens ritualer og joiken et uttrykk for hedensk trolldom. Joiken ble sett på som djevelens musikk — og slik ble den behandlet."
+            "content": "Fra 1600-tallet og utover begynte den [kristne kirken](/krle/religion/kristendom/intro) å sende prester og misjonærer til samenes landområder. De hadde ett klart mål: å kristne samene og gjøre dem til lydige undersåtter av den norske og svenske staten. For kirken og myndighetene var noaidens ritualer og joiken et uttrykk for hedensk trolldom. Joiken ble sett på som djevelens musikk, og slik ble den behandlet."
         },
         {
             "type": "text",
@@ -74,7 +74,7 @@
         },
         {
             "type": "text",
-            "content": "Denne politikken varte i over to hundre år. Gradvis begynte mange samer å internalisere skammen. Foreldre som selv hadde lært at joiken var noe stygt, overførte ikke tradisjonen til barna sine. Mange joiker gikk tapt for alltid. Det samiske folket ble sittende igjen med en ydmyket identitet der en viktig del av kulturen var kuttet bort."
+            "content": "Denne politikken varte i over to hundre år. Gradvis begynte mange samer å internalisere skammen. Foreldre som selv hadde lært at joiken var noe stygt, overførte ikke tradisjonen til barna sine. Mange joiker gikk tapt for alltid. Det samiske folket ble sittende igjen med en ydmyket identitet der en viktig del av kulturen var kuttet bort. Fornorskingen viser hvordan en stat kan bruke sin [makt over folk](/samfunnskunnskap/styringsformer/makt-og-legitimitet) til å forme hva de får lov til å tro, synge og være."
         },
         {
             "type": "component",
@@ -184,40 +184,6 @@
             "props": {
                 "title": "Samisk musikk — noen navn å huske",
                 "content": "Mari Boine (f. 1956) er den mest kjente samiske artisten internasjonalt. Hun blander joik med jazz og blues og har gitt ut album på store internasjonale plateselskaper. Jon Henrik Fjällgren er en sørsamisk artist fra Sverige som ble kjent etter Idol Sverige i 2014 der han sang sin farfars joik. Máddji er en ung samisk artist som blander joik med moderne pop. Elin Kven representerer en ny generasjon der joiken tar mange ulike former. Felles for dem alle: de bruker joiken for å si noe sant om hvem de er."
-            }
-        },
-        {
-            "type": "component",
-            "name": "InterdisciplinaryBridge",
-            "props": {
-                "title": "Joiken berører mange fag",
-                "centerEvent": "Joik og samisk kultur",
-                "nodes": [
-                    {
-                        "subject": "KRLE",
-                        "text": "Noaidens bruk av joik er tett knyttet til samisk religion og troen på naturåndene. Joiken var et religiøst verktøy.",
-                        "color": "#7c3aed",
-                        "link": "/krle/religion/kristendom/intro"
-                    },
-                    {
-                        "subject": "Samfunnsfag",
-                        "text": "Forbudet mot joik er en del av fornorskingspolitikken — statens systematiske forsøk på å slette samisk identitet.",
-                        "color": "#0369a1",
-                        "link": "/samfunnskunnskap/styringsformer/makt-og-legitimitet"
-                    },
-                    {
-                        "subject": "Norsk",
-                        "text": "Samisk er et av Norges offisielle språk. Joiken eksisterer parallelt med det samiske språket — begge er truet og begge er i vekst.",
-                        "color": "#166534",
-                        "link": "/norsk/sprakhistorie/germanske-sprak"
-                    },
-                    {
-                        "subject": "Historie",
-                        "text": "Joikens forbud er historien om et kolonialt overgrep mot urfolk. Det henger sammen med fornorsking og samisk motstandshistorie.",
-                        "color": "#b45309",
-                        "link": "/historie/norgeshistorie/hamskiftet"
-                    }
-                ]
             }
         },
         {

@@ -29,7 +29,7 @@
         },
         {
             "type": "text",
-            "content": "De aller første plogene var enkle. De kalles ard, og var lite mer enn en spiss kjepp som risset en grunn fure i overflaten. Det fungerte greit i den tørre, lette jorda rundt Middelhavet. Men i Nord-Europa var jorda tung, våt og full av leire. Arden bare skrapte i den og fikk den ikke til å gi avling."
+            "content": "Helt siden mennesket [først begynte å dyrke jorda](/historie/jordbruk-og-sivilisasjoner/jordbruk-og-sivilisasjoner) for rundt 12 000 år siden, har bedre redskaper vært nøkkelen til mer mat. De aller første plogene var enkle. De kalles ard, og var lite mer enn en spiss kjepp som risset en grunn fure i overflaten. Det fungerte greit i den tørre, lette jorda rundt Middelhavet. Men i Nord-Europa var jorda tung, våt og full av leire. Arden bare skrapte i den og fikk den ikke til å gi avling."
         },
         {
             "type": "text",
@@ -100,7 +100,7 @@
         },
         {
             "type": "text",
-            "content": "Lenge var muskler den eneste kraften på en gård. Mennesker og hester gjorde alt arbeidet. Det endret seg på 1900-tallet, da traktoren begynte å erstatte hesten. En traktor blir aldri trøtt, trenger ikke mat når den står stille, og trekker mer enn mange hester til sammen. Enda viktigere var skurtreskeren. Før måtte korn skjæres for hånd med ljå, samles, og tærskes for å skille kornet fra strået. Det tok en hel landsby flere uker. Skurtreskeren gjør alt dette i én eneste kjøretur over åkeren. Plutselig kunne én person med en maskin gjøre arbeidet som før krevde dusinvis av folk."
+            "content": "Lenge var muskler den eneste kraften på en gård. Mennesker og hester gjorde alt arbeidet. Det endret seg da [dampmaskinen](/historie/industriell-revolusjon/dampmaskinen) viste at kraft kunne lages av brensel i stedet for muskler, og på 1900-tallet begynte traktoren å erstatte hesten. En traktor blir aldri trøtt, trenger ikke mat når den står stille, og trekker mer enn mange hester til sammen. Enda viktigere var skurtreskeren. Før måtte korn skjæres for hånd med ljå, samles, og tærskes for å skille kornet fra strået. Det tok en hel landsby flere uker. Skurtreskeren gjør alt dette i én eneste kjøretur over åkeren. Plutselig kunne én person med en maskin gjøre arbeidet som før krevde dusinvis av folk."
         },
         {
             "type": "image",
@@ -126,7 +126,7 @@
         },
         {
             "type": "text",
-            "content": "Plogen, vekselbruket, kunstgjødselen, traktoren og de nye plantene har én ting til felles: hver av dem gjorde at den samme åkeren kunne fø flere folk med mindre arbeid. Da færre trengtes på gården, ble mennesker frie til å bli lærere, sykepleiere, ingeniører og musikere. Hele det moderne samfunnet hviler på dette. Vi forteller gjerne historien som en rekke konger og kriger, men den dypeste forandringen i hverdagen til vanlige folk kom rolig og stille, fra mennesker som fant ut hvordan de kunne dyrke litt mer mat. Neste gang du spiser en skive brød, kan du tenke på at den hviler på tusenvis av år med kloke oppfinnelser."
+            "content": "Plogen, vekselbruket, kunstgjødselen, traktoren og de nye plantene har én ting til felles: hver av dem gjorde at den samme åkeren kunne fø flere folk med mindre arbeid. Men ga mer mat oss flere mennesker, eller tvang flere mennesker oss til å dyrke mer? [Det spørsmålet](/samfunnskunnskap/demografi/malthus-vs-boserup) har forskere kranglet om i lang tid. Da færre trengtes på gården, ble mennesker uansett frie til å bli lærere, sykepleiere, ingeniører og musikere. Hele det moderne samfunnet hviler på dette. Vi forteller gjerne historien som en rekke konger og kriger, men den dypeste forandringen i hverdagen til vanlige folk kom rolig og stille, fra mennesker som fant ut hvordan de kunne dyrke litt mer mat. Neste gang du spiser en skive brød, kan du tenke på at den hviler på tusenvis av år med kloke oppfinnelser."
         },
         {
             "type": "component",
@@ -147,34 +147,6 @@
                     { "year": 1909, "description": "Haber og Bosch henter nitrogen ut av lufta og oppfinner kunstgjødsel." },
                     { "year": 1930, "description": "Traktoren begynner for alvor å erstatte hesten på gårdene." },
                     { "year": 1968, "description": "Den grønne revolusjonen med Borlaugs nye hvete dobler avlingene i India." }
-                ]
-            }
-        },
-        {
-            "type": "component",
-            "name": "InterdisciplinaryBridge",
-            "props": {
-                "title": "Hva henger sammen med jordbrukets historie?",
-                "centerEvent": "Jordbruket",
-                "nodes": [
-                    {
-                        "subject": "Historie",
-                        "title": "Jordbruksrevolusjonen",
-                        "text": "Aller første gang mennesker begynte å dyrke jorda, for rundt 12 000 år siden.",
-                        "link": "/historie/jordbruk-og-sivilisasjoner/jordbruk-og-sivilisasjoner"
-                    },
-                    {
-                        "subject": "Historie",
-                        "title": "Dampmaskinen",
-                        "text": "Den neste store hverdagsrevolusjonen: kraft som kunne flyttes hvor som helst.",
-                        "link": "/historie/industriell-revolusjon/dampmaskinen"
-                    },
-                    {
-                        "subject": "Samfunn",
-                        "title": "Malthus vs. Boserup",
-                        "text": "Betyr mer mat at vi blir flere, eller tvinger flere mennesker oss til å dyrke mer?",
-                        "link": "/samfunnskunnskap/demografi/malthus-vs-boserup"
-                    }
                 ]
             }
         },
