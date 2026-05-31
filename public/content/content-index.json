@@ -1,5 +1,5 @@
 {
-  "buildId": 1780226645615,
+  "buildId": 1780227657161,
   "contentMap": {
     "concept-adel": [
       "content/concepts/adel.json"
@@ -1274,7 +1274,8 @@
       "content/historie/menneskets-tidlige-historie/menneskets-tidlige-historie.json"
     ],
     "boktrykkerkunsten": [
-      "content/historie/middelalderen/boktrykkerkunsten.json"
+      "content/historie/middelalderen/boktrykkerkunsten.json",
+      "content/historie/teknologi-og-hverdagsliv/boktrykkerkunsten.json"
     ],
     "det-hellige-romerske-rike": [
       "content/historie/middelalderen/det-hellige-romerske-rike.json"
@@ -1423,8 +1424,32 @@
     "sveriges-historie-sveriges-historie": [
       "content/historie/sveriges-historie/sveriges-historie/artikkel.json"
     ],
+    "elektrisiteten": [
+      "content/historie/teknologi-og-hverdagsliv/elektrisiteten.json"
+    ],
     "jordbrukets-historie": [
       "content/historie/teknologi-og-hverdagsliv/jordbrukets-historie.json"
+    ],
+    "kjoleskapet": [
+      "content/historie/teknologi-og-hverdagsliv/kjoleskapet.json"
+    ],
+    "klokka": [
+      "content/historie/teknologi-og-hverdagsliv/klokka.json"
+    ],
+    "symaskinen": [
+      "content/historie/teknologi-og-hverdagsliv/symaskinen.json"
+    ],
+    "telefonen": [
+      "content/historie/teknologi-og-hverdagsliv/telefonen.json"
+    ],
+    "vaksiner-og-antibiotika": [
+      "content/historie/teknologi-og-hverdagsliv/vaksiner-og-antibiotika.json"
+    ],
+    "vann-og-kloakk": [
+      "content/historie/teknologi-og-hverdagsliv/vann-og-kloakk.json"
+    ],
+    "vann-og-vindmolla": [
+      "content/historie/teknologi-og-hverdagsliv/vann-og-vindmolla.json"
     ],
     "test-artikkel": [
       "content/historie/test-artikkel.json"
@@ -3398,7 +3423,16 @@
     "historie/sveriges-historie/stockholm-blodbadet": "content/historie/sveriges-historie/stockholm-blodbadet.json",
     "historie/sveriges-historie/stormaktstiden": "content/historie/sveriges-historie/stormaktstiden.json",
     "historie/sveriges-historie/sveriges-historie/sveriges-historie": "content/historie/sveriges-historie/sveriges-historie/artikkel.json",
+    "historie/teknologi-og-hverdagsliv/boktrykkerkunsten": "content/historie/teknologi-og-hverdagsliv/boktrykkerkunsten.json",
+    "historie/teknologi-og-hverdagsliv/elektrisiteten": "content/historie/teknologi-og-hverdagsliv/elektrisiteten.json",
     "historie/teknologi-og-hverdagsliv/jordbrukets-historie": "content/historie/teknologi-og-hverdagsliv/jordbrukets-historie.json",
+    "historie/teknologi-og-hverdagsliv/kjoleskapet": "content/historie/teknologi-og-hverdagsliv/kjoleskapet.json",
+    "historie/teknologi-og-hverdagsliv/klokka": "content/historie/teknologi-og-hverdagsliv/klokka.json",
+    "historie/teknologi-og-hverdagsliv/symaskinen": "content/historie/teknologi-og-hverdagsliv/symaskinen.json",
+    "historie/teknologi-og-hverdagsliv/telefonen": "content/historie/teknologi-og-hverdagsliv/telefonen.json",
+    "historie/teknologi-og-hverdagsliv/vaksiner-og-antibiotika": "content/historie/teknologi-og-hverdagsliv/vaksiner-og-antibiotika.json",
+    "historie/teknologi-og-hverdagsliv/vann-og-kloakk": "content/historie/teknologi-og-hverdagsliv/vann-og-kloakk.json",
+    "historie/teknologi-og-hverdagsliv/vann-og-vindmolla": "content/historie/teknologi-og-hverdagsliv/vann-og-vindmolla.json",
     "historie/test-artikkel.json/test-artikkel": "content/historie/test-artikkel.json",
     "historie/vikingtiden/vikingtiden": "content/historie/vikingtiden/artikkel.json",
     "historie/vikingtiden/asatro": "content/historie/vikingtiden/asatro.json",

@@ -38,7 +38,7 @@
                 "ordklasser"
               ],
               "createdDate": "2025-12-09T15:25:34+01:00",
-              "lastUpdated": "2026-05-11T09:50:27+02:00"
+              "lastUpdated": "2026-05-31T13:25:13+02:00"
             },
             {
               "id": "verb",
@@ -51,7 +51,7 @@
                 "ordklasser"
               ],
               "createdDate": "2025-12-09T15:25:34+01:00",
-              "lastUpdated": "2026-05-11T09:50:27+02:00"
+              "lastUpdated": "2026-05-31T13:25:13+02:00"
             },
             {
               "id": "adjektiv",
@@ -64,7 +64,7 @@
                 "ordklasser"
               ],
               "createdDate": "2025-12-09T15:25:34+01:00",
-              "lastUpdated": "2026-05-11T09:50:27+02:00"
+              "lastUpdated": "2026-05-31T13:25:13+02:00"
             },
             {
               "id": "pronomen",
@@ -77,7 +77,7 @@
                 "ordklasser"
               ],
               "createdDate": "2025-12-09T15:25:34+01:00",
-              "lastUpdated": "2026-05-11T09:50:27+02:00"
+              "lastUpdated": "2026-05-31T13:25:13+02:00"
             },
             {
               "id": "preposisjoner",
@@ -90,7 +90,7 @@
                 "ordklasser"
               ],
               "createdDate": "2025-12-09T15:25:34+01:00",
-              "lastUpdated": "2026-05-11T09:50:27+02:00"
+              "lastUpdated": "2026-05-31T13:25:13+02:00"
             },
             {
               "id": "adverb",
@@ -103,7 +103,7 @@
                 "ordklasser"
               ],
               "createdDate": "2025-12-09T15:25:34+01:00",
-              "lastUpdated": "2025-12-09T15:25:34+01:00"
+              "lastUpdated": "2026-05-31T13:25:13+02:00"
             },
             {
               "id": "konjunksjoner-subjunksjoner",
@@ -117,7 +117,7 @@
                 "ordklasser"
               ],
               "createdDate": "2025-12-09T15:25:34+01:00",
-              "lastUpdated": "2026-05-11T09:50:27+02:00"
+              "lastUpdated": "2026-05-31T13:25:13+02:00"
             }
           ]
         },
@@ -612,7 +612,7 @@
                 "nasjonsbygging",
                 "eventyr"
               ],
-              "lastUpdated": "2026-05-31T13:21:17+02:00"
+              "lastUpdated": "2026-05-31T13:25:13+02:00"
             },
             {
               "id": "realismen",
@@ -1012,7 +1012,7 @@
                 "rente"
               ],
               "createdDate": "2025-12-03T10:17:41+01:00",
-              "lastUpdated": "2026-05-11T09:50:27+02:00"
+              "lastUpdated": "2026-05-31T13:25:13+02:00"
             },
             {
               "id": "finanskriser",
@@ -2857,6 +2857,159 @@
               ],
               "createdDate": "2026-05-31T00:00:00Z",
               "lastUpdated": "2026-05-31T13:21:17+02:00"
+            },
+            {
+              "id": "vann-og-vindmolla",
+              "title": "Vannet som jobbet: vann- og vindmølla",
+              "description": "Hvordan vann- og vindmøller ble den første kraften utenfor muskler, og malte korn og drev sager lenge før dampmaskinen.",
+              "image": "/images/teknologi-og-hverdagsliv/vann-og-vindmolla-hero.webp",
+              "layout": "rich",
+              "tags": [
+                "historie",
+                "teknologi",
+                "hverdagsliv",
+                "mølle",
+                "vannkraft",
+                "oppfinnelser"
+              ],
+              "createdDate": "2026-05-31T00:00:00Z",
+              "lastUpdated": "2026-05-31T11:35:08.993Z"
+            },
+            {
+              "id": "klokka",
+              "title": "Klokka som styrte livet",
+              "description": "I tusenvis av år styrte sola døgnet. Da den mekaniske klokka kom, fikk vi like timer, faste arbeidsdager og til slutt standardtid for hele verden.",
+              "image": "/images/teknologi-og-hverdagsliv/klokka-hero.webp",
+              "layout": "rich",
+              "tags": [
+                "historie",
+                "teknologi",
+                "hverdagsliv",
+                "tid",
+                "klokke",
+                "oppfinnelser"
+              ],
+              "createdDate": "2026-05-31T00:00:00Z",
+              "lastUpdated": "2026-05-31T11:35:21.016Z"
+            },
+            {
+              "id": "boktrykkerkunsten",
+              "title": "Boktrykkerkunsten: kunnskap for folk flest",
+              "description": "Før Gutenberg kostet en bok like mye som et hus. Se hvordan trykkpressen gjorde kunnskap billig, lærte folk å lese og ga kraft til reformasjonen.",
+              "image": "/images/teknologi-og-hverdagsliv/boktrykkerkunsten-hero.webp",
+              "layout": "rich",
+              "tags": [
+                "historie",
+                "teknologi",
+                "hverdagsliv",
+                "bøker",
+                "kunnskap",
+                "oppfinnelser"
+              ],
+              "createdDate": "2026-05-31T00:00:00Z",
+              "lastUpdated": "2026-05-31T11:35:38.400Z"
+            },
+            {
+              "id": "vann-og-kloakk",
+              "title": "Den usynlige revolusjonen: rent vann og kloakk",
+              "description": "Det som reddet flest liv var ikke medisin, men rør og renseanlegg. Følg legen John Snow som løste kolera-gåten i London i 1854.",
+              "image": "/images/teknologi-og-hverdagsliv/vann-og-kloakk-hero.webp",
+              "layout": "rich",
+              "tags": [
+                "historie",
+                "teknologi",
+                "hverdagsliv",
+                "helse",
+                "vann",
+                "oppfinnelser"
+              ],
+              "createdDate": "2026-05-31T00:00:00Z",
+              "lastUpdated": "2026-05-31T11:36:33.236Z"
+            },
+            {
+              "id": "elektrisiteten",
+              "title": "Da lyset kom inn i huset: elektrisiteten",
+              "description": "Fra svakt, farlig flammelys til strøm i veggen. Hvordan den elektriske lyspæra gjorde kvelden lang og trygg, og forandret hjemmet og husarbeidet.",
+              "image": "/images/teknologi-og-hverdagsliv/elektrisiteten-hero.webp",
+              "layout": "rich",
+              "tags": [
+                "historie",
+                "teknologi",
+                "hverdagsliv",
+                "elektrisitet",
+                "lys",
+                "oppfinnelser"
+              ],
+              "createdDate": "2026-05-31T00:00:00Z",
+              "lastUpdated": "2026-05-31T11:36:08.386Z"
+            },
+            {
+              "id": "kjoleskapet",
+              "title": "Kjøleskapet og maten som holdt seg",
+              "description": "Hvordan tørking, salting, hermetikk og kjøling forvandlet kampen mot råtten mat til et variert kosthold hele året - og gjorde oss friskere.",
+              "image": "/images/teknologi-og-hverdagsliv/kjoleskapet-hero.webp",
+              "layout": "rich",
+              "tags": [
+                "historie",
+                "teknologi",
+                "hverdagsliv",
+                "mat",
+                "helse",
+                "oppfinnelser"
+              ],
+              "createdDate": "2026-05-31T00:00:00Z",
+              "lastUpdated": "2026-05-31T11:40:47.376Z"
+            },
+            {
+              "id": "vaksiner-og-antibiotika",
+              "title": "Vaksiner og antibiotika: medisinen som forlenget livet",
+              "description": "Hvordan Jenners vaksine og Flemings penicillin mer enn doblet forventet levealder - og hvorfor antibiotikaresistens er dagens nye trussel.",
+              "image": "/images/teknologi-og-hverdagsliv/vaksiner-og-antibiotika-hero.webp",
+              "layout": "rich",
+              "tags": [
+                "historie",
+                "teknologi",
+                "hverdagsliv",
+                "helse",
+                "medisin",
+                "oppfinnelser"
+              ],
+              "createdDate": "2026-05-31T00:00:00Z",
+              "lastUpdated": "2026-05-31T11:37:04.739Z"
+            },
+            {
+              "id": "telefonen",
+              "title": "Å snakke over avstand: telegraf og telefon",
+              "description": "Hvordan en beskjed gikk fra å bruke uker over havet til å komme fram på sekunder, fra budbringer til telegraf og telefon.",
+              "image": "/images/teknologi-og-hverdagsliv/telefonen-hero.webp",
+              "layout": "rich",
+              "tags": [
+                "historie",
+                "teknologi",
+                "hverdagsliv",
+                "kommunikasjon",
+                "telefon",
+                "oppfinnelser"
+              ],
+              "createdDate": "2026-05-31T00:00:00Z",
+              "lastUpdated": "2026-05-31T11:37:58.976Z"
+            },
+            {
+              "id": "symaskinen",
+              "title": "Symaskinen: klær til alle",
+              "description": "Før symaskinen tok det dagevis å sy en skjorte for hånd, og klær var dyr luksus. Se hvordan en liten maskin gjorde klær billige nok for alle - og hva det kostet dem som sydde dem.",
+              "image": "/images/teknologi-og-hverdagsliv/symaskinen-hero.webp",
+              "layout": "rich",
+              "tags": [
+                "historie",
+                "teknologi",
+                "hverdagsliv",
+                "klær",
+                "industri",
+                "oppfinnelser"
+              ],
+              "createdDate": "2026-05-31T00:00:00Z",
+              "lastUpdated": "2026-05-31T11:38:28.484Z"
             }
           ]
         },

@@ -1,0 +1,264 @@
+{
+    "id": "boktrykkerkunsten",
+    "title": "Boktrykkerkunsten: kunnskap for folk flest",
+    "layout": "rich",
+    "year": "1450",
+    "category": "Teknologi og hverdagsliv",
+    "readTime": "9 min lesning",
+    "heroImage": "/images/teknologi-og-hverdagsliv/boktrykkerkunsten-hero.webp",
+    "details": [
+        "Før trykkpressen ble hver bok skrevet av for hånd. En enkelt bok kunne koste like mye som et lite hus.",
+        "Rundt år 1450 satte Johann Gutenberg sammen løse blytyper til en presse som kunne lage hundrevis av like sider raskt.",
+        "Billige bøker spredte kunnskap, lærte folk å lese og ga kraft til både reformasjonen og de første avisene."
+    ],
+    "externalUrl": "https://snl.no/boktrykkerkunst",
+    "content": [
+        {
+            "type": "text",
+            "content": "Tenk deg at du skulle kjøpe en eneste bok, og at den kostet like mye som et hus. Slik var det i middelalderen. En bok var ikke noe vanlige folk eide. Den var en skatt, ofte lenket fast til pulten i et kloster så ingen skulle stjele den. Grunnen var enkel: hver bok måtte skrives av for hånd, bokstav for bokstav. En munk kunne sitte et helt år, eller flere, over én eneste bok. Så kom en oppfinnelse som forandret alt, og den handlet ikke om konger eller hærer. Den handlet om en presse."
+        },
+        {
+            "type": "image",
+            "src": "/images/teknologi-og-hverdagsliv/boktrykkerkunsten-hero.webp",
+            "alt": "Munk i kutte skriver av en bok for hånd ved pult i klosterets dempede lys",
+            "caption": "I middelalderen ble hver eneste bok skrevet av for hånd. Det tok måneder eller år, og gjorde bøker så dyre at bare de rikeste eide dem."
+        },
+        {
+            "type": "header",
+            "text": "Da hvert ord måtte skrives for hånd"
+        },
+        {
+            "type": "text",
+            "content": "Før trykkpressen fantes det bare én måte å lage en bok på: noen måtte skrive den av. Dette arbeidet skjedde mest i klostre, der munker satt bøyd over pultene og kopierte tekst fra en bok til en ny. De skrev med fjærpenn og blekk på pergament, et skrivemateriale laget av tørket dyrehud. Bare materialene var dyre, for én bok kunne kreve huden fra et helt sauehold."
+        },
+        {
+            "type": "text",
+            "content": "Tenk deg hvor lett det er å gjøre en feil når du skriver av flere hundre sider. Munkene var nøye, men feil snek seg inn likevel. Og når den neste munken kopierte den boka, kopierte han feilene videre. Lite tekst var derfor helt lik fra bok til bok. Fordi alt tok så lang tid, fantes det få bøker i verden, og nesten ingen utenfor kirken og de aller rikeste kunne lese. Kunnskap var låst inne hos noen få."
+        },
+        {
+            "type": "header",
+            "text": "En mann med en idé i Mainz"
+        },
+        {
+            "type": "text",
+            "content": "Rundt år 1450 satt en mann i den tyske byen Mainz og pønsket på et problem. Han het Johann Gutenberg, og han var gullsmed. Han kunne arbeide med metall, smelte det og støpe det i former. Det var akkurat den kunnskapen som trengtes. Gutenberg fant ikke opp ideen om å trykke. Folk hadde trykt mønstre med treklosser i lang tid. Det Gutenberg fant på, var noe mye smartere: løse typer."
+        },
+        {
+            "type": "text",
+            "content": "En type er en liten metallbit med én opphøyd bokstav på toppen. Gutenberg støpte tusenvis av slike, en for hver bokstav. Nå kunne han sette sammen bokstavene til ord og linjer på en plate, smøre dem inn med blekk, og presse et ark papir mot dem. Resultatet var en perfekt trykt side. Når siden var ferdig, kunne han plukke typene fra hverandre og bruke de samme bokstavene om igjen til neste side. Det var dette som var trikset: bokstavene var løse, og kunne settes sammen på nytt i det uendelige."
+        },
+        {
+            "type": "component",
+            "name": "Comparison",
+            "props": {
+                "title": "Munkens penn mot Gutenbergs presse",
+                "leftTitle": "Skrevet for hånd",
+                "rightTitle": "Trykt med presse",
+                "items": [
+                    {
+                        "label": "Hvem laget boka?",
+                        "left": "En munk som kopierte hver bokstav",
+                        "right": "En presse som trykte hele sider"
+                    },
+                    {
+                        "label": "Hvor lang tid tok én bok?",
+                        "left": "Måneder eller flere år",
+                        "right": "Noen dager når typene var satt"
+                    },
+                    {
+                        "label": "Hvor mange like bøker?",
+                        "left": "Bare én om gangen",
+                        "right": "Hundrevis av helt like eksemplarer"
+                    },
+                    {
+                        "label": "Hva kostet en bok?",
+                        "left": "Som et lite hus",
+                        "right": "Snart noe vanlige folk hadde råd til"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Bibelen som forandret alt"
+        },
+        {
+            "type": "text",
+            "content": "Det første store verket Gutenberg trykte, var en bibel. Den kom rundt 1455 og kalles Gutenbergbibelen. Den var vakker, og mange trodde først at den var skrevet av en svært dyktig munk, fordi sidene var så jevne og pene. Men hemmeligheten var pressen. Der en munk ville brukt år på én bibel, kunne Gutenberg lage rundt 180 like eksemplarer. Det hørtes kanskje ikke mye ut, men det var en helt ny verden. For første gang i historien kunne den nøyaktig samme teksten finnes mange steder på én gang, helt uten kopieringsfeil."
+        },
+        {
+            "type": "image",
+            "src": "/images/teknologi-og-hverdagsliv/boktrykkerkunsten-01.webp",
+            "alt": "Hender setter små blytyper i en ramme ved en trykkpresse i verksted",
+            "caption": "Med løse typer kunne de samme bokstavene settes sammen om og om igjen. En side som tok måneder å skrive, kunne nå trykkes på minutter."
+        },
+        {
+            "type": "header",
+            "text": "Når en bok blir billig"
+        },
+        {
+            "type": "text",
+            "content": "Det viktigste med pressen var ikke at den var rask. Det viktigste var hva farten gjorde med prisen. Når du kan lage hundrevis av bøker av det samme arbeidet, blir hver enkelt bok mye billigere. På bare noen tiår spredte trykkeriene seg over hele Europa, og prisen på bøker stupte. Det som før kostet som et hus, kunne snart kjøpes for en vanlig lønn."
+        },
+        {
+            "type": "text",
+            "content": "Når bøker ble billige, ble det plutselig verdt å lære seg å lese. Hvorfor skulle en bonde bruke tid på lesing hvis han aldri kom til å se en bok i hele sitt liv? Nå fantes det noe å lese. Flere og flere lærte bokstavene, og etterspørselen etter bøker vokste enda mer. Det ble en sløyfe som drev seg selv: billige bøker ga flere lesere, og flere lesere ga grunn til å trykke enda flere bøker."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "En eksplosjon av bøker",
+                "content": "Forskere anslår at det fantes noen titusen håndskrevne bøker i hele Europa før Gutenberg. Bare femti år etter pressen var oppfunnet, var det trykt mange millioner bøker. På ett enkelt menneskeliv gikk verden fra å ha nesten ingen bøker til å bli oversvømt av dem. Aldri før hadde kunnskap spredt seg så fort."
+            }
+        },
+        {
+            "type": "header",
+            "text": "Ideer som ikke lot seg stoppe"
+        },
+        {
+            "type": "text",
+            "content": "Da ideer kunne trykkes raskt og spres vidt, mistet de mektige kontrollen over hva folk fikk vite. Det merket kirken godt. I 1517 hengte en munk som het Martin Luther opp en liste med kritikk mot kirken. Tidligere ville en slik protest blitt glemt på et lite sted. Men nå ble teksten hans trykt opp i tusenvis og spredt over hele Tyskland på få uker. Reformasjonen, det store oppgjøret som splittet den vestlige kirken, hadde neppe blitt det den ble uten trykkpressen i ryggen."
+        },
+        {
+            "type": "component",
+            "name": "QuoteBlock",
+            "props": {
+                "text": "Trykkekunsten er Guds høyeste og siste gave. Gjennom den ville Gud at hele verden skulle nå sann kunnskap.",
+                "author": "Martin Luther"
+            }
+        },
+        {
+            "type": "text",
+            "content": "Pressen sluttet ikke med bøker. Etter hvert begynte folk å trykke korte ark med nyheter, og dette ble til de første avisene. Nå kunne mange mennesker lese om de samme hendelsene samtidig og snakke om dem. Vitenskapen tok også fart, fordi forskere kunne lese hverandres arbeid og bygge videre på det i stedet for å starte på nytt hver gang. Det meste av den moderne verden, med skoler, aviser, forskning og bøker til alle, hviler på ideen Gutenberg fikk i Mainz."
+        },
+        {
+            "type": "image",
+            "src": "/images/teknologi-og-hverdagsliv/boktrykkerkunsten-02.webp",
+            "alt": "Stabler med ferske trykte ark og åpne bøker i et travelt trykkeri på 1500-tallet",
+            "caption": "Snart fantes det trykkerier over hele Europa. Bøker, flygeblader og de første avisene gjorde at ideer kunne reise raskere enn noen gang før."
+        },
+        {
+            "type": "header",
+            "text": "Kunnskap til folk flest"
+        },
+        {
+            "type": "text",
+            "content": "Plogen ga mer mat. Trykkpressen ga mer kunnskap. Begge gjorde noe som før var sjeldent og dyrt, til noe vanlig og billig. Før pressen var lesing og lærdom forbeholdt en liten elite. Etter pressen ble kunnskap noe vanlige folk kunne eie, lese og dele. Neste gang du blar i en bok, scroller på en skjerm eller leser en nyhet, kan du tenke på at alt dette startet med tusenvis av små blybokstaver og en mann som klarte å sette dem sammen på nytt."
+        },
+        {
+            "type": "component",
+            "name": "PrintingPressMultiplier",
+            "props": {
+                "title": "Munk eller presse: hvor lang tid og hvor dyrt?"
+            }
+        },
+        {
+            "type": "component",
+            "name": "TimelineComponent",
+            "props": {
+                "compact": true,
+                "events": [
+                    { "year": 1300, "description": "Bøker skrives av for hånd i klostre. En enkelt bok kan koste like mye som et hus." },
+                    { "year": 1450, "description": "Johann Gutenberg setter sammen pressen med løse blytyper i Mainz." },
+                    { "year": 1455, "description": "Gutenbergbibelen trykkes - rundt 180 like eksemplarer av samme bok." },
+                    { "year": 1500, "description": "Trykkerier finnes over hele Europa, og millioner av bøker er allerede trykt." },
+                    { "year": 1517, "description": "Martin Luthers kritikk spres raskt med trykkpressen og tenner reformasjonen." },
+                    { "year": 1605, "description": "En av verdens første aviser trykkes i Europa." }
+                ]
+            }
+        },
+        {
+            "type": "component",
+            "name": "InterdisciplinaryBridge",
+            "props": {
+                "title": "Hva henger sammen med boktrykkerkunsten?",
+                "centerEvent": "Trykkpressen",
+                "nodes": [
+                    {
+                        "subject": "Historie",
+                        "title": "Reformasjonen",
+                        "text": "Martin Luthers ideer spredte seg lynraskt fordi de kunne trykkes og deles.",
+                        "link": "/historie/reformasjonen/martin-luther"
+                    },
+                    {
+                        "subject": "Historie",
+                        "title": "Jordbrukets historie",
+                        "text": "En annen stille revolusjon: ny teknologi gjorde noe dyrt og sjeldent til noe vanlig.",
+                        "link": "/historie/teknologi-og-hverdagsliv/jordbrukets-historie"
+                    },
+                    {
+                        "subject": "Norsk",
+                        "title": "Skriftspråk og lesing",
+                        "text": "Billige bøker lærte folk flest å lese og skrive på sitt eget språk.",
+                        "link": "/norsk"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hvorfor var bøker så dyre før trykkpressen?",
+                        "options": [
+                            "Fordi papir ikke fantes ennå",
+                            "Fordi hver bok måtte skrives av for hånd, ofte i måneder eller år",
+                            "Fordi kongen forbød folk å eie bøker",
+                            "Fordi bøker ble fraktet over havet"
+                        ],
+                        "answer": 1,
+                        "explanation": "Før pressen ble hver bok kopiert for hånd, mest av munker i klostre. Det tok så lang tid og krevde så dyre materialer at en bok kunne koste like mye som et hus."
+                    },
+                    {
+                        "question": "Hva var det smarte med Gutenbergs løse typer?",
+                        "options": [
+                            "De var laget av tre og var billige",
+                            "De kunne settes sammen til nye sider og brukes om og om igjen",
+                            "De gjorde at bare munker kunne lese dem",
+                            "De trykte bare bilder, ikke bokstaver"
+                        ],
+                        "answer": 1,
+                        "explanation": "Hver type var en metallbit med én bokstav. De løse typene kunne settes sammen til ord og linjer, brukes til å trykke en side, og så settes sammen på nytt til neste side igjen og igjen."
+                    },
+                    {
+                        "question": "Hva var den viktigste følgen av at bøker ble raske å lage?",
+                        "options": [
+                            "Bøkene ble penere å se på",
+                            "Munkene fikk mer fritid",
+                            "Bøkene ble mye billigere, så vanlige folk fikk råd til dem",
+                            "Pergament ble erstattet av papir"
+                        ],
+                        "answer": 2,
+                        "explanation": "Når den samme jobben kunne lage hundrevis av bøker, sank prisen på hver enkelt bok kraftig. Det som før kostet som et hus, ble snart noe vanlige folk kunne eie."
+                    },
+                    {
+                        "question": "Hvordan hjalp trykkpressen reformasjonen?",
+                        "options": [
+                            "Den trykte penger til Martin Luther",
+                            "Den gjorde at Luthers kritikk ble trykt og spredt over hele Tyskland på få uker",
+                            "Den lærte prestene å lese",
+                            "Den bygde nye kirker"
+                        ],
+                        "answer": 1,
+                        "explanation": "Tidligere ville en lokal protest blitt glemt. Pressen gjorde at Martin Luthers tekster ble trykt i tusenvis og spredt vidt og raskt, slik at ideene ikke lot seg stoppe."
+                    },
+                    {
+                        "question": "Hva er likheten mellom trykkpressen og plogen i denne historien?",
+                        "options": [
+                            "Begge ble funnet opp av Gutenberg",
+                            "Begge gjorde noe dyrt og sjeldent til noe vanlig og billig",
+                            "Begge ble brukt i klostre",
+                            "Begge handlet om å dyrke mat"
+                        ],
+                        "answer": 1,
+                        "explanation": "Plogen gjorde mat mer tilgjengelig, og pressen gjorde kunnskap mer tilgjengelig. Begge er stille revolusjoner som forandret hverdagen ved å gjøre noe sjeldent til noe alle kunne få del i."
+                    }
+                ]
+            }
+        }
+    ],
+    "timeline": []
+}

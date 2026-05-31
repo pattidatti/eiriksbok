@@ -398,6 +398,26 @@
       ]
     },
     {
+      "id": "vann-og-vindmolla",
+      "title": "Vannet som jobbet: vann- og vindmølla",
+      "description": "Hvordan vann- og vindmøller ble den første kraften utenfor muskler, og malte korn og drev sager lenge før dampmaskinen.",
+      "startDate": 100,
+      "endDate": 1750,
+      "displayDate": "100-1750",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "teknologi-og-hverdagsliv",
+      "link": "/historie/teknologi-og-hverdagsliv/vann-og-vindmolla",
+      "tags": [
+        "historie",
+        "teknologi",
+        "hverdagsliv",
+        "mølle",
+        "vannkraft",
+        "oppfinnelser"
+      ]
+    },
+    {
       "id": "handel-og-silkeveien",
       "title": "Handel og Silkeveien",
       "description": "Oppdag hvordan Romerriket var koblet til resten av verden gjennom handel med silke, krydder og gull.",
@@ -1340,6 +1360,26 @@
       ]
     },
     {
+      "id": "klokka",
+      "title": "Klokka som styrte livet",
+      "description": "I tusenvis av år styrte sola døgnet. Da den mekaniske klokka kom, fikk vi like timer, faste arbeidsdager og til slutt standardtid for hele verden.",
+      "startDate": 1300,
+      "endDate": 1884,
+      "displayDate": "1300-1884",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "teknologi-og-hverdagsliv",
+      "link": "/historie/teknologi-og-hverdagsliv/klokka",
+      "tags": [
+        "historie",
+        "teknologi",
+        "hverdagsliv",
+        "tid",
+        "klokke",
+        "oppfinnelser"
+      ]
+    },
+    {
       "id": "svartedauden-norge",
       "title": "Svartedauden kommer til Norge",
       "description": "Pesten ankommer Bjørgvin med et handelsskip.",
@@ -1443,24 +1483,6 @@
       ]
     },
     {
-      "id": "boktrykkerkunsten",
-      "title": "Boktrykkerkunsten",
-      "description": "Revolusjonen som spredte kunnskap.",
-      "startDate": 1440,
-      "endDate": null,
-      "displayDate": "1440",
-      "type": "lesson",
-      "subjectId": "historie",
-      "topicId": "middelalderen",
-      "link": "/historie/middelalderen/boktrykkerkunsten",
-      "tags": [
-        "oppfinnelser",
-        "teknologi",
-        "renessansen",
-        "bøker"
-      ]
-    },
-    {
       "id": "boktrykkerkunsten-sub-1",
       "title": "Gutenbergs gjennombrudd",
       "description": "Johannes Gutenberg introduserer moderne boktrykkerkunst med løse typer i metall i Mainz.",
@@ -1476,6 +1498,27 @@
         "teknologi",
         "renessansen",
         "bøker"
+      ]
+    },
+    {
+      "id": "boktrykkerkunsten",
+      "title": "Boktrykkerkunsten: kunnskap for folk flest",
+      "description": "Før Gutenberg kostet en bok like mye som et hus. Se hvordan trykkpressen gjorde kunnskap billig, lærte folk å lese og ga kraft til reformasjonen.",
+      "startDate": 1450,
+      "endDate": null,
+      "displayDate": "1450",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "teknologi-og-hverdagsliv",
+      "link": "/historie/teknologi-og-hverdagsliv/boktrykkerkunsten",
+      "tags": [
+        "historie",
+        "teknologi",
+        "hverdagsliv",
+        "bøker",
+        "kunnskap",
+        "oppfinnelser",
+        "renessansen"
       ]
     },
     {
@@ -2757,6 +2800,26 @@
       ]
     },
     {
+      "id": "vaksiner-og-antibiotika",
+      "title": "Vaksiner og antibiotika: medisinen som forlenget livet",
+      "description": "Hvordan Jenners vaksine og Flemings penicillin mer enn doblet forventet levealder - og hvorfor antibiotikaresistens er dagens nye trussel.",
+      "startDate": 1796,
+      "endDate": 1928,
+      "displayDate": "1796-1928",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "teknologi-og-hverdagsliv",
+      "link": "/historie/teknologi-og-hverdagsliv/vaksiner-og-antibiotika",
+      "tags": [
+        "historie",
+        "teknologi",
+        "hverdagsliv",
+        "helse",
+        "medisin",
+        "oppfinnelser"
+      ]
+    },
+    {
       "id": "haiti-sub-2",
       "title": "Napoleon slår tilbake",
       "description": "Sender en hær for å gjeninnføre slaveriet.",
@@ -2826,6 +2889,26 @@
         "dekolonisering",
         "latin-amerika",
         "bolivar"
+      ]
+    },
+    {
+      "id": "kjoleskapet",
+      "title": "Kjøleskapet og maten som holdt seg",
+      "description": "Hvordan tørking, salting, hermetikk og kjøling forvandlet kampen mot råtten mat til et variert kosthold hele året - og gjorde oss friskere.",
+      "startDate": 1810,
+      "endDate": 1930,
+      "displayDate": "1810-1930",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "teknologi-og-hverdagsliv",
+      "link": "/historie/teknologi-og-hverdagsliv/kjoleskapet",
+      "tags": [
+        "historie",
+        "teknologi",
+        "hverdagsliv",
+        "mat",
+        "helse",
+        "oppfinnelser"
       ]
     },
     {
@@ -3092,6 +3175,26 @@
       ]
     },
     {
+      "id": "telefonen",
+      "title": "Å snakke over avstand: telegraf og telefon",
+      "description": "Hvordan en beskjed gikk fra å bruke uker over havet til å komme fram på sekunder, fra budbringer til telegraf og telefon.",
+      "startDate": 1844,
+      "endDate": 1876,
+      "displayDate": "1844-1876",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "teknologi-og-hverdagsliv",
+      "link": "/historie/teknologi-og-hverdagsliv/telefonen",
+      "tags": [
+        "historie",
+        "teknologi",
+        "hverdagsliv",
+        "kommunikasjon",
+        "telefon",
+        "oppfinnelser"
+      ]
+    },
+    {
       "id": "piken-med-svovelstikkene",
       "title": "Piken med svovelstikkene",
       "description": "Utgitt av H.C. Andersen",
@@ -3102,6 +3205,26 @@
       "subjectId": "norsk",
       "link": "/norsk/bibliotek?text=piken-med-svovelstikkene",
       "tags": []
+    },
+    {
+      "id": "symaskinen",
+      "title": "Symaskinen: klær til alle",
+      "description": "Før symaskinen tok det dagevis å sy en skjorte for hånd, og klær var dyr luksus. Se hvordan en liten maskin gjorde klær billige nok for alle - og hva det kostet dem som sydde dem.",
+      "startDate": 1846,
+      "endDate": null,
+      "displayDate": "1846",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "teknologi-og-hverdagsliv",
+      "link": "/historie/teknologi-og-hverdagsliv/symaskinen",
+      "tags": [
+        "historie",
+        "teknologi",
+        "hverdagsliv",
+        "klær",
+        "industri",
+        "oppfinnelser"
+      ]
     },
     {
       "id": "fagforeninger",
@@ -3135,6 +3258,26 @@
         "historie",
         "teknologi",
         "storbritannia"
+      ]
+    },
+    {
+      "id": "vann-og-kloakk",
+      "title": "Den usynlige revolusjonen: rent vann og kloakk",
+      "description": "Det som reddet flest liv var ikke medisin, men rør og renseanlegg. Følg legen John Snow som løste kolera-gåten i London i 1854.",
+      "startDate": 1854,
+      "endDate": null,
+      "displayDate": "1854",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "teknologi-og-hverdagsliv",
+      "link": "/historie/teknologi-og-hverdagsliv/vann-og-kloakk",
+      "tags": [
+        "historie",
+        "teknologi",
+        "hverdagsliv",
+        "helse",
+        "vann",
+        "oppfinnelser"
       ]
     },
     {
@@ -3274,6 +3417,26 @@
         "borgerrettigheter",
         "delte-samfunn",
         "martin-luther-king"
+      ]
+    },
+    {
+      "id": "elektrisiteten",
+      "title": "Da lyset kom inn i huset: elektrisiteten",
+      "description": "Fra svakt, farlig flammelys til strøm i veggen. Hvordan den elektriske lyspæra gjorde kvelden lang og trygg, og forandret hjemmet og husarbeidet.",
+      "startDate": 1879,
+      "endDate": 1920,
+      "displayDate": "1879-1920",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "teknologi-og-hverdagsliv",
+      "link": "/historie/teknologi-og-hverdagsliv/elektrisiteten",
+      "tags": [
+        "historie",
+        "teknologi",
+        "hverdagsliv",
+        "elektrisitet",
+        "lys",
+        "oppfinnelser"
       ]
     },
     {

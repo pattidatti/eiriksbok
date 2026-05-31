@@ -1,0 +1,247 @@
+{
+    "id": "symaskinen",
+    "title": "Symaskinen: klær til alle",
+    "layout": "rich",
+    "year": "1846",
+    "category": "Teknologi og hverdagsliv",
+    "readTime": "8 min lesning",
+    "heroImage": "/images/teknologi-og-hverdagsliv/symaskinen-hero.webp",
+    "details": [
+        "Før symaskinen tok det dagevis å sy en enkel skjorte for hånd, og klær var så dyre at folk eide bare noen få plagg.",
+        "Symaskinen syr mange hundre sting i minuttet og kunne gjøre på en time det som tok en hel dag for hånd.",
+        "Billige klær til alle hadde også en bakside: store tekstilfabrikker med lange dager, lave lønninger og barn på gulvet."
+    ],
+    "externalUrl": "https://snl.no/symaskin",
+    "content": [
+        {
+            "type": "text",
+            "content": "Tell plaggene du har på deg akkurat nå. Genser, bukse, sokker, undertøy. Hjemme i skapet henger det sikkert mange flere. For deg er nye klær noe selvsagt. Men for et par hundre år siden var det helt annerledes. De fleste mennesker eide bare noen få plagg, og hvert eneste sting var sydd for hånd. En skjorte kunne ta dagevis å lage. Klær var så dyre at folk lappet og reparerte dem i årevis, og arvet dem videre til neste generasjon. Så kom en liten maskin som forandret alt."
+        },
+        {
+            "type": "image",
+            "src": "/images/teknologi-og-hverdagsliv/symaskinen-hero.webp",
+            "alt": "Kvinnehender syr for hånd ved et bord i varmt lampelys",
+            "caption": "Før symaskinen var hvert plagg timer med tålmodig håndarbeid. Klær var dyrt, og folk eide ofte bare noen få."
+        },
+        {
+            "type": "header",
+            "text": "Et plagg tok dagevis"
+        },
+        {
+            "type": "text",
+            "content": "Å sy for hånd er langsomt arbeid. Du trer tråden gjennom et nåløye, stikker nåla gjennom stoffet, drar tråden helt ut, og gjentar. Sting etter sting, time etter time. En flink syerske rakk kanskje tretti sting i minuttet på sitt beste, og bare så lenge fingrene orket. En enkel skjorte trenger titusenvis av sting, og kunne ta over ti timer å lage. Et finere plagg, som en kjole eller en frakk, tok gjerne flere dager. I de fleste familier var det kvinnene som sydde, i tillegg til alt det andre arbeidet de hadde i huset. Søm fylte derfor en stor del av tiden, kveld etter kveld, i lyset fra et stearinlys eller en oljelampe."
+        },
+        {
+            "type": "text",
+            "content": "Det betydde at klær var dyrt. En vanlig arbeiderfamilie brukte en stor del av pengene sine på de få plaggene de hadde. Mange eide bare ett sett pene klær til kirken og søndager, og ett sett til hverdag og arbeid. Når et plagg ble slitt, ble det lappet om og om igjen til det nesten falt fra hverandre. Å kaste klær var nesten utenkelig."
+        },
+        {
+            "type": "header",
+            "text": "Maskinen som gjorde det selv"
+        },
+        {
+            "type": "text",
+            "content": "Mange oppfinnere prøvde å lage en maskin som kunne sy. Det var vanskeligere enn det høres ut. Problemet var at en maskin ikke kan dra en hel, lang tråd helt gjennom stoffet for hvert sting, slik en hånd gjør. Tråden ville bare floke seg eller ryke. Løsningen ble genial: bruk to tråder. En nål med tråd stikker ovenfra og ned gjennom stoffet, og under stoffet fanger en liten spole tråden og låser den fast. Slik dannes et sterkt sting uten at maskinen trenger å dra noen lang tråd ut. Dette kalles låsesting, og det er fortsatt slik symaskiner virker i dag."
+        },
+        {
+            "type": "text",
+            "content": "I 1846 fikk amerikaneren Elias Howe patent på en symaskin som brukte denne metoden. Et patent er en enerett til en oppfinnelse. Kort etter forbedret Isaac Singer maskinen og la til en pedal du tråkket på, slik at begge hendene ble frie til å styre stoffet. Singer solgte symaskiner på avbetaling, litt penger hver måned, slik at vanlige familier hadde råd. Snart sto det en symaskin i utallige hjem og verksteder."
+        },
+        {
+            "type": "component",
+            "name": "Comparison",
+            "props": {
+                "title": "Håndsøm mot symaskin",
+                "leftTitle": "Søm for hånd",
+                "rightTitle": "Symaskinen",
+                "items": [
+                    {
+                        "label": "Hvor raskt?",
+                        "left": "Rundt 30 sting i minuttet på sitt beste",
+                        "right": "Mange hundre sting i minuttet, jevnt og uten å bli sliten"
+                    },
+                    {
+                        "label": "Tid for én skjorte",
+                        "left": "Over ti timer, ofte en hel dag eller mer",
+                        "right": "Under en time"
+                    },
+                    {
+                        "label": "Hva kostet klær?",
+                        "left": "Dyrt - folk eide bare noen få plagg",
+                        "right": "Billig nok til at de fleste hadde råd til flere"
+                    },
+                    {
+                        "label": "Hvem sydde?",
+                        "left": "Hver familie, time etter time hjemme",
+                        "right": "Fabrikker som lagde tusenvis av like plagg"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Da klær ble billig"
+        },
+        {
+            "type": "text",
+            "content": "Med symaskinen falt prisen på klær kraftig. Det som før tok en hel dag for hånd, kunne nå gjøres på en time. En syerske med maskin rakk like mye som mange syersker uten. Plutselig kunne fabrikker sy tusenvis av like plagg til en pris vanlige folk hadde råd til. Dette kalles konfeksjon, som rett og slett betyr ferdigsydde klær laget i en bestemt størrelse, klare til å kjøpes i en butikk. Før måtte du sy klærne selv eller betale en skredder for å tilpasse dem. Nå kunne du gå inn i en butikk, finne din størrelse på hylla og gå ut igjen med et nytt plagg samme dag."
+        },
+        {
+            "type": "text",
+            "content": "Forandringen i hverdagen var stor. Nå kunne en arbeiderfamilie ha flere plagg, bytte til rene klær oftere, og kjøpe nytt når noe ble for lite eller gikk i stykker. Renere klær betydde også bedre helse. Symaskinen sydde ikke bare skjorter og kjoler, men også sko, telt, seil, sekker og senere bildeler. Den var en av de første maskinene som flyttet inn i vanlige hjem og forandret folks hverdag direkte."
+        },
+        {
+            "type": "image",
+            "src": "/images/teknologi-og-hverdagsliv/symaskinen-01.webp",
+            "alt": "Tidlig symaskin med tråkkepedal på et trebord i et verksted",
+            "caption": "Singers symaskin med pedal frigjorde begge hendene. Solgt på avbetaling kom den inn i hjem over hele verden."
+        },
+        {
+            "type": "header",
+            "text": "Baksiden: tekstilfabrikkene"
+        },
+        {
+            "type": "text",
+            "content": "Men billige klær til alle hadde en mørk bakside. Klærne ble nemlig ikke billige av seg selv. De ble laget i store tekstilfabrikker der arbeidere, ofte kvinner og barn, satt bøyd over symaskiner i mange timer hver dag. Lønna var lav, lufta full av støv fra stoffet, og arbeidsdagene lange. Mange ble syke av det harde arbeidet."
+        },
+        {
+            "type": "text",
+            "content": "Slik er det ofte med ny teknologi: den løser ett problem, men skaper nye. Symaskinen ga folk råd til klær, men prisen ble betalt av dem som sydde dem. Den samme historien gjentar seg i dag. Mye av klærne våre lages fortsatt i fabrikker i fattige land, der lønna er lav og dagene lange. Når du kjøper en billig t-skjorte, er det verdt å tenke på hvem som sydde den, og under hvilke forhold."
+        },
+        {
+            "type": "header",
+            "text": "En liten maskin med stor virkning"
+        },
+        {
+            "type": "text",
+            "content": "Symaskinen er et godt eksempel på hvordan en ganske enkel oppfinnelse kan forandre hverdagen til millioner av mennesker. Den vant ingen kriger og styrtet ingen konger. Den gjorde bare én ting raskere: å sy. Men fordi alle trenger klær, fikk den enorm betydning. Klær gikk fra å være en dyr luksus til noe alle hadde råd til, og det frigjorde tid og penger til andre ting i folks liv. Samtidig viser den oss at fremskritt sjelden kommer gratis. Neste gang du trekker på deg en genser, kan du tenke på at den hviler på et lite, smart sting som forandret verden."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Strid om hvem som var først",
+                "content": "Symaskinen ble ikke oppfunnet av en enkelt person en enkelt dag. Mange jobbet med ideen samtidig, og det endte i en bitter strid om hvem som eide rettighetene. Elias Howe og Isaac Singer kranglet i retten i årevis. Til slutt gikk de store oppfinnerne sammen og delte patentene sine. Det var en av de første gangene flere selskaper slo sammen rettighetene sine for å kunne lage et produkt i fellesskap."
+            }
+        },
+        {
+            "type": "image",
+            "src": "/images/teknologi-og-hverdagsliv/symaskinen-02.webp",
+            "alt": "Rad med kvinner ved symaskiner i en travel tekstilfabrikk",
+            "caption": "Billige klær ble laget i store fabrikker med lange dager og lav lønn - ofte av kvinner og barn."
+        },
+        {
+            "type": "component",
+            "name": "StitchSpeedRace",
+            "props": {
+                "title": "Kappløpet: hånd mot maskin"
+            }
+        },
+        {
+            "type": "component",
+            "name": "TimelineComponent",
+            "props": {
+                "compact": true,
+                "events": [
+                    { "year": 1790, "description": "Den engelske skomakeren Thomas Saint tegner den aller første symaskinen, men den blir aldri bygget skikkelig." },
+                    { "year": 1830, "description": "Franskmannen Barthelemy Thimonnier lager fungerende symaskiner, men sinte syersker brenner ned verkstedet hans." },
+                    { "year": 1846, "description": "Elias Howe får patent på symaskinen med låsesting og to tråder." },
+                    { "year": 1851, "description": "Isaac Singer forbedrer maskinen med tråkkepedal og selger den på avbetaling til vanlige hjem." },
+                    { "year": 1856, "description": "De store oppfinnerne slår sammen patentene sine, og symaskinen sprer seg raskt over hele verden." }
+                ]
+            }
+        },
+        {
+            "type": "component",
+            "name": "InterdisciplinaryBridge",
+            "props": {
+                "title": "Hva henger sammen med symaskinen?",
+                "centerEvent": "Symaskinen",
+                "nodes": [
+                    {
+                        "subject": "Historie",
+                        "title": "Barnearbeid",
+                        "text": "Baksiden av billige klær: barn som jobbet lange dager i tekstilfabrikkene.",
+                        "link": "/historie/industriell-revolusjon/barnearbeid"
+                    },
+                    {
+                        "subject": "Historie",
+                        "title": "Dampmaskinen",
+                        "text": "Kraften som drev de store veveriene og fabrikkene der maskinene sto.",
+                        "link": "/historie/industriell-revolusjon/dampmaskinen"
+                    },
+                    {
+                        "subject": "Teknologi og hverdagsliv",
+                        "title": "Jordbrukets historie",
+                        "text": "Samme mønster: en maskin gjorde at langt færre folk kunne lage langt mer.",
+                        "link": "/historie/teknologi-og-hverdagsliv/jordbrukets-historie"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hvorfor var klær så dyrt før symaskinen?",
+                        "options": [
+                            "Stoffet var vanskelig å oppdrive",
+                            "Hvert plagg ble sydd for hånd og tok dagevis å lage",
+                            "Det var forbudt å eie mer enn ett plagg",
+                            "Folk likte ikke å gå med klær"
+                        ],
+                        "answer": 1,
+                        "explanation": "Søm for hånd er langsomt. En skjorte trenger titusenvis av sting og kunne ta over ti timer. Derfor var klær dyrt, og folk eide bare noen få plagg."
+                    },
+                    {
+                        "question": "Hva er et låsesting, som gjorde symaskinen mulig?",
+                        "options": [
+                            "Et sting laget av kun én lang tråd",
+                            "Et sting der to tråder låses sammen, en ovenfra og en under stoffet",
+                            "Et sting som låser stoffet fast til bordet",
+                            "Et sting som bare kan sys for hånd"
+                        ],
+                        "answer": 1,
+                        "explanation": "En maskin kan ikke dra en hel lang tråd gjennom stoffet for hvert sting. Med to tråder, en nål ovenfra og en spole under, låses stingene fast uten at maskinen må dra ut lang tråd."
+                    },
+                    {
+                        "question": "Hva gjorde Isaac Singer som hjalp symaskinen inn i vanlige hjem?",
+                        "options": [
+                            "Han ga maskinene bort gratis",
+                            "Han la til en pedal og solgte maskinen på avbetaling",
+                            "Han gjorde maskinen mye større",
+                            "Han forbød håndsøm"
+                        ],
+                        "answer": 1,
+                        "explanation": "Singer la til en tråkkepedal som frigjorde begge hender, og solgte maskinen på avbetaling. Da hadde vanlige familier råd, og symaskinen spredte seg til hjem over hele verden."
+                    },
+                    {
+                        "question": "Hva betyr konfeksjon?",
+                        "options": [
+                            "Klær sydd spesielt til én person",
+                            "Ferdigsydde klær laget i bestemte størrelser, klare til å kjøpes",
+                            "En type stoff",
+                            "En måte å reparere klær på"
+                        ],
+                        "answer": 1,
+                        "explanation": "Konfeksjon er ferdigsydde klær laget i faste størrelser i fabrikk. Med symaskinen kunne fabrikker sy tusenvis av like plagg til en pris vanlige folk hadde råd til."
+                    },
+                    {
+                        "question": "Hva var baksiden av at klær ble billige?",
+                        "options": [
+                            "Klærne ble av dårligere kvalitet over natten",
+                            "Folk sluttet å gå med klær",
+                            "Klærne ble laget i fabrikker med lange dager, lav lønn og ofte barnearbeid",
+                            "Symaskinene gikk stadig i stykker"
+                        ],
+                        "answer": 2,
+                        "explanation": "Billige klær ble laget i tekstilfabrikker der arbeidere, ofte kvinner og barn, satt lange dager for lav lønn. Ny teknologi løste ett problem, men skapte nye. Det samme gjelder mye klesproduksjon i dag."
+                    }
+                ]
+            }
+        }
+    ],
+    "timeline": []
+}

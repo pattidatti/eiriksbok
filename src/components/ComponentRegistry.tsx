@@ -52,6 +52,15 @@ const ColonialGovernance = lazy(() => import('./content/interactive/ColonialGove
 const ResourceTradeFlows = lazy(() => import('./content/interactive/ResourceTradeFlows').then(m => ({ default: m.ResourceTradeFlows })));
 const InterdisciplinaryBridge = lazy(() => import('./content/interactive/InterdisciplinaryBridge').then(m => ({ default: m.InterdisciplinaryBridge })));
 const FarmerYieldExplorer = lazy(() => import('./content/interactive/FarmerYieldExplorer').then(m => ({ default: m.FarmerYieldExplorer })));
+const MillPowerExplorer = lazy(() => import('./content/interactive/MillPowerExplorer').then(m => ({ default: m.MillPowerExplorer })));
+const ClockVsSunExplorer = lazy(() => import('./content/interactive/ClockVsSunExplorer').then(m => ({ default: m.ClockVsSunExplorer })));
+const PrintingPressMultiplier = lazy(() => import('./content/interactive/PrintingPressMultiplier').then(m => ({ default: m.PrintingPressMultiplier })));
+const BroadStreetInvestigator = lazy(() => import('./content/interactive/BroadStreetInvestigator').then(m => ({ default: m.BroadStreetInvestigator })));
+const LightThroughTheAgesExplorer = lazy(() => import('./content/interactive/LightThroughTheAgesExplorer').then(m => ({ default: m.LightThroughTheAgesExplorer })));
+const FoodPreservationExplorer = lazy(() => import('./content/interactive/FoodPreservationExplorer').then(m => ({ default: m.FoodPreservationExplorer })));
+const HerdImmunityExplorer = lazy(() => import('./content/interactive/HerdImmunityExplorer').then(m => ({ default: m.HerdImmunityExplorer })));
+const MessageSpeedExplorer = lazy(() => import('./content/interactive/MessageSpeedExplorer').then(m => ({ default: m.MessageSpeedExplorer })));
+const StitchSpeedRace = lazy(() => import('./content/interactive/StitchSpeedRace').then(m => ({ default: m.StitchSpeedRace })));
 const GlossaryTooltip = lazy(() => import('./content/interactive/GlossaryTooltip').then(m => ({ default: m.GlossaryTooltip })));
 const ScenarioRoleplay = lazy(() => import('./content/interactive/ScenarioRoleplay').then(m => ({ default: m.ScenarioRoleplay })));
 const DragDropTimeline = lazy(() => import('./content/interactive/DragDropTimeline').then(m => ({ default: m.DragDropTimeline })));
@@ -233,6 +242,15 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     ResourceTradeFlows,
     InterdisciplinaryBridge,
     FarmerYieldExplorer,
+    MillPowerExplorer,
+    ClockVsSunExplorer,
+    PrintingPressMultiplier,
+    BroadStreetInvestigator,
+    LightThroughTheAgesExplorer,
+    FoodPreservationExplorer,
+    HerdImmunityExplorer,
+    MessageSpeedExplorer,
+    StitchSpeedRace,
     GlossaryTooltip,
     ScenarioRoleplay,
     DragDropTimeline,
