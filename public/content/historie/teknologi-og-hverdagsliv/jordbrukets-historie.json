@@ -1,218 +1,236 @@
 {
-    "id": "jordbrukets-historie",
-    "title": "Jordbrukets historie: fra hakke til traktor",
-    "layout": "rich",
-    "year": "900-1968",
-    "category": "Teknologi og hverdagsliv",
-    "readTime": "9 min lesning",
-    "heroImage": "/images/teknologi-og-hverdagsliv/jordbrukets-historie-hero.webp",
-    "details": [
-        "I nesten hele menneskets historie måtte rundt ni av ti mennesker dyrke mat. I dag dyrker under to av hundre nordmenn maten til hele landet.",
-        "Den tunge plogen, vekselbruk og jernredskaper gjorde at den samme åkeren kunne fø stadig flere folk.",
-        "Kunstgjødsel og den grønne revolusjonen på 1900-tallet mer enn doblet avlingene og reddet milliarder fra sult."
-    ],
-    "externalUrl": "https://snl.no/jordbrukets_historie",
-    "content": [
-        {
-            "type": "text",
-            "content": "Tenk deg en høstdag for tre hundre år siden. En bonde går bak hesten sin på en åker et sted i Norge. Han sto opp før sola, og han blir ute til det er mørkt. Slik er hver eneste dag, hele livet. Og slik er det for nesten alle han kjenner. I nesten hele menneskets historie måtte rundt ni av ti mennesker jobbe med å skaffe mat, bare for at alle skulle få nok i magen. I dag dyrker under to av hundre nordmenn maten til hele landet. Hva skjedde? Svaret er ikke konger eller kriger. Svaret er redskaper."
-        },
-        {
-            "type": "image",
-            "src": "/images/teknologi-og-hverdagsliv/jordbrukets-historie-hero.webp",
-            "alt": "Bonde i enkle klær går bak en hestetrukket plog på en åker i kveldslys, brun nyvendt jord i forgrunnen",
-            "caption": "I århundrer var jordbruk hardt håndarbeid fra soloppgang til solnedgang. Hver ny oppfinnelse gjorde det litt lettere å fø flere."
-        },
-        {
-            "type": "header",
-            "text": "Plogen som vendte jorda"
-        },
-        {
-            "type": "text",
-            "content": "Helt siden mennesket [først begynte å dyrke jorda](/historie/jordbruk-og-sivilisasjoner/jordbruk-og-sivilisasjoner) for rundt 12 000 år siden, har bedre redskaper vært nøkkelen til mer mat. De aller første plogene var enkle. De kalles ard, og var lite mer enn en spiss kjepp som risset en grunn fure i overflaten. Det fungerte greit i den tørre, lette jorda rundt Middelhavet. Men i Nord-Europa var jorda tung, våt og full av leire. Arden bare skrapte i den og fikk den ikke til å gi avling."
-        },
-        {
-            "type": "text",
-            "content": "Løsningen kom med den tunge plogen. Den hadde et skjær av jern som skar ned i jorda, og en buet plate som løftet hele jordlaget opp og vendte det rundt. Ugresset ble begravet, vannet rant bort, og frisk næring kom opp til overflaten. Plutselig kunne folk dyrke den rike, tunge jorda som dekket store deler av Nord-Europa. Den tunge plogen var dyr og trengte flere okser eller hester for å dras, så bøndene gikk ofte sammen om å eie den. Slik vokste landsbyene fram der den tunge plogen kom."
-        },
-        {
-            "type": "component",
-            "name": "Comparison",
-            "props": {
-                "title": "Arden mot den tunge plogen",
-                "leftTitle": "Arden (den enkle plogen)",
-                "rightTitle": "Den tunge plogen",
-                "items": [
-                    {
-                        "label": "Hva gjorde den med jorda?",
-                        "left": "Risset bare en grunn fure i overflaten",
-                        "right": "Skar, løftet og vendte hele jordlaget"
-                    },
-                    {
-                        "label": "Hvor passet den?",
-                        "left": "Tørr, lett jord i sør",
-                        "right": "Tung, våt leirjord i Nord-Europa"
-                    },
-                    {
-                        "label": "Hva krevde den?",
-                        "left": "Kunne dras av ett dyr eller et menneske",
-                        "right": "Trengte flere okser eller hester sammen"
-                    },
-                    {
-                        "label": "Resultat",
-                        "left": "Små avlinger på den letteste jorda",
-                        "right": "Helt ny dyrkingsjord og større avlinger"
-                    }
-                ]
-            }
-        },
-        {
-            "type": "header",
-            "text": "Å la jorda hvile"
-        },
-        {
-            "type": "text",
-            "content": "Det var ett problem som plaget alle bønder: jorda ble sliten. Plantene suger næring ut av jorda, og etter noen år ga åkeren mindre og mindre. Den gamle løsningen var å la en del av jorda ligge tom, eller brakk, hvert år så den kunne hvile. Mange steder delte bøndene jorda i tre og lot en tredjedel hvile om gangen. Det betydde at en tredjedel av all jorda ikke ga mat i det hele tatt."
-        },
-        {
-            "type": "text",
-            "content": "På 1700-tallet kom et smart triks som forandret alt: vekselbruk. I stedet for å la åkeren ligge tom, sådde bøndene kløver og rotvekster i den. Kløver gjør noe nesten magisk: den henter nitrogen ned fra lufta og legger det igjen i jorda som ny næring. Samtidig kunne dyrene spise kløveren og rotvekstene, og da ga de mer møkk, som igjen gjorde jorda enda rikere. Nå trengte ingen åker å ligge tom lenger. Denne stille forandringen kalles ofte jordbruksrevolusjonen på 1700-tallet, og den gjorde at langt flere folk kunne mettes av samme areal."
-        },
-        {
-            "type": "header",
-            "text": "Næring fra lufta"
-        },
-        {
-            "type": "text",
-            "content": "Selv med kløver og møkk var det alltid én ting det var for lite av: nitrogen. Nitrogen er det viktigste næringsstoffet for at planter skal vokse, og i tusenvis av år var de eneste kildene møkk, kløver og fugleskitt. Det satte en grense for hvor mye mat verden kunne lage. I 1909 klarte to tyske forskere, Fritz Haber og Carl Bosch, noe utrolig: de fant en måte å hente nitrogen rett ut av lufta og lage kunstgjødsel av det. Nå kunne bonden rett og slett kjøpe næring i sekk og strø den ut over åkeren. Avlingene skjøt i været."
-        },
-        {
-            "type": "component",
-            "name": "FactBox",
-            "props": {
-                "title": "Brød laget av luft",
-                "content": "Luft er nesten 80 prosent nitrogen, men plantene kan ikke bruke det slik det er. Haber og Bosch sin oppfinnelse løste den gåten. I dag er forskere enige om at omtrent halvparten av all maten i verden er mulig bare på grunn av kunstgjødsel. Uten den ville jorda ikke klart å fø de åtte milliardene menneskene som lever nå. En stor del av nitrogenet i din egen kropp har faktisk vært innom en kunstgjødselfabrikk."
-            }
-        },
-        {
-            "type": "header",
-            "text": "Maskinene tar over"
-        },
-        {
-            "type": "text",
-            "content": "Lenge var muskler den eneste kraften på en gård. Mennesker og hester gjorde alt arbeidet. Det endret seg da [dampmaskinen](/historie/industriell-revolusjon/dampmaskinen) viste at kraft kunne lages av brensel i stedet for muskler, og på 1900-tallet begynte traktoren å erstatte hesten. En traktor blir aldri trøtt, trenger ikke mat når den står stille, og trekker mer enn mange hester til sammen. Enda viktigere var skurtreskeren. Før måtte korn skjæres for hånd med ljå, samles, og tærskes for å skille kornet fra strået. Det tok en hel landsby flere uker. Skurtreskeren gjør alt dette i én eneste kjøretur over åkeren. Plutselig kunne én person med en maskin gjøre arbeidet som før krevde dusinvis av folk."
-        },
-        {
-            "type": "image",
-            "src": "/images/teknologi-og-hverdagsliv/jordbrukets-historie-01.webp",
-            "alt": "Tidlig skurtresker fra 1900-tallet kjører gjennom en gyllen kornåker og høster korn i én operasjon",
-            "caption": "Skurtreskeren gjorde på én dag det som før tok en hel landsby flere uker med ljå og treskeflater."
-        },
-        {
-            "type": "header",
-            "text": "Den grønne revolusjonen"
-        },
-        {
-            "type": "text",
-            "content": "Den siste store forandringen kom etter andre verdenskrig. En amerikansk forsker som het Norman Borlaug brukte mange år på å krysse fram nye typer hvete. De nye plantene ga to til tre ganger så mye korn, tålte sykdom bedre, og passet perfekt sammen med kunstgjødsel og vanning. På 1960-tallet ble disse plantene tatt i bruk i land som Mexico, India og Pakistan. India hadde stått på randen av hungersnød, men klarte snart å dyrke nok mat til hele sin egen befolkning. Dette kalles den grønne revolusjonen. Borlaug fikk Nobels fredspris, og mange mener han reddet rundt en milliard mennesker fra sult."
-        },
-        {
-            "type": "text",
-            "content": "Men de nye metodene hadde også en bakside. De krevde mye kunstgjødsel, vann og maskiner, og det kostet penger. Store gårder klarte seg ofte godt, mens mange små bønder hadde ikke råd til å henge med. Mye kunstgjødsel og sprøytemidler kan også skade naturen og forurense vann. Slik er det ofte med ny teknologi: den løser ett stort problem, men skaper samtidig nye spørsmål vi må finne svar på."
-        },
-        {
-            "type": "header",
-            "text": "Den stille revolusjonen"
-        },
-        {
-            "type": "text",
-            "content": "Plogen, vekselbruket, kunstgjødselen, traktoren og de nye plantene har én ting til felles: hver av dem gjorde at den samme åkeren kunne fø flere folk med mindre arbeid. Men ga mer mat oss flere mennesker, eller tvang flere mennesker oss til å dyrke mer? [Det spørsmålet](/samfunnskunnskap/demografi/malthus-vs-boserup) har forskere kranglet om i lang tid. Da færre trengtes på gården, ble mennesker uansett frie til å bli lærere, sykepleiere, ingeniører og musikere. Hele det moderne samfunnet hviler på dette. Vi forteller gjerne historien som en rekke konger og kriger, men den dypeste forandringen i hverdagen til vanlige folk kom rolig og stille, fra mennesker som fant ut hvordan de kunne dyrke litt mer mat. Neste gang du spiser en skive brød, kan du tenke på at den hviler på tusenvis av år med kloke oppfinnelser."
-        },
-        {
-            "type": "component",
-            "name": "FarmerYieldExplorer",
-            "props": {
-                "title": "Hvor mange kan én bonde fø?"
-            }
-        },
-        {
-            "type": "component",
-            "name": "TimelineComponent",
-            "props": {
-                "compact": true,
-                "events": [
-                    { "year": 900, "description": "Den tunge plogen sprer seg i Nord-Europa og åpner rik, våt jord for dyrking." },
-                    { "year": 1730, "description": "Vekselbruk med kløver erstatter den tomme brakkåkeren - jorda trenger ikke lenger hvile uten avling." },
-                    { "year": 1837, "description": "John Deere lager stålplogen som skjærer rent gjennom den seige prærjorda i USA." },
-                    { "year": 1909, "description": "Haber og Bosch henter nitrogen ut av lufta og oppfinner kunstgjødsel." },
-                    { "year": 1930, "description": "Traktoren begynner for alvor å erstatte hesten på gårdene." },
-                    { "year": 1968, "description": "Den grønne revolusjonen med Borlaugs nye hvete dobler avlingene i India." }
-                ]
-            }
-        },
-        {
-            "type": "component",
-            "name": "Quiz",
-            "props": {
-                "questions": [
-                    {
-                        "question": "Hvorfor var den tunge plogen så viktig for Nord-Europa?",
-                        "options": [
-                            "Den var billigere enn arden",
-                            "Den kunne dras av ett enkelt menneske",
-                            "Den vendte den tunge, våte jorda som arden ikke klarte å dyrke",
-                            "Den trengte ingen dyr for å trekkes"
-                        ],
-                        "answer": 2,
-                        "explanation": "Arden risset bare overflaten og var ubrukelig i tung leirjord. Den tunge plogen skar ned, løftet og vendte hele jordlaget, og åpnet dermed store nye områder for dyrking."
-                    },
-                    {
-                        "question": "Hva er vekselbruk, og hvorfor var det bedre enn å la åkeren ligge brakk?",
-                        "options": [
-                            "Å bytte bønder mellom gårdene hvert år",
-                            "Å dyrke kløver og rotvekster i stedet for å la jorda ligge tom, så ingen jord var ubrukt",
-                            "Å pløye åkeren to ganger i året",
-                            "Å bruke flere hester på samme åker"
-                        ],
-                        "answer": 1,
-                        "explanation": "Med vekselbruk sådde bøndene kløver, som henter nitrogen fra lufta og gjødsler jorda. Da trengte ingen åker å ligge tom og ubrukt, slik den gjorde i det gamle systemet med brakk."
-                    },
-                    {
-                        "question": "Hva oppdaget Haber og Bosch i 1909?",
-                        "options": [
-                            "En ny type hvete som tålte sykdom",
-                            "Den første traktoren",
-                            "En måte å hente nitrogen ut av lufta og lage kunstgjødsel",
-                            "Hvordan man bygger en skurtresker"
-                        ],
-                        "answer": 2,
-                        "explanation": "Haber-Bosch-metoden gjorde det mulig å lage kunstgjødsel av nitrogenet i lufta. I dag er omtrent halvparten av verdens matproduksjon avhengig av denne oppfinnelsen."
-                    },
-                    {
-                        "question": "Hva gjorde skurtreskeren med arbeidet på gården?",
-                        "options": [
-                            "Den gjorde at man trengte flere folk i innhøstingen",
-                            "Den skar, samlet og tærsket kornet i én operasjon som før krevde mange folk og flere uker",
-                            "Den erstattet kunstgjødsel",
-                            "Den ble brukt til å pløye om våren"
-                        ],
-                        "answer": 1,
-                        "explanation": "Før måtte korn skjæres med ljå, samles og tærskes for hånd. Skurtreskeren gjør alt dette i én kjøretur, slik at én person kan gjøre det som før krevde en hel landsby."
-                    },
-                    {
-                        "question": "Hva var et resultat av at færre mennesker trengtes på gårdene?",
-                        "options": [
-                            "Folk fikk mindre mat enn før",
-                            "Mennesker ble frie til å jobbe med andre ting, som å bli lærere, sykepleiere og ingeniører",
-                            "Alle flyttet tilbake til landsbygda",
-                            "Jordbruket forsvant helt"
-                        ],
-                        "answer": 1,
-                        "explanation": "Da hver bonde kunne fø flere folk, ble arbeidskraft frigjort til alt det andre et moderne samfunn trenger. Den stille jordbruksrevolusjonen er en av grunnene til at samfunnet vårt ser ut som det gjør i dag."
-                    }
-                ]
-            }
-        }
-    ],
-    "timeline": []
+  "id": "jordbrukets-historie",
+  "title": "Jordbrukets historie: fra hakke til traktor",
+  "layout": "rich",
+  "year": "900-1968",
+  "category": "Teknologi og hverdagsliv",
+  "readTime": "9 min lesning",
+  "heroImage": "/images/teknologi-og-hverdagsliv/jordbrukets-historie-hero.webp",
+  "details": [
+    "I nesten hele menneskets historie måtte rundt ni av ti mennesker dyrke mat. I dag dyrker under to av hundre nordmenn maten til hele landet.",
+    "Den tunge plogen, vekselbruk og jernredskaper gjorde at den samme åkeren kunne fø stadig flere folk.",
+    "Kunstgjødsel og den grønne revolusjonen på 1900-tallet mer enn doblet avlingene og reddet milliarder fra sult."
+  ],
+  "externalUrl": "https://snl.no/jordbrukets_historie",
+  "content": [
+    {
+      "type": "text",
+      "content": "Tenk deg en høstdag for tre hundre år siden. En bonde går bak hesten sin på en åker et sted i Norge. Han sto opp før sola, og han blir ute til det er mørkt. Slik er hver eneste dag, hele livet. Og slik er det for nesten alle han kjenner. I nesten hele menneskets historie måtte rundt ni av ti mennesker jobbe med å skaffe mat, bare for at alle skulle få nok i magen. I dag dyrker under to av hundre nordmenn maten til hele landet. Hva skjedde? Svaret er ikke konger eller kriger. Svaret er redskaper."
+    },
+    {
+      "type": "image",
+      "src": "/images/teknologi-og-hverdagsliv/jordbrukets-historie-01.webp",
+      "alt": "Bonde i enkle klær går bak en hestetrukket plog på en åker i kveldslys, brun nyvendt jord i forgrunnen",
+      "caption": "I århundrer var jordbruk hardt håndarbeid fra soloppgang til solnedgang. Hver ny oppfinnelse gjorde det litt lettere å fø flere."
+    },
+    {
+      "type": "header",
+      "text": "Plogen som vendte jorda"
+    },
+    {
+      "type": "text",
+      "content": "Helt siden mennesket [først begynte å dyrke jorda](/historie/jordbruk-og-sivilisasjoner/jordbruk-og-sivilisasjoner) for rundt 12 000 år siden, har bedre redskaper vært nøkkelen til mer mat. De aller første plogene var enkle. De kalles ard, og var lite mer enn en spiss kjepp som risset en grunn fure i overflaten. Det fungerte greit i den tørre, lette jorda rundt Middelhavet. Men i Nord-Europa var jorda tung, våt og full av leire. Arden bare skrapte i den og fikk den ikke til å gi avling."
+    },
+    {
+      "type": "text",
+      "content": "Løsningen kom med den tunge plogen. Den hadde et skjær av jern som skar ned i jorda, og en buet plate som løftet hele jordlaget opp og vendte det rundt. Ugresset ble begravet, vannet rant bort, og frisk næring kom opp til overflaten. Plutselig kunne folk dyrke den rike, tunge jorda som dekket store deler av Nord-Europa. Den tunge plogen var dyr og trengte flere okser eller hester for å dras, så bøndene gikk ofte sammen om å eie den. Slik vokste landsbyene fram der den tunge plogen kom."
+    },
+    {
+      "type": "component",
+      "name": "Comparison",
+      "props": {
+        "title": "Arden mot den tunge plogen",
+        "leftTitle": "Arden (den enkle plogen)",
+        "rightTitle": "Den tunge plogen",
+        "items": [
+          {
+            "label": "Hva gjorde den med jorda?",
+            "left": "Risset bare en grunn fure i overflaten",
+            "right": "Skar, løftet og vendte hele jordlaget"
+          },
+          {
+            "label": "Hvor passet den?",
+            "left": "Tørr, lett jord i sør",
+            "right": "Tung, våt leirjord i Nord-Europa"
+          },
+          {
+            "label": "Hva krevde den?",
+            "left": "Kunne dras av ett dyr eller et menneske",
+            "right": "Trengte flere okser eller hester sammen"
+          },
+          {
+            "label": "Resultat",
+            "left": "Små avlinger på den letteste jorda",
+            "right": "Helt ny dyrkingsjord og større avlinger"
+          }
+        ]
+      }
+    },
+    {
+      "type": "header",
+      "text": "Å la jorda hvile"
+    },
+    {
+      "type": "text",
+      "content": "Det var ett problem som plaget alle bønder: jorda ble sliten. Plantene suger næring ut av jorda, og etter noen år ga åkeren mindre og mindre. Den gamle løsningen var å la en del av jorda ligge tom, eller brakk, hvert år så den kunne hvile. Mange steder delte bøndene jorda i tre og lot en tredjedel hvile om gangen. Det betydde at en tredjedel av all jorda ikke ga mat i det hele tatt."
+    },
+    {
+      "type": "text",
+      "content": "På 1700-tallet kom et smart triks som forandret alt: vekselbruk. I stedet for å la åkeren ligge tom, sådde bøndene kløver og rotvekster i den. Kløver gjør noe nesten magisk: den henter nitrogen ned fra lufta og legger det igjen i jorda som ny næring. Samtidig kunne dyrene spise kløveren og rotvekstene, og da ga de mer møkk, som igjen gjorde jorda enda rikere. Nå trengte ingen åker å ligge tom lenger. Denne stille forandringen kalles ofte jordbruksrevolusjonen på 1700-tallet, og den gjorde at langt flere folk kunne mettes av samme areal."
+    },
+    {
+      "type": "header",
+      "text": "Næring fra lufta"
+    },
+    {
+      "type": "text",
+      "content": "Selv med kløver og møkk var det alltid én ting det var for lite av: nitrogen. Nitrogen er det viktigste næringsstoffet for at planter skal vokse, og i tusenvis av år var de eneste kildene møkk, kløver og fugleskitt. Det satte en grense for hvor mye mat verden kunne lage. I 1909 klarte to tyske forskere, Fritz Haber og Carl Bosch, noe utrolig: de fant en måte å hente nitrogen rett ut av lufta og lage kunstgjødsel av det. Nå kunne bonden rett og slett kjøpe næring i sekk og strø den ut over åkeren. Avlingene skjøt i været."
+    },
+    {
+      "type": "component",
+      "name": "FactBox",
+      "props": {
+        "title": "Brød laget av luft",
+        "content": "Luft er nesten 80 prosent nitrogen, men plantene kan ikke bruke det slik det er. Haber og Bosch sin oppfinnelse løste den gåten. I dag er forskere enige om at omtrent halvparten av all maten i verden er mulig bare på grunn av kunstgjødsel. Uten den ville jorda ikke klart å fø de åtte milliardene menneskene som lever nå. En stor del av nitrogenet i din egen kropp har faktisk vært innom en kunstgjødselfabrikk."
+      }
+    },
+    {
+      "type": "header",
+      "text": "Maskinene tar over"
+    },
+    {
+      "type": "text",
+      "content": "Lenge var muskler den eneste kraften på en gård. Mennesker og hester gjorde alt arbeidet. Det endret seg da [dampmaskinen](/historie/industriell-revolusjon/dampmaskinen) viste at kraft kunne lages av brensel i stedet for muskler, og på 1900-tallet begynte traktoren å erstatte hesten. En traktor blir aldri trøtt, trenger ikke mat når den står stille, og trekker mer enn mange hester til sammen. Enda viktigere var skurtreskeren. Før måtte korn skjæres for hånd med ljå, samles, og tærskes for å skille kornet fra strået. Det tok en hel landsby flere uker. Skurtreskeren gjør alt dette i én eneste kjøretur over åkeren. Plutselig kunne én person med en maskin gjøre arbeidet som før krevde dusinvis av folk."
+    },
+    {
+      "type": "image",
+      "src": "/images/teknologi-og-hverdagsliv/jordbrukets-historie-02.webp",
+      "alt": "Tidlig skurtresker fra 1900-tallet kjører gjennom en gyllen kornåker og høster korn i én operasjon",
+      "caption": "Skurtreskeren gjorde på én dag det som før tok en hel landsby flere uker med ljå og treskeflater."
+    },
+    {
+      "type": "header",
+      "text": "Den grønne revolusjonen"
+    },
+    {
+      "type": "text",
+      "content": "Den siste store forandringen kom etter andre verdenskrig. En amerikansk forsker som het Norman Borlaug brukte mange år på å krysse fram nye typer hvete. De nye plantene ga to til tre ganger så mye korn, tålte sykdom bedre, og passet perfekt sammen med kunstgjødsel og vanning. På 1960-tallet ble disse plantene tatt i bruk i land som Mexico, India og Pakistan. India hadde stått på randen av hungersnød, men klarte snart å dyrke nok mat til hele sin egen befolkning. Dette kalles den grønne revolusjonen. Borlaug fikk Nobels fredspris, og mange mener han reddet rundt en milliard mennesker fra sult."
+    },
+    {
+      "type": "text",
+      "content": "Men de nye metodene hadde også en bakside. De krevde mye kunstgjødsel, vann og maskiner, og det kostet penger. Store gårder klarte seg ofte godt, mens mange små bønder hadde ikke råd til å henge med. Mye kunstgjødsel og sprøytemidler kan også skade naturen og forurense vann. Slik er det ofte med ny teknologi: den løser ett stort problem, men skaper samtidig nye spørsmål vi må finne svar på."
+    },
+    {
+      "type": "header",
+      "text": "Den stille revolusjonen"
+    },
+    {
+      "type": "text",
+      "content": "Plogen, vekselbruket, kunstgjødselen, traktoren og de nye plantene har én ting til felles: hver av dem gjorde at den samme åkeren kunne fø flere folk med mindre arbeid. Men ga mer mat oss flere mennesker, eller tvang flere mennesker oss til å dyrke mer? [Det spørsmålet](/samfunnskunnskap/demografi/malthus-vs-boserup) har forskere kranglet om i lang tid. Da færre trengtes på gården, ble mennesker uansett frie til å bli lærere, sykepleiere, ingeniører og musikere. Hele det moderne samfunnet hviler på dette. Vi forteller gjerne historien som en rekke konger og kriger, men den dypeste forandringen i hverdagen til vanlige folk kom rolig og stille, fra mennesker som fant ut hvordan de kunne dyrke litt mer mat. Neste gang du spiser en skive brød, kan du tenke på at den hviler på tusenvis av år med kloke oppfinnelser."
+    },
+    {
+      "type": "component",
+      "name": "FarmerYieldExplorer",
+      "props": {
+        "title": "Hvor mange kan én bonde fø?"
+      }
+    },
+    {
+      "type": "component",
+      "name": "TimelineComponent",
+      "props": {
+        "compact": true,
+        "events": [
+          {
+            "year": 900,
+            "description": "Den tunge plogen sprer seg i Nord-Europa og åpner rik, våt jord for dyrking."
+          },
+          {
+            "year": 1730,
+            "description": "Vekselbruk med kløver erstatter den tomme brakkåkeren - jorda trenger ikke lenger hvile uten avling."
+          },
+          {
+            "year": 1837,
+            "description": "John Deere lager stålplogen som skjærer rent gjennom den seige prærjorda i USA."
+          },
+          {
+            "year": 1909,
+            "description": "Haber og Bosch henter nitrogen ut av lufta og oppfinner kunstgjødsel."
+          },
+          {
+            "year": 1930,
+            "description": "Traktoren begynner for alvor å erstatte hesten på gårdene."
+          },
+          {
+            "year": 1968,
+            "description": "Den grønne revolusjonen med Borlaugs nye hvete dobler avlingene i India."
+          }
+        ]
+      }
+    },
+    {
+      "type": "component",
+      "name": "Quiz",
+      "props": {
+        "questions": [
+          {
+            "question": "Hvorfor var den tunge plogen så viktig for Nord-Europa?",
+            "options": [
+              "Den var billigere enn arden",
+              "Den kunne dras av ett enkelt menneske",
+              "Den vendte den tunge, våte jorda som arden ikke klarte å dyrke",
+              "Den trengte ingen dyr for å trekkes"
+            ],
+            "answer": 2,
+            "explanation": "Arden risset bare overflaten og var ubrukelig i tung leirjord. Den tunge plogen skar ned, løftet og vendte hele jordlaget, og åpnet dermed store nye områder for dyrking."
+          },
+          {
+            "question": "Hva er vekselbruk, og hvorfor var det bedre enn å la åkeren ligge brakk?",
+            "options": [
+              "Å bytte bønder mellom gårdene hvert år",
+              "Å dyrke kløver og rotvekster i stedet for å la jorda ligge tom, så ingen jord var ubrukt",
+              "Å pløye åkeren to ganger i året",
+              "Å bruke flere hester på samme åker"
+            ],
+            "answer": 1,
+            "explanation": "Med vekselbruk sådde bøndene kløver, som henter nitrogen fra lufta og gjødsler jorda. Da trengte ingen åker å ligge tom og ubrukt, slik den gjorde i det gamle systemet med brakk."
+          },
+          {
+            "question": "Hva oppdaget Haber og Bosch i 1909?",
+            "options": [
+              "En ny type hvete som tålte sykdom",
+              "Den første traktoren",
+              "En måte å hente nitrogen ut av lufta og lage kunstgjødsel",
+              "Hvordan man bygger en skurtresker"
+            ],
+            "answer": 2,
+            "explanation": "Haber-Bosch-metoden gjorde det mulig å lage kunstgjødsel av nitrogenet i lufta. I dag er omtrent halvparten av verdens matproduksjon avhengig av denne oppfinnelsen."
+          },
+          {
+            "question": "Hva gjorde skurtreskeren med arbeidet på gården?",
+            "options": [
+              "Den gjorde at man trengte flere folk i innhøstingen",
+              "Den skar, samlet og tærsket kornet i én operasjon som før krevde mange folk og flere uker",
+              "Den erstattet kunstgjødsel",
+              "Den ble brukt til å pløye om våren"
+            ],
+            "answer": 1,
+            "explanation": "Før måtte korn skjæres med ljå, samles og tærskes for hånd. Skurtreskeren gjør alt dette i én kjøretur, slik at én person kan gjøre det som før krevde en hel landsby."
+          },
+          {
+            "question": "Hva var et resultat av at færre mennesker trengtes på gårdene?",
+            "options": [
+              "Folk fikk mindre mat enn før",
+              "Mennesker ble frie til å jobbe med andre ting, som å bli lærere, sykepleiere og ingeniører",
+              "Alle flyttet tilbake til landsbygda",
+              "Jordbruket forsvant helt"
+            ],
+            "answer": 1,
+            "explanation": "Da hver bonde kunne fø flere folk, ble arbeidskraft frigjort til alt det andre et moderne samfunn trenger. Den stille jordbruksrevolusjonen er en av grunnene til at samfunnet vårt ser ut som det gjør i dag."
+          }
+        ]
+      }
+    }
+  ],
+  "timeline": []
 }

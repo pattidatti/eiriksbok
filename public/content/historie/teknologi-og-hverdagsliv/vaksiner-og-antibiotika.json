@@ -1,224 +1,242 @@
 {
-    "id": "vaksiner-og-antibiotika",
-    "title": "Vaksiner og antibiotika: medisinen som forlenget livet",
-    "layout": "rich",
-    "year": "1796-1928",
-    "category": "Teknologi og hverdagsliv",
-    "readTime": "9 min lesning",
-    "heroImage": "/images/teknologi-og-hverdagsliv/vaksiner-og-antibiotika-hero.webp",
-    "details": [
-        "For bare hundre år siden døde mange barn av sykdommer vi i dag knapt hører om. Halvparten av alle barn rakk ikke alltid å bli voksne.",
-        "Edward Jenner laget den første vaksinen i 1796, og Alexander Fleming oppdaget penicillin i 1928. Disse to ideene reddet flere liv enn noen krig har tatt.",
-        "Forventet levealder er mer enn doblet på rundt to hundre år. Men i dag møter vi et nytt problem: bakterier som ikke lenger lar seg drepe."
-    ],
-    "externalUrl": "https://snl.no/vaksine",
-    "content": [
-        {
-            "type": "text",
-            "content": "Tenk deg en familie for to hundre år siden. De fikk kanskje seks eller sju barn. Men på en gravstein fra den tiden kan du ofte lese flere små navn med samme etternavn. Mange barn rakk aldri å bli voksne. De døde av sykdommer du sannsynligvis aldri har vært redd for: kopper, difteri, kikhoste, en betent rift på kneet. En enkel infeksjon kunne ta livet av et menneske i full kraft i løpet av noen dager. I dag lever vi nesten dobbelt så lenge som folk gjorde den gangen. Hva forandret seg? Ikke fred. Ikke rikdom alene. Svaret er to ideer fra et laboratorium."
-        },
-        {
-            "type": "image",
-            "src": "/images/teknologi-og-hverdagsliv/vaksiner-og-antibiotika-hero.webp",
-            "alt": "Lege i gammeldags frakk holder en liten glassflaske mot lyset ved et vindu",
-            "caption": "I to hundre år har vaksiner og antibiotika reddet flere liv enn noen annen oppfinnelse i medisinens historie."
-        },
-        {
-            "type": "header",
-            "text": "Da sykdom var en dødsdom"
-        },
-        {
-            "type": "text",
-            "content": "Før 1800-tallet visste ingen hva som egentlig gjorde folk syke. Mange trodde sykdom kom av dårlig luft eller straff fra Gud. De minste levende tingene som finnes, bakterier og virus, var fortsatt usynlige for menneskene. Bakterier er bittesmå levende celler, mens virus er enda mindre og må inn i kroppen din for å lage flere av seg selv. Begge kan gjøre oss syke, og før i tiden hadde legene ingen våpen mot dem. En koppe-epidemi kunne tømme en hel landsby. Noen hundre år tidligere hadde [svartedauden](/historie/middelalderen/svartedauden) drept en tredjedel av alle i Europa, helt uten at noen kunne stoppe den. Halvparten av alle barn døde før de ble voksne i mange land. Døden var en helt vanlig gjest i hjemmet, og folk var vant til å miste søsken og venner mens de fortsatt var små."
-        },
-        {
-            "type": "header",
-            "text": "Bonden, kua og den første vaksinen"
-        },
-        {
-            "type": "text",
-            "content": "I England la en lege ved navn Edward Jenner merke til noe rart. Budeier, jentene som melket kyrne, fikk nesten aldri kopper. Men de fikk ofte en mild og ufarlig sykdom som het kukopper, som de smittet av kyrne. Jenner fikk en dristig idé: hva om den milde kukoppen på en eller annen måte beskyttet kroppen mot den dødelige menneskekoppen?"
-        },
-        {
-            "type": "text",
-            "content": "I 1796 gjorde han et forsøk som ville vært forbudt i dag. Han tok litt væske fra et kukoppe-sår på en budeie og ripet det inn i armen på en frisk gutt på åtte år. Gutten ble litt syk noen dager, og så frisk igjen. Da Jenner senere prøvde å smitte ham med ekte, dødelige kopper, skjedde det ingenting. Gutten var beskyttet. Jenner hadde laget verdens første vaksine. Selve ordet vaksine kommer faktisk fra det latinske ordet for ku, fordi alt sammen begynte med en kukoppe."
-        },
-        {
-            "type": "header",
-            "text": "Hvordan en vaksine egentlig virker"
-        },
-        {
-            "type": "text",
-            "content": "En vaksine lurer kroppen din på en smart måte. Kroppen har et forsvar som heter immunforsvaret, en hær av celler som angriper alt som ikke hører hjemme i kroppen. Problemet er at forsvaret er tregt første gang det møter en ny fiende. Mens det lærer seg å kjenne igjen sykdommen, kan du allerede ha blitt veldig syk. En vaksine gir kroppen en ufarlig versjon av fienden, slik at immunforsvaret kan trene i fred. Da den ekte sykdommen kommer, kjenner forsvaret den igjen med en gang og slår den ned før den rekker å gjøre skade. Det er som en brannøvelse: du øver mens det er trygt, så du vet nøyaktig hva du skal gjøre når det brenner for alvor."
-        },
-        {
-            "type": "component",
-            "name": "FactBox",
-            "props": {
-                "title": "Sykdommen som ble utryddet",
-                "content": "Kopper var en av de mest fryktede sykdommene i hele menneskets historie. Den drepte rundt tre av ti som ble smittet, og etterlot resten med dype arr. Takket være vaksinen Jenner startet, gikk land etter land sammen om en stor vaksinekampanje på 1900-tallet. I 1980 erklærte verden at kopper var helt borte. Det er den eneste menneskesykdommen vi noen gang har klart å utrydde fullstendig fra jorda."
-            }
-        },
-        {
-            "type": "header",
-            "text": "Den skitne skålen som reddet millioner"
-        },
-        {
-            "type": "text",
-            "content": "Vaksiner kunne hindre sykdom, men de kunne ikke hjelpe deg når du allerede var syk. Hvis en bakterie først hadde fått fotfeste i en betent sår eller i lungene, fantes det lenge ingenting legene kunne gjøre. Det forandret seg ved et rent uhell i 1928. En skotsk forsker som het Alexander Fleming dro på ferie og glemte igjen noen skåler med bakterier i laboratoriet sitt. Da han kom tilbake, oppdaget han at en muggsopp hadde landet i en av skålene. Rundt soppen var alle bakteriene døde."
-        },
-        {
-            "type": "text",
-            "content": "De fleste ville bare ha kastet den skitne skålen. Men Fleming skjønte at soppen måtte skille ut et stoff som drepte bakterier. Stoffet kalte han penicillin. Det ble det første antibiotikumet, et medisin som dreper bakterier inni kroppen uten å skade deg. Det tok mange år og hardt arbeid av andre forskere før penicillin kunne lages i store mengder. Under andre verdenskrig reddet det livet til tusenvis av soldater som før ville ha dødd av infeksjoner i sårene. Plutselig var lungebetennelse, blodforgiftning og betente sår noe man kunne kurere på noen dager."
-        },
-        {
-            "type": "image",
-            "src": "/images/teknologi-og-hverdagsliv/vaksiner-og-antibiotika-01.webp",
-            "alt": "Nærbilde av en gammel petriskål med muggsopp og en klar ring rundt der bakteriene mangler",
-            "caption": "Flemings glemte skål: rundt muggsoppen var bakteriene døde. Den klare ringen ble starten på antibiotikaen."
-        },
-        {
-            "type": "component",
-            "name": "Comparison",
-            "props": {
-                "title": "Vaksine mot antibiotika",
-                "leftTitle": "Vaksine",
-                "rightTitle": "Antibiotika",
-                "items": [
-                    {
-                        "label": "Når brukes den?",
-                        "left": "Før du blir syk, for å hindre sykdommen",
-                        "right": "Etter at du har blitt syk, for å kurere infeksjonen"
-                    },
-                    {
-                        "label": "Hva gjør den?",
-                        "left": "Lærer immunforsvaret ditt å kjenne igjen fienden",
-                        "right": "Dreper bakteriene direkte inni kroppen"
-                    },
-                    {
-                        "label": "Virker mot",
-                        "left": "Virus og bakterier",
-                        "right": "Bare bakterier, ikke virus"
-                    },
-                    {
-                        "label": "Hvem startet det?",
-                        "left": "Edward Jenner i 1796",
-                        "right": "Alexander Fleming i 1928"
-                    }
-                ]
-            }
-        },
-        {
-            "type": "header",
-            "text": "Flokkimmunitet: beskyttelse for alle"
-        },
-        {
-            "type": "text",
-            "content": "En vaksine beskytter ikke bare deg selv. Den beskytter også menneskene rundt deg. Tenk deg en sykdom som hopper fra person til person. Hvis nesten alle i et samfunn er vaksinert, finner ikke sykdommen noen ny kropp å smitte. Den stopper rett og slett opp og dør ut. Da er også de få som ikke kan vaksineres beskyttet, for eksempel nyfødte babyer eller syke mennesker med svakt immunforsvar. Dette kalles flokkimmunitet. Det fungerer litt som en mur av friske mennesker som stenger sykdommen ute. Men muren har en grense: hvis for mange dropper vaksinen, blir det hull i den, og da kan sykdommen blusse opp igjen. Prøv det selv nedenfor."
-        },
-        {
-            "type": "image",
-            "src": "/images/teknologi-og-hverdagsliv/vaksiner-og-antibiotika-02.webp",
-            "alt": "Lang kø av mennesker venter rolig på vaksine utenfor en lys helsestasjon",
-            "caption": "Når nok mennesker tar vaksinen, beskyttes også de som ikke kan ta den selv. Det er flokkimmunitet i praksis."
-        },
-        {
-            "type": "component",
-            "name": "HerdImmunityExplorer",
-            "props": {
-                "title": "Test flokkimmunitet selv"
-            }
-        },
-        {
-            "type": "header",
-            "text": "Et nytt problem dukker opp"
-        },
-        {
-            "type": "text",
-            "content": "Vaksiner og antibiotika ga oss et lengre og tryggere liv enn noen generasjon før oss. Men medaljen har en bakside. Bakterier er levende, og levende ting kan forandre seg. Hver gang vi bruker antibiotika, dør de svakeste bakteriene først. De aller seigeste kan overleve, og de gir egenskapene sine videre. Etter mange runder kan vi ende opp med bakterier som ingen kjent medisin klarer å drepe. Dette kalles antibiotikaresistens, og det er et av de største helseproblemene i verden i dag. Jo mer vi sløser med antibiotika, jo raskere slutter den å virke. Derfor skal du aldri ta antibiotika mot en forkjølelse, for forkjølelse er et virus, og antibiotika virker bare mot bakterier."
-        },
-        {
-            "type": "text",
-            "content": "Historien om vaksiner og antibiotika er derfor ikke ferdig. To enkle ideer, en kukoppe og en glemt skål med muggsopp, forandret hva det vil si å være menneske. Likevel var ikke medisinen alene om å redde oss. Like viktig var arbeidet med [rent vann og kloakk](/historie/teknologi-og-hverdagsliv/vann-og-kloakk), som stoppet mange sykdommer før de i det hele tatt rakk å gjøre noen syk. Vi sørger ikke lenger over halvparten av barna våre, og en betent rift er ikke lenger en dødsdom. Men oppfinnelser som redder liv må også passes på. Neste gang du får en vaksine eller en kur som gjør deg frisk på noen dager, er det verdt å huske hvor nytt og hvor skjørt dette egentlig er."
-        },
-        {
-            "type": "component",
-            "name": "TimelineComponent",
-            "props": {
-                "compact": true,
-                "events": [
-                    { "year": 1796, "description": "Edward Jenner lager verdens første vaksine ved hjelp av kukopper." },
-                    { "year": 1885, "description": "Louis Pasteur lager en vaksine mot rabies og redder en gutt bitt av en gal hund." },
-                    { "year": 1928, "description": "Alexander Fleming oppdager penicillin ved et uhell i et rotete laboratorium." },
-                    { "year": 1942, "description": "Penicillin lages i store mengder og redder soldater under andre verdenskrig." },
-                    { "year": 1955, "description": "Jonas Salk lager en vaksine mot polio, en sykdom som lammet tusenvis av barn." },
-                    { "year": 1980, "description": "Verden erklærer at kopper er utryddet, den eneste menneskesykdommen vi har klart å fjerne helt." }
-                ]
-            }
-        },
-        {
-            "type": "component",
-            "name": "Quiz",
-            "props": {
-                "questions": [
-                    {
-                        "question": "Hva la Edward Jenner merke til som ga ham ideen til vaksinen?",
-                        "options": [
-                            "At barn som drakk mye melk ble friskere",
-                            "At budeier som fikk den milde kukoppen nesten aldri fikk dødelige kopper",
-                            "At kyr aldri ble syke",
-                            "At kopper bare rammet voksne"
-                        ],
-                        "answer": 1,
-                        "explanation": "Jenner så at budeier som hadde hatt den ufarlige kukoppen var beskyttet mot den dødelige menneskekoppen. I 1796 brukte han dette til å lage verdens første vaksine."
-                    },
-                    {
-                        "question": "Hvordan virker en vaksine?",
-                        "options": [
-                            "Den dreper bakteriene direkte inni kroppen",
-                            "Den gir kroppen en ufarlig versjon av sykdommen så immunforsvaret kan lære seg å kjenne den igjen",
-                            "Den vasker bort virus med vann",
-                            "Den gjør at du aldri kan bli syk av noe igjen"
-                        ],
-                        "answer": 1,
-                        "explanation": "En vaksine lar immunforsvaret trene mot en ufarlig versjon av fienden. Da den ekte sykdommen kommer, kjenner kroppen den igjen og slår den ned før den rekker å gjøre skade."
-                    },
-                    {
-                        "question": "Hvordan oppdaget Alexander Fleming penicillin?",
-                        "options": [
-                            "Han fant det i en bok fra middelalderen",
-                            "Han laget det med vilje etter mange års planlegging",
-                            "Ved et uhell, da en muggsopp hadde drept bakteriene i en glemt skål",
-                            "Han fikk det av en lege i England"
-                        ],
-                        "answer": 2,
-                        "explanation": "Fleming glemte igjen noen bakterieskåler da han dro på ferie i 1928. En muggsopp hadde landet i en av dem og drept bakteriene rundt seg. Soppen skilte ut penicillin, det første antibiotikumet."
-                    },
-                    {
-                        "question": "Hva er flokkimmunitet?",
-                        "options": [
-                            "At dyr blir vaksinert sammen med mennesker",
-                            "At sykdommen stopper opp fordi nesten alle er vaksinert, slik at også de uvaksinerte beskyttes",
-                            "At immunforsvaret blir sterkere av å være i en flokk",
-                            "At bare voksne trenger vaksine"
-                        ],
-                        "answer": 1,
-                        "explanation": "Når nesten alle er vaksinert, finner ikke sykdommen noen ny kropp å smitte, og den dør ut. Da er også de få som ikke kan vaksineres beskyttet av muren av friske mennesker rundt dem."
-                    },
-                    {
-                        "question": "Hvorfor skal du aldri ta antibiotika mot en forkjølelse?",
-                        "options": [
-                            "Fordi antibiotika er for dyrt",
-                            "Fordi forkjølelse er et virus, og antibiotika virker bare mot bakterier",
-                            "Fordi forkjølelse går over av seg selv på ett år",
-                            "Fordi antibiotika bare virker på barn"
-                        ],
-                        "answer": 1,
-                        "explanation": "Forkjølelse skyldes virus, og antibiotika dreper bare bakterier. Å bruke antibiotika unødvendig gjør at bakterier raskere blir motstandsdyktige, og da slutter medisinen å virke når vi trenger den."
-                    }
-                ]
-            }
-        }
-    ],
-    "timeline": []
+  "id": "vaksiner-og-antibiotika",
+  "title": "Vaksiner og antibiotika: medisinen som forlenget livet",
+  "layout": "rich",
+  "year": "1796-1928",
+  "category": "Teknologi og hverdagsliv",
+  "readTime": "9 min lesning",
+  "heroImage": "/images/placeholder.webp",
+  "details": [
+    "For bare hundre år siden døde mange barn av sykdommer vi i dag knapt hører om. Halvparten av alle barn rakk ikke alltid å bli voksne.",
+    "Edward Jenner laget den første vaksinen i 1796, og Alexander Fleming oppdaget penicillin i 1928. Disse to ideene reddet flere liv enn noen krig har tatt.",
+    "Forventet levealder er mer enn doblet på rundt to hundre år. Men i dag møter vi et nytt problem: bakterier som ikke lenger lar seg drepe."
+  ],
+  "externalUrl": "https://snl.no/vaksine",
+  "content": [
+    {
+      "type": "text",
+      "content": "Tenk deg en familie for to hundre år siden. De fikk kanskje seks eller sju barn. Men på en gravstein fra den tiden kan du ofte lese flere små navn med samme etternavn. Mange barn rakk aldri å bli voksne. De døde av sykdommer du sannsynligvis aldri har vært redd for: kopper, difteri, kikhoste, en betent rift på kneet. En enkel infeksjon kunne ta livet av et menneske i full kraft i løpet av noen dager. I dag lever vi nesten dobbelt så lenge som folk gjorde den gangen. Hva forandret seg? Ikke fred. Ikke rikdom alene. Svaret er to ideer fra et laboratorium."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Lege i gammeldags frakk holder en liten glassflaske mot lyset ved et vindu",
+      "caption": "I to hundre år har vaksiner og antibiotika reddet flere liv enn noen annen oppfinnelse i medisinens historie."
+    },
+    {
+      "type": "header",
+      "text": "Da sykdom var en dødsdom"
+    },
+    {
+      "type": "text",
+      "content": "Før 1800-tallet visste ingen hva som egentlig gjorde folk syke. Mange trodde sykdom kom av dårlig luft eller straff fra Gud. De minste levende tingene som finnes, bakterier og virus, var fortsatt usynlige for menneskene. Bakterier er bittesmå levende celler, mens virus er enda mindre og må inn i kroppen din for å lage flere av seg selv. Begge kan gjøre oss syke, og før i tiden hadde legene ingen våpen mot dem. En koppe-epidemi kunne tømme en hel landsby. Noen hundre år tidligere hadde [svartedauden](/historie/middelalderen/svartedauden) drept en tredjedel av alle i Europa, helt uten at noen kunne stoppe den. Halvparten av alle barn døde før de ble voksne i mange land. Døden var en helt vanlig gjest i hjemmet, og folk var vant til å miste søsken og venner mens de fortsatt var små."
+    },
+    {
+      "type": "header",
+      "text": "Bonden, kua og den første vaksinen"
+    },
+    {
+      "type": "text",
+      "content": "I England la en lege ved navn Edward Jenner merke til noe rart. Budeier, jentene som melket kyrne, fikk nesten aldri kopper. Men de fikk ofte en mild og ufarlig sykdom som het kukopper, som de smittet av kyrne. Jenner fikk en dristig idé: hva om den milde kukoppen på en eller annen måte beskyttet kroppen mot den dødelige menneskekoppen?"
+    },
+    {
+      "type": "text",
+      "content": "I 1796 gjorde han et forsøk som ville vært forbudt i dag. Han tok litt væske fra et kukoppe-sår på en budeie og ripet det inn i armen på en frisk gutt på åtte år. Gutten ble litt syk noen dager, og så frisk igjen. Da Jenner senere prøvde å smitte ham med ekte, dødelige kopper, skjedde det ingenting. Gutten var beskyttet. Jenner hadde laget verdens første vaksine. Selve ordet vaksine kommer faktisk fra det latinske ordet for ku, fordi alt sammen begynte med en kukoppe."
+    },
+    {
+      "type": "header",
+      "text": "Hvordan en vaksine egentlig virker"
+    },
+    {
+      "type": "text",
+      "content": "En vaksine lurer kroppen din på en smart måte. Kroppen har et forsvar som heter immunforsvaret, en hær av celler som angriper alt som ikke hører hjemme i kroppen. Problemet er at forsvaret er tregt første gang det møter en ny fiende. Mens det lærer seg å kjenne igjen sykdommen, kan du allerede ha blitt veldig syk. En vaksine gir kroppen en ufarlig versjon av fienden, slik at immunforsvaret kan trene i fred. Da den ekte sykdommen kommer, kjenner forsvaret den igjen med en gang og slår den ned før den rekker å gjøre skade. Det er som en brannøvelse: du øver mens det er trygt, så du vet nøyaktig hva du skal gjøre når det brenner for alvor."
+    },
+    {
+      "type": "component",
+      "name": "FactBox",
+      "props": {
+        "title": "Sykdommen som ble utryddet",
+        "content": "Kopper var en av de mest fryktede sykdommene i hele menneskets historie. Den drepte rundt tre av ti som ble smittet, og etterlot resten med dype arr. Takket være vaksinen Jenner startet, gikk land etter land sammen om en stor vaksinekampanje på 1900-tallet. I 1980 erklærte verden at kopper var helt borte. Det er den eneste menneskesykdommen vi noen gang har klart å utrydde fullstendig fra jorda."
+      }
+    },
+    {
+      "type": "header",
+      "text": "Den skitne skålen som reddet millioner"
+    },
+    {
+      "type": "text",
+      "content": "Vaksiner kunne hindre sykdom, men de kunne ikke hjelpe deg når du allerede var syk. Hvis en bakterie først hadde fått fotfeste i en betent sår eller i lungene, fantes det lenge ingenting legene kunne gjøre. Det forandret seg ved et rent uhell i 1928. En skotsk forsker som het Alexander Fleming dro på ferie og glemte igjen noen skåler med bakterier i laboratoriet sitt. Da han kom tilbake, oppdaget han at en muggsopp hadde landet i en av skålene. Rundt soppen var alle bakteriene døde."
+    },
+    {
+      "type": "text",
+      "content": "De fleste ville bare ha kastet den skitne skålen. Men Fleming skjønte at soppen måtte skille ut et stoff som drepte bakterier. Stoffet kalte han penicillin. Det ble det første antibiotikumet, et medisin som dreper bakterier inni kroppen uten å skade deg. Det tok mange år og hardt arbeid av andre forskere før penicillin kunne lages i store mengder. Under andre verdenskrig reddet det livet til tusenvis av soldater som før ville ha dødd av infeksjoner i sårene. Plutselig var lungebetennelse, blodforgiftning og betente sår noe man kunne kurere på noen dager."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Nærbilde av en gammel petriskål med muggsopp og en klar ring rundt der bakteriene mangler",
+      "caption": "Flemings glemte skål: rundt muggsoppen var bakteriene døde. Den klare ringen ble starten på antibiotikaen."
+    },
+    {
+      "type": "component",
+      "name": "Comparison",
+      "props": {
+        "title": "Vaksine mot antibiotika",
+        "leftTitle": "Vaksine",
+        "rightTitle": "Antibiotika",
+        "items": [
+          {
+            "label": "Når brukes den?",
+            "left": "Før du blir syk, for å hindre sykdommen",
+            "right": "Etter at du har blitt syk, for å kurere infeksjonen"
+          },
+          {
+            "label": "Hva gjør den?",
+            "left": "Lærer immunforsvaret ditt å kjenne igjen fienden",
+            "right": "Dreper bakteriene direkte inni kroppen"
+          },
+          {
+            "label": "Virker mot",
+            "left": "Virus og bakterier",
+            "right": "Bare bakterier, ikke virus"
+          },
+          {
+            "label": "Hvem startet det?",
+            "left": "Edward Jenner i 1796",
+            "right": "Alexander Fleming i 1928"
+          }
+        ]
+      }
+    },
+    {
+      "type": "header",
+      "text": "Flokkimmunitet: beskyttelse for alle"
+    },
+    {
+      "type": "text",
+      "content": "En vaksine beskytter ikke bare deg selv. Den beskytter også menneskene rundt deg. Tenk deg en sykdom som hopper fra person til person. Hvis nesten alle i et samfunn er vaksinert, finner ikke sykdommen noen ny kropp å smitte. Den stopper rett og slett opp og dør ut. Da er også de få som ikke kan vaksineres beskyttet, for eksempel nyfødte babyer eller syke mennesker med svakt immunforsvar. Dette kalles flokkimmunitet. Det fungerer litt som en mur av friske mennesker som stenger sykdommen ute. Men muren har en grense: hvis for mange dropper vaksinen, blir det hull i den, og da kan sykdommen blusse opp igjen. Prøv det selv nedenfor."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Lang kø av mennesker venter rolig på vaksine utenfor en lys helsestasjon",
+      "caption": "Når nok mennesker tar vaksinen, beskyttes også de som ikke kan ta den selv. Det er flokkimmunitet i praksis."
+    },
+    {
+      "type": "component",
+      "name": "HerdImmunityExplorer",
+      "props": {
+        "title": "Test flokkimmunitet selv"
+      }
+    },
+    {
+      "type": "header",
+      "text": "Et nytt problem dukker opp"
+    },
+    {
+      "type": "text",
+      "content": "Vaksiner og antibiotika ga oss et lengre og tryggere liv enn noen generasjon før oss. Men medaljen har en bakside. Bakterier er levende, og levende ting kan forandre seg. Hver gang vi bruker antibiotika, dør de svakeste bakteriene først. De aller seigeste kan overleve, og de gir egenskapene sine videre. Etter mange runder kan vi ende opp med bakterier som ingen kjent medisin klarer å drepe. Dette kalles antibiotikaresistens, og det er et av de største helseproblemene i verden i dag. Jo mer vi sløser med antibiotika, jo raskere slutter den å virke. Derfor skal du aldri ta antibiotika mot en forkjølelse, for forkjølelse er et virus, og antibiotika virker bare mot bakterier."
+    },
+    {
+      "type": "text",
+      "content": "Historien om vaksiner og antibiotika er derfor ikke ferdig. To enkle ideer, en kukoppe og en glemt skål med muggsopp, forandret hva det vil si å være menneske. Likevel var ikke medisinen alene om å redde oss. Like viktig var arbeidet med [rent vann og kloakk](/historie/teknologi-og-hverdagsliv/vann-og-kloakk), som stoppet mange sykdommer før de i det hele tatt rakk å gjøre noen syk. Vi sørger ikke lenger over halvparten av barna våre, og en betent rift er ikke lenger en dødsdom. Men oppfinnelser som redder liv må også passes på. Neste gang du får en vaksine eller en kur som gjør deg frisk på noen dager, er det verdt å huske hvor nytt og hvor skjørt dette egentlig er."
+    },
+    {
+      "type": "component",
+      "name": "TimelineComponent",
+      "props": {
+        "compact": true,
+        "events": [
+          {
+            "year": 1796,
+            "description": "Edward Jenner lager verdens første vaksine ved hjelp av kukopper."
+          },
+          {
+            "year": 1885,
+            "description": "Louis Pasteur lager en vaksine mot rabies og redder en gutt bitt av en gal hund."
+          },
+          {
+            "year": 1928,
+            "description": "Alexander Fleming oppdager penicillin ved et uhell i et rotete laboratorium."
+          },
+          {
+            "year": 1942,
+            "description": "Penicillin lages i store mengder og redder soldater under andre verdenskrig."
+          },
+          {
+            "year": 1955,
+            "description": "Jonas Salk lager en vaksine mot polio, en sykdom som lammet tusenvis av barn."
+          },
+          {
+            "year": 1980,
+            "description": "Verden erklærer at kopper er utryddet, den eneste menneskesykdommen vi har klart å fjerne helt."
+          }
+        ]
+      }
+    },
+    {
+      "type": "component",
+      "name": "Quiz",
+      "props": {
+        "questions": [
+          {
+            "question": "Hva la Edward Jenner merke til som ga ham ideen til vaksinen?",
+            "options": [
+              "At barn som drakk mye melk ble friskere",
+              "At budeier som fikk den milde kukoppen nesten aldri fikk dødelige kopper",
+              "At kyr aldri ble syke",
+              "At kopper bare rammet voksne"
+            ],
+            "answer": 1,
+            "explanation": "Jenner så at budeier som hadde hatt den ufarlige kukoppen var beskyttet mot den dødelige menneskekoppen. I 1796 brukte han dette til å lage verdens første vaksine."
+          },
+          {
+            "question": "Hvordan virker en vaksine?",
+            "options": [
+              "Den dreper bakteriene direkte inni kroppen",
+              "Den gir kroppen en ufarlig versjon av sykdommen så immunforsvaret kan lære seg å kjenne den igjen",
+              "Den vasker bort virus med vann",
+              "Den gjør at du aldri kan bli syk av noe igjen"
+            ],
+            "answer": 1,
+            "explanation": "En vaksine lar immunforsvaret trene mot en ufarlig versjon av fienden. Da den ekte sykdommen kommer, kjenner kroppen den igjen og slår den ned før den rekker å gjøre skade."
+          },
+          {
+            "question": "Hvordan oppdaget Alexander Fleming penicillin?",
+            "options": [
+              "Han fant det i en bok fra middelalderen",
+              "Han laget det med vilje etter mange års planlegging",
+              "Ved et uhell, da en muggsopp hadde drept bakteriene i en glemt skål",
+              "Han fikk det av en lege i England"
+            ],
+            "answer": 2,
+            "explanation": "Fleming glemte igjen noen bakterieskåler da han dro på ferie i 1928. En muggsopp hadde landet i en av dem og drept bakteriene rundt seg. Soppen skilte ut penicillin, det første antibiotikumet."
+          },
+          {
+            "question": "Hva er flokkimmunitet?",
+            "options": [
+              "At dyr blir vaksinert sammen med mennesker",
+              "At sykdommen stopper opp fordi nesten alle er vaksinert, slik at også de uvaksinerte beskyttes",
+              "At immunforsvaret blir sterkere av å være i en flokk",
+              "At bare voksne trenger vaksine"
+            ],
+            "answer": 1,
+            "explanation": "Når nesten alle er vaksinert, finner ikke sykdommen noen ny kropp å smitte, og den dør ut. Da er også de få som ikke kan vaksineres beskyttet av muren av friske mennesker rundt dem."
+          },
+          {
+            "question": "Hvorfor skal du aldri ta antibiotika mot en forkjølelse?",
+            "options": [
+              "Fordi antibiotika er for dyrt",
+              "Fordi forkjølelse er et virus, og antibiotika virker bare mot bakterier",
+              "Fordi forkjølelse går over av seg selv på ett år",
+              "Fordi antibiotika bare virker på barn"
+            ],
+            "answer": 1,
+            "explanation": "Forkjølelse skyldes virus, og antibiotika dreper bare bakterier. Å bruke antibiotika unødvendig gjør at bakterier raskere blir motstandsdyktige, og da slutter medisinen å virke når vi trenger den."
+          }
+        ]
+      }
+    }
+  ],
+  "timeline": []
 }

@@ -1,219 +1,234 @@
 {
-    "id": "telefonen",
-    "title": "Å snakke over avstand: telegraf og telefon",
-    "layout": "rich",
-    "year": "1844-1876",
-    "category": "Teknologi og hverdagsliv",
-    "readTime": "8 min lesning",
-    "heroImage": "/images/teknologi-og-hverdagsliv/telefonen-hero.webp",
-    "details": [
-        "I tusenvis av år gikk en beskjed aldri fortere enn en rytter, et skip eller et fottog kunne bære den.",
-        "Telegrafen fra 1844 gjorde om ord til elektriske signaler som fløy gjennom en kabel nesten momentant.",
-        "Med telefonen fra 1876 kunne folk for første gang snakke sammen i sanntid over store avstander."
-    ],
-    "externalUrl": "https://snl.no/telegraf",
-    "content": [
-        {
-            "type": "text",
-            "content": "Tenk deg at du har en venn i Amerika. Du skriver et brev, legger det i postkassa, og så venter du. Brevet blir kjørt til havna, lastet om bord i et seilskip, og krysser Atlanteren mens det kaster på bølgene i ukevis. Først etter en måned eller to leser vennen din det du skrev. Skal du få svar, må du vente like lenge en gang til. I nesten hele menneskets historie var dette den raskeste måten å sende en beskjed over havet på. En beskjed kunne aldri reise fortere enn mennesket, hesten eller skipet som bar den. Så, på under femti år, forandret alt seg."
-        },
-        {
-            "type": "image",
-            "src": "/images/teknologi-og-hverdagsliv/telefonen-hero.webp",
-            "alt": "Hånd holder gammelt brev ved siden av en tidlig telefon i varmt lampelys",
-            "caption": "I tusenvis av år reiste beskjeden like sakte som budbringeren. Telegrafen og telefonen rev grensen i stykker."
-        },
-        {
-            "type": "header",
-            "text": "Verden før beskjeden fløy"
-        },
-        {
-            "type": "text",
-            "content": "Før 1800-tallet var avstand det samme som tid. Skulle en konge sende ordre til hæren sin, måtte en rytter ri av sted med beskjeden. Skulle en kjøpmann vite prisen på korn i en annen by, måtte han sende noen for å spørre. Nyheter om en krig eller en ny konge kunne bruke uker på å nå fram til de fjerneste delene av et land. Når svaret endelig kom, var situasjonen kanskje endret for lengst."
-        },
-        {
-            "type": "text",
-            "content": "Noen prøvde å være smarte. Langs kysten kunne folk tenne bål på fjelltopper for å varsle om fiender, og i Frankrike bygde de en kjede av tårn med store, bevegelige armer på taket. En operatør i ett tårn satte armene i en bestemt stilling, og operatøren i neste tårn så det gjennom en kikkert og gjentok signalet. Slik kunne en beskjed hoppe fra tårn til tårn. Det var raskt for sin tid, men det virket bare på klart vær og i dagslys, og hvert ord måtte gjettes ut fra armenes stilling."
-        },
-        {
-            "type": "header",
-            "text": "Beskjeden blir til elektrisitet"
-        },
-        {
-            "type": "text",
-            "content": "Den virkelige revolusjonen kom da folk lærte å bruke elektrisitet. En amerikaner ved navn Samuel Morse fant ut at han kunne sende elektriske støt gjennom en metalltråd. Et kort støt og et langt støt - en prikk og en strek. Ved å sette sammen prikker og streker på bestemte måter kunne han stave hvilket som helst ord. Dette systemet kalles morsekode, og maskinen kalles en telegraf. I 1844 sendte Morse den første lange meldingen mellom to amerikanske byer."
-        },
-        {
-            "type": "text",
-            "content": "Nå skjedde noe nesten ufattelig for folk på den tiden. Et elektrisk signal beveger seg gjennom en kabel nesten like fort som lyset. En beskjed som før brukte dager med hest, kunne nå nå fram på minutter. Folk satte opp telegraftråder langs [jernbanesporene](/historie/industriell-revolusjon/jernbanen) over hele verden, og i 1866 lyktes det å legge en kabel helt over bunnen av Atlanteren. For første gang kunne en melding krysse havet på minutter i stedet for uker. Verden hadde plutselig krympet."
-        },
-        {
-            "type": "component",
-            "name": "Comparison",
-            "props": {
-                "title": "Budbringeren mot kabelen",
-                "leftTitle": "Brev og budbringer",
-                "rightTitle": "Telegraf og telefon",
-                "items": [
-                    {
-                        "label": "Hva reiste?",
-                        "left": "Selve papiret eller en person",
-                        "right": "Et elektrisk signal gjennom en tråd"
-                    },
-                    {
-                        "label": "Hvor fort?",
-                        "left": "Så fort som hest, skip eller fottog",
-                        "right": "Nesten like fort som lyset"
-                    },
-                    {
-                        "label": "Over Atlanteren",
-                        "left": "Flere uker med seilskip",
-                        "right": "Minutter, eller sekunder med telefon"
-                    },
-                    {
-                        "label": "Kunne du få svar med en gang?",
-                        "left": "Nei, du måtte vente på returbrevet",
-                        "right": "Ja, en telefonsamtale gikk fram og tilbake i sanntid"
-                    }
-                ]
-            }
-        },
-        {
-            "type": "header",
-            "text": "Fra prikker til stemme"
-        },
-        {
-            "type": "text",
-            "content": "Telegrafen var et stort sprang, men den hadde en hake. Du kunne ikke bare bruke den selv. Du måtte gå til et telegrafkontor, betale per ord, og en utdannet operatør banket meldingen din ut i morsekode. På den andre enden satt en operatør og oversatte prikkene og strekene tilbake til ord før beskjeden ble levert. Det kostet penger, det tok tid, og du kunne ikke høre stemmen til den du skrev til."
-        },
-        {
-            "type": "image",
-            "src": "/images/teknologi-og-hverdagsliv/telefonen-01.webp",
-            "alt": "Mann snakker inn i en tidlig telefon på et trebord fra 1800-tallet",
-            "caption": "Med telefonen var det ikke lenger en operatør som banket ut prikker. Nå reiste din egen stemme gjennom tråden."
-        },
-        {
-            "type": "header",
-            "text": "Telefonen kommer"
-        },
-        {
-            "type": "text",
-            "content": "I 1876 tok en mann ved navn Alexander Graham Bell det neste steget. Han fant ut hvordan lyden av en stemme kunne gjøres om til et elektrisk signal, sendes gjennom en tråd, og så gjøres tilbake til lyd i den andre enden. Dette kalles en telefon. Nå var det ikke lenger en operatør som banket ut en kode. Nå reiste din egen stemme gjennom tråden, og den du snakket med, kunne svare med en gang. For første gang i historien kunne to mennesker som var langt fra hverandre, ha en helt vanlig samtale i sanntid."
-        },
-        {
-            "type": "text",
-            "content": "Det forandret hverdagen for vanlige folk på en måte telegrafen aldri gjorde. En telegraf var noe du brukte til viktige beskjeder. En telefon var noe du kunne bruke til å spørre bestemor om hun hadde det bra, eller til å bestille varer fra butikken. Etter hvert fikk folk telefon hjemme i stua. Avstanden mellom mennesker var ikke borte, men den betydde plutselig mye mindre."
-        },
-        {
-            "type": "component",
-            "name": "FactBox",
-            "props": {
-                "title": "Damene som koblet samtalene",
-                "content": "I begynnelsen kunne ikke telefoner ringe rett til hverandre. Alle telefonene i en by var koblet til en sentral, og der satt det operatører som med håndmakt plugget ledninger sammen for å koble deg til den du ville snakke med. Disse jobbene var blant de første kontorjobbene mange unge kvinner fikk, og en hel generasjon stemmer sa Nummer, takk inn i lufta hver dag. Først mye senere overtok automatiske systemer, slik at du kunne slå nummeret selv."
-            }
-        },
-        {
-            "type": "image",
-            "src": "/images/teknologi-og-hverdagsliv/telefonen-02.webp",
-            "alt": "Telefonsentral med operatører som kobler ledninger ved et stort koblingsbord",
-            "caption": "På sentralen koblet operatører hver eneste samtale for hånd, lenge før telefonen kunne ringe direkte."
-        },
-        {
-            "type": "header",
-            "text": "Verden i sanntid"
-        },
-        {
-            "type": "text",
-            "content": "Telegrafen og telefonen la grunnlaget for hele den sammenkoblede verdenen vi lever i nå. Tenk på hvor mye av livet ditt som bygger på å sende beskjeder fort. Du sender en melding til en venn og får svar på sekunder. En lege i Norge kan rådføre seg med en kollega i et annet land mens en operasjon pågår. Penger, nyheter og avtaler farer rundt jorda på et øyeblikk. Beskjedene dine reiser fortsatt gjennom [kabler på havbunnen](/samfunnskunnskap/handel-og-infrastruktur/internett-kabler), akkurat som den aller første telegrafkabelen over Atlanteren. Alt dette begynte med en enkel idé: at en beskjed ikke trenger å reise like sakte som en hest eller et skip, hvis vi sender den som elektrisitet i stedet. Oppfinnelsene var en del av den store industrielle revolusjonen, der [dampmaskinen](/historie/industriell-revolusjon/dampmaskinen) ga kraften og fabrikkene som forandret samfunnet."
-        },
-        {
-            "type": "text",
-            "content": "Som med all teknologi fulgte det nye spørsmål med. Når alle kan nås når som helst, blir det vanskeligere å koble av. Beskjeder kan også avlyttes, og makthavere kan kontrollere hva folk får lov til å sende. Men selve forandringen er en av de største i historien: vi gikk fra en verden der avstand betydde tid, til en verden der du kan høre stemmen til noen på den andre siden av kloden i samme sekund som de snakker."
-        },
-        {
-            "type": "component",
-            "name": "MessageSpeedExplorer",
-            "props": {
-                "title": "Hvor lenge brukte en beskjed over havet?"
-            }
-        },
-        {
-            "type": "component",
-            "name": "TimelineComponent",
-            "props": {
-                "compact": true,
-                "events": [
-                    { "year": 1794, "description": "Frankrike bygger en kjede av signaltårn som sender beskjeder med bevegelige armer over lange avstander." },
-                    { "year": 1844, "description": "Samuel Morse sender den første lange telegrafmeldingen i morsekode mellom to byer." },
-                    { "year": 1866, "description": "En kabel legges over bunnen av Atlanteren, og en melding krysser havet på minutter." },
-                    { "year": 1876, "description": "Alexander Graham Bell tar patent på telefonen, og stemmen kan reise gjennom tråden." },
-                    { "year": 1881, "description": "Norges første telefonsentral åpner, og folk i byene kan ringe hverandre." }
-                ]
-            }
-        },
-        {
-            "type": "component",
-            "name": "Quiz",
-            "props": {
-                "questions": [
-                    {
-                        "question": "Hvorfor brukte en beskjed over Atlanteren ukevis før telegrafen kom?",
-                        "options": [
-                            "Folk var late og ville ikke skrive",
-                            "Beskjeden kunne aldri reise fortere enn skipet eller budbringeren som bar den",
-                            "Det fantes ingen som kunne lese",
-                            "Brev var forbudt over havet"
-                        ],
-                        "answer": 1,
-                        "explanation": "Før telegrafen var avstand det samme som tid. En beskjed måtte fysisk bæres av en person, en hest eller et skip, og kunne ikke gå fortere enn dem."
-                    },
-                    {
-                        "question": "Hva er morsekode?",
-                        "options": [
-                            "Et hemmelig språk bare konger forsto",
-                            "En måte å stave ord ved hjelp av korte og lange elektriske støt, prikker og streker",
-                            "En type seilskip",
-                            "Navnet på den første telefonen"
-                        ],
-                        "answer": 1,
-                        "explanation": "Samuel Morse laget et system der prikker og streker, altså korte og lange elektriske støt, kunne settes sammen til bokstaver og ord og sendes gjennom en telegraftråd."
-                    },
-                    {
-                        "question": "Hva var den store forskjellen mellom telegrafen og telefonen?",
-                        "options": [
-                            "Telefonen var tregere enn telegrafen",
-                            "Telegrafen virket bare om natten",
-                            "Telefonen lot deg sende selve stemmen din og snakke i sanntid, ikke bare sende en kode",
-                            "Telegrafen brukte ikke elektrisitet"
-                        ],
-                        "answer": 2,
-                        "explanation": "Telegrafen sendte en kode som en operatør måtte banke ut. Telefonen gjorde stemmen din om til et signal, slik at to mennesker kunne ha en vanlig samtale med en gang."
-                    },
-                    {
-                        "question": "Hva gjorde operatørene på de første telefonsentralene?",
-                        "options": [
-                            "De skrev ned alt folk sa",
-                            "De koblet samtalene sammen for hånd ved å plugge ledninger i et koblingsbord",
-                            "De reparerte seilskip",
-                            "De sendte morsekode til Amerika"
-                        ],
-                        "answer": 1,
-                        "explanation": "I begynnelsen kunne ikke telefoner ringe direkte. Operatører på sentralen plugget ledninger sammen for hånd for å koble deg til den du ville snakke med."
-                    },
-                    {
-                        "question": "Hvorfor regnes telegrafen og telefonen som en av de største forandringene i historien?",
-                        "options": [
-                            "De gjorde reisene over havet billigere",
-                            "De gjorde at avstand ikke lenger betydde lang ventetid, og folk kunne kommunisere i sanntid",
-                            "De erstattet jernbanen",
-                            "De gjorde at folk sluttet å skrive brev for alltid"
-                        ],
-                        "answer": 1,
-                        "explanation": "Vi gikk fra en verden der avstand betydde uker med venting, til en verden der en beskjed eller en stemme kan nå fram på sekunder. Hele den sammenkoblede verdenen vi lever i, bygger på dette."
-                    }
-                ]
-            }
-        }
-    ],
-    "timeline": []
+  "id": "telefonen",
+  "title": "Å snakke over avstand: telegraf og telefon",
+  "layout": "rich",
+  "year": "1844-1876",
+  "category": "Teknologi og hverdagsliv",
+  "readTime": "8 min lesning",
+  "heroImage": "/images/placeholder.webp",
+  "details": [
+    "I tusenvis av år gikk en beskjed aldri fortere enn en rytter, et skip eller et fottog kunne bære den.",
+    "Telegrafen fra 1844 gjorde om ord til elektriske signaler som fløy gjennom en kabel nesten momentant.",
+    "Med telefonen fra 1876 kunne folk for første gang snakke sammen i sanntid over store avstander."
+  ],
+  "externalUrl": "https://snl.no/telegraf",
+  "content": [
+    {
+      "type": "text",
+      "content": "Tenk deg at du har en venn i Amerika. Du skriver et brev, legger det i postkassa, og så venter du. Brevet blir kjørt til havna, lastet om bord i et seilskip, og krysser Atlanteren mens det kaster på bølgene i ukevis. Først etter en måned eller to leser vennen din det du skrev. Skal du få svar, må du vente like lenge en gang til. I nesten hele menneskets historie var dette den raskeste måten å sende en beskjed over havet på. En beskjed kunne aldri reise fortere enn mennesket, hesten eller skipet som bar den. Så, på under femti år, forandret alt seg."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Hånd holder gammelt brev ved siden av en tidlig telefon i varmt lampelys",
+      "caption": "I tusenvis av år reiste beskjeden like sakte som budbringeren. Telegrafen og telefonen rev grensen i stykker."
+    },
+    {
+      "type": "header",
+      "text": "Verden før beskjeden fløy"
+    },
+    {
+      "type": "text",
+      "content": "Før 1800-tallet var avstand det samme som tid. Skulle en konge sende ordre til hæren sin, måtte en rytter ri av sted med beskjeden. Skulle en kjøpmann vite prisen på korn i en annen by, måtte han sende noen for å spørre. Nyheter om en krig eller en ny konge kunne bruke uker på å nå fram til de fjerneste delene av et land. Når svaret endelig kom, var situasjonen kanskje endret for lengst."
+    },
+    {
+      "type": "text",
+      "content": "Noen prøvde å være smarte. Langs kysten kunne folk tenne bål på fjelltopper for å varsle om fiender, og i Frankrike bygde de en kjede av tårn med store, bevegelige armer på taket. En operatør i ett tårn satte armene i en bestemt stilling, og operatøren i neste tårn så det gjennom en kikkert og gjentok signalet. Slik kunne en beskjed hoppe fra tårn til tårn. Det var raskt for sin tid, men det virket bare på klart vær og i dagslys, og hvert ord måtte gjettes ut fra armenes stilling."
+    },
+    {
+      "type": "header",
+      "text": "Beskjeden blir til elektrisitet"
+    },
+    {
+      "type": "text",
+      "content": "Den virkelige revolusjonen kom da folk lærte å bruke elektrisitet. En amerikaner ved navn Samuel Morse fant ut at han kunne sende elektriske støt gjennom en metalltråd. Et kort støt og et langt støt - en prikk og en strek. Ved å sette sammen prikker og streker på bestemte måter kunne han stave hvilket som helst ord. Dette systemet kalles morsekode, og maskinen kalles en telegraf. I 1844 sendte Morse den første lange meldingen mellom to amerikanske byer."
+    },
+    {
+      "type": "text",
+      "content": "Nå skjedde noe nesten ufattelig for folk på den tiden. Et elektrisk signal beveger seg gjennom en kabel nesten like fort som lyset. En beskjed som før brukte dager med hest, kunne nå nå fram på minutter. Folk satte opp telegraftråder langs [jernbanesporene](/historie/industriell-revolusjon/jernbanen) over hele verden, og i 1866 lyktes det å legge en kabel helt over bunnen av Atlanteren. For første gang kunne en melding krysse havet på minutter i stedet for uker. Verden hadde plutselig krympet."
+    },
+    {
+      "type": "component",
+      "name": "Comparison",
+      "props": {
+        "title": "Budbringeren mot kabelen",
+        "leftTitle": "Brev og budbringer",
+        "rightTitle": "Telegraf og telefon",
+        "items": [
+          {
+            "label": "Hva reiste?",
+            "left": "Selve papiret eller en person",
+            "right": "Et elektrisk signal gjennom en tråd"
+          },
+          {
+            "label": "Hvor fort?",
+            "left": "Så fort som hest, skip eller fottog",
+            "right": "Nesten like fort som lyset"
+          },
+          {
+            "label": "Over Atlanteren",
+            "left": "Flere uker med seilskip",
+            "right": "Minutter, eller sekunder med telefon"
+          },
+          {
+            "label": "Kunne du få svar med en gang?",
+            "left": "Nei, du måtte vente på returbrevet",
+            "right": "Ja, en telefonsamtale gikk fram og tilbake i sanntid"
+          }
+        ]
+      }
+    },
+    {
+      "type": "header",
+      "text": "Fra prikker til stemme"
+    },
+    {
+      "type": "text",
+      "content": "Telegrafen var et stort sprang, men den hadde en hake. Du kunne ikke bare bruke den selv. Du måtte gå til et telegrafkontor, betale per ord, og en utdannet operatør banket meldingen din ut i morsekode. På den andre enden satt en operatør og oversatte prikkene og strekene tilbake til ord før beskjeden ble levert. Det kostet penger, det tok tid, og du kunne ikke høre stemmen til den du skrev til."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Mann snakker inn i en tidlig telefon på et trebord fra 1800-tallet",
+      "caption": "Med telefonen var det ikke lenger en operatør som banket ut prikker. Nå reiste din egen stemme gjennom tråden."
+    },
+    {
+      "type": "header",
+      "text": "Telefonen kommer"
+    },
+    {
+      "type": "text",
+      "content": "I 1876 tok en mann ved navn Alexander Graham Bell det neste steget. Han fant ut hvordan lyden av en stemme kunne gjøres om til et elektrisk signal, sendes gjennom en tråd, og så gjøres tilbake til lyd i den andre enden. Dette kalles en telefon. Nå var det ikke lenger en operatør som banket ut en kode. Nå reiste din egen stemme gjennom tråden, og den du snakket med, kunne svare med en gang. For første gang i historien kunne to mennesker som var langt fra hverandre, ha en helt vanlig samtale i sanntid."
+    },
+    {
+      "type": "text",
+      "content": "Det forandret hverdagen for vanlige folk på en måte telegrafen aldri gjorde. En telegraf var noe du brukte til viktige beskjeder. En telefon var noe du kunne bruke til å spørre bestemor om hun hadde det bra, eller til å bestille varer fra butikken. Etter hvert fikk folk telefon hjemme i stua. Avstanden mellom mennesker var ikke borte, men den betydde plutselig mye mindre."
+    },
+    {
+      "type": "component",
+      "name": "FactBox",
+      "props": {
+        "title": "Damene som koblet samtalene",
+        "content": "I begynnelsen kunne ikke telefoner ringe rett til hverandre. Alle telefonene i en by var koblet til en sentral, og der satt det operatører som med håndmakt plugget ledninger sammen for å koble deg til den du ville snakke med. Disse jobbene var blant de første kontorjobbene mange unge kvinner fikk, og en hel generasjon stemmer sa Nummer, takk inn i lufta hver dag. Først mye senere overtok automatiske systemer, slik at du kunne slå nummeret selv."
+      }
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Telefonsentral med operatører som kobler ledninger ved et stort koblingsbord",
+      "caption": "På sentralen koblet operatører hver eneste samtale for hånd, lenge før telefonen kunne ringe direkte."
+    },
+    {
+      "type": "header",
+      "text": "Verden i sanntid"
+    },
+    {
+      "type": "text",
+      "content": "Telegrafen og telefonen la grunnlaget for hele den sammenkoblede verdenen vi lever i nå. Tenk på hvor mye av livet ditt som bygger på å sende beskjeder fort. Du sender en melding til en venn og får svar på sekunder. En lege i Norge kan rådføre seg med en kollega i et annet land mens en operasjon pågår. Penger, nyheter og avtaler farer rundt jorda på et øyeblikk. Beskjedene dine reiser fortsatt gjennom [kabler på havbunnen](/samfunnskunnskap/handel-og-infrastruktur/internett-kabler), akkurat som den aller første telegrafkabelen over Atlanteren. Alt dette begynte med en enkel idé: at en beskjed ikke trenger å reise like sakte som en hest eller et skip, hvis vi sender den som elektrisitet i stedet. Oppfinnelsene var en del av den store industrielle revolusjonen, der [dampmaskinen](/historie/industriell-revolusjon/dampmaskinen) ga kraften og fabrikkene som forandret samfunnet."
+    },
+    {
+      "type": "text",
+      "content": "Som med all teknologi fulgte det nye spørsmål med. Når alle kan nås når som helst, blir det vanskeligere å koble av. Beskjeder kan også avlyttes, og makthavere kan kontrollere hva folk får lov til å sende. Men selve forandringen er en av de største i historien: vi gikk fra en verden der avstand betydde tid, til en verden der du kan høre stemmen til noen på den andre siden av kloden i samme sekund som de snakker."
+    },
+    {
+      "type": "component",
+      "name": "MessageSpeedExplorer",
+      "props": {
+        "title": "Hvor lenge brukte en beskjed over havet?"
+      }
+    },
+    {
+      "type": "component",
+      "name": "TimelineComponent",
+      "props": {
+        "compact": true,
+        "events": [
+          {
+            "year": 1794,
+            "description": "Frankrike bygger en kjede av signaltårn som sender beskjeder med bevegelige armer over lange avstander."
+          },
+          {
+            "year": 1844,
+            "description": "Samuel Morse sender den første lange telegrafmeldingen i morsekode mellom to byer."
+          },
+          {
+            "year": 1866,
+            "description": "En kabel legges over bunnen av Atlanteren, og en melding krysser havet på minutter."
+          },
+          {
+            "year": 1876,
+            "description": "Alexander Graham Bell tar patent på telefonen, og stemmen kan reise gjennom tråden."
+          },
+          {
+            "year": 1881,
+            "description": "Norges første telefonsentral åpner, og folk i byene kan ringe hverandre."
+          }
+        ]
+      }
+    },
+    {
+      "type": "component",
+      "name": "Quiz",
+      "props": {
+        "questions": [
+          {
+            "question": "Hvorfor brukte en beskjed over Atlanteren ukevis før telegrafen kom?",
+            "options": [
+              "Folk var late og ville ikke skrive",
+              "Beskjeden kunne aldri reise fortere enn skipet eller budbringeren som bar den",
+              "Det fantes ingen som kunne lese",
+              "Brev var forbudt over havet"
+            ],
+            "answer": 1,
+            "explanation": "Før telegrafen var avstand det samme som tid. En beskjed måtte fysisk bæres av en person, en hest eller et skip, og kunne ikke gå fortere enn dem."
+          },
+          {
+            "question": "Hva er morsekode?",
+            "options": [
+              "Et hemmelig språk bare konger forsto",
+              "En måte å stave ord ved hjelp av korte og lange elektriske støt, prikker og streker",
+              "En type seilskip",
+              "Navnet på den første telefonen"
+            ],
+            "answer": 1,
+            "explanation": "Samuel Morse laget et system der prikker og streker, altså korte og lange elektriske støt, kunne settes sammen til bokstaver og ord og sendes gjennom en telegraftråd."
+          },
+          {
+            "question": "Hva var den store forskjellen mellom telegrafen og telefonen?",
+            "options": [
+              "Telefonen var tregere enn telegrafen",
+              "Telegrafen virket bare om natten",
+              "Telefonen lot deg sende selve stemmen din og snakke i sanntid, ikke bare sende en kode",
+              "Telegrafen brukte ikke elektrisitet"
+            ],
+            "answer": 2,
+            "explanation": "Telegrafen sendte en kode som en operatør måtte banke ut. Telefonen gjorde stemmen din om til et signal, slik at to mennesker kunne ha en vanlig samtale med en gang."
+          },
+          {
+            "question": "Hva gjorde operatørene på de første telefonsentralene?",
+            "options": [
+              "De skrev ned alt folk sa",
+              "De koblet samtalene sammen for hånd ved å plugge ledninger i et koblingsbord",
+              "De reparerte seilskip",
+              "De sendte morsekode til Amerika"
+            ],
+            "answer": 1,
+            "explanation": "I begynnelsen kunne ikke telefoner ringe direkte. Operatører på sentralen plugget ledninger sammen for hånd for å koble deg til den du ville snakke med."
+          },
+          {
+            "question": "Hvorfor regnes telegrafen og telefonen som en av de største forandringene i historien?",
+            "options": [
+              "De gjorde reisene over havet billigere",
+              "De gjorde at avstand ikke lenger betydde lang ventetid, og folk kunne kommunisere i sanntid",
+              "De erstattet jernbanen",
+              "De gjorde at folk sluttet å skrive brev for alltid"
+            ],
+            "answer": 1,
+            "explanation": "Vi gikk fra en verden der avstand betydde uker med venting, til en verden der en beskjed eller en stemme kan nå fram på sekunder. Hele den sammenkoblede verdenen vi lever i, bygger på dette."
+          }
+        ]
+      }
+    }
+  ],
+  "timeline": []
 }

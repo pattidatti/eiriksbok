@@ -1,212 +1,230 @@
 {
-    "id": "vann-og-vindmolla",
-    "title": "Vannet som jobbet: vann- og vindmølla",
-    "layout": "rich",
-    "year": "100-1750",
-    "category": "Teknologi og hverdagsliv",
-    "readTime": "8 min lesning",
-    "heroImage": "/images/teknologi-og-hverdagsliv/vann-og-vindmolla-hero.webp",
-    "details": [
-        "I tusenvis av år var muskler den eneste kraften mennesker hadde. Møllene var første gang noe annet enn armer og bein gjorde jobben.",
-        "Et vannhjul i en elv kunne male korn døgnet rundt og erstatte arbeidet til titalls mennesker.",
-        "Lenge før dampmaskinen drev møllene sager, hamre og kverner, og la grunnlaget for industrien som kom."
-    ],
-    "externalUrl": "https://snl.no/m%C3%B8lle",
-    "content": [
-        {
-            "type": "text",
-            "content": "Lytt deg tilbake til en morgen for tusen år siden. Inne i et lite hus av tre står det og maler korn. Du hører den tunge steinen som gnisser mot steinen under, og kornet som knaser og blir til mel. Men det er ingen der som sveiver. Ingen svette armer, ingen rygg som verker. Steinen går rundt og rundt helt av seg selv. Hva er det som driver den? Svaret er elva som renner forbi rett utenfor veggen. For første gang i historien hadde mennesker satt noe annet enn sine egne muskler til å gjøre tungt arbeid. Den dagen mølla begynte å gå, begynte også en stille revolusjon."
-        },
-        {
-            "type": "image",
-            "src": "/images/teknologi-og-hverdagsliv/vann-og-vindmolla-hero.webp",
-            "alt": "Stort trehjul drevet av rennende elv ved en gammel vannmølle i morgenlys",
-            "caption": "Vannhjulet snurret så lenge elva rant. For første gang kom kraften fra naturen i stedet for fra menneskenes egne muskler."
-        },
-        {
-            "type": "header",
-            "text": "Da muskler var alt vi hadde"
-        },
-        {
-            "type": "text",
-            "content": "I nesten hele menneskets historie kom all kraft fra levende kropper. Mennesker bar, dro og løftet med sine egne armer. De som var heldige hadde okser eller hester som kunne trekke litt tyngre. Men en kropp blir trøtt. Den må spise, sove og hvile, og den har en grense for hvor mye den orker. Ett av de mest slitsomme arbeidene var å male korn til mel. Det måtte gjøres hver eneste dag, for uten mel ble det ikke brød. Folk brukte en håndkvern, to runde steiner lagt oppå hverandre. Kornet ble helt inn i et hull på toppen, og så måtte noen sveive den øverste steinen rundt time etter time. Det var et hardt og kjedelig arbeid, og det falt ofte på kvinner og slaver."
-        },
-        {
-            "type": "header",
-            "text": "Vannhjulet som aldri ble trøtt"
-        },
-        {
-            "type": "text",
-            "content": "Romerne fant en bedre måte. De bygde et stort hjul av tre og satte det ut i en rennende elv. Vannet som rant forbi, dyttet på skovlene, altså de flate platene rundt hjulet, og fikk hjulet til å snurre. En aksling, en slags roterende stang, førte kraften inn til kvernsteinene inne i mølla. Slik kunne elva male kornet helt av seg selv. Den store fordelen var enkel: elva blir aldri trøtt. Den renner like sterkt om natten som om dagen, og den trenger verken mat eller hvile. En eneste vannmølle kunne male like mye korn som mange titalls mennesker klarte med håndkvern. Det som før tok en hel landsby en hel dag, kunne nå gjøres mens folk sov."
-        },
-        {
-            "type": "component",
-            "name": "Comparison",
-            "props": {
-                "title": "Håndkvern mot vannmølle",
-                "leftTitle": "Håndkvernen",
-                "rightTitle": "Vannmøllen",
-                "items": [
-                    {
-                        "label": "Hvor kom kraften fra?",
-                        "left": "Et menneskes egne armer",
-                        "right": "Rennende vann i en elv"
-                    },
-                    {
-                        "label": "Hvor lenge kunne den jobbe?",
-                        "left": "Til personen ble trøtt og måtte hvile",
-                        "right": "Døgnet rundt, så lenge elva rant"
-                    },
-                    {
-                        "label": "Hvor mye mel ga den?",
-                        "left": "Litt, nok til én familie",
-                        "right": "Mel nok til en hel landsby"
-                    },
-                    {
-                        "label": "Hvem gjorde arbeidet?",
-                        "left": "Ofte kvinner og slaver, hver dag",
-                        "right": "Naturen, mens menneskene gjorde noe annet"
-                    }
-                ]
-            }
-        },
-        {
-            "type": "header",
-            "text": "Mer enn bare mel"
-        },
-        {
-            "type": "text",
-            "content": "Folk skjønte snart at den samme kraften kunne brukes til mye mer enn å male korn. Med noen smarte tannhjul og stenger kunne den runde bevegelsen til hjulet gjøres om til andre slags bevegelser. På den måten drev vannet sager som skar tømmer til planker, store hamre som banket jern til redskaper, og kverner som malte mel til papir. I middelalderen ble Europa fullt av møller. På 1000-tallet alene fantes det flere tusen vannmøller bare i England. Mølla ble selve motoren i landsbyen, og den som eide den, eide makt. Mange steder måtte bøndene betale en avgift for å få male kornet sitt, og kongen eller klosteret tok gjerne en del av melet som betaling."
-        },
-        {
-            "type": "component",
-            "name": "FactBox",
-            "props": {
-                "title": "Møller overalt",
-                "content": "I 1086 laget kongen i England en stor oversikt over hele landet, kalt Domesday Book. Den listet opp over 6000 vannmøller. Det betyr at det fantes en mølle for omtrent hver femtiende familie. Møllene var så verdifulle at de ble nøye notert ned, akkurat som åkrer og husdyr. For en middelalderlandsby var mølla like viktig som strømmen er for oss i dag."
-            }
-        },
-        {
-            "type": "header",
-            "text": "Vinden tar over der elva mangler"
-        },
-        {
-            "type": "text",
-            "content": "Det var bare ett problem med vannmølla: den trengte en elv. På flate, tørre sletter, eller langs kysten der landet var nesten uten fall i terrenget, rant det ikke noe vann med kraft nok. Løsningen kom fra himmelen. På 1100-tallet begynte folk i Europa å bygge vindmøller. I stedet for et hjul i en elv hadde de store seil eller vinger som fanget vinden. Når vinden blåste, snurret vingene rundt og drev de samme kvernsteinene som vannmøllene brukte. I land som Nederland, der det var flatt og vått og blåste mye, ble vindmølla helt avgjørende. Der brukte de den ikke bare til å male korn, men også til å pumpe vann bort fra lavtliggende land, slik at folk kunne bo og dyrke jord der det før hadde vært myr og hav."
-        },
-        {
-            "type": "image",
-            "src": "/images/teknologi-og-hverdagsliv/vann-og-vindmolla-01.webp",
-            "alt": "Tradisjonell nederlandsk vindmølle med store seilvinger på en flat slette mot dramatisk himmel",
-            "caption": "Der det ikke fantes elver, fanget vindmøllene vinden i stedet. I Nederland pumpet de til og med vann bort, slik at folk kunne bo på land som før var hav."
-        },
-        {
-            "type": "header",
-            "text": "En kraft bundet til naturen"
-        },
-        {
-            "type": "text",
-            "content": "Møllene var et stort sprang framover, men de hadde en svakhet de aldri ble kvitt: de var bundet til naturen. En vannmølle måtte stå akkurat der det rant en elv med nok fall. En vindmølle sto stille de dagene det var vindstille, og kunne ta skade når det blåste storm. Du kunne ikke flytte elva eller bestille vind. Kraften var der naturen ga den, og bare når naturen ville. Det betydde at byer og verksteder ofte måtte ligge ved elver eller på vindfulle steder, ikke der det ellers passet best for menneskene."
-        },
-        {
-            "type": "text",
-            "content": "Nettopp her ligger den store ideen som mølla pekte fram mot. Tenk om noen kunne lage en kraft som ikke var bundet til verken elv eller vind. En kraft du kunne ta med deg hvor som helst og skru på når du ville. Det var akkurat det som skjedde noen hundre år senere. Da [dampmaskinen](/historie/industriell-revolusjon/dampmaskinen) kom på 1700-tallet, kunne folk plutselig lage kraft hvor de ville, bare de hadde kull og vann. Men dampmaskinen sto på skuldrene til møllene. I hundrevis av år hadde mølla allerede lært menneskene den viktigste leksjonen av alle: at naturen kunne gjøre det tunge arbeidet for oss."
-        },
-        {
-            "type": "text",
-            "content": "Møllene forandret hverdagen langsomt, men dypt. De frigjorde mennesker fra det evige slitet med å sveive korn, på samme måte som nye redskaper i [jordbrukets historie](/historie/teknologi-og-hverdagsliv/jordbrukets-historie) frigjorde bønder fra det tyngste arbeidet på åkeren. Hver gang en maskin tok over en oppgave, fikk et menneske hendene fri til noe annet. Møllene var den aller første gangen denne ideen ble virkelig: at kraft ikke trenger å komme fra en sliten kropp, men kan hentes rett ut av en elv som renner eller en vind som blåser."
-        },
-        {
-            "type": "image",
-            "src": "/images/teknologi-og-hverdagsliv/vann-og-vindmolla-02.webp",
-            "alt": "Gammel hollandsk vindmølle med store seil mot en åpen himmel",
-            "caption": "Vindmølla fanget kraften i vinden, men sto stille de dagene det var vindstille. Kraften var bundet til naturen."
-        },
-        {
-            "type": "component",
-            "name": "MillPowerExplorer",
-            "props": {
-                "title": "Hvem maler kornet?"
-            }
-        },
-        {
-            "type": "component",
-            "name": "TimelineComponent",
-            "props": {
-                "compact": true,
-                "events": [
-                    { "year": 100, "description": "Romerne bygger vannmøller som maler korn med kraft fra rennende elver." },
-                    { "year": 537, "description": "Under beleiringen av Roma setter folk møllehjul ut i Tiberen for å male korn når landmøllene stopper." },
-                    { "year": 1086, "description": "Domesday Book i England teller over 6000 vannmøller i landet." },
-                    { "year": 1180, "description": "De første vindmøllene dukker opp i Europa der det er for flatt for vannmøller." },
-                    { "year": 1450, "description": "Nederland bruker vindmøller til å pumpe vann bort og vinne nytt land fra havet." },
-                    { "year": 1750, "description": "Møllene har drevet industrien i over tusen år, rett før dampmaskinen tar over." }
-                ]
-            }
-        },
-        {
-            "type": "component",
-            "name": "Quiz",
-            "props": {
-                "questions": [
-                    {
-                        "question": "Hvorfor var møllene så spesielle i historien?",
-                        "options": [
-                            "De var de første maskinene laget av jern",
-                            "De var første gang kraften kom fra naturen i stedet for fra menneskers muskler",
-                            "De gjorde at folk slapp å spise korn",
-                            "De ble bare brukt av konger"
-                        ],
-                        "answer": 1,
-                        "explanation": "I nesten hele historien kom all kraft fra muskler. Møllene var første gang noe annet, nemlig rennende vann og blåsende vind, gjorde det tunge arbeidet i stedet."
-                    },
-                    {
-                        "question": "Hva er den store fordelen med en vannmølle sammenlignet med en håndkvern?",
-                        "options": [
-                            "Den er lettere å bære med seg",
-                            "Den trenger ingen elv",
-                            "Den blir aldri trøtt og kan male døgnet rundt",
-                            "Den lager mel av luft"
-                        ],
-                        "answer": 2,
-                        "explanation": "En elv renner like sterkt natt som dag og blir aldri trøtt. Derfor kunne en vannmølle male mye mer korn enn et menneske med håndkvern noen gang klarte."
-                    },
-                    {
-                        "question": "Hva ble møllene brukt til, i tillegg til å male korn?",
-                        "options": [
-                            "Til å varme opp husene",
-                            "Til å sage tømmer, banke jern og pumpe vann",
-                            "Til å frakte folk over elver",
-                            "Til å sende beskjeder over lange avstander"
-                        ],
-                        "answer": 1,
-                        "explanation": "Med tannhjul og stenger kunne hjulets bevegelse drive sager, hamre og pumper. Mølla ble selve motoren i mange landsbyer og verksteder."
-                    },
-                    {
-                        "question": "Hvorfor begynte folk å bygge vindmøller?",
-                        "options": [
-                            "Fordi de var billigere enn vannmøller",
-                            "Fordi vind er sterkere enn vann",
-                            "Fordi de trengte kraft på flate, tørre steder uten elver",
-                            "Fordi vannmøllene var forbudt"
-                        ],
-                        "answer": 2,
-                        "explanation": "Vannmøller trenger en elv med fall. På flate sletter og langs kysten manglet det slike elver, og da kunne vinden i stedet drive de samme kvernsteinene."
-                    },
-                    {
-                        "question": "Hva var den store svakheten ved møllene som dampmaskinen senere løste?",
-                        "options": [
-                            "De var for dyre å bygge",
-                            "Kraften var bundet til der det fantes elv eller vind",
-                            "De kunne bare male om vinteren",
-                            "De krevde for mange mennesker for å virke"
-                        ],
-                        "answer": 1,
-                        "explanation": "Møllene måtte stå der naturen ga kraft, ved en elv eller på et vindfullt sted. Dampmaskinen kunne derimot lage kraft hvor som helst, bare den hadde kull og vann."
-                    }
-                ]
-            }
-        }
-    ],
-    "timeline": []
+  "id": "vann-og-vindmolla",
+  "title": "Vannet som jobbet: vann- og vindmølla",
+  "layout": "rich",
+  "year": "100-1750",
+  "category": "Teknologi og hverdagsliv",
+  "readTime": "8 min lesning",
+  "heroImage": "/images/placeholder.webp",
+  "details": [
+    "I tusenvis av år var muskler den eneste kraften mennesker hadde. Møllene var første gang noe annet enn armer og bein gjorde jobben.",
+    "Et vannhjul i en elv kunne male korn døgnet rundt og erstatte arbeidet til titalls mennesker.",
+    "Lenge før dampmaskinen drev møllene sager, hamre og kverner, og la grunnlaget for industrien som kom."
+  ],
+  "externalUrl": "https://snl.no/m%C3%B8lle",
+  "content": [
+    {
+      "type": "text",
+      "content": "Lytt deg tilbake til en morgen for tusen år siden. Inne i et lite hus av tre står det og maler korn. Du hører den tunge steinen som gnisser mot steinen under, og kornet som knaser og blir til mel. Men det er ingen der som sveiver. Ingen svette armer, ingen rygg som verker. Steinen går rundt og rundt helt av seg selv. Hva er det som driver den? Svaret er elva som renner forbi rett utenfor veggen. For første gang i historien hadde mennesker satt noe annet enn sine egne muskler til å gjøre tungt arbeid. Den dagen mølla begynte å gå, begynte også en stille revolusjon."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Stort trehjul drevet av rennende elv ved en gammel vannmølle i morgenlys",
+      "caption": "Vannhjulet snurret så lenge elva rant. For første gang kom kraften fra naturen i stedet for fra menneskenes egne muskler."
+    },
+    {
+      "type": "header",
+      "text": "Da muskler var alt vi hadde"
+    },
+    {
+      "type": "text",
+      "content": "I nesten hele menneskets historie kom all kraft fra levende kropper. Mennesker bar, dro og løftet med sine egne armer. De som var heldige hadde okser eller hester som kunne trekke litt tyngre. Men en kropp blir trøtt. Den må spise, sove og hvile, og den har en grense for hvor mye den orker. Ett av de mest slitsomme arbeidene var å male korn til mel. Det måtte gjøres hver eneste dag, for uten mel ble det ikke brød. Folk brukte en håndkvern, to runde steiner lagt oppå hverandre. Kornet ble helt inn i et hull på toppen, og så måtte noen sveive den øverste steinen rundt time etter time. Det var et hardt og kjedelig arbeid, og det falt ofte på kvinner og slaver."
+    },
+    {
+      "type": "header",
+      "text": "Vannhjulet som aldri ble trøtt"
+    },
+    {
+      "type": "text",
+      "content": "Romerne fant en bedre måte. De bygde et stort hjul av tre og satte det ut i en rennende elv. Vannet som rant forbi, dyttet på skovlene, altså de flate platene rundt hjulet, og fikk hjulet til å snurre. En aksling, en slags roterende stang, førte kraften inn til kvernsteinene inne i mølla. Slik kunne elva male kornet helt av seg selv. Den store fordelen var enkel: elva blir aldri trøtt. Den renner like sterkt om natten som om dagen, og den trenger verken mat eller hvile. En eneste vannmølle kunne male like mye korn som mange titalls mennesker klarte med håndkvern. Det som før tok en hel landsby en hel dag, kunne nå gjøres mens folk sov."
+    },
+    {
+      "type": "component",
+      "name": "Comparison",
+      "props": {
+        "title": "Håndkvern mot vannmølle",
+        "leftTitle": "Håndkvernen",
+        "rightTitle": "Vannmøllen",
+        "items": [
+          {
+            "label": "Hvor kom kraften fra?",
+            "left": "Et menneskes egne armer",
+            "right": "Rennende vann i en elv"
+          },
+          {
+            "label": "Hvor lenge kunne den jobbe?",
+            "left": "Til personen ble trøtt og måtte hvile",
+            "right": "Døgnet rundt, så lenge elva rant"
+          },
+          {
+            "label": "Hvor mye mel ga den?",
+            "left": "Litt, nok til én familie",
+            "right": "Mel nok til en hel landsby"
+          },
+          {
+            "label": "Hvem gjorde arbeidet?",
+            "left": "Ofte kvinner og slaver, hver dag",
+            "right": "Naturen, mens menneskene gjorde noe annet"
+          }
+        ]
+      }
+    },
+    {
+      "type": "header",
+      "text": "Mer enn bare mel"
+    },
+    {
+      "type": "text",
+      "content": "Folk skjønte snart at den samme kraften kunne brukes til mye mer enn å male korn. Med noen smarte tannhjul og stenger kunne den runde bevegelsen til hjulet gjøres om til andre slags bevegelser. På den måten drev vannet sager som skar tømmer til planker, store hamre som banket jern til redskaper, og kverner som malte mel til papir. I middelalderen ble Europa fullt av møller. På 1000-tallet alene fantes det flere tusen vannmøller bare i England. Mølla ble selve motoren i landsbyen, og den som eide den, eide makt. Mange steder måtte bøndene betale en avgift for å få male kornet sitt, og kongen eller klosteret tok gjerne en del av melet som betaling."
+    },
+    {
+      "type": "component",
+      "name": "FactBox",
+      "props": {
+        "title": "Møller overalt",
+        "content": "I 1086 laget kongen i England en stor oversikt over hele landet, kalt Domesday Book. Den listet opp over 6000 vannmøller. Det betyr at det fantes en mølle for omtrent hver femtiende familie. Møllene var så verdifulle at de ble nøye notert ned, akkurat som åkrer og husdyr. For en middelalderlandsby var mølla like viktig som strømmen er for oss i dag."
+      }
+    },
+    {
+      "type": "header",
+      "text": "Vinden tar over der elva mangler"
+    },
+    {
+      "type": "text",
+      "content": "Det var bare ett problem med vannmølla: den trengte en elv. På flate, tørre sletter, eller langs kysten der landet var nesten uten fall i terrenget, rant det ikke noe vann med kraft nok. Løsningen kom fra himmelen. På 1100-tallet begynte folk i Europa å bygge vindmøller. I stedet for et hjul i en elv hadde de store seil eller vinger som fanget vinden. Når vinden blåste, snurret vingene rundt og drev de samme kvernsteinene som vannmøllene brukte. I land som Nederland, der det var flatt og vått og blåste mye, ble vindmølla helt avgjørende. Der brukte de den ikke bare til å male korn, men også til å pumpe vann bort fra lavtliggende land, slik at folk kunne bo og dyrke jord der det før hadde vært myr og hav."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Tradisjonell nederlandsk vindmølle med store seilvinger på en flat slette mot dramatisk himmel",
+      "caption": "Der det ikke fantes elver, fanget vindmøllene vinden i stedet. I Nederland pumpet de til og med vann bort, slik at folk kunne bo på land som før var hav."
+    },
+    {
+      "type": "header",
+      "text": "En kraft bundet til naturen"
+    },
+    {
+      "type": "text",
+      "content": "Møllene var et stort sprang framover, men de hadde en svakhet de aldri ble kvitt: de var bundet til naturen. En vannmølle måtte stå akkurat der det rant en elv med nok fall. En vindmølle sto stille de dagene det var vindstille, og kunne ta skade når det blåste storm. Du kunne ikke flytte elva eller bestille vind. Kraften var der naturen ga den, og bare når naturen ville. Det betydde at byer og verksteder ofte måtte ligge ved elver eller på vindfulle steder, ikke der det ellers passet best for menneskene."
+    },
+    {
+      "type": "text",
+      "content": "Nettopp her ligger den store ideen som mølla pekte fram mot. Tenk om noen kunne lage en kraft som ikke var bundet til verken elv eller vind. En kraft du kunne ta med deg hvor som helst og skru på når du ville. Det var akkurat det som skjedde noen hundre år senere. Da [dampmaskinen](/historie/industriell-revolusjon/dampmaskinen) kom på 1700-tallet, kunne folk plutselig lage kraft hvor de ville, bare de hadde kull og vann. Men dampmaskinen sto på skuldrene til møllene. I hundrevis av år hadde mølla allerede lært menneskene den viktigste leksjonen av alle: at naturen kunne gjøre det tunge arbeidet for oss."
+    },
+    {
+      "type": "text",
+      "content": "Møllene forandret hverdagen langsomt, men dypt. De frigjorde mennesker fra det evige slitet med å sveive korn, på samme måte som nye redskaper i [jordbrukets historie](/historie/teknologi-og-hverdagsliv/jordbrukets-historie) frigjorde bønder fra det tyngste arbeidet på åkeren. Hver gang en maskin tok over en oppgave, fikk et menneske hendene fri til noe annet. Møllene var den aller første gangen denne ideen ble virkelig: at kraft ikke trenger å komme fra en sliten kropp, men kan hentes rett ut av en elv som renner eller en vind som blåser."
+    },
+    {
+      "type": "image",
+      "src": "/images/placeholder.webp",
+      "alt": "Gammel hollandsk vindmølle med store seil mot en åpen himmel",
+      "caption": "Vindmølla fanget kraften i vinden, men sto stille de dagene det var vindstille. Kraften var bundet til naturen."
+    },
+    {
+      "type": "component",
+      "name": "MillPowerExplorer",
+      "props": {
+        "title": "Hvem maler kornet?"
+      }
+    },
+    {
+      "type": "component",
+      "name": "TimelineComponent",
+      "props": {
+        "compact": true,
+        "events": [
+          {
+            "year": 100,
+            "description": "Romerne bygger vannmøller som maler korn med kraft fra rennende elver."
+          },
+          {
+            "year": 537,
+            "description": "Under beleiringen av Roma setter folk møllehjul ut i Tiberen for å male korn når landmøllene stopper."
+          },
+          {
+            "year": 1086,
+            "description": "Domesday Book i England teller over 6000 vannmøller i landet."
+          },
+          {
+            "year": 1180,
+            "description": "De første vindmøllene dukker opp i Europa der det er for flatt for vannmøller."
+          },
+          {
+            "year": 1450,
+            "description": "Nederland bruker vindmøller til å pumpe vann bort og vinne nytt land fra havet."
+          },
+          {
+            "year": 1750,
+            "description": "Møllene har drevet industrien i over tusen år, rett før dampmaskinen tar over."
+          }
+        ]
+      }
+    },
+    {
+      "type": "component",
+      "name": "Quiz",
+      "props": {
+        "questions": [
+          {
+            "question": "Hvorfor var møllene så spesielle i historien?",
+            "options": [
+              "De var de første maskinene laget av jern",
+              "De var første gang kraften kom fra naturen i stedet for fra menneskers muskler",
+              "De gjorde at folk slapp å spise korn",
+              "De ble bare brukt av konger"
+            ],
+            "answer": 1,
+            "explanation": "I nesten hele historien kom all kraft fra muskler. Møllene var første gang noe annet, nemlig rennende vann og blåsende vind, gjorde det tunge arbeidet i stedet."
+          },
+          {
+            "question": "Hva er den store fordelen med en vannmølle sammenlignet med en håndkvern?",
+            "options": [
+              "Den er lettere å bære med seg",
+              "Den trenger ingen elv",
+              "Den blir aldri trøtt og kan male døgnet rundt",
+              "Den lager mel av luft"
+            ],
+            "answer": 2,
+            "explanation": "En elv renner like sterkt natt som dag og blir aldri trøtt. Derfor kunne en vannmølle male mye mer korn enn et menneske med håndkvern noen gang klarte."
+          },
+          {
+            "question": "Hva ble møllene brukt til, i tillegg til å male korn?",
+            "options": [
+              "Til å varme opp husene",
+              "Til å sage tømmer, banke jern og pumpe vann",
+              "Til å frakte folk over elver",
+              "Til å sende beskjeder over lange avstander"
+            ],
+            "answer": 1,
+            "explanation": "Med tannhjul og stenger kunne hjulets bevegelse drive sager, hamre og pumper. Mølla ble selve motoren i mange landsbyer og verksteder."
+          },
+          {
+            "question": "Hvorfor begynte folk å bygge vindmøller?",
+            "options": [
+              "Fordi de var billigere enn vannmøller",
+              "Fordi vind er sterkere enn vann",
+              "Fordi de trengte kraft på flate, tørre steder uten elver",
+              "Fordi vannmøllene var forbudt"
+            ],
+            "answer": 2,
+            "explanation": "Vannmøller trenger en elv med fall. På flate sletter og langs kysten manglet det slike elver, og da kunne vinden i stedet drive de samme kvernsteinene."
+          },
+          {
+            "question": "Hva var den store svakheten ved møllene som dampmaskinen senere løste?",
+            "options": [
+              "De var for dyre å bygge",
+              "Kraften var bundet til der det fantes elv eller vind",
+              "De kunne bare male om vinteren",
+              "De krevde for mange mennesker for å virke"
+            ],
+            "answer": 1,
+            "explanation": "Møllene måtte stå der naturen ga kraft, ved en elv eller på et vindfullt sted. Dampmaskinen kunne derimot lage kraft hvor som helst, bare den hadde kull og vann."
+          }
+        ]
+      }
+    }
+  ],
+  "timeline": []
 }
