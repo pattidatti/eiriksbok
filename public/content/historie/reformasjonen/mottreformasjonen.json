@@ -129,7 +129,7 @@
       "type": "component",
       "name": "QuoteBlock",
       "props": {
-        "quote": "Vi må alltid være rede til å tro at det som ser hvitt ut for meg, er svart, dersom kirken har bestemt det slik.",
+        "text": "Vi må alltid være rede til å tro at det som ser hvitt ut for meg, er svart, dersom kirken har bestemt det slik.",
         "author": "Ignatius Loyola, fra «Åndelige øvelser» (1548)"
       }
     },

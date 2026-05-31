@@ -7,6 +7,22 @@ import { useGlossary } from '../context/GlossaryContext';
 import type { Concept, ContentBlock } from '../types';
 import { renderInlineMarkdown } from './markdownUtils';
 
+// Normaliser alternative/legacy prop-navn til komponentens forventede props.
+// Brukes både for legacy-format (props spredt på toppnivå) og standardformatet
+// ({ type: "component", name, props }), slik at en QuoteBlock med "quote"/"source"
+// aldri rendrer tomt selv om JSON bruker eldre navn.
+const normalizeProps = (props: Record<string, unknown>, type?: string) => {
+    if (props.facts && !props.items) props.items = props.facts;
+    if (props.quote && !props.text) props.text = props.quote;
+    if (props.quote && !props.content) props.content = props.quote;
+    if (props.source && !props.author) props.author = props.source;
+    if (props.rows && !props.items) props.items = props.rows;
+    if (props.leftLabel && !props.leftTitle) props.leftTitle = props.leftLabel;
+    if (props.rightLabel && !props.rightTitle) props.rightTitle = props.rightLabel;
+    if (props.items && !props.events && type === 'TimelineComponent') props.events = props.items;
+    return props;
+};
+
 // Simple markdown renderer fallback
 const renderWithMarkdown = (text: string, concepts?: Concept[]) => {
     if (!text) return null;
@@ -173,17 +189,7 @@ export const ArticleContent: React.FC<ArticleContentProps> = React.memo(({ conte
                 const DirectComponent = getComponent(type);
                 if (DirectComponent) {
                     // Prop mapping/aliases for easier JSON authoring
-                    const props = { ...(block as any) };
-
-                    // Alias mapping (legacy/alternative names to component props)
-                    if (props.facts && !props.items) props.items = props.facts;
-                    if (props.quote && !props.text) props.text = props.quote;
-                    if (props.quote && !props.content) props.content = props.quote;
-                    if (props.source && !props.author) props.author = props.source;
-                    if (props.rows && !props.items) props.items = props.rows;
-                    if (props.leftLabel && !props.leftTitle) props.leftTitle = props.leftLabel;
-                    if (props.rightLabel && !props.rightTitle) props.rightTitle = props.rightLabel;
-                    if (props.items && !props.events && (type as string) === 'TimelineComponent') props.events = props.items;
+                    const props = normalizeProps({ ...(block as any) }, type as string);
 
                     return (
                         <div key={index} className="my-4">
@@ -410,7 +416,7 @@ export const ArticleContent: React.FC<ArticleContentProps> = React.memo(({ conte
                         return (
                             <div key={index} data-interactive-component>
                                 <React.Suspense fallback={<div className="h-40 w-full animate-pulse bg-slate-100 rounded-xl my-4 flex items-center justify-center text-slate-400">Laster modul...</div>}>
-                                    <RegisteredComponent {...((block as any).props || {})} />
+                                    <RegisteredComponent {...normalizeProps({ ...((block as any).props || {}) }, ComponentName)} />
                                 </React.Suspense>
                             </div>
                         );

@@ -227,7 +227,7 @@ function FretboardSurface({
                 }}
             />
 
-            <div className="absolute inset-0 flex flex-col py-4">
+            <div className="absolute inset-0 flex flex-col">
                 {Array.from({ length: STRING_COUNT }).map((_, displayIndex) => {
                     const stringIndex = STRING_COUNT - 1 - displayIndex;
                     const thickness = 1 + (5 - stringIndex) * 0.6;

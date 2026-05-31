@@ -157,23 +157,24 @@
             "name": "InterdisciplinaryBridge",
             "props": {
                 "title": "Hva henger sammen med dampmaskinen?",
+                "centerEvent": "Dampmaskinen",
                 "nodes": [
                     {
                         "subject": "Historie",
                         "title": "Barnearbeid i fabrikkene",
-                        "description": "Dampkraft skapte fabrikker — fabrikker skapte barnearbeid.",
+                        "text": "Dampkraft skapte fabrikker — fabrikker skapte barnearbeid.",
                         "link": "/historie/industriell-revolusjon/barnearbeid"
                     },
                     {
                         "subject": "Historie",
                         "title": "Den industrielle revolusjonen",
-                        "description": "Det store bildet av forandringen Watts maskin satte i gang.",
+                        "text": "Det store bildet av forandringen Watts maskin satte i gang.",
                         "link": "/historie/industriell-revolusjon/industriell-revolusjon"
                     },
                     {
                         "subject": "Samfunn",
                         "title": "Arbeidsspesialisering",
-                        "description": "Hvorfor det å dele opp arbeid gjorde fabrikkene så effektive.",
+                        "text": "Hvorfor det å dele opp arbeid gjorde fabrikkene så effektive.",
                         "link": "/samfunnskunnskap/okonomi/arbeidsspesialisering"
                     }
                 ]

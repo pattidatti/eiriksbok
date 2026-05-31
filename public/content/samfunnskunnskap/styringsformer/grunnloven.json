@@ -129,7 +129,7 @@
             "type": "component",
             "name": "QuoteBlock",
             "props": {
-                "quote": "Ytringsfrihet bør finne sted.",
+                "text": "Ytringsfrihet bør finne sted.",
                 "author": "Grunnloven § 100, første setning",
                 "context": "Slik begynner paragrafen som beskytter retten din til å si hva du mener — i klasserommet, i avisa eller på TikTok."
             }

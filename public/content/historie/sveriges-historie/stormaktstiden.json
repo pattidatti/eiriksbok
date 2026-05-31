@@ -132,7 +132,7 @@
             "type": "component",
             "name": "QuoteBlock",
             "props": {
-                "quote": "Mine herrer, jeg trodde dere visste at det er kongen jeg adlyder, ikke Sverige.",
+                "text": "Mine herrer, jeg trodde dere visste at det er kongen jeg adlyder, ikke Sverige.",
                 "author": "Karl XII",
                 "context": "Da rådet hans tryglet om fred etter Poltava."
             }

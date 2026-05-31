@@ -120,7 +120,7 @@
             "type": "component",
             "name": "QuoteBlock",
             "props": {
-                "quote": "Vi tok ikke fra naturen. Vi spurte først, og takket etterpå.",
+                "text": "Vi tok ikke fra naturen. Vi spurte først, og takket etterpå.",
                 "author": "Samisk ordtak"
             }
         },

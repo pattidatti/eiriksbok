@@ -1,56 +1,149 @@
 {
-    "id": "jordbruksrevolusjonen",
+    "id": "jordbruk-og-sivilisasjoner",
     "title": "Jordbruk og Sivilisasjoner",
+    "layout": "rich",
     "subject": "Samfunnsfag",
     "topic": "Historie",
-    "fact": "Visste du at overgangen til jordbruk førte til at menneskene ble lavere og fikk dårligere tenner sammenlignet med jegere og sankere?",
     "year": "12000 fvt - 4000 fvt",
+    "category": "Tidlige sivilisasjoner",
+    "readTime": "9 min lesning",
+    "heroImage": "/images/placeholder.webp",
+    "fact": "Visste du at de første bøndene ble lavere og fikk dårligere tenner enn jegerne og sankerne som levde før dem?",
+    "details": [
+        "Jordbruket oppstod i Den fruktbare halvmåne for rundt 10 000 år siden.",
+        "Overskudd av mat frigjorde folk fra åkeren og skapte de første byene.",
+        "I Norge kom de første bøndene til Østlandet rundt 4000 fvt."
+    ],
     "tags": [
         "jordbruk",
         "steinalder",
         "sivilisasjon",
         "teknologi"
     ],
-    "timeline": [
-        {
-            "year": "10000 fvt",
-            "title": "Jordbruket oppstår",
-            "description": "Mennesker i 'Den fruktbare halvmåne' begynner å dyrke jorden."
-        },
-        {
-            "year": "4000 fvt",
-            "title": "Elvedalssivilisasjoner",
-            "description": "De første store sivilisasjonene oppstår i Mesopotamia og Egypt."
-        },
-        {
-            "year": "4000 fvt",
-            "title": "Jordbruk i Norge",
-            "description": "De første bøndene etablerer seg på Østlandet."
-        },
-        {
-            "year": "2500 fvt",
-            "title": "Stridsøksfolket",
-            "description": "Nye folkegrupper kommer til Norge."
-        }
-    ],
     "content": [
         {
             "type": "text",
-            "content": "Det store skiftet i menneskets historie skjedde da vi gikk fra å være nomader til å bli fastboende bønder. Tidlig jordbruk startet i Midtøsten mellom 8000 og 12 000 fvt. Her begynte folk å bo fast og holde husdyr."
+            "content": "For nesten tolv tusen år siden levde alle mennesker på jorda på samme måte. De var jegere og sankere. Små grupper vandret rundt, jaktet dyr, fisket og plukket bær, frø og røtter. Ingen eide jord, og ingen bodde på samme sted året rundt. Så skjedde det noe som forandret alt: noen begynte å dyrke maten sin selv. Vi kaller dette jordbruksrevolusjonen, og det er kanskje den viktigste forandringen i hele menneskets historie."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Jegerfamilie på vandring i åpent steinalderlandskap",
+            "caption": "I titusenvis av år levde menneskene som jegere og sankere, alltid på vandring."
+        },
+        {
+            "type": "header",
+            "text": "Det store skiftet"
         },
         {
             "type": "text",
-            "content": "Dette la grunnlaget for 'Elvedalssivilisasjoner' (4000–10 000 fvt.) i områder som Irak (Mesopotamia), Egypt og Midtøsten. Fordi de dyrket jorden ved store elver, kunne de produsere nok mat til å bygge større byer og samfunn."
+            "content": "En revolusjon er en rask og stor forandring. Men jordbruksrevolusjonen gikk egentlig sakte. Den startet i et område vi kaller Den fruktbare halvmåne, et belte med god jord som strekker seg fra dagens Israel og Syria, gjennom Irak og ned mot Persiabukta. Her vokste det ville kornsorter som bygg og hvete. For rundt ti tusen år siden la noen merke til at frø som falt i bakken, ble til nye planter. Sakte, over mange hundre år, lærte de å så, vanne og høste."
         },
         {
             "type": "text",
-            "content": "I Norge skjedde denne endringen senere. Jordbruket begynte på Østlandet rundt 4000 fvt. Senere, rundt 2500 fvt., kom 'Stridsøksfolket' fra Germania, og nye folkegrupper (Horder, Ryger) ankom rundt år 400 evt."
+            "content": "Da menneskene begynte å dyrke jorda, måtte de bli boende på ett sted. De bygde hus, ryddet åkrer og temmet dyr som sauer, geiter og kyr. For første gang eide en familie noe stort og fast: jord, hus og buskap. Livet ble trygt på en ny måte - men også hardere."
+        },
+        {
+            "type": "header",
+            "text": "Hva vi vant - og hva vi tapte"
+        },
+        {
+            "type": "text",
+            "content": "Vi tenker ofte at jordbruket bare var et stort framskritt. Men sannheten er mer overraskende. På noen områder fikk bøndene det bedre enn jegerne. På andre fikk de det faktisk verre. Utforsk sammenligningen under og se selv hvem som hadde det best."
+        },
+        {
+            "type": "component",
+            "name": "FarmerVsForager",
+            "props": {}
+        },
+        {
+            "type": "text",
+            "content": "Hvorfor fortsatte de da som bønder, hvis livet på mange måter ble hardere? Svaret er at de egentlig ikke valgte. Hver familie tok små beslutninger som virket fornuftige der og da: så litt mer i år, få flere barn fordi det var mer mat, bygge et hus fordi de likevel ble boende. Etter mange generasjoner satt etterkommerne fast. De var blitt så mange at de aldri kunne gå tilbake til å vandre. Det fantes ingen vei tilbake."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Tidlig steinalderlandsby med åkrer og hus av leire",
+            "caption": "De første bøndene bygde små landsbyer rett ved åkrene sine."
+        },
+        {
+            "type": "header",
+            "text": "Fra overskudd til de første byene"
+        },
+        {
+            "type": "text",
+            "content": "Selv om livet ble hardere, hadde jordbruket en enorm fordel: det ga overskudd. En åker kunne gi mer mat enn én familie trengte. Dette overskuddet er nøkkelen til alt som kom etterpå. For når noen kunne dyrke mat til mange, trengte ikke alle å være bønder lenger."
+        },
+        {
+            "type": "text",
+            "content": "Da kunne noen mennesker gjøre helt andre ting. De ble pottemakere, smeder, prester, soldater eller kjøpmenn. At folk gjør ulike jobber kaller vi arbeidsdeling, og det er en av de viktigste oppfinnelsene i historien. Med arbeidsdeling, overskudd og mange mennesker på ett sted vokste det fram noe helt nytt: byer, konger, lover og skrift. Et slikt samfunn kaller vi en sivilisasjon."
+        },
+        {
+            "type": "text",
+            "content": "Men sivilisasjonen hadde også en bakside. Når noen eide åkrer, korn og buskap, ble noen rike og andre fattige. De som styrte byene og hærene, fikk mer makt enn alle andre. For første gang i historien fantes det konger, mektige familier og slaver. Slik skapte jordbruket ikke bare byer og skrift, men også store forskjeller mellom mennesker."
+        },
+        {
+            "type": "text",
+            "content": "De første store sivilisasjonene vokste fram langs store elver, fordi elvene ga vann til åkrene. Du kan lese mer om hver av dem: [Mesopotamia](/historie/jordbruk-og-sivilisasjoner/mesopotamia) mellom elvene Eufrat og Tigris, [Det gamle Egypt](/historie/jordbruk-og-sivilisasjoner/egypt) ved Nilen, [Indusdalen](/historie/jordbruk-og-sivilisasjoner/indusdalen) i dagens Pakistan og India, og [Det gamle Kina](/historie/jordbruk-og-sivilisasjoner/kina) ved Den gule elven. Alle fire hadde én ting felles: uten jordbrukets overskudd hadde de aldri eksistert."
         },
         {
             "type": "component",
             "name": "FactBox",
             "props": {
-                "content": "Jordbruket startet i 'Den fruktbare halvmåne' i Midtøsten. Dette gjorde at folk kunne bo fast og bygge sivilisasjoner."
+                "title": "Hvorfor akkurat der?",
+                "content": "Den fruktbare halvmåne hadde noe de fleste andre steder manglet: ville planter og dyr som var lette å temme. Bygg, hvete, sauer og geiter fantes alle her. Det var rett og slett god flaks med naturen som gjorde at jordbruket startet nettopp i Midtøsten, og ikke for eksempel i Norge."
+            }
+        },
+        {
+            "type": "header",
+            "text": "Jordbruket kommer til Norge"
+        },
+        {
+            "type": "text",
+            "content": "I Norge kom jordbruket mye senere enn i Midtøsten. Her var folk fortsatt jegere og fiskere lenge etter at de første byene var bygd i Mesopotamia. Først rundt 4000 fvt. begynte de første bøndene å rydde åkrer på Østlandet. De dyrket korn og holdt husdyr, men jakt og fiske var fortsatt viktig i mange hundre år."
+        },
+        {
+            "type": "text",
+            "content": "Rundt 2500 fvt. kom nye folkegrupper til Norge. Arkeologer kaller dem stridsøksfolket, fordi de ble gravlagt med fint slipte stridsøkser. De brakte med seg nye måter å leve på. Slik ble jordbruket sakte en del av livet også her i nord, selv om vinteren og det karrige landet gjorde det vanskeligere enn nede ved de store elvene."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Norsk steinalderbonde rydder åker i kupert landskap",
+            "caption": "På Østlandet ryddet de første bøndene åkrer rundt 4000 fvt."
+        },
+        {
+            "type": "component",
+            "name": "InterdisciplinaryBridge",
+            "props": {
+                "title": "Hvor jordbruket førte",
+                "centerEvent": "Jordbruksrevolusjonen",
+                "nodes": [
+                    {
+                        "subject": "Mesopotamia",
+                        "text": "Overskuddet fra åkrene gjorde at sumererne kunne bygge verdens første byer mellom Eufrat og Tigris.",
+                        "color": "#10b981",
+                        "link": "/historie/jordbruk-og-sivilisasjoner/mesopotamia"
+                    },
+                    {
+                        "subject": "Det gamle Egypt",
+                        "text": "Nilens årlige flom ga så rik jord at Egypt kunne fø en hel sivilisasjon i over tre tusen år.",
+                        "color": "#f59e0b",
+                        "link": "/historie/jordbruk-og-sivilisasjoner/egypt"
+                    },
+                    {
+                        "subject": "Indusdalen",
+                        "text": "Ved elven Indus bygde folk verdens første nøye planlagte byer, med rette gater og kloakk.",
+                        "color": "#6366f1",
+                        "link": "/historie/jordbruk-og-sivilisasjoner/indusdalen"
+                    },
+                    {
+                        "subject": "Det gamle Kina",
+                        "text": "Ved Den gule elven vokste den fjerde store elvedalssivilisasjonen fram, med silke, papir og keisere.",
+                        "color": "#ec4899",
+                        "link": "/historie/jordbruk-og-sivilisasjoner/kina"
+                    }
+                ]
             }
         },
         {
@@ -59,20 +152,65 @@
             "props": {
                 "questions": [
                     {
+                        "question": "Hva var jordbruksrevolusjonen?",
+                        "options": [
+                            "At mennesker begynte å dyrke maten sin selv og bo fast",
+                            "At mennesker fant opp hjulet",
+                            "At mennesker begynte å jakte med pil og bue",
+                            "At mennesker flyttet til Norge"
+                        ],
+                        "answer": "At mennesker begynte å dyrke maten sin selv og bo fast",
+                        "explanation": "Før jordbruket var alle mennesker jegere og sankere som vandret rundt. Med jordbruket begynte de å dyrke mat og bo på ett sted."
+                    },
+                    {
                         "question": "Hvor startet jordbruket først?",
                         "options": [
                             "I Norge",
-                            "I 'Den fruktbare halvmåne' i Midtøsten",
-                            "I Romerriket",
-                            "I Amerika"
+                            "I Den fruktbare halvmåne i Midtøsten",
+                            "I Amerika",
+                            "I Kina"
                         ],
-                        "answer": "I 'Den fruktbare halvmåne' i Midtøsten",
-                        "explanation": "Jordbruket oppstod i Midtøsten ca. 8000-12 000 fvt., lenge før det kom til Norge."
+                        "answer": "I Den fruktbare halvmåne i Midtøsten",
+                        "explanation": "Her vokste det ville kornsorter og fantes dyr som var lette å temme. Derfor startet jordbruket akkurat her, for rundt ti tusen år siden."
+                    },
+                    {
+                        "question": "Hvorfor var overskudd av mat så viktig?",
+                        "options": [
+                            "Fordi maten kunne selges til andre land",
+                            "Fordi folk kunne spise mer enn før",
+                            "Fordi ikke alle trengte å være bønder, så noen kunne gjøre andre jobber",
+                            "Fordi maten varte hele vinteren"
+                        ],
+                        "answer": "Fordi ikke alle trengte å være bønder, så noen kunne gjøre andre jobber",
+                        "explanation": "Når en åker ga mer mat enn én familie trengte, kunne andre bli håndverkere, prester eller soldater. Denne arbeidsdelingen skapte byer og sivilisasjoner."
+                    },
+                    {
+                        "question": "Hva skjedde med helsa til de første bøndene, sammenlignet med jegerne?",
+                        "options": [
+                            "Den ble mye bedre",
+                            "Den ble dårligere: de ble lavere og fikk dårligere tenner",
+                            "Den var helt lik",
+                            "De sluttet å bli syke"
+                        ],
+                        "answer": "Den ble dårligere: de ble lavere og fikk dårligere tenner",
+                        "explanation": "Bøndene spiste mer ensformig og levde tett på husdyr. Skjelettene viser at de ble lavere og fikk dårligere tenner enn jegerne."
+                    },
+                    {
+                        "question": "Når begynte de første bøndene å rydde åkrer på Østlandet i Norge?",
+                        "options": [
+                            "Rundt 10 000 fvt.",
+                            "Rundt 4000 fvt.",
+                            "Rundt år 0",
+                            "Rundt 1000 evt."
+                        ],
+                        "answer": "Rundt 4000 fvt.",
+                        "explanation": "Jordbruket kom til Norge mye senere enn til Midtøsten. På Østlandet startet det rundt 4000 fvt., flere tusen år etter de første byene i Mesopotamia."
                     }
                 ]
             }
         }
     ],
+    "timeline": [],
     "createdDate": "2023-01-01T12:00:00Z",
-    "lastUpdated": "2025-12-03T17:25:16.499Z"
+    "lastUpdated": "2026-05-31T12:00:00Z"
 }

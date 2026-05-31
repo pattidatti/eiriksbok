@@ -1,5 +1,5 @@
 {
-  "buildId": 1780190506757,
+  "buildId": 1780226338092,
   "contentMap": {
     "concept-adel": [
       "content/concepts/adel.json"
@@ -1422,6 +1422,9 @@
     ],
     "sveriges-historie-sveriges-historie": [
       "content/historie/sveriges-historie/sveriges-historie/artikkel.json"
+    ],
+    "jordbrukets-historie": [
+      "content/historie/teknologi-og-hverdagsliv/jordbrukets-historie.json"
     ],
     "test-artikkel": [
       "content/historie/test-artikkel.json"
@@ -3395,6 +3398,7 @@
     "historie/sveriges-historie/stockholm-blodbadet": "content/historie/sveriges-historie/stockholm-blodbadet.json",
     "historie/sveriges-historie/stormaktstiden": "content/historie/sveriges-historie/stormaktstiden.json",
     "historie/sveriges-historie/sveriges-historie/sveriges-historie": "content/historie/sveriges-historie/sveriges-historie/artikkel.json",
+    "historie/teknologi-og-hverdagsliv/jordbrukets-historie": "content/historie/teknologi-og-hverdagsliv/jordbrukets-historie.json",
     "historie/test-artikkel.json/test-artikkel": "content/historie/test-artikkel.json",
     "historie/vikingtiden/vikingtiden": "content/historie/vikingtiden/artikkel.json",
     "historie/vikingtiden/asatro": "content/historie/vikingtiden/asatro.json",

@@ -14,8 +14,8 @@
         "norgeshistorie"
     ],
     "year": "1567-1696",
-    "image": "/images/placeholder.webp",
-    "heroImage": "/images/placeholder.webp",
+    "image": "/images/historie/lov-og-rett/hekseprosessene-hero.webp",
+    "heroImage": "/images/historie/lov-og-rett/hekseprosessene-hero.webp",
     "layout": "rich",
     "category": "Norgeshistorie",
     "readTime": "10 min lesning",
@@ -43,7 +43,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/historie/lov-og-rett/steilneset-memorial.webp",
             "alt": "Steingrunn med 91 fakkellys som brenner i mørket på Vardø, hvert lys representerer en henrettet person",
             "caption": "Steilneset minnested i Vardø. 91 lys for de 91 menneskene som ble brent som hekser i Finnmark."
         },
@@ -116,8 +116,8 @@
             "type": "component",
             "name": "QuoteBlock",
             "props": {
-                "quote": "Jeg har aldri vært i heksesabbat, men jeg sier hva dere vil høre, bare la meg slippe smerten.",
-                "source": "Rekonstruert sitat - liknende uttalelser går igjen i rettsprotokoller fra 1600-tallet"
+                "text": "Jeg har aldri vært i heksesabbat, men jeg sier hva dere vil høre, bare la meg slippe smerten.",
+                "author": "Rekonstruert sitat - liknende uttalelser går igjen i rettsprotokoller fra 1600-tallet"
             }
         },
         {
@@ -155,23 +155,24 @@
             "name": "InterdisciplinaryBridge",
             "props": {
                 "title": "Se sammenhengen",
+                "centerEvent": "Hekseprosessene",
                 "nodes": [
                     {
                         "subject": "Historie",
                         "title": "Magnus Lagabøtes landslov",
-                        "description": "Den norske rettsstaten begynte med å forby blodhevn - men beskyttet ikke mot massehysteri.",
+                        "text": "Den norske rettsstaten begynte med å forby blodhevn - men beskyttet ikke mot massehysteri.",
                         "link": "/historie/lov-og-rett/magnus-landslov"
                     },
                     {
                         "subject": "Detektiv",
                         "title": "Vardø-mysteriet",
-                        "description": "Etterforsk Vardø-prosessene fra 1621 selv som detektiv.",
+                        "text": "Etterforsk Vardø-prosessene fra 1621 selv som detektiv.",
                         "link": "/oving/detektiv/vardo"
                     },
                     {
                         "subject": "KRLE",
                         "title": "Samisk religion",
-                        "description": "Mange av de første anklagde i Finnmark var samiske noaider.",
+                        "text": "Mange av de første anklagde i Finnmark var samiske noaider.",
                         "link": "/krle/religion/samisk/intro"
                     }
                 ]

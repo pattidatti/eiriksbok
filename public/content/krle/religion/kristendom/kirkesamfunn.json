@@ -98,7 +98,7 @@
             "name": "QuoteBlock",
             "props": {
                 "text": "Her står jeg. Jeg kan ikke annet. Gud hjelpe meg. Amen.",
-                "source": "Martin Luther",
+                "author": "Martin Luther",
                 "context": "Sagt i 1521, da keiseren krevde at han skulle ta tilbake skriftene sine. Sitatet er kanskje pyntet på, men ble symbolet for å stå for sin egen samvittighet."
             }
         },

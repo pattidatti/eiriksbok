@@ -110,8 +110,8 @@
             "type": "component",
             "name": "QuoteBlock",
             "props": {
-                "quote": "Med lov skal landet bygges, og ikke med ulov ødes.",
-                "source": "Landslovens prolog (1274)"
+                "text": "Med lov skal landet bygges, og ikke med ulov ødes.",
+                "author": "Landslovens prolog (1274)"
             }
         },
         {
@@ -157,23 +157,24 @@
             "name": "InterdisciplinaryBridge",
             "props": {
                 "title": "Se sammenhengen",
+                "centerEvent": "Landsloven",
                 "nodes": [
                     {
                         "subject": "Historie",
                         "title": "Wergild - drapets pris",
-                        "description": "Systemet Magnus erstattet: fast pris for hvert liv, betalt mellom familier.",
+                        "text": "Systemet Magnus erstattet: fast pris for hvert liv, betalt mellom familier.",
                         "link": "/historie/lov-og-rett/wergild"
                     },
                     {
                         "subject": "Samfunnskunnskap",
                         "title": "Grunnloven 1814",
-                        "description": "Setningen Med lov skal landet bygges kom inn i Grunnloven 540 år senere.",
+                        "text": "Setningen Med lov skal landet bygges kom inn i Grunnloven 540 år senere.",
                         "link": "/samfunnskunnskap/styringsformer/grunnloven"
                     },
                     {
                         "subject": "Samfunnskunnskap",
                         "title": "Makt og legitimitet",
-                        "description": "Hvorfor staten har enerett på vold - et arvet prinsipp fra Landsloven.",
+                        "text": "Hvorfor staten har enerett på vold - et arvet prinsipp fra Landsloven.",
                         "link": "/samfunnskunnskap/styringsformer/makt-og-legitimitet"
                     }
                 ]

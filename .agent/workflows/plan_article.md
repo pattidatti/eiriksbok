@@ -55,10 +55,11 @@ Hver artikkel skal ha **én signaturkomponent** — en interaktiv komponent som 
     - **Core Text Tools:**
         - `WritingFix`: [NEW] Essential for language/writing topics (show "Bad" vs "Good" examples).
         - `Comparison`: [NEW] Compare two texts, images, or concepts side-by-side.
-        - `QuoteBlock`: For primary sources/citates.
+        - `QuoteBlock`: For primary sources/citates. Eksakt prop-skjema (bruk `text`/`author`, IKKE `quote`/`source`): `{ "type": "component", "name": "QuoteBlock", "props": { "text": "<sitatet>", "author": "<kilde/opphav>" } }`
         - `FactBox`: For technical details/summaries.
         - `GlossaryTooltip`: For inline definitions (automatic, but can be manual).
         - `TextHighlighter` / `SentenceBuilder` / `GrammarRuleCard`: For deep language analysis.
+        - `InterdisciplinaryBridge`: Vis tverrfaglige sammenhenger nederst i artikkelen. Eksakt prop-skjema (bruk `centerEvent` + node-felt `text`, IKKE `description`/`title`): `{ "type": "component", "name": "InterdisciplinaryBridge", "props": { "title": "Se sammenhengen", "centerEvent": "<kort tema for midten>", "nodes": [ { "subject": "<fag>", "text": "<én setning om koblingen>", "link": "/absolutt/sti", "color": "#6366f1" } ] } }`
     - **Media & Visuals:**
         - `Gallery`: [NEW] For image collections (use consistent aspect ratios).
         - `TimelineComponent`: Use inside articles with `compact: true`.
@@ -111,6 +112,10 @@ Focus on the "Bones" of the JSON structure.
 - **No Markdown Bolding:** Never use `**text**` for emphasis. Use the concept system.
 - **Cross-linking:** Use `[Link Text](/subject/topic/article-id)` for internal links.
 - **Lists:** Use `{ "type": "list", "items": [...] }`. NEVER use markdown `-` lists.
+- **Bilder (obligatorisk):** Artikkelen MÅ ha `"heroImage": "/images/placeholder.webp"` på toppnivå, og 3 inline bildebokser fordelt i content-arrayen. Eksakte plasseringer: (1) rett etter åpningsteksten, (2) ved et dramatisk vendepunkt midt i artikkelen, (3) etter siste hoveddel (før Quiz). `alt`-teksten (5-10 ord, norsk) beskriver konkret hva bildet skal vise — den brukes av bildegenererings-workflowen. Eksempel:
+  ```json
+  { "type": "image", "src": "/images/placeholder.webp", "alt": "Norske vikingskip i havn, 900-tallet", "caption": "Langskip brukt på raids" }
+  ```
 
 ### 3. Global Data Sync
 - **Timeline:** Sett `year` (eller `date`) på artikkel-JSON-objektet for at artikkelen skal havne i `/tidslinje`. Sub-events for samme artikkel legges i artikkelens egen `timeline[]`-array. `global-timeline.json` regenereres automatisk av `npm run scan:content` — **ikke rediger fila direkte**. Hand-kuraterte events uten tilhørende leksjon legges i `public/content/global-timeline.manual.json`.
@@ -124,24 +129,13 @@ Focus on the "Bones" of the JSON structure.
 ## Phase 3: Visuals & Verification
 Final polish and technical checks.
 
-### 1. Bilder — sett inn plassholdere
-Artikler skal alltid ha bildeplassholdere i JSON slik at `generate_article_images.md` kan generere bilder i batch etterpå. Ingen bilder genereres manuelt her.
+### 1. Bilder — verifiser plassholdere
+Sjekk at artikkelen har alle bildeplassholdere (krav beskrevet i Phase 2, JSON Structure Rules):
+- [ ] `"heroImage": "/images/placeholder.webp"` på toppnivå
+- [ ] `"image": "/images/placeholder.webp"` i manifest-oppføringen
+- [ ] 3 inline bildebokser med beskrivende `alt`-tekst (5-10 ord, norsk) i content-arrayen
 
-**Hero-bilde** (toppnivå i artikkel-JSON):
-```json
-"heroImage": "/images/placeholder.webp"
-```
-Sett samtidig `"image": "/images/placeholder.webp"` i manifest-oppføringen for artikkelen.
-
-**Inline bilder (2-3 stk, fordelt gjennom artikkelen):**
-Plasser én bildblokk etter hvert hoveds-seksjon. `alt` og `caption` må være beskrivende nok til at Gemini-prompts kan skrives automatisk fra dem:
-```json
-{ "type": "image", "src": "/images/placeholder.webp",
-  "alt": "Konkret motiv som bildet skal vise, f.eks. 'Norske vikingskip i havn'",
-  "caption": "Kort forklaring av bildet, f.eks. 'Langskip brukt på raids rundt 900-tallet'" }
-```
-
-Bilder genereres etterpå manuelt i Antigravity med workflowen `generate_article_images.md`.
+Bilder genereres etterpå i Antigravity med workflowen `generate_article_images.md`.
 
 ### 2. Verification Checklist
 **Audit:** Run an audit using the `article-implementation` skill.

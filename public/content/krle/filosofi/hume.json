@@ -54,7 +54,7 @@
             "name": "QuoteBlock",
             "props": {
                 "text": "Causation is nothing but a habit of the mind.",
-                "source": "David Hume",
+                "author": "David Hume",
                 "translation": "Årsakssammenheng er intet annet enn en vane i sinnet."
             }
         },
@@ -124,7 +124,7 @@
             "name": "QuoteBlock",
             "props": {
                 "text": "Reason is, and ought only to be the slave of the passions.",
-                "source": "David Hume",
+                "author": "David Hume",
                 "translation": "Fornuften er, og bør bare være, lidenskapenes slave."
             }
         },

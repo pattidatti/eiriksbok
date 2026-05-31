@@ -108,7 +108,7 @@
             "type": "component",
             "name": "QuoteBlock",
             "props": {
-                "quote": "Vi skal svare med mer demokrati, mer åpenhet og mer menneskelighet. Men aldri naivitet.",
+                "text": "Vi skal svare med mer demokrati, mer åpenhet og mer menneskelighet. Men aldri naivitet.",
                 "author": "Jens Stoltenberg",
                 "context": "Tale i Oslo Domkirke, 24. juli 2011"
             }

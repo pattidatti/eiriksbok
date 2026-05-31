@@ -74,24 +74,6 @@
       ]
     },
     {
-      "id": "jordbruk-og-sivilisasjoner-sub-0",
-      "title": "Jordbruket oppstår",
-      "description": "Mennesker i 'Den fruktbare halvmåne' begynner å dyrke jorden.",
-      "startDate": -10000,
-      "endDate": null,
-      "displayDate": "10000 fvt",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "jordbruk-og-sivilisasjoner",
-      "link": "/historie/jordbruk-og-sivilisasjoner/jordbruk-og-sivilisasjoner",
-      "tags": [
-        "jordbruk",
-        "steinalder",
-        "sivilisasjon",
-        "teknologi"
-      ]
-    },
-    {
       "id": "gobekli-tepe",
       "title": "Göbekli Tepe — tempelet eldre enn jordbruket",
       "description": "Et 11 500 år gammelt tempelanlegg i Tyrkia som snur teorien om sivilisasjon på hodet: religion kan ha drevet jordbruket fram, ikke omvendt.",
@@ -129,42 +111,6 @@
         "han",
         "silkeveien",
         "sivilisasjon"
-      ]
-    },
-    {
-      "id": "jordbruk-og-sivilisasjoner-sub-1",
-      "title": "Elvedalssivilisasjoner",
-      "description": "De første store sivilisasjonene oppstår i Mesopotamia og Egypt.",
-      "startDate": -4000,
-      "endDate": null,
-      "displayDate": "4000 fvt",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "jordbruk-og-sivilisasjoner",
-      "link": "/historie/jordbruk-og-sivilisasjoner/jordbruk-og-sivilisasjoner",
-      "tags": [
-        "jordbruk",
-        "steinalder",
-        "sivilisasjon",
-        "teknologi"
-      ]
-    },
-    {
-      "id": "jordbruk-og-sivilisasjoner-sub-2",
-      "title": "Jordbruk i Norge",
-      "description": "De første bøndene etablerer seg på Østlandet.",
-      "startDate": -4000,
-      "endDate": null,
-      "displayDate": "4000 fvt",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "jordbruk-og-sivilisasjoner",
-      "link": "/historie/jordbruk-og-sivilisasjoner/jordbruk-og-sivilisasjoner",
-      "tags": [
-        "jordbruk",
-        "steinalder",
-        "sivilisasjon",
-        "teknologi"
       ]
     },
     {
@@ -224,24 +170,6 @@
         "tidlig-sivilisasjon",
         "arkeologi",
         "sivilisasjon"
-      ]
-    },
-    {
-      "id": "jordbruk-og-sivilisasjoner-sub-3",
-      "title": "Stridsøksfolket",
-      "description": "Nye folkegrupper kommer til Norge.",
-      "startDate": -2500,
-      "endDate": null,
-      "displayDate": "2500 fvt",
-      "type": "sub-event",
-      "subjectId": "historie",
-      "topicId": "jordbruk-og-sivilisasjoner",
-      "link": "/historie/jordbruk-og-sivilisasjoner/jordbruk-og-sivilisasjoner",
-      "tags": [
-        "jordbruk",
-        "steinalder",
-        "sivilisasjon",
-        "teknologi"
       ]
     },
     {
@@ -1114,6 +1042,26 @@
         "vikingtiden",
         "oppdagelse",
         "amerika"
+      ]
+    },
+    {
+      "id": "jordbrukets-historie",
+      "title": "Jordbrukets historie: fra hakke til traktor",
+      "description": "Fra den enkle arden til skurtreskeren: hvordan plog, vekselbruk, kunstgjødsel og den grønne revolusjonen gjorde at samme åker kunne fø stadig flere folk.",
+      "startDate": 900,
+      "endDate": 1968,
+      "displayDate": "900-1968",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "teknologi-og-hverdagsliv",
+      "link": "/historie/teknologi-og-hverdagsliv/jordbrukets-historie",
+      "tags": [
+        "historie",
+        "teknologi",
+        "hverdagsliv",
+        "jordbruk",
+        "mat",
+        "oppfinnelser"
       ]
     },
     {

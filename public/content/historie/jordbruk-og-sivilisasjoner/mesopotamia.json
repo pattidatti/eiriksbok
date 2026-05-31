@@ -117,8 +117,8 @@
             "type": "component",
             "name": "QuoteBlock",
             "props": {
-                "quote": "Hvis en mann ødelegger øyet til en annen mann, skal hans eget øye ødelegges.",
-                "source": "Hammurabis lov, paragraf 196"
+                "text": "Hvis en mann ødelegger øyet til en annen mann, skal hans eget øye ødelegges.",
+                "author": "Hammurabis lov, paragraf 196"
             }
         },
         {

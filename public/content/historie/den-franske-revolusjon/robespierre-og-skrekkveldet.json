@@ -64,7 +64,7 @@
             "type": "component",
             "name": "QuoteBlock",
             "props": {
-                "quote": "Skrekken er ikke annet enn rask, hard og ubøyelig rettferdighet. Den er derfor et uttrykk for dyden.",
+                "text": "Skrekken er ikke annet enn rask, hard og ubøyelig rettferdighet. Den er derfor et uttrykk for dyden.",
                 "author": "Robespierre, tale i nasjonalforsamlingen 5. februar 1794"
             }
         },

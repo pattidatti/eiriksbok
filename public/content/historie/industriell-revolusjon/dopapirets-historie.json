@@ -107,23 +107,24 @@
             "name": "InterdisciplinaryBridge",
             "props": {
                 "title": "Hva henger sammen med dopapirhistorien?",
+                "centerEvent": "Dopapiret",
                 "nodes": [
                     {
                         "subject": "Historie",
                         "title": "Den industrielle revolusjonen",
-                        "description": "Masseproduksjon av papir var avhengig av dampmaskinene og fabrikkene fra industrialiseringen.",
+                        "text": "Masseproduksjon av papir var avhengig av dampmaskinene og fabrikkene fra industrialiseringen.",
                         "link": "/historie/industriell-revolusjon/industriell-revolusjon"
                     },
                     {
                         "subject": "Historie",
                         "title": "Hverdagslivet i Roma",
-                        "description": "Romerne hadde avansert sanitærsystem - inkludert de beryktede offentlige latrinene.",
+                        "text": "Romerne hadde avansert sanitærsystem - inkludert de beryktede offentlige latrinene.",
                         "link": "/historie/romerriket/hverdagsliv-i-roma"
                     },
                     {
                         "subject": "Historie",
                         "title": "Dampmaskinen",
-                        "description": "Dampkraft drev papirfabrikkene som gjorde toalettpapiret til en massevare.",
+                        "text": "Dampkraft drev papirfabrikkene som gjorde toalettpapiret til en massevare.",
                         "link": "/historie/industriell-revolusjon/dampmaskinen"
                     }
                 ]

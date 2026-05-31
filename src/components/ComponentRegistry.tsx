@@ -51,6 +51,7 @@ const MonarchyEvolution = lazy(() => import('./content/interactive/MonarchyEvolu
 const ColonialGovernance = lazy(() => import('./content/interactive/ColonialGovernance').then(m => ({ default: m.ColonialGovernance })));
 const ResourceTradeFlows = lazy(() => import('./content/interactive/ResourceTradeFlows').then(m => ({ default: m.ResourceTradeFlows })));
 const InterdisciplinaryBridge = lazy(() => import('./content/interactive/InterdisciplinaryBridge').then(m => ({ default: m.InterdisciplinaryBridge })));
+const FarmerYieldExplorer = lazy(() => import('./content/interactive/FarmerYieldExplorer').then(m => ({ default: m.FarmerYieldExplorer })));
 const GlossaryTooltip = lazy(() => import('./content/interactive/GlossaryTooltip').then(m => ({ default: m.GlossaryTooltip })));
 const ScenarioRoleplay = lazy(() => import('./content/interactive/ScenarioRoleplay').then(m => ({ default: m.ScenarioRoleplay })));
 const DragDropTimeline = lazy(() => import('./content/interactive/DragDropTimeline').then(m => ({ default: m.DragDropTimeline })));
@@ -231,6 +232,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     ColonialGovernance,
     ResourceTradeFlows,
     InterdisciplinaryBridge,
+    FarmerYieldExplorer,
     GlossaryTooltip,
     ScenarioRoleplay,
     DragDropTimeline,

@@ -2,8 +2,8 @@
     "id": "produksjon",
     "title": "Produksjon: Hvorfor vi lager ting",
     "ingress": "Hvorfor finnes det millioner av ulike varer i butikken? Og hvem bestemmer at det skal lages akkurat nok brød til alle? Svaret handler om produksjon.",
-    "image": "/Eiriksbok/images/topics/demografi-okonomi.webp",
-    "heroImage": "/Eiriksbok/images/lessons/produksjon_hero.webp",
+    "image": "/images/topics/demografi-okonomi.webp",
+    "heroImage": "/images/lessons/produksjon_hero.webp",
     "status": "published",
     "tags": [
         "økonomi",

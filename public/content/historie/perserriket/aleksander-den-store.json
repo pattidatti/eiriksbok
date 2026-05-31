@@ -125,7 +125,7 @@
             "type": "component",
             "name": "QuoteBlock",
             "props": {
-                "quote": "Det finnes ingenting umulig for den som vil prøve.",
+                "text": "Det finnes ingenting umulig for den som vil prøve.",
                 "author": "Aleksander den store"
             }
         },

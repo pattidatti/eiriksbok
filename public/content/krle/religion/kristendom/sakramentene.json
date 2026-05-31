@@ -82,7 +82,7 @@
             "name": "QuoteBlock",
             "props": {
                 "text": "Den som tror og blir døpt, skal bli frelst.",
-                "source": "Bibelen",
+                "author": "Bibelen",
                 "reference": "Markus 16:16"
             }
         },
@@ -115,7 +115,7 @@
             "name": "QuoteBlock",
             "props": {
                 "text": "Gjør dette til minne om meg.",
-                "source": "Bibelen",
+                "author": "Bibelen",
                 "reference": "Lukas 22:19"
             }
         },

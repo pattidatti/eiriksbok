@@ -101,7 +101,7 @@
             "type": "component",
             "name": "QuoteBlock",
             "props": {
-                "quote": "Historien er lyset som skinner gjennom tidens mørke og viser oss veien våre forfedre gikk, enten i seier eller i nød.",
+                "text": "Historien er lyset som skinner gjennom tidens mørke og viser oss veien våre forfedre gikk, enten i seier eller i nød.",
                 "author": "Inspirert av historiske krøniker",
                 "cite": "Refleksjoner over kildekritikk"
             }

@@ -86,7 +86,7 @@
             "type": "component",
             "name": "QuoteBlock",
             "props": {
-                "quote": "— Men dette er jo et opprør! — Nei, sire. Det er en revolusjon.",
+                "text": "— Men dette er jo et opprør! — Nei, sire. Det er en revolusjon.",
                 "author": "Hertugen av Liancourt vekker kong Ludvig 16. natten 14.–15. juli 1789"
             }
         },
