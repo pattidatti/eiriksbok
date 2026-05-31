@@ -1,0 +1,178 @@
+{
+    "id": "operasjon-ajax",
+    "title": "Operasjon Ajax: Da oljen ble verdt et kupp",
+    "subject": "historie",
+    "layout": "rich",
+    "year": "1953",
+    "category": "Verden",
+    "readTime": "10 min lesning",
+    "heroImage": "/images/historie/den-kalde-krigen/operasjon-ajax_hero.webp",
+    "details": [
+        "Iran valgte selv å eie oljen sin - og ble straffet for det.",
+        "CIA og britisk etterretning veltet en folkevalgt leder i 1953.",
+        "Kuppet slo tilbake 26 år senere, og virker fortsatt i dag."
+    ],
+    "externalUrl": "https://snl.no/Irans_historie",
+    "timeline": [
+        {
+            "year": "1951",
+            "title": "Oljen blir iransk",
+            "description": "Mossadeq nasjonaliserer oljen. Folket jubler."
+        },
+        {
+            "year": "1953",
+            "title": "Operasjon Ajax",
+            "description": "CIA og britene velter Mossadeq. Sjahen får makten."
+        },
+        {
+            "year": "1979",
+            "title": "Revolusjonen",
+            "description": "Sjahen styrtes. Iran blir USAs fiende."
+        }
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "I artikkelen om [økonomiske leiemordere](/historie/dekolonisering/okonomiske-leiemordere) møtte du sjakalene: agentene som tar over når lån og lureri ikke virker. Iran i 1953 er det aller første store eksempelet på hva sjakalene kan gjøre. Det er historien om hvordan to land i hemmelighet veltet en hel regjering - for å beholde oljen."
+        },
+        {
+            "type": "text",
+            "content": "Iran er et stort land i Midtøsten, med enorme mengder olje under bakken. Problemet for iranerne var at de ikke eide oljen selv. Et britisk selskap, som i dag heter BP, hentet opp oljen og tok nesten hele fortjenesten. Iranerne som gjorde det harde arbeidet, satt igjen med smuler."
+        },
+        {
+            "type": "header",
+            "text": "Mannen som ville eie oljen"
+        },
+        {
+            "type": "text",
+            "content": "I 1951 fikk Iran en ny statsminister: Mohammad Mossadeq. Han var folkevalgt og svært populær. Mossadeq mente noe enkelt og rettferdig: oljen ligger i Iran, så den bør tilhøre iranerne. Derfor bestemte han at staten skulle overta oljeselskapet. Dette kalles å nasjonalisere."
+        },
+        {
+            "type": "text",
+            "content": "Mossadeq var ingen villmann. Han var en gammel, utdannet jurist som ofte styrte landet fra sengen sin fordi han var syk. I 1951 ble han til og med kåret til 'årets mann' av det amerikanske bladet Time. Men nettopp fordi han var folkevalgt og populær, var han farlig for dem som ville beholde den billige oljen."
+        },
+        {
+            "type": "text",
+            "content": "For iranerne var Mossadeq en helt. For Storbritannia var han en tyv. Britene nektet å godta at de skulle miste oljepengene, og innførte en blokade som stanset Irans oljesalg. Iran tjente nesten ingenting på oljen sin lenger, og folk ble fattigere. Men britene greide likevel ikke å fjerne Mossadeq alene. Da ba de USA om hjelp."
+        },
+        {
+            "type": "component",
+            "name": "QuoteBlock",
+            "props": {
+                "text": "Med Guds hjelp og folkets vilje har vi tatt tilbake det som alltid har vært vårt.",
+                "author": "Mohammad Mossadeq (om nasjonaliseringen av oljen)"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Et kupp i hemmelighet"
+        },
+        {
+            "type": "text",
+            "content": "USA sa ja. Hvorfor? Den kalde krigen var på sitt kaldeste, og USA var redd for at Iran kunne havne på Sovjetunionens side. Frykten for kommunisme ble unnskyldningen, men oljen var den egentlige gevinsten. President Eisenhower ga grønt lys til en hemmelig operasjon med kodenavnet Ajax."
+        },
+        {
+            "type": "text",
+            "content": "CIA-agenten Kermit Roosevelt reiste til Iran med kofferter fulle av penger. Han betalte folk for å lage falske opptøyer i gatene, og fikk aviser til å trykke løgner om Mossadeq. Han bestakk militære ledere og leide inn pøbler som skapte kaos. Målet var å få det til å se ut som om folket selv ville bli kvitt sin egen statsminister."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Et kupp til 100 millioner kroner",
+                "content": "Hele Operasjon Ajax kostet ganske lite - anslagsvis under en million dollar i bestikkelser og propaganda. For den prisen byttet to land ut en hel regjering. Det viser hvor billig makt kan være når man kjenner de rette knappene å trykke på."
+            }
+        },
+        {
+            "type": "text",
+            "content": "I august 1953 lyktes planen. Mossadeq ble arrestert og satt i husarrest resten av livet. Sjahen, Irans konge, fikk tilbake all makt - og han skyldte den til USA. Oljen flyt igjen til vestlige selskaper. På overflaten var dette en knusende seier for USA og Storbritannia."
+        },
+        {
+            "type": "header",
+            "text": "Seieren som ble en bumerang"
+        },
+        {
+            "type": "text",
+            "content": "Men en seier kan slå tilbake. Når du fjerner et lands folkevalgte leder med makt, glemmer ikke folket det. I modellen under kan du velte brikkene selv og se hvordan kuppet i 1953 utløste en kjedereaksjon som varer den dag i dag."
+        },
+        {
+            "type": "component",
+            "name": "AjaxRingvirkninger",
+            "props": {
+                "title": "Velt den første brikken: ringvirkningene av kuppet"
+            }
+        },
+        {
+            "type": "text",
+            "content": "Sjahen styrte hardt i over 25 år. Det hemmelige politiet hans, SAVAK, fengslet og torturerte alle som protesterte. Folket hatet ham, og de hatet USA som holdt ham ved makten. I 1979 kokte sinnet over i den islamske revolusjonen. Sjahen ble styrtet, og Iran gikk fra å være USAs venn til å bli USAs erklærte fiende."
+        },
+        {
+            "type": "text",
+            "content": "Kort etter stormet sinte studenter den amerikanske ambassaden i Teheran og tok 52 amerikanere som gisler i 444 dager. Fiendskapet mellom Iran og USA varer fortsatt. Mange historikere mener at uten kuppet i 1953 ville forholdet sett helt annerledes ut."
+        },
+        {
+            "type": "text",
+            "content": "Det er dette vi kaller blowback, eller bakslag: når en hemmelig handling slår tilbake på den som sto bak, ofte mange år senere. USA fikk billig olje og en vennlig leder i noen tiår. Men de skapte også et helt folk som følte seg sveket av Vesten. Slik kan en rask seier bli til et langt nederlag."
+        },
+        {
+            "type": "header",
+            "text": "Hva lærer vi av Ajax?"
+        },
+        {
+            "type": "text",
+            "content": "Operasjon Ajax viser mønsteret du kjenner fra de økonomiske leiemorderne: et fattig land med en verdifull ressurs, en leder som vil beholde rikdommen selv, og en stormakt som fjerner ham i det skjulte. Det viser også noe viktigere: slike inngrep har ofte en pris som dukker opp først mange år senere."
+        },
+        {
+            "type": "text",
+            "content": "Vi bør også være kritiske til kildene. I mange år nektet USA for at de sto bak kuppet. Først i 2013, seksti år etter, innrømmet CIA offentlig sin rolle. Det minner oss om at sannheten om hemmelige operasjoner kan ta lang tid å komme frem - og at vi alltid bør spørre hvem som tjener på den versjonen vi får høre. Du kan lese om en lignende hemmelig operasjon i [Iran-Contra-skandalen](/historie/den-kalde-krigen/iran-contra)."
+        }
+    ],
+    "quiz": [
+        {
+            "id": "q1",
+            "question": "Hva gjorde Mossadeq som førte til kuppet?",
+            "options": [
+                "Han nasjonaliserte oljen så den tilhørte Iran",
+                "Han erklærte krig mot Storbritannia",
+                "Han ble kommunist",
+                "Han nektet å selge olje til noen"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q2",
+            "question": "Hvilket land hjalp Storbritannia med å gjennomføre kuppet?",
+            "options": [
+                "USA, gjennom CIA",
+                "Sovjetunionen",
+                "Frankrike",
+                "Tyskland"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q3",
+            "question": "Hvordan fikk CIA kuppet til å se ut som folkets vilje?",
+            "options": [
+                "De betalte for falske opptøyer og løgner i avisene",
+                "De holdt en folkeavstemning",
+                "De sendte inn hæren åpent",
+                "De ba FN om tillatelse"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q4",
+            "question": "Hva er et eksempel på at kuppet 'slo tilbake'?",
+            "options": [
+                "Revolusjonen i 1979 gjorde Iran til USAs fiende",
+                "Storbritannia mistet all sin olje",
+                "Mossadeq kom tilbake til makten",
+                "Iran ble en del av Sovjetunionen"
+            ],
+            "correctAnswer": 0
+        }
+    ],
+    "createdDate": "2026-05-31T00:00:00Z",
+    "lastUpdated": "2026-05-31T00:00:00Z"
+}

@@ -1,0 +1,170 @@
+{
+    "id": "petrodollaren",
+    "title": "Petrodollaren: Hvorfor olje måles i dollar",
+    "subject": "samfunnskunnskap",
+    "layout": "rich",
+    "year": "1973",
+    "category": "Økonomi",
+    "readTime": "9 min lesning",
+    "heroImage": "/images/samfunnskunnskap/okonomi/petrodollaren_hero.webp",
+    "details": [
+        "Nesten all olje i verden kjøpes og selges i amerikanske dollar.",
+        "Oljepenger blir til lån, og lån blir til gjeld.",
+        "Petrodollaren er drivstoffet i hele systemet."
+    ],
+    "externalUrl": "https://snl.no/oljekrisen_1973",
+    "timeline": [
+        {
+            "year": "1971",
+            "title": "Gullet slippes",
+            "description": "USA kobler dollaren fra gull. Pengene flyter friere."
+        },
+        {
+            "year": "1973",
+            "title": "Oljekrisen",
+            "description": "OPEC stanser oljesalg til Vesten. Prisene firedobles."
+        },
+        {
+            "year": "1974",
+            "title": "Petrodollar-avtalen",
+            "description": "Oljen selges i dollar, og dollarene havner i vestlige banker."
+        }
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "I de fleste artiklene om [økonomiske leiemordere](/historie/dekolonisering/okonomiske-leiemordere) dukker det opp lån. Men hvor kommer egentlig alle pengene fra? En stor del av svaret er olje. For å forstå hele systemet må vi forstå et merkelig ord: petrodollaren."
+        },
+        {
+            "type": "text",
+            "content": "Petrodollar betyr rett og slett dollar tjent på olje. Nesten all olje i verden kjøpes og selges i amerikanske dollar, uansett hvilket land som selger den. Vil Norge selge olje til Japan, skjer handelen som regel i dollar. Men hvorfor er det slik?"
+        },
+        {
+            "type": "header",
+            "text": "Da gullet forsvant"
+        },
+        {
+            "type": "text",
+            "content": "Lenge var dollaren knyttet til gull. For hver dollar lå det en bestemt mengde gull i USAs hvelv. Det ga folk tillit til pengene. Men i 1971 kuttet USA denne forbindelsen. Plutselig var en dollar bare verdt det folk trodde den var verdt. USA trengte noe nytt som kunne holde dollaren sterk."
+        },
+        {
+            "type": "text",
+            "content": "Svaret ble olje. Hvis all olje måtte kjøpes i dollar, ville alle land i verden trenge dollar hele tiden. Det holdt etterspørselen etter dollar høy, og dermed verdien oppe. Olje ble på en måte den nye 'sikkerheten' bak de amerikanske pengene."
+        },
+        {
+            "type": "text",
+            "content": "Hvorfor trenger penger noe bak seg i det hele tatt? Fordi en pengeseddel bare er et stykke papir. Den er verdt noe fordi alle stoler på at den er det. Gull ga dollaren den tilliten før. Etter 1971 var det olje som skulle gjøre den jobben."
+        },
+        {
+            "type": "header",
+            "text": "Oljekrisen som snudde alt"
+        },
+        {
+            "type": "text",
+            "content": "I 1973 skjedde noe dramatisk. En gruppe oljeland, kalt OPEC, ble enige om å stanse oljesalget til land som støttet Israel i en krig. Over natten ble olje en mangelvare i Vesten. Prisen firedoblet seg, og det ble lange køer på bensinstasjonene. Dette kalles oljekrisen."
+        },
+        {
+            "type": "text",
+            "content": "OPEC er en klubb av oljeland som samarbeider om pris og mengde. Ved å skru igjen oljekranene sammen kunne de for første gang presse de rike landene, i stedet for omvendt. For mange tidligere kolonier føltes det som en seier: endelig hadde land i sør makt over landene i nord."
+        },
+        {
+            "type": "text",
+            "content": "Også i Norge merket folk krisen. Vinteren 1973 til 1974 innførte myndighetene bilfrie søndager. Da var det forbudt å kjøre privatbil i helgene, og barn kunne ake i tomme gater. Det viser hvor avhengig hele den moderne verden hadde blitt av olje, helt ned til en vanlig norsk søndagstur."
+        },
+        {
+            "type": "text",
+            "content": "Oljekrisen gjorde oljelandene styrtrike på kort tid. De satt plutselig med mer dollar enn de klarte å bruke. Spørsmålet var: hva skulle de gjøre med alle pengene? Her begynner kretsløpet som binder hele systemet sammen."
+        },
+        {
+            "type": "text",
+            "content": "Følg én dollar hele veien rundt i modellen under. Du vil se hvordan oljepenger forvandles til lån, og lån forvandles til gjeld."
+        },
+        {
+            "type": "component",
+            "name": "PetrodollarKretslop",
+            "props": {
+                "title": "Følg pengene: petrodollarens kretsløp"
+            }
+        },
+        {
+            "type": "text",
+            "content": "Oljelandene satte de enorme dollarsummene sine i store vestlige banker. Bankene måtte tjene på pengene, så de lånte dem ivrig ut, blant annet til fattige land i Latin-Amerika, Afrika og Asia. Disse landene tok gjerne imot lån de egentlig ikke hadde råd til. Slik vokste gjelden som de økonomiske leiemorderne levde av."
+        },
+        {
+            "type": "text",
+            "content": "Kretsløpet hadde en farlig bakside. På begynnelsen av 1980-tallet satte USA opp renten kraftig for å bekjempe sin egen inflasjon. Plutselig ble lånene til de fattige landene mye dyrere. I 1982 klarte ikke Mexico lenger å betale gjelden sin, og en stor gjeldskrise spredte seg over Latin-Amerika. Pengene som hadde virket som en gave på 1970-tallet, ble til en felle på 1980-tallet."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Hvorfor er dette så smart for USA?",
+                "content": "Fordi hele verden trenger dollar for å kjøpe olje, kan USA trykke flere dollar enn nesten noe annet land uten at pengene mister verdien. Det gir USA en økonomisk makt få andre land har. Mange forskere mener dette er en av de viktigste grunnene til at dollaren fortsatt er verdens viktigste valuta."
+            }
+        },
+        {
+            "type": "header",
+            "text": "Drivstoffet i maskineriet"
+        },
+        {
+            "type": "text",
+            "content": "Nå ser du sammenhengen. Oljen skaper dollar. Dollarene blir til lån gjennom bankene og institusjoner som [IMF og Verdensbanken](/samfunnskunnskap/handel-og-infrastruktur/imf-og-verdensbanken). Lånene blir til gjeld i fattige land. Og gjeld gir kontroll. Petrodollaren er ikke selve fellen, men den er drivstoffet som får hele maskineriet til å gå rundt."
+        },
+        {
+            "type": "text",
+            "content": "Dollarmakten gir også USA et helt spesielt våpen. Fordi så mye av verdenshandelen går i dollar, kan USA stenge land det er uvenner med, ute fra dollarsystemet. Det er nesten som å skru av strømmen til en hel økonomi, uten å avfyre et eneste skudd. Slike sanksjoner er et av de sterkeste maktmidlene i verden i dag, og de hadde ikke vært mulige uten petrodollaren."
+        },
+        {
+            "type": "text",
+            "content": "Som alltid bør vi være litt kritiske. Noen forklarer petrodollaren som en hemmelig avtale som styrer hele verden. Virkeligheten er litt mindre dramatisk og litt mer rotete: det handler om mange aktører, tillit og tilfeldigheter like mye som om en stor plan. Men mønsteret er ekte, og det forklarer mye av hvorfor verden ser ut som den gjør."
+        }
+    ],
+    "quiz": [
+        {
+            "id": "q1",
+            "question": "Hva betyr ordet 'petrodollar'?",
+            "options": [
+                "Dollar tjent på salg av olje",
+                "En egen valuta i oljeland",
+                "En dollar laget av olje",
+                "Penger man bruker på bensin"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q2",
+            "question": "Hvorfor ville USA at olje skulle kjøpes i dollar?",
+            "options": [
+                "Da trenger alle land dollar, og dollaren holder seg sterk",
+                "Fordi olje er gul som gull",
+                "For å gjøre olje billigere",
+                "For å hjelpe OPEC"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q3",
+            "question": "Hva gjorde oljelandene med alle dollarene etter oljekrisen i 1973?",
+            "options": [
+                "Satte dem i vestlige banker, som lånte dem ut igjen",
+                "Brente dem",
+                "Ga dem tilbake til USA gratis",
+                "Gjemte dem i ørkenen"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q4",
+            "question": "Hvordan henger petrodollaren sammen med gjeldsfellen?",
+            "options": [
+                "Oljepenger blir til lån, og lån blir til gjeld i fattige land",
+                "Den har ingenting med gjeld å gjøre",
+                "Den sletter all gjeld",
+                "Den gjør fattige land rike"
+            ],
+            "correctAnswer": 0
+        }
+    ],
+    "createdDate": "2026-05-31T00:00:00Z",
+    "lastUpdated": "2026-05-31T00:00:00Z"
+}

@@ -101,6 +101,20 @@
       "caption": "Der det ikke fantes elver, fanget vindmøllene vinden i stedet. I Nederland pumpet de til og med vann bort, slik at folk kunne bo på land som før var hav."
     },
     {
+      "type": "component",
+      "name": "DragDropTimeline",
+      "props": {
+        "title": "Sett mølle-historien i riktig rekkefølge",
+        "events": [
+          { "id": "romerske-vannmoller", "year": 100, "label": "Romerne bygger vannmøller som maler korn med kraft fra elver" },
+          { "id": "domesday", "year": 1086, "label": "Domesday Book teller over 6000 vannmøller i England" },
+          { "id": "vindmoller", "year": 1180, "label": "De første vindmøllene dukker opp i Europa" },
+          { "id": "nederland", "year": 1450, "label": "Nederland pumper vann bort med vindmøller og vinner land fra havet" },
+          { "id": "foer-damp", "year": 1750, "label": "Møllene har drevet industrien i tusen år, rett før dampmaskinen tar over" }
+        ]
+      }
+    },
+    {
       "type": "header",
       "text": "En kraft bundet til naturen"
     },
@@ -127,39 +141,6 @@
       "name": "MillPowerExplorer",
       "props": {
         "title": "Hvem maler kornet?"
-      }
-    },
-    {
-      "type": "component",
-      "name": "TimelineComponent",
-      "props": {
-        "compact": true,
-        "events": [
-          {
-            "year": 100,
-            "description": "Romerne bygger vannmøller som maler korn med kraft fra rennende elver."
-          },
-          {
-            "year": 537,
-            "description": "Under beleiringen av Roma setter folk møllehjul ut i Tiberen for å male korn når landmøllene stopper."
-          },
-          {
-            "year": 1086,
-            "description": "Domesday Book i England teller over 6000 vannmøller i landet."
-          },
-          {
-            "year": 1180,
-            "description": "De første vindmøllene dukker opp i Europa der det er for flatt for vannmøller."
-          },
-          {
-            "year": 1450,
-            "description": "Nederland bruker vindmøller til å pumpe vann bort og vinne nytt land fra havet."
-          },
-          {
-            "year": 1750,
-            "description": "Møllene har drevet industrien i over tusen år, rett før dampmaskinen tar over."
-          }
-        ]
       }
     },
     {

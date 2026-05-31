@@ -24,6 +24,13 @@
       "caption": "I århundrer var jordbruk hardt håndarbeid fra soloppgang til solnedgang. Hver ny oppfinnelse gjorde det litt lettere å fø flere."
     },
     {
+      "type": "component",
+      "name": "FarmerYieldExplorer",
+      "props": {
+        "title": "Hvor mange kan én bonde fø?"
+      }
+    },
+    {
       "type": "header",
       "text": "Plogen som vendte jorda"
     },
@@ -109,33 +116,6 @@
       "caption": "Skurtreskeren gjorde på én dag det som før tok en hel landsby flere uker med ljå og treskeflater."
     },
     {
-      "type": "header",
-      "text": "Den grønne revolusjonen"
-    },
-    {
-      "type": "text",
-      "content": "Den siste store forandringen kom etter andre verdenskrig. En amerikansk forsker som het Norman Borlaug brukte mange år på å krysse fram nye typer hvete. De nye plantene ga to til tre ganger så mye korn, tålte sykdom bedre, og passet perfekt sammen med kunstgjødsel og vanning. På 1960-tallet ble disse plantene tatt i bruk i land som Mexico, India og Pakistan. India hadde stått på randen av hungersnød, men klarte snart å dyrke nok mat til hele sin egen befolkning. Dette kalles den grønne revolusjonen. Borlaug fikk Nobels fredspris, og mange mener han reddet rundt en milliard mennesker fra sult."
-    },
-    {
-      "type": "text",
-      "content": "Men de nye metodene hadde også en bakside. De krevde mye kunstgjødsel, vann og maskiner, og det kostet penger. Store gårder klarte seg ofte godt, mens mange små bønder hadde ikke råd til å henge med. Mye kunstgjødsel og sprøytemidler kan også skade naturen og forurense vann. Slik er det ofte med ny teknologi: den løser ett stort problem, men skaper samtidig nye spørsmål vi må finne svar på."
-    },
-    {
-      "type": "header",
-      "text": "Den stille revolusjonen"
-    },
-    {
-      "type": "text",
-      "content": "Plogen, vekselbruket, kunstgjødselen, traktoren og de nye plantene har én ting til felles: hver av dem gjorde at den samme åkeren kunne fø flere folk med mindre arbeid. Men ga mer mat oss flere mennesker, eller tvang flere mennesker oss til å dyrke mer? [Det spørsmålet](/samfunnskunnskap/demografi/malthus-vs-boserup) har forskere kranglet om i lang tid. Da færre trengtes på gården, ble mennesker uansett frie til å bli lærere, sykepleiere, ingeniører og musikere. Hele det moderne samfunnet hviler på dette. Vi forteller gjerne historien som en rekke konger og kriger, men den dypeste forandringen i hverdagen til vanlige folk kom rolig og stille, fra mennesker som fant ut hvordan de kunne dyrke litt mer mat. Neste gang du spiser en skive brød, kan du tenke på at den hviler på tusenvis av år med kloke oppfinnelser."
-    },
-    {
-      "type": "component",
-      "name": "FarmerYieldExplorer",
-      "props": {
-        "title": "Hvor mange kan én bonde fø?"
-      }
-    },
-    {
       "type": "component",
       "name": "TimelineComponent",
       "props": {
@@ -167,6 +147,30 @@
           }
         ]
       }
+    },
+    {
+      "type": "header",
+      "text": "Den grønne revolusjonen"
+    },
+    {
+      "type": "text",
+      "content": "Den siste store forandringen kom etter andre verdenskrig. En amerikansk forsker som het Norman Borlaug brukte mange år på å krysse fram nye typer hvete. De nye plantene ga to til tre ganger så mye korn, tålte sykdom bedre, og passet perfekt sammen med kunstgjødsel og vanning. På 1960-tallet ble disse plantene tatt i bruk i land som Mexico, India og Pakistan. India hadde stått på randen av hungersnød, men klarte snart å dyrke nok mat til hele sin egen befolkning. Dette kalles den grønne revolusjonen. Borlaug fikk Nobels fredspris, og mange mener han reddet rundt en milliard mennesker fra sult."
+    },
+    {
+      "type": "text",
+      "content": "Men de nye metodene hadde også en bakside. De krevde mye kunstgjødsel, vann og maskiner, og det kostet penger. Store gårder klarte seg ofte godt, mens mange små bønder hadde ikke råd til å henge med. Mye kunstgjødsel og sprøytemidler kan også skade naturen og forurense vann. Slik er det ofte med ny teknologi: den løser ett stort problem, men skaper samtidig nye spørsmål vi må finne svar på."
+    },
+    {
+      "type": "header",
+      "text": "Den stille revolusjonen"
+    },
+    {
+      "type": "text",
+      "content": "Plogen, vekselbruket, kunstgjødselen, traktoren og de nye plantene har én ting til felles: hver av dem gjorde at den samme åkeren kunne fø flere folk med mindre arbeid. Men ga mer mat oss flere mennesker, eller tvang flere mennesker oss til å dyrke mer? [Det spørsmålet](/samfunnskunnskap/demografi/malthus-vs-boserup) har forskere kranglet om i lang tid. Da færre trengtes på gården, ble mennesker uansett frie til å bli lærere, sykepleiere, ingeniører og musikere. Hele det moderne samfunnet hviler på dette. Vi forteller gjerne historien som en rekke konger og kriger, men den dypeste forandringen i hverdagen til vanlige folk kom rolig og stille, fra mennesker som fant ut hvordan de kunne dyrke litt mer mat. Neste gang du spiser en skive brød, kan du tenke på at den hviler på tusenvis av år med kloke oppfinnelser."
+    },
+    {
+      "type": "component",
+      "name": "MalthusBoserupModel"
     },
     {
       "type": "component",

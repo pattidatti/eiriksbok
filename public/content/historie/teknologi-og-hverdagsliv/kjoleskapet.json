@@ -49,6 +49,90 @@
     },
     {
       "type": "component",
+      "name": "PackTheBag",
+      "props": {
+        "title": "Fyll kjelleren før vinteren",
+        "descriptionOverride": "Det er sent på høsten, og kjelleren rommer 30 kg. Du har ennå ikke kjøleskap, bare mat som tåler å lagres lenge. Velg det som gir nok til å mette familien gjennom hele vinteren (minst 85 poeng) uten å sprenge plassen.",
+        "capacity": 30,
+        "targetValue": 85,
+        "successLabel": "Kjelleren er full nok - familien klarer vinteren!",
+        "overweightLabel": "For tungt - kjelleren rommer ikke mer enn 30 kg.",
+        "pendingLabel": "Ikke nok ennå - velg mer mat som holder seg.",
+        "items": [
+          { "id": "korn", "name": "Korn og mel", "weight": 12, "value": 40, "icon": "🌾" },
+          { "id": "kjott", "name": "Saltet kjøtt", "weight": 10, "value": 35, "icon": "🥩" },
+          { "id": "torrfisk", "name": "Tørrfisk", "weight": 8, "value": 30, "icon": "🐟" },
+          { "id": "erter", "name": "Tørkede erter", "weight": 6, "value": 20, "icon": "🫛" },
+          { "id": "kal", "name": "Syltet kål", "weight": 5, "value": 15, "icon": "🥬" },
+          { "id": "smor", "name": "Saltet smør", "weight": 4, "value": 12, "icon": "🧈" }
+        ]
+      }
+    },
+    {
+      "type": "header",
+      "text": "Mat i bokser: hermetikken"
+    },
+    {
+      "type": "text",
+      "content": "Tidlig på 1800-tallet trengte hærene en bedre måte å frakte mat på. I 1810 fant folk ut at hvis du koker mat i en lukket boks, dreper varmen bakteriene, og samtidig stenger du nye bakterier ute. Maten inni kan da holde seg i årevis uten å bli dårlig. Dette kalles hermetikk. Plutselig kunne erter, fisk og kjøtt fraktes over hele verden og spises lenge etterpå. Hermetikk ga folk en helt ny mulighet: å spise mat som var dyrket et helt annet sted, på en helt annen årstid. En boks ert om vinteren var nesten et lite under."
+    },
+    {
+      "type": "image",
+      "src": "/images/teknologi-og-hverdagsliv/kjoleskapet-02.webp",
+      "alt": "Hender lukker en hermetikkboks ved et tidlig samlebånd i en fabrikk",
+      "caption": "Hermetikken lot folk spise erter og fisk midt på vinteren, lenge etter at de var høstet."
+    },
+    {
+      "type": "component",
+      "name": "TimelineComponent",
+      "props": {
+        "compact": true,
+        "events": [
+          {
+            "year": 1810,
+            "description": "Den første hermetikken oppfinnes - mat kokes i en lukket boks og kan holde seg i årevis."
+          },
+          {
+            "year": 1834,
+            "description": "Den første kjølemaskinen som bruker fordamping bygges, og legger grunnlaget for kjøleskapet."
+          },
+          {
+            "year": 1913,
+            "description": "De første elektriske kjøleskapene for hjemmet kommer på markedet, men er dyre og upålitelige."
+          },
+          {
+            "year": 1930,
+            "description": "Kjøleskap blir trygge og billige nok til å bli vanlige i hjemmene."
+          }
+        ]
+      }
+    },
+    {
+      "type": "header",
+      "text": "Kulden flytter inn i huset"
+    },
+    {
+      "type": "text",
+      "content": "Folk visste lenge at kulde holder mat fersk. Om vinteren hogde de is fra innsjøer og pakket den i sagflis i en isboks i kjelleren. Der kunne melk og kjøtt ligge kjølig en stund. Problemet var at isen smeltet, og om sommeren fantes det ikke noe sted å hente ny is. Folk drømte om en maskin som kunne lage kulde selv, når som helst på året."
+    },
+    {
+      "type": "text",
+      "content": "Løsningen bygger på et enkelt triks fra naturen: når en væske fordamper og blir til gass, suger den til seg varme fra alt rundt seg. Det er derfor du fryser når du kommer våt opp av bassenget. Et kjøleskap har en spesiell væske som pumpes rundt i rør. Inne i skapet fordamper væsken og suger varmen ut av maten, så det blir kaldt. Bak skapet blir gassen presset sammen igjen og gir fra seg varmen, som du kjenner hvis du tar på baksiden. Slik flyttes varmen ut av skapet om og om igjen, helt automatisk."
+    },
+    {
+      "type": "component",
+      "name": "FactBox",
+      "props": {
+        "title": "Hvorfor blir det kaldt inni skapet?",
+        "content": "Et kjøleskap lager ikke kulde, det flytter varme. En væske inne i rørene fordamper og suger til seg varmen fra maten, akkurat som svette kjøler huden din når den fordamper. Deretter blir gassen presset sammen bak skapet og slipper varmen ut i rommet. Derfor er det varmt bak et kjøleskap, samtidig som det er kaldt inni. Et fryseskap gjør det samme, bare enda kraftigere, så vannet i maten fryser til is og bakteriene stopper nesten helt opp."
+      }
+    },
+    {
+      "type": "text",
+      "content": "Et kjøleskap kan bare surre og gå hvis det får [strøm fra veggen](/historie/teknologi-og-hverdagsliv/elektrisiteten), og rundt 1930 ble kjøleskap trygge og billige nok til å stå i vanlige hjem. Det forandret hverdagen fullstendig. Nå kunne familien kjøpe fersk mat og ta vare på den i flere dager. Melk surnet ikke over natten, og rester kunne spises dagen etter. Folk slapp å handle hver eneste dag, og de slapp den salte vintermaten. Aller viktigst: langt færre ble syke av bedervet mat, fordi kjøleskapet holdt bakteriene i sjakk."
+    },
+    {
+      "type": "component",
       "name": "Comparison",
       "props": {
         "title": "Gamle metoder mot kjøling",
@@ -80,44 +164,6 @@
     },
     {
       "type": "header",
-      "text": "Mat i bokser: hermetikken"
-    },
-    {
-      "type": "text",
-      "content": "Tidlig på 1800-tallet trengte hærene en bedre måte å frakte mat på. I 1810 fant folk ut at hvis du koker mat i en lukket boks, dreper varmen bakteriene, og samtidig stenger du nye bakterier ute. Maten inni kan da holde seg i årevis uten å bli dårlig. Dette kalles hermetikk. Plutselig kunne erter, fisk og kjøtt fraktes over hele verden og spises lenge etterpå. Hermetikk ga folk en helt ny mulighet: å spise mat som var dyrket et helt annet sted, på en helt annen årstid. En boks ert om vinteren var nesten et lite under."
-    },
-    {
-      "type": "image",
-      "src": "/images/teknologi-og-hverdagsliv/kjoleskapet-02.webp",
-      "alt": "Hender lukker en hermetikkboks ved et tidlig samlebånd i en fabrikk",
-      "caption": "Hermetikken lot folk spise erter og fisk midt på vinteren, lenge etter at de var høstet."
-    },
-    {
-      "type": "header",
-      "text": "Kulden flytter inn i huset"
-    },
-    {
-      "type": "text",
-      "content": "Folk visste lenge at kulde holder mat fersk. Om vinteren hogde de is fra innsjøer og pakket den i sagflis i en isboks i kjelleren. Der kunne melk og kjøtt ligge kjølig en stund. Problemet var at isen smeltet, og om sommeren fantes det ikke noe sted å hente ny is. Folk drømte om en maskin som kunne lage kulde selv, når som helst på året."
-    },
-    {
-      "type": "text",
-      "content": "Løsningen bygger på et enkelt triks fra naturen: når en væske fordamper og blir til gass, suger den til seg varme fra alt rundt seg. Det er derfor du fryser når du kommer våt opp av bassenget. Et kjøleskap har en spesiell væske som pumpes rundt i rør. Inne i skapet fordamper væsken og suger varmen ut av maten, så det blir kaldt. Bak skapet blir gassen presset sammen igjen og gir fra seg varmen, som du kjenner hvis du tar på baksiden. Slik flyttes varmen ut av skapet om og om igjen, helt automatisk."
-    },
-    {
-      "type": "text",
-      "content": "Et kjøleskap kan bare surre og gå hvis det får [strøm fra veggen](/historie/teknologi-og-hverdagsliv/elektrisiteten), og rundt 1930 ble kjøleskap trygge og billige nok til å stå i vanlige hjem. Det forandret hverdagen fullstendig. Nå kunne familien kjøpe fersk mat og ta vare på den i flere dager. Melk surnet ikke over natten, og rester kunne spises dagen etter. Folk slapp å handle hver eneste dag, og de slapp den salte vintermaten. Aller viktigst: langt færre ble syke av bedervet mat, fordi kjøleskapet holdt bakteriene i sjakk."
-    },
-    {
-      "type": "component",
-      "name": "FactBox",
-      "props": {
-        "title": "Hvorfor blir det kaldt inni skapet?",
-        "content": "Et kjøleskap lager ikke kulde, det flytter varme. En væske inne i rørene fordamper og suger til seg varmen fra maten, akkurat som svette kjøler huden din når den fordamper. Deretter blir gassen presset sammen bak skapet og slipper varmen ut i rommet. Derfor er det varmt bak et kjøleskap, samtidig som det er kaldt inni. Et fryseskap gjør det samme, bare enda kraftigere, så vannet i maten fryser til is og bakteriene stopper nesten helt opp."
-      }
-    },
-    {
-      "type": "header",
       "text": "Et sunnere og friere liv"
     },
     {
@@ -139,31 +185,6 @@
       "name": "FoodPreservationExplorer",
       "props": {
         "title": "Hvor lenge holder maten seg?"
-      }
-    },
-    {
-      "type": "component",
-      "name": "TimelineComponent",
-      "props": {
-        "compact": true,
-        "events": [
-          {
-            "year": 1810,
-            "description": "Den første hermetikken oppfinnes - mat kokes i en lukket boks og kan holde seg i årevis."
-          },
-          {
-            "year": 1834,
-            "description": "Den første kjølemaskinen som bruker fordamping bygges, og legger grunnlaget for kjøleskapet."
-          },
-          {
-            "year": 1913,
-            "description": "De første elektriske kjøleskapene for hjemmet kommer på markedet, men er dyre og upålitelige."
-          },
-          {
-            "year": 1930,
-            "description": "Kjøleskap blir trygge og billige nok til å bli vanlige i hjemmene."
-          }
-        ]
       }
     },
     {

@@ -1,0 +1,166 @@
+{
+    "id": "imf-og-verdensbanken",
+    "title": "Gjeld som våpen: IMF og Verdensbanken",
+    "subject": "samfunnskunnskap",
+    "layout": "rich",
+    "year": "1944",
+    "category": "Handel og infrastruktur",
+    "readTime": "9 min lesning",
+    "heroImage": "/images/samfunnskunnskap/handel-og-infrastruktur/imf-og-verdensbanken_hero.webp",
+    "details": [
+        "To mektige banker ble født for å hjelpe verden etter krigen.",
+        "Lånene deres kommer med krav som kan ramme de fattigste.",
+        "Forstå maskineriet bak gjeldsfellen."
+    ],
+    "externalUrl": "https://snl.no/Det_internasjonale_valutafondet",
+    "timeline": [
+        {
+            "year": "1944",
+            "title": "Bretton Woods",
+            "description": "IMF og Verdensbanken opprettes for å stabilisere verdensøkonomien."
+        },
+        {
+            "year": "1980-tallet",
+            "title": "Strukturtilpasning",
+            "description": "Fattige land får lån mot at de kutter og privatiserer."
+        },
+        {
+            "year": "2000",
+            "title": "Vannkrigen i Bolivia",
+            "description": "Privatisering av vann utløser opprør i Cochabamba."
+        }
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Hos de [økonomiske leiemorderne](/historie/dekolonisering/okonomiske-leiemordere) møtte du gjeldsfellen: et land låner mer enn det kan betale, og mister kontrollen. Men hvem låner ut pengene? Ofte er svaret to av verdens mektigste institusjoner: Det internasjonale pengefondet, IMF, og Verdensbanken."
+        },
+        {
+            "type": "text",
+            "content": "Begge ble opprettet i 1944, mot slutten av andre verdenskrig, på et møte i den lille byen Bretton Woods i USA. Tanken var god. Verden hadde nettopp opplevd en knusende økonomisk krise og en verdenskrig. De rike landene ville bygge et system som kunne hindre at det skjedde igjen."
+        },
+        {
+            "type": "header",
+            "text": "To banker med hvert sitt oppdrag"
+        },
+        {
+            "type": "text",
+            "content": "Verdensbanken skulle låne ut penger til store prosjekter, som veier, kraftverk og skoler, slik at fattige land kunne utvikle seg. IMF skulle være en slags nødhjelp: hvis et land havnet i økonomisk krise og ikke klarte å betale regningene sine, kunne det få et kriselån for å unngå full kollaps."
+        },
+        {
+            "type": "text",
+            "content": "Dette høres jo bra ut. Og noen ganger er det bra. Men problemet ligger i de små bokstavene. For IMF gir nesten aldri bort penger gratis. Lånene kommer med krav om hva landet må gjøre til gjengjeld. Disse kravene kalles strukturtilpasning."
+        },
+        {
+            "type": "text",
+            "content": "Hvordan havner et land i en slik knipe? Ofte begynner det med et lån i gode tider, kanskje for å bygge en vei eller et kraftverk. Så faller prisen på det landet lever av å selge, for eksempel kaffe eller kobber, og inntektene forsvinner. For å betale det gamle lånet må landet ta opp et nytt. Slik vokser gjelden som en snøball, helt til landet må banke på døra hos IMF."
+        },
+        {
+            "type": "header",
+            "text": "Prisen for et lån"
+        },
+        {
+            "type": "text",
+            "content": "Når et fattig land ber IMF om hjelp, sier IMF gjerne: ja, men da må du kutte i statens utgifter, selge offentlige tjenester til private selskaper, og eksportere mer av råvarene dine. Tanken er at landet skal bli mer 'effektivt' og få råd til å betale tilbake."
+        },
+        {
+            "type": "text",
+            "content": "I praksis betyr det ofte kutt i nettopp det folk trenger mest: skoler, sykehus og matstøtte. Prøv selv i modellen under. Du er finansminister i et fattig land som trenger et nytt lån. For å få pengene må du godta IMFs krav. Følg med på hva som skjer med folkets velferd."
+        },
+        {
+            "type": "component",
+            "name": "StrukturtilpasningSim",
+            "props": {
+                "title": "Få lånet: godta IMFs krav"
+            }
+        },
+        {
+            "type": "text",
+            "content": "Dette er kjernen i 'gjeld som våpen'. Et land som skylder mye penger, må gjøre som långiveren sier. Dermed kan rike land og deres banker bestemme over politikken i fattige land, uten å sende en eneste soldat. Det er den moderne versjonen av kontroll."
+        },
+        {
+            "type": "text",
+            "content": "Men rike land har jo også gjeld. Hvorfor er det da så mye farligere for et fattig land? En viktig grunn er at fattige land som regel må låne i dollar, ikke i sin egen valuta. Et rikt land kan i nødsfall trykke mer av sine egne penger. Det kan ikke et fattig land med dollargjeld. Og hvis deres egen valuta faller i verdi, blir gjelden plutselig mye større, helt uten at de har gjort noe galt."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Vannkrigen i Bolivia",
+                "content": "I byen Cochabamba i Bolivia ble vannforsyningen privatisert i år 2000, delvis etter press utenfra. Et utenlandsk selskap overtok og satte opp prisen kraftig. For mange fattige familier ble vann nesten uoverkommelig dyrt. Det endte i et stort folkeopprør, og privatiseringen ble til slutt reversert."
+            }
+        },
+        {
+            "type": "header",
+            "text": "Er IMF og Verdensbanken slemme?"
+        },
+        {
+            "type": "text",
+            "content": "Her må vi være rettferdige og kildekritiske. IMF og Verdensbanken er ikke onde skurker. Mange økonomer mener de har reddet land fra full kollaps, og at noen av kravene faktisk var nødvendige for å rydde opp i dårlig styrte økonomier."
+        },
+        {
+            "type": "text",
+            "content": "Men kritikerne peker på at kravene altfor ofte rammet de fattigste hardest, mens gjelden bare vokste videre. I dag bruker mange fattige land fortsatt store deler av inntektene sine bare på å betale renter, i stedet for på egne innbyggere. Sannheten ligger et sted i mellom, og det er nettopp derfor temaet fortsatt debatteres heftig."
+        },
+        {
+            "type": "text",
+            "content": "På 1980- og 1990-tallet fikk mange land i Afrika og Latin-Amerika nettopp denne medisinen. Perioden kalles ofte 'det tapte tiåret', fordi kuttene i skole og helse var så harde at utviklingen stoppet opp i mange land, samtidig som gjelden vokste videre."
+        },
+        {
+            "type": "text",
+            "content": "Men historien stopper ikke der. Rundt år 2000 vokste det frem en stor folkebevegelse som krevde at den eldste gjelden til de fattigste landene måtte slettes. Og noe av den ble faktisk strøket. Det viser et viktig poeng: systemet er laget av mennesker, og det kan endres når nok mennesker presser på."
+        },
+        {
+            "type": "text",
+            "content": "Vil du se hvordan disse lånene henger sammen med olje og dollar, kan du lese om [petrodollaren](/samfunnskunnskap/okonomi/petrodollaren). Og vil du se hele bildet av hvordan verden er knyttet sammen økonomisk, finnes det i [det globale handelssystemet](/samfunnskunnskap/handel-og-infrastruktur/global-handel-oversikt)."
+        }
+    ],
+    "quiz": [
+        {
+            "id": "q1",
+            "question": "Hvorfor ble IMF og Verdensbanken opprettet i 1944?",
+            "options": [
+                "For å hindre nye økonomiske kriser og kollaps etter krigen",
+                "For å straffe fattige land",
+                "For å starte den kalde krigen",
+                "For å selge olje"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q2",
+            "question": "Hva er 'strukturtilpasning'?",
+            "options": [
+                "Krav om kutt og privatisering som følger med et IMF-lån",
+                "En type bygning",
+                "En måte å gi bort penger gratis",
+                "Et navn på en bank"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q3",
+            "question": "Hvorfor kalles gjeld noen ganger et 'våpen'?",
+            "options": [
+                "Et land som skylder mye penger må gjøre som långiveren sier",
+                "Fordi penger kan eksplodere",
+                "Fordi banker har soldater",
+                "Fordi gjeld alltid forsvinner av seg selv"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q4",
+            "question": "Hva er et rettferdig syn på IMF og Verdensbanken?",
+            "options": [
+                "De har både reddet land fra kollaps og rammet de fattigste",
+                "De er rene skurker uten unntak",
+                "De har aldri gjort noe galt",
+                "De finnes ikke lenger"
+            ],
+            "correctAnswer": 0
+        }
+    ],
+    "createdDate": "2026-05-31T00:00:00Z",
+    "lastUpdated": "2026-05-31T00:00:00Z"
+}

@@ -1,0 +1,213 @@
+{
+    "id": "okonomiske-leiemordere",
+    "title": "Økonomiske leiemordere: Slik kjøpes et helt land",
+    "subject": "historie",
+    "layout": "rich",
+    "year": "1953-2004",
+    "category": "Verden",
+    "readTime": "10 min lesning",
+    "heroImage": "/images/historie/dekolonisering/okonomiske-leiemordere_hero.webp",
+    "details": [
+        "Du trenger ikke en hær for å erobre et land - du trenger et lån.",
+        "John Perkins og oppskriften på usynlig kontroll.",
+        "Iran 1953, Chile 1973 og gjeldsfellen som fortsatt brukes."
+    ],
+    "externalUrl": "https://snl.no/nykolonialisme",
+    "timeline": [
+        {
+            "year": "1953",
+            "title": "Kuppet i Iran",
+            "description": "Statsminister Mossadeq fjernes etter at han nasjonaliserte oljen."
+        },
+        {
+            "year": "1973",
+            "title": "Kuppet i Chile",
+            "description": "President Allende styrtes. Pinochet tar makten."
+        },
+        {
+            "year": "2004",
+            "title": "Boken kommer",
+            "description": "John Perkins utgir 'Confessions of an Economic Hit Man'."
+        }
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Tenk deg at du skal ta kontroll over et helt land. Du ser kanskje for deg soldater, stridsvogner og bomber. Men hva om den farligste mannen ikke har gevær, men en dress, en stresskoffert og en kalkulator? Det er nettopp dette en amerikansk mann ved navn John Perkins forteller om. Han kaller seg selv en tidligere 'økonomisk leiemorder'."
+        },
+        {
+            "type": "text",
+            "content": "En leiemorder dreper for penger. En økonomisk leiemorder dreper ikke mennesker direkte. I stedet bruker han lån, lureri og store tall til å fange fattige land i en felle de aldri kommer ut av. Målet er det samme som de gamle kolonimaktene hadde: å styre andre lands ressurser. Men metoden er usynlig."
+        },
+        {
+            "type": "header",
+            "text": "Hvem var John Perkins?"
+        },
+        {
+            "type": "text",
+            "content": "Perkins ble født i USA i 1945. På 1970-tallet fikk han jobb i et stort konsulentselskap. Tittelen hans var 'sjeføkonom', og oppgaven hørtes uskyldig ut: han skulle reise til fattige land og regne ut hvor mye de ville tjene på å bygge veier, kraftverk og havner."
+        },
+        {
+            "type": "text",
+            "content": "Men Perkins forteller at jobben egentlig var noe annet. Han skulle lage rapporter med tall som var blåst opp med vilje, slik at landene tok opp lån de umulig kunne betale tilbake. I 2004 ga han ut boken 'Confessions of an Economic Hit Man', der han fortalte om alt han hadde vært med på. Boken ble en verdensbestselger."
+        },
+        {
+            "type": "component",
+            "name": "QuoteBlock",
+            "props": {
+                "text": "Vi blåste opp tallene for å få landene til å låne enorme summer. Når de ikke kunne betale, eide vi dem.",
+                "author": "John Perkins (slik han beskriver jobben)"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Oppskriften: seks grep"
+        },
+        {
+            "type": "text",
+            "content": "Perkins beskriver en fast fremgangsmåte. Den fungerer som en trapp: går ikke det første trinnet, går du til det neste. Prøv den selv i modellen under. Du spiller leiemorderen og skal ta kontroll over et oppdiktet land som heter Petrolia."
+        },
+        {
+            "type": "component",
+            "name": "DebtTrapPlaybook",
+            "props": {
+                "title": "Spill økonomisk leiemorder: erobre Petrolia"
+            }
+        },
+        {
+            "type": "text",
+            "content": "Kjernen i hele oppskriften er enkel: gjeld er kontroll. Et land som skylder deg penger, gjør som du sier. Det viktigste våpenet er ikke et gevær, men et lån landet ikke kan betale tilbake."
+        },
+        {
+            "type": "list",
+            "items": [
+                "Velg et land som har noe vesten vil ha, som olje.",
+                "Lov enorm vekst hvis landet bygger noe stort og dyrt.",
+                "Få landet til å låne mye penger av Verdensbanken eller IMF.",
+                "La pengene gå til vestlige selskaper som bygger prosjektet.",
+                "Vent til landet ikke kan betale, og krev olje, baser og lojalitet i stedet.",
+                "Sier lederen nei, kommer 'sjakalene' - kupp eller attentat."
+            ]
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Hvem er 'sjakalene'?",
+                "content": "Perkins bruker ordet 'sjakaler' om dem som tar over når lånene ikke virker. Det er agenter som organiserer kupp, eller får uvennlige ledere fjernet. Og hvis sjakalene mislykkes, er siste utvei en vanlig militær invasjon."
+            }
+        },
+        {
+            "type": "header",
+            "text": "Iran 1953: det første offeret"
+        },
+        {
+            "type": "text",
+            "content": "Et av de tydeligste eksemplene skjedde i Iran. Landet hadde mye olje, men et britisk selskap tok nesten hele fortjenesten. I 1951 valgte iranerne en ny leder, Mohammad Mossadeq, som bestemte at oljen skulle tilhøre Irans eget folk. Det kalles å nasjonalisere."
+        },
+        {
+            "type": "text",
+            "content": "Vesten ble rasende. I 1953 organiserte den amerikanske etterretningstjenesten CIA og britisk etterretning et kupp. Mossadeq ble styrtet, og sjahen (kongen) fikk all makt tilbake. Oljen havnet igjen hos vestlige selskaper. Dette var sjakalene i arbeid, lenge før Perkins fikk sin jobb. Du kan lese hele historien i [Operasjon Ajax](/historie/den-kalde-krigen/operasjon-ajax)."
+        },
+        {
+            "type": "header",
+            "text": "Chile 1973: få økonomien til å skrike"
+        },
+        {
+            "type": "text",
+            "content": "I Chile vant Salvador Allende valget i 1970. Han ville at landets store kobbergruver skulle gi penger til vanlige chilenere, ikke til amerikanske selskaper. USAs president Nixon ga en kjent ordre: få Chiles økonomi til å 'skrike'. USA stanset lån og presset landet økonomisk."
+        },
+        {
+            "type": "text",
+            "content": "I 1973 ble Allende styrtet i et blodig militærkupp. Generalen Augusto Pinochet tok over og styrte som diktator i 17 år. Igjen ser vi mønsteret: en leder som ville beholde landets rikdom selv, ble fjernet. Les mer i [Få økonomien til å skrike: Kuppet i Chile](/historie/den-kalde-krigen/chile-1973)."
+        },
+        {
+            "type": "header",
+            "text": "Det skjedde i flere land"
+        },
+        {
+            "type": "text",
+            "content": "Iran og Chile er ikke unike. Det samme mønsteret går igjen i mange land i etterkrigstiden. I [Kongo](/historie/dekolonisering/kongo) ble lederen Patrice Lumumba myrdet med hjelp fra CIA, og en vestlig-vennlig diktator tok over rikdommen. I store deler av [Latin-Amerika](/historie/dekolonisering/latin-amerika) ble valgte ledere presset eller fjernet når de truet vestlige interesser. I [Guatemala](/historie/dekolonisering/guatemala-1954) sto til og med et amerikansk fruktselskap bak et kupp, og i [Indonesia](/historie/den-kalde-krigen/indonesia-1965) endte jakten på kommunister i et av etterkrigstidens største massedrap, med vestlig støtte."
+        },
+        {
+            "type": "text",
+            "content": "Perkins selv forteller at han jobbet i land som Indonesia, Ecuador og Panama. Et viktig poeng er at oppskriften sjelden virker uten hjelp fra noen på innsiden. Ofte fantes det en liten, rik elite i landet som tjente godt på lånene og prosjektene. De fikk byggekontrakter, gode jobber og makt, mens vanlige folk satt igjen med gjelden. På den måten ble landets egne ledere en del av fellen."
+        },
+        {
+            "type": "text",
+            "content": "Dette henger tett sammen med [den kalde krigen](/historie/den-kalde-krigen/oversikt). USA forklarte ofte inngrepene med at de stanset kommunisme. Men bak frykten for kommunisme lå det også et ønske om å kontrollere olje, kobber og andre ressurser. Du kan lese mer om hvordan slike skjulte operasjoner foregikk i artikkelen om [Iran-Contra-skandalen](/historie/den-kalde-krigen/iran-contra)."
+        },
+        {
+            "type": "header",
+            "text": "Skjer det fortsatt?"
+        },
+        {
+            "type": "text",
+            "content": "Selve gjeldsfellen finnes fortsatt. Mange fattige land bruker store deler av inntektene sine på å betale renter på gamle lån, i stedet for på skoler og sykehus. Bak mange av disse lånene står [IMF og Verdensbanken](/samfunnskunnskap/handel-og-infrastruktur/imf-og-verdensbanken), og selve pengene stammer ofte fra olje gjennom [petrodollaren](/samfunnskunnskap/okonomi/petrodollaren). Perkins mener systemet bare har byttet ansikt. I dag snakker mange om at også Kina bruker lån til store prosjekter i Afrika og Asia for å skaffe seg kontroll og innflytelse. Mekanismen er den samme: den som eier gjelden, har makten."
+        },
+        {
+            "type": "text",
+            "content": "Den som vil forstå dagens verdensøkonomi, kan se hvordan alt henger sammen i [det globale handelssystemet](/samfunnskunnskap/handel-og-infrastruktur/global-handel-oversikt). Penger, olje og lån binder land sammen på måter som ikke alltid er synlige."
+        },
+        {
+            "type": "header",
+            "text": "Kan vi tro på Perkins?"
+        },
+        {
+            "type": "text",
+            "content": "Her må vi være kritiske. Mye av det Perkins forteller om Iran og Chile er godt dokumentert av historikere. Men noen av hans egne historier er vanskelige å bevise, fordi vi bare har hans ord for det. Enkelte mener han overdriver og gjør verden enklere enn den er."
+        },
+        {
+            "type": "text",
+            "content": "Likevel peker boken på noe sant og viktig: rike land og store selskaper har ofte brukt penger, lån og makt til å styre fattigere land, lenge etter at koloniene formelt ble frie. Det kalles [nykolonialisme](/historie/dekolonisering/nykolonialisme). En god historiker tror ikke blindt på én kilde, men sammenligner flere. Da ser vi at sannheten ligger et sted mellom Perkins sine dramatiske historier og de tørre fakta i arkivene."
+        }
+    ],
+    "quiz": [
+        {
+            "id": "q1",
+            "question": "Hva er det viktigste våpenet til en 'økonomisk leiemorder'?",
+            "options": [
+                "Et lån landet ikke kan betale tilbake",
+                "En hær med soldater",
+                "Atomvåpen",
+                "Spioner med kamera"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q2",
+            "question": "Hva gjorde Mossadeq i Iran som gjorde vesten rasende?",
+            "options": [
+                "Han nasjonaliserte oljen slik at den tilhørte Irans folk",
+                "Han startet en krig mot USA",
+                "Han forbød handel med utlandet",
+                "Han nektet å betale tilbake lån"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q3",
+            "question": "Hvem er 'sjakalene' i Perkins sin oppskrift?",
+            "options": [
+                "De som organiserer kupp når lånene ikke virker",
+                "Bankene som låner ut penger",
+                "Journalistene som avslører alt",
+                "Soldatene i FN"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q4",
+            "question": "Hvorfor må vi være litt kritiske til John Perkins?",
+            "options": [
+                "Noen av historiene hans har vi bare hans ord for",
+                "Han fant opp hele den kalde krigen",
+                "Han var aldri i USA",
+                "Ingen andre har skrevet om temaet"
+            ],
+            "correctAnswer": 0
+        }
+    ],
+    "createdDate": "2026-05-31T00:00:00Z",
+    "lastUpdated": "2026-05-31T00:00:00Z"
+}

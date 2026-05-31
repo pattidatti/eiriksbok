@@ -226,6 +226,22 @@
     "type": "concept"
   },
   {
+    "term": "Blodhevn",
+    "aliases": [
+      "vendetta",
+      "ætt-hevn"
+    ],
+    "definition": "Privat hevn for drap der offerets familie hadde rett til å drepe gjerningsmannen eller noen i hans ætt. Ofte førte det til lange voldsspiraler mellom familier. Wergild ble utviklet som alternativ.",
+    "type": "concept",
+    "tags": [
+      "lov",
+      "vikingtiden",
+      "germansk",
+      "konflikt"
+    ],
+    "subject": "historie"
+  },
+  {
     "term": "Blokade",
     "definition": "Å stenge av forsyninger til et land ved bruk av militærmakt, oftest skip.",
     "subject": "historie",
@@ -439,6 +455,23 @@
     "term": "Det Østindiske Kompani",
     "definition": "Nederlandsk variant av det britiske: VOC (1602-1799) - verdens første aksjeselskap. Dominerte handelen med Asia.",
     "type": "concept"
+  },
+  {
+    "term": "Devşirme",
+    "aliases": [
+      "devsirme",
+      "barnetributten",
+      "barnetributt"
+    ],
+    "definition": "Ordningen i Det osmanske riket der kristne gutter på Balkan ble hentet ut, gjort til muslimer og trent opp i sultanens tjeneste. De fleste ble janitsjarer, men de dyktigste kunne stige helt til topps.",
+    "type": "concept",
+    "tags": [
+      "osmanske-riket",
+      "historie",
+      "slaveri",
+      "hær"
+    ],
+    "subject": "historie"
   },
   {
     "term": "Diktatur",
@@ -673,6 +706,23 @@
     "term": "Generasjon",
     "definition": "Alle som er født omtrent samtidig og deler de samme erfaringene. Hver generasjon preges av sin egen tid: krig, krise eller velstand.",
     "type": "concept"
+  },
+  {
+    "term": "Ghazi",
+    "aliases": [
+      "ghazi-kriger",
+      "ghazi-krigere",
+      "ghaziene"
+    ],
+    "definition": "En muslimsk grensekriger. De første osmanerne var ghazi-krigere som levde av å kjempe og ta land i grenselandet mellom det kristne Bysants og de muslimske rikene i Anatolia.",
+    "type": "concept",
+    "tags": [
+      "osmanske-riket",
+      "historie",
+      "krig",
+      "osman"
+    ],
+    "subject": "historie"
   },
   {
     "term": "Gig-økonomi",
@@ -958,6 +1008,23 @@
     "subject": "historie"
   },
   {
+    "term": "Janitsjar",
+    "aliases": [
+      "janitsjarer",
+      "janitsjarene",
+      "janitsjarenes"
+    ],
+    "definition": "Elitesoldat i Det osmanske riket. Janitsjarene var ofte kristne gutter hentet fra Balkan gjennom devşirme-systemet, og de utgjorde sultanens stående og fryktede hær.",
+    "type": "concept",
+    "tags": [
+      "osmanske-riket",
+      "historie",
+      "hær",
+      "soldater"
+    ],
+    "subject": "historie"
+  },
+  {
     "term": "Jazz Age",
     "definition": "Engelsk: «jazzalderen». Tilnavnet på 1920-tallet i USA, da jazzen erobret klubbene, kvinner fikk stemmerett og kulturen brøt med tradisjonene.",
     "type": "concept"
@@ -1004,6 +1071,23 @@
       "middelalder",
       "sykdom",
       "pest"
+    ],
+    "subject": "historie"
+  },
+  {
+    "term": "Kalifat",
+    "aliases": [
+      "kalif",
+      "kalifen",
+      "kalifatet"
+    ],
+    "definition": "Tittelen og rollen som øverste leder for hele det muslimske fellesskapet. De osmanske sultanene tok etter hvert også tittelen kalif, og hevdet dermed å være beskyttere av islam.",
+    "type": "concept",
+    "tags": [
+      "osmanske-riket",
+      "historie",
+      "religion",
+      "makt"
     ],
     "subject": "historie"
   },
@@ -1169,7 +1253,8 @@
   {
     "term": "Kunnskap",
     "definition": "Det vi vet og kan begrunne. Filosofer skiller mellom å kjenne til noe (informasjon), å forstå hvorfor (innsikt), og å vite hvordan (ferdighet).",
-    "type": "concept"
+    "type": "concept",
+    "link": "/historie/teknologi-og-hverdagsliv/boktrykkerkunsten"
   },
   {
     "term": "langar",
@@ -1213,6 +1298,22 @@
     "topic": "reformasjonen",
     "tags": [],
     "type": "concept"
+  },
+  {
+    "term": "Lex Salica",
+    "aliases": [
+      "salisk lov",
+      "den saliske loven"
+    ],
+    "definition": "Frankisk lovsamling fra ca. 500 e.Kr., nedskrevet under kong Klodvig. En av Europas eldste nedskrevne lover, med en detaljert pristabell for drap, lemlestelse og andre forbrytelser.",
+    "type": "concept",
+    "tags": [
+      "lov",
+      "middelalder",
+      "frankisk",
+      "germansk"
+    ],
+    "subject": "historie"
   },
   {
     "term": "Liberalisme",
@@ -1286,6 +1387,21 @@
     "type": "concept"
   },
   {
+    "term": "Mannebot",
+    "aliases": [
+      "manngjeld"
+    ],
+    "definition": "Norrønt navn for wergild. Den faste boten en drapsmann måtte betale til offerets ætt, satt etter offerets sosiale status. Sentral i Gulatingsloven og Frostatingsloven.",
+    "type": "concept",
+    "tags": [
+      "lov",
+      "vikingtiden",
+      "middelalder",
+      "norront"
+    ],
+    "subject": "historie"
+  },
+  {
     "term": "Marshallhjelpen",
     "definition": "Et omfattende amerikansk økonomisk hjelpeprogram (1948-1952) rettet mot gjenoppbyggingen av Europa etter andre verdenskrig. Målet var å skape økonomisk stabilitet og hindre kommunistisk innflytelse.",
     "subject": "historie",
@@ -1349,6 +1465,23 @@
     "term": "Migrasjon",
     "definition": "Når mennesker flytter fra ett område til et annet. Folkevandringer har formet historie og kultur i alle tidsepoker.",
     "type": "concept"
+  },
+  {
+    "term": "Millet",
+    "aliases": [
+      "millet-systemet",
+      "milletsystemet",
+      "milleter"
+    ],
+    "definition": "Ordningen i Det osmanske riket der hver religiøs gruppe, som kristne og jøder, styrte sine egne saker etter egne lover og med sin egen leder. Den ga frihet til å dyrke sin tro, men ikke full likhet med muslimene.",
+    "type": "concept",
+    "tags": [
+      "osmanske-riket",
+      "historie",
+      "religion",
+      "mangfold"
+    ],
+    "subject": "historie"
   },
   {
     "term": "Mission Civilisatrice",
@@ -2039,6 +2172,24 @@
     "link": "/historie/sveriges-historie/sveriges-historie"
   },
   {
+    "term": "Storvesir",
+    "aliases": [
+      "storvesiren",
+      "storvesirer",
+      "vesir",
+      "vesiren"
+    ],
+    "definition": "Sjefen for hele styret i Det osmanske riket, en slags statsminister. Storvesiren ledet regjeringen og hæren til daglig og bar sultanens segl, men kunne miste embetet og livet om sultanen ble misfornøyd.",
+    "type": "concept",
+    "tags": [
+      "osmanske-riket",
+      "historie",
+      "makt",
+      "styre"
+    ],
+    "subject": "historie"
+  },
+  {
     "term": "Strange Fruit",
     "definition": "Billie Holidays sang fra 1939 om lynsjing av svarte i Sør-statene. «Sørstatenes trær bærer en merkelig frukt.» En av musikkhistoriens viktigste protestsanger.",
     "type": "concept"
@@ -2071,6 +2222,23 @@
       "setningsanalyse"
     ],
     "subject": "norsk"
+  },
+  {
+    "term": "Sultan",
+    "aliases": [
+      "sultanen",
+      "sultaner",
+      "sultanens"
+    ],
+    "definition": "Tittelen på herskeren i Det osmanske riket og flere andre muslimske riker. Sultanen var rikets øverste leder med makt over både hær, lov og religion.",
+    "type": "concept",
+    "tags": [
+      "osmanske-riket",
+      "historie",
+      "makt",
+      "hersker"
+    ],
+    "subject": "historie"
   },
   {
     "term": "Suverenitet",
@@ -2139,6 +2307,22 @@
     "topic": "skrivehjelp",
     "tags": [],
     "type": "concept"
+  },
+  {
+    "term": "Tanzimat",
+    "aliases": [
+      "tanzimat-reformene",
+      "tanzimatreformene"
+    ],
+    "definition": "En stor reformbølge i Det osmanske riket på 1800-tallet. Ordet betyr 'omorganisering'. Reformene brakte nye skoler, jernbaner, en moderne hær og likere rettigheter, i et forsøk på å redde riket fra forfall.",
+    "type": "concept",
+    "tags": [
+      "osmanske-riket",
+      "historie",
+      "reform",
+      "forfall"
+    ],
+    "subject": "historie"
   },
   {
     "term": "Tariffavtale",
@@ -2483,6 +2667,23 @@
     "topic": "forste-verdenskrig",
     "tags": [],
     "type": "concept"
+  },
+  {
+    "term": "Wergild",
+    "aliases": [
+      "wergeld",
+      "weregild"
+    ],
+    "definition": "Fast pris for drap i germansk middelalderrett. Beløpet ble bestemt av offerets sosiale status og betalt til offerets familie som alternativ til blodhevn. På norrønt: mannebot.",
+    "type": "concept",
+    "tags": [
+      "lov",
+      "middelalder",
+      "germansk",
+      "rettsutvikling"
+    ],
+    "subject": "historie",
+    "link": "/historie/lov-og-rett/wergild"
   },
   {
     "id": "yam",
@@ -3042,7 +3243,7 @@
     "lifespan": "1863-1914",
     "topic": "forste-verdenskrig",
     "subject": "historie",
-    "image": "/images/people/franz-ferdinand.jpg"
+    "image": "/images/people/franz-ferdinand.webp"
   },
   {
     "term": "Fredrik Barbarossa",
@@ -3173,14 +3374,14 @@
     "lifespan": "1894-1918",
     "topic": "forste-verdenskrig",
     "subject": "historie",
-    "image": "/images/people/gavrilo-princip.jpg"
+    "image": "/images/people/gavrilo-princip.webp"
   },
   {
     "id": "genghis-khan",
     "term": "Genghis Khan (Temüjin)",
     "lifespan": "1162 - 1227",
     "definition": "Grunnleggeren av Mongolriket og en av historiens mest betydningsfulle erobrere.",
-    "image": "/images/people/genghis-khan.jpg",
+    "image": "/images/people/genghis-khan.webp",
     "link": "/historie/middelalder/mongolske-riket",
     "type": "person"
   },
@@ -3704,6 +3905,19 @@
     "link": "/filosofi/opplysningstid/john-locke"
   },
   {
+    "term": "John Poindexter",
+    "definition": "Nasjonal sikkerhetsrådgiver under president Reagan. Poindexter godkjente Iran-Contra-operasjonen og ble sparket da skandalen ble avslørt i november 1986. Han hevdet å ha holdt presidenten uvitende om Contra-overføringene for å beskytte ham.",
+    "lifespan": "1936 - 2019",
+    "link": "/historie/den-kalde-krigen/iran-contra",
+    "tags": [
+      "USA",
+      "iran-contra",
+      "den kalde krigen",
+      "politikk"
+    ],
+    "type": "person"
+  },
+  {
     "term": "John Stuart Mill",
     "definition": "Britisk filosof og forkjemper for utilitarismen - at det riktige er å skape mest mulig lykke for flest mulig. Han kjempet også for kvinners stemmerett.",
     "type": "person",
@@ -3966,7 +4180,7 @@
     "term": "Kublai Khan",
     "lifespan": "1215 - 1294",
     "definition": "Barnebarn av Genghis Khan, grunnlegger av Yuan-dynastiet i Kina og vert for Marco Polo.",
-    "image": "/images/people/kublai-khan.jpg",
+    "image": "/images/people/kublai-khan.webp",
     "link": "/historie/middelalder/mongolske-riket",
     "type": "person"
   },
@@ -4254,6 +4468,20 @@
     "lifespan": "1758 - 1794"
   },
   {
+    "id": "mehmed-2",
+    "name": "Mehmet 2. (Erobreren)",
+    "lifespan": "1432-1481",
+    "description": "Osmansk sultan som i 1453, bare 21 år gammel, erobret Konstantinopel og gjorde slutt på det tusen år gamle Bysants. Byen ble rikets nye hovedstad, og Mehmet fikk tilnavnet 'Erobreren'.",
+    "links": [
+      {
+        "title": "1453: Da Konstantinopel falt",
+        "url": "/historie/osmanske-riket/konstantinopels-fall"
+      }
+    ],
+    "term": "Mehmet 2. (Erobreren)",
+    "type": "person"
+  },
+  {
     "term": "Michael Servetus",
     "definition": "Spansk teolog og lege som benektet treenighetslæren. Han ble brent som kjetter i Calvins Genève, et eksempel på reformasjonens intoleranse.",
     "type": "person",
@@ -4321,6 +4549,20 @@
     "lifespan": "1883 - 1945"
   },
   {
+    "id": "mustafa-kemal-ataturk",
+    "name": "Mustafa Kemal Atatürk",
+    "lifespan": "1881-1938",
+    "description": "Osmansk general kjent fra Gallipoli som etter første verdenskrig drev ut de fremmede styrkene og grunnla republikken Tyrkia i 1923. Som landets første president fikk han æresnavnet Atatürk, 'tyrkernes far'.",
+    "links": [
+      {
+        "title": "Sammenbruddet og det nye Tyrkia",
+        "url": "/historie/osmanske-riket/sammenbruddet"
+      }
+    ],
+    "term": "Mustafa Kemal Atatürk",
+    "type": "person"
+  },
+  {
     "term": "Napoleon Bonaparte",
     "definition": "Fransk general som kuppet til seg makten etter revolusjonen og kronet seg selv til keiser. Han erobret store deler av Europa før han tapte ved Waterloo i 1815.",
     "type": "person",
@@ -4377,7 +4619,7 @@
     "lifespan": "1868-1918",
     "topic": "forste-verdenskrig",
     "subject": "historie",
-    "image": "/images/people/nicholas-ii.jpg"
+    "image": "/images/people/nicholas-ii.webp"
   },
   {
     "term": "Nikita Khrusjtsjov",
@@ -4469,6 +4711,19 @@
     "lifespan": "963 - 1000"
   },
   {
+    "term": "Oliver North",
+    "definition": "Amerikansk oberstløytnant og ansatt i Det nasjonale sikkerhetsrådet. North organiserte den hemmelige pengeflyten fra Iran til Contra-geriljaen i Nicaragua (1985-1986). Hans dramatiske vitnemål i Senatshøringene sommeren 1987 splittet Amerika: noen så ham som en patriot, andre som en som brøt grunnloven.",
+    "lifespan": "1943 -",
+    "link": "/historie/den-kalde-krigen/iran-contra",
+    "tags": [
+      "USA",
+      "iran-contra",
+      "den kalde krigen",
+      "militær"
+    ],
+    "type": "person"
+  },
+  {
     "term": "Oscar II",
     "definition": "Konge av Sverige (1872–1907) og Norge (1872–1905). Han var den siste kongen i personalunionen mellom de to landene og spilte en viktig rolle i den fredelige unionsoppløsningen.",
     "type": "person",
@@ -4480,6 +4735,20 @@
     "subject": "historie",
     "lifespan": "1829 – 1907",
     "link": "/historie/sveriges-historie/sveriges-historie"
+  },
+  {
+    "id": "osman-1",
+    "name": "Osman 1.",
+    "lifespan": "ca. 1258-1326",
+    "description": "Grunnleggeren av Det osmanske riket. Osman ledet en flokk ghazi-krigere i Anatolia, og riket fikk navnet sitt etter ham. Et kjent sagn forteller at han drømte om et tre som dekket hele verden.",
+    "links": [
+      {
+        "title": "Fra grensekrigere til imperium",
+        "url": "/historie/osmanske-riket/osman-og-oppkomsten"
+      }
+    ],
+    "term": "Osman 1.",
+    "type": "person"
   },
   {
     "term": "Patrice Lumumba",
@@ -4780,6 +5049,20 @@
     "lifespan": "1493 - 1520"
   },
   {
+    "id": "suleyman-1",
+    "name": "Süleyman 1. (den store)",
+    "lifespan": "1494-1566",
+    "description": "Osmansk sultan i rikets gullalder. Europa kalte ham 'den store' for erobringene helt fram til Wien, mens folket hjemme kalte ham Kanuni, 'Lovgiveren', for lovverket han skapte.",
+    "links": [
+      {
+        "title": "Süleyman den store og gullalderen",
+        "url": "/historie/osmanske-riket/suleyman-gullalderen"
+      }
+    ],
+    "term": "Süleyman 1. (den store)",
+    "type": "person"
+  },
+  {
     "term": "Tarjei Vesaas",
     "definition": "Norsk forfatter som skrev på nynorsk. Romanene «Is-slottet» og «Fuglane» bruker enkle ord til å si store ting om mennesket og naturen.",
     "type": "person",
@@ -4890,7 +5173,7 @@
     "lifespan": "1870-1924",
     "topic": "forste-verdenskrig",
     "subject": "historie",
-    "image": "/images/people/lenin.jpg"
+    "image": "/images/people/lenin.webp"
   },
   {
     "term": "Wilhelm II",
@@ -4900,7 +5183,7 @@
     "lifespan": "1859-1941",
     "topic": "forste-verdenskrig",
     "subject": "historie",
-    "image": "/images/people/wilhelm-ii.jpg"
+    "image": "/images/people/wilhelm-ii.webp"
   },
   {
     "term": "Winston Churchill",
@@ -4922,7 +5205,7 @@
     "lifespan": "1856-1924",
     "topic": "forste-verdenskrig",
     "subject": "historie",
-    "image": "/images/people/woodrow-wilson.jpg"
+    "image": "/images/people/woodrow-wilson.webp"
   },
   {
     "term": "Yuri Gagarin",

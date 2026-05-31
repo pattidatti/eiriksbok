@@ -1,0 +1,168 @@
+{
+    "id": "nykolonialisme",
+    "title": "Nykolonialisme: Kolonimakt uten kolonier",
+    "subject": "historie",
+    "layout": "rich",
+    "category": "Verden",
+    "readTime": "9 min lesning",
+    "heroImage": "/images/historie/dekolonisering/nykolonialisme_hero.webp",
+    "details": [
+        "Koloniene ble frie - men forble styrt på en ny måte.",
+        "Samme mål som før: kontroll over andres ressurser.",
+        "Ny metode: lån, selskaper og gjeld i stedet for soldater."
+    ],
+    "externalUrl": "https://snl.no/nykolonialisme",
+    "content": [
+        {
+            "type": "text",
+            "content": "På 1900-tallet ble nesten alle koloniene i verden frie. Flagg ble heist, og folk feiret uavhengigheten sin. Men mange av de nye landene oppdaget snart noe rart: selv om de var frie på papiret, bestemte de fortsatt ikke helt over sin egen økonomi. Noen andre trakk fremdeles i trådene. Dette kaller vi nykolonialisme."
+        },
+        {
+            "type": "text",
+            "content": "Forstavelsen 'ny' betyr at det er en moderne utgave av noe gammelt. I den vanlige kolonitiden styrte land som Storbritannia og Frankrike andre land direkte, med guvernører og soldater. I nykolonialismen er kontrollen mer skjult. Den skjer gjennom penger, lån, handel og store selskaper, ikke gjennom åpen erobring."
+        },
+        {
+            "type": "header",
+            "text": "Samme mål, nye klær"
+        },
+        {
+            "type": "text",
+            "content": "Det viktigste å forstå er dette: målet har ikke forandret seg. Både den gamle og den nye kolonimakten vil ha det samme - kontroll over andre lands ressurser og rikdom. Det som har endret seg, er metoden. Soldater er byttet ut med lån. Flagg er byttet ut med merkevarer."
+        },
+        {
+            "type": "text",
+            "content": "Dra i håndtaket i modellen under. Du beveger deg fra år 1900 og frem til i dag. Se hva som forandrer seg, og legg merke til det ene som står helt stille uansett hvor du drar."
+        },
+        {
+            "type": "component",
+            "name": "KolonimaktSkifte",
+            "props": {
+                "title": "Gammelt og nytt: dra i tiden"
+            }
+        },
+        {
+            "type": "text",
+            "content": "La oss se på verktøyene i den nye kolonimakten, ett for ett. Til sammen utgjør de et helt system."
+        },
+        {
+            "type": "header",
+            "text": "Verktøy 1: Gjeld"
+        },
+        {
+            "type": "text",
+            "content": "Det mektigste verktøyet er gjeld. Et fattig land får tilbud om et stort lån til et flott prosjekt. Men når landet ikke klarer å betale tilbake, må det gjøre som långiveren sier. Det er nøyaktig dette de [økonomiske leiemorderne](/historie/dekolonisering/okonomiske-leiemordere) levde av, og det er maskineriet bak [IMF og Verdensbanken](/samfunnskunnskap/handel-og-infrastruktur/imf-og-verdensbanken)."
+        },
+        {
+            "type": "header",
+            "text": "Verktøy 2: Selskaper"
+        },
+        {
+            "type": "text",
+            "content": "Store selskaper kan være like mektige som stater. I [Guatemala](/historie/dekolonisering/guatemala-1954) eide fruktselskapet United Fruit nesten alt, og fikk til og med organisert et kupp da en president truet interessene deres. Selskaper henter ofte ut billige råvarer fra fattige land og tar fortjenesten med seg hjem."
+        },
+        {
+            "type": "text",
+            "content": "I dag er noen selskaper rikere enn hele land. Når et slikt selskap forhandler med en fattig regjering, er det ikke to like parter. Selskapet kan true med å flytte jobbene og pengene sine et annet sted hvis det ikke får viljen sin."
+        },
+        {
+            "type": "header",
+            "text": "Verktøy 3: Kupp, når alt annet feiler"
+        },
+        {
+            "type": "text",
+            "content": "Hvis en leder nekter å samarbeide, finnes det et siste verktøy. I [Iran](/historie/den-kalde-krigen/operasjon-ajax), [Chile](/historie/den-kalde-krigen/chile-1973), [Kongo](/historie/dekolonisering/kongo) og [Indonesia](/historie/den-kalde-krigen/indonesia-1965) ble folkevalgte ledere fjernet eller knust fordi de ville beholde landets rikdom selv. Som regel skjedde det i det skjulte, slik at det så ut som landets eget valg."
+        },
+        {
+            "type": "header",
+            "text": "Verktøy 4: Ulik handel"
+        },
+        {
+            "type": "text",
+            "content": "Det fjerde verktøyet er selve handelen. Fattige land selger ofte billige råvarer, som kakao, kobber eller olje. Rike land kjøper råvarene, lager dyre ferdigvarer av dem, og selger dem tilbake. En kakaobonde i Ghana får noen få kroner, mens sjokoladen ender i butikken til mange ganger prisen. Slik renner verdien hele tiden fra sør mot nord, helt uten tvang."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Skjer det fortsatt?",
+                "content": "Ja, mange mener det. I dag bruker fattige land fortsatt store deler av inntektene sine på å betale renter på gammel gjeld. Og det er ikke bare Vesten lenger: mange peker på at også Kina bruker store lån til prosjekter i Afrika og Asia for å skaffe seg kontroll og innflytelse. Metoden er den samme, men aktørene kan være nye."
+            }
+        },
+        {
+            "type": "header",
+            "text": "Kan et land slippe unna?"
+        },
+        {
+            "type": "text",
+            "content": "Det er viktig å ikke male alt helt svart. Noen land har klart å bryte ut av fellen. Land som har egne, verdifulle ressurser og styrer dem klokt, kan forhandle på like fot. Og det finnes ledere som har sagt nei til dårlige lån, eller slettet gjeld gjennom internasjonale avtaler. Nykolonialisme er et mønster, ikke en naturlov."
+        },
+        {
+            "type": "text",
+            "content": "Mange forskere snakker om en 'ressursforbannelse': at land som er rike på olje eller mineraler ofte ender opp fattige og dårlig styrt, fordi rikdommen lokker til seg korrupsjon og innblanding utenfra. Men det går an å unngå. Norge er et godt eksempel. Da vi fant olje, beholdt staten kontrollen over den og la pengene i et felles oljefond for hele folket, i stedet for å la noen få bli styrtrike. Det er nesten det motsatte av en bananrepublikk."
+        },
+        {
+            "type": "text",
+            "content": "Men det kan koste dyrt å si nei. På 1980-tallet nektet lederen Thomas Sankara i Burkina Faso å betale en gjeld han mente var urettferdig. Han ble en helt for mange afrikanere, men ble drept i et kupp året etter. Frihet fra den nye kolonimakten kommer sjelden gratis."
+        },
+        {
+            "type": "header",
+            "text": "Et begrep vi må bruke med omhu"
+        },
+        {
+            "type": "text",
+            "content": "Til slutt en viktig advarsel. Ordet nykolonialisme er kraftfullt, men det kan også misbrukes. Noen forklarer alt som skjer i fattige land med skjulte planer fra Vesten, og glemmer at landene også har egne ledere, egne valg og egen korrupsjon. Virkeligheten er som regel mer rotete enn én enkel forklaring."
+        },
+        {
+            "type": "text",
+            "content": "En god historiker bruker derfor begrepet som et verktøy, ikke som en fasit. Det hjelper oss å se et ekte mønster: at makt og rikdom ofte henger sammen, og at frihet på papiret ikke alltid er det samme som frihet i praksis. Men hvert land og hver hendelse må undersøkes for seg, med flere kilder, før vi feller en dom."
+        }
+    ],
+    "quiz": [
+        {
+            "id": "q1",
+            "question": "Hva er nykolonialisme?",
+            "options": [
+                "Når land styres økonomisk av andre selv etter at de er blitt frie",
+                "Når et land får en ny koloni",
+                "Når kolonier blir til byer",
+                "En ny type flagg"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q2",
+            "question": "Hva er likt mellom gammel og ny kolonialisme?",
+            "options": [
+                "Målet: kontroll over andres ressurser og rikdom",
+                "At begge bruker soldater",
+                "At begge bruker flagg",
+                "Ingenting er likt"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q3",
+            "question": "Hvilket verktøy er det mektigste i den nye kolonimakten?",
+            "options": [
+                "Gjeld",
+                "Soldater",
+                "Flagg",
+                "Telegrafen"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q4",
+            "question": "Hvorfor må vi bruke ordet 'nykolonialisme' med omhu?",
+            "options": [
+                "Fordi ikke alt skyldes skjulte planer; land har egne valg og egen korrupsjon",
+                "Fordi ordet er forbudt",
+                "Fordi det aldri stemmer",
+                "Fordi det betyr noe helt annet"
+            ],
+            "correctAnswer": 0
+        }
+    ],
+    "createdDate": "2026-05-31T00:00:00Z",
+    "lastUpdated": "2026-05-31T00:00:00Z"
+}

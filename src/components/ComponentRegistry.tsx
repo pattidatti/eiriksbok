@@ -70,6 +70,8 @@ const MilletExplorer = lazy(() => import('./content/interactive/MilletExplorer')
 const TopkapiCourt = lazy(() => import('./content/interactive/TopkapiCourt').then(m => ({ default: m.TopkapiCourt })));
 const OttomanCrossroads = lazy(() => import('./content/interactive/OttomanCrossroads').then(m => ({ default: m.OttomanCrossroads })));
 const MapRedrawn = lazy(() => import('./content/interactive/MapRedrawn').then(m => ({ default: m.MapRedrawn })));
+const StromkrigenDuel = lazy(() => import('./content/interactive/StromkrigenDuel').then(m => ({ default: m.StromkrigenDuel })));
+const ResistensSim = lazy(() => import('./content/interactive/ResistensSim').then(m => ({ default: m.ResistensSim })));
 const GlossaryTooltip = lazy(() => import('./content/interactive/GlossaryTooltip').then(m => ({ default: m.GlossaryTooltip })));
 const ScenarioRoleplay = lazy(() => import('./content/interactive/ScenarioRoleplay').then(m => ({ default: m.ScenarioRoleplay })));
 const DragDropTimeline = lazy(() => import('./content/interactive/DragDropTimeline').then(m => ({ default: m.DragDropTimeline })));
@@ -200,6 +202,14 @@ const RetorikkMikseren = lazy(() => import('./content/interactive/RetorikkMikser
 const RunebommeExplorer = lazy(() => import('./content/interactive/RunebommeExplorer').then(m => ({ default: m.RunebommeExplorer })));
 const RubiconChoice = lazy(() => import('./content/interactive/RubiconChoice').then(m => ({ default: m.RubiconChoice })));
 const HekseprosessLogikk = lazy(() => import('./content/interactive/HekseprosessLogikk').then(m => ({ default: m.HekseprosessLogikk })));
+const DebtTrapPlaybook = lazy(() => import('./content/interactive/DebtTrapPlaybook').then(m => ({ default: m.DebtTrapPlaybook })));
+const AjaxRingvirkninger = lazy(() => import('./content/interactive/AjaxRingvirkninger').then(m => ({ default: m.AjaxRingvirkninger })));
+const OkonomiSkriker = lazy(() => import('./content/interactive/OkonomiSkriker').then(m => ({ default: m.OkonomiSkriker })));
+const BananaMaktnett = lazy(() => import('./content/interactive/BananaMaktnett').then(m => ({ default: m.BananaMaktnett })));
+const StrukturtilpasningSim = lazy(() => import('./content/interactive/StrukturtilpasningSim').then(m => ({ default: m.StrukturtilpasningSim })));
+const PetrodollarKretslop = lazy(() => import('./content/interactive/PetrodollarKretslop').then(m => ({ default: m.PetrodollarKretslop })));
+const JakartaMetoden = lazy(() => import('./content/interactive/JakartaMetoden').then(m => ({ default: m.JakartaMetoden })));
+const KolonimaktSkifte = lazy(() => import('./content/interactive/KolonimaktSkifte').then(m => ({ default: m.KolonimaktSkifte })));
 
 export const componentRegistry: Record<string, React.ComponentType<any>> = {
     // Core
@@ -268,6 +278,8 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     TopkapiCourt,
     OttomanCrossroads,
     MapRedrawn,
+    StromkrigenDuel,
+    ResistensSim,
     GlossaryTooltip,
     ScenarioRoleplay,
     DragDropTimeline,
@@ -398,6 +410,14 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     RetorikkMikseren,
     RunebommeExplorer,
     RubiconChoice,
+    DebtTrapPlaybook,
+    AjaxRingvirkninger,
+    OkonomiSkriker,
+    BananaMaktnett,
+    StrukturtilpasningSim,
+    PetrodollarKretslop,
+    JakartaMetoden,
+    KolonimaktSkifte,
     Gallery,
     gallery: Gallery,
     comparison: Comparison,

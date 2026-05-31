@@ -91,7 +91,7 @@ const renderWithMarkdown = (text: string, concepts?: Concept[]) => {
 
                 // Standard paragraph
                 return (
-                    <p key={index} className="mb-4 leading-relaxed">
+                    <p key={index} className="mb-3 leading-relaxed last:mb-0">
                         {renderInlineMarkdown(block, concepts)}
                     </p>
                 );
@@ -182,7 +182,7 @@ export const ArticleContent: React.FC<ArticleContentProps> = React.memo(({ conte
 
                 // Check for active state if interactive
                 const isActive = activeBlockIndex === index;
-                const interactiveClass = onBlockClick ? "cursor-pointer transition-all duration-300 hover:bg-slate-50/80 hover:shadow-sm rounded-xl p-4 -mx-4" : "";
+                const interactiveClass = onBlockClick ? "cursor-pointer transition-all duration-300 hover:bg-slate-50/80 hover:shadow-sm rounded-xl px-4 py-2 -mx-4" : "";
                 const activeClass = isActive ? "bg-amber-50/40 relative shadow-sm border border-amber-100/50" : "";
 
                 // Check if the type is a registered component

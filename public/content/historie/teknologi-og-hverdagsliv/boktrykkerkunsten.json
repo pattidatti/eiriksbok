@@ -93,6 +93,39 @@
       "caption": "Med løse typer kunne de samme bokstavene settes sammen om og om igjen. En side som tok måneder å skrive, kunne nå trykkes på minutter."
     },
     {
+      "type": "component",
+      "name": "TimelineComponent",
+      "props": {
+        "compact": true,
+        "events": [
+          {
+            "year": 1300,
+            "description": "Bøker skrives av for hånd i klostre. En enkelt bok kan koste like mye som et hus."
+          },
+          {
+            "year": 1450,
+            "description": "Johann Gutenberg setter sammen pressen med løse blytyper i Mainz."
+          },
+          {
+            "year": 1455,
+            "description": "Gutenbergbibelen trykkes - rundt 180 like eksemplarer av samme bok."
+          },
+          {
+            "year": 1500,
+            "description": "Trykkerier finnes over hele Europa, og millioner av bøker er allerede trykt."
+          },
+          {
+            "year": 1517,
+            "description": "Martin Luthers kritikk spres raskt med trykkpressen og tenner reformasjonen."
+          },
+          {
+            "year": 1605,
+            "description": "En av verdens første aviser trykkes i Europa."
+          }
+        ]
+      }
+    },
+    {
       "type": "header",
       "text": "Når en bok blir billig"
     },
@@ -151,39 +184,6 @@
       "name": "PrintingPressMultiplier",
       "props": {
         "title": "Munk eller presse: hvor lang tid og hvor dyrt?"
-      }
-    },
-    {
-      "type": "component",
-      "name": "TimelineComponent",
-      "props": {
-        "compact": true,
-        "events": [
-          {
-            "year": 1300,
-            "description": "Bøker skrives av for hånd i klostre. En enkelt bok kan koste like mye som et hus."
-          },
-          {
-            "year": 1450,
-            "description": "Johann Gutenberg setter sammen pressen med løse blytyper i Mainz."
-          },
-          {
-            "year": 1455,
-            "description": "Gutenbergbibelen trykkes - rundt 180 like eksemplarer av samme bok."
-          },
-          {
-            "year": 1500,
-            "description": "Trykkerier finnes over hele Europa, og millioner av bøker er allerede trykt."
-          },
-          {
-            "year": 1517,
-            "description": "Martin Luthers kritikk spres raskt med trykkpressen og tenner reformasjonen."
-          },
-          {
-            "year": 1605,
-            "description": "En av verdens første aviser trykkes i Europa."
-          }
-        ]
       }
     },
     {

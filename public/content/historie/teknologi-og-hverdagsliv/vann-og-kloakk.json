@@ -53,6 +53,17 @@
     },
     {
       "type": "text",
+      "content": "Prøv selv å gjøre det Snow gjorde, før du leser videre. Under er et enkelt kart over et nabolag der koleraen herjer. Du er detektiven. Følg sporene, finn ut hvilken pumpe som gjør folk syke, og se hva som skjer når du stenger den."
+    },
+    {
+      "type": "component",
+      "name": "BroadStreetInvestigator",
+      "props": {
+        "title": "Detektiv i London, 1854"
+      }
+    },
+    {
+      "type": "text",
       "content": "Det brøt ut et voldsomt utbrudd i et nabolag som het Soho. På bare ti dager døde over fem hundre mennesker rundt en gate som het Broad Street. Snow gjorde noe nytt og smart: han skaffet et kart over nabolaget og satte en strek for hvert eneste dødsfall der det hadde skjedd. Sakte tegnet et mønster seg fram. Dødsfallene lå ikke spredt utover. De klumpet seg sammen, tettere og tettere, rundt ett bestemt sted: vannpumpa i Broad Street."
     },
     {
@@ -74,37 +85,6 @@
       "content": "Snow tok funnene sine til myndighetene og overtalte dem til å gjøre én enkel ting: fjerne håndtaket på pumpa, slik at ingen kunne bruke den. Det skjedde, og utbruddet døde ut. Senere fant man ut at en utedo like ved hadde lekket avføring fra et sykt barn rett ned i brønnen pumpa hentet vann fra. Snow hadde rett hele tiden. Han hadde løst gåten uten å kunne se bakterien, bare ved å følge tallene og tegne dem på et kart."
     },
     {
-      "type": "component",
-      "name": "Comparison",
-      "props": {
-        "title": "To måter å forklare sykdom på",
-        "leftTitle": "Teorien om dårlig luft",
-        "rightTitle": "John Snows teori om vannet",
-        "items": [
-          {
-            "label": "Hva gjorde folk syke?",
-            "left": "Giftige damper man pustet inn",
-            "right": "Skittent vann man drakk"
-          },
-          {
-            "label": "Hvorfor ble noen frie?",
-            "left": "Kunne ikke forklares",
-            "right": "De drakk vann fra et annet sted"
-          },
-          {
-            "label": "Hvilket tiltak hjalp?",
-            "left": "Fjerne lukt og rydde søppel - uten effekt",
-            "right": "Stenge den smittede pumpa - utbruddet stoppet"
-          },
-          {
-            "label": "Var teorien riktig?",
-            "left": "Nei, den var feil",
-            "right": "Ja, beviset lå i kartet"
-          }
-        ]
-      }
-    },
-    {
       "type": "header",
       "text": "Rørene som forandret alt"
     },
@@ -121,21 +101,6 @@
       "src": "/images/placeholder.webp",
       "alt": "Arbeidere bygger en stor murt kloakktunnel under London på 1800-tallet",
       "caption": "Byene gravde seg ned og bygde enorme kloakksystemer. Disse usynlige rørene reddet flere liv enn de fleste medisiner."
-    },
-    {
-      "type": "header",
-      "text": "Detektivarbeid på kartet"
-    },
-    {
-      "type": "text",
-      "content": "Prøv selv å gjøre det John Snow gjorde. Under er et enkelt kart over et nabolag der koleraen herjer. Du er detektiven. Klikk deg fram til hvilken pumpe som gjør folk syke, og se hva som skjer når du stenger den."
-    },
-    {
-      "type": "component",
-      "name": "BroadStreetInvestigator",
-      "props": {
-        "title": "Detektiv i London, 1854"
-      }
     },
     {
       "type": "component",

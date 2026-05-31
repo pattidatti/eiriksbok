@@ -130,18 +130,6 @@
       }
     },
     {
-      "type": "header",
-      "text": "Et nytt problem dukker opp"
-    },
-    {
-      "type": "text",
-      "content": "Vaksiner og antibiotika ga oss et lengre og tryggere liv enn noen generasjon før oss. Men medaljen har en bakside. Bakterier er levende, og levende ting kan forandre seg. Hver gang vi bruker antibiotika, dør de svakeste bakteriene først. De aller seigeste kan overleve, og de gir egenskapene sine videre. Etter mange runder kan vi ende opp med bakterier som ingen kjent medisin klarer å drepe. Dette kalles antibiotikaresistens, og det er et av de største helseproblemene i verden i dag. Jo mer vi sløser med antibiotika, jo raskere slutter den å virke. Derfor skal du aldri ta antibiotika mot en forkjølelse, for forkjølelse er et virus, og antibiotika virker bare mot bakterier."
-    },
-    {
-      "type": "text",
-      "content": "Historien om vaksiner og antibiotika er derfor ikke ferdig. To enkle ideer, en kukoppe og en glemt skål med muggsopp, forandret hva det vil si å være menneske. Likevel var ikke medisinen alene om å redde oss. Like viktig var arbeidet med [rent vann og kloakk](/historie/teknologi-og-hverdagsliv/vann-og-kloakk), som stoppet mange sykdommer før de i det hele tatt rakk å gjøre noen syk. Vi sørger ikke lenger over halvparten av barna våre, og en betent rift er ikke lenger en dødsdom. Men oppfinnelser som redder liv må også passes på. Neste gang du får en vaksine eller en kur som gjør deg frisk på noen dager, er det verdt å huske hvor nytt og hvor skjørt dette egentlig er."
-    },
-    {
       "type": "component",
       "name": "TimelineComponent",
       "props": {
@@ -173,6 +161,25 @@
           }
         ]
       }
+    },
+    {
+      "type": "header",
+      "text": "Et nytt problem dukker opp"
+    },
+    {
+      "type": "text",
+      "content": "Vaksiner og antibiotika ga oss et lengre og tryggere liv enn noen generasjon før oss. Men medaljen har en bakside. Bakterier er levende, og levende ting kan forandre seg. Hver gang vi bruker antibiotika, dør de svakeste bakteriene først. De aller seigeste kan overleve, og de gir egenskapene sine videre. Etter mange runder kan vi ende opp med bakterier som ingen kjent medisin klarer å drepe. Dette kalles antibiotikaresistens, og det er et av de største helseproblemene i verden i dag. Jo mer vi sløser med antibiotika, jo raskere slutter den å virke. Derfor skal du aldri ta antibiotika mot en forkjølelse, for forkjølelse er et virus, og antibiotika virker bare mot bakterier. Prøv selv nedenfor hvor raskt de resistente bakteriene tar over når antibiotika brukes igjen og igjen."
+    },
+    {
+      "type": "component",
+      "name": "ResistensSim",
+      "props": {
+        "title": "Antibiotikaresistens: en runde om gangen"
+      }
+    },
+    {
+      "type": "text",
+      "content": "Historien om vaksiner og antibiotika er derfor ikke ferdig. To enkle ideer, en kukoppe og en glemt skål med muggsopp, forandret hva det vil si å være menneske. Likevel var ikke medisinen alene om å redde oss. Like viktig var arbeidet med [rent vann og kloakk](/historie/teknologi-og-hverdagsliv/vann-og-kloakk), som stoppet mange sykdommer før de i det hele tatt rakk å gjøre noen syk. Vi sørger ikke lenger over halvparten av barna våre, og en betent rift er ikke lenger en dødsdom. Men oppfinnelser som redder liv må også passes på. Neste gang du får en vaksine eller en kur som gjør deg frisk på noen dager, er det verdt å huske hvor nytt og hvor skjørt dette egentlig er."
     },
     {
       "type": "component",

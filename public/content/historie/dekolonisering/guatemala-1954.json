@@ -1,0 +1,178 @@
+{
+    "id": "guatemala-1954",
+    "title": "Bananrepublikken: Da et fruktselskap styrtet en regjering",
+    "subject": "historie",
+    "layout": "rich",
+    "year": "1954",
+    "category": "Verden",
+    "readTime": "9 min lesning",
+    "heroImage": "/images/historie/dekolonisering/guatemala-1954_hero.webp",
+    "details": [
+        "Ett amerikansk fruktselskap eide nesten alt i Guatemala.",
+        "Da presidenten ga jord til fattige bønder, falt hammeren.",
+        "CIA-kuppet i 1954 utløste 36 år med borgerkrig."
+    ],
+    "externalUrl": "https://snl.no/Guatemalas_historie",
+    "timeline": [
+        {
+            "year": "1951",
+            "title": "Árbenz blir president",
+            "description": "Lover jordreform til fattige bønder."
+        },
+        {
+            "year": "1953",
+            "title": "Jorda deles ut",
+            "description": "United Fruit mister ubrukt land. Selskapet raser."
+        },
+        {
+            "year": "1954",
+            "title": "Kuppet",
+            "description": "CIA velter Árbenz. Borgerkrig følger."
+        }
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Hos de [økonomiske leiemorderne](/historie/dekolonisering/okonomiske-leiemordere) lærte du at store selskaper ofte står bak inngrep i fattige land. Guatemala i 1954 er det reneste eksempelet som finnes. Her veltet ikke et land en regjering. Det gjorde et fruktselskap."
+        },
+        {
+            "type": "text",
+            "content": "Guatemala er et lite land i Mellom-Amerika. På 1950-tallet ble landet ofte kalt en bananrepublikk. Uttrykket brukes om et land der ett selskap eller én vare styrer nesten alt. I Guatemala var selskapet det amerikanske United Fruit Company, og varen var bananer."
+        },
+        {
+            "type": "header",
+            "text": "Et selskap som eide alt"
+        },
+        {
+            "type": "text",
+            "content": "United Fruit var ikke et vanlig firma. Det eide enorme landområder, nesten all jernbane, den viktigste havna, og til og med posten og telegrafen. Selskapet var rett og slett mektigere enn den guatemalanske staten. Folk kalte det bare 'el pulpo', blekkspruten, fordi armene nådde inn overalt."
+        },
+        {
+            "type": "text",
+            "content": "Selskapet betalte nesten ingen skatt og kunne presse priser og lønninger slik det selv ville. For en vanlig guatemalaner var det nesten umulig å leve uten på et eller annet vis å være avhengig av blekkspruten. Når ett firma eier både jorda, toget og havna, eier det egentlig hele landet."
+        },
+        {
+            "type": "text",
+            "content": "Trykk deg gjennom modellen under og se hvor langt grepet til United Fruit rakk. Når du har avdekket alt, forstår du hvorfor selskapet trodde det kunne gjøre akkurat som det ville."
+        },
+        {
+            "type": "component",
+            "name": "BananaMaktnett",
+            "props": {
+                "title": "Hvem eier landet? Avdekk United Fruits grep"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Presidenten som delte ut jord"
+        },
+        {
+            "type": "text",
+            "content": "I 1951 fikk Guatemala en folkevalgt president som het Jacobo Árbenz. Han så et urettferdig land: noen få rike eide nesten all jorda, mens fattige bønder ikke hadde noe. Derfor satte han i gang en jordreform. Staten skulle kjøpe opp jord som lå ubrukt, og gi den til bøndene."
+        },
+        {
+            "type": "text",
+            "content": "Árbenz var ikke alene. Han var en del av det mange kaller Guatemalas 'ti års vår', fra 1944 til 1954. For første gang hadde landet frie valg, ytringsfrihet og et håp om et bedre liv for vanlige folk. Jordreformen ga jord til rundt en halv million fattige mennesker. For dem var Árbenz en helt."
+        },
+        {
+            "type": "text",
+            "content": "Problemet for United Fruit var at selskapet med vilje lot mesteparten av jorda si ligge brakk. Nå skulle staten overta den ubrukte jorda. Árbenz tilbød seg å betale, men han baserte prisen på den lave verdien selskapet selv hadde oppgitt for å slippe skatt. United Fruit følte seg lurt og raste."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Brødrene som satt på begge sider",
+                "content": "United Fruit hadde mektige venner. USAs utenriksminister John Foster Dulles og CIA-sjefen Allen Dulles var brødre - og begge hadde tette bånd til selskapet. Det er vanskelig å tenke seg bedre kontakter når man vil ha hjelp fra den amerikanske staten."
+            }
+        },
+        {
+            "type": "header",
+            "text": "Kuppet som ble bestilt"
+        },
+        {
+            "type": "text",
+            "content": "United Fruit startet en kampanje for å overbevise USA om at Árbenz var en farlig kommunist. Det var en overdrivelse, men i den kalde krigen var ordet 'kommunist' nok til å utløse alarm. President Eisenhower ga CIA ordre om å fjerne Árbenz, i en hemmelig operasjon."
+        },
+        {
+            "type": "text",
+            "content": "CIA brukte ikke en stor hær. De brukte triks. De satte opp en hemmelig radiostasjon som lot som den sendte fra opprørere inne i landet, og spredte løgner om at en mektig hær var på vei mot hovedstaden. De fløy noen få fly som slapp småbomber for å skape frykt. Det hele var et skuespill, men det virket. Hæren mistet motet, og Árbenz trakk seg sommeren 1954."
+        },
+        {
+            "type": "component",
+            "name": "QuoteBlock",
+            "props": {
+                "text": "De tok landet fra de fattige og ga det tilbake til selskapet. Alt i frihetens navn.",
+                "author": "En vanlig beskrivelse av kuppets resultat"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Prisen folket betalte"
+        },
+        {
+            "type": "text",
+            "content": "Mannen USA satte inn i stedet, oberst Castillo Armas, rev opp jordreformen umiddelbart og ga selskapet alt tilbake. Jorda gikk fra fattige bønder til blekkspruten igjen. Men freden var borte. Guatemala falt ned i en borgerkrig som varte i 36 år, fra 1960 til 1996. Rundt 200 000 mennesker mistet livet, de fleste fattige og urfolk."
+        },
+        {
+            "type": "text",
+            "content": "En ung argentinsk lege ved navn Che Guevara var i Guatemala akkurat da kuppet skjedde. Det han så, overbeviste ham om at fredelig forandring var umulig, og var med på å gjøre ham til revolusjonær. Slik kan ett kupp i ett lite land sette spor i hele verdenshistorien."
+        },
+        {
+            "type": "text",
+            "content": "Det er det samme mønsteret som i [Iran](/historie/den-kalde-krigen/operasjon-ajax) og [Chile](/historie/den-kalde-krigen/chile-1973): en folkevalgt leder ville dele landets rikdom mer rettferdig, og ble fjernet fordi det truet vestlige interesser. Forskjellen er at i Guatemala var det et privat selskap som dro i trådene. Mange år senere, i 1999, innrømmet USAs president Bill Clinton at den amerikanske støtten til volden i Guatemala hadde vært feil. Men da var skaden for lengst skjedd."
+        },
+        {
+            "type": "text",
+            "content": "Som alltid bør vi være kildekritiske. United Fruit malte Árbenz som en kommunist for å få viljen sin, og den versjonen ble lenge den offisielle. Først senere, da hemmelige dokumenter kom frem, ble det tydelig hvor stor rolle selskapet og CIA hadde spilt. Det minner oss om å spørre: hvem tjente på historien vi fikk høre?"
+        }
+    ],
+    "quiz": [
+        {
+            "id": "q1",
+            "question": "Hva betyr uttrykket 'bananrepublikk'?",
+            "options": [
+                "Et land der ett selskap eller én vare styrer nesten alt",
+                "Et land som bare dyrker bananer",
+                "Et land uten regjering",
+                "Et land som eksporterer frukt til hele verden"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q2",
+            "question": "Hvorfor ble United Fruit rasende på president Árbenz?",
+            "options": [
+                "Han ville gi selskapets ubrukte jord til fattige bønder",
+                "Han forbød salg av bananer",
+                "Han stengte havnene",
+                "Han nektet å snakke med dem"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q3",
+            "question": "Hvordan fikk CIA Árbenz til å gi seg?",
+            "options": [
+                "Med falske radiosendinger og skremsel, ikke en stor hær",
+                "Med en full militær invasjon",
+                "Ved å betale ham penger",
+                "Ved å vinne et valg"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q4",
+            "question": "Hva ble resultatet av kuppet for Guatemala?",
+            "options": [
+                "36 år med borgerkrig og rundt 200 000 døde",
+                "Varig fred og velstand",
+                "Landet ble rikt på bananer",
+                "United Fruit forlot landet"
+            ],
+            "correctAnswer": 0
+        }
+    ],
+    "createdDate": "2026-05-31T00:00:00Z",
+    "lastUpdated": "2026-05-31T00:00:00Z"
+}

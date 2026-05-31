@@ -36,37 +36,6 @@
       "content": "Det betydde at mørket styrte døgnet. Når sola gikk ned, ble det vanskelig å jobbe, lese eller lage noe. Folk gikk tidlig til sengs, ikke fordi de var så trøtte, men fordi det var lite annet å gjøre. Vinterkveldene i Norge er lange, og i flere måneder var en stor del av dagen rett og slett mørk. Lyset bestemte hvor lang dagen kunne være."
     },
     {
-      "type": "component",
-      "name": "Comparison",
-      "props": {
-        "title": "Flammen mot lyspaera",
-        "leftTitle": "Lys fra flamme (lys, parafin, gass)",
-        "rightTitle": "Elektrisk lyspaere",
-        "items": [
-          {
-            "label": "Hvor sterkt var lyset?",
-            "left": "Svakt og flakkende, vanskelig å lese ved",
-            "right": "Jevnt og sterkt, lyste opp hele rommet"
-          },
-          {
-            "label": "Hvor trygt var det?",
-            "left": "Åpen flamme som lett kunne starte brann",
-            "right": "Ingen flamme, mye mindre brannfare"
-          },
-          {
-            "label": "Hva krevde det av deg?",
-            "left": "Fylling, pussing, bytte av lys og veker",
-            "right": "Et trykk på bryteren, ingenting mer"
-          },
-          {
-            "label": "Hva gjorde det med kvelden?",
-            "left": "Kort og mørk, dagen sluttet snart etter sola",
-            "right": "Lang og lys, du kunne holde på langt utover kvelden"
-          }
-        ]
-      }
-    },
-    {
       "type": "header",
       "text": "Pæra som kunne brenne lenge"
     },
@@ -97,12 +66,23 @@
       "content": "Det tok tid. Mange hus på landsbygda fikk ikke strøm før langt inn på 1900-tallet. Men der strømmen kom, ble forandringen enorm. Et eneste lite trykk på en bryter, og hele rommet ble lyst. Ingen flamme, ingen os, ingen frykt for brann."
     },
     {
+      "type": "header",
+      "text": "Krigen om strømmen"
+    },
+    {
+      "type": "text",
+      "content": "Men det var ikke nok å lage strøm. Den måtte også sendes ut til folk, og her braket to leirer sammen i det som er blitt kalt strømkrigen. Thomas Edison hadde satset alt på likestrøm. Problemet var at likestrøm taper kraften sin fort når den sendes gjennom lange ledninger, så Edison måtte bygge et nytt kraftverk for nesten hvert kvartal. Nikola Tesla og George Westinghouse satset i stedet på vekselstrøm, som kan løftes opp til høy spenning med en transformator og sendes mil etter mil uten å tape mye. Prøv selv hvordan de to systemene klarer seg når byen ligger lenger og lenger unna kraftverket."
+    },
+    {
       "type": "component",
-      "name": "FactBox",
+      "name": "StromkrigenDuel",
       "props": {
-        "title": "Strømkrigen",
-        "content": "På slutten av 1800-tallet kranglet to leirer om hvordan strømmen skulle sendes ut. Thomas Edison ville bruke likestrøm, mens Nikola Tesla og George Westinghouse satset på vekselstrøm. Vekselstrøm kan sendes over lange avstander uten å tape mye kraft, og det var den som vant. Det er fortsatt vekselstrøm som kommer ut av stikkontakten i veggen din i dag."
+        "title": "Strømkrigen: hvem når lengst?"
       }
+    },
+    {
+      "type": "text",
+      "content": "Vekselstrømmen vant, og snart viste det seg at den samme strømmen kunne gjøre mye mer enn å lyse."
     },
     {
       "type": "header",
@@ -121,25 +101,6 @@
       "src": "/images/placeholder.webp",
       "alt": "Tidlige elektriske husholdningsapparater i et hjem fra tidlig 1900-tall",
       "caption": "Strykejern, komfyr og senere vaskemaskin og kjøleskap gjorde det tunge husarbeidet langt lettere."
-    },
-    {
-      "type": "header",
-      "text": "Døgnet som ble lengre"
-    },
-    {
-      "type": "text",
-      "content": "Det er lett å glemme hvor stor denne forandringen var, fordi vi tar lyset helt for gitt. Men tenk på hva det betyr at kvelden ble lys. Folk kunne lese og lære etter mørkets frembrudd. Barn kunne gjøre lekser. Fabrikker kunne kjøre om natten. Butikker og kafeer kunne holde åpent etter at sola gikk ned. Hele byer fikk gatelys, og det ble tryggere å gå ute om kvelden. Døgnet vårt, slik vi kjenner det, med kvelder fulle av aktivitet, ble mulig på grunn av elektrisk lys."
-    },
-    {
-      "type": "text",
-      "content": "Som med all teknologi fulgte det også nye spørsmål med. I dag er vi kanskje litt for godt opplyst. Skjermer og lamper sent på kvelden kan gjøre det vanskelig å sovne, fordi kroppen vår fortsatt tror at lys betyr at det er dag. Lyspæra ga oss kontroll over mørket, men den tok også fra oss noe av den naturlige roen som kom når sola gikk ned. Slik er det ofte: en oppfinnelse løser et gammelt problem og gir oss noen nye å tenke på."
-    },
-    {
-      "type": "component",
-      "name": "LightThroughTheAgesExplorer",
-      "props": {
-        "title": "Hvor lyst ble det i stua?"
-      }
     },
     {
       "type": "component",
@@ -175,6 +136,25 @@
       }
     },
     {
+      "type": "header",
+      "text": "Døgnet som ble lengre"
+    },
+    {
+      "type": "text",
+      "content": "Det er lett å glemme hvor stor denne forandringen var, fordi vi tar lyset helt for gitt. Men tenk på hva det betyr at kvelden ble lys. Folk kunne lese og lære etter mørkets frembrudd. Barn kunne gjøre lekser. Fabrikker kunne kjøre om natten. Butikker og kafeer kunne holde åpent etter at sola gikk ned. Hele byer fikk gatelys, og det ble tryggere å gå ute om kvelden. Døgnet vårt, slik vi kjenner det, med kvelder fulle av aktivitet, ble mulig på grunn av elektrisk lys."
+    },
+    {
+      "type": "text",
+      "content": "Som med all teknologi fulgte det også nye spørsmål med. I dag er vi kanskje litt for godt opplyst. Skjermer og lamper sent på kvelden kan gjøre det vanskelig å sovne, fordi kroppen vår fortsatt tror at lys betyr at det er dag. Lyspæra ga oss kontroll over mørket, men den tok også fra oss noe av den naturlige roen som kom når sola gikk ned. Slik er det ofte: en oppfinnelse løser et gammelt problem og gir oss noen nye å tenke på."
+    },
+    {
+      "type": "component",
+      "name": "LightThroughTheAgesExplorer",
+      "props": {
+        "title": "Hvor lyst ble det i stua?"
+      }
+    },
+    {
       "type": "component",
       "name": "Quiz",
       "props": {
@@ -202,6 +182,17 @@
             "explanation": "En lyspaere er ubrukelig uten strøm. Edison tenkte på hele systemet og bygde kraftverk og ledninger, slik at vanlige folk kunne få lys i husene sine."
           },
           {
+            "question": "Hvorfor vant vekselstrømmen over likestrømmen i strømkrigen?",
+            "options": [
+              "Vekselstrøm var billigere å lage",
+              "Vekselstrøm kan løftes opp med en transformator og sendes over lange avstander uten å tape mye kraft",
+              "Likestrøm var farlig å bruke i hjemmet",
+              "Edison ga opp og sluttet med strøm"
+            ],
+            "answer": 1,
+            "explanation": "Likestrøm taper kraften sin fort over avstand, så Edison måtte bygge kraftverk nesten i hvert kvartal. Vekselstrøm kan sendes mil etter mil, og det er fortsatt den som kommer ut av stikkontakten i veggen din."
+          },
+          {
             "question": "Hvorfor passet Norge spesielt godt til den nye elektriske tiden?",
             "options": [
               "Norge hadde mye kull å brenne",
@@ -222,17 +213,6 @@
             ],
             "answer": 1,
             "explanation": "Husarbeid som å vaske klær for hånd tok ofte en hel dag. De elektriske apparatene tok over mye av det tyngste, frigjorde tid, og gjorde det lettere for kvinner å ta utdanning og jobb."
-          },
-          {
-            "question": "Hva er en bakside ved at vi i dag kan ha lys hele døgnet?",
-            "options": [
-              "Lyset gjør oss blinde",
-              "Lys og skjermer sent på kvelden kan gjøre det vanskelig å sovne",
-              "Strømmen blir borte om natten",
-              "Vi får for lite gjort om kvelden"
-            ],
-            "answer": 1,
-            "explanation": "Kroppen vår tror fortsatt at lys betyr dag. Mye lys fra lamper og skjermer sent om kvelden kan derfor forstyrre søvnen og ta fra oss noe av den naturlige roen mørket ga før."
           }
         ]
       }

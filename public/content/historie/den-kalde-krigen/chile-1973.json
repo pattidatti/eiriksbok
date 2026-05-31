@@ -1,0 +1,178 @@
+{
+    "id": "chile-1973",
+    "title": "Få økonomien til å skrike: Kuppet i Chile",
+    "subject": "historie",
+    "layout": "rich",
+    "year": "1973",
+    "category": "Verden",
+    "readTime": "10 min lesning",
+    "heroImage": "/images/historie/den-kalde-krigen/chile-1973_hero.webp",
+    "details": [
+        "En folkevalgt president ville at landets rikdom skulle bli i landet.",
+        "USA kvalte økonomien i stedet for å invadere.",
+        "Resultatet ble 17 år med diktatur under Pinochet."
+    ],
+    "externalUrl": "https://snl.no/Chiles_historie",
+    "timeline": [
+        {
+            "year": "1970",
+            "title": "Allende vinner valget",
+            "description": "Chile velger en sosialist som vil nasjonalisere kobberet."
+        },
+        {
+            "year": "1971-73",
+            "title": "Økonomisk krigføring",
+            "description": "USA stopper lån og finansierer streiker og uro."
+        },
+        {
+            "year": "1973",
+            "title": "Militærkuppet",
+            "description": "11. september tar general Pinochet makten."
+        }
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "I [Operasjon Ajax](/historie/den-kalde-krigen/operasjon-ajax) så vi hvordan USA veltet en regjering med bestikkelser og falske opptøyer. I Chile tjue år senere brukte de en enda mer usynlig metode. De løftet ikke et gevær. De kvalte i stedet en hel økonomi til militæret tok over jobben for dem."
+        },
+        {
+            "type": "text",
+            "content": "Chile er et langt og smalt land på vestkysten av Sør-Amerika. Den største rikdommen ligger i bakken: kobber. Lenge tilhørte de store kobbergruvene amerikanske selskaper, som tok fortjenesten ut av landet. For mange chilenere føltes det urettferdig at deres egen rikdom havnet i USA."
+        },
+        {
+            "type": "header",
+            "text": "Presidenten som ville dele rikdommen"
+        },
+        {
+            "type": "text",
+            "content": "I 1970 vant Salvador Allende presidentvalget. Han var sosialist og lovet å gi landets rikdom tilbake til folket. Det viktigste grepet hans var å nasjonalisere kobbergruvene, akkurat som Mossadeq hadde gjort med oljen i Iran. Nå skulle kobberpengene gå til skoler, sykehus og vanlige chilenere, ikke til selskaper i USA."
+        },
+        {
+            "type": "text",
+            "content": "Allende gjorde mer enn å snakke. Han ga gratis melk til alle barn, bygde boliger og hevet lønningene. For mange fattige chilenere var det første gang noen i regjeringen så ut til å bry seg om dem. Det var en tid full av håp."
+        },
+        {
+            "type": "text",
+            "content": "I USA ble president Nixon rasende. Han var redd for at Allende ville gjøre Chile til et nytt Cuba, og enda mer redd for hva som ville skje hvis flere land fulgte etter og tok tilbake sine egne ressurser. Hvis Chile lyktes, kunne andre land i Latin-Amerika få samme idé. Nixon ga derfor en beryktet ordre til CIA om Chiles økonomi."
+        },
+        {
+            "type": "component",
+            "name": "QuoteBlock",
+            "props": {
+                "text": "Få økonomien til å skrike.",
+                "author": "President Richard Nixon, om Chile (1970)"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Krig uten kuler"
+        },
+        {
+            "type": "text",
+            "content": "USA ville ikke sende soldater. I stedet startet de en lydløs krig mot Chiles økonomi. De stanset alle lån, slik at landet ikke fikk kjøpt deler og varer. De betalte i hemmelighet lastebilsjåfører for å streike, så maten ikke nådde frem til butikkene. De presset ned prisen på kobber, og de ga penger til aviser som spredte frykt og uro."
+        },
+        {
+            "type": "text",
+            "content": "Prøv det selv i modellen under. Du er USA, og målet er ikke å invadere, men å skru opp trykket til økonomien knekker. Hva skjer når flere og flere spaker slås på samtidig?"
+        },
+        {
+            "type": "component",
+            "name": "OkonomiSkriker",
+            "props": {
+                "title": "Få økonomien til å skrike"
+            }
+        },
+        {
+            "type": "text",
+            "content": "Poenget er ubehagelig enkelt: du trenger ikke å erobre et land for å velte regjeringen. Du kan gjøre hverdagen så vond for folk at de mister troen, og la noen andre ta det siste steget. Det er økonomisk krigføring."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Chicago-guttene",
+                "content": "Etter kuppet ble Chile et laboratorium for en helt ny økonomisk modell. En gruppe chilenske økonomer utdannet i USA, kalt 'Chicago-guttene', fikk fritt spillerom til å privatisere og kutte. Forsøket ble gjennomført under et diktatur, der ingen fikk protestere."
+            }
+        },
+        {
+            "type": "header",
+            "text": "11. september 1973"
+        },
+        {
+            "type": "text",
+            "content": "Etter to år med kaos lå Chiles økonomi i ruiner. Da slo militæret til. Om morgenen 11. september 1973 omringet hæren presidentpalasset og bombet det. President Allende nektet å overgi seg og døde inne i palasset. General Augusto Pinochet tok makten."
+        },
+        {
+            "type": "text",
+            "content": "Pinochet styrte Chile som diktator i 17 år. I dagene etter kuppet ble den store nasjonalstadionet i hovedstaden gjort om til en fengsel. Tusenvis av mennesker som var uenige med Pinochet ble samlet der, og mange ble torturert eller drept. Over 3000 chilenere ble drept eller forsvant sporløst i årene som fulgte. De kalles fortsatt 'de forsvunne', og mange familier vet den dag i dag ikke hva som skjedde med dem."
+        },
+        {
+            "type": "text",
+            "content": "USA hadde fått det de ville: en leder som ikke truet deres interesser, og en åpen dør for amerikanske selskaper. Men prisen ble betalt av det chilenske folket, som mistet både demokratiet sitt og tusenvis av mennesker."
+        },
+        {
+            "type": "text",
+            "content": "Under Pinochet ble Chile et levende laboratorium. Kobberet ble for en stor del privat igjen, og store deler av samfunnet ble solgt til private selskaper, helt ned til skoler, vann og pensjoner. Noen mener dette gjorde Chile rikere på sikt. Andre peker på at forskjellen mellom fattig og rik vokste, og at folket aldri fikk stemme over de store endringene. Den dag i dag krangler chilenere om arven etter denne tiden."
+        },
+        {
+            "type": "header",
+            "text": "Det samme mønsteret igjen"
+        },
+        {
+            "type": "text",
+            "content": "Ser du mønsteret? En folkevalgt leder ville beholde landets rikdom selv. En stormakt så det som en trussel og fjernet ham, ikke med åpen krig, men i det skjulte. Det er nøyaktig samme oppskrift som i [Iran](/historie/den-kalde-krigen/operasjon-ajax), i [Kongo](/historie/dekolonisering/kongo) og hos de [økonomiske leiemorderne](/historie/dekolonisering/okonomiske-leiemordere)."
+        },
+        {
+            "type": "text",
+            "content": "Som alltid bør vi være kildekritiske. I lang tid nektet USA for å ha blandet seg inn i Chile. Men senere ble hemmelige dokumenter offentliggjort, og de viste svart på hvitt hva CIA hadde gjort. Det minner oss om at de mektige ikke alltid forteller sannheten med en gang - og at historikere må grave i arkivene for å finne den."
+        }
+    ],
+    "quiz": [
+        {
+            "id": "q1",
+            "question": "Hva ville president Allende gjøre med kobbergruvene?",
+            "options": [
+                "Nasjonalisere dem så rikdommen ble i Chile",
+                "Selge dem til USA",
+                "Stenge dem for godt",
+                "Gi dem bort gratis"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q2",
+            "question": "Hva betydde Nixons ordre 'få økonomien til å skrike'?",
+            "options": [
+                "Ødelegg Chiles økonomi i hemmelighet",
+                "Send penger til Chile",
+                "Erklær krig mot Chile",
+                "Bygg fabrikker i Chile"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q3",
+            "question": "Hvordan saboterte USA Chiles økonomi?",
+            "options": [
+                "Stoppet lån og betalte for streiker og uro",
+                "Sendte inn hæren",
+                "Sprengte kobbergruvene",
+                "Stengte alle grenser med soldater"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q4",
+            "question": "Hvem tok makten etter kuppet i 1973?",
+            "options": [
+                "General Augusto Pinochet",
+                "Salvador Allende",
+                "Richard Nixon",
+                "En ny folkevalgt president"
+            ],
+            "correctAnswer": 0
+        }
+    ],
+    "createdDate": "2026-05-31T00:00:00Z",
+    "lastUpdated": "2026-05-31T00:00:00Z"
+}

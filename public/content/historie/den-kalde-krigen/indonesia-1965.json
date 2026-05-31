@@ -1,0 +1,174 @@
+{
+    "id": "indonesia-1965",
+    "title": "Jakarta-metoden: Indonesias glemte tragedie",
+    "subject": "historie",
+    "layout": "rich",
+    "year": "1965",
+    "category": "Verden",
+    "readTime": "9 min lesning",
+    "heroImage": "/images/historie/den-kalde-krigen/indonesia-1965_hero.webp",
+    "details": [
+        "Et av etterkrigstidens største massedrap, lite kjent i dag.",
+        "Vesten støttet en general som åpnet landet for selskaper.",
+        "Volden ble en oppskrift andre land kopierte."
+    ],
+    "externalUrl": "https://snl.no/Indonesias_historie",
+    "timeline": [
+        {
+            "year": "1949",
+            "title": "Indonesia blir fritt",
+            "description": "Løsriver seg fra Nederland. Sukarno blir leder."
+        },
+        {
+            "year": "1965",
+            "title": "Kuppforsøk og massedrap",
+            "description": "Hæren gir kommunistene skylden. Drapene starter."
+        },
+        {
+            "year": "1967",
+            "title": "Suharto tar makten",
+            "description": "Åpner Indonesia for vestlige selskaper."
+        }
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Dette er den mørkeste historien i serien om [økonomiske leiemordere](/historie/dekolonisering/okonomiske-leiemordere). Den handler om Indonesia i 1965, og om et massedrap som er lite kjent i dag, selv om det var et av de største i hele etterkrigstiden. Vi skal fortelle det nøkternt og med respekt for dem som døde."
+        },
+        {
+            "type": "text",
+            "content": "Indonesia er et enormt øyrike i Sørøst-Asia, rikt på olje, gummi og andre ressurser. Etter å ha [løsrevet seg](/historie/dekolonisering/sorost-asia) fra Nederland i 1949 ble landet ledet av Sukarno. Han ville styre uavhengig av både USA og Sovjetunionen, og landet hadde et av verdens største kommunistpartier, kalt PKI."
+        },
+        {
+            "type": "text",
+            "content": "I 1955 var Indonesia til og med vertskap for et stort møte i byen Bandung, der nylig frigjorte land i Asia og Afrika møttes for å stå sammen, uavhengig av både USA og Sovjet. For mange var Sukarno et symbol på et stolt og fritt sør. Men nettopp en sterk og uavhengig leder med et stort kommunistparti var akkurat det Vesten fryktet mest."
+        },
+        {
+            "type": "header",
+            "text": "Den kalde krigens frykt"
+        },
+        {
+            "type": "text",
+            "content": "I den kalde krigen var USA og Vesten livredde for at land skulle bli kommunistiske og havne på Sovjetunionens side. Indonesia, med sitt store kommunistparti og sine verdifulle ressurser, var et land Vesten fulgte nøye med på. For vestlige selskaper var det også et problem at Sukarno holdt dem på avstand."
+        },
+        {
+            "type": "text",
+            "content": "USA fryktet det de kalte dominoeffekten: at hvis ett land i Sørøst-Asia ble kommunistisk, ville nabolandene falle som dominobrikker etter tur. Den samme frykten lå bak [Vietnamkrigen](/historie/den-kalde-krigen/vietnamkrigen). I Indonesia mente mange i Vesten at et knust kommunistparti var verdt nesten enhver pris."
+        },
+        {
+            "type": "text",
+            "content": "I oktober 1965 skjedde det et mislykket kuppforsøk der noen offiserer ble drept. Hæren, ledet av general Suharto, ga raskt hele kommunistpartiet skylden. Det ble startskuddet for noe forferdelig."
+        },
+        {
+            "type": "header",
+            "text": "Et massedrap"
+        },
+        {
+            "type": "text",
+            "content": "I månedene som fulgte ble mennesker som ble mistenkt for å være kommunister, jaktet på og drept over hele landet. Det var ikke bare politikere, men også vanlige bønder, lærere og fagforeningsfolk. Anslagene varierer, men de fleste forskere mener at mellom 500 000 og over en million mennesker ble drept."
+        },
+        {
+            "type": "text",
+            "content": "Det som gjør historien enda mørkere, er at flere vestlige land visste hva som foregikk, og likevel støttet det som skjedde. USA ga blant annet hæren lister med navn på mistenkte. For Vesten var Suharto en alliert som kunne stanse kommunismen."
+        },
+        {
+            "type": "text",
+            "content": "Det var heller ikke bare soldater som drepte. Vanlige mennesker ble presset eller skremt til å angi og drepe naboer. Slik kan frykt og propaganda forvandle et helt samfunn på kort tid. Det er en av de skumleste lærdommene fra denne historien."
+        },
+        {
+            "type": "text",
+            "content": "Les deg gjennom det som skjedde, ett steg om gangen, i modellen under. Den viser hvordan denne volden ikke bare var en enkelthendelse, men ble til en slags oppskrift."
+        },
+        {
+            "type": "component",
+            "name": "JakartaMetoden",
+            "props": {
+                "title": "Jakarta-metoden: da volden ble en oppskrift"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Hvem tjente på det?"
+        },
+        {
+            "type": "text",
+            "content": "Da Suharto hadde tatt makten fullt ut i 1967, gjorde han noe som passer rett inn i mønsteret du kjenner fra de andre artiklene. Han åpnet Indonesia på vidt gap for vestlige selskaper. Olje, gruver og skoger ble gjort tilgjengelig for utenlandske investeringer. Et land som hadde holdt Vesten på avstand, ble plutselig en lydig partner."
+        },
+        {
+            "type": "text",
+            "content": "Allerede i 1967 fikk det amerikanske gruveselskapet Freeport rettigheter til en av verdens største gull- og kobbergruver i Indonesia. Mønsteret er det samme som ellers i serien: når en leder som holdt Vesten unna ble byttet ut, åpnet dørene seg for vestlige selskaper og deres penger."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Hvorfor 'Jakarta'?",
+                "content": "Jakarta er hovedstaden i Indonesia. Senere, da militære styrker i land som Chile og Argentina ville true sine egne motstandere, ble ordet 'Jakarta' malt på vegger som en advarsel: det samme kan skje her. Slik ble navnet på en by til navnet på en metode."
+            }
+        },
+        {
+            "type": "header",
+            "text": "Hvorfor husker vi det så dårlig?"
+        },
+        {
+            "type": "text",
+            "content": "Et stort spørsmål er hvorfor denne tragedien er så lite kjent. En grunn er at de som sto bak, beholdt makten i Indonesia i flere tiår, og ikke ville at historien skulle fortelles. En annen grunn er at vestlige land som hadde støttet drapene, heller ikke hadde lyst til å minnes om sin egen rolle."
+        },
+        {
+            "type": "text",
+            "content": "For de overlevende og familiene deres er dette ikke fjern historie. Mange levde i flere tiår med frykt, stemplet som forrædere, uten å kunne sørge åpent over dem de mistet. Å fortelle historien riktig er en måte å vise dem respekt på."
+        },
+        {
+            "type": "text",
+            "content": "Her er kildekritikk ekstra viktig. Mye av det vi vet i dag, kom først frem da hemmelige dokumenter ble offentliggjort, og da overlevende endelig torde å fortelle. Det minner oss om at de som vinner, ofte får bestemme hvilken historie som fortelles - og at noen av de viktigste hendelsene kan bli holdt skjult i lang tid. Det samme så vi i [Iran](/historie/den-kalde-krigen/operasjon-ajax) og [Chile](/historie/den-kalde-krigen/chile-1973)."
+        }
+    ],
+    "quiz": [
+        {
+            "id": "q1",
+            "question": "Hva skjedde i Indonesia i månedene etter oktober 1965?",
+            "options": [
+                "Et massedrap på mistenkte kommunister, med 500 000 til over en million drepte",
+                "En fredelig valgkamp",
+                "En krig mot Nederland",
+                "En naturkatastrofe"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q2",
+            "question": "Hvilken rolle spilte vestlige land som USA?",
+            "options": [
+                "De støttet det som skjedde og ga hæren lister over mistenkte",
+                "De stanset drapene",
+                "De visste ingenting",
+                "De sendte FN-soldater"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q3",
+            "question": "Hva gjorde general Suharto etter at han tok makten?",
+            "options": [
+                "Åpnet Indonesia for vestlige selskaper",
+                "Stengte landet helt",
+                "Ga makten tilbake til Sukarno",
+                "Forbød all handel"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "q4",
+            "question": "Hvorfor er denne tragedien så lite kjent i dag?",
+            "options": [
+                "De som sto bak beholdt makten og ville ikke at historien skulle fortelles",
+                "Fordi den aldri skjedde",
+                "Fordi den var helt uviktig",
+                "Fordi alle har glemt Indonesia"
+            ],
+            "correctAnswer": 0
+        }
+    ],
+    "createdDate": "2026-05-31T00:00:00Z",
+    "lastUpdated": "2026-05-31T00:00:00Z"
+}
