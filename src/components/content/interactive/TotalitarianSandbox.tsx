@@ -1,6 +1,12 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Shield, Eye, Bell, Users, Info, Skull } from 'lucide-react';
+
+// Deterministisk pseudo-tilfeldig (samme verdi hver render) basert på indeks
+const hash = (n: number) => {
+    const s = Math.sin(n * 127.1) * 43758.5453;
+    return s - Math.floor(s);
+};
 
 export const TotalitarianSandbox: React.FC = () => {
     const [surveillance, setSurveillance] = useState(30);
@@ -9,62 +15,73 @@ export const TotalitarianSandbox: React.FC = () => {
 
     const totalControl = (surveillance + propaganda + fear) / 3;
 
+    // Faste spredningsverdier per person-ikon, beregnet én gang
+    const scatter = useMemo(
+        () =>
+            [...Array(12)].map((_, i) => ({
+                dx: (hash(i + 1) - 0.5) * 200,
+                dy: (hash(i + 101) - 0.5) * 200,
+                fade: 1 + hash(i + 201),
+            })),
+        []
+    );
+
     return (
-        <div className="bg-slate-900 text-slate-100 p-8 md:p-12 rounded-3xl border border-slate-800 my-10 shadow-2xl relative overflow-hidden">
+        <div className="bg-white text-slate-800 p-8 md:p-12 rounded-3xl border border-slate-200 my-10 shadow-sm relative overflow-hidden">
             {/* Background pattern */}
-            <div className="absolute inset-0 opacity-5 pointer-events-none">
-                <div className="w-full h-full bg-[radial-gradient(circle_at_center,_#fff_1px,transparent_1px)] bg-[size:30px_30px]" />
+            <div className="absolute inset-0 opacity-[0.04] pointer-events-none">
+                <div className="w-full h-full bg-[radial-gradient(circle_at_center,_#0f172a_1px,transparent_1px)] bg-[size:30px_30px]" />
             </div>
 
             <div className="relative z-10">
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-12">
                     <div>
-                        <h3 className="text-4xl font-black tracking-tighter mb-2 flex items-center gap-3">
-                            <Eye className="text-red-500" /> TOTALITÆR-SANDKASSEN
+                        <h3 className="text-4xl font-black tracking-tighter mb-2 flex items-center gap-3 text-slate-900">
+                            <Eye className="text-red-600" /> TOTALITÆR-SANDKASSEN
                         </h3>
-                        <p className="text-slate-400 font-medium">Hvordan krymper det offentlige rommet?</p>
+                        <p className="text-slate-500 font-medium">Hvordan krymper det offentlige rommet?</p>
                     </div>
-                    <div className="bg-slate-800 px-6 py-3 rounded-2xl border border-slate-700">
+                    <div className="bg-slate-50 px-6 py-3 rounded-2xl border border-slate-200">
                         <span className="text-xs font-bold text-slate-500 uppercase tracking-widest block mb-1">Kontrollnivå</span>
                         <div className="flex items-center gap-3">
-                            <div className="w-32 h-3 bg-slate-700 rounded-full overflow-hidden">
+                            <div className="w-32 h-3 bg-slate-200 rounded-full overflow-hidden">
                                 <motion.div
                                     animate={{ width: `${totalControl}%` }}
                                     className={`h-full ${totalControl > 70 ? 'bg-red-600' : 'bg-blue-500'}`}
                                 />
                             </div>
-                            <span className="font-mono font-bold text-xl">{Math.round(totalControl)}%</span>
+                            <span className="font-mono font-bold text-xl text-slate-900">{Math.round(totalControl)}%</span>
                         </div>
                     </div>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     {/* Visualizer: The Public Square */}
-                    <div className="relative aspect-square max-w-md mx-auto w-full bg-slate-800 rounded-3xl border border-slate-700 shadow-inner flex items-center justify-center overflow-hidden">
+                    <div className="relative aspect-square max-w-md mx-auto w-full bg-slate-50 rounded-3xl border border-slate-200 shadow-inner flex items-center justify-center overflow-hidden">
                         {/* The shrinking "Public Space" */}
                         <motion.div
                             animate={{
                                 scale: Math.max(0.1, 1 - totalControl / 100),
                                 opacity: 1 - totalControl / 150
                             }}
-                            className="w-64 h-64 bg-blue-500/20 rounded-full border-4 border-dashed border-blue-400 flex items-center justify-center p-8 text-center"
+                            className="w-64 h-64 bg-blue-100 rounded-full border-4 border-dashed border-blue-400 flex items-center justify-center p-8 text-center"
                         >
-                            <span className="text-blue-300 font-bold text-sm uppercase tracking-widest">Offentlig Rom</span>
+                            <span className="text-blue-700 font-bold text-sm uppercase tracking-widest">Offentlig Rom</span>
                         </motion.div>
 
                         {/* Fear/Surveillance elements */}
                         <AnimatePresence>
                             {surveillance > 50 && (
                                 <motion.div
-                                    initial={{ opacity: 0 }} animate={{ opacity: 0.4 }} exit={{ opacity: 0 }}
-                                    className="absolute top-4 right-4 text-red-500"
+                                    initial={{ opacity: 0 }} animate={{ opacity: 0.6 }} exit={{ opacity: 0 }}
+                                    className="absolute top-4 right-4 text-red-600"
                                 >
                                     <Eye size={40} />
                                 </motion.div>
                             )}
                             {fear > 60 && (
                                 <motion.div
-                                    initial={{ opacity: 0 }} animate={{ opacity: 0.4 }} exit={{ opacity: 0 }}
+                                    initial={{ opacity: 0 }} animate={{ opacity: 0.6 }} exit={{ opacity: 0 }}
                                     className="absolute bottom-4 left-4 text-red-700"
                                 >
                                     <Skull size={40} />
@@ -72,8 +89,8 @@ export const TotalitarianSandbox: React.FC = () => {
                             )}
                             {propaganda > 50 && (
                                 <motion.div
-                                    initial={{ opacity: 0 }} animate={{ opacity: 0.4 }} exit={{ opacity: 0 }}
-                                    className="absolute top-4 left-4 text-amber-500"
+                                    initial={{ opacity: 0 }} animate={{ opacity: 0.6 }} exit={{ opacity: 0 }}
+                                    className="absolute top-4 left-4 text-amber-600"
                                 >
                                     <Bell size={40} />
                                 </motion.div>
@@ -82,16 +99,16 @@ export const TotalitarianSandbox: React.FC = () => {
 
                         {/* People icons scattering/vanishing */}
                         <div className="absolute inset-0 flex items-center justify-center">
-                            {[...Array(12)].map((_, i) => (
+                            {scatter.map((p, i) => (
                                 <motion.div
                                     key={i}
                                     animate={{
-                                        x: (Math.random() - 0.5) * 200,
-                                        y: (Math.random() - 0.5) * 200,
-                                        opacity: Math.max(0, 1 - (totalControl / 100) * (1 + Math.random())),
+                                        x: p.dx,
+                                        y: p.dy,
+                                        opacity: Math.max(0, 1 - (totalControl / 100) * p.fade),
                                         scale: Math.max(0.5, 1 - (totalControl / 100))
                                     }}
-                                    className="absolute text-slate-500"
+                                    className="absolute text-slate-400"
                                 >
                                     <Users size={20} />
                                 </motion.div>
@@ -103,7 +120,7 @@ export const TotalitarianSandbox: React.FC = () => {
                     <div className="space-y-10">
                         <div className="space-y-4">
                             <div className="flex justify-between items-center">
-                                <span className="flex items-center gap-2 font-bold text-blue-400 uppercase tracking-tighter">
+                                <span className="flex items-center gap-2 font-bold text-blue-700 uppercase tracking-tighter">
                                     <Eye size={18} /> Overvåking
                                 </span>
                                 <span className="font-mono text-slate-500">{surveillance}%</span>
@@ -111,14 +128,14 @@ export const TotalitarianSandbox: React.FC = () => {
                             <input
                                 type="range" min="0" max="100" value={surveillance}
                                 onChange={(e) => setSurveillance(Number(e.target.value))}
-                                className="w-full h-3 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-blue-500"
+                                className="w-full h-3 bg-slate-100 rounded-lg appearance-none cursor-pointer accent-blue-500"
                             />
                             <p className="text-xs text-slate-500 italic">Øker statens innsyn i privatlivet. Tilliten mellom borgere svekkes.</p>
                         </div>
 
                         <div className="space-y-4">
                             <div className="flex justify-between items-center">
-                                <span className="flex items-center gap-2 font-bold text-amber-400 uppercase tracking-tighter">
+                                <span className="flex items-center gap-2 font-bold text-amber-600 uppercase tracking-tighter">
                                     <Bell size={18} /> Propaganda
                                 </span>
                                 <span className="font-mono text-slate-500">{propaganda}%</span>
@@ -126,14 +143,14 @@ export const TotalitarianSandbox: React.FC = () => {
                             <input
                                 type="range" min="0" max="100" value={propaganda}
                                 onChange={(e) => setPropaganda(Number(e.target.value))}
-                                className="w-full h-3 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-amber-500"
+                                className="w-full h-3 bg-slate-100 rounded-lg appearance-none cursor-pointer accent-amber-500"
                             />
                             <p className="text-xs text-slate-500 italic">Kontroll over informasjon. Språket mister sin evne til sannhet.</p>
                         </div>
 
                         <div className="space-y-4">
                             <div className="flex justify-between items-center">
-                                <span className="flex items-center gap-2 font-bold text-red-400 uppercase tracking-tighter">
+                                <span className="flex items-center gap-2 font-bold text-red-600 uppercase tracking-tighter">
                                     <Shield size={18} /> Frykt & Terror
                                 </span>
                                 <span className="font-mono text-slate-500">{fear}%</span>
@@ -141,16 +158,16 @@ export const TotalitarianSandbox: React.FC = () => {
                             <input
                                 type="range" min="0" max="100" value={fear}
                                 onChange={(e) => setFear(Number(e.target.value))}
-                                className="w-full h-3 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-red-500"
+                                className="w-full h-3 bg-slate-100 rounded-lg appearance-none cursor-pointer accent-red-500"
                             />
                             <p className="text-xs text-slate-500 italic">Vilkårlige arrestasjoner. Resultatet er fullstendig atomisering.</p>
                         </div>
                     </div>
                 </div>
 
-                <div className="mt-12 p-6 bg-slate-800/50 rounded-2xl border border-slate-700 flex gap-4 items-start">
-                    <Info className="text-blue-400 shrink-0 mt-1" />
-                    <p className="text-sm text-slate-400 leading-relaxed">
+                <div className="mt-12 p-6 bg-blue-50 rounded-2xl border border-blue-100 flex gap-4 items-start">
+                    <Info className="text-blue-600 shrink-0 mt-1" />
+                    <p className="text-sm text-slate-600 leading-relaxed">
                         Hannah Arendt beskriver hvordan et totalitært system ikke bare undertrykker motstand,
                         men ødelegger selve rommet der mennesker kan handle sammen. Ved 100% kontroll
                         opphører mennesket å være et politisk vesen; man blir isolert, redd og ute av stand

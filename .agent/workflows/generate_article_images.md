@@ -1,26 +1,70 @@
 ---
-description: Generer hero-bilde og inline-bilder for artikler som mangler bilder (placeholder.webp)
+description: Generer hero-bilde og inline-bilder for artikler som mangler bilder (placeholder.webp eller manglende bildefiler)
 ---
 
 # Bildegenerering for Eiriksbok-artikler
 
-Kjør denne workflowen når du vil generere bilder for nye artikler som mangler bilder. Workflowen scanner repoet for plassholdere, skriver detaljerte Gemini-prompts basert på artikkelinnhold og stil, genererer bilder, og commiter resultatet.
+Kjør denne workflowen når du vil generere bilder for nye artikler som mangler bilder. Workflowen scanner repoet for plassholdere og brutte bildereferanser, skriver detaljerte Gemini-prompts basert på artikkelinnhold og stil, genererer bilder, og commiter resultatet.
 
 ---
 
 ## Steg 1: Skann etter artikler som mangler bilder
 
-Finn alle artikkel-JSONer med `placeholder.webp`:
+To faser — slå sammen resultatene og dedupliser.
+
+### Fase A: Plassholdere (placeholder.webp)
 
 ```bash
 grep -rl "placeholder.webp" public/content/ --include="*.json" | sort
 ```
 
-For hver treff, noter:
-- Filsti (f.eks. `public/content/historie/vikingtiden/rikssamlingen.json`)
-- Om det er `heroImage`-feltet, inline `"type": "image"`-blokker, eller begge deler
+For hver treff, noter filsti og om det er `heroImage`, inline `"type": "image"`-blokker, eller begge.
 
-Filtrer bort ikke-artikler (scenarios, learning paths, kompetansemaal osv.) ved å sjekke at filen har `"content": [...]`.
+Filtrer bort ikke-artikler ved å sjekke at filen har `"content": [...]`.
+
+### Fase B: Brutte bildereferanser (ekte sti i JSON, men fil mangler på disk)
+
+```bash
+python3 -c "
+import os, json, glob
+
+broken = {}
+for f in sorted(glob.glob('public/content/**/*.json', recursive=True)):
+    try:
+        data = json.load(open(f))
+    except:
+        continue
+    if not isinstance(data.get('content'), list):
+        continue
+
+    def find_images(obj, paths=[]):
+        if isinstance(obj, str) and obj.startswith('/images/') and 'placeholder' not in obj:
+            paths.append(obj)
+        elif isinstance(obj, dict):
+            for v in obj.values(): find_images(v, paths)
+        elif isinstance(obj, list):
+            for item in obj: find_images(item, paths)
+        return paths
+
+    paths = find_images(data, [])
+    missing = [p for p in set(paths) if not os.path.exists('public' + p)]
+    if missing:
+        broken[f] = missing
+
+for f, imgs in sorted(broken.items()):
+    print(f)
+    for img in imgs: print('  ', img)
+"
+```
+
+### Viktig: to ulike kjøringsmønstre
+
+| Tilfelle | JSON-tilstand | Handling |
+|----------|--------------|----------|
+| **Placeholder** | `heroImage: "/images/placeholder.webp"` | Generer bilde → **oppdater** JSON til ny sti + manifest |
+| **Brukket referanse** | `heroImage: "/images/topic/fil-hero.webp"` (fil finnes ikke) | Generer bilde → **lagre til stien som allerede er i JSON** — ingen JSON-endring |
+
+For brutte referanser er filnavnet allerede kjent fra JSON-en. Lagre generert bilde direkte til den eksisterende stien, og oppdater verken artikkel-JSON eller manifest.
 
 ---
 
@@ -97,7 +141,9 @@ Lagre genererte bilder i riktig WebP-format, maks 1600px bredde for inline, 1600
 
 ## Steg 6: Oppdater artikkel-JSON og manifest.json
 
-For hvert generert bilde, oppdater JSON-filen:
+**Bare for placeholder-tilfeller (Fase A fra Steg 1).** For brutte referanser (Fase B) er stien allerede riktig i JSON — hopp over dette steget for dem.
+
+For hvert bilde generert fra en placeholder, oppdater JSON-filen:
 
 **Hero-bilde** - bytt ut i toppnivå-feltet i selve artikkelen (`public/content/[sti].json`):
 ```json

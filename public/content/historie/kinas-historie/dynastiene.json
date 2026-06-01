@@ -56,6 +56,11 @@
       "content": "Eksamen ble holdt i tre nivåer - lokalt, provinsialt og nasjonalt. De nasjonale eksamenene i hovudstaden var så vanskelige at de fleste brukte livet på å forberede seg og aldri besto. Den som klarte alle nivåene, ble jinshi - en av rikets mest prestisjefylte titler. Systemet skapte en klasse av lærde embedsmenn som kaltes mandariner, og det varte med modifikasjoner fram til 1905."
     },
     {
+      "type": "component",
+      "name": "KejuEksamen",
+      "props": {}
+    },
+    {
       "type": "header",
       "text": "Qin Shi Huang: Tyrannen som skapte Kina"
     },
@@ -88,37 +93,6 @@
     {
       "type": "text",
       "content": "Hvis Han-dynastiet la grunnmuren, bygde Tang-dynastiet (618-907) det vakreste huset. Hovedstaden Chang'an hadde over én million innbyggere og var verdens største by. Handelsmenn fra Persia, India, Arabia og Korea fylte markedene. Poeter som Li Bai og Du Fu skapte vers som fortsatt memoreres i kinesiske skoler. Malere eksperimenterte med tusjlandskaper. Buddhismen spredte seg og beriket kulturen med nye perspektiver. Tang var kosmopolitisk, åpent og selvbevisst - et rike på toppen av verden."
-    },
-    {
-      "type": "component",
-      "name": "Comparison",
-      "props": {
-        "title": "Dynastiet i bloom og forfall",
-        "leftTitle": "Dynastiet på toppen",
-        "rightTitle": "Dynastiet mot slutten",
-        "items": [
-          {
-            "label": "Keisermakt",
-            "left": "Sterk og respektert. Keiseren lytter til kloke rådgivere.",
-            "right": "Svak og isolert. Hoffet preges av intriger og favorittisme."
-          },
-          {
-            "label": "Økonomi",
-            "left": "Overflod. Magasinene er fulle, bøndene betaler skatt og er fornøyd.",
-            "right": "Statskassen er tom. Skattene heves, bøndene sulter."
-          },
-          {
-            "label": "Haer",
-            "left": "Disiplinert og lojal. Grensene forsvares.",
-            "right": "Svekket og korrupt. Lokale krigsherrer tar makten."
-          },
-          {
-            "label": "Folkeopinion",
-            "left": "Keiseren har 'Himmelens mandat'. Folk er lojale.",
-            "right": "Folk hvisker at himmelen er sint. Opprør blusser opp."
-          }
-        ]
-      }
     },
     {
       "type": "header",

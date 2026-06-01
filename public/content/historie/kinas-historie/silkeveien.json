@@ -99,6 +99,11 @@
       "content": "Silkeveien var altså et stafettløp. Varene skiftet hender mange ganger mellom Kina og Roma. Hver mellommann tok sin fortjeneste, og det forklarer hvorfor silken var så dyr når den endelig nådde vestlige markeder. Ingen enkelt karavane reiste hele veien."
     },
     {
+      "type": "component",
+      "name": "SilkeveiStafett",
+      "props": {}
+    },
+    {
       "type": "image",
       "src": "/images/placeholder.webp",
       "alt": "Sogdiske kjøpmenn med handelsvarer",

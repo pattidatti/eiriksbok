@@ -109,6 +109,11 @@
     },
     {
       "type": "component",
+      "name": "SupermaktDuell",
+      "props": {}
+    },
+    {
+      "type": "component",
       "name": "DebateSimulator",
       "props": {
         "topic": "Er Kinas vekst til supermakt en trussel mot verdensfreden?",

@@ -1,0 +1,775 @@
+{
+    "id": "muntlig",
+    "title": "Muntlig eksamen i samfunnsfag",
+    "description": "Fra forberedelse til samtale: slik viser du selvstendig arbeid på muntlig eksamen i samfunnsfag.",
+    "subject": "samfunnskunnskap",
+    "topic": "eksamen",
+    "layout": "rich",
+    "heroImage": "/images/placeholder.webp",
+    "readTime": "~15 min lesning",
+    "category": "Eksamen",
+    "details": [
+        "Dag 1: du får vite at du er trukket i samfunnsfag.",
+        "Dag 2: du får oppgaven og bruker hele dagen på å forberede deg.",
+        "Dag 3: eksamen - presentasjon (maks 10 min) og samtale med sensor.",
+        "Presentasjonen skal vise ditt eget, selvstendige undersøkelsesarbeid.",
+        "Du må kunne hele faget, ikke bare temaet du presenterer."
+    ],
+    "externalUrl": "https://www.udir.no/eksamen-og-prover/eksamen/muntlig-eksamen/",
+    "timeline": [],
+    "content": [
+        {
+            "type": "paragraph",
+            "text": "Muntlig eksamen i samfunnsfag handler ikke bare om hva du har lest. Den handler om hva du kan undersøke selv, forklare med egne ord og diskutere med en sensor. Du får et tema eller en oppgave, og skal vise at du kan finne kilder, drøfte og ta stilling. De som gjør det best, er ikke de som pugger mest. Det er de som forbereder seg smartest. Denne guiden gir deg en konkret oppskrift."
+        },
+        {
+            "type": "header",
+            "text": "Formatet: De tre dagene",
+            "level": 2
+        },
+        {
+            "type": "paragraph",
+            "text": "Muntlig eksamen i samfunnsfag går over tre dager. Det er på forberedelsesdagen du legger grunnlaget for alt som skjer på selve eksamen. Faget dekker historie, geografi og samfunnskunnskap, så temaet du får kan komme fra hvilken som helst av disse delene."
+        },
+        {
+            "type": "component",
+            "name": "Comparison",
+            "props": {
+                "title": "De to delene av eksamen",
+                "leftTitle": "Presentasjonen (maks 10 min)",
+                "rightTitle": "Samtalen (resten av tiden)",
+                "items": [
+                    {
+                        "label": "Kontroll",
+                        "left": "Du styrer. Du har planlagt hva du vil si.",
+                        "right": "Sensor styrer. Du svarer på spørsmål."
+                    },
+                    {
+                        "label": "Formål",
+                        "left": "Vise at du kan undersøke et tema selv og drøfte det.",
+                        "right": "Vise at du forstår faget i bredden og kan tenke høyt."
+                    },
+                    {
+                        "label": "Din rolle",
+                        "left": "Formidler med en tydelig problemstilling.",
+                        "right": "Samtalepartner som kobler kunnskap sammen."
+                    },
+                    {
+                        "label": "Tips",
+                        "left": "Bygg på egne kilder og en klar påstand.",
+                        "right": "Vær klar til å snakke om temaer du ikke valgte selv."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Tidslinjen - tre dager",
+                "items": [
+                    {
+                        "label": "Dag 1: Du får faget",
+                        "value": "Du får vite at du er trukket i samfunnsfag. Nå vet du hva du skal forberede, men ikke det spesifikke temaet ennå."
+                    },
+                    {
+                        "label": "Dag 2: Forberedelsesdagen",
+                        "value": "Du får oppgaven eller temaet. Dette er en obligatorisk skoledag der du undersøker, finner kilder og bygger presentasjonen. Du kan bruke skolens utstyr og samarbeide med medelever, men presentasjonen skal være din egen."
+                    },
+                    {
+                        "label": "Dag 3: Eksamen",
+                        "value": "Du holder presentasjonen din (maks 10 minutter) og har deretter en samtale med sensor om temaet og resten av faget."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "link",
+            "text": "Regler for muntlig eksamen (Udir)",
+            "url": "https://www.udir.no/eksamen-og-prover/eksamen/muntlig-eksamen/",
+            "icon": "external"
+        },
+        {
+            "type": "quiz",
+            "questions": [
+                {
+                    "question": "Hva skjer på dag 2 av eksamen?",
+                    "options": [
+                        "Du holder presentasjonen din",
+                        "Du får oppgaven og forbereder deg",
+                        "Du får vite hvilket fag du er trukket i",
+                        "Du har samtale med sensor"
+                    ],
+                    "correctAnswer": 1
+                },
+                {
+                    "question": "Hvor lang bør presentasjonen din være?",
+                    "options": [
+                        "Maks 10 minutter",
+                        "Minst 20 minutter",
+                        "Akkurat 30 minutter",
+                        "Så lang du vil"
+                    ],
+                    "correctAnswer": 0
+                }
+            ]
+        },
+        {
+            "type": "header",
+            "text": "Forberedelsen: Vis selvstendig arbeid",
+            "level": 2
+        },
+        {
+            "type": "paragraph",
+            "text": "Forberedelsesdagen er det viktigste du har. Sensor vil se at du har gjort et eget undersøkelsesarbeid, ikke at du gjengir læreboka. De beste presentasjonene viser at eleven har funnet egne kilder, stilt egne spørsmål og kommet fram til en egen konklusjon. Det er dette som menes med selvstendig arbeid."
+        },
+        {
+            "type": "header",
+            "text": "Steg 1: Forstå oppgaven og temaet",
+            "level": 3
+        },
+        {
+            "type": "paragraph",
+            "text": "Når du får oppgaven, les den nøye. Hva er nøkkelordene? Hva spør oppgaven egentlig om? Tenk bredt rundt temaet før du smalner inn. Et tema kan undersøkes fra mange vinkler: hva betyr det for enkeltmennesker, for samfunnet, for Norge og for verden?"
+        },
+        {
+            "type": "info_box",
+            "title": "Vanlige tema på muntlig eksamen i samfunnsfag",
+            "content": "Bærekraftig utvikling - Demokrati og deltakelse - Makt og fordeling - Migrasjon og integrering - Urfolk og rettigheter - Krig og konflikt - Globalisering og handel - Ungdom og digitalt liv - Velferdsstaten - Menneskerettigheter"
+        },
+        {
+            "type": "header",
+            "text": "Steg 2: Finn egne kilder og data",
+            "level": 3
+        },
+        {
+            "type": "paragraph",
+            "text": "Dette er nøkkelen til en sterk eksamen. Ikke nøy deg med læreboka. Finn flere kilder som belyser temaet fra ulike sider. Når du bruker tall, kart og eksempler du har funnet selv, viser du at du kan jobbe som en samfunnsforsker, ikke bare gjengi det andre har sagt."
+        },
+        {
+            "type": "list",
+            "items": [
+                "Statistikk fra SSB (Statistisk sentralbyrå) - tall om befolkning, økonomi, levekår.",
+                "Nyhetssaker fra seriøse medier som viser temaet i dagens samfunn.",
+                "Fagartikler fra Store norske leksikon (snl.no) for solide forklaringer.",
+                "Kart eller grafer som gjør et poeng tydelig og lett å se.",
+                "Et eksempel fra nærmiljøet ditt eller et kort intervju med noen som vet noe om temaet."
+            ]
+        },
+        {
+            "type": "info_box",
+            "title": "Vær kildekritisk",
+            "content": "For hver kilde du bruker, spør deg selv: Hvem står bak? Hvorfor er den laget? Kan jeg stole på den? En kilde som vil selge deg noe eller overbevise deg om en sak, er ikke like nøytral som tall fra SSB. Å vise at du tenker over hvem som har laget en kilde, er noe sensor setter stor pris på."
+        },
+        {
+            "type": "header",
+            "text": "Steg 3: Bygg en problemstilling, ikke et tema",
+            "level": 3
+        },
+        {
+            "type": "paragraph",
+            "text": "Den vanligste feilen er å bare beskrive et tema: «Jeg skal snakke om migrasjon.» Det er ikke en problemstilling, det er en overskrift. I stedet bør du finne et spørsmål du vil undersøke, og en påstand du vil argumentere for. Det gir presentasjonen retning og viser at du tenker selv."
+        },
+        {
+            "type": "comparison",
+            "before": {
+                "label": "Vagt tema",
+                "content": "I denne presentasjonen skal jeg fortelle om migrasjon til Norge."
+            },
+            "after": {
+                "label": "Tydelig problemstilling",
+                "content": "Hvorfor flytter folk til Norge, og hva skal til for at de blir en del av samfunnet? Jeg vil vise at integrering handler mer om arbeid og språk enn om antall, og bruker tall fra SSB og en konkret kommune som eksempel."
+            }
+        },
+        {
+            "type": "header",
+            "text": "Steg 4: Strukturer presentasjonen (maks 10 min)",
+            "level": 3
+        },
+        {
+            "type": "paragraph",
+            "text": "En god presentasjon har en klar form. Du har maks 10 minutter, så hold deg til poenget. Bygg alt rundt problemstillingen din, og bruk de egne kildene dine som bevis."
+        },
+        {
+            "type": "list",
+            "items": [
+                "Åpning (ca. 30 sekunder): Presenter problemstillingen og påstanden din tydelig.",
+                "Hoveddel (7-8 minutter): Drøft temaet med egne funn. Vis fram tall, kart og eksempler, og forklar hva de betyr.",
+                "Avslutning (1-2 minutter): Svar på problemstillingen din. Hva har undersøkelsen vist?"
+            ]
+        },
+        {
+            "type": "component",
+            "name": "WritingFix",
+            "props": {
+                "title": "Referat vs. selvstendig analyse",
+                "items": [
+                    {
+                        "bad": "Mange flytter til byene. I 2020 bodde mer enn 80 prosent av Norges befolkning i byer og tettsteder. Urbanisering betyr at folk flytter fra bygd til by.",
+                        "good": "Tallene fra SSB viser at over 80 prosent av oss bor i byer og tettsteder. Men hvorfor? Jeg har sett på Oslo og en liten kommune på Vestlandet, og funnet at de unge flytter dit jobbene og utdanningen er. Det skaper et problem: hvem skal drive bygdene når de unge drar? Min påstand er at urbanisering ikke bare er folk som flytter, men et valg mellom muligheter og tilhørighet.",
+                        "why": "Et referat gjengir fakta. En analyse stiller et spørsmål, bruker tall som bevis og kommer fram til en egen konklusjon. Sensor vil se at du kan tenke selv, ikke bare huske."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Steg 5: Forbered samtalen - og resten av faget",
+            "level": 3
+        },
+        {
+            "type": "paragraph",
+            "text": "Etter presentasjonen kommer samtalen, og det er her mange mister poeng. Sensor er ikke bundet av temaet ditt. De kan spørre om hva som helst fra samfunnsfag, fordi de vil teste om du forstår faget i bredden. Presentasjonen er ett vindu inn i faget, men samtalen kan gå overalt."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Typiske spørsmål fra sensor",
+                "items": [
+                    {
+                        "label": "Utdyp et funn",
+                        "value": "Du viste et tall fra SSB. Kan du forklare hva som ligger bak det og hvorfor det er slik?"
+                    },
+                    {
+                        "label": "Kildekritikk",
+                        "value": "Hvor fant du denne informasjonen, og hvorfor stoler du på den?"
+                    },
+                    {
+                        "label": "Kobling til faget",
+                        "value": "Du snakket om migrasjon. Kan du koble dette til demokrati eller til en historisk hendelse?"
+                    },
+                    {
+                        "label": "Egen vurdering",
+                        "value": "Hva mener du selv om dette? Og hvorfor mener du det?"
+                    },
+                    {
+                        "label": "Sammenligning",
+                        "value": "Hvordan er situasjonen i Norge annerledes enn i et annet land du kjenner til?"
+                    },
+                    {
+                        "label": "Dagsaktuell kobling",
+                        "value": "Har du sett noe i nyhetene i det siste som henger sammen med dette?"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "info_box",
+            "title": "Du må kunne hele faget",
+            "content": "Presentasjonen din dekker ett tema, men eksamen tester hele samfunnsfag: historie, geografi og samfunnskunnskap. Sensor kan dra samtalen mot noe du ikke valgte selv. Gå gjennom de viktigste temaene i faget før eksamen, slik at du ikke står helt blank hvis sensor bytter spor. Det er bedre å kunne litt om mye enn alt om én ting."
+        },
+        {
+            "type": "component",
+            "name": "ScenarioRoleplay",
+            "props": {
+                "title": "Samtalen med sensor",
+                "intro": "Du har akkurat holdt presentasjonen din om migrasjon og integrering. Sensor nikker og sier: «Du brukte tall fra SSB om innvandring. Men la oss bytte litt spor - kan du koble dette til hvordan demokratiet vårt fungerer?»",
+                "startId": "start",
+                "scenarios": [
+                    {
+                        "id": "start",
+                        "text": "Sensor drar samtalen mot et tema du ikke hadde i presentasjonen. Hva gjør du?",
+                        "options": [
+                            {
+                                "label": "Si at du bare har forberedt deg på migrasjon",
+                                "nextId": "kun_tema",
+                                "outcome": "failure"
+                            },
+                            {
+                                "label": "Koble migrasjon til demokrati: nye borgere får stemmerett og påvirker samfunnet",
+                                "nextId": "kobling",
+                                "outcome": "success"
+                            },
+                            {
+                                "label": "Gjenta tallene fra SSB du nettopp brukte",
+                                "nextId": "gjenta",
+                                "outcome": "failure"
+                            },
+                            {
+                                "label": "Tenk høyt og bruk det du kan om demokrati, selv om du er litt usikker",
+                                "nextId": "tenk_hoyt",
+                                "outcome": "success"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "kun_tema",
+                        "text": "Dette trekker ned. Sensor tester med vilje om du kan mer enn temaet ditt. Å si at du bare har forberedt én ting, viser at du ikke kjenner faget i bredden. Prøv heller å koble temaet ditt til noe annet du har lært - selv en liten kobling er bedre enn å gi opp.",
+                        "options": []
+                    },
+                    {
+                        "id": "kobling",
+                        "text": "Sterkt! Du forklarer at de som får statsborgerskap også får stemmerett, og at innvandring derfor påvirker hvem som bestemmer i et demokrati. Du viser at du ser sammenhenger på tvers av faget. Sensor følger opp med et nytt spørsmål, og du svarer trygt fordi du har lest gjennom hele faget.",
+                        "options": []
+                    },
+                    {
+                        "id": "gjenta",
+                        "text": "Sensor har allerede hørt tallene. Å gjenta dem svarer ikke på spørsmålet om demokrati. Sensor vil se at du kan bevege deg til et nytt tema, ikke bli stående på det du forberedte. Prøv å koble migrasjon til hvordan samfunnet styres.",
+                        "options": []
+                    },
+                    {
+                        "id": "tenk_hoyt",
+                        "text": "Bra strategi! Du sier: «Jeg er ikke helt sikker, men jeg tenker at når folk flytter hit, blir de etter hvert en del av demokratiet vårt gjennom stemmerett og deltakelse.» Det viser at du tør å tenke selv. Sensor setter pris på at du prøver i stedet for å gi opp.",
+                        "options": []
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "På eksamensdagen: Kropp, stemme og nerver",
+            "level": 2
+        },
+        {
+            "type": "paragraph",
+            "text": "Hva du sier er viktig, men hvordan du sier det teller også. En trygg stemme og rolig kroppsspråk gjør at sensor oppfatter deg som godt forberedt, selv om du er nervøs inni deg."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Kroppsspråk og stemme",
+                "items": [
+                    {
+                        "label": "Øyekontakt",
+                        "value": "Se på sensor når du snakker. Du trenger ikke stirre, men løft blikket fra notatene regelmessig. Det viser at du eier stoffet."
+                    },
+                    {
+                        "label": "Hender",
+                        "value": "Hold hendene rolig. Ha stikkordlappen i hånden som et anker. Unngå å fikle med penner eller hår."
+                    },
+                    {
+                        "label": "Stemme",
+                        "value": "Snakk saktere enn du tror du må. Nervøsitet gjør at vi snakker fortere uten å merke det. Senk tempoet bevisst."
+                    },
+                    {
+                        "label": "Pauser",
+                        "value": "Det er lov å ta en pause for å tenke. En kort stillhet virker selvsikker. Å fylle med «ehm» og «liksom» virker usikkert."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "component",
+            "name": "WritingFix",
+            "props": {
+                "title": "Nervøs vs. forberedt",
+                "items": [
+                    {
+                        "bad": "Snakker fort, ser ned i papirene, hopper over poenger fordi tankene raser. Glemmer å puste.",
+                        "good": "Puster rolig, ser opp, tar seg tid. Bruker stikkord som ankere, og stoler på forberedelsen. Tar en pause når det trengs.",
+                        "why": "Nervøsitet er helt normalt. Forskjellen er at den forberedte eleven har en plan å falle tilbake på når nervene slår inn. Stikkordene er sikkerhetsnett."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "info_box",
+            "title": "Hva gjør du hvis du står fast?",
+            "content": "Pust. Ta en slurk vann. Si høyt: «La meg komme tilbake til det.» Gå til neste punkt på stikkordlappen. Det er bedre å gå videre enn å stå stille. Og husk: det er lov å si «Det har jeg ikke tenkt nok på» hvis sensor spør om noe du ikke kan. Ærlighet er bedre enn å finne på noe."
+        },
+        {
+            "type": "quiz",
+            "questions": [
+                {
+                    "question": "Hva bør du gjøre hvis du står fast midt i presentasjonen?",
+                    "options": [
+                        "Stå stille til du husker",
+                        "Begynne helt på nytt",
+                        "Ta en pause, pust, og gå til neste punkt på stikkordlappen",
+                        "Si unnskyld til sensor"
+                    ],
+                    "correctAnswer": 2
+                },
+                {
+                    "question": "Hvorfor er stikkord bedre enn et fullt manus?",
+                    "options": [
+                        "Fordi stikkord er raskere å skrive",
+                        "Fordi sensor ikke liker manus",
+                        "Fordi stikkord tvinger deg til å snakke fritt, som viser at du forstår stoffet",
+                        "Fordi du ikke får lov til å ha manus"
+                    ],
+                    "correctAnswer": 2
+                }
+            ]
+        },
+        {
+            "type": "header",
+            "text": "Begreper og kunnskap du MÅ kunne",
+            "level": 2
+        },
+        {
+            "type": "paragraph",
+            "text": "I samtalen vil sensor ofte spørre om sentrale begreper fra faget. Du trenger ikke kunne alt, men disse bør du kunne forklare og bruke i en setning:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "Demokrati: Et styresett der folket bestemmer, direkte eller gjennom valgte representanter.",
+                "Makt: Evnen til å få gjennom sin vilje, selv om andre er uenige.",
+                "Menneskerettigheter: Rettigheter alle mennesker har, uansett hvem de er eller hvor de bor.",
+                "Bærekraftig utvikling: Å dekke dagens behov uten å ødelegge for dem som kommer etter oss.",
+                "Globalisering: At land og mennesker blir mer knyttet sammen gjennom handel, teknologi og kultur.",
+                "Urbanisering: At stadig flere mennesker flytter fra bygd til by.",
+                "Kildekritikk: Å vurdere om en kilde er til å stole på, og hvem som står bak den.",
+                "Velferdsstat: En stat som sikrer innbyggerne hjelp ved sykdom, arbeidsledighet og alderdom.",
+                "Ressurser og fordeling: Hvordan goder som penger, råvarer og makt er delt mellom mennesker og land.",
+                "Konflikt: En uenighet eller strid mellom grupper, land eller interesser."
+            ]
+        },
+        {
+            "type": "info_box",
+            "title": "Fordyp deg før eksamen",
+            "content": "Les disse artiklene for å styrke bredden i faget:\n\n- [Demokratiets mange ansikter](/samfunnskunnskap/styringsformer/demokrati-ansikter)\n- [Grunnloven 1814](/samfunnskunnskap/styringsformer/grunnloven)\n- [Forente Nasjoner (FN)](/samfunnskunnskap/ideer-og-verdenssyn/fn)\n- [Migrasjon: Hvorfor flytter vi?](/samfunnskunnskap/demografi/migrasjon-push-pull)\n- [Urbanisering](/samfunnskunnskap/demografi/urbanisering)"
+        },
+        {
+            "type": "header",
+            "text": "Vurdering: Hva ser sensor etter?",
+            "level": 2
+        },
+        {
+            "type": "paragraph",
+            "text": "Muntlig eksamen tester bestemte kompetansemål fra LK20. Når du forstår hva hvert mål betyr i praksis, vet du også hva sensor leter etter."
+        },
+        {
+            "type": "component",
+            "name": "Comparison",
+            "props": {
+                "title": "Kompetansemål og hva de betyr for deg",
+                "leftTitle": "Kompetansemål (LK20)",
+                "rightTitle": "Hva sensor ser etter",
+                "items": [
+                    {
+                        "label": "Utforske og drøfte",
+                        "left": "Utforske og drøfte samfunnsfaglige spørsmål.",
+                        "right": "Presentasjonen din har en problemstilling, ikke bare et tema."
+                    },
+                    {
+                        "label": "Bruke kilder",
+                        "left": "Finne, vurdere og bruke ulike kilder kritisk.",
+                        "right": "Du bruker egne kilder og forklarer hvorfor du stoler på dem."
+                    },
+                    {
+                        "label": "Se sammenhenger",
+                        "left": "Reflektere over sammenhenger i samfunnet og over tid.",
+                        "right": "Du kobler temaet ditt til andre deler av faget i samtalen."
+                    },
+                    {
+                        "label": "Fagspråk",
+                        "left": "Bruke samfunnsfaglige begreper i samtaler.",
+                        "right": "Du bruker fagbegreper naturlig, ikke mekanisk."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "paragraph",
+            "text": "Kjennetegn på måloppnåelse fra Udir: Ved lav kompetanse (karakter 2) gjengir eleven litt fagstoff og begrunner egne meninger til en viss grad. Ved god kompetanse (karakter 4) drøfter eleven temaet klart og bruker kilder for å underbygge egne synspunkter. Ved høy kompetanse (karakter 6) utforsker eleven temaet selvstendig, vurderer kilder kritisk og argumenterer saklig og tydelig."
+        },
+        {
+            "type": "link",
+            "text": "Kompetansemål samfunnsfag LK20 (Udir)",
+            "url": "https://www.udir.no/lk20/saf01-04",
+            "icon": "external"
+        },
+        {
+            "type": "header",
+            "text": "De vanligste feilene",
+            "level": 2
+        },
+        {
+            "type": "component",
+            "name": "WritingFix",
+            "props": {
+                "title": "Feil 1: Lese opp manus",
+                "items": [
+                    {
+                        "bad": "Leser opp et ferdigskrevet manus ord for ord, med blikket festet i papirene.",
+                        "good": "Snakker fritt med stikkord på et kort. Har øyekontakt med sensor. Bruker egne ord og viser at stoffet sitter.",
+                        "why": "Sensor vil se at du forstår stoffet, ikke at du kan lese høyt. Stikkord tvinger deg til å formulere deg selv, og det er akkurat det som viser kompetanse."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "component",
+            "name": "WritingFix",
+            "props": {
+                "title": "Feil 2: Referere læreboka",
+                "items": [
+                    {
+                        "bad": "Gjengir avsnitt fra læreboka nesten ordrett, uten egne kilder eller egne tanker.",
+                        "good": "Bruker tall fra SSB, en nyhetssak og et eksempel fra nærmiljøet for å bygge en egen drøfting med en tydelig konklusjon.",
+                        "why": "Eksamen tester selvstendig arbeid. Når alt kommer fra læreboka, vet ikke sensor om du forstår eller bare har pugget. Egne kilder og egne funn viser at du kan jobbe selv."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "component",
+            "name": "WritingFix",
+            "props": {
+                "title": "Feil 3: Kun pugge presentasjonstemaet",
+                "items": [
+                    {
+                        "bad": "Kan presentasjonen om migrasjon perfekt, men står helt fast når sensor spør om demokrati eller en historisk hendelse.",
+                        "good": "Kan temaet godt, men har også repetert resten av faget, så samtalen flyter selv når sensor bytter spor.",
+                        "why": "Presentasjonen er bare starten. Samtalen kan gå overalt i samfunnsfag. Den som bare kan ett tema, mister poeng så snart sensor beveger seg videre."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Scenario: Forberedelsesdagen (Dag 2)",
+            "level": 2
+        },
+        {
+            "type": "paragraph",
+            "text": "På forberedelsesdagen får du oppgaven og har resten av dagen til å bygge presentasjonen. Hva gjør du først?"
+        },
+        {
+            "type": "component",
+            "name": "ScenarioRoleplay",
+            "props": {
+                "title": "Forberedelsestiden",
+                "intro": "Du er trukket i samfunnsfag. Nå får du oppgaven: «Undersøk hvordan bærekraftig utvikling påvirker hverdagen i Norge. Bruk egne kilder.» Du har hele dagen. Hva gjør du først?",
+                "startId": "start",
+                "scenarios": [
+                    {
+                        "id": "start",
+                        "text": "Velg din strategi for de første timene:",
+                        "options": [
+                            {
+                                "label": "Skrive et fullstendig manus du kan lese opp ord for ord",
+                                "nextId": "manus",
+                                "outcome": "failure"
+                            },
+                            {
+                                "label": "Lage en problemstilling og finne egne kilder som SSB-tall og en nyhetssak",
+                                "nextId": "problemstilling",
+                                "outcome": "success"
+                            },
+                            {
+                                "label": "Lese hele kapittelet i læreboka og pugge det utenat",
+                                "nextId": "pugge",
+                                "outcome": "failure"
+                            },
+                            {
+                                "label": "Begynne å øve på å snakke høyt med en gang",
+                                "nextId": "ove",
+                                "outcome": "neutral"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "problemstilling",
+                        "text": "Smart! Du former oppgaven til et spørsmål: «Hva må vanlige folk endre for at Norge skal bli mer bærekraftig?» Så finner du tall fra SSB om utslipp, en nyhetssak om kildesortering og et eksempel fra din egen kommune. Nå har du en egen drøfting å bygge på, og god tid til å lage en stikkordlapp og øve.",
+                        "options": []
+                    },
+                    {
+                        "id": "manus",
+                        "text": "Et fullstendig manus fører til at du leser opp i stedet for å snakke fritt. Det viser ikke at du forstår stoffet, og du får mindre tid til å finne egne kilder. Lag heller en problemstilling og bruk stikkord.",
+                        "options": []
+                    },
+                    {
+                        "id": "pugge",
+                        "text": "Å pugge læreboka gir deg fakta, men ikke selvstendig arbeid. Sensor vil se egne kilder og egne tanker, ikke en gjengivelse. Bruk heller tid på å finne tall og eksempler selv, og bygg en egen drøfting.",
+                        "options": []
+                    },
+                    {
+                        "id": "ove",
+                        "text": "Å øve muntlig er bra, men ikke som det aller første. Uten en problemstilling og kilder øver du på å improvisere. Bruk de første timene på å lage en plan og finne kilder, og øv etterpå.",
+                        "options": []
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Sjekkliste for forberedelsesdagen",
+            "level": 2
+        },
+        {
+            "type": "paragraph",
+            "text": "Her er en steg-for-steg plan for dag 2:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "1. Les oppgaven grundig. Hva er nøkkelordene? Hva spør den egentlig om?",
+                "2. Tenk bredt rundt temaet: hva betyr det for enkeltmennesker, samfunnet og verden?",
+                "3. Lag en problemstilling - et spørsmål du vil undersøke og svare på.",
+                "4. Finn egne kilder: SSB-tall, en nyhetssak, en fagartikkel, et kart eller et eksempel.",
+                "5. Vær kildekritisk: hvem står bak hver kilde, og kan du stole på den?",
+                "6. Formuler en klar påstand. Hva vil du argumentere for?",
+                "7. Lag en stikkordlapp for presentasjonen (ikke et fullt manus).",
+                "8. Øv presentasjonen høyt. Hold deg under 10 minutter.",
+                "9. Repeter resten av faget, så du er klar for samtalen om andre temaer.",
+                "10. Sov godt natten før. En uthvilt hjerne tenker bedre enn en som har pugget hele natten."
+            ]
+        },
+        {
+            "type": "header",
+            "text": "Lenker",
+            "level": 2
+        },
+        {
+            "type": "expandable",
+            "title": "Sentrale samfunnsfag-temaer",
+            "content": [
+                {
+                    "type": "link",
+                    "text": "Demokratiets mange ansikter",
+                    "url": "/samfunnskunnskap/styringsformer/demokrati-ansikter",
+                    "icon": "book"
+                },
+                {
+                    "type": "link",
+                    "text": "Grunnloven 1814",
+                    "url": "/samfunnskunnskap/styringsformer/grunnloven",
+                    "icon": "book"
+                },
+                {
+                    "type": "link",
+                    "text": "Forente Nasjoner (FN)",
+                    "url": "/samfunnskunnskap/ideer-og-verdenssyn/fn",
+                    "icon": "book"
+                },
+                {
+                    "type": "link",
+                    "text": "Verden er én maskin (global handel)",
+                    "url": "/samfunnskunnskap/handel-og-infrastruktur/global-handel-oversikt",
+                    "icon": "book"
+                }
+            ]
+        },
+        {
+            "type": "expandable",
+            "title": "Demografi og samfunn",
+            "content": [
+                {
+                    "type": "link",
+                    "text": "Migrasjon: Hvorfor flytter vi?",
+                    "url": "/samfunnskunnskap/demografi/migrasjon-push-pull",
+                    "icon": "book"
+                },
+                {
+                    "type": "link",
+                    "text": "Urbanisering",
+                    "url": "/samfunnskunnskap/demografi/urbanisering",
+                    "icon": "book"
+                },
+                {
+                    "type": "link",
+                    "text": "Ekkokamre og informasjonsbobler",
+                    "url": "/samfunnskunnskap/mennesket-kultur-samfunn/ekkokamre",
+                    "icon": "book"
+                }
+            ]
+        },
+        {
+            "type": "expandable",
+            "title": "Øving",
+            "content": [
+                {
+                    "type": "link",
+                    "text": "Flashcards",
+                    "url": "/oving/flashcards",
+                    "icon": "star"
+                },
+                {
+                    "type": "link",
+                    "text": "Quiz",
+                    "url": "/oving/quiz",
+                    "icon": "star"
+                }
+            ]
+        },
+        {
+            "type": "link",
+            "text": "Statistikk fra SSB",
+            "url": "https://www.ssb.no/",
+            "icon": "external"
+        },
+        {
+            "type": "link",
+            "text": "Store norske leksikon",
+            "url": "https://snl.no/",
+            "icon": "external"
+        },
+        {
+            "type": "link",
+            "text": "Regler for muntlig eksamen (Udir)",
+            "url": "https://www.udir.no/eksamen-og-prover/eksamen/muntlig-eksamen/",
+            "icon": "external"
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva skiller en presentasjon med selvstendig arbeid fra et referat?",
+            "options": [
+                "Den er lengre",
+                "Den bruker egne kilder og en egen problemstilling, ikke bare læreboka",
+                "Den har flere bilder",
+                "Den leses opp fra manus"
+            ],
+            "answer": 1,
+            "explanation": "Selvstendig arbeid betyr at du finner egne kilder, stiller et eget spørsmål og kommer fram til en egen konklusjon. Et referat gjengir bare det andre har skrevet."
+        },
+        {
+            "question": "Hvorfor bør du ha en problemstilling i stedet for bare et tema?",
+            "options": [
+                "Fordi sensor har bedt om det",
+                "Fordi en problemstilling gir presentasjonen retning og viser at du drøfter, ikke bare beskriver",
+                "Fordi det gjør presentasjonen lengre",
+                "Fordi det er enklere å pugge"
+            ],
+            "answer": 1,
+            "explanation": "En problemstilling er et spørsmål du undersøker og svarer på. Den viser at du kan ta stilling og argumentere, ikke bare gjengi fakta."
+        },
+        {
+            "question": "Hva bør du gjøre når sensor i samtalen spør om et tema du ikke hadde i presentasjonen?",
+            "options": [
+                "Si at du bare har forberedt presentasjonstemaet",
+                "Gjenta det du sa i presentasjonen",
+                "Koble til det du kan fra resten av faget og tenke høyt",
+                "Be om et annet spørsmål"
+            ],
+            "answer": 2,
+            "explanation": "Sensor tester om du kan hele faget. Prøv å koble temaet ditt til andre deler av samfunnsfag, og tør å tenke høyt selv om du er litt usikker."
+        },
+        {
+            "question": "Hvorfor må du kunne mer enn bare temaet du presenterer?",
+            "options": [
+                "Fordi presentasjonen ikke teller",
+                "Fordi samtalen kan dekke hele samfunnsfag: historie, geografi og samfunnskunnskap",
+                "Fordi sensor liker overraskelser",
+                "Fordi du må snakke i 30 minutter"
+            ],
+            "answer": 1,
+            "explanation": "Presentasjonen er ett vindu inn i faget, men i samtalen kan sensor spørre om hva som helst fra samfunnsfag. Derfor må du repetere hele faget."
+        },
+        {
+            "question": "Hva er en god kilde å bruke for å vise selvstendig arbeid om samfunnet?",
+            "options": [
+                "Bare læreboka",
+                "Statistikk fra SSB, en nyhetssak eller et eksempel du har funnet selv",
+                "Det du husker fra forrige time",
+                "En tilfeldig nettside uten avsender"
+            ],
+            "answer": 1,
+            "explanation": "Egne kilder som SSB-tall, seriøse nyhetssaker og konkrete eksempler viser at du har undersøkt temaet selv. Husk å være kildekritisk: vurder alltid hvem som står bak."
+        }
+    ],
+    "tags": [
+        "eksamen",
+        "muntlig",
+        "presentasjon",
+        "samfunnsfag",
+        "vurdering"
+    ],
+    "createdDate": "2026-06-01T00:00:00Z",
+    "lastUpdated": "2026-06-01T00:00:00Z"
+}

@@ -93,29 +93,8 @@
     },
     {
       "type": "component",
-      "name": "Comparison",
-      "props": {
-        "title": "Løfter og virkelighet",
-        "leftTitle": "Maos løfte (1958)",
-        "rightTitle": "Virkeligheten (1962)",
-        "items": [
-          {
-            "label": "Stålproduksjon",
-            "left": "Ta igjen Storbritannia innen 15 ar",
-            "right": "Millioner av ubrukelig bakgards-stal. Redskapene er borte."
-          },
-          {
-            "label": "Matproduksjon",
-            "left": "Overflod. Kornkvoter settes til det dobbelte.",
-            "right": "45 millioner dor av sult. Bonder spiser bark."
-          },
-          {
-            "label": "Industri",
-            "left": "Storbyer skal bli industrielle giganter.",
-            "right": "Arbeidere sendes ut pa landet. Fabrikkene stopper."
-          }
-        ]
-      }
+      "name": "LognSpiral",
+      "props": {}
     },
     {
       "type": "header",

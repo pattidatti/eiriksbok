@@ -34,6 +34,11 @@
       "content": "Det britiske East India Company trengte en løsning. De fant den i India: opium. De begynte å dyrke opiumsvalmuer i India, foredle det til narkotika, og selge det ulovlig til kinesere. Pengene de tjente, brukte de til å kjøpe te. Systemet fungerte brutalt effektivt. Snart strømmet sølvet motsatt vei - fra Kina til Storbritannia."
     },
     {
+      "type": "component",
+      "name": "OpiumTrekanten",
+      "props": {}
+    },
+    {
       "type": "image",
       "src": "/images/placeholder.webp",
       "alt": "Britiske handelsskip i Guangzhou-havnen på 1800-tallet",

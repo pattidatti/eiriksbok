@@ -1800,6 +1800,27 @@
               "lastUpdated": "2026-03-19T10:40:29+01:00"
             }
           ]
+        },
+        {
+          "id": "eksamen",
+          "title": "Eksamen",
+          "description": "Alt du trenger for å mestre muntlig eksamen i samfunnsfag etter 10. trinn.",
+          "lessons": [
+            {
+              "id": "muntlig",
+              "title": "Muntlig eksamen",
+              "description": "Fra forberedelse til samtale: slik viser du selvstendig arbeid på muntlig eksamen i samfunnsfag.",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "eksamen",
+                "muntlig",
+                "presentasjon",
+                "samfunnsfag"
+              ],
+              "createdDate": "2026-06-01T00:00:00Z",
+              "lastUpdated": "2026-06-01T07:32:33.004Z"
+            }
+          ]
         }
       ]
     },
@@ -4024,7 +4045,7 @@
                 "krigsforbrytelser"
               ],
               "createdDate": "2026-06-01T00:00:00Z",
-              "lastUpdated": "2026-06-01T06:39:08+02:00"
+              "lastUpdated": "2026-06-01T07:33:41+02:00"
             }
           ]
         },
@@ -5013,7 +5034,7 @@
                 "geografi"
               ],
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-05-31T21:11:03+02:00"
+              "lastUpdated": "2026-06-01T09:51:25+02:00"
             },
             {
               "id": "islams-fodsel",
@@ -5026,7 +5047,7 @@
                 "muhammed"
               ],
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-05-31T21:11:03+02:00"
+              "lastUpdated": "2026-06-01T09:51:25+02:00"
             },
             {
               "id": "islamsk-gullaldet",
@@ -5039,7 +5060,7 @@
                 "vitenskap"
               ],
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-05-31T21:11:03+02:00"
+              "lastUpdated": "2026-06-01T09:51:25+02:00"
             },
             {
               "id": "sykes-picot",
@@ -5052,7 +5073,7 @@
                 "grenser"
               ],
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-05-31T21:11:03+02:00"
+              "lastUpdated": "2026-06-01T09:51:25+02:00"
             },
             {
               "id": "israel-og-palestina",
@@ -5078,7 +5099,7 @@
                 "opec"
               ],
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-05-31T21:11:03+02:00"
+              "lastUpdated": "2026-06-01T09:51:25+02:00"
             },
             {
               "id": "kald-krig-midtosten",
@@ -5091,7 +5112,7 @@
                 "cia"
               ],
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-05-31T21:11:03+02:00"
+              "lastUpdated": "2026-06-01T09:51:25+02:00"
             },
             {
               "id": "iran-revolusjonen",
@@ -5104,7 +5125,7 @@
                 "revolusjon"
               ],
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-05-31T21:11:03+02:00"
+              "lastUpdated": "2026-06-01T09:51:25+02:00"
             },
             {
               "id": "golfkrigene",
@@ -5130,7 +5151,7 @@
                 "afghanistan"
               ],
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-05-31T21:11:03+02:00"
+              "lastUpdated": "2026-06-01T09:51:25+02:00"
             },
             {
               "id": "arabisk-var",
@@ -5156,7 +5177,7 @@
                 "iran"
               ],
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-05-31T21:11:03+02:00"
+              "lastUpdated": "2026-06-01T09:51:25+02:00"
             }
           ]
         }

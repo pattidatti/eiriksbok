@@ -69,18 +69,8 @@
     },
     {
       "type": "component",
-      "name": "DragDropTimeline",
-      "props": {
-        "title": "Kinas vei til revolusjon: ordne hendelsene",
-        "events": [
-          { "id": "evt1", "label": "Sun Yat-sen utropar Republikken Kina", "year": 1912 },
-          { "id": "evt2", "label": "Sjanghai-massakren - Kuomintang angriper kommunistene", "year": 1927 },
-          { "id": "evt3", "label": "Den lange marsjen begynner", "year": 1934 },
-          { "id": "evt4", "label": "Japan invaderer Kina", "year": 1937 },
-          { "id": "evt5", "label": "Japan overgir seg - borgerkrigen gjenopptas", "year": 1945 },
-          { "id": "evt6", "label": "Mao proklamerer Folkerepublikken Kina", "year": 1949 }
-        ]
-      }
+      "name": "FolketsTillit",
+      "props": {}
     },
     {
       "type": "header",

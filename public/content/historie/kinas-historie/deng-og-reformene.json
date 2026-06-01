@@ -87,26 +87,8 @@
     },
     {
       "type": "component",
-      "name": "PlotGraph",
-      "props": {
-        "title": "Kinas BNP per innbygger 1978-2000",
-        "description": "Dengs reformer satte i gang en vekst verden aldri hadde sett maken til",
-        "xAxisLabel": "Prosent av perioden (0=1978, 100=2000)",
-        "yAxisLabel": "Relativ velstandsindeks (0-100)",
-        "points": [
-          {"x": 0, "y": 5},
-          {"x": 10, "y": 8},
-          {"x": 20, "y": 12},
-          {"x": 30, "y": 16},
-          {"x": 40, "y": 22},
-          {"x": 50, "y": 30},
-          {"x": 60, "y": 42},
-          {"x": 70, "y": 55},
-          {"x": 80, "y": 68},
-          {"x": 90, "y": 80},
-          {"x": 100, "y": 95}
-        ]
-      }
+      "name": "ShenzhenSonen",
+      "props": {}
     },
     {
       "type": "header",
