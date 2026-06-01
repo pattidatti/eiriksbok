@@ -12,6 +12,7 @@ const Hamskiftet3D = lazy(() => import('./Hamskiftet3D'));
 const VikingShip3D = lazy(() => import('./VikingShip3D'));
 const IngenmanslandMG = lazy(() => import('./IngenmanslandMG'));
 const TidensFormer3D = lazy(() => import('./TidensFormer3D'));
+const DampmaskinHjerte3D = lazy(() => import('./DampmaskinHjerte3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
     'gladius-duell': {
@@ -76,6 +77,15 @@ export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.Laz
         estimatedSeconds: 150,
         loader: () => import('./TidensFormer3D'),
         Component: TidensFormer3D as never,
+    },
+    'dampmaskin-hjerte-3d': {
+        id: 'dampmaskin-hjerte-3d',
+        title: 'Dampmaskinens hjerte',
+        description:
+            'Kjoer en dampmaskin i 3D: pump gruva med spaken, sett inn Watts separate kondensator, og kjenn paa kroppen hvorfor den holdt sylinderen varm og sparte tre fjerdedeler av kullet.',
+        estimatedSeconds: 150,
+        loader: () => import('./DampmaskinHjerte3D'),
+        Component: DampmaskinHjerte3D as never,
     },
 };
 
