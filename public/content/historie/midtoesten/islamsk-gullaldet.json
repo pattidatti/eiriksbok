@@ -121,6 +121,11 @@
       "caption": "Mongolenes ødeleggelse av Bagdad i 1258 satte en brutal sluttstrek for det islamske gullaldets blomstringstid."
     },
     {
+      "type": "component",
+      "name": "KunnskapsMigrasjonsKart",
+      "props": {}
+    },
+    {
       "type": "header",
       "text": "Arven som forandret Europa"
     },

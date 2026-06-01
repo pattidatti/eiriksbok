@@ -101,6 +101,11 @@
       }
     },
     {
+      "type": "component",
+      "name": "MilitaerVsStrategisk",
+      "props": {}
+    },
+    {
       "type": "header",
       "text": "Pris og omdømme"
     },

@@ -142,6 +142,11 @@
     },
     {
       "type": "component",
+      "name": "MidtostenAkseAnalyse",
+      "props": {}
+    },
+    {
+      "type": "component",
       "name": "Quiz",
       "props": {
         "questions": [

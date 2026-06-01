@@ -173,6 +173,13 @@ const AkkordskiftePraksis = lazy(() => import('./content/interactive/Akkordskift
 const NilenFlomSyklus = lazy(() => import('./content/interactive/NilenFlomSyklus').then(m => ({ default: m.NilenFlomSyklus })));
 const IndusMysteryBoard = lazy(() => import('./content/interactive/IndusMysteryBoard').then(m => ({ default: m.IndusMysteryBoard })));
 const HimmelensMandat = lazy(() => import('./content/interactive/HimmelensMandat').then(m => ({ default: m.HimmelensMandat })));
+const KejuEksamen = lazy(() => import('./content/interactive/KejuEksamen').then(m => ({ default: m.KejuEksamen })));
+const SilkeveiStafett = lazy(() => import('./content/interactive/SilkeveiStafett').then(m => ({ default: m.SilkeveiStafett })));
+const OpiumTrekanten = lazy(() => import('./content/interactive/OpiumTrekanten').then(m => ({ default: m.OpiumTrekanten })));
+const FolketsTillit = lazy(() => import('./content/interactive/FolketsTillit').then(m => ({ default: m.FolketsTillit })));
+const LognSpiral = lazy(() => import('./content/interactive/LognSpiral').then(m => ({ default: m.LognSpiral })));
+const ShenzhenSonen = lazy(() => import('./content/interactive/ShenzhenSonen').then(m => ({ default: m.ShenzhenSonen })));
+const SupermaktDuell = lazy(() => import('./content/interactive/SupermaktDuell').then(m => ({ default: m.SupermaktDuell })));
 const ThoughtsWordsDeeds = lazy(() => import('./content/interactive/ThoughtsWordsDeeds').then(m => ({ default: m.ThoughtsWordsDeeds })));
 const KyrosValget = lazy(() => import('./content/interactive/KyrosValget').then(m => ({ default: m.KyrosValget })));
 const AleksandersValg = lazy(() => import('./content/interactive/AleksandersValg').then(m => ({ default: m.AleksandersValg })));
@@ -197,6 +204,15 @@ const PinseNasjoner = lazy(() => import('./content/interactive/PinseNasjoner').t
 const TradisjonEllerNytt = lazy(() => import('./content/interactive/TradisjonEllerNytt').then(m => ({ default: m.TradisjonEllerNytt })));
 const TekstVerksted = lazy(() => import('./content/interactive/TekstVerksted').then(m => ({ default: m.TekstVerksted })));
 const IranContraSpor = lazy(() => import('./content/interactive/IranContraSpor').then(m => ({ default: m.IranContraSpor })));
+const KaldKrigBlowbackChain = lazy(() => import('./content/interactive/KaldKrigBlowbackChain').then(m => ({ default: m.KaldKrigBlowbackChain })));
+const KunnskapsMigrasjonsKart = lazy(() => import('./content/interactive/KunnskapsMigrasjonsKart').then(m => ({ default: m.KunnskapsMigrasjonsKart })));
+const MidtostenAkseAnalyse = lazy(() => import('./content/interactive/MidtostenAkseAnalyse').then(m => ({ default: m.MidtostenAkseAnalyse })));
+const KalifatvalgetTre = lazy(() => import('./content/interactive/KalifatvalgetTre').then(m => ({ default: m.KalifatvalgetTre })));
+const OljeVapenet = lazy(() => import('./content/interactive/OljeVapenet').then(m => ({ default: m.OljeVapenet })));
+const RevolusjonsVeikryss = lazy(() => import('./content/interactive/RevolusjonsVeikryss').then(m => ({ default: m.RevolusjonsVeikryss })));
+const TreLoefterKart = lazy(() => import('./content/interactive/TreLoefterKart').then(m => ({ default: m.TreLoefterKart })));
+const MilitaerVsStrategisk = lazy(() => import('./content/interactive/MilitaerVsStrategisk').then(m => ({ default: m.MilitaerVsStrategisk })));
+const ProxyKrigWebben = lazy(() => import('./content/interactive/ProxyKrigWebben').then(m => ({ default: m.ProxyKrigWebben })));
 const HygieneTidsreise = lazy(() => import('./content/interactive/HygieneTidsreise').then(m => ({ default: m.HygieneTidsreise })));
 const RetorikkMikseren = lazy(() => import('./content/interactive/RetorikkMikseren').then(m => ({ default: m.RetorikkMikseren })));
 const RunebommeExplorer = lazy(() => import('./content/interactive/RunebommeExplorer').then(m => ({ default: m.RunebommeExplorer })));
@@ -383,6 +399,13 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     NilenFlomSyklus,
     IndusMysteryBoard,
     HimmelensMandat,
+    KejuEksamen,
+    SilkeveiStafett,
+    OpiumTrekanten,
+    FolketsTillit,
+    LognSpiral,
+    ShenzhenSonen,
+    SupermaktDuell,
     ThoughtsWordsDeeds,
     KyrosValget,
     AleksandersValg,
@@ -407,6 +430,15 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     TradisjonEllerNytt,
     TekstVerksted,
     IranContraSpor,
+    KaldKrigBlowbackChain,
+    KunnskapsMigrasjonsKart,
+    MidtostenAkseAnalyse,
+    KalifatvalgetTre,
+    OljeVapenet,
+    RevolusjonsVeikryss,
+    TreLoefterKart,
+    MilitaerVsStrategisk,
+    ProxyKrigWebben,
     HygieneTidsreise,
     RetorikkMikseren,
     RunebommeExplorer,

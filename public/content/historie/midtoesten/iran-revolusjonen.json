@@ -61,6 +61,11 @@
     },
     {
       "type": "component",
+      "name": "RevolusjonsVeikryss",
+      "props": {}
+    },
+    {
+      "type": "component",
       "name": "DragDropTimeline",
       "props": {
         "title": "Revolusjonen: ordne fasene",

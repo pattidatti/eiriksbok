@@ -41,6 +41,11 @@
     },
     {
       "type": "component",
+      "name": "ProxyKrigWebben",
+      "props": {}
+    },
+    {
+      "type": "component",
       "name": "FactBox",
       "props": {
         "title": "Hva er en proxy-krig?",

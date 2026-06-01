@@ -115,6 +115,11 @@
     },
     {
       "type": "component",
+      "name": "KalifatvalgetTre",
+      "props": {}
+    },
+    {
+      "type": "component",
       "name": "QuoteBlock",
       "props": {
         "text": "Lær, selv om det er i Kina.",

@@ -57,6 +57,11 @@
     },
     {
       "type": "component",
+      "name": "TreLoefterKart",
+      "props": {}
+    },
+    {
+      "type": "component",
       "name": "FactBox",
       "props": {
         "title": "Tre motstridende løfter om det samme landet",

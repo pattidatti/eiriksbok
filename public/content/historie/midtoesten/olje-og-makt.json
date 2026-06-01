@@ -68,6 +68,11 @@
       }
     },
     {
+      "type": "component",
+      "name": "OljeVapenet",
+      "props": {}
+    },
+    {
       "type": "header",
       "text": "Oljekrisen 1973: Vapen av olje"
     },

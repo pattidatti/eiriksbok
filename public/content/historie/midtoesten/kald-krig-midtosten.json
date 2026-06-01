@@ -99,11 +99,6 @@
       "content": "USA mistet sin viktigste allierte i regionen med et slag. Svaret kom raskt: støtte Irak. Da Saddam Hussein angrep Iran i 1980 og startet en av de blodigste krigene i det 20. århundre, fikk han etterretning, penger og tilgang til kjemiske stoffer fra Vesten - inkludert fra USA. Krigen varte åtte år. Mellom 500 000 og en million mennesker døde."
     },
     {
-      "type": "component",
-      "name": "IranContraSpor",
-      "props": {}
-    },
-    {
       "type": "header",
       "text": "Afghanistan - frøet til fremtiden"
     },
@@ -132,6 +127,11 @@
       "src": "/images/placeholder.webp",
       "alt": "Mujahedin-krigere i Afghanistan på 1980-tallet",
       "caption": "USA finansierte afghanske mujahedin gjennom hele 1980-tallet i kampen mot Sovjet."
+    },
+    {
+      "type": "component",
+      "name": "KaldKrigBlowbackChain",
+      "props": {}
     },
     {
       "type": "header",
