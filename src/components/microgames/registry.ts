@@ -8,6 +8,8 @@ import type { MicroGameEntry } from './types';
 const GladiusDuel = lazy(() => import('./GladiusDuel'));
 const Colosseum3D = lazy(() => import('./Colosseum3D'));
 const TheodosianWalls3D = lazy(() => import('./TheodosianWalls3D'));
+const Hamskiftet3D = lazy(() => import('./Hamskiftet3D'));
+const VikingShip3D = lazy(() => import('./VikingShip3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
     'gladius-duell': {
@@ -36,6 +38,24 @@ export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.Laz
         estimatedSeconds: 120,
         loader: () => import('./TheodosianWalls3D'),
         Component: TheodosianWalls3D as never,
+    },
+    'hamskiftet-3d': {
+        id: 'hamskiftet-3d',
+        title: 'Det store hamskiftet',
+        description:
+            'Forvandle en norsk bygd i 3D: bygg jernbanen, kjøp slåmaskinen, og se husmennene dra til Amerika og byen.',
+        estimatedSeconds: 150,
+        loader: () => import('./Hamskiftet3D'),
+        Component: Hamskiftet3D as never,
+    },
+    'vikingskip-3d': {
+        id: 'vikingskip-3d',
+        title: 'Bygg vikingskipet',
+        description:
+            'Bygg et vikingskip i 3D: dra kjølen på plass, klink bordgangene, reis masten, og form skroget til langskip eller knarr.',
+        estimatedSeconds: 160,
+        loader: () => import('./VikingShip3D'),
+        Component: VikingShip3D as never,
     },
 };
 

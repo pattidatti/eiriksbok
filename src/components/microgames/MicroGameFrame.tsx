@@ -8,6 +8,10 @@ interface MicroGameFrameProps {
     estimatedSeconds?: number;
     onRetry?: () => void;
     children: React.ReactNode;
+    // Fjern den indre paddingen slik at en kinematisk fullskjerm-scene kan fylle
+    // hele rammen kant-til-kant. Brukes av frie 3D-mikrospill som ikke bare er
+    // et objekt å inspisere, men en levende scene som transformeres.
+    bleed?: boolean;
 }
 
 // Felles ramme rundt et mikro-spill. Lys stil som matcher resten av
@@ -18,6 +22,7 @@ export const MicroGameFrame: React.FC<MicroGameFrameProps> = ({
     estimatedSeconds,
     onRetry,
     children,
+    bleed = false,
 }) => {
     return (
         <motion.div
@@ -64,7 +69,7 @@ export const MicroGameFrame: React.FC<MicroGameFrameProps> = ({
                 </div>
             </header>
 
-            <div className="p-4 md:p-6">{children}</div>
+            <div className={bleed ? '' : 'p-4 md:p-6'}>{children}</div>
         </motion.div>
     );
 };

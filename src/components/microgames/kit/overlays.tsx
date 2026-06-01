@@ -1,0 +1,137 @@
+import React from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Hand, Trophy, RotateCcw } from 'lucide-react';
+
+// Presentasjons-overlegg for mikrospill: transient banner, hjørne-etikett,
+// dra-hint, fakta-kort og vinn-skjerm. Disse er "output" - input-widgetene
+// (knapper, slidere, verktøy) bor i controls.tsx.
+
+type Corner = 'tl' | 'tr' | 'bl' | 'br';
+const CORNER: Record<Corner, string> = {
+    tl: 'top-3 left-3',
+    tr: 'top-3 right-3',
+    bl: 'bottom-3 left-3',
+    br: 'bottom-3 right-3',
+};
+
+// Transient melding øverst i scenen (f.eks. "Toget kommer!"). Vis/skjul ved å
+// sende inn message=null. Plasseres absolutt - krever en relativ scene-container.
+export function SceneBanner({ message }: { message?: string | null }) {
+    return (
+        <AnimatePresence>
+            {message && (
+                <motion.div
+                    key={message}
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    className="absolute top-3 left-3 right-3 mx-auto max-w-md rounded-xl bg-amber-900/85 text-amber-50 px-4 py-2.5 text-sm font-semibold shadow-lg text-center pointer-events-none"
+                >
+                    {message}
+                </motion.div>
+            )}
+        </AnimatePresence>
+    );
+}
+
+// Liten etikett i et hjørne (f.eks. tidsperiode/era).
+export function SceneBadge({
+    children,
+    corner = 'br',
+}: {
+    children: React.ReactNode;
+    corner?: Corner;
+}) {
+    return (
+        <div
+            className={`absolute ${CORNER[corner]} px-3 py-1.5 bg-white/85 backdrop-blur-sm rounded-full text-xs font-bold text-slate-700 shadow pointer-events-none`}
+        >
+            {children}
+        </div>
+    );
+}
+
+// "Dra for å se / klikk her"-hint nede i scenen. Vis bare i idle-tilstand.
+export function DragHint({ show, children }: { show: boolean; children: React.ReactNode }) {
+    return (
+        <AnimatePresence>
+            {show && (
+                <motion.div
+                    initial={{ opacity: 0, y: 6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ delay: 0.4 }}
+                    className="absolute bottom-3 left-3 inline-flex items-center gap-1.5 px-3 py-1.5 bg-white/85 backdrop-blur-sm rounded-full text-xs font-semibold text-amber-800 shadow pointer-events-none"
+                >
+                    <Hand className="w-3.5 h-3.5" />
+                    {children}
+                </motion.div>
+            )}
+        </AnimatePresence>
+    );
+}
+
+// Fakta-/forklaringskort under vinduet etter et valg.
+export function SceneFact({ children }: { children: React.ReactNode }) {
+    return (
+        <motion.div
+            initial={{ opacity: 0, y: 6 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0 }}
+            className="bg-white border border-amber-200 rounded-xl p-3"
+        >
+            <p className="text-xs text-slate-600 leading-relaxed">{children}</p>
+        </motion.div>
+    );
+}
+
+// Vinn-skjerm med trofé, tittel, brødtekst og reset (+ valgfri "gå videre").
+export function WinScreen({
+    title,
+    children,
+    onReplay,
+    onNext,
+}: {
+    title: string;
+    children?: React.ReactNode;
+    onReplay?: () => void;
+    onNext?: () => void;
+}) {
+    return (
+        <motion.div
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ type: 'spring', stiffness: 240, damping: 22 }}
+            className="bg-emerald-50 border border-emerald-300 rounded-xl p-3 sm:flex sm:items-center sm:gap-4"
+        >
+            <div className="min-w-0 flex-1">
+                <div className="flex items-start gap-2">
+                    <Trophy className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
+                    <p className="text-sm font-bold text-emerald-900 leading-snug">{title}</p>
+                </div>
+                {children && (
+                    <p className="text-xs text-emerald-800 mt-1.5 leading-relaxed">{children}</p>
+                )}
+            </div>
+            <div className="mt-2.5 sm:mt-0 flex gap-2 flex-shrink-0">
+                {onReplay && (
+                    <button
+                        onClick={onReplay}
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white border border-emerald-300 text-emerald-800 rounded-lg text-xs font-bold hover:bg-emerald-100 transition"
+                    >
+                        <RotateCcw className="w-3.5 h-3.5" />
+                        Spill igjen
+                    </button>
+                )}
+                {onNext && (
+                    <button
+                        onClick={onNext}
+                        className="inline-flex items-center gap-1 px-3 py-1.5 bg-amber-600 text-white rounded-lg text-xs font-bold hover:bg-amber-700 transition"
+                    >
+                        Gå videre
+                    </button>
+                )}
+            </div>
+        </motion.div>
+    );
+}

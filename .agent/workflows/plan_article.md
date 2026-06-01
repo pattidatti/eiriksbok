@@ -47,7 +47,21 @@ Hver artikkel skal ha **én signaturkomponent** — en interaktiv komponent som 
 
 **Standard-komponenter (Quiz, FactBox, bilder, osv.) brukes i tillegg**, ikke i stedet for signaturkomponenten.
 
-### 4. Layout & Components
+### 4. 3D-Mikrospill (i tillegg til signaturkomponenten)
+
+**Hovedregel:** artikkelen får OGSÅ et skreddersydd 3D-mikrospill - en kort, romlig "aha"-opplevelse der eleven interagerer direkte med en 3D-verden (klikker objekter, drar dem på plass, justerer en spak, ser verdenen forvandle seg). Det kommer **i tillegg til** signaturkomponenten, ikke i stedet for: signaturkomponenten er artikkelens 2D-hovedmotor, mikrospillet er den romlige opplevelsen.
+
+**Når hoppe over:** bare når emnet virkelig ikke egner seg for 3D (f.eks. ren grammatikk, rettskriving eller andre ikke-romlige tema). Dokumenter da kort i planen hvorfor mikrospill droppes. I tvil - lag det.
+
+**Slik bygges det:** på interaksjons-toolkitet i `src/components/microgames/kit/`. Les hele `.agent/workflows/build_microgame.md` og følg den. Skriv spillet til `src/components/microgames/<Navn>.tsx`, registrer i `src/components/microgames/registry.ts` med en kebab-case `id`, og embed i artikkel-JSON:
+```json
+{ "type": "component", "name": "MicroGame", "props": { "gameId": "<id>" } }
+```
+Referanse-standard: `VikingShip3D.tsx` (dra-bygg med klikk + drag + slider + fler-stegs).
+
+**Designkrav:** rik direkte interaksjon (ikke bare en knapperad), lys ramme, 3D-vindu i full bredde med kontroller under, Chromebook-trygge klikkflater, `onComplete` ved seier. Mekanikken skal være læringsmålet.
+
+### 5. Layout & Components
 - **Rich Layout (`"layout": "rich"`):** 
     - Required for historical topics with timelines.
     - Includes interactive sidebar with TOC and map links.

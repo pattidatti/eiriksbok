@@ -30,7 +30,7 @@ Gjennomgangen av [SAF01-04](https://www.udir.no/lk20/saf01-04/kompetansemaal-og-
 *Fokus: Teknologi som endringsfaktor gjennom historien.*
 
 **Gjenbrukbare artikler:**
-- `historie/norgeshistorie/hamskiftet/artikkel.json`
+- `historie/norgeshistorie/hamskiftet.json`
 - `historie/den-kalde-krigen/romkapplopet.json` (teknologisk rivalisering)
 - `historie/middelalderen/boktrykkerkunsten.json`
 
