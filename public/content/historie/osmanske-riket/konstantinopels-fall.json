@@ -5,7 +5,7 @@
   "year": "1453",
   "category": "Det osmanske riket",
   "readTime": "9 min lesning",
-  "heroImage": "/images/placeholder.webp",
+  "heroImage": "/images/osmanske-riket/konstantinopels-fall-hero.webp",
   "details": [
     "I 1453 erobret sultan Mehmet 2. byen Konstantinopel, og det tusen år gamle Bysants forsvant fra historien.",
     "Mehmets gigantiske kanoner klarte det ingen hær hadde klart før: å knuse verdens sterkeste bymurer.",
@@ -19,7 +19,7 @@
     },
     {
       "type": "image",
-      "src": "/images/placeholder.webp",
+      "src": "/images/osmanske-riket/konstantinopels-fall-01.webp",
       "alt": "Enorme bronskanoner skyter mot massive steinmurer i røyk og kaos",
       "caption": "Mehmet 2. stilte opp noen av de største kanonene verden hadde sett. De klarte det ingen hær hadde klart før: å knuse Konstantinopels murer."
     },
@@ -124,7 +124,7 @@
     },
     {
       "type": "image",
-      "src": "/images/placeholder.webp",
+      "src": "/images/osmanske-riket/konstantinopels-fall-02.webp",
       "alt": "Ung sultan rir inn gjennom byport mens soldater og folk ser på",
       "caption": "Mehmet 2. var bare 21 år da han tok byen. Tilnavnet 'Erobreren' fulgte ham resten av livet."
     },
@@ -156,7 +156,7 @@
     },
     {
       "type": "image",
-      "src": "/images/placeholder.webp",
+      "src": "/images/osmanske-riket/konstantinopels-fall-03.webp",
       "alt": "Lærde menn med gamle bøker går av et skip i en italiensk havneby",
       "caption": "Greske lærde flyktet vestover med kunnskap fra antikken. De ble en gnist i renessansen."
     },

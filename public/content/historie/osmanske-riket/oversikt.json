@@ -5,7 +5,7 @@
   "year": "1299-1922",
   "category": "Det osmanske riket",
   "readTime": "8 min lesning",
-  "heroImage": "/images/placeholder.webp",
+  "heroImage": "/images/osmanske-riket/oversikt-hero.webp",
   "details": [
     "Det osmanske riket varte i over 600 år, fra rundt 1299 til 1922, og strakte seg på det meste over tre kontinenter.",
     "Hovedstaden Istanbul lå akkurat der Europa møter Asia, og kontrollen over dette krysset ga riket både rikdom og makt.",
@@ -19,7 +19,7 @@
     },
     {
       "type": "image",
-      "src": "/images/placeholder.webp",
+      "src": "/images/osmanske-riket/oversikt-01.webp",
       "alt": "Istanbuls silhuett ved soloppgang med kupler og minareter mot Bosporos",
       "caption": "Istanbul, rikets hjerte, lå akkurat der Europa møter Asia. Den som eide byen, eide porten mellom to verdensdeler."
     },
@@ -52,7 +52,7 @@
     },
     {
       "type": "image",
-      "src": "/images/placeholder.webp",
+      "src": "/images/osmanske-riket/oversikt-02.webp",
       "alt": "Gammelt kart som viser handelsruter mellom Europa og Asia gjennom Midtøsten",
       "caption": "Handelen mellom øst og vest måtte gjennom osmansk land. Det gjorde riket rikt - og fikk europeerne til å lete etter en sjøvei utenom."
     },
@@ -86,7 +86,7 @@
     },
     {
       "type": "image",
-      "src": "/images/placeholder.webp",
+      "src": "/images/osmanske-riket/oversikt-03.webp",
       "alt": "Osmanske kupler og minareter i kveldslys over en travel by",
       "caption": "Arven etter riket lever videre i språk, mat, arkitektur og grensene på dagens Midtøsten-kart."
     },
