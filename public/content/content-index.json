@@ -1,5 +1,5 @@
 {
-  "buildId": 1780342214198,
+  "buildId": 1780347012177,
   "contentMap": {
     "concept-adel": [
       "content/concepts/adel.json"
@@ -1149,6 +1149,9 @@
     ],
     "andre-verdenskrig-teknologi": [
       "content/historie/andre-verdenskrig/teknologi.json"
+    ],
+    "athen-og-sparta": [
+      "content/historie/antikkens-hellas/athen-og-sparta.json"
     ],
     "apartheid-syd-afrika": [
       "content/historie/dekolonisering/apartheid-syd-afrika.json"
@@ -3652,6 +3655,7 @@
     "historie/andre-verdenskrig/norge-under-okkupasjonen": "content/historie/andre-verdenskrig/norge-under-okkupasjonen.json",
     "historie/andre-verdenskrig/oversikt": "content/historie/andre-verdenskrig/oversikt.json",
     "historie/andre-verdenskrig/teknologi": "content/historie/andre-verdenskrig/teknologi.json",
+    "historie/antikkens-hellas/athen-og-sparta": "content/historie/antikkens-hellas/athen-og-sparta.json",
     "historie/dekolonisering/apartheid-syd-afrika": "content/historie/dekolonisering/apartheid-syd-afrika.json",
     "historie/dekolonisering/dekolonisering-sti": "content/historie/dekolonisering/dekolonisering-sti.json",
     "historie/dekolonisering/frigjoringskrigene": "content/historie/dekolonisering/frigjoringskrigene.json",

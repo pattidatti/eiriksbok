@@ -13,6 +13,7 @@ const VikingShip3D = lazy(() => import('./VikingShip3D'));
 const IngenmanslandMG = lazy(() => import('./IngenmanslandMG'));
 const TidensFormer3D = lazy(() => import('./TidensFormer3D'));
 const DampmaskinHjerte3D = lazy(() => import('./DampmaskinHjerte3D'));
+const Falanksen3D = lazy(() => import('./Falanksen3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
     'gladius-duell': {
@@ -86,6 +87,15 @@ export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.Laz
         estimatedSeconds: 150,
         loader: () => import('./DampmaskinHjerte3D'),
         Component: DampmaskinHjerte3D as never,
+    },
+    'falanksen-3d': {
+        id: 'falanksen-3d',
+        title: 'Bygg falanksen',
+        description:
+            'Still opp en gresk hoplitt-falanks i 3D: plasser mennene, skyv skjoldene tett sammen, og stå imot fiendens angrep. Kjenn hvorfor skjoldmuren var så sterk.',
+        estimatedSeconds: 140,
+        loader: () => import('./Falanksen3D'),
+        Component: Falanksen3D as never,
     },
 };
 
