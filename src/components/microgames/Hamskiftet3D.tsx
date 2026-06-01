@@ -1,10 +1,10 @@
 import React, { useMemo, useRef, useState } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
+import { useFrame } from '@react-three/fiber';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Train, Tractor, Ship, Trophy, RotateCcw, Hand, ArrowRight } from 'lucide-react';
 import * as THREE from 'three';
 import { MicroGameFrame } from './MicroGameFrame';
+import { MicroCanvas, Burst } from './kit';
 import { useStepSounds } from '../../hooks/useStepSounds';
 import type { MicroGameProps } from './types';
 
@@ -69,6 +69,7 @@ const Hamskiftet3D: React.FC<MicroGameProps> = ({ onComplete }) => {
     const [banner, setBanner] = useState<string | null>(null);
     const [fact, setFact] = useState<string | null>(null);
     const [done, setDone] = useState(false);
+    const [burst, setBurst] = useState(0);
 
     const nextReform = REFORMS[stage]; // reformen som kan velges nå (undefined når ferdig)
 
@@ -83,6 +84,7 @@ const Hamskiftet3D: React.FC<MicroGameProps> = ({ onComplete }) => {
             setTimeout(() => {
                 sounds.play('complete');
                 setDone(true);
+                setBurst((b) => b + 1);
                 onComplete({ score: 1, completed: true, artifact: { stage: 3 } });
             }, 4200);
         } else {
@@ -115,39 +117,22 @@ const Hamskiftet3D: React.FC<MicroGameProps> = ({ onComplete }) => {
                     className="relative w-full bg-gradient-to-b from-[#bfe0f2] via-[#dceaf0] to-[#e9ddc4] overflow-hidden"
                     style={{ aspectRatio: '16/9', minHeight: 300 }}
                 >
-                    <Canvas
+                    <MicroCanvas
+                        idle={idle}
                         camera={{ position: [13, 9.5, 13], fov: 38 }}
-                        gl={{ antialias: true }}
-                        dpr={[1, 2]}
-                        shadows
+                        background="#bfe0f2"
+                        fog={{ color: '#cfe4ee', near: 26, far: 50 }}
+                        target={[0, 0.5, 0]}
                     >
-                        <color attach="background" args={[0xbfe0f2]} />
-                        <fog attach="fog" args={[0xcfe4ee, 26, 50]} />
-                        <ambientLight intensity={0.62} />
-                        <hemisphereLight args={[0xfff3d6, 0x5a7045, 0.4]} />
-                        <directionalLight
-                            position={[10, 16, 8]}
-                            intensity={1.15}
-                            castShadow
-                            shadow-mapSize={[2048, 2048]}
-                            shadow-camera-left={-20}
-                            shadow-camera-right={20}
-                            shadow-camera-top={20}
-                            shadow-camera-bottom={-20}
-                        />
-
                         <Valley stage={stage} />
-
-                        <OrbitControls
-                            enableZoom={false}
-                            enablePan={false}
-                            minPolarAngle={Math.PI / 7}
-                            maxPolarAngle={Math.PI / 2.4}
-                            autoRotate={idle}
-                            autoRotateSpeed={0.45}
-                            target={[0, 0.5, 0]}
-                        />
-                    </Canvas>
+                        {/* Feiring når bygda har skiftet ham */}
+                        <Burst position={[3, 3, -1]} trigger={burst} color="#d8b24a" count={30} spread={3.4} />
+                    </MicroCanvas>
+                    {/* Vignette for samme fokuserte look som de andre spillene */}
+                    <div
+                        className="pointer-events-none absolute inset-0"
+                        style={{ boxShadow: 'inset 0 0 90px 10px rgba(15,23,42,0.18)' }}
+                    />
 
                     {idle && (
                         <motion.div

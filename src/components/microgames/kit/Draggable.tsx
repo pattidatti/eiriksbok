@@ -20,6 +20,11 @@ interface DraggableProps {
     bounds?: DragBounds;
     // Snap til rutenett (verdensenheter) ved slipp - f.eks. 1 for heltallsruter.
     snap?: number;
+    // Magnetiske snap-punkter (xz i verden). Slippes objektet innenfor snapRadius
+    // av et punkt, hopper det dit og onSnap kalles. Tilfredsstillende plassering.
+    snapPoints?: [number, number][];
+    snapRadius?: number;
+    onSnap?: (index: number) => void;
     onDragStart?: () => void;
     onDrag?: (pos: THREE.Vector3) => void;
     onDrop?: (pos: THREE.Vector3) => void;
@@ -43,6 +48,9 @@ export const Draggable: React.FC<DraggableProps> = ({
     axis = 'xz',
     bounds,
     snap,
+    snapPoints,
+    snapRadius = 1.5,
+    onSnap,
     onDragStart,
     onDrag,
     onDrop,
@@ -81,6 +89,28 @@ export const Draggable: React.FC<DraggableProps> = ({
         const p = group.current.position;
         let x = p.x;
         let z = p.z;
+
+        // Magnetiske snap-punkter har forrang: hopp til nærmeste innenfor radius.
+        if (snapPoints && snapPoints.length) {
+            let bestIdx = -1;
+            let bestDist = snapRadius;
+            for (let i = 0; i < snapPoints.length; i++) {
+                const d = Math.hypot(x - snapPoints[i][0], z - snapPoints[i][1]);
+                if (d < bestDist) {
+                    bestDist = d;
+                    bestIdx = i;
+                }
+            }
+            if (bestIdx >= 0) {
+                x = snapPoints[bestIdx][0];
+                z = snapPoints[bestIdx][1];
+                group.current.position.set(x, planeY, z);
+                onSnap?.(bestIdx);
+                onDrop?.(group.current.position.clone());
+                return;
+            }
+        }
+
         if (snap) {
             x = Math.round(x / snap) * snap;
             z = Math.round(z / snap) * snap;

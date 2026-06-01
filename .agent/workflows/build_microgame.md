@@ -53,6 +53,16 @@ Direkte 3D-interaksjon er nå førsteklasses og **oppmuntres**. Men kombiner gje
 passer læringsmålet. Den gamle regelen "unngå 3D-klikk, bruk bare knapper" gjelder ikke lenger -
 toolkitet løser trackpad-problemet (se under).
 
+### Velg en iscenesettelse som matcher emnet - ikke standard-dioramaet
+
+Toolkitets default-deler (`GroundPlane` + `Building`/`Tree`/`Figure`) gjør det lett å lage en bygd
+på en grønn åker. Det er riktig for et konkret sted (en vikinghavn, en fabrikk), men for abstrakte
+eller kosmiske emner (tid, tro, ideer, verdensrommet) ser «noen greier ute på en åker» billig og
+malplassert ut. **Bestem iscenesettelsen før du fyller den med deler:** hva er den naturlige scenen
+for dette emnet? En klode som svever i kosmos? Et objekt i et tomt rom? En lysstråle i mørket? Velg
+staging som bærer emnet, så blir resten immersivt nesten gratis. Se `TidensFormer3D` - eskatologi som
+en levende klode i et lysende kosmos, ikke en haug på en plen.
+
 ---
 
 ## Interaksjons-toolkitet (`src/components/microgames/kit/`)
@@ -116,6 +126,90 @@ Importer alt fra `./kit`. Dette er den autoritative verktøykassa - bygg nye spi
 
 ---
 
+## Avanserte lag - gjør spillet unikt, immersivt og vanedannende
+
+Toolkitet har fem lag til som løfter et mikrospill fra «funker» til «wow». Bruk det
+som tjener læringsmålet - ikke alt på en gang.
+
+### Signaturlook (visuelt imponerende)
+- **`THEMES`** - era-paletter (`viking`, `roman`, `industrial`, `egypt`). Mat `sky`/`fog`
+  til `MicroCanvas` og bruk fargene i scene-parts, så hvert emne får distinkt identitet.
+- **`ToonMaterial`** - flat, tegneserieaktig storybook-look: `<mesh><boxGeometry/><ToonMaterial color="#a8412f" /></mesh>`.
+- **`KitOutline`** - tegneserie-kant; legg som siste barn i et `<mesh>` for å fremheve valgte objekter.
+- **Kontaktskygge + vignette** er på automatisk via `MicroCanvas`/`MicroGameScaffold` (slå av med `canvas={{ contactShadows: false }}`).
+- **Egen himmel-gradient.** `MicroCanvas` tar bare én bakgrunnsfarge. For en filmatisk himmel: legg en
+  stor `sphereGeometry` (radius ~60) med `side={THREE.BackSide}`, `fog={false}` og en `CanvasTexture`
+  med en vertikal gradient (kjølig topp -> varm horisont). Holder seg lys og respekterer lys-stil-regelen.
+- **Atmosfære-glød.** En litt større kule rundt et objekt med `meshBasicMaterial` (`transparent`,
+  `side={THREE.BackSide}`, `blending={THREE.AdditiveBlending}`, `depthWrite={false}`) gir en myk halo.
+  La fargen `damp`e med tilstanden for å vise liv/forfall/forvandling.
+- **Dybde uten mørke.** Drivende skybanker (store, flate, halvgjennomsiktige kuler) og svake lys-
+  partikler («motes») gir rom og atmosfære mens scenen forblir lys. **Dramaet skal komme fra at *emnet*
+  forandrer seg** (verden brenner, byen vokser), ikke fra en mørk UI - mørkt tema krever eksplisitt ønske.
+- **Liv i ro.** `useIdleMotion` (svev) pluss en langsom egenrotasjon på hovedobjektet gjør at verdenen
+  lever selv før eleven gjør noe.
+
+### Game-feel / juice (gøy + vanedannende)
+- **`useShake()`** - trauma-basert rist; fest `ref` til en `<group>` rundt scenen, kall `shake(0.7)` ved treff.
+- **`usePop()`** - spring-pop på skala; `pop()` ved suksess/plassering.
+- **`Burst`** - instanserte suksess-partikler; avfyres når `trigger`-tallet endres: `<Burst position={[0,2,0]} trigger={winCount} />`.
+- **`useScore()` + `ScoreHUD`** - combo/streak/stjerner. `hit()`/`miss()` -> synlig progresjon og belønning.
+- **Magnetisk snap** på `Draggable`: `snapPoints={[[x,z],...]}` + `onSnap` gir tilfredsstillende plassering.
+- **`ease`** - easing-funksjoner (outCubic, outBack, outElastic...) for håndlagde tweens.
+
+### Lyd & kamera (immersjon)
+- **`useAmbience(preset)`** - ambient lydbed (`waves`/`wind`/`forge`/`crowd`/`forest`). Kall `start()` fra en
+  brukerhandling (nettlesere blokkerer autostart). Hold volumet lavt - lyd skal bekrefte, ikke dominere.
+- **`CameraRig`** - cinematisk kamera. Innflyvnings-mønster (unngår å sloss med OrbitControls): start kameraet
+  langt unna (`canvas.camera.position`), hold `canvas.controls={false}` til `<CameraRig active={!introDone} onArrive={() => setIntroDone(true)} />` er framme, slå så på controls. (VikingShip3D gjør dette.)
+- **`useIdleMotion()`** - rolig vugging/svai så verdenen lever selv når eleven ikke gjør noe.
+
+### Pedagogisk kraft (lærerik)
+- **`DataReadout`** - live tall som endrer seg mens eleven drar/justerer; gjør årsak-virkning synlig.
+- **`SceneQuiz`** - ett-spørsmåls aha-sjekk som kan kobles til scoring (`onResult`).
+- **`CompareToggle`** - veksle mellom to tilstander (for/etter, A/B) og se forskjellen direkte.
+- **`useHintEscalation({ active, resetKey })`** - eskalerer hint hvis eleven står fast; bruk nivået til å fremheve neste hotspot. `resetKey` (f.eks. `stage`) nullstiller ved framgang.
+
+### Rikdom & unikhet
+- **`InstancedField`** - spre hundrevis av kopier (skog, folkemengde, åker, steinur) billig: `<InstancedField count={120} geometry={<coneGeometry .../>} material={<meshStandardMaterial .../>} />`.
+- **Flere scene-parts:** `Rock`, `Fire` (flakkende, lyser opp), `Banner` (vaiende), `Gear` (roterende tannhjul, `spin`).
+
+### Robusthet & forfatterstøtte
+- **Preview-rute:** test et mikrospill isolert på `/mikrospill` (galleri) og `/mikrospill/<id>` - uten å embedde i en artikkel. Bruk dette når du bygger.
+- **Perf-guard:** `MicroCanvas` senker oppløsningen automatisk på svake Chromebooks, og hever den igjen.
+- **`prefers-reduced-motion`** respekteres (ingen auto-rotasjon). Kontrollene under vinduet er tastatur-tilgjengelige; gi alltid en knapp/slider-vei i tillegg til rene 3D-klikk der det er mulig.
+
+### Mekanikk-arketyper - bryt ut av «klikk tre ting»
+Velg en form som matcher emnet, ikke alltid den samme:
+- **Bygg/monter** (VikingShip): dra deler på plass, klikk for å føye til, se det reise seg.
+- **Rute/naviger:** legg en vei/forbindelse fra A til B (handelsrute, kabel, akvedukt).
+- **Balanser/finn likevekt:** en slider/spak søker et optimalt punkt (pris, vannstand, dose).
+- **Sorter-i-3D:** dra objekter i riktige soner/bøtter (kategorier, tidsperioder).
+- **Årsakskjede:** utløs en sekvens (dominoer, kjedereaksjon) og se konsekvensen.
+- **Grav-fram/avdekk:** fjern lag for å avsløre noe under (arkeologi, geologi).
+- **Dyrk/simuler over tid:** la en prosess utvikle seg (befolkning, økosystem, by).
+- **Sikt/bane:** juster vinkel/kraft og se en kastebane (katapult, kanon).
+- **Modell-sammenlikning (morf-og-se):** representer en abstrakt idé romlig og veksle mellom to
+  modeller (`CompareToggle`), så samme system spilles ut ulikt under hver. Eks: samme verden under
+  sirkulær vs. lineær tid (`TidensFormer3D`).
+
+---
+
+## Fallgruver (React + R3F i kit-spill)
+
+- **Les aldri `ref.current` under render for å utlede props til mesh-er.** Tidsmarkør, fase og
+  lignende som endrer seg i `useFrame` lever i refs - leser du dem i render-kroppen, re-rendrer ikke
+  scenen, og ESLint stopper deg (`react-hooks/refs`). Speil i stedet verdien til `useState` fra
+  `useFrame`, men kun når den faktisk endrer seg (sammenlikn mot forrige), så du ikke setter state hver
+  frame.
+- **Ikke muter en `let` inni `useMemo`.** En typisk pseudo-random-generator (`let s; s = ...`) brytes av
+  `react-hooks/immutability`. Legg RNG-en som en ren funksjon på modulnivå (se `InstancedField`) og
+  kall den i `useMemo`.
+- **Animér tilstand med `damp`, driv av én kilde.** Hold sannheten i ett tall (fase / `t` / slider) og
+  la hvert delobjekt `damp`e mot mål utledet av den - ikke spre tilstanden utover mange refs.
+
+---
+
 ## Design Law (arves fra interaktive komponenter)
 
 - **Lys stil alltid.** `MicroGameScaffold`/`MicroGameFrame` gir amber/lys ramme. Ingen mørk base.
@@ -169,6 +263,7 @@ registeret. Du registrerer kun i `registry.ts`.
 
 ## Sjekkliste før du er ferdig
 
+- [ ] Iscenesettelsen matcher emnet (ikke standard grønn-åker-diorama uten grunn)
 - [ ] Bygd på `kit/` (`MicroGameScaffold` + minst én direkte 3D-interaksjon: `Interactive`/`Hotspot`/`Draggable`)
 - [ ] Lys ramme, 3D-vindu i full bredde, kontroller under vinduet (ikke oppå scenen)
 - [ ] Lyspære-øyeblikket er tydelig og oppnådd; mekanikken ER pedagogikken
@@ -184,10 +279,15 @@ registeret. Du registrerer kun i `registry.ts`.
 **Referanse-standard:**
 - `src/components/microgames/VikingShip3D.tsx` - **flaggskipet**. Viser hele bredden av toolkitet:
   `Draggable` (dra kjølen på plass), `Hotspot` (klink bordgangene, reis masten), `SceneSlider` (morf
-  langskip ↔ knarr), fler-stegs forvandling, sjøsetting + `WinScreen`. Bruk denne som mal for et
-  rikt, direkte-interaktivt byggespill.
+  langskip ↔ knarr), fler-stegs forvandling, `CameraRig` (cinematisk innflyvning), `useAmbience`
+  (bølgelyd), `Burst` (feiringspartikler ved sjøsetting), pluss kontaktskygge/vignette automatisk.
+  Bruk denne som mal for et rikt, direkte-interaktivt byggespill med alle de avanserte lagene.
 - `src/components/microgames/Hamskiftet3D.tsx` - **stage-drevet scenespill**: en levende bygd som
   forvandles gjennom tre reformer (knapp-input via `ChoiceRow`-mønsteret, 3D som skuespill). God mal
   når kjernen er "valg → forvandling".
+- `src/components/microgames/TidensFormer3D.tsx` - **abstrakt idé, immersiv iscenesettelse**:
+  eskatologiens sirkulær-vs-lineær-tid som en levende klode i et lysende kosmos. Mal for å representere
+  et abstrakt konsept romlig (`CompareToggle` + tidsdrevet forvandling), med egen himmel-gradient,
+  atmosfære-glød og «drama fra emnet, ikke fra mørk UI».
 - `TheodosianWalls3D.tsx` / `Colosseum3D.tsx` - enklere "inspiser objektet"-form, fortsatt gyldig for
   små romlige aha-er (eldre kode, ikke bygd på `kit/` enda).

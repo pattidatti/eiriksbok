@@ -1,10 +1,9 @@
 import React, { useRef, useState } from 'react';
-import { Canvas, useFrame, type ThreeEvent } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
+import { useFrame } from '@react-three/fiber';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Trophy, RotateCcw, Hand, CheckCircle2, XCircle, Flame } from 'lucide-react';
+import { CheckCircle2, XCircle, Flame } from 'lucide-react';
 import * as THREE from 'three';
-import { MicroGameFrame } from './MicroGameFrame';
+import { MicroGameScaffold, Interactive, Burst, DragHint, SceneFact, WinScreen } from './kit';
 import { useStepSounds } from '../../hooks/useStepSounds';
 import type { MicroGameProps } from './types';
 
@@ -12,7 +11,8 @@ import type { MicroGameProps } from './types';
 // spørsmål ved å klikke riktig forsvarslag (vollgrav → ytre mur → terrasse →
 // hovedmur). Til slutt knuser Mehmet 2.s kanon muren — slik den falt i 1453.
 //
-// Mekanikken er spørsmålsdrevet hotspot-klikking, ikke fast rekkefølge.
+// Bygd på interaksjons-toolkitet: MicroGameScaffold (full-bredde-vindu, kontroller
+// under), Interactive (klikkbare deler), Burst (steinsprut ved bresjen).
 
 type PartId = 'moat' | 'outer' | 'terrace' | 'inner';
 type PartState = 'idle' | 'hover' | 'correct' | 'wrong';
@@ -77,6 +77,7 @@ const TheodosianWalls3D: React.FC<MicroGameProps> = ({ onComplete }) => {
     const [activeFact, setActiveFact] = useState<string | null>(null);
     const [phase, setPhase] = useState<'inspect' | 'firing' | 'done'>('inspect');
     const [breached, setBreached] = useState(false);
+    const [burst, setBurst] = useState(0);
 
     const current = QUESTIONS[questionIndex];
 
@@ -98,7 +99,6 @@ const TheodosianWalls3D: React.FC<MicroGameProps> = ({ onComplete }) => {
             sounds.play('correct');
 
             if (questionIndex + 1 >= QUESTIONS.length) {
-                // Alle lag forklart — start kanon-finalen.
                 setTimeout(() => {
                     setPhase('firing');
                     sounds.play('advance');
@@ -115,6 +115,7 @@ const TheodosianWalls3D: React.FC<MicroGameProps> = ({ onComplete }) => {
 
     const handleImpact = () => {
         setBreached(true);
+        setBurst((b) => b + 1);
         sounds.play('complete');
         setTimeout(() => {
             setPhase('done');
@@ -135,21 +136,69 @@ const TheodosianWalls3D: React.FC<MicroGameProps> = ({ onComplete }) => {
     const idle = Object.keys(answered).length === 0 && phase === 'inspect';
 
     return (
-        <MicroGameFrame
+        <MicroGameScaffold
             title="Teodosianmuren"
             subtitle="Roter trippelmuren og finn forsvarets hemmelighet"
             estimatedSeconds={120}
             onRetry={Object.keys(answered).length > 0 || phase !== 'inspect' ? handleRetry : undefined}
+            canvas={{
+                idle,
+                camera: { position: [9, 6.5, 8.5], fov: 40 },
+                background: '#e9f1f4',
+                fog: { near: 24, far: 48 },
+                target: [0, 1, 0],
+            }}
+            containerClassName="bg-gradient-to-b from-[#eaf2f6] to-[#cfe0d9]"
+            overlays={<DragHint show={idle}>Dra for å rotere - klikk delene</DragHint>}
+            scene={
+                <>
+                    {/* Bakke (bysiden) */}
+                    <mesh receiveShadow position={[3, -0.06, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+                        <planeGeometry args={[10, WALL_LEN + 2]} />
+                        <meshStandardMaterial color="#bcae8c" roughness={1} />
+                    </mesh>
+                    {/* Bakke (utsiden) */}
+                    <mesh receiveShadow position={[-7, -0.06, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+                        <planeGeometry args={[6, WALL_LEN + 2]} />
+                        <meshStandardMaterial color="#a9b27e" roughness={1} />
+                    </mesh>
+
+                    <MoatPart
+                        state={partStateFor('moat')}
+                        onSelect={() => handleSelect('moat')}
+                        onHover={(h) => setHoveredPart(h ? 'moat' : null)}
+                    />
+                    <OuterWallPart
+                        state={partStateFor('outer')}
+                        onSelect={() => handleSelect('outer')}
+                        onHover={(h) => setHoveredPart(h ? 'outer' : null)}
+                    />
+                    <TerracePart
+                        state={partStateFor('terrace')}
+                        onSelect={() => handleSelect('terrace')}
+                        onHover={(h) => setHoveredPart(h ? 'terrace' : null)}
+                    />
+                    <InnerWallPart
+                        state={partStateFor('inner')}
+                        breached={breached}
+                        onSelect={() => handleSelect('inner')}
+                        onHover={(h) => setHoveredPart(h ? 'inner' : null)}
+                    />
+
+                    {phase === 'firing' && <Cannonball onImpact={handleImpact} />}
+                    <Burst position={[INNER_X, 1.8, 0]} trigger={burst} color="#c2a570" count={30} spread={3.2} />
+                </>
+            }
         >
-            {/* Spørsmåls-banner */}
+            {/* Spørsmål / finale-banner */}
             <AnimatePresence mode="wait">
-                {phase === 'inspect' && current && (
+                {phase === 'inspect' && current ? (
                     <motion.div
                         key={questionIndex}
                         initial={{ opacity: 0, y: -6 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -6 }}
-                        className="mb-4 rounded-xl bg-amber-100 border border-amber-300 px-4 py-3"
+                        className="rounded-xl bg-amber-100 border border-amber-300 px-4 py-3"
                     >
                         <span className="text-[10px] font-bold uppercase tracking-widest text-amber-700">
                             Spørsmål {questionIndex + 1} av {QUESTIONS.length}
@@ -158,13 +207,12 @@ const TheodosianWalls3D: React.FC<MicroGameProps> = ({ onComplete }) => {
                             {current.prompt}
                         </p>
                     </motion.div>
-                )}
-                {phase !== 'inspect' && (
+                ) : phase !== 'inspect' ? (
                     <motion.div
                         key="finale"
                         initial={{ opacity: 0, y: -6 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="mb-4 rounded-xl bg-rose-100 border border-rose-300 px-4 py-3 flex items-center gap-3"
+                        className="rounded-xl bg-rose-100 border border-rose-300 px-4 py-3 flex items-center gap-3"
                     >
                         <Flame className="w-5 h-5 text-rose-600 flex-shrink-0" />
                         <p className="text-sm md:text-base font-semibold text-rose-900 leading-snug">
@@ -173,179 +221,90 @@ const TheodosianWalls3D: React.FC<MicroGameProps> = ({ onComplete }) => {
                                 : 'Året er 1453. Mehmet 2. fyrer av sin gigantiske kanon ...'}
                         </p>
                     </motion.div>
-                )}
+                ) : null}
             </AnimatePresence>
 
-            <div className="grid md:grid-cols-[1fr_210px] gap-4">
-                {/* 3D-scene */}
-                <div
-                    className="relative bg-gradient-to-b from-[#eaf2f6] to-[#cfe0d9] rounded-xl border-2 border-amber-300 overflow-hidden shadow-inner"
-                    style={{ aspectRatio: '16/10', minHeight: 320 }}
-                >
-                    <Canvas camera={{ position: [9, 6.5, 8.5], fov: 40 }} gl={{ antialias: true, alpha: true }} dpr={[1, 2]}>
-                        <color attach="background" args={[0xe9f1f4]} />
-                        <ambientLight intensity={0.6} />
-                        <directionalLight position={[7, 11, 5]} intensity={1.05} castShadow shadow-mapSize={[1024, 1024]} />
-                        <hemisphereLight args={[0xfff4d8, 0x4a5b44, 0.35]} />
-
-                        {/* Bakke (bysiden) */}
-                        <mesh receiveShadow position={[3, -0.06, 0]} rotation={[-Math.PI / 2, 0, 0]}>
-                            <planeGeometry args={[10, WALL_LEN + 2]} />
-                            <meshStandardMaterial color="#bcae8c" roughness={1} />
-                        </mesh>
-                        {/* Bakke (utsiden) */}
-                        <mesh receiveShadow position={[-7, -0.06, 0]} rotation={[-Math.PI / 2, 0, 0]}>
-                            <planeGeometry args={[6, WALL_LEN + 2]} />
-                            <meshStandardMaterial color="#a9b27e" roughness={1} />
-                        </mesh>
-
-                        <MoatPart
-                            state={partStateFor('moat')}
-                            onSelect={() => handleSelect('moat')}
-                            onHover={(h) => setHoveredPart(h ? 'moat' : null)}
-                        />
-                        <OuterWallPart
-                            state={partStateFor('outer')}
-                            onSelect={() => handleSelect('outer')}
-                            onHover={(h) => setHoveredPart(h ? 'outer' : null)}
-                        />
-                        <TerracePart
-                            state={partStateFor('terrace')}
-                            onSelect={() => handleSelect('terrace')}
-                            onHover={(h) => setHoveredPart(h ? 'terrace' : null)}
-                        />
-                        <InnerWallPart
-                            state={partStateFor('inner')}
-                            breached={breached}
-                            onSelect={() => handleSelect('inner')}
-                            onHover={(h) => setHoveredPart(h ? 'inner' : null)}
-                        />
-
-                        {phase === 'firing' && <Cannonball onImpact={handleImpact} />}
-
-                        <OrbitControls
-                            enableZoom={false}
-                            enablePan={false}
-                            minPolarAngle={Math.PI / 8}
-                            maxPolarAngle={Math.PI / 2.2}
-                            autoRotate={idle}
-                            autoRotateSpeed={0.5}
-                        />
-                    </Canvas>
-
-                    {idle && (
-                        <motion.div
-                            initial={{ opacity: 0, y: 6 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.4 }}
-                            className="absolute bottom-3 left-3 inline-flex items-center gap-1.5 px-3 py-1.5 bg-white/80 backdrop-blur-sm rounded-full text-xs font-semibold text-amber-800 shadow"
+            {/* Klikkbare deler som rad (også for trackpad) */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mt-3">
+                {PARTS.map((part) => {
+                    const st = partStateFor(part.id);
+                    const isAnswered = answered[part.id];
+                    return (
+                        <button
+                            key={part.id}
+                            onClick={() => handleSelect(part.id)}
+                            onMouseEnter={() => setHoveredPart(part.id)}
+                            onMouseLeave={() => setHoveredPart(null)}
+                            disabled={phase !== 'inspect' || isAnswered}
+                            className={`relative rounded-xl border-2 p-2.5 text-left transition group ${
+                                isAnswered
+                                    ? 'bg-emerald-50 border-emerald-300'
+                                    : st === 'wrong'
+                                      ? 'bg-rose-50 border-rose-300 animate-pulse'
+                                      : 'bg-white border-slate-200 hover:border-amber-300 hover:bg-amber-50/50'
+                            }`}
                         >
-                            <Hand className="w-3.5 h-3.5" />
-                            Dra for å rotere
-                        </motion.div>
-                    )}
-                </div>
-
-                {/* Sidepanel: klikkbare deler (også for trackpad) */}
-                <div className="flex flex-col gap-2">
-                    {PARTS.map((part) => {
-                        const st = partStateFor(part.id);
-                        const isAnswered = answered[part.id];
-                        return (
-                            <button
-                                key={part.id}
-                                onClick={() => handleSelect(part.id)}
-                                onMouseEnter={() => setHoveredPart(part.id)}
-                                onMouseLeave={() => setHoveredPart(null)}
-                                disabled={phase !== 'inspect' || isAnswered}
-                                className={`relative rounded-xl border-2 p-2.5 text-left transition group ${
-                                    isAnswered
-                                        ? 'bg-emerald-50 border-emerald-300'
-                                        : st === 'wrong'
-                                          ? 'bg-rose-50 border-rose-300 animate-pulse'
-                                          : 'bg-white border-slate-200 hover:border-amber-300 hover:bg-amber-50/50'
-                                }`}
-                            >
-                                <div className="flex items-start gap-2">
-                                    <span
-                                        className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-[11px] font-bold ${
-                                            isAnswered ? 'bg-emerald-500 text-white' : 'bg-slate-200 text-slate-600 group-hover:bg-amber-200'
-                                        }`}
-                                    >
-                                        {isAnswered ? (
-                                            <CheckCircle2 className="w-3.5 h-3.5" />
-                                        ) : st === 'wrong' ? (
-                                            <XCircle className="w-3.5 h-3.5 text-rose-500" />
-                                        ) : (
-                                            '?'
-                                        )}
-                                    </span>
-                                    <div className="min-w-0">
-                                        <p className="text-xs font-bold text-slate-800">{part.label}</p>
-                                        <p className="text-[10px] text-slate-500 leading-tight">{part.short}</p>
-                                    </div>
+                            <div className="flex items-start gap-2">
+                                <span
+                                    className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-[11px] font-bold ${
+                                        isAnswered
+                                            ? 'bg-emerald-500 text-white'
+                                            : 'bg-slate-200 text-slate-600 group-hover:bg-amber-200'
+                                    }`}
+                                >
+                                    {isAnswered ? (
+                                        <CheckCircle2 className="w-3.5 h-3.5" />
+                                    ) : st === 'wrong' ? (
+                                        <XCircle className="w-3.5 h-3.5 text-rose-500" />
+                                    ) : (
+                                        '?'
+                                    )}
+                                </span>
+                                <div className="min-w-0">
+                                    <p className="text-xs font-bold text-slate-800">{part.label}</p>
+                                    <p className="text-[10px] text-slate-500 leading-tight">
+                                        {part.short}
+                                    </p>
                                 </div>
-                            </button>
-                        );
-                    })}
-                </div>
+                            </div>
+                        </button>
+                    );
+                })}
             </div>
 
             {/* Fakta / finale-panel */}
-            <AnimatePresence mode="wait">
-                {phase === 'done' ? (
-                    <motion.div
-                        key="done"
-                        initial={{ opacity: 0, scale: 0.96 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ type: 'spring', stiffness: 240, damping: 22 }}
-                        className="mt-4 bg-emerald-50 border border-emerald-200 rounded-xl p-4 flex items-start gap-3"
-                    >
-                        <Trophy className="w-6 h-6 text-amber-500 flex-shrink-0 mt-0.5" />
-                        <div className="flex-1">
-                            <p className="font-bold text-emerald-900">
-                                I tusen år stoppet disse murene alle angripere.
-                            </p>
-                            <p className="text-sm text-emerald-800 mt-0.5 leading-relaxed">
-                                Men i 1453 stilte Mehmet 2. opp kanoner større enn noe sett før. Steinkulene
-                                knuste det vollgrav, tårn og dobbel mur aldri hadde møtt - og etter 53 dager
-                                brast forsvaret.
-                            </p>
-                        </div>
-                        <button
-                            onClick={handleRetry}
-                            className="inline-flex items-center gap-1 px-3 py-2 bg-white border border-emerald-300 text-emerald-800 rounded-lg text-xs font-bold hover:bg-emerald-100 transition flex-shrink-0"
+            <div className="mt-3">
+                <AnimatePresence mode="wait">
+                    {phase === 'done' ? (
+                        <WinScreen
+                            key="done"
+                            title="I tusen år stoppet disse murene alle angripere."
+                            onReplay={handleRetry}
                         >
-                            <RotateCcw className="w-3.5 h-3.5" />
-                            Igjen
-                        </button>
-                    </motion.div>
-                ) : activeFact ? (
-                    <motion.div
-                        key={activeFact}
-                        initial={{ opacity: 0, y: 6 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0 }}
-                        className="mt-4 bg-white border border-amber-200 rounded-xl p-4"
-                    >
-                        <p className="text-sm text-slate-700 leading-relaxed">{activeFact}</p>
-                    </motion.div>
-                ) : (
-                    <motion.div
-                        key="hint"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        className="mt-4 bg-white/70 border border-amber-200 rounded-xl p-3 text-center text-xs text-slate-600 italic"
-                    >
-                        Klikk delen direkte på modellen, eller velg den i listen.
-                    </motion.div>
-                )}
-            </AnimatePresence>
-        </MicroGameFrame>
+                            Men i 1453 stilte Mehmet 2. opp kanoner større enn noe sett før. Steinkulene
+                            knuste det vollgrav, tårn og dobbel mur aldri hadde møtt - og etter 53 dager
+                            brast forsvaret.
+                        </WinScreen>
+                    ) : activeFact ? (
+                        <SceneFact key={activeFact}>{activeFact}</SceneFact>
+                    ) : (
+                        <motion.div
+                            key="hint"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            className="bg-white/70 border border-amber-200 rounded-xl p-3 text-center text-xs text-slate-600 italic"
+                        >
+                            Klikk delen direkte på modellen, eller velg den i listen.
+                        </motion.div>
+                    )}
+                </AnimatePresence>
+            </div>
+        </MicroGameScaffold>
     );
 };
 
-// FELLES KLIKKBAR DEL — håndterer pekerhendelser + puls/risting
+// FELLES KLIKKBAR DEL — Interactive håndterer klikk/hover/cursor; vi beholder
+// puls/risting for korrekt/feil-feedback.
 
 interface ClickablePartProps {
     state: PartState;
@@ -374,29 +333,26 @@ const ClickablePart: React.FC<ClickablePartProps> = ({ state, onSelect, onHover,
     });
 
     return (
-        <group
-            onClick={(e: ThreeEvent<MouseEvent>) => {
-                e.stopPropagation();
-                onSelect();
-            }}
-            onPointerOver={(e: ThreeEvent<PointerEvent>) => {
-                e.stopPropagation();
-                onHover(true);
-                document.body.style.cursor = 'pointer';
-            }}
-            onPointerOut={(e: ThreeEvent<PointerEvent>) => {
-                e.stopPropagation();
-                onHover(false);
-                document.body.style.cursor = '';
-            }}
-        >
+        <Interactive onSelect={onSelect} onHover={onHover} state={state} hoverScale={1}>
             <group ref={anim}>{children}</group>
-        </group>
+        </Interactive>
     );
 };
 
 // Krenelering (tinder) langs en murtopp
-function Battlements({ x, topY, thickness, length, color }: { x: number; topY: number; thickness: number; length: number; color: string }) {
+function Battlements({
+    x,
+    topY,
+    thickness,
+    length,
+    color,
+}: {
+    x: number;
+    topY: number;
+    thickness: number;
+    length: number;
+    color: string;
+}) {
     const count = Math.floor(length / 0.7);
     const start = -length / 2 + 0.35;
     return (
@@ -416,12 +372,10 @@ const MoatPart: React.FC<Omit<ClickablePartProps, 'children'>> = (props) => {
     const water = stateColor(props.state, '#3f6f8f');
     return (
         <ClickablePart {...props}>
-            {/* Grav-grøft */}
             <mesh position={[MOAT_X, -0.35, 0]} receiveShadow>
                 <boxGeometry args={[2.0, 0.7, WALL_LEN]} />
                 <meshStandardMaterial color="#7d6a45" roughness={1} />
             </mesh>
-            {/* Vannflate */}
             <mesh position={[MOAT_X, -0.12, 0]}>
                 <boxGeometry args={[1.8, 0.18, WALL_LEN - 0.3]} />
                 <meshStandardMaterial
@@ -441,7 +395,8 @@ const MoatPart: React.FC<Omit<ClickablePartProps, 'children'>> = (props) => {
 // YTRE MUR — lav førstemur
 const OuterWallPart: React.FC<Omit<ClickablePartProps, 'children'>> = (props) => {
     const stone = stateColor(props.state, '#cdb88f');
-    const emissive = props.state === 'correct' ? '#10b981' : props.state === 'hover' ? '#f59e0b' : '#000000';
+    const emissive =
+        props.state === 'correct' ? '#10b981' : props.state === 'hover' ? '#f59e0b' : '#000000';
     const ei = props.state === 'correct' ? 0.22 : props.state === 'hover' ? 0.14 : 0;
     return (
         <ClickablePart {...props}>
@@ -457,7 +412,7 @@ const OuterWallPart: React.FC<Omit<ClickablePartProps, 'children'>> = (props) =>
 // TERRASSEN — stripen (peribolos) mellom murene
 const TerracePart: React.FC<Omit<ClickablePartProps, 'children'>> = (props) => {
     const ground = stateColor(props.state, '#9c8a64');
-    const width = INNER_X - OUTER_X - 0.75; // mellomrom mellom murene
+    const width = INNER_X - OUTER_X - 0.75;
     return (
         <ClickablePart {...props}>
             <mesh position={[TERRACE_X, 0.04, 0]}>
@@ -465,7 +420,13 @@ const TerracePart: React.FC<Omit<ClickablePartProps, 'children'>> = (props) => {
                 <meshStandardMaterial
                     color={ground}
                     roughness={1}
-                    emissive={props.state === 'correct' ? '#10b981' : props.state === 'hover' ? '#f59e0b' : '#000000'}
+                    emissive={
+                        props.state === 'correct'
+                            ? '#10b981'
+                            : props.state === 'hover'
+                              ? '#f59e0b'
+                              : '#000000'
+                    }
                     emissiveIntensity={props.state === 'correct' ? 0.25 : props.state === 'hover' ? 0.15 : 0}
                 />
             </mesh>
@@ -474,14 +435,18 @@ const TerracePart: React.FC<Omit<ClickablePartProps, 'children'>> = (props) => {
 };
 
 // HOVEDMUREN — høy, tjukk mur med tårn; midtsegmentet kan brytes (1453)
-const InnerWallPart: React.FC<Omit<ClickablePartProps, 'children'> & { breached: boolean }> = ({ breached, ...props }) => {
+const InnerWallPart: React.FC<Omit<ClickablePartProps, 'children'> & { breached: boolean }> = ({
+    breached,
+    ...props
+}) => {
     const stone = stateColor(props.state, '#c2a570');
-    const emissive = props.state === 'correct' ? '#10b981' : props.state === 'hover' ? '#f59e0b' : '#000000';
+    const emissive =
+        props.state === 'correct' ? '#10b981' : props.state === 'hover' ? '#f59e0b' : '#000000';
     const ei = props.state === 'correct' ? 0.22 : props.state === 'hover' ? 0.14 : 0;
 
     const H = 3.0;
     const TH = 1.0;
-    const segLen = (WALL_LEN - 1.8) / 2; // venstre/høyre om bresjen
+    const segLen = (WALL_LEN - 1.8) / 2;
     const towerZ = [-WALL_LEN / 2 + 0.4, -2.6, 2.6, WALL_LEN / 2 - 0.4];
 
     const mat = (
@@ -490,20 +455,16 @@ const InnerWallPart: React.FC<Omit<ClickablePartProps, 'children'> & { breached:
 
     return (
         <ClickablePart {...props}>
-            {/* Venstre murdel */}
             <mesh position={[INNER_X, H / 2, -(1.8 / 2 + segLen / 2)]} castShadow receiveShadow>
                 <boxGeometry args={[TH, H, segLen]} />
                 {mat}
             </mesh>
-            {/* Høyre murdel */}
             <mesh position={[INNER_X, H / 2, 1.8 / 2 + segLen / 2]} castShadow receiveShadow>
                 <boxGeometry args={[TH, H, segLen]} />
                 {mat}
             </mesh>
-            {/* Bresj-segment (faller ved kanontreff) */}
             <BreachBlock x={INNER_X} h={H} th={TH} color={stone} breached={breached} />
 
-            {/* Tårn */}
             {towerZ.map((z, i) => (
                 <mesh key={i} position={[INNER_X, H * 0.62, z]} castShadow receiveShadow>
                     <boxGeometry args={[TH * 1.5, H * 1.25, 1.3]} />
@@ -511,14 +472,25 @@ const InnerWallPart: React.FC<Omit<ClickablePartProps, 'children'> & { breached:
                 </mesh>
             ))}
 
-            {/* Krenelering på murdelene */}
             <Battlements x={INNER_X} topY={H} thickness={TH} length={segLen} color={stone} />
         </ClickablePart>
     );
 };
 
 // Bresj-blokken som faller når kanonkula treffer
-function BreachBlock({ x, h, th, color, breached }: { x: number; h: number; th: number; color: string; breached: boolean }) {
+function BreachBlock({
+    x,
+    h,
+    th,
+    color,
+    breached,
+}: {
+    x: number;
+    h: number;
+    th: number;
+    color: string;
+    breached: boolean;
+}) {
     const ref = useRef<THREE.Mesh>(null);
     const fall = useRef(0);
 
@@ -527,7 +499,6 @@ function BreachBlock({ x, h, th, color, breached }: { x: number; h: number; th: 
         const target = breached ? 1 : 0;
         fall.current += (target - fall.current) * Math.min(1, dt * 4);
         const f = fall.current;
-        // velter utover (mot utsiden, -X) og synker
         ref.current.rotation.z = f * (Math.PI / 2.4);
         ref.current.position.set(x - f * 1.4, h / 2 - f * (h / 2 - 0.2), 0);
     });
@@ -553,7 +524,6 @@ function Cannonball({ onImpact }: { onImpact: () => void }) {
         progress.current = Math.min(1, progress.current + dt * 1.15);
         const p = progress.current;
         ref.current.position.lerpVectors(start, end, p);
-        // liten kastebue
         ref.current.position.y += Math.sin(p * Math.PI) * 1.0;
         if (p >= 1) {
             done.current = true;

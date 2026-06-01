@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
+import { OrbitControls, PerformanceMonitor, ContactShadows } from '@react-three/drei';
+import { useReducedMotion } from 'framer-motion';
 
 // Standardisert R3F-Canvas for mikrospill. Kapsler lyssetting, skygger, fog,
 // bakgrunn og en trygg OrbitControls-preset slik at ALLE mikrospill får samme
@@ -37,6 +38,10 @@ export interface MicroCanvasProps {
     ambientIntensity?: number;
     // Slå av OrbitControls helt (f.eks. hvis spillet styrer kamera selv).
     controls?: boolean;
+    // Myk kontaktskygge under scenen - billig dybde/forankring. Sett false for å slå av.
+    contactShadows?: boolean;
+    // Y-nivå for kontaktskyggen (vanligvis bakkenivå 0).
+    shadowY?: number;
 }
 
 export const MicroCanvas: React.FC<MicroCanvasProps> = ({
@@ -55,15 +60,28 @@ export const MicroCanvas: React.FC<MicroCanvasProps> = ({
     sunIntensity = 1.15,
     ambientIntensity = 0.62,
     controls = true,
+    contactShadows = true,
+    shadowY = 0,
 }) => {
     const fogColor = fog?.color ?? background;
+    // Reduserer oppløsning automatisk hvis bildeflyten faller (svake Chromebooks),
+    // og hever den igjen når det er rom. Starter konservativt.
+    const [dpr, setDpr] = useState<number | [number, number]>([1, 2]);
+    // Respekter prefers-reduced-motion: ingen auto-rotasjon for de som ber om ro.
+    const reduce = useReducedMotion();
     return (
         <Canvas
             camera={{ position: camera.position ?? [13, 9.5, 13], fov: camera.fov ?? 38 }}
             gl={{ antialias: true }}
-            dpr={[1, 2]}
+            dpr={dpr}
             shadows
         >
+            <PerformanceMonitor
+                onDecline={() => setDpr(1)}
+                onIncline={() => setDpr([1, 2])}
+                flipflops={3}
+                onFallback={() => setDpr(1)}
+            />
             <color attach="background" args={[background]} />
             {fog && <fog attach="fog" args={[fogColor, fog.near, fog.far]} />}
 
@@ -82,6 +100,18 @@ export const MicroCanvas: React.FC<MicroCanvasProps> = ({
 
             {children}
 
+            {contactShadows && (
+                <ContactShadows
+                    position={[0, shadowY + 0.01, 0]}
+                    opacity={0.38}
+                    scale={42}
+                    blur={2.4}
+                    far={14}
+                    resolution={1024}
+                    color="#1e293b"
+                />
+            )}
+
             {controls && (
                 <OrbitControls
                     makeDefault
@@ -89,7 +119,7 @@ export const MicroCanvas: React.FC<MicroCanvasProps> = ({
                     enablePan={enablePan}
                     minPolarAngle={minPolarAngle}
                     maxPolarAngle={maxPolarAngle}
-                    autoRotate={idle}
+                    autoRotate={idle && !reduce}
                     autoRotateSpeed={autoRotateSpeed}
                     target={target}
                 />

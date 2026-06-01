@@ -60,5 +60,6 @@ export const routeFactories: Record<string, PageFactory> = {
     MiniGamesPage: () => import('./pages/MiniGamesPage').then(module => ({ default: module.MiniGamesPage })),
     GamePage: () => import('./pages/GamePage').then(module => ({ default: module.GamePage })),
     CompetencyGoalsPage: () => import('./pages/CompetencyGoalsPage').then(module => ({ default: module.CompetencyGoalsPage })),
+    MicroGamePreviewPage: () => import('./pages/MicroGamePreviewPage').then(module => ({ default: module.MicroGamePreviewPage })),
 };
 

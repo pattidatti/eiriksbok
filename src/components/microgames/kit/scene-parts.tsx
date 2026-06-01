@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useMemo, useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 
@@ -131,6 +131,134 @@ export function Figure({
                 <meshStandardMaterial color={skin} roughness={0.8} />
             </mesh>
             {children}
+        </group>
+    );
+}
+
+// --- Stein (lavpoly, flatshaded) ---
+export function Rock({
+    position = [0, 0, 0],
+    color = '#8a8f96',
+    scale = 1,
+}: {
+    position?: [number, number, number];
+    color?: string;
+    scale?: number;
+}) {
+    return (
+        <mesh position={position} scale={scale} castShadow receiveShadow>
+            <dodecahedronGeometry args={[0.5, 0]} />
+            <meshStandardMaterial color={color} roughness={1} flatShading />
+        </mesh>
+    );
+}
+
+// --- Bål/flamme som flakker. Lyser opp scenen når `lit`. ---
+export function Fire({
+    position = [0, 0, 0],
+    scale = 1,
+    lit = true,
+}: {
+    position?: [number, number, number];
+    scale?: number;
+    lit?: boolean;
+}) {
+    const flame = useRef<THREE.Group>(null);
+    useFrame(({ clock }) => {
+        if (!flame.current) return;
+        const t = clock.getElapsedTime();
+        flame.current.scale.y = lit ? (0.85 + Math.sin(t * 13) * 0.15) * scale : 0;
+        flame.current.visible = lit;
+    });
+    return (
+        <group position={position}>
+            <pointLight
+                color="#ff8c3a"
+                intensity={lit ? 2.2 : 0}
+                distance={7}
+                position={[0, 0.7, 0]}
+            />
+            <group ref={flame} scale={scale}>
+                <mesh position={[0, 0.5, 0]}>
+                    <coneGeometry args={[0.3, 1, 8]} />
+                    <meshStandardMaterial color="#ff7a18" emissive="#ff5a00" emissiveIntensity={1.2} />
+                </mesh>
+                <mesh position={[0, 0.36, 0]}>
+                    <coneGeometry args={[0.17, 0.7, 8]} />
+                    <meshStandardMaterial color="#ffd23a" emissive="#ffb000" emissiveIntensity={1.5} />
+                </mesh>
+            </group>
+        </group>
+    );
+}
+
+// --- Banner/vimpel på stang som vaier lett ---
+export function Banner({
+    position = [0, 0, 0],
+    color = '#a23b2e',
+    height = 2,
+}: {
+    position?: [number, number, number];
+    color?: string;
+    height?: number;
+}) {
+    const cloth = useRef<THREE.Mesh>(null);
+    useFrame(({ clock }) => {
+        if (cloth.current) cloth.current.rotation.y = Math.sin(clock.getElapsedTime() * 2) * 0.14;
+    });
+    return (
+        <group position={position}>
+            <mesh position={[0, height / 2, 0]} castShadow>
+                <cylinderGeometry args={[0.05, 0.05, height, 6]} />
+                <meshStandardMaterial color="#5c3f26" roughness={0.9} />
+            </mesh>
+            <mesh ref={cloth} position={[0.36, height - 0.45, 0]} castShadow>
+                <planeGeometry args={[0.72, 0.9]} />
+                <meshStandardMaterial color={color} roughness={0.85} side={THREE.DoubleSide} />
+            </mesh>
+        </group>
+    );
+}
+
+// --- Tannhjul (maskin-spill). Sett `spin` (rad/sek) for å rotere. ---
+export function Gear({
+    position = [0, 0, 0],
+    radius = 0.6,
+    teeth = 10,
+    color = '#7a7f86',
+    spin = 0,
+}: {
+    position?: [number, number, number];
+    radius?: number;
+    teeth?: number;
+    color?: string;
+    spin?: number;
+}) {
+    const ref = useRef<THREE.Group>(null);
+    const teethArr = useMemo(() => Array.from({ length: teeth }, (_, i) => i), [teeth]);
+    useFrame((_, dt) => {
+        if (ref.current) ref.current.rotation.z += spin * dt;
+    });
+    return (
+        <group position={position} ref={ref}>
+            <mesh rotation={[Math.PI / 2, 0, 0]} castShadow>
+                <cylinderGeometry args={[radius, radius, 0.18, Math.max(16, teeth * 2)]} />
+                <meshStandardMaterial color={color} metalness={0.3} roughness={0.6} />
+            </mesh>
+            {teethArr.map((i) => {
+                const a = (i / teeth) * Math.PI * 2;
+                return (
+                    <mesh
+                        key={i}
+                        position={[Math.cos(a) * radius, Math.sin(a) * radius, 0]}
+                        rotation={[0, 0, -a]}
+                        castShadow
+                    >
+                        <boxGeometry args={[0.18, 0.18, 0.18]} />
+                        <meshStandardMaterial color={color} metalness={0.3} roughness={0.6} />
+                    </mesh>
+                );
+            })}
         </group>
     );
 }

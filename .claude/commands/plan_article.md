@@ -51,7 +51,7 @@ Hver artikkel skal ha **én signaturkomponent** — en interaktiv komponent som 
 
 **Hovedregel:** artikkelen får OGSÅ et skreddersydd 3D-mikrospill - en kort, romlig "aha"-opplevelse der eleven interagerer direkte med en 3D-verden (klikker objekter, drar dem på plass, justerer en spak, ser verdenen forvandle seg). Det kommer **i tillegg til** signaturkomponenten, ikke i stedet for: signaturkomponenten er artikkelens 2D-hovedmotor, mikrospillet er den romlige opplevelsen.
 
-**Når hoppe over:** bare når emnet virkelig ikke egner seg for 3D (f.eks. ren grammatikk, rettskriving eller andre ikke-romlige tema). Dokumenter da kort i planen hvorfor mikrospill droppes. I tvil - lag det.
+**Når hoppe over:** bare når emnet ikke har noen struktur å representere romlig (f.eks. ren grammatikk- eller rettskrivingsdrill). Abstrakte tema (tid, tro, ideer, etikk) kan bli sterke mikrospill når de har en modell eller prosess du kan iscenesette - bruk «morf-og-se / modell-sammenlikning»-arketypen og en iscenesettelse som matcher emnet (ikke standard grønn-åker-diorama). Eks: eskatologiens sirkulær-vs-lineær tid (`TidensFormer3D`). Dokumenter kort i planen hvis mikrospill droppes. I tvil - lag det.
 
 **Slik bygges det:** på interaksjons-toolkitet i `src/components/microgames/kit/`. Les hele `.agent/workflows/build_microgame.md` og følg den. Skriv spillet til `src/components/microgames/<Navn>.tsx`, registrer i `src/components/microgames/registry.ts` med en kebab-case `id`, og embed i artikkel-JSON:
 ```json

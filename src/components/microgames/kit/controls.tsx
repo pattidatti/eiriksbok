@@ -1,4 +1,5 @@
-import { ArrowRight, type LucideIcon } from 'lucide-react';
+import { useState } from 'react';
+import { ArrowRight, Check, X, type LucideIcon } from 'lucide-react';
 
 // Input-widgets som bor UNDER spillvinduet (aldri oppå scenen). Gir rik
 // interaksjon utover enkle knapper: kortvalg, stegmåler, kontinuerlig slider og
@@ -133,6 +134,103 @@ export function SceneSlider({
                 onChange={(e) => onChange(Number(e.target.value))}
                 className="w-full accent-amber-500 cursor-pointer"
             />
+        </div>
+    );
+}
+
+// Aha-sjekk: ett spørsmål som popper akkurat når innsikten lander. Knytter
+// interaksjonen til en konkret forståelse, og gir umiddelbar feedback.
+//   <SceneQuiz question="Hvorfor flyter det?" options={[...]} answerIndex={1}
+//       onResult={(correct) => correct ? score.hit() : score.miss()} />
+export function SceneQuiz({
+    question,
+    options,
+    answerIndex,
+    explanation,
+    onResult,
+}: {
+    question: string;
+    options: string[];
+    answerIndex: number;
+    explanation?: string;
+    onResult?: (correct: boolean) => void;
+}) {
+    const [picked, setPicked] = useState<number | null>(null);
+    const answered = picked !== null;
+    const correct = picked === answerIndex;
+    return (
+        <div className="rounded-xl border-2 border-amber-200 bg-white p-3">
+            <p className="text-sm font-bold text-slate-800 mb-2">{question}</p>
+            <div className="grid sm:grid-cols-2 gap-2">
+                {options.map((opt, i) => {
+                    const isPicked = picked === i;
+                    const showCorrect = answered && i === answerIndex;
+                    const showWrong = answered && isPicked && i !== answerIndex;
+                    return (
+                        <button
+                            key={i}
+                            onClick={() => {
+                                if (answered) return;
+                                setPicked(i);
+                                onResult?.(i === answerIndex);
+                            }}
+                            disabled={answered}
+                            className={`flex items-center gap-2 text-left rounded-lg border-2 px-3 py-2 text-sm transition ${
+                                showCorrect
+                                    ? 'bg-emerald-50 border-emerald-400 text-emerald-900'
+                                    : showWrong
+                                      ? 'bg-rose-50 border-rose-400 text-rose-900'
+                                      : 'bg-white border-slate-200 hover:border-amber-300 hover:bg-amber-50 text-slate-700'
+                            }`}
+                        >
+                            {showCorrect && <Check className="w-4 h-4 flex-shrink-0" />}
+                            {showWrong && <X className="w-4 h-4 flex-shrink-0" />}
+                            {opt}
+                        </button>
+                    );
+                })}
+            </div>
+            {answered && explanation && (
+                <p
+                    className={`text-xs mt-2 leading-relaxed ${
+                        correct ? 'text-emerald-800' : 'text-slate-600'
+                    }`}
+                >
+                    {explanation}
+                </p>
+            )}
+        </div>
+    );
+}
+
+// Sammenlign-bryter: la eleven veksle mellom to tilstander (f.eks. for/etter,
+// A/B) og se forskjellen direkte i scenen.
+export function CompareToggle({
+    labelA,
+    labelB,
+    value,
+    onChange,
+}: {
+    labelA: string;
+    labelB: string;
+    value: 'a' | 'b';
+    onChange: (v: 'a' | 'b') => void;
+}) {
+    return (
+        <div className="inline-flex rounded-xl border-2 border-amber-200 bg-white p-1">
+            {(['a', 'b'] as const).map((key) => (
+                <button
+                    key={key}
+                    onClick={() => onChange(key)}
+                    className={`px-4 py-1.5 rounded-lg text-sm font-semibold transition ${
+                        value === key
+                            ? 'bg-amber-500 text-white shadow-sm'
+                            : 'text-slate-600 hover:bg-amber-50'
+                    }`}
+                >
+                    {key === 'a' ? labelA : labelB}
+                </button>
+            ))}
         </div>
     );
 }

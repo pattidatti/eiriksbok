@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Hand, Trophy, RotateCcw } from 'lucide-react';
+import { Hand, Trophy, RotateCcw, Star, Flame } from 'lucide-react';
 
 // Presentasjons-overlegg for mikrospill: transient banner, hjørne-etikett,
 // dra-hint, fakta-kort og vinn-skjerm. Disse er "output" - input-widgetene
@@ -71,6 +71,35 @@ export function DragHint({ show, children }: { show: boolean; children: React.Re
     );
 }
 
+// Live data-avlesning: viser tall som endrer seg i sanntid mens eleven drar/
+// justerer. Gjør sammenhengen mellom handling og effekt synlig (pedagogisk kjerne).
+//   <DataReadout items={[{ label: 'Fart', value: speed.toFixed(1), unit: 'knop' }]} />
+export function DataReadout({
+    items,
+    corner = 'tr',
+}: {
+    items: { label: string; value: string | number; unit?: string }[];
+    corner?: Corner;
+}) {
+    return (
+        <div
+            className={`absolute ${CORNER[corner]} flex flex-col gap-1 px-3 py-2 bg-white/85 backdrop-blur-sm rounded-xl shadow pointer-events-none`}
+        >
+            {items.map((it) => (
+                <div key={it.label} className="flex items-baseline justify-between gap-3">
+                    <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-500">
+                        {it.label}
+                    </span>
+                    <span className="text-sm font-bold text-slate-800 tabular-nums">
+                        {it.value}
+                        {it.unit && <span className="text-[10px] text-slate-400 ml-0.5">{it.unit}</span>}
+                    </span>
+                </div>
+            ))}
+        </div>
+    );
+}
+
 // Fakta-/forklaringskort under vinduet etter et valg.
 export function SceneFact({ children }: { children: React.ReactNode }) {
     return (
@@ -82,6 +111,51 @@ export function SceneFact({ children }: { children: React.ReactNode }) {
         >
             <p className="text-xs text-slate-600 leading-relaxed">{children}</p>
         </motion.div>
+    );
+}
+
+// Score-HUD: stjerner + combo-teller i et hjørne av scenen. Gir synlig progresjon
+// og belønning - den lille sløyfen som gjør spillet vanedannende.
+export function ScoreHUD({
+    combo = 0,
+    stars = 0,
+    maxStars = 3,
+    corner = 'tl',
+}: {
+    combo?: number;
+    stars?: number;
+    maxStars?: number;
+    corner?: Corner;
+}) {
+    return (
+        <div
+            className={`absolute ${CORNER[corner]} flex items-center gap-2 pointer-events-none`}
+        >
+            <div className="flex items-center gap-0.5 px-2 py-1 bg-white/85 backdrop-blur-sm rounded-full shadow">
+                {Array.from({ length: maxStars }).map((_, i) => (
+                    <Star
+                        key={i}
+                        className={`w-3.5 h-3.5 ${
+                            i < stars ? 'text-amber-400 fill-amber-400' : 'text-slate-300'
+                        }`}
+                    />
+                ))}
+            </div>
+            <AnimatePresence>
+                {combo >= 2 && (
+                    <motion.div
+                        key="combo"
+                        initial={{ scale: 0.6, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        exit={{ scale: 0.6, opacity: 0 }}
+                        className="inline-flex items-center gap-1 px-2 py-1 bg-amber-500 text-white rounded-full text-xs font-bold shadow"
+                    >
+                        <Flame className="w-3.5 h-3.5" />
+                        {combo}x
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </div>
     );
 }
 

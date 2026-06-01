@@ -17,6 +17,9 @@ import {
     SceneSlider,
     StepTracker,
     damp,
+    Burst,
+    CameraRig,
+    useAmbience,
 } from './kit';
 import { useStepSounds } from '../../hooks/useStepSounds';
 import type { MicroGameProps } from './types';
@@ -45,11 +48,14 @@ const STRAKE_FACTS = [
 
 const VikingShip3D: React.FC<MicroGameProps> = ({ onComplete }) => {
     const sounds = useStepSounds();
+    const ambience = useAmbience('waves');
     const [phase, setPhase] = useState<Phase>('keel');
     const [strakes, setStrakes] = useState(0);
     const [banner, setBanner] = useState<string | null>(null);
     const [fact, setFact] = useState<string | null>(null);
     const [form, setForm] = useState(0.3); // 0 = langskip, 1 = knarr
+    const [introDone, setIntroDone] = useState(false);
+    const [burst, setBurst] = useState(0); // teller som avfyrer suksess-partikler
 
     const reset = () => {
         setPhase('keel');
@@ -64,6 +70,7 @@ const VikingShip3D: React.FC<MicroGameProps> = ({ onComplete }) => {
         const dist = Math.hypot(pos.x - BERTH[0], pos.z - BERTH[2]);
         if (dist < 2.2) {
             sounds.play('drop');
+            ambience.start(); // bølgelyd starter ved første brukerhandling
             setPhase('planking');
             setBanner('Kjølen ligger på stativet. Nå klinker vi bordgangene.');
         } else {
@@ -93,6 +100,7 @@ const VikingShip3D: React.FC<MicroGameProps> = ({ onComplete }) => {
 
     const launch = () => {
         sounds.play('complete');
+        setBurst((b) => b + 1); // feiringspartikler
         setPhase('launched');
         setBanner(null);
         setTimeout(() => {
@@ -118,8 +126,12 @@ const VikingShip3D: React.FC<MicroGameProps> = ({ onComplete }) => {
             estimatedSeconds={160}
             onRetry={phase !== 'keel' || strakes > 0 ? reset : undefined}
             canvas={{
-                idle,
-                camera: { position: [9, 7, 11], fov: 40 },
+                // Cinematisk innflyvning: start langt unna, OrbitControls slås på
+                // først når kameraet er framme (introDone). Ingen autorotasjon -
+                // stillestående kjøl er lettere å gripe.
+                idle: false,
+                controls: introDone,
+                camera: { position: [20, 14, 24], fov: 40 },
                 background: '#bfe0f2',
                 target: [0, 0.8, 0],
             }}
@@ -135,19 +147,28 @@ const VikingShip3D: React.FC<MicroGameProps> = ({ onComplete }) => {
                                 ? identity.name
                                 : 'Klinkbygging'}
                     </SceneBadge>
-                    <DragHint show={idle}>Dra eikekjølen inn på stativet</DragHint>
+                    <DragHint show={idle && introDone}>Dra eikekjølen inn på stativet</DragHint>
                 </>
             }
             scene={
-                <ShipYard
-                    phase={phase}
-                    strakes={strakes}
-                    form={form}
-                    onPlaceKeel={placeKeel}
-                    onAddStrake={addStrake}
-                    onRaiseMast={raiseMast}
-                    strakeY={strakeY}
-                />
+                <>
+                    <CameraRig
+                        to={[9, 7, 11]}
+                        lookAt={[0, 0.8, 0]}
+                        active={!introDone}
+                        onArrive={() => setIntroDone(true)}
+                    />
+                    <ShipYard
+                        phase={phase}
+                        strakes={strakes}
+                        form={form}
+                        burst={burst}
+                        onPlaceKeel={placeKeel}
+                        onAddStrake={addStrake}
+                        onRaiseMast={raiseMast}
+                        strakeY={strakeY}
+                    />
+                </>
             }
         >
             {/* Kontrollområde under vinduet - skifter med fasen */}
@@ -221,6 +242,7 @@ function ShipYard({
     phase,
     strakes,
     form,
+    burst,
     onPlaceKeel,
     onAddStrake,
     onRaiseMast,
@@ -229,6 +251,7 @@ function ShipYard({
     phase: Phase;
     strakes: number;
     form: number;
+    burst: number;
     onPlaceKeel: (pos: THREE.Vector3) => void;
     onAddStrake: () => void;
     onRaiseMast: () => void;
@@ -311,6 +334,8 @@ function ShipYard({
                             {strakes >= STRAKES && <Shields />}
                         </HullMorph>
                         {masted && <MastAndSail />}
+                        {/* Feiringspartikler ved sjøsetting */}
+                        <Burst position={[0, 2.4, 0]} trigger={burst} color="#f4e7c5" count={32} spread={3.5} />
                     </group>
 
                     {/* Hotspot: neste bordgang */}

@@ -63,6 +63,13 @@ export const MicroGameScaffold: React.FC<MicroGameScaffoldProps> = ({
                     style={{ aspectRatio, minHeight }}
                 >
                     <MicroCanvas {...canvas}>{scene}</MicroCanvas>
+                    {/* Myk vignette - gir scenen et fokusert, filmatisk preg */}
+                    <div
+                        className="pointer-events-none absolute inset-0"
+                        style={{
+                            boxShadow: 'inset 0 0 90px 10px rgba(15,23,42,0.18)',
+                        }}
+                    />
                     {overlays}
                 </div>
 

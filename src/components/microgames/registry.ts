@@ -10,6 +10,8 @@ const Colosseum3D = lazy(() => import('./Colosseum3D'));
 const TheodosianWalls3D = lazy(() => import('./TheodosianWalls3D'));
 const Hamskiftet3D = lazy(() => import('./Hamskiftet3D'));
 const VikingShip3D = lazy(() => import('./VikingShip3D'));
+const IngenmanslandMG = lazy(() => import('./IngenmanslandMG'));
+const TidensFormer3D = lazy(() => import('./TidensFormer3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
     'gladius-duell': {
@@ -56,6 +58,24 @@ export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.Laz
         estimatedSeconds: 160,
         loader: () => import('./VikingShip3D'),
         Component: VikingShip3D as never,
+    },
+    'ingenmannsland-mg': {
+        id: 'ingenmannsland-mg',
+        title: 'Maskingevær ved Somme',
+        description:
+            'Forsvar en britisk skyttergrav i 3D: skyt soldater som løper over ingenmannsland og kjenn på kroppen hvorfor Vestfronten stivnet.',
+        estimatedSeconds: 130,
+        loader: () => import('./IngenmanslandMG'),
+        Component: IngenmanslandMG as never,
+    },
+    'tidens-former-3d': {
+        id: 'tidens-former-3d',
+        title: 'Tidens to former',
+        description:
+            'Kjenn på eskatologiens kjerne i 3D: la en verden løpe gjennom skapelse, blomstring, forfall og undergang - og se hvordan tidshjulet (sirkulær tid) føder den på ny, mens tidspilen (lineær tid) ender i ett evig punktum.',
+        estimatedSeconds: 150,
+        loader: () => import('./TidensFormer3D'),
+        Component: TidensFormer3D as never,
     },
 };
 

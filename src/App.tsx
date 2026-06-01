@@ -63,6 +63,7 @@ const VirkemiddelverkstedetPage = React.lazy(routeFactories.Virkemiddelverkstede
 const MiniGamesPage = React.lazy(routeFactories.MiniGamesPage);
 const GamePage = React.lazy(routeFactories.GamePage);
 const CompetencyGoalsPage = React.lazy(routeFactories.CompetencyGoalsPage);
+const MicroGamePreviewPage = React.lazy(routeFactories.MicroGamePreviewPage);
 
 
 
@@ -120,6 +121,8 @@ const router = createBrowserRouter([
       { path: "oving/virkemidler", element: <VirkemiddelverkstedetPage /> },
       { path: "oving/spill", element: <MiniGamesPage /> },
       { path: "oving/spill/:gameId", element: <GamePage /> },
+      { path: "mikrospill", element: <MicroGamePreviewPage /> },
+      { path: "mikrospill/:gameId", element: <MicroGamePreviewPage /> },
       { path: "oving/kompetansemal", element: <CompetencyGoalsPage /> },
       { path: "historie/vikingtiden/detektiv", element: <DetectiveCasePage /> },
       { path: "admin", element: <AdminGuard><AdminDashboard /></AdminGuard> },

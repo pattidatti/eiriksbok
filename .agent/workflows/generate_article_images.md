@@ -10,19 +10,9 @@ Kjør denne workflowen når du vil generere bilder for nye artikler som mangler 
 
 ## Steg 1: Skann etter artikler som mangler bilder
 
-To faser — slå sammen resultatene og dedupliser.
+**Kjør alltid begge fasene og behandle resultatene i denne rekkefølgen: Fase B først, deretter Fase A.** Brutte referanser er mer kritiske — de vises som ødelagte bilder i appen — mens plassholdere bare er generiske. Behandler du Fase A først risikerer du å bruke opp kvoten uten å fikse de synlig ødelagte bildene.
 
-### Fase A: Plassholdere (placeholder.webp)
-
-```bash
-grep -rl "placeholder.webp" public/content/ --include="*.json" | sort
-```
-
-For hver treff, noter filsti og om det er `heroImage`, inline `"type": "image"`-blokker, eller begge.
-
-Filtrer bort ikke-artikler ved å sjekke at filen har `"content": [...]`.
-
-### Fase B: Brutte bildereferanser (ekte sti i JSON, men fil mangler på disk)
+### Fase B: Brutte bildereferanser (ekte sti i JSON, men fil mangler på disk) — KJØres FØRST
 
 ```bash
 python3 -c "
@@ -33,8 +23,6 @@ for f in sorted(glob.glob('public/content/**/*.json', recursive=True)):
     try:
         data = json.load(open(f))
     except:
-        continue
-    if not isinstance(data.get('content'), list):
         continue
 
     def find_images(obj, paths=[]):
@@ -57,12 +45,24 @@ for f, imgs in sorted(broken.items()):
 "
 ```
 
+Merk: skriptet scanner **alle** JSON-filer, inkludert scenarier og andre filer uten `content`-array. Dette er bevisst — scenarier kan også ha manglende bildereferanser.
+
+### Fase A: Plassholdere (placeholder.webp) — kjøres ETTER Fase B
+
+```bash
+grep -rl "placeholder.webp" public/content/ --include="*.json" | sort
+```
+
+For hver treff, noter filsti og om det er `heroImage`, inline `"type": "image"`-blokker, eller begge.
+
+Filtrer bort ikke-artikler (manifest.json, global-timeline-images.json osv.) ved å sjekke at filen har et `id`-felt og enten `"content": [...]` eller `"nodes": [...]` (scenarier).
+
 ### Viktig: to ulike kjøringsmønstre
 
 | Tilfelle | JSON-tilstand | Handling |
 |----------|--------------|----------|
-| **Placeholder** | `heroImage: "/images/placeholder.webp"` | Generer bilde → **oppdater** JSON til ny sti + manifest |
 | **Brukket referanse** | `heroImage: "/images/topic/fil-hero.webp"` (fil finnes ikke) | Generer bilde → **lagre til stien som allerede er i JSON** — ingen JSON-endring |
+| **Placeholder** | `heroImage: "/images/placeholder.webp"` | Generer bilde → **oppdater** JSON til ny sti + manifest |
 
 For brutte referanser er filnavnet allerede kjent fra JSON-en. Lagre generert bilde direkte til den eksisterende stien, og oppdater verken artikkel-JSON eller manifest.
 
@@ -70,7 +70,7 @@ For brutte referanser er filnavnet allerede kjent fra JSON-en. Lagre generert bi
 
 ## Steg 2: Les og analyser artikkelen
 
-For hver artikkel med plassholdere: les hele JSON-filen og trekk ut:
+For hver artikkel (både Fase B og Fase A): les hele JSON-filen og trekk ut:
 
 - `id`, `title`, `year`, `category`, `subjectId` (fra filstien)
 - De tre første tekst-blokkene (kontekst for hero-bildet)
@@ -188,4 +188,6 @@ git push origin main
 
 Workflowen er designet for **ukentlig kjøring** etter at den daglige innholdsrutinen har produsert nye artikler gjennom uken. Kjør den manuelt i Antigravity når du vil ta et batch med bilder.
 
-Har du ingen artikler med `placeholder.webp` er det ingenting å gjøre - avslutt.
+Har du ingen treff fra verken Fase B eller Fase A er det ingenting å gjøre — avslutt.
+
+**Kvotehåndtering:** Hvis bildegenererings-API-et returnerer en kvote-feil, stopp umiddelbart og commit det som er generert så langt. **Ikke reset stier tilbake til `placeholder.webp`.** La de ubehandlede artiklene beholde sine spesifikke stier — neste kjøring vil plukke dem opp via Fase B. Å resette til placeholder er kontraproduktivt fordi det skjuler Fase B-oppgavene og fører til gjentatt omprioritering.
