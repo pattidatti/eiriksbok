@@ -359,8 +359,18 @@ Interactive components in articles are referenced by string name in JSON and res
 | `CableBreakSim` | Simulering av kabelbrudd (infrastruktur-atlas) |
 | `PropagandaDecoder` | Avkode propagandaplakater (etterkrigstid) |
 | `NuclearSimulator` | Kjernevåpen-yield-simulator |
+| `MicroGame` | Embed et lett mikrospill inline (`props.gameId`, se `.agent/workflows/build_microgame.md`) |
 
 Full list in `src/components/ComponentRegistry.tsx`.
+
+### Mikrospill i artikler
+
+Lette, embeddbare spill bor i `src/components/microgames/` (egen `MicroGameFrame`, registrert i
+`registry.ts`). Slipp et spill inn i en artikkel med
+`{ "type": "component", "name": "MicroGame", "props": { "gameId": "<id>" } }`, eller i et
+læringssti-steg via `microGameId`. Bygg nye med `.agent/workflows/build_microgame.md`. Dette er et
+eget, lett spor adskilt fra den tunge 3D-motoren i `src/games/engine/` — embed aldri fullmotoren i
+en artikkel.
 
 ---
 

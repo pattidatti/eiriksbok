@@ -194,6 +194,7 @@ For å sikre god lesbarhet og flyt i teksttunge artikler, skal følgende regler 
 *   **Header-nivåer**: Bruk `header` blocks for å dele opp innholdet. Dette genererer automatisk innholdsfortegnelse i sidebaren.
 *   **Formatering**: Bruk **aldri** fet skrift (`**tekst**`) for å utheve ord eller setninger i brødteksten. Dette gir et uryddig uttrykk. Viktige begreper skal håndteres av det automatiske begrepssystemet (concepts), som gir dem en egen stil og funksjonalitet uten behov for manuell utheving.
 *   **Lister**: Bruk **aldri** markdown-lister (linjer som starter med `-` eller `*`) innad i en `text`-blokk. Tekstmotoren støtter ikke dette, og det vil se ødelagt ut. Bruk heller en egen blokk med `type: "list"` og legg punktene i en `items`-array.
+*   **Mikrospill inline**: Lette spill kan embeddes rett i en artikkel med `{ "type": "component", "name": "MicroGame", "props": { "gameId": "<id>" } }`. Spillene bor i `src/components/microgames/` og registreres i `registry.ts`. Dette er et eget, lett spor (R3F/2D, lazy-lastet) adskilt fra den tunge 3D-motoren i `src/games/engine/` — embed aldri fullmotoren i en artikkel. Bygg nye spill med `.agent/workflows/build_microgame.md`.
 
 ## 4.8. Troubleshooting / Feilsøking
 

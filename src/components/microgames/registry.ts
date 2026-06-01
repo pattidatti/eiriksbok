@@ -7,6 +7,7 @@ import type { MicroGameEntry } from './types';
 
 const GladiusDuel = lazy(() => import('./GladiusDuel'));
 const Colosseum3D = lazy(() => import('./Colosseum3D'));
+const TheodosianWalls3D = lazy(() => import('./TheodosianWalls3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
     'gladius-duell': {
@@ -26,6 +27,15 @@ export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.Laz
         estimatedSeconds: 120,
         loader: () => import('./Colosseum3D'),
         Component: Colosseum3D as never,
+    },
+    'teodosianmuren': {
+        id: 'teodosianmuren',
+        title: 'Teodosianmuren',
+        description:
+            'Roter Konstantinopels trippelmur i 3D, finn de fire forsvarslagene, og se Mehmet 2.s kanon knuse muren i 1453.',
+        estimatedSeconds: 120,
+        loader: () => import('./TheodosianWalls3D'),
+        Component: TheodosianWalls3D as never,
     },
 };
 

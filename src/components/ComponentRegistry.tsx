@@ -228,6 +228,10 @@ const PetrodollarKretslop = lazy(() => import('./content/interactive/Petrodollar
 const JakartaMetoden = lazy(() => import('./content/interactive/JakartaMetoden').then(m => ({ default: m.JakartaMetoden })));
 const KolonimaktSkifte = lazy(() => import('./content/interactive/KolonimaktSkifte').then(m => ({ default: m.KolonimaktSkifte })));
 
+// Mikrospill: lett, embeddbart spill inline i artikkel. gameId-prop velger spillet
+// fra mikrospill-registeret (src/components/microgames/registry.ts).
+const MicroGame = lazy(() => import('./microgames/MicroGameBlock').then(m => ({ default: m.MicroGameBlock })));
+
 export const componentRegistry: Record<string, React.ComponentType<any>> = {
     // Core
     GovernmentExplorer,
@@ -243,6 +247,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     LineChart,
     EmperorStats,
     LinkButton,
+    MicroGame,
     WaveMap,
 
     // Interactive Content

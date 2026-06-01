@@ -36,6 +36,17 @@
       "content": "Rundt byen vokste det osmanske riket. For den unge sultanen Mehmet 2. var Konstantinopel som en stein midt i riket hans, en fremmed by han måtte ri rundt. Han bestemte seg for å ta den, koste hva det koste ville. Mehmet var bare 21 år, men han hadde noe ingen tidligere angriper hadde hatt: nye, gigantiske kanoner."
     },
     {
+      "type": "text",
+      "content": "Men hvorfor var murene rundt byen så vanskelige å bryte? Roter forsvaret i 3D og finn ut hvordan tre lag mur stoppet angripere i tusen år, før du ser hva kanonene gjorde i 1453."
+    },
+    {
+      "type": "component",
+      "name": "MicroGame",
+      "props": {
+        "gameId": "teodosianmuren"
+      }
+    },
+    {
       "type": "component",
       "name": "QuoteBlock",
       "props": {
