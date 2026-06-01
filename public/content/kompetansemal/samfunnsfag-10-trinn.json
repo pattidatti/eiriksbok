@@ -148,7 +148,11 @@
                     { "tittel": "Malthus vs. Boserup", "link": "/samfunnskunnskap/demografi/malthus-vs-boserup", "begrunnelse": "Konkurrerende teorier om befolkning og ressurser." },
                     { "tittel": "Perserriket", "link": "/historie/perserriket/artikkel", "begrunnelse": "Hvordan geografi formet historiens første verdensimperium." },
                     { "tittel": "Handel og Silkeveien", "link": "/historie/romerriket/handel-og-silkeveien", "begrunnelse": "Geografi, handel og kulturmøter." },
-                    { "tittel": "Trekant-handelen", "link": "/historie/kolonialisering/trekanthandelen", "begrunnelse": "Hvordan geografi muliggjorde slavehandelen og formet tre kontinenter." }
+                    { "tittel": "Trekant-handelen", "link": "/historie/kolonialisering/trekanthandelen", "begrunnelse": "Hvordan geografi muliggjorde slavehandelen og formet tre kontinenter." },
+                    { "tittel": "Teknologi og helse", "link": "/samfunnskunnskap/demografi/teknologi-helse", "begrunnelse": "Dekker Geografi, politikk og levekår" },
+                    { "tittel": "Introduksjon til demografi", "link": "/samfunnskunnskap/demografi/intro", "begrunnelse": "Dekker Geografi, politikk og levekår" },
+                    { "tittel": "De store syklusene", "link": "/samfunnskunnskap/ideer-og-verdenssyn/store-sykluser", "begrunnelse": "Dekker Geografi, politikk og levekår" },
+                    { "tittel": "Verden er én maskin", "link": "/samfunnskunnskap/handel-og-infrastruktur/global-handel-oversikt", "begrunnelse": "Dekker Geografi, politikk og levekår" }
                 ],
                 "stier": [
                     { "tittel": "Læringssti: Imperienes sykluser", "link": "/samfunnskunnskap/ideer-og-verdenssyn/store-sykluser-sti", "begrunnelse": "Hvorfor stormakter stiger og faller." },
@@ -234,7 +238,8 @@
                     { "tittel": "Humanisme", "link": "/samfunnskunnskap/ideer-og-verdenssyn/humanisme", "begrunnelse": "Tankegrunnlaget for menneskerettigheter og likeverd." },
                     { "tittel": "Apartheid: Et samfunn delt i lov", "link": "/historie/dekolonisering/apartheid-syd-afrika", "begrunnelse": "Hvordan internasjonalt press tvang fram endring." },
                     { "tittel": "Jim Crow: «Separate but equal»", "link": "/historie/dekolonisering/jim-crow-lovene", "begrunnelse": "Statlig systematisk brudd på menneskerettigheter." },
-                    { "tittel": "India: Sjelenes frigjøring", "link": "/historie/dekolonisering/india", "begrunnelse": "Kamp for selvbestemmelse og frihet." }
+                    { "tittel": "India: Sjelenes frigjøring", "link": "/historie/dekolonisering/india", "begrunnelse": "Kamp for selvbestemmelse og frihet." },
+                    { "tittel": "Gjeld som våpen: IMF og Verdensbanken", "link": "/samfunnskunnskap/handel-og-infrastruktur/imf-og-verdensbanken", "begrunnelse": "Dekker Menneskerettar og internasjonale avtalar" }
                 ],
                 "stier": [
                     { "tittel": "Læringssti: Frihetens Maraton", "link": "/historie/dekolonisering/dekolonisering-sti", "begrunnelse": "200 år med kamp for menneskerettigheter på tre kontinenter." }
@@ -282,7 +287,8 @@
                     { "tittel": "Finanskriser", "link": "/samfunnskunnskap/okonomi/finanskriser", "begrunnelse": "Når økonomien går galt — og hvem som rammes." },
                     { "tittel": "Produksjon", "link": "/samfunnskunnskap/okonomi/produksjon", "begrunnelse": "Grunnleggende økonomi: hvordan verdier skapes." },
                     { "tittel": "Arbeidsspesialisering", "link": "/samfunnskunnskap/okonomi/arbeidsspesialisering", "begrunnelse": "Hvorfor moderne samfunn er så produktive." },
-                    { "tittel": "Ulike økonomiske skoler", "link": "/samfunnskunnskap/okonomi/okonomiske-skoler", "begrunnelse": "Forstå at økonomer er uenige, og hvorfor det betyr noe for valgene vi tar." }
+                    { "tittel": "Ulike økonomiske skoler", "link": "/samfunnskunnskap/okonomi/okonomiske-skoler", "begrunnelse": "Forstå at økonomer er uenige, og hvorfor det betyr noe for valgene vi tar." },
+                    { "tittel": "Petrodollaren: Hvorfor olje måles i dollar", "link": "/samfunnskunnskap/okonomi/petrodollaren", "begrunnelse": "Dekker Personlig økonomi og levestandard" }
                 ],
                 "verktoy": [
                     { "tittel": "Økonomi-Verden", "link": "/samfunnskunnskap/okonomi/verden", "begrunnelse": "Eleven justerer rente, pengetrykk og regulering og ser konsekvenser for arbeid, priser og kriser. Tre kapsler tilbyr historiske scenarioer (frimarked, balanse, Weimar 1923)." }
@@ -343,7 +349,12 @@
                     { "tittel": "Diktaturet", "link": "/samfunnskunnskap/styringsformer/diktaturet", "begrunnelse": "Når makten konsentreres på få hender." },
                     { "tittel": "Demokratiets ansikter", "link": "/samfunnskunnskap/styringsformer/demokrati-ansikter", "begrunnelse": "Ulike former for folkestyre." },
                     { "tittel": "Teokrati og teknokrati", "link": "/samfunnskunnskap/styringsformer/teokrati-teknokrati", "begrunnelse": "Når religion eller ekspertise styrer." },
-                    { "tittel": "Stortinget", "link": "/samfunnskunnskap/styringsformer/stortinget", "begrunnelse": "Hvordan norsk politisk makt utøves." }
+                    { "tittel": "Stortinget", "link": "/samfunnskunnskap/styringsformer/stortinget", "begrunnelse": "Hvordan norsk politisk makt utøves." },
+                    { "tittel": "Antikkens visjoner", "link": "/samfunnskunnskap/styringsformer/antikken-visjoner", "begrunnelse": "Dekker Aktører og makt" },
+                    { "tittel": "Monarkiet", "link": "/samfunnskunnskap/styringsformer/monarkiet", "begrunnelse": "Dekker Aktører og makt" },
+                    { "tittel": "Opplysningstiden", "link": "/samfunnskunnskap/styringsformer/opplysningstid", "begrunnelse": "Dekker Aktører og makt" },
+                    { "tittel": "Uten hersker", "link": "/samfunnskunnskap/styringsformer/uten-hersker", "begrunnelse": "Dekker Aktører og makt" },
+                    { "tittel": "Føydalismen", "link": "/samfunnskunnskap/styringsformer/foydalisme", "begrunnelse": "Dekker Aktører og makt" }
                 ],
                 "stier": [
                     { "tittel": "Utforsk Styringsformer", "link": "/samfunnskunnskap/styringsformer/utforsk", "begrunnelse": "Bli kjent med ulike maktformer i historien og i dag." }
@@ -392,7 +403,8 @@
                     { "tittel": "Lønn og ulikhet", "link": "/samfunnskunnskap/arbeidsliv/lonn-og-ulikhet", "begrunnelse": "Velferdsstatens fordelingsmekanismer." },
                     { "tittel": "Fagforeninger", "link": "/samfunnskunnskap/arbeidsliv/fagforeninger", "begrunnelse": "Trepartssamarbeidets historie og rolle." },
                     { "tittel": "Fremtidens arbeidsliv", "link": "/samfunnskunnskap/arbeidsliv/fremtidens-arbeidsliv", "begrunnelse": "Hvilke utfordringer møter velferdssamfunnet?" },
-                    { "tittel": "Klassekamp i Norge", "link": "/historie/mellomkrigstiden/norge", "begrunnelse": "Velferdsstatens historiske røtter." }
+                    { "tittel": "Klassekamp i Norge", "link": "/historie/mellomkrigstiden/norge", "begrunnelse": "Velferdsstatens historiske røtter." },
+                    { "tittel": "Grunnloven 1814", "link": "/samfunnskunnskap/styringsformer/grunnloven", "begrunnelse": "Dekker Det norske politiske systemet" }
                 ]
             }
         }

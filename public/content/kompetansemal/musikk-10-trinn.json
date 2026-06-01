@@ -22,7 +22,9 @@
                     { "tittel": "Piano: Introduksjon", "link": "/musikk/instrumenter/piano-intro", "begrunnelse": "Grunnleggende pianoteknikk for utøving." },
                     { "tittel": "Gitar: Introduksjon", "link": "/musikk/instrumenter/gitar-intro", "begrunnelse": "Grunnleggende gitarteknikk for utøving." },
                     { "tittel": "Bass: Introduksjon", "link": "/musikk/instrumenter/bass-intro", "begrunnelse": "Grunnleggende bassteknikk for utøving." },
-                    { "tittel": "Trommer: Introduksjon", "link": "/musikk/instrumenter/trommer-intro", "begrunnelse": "Grunnleggende trommeteknikk for utøving." }
+                    { "tittel": "Trommer: Introduksjon", "link": "/musikk/instrumenter/trommer-intro", "begrunnelse": "Grunnleggende trommeteknikk for utøving." },
+                    { "tittel": "CAGED-systemet", "link": "/musikk/instrumenter/caged-system", "begrunnelse": "Dekker Utøve musikk og dans" },
+                    { "tittel": "Solo som følger harmonien", "link": "/musikk/instrumenter/solo-og-grunntoner", "begrunnelse": "Dekker Utøve musikk og dans" }
                 ],
                 "spill": [
                     { "tittel": "Akkordbank", "link": "/musikk/oppslag/akkordbank", "begrunnelse": "Oppslagsverk for akkorder du trenger når du øver." },
@@ -36,7 +38,13 @@
             "kortNavn": "Tradisjon og fornyelse",
             "tekst": "reflektere over hvordan musikalske tradisjoner, inkludert samiske musikktradisjoner, bevares og fornyes",
             "merknad": "Innhold om samisk musikk (joik) og andre musikktradisjoner i historisk og samtidig perspektiv er under utvikling.",
-            "innhold": {}
+            "innhold": {
+                "artikler": [
+                    { "tittel": "Joik: Stemmen til det samiske folket", "link": "/musikk/musikkhistorie/joik", "begrunnelse": "Dekker Tradisjon og fornyelse" },
+                    { "tittel": "Folkemusikk: Hardingfela, slåtter og kveding", "link": "/musikk/musikkhistorie/folkemusikk", "begrunnelse": "Dekker Tradisjon og fornyelse" },
+                    { "tittel": "Gamle toner, nye stemmer", "link": "/musikk/musikkhistorie/gamle-toner-nye-stemmer", "begrunnelse": "Dekker Tradisjon og fornyelse" }
+                ]
+            }
         },
         {
             "id": "mus-10-3",
@@ -76,7 +84,8 @@
                 "artikler": [
                     { "tittel": "Takt og rytme", "link": "/musikk/grunnleggende/takt-og-rytme", "begrunnelse": "Rytme som musikalsk virkemiddel." },
                     { "tittel": "Akkorder og harmoni", "link": "/musikk/grunnleggende/akkorder-og-harmoni", "begrunnelse": "Hvordan harmonier skaper stemning." },
-                    { "tittel": "Låtens anatomi", "link": "/musikk/komposisjon/lat-struktur", "begrunnelse": "Hvordan strukturelle valg er virkemidler." }
+                    { "tittel": "Låtens anatomi", "link": "/musikk/komposisjon/lat-struktur", "begrunnelse": "Hvordan strukturelle valg er virkemidler." },
+                    { "tittel": "Dynamikk: Musikerens hemmelige superkraft", "link": "/musikk/komposisjon/dynamikk-og-uttrykk", "begrunnelse": "Dekker Musikalske virkemidler" }
                 ]
             }
         },
@@ -88,7 +97,9 @@
             "innhold": {
                 "artikler": [
                     { "tittel": "Låtens anatomi", "link": "/musikk/komposisjon/lat-struktur", "begrunnelse": "Fra idé til ferdig låt — strukturelle valg." },
-                    { "tittel": "Hva blir vi vurdert i?", "link": "/musikk/vurdering/vurderingskriterier", "begrunnelse": "Begrunne valg i skapende prosesser." }
+                    { "tittel": "Hva blir vi vurdert i?", "link": "/musikk/vurdering/vurderingskriterier", "begrunnelse": "Begrunne valg i skapende prosesser." },
+                    { "tittel": "Hook: Den lille biten som setter seg fast", "link": "/musikk/komposisjon/melodi-og-hook", "begrunnelse": "Dekker Skapende prosesser" },
+                    { "tittel": "Tekstskriving: Fra idé til ferdig låttekst", "link": "/musikk/komposisjon/tekstskriving", "begrunnelse": "Dekker Skapende prosesser" }
                 ],
                 "spill": [
                     { "tittel": "Komposisjonsverktøyet", "link": "/musikk/komposisjon", "begrunnelse": "Prøv ut uttrykk og hør resultatet underveis." }
@@ -103,7 +114,8 @@
             "innhold": {
                 "artikler": [
                     { "tittel": "Notasjon", "link": "/musikk/grunnleggende/notasjon", "begrunnelse": "Lese og skrive noter." },
-                    { "tittel": "Akkorder og harmoni", "link": "/musikk/grunnleggende/akkorder-og-harmoni", "begrunnelse": "Akkordsymboler og funksjonsanalyse." }
+                    { "tittel": "Akkorder og harmoni", "link": "/musikk/grunnleggende/akkorder-og-harmoni", "begrunnelse": "Akkordsymboler og funksjonsanalyse." },
+                    { "tittel": "Tonearter og skalaer", "link": "/musikk/grunnleggende/tonearter-og-skalaer", "begrunnelse": "Dekker Gehør og notasjon" }
                 ],
                 "spill": [
                     { "tittel": "Akkordbank", "link": "/musikk/oppslag/akkordbank", "begrunnelse": "Slå opp akkorder med notasjon." },
@@ -133,7 +145,13 @@
             "kortNavn": "Musikk i historie og samtid",
             "tekst": "utforske og reflektere over hvordan musikk, sang og dans som estetiske uttrykk er påvirket av og uttrykk for historiske og samfunnsmessige forhold, og skape musikalske uttrykk som tar opp utfordringer i samtiden",
             "merknad": "Egne artikler om musikkhistorie og samfunnskritisk musikk er under utvikling.",
-            "innhold": {}
+            "innhold": {
+                "artikler": [
+                    { "tittel": "Protestmusikk: Når sanger forandrer verden", "link": "/musikk/musikkhistorie/protestmusikk", "begrunnelse": "Dekker Musikk i historie og samtid" },
+                    { "tittel": "Jazzens fødsel", "link": "/musikk/musikkhistorie/jazzens-fodsel", "begrunnelse": "Dekker Musikk i historie og samtid" },
+                    { "tittel": "Hip-hop: Fra gata til verdensscenen", "link": "/musikk/musikkhistorie/hip-hop", "begrunnelse": "Dekker Musikk i historie og samtid" }
+                ]
+            }
         },
         {
             "id": "mus-10-10",
@@ -141,7 +159,11 @@
             "kortNavn": "Musikk og samfunn",
             "tekst": "utforske og drøfte musikkens og dansens betydning i samfunnet og etiske problemstillinger knyttet til musikalske ytringer og musikkulturer",
             "merknad": "Innhold om musikkindustri, opphavsrett og etiske dilemmaer i musikkulturer er under utvikling.",
-            "innhold": {}
+            "innhold": {
+                "artikler": [
+                    { "tittel": "Streaming og opphavsrett", "link": "/musikk/musikkhistorie/streaming-og-opphavsrett", "begrunnelse": "Dekker Musikk og samfunn" }
+                ]
+            }
         }
     ],
     "kjennetegn": {
