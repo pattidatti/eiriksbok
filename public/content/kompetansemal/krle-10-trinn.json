@@ -24,7 +24,26 @@
                     { "tittel": "Introduksjon til Jødedom", "link": "/krle/religion/jodedom/intro", "begrunnelse": "Jødedommens historie, utbredelse og praksis i dag." },
                     { "tittel": "Introduksjon til Hinduisme", "link": "/krle/religion/hinduisme/intro", "begrunnelse": "Hinduismens mangfold og praksis i dag." },
                     { "tittel": "Introduksjon til Buddhisme", "link": "/krle/religion/buddhisme/intro", "begrunnelse": "Buddhismens grunnsyn, retninger og global utbredelse." },
-                    { "tittel": "Introduksjon til sikhismen", "link": "/krle/religion/sikhisme/introduksjon", "begrunnelse": "Sikhismens grunnsyn og posisjon i Norge og verden." }
+                    { "tittel": "Introduksjon til sikhismen", "link": "/krle/religion/sikhisme/introduksjon", "begrunnelse": "Sikhismens grunnsyn og posisjon i Norge og verden." },
+                    { "tittel": "Kirkesamfunn: Splittelse og enhet", "link": "/krle/religion/kristendom/kirkesamfunn", "begrunnelse": "Dekker Religionstradisjoner i dag" },
+                    { "tittel": "Pinse", "link": "/krle/religion/kristendom/pinse", "begrunnelse": "Dekker Religionstradisjoner i dag" },
+                    { "tittel": "Frelse og nåde", "link": "/krle/religion/kristendom/frelse", "begrunnelse": "Dekker Religionstradisjoner i dag" },
+                    { "tittel": "Bønn", "link": "/krle/religion/kristendom/bonn", "begrunnelse": "Dekker Religionstradisjoner i dag" },
+                    { "tittel": "Skapelsen", "link": "/krle/religion/kristendom/skapelse", "begrunnelse": "Dekker Religionstradisjoner i dag" },
+                    { "tittel": "Bønn (Salah)", "link": "/krle/religion/islam/bonn", "begrunnelse": "Dekker Religionstradisjoner i dag" },
+                    { "tittel": "Dommens dag", "link": "/krle/religion/islam/frelse", "begrunnelse": "Dekker Religionstradisjoner i dag" },
+                    { "tittel": "Bønn og meditasjon", "link": "/krle/religion/buddhisme/bonn", "begrunnelse": "Dekker Religionstradisjoner i dag" },
+                    { "tittel": "Nirvana", "link": "/krle/religion/buddhisme/frelse", "begrunnelse": "Dekker Religionstradisjoner i dag" },
+                    { "tittel": "Bønn", "link": "/krle/religion/jodedom/bonn", "begrunnelse": "Dekker Religionstradisjoner i dag" },
+                    { "tittel": "Livet her og nå", "link": "/krle/religion/jodedom/frelse", "begrunnelse": "Dekker Religionstradisjoner i dag" },
+                    { "tittel": "Bønn (Puja)", "link": "/krle/religion/hinduisme/bonn", "begrunnelse": "Dekker Religionstradisjoner i dag" },
+                    { "tittel": "Moksha", "link": "/krle/religion/hinduisme/frelse", "begrunnelse": "Dekker Religionstradisjoner i dag" },
+                    { "tittel": "Bønn", "link": "/krle/religion/bahai/bonn", "begrunnelse": "Dekker Religionstradisjoner i dag" },
+                    { "tittel": "Åndelig utvikling", "link": "/krle/religion/bahai/frelse", "begrunnelse": "Dekker Religionstradisjoner i dag" },
+                    { "tittel": "Bønn", "link": "/krle/religion/mormonisme/bonn", "begrunnelse": "Dekker Religionstradisjoner i dag" },
+                    { "tittel": "Evig progresjon", "link": "/krle/religion/mormonisme/frelse", "begrunnelse": "Dekker Religionstradisjoner i dag" },
+                    { "tittel": "Bønn", "link": "/krle/religion/jehovas-vitner/bonn", "begrunnelse": "Dekker Religionstradisjoner i dag" },
+                    { "tittel": "Paradis på jord", "link": "/krle/religion/jehovas-vitner/frelse", "begrunnelse": "Dekker Religionstradisjoner i dag" }
                 ],
                 "spill": [
                     { "tittel": "Sammenlign Religioner", "link": "/krle/sammenlign", "begrunnelse": "Interaktivt verktøy som setter sentrale trekk side om side." }
@@ -40,7 +59,13 @@
                 "artikler": [
                     { "tittel": "Jesus Kristus", "link": "/krle/religion/kristendom/grunnleggere", "begrunnelse": "Hvordan Jesu liv og forkynnelse endret historien." },
                     { "tittel": "Profeten Muhammad", "link": "/krle/religion/islam/grunnleggere", "begrunnelse": "Muhammads liv og islams raske utbredelse." },
-                    { "tittel": "Abraham og Moses", "link": "/krle/religion/jodedom/grunnleggere", "begrunnelse": "Stamfedrene og det jødiske folkets historie." }
+                    { "tittel": "Abraham og Moses", "link": "/krle/religion/jodedom/grunnleggere", "begrunnelse": "Stamfedrene og det jødiske folkets historie." },
+                    { "tittel": "Paulus og misjonen", "link": "/krle/religion/kristendom/paulus-og-misjonen", "begrunnelse": "Dekker Religion i historiske endringsprosesser" },
+                    { "tittel": "Ingen enkelt grunnlegger", "link": "/krle/religion/hinduisme/grunnleggere", "begrunnelse": "Dekker Religion i historiske endringsprosesser" },
+                    { "tittel": "Bahá'u'lláh", "link": "/krle/religion/bahai/grunnleggere", "begrunnelse": "Dekker Religion i historiske endringsprosesser" },
+                    { "tittel": "Joseph Smith", "link": "/krle/religion/mormonisme/grunnleggere", "begrunnelse": "Dekker Religion i historiske endringsprosesser" },
+                    { "tittel": "Charles Taze Russell", "link": "/krle/religion/jehovas-vitner/grunnleggere", "begrunnelse": "Dekker Religion i historiske endringsprosesser" },
+                    { "tittel": "Guruene", "link": "/krle/religion/sikhisme/grunnleggere", "begrunnelse": "Dekker Religion i historiske endringsprosesser" }
                 ],
                 "detektiv": [
                     { "tittel": "Slaget ved Stiklestad", "link": "/oving/detektiv/stiklestad", "begrunnelse": "Olav Haraldssons død og kristningen av Norge." },
@@ -80,7 +105,8 @@
                     { "tittel": "Introduksjon til Jehovas vitner", "link": "/krle/religion/jehovas-vitner/intro", "begrunnelse": "Et nyere kristent trossamfunn med distinkte praksiser." },
                     { "tittel": "Introduksjon til Mormonisme", "link": "/krle/religion/mormonisme/intro", "begrunnelse": "Siste-dagers-hellige og deres egne hellige tekster." },
                     { "tittel": "Introduksjon til sikhismen", "link": "/krle/religion/sikhisme/introduksjon", "begrunnelse": "En egen religion som vokste fram mellom hinduisme og islam." },
-                    { "tittel": "Sentrale trekk i Bahá'í", "link": "/krle/religion/bahai/sentrale-trekk", "begrunnelse": "Bahá'í-troens samlende prinsipper." }
+                    { "tittel": "Sentrale trekk i Bahá'í", "link": "/krle/religion/bahai/sentrale-trekk", "begrunnelse": "Bahá'í-troens samlende prinsipper." },
+                    { "tittel": "Baptistene: frihet gjennom dåpen", "link": "/krle/religion/kristendom/baptistene", "begrunnelse": "Dekker Religiøst mangfold" }
                 ],
                 "spill": [
                     { "tittel": "Sammenlign Religioner", "link": "/krle/sammenlign", "begrunnelse": "Sett mindre kjente trossamfunn ved siden av de store religionene." }
@@ -93,7 +119,11 @@
             "kortNavn": "Samiske og urfolks tradisjoner",
             "tekst": "gjøre rede for og reflektere over samenes og andre urfolks religions- og livssynstradisjoner",
             "merknad": "Innhold om samisk religion og andre urfolkstradisjoner er under utvikling. Inntil videre dekkes temaet gjennom samfunnsfag og historie.",
-            "innhold": {}
+            "innhold": {
+                "artikler": [
+                    { "tittel": "Trommen, naturen og forfedrene", "link": "/krle/religion/samisk/intro", "begrunnelse": "Dekker Samiske og urfolks tradisjoner" }
+                ]
+            }
         },
         {
             "id": "rle-10-6",
@@ -106,7 +136,19 @@
                     { "tittel": "Sentrale trekk i Islam", "link": "/krle/religion/islam/sentrale-trekk", "begrunnelse": "Tawhid, shahada, umma — kjernebegreper i islam." },
                     { "tittel": "Sentrale trekk i Jødedommen", "link": "/krle/religion/jodedom/sentrale-trekk", "begrunnelse": "Tora, mitzvot, monoteisme — jødedommens fagbegreper." },
                     { "tittel": "Sentrale trekk i Hinduismen", "link": "/krle/religion/hinduisme/sentrale-trekk", "begrunnelse": "Dharma, karma, moksha, samsara — sentrale hinduistiske begreper." },
-                    { "tittel": "Sentrale trekk i Buddhismen", "link": "/krle/religion/buddhisme/sentrale-trekk", "begrunnelse": "De fire edle sannheter, nirvana, dharma — buddhistiske kjernebegreper." }
+                    { "tittel": "Sentrale trekk i Buddhismen", "link": "/krle/religion/buddhisme/sentrale-trekk", "begrunnelse": "De fire edle sannheter, nirvana, dharma — buddhistiske kjernebegreper." },
+                    { "tittel": "Sakramentene: Dåp og nattverd", "link": "/krle/religion/kristendom/sakramentene", "begrunnelse": "Dekker Fagbegreper" },
+                    { "tittel": "Treenigheten", "link": "/krle/religion/kristendom/gudsbilde", "begrunnelse": "Dekker Fagbegreper" },
+                    { "tittel": "Tawhid", "link": "/krle/religion/islam/gudsbilde", "begrunnelse": "Dekker Fagbegreper" },
+                    { "tittel": "Ingen skapergud", "link": "/krle/religion/buddhisme/gudsbilde", "begrunnelse": "Dekker Fagbegreper" },
+                    { "tittel": "Monoteisme", "link": "/krle/religion/jodedom/gudsbilde", "begrunnelse": "Dekker Fagbegreper" },
+                    { "tittel": "Brahman og guder", "link": "/krle/religion/hinduisme/gudsbilde", "begrunnelse": "Dekker Fagbegreper" },
+                    { "tittel": "En ukjennbar Gud", "link": "/krle/religion/bahai/gudsbilde", "begrunnelse": "Dekker Fagbegreper" },
+                    { "tittel": "Sentrale trekk", "link": "/krle/religion/mormonisme/sentrale-trekk", "begrunnelse": "Dekker Fagbegreper" },
+                    { "tittel": "Guddommen", "link": "/krle/religion/mormonisme/gudsbilde", "begrunnelse": "Dekker Fagbegreper" },
+                    { "tittel": "Sentrale trekk", "link": "/krle/religion/jehovas-vitner/sentrale-trekk", "begrunnelse": "Dekker Fagbegreper" },
+                    { "tittel": "Jehova", "link": "/krle/religion/jehovas-vitner/gudsbilde", "begrunnelse": "Dekker Fagbegreper" },
+                    { "tittel": "Sentrale trekk", "link": "/krle/religion/sikhisme/sentrale-trekk", "begrunnelse": "Dekker Fagbegreper" }
                 ],
                 "spill": [
                     { "tittel": "Sammenlign Religioner", "link": "/krle/sammenlign", "begrunnelse": "Lær fagbegreper i sammenlignende kontekst." },
@@ -124,7 +166,13 @@
                     { "tittel": "Bibelen", "link": "/krle/religion/kristendom/hellige-tekster", "begrunnelse": "Hvordan Bibelen ble til og hvordan den leses." },
                     { "tittel": "Koranen", "link": "/krle/religion/islam/hellige-tekster", "begrunnelse": "Koranens tilblivelse og rolle som primærkilde." },
                     { "tittel": "Tanakh og Talmud", "link": "/krle/religion/jodedom/hellige-tekster", "begrunnelse": "Tekstlag og tolkningstradisjon i jødedommen." },
-                    { "tittel": "Hva er filosofi?", "link": "/krle/filosofi/intro", "begrunnelse": "Filosofiens metoder for kritisk vurdering av påstander." }
+                    { "tittel": "Hva er filosofi?", "link": "/krle/filosofi/intro", "begrunnelse": "Filosofiens metoder for kritisk vurdering av påstander." },
+                    { "tittel": "Tripitaka", "link": "/krle/religion/buddhisme/hellige-tekster", "begrunnelse": "Dekker Kildekritikk i religion" },
+                    { "tittel": "Vedaene og Bhagavad Gita", "link": "/krle/religion/hinduisme/hellige-tekster", "begrunnelse": "Dekker Kildekritikk i religion" },
+                    { "tittel": "Kitáb-i-Aqdas", "link": "/krle/religion/bahai/hellige-tekster", "begrunnelse": "Dekker Kildekritikk i religion" },
+                    { "tittel": "Mormons bok", "link": "/krle/religion/mormonisme/hellige-tekster", "begrunnelse": "Dekker Kildekritikk i religion" },
+                    { "tittel": "Ny verden-oversettelsen", "link": "/krle/religion/jehovas-vitner/hellige-tekster", "begrunnelse": "Dekker Kildekritikk i religion" },
+                    { "tittel": "Guru Granth Sahib", "link": "/krle/religion/sikhisme/hellige-tekster", "begrunnelse": "Dekker Kildekritikk i religion" }
                 ],
                 "detektiv": [
                     { "tittel": "Heksejakten i Vardø", "link": "/oving/detektiv/vardo", "begrunnelse": "Vurder rettsdokumenter, tilståelser og samtidskilder kritisk." },
@@ -142,7 +190,13 @@
                 "artikler": [
                     { "tittel": "Simone de Beauvoir", "link": "/krle/filosofi/beauvoir", "begrunnelse": "Beauvoirs analyse av kvinnens posisjon i religion og samfunn." },
                     { "tittel": "Overgangsriter i kristendommen", "link": "/krle/religion/kristendom/overgangsriter", "begrunnelse": "Ekteskap, kjønnsroller og familieliv i kristen tradisjon." },
-                    { "tittel": "Overgangsriter i Islam", "link": "/krle/religion/islam/overgangsriter", "begrunnelse": "Kjønn og familieliv i islamsk tradisjon." }
+                    { "tittel": "Overgangsriter i Islam", "link": "/krle/religion/islam/overgangsriter", "begrunnelse": "Kjønn og familieliv i islamsk tradisjon." },
+                    { "tittel": "Overgangsriter", "link": "/krle/religion/buddhisme/overgangsriter", "begrunnelse": "Dekker Kjønn og seksualitet i religion" },
+                    { "tittel": "Overgangsriter", "link": "/krle/religion/jodedom/overgangsriter", "begrunnelse": "Dekker Kjønn og seksualitet i religion" },
+                    { "tittel": "Overgangsriter", "link": "/krle/religion/hinduisme/overgangsriter", "begrunnelse": "Dekker Kjønn og seksualitet i religion" },
+                    { "tittel": "Overgangsriter", "link": "/krle/religion/bahai/overgangsriter", "begrunnelse": "Dekker Kjønn og seksualitet i religion" },
+                    { "tittel": "Overgangsriter", "link": "/krle/religion/mormonisme/overgangsriter", "begrunnelse": "Dekker Kjønn og seksualitet i religion" },
+                    { "tittel": "Overgangsriter", "link": "/krle/religion/jehovas-vitner/overgangsriter", "begrunnelse": "Dekker Kjønn og seksualitet i religion" }
                 ],
                 "detektiv": [
                     { "tittel": "Heksejakten i Vardø", "link": "/oving/detektiv/vardo", "begrunnelse": "Hvorfor ble nesten bare kvinner anklaget? Religion og kjønn i tidlig nytid." }
@@ -191,7 +245,13 @@
                     { "tittel": "Sokrates", "link": "/krle/filosofi/sokrates", "begrunnelse": "Den sokratiske metoden og det gode liv." },
                     { "tittel": "Aristoteles", "link": "/krle/filosofi/aristoteles", "begrunnelse": "Den gylne middelvei og dygdsetikk." },
                     { "tittel": "Immanuel Kant", "link": "/krle/filosofi/kant", "begrunnelse": "Pliktetikk og menneskeverd." },
-                    { "tittel": "Hannah Arendt", "link": "/krle/filosofi/arendt", "begrunnelse": "Ondskapens banalitet og moralsk dømmekraft." }
+                    { "tittel": "Hannah Arendt", "link": "/krle/filosofi/arendt", "begrunnelse": "Ondskapens banalitet og moralsk dømmekraft." },
+                    { "tittel": "Platon", "link": "/krle/filosofi/platon", "begrunnelse": "Dekker Filosofi og etikk" },
+                    { "tittel": "René Descartes", "link": "/krle/filosofi/descartes", "begrunnelse": "Dekker Filosofi og etikk" },
+                    { "tittel": "David Hume", "link": "/krle/filosofi/hume", "begrunnelse": "Dekker Filosofi og etikk" },
+                    { "tittel": "Karl Marx", "link": "/krle/filosofi/marx", "begrunnelse": "Dekker Filosofi og etikk" },
+                    { "tittel": "Ludwig von Mises", "link": "/krle/filosofi/mises", "begrunnelse": "Dekker Filosofi og etikk" },
+                    { "tittel": "Murray Rothbard", "link": "/krle/filosofi/rothbard", "begrunnelse": "Dekker Filosofi og etikk" }
                 ],
                 "spill": [
                     { "tittel": "Den filosofiske odysséen", "link": "/krle/filosofi/odyssey", "begrunnelse": "Personlig læringsportal gjennom filosofihistorien." },
@@ -263,7 +323,8 @@
                     { "tittel": "John Locke", "link": "/krle/filosofi/locke", "begrunnelse": "Naturlige rettigheter — grunnlaget for moderne menneskerettigheter." },
                     { "tittel": "Naturretten", "link": "/krle/etikk/naturrett", "begrunnelse": "Hvor kommer rettigheter fra, og hvor ufravikelige er de?" },
                     { "tittel": "Hannah Arendt", "link": "/krle/filosofi/arendt", "begrunnelse": "'Retten til å ha rettigheter' og statsløshet." },
-                    { "tittel": "Ikke-aggresjonsprinsippet", "link": "/krle/etikk/non-aggression", "begrunnelse": "Etisk grunnregel for sameksistens uten tvang." }
+                    { "tittel": "Ikke-aggresjonsprinsippet", "link": "/krle/etikk/non-aggression", "begrunnelse": "Etisk grunnregel for sameksistens uten tvang." },
+                    { "tittel": "Montesquieu", "link": "/krle/filosofi/montesquieu", "begrunnelse": "Dekker Menneskerettigheter og bærekraft" }
                 ],
                 "tidsreise": [
                     { "tittel": "Veien mot mørket (mellomkrigstiden)", "link": "/oving/tidsreise/mellomkrigstiden-del1", "begrunnelse": "Når menneskerettighetene brytes ned — historiske valg." },

@@ -23,7 +23,9 @@
                     { "tittel": "Analysere roman", "link": "/norsk/analyse/analyse-roman", "begrunnelse": "Karakter og utvikling i lange fortellinger." },
                     { "tittel": "Analysere dikt", "link": "/norsk/analyse/analyse-dikt", "begrunnelse": "Pakke ut komprimert mening i lyrikk." },
                     { "tittel": "Analysere fagartikkel", "link": "/norsk/analyse/analyse-fagartikkel", "begrunnelse": "Lese og forstå sakprosa." },
-                    { "tittel": "Analysere debattinnlegg", "link": "/norsk/analyse/analyse-debattinnlegg", "begrunnelse": "Avsløre teknikker i argumenterende sakprosa." }
+                    { "tittel": "Analysere debattinnlegg", "link": "/norsk/analyse/analyse-debattinnlegg", "begrunnelse": "Avsløre teknikker i argumenterende sakprosa." },
+                    { "tittel": "Analysere Eventyr", "link": "/norsk/analyse/analyse-eventyr", "begrunnelse": "Dekker Lese og reflektere over tekster" },
+                    { "tittel": "Analysere Kommentar", "link": "/norsk/analyse/analyse-kommentar", "begrunnelse": "Dekker Lese og reflektere over tekster" }
                 ],
                 "stier": [
                     { "tittel": "Læringssti: Fra lesning til analysetekst", "link": "/norsk/analyse/tekstanalyse-sti", "begrunnelse": "Lære å finne virkemidler, knytte til tema og skrive overbevisende analyser." }
@@ -112,7 +114,8 @@
                     { "tittel": "Tidens tannhjul (tid og struktur)", "link": "/norsk/virkemidler/tid-og-struktur", "begrunnelse": "Tidsmanipulering: in medias res, frampek, tilbakeblikk." },
                     { "tittel": "Språkets farger (bildespråk)", "link": "/norsk/virkemidler/bildesprak-og-effekter", "begrunnelse": "Metafor, sammenligning og tekstrytme." },
                     { "tittel": "Hvem eier historien? (synsvinkel)", "link": "/norsk/virkemidler/synsvinkel-og-stemme", "begrunnelse": "Synsvinkel, perspektiv og fortellerstemme." },
-                    { "tittel": "Analysere debattinnlegg", "link": "/norsk/analyse/analyse-debattinnlegg", "begrunnelse": "Avsløre etos, patos og logos i argumenterende tekster." }
+                    { "tittel": "Analysere debattinnlegg", "link": "/norsk/analyse/analyse-debattinnlegg", "begrunnelse": "Avsløre etos, patos og logos i argumenterende tekster." },
+                    { "tittel": "Retoriske grep og figurer", "link": "/norsk/retorikk/retoriske-grep", "begrunnelse": "Dekker Virkemidler og retorikk" }
                 ],
                 "spill": [
                     { "tittel": "Retorikk-spillet", "link": "/oving/retorikk", "begrunnelse": "Trening i å gjenkjenne retoriske virkemidler." },
@@ -202,7 +205,8 @@
                     { "tittel": "Nivå 2: Objekt og adverbial", "link": "/norsk/setningsoppbygging/niva-2-utvidet", "begrunnelse": "Utvide setninger funksjonelt." },
                     { "tittel": "Nivå 3: V2-regelen", "link": "/norsk/setningsoppbygging/niva-3-v2-regelen", "begrunnelse": "Verbet på plass nummer 2 — hovedregelen i norsk." },
                     { "tittel": "Nivå 4: Leddsetninger", "link": "/norsk/setningsoppbygging/niva-4-leddsetninger", "begrunnelse": "Setningsbinding og nektelse i leddsetninger." },
-                    { "tittel": "Hvordan skrive gode saktekster", "link": "/norsk/skrivehjelp/hvordan-skrive-gode-saktekster", "begrunnelse": "Bygge gode avsnitt med funksjonell tekstbinding." }
+                    { "tittel": "Hvordan skrive gode saktekster", "link": "/norsk/skrivehjelp/hvordan-skrive-gode-saktekster", "begrunnelse": "Bygge gode avsnitt med funksjonell tekstbinding." },
+                    { "tittel": "Tegnsetting: Når et komma redder bestemor", "link": "/norsk/grammatikk/tegnsetting", "begrunnelse": "Dekker Hovedmål og sidemål" }
                 ]
             }
         },
@@ -270,7 +274,9 @@
             "merknad": "Egne artikler om Aasen, Knudsen og språkstriden er under utvikling. Inntil videre dekkes språkhistorisk bakgrunn gjennom artikkelen om germanske språk.",
             "innhold": {
                 "artikler": [
-                    { "tittel": "De germanske søskenbarna", "link": "/norsk/sprakhistorie/germanske-sprak", "begrunnelse": "Hvor det norske språket kommer fra." }
+                    { "tittel": "De germanske søskenbarna", "link": "/norsk/sprakhistorie/germanske-sprak", "begrunnelse": "Hvor det norske språket kommer fra." },
+                    { "tittel": "Bokmål og nynorsk: Hvordan Norge fikk to skriftspråk", "link": "/norsk/sprakhistorie/bokmal-og-nynorsk", "begrunnelse": "Dekker Bokmål, nynorsk og språkpolitikk" },
+                    { "tittel": "Norrønt: Språket vikingene snakket", "link": "/norsk/sprakhistorie/norront", "begrunnelse": "Dekker Bokmål, nynorsk og språkpolitikk" }
                 ]
             }
         },
