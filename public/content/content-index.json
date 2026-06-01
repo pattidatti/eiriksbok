@@ -1,5 +1,5 @@
 {
-  "buildId": 1780254526434,
+  "buildId": 1780276758901,
   "contentMap": {
     "concept-adel": [
       "content/concepts/adel.json"
@@ -1305,6 +1305,9 @@
     ],
     "magnus-landslov": [
       "content/historie/lov-og-rett/magnus-landslov.json"
+    ],
+    "nurnbergprosessen": [
+      "content/historie/lov-og-rett/nurnbergprosessen.json"
     ],
     "wergild": [
       "content/historie/lov-og-rett/wergild.json"
@@ -3556,6 +3559,7 @@
     "historie/kolonialisering/voc": "content/historie/kolonialisering/voc.json",
     "historie/lov-og-rett/hekseprosessene": "content/historie/lov-og-rett/hekseprosessene.json",
     "historie/lov-og-rett/magnus-landslov": "content/historie/lov-og-rett/magnus-landslov.json",
+    "historie/lov-og-rett/nurnbergprosessen": "content/historie/lov-og-rett/nurnbergprosessen.json",
     "historie/lov-og-rett/wergild": "content/historie/lov-og-rett/wergild.json",
     "historie/mellomkrigstiden/borskrakk": "content/historie/mellomkrigstiden/borskrakk.json",
     "historie/mellomkrigstiden/folkeforbundet": "content/historie/mellomkrigstiden/folkeforbundet.json",

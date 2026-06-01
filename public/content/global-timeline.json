@@ -5172,6 +5172,26 @@
       ]
     },
     {
+      "id": "nurnbergprosessen",
+      "title": "Nürnbergprosessen - ingen er over loven",
+      "description": "Etter andre verdenskrig stilte seierherrene de overlevende nazilederne for retten - ikke foran en skytetropp. Nürnberg ga oss prinsippet: Jeg fulgte ordre er ingen unnskyldning.",
+      "startDate": 1945,
+      "endDate": 1946,
+      "displayDate": "1945-1946",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "lov-og-rett",
+      "link": "/historie/lov-og-rett/nurnbergprosessen",
+      "tags": [
+        "nurnbergprosessen",
+        "folkerett",
+        "menneskerettigheter",
+        "andre-verdenskrig",
+        "rettsstat",
+        "krigsforbrytelser"
+      ]
+    },
+    {
       "id": "oversikt-sub-1",
       "title": "Jernteppet-talen",
       "description": "Churchill advarer mot sovjetisk dominans i Øst-Europa.",
