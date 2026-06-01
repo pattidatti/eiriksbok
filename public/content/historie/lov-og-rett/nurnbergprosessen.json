@@ -1,0 +1,212 @@
+{
+    "id": "nurnbergprosessen",
+    "title": "Nürnbergprosessen - ingen er over loven",
+    "subject": "Historie",
+    "topic": "Lov og rett",
+    "description": "Etter andre verdenskrig stilte seierherrene de overlevende nazilederne for retten - ikke foran en skytetropp. Nürnberg ga oss prinsippet: Jeg fulgte ordre er ingen unnskyldning.",
+    "tags": [
+        "nurnbergprosessen",
+        "folkerett",
+        "menneskerettigheter",
+        "andre-verdenskrig",
+        "rettsstat",
+        "krigsforbrytelser"
+    ],
+    "year": "1945-1946",
+    "image": "/images/lov-og-rett/nurnbergprosessen-hero.webp",
+    "heroImage": "/images/lov-og-rett/nurnbergprosessen-hero.webp",
+    "layout": "rich",
+    "category": "Folkerett",
+    "readTime": "9 min lesning",
+    "details": [
+        "Verdens første internasjonale krigsforbryterdomstol.",
+        "21 ledende nazister ble tiltalt; 12 dømt til døden.",
+        "Knesatte prinsippet: ingen er over loven, heller ikke statsledere."
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Det er 20. november 1945. I en restaurert rettssal i den utbombede byen Nürnberg sitter 21 menn på en lang benk. De er kledd i mørke dresser, ikke militæruniform. De har advokater. De får mat. De har et navn på navneskiltet sitt. Foran dem står dommere fra USA, Sovjetunionen, Storbritannia og Frankrike. Mennene på benken er Tysklands tidligere herrer - mennene som beordret krig, drev konsentrasjonsleirene og planla utryddelsen av seks millioner jøder."
+        },
+        {
+            "type": "text",
+            "content": "Mange ville hatt dem skutt. Sovjeterne foreslo å henrette 50 000 tyske offiserer uten rettssak. Churchill ville stille de viktigste 50 mot en mur. Men USAs sjefsanklager Robert Jackson sa noe annet: «At fire store nasjoner, fylt av seier og hisset opp av urett, stanser hånden av hevn og frivillig overlater sine fanger til lovens dom, er en av de viktigste innrømmelsene makten noensinne har gitt fornuften.»"
+        },
+        {
+            "type": "text",
+            "content": "Det er det Nürnbergprosessen handlet om: å sette loven over hevnen. Og det ble starten på det vi i dag kaller [folkerett](/krle/filosofi/locke) - regler som gjelder på tvers av landegrenser, også for de mektigste."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Rettssalen i Nürnberg i 1945, 21 tiltalte nazister sitter på en lang benk med hvite hjelmer foran amerikanske vakter",
+            "caption": "Tiltalte-benken i sal 600, Nürnberg. Hermann Göring sitter ytterst til venstre."
+        },
+        {
+            "type": "header",
+            "text": "Hvorfor en domstol, ikke en skytetropp?"
+        },
+        {
+            "type": "text",
+            "content": "Etter [første verdenskrig](/historie/forste-verdenskrig/konsekvenser) ble Tyskland presset til å betale enorme krigserstatninger. Tyskerne følte seg ydmyket, og bitterheten ble en av grunnene til at Hitler kunne komme til makten 14 år senere. De allierte ville ikke gjenta feilen. Hvis nazitoppene bare ble skutt, ville folk si at krigen var slutt da maktbalansen vendte. Hvis de derimot ble dømt etter loven, ville verden se beviset svart på hvitt: dette var ikke en politisk hevn, det var rettferdighet."
+        },
+        {
+            "type": "text",
+            "content": "Det var også et juridisk problem. Tyske nazitopper hadde ikke brutt tyske lover - de hadde fulgt dem. Loven sa det Hitler sa. Men hva med universelle regler? Finnes det handlinger som er forbudt uansett hva en nasjonal lov sier? Aktoratet svarte ja, og lagde fire anklagepunkter som dekket akkurat det: sammensvergelse, forbrytelser mot freden, krigsforbrytelser og forbrytelser mot menneskeheten."
+        },
+        {
+            "type": "text",
+            "content": "Det siste punktet var helt nytt. «Forbrytelser mot menneskeheten» betydde at noen handlinger - som å utrydde et folkeslag - er så onde at de krenker hele menneskeheten, ikke bare ofrene. Det var første gang et internasjonalt tribunal sa det høyt."
+        },
+        {
+            "type": "header",
+            "text": "De 21 på benken"
+        },
+        {
+            "type": "text",
+            "content": "Hitler hadde tatt sitt eget liv. Det samme hadde Himmler, sjefen for SS, og Goebbels, propagandaministeren. Igjen sto resten av eliten. Den mest profilerte var Hermann Göring - Hitlers nummer to, sjef for Luftwaffe og en intelligent og arrogant mann som forsvarte seg selv med spissfindighet. Albert Speer var Hitlers arkitekt og senere rustningsminister, en mann som tilsto skyld og kanskje slapp dødsstraff på grunn av det. Karl Dönitz var ubåtadmiralen som ble Tysklands statsleder de siste dagene før kapitulasjonen."
+        },
+        {
+            "type": "text",
+            "content": "Forsvarsstrategiene deres var påfallende like. Vi adlød ordre. Vi visste ikke om leirene. Vi var bare embetsmenn. Loven sto ikke over Føreren. Disse argumentene ble brukt om igjen og om igjen - og tribunalet svarte med syv prinsipper som er kjent som [Nürnbergprinsippene](/krle/filosofi/arendt). Det er disse prinsippene du nå skal teste."
+        },
+        {
+            "type": "component",
+            "name": "NurembergDefense",
+            "props": {
+                "title": "Du er dommer i Nürnberg"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Dommen og det den åpnet for"
+        },
+        {
+            "type": "text",
+            "content": "1. oktober 1946 falt dommen. Tolv av de 21 ble dømt til døden ved henging. Göring greide å snike inn en cyanidkapsel i cellen og tok livet sitt natten før. Sju fikk fengselsstraffer fra ti år til livstid. Tre ble frikjent. Den siste, Speer, fikk tjue års fengsel og brukte resten av livet på å forklare hvordan han, en kultivert europeer, kunne ha tjent en morder."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Hermann Göring i vitneboksen i Nürnberg, gester med hånden mens han forsvarer seg",
+            "caption": "Göring i vitneboksen. Han forsvarte seg selv glatt - men ble likevel dømt til døden."
+        },
+        {
+            "type": "text",
+            "content": "Det viktige skjedde etter dommen. FN tok Nürnbergprinsippene og bygde dem inn i [Verdenserklæringen om menneskerettighetene](/historie/andre-verdenskrig/konsekvenser) fra 1948. Folkemordkonvensjonen samme år gjorde folkemord til en internasjonal forbrytelse. Senere ble det opprettet egne tribunaler for grusomhetene på Balkan, i Rwanda og i Sierra Leone. I 2002 fikk verden Den internasjonale straffedomstolen (ICC) i Haag - en fast domstol som kan stille statsoverhoder for retten."
+        },
+        {
+            "type": "header",
+            "text": "Kritikken: seierherrens rett?"
+        },
+        {
+            "type": "text",
+            "content": "Nürnberg er ikke uten kritikere. Den åpenbare innvendingen var: hvorfor sto bare tyskere på tiltalebenken? Sovjetunionen hadde også gjort krigsforbrytelser - Katyn-massakren, deportasjonene, tvangsarbeidsleirene. USA hadde sluppet atombomber over Hiroshima og Nagasaki og bombet tyske byer i ruiner. Likevel var det bare de tapte som ble dømt."
+        },
+        {
+            "type": "text",
+            "content": "Et annet poeng var at flere av lovene Nürnberg dømte etter, ikke fantes da forbrytelsene ble begått. Det bryter med et grunnleggende rettsprinsipp: ingen kan straffes etter en lov som ikke fantes da handlingen skjedde. Forsvarerne argumenterte at dette var rettferdighet skreddersydd for de tapende."
+        },
+        {
+            "type": "text",
+            "content": "Dommerne svarte at noen handlinger er så åpenbart onde at de var forbudt av sin natur, ikke fordi noen skrev det ned. Hvis du ikke trenger en lov for å forstå at folkemord er galt, kan du heller ikke gjemme deg bak at loven ikke fantes."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "De syv Nürnbergprinsippene",
+                "content": "I. Den som begår en folkerettsforbrytelse er ansvarlig og kan straffes.\nII. Det er ingen unnskyldning at handlingen ikke var forbudt i ditt eget land.\nIII. Det at du var statsoverhode eller embetsmann fritar deg ikke.\nIV. Ordre fra overordnet fritar ikke - hvis du hadde et reelt valg.\nV. Du har rett til en rettferdig rettssak.\nVI. Straffbart er: forbrytelser mot freden, krigsforbrytelser og forbrytelser mot menneskeheten.\nVII. Medvirkning til disse forbrytelsene er også straffbart."
+            }
+        },
+        {
+            "type": "header",
+            "text": "Hva Nürnberg betyr for deg"
+        },
+        {
+            "type": "text",
+            "content": "Du kommer aldri til å sitte i en militærrett. Men prinsippet fra Nürnberg dukker opp i vanlige liv hele tiden. Når en sjef ber deg gjøre noe ulovlig på jobben. Når en lærer ber deg taue noe du vet er feil. Når en venn presser deg til å være med på mobbing du innerst inne vet er galt. Forsvaret «jeg gjorde det bare fordi noen ba meg» er ikke et forsvar. Det er en innrømmelse av at du valgte å ikke ta ansvar."
+        },
+        {
+            "type": "text",
+            "content": "Filosofen [Hannah Arendt](/krle/filosofi/arendt) fulgte rettssaken mot Adolf Eichmann i Jerusalem i 1961. Eichmann hadde organisert togene som fraktet jøder til døden. Arendt forventet å møte et monster. I stedet møtte hun en grå byråkrat som ikke kunne tenke selvstendig. Hun kalte det «det ondes banalitet». Den største lærdommen fra Nürnberg er kanskje denne: ondskap krever ikke onde mennesker. Den krever bare vanlige mennesker som slutter å tenke selv."
+        },
+        {
+            "type": "header",
+            "text": "Spørsmål til ettertanke"
+        },
+        {
+            "type": "list",
+            "items": [
+                "Er det rettferdig å dømme noen etter regler som ikke fantes da handlingen ble gjort?",
+                "Hva er forskjellen på en soldat som skyter på ordre i en lovlig krig, og en SS-vakt som skyter på ordre i Auschwitz?",
+                "Hvis Den internasjonale straffedomstolen anklager en sittende president, bør landet hans utlevere ham?",
+                "Hvor lite eller mye ansvar har en byråkrat som «bare» fyller ut skjemaer?"
+            ]
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hva er det viktigste prinsippet Nürnbergprosessen knesatte?",
+                        "options": [
+                            "At krigen var Tysklands skyld alene",
+                            "At Jeg fulgte ordre ikke er en gyldig unnskyldning",
+                            "At seierherrene alltid har rett",
+                            "At dødsstraff alltid skal brukes mot krigsforbrytere"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "Etter Nürnberg er du selv ansvarlig for handlingene dine, selv om en sjef beordret dem. Dette er Prinsipp IV."
+                    },
+                    {
+                        "question": "Hvilken nyhet brakte Nürnberg inn i folkeretten?",
+                        "options": [
+                            "Begrepet krigsfanger",
+                            "Begrepet forbrytelser mot menneskeheten",
+                            "Begrepet selvforsvar",
+                            "Begrepet militære domstoler"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "Forbrytelser mot menneskeheten ble formelt definert for første gang - handlinger så onde at de krenker hele menneskeheten, ikke bare ofrene."
+                    },
+                    {
+                        "question": "Hva het den tyske rustningsministeren som tilsto skyld og fikk 20 års fengsel?",
+                        "options": [
+                            "Hermann Göring",
+                            "Karl Dönitz",
+                            "Albert Speer",
+                            "Rudolf Hess"
+                        ],
+                        "correctIndex": 2,
+                        "explanation": "Albert Speer var Hitlers arkitekt og rustningsminister. Han brukte slavearbeidere i fabrikkene og slapp trolig dødsstraff fordi han tilsto delvis skyld."
+                    },
+                    {
+                        "question": "Hva er den mest brukte kritikken mot Nürnberg?",
+                        "options": [
+                            "At straffene var for milde",
+                            "At det var seierherrens rett - bare de tapte ble dømt",
+                            "At rettssakene tok for kort tid",
+                            "At for mange ble frikjent"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "Kritikere peker på at Sovjet og USA også gjorde krigsforbrytelser, men aldri sto for retten. Nürnberg dømte bare de tapende."
+                    },
+                    {
+                        "question": "Hvilken institusjon i dag bygger direkte på Nürnbergprinsippene?",
+                        "options": [
+                            "NATO",
+                            "Den internasjonale straffedomstolen (ICC) i Haag",
+                            "EU-domstolen",
+                            "Verdens handelsorganisasjon"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "ICC i Haag er en fast internasjonal domstol som kan stille selv statsoverhoder for retten - en direkte arv etter Nürnberg."
+                    }
+                ]
+            }
+        }
+    ],
+    "timeline": []
+}

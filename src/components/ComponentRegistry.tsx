@@ -202,6 +202,7 @@ const RetorikkMikseren = lazy(() => import('./content/interactive/RetorikkMikser
 const RunebommeExplorer = lazy(() => import('./content/interactive/RunebommeExplorer').then(m => ({ default: m.RunebommeExplorer })));
 const RubiconChoice = lazy(() => import('./content/interactive/RubiconChoice').then(m => ({ default: m.RubiconChoice })));
 const HekseprosessLogikk = lazy(() => import('./content/interactive/HekseprosessLogikk').then(m => ({ default: m.HekseprosessLogikk })));
+const NurembergDefense = lazy(() => import('./content/interactive/NurembergDefense').then(m => ({ default: m.NurembergDefense })));
 const DebtTrapPlaybook = lazy(() => import('./content/interactive/DebtTrapPlaybook').then(m => ({ default: m.DebtTrapPlaybook })));
 const AjaxRingvirkninger = lazy(() => import('./content/interactive/AjaxRingvirkninger').then(m => ({ default: m.AjaxRingvirkninger })));
 const OkonomiSkriker = lazy(() => import('./content/interactive/OkonomiSkriker').then(m => ({ default: m.OkonomiSkriker })));
@@ -430,6 +431,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     WergildCalculator: lazy(() => import('./content/interactive/WergildCalculator').then(m => ({ default: m.WergildCalculator }))),
     LandskapslovSammenligner: lazy(() => import('./content/interactive/LandskapslovSammenligner').then(m => ({ default: m.LandskapslovSammenligner }))),
     HekseprosessLogikk,
+    NurembergDefense,
     MythVsEvidence: lazy(() => import('./content/interactive/MythVsEvidence').then(m => ({ default: m.MythVsEvidence }))),
 
     // Handel og infrastruktur
