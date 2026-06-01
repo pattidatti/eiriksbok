@@ -84,6 +84,21 @@
         },
         {
             "type": "header",
+            "text": "Prøv selv: Tidens to former"
+        },
+        {
+            "type": "text",
+            "content": "Du har nå sett to vidt forskjellige slutter: Ragnarok, der verden fødes på ny, og den lineære apokalypsen, som ender i ett endelig punktum. Under kan du kjenne på hele forskjellen selv. Tenk deg verden som en liten klode som lever gjennom tiden: den skapes, blomstrer, forfaller og går under. Men hva skjer helt til slutt? Det kommer an på hvilken form tiden har. Prøv begge - tidshjulet og tidspilen - og se forskjellen mellom en slutt som er en ny begynnelse, og en slutt som varer evig."
+        },
+        {
+            "type": "component",
+            "name": "MicroGame",
+            "props": {
+                "gameId": "tidens-former-3d"
+            }
+        },
+        {
+            "type": "header",
             "text": "4. Dommedag i de store verdensreligionene"
         },
         {
