@@ -5,7 +5,7 @@
   "year": "1299",
   "category": "Det osmanske riket",
   "readTime": "8 min lesning",
-  "heroImage": "/images/placeholder.webp",
+  "heroImage": "/images/osmanske-riket/osman-og-oppkomsten-hero.webp",
   "details": [
     "Riket er oppkalt etter Osman, en kriger som rundt år 1300 ledet en liten flokk ryttere i grenselandet i Anatolia.",
     "Osmanerne vokste i tomrommet etter et svekket Bysants, dels ved erobring og dels ved smarte allianser.",
@@ -31,7 +31,7 @@
     },
     {
       "type": "image",
-      "src": "/images/placeholder.webp",
+      "src": "/images/osmanske-riket/osman-og-oppkomsten-01.webp",
       "alt": "Ung kriger i lær og ringbrynje på en høyde ved bysantinske ruiner i morgenlys",
       "caption": "Osman og mennene hans levde i grenselandet, der det gamle Bysants møtte de tyrkiske rikene i øst."
     },
@@ -68,7 +68,7 @@
     },
     {
       "type": "image",
-      "src": "/images/placeholder.webp",
+      "src": "/images/osmanske-riket/osman-og-oppkomsten-02.webp",
       "alt": "Osmanske ryttere krysser et smalt sund med båter mot Europa",
       "caption": "Da hæren krysset over til Europa, sto osmanerne for første gang med begge bein på to kontinenter."
     },
@@ -86,7 +86,7 @@
     },
     {
       "type": "image",
-      "src": "/images/placeholder.webp",
+      "src": "/images/osmanske-riket/osman-og-oppkomsten-03.webp",
       "alt": "Osmansk leir med telt og faner på en høyde ved solnedgang",
       "caption": "Fra en flokk grensekrigere til herre over Balkan: nå rettet osmanerne blikket mot det største byttet av alle."
     },

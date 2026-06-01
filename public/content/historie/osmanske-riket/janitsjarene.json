@@ -5,7 +5,7 @@
   "year": "1383-1826",
   "category": "Det osmanske riket",
   "readTime": "8 min lesning",
-  "heroImage": "/images/placeholder.webp",
+  "heroImage": "/images/osmanske-riket/janitsjarene-hero.webp",
   "details": [
     "Janitsjarene var sultanens elitesoldater, hentet som kristne gutter fra Balkan gjennom devşirme-systemet.",
     "Guttene ble formelt slaver, men de mest dyktige kunne stige helt til topps i riket.",
@@ -19,7 +19,7 @@
     },
     {
       "type": "image",
-      "src": "/images/placeholder.webp",
+      "src": "/images/osmanske-riket/janitsjarene-01.webp",
       "alt": "Ung janitsjarsoldat i hvit hodeplagg og blå kappe foran steinkaserne",
       "caption": "Janitsjarene var rikets fryktede elitesoldater. Mange av dem startet som kristne gutter på Balkan."
     },
@@ -64,7 +64,7 @@
     },
     {
       "type": "image",
-      "src": "/images/placeholder.webp",
+      "src": "/images/osmanske-riket/janitsjarene-02.webp",
       "alt": "Janitsjarer samlet rundt store kobbergryter i en kaserne",
       "caption": "De store grytene var et symbol for korpset. Å velte dem var janitsjarenes måte å si fra på."
     },
@@ -86,7 +86,7 @@
     },
     {
       "type": "image",
-      "src": "/images/placeholder.webp",
+      "src": "/images/osmanske-riket/janitsjarene-03.webp",
       "alt": "Soldater i nye uniformer marsjerer mens gamle faner ligger igjen",
       "caption": "I 1826 oppløste sultanen janitsjarene med makt. En 500 år gammel ordning var over."
     },
