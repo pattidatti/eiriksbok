@@ -193,6 +193,33 @@
     "subject": "historie"
   },
   {
+    "id": "bananrepublikk",
+    "term": "bananrepublikk",
+    "definition": "Et land der ett enkelt selskap eller én vare styrer nesten hele økonomien og politikken. Uttrykket oppsto om land i Mellom-Amerika der amerikanske fruktselskaper hadde nesten all makt.",
+    "subject": "historie",
+    "topic": "dekolonisering",
+    "tags": []
+  },
+  {
+    "id": "belte-og-vei",
+    "term": "Belte- og vei-initiativet",
+    "aliases": [
+      "Belt and Road",
+      "ny silkevei",
+      "BRI"
+    ],
+    "definition": "Kinas massive globale infrastrukturprosjekt lansert av Xi Jinping i 2013. Kina låner penger til fattige land for å bygge havner, jernbaner og veier - og knytter dem tettere til kinesisk økonomi og innflytelse. Kritikere kaller det «gjeldsfellen».",
+    "type": "concept",
+    "tags": [
+      "kina",
+      "supermakt",
+      "infrastruktur",
+      "geopolitikk"
+    ],
+    "subject": "historie",
+    "topic": "kinas-historie"
+  },
+  {
     "id": "bevissthet",
     "term": "Bevissthet",
     "definition": "Å være våken og oppleve verden. En av filosofiens største gåter: Hvordan oppstår indre opplevelse av fysisk hjerneaktivitet?"
@@ -345,6 +372,23 @@
     "definition": "Amerikansk lov fra 1964 som forbød diskriminering basert på rase, hudfarge, religion eller kjønn. President Lyndon B. Johnson signerte loven."
   },
   {
+    "id": "cizye",
+    "term": "Cizye",
+    "aliases": [
+      "cizye-skatt",
+      "cizyeskatt"
+    ],
+    "definition": "En egen skatt som ikke-muslimer, som kristne og jøder, måtte betale i Det osmanske riket, og som muslimer slapp. Til gjengjeld fikk de dyrke sin egen tro og slapp blant annet militærtjeneste.",
+    "type": "concept",
+    "tags": [
+      "osmanske-riket",
+      "historie",
+      "skatt",
+      "religion"
+    ],
+    "subject": "historie"
+  },
+  {
     "id": "code-civil",
     "term": "Code Civil",
     "definition": "Napoleon-koden fra 1804 - Frankrikes sivillovbok. Likhet for loven, religionsfrihet og eiendomsrett ble lovfestet og spredt over Europa."
@@ -388,6 +432,24 @@
     "id": "das-man",
     "term": "Das Man",
     "definition": "Heideggers begrep om «manmennesket» - det upersonlige «folk sier», «folk gjør». En tilstand der man slutter å ta egne valg."
+  },
+  {
+    "id": "de-100-ydmykelsenes-ar",
+    "term": "De 100 ydmykelsenes år",
+    "aliases": [
+      "100 ydmykelsenes år",
+      "de hundre ydmykelsenes år"
+    ],
+    "definition": "Den kinesiske betegnelsen på perioden fra 1839 til 1949, da Kina gjennom ulikeverdige traktater og militære nederlag mistet territorier og suverenitet til Storbritannia, Frankrike, Japan og Russland. Brukes i dag av kinesiske ledere for å forklare Kinas opptatthet av nasjonal verdighet.",
+    "type": "concept",
+    "tags": [
+      "kina",
+      "imperialisme",
+      "ydmykelse",
+      "opiumskrigene"
+    ],
+    "subject": "historie",
+    "topic": "kinas-historie"
   },
   {
     "id": "de-allierte",
@@ -447,6 +509,24 @@
     "definition": "En styreform hvor makten ligger hos folket, enten direkte eller gjennom valgte representanter. Demokratiet ble utfordret av totalitære regimer i mellomkrigstiden."
   },
   {
+    "id": "den-lange-marsjen",
+    "term": "Den lange marsjen",
+    "aliases": [
+      "lange marsjen",
+      "lang marsj"
+    ],
+    "definition": "En militær tilbaketrekking der det kinesiske kommunistpartiet og dets røde hær gikk over 10 000 kilometer gjennom fjell og sump for å unnslippe Kuomintangs omringning i 1934-35. Av 86 000 som startet, overlevde bare rundt 8 000. Ble et grunnleggende symbol på kommunistpartiets vilje og offervilje.",
+    "type": "concept",
+    "tags": [
+      "kina",
+      "borgerkrig",
+      "mao",
+      "kommunisme"
+    ],
+    "subject": "historie",
+    "topic": "kinas-historie"
+  },
+  {
     "id": "dendrokronologi",
     "term": "dendrokronologi",
     "definition": "Metode for å datere treverk ved å telle og analysere årringer. Brukes blant annet til å studere tidligere klimaforhold.",
@@ -467,6 +547,24 @@
     "id": "det-oestindiske-kompani",
     "term": "Det Østindiske Kompani",
     "definition": "Nederlandsk variant av det britiske: VOC (1602-1799) - verdens første aksjeselskap. Dominerte handelen med Asia."
+  },
+  {
+    "id": "devsirme",
+    "term": "Devşirme",
+    "aliases": [
+      "devsirme",
+      "barnetributten",
+      "barnetributt"
+    ],
+    "definition": "Ordningen i Det osmanske riket der kristne gutter på Balkan ble hentet ut, gjort til muslimer og trent opp i sultanens tjeneste. De fleste ble janitsjarer, men de dyktigste kunne stige helt til topps.",
+    "type": "concept",
+    "tags": [
+      "osmanske-riket",
+      "historie",
+      "slaveri",
+      "hær"
+    ],
+    "subject": "historie"
   },
   {
     "id": "diktatur",
@@ -506,6 +604,24 @@
     "definition": "Etisk teori med røtter hos Aristoteles. Det viktige er ikke regler eller konsekvenser, men hvilken karakter du utvikler."
   },
   {
+    "id": "dynastisyklus",
+    "term": "Dynastisyklusen",
+    "aliases": [
+      "dynastisyklus",
+      "dynastisyklusen"
+    ],
+    "definition": "Det gjentakende mønsteret i kinesisk historie der et dynasti stiger, blomstrer, blir svakt og korrupt, mister Himmelens mandat og faller - før et nytt dynasti tar over. Syklusen gjentok seg i over 2000 år.",
+    "type": "concept",
+    "tags": [
+      "kina",
+      "dynasti",
+      "keiserdømme",
+      "makt"
+    ],
+    "subject": "historie",
+    "topic": "kinas-historie"
+  },
+  {
     "id": "east-india-company",
     "term": "East India Company",
     "definition": "Britisk handelskompani som styrte India i over hundre år. Selskapet hadde sin egen hær og forvaltet større territorier enn de fleste stater."
@@ -519,6 +635,23 @@
     "id": "eksistensialisme",
     "term": "Eksistensialisme",
     "definition": "Filosofisk retning som hevder at mennesket først eksisterer, så skaper det selv sin essens. Hovedtenkere: Kierkegaard, Sartre, Beauvoir."
+  },
+  {
+    "id": "ekstraterritorialitet",
+    "term": "Ekstraterritorialitet",
+    "aliases": [
+      "ekstraterritoriale rettigheter"
+    ],
+    "definition": "En bestemmelse i en traktat som gir fremmede borgere unntak fra vertslandet sine lover. Etter opiumskrigene fikk britiske borgere i Kina ekstraterritorialitet - de sto utenfor kinesisk lov og kunne bare dømmes av britiske domstoler. Kineserne så på dette som en dyp ydmykelse.",
+    "type": "concept",
+    "tags": [
+      "kina",
+      "imperialisme",
+      "traktat",
+      "lov"
+    ],
+    "subject": "historie",
+    "topic": "kinas-historie"
   },
   {
     "id": "ekstremisme",
@@ -580,6 +713,25 @@
     "subject": "historie",
     "topic": "andre-verdenskrig",
     "tags": []
+  },
+  {
+    "id": "ettpartistat",
+    "term": "Ettpartistat",
+    "aliases": [
+      "ettpartisystem",
+      "ett-parti-stat",
+      "enstyre"
+    ],
+    "definition": "Et politisk system der ett enkelt parti har monopol på makten og ingen legale opposisjonspartier tillates. Folkerepublikken Kina er styrt av kommunistpartiet som en ettpartistat siden 1949. Velgere kan ikke stemme partiet ut av makten.",
+    "type": "concept",
+    "tags": [
+      "politikk",
+      "kina",
+      "kommunisme",
+      "demokrati"
+    ],
+    "subject": "historie",
+    "topic": "kinas-historie"
   },
   {
     "id": "fagforening",
@@ -658,6 +810,22 @@
     "tags": []
   },
   {
+    "id": "folkemord",
+    "term": "Folkemord",
+    "aliases": [
+      "folkemordet",
+      "folkemords"
+    ],
+    "definition": "Et planlagt forsøk på å utslette en hel folkegruppe, for eksempel ved drap eller tvangsforflytning. Et kjent eksempel er folkemordet på armenerne under første verdenskrig, der over en million mennesker mistet livet.",
+    "type": "concept",
+    "tags": [
+      "historie",
+      "krig",
+      "menneskerettigheter"
+    ],
+    "subject": "historie"
+  },
+  {
     "id": "folkevandringstiden",
     "term": "Folkevandringstiden",
     "definition": "En periode i Europas historie preget av store folkeforflytninger, spesielt på 300- til 500-tallet. Den markerer overgangen fra antikken til middelalderen.",
@@ -703,6 +871,24 @@
     "id": "generasjon",
     "term": "Generasjon",
     "definition": "Alle som er født omtrent samtidig og deler de samme erfaringene. Hver generasjon preges av sin egen tid: krig, krise eller velstand."
+  },
+  {
+    "id": "ghazi",
+    "term": "Ghazi",
+    "aliases": [
+      "ghazi-kriger",
+      "ghazi-krigere",
+      "ghaziene"
+    ],
+    "definition": "En muslimsk grensekriger. De første osmanerne var ghazi-krigere som levde av å kjempe og ta land i grenselandet mellom det kristne Bysants og de muslimske rikene i Anatolia.",
+    "type": "concept",
+    "tags": [
+      "osmanske-riket",
+      "historie",
+      "krig",
+      "osman"
+    ],
+    "subject": "historie"
   },
   {
     "id": "gig-okonomi",
@@ -851,6 +1037,23 @@
     "link": "/norsk/skrivehjelp/hvordan-lage-karakterer"
   },
   {
+    "id": "harem",
+    "term": "Harem",
+    "aliases": [
+      "haremet",
+      "harems"
+    ],
+    "definition": "Den private delen av et osmansk palass der sultanens familie bodde, stengt for utenforstående. Haremet var ikke bare et bosted, men også et maktsenter der særlig sultanmoren kunne styre mye av politikken.",
+    "type": "concept",
+    "tags": [
+      "osmanske-riket",
+      "historie",
+      "makt",
+      "palass"
+    ],
+    "subject": "historie"
+  },
+  {
     "id": "helhet",
     "term": "Helhet",
     "definition": "Det fullstendige bildet, som er mer enn summen av delene. Å se helhet er sentralt i filosofi, vitenskap og kunstforståelse."
@@ -888,6 +1091,25 @@
     "id": "hierarki",
     "term": "Hierarki",
     "definition": "Et system der noen står over andre i rang og makt. Finnes i kirker, hærer, bedrifter og dyresamfunn."
+  },
+  {
+    "id": "himmelens-mandat",
+    "term": "Himmelens mandat",
+    "aliases": [
+      "himmelens-mandat",
+      "Tianming",
+      "mandat fra himmelen"
+    ],
+    "definition": "En kinesisk politisk idé om at himmelen gir en hersker rett til å styre - men bare så lenge han er rettferdig. Naturkatastrofer, opprør og nederlag var tegn på at mandatet var trukket tilbake, og at et nytt dynasti hadde rett til å ta makten.",
+    "type": "concept",
+    "tags": [
+      "kina",
+      "politikk",
+      "keiserdømme",
+      "filosofi"
+    ],
+    "subject": "historie",
+    "topic": "kinas-historie"
   },
   {
     "id": "holocaust",
@@ -1001,6 +1223,43 @@
     "subject": "historie"
   },
   {
+    "id": "iznik-fliser",
+    "term": "İznik-fliser",
+    "aliases": [
+      "iznik-fliser",
+      "iznikfliser",
+      "İznik",
+      "iznik"
+    ],
+    "definition": "Vakre keramikkfliser fra byen İznik i Det osmanske riket, kjent for blomstermønstre i dyp blå og rød farge. Flisene pyntet vegger i moskeer og palasser, og fargene lyser fortsatt sterkt etter 500 år.",
+    "type": "concept",
+    "tags": [
+      "osmanske-riket",
+      "historie",
+      "kunst",
+      "arkitektur"
+    ],
+    "subject": "historie"
+  },
+  {
+    "id": "janitsjar",
+    "term": "Janitsjar",
+    "aliases": [
+      "janitsjarer",
+      "janitsjarene",
+      "janitsjarenes"
+    ],
+    "definition": "Elitesoldat i Det osmanske riket. Janitsjarene var ofte kristne gutter hentet fra Balkan gjennom devşirme-systemet, og de utgjorde sultanens stående og fryktede hær.",
+    "type": "concept",
+    "tags": [
+      "osmanske-riket",
+      "historie",
+      "hær",
+      "soldater"
+    ],
+    "subject": "historie"
+  },
+  {
     "id": "jazz-age",
     "term": "Jazz Age",
     "definition": "Engelsk: «jazzalderen». Tilnavnet på 1920-tallet i USA, da jazzen erobret klubbene, kvinner fikk stemmerett og kulturen brøt med tradisjonene."
@@ -1048,6 +1307,24 @@
       "middelalder",
       "sykdom",
       "pest"
+    ],
+    "subject": "historie"
+  },
+  {
+    "id": "kalifat",
+    "term": "Kalifat",
+    "aliases": [
+      "kalif",
+      "kalifen",
+      "kalifatet"
+    ],
+    "definition": "Tittelen og rollen som øverste leder for hele det muslimske fellesskapet. De osmanske sultanene tok etter hvert også tittelen kalif, og hevdet dermed å være beskyttere av islam.",
+    "type": "concept",
+    "tags": [
+      "osmanske-riket",
+      "historie",
+      "religion",
+      "makt"
     ],
     "subject": "historie"
   },
@@ -1186,6 +1463,24 @@
     "definition": "Overgangsritual som markerer at en ung person blir voksen. I kristen tradisjon bekreftes dåpen; i Norge har vi også borgerlig konfirmasjon."
   },
   {
+    "id": "konfusianisme",
+    "term": "Konfusianisme",
+    "aliases": [
+      "konfutsianisme",
+      "konfusiansk"
+    ],
+    "definition": "En tankeretning grunnlagt av den kinesiske filosofen Konfucius rundt 500 fvt. Læren bygger på respekt og plikt: barn skal adlyde foreldre, undersåtter skal adlyde keiseren, og ledere har et moralsk ansvar overfor folket. Ble grunnlaget for kinesisk statsstyre i over to tusen år.",
+    "type": "concept",
+    "tags": [
+      "kina",
+      "filosofi",
+      "etikk",
+      "samfunn"
+    ],
+    "subject": "historie",
+    "topic": "kinas-historie"
+  },
+  {
     "id": "kreativitet",
     "term": "Kreativitet",
     "definition": "Evnen til å skape noe nytt og verdifullt. Drives ofte fram av kombinasjonen av tvang (begrensninger) og frihet."
@@ -1214,6 +1509,24 @@
       "politikk"
     ],
     "subject": "historie"
+  },
+  {
+    "id": "kulturrevolusjonen",
+    "term": "Kulturrevolusjonen",
+    "aliases": [
+      "Kulturrevolusjonen",
+      "den kulturelle revolusjon"
+    ],
+    "definition": "En politisk kampanje i Kina fra 1966 til 1976, igangsatt av Mao Zedong. Målet var å rense landet for alt tradisjonelt og vestlig. Rødegardistene terroriserte lærere, kunstnere og intellektuelle. Millioner ble forfulgt, sendt til arbeidsleirer eller drept. Universiteter ble stengt i årevis.",
+    "type": "concept",
+    "tags": [
+      "kina",
+      "mao",
+      "revolusjon",
+      "terror"
+    ],
+    "subject": "historie",
+    "topic": "kinas-historie"
   },
   {
     "id": "kunnskap",
@@ -1435,6 +1748,24 @@
     "definition": "Når mennesker flytter fra ett område til et annet. Folkevandringer har formet historie og kultur i alle tidsepoker."
   },
   {
+    "id": "millet",
+    "term": "Millet",
+    "aliases": [
+      "millet-systemet",
+      "milletsystemet",
+      "milleter"
+    ],
+    "definition": "Ordningen i Det osmanske riket der hver religiøs gruppe, som kristne og jøder, styrte sine egne saker etter egne lover og med sin egen leder. Den ga frihet til å dyrke sin tro, men ikke full likhet med muslimene.",
+    "type": "concept",
+    "tags": [
+      "osmanske-riket",
+      "historie",
+      "religion",
+      "mangfold"
+    ],
+    "subject": "historie"
+  },
+  {
     "id": "mission-civilisatrice",
     "term": "Mission Civilisatrice",
     "definition": "Fransk: «sivilisasjonsoppdraget». Frankrikes selvrettferdige rettferdiggjøring av koloniseringen - de skulle bringe sivilisasjon til andre folk."
@@ -1506,6 +1837,14 @@
     "subject": "historie"
   },
   {
+    "id": "nasjonalisering",
+    "term": "nasjonalisering",
+    "definition": "Når en stat overtar noe som har vært privat eid - for eksempel en oljekilde, en gruve eller en fabrikk - slik at det blir felles eiendom for landets innbyggere i stedet for å gi fortjeneste til private selskaper.",
+    "subject": "historie",
+    "topic": "den-kalde-krigen",
+    "tags": []
+  },
+  {
     "id": "nasjonalisme",
     "term": "Nasjonalisme",
     "definition": "En ideologi som hevder at hver nasjon (folkegruppe) skal ha sin egen stat.",
@@ -1573,6 +1912,14 @@
       "finanskrise"
     ],
     "subject": "samfunnskunnskap"
+  },
+  {
+    "id": "nykolonialisme",
+    "term": "nykolonialisme",
+    "definition": "Når rike land og store selskaper styrer fattigere land økonomisk - gjennom lån, gjeld og handel - selv etter at landene formelt har blitt frie og selvstendige.",
+    "subject": "historie",
+    "topic": "dekolonisering",
+    "tags": []
   },
   {
     "id": "observasjon",
@@ -1742,6 +2089,14 @@
       "økonomi",
       "reform"
     ]
+  },
+  {
+    "id": "petrodollar",
+    "term": "petrodollar",
+    "definition": "Amerikanske dollar tjent på salg av olje. Fordi nesten all olje i verden kjøpes i dollar, trenger alle land dollar, noe som holder den amerikanske valutaen sterk.",
+    "subject": "samfunnskunnskap",
+    "topic": "okonomi",
+    "tags": []
   },
   {
     "id": "pliktetikk",
@@ -1930,6 +2285,24 @@
     "definition": "Betegnelse på 1920-tallet i USA og Vest-Europa, preget av økonomisk oppgang, kulturell blomstring, jazzmusikk og nye sosiale friheter."
   },
   {
+    "id": "rodegardistene",
+    "term": "Rødegardistene",
+    "aliases": [
+      "Rødegardistene",
+      "røde garder"
+    ],
+    "definition": "En massebevegelse av unge kinesere, oftest mellom 14 og 25 år, mobilisert av Mao Zedong under kulturrevolusjonen. De angrep det Mao kalte fiender av revolusjonen: lærere, kunstnere, religiøse og alle med tilknytning til tradisjon eller Vesten. Ødela templer, brente bøker og drev folk til offentlige skamritualer.",
+    "type": "concept",
+    "tags": [
+      "kina",
+      "mao",
+      "kulturrevolusjonen",
+      "terror"
+    ],
+    "subject": "historie",
+    "topic": "kinas-historie"
+  },
+  {
     "id": "roede-kors",
     "term": "Røde Kors",
     "definition": "Internasjonal humanitær organisasjon grunnlagt av Henry Dunant etter slaget ved Solferino i 1859. Hjelper sårede soldater og sivile i krig."
@@ -2028,6 +2401,24 @@
     "tags": []
   },
   {
+    "id": "sharia",
+    "term": "Sharia",
+    "aliases": [
+      "sharialov",
+      "sharialover",
+      "islamsk lov"
+    ],
+    "definition": "Islamsk lov, bygd på Koranen og fortellinger om profeten Muhammed. Sharia gir regler for både tro og dagligliv, som bønn, ekteskap, arv og handel. I Det osmanske riket fulgte muslimene sharia, mens kristne og jøder hadde sine egne lover.",
+    "type": "concept",
+    "tags": [
+      "islam",
+      "religion",
+      "lov",
+      "osmanske-riket"
+    ],
+    "subject": "krle"
+  },
+  {
     "id": "show-dont-tell",
     "term": "Show, don't tell",
     "definition": "En skriveteknikk der man viser hva som skjer eller hva en karakter føler gjennom handlinger, sanser og detaljer, i stedet for å bare fortelle det direkte til leseren (f.eks. ved å beskrive skjelvende hender i stedet for å skrive «han var redd»).",
@@ -2088,6 +2479,25 @@
     "definition": "Å investere i håp om kortsiktig gevinst, ofte i risikable verdier. Spekulasjon var en viktig årsak til børskrakket i 1929."
   },
   {
+    "id": "spesiell-okonomisk-sone",
+    "term": "Spesiell økonomisk sone",
+    "aliases": [
+      "spesielle økonomiske soner",
+      "spesiell økononomisk sone",
+      "SEZ"
+    ],
+    "definition": "Avgrensede områder i Kina der Deng Xiaoping fra 1979 tillot markedsøkonomi og utenlandske investeringer, mens resten av landet forble kommunistisk. Shenzhen var den første og mest vellykkede - den vokste fra en liten fiskerlandsby til en millionby på bare noen tiår.",
+    "type": "concept",
+    "tags": [
+      "kina",
+      "økonomi",
+      "reform",
+      "kapitalisme"
+    ],
+    "subject": "historie",
+    "topic": "kinas-historie"
+  },
+  {
     "id": "stabilitet",
     "term": "Stabilitet",
     "definition": "Når samfunn, økonomi eller politiske systemer er forutsigbare og fungerer over tid. Brå endringer kan skape uro."
@@ -2132,6 +2542,25 @@
     "link": "/historie/sveriges-historie/sveriges-historie"
   },
   {
+    "id": "storvesir",
+    "term": "Storvesir",
+    "aliases": [
+      "storvesiren",
+      "storvesirer",
+      "vesir",
+      "vesiren"
+    ],
+    "definition": "Sjefen for hele styret i Det osmanske riket, en slags statsminister. Storvesiren ledet regjeringen og hæren til daglig og bar sultanens segl, men kunne miste embetet og livet om sultanen ble misfornøyd.",
+    "type": "concept",
+    "tags": [
+      "osmanske-riket",
+      "historie",
+      "makt",
+      "styre"
+    ],
+    "subject": "historie"
+  },
+  {
     "id": "strange-fruit",
     "term": "Strange Fruit",
     "definition": "Billie Holidays sang fra 1939 om lynsjing av svarte i Sør-statene. «Sørstatenes trær bærer en merkelig frukt.» En av musikkhistoriens viktigste protestsanger."
@@ -2156,6 +2585,14 @@
     "tags": []
   },
   {
+    "id": "strukturtilpasning",
+    "term": "strukturtilpasning",
+    "definition": "Kravene som ofte følger med et lån fra IMF: at landet må kutte i offentlige utgifter, selge statlige tjenester til private og eksportere mer. Kravene rammer ofte de fattigste hardest.",
+    "subject": "samfunnskunnskap",
+    "topic": "handel-og-infrastruktur",
+    "tags": []
+  },
+  {
     "id": "subjektet",
     "term": "Subjektet",
     "definition": "Den delen av en setning som forteller hvem eller hva som utfører handlingen (verbalet).",
@@ -2173,6 +2610,24 @@
     "explanation": "Det som ligger under overflaten av teksten. Hva personene egentlig mener, føler eller tenker, men ikke sier høyt.",
     "usage": "God dialog har ofte mye subtekst. De snakker om været, men krangler egentlig om ekteskapet.",
     "links": []
+  },
+  {
+    "id": "sultan",
+    "term": "Sultan",
+    "aliases": [
+      "sultanen",
+      "sultaner",
+      "sultanens"
+    ],
+    "definition": "Tittelen på herskeren i Det osmanske riket og flere andre muslimske riker. Sultanen var rikets øverste leder med makt over både hær, lov og religion.",
+    "type": "concept",
+    "tags": [
+      "osmanske-riket",
+      "historie",
+      "makt",
+      "hersker"
+    ],
+    "subject": "historie"
   },
   {
     "id": "suverenitet",
@@ -2244,6 +2699,23 @@
     "subject": "norsk",
     "topic": "skrivehjelp",
     "tags": []
+  },
+  {
+    "id": "tanzimat",
+    "term": "Tanzimat",
+    "aliases": [
+      "tanzimat-reformene",
+      "tanzimatreformene"
+    ],
+    "definition": "En stor reformbølge i Det osmanske riket på 1800-tallet. Ordet betyr 'omorganisering'. Reformene brakte nye skoler, jernbaner, en moderne hær og likere rettigheter, i et forsøk på å redde riket fra forfall.",
+    "type": "concept",
+    "tags": [
+      "osmanske-riket",
+      "historie",
+      "reform",
+      "forfall"
+    ],
+    "subject": "historie"
   },
   {
     "id": "tariffavtale",
@@ -2435,6 +2907,24 @@
     "tags": []
   },
   {
+    "id": "ulikeverdige-traktater",
+    "term": "Ulikeverdige traktater",
+    "aliases": [
+      "ulikeverdig traktat",
+      "ulikeverdige traktater"
+    ],
+    "definition": "Avtaler Kina ble tvunget til å underskrive etter militære nederlag på 1800-tallet, særlig etter opiumskrigene. Kina måtte avgi territorier, åpne havner, betale erstatninger og gi fremmede borgere ekstraterritorialitet. Kineserne ser dem som symboler på europeisk imperialisme.",
+    "type": "concept",
+    "tags": [
+      "kina",
+      "imperialisme",
+      "opiumskrigene",
+      "traktat"
+    ],
+    "subject": "historie",
+    "topic": "kinas-historie"
+  },
+  {
     "id": "ulikhet",
     "term": "Ulikhet",
     "definition": "Forskjeller mellom mennesker i inntekt, makt, helse eller muligheter. Stor ulikhet skaper ofte sosial uro og politiske konflikter."
@@ -2497,6 +2987,24 @@
     "subject": "historie",
     "topic": "andre-verdenskrig",
     "tags": []
+  },
+  {
+    "id": "valide-sultan",
+    "term": "Valide Sultan",
+    "aliases": [
+      "valide sultan",
+      "sultanmoren",
+      "sultanmor"
+    ],
+    "definition": "Tittelen på sultanens mor i Det osmanske riket. Hun var ofte den mektigste kvinnen i riket og kunne styre mye bak kulissene, særlig når sønnen var ung eller svak. Tiden da slike kvinner hadde stor makt, kalles 'kvinnenes sultanat'.",
+    "type": "concept",
+    "tags": [
+      "osmanske-riket",
+      "historie",
+      "makt",
+      "kvinner"
+    ],
+    "subject": "historie"
   },
   {
     "id": "vanaere",

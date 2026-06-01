@@ -108,11 +108,11 @@
     },
     {
       "type": "text",
-      "content": "Deng lot markedene være frie. Men politikken var ikke fri. Kommunistpartiet beholdt full kontroll over hvem som styrte, hva aviser kunne skrive og hva folk kunne si offentlig. Da studenter i 1989 samlet seg på Den himmelske freds plass i Beijing og krevde demokrati og pressefrihet, svarte Deng med militær. [Les mer om Tiananmen i neste artikkel.](/historie/kinas-historie/tiananmen)"
+      "content": "Deng lot markedene være frie. Men politikken var ikke fri. Kommunistpartiet beholdt full kontroll over hvem som styrte, hva aviser kunne skrive og hva folk kunne si offentlig. Da studenter i 1989 samlet seg på Den himmelske freds plass i Beijing og krevde demokrati og pressefrihet, svarte Deng med militær. [Les mer om Tiananmen i neste artikkel.](/historie/kinas-historie/tiananmen-1989)"
     },
     {
       "type": "text",
-      "content": "Det var grensen. Velstand, ja. Frihet til å kjope og selge, ja. Men politisk opposisjon - aldri. Deng skilte skarpt mellom okonomisk og politisk liberalisering. Han mente Kina trengte det forste, men ikke det andre."
+      "content": "Det var grensen. Velstand, ja. Frihet til å kjøpe og selge, ja. Men politisk opposisjon - aldri. Deng skilte skarpt mellom økonomisk og politisk liberalisering. Han mente Kina trengte det første, men ikke det andre."
     },
     {
       "type": "image",
@@ -130,7 +130,7 @@
     },
     {
       "type": "text",
-      "content": "Lederen som styrer Kina i dag - Xi Jinping - bygger videre på den modellen Deng skapte. Sterk okonomisk vekst. Sterk stat. Lite politisk toleranse. Xi har til og med strammer til der Deng lot det slappe litt. Det er Dengs modell, men i en hardere utgave. Katten fanger fortsatt mus - men den har skarpe klor."
+      "content": "Lederen som styrer Kina i dag - Xi Jinping - bygger videre på den modellen Deng skapte. Sterk økonomisk vekst. Sterk stat. Lite politisk toleranse. Xi har til og med strammer til der Deng lot det slappe litt. Det er Dengs modell, men i en hardere utgave. Katten fanger fortsatt mus - men den har skarpe klør."
     },
     {
       "type": "component",
@@ -149,7 +149,7 @@
             "explanation": "Deng var pragmatiker - han brydde seg om hva som virket, ikke om det passet inn i kommunistisk ideologi. Katten som fanger mus er den gode katten, uansett farge."
           },
           {
-            "question": "Hva var de spesielle okonomiske sonene?",
+            "question": "Hva var de spesielle økonomiske sonene?",
             "options": [
               "Områder der kommunistpartiet hadde ekstra streng kontroll",
               "Byer som fikk lov til å drive markedsøkonomi mens resten av Kina forble kommunistisk",
@@ -160,7 +160,7 @@
             "explanation": "I sonene som Shenzhen fikk utenlandske selskaper investere fritt og markedsøkonomi virke - det var et kontrollert eksperiment som Deng utvidet da det lyktes."
           },
           {
-            "question": "Hva skjedde med Shenzhen etter at det ble en spesiell okonomisk sone i 1979?",
+            "question": "Hva skjedde med Shenzhen etter at det ble en spesiell økonomisk sone i 1979?",
             "options": [
               "Befolkningen sank fordi folk foretrakk Hongkong",
               "Det ble et militærsenter uten sivil industri",
@@ -179,7 +179,7 @@
               "Kinas forhold til utenlandske investorer"
             ],
             "answer": 2,
-            "explanation": "Deng tillot markedsokonomiske reformer, men holdt partiet fullstendig utenfor kritikk. Da studenter krevde demokrati i 1989, slo han det ned med militær makt."
+            "explanation": "Deng tillot markedsøkonomiske reformer, men holdt partiet fullstendig utenfor kritikk. Da studenter krevde demokrati i 1989, slo han det ned med militær makt."
           }
         ]
       }

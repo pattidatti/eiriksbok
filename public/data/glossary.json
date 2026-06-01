@@ -184,6 +184,32 @@
     "subject": "historie"
   },
   {
+    "term": "bananrepublikk",
+    "definition": "Et land der ett enkelt selskap eller én vare styrer nesten hele økonomien og politikken. Uttrykket oppsto om land i Mellom-Amerika der amerikanske fruktselskaper hadde nesten all makt.",
+    "subject": "historie",
+    "topic": "dekolonisering",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "Belte- og vei-initiativet",
+    "aliases": [
+      "Belt and Road",
+      "ny silkevei",
+      "BRI"
+    ],
+    "definition": "Kinas massive globale infrastrukturprosjekt lansert av Xi Jinping i 2013. Kina låner penger til fattige land for å bygge havner, jernbaner og veier - og knytter dem tettere til kinesisk økonomi og innflytelse. Kritikere kaller det «gjeldsfellen».",
+    "type": "concept",
+    "tags": [
+      "kina",
+      "supermakt",
+      "infrastruktur",
+      "geopolitikk"
+    ],
+    "subject": "historie",
+    "topic": "kinas-historie"
+  },
+  {
     "term": "Bevissthet",
     "definition": "Å være våken og oppleve verden. En av filosofiens største gåter: Hvordan oppstår indre opplevelse av fysisk hjerneaktivitet?",
     "type": "concept"
@@ -334,6 +360,22 @@
     "type": "concept"
   },
   {
+    "term": "Cizye",
+    "aliases": [
+      "cizye-skatt",
+      "cizyeskatt"
+    ],
+    "definition": "En egen skatt som ikke-muslimer, som kristne og jøder, måtte betale i Det osmanske riket, og som muslimer slapp. Til gjengjeld fikk de dyrke sin egen tro og slapp blant annet militærtjeneste.",
+    "type": "concept",
+    "tags": [
+      "osmanske-riket",
+      "historie",
+      "skatt",
+      "religion"
+    ],
+    "subject": "historie"
+  },
+  {
     "term": "Code Civil",
     "definition": "Napoleon-koden fra 1804 - Frankrikes sivillovbok. Likhet for loven, religionsfrihet og eiendomsrett ble lovfestet og spredt over Europa.",
     "type": "concept"
@@ -376,6 +418,23 @@
     "term": "Das Man",
     "definition": "Heideggers begrep om «manmennesket» - det upersonlige «folk sier», «folk gjør». En tilstand der man slutter å ta egne valg.",
     "type": "concept"
+  },
+  {
+    "term": "De 100 ydmykelsenes år",
+    "aliases": [
+      "100 ydmykelsenes år",
+      "de hundre ydmykelsenes år"
+    ],
+    "definition": "Den kinesiske betegnelsen på perioden fra 1839 til 1949, da Kina gjennom ulikeverdige traktater og militære nederlag mistet territorier og suverenitet til Storbritannia, Frankrike, Japan og Russland. Brukes i dag av kinesiske ledere for å forklare Kinas opptatthet av nasjonal verdighet.",
+    "type": "concept",
+    "tags": [
+      "kina",
+      "imperialisme",
+      "ydmykelse",
+      "opiumskrigene"
+    ],
+    "subject": "historie",
+    "topic": "kinas-historie"
   },
   {
     "term": "De allierte",
@@ -433,6 +492,23 @@
     "term": "Demokrati",
     "definition": "En styreform hvor makten ligger hos folket, enten direkte eller gjennom valgte representanter. Demokratiet ble utfordret av totalitære regimer i mellomkrigstiden.",
     "type": "concept"
+  },
+  {
+    "term": "Den lange marsjen",
+    "aliases": [
+      "lange marsjen",
+      "lang marsj"
+    ],
+    "definition": "En militær tilbaketrekking der det kinesiske kommunistpartiet og dets røde hær gikk over 10 000 kilometer gjennom fjell og sump for å unnslippe Kuomintangs omringning i 1934-35. Av 86 000 som startet, overlevde bare rundt 8 000. Ble et grunnleggende symbol på kommunistpartiets vilje og offervilje.",
+    "type": "concept",
+    "tags": [
+      "kina",
+      "borgerkrig",
+      "mao",
+      "kommunisme"
+    ],
+    "subject": "historie",
+    "topic": "kinas-historie"
   },
   {
     "term": "dendrokronologi",
@@ -511,6 +587,23 @@
     "link": "/krle/etikk/dygdsetikk"
   },
   {
+    "term": "Dynastisyklusen",
+    "aliases": [
+      "dynastisyklus",
+      "dynastisyklusen"
+    ],
+    "definition": "Det gjentakende mønsteret i kinesisk historie der et dynasti stiger, blomstrer, blir svakt og korrupt, mister Himmelens mandat og faller - før et nytt dynasti tar over. Syklusen gjentok seg i over 2000 år.",
+    "type": "concept",
+    "tags": [
+      "kina",
+      "dynasti",
+      "keiserdømme",
+      "makt"
+    ],
+    "subject": "historie",
+    "topic": "kinas-historie"
+  },
+  {
     "term": "East India Company",
     "definition": "Britisk handelskompani som styrte India i over hundre år. Selskapet hadde sin egen hær og forvaltet større territorier enn de fleste stater.",
     "type": "concept"
@@ -524,6 +617,22 @@
     "term": "Eksistensialisme",
     "definition": "Filosofisk retning som hevder at mennesket først eksisterer, så skaper det selv sin essens. Hovedtenkere: Kierkegaard, Sartre, Beauvoir.",
     "type": "concept"
+  },
+  {
+    "term": "Ekstraterritorialitet",
+    "aliases": [
+      "ekstraterritoriale rettigheter"
+    ],
+    "definition": "En bestemmelse i en traktat som gir fremmede borgere unntak fra vertslandet sine lover. Etter opiumskrigene fikk britiske borgere i Kina ekstraterritorialitet - de sto utenfor kinesisk lov og kunne bare dømmes av britiske domstoler. Kineserne så på dette som en dyp ydmykelse.",
+    "type": "concept",
+    "tags": [
+      "kina",
+      "imperialisme",
+      "traktat",
+      "lov"
+    ],
+    "subject": "historie",
+    "topic": "kinas-historie"
   },
   {
     "term": "Ekstremisme",
@@ -585,6 +694,24 @@
     "topic": "andre-verdenskrig",
     "tags": [],
     "type": "concept"
+  },
+  {
+    "term": "Ettpartistat",
+    "aliases": [
+      "ettpartisystem",
+      "ett-parti-stat",
+      "enstyre"
+    ],
+    "definition": "Et politisk system der ett enkelt parti har monopol på makten og ingen legale opposisjonspartier tillates. Folkerepublikken Kina er styrt av kommunistpartiet som en ettpartistat siden 1949. Velgere kan ikke stemme partiet ut av makten.",
+    "type": "concept",
+    "tags": [
+      "politikk",
+      "kina",
+      "kommunisme",
+      "demokrati"
+    ],
+    "subject": "historie",
+    "topic": "kinas-historie"
   },
   {
     "term": "Fagforening",
@@ -660,6 +787,21 @@
     "tags": [],
     "type": "concept",
     "link": "/historie/mellomkrigstiden/folkeforbundet"
+  },
+  {
+    "term": "Folkemord",
+    "aliases": [
+      "folkemordet",
+      "folkemords"
+    ],
+    "definition": "Et planlagt forsøk på å utslette en hel folkegruppe, for eksempel ved drap eller tvangsforflytning. Et kjent eksempel er folkemordet på armenerne under første verdenskrig, der over en million mennesker mistet livet.",
+    "type": "concept",
+    "tags": [
+      "historie",
+      "krig",
+      "menneskerettigheter"
+    ],
+    "subject": "historie"
   },
   {
     "term": "Folkevandringstiden",
@@ -867,6 +1009,22 @@
     "type": "concept"
   },
   {
+    "term": "Harem",
+    "aliases": [
+      "haremet",
+      "harems"
+    ],
+    "definition": "Den private delen av et osmansk palass der sultanens familie bodde, stengt for utenforstående. Haremet var ikke bare et bosted, men også et maktsenter der særlig sultanmoren kunne styre mye av politikken.",
+    "type": "concept",
+    "tags": [
+      "osmanske-riket",
+      "historie",
+      "makt",
+      "palass"
+    ],
+    "subject": "historie"
+  },
+  {
     "term": "Helhet",
     "definition": "Det fullstendige bildet, som er mer enn summen av delene. Å se helhet er sentralt i filosofi, vitenskap og kunstforståelse.",
     "type": "concept"
@@ -903,6 +1061,24 @@
     "term": "Hierarki",
     "definition": "Et system der noen står over andre i rang og makt. Finnes i kirker, hærer, bedrifter og dyresamfunn.",
     "type": "concept"
+  },
+  {
+    "term": "Himmelens mandat",
+    "aliases": [
+      "himmelens-mandat",
+      "Tianming",
+      "mandat fra himmelen"
+    ],
+    "definition": "En kinesisk politisk idé om at himmelen gir en hersker rett til å styre - men bare så lenge han er rettferdig. Naturkatastrofer, opprør og nederlag var tegn på at mandatet var trukket tilbake, og at et nytt dynasti hadde rett til å ta makten.",
+    "type": "concept",
+    "tags": [
+      "kina",
+      "politikk",
+      "keiserdømme",
+      "filosofi"
+    ],
+    "subject": "historie",
+    "topic": "kinas-historie"
   },
   {
     "term": "Holocaust",
@@ -962,7 +1138,8 @@
     "subject": "historie",
     "topic": "kolonialisering",
     "tags": [],
-    "type": "concept"
+    "type": "concept",
+    "link": "/historie/kinas-historie/opiumskrigene"
   },
   {
     "term": "Index Librorum Prohibitorum",
@@ -1004,6 +1181,24 @@
       "middelalder",
       "kirken",
       "maktkamp"
+    ],
+    "subject": "historie"
+  },
+  {
+    "term": "İznik-fliser",
+    "aliases": [
+      "iznik-fliser",
+      "iznikfliser",
+      "İznik",
+      "iznik"
+    ],
+    "definition": "Vakre keramikkfliser fra byen İznik i Det osmanske riket, kjent for blomstermønstre i dyp blå og rød farge. Flisene pyntet vegger i moskeer og palasser, og fargene lyser fortsatt sterkt etter 500 år.",
+    "type": "concept",
+    "tags": [
+      "osmanske-riket",
+      "historie",
+      "kunst",
+      "arkitektur"
     ],
     "subject": "historie"
   },
@@ -1222,6 +1417,23 @@
     "type": "concept"
   },
   {
+    "term": "Konfusianisme",
+    "aliases": [
+      "konfutsianisme",
+      "konfusiansk"
+    ],
+    "definition": "En tankeretning grunnlagt av den kinesiske filosofen Konfucius rundt 500 fvt. Læren bygger på respekt og plikt: barn skal adlyde foreldre, undersåtter skal adlyde keiseren, og ledere har et moralsk ansvar overfor folket. Ble grunnlaget for kinesisk statsstyre i over to tusen år.",
+    "type": "concept",
+    "tags": [
+      "kina",
+      "filosofi",
+      "etikk",
+      "samfunn"
+    ],
+    "subject": "historie",
+    "topic": "kinas-historie"
+  },
+  {
     "term": "Kreativitet",
     "definition": "Evnen til å skape noe nytt og verdifullt. Drives ofte fram av kombinasjonen av tvang (begrensninger) og frihet.",
     "type": "concept"
@@ -1249,6 +1461,24 @@
       "politikk"
     ],
     "subject": "historie"
+  },
+  {
+    "term": "Kulturrevolusjonen",
+    "aliases": [
+      "Kulturrevolusjonen",
+      "den kulturelle revolusjon"
+    ],
+    "definition": "En politisk kampanje i Kina fra 1966 til 1976, igangsatt av Mao Zedong. Målet var å rense landet for alt tradisjonelt og vestlig. Rødegardistene terroriserte lærere, kunstnere og intellektuelle. Millioner ble forfulgt, sendt til arbeidsleirer eller drept. Universiteter ble stengt i årevis.",
+    "type": "concept",
+    "tags": [
+      "kina",
+      "mao",
+      "revolusjon",
+      "terror"
+    ],
+    "subject": "historie",
+    "topic": "kinas-historie",
+    "link": "/historie/kinas-historie/store-spranget"
   },
   {
     "term": "Kunnskap",
@@ -1556,6 +1786,14 @@
     "subject": "historie"
   },
   {
+    "term": "nasjonalisering",
+    "definition": "Når en stat overtar noe som har vært privat eid - for eksempel en oljekilde, en gruve eller en fabrikk - slik at det blir felles eiendom for landets innbyggere i stedet for å gi fortjeneste til private selskaper.",
+    "subject": "historie",
+    "topic": "den-kalde-krigen",
+    "tags": [],
+    "type": "concept"
+  },
+  {
     "term": "Nasjonalisme",
     "definition": "En ideologi som hevder at hver nasjon (folkegruppe) skal ha sin egen stat.",
     "subject": "historie",
@@ -1624,6 +1862,15 @@
       "finanskrise"
     ],
     "subject": "samfunnskunnskap"
+  },
+  {
+    "term": "nykolonialisme",
+    "definition": "Når rike land og store selskaper styrer fattigere land økonomisk - gjennom lån, gjeld og handel - selv etter at landene formelt har blitt frie og selvstendige.",
+    "subject": "historie",
+    "topic": "dekolonisering",
+    "tags": [],
+    "type": "concept",
+    "link": "/historie/dekolonisering/nykolonialisme"
   },
   {
     "term": "Observasjon",
@@ -1789,6 +2036,14 @@
       "økonomi",
       "reform"
     ],
+    "type": "concept"
+  },
+  {
+    "term": "petrodollar",
+    "definition": "Amerikanske dollar tjent på salg av olje. Fordi nesten all olje i verden kjøpes i dollar, trenger alle land dollar, noe som holder den amerikanske valutaen sterk.",
+    "subject": "samfunnskunnskap",
+    "topic": "okonomi",
+    "tags": [],
     "type": "concept"
   },
   {
@@ -1971,6 +2226,23 @@
     "type": "concept"
   },
   {
+    "term": "Rødegardistene",
+    "aliases": [
+      "Rødegardistene",
+      "røde garder"
+    ],
+    "definition": "En massebevegelse av unge kinesere, oftest mellom 14 og 25 år, mobilisert av Mao Zedong under kulturrevolusjonen. De angrep det Mao kalte fiender av revolusjonen: lærere, kunstnere, religiøse og alle med tilknytning til tradisjon eller Vesten. Ødela templer, brente bøker og drev folk til offentlige skamritualer.",
+    "type": "concept",
+    "tags": [
+      "kina",
+      "mao",
+      "kulturrevolusjonen",
+      "terror"
+    ],
+    "subject": "historie",
+    "topic": "kinas-historie"
+  },
+  {
     "term": "Røde Kors",
     "definition": "Internasjonal humanitær organisasjon grunnlagt av Henry Dunant etter slaget ved Solferino i 1859. Hjelper sårede soldater og sivile i krig.",
     "type": "concept"
@@ -2069,6 +2341,23 @@
     "type": "concept"
   },
   {
+    "term": "Sharia",
+    "aliases": [
+      "sharialov",
+      "sharialover",
+      "islamsk lov"
+    ],
+    "definition": "Islamsk lov, bygd på Koranen og fortellinger om profeten Muhammed. Sharia gir regler for både tro og dagligliv, som bønn, ekteskap, arv og handel. I Det osmanske riket fulgte muslimene sharia, mens kristne og jøder hadde sine egne lover.",
+    "type": "concept",
+    "tags": [
+      "islam",
+      "religion",
+      "lov",
+      "osmanske-riket"
+    ],
+    "subject": "krle"
+  },
+  {
     "term": "Show, don't tell",
     "definition": "En skriveteknikk der man viser hva som skjer eller hva en karakter føler gjennom handlinger, sanser og detaljer, i stedet for å bare fortelle det direkte til leseren (f.eks. ved å beskrive skjelvende hender i stedet for å skrive «han var redd»).",
     "link": "/norsk/skrivehjelp/hvordan-lage-karakterer",
@@ -2087,7 +2376,8 @@
   {
     "term": "Sivilisasjon",
     "definition": "Et samfunn med byer, skrift, statsmakt og spesialiserte yrker. De tidligste sivilisasjonene oppsto langs store elver for rundt 5000 år siden.",
-    "type": "concept"
+    "type": "concept",
+    "link": "/historie/kinas-historie/dynastiene"
   },
   {
     "term": "Skagerrak",
@@ -2127,6 +2417,24 @@
     "term": "Spekulasjon",
     "definition": "Å investere i håp om kortsiktig gevinst, ofte i risikable verdier. Spekulasjon var en viktig årsak til børskrakket i 1929.",
     "type": "concept"
+  },
+  {
+    "term": "Spesiell økonomisk sone",
+    "aliases": [
+      "spesielle økonomiske soner",
+      "spesiell økononomisk sone",
+      "SEZ"
+    ],
+    "definition": "Avgrensede områder i Kina der Deng Xiaoping fra 1979 tillot markedsøkonomi og utenlandske investeringer, mens resten av landet forble kommunistisk. Shenzhen var den første og mest vellykkede - den vokste fra en liten fiskerlandsby til en millionby på bare noen tiår.",
+    "type": "concept",
+    "tags": [
+      "kina",
+      "økonomi",
+      "reform",
+      "kapitalisme"
+    ],
+    "subject": "historie",
+    "topic": "kinas-historie"
   },
   {
     "term": "Stabilitet",
@@ -2209,6 +2517,14 @@
     "definition": "Et pansret motorkjøretøy med belter og bevæpning (tank), utviklet for å bryte gjennom skyttergraver.",
     "subject": "historie",
     "topic": "forste-verdenskrig",
+    "tags": [],
+    "type": "concept"
+  },
+  {
+    "term": "strukturtilpasning",
+    "definition": "Kravene som ofte følger med et lån fra IMF: at landet må kutte i offentlige utgifter, selge statlige tjenester til private og eksportere mer. Kravene rammer ofte de fattigste hardest.",
+    "subject": "samfunnskunnskap",
+    "topic": "handel-og-infrastruktur",
     "tags": [],
     "type": "concept"
   },
@@ -2511,6 +2827,23 @@
     "type": "concept"
   },
   {
+    "term": "Ulikeverdige traktater",
+    "aliases": [
+      "ulikeverdig traktat",
+      "ulikeverdige traktater"
+    ],
+    "definition": "Avtaler Kina ble tvunget til å underskrive etter militære nederlag på 1800-tallet, særlig etter opiumskrigene. Kina måtte avgi territorier, åpne havner, betale erstatninger og gi fremmede borgere ekstraterritorialitet. Kineserne ser dem som symboler på europeisk imperialisme.",
+    "type": "concept",
+    "tags": [
+      "kina",
+      "imperialisme",
+      "opiumskrigene",
+      "traktat"
+    ],
+    "subject": "historie",
+    "topic": "kinas-historie"
+  },
+  {
     "term": "Ulikhet",
     "definition": "Forskjeller mellom mennesker i inntekt, makt, helse eller muligheter. Stor ulikhet skaper ofte sosial uro og politiske konflikter.",
     "type": "concept"
@@ -2576,6 +2909,23 @@
     "topic": "andre-verdenskrig",
     "tags": [],
     "type": "concept"
+  },
+  {
+    "term": "Valide Sultan",
+    "aliases": [
+      "valide sultan",
+      "sultanmoren",
+      "sultanmor"
+    ],
+    "definition": "Tittelen på sultanens mor i Det osmanske riket. Hun var ofte den mektigste kvinnen i riket og kunne styre mye bak kulissene, særlig når sønnen var ung eller svak. Tiden da slike kvinner hadde stor makt, kalles 'kvinnenes sultanat'.",
+    "type": "concept",
+    "tags": [
+      "osmanske-riket",
+      "historie",
+      "makt",
+      "kvinner"
+    ],
+    "subject": "historie"
   },
   {
     "term": "Vanære",
@@ -2993,6 +3343,19 @@
     "link": "/samfunnskunnskap/okonomi/naturlig-rente"
   },
   {
+    "term": "Chiang Kai-shek",
+    "definition": "Militær leder av Kuomintang og Republikken Kina. Tok makten etter Sun Yat-sens død i 1925, og bekjempet kommunistene i en lang borgerkrig. Tapte mot Mao Zedong i 1949 og flyktet til Taiwan, der han styrte til sin død.",
+    "type": "person",
+    "tags": [
+      "kina",
+      "borgerkrig",
+      "kuomintang",
+      "taiwan"
+    ],
+    "subject": "historie",
+    "lifespan": "1887 - 1975"
+  },
+  {
     "term": "Christian II",
     "definition": "Dansk-norsk konge (1513-1523) som ble berømt og fryktet etter Stockholms blodbad i 1520. Han mistet tronen i et opprør og levde resten av livet i fangenskap.",
     "type": "person",
@@ -3053,6 +3416,19 @@
     "subject": "historie",
     "lifespan": "1711 – 1776",
     "link": "/filosofi/opplysningstid/david-hume"
+  },
+  {
+    "term": "Deng Xiaoping",
+    "definition": "Kinesisk leder som tok makten i 1978 etter Maos død. Åpnet Kina for markedsøkonomi og utenlandsk kapital gjennom de fire moderniseringene, og løftet hundrevis av millioner kinesere ut av fattigdom. Slo brutalt ned på demokratibevegelsen på Tiananmen-plassen i 1989.",
+    "type": "person",
+    "tags": [
+      "kina",
+      "kommunisme",
+      "reform",
+      "økonomi"
+    ],
+    "subject": "historie",
+    "lifespan": "1904 - 1997"
   },
   {
     "term": "Diokletian",
@@ -3713,6 +4089,20 @@
     "lifespan": "1583 - 1645"
   },
   {
+    "id": "hurrem-sultan",
+    "name": "Hürrem Sultan",
+    "lifespan": "ca. 1502-1558",
+    "description": "Tidligere slavinne som ble Süleyman den stores kone og en av hans nærmeste rådgivere. Hun fikk uvanlig stor makt ved hoffet og er et tidlig eksempel på 'kvinnenes sultanat', tiden da kvinnene i haremet hadde stor politisk innflytelse.",
+    "links": [
+      {
+        "title": "Topkapı: maktens palass",
+        "url": "/historie/osmanske-riket/topkapi-palasset"
+      }
+    ],
+    "term": "Hürrem Sultan",
+    "type": "person"
+  },
+  {
     "term": "Ibn Fadlan",
     "definition": "Arabisk diplomat og forfatter som møtte rusvikinger ved Volga rundt år 921. Reisebrevet hans er en av de viktigste kildene til vikingenes ritualer.",
     "type": "person",
@@ -4138,6 +4528,19 @@
     "lifespan": "1859 - 1952"
   },
   {
+    "term": "Konfucius",
+    "definition": "Kinesisk filosof som levde rundt 500 fvt., kjent på kinesisk som Kong Fuzi. Hans lære - konfusianismen - la grunnlaget for kinesisk statsstyre i over to tusen år. Han mente et harmonisk samfunn hviler på respekt og plikter mellom mennesker: barn og foreldre, undersått og keiser.",
+    "type": "person",
+    "tags": [
+      "kina",
+      "filosofi",
+      "konfusianisme",
+      "etikk"
+    ],
+    "subject": "historie",
+    "lifespan": "551 - 479 fvt."
+  },
+  {
     "term": "Haakon V Magnusson",
     "definition": "Konge av Norge (1299–1319). Han flyttet hovedstaden til Oslo, bygde Akershus festning og var den siste kongen av den gamle norske kongsætten i rett mannslinje.",
     "type": "person",
@@ -4207,6 +4610,18 @@
     ],
     "subject": "historie",
     "lifespan": "970 - 1020"
+  },
+  {
+    "term": "Lin Zexu",
+    "definition": "Kinesisk embedsmann som i 1839 konfiskerte og destruerte over 1000 tonn britisk opium i Guangzhou. Hans aksjon utløste den første opiumskrigen. Ble avsatt av keiseren etter Kinas nederlag, men er i dag hyllet som en nasjonal helt i Kina.",
+    "type": "person",
+    "tags": [
+      "kina",
+      "opiumskrigene",
+      "imperialisme"
+    ],
+    "subject": "historie",
+    "lifespan": "1785 - 1850"
   },
   {
     "term": "Ludvig XIV",
@@ -4279,6 +4694,20 @@
     ],
     "subject": "historie",
     "lifespan": "1238 - 1280"
+  },
+  {
+    "id": "mahmud-2",
+    "name": "Mahmud 2.",
+    "lifespan": "1785-1839",
+    "description": "Osmansk reformsultan som i 1826 oppløste janitsjarkorpset med makt etter at det var blitt en trussel mot herskeren selv. Han forsøkte å modernisere riket etter europeisk mønster.",
+    "links": [
+      {
+        "title": "Janitsjarene: sultanens slavehær",
+        "url": "/historie/osmanske-riket/janitsjarene"
+      }
+    ],
+    "term": "Mahmud 2.",
+    "type": "person"
   },
   {
     "term": "Mao Zedong",
@@ -4482,6 +4911,20 @@
     "type": "person"
   },
   {
+    "id": "mehmet-2",
+    "name": "Mehmet 2. (Erobreren)",
+    "lifespan": "1432-1481",
+    "description": "Osmansk sultan som i 1453 erobret Konstantinopel, bare 21 år gammel, og gjorde slutt på det tusen år gamle Bysants. For dette fikk han tilnavnet 'Erobreren'. Han gjorde byen til rikets nye hovedstad.",
+    "links": [
+      {
+        "title": "1453: Da Konstantinopel falt",
+        "url": "/historie/osmanske-riket/konstantinopels-fall"
+      }
+    ],
+    "term": "Mehmet 2. (Erobreren)",
+    "type": "person"
+  },
+  {
     "term": "Michael Servetus",
     "definition": "Spansk teolog og lege som benektet treenighetslæren. Han ble brent som kjetter i Calvins Genève, et eksempel på reformasjonens intoleranse.",
     "type": "person",
@@ -4521,6 +4964,20 @@
     ],
     "subject": "historie",
     "lifespan": "1931 - 2022"
+  },
+  {
+    "id": "mimar-sinan",
+    "name": "Mimar Sinan",
+    "lifespan": "ca. 1490-1588",
+    "description": "Det osmanske rikets fremste arkitekt og stjernearkitekt under Süleyman den store. I løpet av et langt liv tegnet han hundrevis av moskeer, broer, bad og skoler. De store kuppelmoskeene hans står fortsatt og regnes blant verdens vakreste byggverk.",
+    "links": [
+      {
+        "title": "Süleyman den store og gullalderen",
+        "url": "/historie/osmanske-riket/suleyman-gullalderen"
+      }
+    ],
+    "term": "Mimar Sinan",
+    "type": "person"
   },
   {
     "term": "Murray Rothbard",
@@ -4810,6 +5267,19 @@
     "link": "/historie/antikken/platon-og-aristoteles"
   },
   {
+    "term": "Puyi",
+    "definition": "Kinas siste keiser, kronet som treåring i 1908 og avsatt som sekssåring da republikken ble innført i 1912. Ble som voksen brukt som japansk marionettkjesar i Mandsjukuo under andre verdenskrig. Levde sine siste år som vanlig borger i Folkerepublikken Kina.",
+    "type": "person",
+    "tags": [
+      "kina",
+      "keiserdømme",
+      "qing",
+      "borgerkrig"
+    ],
+    "subject": "historie",
+    "lifespan": "1906 - 1967"
+  },
+  {
     "term": "Qin Shi Huangdi",
     "definition": "Kinas første keiser, som samlet rivaliserende kongedømmer til ett rike. Han bygde den første versjonen av Den kinesiske mur og terrakottahæren i graven sin.",
     "type": "person",
@@ -5063,6 +5533,19 @@
     "type": "person"
   },
   {
+    "term": "Sun Yat-sen",
+    "definition": "Kinesisk lege og revolusjonær som grunnla Republikken Kina i 1912 etter keiserdømmets fall. Leder for partiet Kuomintang og forfatter av de tre prinsippene: nasjonalisme, demokrati og folkets velferd. Regnes som nasjonens far av både Taiwan og Fastlands-Kina.",
+    "type": "person",
+    "tags": [
+      "kina",
+      "revolusjon",
+      "republikk",
+      "nasjonalisme"
+    ],
+    "subject": "historie",
+    "lifespan": "1866 - 1925"
+  },
+  {
     "term": "Tarjei Vesaas",
     "definition": "Norsk forfatter som skrev på nynorsk. Romanene «Is-slottet» og «Fuglane» bruker enkle ord til å si store ting om mennesket og naturen.",
     "type": "person",
@@ -5206,6 +5689,19 @@
     "topic": "forste-verdenskrig",
     "subject": "historie",
     "image": "/images/people/woodrow-wilson.webp"
+  },
+  {
+    "term": "Xi Jinping",
+    "definition": "Kinas president og leder av kommunistpartiet siden 2012. Lanserte Belte- og vei-initiativet i 2013 og fjernet grensen for presidentperioder i 2018, noe som i praksis gjør ham til leder på livstid. Har strammet grepet om presse, internett og politisk opposisjon.",
+    "type": "person",
+    "tags": [
+      "kina",
+      "kommunisme",
+      "supermakt",
+      "autoritær"
+    ],
+    "subject": "historie",
+    "lifespan": "1953 -"
   },
   {
     "term": "Yuri Gagarin",

@@ -13,14 +13,14 @@
         "Eksamen varer inntil 30 minutter: presentasjon + samtale.",
         "Forbered 3-4 tekster som passer temaet, med kobling til epoker.",
         "Ha en klar påstand i presentasjonen, ikke bare en oppsummering.",
-        "Forbered ekstra tekster for samtalen med sensor."
+        "Forbered ekstra tekster for samtalen med faglærer."
     ],
     "externalUrl": "https://www.udir.no/eksamen-og-prover/eksamen/muntlig-eksamen/",
     "timeline": [],
     "content": [
         {
             "type": "paragraph",
-            "text": "Muntlig eksamen er annerledes enn skriftlig. Her handler det ikke bare om hva du kan skrive, men om hva du kan si, forklare og diskutere i samtale med en sensor. Du får et tema (for eksempel «Identitet» eller «Makt og avmakt») og skal vise at du kan knytte tekster, virkemidler og litteraturhistorie sammen i en muntlig fremføring. De som gjør det best, er ikke de som pugger mest. Det er de som forbereder seg smartest. Denne guiden gir deg en konkret oppskrift."
+            "text": "Muntlig eksamen er annerledes enn skriftlig. Her handler det ikke bare om hva du kan skrive, men om hva du kan si, forklare og diskutere i samtale med faglæreren din. Du får et tema (for eksempel «Identitet» eller «Makt og avmakt») og skal vise at du kan knytte tekster, virkemidler og litteraturhistorie sammen i en muntlig fremføring. De som gjør det best, er ikke de som pugger mest. Det er de som forbereder seg smartest. Denne guiden gir deg en konkret oppskrift."
         },
         {
             "type": "header",
@@ -42,7 +42,7 @@
                     {
                         "label": "Kontroll",
                         "left": "Du styrer. Du har planlagt hva du vil si.",
-                        "right": "Sensor styrer. Du svarer på spørsmål."
+                        "right": "Faglærer styrer. Du svarer på spørsmål."
                     },
                     {
                         "label": "Formål",
@@ -82,7 +82,7 @@
                     },
                     {
                         "label": "Selve eksamen",
-                        "value": "Inntil 30 minutter: presentasjon + samtale med sensor."
+                        "value": "Inntil 30 minutter: presentasjon + samtale med faglærer."
                     }
                 ]
             }
@@ -110,7 +110,7 @@
                     "question": "Hva er hovedforskjellen mellom presentasjonen og samtalen?",
                     "options": [
                         "Presentasjonen er vanskeligere enn samtalen",
-                        "I presentasjonen styrer du, i samtalen styrer sensor",
+                        "I presentasjonen styrer du, i samtalen styrer faglærer",
                         "Samtalen varer lengre enn presentasjonen",
                         "Du trenger bare å forberede presentasjonen"
                     ],
@@ -125,7 +125,7 @@
         },
         {
             "type": "paragraph",
-            "text": "Forberedelsestiden er det viktigste du har. Elevene som gjør det best på muntlig eksamen, er de som kommer med et arsenal av tekster, analyser og koblinger. De har ikke pugget en tale. De har bygget en verktøykasse som gjør dem klare for alt sensor kan spørre om."
+            "text": "Forberedelsestiden er det viktigste du har. Elevene som gjør det best på muntlig eksamen, er de som kommer med et arsenal av tekster, analyser og koblinger. De har ikke pugget en tale. De har bygget en verktøykasse som gjør dem klare for alt faglærer kan spørre om."
         },
         {
             "type": "header",
@@ -266,13 +266,13 @@
         },
         {
             "type": "paragraph",
-            "text": "Samtalen etter presentasjonen er der mange elever mister poeng. Det er ikke tilfeldig hva sensor spør om. Sensor tester om du virkelig forstår stoffet eller bare har pugget presentasjonen. Forbered deg ved å tenke gjennom hva sensor sannsynligvis vil spørre om."
+            "text": "Samtalen etter presentasjonen er der mange elever mister poeng. Det er ikke tilfeldig hva faglærer spør om. Faglærer tester om du virkelig forstår stoffet eller bare har pugget presentasjonen. Forbered deg ved å tenke gjennom hva faglærer sannsynligvis vil spørre om."
         },
         {
             "type": "component",
             "name": "FactBox",
             "props": {
-                "title": "Typiske spørsmål fra sensor",
+                "title": "Typiske spørsmål fra faglærer",
                 "items": [
                     {
                         "label": "Sammenligning",
@@ -304,7 +304,7 @@
         {
             "type": "info_box",
             "title": "Ha ekstra tekster i baklomma",
-            "content": "Forbered 2-3 tekster eller eksempler som du IKKE bruker i presentasjonen, men som støtter det samme temaet. Når sensor spør «Kan du tenke på et annet eksempel?», trekker du frem et forberedt kort i stedet for å famle. Dette er forskjellen mellom en god og en fremragende samtale."
+            "content": "Forbered 2-3 tekster eller eksempler som du IKKE bruker i presentasjonen, men som støtter det samme temaet. Når faglærer spør «Kan du tenke på et annet eksempel?», trekker du frem et forberedt kort i stedet for å famle. Dette er forskjellen mellom en god og en fremragende samtale."
         },
         {
             "type": "info_box",
@@ -315,13 +315,13 @@
             "type": "component",
             "name": "ScenarioRoleplay",
             "props": {
-                "title": "Samtalen med sensor",
-                "intro": "Du har akkurat holdt presentasjonen din om temaet «Utenforskap». Sensor nikker og sier: «Du nevnte metaforen om den lukkede døren i novellen. Kan du gå dypere inn i hva den gjør med leserens forståelse av temaet?»",
+                "title": "Samtalen med faglærer",
+                "intro": "Du har akkurat holdt presentasjonen din om temaet «Utenforskap». Faglærer nikker og sier: «Du nevnte metaforen om den lukkede døren i novellen. Kan du gå dypere inn i hva den gjør med leserens forståelse av temaet?»",
                 "startId": "start",
                 "scenarios": [
                     {
                         "id": "start",
-                        "text": "Sensor vil at du graver dypere i et virkemiddel. Hva gjør du?",
+                        "text": "Faglærer vil at du graver dypere i et virkemiddel. Hva gjør du?",
                         "options": [
                             {
                                 "label": "Gjenta det du sa i presentasjonen om metaforen",
@@ -347,22 +347,22 @@
                     },
                     {
                         "id": "gjenta",
-                        "text": "Sensor har allerede hørt dette. Å gjenta det du sa viser ikke at du kan tenke videre. Sensor ønsker å se at du kan gå dypere enn det forberedte - prøv å forklare effekten virkemiddelet har på leseren, eller koble det til en annen tekst.",
+                        "text": "Faglærer har allerede hørt dette. Å gjenta det du sa viser ikke at du kan tenke videre. Faglærer ønsker å se at du kan gå dypere enn det forberedte - prøv å forklare effekten virkemiddelet har på leseren, eller koble det til en annen tekst.",
                         "options": []
                     },
                     {
                         "id": "effekt",
-                        "text": "Bra! Du forklarer at den lukkede døren ikke bare viser at hovedpersonen er utestengt, den gjør at leseren føler det fysisk. Døren blir et symbol på alt personen ikke får tilgang til. Sensor følger opp: «Kan du trekke inn et eksempel fra en annen tidsperiode som behandler utenforskap?» Du har forberedt en ekstra tekst om nettopp dette, og svarer trygt.",
+                        "text": "Bra! Du forklarer at den lukkede døren ikke bare viser at hovedpersonen er utestengt, den gjør at leseren føler det fysisk. Døren blir et symbol på alt personen ikke får tilgang til. Faglærer følger opp: «Kan du trekke inn et eksempel fra en annen tidsperiode som behandler utenforskap?» Du har forberedt en ekstra tekst om nettopp dette, og svarer trygt.",
                         "options": []
                     },
                     {
                         "id": "hopp_over",
-                        "text": "Det er bedre å prøve enn å gi opp. Selv om du er usikker, kan du si: «Jeg tror metaforen forsterker følelsen av isolasjon fordi døren er noe konkret leseren kan se for seg.» Det viser at du tenker, selv om du ikke har et ferdig svar. Sensor setter pris på at du prøver.",
+                        "text": "Det er bedre å prøve enn å gi opp. Selv om du er usikker, kan du si: «Jeg tror metaforen forsterker følelsen av isolasjon fordi døren er noe konkret leseren kan se for seg.» Det viser at du tenker, selv om du ikke har et ferdig svar. Faglærer setter pris på at du prøver.",
                         "options": []
                     },
                     {
                         "id": "sammenligne",
-                        "text": "Flott strategi! Du trekker inn diktet du hadde i baklomma og viser at samme tema behandles med andre virkemidler i en annen epoke. Sensor ser at du kan se sammenhenger på tvers av tekster og tid. Dette er det som skiller en god samtale fra en middels.",
+                        "text": "Flott strategi! Du trekker inn diktet du hadde i baklomma og viser at samme tema behandles med andre virkemidler i en annen epoke. Faglærer ser at du kan se sammenhenger på tvers av tekster og tid. Dette er det som skiller en god samtale fra en middels.",
                         "options": []
                     }
                 ]
@@ -375,7 +375,7 @@
         },
         {
             "type": "paragraph",
-            "text": "Hva du sier er viktig, men hvordan du sier det teller også. En trygg stemme og rolig kroppsspråk gjør at sensor oppfatter deg som godt forberedt, selv om du er nervøs inni deg."
+            "text": "Hva du sier er viktig, men hvordan du sier det teller også. En trygg stemme og rolig kroppsspråk gjør at faglærer oppfatter deg som godt forberedt, selv om du er nervøs inni deg."
         },
         {
             "type": "component",
@@ -385,7 +385,7 @@
                 "items": [
                     {
                         "label": "Øyekontakt",
-                        "value": "Se på sensor når du snakker. Du trenger ikke stirre, men løft blikket fra notatene regelmessig. Det viser at du eier stoffet."
+                        "value": "Se på faglærer når du snakker. Du trenger ikke stirre, men løft blikket fra notatene regelmessig. Det viser at du eier stoffet."
                     },
                     {
                         "label": "Hender",
@@ -419,7 +419,7 @@
         {
             "type": "info_box",
             "title": "Hva gjør du hvis du står fast?",
-            "content": "Pust. Ta en slurk vann. Si høyt: «La meg komme tilbake til det.» Gå til neste punkt på stikkordlappen. Det er bedre å gå videre enn å stå stille. Og husk: det er lov å si «Det har jeg ikke tenkt nok på» hvis sensor spør om noe du ikke kan. Ærlighet er bedre enn å finne på noe."
+            "content": "Pust. Ta en slurk vann. Si høyt: «La meg komme tilbake til det.» Gå til neste punkt på stikkordlappen. Det er bedre å gå videre enn å stå stille. Og husk: det er lov å si «Det har jeg ikke tenkt nok på» hvis faglærer spør om noe du ikke kan. Ærlighet er bedre enn å finne på noe."
         },
         {
             "type": "quiz",
@@ -430,7 +430,7 @@
                         "Stå stille til du husker",
                         "Begynne helt på nytt",
                         "Ta en pause, pust, og gå til neste punkt på stikkordlappen",
-                        "Si unnskyld til sensor"
+                        "Si unnskyld til faglærer"
                     ],
                     "correctAnswer": 2
                 },
@@ -453,7 +453,7 @@
         },
         {
             "type": "paragraph",
-            "text": "I samtalen vil sensor ofte spørre om spesifikke virkemidler. Du trenger ikke kunne alle, men disse bør du kunne identifisere og forklare effekten av:"
+            "text": "I samtalen vil faglærer ofte spørre om spesifikke virkemidler. Du trenger ikke kunne alle, men disse bør du kunne identifisere og forklare effekten av:"
         },
         {
             "type": "list",
@@ -542,7 +542,7 @@
                 "items": [
                     {
                         "bad": "Leser opp et ferdigskrevet manus ord for ord, med blikket festet i papirene.",
-                        "good": "Snakker fritt med stikkord på kort. Har øyekontakt med sensor. Bruker egne ord og viser at stoffet sitter.",
+                        "good": "Snakker fritt med stikkord på kort. Har øyekontakt med faglærer. Bruker egne ord og viser at stoffet sitter.",
                         "why": "Sensor vil se at du forstår stoffet, ikke at du kan lese høyt. Stikkord tvinger deg til å formulere deg selv, og det er akkurat det som viser kompetanse."
                     }
                 ]
@@ -571,7 +571,7 @@
                     {
                         "bad": "I novellen er det en mann som mister jobben. Han blir lei seg og sitter hjemme. Til slutt går han ut igjen.",
                         "good": "Forfatteren bruker kontrasten mellom mannens tidligere rutine og hans nye hverdag for å vise identitetstapet som følger med arbeidsledighet. At vendepunktet skjer ved en tilfeldig samtale på butikken, og ikke gjennom en dramatisk hendelse, understreker temaet: identitet bygges i det hverdagslige, ikke i det spektakulære.",
-                        "why": "Beskrivelse er referat. Analyse kobler form til mening. Sensor spør: Hvorfor har forfatteren gjort det slik? Hva er effekten? Det er det du må svare på."
+                        "why": "Beskrivelse er referat. Analyse kobler form til mening. Faglærer spør: Hvorfor har forfatteren gjort det slik? Hva er effekten? Det er det du må svare på."
                     }
                 ]
             }
@@ -662,7 +662,7 @@
                 "6. Lag stikkordlapp for presentasjonen (ikke fullt manus).",
                 "7. Øv presentasjonen høyt. Hold deg under 10 minutter.",
                 "8. Forbered 2-3 ekstra tekster eller eksempler for samtalen.",
-                "9. Tenk gjennom sannsynlige spørsmål fra sensor og øv på svarene.",
+                "9. Tenk gjennom sannsynlige spørsmål fra faglærer og øv på svarene.",
                 "10. Sov godt natten før. En uthvilt hjerne tenker bedre enn en som har pugget hele natten."
             ]
         },
@@ -830,7 +830,7 @@
         {
             "question": "Hvorfor bør du ha en klar påstand i presentasjonen?",
             "options": [
-                "Fordi sensor har sagt at du må",
+                "Fordi faglærer har sagt at du må",
                 "Fordi en påstand gir presentasjonen retning og viser at du argumenterer, ikke bare beskriver",
                 "Fordi det gjør presentasjonen lengre",
                 "Fordi det er enklere å pugge"
@@ -839,7 +839,7 @@
             "explanation": "En klar påstand viser at du kan argumentere og ta stilling, ikke bare oppsummere. Alt i presentasjonen bygger opp under påstanden, noe som gir helhet og retning."
         },
         {
-            "question": "Hva er den beste strategien for samtalen med sensor?",
+            "question": "Hva er den beste strategien for samtalen med faglærer?",
             "options": [
                 "Gjenta det du sa i presentasjonen",
                 "Si at du ikke vet hvis du er usikker",
@@ -847,7 +847,7 @@
                 "Snakke så lenge som mulig om hvert spørsmål"
             ],
             "answer": 2,
-            "explanation": "Forbered ekstra tekster og eksempler du ikke brukte i presentasjonen. Når sensor spør om nye vinkler, har du forberedte svar klare. Bruk fagbegreper naturlig, ikke tvunget."
+            "explanation": "Forbered ekstra tekster og eksempler du ikke brukte i presentasjonen. Når faglærer spør om nye vinkler, har du forberedte svar klare. Bruk fagbegreper naturlig, ikke tvunget."
         },
         {
             "question": "Hvorfor bør du koble minst en tekst til en litteraturhistorisk epoke?",
@@ -869,5 +869,5 @@
         "vurdering"
     ],
     "createdDate": "2026-03-15T00:00:00Z",
-    "lastUpdated": "2026-03-16T00:00:00Z"
+    "lastUpdated": "2026-06-01T00:00:00Z"
 }

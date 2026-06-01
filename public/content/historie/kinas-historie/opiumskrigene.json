@@ -113,7 +113,7 @@
       "type": "image",
       "src": "/images/placeholder.webp",
       "alt": "Britisk krigsskip angriper kinesiske befestninger under den første opiumskrigen",
-      "caption": "Britiske dampskip ga Europa et militart overtak Kina ikke hadde mulighet til å motsvare. Dette var industrialiserningens mørke ansikt."
+      "caption": "Britiske dampskip ga Europa et militært overtak Kina ikke hadde mulighet til å motsvare. Dette var industrialiserningens mørke ansikt."
     },
     {
       "type": "header",
@@ -137,29 +137,29 @@
     },
     {
       "type": "header",
-      "text": "De 100 ydmykelsenes ar"
+      "text": "De 100 ydmykelsenes år"
     },
     {
       "type": "text",
-      "content": "Opiumskrigene markerte starten på det kineserne kaller 'de 100 ydmykelsenes ar' - perioden fra 1839 til 1949 da Kina ble presset, delt og ydmyket av fremmede makter. En andre opiumskrig fulgte i 1856-1860, der britiske og franske tropper brant ned Sommerpalasset i Beijing. Japan tok Taiwan og Korea. Russland tok landområder i nord. Andre europeiske makter sikret seg handelsrettigheter og territorier."
+      "content": "Opiumskrigene markerte starten på det kineserne kaller 'de 100 ydmykelsenes år' - perioden fra 1839 til 1949 da Kina ble presset, delt og ydmyket av fremmede makter. En andre opiumskrig fulgte i 1856-1860, der britiske og franske tropper brant ned Sommerpalasset i Beijing. Japan tok Taiwan og Korea. Russland tok landområder i nord. Andre europeiske makter sikret seg handelsrettigheter og territorier."
     },
     {
       "type": "text",
-      "content": "Kina, som i tusenvis av ar hadde sett seg selv som verdens midtpunkt og ledende sivilisasjon, ble behandlet som et land uten suverenitet. Det satte dype sår. I dag bruker kinesiske ledere konsekvent begrepet 'de 100 ydmykelsenes ar' for å forklare Kinas utenrikspolitikk og hvorfor landet er så opptatt av at ingen skal blande seg i dets indre anliggender."
+      "content": "Kina, som i tusenvis av år hadde sett seg selv som verdens midtpunkt og ledende sivilisasjon, ble behandlet som et land uten suverenitet. Det satte dype sår. I dag bruker kinesiske ledere konsekvent begrepet 'de 100 ydmykelsenes år' for å forklare Kinas utenrikspolitikk og hvorfor landet er så opptatt av at ingen skal blande seg i dets indre anliggender."
     },
     {
       "type": "image",
       "src": "/images/placeholder.webp",
       "alt": "Kart over Kinas territorielle tap og ulikeverdige traktater på 1800-tallet",
-      "caption": "Gjennom en rekke traktater mistet Kina kontroll over store territorier og sin egen handel. Saret fra denne perioden preger kinesisk politikk den dag i dag."
+      "caption": "Gjennom en rekke traktater mistet Kina kontroll over store territorier og sin egen handel. Såret fra denne perioden preger kinesisk politikk den dag i dag."
     },
     {
       "type": "text",
-      "content": "Opiumskrigene henger tett sammen med det bredere bildet av [europeisk kolonisering](/historie/kolonialisering/oversikt). Det som skjedde med Kina var en variant av det samme monsteret som herjet i Afrika, India og Amerika - en rik, industriell makt som brukte militar styrke til a tvinge svakere land inn i systemer som tjente Europa, ikke de lokale befolkningene."
+      "content": "Opiumskrigene henger tett sammen med det bredere bildet av [europeisk kolonisering](/historie/kolonialisering/oversikt). Det som skjedde med Kina var en variant av det samme monsteret som herjet i Afrika, India og Amerika - en rik, industriell makt som brukte militær styrke til å tvinge svakere land inn i systemer som tjente Europa, ikke de lokale befolkningene."
     },
     {
       "type": "text",
-      "content": "Lin Zexu, mannen som brant opiumet og skrev til dronning Victoria, ble avsatt av keiseren etter nederlaget - stemplet som den som provoserte krigen. Han ble sendt i eksil til den avsidesliggende Xinjiang-provinsen. Men historien rehabiliterte ham. I dag er han en nasjonal helt i Kina, statuen hans star i Hong Kong - nettopp den byen som ble tapt pa grunn av krigen han forsøkte a hindre."
+      "content": "Lin Zexu, mannen som brant opiumet og skrev til dronning Victoria, ble avsatt av keiseren etter nederlaget - stemplet som den som provoserte krigen. Han ble sendt i eksil til den avsidesliggende Xinjiang-provinsen. Men historien rehabiliterte ham. I dag er han en nasjonal helt i Kina, statuen hans står i Hong Kong - nettopp den byen som ble tapt på grunn av krigen han forsøkte å hindre."
     },
     {
       "type": "component",
@@ -167,15 +167,15 @@
       "props": {
         "questions": [
           {
-            "question": "Hvorfor begynte Storbritannia a selge opium til Kina?",
+            "question": "Hvorfor begynte Storbritannia å selge opium til Kina?",
             "options": [
-              "For a hjelpe kinesiske bonder med a dyrke nye avlinger",
-              "For a tjene penger til a betale for kinesisk te, silke og keramikk",
-              "Fordi kineserne selv ba om a fa kjope opium",
-              "For a straffe Kina for a nekte europeere adgang"
+              "For å hjelpe kinesiske bønder med å dyrke nye avlinger",
+              "For å tjene penger til å betale for kinesisk te, silke og keramikk",
+              "Fordi kineserne selv ba om å få kjøpe opium",
+              "For å straffe Kina for å nekte europeere adgang"
             ],
             "answer": 1,
-            "explanation": "England brukte enorme summer pa kinesiske varer som te, silke og porselen, men Kina ville ikke kjope europeiske varer. Losningen ble a selge opium fra India til Kina for a fa penger til a betale for de kinesiske varene."
+            "explanation": "England brukte enorme summer på kinesiske varer som te, silke og porselen, men Kina ville ikke kjøpe europeiske varer. Løsningen ble å selge opium fra India til Kina for å få penger til å betale for de kinesiske varene."
           },
           {
             "question": "Hva gjorde Lin Zexu med det britiske opiumet i Guangzhou i 1839?",
@@ -186,29 +186,29 @@
               "Han lagret det i keiserens magasiner"
             ],
             "answer": 2,
-            "explanation": "Lin Zexu konfiskerte alt det britiske opiumet i Guangzhou-havnen - over 1000 tonn - og fikk det destruert. Det tok 23 dager a brenne og lase opp opiumet i havet. Dette utloste den britiske militare responsen."
+            "explanation": "Lin Zexu konfiskerte alt det britiske opiumet i Guangzhou-havnen - over 1000 tonn - og fikk det destruert. Det tok 23 dager å brenne og løse opp opiumet i havet. Dette utløste den britiske militære responsen."
           },
           {
             "question": "Hva var ekstraterritorialitet, slik det ble brukt i Nanking-traktaten?",
             "options": [
-              "Retten til a bygge britiske festninger pa kinesisk jord",
-              "At britiske borgere i Kina sto utenfor kinesisk lov og bare kunne dommes av britiske domstoler",
-              "At Kina matte betale skatt til den britiske kronen",
-              "At britiske skip fritt kunne seile pa alle kinesiske elver"
+              "Retten til å bygge britiske festninger på kinesisk jord",
+              "At britiske borgere i Kina sto utenfor kinesisk lov og bare kunne dømmes av britiske domstoler",
+              "At Kina måtte betale skatt til den britiske kronen",
+              "At britiske skip fritt kunne seile på alle kinesiske elver"
             ],
             "answer": 1,
             "explanation": "Ekstraterritorialitet betydde at britiske borgere som begikk lovbrudd i Kina, ikke kunne straffes av kinesiske myndigheter. De sto utenfor kinesisk lov. Dette var en av de mest ydmykende bestemmelsene i traktaten."
           },
           {
-            "question": "Hva mener kineserne med begrepet 'de 100 ydmykelsenes ar'?",
+            "question": "Hva mener kineserne med begrepet 'de 100 ydmykelsenes år'?",
             "options": [
               "Perioden da Kina herjet og ydmyket sine naboer i Asia",
-              "De 100 arene da Kina bygde opp sin marine",
+              "De 100 årene da Kina bygde opp sin marine",
               "Perioden fra 1839 til 1949 da Kina ble presset og ydmyket av fremmede makter",
-              "De 100 arene da kinesere matte betale skatt til Europa"
+              "De 100 årene da kinesere måtte betale skatt til Europa"
             ],
             "answer": 2,
-            "explanation": "De 100 ydmykelsenes ar refererer til perioden fra opiumskrigene i 1839 til kommunistenes seier i 1949. I denne perioden mistet Kina territorier og suverenitet til Storbritannia, Frankrike, Japan og Russland gjennom en rekke ulikeverdige traktater."
+            "explanation": "De 100 ydmykelsenes år refererer til perioden fra opiumskrigene i 1839 til kommunistenes seier i 1949. I denne perioden mistet Kina territorier og suverenitet til Storbritannia, Frankrike, Japan og Russland gjennom en rekke ulikeverdige traktater."
           }
         ]
       }

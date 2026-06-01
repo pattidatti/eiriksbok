@@ -7,28 +7,28 @@
     "readTime": "9 min lesning",
     "heroImage": "/images/jordbruk-og-sivilisasjoner/kina-hero.webp",
     "details": [
-        "Den gule elven (Huang He) ble både livgiver og «Kinas sorg» — den fôret avlingene, men flommet over hundrevis av ganger.",
+        "Den gule elven (Huang He) ble både livgiver og «Kinas sorg» - den fôret avlingene, men flommet over hundrevis av ganger.",
         "Kineserne fant opp silke, papir, kompass og krutt lenge før Europa kjente til dem.",
-        "Ideen om «Himmelens mandat» forklarte hvorfor et dynasti reiste seg — og hvorfor det måtte falle."
+        "Ideen om «Himmelens mandat» forklarte hvorfor et dynasti reiste seg - og hvorfor det måtte falle."
     ],
     "content": [
         {
             "type": "text",
-            "content": "En jente på rundt fjorten år står på en åskam og ser ned på en bred, gulgrå elv. Hun heter Mei, og året er rundt 2500 fvt. Elven nedenfor er Huang He — Den gule elven. Den har fått navnet sitt fra det fine støvet som farger vannet gult hele veien til havet. Mei og familien dyrker hirse i den fruktbare jorda elven har lagt igjen. Men i fjor steg vannet høyere enn noen kunne huske. Halve landsbyen forsvant under leiren. Elven gir og elven tar. Det er hele Kinas historie i ett bilde."
+            "content": "En jente på rundt fjorten år står på en åskam og ser ned på en bred, gulgrå elv. Hun heter Mei, og året er rundt 2500 fvt. Elven nedenfor er Huang He - Den gule elven. Den har fått navnet sitt fra det fine støvet som farger vannet gult hele veien til havet. Mei og familien dyrker hirse i den fruktbare jorda elven har lagt igjen. Men i fjor steg vannet høyere enn noen kunne huske. Halve landsbyen forsvant under leiren. Elven gir og elven tar. Det er hele Kinas historie i ett bilde."
         },
         {
             "type": "image",
             "src": "/images/jordbruk-og-sivilisasjoner/kina-hero.webp",
             "alt": "Tenåringsjente i enkle klær ser ut over bred gulgrå elv i morgenlys, terrassemarker på åssidene",
-            "caption": "Den gule elven fikk navnet sitt fra den fine, gule jorda — løss — som vannet drar med seg fra åssidene."
+            "caption": "Den gule elven fikk navnet sitt fra den fine, gule jorda - løss - som vannet drar med seg fra åssidene."
         },
         {
             "type": "header",
-            "text": "Den gule elven — livets og dødens elv"
+            "text": "Den gule elven - livets og dødens elv"
         },
         {
             "type": "text",
-            "content": "Huang He renner over 5400 kilometer gjennom Nord-Kina. På åssidene rundt elven ligger et tykt lag med løss — et lett, gult støv som vinden har båret med seg fra ørkenene i nord. Når regnet kommer, vasker det løss ned i elven. Det er derfor vannet er gult. Den samme jorda er utrolig fruktbar, og det er nettopp her, langs Huang He, at de første kinesiske bøndene begynte å dyrke hirse for rundt 7000 år siden."
+            "content": "Huang He renner over 5400 kilometer gjennom Nord-Kina. På åssidene rundt elven ligger et tykt lag med løss - et lett, gult støv som vinden har båret med seg fra ørkenene i nord. Når regnet kommer, vasker det løss ned i elven. Det er derfor vannet er gult. Den samme jorda er utrolig fruktbar, og det er nettopp her, langs Huang He, at de første kinesiske bøndene begynte å dyrke hirse for rundt 7000 år siden."
         },
         {
             "type": "text",
@@ -56,17 +56,17 @@
         },
         {
             "type": "header",
-            "text": "Himmelens mandat — den kinesiske oppfinnelsen"
+            "text": "Himmelens mandat - den kinesiske oppfinnelsen"
         },
         {
             "type": "text",
-            "content": "Zhou-kongene trengte å forklare hvorfor det var greit at de hadde tatt makten fra Shang. Forklaringen de fant opp ble en av de viktigste ideene i hele Kinas historie. De kalte den «Himmelens mandat». Tanken er enkel: himmelen gir en utvalgt mann retten til å herske, men bare så lenge han hersker rettferdig. Hvis keiseren blir grådig eller dum, hvis avlingene mislykkes, hvis elven flommer over, hvis nomader bryter igjennom murene — da har himmelen trukket tilbake mandatet. Da har folket lov til å gjøre opprør. Den som lykkes med opprøret, beviser at han har det nye mandatet. Slik gjentar mønsteret seg gjennom hele Kinas historie."
+            "content": "Zhou-kongene trengte å forklare hvorfor det var greit at de hadde tatt makten fra Shang. Forklaringen de fant opp ble en av de viktigste ideene i hele Kinas historie. De kalte den «Himmelens mandat». Tanken er enkel: himmelen gir en utvalgt mann retten til å herske, men bare så lenge han hersker rettferdig. Hvis keiseren blir grådig eller dum, hvis avlingene mislykkes, hvis elven flommer over, hvis nomader bryter igjennom murene - da har himmelen trukket tilbake mandatet. Da har folket lov til å gjøre opprør. Den som lykkes med opprøret, beviser at han har det nye mandatet. Slik gjentar mønsteret seg gjennom hele Kinas historie."
         },
         {
             "type": "component",
             "name": "HimmelensMandat",
             "props": {
-                "title": "Himmelens mandat — prøv selv"
+                "title": "Himmelens mandat - prøv selv"
             }
         },
         {
@@ -75,13 +75,13 @@
         },
         {
             "type": "text",
-            "content": "I 221 fvt skjedde noe ingen hadde sett før. Kongen av en liten stat i vest, som het Qin, beseiret alle de andre statene og samlet Kina til ett rike. Han tok seg et helt nytt navn: Qin Shi Huangdi — «Den første keiseren av Qin». Han er en av de mest brutale og mest betydningsfulle herskerne verden har sett. Han brente bøker han ikke likte. Han henrettet lærde som var uenige med ham. Men han bygde også Den store muren, han satte i gang arbeidet med terrakottahæren, og han laget ett skriftsystem, én pengeenhet og én lov som gjaldt over hele riket. Da han døde, viste det seg at folket hadde fått nok. Bønder gjorde opprør, og bare fire år senere falt Qin-dynastiet."
+            "content": "I 221 fvt skjedde noe ingen hadde sett før. Kongen av en liten stat i vest, som het Qin, beseiret alle de andre statene og samlet Kina til ett rike. Han tok seg et helt nytt navn: Qin Shi Huangdi - «Den første keiseren av Qin». Han er en av de mest brutale og mest betydningsfulle herskerne verden har sett. Han brente bøker han ikke likte. Han henrettet lærde som var uenige med ham. Men han bygde også Den store muren, han satte i gang arbeidet med terrakottahæren, og han laget ett skriftsystem, én pengeenhet og én lov som gjaldt over hele riket. Da han døde, viste det seg at folket hadde fått nok. Bønder gjorde opprør, og bare fire år senere falt Qin-dynastiet."
         },
         {
             "type": "image",
             "src": "/images/jordbruk-og-sivilisasjoner/kina-01.webp",
             "alt": "Rekker av terrakottakrigere i en mørk grav, sett ovenfra i støvete lys",
-            "caption": "Qin Shi Huangdi tok 700 000 arbeidere med seg i graven — eller rettere sagt, han fikk dem til å forme leire-soldater som skulle bevokte ham i evigheten."
+            "caption": "Qin Shi Huangdi tok 700 000 arbeidere med seg i graven - eller rettere sagt, han fikk dem til å forme leire-soldater som skulle bevokte ham i evigheten."
         },
         {
             "type": "header",
@@ -97,7 +97,7 @@
         },
         {
             "type": "text",
-            "content": "Det er vanlig å tenke på Europa som verdens oppfinneverksted, men i mange hundre år var det Kina som ledet an. Papir ble oppfunnet i Han-Kina rundt år 100 evt — over tusen år før det kom til Europa. Den magnetiske kompassen ble brukt av kinesiske sjømenn lenge før Columbus seilte vestover. Krutt ble laget av kinesiske alkymister som lette etter en drikk for evig liv. Og porselen — det vi i dag kaller «kina» eller «china» på engelsk — var så fint og hardt at europeiske konger ga formuer for det. Hver av disse oppfinnelsene endret hele verden da de spredte seg vestover."
+            "content": "Det er vanlig å tenke på Europa som verdens oppfinneverksted, men i mange hundre år var det Kina som ledet an. Papir ble oppfunnet i Han-Kina rundt år 100 evt - over tusen år før det kom til Europa. Den magnetiske kompassen ble brukt av kinesiske sjømenn lenge før Columbus seilte vestover. Krutt ble laget av kinesiske alkymister som lette etter en drikk for evig liv. Og porselen - det vi i dag kaller «kina» eller «china» på engelsk - var så fint og hardt at europeiske konger ga formuer for det. Hver av disse oppfinnelsene endret hele verden da de spredte seg vestover."
         },
         {
             "type": "image",
@@ -111,7 +111,7 @@
         },
         {
             "type": "text",
-            "content": "Han-dynastiet falt rundt år 220 evt, ødelagt av korrupsjon, bondeopprør og innfall fra nomader i nord. Etter Han fulgte nye dynastier — Sui, Tang, Song, Yuan, Ming, Qing. Hver gang gjentok mønsteret seg: et dynasti reiste seg, regjerte i flere hundre år, ble svakt og korrupt, mistet himmelens mandat og falt. Det siste dynastiet, Qing, falt så sent som i 1912. Til sammen er Kina den eldste sammenhengende sivilisasjonen i verden — fortsatt skriver de med tegn som har slektninger helt tilbake til orakelbeinene i Shang."
+            "content": "Han-dynastiet falt rundt år 220 evt, ødelagt av korrupsjon, bondeopprør og innfall fra nomader i nord. Etter Han fulgte nye dynastier - Sui, Tang, Song, Yuan, Ming, Qing. Hver gang gjentok mønsteret seg: et dynasti reiste seg, regjerte i flere hundre år, ble svakt og korrupt, mistet himmelens mandat og falt. Det siste dynastiet, Qing, falt så sent som i 1912. Til sammen er Kina den eldste sammenhengende sivilisasjonen i verden - fortsatt skriver de med tegn som har slektninger helt tilbake til orakelbeinene i Shang."
         },
         {
             "type": "component",
@@ -133,7 +133,7 @@
                         "options": [
                             "Et lovverk som forbød religion",
                             "En liste over hvilke fjell som er hellige",
-                            "Ideen om at himmelen gir keiseren retten til å herske — men kan ta den bort igjen",
+                            "Ideen om at himmelen gir keiseren retten til å herske - men kan ta den bort igjen",
                             "Et brev keiseren sendte til Roma"
                         ],
                         "correctIndex": 2
