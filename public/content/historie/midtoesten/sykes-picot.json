@@ -5,7 +5,7 @@
   "year": "1916-1923",
   "category": "Midtøsten",
   "readTime": "9 min lesning",
-  "heroImage": "/images/placeholder.webp",
+  "heroImage": "/images/midtoesten/sykes-picot-hero.webp",
   "details": [
     "Sykes-Picot-avtalen 1916 var en hemmelig britisk-fransk avtale om å dele Det osmanske rikets arabiske provinser.",
     "Grensene ble trukket med linjal uten hensyn til hvilke stammer, religioner og folkegrupper som bodde der.",
@@ -129,17 +129,32 @@
             "id": "start",
             "text": "Tre delegasjoner vil møte deg. Den arabiske nasjonalistlederen Faisal krever at løftene fra Husain-McMahon-brevene holdes og at araberne far én stor arabisk stat. Den sionistiske lederen Chaim Weizmann ber om at Balfour-erklæringen bekreftes og at jødene far et hjemland i Palestina. Den franske diplomaten Picot minner deg om den hemmelige avtalen - Frankrike har krav pa Syria. Hvem møter du først?",
             "options": [
-              { "label": "Møt den arabiske delegasjonen", "nextId": "araberne" },
-              { "label": "Møt den sionistiske delegasjonen", "nextId": "sionistene" },
-              { "label": "Møt den franske delegasjonen", "nextId": "frankrike" }
+              {
+                "label": "Møt den arabiske delegasjonen",
+                "nextId": "araberne"
+              },
+              {
+                "label": "Møt den sionistiske delegasjonen",
+                "nextId": "sionistene"
+              },
+              {
+                "label": "Møt den franske delegasjonen",
+                "nextId": "frankrike"
+              }
             ]
           },
           {
             "id": "araberne",
             "text": "Faisal er tydelig: 'Dere lovet oss frihet. Vi kjempet mot osmanerne og tapte menn og blod. En arabisk stat fra Syria til Arabia - det er hva vi ble lovet.' Du vet at Sykes-Picot-avtalen bryter dette løftet direkte. Hva gjør du?",
             "options": [
-              { "label": "Fortell ham sannheten om Sykes-Picot", "nextId": "araberne_sannhet" },
-              { "label": "Unngå svaret og si at forhandlingene pagar", "nextId": "araberne_unnvike" }
+              {
+                "label": "Fortell ham sannheten om Sykes-Picot",
+                "nextId": "araberne_sannhet"
+              },
+              {
+                "label": "Unngå svaret og si at forhandlingene pagar",
+                "nextId": "araberne_unnvike"
+              }
             ]
           },
           {
@@ -154,8 +169,14 @@
             "id": "sionistene",
             "text": "Weizmann argumenterer rolig og bestemt: 'Balfour-erklæringen er et britisk statsløfte. Jødene har ikke hatt et hjemland siden romertiden. Palestina er vart historiske hjemland.' Men hundretusener av arabere bor allerede i Palestina. Hva sier du?",
             "options": [
-              { "label": "Bekreft Balfour-erklæringen fullt ut", "nextId": "sionistene_ja" },
-              { "label": "Si at arabernes rettigheter ogsa ma respekteres", "nextId": "sionistene_kavet" }
+              {
+                "label": "Bekreft Balfour-erklæringen fullt ut",
+                "nextId": "sionistene_ja"
+              },
+              {
+                "label": "Si at arabernes rettigheter ogsa ma respekteres",
+                "nextId": "sionistene_kavet"
+              }
             ]
           },
           {
@@ -170,8 +191,14 @@
             "id": "frankrike",
             "text": "Picot er iskald: 'Sykes-Picot er undertegnet. Frankrike har krav pa Syria og Libanon. Dette er ikke forhandlingsbart.' Faisal har allerede satt seg selv opp som leder i Damaskus. Hva anbefaler du din regjering?",
             "options": [
-              { "label": "La Faisal beholde Syria - bryt avtalen med Frankrike", "nextId": "frankrike_nei" },
-              { "label": "Hold Sykes-Picot - Frankrike far Syria", "nextId": "frankrike_ja" }
+              {
+                "label": "La Faisal beholde Syria - bryt avtalen med Frankrike",
+                "nextId": "frankrike_nei"
+              },
+              {
+                "label": "Hold Sykes-Picot - Frankrike far Syria",
+                "nextId": "frankrike_ja"
+              }
             ]
           },
           {

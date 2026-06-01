@@ -61,12 +61,30 @@
       "props": {
         "compact": true,
         "events": [
-          { "year": 1980, "description": "Iran-Irak-krigen starter. USA støtter Saddam." },
-          { "year": 1988, "description": "Iran-Irak-krigen slutter. Irak er nesten konkurs." },
-          { "year": 1990, "description": "Irak invaderer Kuwait 2. august. FN krever tilbaketrekning." },
-          { "year": 1991, "description": "Operasjon Desert Storm: 38 dagers luftkrig, 100 timers bakkekrig. Kuwait frigjort." },
-          { "year": 2003, "description": "USA invaderer Irak. Saddam Hussein fanges og henrettes i 2006." },
-          { "year": 2011, "description": "Siste amerikanske soldater forlater Irak." }
+          {
+            "year": 1980,
+            "description": "Iran-Irak-krigen starter. USA støtter Saddam."
+          },
+          {
+            "year": 1988,
+            "description": "Iran-Irak-krigen slutter. Irak er nesten konkurs."
+          },
+          {
+            "year": 1990,
+            "description": "Irak invaderer Kuwait 2. august. FN krever tilbaketrekning."
+          },
+          {
+            "year": 1991,
+            "description": "Operasjon Desert Storm: 38 dagers luftkrig, 100 timers bakkekrig. Kuwait frigjort."
+          },
+          {
+            "year": 2003,
+            "description": "USA invaderer Irak. Saddam Hussein fanges og henrettes i 2006."
+          },
+          {
+            "year": 2011,
+            "description": "Siste amerikanske soldater forlater Irak."
+          }
         ]
       }
     },

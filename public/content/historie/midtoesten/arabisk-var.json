@@ -139,12 +139,30 @@
       "props": {
         "compact": true,
         "events": [
-          { "year": 2010, "description": "Mohamed Bouazizi setter fyr på seg selv i Tunisia, 17. desember." },
-          { "year": 2011, "description": "Ben Ali flykter fra Tunisia (januar). Mubarak gar av i Egypt (februar). Borgerkrig bryter ut i Libya og Syria." },
-          { "year": 2011, "description": "Gaddafi drept av opprørere i oktober. NATO trekker seg ut av Libya." },
-          { "year": 2013, "description": "Militaerkupp i Egypt. General el-Sisi tar makten." },
-          { "year": 2014, "description": "IS erklarer kalifat i Syria og Irak." },
-          { "year": 2015, "description": "Flyktningkrise i Europa - over en million ankommer via Middelhavet." }
+          {
+            "year": 2010,
+            "description": "Mohamed Bouazizi setter fyr på seg selv i Tunisia, 17. desember."
+          },
+          {
+            "year": 2011,
+            "description": "Ben Ali flykter fra Tunisia (januar). Mubarak gar av i Egypt (februar). Borgerkrig bryter ut i Libya og Syria."
+          },
+          {
+            "year": 2011,
+            "description": "Gaddafi drept av opprørere i oktober. NATO trekker seg ut av Libya."
+          },
+          {
+            "year": 2013,
+            "description": "Militaerkupp i Egypt. General el-Sisi tar makten."
+          },
+          {
+            "year": 2014,
+            "description": "IS erklarer kalifat i Syria og Irak."
+          },
+          {
+            "year": 2015,
+            "description": "Flyktningkrise i Europa - over en million ankommer via Middelhavet."
+          }
         ]
       }
     },

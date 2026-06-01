@@ -73,13 +73,34 @@
       "props": {
         "compact": true,
         "events": [
-          { "year": 1917, "description": "Balfour-erklæringen: Storbritannia lover støtte til jødisk hjemsted i Palestina" },
-          { "year": 1947, "description": "FN vedtar delingsplan for Palestina" },
-          { "year": 1948, "description": "Israel erklærer uavhengighet. Nakba: 700 000 palestinere på flukt" },
-          { "year": 1967, "description": "6-dagerskrigen: Israel tar Vestbredden, Gaza, Sinai og Golanhøydene" },
-          { "year": 1993, "description": "Oslo-avtalen signeres. Rabin og Arafat håndhilser på hverandre" },
-          { "year": 1995, "description": "Yitzhak Rabin drepes av israelsk ekstremist" },
-          { "year": 2006, "description": "Hamas vinner valget i Gaza. Konflikten mellom Hamas og Israel eskalerer" }
+          {
+            "year": 1917,
+            "description": "Balfour-erklæringen: Storbritannia lover støtte til jødisk hjemsted i Palestina"
+          },
+          {
+            "year": 1947,
+            "description": "FN vedtar delingsplan for Palestina"
+          },
+          {
+            "year": 1948,
+            "description": "Israel erklærer uavhengighet. Nakba: 700 000 palestinere på flukt"
+          },
+          {
+            "year": 1967,
+            "description": "6-dagerskrigen: Israel tar Vestbredden, Gaza, Sinai og Golanhøydene"
+          },
+          {
+            "year": 1993,
+            "description": "Oslo-avtalen signeres. Rabin og Arafat håndhilser på hverandre"
+          },
+          {
+            "year": 1995,
+            "description": "Yitzhak Rabin drepes av israelsk ekstremist"
+          },
+          {
+            "year": 2006,
+            "description": "Hamas vinner valget i Gaza. Konflikten mellom Hamas og Israel eskalerer"
+          }
         ]
       }
     },

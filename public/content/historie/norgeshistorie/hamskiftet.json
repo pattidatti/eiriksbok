@@ -154,6 +154,13 @@
             }
         },
         {
+            "type": "component",
+            "name": "MicroGame",
+            "props": {
+                "gameId": "hamskiftet-3d"
+            }
+        },
+        {
             "type": "header",
             "level": 2,
             "content": "Arbeiderklassen vokser frem"

@@ -92,6 +92,24 @@
       ]
     },
     {
+      "id": "norge-for-vikingene-sub-0",
+      "title": "Pionertiden",
+      "description": "Komsakulturen i Finnmark.",
+      "startDate": -9300,
+      "endDate": null,
+      "displayDate": "9300 fvt.",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "norgeshistorie",
+      "link": "/historie/norgeshistorie/norge-for-vikingene",
+      "tags": [
+        "historie",
+        "norge",
+        "steinalder",
+        "jernalder"
+      ]
+    },
+    {
       "id": "kina",
       "title": "Det gamle Kina: Sivilisasjonen ved Den gule elven",
       "description": "Den fjerde elvedalssivilisasjonen — silke, papir og ideen om Himmelens mandat.",
@@ -111,6 +129,24 @@
         "han",
         "silkeveien",
         "sivilisasjon"
+      ]
+    },
+    {
+      "id": "norge-for-vikingene-sub-1",
+      "title": "Jordbruksrevolusjonen",
+      "description": "Jordbruket starter i Sør-Norge.",
+      "startDate": -4000,
+      "endDate": null,
+      "displayDate": "4000 fvt.",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "norgeshistorie",
+      "link": "/historie/norgeshistorie/norge-for-vikingene",
+      "tags": [
+        "historie",
+        "norge",
+        "steinalder",
+        "jernalder"
       ]
     },
     {
@@ -190,6 +226,60 @@
       ]
     },
     {
+      "id": "norge-for-vikingene-sub-2",
+      "title": "Stridsøksfolket",
+      "description": "Indoeuropeisk migrasjon og nye skikker.",
+      "startDate": -2500,
+      "endDate": null,
+      "displayDate": "2500 fvt.",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "norgeshistorie",
+      "link": "/historie/norgeshistorie/norge-for-vikingene",
+      "tags": [
+        "historie",
+        "norge",
+        "steinalder",
+        "jernalder"
+      ]
+    },
+    {
+      "id": "norge-for-vikingene-sub-3",
+      "title": "Bondesamfunnet",
+      "description": "Jordbruket blir hovednæring i Sør-Norge.",
+      "startDate": -2400,
+      "endDate": null,
+      "displayDate": "2400 fvt.",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "norgeshistorie",
+      "link": "/historie/norgeshistorie/norge-for-vikingene",
+      "tags": [
+        "historie",
+        "norge",
+        "steinalder",
+        "jernalder"
+      ]
+    },
+    {
+      "id": "norge-for-vikingene-sub-4",
+      "title": "Bronsealderen",
+      "description": "Starten på bronsealderen i Norge.",
+      "startDate": -1700,
+      "endDate": null,
+      "displayDate": "1700 fvt.",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "norgeshistorie",
+      "link": "/historie/norgeshistorie/norge-for-vikingene",
+      "tags": [
+        "historie",
+        "norge",
+        "steinalder",
+        "jernalder"
+      ]
+    },
+    {
       "id": "frashokereti",
       "title": "Frashokereti: Zoroastrismens dommedag",
       "description": "Den eldste systematiske forestillingen om en lineær verdensende der det gode seirer over det onde.",
@@ -238,6 +328,24 @@
         "historie",
         "athen",
         "demokrati"
+      ]
+    },
+    {
+      "id": "norge-for-vikingene-sub-5",
+      "title": "Jernalderen",
+      "description": "Starten på jernalderen i Norge.",
+      "startDate": -500,
+      "endDate": null,
+      "displayDate": "500 fvt.",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "norgeshistorie",
+      "link": "/historie/norgeshistorie/norge-for-vikingene",
+      "tags": [
+        "historie",
+        "norge",
+        "steinalder",
+        "jernalder"
       ]
     },
     {
@@ -411,6 +519,24 @@
         "roma",
         "augustus",
         "keiser"
+      ]
+    },
+    {
+      "id": "norge-for-vikingene-sub-6",
+      "title": "Romersk jernalder",
+      "description": "Starten på romersk jernalder.",
+      "startDate": 0,
+      "endDate": null,
+      "displayDate": "0",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "norgeshistorie",
+      "link": "/historie/norgeshistorie/norge-for-vikingene",
+      "tags": [
+        "historie",
+        "norge",
+        "steinalder",
+        "jernalder"
       ]
     },
     {
@@ -630,6 +756,24 @@
       ]
     },
     {
+      "id": "norge-for-vikingene-sub-7",
+      "title": "Folkevandringstiden",
+      "description": "Starten på folkevandringstiden.",
+      "startDate": 400,
+      "endDate": null,
+      "displayDate": "400 evt.",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "norgeshistorie",
+      "link": "/historie/norgeshistorie/norge-for-vikingene",
+      "tags": [
+        "historie",
+        "norge",
+        "steinalder",
+        "jernalder"
+      ]
+    },
+    {
       "id": "augustin-gudsstaten",
       "title": "Augustin: Om Gudsstaten",
       "description": "Kristendommens forsvar mot Romas fall.",
@@ -773,6 +917,24 @@
       ]
     },
     {
+      "id": "norge-for-vikingene-sub-8",
+      "title": "Fimbulvinteren",
+      "description": "Klimasjokket som rammet Norden.",
+      "startDate": 536,
+      "endDate": null,
+      "displayDate": "536 evt.",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "norgeshistorie",
+      "link": "/historie/norgeshistorie/norge-for-vikingene",
+      "tags": [
+        "historie",
+        "norge",
+        "steinalder",
+        "jernalder"
+      ]
+    },
+    {
       "id": "klimakrisen-536",
       "title": "536 - Året da solen forsvant",
       "description": "Klimakrisen som kan være virkelighetens Fimbulvinter.",
@@ -780,6 +942,118 @@
       "endDate": null,
       "displayDate": "536",
       "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "norgeshistorie",
+      "link": "/historie/norgeshistorie/klimakrisen-536",
+      "tags": [
+        "historie",
+        "norge",
+        "klima",
+        "folkevandring",
+        "fimbulvinter"
+      ]
+    },
+    {
+      "id": "klimakrisen-536-sub-0",
+      "title": "Solen forsvinner",
+      "description": "Et mystisk tåketeppe dekker jorden og blokkerer sollyset.",
+      "startDate": 536,
+      "endDate": null,
+      "displayDate": "536",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "norgeshistorie",
+      "link": "/historie/norgeshistorie/klimakrisen-536",
+      "tags": [
+        "historie",
+        "norge",
+        "klima",
+        "folkevandring",
+        "fimbulvinter"
+      ]
+    },
+    {
+      "id": "klimakrisen-536-sub-1",
+      "title": "Nytt vulkanutbrudd",
+      "description": "Enda et stort vulkanutbrudd forverrer nedkjølingen.",
+      "startDate": 540,
+      "endDate": null,
+      "displayDate": "540",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "norgeshistorie",
+      "link": "/historie/norgeshistorie/klimakrisen-536",
+      "tags": [
+        "historie",
+        "norge",
+        "klima",
+        "folkevandring",
+        "fimbulvinter"
+      ]
+    },
+    {
+      "id": "norge-for-vikingene-sub-9",
+      "title": "Justinianske pest",
+      "description": "Pesten når Europa og Norge.",
+      "startDate": 541,
+      "endDate": null,
+      "displayDate": "541 evt.",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "norgeshistorie",
+      "link": "/historie/norgeshistorie/norge-for-vikingene",
+      "tags": [
+        "historie",
+        "norge",
+        "steinalder",
+        "jernalder"
+      ]
+    },
+    {
+      "id": "klimakrisen-536-sub-2",
+      "title": "Justinianerpesten",
+      "description": "Den første bølgen av byllepest rammer Middelhavsområdet.",
+      "startDate": 541,
+      "endDate": null,
+      "displayDate": "541",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "norgeshistorie",
+      "link": "/historie/norgeshistorie/klimakrisen-536",
+      "tags": [
+        "historie",
+        "norge",
+        "klima",
+        "folkevandring",
+        "fimbulvinter"
+      ]
+    },
+    {
+      "id": "norge-for-vikingene-sub-10",
+      "title": "Slutt på gullalderen",
+      "description": "Bygdeborgene går ut av bruk.",
+      "startDate": 550,
+      "endDate": null,
+      "displayDate": "550 evt.",
+      "type": "sub-event",
+      "subjectId": "historie",
+      "topicId": "norgeshistorie",
+      "link": "/historie/norgeshistorie/norge-for-vikingene",
+      "tags": [
+        "historie",
+        "norge",
+        "steinalder",
+        "jernalder"
+      ]
+    },
+    {
+      "id": "klimakrisen-536-sub-3",
+      "title": "Langobardene invaderer",
+      "description": "Langobardene inntar Italia, muligens drevet av uår og sult.",
+      "startDate": 568,
+      "endDate": null,
+      "displayDate": "568",
+      "type": "sub-event",
       "subjectId": "historie",
       "topicId": "norgeshistorie",
       "link": "/historie/norgeshistorie/klimakrisen-536",

@@ -57,14 +57,38 @@
       "props": {
         "compact": true,
         "events": [
-          { "year": 1953, "description": "CIA og britisk etterretning styrter Mosaddegh i Iran. Sjahen tar makten." },
-          { "year": 1956, "description": "Suez-krisen: Nasser nasjonaliserer kanalen. USA tvinger Storbritannia og Frankrike tilbake." },
-          { "year": 1967, "description": "Seksdagerskrigen: Israel besetter Vestbredden, Gaza og Sinai." },
-          { "year": 1973, "description": "Yom Kippur-krigen. USA redder Israel med massivt militert utstyr." },
-          { "year": 1979, "description": "Den iranske revolusjonen styrter sjahen. Sovjet invaderer Afghanistan." },
-          { "year": 1980, "description": "Iran-Irak-krigen begynner. USA støtter Irak." },
-          { "year": 1988, "description": "Iran-Irak-krigen slutter etter åtte år og kanskje en million døde." },
-          { "year": 1989, "description": "Sovjet trekker seg ut av Afghanistan. Mujahedin-nettverkene spres videre." }
+          {
+            "year": 1953,
+            "description": "CIA og britisk etterretning styrter Mosaddegh i Iran. Sjahen tar makten."
+          },
+          {
+            "year": 1956,
+            "description": "Suez-krisen: Nasser nasjonaliserer kanalen. USA tvinger Storbritannia og Frankrike tilbake."
+          },
+          {
+            "year": 1967,
+            "description": "Seksdagerskrigen: Israel besetter Vestbredden, Gaza og Sinai."
+          },
+          {
+            "year": 1973,
+            "description": "Yom Kippur-krigen. USA redder Israel med massivt militert utstyr."
+          },
+          {
+            "year": 1979,
+            "description": "Den iranske revolusjonen styrter sjahen. Sovjet invaderer Afghanistan."
+          },
+          {
+            "year": 1980,
+            "description": "Iran-Irak-krigen begynner. USA støtter Irak."
+          },
+          {
+            "year": 1988,
+            "description": "Iran-Irak-krigen slutter etter åtte år og kanskje en million døde."
+          },
+          {
+            "year": 1989,
+            "description": "Sovjet trekker seg ut av Afghanistan. Mujahedin-nettverkene spres videre."
+          }
         ]
       }
     },

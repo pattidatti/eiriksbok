@@ -5,7 +5,7 @@
   "year": "1914-1923",
   "category": "Det osmanske riket",
   "readTime": "9 min lesning",
-  "heroImage": "/images/placeholder.webp",
+  "heroImage": "/images/osmanske-riket/sammenbruddet-hero.webp",
   "details": [
     "Riket gikk inn i første verdenskrig på Tysklands side og kjempet blant annet det blodige slaget ved Gallipoli.",
     "Under krigen ble over en million armenere drept i det som regnes som et folkemord.",
@@ -41,11 +41,26 @@
       "props": {
         "compact": true,
         "events": [
-          { "year": 1914, "description": "Riket går inn i første verdenskrig på Tysklands side." },
-          { "year": 1915, "description": "Slaget ved Gallipoli. Osmanske styrker holder stredet, men tapene er enorme på begge sider." },
-          { "year": 1915, "description": "Folkemordet på armenerne begynner. Over en million mennesker mister livet." },
-          { "year": 1918, "description": "Krigen er tapt. Seierherrene okkuperer deler av riket, også Istanbul." },
-          { "year": 1923, "description": "Republikken Tyrkia opprettes, og Mustafa Kemal Atatürk blir landets første president." }
+          {
+            "year": 1914,
+            "description": "Riket går inn i første verdenskrig på Tysklands side."
+          },
+          {
+            "year": 1915,
+            "description": "Slaget ved Gallipoli. Osmanske styrker holder stredet, men tapene er enorme på begge sider."
+          },
+          {
+            "year": 1915,
+            "description": "Folkemordet på armenerne begynner. Over en million mennesker mister livet."
+          },
+          {
+            "year": 1918,
+            "description": "Krigen er tapt. Seierherrene okkuperer deler av riket, også Istanbul."
+          },
+          {
+            "year": 1923,
+            "description": "Republikken Tyrkia opprettes, og Mustafa Kemal Atatürk blir landets første president."
+          }
         ]
       }
     },

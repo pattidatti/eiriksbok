@@ -5,7 +5,7 @@
   "year": "570-750",
   "category": "Midtøsten",
   "readTime": "8 min lesning",
-  "heroImage": "/images/placeholder.webp",
+  "heroImage": "/images/midtoesten/islams-fodsel-hero.webp",
   "details": [
     "Muhammed ble født i Mekka rundt år 570 og mottok ifølge islam sine første åpenbaringer i år 610.",
     "På 100 år ekspanderte det islamske riket fra Arabia til Spania i vest og til Indus-elven i øst.",
@@ -53,12 +53,30 @@
       "props": {
         "compact": true,
         "events": [
-          { "year": 610, "description": "Muhammed mottar de første åpenbaringene i Hira-hulen nær Mekka." },
-          { "year": 622, "description": "Hijra: flukten fra Mekka til Medina. Islamsk kalender starter herfra." },
-          { "year": 630, "description": "Mekka inntas av Muhammed og muslimene. De fleste arabiske stammer konverterer." },
-          { "year": 632, "description": "Muhammed dør. Striden om etterfølgelsen begynner umiddelbart." },
-          { "year": 661, "description": "Ali ibn Abi Talib, Muhammeds fetter og svigersønn, drapes. Shia-islams martyrkirke starter." },
-          { "year": 711, "description": "Muslimske hærer krysser Gibraltarstredet og invaderer Spania." }
+          {
+            "year": 610,
+            "description": "Muhammed mottar de første åpenbaringene i Hira-hulen nær Mekka."
+          },
+          {
+            "year": 622,
+            "description": "Hijra: flukten fra Mekka til Medina. Islamsk kalender starter herfra."
+          },
+          {
+            "year": 630,
+            "description": "Mekka inntas av Muhammed og muslimene. De fleste arabiske stammer konverterer."
+          },
+          {
+            "year": 632,
+            "description": "Muhammed dør. Striden om etterfølgelsen begynner umiddelbart."
+          },
+          {
+            "year": 661,
+            "description": "Ali ibn Abi Talib, Muhammeds fetter og svigersønn, drapes. Shia-islams martyrkirke starter."
+          },
+          {
+            "year": 711,
+            "description": "Muslimske hærer krysser Gibraltarstredet og invaderer Spania."
+          }
         ]
       }
     },

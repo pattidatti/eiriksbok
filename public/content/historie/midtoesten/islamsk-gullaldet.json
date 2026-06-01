@@ -5,7 +5,7 @@
   "year": "750-1258",
   "category": "Midtøsten",
   "readTime": "8 min lesning",
-  "heroImage": "/images/placeholder.webp",
+  "heroImage": "/images/midtoesten/islamsk-gullaldet-hero.webp",
   "details": [
     "Bagdad under Abbasidene var trolig verdens største by med kanskje én million innbyggere rundt år 900.",
     "Muslimske lærde oversatte og videreformidlet gresk, persisk og indisk kunnskap til Europa.",
@@ -144,19 +144,34 @@
         "questions": [
           {
             "question": "Hva betyr Bayt al-Hikma på norsk?",
-            "options": ["Gullpalasset", "Visdomshuset", "Biblioteket i Kairo", "Kunnskapstårnet"],
+            "options": [
+              "Gullpalasset",
+              "Visdomshuset",
+              "Biblioteket i Kairo",
+              "Kunnskapstårnet"
+            ],
             "answer": 1,
             "explanation": "Bayt al-Hikma betyr Visdomshuset og var et oversettelsessenter og akademi i Bagdad der lærde fra hele verden arbeidet."
           },
           {
             "question": "Hvilket ord er oppkalt etter matematikeren al-Khwarizmi?",
-            "options": ["Algebra", "Algoritme", "Alkohol", "Admiral"],
+            "options": [
+              "Algebra",
+              "Algoritme",
+              "Alkohol",
+              "Admiral"
+            ],
             "answer": 1,
             "explanation": "Algoritme kommer fra det latiniserte navnet Algoritmi. Al-Khwarizmi ga oss også algebra, fra tittelen på en av hans bøker."
           },
           {
             "question": "Hvem ødela Bagdad i 1258 og satte en slutt på gullaldet?",
-            "options": ["Korsfarerne", "Osmanene", "Mongolene", "Perserne"],
+            "options": [
+              "Korsfarerne",
+              "Osmanene",
+              "Mongolene",
+              "Perserne"
+            ],
             "answer": 2,
             "explanation": "Mongolene under Hulagu Khan beleiret og plyndret Bagdad i 1258. Bibliotekene ble ødelagt og abbasid-kalifen drept."
           },

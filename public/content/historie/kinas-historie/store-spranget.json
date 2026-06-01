@@ -5,7 +5,7 @@
   "year": "1958-1976",
   "category": "Kinas historie",
   "readTime": "9 min lesning",
-  "heroImage": "/images/placeholder.webp",
+  "heroImage": "/images/kinas-historie/store-spranget-hero.webp",
   "details": [
     "Det store spranget fremover (1958-62) forårsaket en hungersnød som drepte mellom 15 og 55 millioner mennesker.",
     "Under kulturrevolusjonen ble lærere, leger og intellektuelle sendt til omskoleirleirer på landsbygda.",
@@ -68,14 +68,38 @@
         "xAxisLabel": "År",
         "yAxisLabel": "Millioner tonn korn",
         "data": [
-          { "year": 1956, "value": 192 },
-          { "year": 1957, "value": 195 },
-          { "year": 1958, "value": 200 },
-          { "year": 1959, "value": 170 },
-          { "year": 1960, "value": 143 },
-          { "year": 1961, "value": 148 },
-          { "year": 1962, "value": 160 },
-          { "year": 1963, "value": 170 }
+          {
+            "year": 1956,
+            "value": 192
+          },
+          {
+            "year": 1957,
+            "value": 195
+          },
+          {
+            "year": 1958,
+            "value": 200
+          },
+          {
+            "year": 1959,
+            "value": 170
+          },
+          {
+            "year": 1960,
+            "value": 143
+          },
+          {
+            "year": 1961,
+            "value": 148
+          },
+          {
+            "year": 1962,
+            "value": 160
+          },
+          {
+            "year": 1963,
+            "value": 170
+          }
         ]
       }
     },

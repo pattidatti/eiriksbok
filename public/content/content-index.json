@@ -1,5 +1,5 @@
 {
-  "buildId": 1780311718092,
+  "buildId": 1780336547230,
   "contentMap": {
     "concept-adel": [
       "content/concepts/adel.json"
@@ -1530,17 +1530,17 @@
       "content/historie/norgeshistorie/alv-erlingsson/alv-erlingsson.json",
       "content/people/alv-erlingsson.json"
     ],
-    "norgeshistorie-hamskiftet": [
-      "content/historie/norgeshistorie/hamskiftet/artikkel.json"
+    "hamskiftet": [
+      "content/historie/norgeshistorie/hamskiftet.json"
     ],
-    "norgeshistorie-klimakrisen-536": [
-      "content/historie/norgeshistorie/klimakrisen-536/artikkel.json"
+    "klimakrisen-536": [
+      "content/historie/norgeshistorie/klimakrisen-536.json"
     ],
     "norgeshistorie-knut-alvsson": [
       "content/historie/norgeshistorie/knut-alvsson/artikkel.json"
     ],
-    "norgeshistorie-norge-for-vikingene": [
-      "content/historie/norgeshistorie/norge-for-vikingene/artikkel.json"
+    "norge-for-vikingene": [
+      "content/historie/norgeshistorie/norge-for-vikingene.json"
     ],
     "unionsopplosningen-1905": [
       "content/historie/norgeshistorie/unionsopplosningen-1905.json"
@@ -3778,10 +3778,10 @@
     "historie/midtoesten/sykes-picot": "content/historie/midtoesten/sykes-picot.json",
     "historie/norgeshistorie/22-juli-2011": "content/historie/norgeshistorie/22-juli-2011.json",
     "historie/norgeshistorie/alv-erlingsson/alv-erlingsson": "content/historie/norgeshistorie/alv-erlingsson/alv-erlingsson.json",
-    "historie/norgeshistorie/hamskiftet/hamskiftet": "content/historie/norgeshistorie/hamskiftet/artikkel.json",
-    "historie/norgeshistorie/klimakrisen-536/klimakrisen-536": "content/historie/norgeshistorie/klimakrisen-536/artikkel.json",
+    "historie/norgeshistorie/hamskiftet": "content/historie/norgeshistorie/hamskiftet.json",
+    "historie/norgeshistorie/klimakrisen-536": "content/historie/norgeshistorie/klimakrisen-536.json",
     "historie/norgeshistorie/knut-alvsson/knut-alvsson": "content/historie/norgeshistorie/knut-alvsson/artikkel.json",
-    "historie/norgeshistorie/norge-for-vikingene/norge-for-vikingene": "content/historie/norgeshistorie/norge-for-vikingene/artikkel.json",
+    "historie/norgeshistorie/norge-for-vikingene": "content/historie/norgeshistorie/norge-for-vikingene.json",
     "historie/norgeshistorie/unionsopplosningen-1905": "content/historie/norgeshistorie/unionsopplosningen-1905.json",
     "historie/osmanske-riket/forfallet": "content/historie/osmanske-riket/forfallet.json",
     "historie/osmanske-riket/handel-og-kultur": "content/historie/osmanske-riket/handel-og-kultur.json",

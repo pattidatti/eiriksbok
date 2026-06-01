@@ -5,7 +5,7 @@
   "year": "1911-1949",
   "category": "Kinas historie",
   "readTime": "9 min lesning",
-  "heroImage": "/images/placeholder.webp",
+  "heroImage": "/images/kinas-historie/borgerkrigen-hero.webp",
   "details": [
     "I 1911 ble det 2000 år gamle keisersystemet avviklet på under et år.",
     "Den lange marsjen (1934-35) var en flyktningstrekk på 10 000 kilometer som gjorde Mao til legende.",
@@ -160,7 +160,12 @@
         "questions": [
           {
             "question": "Hva het Kinas siste keiser, som abdiserte i 1912?",
-            "options": ["Yuan Shikai", "Sun Yat-sen", "Puyi", "Chiang Kai-shek"],
+            "options": [
+              "Yuan Shikai",
+              "Sun Yat-sen",
+              "Puyi",
+              "Chiang Kai-shek"
+            ],
             "answer": 2,
             "explanation": "Puyi var bare seks år gammel da han abdiserte. Han er kjent som Kinas siste keiser og levde senere et vanlig liv som borger i Folkerepublikken."
           },

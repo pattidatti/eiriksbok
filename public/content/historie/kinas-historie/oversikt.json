@@ -5,7 +5,7 @@
   "year": "2200 fvt - i dag",
   "category": "Kinas historie",
   "readTime": "8 min lesning",
-  "heroImage": "/images/placeholder.webp",
+  "heroImage": "/images/kinas-historie/oversikt-hero.webp",
   "details": [
     "Kina er en av verdens eldste sivilisasjoner, med en sammenhengende statshistorie på over 2000 år.",
     "Dynastisyklusen - rikets oppgang og fall - er nøkkelen til å forstå hele kinesisk historie.",
@@ -70,12 +70,30 @@
       "props": {
         "compact": true,
         "events": [
-          { "year": -221, "description": "Qin Shi Huang samler Kina til ett rike - det første keiserdømmet." },
-          { "year": 206, "description": "Han-dynastiet: 400 år med stabilitet, Silkeveien åpner." },
-          { "year": 618, "description": "Tang-dynastiet: Kinas gullalder - rikdom, kunst og handel." },
-          { "year": 1271, "description": "Mongol-dynastiet (Yuan) tar makten. Kublai Khan hersker over det meste av Asia." },
-          { "year": 1368, "description": "Ming-dynastiet bygger den store muren og sender flåte ut i verden." },
-          { "year": 1644, "description": "Qing-dynastiet (manchuerne) tar makten. Det varer til 1912." }
+          {
+            "year": -221,
+            "description": "Qin Shi Huang samler Kina til ett rike - det første keiserdømmet."
+          },
+          {
+            "year": 206,
+            "description": "Han-dynastiet: 400 år med stabilitet, Silkeveien åpner."
+          },
+          {
+            "year": 618,
+            "description": "Tang-dynastiet: Kinas gullalder - rikdom, kunst og handel."
+          },
+          {
+            "year": 1271,
+            "description": "Mongol-dynastiet (Yuan) tar makten. Kublai Khan hersker over det meste av Asia."
+          },
+          {
+            "year": 1368,
+            "description": "Ming-dynastiet bygger den store muren og sender flåte ut i verden."
+          },
+          {
+            "year": 1644,
+            "description": "Qing-dynastiet (manchuerne) tar makten. Det varer til 1912."
+          }
         ]
       }
     },

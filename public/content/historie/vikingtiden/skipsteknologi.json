@@ -31,6 +31,13 @@
         },
         {
             "type": "component",
+            "name": "MicroGame",
+            "props": {
+                "gameId": "vikingskip-3d"
+            }
+        },
+        {
+            "type": "component",
             "name": "FactBox",
             "props": {
                 "title": "Visste du dette?",
