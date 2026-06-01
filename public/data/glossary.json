@@ -102,6 +102,26 @@
     "type": "concept"
   },
   {
+    "term": "Den arabiske våren",
+    "aliases": [
+      "arabiske vårens",
+      "arabisk vår",
+      "arabiske opprørene"
+    ],
+    "definition": "Bølge av folkeopprør som feide gjennom den arabiske verden fra desember 2010. Startet da Mohamed Bouazizi, en tunisisk fruktselger, satte fyr på seg selv i protest mot korrupsjon. Innen ett år hadde regjeringene i Tunisia, Egypt, Libya og Jemen falt. I Syria endte det i borgerkrig.",
+    "type": "concept",
+    "subject": "historie",
+    "topic": "midtoesten",
+    "tags": [
+      "demokrati",
+      "revolusjon",
+      "tunisia",
+      "egypt",
+      "syria"
+    ],
+    "link": "/historie/midtoesten/arabisk-var"
+  },
+  {
     "term": "Arbeidsmiljøloven",
     "definition": "Den norske loven som beskytter arbeidstakere. Den regulerer blant annet arbeidstid, ferie, oppsigelse og sikkerhet på arbeidsplassen.",
     "type": "concept",
@@ -190,6 +210,24 @@
     "topic": "dekolonisering",
     "tags": [],
     "type": "concept"
+  },
+  {
+    "term": "Bayt al-Hikma",
+    "aliases": [
+      "Visdomshuset",
+      "Huset for visdom"
+    ],
+    "definition": "«Visdomshuset» - et stort oversettelsessenter og akademi i Bagdad grunnlagt ca. 830 under den abbasidiske kalifen Harun al-Rashid. Kjernen i det islamske gullaldet. Lærde oversatte greske, persiske og indiske tekster til arabisk, og produserte banebrytende verk innen matematikk, astronomi, medisin og filosofi. Brant da mongolerne ødela Bagdad i 1258.",
+    "type": "concept",
+    "subject": "historie",
+    "topic": "midtoesten",
+    "tags": [
+      "islam",
+      "gullaldet",
+      "Bagdad",
+      "vitenskap",
+      "kunnskap"
+    ]
   },
   {
     "term": "Belte- og vei-initiativet",
@@ -1009,6 +1047,20 @@
     "type": "concept"
   },
   {
+    "term": "Hamas",
+    "aliases": [],
+    "definition": "Islamistisk palestinsk bevegelse og de facto-styre i Gaza siden 2007. Anerkjenner ikke staten Israel. Vant valget i de palestinske områdene i 2006, noe som førte til splittelse med den moderate PLO-ledede selvstyremyndigheten på Vestbredden. Klassifisert som terrororganisasjon av USA, EU og Israel. Stod bak angrepet mot Israel 7. oktober 2023.",
+    "type": "concept",
+    "subject": "historie",
+    "topic": "midtoesten",
+    "tags": [
+      "palestina",
+      "gaza",
+      "islamisme",
+      "israel"
+    ]
+  },
+  {
     "term": "Harem",
     "aliases": [
       "haremet",
@@ -1063,6 +1115,23 @@
     "type": "concept"
   },
   {
+    "term": "Hijra",
+    "aliases": [
+      "hegira"
+    ],
+    "definition": "Muhammeds flukt fra Mekka til Medina i 622 e.Kr., etter at han møtte sterk motstand fra Mekkas maktelite. Hendelsen markerer starten på den islamske tidsregningen - år 1 i den islamske kalenderen. I Medina bygde Muhammed det første muslimske samfunnet og etablerte islamsk lov.",
+    "type": "concept",
+    "subject": "historie",
+    "topic": "midtoesten",
+    "tags": [
+      "islam",
+      "Muhammed",
+      "Mekka",
+      "Medina",
+      "kalender"
+    ]
+  },
+  {
     "term": "Himmelens mandat",
     "aliases": [
       "himmelens-mandat",
@@ -1079,6 +1148,23 @@
     ],
     "subject": "historie",
     "topic": "kinas-historie"
+  },
+  {
+    "term": "Hizbollah",
+    "aliases": [
+      "Hezbollah"
+    ],
+    "definition": "Libanesisk shia-bevegelse og militærmakt grunnlagt i 1982 med støtte fra Iran etter den israelske invasjonen av Libanon. Både politisk parti og militærstyrke. Kjemper for Palestinas frigjøring og iranske interesser i regionen. Betraktes som terrororganisasjon av USA, EU og mange arabiske land, men har bred støtte blant libanesiske shiaer.",
+    "type": "concept",
+    "subject": "historie",
+    "topic": "midtoesten",
+    "tags": [
+      "libanon",
+      "iran",
+      "shia",
+      "militær",
+      "Midtøsten"
+    ]
   },
   {
     "term": "Holocaust",
@@ -1609,6 +1695,25 @@
     "type": "concept"
   },
   {
+    "term": "Mandatsystem",
+    "aliases": [
+      "mandat",
+      "mandater",
+      "mandatområde",
+      "mandatmakter"
+    ],
+    "definition": "Folkeforbundets system etter første verdenskrig der europeiske stormakter styrte tidligere tyske og osmanske kolonier «på vegne av» dem - inntil befolkningen angivelig var «klar for selvstyre». I praksis var det kolonistyre med nytt navn. Storbritannia fikk mandat over Irak og Palestina, Frankrike over Syria og Libanon.",
+    "type": "concept",
+    "subject": "historie",
+    "topic": "midtoesten",
+    "tags": [
+      "kolonialisme",
+      "Folkeforbundet",
+      "Midtøsten",
+      "imperialisme"
+    ]
+  },
+  {
     "term": "Manhattan-prosjektet",
     "definition": "Det hemmelige amerikanske forskningsprosjektet som utviklet de første atombombene.",
     "subject": "historie",
@@ -1752,9 +1857,44 @@
     "type": "concept"
   },
   {
+    "term": "Mujahedin",
+    "aliases": [
+      "mujaheddin",
+      "mujahideen"
+    ],
+    "definition": "Arabisk for «de som kjemper jihad». Brukes spesielt om de islamske motstandskjemperne som kjempet mot Sovjet i Afghanistan på 1980-tallet. USA og Saudi-Arabia finansierte disse krigsherrene med milliarder av dollar. Da Sovjet trakk seg ut i 1989, satt nettverkene igjen med trening og våpen - noen ble grunnlaget for al-Qaida.",
+    "type": "concept",
+    "subject": "historie",
+    "topic": "midtoesten",
+    "tags": [
+      "afghanistan",
+      "jihad",
+      "USA",
+      "Sovjet",
+      "al-Qaida"
+    ]
+  },
+  {
     "term": "Mutual Assured Destruction",
     "definition": "Doktrinen om gjensidig garantert ødeleggelse. USA og Sovjet hadde så mange atomvåpen at angrep ville ødelegge begge - derfor turte ingen angripe.",
     "type": "concept"
+  },
+  {
+    "term": "Nakba",
+    "aliases": [
+      "nakbaen",
+      "katastrofen"
+    ],
+    "definition": "Arabisk for «katastrofen». Betegner flukten og fordrivelsen av ca. 700 000 palestinere i krigen i 1948 da Israel ble opprettet. Rundt 400-500 landsbyer ble tømt. Palestinerne og etterkommerne deres lever fortsatt spredt i flyktningleirer i naboland og i diaspora. Nakba markeres 15. mai hvert år.",
+    "type": "concept",
+    "subject": "historie",
+    "topic": "midtoesten",
+    "tags": [
+      "palestina",
+      "israel",
+      "flukt",
+      "1948"
+    ]
   },
   {
     "term": "Nasjon",
@@ -1903,6 +2043,23 @@
     "term": "Ondskap",
     "definition": "Bevisst valg om å påføre andre skade. Filosofer har diskutert om ondskap er en kraft i seg selv, eller bare fravær av godt.",
     "type": "concept"
+  },
+  {
+    "term": "OPEC",
+    "aliases": [
+      "OPEC-landene",
+      "oljekartell"
+    ],
+    "definition": "Organisasjonen av oljeeksporterende land, grunnlagt i Bagdad i 1960 av Iran, Irak, Kuwait, Saudi-Arabia og Venezuela. Koordinerer oljepriser og produksjon blant medlemslandene. Brukt som politisk vapen i 1973 da arabiske OPEC-land innførte oljeembargo mot land som støttet Israel under Yom Kippur-krigen.",
+    "type": "concept",
+    "subject": "historie",
+    "topic": "midtoesten",
+    "tags": [
+      "olje",
+      "økonomi",
+      "Midtøsten",
+      "embargo"
+    ]
   },
   {
     "term": "Operasjon Barbarossa",
@@ -2080,6 +2237,24 @@
     "topic": "styringsformer",
     "tags": [],
     "type": "concept"
+  },
+  {
+    "term": "Proxy-krig",
+    "aliases": [
+      "proxy-kriger",
+      "proxykrig",
+      "stedfortrederkrig"
+    ],
+    "definition": "En konflikt der to stormakter støtter ulike sider uten å kjempe direkte mot hverandre. Iran og Saudi-Arabia har ikke erklært krig mot hverandre, men bruker penger, våpen og rådgivere til å påvirke konflikter i Jemen, Syria, Irak og Libanon. Resultatet er at disse landenes egne konflikter forlenges og forverres.",
+    "type": "concept",
+    "subject": "historie",
+    "topic": "midtoesten",
+    "tags": [
+      "saudi-arabia",
+      "iran",
+      "krig",
+      "geopolitikk"
+    ]
   },
   {
     "term": "Radar",
@@ -2293,6 +2468,25 @@
     "type": "concept"
   },
   {
+    "term": "Sekterisme",
+    "aliases": [
+      "sektarisme",
+      "sekterisk",
+      "sekteriske konflikter"
+    ],
+    "definition": "Politiske og sosiale konflikter drevet av tilhørighet til religiøse eller etniske grupper, fremfor saklig uenighet. I Midtøsten brukes begrepet særlig om sunni-shia-rivaliseringen. Sekterisme ble forsterket av kolonimaktenes strategi med å splitte og herske, og av at kunstige grenser etter Sykes-Picot tvang ulike grupper inn i samme stat.",
+    "type": "concept",
+    "subject": "historie",
+    "topic": "midtoesten",
+    "tags": [
+      "sunni",
+      "shia",
+      "konflikt",
+      "Midtøsten",
+      "religion"
+    ]
+  },
+  {
     "term": "Selvbestemmelsesrett",
     "definition": "Prinsippet om at et folk har rett til å styre seg selv og velge sin egen statstilhørighet.",
     "subject": "historie",
@@ -2358,6 +2552,26 @@
     "subject": "krle"
   },
   {
+    "term": "Shiaislam",
+    "aliases": [
+      "shia",
+      "shiaer",
+      "shiamuslimer",
+      "shiamuslim"
+    ],
+    "definition": "Den nest største grenen av islam, med ca. 15 prosent av verdens muslimer. Shiaer mener at lederskapet etter Muhammed tilhørte hans familie - spesielt svigersønnen Ali og hans etterkommere (imamene). Muhammeds barnebarn Husain ble drept i slaget ved Karbala i 680, et traume som fortsatt er sentralt i shia-troen. Dominerende religion i Iran, Irak og Bahrain.",
+    "type": "concept",
+    "subject": "historie",
+    "topic": "midtoesten",
+    "tags": [
+      "islam",
+      "religion",
+      "iran",
+      "shia",
+      "Karbala"
+    ]
+  },
+  {
     "term": "Show, don't tell",
     "definition": "En skriveteknikk der man viser hva som skjer eller hva en karakter føler gjennom handlinger, sanser og detaljer, i stedet for å bare fortelle det direkte til leseren (f.eks. ved å beskrive skjelvende hender i stedet for å skrive «han var redd»).",
     "link": "/norsk/skrivehjelp/hvordan-lage-karakterer",
@@ -2372,6 +2586,25 @@
       "sikhisme"
     ],
     "type": "concept"
+  },
+  {
+    "term": "Sionisme",
+    "aliases": [
+      "sionist",
+      "sionistisk",
+      "sionistene",
+      "sionistbevegelsen"
+    ],
+    "definition": "Politisk bevegelse grunnlagt av Theodor Herzl på 1890-tallet, som kjempet for opprettelsen av en jødisk stat i det historiske landet Israel/Palestina. Sionismen vokste frem som svar på europeisk antisemittisme og mente at jøder trengte et eget hjemland for å være trygge.",
+    "type": "concept",
+    "subject": "historie",
+    "topic": "midtoesten",
+    "tags": [
+      "israel",
+      "jøder",
+      "palestina",
+      "nasjonalisme"
+    ]
   },
   {
     "term": "Sivilisasjon",
@@ -2555,6 +2788,26 @@
       "hersker"
     ],
     "subject": "historie"
+  },
+  {
+    "term": "Sunniislam",
+    "aliases": [
+      "sunni",
+      "sunnier",
+      "sunnimuslimer",
+      "sunnimuslim",
+      "sunnislam"
+    ],
+    "definition": "Den største grenen av islam, med ca. 85 prosent av verdens muslimer. Sunnier mener at lederskapet etter Muhammeds død i 632 skulle velges blant de troendes skikkede menn. Dominerende religion i Saudi-Arabia, Egypt, Tyrkia, Jordan og de fleste arabiske land. Saudi-Arabia bruker oljepenger til å spre en konservativ variant kalt wahhabisme.",
+    "type": "concept",
+    "subject": "historie",
+    "topic": "midtoesten",
+    "tags": [
+      "islam",
+      "religion",
+      "saudi-arabia",
+      "sunni"
+    ]
   },
   {
     "term": "Suverenitet",
@@ -3197,6 +3450,26 @@
     "subject": "historie",
     "lifespan": "354 e.Kr. – 430 e.Kr.",
     "link": "/historie/antikken/princeps-til-guds-utvalgte"
+  },
+  {
+    "term": "Ayatollah Khomeini",
+    "aliases": [
+      "Khomeini",
+      "Ruhollah Khomeini",
+      "Ayatollah Ruhollah Khomeini"
+    ],
+    "definition": "Irans øverste religiøse og politiske leder etter revolusjonen i 1979. Levde i eksil i Frankrike mens han spredte taler på kassettbånd til Iran. Da sjahen flyktet, vendte Khomeini hjem til en enorm folkemasse og innførte velayet-e faqih - de islamske lærdes styre. Skapte den islamske republikken Iran, et styresystem ingen hadde sett maken til.",
+    "type": "person",
+    "lifespan": "1902 - 1989",
+    "subject": "historie",
+    "topic": "midtoesten",
+    "tags": [
+      "iran",
+      "revolusjon",
+      "islam",
+      "leder",
+      "midtosten"
+    ]
   },
   {
     "term": "Bartolomé de Las Casas",
@@ -4980,6 +5253,47 @@
     "type": "person"
   },
   {
+    "term": "Mohammad Mosaddegh",
+    "aliases": [
+      "Mosaddegh",
+      "Mohammed Mosaddegh"
+    ],
+    "definition": "Irans demokratisk valgte statsminister 1951-1953. Nasjonaliserte Irans oljeindustri, som til da hadde vært kontrollert av britiske Anglo-Iranian Oil Company. Storbritannia og USA svarte med å iscenesette et kupp i 1953 (Operation Ajax) som styrtet ham og innsatte sjahen. Mosaddegh ble husarrestert resten av livet. Hans skjebne ble symbolet på vestlig innblanding i Midtøsten.",
+    "type": "person",
+    "lifespan": "1882 - 1967",
+    "subject": "historie",
+    "topic": "midtoesten",
+    "tags": [
+      "iran",
+      "demokrati",
+      "olje",
+      "CIA",
+      "midtosten"
+    ]
+  },
+  {
+    "term": "Muhammed",
+    "aliases": [
+      "profeten Muhammed",
+      "Muhammad",
+      "Mohammed",
+      "islams profet"
+    ],
+    "definition": "Islams grunnlegger, født ca. 570 i Mekka. Fikk ifølge islam åpenbaringer fra Gud (Allah) gjennom engelen Gabriel, som ble nedskrevet i Koranen. Flyktet fra Mekka til Medina i 622 (hijra) og samlet arabiske stammer under islam. Døde i 632 uten å ha utpekt en arvtager - noe som utløste splittelsen mellom sunni og shia.",
+    "type": "person",
+    "lifespan": "ca. 570 - 632",
+    "subject": "historie",
+    "topic": "midtoesten",
+    "tags": [
+      "islam",
+      "religion",
+      "mekka",
+      "profet",
+      "midtosten"
+    ],
+    "link": "/historie/midtoesten/islams-fodsel"
+  },
+  {
     "term": "Murray Rothbard",
     "definition": "Amerikansk økonom og filosof, grunnlegger av anarko-kapitalismen. Han mente staten i seg selv er aggressiv vold.",
     "type": "person",
@@ -5410,6 +5724,23 @@
     "lifespan": "1913 - 2005"
   },
   {
+    "term": "Saddam Hussein",
+    "aliases": [
+      "Saddam"
+    ],
+    "definition": "Irakisk diktator fra 1979 til 2003. Startet krigen mot Iran (1980-1988) og invaderte Kuwait i 1990. Ble styrtet av USA-ledet invasjon i 2003, fanget i et jordskjul og henrettet i 2006. USA støttet ham på 1980-tallet mot Iran, inkludert med tilgang til kjemiske stoffer han brukte mot egne borgere og iranske soldater.",
+    "type": "person",
+    "lifespan": "1937 - 2006",
+    "subject": "historie",
+    "topic": "midtoesten",
+    "tags": [
+      "irak",
+      "diktator",
+      "golfkrigen",
+      "midtosten"
+    ]
+  },
+  {
     "term": "Samuel de Champlain",
     "definition": "Fransk oppdager og grunnlegger av byen Quebec i 1608. Han bygde Frankrikes koloniimperium i Nord-Amerika.",
     "type": "person",
@@ -5556,6 +5887,23 @@
     ],
     "subject": "norsk",
     "lifespan": "1897 - 1970"
+  },
+  {
+    "term": "Theodor Herzl",
+    "aliases": [
+      "Herzl"
+    ],
+    "definition": "Sionismens grunnlegger. Den østerrikske journalisten mente at jøder aldri ville bli trygge som minoritet i Europa og at løsningen var en egen jødisk stat. Etter å ha dekket Dreyfus-saken i Paris i 1894 ble han overbevist om at antisemittisme aldri ville forsvinne. Organiserte den første sionistkongressen i Basel i 1897. Døde i 1904, 44 år gammel, og fikk aldri se drømmen sin bli virkelighet.",
+    "type": "person",
+    "lifespan": "1860 - 1904",
+    "subject": "historie",
+    "topic": "midtoesten",
+    "tags": [
+      "sionisme",
+      "israel",
+      "jøder",
+      "midtosten"
+    ]
   },
   {
     "term": "Thomas Aquinas",
