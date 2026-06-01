@@ -1,5 +1,5 @@
 {
-  "buildId": 1780300286706,
+  "buildId": 1780302272613,
   "contentMap": {
     "concept-adel": [
       "content/concepts/adel.json"
@@ -76,6 +76,9 @@
     "concept-bananrepublikk": [
       "content/concepts/bananrepublikk.json"
     ],
+    "concept-belte-og-vei": [
+      "content/concepts/belte-og-vei.json"
+    ],
     "concept-bevissthet": [
       "content/concepts/bevissthet.json"
     ],
@@ -133,6 +136,9 @@
     "concept-civil-rights-act": [
       "content/concepts/civil-rights-act.json"
     ],
+    "concept-cizye": [
+      "content/concepts/cizye.json"
+    ],
     "concept-code-civil": [
       "content/concepts/code-civil.json"
     ],
@@ -154,6 +160,9 @@
     "concept-das-man": [
       "content/concepts/das-man.json"
     ],
+    "concept-de-100-ydmykelsenes-ar": [
+      "content/concepts/de-100-ydmykelsenes-ar.json"
+    ],
     "concept-de-allierte": [
       "content/concepts/de-allierte.json"
     ],
@@ -174,6 +183,9 @@
     ],
     "concept-demokrati": [
       "content/concepts/demokrati.json"
+    ],
+    "concept-den-lange-marsjen": [
+      "content/concepts/den-lange-marsjen.json"
     ],
     "concept-dendrokronologi": [
       "content/concepts/dendrokronologi.json"
@@ -199,6 +211,9 @@
     "concept-dygdsetikk": [
       "content/concepts/dygdsetikk.json"
     ],
+    "concept-dynastisyklus": [
+      "content/concepts/dynastisyklus.json"
+    ],
     "concept-east-india-company": [
       "content/concepts/east-india-company.json"
     ],
@@ -207,6 +222,9 @@
     ],
     "concept-eksistensialisme": [
       "content/concepts/eksistensialisme.json"
+    ],
+    "concept-ekstraterritorialitet": [
+      "content/concepts/ekstraterritorialitet.json"
     ],
     "concept-ekstremisme": [
       "content/concepts/ekstremisme.json"
@@ -234,6 +252,9 @@
     ],
     "concept-ettergivenhetspolitikk": [
       "content/concepts/ettergivenhetspolitikk.json"
+    ],
+    "concept-ettpartistat": [
+      "content/concepts/ettpartistat.json"
     ],
     "concept-fagforening": [
       "content/concepts/fagforening.json"
@@ -264,6 +285,9 @@
     ],
     "concept-folkeforbundet": [
       "content/concepts/folkeforbundet.json"
+    ],
+    "concept-folkemord": [
+      "content/concepts/folkemord.json"
     ],
     "concept-folkevandringstiden": [
       "content/concepts/folkevandringstiden.json"
@@ -328,6 +352,9 @@
     "concept-hamartia": [
       "content/concepts/hamartia.json"
     ],
+    "concept-harem": [
+      "content/concepts/harem.json"
+    ],
     "concept-helhet": [
       "content/concepts/helhet.json"
     ],
@@ -339,6 +366,9 @@
     ],
     "concept-hierarki": [
       "content/concepts/hierarki.json"
+    ],
+    "concept-himmelens-mandat": [
+      "content/concepts/himmelens-mandat.json"
     ],
     "concept-holocaust": [
       "content/concepts/holocaust.json"
@@ -384,6 +414,9 @@
     ],
     "concept-investiturstriden": [
       "content/concepts/investiturstriden.json"
+    ],
+    "concept-iznik-fliser": [
+      "content/concepts/iznik-fliser.json"
     ],
     "concept-janitsjar": [
       "content/concepts/janitsjar.json"
@@ -451,6 +484,9 @@
     "concept-konfirmasjon": [
       "content/concepts/konfirmasjon.json"
     ],
+    "concept-konfusianisme": [
+      "content/concepts/konfusianisme.json"
+    ],
     "concept-kreativitet": [
       "content/concepts/kreativitet.json"
     ],
@@ -462,6 +498,9 @@
     ],
     "concept-kriseforliket": [
       "content/concepts/kriseforliket.json"
+    ],
+    "concept-kulturrevolusjonen": [
+      "content/concepts/kulturrevolusjonen.json"
     ],
     "concept-kunnskap": [
       "content/concepts/kunnskap.json"
@@ -739,6 +778,9 @@
     "concept-roaring-20s": [
       "content/concepts/roaring-20s.json"
     ],
+    "concept-rodegardistene": [
+      "content/concepts/rodegardistene.json"
+    ],
     "concept-roede-kors": [
       "content/concepts/roede-kors.json"
     ],
@@ -781,6 +823,9 @@
     "concept-sepoy": [
       "content/concepts/sepoy.json"
     ],
+    "concept-sharia": [
+      "content/concepts/sharia.json"
+    ],
     "concept-show-dont-tell": [
       "content/concepts/show-dont-tell.json"
     ],
@@ -804,6 +849,9 @@
     ],
     "concept-spekulasjon": [
       "content/concepts/spekulasjon.json"
+    ],
+    "concept-spesiell-okonomisk-sone": [
+      "content/concepts/spesiell-okonomisk-sone.json"
     ],
     "concept-stabilitet": [
       "content/concepts/stabilitet.json"
@@ -943,6 +991,9 @@
     "concept-uinnskrenket-ubtkrig": [
       "content/concepts/uinnskrenket-ubtkrig.json"
     ],
+    "concept-ulikeverdige-traktater": [
+      "content/concepts/ulikeverdige-traktater.json"
+    ],
     "concept-ulikhet": [
       "content/concepts/ulikhet.json"
     ],
@@ -969,6 +1020,9 @@
     ],
     "concept-v2": [
       "content/concepts/v2.json"
+    ],
+    "concept-valide-sultan": [
+      "content/concepts/valide-sultan.json"
     ],
     "concept-vanaere": [
       "content/concepts/vanaere.json"
@@ -2391,6 +2445,9 @@
     "bohm-bawerk": [
       "content/people/bohm-bawerk.json"
     ],
+    "chiang-kai-shek": [
+      "content/people/chiang-kai-shek.json"
+    ],
     "christian-ii": [
       "content/people/christian-ii.json"
     ],
@@ -2405,6 +2462,9 @@
     ],
     "david-hume": [
       "content/people/david-hume.json"
+    ],
+    "deng-xiaoping": [
+      "content/people/deng-xiaoping.json"
     ],
     "diokletian-bio": [
       "content/people/diokletian-bio.json"
@@ -2559,6 +2619,9 @@
     "hugo-grotius": [
       "content/people/hugo-grotius.json"
     ],
+    "hurrem-sultan": [
+      "content/people/hurrem-sultan.json"
+    ],
     "ibn-fadlan": [
       "content/people/ibn-fadlan.json"
     ],
@@ -2664,6 +2727,9 @@
     "knut-hamsun": [
       "content/people/knut-hamsun.json"
     ],
+    "konfucius": [
+      "content/people/konfucius.json"
+    ],
     "kong-haakon-v": [
       "content/people/kong-haakon-v.json"
     ],
@@ -2682,6 +2748,9 @@
     "leiv-eiriksson": [
       "content/people/leiv-eiriksson.json"
     ],
+    "lin-zexu": [
+      "content/people/lin-zexu.json"
+    ],
     "ludvig-xiv": [
       "content/people/ludvig-xiv.json"
     ],
@@ -2699,6 +2768,9 @@
     ],
     "magnus-lagabote": [
       "content/people/magnus-lagabote.json"
+    ],
+    "mahmud-2": [
+      "content/people/mahmud-2.json"
     ],
     "mao-zedong": [
       "content/people/mao-zedong.json"
@@ -2745,6 +2817,9 @@
     "mehmed-2": [
       "content/people/mehmed-2.json"
     ],
+    "mehmet-2": [
+      "content/people/mehmet-2.json"
+    ],
     "michael-servetus": [
       "content/people/michael-servetus.json"
     ],
@@ -2753,6 +2828,9 @@
     ],
     "mikhail-gorbatsjov": [
       "content/people/mikhail-gorbatsjov.json"
+    ],
+    "mimar-sinan": [
+      "content/people/mimar-sinan.json"
     ],
     "murray-rothbard": [
       "content/people/murray-rothbard.json"
@@ -2823,6 +2901,9 @@
     "platon-bio": [
       "content/people/platon-bio.json"
     ],
+    "puyi": [
+      "content/people/puyi.json"
+    ],
     "qin-shi-huangdi": [
       "content/people/qin-shi-huangdi.json"
     ],
@@ -2883,6 +2964,9 @@
     "suleyman-1": [
       "content/people/suleyman-1.json"
     ],
+    "sun-yat-sen": [
+      "content/people/sun-yat-sen.json"
+    ],
     "tarjei-vesaas": [
       "content/people/tarjei-vesaas.json"
     ],
@@ -2918,6 +3002,9 @@
     ],
     "woodrow-wilson": [
       "content/people/woodrow-wilson.json"
+    ],
+    "xi-jinping": [
+      "content/people/xi-jinping.json"
     ],
     "yuri-gagarin": [
       "content/people/yuri-gagarin.json"
@@ -3150,6 +3237,7 @@
     "concepts/avsnitt.json/avsnitt": "content/concepts/avsnitt.json",
     "concepts/balfour-erklaeringen.json/balfour-erklaeringen": "content/concepts/balfour-erklaeringen.json",
     "concepts/bananrepublikk.json/bananrepublikk": "content/concepts/bananrepublikk.json",
+    "concepts/belte-og-vei.json/belte-og-vei": "content/concepts/belte-og-vei.json",
     "concepts/bevissthet.json/bevissthet": "content/concepts/bevissthet.json",
     "concepts/bindeord.json/bindeord": "content/concepts/bindeord.json",
     "concepts/biologi.json/biologi": "content/concepts/biologi.json",
@@ -3169,6 +3257,7 @@
     "concepts/bysants.json/bysants": "content/concepts/bysants.json",
     "concepts/casus-belli.json/casus-belli": "content/concepts/casus-belli.json",
     "concepts/civil-rights-act.json/civil-rights-act": "content/concepts/civil-rights-act.json",
+    "concepts/cizye.json/cizye": "content/concepts/cizye.json",
     "concepts/code-civil.json/code-civil": "content/concepts/code-civil.json",
     "concepts/corpus-juris-civilis.json/corpus-juris-civilis": "content/concepts/corpus-juris-civilis.json",
     "concepts/cura-annonae.json/cura-annonae": "content/concepts/cura-annonae.json",
@@ -3176,6 +3265,7 @@
     "concepts/dachau.json/dachau": "content/concepts/dachau.json",
     "concepts/das-ding-an-sich.json/das-ding-an-sich": "content/concepts/das-ding-an-sich.json",
     "concepts/das-man.json/das-man": "content/concepts/das-man.json",
+    "concepts/de-100-ydmykelsenes-ar.json/de-100-ydmykelsenes-ar": "content/concepts/de-100-ydmykelsenes-ar.json",
     "concepts/de-allierte.json/de-allierte": "content/concepts/de-allierte.json",
     "concepts/de-forente-nasjoner-fn.json/de-forente-nasjoner-fn": "content/concepts/de-forente-nasjoner-fn.json",
     "concepts/defenestrasjon.json/defenestrasjon": "content/concepts/defenestrasjon.json",
@@ -3183,6 +3273,7 @@
     "concepts/demilitarisert.json/demilitarisert": "content/concepts/demilitarisert.json",
     "concepts/demografisk-overgang.json/demografisk-overgang": "content/concepts/demografisk-overgang.json",
     "concepts/demokrati.json/demokrati": "content/concepts/demokrati.json",
+    "concepts/den-lange-marsjen.json/den-lange-marsjen": "content/concepts/den-lange-marsjen.json",
     "concepts/dendrokronologi.json/dendrokronologi": "content/concepts/dendrokronologi.json",
     "concepts/det-kategoriske-imperativ.json/det-kategoriske-imperativ": "content/concepts/det-kategoriske-imperativ.json",
     "concepts/det-oestindiske-kompani.json/det-oestindiske-kompani": "content/concepts/det-oestindiske-kompani.json",
@@ -3191,9 +3282,11 @@
     "concepts/direkte-demokrati.json/direkte-demokrati": "content/concepts/direkte-demokrati.json",
     "concepts/dolkestotlegenden.json/dolkestotlegenden": "content/concepts/dolkestotlegenden.json",
     "concepts/dygdsetikk.json/dygdsetikk": "content/concepts/dygdsetikk.json",
+    "concepts/dynastisyklus.json/dynastisyklus": "content/concepts/dynastisyklus.json",
     "concepts/east-india-company.json/east-india-company": "content/concepts/east-india-company.json",
     "concepts/eiendom.json/eiendom": "content/concepts/eiendom.json",
     "concepts/eksistensialisme.json/eksistensialisme": "content/concepts/eksistensialisme.json",
+    "concepts/ekstraterritorialitet.json/ekstraterritorialitet": "content/concepts/ekstraterritorialitet.json",
     "concepts/ekstremisme.json/ekstremisme": "content/concepts/ekstremisme.json",
     "concepts/ekteskap.json/ekteskap": "content/concepts/ekteskap.json",
     "concepts/empirisme.json/empirisme": "content/concepts/empirisme.json",
@@ -3203,6 +3296,7 @@
     "concepts/eskatologi.json/eskatologi": "content/concepts/eskatologi.json",
     "concepts/etos.json/etos": "content/concepts/etos.json",
     "concepts/ettergivenhetspolitikk.json/ettergivenhetspolitikk": "content/concepts/ettergivenhetspolitikk.json",
+    "concepts/ettpartistat.json/ettpartistat": "content/concepts/ettpartistat.json",
     "concepts/fagforening.json/fagforening": "content/concepts/fagforening.json",
     "concepts/fascisme.json/fascisme": "content/concepts/fascisme.json",
     "concepts/fattigdom.json/fattigdom": "content/concepts/fattigdom.json",
@@ -3213,6 +3307,7 @@
     "concepts/foerromersk-jernalder.json/foerromersk-jernalder": "content/concepts/foerromersk-jernalder.json",
     "concepts/foeydalisme.json/foeydalisme": "content/concepts/foeydalisme.json",
     "concepts/folkeforbundet.json/folkeforbundet": "content/concepts/folkeforbundet.json",
+    "concepts/folkemord.json/folkemord": "content/concepts/folkemord.json",
     "concepts/folkevandringstiden.json/folkevandringstiden": "content/concepts/folkevandringstiden.json",
     "concepts/frihet.json/frihet": "content/concepts/frihet.json",
     "concepts/frontfagmodellen.json/frontfagmodellen": "content/concepts/frontfagmodellen.json",
@@ -3234,10 +3329,12 @@
     "concepts/guru.json/guru": "content/concepts/guru.json",
     "concepts/habsburgerne.json/habsburgerne": "content/concepts/habsburgerne.json",
     "concepts/hamartia.json/hamartia": "content/concepts/hamartia.json",
+    "concepts/harem.json/harem": "content/concepts/harem.json",
     "concepts/helhet.json/helhet": "content/concepts/helhet.json",
     "concepts/helsetning.json/helsetning": "content/concepts/helsetning.json",
     "concepts/hermeneutisk-sirkel.json/hermeneutisk-sirkel": "content/concepts/hermeneutisk-sirkel.json",
     "concepts/hierarki.json/hierarki": "content/concepts/hierarki.json",
+    "concepts/himmelens-mandat.json/himmelens-mandat": "content/concepts/himmelens-mandat.json",
     "concepts/holocaust.json/holocaust": "content/concepts/holocaust.json",
     "concepts/holodomor.json/holodomor": "content/concepts/holodomor.json",
     "concepts/humanisme.json/humanisme": "content/concepts/humanisme.json",
@@ -3253,6 +3350,7 @@
     "concepts/ingenmannsland.json/ingenmannsland": "content/concepts/ingenmannsland.json",
     "concepts/innovasjon.json/innovasjon": "content/concepts/innovasjon.json",
     "concepts/investiturstriden.json/investiturstriden": "content/concepts/investiturstriden.json",
+    "concepts/iznik-fliser.json/iznik-fliser": "content/concepts/iznik-fliser.json",
     "concepts/janitsjar.json/janitsjar": "content/concepts/janitsjar.json",
     "concepts/jazz-age.json/jazz-age": "content/concepts/jazz-age.json",
     "concepts/jazz.json/jazz": "content/concepts/jazz.json",
@@ -3275,10 +3373,12 @@
     "concepts/kommunisme.json/kommunisme": "content/concepts/kommunisme.json",
     "concepts/komsakulturen.json/komsakulturen": "content/concepts/komsakulturen.json",
     "concepts/konfirmasjon.json/konfirmasjon": "content/concepts/konfirmasjon.json",
+    "concepts/konfusianisme.json/konfusianisme": "content/concepts/konfusianisme.json",
     "concepts/kreativitet.json/kreativitet": "content/concepts/kreativitet.json",
     "concepts/krigserstatning.json/krigserstatning": "content/concepts/krigserstatning.json",
     "concepts/kriminalitet.json/kriminalitet": "content/concepts/kriminalitet.json",
     "concepts/kriseforliket.json/kriseforliket": "content/concepts/kriseforliket.json",
+    "concepts/kulturrevolusjonen.json/kulturrevolusjonen": "content/concepts/kulturrevolusjonen.json",
     "concepts/kunnskap.json/kunnskap": "content/concepts/kunnskap.json",
     "concepts/langar.json/langar": "content/concepts/langar.json",
     "concepts/lebensraum.json/lebensraum": "content/concepts/lebensraum.json",
@@ -3371,6 +3471,7 @@
     "concepts/rhinland.json/rhinland": "content/concepts/rhinland.json",
     "concepts/rikdom.json/rikdom": "content/concepts/rikdom.json",
     "concepts/roaring-20s.json/roaring-20s": "content/concepts/roaring-20s.json",
+    "concepts/rodegardistene.json/rodegardistene": "content/concepts/rodegardistene.json",
     "concepts/roede-kors.json/roede-kors": "content/concepts/roede-kors.json",
     "concepts/royal-navy.json/royal-navy": "content/concepts/royal-navy.json",
     "concepts/rubicon.json/rubicon": "content/concepts/rubicon.json",
@@ -3385,6 +3486,7 @@
     "concepts/sennepsgass.json/sennepsgass": "content/concepts/sennepsgass.json",
     "concepts/sentralmaktene.json/sentralmaktene": "content/concepts/sentralmaktene.json",
     "concepts/sepoy.json/sepoy": "content/concepts/sepoy.json",
+    "concepts/sharia.json/sharia": "content/concepts/sharia.json",
     "concepts/show-dont-tell.json/show-dont-tell": "content/concepts/show-dont-tell.json",
     "concepts/sikh.json/sikh": "content/concepts/sikh.json",
     "concepts/sivilisasjon.json/sivilisasjon": "content/concepts/sivilisasjon.json",
@@ -3393,6 +3495,7 @@
     "concepts/sol-invictus.json/sol-invictus": "content/concepts/sol-invictus.json",
     "concepts/sosialisme.json/sosialisme": "content/concepts/sosialisme.json",
     "concepts/spekulasjon.json/spekulasjon": "content/concepts/spekulasjon.json",
+    "concepts/spesiell-okonomisk-sone.json/spesiell-okonomisk-sone": "content/concepts/spesiell-okonomisk-sone.json",
     "concepts/stabilitet.json/stabilitet": "content/concepts/stabilitet.json",
     "concepts/stalingrad.json/stalingrad": "content/concepts/stalingrad.json",
     "concepts/stamford-bridge.json/stamford-bridge": "content/concepts/stamford-bridge.json",
@@ -3439,6 +3542,7 @@
     "concepts/tsar-bomba.json/tsar-bomba": "content/concepts/tsar-bomba.json",
     "concepts/uavhengighet.json/uavhengighet": "content/concepts/uavhengighet.json",
     "concepts/uinnskrenket-ubtkrig.json/uinnskrenket-ubtkrig": "content/concepts/uinnskrenket-ubtkrig.json",
+    "concepts/ulikeverdige-traktater.json/ulikeverdige-traktater": "content/concepts/ulikeverdige-traktater.json",
     "concepts/ulikhet.json/ulikhet": "content/concepts/ulikhet.json",
     "concepts/ultimatum.json/ultimatum": "content/concepts/ultimatum.json",
     "concepts/undring.json/undring": "content/concepts/undring.json",
@@ -3448,6 +3552,7 @@
     "concepts/utilitarisme.json/utilitarisme": "content/concepts/utilitarisme.json",
     "concepts/utmattelseskrig.json/utmattelseskrig": "content/concepts/utmattelseskrig.json",
     "concepts/v2.json/v2": "content/concepts/v2.json",
+    "concepts/valide-sultan.json/valide-sultan": "content/concepts/valide-sultan.json",
     "concepts/vanaere.json/vanaere": "content/concepts/vanaere.json",
     "concepts/vennskap.json/vennskap": "content/concepts/vennskap.json",
     "concepts/verbalet.json/verbalet": "content/concepts/verbalet.json",
@@ -3922,11 +4027,13 @@
     "people/bjoern-hofmann.json/bjoern-hofmann": "content/people/bjoern-hofmann.json",
     "people/bjoernstjerne-bjoernson.json/bjoernstjerne-bjoernson": "content/people/bjoernstjerne-bjoernson.json",
     "people/bohm-bawerk.json/bohm-bawerk": "content/people/bohm-bawerk.json",
+    "people/chiang-kai-shek.json/chiang-kai-shek": "content/people/chiang-kai-shek.json",
     "people/christian-ii.json/christian-ii": "content/people/christian-ii.json",
     "people/clovis-i.json/clovis-i": "content/people/clovis-i.json",
     "people/dareios-iii.json/dareios-iii": "content/people/dareios-iii.json",
     "people/david-cameron.json/david-cameron": "content/people/david-cameron.json",
     "people/david-hume.json/david-hume": "content/people/david-hume.json",
+    "people/deng-xiaoping.json/deng-xiaoping": "content/people/deng-xiaoping.json",
     "people/diokletian-bio.json/diokletian-bio": "content/people/diokletian-bio.json",
     "people/donald-trump.json/donald-trump": "content/people/donald-trump.json",
     "people/douglas-macarthur.json/douglas-macarthur": "content/people/douglas-macarthur.json",
@@ -3979,6 +4086,7 @@
     "people/hitler.json/hitler": "content/people/hitler.json",
     "people/ho-chi-minh.json/ho-chi-minh": "content/people/ho-chi-minh.json",
     "people/hugo-grotius.json/hugo-grotius": "content/people/hugo-grotius.json",
+    "people/hurrem-sultan.json/hurrem-sultan": "content/people/hurrem-sultan.json",
     "people/ibn-fadlan.json/ibn-fadlan": "content/people/ibn-fadlan.json",
     "people/immanuel-kant.json/immanuel-kant": "content/people/immanuel-kant.json",
     "people/isaac-newton.json/isaac-newton": "content/people/isaac-newton.json",
@@ -4014,18 +4122,21 @@
     "people/knut-alvsson.json/knut-alvsson": "content/people/knut-alvsson.json",
     "people/knut-den-mektige.json/knut-den-mektige": "content/people/knut-den-mektige.json",
     "people/knut-hamsun.json/knut-hamsun": "content/people/knut-hamsun.json",
+    "people/konfucius.json/konfucius": "content/people/konfucius.json",
     "people/kong-haakon-v.json/kong-haakon-v": "content/people/kong-haakon-v.json",
     "people/kong-hans.json/kong-hans": "content/people/kong-hans.json",
     "people/kool-herc.json/kool-herc": "content/people/kool-herc.json",
     "people/kublai-khan.json/kublai-khan": "content/people/kublai-khan.json",
     "people/kwame-nkrumah.json/kwame-nkrumah": "content/people/kwame-nkrumah.json",
     "people/leiv-eiriksson.json/leiv-eiriksson": "content/people/leiv-eiriksson.json",
+    "people/lin-zexu.json/lin-zexu": "content/people/lin-zexu.json",
     "people/ludvig-xiv.json/ludvig-xiv": "content/people/ludvig-xiv.json",
     "people/ludwig-von-mises.json/ludwig-von-mises": "content/people/ludwig-von-mises.json",
     "people/luigi-facta.json/luigi-facta": "content/people/luigi-facta.json",
     "people/lyndon-b-johnson.json/lyndon-b-johnson": "content/people/lyndon-b-johnson.json",
     "people/lysander-spooner.json/lysander-spooner": "content/people/lysander-spooner.json",
     "people/magnus-lagabote.json/magnus-lagabote": "content/people/magnus-lagabote.json",
+    "people/mahmud-2.json/mahmud-2": "content/people/mahmud-2.json",
     "people/mao-zedong.json/mao-zedong": "content/people/mao-zedong.json",
     "people/marco-polo.json/marco-polo": "content/people/marco-polo.json",
     "people/marcus-antonius.json/marcus-antonius": "content/people/marcus-antonius.json",
@@ -4042,9 +4153,11 @@
     "people/max-weber.json/max-weber": "content/people/max-weber.json",
     "people/maximilien-robespierre.json/maximilien-robespierre": "content/people/maximilien-robespierre.json",
     "people/mehmed-2.json/mehmed-2": "content/people/mehmed-2.json",
+    "people/mehmet-2.json/mehmet-2": "content/people/mehmet-2.json",
     "people/michael-servetus.json/michael-servetus": "content/people/michael-servetus.json",
     "people/michel-foucault.json/michel-foucault": "content/people/michel-foucault.json",
     "people/mikhail-gorbatsjov.json/mikhail-gorbatsjov": "content/people/mikhail-gorbatsjov.json",
+    "people/mimar-sinan.json/mimar-sinan": "content/people/mimar-sinan.json",
     "people/murray-rothbard.json/murray-rothbard": "content/people/murray-rothbard.json",
     "people/mussolini.json/mussolini": "content/people/mussolini.json",
     "people/mustafa-kemal-ataturk.json/mustafa-kemal-ataturk": "content/people/mustafa-kemal-ataturk.json",
@@ -4068,6 +4181,7 @@
     "people/peter-kropotkin.json/peter-kropotkin": "content/people/peter-kropotkin.json",
     "people/peter-singer.json/peter-singer": "content/people/peter-singer.json",
     "people/platon-bio.json/platon-bio": "content/people/platon-bio.json",
+    "people/puyi.json/puyi": "content/people/puyi.json",
     "people/qin-shi-huangdi.json/qin-shi-huangdi": "content/people/qin-shi-huangdi.json",
     "people/ray-dalio.json/ray-dalio": "content/people/ray-dalio.json",
     "people/rene-descartes.json/rene-descartes": "content/people/rene-descartes.json",
@@ -4088,6 +4202,7 @@
     "people/stalin.json/stalin": "content/people/stalin.json",
     "people/sten-sture.json/sten-sture": "content/people/sten-sture.json",
     "people/suleyman-1.json/suleyman-1": "content/people/suleyman-1.json",
+    "people/sun-yat-sen.json/sun-yat-sen": "content/people/sun-yat-sen.json",
     "people/tarjei-vesaas.json/tarjei-vesaas": "content/people/tarjei-vesaas.json",
     "people/thomas-aquinas.json/thomas-aquinas": "content/people/thomas-aquinas.json",
     "people/thomas-hobbes.json/thomas-hobbes": "content/people/thomas-hobbes.json",
@@ -4100,6 +4215,7 @@
     "people/wilhelm-ii.json/wilhelm-ii": "content/people/wilhelm-ii.json",
     "people/winston-churchill.json/winston-churchill": "content/people/winston-churchill.json",
     "people/woodrow-wilson.json/woodrow-wilson": "content/people/woodrow-wilson.json",
+    "people/xi-jinping.json/xi-jinping": "content/people/xi-jinping.json",
     "people/yuri-gagarin.json/yuri-gagarin": "content/people/yuri-gagarin.json",
     "people/zarathustra.json/zarathustra": "content/people/zarathustra.json",
     "people/zheng-he.json/zheng-he": "content/people/zheng-he.json",

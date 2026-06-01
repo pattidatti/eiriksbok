@@ -5,7 +5,7 @@
   "year": "130 fvt - 1453",
   "category": "Kinas historie",
   "readTime": "8 min lesning",
-  "heroImage": "/images/placeholder.webp",
+  "heroImage": "/images/historie/kinas-historie/silkeveien-hero.webp",
   "details": [
     "Silkeveien var ikke en enkelt vei, men et nettverk av handelsruter fra Kina til Middelhavet.",
     "Kina hadde monopol på silkeproduksjon i over 1000 år - å avsløre hemmeligheten var dødsstraff.",
@@ -23,7 +23,7 @@
     },
     {
       "type": "image",
-      "src": "/images/placeholder.webp",
+      "src": "/images/historie/kinas-historie/silkeveien-01.webp",
       "alt": "Kamelkaravane i ørkenen langs Silkeveien",
       "caption": "Kamelkaravaner var de viktigste transportmidlene langs landrutene. En kamel kunne bære opp mot 300 kilo og tålte den krevende ørkenterrenget."
     },
@@ -34,12 +34,12 @@
         "title": "Silkeveiens ruter",
         "items": [
           {
-            "image": "/images/placeholder.webp",
+            "image": "/images/historie/kinas-historie/silkeveien-map-land.webp",
             "caption": "Landrutene gikk fra Chang'an i Kina gjennom Sentral-Asia, Persia og til Middelhavet. Turen tok måneder.",
             "alt": "Kart over Silkeveiens landruter"
           },
           {
-            "image": "/images/placeholder.webp",
+            "image": "/images/historie/kinas-historie/silkeveien-map-sea.webp",
             "caption": "Sjørutene knyttet Kina til India, Arabia og Øst-Afrika. Kinesisk keramikk er funnet så langt vest som i Egypt.",
             "alt": "Kart over Silkeveiens sjøruter"
           }
@@ -105,7 +105,7 @@
     },
     {
       "type": "image",
-      "src": "/images/placeholder.webp",
+      "src": "/images/historie/kinas-historie/silkeveien-02.webp",
       "alt": "Sogdiske kjøpmenn med handelsvarer",
       "caption": "Sogdiske kjøpmenn var Silkeveiens ryggmarg i århundrer. Funn av sogdiske brev og mynter viser hvor langt nettverket deres rakk."
     },
@@ -147,7 +147,7 @@
     },
     {
       "type": "image",
-      "src": "/images/placeholder.webp",
+      "src": "/images/historie/kinas-historie/silkeveien-03.webp",
       "alt": "Konstantinopel og det osmanske riket",
       "caption": "Da osmanerne inntok Konstantinopel i 1453, ble europeiske handelsmenn tvunget til å finne nye ruter til Asia - og det utløste oppdagelsestiden."
     },

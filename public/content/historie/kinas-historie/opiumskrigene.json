@@ -5,7 +5,7 @@
   "year": "1839-1842",
   "category": "Kinas historie",
   "readTime": "9 min lesning",
-  "heroImage": "/images/placeholder.webp",
+  "heroImage": "/images/historie/kinas-historie/opiumskrigene-hero.webp",
   "details": [
     "Storbritannia eksporterte opium fra India til Kina for å skaffe penger til å betale for kinesisk te.",
     "Da Kina konfiskerte og destruerte britisk opium i 1839, svarte Storbritannia med militær makt.",
@@ -40,7 +40,7 @@
     },
     {
       "type": "image",
-      "src": "/images/placeholder.webp",
+      "src": "/images/historie/kinas-historie/opiumskrigene-01.webp",
       "alt": "Britiske handelsskip i Guangzhou-havnen på 1800-tallet",
       "caption": "Guangzhou var den eneste havnen der europeere fikk handle i Kina. Britene brukte byen som base for opiumbransjen."
     },
@@ -111,7 +111,7 @@
     },
     {
       "type": "image",
-      "src": "/images/placeholder.webp",
+      "src": "/images/historie/kinas-historie/opiumskrigene-02.webp",
       "alt": "Britisk krigsskip angriper kinesiske befestninger under den første opiumskrigen",
       "caption": "Britiske dampskip ga Europa et militært overtak Kina ikke hadde mulighet til å motsvare. Dette var industrialiserningens mørke ansikt."
     },
@@ -149,7 +149,7 @@
     },
     {
       "type": "image",
-      "src": "/images/placeholder.webp",
+      "src": "/images/historie/kinas-historie/opiumskrigene-03.webp",
       "alt": "Kart over Kinas territorielle tap og ulikeverdige traktater på 1800-tallet",
       "caption": "Gjennom en rekke traktater mistet Kina kontroll over store territorier og sin egen handel. Såret fra denne perioden preger kinesisk politikk den dag i dag."
     },

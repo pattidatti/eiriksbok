@@ -5,7 +5,7 @@
   "year": "1989",
   "category": "Kinas historie",
   "readTime": "9 min lesning",
-  "heroImage": "/images/placeholder.webp",
+  "heroImage": "/images/historie/kinas-historie/tiananmen-1989-hero.webp",
   "details": [
     "Demonstrasjonene på Tiananmen-plassen i 1989 samlet over en million mennesker i Beijing.",
     "Den 4. juni beordret lederskapet hæren inn. Dødstallet er ukjent - estimater varierer fra hundre til flere tusen.",
@@ -35,7 +35,7 @@
     },
     {
       "type": "image",
-      "src": "/images/placeholder.webp",
+      "src": "/images/historie/kinas-historie/tiananmen-1989-01.webp",
       "alt": "Studenter samlet på Tiananmen-plassen i Beijing våren 1989",
       "caption": "Hundretusenvis av studenter samlet seg på Tiananmen-plassen i Beijing i mai 1989."
     },
@@ -65,7 +65,7 @@
     },
     {
       "type": "image",
-      "src": "/images/placeholder.webp",
+      "src": "/images/historie/kinas-historie/tiananmen-1989-02.webp",
       "alt": "Militære kjøretøy på vei inn til Beijing 4. juni 1989",
       "caption": "Natten til 4. juni rullet panserkjøretøy inn mot sentrum av Beijing."
     },
