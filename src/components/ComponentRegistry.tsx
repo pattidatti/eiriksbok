@@ -26,6 +26,7 @@ const BusinessCycleModel = lazy(() => import('./content/interactive/BusinessCycl
 const BusinessCycleGraph = lazy(() => import('./content/interactive/BusinessCycleGraph').then(m => ({ default: m.BusinessCycleGraph })));
 const ProductionModel = lazy(() => import('./content/interactive/ProductionModel').then(m => ({ default: m.ProductionModel })));
 const GrammarRuleCard = lazy(() => import('./content/interactive/GrammarRuleCard').then(m => ({ default: m.GrammarRuleCard })));
+const AthenSparta = lazy(() => import('./content/interactive/AthenSparta').then(m => ({ default: m.AthenSparta })));
 const TextHighlighter = lazy(() => import('./content/interactive/TextHighlighter').then(m => ({ default: m.TextHighlighter })));
 const SentenceBuilder = lazy(() => import('./content/interactive/SentenceBuilder').then(m => ({ default: m.SentenceBuilder })));
 const RomanPantheonExplorer = lazy(() => import('./content/interactive/RomanPantheonExplorer').then(m => ({ default: m.RomanPantheonExplorer })));
@@ -257,6 +258,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     BusinessCycleGraph,
     ProductionModel,
     GrammarRuleCard,
+    AthenSparta,
     TextHighlighter,
     SentenceBuilder,
     RomanPantheonExplorer,

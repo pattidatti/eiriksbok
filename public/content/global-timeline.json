@@ -917,6 +917,25 @@
       ]
     },
     {
+      "id": "athen-og-sparta",
+      "title": "Athen og Sparta: to byer, to verdener",
+      "description": "Hellas var ikke ett land, men hundrevis av bystater. Athen valgte demokrati og kultur, Sparta valgte disiplin og hær.",
+      "startDate": 500,
+      "endDate": -323,
+      "displayDate": "500-323 fvt",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "antikkens-hellas",
+      "link": "/historie/antikkens-hellas/athen-og-sparta",
+      "tags": [
+        "antikken",
+        "hellas",
+        "athen",
+        "sparta",
+        "demokrati"
+      ]
+    },
+    {
       "id": "norge-for-vikingene-sub-8",
       "title": "Fimbulvinteren",
       "description": "Klimasjokket som rammet Norden.",
