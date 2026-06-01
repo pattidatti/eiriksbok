@@ -74,6 +74,11 @@
             }
         },
         {
+            "type": "component",
+            "name": "MicroGame",
+            "props": { "gameId": "dampmaskin-hjerte-3d" }
+        },
+        {
             "type": "header",
             "text": "Watt møter Boulton"
         },
