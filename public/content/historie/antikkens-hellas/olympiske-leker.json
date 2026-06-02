@@ -8,7 +8,7 @@
     "heroImage": "/images/placeholder.webp",
     "details": [
         "De olympiske lekene var en religiøs fest for guden Zevs, ikke bare idrett",
-        "Hver fjerde år la de greske bystatene ned våpnene under en hellig våpenhvile",
+        "Hvert fjerde år la de greske bystatene ned våpnene under en hellig våpenhvile",
         "Lekene samlet fiender til den samme festen og skapte en felles gresk identitet"
     ],
     "content": [
@@ -44,7 +44,7 @@
         },
         {
             "type": "text",
-            "content": "Her møter vi et problem. Hvordan kunne utøvere og tilskuere reise trygt til Olympia når bystatene lå i krig? Svaret var en av de mest spesielle ordningene i hele antikken: ekecheiria, den hellige våpenhvilen. Noen uker før lekene reiste budbringere ut til alle bystatene og ropte ut freden. Mens våpenhvilen varte, fikk ingen starte krig, og ingen fikk angripe noen som var på vei til lekene. Selv byer som hatet hverandre, la ned våpnene. På denne måten gjorde sporten noe ingen hær klarte: den stoppet krigene, om enn bare for en kort tid. Prøv det selv i kartet under. Tenn den hellige ilden, og se hva som skjer med krigen mellom bystatene."
+            "content": "Her møter vi et problem. Hvordan kunne utøvere og tilskuere reise trygt til Olympia når bystatene lå i krig? Svaret var en av de mest spesielle ordningene i hele antikken: ekecheiria, den hellige våpenhvilen. Noen uker før lekene reiste budbringere ut til alle bystatene og ropte ut freden. Mens våpenhvilen varte, fikk ingen starte krig, og ingen fikk angripe noen som var på vei til lekene. Selv byer som hatet hverandre la ned våpnene. På denne måten gjorde sporten noe ingen hær klarte: den stoppet krigene, om enn bare for en kort tid. Prøv det selv i kartet under. Tenn den hellige ilden, og se hva som skjer med krigen mellom bystatene."
         },
         {
             "type": "component",
@@ -65,7 +65,7 @@
             "type": "image",
             "src": "/images/placeholder.webp",
             "alt": "Vognløp med hester runder svingen på stadion i Olympia",
-            "caption": "Vognløpet var det mest dramatiske og farlige. Mange velt og krasj endte i alvorlige skader."
+            "caption": "Vognløpet var det mest dramatiske og farlige. Velt og krasj endte ofte i alvorlige skader."
         },
         {
             "type": "component",

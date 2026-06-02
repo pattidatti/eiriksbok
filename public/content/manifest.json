@@ -937,6 +937,20 @@
               ],
               "createdDate": "2026-03-15T21:20:22+01:00",
               "lastUpdated": "2026-06-01T10:17:45+02:00"
+            },
+            {
+              "id": "muntlig-modell",
+              "title": "Modellsvar: 6-er på muntlig",
+              "description": "Et komplett modellsvar på temaet framgang og motgang, med manus og fagsamtale.",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "eksamen",
+                "muntlig",
+                "modellsvar",
+                "norsk"
+              ],
+              "createdDate": "2026-06-02T00:00:00Z",
+              "lastUpdated": "2026-06-02T07:11:37.198Z"
             }
           ]
         }
@@ -1179,6 +1193,21 @@
               "createdDate": "2025-12-21T13:37:14+01:00",
               "lastUpdated": "2026-05-27T07:36:07+02:00",
               "image": "/images/lessons/demografi/demografi_overgang_hero.webp"
+            },
+            {
+              "id": "km-6-levekaar-verden",
+              "title": "Levekår rundt om i verda",
+              "description": "Artikkelen hjelper elever sammenligne hvordan politiske, geografiske og historiske forhold påvirker levekår, bosettingsmønster og demografi i ulike deler av verden - med konkrete eksempler fra Niger, Brasil og Norge. Direkte adresserer kompetansemål SAF01-04 nr. 6.",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "levekår",
+                "demografi",
+                "globale-ulikheter",
+                "bosettingsmønster",
+                "HDI"
+              ],
+              "createdDate": "2026-06-02T00:00:00Z",
+              "lastUpdated": "2026-06-02T06:56:19.717Z"
             }
           ]
         },
@@ -1357,6 +1386,111 @@
               ],
               "createdDate": "2026-05-12T00:00:00Z",
               "lastUpdated": "2026-05-31T13:21:17+02:00"
+            },
+            {
+              "id": "km-5-kamp-for-endring",
+              "title": "A kjempe for endring",
+              "description": "Artikkelen utforsker hvordan mennesker gjennom historien har kjempet for samfunnsendring - fra norske fagforeninger og suffragetter til borgerrettsbevegelsen i USA - og hvordan geografiske forhold og historisk kontekst alltid former kampens metoder og muligheter.",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "samfunnsendring",
+                "borgerrettigheter",
+                "fagforeninger",
+                "sivil-ulydighet",
+                "historisk-kontekst"
+              ],
+              "createdDate": "2026-06-02T00:00:00Z",
+              "lastUpdated": "2026-06-02T06:56:40.165Z"
+            },
+            {
+              "id": "km-7-konfliktar",
+              "title": "Konfliktar - arsaker og konsekvensar",
+              "description": "Artikkelen utforsker arsakene til og konsekvensene av sentrale historiske og notidige konflikter, med forste verdenskrig og Ukraina som hovedeksempler. Elevene trener paa aa reflektere over om endrede forutsetninger kunne ha hindret konfliktene gjennom et interaktivt historisk radgiverscenario.",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "konflikt",
+                "krig",
+                "arsaker",
+                "FN",
+                "historiske-konflikter"
+              ],
+              "createdDate": "2026-06-02T00:00:00Z",
+              "lastUpdated": "2026-06-02T06:56:55.201Z"
+            },
+            {
+              "id": "km-8-terror-folkemord",
+              "title": "Fra hat til folkemord",
+              "description": "Artikkelen utforsker arsaker til og konsekvenser av terrorisme og folkemord - fra holocaust til 22. juli og Rwanda - og trener eleven i aa gjenkjenne radikalisering og reflektere over forebygging. Et interaktivt scenario-rollespill setter eleven midt i en radikaliseringsprosess og la dem ta valg som illustrerer hva som beskytter mot ekstremisme.",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "holocaust",
+                "terrorisme",
+                "folkemord",
+                "radikalisering",
+                "forebygging"
+              ],
+              "createdDate": "2026-06-02T00:00:00Z",
+              "lastUpdated": "2026-06-02T06:56:54.601Z"
+            },
+            {
+              "id": "km-12-maktaktørar",
+              "title": "Kven har makta?",
+              "description": "Utforsk dei fire hovudtypane av maktaktørar i eit demokratisk samfunn - politikarar, næringsliv, media og sivilsamfunn - og analyser korleis dei grunngir standpunkta sine gjennom konkrete norske eksempel.",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "makt",
+                "politikk",
+                "lobbyisme",
+                "næringsliv",
+                "sivilt-samfunn"
+              ],
+              "createdDate": "2026-06-02T00:00:00Z",
+              "lastUpdated": "2026-06-02T06:56:37.293Z"
+            },
+            {
+              "id": "km-14-lover-normer",
+              "title": "Lover, normer og konsekvensar",
+              "description": "Artikkelen forklarer forskjellen mellom lover, regler og normer, og drøfter hvilke konsekvenser brudd på disse har for den enkelte og samfunnet - bade på kort og lang sikt. Direkte rettet mot kompetansemål SAF01-04 nummer 14.",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "lover",
+                "normer",
+                "konsekvenser",
+                "rettssystem",
+                "demokrati"
+              ],
+              "createdDate": "2026-06-02T00:00:00Z",
+              "lastUpdated": "2026-06-02T06:56:08.605Z"
+            },
+            {
+              "id": "km-15-norsk-demokrati",
+              "title": "Det norske demokratiet i dag",
+              "description": "En pedagogisk artikkel som forklarer hvordan det norske politiske systemet fungerer - fra Stortinget og partiene til velferdsstaten og trepartssamarbeidet. Artikkelen tar også for seg sentrale utfordringer som demografisk aldring, klimakonflikten og økte sosiale forskjeller.",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "demokrati",
+                "velferdsstat",
+                "stortinget",
+                "trepartssamarbeid",
+                "partisystem"
+              ],
+              "createdDate": "2026-06-02T00:00:00Z",
+              "lastUpdated": "2026-06-02T06:58:33.544Z"
+            },
+            {
+              "id": "km-17-medborgar",
+              "title": "Å vere medborgar",
+              "description": "Kva betyr det eigentleg å vere medborgar? Utforsk rettar og plikter i demokratiet, og samanlikn korleis politiske system er organiserte i ulike land - frå liberalt demokrati til eittpartistyre og teokrati.",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "medborgarskap",
+                "demokrati",
+                "politiske-system",
+                "stemmerett",
+                "sivilt-samfunn"
+              ],
+              "createdDate": "2026-06-02T00:00:00Z",
+              "lastUpdated": "2026-06-02T07:00:25.654Z"
             }
           ]
         },
@@ -1430,6 +1564,96 @@
               ],
               "createdDate": "2025-12-21T20:32:19+01:00",
               "lastUpdated": "2026-05-27T07:36:07+02:00"
+            },
+            {
+              "id": "km-2-kjelder-algoritmar",
+              "title": "Kjelder, algoritmar og blindsoner",
+              "description": "Laer deg å vurdere kjelder kritisk og forstå korleis algoritmar formar det du ser på nettet. Artikkelen trener direkte på kompetansemål SAF01-04 nr. 2 - med BiasLens-simulator og filterboble-demo.",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "kildekritikk",
+                "algoritmer",
+                "desinformasjon",
+                "sosiale-medier",
+                "ekkokamre"
+              ],
+              "createdDate": "2026-06-02T00:00:00Z",
+              "lastUpdated": "2026-06-02T06:56:28.401Z"
+            },
+            {
+              "id": "km-4-teknologi-endring",
+              "title": "Teknologien som endrar alt",
+              "description": "Utforsk korleis teknologi har forma verda frå plogen til kunstig intelligens, og drøft kva ny teknologi betyr for enkeltmenneske, samfunn og natur. Artikkelen trener direkte på kompetansemål SAF01-04 4 gjennom eit AI-dilemma-scenario og systematisk drøftingsmodell.",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "teknologi",
+                "digitalisering",
+                "samfunnsendring",
+                "AI",
+                "industrialisering"
+              ],
+              "createdDate": "2026-06-02T00:00:00Z",
+              "lastUpdated": "2026-06-02T06:56:53.049Z"
+            },
+            {
+              "id": "km-9-identitet-mangfald",
+              "title": "Identitet og mangfald",
+              "description": "Artikkelen utforsker hva identitet er, hvordan kulturuttrykk og levesett varierer, og drøfter konkrete muligheter og utfordringer ved et mangfoldig samfunn - direkte rettet mot kompetansemål SAF01-04 nr. 9.",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "identitet",
+                "mangfold",
+                "kultur",
+                "diskriminering",
+                "integrering"
+              ],
+              "createdDate": "2026-06-02T00:00:00Z",
+              "lastUpdated": "2026-06-02T06:56:37.657Z"
+            },
+            {
+              "id": "km-10-digitale-spor",
+              "title": "Dine digitale spor",
+              "description": "Artikkelen hjelper elever å forstå hva digitale spor er, hvem som eier dataene dine, hva GDPR og retten til å bli glemt betyr i praksis, og hvordan opphavsrett gjelder på nett. Direkte adresserer kompetansemål SAF01-04 mål 10 gjennom interaktivt valg-scenario og konkrete eksempler.",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "personvern",
+                "digitale-spor",
+                "GDPR",
+                "opphavsrett",
+                "sosiale-medier"
+              ],
+              "createdDate": "2026-06-02T00:00:00Z",
+              "lastUpdated": "2026-06-02T06:56:36.269Z"
+            },
+            {
+              "id": "km-11-sjolvbilete-grenser",
+              "title": "Kven er du? - identitet og eigne grenser",
+              "description": "Artikkelen utforsker hvordan identitet og selvbilde bygges og utfordres i ulike fellesskap, med konkrete verktoy for a haandtere gruppepress, digitale krenkelser og uonskte hendelser. Direkte adresserer SAF01-04 kompetansemaal 11.",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "identitet",
+                "selvbilde",
+                "gruppepress",
+                "grenser",
+                "sosiale-medier"
+              ],
+              "createdDate": "2026-06-02T00:00:00Z",
+              "lastUpdated": "2026-06-02T06:56:58.725Z"
+            },
+            {
+              "id": "km-13-digital-debatt",
+              "title": "Den digitale offentlegheita",
+              "description": "Utforsk korleis digitale plattformer og sosiale medium formar samfunnsdebatten - kven som kjem til orde, korleis algoritmar styrer kva vi ser, og kva det betyr for demokratiet at debatten flytta seg til nettet.",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "digital-deltaking",
+                "samfunnsdebatt",
+                "sosiale-medier",
+                "ytringsfrihet",
+                "algoritmar"
+              ],
+              "createdDate": "2026-06-02T00:00:00Z",
+              "lastUpdated": "2026-06-02T06:56:28.681Z"
             }
           ]
         },
@@ -1599,6 +1823,21 @@
               ],
               "createdDate": "2025-12-23T14:29:34+01:00",
               "lastUpdated": "2026-05-27T07:36:07+02:00"
+            },
+            {
+              "id": "km-3-historieframstilling",
+              "title": "Kven skriv historia?",
+              "description": "Artikkelen utforsker hvordan fremstillinger av fortida - i bøker, monumenter, kart og propaganda - former holdninger og handlinger. Elever lærer å analysere historieframstilling med kildekritiske verktøy gjennom norske og globale eksempler.",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "historieframstilling",
+                "propaganda",
+                "kolonialisme",
+                "kildekritikk",
+                "nasjonalisme"
+              ],
+              "createdDate": "2026-06-02T00:00:00Z",
+              "lastUpdated": "2026-06-02T06:57:43.452Z"
             }
           ]
         },
@@ -1819,6 +2058,36 @@
               ],
               "createdDate": "2026-06-01T00:00:00Z",
               "lastUpdated": "2026-06-01T10:25:57+02:00"
+            },
+            {
+              "id": "km-1-metode",
+              "title": "Slik undersøker vi samfunnet",
+              "description": "En oppgaveorientert artikkel som trener elevene i samfunnsfaglig metode: formulere gode problemstillinger, finne og kritisk vurdere kilder, tolke statistikk, presentere funn med digitale verktøy og drøfte gyldighet og relevans.",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "metode",
+                "kildekritikk",
+                "statistikk",
+                "presentasjon",
+                "eksamen"
+              ],
+              "createdDate": "2026-06-02T00:00:00Z",
+              "lastUpdated": "2026-06-02T06:57:04.893Z"
+            },
+            {
+              "id": "km-16-dagsaktuelle-tema",
+              "title": "Dagsaktuelle tema - slik jobbar du",
+              "description": "Ein praktisk guide til den samfunnsfaglege metoden: kvar du finn gode kjelder, korleis du vurderer dei kritisk, og korleis du bygger og presenterer solide argument. Trenar eleven direkte mot eksamen og kvardagsleg debattkompetanse.",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "argumentasjon",
+                "kildekritikk",
+                "samfunnsfaglig-metode",
+                "dagsaktuelle-tema",
+                "eksamen"
+              ],
+              "createdDate": "2026-06-02T00:00:00Z",
+              "lastUpdated": "2026-06-02T06:58:40.883Z"
             }
           ]
         }
@@ -4536,7 +4805,7 @@
               ],
               "year": "1520-1566",
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-06-01T13:02:41+02:00"
+              "lastUpdated": "2026-06-02T07:37:58+02:00"
             },
             {
               "id": "janitsjarene",
@@ -4570,7 +4839,7 @@
               ],
               "year": "1492",
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-06-01T19:58:07+02:00"
+              "lastUpdated": "2026-06-02T07:37:58+02:00"
             },
             {
               "id": "topkapi-palasset",
@@ -4587,7 +4856,7 @@
               ],
               "year": "1465",
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-06-01T19:58:07+02:00"
+              "lastUpdated": "2026-06-02T07:37:58+02:00"
             },
             {
               "id": "handel-og-kultur",
@@ -4604,7 +4873,7 @@
               ],
               "year": "1555",
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-06-01T19:58:07+02:00"
+              "lastUpdated": "2026-06-02T07:37:58+02:00"
             },
             {
               "id": "forfallet",
@@ -4621,7 +4890,7 @@
               ],
               "year": "1683-1908",
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-06-01T19:58:07+02:00"
+              "lastUpdated": "2026-06-02T07:37:58+02:00"
             },
             {
               "id": "sammenbruddet",
@@ -4638,7 +4907,7 @@
               ],
               "year": "1914-1923",
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-06-01T19:58:07+02:00"
+              "lastUpdated": "2026-06-02T07:37:58+02:00"
             }
           ]
         },
@@ -4934,7 +5203,7 @@
                 "sivilisasjon"
               ],
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-06-01T19:58:07+02:00"
+              "lastUpdated": "2026-06-02T07:37:58+02:00"
             },
             {
               "id": "dynastiene",
@@ -4947,7 +5216,7 @@
                 "oppfinnelser"
               ],
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-06-01T19:58:07+02:00"
+              "lastUpdated": "2026-06-02T07:37:58+02:00"
             },
             {
               "id": "silkeveien",
@@ -4986,7 +5255,7 @@
                 "mao"
               ],
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-06-01T19:58:07+02:00"
+              "lastUpdated": "2026-06-02T07:37:58+02:00"
             },
             {
               "id": "mao-og-revolusjonen",
@@ -4999,7 +5268,7 @@
                 "kommunisme"
               ],
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-06-01T19:58:07+02:00"
+              "lastUpdated": "2026-06-02T07:37:58+02:00"
             },
             {
               "id": "store-spranget",
@@ -5012,7 +5281,7 @@
                 "hungersnød"
               ],
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-06-01T19:58:07+02:00"
+              "lastUpdated": "2026-06-02T07:37:58+02:00"
             },
             {
               "id": "deng-og-reformene",
@@ -5025,7 +5294,7 @@
                 "økonomi"
               ],
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-06-01T19:58:07+02:00"
+              "lastUpdated": "2026-06-02T07:37:58+02:00"
             },
             {
               "id": "tiananmen-1989",
@@ -5038,7 +5307,7 @@
                 "demokrati"
               ],
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-06-01T10:25:57+02:00"
+              "lastUpdated": "2026-06-02T07:37:58+02:00"
             },
             {
               "id": "kina-supermakt",
@@ -5051,7 +5320,7 @@
                 "xi-jinping"
               ],
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-06-01T19:58:07+02:00"
+              "lastUpdated": "2026-06-02T07:37:58+02:00"
             }
           ]
         },
@@ -5072,7 +5341,7 @@
                 "geografi"
               ],
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-06-01T19:58:07+02:00"
+              "lastUpdated": "2026-06-02T07:37:58+02:00"
             },
             {
               "id": "islams-fodsel",
@@ -5085,7 +5354,7 @@
                 "muhammed"
               ],
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-06-01T19:58:07+02:00"
+              "lastUpdated": "2026-06-02T07:37:58+02:00"
             },
             {
               "id": "islamsk-gullaldet",
@@ -5098,7 +5367,7 @@
                 "vitenskap"
               ],
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-06-01T19:58:07+02:00"
+              "lastUpdated": "2026-06-02T07:37:58+02:00"
             },
             {
               "id": "sykes-picot",
@@ -5111,7 +5380,7 @@
                 "grenser"
               ],
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-06-01T19:58:07+02:00"
+              "lastUpdated": "2026-06-02T07:37:58+02:00"
             },
             {
               "id": "israel-og-palestina",
@@ -5124,7 +5393,7 @@
                 "palestina"
               ],
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-06-01T20:16:41+02:00"
+              "lastUpdated": "2026-06-02T07:37:58+02:00"
             },
             {
               "id": "olje-og-makt",
@@ -5137,7 +5406,7 @@
                 "opec"
               ],
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-06-01T19:58:07+02:00"
+              "lastUpdated": "2026-06-02T07:37:58+02:00"
             },
             {
               "id": "kald-krig-midtosten",
@@ -5150,7 +5419,7 @@
                 "cia"
               ],
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-06-01T19:58:07+02:00"
+              "lastUpdated": "2026-06-02T07:37:58+02:00"
             },
             {
               "id": "iran-revolusjonen",
@@ -5163,7 +5432,7 @@
                 "revolusjon"
               ],
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-06-01T19:58:07+02:00"
+              "lastUpdated": "2026-06-02T07:37:58+02:00"
             },
             {
               "id": "golfkrigene",
@@ -5176,7 +5445,7 @@
                 "golfkrig"
               ],
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-06-01T19:58:07+02:00"
+              "lastUpdated": "2026-06-02T07:37:58+02:00"
             },
             {
               "id": "krigen-mot-terror",
@@ -5189,7 +5458,7 @@
                 "afghanistan"
               ],
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-06-01T10:49:02+02:00"
+              "lastUpdated": "2026-06-02T07:37:58+02:00"
             },
             {
               "id": "arabisk-var",
@@ -5202,7 +5471,7 @@
                 "demokrati"
               ],
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-06-01T19:58:07+02:00"
+              "lastUpdated": "2026-06-02T07:37:58+02:00"
             },
             {
               "id": "midtoesten-i-dag",
@@ -5215,7 +5484,7 @@
                 "iran"
               ],
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-06-01T10:49:02+02:00"
+              "lastUpdated": "2026-06-02T07:37:58+02:00"
             }
           ]
         }

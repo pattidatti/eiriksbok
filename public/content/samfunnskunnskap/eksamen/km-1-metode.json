@@ -1,0 +1,452 @@
+{
+    "id": "km-1-metode",
+    "title": "Slik undersøker vi samfunnet",
+    "description": "Laer deg samfunnsfaglig metode: slik stiller du gode sporsmål, finner troverdige kilder, tolker statistikk og presenterer funn på en ryddig mate.",
+    "subject": "samfunnskunnskap",
+    "topic": "eksamen",
+    "layout": "rich",
+    "heroImage": "/images/placeholder.webp",
+    "readTime": "10 min lesning",
+    "category": "Eksamen",
+    "details": [
+        "Kompetansemål SAF01-04",
+        "Samfunnsfaglig metode"
+    ],
+    "timeline": [],
+    "content": [
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Kompetansemål",
+                "content": "Bruke samfunnsfaglege metodar og digitale ressursar i eigne undersøkingar, presentere funn ved bruk av digitale verktøy og drøfte kor gyldige og relevante funna er."
+            }
+        },
+        {
+            "type": "text",
+            "content": "I fjor hevdet en norsk avis at «ungdommer bruker dobbelt så mye tid på sosiale medier som for fem år siden». Er det sant? Hvem spurte de? Hva betyr egentlig «dobbelt så mye»? Disse spørsmålene er kjernen i samfunnsfaglig metode: evnen til å undersøke, vurdere og presentere kunnskap om samfunnet på en ryddig og etterprøvbar måte."
+        },
+        {
+            "type": "text",
+            "content": "Samfunnsfaglig metode er ikke et eget fag du tar og glemmer. Det er et sett med verktøy du bruker hele livet - for å forstå nyheter, ta gode beslutninger og si noe fornuftig om verden rundt deg. På eksamen er det akkurat denne evnen sensor vil se at du har."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Elev som undersøker grafer og statistikk på skjerm",
+            "caption": "Å lese statistikk kritisk er en grunnleggende samfunnsfaglig ferdighet."
+        },
+        {
+            "type": "header",
+            "text": "Steg 1: Formuler en god problemstilling"
+        },
+        {
+            "type": "text",
+            "content": "Alle undersøkelser starter med et spørsmål. Men ikke alle spørsmål er like gode. «Hva er fattigdom?» er et tema. «Øker ungdomsfattigdom i Norge, og hva forklarer det?» er en problemstilling. En problemstilling er et avgrenset spørsmål du faktisk kan svare på med data og argumenter."
+        },
+        {
+            "type": "text",
+            "content": "En god problemstilling har tre trekk: den er tydelig (du vet hva du leter etter), avgrenset (ikke for vid til å svare på) og drøftbar (det finnes ulike svar og synspunkter). Unngå ja/nei-spørsmål. «Er innvandring bra for Norge?» gir deg ikke mye å jobbe med. «Hva viser statistikken om innvandreres arbeidsdeltakelse i Norge de siste ti årene, og hva kan det fortelle oss om integrering?» - det er noe å undersøke."
+        },
+        {
+            "type": "list",
+            "items": [
+                "Tydelig: hva du vil finne ut er klart fra start.",
+                "Avgrenset: du kan faktisk svare på den med tilgjengelig informasjon.",
+                "Drøftbar: det finnes ulike tolkninger og synspunkter.",
+                "Relevant: den sier noe meningsfylt om samfunnet."
+            ]
+        },
+        {
+            "type": "header",
+            "text": "Steg 2: Finn og vurder kilder"
+        },
+        {
+            "type": "text",
+            "content": "Når problemstillingen er klar, trenger du data. I samfunnsfag bruker vi to typer: primærkilder er informasjon du samler selv (et intervju du gjør, en spørreundersøkelse du lager, tall du henter direkte fra SSB). Sekundærkilder er informasjon andre har samlet og tolket (en avisartikkel, en fagrapport, en lærebok)."
+        },
+        {
+            "type": "text",
+            "content": "Å finne kilder er ikke nok. Du må vurdere dem. Kildekritikk betyr at du stiller fire spørsmål: Hvem har laget dette? Når ble det laget? Hvorfor ble det laget? Kan informasjonen etterprøves? En politisk parti-nettside og Statistisk sentralbyrå (SSB) er begge kilder, men de er ikke like nøytrale. Se artikkelen om [Ekkokamre og informasjonsbobler](/samfunnskunnskap/mennesket-kultur-samfunn/ekkokamre) for mer om hvordan vi lett ender opp med ensidige kilder."
+        },
+        {
+            "type": "text",
+            "content": "Digitale verktøy gjør kildesøk enklere, men også mer krevende. Algoritmer på sosiale medier viser deg mer av det du allerede er enig i. Søkemotorer rangerer popularitet, ikke alltid kvalitet. Derfor må du aktivt oppsøke flere perspektiver og sjekke om det du finner tåler prøving."
+        },
+        {
+            "type": "header",
+            "text": "Kildevurdering i praksis"
+        },
+        {
+            "type": "component",
+            "name": "BiasLens",
+            "props": {
+                "title": "Samme sak - ulikt vinkel",
+                "baseContent": "En ny rapport viser at ungdomsarbeidsledigheten i Norge økte med 12 prosent siste kvartal. Eksperter mener dette kan skyldes lavere etterspørsel etter deltidsarbeid i servicesektoren. Regjeringen varsler tiltak.",
+                "lenses": [
+                    {
+                        "id": "neutral",
+                        "label": "Nyhetsartikkel (SSB)",
+                        "description": "Nøytral, faktabasert presentasjon fra statistisk kilde.",
+                        "theme": {
+                            "color": "blue-700",
+                            "bgColor": "bg-blue-50",
+                            "borderColor": "border-blue-200",
+                            "textColor": "text-slate-800"
+                        },
+                        "replacements": []
+                    },
+                    {
+                        "id": "german",
+                        "label": "Opposisjonsparti",
+                        "description": "En politisk aktør som vil kritisere regjeringen, vil bruke de samme tallene til å angripe.",
+                        "theme": {
+                            "color": "red-700",
+                            "bgColor": "bg-red-50",
+                            "borderColor": "border-red-200",
+                            "textColor": "text-slate-800"
+                        },
+                        "replacements": [
+                            {
+                                "original": "økte med 12 prosent",
+                                "replacement": "skjøt i været med hele 12 prosent",
+                                "explanation": "Dramatiserer økningen for å skape bekymring."
+                            },
+                            {
+                                "original": "Regjeringen varsler tiltak",
+                                "replacement": "Regjeringen varsler tomme tiltak nok en gang",
+                                "explanation": "Legger til skepsis og undergraver troverdigheten."
+                            },
+                            {
+                                "original": "Eksperter mener",
+                                "replacement": "Regjeringens egne eksperter hevder",
+                                "explanation": "Kobler eksperten til regjeringen for å så tvil."
+                            }
+                        ]
+                    },
+                    {
+                        "id": "french",
+                        "label": "Regjeringen",
+                        "description": "En regjering vil minimere problemet og framheve egne svar.",
+                        "theme": {
+                            "color": "green-700",
+                            "bgColor": "bg-green-50",
+                            "borderColor": "border-green-200",
+                            "textColor": "text-slate-800"
+                        },
+                        "replacements": [
+                            {
+                                "original": "økte med 12 prosent",
+                                "replacement": "viste en midlertidig økning på 12 prosent",
+                                "explanation": "Legger til 'midlertidig' for å tone ned alvoret."
+                            },
+                            {
+                                "original": "Regjeringen varsler tiltak",
+                                "replacement": "Regjeringen griper raskt inn med målrettede tiltak",
+                                "explanation": "Framhever handlekraft og effektivitet."
+                            },
+                            {
+                                "original": "kan skyldes lavere etterspørsel",
+                                "replacement": "delvis skyldes globale markedsforhold",
+                                "explanation": "Flytter ansvaret til noe utenfor regjeringens kontroll."
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "type": "text",
+            "content": "Legg merke til at alle tre tekstene bygger på de samme tallene. Men ordvalget, framhevingen og konteksten er ulik. En god samfunnsfaglig undersøkelse bruker ikke bare én kilde - den setter kildene opp mot hverandre og vurderer hvem som sier hva og hvorfor."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Grafer og statistikk fra SSB vist på en skjerm",
+            "caption": "SSB.no er en av de viktigste kildene for norsk samfunnsstatistikk."
+        },
+        {
+            "type": "header",
+            "text": "Steg 3: Tolke statistikk og data"
+        },
+        {
+            "type": "text",
+            "content": "Tall lyver ikke, men de kan presenteres på måter som villeder. Hvis en overskrift sier «antall arbeidsledige doblet seg», er det dramatisk. Men hvis utgangspunktet var 500 personer og det nå er 1000 - er det fremdeles dramatisk i et land med 5 millioner innbyggere? Absolutte tall og prosenter forteller ulike historier. Du må alltid spørre: «Av hva?»"
+        },
+        {
+            "type": "text",
+            "content": "Et annet vanlig triks er å velge et gunstig sammenligningsår. Økte ungdomsarbeidsledigheten fra 2020 til 2021? Ja - men 2020 var et koronaår med ekstraordinære forhold. Å sammenligne med et normalår gir et helt annet bilde. Gode undersøkelser viser trendene over tid, ikke bare et enkelt øyeblikksbilde."
+        },
+        {
+            "type": "text",
+            "content": "Når du tolker statistikk, still tre spørsmål: Hva måler dette egentlig? Sammenlignet med hva? Hvem er ikke med i tallene? Tenk for eksempel på [fattigdom](/samfunnskunnskap/demografi/fattigdom): måler vi absolutt fattigdom (mangler mat og husly) eller relativ fattigdom (tjener under 60 prosent av medianinntekten)? De to målene gir svært ulike tall for Norge."
+        },
+        {
+            "type": "header",
+            "text": "Steg 4: Presenter funn med digitale verktøy"
+        },
+        {
+            "type": "text",
+            "content": "Å finne god informasjon er halvparten av jobben. Den andre halvparten er å presentere den slik at andre forstår hva du har funnet og hva det betyr. Digitale verktøy hjelper deg med dette: grafer viser trender tydeligere enn tabeller, kart viser geografiske mønstre, og lysbildepresentasjoner lar deg styre hva publikum ser og når."
+        },
+        {
+            "type": "text",
+            "content": "En vanlig feil er å drukne publikum i data. En graf med femten linjer i ulike farger hjelper ingen. Velg det ene poenget du vil vise med hvert diagram. Gi alltid grafer og kart tittel og kildehenvisning. Forklar hva diagrammet viser med egne ord - ikke stol på at tilskueren ser det samme som deg."
+        },
+        {
+            "type": "list",
+            "items": [
+                "Velg riktig graftype: linjegraf for utvikling over tid, kakediagram for andeler, stolpediagram for sammenligning.",
+                "Gi alltid tittelen tydelig: 'Ungdomsarbeidsledighet i Norge 2015-2025 (kilde: SSB)'.",
+                "Forklar hva grafen viser i presentasjonen, ikke bare vis den.",
+                "Hold det enkelt: ett poeng per diagram.",
+                "Unnga misvisende akser som gjor endringer se storst mulig."
+            ]
+        },
+        {
+            "type": "header",
+            "text": "Steg 5: Drøft gyldighet og relevans"
+        },
+        {
+            "type": "text",
+            "content": "Det siste - og viktigste - steget er å drøfte hva funnene dine faktisk betyr. Gyldighet handler om hvorvidt undersøkelsen din måler det den sier den måler. Spurte du ti klassekamerater om hva de stemmer ved valg? Det er ikke nødvendigvis gyldig for å si noe om norsk ungdoms politiske holdninger generelt. Relevans handler om hvorvidt funnene svarer på problemstillingen din."
+        },
+        {
+            "type": "text",
+            "content": "En ærlig drøfting peker på svakheter i egne funn. Var utvalget for lite? Var spørsmålene ledende? Var kildene ensidige? Dette er ikke en svakhet ved undersøkelsen din - det er bevis på at du tenker kritisk. Sensor setter stor pris på elever som kan si «dette funnet er usikkert fordi...» framfor elever som later som om alt er sikkert."
+        },
+        {
+            "type": "text",
+            "content": "Å tenke over gyldighet og relevans er også nyttig i hverdagen. Neste gang du leser en overskrift som «studie viser at...», spør deg: Hvem ble spurt? Hvor mange? Hvem finansierte studien? Dette er ikke kynisme - det er grunnleggende kritisk tenkning, og det er noe [demokratiets mange ansikter](/samfunnskunnskap/styringsformer/demokrati-ansikter) er avhengig av."
+        },
+        {
+            "type": "header",
+            "text": "Tren deg: Velg riktig fremgangsmåte"
+        },
+        {
+            "type": "component",
+            "name": "ScenarioRoleplay",
+            "props": {
+                "title": "Undersøkelsen om skjermbruk",
+                "startId": "start",
+                "scenario": [
+                    {
+                        "id": "start",
+                        "text": "Du skal undersøke om norske ungdommer bruker mer tid på sosiale medier nå enn for fem år siden. Du vil presentere funn i en muntlig eksamen. Hva er din første prioritet?",
+                        "choices": [
+                            {
+                                "text": "Sporre ti klassekamerater og bruke det som bevis",
+                                "nextId": "for_lite",
+                                "feedback": "Ti klassekamerater er et for lite og for snevert utvalg. De kjenner deg, bor i samme nabolag og er på samme alder. Funnene vil ikke være gyldige for alle norske ungdommer."
+                            },
+                            {
+                                "text": "Finne statistikk fra Medietilsynet eller SSB og lage en problemstilling",
+                                "nextId": "riktig",
+                                "feedback": "Riktig fremgangsmåte. Offentlig statistikk gir deg representative data, og en problemstilling gir undersøkelsen retning. Nå kan du sammenligne tall over tid og drøfte hva de betyr."
+                            },
+                            {
+                                "text": "Google 'ungdom sosiale medier' og bruke den første artikkelen du finner",
+                                "nextId": "ikke_kildekritisk",
+                                "feedback": "Den første Google-treffet er ikke alltid den beste kilden. Det kan være en reklameside, en blogg eller en utdatert artikkel. Du må vurdere kildene kritisk for du bruker dem."
+                            },
+                            {
+                                "text": "Starte med a lage en PowerPoint for a se hva du trenger",
+                                "nextId": "feil_rekkefolge",
+                                "feedback": "Presentasjonen er det siste du lager, ikke det første. Uten data og en problemstilling vet du ikke hva du skal presentere. Start alltid med sporsmal og kilder."
+                            }
+                        ]
+                    },
+                    {
+                        "id": "riktig",
+                        "text": "Du finner tall fra Medietilsynet som viser at daglig skjermtid blant 9-18-åringer økte fra 3,5 timer i 2019 til 5,2 timer i 2024. Hva gjør du nå?",
+                        "choices": [
+                            {
+                                "text": "Bruke tallene direkte uten å stille spørsmål ved dem",
+                                "nextId": "ingen_kritikk",
+                                "feedback": "Du bor alltid stille kritiske sporsmal, selv til troverdige kilder. Hva talte de? Hvem deltok? Er tallene direkte sammenlignbare? Å vise at du tenker over dette, er tegn på høy kompetanse."
+                            },
+                            {
+                                "text": "Vurdere hva tallene maler, sammenligne med andre kilder og drøfte hva økningen kan skyldes",
+                                "nextId": "full_metode",
+                                "feedback": "Dette er samfunnsfaglig metode i praksis. Du kobler data til en forklaring, viser kildekritikk og drøfter gyldigheten. Akkurat det sensor vil se."
+                            },
+                            {
+                                "text": "Konkludere med at sosiale medier er skadelig for ungdom",
+                                "nextId": "for_sterk",
+                                "feedback": "Tallene viser økt skjermbruk, men de sier ikke noe om skade. Det er et hopp fra beskrivelse til vurdering uten nok grunnlag. Hold deg til hva dataene faktisk viser."
+                            }
+                        ]
+                    },
+                    {
+                        "id": "full_metode",
+                        "text": "Du har gode data, en tydelig problemstilling og har drøftet gyldigheten. Hvordan presenterer du funnene best?",
+                        "choices": [
+                            {
+                                "text": "Lese opp tallene fra et ark",
+                                "nextId": "les_opp",
+                                "feedback": "Å lese opp tall gir ikke publikum noe visuelt å holde seg til. En graf eller et diagram gjør trenden umiddelbart tydelig."
+                            },
+                            {
+                                "text": "Vise en linjegraf med tydelig tittel og kilde, og forklare hva den viser",
+                                "nextId": "perfekt",
+                                "feedback": "Perfekt. En linjegraf viser utviklingen over tid visuelt. Tittel og kilde viser at du arbeider ryddig. Og forklaringen i egne ord viser at du forstår dataene."
+                            }
+                        ]
+                    },
+                    {
+                        "id": "for_lite",
+                        "text": "Funnene dine er interessante, men utvalget er for lite til å si noe om alle norske ungdommer. Hva bør du gjøre i stedet?",
+                        "choices": [
+                            {
+                                "text": "Finne offentlig statistikk fra Medietilsynet eller SSB som representerer alle ungdommer",
+                                "nextId": "riktig",
+                                "feedback": "Riktig. Offentlige undersøkelser har store utvalg og er metodisk solide. De er mye mer gyldige enn en liten spørreundersøkelse i klassen."
+                            }
+                        ]
+                    },
+                    {
+                        "id": "ikke_kildekritisk",
+                        "text": "Du bør alltid sjekke hvem som står bak en nettside og når innholdet ble publisert. Hva er det riktige neste steget?",
+                        "choices": [
+                            {
+                                "text": "Sjekke hvem som har laget siden, når den ble oppdatert og om tallene kan etterprøves",
+                                "nextId": "riktig",
+                                "feedback": "Nøyaktig. Kildekritikk betyr alltid: hvem, når, hvorfor. Offentlige statistikkbanker er tryggere enn tilfeldige nettsider."
+                            }
+                        ]
+                    },
+                    {
+                        "id": "feil_rekkefolge",
+                        "text": "En presentasjon er et verktøy for å formidle funn - ikke et startpunkt. Hva bør komme først?",
+                        "choices": [
+                            {
+                                "text": "Formulere en problemstilling og finne troverdige kilder",
+                                "nextId": "riktig",
+                                "feedback": "Nettopp. Problemstilling og kilder er grunnmuren. Presentasjonen bygger du etterpå, når du vet hva du har å si."
+                            }
+                        ]
+                    },
+                    {
+                        "id": "ingen_kritikk",
+                        "text": "Medietilsynet er en god kilde, men du bør likevel stille spørsmål. Prøv neste gang å også vurdere hva tallene faktisk måler og om de er sammenlignbare over tid.",
+                        "choices": []
+                    },
+                    {
+                        "id": "for_sterk",
+                        "text": "Økt skjermtid er ikke det samme som skade. Dataene beskriver hva som skjer, men sier ikke noe om konsekvensene uten mer dokumentasjon. Hold konklusjonen til det du faktisk kan belegge.",
+                        "choices": []
+                    },
+                    {
+                        "id": "les_opp",
+                        "text": "En graf er mye mer effektiv enn tall lest opp fra et ark. Neste gang: lag en enkel linjegraf med tittel og kilde, og forklar hva den viser med egne ord.",
+                        "choices": []
+                    },
+                    {
+                        "id": "perfekt",
+                        "text": "Du behersker alle fem stegene i samfunnsfaglig metode: god problemstilling, troverdige og kritisk vurderte kilder, tolkning av statistikk, ryddig digital presentasjon og ærlig drøfting av gyldighet. Det er akkurat det kompetansemålet krever.",
+                        "choices": []
+                    }
+                ]
+            }
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Elev som presenterer grafer for klassen med lysbilder",
+            "caption": "Gode digitale presentasjoner gjør funn tydelige og overbevisende."
+        },
+        {
+            "type": "header",
+            "text": "De fem stegene samlet"
+        },
+        {
+            "type": "text",
+            "content": "Samfunnsfaglig metode er ikke vanskeligere enn dette: du stiller et godt spørsmål, finner pålitelige kilder, tolker dataene kritisk, presenterer funnene tydelig og er ærlig om hva undersøkelsen kan og ikke kan si. Disse fem stegene gjelder enten du undersøker [urbanisering](/samfunnskunnskap/demografi/urbanisering) i Norge eller prøver å forstå en nyhetssak fra utlandet."
+        },
+        {
+            "type": "text",
+            "content": "Det som skiller en god samfunnsfaglig undersøkelse fra en dårlig en, er ikke mengden data - det er kvaliteten på spørsmålene du stiller underveis. En undersøkelse som innrømmer sine egne begrensninger er sterkere enn en som later som den har svarene på alt. Husk det når du forbereder presentasjonen til eksamen."
+        },
+        {
+            "type": "list",
+            "items": [
+                "Steg 1: Formuler en tydelig, avgrenset og drøftbar problemstilling.",
+                "Steg 2: Finn primær- og sekundærkilder og vurder dem kritisk.",
+                "Steg 3: Tolke statistikk - spør alltid 'av hva?' og 'sammenlignet med hva?'",
+                "Steg 4: Presenter funn med riktig graftype, tittel, kilde og forklaring.",
+                "Steg 5: Drøft gyldighet og relevans - vær ærlig om begrensninger."
+            ]
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hva kjennetegner en god problemstilling?",
+                        "options": [
+                            "Den er bred nok til å dekke hele faget",
+                            "Den er tydelig, avgrenset og drøftbar",
+                            "Den kan besvares med ja eller nei",
+                            "Den handler om noe du allerede vet svaret på"
+                        ],
+                        "correctAnswer": 1,
+                        "explanation": "En god problemstilling er tydelig (du vet hva du leter etter), avgrenset (du kan faktisk svare på den) og drøftbar (det finnes ulike synspunkter). Ja/nei-spørsmål og altfor brede temaer er vanskelige å undersøke grundig."
+                    },
+                    {
+                        "question": "Hva er forskjellen på en primærkilde og en sekundærkilde?",
+                        "options": [
+                            "Primærkilder er eldre enn sekundærkilder",
+                            "Primærkilder er alltid mer troverdige",
+                            "Primærkilder er informasjon du samler selv, sekundærkilder er informasjon andre har samlet og tolket",
+                            "Primærkilder er fra internett, sekundærkilder er fra bøker"
+                        ],
+                        "correctAnswer": 2,
+                        "explanation": "En primærkilde er data du samler direkte - for eksempel et intervju du gjør eller tall du henter fra SSB selv. En sekundærkilde er noe andre har samlet og tolket, som en avisartikkel eller en fagrapport."
+                    },
+                    {
+                        "question": "Du ser en overskrift: «Kriminaliteten doblet seg siste år». Hva bør du alltid spørre om?",
+                        "options": [
+                            "Hvem som designet nettsiden",
+                            "Hva utgangspunktet var og av hva antallet er doblet",
+                            "Hvilket land nyheten handler om",
+                            "Når artikkelen ble publisert"
+                        ],
+                        "correctAnswer": 1,
+                        "explanation": "«Doblet seg» sier ingenting uten utgangspunktet. Hvis det gikk fra 10 til 20 tilfeller i en liten kommune, er det ikke nødvendigvis dramatisk. Alltid spørre: av hva, sammenlignet med hva, og i hvilken kontekst."
+                    },
+                    {
+                        "question": "Hvorfor er det en styrke, ikke en svakhet, å peke på begrensninger i egne funn?",
+                        "options": [
+                            "Fordi sensor gir ekstrapoeng for selvkritikk",
+                            "Fordi det viser at du tenker kritisk og vet hva undersøkelsen faktisk kan si noe om",
+                            "Fordi det gjør presentasjonen lengre",
+                            "Fordi det er et krav i oppgaveteksten"
+                        ],
+                        "correctAnswer": 1,
+                        "explanation": "Å drøfte gyldighet og relevans viser at du forstår metodens grenser. En undersøkelse som innrømmer hva den ikke kan si, er mer troverdig enn en som later som den har alle svarene. Det er kjernen i vitenskapelig og samfunnsfaglig tenkning."
+                    },
+                    {
+                        "question": "Hvilken graftype er best for å vise hvordan ungdomsarbeidsledigheten har utviklet seg fra 2015 til 2025?",
+                        "options": [
+                            "Kakediagram",
+                            "Linjegraf",
+                            "Stolpediagram",
+                            "Punktsky"
+                        ],
+                        "correctAnswer": 1,
+                        "explanation": "En linjegraf er best for å vise utvikling over tid - den gjør trenden umiddelbart synlig. Kakediagrammet egner seg for andeler av en helhet, og stolpediagrammet for sammenligning mellom kategorier."
+                    }
+                ]
+            }
+        }
+    ],
+    "tags": [
+        "metode",
+        "kildekritikk",
+        "statistikk",
+        "presentasjon",
+        "eksamen"
+    ],
+    "createdDate": "2026-06-02T00:00:00Z"
+}

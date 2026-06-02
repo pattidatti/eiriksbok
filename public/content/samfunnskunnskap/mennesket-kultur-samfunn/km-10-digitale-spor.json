@@ -1,0 +1,281 @@
+{
+    "id": "km-10-digitale-spor",
+    "title": "Dine digitale spor",
+    "layout": "rich",
+    "category": "Samfunnskunnskap",
+    "readTime": "8 min lesning",
+    "heroImage": "/images/placeholder.webp",
+    "details": [
+        "Kompetansemål SAF01-04",
+        "Digitale spor og personvern"
+    ],
+    "timeline": [],
+    "content": [
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Kompetansemål",
+                "content": "utforske og reflektere over eigne digitale spor og høvet til å få sletta spora og å verne om retten ein sjølv og andre har til privatliv, personvern og opphavsrett"
+            }
+        },
+        {
+            "type": "text",
+            "content": "Tenk deg at du hver dag legger igjen tusenvis av fotavtrykk - men ingen av dem er synlige for det blotte øye. Hvert søk du gjør på Google, hver video du ser på YouTube, hvert bilde du liker på Instagram og hvert kart du åpner på telefonen - alt dette skaper et digitalt spor etter deg. Disse sporene forteller hvem du er, hva du liker, hva du er redd for og hva du drømmer om. Og de lever lenge etter at du har glemt dem."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Tenåring bruker telefon med digitale dataspor synlig rundt seg",
+            "caption": "Hvert klikk og søk etterlater seg data som lagres av plattformene du bruker."
+        },
+        {
+            "type": "header",
+            "text": "Hva er et digitalt spor?"
+        },
+        {
+            "type": "text",
+            "content": "Et digitalt spor er all informasjon du legger igjen når du bruker internett og digitale tjenester. Noen spor lager du bevisst: et bilde du legger ut, en kommentar du skriver eller en profil du oppretter. Dette kalles aktive digitale spor. Andre spor lages uten at du tenker over det: hvilken telefon du bruker, hvilken by du er i, når du er våken og aktiv, hva du klikker på og hva du bare scroller forbi uten å stoppe ved. Dette kalles passive digitale spor."
+        },
+        {
+            "type": "text",
+            "content": "Passive spor kan avsløre mye mer enn du tror. Hvis du søker på 'vondt i magen om natten' klokka 02.00, 'hvordan bli kvitt angst' og 'leger i Oslo' i samme uke, kan en algoritme trekke ganske presise slutninger om helsetilstanden din - selv om du aldri har fortalt det til noen. Plattformene samler disse dataene og bruker dem til å vise deg reklame og innhold som er skreddersydd for deg. Du kan lese mer om hvordan algoritmer former hva du ser i artikkelen om [ekkokamre og informasjonsbobler](/samfunnskunnskap/mennesket-kultur-samfunn/ekkokamre)."
+        },
+        {
+            "type": "header",
+            "text": "Hvem eier dataene dine?"
+        },
+        {
+            "type": "text",
+            "content": "Når du oppretter en konto på en plattform, godkjenner du som regel lange brukervilkar som de fleste aldri leser. I disse vilkarene gir du plattformen lov til å lagre og bruke dataene dine. Det er her det blir komplisert: Selv om du i teorien eier informasjonen om deg selv, har du i praksis gitt fra deg mye kontroll over den."
+        },
+        {
+            "type": "text",
+            "content": "I Europa beskytter GDPR - General Data Protection Regulation - deg mot det verste. GDPR er en lov som gjelder i hele EU og EØS-området, inkludert Norge. Den sier blant annet at du har rett til å vite hva som lagres om deg, rett til å kreve at det slettes (retten til å bli glemt) og rett til å få en kopi av alle dataene en bedrift har om deg. Vil du prøve dette i praksis? Du kan kontakte Google, Meta eller TikTok og be om innsyn i alt de vet om deg. Svaret er gjerne overraskende."
+        },
+        {
+            "type": "component",
+            "name": "ScenarioRoleplay",
+            "props": {
+                "title": "Hva gjor du med sporene dine?",
+                "startId": "start",
+                "scenario": [
+                    {
+                        "id": "start",
+                        "text": "Du er 15 år og har akkurat lagt ut et bilde av deg selv på Instagram der du er på en fest. Noen dager senere forstar du at bildet kanskje ikke bor ligge der - du er ikke fornøyd med det, og en fremtidig arbeidsgiver kan kanskje se det. Hva gjor du?",
+                        "choices": [
+                            {
+                                "text": "Jeg sletter bildet med en gang",
+                                "nextId": "slettet",
+                                "feedback": "Lurt! Du kan slette egne bilder når som helst. Men husk: Andre kan ha tatt skjermbilde eller delt bildet videre. Sletting på Instagram betyr ikke at bildet er borte fra internett for alltid."
+                            },
+                            {
+                                "text": "Jeg lar det ligge - det er jo ikke sa farlig",
+                                "nextId": "lar-ligge",
+                                "feedback": "Dette er et valg mange tar. Men det du legger ut i dag kan dukke opp igjen om 10 ar. Arbeidsgivere, skoler og andre googler folk de vurderer a ansette eller ta opp."
+                            },
+                            {
+                                "text": "Jeg gjor profilen privat i stedet",
+                                "nextId": "privat",
+                                "feedback": "Bedre! Men husk at venner fremdeles ser bildet, og Instagram kan endre personverninnstillingene sine. En privat profil er ikke det samme som et slettet spor."
+                            }
+                        ]
+                    },
+                    {
+                        "id": "slettet",
+                        "text": "Du slettet bildet. Men to ar senere soker du jobb og arbeidsgiveren nevner at de 'googlet deg litt'. De spor om festen. Det viser seg at en venn delte bildet på sin offentlige profil. Hva gjor du?",
+                        "choices": [
+                            {
+                                "text": "Jeg er ærlig og forklarer at det var et enkelt feiltrinn",
+                                "nextId": "aerlig",
+                                "feedback": "God tilnærming. Arbeidsgivere setter pris på ærlighet og evnen til a reflektere over egne valg. Det viser modenhet."
+                            },
+                            {
+                                "text": "Jeg benekter at det er meg",
+                                "nextId": "benekter",
+                                "feedback": "Farlig strategi. Hvis de allerede har sett bildet og spor om det, vet de hvem det er. Løgn i jobbintervju er et sikkert avslag."
+                            }
+                        ]
+                    },
+                    {
+                        "id": "lar-ligge",
+                        "text": "Du lar bildet ligge og tenker ikke mer på det. Tre ar later soker du til en prestisjefylt studieplass. I skjemaet spor de om du har sosiale medier. Komiteen finner bildet. Hva er konsekvensen?",
+                        "choices": [
+                            {
+                                "text": "Ingenting - det er jo bare et bilde fra en fest",
+                                "nextId": "kanskje-greit",
+                                "feedback": "I mange tilfeller er dette riktig. Et enkelt bilde fra en fest er sjelden dramatisk. Men det avhenger av hva slags jobb eller utdanning det gjelder, og hva bildet viser."
+                            },
+                            {
+                                "text": "Jeg angrer på at jeg ikke var mer bevisst på sporene mine",
+                                "nextId": "lærte",
+                                "feedback": "Det er et godt sted a begynne. Det viktige er ikke a leve i frykt for digitale spor, men a ta bevisste valg om hva du deler."
+                            }
+                        ]
+                    },
+                    {
+                        "id": "privat",
+                        "text": "Du gjor profilen privat. En manede senere far du forespørsel fra noen du ikke kjenner. De skriver at de 'kjenner venner av deg'. Hva gjor du?",
+                        "choices": [
+                            {
+                                "text": "Jeg godtar - det kan jo hende jeg kjenner dem",
+                                "nextId": "godtar",
+                                "feedback": "Advarsel! A godta ukjente på private kontoer undergraver privatinnstillingene dine. Hvem som helst kan si de kjenner noen du kjenner."
+                            },
+                            {
+                                "text": "Jeg avslår og holder profilen min for folk jeg faktisk kjenner",
+                                "nextId": "avslaar",
+                                "feedback": "Klokt valg. En privat profil fungerer bare hvis du er selektiv med hvem du slipper inn."
+                            }
+                        ]
+                    },
+                    {
+                        "id": "aerlig",
+                        "text": "Du er ærlig. Arbeidsgiveren setter pris på det og du far jobben. Moralen: Digitale spor kan ikke alltid slettes, men maten du handterer dem på, sier noe om hvem du er.",
+                        "choices": []
+                    },
+                    {
+                        "id": "benekter",
+                        "text": "Du benekter. Arbeidsgiveren ser seg om og lar deg ikke fa jobben. Digitale spor kan leve lenger enn minnene dine - og løgn forverrer situasjonen.",
+                        "choices": []
+                    },
+                    {
+                        "id": "kanskje-greit",
+                        "text": "Ofte er det helt greit. Men det er lurt a tenke gjennom: Hva slags spor vil du at verden skal se av deg? Det gir deg mer kontroll over din egen fortelling.",
+                        "choices": []
+                    },
+                    {
+                        "id": "lærte",
+                        "text": "Det er aldri for sent a rydde i digitale spor. Du kan gjennomsoke det du har lagt ut, slette det du ikke ønsker skal representere deg, og ga videre med mer bevissthet.",
+                        "choices": []
+                    },
+                    {
+                        "id": "godtar",
+                        "text": "Den ukjente personen viser seg a vare en fremmed som samler data om ungdom. Privatinnstillinger er et verktøy - men de virker bare hvis du bruker dem gjennomtenkt.",
+                        "choices": []
+                    },
+                    {
+                        "id": "avslaar",
+                        "text": "Godt valgt. En privat profil der du kjenner alle som følger deg, er mye tryggere enn en der du slipper inn fremmede.",
+                        "choices": []
+                    }
+                ]
+            }
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "GDPR-logo og personvernregler illustrert med laas og dokument",
+            "caption": "GDPR gir deg rettigheter over egne data - inkludert retten til å bli glemt."
+        },
+        {
+            "type": "header",
+            "text": "Retten til a bli glemt"
+        },
+        {
+            "type": "text",
+            "content": "I 2014 fikk en spansk mann medhold i en historisk sak mot Google. Han hadde solgt huset sitt på tvangsauksjon på 1990-tallet - en vanskelig periode i livet hans. Mange ar etter dukket fortsatt denne nyheten opp som første treff når noen googlet ham. Han mente dette krenket privatlivet hans og krevde at Google slettet lenken. EU-domstolen ga ham rett. Dette la grunnlaget for det vi i dag kaller retten til a bli glemt."
+        },
+        {
+            "type": "text",
+            "content": "I dag kan du kreve at Google, sosiale medier og andre tjenester sletter informasjon om deg - om visse vilkar er oppfylt. Informasjonen må ikke lenger vare relevant, den må vare feilaktig eller du må ha hatt en særlig grunn til a gi samtykke da den ble lagt ut (for eksempel at du var under 18 ar). Retten gjelder ikke absolutt - avisartikler om offentlige figurer kan for eksempel ikke kreves slettet bare fordi personen synes det er flaut. Informasjonsfriheten veier ogsa tungt."
+        },
+        {
+            "type": "header",
+            "text": "Opphavsrett på nett"
+        },
+        {
+            "type": "text",
+            "content": "Personvern handler om dine data. Opphavsrett handler om noe litt annet: hvem som eier et kreativt verk. Når noen lager et bilde, skriver en sang, filmer en video eller skriver en tekst, far de automatisk opphavsrett til det de har laget. Det betyr at andre ikke kan bruke verket uten tillatelse - selv om det er gratis tilgjengelig på internett."
+        },
+        {
+            "type": "text",
+            "content": "Dette er en vanlig misforstaaelse: Bare fordi noe er lagt ut gratis på nett, betyr det ikke at det er fritt a bruke. Tar du et bilde fra Google Bilder og bruker det i en skoleoppgave uten a oppgi kilde, bryter du opphavsretten - selv om bildet ikke kostet noe. Likevel er det mange som gjor dette uten a tenke seg om. Noen nettsteder tilbyr bilder og musikk under apne lisenser (som Creative Commons), som betyr at du kan bruke dem gratis sa lenge du oppgir hvem som har laget dem."
+        },
+        {
+            "type": "text",
+            "content": "Det samme gjelder i den andre retningen: Innholdet du lager - selfiene dine, tekstene du skriver, videoene du spiller inn - er ditt. Når noen deler videre uten tillatelse, eller bruker musikken din uten a spørre, bryter de opphavsretten din. Sosiale medier-plattformer er fulle av slikt - det er lett a laste ned og videresende innhold uten a tenke over at det tilhorer noen. Slik pavirker opphavsrett deg ogsa i det daglige, på en mte som ligner problemstillingene rundt [ytringsvett og ytringsmot](/samfunnskunnskap/mennesket-kultur-samfunn/ytringsvett-vs-ytringsmot)."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Kreativt innhold med opphavsrettsymbol og nettverkstilkoblinger",
+            "caption": "Alt du lager digitalt er automatisk beskyttet av opphavsretten - og det samme gjelder andres verk."
+        },
+        {
+            "type": "header",
+            "text": "Ta kontroll over dine egne spor"
+        },
+        {
+            "type": "text",
+            "content": "Det finnes konkrete ting du kan gjøre for a beskytte personvernet ditt og rydde i dine digitale spor. Det handler ikke om a fortrekke fra internett, men om a vare bevisst på hva du deler og med hvem. Noen enkle grep: Gjennomsøk deg selv på Google og se hva som dukker opp. Bruk personverninnstillingene på plattformene du bruker - de fleste lar deg begrense hvem som ser innholdet ditt. Tenk deg om to ganger før du deler noe om andre - de har ogsa rett til sitt privatliv. Be om innsyn i data fra plattformene du bruker, og slett kontoer du ikke bruker lenger."
+        },
+        {
+            "type": "text",
+            "content": "Det hjelper ogsa a tenke over hva du bruker av tjenester. De fleste gratis apper og nettsteder tjener penger på dataene dine. Det er ikke alltid galt, men det er lurt a vite om det. Når noe er gratis, er du gjerne produktet. Kjendismakt og influensere som tjener penger på a eksponere livet sitt på nett, gir et godt bilde på hva som er på spill - les mer om det i artikkelen om [kjendismakt og influensere](/samfunnskunnskap/mennesket-kultur-samfunn/kjendismakt)."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hva er forskjellen på et aktivt og et passivt digitalt spor?",
+                        "options": [
+                            "Aktive spor lages av maskiner, passive spor lages av mennesker",
+                            "Aktive spor lager du bevisst (f.eks. innlegg), passive spor lages uten at du tenker over det (f.eks. hvilken app du apner)",
+                            "Aktive spor er farlige, passive spor er trygge",
+                            "Det er ingen forskjell - alle digitale spor er like"
+                        ],
+                        "correctAnswer": 1,
+                        "explanation": "Aktive spor er ting du bevisst legger ut, som bilder og kommentarer. Passive spor er informasjon som samles automatisk, som hvilke sider du besøker, når du er online og hvor du befinner deg."
+                    },
+                    {
+                        "question": "Hva betyr GDPR for deg som bruker?",
+                        "options": [
+                            "Du må betale for a bruke internett i Europa",
+                            "Du har rett til a vite hva som lagres om deg, og rett til a kreve at det slettes",
+                            "Du kan aldri fa slettet informasjon om deg på nett",
+                            "GDPR gjelder bare for bedrifter, ikke privatpersoner"
+                        ],
+                        "correctAnswer": 1,
+                        "explanation": "GDPR gir deg blant annet rett til innsyn i egne data, rett til a fa rettet feil og rett til a bli glemt. Disse rettighetene gjelder for alle som bor i EØS-omradet, inkludert Norge."
+                    },
+                    {
+                        "question": "Hva er opphavsrett?",
+                        "options": [
+                            "Retten til a laste ned gratis musikk fra internett",
+                            "En lov som bare gjelder for professjonelle kunstnere",
+                            "Den automatiske retten en skapende person har til eget verk - bilder, tekst, musikk og video",
+                            "En lisens du må kjøpe for a publisere innhold"
+                        ],
+                        "correctAnswer": 2,
+                        "explanation": "Opphavsrett oppstar automatisk når noen lager et kreativt verk. Det betyr at andre ikke kan bruke verket uten tillatelse - selv om det er gratis tilgjengelig på nett."
+                    },
+                    {
+                        "question": "Hva er 'retten til a bli glemt'?",
+                        "options": [
+                            "Retten til a bruke internett anonymt",
+                            "Retten til a kreve at en tjeneste sletter informasjon om deg under visse vilkar",
+                            "Retten til a lage falsk profil på nett",
+                            "Retten til a ikke fa reklame på sosiale medier"
+                        ],
+                        "correctAnswer": 1,
+                        "explanation": "Retten til a bli glemt betyr at du under visse vilkar kan kreve at en tjeneste (som Google) sletter informasjon om deg. Retten er ikke absolutt - den veies mot ytringsfriheten og offentlighetens interesse."
+                    },
+                    {
+                        "question": "Hva betyr det at 'når noe er gratis, er du gjerne produktet'?",
+                        "options": [
+                            "Gratis apper selger varene dine billigst",
+                            "Gratis tjenester tjener penger på a samle og bruke dataene dine",
+                            "Gratis tjenester er alltid de beste",
+                            "Du må alltid betale for sikre apper"
+                        ],
+                        "correctAnswer": 1,
+                        "explanation": "Når du bruker en gratis app eller tjeneste, er det gjerne fordi bedriften tjener penger på dataene dine - på a vite hva du liker, hva du gjor og hvem du er. Dataene selges til annonsorer eller brukes til a vise deg reklame."
+                    }
+                ]
+            }
+        }
+    ]
+}

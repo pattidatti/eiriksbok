@@ -1,0 +1,323 @@
+{
+    "id": "km-3-historieframstilling",
+    "title": "Kven skriv historia?",
+    "layout": "rich",
+    "category": "Samfunnskunnskap",
+    "readTime": "10 min lesning",
+    "heroImage": "/images/placeholder.webp",
+    "details": [
+        "Kompetansemål SAF01-04",
+        "Historieframstilling og holdninger"
+    ],
+    "timeline": [],
+    "content": [
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Kompetansemål",
+                "content": "Drøfte korleis framstillingar av fortida, hendingar og grupper har påverka og påverkar haldningane og handlingane til folk"
+            }
+        },
+        {
+            "type": "text",
+            "content": "I sentrum av Oslo står en rytterstatue av Kong Karl Johan. På bysokler rundt om i verden troner helter, oppdagere og generaler i bronse og marmor. Men hvem bestemte at akkurat disse menneskene fortjente sin plass? Og hvem ble glemt - eller med vilje utelatt?\n\nHistorie er ikke bare en nøytral samling fakta. Historien vi forteller om fortida, former hvem vi tror vi er - og hva vi mener vi har lov til å gjøre. Den som kontrollerer historiefortolkningen, kontrollerer en viktig del av makten i samfunnet."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Monumenter og statuer i byer rundt om i verden",
+            "caption": "Monumenter i det offentlige rommet forteller oss hvem samfunnet har valgt å hedre - og hvem som er blitt glemt."
+        },
+        {
+            "type": "header",
+            "text": "Historien er alltid fortalt fra et sted"
+        },
+        {
+            "type": "text",
+            "content": "Det finnes ingen nøytral historiefortelling. Alle fremstillinger av fortida er skrevet fra ett eller annet perspektiv - og det perspektivet bestemmer hva som tas med, hva som utelates, og hva som fremstilles som viktig.\n\nTenk på hvordan Christoffer Columbus beskrives i norske skolebøker. I mange år sto han som helten som 'oppdaget Amerika' i 1492. Men spørsmålet er: Oppdaget for hvem? Amerika var allerede hjem for titalls millioner mennesker. Fra deres perspektiv var det europeerne som ankom - ikke oppdagere, men fremmede som kom til å endre alt.\n\nDette handler ikke om å si at Columbus var 'ond'. Det handler om å forstå at ordvalget 'oppdaget' forteller historien fra ett perspektiv - det europeiske - og gjør det perspektivet til det naturlige og selvfølgelige."
+        },
+        {
+            "type": "header",
+            "text": "Ord som former virkeligheten"
+        },
+        {
+            "type": "text",
+            "content": "Ordene vi bruker om historiske hendelser og grupper legger premissene for hvordan vi forstår dem. Sammenlign disse to setningene om den norske koloniseringen av samiske områder:\n\n'Staten hjalp samene med å bli sivilisert og tilpasse seg det moderne samfunnet.'\n\n'Staten tvang samene til å gi opp sitt språk, sin religion og sin kultur gjennom fornorskingspolitikk.'\n\nBegge setningene beskriver noe som faktisk skjedde - men de bruker helt ulike ord. Den første gjør staten til en velgjører. Den andre gjør den til en overgriper. Hvilken du tror på, avhenger av hva du vet - og hvem du har lyttet til.\n\nDette mønsteret gjentar seg i historier om [kolonialisme og makt](/samfunnskunnskap/styringsformer/elitenes-herredomme), om krig og fred, om hvem som er offer og hvem som er helt. Historieframstilling er et maktmiddel."
+        },
+        {
+            "type": "component",
+            "name": "BiasLens",
+            "props": {
+                "title": "Les med ulike blikk: Norsk kolonisering av samiske områder",
+                "baseContent": "Norske myndigheter gjennomforte på 1800- og 1900-tallet en systematisk politikk overfor den samiske befolkningen. Barna ble sendt til internatskole. De lærte seg norsk og glemte sitt eget sprak. Det samiske levesattet ble endret. Staten bygde ut infrastruktur i de samiske kjerneomradene. Denne perioden er i dag et viktig tema i debatten om norsk nasjonsbygging.",
+                "lenses": [
+                    {
+                        "id": "stat",
+                        "label": "Statens blikk (1900)",
+                        "description": "Slik fremstilte norske myndigheter og skoler politikken i samtiden",
+                        "theme": {
+                            "color": "#1e40af",
+                            "bgColor": "bg-[#f0f4ff]",
+                            "borderColor": "border-blue-800/10",
+                            "textColor": "text-gray-900"
+                        },
+                        "replacements": [
+                            {
+                                "original": "systematisk politikk overfor den samiske befolkningen",
+                                "replacement": "siviliseringsarbeid for å lose samene inn i det moderne Norge",
+                                "explanation": "Myndighetene brukte ord som 'sivilisering' og 'opplysning' for a gjøre undertrykkelse til en form for hjelp. Det rettferdiggjorde politikken overfor befolkningen."
+                            },
+                            {
+                                "original": "De lærte seg norsk og glemte sitt eget sprak",
+                                "replacement": "De fikk opplæring i rikssprak og ble rustet for deltakelse i det norske samfunnet",
+                                "explanation": "Sprakligheten ble fremstilt som en gave, ikke et tap. Ordvalget skjuler at barna ble straffet for a snakke samisk - og at de mistet kontakten med sin familie og kultur."
+                            },
+                            {
+                                "original": "Det samiske levesattet ble endret",
+                                "replacement": "Den nomadiske og tilbakeliggende levevis ble erstattet av et fastboende og produktivt liv",
+                                "explanation": "Ordet 'tilbakeliggende' plasserer det samiske lavere på en tenkt sivilisasjonsskala. Slik legitimerte staten endringene - man hjalp jo folk til a bli 'bedre'."
+                            }
+                        ]
+                    },
+                    {
+                        "id": "samisk",
+                        "label": "Samisk perspektiv",
+                        "description": "Slik beskriver samer og etterforskning av politikken den i ettertid",
+                        "theme": {
+                            "color": "#166534",
+                            "bgColor": "bg-[#f0fdf4]",
+                            "borderColor": "border-green-800/10",
+                            "textColor": "text-gray-900"
+                        },
+                        "replacements": [
+                            {
+                                "original": "systematisk politikk overfor den samiske befolkningen",
+                                "replacement": "kulturell og sprakling folkemord - fornorskingspolitikk - mot den samiske urbefolkningen",
+                                "explanation": "Sannhets- og forsoningskommisjonen (2023) bruker sterke ord som 'overgrep' og 'assimileringspolitikk'. Disse ordene plasserer ansvaret klart hos staten og gjor alvoret synlig."
+                            },
+                            {
+                                "original": "De lærte seg norsk og glemte sitt eget sprak",
+                                "replacement": "De ble tvunget til a gi fra seg sprak, identitet og tilhørighet til forfedres kultur",
+                                "explanation": "Fra samisk perspektiv var dette ikke bare spraklæring - det var tap av identitet, forbindelsen til forfedre, og evnen til a kommunisere med sin egen familie."
+                            },
+                            {
+                                "original": "Det samiske levesattet ble endret",
+                                "replacement": "Tradisjonell reindrift, joik og kunnskap om naturen ble forbudt og stigmatisert",
+                                "explanation": "Det samiske levesattet var ikke 'tilbakeliggende' - det var tilpasset arktiske forhold over tusenvis av ar. A kalle det endring skjuler at det var ødeleggelse."
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Propaganda: Historien som styringsverktøy"
+        },
+        {
+            "type": "text",
+            "content": "Bevisst manipulering av historiefortolkning kalles propaganda. Når en stat, en bevegelse eller en gruppe systematisk fremstiller historien for å få folk til å tenke eller handle på bestemte måter - er det propaganda.\n\nDette er ikke bare et historisk fenomen. Under første verdenskrig produserte den britiske regjeringen plakater som forestilte tyske soldater som uhyrer som drepte uskyldige barn. Tyske plakater fremstilte britene som griske pengegriskere som sendte fremmede land i krig for profitt. Begge sider brukte historiske og kulturelle forestillinger for å gjøre fienden umenneskelig - og dermed gjøre det lettere for egne soldater å drepe dem.\n\nI nazi-Tyskland på 1930-tallet ble en hel befolknings historieframstilling systematisk bygd om. Jøder ble fremstilt som historiske fiender av det tyske folket, kapitalister og kommunister på en gang. Denne løgnaktige historieframstillingen bidro direkte til å gjøre Holocaust mulig - fordi den endret hva vanlige tyske borgere trodde om sine naboer."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Propagandaplakater fra første og andre verdenskrig",
+            "caption": "Propaganda er historieframstilling som et bevisst verktøy for å forme holdninger og motivere til handling."
+        },
+        {
+            "type": "header",
+            "text": "Monumenter og minner: Hvem huskes?"
+        },
+        {
+            "type": "text",
+            "content": "Et monument er et fysisk historieframstilling. Det sier: 'Denne personen er verdt å huske og hedre.' Og nettopp derfor har monumenter blitt et slagfelt.\n\nI USA ble hundrevis av statuer av sydstatsgeneraler fra borgerkrigen reist - ikke umiddelbart etter krigen, men på 1910- til 1960-tallet, altså midt under kampen for borgerrettigheter. Historikere har vist at disse monumentene ikke primært handlet om å minnes fortida, men om å sende en politisk melding til den afroamerikanske befolkningen: 'Vi kontrollerer historien her.'\n\nI 2020, etter drapet på George Floyd, ble mange av disse statuene revet ned av demonstranter. Noen opplevde dette som historisk hærverk. Andre så det som en nødvendig korreksjon av en historieframstilling som hadde skadet dem og deres forfedre i generasjoner.\n\nDenne debatten er ikke enkel. Men den viser noe viktig: Historieframstilling er ikke nøytral. Den har konsekvenser for levende mennesker - for hvem som føler seg inkludert, for hvem som opplever det offentlige rommet som sitt.\n\nDu kan lese mer om hvordan [ideer og verdenssyn](/samfunnskunnskap/ideer-og-verdenssyn/humanisme) og [makten til dem som former narrativer](/samfunnskunnskap/mennesket-kultur-samfunn/ekkokamre) spiller inn i slike debatter."
+        },
+        {
+            "type": "header",
+            "text": "Nasjonalisme og det utvalgte folket"
+        },
+        {
+            "type": "text",
+            "content": "En av de mest kraftfulle formene for historieframstilling er nasjonale fortellinger. Alle nasjoner forteller historier om seg selv - om hvem folket er, hva de har oppnådd, og hva de har lidd.\n\nDen norske nasjonalforttellingen handler om et frihetselskende folk som slet under dansk og svensk overherredømme, men reiste seg med [Grunnloven i 1814](/samfunnskunnskap/styringsformer/grunnloven) og ble et av verdens fremste demokratier. Det er en stolt fortelling - og mye av den er sann.\n\nMen den forteller ikke om at den samme grunnloven i 1814 nektet jøder adgang til riket. Den forteller ikke om at norske borgere deltok aktivt i koloniseringen av samiske og kvenske områder. Den forteller ikke om Norges rolle i slavehandelen gjennom skipsfart.\n\nDette betyr ikke at vi skal skamme oss over alt norsk. Det betyr at en fullstendig og ærlig historieforståelse krever at vi ser begge deler - både det vi er stolte av og det vi bør lære av. Historieframstilling som bare viser det positive, er propaganda - selv når den er velment."
+        },
+        {
+            "type": "component",
+            "name": "ScenarioRoleplay",
+            "props": {
+                "title": "Hvem bestemmer hva som settes opp i klasserommet?",
+                "scenario": [
+                    {
+                        "id": "start",
+                        "text": "Skolen din skal henge opp et stort kart i fellesarealet. Kunstkomiteen har foreslatt to kart: Det ene er et europeisk kart fra 1800-tallet som viser kolonimaktenes besittelser i farger. Det andre er et moderne kart som viser land etter folkemengde (storrelse er proporsjonal med befolkning). En elev protesterer mot det europeiske kartet. En laerer mener det er historisk interessant. Rektor ber om din mening.",
+                        "choices": [
+                            {
+                                "text": "Heng opp det historiske kartet - det er pedagogisk og viser kolonitida som den var",
+                                "nextId": "historisk",
+                                "feedback": "Godt argument! Men tenk på dette: Kartet viser kolonimaktenes egne fremstilling av verden. Det gjor Europa stort og sentralt, og fremstiller Afrika og Asia som 'tomme' besittelser. Er det pedagogisk verdi i a vise dette - eller bekrefter vi det bildet?"
+                            },
+                            {
+                                "text": "Heng opp det moderne kartet - det gir et mer rettferdig bilde av verden",
+                                "nextId": "moderne",
+                                "feedback": "Fornuftig valg! Men kan vi miste noe ved a fjerne det historiske? Kolonitida skjedde faktisk, og a forstae den hjelper oss a forstae verden i dag. Kanskje begge kartene kan brukes - men med kontekst og forklaring?"
+                            },
+                            {
+                                "text": "Heng opp begge, med en liten tekst som forklarer hva hvert kart viser og hvem som lagde det",
+                                "nextId": "begge",
+                                "feedback": "Dette er en god losning! A vise historiske fremstillinger med kildekritisk kontekst er nettopp det god historieundervisning handler om. Man sletter ikke historien - man analyserer den."
+                            }
+                        ]
+                    },
+                    {
+                        "id": "historisk",
+                        "text": "Du argumenterer for det historiske kartet. Rektor nikker, men en samisk elev tar deg til side etterpas og sier stille: 'På det kartet er hjemstedet mitt merket som norsk territorium. Det var ikke norsk da det ble tegnet. Samene ble aldri spurt.' Hva gjor du?",
+                        "choices": [
+                            {
+                                "text": "Beklager og spor om dere kan legge til en informasjonstekst ved siden av kartet",
+                                "nextId": "slutt_refleksjon",
+                                "feedback": "Bra! A lytte til dem historieframstillingen faktisk rammer, og a endre kurs, er en viktig ferdighet. Historieframstilling handler ikke bare om fortida - den pavirker levende mennesker i dag."
+                            },
+                            {
+                                "text": "Sier at dette er historisk akkurat, og at vi ikke kan endre historien",
+                                "nextId": "slutt_utfordring",
+                                "feedback": "Her blander vi to ting: Hva som faktisk skjedde (historia) og hvordan vi velger a fremstille det (historieframstilling). Kartet er ikke 'historisk akkurat' for samene - det er det norske synet på et omrade som samene hadde bodd i lenge for Norge eksisterte."
+                            }
+                        ]
+                    },
+                    {
+                        "id": "moderne",
+                        "text": "Det moderne kartet henges opp. En laerer i samfunnsfag bruker det i undervisning om befolkning og globalisering. Men en elev spor: 'Hvorfor er Afrika sa stort på dette kartet? Jeg trodde Europa var storst?' Du far mulighet til a forklare.",
+                        "choices": [
+                            {
+                                "text": "Forklar at de fleste kart vi er vant til, forvrenger storrelse for a gjøre det enklere a tegne en rund jord på et flatt papir",
+                                "nextId": "slutt_refleksjon",
+                                "feedback": "Riktig! Mercator-projeksjonen, som de fleste kart bruker, gjor land nær polene (som Europa og Nord-Amerika) kunstig store. Det er teknisk, men det har konsekvenser: Vi er vant til a se Europa i midten og stort - og det former ubevisst hvordan vi tenker på verden."
+                            },
+                            {
+                                "text": "Sier at alle kart er like gode, det kommer bare an på hva man vil vise",
+                                "nextId": "slutt_utfordring",
+                                "feedback": "Halvveis riktig - kart er laget for ulike formal. Men ikke alle kart er like noyaktige. Og valget av projeksjonsmetode er politisk: Hvem setter du i sentrum av verden? Hvem gjor du stor og hvem gjor du liten?"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "begge",
+                        "text": "Begge kartene henges opp med forklaringstekster. Rektoren er fornøyd. En uke senere leser du i en avis at en skole i en annen by har fjernet alle historiske kart fordi de 'gir feil bilde'. En annen skole nekter a fjerne noe som helst fordi det er 'sensur'. Hva tenker du?",
+                        "choices": [
+                            {
+                                "text": "Begge ekstremene virker gale - losninga er kildekritikk og kontekst, ikke fjerning eller bevaring for enhver pris",
+                                "nextId": "slutt_refleksjon",
+                                "feedback": "Godt tenkt! A slette historiske fremstillinger fjerner ikke det som skjedde - det gjor oss bare uforberedt på a forsta det. A bevare dem uten kontekst er a late som de er noyaktige. Svaret er alltid kildekritikk."
+                            },
+                            {
+                                "text": "Synes fjerning av historiske kart er riktig - vi bor ikke vise noe som er feil",
+                                "nextId": "slutt_utfordring",
+                                "feedback": "Tenk etter: Hva mister vi om vi fjerner alle historiske fremstillinger som inneholder feil eller skjevheter? Vi mister muligheten til a lare av dem - og til a forsta hvorfor verden ser ut som den gjor i dag."
+                            }
+                        ]
+                    },
+                    {
+                        "id": "slutt_refleksjon",
+                        "text": "Du har jobbet deg gjennom et vanskelig sporsmal. Historieframstilling handler om makt - hvem sin versjon som blir staaende, og hvem sin versjon som blir usynlig. A være kildekritisk og a lytte til ulike perspektiver er ikke a si at alle versjoner er like sanne. Det er a erkjenne at ingen versjon er fullstendig nøytral.",
+                        "choices": [
+                            {
+                                "text": "Avslutt og tenk videre",
+                                "nextId": "slutt_refleksjon",
+                                "feedback": "Godt jobbet! Husk: Neste gang du leser en historisk fremstilling - spor deg selv: Hvem har skrevet dette? Fra hvilket perspektiv? Hvem er synlig, og hvem er usynlig?"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "slutt_utfordring",
+                        "text": "Det er lett a lande på enkle svar når historieframstilling diskuteres. Men de vanskelige sporsmaalene staar igjen: Hvem bestemmer hva som er 'historisk riktig'? Hvem har makt til a forme fellesskapets hukommelse?",
+                        "choices": [
+                            {
+                                "text": "Tenk videre",
+                                "nextId": "slutt_refleksjon",
+                                "feedback": "Prøv a nærme deg sporsmalet fra perspektivet til noen som historieframstillingen rammer direkte. Hva ville de sagt?"
+                            }
+                        ]
+                    }
+                ],
+                "startId": "start"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Slik drøfter du historieframstilling - på eksamen og i livet"
+        },
+        {
+            "type": "text",
+            "content": "Kompetansemålet ber deg ikke bare kjenne til at historieframstilling finnes - det ber deg drøfte hvordan den virker. Her er fire spørsmål du alltid kan stille:\n\nHvem har skrevet eller laget dette? En lærebok fra 1950, en nettside fra en politisk organisasjon, en museumsplakat og en akademisk historiebok er alle historieframstillinger - men med ulike formål og perspektiver.\n\nHvem er synlig og hvem er usynlig? Hvilke grupper beskrives som aktive og hvilke beskrives som passive? Hvem er helter, hvem er ofre, og hvem nevnes ikke i det hele tatt?\n\nHvilke ord brukes? 'Oppdaget', 'sivilisert', 'frigjort' - disse ordene er ikke nøytrale. De forteller om perspektivet til den som skriver.\n\nHvilke konsekvenser har framstillingen hatt? Har den rettferdiggjort krig, undertrykkelse eller diskriminering? Har den styrket stolthet og samhørighet? Har den bidratt til forsoning?\n\nDisse fire spørsmålene gir deg et verktøy for å analysere historieframstilling i enhver kontekst - fra skolebøker til sosiale medier, fra politiske taler til statuer i gatene. Du kan også se nærmere på [sannhet og kildekritikk](/samfunnskunnskap/ideer-og-verdenssyn/sannhetens-historie) og [hvordan ekkokamre former vår oppfatning av virkeligheten](/samfunnskunnskap/mennesket-kultur-samfunn/ekkokamre) for å utvide perspektivet."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Elev analyserer kart og historiebøker med kritisk blikk",
+            "caption": "A stille sporsmal til historieframstillingen - hvem har skrevet dette og for hvem? - er en grunnleggende demokratisk ferdighet."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hva mener vi når vi sier at historieframstilling aldri er nøytral?",
+                        "options": [
+                            "At historikere alltid lyver",
+                            "At alle fremstillinger av fortida er skrevet fra et perspektiv som påvirker hva som tas med og utelates",
+                            "At historiske fakta ikke er til å stole på",
+                            "At bare muntlig overlevering er pålitelig"
+                        ],
+                        "correctAnswer": 1,
+                        "explanation": "Historieframstilling er aldri nøytral fordi alle som skriver eller forteller om fortida gjor valg om hva som er viktig, hvem som er synlige, og hvilke ord som brukes. Disse valgene reflekterer perspektivet til fortelleren."
+                    },
+                    {
+                        "question": "Hva er propaganda i historisk sammenheng?",
+                        "options": [
+                            "Nyheter fra andre land",
+                            "En bevisst og systematisk fremstilling av historien for å forme holdninger og atferd",
+                            "Akademisk forskning på fortida",
+                            "Muntlig overlevering av folkeeventyr"
+                        ],
+                        "correctAnswer": 1,
+                        "explanation": "Propaganda er en bevisst bruk av historieframstilling - bilder, ord, filmer, plakater - for å fa folk til a tenke eller handle på bestemte mater. Det skiller seg fra vanlig historiefortelling ved at hensikten er a manipulere, ikke a informere."
+                    },
+                    {
+                        "question": "Hvorfor ble mange statuer av sydstatsgeneraler reist i USA på 1910- til 1960-tallet - og ikke rett etter borgerkrigen?",
+                        "options": [
+                            "Det tok lang tid a finansiere bronsestatuer på den tida",
+                            "Historikerne ble ikke enige om hvem som fortjente statue for på 1900-tallet",
+                            "Statuene ble reist under borgerrettskampen som en politisk melding om hvem som kontrollerte den historiske fortellingen",
+                            "Statuene var bestilt under borgerkrigen, men ble ikke levert for på 1900-tallet"
+                        ],
+                        "correctAnswer": 2,
+                        "explanation": "Historikere har dokumentert at bølgen av sydstatsstatuer sammenfalt med borgerrettsbevegelsen. Statuene var ikke primært minnemarkering, men et maktuttrykk - en historieframstilling som sendte en melding til den afroamerikanske befolkningen om hvem som kontrollerte det offentlige rommet."
+                    },
+                    {
+                        "question": "Hva er et godt eksempel på at ordvalg i historieframstilling har konsekvenser?",
+                        "options": [
+                            "At noen land har lengre skolebøker enn andre",
+                            "At 'oppdaget' i beskrivelsen av Columbus sin reise gjor det europeiske perspektivet til det naturlige, og usynliggjor de som allerede bodde der",
+                            "At historiske tekster er skrevet på ulike sprak",
+                            "At akademikere er uenige om arsstal"
+                        ],
+                        "correctAnswer": 1,
+                        "explanation": "'Oppdaget' forteller historien fra det europeiske perspektivet og gjor det til det normale. Men Amerika var allerede bebodd av millioner av mennesker. A bruke 'oppdaget' uten kildekritikk er a godta den europeiske kolonialistiske fortellingen som den selvfølgelige sannheten."
+                    },
+                    {
+                        "question": "Hvilke fire spørsmål kan hjelpe deg å analysere en historieframstilling?",
+                        "options": [
+                            "Hva, når, hvor og av hvem?",
+                            "Hvem har skrevet det, hvem er synlig og usynlig, hvilke ord brukes, og hvilke konsekvenser har framstillingen hatt?",
+                            "Er det sant, er det interessant, er det nytt, og er det viktig?",
+                            "Hva er kilden, hva er datoen, hva er landet, og hva er genren?"
+                        ],
+                        "correctAnswer": 1,
+                        "explanation": "Disse fire sporsmaalene gir deg et kildekritisk verktøy for a analysere enhver historieframstilling: Hvem skriver? Hvem er synlig/usynlig? Hvilke ord brukes? Og hvilke konsekvenser har fremstillingen hatt for holdninger og handlinger?"
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,359 @@
+{
+    "id": "km-7-konfliktar",
+    "title": "Konfliktar - årsaker og konsekvensar",
+    "layout": "rich",
+    "category": "Samfunnskunnskap",
+    "readTime": "9 min lesning",
+    "heroImage": "/images/placeholder.webp",
+    "description": "Utforsk årsakene til historiske og notidige konflikter, konsekvensene de fikk, og om ulike veivalg kunne ha hindret dem.",
+    "subject": "samfunnsfag",
+    "topic": "styringsformer",
+    "tags": [
+        "konflikt",
+        "krig",
+        "årsaker",
+        "FN",
+        "historiske-konflikter"
+    ],
+    "createdDate": "2026-06-02T00:00:00Z",
+    "details": [
+        "Kompetansemål SAF01-04",
+        "Historiske og notidige konflikter"
+    ],
+    "timeline": [],
+    "content": [
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Kompetansemål",
+                "content": "gjere greie for årsaker til og konsekvensar av sentrale historiske og notidige konfliktar og reflektere over om endringar av nokre forutsetningar kunne ha hindra konfliktane"
+            }
+        },
+        {
+            "type": "text",
+            "content": "Sommeren 1914 dro millioner av unge menn til fronten, mange med blomster i gevaerloepene. De trodde krigen ville vare et par måneder. Fire aar og 20 millioner dode senere var verden forandret for alltid. Men var denne katastrofen uunngaaelig? Eller var det en rekke valg - noen tatt på noen faa dramatiske dager i august - som dro hele verden ut i flammene? Dette er kjernesporsmålets i studiet av konflikter: Hva foraårsaket dem, hva ble konsekvensen, og hva måtte til for at det hadde gaatt annerledes?"
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Soldater i skyttergraver under første verdenskrig",
+            "caption": "Første verdenskrig kostet 20 millioner mennesker livet. Alliansesystemet i Europa var en av de sentrale årsakene."
+        },
+        {
+            "type": "header",
+            "text": "Tre typer årsaker til konflikter"
+        },
+        {
+            "type": "text",
+            "content": "Historikere skiller gjerne mellom tre nivaaer av årsaker når de forklarer konflikter. Disse tre nivaaene hjelper oss å sortere hendelsene og forsta hva som egentlig skjedde."
+        },
+        {
+            "type": "list",
+            "items": [
+                "Strukturelle årsaker er dype, langsiktige spenninger som har bygget seg opp over lang tid. Det kan være ressurskamper, fattigdom, nasjonalisme eller politiske motsetninger. De finnes i bakgrunnen lenge for skyting begynner.",
+                "Utlosende årsaker er konkrete hendelser som setter fyr på kruttet. Skuddene i Sarajevo 1914 er det klassiske eksemplet. I seg selv trenger ikke den utlosende årsaken være stor, men den faller i et klima der alle parter er klar til å reagere med vold.",
+                "Førsterker er faktorer som gjor en konflikt verre når den forst har begynt - som alliansesystemet i 1914, propaganda som skaper hat, eller mangel på et internasjonalt organ som kan megle."
+            ]
+        },
+        {
+            "type": "text",
+            "content": "Nesten alle store konflikter har alle tre nivaaene. Når vi bare fokuserer på den utlosende årsaken, misser vi det store bildet. Noen ganger er strukturelle problemer så dype at konflikten ville ha kommet uansett - den utlosende hendelsen kunne vaert en hvilken som helst gnist."
+        },
+        {
+            "type": "header",
+            "text": "Første verdenskrig: Alliansesystemet som dominobrikker"
+        },
+        {
+            "type": "text",
+            "content": "I 1914 var Europa delt i to blokker: Trippelalliansen (Tyskland, Osterrike-Ungarn, Italia) og Trippelententen (Storbritannia, Frankrike, Russland). Disse avtalene ble laget for å skape trygghet - hvis noen angrep deg, matte dine allierte hjelpe deg. Men resultatet ble det stikk motsatte: En lokal konflikt mellom Osterrike-Ungarn og Serbia ble på faa dager til en verdenskrig."
+        },
+        {
+            "type": "text",
+            "content": "Under ser du hvordan en enkelt skuddveksling i Sarajevo dro seks stormakter inn i krig på bare to uker - steg for steg."
+        },
+        {
+            "type": "component",
+            "name": "AllianceChain"
+        },
+        {
+            "type": "text",
+            "content": "Konsekvensene var enorme. Krigen kostet 20 millioner liv og la Europa i ruiner. Keiserdommer i Tyskland, Osterrike-Ungarn og Russland kollapset. Versaillestraktaten la Tyskland under så tunge sanksjoner at mange historikere mener den direkte skapte grunnlaget for Hitlers fremmarsj og andre verdenskrig. Se artikkelen om [Casus Belli](/samfunnskunnskap/ideer-og-verdenssyn/casus-belli) for mer om hvordan land rettferdiggjor krigshandlinger."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "FN-generalforsamlingen vedtar folkemordkonvensjonen i 1948",
+            "caption": "FN ble grunnlagt i 1945 for å hindre at verdenskrigenes grusomheter skulle gjentas. Les mer om [Forente Nasjoner](/samfunnskunnskap/ideer-og-verdenssyn/fn)."
+        },
+        {
+            "type": "header",
+            "text": "Krigen i Ukraina: En notid-konflikt med historiske roster"
+        },
+        {
+            "type": "text",
+            "content": "Russlands fullskalainvasjon av Ukraina 24. februar 2022 er den storste militære konflikten i Europa siden andre verdenskrig. For å forsta den må vi se på de strukturelle årsakene som bygget seg opp over tiaar."
+        },
+        {
+            "type": "list",
+            "items": [
+                "Strukturelt: Etter Sovjetunionens fall i 1991 driftet Ukraina gradvis mot Europa og NATO. Russland så på dette som en trussel mot sin innflytelsessone. Spenningene hadde bygget seg opp siden 2004 og eskalerte kraftig etter at Russland annekterte Krim i 2014.",
+                "Utlosende årsak: Noen peker på Ukrainas vedtak om å soke NATO-medlemskap som den direkte utloseren. Russland hadde eksplisitt advart mot dette i aarene for invasjonen.",
+                "Førsterker: Sanksjoner fra Vesten, vaapenstotte til Ukraina og Russlands avhengighet av energiinntekter har alle gjort konflikten mer langvarig og kompleks."
+            ]
+        },
+        {
+            "type": "text",
+            "content": "Konsekvensene strekker seg langt utover Ukraine og Russland. Matprisene steg globalt fordi begge landene er store korn-eksportorer. Energiprisene i Europa skjot i vaerot. Millioner av flyktninger forlot Ukraina. Og forholdet mellom Russland og Vesten ble forverret til det kaldeste punktet siden den kalde krigen. Konflikter sprer konsekvenser som ringer i vann."
+        },
+        {
+            "type": "header",
+            "text": "Tankeeksperiment: Hva matte til for å hindre det?"
+        },
+        {
+            "type": "text",
+            "content": "Kompetansemålet ber oss reflektere over om endring av noen forutsetninger kunne ha hindret konflikter. Dette er ikke bare akademisk spekulasjon - det hjelper oss å forsta hva som egentlig foraårsaket konflikten, og hva vi kan gjøre for å hindre fremtidige konflikter."
+        },
+        {
+            "type": "text",
+            "content": "Neden for kan du prove deg som historisk radgiver. Du får presentert en kritisk situasjon - hva velger du?"
+        },
+        {
+            "type": "component",
+            "name": "ScenarioRoleplay",
+            "props": {
+                "title": "Historisk radgiver: Kan du hindre krigen?",
+                "intro": "Du er historisk radgiver. En konflikt er i ferd med å eskalere. Hvilke valg tar du?",
+                "startId": "start",
+                "scenarios": [
+                    {
+                        "id": "start",
+                        "text": "Det er juli 1914. Osterrike-Ungarn har sendt et ultimatum til Serbia etter attentatet i Sarajevo. Den tyske keiseren spor deg: Skal vi gi Osterrike-Ungarn en blankofullmakt - en garanti om at vi stoetter dem uansett hva de gjor?",
+                        "options": [
+                            {
+                                "label": "Ja, gi blankofullmakten. Vi må vise styrke.",
+                                "nextId": "fullmakt_ja",
+                                "outcome": "failure",
+                                "feedback": "Blankofullmakten ble historisk sett som et av de viktigste skrittene mot krig. Den signaliserte til Osterrike-Ungarn at de fritt kunne eskalere."
+                            },
+                            {
+                                "label": "Nei, krev diplomatisk losning forst.",
+                                "nextId": "fullmakt_nei",
+                                "outcome": "success",
+                                "feedback": "Mange historikere mener dette valget kunne ha hindret krigen. Uten tysk garanti ville Osterrike-Ungarn sannsynligvis vaert mer forsiktig."
+                            }
+                        ]
+                    },
+                    {
+                        "id": "fullmakt_ja",
+                        "text": "Blankofullmakten er gitt. Osterrike-Ungarn erklærer krig mot Serbia. Russland begynner å mobilisere. Du er naa raadgiver for tsaren: Stopper du mobiliseringen for å gi diplomati en sjanse?",
+                        "options": [
+                            {
+                                "label": "Stopp mobiliseringen og krev fredsforhandlinger.",
+                                "nextId": "mobilisering_stopp",
+                                "outcome": "neutral",
+                                "feedback": "Et modig valg. Det ville gitt diplomati en sjanse, men Osterrike-Ungarn hadde allerede erklært krig mot Serbia."
+                            },
+                            {
+                                "label": "Fortsett mobiliseringen. Vi kan ikke la Serbia falle.",
+                                "nextId": "krig_utbrot",
+                                "outcome": "failure",
+                                "feedback": "Russlands mobilisering utloste den tyske Schlieffenplanen, som dro Frankrike og Storbritannia inn i krigen. Dominoene falt."
+                            }
+                        ]
+                    },
+                    {
+                        "id": "fullmakt_nei",
+                        "text": "Uten tysk garanti nolte Osterrike-Ungarn med å eskalere. Du er naa raadgiver for de europeiske stormaktene samlet. Hva gjøres med de langsiktige spenningene som skapte krisen?",
+                        "options": [
+                            {
+                                "label": "Opprett et internasjonalt meklingsorgane - en slags forloeper til FN.",
+                                "nextId": "fn_tidlig",
+                                "outcome": "success",
+                                "feedback": "Dette er akkurat hva som faktisk ble gjort - men forst ETTER krigen, da det var for sent for 20 millioner mennesker. For tidlig handling kunne reddet millioner av liv."
+                            },
+                            {
+                                "label": "La nasjonene ordne seg selv. Markedet og diplomati er nok.",
+                                "nextId": "ingen_tiltak",
+                                "outcome": "failure",
+                                "feedback": "Strukturelle spenninger forsvinne ikke av seg selv. Uten institusjonelle losninger ville en annen gnist snart satt fyr på kruttet."
+                            }
+                        ]
+                    },
+                    {
+                        "id": "mobilisering_stopp",
+                        "text": "Du valgte diplomati, men Osterrike-Ungarn fortsetter sin krig mot Serbia. Konflikten er begrenset - forelopig. Klarte du å hindre verdenskrigen?",
+                        "options": [
+                            {
+                                "label": "Les oppsummeringen",
+                                "nextId": "delvis_suksess",
+                                "outcome": "neutral"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "krig_utbrot",
+                        "text": "Første verdenskrig er naa en realitet. 20 millioner mennesker vil do. Europa blir lagt i ruiner. Og betingelsene i Versaillestraktaten legger grunnlaget for neste konflikt om bare 20 aar.",
+                        "options": [
+                            {
+                                "label": "Prove på nytt",
+                                "nextId": "start",
+                                "outcome": "failure"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "fn_tidlig",
+                        "text": "Et internasjonalt meklingsorgan ble opprettet. Konflikten ble lyst. Mange tiaar senere ble FN grunnlagt på lignende prinsipper etter andre verdenskrig. Institusjoner kan hindre konflikter - men bare hvis statene faktisk bruker dem.",
+                        "options": [
+                            {
+                                "label": "Les oppsummeringen",
+                                "nextId": "suksess",
+                                "outcome": "success"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "ingen_tiltak",
+                        "text": "Uten strukturelle losninger bygger spenningene seg opp på nytt. En ny gnist - en annen attentat, en annen grensekonflikt - vil snart utlose en ny krig. Strukturelle årsaker krever strukturelle losninger.",
+                        "options": [
+                            {
+                                "label": "Prove på nytt",
+                                "nextId": "start",
+                                "outcome": "failure"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "delvis_suksess",
+                        "text": "Du hindret verdenskrigen - men en regional krig fortsatte. Konflikten viste at selv gode valg på ett nivaa ikke er nok hvis de strukturelle årsakene ikke lossnes. For å forhindre fremtidige konflikter trenger man langsiktige losninger, ikke bare kortsiktig krisehaaandtering.",
+                        "options": [
+                            {
+                                "label": "Prove på nytt",
+                                "nextId": "start",
+                                "outcome": "neutral"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "suksess",
+                        "text": "Du valgte diplomati over styrkedemonstrasjon, og bygget institusjoner som kan haandtere fremtidige konflikter. Dette er kjernen i det vi lærte etter verdenskrigene: Konflikter kan hindres, men det krever vilje til å behandle de underliggende årsakene - ikke bare slukke branner når de allerede brenner.",
+                        "options": [
+                            {
+                                "label": "Prove på nytt",
+                                "nextId": "start",
+                                "outcome": "success"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Forhandlinger og diplomati mellom statsledere rundt et bord",
+            "caption": "Diplomatiske losninger krever at alle parter er villige til å gi litt. Makt og legitimitet spiller en sentral rolle - les mer om [Makt og legitimitet](/samfunnskunnskap/styringsformer/makt-og-legitimitet)."
+        },
+        {
+            "type": "header",
+            "text": "Hva hindrer konflikter - og hva gjor dem verre?"
+        },
+        {
+            "type": "text",
+            "content": "Etter andre verdenskrig ble [Forente Nasjoner (FN)](/samfunnskunnskap/ideer-og-verdenssyn/fn) opprettet i 1945, nettopp for å hindre at slike konflikter skulle skje igjen. FN-pakten forbyr bruk av militær makt mot andre stater - med unntak av selvforsvar eller FN-autoriserte operasjoner. Men FN er ikke noen verdensregjering. Den er avhengig av at stormaktene er enige, og Sikkerhetsraadet kan blokkeres av vetorett."
+        },
+        {
+            "type": "text",
+            "content": "Historien viser at konflikter typisk hindres av: sterke internasjonale institusjoner, økonomisk gjensidig avhengighet (land som handler mye med hverandre, kriger sjelden mot hverandre), og demokratisering (to etablerte demokratier har aldri gaaatt til krig mot hverandre - dette kalles den demokratiske freden). Konflikter førsterkes av: ressursknapphet, uloste historiske grinanser, svake stater, og nasjonalistisk propaganda som skaper fiendebilde."
+        },
+        {
+            "type": "text",
+            "content": "Økonomisk ulikhet kan også være en underliggende årsak til konflikter. Les mer om [Fattigdom](/samfunnskunnskap/demografi/fattigdom) for å forsta sammenhengen mellom økonomisk desperat situasjon og politisk vold."
+        },
+        {
+            "type": "header",
+            "text": "Konflikt som analytisk verktoy"
+        },
+        {
+            "type": "text",
+            "content": "Når du skal analysere en konflikt - enten det er på en eksamen eller i hverdagen når du les nyheter - kan du bruke en enkel modell med fire sporsmål:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "Hva er de strukturelle årsakene? Se etter dype, langsiktige spenninger - ressurser, grenser, identitet, økonomi.",
+                "Hva var den utlosende årsaken? Hvilken konkret hendelse satte i gang konflikten?",
+                "Hva ble konsekvensene - for de direkte involverte, og for resten av verden?",
+                "Hva matte til for at det hadde gaaatt annerledes? Hvilke forutsetninger matte vaert annerledes for å hindre konflikten?"
+            ]
+        },
+        {
+            "type": "text",
+            "content": "Dette siste sporssmålet er det viktigste - og det vanskeligste. Det krever at du ikke bare gjenforteller hva som skjedde, men faktisk tenker kritisk over aårsak og virkning. Det er denne ferdigheten kompetansemålet trener deg på."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hva er forskjellen på en strukturell årsak og en utlosende årsak til en konflikt?",
+                        "options": [
+                            "Strukturelle årsaker er alltid økonomiske, utlosende årsaker er alltid politiske.",
+                            "Strukturelle årsaker er dype, langsiktige spenninger som bygger seg opp over tid, mens utlosende årsaker er konkrete hendelser som setter i gang konflikten.",
+                            "Strukturelle årsaker kan hindres, mens utlosende årsaker ikke kan hindres.",
+                            "Det er ingen reell forskjell - begge betyr det samme."
+                        ],
+                        "correctAnswer": 1,
+                        "explanation": "Strukturelle årsaker er som kruttet som har samlet seg over tid - spenninger knyttet til ressurser, identitet, ulikhet eller politikk. Den utlosende årsaken er gnisten som antender det. Skuddene i Sarajevo 1914 var gnisten, men kruttet hadde samlet seg over tiaar."
+                    },
+                    {
+                        "question": "Hvorfor dro en regional konflikt mellom Osterrike-Ungarn og Serbia i 1914 raskt inn hele Europa i krig?",
+                        "options": [
+                            "Fordi Serbia var en veldig mektig stat som truet hele Europa.",
+                            "Fordi alliansesystemet fungerte som dominobrikker - forpliktelser til å stoette allierte dro land etter land inn i krigen.",
+                            "Fordi FN ikke grep inn tidlig nok.",
+                            "Fordi alle europeiske land onsket krig for å ta nye territorier."
+                        ],
+                        "correctAnswer": 1,
+                        "explanation": "Alliansesystemet var en førsterker-faktor. Det som begynte som en lokal konflikt ble raskt en verdenskrig fordi land var bundet av traktater til å hjelpe sine allierte - selv om de egentlig ikke oknsket krig."
+                    },
+                    {
+                        "question": "Hva menes med at Versaillestraktaten 'la grunnlaget' for andre verdenskrig?",
+                        "options": [
+                            "Traktaten delte verden i to politiske blokker som matte komme i konflikt.",
+                            "De harde betingelsene skapte økonomisk krise og politisk bitterhet i Tyskland, noe Hitler utnyttet til å komme til makten.",
+                            "Traktaten bestemte at det matte holdes ny krig etter 20 aar.",
+                            "Traktaten ga Tyskand for mye makt og ressurser til hevn."
+                        ],
+                        "correctAnswer": 1,
+                        "explanation": "Konsekvensene av første verdenskrig ble selve årsaken til den neste. Dette er et godt eksempel på at konsekvenser kan bli nye strukturelle årsaker til fremtidige konflikter."
+                    },
+                    {
+                        "question": "Hvilken av disse faktorene hindrer konflikter iffolge historisk erfaring?",
+                        "options": [
+                            "Sterke militære allianser som advarer fiender mot angrep.",
+                            "Konomisk gjensidig avhengighet mellom land - land som handler mye med hverandre kriger sjelden.",
+                            "Nasjonalisme som gir folket stolt nasjonal identitet.",
+                            "Hemmeligholdelse av diplomatiske forhandlinger for å unnga intern motstand."
+                        ],
+                        "correctAnswer": 1,
+                        "explanation": "Økonomisk gjensidig avhengighet er en av de sterkeste fredsbevarende faktorene vi kjenner til. Når land er avhengige av hverandres handel, har de sterke økonomiske incentiver til å llose konflikter diplomatisk. Demokratisering og internasjonale institusjoner er to andre viktige faktorer."
+                    },
+                    {
+                        "question": "Krigen i Ukraina ble utlost av Russlands invasjon i 2022, men hvilke strukturelle årsaker la grunnlaget?",
+                        "options": [
+                            "Ukraina var økonomisk svakere enn Russland og hadde ikke raad til forsvar.",
+                            "Ukrainas gradvise tilnaerming mot EU og NATO, og Russlands syn på dette som en trussel mot sin innflytelsessone.",
+                            "FN hadde forbudt Ukraina å ha et eget militar.",
+                            "Kulturelle og spraklige forskjeller mellom de to landene."
+                        ],
+                        "correctAnswer": 1,
+                        "explanation": "Strukturelle spenninger hadde bygget seg opp siden Sovjet-Unionens fall i 1991. Ukrainas okende tilnaerming mot Vesten, eskalert av krisen i 2014 og Krim-annekteringen, la grunnlaget for den fullskala invasjonen i 2022. De strukturelle årsakene var der lenge for den utlosende hendelsen."
+                    }
+                ]
+            }
+        }
+    ]
+}

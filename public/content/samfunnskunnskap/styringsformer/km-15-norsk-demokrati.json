@@ -1,0 +1,268 @@
+{
+    "id": "km-15-norsk-demokrati",
+    "title": "Det norske demokratiet i dag",
+    "layout": "rich",
+    "category": "Samfunnskunnskap",
+    "readTime": "9 min lesning",
+    "heroImage": "/images/placeholder.webp",
+    "details": [
+        "Kompetansemål SAF01-04",
+        "Norsk politisk system og velferdsstat"
+    ],
+    "timeline": [],
+    "tags": [
+        "demokrati",
+        "velferdsstat",
+        "stortinget",
+        "trepartssamarbeid",
+        "partisystem"
+    ],
+    "content": [
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Kompetansemål",
+                "content": "Beskrive trekk ved det politiske systemet og velferdssamfunnet i Noreg i dag og reflektere over sentrale utfordringar."
+            }
+        },
+        {
+            "type": "text",
+            "content": "Hvert fjerde år setter millioner av nordmenn sitt kryss på en stemmeseddel og bestemmer hvem som skal styre landet. Men hva skjer egentlig etter at stemmene er talt opp? Hvem tar beslutningene som setter skattesatsen, finansierer sykehusene og bestemmer om Norge skal delta i internasjonale operasjoner? Og hva er egentlig en velferdsstat? Disse spørsmålene handler om noe som angår deg direkte - systemet som bestemmer hvordan samfunnet du vokser opp i, er organisert."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Stortinget i Oslo sett fra Karl Johans gate",
+            "caption": "Stortinget er Norges lovgivende myndighet og samles i Oslo. Her vedtas lovene og statsbudsjettet."
+        },
+        {
+            "type": "header",
+            "text": "Slik er det politiske systemet bygget opp"
+        },
+        {
+            "type": "text",
+            "content": "Norge er et parlamentarisk demokrati. Det betyr at vi velger representanter til [Stortinget](/samfunnskunnskap/styringsformer/stortinget) hvert fjerde år, og disse representantene vedtar lover og bevilger penger på vegne av oss. Stortinget har 169 representanter fordelt på alle landets valgkretser."
+        },
+        {
+            "type": "text",
+            "content": "Makten i Norge er delt mellom tre institusjoner. Stortinget lager lovene - dette kalles lovgivende makt. Regjeringen styrer landet i det daglige og setter lovene ut i livet - dette er den utøvende makten. Domstolene dømmer i rettssaker - det er den dømmende makten. Denne tredelingen av makt er ikke tilfeldig. Den skal hindre at én person eller gruppe får for mye kontroll."
+        },
+        {
+            "type": "text",
+            "content": "Regjeringen ledes av statsministeren og er sammensatt av statsråder (ministre) som har ansvar for hvert sitt departement - som helse, skole, forsvar og finans. Regjeringen må ha Stortingets tillit for å sitte. Hvis Stortinget vedtar et mistillitsforslag, må regjeringen gå av. Dette er parlamentarismens kjerne: Stortinget er øverst."
+        },
+        {
+            "type": "header",
+            "text": "Partisystemet - mange stemmer i én sal"
+        },
+        {
+            "type": "text",
+            "content": "I Norge har vi mange politiske partier. Det største er Arbeiderpartiet, som tradisjonelt har representert arbeiderbevegelsen. Høyre er det fremste borgerlige partiet. Senterpartiet kjemper for distriktene. Fremskrittspartiet vil ha lavere skatter og strammere innvandringspolitikk. Sosialistisk Venstreparti og Rødt er på venstresiden. Venstre og Kristelig Folkeparti er i midten. Miljøpartiet De Grønne setter klimaet fremst."
+        },
+        {
+            "type": "text",
+            "content": "For å komme inn på Stortinget må et parti få minst fire prosent av stemmene på landsbasis. Dette kalles sperregrensen. Den er ment å hindre at mange bittesmå partier gjør det umulig å danne stabile regjeringer. Resultatet er at norsk politikk oftest handler om å bygge koalisjoner - samarbeidsavtaler mellom partier som er enige om nok til å styre sammen."
+        },
+        {
+            "type": "component",
+            "name": "GovernmentExplorer",
+            "props": {
+                "systems": [
+                    {
+                        "name": "Parlamentarisme (Norge)",
+                        "description": "Regjeringen er ansvarlig overfor Stortinget. Folket velger Stortinget, og Stortinget gir regjeringen tillit. Statsministeren leder regjeringen.",
+                        "pros": [
+                            "Regjeringen kan kastes dersom den mister tillit",
+                            "Tett kobling mellom folkemening og regjeringsmakt",
+                            "Fleksibelt - kan reagere raskt på politiske skifter"
+                        ],
+                        "cons": [
+                            "Kan gi ustabile mindretallsregjeringer",
+                            "Koalisjonsforhandlinger kan ta lang tid",
+                            "Partipisken kan svekke den enkeltes representants frihet"
+                        ]
+                    },
+                    {
+                        "name": "Presidentstyre (USA)",
+                        "description": "President velges direkte av folket og er uavhengig av kongressen. Presidenten er både stats- og regjeringssjef og kan ikke kastes av kongressen med ordinært flertall.",
+                        "pros": [
+                            "Klar maktdeling mellom president og kongress",
+                            "Presidenten har sterk demokratisk legitimitet",
+                            "Stabilitet - presidenten sitter i fire år uansett"
+                        ],
+                        "cons": [
+                            "Kan gi politisk låsning når president og kongress er uenige",
+                            "Vanskelig å avsette president selv ved skandaler",
+                            "To-partisystem gir få valgmuligheter"
+                        ]
+                    },
+                    {
+                        "name": "Konstitusjonelt monarki (Sverige)",
+                        "description": "Kongen er statsoverhode, men har ingen politisk makt. Statsministeren leder regjeringen. Riksdagen er øverste politiske myndighet.",
+                        "pros": [
+                            "Kongen fungerer som samlende nasjonalt symbol",
+                            "Demokratisk styring kombinert med historisk kontinuitet",
+                            "Klar rolledeling mellom symbolsk og politisk makt"
+                        ],
+                        "cons": [
+                            "Monarkiet er ikke demokratisk valgt",
+                            "Kan oppfattes som utdatert av republikanere",
+                            "Kostbart å opprettholde kongefamilien"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Velferdsstaten - trygghet fra vugge til grav"
+        },
+        {
+            "type": "text",
+            "content": "En velferdsstat er en stat som tar ansvar for innbyggernes grunnleggende behov. I Norge betyr det at alle har rett på gratis skolegang, subsidiert helsetjeneste, trygd ved sykdom og uførhet, alderspensjon og støtte til barnefamilier. Disse rettighetene finansieres av skatter og avgifter som vi alle betaler."
+        },
+        {
+            "type": "text",
+            "content": "Det norske velferdssystemet bygger på noen grunnprinsipper. For det første er det universelt - det gjelder alle innbyggere, ikke bare de fattige. For det andre er det solidarisk - de som tjener mest, betaler mest i skatt. For det tredje er det obligatorisk - du kan ikke velge bort folketrygden. Tanken er at risiko deles på tvers av hele befolkningen, slik at ingen skal falle helt utenfor."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Norsk sykehus med ansatte i korridoren",
+            "caption": "Offentlige sykehus er kjernen i norsk velferdsstat. Behandlingen er gratis for alle."
+        },
+        {
+            "type": "text",
+            "content": "Velferdsstaten henger tett sammen med arbeidslivet. I Norge er det et tett samarbeid mellom staten, arbeidsgivere (ved LO - Landsorganisasjonen) og arbeidstakere (ved NHO - Næringslivets Hovedorganisasjon). Dette kalles trepartssamarbeidet. Gjennom frontfagmodellen forhandler de hvert år frem lønnsoppgjør som holder prisveksten i sjakk. Les mer om dette i artikkelen om [Norges lønnsmaskin](/samfunnskunnskap/arbeidsliv/frontfagmodellen)."
+        },
+        {
+            "type": "header",
+            "text": "Sentrale utfordringer for demokratiet og velferdsstaten"
+        },
+        {
+            "type": "text",
+            "content": "Det norske systemet fungerer godt på mange måter - men det møter også store utfordringer. Den første er demografisk: Norge blir eldre. Andelen pensjonister vokser, mens andelen i arbeid synker. Det betyr at færre skal finansiere velferd for flere. Denne utfordringen er tett knyttet til det vi kaller den demografiske overgangen - du kan lese mer om dette i artikkelen om [den demografiske overgangen](/samfunnskunnskap/demografi/den-demografiske-overgangen)."
+        },
+        {
+            "type": "text",
+            "content": "Den andre utfordringen handler om tillit og deltakelse. Demokratiet fungerer bare hvis folk engasjerer seg. Valgdeltakelsen ved stortingsvalg er høy i Norge - rundt 77 prosent - men unge stemmer sjeldnere enn eldre. Og selv om vi er enige om spillereglene, er vi stadig mer uenige om innholdet. Sosiale medier har gjort det lettere å leve i det noen kaller ekkokamre - der man bare hører meninger man allerede er enige med. Det kan gjøre det vanskeligere å føre en felles offentlig samtale."
+        },
+        {
+            "type": "text",
+            "content": "Den tredje utfordringen er klimaet. Norge er en stor eksportør av olje og gass - noe som har finansiert velferdsstaten gjennom Oljefondet (Statens pensjonsfond utland). Samtidig forplikter Norge seg til å kutte utslipp. Disse to hensynene er i konflikt med hverandre, og det er et spørsmål som deler politiske partier og velgere."
+        },
+        {
+            "type": "text",
+            "content": "Den fjerde utfordringen er ulikhet. Selv om Norge er et av verdens mest likestilte land, øker forskjellene mellom rik og fattig. Noen grupper - særlig innvandrere og unge uten utdanning - sliter med å komme inn på arbeidsmarkedet. Utenforskap er ett av de største problemene velferdsstaten prøver å løse, men ikke alltid lykkes med. Les mer om dette i artikkelen om [fattigdom](/samfunnskunnskap/demografi/fattigdom)."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Unge velgere utenfor et valglokale i Norge",
+            "caption": "Valgdeltakelse er grunnlaget for demokratiet. Alle over 18 år har stemmerett i Norge."
+        },
+        {
+            "type": "component",
+            "name": "DebateSimulator",
+            "props": {
+                "topic": "Bor Norge bruke mer oljepenger for å styrke velferdsstaten?",
+                "positions": [
+                    {
+                        "label": "Ja - velferd kommer først",
+                        "arguments": [
+                            "Køene i helsevesenet er for lange - vi trenger mer penger nå",
+                            "Oljefondet er skapt av det norske folk og bor komme det norske folk til gode",
+                            "En sterk velferdsstat er det beste vernet mot ulikhet og sosial uro",
+                            "Vi kan ikke spare oss gjennom en krise - nå er det behov for investeringer"
+                        ]
+                    },
+                    {
+                        "label": "Nei - vi må spare for fremtiden",
+                        "arguments": [
+                            "Å bruke for mye oljepenger gir inflasjon og svekker næringslivet",
+                            "Fremtidige generasjoner har like mye krav på oljeformuen som oss",
+                            "Velferdsstaten bor finansieres av skatter, ikke olje - det gir sunn økonomi",
+                            "Mer penger løser ikke problemene - vi trenger bedre organisering, ikke bare mer penger"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Hva gjør Norge spesielt?"
+        },
+        {
+            "type": "text",
+            "content": "Norge topper jevnlig internasjonale rangeringer for demokrati, tillit og livskvalitet. Hva er hemmeligheten? Forskere peker på flere faktorer. Høy tillit mellom borgere og myndigheter gjør det mulig å ha et skattesystem der folk faktisk betaler det de skal. En sterk offentlig sektor og lav korrupsjon sørger for at pengene faktisk brukes til det de er ment for. Et høyt utdanningsnivå gir befolkningen kunnskap til å delta i demokratiet. Og fagbevegelsen har historisk sett spilt en viktig rolle i å balansere makt mellom kapital og arbeid - slik vi leser om i artikkelen om [fagforeninger](/samfunnskunnskap/arbeidsliv/fagforeninger)."
+        },
+        {
+            "type": "text",
+            "content": "Men dette er ikke gitt en gang for alle. Demokrati og velferdsstat er ikke naturlover - de er politiske valg som må gjenvelges, forsvares og forbedres av hver generasjon. Det er der du kommer inn."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hva betyr parlamentarisme i Norge?",
+                        "options": [
+                            "Kongen styrer landet gjennom statsministeren",
+                            "Regjeringen trenger Stortingets tillit for å sitte ved makten",
+                            "Folket stemmer direkte på statsministeren hvert fjerde år",
+                            "Domstolene kan avsette regjeringen hvis de bryter loven"
+                        ],
+                        "correctAnswer": 1,
+                        "explanation": "Parlamentarisme betyr at regjeringen er ansvarlig overfor Stortinget. Hvis Stortinget vedtar et mistillitsforslag, må regjeringen gå av."
+                    },
+                    {
+                        "question": "Hva er sperregrensen i norsk politikk?",
+                        "options": [
+                            "Grensen for hvor mye skatt man maksimalt kan betale",
+                            "Antall representanter et parti kan ha i Stortinget",
+                            "Kravet om fire prosent av stemmene for å få utjevningsmandater",
+                            "Aldersgrensen for å stille til valg"
+                        ],
+                        "correctAnswer": 2,
+                        "explanation": "Sperregrensen er på fire prosent. Partier som ikke når denne grensen, kan likevel komme inn med direktemandater fra valgkretsene, men får ikke utjevningsmandater."
+                    },
+                    {
+                        "question": "Hva kjennetegner den norske velferdsstaten?",
+                        "options": [
+                            "Bare de fattigste får hjelp fra staten",
+                            "Universelle rettigheter finansiert av skatter og avgifter for alle",
+                            "Private selskaper driver alle velferdstjenester",
+                            "Velferd finansieres kun av Oljefondet"
+                        ],
+                        "correctAnswer": 1,
+                        "explanation": "Den norske velferdsstaten er universell - den gjelder alle, ikke bare de fattige. Den finansieres av skatter der de som tjener mest, bidrar mest."
+                    },
+                    {
+                        "question": "Hva er trepartssamarbeidet i norsk arbeidsliv?",
+                        "options": [
+                            "Samarbeid mellom Stortinget, Regjeringen og Høyesterett",
+                            "Samarbeid mellom Norge, Sverige og Danmark",
+                            "Samarbeid mellom staten, arbeidstakere og arbeidsgivere",
+                            "Samarbeid mellom kommuner, fylker og staten"
+                        ],
+                        "correctAnswer": 2,
+                        "explanation": "Trepartssamarbeidet er samarbeidet mellom staten, LO (arbeidstakere) og NHO (arbeidsgivere). Det er sentralt for å holde lønnsveksten kontrollert og arbeidsfreden stabil."
+                    },
+                    {
+                        "question": "Hvilken av disse er IKKE en sentral utfordring for det norske demokratiet og velferdsstaten?",
+                        "options": [
+                            "Aldring av befolkningen gjør velferdsstaten dyrere å finansiere",
+                            "Klimakonflikten mellom oljeinntekter og utslippskutt",
+                            "For høy valgdeltakelse blant unge velgere",
+                            "Økte forskjeller mellom rik og fattig"
+                        ],
+                        "correctAnswer": 2,
+                        "explanation": "Utfordringen er tvert imot for LAV valgdeltakelse blant unge. De tre andre alternativene er reelle og diskuterte utfordringer for det norske systemet."
+                    }
+                ]
+            }
+        }
+    ]
+}

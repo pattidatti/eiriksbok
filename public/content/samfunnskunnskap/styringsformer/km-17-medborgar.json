@@ -1,0 +1,452 @@
+{
+    "id": "km-17-medborgar",
+    "title": "Å vere medborgar",
+    "layout": "rich",
+    "category": "Samfunnskunnskap",
+    "readTime": "10 min lesning",
+    "heroImage": "/images/placeholder.webp",
+    "description": "Kva betyr det eigentleg å vere medborgar? Utforsk rettar og plikter i demokratiet, og samanlikn korleis politiske system er organiserte i ulike land.",
+    "subject": "samfunnsfag",
+    "topic": "samfunnskunnskap",
+    "tags": [
+        "medborgarskap",
+        "demokrati",
+        "politiske-system",
+        "stemmerett",
+        "sivilt-samfunn"
+    ],
+    "createdDate": "2026-06-02T00:00:00Z",
+    "details": [
+        "Kompetansemål SAF01-04",
+        "Medborgerskap og politiske systemer"
+    ],
+    "timeline": [],
+    "content": [
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Kompetansemål",
+                "content": "Reflektere over kva det inneber å vere medborgar, og samanlikne korleis politiske system er organiserte i forskjellige land og område."
+            }
+        },
+        {
+            "type": "text",
+            "content": "Du er 16 år. I Noreg kan du snart stemme ved lokalval. I Saudi-Arabia ville du ikkje kunne gjere det uansett alder, dersom du var kvinne, fram til 2015. I Kina kan du stemme - men berre på kandidatar som er godkjende av kommunistpartiet. I Belarus risikerer du fengsel om du stemmer på feil person og seier det høgt. Kva er eigentleg skilnaden mellom deg og desse personane? Dei er alle innbyggjarar i eit land. Men er dei alle medborgarar?"
+        },
+        {
+            "type": "text",
+            "content": "Eit medborgarskap er meir enn eit pass. Det er eit forhold mellom deg og staten du bur i - eit sett av rettar og plikter som bestemmer kor mykje du kan delta i styringa av samfunnet. Å forstå dette forholdet er heilt sentralt for å forstå kvifor nokre land er frie og andre ikkje er det."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Unge menneske i kø ved ei stemmebok",
+            "caption": "Stemmeretten er ein av dei viktigaste rettane ein medborgar har - men mange stader i verda er ho avgrensa eller fråteken."
+        },
+        {
+            "type": "header",
+            "text": "Kva er eit medborgarskap?"
+        },
+        {
+            "type": "text",
+            "content": "Ein medborgar er ein person som ikkje berre bur i eit land, men som aktivt tar del i fellesskapet. Ordet kjem frå latin: civis tydde borgar i Romarriket - ein fri mann med rettar og plikter i bystaten. I dag brukar vi det om alle som har fulle rettar og eit ansvar for å bidra til samfunnet. I artikkelen [Makt og legitimitet](/samfunnskunnskap/styringsformer/makt-og-legitimitet) kan du lese om kvifor folk adlyder styresmakter. Men medborgarskapet snur dette på hovudet: i eit demokrati er ikkje folket berre undersåttar som adlyder - dei er sjølve den ultimate kjelda til makt."
+        },
+        {
+            "type": "text",
+            "content": "Medborgarskapet inneheld tre hovudelement. Det første er sivile rettar: retten til ytringsfridom, religionsfridom, og å ikkje bli fengsla utan lov og dom. Det andre er politiske rettar: retten til å stemme, stille til val og organisere seg politisk. Det tredje er sosiale rettar: retten til utdanning, helsehjelp og ein minstelevestandard. Alle tre heng saman. Utan sosiale rettar kan fattige ikkje bruke dei politiske rettane sine i praksis. Utan sivile rettar kan politiske rettar bli tomme ord."
+        },
+        {
+            "type": "header",
+            "text": "Tre politiske system - tre ulike røyndommar"
+        },
+        {
+            "type": "text",
+            "content": "Den beste måten å forstå medborgarskapet på er å samanlikne. La oss sjå på tre land som organiserer politikken sin svært ulikt: Noreg (liberalt demokrati), Kina (eittpartistyre) og Iran (teokrati). Alle tre har innbyggjarar. Berre eitt av dei har medborgarar i full forstand. I artikkelen [Demokratiets mange ansikter](/samfunnskunnskap/styringsformer/demokrati-ansikter) kan du lese meir om dei ulike variantane av demokrati. Og i artikkelen [Diktaturet](/samfunnskunnskap/styringsformer/diktaturet) ser du korleis autoritære regime faktisk fungerer."
+        },
+        {
+            "type": "text",
+            "content": "I Noreg kan du seie kva du vil om regjeringa - og ingenting skjer deg. Du kan stifte ein politisk organisasjon, demonstrere i gatene, eller skrive lesarbrev som kritiserer statsministeren. Du stemmer fritt kvart fjerde år, og det er vanskelig å vere hundre prosent sikker på utfallet. Domstolane er uavhengige av politikarane. Dette er eit liberalt demokrati: systemet er laga for å sikre at borgarstemma har ekte makt."
+        },
+        {
+            "type": "text",
+            "content": "I Kina er det annleis. Det finst faktisk val, men alle kandidatar må godkjennast av Kommunistpartiet. Du kan kritisere lokale problem, men ikkje partileiinga. Du kan organisere deg i fagforeiningar, men ikkje i uavhengige politiske parti. Pressa er kontrollert. Internett er sensurert - det som kallast 'Den store brannmuren'. Kina har dei siste tiara lyfte hundrevis av millionar menneske ut av fattigdom. Men innbyggjarane er ikkje medborgarar i demokratisk forstand: dei kan ikkje styre regimet, berre leve under det."
+        },
+        {
+            "type": "text",
+            "content": "Iran er ein teokratisk republikk - religiøse leiarar har vetorett over alle politiske avgjerd. Ei valgt nasjonalforsamling eksisterer, men kandidatar som ikkje er godkjende av Det islamske vaktarrådet kan ikkje stille. I praksis betyr dette at eit religiøst elite overstyrer folkeviljen. Kvinner har fleire rettar enn i mange andre teokratiar, men er diskriminerte i lova. Å demonstrere mot systemet har kosta mange livet. I artikkelen [Gud eller ekspertar?](/samfunnskunnskap/styringsformer/teokrati-teknokrati) kan du lese meir om teokratiets logikk."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Samanlikning av val i demokrati og autoritaert regime",
+            "caption": "Formelle val finst i mange ulike system - men under svært ulike vilkar for den einskilde borgaren."
+        },
+        {
+            "type": "header",
+            "text": "Utforsk og samanlikn: Kva system gjev kva rettar?"
+        },
+        {
+            "type": "component",
+            "name": "GovernmentExplorer",
+            "props": {
+                "systems": [
+                    {
+                        "name": "Liberalt demokrati (Noreg, Sverige, Tyskland)",
+                        "description": "Folkevalt regjering, frie og hemmelige val, uavhengige domstolar, fri presse, sterke individuelle rettar. Makt er fordelt mellom lovgjevande, utøvande og domstolar.",
+                        "pros": [
+                            "Borgarar kan byte ut styresmakter fredeleg",
+                            "Ytringsfridom og pressefridom sikrar gjennomsyn",
+                            "Uavhengige domstolar verner mot maktmisbruk",
+                            "Minoritetar har juridisk vern",
+                            "Sivile rettar er forankra i grunnlov"
+                        ],
+                        "cons": [
+                            "Avgjerdsprosessar kan vere treige",
+                            "Pengar og mektige grupper kan skjeve politikken",
+                            "Populisme kan utnytte demokratiske mekanismar",
+                            "Valkampar domineres av media og image"
+                        ]
+                    },
+                    {
+                        "name": "Eittpartistyre (Kina, Cuba, Nord-Korea)",
+                        "description": "Eitt parti kontrollerer staten. Det finst nokre val, men utan reelt alternativ. Pressa og domstolane er underordna partiet. Statsideologien gjennomsyrer offentleg liv.",
+                        "pros": [
+                            "Kan ta raske avgjerd og gjennomføre langsiktige planar",
+                            "Unngår politisk splittelse og stilstand",
+                            "Kan mobilisere store ressursar raskt (t.d. i kriser)"
+                        ],
+                        "cons": [
+                            "Borgarar kan ikkje byte ut leiinga fredeleg",
+                            "Ytringsfridom og pressefridom er avgrensa",
+                            "Korrupsjon og maktmisbruk er vanskelegare å avsløre",
+                            "Minoritetar og opposisjonelle er sårbare"
+                        ]
+                    },
+                    {
+                        "name": "Teokrati (Iran, Vatikanstaten)",
+                        "description": "Religiøse lover og leiarar har øvste autoritet. Politiske avgjerder må vere i tråd med religiøs lov. Religiøse domstolar og råd kan overprøve folkevalt leiing.",
+                        "pros": [
+                            "Gjev klare moralske retningsliner basert på religion",
+                            "Kan skape sterk nasjonal og kulturell identitet",
+                            "Tillitsfull for befolkninga som deler trua"
+                        ],
+                        "cons": [
+                            "Religiøse minoritetar og ikkje-truande er diskriminerte",
+                            "Skilnaden mellom religion og politikk forsvinn",
+                            "Vanskeleg å reformere systemet nedanfrå",
+                            "Kvinner og LHBT-personar er ofte særleg utsette"
+                        ]
+                    },
+                    {
+                        "name": "Konstitusjonelt monarki (Storbritannia, Japan, Danmark)",
+                        "description": "Ein arveleg monark er statsoverhovud, men reell makt ligg hjå eit folkevalt parlament. Monarkens rolle er primært seremoniell og symbolsk.",
+                        "pros": [
+                            "Kombinerer demokratisk styre med historisk kontinuitet",
+                            "Monark som symbol over partipolitikken",
+                            "Folkevalt parlament har reell makt"
+                        ],
+                        "cons": [
+                            "Arvemakt strider mot prinsippet om likheit",
+                            "Monarkien krev ressursar utan direkte politisk funksjon",
+                            "Kan verke antikvert for yngre generasjonar"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Medborgarens plikter - ikkje berre rettar"
+        },
+        {
+            "type": "text",
+            "content": "Medborgarskap handlar ikkje berre om kva du kan krevje av staten - det handlar også om kva du pliktar å bidra med. I Noreg er dei formelle pliktene greie: betale skatt, møte i retten som jurymedlem om du blir kalla inn, og verneplikt. Men det er dei uformelle pliktene som ofte er viktigare. Å halde seg informert om samfunnet. Å stemme. Å seie frå når noko er gale. Å respektere andre sin rett til å ha andre meiningar."
+        },
+        {
+            "type": "text",
+            "content": "Filosofar har diskutert dette i hundrevis av år. Jean-Jacques Rousseau meinte at ekte fridom ikkje betyr å gjere kva ein vil, men å vere med å bestemme reglane som alle - inkludert ein sjølv - må følgje. Han kalla dette 'allmennnvilja'. Ideen er at du er friare under lover du sjølv er med på å lage, enn under lover som nokon andre pådytter deg. Dette er grunnlaget for tanken om demokrati som sjølvstyre. FN har spela ei viktig rolle i å kodifisere kva rettar alle menneske bør ha - les meir om dette i artikkelen [Forente Nasjoner (FN)](/samfunnskunnskap/ideer-og-verdenssyn/fn)."
+        },
+        {
+            "type": "text",
+            "content": "Eit aktivt sivilsamfunn - frivillige organisasjonar, fagforeiningar, lokale grupper, fri presse - er ryggraden i eit levande demokrati. Det er ikkje nok at val skjer kvart fjerde år. Mellom vala er det sivilsamfunnet som held styresmaktene ansvarlege, løftar fram saker som politikarar gløymer, og sikrar at alle stemmer blir høyrde. Utan dette rotnar demokratiet gradvis, sjølv om valurnene framleis er der."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Frivillige i lokalt organisasjonsmøte i Noreg",
+            "caption": "Det frivillige organisasjonslivet er ein av grunnsteinane i det norske demokratiet - og ein arena der medborgarar utøver retten sin til deltaking."
+        },
+        {
+            "type": "header",
+            "text": "Kva truar medborgarskapet i dag?"
+        },
+        {
+            "type": "text",
+            "content": "Rundt om i verda ser vi ein tendens dei siste tiara: demokratiindeksar viser at fleire land er blitt meir autoritære, ikkje meir demokratiske. Nokre truslar kjem utanfrå - diktatur som forsøker å destabilisere demokrati gjennom desinformasjon og nettverk av korrupte nettverkspartnærr. Men nokre truslar kjem innanfrå demokratia sjølve."
+        },
+        {
+            "type": "text",
+            "content": "Populistiske leiarar i demokratiske land har nokre gonger forsøkt å svekke institusjonane som held systemet i balanse: domstolar, presse, valkommisjonar, sentralbank. Argumentet er gjerne at 'folket' er blitt svikta av ein elite, og at den nye leiaren talar ekte folkevilje. Men ein leiar som øydelegg dei institusjonane som kan korrigere leiarar, gjer det vanskelegare for folket å byte han ut seinare. Demokratiet sitt problem er at det kan stemme seg sjølv bort."
+        },
+        {
+            "type": "text",
+            "content": "Eit anna problem er låg deltaking. Når berre halvparten av dei stemmeføre faktisk stemmer - slik det er i mange land - er det ikkje sikkert at resultata speglar folkevilja. Dei som ikkje stemmer, er gjerne dei yngste, dei fattigaste og dei med minst tru på at systemet virkar for dei. Dette er ei oppgåve for medborgarar: ikkje berre å ha rettar, men å bruke dei."
+        },
+        {
+            "type": "component",
+            "name": "ScenarioRoleplay",
+            "props": {
+                "title": "Du er medborgar - kva gjer du?",
+                "startId": "start",
+                "scenario": [
+                    {
+                        "id": "start",
+                        "text": "Du bur i landet Fristaten, eit demokrati der val skal haldast om to veker. Plutselig spreier det seg rykter på sosiale medium: regjeringa skal ha juksa med vallister for å hindre opposisjonen i å stille kandidatar. Lokalt har skulen din vedtatt å fjerne samfunnsfagstimen. Venene dine er sint, men dei fleste seier: 'Det nyttar ikkje å gjere noko.' Kva gjer du?",
+                        "choices": [
+                            {
+                                "text": "Eg postar om det på sosiale medium og spør om nokon veit meir",
+                                "nextId": "sosiale_medium",
+                                "feedback": "Du bruker ytringsfridomen din - ein sentral medborgarrett. Kva skjer vidare?"
+                            },
+                            {
+                                "text": "Eg kontaktar lokale media og bedeir dei undersøkje saka",
+                                "nextId": "media",
+                                "feedback": "Ei sterk medborgarhandling. Ein fri presse er avhengig av at folk faktisk tipsar den."
+                            },
+                            {
+                                "text": "Eg meiner det ikkje er noko å gjere, eg er jo berre ein ungdom",
+                                "nextId": "passiv",
+                                "feedback": "Forståeleg tanke - men la oss tenkje litt på kva konsekvensen av å vere passiv er."
+                            }
+                        ]
+                    },
+                    {
+                        "id": "sosiale_medium",
+                        "text": "Innlegget ditt spreier seg og hundrevis deler det. Men ein del av kommentarane viser seg å vere frå kontoar som spreiar falsk informasjon om heilt andre ting. Kva gjer du no?",
+                        "choices": [
+                            {
+                                "text": "Eg sjekkar kjelder og legg til eit nytt innlegg som korrigerer det som er feil",
+                                "nextId": "kildekritikk",
+                                "feedback": "Utmerka! Kildekritikk og ansvarsmedvit er kjernen i demokratisk deltaking."
+                            },
+                            {
+                                "text": "Eg let det stå - eg hadde rett intensjon, det er nok",
+                                "nextId": "ansvar",
+                                "feedback": "Gode intensjonar er viktige, men utan korreksjon kan feilinformasjon skade det du faktisk vil verne."
+                            }
+                        ]
+                    },
+                    {
+                        "id": "media",
+                        "text": "Lokalavisa ringer deg tilbake. Dei er interesserte, men spør: har du dokumentasjon? Kva svarer du?",
+                        "choices": [
+                            {
+                                "text": "Eg seier eg har sett det på sosiale medium, og det er nok prov",
+                                "nextId": "bevis_svakt",
+                                "feedback": "Sosiale medium er ikkje prov. Journalistar treng dokumentasjon. Kva skjer om dei publiserer noko som viser seg å vere feil?"
+                            },
+                            {
+                                "text": "Eg seier eg ikkje har dokumentasjon enno, men spør om dei kan hjelpe å grave",
+                                "nextId": "samarbeid",
+                                "feedback": "Riktig! Eit samarbeid mellom engasjerte borgarar og uavhengig presse er demokratiets verkty."
+                            }
+                        ]
+                    },
+                    {
+                        "id": "passiv",
+                        "text": "Nokre veker seinare kjem det fram at vallista-ryktene var sanne. Opposisjonen klarer ikkje å stille kandidatar. Regjeringa vinn att - utan reell konkurranse. Mange seier etterpå: 'Vi visste det, men vi trudde ikkje vi kunne gjere noko.' Kva kan du lære av dette?",
+                        "choices": [
+                            {
+                                "text": "At det er dei vaksne og dei med makt som har ansvar - ikkje oss",
+                                "nextId": "laering_feil",
+                                "feedback": "Det er lett å tenkje slik - men demokratiet er avhengig av at ALLE borgarar deltar. Kven er 'dei vaksne'? Om ti ar er det deg."
+                            },
+                            {
+                                "text": "At passivitet er ei form for val - og at det alltid er nokon som tener på at folk ikkje engasjerer seg",
+                                "nextId": "laering_rett",
+                                "feedback": "Heilt rett. Dei som vil avgrense demokratiet, er alltid glade for passivitet. Engasjement er eit aktivt val."
+                            }
+                        ]
+                    },
+                    {
+                        "id": "kildekritikk",
+                        "text": "Du finn at grunnleggjande påstandar var riktige - valstyret hadde faktisk avvist fleire kandidatar på uklart grunnlag. Engasjementet ditt er med på å sikre at saka kjem til rettssystemet. Kva lærde du?",
+                        "choices": [
+                            {
+                                "text": "At sosiale medium er nok til å vinne politiske kampar",
+                                "nextId": "avslutning",
+                                "feedback": "Delvis rett - men sosiale medium er eit verkty, ikkje eit fullt demokrati. Rettar treng institusjonar, ikkje berre trending-saker."
+                            },
+                            {
+                                "text": "At medborgarskap er aktiv deltaking - sjekking, deling av rett informasjon, og å ikkje gi opp",
+                                "nextId": "avslutning",
+                                "feedback": "Nettopp! Medborgarskap er ikkje passivt - det er ei haldning og eit sett av handlingar."
+                            }
+                        ]
+                    },
+                    {
+                        "id": "ansvar",
+                        "text": "Feilinformasjonen spreier seg vidare. Folk lagar nye skjermbilete og blandar saman sant og usant. Saka mister truverd. Kva er lærdomen?",
+                        "choices": [
+                            {
+                                "text": "At ein ikkje bør bry seg om politikk på nett",
+                                "nextId": "avslutning",
+                                "feedback": "Nei - men ein bør vere presis og ansvarleg. Demokratiet treng engasjerte, ikkje berre mange, stemmer."
+                            },
+                            {
+                                "text": "At medborgar-ansvar inkluderer å korrigere seg sjølv, ikkje berre å ha rett intensjon",
+                                "nextId": "avslutning",
+                                "feedback": "Riktig. Ansvar er ikkje berre kva du vil gjere, men kva konsekvensar handlingane dine faktisk har."
+                            }
+                        ]
+                    },
+                    {
+                        "id": "bevis_svakt",
+                        "text": "Avisa publiserer utan god dokumentasjon. Det viser seg at deler av informasjonen var feil. Avisa må trekke historia. Opposisjonskandidatar mistar truverd. Kva lærde du?",
+                        "choices": [
+                            {
+                                "text": "At media ikkje bør skrive om politikk",
+                                "nextId": "avslutning",
+                                "feedback": "Nei - men media treng god dokumentasjon. Ein fri presse er avgjerande, men krev kjelder som kan etterprøvast."
+                            },
+                            {
+                                "text": "At kildekritikk gjeld oss alle - ikkje berre journalistar",
+                                "nextId": "avslutning",
+                                "feedback": "Heilt rett. Medborgarar som tipsar media har eit ansvar for å vere nøyaktige. Det er ein del av medborgarrolla."
+                            }
+                        ]
+                    },
+                    {
+                        "id": "samarbeid",
+                        "text": "Saman finn de dokumentasjon. Avisa publiserer ein grundig artikkel. Saka kjem for retten. Demokratiet vernar seg sjølv - fordi ein borgar og ei fri presse samarbeidde. Kva betyr dette?",
+                        "choices": [
+                            {
+                                "text": "At system ordnar opp av seg sjølv, om ein berre ventar",
+                                "nextId": "avslutning",
+                                "feedback": "Nei - system ordnar opp fordi nokon aktivt brukar dei. Det er poenget."
+                            },
+                            {
+                                "text": "At demokratiet lever fordi medborgarar brukar rettane sine - og at det krev innsats",
+                                "nextId": "avslutning",
+                                "feedback": "Nøyaktig. Demokrati er ikkje eit sjølvgåande maskineri - det er noko vi gjer saman, kvar dag."
+                            }
+                        ]
+                    },
+                    {
+                        "id": "laering_feil",
+                        "text": "Ti ar seinare er Fristaten eit autoritaert regime. Dei som freista å seie frå vart stille ein etter ein. Du tenkjer tilbake. Kva ser du no?",
+                        "choices": [
+                            {
+                                "text": "At det ikkje var mi oppgåve å gjere noko",
+                                "nextId": "avslutning",
+                                "feedback": "Det er ein forståeleg men farleg tanke. Autoritaere regime trivst nettopp fordi folk tenkjer slik."
+                            },
+                            {
+                                "text": "At friheten var verdt å kjempe for - og at den vart tatt frå dei utan at nokon protestederte tidleg nok",
+                                "nextId": "avslutning",
+                                "feedback": "Det er ei tung erkjenning - og ei viktig. Medborgarskap er eit aktivt val, kvar dag."
+                            }
+                        ]
+                    },
+                    {
+                        "id": "laering_rett",
+                        "text": "Denne innsikten motiverer deg. Du engasjerer deg i ein organisasjon som jobbar for opne vallistar. Systemet er seint og frustrerande. Men ting endrar seg gradvis. Kva er det viktigaste du har lart?",
+                        "choices": [
+                            {
+                                "text": "At berre dei med makt kan endre noko",
+                                "nextId": "avslutning",
+                                "feedback": "Faktisk det motsette - makt kjem frå engasjerte borgarar som organiserer seg og krev noko."
+                            },
+                            {
+                                "text": "At demokrati ikkje er ein tilstand, men ein prosess - noko ein held ved like gjennom aktiv deltaking",
+                                "nextId": "avslutning",
+                                "feedback": "Perfekt formulert. Det er eit av dei djupaste innsiktene i statsvitenskap - og i kvardagslivet som medborgar."
+                            }
+                        ]
+                    },
+                    {
+                        "id": "avslutning",
+                        "text": "Du har utforska kva det vil seie å vere medborgar - ikkje berre som omgrep, men som praksis. Medborgarskap er å bruke rettane sine, ta ansvar for konsekvensane av handlingane sine, og bidra til fellesskapet - sjølv når det er vanskeleg.",
+                        "choices": []
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Kvifor dette handlar om deg"
+        },
+        {
+            "type": "text",
+            "content": "Du bur i Noreg i 2026. Du er snart gammal nok til å stemme. Du veks opp med internett, sosiale medium og tilgang til informasjon som ingen tidlegare generasjon har hatt - men også med meir desinformasjon enn nokon gong. Du lever i eit land der pressefridomen er blant verdas beste, men der folk flest veit lite om korleis Stortinget faktisk fungerer. Du har fleire rettar enn dei aller fleste unge menneske i verda. Og rettar som ikkje blir brukte, svekkes over tid."
+        },
+        {
+            "type": "text",
+            "content": "Medborgarskapet ditt er ikkje automatisk. Det er noko du vel å ta på alvor - eller ikkje. Å forstå korleis politiske system er organiserte i andre land er ikkje berre skulepensum. Det er å forstå kvifor dei rettane du har, ein gong kosta mykje, kvifor dei framleis er trua i delar av verda, og kvifor dei krev aktivt forsvar av deg og alle andre her heime."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Kva er eit medborgarskap?",
+                        "options": [
+                            "Berre eit nasjonalt pass",
+                            "Eit forhold mellom individ og stat, med rettar og plikter som mogleggjer politisk deltaking",
+                            "Retten til å bu i eit land utan å betale skatt",
+                            "Eit system der berre vaksne over 25 kan stemme"
+                        ],
+                        "correctAnswer": 1,
+                        "explanation": "Medborgarskap er eit aktivt forhold til staten og samfunnet - eit sett av rettar (sivile, politiske og sosiale) og plikter som definerer kor mykje ein kan delta i styringa av fellesskapet."
+                    },
+                    {
+                        "question": "Kva er hovudskilnaden på medborgarskap i eit liberalt demokrati og i eit eittpartistyre?",
+                        "options": [
+                            "I eit demokrati betaler ein meir skatt",
+                            "I eit eittpartistyre er det ikkje lov å stemme",
+                            "I eit demokrati kan borgarar byte ut leiinga fredeleg gjennom frie val, noko som ikkje er mogeleg i eit eittpartistyre",
+                            "I eit demokrati er alle borgarar nøgde med systemet"
+                        ],
+                        "correctAnswer": 2,
+                        "explanation": "Skilnaden er ikkje om val finst, men om dei er reelle. I eit liberalt demokrati kan folket faktisk byte ut dei som styrer. I eit eittpartistyre er val anten fråverande eller kontrollerte slik at utfallet ikkje kan true partiet."
+                    },
+                    {
+                        "question": "Kva er dei tre hovudelementane i eit moderne medborgarskap?",
+                        "options": [
+                            "Militarplikt, skatteplikt og jurysplikt",
+                            "Sivile rettar, politiske rettar og sosiale rettar",
+                            "Stemmerett, passrett og helserett",
+                            "Ytringsfridom, religionsfridom og pressefridom"
+                        ],
+                        "correctAnswer": 1,
+                        "explanation": "Sivile rettar (personleg fridom), politiske rettar (deltaking i styret) og sosiale rettar (velferd og utdanning) utgjer saman eit fullstendig medborgarskap. Alle tre heng saman og er avhengige av kvarandre."
+                    },
+                    {
+                        "question": "Rousseau meinte at ekte fridom betyr:",
+                        "options": [
+                            "At ein kan gjere kva ein vil utan konsekvensar",
+                            "At berre dei rike har fridom",
+                            "At ein er med på å lage dei reglane som alle - inkludert ein sjølv - må følgje",
+                            "At staten ikkje skal ha lover i det heile tatt"
+                        ],
+                        "correctAnswer": 2,
+                        "explanation": "Rousseau si idé om 'allmennvilja' seier at ekte fridom ikkje er fråver av lover, men å vere med å bestemme lovene. Å leve under reglar ein sjølv er med på å lage, er meir fridom enn å vere underlagt reglar nokon andre bestemmer."
+                    },
+                    {
+                        "question": "Kva er ein av dei viktigaste grunnane til at aktivt sivilsamfunn er viktig for eit demokrati?",
+                        "options": [
+                            "Det sørgjer for at politikarane slepp å jobbe mellom vala",
+                            "Det held styresmaktene ansvarlege og sikrar at fleire stemmer blir høyrde, mellom vala",
+                            "Det erstattar valordninga i land utan stemmerett",
+                            "Det er berre viktig i diktatur, ikkje i demokrati"
+                        ],
+                        "correctAnswer": 1,
+                        "explanation": "Mellom val er det sivilsamfunnet - frivillige organisasjonar, fagforeiningar, fri presse - som held styresmaktene ansvarlege og løftar fram saker som politikarar elles kan gløyme. Utan dette svekkes demokratiet gradvis."
+                    }
+                ]
+            }
+        }
+    ]
+}

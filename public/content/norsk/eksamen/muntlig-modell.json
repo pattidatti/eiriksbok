@@ -1,0 +1,492 @@
+{
+    "id": "muntlig-modell",
+    "title": "Slik ser en 6-er ut: Muntlig eksamen",
+    "description": "Et komplett modellsvar på temaet framgang og motgang, med manus, sitater og fagsamtale.",
+    "subject": "norsk",
+    "topic": "eksamen",
+    "layout": "rich",
+    "heroImage": "/images/placeholder.webp",
+    "readTime": "14 min lesning",
+    "category": "Eksamen",
+    "details": [
+        "Et fullstendig modellsvar på temaet framgang og motgang.",
+        "Tre tekster fra biblioteket, fra tre ulike epoker.",
+        "Hele manuset til en presentasjon på cirka 10 minutter.",
+        "Tips og eksempelsvar til fagsamtalen etterpå.",
+        "Forklaring på hvorfor nettopp dette gir karakteren 6."
+    ],
+    "externalUrl": "https://www.udir.no/eksamen-og-prover/eksamen/muntlig-eksamen/",
+    "timeline": [],
+    "content": [
+        {
+            "type": "paragraph",
+            "text": "Det er én ting å lese om hvordan man får en god karakter. Det er noe helt annet å se det. I denne artikkelen følger vi en tenkt elev som har fått temaet framgang og motgang på muntlig eksamen. Du får se hele tankegangen: hvordan eleven velger en skarp påstand, bygger en presentasjon på cirka 10 minutter med tekster fra biblioteket, og håndterer fagsamtalen etterpå. Underveis forklarer vi hvorfor hvert valg løfter besvarelsen mot toppkarakteren."
+        },
+        {
+            "type": "info_box",
+            "title": "Les hovedartikkelen først",
+            "content": "Denne artikkelen er et praktisk eksempel. Selve oppskriften finner du i [Muntlig eksamen i norsk](/norsk/eksamen/muntlig). Her ser du oppskriften brukt i praksis."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Oppgaven modell-eleven fikk",
+                "items": [
+                    {
+                        "label": "Tema (24 timer før)",
+                        "value": "Framgang og motgang."
+                    },
+                    {
+                        "label": "Oppgave (på eksamensdagen)",
+                        "value": "Drøft hvordan framgang og motgang framstilles i selvvalgte tekster fra ulike tidsperioder. Bruk fagbegreper."
+                    },
+                    {
+                        "label": "Eleven valgte",
+                        "value": "Tre tekster fra biblioteket: et folkeeventyr, en novelle fra realismen og et romanutdrag fra nyromantikken."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Steg 1: Fra tema til skarp påstand",
+            "level": 2
+        },
+        {
+            "type": "paragraph",
+            "text": "Den vanligste feilen er å gjøre temaet til en innholdsfortegnelse: «Jeg skal snakke om framgang og motgang i tre tekster.» Det er ikke en påstand, det er en liste. En 6-er begynner med en tese eleven faktisk argumenterer for. Se forskjellen:"
+        },
+        {
+            "type": "comparison",
+            "before": {
+                "label": "Vag åpning (3-4-nivå)",
+                "content": "I denne presentasjonen skal jeg snakke om framgang og motgang i tre tekster fra ulike perioder."
+            },
+            "after": {
+                "label": "Skarp påstand (6-nivå)",
+                "content": "Framgang er ikke alltid noe du kan jobbe deg til. Folkediktningen lover at den smarte og utholdende vinner. Men 50 år senere river forfatterne det løftet i stykker: framgang blir noe samfunnet, eller ditt eget hode, kan nekte deg uansett hvor hardt du kjemper."
+            }
+        },
+        {
+            "type": "paragraph",
+            "text": "Påstanden er omstridt. Den kan diskuteres, og den gir presentasjonen en retning. Alt eleven sier etterpå, bygger opp under den. Det er nettopp dette sensor leter etter når kjennetegnene sier at eleven skal argumentere saklig, ikke bare gjengi."
+        },
+        {
+            "type": "header",
+            "text": "Steg 2: Tre tekster, tre epoker",
+            "level": 2
+        },
+        {
+            "type": "paragraph",
+            "text": "Eleven valgte tekster som belyser temaet fra hver sin tid. Det er smart, fordi et av kompetansemålene i LK20 er å sammenligne tekster ut fra historisk kontekst. Når tekstene står i tre ulike epoker, viser eleven nettopp den evnen."
+        },
+        {
+            "type": "list",
+            "items": [
+                "Askeladden som kappåt med trollet (Asbjørnsen og Moe, 1843) - folkediktning og nasjonalromantikk.",
+                "Karens jul (Amalie Skram, 1885) - realisme og naturalisme.",
+                "Sult (Knut Hamsun, 1890) - nyromantikk."
+            ]
+        },
+        {
+            "type": "info_box",
+            "title": "Tekstene ligger i biblioteket",
+            "content": "Du kan lese alle tre selv:\n\n- [Askeladden som kappåt med trollet](/norsk/bibliotek/norske-folkeeventyr)\n- [Karens jul](/norsk/bibliotek/karens-jul)\n- [Sult (utdrag)](/norsk/bibliotek/sult-utdrag)"
+        },
+        {
+            "type": "header",
+            "text": "Manuset: Slik holdt eleven presentasjonen",
+            "level": 2
+        },
+        {
+            "type": "paragraph",
+            "text": "Under ser du hele manuset, delt inn slik eleven tenkte på tiden. Husk: eleven snakket fritt fra stikkord, ikke fra et ferdigskrevet ark. Teksten her viser innholdet i en 6-besvarelse."
+        },
+        {
+            "type": "header",
+            "text": "Åpning (cirka 1 minutt)",
+            "level": 3
+        },
+        {
+            "type": "paragraph",
+            "text": "«Tenk deg den minste broren i et eventyr. Han er fattig, han blir ledd av, ingen tror på ham. Og likevel vet vi, allerede fra første setning, at det er han som kommer til å vinne. Eventyret har lovet oss det. Men hva skjer når litteraturen slutter å gi det løftet? Det er det jeg vil vise i dag. Påstanden min er at framgang flytter seg gjennom norsk litteraturhistorie: fra en belønning du kan vinne med list og vilje, til noe samfunnet eller ditt eget hode kan nekte deg. Jeg viser det gjennom tre tekster fra tre epoker.»"
+        },
+        {
+            "type": "header",
+            "text": "Tekst 1: Askeladden (cirka 2 minutter)",
+            "level": 3
+        },
+        {
+            "type": "paragraph",
+            "text": "«Jeg begynner i folkediktningen, slik den ble samlet av Asbjørnsen og Moe i nasjonalromantikken på 1840-tallet. I Askeladden som kappåt med trollet møter vi en bonde i små kår, gammel og skrøpelig, med tre sønner. Askeladden er den yngste, den minste, den ingen satser på. Det er motgangen hans: han starter helt nederst. Men så møter han trollet, og her bruker eventyret det jeg vil kalle den smarte kontrasten. Askeladden er liten og svak, trollet er stort og sterkt. Likevel vinner gutten, fordi han er smartere. Han klemmer en hvit ost og lurer trollet til å tro det er en stein.»"
+        },
+        {
+            "type": "component",
+            "name": "QuoteBlock",
+            "props": {
+                "text": "Tier du ikke still, skal jeg klemme deg, som jeg klemmer vannet av denne hvite steinen!",
+                "author": "Askeladden som kappåt med trollet (1843)"
+            }
+        },
+        {
+            "type": "paragraph",
+            "text": "«Poenget mitt er ikke at Askeladden jukser. Poenget er hva eventyret lover: at den som er smart og utholdende, stiger til topps. Motgang er bare en prøve på veien til framgang. Askeladden ender med sølv og gull. I folkediktningen er verden rettferdig. Den lille fortjener å vinne, og han vinner. Hold fast på det løftet, for nå skal jeg vise hvordan det blir brutt.»"
+        },
+        {
+            "type": "header",
+            "text": "Tekst 2: Karens jul (cirka 2,5 minutter)",
+            "level": 3
+        },
+        {
+            "type": "paragraph",
+            "text": "«Vi hopper drøyt 40 år fram, til realismen og naturalismen på 1880-tallet. Amalie Skram skrev Karens jul i 1885. Karen er en ung, fattig, enslig mor. Hun har ikke noe sted å bo, så hun gjemmer seg i et forlatt fergemannshus på en kai i Kristiania. Skram åpner med en lang, kald miljøskildring, og det er ikke pynt. Det er naturalismens metode: miljøet bestemmer mennesket. Snøen smelter mens den faller, gasslyktene gir et skittent, branngult lys. Alt er grått og vått før Karen sier et eneste ord. Og når vi ser henne, ser vi motgangen risset inn i kroppen: et dypt arr i ansiktet, hullete støvler uten lisser, og barnet som diet hennes magre bryst. Hun ber ikke om mye. Hun hvisker bare:»"
+        },
+        {
+            "type": "component",
+            "name": "QuoteBlock",
+            "props": {
+                "text": "Det er bare meg, Karen.\nJæ sitter her med ungen min.",
+                "author": "Karens jul, Amalie Skram (1885)"
+            }
+        },
+        {
+            "type": "paragraph",
+            "text": "«Her kommer det viktigste poenget mitt. Karen gjør alt en mor kan gjøre. Hun kjemper for barnet sitt. I eventyret ville den innsatsen blitt belønnet. Men Skram er naturalist, og naturalistene tror ikke på det. De tror at arv og miljø avgjør alt. Derfor blir slutten det motsatte av et eventyr: politimannen finner til slutt Karen frosset i hjel i skuret, med det døde barnet i armene. Og legg merke til ironien Skram bygger inn. Dette skjer i julen, høytiden for et nyfødt barn og for lys og varme. Men Karens barn dør, og det dør i kulde og mørke. Kontrasten mellom julebudskapet og Karens virkelighet er selve samfunnskritikken. Skram sier: i dette samfunnet finnes ingen framgang for de fattigste. Bare motgang, helt til døden.»"
+        },
+        {
+            "type": "header",
+            "text": "Tekst 3: Sult (cirka 2,5 minutter)",
+            "level": 3
+        },
+        {
+            "type": "paragraph",
+            "text": "«Min tredje tekst er fra 1890, og nå skjer det noe nytt igjen. Knut Hamsuns Sult hører til nyromantikken. Hos Skram lå motgangen i samfunnet, utenfor mennesket. Hos Hamsun flytter den seg innover, inn i hodet. Romanen åpner med en av de mest kjente setningene i norsk litteratur:»"
+        },
+        {
+            "type": "component",
+            "name": "QuoteBlock",
+            "props": {
+                "text": "Det var i den tid jeg gikk omkring og sultet i Kristiania, denne forunderlige by som ingen forlater før han har fått merker av den.",
+                "author": "Sult, Knut Hamsun (1890)"
+            }
+        },
+        {
+            "type": "paragraph",
+            "text": "«Jeg-fortelleren er en ung skribent uten penger. Han har pantsatt eiendelene sine og lever på fem kroner i ny og ne for en føljetong. Det ytre er ren motgang: sult, fattigdom, klær som faller fra hverandre. Men her bruker Hamsun et virkemiddel som var helt nytt. Han lar oss være inni hodet på fortelleren, i en stadig skiftende indre monolog. Og inni det hodet bor framgang og motgang samtidig. Midt i sulten tenker han at han er sterk som en rise og kan stanse en vogn med skulderen. Han som ikke har spist, føler seg som et troll i styrke. Det er den indre splittelsen Hamsun er ute etter, det han selv kalte det ubevisste sjeleliv. Og det aller sterkeste: når en gammel tigger ber om penger til melk, gir fortelleren bort penger han egentlig ikke har. Han som sulter, spiller raus. Hvorfor? Fordi stoltheten er det eneste han har igjen. Han nekter å være et offer. Her er framgang og motgang ikke to ulike skjebner, slik som hos Askeladden og Karen. Hos Hamsun bor de i samme menneske, i samme øyeblikk.»"
+        },
+        {
+            "type": "header",
+            "text": "Avslutning (cirka 1,5 minutt)",
+            "level": 3
+        },
+        {
+            "type": "paragraph",
+            "text": "«La meg sirkle tilbake til der jeg begynte. Askeladden lærte oss at framgang er en belønning du kan vinne. Karen viste oss at samfunnet kan nekte deg den, uansett hvor hardt du kjemper. Og Hamsun viste oss at framgang og motgang kan bo i det samme hodet på én gang. Tre epoker, tre helt ulike svar på det samme spørsmålet: Hvem fortjener å lykkes, og hvem bestemmer det? Og dette spørsmålet er ikke ferdig. I dag, i tekster som Aldri godt nok fra 2024, har motgangen flyttet enda lenger inn, til speilet og følelsen av aldri å være god nok. Det er den samme kampen, bare i nytt språk. Så påstanden min står: framgang er ikke en fast belønning litteraturen deler ut. Det er et spørsmål hver epoke stiller på nytt. Og kanskje er den sanneste framgangen, fra Hamsun til i dag, rett og slett å beholde seg selv midt i motgangen. Takk.»"
+        },
+        {
+            "type": "header",
+            "text": "Hvorfor er dette en 6-er?",
+            "level": 2
+        },
+        {
+            "type": "paragraph",
+            "text": "Det er ikke tilfeldig at denne presentasjonen treffer toppkarakteren. Her er hva sensor ser etter, og hvordan eleven leverer på det."
+        },
+        {
+            "type": "component",
+            "name": "Comparison",
+            "props": {
+                "title": "Kjennetegn og hva eleven gjorde",
+                "leftTitle": "Hva sensor ser etter (karakter 6)",
+                "rightTitle": "Hva eleven gjorde",
+                "items": [
+                    {
+                        "label": "Argumenterer",
+                        "left": "Klar tese, ikke bare oppsummering.",
+                        "right": "Åpnet med en omstridt påstand om at framgang flytter seg gjennom litteraturhistorien."
+                    },
+                    {
+                        "label": "Form og innhold",
+                        "left": "Viser både hva teksten sier og hvordan.",
+                        "right": "Navnga virkemidler: kontrast, miljøskildring, ironi, indre monolog, og forklarte effekten."
+                    },
+                    {
+                        "label": "Historisk kontekst",
+                        "left": "Kobler tekster til epoke og samtid.",
+                        "right": "Plasserte tre tekster i tre epoker og koblet til en tekst fra 2024."
+                    },
+                    {
+                        "label": "Helhet",
+                        "left": "Rød tråd fra start til slutt.",
+                        "right": "Sirklet tilbake til påstanden i avslutningen."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "quiz",
+            "questions": [
+                {
+                    "question": "Hva er forskjellen på en vag åpning og en skarp påstand?",
+                    "options": [
+                        "Den skarpe påstanden er lengre",
+                        "Den skarpe påstanden tar et standpunkt eleven argumenterer for",
+                        "Den vage åpningen bruker flere fagord",
+                        "Det er ingen reell forskjell"
+                    ],
+                    "correctAnswer": 1
+                },
+                {
+                    "question": "Hvorfor valgte eleven tekster fra tre ulike epoker?",
+                    "options": [
+                        "Fordi gamle tekster er bedre",
+                        "For å fylle tiden",
+                        "For å vise evnen til å sammenligne tekster ut fra historisk kontekst",
+                        "Fordi læreren krevde tre tekster"
+                    ],
+                    "correctAnswer": 2
+                }
+            ]
+        },
+        {
+            "type": "header",
+            "text": "Fagsamtalen: Slik svarte eleven",
+            "level": 2
+        },
+        {
+            "type": "paragraph",
+            "text": "Etter presentasjonen kommer samtalen med faglærer. Det er her mange mister poeng, og her de beste skiller seg ut. Faglærer tester om du virkelig forstår, eller bare har pugget. Her er spørsmålene eleven fikk, og hvordan gode svar ser ut."
+        },
+        {
+            "type": "component",
+            "name": "WritingFix",
+            "props": {
+                "title": "Spørsmål: Du sa naturalismen tror arv og miljø avgjør alt. Ser du den tanken i en moderne tekst?",
+                "items": [
+                    {
+                        "bad": "Eh, ja, kanskje. Folk har det jo vanskelig i dag også.",
+                        "good": "Ja, og det overrasket meg. I Aldri godt nok fra 2024 skriver jenta at noen ganger handler det bare om arv og hvordan du er født. Det er nesten naturalismens tanke i moderne språk. Forskjellen er at hos Skram lå tvangen i samfunnet utenfor, mens her ligger den i selvbildet, altså inni personen. Motgangen har flyttet fra gata og inn i speilet.",
+                        "why": "Det gode svaret kobler 1885 til 2024 og viser en utvikling. Det bruker fagbegrepet naturalisme presist, og det reflekterer selvstendig. Det er akkurat det som løfter en samtale til toppnivå."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "component",
+            "name": "WritingFix",
+            "props": {
+                "title": "Spørsmål: Askeladden jukser jo. Fortjener han egentlig framgangen sin?",
+                "items": [
+                    {
+                        "bad": "Nei, han jukser, så egentlig fortjener han det ikke.",
+                        "good": "I vår moralske målestokk jukser han. Men i eventyrets logikk er list en dyd, ikke et fusk. Sjangeren belønner den smarte, ikke den ærlige. Det sier noe om hva folkediktningen verdsatte: kløkt som overlevelsesevne for vanlige folk mot de mektige, her symbolisert ved trollet.",
+                        "why": "Det gode svaret tenker som en litteraturviter, ikke bare som en moralsk dommer. Det forklarer sjangerens egne regler, og det tolker trollet som et symbol. Eleven svarer ikke bare ja eller nei, men nyanserer."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Flere spørsmål eleven var forberedt på",
+                "items": [
+                    {
+                        "label": "Sammenligning",
+                        "value": "Hvilken av tekstene sier mest om vår egen tid, og hvorfor?"
+                    },
+                    {
+                        "label": "Virkemiddel i dybden",
+                        "value": "Du nevnte ironi i Karens jul. Kan du forklare nøyaktig hvordan den virker?"
+                    },
+                    {
+                        "label": "Personlig refleksjon",
+                        "value": "Er du enig i at det å beholde seg selv er en form for framgang?"
+                    },
+                    {
+                        "label": "Sjanger",
+                        "value": "Kunne du vist det samme temaet i et dikt i stedet for en novelle?"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "component",
+            "name": "ScenarioRoleplay",
+            "props": {
+                "title": "Prøv selv: Faglærer graver dypere",
+                "intro": "Du har akkurat holdt presentasjonen. Faglærer sier: «Du nevnte ironi i Karens jul. Kan du forklare nøyaktig hvordan den virker?» Hva gjør du?",
+                "startId": "start",
+                "scenarios": [
+                    {
+                        "id": "start",
+                        "text": "Velg svaret som viser mest forståelse:",
+                        "options": [
+                            {
+                                "label": "«Ironi er når man sier det motsatte av det man mener.»",
+                                "nextId": "definisjon",
+                                "outcome": "failure"
+                            },
+                            {
+                                "label": "«Ironien ligger i kontrasten mellom julen, som handler om et nyfødt barn og lys, og det at Karens barn dør i kulde. Kollisjonen er selve anklagen mot samfunnet.»",
+                                "nextId": "effekt",
+                                "outcome": "success"
+                            },
+                            {
+                                "label": "«Det husker jeg ikke helt, kan vi ta neste spørsmål?»",
+                                "nextId": "hopp",
+                                "outcome": "failure"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "definisjon",
+                        "text": "Du ga en korrekt definisjon, men faglærer spurte ikke hva ironi er. Faglærer spurte hvordan den virker i nettopp denne teksten. Prøv å forklare effekten: hva gjør kontrasten med leseren?",
+                        "options": []
+                    },
+                    {
+                        "id": "effekt",
+                        "text": "Utmerket. Du forklarer ikke bare hva ironi er, men hvordan den virker i teksten, og du knytter den til Skrams samfunnskritikk. Faglærer nikker og følger opp med et nytt spørsmål, fordi du tydelig kan mer.",
+                        "options": []
+                    },
+                    {
+                        "id": "hopp",
+                        "text": "Det er bedre å prøve enn å gi opp. Selv et ufullstendig svar viser at du tenker. Du kunne sagt: «Ironien ligger i at dette skjer i julen, som skal være lys og varme, men her ender det i død.» Det er nok til å vise forståelse.",
+                        "options": []
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Baklomme-tekster eleven hadde klare",
+            "level": 2
+        },
+        {
+            "type": "paragraph",
+            "text": "Eleven forberedte noen ekstra tekster som ikke ble brukt i presentasjonen, men som var klare hvis faglærer ba om et eksempel til. Det er forskjellen mellom å famle og å svare trygt."
+        },
+        {
+            "type": "info_box",
+            "title": "Tekster i bakhånd",
+            "content": "- [Piken med svovelstikkene](/norsk/bibliotek/piken-med-svovelstikkene) - et fattig barn som fryser i hjel i en høytid, akkurat som i Karens jul.\n- [Aldri godt nok](/norsk/bibliotek/aldri-godt-nok) - viser at temaet lever i 2024, med motgang flyttet inn i selvbildet.\n- [Jeg ser](/norsk/bibliotek/jeg-ser) - Obstfelders dikt om fremmedfølelse, samme stemning som i Sult, men i diktform."
+        },
+        {
+            "type": "header",
+            "text": "Lag ditt eget modellsvar",
+            "level": 2
+        },
+        {
+            "type": "paragraph",
+            "text": "Nå har du sett oppskriften brukt. Her er stegene for å lage ditt eget svar på det temaet du får:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "1. Skriv én skarp påstand om temaet. Test den: kan noen være uenig? Hvis ja, er den god.",
+                "2. Velg to eller tre tekster fra biblioteket som belyser påstanden fra ulike vinkler.",
+                "3. Sørg for at minst en tekst kan kobles til en litteraturhistorisk epoke.",
+                "4. Finn ett presist sitat per tekst, og navngi ett virkemiddel du kan forklare effekten av.",
+                "5. Bygg manuset: påstand, tekstene, og en avslutning som sirkler tilbake til påstanden.",
+                "6. Forbered to baklomme-tekster og øv på sannsynlige spørsmål fra faglærer."
+            ]
+        },
+        {
+            "type": "info_box",
+            "title": "Verktøy som hjelper deg videre",
+            "content": "- [Muntlig eksamen: hele oppskriften](/norsk/eksamen/muntlig)\n- [Tekstbiblioteket](/norsk/bibliotek)\n- [Tren på virkemidler](/oving/virkemidler)\n- [Les om de litterære epokene](/norsk/litteraturhistorie/realismen)"
+        },
+        {
+            "type": "quiz",
+            "questions": [
+                {
+                    "question": "Hva kjennetegner et godt svar i fagsamtalen?",
+                    "options": [
+                        "Å gjenta det du sa i presentasjonen",
+                        "Å gi en ordbokdefinisjon av begrepet",
+                        "Å forklare effekten og koble til en annen tekst eller epoke",
+                        "Å snakke så lenge som mulig"
+                    ],
+                    "correctAnswer": 2
+                },
+                {
+                    "question": "Hvorfor forbereder en sterk elev baklomme-tekster?",
+                    "options": [
+                        "For å imponere med antall tekster",
+                        "For å kunne svare trygt når faglærer ber om et eksempel til",
+                        "Fordi det er obligatorisk",
+                        "For å fylle tiden i presentasjonen"
+                    ],
+                    "correctAnswer": 1
+                },
+                {
+                    "question": "Hva er den røde tråden i modell-elevens presentasjon?",
+                    "options": [
+                        "At alle tekster handler om jul",
+                        "At framgang betyr ulike ting i ulike epoker, fra eventyrets løfte til Hamsuns indre splittelse",
+                        "At motgang alltid fører til død",
+                        "At gamle tekster er vanskeligere enn nye"
+                    ],
+                    "correctAnswer": 1
+                }
+            ]
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva bør en presentasjon på muntlig eksamen åpne med?",
+            "options": [
+                "En innholdsfortegnelse over hva du skal si",
+                "En skarp påstand du argumenterer for",
+                "En oppsummering av alle tekstene",
+                "En unnskyldning for at du er nervøs"
+            ],
+            "answer": 1,
+            "explanation": "En skarp, omstridt påstand gir presentasjonen retning og viser at du argumenterer, ikke bare gjengir. Det er et tydelig kjennetegn på toppkarakter."
+        },
+        {
+            "question": "Hvorfor koblet modell-eleven tekstene til tre ulike epoker?",
+            "options": [
+                "For å fylle tiden",
+                "Fordi gamle tekster teller mer",
+                "For å vise evnen til å sammenligne tekster ut fra historisk kontekst, et LK20-mål",
+                "Fordi læreren ba om tre tekster"
+            ],
+            "answer": 2,
+            "explanation": "Et av kompetansemålene i LK20 er å sammenligne og tolke tekster ut fra historisk kontekst. Tre epoker viser nettopp denne evnen."
+        },
+        {
+            "question": "Hva er en baklomme-tekst?",
+            "options": [
+                "En tekst du leser opp ordrett",
+                "En ekstra tekst du har forberedt, men ikke bruker i presentasjonen",
+                "En tekst du finner på under eksamen",
+                "Den siste teksten i biblioteket"
+            ],
+            "answer": 1,
+            "explanation": "Baklomme-tekster er ekstra tekster du har klare til samtalen. Når faglærer ber om et eksempel til, svarer du trygt i stedet for å famle."
+        },
+        {
+            "question": "Hvordan svarer du best når faglærer ber deg gå dypere i et virkemiddel?",
+            "options": [
+                "Gjenta det du sa i presentasjonen",
+                "Gi en ordbokdefinisjon",
+                "Forklar effekten virkemiddelet har på leseren, og koble det til temaet",
+                "Si at du ikke husker"
+            ],
+            "answer": 2,
+            "explanation": "Faglærer vil se at du forstår hvordan virkemiddelet virker, ikke bare hva det heter. Forklar effekten og knytt den til tekstens budskap."
+        }
+    ],
+    "tags": [
+        "eksamen",
+        "muntlig",
+        "modellsvar",
+        "presentasjon",
+        "norsk",
+        "vurdering"
+    ],
+    "createdDate": "2026-06-02T00:00:00Z",
+    "lastUpdated": "2026-06-02T00:00:00Z"
+}

@@ -1,0 +1,287 @@
+{
+    "id": "km-12-maktaktørar",
+    "title": "Kven har makta?",
+    "layout": "rich",
+    "category": "Samfunnskunnskap",
+    "readTime": "9 min lesning",
+    "heroImage": "/images/placeholder.webp",
+    "description": "Kven bestemmer eigentleg i samfunnet? Utforsk dei viktigaste maktaktørane i Noreg og verda, og lær korleis dei grunngir standpunkta sine.",
+    "subject": "samfunnsfag",
+    "topic": "samfunnskunnskap",
+    "tags": [
+        "makt",
+        "politikk",
+        "lobbyisme",
+        "næringsliv",
+        "sivilt-samfunn"
+    ],
+    "createdDate": "2026-06-02T00:00:00Z",
+    "details": ["Kompetansemål SAF01-04", "Maktaktørar i samfunnet"],
+    "timeline": [],
+    "content": [
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Kompetansemål",
+                "content": "Reflektere over kva for aktørar som har makt i samfunnet i dag, og korleis desse grunngir standpunkta sine."
+            }
+        },
+        {
+            "type": "text",
+            "content": "Kven bestemmer eigentleg prisen på straumen din? Kven avgjer om ein skole skal leggast ned eller om ein motorveg skal byggjast? Kven formar det du ser i nyheitene? Svara er sjeldna enkle. Makta i eit moderne demokrati er ikkje samla på éin stad - ho er spreidd mellom mange ulike aktørar som kvar dag kjempar, forhandlar og samarbeider om å setje agendaen for korleis vi lever."
+        },
+        {
+            "type": "text",
+            "content": "I artikkelen [Makt og legitimitet](/samfunnskunnskap/styringsformer/makt-og-legitimitet) lærte du at makt treng legitimitet for å fungere over tid. No skal vi sjå nærmare på kven desse maktaktørane faktisk er, kva ressursar dei brukar - og ikkje minst korleis dei grunngir at nettopp dei bør få gjennomslag."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Stortinget sett utanfrå med menneskemengde framfor",
+            "caption": "Stortinget er det fremste symbolet på folkestyre, men mange andre aktørar påverkar politikken."
+        },
+        {
+            "type": "header",
+            "text": "Kva er ein maktaktør?"
+        },
+        {
+            "type": "text",
+            "content": "Ein maktaktør er ein person, organisasjon eller institusjon som kan påverke avgjerder som gjeld mange. Det finst fire hovudtypar av maktaktørar i eit demokratisk samfunn: politiske aktørar, næringslivsaktørar, medieaktørar og sivilsamfunnsaktørar. Dei har ulike ressursar og brukar ulike metodar, men dei har éin ting felles: dei vil at deira syn skal vinne fram."
+        },
+        {
+            "type": "text",
+            "content": "Det viktige spørsmålet er ikkje berre kven som har makt, men korleis dei grunngir henne. Ein politikar seier: 'Eg har fått mandat av veljarane.' Ein fagforeingsleiar seier: 'Eg talar på vegner av 100 000 arbeidarar.' Ein teknologimilliardær seier: 'Eg skaper arbeidsplassar og vekst.' Kvar grunngjeving er ein påstand om kvifor nettopp deira stemme bør vege tyngst. Å analysere desse påstandane kritisk er kjernen i kompetansemålet."
+        },
+        {
+            "type": "header",
+            "text": "Dei fire maktaktørane"
+        },
+        {
+            "type": "text",
+            "content": "Dei folkevalde politikarane sit med den formelle makta i eit demokrati. I Noreg er det Stortinget som vedtek lover og budsjett, medan regjeringa set dei ut i livet. Les meir om korleis dette fungerer i artikkelen om [Stortinget](/samfunnskunnskap/styringsformer/stortinget). Politikarane grunngir makta si med at dei er valde av folket og difor representerer folket - dette kallar vi demokratisk legitimitet."
+        },
+        {
+            "type": "text",
+            "content": "Men politikarane er langt frå åleine. Næringslivet - bedrifter, investorar og bransjeorganisasjonar - har enorm makt fordi dei kontrollerer pengar og arbeidsplassar. Når eit stort selskap truar med å flytte verksemda si til eit anna land, lyttar politikarane. Næringslivsaktørar grunngir maktbruken sin med omsynet til vekst, innovasjon og sysselsetjing. Dei seier gjerne: 'Det som er godt for næringslivet, er godt for alle.'"
+        },
+        {
+            "type": "text",
+            "content": "Media - aviser, TV, nettstadar og sosiale medium - har makt fordi dei avgjer kva vi ser og les. Kva saker som får merksemd, korleis dei blir framstilte, kven som får uttale seg: alt dette formar korleis vi forstår verda. Media grunngir makta si med rolla som 'den fjerde statsmakta' - ei vaktbikkje som held politikarar og næringslivet ansvarlege på vegner av folket. I artikkelen [Ekkokamre og informasjonsbobler](/samfunnskunnskap/mennesket-kultur-samfunn/ekkokamre) kan du lese meir om korleis algoritmar formar kva vi faktisk møter av informasjon."
+        },
+        {
+            "type": "text",
+            "content": "Sivilsamfunnet er alle dei frivillige organisasjonane, interessegruppene og rørsla som ikkje er styresmakter eller næringsliv: fagforeiningar, miljøorganisasjonar, religiøse samfunn, idrettslag, menneskerettighetsorganisasjonar. Dei grunngir maktbruken sin med at dei representerer spesifikke verdiar eller grupper som ikkje alltid høyrest i det formelle systemet. Ei rørsle som Natur og Ungdom seier: 'Vi talar på vegner av framtidige generasjonar som ikkje kan stemme.'  "
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Lobbyistar i korridor utanfor politisk møterom",
+            "caption": "Lobbyisme - å forsøke å påverke politikarar - er ei lovleg, men omdiskutert form for maktutøving."
+        },
+        {
+            "type": "header",
+            "text": "Sjå dei i aksjon: Maktaktørar i praksis"
+        },
+        {
+            "type": "text",
+            "content": "For å forstå korleis desse aktørane faktisk opererer, er det nyttig å sjå på eit konkret eksempel. Ta debatten om oljeboring i nye havområde. Oljeselskap og deira organisasjonar argumenterer for fleire lisenstildelingar - dei peikar på inntekter til fellesskapet og arbeidsplassar på kysten. Fagforeiningar i oljesektoren støttar dette. Miljøorganisasjonar og Natur og Ungdom demonstrerer og saksøker staten. Media dekkjer konflikten. Forskingsinstitutt leverer rapportar om klimakonsekvensar. Stortingsrepresentantar lovar veljarar i nord noko, og veljarar i sør noko anna. I dette biletet ser du alle fire aktørtypane på ein gong."
+        },
+        {
+            "type": "text",
+            "content": "Legg merke til at alle aktørane seier dei handlar for det felles beste - men dei er djupt ueinige om kva det felles beste faktisk er. Det er ikkje nødvendigvis fordi nokon lyg. Det er fordi dei har ulike verdiar, ulike interesser og ulike syn på risiko og framtid. Å reflektere over dette er nettopp det kompetansemålet ber deg gjere."
+        },
+        {
+            "type": "component",
+            "name": "AuthorityShifter",
+            "props": {
+                "contexts": [
+                    {
+                        "name": "Norsk oljepolitikk",
+                        "authorities": [
+                            {
+                                "role": "Stortinget",
+                                "type": "Politisk aktør",
+                                "argument": "Vi er valde av folket og har demokratisk mandat til å avgjere energipolitikken.",
+                                "resources": "Lovgjevingsmakt, skatteinnkrevjing, budsjettkontroll"
+                            },
+                            {
+                                "role": "Equinor og oljeselskapa",
+                                "type": "Næringslivsaktør",
+                                "argument": "Olja finansierer velferdsstaten. Utan inntektene frå Nordsjøen hadde ikkje Noreg råd til sjukehus og skular.",
+                                "resources": "Kapital, arbeidsplassar, teknisk ekspertise, lobbyistar"
+                            },
+                            {
+                                "role": "Natur og Ungdom",
+                                "type": "Sivilsamfunnsaktør",
+                                "argument": "Vi talar på vegner av framtidige generasjonar som ikkje kan stemme i dag. Klimakrisa overtrumfar kortsiktig profitt.",
+                                "resources": "Demonstrasjonar, juridiske søksmål, media-merksemd, symbolsk makt"
+                            },
+                            {
+                                "role": "NRK og store aviser",
+                                "type": "Medieaktør",
+                                "argument": "Vi held styresmakter og næringsliv ansvarlege ved å informere folket. Fri presse er demokratiets grunnmur.",
+                                "resources": "Dagsordenmakt, definisjonsmakt, publikumsoppslutning"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Skulerute og lokalpolitikk",
+                        "authorities": [
+                            {
+                                "role": "Kommunestyret",
+                                "type": "Politisk aktør",
+                                "argument": "Vi er valde av innbyggjarane i kommunen og har ansvar for å prioritere pengane best mogleg.",
+                                "resources": "Vedtaksmakt, kommunalt budsjett, administrasjonsapparat"
+                            },
+                            {
+                                "role": "Foreldregrupper og FAU",
+                                "type": "Sivilsamfunnsaktør",
+                                "argument": "Vi kjenner skulen best og talar på vegner av barna og familien. Skulenedlegging rammar heile bygda.",
+                                "resources": "Underskriftskampanjar, lokalt engasjement, stemmer ved val"
+                            },
+                            {
+                                "role": "Utdanningsforbundet",
+                                "type": "Sivilsamfunns-/fagforeningsaktør",
+                                "argument": "Læraren sin fagkunnskap viser at store klassar og samanslåing svekkjer læring. Vi har forsking på vår side.",
+                                "resources": "Fagleg autoritet, organisert arbeidskraft, streikevåpen"
+                            },
+                            {
+                                "role": "Lokal næringslivsforeining",
+                                "type": "Næringslivsaktør",
+                                "argument": "Utan skule flyttar familiar vekk. Det skadar næringslivet, eigedomsverdiane og heile bygda si framtid.",
+                                "resources": "Økonomiargument, lokalt nettverk, annonsemakt i lokalavisa"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Sosiale medium og regulering",
+                        "authorities": [
+                            {
+                                "role": "EU og Storting",
+                                "type": "Politisk aktør",
+                                "argument": "Vi må regulere teknologigigantane for å verne demokratiet, privatliv og mental helse - særleg for unge.",
+                                "resources": "Lovgjevingsmakt, bøter, lisensinndraging"
+                            },
+                            {
+                                "role": "Meta og Google",
+                                "type": "Næringslivsaktør",
+                                "argument": "Vi skapar verdiar, koplar milliardar av menneske og mogleggjer fri informasjonsflyt. Overregulering skadar innovasjon.",
+                                "resources": "Kapital, teknologisk infrastruktur, brukardata, politisk lobbyisme"
+                            },
+                            {
+                                "role": "Forbrukarrådet og Redd Barna",
+                                "type": "Sivilsamfunnsaktør",
+                                "argument": "Algoritmar er designa for å skape avhengnad. Barn og unge er særleg sårbare og treng vern.",
+                                "resources": "Forsking, mediemerksemd, politisk påverknad, klagemoglegheiter"
+                            },
+                            {
+                                "role": "Nettaviser og podcastar",
+                                "type": "Medieaktør",
+                                "argument": "Sosiale medium er ein viktig distribusjonskanel for oss. Regulering kan kome i konflikt med ytringsfridomen.",
+                                "resources": "Dagsordenmakt, definisjonsmakt, eigen interesse i sosiale medium"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Grunngjevingar - og kvifor dei er ulike"
+        },
+        {
+            "type": "text",
+            "content": "Grunngjevingane maktaktørar brukar kan delast i tre hovudtypar. Den første er interessegrunngjeving: 'Dette gagnar meg og mine.' Det er ærleg, men ikkje alltid overtydande åleine. Den andre er prinsipiel grunngjeving: 'Dette er rett etter prinsippet om likheit, fridoom eller rettferd.' Den tredje er konsekvens-grunngjeving: 'Dette vil gje best resultat for flest mogleg.' I debatten om skattlegging av dei rikaste vil du typisk sjå alle tre: dei rike brukar konsekvensargument ('høgare skatt fører til kapitalflukt'), venstresida brukar prinsippargument ('ulikheit er urettferdig'), og fagforeiningar brukar interesseargument ('lønsmottakarar treng sterkare velferd')."
+        },
+        {
+            "type": "text",
+            "content": "Det er verdt å merke seg at dei same aktørane kan skifte grunngjeving alt etter kva som passar best i situasjonen. Eit oljeselskap kan i éin debatt vektlegge klimaansvar ('vi investerer i fornybar energi'), og i ein annan debatt vektlegge arbeidsplassar ('nedstengning vil øydeleggje kystsamfunn'). Dette er ikkje nødvendigvis hykleri - det kan reflektere genuint komplekse prioriteringar. Men det viser at vi alltid bør spørje: kva interesser tener denne grunngjevinga?"
+        },
+        {
+            "type": "text",
+            "content": "Artikkelen om [Elitenes herredømme](/samfunnskunnskap/styringsformer/elitenes-herredomme) syner korleis makt ofte konsentrerer seg hjå dei same gruppene over tid - sjølv i formelle demokrati. Det hjelper å forstå dette mønsteret når vi analyserer kven som faktisk kjem til orde i politiske debattar, og kven sine interesser som ofte vinn fram."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Demonstrantar med bannerar framfor regjeringsbygning",
+            "caption": "Sivilsamfunnet brukar demonstrasjonar for å synleggjere makt nedanfrå, utan formell posisjon."
+        },
+        {
+            "type": "header",
+            "text": "Kjendismakt og ny uformell makt"
+        },
+        {
+            "type": "text",
+            "content": "I dag finst det ei femte aktørgruppe som mange gløymer: kjendisane og dei store influensarane. Ein fotballspelar med 50 millionar følgjarar på sosiale medium kan flytte meining om klimapolitikk, kosthald eller demokrati like effektivt som ein stortingsrepresentant. Dei grunngir denne makta med at dei 'berre deler meiningane sine' - men det er jo også akkurat det dei andre aktørane gjer. Forskjellen er at dei ikkje er valde, ikkje er ansvarlege overfor noka forsamling og ikkje nødvendigvis har fagkunnskap om emna dei uttaler seg om. I artikkelen [Kjendismakt og influensere](/samfunnskunnskap/mennesket-kultur-samfunn/kjendismakt) kan du lese meir om denne relativt nye maktforma."
+        },
+        {
+            "type": "text",
+            "content": "Å reflektere over maktaktørar betyr ikkje at ein skal vere kynisk og mistru alt. Det betyr at ein ser etter samanhengen mellom interesser og argument. Det betyr at ein spør: kven tener på dette? Kven får ikkje kome til orde? Og kven er det som definerer kva problemet eigentleg er? Desse spørsmåla er demokratiets verktøy."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Ein aktør som brukar trugsmål om å flytte arbeidsplassar til eit anna land for å påverke politikarar, er eit eksempel på kva slags maktaktør?",
+                        "options": [
+                            "Politisk aktør",
+                            "Næringslivsaktør",
+                            "Medieaktør",
+                            "Sivilsamfunnsaktør"
+                        ],
+                        "correctAnswer": 1,
+                        "explanation": "Bedrifter og næringslivsorganisasjonar er næringslivsaktørar. Dei brukar ressursar som kapital og arbeidsplassar for å påverke politikken, og trugsmål om utflytting er eit klassisk næringslivsargument."
+                    },
+                    {
+                        "question": "Kva kallar vi makta media har til å velje kva saker som får merksemd, og korleis dei blir framstilte?",
+                        "options": [
+                            "Demokratisk legitimitet",
+                            "Dagsordenmakt",
+                            "Lobbyisme",
+                            "Tradisjonell autoritet"
+                        ],
+                        "correctAnswer": 1,
+                        "explanation": "Dagsordenmakt er media sin evne til å bestemme kva saker folk tenkjer på og korleis dei ser dei. Det er ein av dei viktigaste formene for makt i eit moderne demokrati."
+                    },
+                    {
+                        "question": "Ein miljøorganisasjon seier: 'Vi talar på vegner av framtidige generasjonar som ikkje kan stemme.' Kva slags grunngjeving brukar dei?",
+                        "options": [
+                            "Interessegrunngjeving - dei talar for eigen vinst",
+                            "Prinsipiel grunngjeving - dei peiker på eit rettferdigheitsideal",
+                            "Konsekvens-grunngjeving - dei peiker på konkrete resultat",
+                            "Tradisjonell grunngjeving - dei baserer seg på historisk praksis"
+                        ],
+                        "correctAnswer": 1,
+                        "explanation": "Å tale på vegner av dei som ikkje kan tale sjølve (framtidige generasjonar) er ein prinsipiel grunngjeving basert på rettferds- og representasjonsideal - ikkje på eiga interesse eller praktiske konsekvensar."
+                    },
+                    {
+                        "question": "Kva er lobbyisme?",
+                        "options": [
+                            "Ulovleg bestikking av politikarar",
+                            "Ei form for valsvindel",
+                            "Lovleg påverknadsarbeid overfor politikarar utanfor parlamentet",
+                            "Medias dekning av politiske saker"
+                        ],
+                        "correctAnswer": 2,
+                        "explanation": "Lobbyisme er lovleg, men omdiskutert påverknad av politikarar og embetsfolk. Det krev store ressursar og gjev dermed dei som har mest pengar eit fortrinn i den politiske prosessen."
+                    },
+                    {
+                        "question": "Kvifor er det viktig å spørje 'kven tener på dette argumentet?' når ein maktaktør grunngir standpunktet sitt?",
+                        "options": [
+                            "Fordi alle maktaktørar alltid lyg",
+                            "Fordi argument alltid er knytte til interesser, og det hjelper oss å vurdere dei meir kritisk",
+                            "Fordi berre ekspertar bør delta i politiske debattar",
+                            "Fordi grunngjevingar er uviktige - berre resultata tel"
+                        ],
+                        "correctAnswer": 1,
+                        "explanation": "Å analysere kven som tener på eit argument er eit grunnleggjande kritisk verktøy - ikkje fordi ein skal mistru alt, men fordi det hjelper oss å forstå kva interesser som ligg bak, og dermed vurdere argumentet meir nyansert."
+                    }
+                ]
+            }
+        }
+    ]
+}

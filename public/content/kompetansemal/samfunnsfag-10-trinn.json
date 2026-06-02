@@ -18,17 +18,50 @@
             "tekst": "bruke samfunnsfaglege metodar og digitale ressursar i eigne undersøkingar, presentere funn ved bruk av digitale verktøy og drøfte kor gyldige og relevante funna er",
             "innhold": {
                 "artikler": [
-                    { "tittel": "Hypotesen: Norden vs. Frankrike", "link": "/historie/vikingtiden/hypotesen-norden-vs-frankrike", "begrunnelse": "Eleven jobber med en konkret historisk hypotese og vurderer kilder for og imot." }
+                    {
+                        "tittel": "Slik undersøker vi samfunnet",
+                        "link": "/samfunnskunnskap/eksamen/km-1-metode",
+                        "begrunnelse": "Dedikert KM-artikkel: øver direkte på samfunnsfaglig metode og kildekritikk."
+                    },
+                    {
+                        "tittel": "Hypotesen: Norden vs. Frankrike",
+                        "link": "/historie/vikingtiden/hypotesen-norden-vs-frankrike",
+                        "begrunnelse": "Eleven jobber med en konkret historisk hypotese og vurderer kilder for og imot."
+                    }
                 ],
                 "stier": [
-                    { "tittel": "Læringssti: Vikingtiden", "link": "/historie/vikingtiden/vikingtiden-sti", "begrunnelse": "Stien har metodeoppgaver, kildevurdering og refleksjon i 22 steg." }
+                    {
+                        "tittel": "Læringssti: Vikingtiden",
+                        "link": "/historie/vikingtiden/vikingtiden-sti",
+                        "begrunnelse": "Stien har metodeoppgaver, kildevurdering og refleksjon i 22 steg."
+                    }
                 ],
                 "detektiv": [
-                    { "tittel": "Mysteriet på Grønland", "link": "/oving/detektiv/greenland", "begrunnelse": "Eleven undersøker kilder, lager hypoteser og presenterer en konklusjon." },
-                    { "tittel": "Slaget ved Stiklestad", "link": "/oving/detektiv/stiklestad", "begrunnelse": "Vurdering av flere historiske kilder mot hverandre." },
-                    { "tittel": "Vardø-mysteriet", "link": "/oving/detektiv/vardo", "begrunnelse": "Bruker rettsdokumenter og samtidskilder som materiale." },
-                    { "tittel": "Lindisfarne 793", "link": "/oving/detektiv/lindisfarne", "begrunnelse": "Krønikeanalyse og kildekritikk." },
-                    { "tittel": "Karl XIIs død", "link": "/oving/detektiv/karl-xii", "begrunnelse": "Eleven kombinerer ballistiske, medisinske og historiske kilder." }
+                    {
+                        "tittel": "Mysteriet på Grønland",
+                        "link": "/oving/detektiv/greenland",
+                        "begrunnelse": "Eleven undersøker kilder, lager hypoteser og presenterer en konklusjon."
+                    },
+                    {
+                        "tittel": "Slaget ved Stiklestad",
+                        "link": "/oving/detektiv/stiklestad",
+                        "begrunnelse": "Vurdering av flere historiske kilder mot hverandre."
+                    },
+                    {
+                        "tittel": "Vardø-mysteriet",
+                        "link": "/oving/detektiv/vardo",
+                        "begrunnelse": "Bruker rettsdokumenter og samtidskilder som materiale."
+                    },
+                    {
+                        "tittel": "Lindisfarne 793",
+                        "link": "/oving/detektiv/lindisfarne",
+                        "begrunnelse": "Krønikeanalyse og kildekritikk."
+                    },
+                    {
+                        "tittel": "Karl XIIs død",
+                        "link": "/oving/detektiv/karl-xii",
+                        "begrunnelse": "Eleven kombinerer ballistiske, medisinske og historiske kilder."
+                    }
                 ]
             }
         },
@@ -39,19 +72,60 @@
             "tekst": "vurdere på kva måtar ulike kjelder gir informasjon om eit samfunnsfagleg tema, og reflektere over korleis algoritmar, einsretta kjelder eller mangel på kjelder kan prege forståinga vår",
             "innhold": {
                 "artikler": [
-                    { "tittel": "Kultur og Propaganda (Den kalde krigen)", "link": "/historie/den-kalde-krigen/kultur", "begrunnelse": "Direkte arbeid med ensrettede kilder og propaganda." },
-                    { "tittel": "Hypotesen: Norden vs. Frankrike", "link": "/historie/vikingtiden/hypotesen-norden-vs-frankrike", "begrunnelse": "Diskuterer hvordan mangel på kilder gir rom for konkurrerende fortolkninger." },
-                    { "tittel": "Skipet som ble brent (Myklebust-funnet)", "link": "/historie/vikingtiden/myklebust-funnet", "begrunnelse": "Arkeologi og kildevurdering." },
-                    { "tittel": "Ekkokamre", "link": "/samfunnskunnskap/mennesket-kultur-samfunn/ekkokamre", "begrunnelse": "Hvordan algoritmer skaper ensrettede informasjonsbobler." },
-                    { "tittel": "Sannhetens historie", "link": "/samfunnskunnskap/ideer-og-verdenssyn/sannhetens-historie", "begrunnelse": "Reflekterer over hva sannhet er og hvordan den formes." }
+                    {
+                        "tittel": "Kjelder, algoritmar og blindsoner",
+                        "link": "/samfunnskunnskap/mennesket-kultur-samfunn/km-2-kjelder-algoritmar",
+                        "begrunnelse": "Dedikert KM-artikkel: utforsker algoritmer, filterboblar og kildekvalitet."
+                    },
+                    {
+                        "tittel": "Kultur og Propaganda (Den kalde krigen)",
+                        "link": "/historie/den-kalde-krigen/kultur",
+                        "begrunnelse": "Direkte arbeid med ensrettede kilder og propaganda."
+                    },
+                    {
+                        "tittel": "Hypotesen: Norden vs. Frankrike",
+                        "link": "/historie/vikingtiden/hypotesen-norden-vs-frankrike",
+                        "begrunnelse": "Diskuterer hvordan mangel på kilder gir rom for konkurrerende fortolkninger."
+                    },
+                    {
+                        "tittel": "Skipet som ble brent (Myklebust-funnet)",
+                        "link": "/historie/vikingtiden/myklebust-funnet",
+                        "begrunnelse": "Arkeologi og kildevurdering."
+                    },
+                    {
+                        "tittel": "Ekkokamre",
+                        "link": "/samfunnskunnskap/mennesket-kultur-samfunn/ekkokamre",
+                        "begrunnelse": "Hvordan algoritmer skaper ensrettede informasjonsbobler."
+                    },
+                    {
+                        "tittel": "Sannhetens historie",
+                        "link": "/samfunnskunnskap/ideer-og-verdenssyn/sannhetens-historie",
+                        "begrunnelse": "Reflekterer over hva sannhet er og hvordan den formes."
+                    }
                 ],
                 "stier": [
-                    { "tittel": "Læringssti: Kildeføring (APA 7)", "link": "/norsk/skrivehjelp/kildeforing-sti", "begrunnelse": "Lære korrekt kildebruk og referansehåndtering." }
+                    {
+                        "tittel": "Læringssti: Kildeføring (APA 7)",
+                        "link": "/norsk/skrivehjelp/kildeforing-sti",
+                        "begrunnelse": "Lære korrekt kildebruk og referansehåndtering."
+                    }
                 ],
                 "detektiv": [
-                    { "tittel": "Sabotasjen på Vemork", "link": "/oving/detektiv/tungtvann", "begrunnelse": "Vurder samtidskilder mot etterkrigstidens beretninger." },
-                    { "tittel": "Isdalskvinnen", "link": "/oving/detektiv/isdalskvinnen", "begrunnelse": "Mangel på kilder, motstridende informasjon, hemmelighold." },
-                    { "tittel": "Berlinmurens fall", "link": "/oving/detektiv/berlinmuren", "begrunnelse": "Ulike perspektiver fra øst og vest." }
+                    {
+                        "tittel": "Sabotasjen på Vemork",
+                        "link": "/oving/detektiv/tungtvann",
+                        "begrunnelse": "Vurder samtidskilder mot etterkrigstidens beretninger."
+                    },
+                    {
+                        "tittel": "Isdalskvinnen",
+                        "link": "/oving/detektiv/isdalskvinnen",
+                        "begrunnelse": "Mangel på kilder, motstridende informasjon, hemmelighold."
+                    },
+                    {
+                        "tittel": "Berlinmurens fall",
+                        "link": "/oving/detektiv/berlinmuren",
+                        "begrunnelse": "Ulike perspektiver fra øst og vest."
+                    }
                 ]
             }
         },
@@ -62,24 +136,75 @@
             "tekst": "drøfte korleis framstillingar av fortida, hendingar og grupper har påverka og påverkar haldningane og handlingane til folk",
             "innhold": {
                 "artikler": [
-                    { "tittel": "Åsatru: En verden av lureri og skjebne", "link": "/historie/vikingtiden/asatro", "begrunnelse": "Drøfter hvordan vikingenes verdensbilde har blitt fortolket og misforstått." },
-                    { "tittel": "Rikssamlingen", "link": "/historie/vikingtiden/rikssamlingen", "begrunnelse": "Hvordan myten om Harald Hårfagre har formet norsk identitet." },
-                    { "tittel": "Hypotesen: Norden vs. Frankrike", "link": "/historie/vikingtiden/hypotesen-norden-vs-frankrike", "begrunnelse": "Konkurrerende framstillinger av vikingtidens opphav." },
-                    { "tittel": "Jim Crow: «Separate but equal»", "link": "/historie/dekolonisering/jim-crow-lovene", "begrunnelse": "Hvordan rasistiske framstillinger ble institusjonalisert." },
-                    { "tittel": "Alv Erlingsson: Piratjarlen", "link": "/historie/norgeshistorie/alv-erlingsson", "begrunnelse": "Hvordan tapere i historien framstilles vs. seierherrene." },
-                    { "tittel": "Det unormale", "link": "/samfunnskunnskap/ideer-og-verdenssyn/det-unormale", "begrunnelse": "Hvordan samfunn har definert grupper som avvikende." }
+                    {
+                        "tittel": "Kven skriv historia?",
+                        "link": "/samfunnskunnskap/ideer-og-verdenssyn/km-3-historieframstilling",
+                        "begrunnelse": "Dedikert KM-artikkel: drøfter hvem som forteller historien og konsekvensene."
+                    },
+                    {
+                        "tittel": "Åsatru: En verden av lureri og skjebne",
+                        "link": "/historie/vikingtiden/asatro",
+                        "begrunnelse": "Drøfter hvordan vikingenes verdensbilde har blitt fortolket og misforstått."
+                    },
+                    {
+                        "tittel": "Rikssamlingen",
+                        "link": "/historie/vikingtiden/rikssamlingen",
+                        "begrunnelse": "Hvordan myten om Harald Hårfagre har formet norsk identitet."
+                    },
+                    {
+                        "tittel": "Hypotesen: Norden vs. Frankrike",
+                        "link": "/historie/vikingtiden/hypotesen-norden-vs-frankrike",
+                        "begrunnelse": "Konkurrerende framstillinger av vikingtidens opphav."
+                    },
+                    {
+                        "tittel": "Jim Crow: «Separate but equal»",
+                        "link": "/historie/dekolonisering/jim-crow-lovene",
+                        "begrunnelse": "Hvordan rasistiske framstillinger ble institusjonalisert."
+                    },
+                    {
+                        "tittel": "Alv Erlingsson: Piratjarlen",
+                        "link": "/historie/norgeshistorie/alv-erlingsson",
+                        "begrunnelse": "Hvordan tapere i historien framstilles vs. seierherrene."
+                    },
+                    {
+                        "tittel": "Det unormale",
+                        "link": "/samfunnskunnskap/ideer-og-verdenssyn/det-unormale",
+                        "begrunnelse": "Hvordan samfunn har definert grupper som avvikende."
+                    }
                 ],
                 "stier": [
-                    { "tittel": "Læringssti: Vikingtiden", "link": "/historie/vikingtiden/vikingtiden-sti" },
-                    { "tittel": "Læringssti: Den Kalde Krigen", "link": "/historie/den-kalde-krigen/kald-krig-sti" }
+                    {
+                        "tittel": "Læringssti: Vikingtiden",
+                        "link": "/historie/vikingtiden/vikingtiden-sti"
+                    },
+                    {
+                        "tittel": "Læringssti: Den Kalde Krigen",
+                        "link": "/historie/den-kalde-krigen/kald-krig-sti"
+                    }
                 ],
                 "tidsreise": [
-                    { "tittel": "Romersk Legionær", "link": "/oving/tidsreise/roman-soldier", "begrunnelse": "Lev fortiden fra et perspektiv som ofte glemmes." },
-                    { "tittel": "Tsarens Skjebne", "link": "/oving/tidsreise/nikolaj-ii", "begrunnelse": "Utfordrer den enkle 'helt/skurk'-fortellingen om revolusjonen." }
+                    {
+                        "tittel": "Romersk Legionær",
+                        "link": "/oving/tidsreise/roman-soldier",
+                        "begrunnelse": "Lev fortiden fra et perspektiv som ofte glemmes."
+                    },
+                    {
+                        "tittel": "Tsarens Skjebne",
+                        "link": "/oving/tidsreise/nikolaj-ii",
+                        "begrunnelse": "Utfordrer den enkle 'helt/skurk'-fortellingen om revolusjonen."
+                    }
                 ],
                 "detektiv": [
-                    { "tittel": "Slaget ved Stiklestad", "link": "/oving/detektiv/stiklestad", "begrunnelse": "Olav den hellige som myte vs. historisk skikkelse." },
-                    { "tittel": "Vardø-mysteriet", "link": "/oving/detektiv/vardo", "begrunnelse": "Hvordan hekseprosessene formet kvinnesyn i hundrevis av år." }
+                    {
+                        "tittel": "Slaget ved Stiklestad",
+                        "link": "/oving/detektiv/stiklestad",
+                        "begrunnelse": "Olav den hellige som myte vs. historisk skikkelse."
+                    },
+                    {
+                        "tittel": "Vardø-mysteriet",
+                        "link": "/oving/detektiv/vardo",
+                        "begrunnelse": "Hvordan hekseprosessene formet kvinnesyn i hundrevis av år."
+                    }
                 ]
             }
         },
@@ -90,24 +215,85 @@
             "tekst": "utforske korleis teknologi har vore og framleis er ein endringsfaktor, og drøfte innverknaden teknologien har hatt og har på enkeltmenneske, samfunn og natur",
             "innhold": {
                 "artikler": [
-                    { "tittel": "Jordbruksrevolusjonen", "link": "/historie/jordbruk-og-sivilisasjoner/jordbruk-og-sivilisasjoner", "begrunnelse": "Den første store teknologirevolusjonen som skapte sivilisasjoner." },
-                    { "tittel": "Skipet: Vikingtidens teknologi", "link": "/historie/vikingtiden/skipsteknologi", "begrunnelse": "Hvordan langskipet endret Europas politiske kart." },
-                    { "tittel": "Boktrykkerkunsten", "link": "/historie/middelalderen/boktrykkerkunsten", "begrunnelse": "Informasjonsrevolusjonen som muliggjorde reformasjonen." },
-                    { "tittel": "Teknologi (1. verdenskrig)", "link": "/historie/forste-verdenskrig/teknologi", "begrunnelse": "Maskingevær, gass og fly endret krigføringen." },
-                    { "tittel": "Teknologi (2. verdenskrig)", "link": "/historie/andre-verdenskrig/teknologi", "begrunnelse": "Radar, kodemaskiner og atomvåpen." },
-                    { "tittel": "Atomvåpenkappløpet", "link": "/historie/den-kalde-krigen/atomvapenkapplopet", "begrunnelse": "Teknologien som kunne utslette menneskeheten." },
-                    { "tittel": "Romkappløpet", "link": "/historie/den-kalde-krigen/romkapplopet", "begrunnelse": "Teknologisk konkurranse mellom supermaktene." },
-                    { "tittel": "Robotene kommer", "link": "/samfunnskunnskap/mennesket-kultur-samfunn/robotene-kommer", "begrunnelse": "Hvordan automatisering og KI endrer samfunnet i dag." },
-                    { "tittel": "Fremtidens arbeidsliv", "link": "/samfunnskunnskap/arbeidsliv/fremtidens-arbeidsliv", "begrunnelse": "Teknologiens påvirkning på arbeid og yrker." },
-                    { "tittel": "Internett-kabler", "link": "/samfunnskunnskap/handel-og-infrastruktur/internett-kabler", "begrunnelse": "Den fysiske infrastrukturen bak digitale samfunn." }
+                    {
+                        "tittel": "Teknologien som endrar alt",
+                        "link": "/samfunnskunnskap/mennesket-kultur-samfunn/km-4-teknologi-endring",
+                        "begrunnelse": "Dedikert KM-artikkel: utforsker teknologi som endringsdriver fra plog til AI."
+                    },
+                    {
+                        "tittel": "Jordbruksrevolusjonen",
+                        "link": "/historie/jordbruk-og-sivilisasjoner/jordbruk-og-sivilisasjoner",
+                        "begrunnelse": "Den første store teknologirevolusjonen som skapte sivilisasjoner."
+                    },
+                    {
+                        "tittel": "Skipet: Vikingtidens teknologi",
+                        "link": "/historie/vikingtiden/skipsteknologi",
+                        "begrunnelse": "Hvordan langskipet endret Europas politiske kart."
+                    },
+                    {
+                        "tittel": "Boktrykkerkunsten",
+                        "link": "/historie/middelalderen/boktrykkerkunsten",
+                        "begrunnelse": "Informasjonsrevolusjonen som muliggjorde reformasjonen."
+                    },
+                    {
+                        "tittel": "Teknologi (1. verdenskrig)",
+                        "link": "/historie/forste-verdenskrig/teknologi",
+                        "begrunnelse": "Maskingevær, gass og fly endret krigføringen."
+                    },
+                    {
+                        "tittel": "Teknologi (2. verdenskrig)",
+                        "link": "/historie/andre-verdenskrig/teknologi",
+                        "begrunnelse": "Radar, kodemaskiner og atomvåpen."
+                    },
+                    {
+                        "tittel": "Atomvåpenkappløpet",
+                        "link": "/historie/den-kalde-krigen/atomvapenkapplopet",
+                        "begrunnelse": "Teknologien som kunne utslette menneskeheten."
+                    },
+                    {
+                        "tittel": "Romkappløpet",
+                        "link": "/historie/den-kalde-krigen/romkapplopet",
+                        "begrunnelse": "Teknologisk konkurranse mellom supermaktene."
+                    },
+                    {
+                        "tittel": "Robotene kommer",
+                        "link": "/samfunnskunnskap/mennesket-kultur-samfunn/robotene-kommer",
+                        "begrunnelse": "Hvordan automatisering og KI endrer samfunnet i dag."
+                    },
+                    {
+                        "tittel": "Fremtidens arbeidsliv",
+                        "link": "/samfunnskunnskap/arbeidsliv/fremtidens-arbeidsliv",
+                        "begrunnelse": "Teknologiens påvirkning på arbeid og yrker."
+                    },
+                    {
+                        "tittel": "Internett-kabler",
+                        "link": "/samfunnskunnskap/handel-og-infrastruktur/internett-kabler",
+                        "begrunnelse": "Den fysiske infrastrukturen bak digitale samfunn."
+                    }
                 ],
                 "stier": [
-                    { "tittel": "Læringssti: Verdens årer", "link": "/samfunnskunnskap/handel-og-infrastruktur/handel-og-infrastruktur-sti", "begrunnelse": "Infrastruktur, handel og teknologi som binder verden sammen." }
+                    {
+                        "tittel": "Læringssti: Verdens årer",
+                        "link": "/samfunnskunnskap/handel-og-infrastruktur/handel-og-infrastruktur-sti",
+                        "begrunnelse": "Infrastruktur, handel og teknologi som binder verden sammen."
+                    }
                 ],
                 "spill": [
-                    { "tittel": "Watt Lab", "link": "/oving/spill/watt-lab", "begrunnelse": "James Watt og dampmaskinens fødsel." },
-                    { "tittel": "Ford Factory", "link": "/oving/spill/ford-factory", "begrunnelse": "Samlebåndet som endret arbeidslivet." },
-                    { "tittel": "Oljeplattform", "link": "/oving/spill/oljeplattform", "begrunnelse": "Norges teknologiske oljealder." }
+                    {
+                        "tittel": "Watt Lab",
+                        "link": "/oving/spill/watt-lab",
+                        "begrunnelse": "James Watt og dampmaskinens fødsel."
+                    },
+                    {
+                        "tittel": "Ford Factory",
+                        "link": "/oving/spill/ford-factory",
+                        "begrunnelse": "Samlebåndet som endret arbeidslivet."
+                    },
+                    {
+                        "tittel": "Oljeplattform",
+                        "link": "/oving/spill/oljeplattform",
+                        "begrunnelse": "Norges teknologiske oljealder."
+                    }
                 ]
             }
         },
@@ -118,17 +304,56 @@
             "tekst": "reflektere over korleis menneske har kjempa og kjempar for endringar i samfunnet og samstundes har vore og er påverka av geografiske forhold og historisk kontekst",
             "innhold": {
                 "artikler": [
-                    { "tittel": "USA: Den første dominobrikken", "link": "/historie/dekolonisering/usa-frigjoring", "begrunnelse": "Den amerikanske revolusjonen som modell for andre frigjøringskamper." },
-                    { "tittel": "Haiti: Den glemte revolusjonen", "link": "/historie/dekolonisering/haiti", "begrunnelse": "Slaveopprøret som ble den første frie svarte republikken." },
-                    { "tittel": "India: Sjelenes frigjøring", "link": "/historie/dekolonisering/india", "begrunnelse": "Gandhis ikkevoldelige kamp." },
-                    { "tittel": "Ghana & Pan-Afrikanismen", "link": "/historie/dekolonisering/ghana-panafrikanisme" },
-                    { "tittel": "Apartheid: Et samfunn delt i lov", "link": "/historie/dekolonisering/apartheid-syd-afrika" },
-                    { "tittel": "Klassekamp i Norge", "link": "/historie/mellomkrigstiden/norge", "begrunnelse": "Arbeiderbevegelsens framvekst." },
-                    { "tittel": "Hamskiftet", "link": "/historie/norgeshistorie/hamskiftet", "begrunnelse": "Norges store samfunnsendring på 1800-tallet." },
-                    { "tittel": "Fagforeninger", "link": "/samfunnskunnskap/arbeidsliv/fagforeninger", "begrunnelse": "Arbeidernes kollektive kamp for bedre vilkår." }
+                    {
+                        "tittel": "Å kjempe for endring",
+                        "link": "/samfunnskunnskap/styringsformer/km-5-kamp-for-endring",
+                        "begrunnelse": "Dedikert KM-artikkel: analyserer historiske og nåtidige samfunnsendringer."
+                    },
+                    {
+                        "tittel": "USA: Den første dominobrikken",
+                        "link": "/historie/dekolonisering/usa-frigjoring",
+                        "begrunnelse": "Den amerikanske revolusjonen som modell for andre frigjøringskamper."
+                    },
+                    {
+                        "tittel": "Haiti: Den glemte revolusjonen",
+                        "link": "/historie/dekolonisering/haiti",
+                        "begrunnelse": "Slaveopprøret som ble den første frie svarte republikken."
+                    },
+                    {
+                        "tittel": "India: Sjelenes frigjøring",
+                        "link": "/historie/dekolonisering/india",
+                        "begrunnelse": "Gandhis ikkevoldelige kamp."
+                    },
+                    {
+                        "tittel": "Ghana & Pan-Afrikanismen",
+                        "link": "/historie/dekolonisering/ghana-panafrikanisme"
+                    },
+                    {
+                        "tittel": "Apartheid: Et samfunn delt i lov",
+                        "link": "/historie/dekolonisering/apartheid-syd-afrika"
+                    },
+                    {
+                        "tittel": "Klassekamp i Norge",
+                        "link": "/historie/mellomkrigstiden/norge",
+                        "begrunnelse": "Arbeiderbevegelsens framvekst."
+                    },
+                    {
+                        "tittel": "Hamskiftet",
+                        "link": "/historie/norgeshistorie/hamskiftet",
+                        "begrunnelse": "Norges store samfunnsendring på 1800-tallet."
+                    },
+                    {
+                        "tittel": "Fagforeninger",
+                        "link": "/samfunnskunnskap/arbeidsliv/fagforeninger",
+                        "begrunnelse": "Arbeidernes kollektive kamp for bedre vilkår."
+                    }
                 ],
                 "stier": [
-                    { "tittel": "Læringssti: Frihetens Maraton", "link": "/historie/dekolonisering/dekolonisering-sti", "begrunnelse": "Følger frihetskampen gjennom 200 år og 3 kontinenter." }
+                    {
+                        "tittel": "Læringssti: Frihetens Maraton",
+                        "link": "/historie/dekolonisering/dekolonisering-sti",
+                        "begrunnelse": "Følger frihetskampen gjennom 200 år og 3 kontinenter."
+                    }
                 ]
             }
         },
@@ -139,24 +364,92 @@
             "tekst": "samanlikne korleis politiske, geografiske og historiske forhold påverkar levekår, busetjingsmønster og demografi i forskjellige delar av verda i dag",
             "innhold": {
                 "artikler": [
-                    { "tittel": "Den demografiske overgangen", "link": "/samfunnskunnskap/demografi/den-demografiske-overgangen", "begrunnelse": "Sammenligner befolkningsutvikling i ulike deler av verden." },
-                    { "tittel": "Befolkningspyramider", "link": "/samfunnskunnskap/demografi/befolkningspyramider", "begrunnelse": "Visuell sammenligning av aldersstruktur." },
-                    { "tittel": "Finland: levekår", "link": "/samfunnskunnskap/demografi/finland-levekar", "begrunnelse": "Eksempel på hvordan politikk og geografi former levekår." },
-                    { "tittel": "Migrasjon: push og pull", "link": "/samfunnskunnskap/demografi/migrasjon-push-pull", "begrunnelse": "Hvorfor folk flytter og hvilke faktorer som spiller inn." },
-                    { "tittel": "Urbanisering", "link": "/samfunnskunnskap/demografi/urbanisering", "begrunnelse": "Hvordan byer vokser og hvorfor." },
-                    { "tittel": "Fattigdom", "link": "/samfunnskunnskap/demografi/fattigdom", "begrunnelse": "Globale forskjeller i levekår." },
-                    { "tittel": "Malthus vs. Boserup", "link": "/samfunnskunnskap/demografi/malthus-vs-boserup", "begrunnelse": "Konkurrerende teorier om befolkning og ressurser." },
-                    { "tittel": "Perserriket", "link": "/historie/perserriket/artikkel", "begrunnelse": "Hvordan geografi formet historiens første verdensimperium." },
-                    { "tittel": "Handel og Silkeveien", "link": "/historie/romerriket/handel-og-silkeveien", "begrunnelse": "Geografi, handel og kulturmøter." },
-                    { "tittel": "Trekant-handelen", "link": "/historie/kolonialisering/trekanthandelen", "begrunnelse": "Hvordan geografi muliggjorde slavehandelen og formet tre kontinenter." },
-                    { "tittel": "Teknologi og helse", "link": "/samfunnskunnskap/demografi/teknologi-helse", "begrunnelse": "Dekker Geografi, politikk og levekår" },
-                    { "tittel": "Introduksjon til demografi", "link": "/samfunnskunnskap/demografi/intro", "begrunnelse": "Dekker Geografi, politikk og levekår" },
-                    { "tittel": "De store syklusene", "link": "/samfunnskunnskap/ideer-og-verdenssyn/store-sykluser", "begrunnelse": "Dekker Geografi, politikk og levekår" },
-                    { "tittel": "Verden er én maskin", "link": "/samfunnskunnskap/handel-og-infrastruktur/global-handel-oversikt", "begrunnelse": "Dekker Geografi, politikk og levekår" }
+                    {
+                        "tittel": "Levekår rundt om i verda",
+                        "link": "/samfunnskunnskap/demografi/km-6-levekaar-verden",
+                        "begrunnelse": "Dedikert KM-artikkel: sammenligner levekår, geografi, politikk og historie."
+                    },
+                    {
+                        "tittel": "Den demografiske overgangen",
+                        "link": "/samfunnskunnskap/demografi/den-demografiske-overgangen",
+                        "begrunnelse": "Sammenligner befolkningsutvikling i ulike deler av verden."
+                    },
+                    {
+                        "tittel": "Befolkningspyramider",
+                        "link": "/samfunnskunnskap/demografi/befolkningspyramider",
+                        "begrunnelse": "Visuell sammenligning av aldersstruktur."
+                    },
+                    {
+                        "tittel": "Finland: levekår",
+                        "link": "/samfunnskunnskap/demografi/finland-levekar",
+                        "begrunnelse": "Eksempel på hvordan politikk og geografi former levekår."
+                    },
+                    {
+                        "tittel": "Migrasjon: push og pull",
+                        "link": "/samfunnskunnskap/demografi/migrasjon-push-pull",
+                        "begrunnelse": "Hvorfor folk flytter og hvilke faktorer som spiller inn."
+                    },
+                    {
+                        "tittel": "Urbanisering",
+                        "link": "/samfunnskunnskap/demografi/urbanisering",
+                        "begrunnelse": "Hvordan byer vokser og hvorfor."
+                    },
+                    {
+                        "tittel": "Fattigdom",
+                        "link": "/samfunnskunnskap/demografi/fattigdom",
+                        "begrunnelse": "Globale forskjeller i levekår."
+                    },
+                    {
+                        "tittel": "Malthus vs. Boserup",
+                        "link": "/samfunnskunnskap/demografi/malthus-vs-boserup",
+                        "begrunnelse": "Konkurrerende teorier om befolkning og ressurser."
+                    },
+                    {
+                        "tittel": "Perserriket",
+                        "link": "/historie/perserriket/artikkel",
+                        "begrunnelse": "Hvordan geografi formet historiens første verdensimperium."
+                    },
+                    {
+                        "tittel": "Handel og Silkeveien",
+                        "link": "/historie/romerriket/handel-og-silkeveien",
+                        "begrunnelse": "Geografi, handel og kulturmøter."
+                    },
+                    {
+                        "tittel": "Trekant-handelen",
+                        "link": "/historie/kolonialisering/trekanthandelen",
+                        "begrunnelse": "Hvordan geografi muliggjorde slavehandelen og formet tre kontinenter."
+                    },
+                    {
+                        "tittel": "Teknologi og helse",
+                        "link": "/samfunnskunnskap/demografi/teknologi-helse",
+                        "begrunnelse": "Dekker Geografi, politikk og levekår"
+                    },
+                    {
+                        "tittel": "Introduksjon til demografi",
+                        "link": "/samfunnskunnskap/demografi/intro",
+                        "begrunnelse": "Dekker Geografi, politikk og levekår"
+                    },
+                    {
+                        "tittel": "De store syklusene",
+                        "link": "/samfunnskunnskap/ideer-og-verdenssyn/store-sykluser",
+                        "begrunnelse": "Dekker Geografi, politikk og levekår"
+                    },
+                    {
+                        "tittel": "Verden er én maskin",
+                        "link": "/samfunnskunnskap/handel-og-infrastruktur/global-handel-oversikt",
+                        "begrunnelse": "Dekker Geografi, politikk og levekår"
+                    }
                 ],
                 "stier": [
-                    { "tittel": "Læringssti: Imperienes sykluser", "link": "/samfunnskunnskap/ideer-og-verdenssyn/store-sykluser-sti", "begrunnelse": "Hvorfor stormakter stiger og faller." },
-                    { "tittel": "Læringssti: Verdens årer", "link": "/samfunnskunnskap/handel-og-infrastruktur/handel-og-infrastruktur-sti" }
+                    {
+                        "tittel": "Læringssti: Imperienes sykluser",
+                        "link": "/samfunnskunnskap/ideer-og-verdenssyn/store-sykluser-sti",
+                        "begrunnelse": "Hvorfor stormakter stiger og faller."
+                    },
+                    {
+                        "tittel": "Læringssti: Verdens årer",
+                        "link": "/samfunnskunnskap/handel-og-infrastruktur/handel-og-infrastruktur-sti"
+                    }
                 ]
             }
         },
@@ -167,37 +460,116 @@
             "tekst": "gjere greie for årsaker til og konsekvensar av sentrale historiske og notidige konfliktar og reflektere over om endringar av nokre føresetnader kunne ha hindra konfliktane",
             "innhold": {
                 "artikler": [
-                    { "tittel": "Opptakten (1. verdenskrig)", "link": "/historie/forste-verdenskrig/opptakt" },
-                    { "tittel": "Skyttergravskrig", "link": "/historie/forste-verdenskrig/skyttergravskrig" },
-                    { "tittel": "Konsekvenser (1. verdenskrig)", "link": "/historie/forste-verdenskrig/konsekvenser" },
-                    { "tittel": "Geopolitikk og Opptakt (2. verdenskrig)", "link": "/historie/andre-verdenskrig/bakgrunn" },
-                    { "tittel": "Konsekvenser (2. verdenskrig)", "link": "/historie/andre-verdenskrig/konsekvenser" },
-                    { "tittel": "Cubakrisen", "link": "/historie/den-kalde-krigen/cuba-krisen", "begrunnelse": "Klassisk eksempel på hvordan en krise nesten ble til atomkrig." },
-                    { "tittel": "Koreakrigen", "link": "/historie/den-kalde-krigen/koreakrigen" },
-                    { "tittel": "Vietnamkrigen", "link": "/historie/den-kalde-krigen/vietnamkrigen" },
-                    { "tittel": "Suezkrisen", "link": "/historie/den-kalde-krigen/suez-krisen" },
-                    { "tittel": "Peace Lines: Murene som deler Belfast", "link": "/historie/den-kalde-krigen/peace-lines-belfast" },
-                    { "tittel": "30-årskrigen", "link": "/historie/reformasjonen/30-aarskrigen", "begrunnelse": "Religionskrigene som formet det moderne Europa." },
-                    { "tittel": "Casus belli", "link": "/samfunnskunnskap/ideer-og-verdenssyn/casus-belli", "begrunnelse": "Hva legitimerer egentlig en krig?" }
+                    {
+                        "tittel": "Konfliktar - årsaker og konsekvensar",
+                        "link": "/samfunnskunnskap/styringsformer/km-7-konfliktar",
+                        "begrunnelse": "Dedikert KM-artikkel: analyserer historiske og notidige konflikter."
+                    },
+                    {
+                        "tittel": "Opptakten (1. verdenskrig)",
+                        "link": "/historie/forste-verdenskrig/opptakt"
+                    },
+                    {
+                        "tittel": "Skyttergravskrig",
+                        "link": "/historie/forste-verdenskrig/skyttergravskrig"
+                    },
+                    {
+                        "tittel": "Konsekvenser (1. verdenskrig)",
+                        "link": "/historie/forste-verdenskrig/konsekvenser"
+                    },
+                    {
+                        "tittel": "Geopolitikk og Opptakt (2. verdenskrig)",
+                        "link": "/historie/andre-verdenskrig/bakgrunn"
+                    },
+                    {
+                        "tittel": "Konsekvenser (2. verdenskrig)",
+                        "link": "/historie/andre-verdenskrig/konsekvenser"
+                    },
+                    {
+                        "tittel": "Cubakrisen",
+                        "link": "/historie/den-kalde-krigen/cuba-krisen",
+                        "begrunnelse": "Klassisk eksempel på hvordan en krise nesten ble til atomkrig."
+                    },
+                    {
+                        "tittel": "Koreakrigen",
+                        "link": "/historie/den-kalde-krigen/koreakrigen"
+                    },
+                    {
+                        "tittel": "Vietnamkrigen",
+                        "link": "/historie/den-kalde-krigen/vietnamkrigen"
+                    },
+                    {
+                        "tittel": "Suezkrisen",
+                        "link": "/historie/den-kalde-krigen/suez-krisen"
+                    },
+                    {
+                        "tittel": "Peace Lines: Murene som deler Belfast",
+                        "link": "/historie/den-kalde-krigen/peace-lines-belfast"
+                    },
+                    {
+                        "tittel": "30-årskrigen",
+                        "link": "/historie/reformasjonen/30-aarskrigen",
+                        "begrunnelse": "Religionskrigene som formet det moderne Europa."
+                    },
+                    {
+                        "tittel": "Casus belli",
+                        "link": "/samfunnskunnskap/ideer-og-verdenssyn/casus-belli",
+                        "begrunnelse": "Hva legitimerer egentlig en krig?"
+                    }
                 ],
                 "stier": [
-                    { "tittel": "Læringssti: Første verdenskrig", "link": "/historie/forste-verdenskrig/ww1-sti" },
-                    { "tittel": "Læringssti: Mellomkrigstiden", "link": "/historie/mellomkrigstiden/mellomkrigstiden-sti" },
-                    { "tittel": "Læringssti: Den Kalde Krigen", "link": "/historie/den-kalde-krigen/kald-krig-sti" }
+                    {
+                        "tittel": "Læringssti: Første verdenskrig",
+                        "link": "/historie/forste-verdenskrig/ww1-sti"
+                    },
+                    {
+                        "tittel": "Læringssti: Mellomkrigstiden",
+                        "link": "/historie/mellomkrigstiden/mellomkrigstiden-sti"
+                    },
+                    {
+                        "tittel": "Læringssti: Den Kalde Krigen",
+                        "link": "/historie/den-kalde-krigen/kald-krig-sti"
+                    }
                 ],
                 "tidsreise": [
-                    { "tittel": "Skyttergravenes Ekko", "link": "/oving/tidsreise/ww1-vestfront" },
-                    { "tittel": "Tsarens Skjebne", "link": "/oving/tidsreise/nikolaj-ii" },
-                    { "tittel": "Veien mot mørket – Del 1", "link": "/oving/tidsreise/mellomkrigstiden-del1" },
-                    { "tittel": "I Supermaktenes Skygge", "link": "/oving/tidsreise/kald-krig" }
+                    {
+                        "tittel": "Skyttergravenes Ekko",
+                        "link": "/oving/tidsreise/ww1-vestfront"
+                    },
+                    {
+                        "tittel": "Tsarens Skjebne",
+                        "link": "/oving/tidsreise/nikolaj-ii"
+                    },
+                    {
+                        "tittel": "Veien mot mørket – Del 1",
+                        "link": "/oving/tidsreise/mellomkrigstiden-del1"
+                    },
+                    {
+                        "tittel": "I Supermaktenes Skygge",
+                        "link": "/oving/tidsreise/kald-krig"
+                    }
                 ],
                 "detektiv": [
-                    { "tittel": "Karl XIIs død", "link": "/oving/detektiv/karl-xii" },
-                    { "tittel": "Berlinmurens fall", "link": "/oving/detektiv/berlinmuren" }
+                    {
+                        "tittel": "Karl XIIs død",
+                        "link": "/oving/detektiv/karl-xii"
+                    },
+                    {
+                        "tittel": "Berlinmurens fall",
+                        "link": "/oving/detektiv/berlinmuren"
+                    }
                 ],
                 "spill": [
-                    { "tittel": "Lindisfarne 793", "link": "/oving/spill/lindisfarne-793", "begrunnelse": "Det første vikingangrepet — krig sett innenfra." },
-                    { "tittel": "Caesar Ides", "link": "/oving/spill/caesar-ides", "begrunnelse": "Konflikten som endret Roma fra republikk til keiserdømme." }
+                    {
+                        "tittel": "Lindisfarne 793",
+                        "link": "/oving/spill/lindisfarne-793",
+                        "begrunnelse": "Det første vikingangrepet — krig sett innenfra."
+                    },
+                    {
+                        "tittel": "Caesar Ides",
+                        "link": "/oving/spill/caesar-ides",
+                        "begrunnelse": "Konflikten som endret Roma fra republikk til keiserdømme."
+                    }
                 ]
             }
         },
@@ -209,21 +581,60 @@
             "merknad": "Kunnskap om terrorhandlinga i Noreg 22. juli 2011 skal inngå i opplæringa.",
             "innhold": {
                 "artikler": [
-                    { "tittel": "Konsentrasjonsleirene", "link": "/historie/andre-verdenskrig/konsentrasjonsleirene", "begrunnelse": "Holocaust — årsaker, omfang og konsekvenser." },
-                    { "tittel": "Fra Weimar til mørke", "link": "/historie/mellomkrigstiden/tyskland", "begrunnelse": "Hvordan demokratiet i Tyskland kollapset og førte til nazismen." },
-                    { "tittel": "Fascismens fødsel", "link": "/historie/mellomkrigstiden/italia" },
-                    { "tittel": "Stalins jernhånd", "link": "/historie/mellomkrigstiden/sovjet", "begrunnelse": "Holodomor og Gulag — kommunistiske folkemord." },
-                    { "tittel": "Geopolitikk og Opptakt (2. verdenskrig)", "link": "/historie/andre-verdenskrig/bakgrunn" },
-                    { "tittel": "Flokkmentalitet", "link": "/samfunnskunnskap/mennesket-kultur-samfunn/flokkmentalitet", "begrunnelse": "Hvordan grupper kan radikaliseres og dehumanisere andre." }
+                    {
+                        "tittel": "Fra hat til folkemord",
+                        "link": "/samfunnskunnskap/styringsformer/km-8-terror-folkemord",
+                        "begrunnelse": "Dedikert KM-artikkel: terror, holocaust, 22. juli og forebygging av ekstremisme."
+                    },
+                    {
+                        "tittel": "Konsentrasjonsleirene",
+                        "link": "/historie/andre-verdenskrig/konsentrasjonsleirene",
+                        "begrunnelse": "Holocaust — årsaker, omfang og konsekvenser."
+                    },
+                    {
+                        "tittel": "Fra Weimar til mørke",
+                        "link": "/historie/mellomkrigstiden/tyskland",
+                        "begrunnelse": "Hvordan demokratiet i Tyskland kollapset og førte til nazismen."
+                    },
+                    {
+                        "tittel": "Fascismens fødsel",
+                        "link": "/historie/mellomkrigstiden/italia"
+                    },
+                    {
+                        "tittel": "Stalins jernhånd",
+                        "link": "/historie/mellomkrigstiden/sovjet",
+                        "begrunnelse": "Holodomor og Gulag — kommunistiske folkemord."
+                    },
+                    {
+                        "tittel": "Geopolitikk og Opptakt (2. verdenskrig)",
+                        "link": "/historie/andre-verdenskrig/bakgrunn"
+                    },
+                    {
+                        "tittel": "Flokkmentalitet",
+                        "link": "/samfunnskunnskap/mennesket-kultur-samfunn/flokkmentalitet",
+                        "begrunnelse": "Hvordan grupper kan radikaliseres og dehumanisere andre."
+                    }
                 ],
                 "stier": [
-                    { "tittel": "Læringssti: Mellomkrigstiden", "link": "/historie/mellomkrigstiden/mellomkrigstiden-sti", "begrunnelse": "Hele veien fra Versailles til Holocaust." }
+                    {
+                        "tittel": "Læringssti: Mellomkrigstiden",
+                        "link": "/historie/mellomkrigstiden/mellomkrigstiden-sti",
+                        "begrunnelse": "Hele veien fra Versailles til Holocaust."
+                    }
                 ],
                 "tidsreise": [
-                    { "tittel": "Veien mot mørket – Del 2", "link": "/oving/tidsreise/mellomkrigstiden-del2", "begrunnelse": "1930-tallets radikalisering sett gjennom valg." }
+                    {
+                        "tittel": "Veien mot mørket – Del 2",
+                        "link": "/oving/tidsreise/mellomkrigstiden-del2",
+                        "begrunnelse": "1930-tallets radikalisering sett gjennom valg."
+                    }
                 ],
                 "detektiv": [
-                    { "tittel": "Sabotasjen på Vemork", "link": "/oving/detektiv/tungtvann", "begrunnelse": "Motstand mot et regime som planla folkemord." }
+                    {
+                        "tittel": "Sabotasjen på Vemork",
+                        "link": "/oving/detektiv/tungtvann",
+                        "begrunnelse": "Motstand mot et regime som planla folkemord."
+                    }
                 ]
             }
         },
@@ -234,15 +645,43 @@
             "tekst": "utforske og beskrive korleis menneske- og urfolksrettar og andre internasjonale avtalar og samarbeid har betydning for nasjonal politikk, livet til menneske, likestilling og likeverd",
             "innhold": {
                 "artikler": [
-                    { "tittel": "FN", "link": "/samfunnskunnskap/ideer-og-verdenssyn/fn", "begrunnelse": "Den viktigste arenaen for internasjonalt samarbeid og menneskerettigheter." },
-                    { "tittel": "Humanisme", "link": "/samfunnskunnskap/ideer-og-verdenssyn/humanisme", "begrunnelse": "Tankegrunnlaget for menneskerettigheter og likeverd." },
-                    { "tittel": "Apartheid: Et samfunn delt i lov", "link": "/historie/dekolonisering/apartheid-syd-afrika", "begrunnelse": "Hvordan internasjonalt press tvang fram endring." },
-                    { "tittel": "Jim Crow: «Separate but equal»", "link": "/historie/dekolonisering/jim-crow-lovene", "begrunnelse": "Statlig systematisk brudd på menneskerettigheter." },
-                    { "tittel": "India: Sjelenes frigjøring", "link": "/historie/dekolonisering/india", "begrunnelse": "Kamp for selvbestemmelse og frihet." },
-                    { "tittel": "Gjeld som våpen: IMF og Verdensbanken", "link": "/samfunnskunnskap/handel-og-infrastruktur/imf-og-verdensbanken", "begrunnelse": "Dekker Menneskerettar og internasjonale avtalar" }
+                    {
+                        "tittel": "FN",
+                        "link": "/samfunnskunnskap/ideer-og-verdenssyn/fn",
+                        "begrunnelse": "Den viktigste arenaen for internasjonalt samarbeid og menneskerettigheter."
+                    },
+                    {
+                        "tittel": "Humanisme",
+                        "link": "/samfunnskunnskap/ideer-og-verdenssyn/humanisme",
+                        "begrunnelse": "Tankegrunnlaget for menneskerettigheter og likeverd."
+                    },
+                    {
+                        "tittel": "Apartheid: Et samfunn delt i lov",
+                        "link": "/historie/dekolonisering/apartheid-syd-afrika",
+                        "begrunnelse": "Hvordan internasjonalt press tvang fram endring."
+                    },
+                    {
+                        "tittel": "Jim Crow: «Separate but equal»",
+                        "link": "/historie/dekolonisering/jim-crow-lovene",
+                        "begrunnelse": "Statlig systematisk brudd på menneskerettigheter."
+                    },
+                    {
+                        "tittel": "India: Sjelenes frigjøring",
+                        "link": "/historie/dekolonisering/india",
+                        "begrunnelse": "Kamp for selvbestemmelse og frihet."
+                    },
+                    {
+                        "tittel": "Gjeld som våpen: IMF og Verdensbanken",
+                        "link": "/samfunnskunnskap/handel-og-infrastruktur/imf-og-verdensbanken",
+                        "begrunnelse": "Dekker Menneskerettar og internasjonale avtalar"
+                    }
                 ],
                 "stier": [
-                    { "tittel": "Læringssti: Frihetens Maraton", "link": "/historie/dekolonisering/dekolonisering-sti", "begrunnelse": "200 år med kamp for menneskerettigheter på tre kontinenter." }
+                    {
+                        "tittel": "Læringssti: Frihetens Maraton",
+                        "link": "/historie/dekolonisering/dekolonisering-sti",
+                        "begrunnelse": "200 år med kamp for menneskerettigheter på tre kontinenter."
+                    }
                 ]
             }
         },
@@ -261,12 +700,36 @@
             "tekst": "beskrive ulike dimensjonar ved berekraftig utvikling og korleis dei påverkar kvarandre, og presentere tiltak for meir berekraftige samfunn",
             "innhold": {
                 "artikler": [
-                    { "tittel": "Naturens sjel", "link": "/samfunnskunnskap/ideer-og-verdenssyn/naturens-sjel", "begrunnelse": "Hvordan synet på naturen har endret seg gjennom historien." },
-                    { "tittel": "Energi og rørledninger", "link": "/samfunnskunnskap/handel-og-infrastruktur/energi-og-rorledninger", "begrunnelse": "Hvordan energiforsyning former samfunn og påvirker miljøet." },
-                    { "tittel": "Sårbare nettverk", "link": "/samfunnskunnskap/handel-og-infrastruktur/saarbare-nettverk", "begrunnelse": "Bærekraft handler også om robusthet i kritisk infrastruktur." },
-                    { "tittel": "Mat og skipsfart", "link": "/samfunnskunnskap/handel-og-infrastruktur/mat-og-skipsfart", "begrunnelse": "Globalt matsystem og miljøkonsekvenser." },
-                    { "tittel": "Fattigdom", "link": "/samfunnskunnskap/demografi/fattigdom", "begrunnelse": "Sosial bærekraft handler om å redusere ulikhet." },
-                    { "tittel": "Framskrittstro", "link": "/samfunnskunnskap/ideer-og-verdenssyn/framskrittstro", "begrunnelse": "Drøfter om vekst alltid er bra." }
+                    {
+                        "tittel": "Naturens sjel",
+                        "link": "/samfunnskunnskap/ideer-og-verdenssyn/naturens-sjel",
+                        "begrunnelse": "Hvordan synet på naturen har endret seg gjennom historien."
+                    },
+                    {
+                        "tittel": "Energi og rørledninger",
+                        "link": "/samfunnskunnskap/handel-og-infrastruktur/energi-og-rorledninger",
+                        "begrunnelse": "Hvordan energiforsyning former samfunn og påvirker miljøet."
+                    },
+                    {
+                        "tittel": "Sårbare nettverk",
+                        "link": "/samfunnskunnskap/handel-og-infrastruktur/saarbare-nettverk",
+                        "begrunnelse": "Bærekraft handler også om robusthet i kritisk infrastruktur."
+                    },
+                    {
+                        "tittel": "Mat og skipsfart",
+                        "link": "/samfunnskunnskap/handel-og-infrastruktur/mat-og-skipsfart",
+                        "begrunnelse": "Globalt matsystem og miljøkonsekvenser."
+                    },
+                    {
+                        "tittel": "Fattigdom",
+                        "link": "/samfunnskunnskap/demografi/fattigdom",
+                        "begrunnelse": "Sosial bærekraft handler om å redusere ulikhet."
+                    },
+                    {
+                        "tittel": "Framskrittstro",
+                        "link": "/samfunnskunnskap/ideer-og-verdenssyn/framskrittstro",
+                        "begrunnelse": "Drøfter om vekst alltid er bra."
+                    }
                 ]
             }
         },
@@ -277,21 +740,73 @@
             "tekst": "vurdere korleis arbeid, inntekt og forbruk kan påverke personleg økonomi, levestandard og livskvalitet",
             "innhold": {
                 "artikler": [
-                    { "tittel": "Lønn og ulikhet", "link": "/samfunnskunnskap/arbeidsliv/lonn-og-ulikhet", "begrunnelse": "Hvordan lønn fordeles og hva det betyr for livskvalitet." },
-                    { "tittel": "Arbeidsrett", "link": "/samfunnskunnskap/arbeidsliv/arbeidsrett", "begrunnelse": "Rettigheter og plikter i arbeidslivet." },
-                    { "tittel": "Frontfagmodellen", "link": "/samfunnskunnskap/arbeidsliv/frontfagmodellen", "begrunnelse": "Den norske lønnsdannelsesmodellen." },
-                    { "tittel": "Fagforeninger", "link": "/samfunnskunnskap/arbeidsliv/fagforeninger", "begrunnelse": "Kollektiv organisering og lønnsforhandling." },
-                    { "tittel": "Inflasjon og rente", "link": "/samfunnskunnskap/okonomi/inflasjon-og-rente", "begrunnelse": "Hvordan prisstigning og rentenivå påvirker økonomien din." },
-                    { "tittel": "Pengesystem vs. naturalhandel", "link": "/samfunnskunnskap/okonomi/pengesystem-vs-naturalhandel", "begrunnelse": "Hva penger egentlig er." },
-                    { "tittel": "Naturlig rente", "link": "/samfunnskunnskap/okonomi/naturlig-rente", "begrunnelse": "Hvorfor rente eksisterer og hvordan den virker." },
-                    { "tittel": "Finanskriser", "link": "/samfunnskunnskap/okonomi/finanskriser", "begrunnelse": "Når økonomien går galt — og hvem som rammes." },
-                    { "tittel": "Produksjon", "link": "/samfunnskunnskap/okonomi/produksjon", "begrunnelse": "Grunnleggende økonomi: hvordan verdier skapes." },
-                    { "tittel": "Arbeidsspesialisering", "link": "/samfunnskunnskap/okonomi/arbeidsspesialisering", "begrunnelse": "Hvorfor moderne samfunn er så produktive." },
-                    { "tittel": "Ulike økonomiske skoler", "link": "/samfunnskunnskap/okonomi/okonomiske-skoler", "begrunnelse": "Forstå at økonomer er uenige, og hvorfor det betyr noe for valgene vi tar." },
-                    { "tittel": "Petrodollaren: Hvorfor olje måles i dollar", "link": "/samfunnskunnskap/okonomi/petrodollaren", "begrunnelse": "Dekker Personlig økonomi og levestandard" }
+                    {
+                        "tittel": "Lønn og ulikhet",
+                        "link": "/samfunnskunnskap/arbeidsliv/lonn-og-ulikhet",
+                        "begrunnelse": "Hvordan lønn fordeles og hva det betyr for livskvalitet."
+                    },
+                    {
+                        "tittel": "Arbeidsrett",
+                        "link": "/samfunnskunnskap/arbeidsliv/arbeidsrett",
+                        "begrunnelse": "Rettigheter og plikter i arbeidslivet."
+                    },
+                    {
+                        "tittel": "Frontfagmodellen",
+                        "link": "/samfunnskunnskap/arbeidsliv/frontfagmodellen",
+                        "begrunnelse": "Den norske lønnsdannelsesmodellen."
+                    },
+                    {
+                        "tittel": "Fagforeninger",
+                        "link": "/samfunnskunnskap/arbeidsliv/fagforeninger",
+                        "begrunnelse": "Kollektiv organisering og lønnsforhandling."
+                    },
+                    {
+                        "tittel": "Inflasjon og rente",
+                        "link": "/samfunnskunnskap/okonomi/inflasjon-og-rente",
+                        "begrunnelse": "Hvordan prisstigning og rentenivå påvirker økonomien din."
+                    },
+                    {
+                        "tittel": "Pengesystem vs. naturalhandel",
+                        "link": "/samfunnskunnskap/okonomi/pengesystem-vs-naturalhandel",
+                        "begrunnelse": "Hva penger egentlig er."
+                    },
+                    {
+                        "tittel": "Naturlig rente",
+                        "link": "/samfunnskunnskap/okonomi/naturlig-rente",
+                        "begrunnelse": "Hvorfor rente eksisterer og hvordan den virker."
+                    },
+                    {
+                        "tittel": "Finanskriser",
+                        "link": "/samfunnskunnskap/okonomi/finanskriser",
+                        "begrunnelse": "Når økonomien går galt — og hvem som rammes."
+                    },
+                    {
+                        "tittel": "Produksjon",
+                        "link": "/samfunnskunnskap/okonomi/produksjon",
+                        "begrunnelse": "Grunnleggende økonomi: hvordan verdier skapes."
+                    },
+                    {
+                        "tittel": "Arbeidsspesialisering",
+                        "link": "/samfunnskunnskap/okonomi/arbeidsspesialisering",
+                        "begrunnelse": "Hvorfor moderne samfunn er så produktive."
+                    },
+                    {
+                        "tittel": "Ulike økonomiske skoler",
+                        "link": "/samfunnskunnskap/okonomi/okonomiske-skoler",
+                        "begrunnelse": "Forstå at økonomer er uenige, og hvorfor det betyr noe for valgene vi tar."
+                    },
+                    {
+                        "tittel": "Petrodollaren: Hvorfor olje måles i dollar",
+                        "link": "/samfunnskunnskap/okonomi/petrodollaren",
+                        "begrunnelse": "Dekker Personlig økonomi og levestandard"
+                    }
                 ],
                 "verktoy": [
-                    { "tittel": "Økonomi-Verden", "link": "/samfunnskunnskap/okonomi/verden", "begrunnelse": "Eleven justerer rente, pengetrykk og regulering og ser konsekvenser for arbeid, priser og kriser. Tre kapsler tilbyr historiske scenarioer (frimarked, balanse, Weimar 1923)." }
+                    {
+                        "tittel": "Økonomi-Verden",
+                        "link": "/samfunnskunnskap/okonomi/verden",
+                        "begrunnelse": "Eleven justerer rente, pengetrykk og regulering og ser konsekvenser for arbeid, priser og kriser. Tre kapsler tilbyr historiske scenarioer (frimarked, balanse, Weimar 1923)."
+                    }
                 ]
             }
         },
@@ -302,10 +817,31 @@
             "tekst": "reflektere over likskapar og ulikskapar i identitetar, levesett og kulturuttrykk og drøfte moglegheiter og utfordringar ved mangfald",
             "innhold": {
                 "artikler": [
-                    { "tittel": "Det unormale", "link": "/samfunnskunnskap/ideer-og-verdenssyn/det-unormale", "begrunnelse": "Hvordan samfunn definerer hva som er 'normalt' og hva som ikke er det." },
-                    { "tittel": "Eskatologi", "link": "/samfunnskunnskap/ideer-og-verdenssyn/eskatologi", "begrunnelse": "Hvordan ulike kulturer ser på siste tider og verdens slutt." },
-                    { "tittel": "Utopier", "link": "/samfunnskunnskap/ideer-og-verdenssyn/utopier", "begrunnelse": "Drømmer om det perfekte samfunn — og hva de avslører om verdier." },
-                    { "tittel": "Migrasjon: push og pull", "link": "/samfunnskunnskap/demografi/migrasjon-push-pull", "begrunnelse": "Folk i bevegelse skaper kulturelt mangfold." }
+                    {
+                        "tittel": "Identitet og mangfald",
+                        "link": "/samfunnskunnskap/mennesket-kultur-samfunn/km-9-identitet-mangfald",
+                        "begrunnelse": "Dedikert KM-artikkel: likheter og ulikheter i identiteter, levesett og kultur."
+                    },
+                    {
+                        "tittel": "Det unormale",
+                        "link": "/samfunnskunnskap/ideer-og-verdenssyn/det-unormale",
+                        "begrunnelse": "Hvordan samfunn definerer hva som er 'normalt' og hva som ikke er det."
+                    },
+                    {
+                        "tittel": "Eskatologi",
+                        "link": "/samfunnskunnskap/ideer-og-verdenssyn/eskatologi",
+                        "begrunnelse": "Hvordan ulike kulturer ser på siste tider og verdens slutt."
+                    },
+                    {
+                        "tittel": "Utopier",
+                        "link": "/samfunnskunnskap/ideer-og-verdenssyn/utopier",
+                        "begrunnelse": "Drømmer om det perfekte samfunn — og hva de avslører om verdier."
+                    },
+                    {
+                        "tittel": "Migrasjon: push og pull",
+                        "link": "/samfunnskunnskap/demografi/migrasjon-push-pull",
+                        "begrunnelse": "Folk i bevegelse skaper kulturelt mangfold."
+                    }
                 ]
             }
         },
@@ -316,9 +852,26 @@
             "tekst": "utforske og reflektere over eigne digitale spor og høvet til å få sletta spora og å verne om retten ein sjølv og andre har til privatliv, personvern og opphavsrett",
             "innhold": {
                 "artikler": [
-                    { "tittel": "Ekkokamre", "link": "/samfunnskunnskap/mennesket-kultur-samfunn/ekkokamre", "begrunnelse": "Hvordan algoritmene bruker dataene dine." },
-                    { "tittel": "Internett-kabler", "link": "/samfunnskunnskap/handel-og-infrastruktur/internett-kabler", "begrunnelse": "Den fysiske infrastrukturen som lagrer alle digitale spor." },
-                    { "tittel": "Robotene kommer", "link": "/samfunnskunnskap/mennesket-kultur-samfunn/robotene-kommer", "begrunnelse": "KI lærer av dine data — hva betyr det?" }
+                    {
+                        "tittel": "Dine digitale spor",
+                        "link": "/samfunnskunnskap/mennesket-kultur-samfunn/km-10-digitale-spor",
+                        "begrunnelse": "Dedikert KM-artikkel: personvern, digitale spor og opphavsrett."
+                    },
+                    {
+                        "tittel": "Ekkokamre",
+                        "link": "/samfunnskunnskap/mennesket-kultur-samfunn/ekkokamre",
+                        "begrunnelse": "Hvordan algoritmene bruker dataene dine."
+                    },
+                    {
+                        "tittel": "Internett-kabler",
+                        "link": "/samfunnskunnskap/handel-og-infrastruktur/internett-kabler",
+                        "begrunnelse": "Den fysiske infrastrukturen som lagrer alle digitale spor."
+                    },
+                    {
+                        "tittel": "Robotene kommer",
+                        "link": "/samfunnskunnskap/mennesket-kultur-samfunn/robotene-kommer",
+                        "begrunnelse": "KI lærer av dine data — hva betyr det?"
+                    }
                 ]
             }
         },
@@ -329,10 +882,31 @@
             "tekst": "reflektere over korleis identitet, sjølvbilete og eigne grenser blir utvikla og utfordra i ulike fellesskap, og presentere forslag til korleis ein kan handtere påverknad og uønskte hendingar",
             "innhold": {
                 "artikler": [
-                    { "tittel": "Flokkmentalitet", "link": "/samfunnskunnskap/mennesket-kultur-samfunn/flokkmentalitet", "begrunnelse": "Hvordan grupper påvirker individets valg og grenser." },
-                    { "tittel": "Kjendismakt", "link": "/samfunnskunnskap/mennesket-kultur-samfunn/kjendismakt", "begrunnelse": "Hvordan idoler og forbilder former selvbildet." },
-                    { "tittel": "Ekkokamre", "link": "/samfunnskunnskap/mennesket-kultur-samfunn/ekkokamre", "begrunnelse": "Hvordan digitale fellesskap kan forsterke ensretting." },
-                    { "tittel": "Ytringsvett vs. ytringsmot", "link": "/samfunnskunnskap/mennesket-kultur-samfunn/ytringsvett-vs-ytringsmot", "begrunnelse": "Når skal man si ifra og når bør man holde tilbake?" }
+                    {
+                        "tittel": "Kven er du? - identitet og eigne grenser",
+                        "link": "/samfunnskunnskap/mennesket-kultur-samfunn/km-11-sjolvbilete-grenser",
+                        "begrunnelse": "Dedikert KM-artikkel: selvbilde, identitet og håndtering av gruppepress."
+                    },
+                    {
+                        "tittel": "Flokkmentalitet",
+                        "link": "/samfunnskunnskap/mennesket-kultur-samfunn/flokkmentalitet",
+                        "begrunnelse": "Hvordan grupper påvirker individets valg og grenser."
+                    },
+                    {
+                        "tittel": "Kjendismakt",
+                        "link": "/samfunnskunnskap/mennesket-kultur-samfunn/kjendismakt",
+                        "begrunnelse": "Hvordan idoler og forbilder former selvbildet."
+                    },
+                    {
+                        "tittel": "Ekkokamre",
+                        "link": "/samfunnskunnskap/mennesket-kultur-samfunn/ekkokamre",
+                        "begrunnelse": "Hvordan digitale fellesskap kan forsterke ensretting."
+                    },
+                    {
+                        "tittel": "Ytringsvett vs. ytringsmot",
+                        "link": "/samfunnskunnskap/mennesket-kultur-samfunn/ytringsvett-vs-ytringsmot",
+                        "begrunnelse": "Når skal man si ifra og når bør man holde tilbake?"
+                    }
                 ]
             }
         },
@@ -343,21 +917,78 @@
             "tekst": "reflektere over kva for aktørar som har makt i samfunnet i dag, og korleis desse grunngir standpunkta sine",
             "innhold": {
                 "artikler": [
-                    { "tittel": "Makt og legitimitet", "link": "/samfunnskunnskap/styringsformer/makt-og-legitimitet", "begrunnelse": "Hva gjør makt akseptabel?" },
-                    { "tittel": "Elitenes herredømme", "link": "/samfunnskunnskap/styringsformer/elitenes-herredomme", "begrunnelse": "Hvem styrer egentlig samfunnet?" },
-                    { "tittel": "Kjendismakt", "link": "/samfunnskunnskap/mennesket-kultur-samfunn/kjendismakt", "begrunnelse": "Påvirkning gjennom popularitet og oppmerksomhet." },
-                    { "tittel": "Diktaturet", "link": "/samfunnskunnskap/styringsformer/diktaturet", "begrunnelse": "Når makten konsentreres på få hender." },
-                    { "tittel": "Demokratiets ansikter", "link": "/samfunnskunnskap/styringsformer/demokrati-ansikter", "begrunnelse": "Ulike former for folkestyre." },
-                    { "tittel": "Teokrati og teknokrati", "link": "/samfunnskunnskap/styringsformer/teokrati-teknokrati", "begrunnelse": "Når religion eller ekspertise styrer." },
-                    { "tittel": "Stortinget", "link": "/samfunnskunnskap/styringsformer/stortinget", "begrunnelse": "Hvordan norsk politisk makt utøves." },
-                    { "tittel": "Antikkens visjoner", "link": "/samfunnskunnskap/styringsformer/antikken-visjoner", "begrunnelse": "Dekker Aktører og makt" },
-                    { "tittel": "Monarkiet", "link": "/samfunnskunnskap/styringsformer/monarkiet", "begrunnelse": "Dekker Aktører og makt" },
-                    { "tittel": "Opplysningstiden", "link": "/samfunnskunnskap/styringsformer/opplysningstid", "begrunnelse": "Dekker Aktører og makt" },
-                    { "tittel": "Uten hersker", "link": "/samfunnskunnskap/styringsformer/uten-hersker", "begrunnelse": "Dekker Aktører og makt" },
-                    { "tittel": "Føydalismen", "link": "/samfunnskunnskap/styringsformer/foydalisme", "begrunnelse": "Dekker Aktører og makt" }
+                    {
+                        "tittel": "Kven har makta?",
+                        "link": "/samfunnskunnskap/styringsformer/km-12-maktaktørar",
+                        "begrunnelse": "Dedikert KM-artikkel: maktaktørene i samfunnet og hvordan de begrunner seg."
+                    },
+                    {
+                        "tittel": "Makt og legitimitet",
+                        "link": "/samfunnskunnskap/styringsformer/makt-og-legitimitet",
+                        "begrunnelse": "Hva gjør makt akseptabel?"
+                    },
+                    {
+                        "tittel": "Elitenes herredømme",
+                        "link": "/samfunnskunnskap/styringsformer/elitenes-herredomme",
+                        "begrunnelse": "Hvem styrer egentlig samfunnet?"
+                    },
+                    {
+                        "tittel": "Kjendismakt",
+                        "link": "/samfunnskunnskap/mennesket-kultur-samfunn/kjendismakt",
+                        "begrunnelse": "Påvirkning gjennom popularitet og oppmerksomhet."
+                    },
+                    {
+                        "tittel": "Diktaturet",
+                        "link": "/samfunnskunnskap/styringsformer/diktaturet",
+                        "begrunnelse": "Når makten konsentreres på få hender."
+                    },
+                    {
+                        "tittel": "Demokratiets ansikter",
+                        "link": "/samfunnskunnskap/styringsformer/demokrati-ansikter",
+                        "begrunnelse": "Ulike former for folkestyre."
+                    },
+                    {
+                        "tittel": "Teokrati og teknokrati",
+                        "link": "/samfunnskunnskap/styringsformer/teokrati-teknokrati",
+                        "begrunnelse": "Når religion eller ekspertise styrer."
+                    },
+                    {
+                        "tittel": "Stortinget",
+                        "link": "/samfunnskunnskap/styringsformer/stortinget",
+                        "begrunnelse": "Hvordan norsk politisk makt utøves."
+                    },
+                    {
+                        "tittel": "Antikkens visjoner",
+                        "link": "/samfunnskunnskap/styringsformer/antikken-visjoner",
+                        "begrunnelse": "Dekker Aktører og makt"
+                    },
+                    {
+                        "tittel": "Monarkiet",
+                        "link": "/samfunnskunnskap/styringsformer/monarkiet",
+                        "begrunnelse": "Dekker Aktører og makt"
+                    },
+                    {
+                        "tittel": "Opplysningstiden",
+                        "link": "/samfunnskunnskap/styringsformer/opplysningstid",
+                        "begrunnelse": "Dekker Aktører og makt"
+                    },
+                    {
+                        "tittel": "Uten hersker",
+                        "link": "/samfunnskunnskap/styringsformer/uten-hersker",
+                        "begrunnelse": "Dekker Aktører og makt"
+                    },
+                    {
+                        "tittel": "Føydalismen",
+                        "link": "/samfunnskunnskap/styringsformer/foydalisme",
+                        "begrunnelse": "Dekker Aktører og makt"
+                    }
                 ],
                 "stier": [
-                    { "tittel": "Utforsk Styringsformer", "link": "/samfunnskunnskap/styringsformer/utforsk", "begrunnelse": "Bli kjent med ulike maktformer i historien og i dag." }
+                    {
+                        "tittel": "Utforsk Styringsformer",
+                        "link": "/samfunnskunnskap/styringsformer/utforsk",
+                        "begrunnelse": "Bli kjent med ulike maktformer i historien og i dag."
+                    }
                 ]
             }
         },
@@ -368,10 +999,31 @@
             "tekst": "utforske ulike plattformer for digital samhandling og reflektere over korleis digital deltaking og samhandling påverkar forma på og innhaldet i samfunnsdebatten",
             "innhold": {
                 "artikler": [
-                    { "tittel": "Ekkokamre", "link": "/samfunnskunnskap/mennesket-kultur-samfunn/ekkokamre", "begrunnelse": "Hvordan algoritmer former hva vi diskuterer." },
-                    { "tittel": "Ytringsvett vs. ytringsmot", "link": "/samfunnskunnskap/mennesket-kultur-samfunn/ytringsvett-vs-ytringsmot", "begrunnelse": "Hvordan delta klokt i offentlig debatt." },
-                    { "tittel": "Kjendismakt", "link": "/samfunnskunnskap/mennesket-kultur-samfunn/kjendismakt", "begrunnelse": "Influencer-økonomi og påvirkning på samfunnsdebatten." },
-                    { "tittel": "Sannhetens historie", "link": "/samfunnskunnskap/ideer-og-verdenssyn/sannhetens-historie", "begrunnelse": "Hva skjer med sannhetsbegrepet i en digital tidsalder?" }
+                    {
+                        "tittel": "Den digitale offentlegheita",
+                        "link": "/samfunnskunnskap/mennesket-kultur-samfunn/km-13-digital-debatt",
+                        "begrunnelse": "Dedikert KM-artikkel: digital deltaking og samfunnsdebatten."
+                    },
+                    {
+                        "tittel": "Ekkokamre",
+                        "link": "/samfunnskunnskap/mennesket-kultur-samfunn/ekkokamre",
+                        "begrunnelse": "Hvordan algoritmer former hva vi diskuterer."
+                    },
+                    {
+                        "tittel": "Ytringsvett vs. ytringsmot",
+                        "link": "/samfunnskunnskap/mennesket-kultur-samfunn/ytringsvett-vs-ytringsmot",
+                        "begrunnelse": "Hvordan delta klokt i offentlig debatt."
+                    },
+                    {
+                        "tittel": "Kjendismakt",
+                        "link": "/samfunnskunnskap/mennesket-kultur-samfunn/kjendismakt",
+                        "begrunnelse": "Influencer-økonomi og påvirkning på samfunnsdebatten."
+                    },
+                    {
+                        "tittel": "Sannhetens historie",
+                        "link": "/samfunnskunnskap/ideer-og-verdenssyn/sannhetens-historie",
+                        "begrunnelse": "Hva skjer med sannhetsbegrepet i en digital tidsalder?"
+                    }
                 ]
             }
         },
@@ -382,11 +1034,36 @@
             "tekst": "beskrive sentrale lover, reglar og normer og drøfte kva konsekvensar brot på desse kan ha for den enkelte og for samfunnet på kort og lang sikt",
             "innhold": {
                 "artikler": [
-                    { "tittel": "Arbeidsrett", "link": "/samfunnskunnskap/arbeidsliv/arbeidsrett", "begrunnelse": "Lovverket som styrer arbeidslivet." },
-                    { "tittel": "Stortinget", "link": "/samfunnskunnskap/styringsformer/stortinget", "begrunnelse": "Hvor lovene blir til." },
-                    { "tittel": "Makt og legitimitet", "link": "/samfunnskunnskap/styringsformer/makt-og-legitimitet", "begrunnelse": "Hva gjør lover legitime?" },
-                    { "tittel": "Ytringsvett vs. ytringsmot", "link": "/samfunnskunnskap/mennesket-kultur-samfunn/ytringsvett-vs-ytringsmot", "begrunnelse": "Sosiale normer for hva man kan si." },
-                    { "tittel": "Flokkmentalitet", "link": "/samfunnskunnskap/mennesket-kultur-samfunn/flokkmentalitet", "begrunnelse": "Hvordan normer håndheves uformelt i grupper." }
+                    {
+                        "tittel": "Lover, normer og konsekvensar",
+                        "link": "/samfunnskunnskap/styringsformer/km-14-lover-normer",
+                        "begrunnelse": "Dedikert KM-artikkel: sentrale lover, normer og konsekvenser av brudd."
+                    },
+                    {
+                        "tittel": "Arbeidsrett",
+                        "link": "/samfunnskunnskap/arbeidsliv/arbeidsrett",
+                        "begrunnelse": "Lovverket som styrer arbeidslivet."
+                    },
+                    {
+                        "tittel": "Stortinget",
+                        "link": "/samfunnskunnskap/styringsformer/stortinget",
+                        "begrunnelse": "Hvor lovene blir til."
+                    },
+                    {
+                        "tittel": "Makt og legitimitet",
+                        "link": "/samfunnskunnskap/styringsformer/makt-og-legitimitet",
+                        "begrunnelse": "Hva gjør lover legitime?"
+                    },
+                    {
+                        "tittel": "Ytringsvett vs. ytringsmot",
+                        "link": "/samfunnskunnskap/mennesket-kultur-samfunn/ytringsvett-vs-ytringsmot",
+                        "begrunnelse": "Sosiale normer for hva man kan si."
+                    },
+                    {
+                        "tittel": "Flokkmentalitet",
+                        "link": "/samfunnskunnskap/mennesket-kultur-samfunn/flokkmentalitet",
+                        "begrunnelse": "Hvordan normer håndheves uformelt i grupper."
+                    }
                 ]
             }
         },
@@ -397,24 +1074,110 @@
             "tekst": "beskrive trekk ved det politiske systemet og velferdssamfunnet i Noreg i dag og reflektere over sentrale utfordringar",
             "innhold": {
                 "artikler": [
-                    { "tittel": "Stortinget", "link": "/samfunnskunnskap/styringsformer/stortinget", "begrunnelse": "Den lovgivende forsamlingen i Norge." },
-                    { "tittel": "Demokratiets ansikter", "link": "/samfunnskunnskap/styringsformer/demokrati-ansikter", "begrunnelse": "Hvordan det norske demokratiet fungerer." },
-                    { "tittel": "Frontfagmodellen", "link": "/samfunnskunnskap/arbeidsliv/frontfagmodellen", "begrunnelse": "En sentral del av den norske velferdsmodellen." },
-                    { "tittel": "Lønn og ulikhet", "link": "/samfunnskunnskap/arbeidsliv/lonn-og-ulikhet", "begrunnelse": "Velferdsstatens fordelingsmekanismer." },
-                    { "tittel": "Fagforeninger", "link": "/samfunnskunnskap/arbeidsliv/fagforeninger", "begrunnelse": "Trepartssamarbeidets historie og rolle." },
-                    { "tittel": "Fremtidens arbeidsliv", "link": "/samfunnskunnskap/arbeidsliv/fremtidens-arbeidsliv", "begrunnelse": "Hvilke utfordringer møter velferdssamfunnet?" },
-                    { "tittel": "Klassekamp i Norge", "link": "/historie/mellomkrigstiden/norge", "begrunnelse": "Velferdsstatens historiske røtter." },
-                    { "tittel": "Grunnloven 1814", "link": "/samfunnskunnskap/styringsformer/grunnloven", "begrunnelse": "Dekker Det norske politiske systemet" }
+                    {
+                        "tittel": "Det norske demokratiet i dag",
+                        "link": "/samfunnskunnskap/styringsformer/km-15-norsk-demokrati",
+                        "begrunnelse": "Dedikert KM-artikkel: det norske politiske systemet og velferdsstaten."
+                    },
+                    {
+                        "tittel": "Stortinget",
+                        "link": "/samfunnskunnskap/styringsformer/stortinget",
+                        "begrunnelse": "Den lovgivende forsamlingen i Norge."
+                    },
+                    {
+                        "tittel": "Demokratiets ansikter",
+                        "link": "/samfunnskunnskap/styringsformer/demokrati-ansikter",
+                        "begrunnelse": "Hvordan det norske demokratiet fungerer."
+                    },
+                    {
+                        "tittel": "Frontfagmodellen",
+                        "link": "/samfunnskunnskap/arbeidsliv/frontfagmodellen",
+                        "begrunnelse": "En sentral del av den norske velferdsmodellen."
+                    },
+                    {
+                        "tittel": "Lønn og ulikhet",
+                        "link": "/samfunnskunnskap/arbeidsliv/lonn-og-ulikhet",
+                        "begrunnelse": "Velferdsstatens fordelingsmekanismer."
+                    },
+                    {
+                        "tittel": "Fagforeninger",
+                        "link": "/samfunnskunnskap/arbeidsliv/fagforeninger",
+                        "begrunnelse": "Trepartssamarbeidets historie og rolle."
+                    },
+                    {
+                        "tittel": "Fremtidens arbeidsliv",
+                        "link": "/samfunnskunnskap/arbeidsliv/fremtidens-arbeidsliv",
+                        "begrunnelse": "Hvilke utfordringer møter velferdssamfunnet?"
+                    },
+                    {
+                        "tittel": "Klassekamp i Norge",
+                        "link": "/historie/mellomkrigstiden/norge",
+                        "begrunnelse": "Velferdsstatens historiske røtter."
+                    },
+                    {
+                        "tittel": "Grunnloven 1814",
+                        "link": "/samfunnskunnskap/styringsformer/grunnloven",
+                        "begrunnelse": "Dekker Det norske politiske systemet"
+                    }
                 ]
+            }
+        },
+        {
+            "id": "saf-10-20",
+            "nummer": 16,
+            "kortNavn": "Dagsaktuelle tema",
+            "tekst": "utforske og presentere dagsaktuelle tema eller debatter ved å bruke samfunnsfaglege metodar, kjelder og digitale ressursar, og argumentere for sine eigne og andre sine meiningar og verdiar",
+            "innhold": {
+                "artikler": [
+                    {
+                        "tittel": "Dagsaktuelle tema - slik jobbar du",
+                        "link": "/samfunnskunnskap/eksamen/km-16-dagsaktuelle-tema",
+                        "begrunnelse": "Dedikert KM-artikkel: trener på å analysere og argumentere rundt dagsaktuelle samfunnsspørsmål."
+                    }
+                ],
+                "stier": [],
+                "detektiv": []
+            }
+        },
+        {
+            "id": "saf-10-21",
+            "nummer": 17,
+            "kortNavn": "Medborgerskap",
+            "tekst": "reflektere over kva det inneber å vere medborgar, og samanlikne korleis politiske system er organiserte i forskjellige land og område",
+            "innhold": {
+                "artikler": [
+                    {
+                        "tittel": "Å vere medborgar",
+                        "link": "/samfunnskunnskap/styringsformer/km-17-medborgar",
+                        "begrunnelse": "Dedikert KM-artikkel: medborgerskap, rettigheter og sammenligning av politiske systemer."
+                    }
+                ],
+                "stier": [],
+                "detektiv": []
             }
         }
     ],
     "kjennetegn": {
         "innledning": "Kjennetegnene gjelder Læreplan i samfunnsfag (SAF01-04) og er veiledende for standpunktvurdering. De skal brukes sammen med kompetansemålene over.",
         "nivaaer": [
-            { "id": "k2", "karakter": 2, "label": "Karakter 2", "beskrivelse": "Lav kompetanse" },
-            { "id": "k4", "karakter": 4, "label": "Karakter 4", "beskrivelse": "God kompetanse" },
-            { "id": "k6", "karakter": 6, "label": "Karakter 6", "beskrivelse": "Framifrå kompetanse" }
+            {
+                "id": "k2",
+                "karakter": 2,
+                "label": "Karakter 2",
+                "beskrivelse": "Lav kompetanse"
+            },
+            {
+                "id": "k4",
+                "karakter": 4,
+                "label": "Karakter 4",
+                "beskrivelse": "God kompetanse"
+            },
+            {
+                "id": "k6",
+                "karakter": 6,
+                "label": "Karakter 6",
+                "beskrivelse": "Framifrå kompetanse"
+            }
         ],
         "kategorier": [
             {

@@ -1,5 +1,5 @@
 {
-  "buildId": 1780363319666,
+  "buildId": 1780384341324,
   "contentMap": {
     "concept-adel": [
       "content/concepts/adel.json"
@@ -2267,6 +2267,9 @@
     "tema-og-budskap": [
       "content/norsk/analyse/tema-og-budskap.json"
     ],
+    "muntlig-modell": [
+      "content/norsk/eksamen/muntlig-modell.json"
+    ],
     "muntlig": [
       "content/norsk/eksamen/muntlig.json",
       "content/samfunnskunnskap/eksamen/muntlig.json"
@@ -3108,6 +3111,9 @@
     "demografi-intro": [
       "content/samfunnskunnskap/demografi/intro.json"
     ],
+    "km-6-levekaar-verden": [
+      "content/samfunnskunnskap/demografi/km-6-levekaar-verden.json"
+    ],
     "malthus-vs-boserup": [
       "content/samfunnskunnskap/demografi/malthus-vs-boserup.json"
     ],
@@ -3119,6 +3125,12 @@
     ],
     "demografi-urbanisering": [
       "content/samfunnskunnskap/demografi/urbanisering.json"
+    ],
+    "km-1-metode": [
+      "content/samfunnskunnskap/eksamen/km-1-metode.json"
+    ],
+    "km-16-dagsaktuelle-tema": [
+      "content/samfunnskunnskap/eksamen/km-16-dagsaktuelle-tema.json"
     ],
     "energi-og-rorledninger": [
       "content/samfunnskunnskap/handel-og-infrastruktur/energi-og-rorledninger.json"
@@ -3159,6 +3171,9 @@
     "humanisme": [
       "content/samfunnskunnskap/ideer-og-verdenssyn/humanisme.json"
     ],
+    "km-3-historieframstilling": [
+      "content/samfunnskunnskap/ideer-og-verdenssyn/km-3-historieframstilling.json"
+    ],
     "naturens-sjel": [
       "content/samfunnskunnskap/ideer-og-verdenssyn/naturens-sjel.json"
     ],
@@ -3182,6 +3197,24 @@
     ],
     "kjendismakt": [
       "content/samfunnskunnskap/mennesket-kultur-samfunn/kjendismakt.json"
+    ],
+    "km-10-digitale-spor": [
+      "content/samfunnskunnskap/mennesket-kultur-samfunn/km-10-digitale-spor.json"
+    ],
+    "km-11-sjolvbilete-grenser": [
+      "content/samfunnskunnskap/mennesket-kultur-samfunn/km-11-sjolvbilete-grenser.json"
+    ],
+    "km-13-digital-debatt": [
+      "content/samfunnskunnskap/mennesket-kultur-samfunn/km-13-digital-debatt.json"
+    ],
+    "km-2-kjelder-algoritmar": [
+      "content/samfunnskunnskap/mennesket-kultur-samfunn/km-2-kjelder-algoritmar.json"
+    ],
+    "km-4-teknologi-endring": [
+      "content/samfunnskunnskap/mennesket-kultur-samfunn/km-4-teknologi-endring.json"
+    ],
+    "km-9-identitet-mangfald": [
+      "content/samfunnskunnskap/mennesket-kultur-samfunn/km-9-identitet-mangfald.json"
     ],
     "robotene-kommer": [
       "content/samfunnskunnskap/mennesket-kultur-samfunn/robotene-kommer.json"
@@ -3230,6 +3263,27 @@
     ],
     "grunnloven": [
       "content/samfunnskunnskap/styringsformer/grunnloven.json"
+    ],
+    "km-12-maktaktørar": [
+      "content/samfunnskunnskap/styringsformer/km-12-maktaktørar.json"
+    ],
+    "km-14-lover-normer": [
+      "content/samfunnskunnskap/styringsformer/km-14-lover-normer.json"
+    ],
+    "km-15-norsk-demokrati": [
+      "content/samfunnskunnskap/styringsformer/km-15-norsk-demokrati.json"
+    ],
+    "km-17-medborgar": [
+      "content/samfunnskunnskap/styringsformer/km-17-medborgar.json"
+    ],
+    "km-5-kamp-for-endring": [
+      "content/samfunnskunnskap/styringsformer/km-5-kamp-for-endring.json"
+    ],
+    "km-7-konfliktar": [
+      "content/samfunnskunnskap/styringsformer/km-7-konfliktar.json"
+    ],
+    "km-8-terror-folkemord": [
+      "content/samfunnskunnskap/styringsformer/km-8-terror-folkemord.json"
     ],
     "makt-og-legitimitet": [
       "content/samfunnskunnskap/styringsformer/makt-og-legitimitet.json"
@@ -4030,6 +4084,7 @@
     "norsk/analyse/analyse-roman": "content/norsk/analyse/analyse-roman.json",
     "norsk/analyse/tekstanalyse-sti": "content/norsk/analyse/tekstanalyse-sti.json",
     "norsk/analyse/tema-og-budskap": "content/norsk/analyse/tema-og-budskap.json",
+    "norsk/eksamen/muntlig-modell": "content/norsk/eksamen/muntlig-modell.json",
     "norsk/eksamen/muntlig": "content/norsk/eksamen/muntlig.json",
     "norsk/eksamen/skriftlig": "content/norsk/eksamen/skriftlig.json",
     "norsk/grammatikk/setningsanalyse": "content/norsk/grammatikk/setningsanalyse.json",
@@ -4313,10 +4368,13 @@
     "samfunnskunnskap/demografi/fattigdom": "content/samfunnskunnskap/demografi/fattigdom.json",
     "samfunnskunnskap/demografi/finland-levekar": "content/samfunnskunnskap/demografi/finland-levekar.json",
     "samfunnskunnskap/demografi/intro": "content/samfunnskunnskap/demografi/intro.json",
+    "samfunnskunnskap/demografi/km-6-levekaar-verden": "content/samfunnskunnskap/demografi/km-6-levekaar-verden.json",
     "samfunnskunnskap/demografi/malthus-vs-boserup": "content/samfunnskunnskap/demografi/malthus-vs-boserup.json",
     "samfunnskunnskap/demografi/migrasjon-push-pull": "content/samfunnskunnskap/demografi/migrasjon-push-pull.json",
     "samfunnskunnskap/demografi/teknologi-helse": "content/samfunnskunnskap/demografi/teknologi-helse.json",
     "samfunnskunnskap/demografi/urbanisering": "content/samfunnskunnskap/demografi/urbanisering.json",
+    "samfunnskunnskap/eksamen/km-1-metode": "content/samfunnskunnskap/eksamen/km-1-metode.json",
+    "samfunnskunnskap/eksamen/km-16-dagsaktuelle-tema": "content/samfunnskunnskap/eksamen/km-16-dagsaktuelle-tema.json",
     "samfunnskunnskap/eksamen/muntlig": "content/samfunnskunnskap/eksamen/muntlig.json",
     "samfunnskunnskap/handel-og-infrastruktur/energi-og-rorledninger": "content/samfunnskunnskap/handel-og-infrastruktur/energi-og-rorledninger.json",
     "samfunnskunnskap/handel-og-infrastruktur/global-handel-oversikt": "content/samfunnskunnskap/handel-og-infrastruktur/global-handel-oversikt.json",
@@ -4331,6 +4389,7 @@
     "samfunnskunnskap/ideer-og-verdenssyn/fn": "content/samfunnskunnskap/ideer-og-verdenssyn/fn.json",
     "samfunnskunnskap/ideer-og-verdenssyn/framskrittstro": "content/samfunnskunnskap/ideer-og-verdenssyn/framskrittstro.json",
     "samfunnskunnskap/ideer-og-verdenssyn/humanisme": "content/samfunnskunnskap/ideer-og-verdenssyn/humanisme.json",
+    "samfunnskunnskap/ideer-og-verdenssyn/km-3-historieframstilling": "content/samfunnskunnskap/ideer-og-verdenssyn/km-3-historieframstilling.json",
     "samfunnskunnskap/ideer-og-verdenssyn/naturens-sjel": "content/samfunnskunnskap/ideer-og-verdenssyn/naturens-sjel.json",
     "samfunnskunnskap/ideer-og-verdenssyn/sannhetens-historie": "content/samfunnskunnskap/ideer-og-verdenssyn/sannhetens-historie.json",
     "samfunnskunnskap/ideer-og-verdenssyn/store-sykluser-sti": "content/samfunnskunnskap/ideer-og-verdenssyn/store-sykluser-sti.json",
@@ -4339,6 +4398,12 @@
     "samfunnskunnskap/mennesket-kultur-samfunn/ekkokamre": "content/samfunnskunnskap/mennesket-kultur-samfunn/ekkokamre.json",
     "samfunnskunnskap/mennesket-kultur-samfunn/flokkmentalitet": "content/samfunnskunnskap/mennesket-kultur-samfunn/flokkmentalitet.json",
     "samfunnskunnskap/mennesket-kultur-samfunn/kjendismakt": "content/samfunnskunnskap/mennesket-kultur-samfunn/kjendismakt.json",
+    "samfunnskunnskap/mennesket-kultur-samfunn/km-10-digitale-spor": "content/samfunnskunnskap/mennesket-kultur-samfunn/km-10-digitale-spor.json",
+    "samfunnskunnskap/mennesket-kultur-samfunn/km-11-sjolvbilete-grenser": "content/samfunnskunnskap/mennesket-kultur-samfunn/km-11-sjolvbilete-grenser.json",
+    "samfunnskunnskap/mennesket-kultur-samfunn/km-13-digital-debatt": "content/samfunnskunnskap/mennesket-kultur-samfunn/km-13-digital-debatt.json",
+    "samfunnskunnskap/mennesket-kultur-samfunn/km-2-kjelder-algoritmar": "content/samfunnskunnskap/mennesket-kultur-samfunn/km-2-kjelder-algoritmar.json",
+    "samfunnskunnskap/mennesket-kultur-samfunn/km-4-teknologi-endring": "content/samfunnskunnskap/mennesket-kultur-samfunn/km-4-teknologi-endring.json",
+    "samfunnskunnskap/mennesket-kultur-samfunn/km-9-identitet-mangfald": "content/samfunnskunnskap/mennesket-kultur-samfunn/km-9-identitet-mangfald.json",
     "samfunnskunnskap/mennesket-kultur-samfunn/robotene-kommer": "content/samfunnskunnskap/mennesket-kultur-samfunn/robotene-kommer.json",
     "samfunnskunnskap/mennesket-kultur-samfunn/ytringsvett-vs-ytringsmot": "content/samfunnskunnskap/mennesket-kultur-samfunn/ytringsvett-vs-ytringsmot.json",
     "samfunnskunnskap/okonomi/arbeidsspesialisering": "content/samfunnskunnskap/okonomi/arbeidsspesialisering.json",
@@ -4355,6 +4420,13 @@
     "samfunnskunnskap/styringsformer/elitenes-herredomme": "content/samfunnskunnskap/styringsformer/elitenes-herredomme.json",
     "samfunnskunnskap/styringsformer/foydalisme": "content/samfunnskunnskap/styringsformer/foydalisme.json",
     "samfunnskunnskap/styringsformer/grunnloven": "content/samfunnskunnskap/styringsformer/grunnloven.json",
+    "samfunnskunnskap/styringsformer/km-12-maktaktørar": "content/samfunnskunnskap/styringsformer/km-12-maktaktørar.json",
+    "samfunnskunnskap/styringsformer/km-14-lover-normer": "content/samfunnskunnskap/styringsformer/km-14-lover-normer.json",
+    "samfunnskunnskap/styringsformer/km-15-norsk-demokrati": "content/samfunnskunnskap/styringsformer/km-15-norsk-demokrati.json",
+    "samfunnskunnskap/styringsformer/km-17-medborgar": "content/samfunnskunnskap/styringsformer/km-17-medborgar.json",
+    "samfunnskunnskap/styringsformer/km-5-kamp-for-endring": "content/samfunnskunnskap/styringsformer/km-5-kamp-for-endring.json",
+    "samfunnskunnskap/styringsformer/km-7-konfliktar": "content/samfunnskunnskap/styringsformer/km-7-konfliktar.json",
+    "samfunnskunnskap/styringsformer/km-8-terror-folkemord": "content/samfunnskunnskap/styringsformer/km-8-terror-folkemord.json",
     "samfunnskunnskap/styringsformer/makt-og-legitimitet": "content/samfunnskunnskap/styringsformer/makt-og-legitimitet.json",
     "samfunnskunnskap/styringsformer/monarkiet": "content/samfunnskunnskap/styringsformer/monarkiet.json",
     "samfunnskunnskap/styringsformer/opplysningstid": "content/samfunnskunnskap/styringsformer/opplysningstid.json",

@@ -1,0 +1,243 @@
+{
+    "id": "km-2-kjelder-algoritmar",
+    "title": "Kjelder, algoritmar og blindsoner",
+    "layout": "rich",
+    "category": "Samfunnskunnskap",
+    "readTime": "8 min lesning",
+    "heroImage": "/images/placeholder.webp",
+    "subject": "samfunnskunnskap",
+    "topic": "mennesket-kultur-samfunn",
+    "description": "Laer deg å vurdere kjelder kritisk, forstå korleis algoritmar formar det du ser, og oppdage kva som finst i blindsonene dine.",
+    "details": [
+        "Kompetansemål SAF01-04",
+        "Kildebruk og algoritmer"
+    ],
+    "tags": [
+        "kildekritikk",
+        "algoritmer",
+        "desinformasjon",
+        "sosiale-medier",
+        "ekkokamre"
+    ],
+    "timeline": [],
+    "content": [
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Kompetansemål",
+                "content": "Vurdere på kva måtar ulike kjelder gir informasjon om eit samfunnsfagleg tema, og reflektere over korleis algoritmar, einsretta kjelder eller mangel på kjelder kan prege forståinga vår."
+            }
+        },
+        {
+            "type": "text",
+            "content": "Se for deg at du vil finne ut hva som egentlig skjedde under en stor politisk protestmarsj i Oslo. Du sjekker TikTok og ser klipp som viser store, engasjerte folkemengder. Du leser en avis og ser at politiet anslo fremmøtet til 800 personer. En annen avis skriver 3 000. En deltaker du følger på Instagram hevder det var 10 000. Alle beskriver den samme hendelsen - men de gir deg helt ulike bilder. Hvem har rett? Og hvorfor er det så stor forskjell? Det er nettopp dette kildevurdering handler om."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Ulike avisforsider dekker samme nyhetssak på forskjellige mater",
+            "caption": "Samme hendelse kan se svart veldig ulikt ut avhengig av kjelda du leser."
+        },
+        {
+            "type": "header",
+            "text": "Kva er ei kjelde - og kvifor spelar det ei rolle?"
+        },
+        {
+            "type": "text",
+            "content": "Ei kjelde er alt vi bruker for å hente informasjon: aviser, nettsider, videoer, vitskaplege artiklar, statistikk, intervjuar, bilete og mykje meir. Men ikkje alle kjelder er like pålitelege, og ingen kjelder er nøytrale. Bak kvar kjelde finst det eit menneske eller ein organisasjon som har gjort val: kva som er viktig å ta med, korleis det blir formulert, kva som blir utelate."
+        },
+        {
+            "type": "text",
+            "content": "For å vurdere ei kjelde godt, stiller du fire grunnleggjande spørsmål. Kven har laga dette? Kvifor blei det laga? Kven er tenkt publikum? Og stemmer det med det andre kjelder seier? Ein nyhetsartikkel frå NRK, eit innlegg frå ein politisk organisasjon og ein TikTok-video frå ein privatperson kan alle seie noko sant - men dei har ulike perspektiv, ulik agenda og ulik grad av faktasjekk bak seg."
+        },
+        {
+            "type": "header",
+            "text": "Einsidig informasjon og det vi ikkje ser"
+        },
+        {
+            "type": "text",
+            "content": "Einsidig informasjon tyder ikkje nødvendigvis at nokon lyg. Ofte handlar det om kva som blir valt bort. Ein organisasjon som jobbar for å redusere biltrafikk i byar, vil bruke statistikk som støttar synspunktet deira. Det treng ikkje vere feil - men dei vel ikkje å ta med tala som peikar i ei anna retning. Ei journalist som dekker ein konflikt frå éi side, får naturleg nok eit anna bilete enn journalisten som snakkar med begge partar."
+        },
+        {
+            "type": "text",
+            "content": "Det mest krevjande er mangelen på kjelder - informasjon som ikkje finst fordi ingen har skrive om det. Mange hendingar i verda, særleg i fattige land eller blant grupper utan makt, blir aldri dekte av store medium. Det betyr ikkje at dei ikkje er viktige. Det betyr at blindsonene våre kan vere store, sjølv om vi trur vi er godt informerte. Du kan lese mykje om uroa i samfunn og politikk i artikkelen om [ekkokamre og informasjonsbobler](/samfunnskunnskap/mennesket-kultur-samfunn/ekkokamre)."
+        },
+        {
+            "type": "header",
+            "text": "Korleis algoritmar bestemmer kva du ser"
+        },
+        {
+            "type": "text",
+            "content": "Her kjem det som gjer utfordringane med kjelder ekstra krevjande i dag: algoritmar. Ein algoritme er eit sett med reglar som ein datamaskin bruker for å ta avgjerder. På sosiale medium og søkemotorar bestemmer algoritmar kva innhald som dukkar opp oppe i feeden din, kva videoar YouTube anbefaler, og kva søkeresultat du ser fyrst."
+        },
+        {
+            "type": "text",
+            "content": "Algoritmar er ikkje nøytrale. Dei er programmerte til å nå eit mål - som regel å halde deg engasjert lengst mogleg, slik at plattforma tener meir reklamepenger. Og det som held oss mest engasjert, er gjerne innhald som bekreftar det vi allereie meiner, som skaper sterke kjensler - sinne, overrasking, frykt - eller som kjem frå folk vi likar. Resultatet er at to personar som søker på det same temaet, kan få heilt ulike resultat - avhengig av kva dei har likt og klikka på tidlegare."
+        },
+        {
+            "type": "component",
+            "name": "FilterBubbleSim",
+            "props": {
+                "topic": "klimaendringer",
+                "leftPerspective": "Klimaendringane er ein akutt krise som krev radikale endringar i energibruk og livsstil no. Forskarar er einige om at vi har lite tid.",
+                "rightPerspective": "Klimapolitikk skader norsk industri og vanlege folk. Noreg bidreg minimalt til globale utslepp og bor prioritere eigen velferd."
+            }
+        },
+        {
+            "type": "text",
+            "content": "Prøv simulatoren over: Legg merke til korleis same tema - klimaendringar - kan bli presentert på to heilt ulike måtar avhengig av kva kjelder algoritmen plar vise deg. Ingen av dei to perspektiva er nødvendigvis feil, men dersom du berre ser det eine, mistar du ein stor del av biletet."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Illustrasjon av algoritme-bobler som gir folk ulike nyhetsstraumer",
+            "caption": "Algoritmar skapar personlege nyheitsstraumer - og to personar kan leve i heilt ulike informasjonsverd."
+        },
+        {
+            "type": "header",
+            "text": "Tre typar skjeve kjelder du bor kjenne att"
+        },
+        {
+            "type": "list",
+            "items": [
+                "Partiske kjelder: Laga av ein aktør med ein klar agenda, til dømes ein politisk organisasjon, ein lobbygruppe eller eit kommersielt selskap. Ofte korrekt informasjon, men med eit bevisst valt perspektiv.",
+                "Sensasjonsprega kjelder: Fokuserer på det dramatiske, overraskande eller provokative fordi det gir klikk. Kan vere faktisk rett, men set ting i eit meir ekstremt lys enn det er grunn til.",
+                "Desinformasjon: Bevisst feil informasjon som er spreidd for å lure, manipulere eller skape uro. Kan vere vanskeleg å kjenne att fordi den er designa for å sjå truverdig ut."
+            ]
+        },
+        {
+            "type": "text",
+            "content": "Kjeldevurdering handlar ikkje om å vere paranoid eller å mistru alt. Det handlar om å vere bevisst på at all informasjon kjem frå nokon, og at den nokon har eit perspektiv. Eit godt verkty er å sjekke ei sak mot minst to eller tre uavhengige kjelder som ikkje er knytt til kvarandre. Dette kallast kjeldekritikk - ein grunnleggjande ferdigheit i eit demokrati. Du kan lese meir om korleis [flokkmentalitet](/samfunnskunnskap/mennesket-kultur-samfunn/flokkmentalitet) kan gjere det vanskelegare å tenkje kritisk når omgivnadene dine meiner det same."
+        },
+        {
+            "type": "header",
+            "text": "Sjekk deg sjolv: Blindsonene dine"
+        },
+        {
+            "type": "text",
+            "content": "Ein blindsone er eit omrade du ikkje ser - ikkje fordi du ikkje vil sjå, men fordi ingenting har leia deg dit. Tenk deg at du berre les norske medium. Då mistar du perspektiva frå folk i land som er direkte ramma av norske avgjerder, til dømes om oljeutvinning eller bistand. Tenk deg at du berre bruker TikTok som nyheitskjelde. Då ser du mykje om det som er underhaldande og engasjerande, men lite om dei sakene som er viktige og kompliserte."
+        },
+        {
+            "type": "text",
+            "content": "Ei enkel øving: Ta ei sak du bryr deg om - til dømes innvandring, skolepolitikk eller klimatiltak. Kva kjelder har forma synet ditt? Er dei frå same land, same politisk vinkling, same sjanger? Finn medvite éi kjelde som er ulik det du vanlegvis les - gjerne frå eit anna land eller eit anna perspektiv. Ikkje for å skifte meining, men for å forstå breiare."
+        },
+        {
+            "type": "component",
+            "name": "BiasLens",
+            "props": {
+                "sources": [
+                    {
+                        "name": "NRK Nyheter",
+                        "type": "Offentleg kringkaster",
+                        "stance": "Nøytral/balansert",
+                        "content": "Ny rapport frå SSB viser at innvandrarar i gjennomsnitt har lågare sysselsetting enn innfødde nordmenn, men at forskjellen minkar over tid og varierer sterkt etter utdanning og landbakgrunn."
+                    },
+                    {
+                        "name": "Innvandringskritisk blogg",
+                        "type": "Meiningskjelde",
+                        "stance": "Einsidig negativ",
+                        "content": "SSB-rapport bekreftar: innvandrarar er ei byrde for velferdsstaten. Sysselsettingsgapet er for stort til å ignorere."
+                    },
+                    {
+                        "name": "Fleirkulturelt forum",
+                        "type": "Interesseorganisasjon",
+                        "stance": "Einsidig positiv",
+                        "content": "SSB-rapporten viser at innvandrarar bidreg meir og meir til norsk arbeidsliv for kvart ar som gar, og at integrasjonen er ein suksesshistorie."
+                    },
+                    {
+                        "name": "Forskar ved OsloMet",
+                        "type": "Akademisk kjelde",
+                        "stance": "Nyansert/fagleg",
+                        "content": "Rapporten viser komplekse mønster. Utdanning er den sterkaste faktoren - ikkje landbakgrunn åleine. Politikk bor sjå på kompetanseheving, ikkje berre tal."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "text",
+            "content": "I BiasLens-verktøyet over ser du korleis fire ulike kjelder bruker den same SSB-rapporten til å lage fire svært ulike inntrykk. Berre den eine - forskaren - presenterer eit fullstendig nyansert bilete. Dette illustrerer eit viktig poeng: fakta aleine er ikkje nok. Korleis fakta blir presentert, kva som blir utelate og kva konklusjon som blir trekt, er like viktig som sjølve tala."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Person som vurderer fleire ulike kjelder på ein dataskjerm",
+            "caption": "God kjeldevurdering krev at vi aktivt samanliknar perspektiv frå fleire uavhengige kjelder."
+        },
+        {
+            "type": "header",
+            "text": "Kva kan du gjere?"
+        },
+        {
+            "type": "text",
+            "content": "Å vere kritisk til kjelder er ikkje det same som å mistru alt. Det er ei aktiv handling der du tek ansvar for eiga forståing. Her er fire konkrete steg du kan ta. Sjekk avsendaren: Kven er det som har laga dette? Er dei uavhengige? Har dei noko å vinne på at du trur det dei skriv? Samanlikn kjelder: Les om same sak frå to-tre uavhengige stader. Stemmer hovudpoenga overeins? Kva er ulikt? Spor etter originalen: Mange nettartiklar refererer til studiar eller rapportar utan å lenke til dei. Finn originalen og sjekk sjølv kva han faktisk seier. Vere medviten om algoritmen: Søk aktivt etter kjelder du ikkje normalt ser. Bruk gjerne personvernvennlege søkemotorar eller les medium frå fleire land."
+        },
+        {
+            "type": "text",
+            "content": "Demokrati kviler på at borgarane kan danne seg ein informert og sjølvstendig meining. Det krev tilgang til gode kjelder - og evne til å vurdere dei. Dei same prinsippa gjeld anten du vurderer ei politisk sak, les om helse, forstår [makt og legitimitet](/samfunnskunnskap/styringsformer/makt-og-legitimitet) eller forstar korleis [ytringsvett og ytringsmot](/samfunnskunnskap/mennesket-kultur-samfunn/ytringsvett-vs-ytringsmot) heng saman med kva informasjon vi vel å dele."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Kva er hovudformalet til algoritmar på sosiale medium?",
+                        "options": [
+                            "A sikre at du far mest mogleg påliteleg informasjon",
+                            "A halde deg engasjert lengst mogleg slik at plattforma tener pengar",
+                            "A gi deg ei balansert oversikt over nyhende",
+                            "A hindre spreiing av desinformasjon"
+                        ],
+                        "correctAnswer": 1,
+                        "explanation": "Algoritmar er laga for å maksimere engasjement - det vil seie kor lenge du er på plattforma. Det gjer dei ved å vise deg innhald som bekreftar meiningane dine og skapar sterke kjensler, ikkje nødvendigvis det mest pålitelege innhaldet."
+                    },
+                    {
+                        "question": "Kva kallar vi det når ein kjelde medvite presenterer berre ei side av ei sak?",
+                        "options": [
+                            "Objektivitet",
+                            "Faktasjekk",
+                            "Einsidig informasjon",
+                            "Kjeldevurdering"
+                        ],
+                        "correctAnswer": 2,
+                        "explanation": "Einsidig informasjon tyder at kjelda berre presenterer perspektivet som passar med agendaen sin, og utelèt informasjon som peikar i ei anna retning. Det er ikkje alltid løgn, men det gir eit ufullstendig bilete."
+                    },
+                    {
+                        "question": "Kva er ei 'blindsone' i samanheng med kjelder?",
+                        "options": [
+                            "Ein feil i eit kart",
+                            "Noko du ikkje kan sjå med auga",
+                            "Informasjon eller perspektiv du ikkje far tilgang til fordi ingenting har leia deg dit",
+                            "Ein type desinformasjon"
+                        ],
+                        "correctAnswer": 2,
+                        "explanation": "Blindsoner i informasjonssamanheng er alle dei historiene, perspektiva og fakta du ikkje kjenner til - ikkje fordi du avviser dei, men fordi kjeldetilfanget ditt ikkje dekte dei."
+                    },
+                    {
+                        "question": "Kva er det best eigna fyrste steget når du skal vurdere ei ukjend kjelde?",
+                        "options": [
+                            "Dele ho med venner for å høyre kva dei meiner",
+                            "Sjekke kven som har laga kjelda og om dei har ein agenda",
+                            "Sjekke om kjelda har mange klikk og 'likes'",
+                            "Bruke Google Translate"
+                        ],
+                        "correctAnswer": 1,
+                        "explanation": "Det viktigaste fyrste steget er å finne ut kven avsendaren er. Ein nyhetsredaksjon, ein lobbyorganisasjon og ein privatperson har svært ulik troverde og ulike motiv - og det paverker korleis du bor lese innhaldet."
+                    },
+                    {
+                        "question": "Kvifor kan to personar som søker på same tema fa heilt ulike søkeresultat?",
+                        "options": [
+                            "Fordi internett er dårleg i det eine landet",
+                            "Fordi algoritmar tilpassar resultata basert på kva dei har søkt på og klikka på tidlegare",
+                            "Fordi Google tilfeldig varierer resultata",
+                            "Fordi dei bur i ulike tidssoner"
+                        ],
+                        "correctAnswer": 1,
+                        "explanation": "Søkemotorar og sosiale medium bruker algoritmar som tar omsyn til kvar enkelt brukers historikk og åtferd. To personar med ulike interesser og tidlegare klikkmønster vil difor sjå eit algoritme-tilpassa utval av same verke - ikkje det same fullstendige biletet."
+                    }
+                ]
+            }
+        }
+    ]
+}
