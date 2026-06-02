@@ -297,6 +297,25 @@
       ]
     },
     {
+      "id": "olympiske-leker",
+      "title": "De olympiske lekene i antikken",
+      "description": "En religiøs fest for Zevs som stoppet krigene mellom bystatene og samlet hele Hellas hvert fjerde år.",
+      "startDate": -776,
+      "endDate": null,
+      "displayDate": "776 fvt",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "antikkens-hellas",
+      "link": "/historie/antikkens-hellas/olympiske-leker",
+      "tags": [
+        "antikken",
+        "hellas",
+        "olympia",
+        "idrett",
+        "religion"
+      ]
+    },
+    {
       "id": "romersk-start",
       "title": "Romas grunnleggelse og republikken",
       "description": "Fra ulvebarn to maktbalanse i senatet.",

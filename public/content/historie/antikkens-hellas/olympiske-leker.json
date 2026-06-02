@@ -1,0 +1,167 @@
+{
+    "id": "olympiske-leker",
+    "title": "De olympiske lekene i antikken",
+    "layout": "rich",
+    "year": "776 fvt",
+    "category": "Antikken",
+    "readTime": "8 min lesning",
+    "heroImage": "/images/placeholder.webp",
+    "details": [
+        "De olympiske lekene var en religiøs fest for guden Zevs, ikke bare idrett",
+        "Hver fjerde år la de greske bystatene ned våpnene under en hellig våpenhvile",
+        "Lekene samlet fiender til den samme festen og skapte en felles gresk identitet"
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Sommeren 776 før vår tid stod en ung mann klar på en sandbane i Olympia. Rundt ham trengte tusenvis av tilskuere seg sammen i den varme sola. De hadde reist i dagevis, noen helt fra koloniene rundt Middelhavet. Da dommeren ga tegn, sprang løperne av sted. Den som vant det første løpet, fikk navnet sitt skrevet ned, og året ble husket etter ham. Dette regnes som starten på de olympiske lekene. I nesten tusen år kom grekerne tilbake til Olympia hvert fjerde år for å konkurrere, be til gudene og feire sammen."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Løpere sprinter på sandbanen i Olympia foran tilskuere",
+            "caption": "Stadionløpet var den eldste og mest ærefulle grenen. Vinneren ga navn til hele olympiaden."
+        },
+        {
+            "type": "header",
+            "text": "Hellas var ikke ett land"
+        },
+        {
+            "type": "text",
+            "content": "For å forstå hvorfor lekene betydde så mye, må vi vite hvordan Hellas så ut. Det fantes ikke noe samlet land som het Hellas. I stedet var det hundrevis av små, selvstendige bystater. Hver by hadde sine egne lover, sin egen hær og ofte sin egen konge eller folkeforsamling. De største var rivaler, og slik var det mellom [Athen og Sparta](/historie/antikkens-hellas/athen-og-sparta), som stadig kjempet om makt. Bystatene lå ofte i krig med hverandre. Likevel følte grekerne at de hørte sammen. De snakket samme språk, fortalte de samme historiene om gudene og heltene, og de møttes på de samme store festene. Lekene i Olympia var den viktigste av disse festene."
+        },
+        {
+            "type": "header",
+            "text": "En fest for gudene"
+        },
+        {
+            "type": "text",
+            "content": "De olympiske lekene var ikke bare idrett. De var en religiøs fest til ære for Zevs, den mektigste av alle gudene. Midt i Olympia stod et enormt tempel med en gigantisk statue av Zevs i gull og elfenben. Før idretten startet, ofret utøverne til gudene og lovte å konkurrere rettferdig. Romerne dyrket senere de samme gudene under andre navn, slik du kan lese om i artikkelen om [de romerske gudene](/historie/romerriket/romerske-guder). For grekerne var det å vinne i Olympia et tegn på at gudene smilte til deg. Derfor var seieren mye mer enn sport. Den var hellig."
+        },
+        {
+            "type": "header",
+            "text": "Den hellige våpenhvilen"
+        },
+        {
+            "type": "text",
+            "content": "Her møter vi et problem. Hvordan kunne utøvere og tilskuere reise trygt til Olympia når bystatene lå i krig? Svaret var en av de mest spesielle ordningene i hele antikken: ekecheiria, den hellige våpenhvilen. Noen uker før lekene reiste budbringere ut til alle bystatene og ropte ut freden. Mens våpenhvilen varte, fikk ingen starte krig, og ingen fikk angripe noen som var på vei til lekene. Selv byer som hatet hverandre, la ned våpnene. På denne måten gjorde sporten noe ingen hær klarte: den stoppet krigene, om enn bare for en kort tid. Prøv det selv i kartet under. Tenn den hellige ilden, og se hva som skjer med krigen mellom bystatene."
+        },
+        {
+            "type": "component",
+            "name": "OlympiskFred",
+            "props": {
+                "title": "Den hellige våpenhvilen"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Grenene i lekene"
+        },
+        {
+            "type": "text",
+            "content": "Lekene varte i flere dager og hadde mange ulike grener. Det aller eldste var stadionløpet, et kort løp på rundt to hundre meter. Senere kom lengre løp, bryting, boksing og det harde og farlige vognløpet med hester. En av de mest kjente øvelsene var femkampen. Den bestod av løp, lengdehopp, spydkast, diskoskast og bryting. En god femkjemper måtte være både rask, sterk og smidig. Utøverne trente i månedsvis før lekene, og mange av dem konkurrerte nakne, fordi grekerne beundret den veltrente kroppen. I mikrospillet under kan du selv kaste diskos på Olympias stadion. Still inn vinkel og kraft, og prøv å slå rekorden."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Vognløp med hester runder svingen på stadion i Olympia",
+            "caption": "Vognløpet var det mest dramatiske og farlige. Mange velt og krasj endte i alvorlige skader."
+        },
+        {
+            "type": "component",
+            "name": "MicroGame",
+            "props": {
+                "gameId": "olympia-diskos-3d"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Ære, ikke gull"
+        },
+        {
+            "type": "text",
+            "content": "Vinneren i Olympia fikk ingen pengepremie. Belønningen var en enkel krans flettet av greiner fra et hellig oliventre. Likevel var dette noe av det største en greker kunne oppnå. En olympisk seierherre ble feiret som en helt da han kom hjem. Byen hans kunne gi ham gratis mat resten av livet, reise statuer av ham og skrive dikt til hans ære. Seieren handlet ikke om penger, men om ære for utøveren selv, for familien og for hele bystaten han kom fra. Å vinne for byen sin var en av de største tingene du kunne gjøre for fellesskapet."
+        },
+        {
+            "type": "header",
+            "text": "Hvem fikk være med?"
+        },
+        {
+            "type": "text",
+            "content": "Lekene var ikke åpne for alle. Bare frie greske menn fikk delta. Slaver og utlendinger ble holdt utenfor, og gifte kvinner fikk ikke engang lov til å se på. Det viser oss at det greske samfunnet var langt mindre likt og rettferdig enn vårt eget. Men nettopp ved å samle frie grekere fra alle bystatene gjorde lekene noe viktig. De minnet folk om at de var ett folk med en felles kultur, selv når de kriget mot hverandre. Denne følelsen av å høre sammen ble enda sterkere da en felles fiende truet utenfra, slik som under [perserkrigene](/historie/perserriket/perserkrigene). Senere spredte Aleksander den store gresk kultur over store deler av den kjente verden, noe du kan lese mer om i artikkelen om [Aleksander den store](/historie/perserriket/aleksander-den-store)."
+        },
+        {
+            "type": "header",
+            "text": "Arven etter lekene"
+        },
+        {
+            "type": "text",
+            "content": "De antikke lekene tok slutt rundt år 393 etter vår tid, da en romersk keiser forbød dem fordi de var hedenske. Da hadde de blitt holdt i nesten tolv hundre år. Men ideen forsvant aldri helt. I 1896 ble de moderne olympiske lekene arrangert for første gang, i Athen, som en hyllest til den greske arven. I dag samles idrettsutøvere fra hele verden hvert fjerde år, akkurat som grekerne en gang gjorde. Den olympiske ilden som tennes før hver lek, er et minne om den hellige ilden som brant i Olympia. Tanken om at idrett kan samle folk på tvers av grenser og konflikter, lever fortsatt videre fra det første løpet i 776 før vår tid."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Den olympiske ilden tennes ved tempelruinene i Olympia",
+            "caption": "Den olympiske ilden tennes fortsatt i Olympia i dag, en bro mellom antikken og vår tid."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hvorfor ble de olympiske lekene holdt?",
+                        "options": [
+                            "Det var en religiøs fest til ære for guden Zevs",
+                            "For å trene soldater til krig",
+                            "For å feire en konges bursdag",
+                            "For å selge varer på et marked"
+                        ],
+                        "answer": "Det var en religiøs fest til ære for guden Zevs"
+                    },
+                    {
+                        "question": "Hva var ekecheiria?",
+                        "options": [
+                            "En type idrettsgren",
+                            "Den hellige våpenhvilen som stoppet krigene under lekene",
+                            "Premien vinneren fikk",
+                            "Navnet på stadion i Olympia"
+                        ],
+                        "answer": "Den hellige våpenhvilen som stoppet krigene under lekene"
+                    },
+                    {
+                        "question": "Hva fikk vinneren i Olympia?",
+                        "options": [
+                            "En stor pengepremie",
+                            "En krans av greiner fra et hellig oliventre, og mye ære",
+                            "Et hus i Athen",
+                            "Et skip fullt av gull"
+                        ],
+                        "answer": "En krans av greiner fra et hellig oliventre, og mye ære"
+                    },
+                    {
+                        "question": "Hvorfor var Hellas spesielt på denne tiden?",
+                        "options": [
+                            "Det var ett samlet land med én konge",
+                            "Det var hundrevis av selvstendige bystater som ofte lå i krig",
+                            "Det var styrt av romerne",
+                            "Ingen bodde der ennå"
+                        ],
+                        "answer": "Det var hundrevis av selvstendige bystater som ofte lå i krig"
+                    },
+                    {
+                        "question": "Hvem fikk delta i de antikke lekene?",
+                        "options": [
+                            "Alle som ville, også kvinner og slaver",
+                            "Bare frie greske menn",
+                            "Bare konger og prester",
+                            "Bare folk fra Athen"
+                        ],
+                        "answer": "Bare frie greske menn"
+                    }
+                ]
+            }
+        }
+    ],
+    "timeline": []
+}
