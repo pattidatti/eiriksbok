@@ -26,6 +26,10 @@ const Streikefronten3D = lazy(() => import('./Streikefronten3D'));
 const Perspektivkjernen3D = lazy(() => import('./Perspektivkjernen3D'));
 const Datasporet3D = lazy(() => import('./Datasporet3D'));
 const AnsikteneIMengden3D = lazy(() => import('./AnsikteneIMengden3D'));
+const Grenselinja3D = lazy(() => import('./Grenselinja3D'));
+const Maktbalansen3D = lazy(() => import('./Maktbalansen3D'));
+const TaushetsspiralenTorg3D = lazy(() => import('./TaushetsspiralenTorg3D'));
+const Spillereglene3D = lazy(() => import('./Spillereglene3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
     'gladius-duell': {
@@ -216,6 +220,42 @@ export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.Laz
         estimatedSeconds: 110,
         loader: () => import('./AnsikteneIMengden3D'),
         Component: AnsikteneIMengden3D as never,
+    },
+    'grenselinja-3d': {
+        id: 'grenselinja-3d',
+        title: 'Hold grensa di',
+        description:
+            'Du står i sentrum på din egen grenselinje. Fem relasjoner lener seg inn med et press som krysser en grense - og jo nærmere de står, desto hardere presser de. Klikk hver og hold grensa. De som respekterer den, blir stående hos deg. Gjengen som bare ga deg et ultimatum, forsvinner når du står for noe. Lyspæren: det er vanskeligst å si nei til dem du står nærmest.',
+        estimatedSeconds: 110,
+        loader: () => import('./Grenselinja3D'),
+        Component: Grenselinja3D as never,
+    },
+    'maktbalansen-3d': {
+        id: 'maktbalansen-3d',
+        title: 'Balanser makta',
+        description:
+            'En glødende avgjørelse svever over en arena med fire maktaktør-pilarer (Politikk, Næringsliv, Media, Sivilsamfunn). Klikk en aktør og se den trekke avgjørelsen mot seg - én aktør alene drar den helt skjevt. Først når alle fire motvektene trekker samtidig, balanserer de hverandre og avgjørelsen lander i den legitime midtringen. Lyspæren: spredt makt med flere motvekter gir en balansert, legitim avgjørelse.',
+        estimatedSeconds: 120,
+        loader: () => import('./Maktbalansen3D'),
+        Component: Maktbalansen3D as never,
+    },
+    'taushetsspiralen-3d': {
+        id: 'taushetsspiralen-3d',
+        title: 'Bryt taushetsspiralen',
+        description:
+            'Et digitalt forum der to høyrøstede figurer dominerer mikrofonen mens fire nyanserte stemmer tier i periferien. Klikk «Oppmuntre» ved hver stille figur – de glir inn mot plattformen og debatten blir gradvis mer mangfoldig. Lyspæren: demokratiet er sterkere når alle tør å delta, ikke bare de fem prosentene som alltid ytrer seg.',
+        estimatedSeconds: 120,
+        loader: () => import('./TaushetsspiralenTorg3D'),
+        Component: TaushetsspiralenTorg3D as never,
+    },
+    'spillereglene-3d': {
+        id: 'spillereglene-3d',
+        title: 'Spillet trenger regler',
+        description:
+            'Et spill uten regler er rent kaos: spillerne løper hvor de vil og ballen spretter vilt. Legg på de tre regelnivåene ett om gangen - regler gir banen rammer, loven gir en dommer som håndhever rettferdig, og normene får laget til å samarbeide av seg selv. Aha-en: samfunnet trenger alle tre nivåene sammen for at spillet skal funke.',
+        estimatedSeconds: 120,
+        loader: () => import('./Spillereglene3D'),
+        Component: Spillereglene3D as never,
     },
 };
 

@@ -1,6 +1,7 @@
 {
     "id": "km-11-sjolvbilete-grenser",
-    "title": "Kven er du? - identitet og eigne grenser",
+    "title": "Hvem er du? - identitet og egne grenser",
+    "description": "Hvordan bygges identitet og selvbilde - og hvordan holder du dine egne grenser når presset kommer fra dem du står nærmest? En artikkel om selvfølelse, fellesskap, gruppepress og hva du kan gjøre når noe uønsket skjer.",
     "layout": "rich",
     "category": "Samfunnskunnskap",
     "subject": "samfunnskunnskap",
@@ -31,17 +32,17 @@
         },
         {
             "type": "text",
-            "content": "Hvem er du - egentlig? Ikke det du sier at du er til andre, men det du faktisk tenker om deg selv sent om kvelden? Det sporsmålet horer til de viktigste du noen gang stiller deg. Og det morsomme er at svaret endrer seg hele livet. Identiteten din er ikke noe du fodtes med ferdiglaget. Den bygges opp, brytes ned og bygges opp igjen - litt som et legohus der brikker legges til og tas vekk hele tida."
+            "content": "Hvem er du - egentlig? Ikke det du sier at du er til andre, men det du faktisk tenker om deg selv sent om kvelden? Det spørsmålet hører til de viktigste du noen gang stiller deg. Og det morsomme er at svaret endrer seg hele livet. Identiteten din er ikke noe du fødtes med ferdiglaget. Den bygges opp, brytes ned og bygges opp igjen - litt som et legohus der brikker legges til og tas vekk hele tida."
         },
         {
             "type": "text",
-            "content": "I ungdomsarene skjer det kanskje mest av alt. Du er i en periode der du flytter deg fra barndomsidentiteten - 'jeg er sonen/dattera til mamma og pappa' - og begynner a sporre: Hva mener jeg selv? Hva er viktig for meg? Hvem vil jeg være? Denne prosessen er helt normal, men den er heller ikke smertefri."
+            "content": "I ungdomsårene skjer det kanskje mest av alt. Du flytter deg fra barndomsidentiteten - 'jeg er sønnen eller dattera til mamma og pappa' - og begynner å spørre: Hva mener jeg selv? Hva er viktig for meg? Hvem vil jeg være? Denne prosessen er helt normal, men den er heller ikke smertefri."
         },
         {
             "type": "image",
             "src": "/images/placeholder.webp",
             "alt": "Ungdom som ser på seg selv i speilet hjemme",
-            "caption": "Identiteten vaer formes av de fellesskapene vi er en del av - familie, venner og sosiale medier."
+            "caption": "Identiteten vår formes av de fellesskapene vi er en del av - familie, venner og sosiale medier."
         },
         {
             "type": "header",
@@ -49,11 +50,11 @@
         },
         {
             "type": "text",
-            "content": "Identitet er samlingen av svar på sporsmalet 'hvem er jeg?' Det handler om verdiene dine (hva du synes er viktig), interessene dine (hva du liker a holde på med), tilknytningene dine (hvilke grupper du foler at du horer til) og historien din (hva du har opplevd og lart). Identiteten din pavirkes av alt fra familien du vokste opp i, til venner på skolen, til hva du ser på YouTube."
+            "content": "Identitet er samlingen av svar på spørsmålet 'hvem er jeg?' Det handler om verdiene dine (hva du synes er viktig), interessene dine (hva du liker å holde på med), tilknytningene dine (hvilke grupper du føler at du hører til) og historien din (hva du har opplevd og lært). Identiteten din påvirkes av alt fra familien du vokste opp i, til venner på skolen, til hva du ser på YouTube."
         },
         {
             "type": "text",
-            "content": "Psykologen Erik Erikson mente at ungdomstida handler om akkurat dette: A finne ut hvem man er. Han kalte det en 'identitetskrise' - ikke fordi det er en katastrofe, men fordi det er en utfordrende overgangsfase. Du tester ut ulike roller og verdier for a se hva som passer. Du kan være en periode veldig opptatt av musikk, sa flytte interessen over på fotball, og etter hvert kanskje oppdage at du faktisk brenner for a jobbe med dyr. Slik prover du deg fram."
+            "content": "Psykologen Erik Erikson mente at ungdomstida handler om akkurat dette: å finne ut hvem man er. Han kalte det en 'identitetskrise' - ikke fordi det er en katastrofe, men fordi det er en utfordrende overgangsfase. Du tester ut ulike roller og verdier for å se hva som passer. Du kan en periode være veldig opptatt av musikk, så flytte interessen over på fotball, og etter hvert kanskje oppdage at du faktisk brenner for å jobbe med dyr. Slik prøver du deg fram."
         },
         {
             "type": "header",
@@ -61,20 +62,29 @@
         },
         {
             "type": "text",
-            "content": "Selvbildet er det indre bildet du har av deg selv. Det er ikke bare om du er flink på skolen eller god i fotball - det handler om den grunnleggende folelsen av om du er verdt noe, om du er OK slik du er. Forskere kaller dette selvfolgelse. En sunn selvfolgelse betyr ikke at du synes du er best i alt. Det betyr at du har et trygt fotfeste inni deg: 'Jeg er god nok, selv om jeg ikke lykkes med alt.'"
+            "content": "Selvbildet er det indre bildet du har av deg selv. Det er ikke bare om du er flink på skolen eller god i fotball - det handler om den grunnleggende følelsen av om du er verdt noe, om du er OK slik du er. Forskere kaller dette selvfølelse. En sunn selvfølelse betyr ikke at du synes du er best i alt. Det betyr at du har et trygt fotfeste inni deg: 'Jeg er god nok, selv om jeg ikke lykkes med alt.'"
         },
         {
             "type": "text",
-            "content": "Selvbildet vaart formes av tilbakemeldingene vi far fra andre. Ros og kritikk fra foreldre, lærere og venner setter spor. Et barn som stadig far hore at det er dumt eller ubetydelig, vil etter hvert begynne a tro på det. Omvendt: Et barn som opplever a bli sett, horst og respektert, bygger et tryggere selvbilde. Men her er det viktige: Du er ikke hjelpelose. Selvbildet kan jobbes med og styrkes hele livet."
+            "content": "Selvbildet vårt formes av tilbakemeldingene vi får fra andre. Ros og kritikk fra foreldre, lærere og venner setter spor. Et barn som stadig får høre at det er dumt eller ubetydelig, vil etter hvert begynne å tro på det. Omvendt: et barn som opplever å bli sett, hørt og respektert, bygger et tryggere selvbilde. Men her er det viktige: du er ikke hjelpeløs. Selvbildet kan jobbes med og styrkes hele livet."
         },
         {
             "type": "text",
-            "content": "Sosiale medier har gjort dette mer komplisert. Na kan du hvert minutt sammenligne deg med hundrevis av andre - og algoritmene viser gjerne de som ser perfekte ut. Dette gir et forvrengt bilde av virkeligheten. Du ser ikke de andres drittdager, bare de redigerte hoydepunktene. Forskning viser at overdreven bruk av sosiale medier henger saman med darligere selvbilde, saerlig blant jenter. Du kan lese mer om hvordan digitale bobler pavirker oss i artikkelen om [ekkokamre og informasjonsbobler](/samfunnskunnskap/mennesket-kultur-samfunn/ekkokamre)."
+            "content": "Forskjellen på selvtillit og selvfølelse er verdt å forstå. Selvtillit handler om hva du får til: gode karakterer, mange likes, å vinne kampen. Den svinger med dagsformen. Selvfølelse handler om noe dypere - at du er god nok uansett om dagen gikk bra eller dårlig. Prøv verktøyet under: bygg selvbildet ditt av ytre ting og en indre grunnmur, og se hva som blir stående når en dårlig dag kommer."
+        },
+        {
+            "type": "component",
+            "name": "Selvfolelsensfundament",
+            "props": {}
+        },
+        {
+            "type": "text",
+            "content": "Sosiale medier har gjort dette mer komplisert. Nå kan du hvert minutt sammenligne deg med hundrevis av andre - og algoritmene viser gjerne dem som ser perfekte ut. Dette gir et forvrengt bilde av virkeligheten. Du ser ikke de andres dårlige dager, bare de redigerte høydepunktene. Forskning viser at overdreven bruk av sosiale medier henger sammen med dårligere selvbilde, særlig blant jenter. Du kan lese mer om hvordan digitale bobler påvirker oss i artikkelen om [ekkokamre og informasjonsbobler](/samfunnskunnskap/mennesket-kultur-samfunn/ekkokamre)."
         },
         {
             "type": "image",
             "src": "/images/placeholder.webp",
-            "alt": "Tenaring sjekker sosiale medier på telefon om natta",
+            "alt": "Tenåring sjekker sosiale medier på telefon om natta",
             "caption": "Sosiale medier viser en redigert versjon av andres liv - noe som kan skade selvbildet."
         },
         {
@@ -83,15 +93,15 @@
         },
         {
             "type": "text",
-            "content": "Vi er sosiale vesener. Vi trenger fellesskap - og fellesskapene vi tilhorer er med på a forme hvem vi er. Det kan være familien, vennegjengen, idrettslaget, klassen, en nettgruppe eller en religioes fellesskap. Alle disse gir deg en del av identiteten din: 'Jeg er en av gutta på laget', 'jeg er muslimsk', 'jeg er fra Nord-Norge'. Disse tilknytningene er verdifulle."
+            "content": "Vi er sosiale vesener. Vi trenger fellesskap - og fellesskapene vi tilhører er med på å forme hvem vi er. Det kan være familien, vennegjengen, idrettslaget, klassen, en nettgruppe eller et religiøst fellesskap. Alle disse gir deg en del av identiteten din: 'jeg er en av gutta på laget', 'jeg er muslim', 'jeg er fra Nord-Norge'. Disse tilknytningene er verdifulle."
         },
         {
             "type": "text",
-            "content": "Men fellesskap kan ogsa utfordre identiteten din på mater som ikke alltid er greie. Gruppepress er ett eksempel: Alle rundt deg gjor noe - kanskje noe du ikke har lyst til, eller vet er feil - og du kjenner et sterkt trykk om a falle inn. Som vi sa i artikkelen om [flokkmentalitetens psykologi](/samfunnskunnskap/mennesket-kultur-samfunn/flokkmentalitet), er dette en helt naturlig menneskelig mekanisme. Vi er biologisk kablet til a onskes akseptert av gruppen. Men det betyr ikke at vi alltid bor boje oss."
+            "content": "Men fellesskap kan også utfordre identiteten din på måter som ikke alltid er greie. Gruppepress er ett eksempel: alle rundt deg gjør noe - kanskje noe du ikke har lyst til, eller vet er feil - og du kjenner et sterkt trykk om å falle inn. Som vi sa i artikkelen om [flokkmentalitetens psykologi](/samfunnskunnskap/mennesket-kultur-samfunn/flokkmentalitet), er dette en helt naturlig menneskelig mekanisme. Vi er biologisk kablet til å ønske å bli akseptert av gruppen. Men det betyr ikke at vi alltid bør bøye oss."
         },
         {
             "type": "text",
-            "content": "Et godt fellesskap bygger deg opp. Det gir deg rom til å være deg selv, til a si nei, til a prove og mislykkast uten a bli kastet ut. Et usunt fellesskap derimot bruker tilhorighet som valuta: 'Gjor dette, ellers er du ikke en av oss.' Dette er en viktig forskjell a legge merke til."
+            "content": "Et godt fellesskap bygger deg opp. Det gir deg rom til å være deg selv, til å si nei, til å prøve og mislykkes uten å bli kastet ut. Et usunt fellesskap derimot bruker tilhørighet som valuta: 'Gjør dette, ellers er du ikke en av oss.' Dette er en viktig forskjell å legge merke til."
         },
         {
             "type": "component",
@@ -101,17 +111,17 @@
                 "scenario": [
                     {
                         "id": "start",
-                        "text": "Det er fredag kveld. Vennegjengen din vil se en video de vet er ment a mobbe en elev på klassen din. Alle ler og sender den videre. Noen ser på deg og sier: 'Kom igjen, det er jo bare moro.' Du kjenner ubehag inni deg.",
+                        "text": "Det er fredag kveld. Vennegjengen din vil se en video de vet er ment å mobbe en elev i klassen din. Alle ler og sender den videre. Noen ser på deg og sier: 'Kom igjen, det er jo bare moro.' Du kjenner ubehag inni deg.",
                         "choices": [
                             {
                                 "text": "Ler med og sender videoen videre",
                                 "nextId": "fulgte-flokken",
-                                "feedback": "Du valgte a falle inn i gruppen. Det kjentes trygt der og da - men inni deg vet du at det ikke stemmer med hvem du vil være. Neste gang kjenner du presset enda sterkere, fordi du allerede har gitt etter en gang."
+                                "feedback": "Du valgte å falle inn i gruppen. Det kjentes trygt der og da - men inni deg vet du at det ikke stemmer med hvem du vil være. Neste gang kjenner du presset enda sterkere, fordi du allerede har gitt etter en gang."
                             },
                             {
                                 "text": "Sier ingenting, men sender ikke videoen videre",
                                 "nextId": "passiv-motstand",
-                                "feedback": "Du lot være a delta - det er et steg. Men du sa heller ikke ifra. Stillheten kan oppfattes som samtykke av de andre. Det er bedre enn a bidra, men ikke det samme som a sta opp for verdiene dine."
+                                "feedback": "Du lot være å delta - det er et steg. Men du sa heller ikke ifra. Stillheten kan oppfattes som samtykke av de andre. Det er bedre enn å bidra, men ikke det samme som å stå opp for verdiene dine."
                             },
                             {
                                 "text": "Sier rolig: 'Det er ikke min greie, jeg sender den ikke'",
@@ -119,57 +129,57 @@
                                 "feedback": "Du holdt grensa di uten drama. Du la ikke skylden på andre, men sa tydelig hva du sto for. Det kan kjennes ubehagelig der og da - men du bygger et selvbilde du kan leve med. Slike valg former hvem du er."
                             },
                             {
-                                "text": "Forlater rommet uten a si noe",
+                                "text": "Forlater rommet uten å si noe",
                                 "nextId": "forlot-rommet",
-                                "feedback": "Du unnga situasjonen - og det beskyttet deg. Men a trekke seg er ikke alltid mulig. Den som blir mobbet, vet heller ingenting om at du brydde deg. Neste gang kan du vurdere a si noe direkte."
+                                "feedback": "Du unngikk situasjonen - og det beskyttet deg. Men å trekke seg er ikke alltid mulig. Den som blir mobbet, vet heller ingenting om at du brydde deg. Neste gang kan du vurdere å si noe direkte."
                             }
                         ]
                     },
                     {
                         "id": "fulgte-flokken",
-                        "text": "Dagen etter horer du at eleven som ble mobbet ikke kom på skolen. Du kjenner en klo i magen. Hva gjor du?",
+                        "text": "Dagen etter hører du at eleven som ble mobbet ikke kom på skolen. Du kjenner en klo i magen. Hva gjør du?",
                         "choices": [
                             {
-                                "text": "Prover a glemme det - det var jo bare en video",
+                                "text": "Prøver å glemme det - det var jo bare en video",
                                 "nextId": "angrer-ikke",
-                                "feedback": "A bortforklare det for seg selv er lett, men det endrer ikke hva som skjedde. Den kloringen du kjenner er samvittigheten din - og den har rett."
+                                "feedback": "Å bortforklare det for seg selv er lett, men det endrer ikke hva som skjedde. Den kloringen du kjenner er samvittigheten din - og den har rett."
                             },
                             {
                                 "text": "Ta kontakt med eleven og si du er lei deg",
                                 "nextId": "rydder-opp",
-                                "feedback": "Godt valg. A innromme en feil og rydde opp koster noe, men det er sterkt. Du viser bade deg selv og andre at du har en ryggmarg - og du kan bygge selvbildet ditt på noe ekte."
+                                "feedback": "Godt valg. Å innrømme en feil og rydde opp koster noe, men det er sterkt. Du viser både deg selv og andre at du har en ryggmarg - og du kan bygge selvbildet ditt på noe ekte."
                             }
                         ]
                     },
                     {
                         "id": "passiv-motstand",
-                        "text": "Neste gang gruppen din gjor noe lignende, sier en av dem direkte til deg: 'Hvorfor er du alltid sa kjedelig?' Du merker at du har lyst til a forsvare deg.",
+                        "text": "Neste gang gruppen din gjør noe lignende, sier en av dem direkte til deg: 'Hvorfor er du alltid så kjedelig?' Du merker at du har lyst til å forsvare deg.",
                         "choices": [
                             {
-                                "text": "Si: 'Det er ikke kjedelig a ha grenser'",
+                                "text": "Si: 'Det er ikke kjedelig å ha grenser'",
                                 "nextId": "holdt-grensa",
-                                "feedback": "Nydelig. Du navnga det som skjer - og du eier det. Det er modigere enn det ser ut som."
+                                "feedback": "Nydelig. Du satte ord på det som skjer - og du eier det. Det er modigere enn det ser ut som."
                             },
                             {
-                                "text": "Gi etter og delta for a slippe må",
+                                "text": "Gi etter og delta for å slippe maset",
                                 "nextId": "fulgte-flokken",
-                                "feedback": "Du valgte komfort over verdier. Forstaaelig - men det lille redet du bygget av egne grenser, raste litt ned."
+                                "feedback": "Du valgte komfort over verdier. Forståelig - men det lille redet du bygde av egne grenser, raste litt ned."
                             }
                         ]
                     },
                     {
                         "id": "holdt-grensa",
-                        "text": "En i gruppen ser imponert ut. En annen ser irritert ut og snur seg vekk. Du er usikker på om vennegjengen liker deg like godt na.",
+                        "text": "En i gruppen ser imponert ut. En annen ser irritert ut og snur seg vekk. Du er usikker på om vennegjengen liker deg like godt nå.",
                         "choices": [
                             {
                                 "text": "Tenk: 'Gode venner respekterer grensene mine'",
                                 "nextId": "slutt-sterk",
-                                "feedback": "Akkurat. Et fellesskap som krever at du gir slipp på deg selv for a få være med, er ikke et trygt fellesskap. A teste det er faktisk verdifullt informasjon om hvem vennene dine egentlig er."
+                                "feedback": "Akkurat. Et fellesskap som krever at du gir slipp på deg selv for å få være med, er ikke et trygt fellesskap. Å teste det er faktisk verdifull informasjon om hvem vennene dine egentlig er."
                             },
                             {
                                 "text": "Angre på at du sa ifra",
                                 "nextId": "tviler-på-seg-selv",
-                                "feedback": "Det er naturlig a tvile. Men husk: Angsten for avvisning er biologisk. Det betyr ikke at valget ditt var feil - bare at det kostet noe. Valg som koster noe, er ofte de rette."
+                                "feedback": "Det er naturlig å tvile. Men husk: angsten for avvisning er biologisk. Det betyr ikke at valget ditt var feil - bare at det kostet noe. Valg som koster noe, er ofte de rette."
                             }
                         ]
                     },
@@ -178,7 +188,7 @@
                         "text": "Du tenker på situasjonen etterpå. Hva lærer du om deg selv?",
                         "choices": [
                             {
-                                "text": "Jeg trenger a lare meg a si ifra, ikke bare ga",
+                                "text": "Jeg trenger å lære meg å si ifra, ikke bare gå",
                                 "nextId": "slutt-sterk",
                                 "feedback": "Selvbevissthet er starten på endring. Neste gang har du allerede tenkt igjennom hva du ville ha gjort annerledes - det er mye."
                             }
@@ -189,20 +199,20 @@
                         "text": "Du sender en melding til eleven. Det var vanskelig, men du gjorde det.",
                         "choices": [
                             {
-                                "text": "Ferdig - og du foler deg bedre",
+                                "text": "Ferdig - og du føler deg bedre",
                                 "nextId": "slutt-sterk",
-                                "feedback": "Slik bygges selvbildet - ikke av perfeksjon, men av evnen til a ta ansvar når du har gjort noe du angrer på. Det er modenhet."
+                                "feedback": "Slik bygges selvbildet - ikke av perfeksjon, men av evnen til å ta ansvar når du har gjort noe du angrer på. Det er modenhet."
                             }
                         ]
                     },
                     {
                         "id": "angrer-ikke",
-                        "text": "Kla-folelsen forsvinner ikke.",
+                        "text": "Klo-følelsen forsvinner ikke.",
                         "choices": [
                             {
-                                "text": "Kanskje bor jeg gjøre noe",
+                                "text": "Kanskje bør jeg gjøre noe",
                                 "nextId": "rydder-opp",
-                                "feedback": "Det er aldri for sent a si ifra. Samvittigheten din venter på deg."
+                                "feedback": "Det er aldri for sent å si ifra. Samvittigheten din venter på deg."
                             }
                         ]
                     },
@@ -213,13 +223,13 @@
                             {
                                 "text": "Kanskje er jeg OK slik jeg er",
                                 "nextId": "slutt-sterk",
-                                "feedback": "Ja. Usikkerheten er normal. Men a vente på at andre skal bekrefte verdien din er en felle - den bekreftelsen må komme innenfra."
+                                "feedback": "Ja. Usikkerheten er normal. Men å vente på at andre skal bekrefte verdien din er en felle - den bekreftelsen må komme innenfra."
                             }
                         ]
                     },
                     {
                         "id": "slutt-sterk",
-                        "text": "Identiteten din formes ikke av ett valg - men av mange. Hvert valg der du handler i traa med verdiene dine, legger en brikke til hvem du er.",
+                        "text": "Identiteten din formes ikke av ett valg - men av mange. Hvert valg der du handler i tråd med verdiene dine, legger en brikke til hvem du er.",
                         "choices": []
                     }
                 ],
@@ -228,41 +238,48 @@
         },
         {
             "type": "header",
-            "text": "Eigne grenser - hva er det og hvorfor trenger vi dem?"
+            "text": "Egne grenser - hva er det og hvorfor trenger vi dem?"
         },
         {
             "type": "text",
-            "content": "Grenser er ikke vegger du bygger for a stenge andre ute. De er retningslinjer for hvordan du onsker a bli behandlet, og hva du er villig til a delta i. A ha grenser er ikke egoistisk - det er respekt for deg selv. Og det er faktisk ogsa respekt for andre, fordi det gir dem ekte informasjon om hvem du er."
+            "content": "Grenser er ikke vegger du bygger for å stenge andre ute. De er retningslinjer for hvordan du ønsker å bli behandlet, og hva du er villig til å delta i. Å ha grenser er ikke egoistisk - det er respekt for deg selv. Og det er faktisk også respekt for andre, fordi det gir dem ekte informasjon om hvem du er."
         },
         {
             "type": "text",
-            "content": "Noen grenser er fysiske: Ingen har lov til a ta på deg uten at du vil det. Andre er emosjonelle: Du trenger ikke a dele alle personlige tanker med alle. Og noen er verdimessige: Det er ting du ikke vil være med på, uansett hva andre sier. A vite hvor disse grensene gar - og tore a si det hoyt - er en ferdighet du kan trene på."
+            "content": "Noen grenser er fysiske: ingen har lov til å ta på deg uten at du vil det. Andre er emosjonelle: du trenger ikke å dele alle personlige tanker med alle. Og noen er verdimessige: det er ting du ikke vil være med på, uansett hva andre sier. Å vite hvor disse grensene går - og tørre å si det høyt - er en ferdighet du kan trene på."
         },
         {
             "type": "text",
-            "content": "Utfordringen er at grenser ofte presses nettopp når du er rundt mennesker du bryr deg om. Det er lett a si nei til en fremmed. Det er mye vanskeligere a si nei til en bestevenn, en kjoereste eller en gruppe du onsker å være en del av. Men her er sannheten: Relasjoner der du stadig må gi slipp på grensene dine for a bli likt, er ikke relasjoner som faktisk ser deg."
+            "content": "Utfordringen er at grenser ofte presses nettopp når du er rundt mennesker du bryr deg om. Det er lett å si nei til en fremmed. Det er mye vanskeligere å si nei til en bestevenn, en kjæreste eller en gruppe du ønsker å være en del av. Men her er sannheten: relasjoner der du stadig må gi slipp på grensene dine for å bli likt, er ikke relasjoner som faktisk ser deg."
+        },
+        {
+            "type": "component",
+            "name": "MicroGame",
+            "props": {
+                "gameId": "grenselinja-3d"
+            }
         },
         {
             "type": "image",
             "src": "/images/placeholder.webp",
-            "alt": "Unge mennesker i samtale i en parkbenk",
-            "caption": "A si tydelig hva du star for bygger tillit og ekte relasjoner."
+            "alt": "Unge mennesker i samtale på en parkbenk",
+            "caption": "Å si tydelig hva du står for bygger tillit og ekte relasjoner."
         },
         {
             "type": "header",
-            "text": "Uonskte hendingar - og hva du kan gjøre"
+            "text": "Uønskte hendelser - og hva du kan gjøre"
         },
         {
             "type": "text",
-            "content": "Av og til skjer det ting som vi ikke ville ha bedt om - noen krysser grensene vare uten tillatelse. Det kan være et krenkende bilde som deles uten samtykke, en kommentar som kjennes nedverdigende, press til a gjøre noe du ikke vil, eller mobbing over tid. Disse hendingene kan skade selvbildet og identiteten vaare. Det er viktig a vite: At noe skjer med deg, betyr ikke at det er din feil."
+            "content": "Av og til skjer det ting som vi ikke ville ha bedt om - noen krysser grensene våre uten tillatelse. Det kan være et krenkende bilde som deles uten samtykke, en kommentar som kjennes nedverdigende, press til å gjøre noe du ikke vil, eller mobbing over tid. Disse hendelsene kan skade selvbildet og identiteten vår. Det er viktig å vite: at noe skjer med deg, betyr ikke at det er din feil."
         },
         {
             "type": "text",
-            "content": "Hva kan du gjøre når noe uonsket skjer? Her er noen konkrete steg: For det første - si det til noen du stoler på. A beholde det inni seg gir dem som krenket deg mer makt, ikke deg. For det andre - du trenger ikke handtere alt alene. Foreldre, kontaktlærer, helsesykepleier på skolen, eller BarnevernsNorge sin chat er steder du kan fa hjelp. For det tredje - dokumenter om det skjer digitalt. Skjermbilde av meldinger kan være viktig bevis."
+            "content": "Hva kan du gjøre når noe uønsket skjer? Her er noen konkrete steg: for det første - si det til noen du stoler på. Å beholde det inni seg gir dem som krenket deg mer makt, ikke deg. For det andre - du trenger ikke håndtere alt alene. Foreldre, kontaktlærer, helsesykepleier på skolen, eller Kors på halsen (Røde Kors sin chat for barn og unge) er steder du kan få hjelp. For det tredje - dokumenter om det skjer digitalt. Skjermbilde av meldinger kan være viktig bevis."
         },
         {
             "type": "text",
-            "content": "Det er ogsa nyttig a kjenne til begrepet digital krenking - det vil si a dele bilder, videoer eller meldinger om noen uten deres samtykke. Dette er ikke bare ekkelt, det er ofte ulovlig. Straffeloven i Norge har egne paragrafer som beskytter mot dette. Kjenner du noen som opplever dette, kan artikkelen om [ytringsvett og ytringsmot](/samfunnskunnskap/mennesket-kultur-samfunn/ytringsvett-vs-ytringsmot) gi nyttige perspektiver på grensen mellom retten til a si noe og plikten til a tenke seg om."
+            "content": "Det er også nyttig å kjenne til begrepet digital krenking - det vil si å dele bilder, videoer eller meldinger om noen uten deres samtykke. Dette er ikke bare ekkelt, det er ofte ulovlig. Straffeloven i Norge har egne paragrafer som beskytter mot dette. Kjenner du noen som opplever dette, kan artikkelen om [ytringsvett og ytringsmot](/samfunnskunnskap/mennesket-kultur-samfunn/ytringsvett-vs-ytringsmot) gi nyttige perspektiver på grensen mellom retten til å si noe og plikten til å tenke seg om."
         },
         {
             "type": "header",
@@ -270,22 +287,22 @@
         },
         {
             "type": "text",
-            "content": "Kompetansemalet ber deg ikke bare forstaa dette - det ber deg presentere forslag til losninger. Det betyr at du skal kunne tenke som en problemlpser. Når du star overfor gruppepress, uonskte hendingar eller utfordringer mot identiteten din, hva gjor du konkret?"
+            "content": "Kompetansemålet ber deg ikke bare forstå dette - det ber deg presentere forslag til løsninger. Det betyr at du skal kunne tenke som en problemløser. Når du står overfor gruppepress, uønskte hendelser eller utfordringer mot identiteten din, hva gjør du konkret?"
         },
         {
             "type": "list",
             "items": [
-                "Stopp og tenk: Er dette i traa med hvem jeg vil være?",
-                "Navngi hva du kjenner: 'Jeg er ikke komfortabel med dette.'",
+                "Stopp og tenk: Er dette i tråd med hvem jeg vil være?",
+                "Sett ord på hva du kjenner: 'Jeg er ikke komfortabel med dette.'",
                 "Si det rolig og tydelig, uten unnskyldninger: 'Jeg er ikke med på det.'",
                 "Finn allierte: Er det noen andre i gruppen som kanskje kjenner det samme?",
-                "Oppsok hjelp når du trenger det - det er styrke, ikke svakhet.",
+                "Oppsøk hjelp når du trenger det - det er styrke, ikke svakhet.",
                 "Snakk om det i etterkant - refleksjon styrker selvbildet over tid."
             ]
         },
         {
             "type": "text",
-            "content": "Identitet er ikke noe du finner en gang for alle og legger til side. Den er levende. Den pavirkes av alle relasjonene og fellesskapene du er en del av - noe du kan lese mer om i artikkelen om [kjendismakt og influensere](/samfunnskunnskap/mennesket-kultur-samfunn/kjendismakt), som viser hvordan ytre pavirkning former selvbildet vaart på mater vi knapt legger merke til. A bli kjent med seg selv er ikke et prosjekt du avslutter - det er noe du gjor hele livet."
+            "content": "Identitet er ikke noe du finner en gang for alle og legger til side. Den er levende. Den påvirkes av alle relasjonene og fellesskapene du er en del av - noe du kan lese mer om i artikkelen om [kjendismakt og influensere](/samfunnskunnskap/mennesket-kultur-samfunn/kjendismakt), som viser hvordan ytre påvirkning former selvbildet vårt på måter vi knapt legger merke til. Å bli kjent med seg selv er ikke et prosjekt du avslutter - det er noe du gjør hele livet."
         },
         {
             "type": "component",
@@ -293,26 +310,26 @@
             "props": {
                 "questions": [
                     {
-                        "question": "Hva er selvfolgelse?",
+                        "question": "Hva er selvfølelse?",
                         "options": [
                             "Evnen til å være best i klassen",
-                            "Den grunnleggende folelsen av at du er god nok slik du er",
+                            "Den grunnleggende følelsen av at du er god nok slik du er",
                             "Det samme som selvtillit i sport",
                             "En egenskap du enten har eller ikke har"
                         ],
                         "correctAnswer": 1,
-                        "explanation": "Selvfolgelse handler om et trygt fundament inni deg - ikke prestasjon, men vaerd. Den kan jobbes med og styrkes."
+                        "explanation": "Selvfølelse handler om et trygt fundament inni deg - ikke prestasjon, men verd. Den kan jobbes med og styrkes."
                     },
                     {
                         "question": "Hva er et tegn på et usunt fellesskap?",
                         "options": [
                             "Fellesskapet har felles regler",
-                            "Fellesskapet bruker tilhorighet som trussel: 'Gjor dette, ellers er du ikke en av oss'",
+                            "Fellesskapet bruker tilhørighet som trussel: 'Gjør dette, ellers er du ikke en av oss'",
                             "Fellesskapet har ulike meninger",
-                            "Fellesskapet moter ukentlig"
+                            "Fellesskapet møtes ukentlig"
                         ],
                         "correctAnswer": 1,
-                        "explanation": "Et godt fellesskap gir deg rom til å være deg selv. Når tilhorighet brukes som valuta for a presse deg til noe, er det et varseltegn."
+                        "explanation": "Et godt fellesskap gir deg rom til å være deg selv. Når tilhørighet brukes som valuta for å presse deg til noe, er det et varseltegn."
                     },
                     {
                         "question": "Hva kalles det når noen deler bilder eller meldinger om deg uten tillatelse?",
@@ -323,29 +340,29 @@
                             "Sosial kapital"
                         ],
                         "correctAnswer": 2,
-                        "explanation": "Digital krenking er a dele innhold om noen uten samtykke. Det er ofte ulovlig etter norsk straffelov og kan fa alvorlige konsekvenser."
+                        "explanation": "Digital krenking er å dele innhold om noen uten samtykke. Det er ofte ulovlig etter norsk straffelov og kan få alvorlige konsekvenser."
                     },
                     {
-                        "question": "Hva anbefaler artikkelen som et av de første stegene når noe uonsket skjer?",
+                        "question": "Hva anbefaler artikkelen som et av de første stegene når noe uønsket skjer?",
                         "options": [
-                            "Haevn deg på den som krenket deg",
-                            "Behold det for deg selv sa ingen får vite",
+                            "Hevn deg på den som krenket deg",
+                            "Behold det for deg selv så ingen får vite",
                             "Si det til noen du stoler på",
                             "Slett alle sosiale medier"
                         ],
                         "correctAnswer": 2,
-                        "explanation": "A fortelle det til noen du stoler på er et viktig første steg. Det gir deg stotte og forhindrer at den som krenket deg beholder makten i situasjonen."
+                        "explanation": "Å fortelle det til noen du stoler på er et viktig første steg. Det gir deg støtte og forhindrer at den som krenket deg beholder makten i situasjonen."
                     },
                     {
                         "question": "Hva mener psykologen Erik Erikson at ungdomstida handler om?",
                         "options": [
-                            "A gjøre det bra på skolen",
-                            "A finne ut hvem man er - identitetsutvikling",
-                            "A lare seg økonomi og arbeidsliv",
-                            "A knytte romantiske relasjoner"
+                            "Å gjøre det bra på skolen",
+                            "Å finne ut hvem man er - identitetsutvikling",
+                            "Å lære seg økonomi og arbeidsliv",
+                            "Å knytte romantiske relasjoner"
                         ],
                         "correctAnswer": 1,
-                        "explanation": "Erikson kalte ungdomstidas utfordring for en 'identitetskrise' - ikke en katastrofe, men en prosess der du tester ut roller og verdier for a finne ut hvem du er."
+                        "explanation": "Erikson kalte ungdomstidas utfordring for en 'identitetskrise' - ikke en katastrofe, men en prosess der du tester ut roller og verdier for å finne ut hvem du er."
                     }
                 ]
             }

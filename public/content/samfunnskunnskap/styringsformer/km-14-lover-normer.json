@@ -1,6 +1,9 @@
 {
     "id": "km-14-lover-normer",
-    "title": "Lover, normer og konsekvensar",
+    "title": "Lover, normer og konsekvenser",
+    "description": "Hva er forskjellen på en lov, en regel og en norm - og hva skjer når de brytes? Lær hvordan konsekvensene treffer både den enkelte og samfunnet, på kort og lang sikt.",
+    "subject": "samfunnskunnskap",
+    "topic": "styringsformer",
     "layout": "rich",
     "category": "Samfunnskunnskap",
     "readTime": "8 min lesning",
@@ -10,6 +13,7 @@
         "Lover og regler i samfunnet"
     ],
     "timeline": [],
+    "createdDate": "2026-06-02T00:00:00Z",
     "tags": [
         "lover",
         "normer",
@@ -57,12 +61,23 @@
             "content": "For det tredje har vi normer. Normer er uskrevne forventninger om hvordan man skal oppføre seg. Det finnes ingen lov som sier at du må si takk for maten, men det forventes likevel. Normer lærer vi gjennom oppvekst, kultur og sosiale miljøer. De varierer mellom land, grupper og generasjoner."
         },
         {
+            "type": "text",
+            "content": "Husk fotballbanen fra starten: et spill trenger alle tre nivåene samtidig. Prøv det selv under. Banen er i kaos, og du legger på regler, lov og normer ett om gangen. Følg med på hva som skjer med spillerne for hvert nivå du legger til."
+        },
+        {
+            "type": "component",
+            "name": "MicroGame",
+            "props": {
+                "gameId": "spillereglene-3d"
+            }
+        },
+        {
             "type": "header",
             "text": "Hva skjer når regler brytes?"
         },
         {
             "type": "text",
-            "content": "Konsekvensene av regelbrudd avhenger av hva slags regle det dreier seg om. Bryter du en lov, kan staten straffe deg. Straffen kan være en bot, samfunnsstraff eller i alvorlige tilfeller fengsel. Formålet med straff er tredelt: den skal gjøre opp for skaden (gjengjeldelse), hindre den straffede fra å gjøre det igjen (individualprevensjon), og vise resten av samfunnet at lovbrudd har konsekvenser (allmennprevensjon)."
+            "content": "Konsekvensene av regelbrudd avhenger av hva slags regel det dreier seg om. Bryter du en lov, kan staten straffe deg. Straffen kan være en bot, samfunnsstraff eller i alvorlige tilfeller fengsel. Formålet med straff er tredelt: den skal gjøre opp for skaden (gjengjeldelse), hindre den straffede fra å gjøre det igjen (individualprevensjon), og vise resten av samfunnet at lovbrudd har konsekvenser (allmennprevensjon)."
         },
         {
             "type": "text",
@@ -91,87 +106,13 @@
             "content": "Økonomieksperter snakker om noe lignende når de forklarer hva som skjer i et samfunn uten tillit og forutsigbare regler. Tenk på land der korrupsjon er utbredt: bedrifter vet ikke om kontrakten de inngår vil bli respektert, og næringslivet stagnerer. Regelbrudd på makronivå rammer hele [arbeidsliv](/samfunnskunnskap/arbeidsliv/arbeidsrett) og økonomi."
         },
         {
+            "type": "text",
+            "content": "Det samme regelbruddet kan se helt ulikt ut alt etter hvor og når du måler konsekvensene. Velg et regelbrudd under, og klikk deg gjennom de fire rutene. Da ser du hvordan konsekvensen treffer både den enkelte og samfunnet, på kort og lang sikt."
+        },
+        {
             "type": "component",
-            "name": "SocialContractDecider",
-            "props": {
-                "dilemmas": [
-                    {
-                        "scenario": "Klassen din har en norm om at alle hjelper hverandre med lekser. En medelev slutter å bidra, men ber fortsatt om hjelp fra andre. Hva bor klassen gjøre?",
-                        "options": [
-                            {
-                                "text": "Fortsett som normalt - vi hjelper uansett",
-                                "consequence": "Normen svekkes over tid. Flere kan slutte å bidra når de ser at det ikke har konsekvenser.",
-                                "type": "passive"
-                            },
-                            {
-                                "text": "Ta en åpen samtale med medeleven om forventningene",
-                                "consequence": "Dette er ofte mest effektivt. Medeleven forstår kanskje ikke at hen har brutt en norm, og samtalen gjenoppretter forventningene.",
-                                "type": "constructive"
-                            },
-                            {
-                                "text": "Nekt å hjelpe medeleven videre",
-                                "consequence": "Kortsiktig konsekvens som kan gjenopprette normen, men risikerer å skade relasjonen og klassemiljoet.",
-                                "type": "reactive"
-                            },
-                            {
-                                "text": "Lag en skriftlig klasseavtale om forventninger",
-                                "consequence": "Normen formaliseres til en regel. Det kan hjelpe, men kan også gjøre klassemiljoet mer stivt og mistillitsfullt.",
-                                "type": "formal"
-                            }
-                        ]
-                    },
-                    {
-                        "scenario": "En person kjoper sykkel av noen for billig pris og mistenker at den er stjålet, men er ikke sikker. Det er ikke ulovlig å kjope en stjålet sykkel hvis du ikke visste det. Hva bor personen gjøre?",
-                        "options": [
-                            {
-                                "text": "Kjop sykkelen - det er ikke ulovlig",
-                                "consequence": "Lovlig, men bryter en norm om å ikke dra nytte av andre sitt tap. Bidrar indirekte til at det lønner seg å stjele.",
-                                "type": "passive"
-                            },
-                            {
-                                "text": "Spor om sykkelen er registrert og be om kvittering",
-                                "consequence": "Fornuftig og ansvarlig. Reduserer risikoen for å kjope stjålet gods og sender signal om at det ikke lønner seg å selge stjalet utstyr.",
-                                "type": "constructive"
-                            },
-                            {
-                                "text": "Ikke kjop, men varsle politiet om mistanken",
-                                "consequence": "Høyt moralsk valg. Kan redde eierens sykkel og forhindre at tyveri lønner seg.",
-                                "type": "formal"
-                            },
-                            {
-                                "text": "Ignorer mistanken og kjop sykkelen raskt",
-                                "consequence": "Risikerer å bli tatt for heling hvis sykkelen er registrert. Bidrar til at kriminelle adferd lønner seg.",
-                                "type": "reactive"
-                            }
-                        ]
-                    },
-                    {
-                        "scenario": "En elev ser at en medelev blir mobbet daglig, men ingen voksne ser det. Det er ikke direkte ulovlig å se på uten å gripe inn, men skolen har klare regler mot mobbing.",
-                        "options": [
-                            {
-                                "text": "Ikke bli innblandet - det angår ikke deg",
-                                "consequence": "Mobbingen fortsetter. Passivitet er en av de sterkeste normene som opprettholder mobbing. Du bryter skolens regler ved å ikke varsle.",
-                                "type": "passive"
-                            },
-                            {
-                                "text": "Si fra til en lærer eller annen voksen",
-                                "consequence": "Viktigste enkelthandling. Skolens plikt til å gripe inn utloses kun når de vet om problemet. Du overholder både reglene og normen om å hjelpe andre.",
-                                "type": "constructive"
-                            },
-                            {
-                                "text": "Konfronter mobberen direkte",
-                                "consequence": "Kan hjelpe i øyeblikket, men risikerer å eskalere situasjonen. Best som supplement til å varsle voksne.",
-                                "type": "reactive"
-                            },
-                            {
-                                "text": "Inviter den som blir mobbet med i din gruppe",
-                                "consequence": "Sosialt sterkt trekk som bryter isolasjonen. Adresserer konsekvensen, men ikke årsaken. Bor kombineres med varsling.",
-                                "type": "formal"
-                            }
-                        ]
-                    }
-                ]
-            }
+            "name": "Konsekvensvidda",
+            "props": {}
         },
         {
             "type": "header",

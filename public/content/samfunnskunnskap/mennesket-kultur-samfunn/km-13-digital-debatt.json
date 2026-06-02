@@ -1,11 +1,11 @@
 {
     "id": "km-13-digital-debatt",
-    "title": "Den digitale offentlegheita",
+    "title": "Den digitale offentligheten",
     "layout": "rich",
     "category": "Samfunnskunnskap",
     "readTime": "9 min lesning",
     "heroImage": "/images/placeholder.webp",
-    "description": "Utforsk korleis sosiale medium og digitale plattformer formar samfunnsdebatten - kven kjem til orde, kven teier, og korleis algoritmar styrer det vi ser.",
+    "description": "Utforsk hvordan sosiale medier og digitale plattformer former samfunnsdebatten - hvem som kommer til orde, hvem som tier, og hvordan algoritmer styrer det vi ser.",
     "subject": "samfunnskunnskap",
     "topic": "mennesket-kultur-samfunn",
     "details": [
@@ -32,99 +32,159 @@
         },
         {
             "type": "text",
-            "content": "Tenk deg at du er 17 ar og bor i ei lita bygd på Vestlandet. Det er 1985. Vil du seie meininga di om atomkraft, asylpolitikk eller rettane til skeive? Du kan sende eit lesarbrev til lokalavisa og vente to veker på at det kanskje kjem på trykk. Du kan ta ordet på eit folkemote der alle kjenner kvarandre. Eller du kan prate med dei du tilfeldigvis kjenner. Offentlegheita er der - men dorane er smale og lange."
+            "content": "Tenk deg at du er 17 år og bor i ei lita bygd på Vestlandet. Det er 1985. Vil du si meningen din om atomkraft, asylpolitikk eller rettighetene til skeive? Du kan sende et leserbrev til lokalavisa og vente to uker på at det kanskje kommer på trykk. Du kan ta ordet på et folkemøte der alle kjenner hverandre. Eller du kan prate med dem du tilfeldigvis kjenner. Offentligheten er der - men dørene er smale og trange."
         },
         {
             "type": "text",
-            "content": "I dag er dorane vidt opne. Ein 17-aring kan poste eit klipp på TikTok om kvelden og vakne til ein million visningar om morgonen. Ein ungdomspolitikar i Trondheim kan starte ein debatt som forplantar seg til Stortinget. Ein elev i Oslo kan utfordre ein statsrad direkte på X (tidlegare Twitter). Aldri i historia har sa mange kunna delta i den offentlege samtalen. Men - og dette er det store sporsmalet vi skal utforske i dag - betyr fleire deltakande at samfunnsdebatten faktisk vert betre?"
+            "content": "I dag er dørene vidt åpne. En 17-åring kan poste et klipp på TikTok om kvelden og våkne til en million visninger neste morgen. En ungdomspolitiker i Trondheim kan starte en debatt som forplanter seg til Stortinget. En elev i Oslo kan utfordre en statsråd direkte på X (tidligere Twitter). Aldri i historien har så mange kunnet delta i den offentlige samtalen. Men - og dette er det store spørsmålet vi skal utforske i dag - betyr flere deltakende at samfunnsdebatten faktisk blir bedre?"
         },
         {
             "type": "image",
             "src": "/images/placeholder.webp",
             "alt": "Ung person med telefon deltar i nettdebatt",
-            "caption": "Sosiale medium har senka terskelen for kven som kan ta del i samfunnsdebatten."
+            "caption": "Sosiale medier har senket terskelen for hvem som kan ta del i samfunnsdebatten."
         },
         {
             "type": "header",
-            "text": "Kva er den digitale offentlegheita?"
+            "text": "Hva er den digitale offentligheten?"
         },
         {
             "type": "text",
-            "content": "Filosofen Jurgen Habermas skreiv på 1960-talet om det han kalla 'den offentlege sfaere' - den arenaen der borgarar kjem saman for a diskutere og forme felles meiningar. For Habermas var kafeen, avisa og folketinget slike arenaer. I dag er den offentlege sfaeren i stor grad flytta til internett. Vi kan kalle dette den digitale offentlegheita: alt det rommet der vi diskuterer, deler og formar meiningar på nett - på sosiale medium, i kommentarfelt, på podkastar og YouTube-kanalar."
+            "content": "Filosofen Jürgen Habermas skrev på 1960-tallet om det han kalte «den offentlige sfæren» - den arenaen der borgere kommer sammen for å diskutere og forme felles meninger. For Habermas var kaféen, avisa og folkeforsamlingen slike arenaer. I dag er den offentlige sfæren i stor grad flyttet til internett. Vi kan kalle dette den digitale offentligheten: alt det rommet der vi diskuterer, deler og former meninger på nett - på sosiale medier, i kommentarfelt, på podkaster og YouTube-kanaler."
         },
         {
             "type": "text",
-            "content": "Det finst mange ulike plattformer for digital samhandling, og dei har svart ulike eigenskapar. Facebook er bygd for nettverk av vener og familie - innhaldet spreier seg gjerne horisontalt, som ringane i vatnet. Twitter/X er bygd rundt korte meldingar og direkte svar - det er ein arena for raske debattar og nyhende. TikTok og Instagram Reels er bygd rundt underhaldande videoar - algoritmen forstarker det som engasjerer, uavhengig av om det er sant eller viktig. Reddit er organisert rundt tema-spesifikke 'subreddits' der folk diskuterer nisjeinteresser djupt og grundig. Kvar plattform formar ikkje berre kven som deltar - den formar ogsa kva slags debatt som er mogeleg."
+            "content": "Det finnes mange ulike plattformer for digital samhandling, og de har svært ulike egenskaper. Facebook er bygd for nettverk av venner og familie - innholdet sprer seg gjerne horisontalt, som ringene i vann. Twitter/X er bygd rundt korte meldinger og direkte svar - det er en arena for raske debatter og nyheter. TikTok og Instagram Reels er bygd rundt underholdende videoer - algoritmen forsterker det som engasjerer, uavhengig av om det er sant eller viktig. Reddit er organisert rundt tema-spesifikke sider der folk diskuterer nisjeinteresser dypt og grundig. Hver plattform former ikke bare hvem som deltar - den former også hva slags debatt som er mulig."
         },
         {
             "type": "header",
-            "text": "Korleis plattformane styrer debatten"
+            "text": "Hvordan plattformene styrer debatten"
         },
         {
             "type": "text",
-            "content": "Det er fristande a tru at internett er ein noytraL arena der alle ytringar konkurrerer på like vilkar. Det stemmer ikkje. Bak kvar plattform ligg ein algoritme - eit sett med reglar som bestemmer kva du ser, når du ser det, og kor mange som far sjaa det du skriv. Og desse reglane er ikkje noytralt utforma. Dei er laga for a maksimere eitt mal: at du blir lengst mogeleg på plattforma."
+            "content": "Det er fristende å tro at internett er en nøytral arena der alle ytringer konkurrerer på like vilkår. Det stemmer ikke. Bak hver plattform ligger en algoritme - et sett med regler som bestemmer hva du ser, når du ser det, og hvor mange som får se det du skriver. Og disse reglene er ikke nøytralt utformet. De er laget for å maksimere ett mål: at du blir lengst mulig på plattformen."
         },
         {
             "type": "text",
-            "content": "Forsking syner at innhald som vekkjer sterke kjensler - sinne, frykt, avsky - spreier seg raskare enn noyktert og balansert innhald. Det er ikkje fordi folk er dumme. Det er fordi hjernen var er bygd for a reagere raskt på truslar. Ein clickbait-overskrift som 'Du vil IKKJE tru kva politikarane no gjer' triggar ei sterkare reaksjon enn 'Regjeringa legg fram nytt budsjettforslag'. Resultatet er at dei plattformane som tener pengar på oppmerksomheit, utilsikta forstarker polarisering og overdrivne framstillingar. Som journalisten og mediakritikaren Johann Hari formulerte det: 'Algoritmane er ikkje fiendane vare. Men dei er heller ikkje vennane vare.'"
+            "content": "Forskning viser at innhold som vekker sterke følelser - sinne, frykt, avsky - sprer seg raskere enn nøkternt og balansert innhald. Det er ikke fordi folk er dumme. Det er fordi hjernen vår er bygd for å reagere raskt på trusler. En clickbait-overskrift som «Du vil IKKE tro hva politikerne nå gjør» trigger en sterkere reaksjon enn «Regjeringen legger fram nytt budsjettforslag». Resultatet er at plattformer som tjener penger på oppmerksomhet, utilsiktet forsterker polarisering og overdrevne framstillinger. Som journalisten og mediekritikeren Johann Hari formulerte det: «Algoritmene er ikke fiendene våre. Men de er heller ikke vennene våre.»"
         },
         {
             "type": "text",
-            "content": "Ein konkret norsk konsekvens: Ein studie fraa Institutt for samfunnsforskning viste at norske politikarar på sosiale medium i aukande grad bruker provokasjonar og ekstreme formuleringar - ikkje fordi dei er meir ekstreme som personar, men fordi slike innlegg far flest likes og delingar. Plattforma lonar ekstremitet med synlegheit. Som du kan lese meir om i artikkelen om [Ekkokamre og informasjonsbobler](/samfunnskunnskap/mennesket-kultur-samfunn/ekkokamre), forer dette til at folk vert eksponerte for stadig meir einsidige perspektiv."
+            "content": "En konkret norsk konsekvens: En studie fra Institutt for samfunnsforskning viste at norske politikere på sosiale medier i økende grad bruker provokasjoner og ekstreme formuleringer - ikke fordi de er mer ekstreme som personer, men fordi slike innlegg får flest likes og delinger. Plattformen belønner ekstremitet med synlighet. Som du kan lese mer om i artikkelen om [Ekkokamre og informasjonsbobler](/samfunnskunnskap/mennesket-kultur-samfunn/ekkokamre), fører dette til at folk eksponeres for stadig mer ensidige perspektiver."
+        },
+        {
+            "type": "component",
+            "name": "EngasjementsMaskinen",
+            "props": {}
         },
         {
             "type": "image",
             "src": "/images/placeholder.webp",
-            "alt": "Skjematisk framstilling av algoritmisk nyhendestraum på sosiale medium",
-            "caption": "Algoritmar prioriterer innhald som skapar reaksjonar - ikkje noodvendigvis innhald som er sant eller viktig."
+            "alt": "Skjematisk framstilling av algoritmisk nyhetsstrøm på sosiale medier",
+            "caption": "Algoritmer prioriterer innhold som skaper reaksjoner - ikke nødvendigvis innhold som er sant eller viktig."
         },
         {
             "type": "header",
-            "text": "Kven deltar - og kven teier?"
+            "text": "Hvem deltar - og hvem tier?"
         },
         {
             "type": "text",
-            "content": "Digital deltaking er ikkje likt fordelt. Forsking peikar konsekvent på det same: Ein liten del av brukarane produserer det meste av innhaldet. På Twitter er det typisk rundt fem prosent av brukarane som star for over halvparten av alle innlegg. Desse fem prosentane er ikkje eit tilfeldig tverrsnitt av befolkninga. Dei er gjennomgaande yngre, oftare menn, meir politisk engasjerte og bur oftare i byar. Det betyr at den digitale offentlegheita systematisk underrepresenterer store delar av befolkninga - ikkje fordi dei ikkje har meiningar, men fordi terskelen for a ytre seg er hoegre for mange."
+            "content": "Digital deltakelse er ikke likt fordelt. Forskning peker konsekvent på det samme: En liten del av brukerne produserer det meste av innholdet. På Twitter er det typisk rundt fem prosent av brukerne som står for over halvparten av alle innlegg. Disse fem prosentene er ikke et tilfeldig tverrsnitt av befolkningen. De er gjennomgående yngre, oftere menn, mer politisk engasjerte og bor oftere i byer. Det betyr at den digitale offentligheten systematisk underrepresenterer store deler av befolkningen - ikke fordi de ikke har meninger, men fordi terskelen for å ytre seg er høyere for mange."
         },
         {
             "type": "text",
-            "content": "Kvifor teier folk? Ein viktig grunn er det sosiologen Elisabeth Noelle-Neumann kalla 'tausheitsspiralen': Viss vi oppfattar at vare meiningar er i mindretal, eller at dei vil bli moott med hard kritikk, vel vi ofte a tie. På sosiale medium kan ein enkelt kommentar fore til hundrevis av negative svar, ein s. kalla 'pile-on'. For mange - saerleg unge jenter og minoritetar - er erfaringa at deltaking i debatt kjem med ein kostnad: hatefulle meldingar, truslar og trakassering. Dette er eit demokratisk problem. Som du kan lese om i artikkelen [Ytringsvett vs ytringsmot](/samfunnskunnskap/mennesket-kultur-samfunn/ytringsvett-vs-ytringsmot), er ytringsfriheten reell berre viss alle kan bruke ho utan frykt."
+            "content": "Hvorfor tier folk? En viktig grunn er det sosiologen Elisabeth Noelle-Neumann kalte «taushetsspiralen»: Hvis vi oppfatter at meningene våre er i mindretall, eller at de vil bli møtt med hard kritikk, velger vi ofte å tie. På sosiale medier kan én enkelt kommentar føre til hundrevis av negative svar, et såkalt «pile-on». For mange - særlig unge jenter og minoriteter - er erfaringen at deltakelse i debatt kommer med en kostnad: hatefulle meldinger, trusler og trakassering. Dette er et demokratisk problem. Som du kan lese om i artikkelen [Ytringsvett vs ytringsmot](/samfunnskunnskap/mennesket-kultur-samfunn/ytringsvett-vs-ytringsmot), er ytringsfriheten reell bare hvis alle kan bruke den uten frykt."
+        },
+        {
+            "type": "component",
+            "name": "MicroGame",
+            "props": {
+                "gameId": "taushetsspiralen-3d"
+            }
         },
         {
             "type": "header",
-            "text": "To sider av same debatt"
+            "text": "To sider av samme debatt"
         },
         {
             "type": "text",
-            "content": "Eit av dei viktigaste sporsmalene ved den digitale offentlegheita er: Vert vi betre i stand til a forstaa kvarandre på tvers av politiske skiljeliner - eller vert vi meir polariserte? Her finst det ekte usemje blant forskarar. Nokre meiner at sosiale medium faktisk eksponerer oss for fleire perspektiv enn vi ville fatt gjennom tradisjonelle medium. Andre peikar på at algoritmane skapar filterboblar der vi berre ser det vi allereie er samde i."
+            "content": "Et av de viktigste spørsmålene ved den digitale offentligheten er: Blir vi bedre i stand til å forstå hverandre på tvers av politiske skillelinjer - eller blir vi mer polariserte? Her finnes det ekte uenighet blant forskere. Noen mener at sosiale medier faktisk eksponerer oss for flere perspektiver enn vi ville fått gjennom tradisjonelle medier. Andre peker på at algoritmene skaper filterbobler der vi bare ser det vi allerede er enige i."
         },
         {
             "type": "text",
-            "content": "Det er ikkje eit enkelt svar. Det kjem an på kva plattform du brukar, kva tema det gjeld, og korleis du sjolv vel a bruke nettet. Men ei ting er klart: Den digitale offentlegheita er ikkje automatisk eit betre demokratisk rom. Den må aktivt formast og brukast på gode matar. Under kan du sjolv utforske korleis ulike plattformer og perspektiv formar ei aktuell norsk sak - og korleis forma på diskusjonen paverkar kva vi faktisk la merke til."
+            "content": "Det er ikke et enkelt svar. Det kommer an på hvilken plattform du bruker, hvilket tema det gjelder, og hvordan du selv velger å bruke nettet. Men én ting er klart: Den digitale offentligheten er ikke automatisk et bedre demokratisk rom. Den må aktivt formes og brukes på gode måter. Under kan du selv utforske hvordan ulike plattformer og perspektiver former en aktuell norsk sak - og hvordan formen på diskusjonen påvirker hva vi faktisk legger merke til."
         },
         {
             "type": "component",
             "name": "DebateSimulator",
             "props": {
-                "topic": "Bor sosiale medium måtte merke politisk reklame og misinfornasjon automatisk?",
-                "positions": [
+                "topic": "Bør sosiale medier merke politisk misinformasjon automatisk?",
+                "opponentName": "Plattformadvokaten",
+                "context": "Du er invitert til et debattprogram om regulering av sosiale medier. Du argumenterer for at plattformene må ta ansvar. Velg det sterkeste argumentet i hver runde.",
+                "winningScore": 10,
+                "arguments": [
                     {
-                        "label": "Ja - plattformane må ta ansvar",
-                        "arguments": [
-                            "Sosiale medium er ikkje noytralt landskap - algoritmar førsterker allereie visse meiningar framfor andre.",
-                            "Falske nyheiter spreier seg seks gonger raskare enn sann informasjon på Twitter, ifylgje MIT-forskarar.",
-                            "Vanlege borgarar har ikkje kapasitet til a faktasjekke alt dei les. Plattformane har verktoya og ansvaret.",
-                            "Demokratiet er avhengig av eit felles faktagrunnlag. Utan det er det umulig a debattere politikk fornuftig."
-                        ]
+                        "id": "a1",
+                        "text": "Falske nyheter sprer seg seks ganger raskere enn sann informasjon på sosiale medier.",
+                        "strength": 4,
+                        "type": "laws",
+                        "response": "En studie er ikke nok grunnlag for å regulere hele plattformen. Metodefeil kan forekomme i slike målinger."
                     },
                     {
-                        "label": "Nei - plattformane må ikkje sensurere",
-                        "arguments": [
-                            "Kven bestemmer kva som er misinfornasjon? Det er eit politisk spørsmål, ikkje eit teknisk ein.",
-                            "Historisk har sensur blitt misbrukt til a kneble legitim opposisjon og minoritetsstemmer.",
-                            "Borgarar i eit demokrati må haa rett til a lese og vurdere innhald sjolv - ikkje faa det filtrert av private selskap.",
-                            "Loysinga på darleg ytring er meir ytring og betre mediekunnskap - ikkje undertrykking."
-                        ]
+                        "id": "a2",
+                        "text": "Demokratiet er avhengig av et felles faktagrunnlag. Uten det kan ikke borgere ta informerte valg.",
+                        "strength": 5,
+                        "type": "honor",
+                        "response": "Et godt poeng - men hvem bestemmer hva som er det korrekte faktagrunnlaget? Det er et politisk spørsmål, ikke et teknisk."
+                    },
+                    {
+                        "id": "a3",
+                        "text": "Plattformene tjener milliarder på annonser. De har råd til å ansette faktasjekkere.",
+                        "strength": 3,
+                        "type": "mercy",
+                        "response": "Vi har allerede brukt millioner på faktasjekking, men det er umulig å kontrollere millioner av innlegg daglig."
+                    },
+                    {
+                        "id": "a4",
+                        "text": "Plattformene modererer allerede innhold - de fjerner nakenhet og vold. De kan merke løgner på samme måte.",
+                        "strength": 4,
+                        "type": "laws",
+                        "response": "Det er enklere å definere nakenhet enn politisk misinformasjon. Grensene er ikke like tydelige."
+                    },
+                    {
+                        "id": "a5",
+                        "text": "Vanlige borgere har ikke tid og kunnskap til å faktasjekke alt de leser fra politikere.",
+                        "strength": 5,
+                        "type": "honor",
+                        "response": "Løsningen er bedre medieopplæring, ikke at plattformene definerer hva som er sant og usant."
+                    },
+                    {
+                        "id": "a6",
+                        "text": "EU har allerede innført Digital Services Act. Norge kan ikke stå alene uten slike regler.",
+                        "strength": 3,
+                        "type": "mercy",
+                        "response": "EU-reglene er generelle og adresserer ikke spesifikt hva som er politisk sant eller usant."
+                    },
+                    {
+                        "id": "a7",
+                        "text": "Twitter/X la ned faktasjekkingsprogrammet sitt. Resultatet var mer spredning av konspirasjonsteorier.",
+                        "strength": 4,
+                        "type": "laws",
+                        "response": "Community Notes, der brukerne faktasjekker hverandre, viser at sivil faktasjekking kan fungere like godt."
+                    },
+                    {
+                        "id": "a8",
+                        "text": "Merking er ikke sensur - det er kontekst. Å si 'dette er omstridt' fjerner ikke noe innhold.",
+                        "strength": 5,
+                        "type": "honor",
+                        "response": "Men å avgjøre hva som MÅ merkes er i seg selv en form for maktutøvelse. Hvem bestemmer hva som er omstridt?"
+                    },
+                    {
+                        "id": "a9",
+                        "text": "Unge brukere, særlig barn, er spesielt sårbare for politisk misinformasjon og trenger beskyttelse.",
+                        "strength": 3,
+                        "type": "mercy",
+                        "response": "Medieopplæring i skolen er en bedre løsning enn å filtrere innhold for alle borgere, også voksne."
                     }
                 ]
             }
@@ -132,28 +192,28 @@
         {
             "type": "image",
             "src": "/images/placeholder.webp",
-            "alt": "Polarisert debatt i kommentarfelt på sosiale medium",
-            "caption": "Digitale debattar kan samlast rundt ekstreme posisjonar, sjolv når dei fleste eigentleg er meir nyanserte."
+            "alt": "Polarisert debatt i kommentarfelt på sosiale medier",
+            "caption": "Digitale debatter kan samle seg rundt ekstreme posisjoner, selv når de fleste egentlig er mer nyanserte."
         },
         {
             "type": "header",
-            "text": "Kva gjer dette med demokratiet?"
+            "text": "Hva gjør dette med demokratiet?"
         },
         {
             "type": "text",
-            "content": "Demokratiet er avhengig av ein offentleg samtale der borgarar kan danne seg informerte meiningar og paverke felles avgjerder. Den digitale offentlegheita har potensial til a gjere demokratiet sterkare - og potensial til a svekkje det. På den positive sida: Fleire kan no ta del. Marginaliserte grupper kan organisere seg. Politikarar kan haldast direkte ansvarleg. Viktige saker kan fa merksemd utan at ein treng passere redaktoren i ei stor avis. Arabarvaren i 2011 viste korleis sosiale medium kunne mobilisere millionar mot autoritaere regime."
+            "content": "Demokratiet er avhengig av en offentlig samtale der borgere kan danne seg informerte meninger og påvirke felles avgjørelser. Den digitale offentligheten har potensial til å gjøre demokratiet sterkere - og potensial til å svekke det. På den positive siden: Flere kan nå ta del. Marginaliserte grupper kan organisere seg. Politikere kan holdes direkte ansvarlig. Viktige saker kan få oppmerksomhet uten at man trenger å passere redaktøren i en stor avis. Den arabiske våren i 2011 viste hvordan sosiale medier kunne mobilisere millioner mot autoritære regimer."
         },
         {
             "type": "text",
-            "content": "På den negative sida: Desinformasjon spreier seg raskare enn rettleiing. Konspirasjonsteoriar finn samfunn og forstarkas. Politisk debatt vert i aukande grad styrt av det som er provokativt og emosjonelt framfor det som er sakleg og grundig. Og - som vi har sett - er det ikkje alle som deltar på like vilkar. Tilsaman peikar dette på noko viktig: Det er ikkje nok a ha tilgang til den digitale offentlegheita. Vi må ogsa lare oss a bruke ho. Som du kan lese om i [Flokkmentalitetens psykologi](/samfunnskunnskap/mennesket-kultur-samfunn/flokkmentalitet), er det veldig lett a la seg rive med av dei store straumane på nett."
+            "content": "På den negative siden: Desinformasjon sprer seg raskere enn rettelser. Konspirasjonsteorier finner fellesskap og forsterkes. Politisk debatt styres i økende grad av det som er provokativt og emosjonelt framfor det som er saklig og grundig. Og - som vi har sett - er det ikke alle som deltar på like vilkår. Til sammen peker dette på noe viktig: Det er ikke nok å ha tilgang til den digitale offentligheten. Vi må også lære oss å bruke den. Som du kan lese om i [Flokkmentalitetens psykologi](/samfunnskunnskap/mennesket-kultur-samfunn/flokkmentalitet), er det svært lett å la seg rive med av de store strømmene på nett."
         },
         {
             "type": "header",
-            "text": "Digital borgar - kva betyr det i praksis?"
+            "text": "Digital borger - hva betyr det i praksis?"
         },
         {
             "type": "text",
-            "content": "A reflektere over den digitale offentlegheita handlar ikkje berre om a forstaa korleis ting fungerer. Det handlar om kva du gjer sjolv. Ein medviten digital borgar stiller seg nokre konkrete spørsmål: Kvifor ser eg akkurat dette innhaldet no? Er kjelda til dette truverdig, og kva interesser ligg bak? Bidreg min deltaking i denne debatten til betre forstaing - eller berre til meir stoy? Vert eg eksponert for ulike perspektiv, eller berre mine eigne? Desse er enkle spørsmål, men dei er kraftfulle verktoy. A bruke internett med eit kritisk blikk er ei av dei viktigaste ferdigheitene i det 21. hundrearet."
+            "content": "Å reflektere over den digitale offentligheten handler ikke bare om å forstå hvordan ting fungerer. Det handler om hva du gjør selv. En bevisst digital borger stiller seg noen konkrete spørsmål: Hvorfor ser jeg akkurat dette innholdet nå? Er kilden til dette troverdig, og hvilke interesser ligger bak? Bidrar min deltakelse i denne debatten til bedre forståelse - eller bare til mer støy? Blir jeg eksponert for ulike perspektiver, eller bare mine egne? Disse er enkle spørsmål, men de er kraftfulle verktøy. Å bruke internett med et kritisk blikk er en av de viktigste ferdighetene i det 21. hundreåret."
         },
         {
             "type": "component",
@@ -161,59 +221,59 @@
             "props": {
                 "questions": [
                     {
-                        "question": "Kva er eit hovudprinsipp bak algoritmane på dei fleste sosiale medium?",
+                        "question": "Hva er et hovedprinsipp bak algoritmene på de fleste sosiale medier?",
                         "options": [
-                            "A vise innhald i kronologisk rekkefolge",
-                            "A maksimere tida brukarane brukar på plattforma",
-                            "A sikre at alle politiske synspunkt vert likt representerte",
-                            "A prioritere innhald fraa offisielle nyheitskjelder"
+                            "Å vise innhold i kronologisk rekkefølge",
+                            "Å maksimere tiden brukerne bruker på plattformen",
+                            "Å sikre at alle politiske synspunkter blir likt representert",
+                            "Å prioritere innhold fra offisielle nyhetskilder"
                         ],
                         "correctAnswer": 1,
-                        "explanation": "Sosiale medium tener pengar på reklame, og jo lenger du er inne, desto meir reklame kan dei vise deg. Difor er algoritmane laga for a halde deg engasjert - ikkje for a gi deg eit balansert eller sant bilete av verda."
+                        "explanation": "Sosiale medier tjener penger på reklame, og jo lenger du er inne, desto mer reklame kan de vise deg. Derfor er algoritmene laget for å holde deg engasjert - ikke for å gi deg et balansert eller sant bilde av verden."
                     },
                     {
-                        "question": "Kva meiner vi med 'tausheitsspiralen' i samband med digital deltaking?",
+                        "question": "Hva mener vi med «taushetsspiralen» i sammenheng med digital deltakelse?",
                         "options": [
-                            "At algoritmane gjer det stille i feeden din",
-                            "At folk held kjeft fordi dei er redde for a bli mobba eller kritiserte",
-                            "At nettdebatten alltid ender i sirklar utan loysing",
-                            "At tekniske problem hindrar ytringar fraa å bli publiserte"
+                            "At algoritmene gjør det stille i feeden din",
+                            "At folk holder kjeft fordi de er redde for å bli mobbet eller kritisert",
+                            "At nettdebatten alltid ender i sirkler uten løsning",
+                            "At tekniske problemer hindrer ytringer fra å bli publisert"
                         ],
                         "correctAnswer": 1,
-                        "explanation": "Tausheitsspiralen er ein sosial mekanisme der folk teier fordi dei fryktar negativ reaksjon. På sosiale medium kan ein einskild kommentar lose eit 'pile-on' med hundrevis av negative svar, noko som gjer terskelen hoeg - saerleg for marginaliserte grupper."
+                        "explanation": "Taushetsspiralen er en sosial mekanisme der folk tier fordi de frykter negativ reaksjon. På sosiale medier kan én enkelt kommentar utløse et «pile-on» med hundrevis av negative svar, noe som gjør terskelen høy - særlig for marginaliserte grupper."
                     },
                     {
-                        "question": "Kvifor er eit 'felles faktagrunnlag' viktig for demokratiet?",
+                        "question": "Hvorfor er et «felles faktagrunnlag» viktig for demokratiet?",
                         "options": [
-                            "Fordi alle må haa like meiningar for at demokratiet skal fungere",
-                            "Fordi media treng a haa kontroll over kva folk trur",
-                            "Fordi borgarar treng eit minimum av felles fakta for å kunne diskutere og velje fornuftig",
-                            "Fordi det hindrar opposisjonspårtiar fraa å kritisere regjeringa"
+                            "Fordi alle må ha like meninger for at demokratiet skal fungere",
+                            "Fordi media trenger å ha kontroll over hva folk tror",
+                            "Fordi borgere trenger et minimum av felles fakta for å kunne diskutere og velge fornuftig",
+                            "Fordi det hindrer opposisjonspartier fra å kritisere regjeringen"
                         ],
                         "correctAnswer": 2,
-                        "explanation": "I eit demokrati skal borgarar ta avgjerder saman - gjennom val, debatt og deltaking. Viss folk opererer med heilt ulike og motstridande faktagrunnlag, vert det nesten umogeleg å ha ein meiningsfull felles debatt om kva vi oor skal gjere."
+                        "explanation": "I et demokrati skal borgere ta avgjørelser sammen - gjennom valg, debatt og deltakelse. Hvis folk opererer med helt ulike og motstridende faktagrunnlag, blir det nesten umulig å ha en meningsfull felles debatt om hva vi bør gjøre."
                     },
                     {
-                        "question": "Kva er ei mogleg demokratisk svakheit ved den digitale offentlegheita?",
+                        "question": "Hva er en mulig demokratisk svakhet ved den digitale offentligheten?",
                         "options": [
-                            "At for mange menneske deltar i debatten",
-                            "At alle perspektiv vert like mykje sett og høyrt",
-                            "At berre ein liten og skjev del av befolkninga produserer det meste av innhaldet",
-                            "At plattformane er for strengt regulerte av myndigheitene"
+                            "At for mange mennesker deltar i debatten",
+                            "At alle perspektiver blir like mye sett og hørt",
+                            "At bare en liten og skjev del av befolkningen produserer det meste av innholdet",
+                            "At plattformene er for strengt regulert av myndighetene"
                         ],
                         "correctAnswer": 2,
-                        "explanation": "Forsking syner at typisk fem prosent av brukarane star for over halvparten av innhaldet på sosiale medium. Desse fem prosentane er ikkje representative for befolkninga - dei er gjerne yngre, meir politisk aktive og bur i byar. Det betyr at mange stemmer vert usynlege i den digitale offentlegheita."
+                        "explanation": "Forskning viser at typisk fem prosent av brukerne står for over halvparten av innholdet på sosiale medier. Disse fem prosentene er ikke representative for befolkningen - de er gjerne yngre, mer politisk aktive og bor i byer. Det betyr at mange stemmer blir usynlige i den digitale offentligheten."
                     },
                     {
-                        "question": "Kva er eit godt kjenneteikn på ein medviten digital borgar?",
+                        "question": "Hva er et godt kjennetegn på en bevisst digital borger?",
                         "options": [
-                            "A dele mest mogeleg innhald for å naa ut til mange",
-                            "A unngaa alle politiske diskusjonar på nett",
-                            "A stille kritiske spørsmål om kjelder, algoritmisk synlegheit og eige perspektiv",
-                            "A berre bruke plattformer som er regulerte av staten"
+                            "Å dele mest mulig innhold for å nå ut til mange",
+                            "Å unngå alle politiske diskusjoner på nett",
+                            "Å stille kritiske spørsmål om kilder, algoritmisk synlighet og eget perspektiv",
+                            "Å bare bruke plattformer som er regulert av staten"
                         ],
                         "correctAnswer": 2,
-                        "explanation": "Ein medviten digital borgar brukar internett aktivt, men med eit kritisk blikk. Det handlar om å sporre seg: Kvifor ser eg dette? Er kjelda truverdig? Vert eg eksponert for mangfaldige perspektiv? Desse vaona er kjerna i digital danning."
+                        "explanation": "En bevisst digital borger bruker internett aktivt, men med et kritisk blikk. Det handler om å spørre seg: Hvorfor ser jeg dette? Er kilden troverdig? Blir jeg eksponert for mangfoldige perspektiver? Disse spørsmålene er kjernen i digital dannelse."
                     }
                 ]
             }

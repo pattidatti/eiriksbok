@@ -43,11 +43,13 @@ const AlgoritmeSorteraren = lazy(() => import('./content/interactive/AlgoritmeSo
 const Teknologivekta = lazy(() => import('./content/interactive/Teknologivekta').then(m => ({ default: m.Teknologivekta })));
 const HistoriensSpotlight = lazy(() => import('./content/interactive/HistoriensSpotlight').then(m => ({ default: m.HistoriensSpotlight })));
 const Eskaleringstrappa = lazy(() => import('./content/interactive/Eskaleringstrappa').then(m => ({ default: m.Eskaleringstrappa })));
+const Konsekvensvidda = lazy(() => import('./content/interactive/Konsekvensvidda').then(m => ({ default: m.Konsekvensvidda })));
 const AutomationRisk = lazy(() => import('./content/interactive/AutomationRisk').then(m => ({ default: m.AutomationRisk })));
 const ConformityExperiment = lazy(() => import('./content/interactive/ConformityExperiment').then(m => ({ default: m.ConformityExperiment })));
 const OstracismGame = lazy(() => import('./content/interactive/OstracismGame').then(m => ({ default: m.OstracismGame })));
 const VirtueBalance = lazy(() => import('./content/interactive/VirtueBalance').then(m => ({ default: m.VirtueBalance })));
 const AuthorityShifter = lazy(() => import('./content/interactive/AuthorityShifter').then(m => ({ default: m.AuthorityShifter })));
+const Argumentlupen = lazy(() => import('./content/interactive/Argumentlupen').then(m => ({ default: m.Argumentlupen })));
 const SocialContractDecider = lazy(() => import('./content/interactive/SocialContractDecider').then(m => ({ default: m.SocialContractDecider })));
 const TotalitarianSandbox = lazy(() => import('./content/interactive/TotalitarianSandbox').then(m => ({ default: m.TotalitarianSandbox })));
 const BanalityRoutine = lazy(() => import('./content/interactive/BanalityRoutine').then(m => ({ default: m.BanalityRoutine })));
@@ -97,6 +99,7 @@ const BiasLens = lazy(() => import('./learning-path/BiasLens').then(m => ({ defa
 const AllianceChain = lazy(() => import('./content/interactive/AllianceChain').then(m => ({ default: m.AllianceChain })));
 const KontekstKompasset = lazy(() => import('./content/interactive/KontekstKompasset').then(m => ({ default: m.KontekstKompasset })));
 const IdentitetsVeven = lazy(() => import('./content/interactive/IdentitetsVeven').then(m => ({ default: m.IdentitetsVeven })));
+const EngasjementsMaskinen = lazy(() => import('./content/interactive/EngasjementsMaskinen').then(m => ({ default: m.EngasjementsMaskinen })));
 const PowderKeg = lazy(() => import('./content/interactive/PowderKeg').then(m => ({ default: m.PowderKeg })));
 const DreadnoughtDuel = lazy(() => import('./content/interactive/DreadnoughtDuel').then(m => ({ default: m.DreadnoughtDuel })));
 const TrenchCrossSection = lazy(() => import('./content/interactive/TrenchCrossSection').then(m => ({ default: m.default })));
@@ -239,6 +242,7 @@ const PetrodollarKretslop = lazy(() => import('./content/interactive/Petrodollar
 const JakartaMetoden = lazy(() => import('./content/interactive/JakartaMetoden').then(m => ({ default: m.JakartaMetoden })));
 const KolonimaktSkifte = lazy(() => import('./content/interactive/KolonimaktSkifte').then(m => ({ default: m.KolonimaktSkifte })));
 const DigitalsporProfileren = lazy(() => import('./content/interactive/DigitalsporProfileren').then(m => ({ default: m.DigitalsporProfileren })));
+const Selvfolelsensfundament = lazy(() => import('./content/interactive/Selvfolelsensfundament').then(m => ({ default: m.Selvfolelsensfundament })));
 
 // Mikrospill: lett, embeddbart spill inline i artikkel. gameId-prop velger spillet
 // fra mikrospill-registeret (src/components/microgames/registry.ts).
@@ -262,11 +266,13 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     LinkButton,
     MicroGame,
     StatistikkVri,
+    Selvfolelsensfundament,
     LevekaarSamspillet,
     Konfliktlaboratoriet,
     Teknologivekta,
     HistoriensSpotlight,
     Eskaleringstrappa,
+    Konsekvensvidda,
     WaveMap,
     DigitalsporProfileren,
 
@@ -292,6 +298,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     OstracismGame,
     VirtueBalance,
     AuthorityShifter,
+    Argumentlupen,
     SocialContractDecider,
     TotalitarianSandbox,
     BanalityRoutine,
@@ -502,6 +509,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     MapCarousel,
     KontekstKompasset,
     IdentitetsVeven,
+    EngasjementsMaskinen,
 };
 
 export const getComponent = (name: string) => {
