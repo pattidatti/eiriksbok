@@ -8,6 +8,20 @@ Kjør denne workflowen når du vil generere bilder for nye artikler som mangler 
 
 ---
 
+## ABSOLUTTE FORBUD — LES DETTE FØRST
+
+Disse reglene overstyrer alt annet. De gjelder uten unntak, uansett feilsituasjon eller omstendighet:
+
+1. **ALDRI lag erstatningsbilder.** Gradient-bakgrunner med tekst, SVG-bannere, fargeflater med artikkeltittel, minimalistisk design — ingen av disse er akseptable bilder. Bildene skal være ekte fotografier generert av Gemini Imagen. Dersom Gemini ikke kan generere et bilde, forblir plassholder.webp i JSON-en.
+
+2. **ALDRI lag nye skript.** Ikke lag `generate-fallback-images.js`, `optimize-single.js`, `prepare-image-jobs.js`, `split-jobs.js` eller noe lignende. Workflowen bruker kun de verktøyene som allerede eksisterer.
+
+3. **ALDRI commit bilder uten å verifisere dem.** Hvert bilde skal visuelt bekreftes (via filstørrelse eller faktisk visning) at det er et fotografi — ikke et grafisk element.
+
+4. **Kvote-feil = STOPP.** Dersom Gemini returnerer 429 (quota exceeded), stopp umiddelbart. Commit det som er generert hittil. Gjør ingenting mer. Se **Kvotehåndtering** under.
+
+---
+
 ## Steg 1: Skann etter artikler som mangler bilder
 
 **Kjør alltid begge fasene og behandle resultatene i denne rekkefølgen: Fase B først, deretter Fase A.** Brutte referanser er mer kritiske — de vises som ødelagte bilder i appen — mens plassholdere bare er generiske. Behandler du Fase A først risikerer du å bruke opp kvoten uten å fikse de synlig ødelagte bildene.
@@ -121,9 +135,9 @@ Samme struktur, men motiv er hentet fra konteksten rundt bildeplasseringen i art
 
 ---
 
-## Steg 5: Generer bilder med Gemini
+## Steg 5: Generer bilder med Gemini — ett om gangen
 
-Generer hvert bilde via Gemini Imagen. Bruk prompten fra Steg 4.
+**Viktig: behandle bildene ett for ett, ikke i en batch.** Etter hvert enkelt bilde: sjekk om Gemini returnerte feil. Fikk du 429 — stopp umiddelbart (se Kvotehåndtering under). Fikk du et annet kall-feil — logg det, hopp til neste bilde og fortsett.
 
 Filnavngivning:
 - Hero-bilde: `public/images/[topic]/[lesson-id]-hero.webp`
@@ -136,6 +150,17 @@ Eksempel for artikkelen `public/content/historie/vikingtiden/rikssamlingen.json`
 - `public/images/vikingtiden/rikssamlingen-01.webp`
 
 Lagre genererte bilder i riktig WebP-format, maks 1600px bredde for inline, 1600px for hero.
+
+### Kvalitetskontroll etter hvert bilde
+
+Etter at et bilde er lagret på disk, verifiser det umiddelbart:
+
+```bash
+# Sjekk filstørrelse — ekte Gemini-bilder er vanligvis > 50 KB
+ls -lh public/images/[topic]/[lesson-id]-hero.webp
+```
+
+Et ekte fotografi fra Gemini Imagen vil typisk være **50 KB–500 KB**. En SVG-rendert gradient, fargeflate eller tekst-banner vil være **< 20 KB**. Hvis en fil er uvanlig liten, er noe galt — ikke commit den.
 
 ---
 
@@ -184,10 +209,28 @@ git push origin main
 
 ---
 
+## Kvotehåndtering
+
+**Regel: 429 = STOPP UMIDDELBART.**
+
+Når Gemini returnerer HTTP 429 (quota exceeded / resource exhausted):
+
+1. **Stopp all videre bildegenerering.** Prøv ikke på neste artikkel. Prøv ikke med lavere oppløsning. Prøv ikke en annen metode.
+2. **Commit det som er generert hittil** via Steg 7. Null bilder generert = ingen commit.
+3. **Avslutt workflowen.**
+
+Hva du **ikke** gjør ved kvote-feil:
+- Lag ikke gradient-bilder, SVG-bannere, fargeflater eller tekst-overlays som erstatning
+- Lag ikke nye skript for å lage alternative bilder
+- Oppdater ikke JSON-filer med stier til bilder som ikke er ekte Gemini-genererte fotografier
+- Reset ikke stier tilbake til `placeholder.webp` — la de som har spesifikke stier beholde dem
+
+La de ubehandlede artiklene beholde sine placeholder-stier. Neste kjøring plukker dem opp via Fase B.
+
+---
+
 ## Kjøringsmønster
 
 Workflowen er designet for **ukentlig kjøring** etter at den daglige innholdsrutinen har produsert nye artikler gjennom uken. Kjør den manuelt i Antigravity når du vil ta et batch med bilder.
 
 Har du ingen treff fra verken Fase B eller Fase A er det ingenting å gjøre — avslutt.
-
-**Kvotehåndtering:** Hvis bildegenererings-API-et returnerer en kvote-feil, stopp umiddelbart og commit det som er generert så langt. **Ikke reset stier tilbake til `placeholder.webp`.** La de ubehandlede artiklene beholde sine spesifikke stier — neste kjøring vil plukke dem opp via Fase B. Å resette til placeholder er kontraproduktivt fordi det skjuler Fase B-oppgavene og fører til gjentatt omprioritering.
