@@ -14,6 +14,7 @@ const IngenmanslandMG = lazy(() => import('./IngenmanslandMG'));
 const TidensFormer3D = lazy(() => import('./TidensFormer3D'));
 const DampmaskinHjerte3D = lazy(() => import('./DampmaskinHjerte3D'));
 const Falanksen3D = lazy(() => import('./Falanksen3D'));
+const Vannmolla3D = lazy(() => import('./Vannmolla3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
     'gladius-duell': {
@@ -96,6 +97,15 @@ export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.Laz
         estimatedSeconds: 140,
         loader: () => import('./Falanksen3D'),
         Component: Falanksen3D as never,
+    },
+    'vannmolla-3d': {
+        id: 'vannmolla-3d',
+        title: 'Mølla som aldri ble trøtt',
+        description:
+            'La elva male kornet i 3D: hell korn i trakta, åpne slusen så vannhjulet og tannhjulene driver kvernsteinene, koble inn stamphammeren, og vri mølla mot vinden når elva tørker inn.',
+        estimatedSeconds: 150,
+        loader: () => import('./Vannmolla3D'),
+        Component: Vannmolla3D as never,
     },
 };
 

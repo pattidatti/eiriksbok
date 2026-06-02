@@ -115,6 +115,11 @@
       }
     },
     {
+      "type": "component",
+      "name": "MicroGame",
+      "props": { "gameId": "vannmolla-3d" }
+    },
+    {
       "type": "header",
       "text": "En kraft bundet til naturen"
     },
