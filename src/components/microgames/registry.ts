@@ -30,6 +30,9 @@ const Grenselinja3D = lazy(() => import('./Grenselinja3D'));
 const Maktbalansen3D = lazy(() => import('./Maktbalansen3D'));
 const TaushetsspiralenTorg3D = lazy(() => import('./TaushetsspiralenTorg3D'));
 const Spillereglene3D = lazy(() => import('./Spillereglene3D'));
+const Spleiselaget3D = lazy(() => import('./Spleiselaget3D'));
+const Maktskiftet3D = lazy(() => import('./Maktskiftet3D'));
+const Argumentbroen3D = lazy(() => import('./Argumentbroen3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
     'gladius-duell': {
@@ -248,6 +251,15 @@ export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.Laz
         loader: () => import('./TaushetsspiralenTorg3D'),
         Component: TaushetsspiralenTorg3D as never,
     },
+    'argumentbroen-3d': {
+        id: 'argumentbroen-3d',
+        title: 'Bygg argumentbroen',
+        description:
+            'Et bredt gap skiller Belegg-tårnet fra Påstand-tårnet. Tre planker svever i lufta - klikk den som virkelig forklarer hvorfor belegget støtter påstanden. Riktig planke glir på plass og broen holder. Feil planke faller i kløften. Lyspæren: uten forklaringen henger påstand og belegg på hver sin side av tomrommet.',
+        estimatedSeconds: 90,
+        loader: () => import('./Argumentbroen3D'),
+        Component: Argumentbroen3D as never,
+    },
     'spillereglene-3d': {
         id: 'spillereglene-3d',
         title: 'Spillet trenger regler',
@@ -256,6 +268,24 @@ export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.Laz
         estimatedSeconds: 120,
         loader: () => import('./Spillereglene3D'),
         Component: Spillereglene3D as never,
+    },
+    'maktskiftet-3d': {
+        id: 'maktskiftet-3d',
+        title: 'Fredelig maktskifte',
+        description:
+            'Den skarpeste prøven på et demokrati: kan stemmen din bytte ut dem som styrer? Riv de tre barrierene autoritære system bruker - sensurmur, godkjenningsport og partidommer - og avgi stemmen. Står barrierene, blokkeres stemmen og du er innbygger, ikke medborger. Er de borte, når stemmen fram, den gamle lederen trer av og en folkevalgt reiser seg.',
+        estimatedSeconds: 120,
+        loader: () => import('./Maktskiftet3D'),
+        Component: Maktskiftet3D as never,
+    },
+    'spleiselaget-3d': {
+        id: 'spleiselaget-3d',
+        title: 'Spleiselaget',
+        description:
+            'Velferdsstaten som spleiselag i 3D: koble innbyggerne på felleskassa og se pengene flyte inn etter evne (den med høyest inntekt betaler mest) og ut etter behov (gratis skole, helsehjelp, pensjon). Lyspæren: velferd bærer bare når nesten alle er med - universelt, solidarisk og obligatorisk.',
+        estimatedSeconds: 110,
+        loader: () => import('./Spleiselaget3D'),
+        Component: Spleiselaget3D as never,
     },
 };
 

@@ -1,6 +1,10 @@
 {
     "id": "km-15-norsk-demokrati",
     "title": "Det norske demokratiet i dag",
+    "description": "Hvordan fungerer det norske politiske systemet - fra Stortinget og partiene til velferdsstaten og trepartssamarbeidet? Og hvilke utfordringer møter demokratiet i dag?",
+    "subject": "samfunnskunnskap",
+    "topic": "styringsformer",
+    "createdDate": "2026-06-02T00:00:00Z",
     "layout": "rich",
     "category": "Samfunnskunnskap",
     "readTime": "9 min lesning",
@@ -66,53 +70,8 @@
         },
         {
             "type": "component",
-            "name": "GovernmentExplorer",
-            "props": {
-                "systems": [
-                    {
-                        "name": "Parlamentarisme (Norge)",
-                        "description": "Regjeringen er ansvarlig overfor Stortinget. Folket velger Stortinget, og Stortinget gir regjeringen tillit. Statsministeren leder regjeringen.",
-                        "pros": [
-                            "Regjeringen kan kastes dersom den mister tillit",
-                            "Tett kobling mellom folkemening og regjeringsmakt",
-                            "Fleksibelt - kan reagere raskt på politiske skifter"
-                        ],
-                        "cons": [
-                            "Kan gi ustabile mindretallsregjeringer",
-                            "Koalisjonsforhandlinger kan ta lang tid",
-                            "Partipisken kan svekke den enkeltes representants frihet"
-                        ]
-                    },
-                    {
-                        "name": "Presidentstyre (USA)",
-                        "description": "President velges direkte av folket og er uavhengig av kongressen. Presidenten er både stats- og regjeringssjef og kan ikke kastes av kongressen med ordinært flertall.",
-                        "pros": [
-                            "Klar maktdeling mellom president og kongress",
-                            "Presidenten har sterk demokratisk legitimitet",
-                            "Stabilitet - presidenten sitter i fire år uansett"
-                        ],
-                        "cons": [
-                            "Kan gi politisk låsning når president og kongress er uenige",
-                            "Vanskelig å avsette president selv ved skandaler",
-                            "To-partisystem gir få valgmuligheter"
-                        ]
-                    },
-                    {
-                        "name": "Konstitusjonelt monarki (Sverige)",
-                        "description": "Kongen er statsoverhode, men har ingen politisk makt. Statsministeren leder regjeringen. Riksdagen er øverste politiske myndighet.",
-                        "pros": [
-                            "Kongen fungerer som samlende nasjonalt symbol",
-                            "Demokratisk styring kombinert med historisk kontinuitet",
-                            "Klar rolledeling mellom symbolsk og politisk makt"
-                        ],
-                        "cons": [
-                            "Monarkiet er ikke demokratisk valgt",
-                            "Kan oppfattes som utdatert av republikanere",
-                            "Kostbart å opprettholde kongefamilien"
-                        ]
-                    }
-                ]
-            }
+            "name": "Valgmaskinen",
+            "props": {}
         },
         {
             "type": "header",
@@ -134,7 +93,18 @@
         },
         {
             "type": "text",
-            "content": "Velferdsstaten henger tett sammen med arbeidslivet. I Norge er det et tett samarbeid mellom staten, arbeidsgivere (ved LO - Landsorganisasjonen) og arbeidstakere (ved NHO - Næringslivets Hovedorganisasjon). Dette kalles trepartssamarbeidet. Gjennom frontfagmodellen forhandler de hvert år frem lønnsoppgjør som holder prisveksten i sjakk. Les mer om dette i artikkelen om [Norges lønnsmaskin](/samfunnskunnskap/arbeidsliv/frontfagmodellen)."
+            "content": "Velferdsstaten henger tett sammen med arbeidslivet. I Norge er det et tett samarbeid mellom staten, arbeidsgivere (ved NHO - Næringslivets Hovedorganisasjon) og arbeidstakere (ved LO - Landsorganisasjonen). Dette kalles trepartssamarbeidet. Gjennom frontfagmodellen forhandler de hvert år frem lønnsoppgjør som holder prisveksten i sjakk. Les mer om dette i artikkelen om [Norges lønnsmaskin](/samfunnskunnskap/arbeidsliv/frontfagmodellen)."
+        },
+        {
+            "type": "text",
+            "content": "Men hvordan klarer en liten stat å betale for gratis skole, sykehus og pensjon til alle? Svaret er et gigantisk spleiselag. Prøv det selv under: koble innbyggerne på felleskassa og se hvordan pengene flyter inn etter evne og ut etter behov."
+        },
+        {
+            "type": "component",
+            "name": "MicroGame",
+            "props": {
+                "gameId": "spleiselaget-3d"
+            }
         },
         {
             "type": "header",
@@ -161,33 +131,6 @@
             "src": "/images/placeholder.webp",
             "alt": "Unge velgere utenfor et valglokale i Norge",
             "caption": "Valgdeltakelse er grunnlaget for demokratiet. Alle over 18 år har stemmerett i Norge."
-        },
-        {
-            "type": "component",
-            "name": "DebateSimulator",
-            "props": {
-                "topic": "Bor Norge bruke mer oljepenger for å styrke velferdsstaten?",
-                "positions": [
-                    {
-                        "label": "Ja - velferd kommer først",
-                        "arguments": [
-                            "Køene i helsevesenet er for lange - vi trenger mer penger nå",
-                            "Oljefondet er skapt av det norske folk og bor komme det norske folk til gode",
-                            "En sterk velferdsstat er det beste vernet mot ulikhet og sosial uro",
-                            "Vi kan ikke spare oss gjennom en krise - nå er det behov for investeringer"
-                        ]
-                    },
-                    {
-                        "label": "Nei - vi må spare for fremtiden",
-                        "arguments": [
-                            "Å bruke for mye oljepenger gir inflasjon og svekker næringslivet",
-                            "Fremtidige generasjoner har like mye krav på oljeformuen som oss",
-                            "Velferdsstaten bor finansieres av skatter, ikke olje - det gir sunn økonomi",
-                            "Mer penger løser ikke problemene - vi trenger bedre organisering, ikke bare mer penger"
-                        ]
-                    }
-                ]
-            }
         },
         {
             "type": "header",

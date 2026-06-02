@@ -82,7 +82,7 @@ export const renderInlineMarkdown = (text: string, concepts?: (Concept | Glossar
         // Create a unified regex for all terms and aliases
         const pattern = new RegExp(`\\b(${allTerms.map(t => t.term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})\\b`, 'gi');
 
-        elements = elements.flatMap((el): React.ReactNode[] => {
+        elements = elements.flatMap((el, elIdx): React.ReactNode[] => {
             if (typeof el !== 'string') return [el];
 
             return el.split(pattern).map((part, i) => {
@@ -92,7 +92,7 @@ export const renderInlineMarkdown = (text: string, concepts?: (Concept | Glossar
                     const concept: any = match.concept;
                     return (
                         <Tooltip
-                            key={`c-${i}-${part.substring(0, 10)}`}
+                            key={`c-${elIdx}-${i}-${part.substring(0, 10)}`}
                             text={concept.definition || concept.description || ''}
                             type={concept.type}
                             link={concept.link}

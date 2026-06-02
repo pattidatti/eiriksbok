@@ -37,6 +37,7 @@ const GoldenMeanSlider = lazy(() => import('./content/interactive/GoldenMeanSlid
 const CategoricalImperativeTester = lazy(() => import('./content/interactive/CategoricalImperativeTester').then(m => ({ default: m.CategoricalImperativeTester })));
 const FilterBubbleSim = lazy(() => import('./content/interactive/FilterBubbleSim').then(m => ({ default: m.FilterBubbleSim })));
 const StatistikkVri = lazy(() => import('./content/interactive/StatistikkVri').then(m => ({ default: m.StatistikkVri })));
+const Valgmaskinen = lazy(() => import('./content/interactive/Valgmaskinen').then(m => ({ default: m.Valgmaskinen })));
 const LevekaarSamspillet = lazy(() => import('./content/interactive/LevekaarSamspillet').then(m => ({ default: m.LevekaarSamspillet })));
 const Konfliktlaboratoriet = lazy(() => import('./content/interactive/Konfliktlaboratoriet').then(m => ({ default: m.Konfliktlaboratoriet })));
 const AlgoritmeSorteraren = lazy(() => import('./content/interactive/AlgoritmeSorteraren').then(m => ({ default: m.AlgoritmeSorteraren })));
@@ -50,6 +51,7 @@ const OstracismGame = lazy(() => import('./content/interactive/OstracismGame').t
 const VirtueBalance = lazy(() => import('./content/interactive/VirtueBalance').then(m => ({ default: m.VirtueBalance })));
 const AuthorityShifter = lazy(() => import('./content/interactive/AuthorityShifter').then(m => ({ default: m.AuthorityShifter })));
 const Argumentlupen = lazy(() => import('./content/interactive/Argumentlupen').then(m => ({ default: m.Argumentlupen })));
+const Medborgartesten = lazy(() => import('./content/interactive/Medborgartesten').then(m => ({ default: m.Medborgartesten })));
 const SocialContractDecider = lazy(() => import('./content/interactive/SocialContractDecider').then(m => ({ default: m.SocialContractDecider })));
 const TotalitarianSandbox = lazy(() => import('./content/interactive/TotalitarianSandbox').then(m => ({ default: m.TotalitarianSandbox })));
 const BanalityRoutine = lazy(() => import('./content/interactive/BanalityRoutine').then(m => ({ default: m.BanalityRoutine })));
@@ -100,6 +102,7 @@ const AllianceChain = lazy(() => import('./content/interactive/AllianceChain').t
 const KontekstKompasset = lazy(() => import('./content/interactive/KontekstKompasset').then(m => ({ default: m.KontekstKompasset })));
 const IdentitetsVeven = lazy(() => import('./content/interactive/IdentitetsVeven').then(m => ({ default: m.IdentitetsVeven })));
 const EngasjementsMaskinen = lazy(() => import('./content/interactive/EngasjementsMaskinen').then(m => ({ default: m.EngasjementsMaskinen })));
+const ArgumentBroen = lazy(() => import('./content/interactive/ArgumentBroen').then(m => ({ default: m.ArgumentBroen })));
 const PowderKeg = lazy(() => import('./content/interactive/PowderKeg').then(m => ({ default: m.PowderKeg })));
 const DreadnoughtDuel = lazy(() => import('./content/interactive/DreadnoughtDuel').then(m => ({ default: m.DreadnoughtDuel })));
 const TrenchCrossSection = lazy(() => import('./content/interactive/TrenchCrossSection').then(m => ({ default: m.default })));
@@ -266,6 +269,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     LinkButton,
     MicroGame,
     StatistikkVri,
+    Valgmaskinen,
     Selvfolelsensfundament,
     LevekaarSamspillet,
     Konfliktlaboratoriet,
@@ -299,6 +303,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     VirtueBalance,
     AuthorityShifter,
     Argumentlupen,
+    Medborgartesten,
     SocialContractDecider,
     TotalitarianSandbox,
     BanalityRoutine,
@@ -510,6 +515,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     KontekstKompasset,
     IdentitetsVeven,
     EngasjementsMaskinen,
+    ArgumentBroen,
 };
 
 export const getComponent = (name: string) => {

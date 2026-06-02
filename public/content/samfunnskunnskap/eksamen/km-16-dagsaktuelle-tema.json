@@ -1,13 +1,15 @@
 {
     "id": "km-16-dagsaktuelle-tema",
-    "title": "Dagsaktuelle tema - slik jobbar du",
-    "description": "Lær deg den samfunnsfaglige metoden: hent kjelder, vurder dei kritisk, bygg argument og presenter meininga di med tyngde.",
+    "title": "Dagsaktuelle tema - slik jobber du",
+    "description": "Lær den samfunnsfaglige metoden: hent kilder, vurder dem kritisk, bygg argument og presenter meningen din med tyngde.",
     "subject": "samfunnskunnskap",
     "topic": "eksamen",
     "layout": "rich",
     "heroImage": "/images/placeholder.webp",
     "readTime": "10 min lesning",
     "category": "Eksamen",
+    "tags": ["eksamen", "metode", "argumentasjon", "kilder"],
+    "createdDate": "2024-01-01T00:00:00Z",
     "details": [
         "Kompetansemål SAF01-04",
         "Dagsaktuelle tema og argumentasjon"
@@ -29,7 +31,7 @@
         {
             "type": "image",
             "src": "/images/placeholder.webp",
-            "alt": "Ungdommer diskuterer rundt bord med notater",
+            "alt": "Ungdommer diskuterer rundt bord med notater og laptop",
             "caption": "Gode diskusjoner krever mer enn sterke meninger - de krever gode argumenter."
         },
         {
@@ -38,23 +40,23 @@
         },
         {
             "type": "text",
-            "content": "Det eerste du gjor når du far et tema, er a avgrense det. \"Klimaet\" er altfor stort. \"Burde Noreg stanse all ny oljeleting?\" er noe du kan undersoke. Ein god problemstilling er konkret, aktuell og moter du kan argumentere på fleire sider av."
+            "content": "Det første du gjør når du får et tema, er å avgrense det. \"Klimaet\" er altfor stort. \"Burde Norge stanse all ny oljeleting?\" er noe du kan undersøke. En god problemstilling er konkret, aktuell og er noe du kan argumentere for på flere sider."
         },
         {
             "type": "text",
-            "content": "Spursmalet ditt bor være eit ja-nei-sporsmål, eit samanlikningssporsmal eller eit kva-bor-vi-gjere-sporsmal. Eksempel: \"Er sosiale medier skadelig for unge?\" eller \"Kven bor betale for klimatilpasning - rike land eller alle?\" Når du har eit slikt sporsmal, veit du kva du leter etter når du les kjelder."
+            "content": "Spørsmålet ditt bør være et ja-nei-spørsmål, et sammenligningsspørsmål eller et hva-bør-vi-gjøre-spørsmål. Eksempler: \"Er sosiale medier skadelig for unge?\" eller \"Hvem bør betale for klimatilpasning - rike land eller alle?\" Når du har et slikt spørsmål, vet du hva du leter etter når du leser kilder."
         },
         {
             "type": "header",
-            "text": "Steg 2 - Hent og vurder kjelder kritisk"
+            "text": "Steg 2 - Hent og vurder kilder kritisk"
         },
         {
             "type": "text",
-            "content": "Ikkje alle kjelder er like pålitelege. Ein bloggpost er ikkje det same som ein rapport frå Folkehelseinstituttet. Ei nyheitsside som tener pengar på klikk, skriv annleis enn ein forskar som publiserer i eit vitskapleg tidsskrift. Du må lære deg å skilje mellom dei. Tre sporsmal hjelper deg: Kven har laga dette? Kvifor? Og stemmer det med det andre kjelder seier?"
+            "content": "Ikke alle kilder er like pålitelige. En bloggpost er ikke det samme som en rapport fra Folkehelseinstituttet. En nettside som tjener penger på klikk, skriver annerledes enn en forsker som publiserer i et vitenskapelig tidsskrift. Du må lære deg å skille mellom dem. Tre spørsmål hjelper deg: Hvem har laget dette? Hvorfor? Og stemmer det med det andre kilder sier?"
         },
         {
             "type": "text",
-            "content": "Digitale ressursar er ein sentral del av dette kompetansemalet. Det betyr at du skal bruke nettet aktivt - men smart. Akademiske kjelder som forskning.no, ssb.no (Statistisk sentralbyrå) og regjeringen.no er gode startpunkt. Søkemotorar som Google kan gi deg mange treff, men du må alltid spørje kven som star bak. I artikkelen om [ekkokamre og informasjonsbobler](/samfunnskunnskap/mennesket-kultur-samfunn/ekkokamre) kan du lese meir om korleis algoritmane kan gi deg eit skeivt bilete av debatten."
+            "content": "Digitale ressurser er en sentral del av dette kompetansemålet. Det betyr at du skal bruke nettet aktivt - men smart. Akademiske kilder som forskning.no, ssb.no (Statistisk sentralbyrå) og regjeringen.no er gode startpunkt. Søkemotorer som Google kan gi deg mange treff, men du må alltid spørre hvem som står bak. I artikkelen om ekkokamre og informasjonsbobler kan du lese mer om hvordan algoritmene kan gi deg et skjevt bilde av debatten."
         },
         {
             "type": "component",
@@ -63,121 +65,141 @@
                 "sources": [
                     {
                         "name": "Olje- og energidepartementet",
-                        "type": "Statleg nettside",
+                        "type": "Statlig nettside",
                         "stance": "Pro-olje",
-                        "content": "Norsk olje og gass bidrar til norsk velferd og global energiforsyning. Vi utviklar sektoren med lågast mogleg utslepp."
+                        "content": "Norsk olje og gass bidrar til norsk velferd og global energiforsyning. Vi utvikler sektoren med lavest mulig utslipp."
                     },
                     {
-                        "name": "Greenpeace Noreg",
+                        "name": "Greenpeace Norge",
                         "type": "Interesseorganisasjon",
                         "stance": "Mot ny leting",
-                        "content": "Ny oljeleting er uforenleg med Parisavtalen. Noreg tjener på olje, men framtida krev at vi held olja i bakken."
+                        "content": "Ny oljeleting er uforenlig med Parisavtalen. Norge tjener på olje, men framtida krever at vi holder olja i bakken."
                     },
                     {
                         "name": "SSB - Statistisk sentralbyrå",
-                        "type": "Uavhengig statleg statistikk",
+                        "type": "Uavhengig statlig statistikk",
                         "stance": "Nøytral",
-                        "content": "Olje og gass utgjorde 14 prosent av BNP i 2023. Eksportinntektene finansierer ein vesentleg del av offentlege utgifter."
+                        "content": "Olje og gass utgjorde 14 prosent av BNP i 2023. Eksportinntektene finansierer en vesentlig del av offentlige utgifter."
                     },
                     {
                         "name": "Nettavisen - kommentarartikkel",
-                        "type": "Nettavis / meiningsinnlegg",
+                        "type": "Nettavis / meningsinnlegg",
                         "stance": "Varierer etter skribent",
-                        "content": "Klimafanatikarane vil øydelegge Noreg. Vi treng meir olje, ikkje mindre - for Noregs skuld og resten av verda."
+                        "content": "Klimafanatikerne vil ødelegge Norge. Vi trenger mer olje, ikke mindre - for Norges skyld og resten av verden."
                     }
                 ]
             }
         },
         {
             "type": "text",
-            "content": "Prøv BiasLens-verktøyet over: klikk på kvar kjelde og sjå korleis den same saka kan bli framstilt veldig ulikt. Legg merke til kven som tener på kvar framstilling. Det er ikkje slik at berre interesseorganisasjonar eller aviser har ein agenda - statsetatar og forskingsinstitusjonar kan òg ha det. Men nokre kjelder er meir transparente og etterprøvbare enn andre."
+            "content": "Prøv BiasLens-verktøyet over: klikk på hver kilde og se hvordan den samme saken kan bli fremstilt veldig ulikt. Legg merke til hvem som tjener på hver fremstilling. Det er ikke slik at bare interesseorganisasjoner eller aviser har en agenda - statsetater og forskningsinstitusjoner kan også ha det. Men noen kilder er mer transparente og etterprøvbare enn andre."
         },
         {
             "type": "image",
             "src": "/images/placeholder.webp",
             "alt": "Skjermbilde av ulike nyhetskilder på en laptop",
-            "caption": "Kvar nettstad har sin eigen ståstad. Å samanlikne fleire kjelder gir deg eit meir komplett bilete."
+            "caption": "Hvert nettsted har sin egen ståsted. Å sammenligne flere kilder gir deg et mer komplett bilde."
         },
         {
             "type": "header",
-            "text": "Steg 3 - Bygg eit godt argument"
+            "text": "Steg 3 - Bygg et godt argument"
         },
         {
             "type": "text",
-            "content": "Eit argument er meir enn ein mening. Det har tre delar: ein påstand, eit belegg og ein forklaring. Påstanden er det du meiner. Belägget er beviset - fakta, statistikk eller eksempel frå ei kjelde. Forklaringa koplar dei saman og seier kvifor belägget støttar påstanden."
+            "content": "Et argument er mer enn en mening. Det har tre deler: en påstand, et belegg og en forklaring. Påstanden er det du mener. Belegget er beviset - fakta, statistikk eller eksempel fra en kilde. Forklaringen kobler dem sammen og sier hvorfor belegget støtter påstanden."
         },
         {
             "type": "list",
             "items": [
-                "Påstand: Noreg bør avvikle ny oljeleting innan 2030.",
-                "Belegg: FNs klimapanel slår fast at vi må halde to tredelar av kjende fossilreservar i bakken for å nå 1,5-gradersmålet.",
-                "Forklaring: Sidan Noreg er eit rikt land med store fornybarressursar, har vi eit særleg ansvar og ein særleg moglegheit til å gå føre."
+                "Påstand: Norge bør avvikle ny oljeleting innen 2030.",
+                "Belegg: FNs klimapanel slår fast at vi må holde to tredeler av kjente fossilreserver i bakken for å nå 1,5-gradersmålet.",
+                "Forklaring: Siden Norge er et rikt land med store fornybarressurser, har vi et særlig ansvar og en særlig mulighet til å gå foran."
             ]
         },
         {
             "type": "text",
-            "content": "Sterke argument tek òg omsyn til motargumenta. Vis at du kjenner til den andre sida - og forklar kvifor du likevel meiner det du gjer. Det heiter å imøtegå motargument, og det er ein av dei tinga sensor legg aller mest merke til på eksamen. I artikkelen om [ytringsvett og ytringsmot](/samfunnskunnskap/mennesket-kultur-samfunn/ytringsvett-vs-ytringsmot) kan du lese meir om korleis du kan stå for meininga di utan å trampe på andre."
+            "content": "Sterke argumenter tar også hensyn til motargumentene. Vis at du kjenner til den andre siden - og forklar hvorfor du likevel mener det du gjør. Det heter å imøtegå motargument, og det er en av de tingene sensor legger aller mest merke til på eksamen."
+        },
+        {
+            "type": "component",
+            "name": "ArgumentBroen",
+            "props": {
+                "title": "Bygg argumentet"
+            }
         },
         {
             "type": "header",
-            "text": "Steg 4 - Simuler ein ekte debatt"
+            "text": "Steg 4 - Simuler en ekte debatt"
         },
         {
             "type": "text",
-            "content": "Ei av dei beste mátane å teste argumenta dine på er å simulere ein debatt. Når du må forsvare ein posisjon, oppdagar du raskt kva hol det er i argumentasjonen din. Prøv debatten under - ver nøye med å lytte til kva motparten seier og tenk på korleis du ville svart."
+            "content": "En av de beste måtene å teste argumentene dine på er å simulere en debatt. Når du må forsvare en posisjon, oppdager du raskt hvilke hull det er i argumentasjonen din. Prøv debatten under - vær nøye med å lytte til hva motparten sier og tenk på hvordan du ville svart."
         },
         {
             "type": "component",
             "name": "DebateSimulator",
             "props": {
-                "topic": "Bor Noreg innfore reklameforbod for usunn mat retta mot barn?",
-                "positions": [
+                "topic": "Reklameforbud for usunn mat rettet mot barn",
+                "opponentName": "Reklamebransjens representant",
+                "context": "Norge vurderer å innføre forbud mot reklame for usunn mat rettet mot barn. Du er for forbudet. Motparten representerer reklamebransjen.",
+                "winningScore": 3,
+                "arguments": [
                     {
-                        "label": "Ja - vi bor innfore forbod",
-                        "arguments": [
-                            "Barn er ikkje modne nok til å motstå reklame laga av profesjonelle psykologar og marknadsforarar.",
-                            "Forsking frå Folkehelseinstituttet viser at barn som ser mykje matva rereklame, et meir sukker og feitt.",
-                            "Skottland og Storbritannia har allereie innfort liknande forbod og sett positive helseeffektar.",
-                            "Ytringsfridomen gjeld personar - ikkje selskaper sin rett til å selje usunne produkt til born."
-                        ]
+                        "id": "arg1",
+                        "text": "Barn er ikke modne nok til å motstå reklame laget av profesjonelle psykologer og markedsforere. Folkehelseinstituttet viser at barn som ser mye matvarereklame, spiser mer sukker og fett.",
+                        "strength": 3,
+                        "type": "laws",
+                        "response": "Foreldres ansvar er viktigst - staten bør ikke sensurere lovlig næring."
                     },
                     {
-                        "label": "Nei - forbod er feil verkemiddel",
-                        "arguments": [
-                            "Det er foreldra sitt ansvar å lare barna sunn mat - ikkje staten si oppgåve å sensurere reklame.",
-                            "Eit forbod grip inn i næringslivsfriheten og kan skade mediebransjen som er avhengig av reklameinntekter.",
-                            "Det finst allereie frivillige avtalar i bransjen. Betre regulering, ikkje forbod, er vegen.",
-                            "Grensa mellom 'usunn' og 'sunn' mat er uklar og vanskeleg å handheve i lov."
-                        ]
+                        "id": "arg2",
+                        "text": "Skottland og Storbritannia har allerede innfort liknande forbod og sett positive helseeffekter. Dette er ikke et eksperiment - det er bevist at det virker.",
+                        "strength": 2,
+                        "type": "honor",
+                        "response": "Norske barn er ikke britiske barn. Kulturelle forskjeller gjør det vanskelig å overføre resultater direkte."
+                    },
+                    {
+                        "id": "arg3",
+                        "text": "Ytringsfrihet gjelder personer - ikke selskapers rett til å selge usunne produkter til barn. Et reklameforbud er ikke sensur, det er forbrukervern.",
+                        "strength": 3,
+                        "type": "mercy",
+                        "response": "Grensen mellom usunn og sunn mat er uklar og vanskelig å håndheve. Hvem bestemmer hva som er for usunnt?"
                     }
                 ]
             }
         },
         {
             "type": "text",
-            "content": "Legg merke til korleis begge sider bruker konkrete eksempel og forsking - ikkje berre generelle meiningar. Det er det du òg skal gjere. Når du er ferdig med debatten, still deg sjølv dette: kva argument fann du sterkast? Og kvifor? Merk deg om det er belägget eller forklaringa som overtyda deg - det seier noko om kva du vektlegg."
+            "content": "Legg merke til hvordan begge sider bruker konkrete eksempler og forskning - ikke bare generelle meninger. Det er det du også skal gjøre. Når du er ferdig med debatten, still deg selv dette: hva argument fant du sterkest? Og hvorfor? Merk deg om det er belegget eller forklaringen som overtalte deg - det sier noe om hva du vektlegger."
+        },
+        {
+            "type": "component",
+            "name": "MicroGame",
+            "props": {
+                "gameId": "argumentbroen-3d"
+            }
         },
         {
             "type": "image",
             "src": "/images/placeholder.webp",
-            "alt": "To elevar presenterer argument foran klassen",
-            "caption": "Å presentere for andre trenar deg til å forklare argumenta dine klart og tydeleg."
+            "alt": "To elever presenterer argument foran klassen",
+            "caption": "Å presentere for andre trener deg til å forklare argumentene dine klart og tydelig."
         },
         {
             "type": "header",
-            "text": "Steg 5 - Presenter funna dine"
+            "text": "Steg 5 - Presenter funnene dine"
         },
         {
             "type": "text",
-            "content": "Presentasjonen din skal vise at du har undersøkt temaet sjølv - ikkje berre kopiert det andre har skrive. Bruk ein klar struktur: innleiing med problemstilling, hovuddel med funn og argument frå begge sider, og ein konklusjon der du tek stilling. Hold deg til det viktigaste - ein godt forma presentasjon på seks minutt slår ein rotete presentasjon på femten."
+            "content": "Presentasjonen din skal vise at du har undersøkt temaet selv - ikke bare kopiert det andre har skrevet. Bruk en klar struktur: innledning med problemstilling, hoveddel med funn og argument fra begge sider, og en konklusjon der du tar stilling. Hold deg til det viktigste - en godt formet presentasjon på seks minutter slår en rotete presentasjon på femten."
         },
         {
             "type": "text",
-            "content": "Husk at presentasjonane dine i klasserommet er treningsarena for eksamen. I artikkelen om [muntlig eksamen](/samfunnskunnskap/eksamen/muntlig) finn du ein fullstendig guide til korleis du legg opp eksamensdagen. Og i artikkelen om [flokkmentalitetens psykologi](/samfunnskunnskap/mennesket-kultur-samfunn/flokkmentalitet) kan du lese om kvifor det er viktig å våge å meine noko anna enn fleirtalet - nettopp det viser sensor at du tenker sjølvstendig."
+            "content": "Husk at presentasjonene dine i klasserommet er treningsarena for eksamen. I artikkelen om muntlig eksamen finner du en fullstendig guide til hvordan du legger opp eksamensdagen. Og i artikkelen om flokkmentalitetens psykologi kan du lese om hvorfor det er viktig å våge å mene noe annet enn flertallet - nettopp det viser sensor at du tenker selvstendig."
         },
         {
             "type": "text",
-            "content": "Eit siste råd: ver nysgjerrig på standpunkta til andre, ikkje berre dine eigne. Kompetansemålet seier at du skal argumentere bade for dine eigne og andre sine meiningar og verdiar. Det betyr at du faktisk forstår motparten - du kan setje deg inn i kvifor dei meiner det dei gjer, sjølv om du er usamd. Det er det vi kallar ekte debattkompetanse, og det er noko du får bruk for langt utanfor samfunnsfagstimen."
+            "content": "Et siste råd: vær nysgjerrig på standpunktene til andre, ikke bare dine egne. Kompetansemålet sier at du skal argumentere både for dine egne og andres meninger og verdier. Det betyr at du faktisk forstår motparten - du kan sette deg inn i hvorfor de mener det de gjør, selv om du er uenig. Det er det vi kaller ekte debattkompetanse, og det er noe du får bruk for langt utenfor samfunnsfagstimen."
         },
         {
             "type": "component",
@@ -185,59 +207,59 @@
             "props": {
                 "questions": [
                     {
-                        "question": "Kva er det første du bor gjøre når du far eit dagsaktuelt tema å arbeide med?",
+                        "question": "Hva er det første du bør gjøre når du får et dagsaktuelt tema å arbeide med?",
                         "options": [
-                            "Google temaet og noter det første du finn",
-                            "Avgrense temaet til ein konkret problemstilling",
-                            "Spørje læraren kva du skal meine",
-                            "Skrive konklusjonen fyrst for å spare tid"
+                            "Google temaet og noter det første du finner",
+                            "Avgrense temaet til en konkret problemstilling",
+                            "Spørre læreren hva du skal mene",
+                            "Skrive konklusjonen først for å spare tid"
                         ],
                         "correctAnswer": 1,
-                        "explanation": "Ei god problemstilling avgrensar temaet og gir deg eit klart mål for kjeldearbeidet. 'Klimaet' er for stort - 'Bor Noreg stanse ny oljeleting?' er noko du kan undersoke og argumentere for."
+                        "explanation": "En god problemstilling avgrenser temaet og gir deg et klart mål for kildearbeidet. 'Klimaet' er for stort - 'Bør Norge stanse ny oljeleting?' er noe du kan undersøke og argumentere for."
                     },
                     {
-                        "question": "Kva kjelde er vanlegvis mest påliteleg for sakleg statistikk om norske samfunnsforhold?",
+                        "question": "Hvilken kilde er vanligvis mest pålitelig for saklig statistikk om norske samfunnsforhold?",
                         "options": [
-                            "Ein politikar sin eigen blogg",
-                            "Eit kommentarinnlegg i ei nettavis",
+                            "En politikers egen blogg",
+                            "Et kommentarinnlegg i en nettavis",
                             "SSB - Statistisk sentralbyrå",
-                            "Eit innlegg frå ein influensar på TikTok"
+                            "Et innlegg fra en influenser på TikTok"
                         ],
                         "correctAnswer": 2,
-                        "explanation": "SSB er eit uavhengig statleg organ som samlar inn og publiserer offisiell statistikk om Noreg. Dei har ikkje eit politisk standpunkt å fremje og er etterprøvbare."
+                        "explanation": "SSB er et uavhengig statlig organ som samler inn og publiserer offisiell statistikk om Norge. De har ikke et politisk standpunkt å fremme og er etterprøvbare."
                     },
                     {
-                        "question": "Kva tre delar bestar eit godt argument av?",
+                        "question": "Hva er de tre delene i et godt argument?",
                         "options": [
-                            "Mening, folelse og eksempel",
+                            "Mening, følelse og eksempel",
                             "Påstand, belegg og forklaring",
-                            "Innleiing, hovuddel og avslutning",
-                            "Kjelde, sitat og referanse"
+                            "Innledning, hoveddel og avslutning",
+                            "Kilde, sitat og referanse"
                         ],
                         "correctAnswer": 1,
-                        "explanation": "Påstanden er kva du meiner. Belägget er beviset - gjerne frå ei kjelde. Forklaringa koplar dei saman og seier kvifor belägg støttar påstanden."
+                        "explanation": "Påstanden er hva du mener. Belegget er beviset - gjerne fra en kilde. Forklaringen kobler dem sammen og sier hvorfor belegget støtter påstanden."
                     },
                     {
-                        "question": "Kvifor er det lurt å presentere motargumenta i tillegg til dine eigne argument?",
+                        "question": "Hvorfor er det lurt å presentere motargumentene i tillegg til dine egne argumenter?",
                         "options": [
-                            "For å fylle opp presentasjonen med meir innhald",
-                            "Fordi sensor alltid er usamd med deg",
-                            "Det viser at du forstår saka frå fleire sider og kan imøtegå kritikk",
-                            "Det er ikkje lurt - du bor berre fokusere på di eiga side"
+                            "For å fylle opp presentasjonen med mer innhold",
+                            "Fordi sensor alltid er uenig med deg",
+                            "Det viser at du forstår saken fra flere sider og kan imøtegå kritikk",
+                            "Det er ikke lurt - du bør bare fokusere på din egen side"
                         ],
                         "correctAnswer": 2,
-                        "explanation": "Å imøtegå motargument viser ekte innsikt. Det betyr at du ikkje berre kjenner til di eiga side - du forstår heile debatten og kan forklare kvifor du likevel meiner det du gjer."
+                        "explanation": "Å imøtegå motargument viser ekte innsikt. Det betyr at du ikke bare kjenner til din egen side - du forstår hele debatten og kan forklare hvorfor du likevel mener det du gjør."
                     },
                     {
-                        "question": "Kompetansemålet seier du skal argumentere for 'sine eigne og andre sine meiningar og verdiar'. Kva tyder det i praksis?",
+                        "question": "Kompetansemålet sier du skal argumentere for 'sine egne og andres meninger og verdier'. Hva betyr det i praksis?",
                         "options": [
-                            "Du skal alltid vere samd med fleirtalet i klassen",
-                            "Du skal kunne forstå og presentere standpunkta til begge sider - ikkje berre di eiga",
-                            "Du treng berre presentere di eiga meining",
-                            "Du skal aldri seie kva du sjølv meiner"
+                            "Du skal alltid være enig med flertallet i klassen",
+                            "Du skal kunne forstå og presentere standpunktene til begge sider - ikke bare dine egne",
+                            "Du trenger bare presentere din egen mening",
+                            "Du skal aldri si hva du selv mener"
                         ],
                         "correctAnswer": 1,
-                        "explanation": "Ekte debattkompetanse betyr at du kan setje deg inn i andre sin ståstad og formidle han rettferdig - sjolv om du er usamd. Det er det som skil ein god debattant frå ein som berre argumenterer for si eiga sak."
+                        "explanation": "Ekte debattkompetanse betyr at du kan sette deg inn i andres ståsted og formidle det rettferdig - selv om du er uenig. Det er det som skiller en god debattant fra en som bare argumenterer for sin egen sak."
                     }
                 ]
             }
