@@ -23,6 +23,9 @@ const Nyheitsbobla3D = lazy(() => import('./Nyheitsbobla3D'));
 const Konsekvensbolgen3D = lazy(() => import('./Konsekvensbolgen3D'));
 const Levekaarsgapet3D = lazy(() => import('./Levekaarsgapet3D'));
 const Streikefronten3D = lazy(() => import('./Streikefronten3D'));
+const Perspektivkjernen3D = lazy(() => import('./Perspektivkjernen3D'));
+const Datasporet3D = lazy(() => import('./Datasporet3D'));
+const AnsikteneIMengden3D = lazy(() => import('./AnsikteneIMengden3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
     'gladius-duell': {
@@ -186,6 +189,33 @@ export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.Laz
         estimatedSeconds: 90,
         loader: () => import('./Streikefronten3D'),
         Component: Streikefronten3D as never,
+    },
+    'perspektivkjernen-3d': {
+        id: 'perspektivkjernen-3d',
+        title: 'Lys opp problemet',
+        description:
+            'En grå problemkjerne med fire mørke sider svever i et lyst rom. Klikk perspektiv-skårene rundt: hvert NYE perspektiv lyser opp én side, men samme vinkel viser ingen ny. Først når fire ulike perspektiver er på, lyser hele kjernen. Lyspæren: ulike vinkler ser flere sider - kognitiv mangfoldighet.',
+        estimatedSeconds: 140,
+        loader: () => import('./Perspektivkjernen3D'),
+        Component: Perspektivkjernen3D as never,
+    },
+    'datasporet-3d': {
+        id: 'datasporet-3d',
+        title: 'Datasporet',
+        description:
+            'Du er algoritmen. Samle fem passive digitale spor som flyter rundt en person, og se profilkonfidansen stige. Lyspæren: hvert spor er ufarlig alene - kombinasjonen gir et komplett portrett.',
+        estimatedSeconds: 120,
+        loader: () => import('./Datasporet3D'),
+        Component: Datasporet3D as never,
+    },
+    'ansiktene-i-mengden-3d': {
+        id: 'ansiktene-i-mengden-3d',
+        title: 'Ansiktene i mengden',
+        description:
+            'En gruppe er gjort om til gra, ansiktslose skikkelser med et propaganda-symbol over seg - "dem". Klikk hver skikkelse og se enkeltmennesket bak: egen farge, ansikt og detalj. Etter hvert som ansiktene kommer fram, smuldrer propagandaen og muren mellom "oss" og "dem" synker. Lyspaeren: det er vanskelig a hate dem du ser som mennesker.',
+        estimatedSeconds: 110,
+        loader: () => import('./AnsikteneIMengden3D'),
+        Component: AnsikteneIMengden3D as never,
     },
 };
 

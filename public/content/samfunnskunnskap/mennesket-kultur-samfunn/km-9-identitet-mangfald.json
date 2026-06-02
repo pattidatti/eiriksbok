@@ -1,6 +1,6 @@
 {
     "id": "km-9-identitet-mangfald",
-    "title": "Identitet og mangfald",
+    "title": "Identitet og mangfold",
     "layout": "rich",
     "category": "Samfunnskunnskap",
     "readTime": "9 min lesning",
@@ -49,15 +49,20 @@
         },
         {
             "type": "text",
-            "content": "Identitet er summen av det som gjor deg til den du er. Psykologer deler gjerne identitet i to: den personlige og den sosiale. Din personlige identitet er dine verdier, interesser og livshistorie - det som skiller deg fra alle andre. Din sosiale identitet handler om gruppene du tilhorer - familie, venner, religion, nasjonalitet, kjonn."
+            "content": "Identitet er summen av det som gjør deg til den du er. Psykologer deler gjerne identitet i to: den personlige og den sosiale. Din personlige identitet er dine verdier, interesser og livshistorie - det som skiller deg fra alle andre. Din sosiale identitet handler om gruppene du tilhører - familie, venner, religion, nasjonalitet, kjønn."
         },
         {
             "type": "text",
-            "content": "De fleste av oss har en sammensatt identitet. Leila er 15 ar, bor i Drammen, er norsk statsborger, har marokkanske foreldre, er muslim, elsker K-pop og er kaptein på jentelaget. Alle disse tingene er sant på en gang. Ingen av dem alene forteller hele historien om hvem hun er. Vi kaller dette gjerne en flerdimensjonal identitet, og det gjelder alle - ikke bare de med innvandrerbakgrunn."
+            "content": "De fleste av oss har en sammensatt identitet. Leila er 15 år, bor i Drammen, er norsk statsborger, har marokkanske foreldre, er muslim, elsker K-pop og er kaptein på jentelaget. Alle disse tingene er sanne på en gang. Ingen av dem alene forteller hele historien om hvem hun er. Vi kaller dette gjerne en flerdimensjonal identitet, og det gjelder alle - ikke bare de med innvandrerbakgrunn."
         },
         {
             "type": "text",
-            "content": "Identitet er heller ikke statisk. Den utvikler seg gjennom hele livet. Tenk på besteforeldrene dine - de vokste opp i et Norge uten internett, uten sosiale medier, og med langt mindre kontakt med resten av verden. Deres identitet ble formet av helt andre krefter enn din. Det er naturlig og bra. Identiteter som aldri endrer seg, tilhorer museer - ikke levende mennesker."
+            "content": "Identitet er heller ikke statisk. Den utvikler seg gjennom hele livet. Tenk på besteforeldrene dine - de vokste opp i et Norge uten internett, uten sosiale medier, og med langt mindre kontakt med resten av verden. Deres identitet ble formet av helt andre krefter enn din. Det er naturlig og bra. Identiteter som aldri endrer seg, tilhører museer - ikke levende mennesker."
+        },
+        {
+            "type": "component",
+            "name": "IdentitetsVeven",
+            "props": {}
         },
         {
             "type": "header",
@@ -65,15 +70,15 @@
         },
         {
             "type": "text",
-            "content": "Kultur er mateen vi lever på - hva vi spiser, hva vi feirer, hva vi tror på, hvordan vi hilser på hverandre, hvilke historier vi forteller barna vare. Alle mennesker har kultur. Det finnes ingen som er 'uten kultur'. Norsk kultur er ikke mer naturlig enn somalisk, japansk eller brasiliansk kultur. Den er bare annerledes."
+            "content": "Kultur er måten vi lever på - hva vi spiser, hva vi feirer, hva vi tror på, hvordan vi hilser på hverandre, hvilke historier vi forteller barna våre. Alle mennesker har kultur. Det finnes ingen som er 'uten kultur'. Norsk kultur er ikke mer naturlig enn somalisk, japansk eller brasiliansk kultur. Den er bare annerledes."
         },
         {
             "type": "text",
-            "content": "Kulturuttrykk er mater kulturen vises fram på - musikk, mat, kleskoder, religionsutovelse, arkitektur, kunstformer. Noen kulturuttrykk er tydelige og lette a se: hijab, bunad, sari, kippa. Andre er mer skjulte: hvordan man ser på tid (er det greit a komme litt sent til middagen?), hva slags krontakt man har når man snakker (er det uhoflig a stirre, eller uhoflig a se vekk?), eller hvem i familien som tar de store beslutningene."
+            "content": "Kulturuttrykk er måter kulturen vises fram på - musikk, mat, kleskoder, religionsutøvelse, arkitektur, kunstformer. Noen kulturuttrykk er tydelige og lette å se: hijab, bunad, sari, kippa. Andre er mer skjulte: hvordan man ser på tid (er det greit å komme litt sent til middagen?), hva slags kontakt man har når man snakker (er det uhøflig å stirre, eller uhøflig å se vekk?), eller hvem i familien som tar de store beslutningene."
         },
         {
             "type": "text",
-            "content": "Levesett handler om de praktiske valgene vi gjor i hverdagen - hvor vi bor, hva vi spiser, hvem vi er sammen med, hva vi prioriterer. Noen levesett er valgte (vegetarianer, friluftsentusiast), andre er arvet fra familien eller kulturen man vokste opp i. I et mangfoldig samfunn lever folk side om side med svart ulike levesett - og det skaper bade berikelse og friksjon."
+            "content": "Levesett handler om de praktiske valgene vi gjør i hverdagen - hvor vi bor, hva vi spiser, hvem vi er sammen med, hva vi prioriterer. Noen levesett er valgte (vegetarianer, friluftsentusiast), andre er arvet fra familien eller kulturen man vokste opp i. I et mangfoldig samfunn lever folk side om side med svært ulike levesett - og det skaper både berikelse og friksjon."
         },
         {
             "type": "image",
@@ -87,79 +92,79 @@
         },
         {
             "type": "text",
-            "content": "Mangfold betyr at det finnes mange ulike identitetar, bakgrunner og levesett i det samme samfunnet. Men mangfold er ikke det samme som likhet. Det betyr ikke at alle kulturer er like bra på alle omrader, eller at man aldri kan kritisere kulturelle praksiser. Det betyr at vi tar utgangspunkt i respekt for menneskets verdighet - uansett bakgrunn."
+            "content": "Mangfold betyr at det finnes mange ulike identiteter, bakgrunner og levesett i det samme samfunnet. Men mangfold er ikke det samme som likhet. Det betyr ikke at alle kulturer er like bra på alle områder, eller at man aldri kan kritisere kulturelle praksiser. Det betyr at vi tar utgangspunkt i respekt for menneskets verdighet - uansett bakgrunn."
         },
         {
             "type": "text",
-            "content": "Et vanlig feilspor er a blande kultur og rase. Rase er et biologisk begrep - og et svart upresist ett. Forskning viser at det er storre genetiske forskjeller innad i det vi kaller 'raser' enn mellom dem. Rasisme er forestillingen om at noen mennesker er mer verdt enn andre på grunn av hudfarge eller etnisitet. Rasisme er ikke en mening det er greit a ha - det er en form for diskriminering som er forbudt ved lov i Norge."
+            "content": "Et vanlig feilspor er å blande kultur og rase. Rase er et biologisk begrep - og et svært upresist ett. Forskning viser at det er større genetiske forskjeller innad i det vi kaller 'raser' enn mellom dem. Rasisme er forestillingen om at noen mennesker er mer verdt enn andre på grunn av hudfarge eller etnisitet. Rasisme er ikke en mening det er greit å ha - det er en form for diskriminering som er forbudt ved lov i Norge."
         },
         {
             "type": "text",
-            "content": "Diskriminering betyr a behandle folk darligere enn andre på grunn av hvem de er - ikke hva de har gjort. I Norge er det forbudt a diskriminere på grunnlag av etnisitet, religion, kjonn, seksuell orientering og funksjonsnedsettelse. Likevel skjer det. Forsok har vist at jobbsoknader med 'utenlandske' navn far ferree svar enn identiske soknader med norske navn. Dette kalles strukturell diskriminering - det sitter i systemene, ikke bare i enkeltmenneskers holdninger."
+            "content": "Diskriminering betyr å behandle folk dårligere enn andre på grunn av hvem de er - ikke hva de har gjort. I Norge er det forbudt å diskriminere på grunnlag av etnisitet, religion, kjønn, seksuell orientering og funksjonsnedsettelse. Likevel skjer det. Forsøk har vist at jobbsøknader med 'utenlandske' navn får færre svar enn identiske søknader med norske navn. Dette kalles strukturell diskriminering - det sitter i systemene, ikke bare i enkeltmenneskers holdninger."
         },
         {
             "type": "component",
             "name": "ScenarioRoleplay",
             "props": {
-                "title": "Mangfold i klasserommet - hva gjor du?",
+                "title": "Mangfold i klasserommet - hva gjør du?",
                 "startId": "start",
                 "scenario": [
                     {
                         "id": "start",
-                        "text": "Klassen din diskuterer skolemat. Amara forteller at hun ikke kan spise svinekjott på grunn av religionen sin. Jonas sier halvhoyt: 'Hvorfor må vi andre tilpasse oss det? Dette er Norge.' Lrereren ser på deg. Hva sier du?",
+                        "text": "Klassen din diskuterer skolemat. Amara forteller at hun ikke kan spise svinekjøtt på grunn av religionen sin. Jonas sier halvhøyt: 'Hvorfor må vi andre tilpasse oss det? Dette er Norge.' Læreren ser på deg. Hva sier du?",
                         "choices": [
                             {
                                 "text": "Jeg er enig med Jonas - vi er i Norge og må holde oss til norske tradisjoner.",
                                 "nextId": "svar_enig",
-                                "feedback": "Dette synet overser at Norge har hatt minoriteter og religiose fellesskap i hundrevis av ar. Norsk kultur er heller ikke statisk - den har alltid endret seg. A si at noen må 'tilpasse seg' betyr ofte at majoriteten slipper a tenke på det."
+                                "feedback": "Dette synet overser at Norge har hatt minoriteter og religiøse fellesskap i hundrevis av år. Norsk kultur er heller ikke statisk - den har alltid endret seg. Å si at noen må 'tilpasse seg' betyr ofte at majoriteten slipper å tenke på det."
                             },
                             {
-                                "text": "Jeg peker på at vi alle har preferanser - og at svinekjott er et enkelt valg a ta hensyn til.",
+                                "text": "Jeg peker på at vi alle har preferanser - og at svinekjøtt er et enkelt valg å ta hensyn til.",
                                 "nextId": "svar_praktisk",
-                                "feedback": "Bra! Du bringer samtalen ned på et praktisk niva. Tilpasning trenger ikke bety at noen taper - ofte er det bare snakk om enkle valg som alle kan leve med."
+                                "feedback": "Bra! Du bringer samtalen ned på et praktisk nivå. Tilpasning trenger ikke bety at noen taper - ofte er det bare snakk om enkle valg som alle kan leve med."
                             },
                             {
-                                "text": "Jeg spor Jonas hva han mener med 'norske tradisjoner' - og hvem som bestemmer hva det er.",
+                                "text": "Jeg spør Jonas hva han mener med 'norske tradisjoner' - og hvem som bestemmer hva det er.",
                                 "nextId": "svar_spm",
-                                "feedback": "Veldig sterkt! A stille kritiske sporsmal er noe av det viktigste vi kan gjøre. Hva er egentlig 'norske tradisjoner'? Lutefisk og bunad? Men disse er jo heller ikke urgamle - de ble 'norske' på et bestemt tidspunkt, av bestemte grunner."
+                                "feedback": "Veldig sterkt! Å stille kritiske spørsmål er noe av det viktigste vi kan gjøre. Hva er egentlig 'norske tradisjoner'? Lutefisk og bunad? Men disse er jo heller ikke urgamle - de ble 'norske' på et bestemt tidspunkt, av bestemte grunner."
                             }
                         ]
                     },
                     {
                         "id": "svar_enig",
-                        "text": "Jonas nikker. Amara ser ned. Lrereren spor klassen: 'Men hva om vi snudde det om - hva om du var i minoritet?'",
+                        "text": "Jonas nikker. Amara ser ned. Læreren spør klassen: 'Men hva om vi snudde det om - hva om du var i minoritet?'",
                         "choices": [
                             {
-                                "text": "Jeg tenker meg om og sier: 'Det hadde nok foltes vondt. Kanskje jeg bor tenke på det annerledes.'",
+                                "text": "Jeg tenker meg om og sier: 'Det hadde nok føltes vondt. Kanskje jeg bør tenke på det annerledes.'",
                                 "nextId": "refleksjon",
-                                "feedback": "Empati er grunnlaget for god dialog. A se seg selv i andres situasjon er et tegn på modenhet."
+                                "feedback": "Empati er grunnlaget for god dialog. Å se seg selv i andres situasjon er et tegn på modenhet."
                             },
                             {
                                 "text": "Jeg holder fast ved meningen min.",
                                 "nextId": "holdfas",
-                                "feedback": "Det er din rett a ha den meningen. Men husk: A reflektere over egne holdninger er ikke det samme som a gi opp identiteten sin. Det er tvert imot et tegn på styrke."
+                                "feedback": "Det er din rett å ha den meningen. Men husk: Å reflektere over egne holdninger er ikke det samme som å gi opp identiteten sin. Det er tvert imot et tegn på styrke."
                             }
                         ]
                     },
                     {
                         "id": "svar_praktisk",
-                        "text": "Klassen ender opp med a velge en meny ingen har sterke innvendinger mot. Amara sier takk. Jonas sier det var greit nok. Lrereren spor: Hva lrerte dere?",
+                        "text": "Klassen ender opp med å velge en meny ingen har sterke innvendinger mot. Amara sier takk. Jonas sier det var greit nok. Læreren spør: Hva lærte dere?",
                         "choices": [
                             {
                                 "text": "At kompromiss er mulig - og at ingen taper på det.",
                                 "nextId": "refleksjon",
-                                "feedback": "Nettopp. Mangfold handler ikke om at noen alltid må gi etter. Det handler om a finne losninger der alle kan være seg selv."
+                                "feedback": "Nettopp. Mangfold handler ikke om at noen alltid må gi etter. Det handler om å finne løsninger der alle kan være seg selv."
                             }
                         ]
                     },
                     {
                         "id": "svar_spm",
-                        "text": "Jonas tenker seg om. Han klarer ikke svare godt på sporsmålet. Lrereren ber klassen forske på hva som egentlig er 'norske tradisjoner'.",
+                        "text": "Jonas tenker seg om. Han klarer ikke svare godt på spørsmålet. Læreren ber klassen finne ut hva som egentlig er 'norske tradisjoner'.",
                         "choices": [
                             {
                                 "text": "Jeg finner ut at mange 'norske' tradisjoner er ganske nye - og at Norge alltid har hatt innvandrere.",
                                 "nextId": "refleksjon",
-                                "feedback": "Historisk bevissthet er viktig. Tradisjon er ikke noe som alltid har vaert slik - det er noe som ble skapt på et tidspunkt, av noen, med en bestemt hensikt."
+                                "feedback": "Historisk bevissthet er viktig. Tradisjon er ikke noe som alltid har vært slik - det er noe som ble skapt på et tidspunkt, av noen, med en bestemt hensikt."
                             }
                         ]
                     },
@@ -170,13 +175,13 @@
                             {
                                 "text": "Avslutt og reflekter over hva som skjedde.",
                                 "nextId": "refleksjon",
-                                "feedback": "Det er greit å være uenig. Men det er verdt a tenke på: Hva koster det deg om hun far svinekjottfri meny? Og hva koster det henne om hun ikke far det?"
+                                "feedback": "Det er greit å være uenig. Men det er verdt å tenke på: Hva koster det deg om hun får svinekjøttfri meny? Og hva koster det henne om hun ikke får det?"
                             }
                         ]
                     },
                     {
                         "id": "refleksjon",
-                        "text": "Scenarier som dette handler ikke om rett og galt svar. De handler om a trene på a se situasjoner fra flere sider - og a forstaa hva som star på spill for ulike mennesker.",
+                        "text": "Scenarier som dette handler ikke om rett og galt svar. De handler om å trene på å se situasjoner fra flere sider - og å forstå hva som står på spill for ulike mennesker.",
                         "choices": []
                     }
                 ]
@@ -188,21 +193,28 @@
         },
         {
             "type": "text",
-            "content": "Forskning viser at grupper med ulike bakgrunner og perspektiver ofte loser problemer bedre enn grupper der alle tenker likt. Det kalles kognitiv mangfoldighet - og det er en av de viktigste grunnene til at mange bedrifter og organisasjoner aktivt soker folk med ulike erfaringer. Når folk ser verden fra forskjellige vinkler, ser de forskjellige problemer - og forskjellige losninger."
+            "content": "Forskning viser at grupper med ulike bakgrunner og perspektiver ofte løser problemer bedre enn grupper der alle tenker likt. Det kalles kognitiv mangfoldighet - og det er en av de viktigste grunnene til at mange bedrifter og organisasjoner aktivt søker folk med ulike erfaringer. Når folk ser verden fra forskjellige vinkler, ser de forskjellige problemer - og forskjellige løsninger."
+        },
+        {
+            "type": "component",
+            "name": "MicroGame",
+            "props": {
+                "gameId": "perspektivkjernen-3d"
+            }
         },
         {
             "type": "text",
-            "content": "Kulturelt mangfold beriker ogsa kunstnerisk og kulinarisk liv. Norsk matkultur i dag er pireget av innflytelse fra Italia, Midt-Osten, Asia og Latin-Amerika. Norsk musikk er farget av jazz, hip-hop og verdensmusikk. Dette er ikke 'kulturell utvanning' - det er det levende kulturlivet alltid har sett ut, når det er på sitt beste."
+            "content": "Kulturelt mangfold beriker også kunstnerisk og kulinarisk liv. Norsk matkultur i dag er preget av innflytelse fra Italia, Midt-Østen, Asia og Latin-Amerika. Norsk musikk er farget av jazz, hip-hop og verdensmusikk. Dette er ikke 'kulturell utvanning' - det er det levende kulturlivet alltid har sett ut, når det er på sitt beste."
         },
         {
             "type": "text",
-            "content": "Integrering handler om at mennesker med ulik bakgrunn finner en felles plattform - ikke at noen mister seg selv. En god integreringspolitikk gir alle mulighet til a delta i arbeidslivet, lrere sprak, og bidra til fellesskapet - samtidig som den respekterer at folk kan være forskjellige. Du kan lrere mer om de demografiske sidene av innvandring i artikkelen om [migrasjon](/samfunnskunnskap/demografi/migrasjon-push-pull)."
+            "content": "Integrering handler om at mennesker med ulik bakgrunn finner en felles plattform - ikke at noen mister seg selv. En god integreringspolitikk gir alle mulighet til å delta i arbeidslivet, lære språk, og bidra til fellesskapet - samtidig som den respekterer at folk kan være forskjellige. Du kan lære mer om de demografiske sidene av innvandring i artikkelen om [migrasjon](/samfunnskunnskap/demografi/migrasjon-push-pull)."
         },
         {
             "type": "image",
             "src": "/images/placeholder.webp",
             "alt": "Unge mennesker samarbeider om et prosjekt rundt et bord",
-            "caption": "Grupper med ulik bakgrunn loser problemer bedre - det kaller vi kognitiv mangfoldighet."
+            "caption": "Grupper med ulik bakgrunn løser problemer bedre - det kaller vi kognitiv mangfoldighet."
         },
         {
             "type": "header",
@@ -210,7 +222,7 @@
         },
         {
             "type": "text",
-            "content": "Mangfold er ikke problemfritt. Når mennesker med svart ulike verdier og levesett bor tett, kan det oppsta spenninger. Noen kulturelle praksiser er i direkte strid med norsk lov og grunnleggende menneskerettigheter - for eksempel tvangsekteskap, kjomslemlesting og areopresdrap. Disse praksisene er forbudte og fordommelige - uansett hvilken kulturell bakgrunn de stammer fra. Her er det ingen grense for 'kulturell toleranse'."
+            "content": "Mangfold er ikke problemfritt. Når mennesker med svært ulike verdier og levesett bor tett, kan det oppstå spenninger. Noen kulturelle praksiser er i direkte strid med norsk lov og grunnleggende menneskerettigheter - for eksempel tvangsekteskap, kjønnslemlestelse og æresdrap. Disse praksisene er forbudte og fordømmelige - uansett hvilken kulturell bakgrunn de stammer fra. Her er det ingen grense for 'kulturell toleranse'."
         },
         {
             "type": "text",
@@ -218,11 +230,11 @@
         },
         {
             "type": "text",
-            "content": "En annen utfordring er parallelsamfunn - steder der folk lever sa adskilt fra majoritetssamfunnet at integreringen stopper opp. Når barn ikke lrerer sprak, når voksne ikke deltar i arbeidslivet, og når sosiale nettverk kun gar innad i ett fellesskap, mister bade individet og samfunnet noe. Forskning viser at økonomisk ulikhet er en viktig driverkraft bak segregasjon - noe du kan lrere mer om i artikkelen om [fattigdom](/samfunnskunnskap/demografi/fattigdom)."
+            "content": "En annen utfordring er parallellsamfunn - steder der folk lever så adskilt fra majoritetssamfunnet at integreringen stopper opp. Når barn ikke lærer språk, når voksne ikke deltar i arbeidslivet, og når sosiale nettverk kun går innad i ett fellesskap, mister både individet og samfunnet noe. Forskning viser at økonomisk ulikhet er en viktig drivkraft bak segregasjon - noe du kan lære mer om i artikkelen om [fattigdom](/samfunnskunnskap/demografi/fattigdom)."
         },
         {
             "type": "text",
-            "content": "Et tredje problem er forenklende fortellinger. Bade 'innvandringskritikere' og 'mangfoldsforkjempere' kan falle i fellen med a tegne svart-hvitt bilder. Virkeligheten er mer kompleks: Innvandring bringer med seg bade muligheter og utfordringer, og disse varierer avhengig av hvem som kommer, hvor de kommer fra, og hvilke systemer som tar imot dem. Nyansert tenkning er ikke feighet - det er en forutsetning for gode losninger."
+            "content": "Et tredje problem er forenklende fortellinger. Både 'innvandringskritikere' og 'mangfoldsforkjempere' kan falle i fellen med å tegne svart-hvitt bilder. Virkeligheten er mer kompleks: Innvandring bringer med seg både muligheter og utfordringer, og disse varierer avhengig av hvem som kommer, hvor de kommer fra, og hvilke systemer som tar imot dem. Nyansert tenkning er ikke feighet - det er en forutsetning for gode løsninger."
         },
         {
             "type": "header",
@@ -230,11 +242,11 @@
         },
         {
             "type": "text",
-            "content": "Kompetansemalet du jobber med, handler ikke bare om a vite fakta om mangfold. Det handler om a trene på a reflektere. Her er noen konkrete ting du kan gjøre: Når du moter noen som er annerledes enn deg, spor deg selv: Hva vet jeg egentlig om denne personens bakgrunn? Hva antar jeg bare? Når du ser noe i mediene om innvandring eller kulturkonflikter, spor deg: Hvem sin stemme er ikke med her? Du kan ogsa se på artikkelen om [flokkmentalitet](/samfunnskunnskap/mennesket-kultur-samfunn/flokkmentalitet) for a forsta hvorfor vi sa lett tilpasser oss gruppas meninger - og om vi kan motstaa det presset."
+            "content": "Kompetansemålet du jobber med, handler ikke bare om å vite fakta om mangfold. Det handler om å trene på å reflektere. Her er noen konkrete ting du kan gjøre: Når du møter noen som er annerledes enn deg, spør deg selv: Hva vet jeg egentlig om denne personens bakgrunn? Hva antar jeg bare? Når du ser noe i mediene om innvandring eller kulturkonflikter, spør deg: Hvem sin stemme er ikke med her? Du kan også se på artikkelen om [flokkmentalitet](/samfunnskunnskap/mennesket-kultur-samfunn/flokkmentalitet) for å forstå hvorfor vi så lett tilpasser oss gruppas meninger - og om vi kan motstå det presset."
         },
         {
             "type": "text",
-            "content": "A droftere om mangfold betyr a se bade muligheter og utfordringer. Det betyr a vite at enkle svar - 'innvandring er bare bra' eller 'innvandring er bare farlig' - ikke er sanne. Det betyr å være villig til a tenke, tvile, og revurdere. Det er nettopp den evnen samfunnet trenger mer av."
+            "content": "Å drøfte mangfold betyr å se både muligheter og utfordringer. Det betyr å vite at enkle svar - 'innvandring er bare bra' eller 'innvandring er bare farlig' - ikke er sanne. Det betyr å være villig til å tenke, tvile, og revurdere. Det er nettopp den evnen samfunnet trenger mer av."
         },
         {
             "type": "component",
@@ -244,21 +256,21 @@
                     {
                         "question": "Hva menes med en 'flerdimensjonal identitet'?",
                         "options": [
-                            "At man tilhorer flere nasjoner samtidig",
-                            "At identiteten er sammensatt av mange ulike elementer og tilhoringsforhold",
+                            "At man tilhører flere nasjoner samtidig",
+                            "At identiteten er sammensatt av mange ulike elementer og tilhørigheter",
                             "At man skifter identitet avhengig av situasjonen",
                             "At man ikke har en fast identitet"
                         ],
                         "correctAnswer": 1,
-                        "explanation": "Flerdimensjonal identitet betyr at vi er mange ting på en gang - nasjonal, religiost, kulturelt, personlig - og at ingen av disse dimensjonene alene forteller hele historien om hvem vi er."
+                        "explanation": "Flerdimensjonal identitet betyr at vi er mange ting på en gang - nasjonalt, religiøst, kulturelt, personlig - og at ingen av disse dimensjonene alene forteller hele historien om hvem vi er."
                     },
                     {
                         "question": "Hva er forskjellen på integrering og assimilering?",
                         "options": [
-                            "Det er ingen forskjell - begge handler om a tilpasse seg",
+                            "Det er ingen forskjell - begge handler om å tilpasse seg",
                             "Integrering betyr at du mister din egen kultur; assimilering betyr at du beholder den",
                             "Integrering betyr at du deltar i samfunnet mens du beholder din identitet; assimilering betyr at du gir opp din opprinnelige kultur",
-                            "Assimilering er lovpakrevd i Norge, integrering er frivillig"
+                            "Assimilering er lovpålagt i Norge, integrering er frivillig"
                         ],
                         "correctAnswer": 2,
                         "explanation": "Integrering betyr at folk med ulik bakgrunn finner en felles plattform - uten at noen mister seg selv. Assimilering betyr at man tilpasser seg fullstendig til majoritetskulturen."
@@ -272,29 +284,29 @@
                             "Diskriminering som kun rammer innvandrere"
                         ],
                         "correctAnswer": 1,
-                        "explanation": "Strukturell diskriminering sitter i systemene - for eksempel at jobbsoknader med utenlandske navn far ferree svar enn identiske soknader med norske navn, uten at noen har tenkt over at de diskriminerer."
+                        "explanation": "Strukturell diskriminering sitter i systemene - for eksempel at jobbsøknader med utenlandske navn får færre svar enn identiske søknader med norske navn, uten at noen har tenkt over at de diskriminerer."
                     },
                     {
                         "question": "Hva er 'kognitiv mangfoldighet'?",
                         "options": [
-                            "At folk med ulik bakgrunn tenker på ulike mater, noe som kan lose problemer bedre",
-                            "At man kan snakke flere sprak",
+                            "At folk med ulik bakgrunn tenker på ulike måter, noe som kan løse problemer bedre",
+                            "At man kan snakke flere språk",
                             "At man har lest om mange ulike kulturer",
                             "At man har bodd i flere land"
                         ],
                         "correctAnswer": 0,
-                        "explanation": "Kognitiv mangfoldighet betyr at grupper med ulike perspektiver og erfaringer ser ulike problemer og losninger. Forskning viser at slike grupper ofte presterer bedre enn grupper der alle tenker likt."
+                        "explanation": "Kognitiv mangfoldighet betyr at grupper med ulike perspektiver og erfaringer ser ulike problemer og løsninger. Forskning viser at slike grupper ofte presterer bedre enn grupper der alle tenker likt."
                     },
                     {
                         "question": "Hva er grensen for 'kulturell toleranse'?",
                         "options": [
                             "Det finnes ingen grenser - alle kulturelle praksiser må respekteres",
-                            "Grensen gar ved praksiser som strider mot norsk lov og grunnleggende menneskerettigheter",
+                            "Grensen går ved praksiser som strider mot norsk lov og grunnleggende menneskerettigheter",
                             "Grensen bestemmes av majoritetsbefolkningen",
-                            "Grensen gar ved religiose praksiser som ikke er kristne"
+                            "Grensen går ved religiøse praksiser som ikke er kristne"
                         ],
                         "correctAnswer": 1,
-                        "explanation": "Kulturell toleranse har klare grenser: praksiser som tvangsekteskap, kjomslemlesting og vold er forbudte uansett kulturell bakgrunn. Menneskeverdet er ikke kulturrelativt."
+                        "explanation": "Kulturell toleranse har klare grenser: praksiser som tvangsekteskap, kjønnslemlestelse og vold er forbudte uansett kulturell bakgrunn. Menneskeverdet er ikke kulturrelativt."
                     }
                 ]
             }

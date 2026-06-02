@@ -1207,7 +1207,7 @@
                 "HDI"
               ],
               "createdDate": "2026-06-02T00:00:00Z",
-              "lastUpdated": "2026-06-02T09:38:09+02:00"
+              "lastUpdated": "2026-06-02T11:31:56+02:00"
             }
           ]
         },
@@ -1400,7 +1400,7 @@
                 "historisk-kontekst"
               ],
               "createdDate": "2026-06-02T00:00:00Z",
-              "lastUpdated": "2026-06-02T09:38:09+02:00"
+              "lastUpdated": "2026-06-02T11:31:56+02:00"
             },
             {
               "id": "km-7-konfliktar",
@@ -1415,12 +1415,12 @@
                 "historiske-konflikter"
               ],
               "createdDate": "2026-06-02T00:00:00Z",
-              "lastUpdated": "2026-06-02T09:38:09+02:00"
+              "lastUpdated": "2026-06-02T11:31:56+02:00"
             },
             {
               "id": "km-8-terror-folkemord",
               "title": "Fra hat til folkemord",
-              "description": "Artikkelen utforsker arsaker til og konsekvenser av terrorisme og folkemord - fra holocaust til 22. juli og Rwanda - og trener eleven i aa gjenkjenne radikalisering og reflektere over forebygging. Et interaktivt scenario-rollespill setter eleven midt i en radikaliseringsprosess og la dem ta valg som illustrerer hva som beskytter mot ekstremisme.",
+              "description": "Artikkelen utforsker årsaker til og konsekvenser av terrorisme og folkemord, fra holocaust til 22. juli og Rwanda, og trener eleven i å gjenkjenne radikalisering og reflektere over forebygging. En interaktiv eskaleringstrapp, et 3D-mikrospill om dehumanisering og et scenario-rollespill setter eleven midt i prosessen og lar dem ta valg som illustrerer hva som beskytter mot ekstremisme.",
               "image": "/images/placeholder.webp",
               "tags": [
                 "holocaust",
@@ -1597,7 +1597,7 @@
             },
             {
               "id": "km-9-identitet-mangfald",
-              "title": "Identitet og mangfald",
+              "title": "Identitet og mangfold",
               "description": "Artikkelen utforsker hva identitet er, hvordan kulturuttrykk og levesett varierer, og drøfter konkrete muligheter og utfordringer ved et mangfoldig samfunn - direkte rettet mot kompetansemål SAF01-04 nr. 9.",
               "image": "/images/placeholder.webp",
               "tags": [

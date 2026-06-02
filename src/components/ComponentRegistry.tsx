@@ -42,6 +42,7 @@ const Konfliktlaboratoriet = lazy(() => import('./content/interactive/Konfliktla
 const AlgoritmeSorteraren = lazy(() => import('./content/interactive/AlgoritmeSorteraren').then(m => ({ default: m.AlgoritmeSorteraren })));
 const Teknologivekta = lazy(() => import('./content/interactive/Teknologivekta').then(m => ({ default: m.Teknologivekta })));
 const HistoriensSpotlight = lazy(() => import('./content/interactive/HistoriensSpotlight').then(m => ({ default: m.HistoriensSpotlight })));
+const Eskaleringstrappa = lazy(() => import('./content/interactive/Eskaleringstrappa').then(m => ({ default: m.Eskaleringstrappa })));
 const AutomationRisk = lazy(() => import('./content/interactive/AutomationRisk').then(m => ({ default: m.AutomationRisk })));
 const ConformityExperiment = lazy(() => import('./content/interactive/ConformityExperiment').then(m => ({ default: m.ConformityExperiment })));
 const OstracismGame = lazy(() => import('./content/interactive/OstracismGame').then(m => ({ default: m.OstracismGame })));
@@ -95,6 +96,7 @@ const OkonomiVerdenLink = lazy(() => import('./content/interactive/okonomi/Okono
 const BiasLens = lazy(() => import('./learning-path/BiasLens').then(m => ({ default: m.BiasLens })));
 const AllianceChain = lazy(() => import('./content/interactive/AllianceChain').then(m => ({ default: m.AllianceChain })));
 const KontekstKompasset = lazy(() => import('./content/interactive/KontekstKompasset').then(m => ({ default: m.KontekstKompasset })));
+const IdentitetsVeven = lazy(() => import('./content/interactive/IdentitetsVeven').then(m => ({ default: m.IdentitetsVeven })));
 const PowderKeg = lazy(() => import('./content/interactive/PowderKeg').then(m => ({ default: m.PowderKeg })));
 const DreadnoughtDuel = lazy(() => import('./content/interactive/DreadnoughtDuel').then(m => ({ default: m.DreadnoughtDuel })));
 const TrenchCrossSection = lazy(() => import('./content/interactive/TrenchCrossSection').then(m => ({ default: m.default })));
@@ -236,6 +238,7 @@ const StrukturtilpasningSim = lazy(() => import('./content/interactive/Strukturt
 const PetrodollarKretslop = lazy(() => import('./content/interactive/PetrodollarKretslop').then(m => ({ default: m.PetrodollarKretslop })));
 const JakartaMetoden = lazy(() => import('./content/interactive/JakartaMetoden').then(m => ({ default: m.JakartaMetoden })));
 const KolonimaktSkifte = lazy(() => import('./content/interactive/KolonimaktSkifte').then(m => ({ default: m.KolonimaktSkifte })));
+const DigitalsporProfileren = lazy(() => import('./content/interactive/DigitalsporProfileren').then(m => ({ default: m.DigitalsporProfileren })));
 
 // Mikrospill: lett, embeddbart spill inline i artikkel. gameId-prop velger spillet
 // fra mikrospill-registeret (src/components/microgames/registry.ts).
@@ -263,7 +266,9 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     Konfliktlaboratoriet,
     Teknologivekta,
     HistoriensSpotlight,
+    Eskaleringstrappa,
     WaveMap,
+    DigitalsporProfileren,
 
     // Interactive Content
     InflationCalculator,
@@ -496,6 +501,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     CascadeFailureSim: lazy(() => import('./content/interactive/infrastruktur/CascadeFailureSim').then(m => ({ default: m.CascadeFailureSim }))),
     MapCarousel,
     KontekstKompasset,
+    IdentitetsVeven,
 };
 
 export const getComponent = (name: string) => {
