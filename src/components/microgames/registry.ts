@@ -14,6 +14,7 @@ const IngenmanslandMG = lazy(() => import('./IngenmanslandMG'));
 const TidensFormer3D = lazy(() => import('./TidensFormer3D'));
 const DampmaskinHjerte3D = lazy(() => import('./DampmaskinHjerte3D'));
 const Falanksen3D = lazy(() => import('./Falanksen3D'));
+const OlympiaDiskos3D = lazy(() => import('./OlympiaDiskos3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
     'gladius-duell': {
@@ -96,6 +97,15 @@ export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.Laz
         estimatedSeconds: 140,
         loader: () => import('./Falanksen3D'),
         Component: Falanksen3D as never,
+    },
+    'olympia-diskos-3d': {
+        id: 'olympia-diskos-3d',
+        title: 'Diskos paa Olympia',
+        description:
+            'Kast diskos paa Olympias hellige stadion i 3D: still inn vinkel og kraft, se kastebanen, og slaa rekorden for aa vinne olivenkransen. Oppdag at diskosen flyr lengst ved rundt 45 grader.',
+        estimatedSeconds: 140,
+        loader: () => import('./OlympiaDiskos3D'),
+        Component: OlympiaDiskos3D as never,
     },
 };
 
