@@ -7,7 +7,7 @@
     "heroImage": "/images/placeholder.webp",
     "subject": "samfunnskunnskap",
     "topic": "mennesket-kultur-samfunn",
-    "description": "Laer deg å vurdere kjelder kritisk, forstå korleis algoritmar formar det du ser, og oppdage kva som finst i blindsonene dine.",
+    "description": "Lær deg å vurdere kjelder kritisk, forstå korleis algoritmar formar det du ser, og oppdage kva som finst i blindsonene dine.",
     "details": [
         "Kompetansemål SAF01-04",
         "Kildebruk og algoritmer"
@@ -36,8 +36,8 @@
         {
             "type": "image",
             "src": "/images/placeholder.webp",
-            "alt": "Ulike avisforsider dekker samme nyhetssak på forskjellige mater",
-            "caption": "Samme hendelse kan se svart veldig ulikt ut avhengig av kjelda du leser."
+            "alt": "Ulike avisforsider dekker same nyhetssak på forskjellige måtar",
+            "caption": "Samme hendelse kan se svært ulikt ut avhengig av kjelda du leser."
         },
         {
             "type": "header",
@@ -61,7 +61,7 @@
         },
         {
             "type": "text",
-            "content": "Det mest krevjande er mangelen på kjelder - informasjon som ikkje finst fordi ingen har skrive om det. Mange hendingar i verda, særleg i fattige land eller blant grupper utan makt, blir aldri dekte av store medium. Det betyr ikkje at dei ikkje er viktige. Det betyr at blindsonene våre kan vere store, sjølv om vi trur vi er godt informerte. Du kan lese mykje om uroa i samfunn og politikk i artikkelen om [ekkokamre og informasjonsbobler](/samfunnskunnskap/mennesket-kultur-samfunn/ekkokamre)."
+            "content": "Det mest krevjande er mangelen på kjelder - informasjon som ikkje finst fordi ingen har skrive om det. Mange hendingar i verda, særleg i fattige land eller blant grupper utan makt, blir aldri dekte av store medium. Det betyr ikkje at dei ikkje er viktige. Det betyr at blindsonene våre kan vere store, sjølv om vi trur vi er godt informerte. Du kan lese meir om uroa i samfunn og politikk i artikkelen om [ekkokamre og informasjonsbobler](/samfunnskunnskap/mennesket-kultur-samfunn/ekkokamre)."
         },
         {
             "type": "header",
@@ -69,34 +69,30 @@
         },
         {
             "type": "text",
-            "content": "Her kjem det som gjer utfordringane med kjelder ekstra krevjande i dag: algoritmar. Ein algoritme er eit sett med reglar som ein datamaskin bruker for å ta avgjerder. På sosiale medium og søkemotorar bestemmer algoritmar kva innhald som dukkar opp oppe i feeden din, kva videoar YouTube anbefaler, og kva søkeresultat du ser fyrst."
+            "content": "Her kjem det som gjer utfordringane med kjelder ekstra krevjande i dag: algoritmar. Ein algoritme er eit sett med reglar som ein datamaskin bruker for å ta avgjerder. På sosiale medium og søkemotorar bestemmer algoritmar kva innhald som dukkar opp i feeden din, kva videoar YouTube anbefaler, og kva søkeresultat du ser fyrst."
         },
         {
             "type": "text",
-            "content": "Algoritmar er ikkje nøytrale. Dei er programmerte til å nå eit mål - som regel å halde deg engasjert lengst mogleg, slik at plattforma tener meir reklamepenger. Og det som held oss mest engasjert, er gjerne innhald som bekreftar det vi allereie meiner, som skaper sterke kjensler - sinne, overrasking, frykt - eller som kjem frå folk vi likar. Resultatet er at to personar som søker på det same temaet, kan få heilt ulike resultat - avhengig av kva dei har likt og klikka på tidlegare."
+            "content": "Algoritmar er ikkje nøytrale. Dei er programmerte til å nå eit mål - som regel å halde deg engasjert lengst mogleg, slik at plattforma tener meir reklamepenger. Og det som held oss mest engasjert, er gjerne innhald som bekreftar det vi allereie meiner, som skapar sterke kjensler - sinne, overrasking, frykt - eller som kjem frå folk vi likar. Resultatet er at to personar som søker på det same temaet, kan få heilt ulike resultat - avhengig av kva dei har likt og klikka på tidlegare."
         },
         {
             "type": "component",
-            "name": "FilterBubbleSim",
-            "props": {
-                "topic": "klimaendringer",
-                "leftPerspective": "Klimaendringane er ein akutt krise som krev radikale endringar i energibruk og livsstil no. Forskarar er einige om at vi har lite tid.",
-                "rightPerspective": "Klimapolitikk skader norsk industri og vanlege folk. Noreg bidreg minimalt til globale utslepp og bor prioritere eigen velferd."
-            }
+            "name": "AlgoritmeSorteraren",
+            "props": {}
         },
         {
             "type": "text",
-            "content": "Prøv simulatoren over: Legg merke til korleis same tema - klimaendringar - kan bli presentert på to heilt ulike måtar avhengig av kva kjelder algoritmen plar vise deg. Ingen av dei to perspektiva er nødvendigvis feil, men dersom du berre ser det eine, mistar du ein stor del av biletet."
+            "content": "Prøv verktøyet over: klikk på tre nyhende du synest verkar interessante. Legg merke til kva som skjer med dei andre kortene. Du tok berre tre heilt vanlege val - men algoritmen brukte dei til å avgjere kva du ikkje lenger skal sjå. Det er slik det fungerer i den verkelege feeden din kvar einaste dag, berre utan at du ser det skje."
         },
         {
             "type": "image",
             "src": "/images/placeholder.webp",
-            "alt": "Illustrasjon av algoritme-bobler som gir folk ulike nyhetsstraumer",
-            "caption": "Algoritmar skapar personlege nyheitsstraumer - og to personar kan leve i heilt ulike informasjonsverd."
+            "alt": "Illustrasjon av algoritmebobler som gir folk ulike nyheitsstraumar",
+            "caption": "Algoritmar skapar personlege nyheitsstraumar - og to personar kan leve i heilt ulike informasjonsverder."
         },
         {
             "type": "header",
-            "text": "Tre typar skjeve kjelder du bor kjenne att"
+            "text": "Tre typar skjeve kjelder du bør kjenne att"
         },
         {
             "type": "list",
@@ -112,11 +108,11 @@
         },
         {
             "type": "header",
-            "text": "Sjekk deg sjolv: Blindsonene dine"
+            "text": "Sjekk deg sjølv: Blindsonene dine"
         },
         {
             "type": "text",
-            "content": "Ein blindsone er eit omrade du ikkje ser - ikkje fordi du ikkje vil sjå, men fordi ingenting har leia deg dit. Tenk deg at du berre les norske medium. Då mistar du perspektiva frå folk i land som er direkte ramma av norske avgjerder, til dømes om oljeutvinning eller bistand. Tenk deg at du berre bruker TikTok som nyheitskjelde. Då ser du mykje om det som er underhaldande og engasjerande, men lite om dei sakene som er viktige og kompliserte."
+            "content": "Ein blindsone er eit område du ikkje ser - ikkje fordi du ikkje vil sjå, men fordi ingenting har leia deg dit. Tenk deg at du berre les norske medium. Då mistar du perspektiva frå folk i land som er direkte ramma av norske avgjerder, til dømes om oljeutvinning eller bistand. Tenk deg at du berre bruker TikTok som nyheitskjelde. Då ser du mykje om det som er underhaldande og engasjerande, men lite om dei sakene som er viktige og kompliserte."
         },
         {
             "type": "text",
@@ -143,13 +139,13 @@
                         "name": "Fleirkulturelt forum",
                         "type": "Interesseorganisasjon",
                         "stance": "Einsidig positiv",
-                        "content": "SSB-rapporten viser at innvandrarar bidreg meir og meir til norsk arbeidsliv for kvart ar som gar, og at integrasjonen er ein suksesshistorie."
+                        "content": "SSB-rapporten viser at innvandrarar bidreg meir og meir til norsk arbeidsliv for kvart år som går, og at integrasjonen er ein suksesshistorie."
                     },
                     {
                         "name": "Forskar ved OsloMet",
                         "type": "Akademisk kjelde",
                         "stance": "Nyansert/fagleg",
-                        "content": "Rapporten viser komplekse mønster. Utdanning er den sterkaste faktoren - ikkje landbakgrunn åleine. Politikk bor sjå på kompetanseheving, ikkje berre tal."
+                        "content": "Rapporten viser komplekse mønster. Utdanning er den sterkaste faktoren - ikkje landbakgrunn åleine. Politikk bør sjå på kompetanseheving, ikkje berre tal."
                     }
                 ]
             }
@@ -170,11 +166,18 @@
         },
         {
             "type": "text",
-            "content": "Å vere kritisk til kjelder er ikkje det same som å mistru alt. Det er ei aktiv handling der du tek ansvar for eiga forståing. Her er fire konkrete steg du kan ta. Sjekk avsendaren: Kven er det som har laga dette? Er dei uavhengige? Har dei noko å vinne på at du trur det dei skriv? Samanlikn kjelder: Les om same sak frå to-tre uavhengige stader. Stemmer hovudpoenga overeins? Kva er ulikt? Spor etter originalen: Mange nettartiklar refererer til studiar eller rapportar utan å lenke til dei. Finn originalen og sjekk sjølv kva han faktisk seier. Vere medviten om algoritmen: Søk aktivt etter kjelder du ikkje normalt ser. Bruk gjerne personvernvennlege søkemotorar eller les medium frå fleire land."
+            "content": "Å vere kritisk til kjelder er ikkje det same som å mistru alt. Det er ei aktiv handling der du tek ansvar for eiga forståing. Her er fire konkrete steg du kan ta. Sjekk avsendaren: Kven er det som har laga dette? Er dei uavhengige? Har dei noko å vinne på at du trur det dei skriv? Samanlikn kjelder: Les om same sak frå to-tre uavhengige stader. Stemmer hovudpoenga overeins? Kva er ulikt? Spor etter originalen: Mange nettartiklar refererer til studiar eller rapportar utan å lenke til dei. Finn originalen og sjekk sjølv kva han faktisk seier. Ver medviten om algoritmen: Søk aktivt etter kjelder du ikkje normalt ser. Bruk gjerne personvernvennlege søkemotorar eller les medium frå fleire land."
         },
         {
             "type": "text",
-            "content": "Demokrati kviler på at borgarane kan danne seg ein informert og sjølvstendig meining. Det krev tilgang til gode kjelder - og evne til å vurdere dei. Dei same prinsippa gjeld anten du vurderer ei politisk sak, les om helse, forstår [makt og legitimitet](/samfunnskunnskap/styringsformer/makt-og-legitimitet) eller forstar korleis [ytringsvett og ytringsmot](/samfunnskunnskap/mennesket-kultur-samfunn/ytringsvett-vs-ytringsmot) heng saman med kva informasjon vi vel å dele."
+            "content": "Demokrati kviler på at borgarane kan danne seg ein informert og sjølvstendig meining. Det krev tilgang til gode kjelder - og evne til å vurdere dei. Dei same prinsippa gjeld anten du vurderer ei politisk sak, les om helse, forstår [makt og legitimitet](/samfunnskunnskap/styringsformer/makt-og-legitimitet) eller forstår korleis [ytringsvett og ytringsmot](/samfunnskunnskap/mennesket-kultur-samfunn/ytringsvett-vs-ytringsmot) heng saman med kva informasjon vi vel å dele."
+        },
+        {
+            "type": "component",
+            "name": "MicroGame",
+            "props": {
+                "gameId": "nyheitsbobla-3d"
+            }
         },
         {
             "type": "component",
@@ -182,15 +185,15 @@
             "props": {
                 "questions": [
                     {
-                        "question": "Kva er hovudformalet til algoritmar på sosiale medium?",
+                        "question": "Kva er hovudformålet til algoritmar på sosiale medium?",
                         "options": [
-                            "A sikre at du far mest mogleg påliteleg informasjon",
-                            "A halde deg engasjert lengst mogleg slik at plattforma tener pengar",
-                            "A gi deg ei balansert oversikt over nyhende",
-                            "A hindre spreiing av desinformasjon"
+                            "Å sikre at du får mest mogleg påliteleg informasjon",
+                            "Å halde deg engasjert lengst mogleg slik at plattforma tener pengar",
+                            "Å gi deg ei balansert oversikt over nyhende",
+                            "Å hindre spreiing av desinformasjon"
                         ],
                         "correctAnswer": 1,
-                        "explanation": "Algoritmar er laga for å maksimere engasjement - det vil seie kor lenge du er på plattforma. Det gjer dei ved å vise deg innhald som bekreftar meiningane dine og skapar sterke kjensler, ikkje nødvendigvis det mest pålitelege innhaldet."
+                        "explanation": "Algoritmar er laga for å maksimere engasjement - det vil seie kor lenge du er på plattforma. Dei gjer det ved å vise deg innhald som bekreftar meiningane dine og skapar sterke kjensler, ikkje nødvendigvis det mest pålitelege innhaldet."
                     },
                     {
                         "question": "Kva kallar vi det når ein kjelde medvite presenterer berre ei side av ei sak?",
@@ -208,7 +211,7 @@
                         "options": [
                             "Ein feil i eit kart",
                             "Noko du ikkje kan sjå med auga",
-                            "Informasjon eller perspektiv du ikkje far tilgang til fordi ingenting har leia deg dit",
+                            "Informasjon eller perspektiv du ikkje får tilgang til fordi ingenting har leia deg dit",
                             "Ein type desinformasjon"
                         ],
                         "correctAnswer": 2,
@@ -223,10 +226,10 @@
                             "Bruke Google Translate"
                         ],
                         "correctAnswer": 1,
-                        "explanation": "Det viktigaste fyrste steget er å finne ut kven avsendaren er. Ein nyhetsredaksjon, ein lobbyorganisasjon og ein privatperson har svært ulik troverde og ulike motiv - og det paverker korleis du bor lese innhaldet."
+                        "explanation": "Det viktigaste fyrste steget er å finne ut kven avsendaren er. Ein nyhetsredaksjon, ein lobbyorganisasjon og ein privatperson har svært ulik troverde og ulike motiv - og det påverkar korleis du bør lese innhaldet."
                     },
                     {
-                        "question": "Kvifor kan to personar som søker på same tema fa heilt ulike søkeresultat?",
+                        "question": "Kvifor kan to personar som søker på same tema få heilt ulike søkeresultat?",
                         "options": [
                             "Fordi internett er dårleg i det eine landet",
                             "Fordi algoritmar tilpassar resultata basert på kva dei har søkt på og klikka på tidlegare",
@@ -234,7 +237,7 @@
                             "Fordi dei bur i ulike tidssoner"
                         ],
                         "correctAnswer": 1,
-                        "explanation": "Søkemotorar og sosiale medium bruker algoritmar som tar omsyn til kvar enkelt brukers historikk og åtferd. To personar med ulike interesser og tidlegare klikkmønster vil difor sjå eit algoritme-tilpassa utval av same verke - ikkje det same fullstendige biletet."
+                        "explanation": "Søkemotorar og sosiale medium bruker algoritmar som tar omsyn til kvar enkelt brukers historikk og åtferd. To personar med ulike interesser og tidlegare klikkmønster vil difor sjå eit algoritme-tilpassa utval av same verden - ikkje det same fullstendige biletet."
                     }
                 ]
             }

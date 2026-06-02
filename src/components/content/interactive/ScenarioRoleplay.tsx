@@ -4,7 +4,8 @@ import { Scroll, ArrowRight, Skull, Trophy, RefreshCcw } from 'lucide-react';
 import { renderInlineMarkdown } from '../../markdownUtils';
 
 interface Option {
-    label: string;
+    label?: string;
+    text?: string; // alias: innholds-JSON/cron bruker av og til 'text'
     nextId: string;
     outcome?: 'success' | 'failure' | 'neutral';
     feedback?: string;
@@ -15,20 +16,25 @@ interface Scenario {
     text: string;
     image?: string;
     options?: Option[];
+    choices?: Option[]; // alias for 'options'
 }
 
 interface ScenarioRoleplayProps {
     title: string;
-    intro: string;
+    intro?: string;
     startId: string;
-    scenarios: Scenario[];
+    scenarios?: Scenario[];
+    scenario?: Scenario[]; // alias for 'scenarios'
 }
 
-export const ScenarioRoleplay: React.FC<ScenarioRoleplayProps> = ({ title, intro, startId, scenarios }) => {
+export const ScenarioRoleplay: React.FC<ScenarioRoleplayProps> = ({ title, intro = '', startId, scenarios, scenario }) => {
     const [currentId, setCurrentId] = useState<string | null>(null);
     const [history, setHistory] = useState<string[]>([]);
 
-    const currentScenario = scenarios.find(s => s.id === (currentId || startId));
+    // Alias-sikkerhetsnett: godta både kanoniske prop-navn og variantene
+    // innholds-generering noen ganger produserer (scenario/choices/text).
+    const nodes = scenarios ?? scenario ?? [];
+    const currentScenario = nodes.find(s => s.id === (currentId || startId));
 
     const handleOptionClick = (option: Option) => {
         setHistory([...history, currentId || startId]);
@@ -49,7 +55,7 @@ export const ScenarioRoleplay: React.FC<ScenarioRoleplayProps> = ({ title, intro
         );
     }
 
-    const options = currentScenario.options || [];
+    const options = currentScenario.options ?? currentScenario.choices ?? [];
     const isEnding = options.length === 0;
 
     return (
@@ -98,7 +104,7 @@ export const ScenarioRoleplay: React.FC<ScenarioRoleplayProps> = ({ title, intro
                                     className="w-full text-left p-4 rounded-xl border border-slate-200 bg-white hover:bg-indigo-50 hover:border-indigo-300 transition-all group flex items-center justify-between shadow-sm hover:shadow"
                                 >
                                     <span className="font-medium text-slate-800 group-hover:text-indigo-900">
-                                        {option.label}
+                                        {option.label ?? option.text}
                                     </span>
                                     <ArrowRight className="w-4 h-4 text-slate-300 group-hover:text-indigo-500 transition-transform group-hover:translate-x-1" />
                                 </button>

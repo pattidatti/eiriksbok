@@ -36,6 +36,10 @@ const TrolleyProblem = lazy(() => import('./content/interactive/TrolleyProblem')
 const GoldenMeanSlider = lazy(() => import('./content/interactive/GoldenMeanSlider').then(m => ({ default: m.GoldenMeanSlider })));
 const CategoricalImperativeTester = lazy(() => import('./content/interactive/CategoricalImperativeTester').then(m => ({ default: m.CategoricalImperativeTester })));
 const FilterBubbleSim = lazy(() => import('./content/interactive/FilterBubbleSim').then(m => ({ default: m.FilterBubbleSim })));
+const StatistikkVri = lazy(() => import('./content/interactive/StatistikkVri').then(m => ({ default: m.StatistikkVri })));
+const AlgoritmeSorteraren = lazy(() => import('./content/interactive/AlgoritmeSorteraren').then(m => ({ default: m.AlgoritmeSorteraren })));
+const Teknologivekta = lazy(() => import('./content/interactive/Teknologivekta').then(m => ({ default: m.Teknologivekta })));
+const HistoriensSpotlight = lazy(() => import('./content/interactive/HistoriensSpotlight').then(m => ({ default: m.HistoriensSpotlight })));
 const AutomationRisk = lazy(() => import('./content/interactive/AutomationRisk').then(m => ({ default: m.AutomationRisk })));
 const ConformityExperiment = lazy(() => import('./content/interactive/ConformityExperiment').then(m => ({ default: m.ConformityExperiment })));
 const OstracismGame = lazy(() => import('./content/interactive/OstracismGame').then(m => ({ default: m.OstracismGame })));
@@ -251,6 +255,9 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     EmperorStats,
     LinkButton,
     MicroGame,
+    StatistikkVri,
+    Teknologivekta,
+    HistoriensSpotlight,
     WaveMap,
 
     // Interactive Content
@@ -269,6 +276,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     GoldenMeanSlider,
     CategoricalImperativeTester,
     FilterBubbleSim,
+    AlgoritmeSorteraren,
     AutomationRisk,
     ConformityExperiment,
     OstracismGame,

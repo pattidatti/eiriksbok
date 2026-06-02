@@ -1,11 +1,11 @@
 {
     "id": "km-4-teknologi-endring",
-    "title": "Teknologien som endrar alt",
+    "title": "Teknologien som endrer alt",
     "layout": "rich",
     "category": "Samfunnskunnskap",
     "readTime": "9 min lesning",
     "heroImage": "/images/placeholder.webp",
-    "description": "Utforsk korleis teknologi har forma verda - frå plogen til kunstig intelligens - og drøft kva ny teknologi betyr for enkeltmenneske, samfunn og natur.",
+    "description": "Utforsk hvordan teknologi har formet verden fra plogen til kunstig intelligens, og drøft hva ny teknologi betyr for enkeltmennesket, samfunnet og naturen.",
     "subject": "samfunnskunnskap",
     "topic": "mennesket-kultur-samfunn",
     "details": [
@@ -32,29 +32,29 @@
         },
         {
             "type": "text",
-            "content": "Det er midt på natten i ei lita landsby i England. Aret er 1811. Grupper av menn beveger seg lydlost mot næraste fabrikk. Bevæpna med slegger og okser bryt dei seg inn og knuser dei nye mekaniske vevstolane som har overteke jobben deira. Dei kallar seg luddittane. For desse mennene var ikkje maskinane eit teikn på framgang - dei var ein fiende som stal levebrodet deira. To hundre år seinare er situasjonen lik, men endringane skjer raskare enn nokon gong. Kva skjer når eit samfunn møter ny teknologi - og kven bestemmer om det er ei velsigning eller ei forbanning?"
+            "content": "Det er midt på natten i en liten landsby i England. Året er 1811. Grupper av menn beveger seg lydløst mot nærmeste fabrikk. Bevæpnet med slegger og økser bryter de seg inn og knuser de nye mekaniske vevstolene som har overtatt jobben deres. De kaller seg luddittene. For disse mennene var ikke maskinene et tegn på framgang - de var en fiende som stjal levebrødet deres. To hundre år senere er situasjonen lik, men endringene skjer raskere enn noen gang. Hva skjer når et samfunn møter ny teknologi - og hvem bestemmer om det er en velsignelse eller en forbannelse?"
         },
         {
             "type": "image",
             "src": "/images/placeholder.webp",
-            "alt": "Luddittane knuser vevstolar i engelsk fabrikk 1811",
-            "caption": "Luddittane protesterte mot dei nye vevstolane ved å knuse dei. Teknologimotstand er ikkje noko nytt fenomen."
+            "alt": "Luddittene knuser vevstoler i en engelsk fabrikk i 1811",
+            "caption": "Luddittene protesterte mot de nye vevstolene ved å knuse dem. Teknologimotstand er ikke noe nytt."
         },
         {
             "type": "header",
-            "text": "Kva er teknologi?"
+            "text": "Hva er teknologi?"
         },
         {
             "type": "text",
-            "content": "Teknologi er alt vi lagar for å lose oppgaver enklare eller raskare. Det er ikkje berre datamaskiner og robotar. Den første teknologien var ein skarp stein brukt til å skjære kjott - for over to millionar år sidan. Plogen som revolusjonerte jordbruket, trykkepressa som spreidde kunnskap til folket, og dampkjelen som satte fabrikkar i gang, er alle teknologi. Kvar gong ein ny teknologi dukkar opp, endrar den korleis vi lever, jobbar og tenkjer. Det er dette vi kallar teknologi som endringsdriver: ei kraft som skyv samfunnet i ei ny retning, enten vi vil eller ikkje."
+            "content": "Teknologi er alt vi lager for å løse oppgaver enklere eller raskere. Det er ikke bare datamaskiner og roboter. Den første teknologien var en skarp stein brukt til å skjære kjøtt - for over to millioner år siden. Plogen som forandret jordbruket, trykkpressen som spredte kunnskap til folket, og dampkjelen som satte fabrikker i gang, er alt sammen teknologi. Hver gang en ny teknologi dukker opp, endrer den hvordan vi lever, jobber og tenker. Det er dette vi kaller teknologi som endringsdriver: en kraft som dytter samfunnet i en ny retning, enten vi vil eller ikke."
         },
         {
             "type": "text",
-            "content": "Historikaren Yuval Noah Harari skriv at det er tre store revolusjonar som har forma menneska: den kognitive revolusjonen (vi lærte å tenkje abstrakt), jordbruksrevolusjonen (vi byrja dyrke mat), og den vitskaplege revolusjonen. Kvar gong var det teknologi som utlosa endringa. I dag er vi midt i ein ny revolusjon: den digitale. Du kan lese meir om korleis [urbanisering](/samfunnskunnskap/demografi/urbanisering) og industrialisering endra livet til folk - det er ei av dei mest dramatiske teknologidrivne omveltingane i historia."
+            "content": "Historikeren Yuval Noah Harari skriver at det er tre store revolusjoner som har formet menneskene: den kognitive revolusjonen (vi lærte å tenke abstrakt), jordbruksrevolusjonen (vi begynte å dyrke mat), og den vitenskapelige revolusjonen. Hver gang var det teknologi som utløste endringen. I dag er vi midt i en ny revolusjon: den digitale. Du kan lese mer om hvordan [urbanisering](/samfunnskunnskap/demografi/urbanisering) og industrialisering endret livet til folk - det er en av de mest dramatiske teknologidrevne omveltningene i historien."
         },
         {
             "type": "header",
-            "text": "Tre store teknologihopp - og kva dei endra"
+            "text": "Tre store teknologihopp - og hva de endret"
         },
         {
             "type": "component",
@@ -65,47 +65,75 @@
                     {
                         "year": "1760-1840",
                         "title": "Den industrielle revolusjonen",
-                        "description": "Dampkraft tok over for muskelkraft. Folk flytta frå bygda til byane. Barn jobba i fabrikkar. Velstanden auka - men ulikskapane auka ogsa."
+                        "description": "Dampkraft tok over for muskelkraft. Folk flyttet fra bygda til byene. Barn jobbet i fabrikker. Velstanden økte - men ulikhetene økte også."
                     },
                     {
                         "year": "1969",
-                        "title": "Internett fødest",
-                        "description": "ARPANET, forloyparen til internett, sender si første melding. Informasjon kan no flyte fritt mellom datamaskiner - uansett avstand."
+                        "title": "Internett fødes",
+                        "description": "ARPANET, forløperen til internett, sender sin første melding. Informasjon kan nå flyte fritt mellom datamaskiner - uansett avstand."
                     },
                     {
                         "year": "2007",
-                        "title": "Smarttelefonen forandrar alt",
-                        "description": "Apple lanserer iPhone. Plutseleg har vi eit bibliotek, eit kamera, ein bank og ein verdsomspennande kommunikasjonskanal i lomma."
+                        "title": "Smarttelefonen forandrer alt",
+                        "description": "Apple lanserer iPhone. Plutselig har vi et bibliotek, et kamera, en bank og en verdensomspennende kommunikasjonskanal i lomma."
                     },
                     {
                         "year": "2022",
                         "title": "Kunstig intelligens for alle",
-                        "description": "ChatGPT vert lansert og AI vert tilgjengeleg for vanlege folk. Maskinar kan no skrive, lage kunst og løyse problem - og ingen veit heilt kva det forer til."
+                        "description": "ChatGPT lanseres og AI blir tilgjengelig for vanlige folk. Maskiner kan nå skrive, lage kunst og løse problemer - og ingen vet helt hva det fører til."
                     }
                 ]
             }
         },
         {
             "type": "text",
-            "content": "Kvart av desse hopp endra livet til vanlege menneske grunnleggjande. Industrialiseringa flytta millionar frå jordbruk til fabrikkarbeid - og skapte nye sosiale problem som barnearbeid og slumbyar, men ogsa nye loysningar som fagforeiningar og arbeidarvern. Digitaliseringa har gjeve oss tilgang til all verdas kunnskap via eit lite skjermglas, men har ogsa skapt nye problem: overvaking, falske nyhende, og avhengnad av plattformar styrte av store selskap. Sjå korleis [teknologi og helse](/samfunnskunnskap/demografi/teknologi-helse) har spelt saman i den demografiske historia for eit konkret eksempel."
+            "content": "Hvert av disse hoppene endret livet til vanlige mennesker helt grunnleggende. Industrialiseringen flyttet millioner fra jordbruk til fabrikkarbeid - og skapte nye sosiale problemer som barnearbeid og slumbyer, men også nye løsninger som fagforeninger og arbeidervern. Digitaliseringen har gitt oss tilgang til all verdens kunnskap gjennom et lite skjermglass, men har også skapt nye problemer: overvåking, falske nyheter, og avhengighet av plattformer styrt av store selskaper. Se hvordan [teknologi og helse](/samfunnskunnskap/demografi/teknologi-helse) har spilt sammen i den demografiske historien for et konkret eksempel."
         },
         {
             "type": "header",
-            "text": "Kven vinn - og kven tapar?"
+            "text": "Teknologibølgja - kjenn forandringen på kroppen"
         },
         {
             "type": "text",
-            "content": "Ny teknologi gjer ikkje livet betre for alle på same tid. Nokon tener stort og fort, andre mistar jobben sin. Dette er ei av dei viktigaste innsiktene vi treng for a drøfte teknologiens innverknad. Da dampmaskinane kom, tente fabrikkeigjarane enorme summar - medan arbeidarane jobba 14-timars dagar i farleg miljø. Det tok tiår med kamp frå [fagforeiningar](/samfunnskunnskap/arbeidsliv/fagforeninger) for å få 8-timars arbeidsdag og tryggare kår."
+            "content": "De fire hoppene over er ikke bare årstall. Hver av dem forandret hverdagen til folk, byer og natur på én gang. Prøv det selv under: skyv teknologien oppover gjennom epokene, og legg merke til at gevinsten og kostnaden alltid vokser sammen - og at samme teknologi til slutt også kan rydde opp i det den ødela."
+        },
+        {
+            "type": "component",
+            "name": "MicroGame",
+            "props": {
+                "gameId": "teknologibolgen-3d"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Hvem vinner - og hvem taper?"
         },
         {
             "type": "text",
-            "content": "I dag er bildet like samansett. Digitale plattformar som Netflix, Spotify og Amazon har gjeve oss enorm valfridom - men dei har ogsa øydelagd inntektsgrunnlaget til lokale butikkar, kinoar og plateselskap. Nokre få selskap med hovudkvarter i USA eller Kina kontrollerer no infrastrukturen som heile verda er avhengig av. Dette kallar vi digital monopolmakt. Kven bestemmer spelereglane for teknologien er eit av dei viktigaste politiske spørsmala i dag."
+            "content": "Ny teknologi gjør ikke livet bedre for alle på samme tid. Noen tjener stort og fort, andre mister jobben sin. Dette er en av de viktigste innsiktene vi trenger for å drøfte teknologiens innvirkning. Da dampmaskinene kom, tjente fabrikkeierne enorme summer - mens arbeiderne jobbet 14-timers dager i et farlig miljø. Det tok tiår med kamp fra [fagforeninger](/samfunnskunnskap/arbeidsliv/fagforeninger) for å få 8-timers arbeidsdag og tryggere kår."
+        },
+        {
+            "type": "text",
+            "content": "I dag er bildet like sammensatt. Digitale plattformer som Netflix, Spotify og Amazon har gitt oss enorm valgfrihet - men de har også ødelagt inntektsgrunnlaget til lokale butikker, kinoer og plateselskaper. Noen få selskaper med hovedkvarter i USA eller Kina kontrollerer nå infrastrukturen som hele verden er avhengig av. Dette kaller vi digital monopolmakt. Hvem som bestemmer spillereglene for teknologien, er ett av de viktigste politiske spørsmålene i dag."
         },
         {
             "type": "image",
             "src": "/images/placeholder.webp",
-            "alt": "Barn jobbar i fabrikk under industrialiseringa på 1800-talet",
-            "caption": "Under industrialiseringa jobba barn i fabrikkar under farlige tilhøve. Ny teknologi skapar alltid nye etiske spørsmål."
+            "alt": "Barn jobber i en fabrikk under industrialiseringen på 1800-tallet",
+            "caption": "Under industrialiseringen jobbet barn i fabrikker under farlige forhold. Ny teknologi skaper alltid nye etiske spørsmål."
+        },
+        {
+            "type": "header",
+            "text": "Vei sidene mot hverandre"
+        },
+        {
+            "type": "text",
+            "content": "Å drøfte teknologi betyr ikke å rope «bra!» eller «farlig!». Det betyr å veie gevinst mot kostnad - og huske at samme teknologi treffer enkeltmennesket, samfunnet og naturen på ulike måter. Prøv det under: velg en teknologi, og avgjør for hver konsekvens om den hører hjemme på gevinst- eller kostnadssiden."
+        },
+        {
+            "type": "component",
+            "name": "Teknologivekta",
+            "props": {}
         },
         {
             "type": "header",
@@ -113,104 +141,104 @@
         },
         {
             "type": "text",
-            "content": "Teknologi endrar ikkje berre menneskelivet - det endrar ogsa planeten. Industrialiseringa starta ein massiv auke i forbrenning av kol og olje. Det sende koldioksid opp i atmosfæra og starta den klimaendringa vi kjempar med i dag. Det er eit av dei klaraste eksempla på at teknologi har konsekvensar langt utover det vi planla: dampmaskinen vart ikkje oppfunnen for å smelte isbrear, men det er ein av resultata. Vi les meir om dette i [framskrittstro](/samfunnskunnskap/ideer-og-verdenssyn/framskrittstro) - ideen om at teknologi og framgang alltid heng saman."
+            "content": "Teknologi endrer ikke bare menneskelivet - det endrer også planeten. Industrialiseringen startet en massiv økning i forbrenning av kull og olje. Det sendte karbondioksid opp i atmosfæren og startet den klimaendringen vi kjemper med i dag. Det er ett av de klareste eksemplene på at teknologi har konsekvenser langt utover det vi planla: dampmaskinen ble ikke oppfunnet for å smelte isbreer, men det er et av resultatene. Vi leser mer om dette i [framskrittstro](/samfunnskunnskap/ideer-og-verdenssyn/framskrittstro) - ideen om at teknologi og framgang alltid henger sammen."
         },
         {
             "type": "text",
-            "content": "Samstundes er teknologi ogsa ein del av loysinga. Solcellepanel, vindturbinar og elektriske bilar er teknologiar som kan hjelpe oss ut av klimakrisa. Dette viser det doble tilhøvet mellom teknologi og natur: same kraft som skapte problemet kan ogsa løyse det - om vi brukar den riktig. Spørsmalet er ikkje om vi skal ha teknologi, men korleis vi skal styre utviklinga og fordelinga av ho."
+            "content": "Samtidig er teknologi også en del av løsningen. Solcellepaneler, vindturbiner og elektriske biler er teknologier som kan hjelpe oss ut av klimakrisa. Dette viser det doble forholdet mellom teknologi og natur: samme kraft som skapte problemet kan også løse det - hvis vi bruker den riktig. Spørsmålet er ikke om vi skal ha teknologi, men hvordan vi skal styre utviklingen og fordelingen av den."
         },
         {
             "type": "header",
-            "text": "Du og teknologien: Kva valg tar du?"
+            "text": "Du og teknologien: Hvilke valg tar du?"
         },
         {
             "type": "text",
-            "content": "Det er lett å tenkje at teknologiutvikling er noko som berre skjer - noko store selskap og regjeringar bestemmer, langt borte frå livet ditt. Men slik er det ikkje. Kvar dag tar du val som påverkar den digitale verda: Kva apper du brukar, kva du delar på sosiale medium, kva du kjøper på nett. Kvar klikk er ein bit av eit enormt datasett som formar algoritmar og investeringsbeslutningar. Det betyr at teknologiutvikling ikkje berre skjer med deg - du er med på å forme ho. Sjå korleis [ekkokamre](/samfunnskunnskap/mennesket-kultur-samfunn/ekkokamre) og algoritmisk bobledanning er eit direkte resultat av korleis teknologiselskap designar platformane sine."
+            "content": "Det er lett å tenke at teknologiutvikling er noe som bare skjer - noe store selskaper og regjeringer bestemmer, langt borte fra livet ditt. Men slik er det ikke. Hver dag tar du valg som påvirker den digitale verden: Hvilke apper du bruker, hva du deler på sosiale medier, hva du kjøper på nett. Hvert klikk er en bit av et enormt datasett som former algoritmer og investeringsbeslutninger. Det betyr at teknologiutvikling ikke bare skjer med deg - du er med på å forme den. Se hvordan [ekkokamre](/samfunnskunnskap/mennesket-kultur-samfunn/ekkokamre) og algoritmisk bobledanning er et direkte resultat av hvordan teknologiselskapene designer plattformene sine."
         },
         {
             "type": "component",
             "name": "ScenarioRoleplay",
             "props": {
-                "title": "Teknologidilemma: Kva ville du gjort?",
+                "title": "Teknologidilemma: Hva ville du gjort?",
                 "startId": "start",
                 "scenario": [
                     {
                         "id": "start",
-                        "text": "Det er 2030. Ein ny AI kan diagnostisere kreft med 99% treffsikkerheit - langt betre enn dei fleste legar. Sjukehuset i kommunen din vurderer å la AI ta alle diagnoseavgjerder utan at ein lege er involvert. Det vil spare pengar og redde fleire liv statistisk sett. Men mange pasientar er urolege. Du er med i kommunestyret og må ta eit standpunkt.",
+                        "text": "Det er 2030. En ny AI kan diagnostisere kreft med 99 prosent treffsikkerhet - langt bedre enn de fleste leger. Sykehuset i kommunen din vurderer å la AI ta alle diagnosebeslutninger uten at en lege er involvert. Det vil spare penger og redde flere liv statistisk sett. Men mange pasienter er urolige. Du sitter i kommunestyret og må ta et standpunkt.",
                         "choices": [
                             {
-                                "text": "Innfore AI som eneste diagnoseverktøy - statistikken taler for seg",
+                                "text": "Innføre AI som eneste diagnoseverktøy - statistikken taler for seg",
                                 "nextId": "ai-only",
-                                "feedback": "Du satsar fullt på AI. Fleire liv vert redda, men tillitstapet er stort - folk byrjar unngå sjukehuset fordi dei vil ha eit menneske å snakke med."
+                                "feedback": "Du satser fullt på AI. Flere liv blir reddet, men tillitstapet er stort - folk begynner å unngå sykehuset fordi de vil ha et menneske å snakke med."
                             },
                             {
-                                "text": "Bruke AI som hjelp, men alltid med ein lege som tek endeleg avgjerd",
+                                "text": "Bruke AI som hjelp, men alltid med en lege som tar den endelige avgjørelsen",
                                 "nextId": "hybrid",
-                                "feedback": "Du vel hybridmodellen. Det kostar meir, men folk stoler meir på systemet. Legar kan ogsa fange opp tilfelle der AI tar feil - noko som skjer sjeldan, men med alvorlege konsekvensar."
+                                "feedback": "Du velger hybridmodellen. Det koster mer, men folk stoler mer på systemet. Leger kan også fange opp tilfeller der AI tar feil - noe som skjer sjelden, men med alvorlige konsekvenser."
                             },
                             {
-                                "text": "Avvise AI heilt - menneskelege legar er viktigare enn statistikk",
+                                "text": "Avvise AI helt - menneskelige leger er viktigere enn statistikk",
                                 "nextId": "no-ai",
-                                "feedback": "Du seier nei til AI. Mange er letta - men forsking viser at fleire pasientar med kreft ikkje vert oppdaga tidleg nok. Kven har ansvaret for dei livsfall som statistisk sett kunne vorte unngatt?"
+                                "feedback": "Du sier nei til AI. Mange er lettet - men forskning viser at flere pasienter med kreft ikke blir oppdaget tidlig nok. Hvem har ansvaret for de dødsfallene som statistisk sett kunne vært unngått?"
                             }
                         ]
                     },
                     {
                         "id": "ai-only",
-                        "text": "Eit år seinare viser det seg at AI-systemet fungerer dårleg for pasientar med sjeldne sjukdomar - dei vart underdiagnostisert fordi treningsdataen mangla slike tilfelle. Korleis reagerer du?",
+                        "text": "Et år senere viser det seg at AI-systemet fungerer dårlig for pasienter med sjeldne sykdommer - de ble underdiagnostisert fordi treningsdataene manglet slike tilfeller. Hvordan reagerer du?",
                         "choices": [
                             {
-                                "text": "Pause bruken og gransake systemet grundig",
+                                "text": "Pause bruken og granske systemet grundig",
                                 "nextId": "reflection",
-                                "feedback": "Du vel ansvarleg tilbaketrekking. Dette er ein viktig lærdom: AI-system er like gode som dataa dei er trent på - og biases i data vert til biases i avgjerder."
+                                "feedback": "Du velger ansvarlig tilbaketrekking. Dette er en viktig lærdom: AI-systemer er bare så gode som dataene de er trent på - og skjevheter i dataene blir til skjevheter i beslutningene."
                             },
                             {
-                                "text": "Halde fram - fordelane for fleirtalet veg tyngre",
+                                "text": "Holde fram - fordelene for flertallet veier tyngre",
                                 "nextId": "reflection",
-                                "feedback": "Du held fram. Det reddar flest liv samla sett, men dei med sjeldne sjukdomar betaler prisen. Dette er eit reelt etisk dilemma med teknologi: kven er innanfor treningsdataen, og kven fell utanfor?"
+                                "feedback": "Du holder fram. Det redder flest liv samlet sett, men de med sjeldne sykdommer betaler prisen. Dette er et reelt etisk dilemma med teknologi: hvem er innenfor treningsdataene, og hvem faller utenfor?"
                             }
                         ]
                     },
                     {
                         "id": "hybrid",
-                        "text": "Hybridmodellen fungerer godt, men etter to år vil legar bruke AI-tilrådingane meir og meir utan kritisk vurdering. Kva gjer du?",
+                        "text": "Hybridmodellen fungerer godt, men etter to år begynner legene å bruke AI-anbefalingene mer og mer uten kritisk vurdering. Hva gjør du?",
                         "choices": [
                             {
-                                "text": "Innfore krav om at legar dokumenterer kvifor dei er einige eller ueinige med AI",
+                                "text": "Innføre krav om at legene dokumenterer hvorfor de er enige eller uenige med AI",
                                 "nextId": "reflection",
-                                "feedback": "Smart. Du skapar eit system som held menneskeleg kritisk tenking ved lag, sjølv om AI er til hjelp. Dette er eit eksempel på ansvarleg teknologibruk."
+                                "feedback": "Smart. Du lager et system som holder menneskelig kritisk tenkning ved like, selv om AI er til hjelp. Dette er et eksempel på ansvarlig teknologibruk."
                             },
                             {
-                                "text": "La det skje - om AI har rett like ofte, er det eit teikn på at systemet fungerer",
+                                "text": "La det skje - hvis AI har rett like ofte, er det et tegn på at systemet fungerer",
                                 "nextId": "reflection",
-                                "feedback": "Kanskje - men du mistar ogsa evna til a oppdage når AI tar feil. Passiv tillit til teknologi kan vere like farleg som avvising av ho."
+                                "feedback": "Kanskje - men du mister også evnen til å oppdage når AI tar feil. Passiv tillit til teknologi kan være like farlig som å avvise den."
                             }
                         ]
                     },
                     {
                         "id": "no-ai",
-                        "text": "Tre år seinare publiserar nabolandets sjukehus tal som viser at deira AI-system har redda 400 ekstra liv. Lokale media spor deg om du angrar. Kva svarar du?",
+                        "text": "Tre år senere publiserer nabolandets sykehus tall som viser at deres AI-system har reddet 400 ekstra liv. Lokale medier spør om du angrer. Hva svarer du?",
                         "choices": [
                             {
-                                "text": "Ja - eg tok feil og vi bor innfore AI no",
+                                "text": "Ja - jeg tok feil, og nå bør vi innføre AI",
                                 "nextId": "reflection",
-                                "feedback": "Du er ærleg og villig til a lære. Evna til a endre meining når fakta endrar seg er eit kjenneteikn på god tenkjing - ogsa om teknologi."
+                                "feedback": "Du er ærlig og villig til å lære. Evnen til å endre mening når fakta endrer seg er et kjennetegn på god tenkning - også om teknologi."
                             },
                             {
-                                "text": "Nei - menneskeverd kan ikkje reduserast til statistikk",
+                                "text": "Nei - menneskeverd kan ikke reduseres til statistikk",
                                 "nextId": "reflection",
-                                "feedback": "Du held fast ved verdiane dine. Dette er eit legitimt standpunkt, men det krev at du har eit svar på kva du gjer for dei pasientane som statistisk sett ikkje vert oppdaga."
+                                "feedback": "Du holder fast ved verdiene dine. Dette er et legitimt standpunkt, men det krever at du har et svar på hva du gjør for de pasientene som statistisk sett ikke blir oppdaget."
                             }
                         ]
                     },
                     {
                         "id": "reflection",
-                        "text": "Uansett kva veg du valde, har du erfart at teknologiske val ikkje er nøytrale. Dei påverkar kven som vinn, kven som tapar, og kva verdiar vi prioriterer. Dette er kjernen i kompetansemalet: ikkje berre vite at teknologi endrar - men kunne drøfte korleis og for kven.",
+                        "text": "Uansett hvilken vei du valgte, har du erfart at teknologiske valg ikke er nøytrale. De påvirker hvem som vinner, hvem som taper, og hvilke verdier vi prioriterer. Dette er kjernen i kompetansemålet: ikke bare å vite at teknologi endrer - men å kunne drøfte hvordan og for hvem.",
                         "choices": [
                             {
                                 "text": "Avslutt og ta quizen",
                                 "nextId": "reflection",
-                                "feedback": "Godt jobba! Du har no reflektert over eit reelt dilemma knytt til teknologi og samfunn. Ta med deg desse perspektiva inn i quizen og i diskusjon med andre."
+                                "feedback": "Godt jobbet! Du har nå reflektert over et reelt dilemma knyttet til teknologi og samfunn. Ta med deg disse perspektivene inn i quizen og i diskusjon med andre."
                             }
                         ]
                     }
@@ -220,20 +248,20 @@
         {
             "type": "image",
             "src": "/images/placeholder.webp",
-            "alt": "Solcellepanel og vindturbinar som fornybar energiteknologi",
-            "caption": "Fornybar energiteknologi er eit eksempel på at same kraft som skapte klimaproblemet - teknologi - ogsa kan vere ein del av loysinga."
+            "alt": "Solcellepaneler og vindturbiner som fornybar energiteknologi",
+            "caption": "Fornybar energiteknologi er et eksempel på at samme kraft som skapte klimaproblemet - teknologi - også kan være en del av løsningen."
         },
         {
             "type": "header",
-            "text": "Korleis drøfte teknologiens innverknad"
+            "text": "Hvordan drøfte teknologiens innvirkning"
         },
         {
             "type": "text",
-            "content": "Kompetansemalet ber deg ikkje berre hugse fakta om teknologi - det ber deg drøfte. Det vil seie at du skal veie argument mot kvarandre og sjå saka frå fleire sider. Ein god mal for å drøfte teknologiens innverknad er å stille tre spørsmål: Kven vinn? Kven tapar? Og kva alternativ finst? Ta til dømes smarttelefonen. Vinnerar: unge som kommuniserer, legar i Afrika som kan diagnostisere med ein app, journalistar som kan filme overgrep og sende det til verda. Taparar: den mentale helsa til tenåringar, butikkar som ikkje klarer konkurrera med netthandel, arbeidarar i gruvene der litium til battera vert henta ut under elendige tilhøve."
+            "content": "Kompetansemålet ber deg ikke bare huske fakta om teknologi - det ber deg drøfte. Det vil si at du skal veie argumenter mot hverandre og se saken fra flere sider. En god mal for å drøfte teknologiens innvirkning er å stille tre spørsmål: Hvem vinner? Hvem taper? Og hvilke alternativer finnes? Ta for eksempel smarttelefonen. Vinnere: unge som kommuniserer, leger i Afrika som kan diagnostisere med en app, journalister som kan filme overgrep og sende det ut til verden. Tapere: den mentale helsa til tenåringer, butikker som ikke klarer å konkurrere med netthandel, arbeidere i gruvene der litium til batterier hentes ut under elendige forhold."
         },
         {
             "type": "text",
-            "content": "Eit anna viktig omgrep er teknologioptimisme versus teknologiskepsis. Optimistane seier: kvar gong teknologi har skapt problem, har ny teknologi løyst dei - og livet har vorte betre for fleire og fleire. Skeptikarane seier: vi overestimerer alltid fordelen og underestimerer skadeverknadane - sjå klimakrisa, sjå overvakingssamfunnet, sjå misinformasjon i sosiale medium. Begge perspektiv er nødvendige for å forstå kva teknologi faktisk gjer med oss. Sjå ogsa [robotene kjem](/samfunnskunnskap/mennesket-kultur-samfunn/robotene-kommer) for eit djupare dykk i korleis AI spesifikt endrar arbeidslivet."
+            "content": "Et annet viktig begrep er teknologioptimisme mot teknologiskepsis. Optimistene sier: hver gang teknologi har skapt problemer, har ny teknologi løst dem - og livet har blitt bedre for flere og flere. Skeptikerne sier: vi overvurderer alltid fordelene og undervurderer skadevirkningene - se klimakrisa, se overvåkingssamfunnet, se feilinformasjon i sosiale medier. Begge perspektivene er nødvendige for å forstå hva teknologi faktisk gjør med oss. Se også [robotene kommer](/samfunnskunnskap/mennesket-kultur-samfunn/robotene-kommer) for et dypere dykk i hvordan AI spesielt endrer arbeidslivet."
         },
         {
             "type": "component",
@@ -241,59 +269,59 @@
             "props": {
                 "questions": [
                     {
-                        "question": "Kva meiner vi med at teknologi er ein 'endringsdriver'?",
+                        "question": "Hva mener vi med at teknologi er en 'endringsdriver'?",
                         "options": [
-                            "At teknologi alltid gjer livet betre for alle",
-                            "At teknologi er ei kraft som dyttar samfunnet i ei ny retning, enten vi vil eller ikkje",
-                            "At teknologi berre endrar arbeidslivet, ikkje kulturen",
-                            "At teknologi skapar meir likskap mellom folk"
+                            "At teknologi alltid gjør livet bedre for alle",
+                            "At teknologi er en kraft som dytter samfunnet i en ny retning, enten vi vil eller ikke",
+                            "At teknologi bare endrer arbeidslivet, ikke kulturen",
+                            "At teknologi skaper mer likhet mellom folk"
                         ],
                         "correctAnswer": 1,
-                        "explanation": "Teknologi som endringsdriver tyder at ny teknologi ikkje berre er eit verktøy - ho omformar korleis vi lever, jobbar, kommuniserer og tenkjer, og skyv samfunnet i nye retningar som ofte ikkje var planlagde."
+                        "explanation": "Teknologi som endringsdriver betyr at ny teknologi ikke bare er et verktøy - den omformer hvordan vi lever, jobber, kommuniserer og tenker, og dytter samfunnet i nye retninger som ofte ikke var planlagt."
                     },
                     {
-                        "question": "Kva er det beste eksemplet på at ein teknologi har hatt utilsikta konsekvensar for naturen?",
+                        "question": "Hva er det beste eksempelet på at en teknologi har hatt utilsiktede konsekvenser for naturen?",
                         "options": [
-                            "Trykkepressa spreidde falske nyhende",
-                            "Dampmaskinane og kolbrenning starta klimaendringa",
-                            "Internett skapte avhengnad",
-                            "Smarttelefonen auka skjermtid"
+                            "Trykkpressen spredte falske nyheter",
+                            "Dampmaskinene og kullbrenningen startet klimaendringen",
+                            "Internett skapte avhengighet",
+                            "Smarttelefonen økte skjermtiden"
                         ],
                         "correctAnswer": 1,
-                        "explanation": "Dampmaskinane vart ikkje oppfunne for å endre klimaet - men kolbrenning frå industrialiseringa er hovudarsaka til den menneskeskapte klimaendringa. Dette er eit klassisk eksempel på utilsikta konsekvensar av teknologi."
+                        "explanation": "Dampmaskinene ble ikke oppfunnet for å endre klimaet - men kullbrenningen fra industrialiseringen er hovedårsaken til den menneskeskapte klimaendringen. Dette er et klassisk eksempel på utilsiktede konsekvenser av teknologi."
                     },
                     {
-                        "question": "Kva er eit godt utgangspunkt for å drøfte teknologiens innverknad?",
+                        "question": "Hva er et godt utgangspunkt for å drøfte teknologiens innvirkning?",
                         "options": [
-                            "Avgjere om teknologien er god eller dårleg, deretter forsvare den posisjonen",
-                            "Berre sjå på kva dei fleste vinn på teknologien",
-                            "Stille spørsmala: Kven vinn? Kven tapar? Kva alternativ finst?",
-                            "Sammenligne all teknologi med industrialiseringa"
+                            "Avgjøre om teknologien er god eller dårlig, og deretter forsvare den posisjonen",
+                            "Bare se på hva de fleste vinner på teknologien",
+                            "Stille spørsmålene: Hvem vinner? Hvem taper? Hvilke alternativer finnes?",
+                            "Sammenligne all teknologi med industrialiseringen"
                         ],
                         "correctAnswer": 2,
-                        "explanation": "God drøfting av teknologi krev at vi ser fleire perspektiv. 'Kven vinn, kven tapar og kva alternativ finst' er ein nyttig modell som hjelper oss å unngå einsidig teknologioptimisme eller -pessimisme."
+                        "explanation": "God drøfting av teknologi krever at vi ser flere perspektiver. 'Hvem vinner, hvem taper og hvilke alternativer finnes' er en nyttig modell som hjelper oss å unngå ensidig teknologioptimisme eller -pessimisme."
                     },
                     {
-                        "question": "Kva skiljer teknologioptimisme frå teknologiskepsis?",
+                        "question": "Hva skiller teknologioptimisme fra teknologiskepsis?",
                         "options": [
-                            "Optimistar trur på framtida, skeptikarar lever i fortida",
-                            "Optimistar meiner teknologi alltid løyser problema den skapar, skeptikarar peikar på at vi undervurderer skadar og biverknader",
-                            "Optimistar brukar meir teknologi, skeptikarar brukar ingen",
-                            "Det er ingen reell skilnad - begge synspunkta er like gyldige"
+                            "Optimister tror på framtida, skeptikere lever i fortida",
+                            "Optimister mener teknologi alltid løser problemene den skaper, skeptikere peker på at vi undervurderer skader og bivirkninger",
+                            "Optimister bruker mer teknologi, skeptikere bruker ingen",
+                            "Det er ingen reell forskjell - begge synspunktene er like gyldige"
                         ],
                         "correctAnswer": 1,
-                        "explanation": "Teknologioptimistane trur at ny teknologi historisk sett alltid har gjort livet betre, og vil gjere det igjen. Skeptikarane minner oss om at vi systematisk undervurderer skadar - som klimakrisa, overvaking og misinformasjon."
+                        "explanation": "Teknologioptimistene tror at ny teknologi historisk sett alltid har gjort livet bedre, og vil gjøre det igjen. Skeptikerne minner oss om at vi systematisk undervurderer skader - som klimakrisa, overvåking og feilinformasjon."
                     },
                     {
-                        "question": "Kvifor er det viktig at enkeltmenneske forstår korleis teknologi verkar på samfunnet?",
+                        "question": "Hvorfor er det viktig at enkeltmennesker forstår hvordan teknologi virker på samfunnet?",
                         "options": [
-                            "Fordi det berre er forskarar og politikarar som kan endre noko",
-                            "Fordi kvar enkelt påverkar teknologiutviklinga gjennom eigne val og deltakar i demokratiske avgjerder om regulering",
-                            "Fordi teknologi alltid er skadeleg og må motstast",
-                            "Fordi det gjer det lettare å bruke nye apper"
+                            "Fordi det bare er forskere og politikere som kan endre noe",
+                            "Fordi hver enkelt påvirker teknologiutviklingen gjennom egne valg og deltakelse i demokratiske beslutninger om regulering",
+                            "Fordi teknologi alltid er skadelig og må motarbeides",
+                            "Fordi det gjør det lettere å bruke nye apper"
                         ],
                         "correctAnswer": 1,
-                        "explanation": "I eit demokrati er det borgarane som - gjennom val, forbruk og engasjement - er med på å forme korleis teknologi vert regulert og brukt. Utan kunnskap om teknologiens innverknad vert vi passive mottakarar i staden for aktive deltakarar."
+                        "explanation": "I et demokrati er det borgerne som - gjennom valg, forbruk og engasjement - er med på å forme hvordan teknologi blir regulert og brukt. Uten kunnskap om teknologiens innvirkning blir vi passive mottakere i stedet for aktive deltakere."
                     }
                 ]
             }

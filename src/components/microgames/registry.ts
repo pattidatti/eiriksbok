@@ -16,6 +16,10 @@ const DampmaskinHjerte3D = lazy(() => import('./DampmaskinHjerte3D'));
 const Falanksen3D = lazy(() => import('./Falanksen3D'));
 const OlympiaDiskos3D = lazy(() => import('./OlympiaDiskos3D'));
 const Vannmolla3D = lazy(() => import('./Vannmolla3D'));
+const Konklusjonsbroen3D = lazy(() => import('./Konklusjonsbroen3D'));
+const MonumentTorget3D = lazy(() => import('./MonumentTorget3D'));
+const Teknologibolgen3D = lazy(() => import('./Teknologibolgen3D'));
+const Nyheitsbobla3D = lazy(() => import('./Nyheitsbobla3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
     'gladius-duell': {
@@ -116,6 +120,42 @@ export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.Laz
         estimatedSeconds: 150,
         loader: () => import('./Vannmolla3D'),
         Component: Vannmolla3D as never,
+    },
+    'konklusjonsbroen-3d': {
+        id: 'konklusjonsbroen-3d',
+        title: 'Bygg konklusjonsbroen',
+        description:
+            'Bygg broen fra spørsmålet til en gyldig konklusjon i 3D: velg solid metode eller fristende snarvei for hvert av de fem stegene, og send konklusjonen over kløfta. Én råtten planke, og hele konklusjonen faller gjennom.',
+        estimatedSeconds: 150,
+        loader: () => import('./Konklusjonsbroen3D'),
+        Component: Konklusjonsbroen3D as never,
+    },
+    'monument-torget-3d': {
+        id: 'monument-torget-3d',
+        title: 'Hvem får stå på sokkelen?',
+        description:
+            'Kuratér et by-torg i 3D: velg hvem byen hedrer med statue blant konger, helter, arbeidere, en samisk leder og en forsker. Reiser du bare makt - eller bare vanlige folk - blir torget ensidig, og de glemte dukker opp som skygger i kantene. Et torg som blander flere historier lar flere kjenne seg igjen.',
+        estimatedSeconds: 150,
+        loader: () => import('./MonumentTorget3D'),
+        Component: MonumentTorget3D as never,
+    },
+    'teknologibolgen-3d': {
+        id: 'teknologibolgen-3d',
+        title: 'Teknologibølgja',
+        description:
+            'Skru opp teknologien i 3D og se en bygd forvandle seg på tre arenaer samtidig: folk får verktøy men noen mister jobben, byen vokser men naturen forurenses. Oppdag at gevinst og kostnad alltid stiger sammen - og at grønn teknologi kan rydde opp.',
+        estimatedSeconds: 140,
+        loader: () => import('./Teknologibolgen3D'),
+        Component: Teknologibolgen3D as never,
+    },
+    'nyheitsbobla-3d': {
+        id: 'nyheitsbobla-3d',
+        title: 'Nyheitsbordet',
+        description:
+            'Vel tre nyhende du ville lest, og sjå korleis algoritmen gøymer dei andre under bordet. Klikk "Sjå alt!" for å oppdage blindsonene dine.',
+        estimatedSeconds: 120,
+        loader: () => import('./Nyheitsbobla3D'),
+        Component: Nyheitsbobla3D as never,
     },
 };
 

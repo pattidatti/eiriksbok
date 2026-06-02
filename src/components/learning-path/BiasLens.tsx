@@ -28,17 +28,61 @@ export interface Perspective {
 
 export interface BiasLensProps {
     title?: string;
-    baseContent: string;
-    lenses: Perspective[];
+    baseContent?: string;
+    lenses?: Perspective[];
+    // Bakoverkompatibelt alias: km-artiklar bruker sources-format
+    sources?: { name: string; type: string; stance: string; content: string }[];
 }
+
+// Enkel kjeldekort-layout for sources-format (alias frå eldre km-artiklar)
+const SourcesView: React.FC<{
+    title: string;
+    sources: { name: string; type: string; stance: string; content: string }[];
+}> = ({ title, sources }) => {
+    const [active, setActive] = useState<number | null>(null);
+    return (
+        <div className="rounded-xl border border-slate-200 bg-white overflow-hidden shadow-sm">
+            <div className="px-5 py-3 border-b border-slate-100 bg-slate-50">
+                <h3 className="font-semibold text-slate-800 text-sm">{title}</h3>
+            </div>
+            <div className="p-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {sources.map((s, i) => (
+                    <button
+                        key={i}
+                        onClick={() => setActive(active === i ? null : i)}
+                        className={`text-left rounded-xl border p-4 transition-all ${
+                            active === i
+                                ? 'border-indigo-300 bg-indigo-50 shadow-sm'
+                                : 'border-slate-200 bg-white hover:border-slate-300'
+                        }`}
+                    >
+                        <p className="text-xs font-semibold text-slate-800 mb-0.5">{s.name}</p>
+                        <p className="text-xs text-slate-500 mb-2">{s.type}</p>
+                        <p className="text-xs text-slate-700 leading-relaxed">{s.content}</p>
+                        <span className={`mt-2 inline-block text-xs px-2 py-0.5 rounded-full ${
+                            s.stance.includes('Nøytral') || s.stance.includes('Nyansert')
+                                ? 'bg-emerald-50 text-emerald-700'
+                                : 'bg-amber-50 text-amber-700'
+                        }`}>{s.stance}</span>
+                    </button>
+                ))}
+            </div>
+        </div>
+    );
+};
 
 // --- Component ---
 
 export const BiasLens: React.FC<BiasLensProps> = ({
     title = "The Rhetoric Decoder",
-    baseContent,
-    lenses,
+    baseContent = '',
+    lenses = [],
+    sources,
 }) => {
+    // Bruk sources-visning dersom lenses ikkje er oppgitt
+    if (sources && sources.length > 0 && lenses.length === 0) {
+        return <SourcesView title={title} sources={sources} />;
+    }
     const [activeLensId, setActiveLensId] = useState<PerspectiveId>('neutral');
     const [activeTooltip, setActiveTooltip] = useState<string | null>(null);
 
