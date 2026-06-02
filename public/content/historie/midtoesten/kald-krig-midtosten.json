@@ -5,7 +5,7 @@
   "year": "1946-1989",
   "category": "Midtøsten",
   "readTime": "9 min lesning",
-  "heroImage": "/images/midtoesten/kald-krig-midtosten-hero.webp",
+  "heroImage": "/images/placeholder.webp",
   "details": [
     "CIA og britisk etterretning styrtet Irans demokratisk valgte statsminister Mosaddegh i 1953.",
     "USA støttet Saddam Hussein på 1980-tallet - inkludert med kjemisk våpen - mot Iran.",
@@ -35,7 +35,7 @@
     },
     {
       "type": "image",
-      "src": "/images/midtoesten/kald-krig-midtosten-01.webp",
+      "src": "/images/placeholder.webp",
       "alt": "Suez-kanalen fra luften",
       "caption": "Suez-kanalen forbinder Middelhavet med Rødehavet - en av verdens viktigste sjøveier."
     },
@@ -106,7 +106,7 @@
     },
     {
       "type": "image",
-      "src": "/images/midtoesten/kald-krig-midtosten-02.webp",
+      "src": "/images/placeholder.webp",
       "alt": "Kart over Midtøsten med allianser under den kalde krigen",
       "caption": "USA og Sovjet bygget opp ulike alliansenett i Midtøsten gjennom den kalde krigen."
     },
@@ -148,7 +148,7 @@
     },
     {
       "type": "image",
-      "src": "/images/midtoesten/kald-krig-midtosten-03.webp",
+      "src": "/images/placeholder.webp",
       "alt": "Mujahedin-krigere i Afghanistan på 1980-tallet",
       "caption": "USA finansierte afghanske mujahedin gjennom hele 1980-tallet i kampen mot Sovjet."
     },

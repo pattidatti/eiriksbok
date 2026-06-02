@@ -5,7 +5,7 @@
   "year": "1908-i dag",
   "category": "Midtøsten",
   "readTime": "8 min lesning",
-  "heroImage": "/images/midtoesten/olje-og-makt-hero.webp",
+  "heroImage": "/images/placeholder.webp",
   "details": [
     "To tredjedeler av verdens kjente oljereserver ligger i Midtøsten og Persiabukta-området.",
     "Under oljekrisen i 1973 doblet prisen seg på tre måneder. Europeiske land innførte bilkjøringsforbud på søndager.",
@@ -35,7 +35,7 @@
     },
     {
       "type": "image",
-      "src": "/images/midtoesten/olje-og-makt-01.webp",
+      "src": "/images/placeholder.webp",
       "alt": "Oljetarn i ørken i Midtøsten tidlig 1900-tall",
       "caption": "De første oljefeltene i Midtøsten ble kontrollert av europeiske og amerikanske selskaper."
     },
@@ -187,7 +187,7 @@
     },
     {
       "type": "image",
-      "src": "/images/midtoesten/olje-og-makt-02.webp",
+      "src": "/images/placeholder.webp",
       "alt": "Moderne skyskrapere i Dubai ved siden av ørkenlandskap",
       "caption": "Gulf-statene brukte oljerikdommen til a bygge noen av verdens mest moderne byer pa fa decennier."
     },
