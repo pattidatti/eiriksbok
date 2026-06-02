@@ -2060,6 +2060,21 @@
               "lastUpdated": "2026-06-01T10:25:57+02:00"
             },
             {
+              "id": "muntlig-modell",
+              "title": "Modellsvar: 6-er på muntlig",
+              "description": "Et komplett modellsvar om framveksten av autokrati: hvordan Roma fikk keiser og Weimar fikk Hitler, med manus og fagsamtale.",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "eksamen",
+                "muntlig",
+                "modellsvar",
+                "samfunnsfag",
+                "historie"
+              ],
+              "createdDate": "2026-06-02T00:00:00Z",
+              "lastUpdated": "2026-06-02T00:00:00Z"
+            },
+            {
               "id": "km-1-metode",
               "title": "Slik undersøker vi samfunnet",
               "description": "En oppgaveorientert artikkel som trener elevene i samfunnsfaglig metode: formulere gode problemstillinger, finne og kritisk vurdere kilder, tolke statistikk, presentere funn med digitale verktøy og drøfte gyldighet og relevans.",

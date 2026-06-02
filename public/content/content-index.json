@@ -1,5 +1,5 @@
 {
-  "buildId": 1780384341324,
+  "buildId": 1780387862451,
   "contentMap": {
     "concept-adel": [
       "content/concepts/adel.json"
@@ -2268,7 +2268,8 @@
       "content/norsk/analyse/tema-og-budskap.json"
     ],
     "muntlig-modell": [
-      "content/norsk/eksamen/muntlig-modell.json"
+      "content/norsk/eksamen/muntlig-modell.json",
+      "content/samfunnskunnskap/eksamen/muntlig-modell.json"
     ],
     "muntlig": [
       "content/norsk/eksamen/muntlig.json",
@@ -4375,6 +4376,7 @@
     "samfunnskunnskap/demografi/urbanisering": "content/samfunnskunnskap/demografi/urbanisering.json",
     "samfunnskunnskap/eksamen/km-1-metode": "content/samfunnskunnskap/eksamen/km-1-metode.json",
     "samfunnskunnskap/eksamen/km-16-dagsaktuelle-tema": "content/samfunnskunnskap/eksamen/km-16-dagsaktuelle-tema.json",
+    "samfunnskunnskap/eksamen/muntlig-modell": "content/samfunnskunnskap/eksamen/muntlig-modell.json",
     "samfunnskunnskap/eksamen/muntlig": "content/samfunnskunnskap/eksamen/muntlig.json",
     "samfunnskunnskap/handel-og-infrastruktur/energi-og-rorledninger": "content/samfunnskunnskap/handel-og-infrastruktur/energi-og-rorledninger.json",
     "samfunnskunnskap/handel-og-infrastruktur/global-handel-oversikt": "content/samfunnskunnskap/handel-og-infrastruktur/global-handel-oversikt.json",

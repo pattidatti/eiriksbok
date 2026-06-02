@@ -1,0 +1,506 @@
+{
+    "id": "muntlig-modell",
+    "title": "Slik ser en 6-er ut: Muntlig eksamen i samfunnsfag",
+    "description": "Et komplett modellsvar om framveksten av autokrati: hvordan Roma fikk keiser og Weimar fikk Hitler, med manus, kilder og fagsamtale.",
+    "subject": "samfunnskunnskap",
+    "topic": "eksamen",
+    "layout": "rich",
+    "heroImage": "/images/placeholder.webp",
+    "readTime": "14 min lesning",
+    "category": "Eksamen",
+    "details": [
+        "Et fullstendig modellsvar om hvordan folkestyre blir til ettmannsstyre.",
+        "En sammenligning av Romas keiserdømme og Weimarrepublikkens fall.",
+        "Hele manuset til en presentasjon på maks 10 minutter.",
+        "Tips og eksempelsvar til samtalen med sensor.",
+        "Forklaring på hvorfor nettopp dette gir karakteren 6."
+    ],
+    "externalUrl": "https://www.udir.no/eksamen-og-prover/eksamen/muntlig-eksamen/",
+    "timeline": [],
+    "content": [
+        {
+            "type": "paragraph",
+            "text": "Det er én ting å lese om hvordan man får en god karakter. Det er noe helt annet å se det. I denne artikkelen følger vi en tenkt elev som har fått temaet makt og styringsformer på muntlig eksamen i samfunnsfag. Du får se hele tankegangen: hvordan eleven gjør et stort tema om til en skarp problemstilling, sammenligner to eksempler fra historien, og håndterer samtalen med sensor etterpå. Underveis forklarer vi hvorfor hvert valg løfter besvarelsen mot toppkarakteren."
+        },
+        {
+            "type": "info_box",
+            "title": "Les hovedartikkelen først",
+            "content": "Denne artikkelen er et praktisk eksempel. Selve oppskriften finner du i [Muntlig eksamen i samfunnsfag](/samfunnskunnskap/eksamen/muntlig). Her ser du oppskriften brukt i praksis."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Oppgaven modell-eleven fikk",
+                "items": [
+                    {
+                        "label": "Tema",
+                        "value": "Makt og styringsformer."
+                    },
+                    {
+                        "label": "Oppgave (forberedelsesdagen)",
+                        "value": "Sammenlign to historiske eksempler på at et folkestyre ble til ettmannsstyre. Bruk egne kilder, drøft hvorfor det skjedde, og ta stilling til om det kunne vært unngått."
+                    },
+                    {
+                        "label": "Eleven valgte",
+                        "value": "Å sammenligne to tilfeller med 2000 år mellom seg: hvordan den romerske republikken ble et keiserdømme under Augustus, og hvordan Weimarrepublikken ble et diktatur under Hitler."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Steg 1: Fra tema til skarp problemstilling",
+            "level": 2
+        },
+        {
+            "type": "paragraph",
+            "text": "Den vanligste feilen er å gjøre temaet til en overskrift: «Jeg skal snakke om makt og styringsformer.» Det er ikke en problemstilling, det er en tittel. En 6-er begynner med et spørsmål eleven faktisk undersøker, og en påstand eleven argumenterer for. Se forskjellen:"
+        },
+        {
+            "type": "component",
+            "name": "WritingFix",
+            "props": {
+                "title": "Fra vag åpning til skarp problemstilling",
+                "items": [
+                    {
+                        "bad": "I denne presentasjonen skal jeg fortelle om Romerriket og om Tyskland før andre verdenskrig.",
+                        "good": "Hvordan kan et folkestyre ende som ettmannsstyre? Min påstand er at autokrati nesten aldri kommer som et plutselig angrep utenfra. Det vokser innenfra, i en krise, med lovlige midler og med folkets eget samtykke. Roma og Tyskland er 2000 år fra hverandre, men oppskriften er nesten den samme.",
+                        "why": "Den vage åpningen er bare en innholdsfortegnelse. Den skarpe problemstillingen er et ekte spørsmål som kan diskuteres, og den gir presentasjonen en retning. Alt eleven sier etterpå, bygger opp under påstanden. Det er nettopp dette sensor leter etter når kjennetegnene sier at eleven skal sammenligne og drøfte selvstendig, ikke bare gjengi læreboka."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Steg 2: Egne kilder, ikke bare læreboka",
+            "level": 2
+        },
+        {
+            "type": "paragraph",
+            "text": "Eleven nøyde seg ikke med læreboka. Hun fant kilder som lar de to eksemplene tale med sin egen stemme, og hun valgte med vilje kilder fra dem som var med den gangen. Når du bruker slike kilder, viser du at du kan jobbe som en historiker, ikke bare gjengi det andre har sagt. Det er kjernen i det sensor kaller selvstendig arbeid."
+        },
+        {
+            "type": "list",
+            "items": [
+                "Augustus' egen selvbiografi (Res Gestae) - keiserens eget bilde av hvordan han fikk makten.",
+                "En uttalelse fra nazisten Joseph Goebbels fra 1928 - om hvordan demokratiet kan brukes mot seg selv.",
+                "Fagartikler om begge periodene, for å sjekke kildene mot nøytrale forklaringer."
+            ]
+        },
+        {
+            "type": "info_box",
+            "title": "Les mer om eksemplene eleven brukte",
+            "content": "Du kan grave videre i de samme hendelsene her:\n\n- [Julius Cæsar: mannen som knuste republikken](/historie/romerriket/caesar)\n- [Fra republikk til keiserdømme: Augustus](/historie/romerriket/augustus-og-keiserdomme)\n- [Fra Weimar til mørke](/historie/mellomkrigstiden/tyskland)"
+        },
+        {
+            "type": "header",
+            "text": "Manuset: Slik holdt eleven presentasjonen",
+            "level": 2
+        },
+        {
+            "type": "paragraph",
+            "text": "Under ser du hele manuset, delt inn slik eleven tenkte på tiden. Legg merke til én ting: eleven forteller ikke om hele Roma først og hele Tyskland etterpå. Hun går rett i sammenligningen og tar de to landene sammen, punkt for punkt. Husk også: eleven snakket fritt fra stikkord, ikke fra et ferdigskrevet ark."
+        },
+        {
+            "type": "info_box",
+            "title": "Triks fra toppkarakterene: sammenlign integrert",
+            "content": "Mange elever forteller om alt som skjedde i land A, så alt om land B, og sammenligner først helt til slutt. De aller beste gjør det motsatt. De bygger hele presentasjonen rundt sammenligningspunktene og veksler mellom de to landene under hvert punkt. Når du sammenligner to ting på en gang, viser du nemlig at du kan begge deler. Manuset under er derfor bygd rundt likhetene og forskjellen, ikke rundt ett land av gangen."
+        },
+        {
+            "type": "header",
+            "text": "Åpning (cirka 30 sekunder)",
+            "level": 3
+        },
+        {
+            "type": "paragraph",
+            "text": "«To menn, 2000 år fra hverandre. Den ene het Augustus og levde i Roma. Den andre het Adolf Hitler og levde i Tyskland. Begge gjorde det samme: de tok et folkestyre og gjorde det om til ettmannsstyre, det vi kaller autokrati, der én person sitter med all makt. Problemstillingen min er: Hvordan kan et folkestyre ende som ettmannsstyre? Påstanden min er at autokrati nesten aldri kommer som et plutselig angrep utenfra. Det vokser innenfra, i en krise, med lovlige midler og med folkets eget samtykke. I stedet for å ta Roma først og Tyskland etterpå, vil jeg holde dem ved siden av hverandre hele veien, gjennom to store likheter og én viktig forskjell.»"
+        },
+        {
+            "type": "header",
+            "text": "Likhet 1: Krisen som åpnet døra (cirka 2,5 minutter)",
+            "level": 3
+        },
+        {
+            "type": "paragraph",
+            "text": "«Den første likheten er at begge starter i en dyp krise. Begynn med Roma. I over 400 år var Roma en republikk, der folket valgte ledere og ingen skulle ha all makt alene. Men på 100-tallet før Kristus slo systemet sprekker. Generaler ble mektigere enn staten, og den ene borgerkrigen fulgte på den andre. Den mest kjente generalen var Julius Cæsar. I år 49 før Kristus marsjerte han med hæren over grenseelven Rubicon, noe som var strengt forbudt, og det sies at han sa «terningen er kastet». Han vant borgerkrigen og gjorde seg til diktator på livstid, men ble myrdet i senatet i år 44 før Kristus, på datoen vi kaller idene i mars. Mordet løste ingenting. Det startet bare en ny borgerkrig. Etter hundre år med blodsutgytelse var romerne rett og slett utslitt.»"
+        },
+        {
+            "type": "paragraph",
+            "text": "«Hopp så 2000 år fram, til Tyskland. Her var krisen en annen, men virkningen den samme. Etter nederlaget i første verdenskrig i 1918 fikk landet et nytt og moderne demokrati, Weimarrepublikken. Men det startet svakt. Tyskerne følte seg ydmyket av fredsavtalen i Versailles, og så kom krisene på rekke og rad: hyperinflasjon i 1923, der pengene nesten ble verdiløse, og den store depresjonen fra 1929, der millioner mistet jobben. Her ser jeg det første felles mønsteret tydelig. Enten krisen er borgerkrig eller økonomisk sammenbrudd, gjør den det samme: folk blir redde og slitne, og de begynner å lengte etter en sterk leder som kan ordne opp. Den lengselen er døra autokratiet sniker seg inn gjennom.»"
+        },
+        {
+            "type": "header",
+            "text": "Likhet 2: Makten ble grepet innenfra (cirka 3 minutter)",
+            "level": 3
+        },
+        {
+            "type": "paragraph",
+            "text": "«Den andre likheten er den viktigste, og her ligger selve poenget mitt: i begge tilfeller ble makten grepet innenfra, med lovlige midler, mens fasaden fikk stå. Ta Augustus først. Han var Cæsars adoptivsønn og vant den nye borgerkrigen. Men han var smartere enn Cæsar. Han gjorde seg ikke til konge, for romerne hatet ordet konge. I stedet beholdt han hele fasaden til republikken. Senatet fikk bestå, og han kalte seg bare princeps, den fremste borgeren. I virkeligheten styrte han alt: hæren, pengene og lovene. Han skrev til og med sin egen historie, der han fremstilte seg som republikkens redningsmann:»"
+        },
+        {
+            "type": "component",
+            "name": "QuoteBlock",
+            "props": {
+                "text": "Etter at jeg hadde gjort slutt på borgerkrigene, førte jeg staten tilbake fra min egen makt til senatets og det romerske folks styre.",
+                "author": "Augustus, i sin egen selvbiografi (Res Gestae)"
+            }
+        },
+        {
+            "type": "paragraph",
+            "text": "«Dette er nesten det motsatte av sannheten, og nettopp derfor er det så lurt. Augustus sier at han ga makten tilbake til folket, mens han i virkeligheten satt med alt til han døde. Og her er det fascinerende: Hitler gjorde i praksis det samme grepet, 2000 år senere. Han tok ikke makten med et væpnet kupp. Han hadde prøvd det i 1923 og mislyktes. I stedet gikk han den lovlige veien. I januar 1933 ble han helt lovlig utnevnt til rikskansler. En måned senere brant Riksdagen, og Hitler utnyttet frykten og skyldte på kommunistene. I mars 1933 fikk han Riksdagen til å stemme for fullmaktsloven, som ga ham rett til å lage lover helt på egen hånd. Folkets egne valgte representanter stemte altså bort sitt eget demokrati. En av Hitlers menn, Joseph Goebbels, hadde sett det komme allerede i 1928:»"
+        },
+        {
+            "type": "component",
+            "name": "QuoteBlock",
+            "props": {
+                "text": "Det vil alltid forbli en av demokratiets beste vitser at det selv ga sine dødsfiender midlene til å ødelegge det med.",
+                "author": "Joseph Goebbels, 1928"
+            }
+        },
+        {
+            "type": "paragraph",
+            "text": "«Se hvor likt det er. Augustus beholdt senatet. Hitler beholdt Riksdagen. Begge lot det se ut som om systemet fortsatt fungerte, mens de i virkeligheten satt med all makt selv. Ingen av dem trengte å rulle inn med en hær utenfra. De brukte institusjonene folk allerede stolte på, og vendte dem innenfra. Det er kjernen i påstanden min: autokrati kommer ikke som et angrep, det kommer som et triks.»"
+        },
+        {
+            "type": "header",
+            "text": "Forskjellen som gjør bildet ærlig (cirka 2 minutter)",
+            "level": 3
+        },
+        {
+            "type": "paragraph",
+            "text": "«Men en god sammenligning kan ikke bare lete etter likheter, for da blir den uærlig. Den må også se den viktige forskjellen, og den er stor. Roma hadde aldri vært et demokrati slik vi mener det i dag. Det var en republikk styrt av noen få rike menn, så Augustus tok egentlig makten fra en liten elite. Hitler, derimot, veltet et ekte, moderne folkestyre der vanlige folk stemte. Og han hadde noe Augustus aldri hadde: en farlig ideologi og en moderne stat med teknologi til å overvåke og drepe i industriell skala. Likheten i hvordan de grep makten er skremmende, men forskjellen i hva de brukte makten til er enda viktigere.»"
+        },
+        {
+            "type": "component",
+            "name": "QuoteBlock",
+            "props": {
+                "text": "Autokrati banker sjelden på døra. Det blir sluppet inn, av folk som tror de stenger noe verre ute.",
+                "author": "Elevens egen oppsummering av sammenligningen"
+            }
+        },
+        {
+            "type": "paragraph",
+            "text": "«Og dette er ikke bare gammel historie. I dag kan demokratier svekkes på akkurat samme måte: ikke med våpen, men ved at noen sakte uthuler domstolene, den frie pressen og frie valg. Mønsteret fra Roma og Weimar er en advarsel som fremdeles gjelder.»"
+        },
+        {
+            "type": "header",
+            "text": "Avslutning (cirka 1,5 minutt)",
+            "level": 3
+        },
+        {
+            "type": "paragraph",
+            "text": "«La meg svare på problemstillingen min. Hvordan kan et folkestyre ende som ettmannsstyre? Svaret fra både Roma og Tyskland er det samme: gjennom en krise som gjør folk redde, en leder som lover trygghet, og makt som gripes innenfra med lovlige midler. Påstanden min holder: autokrati kommer sjelden utenfra, det vokser innenfra. Kunne det vært unngått? Jeg tror ja, men bare hvis institusjonene er sterke nok, og hvis folk forstår hva som skjer før det er for sent. Det er kanskje den viktigste grunnen til at vi i det hele tatt lærer om dette: for å kjenne igjen mønsteret neste gang. Takk.»"
+        },
+        {
+            "type": "header",
+            "text": "Hvorfor er dette en 6-er?",
+            "level": 2
+        },
+        {
+            "type": "paragraph",
+            "text": "Det er ikke tilfeldig at denne presentasjonen treffer toppkarakteren. Her er hva sensor ser etter, og hvordan eleven leverer på det."
+        },
+        {
+            "type": "component",
+            "name": "Comparison",
+            "props": {
+                "title": "Kjennetegn og hva eleven gjorde",
+                "leftTitle": "Hva sensor ser etter (karakter 6)",
+                "rightTitle": "Hva eleven gjorde",
+                "items": [
+                    {
+                        "label": "Egen problemstilling",
+                        "left": "Tydelig spørsmål og påstand, ikke bare et tema.",
+                        "right": "Åpnet med spørsmålet om hvordan folkestyre blir ettmannsstyre, og en klar påstand."
+                    },
+                    {
+                        "label": "Integrert sammenligning",
+                        "left": "Veksler mellom eksemplene punkt for punkt, ikke ett av gangen.",
+                        "right": "Bygde manuset rundt to likheter og én forskjell, og vekslet mellom Roma og Weimar under hvert punkt."
+                    },
+                    {
+                        "label": "Kildekritikk",
+                        "left": "Vurderer hvem som laget kildene og hvorfor.",
+                        "right": "Påpekte at Augustus' egen tekst er propaganda, ikke nøytral sannhet."
+                    },
+                    {
+                        "label": "Drøfting",
+                        "left": "Ser både likheter og forskjeller.",
+                        "right": "Trakk fram de viktige forskjellene, ikke bare det som passet påstanden."
+                    },
+                    {
+                        "label": "Kobling til i dag",
+                        "left": "Knytter fortiden til nåtiden.",
+                        "right": "Koblet mønsteret til hvordan demokratier kan svekkes også i dag."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "quiz",
+            "questions": [
+                {
+                    "question": "Hva mente eleven var den smarteste måten Augustus sikret makten på?",
+                    "options": [
+                        "Han kronet seg selv til konge",
+                        "Han beholdt republikkens fasade og kalte seg bare den fremste borgeren",
+                        "Han avskaffet senatet helt",
+                        "Han flyttet hovedstaden ut av Roma"
+                    ],
+                    "correctAnswer": 1
+                },
+                {
+                    "question": "Hvordan tok Hitler makten i 1933?",
+                    "options": [
+                        "Med et væpnet kupp mot regjeringen",
+                        "Ved en invasjon fra utlandet",
+                        "Lovlig, gjennom utnevnelse og en avstemning i Riksdagen",
+                        "Ved at hæren tok over"
+                    ],
+                    "correctAnswer": 2
+                }
+            ]
+        },
+        {
+            "type": "header",
+            "text": "Fagsamtalen: Slik svarte eleven",
+            "level": 2
+        },
+        {
+            "type": "paragraph",
+            "text": "Etter presentasjonen kommer samtalen med sensor. Det er her mange mister poeng, og her de beste skiller seg ut. Sensor er ikke bundet av temaet ditt, og tester om du virkelig forstår faget i bredden, eller bare har pugget to historier. Her er spørsmålene eleven fikk, og hvordan gode svar ser ut."
+        },
+        {
+            "type": "component",
+            "name": "WritingFix",
+            "props": {
+                "title": "Spørsmål: Du brukte Augustus' egen selvbiografi som kilde. Kan du stole på den?",
+                "items": [
+                    {
+                        "bad": "Ja, han levde jo den gangen, så han visste best hva som skjedde.",
+                        "good": "Nei, ikke uten å være kritisk. Res Gestae er Augustus' egen historie om seg selv, skrevet for at ettertiden skulle se ham som en helt. Det er propaganda, ikke en nøytral rapport. Derfor måtte jeg sjekke den mot andre kilder, for eksempel historikere som skrev senere og var mer kritiske. At en hersker roser seg selv, betyr ikke at det er sant.",
+                        "why": "Det gode svaret avslører at en kilde fra fortiden kan ha en hensikt, og at en herskers egne ord må veies mot andre kilder. Det er kildekritikk på høyt nivå."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "component",
+            "name": "WritingFix",
+            "props": {
+                "title": "Spørsmål: Kan noe lignende skje i et moderne demokrati som Norge i dag?",
+                "items": [
+                    {
+                        "bad": "Nei, det var jo helt andre tider, sånt skjer ikke nå.",
+                        "good": "Ikke på samme måte, men faren finnes i en ny form. I dag skjer det ikke med stridsvogner, men ved at noen sakte svekker domstolene, den frie pressen og frie valg. Forskjellen er at Norge har det Weimar manglet: sterke og uavhengige institusjoner og lang erfaring med demokrati. Så faren er reell, men forsvaret vårt er også mye sterkere. Det er nettopp derfor det er viktig å kjenne igjen mønsteret.",
+                        "why": "Det gode svaret avviser ikke spørsmålet, men nyanserer. Det kobler historien til i dag og viser at eleven forstår både faren og hvorfor Norge står sterkere. Det løfter samtalen til toppnivå."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Flere spørsmål eleven var forberedt på",
+                "items": [
+                    {
+                        "label": "Begrep i dybden",
+                        "value": "Du brukte ordet autokrati. Hva er forskjellen på autokrati, diktatur og monarki?"
+                    },
+                    {
+                        "label": "Forskjell, ikke likhet",
+                        "value": "Hva er den viktigste forskjellen mellom Roma og Weimar, ikke likheten?"
+                    },
+                    {
+                        "label": "Egen vurdering",
+                        "value": "Var Augustus en redningsmann eller en tyrann?"
+                    },
+                    {
+                        "label": "Bytte av tema",
+                        "value": "Kan du nevne et tredje eksempel på et folkestyre som ble til ettmannsstyre?"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "component",
+            "name": "ScenarioRoleplay",
+            "props": {
+                "title": "Prøv selv: Sensor ber om et tredje eksempel",
+                "intro": "Du har akkurat sammenlignet Roma og Weimar. Sensor lener seg fram og sier: «Fint. Kan du nevne et tredje eksempel på et folkestyre som ble til ettmannsstyre?» Hva gjør du?",
+                "startId": "start",
+                "scenarios": [
+                    {
+                        "id": "start",
+                        "text": "Sensor ber deg bruke mønsteret på et nytt eksempel. Velg svaret som viser mest forståelse:",
+                        "options": [
+                            {
+                                "label": "«Det har jeg ikke forberedt, kan vi ta noe annet?»",
+                                "nextId": "kun_to",
+                                "outcome": "failure"
+                            },
+                            {
+                                "label": "«Ja, Napoleon. Han steg fram som general i den franske republikken etter revolusjonen, men kronet seg selv til keiser i 1804. Akkurat som Augustus brukte han kaoset etter en omveltning til å gripe makten.»",
+                                "nextId": "napoleon",
+                                "outcome": "success"
+                            },
+                            {
+                                "label": "«Frankrike ble vel et keiserrike på et tidspunkt?»",
+                                "nextId": "vag",
+                                "outcome": "failure"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "kun_to",
+                        "text": "Dette trekker ned. Sensor tester om du ser mønsteret også utenfor de to eksemplene dine. Prøv å tenke på andre ledere som grep makten etter en revolusjon eller en krise, for eksempel i Frankrike eller Kina. Selv et kort eksempel er bedre enn å gi opp.",
+                        "options": []
+                    },
+                    {
+                        "id": "napoleon",
+                        "text": "Utmerket. Du henter fram et tredje eksempel og bruker det samme mønsteret: kaos etter en omveltning, en sterk mann, og makt grepet innenfra. Du viser at du forstår prinsippet, ikke bare har pugget to historier. Sensor nikker og graver videre.",
+                        "options": []
+                    },
+                    {
+                        "id": "vag",
+                        "text": "Du er på riktig spor, men svaret er for vagt. Hvilket keiserrike, og hvem? Gjør det konkret: Napoleon var general i den franske republikken og kronet seg selv til keiser i 1804. Da viser du at du kan bruke mønsteret på et nytt eksempel.",
+                        "options": []
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Kunnskap eleven hadde i bakhånd",
+            "level": 2
+        },
+        {
+            "type": "paragraph",
+            "text": "Eleven forberedte seg på mer enn de to eksemplene sine, slik at hun kunne svare trygt hvis sensor byttet spor. Det er forskjellen mellom å famle og å svare sikkert."
+        },
+        {
+            "type": "info_box",
+            "title": "Temaer eleven gikk gjennom på forhånd",
+            "content": "- [Julius Cæsar: mannen som knuste republikken](/historie/romerriket/caesar) - hvordan det hele begynte i Roma.\n- [Fra republikk til keiserdømme: Augustus](/historie/romerriket/augustus-og-keiserdomme) - mannen som fullførte overgangen.\n- [Fra Weimar til mørke](/historie/mellomkrigstiden/tyskland) - hele veien fra demokrati til diktatur i Tyskland.\n- [Republikkens fall i Kina](/historie/kinas-historie/borgerkrigen) - et tredje eksempel å ha i bakhånd.\n- [Diktaturet](/samfunnskunnskap/styringsformer/diktaturet) - hva som kjennetegner et ettmannsstyre."
+        },
+        {
+            "type": "header",
+            "text": "Lag ditt eget modellsvar",
+            "level": 2
+        },
+        {
+            "type": "paragraph",
+            "text": "Nå har du sett oppskriften brukt. Her er stegene for å lage ditt eget svar på det temaet du får:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "1. Gjør temaet om til en problemstilling: et spørsmål du kan ta stilling til. Test den: kan noen være uenig? Hvis ja, er den god.",
+                "2. Velg to-tre eksempler fra ulike tider som kan sammenlignes.",
+                "3. For hver kilde: spør hvem som laget den og hvorfor, spesielt når herskere skriver om seg selv.",
+                "4. Let etter mønsteret som går igjen, men trekk også fram de viktige forskjellene.",
+                "5. Bygg manuset: problemstilling, eksemplene som bevis, og en avslutning som svarer og kobler til i dag.",
+                "6. Ha et tredje eksempel klart, og gå gjennom resten av faget, i tilfelle sensor bytter spor."
+            ]
+        },
+        {
+            "type": "info_box",
+            "title": "Verktøy som hjelper deg videre",
+            "content": "- [Muntlig eksamen: hele oppskriften](/samfunnskunnskap/eksamen/muntlig)\n- [Demokratiets mange ansikter](/samfunnskunnskap/styringsformer/demokrati-ansikter)\n- [Makt og legitimitet](/samfunnskunnskap/styringsformer/makt-og-legitimitet)\n- [Det norske demokratiet i dag](/samfunnskunnskap/styringsformer/km-15-norsk-demokrati)"
+        },
+        {
+            "type": "quiz",
+            "questions": [
+                {
+                    "question": "Hva kjennetegner et godt svar i fagsamtalen?",
+                    "options": [
+                        "Å gjenta det du sa i presentasjonen",
+                        "Å gi en ordbokdefinisjon av begrepet",
+                        "Å se både likheter og forskjeller, og koble til i dag",
+                        "Å snakke så lenge som mulig"
+                    ],
+                    "correctAnswer": 2
+                },
+                {
+                    "question": "Hvorfor må man være kritisk til Augustus' egen selvbiografi?",
+                    "options": [
+                        "Fordi den er for kort",
+                        "Fordi den er propaganda skrevet for å fremstille ham som en helt",
+                        "Fordi språket er gammelt",
+                        "Fordi den ikke nevner senatet"
+                    ],
+                    "correctAnswer": 1
+                },
+                {
+                    "question": "Hva er den røde tråden i modell-elevens presentasjon?",
+                    "options": [
+                        "At Roma var et bedre samfunn enn Tyskland",
+                        "At autokrati som regel vokser innenfra, i en krise og med lovlige midler",
+                        "At alle keisere er onde",
+                        "At demokrati alltid varer evig"
+                    ],
+                    "correctAnswer": 1
+                }
+            ]
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva var modell-elevens hovedpåstand?",
+            "options": [
+                "At autokrati alltid kommer med et væpnet kupp utenfra",
+                "At autokrati som regel vokser innenfra, i en krise og med lovlige midler",
+                "At Roma og Tyskland ikke kan sammenlignes",
+                "At demokrati alltid vinner til slutt"
+            ],
+            "answer": 1,
+            "explanation": "Påstanden var at ettmannsstyre sjelden kommer utenfra. Det vokser innenfra, i en krise, med lovlige midler og med folkets samtykke. Begge eksemplene bygde opp under dette."
+        },
+        {
+            "question": "Hvordan sikret Augustus makten uten å bli hatet som konge?",
+            "options": [
+                "Han kronet seg selv til konge med en gang",
+                "Han beholdt republikkens fasade og kalte seg bare den fremste borgeren",
+                "Han avskaffet senatet og hæren",
+                "Han ga makten tilbake til folket"
+            ],
+            "answer": 1,
+            "explanation": "Augustus lot senatet bestå og kalte seg princeps, den fremste borgeren, mens han i virkeligheten styrte alt. Fasaden gjorde at folk godtok eneveldet."
+        },
+        {
+            "question": "Hva var fullmaktsloven av 1933?",
+            "options": [
+                "En lov som styrket Riksdagen",
+                "En avstemning der Riksdagen ga Hitler rett til å lage lover på egen hånd",
+                "En fredsavtale etter første verdenskrig",
+                "En lov som stoppet hyperinflasjonen"
+            ],
+            "answer": 1,
+            "explanation": "Med fullmaktsloven stemte Riksdagen for å gi Hitler makt til å lage lover uten dem. Demokratiet avskaffet seg selv med en lovlig avstemning."
+        },
+        {
+            "question": "Hvorfor er en god sammenligning mer enn bare å finne likheter?",
+            "options": [
+                "Fordi den da blir lengre",
+                "Fordi de viktige forskjellene gir et mer presist og ærlig bilde",
+                "Fordi sensor liker forskjeller bedre",
+                "Fordi likheter alltid er feil"
+            ],
+            "answer": 1,
+            "explanation": "Eleven trakk fram at Roma aldri var et demokrati i moderne forstand, og at Hitler hadde en ideologi og en moderne stat Augustus manglet. Forskjellene gjør sammenligningen troverdig."
+        }
+    ],
+    "tags": [
+        "eksamen",
+        "muntlig",
+        "modellsvar",
+        "samfunnsfag",
+        "historie",
+        "autokrati",
+        "demokrati"
+    ],
+    "createdDate": "2026-06-02T00:00:00Z",
+    "lastUpdated": "2026-06-02T00:00:00Z"
+}
