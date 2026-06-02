@@ -1,6 +1,9 @@
 {
     "id": "km-6-levekaar-verden",
-    "title": "Levekår rundt om i verda",
+    "title": "Levekår rundt om i verden",
+    "description": "Hvorfor lever folk så ulikt rundt om i verden? Politikk, geografi og historie virker sammen og former levekår, bosetting og demografi - og de store forskjellene driver migrasjon.",
+    "subject": "samfunnskunnskap",
+    "topic": "demografi",
     "layout": "rich",
     "category": "Samfunnskunnskap",
     "readTime": "9 min lesning",
@@ -93,194 +96,7 @@
         },
         {
             "type": "component",
-            "name": "ScenarioRoleplay",
-            "props": {
-                "title": "Analyser tre land - øv på kompetansemålet",
-                "scenario": [
-                    {
-                        "id": "start",
-                        "text": "Du er samfunnsforsker og skal sammenligne levekår i tre land: Niger, Brasil og Norge. Velg et land å analysere først.",
-                        "choices": [
-                            {
-                                "text": "Niger (HDI: 0,394 - blant verdens laveste)",
-                                "nextId": "niger"
-                            },
-                            {
-                                "text": "Brasil (HDI: 0,760 - middels)",
-                                "nextId": "brasil"
-                            },
-                            {
-                                "text": "Norge (HDI: 0,966 - verdens høyeste)",
-                                "nextId": "norge"
-                            }
-                        ]
-                    },
-                    {
-                        "id": "niger",
-                        "text": "Niger: Forventet levealder 62 år. Over 80% bor på landsbygda. Har vært gjennom flere militærkupp siden selvstendigheten fra Frankrike i 1960. Klimaet er tørt - store deler er Sahara-ørken. Kvinner får i snitt over 6 barn. Hva er den viktigste forklaringen på Nigers lave levekår?",
-                        "choices": [
-                            {
-                                "text": "Geografiske forhold: Sahara-ørkenen gir lite dyrkbar jord",
-                                "nextId": "niger-geo"
-                            },
-                            {
-                                "text": "Historiske forhold: Kolonitiden ødela institusjoner og satte folkegrupper opp mot hverandre",
-                                "nextId": "niger-hist"
-                            },
-                            {
-                                "text": "Politiske forhold: Militærkupp og ustabilitet hindrer langsiktig utvikling",
-                                "nextId": "niger-pol"
-                            }
-                        ]
-                    },
-                    {
-                        "id": "niger-geo",
-                        "text": "Riktig at geografi spiller en rolle - men mange land med vanskelig geografi (f.eks. Japan, Nederland) er velstående. Prøv å se på det historiske og politiske også.",
-                        "feedback": "Geografi er én faktor, men sjelden den eneste. Alle tre faktorene virker sammen.",
-                        "choices": [
-                            {
-                                "text": "Gå videre til Brasil",
-                                "nextId": "brasil"
-                            },
-                            {
-                                "text": "Prøv Niger på nytt",
-                                "nextId": "niger"
-                            }
-                        ]
-                    },
-                    {
-                        "id": "niger-hist",
-                        "text": "Bra tenkt! Nigers kolonitid under Frankrike etterlot landet uten fungerende institusjoner. Men legg merke til at det politiske og det historiske henger tett sammen: kolonitiden er grunnen til den politiske ustabiliteten.",
-                        "feedback": "Alle tre faktorene virker samtidig i Niger. Det er samspillet mellom dem som er nøkkelen.",
-                        "choices": [
-                            {
-                                "text": "Gå videre til Brasil",
-                                "nextId": "brasil"
-                            }
-                        ]
-                    },
-                    {
-                        "id": "niger-pol",
-                        "text": "Riktig! Politisk ustabilitet hindrer langsiktig investering i helse, skole og infrastruktur. Men hvorfor er Niger politisk ustabilt? En stor del av svaret ligger i kolonitiden - historien og politikken henger uløselig sammen.",
-                        "feedback": "Du ser sammenhengen mellom politiske og historiske forhold - det er nettopp det kompetansemålet krever.",
-                        "choices": [
-                            {
-                                "text": "Gå videre til Brasil",
-                                "nextId": "brasil"
-                            }
-                        ]
-                    },
-                    {
-                        "id": "brasil",
-                        "text": "Brasil: HDI 0,760 - midt på skalaen. Enorme naturressurser. Kolonisert av Portugal fra 1500-tallet. Slaveri varte til 1888 - siste land i Vest-halvkula til å avskaffe det. I dag er 88% urbanisert, men ulikheten er ekstrem (Gini-koeffisienten er blant verdens høyeste). Demokrati siden 1988. Hva forklarer at Brasil er rikere enn Niger, men fortsatt har store problemer?",
-                        "choices": [
-                            {
-                                "text": "Den historiske arven fra slaveri og kolonialisme sitter igjen som ulikhet",
-                                "nextId": "brasil-riktig"
-                            },
-                            {
-                                "text": "Brasil har for lite naturressurser til å bli rikt",
-                                "nextId": "brasil-feil"
-                            },
-                            {
-                                "text": "Demokratiet i Brasil er for ungt til å ha rukket å gjøre en forskjell",
-                                "nextId": "brasil-delvis"
-                            }
-                        ]
-                    },
-                    {
-                        "id": "brasil-riktig",
-                        "text": "Nettopp. Brasil har enorme naturressurser og en stor økonomi - men slaveriets og kolonialismens arv skapte en struktur der rikdommen er ekstremt skjevt fordelt. HDI måler gjennomsnitt, ikke ulikhet.",
-                        "feedback": "Godt analysert. Historiske forhold forklarer mye av Brasils ulikhet i dag.",
-                        "choices": [
-                            {
-                                "text": "Gå videre til Norge",
-                                "nextId": "norge"
-                            }
-                        ]
-                    },
-                    {
-                        "id": "brasil-feil",
-                        "text": "Nei - Brasil har faktisk enorme naturressurser: skog, mineraler, olje, landbruksareal. Problemet er fordeling, ikke mengde. Prøv igjen.",
-                        "choices": [
-                            {
-                                "text": "Prøv Brasil på nytt",
-                                "nextId": "brasil"
-                            }
-                        ]
-                    },
-                    {
-                        "id": "brasil-delvis",
-                        "text": "Delvis riktig - demokratiet er relativt ungt. Men den viktigste forklaringen er dypere: slaveriets og kolonialismens historiske struktur skapte en økonomi der rikdom tilfalt veldig få.",
-                        "choices": [
-                            {
-                                "text": "Gå videre til Norge",
-                                "nextId": "norge"
-                            }
-                        ]
-                    },
-                    {
-                        "id": "norge",
-                        "text": "Norge: HDI 0,966 - verdens høyeste. Forventet levealder 84 år. Stabilt demokrati siden 1814. Olje siden 1969. Sterk velferdsstat. Lav korrupsjon. Men Norge var ikke alltid rikt - på 1800-tallet emigrerte 800 000 nordmenn til Amerika på grunn av fattigdom og sult. Hva forklarer Norges suksess?",
-                        "choices": [
-                            {
-                                "text": "Olje - uten olje hadde Norge vært et fattig land",
-                                "nextId": "norge-olje"
-                            },
-                            {
-                                "text": "Kombinasjon: stabile institusjoner (200 år!), utdanning, og så olje som ble forvaltet godt",
-                                "nextId": "norge-riktig"
-                            },
-                            {
-                                "text": "Geografien - Norge er et lite land, lett å styre",
-                                "nextId": "norge-geo"
-                            }
-                        ]
-                    },
-                    {
-                        "id": "norge-olje",
-                        "text": "Olje hjalp enormt - men mange oljerike land (f.eks. Nigeria, Venezuela) er ikke velstående. Nøkkelen er at Norge hadde stabile institusjoner og lav korrupsjon FØR oljen kom. Da er det lettere å forvalte rikdommen godt.",
-                        "choices": [
-                            {
-                                "text": "Avslutt analysen",
-                                "nextId": "slutt"
-                            }
-                        ]
-                    },
-                    {
-                        "id": "norge-riktig",
-                        "text": "Utmerket! Du ser det komplekse samspillet. Politisk stabilitet siden 1814 bygde tillit og institusjoner. Investering i utdanning (helt tilbake til 1700-tallet) skapte kompetanse. Oljen ble deretter forvaltet godt fordi fundamentet var på plass.",
-                        "feedback": "Dette er kompetansemålet i praksis - du kombinerer politiske, geografiske og historiske faktorer for å forklare levekår.",
-                        "choices": [
-                            {
-                                "text": "Avslutt analysen",
-                                "nextId": "slutt"
-                            }
-                        ]
-                    },
-                    {
-                        "id": "norge-geo",
-                        "text": "Geografi spiller liten rolle her - Norge er faktisk et langt, tynt og krevende land å bygge infrastruktur i. Island, Luxembourg og Singapore er også små, men av ulike grunner velstående.",
-                        "choices": [
-                            {
-                                "text": "Prøv Norge på nytt",
-                                "nextId": "norge"
-                            }
-                        ]
-                    },
-                    {
-                        "id": "slutt",
-                        "text": "Bra gjort! Du har nå analysert tre land ved å se på politiske, geografiske og historiske forhold - akkurat slik kompetansemålet krever. Huskeregelen: ingen land er fattig eller rikt av en enkelt årsak. Det er alltid et samspill.",
-                        "choices": [
-                            {
-                                "text": "Start analysen på nytt",
-                                "nextId": "start"
-                            }
-                        ]
-                    }
-                ],
-                "startId": "start"
-            }
+            "name": "LevekaarSamspillet"
         },
         {
             "type": "header",
@@ -299,6 +115,17 @@
             "src": "/images/placeholder.webp",
             "alt": "Kart med piler som viser globale migrasjonsstrømmer",
             "caption": "De store migrasjonsstrømmene går fra lavinntektsland i Afrika og Asia mot Europa og Nord-Amerika - drevet av store levekårsforskjeller."
+        },
+        {
+            "type": "text",
+            "content": "Prøv det selv: hva skal til for at folk blir værende hjemme? I spillet under ligger to land med et hav imellom. Når levekårsgapet er stort, strømmer folk over. Bygg opp levekårene i hjemlandet og se hva som skjer med migrasjonen."
+        },
+        {
+            "type": "component",
+            "name": "MicroGame",
+            "props": {
+                "gameId": "levekaarsgapet-3d"
+            }
         },
         {
             "type": "header",
@@ -326,21 +153,21 @@
                             "Et mål på demokratiets styrke i et land"
                         ],
                         "correctAnswer": 1,
-                        "explanation": "HDI kombinerer tre faktorer: forventet levealder, utdanningsnivå og inntekt per innbygger. Det gir et mer helhetlig bilde av levekår enn økonomiske mal alene."
+                        "explanation": "HDI kombinerer tre faktorer: forventet levealder, utdanningsnivå og inntekt per innbygger. Det gir et mer helhetlig bilde av levekår enn økonomiske mål alene."
                     },
                     {
-                        "question": "Hvilken av disse er et eksempel på et historisk forhold som pavirker levekår i dag?",
+                        "question": "Hvilken av disse er et eksempel på et historisk forhold som påvirker levekår i dag?",
                         "options": [
                             "At et land ligger nær ekvator",
                             "At et land har mye regn",
-                            "At et land ble kolonisert og fratatt ressurser i hundre ar",
+                            "At et land ble kolonisert og fratatt ressurser i hundre år",
                             "At et land har mange unge innbyggere"
                         ],
                         "correctAnswer": 2,
-                        "explanation": "Kolonitiden etterlot mange land uten fungerende institusjoner og med økonomier bygd for a tjene kolonimakten. Disse historiske sporene pavirker fortsatt levekåra i dag."
+                        "explanation": "Kolonitiden etterlot mange land uten fungerende institusjoner og med økonomier bygd for å tjene kolonimakten. Disse historiske sporene påvirker fortsatt levekårene i dag."
                     },
                     {
-                        "question": "Hva kalles det når faglarte folk fra fattige land emigrerer til rike land?",
+                        "question": "Hva kalles det når faglærte folk fra fattige land emigrerer til rike land?",
                         "options": [
                             "Remittances",
                             "Hjerneflukt",
@@ -348,32 +175,40 @@
                             "Push-migrasjon"
                         ],
                         "correctAnswer": 1,
-                        "explanation": "Hjerneflukt (brain drain) oppstar når utdannede personer, som leger og ingeniorer, forlater hjemlandet for bedre lønn og levekaar. Det kan forsterke ulikheten mellom rike og fattige land."
+                        "explanation": "Hjerneflukt (brain drain) oppstår når utdannede personer, som leger og ingeniører, forlater hjemlandet for bedre lønn og levekår. Det kan forsterke ulikheten mellom rike og fattige land."
                     },
                     {
                         "question": "Hva er den viktigste grunnen til at Niger har lavere levealder enn Norge?",
                         "options": [
                             "Nigerianere spiser usunnere mat",
-                            "Norge har bedre vear",
+                            "Norge har bedre vær",
                             "En kombinasjon av politisk ustabilitet, fattigdom og historisk kolonisering",
                             "Niger har for liten befolkning"
                         ],
                         "correctAnswer": 2,
-                        "explanation": "Levekarsforskjeller skyldes sjelden en enkelt årsak. For Niger handler det om samspillet mellom politisk ustabilitet etter kolonitiden, geografiske utfordringer (orkenen Sahara) og økonomisk fattigdom."
+                        "explanation": "Levekårsforskjeller skyldes sjelden en enkelt årsak. For Niger handler det om samspillet mellom politisk ustabilitet etter kolonitiden, geografiske utfordringer (ørkenen Sahara) og økonomisk fattigdom."
                     },
                     {
-                        "question": "Hva viser eksempelet med Sor-Korea at er mulig?",
+                        "question": "Hva viser eksempelet med Sør-Korea er mulig?",
                         "options": [
                             "At alle land kan bli rike på olje",
-                            "At levekaar kan forbedres dramatisk på relativt kort tid med riktige investeringer",
+                            "At levekår kan forbedres dramatisk på relativt kort tid med riktige investeringer",
                             "At demokrati alltid gir rikdom",
                             "At geografisk beliggenhet ikke betyr noe"
                         ],
                         "correctAnswer": 1,
-                        "explanation": "Sor-Korea gikk på 60 ar fra å være et av verdens fattigste land til å være en avansert økonomisk stormakt. Nokkelene var investering i utdanning, stabile institusjoner og strategisk industripolitikk."
+                        "explanation": "Sør-Korea gikk på 60 år fra å være et av verdens fattigste land til å være en avansert økonomisk stormakt. Nøklene var investering i utdanning, stabile institusjoner og strategisk industripolitikk."
                     }
                 ]
             }
         }
-    ]
+    ],
+    "tags": [
+        "levekår",
+        "demografi",
+        "hdi",
+        "migrasjon",
+        "global ulikhet"
+    ],
+    "createdDate": "2026-06-02T00:00:00Z"
 }

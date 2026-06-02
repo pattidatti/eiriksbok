@@ -37,6 +37,8 @@ const GoldenMeanSlider = lazy(() => import('./content/interactive/GoldenMeanSlid
 const CategoricalImperativeTester = lazy(() => import('./content/interactive/CategoricalImperativeTester').then(m => ({ default: m.CategoricalImperativeTester })));
 const FilterBubbleSim = lazy(() => import('./content/interactive/FilterBubbleSim').then(m => ({ default: m.FilterBubbleSim })));
 const StatistikkVri = lazy(() => import('./content/interactive/StatistikkVri').then(m => ({ default: m.StatistikkVri })));
+const LevekaarSamspillet = lazy(() => import('./content/interactive/LevekaarSamspillet').then(m => ({ default: m.LevekaarSamspillet })));
+const Konfliktlaboratoriet = lazy(() => import('./content/interactive/Konfliktlaboratoriet').then(m => ({ default: m.Konfliktlaboratoriet })));
 const AlgoritmeSorteraren = lazy(() => import('./content/interactive/AlgoritmeSorteraren').then(m => ({ default: m.AlgoritmeSorteraren })));
 const Teknologivekta = lazy(() => import('./content/interactive/Teknologivekta').then(m => ({ default: m.Teknologivekta })));
 const HistoriensSpotlight = lazy(() => import('./content/interactive/HistoriensSpotlight').then(m => ({ default: m.HistoriensSpotlight })));
@@ -92,6 +94,7 @@ const PovertySimulation = lazy(() => import('./content/interactive/PovertySimula
 const OkonomiVerdenLink = lazy(() => import('./content/interactive/okonomi/OkonomiVerdenLink').then(m => ({ default: m.OkonomiVerdenLink })));
 const BiasLens = lazy(() => import('./learning-path/BiasLens').then(m => ({ default: m.BiasLens })));
 const AllianceChain = lazy(() => import('./content/interactive/AllianceChain').then(m => ({ default: m.AllianceChain })));
+const KontekstKompasset = lazy(() => import('./content/interactive/KontekstKompasset').then(m => ({ default: m.KontekstKompasset })));
 const PowderKeg = lazy(() => import('./content/interactive/PowderKeg').then(m => ({ default: m.PowderKeg })));
 const DreadnoughtDuel = lazy(() => import('./content/interactive/DreadnoughtDuel').then(m => ({ default: m.DreadnoughtDuel })));
 const TrenchCrossSection = lazy(() => import('./content/interactive/TrenchCrossSection').then(m => ({ default: m.default })));
@@ -256,6 +259,8 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     LinkButton,
     MicroGame,
     StatistikkVri,
+    LevekaarSamspillet,
+    Konfliktlaboratoriet,
     Teknologivekta,
     HistoriensSpotlight,
     WaveMap,
@@ -490,6 +495,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     ShipmentTracker: lazy(() => import('./content/interactive/infrastruktur/ShipmentTracker').then(m => ({ default: m.ShipmentTracker }))),
     CascadeFailureSim: lazy(() => import('./content/interactive/infrastruktur/CascadeFailureSim').then(m => ({ default: m.CascadeFailureSim }))),
     MapCarousel,
+    KontekstKompasset,
 };
 
 export const getComponent = (name: string) => {

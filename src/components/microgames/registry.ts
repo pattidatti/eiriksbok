@@ -20,6 +20,9 @@ const Konklusjonsbroen3D = lazy(() => import('./Konklusjonsbroen3D'));
 const MonumentTorget3D = lazy(() => import('./MonumentTorget3D'));
 const Teknologibolgen3D = lazy(() => import('./Teknologibolgen3D'));
 const Nyheitsbobla3D = lazy(() => import('./Nyheitsbobla3D'));
+const Konsekvensbolgen3D = lazy(() => import('./Konsekvensbolgen3D'));
+const Levekaarsgapet3D = lazy(() => import('./Levekaarsgapet3D'));
+const Streikefronten3D = lazy(() => import('./Streikefronten3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
     'gladius-duell': {
@@ -156,6 +159,33 @@ export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.Laz
         estimatedSeconds: 120,
         loader: () => import('./Nyheitsbobla3D'),
         Component: Nyheitsbobla3D as never,
+    },
+    'konsekvensbolgen-3d': {
+        id: 'konsekvensbolgen-3d',
+        title: 'Konsekvensbølgen',
+        description:
+            'Sikre forutsetningene som hindrer krig - meklingsorgan, økonomisk samhandel og demokratisk fred - før du tenner gnisten i sentrum. Sikrer du alle tre, dør gnisten ut. Sikrer du for få, ruller en sjokkbølge utover og rammer matpriser, energi, flyktninger og handel langt utenfor konfliktsonen.',
+        estimatedSeconds: 130,
+        loader: () => import('./Konsekvensbolgen3D'),
+        Component: Konsekvensbolgen3D as never,
+    },
+    'levekaarsgapet-3d': {
+        id: 'levekaarsgapet-3d',
+        title: 'Levekårsgapet',
+        description:
+            'To land med et hav imellom: når levekårsgapet er stort, strømmer folk over. Bygg skole, klinikk og arbeid i hjemlandet, og se gapet krympe og migrasjonen stoppe. Det er ikke avstand, men levekår, som avgjør om folk blir.',
+        estimatedSeconds: 130,
+        loader: () => import('./Levekaarsgapet3D'),
+        Component: Levekaarsgapet3D as never,
+    },
+    'streikefronten-3d': {
+        id: 'streikefronten-3d',
+        title: 'Streikefronten',
+        description:
+            'Rekrutter alle fem arbeidergruppene til streiken i en 1890-talls fabrikk i Kristiania. Klikk på gruppene og se dem marsjere til streikefronten. Når alle er med, stanser fabrikken. Lyspæren: alene kan du klage - men organisert kan du endre.',
+        estimatedSeconds: 90,
+        loader: () => import('./Streikefronten3D'),
+        Component: Streikefronten3D as never,
     },
 };
 
