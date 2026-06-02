@@ -5,7 +5,7 @@
   "year": "1978-1981",
   "category": "Midtøsten",
   "readTime": "9 min lesning",
-  "heroImage": "/images/placeholder.webp",
+  "heroImage": "/images/midtoesten/iran-revolusjonen-hero.webp",
   "details": [
     "Den iranske revolusjonen var den eneste vellykkede islamistiske revolusjonen i historien.",
     "Sjahen Mohammed Reza Pahlavi hadde det hemmelige politiet SAVAK til å tortere og fengsle opposisjonen.",
@@ -31,7 +31,7 @@
     },
     {
       "type": "image",
-      "src": "/images/placeholder.webp",
+      "src": "/images/midtoesten/iran-revolusjonen-01.webp",
       "alt": "Mohammed Reza Pahlavi, sjahen av Iran",
       "caption": "Sjahen Mohammed Reza Pahlavi var USAs viktigste allierte i Midtøsten - men hatet av store deler av sitt eget folk."
     },
@@ -130,7 +130,7 @@
     },
     {
       "type": "image",
-      "src": "/images/placeholder.webp",
+      "src": "/images/midtoesten/iran-revolusjonen-02.webp",
       "alt": "Gisler i den amerikanske ambassaden i Teheran",
       "caption": "I 444 dager holdt iranske studenter 52 amerikanere som gisler. Krisen ødela forholdet mellom USA og Iran for generasjoner."
     },
@@ -160,7 +160,7 @@
     },
     {
       "type": "image",
-      "src": "/images/placeholder.webp",
+      "src": "/images/midtoesten/iran-revolusjonen-03.webp",
       "alt": "Kart over Midtøsten med sunni- og shia-majoritetsland markert",
       "caption": "Den iranske revolusjonen utløste en regional rivalitet mellom sunni-dominerte arabiske stater og shia-Iran som fortsatt preger Midtøsten."
     },

@@ -5,7 +5,7 @@
   "year": "2011 - i dag",
   "category": "Midtøsten",
   "readTime": "9 min lesning",
-  "heroImage": "/images/placeholder.webp",
+  "heroImage": "/images/midtoesten/midtoesten-i-dag-hero.webp",
   "details": [
     "I 2024 pågikk aktive militære konflikter i Syria, Jemen, Libya og Israel-Gaza.",
     "IS mistet sitt fysiske \"kalifat\" i 2019, men ideologien lever videre og inspirerer angrep over hele verden.",
@@ -27,7 +27,7 @@
     },
     {
       "type": "image",
-      "src": "/images/placeholder.webp",
+      "src": "/images/midtoesten/midtoesten-i-dag-01.webp",
       "alt": "Kart over Midtøsten med konfliktområder markert",
       "caption": "Midtøsten i 2024: Aktive konflikter preger store deler av regionen."
     },
@@ -70,7 +70,7 @@
     },
     {
       "type": "image",
-      "src": "/images/placeholder.webp",
+      "src": "/images/midtoesten/midtoesten-i-dag-02.webp",
       "alt": "Ruiner i en syrisk by etter borgerkrigen",
       "caption": "Syria etter borgerkrigen: Assad vant militært, men landet er i ruiner."
     },
@@ -131,7 +131,7 @@
     },
     {
       "type": "image",
-      "src": "/images/placeholder.webp",
+      "src": "/images/midtoesten/midtoesten-i-dag-03.webp",
       "alt": "Flyktningbåt i Middelhavet",
       "caption": "Millioner av mennesker har flyktet fra konflikter i Midtøsten - mange via Middelhavet."
     },

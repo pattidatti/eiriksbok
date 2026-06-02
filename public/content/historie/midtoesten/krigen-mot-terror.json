@@ -5,7 +5,7 @@
   "year": "2001-2021",
   "category": "Midtøsten",
   "readTime": "9 min lesning",
-  "heroImage": "/images/placeholder.webp",
+  "heroImage": "/images/midtoesten/krigen-mot-terror-hero.webp",
   "details": [
     "11. september 2001 drepte 19 kaprer fra al-Qaida nesten 3000 mennesker i USA.",
     "USA invaderte Afghanistan i oktober 2001 og Irak i mars 2003 - to svært ulike operasjoner med ulike resultat.",
@@ -23,7 +23,7 @@
     },
     {
       "type": "image",
-      "src": "/images/placeholder.webp",
+      "src": "/images/midtoesten/krigen-mot-terror-01.webp",
       "alt": "World Trade Center i flammer 11. september 2001",
       "caption": "De to tårnene til World Trade Center i New York i flammer etter angrepene 11. september 2001."
     },
@@ -53,7 +53,7 @@
     },
     {
       "type": "image",
-      "src": "/images/placeholder.webp",
+      "src": "/images/midtoesten/krigen-mot-terror-02.webp",
       "alt": "Amerikanske soldater i Afghanistan",
       "caption": "Amerikanske soldater på patrulje i Afghanistan. USA hadde soldater i landet fra 2001 til 2021."
     },
@@ -135,7 +135,7 @@
     },
     {
       "type": "image",
-      "src": "/images/placeholder.webp",
+      "src": "/images/midtoesten/krigen-mot-terror-03.webp",
       "alt": "Taliban-styrker i Kabul 2021",
       "caption": "Taliban rykket inn i Kabul i august 2021 etter at USA fullførte tilbaketrekningen av sine soldater."
     },
