@@ -31,6 +31,7 @@ const AthenSparta = lazy(() => import('./content/interactive/AthenSparta').then(
 const TextHighlighter = lazy(() => import('./content/interactive/TextHighlighter').then(m => ({ default: m.TextHighlighter })));
 const SentenceBuilder = lazy(() => import('./content/interactive/SentenceBuilder').then(m => ({ default: m.SentenceBuilder })));
 const RomanPantheonExplorer = lazy(() => import('./content/interactive/RomanPantheonExplorer').then(m => ({ default: m.RomanPantheonExplorer })));
+const GreskGudeMatch = lazy(() => import('./content/interactive/GreskGudeMatch').then(m => ({ default: m.GreskGudeMatch })));
 const RomanExpansionMap = lazy(() => import('./content/interactive/RomanExpansionMap').then(m => ({ default: m.RomanExpansionMap })));
 const TrolleyProblem = lazy(() => import('./content/interactive/TrolleyProblem').then(m => ({ default: m.TrolleyProblem })));
 const GoldenMeanSlider = lazy(() => import('./content/interactive/GoldenMeanSlider').then(m => ({ default: m.GoldenMeanSlider })));
@@ -291,6 +292,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     TextHighlighter,
     SentenceBuilder,
     RomanPantheonExplorer,
+    GreskGudeMatch,
     RomanExpansionMap,
     TrolleyProblem,
     GoldenMeanSlider,

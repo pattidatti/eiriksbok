@@ -1445,7 +1445,7 @@
                 "sivilt-samfunn"
               ],
               "createdDate": "2026-06-02T00:00:00Z",
-              "lastUpdated": "2026-06-02T09:38:09+02:00"
+              "lastUpdated": "2026-06-02T15:27:18+02:00"
             },
             {
               "id": "km-14-lover-normer",
@@ -1460,7 +1460,7 @@
                 "demokrati"
               ],
               "createdDate": "2026-06-02T00:00:00Z",
-              "lastUpdated": "2026-06-02T09:38:09+02:00"
+              "lastUpdated": "2026-06-02T15:27:18+02:00"
             },
             {
               "id": "km-15-norsk-demokrati",
@@ -1475,7 +1475,7 @@
                 "partisystem"
               ],
               "createdDate": "2026-06-02T00:00:00Z",
-              "lastUpdated": "2026-06-02T09:38:09+02:00"
+              "lastUpdated": "2026-06-02T16:32:02+02:00"
             },
             {
               "id": "km-17-medborgar",
@@ -1490,7 +1490,7 @@
                 "sivilt-samfunn"
               ],
               "createdDate": "2026-06-02T00:00:00Z",
-              "lastUpdated": "2026-06-02T09:38:09+02:00"
+              "lastUpdated": "2026-06-02T16:32:02+02:00"
             }
           ]
         },
@@ -1638,7 +1638,7 @@
                 "sosiale-medier"
               ],
               "createdDate": "2026-06-02T00:00:00Z",
-              "lastUpdated": "2026-06-02T09:38:09+02:00"
+              "lastUpdated": "2026-06-02T15:27:18+02:00"
             },
             {
               "id": "km-13-digital-debatt",
@@ -1653,7 +1653,7 @@
                 "algoritmar"
               ],
               "createdDate": "2026-06-02T00:00:00Z",
-              "lastUpdated": "2026-06-02T09:38:09+02:00"
+              "lastUpdated": "2026-06-02T15:27:18+02:00"
             }
           ]
         },
@@ -2102,7 +2102,7 @@
                 "eksamen"
               ],
               "createdDate": "2026-06-02T00:00:00Z",
-              "lastUpdated": "2026-06-02T09:38:09+02:00"
+              "lastUpdated": "2026-06-02T16:32:02+02:00"
             }
           ]
         }
@@ -5045,6 +5045,21 @@
               ],
               "createdDate": "2026-06-02T00:00:00Z",
               "lastUpdated": "2026-06-02T09:38:09+02:00"
+            },
+            {
+              "id": "greske-guder",
+              "title": "Gudene på Olympen: greske myter",
+              "description": "De greske gudene var en kranglete familie på fjellet Olympen. Hver gud styrte sin del av verden, og mytene forklarte alt fra torden til årstider.",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "antikken",
+                "hellas",
+                "mytologi",
+                "religion",
+                "guder"
+              ],
+              "createdDate": "2026-06-03T00:00:00Z",
+              "lastUpdated": "2026-06-03T04:57:05.584Z"
             }
           ]
         },
@@ -5197,7 +5212,7 @@
                 "arkeologi"
               ],
               "createdDate": "2026-05-17T00:00:00Z",
-              "lastUpdated": "2026-05-17T21:34:20+02:00"
+              "lastUpdated": "2026-06-03T04:46:35+02:00"
             }
           ]
         },

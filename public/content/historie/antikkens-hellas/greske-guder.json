@@ -1,0 +1,166 @@
+{
+    "id": "greske-guder",
+    "title": "Gudene på Olympen: greske myter",
+    "layout": "rich",
+    "year": "800-300 fvt",
+    "category": "Antikkens Hellas",
+    "readTime": "9 min lesning",
+    "heroImage": "/images/placeholder.webp",
+    "details": [
+        "De greske gudene var en stor, kranglete familie som bodde på fjellet Olympen.",
+        "Hver gud styrte sin egen del av verden: himmel, hav, avling, kjærlighet og krig.",
+        "Mytene var grekernes måte å forklare naturen og livet på, lenge før vitenskapen."
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "En gjeter står i fjellet i Hellas for nesten tre tusen år siden. Plutselig flerrer et lyn himmelen, og tordenen ruller mellom toppene. Gjeteren blir ikke forvirret. Han vet hva som skjer: Zevs, kongen blant gudene, er sint. For grekerne var ikke torden et tilfeldig vær. Det var en beskjed fra en gud. Slik forklarte de nesten alt som skjedde rundt seg, fra et jordskjelv til en plutselig forelskelse."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Gresk gjeter ser lyn slå ned over fjelltopp",
+            "caption": "Når lynet slo ned, mente grekerne at Zevs talte fra fjellet Olympen."
+        },
+        {
+            "type": "header",
+            "text": "En familie på et fjell"
+        },
+        {
+            "type": "text",
+            "content": "Grekerne trodde at gudene bodde på Olympen, det høyeste fjellet i landet. Der oppe levde de som en stor familie. Og som i mange familier, kranglet de mye. De ble sjalu, forelsket, sinte og glade, akkurat som mennesker. Forskjellen var at gudene var udødelige og hadde enorme krefter. Zevs var familiens overhode. Kona hans Hera passet på ekteskap og familie, men var ofte rasende på Zevs fordi han stadig forelsket seg i andre."
+        },
+        {
+            "type": "text",
+            "content": "Nettopp dette gjorde gudene lette å forstå. De var ikke fjerne og perfekte. De gjorde feil, holdt nag og hjalp dem de likte. En greker kunne kjenne seg igjen i en gud som ble sjalu eller stolt. Gudene var som et speil av menneskene selv, bare mye sterkere."
+        },
+        {
+            "type": "header",
+            "text": "Hver gud sin egen del av verden"
+        },
+        {
+            "type": "text",
+            "content": "Det viktigste å forstå er at hver gud eide sin egen del av verden. Tenk på det som om hver gud hadde en jobb. Zevs styrte himmelen og lynet. Broren Poseidon rådde over havet, og når han var sint, slo han med treforken sin og laget jordskjelv. Den tredje broren, Hades, styrte underverdenen der de døde havnet. Demeter sørget for at kornet vokste og årstidene skiftet. Afrodite tente kjærlighet i hjertene, mens Athene sto for visdom og kloke planer. Krig hadde til og med to guder: den ville og blodige Ares, og den smarte Athene som vant med list."
+        },
+        {
+            "type": "list",
+            "items": [
+                "Zevs: konge over gudene, himmel og lyn",
+                "Poseidon: hav, stormer og jordskjelv",
+                "Hades: underverdenen og de døde",
+                "Demeter: avling, korn og årstider",
+                "Afrodite: kjærlighet og skjønnhet",
+                "Athene: visdom, klokskap og strategi"
+            ]
+        },
+        {
+            "type": "text",
+            "content": "Mange hundre år senere tok romerne over de greske gudene, men ga dem nye navn. Zevs ble til Jupiter, og Afrodite ble til Venus. Du kan lese mer om hvordan dette skjedde i artikkelen om [de romerske gudene](/historie/romerriket/romerske-guder). Selve ideen, at hver gud styrte sin del av verden, levde videre nesten uforandret."
+        },
+        {
+            "type": "component",
+            "name": "GreskGudeMatch",
+            "props": {}
+        },
+        {
+            "type": "header",
+            "text": "Myter forklarte verden"
+        },
+        {
+            "type": "text",
+            "content": "En myte er en fortelling om guder og helter. Men mytene var mer enn gode historier. De forklarte ting grekerne ikke forsto. Hvorfor finnes det vinter? Svaret lå i en myte om Demeter. Datteren hennes, Persefone, ble bortført til Hades i underverdenen. Demeter ble så lei seg at alt sluttet å vokse. Til slutt fikk hun datteren tilbake, men bare for en del av året. Når Persefone er borte hos Hades, sørger Demeter, og da blir det vinter på jorden. Når datteren kommer tilbake, blir det vår igjen."
+        },
+        {
+            "type": "text",
+            "content": "Slik fungerte mytene som grekernes vitenskap før vitenskapen fantes. De forklarte tordenen, havet, årstidene og kjærligheten. Vi gjør litt av det samme i dag når vi prøver å forstå det vi ikke vet svaret på. Forskjellen er at vi i dag bruker forskning, mens grekerne brukte fortellinger om guder."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Persefone på vei ned i den mørke underverdenen",
+            "caption": "Myten om Persefone forklarte hvorfor vi har vinter og vår."
+        },
+        {
+            "type": "component",
+            "name": "MicroGame",
+            "props": {
+                "gameId": "gudenes-verden-3d"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Helter og uhyrer"
+        },
+        {
+            "type": "text",
+            "content": "Mytene handlet ikke bare om guder. De var også fulle av helter og uhyrer. Herakles var så sterk at han kunne drepe en løve med bare hendene. Theseus gikk inn i en labyrint og drepte Minotauros, et uhyre som var halvt menneske og halvt okse. Disse historiene var spennende, men de lærte også bort noe. En helt som ble for stolt og trodde han var like god som gudene, ble nesten alltid straffet. Grekerne kalte denne farlige stoltheten for hybris. Lærdommen var klar: husk at du er et menneske, ikke en gud."
+        },
+        {
+            "type": "text",
+            "content": "Men hvordan kjente alle grekerne de samme historiene? Det var ingen skole som lærte bort mytene, og de fleste kunne ikke lese. Svaret er at fortellingene gikk fra munn til munn. Diktere reiste rundt og fortalte mytene høyt, ofte mens de spilte på et instrument. Den mest kjente av dem het Homer. Han fortalte om helten Odyssevs, som brukte ti år på å komme seg hjem fra krig, og som måtte lure seg forbi uhyrer og sinte guder på veien. Slik ble de samme historiene kjent over hele Hellas, lenge før noen skrev dem ned i en bok."
+        },
+        {
+            "type": "text",
+            "content": "Gudene var en del av hverdagen, ikke bare av fortellingene. De store [olympiske lekene](/historie/antikkens-hellas/olympiske-leker) var egentlig en fest for Zevs. Og i en by som [Athen](/historie/antikkens-hellas/athen-og-sparta) bygde folk store templer til gudinnen Athene, som byen var oppkalt etter. Religion og dagligliv hang tett sammen."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Orakelet i Delfi",
+                "content": "Når grekerne sto fast og ikke visste hva de skulle gjøre, reiste de til Delfi. Der satt en prestinne som ble kalt orakelet. Folk trodde hun snakket på vegne av guden Apollon. Men svarene hennes var ofte uklare og kunne tolkes på flere måter. En konge fikk høre at hvis han gikk til krig, ville et stort rike falle. Han trodde det var fiendens rike. Det var hans eget."
+            }
+        },
+        {
+            "type": "header",
+            "text": "Arven som lever videre"
+        },
+        {
+            "type": "text",
+            "content": "De greske gudene blir ikke dyrket lenger, men de er ikke borte. De gjemmer seg i språket vårt. Ordet panikk kommer fra guden Pan, som kunne skremme folk plutselig. Ordet ekko kommer fra nymfen Ekko, som bare kunne gjenta det andre sa. Når en rakett heter Apollo eller en bok handler om en heltereise, er det de greske mytene som lever videre."
+        },
+        {
+            "type": "text",
+            "content": "Mytene spredte seg også langt utover Hellas. Da [Aleksander den store](/historie/perserriket/aleksander-den-store) erobret enorme områder, tok han gresk kultur og greske guder med seg helt til India. Slik ble fortellingene fra et lite fjell i Hellas kjent i store deler av den gamle verden. Vi leser dem fortsatt i dag, nesten tre tusen år senere."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Ruiner av et gresk tempel mot blå himmel",
+            "caption": "Templene står fortsatt. Mytene som ble fortalt der, lever videre i språk og fortellinger."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hvor bodde de greske gudene?",
+                        "options": ["I havet", "På fjellet Olympen", "Under jorden", "I byen Athen"],
+                        "correctIndex": 1,
+                        "explanation": "Grekerne trodde gudene bodde på Olympen, det høyeste fjellet i landet."
+                    },
+                    {
+                        "question": "Hva styrte Poseidon over?",
+                        "options": ["Himmelen og lynet", "Avlingen og årstidene", "Havet og jordskjelv", "Kjærligheten"],
+                        "correctIndex": 2,
+                        "explanation": "Poseidon rådde over havet. Grekerne sa han laget jordskjelv ved å slå med treforken sin."
+                    },
+                    {
+                        "question": "Hva forklarte myten om Demeter og Persefone?",
+                        "options": ["Hvorfor det blir vinter og vår", "Hvorfor lynet slår ned", "Hvorfor Athen vant kriger", "Hvorfor folk blir forelsket"],
+                        "correctIndex": 0,
+                        "explanation": "Når Persefone er hos Hades, sørger Demeter, og da blir det vinter. Når hun kommer tilbake, blir det vår."
+                    },
+                    {
+                        "question": "Hva mente grekerne med hybris?",
+                        "options": ["Et offer til gudene", "Farlig stolthet der et menneske tror det er like godt som en gud", "Navnet på et uhyre", "En fest for Zevs"],
+                        "correctIndex": 1,
+                        "explanation": "Hybris var en farlig stolthet. Helter som trodde de var like gode som gudene, ble nesten alltid straffet."
+                    }
+                ]
+            }
+        }
+    ],
+    "timeline": []
+}

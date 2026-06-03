@@ -1358,6 +1358,25 @@
       ]
     },
     {
+      "id": "greske-guder",
+      "title": "Gudene på Olympen: greske myter",
+      "description": "De greske gudene var en kranglete familie på fjellet Olympen. Hver gud styrte sin del av verden, og mytene forklarte alt fra torden til årstider.",
+      "startDate": 800,
+      "endDate": -300,
+      "displayDate": "800-300 fvt",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "antikkens-hellas",
+      "link": "/historie/antikkens-hellas/greske-guder",
+      "tags": [
+        "antikken",
+        "hellas",
+        "mytologi",
+        "religion",
+        "guder"
+      ]
+    },
+    {
       "id": "myklebust-skipet",
       "title": "Myklebust-skipet brennes",
       "description": "En spektakulær begravelse der Norges største vikingskip brennes i en haug på Nordfjordeid.",
