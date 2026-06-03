@@ -68,6 +68,13 @@
         },
         {
             "type": "component",
+            "name": "MicroGame",
+            "props": {
+                "gameId": "gobekli-tepe-3d"
+            }
+        },
+        {
+            "type": "component",
             "name": "KausalitetsVri",
             "props": {
                 "title": "Hva kom egentlig først?"

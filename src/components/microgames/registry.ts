@@ -33,6 +33,7 @@ const Spillereglene3D = lazy(() => import('./Spillereglene3D'));
 const Spleiselaget3D = lazy(() => import('./Spleiselaget3D'));
 const Maktskiftet3D = lazy(() => import('./Maktskiftet3D'));
 const Argumentbroen3D = lazy(() => import('./Argumentbroen3D'));
+const GobekliTepe3D = lazy(() => import('./GobekliTepe3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
     'gladius-duell': {
@@ -286,6 +287,15 @@ export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.Laz
         estimatedSeconds: 110,
         loader: () => import('./Spleiselaget3D'),
         Component: Spleiselaget3D as never,
+    },
+    'gobekli-tepe-3d': {
+        id: 'gobekli-tepe-3d',
+        title: 'Reis tempelet på Magehøyden',
+        description:
+            'Reis de tunge T-pilarene på Göbekli Tepe i 3D: kall flokken til tauet med spaken og hal steinen opp. Jegerne hadde verken hjul, metall eller pakkdyr - bare mange hender. For hver tyngre pilar må du kalle på enda flere. Lyspæren: en så stor flokk måtte mettes igjen og igjen, og det behovet kan ha drevet fram jordbruket.',
+        estimatedSeconds: 150,
+        loader: () => import('./GobekliTepe3D'),
+        Component: GobekliTepe3D as never,
     },
 };
 
