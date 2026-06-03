@@ -1,0 +1,103 @@
+name: Auto-merge bot content PRs
+
+# Sikkerhetsnett for de to nattrutinene (eiriksbok-daily-content kl. 01:00 og
+# eiriksbok-daily-microgame kl. 02:30). Rutinene bruker `gh pr merge --auto`,
+# men repoet har `allow_auto_merge: false`, så den kommandoen feiler stille og
+# PR-en blir liggende åpen (og kan da kollidere med neste rutines PR).
+#
+# Denne workflowen gjør en DIREKTE squash-merge (krever kun allow_squash_merge,
+# som er på), verifiserer at den faktisk ble merget, og kommenterer hvis PR-en
+# har konflikt mot main i stedet for å feile stille.
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, ready_for_review]
+  schedule:
+    - cron: '20 1 * * *'   # rett etter daily-content (01:00 UTC)
+    - cron: '50 2 * * *'   # rett etter daily-microgame (02:30 UTC)
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: auto-merge-bot-prs
+  cancel-in-progress: false
+
+jobs:
+  auto-merge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Merge eligible bot PRs
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          EVENT_NAME: ${{ github.event_name }}
+          EVENT_PR: ${{ github.event.pull_request.number }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          # På pull_request: kun den utløsende PR-en. Ellers (schedule/dispatch):
+          # alle åpne PR-er fra bot-branchene.
+          if [ "$EVENT_NAME" = "pull_request" ]; then
+            PRS="$EVENT_PR"
+          else
+            PRS=$(gh pr list --repo "$REPO" --state open --json number,headRefName \
+              -q '.[] | select(.headRefName | test("^claude/(content|microgame)-")) | .number')
+          fi
+
+          if [ -z "${PRS//[[:space:]]/}" ]; then
+            echo "Ingen kandidat-PR-er."
+            exit 0
+          fi
+
+          for PR in $PRS; do
+            echo "::group::PR #$PR"
+
+            BRANCH=$(gh pr view "$PR" --repo "$REPO" --json headRefName -q .headRefName)
+            case "$BRANCH" in
+              claude/content-*|claude/microgame-*) : ;;
+              *) echo "Hopper over $BRANCH (ikke en bot-branch)"; echo "::endgroup::"; continue ;;
+            esac
+
+            STATE=$(gh pr view "$PR" --repo "$REPO" --json state -q .state)
+            if [ "$STATE" != "OPEN" ]; then
+              echo "PR #$PR er $STATE - hopper over"; echo "::endgroup::"; continue
+            fi
+
+            # GitHub regner ut mergebarhet asynkront rett etter at PR-en åpnes.
+            # Vent til mergeable ikke lenger er UNKNOWN (maks ~60s).
+            MERGEABLE="UNKNOWN"
+            for i in $(seq 1 12); do
+              MERGEABLE=$(gh pr view "$PR" --repo "$REPO" --json mergeable -q .mergeable)
+              echo "PR #$PR: mergeable=$MERGEABLE (forsøk $i)"
+              [ "$MERGEABLE" != "UNKNOWN" ] && break
+              sleep 5
+            done
+
+            if [ "$MERGEABLE" = "CONFLICTING" ]; then
+              gh pr comment "$PR" --repo "$REPO" --body \
+                "Auto-merge: denne PR-en har konflikt mot main og må løses manuelt (sannsynligvis fordi en annen bot-PR ble merget først). Workflowen rørte den ikke."
+              echo "PR #$PR er CONFLICTING - varslet, hopper over"; echo "::endgroup::"; continue
+            fi
+
+            # Direkte squash-merge (IKKE --auto). Verifiser at den faktisk ble merget.
+            gh pr merge "$PR" --repo "$REPO" --squash --delete-branch 2>&1 | tail -3 || true
+            SHA=$(gh pr view "$PR" --repo "$REPO" --json mergeCommit -q '.mergeCommit.oid // empty')
+
+            if [ -z "$SHA" ]; then
+              # Ett nytt forsøk i tilfelle mergebarhet ikke var helt klar.
+              sleep 8
+              gh pr merge "$PR" --repo "$REPO" --squash --delete-branch 2>&1 | tail -3 || true
+              SHA=$(gh pr view "$PR" --repo "$REPO" --json mergeCommit -q '.mergeCommit.oid // empty')
+            fi
+
+            if [ -n "$SHA" ]; then
+              echo "PR #$PR merget: $SHA"
+            else
+              echo "::warning::PR #$PR ble ikke merget (mergeable=$MERGEABLE) - manuell sjekk anbefalt"
+            fi
+            echo "::endgroup::"
+          done
