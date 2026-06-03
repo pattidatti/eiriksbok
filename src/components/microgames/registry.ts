@@ -33,6 +33,7 @@ const Spillereglene3D = lazy(() => import('./Spillereglene3D'));
 const Spleiselaget3D = lazy(() => import('./Spleiselaget3D'));
 const Maktskiftet3D = lazy(() => import('./Maktskiftet3D'));
 const Argumentbroen3D = lazy(() => import('./Argumentbroen3D'));
+const GudenesVerden3D = lazy(() => import('./GudenesVerden3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
     'gladius-duell': {
@@ -277,6 +278,15 @@ export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.Laz
         estimatedSeconds: 120,
         loader: () => import('./Maktskiftet3D'),
         Component: Maktskiftet3D as never,
+    },
+    'gudenes-verden-3d': {
+        id: 'gudenes-verden-3d',
+        title: 'Vekk gudene på Olympen',
+        description:
+            'Olympen reiser seg i en grå, uforklart verden. Klikk hver sovende gud og vekk den - Zevs himmelen, Poseidon havet, Hades de døde, Demeter åkeren, Afrodite kjærligheten og Athene visdommen. Når alle seks er våkne, lyser hele verden. Lyspæren: hver gud eide sin del av verden, og sammen forklarte de alt grekerne så.',
+        estimatedSeconds: 130,
+        loader: () => import('./GudenesVerden3D'),
+        Component: GudenesVerden3D as never,
     },
     'spleiselaget-3d': {
         id: 'spleiselaget-3d',
