@@ -5,7 +5,7 @@
     "year": "500-300 fvt",
     "category": "Antikkens Hellas",
     "readTime": "9 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/antikkens-hellas/gresk-teater-hero.webp",
     "details": [
         "Teateret ble født av en fest for vinguden Dionysos",
         "Grekerne fant opp to former vi fortsatt bruker: tragedie og komedie",
@@ -18,7 +18,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/antikkens-hellas/gresk-teater-01.webp",
             "alt": "Stort gresk teater fullt av tilskuere som ser på en skuespiller på dansegulvet",
             "caption": "Et gresk teater kunne romme over ti tusen tilskuere. Alle kunne høre den ene skuespilleren."
         },

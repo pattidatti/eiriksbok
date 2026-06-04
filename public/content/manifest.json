@@ -2671,7 +2671,7 @@
               "link": "/historie/mellomkrigstiden/mellomkrigstiden-sti",
               "icon": "map",
               "createdDate": "2026-01-18T22:34:44+01:00",
-              "lastUpdated": "2026-01-19T20:13:43+01:00"
+              "lastUpdated": "2026-06-04T11:38:17+02:00"
             },
             {
               "id": "mellomkrigstiden-del1",
@@ -2704,7 +2704,7 @@
                 "fred"
               ],
               "createdDate": "2025-12-21T14:35:48+01:00",
-              "lastUpdated": "2026-05-07T09:32:27+02:00"
+              "lastUpdated": "2026-06-04T11:38:17+02:00"
             },
             {
               "id": "usa",
@@ -5065,7 +5065,7 @@
               "id": "gresk-teater",
               "title": "Gresk teater: tragedie og komedie",
               "description": "Teateret ble født av en fest for guden Dionysos. Her fant grekerne opp tragedien og komedien, og bygde teatre der én stemme nådde tusenvis.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/antikkens-hellas/gresk-teater-hero.webp",
               "tags": [
                 "antikken",
                 "hellas",
