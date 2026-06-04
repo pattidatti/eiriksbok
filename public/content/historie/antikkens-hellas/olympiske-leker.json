@@ -5,7 +5,7 @@
     "year": "776 fvt",
     "category": "Antikken",
     "readTime": "8 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/antikkens-hellas/olympiske-leker-hero.webp",
     "details": [
         "De olympiske lekene var en religiøs fest for guden Zevs, ikke bare idrett",
         "Hvert fjerde år la de greske bystatene ned våpnene under en hellig våpenhvile",
@@ -18,7 +18,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/antikkens-hellas/olympiske-leker-01.webp",
             "alt": "Løpere sprinter på sandbanen i Olympia foran tilskuere",
             "caption": "Stadionløpet var den eldste og mest ærefulle grenen. Vinneren ga navn til hele olympiaden."
         },
@@ -63,7 +63,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/antikkens-hellas/olympiske-leker-02.webp",
             "alt": "Vognløp med hester runder svingen på stadion i Olympia",
             "caption": "Vognløpet var det mest dramatiske og farlige. Velt og krasj endte ofte i alvorlige skader."
         },
@@ -100,7 +100,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/antikkens-hellas/olympiske-leker-03.webp",
             "alt": "Den olympiske ilden tennes ved tempelruinene i Olympia",
             "caption": "Den olympiske ilden tennes fortsatt i Olympia i dag, en bro mellom antikken og vår tid."
         },

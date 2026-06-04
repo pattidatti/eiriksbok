@@ -5,7 +5,7 @@
     "year": "800-300 fvt",
     "category": "Antikkens Hellas",
     "readTime": "9 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/antikkens-hellas/greske-guder-hero.webp",
     "details": [
         "De greske gudene var en stor, kranglete familie som bodde på fjellet Olympen.",
         "Hver gud styrte sin egen del av verden: himmel, hav, avling, kjærlighet og krig.",
@@ -18,7 +18,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/antikkens-hellas/greske-guder-01.webp",
             "alt": "Gresk gjeter ser lyn slå ned over fjelltopp",
             "caption": "Når lynet slo ned, mente grekerne at Zevs talte fra fjellet Olympen."
         },
@@ -76,7 +76,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/antikkens-hellas/greske-guder-02.webp",
             "alt": "Persefone på vei ned i den mørke underverdenen",
             "caption": "Myten om Persefone forklarte hvorfor vi har vinter og vår."
         },
@@ -125,7 +125,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/antikkens-hellas/greske-guder-03.webp",
             "alt": "Ruiner av et gresk tempel mot blå himmel",
             "caption": "Templene står fortsatt. Mytene som ble fortalt der, lever videre i språk og fortellinger."
         },
