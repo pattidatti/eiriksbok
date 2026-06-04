@@ -1,5 +1,5 @@
 ---
-description: Bygger en kurert lysbildepresentasjon (presentation-blokk) for en eksisterende læringssti. Slides knyttes til steg, fases i 3-aktsbue, og bruker interaktive komponenter og lokale bilder. Romerriket-stien er referansestandard.
+description: Bygger en komplett, steg-for-steg lysbildepresentasjon (presentation-blokk) for en eksisterende læringssti. Hvert steg får sin egen seksjon (divider + innhold + oppgaveslide), og innholdsslidene synliggjør svaret på alle oppgavene slik at elevenes etterarbeid blir repetisjon. Mellomkrigstiden-stien er referansestandard.
 ---
 
 # Workflow: Build Slides
@@ -12,295 +12,280 @@ description: Bygger en kurert lysbildepresentasjon (presentation-blokk) for en e
 
 ---
 
+## 0. Filosofi (les dette først)
+
+Presentasjonen er ikke en oversikt eller en meny med overskrifter. Den er selve undervisningen.
+
+Tre regler styrer alt under:
+
+1. **Hvert steg får sin egen seksjon.** Ingen steg slås sammen, ingen steg hoppes over. Steg 0 (prolog) er like viktig som de andre.
+2. **Hvert steg med oppgaver får sin egen oppgaveslide** som viser stegets faktiske oppgaver verbatim.
+3. **Innholdsslidene synliggjør svaret på oppgavene.** Når en lærer har vært gjennom et stegs slides, skal elevene kunne svare på faktaoppgavene. Når de etterpå leser artikkelen og gjør oppgavene på egenhånd, blir det repetisjon.
+
+Resultatet er en lang, komplett emneressurs (typisk 4-6 slides per steg, ofte 40-70 slides totalt) som læreren hopper i over flere økter. Lengde er ikke et problem; manglende dekning er det.
+
+---
+
 ## 1. Les Kontekst
 
-* **Referansestandard:** `public/content/historie/romerriket/romerriket-sti.json` — `learningPathData.presentation` er den ferdige malen. Studer slide-strukturen før du begynner.
-* **Skjema:** `src/types.ts` — `Slide`, `SlideLayout`, `SlidePhase`, `PresentationData`.
+* **Referansestandard:** `public/content/historie/mellomkrigstiden/mellomkrigstiden-sti.json` — `learningPathData.presentation` er den ferdige malen for det nye mønsteret (seksjon per steg, full oppgavedekning, divider + innhold + oppgaveslide). Studer den før du begynner. (`romerriket-sti.json` er en eldre, mer komprimert variant - bruk den kun som sekundær referanse på enkelt-slides, ikke på struktur.)
+* **Skjema:** `src/types.ts` — `Slide`, `SlideLayout`, `SlidePhase`, `PresentationData`, `SlideRevealItem`.
 * **Layouts:** `src/components/presentation/ProjectorView.tsx` — hvilke layouts som faktisk støttes på projektor (`title`, `content`, `comparison`, `interactive`, `quote`, `discussion`, `task-pause`, `summary`).
+  * `content`, `discussion` og `summary` deler samme render-gren (punkter + bilde, punkt-for-punkt-avdekking).
+  * `comparison` viser KUN de to første `points` som to kolonner, hver som ett fett avsnitt (ingen bilde). Bruk den til to-sidige sammenligninger (f.eks. to teorier/perspektiver), legg hele forklaringen i hvert punkts `text`.
+  * `quote` viser `title` som det store sitatet og `summary` som kilde/attribusjon. Ingen bilde, ingen punkter.
+* **Avdekking:** `src/components/presentation/presentationNav.ts` — kun `content`/`discussion`/`comparison`(+`summary`) med `points` avdekkes ett punkt av gangen. Utnytt dette: legg svaret på en oppgave som et eget punkt læreren avdekker etter at klassen har tenkt.
 * **Komponenter:** `src/components/ComponentRegistry.tsx` — kun komponenter som er registrert her kan brukes i `interactive`-slides.
-* **Tidslinje:** `src/components/presentation/SlideEraTimeline.tsx` + `resolveTimelineConfig.ts`. Topp-tidslinjen er nå **per-presentasjon**: skala og milepæler hentes fra `presentation.config.timeline`. Det finnes **ingen hardkodet fallback** til noe spesifikt emne. Hvis `config.timeline` mangler, utleder appen `start`/`end` fra slidenes år (uten milepæler).
+* **Tidslinje:** Topp-tidslinjen er per-presentasjon: skala og milepæler hentes fra `presentation.config.timeline`. Ingen hardkodet fallback. Mangler `config.timeline`, utledes `start`/`end` fra slidenes år (uten milepæler) - en lavkvalitetsfallback.
 
 ---
 
-## 2. Verifiser Forutsetninger
+## 2. Verifiser Forutsetninger og Hent Råmateriale
 
 1. **Sti finnes:** `[sti-path]` er en gyldig fil med `learningPathData.steps`.
-2. **Artikler finnes:** For hvert steg med `links[]`, sjekk at hver intern URL peker på en eksisterende JSON-fil i `public/content/`.
-3. **Bilder finnes:** List filer under `public/images/[topicId]/` og lag en liste over tilgjengelige hero- og scenebilder.
-4. **Komponenter eksisterer:** Hvis steg har `component`-felt, sjekk at navnet er registrert i `ComponentRegistry.tsx`.
-5. **Eksisterende presentation:** Hvis `learningPathData.presentation` finnes fra før, **spør brukeren** om den skal overskrives. Aldri overskriv stille.
+2. **Les ALLE steg fullstendig:** for hvert steg, hent ut `id`, `phase`, `title`, `links[]`, `component` (med props), og **`tasks[]` verbatim**. Oppgavetekstene skal gjengis ordrett på oppgaveslidene.
+3. **Les artiklene som stegene lenker til.** Dette er kjernen i jobben. For hvert steg: les hver artikkel i `links[]` nøye og hent ut de presise faktaene som svarer på stegets oppgaver (eksakte tall, navn, årstall, definisjoner). Ikke gjett - grunne hvert poeng i artikkelteksten. For lange stier kan du delegere fakta-uthentingen til parallelle agenter (én per steg), men du skriver selve slidene selv for konsistens.
+4. **Bilder finnes:** List filer under `public/images/[topicId]/` og lag en liste over tilgjengelige bilder. Marker manglende bilder i sluttrapporten i stedet for å finne på URL-er.
+5. **Komponenter eksisterer:** Hvis et steg har `component`, sjekk at navnet er registrert i `ComponentRegistry.tsx`. Kopier props direkte fra steget for ekte symbiose.
+6. **Eksisterende presentation:** Hvis `learningPathData.presentation` finnes fra før, **spør brukeren** om den skal overskrives. Aldri overskriv stille.
 
 ---
 
-## 3. Designprinsipper for Slidene
+## 3. Struktur per steg (kjernen i mønsteret)
 
-### 3.1 Symbiose med stien (obligatorisk)
+Bygg én seksjon per steg, i samme rekkefølge som stegene. Hver seksjon inneholder, i denne rekkefølgen:
 
-* Hver innholdsslide skal ha `linksToStepId` som peker til et faktisk stegs `id`. Intro- og outro-slides kan stå uten.
-* Hver slide unntatt intro/outro skal ha `phase`: `'opptakt'`, `'konfrontasjon'`, eller `'resolusjon'`.
-* Plasser slides i samme rekkefølge som stegene de hører til.
-* Inkluder minst én `task-pause`-slide per akt — typisk etter en interaktiv slide eller før en stor refleksjonsoppgave.
+### 3.1 Steg-divider (obligatorisk, `layout: 'title'`)
+Åpner steget. Stor tittel ("Steg N: [stegtittel]"), `summary` (én slående linje), `year`/`yearRange`, et stemningsbilde, og `teacherNotes` med en levende åpningsscene/anekdote fra steget. Gir kapittelfølelse i en lang presentasjon.
 
-### 3.2 Tidsforankring (obligatorisk)
+### 3.2 Innholdsslides (1-4, `layout: 'content'` / `comparison` / `discussion`)
+Henter de presise poengene fra stegets artikler.
 
-* Hver slide skal ha enten `year` (et enkelt punkt) eller `yearRange` (en periode).
-* For historie-stier: bruk faktisk historisk år. Negative tall for f.Kr (`-509`), positive for e.Kr (`313`).
-* For ikke-historie-stier (norsk, KRLE, samfunnskunnskap): bruk `yearLabel` som tekst i stedet hvis årstall ikke er relevant — eller hopp over feltet.
+**Dekningskravet (obligatorisk):**
+* Hver **Fakta-** og **Forståelse-oppgave** i steget skal ha svaret sitt synlig som et punkt (eller i en slide-tittel + punkter som forklarer) i stegets innholdsslides.
+* **Analyse-, empati-, sammenligning- og refleksjonsoppgaver** skal ha grunnlaget de bygger på presentert (faktaene, perspektivene, dilemmaet) - ikke et fasitsvar, men nok til at eleven kan resonnere.
+* Legg gjerne det avgjørende svaret som siste punkt med `type: "key-fact"`, slik at læreren kan avdekke det etter at klassen har gjettet.
+* Antall innholdsslides følger antall oppgaver: 2-3 oppgaver → 1-2 slides, 5-6 oppgaver → 3 slides. Maks ~4 punkter per slide.
 
-### 3.3 Tidslinje-config (obligatorisk hvis slides har år)
+### 3.3 Interaktiv slide (kun hvis steget har `component`, `layout: 'interactive'`)
+Bruk samme komponent som steget, med props kopiert fra steget. Skaper symbiose: "nå viser jeg den samme øvingen dere skal gjøre". `teacherNotes` forklarer hvordan klassen bruker den sammen.
 
-Topp-tidslinje-stripen i ProjectorView og Controller leser **alltid** sin skala og milepæler fra `presentation.config.timeline`. Det er **ingen hardkodet fallback til noen epoke**. Hvis du glemmer denne, vil tidslinjen auto-utledes fra slidenes år (ingen milepæler), som er en lavkvalitetsfallback.
+### 3.4 Sitat-slide (valgfritt, `layout: 'quote'`)
+Der artikkelen har et slående sitat. `title` = sitatet, `summary` = kilde. **Oversett alltid fremmedspråklige sitat til norsk** (14-årings-prinsippet); behold originalen i `teacherNotes` hvis den er kjent.
 
-**For å unngå at en sti viser et annet emnes tidslinje, MÅ presentation.config.timeline alltid settes når slides har år:**
+### 3.5 Oppgaveslide (obligatorisk, `layout: 'task-pause'`)
+Avslutter steget. Viser stegets `tasks[]` verbatim som `points`, med `taskPrompt` ("Les artikkelen X og svar på oppgavene i steg N."), `suggestedMinutes` og `pauseForTask: true`. `teacherNotes` minner om at faktaoppgavene allerede er gjennomgått, så dette blir repetisjon - bruk tiden på refleksjonsoppgavene.
+
+**Steg uten artikkel** (rene quiz-/tidslinje-/øvingssteg) får divider + interaktiv + oppgaveslide, uten faktaslides.
+
+---
+
+## 4. Globale regler
+
+### 4.1 Intro
+Start hele presentasjonen med én `layout: 'title'`-slide for hele emnet. `yearRange` dekker hele spennet. **Ingen `linksToStepId`** (den er overordnet).
+
+### 4.2 Faser
+Hver slide unntatt intro skal ha `phase` lik stegets akt: `'opptakt'`, `'konfrontasjon'`, eller `'resolusjon'`. (Stegene bruker ofte "Akt 1: Opptakten" osv. - map til det korte fase-ordet.) Hver slide i et steg arver stegets fase.
+
+### 4.3 Tidsforankring
+Hver slide skal ha `year` (et punkt) eller `yearRange` (en periode). Historie: faktisk år (negativt for f.Kr). Ikke-historie: bruk `yearLabel` eller hopp over.
+
+### 4.4 Tidslinje-config (obligatorisk hvis slides har år)
+`presentation.config.timeline` MÅ settes emnespesifikt:
 
 ```json
 "config": {
   "theme": "dark",
   "autoGenerateFromContent": false,
   "timeline": {
-    "start": <første år, f.eks. -753 eller 1900>,
-    "end": <siste år, f.eks. 476 eller 1939>,
+    "start": <første år, ≤ minste slide-år>,
+    "end": <siste år, ≥ største slide-år>,
     "milestones": [
-      { "year": <år>, "label": "<kort beskrivelse>", "kind": "major" },
+      { "year": <år>, "label": "<emnespesifikk hendelse>", "kind": "major" },
       { "year": <år>, "label": "<...>", "kind": "minor" }
     ]
   }
 }
 ```
+3-7 milepæler, alle innenfor `[start, end]`. `major` for strukturelle skifter (krig bryter ut, fred sluttes), `minor` for hendelser. **Aldri kopier timeline fra et annet emne.** Ser du "Augustus" i en WW1-sti, har du kopiert feil - start på nytt.
 
-**Regler:**
-* `start` skal være mindre enn eller lik det laveste slide-året i stien.
-* `end` skal være større enn eller lik det høyeste slide-året.
-* 3-7 milepæler er passe. Bruk `major` for politiske/strukturelle skifter (riket grunnlegges, krig bryter ut, fred sluttes), `minor` for hendelser (slag, viktig dokument).
-* Milepælene må være **emnespesifikke** og må *ikke* være kopiert fra et annet emne. Sjekk doblets at årene gir mening for *denne* stien.
-* For ikke-historiske stier uten konkrete år: dropp `timeline` helt og dropp `year`/`yearRange` på slidene. Da skjules tidslinje-stripen.
+### 4.5 Bilder
+Kun lokale bilder fra `public/images/[topicId]/`. **Aldri Unsplash eller eksterne URL-er.** Sjekk hva som finnes før du velger; gjenbruk er greit. Manglende bilder listes i sluttrapporten.
 
-### 3.4 Bilder
-
-* Bruk kun lokale bilder fra `public/images/[topicId]/`. **Aldri Unsplash eller eksterne URL-er.**
-* Sjekk hvilke bilder som finnes før du velger. Hvis du trenger et bilde som ikke finnes, marker det i sluttrapporten som "manglende bilde" i stedet for å lage en URL som ikke fungerer.
-
-### 3.5 Interaktive komponenter
-
-* Bruk komponenter som allerede er brukt i selve stiens steg når det er mulig — det skaper symbiose ("nå viser jeg den samme PackTheBag som dere skal gjøre").
-* Generelle komponenter som ofte passer: `MapCarousel`, `DragDropTimeline`, `Quiz`, `FactBox`, `Gallery`, `BiasLens`.
-* Roma-spesifikke: `RomanExpansionMap`, `RomanPantheonExplorer`, `PackTheBag`.
-* Andre emner kan ha sine egne — sjekk `ComponentRegistry.tsx`.
-* **Test at komponenten faktisk fungerer i full-screen.** Hvis komponenten er optimalisert for smal artikkel-spalte (`prose`-bredde), vil den ofte se forlatt ut i en projektør. Marker problemet i sluttrapporten.
-
-### 3.6 Språk og stil (obligatorisk)
-
-* **14-åring-norsk** (CLAUDE.md). Korte setninger, hverdagsord. Forklar fagbegreper når de innføres.
-* **Bokmål, korrekte tegn:** å, ø, æ. Aldri `aa`, `oe`, `ae`.
-* **Aldri em-dash (—) eller tankestrek (–) i tekst.** Bruk bindestrek (-) i stedet.
-* **Aldri bold (`**`) i slidetekst.** Konsepter fremheves via talkingPoints, ikke fet skrift.
-* **Ingen markdown-lister i `text`-blokker.** Slides bruker `points`-arrayet.
-* **`teacherNotes` skrives til lærer**, ikke til elev. Tonen er hjelpsom, konkret, og foreslår konkrete diskusjons-vinklinger.
-* **`talkingPoints` er åpne spørsmål**, ikke ja/nei. Eks: "Hvorfor ...?", "Hva ville du gjort hvis ...?"
+### 4.6 Språk og stil (obligatorisk)
+* **14-åring-bokmål** (CLAUDE.md). Korte setninger, hverdagsord. Forklar fagbegreper når de innføres.
+* **Korrekte tegn:** å, ø, æ. Aldri `aa`, `oe`, `ae`.
+* **Aldri em-dash (—) eller tankestrek (–).** Bruk bindestrek (-).
+* **Aldri bold (`**`) eller markdown-lister** i slidetekst. Slides bruker `points`-arrayet.
+* **Oversett fremmedspråklige sitat til norsk.**
+* **`teacherNotes` skrives til lærer** - konkret, hjelpsom, med anekdoter og diskusjonsvinklinger.
+* **`talkingPoints` er åpne spørsmål** ("Hvorfor ...?", "Hva ville du gjort hvis ...?"), ikke ja/nei.
 
 ---
 
-## 4. Strukturere Presentasjonen
+## 5. Slide-maler
 
-### 4.1 Slide-antall som tommelfingerregel
-
-| Stiens lengde | Foreslått antall slides |
-|---|---|
-| 4-6 steg | 8-10 slides |
-| 7-9 steg | 11-14 slides |
-| 10+ steg | 15-18 slides |
-
-Ikke gå over 18 slides. Slå sammen lignende steg til én slide hvis nødvendig (f.eks. to fakta-steg om samme emne).
-
-### 4.2 Standardflyt (3-akts)
-
-1. **Intro** — `layout: 'title'`, `yearRange` som dekker hele stiens spenn. Ingen `linksToStepId`.
-2. **Opptakt** (akt 1) — 2-4 slides som setter scenen. Knyttes til de første stegene.
-3. **Pause for første lese-/oppgaverunde** — `layout: 'task-pause'` etter første store leseoppgave.
-4. **Konfrontasjon** (akt 2) — 4-7 slides som er hoveddelen. Minst én `layout: 'interactive'` her hvis stien har en passende komponent.
-5. **Andre pause** — `layout: 'task-pause'` for midtveis-refleksjon eller en interaktiv øving elevene gjør i stien.
-6. **Resolusjon** (akt 3) — 2-3 slides som lander stoffet, inkludert en `layout: 'summary'`.
-7. **Avsluttende pause / fordypning** — `layout: 'task-pause'` for den avsluttende store oppgaven i stien.
-
-### 4.3 Slide-mal (per type)
-
-**Intro (title):**
+**Steg-divider (title):**
 ```json
 {
-  "id": "pres-intro",
-  "title": "[STIENS NAVN I VERSALER]",
+  "id": "div-[stegnavn]",
+  "title": "Steg N: [Stegtittel]",
   "layout": "title",
-  "summary": "[Undertekst i én linje, gjerne kjent sitat eller paradoks]",
-  "phase": "opptakt",
+  "summary": "[Én slående linje]",
+  "phase": "[fase]",
+  "linksToStepId": "[stegets-id]",
   "yearRange": [start, slutt],
-  "image": "/images/[topicId]/[hero-bilde].webp",
-  "teacherNotes": "Velkommen-paragraf. Foreslå en åpningsdiskusjon med klassen ('Hva tenker dere på når jeg sier ...?')."
+  "image": "/images/[topicId]/[bilde].webp",
+  "teacherNotes": "Levende åpningsscene/anekdote fra steget som læreren kan starte med."
 }
 ```
 
 **Innholdsslide (content):**
 ```json
 {
-  "id": "pres-[stegnavn]",
-  "title": "[Slidetittel, gjerne aktiv/dramatisk]",
+  "id": "[stegnavn]-[tema]",
+  "title": "[Aktiv, dramatisk tittel]",
   "layout": "content",
   "summary": "[Kort underoverskrift]",
-  "phase": "[opptakt|konfrontasjon|resolusjon]",
+  "phase": "[fase]",
   "linksToStepId": "[stegets-id]",
-  "year": [år] eller "yearRange": [start, slutt],
+  "year": [år],
   "points": [
-    { "id": "p1", "text": "[Kort poeng, max 60 tegn]", "type": "bullet" },
+    { "id": "p1", "text": "[Poeng, max ~12 ord]", "type": "bullet" },
     { "id": "p2", "text": "[...]", "type": "bullet" },
-    { "id": "p3", "text": "[...]", "type": "bullet" }
+    { "id": "p3", "text": "[Svaret på en oppgave]", "type": "key-fact" }
   ],
   "image": "/images/[topicId]/[bilde].webp",
-  "teacherNotes": "2-3 setninger forklaring til læreren. Inkluder gjerne en konkret fortelling eller anekdote som læreren kan dele.",
-  "talkingPoints": [
-    "[Åpent diskusjonsspørsmål]",
-    "[Hva-ville-du-gjort-spørsmål]"
-  ]
+  "teacherNotes": "Si hvilken oppgave svaret dekker, og foreslå en avdekkings-rytme.",
+  "talkingPoints": ["[Åpent spørsmål]"]
 }
 ```
 
-**Interaktiv slide (interactive):**
+**Sammenligning (comparison) - kun 2 punkter, hvert som ett avsnitt:**
 ```json
 {
-  "id": "pres-[konsept]",
+  "id": "[stegnavn]-sml",
+  "title": "[A mot B]",
+  "layout": "comparison",
+  "summary": "[Hva sammenlignes]",
+  "phase": "[fase]",
+  "linksToStepId": "[stegets-id]",
+  "yearRange": [start, slutt],
+  "points": [
+    { "id": "p1", "text": "[Side A: hele forklaringen i ett avsnitt]", "type": "bullet" },
+    { "id": "p2", "text": "[Side B: hele forklaringen i ett avsnitt]", "type": "bullet" }
+  ],
+  "teacherNotes": "Vis venstre kolonne først, så høyre."
+}
+```
+
+**Sitat (quote):**
+```json
+{
+  "id": "[stegnavn]-quote",
+  "title": "[Sitatet, oversatt til norsk]",
+  "layout": "quote",
+  "summary": "[Kilde/person, årstall]",
+  "phase": "[fase]",
+  "linksToStepId": "[stegets-id]",
+  "year": [år],
+  "teacherNotes": "Original og kontekst. Hvilken oppgave/diskusjon sitatet støtter."
+}
+```
+
+**Interaktiv (interactive):**
+```json
+{
+  "id": "[stegnavn]-[konsept]",
   "title": "[Konsept eller utfordring]",
   "layout": "interactive",
   "phase": "[fase]",
   "linksToStepId": "[stegets-id]",
-  "year": [år] eller "yearRange": [start, slutt],
-  "component": {
-    "name": "[KomponentNavn fra ComponentRegistry]",
-    "props": { ... }
-  },
-  "teacherNotes": "Forklar hvordan klassen skal bruke komponenten sammen. Hvor styres den fra? Hvilken læringspoeng skal man trekke ut?"
+  "year": [år],
+  "component": { "name": "[Fra ComponentRegistry]", "props": { ...kopiert fra steget... } },
+  "teacherNotes": "Hvordan klassen bruker komponenten sammen, og hvilket poeng man trekker ut."
 }
 ```
 
-**Pause (task-pause):**
+**Oppgaveslide (task-pause):**
 ```json
 {
-  "id": "pres-pause-[konsept]",
-  "title": "[Kort handling: 'Les og svar', 'Spill gjennom', 'Diskuter']",
+  "id": "task-[stegnavn]",
+  "title": "Les og svar: [Stegtittel]",
   "layout": "task-pause",
   "phase": "[fase]",
   "linksToStepId": "[stegets-id]",
-  "year": eller "yearRange": [...],
+  "year": [år],
   "pauseForTask": true,
   "suggestedMinutes": [10|15|20],
-  "taskPrompt": "[En klar instruksjon: 'Les artikkelen X og svar på oppgavene i steg Y.']",
-  "points": [
-    { "id": "tp1", "text": "[Konkret deloppgave]", "type": "bullet" },
-    { "id": "tp2", "text": "[...]", "type": "bullet" }
-  ],
+  "taskPrompt": "Les artikkelen [X] og svar på oppgavene i steg N.",
+  "points": [ { "id": "tp1", "text": "[Stegets oppgave 1 verbatim]", "type": "bullet" } ],
   "image": "/images/[topicId]/[bilde].webp",
-  "teacherNotes": "Praktisk veiledning til læreren. Hvordan organiseres tiden? Hva ser læreren etter mens elevene jobber?"
+  "teacherNotes": "Faktaoppgavene er gjennomgått - dette blir repetisjon. Bruk tid på refleksjonsoppgavene."
 }
 ```
 
-**Oppsummering (summary):**
+---
+
+## 6. Bygg Presentasjonen
+
+For lengre stier er det tryggest å bygge `presentation`-blokken med et lite engangs-skript (Python/Node) som leser stegene, kopierer `tasks[]` og komponent-props, og dumper JSON med `ensure_ascii=False` og samme innrykk som fila. Det garanterer gyldig JSON og korrekte norske tegn, og lar deg gjenbruke en `task_points(stegId)`-hjelper. Slett skriptet etterpå.
+
+Wrapper-struktur:
 ```json
-{
-  "id": "pres-legacy",
-  "title": "[Avsluttende spørsmål eller refleksjon]",
-  "layout": "summary",
-  "summary": "[Tema for oppsummeringen]",
-  "phase": "resolusjon",
-  "linksToStepId": "[siste innholdssteg]",
-  "yearRange": [...],
-  "points": [
-    { "id": "s1", "text": "[Hovedpoeng 1]", "type": "summary" },
-    { "id": "s2", "text": "[...]", "type": "summary" },
-    { "id": "s3", "text": "[...]", "type": "summary" }
-  ],
-  "image": "/images/[topicId]/[bilde].webp",
-  "teacherNotes": "Avslutningstone. Knytt stoffet til elevenes hverdag. Takk for følget."
+"presentation": {
+  "id": "[sti-id]-presentation",
+  "title": "[Emnenavn]: Steg for steg",
+  "config": { "theme": "dark", "autoGenerateFromContent": false, "timeline": { ... } },
+  "slides": [ ... ]
 }
 ```
+Behold all eksisterende stistruktur uendret. **Aldri kopier timeline fra et annet emne.**
 
 ---
 
-## 5. Bygg Presentasjonen
+## 7. Valider og verifiser
 
-1. **Skriv presentation-blokken** under `learningPathData.presentation` i sti-filen. Behold all eksisterende stistruktur uendret.
-2. **Wrapper-struktur:**
-   ```json
-   "presentation": {
-     "id": "[sti-id]-pres",
-     "title": "[Stiens tittel, kort og slående]",
-     "config": {
-       "theme": "dark",
-       "autoGenerateFromContent": false,
-       "timeline": {
-         "start": <første år for STIENS emne>,
-         "end": <siste år for STIENS emne>,
-         "milestones": [
-           { "year": <år>, "label": "<emnespesifikk hendelse>", "kind": "major" }
-         ]
-       }
-     },
-     "slides": [ ... ]
-   }
-   ```
-   **Aldri kopier timeline-blokken fra et annet emne.** Bygg den fra bunnen basert på stiens egne årstall.
-3. **Komprimert formatering for slides:** Bruk ett-linjes objekter for `points`-elementer (slik Romerriket gjør), full struktur for selve slide-objektene.
+### 7.1 JSON- og skjemasjekk (kjør programmatisk)
+- [ ] **Gyldig JSON**, ingen trailing commas.
+- [ ] **Kun gyldige felt** fra `Slide`-interfacet; ingen ukjente nøkler.
+- [ ] **Unike `id`-er** på alle slides.
+- [ ] **Alle `linksToStepId`** peker på faktiske `step.id` (intro unntatt).
+- [ ] **Hvert steg har en divider** (`title` med `linksToStepId`) OG en `task-pause`-slide.
+- [ ] **Steg 0 / prolog er med** (ikke hoppet over).
+- [ ] **Alle `image`-stier** starter med `/images/[topicId]/` og peker på filer som finnes.
+- [ ] **Alle `component.name`** er registrert i `ComponentRegistry.tsx`.
+- [ ] **Alle layout-verdier** er gyldige; alle `points[].type` er `bullet`/`summary`/`key-fact`.
+- [ ] **`config.timeline`** finnes hvis noen slide har år; `start` ≤ minste år, `end` ≥ største år; 3-7 milepæler innenfor range; emnespesifikke.
+- [ ] **Ingen em-dash (—), tankestrek (–), bold (`**`)** noe sted (sjekk også verbatim oppgavetekster og komponent-props du kopierte - rett ved kilden hvis de finnes der).
+- [ ] **Ingen "aa"/"oe"/"ae"** der det skal være å/ø/æ; ingen mojibake (Ã¦/Ã¸/Ã¥).
+- [ ] **Ingen fremmedspråklig sitat** stått igjen på en quote-slide.
 
----
+### 7.2 Dekningssjekk (obligatorisk)
+For hvert steg: gå gjennom `step.tasks`. For hver Fakta-/Forståelse-oppgave, bekreft at svaret finnes i en av stegets innholdsslides (i et punkt eller i tittel + punkter). For hver refleksjons-/analyseoppgave, bekreft at grunnlaget er presentert. Rapporter eventuelle hull.
 
-## 6. Valider JSON
-
-Sjekkliste:
-
-- [ ] **Gyldig JSON:** ingen trailing commas, korrekt nesting.
-- [ ] **Alle `linksToStepId` peker på faktiske `step.id`-verdier** i samme sti.
-- [ ] **Alle `image`-stier starter med `/images/[topicId]/`** og peker på filer som faktisk finnes.
-- [ ] **Alle `component.name` er registrert i `ComponentRegistry.tsx`.**
-- [ ] **Hver fase representert minst én gang:** `opptakt`, `konfrontasjon`, `resolusjon`.
-- [ ] **Minst 2 task-pause-slides** (helst 3 — en per akt).
-- [ ] **Alle år er konsistente** med årstallene som er nevnt i stegtekstene.
-- [ ] **`config.timeline` finnes hvis noen slide har år.** `start` ≤ minste slide-år. `end` ≥ største slide-år. 3-7 milepæler, alle innenfor `[start, end]`.
-- [ ] **Tidslinjens milepæler hører til STIENS emne**, ikke et annet emne. Hvis du ser milepæler som "Augustus" eller "Republikken" i en WW1-sti, har du kopiert fra Romerriket — start på nytt.
-- [ ] **Ingen em-dash (—), tankestrek (–), eller bold (`**`)** i `title`, `summary`, `teacherNotes`, `talkingPoints`, eller `points[].text`.
-- [ ] **Ingen "aa", "oe", "ae"** der det skal være "å", "ø", "æ".
-- [ ] **`teacherNotes` er skrevet til lærer**, ikke som elevtekst.
-- [ ] **`talkingPoints` er åpne spørsmål**, ikke ja/nei.
-- [ ] **Intro-slide har ingen `linksToStepId`** (den er overordnet).
-
----
-
-## 7. Verifiser
-
-Kjør:
-
+### 7.3 Bygg
 ```bash
 npx tsc -b
-npm run build
 ```
+Skal passere uten feil. (`npm run build` kjører i tillegg `scan:content` som regenererer andre filer - hopp over hvis du vil holde commit-scope rent.)
 
-Begge skal passere uten feil. Hvis `tsc` klager på `learningPathData.presentation`, dobbeltsjekk at felt-navn matcher `Slide`-interfacet i `src/types.ts`.
-
-Start dev-server hvis ikke allerede oppe, og verifiser at `http://localhost:5175/[subjectId]/[topicId]/present/[sti-id]` returnerer 200:
-
-```bash
-curl -s -o /dev/null -w "%{http_code}\n" "http://localhost:5175/[subjectId]/[topicId]/present/[sti-id]"
-```
+### 7.4 Render-sjekk (anbefalt)
+Bekreft at alle brukte layouts har en render-gren i `ProjectorView.tsx` (unngå blanke slides). Start gjerne dev-server og verifiser at `/[subjectId]/[topicId]/present/[sti-id]` laster, og ta et par skjermbilder (divider, innhold, oppgaveslide).
 
 ---
 
 ## 8. Sluttrapport til Bruker
 
-Lever en kort rapport:
-
 ```
 Presentation built: [sti-id]
-Slides: [antall] (intro + [N] innhold + [M] pause + outro)
-Phases: [hvor mange slides per fase]
+Slides: [antall] (intro + [N] steg-seksjoner)
+Per steg: divider + [innhold] + [interaktiv?] + oppgaveslide
+Dekning: [N/N] steg har alle fakta-/forståelsessvar synlige i innholdsslidene
 Components used: [liste]
-Linked steps: [N/totalt] steg har minst én slide knyttet til seg
-Missing assets: [bilder som er referert men ikke finnes, eller komponenter som ikke kunne brukes]
-Manual review recommended for: [hvilke slides som krever ekstra øye, f.eks. interaktive komponenter som kan se rart ut i full-screen]
+Missing assets: [bilder/komponenter som mangler]
+Manual review: [slides som krever ekstra øye]
 URL: /[subjectId]/[topicId]/present/[sti-id]
 ```
 

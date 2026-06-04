@@ -4,20 +4,12 @@ import path from 'path';
 
 const jobs = [
     {
-        src: '/home/irik/.gemini/antigravity-cli/brain/0e76c8c7-fbfb-40fc-a855-58a2ba1b15c2/union_1905_hero_1779946291028.png',
-        dest: 'public/images/norgeshistorie/unionsopplosningen-1905-hero.webp'
+        src: '/home/irik/.gemini/antigravity-cli/brain/d56adc91-c2d9-4a28-b6ba-bf2ccb1e1f1e/greek_theater_hero_1780566466990.png',
+        dest: 'public/images/antikkens-hellas/gresk-teater-hero.webp'
     },
     {
-        src: '/home/irik/.gemini/antigravity-cli/brain/0e76c8c7-fbfb-40fc-a855-58a2ba1b15c2/union_1905_storting_1779946306322.png',
-        dest: 'public/images/norgeshistorie/unionsopplosningen-1905-01.webp'
-    },
-    {
-        src: '/home/irik/.gemini/antigravity-cli/brain/0e76c8c7-fbfb-40fc-a855-58a2ba1b15c2/union_1905_avstemning_1779946324228.png',
-        dest: 'public/images/norgeshistorie/unionsopplosningen-1905-02.webp'
-    },
-    {
-        src: '/home/irik/.gemini/antigravity-cli/brain/0e76c8c7-fbfb-40fc-a855-58a2ba1b15c2/union_1905_kongen_1779946340772.png',
-        dest: 'public/images/norgeshistorie/unionsopplosningen-1905-03.webp'
+        src: '/home/irik/.gemini/antigravity-cli/brain/d56adc91-c2d9-4a28-b6ba-bf2ccb1e1f1e/greek_theater_acoustics_1780566481916.png',
+        dest: 'public/images/antikkens-hellas/gresk-teater-01.webp'
     }
 ];
 
