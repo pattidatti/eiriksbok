@@ -1,5 +1,5 @@
 {
-  "buildId": 1780462645766,
+  "buildId": 1780536427823,
   "contentMap": {
     "concept-adel": [
       "content/concepts/adel.json"
@@ -1152,6 +1152,9 @@
     ],
     "athen-og-sparta": [
       "content/historie/antikkens-hellas/athen-og-sparta.json"
+    ],
+    "gresk-teater": [
+      "content/historie/antikkens-hellas/gresk-teater.json"
     ],
     "greske-guder": [
       "content/historie/antikkens-hellas/greske-guder.json"
@@ -3717,6 +3720,7 @@
     "historie/andre-verdenskrig/oversikt": "content/historie/andre-verdenskrig/oversikt.json",
     "historie/andre-verdenskrig/teknologi": "content/historie/andre-verdenskrig/teknologi.json",
     "historie/antikkens-hellas/athen-og-sparta": "content/historie/antikkens-hellas/athen-og-sparta.json",
+    "historie/antikkens-hellas/gresk-teater": "content/historie/antikkens-hellas/gresk-teater.json",
     "historie/antikkens-hellas/greske-guder": "content/historie/antikkens-hellas/greske-guder.json",
     "historie/antikkens-hellas/olympiske-leker": "content/historie/antikkens-hellas/olympiske-leker.json",
     "historie/dekolonisering/apartheid-syd-afrika": "content/historie/dekolonisering/apartheid-syd-afrika.json",

@@ -35,6 +35,7 @@ const Maktskiftet3D = lazy(() => import('./Maktskiftet3D'));
 const Argumentbroen3D = lazy(() => import('./Argumentbroen3D'));
 const GobekliTepe3D = lazy(() => import('./GobekliTepe3D'));
 const GudenesVerden3D = lazy(() => import('./GudenesVerden3D'));
+const GreskTeater3D = lazy(() => import('./GreskTeater3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
     'gladius-duell': {
@@ -126,6 +127,15 @@ export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.Laz
         estimatedSeconds: 140,
         loader: () => import('./OlympiaDiskos3D'),
         Component: OlympiaDiskos3D as never,
+    },
+    'gresk-teater-3d': {
+        id: 'gresk-teater-3d',
+        title: 'Bygg det greske teateret',
+        description:
+            'Sett sammen et gresk teater i 3D: legg ned orkhestra (dansegulvet), reis tilskuerplassene i en halvsirkel og bygg skene (scenehuset). Se hvordan formen baerer lyden helt opp til oeverste rad.',
+        estimatedSeconds: 150,
+        loader: () => import('./GreskTeater3D'),
+        Component: GreskTeater3D as never,
     },
     'vannmolla-3d': {
         id: 'vannmolla-3d',

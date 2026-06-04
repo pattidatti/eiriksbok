@@ -20,6 +20,7 @@ import { MapCarousel } from './MapCarousel';
 
 // Lazy-loaded components for better performance
 // Interactive Content
+const TragediensTrinn = lazy(() => import('./content/interactive/TragediensTrinn').then(m => ({ default: m.TragediensTrinn })));
 const OlympiskFred = lazy(() => import('./content/interactive/OlympiskFred').then(m => ({ default: m.OlympiskFred })));
 const InflationCalculator = lazy(() => import('./content/interactive/InflationCalculator').then(m => ({ default: m.InflationCalculator })));
 const TimePreferenceModel = lazy(() => import('./content/interactive/TimePreferenceModel').then(m => ({ default: m.TimePreferenceModel })));
@@ -256,6 +257,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     // Core
     GovernmentExplorer,
     HistoryLongLines,
+    TragediensTrinn,
     OlympiskFred,
     Quiz,
     EICSimulation,

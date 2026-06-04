@@ -955,6 +955,25 @@
       ]
     },
     {
+      "id": "gresk-teater",
+      "title": "Gresk teater: tragedie og komedie",
+      "description": "Teateret ble født av en fest for guden Dionysos. Her fant grekerne opp tragedien og komedien, og bygde teatre der én stemme nådde tusenvis.",
+      "startDate": 500,
+      "endDate": -300,
+      "displayDate": "500-300 fvt",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "antikkens-hellas",
+      "link": "/historie/antikkens-hellas/gresk-teater",
+      "tags": [
+        "antikken",
+        "hellas",
+        "teater",
+        "tragedie",
+        "komedie"
+      ]
+    },
+    {
       "id": "norge-for-vikingene-sub-8",
       "title": "Fimbulvinteren",
       "description": "Klimasjokket som rammet Norden.",

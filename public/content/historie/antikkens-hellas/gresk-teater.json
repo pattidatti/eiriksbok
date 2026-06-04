@@ -1,0 +1,189 @@
+{
+    "id": "gresk-teater",
+    "title": "Gresk teater: tragedie og komedie",
+    "layout": "rich",
+    "year": "500-300 fvt",
+    "category": "Antikkens Hellas",
+    "readTime": "9 min lesning",
+    "heroImage": "/images/placeholder.webp",
+    "details": [
+        "Teateret ble født av en fest for vinguden Dionysos",
+        "Grekerne fant opp to former vi fortsatt bruker: tragedie og komedie",
+        "Et teater bygd inn i en ås lot én stemme nå tusenvis av tilskuere"
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Tenk deg at du sitter på en steinbenk i en gigantisk halvsirkel, høyt oppe i en bakke. Rundt deg sitter femten tusen mennesker, og alle er stille. Langt der nede, på et rundt gulv, står en eneste skuespiller med en maske foran ansiktet. Han hever stemmen, og selv om du sitter på øverste rad, hører du hvert ord. Dette er en helt vanlig dag i Athen for rundt 2400 år siden. Du er på teater, og det greske teateret er stedet der skuespill ble født."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Stort gresk teater fullt av tilskuere som ser på en skuespiller på dansegulvet",
+            "caption": "Et gresk teater kunne romme over ti tusen tilskuere. Alle kunne høre den ene skuespilleren."
+        },
+        {
+            "type": "header",
+            "text": "Teater ble født av en fest"
+        },
+        {
+            "type": "text",
+            "content": "Teateret startet ikke som underholdning, men som religion. Hver vår holdt athenerne en stor fest for Dionysos, guden for vin og glede. Du kan møte ham og de andre gudene i [Gudene på Olympen](/historie/antikkens-hellas/greske-guder). Under festen sang og danset et kor til ære for guden. Etter hvert steg én sanger fram fra koret og begynte å spille en rolle i stedet for bare å synge. I det øyeblikket ble skuespilleren født. Folk strømmet til for å se, og det som hadde vært en gudstjeneste, ble til de første skuespillene i historien."
+        },
+        {
+            "type": "text",
+            "content": "Hvert år konkurrerte forfatterne om hvem som skrev det beste stykket. En jury kåret en vinner, akkurat som i en idrettskonkurranse. Å vinne i teateret ga like mye ære som å vinne i de olympiske lekene. Slik ble teateret en av de viktigste begivenhetene i byen."
+        },
+        {
+            "type": "header",
+            "text": "Tragedie: når helten faller"
+        },
+        {
+            "type": "text",
+            "content": "Den mest alvorlige formen kalte grekerne tragedie. En tragedie forteller om en stor og mektig helt som går til grunne. Som regel er det heltens egen feil. Han blir for stolt og tror han er sterkere enn gudene. Denne stoltheten kalte grekerne hybris, altså overmot. Hybris fører helten rett mot fallet. Tilskuerne visste ofte hvordan det kom til å ende, men de gråt likevel. Gjennom heltens skjebne fikk de tenke over de største spørsmålene: Hva er rett? Hvor mye styrer vi selv, og hvor mye er bestemt på forhånd?"
+        },
+        {
+            "type": "text",
+            "content": "Prøv selv hvordan en tragedie er bygd opp. Følg helten gjennom de fem trinnene, og legg merke til at det er hans egen stolthet som driver historien framover."
+        },
+        {
+            "type": "component",
+            "name": "TragediensTrinn",
+            "props": {}
+        },
+        {
+            "type": "text",
+            "content": "De tre mest berømte tragedieforfatterne var Aiskhylos, Sofokles og Evripides. Stykkene deres handlet om konger, guder og familier som ble revet i stykker av skjebnen. Det utrolige er at bare to eller tre skuespillere spilte alle rollene. De byttet rett og slett maske og kostyme bak scenen og kom ut igjen som en ny person. Bak dem stod koret og kommenterte handlingen, litt som en forteller som hjelper publikum å forstå hva som skjer."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Gresk skuespiller som holder opp en stor teatermaske med trist uttrykk",
+            "caption": "Med en maske kunne én skuespiller skifte mellom mange roller, og hele teateret så hvem han var."
+        },
+        {
+            "type": "header",
+            "text": "Komedie: når vi ler av oss selv"
+        },
+        {
+            "type": "text",
+            "content": "Like ved siden av de alvorlige tragediene fantes den andre formen: komedie. En komedie skulle få folk til å le. Den mest kjente komedieforfatteren var Aristofanes. Han gjorde narr av alt og alle, også de mektigste mennene i byen. I et demokrati der vanlige menn var med å bestemme, kunne en forfatter le rett opp i ansiktet på politikerne, og folk lo med. Du kan lese mer om dette folkestyret i [Athen og Sparta](/historie/antikkens-hellas/athen-og-sparta). Komedien var altså mer enn moro. Den var også en måte å kritisere makta på, uten å bli straffet for det."
+        },
+        {
+            "type": "text",
+            "content": "I et av de mest kjente stykkene, Skyene, gjorde Aristofanes narr av selveste filosofen [Sokrates](/krle/filosofi/sokrates). Han lot ham henge i en kurv oppe i lufta mens han grublet på umulige spørsmål, og publikum hylte av latter. Slik viser komedien oss at grekerne ikke tok seg selv altfor høytidelig, ikke engang sine klokeste menn."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Slik fungerte et gresk skuespill",
+                "content": "Alle skuespillerne var menn, også de som spilte kvinneroller. De brukte store masker med faste uttrykk, ett for sorg og ett for latter. Maskene gjorde det lett å se hvem som var hvem, selv fra øverste rad. Et kor på rundt femten personer sang og danset på det runde gulvet og bandt handlingen sammen. Det fantes ingen lys, ingen mikrofoner og nesten ingen kulisser. Alt hvilte på stemmen, masken og ordene."
+            }
+        },
+        {
+            "type": "header",
+            "text": "Teateret som bygning"
+        },
+        {
+            "type": "text",
+            "content": "Hvordan kunne én stemme nå tusenvis av tilskuere uten mikrofon? Svaret ligger i selve bygningen. Grekerne bygde teatrene sine rett inn i en skråning i en ås. Tilskuerplassene, kalt theatron, var formet som en halvsirkel som steg oppover. Nederst lå orkhestra, et rundt dansegulv der koret opptrådte. Bak det stod skene, et scenehus der skuespillerne skiftet maske. Den runde, skrå formen virket som en gigantisk lydskål: lyden ble samlet og båret oppover til hver eneste rad. Det er så lurt bygd at noen av teatrene fortsatt virker i dag."
+        },
+        {
+            "type": "text",
+            "content": "Bygg teateret selv, del for del, og se hvordan formen fanger lyden."
+        },
+        {
+            "type": "component",
+            "name": "MicroGame",
+            "props": {
+                "gameId": "gresk-teater-3d"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Arven fra det greske teateret"
+        },
+        {
+            "type": "text",
+            "content": "Det greske teateret døde aldri ut. Filosofen Aristoteles skrev en hel bok om hvordan en god tragedie skal være, og forfattere har brukt reglene hans helt fram til i dag. Du kan lese mer om ham i [Aristoteles](/krle/filosofi/aristoteles). Når du ser en film der helten gjør en stor feil og må betale for den, følger den ofte akkurat det mønsteret grekerne fant opp."
+        },
+        {
+            "type": "component",
+            "name": "QuoteBlock",
+            "props": {
+                "text": "Tragedien vekker medynk og frykt, og slik renser den oss for nettopp disse følelsene.",
+                "author": "Aristoteles, Poetikken"
+            }
+        },
+        {
+            "type": "text",
+            "content": "Selv ordene våre kommer herfra. Ordet teater, ordet scene og ordet drama er alle greske. Når vi sier at noe er en tragedie, eller at en person er komisk, snakker vi gresk uten å vite det. To og et halvt tusen år etter den første festen for Dionysos sitter vi fortsatt i mørket og ser på at andre spiller ut livet for oss, og vi ler og gråter med dem."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Ruiner av et gammelt gresk teater i en skråning ved solnedgang",
+            "caption": "Mange greske teatre står fortsatt, og noen brukes til forestillinger den dag i dag."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hvilken gud ble teateret født av festen for?",
+                        "options": [
+                            "Zevs, gudenes konge",
+                            "Dionysos, guden for vin og glede",
+                            "Apollon, solguden",
+                            "Ares, krigsguden"
+                        ],
+                        "answer": "Dionysos, guden for vin og glede"
+                    },
+                    {
+                        "question": "Hva betyr ordet hybris?",
+                        "options": [
+                            "Overmot, altså at helten blir for stolt",
+                            "En type maske",
+                            "Navnet på dansegulvet",
+                            "En gresk komedie"
+                        ],
+                        "answer": "Overmot, altså at helten blir for stolt"
+                    },
+                    {
+                        "question": "Hva var hovedforskjellen på tragedie og komedie?",
+                        "options": [
+                            "Tragedie var for barn, komedie for voksne",
+                            "Tragedie var alvorlig og handlet om helter som falt, komedie skulle få folk til å le",
+                            "Tragedie ble spilt om dagen, komedie om natten",
+                            "Det var ingen forskjell"
+                        ],
+                        "answer": "Tragedie var alvorlig og handlet om helter som falt, komedie skulle få folk til å le"
+                    },
+                    {
+                        "question": "Hvorfor kunne én skuespiller nå tusenvis av tilskuere uten mikrofon?",
+                        "options": [
+                            "Skuespillerne ropte så høyt de kunne",
+                            "Teateret var bygd inn i en ås som en lydskål og bar lyden oppover",
+                            "Tilskuerne satt helt stille hele tiden",
+                            "De brukte trompeter for å forsterke stemmen"
+                        ],
+                        "answer": "Teateret var bygd inn i en ås som en lydskål og bar lyden oppover"
+                    },
+                    {
+                        "question": "Hva het det runde gulvet der koret sang og danset?",
+                        "options": [
+                            "Skene",
+                            "Theatron",
+                            "Orkhestra",
+                            "Akropolis"
+                        ],
+                        "answer": "Orkhestra"
+                    }
+                ]
+            }
+        }
+    ],
+    "timeline": []
+}
