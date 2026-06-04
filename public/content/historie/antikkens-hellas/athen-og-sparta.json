@@ -5,7 +5,7 @@
     "year": "500-323 fvt",
     "category": "Antikkens Hellas",
     "readTime": "9 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/antikkens-hellas/athen-og-sparta-hero.webp",
     "details": [
         "Hellas var ikke ett land, men hundrevis av selvstendige bystater",
         "Athen valgte demokrati og kultur, Sparta valgte disiplin og hær",
@@ -18,7 +18,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/antikkens-hellas/athen-og-sparta-01.webp",
             "alt": "Gresk bystat med tempel pa en klippe over husene",
             "caption": "En gresk bystat hadde ofte et tempel hoyt oppe pa en klippe, kalt akropolis."
         },
@@ -48,7 +48,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/antikkens-hellas/athen-og-sparta-02.webp",
             "alt": "Folkeforsamling i Athen der menn stemmer pa torget",
             "caption": "I folkeforsamlingen i Athen kunne frie menn holde tale og stemme pa lovene."
         },
