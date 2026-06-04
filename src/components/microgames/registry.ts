@@ -36,6 +36,7 @@ const Argumentbroen3D = lazy(() => import('./Argumentbroen3D'));
 const GobekliTepe3D = lazy(() => import('./GobekliTepe3D'));
 const GudenesVerden3D = lazy(() => import('./GudenesVerden3D'));
 const GreskTeater3D = lazy(() => import('./GreskTeater3D'));
+const GutenbergPresse3D = lazy(() => import('./GutenbergPresse3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
     'gladius-duell': {
@@ -316,6 +317,15 @@ export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.Laz
         estimatedSeconds: 150,
         loader: () => import('./GobekliTepe3D'),
         Component: GobekliTepe3D as never,
+    },
+    'gutenberg-presse-3d': {
+        id: 'gutenberg-presse-3d',
+        title: 'Gutenbergs presse',
+        description:
+            'Kjenn boktrykkerkunstens kjerne i 3D: sett de loese metalbokstavene en gang, sverte dem, og dra pressen ned. Saa trykker du den samme siden om og om igjen mens munken i hjoernet fortsatt sliter med sin ene haandkopierte side.',
+        estimatedSeconds: 150,
+        loader: () => import('./GutenbergPresse3D'),
+        Component: GutenbergPresse3D as never,
     },
 };
 
