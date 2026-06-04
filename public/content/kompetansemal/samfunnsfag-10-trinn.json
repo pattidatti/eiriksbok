@@ -1121,40 +1121,6 @@
                     }
                 ]
             }
-        },
-        {
-            "id": "saf-10-20",
-            "nummer": 16,
-            "kortNavn": "Dagsaktuelle tema",
-            "tekst": "utforske og presentere dagsaktuelle tema eller debatter ved å bruke samfunnsfaglege metodar, kjelder og digitale ressursar, og argumentere for sine eigne og andre sine meiningar og verdiar",
-            "innhold": {
-                "artikler": [
-                    {
-                        "tittel": "Dagsaktuelle tema - slik jobbar du",
-                        "link": "/samfunnskunnskap/eksamen/km-16-dagsaktuelle-tema",
-                        "begrunnelse": "Dedikert KM-artikkel: trener på å analysere og argumentere rundt dagsaktuelle samfunnsspørsmål."
-                    }
-                ],
-                "stier": [],
-                "detektiv": []
-            }
-        },
-        {
-            "id": "saf-10-21",
-            "nummer": 17,
-            "kortNavn": "Medborgerskap",
-            "tekst": "reflektere over kva det inneber å vere medborgar, og samanlikne korleis politiske system er organiserte i forskjellige land og område",
-            "innhold": {
-                "artikler": [
-                    {
-                        "tittel": "Å vere medborgar",
-                        "link": "/samfunnskunnskap/styringsformer/km-17-medborgar",
-                        "begrunnelse": "Dedikert KM-artikkel: medborgerskap, rettigheter og sammenligning av politiske systemer."
-                    }
-                ],
-                "stier": [],
-                "detektiv": []
-            }
         }
     ],
     "kjennetegn": {
