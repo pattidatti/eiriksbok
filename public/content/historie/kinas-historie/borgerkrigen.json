@@ -31,7 +31,7 @@
     },
     {
       "type": "image",
-      "src": "/images/placeholder.webp",
+      "src": "/images/kinas-historie/borgerkrigen-01.webp",
       "alt": "Den forbudte by i Beijing",
       "caption": "Den forbudte by - sete for kinesiske keisere i 500 år - ble forlatt av dynastiet i 1912."
     },
@@ -86,7 +86,7 @@
     },
     {
       "type": "image",
-      "src": "/images/placeholder.webp",
+      "src": "/images/kinas-historie/borgerkrigen-02.webp",
       "alt": "Rød hær på marsj gjennom fjellene",
       "caption": "Den lange marsjen 1934-35 gikk gjennom av Kinas hardeste terreng. Færre enn én av ti soldater overlevde."
     },
@@ -108,17 +108,17 @@
       "props": {
         "images": [
           {
-            "src": "/images/placeholder.webp",
+            "src": "/images/kinas-historie/borgerkrigen-03.webp",
             "alt": "Sun Yat-sen",
             "caption": "Sun Yat-sen (1866-1925) - Republikkens grunnlegger og forfatter av de tre prinsippene. Hyllet som landsfarens far av både KMT og KKP."
           },
           {
-            "src": "/images/placeholder.webp",
+            "src": "/images/kinas-historie/borgerkrigen-04.webp",
             "alt": "Mao Zedong",
             "caption": "Mao Zedong (1893-1976) - Leder av kommunistpartiet fra den lange marsjen og fram til sin død. Proklamerte Folkerepublikken 1. oktober 1949."
           },
           {
-            "src": "/images/placeholder.webp",
+            "src": "/images/kinas-historie/borgerkrigen-05.webp",
             "alt": "Chiang Kai-shek",
             "caption": "Chiang Kai-shek (1887-1975) - Leder av Kuomintang og Republikken Kina. Tapte borgerkrigen og flyktet til Taiwan i 1949."
           }
