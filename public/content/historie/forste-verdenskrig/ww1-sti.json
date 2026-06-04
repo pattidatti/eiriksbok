@@ -609,7 +609,7 @@
                     "year": 1913,
                     "pauseForTask": true,
                     "suggestedMinutes": 15,
-                    "taskPrompt": "Les artikkelen 'Oversikt over krigen: Stille før stormen' og svar på oppgavene i Steg 0.",
+                    "taskPrompt": "Les artikkelen 'Oversikt over krigen: Stille før stormen' og svar på oppgavene i Steg 1.",
                     "points": [
                         { "id": "tp1", "text": "Hvilken periode kalles Belle Époque?", "type": "bullet" },
                         { "id": "tp2", "text": "Hva betydde det at Europa 'eide' verden?", "type": "bullet" },
@@ -697,7 +697,7 @@
                     "year": 1914,
                     "pauseForTask": true,
                     "suggestedMinutes": 20,
-                    "taskPrompt": "Les artikkelen 'Opptakt' og spill rollespillet 'Juli-krisen' i Steg 1.",
+                    "taskPrompt": "Les artikkelen 'Opptakt' og spill rollespillet 'Juli-krisen' i Steg 2.",
                     "points": [
                         { "id": "tp1", "text": "Prøv minst to ulike valg i rollespillet", "type": "bullet" },
                         { "id": "tp2", "text": "Hvorfor førte alliansesystemet til verdenskrig?", "type": "bullet" },

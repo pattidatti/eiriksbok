@@ -76,7 +76,9 @@ const Maktskiftet3D: React.FC<MicroGameProps> = ({ onComplete }) => {
         setBanner(
             left === 0
                 ? 'Veien er åpen. Avgi stemmen din - nå når den helt fram til makta.'
-                : `${BARRIERS[i].title} er borte. ${left} ${left === 1 ? 'barriere' : 'barrierer'} igjen.`
+                : `${BARRIERS[i].title} er borte. ${left} ${
+                      left === 1 ? 'barriere' : 'barrierer'
+                  } igjen.`
         );
     };
 
@@ -124,11 +126,12 @@ const Maktskiftet3D: React.FC<MicroGameProps> = ({ onComplete }) => {
             }}
             overlays={
                 <>
-                    <SceneBanner message={banner} />
-                    <SceneBadge corner="bl">
+                    <SceneBanner message={banner} wide />
+                    <SceneBadge corner="br">
                         {phase === 'won' ? 'Folkestyre' : 'Stemmerett på prøve'}
                     </SceneBadge>
                     <DataReadout
+                        corner="bl"
                         items={[
                             { label: 'Barrierer fjernet', value: `${removedCount}/3` },
                             { label: 'Reell stemmerett', value: pct, unit: '%' },
@@ -151,8 +154,9 @@ const Maktskiftet3D: React.FC<MicroGameProps> = ({ onComplete }) => {
             {phase !== 'won' ? (
                 <div className="flex flex-col gap-2">
                     <p className="text-sm text-slate-600 leading-relaxed">
-                        I et demokrati kan borgerne bytte ut dem som styrer ved frie valg. Autoritære
-                        system blokkerer den veien. Riv de tre barrierene, og avgi så stemmen din.
+                        I et demokrati kan borgerne bytte ut dem som styrer ved frie valg.
+                        Autoritære system blokkerer den veien. Riv de tre barrierene, og avgi så
+                        stemmen din.
                     </p>
                     <button
                         onClick={castVote}
@@ -164,9 +168,10 @@ const Maktskiftet3D: React.FC<MicroGameProps> = ({ onComplete }) => {
                 </div>
             ) : (
                 <WinScreen title="Du byttet ut makta - fredelig!" onReplay={reset}>
-                    Stemmen din nådde helt fram, den gamle lederen trådte av, og en folkevalgt reiste
-                    seg. Det er kjernen i medborgerskapet: forskjellen på en innbygger og en medborger
-                    er ikke om det finnes valg, men om stemmen din faktisk kan bytte ut dem som styrer.
+                    Stemmen din nådde helt fram, den gamle lederen trådte av, og en folkevalgt
+                    reiste seg. Det er kjernen i medborgerskapet: forskjellen på en innbygger og en
+                    medborger er ikke om det finnes valg, men om stemmen din faktisk kan bytte ut
+                    dem som styrer.
                 </WinScreen>
             )}
         </MicroGameScaffold>
@@ -243,7 +248,13 @@ function SquareScene({
                 />
             )}
 
-            <Burst position={[0, 1.8, PEDESTAL_Z]} trigger={burst} color="#ffe9a8" count={34} spread={4} />
+            <Burst
+                position={[0, 1.8, PEDESTAL_Z]}
+                trigger={burst}
+                color="#ffe9a8"
+                count={34}
+                spread={4}
+            />
         </group>
     );
 }
@@ -273,7 +284,12 @@ function Throne({ won }: { won: boolean }) {
             </mesh>
             <mesh position={[0, 1.55, 0]} receiveShadow>
                 <cylinderGeometry args={[1.15, 1.15, 0.12, 24]} />
-                <meshStandardMaterial color="#c8a24a" roughness={0.6} emissive="#7a5e1f" emissiveIntensity={won ? 0.4 : 0.12} />
+                <meshStandardMaterial
+                    color="#c8a24a"
+                    roughness={0.6}
+                    emissive="#7a5e1f"
+                    emissiveIntensity={won ? 0.4 : 0.12}
+                />
             </mesh>
             {/* gammel leder */}
             <group ref={oldRef} position={[0, 1.5, 0]}>
@@ -351,7 +367,11 @@ function Barrier({ def, removed }: { def: BarrierDef; removed: boolean }) {
                         {/* godkjennings-stempel */}
                         <mesh position={[0, 1.75, 0.22]}>
                             <boxGeometry args={[0.5, 0.28, 0.04]} />
-                            <meshStandardMaterial color="#c25b53" emissive="#7a2b25" emissiveIntensity={0.3} />
+                            <meshStandardMaterial
+                                color="#c25b53"
+                                emissive="#7a2b25"
+                                emissiveIntensity={0.3}
+                            />
                         </mesh>
                     </>
                 )}

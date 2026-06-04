@@ -38,9 +38,15 @@ const ROUNDS: Round[] = [
         claim: 'Klimakvotehandel er ikke nok for å nå 1,5-gradersmålet.',
         source: 'FNs klimapanel: verden er på vei mot 2,7°C med dagens kvotesystemer.',
         planks: [
-            { label: 'Siden vi ser at kvotene ikke er tilstrekkelige, betyr det at vi trenger strengere tiltak.', correct: true },
+            {
+                label: 'Siden vi ser at kvotene ikke er tilstrekkelige, betyr det at vi trenger strengere tiltak.',
+                correct: true,
+            },
             { label: 'I tillegg er det mange land som ikke deltar i kvotehandel.', correct: false },
-            { label: 'Det er selvsagt klart at klimakrisen er vår tids største utfordring.', correct: false },
+            {
+                label: 'Det er selvsagt klart at klimakrisen er vår tids største utfordring.',
+                correct: false,
+            },
         ],
     },
     {
@@ -48,8 +54,14 @@ const ROUNDS: Round[] = [
         claim: 'Norge bør innføre reklameforbud for usunn mat rettet mot barn.',
         source: 'Folkehelseinstituttet: barn som ser mye matvarereklame spiser mer sukker og fett.',
         planks: [
-            { label: 'Siden barn ikke kan motstå profesjonell markedsføring, bør vi beskytte dem med et forbud.', correct: true },
-            { label: 'Dessuten bruker matvarebransjen milliarder på reklame hvert år.', correct: false },
+            {
+                label: 'Siden barn ikke kan motstå profesjonell markedsføring, bør vi beskytte dem med et forbud.',
+                correct: true,
+            },
+            {
+                label: 'Dessuten bruker matvarebransjen milliarder på reklame hvert år.',
+                correct: false,
+            },
             { label: 'Det er klart at reklame er skadelig i alle sammenhenger.', correct: false },
         ],
     },
@@ -69,7 +81,11 @@ function BeleggTower({ glow }: { glow: number }) {
             </mesh>
             <mesh position={[0, 1.8, 0]}>
                 <boxGeometry args={[1.2, 0.6, 1.2]} />
-                <meshStandardMaterial color="#38bdf8" emissive="#38bdf8" emissiveIntensity={0.6 + glow * 0.8} />
+                <meshStandardMaterial
+                    color="#38bdf8"
+                    emissive="#38bdf8"
+                    emissiveIntensity={0.6 + glow * 0.8}
+                />
             </mesh>
             <mesh position={[0, 2.4, 0]}>
                 <boxGeometry args={[0.8, 0.8, 0.8]} />
@@ -141,7 +157,11 @@ function Bridge({ visible }: { visible: boolean }) {
             {[-0.8, 0, 0.8].map((z, i) => (
                 <mesh key={i} position={[0, 0.05, z]}>
                     <boxGeometry args={[4.4, 0.1, 0.7]} />
-                    <meshStandardMaterial color="#fbbf24" emissive="#fbbf24" emissiveIntensity={0.3} />
+                    <meshStandardMaterial
+                        color="#fbbf24"
+                        emissive="#fbbf24"
+                        emissiveIntensity={0.3}
+                    />
                 </mesh>
             ))}
         </group>
@@ -176,7 +196,8 @@ function FloatingPlank({
         );
         if (wrong) {
             shakeRef.current += dt * 20;
-            ref.current.rotation.z = Math.sin(shakeRef.current) * 0.15 * Math.max(0, 1 - shakeRef.current / 15);
+            ref.current.rotation.z =
+                Math.sin(shakeRef.current) * 0.15 * Math.max(0, 1 - shakeRef.current / 15);
         }
     });
 
@@ -323,7 +344,28 @@ export default function Argumentbroen3D({ onComplete }: MicroGameProps) {
             }}
             overlays={
                 <>
-                    <SceneBanner message={banner} />
+                    <SceneBanner message={banner} wide />
+                    <DataReadout
+                        corner="bl"
+                        items={[
+                            { label: 'Tema', value: round.topic },
+                            {
+                                label: 'Påstand',
+                                value:
+                                    round.claim.length > 55
+                                        ? round.claim.slice(0, 55) + '…'
+                                        : round.claim,
+                            },
+                            {
+                                label: 'Belegg',
+                                value:
+                                    round.source.length > 55
+                                        ? round.source.slice(0, 55) + '…'
+                                        : round.source,
+                            },
+                            { label: 'Runde', value: `${roundIndex + 1} / ${ROUNDS.length}` },
+                        ]}
+                    />
                     {allDone && (
                         <WinScreen
                             title="Broen holder! Du forstår hva en forklaring gjør i et argument."
@@ -333,20 +375,11 @@ export default function Argumentbroen3D({ onComplete }: MicroGameProps) {
                 </>
             }
         >
-            <DataReadout
-                items={[
-                    { label: 'Tema', value: round.topic },
-                    {
-                        label: 'Påstand',
-                        value: round.claim.length > 55 ? round.claim.slice(0, 55) + '…' : round.claim,
-                    },
-                    {
-                        label: 'Belegg',
-                        value: round.source.length > 55 ? round.source.slice(0, 55) + '…' : round.source,
-                    },
-                    { label: 'Runde', value: `${roundIndex + 1} / ${ROUNDS.length}` },
-                ]}
-            />
+            <p className="px-1 py-1 text-sm leading-relaxed text-slate-600">
+                Klikk planken i lufta som forklarer{' '}
+                <span className="font-semibold text-slate-800">hvorfor</span> belegget støtter
+                påstanden. Den riktige planken blir broen mellom de to tårnene.
+            </p>
         </MicroGameScaffold>
     );
 }

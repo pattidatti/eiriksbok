@@ -34,10 +34,28 @@ interface Persp {
 }
 
 const PERSPS: Persp[] = [
-    { id: 'erfaring', label: 'Erfaring', color: '#f59e0b', desc: 'Det du har opplevd selv', angle: 0 },
+    {
+        id: 'erfaring',
+        label: 'Erfaring',
+        color: '#f59e0b',
+        desc: 'Det du har opplevd selv',
+        angle: 0,
+    },
     { id: 'fag', label: 'Fagkunnskap', color: '#3b82f6', desc: 'Det du har lært deg', angle: 90 },
-    { id: 'kultur', label: 'Kultur', color: '#a855f7', desc: 'Bakgrunnen du bærer med deg', angle: 180 },
-    { id: 'alder', label: 'Generasjon', color: '#10b981', desc: 'Alderen og tiden du lever i', angle: 270 },
+    {
+        id: 'kultur',
+        label: 'Kultur',
+        color: '#a855f7',
+        desc: 'Bakgrunnen du bærer med deg',
+        angle: 180,
+    },
+    {
+        id: 'alder',
+        label: 'Generasjon',
+        color: '#10b981',
+        desc: 'Alderen og tiden du lever i',
+        angle: 270,
+    },
 ];
 
 const PERSP_BY_ID: Record<string, Persp> = Object.fromEntries(PERSPS.map((p) => [p.id, p]));
@@ -108,7 +126,9 @@ const Perspektivkjernen3D: React.FC<MicroGameProps> = ({ onComplete }) => {
             onComplete({ score: 1, completed: true, artifact: { lit: next } });
         } else {
             setBanner(
-                `${persp.label} lyser opp én side. ${PERSPS.length - next.length} sider er fortsatt mørke - finn andre vinkler.`
+                `${persp.label} lyser opp én side. ${
+                    PERSPS.length - next.length
+                } sider er fortsatt mørke - finn andre vinkler.`
             );
         }
     };
@@ -129,12 +149,12 @@ const Perspektivkjernen3D: React.FC<MicroGameProps> = ({ onComplete }) => {
             }}
             overlays={
                 <>
-                    <SceneBanner message={banner} />
+                    <SceneBanner message={banner} wide />
                     <SceneBadge corner="br">
                         {phase === 'won' ? 'Hele problemet' : 'Kognitiv mangfoldighet'}
                     </SceneBadge>
                     <DataReadout
-                        corner="tr"
+                        corner="bl"
                         items={[{ label: 'Sider opplyst', value: `${litCount}/${PERSPS.length}` }]}
                     />
                 </>
@@ -238,7 +258,13 @@ function CoreScene({
                 />
             ))}
 
-            <Burst position={[0, 0.4, 0]} trigger={burst} color={burstColor} count={30} spread={4} />
+            <Burst
+                position={[0, 0.4, 0]}
+                trigger={burst}
+                color={burstColor}
+                count={30}
+                spread={4}
+            />
         </group>
     );
 }

@@ -9,7 +9,7 @@
     "subject": "samfunnskunnskap",
     "topic": "styringsformer",
     "tags": [
-        "medborgarskap",
+        "medborgerskap",
         "demokrati",
         "politiske-system",
         "stemmerett",
@@ -27,7 +27,7 @@
             "name": "FactBox",
             "props": {
                 "title": "Kompetansemål",
-                "content": "Reflektere over kva det inneber å vere medborgar, og samanlikne korleis politiske system er organiserte i forskjellige land og område."
+                "content": "Reflektere over hva det innebærer å være medborger, og sammenligne hvordan politiske systemer er organisert i forskjellige land og områder."
             }
         },
         {

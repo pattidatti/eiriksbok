@@ -1,15 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
-import {
-    MicroGameScaffold,
-    Hotspot,
-    SceneBanner,
-    SceneBadge,
-    WinScreen,
-    Burst,
-    damp,
-} from './kit';
+import { MicroGameScaffold, Hotspot, SceneBanner, SceneBadge, WinScreen, Burst, damp } from './kit';
 import { useStepSounds } from '../../hooks/useStepSounds';
 import type { MicroGameProps } from './types';
 
@@ -95,7 +87,7 @@ const Nyheitsbobla3D: React.FC<MicroGameProps> = ({ onComplete }) => {
             }}
             overlays={
                 <>
-                    <SceneBanner message={banner} />
+                    <SceneBanner message={banner} wide />
                     <SceneBadge corner="br">
                         {phase === 'choosing'
                             ? `${selected.size}/${MAX_SEL} valt`
@@ -144,8 +136,8 @@ const Nyheitsbobla3D: React.FC<MicroGameProps> = ({ onComplete }) => {
             {phase === 'won' && (
                 <WinScreen title="Du fann det gøymde nyheitsbildet!" onReplay={reset}>
                     Algoritmen gøymde 5 av 8 nyhende basert på dei tre klikkane dine - utan at du ba
-                    om det. Blindsonene er ikkje nyhende vi avviser; det er nyhende vi aldri ein gong
-                    veit at finst.
+                    om det. Blindsonene er ikkje nyhende vi avviser; det er nyhende vi aldri ein
+                    gong veit at finst.
                 </WinScreen>
             )}
         </MicroGameScaffold>
@@ -209,12 +201,7 @@ function TableScene({
 
             {/* Avdek-hotspot i midten */}
             {phase === 'filtered' && (
-                <Hotspot
-                    position={[0, 2.2, 0]}
-                    onSelect={onReveal}
-                    label="Sjå alt!"
-                    radius={0.8}
-                />
+                <Hotspot position={[0, 2.2, 0]} onSelect={onReveal} label="Sjå alt!" radius={0.8} />
             )}
 
             {/* Vinnar-burst */}
@@ -283,7 +270,12 @@ function NewsCard3D({
 
             {/* Hotspot for val i choosing-fase */}
             {phase === 'choosing' && !selected && (
-                <Hotspot position={[0, 0.65, 0]} onSelect={onSelect} label={card.label} radius={0.5} />
+                <Hotspot
+                    position={[0, 0.65, 0]}
+                    onSelect={onSelect}
+                    label={card.label}
+                    radius={0.5}
+                />
             )}
             {/* Hotspot for oppdaging i revealing-fase */}
             {phase === 'revealing' && !selected && (

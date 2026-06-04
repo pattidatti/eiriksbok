@@ -2,14 +2,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
 import { motion, AnimatePresence } from 'framer-motion';
 import * as THREE from 'three';
-import {
-    MicroGameScaffold,
-    useShake,
-    SceneBanner,
-    WinScreen,
-    DataReadout,
-    Burst,
-} from './kit';
+import { MicroGameScaffold, useShake, SceneBanner, WinScreen, DataReadout, Burst } from './kit';
 import { useStepSounds } from '../../hooks/useStepSounds';
 import type { MicroGameProps } from './types';
 
@@ -73,18 +66,27 @@ function ExplosionEffect({ x, z }: { x: number; z: number }) {
         if (ringRef.current) {
             const p = Math.min(t / 1.8, 1);
             ringRef.current.scale.set(1 + p * 5, 1, 1 + p * 5);
-            (ringRef.current.material as THREE.MeshStandardMaterial).opacity = Math.max(0, 0.9 - p * 1.1);
+            (ringRef.current.material as THREE.MeshStandardMaterial).opacity = Math.max(
+                0,
+                0.9 - p * 1.1
+            );
         }
         if (smokeARef.current) {
             smokeARef.current.position.y = 0.3 + t * 2.8;
             smokeARef.current.scale.setScalar(0.6 + t * 0.8);
-            (smokeARef.current.material as THREE.MeshStandardMaterial).opacity = Math.max(0, 0.8 - t * 0.4);
+            (smokeARef.current.material as THREE.MeshStandardMaterial).opacity = Math.max(
+                0,
+                0.8 - t * 0.4
+            );
         }
         if (smokeBRef.current) {
             smokeBRef.current.position.y = 0.1 + t * 2.0;
             smokeBRef.current.position.x = 0.3;
             smokeBRef.current.scale.setScalar(0.4 + t * 0.55);
-            (smokeBRef.current.material as THREE.MeshStandardMaterial).opacity = Math.max(0, 0.65 - t * 0.38);
+            (smokeBRef.current.material as THREE.MeshStandardMaterial).opacity = Math.max(
+                0,
+                0.65 - t * 0.38
+            );
         }
     });
 
@@ -92,11 +94,23 @@ function ExplosionEffect({ x, z }: { x: number; z: number }) {
         <group position={[x, 0, z]}>
             <mesh ref={glowRef} rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.06, 0]}>
                 <circleGeometry args={[0.7, 16]} />
-                <meshStandardMaterial color="#ff6020" emissive="#ff3000" emissiveIntensity={4} transparent opacity={1} />
+                <meshStandardMaterial
+                    color="#ff6020"
+                    emissive="#ff3000"
+                    emissiveIntensity={4}
+                    transparent
+                    opacity={1}
+                />
             </mesh>
             <mesh ref={ringRef} rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.1, 0]}>
                 <ringGeometry args={[0.3, 0.65, 24]} />
-                <meshStandardMaterial color="#cc4400" emissive="#882200" emissiveIntensity={1.5} transparent opacity={0.9} />
+                <meshStandardMaterial
+                    color="#cc4400"
+                    emissive="#882200"
+                    emissiveIntensity={1.5}
+                    transparent
+                    opacity={0.9}
+                />
             </mesh>
             <mesh ref={smokeARef} position={[0, 0.3, 0]}>
                 <sphereGeometry args={[0.55, 8, 6]} />
@@ -106,7 +120,16 @@ function ExplosionEffect({ x, z }: { x: number; z: number }) {
                 <sphereGeometry args={[0.38, 7, 5]} />
                 <meshStandardMaterial color="#4a4a4a" transparent opacity={0.65} />
             </mesh>
-            <Burst position={[0, 0.4, 0]} trigger={burst} color="#cc4400" count={22} spread={2.5} gravity={5} life={1.2} size={0.16} />
+            <Burst
+                position={[0, 0.4, 0]}
+                trigger={burst}
+                color="#cc4400"
+                count={22}
+                spread={2.5}
+                gravity={5}
+                life={1.2}
+                size={0.16}
+            />
         </group>
     );
 }
@@ -126,7 +149,14 @@ function Battlefield() {
                 </mesh>
             ))}
             {(
-                [[-3.5, -0.1, -6], [4.5, -0.1, -11], [-1, -0.1, -16], [5.5, -0.1, -9], [-5.5, -0.1, -13], [1.5, -0.1, -19]] as [number, number, number][]
+                [
+                    [-3.5, -0.1, -6],
+                    [4.5, -0.1, -11],
+                    [-1, -0.1, -16],
+                    [5.5, -0.1, -9],
+                    [-5.5, -0.1, -13],
+                    [1.5, -0.1, -19],
+                ] as [number, number, number][]
             ).map(([x, y, z], i) => (
                 <mesh key={i} position={[x, y, z]} rotation={[-Math.PI / 2, 0, 0]}>
                     <circleGeometry args={[1.4, 12]} />
@@ -146,7 +176,11 @@ function Battlefield() {
                 </group>
             ))}
             {(
-                [[-8, 0, -9], [7.5, 0, -14], [-6, 0, -17]] as [number, number, number][]
+                [
+                    [-8, 0, -9],
+                    [7.5, 0, -14],
+                    [-6, 0, -17],
+                ] as [number, number, number][]
             ).map(([x, y, z], i) => (
                 <mesh key={i} position={[x, y, z]} castShadow>
                     <cylinderGeometry args={[0.2, 0.28, 1.2 + i * 0.4, 6]} />
@@ -179,7 +213,9 @@ function SoldierMesh({ id, x, startZ, status, onHover, onReach, onDeathDone }: S
     }, [x, startZ]);
 
     useEffect(() => {
-        return () => { onHover(null); };
+        return () => {
+            onHover(null);
+        };
     }, [onHover]);
 
     useFrame((state, dt) => {
@@ -279,10 +315,18 @@ function BattlefieldScene({
     const onCrosshairMoveRef = useRef(onCrosshairMove);
 
     // Hold prop-refs oppdatert uten å re-kjøre effects
-    useEffect(() => { onShootRef.current = onShoot; }, [onShoot]);
-    useEffect(() => { onMuzzleFlashRef.current = onMuzzleFlash; }, [onMuzzleFlash]);
-    useEffect(() => { onHeatBumpRef.current = onHeatBump; }, [onHeatBump]);
-    useEffect(() => { onCrosshairMoveRef.current = onCrosshairMove; }, [onCrosshairMove]);
+    useEffect(() => {
+        onShootRef.current = onShoot;
+    }, [onShoot]);
+    useEffect(() => {
+        onMuzzleFlashRef.current = onMuzzleFlash;
+    }, [onMuzzleFlash]);
+    useEffect(() => {
+        onHeatBumpRef.current = onHeatBump;
+    }, [onHeatBump]);
+    useEffect(() => {
+        onCrosshairMoveRef.current = onCrosshairMove;
+    }, [onCrosshairMove]);
 
     // Stopp skyting ved slipp av knapp (globalt, fanger opp utenfor canvas)
     useEffect(() => {
@@ -303,7 +347,9 @@ function BattlefieldScene({
         if (gameState !== 'playing') return;
         const canvas = gl.domElement;
         canvas.style.cursor = 'none';
-        return () => { canvas.style.cursor = ''; };
+        return () => {
+            canvas.style.cursor = '';
+        };
     }, [gameState, gl]);
 
     // Artilleri-timer
@@ -380,7 +426,12 @@ function BattlefieldScene({
                 }}
             >
                 <planeGeometry args={[80, 40]} />
-                <meshBasicMaterial transparent opacity={0} depthWrite={false} side={THREE.DoubleSide} />
+                <meshBasicMaterial
+                    transparent
+                    opacity={0}
+                    depthWrite={false}
+                    side={THREE.DoubleSide}
+                />
             </mesh>
 
             <Battlefield />
@@ -617,7 +668,7 @@ const IngenmanslandMG: React.FC<MicroGameProps> = ({ onComplete }) => {
                     {/* Score */}
                     {gameState === 'playing' && (
                         <DataReadout
-                            corner="tr"
+                            corner="bl"
                             items={[
                                 { label: 'Stoppet', value: kills },
                                 { label: 'Gjennom', value: reached },
@@ -625,7 +676,7 @@ const IngenmanslandMG: React.FC<MicroGameProps> = ({ onComplete }) => {
                         />
                     )}
 
-                    <SceneBanner message={banner} />
+                    <SceneBanner message={banner} wide />
 
                     {gameState === 'idle' && (
                         <div className="absolute bottom-3 left-3 right-3 flex justify-center pointer-events-none">
@@ -652,7 +703,8 @@ const IngenmanslandMG: React.FC<MicroGameProps> = ({ onComplete }) => {
             {gameState === 'idle' && (
                 <div className="text-center py-1">
                     <p className="text-xs text-slate-500 mb-3 leading-relaxed">
-                        Du forsvarer en britisk skyttergrav på Vestfronten. Hold inn museknappen og dra siktet over soldatene.
+                        Du forsvarer en britisk skyttergrav på Vestfronten. Hold inn museknappen og
+                        dra siktet over soldatene.
                     </p>
                     <button
                         onClick={startGame}
@@ -670,7 +722,13 @@ const IngenmanslandMG: React.FC<MicroGameProps> = ({ onComplete }) => {
                             Løpsvarme — Bølge {wave} av {WAVES.length}
                         </span>
                         <span
-                            className={`text-xs font-bold ${heat >= 0.88 ? 'text-red-600' : heat >= 0.62 ? 'text-orange-500' : 'text-slate-400'}`}
+                            className={`text-xs font-bold ${
+                                heat >= 0.88
+                                    ? 'text-red-600'
+                                    : heat >= 0.62
+                                    ? 'text-orange-500'
+                                    : 'text-slate-400'
+                            }`}
                         >
                             {heat >= 0.88 ? 'OVERHETET!' : heat >= 0.62 ? 'Varm' : 'Normal'}
                         </span>
@@ -679,10 +737,18 @@ const IngenmanslandMG: React.FC<MicroGameProps> = ({ onComplete }) => {
                         <motion.div
                             animate={{ width: `${heat * 100}%` }}
                             transition={{ duration: 0.07 }}
-                            className={`h-full rounded-full ${heat >= 0.88 ? 'bg-red-500' : heat >= 0.62 ? 'bg-orange-400' : 'bg-amber-300'}`}
+                            className={`h-full rounded-full ${
+                                heat >= 0.88
+                                    ? 'bg-red-500'
+                                    : heat >= 0.62
+                                    ? 'bg-orange-400'
+                                    : 'bg-amber-300'
+                            }`}
                         />
                     </div>
-                    <p className="text-[11px] text-slate-400 mt-1">Hold inne og sikt — skyt saktere for å kjøle ned</p>
+                    <p className="text-[11px] text-slate-400 mt-1">
+                        Hold inne og sikt — skyt saktere for å kjøle ned
+                    </p>
                 </div>
             )}
 
@@ -692,7 +758,9 @@ const IngenmanslandMG: React.FC<MicroGameProps> = ({ onComplete }) => {
                     onReplay={reset}
                     onNext={() => onComplete({ score: kills / TOTAL, completed: true })}
                 >
-                    Den 1. juli 1916 led de britiske styrkene 57 470 tap — drept og såret — på én dag ved Somme. Maskingeværet var dødelig, men angrepsbølgene sluttet aldri. Slik stivnet Vestfronten i fire år.
+                    Den 1. juli 1916 led de britiske styrkene 57 470 tap — drept og såret — på én
+                    dag ved Somme. Maskingeværet var dødelig, men angrepsbølgene sluttet aldri. Slik
+                    stivnet Vestfronten i fire år.
                 </WinScreen>
             )}
         </MicroGameScaffold>

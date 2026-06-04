@@ -98,7 +98,9 @@ const Grenselinja3D: React.FC<MicroGameProps> = ({ onComplete }) => {
         setHeld([false, false, false, false, false]);
         setWon(false);
         setBurst(0);
-        setBanner('Klikk hver person og hold grensa di. Jo nærmere de står, desto hardere presser de.');
+        setBanner(
+            'Klikk hver person og hold grensa di. Jo nærmere de står, desto hardere presser de.'
+        );
     };
 
     const hold = (i: number) => {
@@ -142,8 +144,11 @@ const Grenselinja3D: React.FC<MicroGameProps> = ({ onComplete }) => {
             }}
             overlays={
                 <>
-                    <SceneBanner message={banner} />
-                    <DataReadout items={[{ label: 'Grenser holdt', value: `${count}/5` }]} />
+                    <SceneBanner message={banner} wide />
+                    <DataReadout
+                        corner="bl"
+                        items={[{ label: 'Grenser holdt', value: `${count}/5` }]}
+                    />
                     <SceneBadge corner="br">
                         {won ? 'Du holdt grensene dine' : 'Egne grenser'}
                     </SceneBadge>

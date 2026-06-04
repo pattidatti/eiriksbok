@@ -162,7 +162,7 @@ const TidensFormer3D: React.FC<MicroGameProps> = ({ onComplete }) => {
             }}
             overlays={
                 <>
-                    <SceneBanner message={banner} />
+                    <SceneBanner message={banner} wide />
                     <SceneBadge corner="br">
                         {shape === 'wheel' ? 'Sirkulær tid' : 'Lineær tid'}
                     </SceneBadge>
@@ -222,18 +222,19 @@ const TidensFormer3D: React.FC<MicroGameProps> = ({ onComplete }) => {
                     <SceneFact>
                         {shape === 'wheel' ? (
                             <>
-                                <span className="font-bold text-slate-800">Tidshjulet:</span> tiden er
-                                en evig syklus. Verden skapes, blomstrer, forfaller og går under - og
-                                fødes så på ny av asken. Slik tenkte de norrøne om Ragnarok, og slik ser
-                                hinduismen for seg de enorme yugaene. Undergangen er en renselse.
+                                <span className="font-bold text-slate-800">Tidshjulet:</span> tiden
+                                er en evig syklus. Verden skapes, blomstrer, forfaller og går under
+                                - og fødes så på ny av asken. Slik tenkte de norrøne om Ragnarok, og
+                                slik ser hinduismen for seg de enorme yugaene. Undergangen er en
+                                renselse.
                             </>
                         ) : (
                             <>
-                                <span className="font-bold text-slate-800">Tidspilen:</span> tiden er en
-                                rett linje mot ett bestemt mål. Når pilen treffer enden, er det over for
-                                alltid - en ny himmel og en ny jord. Slik tenker zoroastrismen,
-                                jødedommen, kristendommen og islam. Hver handling teller, for du får bare
-                                denne ene sjansen.
+                                <span className="font-bold text-slate-800">Tidspilen:</span> tiden
+                                er en rett linje mot ett bestemt mål. Når pilen treffer enden, er
+                                det over for alltid - en ny himmel og en ny jord. Slik tenker
+                                zoroastrismen, jødedommen, kristendommen og islam. Hver handling
+                                teller, for du får bare denne ene sjansen.
                             </>
                         )}
                     </SceneFact>
@@ -275,10 +276,10 @@ const TidensFormer3D: React.FC<MicroGameProps> = ({ onComplete }) => {
 
             {phase === 'won' && (
                 <WinScreen title="Du forstår tidens to former!" onReplay={reset}>
-                    Slutten er den samme i begge - verden går under. Men formen på tiden avgjør hva det
-                    betyr: tidshjulet gjør undergangen til en ny begynnelse, mens tidspilen gjør den til
-                    et endelig punktum. Derfor er dommedag for noen en gledens dag, og for andre den
-                    siste dom.
+                    Slutten er den samme i begge - verden går under. Men formen på tiden avgjør hva
+                    det betyr: tidshjulet gjør undergangen til en ny begynnelse, mens tidspilen gjør
+                    den til et endelig punktum. Derfor er dommedag for noen en gledens dag, og for
+                    andre den siste dom.
                 </WinScreen>
             )}
         </MicroGameScaffold>
@@ -468,7 +469,10 @@ function EschatonScene({
                 {[0, 1, 2, 3].map((i) => {
                     const ang = ((i + 0.5) / 4) * Math.PI * 2;
                     return (
-                        <mesh key={i} position={[Math.cos(ang) * RING_R, Math.sin(ang) * RING_R, 0]}>
+                        <mesh
+                            key={i}
+                            position={[Math.cos(ang) * RING_R, Math.sin(ang) * RING_R, 0]}
+                        >
                             <sphereGeometry args={[0.16, 14, 14]} />
                             <meshStandardMaterial
                                 color={i <= idx && shape === 'wheel' ? '#fff0c4' : '#d8c79a'}
@@ -493,22 +497,31 @@ function EschatonScene({
                         roughness={0.4}
                     />
                 </mesh>
-                <mesh
-                    position={[ARROW_X1 + 0.5, PCY, ARROW_Z]}
-                    rotation={[0, 0, -Math.PI / 2]}
-                >
+                <mesh position={[ARROW_X1 + 0.5, PCY, ARROW_Z]} rotation={[0, 0, -Math.PI / 2]}>
                     <coneGeometry args={[0.22, 0.55, 4]} />
-                    <meshStandardMaterial color="#caa24a" emissive="#ffd676" emissiveIntensity={0.7} />
+                    <meshStandardMaterial
+                        color="#caa24a"
+                        emissive="#ffd676"
+                        emissiveIntensity={0.7}
+                    />
                 </mesh>
                 {/* Skapelsens stjerne */}
                 <mesh position={[ARROW_X0 - 0.1, PCY, ARROW_Z]}>
                     <sphereGeometry args={[0.22, 16, 16]} />
-                    <meshStandardMaterial color="#9fe06a" emissive="#5fbf3a" emissiveIntensity={0.7} />
+                    <meshStandardMaterial
+                        color="#9fe06a"
+                        emissive="#5fbf3a"
+                        emissiveIntensity={0.7}
+                    />
                 </mesh>
                 {/* Dommens stjerne / ny jord */}
                 <mesh ref={endGlow} position={[ARROW_X1 + 0.1, PCY, ARROW_Z]}>
                     <sphereGeometry args={[0.32, 18, 18]} />
-                    <meshStandardMaterial color="#fff0b0" emissive="#ffd24a" emissiveIntensity={0.6} />
+                    <meshStandardMaterial
+                        color="#fff0b0"
+                        emissive="#ffd24a"
+                        emissiveIntensity={0.6}
+                    />
                 </mesh>
             </group>
 
@@ -519,7 +532,11 @@ function EschatonScene({
             <group ref={marker}>
                 <mesh>
                     <sphereGeometry args={[0.24, 18, 18]} />
-                    <meshStandardMaterial color="#fff7da" emissive="#ffd24a" emissiveIntensity={1.8} />
+                    <meshStandardMaterial
+                        color="#fff7da"
+                        emissive="#ffd24a"
+                        emissiveIntensity={1.8}
+                    />
                 </mesh>
                 <mesh ref={trail} scale={[0.55, 0.55, 0.55]}>
                     <sphereGeometry args={[0.5, 16, 16]} />
@@ -539,7 +556,12 @@ function EschatonScene({
 
             {/* Direkte 3D-interaksjon: trykk for å la tiden gå */}
             {showStart && (
-                <Hotspot position={[0, PCY + 2.4, 0]} onSelect={onStart} label="La tiden gå" radius={0.5} />
+                <Hotspot
+                    position={[0, PCY + 2.4, 0]}
+                    onSelect={onStart}
+                    label="La tiden gå"
+                    radius={0.5}
+                />
             )}
             {showReplay && (
                 <Hotspot
@@ -603,7 +625,13 @@ function CloudBands() {
             {clouds.map((c, i) => (
                 <mesh key={i} position={c.p} scale={[c.s, c.s * 0.45, c.s]}>
                     <sphereGeometry args={[1, 12, 10]} />
-                    <meshBasicMaterial color="#ffffff" transparent opacity={0.32} depthWrite={false} fog={false} />
+                    <meshBasicMaterial
+                        color="#ffffff"
+                        transparent
+                        opacity={0.32}
+                        depthWrite={false}
+                        fog={false}
+                    />
                 </mesh>
             ))}
         </group>
@@ -672,18 +700,70 @@ function spherePoints(n: number, seed = 0): THREE.Vector3[] {
 function planetLook(phaseIdx: number, atEnd: boolean) {
     if (atEnd)
         return {
-            ocean: '#dcb24a', land: '#f4dd86', atmo: '#ffe39a', atmoOp: 0.55,
-            civ: 1.0, civColor: '#fff3c4', lava: 0, glow: 0.55, fire: false, smoke: false,
+            ocean: '#dcb24a',
+            land: '#f4dd86',
+            atmo: '#ffe39a',
+            atmoOp: 0.55,
+            civ: 1.0,
+            civColor: '#fff3c4',
+            lava: 0,
+            glow: 0.55,
+            fire: false,
+            smoke: false,
         };
     switch (phaseIdx) {
         case 0:
-            return { ocean: '#2f6f8f', land: '#3f8048', atmo: '#9bd3ff', atmoOp: 0.4, civ: 0.55, civColor: '#ffe9a8', lava: 0, glow: 0, fire: false, smoke: false };
+            return {
+                ocean: '#2f6f8f',
+                land: '#3f8048',
+                atmo: '#9bd3ff',
+                atmoOp: 0.4,
+                civ: 0.55,
+                civColor: '#ffe9a8',
+                lava: 0,
+                glow: 0,
+                fire: false,
+                smoke: false,
+            };
         case 1:
-            return { ocean: '#368aa4', land: '#3f9a4a', atmo: '#aee08e', atmoOp: 0.5, civ: 1.0, civColor: '#fff0b0', lava: 0, glow: 0, fire: false, smoke: false };
+            return {
+                ocean: '#368aa4',
+                land: '#3f9a4a',
+                atmo: '#aee08e',
+                atmoOp: 0.5,
+                civ: 1.0,
+                civColor: '#fff0b0',
+                lava: 0,
+                glow: 0,
+                fire: false,
+                smoke: false,
+            };
         case 2:
-            return { ocean: '#566a6a', land: '#6f6a44', atmo: '#bcae8c', atmoOp: 0.35, civ: 0.3, civColor: '#e9d2a0', lava: 0.15, glow: 0, fire: false, smoke: true };
+            return {
+                ocean: '#566a6a',
+                land: '#6f6a44',
+                atmo: '#bcae8c',
+                atmoOp: 0.35,
+                civ: 0.3,
+                civColor: '#e9d2a0',
+                lava: 0.15,
+                glow: 0,
+                fire: false,
+                smoke: true,
+            };
         default:
-            return { ocean: '#241c1a', land: '#33231a', atmo: '#ff6a2a', atmoOp: 0.6, civ: 0, civColor: '#ff7a2a', lava: 1, glow: 0.35, fire: true, smoke: true };
+            return {
+                ocean: '#241c1a',
+                land: '#33231a',
+                atmo: '#ff6a2a',
+                atmoOp: 0.6,
+                civ: 0,
+                civColor: '#ff7a2a',
+                lava: 1,
+                glow: 0.35,
+                fire: true,
+                smoke: true,
+            };
     }
 }
 
@@ -727,7 +807,12 @@ function WorldPlanet({ phaseIdx, atEnd, pop }: { phaseIdx: number; atEnd: boolea
         if (oceanMat.current) {
             oceanMat.current.color.lerp(cOcean.current, k);
             oceanMat.current.emissive.lerp(atEnd ? cCiv.current : black.current, k);
-            oceanMat.current.emissiveIntensity = damp(oceanMat.current.emissiveIntensity, L.glow, dt, 3);
+            oceanMat.current.emissiveIntensity = damp(
+                oceanMat.current.emissiveIntensity,
+                L.glow,
+                dt,
+                3
+            );
         }
         landMats.current.forEach((m) => {
             if (!m) return;
@@ -766,7 +851,12 @@ function WorldPlanet({ phaseIdx, atEnd, pop }: { phaseIdx: number; atEnd: boolea
                 <group ref={core}>
                     <mesh castShadow>
                         <sphereGeometry args={[1.5, 40, 40]} />
-                        <meshStandardMaterial ref={oceanMat} color="#2f6f8f" roughness={0.85} metalness={0.05} />
+                        <meshStandardMaterial
+                            ref={oceanMat}
+                            color="#2f6f8f"
+                            roughness={0.85}
+                            metalness={0.05}
+                        />
                     </mesh>
 
                     {continents.map((p, i) => {

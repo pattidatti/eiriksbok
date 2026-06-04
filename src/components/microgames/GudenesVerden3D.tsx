@@ -71,7 +71,9 @@ const GudenesVerden3D: React.FC<MicroGameProps> = ({ onComplete }) => {
             setWon(true);
             onComplete({ score: 1, completed: true, artifact: { awoke: next } });
         } else {
-            setBanner(`${g.name} våknet: ${g.domain}. ${GODS.length - next.length} guder sover ennå.`);
+            setBanner(
+                `${g.name} våknet: ${g.domain}. ${GODS.length - next.length} guder sover ennå.`
+            );
         }
     };
 
@@ -91,12 +93,12 @@ const GudenesVerden3D: React.FC<MicroGameProps> = ({ onComplete }) => {
             }}
             overlays={
                 <>
-                    <SceneBanner message={banner} />
+                    <SceneBanner message={banner} wide />
                     <SceneBadge corner="br">
                         {won ? 'En forklart verden' : 'Antikkens Hellas'}
                     </SceneBadge>
                     <DataReadout
-                        corner="tr"
+                        corner="bl"
                         items={[{ label: 'Guder vekket', value: `${count}/${GODS.length}` }]}
                     />
                 </>
@@ -144,10 +146,10 @@ const GudenesVerden3D: React.FC<MicroGameProps> = ({ onComplete }) => {
             {won && (
                 <div className="mt-3">
                     <WinScreen title="Hele verden lyser!" onReplay={reset}>
-                        Hver gud eide sin egen del av verden: Zevs himmelen, Poseidon havet, Hades de
-                        døde, Demeter åkeren, Afrodite kjærligheten og Athene visdommen. Til sammen
-                        forklarte gudene alt grekerne så rundt seg. Mytene var deres måte å forstå
-                        naturen og livet på - lenge før vitenskapen kunne svare.
+                        Hver gud eide sin egen del av verden: Zevs himmelen, Poseidon havet, Hades
+                        de døde, Demeter åkeren, Afrodite kjærligheten og Athene visdommen. Til
+                        sammen forklarte gudene alt grekerne så rundt seg. Mytene var deres måte å
+                        forstå naturen og livet på - lenge før vitenskapen kunne svare.
                     </WinScreen>
                 </div>
             )}
@@ -182,10 +184,21 @@ function OlympusScene({
 
             {/* De seks gudene rundt fjellet */}
             {GODS.map((g) => (
-                <GodStatue key={g.id} god={g} awake={awoke.includes(g.id)} onWake={() => onWake(g)} />
+                <GodStatue
+                    key={g.id}
+                    god={g}
+                    awake={awoke.includes(g.id)}
+                    onWake={() => onWake(g)}
+                />
             ))}
 
-            <Burst position={[0, 2.4, 0]} trigger={burst} color={burstColor} count={32} spread={4.5} />
+            <Burst
+                position={[0, 2.4, 0]}
+                trigger={burst}
+                color={burstColor}
+                count={32}
+                spread={4.5}
+            />
         </group>
     );
 }
@@ -295,7 +308,10 @@ function GodStatue({ god, awake, onWake }: { god: GudInfo; awake: boolean; onWak
         const offCol = new THREE.Color('#8a93a3');
         if (bodyMat.current) {
             bodyMat.current.color.lerp(awake ? onCol : offCol, 1 - Math.exp(-5 * dt));
-            bodyMat.current.emissive.lerp(awake ? onCol : new THREE.Color('#000000'), 1 - Math.exp(-5 * dt));
+            bodyMat.current.emissive.lerp(
+                awake ? onCol : new THREE.Color('#000000'),
+                1 - Math.exp(-5 * dt)
+            );
             bodyMat.current.emissiveIntensity = damp(
                 bodyMat.current.emissiveIntensity,
                 awake ? 0.6 : 0,
@@ -305,7 +321,10 @@ function GodStatue({ god, awake, onWake }: { god: GudInfo; awake: boolean; onWak
         }
         if (headMat.current) {
             headMat.current.color.lerp(awake ? onCol : offCol, 1 - Math.exp(-5 * dt));
-            headMat.current.emissive.lerp(awake ? onCol : new THREE.Color('#000000'), 1 - Math.exp(-5 * dt));
+            headMat.current.emissive.lerp(
+                awake ? onCol : new THREE.Color('#000000'),
+                1 - Math.exp(-5 * dt)
+            );
             headMat.current.emissiveIntensity = damp(
                 headMat.current.emissiveIntensity,
                 awake ? 0.7 : 0,

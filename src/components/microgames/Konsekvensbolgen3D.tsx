@@ -51,7 +51,13 @@ const SATS: SatDef[] = [
     { id: 'mat', label: 'Matpriser stiger', pos: [0, 0, -6], kind: 'field', base: '#86b94e' },
     { id: 'energi', label: 'Energiprisene hopper', pos: [6, 0, 0], kind: 'city', base: '#cfd6df' },
     { id: 'flykt', label: 'Flyktninger på flukt', pos: [0, 0, 6], kind: 'people', base: '#6d8bb0' },
-    { id: 'handel', label: 'Verdenshandel rammes', pos: [-6, 0, 0], kind: 'trade', base: '#c79a55' },
+    {
+        id: 'handel',
+        label: 'Verdenshandel rammes',
+        pos: [-6, 0, 0],
+        kind: 'trade',
+        base: '#c79a55',
+    },
 ];
 
 const WAVE_MAX = 7.2;
@@ -151,7 +157,7 @@ const Konsekvensbolgen3D: React.FC<MicroGameProps> = ({ onComplete }) => {
             }}
             overlays={
                 <>
-                    <SceneBanner message={banner} />
+                    <SceneBanner message={banner} wide />
                     <SceneBadge corner="br">
                         {phase === 'won' ? 'Krigen hindret' : 'Årsak og konsekvens'}
                     </SceneBadge>
@@ -296,7 +302,13 @@ function WaveWorld({
 
             {/* Konsekvensene rundt */}
             {SATS.map((s, i) => (
-                <Satellite key={s.id} data={s} index={i} waveRef={waveRef} pendingHitsRef={pendingHitsRef} />
+                <Satellite
+                    key={s.id}
+                    data={s}
+                    index={i}
+                    waveRef={waveRef}
+                    pendingHitsRef={pendingHitsRef}
+                />
             ))}
 
             {/* Forutsetning-hotspots */}
@@ -336,7 +348,8 @@ function ConflictCore({ active }: { active: boolean }) {
     useFrame((_, dt) => {
         t.current = damp(t.current, active ? 1 : 0, dt, 4);
         if (mat.current) {
-            mat.current.emissiveIntensity = t.current * (1.1 + Math.sin(performance.now() * 0.008) * 0.3);
+            mat.current.emissiveIntensity =
+                t.current * (1.1 + Math.sin(performance.now() * 0.008) * 0.3);
         }
     });
     return (
@@ -367,7 +380,13 @@ function ShockRing({ waveRef }: { waveRef: React.MutableRefObject<number> }) {
     return (
         <mesh ref={ring} rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.05, 0]}>
             <ringGeometry args={[0.82, 1, 64]} />
-            <meshBasicMaterial ref={mat} color="#e0492f" transparent opacity={0.5} side={THREE.DoubleSide} />
+            <meshBasicMaterial
+                ref={mat}
+                color="#e0492f"
+                transparent
+                opacity={0.5}
+                side={THREE.DoubleSide}
+            />
         </mesh>
     );
 }
@@ -459,7 +478,11 @@ function SatelliteEmblem({
                 </mesh>
                 <mesh position={[0, 1.15, 0]}>
                     <sphereGeometry args={[0.22, 14, 14]} />
-                    <meshStandardMaterial color="#ffe27a" emissive="#ffcf3a" emissiveIntensity={0.9} />
+                    <meshStandardMaterial
+                        color="#ffe27a"
+                        emissive="#ffcf3a"
+                        emissiveIntensity={0.9}
+                    />
                 </mesh>
             </group>
         );

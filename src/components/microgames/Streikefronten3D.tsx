@@ -84,19 +84,14 @@ const Streikefronten3D: React.FC<MicroGameProps> = ({ onComplete }) => {
             }}
             overlays={
                 <>
-                    <SceneBanner message={banner} />
+                    <SceneBanner message={banner} wide />
                     <SceneBadge corner="br">
                         {won ? 'Fabrikken stanser' : 'Kristiania 1900'}
                     </SceneBadge>
                 </>
             }
             scene={
-                <FactoryScene
-                    recruited={recruited}
-                    won={won}
-                    burst={burst}
-                    onRecruit={recruit}
-                />
+                <FactoryScene recruited={recruited} won={won} burst={burst} onRecruit={recruit} />
             }
         >
             {won ? (

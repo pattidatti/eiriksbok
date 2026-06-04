@@ -113,7 +113,7 @@ const AnsikteneIMengden3D: React.FC<MicroGameProps> = ({ onComplete }) => {
             }}
             overlays={
                 <>
-                    <SceneBanner message={banner} />
+                    <SceneBanner message={banner} wide />
                     <SceneBadge corner="br">{won ? 'Bare mennesker' : '"Oss" og "dem"'}</SceneBadge>
                 </>
             }
@@ -193,7 +193,13 @@ function Scene({
             <PropagandaMark fraction={fraction} />
 
             {/* Sluttburst NaR symbolet smuldrer helt */}
-            <Burst position={[3.7, 2.2, 0]} trigger={bannerBurst} color="#94a3b8" count={30} spread={3} />
+            <Burst
+                position={[3.7, 2.2, 0]}
+                trigger={bannerBurst}
+                color="#94a3b8"
+                count={30}
+                spread={3}
+            />
         </group>
     );
 }
@@ -315,11 +321,24 @@ function CrowdFigure({
             <HatDetail show={humanized} color={ind.hat} />
 
             {/* Burst NaR den blir sett */}
-            {humanized && <Burst position={[0, 0.7, 0]} trigger={burst} color={ind.hat} count={16} spread={1.6} />}
+            {humanized && (
+                <Burst
+                    position={[0, 0.7, 0]}
+                    trigger={burst}
+                    color={ind.hat}
+                    count={16}
+                    spread={1.6}
+                />
+            )}
 
             {/* Klikk-hotspot mens den fortsatt er ansiktslos */}
             {!humanized && (
-                <Hotspot position={[0, 1.15, 0]} onSelect={onSelect} label="Se mennesket" radius={0.42} />
+                <Hotspot
+                    position={[0, 1.15, 0]}
+                    onSelect={onSelect}
+                    label="Se mennesket"
+                    radius={0.42}
+                />
             )}
         </group>
     );

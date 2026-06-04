@@ -35,10 +35,34 @@ interface Actor {
 }
 
 const ACTORS: Actor[] = [
-    { id: 'politikk', label: 'Politikk', color: '#3b82f6', angle: 90, grunngiving: 'Vi er valgt av folket' },
-    { id: 'naering', label: 'Næringsliv', color: '#f59e0b', angle: 0, grunngiving: 'Vi skaper jobber og vekst' },
-    { id: 'media', label: 'Media', color: '#a855f7', angle: 180, grunngiving: 'Vi er den fjerde statsmakt' },
-    { id: 'sivil', label: 'Sivilsamfunn', color: '#10b981', angle: 270, grunngiving: 'Vi taler for de uten makt' },
+    {
+        id: 'politikk',
+        label: 'Politikk',
+        color: '#3b82f6',
+        angle: 90,
+        grunngiving: 'Vi er valgt av folket',
+    },
+    {
+        id: 'naering',
+        label: 'Næringsliv',
+        color: '#f59e0b',
+        angle: 0,
+        grunngiving: 'Vi skaper jobber og vekst',
+    },
+    {
+        id: 'media',
+        label: 'Media',
+        color: '#a855f7',
+        angle: 180,
+        grunngiving: 'Vi er den fjerde statsmakt',
+    },
+    {
+        id: 'sivil',
+        label: 'Sivilsamfunn',
+        color: '#10b981',
+        angle: 270,
+        grunngiving: 'Vi taler for de uten makt',
+    },
 ];
 
 const PILLAR_R = 4.5;
@@ -120,12 +144,12 @@ const Maktbalansen3D: React.FC<MicroGameProps> = ({ onComplete }) => {
             }}
             overlays={
                 <>
-                    <SceneBanner message={banner} />
+                    <SceneBanner message={banner} wide />
                     <SceneBadge corner="br">
                         {phase === 'won' ? 'Legitim avgjørelse' : 'Maktbalanse'}
                     </SceneBadge>
                     <DataReadout
-                        corner="tr"
+                        corner="bl"
                         items={[
                             { label: 'Aktører med', value: `${engaged.length}/${ACTORS.length}` },
                             { label: 'Skjevhet', value: skew, unit: '%' },
@@ -133,9 +157,7 @@ const Maktbalansen3D: React.FC<MicroGameProps> = ({ onComplete }) => {
                     />
                 </>
             }
-            scene={
-                <ArenaScene engaged={engaged} phase={phase} burst={burst} onToggle={toggle} />
-            }
+            scene={<ArenaScene engaged={engaged} phase={phase} burst={burst} onToggle={toggle} />}
         >
             {/* Legende under vinduet: de fire aktørene + grunngivingen deres. */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
@@ -148,7 +170,11 @@ const Maktbalansen3D: React.FC<MicroGameProps> = ({ onComplete }) => {
                             disabled={phase === 'won'}
                             className={`text-left rounded-xl border p-2.5 transition ${
                                 on ? 'bg-white shadow-sm' : 'bg-slate-50 border-slate-200'
-                            } ${phase === 'won' ? 'cursor-default' : 'cursor-pointer hover:shadow-sm'}`}
+                            } ${
+                                phase === 'won'
+                                    ? 'cursor-default'
+                                    : 'cursor-pointer hover:shadow-sm'
+                            }`}
                             style={on ? { borderColor: a.color } : undefined}
                         >
                             <div className="flex items-center gap-1.5">
@@ -247,7 +273,10 @@ function LegitRing({ balanced }: { balanced: boolean }) {
             dt,
             5
         );
-        mat.current.color.lerp(new THREE.Color(balanced ? '#22c55e' : '#b9c6d2'), 1 - Math.exp(-5 * dt));
+        mat.current.color.lerp(
+            new THREE.Color(balanced ? '#22c55e' : '#b9c6d2'),
+            1 - Math.exp(-5 * dt)
+        );
         mat.current.emissive.lerp(
             new THREE.Color(balanced ? '#22c55e' : '#000000'),
             1 - Math.exp(-5 * dt)
@@ -256,7 +285,13 @@ function LegitRing({ balanced }: { balanced: boolean }) {
     return (
         <mesh position={[0, 0.02, 0]} rotation={[-Math.PI / 2, 0, 0]}>
             <torusGeometry args={[1.25, 0.09, 12, 48]} />
-            <meshStandardMaterial ref={mat} color="#b9c6d2" emissive="#000000" emissiveIntensity={0.05} roughness={0.6} />
+            <meshStandardMaterial
+                ref={mat}
+                color="#b9c6d2"
+                emissive="#000000"
+                emissiveIntensity={0.05}
+                roughness={0.6}
+            />
         </mesh>
     );
 }
@@ -397,7 +432,11 @@ function Pillar({ actor, on, onSelect }: { actor: Actor; on: boolean; onSelect: 
 
     return (
         <group position={[x, 0, z]}>
-            <Interactive onSelect={onSelect} state={on ? 'selected' : 'idle'} hitArea={[1.8, 2.6, 1.8]}>
+            <Interactive
+                onSelect={onSelect}
+                state={on ? 'selected' : 'idle'}
+                hitArea={[1.8, 2.6, 1.8]}
+            >
                 {(s) => (
                     <group>
                         {/* stolpe */}

@@ -16,7 +16,7 @@
             {
                 "id": "prolog",
                 "phase": "Akt 1: Opptakten",
-                "title": "Steg 0: Verden etter katastrofen",
+                "title": "Verden etter katastrofen",
                 "type": "fakta",
                 "content": "Velkommen til mellomkrigstiden. Før vi dykker inn, la oss sette scenen.\n\nDet er november 1918. Du er et menneske et sted i Europa - kanskje en soldat i skyttergravene, kanskje en kvinne som har jobbet på en våpenfabrikk, kanskje et barn som aldri har kjent noe annet enn rasjonering og frykt. Nå er krigen over. Men hva kommer nå?\n\nFire store imperier har kollapset: det russiske, det osmanske, det habsburgske og det tyske. Ti millioner soldater er døde. Syv millioner sivile. En hel generasjon er traumatisert. Grenser blir tegnet på nytt av diplomater som aldri har sett områdene de deler opp.\n\nVerden prøver å finne fotfeste igjen. Noen drømmer om en varig fred. Andre drømmer om hevn. Og i skyggene vokser nye bevegelser - sosialister som vil revolusjon, nasjonalister som vil storhet, og en underlig blanding som snart skal kalles fascisme.\n\nI denne læringsstien skal du følge denne historien fra triumfens eufori til nye katastrofer. Men først: les oversikten for å forstå de store linjene.",
                 "tasks": [
@@ -34,7 +34,7 @@
             {
                 "id": "versailles",
                 "phase": "Akt 1: Opptakten",
-                "title": "Steg 1: Fredens pris",
+                "title": "Fredens pris",
                 "type": "fakta",
                 "component": {
                     "name": "BiasLens",
@@ -132,7 +132,7 @@
             {
                 "id": "roaring-twenties",
                 "phase": "Akt 1: Opptakten",
-                "title": "Steg 2: Festen begynner",
+                "title": "Festen begynner",
                 "type": "fakta",
                 "content": "La oss forlate Europas problemer for et øyeblikk og reise til USA. Du lander i New York, kanskje 1925. Byen vibrerer av energi. Jazz strømmer ut fra klubber i Harlem. Flapper-piker med korte skjørt og enda kortere hår danser Charleston. Alle snakker om aksjer, spekulasjon, den uendelige bommen.\n\nDette er 'The Roaring Twenties' - tiåret av grenseløs optimisme. Masseproduserte biler, radio i hvert hjem, Hollywood-filmer som drømmer seg bort fra hverdagen. Forbudstiden forbyr alkohol, men speakeasies - hemmelige barer - blomstrer. Al Capone tjener millioner på smuglersprit.\n\nMen legg merke til sprekkene under den skinnende overflaten. Bøndene sliter. Ulikheten øker. Og alt det gode er finansiert med kreditt - lån som må betales tilbake. Folk kjøper aksjer 'on margin', og låner penger de ikke har for å investere i verdier som kanskje ikke er reelle.\n\nNår du leser om USAs mellomkrigstid, let etter tegnene på at boblen vokser - og vet at den snart vil sprekke.",
                 "tasks": [
@@ -156,7 +156,7 @@
             {
                 "id": "krakket",
                 "phase": "Akt 2: Konfrontasjonen",
-                "title": "Steg 3: Festen er over",
+                "title": "Festen er over",
                 "type": "utfordring",
                 "content": "29. oktober 1929. Black Tuesday. Du hører skriking fra Wall Street - ikke av smerte, men av ren panikk. Meglere som har levd høyt i årevis, ser nå formuer forsvinne på minutter. Tikkermaskinene kan ikke holde tritt med raset. 14 milliarder dollar forsvinner på én dag.\n\nBørskrakket er bare begynnelsen. Det som følger er The Great Depression - den verste økonomiske krisen i moderne historie. Banker går konkurs. Folk mister sparepengene. Fabrikker stenger. I 1933 er hver fjerde amerikaner arbeidsledig. Familier lever i teltleire - 'Hoovervilles' - oppkalt etter presidenten som ikke klarer å stoppe katastrofen.\n\nMen hva forårsaket det? Her møter du to konkurrerende forklaringer. John Maynard Keynes mener problemet er etterspørselssvikt - folk slutter å bruke penger, og staten må fylle tomrommet. Friedrich Hayek mener problemet er feilinvesteringer - skapt av sentralbankens kunstig lave renter. Begge er geniale. Begge har noe rett. Debatten fortsetter i dag.\n\nLes artikkelen om børskrakket og prøv å forstå begge sidene.",
                 "tasks": [
@@ -177,7 +177,7 @@
             {
                 "id": "norge",
                 "phase": "Akt 2: Konfrontasjonen",
-                "title": "Steg 4: Krisen hjemme",
+                "title": "Krisen hjemme",
                 "type": "fakta",
                 "content": "Nå reiser vi hjem - til Norge. Kanskje du tenker at Norge, nøytralt under krigen, ble spart for mellomkrigstidens drama? Tenk om igjen.\n\nDu står ved en fabrikk i Telemark, kanskje 1931. Menstad heter stedet. Arbeidere har streiket i ukevis. Nå skal staten bryte streiken med makt - statspolitiet er på vei for å eskortere streikebrytere i land fra et skip. Arbeidere fra hele regionen har samlet seg for å stoppe dem.\n\nDet som følger - Menstad-slaget - blir et vendepunkt. Politi med bajonetter mot arbeidere med stein. Marinefartøyer i fjorden. Klassekampen har nådd sitt klimaks i Norge.\n\nMen historien slutter ikke der. Les om hvordan Norge fant en annen vei enn Tyskland og Italia. Kriseforliket i 1935 - kompromisset mellom Arbeiderpartiet og Bondepartiet - la grunnlaget for velferdsstaten. Mens andre land valgte ekstremisme, valgte nordmenn samarbeid. Hvorfor?",
                 "tasks": [
@@ -197,7 +197,7 @@
             {
                 "id": "sovjet",
                 "phase": "Akt 2: Konfrontasjonen",
-                "title": "Steg 5: Jernhånden i øst",
+                "title": "Jernhånden i øst",
                 "type": "refleksjon",
                 "content": "Mens Vesten sliter med depresjonen, bygges et radikalt annerledes samfunn i øst. Du står kanskje ved Dnepr-demningen - verdens største vannkraftverk - og ser ingeniørkunsten som forvandler et bondeland til en industrigant. Eller du står i en sulten landsby i Ukraina, 1932, og ser barna dø av sult mens staten tar kornet.\n\nStalins Sovjetunionen er begge disse tingene samtidig. Femårsplanene som skaper steder fra ingenting. Gulag-leirene som sluker millioner. Holodomor - den menneskeskapte hungersnøden som dreper 4-7 millioner ukrainere. Den store terroren som henretter gamle revolusjonære.\n\nDette er et eksperiment i total makt. En stat som former samfunnet med jernvilje - og knuser alle som står imot. Resultatet er imponerende industristatistikk og uhyrlige mørketall.\n\nNår du leser om Stalins Sovjet, prøv å holde begge bildene i hodet. Forstå hvordan ideologi kan rettferdiggjøre det urettferdiggjørbare.",
                 "tasks": [
@@ -218,7 +218,7 @@
             {
                 "id": "fascisme",
                 "phase": "Akt 2: Konfrontasjonen",
-                "title": "Steg 6: Fascismens fødsel",
+                "title": "Fascismens fødsel",
                 "type": "fakta",
                 "content": "La oss vende tilbake til Europa - til Italia i 1922. Du står i Roma og ser tusenvis av menn i sorte skjorter marsjere gjennom gatene. De roper om nasjonen, om orden, om en sterk leder. Benito Mussolini står i spissen - en tidligere sosialist som har funnet en ny vei til makt.\n\n'Marsjen mot Roma' er mer bløff enn revolusjon. Hadde hæren fått ordre om å stoppe svartskjortene, ville de blitt knust. Men kong Viktor Emanuel nøler. I stedet for å erklære unntakstilstand, inviterer han Mussolini til å danne regjering. Demokratiet overgir seg uten kamp.\n\nFascismen er født. Men hva er den egentlig? Ikke kapitalisme, ikke sosialisme, men noe nytt: ultranasjonalisme kombinert med autoritær ledelse, vold som politisk virkemiddel, og forakt for liberale verdier som kompromiss og rettigheter. Staten over alt, individet er ingenting.\n\nItalia blir malen - snart vil andre kopiere den.",
                 "tasks": [
@@ -239,7 +239,7 @@
             {
                 "id": "nazisme",
                 "phase": "Akt 2: Konfrontasjonen",
-                "title": "Steg 7: Demokratiets selvmord",
+                "title": "Demokratiets selvmord",
                 "type": "utfordring",
                 "content": "Nå kommer den mørkeste delen av historien. Du er i Tyskland, og du skal se hvordan et sivilisert, utdannet folk overga seg til barbariet.\n\nStart med hyperinflasjonen i 1923. En trillebår med penger for et brød. Middelklassens sparepenger utslettet over natten. Deretter de 'gyldne årene' - midlertidig stabilitet finansiert med amerikanske lån. Så børskrakket. Millioner arbeidsledige. Unge menn som vandrer gatene uten håp.\n\nInn i dette tomrommet kommer Adolf Hitler - en mislykket kunstner, en demagog med talent for hat. Nazistpartiet vokser fra 2,6% i 1928 til over 37% i 1932. Ikke et flertall, men det største partiet.\n\nOg så - 30. januar 1933 - utnevner president Hindenburg Hitler til rikskansler. Ikke gjennom revolusjon, men gjennom loven. De konservative tror de kan kontrollere ham. 'Vi har hyret ham,' sier de. Det er historiens mest skjebnesvangre feilberegning.",
                 "tasks": [
@@ -260,7 +260,7 @@
             {
                 "id": "midtosten",
                 "phase": "Akt 2: Konfrontasjonen",
-                "title": "Steg 8: Linjer i sanden",
+                "title": "Linjer i sanden",
                 "type": "fakta",
                 "content": "La oss skifte fokus - vekk fra Europa, til en region som ennå bærer sårene fra mellomkrigstiden. Du står over et kart over Midtøsten i 1916. To diplomater - briten Mark Sykes og franskmannen François Georges-Picot - tegner linjer med linjal og penn. De deler det osmanske rikets arabiske provinser mellom seg, i hemmelighet.\n\nSamtidig har Storbritannia lovet araberne uavhengighet - i bytte mot opprør mot osmanene. Og i 1917 lover Storbritannia jødene et 'nasjonalt hjem i Palestina' - Balfour-erklæringen. Tre uforenlige løfter.\n\nEtter krigen blir Sykes-Picot virkelighet. Mandatsystemet - kolonialisme med nytt navn - gir Frankrike Syria og Libanon, Storbritannia Irak, Jordan og Palestina. Grensene tar ikke hensyn til stamme, religion eller etnisitet. Statene som skapes, mangler legitimitet.\n\nHvis du vil forstå Midtøsten i dag, må du forstå denne historien.",
                 "tasks": [
@@ -281,7 +281,7 @@
             {
                 "id": "spania",
                 "phase": "Akt 3: Resolusjonen",
-                "title": "Steg 9: Generalprøven",
+                "title": "Generalprøven",
                 "type": "utfordring",
                 "content": "Vi nærmer oss slutten på mellomkrigstiden - men først en blodig generalprøve. Du står i Spania, sommeren 1936. Et militærkupp har delt landet i to. Republikanere - sosialister, anarkister, kommunister, liberale - mot nasjonalister - militære, fascister, monarkister, kirken.\n\nDen spanske borgerkrigen blir tiårets store ideologiske kamp. Hitler og Mussolini sender tropper og fly til Franco. Stalin sender rådgivere og våpen til republikanerne. Storbritannia og Frankrike holder seg 'nøytrale' - og lar fascismen vinne.\n\nFrivillige fra hele verden strømmer til Spania for å kjempe for republikken. Hemingway er der. Orwell er der. De internasjonale brigadene - idealister som tror at fascismen må stoppes her, eller aldri.\n\nOg så Guernica. En markedsdag i april 1937. Tyske fly bomber byen i tre timer. Hundrevis av sivile dør. Picasso maler sitt mesterverk som protest. Verden ser et glimt av hva som kommer.",
                 "tasks": [
@@ -302,7 +302,7 @@
             {
                 "id": "japan",
                 "phase": "Akt 3: Resolusjonen",
-                "title": "Steg 10: Solens vei mot krig",
+                "title": "Solens vei mot krig",
                 "type": "fakta",
                 "content": "Før vi avslutter, må vi vende blikket østover. I de europeiske dramaene glemmer vi lett at mellomkrigstiden også formet Asia - og at Stillehavs­krigen begynte lenge før Pearl Harbor.\n\nJapan i 1920-årene var ikke så ulikt Weimar. Eksperimenter med demokrati, kulturell blomstring, modernisering. Men da depresjonen slo til, radikaliserte unge offiserer seg. De hatet de 'korrupte' politikerne. De drømte om et imperium.\n\nI 1931 invaderte Kwantung-hæren Mandsjuria - uten regjeringens ordre. Da Folkeforbundet fordømte invasjonen, meldte Japan seg ut. I 1937 kom invasjonen av Kina - og med den, Nanjing-massakren, et av Stillehavskrigens grusomste kapitler.\n\nDa USA innførte oljeembargo i 1941, sto Japan overfor et valg: trekke seg tilbake, eller slå til. Admiral Yamamotos dristige plan - å ødelegge USAs Stillehavsflåte ved Pearl Harbor - var en desperat gambling. Den førte Japan inn i en krig det ikke kunne vinne.",
                 "tasks": [
@@ -323,7 +323,7 @@
             {
                 "id": "konklusjon",
                 "phase": "Akt 3: Resolusjonen",
-                "title": "Steg 11: Leksjonene fra mellomkrigstiden",
+                "title": "Leksjonene fra mellomkrigstiden",
                 "type": "refleksjon",
                 "content": "Du har nå vandret gjennom to av de mest dramatiske tiårene i verdenshistorien. Fra Versailles' hevnfred til Polens fall i september 1939. Fra jazzens løfter til konsentrasjonsleirenes realiteter.\n\nHva har du lært? Kanskje dette:\n\nAt fred ikke automatisk følger krig - den må bygges med visdom og raushet. At økonomiske kriser kan destabilisere samfunn på måter som gjør det utenkelige mulig. At demokratier ikke er selvsagtee - de krever borgere som forsvarer dem. At ideologier som lover enkle løsninger på komplekse problemer, ofte bringer katastrofe. At mennesker som deg og meg kan bli delaktige i ufattelig ondskap - og at noen få, modige sjeler velger å stå imot.\n\nMellomkrigstiden er ikke bare fortid. Dens spørsmål - om nasjonalisme, om kapitalismens ustabilitet, om demokratiets sårbarhet, om hva mennesker er i stand til - er like aktuelle i dag.\n\nNå vet du hvorfor 1939 ikke var et uhell. Og kanskje vet du litt mer om hvordan vi kan unngå å gjenta historien.",
                 "tasks": [
@@ -343,7 +343,7 @@
             {
                 "id": "tidslinje-interaktiv",
                 "phase": "Akt 3: Resolusjonen",
-                "title": "Steg 12: Test din kunnskap",
+                "title": "Test din kunnskap",
                 "type": "oppgave",
                 "content": "Nå er det din tur til å vise hva du har lært. Under finner du en interaktiv tidslinje med noen av de viktigste hendelsene fra mellomkrigstiden. Din oppgave er å plassere dem i riktig kronologisk rekkefølge.\n\nTenk deg gjennom: Hva kom først - børskrakket eller nazistenes maktovertakelse? Marsjen mot Roma eller invasjonen av Mandsjuria? Versaillestraktaten eller den spanske borgerkrigen?\n\nHusk at hendelser henger sammen. Versailles skapte frustrasjon som næret nazismen. Krakket i 1929 skapte krisen som radikaliserte millioner. Folkeforbundets svakhet oppmuntret diktatorene.\n\nKlarer du å sette alle brikkene på plass?",
                 "tasks": [
@@ -471,7 +471,7 @@
                 },
                 {
                     "id": "div-prolog",
-                    "title": "Steg 0: Verden etter katastrofen",
+                    "title": "Steg 1: Verden etter katastrofen",
                     "layout": "title",
                     "summary": "11. november 1918: kanonene tier, men verden er knust",
                     "phase": "opptakt",
@@ -575,7 +575,7 @@
                     "year": 1918,
                     "pauseForTask": true,
                     "suggestedMinutes": 10,
-                    "taskPrompt": "Les oversiktsartikkelen og svar på oppgavene i steg 0.",
+                    "taskPrompt": "Les oversiktsartikkelen og svar på oppgavene i steg 1.",
                     "points": [
                         {
                             "id": "tp1",
@@ -598,7 +598,7 @@
                 },
                 {
                     "id": "div-versailles",
-                    "title": "Steg 1: Fredens pris",
+                    "title": "Steg 2: Fredens pris",
                     "layout": "title",
                     "summary": "Versailles 1919: fred eller diktat?",
                     "phase": "opptakt",
@@ -674,7 +674,7 @@
                         }
                     ],
                     "image": "/images/mellomkrigstiden/hero_oversikt.webp",
-                    "teacherNotes": "Svaret på oppgave 2. Poenget er hvor farlig en løgn blir når nok folk vil tro på den. Knytt en tråd fram til steg 7 om Tyskland.",
+                    "teacherNotes": "Svaret på oppgave 2. Poenget er hvor farlig en løgn blir når nok folk vil tro på den. Knytt en tråd fram til steg 8 om Tyskland.",
                     "talkingPoints": [
                         "Hvorfor er det lettere å tro at man ble sveket enn at man tapte?"
                     ]
@@ -821,7 +821,7 @@
                     "year": 1919,
                     "pauseForTask": true,
                     "suggestedMinutes": 15,
-                    "taskPrompt": "Les oversiktsartikkelen og artikkelen om Folkeforbundet, og svar på oppgavene i steg 1.",
+                    "taskPrompt": "Les oversiktsartikkelen og artikkelen om Folkeforbundet, og svar på oppgavene i steg 2.",
                     "points": [
                         {
                             "id": "tp1",
@@ -854,7 +854,7 @@
                 },
                 {
                     "id": "div-roaring",
-                    "title": "Steg 2: Festen begynner",
+                    "title": "Steg 3: Festen begynner",
                     "layout": "title",
                     "summary": "USA på 1920-tallet: jazz, biler og børsfest",
                     "phase": "opptakt",
@@ -864,7 +864,7 @@
                         1929
                     ],
                     "image": "/images/mellomkrigstiden/hero_usa.webp",
-                    "teacherNotes": "Etter mørket i Europa: hopp over Atlanteren til et USA i feststemning. Kontrasten er selve poenget, for festen ender brått i steg 3."
+                    "teacherNotes": "Etter mørket i Europa: hopp over Atlanteren til et USA i feststemning. Kontrasten er selve poenget, for festen ender brått i steg 4."
                 },
                 {
                     "id": "roaring-tiaret",
@@ -995,7 +995,7 @@
                     ],
                     "pauseForTask": true,
                     "suggestedMinutes": 15,
-                    "taskPrompt": "Les artiklene om USA og kulturen, og svar på oppgavene i steg 2.",
+                    "taskPrompt": "Les artiklene om USA og kulturen, og svar på oppgavene i steg 3.",
                     "points": [
                         {
                             "id": "tp1",
@@ -1028,7 +1028,7 @@
                 },
                 {
                     "id": "div-krakket",
-                    "title": "Steg 3: Festen er over",
+                    "title": "Steg 4: Festen er over",
                     "layout": "title",
                     "summary": "29. oktober 1929: børsen kollapser",
                     "phase": "konfrontasjon",
@@ -1120,7 +1120,7 @@
                     "year": 1929,
                     "pauseForTask": true,
                     "suggestedMinutes": 20,
-                    "taskPrompt": "Les artikkelen om børskrakket, og svar på oppgavene i steg 3.",
+                    "taskPrompt": "Les artikkelen om børskrakket, og svar på oppgavene i steg 4.",
                     "points": [
                         {
                             "id": "tp1",
@@ -1158,7 +1158,7 @@
                 },
                 {
                     "id": "div-norge",
-                    "title": "Steg 4: Krisen hjemme",
+                    "title": "Steg 5: Krisen hjemme",
                     "layout": "title",
                     "summary": "Norge mellom krise og kompromiss",
                     "phase": "konfrontasjon",
@@ -1270,7 +1270,7 @@
                     ],
                     "pauseForTask": true,
                     "suggestedMinutes": 15,
-                    "taskPrompt": "Les artikkelen om Norge i mellomkrigstiden, og svar på oppgavene i steg 4.",
+                    "taskPrompt": "Les artikkelen om Norge i mellomkrigstiden, og svar på oppgavene i steg 5.",
                     "points": [
                         {
                             "id": "tp1",
@@ -1303,7 +1303,7 @@
                 },
                 {
                     "id": "div-sovjet",
-                    "title": "Steg 5: Jernhånden i øst",
+                    "title": "Steg 6: Jernhånden i øst",
                     "layout": "title",
                     "summary": "Stalins Sovjet: industri og terror",
                     "phase": "konfrontasjon",
@@ -1454,7 +1454,7 @@
                     ],
                     "pauseForTask": true,
                     "suggestedMinutes": 20,
-                    "taskPrompt": "Les artikkelen om Sovjetunionen, og svar på oppgavene i steg 5.",
+                    "taskPrompt": "Les artikkelen om Sovjetunionen, og svar på oppgavene i steg 6.",
                     "points": [
                         {
                             "id": "tp1",
@@ -1492,7 +1492,7 @@
                 },
                 {
                     "id": "div-fascisme",
-                    "title": "Steg 6: Fascismens fødsel",
+                    "title": "Steg 7: Fascismens fødsel",
                     "layout": "title",
                     "summary": "Italia 1922: Mussolini tar makten",
                     "phase": "konfrontasjon",
@@ -1634,7 +1634,7 @@
                     "year": 1922,
                     "pauseForTask": true,
                     "suggestedMinutes": 20,
-                    "taskPrompt": "Les artikkelen om Italia, og svar på oppgavene i steg 6.",
+                    "taskPrompt": "Les artikkelen om Italia, og svar på oppgavene i steg 7.",
                     "points": [
                         {
                             "id": "tp1",
@@ -1672,7 +1672,7 @@
                 },
                 {
                     "id": "div-nazisme",
-                    "title": "Steg 7: Demokratiets selvmord",
+                    "title": "Steg 8: Demokratiets selvmord",
                     "layout": "title",
                     "summary": "Tyskland 1933: Hitler kommer lovlig til makten",
                     "phase": "konfrontasjon",
@@ -1754,7 +1754,7 @@
                         }
                     ],
                     "image": "/images/mellomkrigstiden/hero_tyskland.webp",
-                    "teacherNotes": "Svaret på oppgave 2 (dolkestøtlegenden) og grunnlaget for oppgave 5. Knytt tilbake til steg 1: løgnen fra Versailles ble nå et politisk våpen. Krise og syndebukk er en farlig blanding.",
+                    "teacherNotes": "Svaret på oppgave 2 (dolkestøtlegenden) og grunnlaget for oppgave 5. Knytt tilbake til steg 2: løgnen fra Versailles ble nå et politisk våpen. Krise og syndebukk er en farlig blanding.",
                     "talkingPoints": [
                         "Hvorfor stemte så mange på nazistene akkurat da krisa var verst?"
                     ]
@@ -1790,7 +1790,7 @@
                         }
                     ],
                     "image": "/images/mellomkrigstiden/hero_tyskland.webp",
-                    "teacherNotes": "Svaret på oppgave 3 (hvordan Hitler kom til makten) og oppgave 4 (fullmaktsloven). Det skremmende poenget: diktaturet ble bygget på lovlig vis. Sammenlign med Mussolini i steg 6.",
+                    "teacherNotes": "Svaret på oppgave 3 (hvordan Hitler kom til makten) og oppgave 4 (fullmaktsloven). Det skremmende poenget: diktaturet ble bygget på lovlig vis. Sammenlign med Mussolini i steg 7.",
                     "talkingPoints": [
                         "Hvordan kan et demokrati stemme bort sitt eget demokrati?"
                     ]
@@ -1829,7 +1829,7 @@
                     "year": 1933,
                     "pauseForTask": true,
                     "suggestedMinutes": 20,
-                    "taskPrompt": "Les artikkelen om Tyskland, og svar på oppgavene i steg 7.",
+                    "taskPrompt": "Les artikkelen om Tyskland, og svar på oppgavene i steg 8.",
                     "points": [
                         {
                             "id": "tp1",
@@ -1867,7 +1867,7 @@
                 },
                 {
                     "id": "div-midtosten",
-                    "title": "Steg 8: Linjer i sanden",
+                    "title": "Steg 9: Linjer i sanden",
                     "layout": "title",
                     "summary": "Stormaktene tegner Midtøstens grenser",
                     "phase": "konfrontasjon",
@@ -1982,7 +1982,7 @@
                     ],
                     "pauseForTask": true,
                     "suggestedMinutes": 20,
-                    "taskPrompt": "Les artikkelen om Midtøsten, og svar på oppgavene i steg 8.",
+                    "taskPrompt": "Les artikkelen om Midtøsten, og svar på oppgavene i steg 9.",
                     "points": [
                         {
                             "id": "tp1",
@@ -2020,7 +2020,7 @@
                 },
                 {
                     "id": "div-spania",
-                    "title": "Steg 9: Generalprøven",
+                    "title": "Steg 10: Generalprøven",
                     "layout": "title",
                     "summary": "Den spanske borgerkrigen 1936-1939",
                     "phase": "resolusjon",
@@ -2126,7 +2126,7 @@
                     ],
                     "pauseForTask": true,
                     "suggestedMinutes": 20,
-                    "taskPrompt": "Les artikkelen om den spanske borgerkrigen, og svar på oppgavene i steg 9.",
+                    "taskPrompt": "Les artikkelen om den spanske borgerkrigen, og svar på oppgavene i steg 10.",
                     "points": [
                         {
                             "id": "tp1",
@@ -2164,7 +2164,7 @@
                 },
                 {
                     "id": "div-japan",
-                    "title": "Steg 10: Solens vei mot krig",
+                    "title": "Steg 11: Solens vei mot krig",
                     "layout": "title",
                     "summary": "Japan fra demokrati til militarisme",
                     "phase": "resolusjon",
@@ -2249,7 +2249,7 @@
                         }
                     ],
                     "image": "/images/mellomkrigstiden/japan_manchuria.webp",
-                    "teacherNotes": "Svaret på oppgave 2 (Mandsjuria) og oppgave 3 (Nanjing). Knytt til steg 1: Folkeforbundet kunne bare protestere, ikke handle. Da Japan ble fordømt, gikk de bare ut.",
+                    "teacherNotes": "Svaret på oppgave 2 (Mandsjuria) og oppgave 3 (Nanjing). Knytt til steg 2: Folkeforbundet kunne bare protestere, ikke handle. Da Japan ble fordømt, gikk de bare ut.",
                     "talkingPoints": [
                         "Hva sier det om Folkeforbundet at Japan bare kunne melde seg ut?"
                     ]
@@ -2302,7 +2302,7 @@
                     ],
                     "pauseForTask": true,
                     "suggestedMinutes": 20,
-                    "taskPrompt": "Les artikkelen om Japan, og svar på oppgavene i steg 10.",
+                    "taskPrompt": "Les artikkelen om Japan, og svar på oppgavene i steg 11.",
                     "points": [
                         {
                             "id": "tp1",
@@ -2340,7 +2340,7 @@
                 },
                 {
                     "id": "div-konklusjon",
-                    "title": "Steg 11: Leksjonene fra mellomkrigstiden",
+                    "title": "Steg 12: Leksjonene fra mellomkrigstiden",
                     "layout": "title",
                     "summary": "Hvorfor klarte ikke verden å holde freden?",
                     "phase": "resolusjon",
@@ -2451,7 +2451,7 @@
                     ],
                     "pauseForTask": true,
                     "suggestedMinutes": 15,
-                    "taskPrompt": "Les oversiktsartikkelen på nytt, og svar på oppgavene i steg 11.",
+                    "taskPrompt": "Les oversiktsartikkelen på nytt, og svar på oppgavene i steg 12.",
                     "points": [
                         {
                             "id": "tp1",
@@ -2484,7 +2484,7 @@
                 },
                 {
                     "id": "div-tidslinje",
-                    "title": "Steg 12: Test din kunnskap",
+                    "title": "Steg 13: Test din kunnskap",
                     "layout": "title",
                     "summary": "Sett hele epoken i riktig rekkefølge",
                     "phase": "resolusjon",
@@ -2573,7 +2573,7 @@
                     ],
                     "pauseForTask": true,
                     "suggestedMinutes": 10,
-                    "taskPrompt": "Fullfør tidslinjen og svar på oppgavene i steg 12.",
+                    "taskPrompt": "Fullfør tidslinjen og svar på oppgavene i steg 13.",
                     "points": [
                         {
                             "id": "tp1",

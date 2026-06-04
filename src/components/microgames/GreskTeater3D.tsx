@@ -54,10 +54,10 @@ const GreskTeater3D: React.FC<MicroGameProps> = ({ onComplete }) => {
     const banner = atEnd
         ? null
         : stage === 0
-          ? 'Trykk på den gule markøren for å legge ned orkhestra - det runde dansegulvet.'
-          : stage === 1
-            ? 'Bra! Trykk på markøren oppe i bakken for å bygge tilskuerplassene.'
-            : 'Til slutt: trykk på markøren bak orkhestra for å reise skene - scenehuset.';
+        ? 'Trykk på den gule markøren for å legge ned orkhestra - det runde dansegulvet.'
+        : stage === 1
+        ? 'Bra! Trykk på markøren oppe i bakken for å bygge tilskuerplassene.'
+        : 'Til slutt: trykk på markøren bak orkhestra for å reise skene - scenehuset.';
 
     return (
         <MicroGameScaffold
@@ -73,7 +73,7 @@ const GreskTeater3D: React.FC<MicroGameProps> = ({ onComplete }) => {
             }}
             overlays={
                 <>
-                    <SceneBanner message={banner} />
+                    <SceneBanner message={banner} wide />
                     <SceneBadge corner="br">
                         {atEnd ? 'Dionysos-teateret' : 'Athen, 400-tallet fvt'}
                     </SceneBadge>

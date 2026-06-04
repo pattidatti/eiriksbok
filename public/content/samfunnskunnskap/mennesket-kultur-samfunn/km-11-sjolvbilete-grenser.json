@@ -27,7 +27,7 @@
             "name": "FactBox",
             "props": {
                 "title": "Kompetansemål",
-                "content": "Reflektere over korleis identitet, sjølvbilete og eigne grenser blir utvikla og utfordra i ulike fellesskap, og presentere forslag til korleis ein kan handtere påverknad og uønskte hendingar."
+                "content": "Reflektere over hvordan identitet, selvbilde og egne grenser blir utviklet og utfordret i ulike fellesskap, og presentere forslag til hvordan man kan håndtere påvirkning og uønskede hendelser."
             }
         },
         {
@@ -267,7 +267,7 @@
         },
         {
             "type": "header",
-            "text": "Uønskte hendelser - og hva du kan gjøre"
+            "text": "Uønskede hendelser - og hva du kan gjøre"
         },
         {
             "type": "text",
@@ -287,7 +287,7 @@
         },
         {
             "type": "text",
-            "content": "Kompetansemålet ber deg ikke bare forstå dette - det ber deg presentere forslag til løsninger. Det betyr at du skal kunne tenke som en problemløser. Når du står overfor gruppepress, uønskte hendelser eller utfordringer mot identiteten din, hva gjør du konkret?"
+            "content": "Kompetansemålet ber deg ikke bare forstå dette - det ber deg presentere forslag til løsninger. Det betyr at du skal kunne tenke som en problemløser. Når du står overfor gruppepress, uønskede hendelser eller utfordringer mot identiteten din, hva gjør du konkret?"
         },
         {
             "type": "list",

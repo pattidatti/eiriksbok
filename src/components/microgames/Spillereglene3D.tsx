@@ -53,17 +53,47 @@ const TEAM = ['#d24b3e', '#d24b3e', '#d24b3e', '#3b74c4', '#3b74c4', '#3b74c4'];
 // 2: to adskilte lag, 3: pene to rekker som spiller mot hverandre.
 const TARGETS: [number, number][][] = [
     // spiller 0 (rød)
-    [[-5.5, 3.2], [-2.4, 1.6], [-2.6, 1.4], [-2.6, 1.5]],
+    [
+        [-5.5, 3.2],
+        [-2.4, 1.6],
+        [-2.6, 1.4],
+        [-2.6, 1.5],
+    ],
     // spiller 1 (rød)
-    [[4.8, -3.0], [-1.8, -0.4], [-2.4, 0], [-2.4, 0]],
+    [
+        [4.8, -3.0],
+        [-1.8, -0.4],
+        [-2.4, 0],
+        [-2.4, 0],
+    ],
     // spiller 2 (rød)
-    [[1.5, 4.4], [-2.8, -1.7], [-2.6, -1.5], [-2.6, -1.5]],
+    [
+        [1.5, 4.4],
+        [-2.8, -1.7],
+        [-2.6, -1.5],
+        [-2.6, -1.5],
+    ],
     // spiller 3 (blå)
-    [[5.4, 2.6], [2.4, 1.5], [2.6, 1.5], [2.6, 1.5]],
+    [
+        [5.4, 2.6],
+        [2.4, 1.5],
+        [2.6, 1.5],
+        [2.6, 1.5],
+    ],
     // spiller 4 (blå)
-    [[-4.6, -3.4], [1.9, -0.3], [2.4, 0], [2.4, 0]],
+    [
+        [-4.6, -3.4],
+        [1.9, -0.3],
+        [2.4, 0],
+        [2.4, 0],
+    ],
     // spiller 5 (blå)
-    [[-1.4, -4.2], [2.7, -1.6], [2.6, -1.5], [2.6, -1.5]],
+    [
+        [-1.4, -4.2],
+        [2.7, -1.6],
+        [2.6, -1.5],
+        [2.6, -1.5],
+    ],
 ];
 
 const HALF_W = 6; // banens halve bredde (x)
@@ -93,7 +123,9 @@ const Spillereglene3D: React.FC<MicroGameProps> = ({ onComplete }) => {
 
     const reset = () => {
         setLevel(0);
-        setBanner('Spillet er i gang - men uten regler er det rent kaos. Legg til ett nivå om gangen.');
+        setBanner(
+            'Spillet er i gang - men uten regler er det rent kaos. Legg til ett nivå om gangen.'
+        );
     };
 
     const orden = Math.round((level / 3) * 100);
@@ -113,12 +145,12 @@ const Spillereglene3D: React.FC<MicroGameProps> = ({ onComplete }) => {
             }}
             overlays={
                 <>
-                    <SceneBanner message={banner} />
+                    <SceneBanner message={banner} wide />
                     <SceneBadge corner="br">
                         {won ? 'Spillet funker' : 'Lover, regler og normer'}
                     </SceneBadge>
                     <DataReadout
-                        corner="tr"
+                        corner="bl"
                         items={[
                             { label: 'Orden', value: orden, unit: '%' },
                             { label: 'Nivåer', value: `${level}/3` },
@@ -131,9 +163,7 @@ const Spillereglene3D: React.FC<MicroGameProps> = ({ onComplete }) => {
             {!won && (
                 <div className="flex flex-col gap-3">
                     <StepTracker current={level} total={3} />
-                    <p className="text-sm font-bold text-slate-700">
-                        Neste: {cur?.title}
-                    </p>
+                    <p className="text-sm font-bold text-slate-700">Neste: {cur?.title}</p>
                     <SceneFact>
                         {level === 0
                             ? 'Klikk det lysende punktet på banen for å legge til det neste regelnivået. Følg med på hvordan spillerne oppfører seg.'
@@ -146,8 +176,9 @@ const Spillereglene3D: React.FC<MicroGameProps> = ({ onComplete }) => {
                 <WinScreen title="Nå funker spillet!" onReplay={reset}>
                     Du la på alle tre regelnivåene: regler ga banen rammer, loven ga en dommer som
                     håndhever rettferdig, og normene fikk spillerne til å samarbeide av seg selv.
-                    Samfunnet fungerer på samme måte - det trenger alle tre nivåene sammen. Fjerner du
-                    ett av dem, faller samarbeidet fra hverandre, akkurat som et spill uten regler.
+                    Samfunnet fungerer på samme måte - det trenger alle tre nivåene sammen. Fjerner
+                    du ett av dem, faller samarbeidet fra hverandre, akkurat som et spill uten
+                    regler.
                 </WinScreen>
             )}
         </MicroGameScaffold>
@@ -215,7 +246,12 @@ function PitchLines({ show }: { show: boolean }) {
         grp.current.visible = t.current > 0.02;
     });
     const lineMat = (
-        <meshStandardMaterial color="#f4f7fb" emissive="#dfe8f2" emissiveIntensity={0.3} roughness={0.6} />
+        <meshStandardMaterial
+            color="#f4f7fb"
+            emissive="#dfe8f2"
+            emissiveIntensity={0.3}
+            roughness={0.6}
+        />
     );
     return (
         <group ref={grp} position={[0, 0.01, 0]} rotation={[-Math.PI / 2, 0, 0]}>
@@ -338,7 +374,11 @@ function Referee({ show }: { show: boolean }) {
                 {/* fløyte: liten kule foran hodet */}
                 <mesh position={[0, 0.58, 0.18]}>
                     <sphereGeometry args={[0.06, 8, 8]} />
-                    <meshStandardMaterial color="#f4d03f" emissive="#b8860b" emissiveIntensity={0.3} />
+                    <meshStandardMaterial
+                        color="#f4d03f"
+                        emissive="#b8860b"
+                        emissiveIntensity={0.3}
+                    />
                 </mesh>
             </Figure>
         </group>

@@ -142,7 +142,13 @@ const GutenbergPresse3D: React.FC<MicroGameProps> = ({ onComplete }) => {
 
     // Hvor langt platen presses ned (0 = oppe, 1 = nede mot typene).
     const pressAmount =
-        phase === 'press' ? pull / 100 : phase === 'mass' || phase === 'done' ? (massPressing ? 1 : 0) : 0;
+        phase === 'press'
+            ? pull / 100
+            : phase === 'mass' || phase === 'done'
+            ? massPressing
+                ? 1
+                : 0
+            : 0;
 
     const idle = phase === 'compose' && placedCount === 0;
 
@@ -160,17 +166,20 @@ const GutenbergPresse3D: React.FC<MicroGameProps> = ({ onComplete }) => {
             }}
             overlays={
                 <>
-                    <SceneBanner message={banner} />
-                    <SceneBadge corner="bl">Mainz, ca. 1450</SceneBadge>
+                    <SceneBanner message={banner} wide />
+                    <SceneBadge corner="br">Mainz, ca. 1450</SceneBadge>
                     {(phase === 'press' || phase === 'mass' || phase === 'done') && (
                         <DataReadout
+                            corner="bl"
                             items={[
                                 { label: 'Pressen', value: pages, unit: 'sider' },
                                 { label: 'Munken', value: 1, unit: 'side' },
                             ]}
                         />
                     )}
-                    <DragHint show={idle}>Klikk bokstaven B for aa begynne</DragHint>
+                    <DragHint show={idle} corner="bc">
+                        Klikk bokstaven B for aa begynne
+                    </DragHint>
                 </>
             }
             scene={
@@ -193,8 +202,8 @@ const GutenbergPresse3D: React.FC<MicroGameProps> = ({ onComplete }) => {
                 <div className="flex flex-col gap-2.5">
                     <StepTracker current={placedCount} total={WORD.length} />
                     <p className="text-sm text-slate-600">
-                        Gutenberg laget bokstavene som loese metalbiter. Klikk dem i rett rekkefoelge
-                        og bygg ordet i rammen: B - I - B - E - L.
+                        Gutenberg laget bokstavene som loese metalbiter. Klikk dem i rett
+                        rekkefoelge og bygg ordet i rammen: B - I - B - E - L.
                     </p>
                 </div>
             )}
@@ -239,18 +248,18 @@ const GutenbergPresse3D: React.FC<MicroGameProps> = ({ onComplete }) => {
                                 Trykk en side til ({pages} av {TARGET_PAGES})
                             </button>
                             <SceneFact>
-                                Typene staar fortsatt i rammen. Mens munken bruker et helt aar paa en
-                                bibel, spytter pressen ut side etter side - samme tekst, helt lik,
-                                gang paa gang.
+                                Typene staar fortsatt i rammen. Mens munken bruker et helt aar paa
+                                en bibel, spytter pressen ut side etter side - samme tekst, helt
+                                lik, gang paa gang.
                             </SceneFact>
                         </>
                     ) : (
                         <WinScreen title="Pressen ruller!" onReplay={reset}>
-                            Du satte typene en eneste gang, og kunne saa trykke den samme siden om og
-                            om igjen. Det som tok en munk et helt aar, klarte pressen paa minutter.
-                            Boeker ble billige, og innen aar 1500 fantes det over 20 millioner av dem
-                            i Europa. Naa kunne ingen konge eller kirke stoppe en idé som var trykt i
-                            tusen eksemplarer.
+                            Du satte typene en eneste gang, og kunne saa trykke den samme siden om
+                            og om igjen. Det som tok en munk et helt aar, klarte pressen paa
+                            minutter. Boeker ble billige, og innen aar 1500 fantes det over 20
+                            millioner av dem i Europa. Naa kunne ingen konge eller kirke stoppe en
+                            idé som var trykt i tusen eksemplarer.
                         </WinScreen>
                     )}
                 </div>
@@ -293,7 +302,12 @@ function Workshop({
             <GroundPlane size={34} depth={26} color="#7a5a38" />
 
             {/* Selve pressen i sentrum */}
-            <Press pressAmount={pressAmount} placedCount={placedCount} inked={inked} burst={burst} />
+            <Press
+                pressAmount={pressAmount}
+                placedCount={placedCount}
+                inked={inked}
+                burst={burst}
+            />
 
             {/* Settebordet med loese typer til venstre */}
             <Table position={[-4.1, 0, 1.8]} width={3.4} depth={2} />
@@ -405,7 +419,13 @@ function Press({
                 ))}
             </group>
 
-            <Burst position={[0, 1.3, 0.6]} trigger={burst} color="#f4ecd6" count={18} spread={2.4} />
+            <Burst
+                position={[0, 1.3, 0.6]}
+                trigger={burst}
+                color="#f4ecd6"
+                count={18}
+                spread={2.4}
+            />
         </group>
     );
 }

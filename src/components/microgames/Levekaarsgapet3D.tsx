@@ -107,8 +107,9 @@ const Levekaarsgapet3D: React.FC<MicroGameProps> = ({ onComplete }) => {
             }}
             overlays={
                 <>
-                    <SceneBanner message={banner} />
+                    <SceneBanner message={banner} wide />
                     <DataReadout
+                        corner="bl"
                         items={[
                             { label: 'Levekårsgap', value: Math.round(gap) },
                             { label: 'Folk på vandring', value: onTheMove },
@@ -137,17 +138,17 @@ const Levekaarsgapet3D: React.FC<MicroGameProps> = ({ onComplete }) => {
                         Klikk på de gule punktene i hjemlandet for å bygge skole, klinikk og arbeid.
                     </p>
                     <SceneFact>
-                        Folk migrerer sjelden fordi de vil bort - de migrerer fordi levekårene hjemme
-                        er for vanskelige. Jo større forskjellen i levekår er, desto sterkere blir
-                        presset for å reise.
+                        Folk migrerer sjelden fordi de vil bort - de migrerer fordi levekårene
+                        hjemme er for vanskelige. Jo større forskjellen i levekår er, desto sterkere
+                        blir presset for å reise.
                     </SceneFact>
                 </div>
             )}
 
             {phase === 'won' && (
                 <WinScreen title="Folk blir værende hjemme!" onReplay={reset}>
-                    Da du bygde skole, klinikk og arbeid, steg levekårene hjemme og gapet til det rike
-                    landet krympet. Strømmen av folk stoppet nesten helt. Det viser kjernen i
+                    Da du bygde skole, klinikk og arbeid, steg levekårene hjemme og gapet til det
+                    rike landet krympet. Strømmen av folk stoppet nesten helt. Det viser kjernen i
                     migrasjon: store levekårsforskjeller er den sterkeste drivkraften. Minker gapet,
                     minker presset for å reise.
                 </WinScreen>
@@ -208,7 +209,13 @@ function GapScene({
             <Migrants gapFactor={gapFactor} />
 
             {/* Feiring når gapet lukkes */}
-            <Burst position={[HOME_X, 2, 0]} trigger={burst} color="#bfe6a8" count={34} spread={4.5} />
+            <Burst
+                position={[HOME_X, 2, 0]}
+                trigger={burst}
+                color="#bfe6a8"
+                count={34}
+                spread={4.5}
+            />
         </group>
     );
 }
@@ -255,9 +262,30 @@ function RichLand({ x }: { x: number }) {
                 <planeGeometry args={[7, 9]} />
                 <meshStandardMaterial color="#5f9e46" roughness={0.9} />
             </mesh>
-            <Building position={[0.6, 0, -1.8]} body="#c9d3dc" roof="#3b5161" w={1.5} h={1.6} d={1.4} />
-            <Building position={[-1.4, 0, 0.6]} body="#dbe2e8" roof="#475c6b" w={1.3} h={1.2} d={1.2} />
-            <Building position={[1.8, 0, 1.4]} body="#cdd6de" roof="#3b5161" w={1.2} h={1.3} d={1.1} />
+            <Building
+                position={[0.6, 0, -1.8]}
+                body="#c9d3dc"
+                roof="#3b5161"
+                w={1.5}
+                h={1.6}
+                d={1.4}
+            />
+            <Building
+                position={[-1.4, 0, 0.6]}
+                body="#dbe2e8"
+                roof="#475c6b"
+                w={1.3}
+                h={1.2}
+                d={1.2}
+            />
+            <Building
+                position={[1.8, 0, 1.4]}
+                body="#cdd6de"
+                roof="#3b5161"
+                w={1.2}
+                h={1.3}
+                d={1.1}
+            />
             <Tree position={[-2, 0, -2.2]} leaf="#3f6b39" />
             <Tree position={[2.4, 0, -0.8]} leaf="#48793f" />
         </group>
@@ -276,7 +304,14 @@ function RisingBuilding({ inst, built }: { inst: Institution; built: boolean }) 
     });
     return (
         <group ref={grp} position={[inst.pos[0], 0, inst.pos[2]]}>
-            <Building position={[0, 0, 0]} body={inst.body} roof={inst.roof} w={1.4} h={1.3} d={1.2} />
+            <Building
+                position={[0, 0, 0]}
+                body={inst.body}
+                roof={inst.roof}
+                w={1.4}
+                h={1.3}
+                d={1.2}
+            />
         </group>
     );
 }
@@ -297,7 +332,14 @@ function Migrants({ gapFactor }: { gapFactor: number }) {
     return (
         <group>
             {FIGS.map((f, i) => (
-                <Migrant key={i} z={f.z} reach={f.reach} body={f.body} gapFactor={gapFactor} index={i} />
+                <Migrant
+                    key={i}
+                    z={f.z}
+                    reach={f.reach}
+                    body={f.body}
+                    gapFactor={gapFactor}
+                    index={i}
+                />
             ))}
         </group>
     );

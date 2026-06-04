@@ -84,12 +84,12 @@ const Teknologibolgen3D: React.FC<MicroGameProps> = ({ onComplete }) => {
         phase === 'won'
             ? null
             : canGreen
-              ? 'Naturen kveles av røyk. Sett inn den grønne teknologien som lyser bak.'
-              : heavySmoke
-                ? 'Gevinsten vokser - men se røyken og folka som faller fra.'
-                : pct < 5
-                  ? 'Skyv teknologinivået oppover. Se hva som skjer med folk, by og natur.'
-                  : null;
+            ? 'Naturen kveles av røyk. Sett inn den grønne teknologien som lyser bak.'
+            : heavySmoke
+            ? 'Gevinsten vokser - men se røyken og folka som faller fra.'
+            : pct < 5
+            ? 'Skyv teknologinivået oppover. Se hva som skjer med folk, by og natur.'
+            : null;
 
     return (
         <MicroGameScaffold
@@ -105,10 +105,10 @@ const Teknologibolgen3D: React.FC<MicroGameProps> = ({ onComplete }) => {
             }}
             overlays={
                 <>
-                    <SceneBanner message={banner} />
-                    <SceneBadge corner="tr">{eraLabel(tech)}</SceneBadge>
+                    <SceneBanner message={banner} wide />
+                    <SceneBadge corner="br">{eraLabel(tech)}</SceneBadge>
                     <DataReadout
-                        corner="tl"
+                        corner="bl"
                         items={[
                             { label: 'Gevinst', value: gevinst },
                             { label: 'Kostnad', value: kostnad },
@@ -137,17 +137,20 @@ const Teknologibolgen3D: React.FC<MicroGameProps> = ({ onComplete }) => {
                     valueLabel={(v) => `${v} %`}
                 />
                 {phase === 'won' ? (
-                    <WinScreen title="Du drev teknologien helt fram - og ryddet opp!" onReplay={reset}>
-                        Hvert hakk opp ga både gevinst og kostnad, på alle tre arenaene: folk fikk nye
-                        verktøy men noen mistet jobben, byen vokste men naturen ble forurenset. Til
-                        slutt viste det seg at samme kraft - teknologien - også kan løse problemet den
-                        skapte. Å drøfte teknologi er å se begge sidene samtidig.
+                    <WinScreen
+                        title="Du drev teknologien helt fram - og ryddet opp!"
+                        onReplay={reset}
+                    >
+                        Hvert hakk opp ga både gevinst og kostnad, på alle tre arenaene: folk fikk
+                        nye verktøy men noen mistet jobben, byen vokste men naturen ble forurenset.
+                        Til slutt viste det seg at samme kraft - teknologien - også kan løse
+                        problemet den skapte. Å drøfte teknologi er å se begge sidene samtidig.
                     </WinScreen>
                 ) : (
                     <SceneFact>
                         Legg merke til tallene oppe til venstre: når gevinsten stiger, stiger
-                        kostnaden med. Ingen teknologi gir bare fordeler - den treffer enkeltmennesket,
-                        samfunnet og naturen på én gang.
+                        kostnaden med. Ingen teknologi gir bare fordeler - den treffer
+                        enkeltmennesket, samfunnet og naturen på én gang.
                     </SceneFact>
                 )}
             </div>
@@ -177,7 +180,11 @@ function VillageScene({
             <GroundPlane size={32} depth={30} color="#86a55a" />
 
             {/* --- NATUR (bak): elv, trær, skorstein med røyk, grønn teknologi --- */}
-            <WaterPlane position={[0, 0.03, -9.5]} size={[30, 6]} color={green ? '#3f8fb8' : '#5f7d7a'} />
+            <WaterPlane
+                position={[0, 0.03, -9.5]}
+                size={[30, 6]}
+                color={green ? '#3f8fb8' : '#5f7d7a'}
+            />
             {[-9, -6.5, -4, 6.5, 9].map((x, i) => (
                 <WitherTree key={i} x={x} z={-8 + (i % 2) * 1.4} tech={tech} green={green} />
             ))}
@@ -201,10 +208,21 @@ function VillageScene({
 
             {/* Grønn-teknologi-hotspot: direkte 3D-interaksjon */}
             {showGreenHotspot && (
-                <Hotspot position={[7.5, 2.2, -9]} onSelect={onGreen} label="Sett inn grønn teknologi" radius={0.6} />
+                <Hotspot
+                    position={[7.5, 2.2, -9]}
+                    onSelect={onGreen}
+                    label="Sett inn grønn teknologi"
+                    radius={0.6}
+                />
             )}
 
-            <Burst position={[7.5, 2.4, -9]} trigger={burst} color="#bff0c4" count={32} spread={4} />
+            <Burst
+                position={[7.5, 2.4, -9]}
+                trigger={burst}
+                color="#bff0c4"
+                count={32}
+                spread={4}
+            />
         </group>
     );
 }
@@ -312,8 +330,20 @@ function MonopolTower({ tech }: { tech: number }) {
 function Machine({ tech }: { tech: number }) {
     return (
         <group position={[0, 1.1, 0.4]}>
-            <Gear position={[-0.45, 0, 0]} radius={0.55} teeth={10} color="#8a7f74" spin={tech * 4} />
-            <Gear position={[0.5, -0.15, 0]} radius={0.4} teeth={8} color="#9a8f84" spin={-tech * 5.4} />
+            <Gear
+                position={[-0.45, 0, 0]}
+                radius={0.55}
+                teeth={10}
+                color="#8a7f74"
+                spin={tech * 4}
+            />
+            <Gear
+                position={[0.5, -0.15, 0]}
+                radius={0.4}
+                teeth={8}
+                color="#9a8f84"
+                spin={-tech * 5.4}
+            />
             <mesh position={[0, 0.05, 0.2]}>
                 <sphereGeometry args={[0.26, 18, 18]} />
                 <meshStandardMaterial
@@ -349,7 +379,11 @@ function Worker({ x, index, tech }: { x: number; index: number; tech: number }) 
                 {hasTool && (
                     <mesh position={[0.22, 0.4, 0]}>
                         <boxGeometry args={[0.08, 0.3, 0.08]} />
-                        <meshStandardMaterial color="#ffe39a" emissive="#ffd24a" emissiveIntensity={0.8} />
+                        <meshStandardMaterial
+                            color="#ffe39a"
+                            emissive="#ffd24a"
+                            emissiveIntensity={0.8}
+                        />
                     </mesh>
                 )}
             </Figure>
@@ -364,7 +398,12 @@ function SolarFarm() {
             {[0, 1.1, 2.2].map((dx) => (
                 <mesh key={dx} position={[dx, 0.5, 0]} rotation={[-Math.PI / 3.2, 0, 0]} castShadow>
                     <boxGeometry args={[0.9, 0.06, 0.7]} />
-                    <meshStandardMaterial color="#1e3a5f" emissive="#2f6db5" emissiveIntensity={0.35} roughness={0.4} />
+                    <meshStandardMaterial
+                        color="#1e3a5f"
+                        emissive="#2f6db5"
+                        emissiveIntensity={0.35}
+                        roughness={0.4}
+                    />
                 </mesh>
             ))}
         </group>
@@ -385,7 +424,12 @@ function WindTurbine({ x, z }: { x: number; z: number }) {
             </mesh>
             <group ref={blades} position={[0, 2.8, 0.1]}>
                 {[0, 1, 2].map((i) => (
-                    <mesh key={i} rotation={[0, 0, (i * Math.PI * 2) / 3]} position={[0, 0.6, 0]} castShadow>
+                    <mesh
+                        key={i}
+                        rotation={[0, 0, (i * Math.PI * 2) / 3]}
+                        position={[0, 0.6, 0]}
+                        castShadow
+                    >
                         <boxGeometry args={[0.12, 1.3, 0.04]} />
                         <meshStandardMaterial color="#f4f8fb" roughness={0.5} />
                     </mesh>

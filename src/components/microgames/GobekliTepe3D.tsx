@@ -60,10 +60,20 @@ const FACTS = [
 
 // Faste plasser for flokken langs tauet (foran ringen). Render de N første.
 const CROWD_SLOTS: [number, number][] = [
-    [-1.4, 5.0], [0.0, 5.1], [1.4, 5.0],
-    [-2.0, 5.9], [-0.7, 6.0], [0.7, 6.0], [2.0, 5.9],
-    [-1.4, 6.8], [0.0, 6.9], [1.4, 6.8],
-    [-2.4, 7.6], [-0.8, 7.7], [0.8, 7.7], [2.4, 7.6],
+    [-1.4, 5.0],
+    [0.0, 5.1],
+    [1.4, 5.0],
+    [-2.0, 5.9],
+    [-0.7, 6.0],
+    [0.7, 6.0],
+    [2.0, 5.9],
+    [-1.4, 6.8],
+    [0.0, 6.9],
+    [1.4, 6.8],
+    [-2.4, 7.6],
+    [-0.8, 7.7],
+    [0.8, 7.7],
+    [2.4, 7.6],
 ];
 const MAX_CROWD = CROWD_SLOTS.length;
 
@@ -144,7 +154,9 @@ const GobekliTepe3D: React.FC<MicroGameProps> = ({ onComplete }) => {
         if (newEff <= effective + 0.001) {
             // Taket ga ikke mer - flokken er for liten til denne vekten.
             sounds.play('incorrect');
-            setBanner(`For få hender til ${spec.tonn} tonn. Steinen vil ikke høyere - kall på flere!`);
+            setBanner(
+                `For få hender til ${spec.tonn} tonn. Steinen vil ikke høyere - kall på flere!`
+            );
         } else {
             sounds.play('correct');
             setBanner(null);
@@ -173,12 +185,13 @@ const GobekliTepe3D: React.FC<MicroGameProps> = ({ onComplete }) => {
             }}
             overlays={
                 <>
-                    <SceneBanner message={banner} />
+                    <SceneBanner message={banner} wide />
                     <SceneBadge corner="br">
                         {done ? 'Tempelringen står' : 'Göbekli Tepe - 9500 fvt'}
                     </SceneBadge>
                     {!done && (
                         <DataReadout
+                            corner="bl"
                             items={[
                                 { label: 'Hender på tauet', value: people },
                                 { label: 'Steinen veier', value: spec.tonn, unit: 't' },
@@ -186,7 +199,9 @@ const GobekliTepe3D: React.FC<MicroGameProps> = ({ onComplete }) => {
                             ]}
                         />
                     )}
-                    <DragHint show={idle}>Dra spaken under vinduet</DragHint>
+                    <DragHint show={idle} corner="bc">
+                        Dra spaken under vinduet
+                    </DragHint>
                 </>
             }
             scene={
@@ -217,19 +232,19 @@ const GobekliTepe3D: React.FC<MicroGameProps> = ({ onComplete }) => {
                         />
                         <p className="text-sm text-slate-600 leading-snug">
                             Dra spaken for å samle flokken, og klikk den pulserende{' '}
-                            <span className="font-bold text-amber-700">HAL!</span>-ringen ved tauet for
-                            å reise {spec.label.toLowerCase()} ({spec.tonn} tonn). Jo tyngre steinen er,
-                            desto flere hender trengs.
+                            <span className="font-bold text-amber-700">HAL!</span>-ringen ved tauet
+                            for å reise {spec.label.toLowerCase()} ({spec.tonn} tonn). Jo tyngre
+                            steinen er, desto flere hender trengs.
                         </p>
                         {fact && <SceneFact>{fact}</SceneFact>}
                     </>
                 ) : (
                     <WinScreen title="Tempelringen står ferdig!" onReplay={reset}>
                         Du reiste de tunge T-pilarene uten hjul, metall eller pakkdyr - bare med en
-                        stor flokk som dro i takt. Men en så stor flokk måtte ha mat, gang på gang. Klaus
-                        Schmidt mente at nettopp dette behovet kan ha tvunget jegerne til å dyrke korn
-                        nær møtestedet. Da kan tempelet ha kommet først, og jordbruket etterpå - stikk
-                        motsatt av hva skolebøkene lenge fortalte.
+                        stor flokk som dro i takt. Men en så stor flokk måtte ha mat, gang på gang.
+                        Klaus Schmidt mente at nettopp dette behovet kan ha tvunget jegerne til å
+                        dyrke korn nær møtestedet. Da kan tempelet ha kommet først, og jordbruket
+                        etterpå - stikk motsatt av hva skolebøkene lenge fortalte.
                     </WinScreen>
                 )}
             </div>
@@ -284,7 +299,13 @@ function TempleHill({
             {!done && (
                 <group position={HINGE}>
                     <RaisingPillar tiltRatio={tiltRatio} tall={spec.tall} />
-                    <Burst position={[0, 2.6, 0]} trigger={burst} color="#e6d3a0" count={26} spread={2.6} />
+                    <Burst
+                        position={[0, 2.6, 0]}
+                        trigger={burst}
+                        color="#e6d3a0"
+                        count={26}
+                        spread={2.6}
+                    />
                 </group>
             )}
 

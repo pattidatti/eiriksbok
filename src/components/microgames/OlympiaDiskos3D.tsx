@@ -110,11 +110,12 @@ const OlympiaDiskos3D: React.FC<MicroGameProps> = ({ onComplete }) => {
             }}
             overlays={
                 <>
-                    <SceneBanner message={banner} />
+                    <SceneBanner message={banner} wide />
                     <SceneBadge corner="br">
                         {phase === 'won' ? 'Olivenkrans vunnet' : 'Olympia, 776 fvt'}
                     </SceneBadge>
                     <DataReadout
+                        corner="bl"
                         items={[
                             { label: 'Rekord', value: RECORD, unit: 'skritt' },
                             {
@@ -285,7 +286,13 @@ function StadiumScene({
             {/* Selve diskosen i flukt */}
             <Diskos throwId={throwId} rangeScene={rangeScene} peak={peak} />
 
-            <Burst position={[landX, 0.6, 0]} trigger={burst} color="#9cc94f" count={28} spread={3.5} />
+            <Burst
+                position={[landX, 0.6, 0]}
+                trigger={burst}
+                color="#9cc94f"
+                count={28}
+                spread={3.5}
+            />
         </group>
     );
 }
@@ -353,7 +360,13 @@ function Diskos({
     });
 
     return (
-        <mesh ref={mesh} position={[START_X, 0.5, 0]} rotation={[Math.PI / 2.4, 0, 0]} castShadow visible={false}>
+        <mesh
+            ref={mesh}
+            position={[START_X, 0.5, 0]}
+            rotation={[Math.PI / 2.4, 0, 0]}
+            castShadow
+            visible={false}
+        >
             <cylinderGeometry args={[0.28, 0.28, 0.08, 18]} />
             <meshStandardMaterial color="#b98b34" metalness={0.5} roughness={0.4} />
         </mesh>

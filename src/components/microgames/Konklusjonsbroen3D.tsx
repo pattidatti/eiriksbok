@@ -41,7 +41,10 @@ const STEPS: Step[] = [
     {
         label: 'Steg 1: Problemstilling',
         fact: 'Alt starter med spørsmålet. En god problemstilling er tydelig, avgrenset og drøftbar - et spørsmål du faktisk kan svare på.',
-        solid: { title: 'Avgrenset, drøftbar problemstilling', blurb: 'Et spørsmål du kan svare på' },
+        solid: {
+            title: 'Avgrenset, drøftbar problemstilling',
+            blurb: 'Et spørsmål du kan svare på',
+        },
         shortcut: { title: 'Vagt tema uten retning', blurb: '"Noe om sosiale medier"' },
     },
     {
@@ -88,7 +91,9 @@ const Konklusjonsbroen3D: React.FC<MicroGameProps> = ({ onComplete }) => {
         setPhase('build');
         setStep(0);
         setPlanks([]);
-        setBanner('Bygg broen fra spørsmålet til en gyldig konklusjon. Velg metode for hvert steg.');
+        setBanner(
+            'Bygg broen fra spørsmålet til en gyldig konklusjon. Velg metode for hvert steg.'
+        );
     };
 
     const choose = (solid: boolean) => {
@@ -121,7 +126,9 @@ const Konklusjonsbroen3D: React.FC<MicroGameProps> = ({ onComplete }) => {
             sounds.play('incorrect');
             const i = firstRotten;
             setBanner(
-                `Konklusjonen falt gjennom ved ${STEPS[i].label.toLowerCase()}! En snarvei her gjør at ingen kan stole på svaret. Bygg broen på nytt med solid metode.`
+                `Konklusjonen falt gjennom ved ${STEPS[
+                    i
+                ].label.toLowerCase()}! En snarvei her gjør at ingen kan stole på svaret. Bygg broen på nytt med solid metode.`
             );
             setPhase('build');
             setStep(0);
@@ -150,7 +157,7 @@ const Konklusjonsbroen3D: React.FC<MicroGameProps> = ({ onComplete }) => {
             }}
             overlays={
                 <>
-                    <SceneBanner message={banner} />
+                    <SceneBanner message={banner} wide />
                     <SceneBadge corner="br">
                         {phase === 'won' ? 'Gyldig konklusjon' : 'Samfunnsfaglig metode'}
                     </SceneBadge>
@@ -200,8 +207,8 @@ const Konklusjonsbroen3D: React.FC<MicroGameProps> = ({ onComplete }) => {
                 <WinScreen title="Konklusjonen holdt hele veien!" onReplay={reset}>
                     Hver planke var et steg i samfunnsfaglig metode: en god problemstilling,
                     kritiske kilder, ærlig tolkning av statistikk, en tydelig presentasjon og en
-                    drøfting som innrømmer svakheter. En konklusjon er bare så sterk som det svakeste
-                    steget. Holder alle fem, kan andre stole på svaret ditt.
+                    drøfting som innrømmer svakheter. En konklusjon er bare så sterk som det
+                    svakeste steget. Holder alle fem, kan andre stole på svaret ditt.
                 </WinScreen>
             )}
         </MicroGameScaffold>
@@ -250,7 +257,12 @@ function BridgeScene({
 
             {/* Hotspot for å sende vogna - direkte 3D-interaksjon */}
             {phase === 'ready' && (
-                <Hotspot position={[-7.2, 1.7, 0]} onSelect={onSend} label="Send konklusjonen" radius={0.5} />
+                <Hotspot
+                    position={[-7.2, 1.7, 0]}
+                    onSelect={onSend}
+                    label="Send konklusjonen"
+                    radius={0.5}
+                />
             )}
 
             <Burst position={[7.2, 1.6, 0]} trigger={burst} color="#ffe9a8" count={34} spread={4} />

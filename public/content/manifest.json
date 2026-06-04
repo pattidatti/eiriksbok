@@ -1389,7 +1389,7 @@
             },
             {
               "id": "km-5-kamp-for-endring",
-              "title": "A kjempe for endring",
+              "title": "Å kjempe for endring",
               "description": "Artikkelen utforsker hvordan mennesker gjennom historien har kjempet for samfunnsendring - fra norske fagforeninger og suffragetter til borgerrettsbevegelsen i USA - og hvordan geografiske forhold og historisk kontekst alltid former kampens metoder og muligheter.",
               "image": "/images/placeholder.webp",
               "tags": [
@@ -1404,8 +1404,8 @@
             },
             {
               "id": "km-7-konfliktar",
-              "title": "Konfliktar - arsaker og konsekvensar",
-              "description": "Artikkelen utforsker arsakene til og konsekvensene av sentrale historiske og notidige konflikter, med forste verdenskrig og Ukraina som hovedeksempler. Elevene trener paa aa reflektere over om endrede forutsetninger kunne ha hindret konfliktene gjennom et interaktivt historisk radgiverscenario.",
+              "title": "Konflikter - årsaker og konsekvenser",
+              "description": "Utforsk årsakene til historiske og nåtidige konflikter, konsekvensene de fikk, og om andre veivalg kunne ha hindret dem.",
               "image": "/images/placeholder.webp",
               "tags": [
                 "konflikt",
@@ -1567,8 +1567,8 @@
             },
             {
               "id": "km-2-kjelder-algoritmar",
-              "title": "Kjelder, algoritmar og blindsoner",
-              "description": "Laer deg å vurdere kjelder kritisk og forstå korleis algoritmar formar det du ser på nettet. Artikkelen trener direkte på kompetansemål SAF01-04 nr. 2 - med BiasLens-simulator og filterboble-demo.",
+              "title": "Kilder, algoritmer og blindsoner",
+              "description": "Lær deg å vurdere kilder kritisk, forstå hvordan algoritmer former det du ser, og oppdage hva som finnes i blindsonene dine.",
               "image": "/images/placeholder.webp",
               "tags": [
                 "kildekritikk",
@@ -1628,7 +1628,7 @@
             {
               "id": "km-11-sjolvbilete-grenser",
               "title": "Hvem er du? - identitet og egne grenser",
-              "description": "Artikkelen utforsker hvordan identitet og selvbilde bygges og utfordres i ulike fellesskap, med konkrete verktøy for å håndtere gruppepress, digitale krenkelser og uønskte hendelser. Adresserer kompetansemål 11 i SAF01-04.",
+              "description": "Artikkelen utforsker hvordan identitet og selvbilde bygges og utfordres i ulike fellesskap, med konkrete verktøy for å håndtere gruppepress, digitale krenkelser og uønskede hendelser. Adresserer kompetansemål 11 i SAF01-04.",
               "image": "/images/placeholder.webp",
               "tags": [
                 "identitet",
@@ -2091,8 +2091,8 @@
             },
             {
               "id": "km-16-dagsaktuelle-tema",
-              "title": "Dagsaktuelle tema - slik jobbar du",
-              "description": "Ein praktisk guide til den samfunnsfaglege metoden: kvar du finn gode kjelder, korleis du vurderer dei kritisk, og korleis du bygger og presenterer solide argument. Trenar eleven direkte mot eksamen og kvardagsleg debattkompetanse.",
+              "title": "Dagsaktuelle tema - slik jobber du",
+              "description": "Lær den samfunnsfaglige metoden: hent kilder, vurder dem kritisk, bygg argument og presenter meningen din med tyngde.",
               "image": "/images/placeholder.webp",
               "tags": [
                 "argumentasjon",
@@ -2100,6 +2100,269 @@
                 "samfunnsfaglig-metode",
                 "dagsaktuelle-tema",
                 "eksamen"
+              ],
+              "createdDate": "2026-06-02T00:00:00Z",
+              "lastUpdated": "2026-06-02T16:32:02+02:00"
+            }
+          ]
+        },
+        {
+          "id": "kompetansemal",
+          "title": "Kompetansemål",
+          "description": "Alle de dedikerte kompetansemål-artiklene i samfunnsfag samlet på ett sted. Hver artikkel dekker ett kompetansemål fra læreplanen - lett å finne fram til.",
+          "image": "/images/placeholder.webp",
+          "lessons": [
+            {
+              "id": "km-1-metode",
+              "title": "Slik undersøker vi samfunnet",
+              "description": "En oppgaveorientert artikkel som trener elevene i samfunnsfaglig metode: formulere gode problemstillinger, finne og kritisk vurdere kilder, tolke statistikk, presentere funn med digitale verktøy og drøfte gyldighet og relevans.",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "metode",
+                "kildekritikk",
+                "statistikk",
+                "presentasjon",
+                "eksamen"
+              ],
+              "createdDate": "2026-06-02T00:00:00Z",
+              "lastUpdated": "2026-06-02T10:49:38+02:00"
+            },
+            {
+              "id": "km-2-kjelder-algoritmar",
+              "title": "Kilder, algoritmer og blindsoner",
+              "description": "Lær deg å vurdere kilder kritisk, forstå hvordan algoritmer former det du ser, og oppdage hva som finnes i blindsonene dine.",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "kildekritikk",
+                "algoritmer",
+                "desinformasjon",
+                "sosiale-medier",
+                "ekkokamre"
+              ],
+              "createdDate": "2026-06-02T00:00:00Z",
+              "lastUpdated": "2026-06-02T10:49:38+02:00"
+            },
+            {
+              "id": "km-3-historieframstilling",
+              "title": "Hvem skriver historien?",
+              "description": "Artikkelen utforsker hvordan fremstillinger av fortida - i bøker, monumenter, kart og propaganda - former holdninger og handlinger. Elever lærer å analysere historieframstilling med kildekritiske verktøy gjennom norske og globale eksempler.",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "historieframstilling",
+                "propaganda",
+                "kolonialisme",
+                "kildekritikk",
+                "nasjonalisme"
+              ],
+              "createdDate": "2026-06-02T00:00:00Z",
+              "lastUpdated": "2026-06-02T10:49:38+02:00"
+            },
+            {
+              "id": "km-4-teknologi-endring",
+              "title": "Teknologien som endrer alt",
+              "description": "Utforsk hvordan teknologi har formet verden fra plogen til kunstig intelligens, og drøft hva ny teknologi betyr for enkeltmennesket, samfunnet og naturen. Artikkelen trener direkte på kompetansemål SAF01-04 gjennom en interaktiv vektskål, et 3D-mikrospill og et AI-dilemma.",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "teknologi",
+                "digitalisering",
+                "samfunnsendring",
+                "AI",
+                "industrialisering"
+              ],
+              "createdDate": "2026-06-02T00:00:00Z",
+              "lastUpdated": "2026-06-02T10:49:38+02:00"
+            },
+            {
+              "id": "km-5-kamp-for-endring",
+              "title": "Å kjempe for endring",
+              "description": "Artikkelen utforsker hvordan mennesker gjennom historien har kjempet for samfunnsendring - fra norske fagforeninger og suffragetter til borgerrettsbevegelsen i USA - og hvordan geografiske forhold og historisk kontekst alltid former kampens metoder og muligheter.",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "samfunnsendring",
+                "borgerrettigheter",
+                "fagforeninger",
+                "sivil-ulydighet",
+                "historisk-kontekst"
+              ],
+              "createdDate": "2026-06-02T00:00:00Z",
+              "lastUpdated": "2026-06-02T11:31:56+02:00"
+            },
+            {
+              "id": "km-6-levekaar-verden",
+              "title": "Levekår rundt om i verden",
+              "description": "Artikkelen hjelper elever sammenligne hvordan politiske, geografiske og historiske forhold påvirker levekår, bosettingsmønster og demografi i ulike deler av verden - med konkrete eksempler fra Niger, Brasil og Norge. Direkte adresserer kompetansemål SAF01-04 nr. 6.",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "levekår",
+                "demografi",
+                "globale-ulikheter",
+                "bosettingsmønster",
+                "HDI"
+              ],
+              "createdDate": "2026-06-02T00:00:00Z",
+              "lastUpdated": "2026-06-02T11:31:56+02:00"
+            },
+            {
+              "id": "km-7-konfliktar",
+              "title": "Konflikter - årsaker og konsekvenser",
+              "description": "Utforsk årsakene til historiske og nåtidige konflikter, konsekvensene de fikk, og om andre veivalg kunne ha hindret dem.",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "konflikt",
+                "krig",
+                "arsaker",
+                "FN",
+                "historiske-konflikter"
+              ],
+              "createdDate": "2026-06-02T00:00:00Z",
+              "lastUpdated": "2026-06-02T11:31:56+02:00"
+            },
+            {
+              "id": "km-8-terror-folkemord",
+              "title": "Fra hat til folkemord",
+              "description": "Artikkelen utforsker årsaker til og konsekvenser av terrorisme og folkemord, fra holocaust til 22. juli og Rwanda, og trener eleven i å gjenkjenne radikalisering og reflektere over forebygging. En interaktiv eskaleringstrapp, et 3D-mikrospill om dehumanisering og et scenario-rollespill setter eleven midt i prosessen og lar dem ta valg som illustrerer hva som beskytter mot ekstremisme.",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "holocaust",
+                "terrorisme",
+                "folkemord",
+                "radikalisering",
+                "forebygging"
+              ],
+              "createdDate": "2026-06-02T00:00:00Z",
+              "lastUpdated": "2026-06-02T12:46:46+02:00"
+            },
+            {
+              "id": "km-9-identitet-mangfald",
+              "title": "Identitet og mangfold",
+              "description": "Artikkelen utforsker hva identitet er, hvordan kulturuttrykk og levesett varierer, og drøfter konkrete muligheter og utfordringer ved et mangfoldig samfunn - direkte rettet mot kompetansemål SAF01-04 nr. 9.",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "identitet",
+                "mangfold",
+                "kultur",
+                "diskriminering",
+                "integrering"
+              ],
+              "createdDate": "2026-06-02T00:00:00Z",
+              "lastUpdated": "2026-06-02T12:46:46+02:00"
+            },
+            {
+              "id": "km-10-digitale-spor",
+              "title": "Dine digitale spor",
+              "description": "Artikkelen hjelper elever å forstå hva digitale spor er, hvem som eier dataene dine, hva GDPR og retten til å bli glemt betyr i praksis, og hvordan opphavsrett gjelder på nett. Direkte adresserer kompetansemål SAF01-04 mål 10 gjennom interaktivt valg-scenario og konkrete eksempler.",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "personvern",
+                "digitale-spor",
+                "GDPR",
+                "opphavsrett",
+                "sosiale-medier"
+              ],
+              "createdDate": "2026-06-02T00:00:00Z",
+              "lastUpdated": "2026-06-02T12:46:46+02:00"
+            },
+            {
+              "id": "km-11-sjolvbilete-grenser",
+              "title": "Hvem er du? - identitet og egne grenser",
+              "description": "Artikkelen utforsker hvordan identitet og selvbilde bygges og utfordres i ulike fellesskap, med konkrete verktøy for å håndtere gruppepress, digitale krenkelser og uønskede hendelser. Adresserer kompetansemål 11 i SAF01-04.",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "identitet",
+                "selvbilde",
+                "gruppepress",
+                "grenser",
+                "sosiale-medier"
+              ],
+              "createdDate": "2026-06-02T00:00:00Z",
+              "lastUpdated": "2026-06-02T15:27:18+02:00"
+            },
+            {
+              "id": "km-12-maktaktørar",
+              "title": "Hvem har makta?",
+              "description": "Utforsk de fire hovedtypene av maktaktører i et demokratisk samfunn - politikere, næringsliv, media og sivilsamfunn - og analyser hvordan de begrunner standpunktene sine gjennom konkrete norske eksempler.",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "makt",
+                "politikk",
+                "lobbyisme",
+                "næringsliv",
+                "sivilt-samfunn"
+              ],
+              "createdDate": "2026-06-02T00:00:00Z",
+              "lastUpdated": "2026-06-02T15:27:18+02:00"
+            },
+            {
+              "id": "km-13-digital-debatt",
+              "title": "Den digitale offentligheten",
+              "description": "Utforsk hvordan sosiale medier og digitale plattformer former samfunnsdebatten - hvem som kommer til orde, hvordan algoritmer styrer det vi ser, og hva det betyr for demokratiet at debatten har flyttet seg til nettet.",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "digital-deltaking",
+                "samfunnsdebatt",
+                "sosiale-medier",
+                "ytringsfrihet",
+                "algoritmar"
+              ],
+              "createdDate": "2026-06-02T00:00:00Z",
+              "lastUpdated": "2026-06-02T15:27:18+02:00"
+            },
+            {
+              "id": "km-14-lover-normer",
+              "title": "Lover, normer og konsekvenser",
+              "description": "Artikkelen forklarer forskjellen mellom lover, regler og normer, og drøfter hvilke konsekvenser brudd på disse har for den enkelte og samfunnet - både på kort og lang sikt. Direkte rettet mot kompetansemål SAF01-04 nummer 14.",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "lover",
+                "normer",
+                "konsekvenser",
+                "rettssystem",
+                "demokrati"
+              ],
+              "createdDate": "2026-06-02T00:00:00Z",
+              "lastUpdated": "2026-06-02T15:27:18+02:00"
+            },
+            {
+              "id": "km-15-norsk-demokrati",
+              "title": "Det norske demokratiet i dag",
+              "description": "En pedagogisk artikkel som forklarer hvordan det norske politiske systemet fungerer - fra Stortinget og partiene til velferdsstaten og trepartssamarbeidet. Artikkelen tar også for seg sentrale utfordringer som demografisk aldring, klimakonflikten og økte sosiale forskjeller.",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "demokrati",
+                "velferdsstat",
+                "stortinget",
+                "trepartssamarbeid",
+                "partisystem"
+              ],
+              "createdDate": "2026-06-02T00:00:00Z",
+              "lastUpdated": "2026-06-02T16:32:02+02:00"
+            },
+            {
+              "id": "km-16-dagsaktuelle-tema",
+              "title": "Dagsaktuelle tema - slik jobber du",
+              "description": "Lær den samfunnsfaglige metoden: hent kilder, vurder dem kritisk, bygg argument og presenter meningen din med tyngde.",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "argumentasjon",
+                "kildekritikk",
+                "samfunnsfaglig-metode",
+                "dagsaktuelle-tema",
+                "eksamen"
+              ],
+              "createdDate": "2026-06-02T00:00:00Z",
+              "lastUpdated": "2026-06-02T16:32:02+02:00"
+            },
+            {
+              "id": "km-17-medborgar",
+              "title": "Å være medborger",
+              "description": "Hva betyr det egentlig å være medborger? Utforsk rettigheter og plikter i demokratiet, og sammenlign hvordan politiske systemer er organisert i ulike land, fra liberalt demokrati til ettpartistyre og teokrati.",
+              "image": "/images/placeholder.webp",
+              "tags": [
+                "medborgarskap",
+                "demokrati",
+                "politiske-system",
+                "stemmerett",
+                "sivilt-samfunn"
               ],
               "createdDate": "2026-06-02T00:00:00Z",
               "lastUpdated": "2026-06-02T16:32:02+02:00"
@@ -5029,7 +5292,7 @@
                 "demokrati"
               ],
               "createdDate": "2026-06-01T00:00:00Z",
-              "lastUpdated": "2026-06-04T07:39:15+02:00"
+              "lastUpdated": "2026-06-04T11:50:58+02:00"
             },
             {
               "id": "olympiske-leker",
@@ -5044,7 +5307,7 @@
                 "religion"
               ],
               "createdDate": "2026-06-02T00:00:00Z",
-              "lastUpdated": "2026-06-02T09:38:09+02:00"
+              "lastUpdated": "2026-06-04T14:17:40+02:00"
             },
             {
               "id": "greske-guder",
@@ -5059,7 +5322,7 @@
                 "guder"
               ],
               "createdDate": "2026-06-03T00:00:00Z",
-              "lastUpdated": "2026-06-03T01:25:06+00:00"
+              "lastUpdated": "2026-06-04T14:17:40+02:00"
             },
             {
               "id": "gresk-teater",
@@ -5074,7 +5337,7 @@
                 "komedie"
               ],
               "createdDate": "2026-06-04T00:00:00Z",
-              "lastUpdated": "2026-06-04T07:14:50+02:00"
+              "lastUpdated": "2026-06-04T14:17:40+02:00"
             }
           ]
         },

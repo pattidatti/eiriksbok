@@ -114,12 +114,13 @@ const Falanksen3D: React.FC<MicroGameProps> = ({ onComplete }) => {
             }}
             overlays={
                 <>
-                    <SceneBanner message={banner} />
+                    <SceneBanner message={banner} wide />
                     <SceneBadge corner="br">
                         {phase === 'won' ? 'Skjoldmuren holdt' : 'Hellas, ca. 450 fvt'}
                     </SceneBadge>
                     {phase === 'tune' && (
                         <DataReadout
+                            corner="bl"
                             items={[
                                 { label: 'Skjoldmur', value: tight ? 'Tett' : 'Luker' },
                                 { label: 'Hoplitter', value: N },

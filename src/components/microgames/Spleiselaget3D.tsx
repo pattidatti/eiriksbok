@@ -36,13 +36,61 @@ interface Citizen {
 
 const CITIZENS: Citizen[] = [
     // Betalere (inn etter evne) - venstre side
-    { id: 'ingenior', label: 'Ingeniør', role: 'payer', detail: 'Høy inntekt - betaler mest', pos: [-4.6, 0, 1.4], body: '#1e3a8a', flow: 3 },
-    { id: 'laerer', label: 'Lærer', role: 'payer', detail: 'Vanlig inntekt - betaler etter evne', pos: [-4.8, 0, -0.8], body: '#0d9488', flow: 2 },
-    { id: 'butikk', label: 'Butikkmedarbeider', role: 'payer', detail: 'Lavere inntekt - betaler mindre', pos: [-3.6, 0, -2.8], body: '#2563eb', flow: 1 },
+    {
+        id: 'ingenior',
+        label: 'Ingeniør',
+        role: 'payer',
+        detail: 'Høy inntekt - betaler mest',
+        pos: [-4.6, 0, 1.4],
+        body: '#1e3a8a',
+        flow: 3,
+    },
+    {
+        id: 'laerer',
+        label: 'Lærer',
+        role: 'payer',
+        detail: 'Vanlig inntekt - betaler etter evne',
+        pos: [-4.8, 0, -0.8],
+        body: '#0d9488',
+        flow: 2,
+    },
+    {
+        id: 'butikk',
+        label: 'Butikkmedarbeider',
+        role: 'payer',
+        detail: 'Lavere inntekt - betaler mindre',
+        pos: [-3.6, 0, -2.8],
+        body: '#2563eb',
+        flow: 1,
+    },
     // Mottakere (ut etter behov) - høyre side
-    { id: 'elev', label: 'Skoleelev', role: 'receiver', detail: 'Gratis skolegang', pos: [4.6, 0, 1.4], body: '#16a34a', flow: 2 },
-    { id: 'pasient', label: 'Pasient', role: 'receiver', detail: 'Helsehjelp ved sykdom', pos: [4.8, 0, -0.8], body: '#db2777', flow: 2 },
-    { id: 'pensjonist', label: 'Pensjonist', role: 'receiver', detail: 'Alderspensjon', pos: [3.6, 0, -2.8], body: '#eab308', flow: 2 },
+    {
+        id: 'elev',
+        label: 'Skoleelev',
+        role: 'receiver',
+        detail: 'Gratis skolegang',
+        pos: [4.6, 0, 1.4],
+        body: '#16a34a',
+        flow: 2,
+    },
+    {
+        id: 'pasient',
+        label: 'Pasient',
+        role: 'receiver',
+        detail: 'Helsehjelp ved sykdom',
+        pos: [4.8, 0, -0.8],
+        body: '#db2777',
+        flow: 2,
+    },
+    {
+        id: 'pensjonist',
+        label: 'Pensjonist',
+        role: 'receiver',
+        detail: 'Alderspensjon',
+        pos: [3.6, 0, -2.8],
+        body: '#eab308',
+        flow: 2,
+    },
 ];
 
 const TOTAL = CITIZENS.length;
@@ -74,7 +122,9 @@ const Spleiselaget3D: React.FC<MicroGameProps> = ({ onComplete }) => {
                 sounds.play('complete');
                 onComplete({ score: 1, completed: true });
             } else if (next.size === 1) {
-                setBanner('Kassa begynner å fylles. Koble på alle seks - både de som betaler og de som får.');
+                setBanner(
+                    'Kassa begynner å fylles. Koble på alle seks - både de som betaler og de som får.'
+                );
             }
             return next;
         });
@@ -82,7 +132,9 @@ const Spleiselaget3D: React.FC<MicroGameProps> = ({ onComplete }) => {
 
     const reset = () => {
         setConnected(new Set());
-        setBanner('Klikk innbyggerne for å koble dem på spleiselaget. De i arbeid betaler inn - de med et behov får ut.');
+        setBanner(
+            'Klikk innbyggerne for å koble dem på spleiselaget. De i arbeid betaler inn - de med et behov får ut.'
+        );
     };
 
     return (
@@ -99,9 +151,12 @@ const Spleiselaget3D: React.FC<MicroGameProps> = ({ onComplete }) => {
             }}
             overlays={
                 <>
-                    <SceneBanner message={banner} />
-                    <SceneBadge corner="bl">{won ? 'Velferdsstaten bærer' : 'Spleiselaget'}</SceneBadge>
+                    <SceneBanner message={banner} wide />
+                    <SceneBadge corner="br">
+                        {won ? 'Velferdsstaten bærer' : 'Spleiselaget'}
+                    </SceneBadge>
                     <DataReadout
+                        corner="bl"
                         items={[
                             { label: 'I kassa', value: Math.round(fill * 100), unit: '%' },
                             { label: 'Betaler inn', value: `${payersIn}/3` },
@@ -110,15 +165,23 @@ const Spleiselaget3D: React.FC<MicroGameProps> = ({ onComplete }) => {
                     />
                 </>
             }
-            scene={<SpleiselagScene connected={connected} fill={fill} won={won} burst={burst} onConnect={connect} />}
+            scene={
+                <SpleiselagScene
+                    connected={connected}
+                    fill={fill}
+                    won={won}
+                    burst={burst}
+                    onConnect={connect}
+                />
+            }
         >
             {won ? (
                 <WinScreen title="Velferdsstaten bærer!" onReplay={reset}>
                     Alle er med på spleiselaget. De som er i arbeid betaler inn etter evne - den med
                     høyest inntekt betaler mest - og kassa betaler ut etter behov: gratis skole,
                     helsehjelp og pensjon. Det er universelt (alle er med), solidarisk (de rikeste
-                    bidrar mest) og obligatorisk. Nettopp derfor bærer den - men bare så lenge nesten
-                    alle er med.
+                    bidrar mest) og obligatorisk. Nettopp derfor bærer den - men bare så lenge
+                    nesten alle er med.
                 </WinScreen>
             ) : (
                 <div className="rounded-xl border border-amber-200 bg-white p-3">
@@ -160,7 +223,13 @@ function SpleiselagScene({
 
             {/* Felleskassa i midten */}
             <Pot fill={fill} won={won} />
-            <Burst position={[0, POT_Y + 1.4, 0]} trigger={burst} color="#ffe9a8" count={40} spread={4} />
+            <Burst
+                position={[0, POT_Y + 1.4, 0]}
+                trigger={burst}
+                color="#ffe9a8"
+                count={40}
+                spread={4}
+            />
 
             {/* Innbyggerne + strømmene */}
             {CITIZENS.map((c) => {
@@ -321,7 +390,7 @@ function FlowStream({ citizen, active }: { citizen: Citizen; active: boolean }) 
         for (let i = 0; i < count; i++) {
             const m = refs.current[i];
             if (!m) continue;
-            const frac = ((t * 0.55 + i / count) % 1 + 1) % 1;
+            const frac = (((t * 0.55 + i / count) % 1) + 1) % 1;
             m.position.lerpVectors(from, to, frac);
             // Bue: løft opp på midten.
             m.position.y += Math.sin(frac * Math.PI) * 1.1;

@@ -77,7 +77,7 @@ Importer alt fra `./kit`. Dette er den autoritative verktøykassa - bygg nye spi
       title="Bygg vikingskipet" subtitle="..." estimatedSeconds={160} onRetry={reset}
       scene={<MyScene stage={stage} />}
       canvas={{ idle: stage === 0, camera: { position: [9,7,11], fov: 40 }, background: '#bfe0f2' }}
-      overlays={<><SceneBanner message={banner} /><SceneBadge>{era}</SceneBadge></>}
+      overlays={<><SceneBanner message={banner} wide /><SceneBadge corner="br">{era}</SceneBadge></>}
   >
       <ChoiceRow items={...} onSelect={...} />   {/* kontroller under vinduet */}
   </MicroGameScaffold>
@@ -118,6 +118,22 @@ Importer alt fra `./kit`. Dette er den autoritative verktøykassa - bygg nye spi
 ### Output-overlegg (oppå scenen, `overlays`-slot)
 - **`SceneBanner`** (transient toppmelding), **`SceneBadge`** (hjørne-etikett), **`DragHint`**
   (idle-hint), **`SceneFact`** (faktakort under), **`WinScreen`** (trofé + reset/gå-videre).
+
+> **HÅNDHEVET PLASSERINGSREGEL - ingen overlapp i topphjørnene.** Følg dette oppsettet, ellers
+> kolliderer banner og teller (særlig på Chromebook/smale skjermer):
+> - **Toppen er reservert for `SceneBanner` alene.** Sett ALLTID `wide` på den
+>   (`<SceneBanner message={banner} wide />`) - da bruker den hele toppbredden og lange meldinger
+>   ligger på én linje. Uten `wide` blir den smal (det er kun en sikkerhetsfallback for spill som
+>   ennå har en widget i et topphjørne).
+> - **Aldri `corner="tr"` eller `corner="tl"`.** `DataReadout` har default `tr` - så når du bruker
+>   den MÅ du sette `corner="bl"` eksplisitt.
+> - **`DataReadout` (teller/live data) → `corner="bl"` (bunn-venstre).**
+> - **`SceneBadge` (epoke/etikett) → `corner="br"` (bunn-høyre).**
+> - **`DragHint`:** default `bl`. Hvis spillet også har en `DataReadout` (som er i `bl`), sett
+>   `corner="bc"` (bunn-senter) så hint og teller ikke overlapper.
+>
+> Kort: topp = `wide` banner, bunn-venstre = teller, bunn-høyre = etikett, bunn-senter = drahint
+> (kun når teller finnes). `GudenesVerden3D.tsx` og `GobekliTepe3D.tsx` er referanse.
 
 ### Hjelpere
 - **`damp(cur, target, dt, speed)`** / **`dampV3`** - myk demping mot mål i `useFrame`. Fundamentet

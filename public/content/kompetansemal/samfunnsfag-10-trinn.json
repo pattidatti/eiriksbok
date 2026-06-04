@@ -15,7 +15,7 @@
             "id": "saf-10-1",
             "nummer": 1,
             "kortNavn": "Samfunnsfaglige metoder",
-            "tekst": "bruke samfunnsfaglege metodar og digitale ressursar i eigne undersøkingar, presentere funn ved bruk av digitale verktøy og drøfte kor gyldige og relevante funna er",
+            "tekst": "bruke samfunnsfaglige metoder og digitale ressurser i egne undersøkelser, presentere funn ved bruk av digitale verktøy og drøfte hvor gyldige og relevante funnene er",
             "innhold": {
                 "artikler": [
                     {
@@ -69,11 +69,11 @@
             "id": "saf-10-2",
             "nummer": 2,
             "kortNavn": "Kilder og kildekritikk",
-            "tekst": "vurdere på kva måtar ulike kjelder gir informasjon om eit samfunnsfagleg tema, og reflektere over korleis algoritmar, einsretta kjelder eller mangel på kjelder kan prege forståinga vår",
+            "tekst": "vurdere på hvilke måter ulike kilder gir informasjon om et samfunnsfaglig tema, og reflektere over hvordan algoritmer, ensrettede kilder eller mangel på kilder kan prege forståelsen vår",
             "innhold": {
                 "artikler": [
                     {
-                        "tittel": "Kjelder, algoritmar og blindsoner",
+                        "tittel": "Kilder, algoritmer og blindsoner",
                         "link": "/samfunnskunnskap/mennesket-kultur-samfunn/km-2-kjelder-algoritmar",
                         "begrunnelse": "Dedikert KM-artikkel: utforsker algoritmer, filterboblar og kildekvalitet."
                     },
@@ -133,7 +133,7 @@
             "id": "saf-10-3",
             "nummer": 3,
             "kortNavn": "Framstillinger av fortida",
-            "tekst": "drøfte korleis framstillingar av fortida, hendingar og grupper har påverka og påverkar haldningane og handlingane til folk",
+            "tekst": "drøfte hvordan framstillinger av fortida, hendelser og grupper har påvirket og påvirker holdningene og handlingene til folk",
             "innhold": {
                 "artikler": [
                     {
@@ -212,7 +212,7 @@
             "id": "saf-10-4",
             "nummer": 4,
             "kortNavn": "Teknologi som endringsfaktor",
-            "tekst": "utforske korleis teknologi har vore og framleis er ein endringsfaktor, og drøfte innverknaden teknologien har hatt og har på enkeltmenneske, samfunn og natur",
+            "tekst": "utforske hvordan teknologi har vært og fortsatt er en endringsfaktor, og drøfte innvirkningen teknologien har hatt og har på enkeltmennesker, samfunn og natur",
             "innhold": {
                 "artikler": [
                     {
@@ -301,7 +301,7 @@
             "id": "saf-10-5",
             "nummer": 5,
             "kortNavn": "Kamp for endring",
-            "tekst": "reflektere over korleis menneske har kjempa og kjempar for endringar i samfunnet og samstundes har vore og er påverka av geografiske forhold og historisk kontekst",
+            "tekst": "reflektere over hvordan mennesker har kjempet og kjemper for endringer i samfunnet og samtidig har vært og er påvirket av geografiske forhold og historisk kontekst",
             "innhold": {
                 "artikler": [
                     {
@@ -361,11 +361,11 @@
             "id": "saf-10-6",
             "nummer": 6,
             "kortNavn": "Geografi, politikk og levekår",
-            "tekst": "samanlikne korleis politiske, geografiske og historiske forhold påverkar levekår, busetjingsmønster og demografi i forskjellige delar av verda i dag",
+            "tekst": "sammenligne hvordan politiske, geografiske og historiske forhold påvirker levekår, bosettingsmønster og demografi i forskjellige deler av verden i dag",
             "innhold": {
                 "artikler": [
                     {
-                        "tittel": "Levekår rundt om i verda",
+                        "tittel": "Levekår rundt om i verden",
                         "link": "/samfunnskunnskap/demografi/km-6-levekaar-verden",
                         "begrunnelse": "Dedikert KM-artikkel: sammenligner levekår, geografi, politikk og historie."
                     },
@@ -456,14 +456,14 @@
         {
             "id": "saf-10-7",
             "nummer": 7,
-            "kortNavn": "Konflikter — årsak og konsekvens",
-            "tekst": "gjere greie for årsaker til og konsekvensar av sentrale historiske og notidige konfliktar og reflektere over om endringar av nokre føresetnader kunne ha hindra konfliktane",
+            "kortNavn": "Konflikter - årsak og konsekvens",
+            "tekst": "gjøre rede for årsaker til og konsekvenser av sentrale historiske og nåtidige konflikter og reflektere over om endringer av noen forutsetninger kunne ha hindret konfliktene",
             "innhold": {
                 "artikler": [
                     {
-                        "tittel": "Konfliktar - årsaker og konsekvensar",
+                        "tittel": "Konflikter - årsaker og konsekvenser",
                         "link": "/samfunnskunnskap/styringsformer/km-7-konfliktar",
-                        "begrunnelse": "Dedikert KM-artikkel: analyserer historiske og notidige konflikter."
+                        "begrunnelse": "Dedikert KM-artikkel: analyserer historiske og nåtidige konflikter."
                     },
                     {
                         "tittel": "Opptakten (1. verdenskrig)",
@@ -541,7 +541,7 @@
                         "link": "/oving/tidsreise/nikolaj-ii"
                     },
                     {
-                        "tittel": "Veien mot mørket – Del 1",
+                        "tittel": "Veien mot mørket - Del 1",
                         "link": "/oving/tidsreise/mellomkrigstiden-del1"
                     },
                     {
@@ -563,7 +563,7 @@
                     {
                         "tittel": "Lindisfarne 793",
                         "link": "/oving/spill/lindisfarne-793",
-                        "begrunnelse": "Det første vikingangrepet — krig sett innenfra."
+                        "begrunnelse": "Det første vikingangrepet - krig sett innenfra."
                     },
                     {
                         "tittel": "Caesar Ides",
@@ -577,8 +577,8 @@
             "id": "saf-10-8",
             "nummer": 8,
             "kortNavn": "Terror og folkemord",
-            "tekst": "gjere greie for årsaker til og konsekvensar av terrorhandlingar og folkemord, som holocaust, og reflektere over korleis ekstreme haldningar og ekstreme handlingar kan førebyggjast",
-            "merknad": "Kunnskap om terrorhandlinga i Noreg 22. juli 2011 skal inngå i opplæringa.",
+            "tekst": "gjøre rede for årsaker til og konsekvenser av terrorhandlinger og folkemord, som holocaust, og reflektere over hvordan ekstreme holdninger og ekstreme handlinger kan forebygges",
+            "merknad": "Kunnskap om terrorhandlingen i Norge 22. juli 2011 skal inngå i opplæringen.",
             "innhold": {
                 "artikler": [
                     {
@@ -589,7 +589,7 @@
                     {
                         "tittel": "Konsentrasjonsleirene",
                         "link": "/historie/andre-verdenskrig/konsentrasjonsleirene",
-                        "begrunnelse": "Holocaust — årsaker, omfang og konsekvenser."
+                        "begrunnelse": "Holocaust - årsaker, omfang og konsekvenser."
                     },
                     {
                         "tittel": "Fra Weimar til mørke",
@@ -603,7 +603,7 @@
                     {
                         "tittel": "Stalins jernhånd",
                         "link": "/historie/mellomkrigstiden/sovjet",
-                        "begrunnelse": "Holodomor og Gulag — kommunistiske folkemord."
+                        "begrunnelse": "Holodomor og Gulag - kommunistiske folkemord."
                     },
                     {
                         "tittel": "Geopolitikk og Opptakt (2. verdenskrig)",
@@ -624,7 +624,7 @@
                 ],
                 "tidsreise": [
                     {
-                        "tittel": "Veien mot mørket – Del 2",
+                        "tittel": "Veien mot mørket - Del 2",
                         "link": "/oving/tidsreise/mellomkrigstiden-del2",
                         "begrunnelse": "1930-tallets radikalisering sett gjennom valg."
                     }
@@ -642,7 +642,7 @@
             "id": "saf-10-9",
             "nummer": 9,
             "kortNavn": "Menneskerettar og internasjonale avtalar",
-            "tekst": "utforske og beskrive korleis menneske- og urfolksrettar og andre internasjonale avtalar og samarbeid har betydning for nasjonal politikk, livet til menneske, likestilling og likeverd",
+            "tekst": "utforske og beskrive hvordan menneske- og urfolksrettigheter og andre internasjonale avtaler og samarbeid har betydning for nasjonal politikk, livet til mennesker, likestilling og likeverd",
             "innhold": {
                 "artikler": [
                     {
@@ -689,7 +689,7 @@
             "id": "saf-10-10",
             "nummer": 10,
             "kortNavn": "Fornorsking og minoriteter",
-            "tekst": "gjere greie for fornorsking av samane og dei nasjonale minoritetane og uretten dei har vore utsette for, og reflektere over kva konsekvensar det har hatt og har på individ- og samfunnsnivå",
+            "tekst": "gjøre rede for fornorskingen av samene og de nasjonale minoritetene og uretten de har vært utsatt for, og reflektere over hvilke konsekvenser det har hatt og har på individ- og samfunnsnivå",
             "merknad": "Dette målet er foreløpig svakt dekt i Eiriksbok. Egne artikler om samiske rettigheter, fornorskingspolitikken og sannhets- og forsoningskommisjonen er planlagt.",
             "innhold": {}
         },
@@ -697,7 +697,7 @@
             "id": "saf-10-11",
             "nummer": 11,
             "kortNavn": "Bærekraftig utvikling",
-            "tekst": "beskrive ulike dimensjonar ved berekraftig utvikling og korleis dei påverkar kvarandre, og presentere tiltak for meir berekraftige samfunn",
+            "tekst": "beskrive ulike dimensjoner ved bærekraftig utvikling og hvordan de påvirker hverandre, og presentere tiltak for mer bærekraftige samfunn",
             "innhold": {
                 "artikler": [
                     {
@@ -737,7 +737,7 @@
             "id": "saf-10-12",
             "nummer": 12,
             "kortNavn": "Personlig økonomi og levestandard",
-            "tekst": "vurdere korleis arbeid, inntekt og forbruk kan påverke personleg økonomi, levestandard og livskvalitet",
+            "tekst": "vurdere hvordan arbeid, inntekt og forbruk kan påvirke personlig økonomi, levestandard og livskvalitet",
             "innhold": {
                 "artikler": [
                     {
@@ -778,7 +778,7 @@
                     {
                         "tittel": "Finanskriser",
                         "link": "/samfunnskunnskap/okonomi/finanskriser",
-                        "begrunnelse": "Når økonomien går galt — og hvem som rammes."
+                        "begrunnelse": "Når økonomien går galt - og hvem som rammes."
                     },
                     {
                         "tittel": "Produksjon",
@@ -814,11 +814,11 @@
             "id": "saf-10-13",
             "nummer": 13,
             "kortNavn": "Identitet og mangfold",
-            "tekst": "reflektere over likskapar og ulikskapar i identitetar, levesett og kulturuttrykk og drøfte moglegheiter og utfordringar ved mangfald",
+            "tekst": "reflektere over likheter og ulikheter i identiteter, levesett og kulturuttrykk og drøfte muligheter og utfordringer ved mangfold",
             "innhold": {
                 "artikler": [
                     {
-                        "tittel": "Identitet og mangfald",
+                        "tittel": "Identitet og mangfold",
                         "link": "/samfunnskunnskap/mennesket-kultur-samfunn/km-9-identitet-mangfald",
                         "begrunnelse": "Dedikert KM-artikkel: likheter og ulikheter i identiteter, levesett og kultur."
                     },
@@ -835,7 +835,7 @@
                     {
                         "tittel": "Utopier",
                         "link": "/samfunnskunnskap/ideer-og-verdenssyn/utopier",
-                        "begrunnelse": "Drømmer om det perfekte samfunn — og hva de avslører om verdier."
+                        "begrunnelse": "Drømmer om det perfekte samfunn - og hva de avslører om verdier."
                     },
                     {
                         "tittel": "Migrasjon: push og pull",
@@ -849,7 +849,7 @@
             "id": "saf-10-14",
             "nummer": 14,
             "kortNavn": "Digitale spor og personvern",
-            "tekst": "utforske og reflektere over eigne digitale spor og høvet til å få sletta spora og å verne om retten ein sjølv og andre har til privatliv, personvern og opphavsrett",
+            "tekst": "utforske og reflektere over egne digitale spor og muligheten til å få slettet sporene og å verne om retten en selv og andre har til privatliv, personvern og opphavsrett",
             "innhold": {
                 "artikler": [
                     {
@@ -870,7 +870,7 @@
                     {
                         "tittel": "Robotene kommer",
                         "link": "/samfunnskunnskap/mennesket-kultur-samfunn/robotene-kommer",
-                        "begrunnelse": "KI lærer av dine data — hva betyr det?"
+                        "begrunnelse": "KI lærer av dine data - hva betyr det?"
                     }
                 ]
             }
@@ -879,11 +879,11 @@
             "id": "saf-10-15",
             "nummer": 15,
             "kortNavn": "Identitet og fellesskap",
-            "tekst": "reflektere over korleis identitet, sjølvbilete og eigne grenser blir utvikla og utfordra i ulike fellesskap, og presentere forslag til korleis ein kan handtere påverknad og uønskte hendingar",
+            "tekst": "reflektere over hvordan identitet, selvbilde og egne grenser blir utviklet og utfordret i ulike fellesskap, og presentere forslag til hvordan man kan håndtere påvirkning og uønskede hendelser",
             "innhold": {
                 "artikler": [
                     {
-                        "tittel": "Kven er du? - identitet og eigne grenser",
+                        "tittel": "Hvem er du? - identitet og egne grenser",
                         "link": "/samfunnskunnskap/mennesket-kultur-samfunn/km-11-sjolvbilete-grenser",
                         "begrunnelse": "Dedikert KM-artikkel: selvbilde, identitet og håndtering av gruppepress."
                     },
@@ -914,7 +914,7 @@
             "id": "saf-10-16",
             "nummer": 16,
             "kortNavn": "Aktører og makt",
-            "tekst": "reflektere over kva for aktørar som har makt i samfunnet i dag, og korleis desse grunngir standpunkta sine",
+            "tekst": "reflektere over hvilke aktører som har makt i samfunnet i dag, og hvordan disse begrunner standpunktene sine",
             "innhold": {
                 "artikler": [
                     {
@@ -996,13 +996,13 @@
             "id": "saf-10-17",
             "nummer": 17,
             "kortNavn": "Digital samhandling og samfunnsdebatt",
-            "tekst": "utforske ulike plattformer for digital samhandling og reflektere over korleis digital deltaking og samhandling påverkar forma på og innhaldet i samfunnsdebatten",
+            "tekst": "utforske ulike plattformer for digital samhandling og reflektere over hvordan digital deltakelse og samhandling påvirker formen på og innholdet i samfunnsdebatten",
             "innhold": {
                 "artikler": [
                     {
                         "tittel": "Den digitale offentlegheita",
                         "link": "/samfunnskunnskap/mennesket-kultur-samfunn/km-13-digital-debatt",
-                        "begrunnelse": "Dedikert KM-artikkel: digital deltaking og samfunnsdebatten."
+                        "begrunnelse": "Dedikert KM-artikkel: digital deltakelse og samfunnsdebatten."
                     },
                     {
                         "tittel": "Ekkokamre",
@@ -1031,11 +1031,11 @@
             "id": "saf-10-18",
             "nummer": 18,
             "kortNavn": "Lover, regler og normer",
-            "tekst": "beskrive sentrale lover, reglar og normer og drøfte kva konsekvensar brot på desse kan ha for den enkelte og for samfunnet på kort og lang sikt",
+            "tekst": "beskrive sentrale lover, regler og normer og drøfte hvilke konsekvenser brudd på disse kan ha for den enkelte og for samfunnet på kort og lang sikt",
             "innhold": {
                 "artikler": [
                     {
-                        "tittel": "Lover, normer og konsekvensar",
+                        "tittel": "Lover, normer og konsekvenser",
                         "link": "/samfunnskunnskap/styringsformer/km-14-lover-normer",
                         "begrunnelse": "Dedikert KM-artikkel: sentrale lover, normer og konsekvenser av brudd."
                     },
@@ -1071,7 +1071,7 @@
             "id": "saf-10-19",
             "nummer": 19,
             "kortNavn": "Det norske politiske systemet",
-            "tekst": "beskrive trekk ved det politiske systemet og velferdssamfunnet i Noreg i dag og reflektere over sentrale utfordringar",
+            "tekst": "beskrive trekk ved det politiske systemet og velferdssamfunnet i Norge i dag og reflektere over sentrale utfordringer",
             "innhold": {
                 "artikler": [
                     {

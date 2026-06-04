@@ -48,39 +48,221 @@ interface Country {
 // så lysene og navnene ikke kolliderer på det brede 16:9-kartet.
 const COUNTRIES: Country[] = [
     // Norden - sterk grunnmur, overlever
-    { id: 'norge', name: 'Norge', pos: [-0.9, 4.0], fellIn: null, pressure: 12, note: 'Lang tradisjon for kompromiss, stabil økonomi og ingen ydmykelse i krigen.' },
-    { id: 'sverige', name: 'Sverige', pos: [0.7, 3.7], fellIn: null, pressure: 14, note: 'Stabile institusjoner og sterk arbeiderbevegelse som valgte demokratiet.' },
-    { id: 'danmark', name: 'Danmark', pos: [-0.7, 2.6], fellIn: null, pressure: 16, note: 'Gammelt folkestyre og bred enighet om spillereglene.' },
-    { id: 'finland', name: 'Finland', pos: [2.7, 4.0], fellIn: null, pressure: 32, note: 'Ungt og presset, men forsvarte folkestyret gjennom hele perioden.' },
+    {
+        id: 'norge',
+        name: 'Norge',
+        pos: [-0.9, 4.0],
+        fellIn: null,
+        pressure: 12,
+        note: 'Lang tradisjon for kompromiss, stabil økonomi og ingen ydmykelse i krigen.',
+    },
+    {
+        id: 'sverige',
+        name: 'Sverige',
+        pos: [0.7, 3.7],
+        fellIn: null,
+        pressure: 14,
+        note: 'Stabile institusjoner og sterk arbeiderbevegelse som valgte demokratiet.',
+    },
+    {
+        id: 'danmark',
+        name: 'Danmark',
+        pos: [-0.7, 2.6],
+        fellIn: null,
+        pressure: 16,
+        note: 'Gammelt folkestyre og bred enighet om spillereglene.',
+    },
+    {
+        id: 'finland',
+        name: 'Finland',
+        pos: [2.7, 4.0],
+        fellIn: null,
+        pressure: 32,
+        note: 'Ungt og presset, men forsvarte folkestyret gjennom hele perioden.',
+    },
     // Baltikum - nye, svake stater, faller
-    { id: 'estland', name: 'Estland', pos: [3.7, 3.0], fellIn: 1934, note: 'Statskupp innfører autoritært styre.', pressure: 56 },
-    { id: 'latvia', name: 'Latvia', pos: [3.9, 2.1], fellIn: 1934, note: 'Ulmanis kupper og oppløser parlamentet.', pressure: 57 },
-    { id: 'litauen', name: 'Litauen', pos: [3.6, 1.2], fellIn: 1926, note: 'Offiserer kupper og innfører ettpartistyre.', pressure: 60 },
+    {
+        id: 'estland',
+        name: 'Estland',
+        pos: [3.7, 3.0],
+        fellIn: 1934,
+        note: 'Statskupp innfører autoritært styre.',
+        pressure: 56,
+    },
+    {
+        id: 'latvia',
+        name: 'Latvia',
+        pos: [3.9, 2.1],
+        fellIn: 1934,
+        note: 'Ulmanis kupper og oppløser parlamentet.',
+        pressure: 57,
+    },
+    {
+        id: 'litauen',
+        name: 'Litauen',
+        pos: [3.6, 1.2],
+        fellIn: 1926,
+        note: 'Offiserer kupper og innfører ettpartistyre.',
+        pressure: 60,
+    },
     // De britiske øyer - overlever
-    { id: 'uk', name: 'Storbritannia', pos: [-5.9, 2.7], fellIn: null, pressure: 18, note: 'Hundreår med parlament, vant krigen og hadde sterk økonomi.' },
-    { id: 'irland', name: 'Irland', pos: [-7.5, 2.3], fellIn: null, pressure: 28, note: 'Ny stat, men fredelig overgang til et fungerende parlament.' },
+    {
+        id: 'uk',
+        name: 'Storbritannia',
+        pos: [-5.9, 2.7],
+        fellIn: null,
+        pressure: 18,
+        note: 'Hundreår med parlament, vant krigen og hadde sterk økonomi.',
+    },
+    {
+        id: 'irland',
+        name: 'Irland',
+        pos: [-7.5, 2.3],
+        fellIn: null,
+        pressure: 28,
+        note: 'Ny stat, men fredelig overgang til et fungerende parlament.',
+    },
     // Iberia - faller
-    { id: 'spania', name: 'Spania', pos: [-5.6, -1.9], fellIn: 1923, note: 'General Primo de Rivera griper makten.', pressure: 78 },
-    { id: 'portugal', name: 'Portugal', pos: [-7.3, -2.0], fellIn: 1926, note: 'Militærkupp baner vei for Salazars diktatur.', pressure: 62 },
+    {
+        id: 'spania',
+        name: 'Spania',
+        pos: [-5.6, -1.9],
+        fellIn: 1923,
+        note: 'General Primo de Rivera griper makten.',
+        pressure: 78,
+    },
+    {
+        id: 'portugal',
+        name: 'Portugal',
+        pos: [-7.3, -2.0],
+        fellIn: 1926,
+        note: 'Militærkupp baner vei for Salazars diktatur.',
+        pressure: 62,
+    },
     // Vest- og Sentral-Europa - overlever
-    { id: 'frankrike', name: 'Frankrike', pos: [-3.7, 0.3], fellIn: null, pressure: 36, note: 'Sterk republikansk tradisjon, og blant seierherrene i krigen.' },
-    { id: 'belgia', name: 'Belgia', pos: [-2.5, 1.5], fellIn: null, pressure: 26, note: 'Stabile institusjoner og mindre rammet enn naboene i øst.' },
-    { id: 'nederland', name: 'Nederland', pos: [-2.2, 2.5], fellIn: null, pressure: 20, note: 'Nøytralt i krigen, med stabil økonomi og lange demokratiske røtter.' },
-    { id: 'sveits', name: 'Sveits', pos: [-1.7, -0.4], fellIn: null, pressure: 10, note: 'Nøytralt, gammelt folkestyre og en stabil økonomi.' },
-    { id: 'tsjekkoslovakia', name: 'Tsjekkoslov.', pos: [1.0, 0.4], fellIn: null, pressure: 40, note: 'Den eneste stabile nye staten - falt først da Hitler invaderte utenfra (1938-39).' },
+    {
+        id: 'frankrike',
+        name: 'Frankrike',
+        pos: [-3.7, 0.3],
+        fellIn: null,
+        pressure: 36,
+        note: 'Sterk republikansk tradisjon, og blant seierherrene i krigen.',
+    },
+    {
+        id: 'belgia',
+        name: 'Belgia',
+        pos: [-2.5, 1.5],
+        fellIn: null,
+        pressure: 26,
+        note: 'Stabile institusjoner og mindre rammet enn naboene i øst.',
+    },
+    {
+        id: 'nederland',
+        name: 'Nederland',
+        pos: [-2.2, 2.5],
+        fellIn: null,
+        pressure: 20,
+        note: 'Nøytralt i krigen, med stabil økonomi og lange demokratiske røtter.',
+    },
+    {
+        id: 'sveits',
+        name: 'Sveits',
+        pos: [-1.7, -0.4],
+        fellIn: null,
+        pressure: 10,
+        note: 'Nøytralt, gammelt folkestyre og en stabil økonomi.',
+    },
+    {
+        id: 'tsjekkoslovakia',
+        name: 'Tsjekkoslov.',
+        pos: [1.0, 0.4],
+        fellIn: null,
+        pressure: 40,
+        note: 'Den eneste stabile nye staten - falt først da Hitler invaderte utenfra (1938-39).',
+    },
     // Sentral-Europa - krigstaperne, faller hardt
-    { id: 'tyskland', name: 'Tyskland', pos: [-0.3, 1.6], fellIn: 1933, note: 'Hitler blir rikskansler. Riksdagen settes ut av spill.', pressure: 92 },
-    { id: 'osterrike', name: 'Østerrike', pos: [0.5, -0.7], fellIn: 1933, note: 'Dollfuss oppløser nasjonalforsamlingen.', pressure: 85 },
-    { id: 'ungarn', name: 'Ungarn', pos: [2.3, -0.5], fellIn: 1920, note: 'Admiral Horthy tar makten etter krig og revolusjon.', pressure: 70 },
-    { id: 'polen', name: 'Polen', pos: [2.6, 1.7], fellIn: 1926, note: 'Marskalk Piłsudski tar makten i et kupp.', pressure: 64 },
+    {
+        id: 'tyskland',
+        name: 'Tyskland',
+        pos: [-0.3, 1.6],
+        fellIn: 1933,
+        note: 'Hitler blir rikskansler. Riksdagen settes ut av spill.',
+        pressure: 92,
+    },
+    {
+        id: 'osterrike',
+        name: 'Østerrike',
+        pos: [0.5, -0.7],
+        fellIn: 1933,
+        note: 'Dollfuss oppløser nasjonalforsamlingen.',
+        pressure: 85,
+    },
+    {
+        id: 'ungarn',
+        name: 'Ungarn',
+        pos: [2.3, -0.5],
+        fellIn: 1920,
+        note: 'Admiral Horthy tar makten etter krig og revolusjon.',
+        pressure: 70,
+    },
+    {
+        id: 'polen',
+        name: 'Polen',
+        pos: [2.6, 1.7],
+        fellIn: 1926,
+        note: 'Marskalk Piłsudski tar makten i et kupp.',
+        pressure: 64,
+    },
     // Italia
-    { id: 'italia', name: 'Italia', pos: [-0.6, -2.0], fellIn: 1922, note: 'Mussolini marsjerer mot Roma. Fascistene tar over.', pressure: 80 },
+    {
+        id: 'italia',
+        name: 'Italia',
+        pos: [-0.6, -2.0],
+        fellIn: 1922,
+        note: 'Mussolini marsjerer mot Roma. Fascistene tar over.',
+        pressure: 80,
+    },
     // Balkan - faller
-    { id: 'jugoslavia', name: 'Jugoslavia', pos: [1.7, -1.7], fellIn: 1929, note: 'Kong Aleksandar oppløser nasjonalforsamlingen.', pressure: 68 },
-    { id: 'romania', name: 'Romania', pos: [4.3, -0.4], fellIn: 1930, note: 'Kongen samler makten og svekker det folkevalgte styret.', pressure: 66 },
-    { id: 'bulgaria', name: 'Bulgaria', pos: [4.1, -1.7], fellIn: 1923, note: 'Militærkupp styrter den valgte regjeringen.', pressure: 72 },
-    { id: 'albania', name: 'Albania', pos: [2.3, -2.7], fellIn: 1924, note: 'Ahmet Zogu tar makten og gjør seg snart til konge.', pressure: 74 },
-    { id: 'hellas', name: 'Hellas', pos: [3.6, -3.0], fellIn: 1936, note: 'General Metaxas innfører diktatur.', pressure: 60 },
+    {
+        id: 'jugoslavia',
+        name: 'Jugoslavia',
+        pos: [1.7, -1.7],
+        fellIn: 1929,
+        note: 'Kong Aleksandar oppløser nasjonalforsamlingen.',
+        pressure: 68,
+    },
+    {
+        id: 'romania',
+        name: 'Romania',
+        pos: [4.3, -0.4],
+        fellIn: 1930,
+        note: 'Kongen samler makten og svekker det folkevalgte styret.',
+        pressure: 66,
+    },
+    {
+        id: 'bulgaria',
+        name: 'Bulgaria',
+        pos: [4.1, -1.7],
+        fellIn: 1923,
+        note: 'Militærkupp styrter den valgte regjeringen.',
+        pressure: 72,
+    },
+    {
+        id: 'albania',
+        name: 'Albania',
+        pos: [2.3, -2.7],
+        fellIn: 1924,
+        note: 'Ahmet Zogu tar makten og gjør seg snart til konge.',
+        pressure: 74,
+    },
+    {
+        id: 'hellas',
+        name: 'Hellas',
+        pos: [3.6, -3.0],
+        fellIn: 1936,
+        note: 'General Metaxas innfører diktatur.',
+        pressure: 60,
+    },
 ];
 
 const TOTAL = COUNTRIES.length; // 26
@@ -96,9 +278,7 @@ function pressureColor(p: number): THREE.Color {
     const green = new THREE.Color('#22c55e');
     const amber = new THREE.Color('#f59e0b');
     const red = new THREE.Color('#ef4444');
-    return t < 0.5
-        ? green.clone().lerp(amber, t / 0.5)
-        : amber.clone().lerp(red, (t - 0.5) / 0.5);
+    return t < 0.5 ? green.clone().lerp(amber, t / 0.5) : amber.clone().lerp(red, (t - 0.5) / 0.5);
 }
 
 const DemokratiLysene3D: React.FC<MicroGameProps> = ({ onComplete }) => {
@@ -186,10 +366,13 @@ const DemokratiLysene3D: React.FC<MicroGameProps> = ({ onComplete }) => {
         if (phase === 'plan')
             return 'Klikk inntil 3 demokratier du vil verne med et skjold. De røde ringene er hardest presset.';
         if (phase === 'reveal') return null;
-        if (yearInt < 1922) return '1920: nesten hele Europa er demokrati. Men presset bygger seg opp.';
+        if (yearInt < 1922)
+            return '1920: nesten hele Europa er demokrati. Men presset bygger seg opp.';
         if (yearInt < 1924) return '1922: Mussolini marsjerer mot Roma. Fascistene tar Italia.';
-        if (yearInt < 1929) return 'Ett etter ett kupper militære og konger demokratiene. De glade 20-åra skjuler uroen.';
-        if (yearInt < 1933) return 'Børskrakket i 1929 kaster verden ut i krise. Folk søker sterke ledere.';
+        if (yearInt < 1929)
+            return 'Ett etter ett kupper militære og konger demokratiene. De glade 20-åra skjuler uroen.';
+        if (yearInt < 1933)
+            return 'Børskrakket i 1929 kaster verden ut i krise. Folk søker sterke ledere.';
         if (yearInt < 1936) return '1933: Hitler griper makten i Tyskland. Diktaturene brer seg.';
         return 'Bare noen få lys står igjen. Demokrati er blitt unntaket, ikke regelen.';
     })();
@@ -215,8 +398,8 @@ const DemokratiLysene3D: React.FC<MicroGameProps> = ({ onComplete }) => {
             }}
             overlays={
                 <>
-                    <SceneBanner message={banner} />
-                    <SceneBadge corner="tr">{phase === 'plan' ? '1920' : yearInt}</SceneBadge>
+                    <SceneBanner message={banner} wide />
+                    <SceneBadge corner="bl">{phase === 'plan' ? '1920' : yearInt}</SceneBadge>
                     <DataReadout
                         corner="br"
                         items={[
@@ -283,7 +466,10 @@ const DemokratiLysene3D: React.FC<MicroGameProps> = ({ onComplete }) => {
                             </span>{' '}
                             {latestFall.note}
                             {shields.has(latestFall.id) && (
-                                <span className="text-rose-600 font-semibold"> Skjoldet sprakk.</span>
+                                <span className="text-rose-600 font-semibold">
+                                    {' '}
+                                    Skjoldet sprakk.
+                                </span>
                             )}
                         </SceneFact>
                     )}
@@ -294,11 +480,11 @@ const DemokratiLysene3D: React.FC<MicroGameProps> = ({ onComplete }) => {
                 <div className="flex flex-col gap-3">
                     <WinScreen title="Det var grunnmuren, ikke godviljen." onReplay={reset}>
                         I 1920 var 26 europeiske land demokratier. I 1938 var bare 11 igjen. Du fikk
-                        verne tre av dem - men se på press-lasten: der krig, økonomisk kollaps og frykt
-                        stablet seg opp, slukket lyset uansett hvor mye du prøvde. Der grunnmuren var
-                        sterk - lang tradisjon, stabil økonomi og ingen ydmykelse etter krigen - holdt
-                        lyset av seg selv. Demokrati faller ikke av tilfeldig uflaks. Det faller når for
-                        mye press møter en for svak grunnmur.
+                        verne tre av dem - men se på press-lasten: der krig, økonomisk kollaps og
+                        frykt stablet seg opp, slukket lyset uansett hvor mye du prøvde. Der
+                        grunnmuren var sterk - lang tradisjon, stabil økonomi og ingen ydmykelse
+                        etter krigen - holdt lyset av seg selv. Demokrati faller ikke av tilfeldig
+                        uflaks. Det faller når for mye press møter en for svak grunnmur.
                     </WinScreen>
                     <SceneQuiz
                         question="Hvorfor overlevde demokratiet i Norge, Sveits og Storbritannia?"
@@ -443,7 +629,12 @@ function DemocracyLight({
         if (grp.current) {
             // Levende lys bobler mykt; slukte synker litt.
             const bob = isFallen ? 0 : Math.sin(t * 1.6 + x * 2 + y) * 0.04;
-            grp.current.position.y = damp(grp.current.position.y, (isFallen ? -0.05 : 0.1) + bob, dt, 6);
+            grp.current.position.y = damp(
+                grp.current.position.y,
+                (isFallen ? -0.05 : 0.1) + bob,
+                dt,
+                6
+            );
         }
 
         if (orbMat.current) {
@@ -497,9 +688,7 @@ function DemocracyLight({
             } else if (isFallen) {
                 // sprekk: skaler raskt opp og falm ut
                 const target = 1.8;
-                shieldMesh.current.scale.setScalar(
-                    damp(shieldMesh.current.scale.x, target, dt, 4)
-                );
+                shieldMesh.current.scale.setScalar(damp(shieldMesh.current.scale.x, target, dt, 4));
                 sm.opacity = damp(sm.opacity, 0, dt, 3);
                 shieldMesh.current.visible = sm.opacity > 0.01;
             } else {
@@ -577,7 +766,12 @@ function DemocracyLight({
                 </group>
             </Interactive>
 
-            <Html center distanceFactor={11} position={[0, -0.82, 0]} style={{ pointerEvents: 'none' }}>
+            <Html
+                center
+                distanceFactor={11}
+                position={[0, -0.82, 0]}
+                style={{ pointerEvents: 'none' }}
+            >
                 <span
                     style={{
                         fontSize: '13px',

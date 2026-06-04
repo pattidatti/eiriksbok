@@ -113,8 +113,11 @@ const VikingShip3D: React.FC<MicroGameProps> = ({ onComplete }) => {
         form < 0.34
             ? { name: 'Langskip', use: 'Smalt og raskt - bygd for fart og krig.' }
             : form > 0.66
-              ? { name: 'Knarr', use: 'Bredt og dypt - bygd for last og handel.' }
-              : { name: 'Mellomting', use: 'Verken rovdyr eller arbeidshest enda - dra spaken helt ut.' };
+            ? { name: 'Knarr', use: 'Bredt og dypt - bygd for last og handel.' }
+            : {
+                  name: 'Mellomting',
+                  use: 'Verken rovdyr eller arbeidshest enda - dra spaken helt ut.',
+              };
 
     // Hotspot-høyde over skroget for neste bordgang / mast.
     const strakeY = 0.25 + strakes * STRAKE_H + 0.5;
@@ -137,15 +140,15 @@ const VikingShip3D: React.FC<MicroGameProps> = ({ onComplete }) => {
             }}
             overlays={
                 <>
-                    <SceneBanner message={banner} />
+                    <SceneBanner message={banner} wide />
                     <SceneBadge corner="br">
                         {phase === 'launched'
                             ? identity.name + ' på havet'
                             : phase === 'keel'
-                              ? 'Båtbyggeriet'
-                              : phase === 'tune'
-                                ? identity.name
-                                : 'Klinkbygging'}
+                            ? 'Båtbyggeriet'
+                            : phase === 'tune'
+                            ? identity.name
+                            : 'Klinkbygging'}
                     </SceneBadge>
                     <DragHint show={idle && introDone}>Dra eikekjølen inn på stativet</DragHint>
                 </>
@@ -174,7 +177,8 @@ const VikingShip3D: React.FC<MicroGameProps> = ({ onComplete }) => {
             {/* Kontrollområde under vinduet - skifter med fasen */}
             {phase === 'keel' && (
                 <p className="text-center text-sm text-slate-600">
-                    Alt starter med kjølen. Dra eikebjelken inn på byggestativet for å legge ryggraden i skipet.
+                    Alt starter med kjølen. Dra eikebjelken inn på byggestativet for å legge
+                    ryggraden i skipet.
                 </p>
             )}
 
@@ -182,7 +186,8 @@ const VikingShip3D: React.FC<MicroGameProps> = ({ onComplete }) => {
                 <div className="flex flex-col gap-2.5">
                     <StepTracker current={strakes} total={STRAKES} />
                     <p className="text-sm text-slate-600">
-                        Klikk den pulserende ringen over skroget for å klinke neste bordgang på plass.
+                        Klikk den pulserende ringen over skroget for å klinke neste bordgang på
+                        plass.
                     </p>
                     {fact && <SceneFact>{fact}</SceneFact>}
                 </div>
@@ -190,8 +195,8 @@ const VikingShip3D: React.FC<MicroGameProps> = ({ onComplete }) => {
 
             {phase === 'mast' && (
                 <p className="text-center text-sm text-slate-600">
-                    Skroget er ferdig klinket. Klikk ringen midt i skipet for å reise masten - kjølen er
-                    sterk nok til å bære seilet.
+                    Skroget er ferdig klinket. Klikk ringen midt i skipet for å reise masten -
+                    kjølen er sterk nok til å bære seilet.
                 </p>
             )}
 
@@ -210,8 +215,8 @@ const VikingShip3D: React.FC<MicroGameProps> = ({ onComplete }) => {
                         <div className="rounded-xl border border-amber-200 bg-white p-3 sm:flex sm:items-center sm:gap-4">
                             <p className="text-xs text-slate-600 leading-relaxed min-w-0 flex-1">
                                 <span className="font-bold text-slate-800">{identity.name}.</span>{' '}
-                                {identity.use} Samme håndverk - smalt skrog gir fart, bredt skrog gir
-                                lasterom.
+                                {identity.use} Samme håndverk - smalt skrog gir fart, bredt skrog
+                                gir lasterom.
                             </p>
                             <button
                                 onClick={launch}
@@ -224,8 +229,9 @@ const VikingShip3D: React.FC<MicroGameProps> = ({ onComplete }) => {
                     ) : (
                         <WinScreen title="Skipet er sjøsatt!" onReplay={reset}>
                             Klinkbyggingen gjorde skroget lett og fleksibelt, og kjølen lot det bære
-                            seil over åpent hav. Det samme håndverket ga vikingene både langskipet til
-                            krig og knarren til handel - derfor kunne de både herje og bygge et rike.
+                            seil over åpent hav. Det samme håndverket ga vikingene både langskipet
+                            til krig og knarren til handel - derfor kunne de både herje og bygge et
+                            rike.
                         </WinScreen>
                     )}
                 </div>
@@ -269,12 +275,7 @@ function ShipYard({
         const tz = launched ? -4 : 0;
         ship.current.position.x = damp(ship.current.position.x, tx, dt, 0.6);
         ship.current.position.z = damp(ship.current.position.z, tz, dt, 0.6);
-        ship.current.position.y = damp(
-            ship.current.position.y,
-            launched ? 0.15 : 0,
-            dt,
-            1.2
-        );
+        ship.current.position.y = damp(ship.current.position.y, launched ? 0.15 : 0, dt, 1.2);
         // Bølgevugg når det flyter.
         const t = performance.now() / 1000;
         ship.current.rotation.z = launched ? Math.sin(t * 1.5) * 0.04 : 0;
@@ -335,7 +336,13 @@ function ShipYard({
                         </HullMorph>
                         {masted && <MastAndSail />}
                         {/* Feiringspartikler ved sjøsetting */}
-                        <Burst position={[0, 2.4, 0]} trigger={burst} color="#f4e7c5" count={32} spread={3.5} />
+                        <Burst
+                            position={[0, 2.4, 0]}
+                            trigger={burst}
+                            color="#f4e7c5"
+                            count={32}
+                            spread={3.5}
+                        />
                     </group>
 
                     {/* Hotspot: neste bordgang */}
@@ -462,10 +469,7 @@ function strakeCurves(s: number) {
 }
 
 function Hull({ strakes }: { strakes: number }) {
-    const curves = useMemo(
-        () => Array.from({ length: STRAKES }, (_, s) => strakeCurves(s)),
-        []
-    );
+    const curves = useMemo(() => Array.from({ length: STRAKES }, (_, s) => strakeCurves(s)), []);
     const woods = ['#8a5a32', '#9a6638', '#7d5230'];
     return (
         <>
@@ -564,7 +568,11 @@ function MastAndSail() {
             <group ref={sail} position={[0, 1.5, 0]} scale={[0.02, 0.02, 1]}>
                 <mesh position={[0, 0, 0.01]}>
                     <planeGeometry args={[2.4, 1.6]} />
-                    <meshStandardMaterial color="#efe7d4" roughness={0.95} side={THREE.DoubleSide} />
+                    <meshStandardMaterial
+                        color="#efe7d4"
+                        roughness={0.95}
+                        side={THREE.DoubleSide}
+                    />
                 </mesh>
                 {/* røde striper */}
                 {[-0.5, 0.5].map((y) => (

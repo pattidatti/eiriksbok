@@ -59,9 +59,7 @@ const Vannmolla3D: React.FC<MicroGameProps> = ({ onComplete }) => {
     const [hammerOn, setHammerOn] = useState(false);
     const [flour, setFlour] = useState(0); // 0..100 (% av en sekk)
     const [done, setDone] = useState(false);
-    const [banner, setBanner] = useState<string | null>(
-        'Hell korn i trakta over kvernsteinene.'
-    );
+    const [banner, setBanner] = useState<string | null>('Hell korn i trakta over kvernsteinene.');
     const [fact, setFact] = useState<string | null>(null);
     const [burst, setBurst] = useState(0);
     const [resetKey, setResetKey] = useState(0);
@@ -80,9 +78,7 @@ const Vannmolla3D: React.FC<MicroGameProps> = ({ onComplete }) => {
     };
 
     const riverDry = step === 3;
-    const windCatch = riverDry
-        ? Math.max(0, Math.cos(((capAngle - WIND_DIR) * Math.PI) / 180))
-        : 0;
+    const windCatch = riverDry ? Math.max(0, Math.cos(((capAngle - WIND_DIR) * Math.PI) / 180)) : 0;
     // Hjulet snurrer med vannet i steg 1-2, står stille når elva er tørr.
     const wheelPower = riverDry ? 0 : waterFlow;
     // Det som driver kvernsteinene: vann i steg 1-2, vind i steg 3.
@@ -162,9 +158,7 @@ const Vannmolla3D: React.FC<MicroGameProps> = ({ onComplete }) => {
             title="Mølla som aldri ble trøtt"
             subtitle="La elva male kornet, koble inn hammeren, og vri mølla mot vinden når elva svikter"
             estimatedSeconds={150}
-            onRetry={
-                grainLoaded || step > 1 || waterFlow > 0 || capAngle > 0 ? reset : undefined
-            }
+            onRetry={grainLoaded || step > 1 || waterFlow > 0 || capAngle > 0 ? reset : undefined}
             canvas={{
                 idle: false,
                 controls: true,
@@ -174,12 +168,14 @@ const Vannmolla3D: React.FC<MicroGameProps> = ({ onComplete }) => {
             }}
             overlays={
                 <>
-                    <SceneBanner message={banner} />
+                    <SceneBanner message={banner} wide />
                     <SceneBadge corner="br">
                         {step === 1 ? 'Vannmølla' : step === 2 ? 'Sag og hammer' : 'Vindmølla'}
                     </SceneBadge>
-                    <DataReadout items={readout} corner="tr" />
-                    <DragHint show={idleHint}>Klikk den gule ringen over trakta</DragHint>
+                    <DataReadout items={readout} corner="bl" />
+                    <DragHint show={idleHint} corner="bc">
+                        Klikk den gule ringen over trakta
+                    </DragHint>
                 </>
             }
             scene={
@@ -381,10 +377,7 @@ function MillScene({
             </group>
 
             {/* Stamphammeren (steg 2-3) */}
-            <TripHammer
-                active={hammerOn}
-                power={hammerOn ? Math.max(millPower, 0.5) : 0}
-            />
+            <TripHammer active={hammerOn} power={hammerOn ? Math.max(millPower, 0.5) : 0} />
             {step === 2 && !hammerOn && (
                 <Interactive onSelect={onEngageHammer} hitArea={[1.4, 1.4, 1.4]}>
                     {(s) => (
@@ -407,7 +400,13 @@ function MillScene({
             {riverDry && <WindCue />}
 
             {/* Feiringspartikler ved seier */}
-            <Burst position={[5.4, 4.6, -1]} trigger={burst} color="#dff0ff" count={34} spread={4} />
+            <Burst
+                position={[5.4, 4.6, -1]}
+                trigger={burst}
+                color="#dff0ff"
+                count={34}
+                spread={4}
+            />
         </group>
     );
 }
@@ -504,9 +503,21 @@ function DriveTrain({ wheelPower, millPower }: { wheelPower: number; millPower: 
     return (
         <group position={[0.5, 1.25, 1.3]}>
             {/* stort vannhjuls-tannhjul (snurrer om Z med vannhjulet) */}
-            <Gear position={[0, 0, 0]} radius={0.55} teeth={12} color={COL.stone} spin={-wheelPower * 3.4} />
+            <Gear
+                position={[0, 0, 0]}
+                radius={0.55}
+                teeth={12}
+                color={COL.stone}
+                spin={-wheelPower * 3.4}
+            />
             {/* mindre tannhjul som griper inn (kjernen i "smarte tannhjul") */}
-            <Gear position={[0.78, -0.2, 0]} radius={0.28} teeth={8} color={COL.stoneDark} spin={millPower * 6.8} />
+            <Gear
+                position={[0.78, -0.2, 0]}
+                radius={0.28}
+                teeth={8}
+                color={COL.stoneDark}
+                spin={millPower * 6.8}
+            />
         </group>
     );
 }
@@ -648,7 +659,10 @@ function Windmill({
                                     {/* vinge-stang */}
                                     <mesh position={[0, 0.85, 0]} castShadow>
                                         <boxGeometry args={[0.08, 1.7, 0.05]} />
-                                        <meshStandardMaterial color={COL.woodDark} roughness={0.9} />
+                                        <meshStandardMaterial
+                                            color={COL.woodDark}
+                                            roughness={0.9}
+                                        />
                                     </mesh>
                                     {/* seilduk */}
                                     <mesh position={[0.22, 0.85, 0.02]}>

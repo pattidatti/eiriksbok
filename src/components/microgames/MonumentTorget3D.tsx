@@ -38,11 +38,41 @@ interface Candidate {
 
 const CANDIDATES: Candidate[] = [
     { id: 'konge', name: 'Kongen', blurb: 'Samlet riket', type: 'makt', color: '#b8902f' },
-    { id: 'general', name: 'Krigshelten', blurb: 'Vant slag for landet', type: 'makt', color: '#9a6b3f' },
-    { id: 'oppdager', name: 'Oppdageren', blurb: 'Seilte mot ukjente kyster', type: 'makt', color: '#7c8a47' },
-    { id: 'arbeider', name: 'Arbeideren', blurb: 'Bygde landet med hendene', type: 'folk', color: '#4f7cac' },
-    { id: 'samisk', name: 'Den samiske lederen', blurb: 'Kjempet for sitt folks rett', type: 'folk', color: '#3f8f6b' },
-    { id: 'forsker', name: 'Forskeren', blurb: 'Endret livene våre med ny kunnskap', type: 'folk', color: '#8a5fa8' },
+    {
+        id: 'general',
+        name: 'Krigshelten',
+        blurb: 'Vant slag for landet',
+        type: 'makt',
+        color: '#9a6b3f',
+    },
+    {
+        id: 'oppdager',
+        name: 'Oppdageren',
+        blurb: 'Seilte mot ukjente kyster',
+        type: 'makt',
+        color: '#7c8a47',
+    },
+    {
+        id: 'arbeider',
+        name: 'Arbeideren',
+        blurb: 'Bygde landet med hendene',
+        type: 'folk',
+        color: '#4f7cac',
+    },
+    {
+        id: 'samisk',
+        name: 'Den samiske lederen',
+        blurb: 'Kjempet for sitt folks rett',
+        type: 'folk',
+        color: '#3f8f6b',
+    },
+    {
+        id: 'forsker',
+        name: 'Forskeren',
+        blurb: 'Endret livene våre med ny kunnskap',
+        type: 'folk',
+        color: '#8a5fa8',
+    },
 ];
 
 const byId = (id: string) => CANDIDATES.find((c) => c.id === id)!;
@@ -85,7 +115,8 @@ const MonumentTorget3D: React.FC<MicroGameProps> = ({ onComplete }) => {
     const placeCandidate = (id: string) => {
         if (phase === 'won' || usedIds.has(id)) return;
         if (phase === 'ensidig') setPhase('build');
-        const target = selected !== null && placed[selected] === null ? selected : placed.indexOf(null);
+        const target =
+            selected !== null && placed[selected] === null ? selected : placed.indexOf(null);
         if (target === -1) return;
         const next = [...placed];
         next[target] = id;
@@ -145,7 +176,7 @@ const MonumentTorget3D: React.FC<MicroGameProps> = ({ onComplete }) => {
             }}
             overlays={
                 <>
-                    <SceneBanner message={banner} />
+                    <SceneBanner message={banner} wide />
                     <SceneBadge corner="br">
                         {phase === 'won' ? 'En bredere historie' : 'Byens minne'}
                     </SceneBadge>
@@ -176,8 +207,8 @@ const MonumentTorget3D: React.FC<MicroGameProps> = ({ onComplete }) => {
                                         id === null
                                             ? 'bg-slate-200'
                                             : byId(id).type === 'makt'
-                                              ? 'bg-amber-500'
-                                              : 'bg-sky-500'
+                                            ? 'bg-amber-500'
+                                            : 'bg-sky-500'
                                     }`}
                                     title={id ? byId(id).name : 'Tom sokkel'}
                                 />
@@ -228,8 +259,8 @@ const MonumentTorget3D: React.FC<MicroGameProps> = ({ onComplete }) => {
                         </button>
                     ) : (
                         <SceneFact>
-                            Et monument er en fysisk historieframstilling. Det sier: «denne er verdt å
-                            huske». Den du lar stå igjen, blir usynlig i det offentlige rommet.
+                            Et monument er en fysisk historieframstilling. Det sier: «denne er verdt
+                            å huske». Den du lar stå igjen, blir usynlig i det offentlige rommet.
                         </SceneFact>
                     )}
                 </div>
@@ -282,8 +313,22 @@ function TorgScene({
             </mesh>
 
             {/* Bygninger i bakgrunnen - signaliserer offentlig rom */}
-            <Building position={[-6.5, 0, -6]} body="#b08a6a" roof="#6f4a36" w={3} h={2.4} d={2.2} />
-            <Building position={[-2.7, 0, -7]} body="#c2a07e" roof="#7a5640" w={2.4} h={3.1} d={2} />
+            <Building
+                position={[-6.5, 0, -6]}
+                body="#b08a6a"
+                roof="#6f4a36"
+                w={3}
+                h={2.4}
+                d={2.2}
+            />
+            <Building
+                position={[-2.7, 0, -7]}
+                body="#c2a07e"
+                roof="#7a5640"
+                w={2.4}
+                h={3.1}
+                d={2}
+            />
             <Building position={[1.6, 0, -7]} body="#a98a64" roof="#6b4a34" w={2.6} h={2.7} d={2} />
             <Building position={[5.6, 0, -6]} body="#bd9a74" roof="#74503a" w={3} h={2.3} d={2.2} />
 
@@ -429,11 +474,21 @@ function ForgottenFigure({
         <group ref={grp} position={[baseX, 0.1, baseZ]}>
             <mesh position={[0, 0.55, 0]}>
                 <cylinderGeometry args={[0.2, 0.28, 0.95, 8]} />
-                <meshStandardMaterial color={candidate.color} transparent opacity={0.22} depthWrite={false} />
+                <meshStandardMaterial
+                    color={candidate.color}
+                    transparent
+                    opacity={0.22}
+                    depthWrite={false}
+                />
             </mesh>
             <mesh position={[0, 1.15, 0]}>
                 <sphereGeometry args={[0.2, 12, 12]} />
-                <meshStandardMaterial color={candidate.color} transparent opacity={0.22} depthWrite={false} />
+                <meshStandardMaterial
+                    color={candidate.color}
+                    transparent
+                    opacity={0.22}
+                    depthWrite={false}
+                />
             </mesh>
         </group>
     );

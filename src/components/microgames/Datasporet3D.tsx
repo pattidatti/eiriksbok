@@ -35,8 +35,20 @@ const ORBS: Orb[] = [
     { id: 'soek', label: 'Søk kl. 02:00', pos: [-3.2, 2.5, -1.2], color: '#8b5cf6', phaseOff: 0.0 },
     { id: 'gps', label: 'GPS ved klinikk', pos: [3.1, 2.2, -1.0], color: '#ef4444', phaseOff: 1.3 },
     { id: 'app', label: 'Søvn-app åpnet', pos: [-2.8, 1.4, 2.4], color: '#3b82f6', phaseOff: 2.1 },
-    { id: 'forsikring', label: 'Forsikringsside', pos: [2.9, 1.6, 2.0], color: '#f59e0b', phaseOff: 3.4 },
-    { id: 'jobb', label: '«Hjemmekontor»-søk', pos: [0.2, 3.1, 2.9], color: '#10b981', phaseOff: 4.7 },
+    {
+        id: 'forsikring',
+        label: 'Forsikringsside',
+        pos: [2.9, 1.6, 2.0],
+        color: '#f59e0b',
+        phaseOff: 3.4,
+    },
+    {
+        id: 'jobb',
+        label: '«Hjemmekontor»-søk',
+        pos: [0.2, 3.1, 2.9],
+        color: '#10b981',
+        phaseOff: 4.7,
+    },
 ];
 
 const Datasporet3D: React.FC<MicroGameProps> = ({ onComplete }) => {
@@ -90,11 +102,15 @@ const Datasporet3D: React.FC<MicroGameProps> = ({ onComplete }) => {
             }}
             overlays={
                 <>
-                    <SceneBanner message={banner} />
+                    <SceneBanner message={banner} wide />
                     <DataReadout
+                        corner="bl"
                         items={[
                             { label: 'Spor samlet', value: count },
-                            { label: 'Profilkonfidans (%)', value: Math.round((count / total) * 100) },
+                            {
+                                label: 'Profilkonfidans (%)',
+                                value: Math.round((count / total) * 100),
+                            },
                         ]}
                     />
                 </>

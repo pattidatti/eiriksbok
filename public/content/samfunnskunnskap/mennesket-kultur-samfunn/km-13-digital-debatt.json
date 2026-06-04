@@ -10,14 +10,14 @@
     "topic": "mennesket-kultur-samfunn",
     "details": [
         "Kompetansemål SAF01-04",
-        "Digital deltaking og debatt"
+        "Digital deltakelse og debatt"
     ],
     "tags": [
-        "digital-deltaking",
+        "digital-deltakelse",
         "samfunnsdebatt",
         "sosiale-medier",
         "ytringsfrihet",
-        "algoritmar"
+        "algoritmer"
     ],
     "createdDate": "2026-06-02T00:00:00Z",
     "timeline": [],
@@ -27,7 +27,7 @@
             "name": "FactBox",
             "props": {
                 "title": "Kompetansemål",
-                "content": "Utforske ulike plattformer for digital samhandling og reflektere over korleis digital deltaking og samhandling påverkar forma på og innhaldet i samfunnsdebatten."
+                "content": "Utforske ulike plattformer for digital samhandling og reflektere over hvordan digital deltakelse og samhandling påvirker formen på og innholdet i samfunnsdebatten."
             }
         },
         {
@@ -66,7 +66,7 @@
         },
         {
             "type": "text",
-            "content": "Forskning viser at innhold som vekker sterke følelser - sinne, frykt, avsky - sprer seg raskere enn nøkternt og balansert innhald. Det er ikke fordi folk er dumme. Det er fordi hjernen vår er bygd for å reagere raskt på trusler. En clickbait-overskrift som «Du vil IKKE tro hva politikerne nå gjør» trigger en sterkere reaksjon enn «Regjeringen legger fram nytt budsjettforslag». Resultatet er at plattformer som tjener penger på oppmerksomhet, utilsiktet forsterker polarisering og overdrevne framstillinger. Som journalisten og mediekritikeren Johann Hari formulerte det: «Algoritmene er ikke fiendene våre. Men de er heller ikke vennene våre.»"
+            "content": "Forskning viser at innhold som vekker sterke følelser - sinne, frykt, avsky - sprer seg raskere enn nøkternt og balansert innhold. Det er ikke fordi folk er dumme. Det er fordi hjernen vår er bygd for å reagere raskt på trusler. En clickbait-overskrift som «Du vil IKKE tro hva politikerne nå gjør» trigger en sterkere reaksjon enn «Regjeringen legger fram nytt budsjettforslag». Resultatet er at plattformer som tjener penger på oppmerksomhet, utilsiktet forsterker polarisering og overdrevne framstillinger. Som journalisten og mediekritikeren Johann Hari formulerte det: «Algoritmene er ikke fiendene våre. Men de er heller ikke vennene våre.»"
         },
         {
             "type": "text",

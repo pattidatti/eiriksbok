@@ -69,8 +69,8 @@ const TaushetsspiralenTorg3D: React.FC<MicroGameProps> = ({ onComplete }) => {
         phase === 'won'
             ? null
             : clicked.size === 0
-              ? 'Fire figurer tier med nyanserte meninger. Klikk «Oppmuntre» for å gi dem mot til å ta ordet.'
-              : `${clicked.size} av 4 tør nå å snakke. Finn de andre.`;
+            ? 'Fire figurer tier med nyanserte meninger. Klikk «Oppmuntre» for å gi dem mot til å ta ordet.'
+            : `${clicked.size} av 4 tør nå å snakke. Finn de andre.`;
 
     return (
         <MicroGameScaffold
@@ -86,13 +86,19 @@ const TaushetsspiralenTorg3D: React.FC<MicroGameProps> = ({ onComplete }) => {
             }}
             overlays={
                 <>
-                    <SceneBanner message={banner} />
+                    <SceneBanner message={banner} wide />
                     <DataReadout
+                        corner="bl"
                         items={[
                             { label: 'Stemmer inkludert', value: `${clicked.size} / 4` },
                             {
                                 label: 'Debattkvalitet',
-                                value: clicked.size < 2 ? 'Ensidig' : clicked.size < 4 ? 'Bedre' : 'Mangfoldig',
+                                value:
+                                    clicked.size < 2
+                                        ? 'Ensidig'
+                                        : clicked.size < 4
+                                        ? 'Bedre'
+                                        : 'Mangfoldig',
                             },
                         ]}
                     />
@@ -112,10 +118,10 @@ const TaushetsspiralenTorg3D: React.FC<MicroGameProps> = ({ onComplete }) => {
         >
             {phase === 'won' && (
                 <WinScreen title="Taushetsspiralen er brutt!" onReplay={reset}>
-                    Alle fire nyanserte stemmene er nå inkludert. Demokratiet er sterkere når
-                    alle tør å delta, ikke bare de høyrøstede. Mange som tier på sosiale medier
-                    har verdifulle meninger – de er bare redde for reaksjonene. Taushetsspiralen
-                    brytes én stemme om gangen.
+                    Alle fire nyanserte stemmene er nå inkludert. Demokratiet er sterkere når alle
+                    tør å delta, ikke bare de høyrøstede. Mange som tier på sosiale medier har
+                    verdifulle meninger – de er bare redde for reaksjonene. Taushetsspiralen brytes
+                    én stemme om gangen.
                 </WinScreen>
             )}
         </MicroGameScaffold>
@@ -146,11 +152,7 @@ function TorgScene({
             {/* Glassgulv */}
             <mesh rotation={[-Math.PI / 2, 0, 0]} receiveShadow position={[0, -0.05, 0]}>
                 <planeGeometry args={[22, 22]} />
-                <meshStandardMaterial
-                    color="#b0c8e0"
-                    metalness={0.25}
-                    roughness={0.4}
-                />
+                <meshStandardMaterial color="#b0c8e0" metalness={0.25} roughness={0.4} />
             </mesh>
 
             {/* Sentral mikrofon-plattform */}
@@ -246,7 +248,12 @@ function LoudFigure({ position }: { position: [number, number, number] }) {
         <group position={position}>
             <mesh position={[0, 0.75, 0]} castShadow>
                 <cylinderGeometry args={[0.22, 0.22, 1.2, 10]} />
-                <meshStandardMaterial color="#c05528" roughness={0.7} emissive="#803020" emissiveIntensity={0.25} />
+                <meshStandardMaterial
+                    color="#c05528"
+                    roughness={0.7}
+                    emissive="#803020"
+                    emissiveIntensity={0.25}
+                />
             </mesh>
             <mesh ref={headRef} position={[0, 1.6, 0]} castShadow>
                 <sphereGeometry args={[0.3, 18, 18]} />

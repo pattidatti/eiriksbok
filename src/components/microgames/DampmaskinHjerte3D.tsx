@@ -148,15 +148,20 @@ const DampmaskinHjerte3D: React.FC<MicroGameProps> = ({ onComplete }) => {
             }}
             overlays={
                 <>
-                    <SceneBanner message={banner} />
+                    <SceneBanner message={banner} wide />
                     <SceneBadge corner="br">
                         {mode === 'watt' ? 'Watt 1769' : 'Newcomen 1712'}
                     </SceneBadge>
                     {pumping && (
                         <DataReadout
+                            corner="bl"
                             items={[
                                 { label: 'Kull igjen', value: Math.round(coalLeft), unit: '%' },
-                                { label: 'Gruve toer', value: Math.round(100 - mineWater), unit: '%' },
+                                {
+                                    label: 'Gruve toer',
+                                    value: Math.round(100 - mineWater),
+                                    unit: '%',
+                                },
                                 {
                                     label: 'Kull per slag',
                                     value: mode === 'watt' ? WATT.coal : NEWCOMEN.coal,
@@ -164,7 +169,9 @@ const DampmaskinHjerte3D: React.FC<MicroGameProps> = ({ onComplete }) => {
                             ]}
                         />
                     )}
-                    <DragHint show={idle}>Dra spaken opp og ned</DragHint>
+                    <DragHint show={idle} corner="bc">
+                        Dra spaken opp og ned
+                    </DragHint>
                 </>
             }
             scene={
@@ -194,15 +201,17 @@ const DampmaskinHjerte3D: React.FC<MicroGameProps> = ({ onComplete }) => {
                         <div className="flex flex-col gap-2.5">
                             <StepTracker current={strokes} total={2} />
                             <SceneFact>
-                                Newcomen sproeyter kaldt vann rett inn i sylinderen for aa lage vakuum.
-                                Da blir hele jernsylinderen kald, og den maa varmes opp igjen foer
-                                neste slag. Tre fjerdedeler av kullet gaar bare til denne oppvarmingen.
+                                Newcomen sproeyter kaldt vann rett inn i sylinderen for aa lage
+                                vakuum. Da blir hele jernsylinderen kald, og den maa varmes opp
+                                igjen foer neste slag. Tre fjerdedeler av kullet gaar bare til denne
+                                oppvarmingen.
                             </SceneFact>
                         </div>
                     ) : (
                         <SceneFact>
                             Med den separate kondensatoren holder sylinderen seg gloheit hele tiden.
-                            Det samme kullet pumper naa mye mer vann. Foer spaken ned til gruva er toer.
+                            Det samme kullet pumper naa mye mer vann. Foer spaken ned til gruva er
+                            toer.
                         </SceneFact>
                     )}
                 </div>
@@ -212,8 +221,8 @@ const DampmaskinHjerte3D: React.FC<MicroGameProps> = ({ onComplete }) => {
                 <div className="flex flex-col gap-2.5">
                     <p className="text-sm text-slate-600">
                         Newcomen-maskinen sloeser kull fordi den kjoeler ned selve sylinderen. Watts
-                        loesning: dra den blaa kondensatoren inntil sylinderen, saa dampen kan kjoele
-                        seg ned i et eget kammer i stedet.
+                        loesning: dra den blaa kondensatoren inntil sylinderen, saa dampen kan
+                        kjoele seg ned i et eget kammer i stedet.
                     </p>
                     <SceneFact>
                         Klikk og dra den blaa tanken nede til venstre helt inntil sylinderen.
@@ -223,9 +232,10 @@ const DampmaskinHjerte3D: React.FC<MicroGameProps> = ({ onComplete }) => {
 
             {stage === 'won' && (
                 <WinScreen title="Gruva er pumpet toer!" onReplay={reset}>
-                    Den separate kondensatoren flyttet nedkjoelingen ut av sylinderen. Sylinderen holdt
-                    seg varm, og det samme kullet gjorde fire ganger saa mye arbeid. Det var denne ene
-                    ideen som gjorde dampkraft billig nok til aa drive fabrikker, tog og skip.
+                    Den separate kondensatoren flyttet nedkjoelingen ut av sylinderen. Sylinderen
+                    holdt seg varm, og det samme kullet gjorde fire ganger saa mye arbeid. Det var
+                    denne ene ideen som gjorde dampkraft billig nok til aa drive fabrikker, tog og
+                    skip.
                 </WinScreen>
             )}
         </MicroGameScaffold>
@@ -414,7 +424,12 @@ function SteamCylinder({ cyc, mode }: { cyc: number; mode: 'newcomen' | 'watt' }
                 <meshStandardMaterial color="#5b5f63" metalness={0.5} roughness={0.4} />
             </mesh>
             {/* damp ut av sylindertoppen kun i Newcomen */}
-            <Smoke origin={[0, 3.8, 0]} show={mode === 'newcomen' && cyc > 0.5} count={4} color="#e8eef2" />
+            <Smoke
+                origin={[0, 3.8, 0]}
+                show={mode === 'newcomen' && cyc > 0.5}
+                count={4}
+                color="#e8eef2"
+            />
         </group>
     );
 }
@@ -433,8 +448,14 @@ function MineShaft({ water }: { water: number }) {
         <group position={[3, 0, 0]}>
             {/* fire vegger rundt et hull */}
             {[
-                { p: [0, -1, 1.1] as [number, number, number], r: [0, 0, 0] as [number, number, number] },
-                { p: [0, -1, -1.1] as [number, number, number], r: [0, 0, 0] as [number, number, number] },
+                {
+                    p: [0, -1, 1.1] as [number, number, number],
+                    r: [0, 0, 0] as [number, number, number],
+                },
+                {
+                    p: [0, -1, -1.1] as [number, number, number],
+                    r: [0, 0, 0] as [number, number, number],
+                },
             ].map((w, i) => (
                 <mesh key={`z${i}`} position={w.p} castShadow>
                     <boxGeometry args={[2.2, 2.2, 0.12]} />
@@ -492,10 +513,7 @@ function GhostTarget() {
         m.opacity = 0.2 + Math.sin(clock.getElapsedTime() * 3) * 0.12;
     });
     return (
-        <mesh
-            ref={ref}
-            position={[CONDENSER_TARGET[0], 1, CONDENSER_TARGET[1]]}
-        >
+        <mesh ref={ref} position={[CONDENSER_TARGET[0], 1, CONDENSER_TARGET[1]]}>
             <cylinderGeometry args={[0.6, 0.6, 1.9, 16]} />
             <meshStandardMaterial color="#7fb6df" transparent opacity={0.25} depthWrite={false} />
         </mesh>

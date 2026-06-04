@@ -16,7 +16,24 @@ const CORNER: Record<Corner, string> = {
 
 // Transient melding øverst i scenen (f.eks. "Toget kommer!"). Vis/skjul ved å
 // sende inn message=null. Plasseres absolutt - krever en relativ scene-container.
-export function SceneBanner({ message }: { message?: string | null }) {
+//
+// Default: smalt (max-w-xs) og sentrert. De fleste spill har en DataReadout/
+// SceneBadge i et topphjørne; et smalt sentrert banner klarerer begge hjørnene
+// av seg selv ved realistiske bredder, uten å dytte banneret ned i scenen.
+//
+// wide=true: banneret bruker hele toppbredden (én linje for lengre meldinger).
+// Bruk KUN når spillet holder begge topphjørnene fri - dvs. har flyttet teller/
+// etikett til bunnen (corner="bl"/"br"). Ellers overlapper det hjørne-pillene.
+export function SceneBanner({
+    message,
+    wide = false,
+}: {
+    message?: string | null;
+    wide?: boolean;
+}) {
+    const box = wide
+        ? 'top-3 left-3 right-3 mx-auto max-w-2xl'
+        : 'top-3 left-1/2 -translate-x-1/2 w-[calc(100%-15rem)] max-w-xs';
     return (
         <AnimatePresence>
             {message && (
@@ -25,7 +42,7 @@ export function SceneBanner({ message }: { message?: string | null }) {
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
-                    className="absolute top-3 left-3 right-3 mx-auto max-w-md rounded-xl bg-amber-900/85 text-amber-50 px-4 py-2.5 text-sm font-semibold shadow-lg text-center pointer-events-none"
+                    className={`absolute ${box} rounded-xl bg-amber-900/85 text-amber-50 px-4 py-2.5 text-sm font-semibold shadow-lg text-center pointer-events-none`}
                 >
                     {message}
                 </motion.div>
@@ -52,7 +69,18 @@ export function SceneBadge({
 }
 
 // "Dra for å se / klikk her"-hint nede i scenen. Vis bare i idle-tilstand.
-export function DragHint({ show, children }: { show: boolean; children: React.ReactNode }) {
+// corner: 'bl' (default) eller 'bc' (bunn-senter). Bruk 'bc' når spillet har en
+// DataReadout i bunn-venstre, så hint og teller ikke overlapper.
+export function DragHint({
+    show,
+    children,
+    corner = 'bl',
+}: {
+    show: boolean;
+    children: React.ReactNode;
+    corner?: 'bl' | 'bc';
+}) {
+    const pos = corner === 'bc' ? 'bottom-3 left-1/2 -translate-x-1/2' : 'bottom-3 left-3';
     return (
         <AnimatePresence>
             {show && (
@@ -61,7 +89,7 @@ export function DragHint({ show, children }: { show: boolean; children: React.Re
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0 }}
                     transition={{ delay: 0.4 }}
-                    className="absolute bottom-3 left-3 inline-flex items-center gap-1.5 px-3 py-1.5 bg-white/85 backdrop-blur-sm rounded-full text-xs font-semibold text-amber-800 shadow pointer-events-none"
+                    className={`absolute ${pos} inline-flex items-center gap-1.5 px-3 py-1.5 bg-white/85 backdrop-blur-sm rounded-full text-xs font-semibold text-amber-800 shadow pointer-events-none`}
                 >
                     <Hand className="w-3.5 h-3.5" />
                     {children}
@@ -92,7 +120,9 @@ export function DataReadout({
                     </span>
                     <span className="text-sm font-bold text-slate-800 tabular-nums">
                         {it.value}
-                        {it.unit && <span className="text-[10px] text-slate-400 ml-0.5">{it.unit}</span>}
+                        {it.unit && (
+                            <span className="text-[10px] text-slate-400 ml-0.5">{it.unit}</span>
+                        )}
                     </span>
                 </div>
             ))}
@@ -128,9 +158,7 @@ export function ScoreHUD({
     corner?: Corner;
 }) {
     return (
-        <div
-            className={`absolute ${CORNER[corner]} flex items-center gap-2 pointer-events-none`}
-        >
+        <div className={`absolute ${CORNER[corner]} flex items-center gap-2 pointer-events-none`}>
             <div className="flex items-center gap-0.5 px-2 py-1 bg-white/85 backdrop-blur-sm rounded-full shadow">
                 {Array.from({ length: maxStars }).map((_, i) => (
                     <Star
