@@ -37,6 +37,7 @@ const GobekliTepe3D = lazy(() => import('./GobekliTepe3D'));
 const GudenesVerden3D = lazy(() => import('./GudenesVerden3D'));
 const GreskTeater3D = lazy(() => import('./GreskTeater3D'));
 const GutenbergPresse3D = lazy(() => import('./GutenbergPresse3D'));
+const DemokratiLysene3D = lazy(() => import('./DemokratiLysene3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
     'gladius-duell': {
@@ -326,6 +327,15 @@ export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.Laz
         estimatedSeconds: 150,
         loader: () => import('./GutenbergPresse3D'),
         Component: GutenbergPresse3D as never,
+    },
+    'demokrati-lysene-3d': {
+        id: 'demokrati-lysene-3d',
+        title: 'Demokratiets vaktmester',
+        description:
+            'Vern demokratiene du tror kan reddes med tre skjold, dra så året fra 1920 til 1939 og se 26 europeiske demokratier slukne. Skjoldene sprekker - der presset var størst, falt lyset uansett. I 1938 er bare 11 igjen.',
+        estimatedSeconds: 120,
+        loader: () => import('./DemokratiLysene3D'),
+        Component: DemokratiLysene3D as never,
     },
 };
 

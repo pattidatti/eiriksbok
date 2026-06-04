@@ -1,23 +1,89 @@
 import React, { Suspense } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import type { PresentationData } from '../../types';
 import { usePresentationSync } from '../../hooks/usePresentationSync';
 import { getComponent } from '../ComponentRegistry';
 import { SlideEraTimeline } from './SlideEraTimeline';
 import { resolveTimelineConfig } from './resolveTimelineConfig';
+import { computeNext, computePrev } from './presentationNav';
 
 interface ProjectorViewProps {
     data: PresentationData;
 }
 
 export const ProjectorView: React.FC<ProjectorViewProps> = ({ data }) => {
-    const { state } = usePresentationSync(data.id, 'projector');
+    const { state, updateState } = usePresentationSync(data.id, 'projector');
 
     const currentSlide = data.slides[state.currentSlideIndex] || data.slides[0];
     const timeline = React.useMemo(() => resolveTimelineConfig(data), [data]);
 
+    // The projector can drive itself when the teacher mirrors a single screen.
+    // updateState broadcasts, so a controller window (if open) stays in sync.
+    const next = React.useCallback(() => updateState(prev => computeNext(prev, data.slides)), [updateState, data.slides]);
+    const prev = React.useCallback(() => updateState(prevState => computePrev(prevState, data.slides)), [updateState, data.slides]);
+    const toggleBlackout = React.useCallback(() => updateState(s => ({ isBlackout: !s.isBlackout })), [updateState]);
+
+    // Keyboard navigation. Bound once via a ref so handlers always reach the
+    // latest closures without re-attaching listeners.
+    const navRef = React.useRef({ next, prev, toggleBlackout });
+    React.useEffect(() => {
+        navRef.current = { next, prev, toggleBlackout };
+    });
+    React.useEffect(() => {
+        const handler = (e: KeyboardEvent) => {
+            const target = e.target as HTMLElement | null;
+            if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA')) return;
+
+            if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
+                e.preventDefault();
+                navRef.current.next();
+            } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+                e.preventDefault();
+                navRef.current.prev();
+            } else if (e.key === 'b' || e.key === 'B') {
+                navRef.current.toggleBlackout();
+            }
+        };
+        window.addEventListener('keydown', handler);
+        return () => window.removeEventListener('keydown', handler);
+    }, []);
+
+    // On-screen controls fade out when idle so they do not clutter the projected
+    // image, and reappear the moment the teacher moves the mouse.
+    const [controlsVisible, setControlsVisible] = React.useState(true);
+    const hideTimerRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
+    React.useEffect(() => {
+        const reveal = () => {
+            setControlsVisible(true);
+            if (hideTimerRef.current) clearTimeout(hideTimerRef.current);
+            hideTimerRef.current = setTimeout(() => setControlsVisible(false), 3000);
+        };
+        reveal();
+        window.addEventListener('mousemove', reveal);
+        return () => {
+            window.removeEventListener('mousemove', reveal);
+            if (hideTimerRef.current) clearTimeout(hideTimerRef.current);
+        };
+    }, []);
+
+    const blurAfter = (fn: () => void) => () => {
+        fn();
+        if (document.activeElement instanceof HTMLElement) document.activeElement.blur();
+    };
+
+    const atStart = state.currentSlideIndex === 0 && state.currentRevealIndex < 0;
+    const atEnd = state.currentSlideIndex >= data.slides.length - 1
+        && state.currentRevealIndex >= ((currentSlide.points?.length ?? 0) - 1);
+
     if (state.isBlackout) {
-        return <div className="fixed inset-0 bg-black z-[9999]" />;
+        return (
+            <div
+                className="fixed inset-0 bg-black z-[9999] cursor-pointer"
+                onClick={toggleBlackout}
+                title="Trykk for å vise igjen (B)"
+            />
+        );
     }
 
     return (
@@ -222,6 +288,36 @@ export const ProjectorView: React.FC<ProjectorViewProps> = ({ data }) => {
                     </motion.div>
                 </AnimatePresence>
             </div>
+
+            {/* On-screen navigation (for mirrored single-screen use). Auto-hides when idle. */}
+            <motion.div
+                initial={false}
+                animate={{ opacity: controlsVisible ? 1 : 0, y: controlsVisible ? 0 : 12 }}
+                transition={{ duration: 0.3 }}
+                className={`absolute bottom-6 right-6 z-30 flex items-center gap-3 ${controlsVisible ? '' : 'pointer-events-none'}`}
+            >
+                <span className="text-white/50 font-mono text-sm tabular-nums mr-1">
+                    {state.currentSlideIndex + 1} / {data.slides.length}
+                </span>
+                <button
+                    onClick={blurAfter(prev)}
+                    disabled={atStart}
+                    aria-label="Forrige"
+                    title="Forrige (venstre piltast)"
+                    className="p-3 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur border border-white/10 text-white transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+                >
+                    <ChevronLeft className="w-6 h-6" />
+                </button>
+                <button
+                    onClick={blurAfter(next)}
+                    disabled={atEnd}
+                    aria-label="Neste"
+                    title="Neste (høyre piltast eller mellomrom)"
+                    className="p-3 rounded-full bg-indigo-600 hover:bg-indigo-500 backdrop-blur border border-indigo-400/30 text-white shadow-lg shadow-indigo-900/40 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+                >
+                    <ChevronRight className="w-6 h-6" />
+                </button>
+            </motion.div>
 
             {/* Subtle Progress Bar */}
             <div className="absolute bottom-0 left-0 h-1 bg-indigo-600/30 w-full z-20">

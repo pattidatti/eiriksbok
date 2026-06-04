@@ -15,6 +15,7 @@ import type { PresentationData, LearningPathStep } from '../../types';
 import { usePresentationSync } from '../../hooks/usePresentationSync';
 import { SlideEraTimeline } from './SlideEraTimeline';
 import { resolveTimelineConfig } from './resolveTimelineConfig';
+import { computeNext, computePrev } from './presentationNav';
 
 interface PresentationControllerProps {
     data: PresentationData;
@@ -88,44 +89,9 @@ export const PresentationController: React.FC<PresentationControllerProps> = ({ 
         }
     };
 
-    // Points on task-pause / interactive / title / quote / summary slides are
-    // shown all at once on the projector. Only content/discussion/comparison
-    // slides use staggered reveals. Treat the rest as single-step slides so
-    // NESTE advances slide-by-slide.
-    const slideUsesReveal = (slide: typeof currentSlide) =>
-        (slide.layout === 'content' || slide.layout === 'discussion' || slide.layout === 'comparison')
-        && Array.isArray(slide.points)
-        && slide.points.length > 0;
+    const next = () => updateState(prev => computeNext(prev, data.slides));
 
-    const next = () => {
-        updateState(prev => {
-            const slide = data.slides[prev.currentSlideIndex];
-            if (slide && slideUsesReveal(slide) && prev.currentRevealIndex < slide.points!.length - 1) {
-                return { currentRevealIndex: prev.currentRevealIndex + 1 };
-            }
-            if (prev.currentSlideIndex < data.slides.length - 1) {
-                return { currentSlideIndex: prev.currentSlideIndex + 1, currentRevealIndex: -1 };
-            }
-            return {};
-        });
-    };
-
-    const prev = () => {
-        updateState(prevState => {
-            const slide = data.slides[prevState.currentSlideIndex];
-            if (slide && slideUsesReveal(slide) && prevState.currentRevealIndex >= 0) {
-                return { currentRevealIndex: prevState.currentRevealIndex - 1 };
-            }
-            if (prevState.currentSlideIndex > 0) {
-                const previousSlide = data.slides[prevState.currentSlideIndex - 1];
-                const lastReveal = previousSlide && slideUsesReveal(previousSlide)
-                    ? (previousSlide.points!.length - 1)
-                    : -1;
-                return { currentSlideIndex: prevState.currentSlideIndex - 1, currentRevealIndex: lastReveal };
-            }
-            return {};
-        });
-    };
+    const prev = () => updateState(prevState => computePrev(prevState, data.slides));
 
     const jumpToSlide = (idx: number) => {
         updateState({ currentSlideIndex: idx, currentRevealIndex: -1 });

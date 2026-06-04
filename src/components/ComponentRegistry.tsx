@@ -87,6 +87,7 @@ const OttomanCrossroads = lazy(() => import('./content/interactive/OttomanCrossr
 const MapRedrawn = lazy(() => import('./content/interactive/MapRedrawn').then(m => ({ default: m.MapRedrawn })));
 const StromkrigenDuel = lazy(() => import('./content/interactive/StromkrigenDuel').then(m => ({ default: m.StromkrigenDuel })));
 const ResistensSim = lazy(() => import('./content/interactive/ResistensSim').then(m => ({ default: m.ResistensSim })));
+const IdeologiSorter = lazy(() => import('./content/interactive/IdeologiSorter').then(m => ({ default: m.IdeologiSorter })));
 const GlossaryTooltip = lazy(() => import('./content/interactive/GlossaryTooltip').then(m => ({ default: m.GlossaryTooltip })));
 const ScenarioRoleplay = lazy(() => import('./content/interactive/ScenarioRoleplay').then(m => ({ default: m.ScenarioRoleplay })));
 const DragDropTimeline = lazy(() => import('./content/interactive/DragDropTimeline').then(m => ({ default: m.DragDropTimeline })));
@@ -340,6 +341,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     MapRedrawn,
     StromkrigenDuel,
     ResistensSim,
+    IdeologiSorter,
     GlossaryTooltip,
     ScenarioRoleplay,
     DragDropTimeline,
