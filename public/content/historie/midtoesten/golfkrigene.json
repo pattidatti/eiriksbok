@@ -5,7 +5,7 @@
   "year": "1990-2011",
   "category": "Midtøsten",
   "readTime": "9 min lesning",
-  "heroImage": "/images/placeholder.webp",
+  "heroImage": "/images/midtoesten/golfkrigene-hero.webp",
   "details": [
     "Saddam Hussein invaderte Kuwait i august 1990. En koalisjon på 35 land svarte.",
     "Golfkrigen 1991 er en av historiens mest effektive militæroperasjoner: 100 timers bakkekrig.",
@@ -31,7 +31,7 @@
     },
     {
       "type": "image",
-      "src": "/images/placeholder.webp",
+      "src": "/images/midtoesten/golfkrigene-01.webp",
       "alt": "Irakske stridsvogner i Kuwait 1990",
       "caption": "Irakske styrker okkuperte Kuwait på rekordtid i august 1990."
     },
@@ -169,7 +169,7 @@
     },
     {
       "type": "image",
-      "src": "/images/placeholder.webp",
+      "src": "/images/midtoesten/golfkrigene-02.webp",
       "alt": "Irakiske sivile under sanksjonsperioden på 1990-tallet",
       "caption": "Sanksjonene på 1990-tallet rammet den irakiske sivilbefolkningen langt hardere enn regimet."
     },
@@ -235,7 +235,7 @@
     },
     {
       "type": "image",
-      "src": "/images/placeholder.webp",
+      "src": "/images/midtoesten/golfkrigene-03.webp",
       "alt": "Irak i ruiner etter 2003-invasjonen",
       "caption": "Etter invasjonen i 2003 sto USA overfor et land uten fungerende statsapparat og med dype indre motsetninger."
     },
