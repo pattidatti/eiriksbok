@@ -70,7 +70,7 @@
             "id": "intro_coronation",
             "text": "Året er 1250. Keiser Fredrik II er død. Riket splittes av rivaliserende konger. I Rhinland klamrer du deg til din fars gamle borg, Falkenberg. En budbringer fra Erkebiskopen av Köln venter i hallen.",
             "speaker": "Forteller",
-            "backgroundImage": "/images/chronos/medieval_hall.jpg",
+            "backgroundImage": "/images/chronos/medieval_hall.webp",
             "choices": [
                 {
                     "id": "intro_accept",
@@ -97,7 +97,7 @@
             "id": "castle_hub",
             "text": "Falkenberg Borg. Dine forfedres sete. Herfra styrer du dalen. Hva vil du gjøre, min herre?",
             "speaker": "Slottsforvalter",
-            "backgroundImage": "/images/chronos/medieval_castle_view.jpg",
+            "backgroundImage": "/images/chronos/medieval_castle_view.webp",
             "uiType": "map",
             "mapConfig": {
                 "image": "/images/chronos/medieval_castle_map.webp",
@@ -134,7 +134,7 @@
             "id": "hall_justice",
             "text": "Bøndene samles i hallen for å høre din dom.",
             "speaker": "Hoff",
-            "backgroundImage": "/images/chronos/medieval_court.jpg",
+            "backgroundImage": "/images/chronos/medieval_court.webp",
             "choices": [],
             "minigame": {
                 "type": "justice",
@@ -177,7 +177,7 @@
             "id": "chapel_pray",
             "text": "Du kneler i det kalde steinkapellet. Presten mumler på latin. Du søker Guds veiledning i disse mørke tider.",
             "speaker": "Bønn",
-            "backgroundImage": "/images/chronos/medieval_chapel.jpg",
+            "backgroundImage": "/images/chronos/medieval_chapel.webp",
             "choices": [
                 {
                     "id": "chapel_done",
@@ -202,7 +202,7 @@
             "id": "village_visit",
             "text": "Landsbyen Falconheim ligger ved elvebredden. Røyken stiger fra skorsteinene. Smeden hamrer, og møllen maler korn.",
             "speaker": "Inspeksjon",
-            "backgroundImage": "/images/chronos/medieval_village.jpg",
+            "backgroundImage": "/images/chronos/medieval_village.webp",
             "choices": [
                 {
                     "id": "village_tax",

@@ -97,7 +97,7 @@
             "id": "intro_arrival",
             "text": "Vinden uler over Vindolanda. Du er en nyankommen soldat i IX. Legion Hispana. Muren strekker seg mot horisonten - grensen mellom sivilisasjon og kaos. Din Centurion, en arrete veteran ved navn Crassus, mønstrer deg.",
             "speaker": "Forteller",
-            "backgroundImage": "/images/chronos/roman_barracks.jpg",
+            "backgroundImage": "/images/chronos/roman_barracks.webp",
             "choices": [
                 {
                     "id": "c_intro_1",
@@ -135,7 +135,7 @@
             "id": "camp_hub_morning",
             "text": "Morgensolen bryter gjennom tåken. Leiren våkner til liv. Hvor vil du gå?",
             "speaker": "Forteller",
-            "backgroundImage": "/images/chronos/roman_camp_day.jpg",
+            "backgroundImage": "/images/chronos/roman_camp_day.webp",
             "choices": [],
             "uiType": "map",
             "mapConfig": {
@@ -196,7 +196,7 @@
             "id": "camp_hub_evening",
             "text": "Dagen går mot hell. Faklene tennes langs hovedgaten 'Via Principalis'. Soldatene samles for å spise, drikke og spille terninger før natten faller på.",
             "speaker": "Forteller",
-            "backgroundImage": "/images/chronos/roman_camp_night.jpg",
+            "backgroundImage": "/images/chronos/roman_camp_night.webp",
             "choices": [
                 {
                     "id": "night_gamble",
@@ -233,7 +233,7 @@
             "id": "new_day_transition",
             "text": "Du sover tungt og drømmer om Roma. Når trompeten blåser 'Reveille', er du klar for en ny dag i keiserens tjeneste.",
             "speaker": "Drøm",
-            "backgroundImage": "/images/chronos/roman_dream.jpg",
+            "backgroundImage": "/images/chronos/roman_dream.webp",
             "choices": [
                 {
                     "id": "wake_up",
@@ -250,7 +250,7 @@
             "id": "patrol_gate",
             "text": "Ved nordporten møter du patruljelederen. 'Vi vet aldri hva som venter der ute,' sier han. 'Vær på vakt.'",
             "speaker": "Optio",
-            "backgroundImage": "/images/chronos/roman_gate.jpg",
+            "backgroundImage": "/images/chronos/roman_gate.webp",
             "choices": [
                 {
                     "id": "patrol_start",
@@ -275,7 +275,7 @@
             "id": "encounter_picts_ambush",
             "text": "Dere beveger dere gjennom høyt gress. Plutselig hviner en slyngestein forbi øret ditt! 'Piktere!' roper sidemannen din. De er over dere!",
             "speaker": "Kampsituasjon",
-            "backgroundImage": "/images/chronos/roman_battle.jpg",
+            "backgroundImage": "/images/chronos/roman_battle.webp",
             "choices": [
                 {
                     "id": "fight_start",
@@ -393,7 +393,7 @@
             "id": "encounter_merchant",
             "text": "Dere stopper en vogn. Det er en handelsmann fra Gallia som selger 'autentisk romersk vin' til overpris. Han ser nervøs ut.",
             "speaker": "Handelsmann",
-            "backgroundImage": "/images/chronos/roman_merchant.jpg",
+            "backgroundImage": "/images/chronos/roman_merchant.webp",
             "choices": [
                 {
                     "id": "trade_sell_brooch",
@@ -503,7 +503,7 @@
             "id": "training_field",
             "text": "Drillinstruktøren er nådeløs. 'Tretti runder med scutum! Hugg! Parér! Igjen!' Svetten renner. Du hater ham nå, men dette vil redde livet ditt en dag.",
             "speaker": "Trening",
-            "backgroundImage": "/images/chronos/roman_training.jpg",
+            "backgroundImage": "/images/chronos/roman_training.webp",
             "choices": [
                 {
                     "id": "train_hard",
@@ -670,7 +670,7 @@
             "id": "baths",
             "text": "Varmen i tepidariet løser opp stive muskler. Du skraper huden ren med en strigil og prater skit med de andre. Dette er sivilisasjon.",
             "speaker": "Avslapping",
-            "backgroundImage": "/images/chronos/roman_baths.jpg",
+            "backgroundImage": "/images/chronos/roman_baths.webp",
             "choices": [
                 {
                     "id": "bath_relax",
@@ -781,7 +781,7 @@
             "id": "location_blacksmith",
             "text": "Smien er varm og bråkete. Luften smaker av kull og jern. Smeden, en stor mann med sotsvertet fjes, ser på utstyret ditt.",
             "speaker": "Smed",
-            "backgroundImage": "/images/chronos/roman_blacksmith.jpg",
+            "backgroundImage": "/images/chronos/roman_blacksmith.webp",
             "choices": [
                 {
                     "id": "blacksmith_buy_whetstone",
@@ -821,7 +821,7 @@
             "id": "location_market",
             "text": "Markedet utenfor muren myldrer av folk. Her kan du kjøpe alt fra vin til slaver. En handelsmann roper ut tilbudene sine.",
             "speaker": "Marked",
-            "backgroundImage": "/images/chronos/roman_market.jpg",
+            "backgroundImage": "/images/chronos/roman_market.webp",
             "choices": [
                 {
                     "id": "market_sell_brooch",

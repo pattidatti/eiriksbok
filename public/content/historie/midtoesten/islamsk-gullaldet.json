@@ -65,12 +65,12 @@
       "props": {
         "images": [
           {
-            "src": "/images/placeholder.webp",
+            "src": "/images/midtoesten/islamsk-gullaldet-02.webp",
             "alt": "Al-Azhar-moskeen i Kairo",
             "caption": "Al-Azhar-moskeen i Kairo, grunnlagt i 970, er ett av de eldste universitetene i verden og et symbol på islamsk lærdom."
           },
           {
-            "src": "/images/placeholder.webp",
+            "src": "/images/midtoesten/islamsk-gullaldet-03.webp",
             "alt": "Middelalders islamsk medisinsk manuskript",
             "caption": "Et illustrert islamsk manuskript om medisin fra 1200-tallet. Ibn Sinas medisinske skrifter ble brukt ved europeiske universiteter i hundrevis av år."
           },
@@ -116,7 +116,7 @@
     },
     {
       "type": "image",
-      "src": "/images/placeholder.webp",
+      "src": "/images/midtoesten/islamsk-gullaldet-04.webp",
       "alt": "Mongolenes beleiringen av Bagdad 1258",
       "caption": "Mongolenes ødeleggelse av Bagdad i 1258 satte en brutal sluttstrek for det islamske gullaldets blomstringstid."
     },

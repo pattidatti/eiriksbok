@@ -5,7 +5,7 @@
   "year": "1879-1920",
   "category": "Teknologi og hverdagsliv",
   "readTime": "8 min lesning",
-  "heroImage": "/images/placeholder.webp",
+  "heroImage": "/images/teknologi-og-hverdagsliv/elektrisiteten-hero.webp",
   "details": [
     "I tusenvis av år sluttet hverdagen omtrent når sola gikk ned. Lyset fra flammen var svakt, dyrt og farlig.",
     "Den elektriske lyspæra ga et jevnt, sterkt lys uten åpen flamme, og plutselig ble kvelden lang og trygg.",
@@ -19,7 +19,7 @@
     },
     {
       "type": "image",
-      "src": "/images/placeholder.webp",
+      "src": "/images/teknologi-og-hverdagsliv/elektrisiteten-01.webp",
       "alt": "Glødende lyspaere lyser opp et moerkt rom med en familie rundt et bord",
       "caption": "Da den elektriske lyspaera tentes, ble kvelden plutselig lang, lys og trygg, uten os og åpen flamme."
     },
@@ -49,7 +49,7 @@
     },
     {
       "type": "image",
-      "src": "/images/placeholder.webp",
+      "src": "/images/teknologi-og-hverdagsliv/elektrisiteten-02.webp",
       "alt": "Naerbilde av en tidlig lyspaere med gloedende traad i glasskule",
       "caption": "Hemmeligheten var glødetråden inne i en lufttom glasskule, som kunne lyse i timevis uten å brenne opp."
     },
@@ -98,7 +98,7 @@
     },
     {
       "type": "image",
-      "src": "/images/placeholder.webp",
+      "src": "/images/teknologi-og-hverdagsliv/elektrisiteten-03.webp",
       "alt": "Tidlige elektriske husholdningsapparater i et hjem fra tidlig 1900-tall",
       "caption": "Strykejern, komfyr og senere vaskemaskin og kjøleskap gjorde det tunge husarbeidet langt lettere."
     },

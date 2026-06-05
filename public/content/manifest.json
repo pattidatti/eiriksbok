@@ -5700,7 +5700,7 @@
                 "vitenskap"
               ],
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-06-02T09:13:51+02:00"
+              "lastUpdated": "2026-06-05T19:48:00+02:00"
             },
             {
               "id": "sykes-picot",
@@ -5745,7 +5745,7 @@
               "id": "kald-krig-midtosten",
               "title": "Den kalde krigen i Midtøsten",
               "description": "CIA-kupp, proxy-kriger og supermaktenes spill om Midtøstens sjel.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/midtoesten/kald-krig-midtosten-hero.webp",
               "tags": [
                 "midtosten",
                 "kaldkrig",
