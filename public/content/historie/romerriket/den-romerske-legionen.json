@@ -93,6 +93,13 @@
         },
         {
             "type": "component",
+            "name": "MicroGame",
+            "props": {
+                "gameId": "testudo-3d"
+            }
+        },
+        {
+            "type": "component",
             "name": "FactBox",
             "props": {
                 "title": "Pensjonisttilværelsen",

@@ -38,6 +38,7 @@ const GudenesVerden3D = lazy(() => import('./GudenesVerden3D'));
 const GreskTeater3D = lazy(() => import('./GreskTeater3D'));
 const GutenbergPresse3D = lazy(() => import('./GutenbergPresse3D'));
 const DemokratiLysene3D = lazy(() => import('./DemokratiLysene3D'));
+const Testudo3D = lazy(() => import('./Testudo3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
     'gladius-duell': {
@@ -336,6 +337,15 @@ export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.Laz
         estimatedSeconds: 120,
         loader: () => import('./DemokratiLysene3D'),
         Component: DemokratiLysene3D as never,
+    },
+    'testudo-3d': {
+        id: 'testudo-3d',
+        title: 'Bygg skilpadda (testudo)',
+        description:
+            'Bygg den romerske skilpadda i 3D: klikk legionaerene saa ytterringen reiser skjoldveggene og de fire i midten legger taket over hodet. Slipp saa pilregnet loes og se pilene klatre av skallet. Lyspaeren: en mann alene er saarbar, men hver manns skjold paa rett plass gjoer troppen til en bevegelig festning.',
+        estimatedSeconds: 150,
+        loader: () => import('./Testudo3D'),
+        Component: Testudo3D as never,
     },
 };
 
