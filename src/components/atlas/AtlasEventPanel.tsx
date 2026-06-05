@@ -3,22 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { GlobalTimelineEvent } from '../../types';
 import { formatYear } from '../../utils/timelineLayout';
-
-const SUBJECT_COLOR: Record<string, string> = {
-    historie: '#b45309',
-    norsk: '#0891b2',
-    krle: '#7c3aed',
-    samfunnskunnskap: '#059669',
-    musikk: '#db2777',
-};
-
-const SUBJECT_LABEL: Record<string, string> = {
-    historie: 'Historie',
-    norsk: 'Norsk',
-    krle: 'KRLE',
-    samfunnskunnskap: 'Samfunn',
-    musikk: 'Musikk',
-};
+import { SUBJECT_COLOR, SUBJECT_LABEL } from './atlasSubjects';
 
 interface Props {
     title: string | null;

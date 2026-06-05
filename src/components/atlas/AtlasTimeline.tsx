@@ -10,6 +10,10 @@ interface Props {
     onTogglePlay: () => void;
     speed: number;
     onSpeedChange: (s: number) => void;
+    onJumpPrev: () => void;
+    onJumpNext: () => void;
+    hasPrev: boolean;
+    hasNext: boolean;
 }
 
 const SPEEDS = [1, 2, 4];
@@ -21,6 +25,10 @@ export function AtlasTimeline({
     onTogglePlay,
     speed,
     onSpeedChange,
+    onJumpPrev,
+    onJumpNext,
+    hasPrev,
+    hasNext,
 }: Props) {
     const trackRef = useRef<HTMLDivElement>(null);
     const dragging = useRef(false);
@@ -52,14 +60,32 @@ export function AtlasTimeline({
     return (
         <div className="w-full px-4 pb-4 pt-2 select-none">
             <div className="flex items-center gap-4">
-                {/* Play / pause */}
-                <button
-                    onClick={onTogglePlay}
-                    className="shrink-0 w-12 h-12 rounded-full bg-amber-600 hover:bg-amber-500 text-white shadow-md flex items-center justify-center text-xl transition-transform active:scale-95"
-                    title={playing ? 'Pause' : 'Spill av'}
-                >
-                    {playing ? '⏸' : '▶'}
-                </button>
+                {/* Hopp + play / pause */}
+                <div className="shrink-0 flex items-center gap-1.5">
+                    <button
+                        onClick={onJumpPrev}
+                        disabled={!hasPrev}
+                        className="w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center text-lg transition-colors disabled:opacity-30 disabled:cursor-default"
+                        title="Forrige hendelse"
+                    >
+                        ‹
+                    </button>
+                    <button
+                        onClick={onTogglePlay}
+                        className="w-12 h-12 rounded-full bg-amber-600 hover:bg-amber-500 text-white shadow-md flex items-center justify-center text-xl transition-transform active:scale-95"
+                        title={playing ? 'Pause' : 'Spill av'}
+                    >
+                        {playing ? '⏸' : '▶'}
+                    </button>
+                    <button
+                        onClick={onJumpNext}
+                        disabled={!hasNext}
+                        className="w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center text-lg transition-colors disabled:opacity-30 disabled:cursor-default"
+                        title="Neste hendelse"
+                    >
+                        ›
+                    </button>
+                </div>
 
                 {/* Årsvisning */}
                 <div className="shrink-0 w-28 text-center">

@@ -5,6 +5,7 @@ import { COUNTRY_NAMES } from '../../features/infrastruktur/data/countryNames';
 import { useAtlasWorld, type GeoFeature } from './useAtlasWorld';
 import { recencyAt, FLOOR_OPACITY } from './atlasFade';
 import { AtlasCountryTooltip, type CountryTooltipData } from './AtlasCountryTooltip';
+import { AtlasPinTooltip, type PinTooltipData } from './AtlasPinTooltip';
 import { yearToX, formatYear } from '../../utils/timelineLayout';
 
 const WIDTH = 960;
@@ -105,6 +106,7 @@ export function AtlasWorldMap({
     const touchRef = useRef<{ dist: number; midX: number; midY: number } | null>(null);
     const [hoverId, setHoverId] = useState<number | null>(null);
     const [tooltip, setTooltip] = useState<CountryTooltipData | null>(null);
+    const [pinTooltip, setPinTooltip] = useState<PinTooltipData | null>(null);
 
     const projection = useMemo(
         () => geoNaturalEarth1().scale(190).translate([WIDTH / 2, HEIGHT / 2 + 28]),
@@ -254,6 +256,7 @@ export function AtlasWorldMap({
                 moved: false,
             };
             setIsPanning(true);
+            setPinTooltip(null);
         },
         [transform.x, transform.y]
     );
@@ -342,6 +345,20 @@ export function AtlasWorldMap({
         setTooltip(null);
     }, []);
 
+    // Pin-hover -> tooltip med stedet og dets synlige hendelser.
+    const handlePinHover = useCallback(
+        (e: React.MouseEvent, label: string, items: { title: string; date: string }[], extra: number) => {
+            const rect = containerRef.current?.getBoundingClientRect();
+            if (!rect) return;
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            setPinTooltip({ label, items, extra, x, y, flip: x > rect.width * 0.62 });
+        },
+        []
+    );
+
+    const clearPinHover = useCallback(() => setPinTooltip(null), []);
+
     // Pin-radius krymper med zoom så de ikke vokser i hjel.
     const pinScale = 1 / Math.sqrt(transform.scale);
     const hoveredPath = hoverId != null ? renderedPaths.find((p) => p.id === hoverId) : undefined;
@@ -360,6 +377,7 @@ export function AtlasWorldMap({
             onMouseLeave={() => {
                 stopPan();
                 clearHover();
+                clearPinHover();
             }}
             onTouchStart={onTouchStart}
             onTouchMove={onTouchMove}
@@ -439,16 +457,27 @@ export function AtlasWorldMap({
                         if (!xy) return null;
                         let best = -1;
                         let visibleCount = 0;
+                        // Synlige hendelser (freshest først) for tooltip.
+                        const visible: { title: string; date: string; recency: number }[] = [];
                         for (const e of c.events) {
                             const r = recencyAt(e.evX, curX);
                             if (r.visible) {
                                 visibleCount += 1;
                                 best = Math.max(best, r.recency);
+                                visible.push({
+                                    title: e.ev.title,
+                                    date: e.ev.displayDate || formatYear(e.ev.startDate),
+                                    recency: r.recency,
+                                });
                             }
                         }
                         if (best < 0) return null;
+                        visible.sort((a, b) => b.recency - a.recency);
+                        const tipItems = visible.slice(0, 3).map(({ title, date }) => ({ title, date }));
+                        const tipExtra = Math.max(0, visible.length - tipItems.length);
                         const opacity = FLOOR_OPACITY + (1 - FLOOR_OPACITY) * best;
                         const r = (3.2 + best * 4 + Math.min(visibleCount, 6) * 0.5) * pinScale;
+                        const hit = Math.max(r, 11 * pinScale);
                         const fresh = best > 0.55;
                         const isGuess = c.confidence === 'guess';
                         const fill = isGuess ? '#94a3b8' : fresh ? '#dc2626' : '#b45309';
@@ -456,7 +485,7 @@ export function AtlasWorldMap({
                             <g
                                 key={c.key}
                                 transform={`translate(${xy[0]}, ${xy[1]})`}
-                                style={{ opacity, cursor: 'pointer' }}
+                                style={{ cursor: 'pointer' }}
                                 onClick={(e) => {
                                     e.stopPropagation();
                                     if (panRef.current.moved) return;
@@ -465,7 +494,13 @@ export function AtlasWorldMap({
                                         c.label
                                     );
                                 }}
+                                onMouseEnter={(e) => handlePinHover(e, c.label, tipItems, tipExtra)}
+                                onMouseMove={(e) => handlePinHover(e, c.label, tipItems, tipExtra)}
+                                onMouseLeave={clearPinHover}
                             >
+                                {/* Usynlig, romslig treff-flate for touch/mus */}
+                                <circle r={hit} fill="transparent" />
+                                <g style={{ opacity }}>
                                 {fresh && (
                                     <circle r={r * 2.1} fill={fill} opacity={0.18}>
                                         <animate
@@ -489,6 +524,7 @@ export function AtlasWorldMap({
                                         {visibleCount}
                                     </text>
                                 )}
+                                </g>
                             </g>
                         );
                     })}
@@ -497,6 +533,7 @@ export function AtlasWorldMap({
 
             {/* Custom tooltip (HTML over SVG for skarp tekst + glass) */}
             <AtlasCountryTooltip data={tooltip} />
+            <AtlasPinTooltip data={pinTooltip} />
 
             {/* Zoom-kontroller */}
             <div className="absolute bottom-4 left-4 flex flex-col gap-1.5 z-10">

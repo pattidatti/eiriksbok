@@ -1,21 +1,5 @@
 import { motion } from 'framer-motion';
-
-// Fagfarger — speiler AtlasEventPanel så atlaset føles som én helhet.
-const SUBJECT_COLOR: Record<string, string> = {
-    historie: '#b45309',
-    norsk: '#0891b2',
-    krle: '#7c3aed',
-    samfunnskunnskap: '#059669',
-    musikk: '#db2777',
-};
-
-const SUBJECT_LABEL: Record<string, string> = {
-    historie: 'Historie',
-    norsk: 'Norsk',
-    krle: 'KRLE',
-    samfunnskunnskap: 'Samfunn',
-    musikk: 'Musikk',
-};
+import { SUBJECT_COLOR, SUBJECT_LABEL } from './atlasSubjects';
 
 export interface CountryTooltipData {
     name: string;
