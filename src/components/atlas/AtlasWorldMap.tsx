@@ -3,7 +3,7 @@ import { geoNaturalEarth1, geoPath } from 'd3-geo';
 import type { GlobalTimelineEvent } from '../../types';
 import { COUNTRY_NAMES } from '../../features/infrastruktur/data/countryNames';
 import { useAtlasWorld, type GeoFeature } from './useAtlasWorld';
-import { recencyAt, FLOOR_OPACITY } from './atlasFade';
+import { recencyAt, upcomingAt, FLOOR_OPACITY } from './atlasFade';
 import { AtlasCountryTooltip, type CountryTooltipData } from './AtlasCountryTooltip';
 import { AtlasPinTooltip, type PinTooltipData } from './AtlasPinTooltip';
 import { yearToX, formatYear } from '../../utils/timelineLayout';
@@ -12,6 +12,26 @@ const WIDTH = 960;
 const HEIGHT = 452;
 const MIN_SCALE = 0.6;
 const MAX_SCALE = 9;
+
+// Zoom-terskel der stedsnavn dukker opp ved pins.
+const LABEL_SCALE = 2.2;
+// Hvor lenge en programmatisk kamerareise (fly-til-land / region) varer.
+const FLY_MS = 450;
+
+// Faste regioner eleven kan hoppe til. Boksen er lat/lng; vi projiserer hjørnene
+// og flyr kamera til utsnittet. «Verden» nullstiller i stedet.
+interface RegionPreset {
+    id: string;
+    label: string;
+    box?: { lng: [number, number]; lat: [number, number] };
+}
+const REGIONS: RegionPreset[] = [
+    { id: 'verden', label: 'Verden' },
+    { id: 'europa', label: 'Europa', box: { lng: [-12, 42], lat: [34, 71] } },
+    { id: 'norden', label: 'Norden', box: { lng: [3, 32], lat: [54, 71] } },
+    { id: 'middelhavet', label: 'Middelhavet', box: { lng: [-6, 36], lat: [30, 46] } },
+    { id: 'midtosten', label: 'Midtøsten', box: { lng: [25, 63], lat: [12, 42] } },
+];
 
 // Nåtids-avsløring: når eleven scrubber mot vår tid lyser alle land med innhold opp som
 // et tetthets-kart (etter antall artikler). I forhistorien er faktoren ~0 og kun den
@@ -78,11 +98,13 @@ interface RenderedPath {
     id: number;
     name?: string;
     d: string;
+    geo: GeoFeature;
 }
 
 interface Props {
     events: GlobalTimelineEvent[];
     currentYear: number;
+    playing: boolean;
     selectedCountryId: number | null;
     onCountryClick: (countryId: number, name: string) => void;
     onClusterClick: (events: GlobalTimelineEvent[], label: string) => void;
@@ -92,6 +114,7 @@ interface Props {
 export function AtlasWorldMap({
     events,
     currentYear,
+    playing,
     selectedCountryId,
     onCountryClick,
     onClusterClick,
@@ -103,7 +126,11 @@ export function AtlasWorldMap({
     const [transform, setTransform] = useState<Transform>({ scale: 1, x: 0, y: 0 });
     const panRef = useRef({ active: false, startX: 0, startY: 0, startTX: 0, startTY: 0, moved: false });
     const [isPanning, setIsPanning] = useState(false);
+    // To-finger pinch (dist/mid) ELLER én-finger pan (single).
     const touchRef = useRef<{ dist: number; midX: number; midY: number } | null>(null);
+    // Myk overgang kun under programmatiske kamerareiser (fly-til-land / region).
+    const [animating, setAnimating] = useState(false);
+    const flyTimerRef = useRef<number | null>(null);
     const [hoverId, setHoverId] = useState<number | null>(null);
     const [tooltip, setTooltip] = useState<CountryTooltipData | null>(null);
     const [pinTooltip, setPinTooltip] = useState<PinTooltipData | null>(null);
@@ -122,7 +149,7 @@ export function AtlasWorldMap({
             const d = pathGenerator(geo as never);
             if (!d) continue;
             const id = Number(geo.id);
-            out.push({ id, name: COUNTRY_NAMES[id] || geo.properties?.name, d });
+            out.push({ id, name: COUNTRY_NAMES[id] || geo.properties?.name, d, geo });
         }
         return out;
     }, [geographies, pathGenerator]);
@@ -230,6 +257,7 @@ export function AtlasWorldMap({
         if (!el) return;
         const onWheel = (e: WheelEvent) => {
             e.preventDefault();
+            setAnimating(false);
             const rect = el.getBoundingClientRect();
             setTransform((prev) => {
                 const factor = e.deltaY < 0 ? 1.15 : 1 / 1.15;
@@ -247,6 +275,7 @@ export function AtlasWorldMap({
     const handleMouseDown = useCallback(
         (e: React.MouseEvent<HTMLDivElement>) => {
             if (e.button !== 0) return;
+            setAnimating(false);
             panRef.current = {
                 active: true,
                 startX: e.clientX,
@@ -276,31 +305,67 @@ export function AtlasWorldMap({
         setIsPanning(false);
     }, []);
 
-    const onTouchStart = useCallback((e: React.TouchEvent) => {
-        if (e.touches.length !== 2) return;
-        const [t1, t2] = [e.touches[0], e.touches[1]];
-        touchRef.current = {
-            dist: Math.hypot(t2.clientX - t1.clientX, t2.clientY - t1.clientY),
-            midX: (t1.clientX + t2.clientX) / 2,
-            midY: (t1.clientY + t2.clientY) / 2,
-        };
-    }, []);
+    const onTouchStart = useCallback(
+        (e: React.TouchEvent) => {
+            setAnimating(false);
+            if (e.touches.length === 2) {
+                // To-finger pinch-zoom.
+                const [t1, t2] = [e.touches[0], e.touches[1]];
+                touchRef.current = {
+                    dist: Math.hypot(t2.clientX - t1.clientX, t2.clientY - t1.clientY),
+                    midX: (t1.clientX + t2.clientX) / 2,
+                    midY: (t1.clientY + t2.clientY) / 2,
+                };
+                panRef.current.active = false;
+            } else if (e.touches.length === 1) {
+                // Én-finger pan (gjenbruker panRef-mønsteret fra mus).
+                const t = e.touches[0];
+                touchRef.current = null;
+                panRef.current = {
+                    active: true,
+                    startX: t.clientX,
+                    startY: t.clientY,
+                    startTX: transform.x,
+                    startTY: transform.y,
+                    moved: false,
+                };
+                setPinTooltip(null);
+            }
+        },
+        [transform.x, transform.y]
+    );
 
     const onTouchMove = useCallback((e: React.TouchEvent) => {
-        if (e.touches.length !== 2 || !touchRef.current) return;
-        e.preventDefault();
-        const [t1, t2] = [e.touches[0], e.touches[1]];
-        const newDist = Math.hypot(t2.clientX - t1.clientX, t2.clientY - t1.clientY);
-        const factor = newDist / touchRef.current.dist;
-        const rect = containerRef.current!.getBoundingClientRect();
-        const mx = touchRef.current.midX - rect.left;
-        const my = touchRef.current.midY - rect.top;
-        setTransform((prev) => {
-            const newScale = clampScale(prev.scale * factor);
-            const ratio = newScale / prev.scale;
-            return { scale: newScale, x: mx - (mx - prev.x) * ratio, y: my - (my - prev.y) * ratio };
-        });
-        touchRef.current.dist = newDist;
+        // To-finger pinch-zoom.
+        if (e.touches.length === 2 && touchRef.current) {
+            e.preventDefault();
+            const [t1, t2] = [e.touches[0], e.touches[1]];
+            const newDist = Math.hypot(t2.clientX - t1.clientX, t2.clientY - t1.clientY);
+            const factor = newDist / touchRef.current.dist;
+            const rect = containerRef.current!.getBoundingClientRect();
+            const mx = touchRef.current.midX - rect.left;
+            const my = touchRef.current.midY - rect.top;
+            setTransform((prev) => {
+                const newScale = clampScale(prev.scale * factor);
+                const ratio = newScale / prev.scale;
+                return { scale: newScale, x: mx - (mx - prev.x) * ratio, y: my - (my - prev.y) * ratio };
+            });
+            touchRef.current.dist = newDist;
+            return;
+        }
+        // Én-finger pan.
+        if (e.touches.length === 1 && panRef.current.active) {
+            const t = e.touches[0];
+            const dx = t.clientX - panRef.current.startX;
+            const dy = t.clientY - panRef.current.startY;
+            if (Math.abs(dx) + Math.abs(dy) > 4) panRef.current.moved = true;
+            setTransform((prev) => ({ ...prev, x: panRef.current.startTX + dx, y: panRef.current.startTY + dy }));
+        }
+    }, []);
+
+    const onTouchEnd = useCallback(() => {
+        panRef.current.active = false;
+        touchRef.current = null;
     }, []);
 
     const zoomBy = (factor: number) => {
@@ -313,7 +378,90 @@ export function AtlasWorldMap({
             return { scale: newScale, x: cx - (cx - prev.x) * ratio, y: cy - (cy - prev.y) * ratio };
         });
     };
-    const resetTransform = () => setTransform({ scale: 1, x: 0, y: 0 });
+    // Start en myk kamerareise: slå på transform-transisjon og rydd den etter FLY_MS.
+    const beginFly = useCallback(() => {
+        setAnimating(true);
+        if (flyTimerRef.current) window.clearTimeout(flyTimerRef.current);
+        flyTimerRef.current = window.setTimeout(() => setAnimating(false), FLY_MS);
+    }, []);
+
+    const resetTransform = useCallback(() => {
+        beginFly();
+        setTransform({ scale: 1, x: 0, y: 0 });
+    }, [beginFly]);
+
+    // Fly kamera til en projisert bbox ([[x0,y0],[x1,y1]] i viewBox-rommet).
+    const flyToBounds = useCallback(
+        (b: [[number, number], [number, number]]) => {
+            const rect = containerRef.current?.getBoundingClientRect();
+            if (!rect) return;
+            // preserveAspectRatio="xMidYMid slice": viewBox-px -> container-base-px ved transform {1,0,0}.
+            const baseScale = Math.max(rect.width / WIDTH, rect.height / HEIGHT);
+            const offX = (rect.width - WIDTH * baseScale) / 2;
+            const offY = (rect.height - HEIGHT * baseScale) / 2;
+            const toBase = (vx: number, vy: number) => [vx * baseScale + offX, vy * baseScale + offY];
+            const [bx0, by0] = toBase(b[0][0], b[0][1]);
+            const [bx1, by1] = toBase(b[1][0], b[1][1]);
+            const bw = Math.max(1, bx1 - bx0);
+            const bh = Math.max(1, by1 - by0);
+            const cc = { x: (bx0 + bx1) / 2, y: (by0 + by1) / 2 };
+            // 0.78 gir litt luft rundt utsnittet.
+            const S = clampScale(0.78 * Math.min(rect.width / bw, rect.height / bh));
+            beginFly();
+            setTransform({ scale: S, x: rect.width / 2 - cc.x * S, y: rect.height / 2 - cc.y * S });
+        },
+        [beginFly]
+    );
+
+    const flyToFeature = useCallback(
+        (geo: GeoFeature) => {
+            const b = pathGenerator.bounds(geo as never) as [[number, number], [number, number]];
+            if (!b || !Number.isFinite(b[0][0])) return;
+            flyToBounds(b);
+        },
+        [pathGenerator, flyToBounds]
+    );
+
+    const flyToRegion = useCallback(
+        (region: RegionPreset) => {
+            if (!region.box) {
+                resetTransform();
+                return;
+            }
+            const { lng, lat } = region.box;
+            const corners: [number, number][] = [
+                [lng[0], lat[0]],
+                [lng[1], lat[0]],
+                [lng[1], lat[1]],
+                [lng[0], lat[1]],
+            ];
+            let x0 = Infinity,
+                y0 = Infinity,
+                x1 = -Infinity,
+                y1 = -Infinity;
+            for (const c of corners) {
+                const p = projection(c);
+                if (!p) continue;
+                x0 = Math.min(x0, p[0]);
+                y0 = Math.min(y0, p[1]);
+                x1 = Math.max(x1, p[0]);
+                y1 = Math.max(y1, p[1]);
+            }
+            if (!Number.isFinite(x0)) return;
+            flyToBounds([
+                [x0, y0],
+                [x1, y1],
+            ]);
+        },
+        [projection, flyToBounds, resetTransform]
+    );
+
+    // Rydd fly-timeren ved unmount.
+    useEffect(() => {
+        return () => {
+            if (flyTimerRef.current) window.clearTimeout(flyTimerRef.current);
+        };
+    }, []);
 
     // Hover -> bygg tooltip-data i container-koordinater (uavhengig av kart-zoom).
     const handleCountryHover = useCallback(
@@ -381,6 +529,8 @@ export function AtlasWorldMap({
             }}
             onTouchStart={onTouchStart}
             onTouchMove={onTouchMove}
+            onTouchEnd={onTouchEnd}
+            onTouchCancel={onTouchEnd}
         >
             <svg
                 viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
@@ -389,6 +539,7 @@ export function AtlasWorldMap({
                 style={{
                     transform: `translate(${transform.x}px, ${transform.y}px) scale(${transform.scale})`,
                     transformOrigin: '0 0',
+                    transition: animating ? `transform ${FLY_MS}ms ease` : 'none',
                 }}
             >
                 <defs>
@@ -419,17 +570,20 @@ export function AtlasWorldMap({
                                 stroke={isSelected ? '#b45309' : LAND_STROKE}
                                 strokeWidth={isSelected ? 1.4 : 0.4}
                                 className={hasContent ? 'cursor-pointer' : undefined}
-                                style={{ transition: 'fill 0.4s ease' }}
+                                style={{ transition: playing ? 'none' : 'fill 0.4s ease' }}
                                 onMouseEnter={
                                     p.name ? (e) => handleCountryHover(e, p.id, p.name) : undefined
                                 }
                                 onMouseMove={
                                     p.name ? (e) => handleCountryHover(e, p.id, p.name) : undefined
                                 }
+                                onMouseLeave={p.name ? clearHover : undefined}
                                 onClick={
                                     hasContent && p.name
                                         ? () => {
-                                              if (!panRef.current.moved) onCountryClick(p.id, p.name!);
+                                              if (panRef.current.moved) return;
+                                              flyToFeature(p.geo);
+                                              onCountryClick(p.id, p.name!);
                                           }
                                         : undefined
                                 }
@@ -457,6 +611,7 @@ export function AtlasWorldMap({
                         if (!xy) return null;
                         let best = -1;
                         let visibleCount = 0;
+                        let upcomingNear = 0; // sterkeste "på vei"-hendelse (0 = ingen)
                         // Synlige hendelser (freshest først) for tooltip.
                         const visible: { title: string; date: string; recency: number }[] = [];
                         for (const e of c.events) {
@@ -469,9 +624,28 @@ export function AtlasWorldMap({
                                     date: e.ev.displayDate || formatYear(e.ev.startDate),
                                     recency: r.recency,
                                 });
+                            } else {
+                                const u = upcomingAt(e.evX, curX);
+                                if (u.upcoming) upcomingNear = Math.max(upcomingNear, u.nearness);
                             }
                         }
-                        if (best < 0) return null;
+                        // Ingenting synlig ennå: vis en svak, stiplet "kommer snart"-ring om noe nærmer seg.
+                        if (best < 0) {
+                            if (upcomingNear <= 0) return null;
+                            const gr = 3 * pinScale;
+                            return (
+                                <g key={c.key} transform={`translate(${xy[0]}, ${xy[1]})`} style={{ pointerEvents: 'none' }}>
+                                    <circle
+                                        r={gr}
+                                        fill="none"
+                                        stroke="#94a3b8"
+                                        strokeWidth={pinScale}
+                                        strokeDasharray={`${1.6 * pinScale} ${1.6 * pinScale}`}
+                                        opacity={0.2 + 0.45 * upcomingNear}
+                                    />
+                                </g>
+                            );
+                        }
                         visible.sort((a, b) => b.recency - a.recency);
                         const tipItems = visible.slice(0, 3).map(({ title, date }) => ({ title, date }));
                         const tipExtra = Math.max(0, visible.length - tipItems.length);
@@ -525,6 +699,21 @@ export function AtlasWorldMap({
                                     </text>
                                 )}
                                 </g>
+                                {/* Stedsnavn ved nær zoom (kun trygge tag-plasseringer) */}
+                                {transform.scale >= LABEL_SCALE && c.confidence === 'tag' && (
+                                    <text
+                                        x={r + 2.5 * pinScale}
+                                        y={1.2 * pinScale}
+                                        fontSize={9 * pinScale}
+                                        fontWeight={600}
+                                        fill="#1e293b"
+                                        stroke="#fff"
+                                        strokeWidth={2.4 * pinScale}
+                                        style={{ paintOrder: 'stroke', pointerEvents: 'none' }}
+                                    >
+                                        {c.label}
+                                    </text>
+                                )}
                             </g>
                         );
                     })}
@@ -558,6 +747,20 @@ export function AtlasWorldMap({
                 >
                     ↺
                 </button>
+            </div>
+
+            {/* Region-snarveier */}
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex items-center gap-1.5 bg-white/85 backdrop-blur rounded-lg shadow-sm border border-slate-200 px-1.5 py-1">
+                {REGIONS.map((region) => (
+                    <button
+                        key={region.id}
+                        onClick={() => flyToRegion(region)}
+                        title={`Vis ${region.label}`}
+                        className="px-2.5 py-1 rounded-md text-xs font-semibold text-slate-600 hover:text-amber-700 hover:bg-amber-50 transition-colors"
+                    >
+                        {region.label}
+                    </button>
+                ))}
             </div>
 
             {/* Forklaring + «vis alle land» */}

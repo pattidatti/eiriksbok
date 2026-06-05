@@ -289,6 +289,7 @@ export function AtlasPage() {
                         <AtlasWorldMap
                             events={visibleEvents}
                             currentYear={currentYear}
+                            playing={playing}
                             selectedCountryId={selectedCountryId}
                             onCountryClick={handleCountryClick}
                             onClusterClick={handleClusterClick}

@@ -10,6 +10,10 @@ export const FADE_PX = 360;
 // Akkumulerte hendelser forsvinner aldri helt — de synker til dette gulvet.
 export const FLOOR_OPACITY = 0.14;
 
+// Hvor langt FORAN nåtidssveipen (i piksler) en hendelse vises svakt som "på vei".
+// Gir eleven kontekst om hva som nærmer seg uten å avsløre alt på en gang.
+export const LOOKAHEAD_PX = 140;
+
 export interface Recency {
     visible: boolean; // har hendelsen skjedd innen valgt år?
     recency: number; // 1 = akkurat nå, 0 = falmet til gulvet
@@ -22,6 +26,18 @@ export function recencyAt(evX: number, curX: number): Recency {
     if (evX > curX + 1) return { visible: false, recency: 0, opacity: 0 };
     const r = Math.max(0, 1 - (curX - evX) / FADE_PX);
     return { visible: true, recency: r, opacity: FLOOR_OPACITY + (1 - FLOOR_OPACITY) * r };
+}
+
+export interface Upcoming {
+    upcoming: boolean; // er hendelsen rett foran sveipen (innen LOOKAHEAD_PX)?
+    nearness: number; // 1 = nesten her, 0 = ytterkant av lookahead-vinduet
+}
+
+// Hendelser som ennå ikke har skjedd, men er nær i tid, vises svakt. evX/curX er
+// forhåndsberegnet av kalleren (jf. recencyAt).
+export function upcomingAt(evX: number, curX: number): Upcoming {
+    if (evX <= curX || evX > curX + LOOKAHEAD_PX) return { upcoming: false, nearness: 0 };
+    return { upcoming: true, nearness: 1 - (evX - curX) / LOOKAHEAD_PX };
 }
 
 export const xForYear = yearToX;
