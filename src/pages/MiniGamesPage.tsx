@@ -8,6 +8,7 @@ import { blueprintQuestConfig } from '../games/blueprint-quest/BlueprintQuestCon
 import { oljeplattformConfig } from '../games/oljeplattform/OljeplattformConfig';
 import { caesarIdesConfig } from '../games/caesar-ides/CaesarIdesConfig';
 import { eksamenSamfunnsfagConfig } from '../games/eksamen-samfunnsfag/EksamenSamfunnsfagConfig';
+import { eksamenNorskConfig } from '../games/eksamen-norsk/EksamenNorskConfig';
 import type { GameConfig } from '../games/engine/types';
 
 interface ExternalGame {
@@ -33,7 +34,7 @@ const EXTERNAL_GAMES: ExternalGame[] = [
 
 // All registered historical games - add new entries here.
 // Blueprint-quest står først som referanse-implementasjon for nye spill.
-const HISTORICAL_GAMES: GameConfig[] = [blueprintQuestConfig, skjoldborgConfig, wattLabConfig, lindisfarneConfig, caesarIdesConfig, eksamenSamfunnsfagConfig, fordFactoryConfig, oljeplattformConfig, demoWorldConfig];
+const HISTORICAL_GAMES: GameConfig[] = [blueprintQuestConfig, skjoldborgConfig, wattLabConfig, lindisfarneConfig, caesarIdesConfig, eksamenSamfunnsfagConfig, eksamenNorskConfig, fordFactoryConfig, oljeplattformConfig, demoWorldConfig];
 
 const subjectColors: Record<string, string> = {
     historie: 'bg-amber-100 text-amber-800',

@@ -10,6 +10,7 @@ import { blueprintQuestConfig } from '../games/blueprint-quest/BlueprintQuestCon
 import { oljeplattformConfig } from '../games/oljeplattform/OljeplattformConfig';
 import { caesarIdesConfig } from '../games/caesar-ides/CaesarIdesConfig';
 import { eksamenSamfunnsfagConfig } from '../games/eksamen-samfunnsfag/EksamenSamfunnsfagConfig';
+import { eksamenNorskConfig } from '../games/eksamen-norsk/EksamenNorskConfig';
 import type { GameConfig } from '../games/engine/types';
 
 // Registry: map game IDs to their configs
@@ -22,6 +23,7 @@ const GAME_REGISTRY: Record<string, GameConfig> = {
     'sokrates-fengsel': blueprintQuestConfig,
     'caesar-ides': caesarIdesConfig,
     'eksamen-samfunnsfag': eksamenSamfunnsfagConfig,
+    'eksamen-norsk': eksamenNorskConfig,
     oljeplattform: oljeplattformConfig,
 };
 
