@@ -39,6 +39,7 @@ const GreskTeater3D = lazy(() => import('./GreskTeater3D'));
 const GutenbergPresse3D = lazy(() => import('./GutenbergPresse3D'));
 const DemokratiLysene3D = lazy(() => import('./DemokratiLysene3D'));
 const Testudo3D = lazy(() => import('./Testudo3D'));
+const Chinampabyen3D = lazy(() => import('./Chinampabyen3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
     'gladius-duell': {
@@ -346,6 +347,15 @@ export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.Laz
         estimatedSeconds: 150,
         loader: () => import('./Testudo3D'),
         Component: Testudo3D as never,
+    },
+    'chinampabyen-3d': {
+        id: 'chinampabyen-3d',
+        title: 'Bygg byen på vannet',
+        description:
+            'Bygg aztekernes hovedstad Tenochtitlán i 3D: dra de flytende hagene (chinampas) ut på innsjøen og plant dem. For hver hage vokser matmengden, husene reiser seg på den hellige øya, og folketallet stiger mot 200 000. Lyspæren: aztekerne dyrket mat på vannet, og det smarte jordbruket gjorde det mulig å fø en av verdens største byer.',
+        estimatedSeconds: 120,
+        loader: () => import('./Chinampabyen3D'),
+        Component: Chinampabyen3D as never,
     },
 };
 

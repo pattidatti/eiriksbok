@@ -5395,6 +5395,21 @@
               "lastUpdated": "2026-05-31T15:50:46+02:00"
             },
             {
+              "id": "amerikas-sivilisasjoner",
+              "title": "Amerikas tidlige sivilisasjoner: maya, aztekere og inka",
+              "description": "Hvordan sivilisasjon vokste fram helt for seg selv i Amerika, bygd på mais og poteter i stedet for hvete.",
+              "image": "/images/jordbruk-og-sivilisasjoner/amerikas-sivilisasjoner-hero.webp",
+              "tags": [
+                "maya",
+                "aztekere",
+                "inka",
+                "tenochtitlan",
+                "mais",
+                "sivilisasjon"
+              ],
+              "createdDate": "2026-06-05T00:00:00Z"
+            },
+            {
               "id": "indusdalen",
               "title": "Indusdalen: Sivilisasjonen som forsvant",
               "description": "Verdens første planlagte byer — fredelige, avanserte og fortsatt et mysterium.",
