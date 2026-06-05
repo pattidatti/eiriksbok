@@ -8,6 +8,13 @@ name: Auto-merge bot content PRs
 # Denne workflowen gjør en DIREKTE squash-merge (krever kun allow_squash_merge,
 # som er på), verifiserer at den faktisk ble merget, og kommenterer hvis PR-en
 # har konflikt mot main i stedet for å feile stille.
+#
+# Kandidat-PR-er gjenkjennes på MARKØR I PR-BODY (`eiriksbok-daily-content` /
+# `eiriksbok-daily-microgame`), IKKE på branch-navn. Grunn: daily-content navngir
+# av og til branchen sin generisk (`claude/jolly-bohr-XXXX`) i stedet for
+# `claude/content-YYYYMMDD-*`. Med et branch-filter sklir de PR-ene gjennom nettet,
+# blir liggende åpne forbi 02:30, og kolliderer med mikrospill-PR-en på de samme
+# genererte filene. Body-markøren settes av begge rutine-promptene uansett branch-navn.
 
 on:
   pull_request:
@@ -39,13 +46,17 @@ jobs:
         run: |
           set -euo pipefail
 
-          # På pull_request: kun den utløsende PR-en. Ellers (schedule/dispatch):
-          # alle åpne PR-er fra bot-branchene.
+          # Markør som begge rutine-promptene legger i PR-body. Den (ikke branch-
+          # navnet) avgjør om en PR er en bot-innholds-PR.
+          MARKER='eiriksbok-daily-(content|microgame)'
+
+          # På pull_request: kun den utløsende PR-en (gates på body-markør under).
+          # Ellers (schedule/dispatch): alle åpne PR-er med markøren i body.
           if [ "$EVENT_NAME" = "pull_request" ]; then
             PRS="$EVENT_PR"
           else
-            PRS=$(gh pr list --repo "$REPO" --state open --json number,headRefName \
-              -q '.[] | select(.headRefName | test("^claude/(content|microgame)-")) | .number')
+            PRS=$(gh pr list --repo "$REPO" --state open --json number,body \
+              -q ".[] | select(.body | test(\"$MARKER\")) | .number")
           fi
 
           if [ -z "${PRS//[[:space:]]/}" ]; then
@@ -56,11 +67,13 @@ jobs:
           for PR in $PRS; do
             echo "::group::PR #$PR"
 
+            # Gate på body-markøren, ikke branch-navnet (se kommentar øverst).
             BRANCH=$(gh pr view "$PR" --repo "$REPO" --json headRefName -q .headRefName)
-            case "$BRANCH" in
-              claude/content-*|claude/microgame-*) : ;;
-              *) echo "Hopper over $BRANCH (ikke en bot-branch)"; echo "::endgroup::"; continue ;;
-            esac
+            BODY=$(gh pr view "$PR" --repo "$REPO" --json body -q .body)
+            if ! printf '%s' "$BODY" | grep -qE "$MARKER"; then
+              echo "Hopper over PR #$PR ($BRANCH) - ingen bot-markør i body"
+              echo "::endgroup::"; continue
+            fi
 
             STATE=$(gh pr view "$PR" --repo "$REPO" --json state -q .state)
             if [ "$STATE" != "OPEN" ]; then
