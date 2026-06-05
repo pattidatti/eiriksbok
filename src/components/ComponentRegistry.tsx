@@ -22,6 +22,7 @@ import { MapCarousel } from './MapCarousel';
 // Interactive Content
 const TragediensTrinn = lazy(() => import('./content/interactive/TragediensTrinn').then(m => ({ default: m.TragediensTrinn })));
 const OlympiskFred = lazy(() => import('./content/interactive/OlympiskFred').then(m => ({ default: m.OlympiskFred })));
+const ParallelleSivilisasjoner = lazy(() => import('./content/interactive/ParallelleSivilisasjoner').then(m => ({ default: m.ParallelleSivilisasjoner })));
 const InflationCalculator = lazy(() => import('./content/interactive/InflationCalculator').then(m => ({ default: m.InflationCalculator })));
 const TimePreferenceModel = lazy(() => import('./content/interactive/TimePreferenceModel').then(m => ({ default: m.TimePreferenceModel })));
 const BusinessCycleModel = lazy(() => import('./content/interactive/BusinessCycleModel').then(m => ({ default: m.BusinessCycleModel })));
@@ -260,6 +261,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     HistoryLongLines,
     TragediensTrinn,
     OlympiskFred,
+    ParallelleSivilisasjoner,
     Quiz,
     EICSimulation,
     FactBox,

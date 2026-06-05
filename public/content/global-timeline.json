@@ -262,6 +262,26 @@
       ]
     },
     {
+      "id": "amerikas-sivilisasjoner",
+      "title": "Amerikas tidlige sivilisasjoner: maya, aztekere og inka",
+      "description": "Hvordan sivilisasjon vokste fram helt for seg selv i Amerika, bygd på mais og poteter i stedet for hvete.",
+      "startDate": -2000,
+      "endDate": 1533,
+      "displayDate": "2000 fvt – 1533 evt",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "jordbruk-og-sivilisasjoner",
+      "link": "/historie/jordbruk-og-sivilisasjoner/amerikas-sivilisasjoner",
+      "tags": [
+        "maya",
+        "aztekere",
+        "inka",
+        "tenochtitlan",
+        "mais",
+        "sivilisasjon"
+      ]
+    },
+    {
       "id": "norge-for-vikingene-sub-4",
       "title": "Bronsealderen",
       "description": "Starten på bronsealderen i Norge.",
