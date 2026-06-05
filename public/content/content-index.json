@@ -1,5 +1,5 @@
 {
-  "buildId": 1780623125840,
+  "buildId": 1780646670783,
   "contentMap": {
     "concept-adel": [
       "content/concepts/adel.json"
@@ -1119,6 +1119,9 @@
     ],
     "scanner-config": [
       "content/config/scanner-config.json"
+    ],
+    "place-coordinates": [
+      "content/geo/place-coordinates.json"
     ],
     "global-timeline-images": [
       "content/global-timeline-images.json"
@@ -3712,6 +3715,7 @@
     "concepts/zeppeliner.json/zeppeliner": "content/concepts/zeppeliner.json",
     "concepts/zimmermann-telegrammet.json/zimmermann-telegrammet": "content/concepts/zimmermann-telegrammet.json",
     "config/scanner-config.json/scanner-config": "content/config/scanner-config.json",
+    "geo/place-coordinates.json/place-coordinates": "content/geo/place-coordinates.json",
     "global-timeline-images.json/undefined/global-timeline-images": "content/global-timeline-images.json",
     "global-timeline.json/undefined/global-timeline": "content/global-timeline.json",
     "global-timeline.manual.json/undefined/global-timeline.manual": "content/global-timeline.manual.json",

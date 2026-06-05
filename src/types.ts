@@ -221,6 +221,13 @@ export interface GlobalTimelineEvent {
     topicId?: string;
     link: string;
     tags?: string[];
+    // Geografisk plassering for verdensatlaset (/atlas). Settes av
+    // scripts/generate-timeline.js fra public/content/geo/place-coordinates.json.
+    lat?: number;
+    lng?: number;
+    placeLabel?: string;       // f.eks. "Roma" eller "Norge"
+    placeCountryId?: number;   // ISO 3166-1 numerisk (world-atlas geo.id) for land-klikk
+    geoConfidence?: 'tag' | 'guess'; // 'tag' = geo-tag-treff, 'guess' = fag-fallback
     // Extended fields for compatibility with InteractiveArticle
     content?: ContentBlock[];
     year?: string;

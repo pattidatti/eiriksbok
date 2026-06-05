@@ -24,6 +24,7 @@ export const routeFactories: Record<string, PageFactory> = {
     PhilosophyComparisonPage: () => import('./pages/PhilosophyComparisonPage').then(module => ({ default: module.PhilosophyComparisonPage })),
     TopicComparisonPage: () => import('./pages/TopicComparisonPage').then(module => ({ default: module.TopicComparisonPage })),
     GlobalTimelinePage: () => import('./pages/GlobalTimelinePage'),
+    AtlasPage: () => import('./pages/AtlasPage').then(module => ({ default: module.AtlasPage })),
     QuizAdmin: () => import('./pages/quiz/QuizAdmin').then(module => ({ default: module.QuizAdmin })),
     QuizLobby: () => import('./pages/quiz/QuizLobby').then(module => ({ default: module.QuizLobby })),
     QuizHost: () => import('./pages/quiz/QuizHost').then(module => ({ default: module.QuizHost })),

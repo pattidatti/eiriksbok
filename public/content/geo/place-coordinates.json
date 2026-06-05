@@ -1,0 +1,3302 @@
+{
+  "_meta": {
+    "description": "Mapper geografiske tidslinje-tags til koordinater + moderne land-id (ISO numerisk). Generert av scripts/generate-place-coordinates.js. Sett \"source\":\"manual\" på en place for å beskytte den mot regenerering.",
+    "generated": "epoch-stamped-at-build"
+  },
+  "aliases": {
+    "midtosten": "midtøsten",
+    "midtausten": "midtøsten",
+    "usa": "usa",
+    "USA": "usa",
+    "Iran": "iran",
+    "Nicaragua": "nicaragua",
+    "Reagan": "usa",
+    "osmanriket": "osmanske-riket",
+    "osman": "osmanske-riket",
+    "forste-verdenskrig": "første-verdenskrig"
+  },
+  "subjectFallback": {
+    "norsk": "norge",
+    "samfunnskunnskap": "norge",
+    "musikk": "norge"
+  },
+  "places": {
+    "afghanistan": {
+      "lat": 33.9,
+      "lng": 67.7,
+      "label": "Afghanistan",
+      "kind": "land",
+      "countryId": 4,
+      "source": "seed"
+    },
+    "afrika": {
+      "lat": 2,
+      "lng": 20,
+      "label": "Afrika",
+      "kind": "region",
+      "source": "seed"
+    },
+    "algerie": {
+      "lat": 28,
+      "lng": 3,
+      "label": "Algerie",
+      "kind": "land",
+      "countryId": 12,
+      "source": "seed"
+    },
+    "amerika": {
+      "lat": 8,
+      "lng": -75,
+      "label": "Amerika",
+      "kind": "region",
+      "source": "seed"
+    },
+    "angola": {
+      "lat": -11.2,
+      "lng": 17.9,
+      "label": "Angola",
+      "kind": "land",
+      "countryId": 24,
+      "source": "seed"
+    },
+    "asia": {
+      "lat": 45,
+      "lng": 90,
+      "label": "Asia",
+      "kind": "region",
+      "source": "seed"
+    },
+    "athen": {
+      "lat": 37.98,
+      "lng": 23.73,
+      "label": "Athen",
+      "kind": "by",
+      "countryId": 300,
+      "source": "seed"
+    },
+    "aztekere": {
+      "lat": 19.43,
+      "lng": -99.13,
+      "label": "Aztekerriket",
+      "kind": "imperium",
+      "countryId": 484,
+      "source": "seed"
+    },
+    "babylon": {
+      "lat": 32.54,
+      "lng": 44.42,
+      "label": "Babylon",
+      "kind": "by",
+      "countryId": 368,
+      "source": "seed"
+    },
+    "balkan": {
+      "lat": 43,
+      "lng": 21,
+      "label": "Balkan",
+      "kind": "region",
+      "source": "seed"
+    },
+    "bastillen": {
+      "lat": 48.85,
+      "lng": 2.37,
+      "label": "Paris",
+      "kind": "by",
+      "countryId": 250,
+      "source": "seed"
+    },
+    "belfast": {
+      "lat": 54.6,
+      "lng": -5.93,
+      "label": "Belfast",
+      "kind": "by",
+      "countryId": 826,
+      "source": "seed"
+    },
+    "bergen": {
+      "lat": 60.39,
+      "lng": 5.32,
+      "label": "Bergen",
+      "kind": "by",
+      "countryId": 578,
+      "source": "seed"
+    },
+    "bolivia": {
+      "lat": -16.3,
+      "lng": -63.6,
+      "label": "Bolivia",
+      "kind": "land",
+      "countryId": 68,
+      "source": "seed"
+    },
+    "brasil": {
+      "lat": -10,
+      "lng": -52,
+      "label": "Brasil",
+      "kind": "land",
+      "countryId": 76,
+      "source": "seed"
+    },
+    "canada": {
+      "lat": 56,
+      "lng": -106,
+      "label": "Canada",
+      "kind": "land",
+      "countryId": 124,
+      "source": "seed"
+    },
+    "chile": {
+      "lat": -35.7,
+      "lng": -71.5,
+      "label": "Chile",
+      "kind": "land",
+      "countryId": 152,
+      "source": "seed"
+    },
+    "danmark": {
+      "lat": 56,
+      "lng": 10,
+      "label": "Danmark",
+      "kind": "land",
+      "countryId": 208,
+      "source": "seed"
+    },
+    "danmark-norge": {
+      "lat": 56,
+      "lng": 10,
+      "label": "Danmark-Norge",
+      "kind": "imperium",
+      "countryId": 208,
+      "source": "seed"
+    },
+    "egypt": {
+      "lat": 26.8,
+      "lng": 30,
+      "label": "Egypt",
+      "kind": "land",
+      "countryId": 818,
+      "source": "seed"
+    },
+    "england": {
+      "lat": 52.5,
+      "lng": -1.5,
+      "label": "England",
+      "kind": "land",
+      "countryId": 826,
+      "source": "seed"
+    },
+    "europa": {
+      "lat": 50,
+      "lng": 15,
+      "label": "Europa",
+      "kind": "region",
+      "source": "seed"
+    },
+    "finnmark": {
+      "lat": 70,
+      "lng": 25,
+      "label": "Finnmark",
+      "kind": "by",
+      "countryId": 578,
+      "source": "seed"
+    },
+    "firenze": {
+      "lat": 43.77,
+      "lng": 11.26,
+      "label": "Firenze",
+      "kind": "by",
+      "countryId": 380,
+      "source": "seed"
+    },
+    "frankerriket": {
+      "lat": 49,
+      "lng": 6,
+      "label": "Frankerriket",
+      "kind": "imperium",
+      "countryId": 250,
+      "source": "seed"
+    },
+    "frankrike": {
+      "lat": 46.6,
+      "lng": 2.5,
+      "label": "Frankrike",
+      "kind": "land",
+      "countryId": 250,
+      "source": "seed"
+    },
+    "geneve": {
+      "lat": 46.2,
+      "lng": 6.14,
+      "label": "Genève",
+      "kind": "by",
+      "countryId": 756,
+      "source": "seed"
+    },
+    "ghana": {
+      "lat": 7.9,
+      "lng": -1,
+      "label": "Ghana",
+      "kind": "land",
+      "countryId": 288,
+      "source": "seed"
+    },
+    "guatemala": {
+      "lat": 15.8,
+      "lng": -90.2,
+      "label": "Guatemala",
+      "kind": "land",
+      "countryId": 320,
+      "source": "seed"
+    },
+    "haiti": {
+      "lat": 19,
+      "lng": -72.3,
+      "label": "Haiti",
+      "kind": "land",
+      "countryId": 332,
+      "source": "seed"
+    },
+    "hansa": {
+      "lat": 53.87,
+      "lng": 10.68,
+      "label": "Hansaforbundet",
+      "kind": "imperium",
+      "countryId": 276,
+      "source": "seed"
+    },
+    "harappa": {
+      "lat": 30.63,
+      "lng": 72.86,
+      "label": "Harappa",
+      "kind": "by",
+      "countryId": 586,
+      "source": "seed"
+    },
+    "hellas": {
+      "lat": 39,
+      "lng": 22,
+      "label": "Hellas",
+      "kind": "land",
+      "countryId": 300,
+      "source": "seed"
+    },
+    "huang-he": {
+      "lat": 34.8,
+      "lng": 113.7,
+      "label": "Huang He (Den gule elv)",
+      "kind": "by",
+      "countryId": 156,
+      "source": "seed"
+    },
+    "india": {
+      "lat": 22,
+      "lng": 79,
+      "label": "India",
+      "kind": "land",
+      "countryId": 356,
+      "source": "seed"
+    },
+    "indonesia": {
+      "lat": -2.5,
+      "lng": 118,
+      "label": "Indonesia",
+      "kind": "land",
+      "countryId": 360,
+      "source": "seed"
+    },
+    "indusdalen": {
+      "lat": 27.3,
+      "lng": 68.1,
+      "label": "Indusdalen",
+      "kind": "by",
+      "countryId": 586,
+      "source": "seed"
+    },
+    "inka": {
+      "lat": -13.16,
+      "lng": -72.54,
+      "label": "Inkariket",
+      "kind": "imperium",
+      "countryId": 604,
+      "source": "seed"
+    },
+    "irak": {
+      "lat": 33,
+      "lng": 44,
+      "label": "Irak",
+      "kind": "land",
+      "countryId": 368,
+      "source": "seed"
+    },
+    "iran": {
+      "lat": 32,
+      "lng": 53,
+      "label": "Iran",
+      "kind": "land",
+      "countryId": 364,
+      "source": "seed"
+    },
+    "irland": {
+      "lat": 53.4,
+      "lng": -8,
+      "label": "Irland",
+      "kind": "land",
+      "countryId": 372,
+      "source": "seed"
+    },
+    "israel": {
+      "lat": 31.4,
+      "lng": 35,
+      "label": "Israel",
+      "kind": "land",
+      "countryId": 376,
+      "source": "seed"
+    },
+    "italia": {
+      "lat": 42.5,
+      "lng": 12.5,
+      "label": "Italia",
+      "kind": "land",
+      "countryId": 380,
+      "source": "seed"
+    },
+    "japan": {
+      "lat": 36.2,
+      "lng": 138.3,
+      "label": "Japan",
+      "kind": "land",
+      "countryId": 392,
+      "source": "seed"
+    },
+    "kalmarunionen": {
+      "lat": 56.66,
+      "lng": 16.36,
+      "label": "Kalmarunionen",
+      "kind": "imperium",
+      "countryId": 752,
+      "source": "seed"
+    },
+    "kenya": {
+      "lat": 0,
+      "lng": 37.9,
+      "label": "Kenya",
+      "kind": "land",
+      "countryId": 404,
+      "source": "seed"
+    },
+    "kina": {
+      "lat": 35,
+      "lng": 105,
+      "label": "Kina",
+      "kind": "land",
+      "countryId": 156,
+      "source": "seed"
+    },
+    "kongo": {
+      "lat": -2.9,
+      "lng": 23.6,
+      "label": "Kongo",
+      "kind": "land",
+      "countryId": 180,
+      "source": "seed"
+    },
+    "konstantinopel": {
+      "lat": 41.01,
+      "lng": 28.98,
+      "label": "Konstantinopel",
+      "kind": "by",
+      "countryId": 792,
+      "source": "seed"
+    },
+    "korea": {
+      "lat": 36.5,
+      "lng": 127.8,
+      "label": "Korea",
+      "kind": "land",
+      "countryId": 410,
+      "source": "seed"
+    },
+    "kypros": {
+      "lat": 35.1,
+      "lng": 33.4,
+      "label": "Kypros",
+      "kind": "land",
+      "countryId": 196,
+      "source": "seed"
+    },
+    "latin-amerika": {
+      "lat": -15,
+      "lng": -60,
+      "label": "Latin-Amerika",
+      "kind": "region",
+      "source": "seed"
+    },
+    "libya": {
+      "lat": 27,
+      "lng": 17,
+      "label": "Libya",
+      "kind": "land",
+      "countryId": 434,
+      "source": "seed"
+    },
+    "mandsjuria": {
+      "lat": 43,
+      "lng": 125,
+      "label": "Mandsjuria",
+      "kind": "by",
+      "countryId": 156,
+      "source": "seed"
+    },
+    "marokko": {
+      "lat": 32,
+      "lng": -6,
+      "label": "Marokko",
+      "kind": "land",
+      "countryId": 504,
+      "source": "seed"
+    },
+    "maya": {
+      "lat": 17.22,
+      "lng": -89.62,
+      "label": "Mayariket",
+      "kind": "imperium",
+      "countryId": 320,
+      "source": "seed"
+    },
+    "mesopotamia": {
+      "lat": 33.2,
+      "lng": 44.4,
+      "label": "Mesopotamia",
+      "kind": "by",
+      "countryId": 368,
+      "source": "seed"
+    },
+    "mexico": {
+      "lat": 23.6,
+      "lng": -102.5,
+      "label": "Mexico",
+      "kind": "land",
+      "countryId": 484,
+      "source": "seed"
+    },
+    "midtøsten": {
+      "lat": 29,
+      "lng": 45,
+      "label": "Midtøsten",
+      "kind": "region",
+      "source": "seed"
+    },
+    "mohenjo-daro": {
+      "lat": 27.33,
+      "lng": 68.14,
+      "label": "Mohenjo-daro",
+      "kind": "by",
+      "countryId": 586,
+      "source": "seed"
+    },
+    "mongolene": {
+      "lat": 46.9,
+      "lng": 103.8,
+      "label": "Mongolriket",
+      "kind": "imperium",
+      "countryId": 496,
+      "source": "seed"
+    },
+    "nederland": {
+      "lat": 52.2,
+      "lng": 5.3,
+      "label": "Nederland",
+      "kind": "land",
+      "countryId": 528,
+      "source": "seed"
+    },
+    "nicaragua": {
+      "lat": 12.9,
+      "lng": -85.2,
+      "label": "Nicaragua",
+      "kind": "land",
+      "countryId": 558,
+      "source": "seed"
+    },
+    "nigeria": {
+      "lat": 9.1,
+      "lng": 8.7,
+      "label": "Nigeria",
+      "kind": "land",
+      "countryId": 566,
+      "source": "seed"
+    },
+    "nilen": {
+      "lat": 26.8,
+      "lng": 31,
+      "label": "Nilen",
+      "kind": "by",
+      "countryId": 818,
+      "source": "seed"
+    },
+    "nord-amerika": {
+      "lat": 45,
+      "lng": -100,
+      "label": "Nord-Amerika",
+      "kind": "region",
+      "source": "seed"
+    },
+    "norden": {
+      "lat": 63,
+      "lng": 15,
+      "label": "Norden",
+      "kind": "region",
+      "source": "seed"
+    },
+    "norge": {
+      "lat": 60.5,
+      "lng": 8.5,
+      "label": "Norge",
+      "kind": "land",
+      "countryId": 578,
+      "source": "seed"
+    },
+    "norgeshistorie": {
+      "lat": 60.5,
+      "lng": 8.5,
+      "label": "Norge",
+      "kind": "land",
+      "countryId": 578,
+      "source": "seed"
+    },
+    "olympia": {
+      "lat": 37.64,
+      "lng": 21.63,
+      "label": "Olympia",
+      "kind": "by",
+      "countryId": 300,
+      "source": "seed"
+    },
+    "osmanske-riket": {
+      "lat": 39,
+      "lng": 35,
+      "label": "Det osmanske riket",
+      "kind": "imperium",
+      "countryId": 792,
+      "source": "seed"
+    },
+    "palestina": {
+      "lat": 31.9,
+      "lng": 35.2,
+      "label": "Palestina",
+      "kind": "land",
+      "countryId": 376,
+      "source": "seed"
+    },
+    "perserriket": {
+      "lat": 32,
+      "lng": 53,
+      "label": "Perserriket",
+      "kind": "imperium",
+      "countryId": 364,
+      "source": "seed"
+    },
+    "persia": {
+      "lat": 32,
+      "lng": 53,
+      "label": "Persia",
+      "kind": "imperium",
+      "countryId": 364,
+      "source": "seed"
+    },
+    "peru": {
+      "lat": -9.2,
+      "lng": -75,
+      "label": "Peru",
+      "kind": "land",
+      "countryId": 604,
+      "source": "seed"
+    },
+    "portugal": {
+      "lat": 39.5,
+      "lng": -8,
+      "label": "Portugal",
+      "kind": "land",
+      "countryId": 620,
+      "source": "seed"
+    },
+    "rikssamlingen": {
+      "lat": 60.5,
+      "lng": 8.5,
+      "label": "Norge",
+      "kind": "land",
+      "countryId": 578,
+      "source": "seed"
+    },
+    "roma": {
+      "lat": 41.9,
+      "lng": 12.5,
+      "label": "Roma",
+      "kind": "by",
+      "countryId": 380,
+      "source": "seed"
+    },
+    "romerriket": {
+      "lat": 41.9,
+      "lng": 12.5,
+      "label": "Romerriket",
+      "kind": "imperium",
+      "countryId": 380,
+      "source": "seed"
+    },
+    "russland": {
+      "lat": 61.5,
+      "lng": 90,
+      "label": "Russland",
+      "kind": "land",
+      "countryId": 643,
+      "source": "seed"
+    },
+    "sovjet": {
+      "lat": 61.5,
+      "lng": 90,
+      "label": "Sovjetunionen",
+      "kind": "imperium",
+      "countryId": 643,
+      "source": "seed"
+    },
+    "spania": {
+      "lat": 40,
+      "lng": -3.7,
+      "label": "Spania",
+      "kind": "land",
+      "countryId": 724,
+      "source": "seed"
+    },
+    "sparta": {
+      "lat": 37.07,
+      "lng": 22.43,
+      "label": "Sparta",
+      "kind": "by",
+      "countryId": 300,
+      "source": "seed"
+    },
+    "stiklestad": {
+      "lat": 63.79,
+      "lng": 11.56,
+      "label": "Stiklestad",
+      "kind": "by",
+      "countryId": 578,
+      "source": "seed"
+    },
+    "storbritannia": {
+      "lat": 54,
+      "lng": -2.5,
+      "label": "Storbritannia",
+      "kind": "land",
+      "countryId": 826,
+      "source": "seed"
+    },
+    "sumer": {
+      "lat": 31,
+      "lng": 46,
+      "label": "Sumer",
+      "kind": "by",
+      "countryId": 368,
+      "source": "seed"
+    },
+    "sverige": {
+      "lat": 62,
+      "lng": 15,
+      "label": "Sverige",
+      "kind": "land",
+      "countryId": 752,
+      "source": "seed"
+    },
+    "syria": {
+      "lat": 35,
+      "lng": 38,
+      "label": "Syria",
+      "kind": "land",
+      "countryId": 760,
+      "source": "seed"
+    },
+    "sør-afrika": {
+      "lat": -29,
+      "lng": 24,
+      "label": "Sør-Afrika",
+      "kind": "land",
+      "countryId": 710,
+      "source": "seed"
+    },
+    "tenochtitlan": {
+      "lat": 19.43,
+      "lng": -99.13,
+      "label": "Tenochtitlán",
+      "kind": "by",
+      "countryId": 484,
+      "source": "seed"
+    },
+    "topkapi": {
+      "lat": 41.01,
+      "lng": 28.98,
+      "label": "Konstantinopel",
+      "kind": "by",
+      "countryId": 792,
+      "source": "seed"
+    },
+    "tyrkia": {
+      "lat": 39,
+      "lng": 35,
+      "label": "Tyrkia",
+      "kind": "land",
+      "countryId": 792,
+      "source": "seed"
+    },
+    "tyskland": {
+      "lat": 51.2,
+      "lng": 10.4,
+      "label": "Tyskland",
+      "kind": "land",
+      "countryId": 276,
+      "source": "seed"
+    },
+    "usa": {
+      "lat": 39.5,
+      "lng": -98,
+      "label": "USA",
+      "kind": "land",
+      "countryId": 840,
+      "source": "seed"
+    },
+    "vardo": {
+      "lat": 70.37,
+      "lng": 31.11,
+      "label": "Vardø",
+      "kind": "by",
+      "countryId": 578,
+      "source": "seed"
+    },
+    "vietnam": {
+      "lat": 16,
+      "lng": 108,
+      "label": "Vietnam",
+      "kind": "land",
+      "countryId": 704,
+      "source": "seed"
+    }
+  },
+  "_unmapped": [
+    {
+      "tag": "historie",
+      "count": 265
+    },
+    {
+      "tag": "dekolonisering",
+      "count": 73
+    },
+    {
+      "tag": "teknologi",
+      "count": 65
+    },
+    {
+      "tag": "krig",
+      "count": 64
+    },
+    {
+      "tag": "filosofi",
+      "count": 55
+    },
+    {
+      "tag": "økonomi",
+      "count": 55
+    },
+    {
+      "tag": "politikk",
+      "count": 40
+    },
+    {
+      "tag": "kald-krig",
+      "count": 36
+    },
+    {
+      "tag": "nykolonialisme",
+      "count": 36
+    },
+    {
+      "tag": "religion",
+      "count": 33
+    },
+    {
+      "tag": "antikken",
+      "count": 30
+    },
+    {
+      "tag": "oppfinnelser",
+      "count": 29
+    },
+    {
+      "tag": "handel",
+      "count": 28
+    },
+    {
+      "tag": "imperium",
+      "count": 25
+    },
+    {
+      "tag": "delte-samfunn",
+      "count": 25
+    },
+    {
+      "tag": "hverdagsliv",
+      "count": 24
+    },
+    {
+      "tag": "musikk",
+      "count": 24
+    },
+    {
+      "tag": "demokrati",
+      "count": 21
+    },
+    {
+      "tag": "vikingtiden",
+      "count": 21
+    },
+    {
+      "tag": "steinalder",
+      "count": 18
+    },
+    {
+      "tag": "renessansen",
+      "count": 18
+    },
+    {
+      "tag": "ritual",
+      "count": 18
+    },
+    {
+      "tag": "revolusjon",
+      "count": 18
+    },
+    {
+      "tag": "narrative",
+      "count": 18
+    },
+    {
+      "tag": "etikk",
+      "count": 17
+    },
+    {
+      "tag": "sivilisasjon",
+      "count": 16
+    },
+    {
+      "tag": "islam",
+      "count": 16
+    },
+    {
+      "tag": "vitenskap",
+      "count": 16
+    },
+    {
+      "tag": "geopolitikk",
+      "count": 16
+    },
+    {
+      "tag": "holocaust",
+      "count": 16
+    },
+    {
+      "tag": "doctrinal",
+      "count": 16
+    },
+    {
+      "tag": "kultur",
+      "count": 15
+    },
+    {
+      "tag": "middelalder",
+      "count": 15
+    },
+    {
+      "tag": "konflikt",
+      "count": 15
+    },
+    {
+      "tag": "kristendom",
+      "count": 15
+    },
+    {
+      "tag": "imperialisme",
+      "count": 14
+    },
+    {
+      "tag": "reformasjonen",
+      "count": 14
+    },
+    {
+      "tag": "olje",
+      "count": 14
+    },
+    {
+      "tag": "skrivehjelp",
+      "count": 14
+    },
+    {
+      "tag": "folkemord",
+      "count": 13
+    },
+    {
+      "tag": "jernalder",
+      "count": 12
+    },
+    {
+      "tag": "samfunn",
+      "count": 12
+    },
+    {
+      "tag": "industri",
+      "count": 12
+    },
+    {
+      "tag": "grammatikk",
+      "count": 12
+    },
+    {
+      "tag": "intro",
+      "count": 12
+    },
+    {
+      "tag": "middelalderen",
+      "count": 11
+    },
+    {
+      "tag": "atomvåpen",
+      "count": 11
+    },
+    {
+      "tag": "apartheid",
+      "count": 11
+    },
+    {
+      "tag": "grunnleggere",
+      "count": 10
+    },
+    {
+      "tag": "diplomati",
+      "count": 10
+    },
+    {
+      "tag": "1800-tallet",
+      "count": 10
+    },
+    {
+      "tag": "arbeidsliv",
+      "count": 10
+    },
+    {
+      "tag": "auschwitz",
+      "count": 10
+    },
+    {
+      "tag": "sosiale-medier",
+      "count": 10
+    },
+    {
+      "tag": "demografi",
+      "count": 10
+    },
+    {
+      "tag": "keiser",
+      "count": 9
+    },
+    {
+      "tag": "analyse",
+      "count": 9
+    },
+    {
+      "tag": "eksamen",
+      "count": 9
+    },
+    {
+      "tag": "sentrale_trekk",
+      "count": 9
+    },
+    {
+      "tag": "forhistorie",
+      "count": 8
+    },
+    {
+      "tag": "arkeologi",
+      "count": 8
+    },
+    {
+      "tag": "rettsstat",
+      "count": 8
+    },
+    {
+      "tag": "kolonialisme",
+      "count": 8
+    },
+    {
+      "tag": "1500-tallet",
+      "count": 8
+    },
+    {
+      "tag": "rettigheter",
+      "count": 8
+    },
+    {
+      "tag": "1700-tallet",
+      "count": 8
+    },
+    {
+      "tag": "fred",
+      "count": 8
+    },
+    {
+      "tag": "kildekritikk",
+      "count": 8
+    },
+    {
+      "tag": "gudsbilde",
+      "count": 8
+    },
+    {
+      "tag": "frelse",
+      "count": 8
+    },
+    {
+      "tag": "bønn",
+      "count": 8
+    },
+    {
+      "tag": "overgangsriter",
+      "count": 8
+    },
+    {
+      "tag": "hellige-tekster",
+      "count": 8
+    },
+    {
+      "tag": "buddhisme",
+      "count": 8
+    },
+    {
+      "tag": "hinduisme",
+      "count": 8
+    },
+    {
+      "tag": "bahai",
+      "count": 8
+    },
+    {
+      "tag": "mormonisme",
+      "count": 8
+    },
+    {
+      "tag": "jehovas-vitner",
+      "count": 8
+    },
+    {
+      "tag": "ytringsfrihet",
+      "count": 7
+    },
+    {
+      "tag": "bøker",
+      "count": 7
+    },
+    {
+      "tag": "kolonialisering",
+      "count": 7
+    },
+    {
+      "tag": "segregering",
+      "count": 7
+    },
+    {
+      "tag": "opec",
+      "count": 7
+    },
+    {
+      "tag": "the-troubles",
+      "count": 7
+    },
+    {
+      "tag": "cia",
+      "count": 7
+    },
+    {
+      "tag": "ordklasser",
+      "count": 7
+    },
+    {
+      "tag": "jodedom",
+      "count": 7
+    },
+    {
+      "tag": "jordbruk",
+      "count": 6
+    },
+    {
+      "tag": "silkeveien",
+      "count": 6
+    },
+    {
+      "tag": "språkhistorie",
+      "count": 6
+    },
+    {
+      "tag": "lov",
+      "count": 6
+    },
+    {
+      "tag": "klima",
+      "count": 6
+    },
+    {
+      "tag": "folkevandring",
+      "count": 6
+    },
+    {
+      "tag": "fimbulvinter",
+      "count": 6
+    },
+    {
+      "tag": "mat",
+      "count": 6
+    },
+    {
+      "tag": "kunst",
+      "count": 6
+    },
+    {
+      "tag": "sikhisme",
+      "count": 6
+    },
+    {
+      "tag": "psykologi",
+      "count": 6
+    },
+    {
+      "tag": "teori",
+      "count": 6
+    },
+    {
+      "tag": "menneskerettigheter",
+      "count": 6
+    },
+    {
+      "tag": "slaveri",
+      "count": 6
+    },
+    {
+      "tag": "helse",
+      "count": 6
+    },
+    {
+      "tag": "bolivar",
+      "count": 6
+    },
+    {
+      "tag": "borgerrettigheter",
+      "count": 6
+    },
+    {
+      "tag": "mao",
+      "count": 6
+    },
+    {
+      "tag": "slag",
+      "count": 6
+    },
+    {
+      "tag": "gandhi",
+      "count": 6
+    },
+    {
+      "tag": "krise",
+      "count": 6
+    },
+    {
+      "tag": "oversikt",
+      "count": 6
+    },
+    {
+      "tag": "fn",
+      "count": 6
+    },
+    {
+      "tag": "fremtid",
+      "count": 6
+    },
+    {
+      "tag": "infrastruktur",
+      "count": 6
+    },
+    {
+      "tag": "argumentasjon",
+      "count": 6
+    },
+    {
+      "tag": "fortelling",
+      "count": 6
+    },
+    {
+      "tag": "kulturhistorie",
+      "count": 6
+    },
+    {
+      "tag": "eskatologi",
+      "count": 5
+    },
+    {
+      "tag": "globalisering",
+      "count": 5
+    },
+    {
+      "tag": "karl-den-store",
+      "count": 5
+    },
+    {
+      "tag": "oppdagelse",
+      "count": 5
+    },
+    {
+      "tag": "stormaktstid",
+      "count": 5
+    },
+    {
+      "tag": "humanisme",
+      "count": 5
+    },
+    {
+      "tag": "natur",
+      "count": 5
+    },
+    {
+      "tag": "opplysningstiden",
+      "count": 5
+    },
+    {
+      "tag": "media",
+      "count": 5
+    },
+    {
+      "tag": "propaganda",
+      "count": 5
+    },
+    {
+      "tag": "globalt",
+      "count": 5
+    },
+    {
+      "tag": "imf",
+      "count": 5
+    },
+    {
+      "tag": "verdensbanken",
+      "count": 5
+    },
+    {
+      "tag": "gjeld",
+      "count": 5
+    },
+    {
+      "tag": "konsekvenser",
+      "count": 5
+    },
+    {
+      "tag": "suharto",
+      "count": 5
+    },
+    {
+      "tag": "united-fruit",
+      "count": 5
+    },
+    {
+      "tag": "protest",
+      "count": 5
+    },
+    {
+      "tag": "romfart",
+      "count": 5
+    },
+    {
+      "tag": "prestisje",
+      "count": 5
+    },
+    {
+      "tag": "allende",
+      "count": 5
+    },
+    {
+      "tag": "pinochet",
+      "count": 5
+    },
+    {
+      "tag": "dollar",
+      "count": 5
+    },
+    {
+      "tag": "ai",
+      "count": 5
+    },
+    {
+      "tag": "skjønnlitteratur",
+      "count": 5
+    },
+    {
+      "tag": "sakprosa",
+      "count": 5
+    },
+    {
+      "tag": "evolusjon",
+      "count": 4
+    },
+    {
+      "tag": "republikk",
+      "count": 4
+    },
+    {
+      "tag": "utopi",
+      "count": 4
+    },
+    {
+      "tag": "dynastier",
+      "count": 4
+    },
+    {
+      "tag": "maktfordeling",
+      "count": 4
+    },
+    {
+      "tag": "germansk",
+      "count": 4
+    },
+    {
+      "tag": "norrønt",
+      "count": 4
+    },
+    {
+      "tag": "rettsutvikling",
+      "count": 4
+    },
+    {
+      "tag": "krle",
+      "count": 4
+    },
+    {
+      "tag": "mytologi",
+      "count": 4
+    },
+    {
+      "tag": "guder",
+      "count": 4
+    },
+    {
+      "tag": "unionsoppløsning",
+      "count": 4
+    },
+    {
+      "tag": "makt",
+      "count": 4
+    },
+    {
+      "tag": "mangfold",
+      "count": 4
+    },
+    {
+      "tag": "gustav-vasa",
+      "count": 4
+    },
+    {
+      "tag": "selvstendighet",
+      "count": 4
+    },
+    {
+      "tag": "dampmaskin",
+      "count": 4
+    },
+    {
+      "tag": "ideologi",
+      "count": 4
+    },
+    {
+      "tag": "industrialisering",
+      "count": 4
+    },
+    {
+      "tag": "eksistensialisme",
+      "count": 4
+    },
+    {
+      "tag": "frihet",
+      "count": 4
+    },
+    {
+      "tag": "borgerkrig",
+      "count": 4
+    },
+    {
+      "tag": "rente",
+      "count": 4
+    },
+    {
+      "tag": "grenser",
+      "count": 4
+    },
+    {
+      "tag": "velferdsstat",
+      "count": 4
+    },
+    {
+      "tag": "krigføring",
+      "count": 4
+    },
+    {
+      "tag": "okkupasjon",
+      "count": 4
+    },
+    {
+      "tag": "allianser",
+      "count": 4
+    },
+    {
+      "tag": "nato",
+      "count": 4
+    },
+    {
+      "tag": "proxy-krig",
+      "count": 4
+    },
+    {
+      "tag": "jernteppet",
+      "count": 4
+    },
+    {
+      "tag": "symbol",
+      "count": 4
+    },
+    {
+      "tag": "glasnost",
+      "count": 4
+    },
+    {
+      "tag": "1989",
+      "count": 4
+    },
+    {
+      "tag": "terror",
+      "count": 4
+    },
+    {
+      "tag": "radikalisering",
+      "count": 4
+    },
+    {
+      "tag": "syntaks",
+      "count": 4
+    },
+    {
+      "tag": "eventyr",
+      "count": 4
+    },
+    {
+      "tag": "virkemidler",
+      "count": 4
+    },
+    {
+      "tag": "litteraturhistorie",
+      "count": 4
+    },
+    {
+      "tag": "norsk",
+      "count": 4
+    },
+    {
+      "tag": "muntlig",
+      "count": 4
+    },
+    {
+      "tag": "presentasjon",
+      "count": 4
+    },
+    {
+      "tag": "samfunnsendring",
+      "count": 4
+    },
+    {
+      "tag": "sivilt-samfunn",
+      "count": 4
+    },
+    {
+      "tag": "identitet",
+      "count": 4
+    },
+    {
+      "tag": "instrument",
+      "count": 4
+    },
+    {
+      "tag": "komposisjon",
+      "count": 4
+    },
+    {
+      "tag": "biografi",
+      "count": 3
+    },
+    {
+      "tag": "kollaps",
+      "count": 3
+    },
+    {
+      "tag": "vasa",
+      "count": 3
+    },
+    {
+      "tag": "sjørøveri",
+      "count": 3
+    },
+    {
+      "tag": "tid",
+      "count": 3
+    },
+    {
+      "tag": "pest",
+      "count": 3
+    },
+    {
+      "tag": "global-historie",
+      "count": 3
+    },
+    {
+      "tag": "opplysningstid",
+      "count": 3
+    },
+    {
+      "tag": "empirisme",
+      "count": 3
+    },
+    {
+      "tag": "medisin",
+      "count": 3
+    },
+    {
+      "tag": "kommunikasjon",
+      "count": 3
+    },
+    {
+      "tag": "opptakt",
+      "count": 3
+    },
+    {
+      "tag": "jazz",
+      "count": 3
+    },
+    {
+      "tag": "totalitarisme",
+      "count": 3
+    },
+    {
+      "tag": "andre-verdenskrig",
+      "count": 3
+    },
+    {
+      "tag": "våpen",
+      "count": 3
+    },
+    {
+      "tag": "mandela",
+      "count": 3
+    },
+    {
+      "tag": "kommunisme",
+      "count": 3
+    },
+    {
+      "tag": "kennedy",
+      "count": 3
+    },
+    {
+      "tag": "penger",
+      "count": 3
+    },
+    {
+      "tag": "skandale",
+      "count": 3
+    },
+    {
+      "tag": "novelle",
+      "count": 3
+    },
+    {
+      "tag": "roman",
+      "count": 3
+    },
+    {
+      "tag": "dikt",
+      "count": 3
+    },
+    {
+      "tag": "levekår",
+      "count": 3
+    },
+    {
+      "tag": "opphavsrett",
+      "count": 3
+    },
+    {
+      "tag": "metode",
+      "count": 3
+    },
+    {
+      "tag": "gitar",
+      "count": 3
+    },
+    {
+      "tag": "tradisjon",
+      "count": 3
+    },
+    {
+      "tag": "mennesket",
+      "count": 2
+    },
+    {
+      "tag": "homo-sapiens",
+      "count": 2
+    },
+    {
+      "tag": "shang",
+      "count": 2
+    },
+    {
+      "tag": "zhou",
+      "count": 2
+    },
+    {
+      "tag": "qin",
+      "count": 2
+    },
+    {
+      "tag": "han",
+      "count": 2
+    },
+    {
+      "tag": "kileskrift",
+      "count": 2
+    },
+    {
+      "tag": "farao",
+      "count": 2
+    },
+    {
+      "tag": "pyramide",
+      "count": 2
+    },
+    {
+      "tag": "hieroglyfer",
+      "count": 2
+    },
+    {
+      "tag": "geografi",
+      "count": 2
+    },
+    {
+      "tag": "tidlig-sivilisasjon",
+      "count": 2
+    },
+    {
+      "tag": "mais",
+      "count": 2
+    },
+    {
+      "tag": "idrett",
+      "count": 2
+    },
+    {
+      "tag": "caesar",
+      "count": 2
+    },
+    {
+      "tag": "militær",
+      "count": 2
+    },
+    {
+      "tag": "augustus",
+      "count": 2
+    },
+    {
+      "tag": "mølle",
+      "count": 2
+    },
+    {
+      "tag": "vannkraft",
+      "count": 2
+    },
+    {
+      "tag": "inflasjon",
+      "count": 2
+    },
+    {
+      "tag": "aleksander",
+      "count": 2
+    },
+    {
+      "tag": "hellenisme",
+      "count": 2
+    },
+    {
+      "tag": "indoeuropeisk",
+      "count": 2
+    },
+    {
+      "tag": "språkfamilie",
+      "count": 2
+    },
+    {
+      "tag": "wergild",
+      "count": 2
+    },
+    {
+      "tag": "folkevandringstiden",
+      "count": 2
+    },
+    {
+      "tag": "teater",
+      "count": 2
+    },
+    {
+      "tag": "tragedie",
+      "count": 2
+    },
+    {
+      "tag": "komedie",
+      "count": 2
+    },
+    {
+      "tag": "muhammed",
+      "count": 2
+    },
+    {
+      "tag": "kyros",
+      "count": 2
+    },
+    {
+      "tag": "toleranse",
+      "count": 2
+    },
+    {
+      "tag": "vikingtid",
+      "count": 2
+    },
+    {
+      "tag": "gammelnorsk",
+      "count": 2
+    },
+    {
+      "tag": "kasus",
+      "count": 2
+    },
+    {
+      "tag": "språkutvikling",
+      "count": 2
+    },
+    {
+      "tag": "skip",
+      "count": 2
+    },
+    {
+      "tag": "hypotese",
+      "count": 2
+    },
+    {
+      "tag": "imperier",
+      "count": 2
+    },
+    {
+      "tag": "ritualer",
+      "count": 2
+    },
+    {
+      "tag": "riddere",
+      "count": 2
+    },
+    {
+      "tag": "olav-den-hellige",
+      "count": 2
+    },
+    {
+      "tag": "kulturmote",
+      "count": 2
+    },
+    {
+      "tag": "skolastikk",
+      "count": 2
+    },
+    {
+      "tag": "landsloven",
+      "count": 2
+    },
+    {
+      "tag": "magnus-lagabote",
+      "count": 2
+    },
+    {
+      "tag": "adel",
+      "count": 2
+    },
+    {
+      "tag": "klokke",
+      "count": 2
+    },
+    {
+      "tag": "sykdom",
+      "count": 2
+    },
+    {
+      "tag": "janitsjarer",
+      "count": 2
+    },
+    {
+      "tag": "hær",
+      "count": 2
+    },
+    {
+      "tag": "union",
+      "count": 2
+    },
+    {
+      "tag": "kunnskap",
+      "count": 2
+    },
+    {
+      "tag": "leonardo-da-vinci",
+      "count": 2
+    },
+    {
+      "tag": "kirke",
+      "count": 2
+    },
+    {
+      "tag": "michelangelo",
+      "count": 2
+    },
+    {
+      "tag": "skulptur",
+      "count": 2
+    },
+    {
+      "tag": "statsbygging",
+      "count": 2
+    },
+    {
+      "tag": "zoroastrismen",
+      "count": 2
+    },
+    {
+      "tag": "calvin",
+      "count": 2
+    },
+    {
+      "tag": "kalvinisme",
+      "count": 2
+    },
+    {
+      "tag": "predestinasjon",
+      "count": 2
+    },
+    {
+      "tag": "litteratur",
+      "count": 2
+    },
+    {
+      "tag": "luther",
+      "count": 2
+    },
+    {
+      "tag": "flokkmentalitet",
+      "count": 2
+    },
+    {
+      "tag": "christian-ii",
+      "count": 2
+    },
+    {
+      "tag": "vendepunkt",
+      "count": 2
+    },
+    {
+      "tag": "süleyman",
+      "count": 2
+    },
+    {
+      "tag": "gullalder",
+      "count": 2
+    },
+    {
+      "tag": "konge",
+      "count": 2
+    },
+    {
+      "tag": "christian-iii",
+      "count": 2
+    },
+    {
+      "tag": "olav-engelbrektsson",
+      "count": 2
+    },
+    {
+      "tag": "katolisisme",
+      "count": 2
+    },
+    {
+      "tag": "jesuittene",
+      "count": 2
+    },
+    {
+      "tag": "trento",
+      "count": 2
+    },
+    {
+      "tag": "galileo",
+      "count": 2
+    },
+    {
+      "tag": "astronomi",
+      "count": 2
+    },
+    {
+      "tag": "kirken",
+      "count": 2
+    },
+    {
+      "tag": "hekseprosessene",
+      "count": 2
+    },
+    {
+      "tag": "trolldom",
+      "count": 2
+    },
+    {
+      "tag": "kvinnehistorie",
+      "count": 2
+    },
+    {
+      "tag": "karl-xii",
+      "count": 2
+    },
+    {
+      "tag": "gustav-ii-adolf",
+      "count": 2
+    },
+    {
+      "tag": "30-aarskrigen",
+      "count": 2
+    },
+    {
+      "tag": "poltava",
+      "count": 2
+    },
+    {
+      "tag": "sannhet",
+      "count": 2
+    },
+    {
+      "tag": "rasjonalisme",
+      "count": 2
+    },
+    {
+      "tag": "forfall",
+      "count": 2
+    },
+    {
+      "tag": "montesquieu",
+      "count": 2
+    },
+    {
+      "tag": "james-watt",
+      "count": 2
+    },
+    {
+      "tag": "napoleon",
+      "count": 2
+    },
+    {
+      "tag": "code-civil",
+      "count": 2
+    },
+    {
+      "tag": "økonomiske skoler",
+      "count": 2
+    },
+    {
+      "tag": "barnearbeid",
+      "count": 2
+    },
+    {
+      "tag": "plikt",
+      "count": 2
+    },
+    {
+      "tag": "1789",
+      "count": 2
+    },
+    {
+      "tag": "robespierre",
+      "count": 2
+    },
+    {
+      "tag": "skrekkveldet",
+      "count": 2
+    },
+    {
+      "tag": "bokmål",
+      "count": 2
+    },
+    {
+      "tag": "nynorsk",
+      "count": 2
+    },
+    {
+      "tag": "Ivar Aasen",
+      "count": 2
+    },
+    {
+      "tag": "språkpolitikk",
+      "count": 2
+    },
+    {
+      "tag": "1814",
+      "count": 2
+    },
+    {
+      "tag": "klassekamp",
+      "count": 2
+    },
+    {
+      "tag": "marx",
+      "count": 2
+    },
+    {
+      "tag": "jernbanen",
+      "count": 2
+    },
+    {
+      "tag": "transport",
+      "count": 2
+    },
+    {
+      "tag": "opium",
+      "count": 2
+    },
+    {
+      "tag": "telefon",
+      "count": 2
+    },
+    {
+      "tag": "klær",
+      "count": 2
+    },
+    {
+      "tag": "fagforening",
+      "count": 2
+    },
+    {
+      "tag": "vann",
+      "count": 2
+    },
+    {
+      "tag": "hygiene",
+      "count": 2
+    },
+    {
+      "tag": "martin-luther-king",
+      "count": 2
+    },
+    {
+      "tag": "elektrisitet",
+      "count": 2
+    },
+    {
+      "tag": "lys",
+      "count": 2
+    },
+    {
+      "tag": "nihilisme",
+      "count": 2
+    },
+    {
+      "tag": "sentralbank",
+      "count": 2
+    },
+    {
+      "tag": "forste-verdenskrig",
+      "count": 2
+    },
+    {
+      "tag": "mandat",
+      "count": 2
+    },
+    {
+      "tag": "modernisme",
+      "count": 2
+    },
+    {
+      "tag": "nazi",
+      "count": 2
+    },
+    {
+      "tag": "militarisme",
+      "count": 2
+    },
+    {
+      "tag": "bakgrunn",
+      "count": 2
+    },
+    {
+      "tag": "fascisme",
+      "count": 2
+    },
+    {
+      "tag": "stalin",
+      "count": 2
+    },
+    {
+      "tag": "eksistens",
+      "count": 2
+    },
+    {
+      "tag": "børskrakk",
+      "count": 2
+    },
+    {
+      "tag": "kart",
+      "count": 2
+    },
+    {
+      "tag": "hjemmefronten",
+      "count": 2
+    },
+    {
+      "tag": "quisling",
+      "count": 2
+    },
+    {
+      "tag": "frykt",
+      "count": 2
+    },
+    {
+      "tag": "nurnbergprosessen",
+      "count": 2
+    },
+    {
+      "tag": "folkerett",
+      "count": 2
+    },
+    {
+      "tag": "krigsforbrytelser",
+      "count": 2
+    },
+    {
+      "tag": "kaldkrig",
+      "count": 2
+    },
+    {
+      "tag": "feminisme",
+      "count": 2
+    },
+    {
+      "tag": "lønn",
+      "count": 2
+    },
+    {
+      "tag": "frontfag",
+      "count": 2
+    },
+    {
+      "tag": "hungersnød",
+      "count": 2
+    },
+    {
+      "tag": "økologi",
+      "count": 2
+    },
+    {
+      "tag": "miljø",
+      "count": 2
+    },
+    {
+      "tag": "deng",
+      "count": 2
+    },
+    {
+      "tag": "tiananmen",
+      "count": 2
+    },
+    {
+      "tag": "golfkrig",
+      "count": 2
+    },
+    {
+      "tag": "supermakt",
+      "count": 2
+    },
+    {
+      "tag": "xi-jinping",
+      "count": 2
+    },
+    {
+      "tag": "arabiskvaar",
+      "count": 2
+    },
+    {
+      "tag": "polarisering",
+      "count": 2
+    },
+    {
+      "tag": "samtidshistorie",
+      "count": 2
+    },
+    {
+      "tag": "is",
+      "count": 2
+    },
+    {
+      "tag": "influensere",
+      "count": 2
+    },
+    {
+      "tag": "energi",
+      "count": 2
+    },
+    {
+      "tag": "gass",
+      "count": 2
+    },
+    {
+      "tag": "rørledninger",
+      "count": 2
+    },
+    {
+      "tag": "internett",
+      "count": 2
+    },
+    {
+      "tag": "kabler",
+      "count": 2
+    },
+    {
+      "tag": "skipsfart",
+      "count": 2
+    },
+    {
+      "tag": "logistikk",
+      "count": 2
+    },
+    {
+      "tag": "sårbarhet",
+      "count": 2
+    },
+    {
+      "tag": "sikkerhet",
+      "count": 2
+    },
+    {
+      "tag": "ulikhet",
+      "count": 2
+    },
+    {
+      "tag": "gig",
+      "count": 2
+    },
+    {
+      "tag": "drøfting",
+      "count": 2
+    },
+    {
+      "tag": "saktekst",
+      "count": 2
+    },
+    {
+      "tag": "skriving",
+      "count": 2
+    },
+    {
+      "tag": "fagartikkel",
+      "count": 2
+    },
+    {
+      "tag": "mening",
+      "count": 2
+    },
+    {
+      "tag": "kommentar",
+      "count": 2
+    },
+    {
+      "tag": "refleksjon",
+      "count": 2
+    },
+    {
+      "tag": "retorikk",
+      "count": 2
+    },
+    {
+      "tag": "språk",
+      "count": 2
+    },
+    {
+      "tag": "debatt",
+      "count": 2
+    },
+    {
+      "tag": "tips",
+      "count": 2
+    },
+    {
+      "tag": "modellsvar",
+      "count": 2
+    },
+    {
+      "tag": "produksjon",
+      "count": 2
+    },
+    {
+      "tag": "syklus",
+      "count": 2
+    },
+    {
+      "tag": "befolkning",
+      "count": 2
+    },
+    {
+      "tag": "globale-ulikheter",
+      "count": 2
+    },
+    {
+      "tag": "bosettingsmønster",
+      "count": 2
+    },
+    {
+      "tag": "HDI",
+      "count": 2
+    },
+    {
+      "tag": "arendt",
+      "count": 2
+    },
+    {
+      "tag": "fagforeninger",
+      "count": 2
+    },
+    {
+      "tag": "sivil-ulydighet",
+      "count": 2
+    },
+    {
+      "tag": "historisk-kontekst",
+      "count": 2
+    },
+    {
+      "tag": "arsaker",
+      "count": 2
+    },
+    {
+      "tag": "FN",
+      "count": 2
+    },
+    {
+      "tag": "historiske-konflikter",
+      "count": 2
+    },
+    {
+      "tag": "terrorisme",
+      "count": 2
+    },
+    {
+      "tag": "forebygging",
+      "count": 2
+    },
+    {
+      "tag": "lobbyisme",
+      "count": 2
+    },
+    {
+      "tag": "næringsliv",
+      "count": 2
+    },
+    {
+      "tag": "lover",
+      "count": 2
+    },
+    {
+      "tag": "normer",
+      "count": 2
+    },
+    {
+      "tag": "rettssystem",
+      "count": 2
+    },
+    {
+      "tag": "stortinget",
+      "count": 2
+    },
+    {
+      "tag": "trepartssamarbeid",
+      "count": 2
+    },
+    {
+      "tag": "partisystem",
+      "count": 2
+    },
+    {
+      "tag": "medborgarskap",
+      "count": 2
+    },
+    {
+      "tag": "politiske-system",
+      "count": 2
+    },
+    {
+      "tag": "stemmerett",
+      "count": 2
+    },
+    {
+      "tag": "algoritmer",
+      "count": 2
+    },
+    {
+      "tag": "desinformasjon",
+      "count": 2
+    },
+    {
+      "tag": "ekkokamre",
+      "count": 2
+    },
+    {
+      "tag": "digitalisering",
+      "count": 2
+    },
+    {
+      "tag": "AI",
+      "count": 2
+    },
+    {
+      "tag": "diskriminering",
+      "count": 2
+    },
+    {
+      "tag": "integrering",
+      "count": 2
+    },
+    {
+      "tag": "personvern",
+      "count": 2
+    },
+    {
+      "tag": "digitale-spor",
+      "count": 2
+    },
+    {
+      "tag": "GDPR",
+      "count": 2
+    },
+    {
+      "tag": "selvbilde",
+      "count": 2
+    },
+    {
+      "tag": "gruppepress",
+      "count": 2
+    },
+    {
+      "tag": "digital-deltaking",
+      "count": 2
+    },
+    {
+      "tag": "samfunnsdebatt",
+      "count": 2
+    },
+    {
+      "tag": "algoritmar",
+      "count": 2
+    },
+    {
+      "tag": "historieframstilling",
+      "count": 2
+    },
+    {
+      "tag": "nasjonalisme",
+      "count": 2
+    },
+    {
+      "tag": "samfunnsfag",
+      "count": 2
+    },
+    {
+      "tag": "statistikk",
+      "count": 2
+    },
+    {
+      "tag": "samfunnsfaglig-metode",
+      "count": 2
+    },
+    {
+      "tag": "dagsaktuelle-tema",
+      "count": 2
+    },
+    {
+      "tag": "dap",
+      "count": 2
+    },
+    {
+      "tag": "samisk",
+      "count": 2
+    },
+    {
+      "tag": "aristoteles",
+      "count": 2
+    },
+    {
+      "tag": "locke",
+      "count": 2
+    },
+    {
+      "tag": "kant",
+      "count": 2
+    },
+    {
+      "tag": "politisk",
+      "count": 2
+    },
+    {
+      "tag": "rytme",
+      "count": 2
+    },
+    {
+      "tag": "piano",
+      "count": 2
+    },
+    {
+      "tag": "teknikk",
+      "count": 2
+    },
+    {
+      "tag": "solo",
+      "count": 2
+    },
+    {
+      "tag": "trommer",
+      "count": 2
+    },
+    {
+      "tag": "låtskriving",
+      "count": 2
+    },
+    {
+      "tag": "folkemusikk",
+      "count": 2
+    },
+    {
+      "tag": "oppslag",
+      "count": 2
+    },
+    {
+      "tag": "idealisme",
+      "count": 1
+    },
+    {
+      "tag": "lykke",
+      "count": 1
+    },
+    {
+      "tag": "mellomalderen",
+      "count": 1
+    },
+    {
+      "tag": "erobring",
+      "count": 1
+    },
+    {
+      "tag": "bygger",
+      "count": 1
+    },
+    {
+      "tag": "teologi",
+      "count": 1
+    },
+    {
+      "tag": "sølv",
+      "count": 1
+    },
+    {
+      "tag": "erkjennelse",
+      "count": 1
+    },
+    {
+      "tag": "enevelde",
+      "count": 1
+    },
+    {
+      "tag": "folkevilje",
+      "count": 1
+    },
+    {
+      "tag": "arbeid",
+      "count": 1
+    },
+    {
+      "tag": "tro",
+      "count": 1
+    },
+    {
+      "tag": "liberalisme",
+      "count": 1
+    },
+    {
+      "tag": "første-verdenskrig",
+      "count": 1
+    },
+    {
+      "tag": "krigsslutt",
+      "count": 1
+    },
+    {
+      "tag": "fenomenologi",
+      "count": 1
+    },
+    {
+      "tag": "pr",
+      "count": 1
+    },
+    {
+      "tag": "nazisme",
+      "count": 1
+    },
+    {
+      "tag": "leire",
+      "count": 1
+    },
+    {
+      "tag": "anarkisme",
+      "count": 1
+    },
+    {
+      "tag": "verden",
+      "count": 1
+    },
+    {
+      "tag": "jøder",
+      "count": 1
+    },
+    {
+      "tag": "frigjøring",
+      "count": 1
+    },
+    {
+      "tag": "film",
+      "count": 1
+    },
+    {
+      "tag": "sport",
+      "count": 1
+    },
+    {
+      "tag": "stormakt",
+      "count": 1
+    },
+    {
+      "tag": "den-kalde-krigen",
+      "count": 1
+    },
+    {
+      "tag": "dystopi",
+      "count": 1
+    },
+    {
+      "tag": "forskning",
+      "count": 1
+    },
+    {
+      "tag": "rettferdighet",
+      "count": 1
+    },
+    {
+      "tag": "dyrerettigheter",
+      "count": 1
+    },
+    {
+      "tag": "utilitarisme",
+      "count": 1
+    },
+    {
+      "tag": "den kalde krigen",
+      "count": 1
+    },
+    {
+      "tag": "sjakk",
+      "count": 1
+    },
+    {
+      "tag": "overvåking",
+      "count": 1
+    },
+    {
+      "tag": "varsling",
+      "count": 1
+    },
+    {
+      "tag": "substantiv",
+      "count": 1
+    },
+    {
+      "tag": "verb",
+      "count": 1
+    },
+    {
+      "tag": "adjektiv",
+      "count": 1
+    },
+    {
+      "tag": "pronomen",
+      "count": 1
+    },
+    {
+      "tag": "preposisjoner",
+      "count": 1
+    },
+    {
+      "tag": "adverb",
+      "count": 1
+    },
+    {
+      "tag": "konjunksjoner",
+      "count": 1
+    },
+    {
+      "tag": "subjunksjoner",
+      "count": 1
+    },
+    {
+      "tag": "tegnsetting",
+      "count": 1
+    },
+    {
+      "tag": "subjekt",
+      "count": 1
+    },
+    {
+      "tag": "verbal",
+      "count": 1
+    },
+    {
+      "tag": "objekt",
+      "count": 1
+    },
+    {
+      "tag": "adverbial",
+      "count": 1
+    },
+    {
+      "tag": "v2-regelen",
+      "count": 1
+    },
+    {
+      "tag": "inversjon",
+      "count": 1
+    },
+    {
+      "tag": "leddsetninger",
+      "count": 1
+    },
+    {
+      "tag": "ikke",
+      "count": 1
+    },
+    {
+      "tag": "korthistorie",
+      "count": 1
+    },
+    {
+      "tag": "folkediktning",
+      "count": 1
+    },
+    {
+      "tag": "bok",
+      "count": 1
+    },
+    {
+      "tag": "lyrikk",
+      "count": 1
+    },
+    {
+      "tag": "poesi",
+      "count": 1
+    },
+    {
+      "tag": "fakta",
+      "count": 1
+    },
+    {
+      "tag": "informasjon",
+      "count": 1
+    },
+    {
+      "tag": "debattinnlegg",
+      "count": 1
+    },
+    {
+      "tag": "bilder",
+      "count": 1
+    },
+    {
+      "tag": "synsvinkel",
+      "count": 1
+    },
+    {
+      "tag": "tema",
+      "count": 1
+    },
+    {
+      "tag": "budskap",
+      "count": 1
+    },
+    {
+      "tag": "nasjonsbygging",
+      "count": 1
+    },
+    {
+      "tag": "ibsen",
+      "count": 1
+    },
+    {
+      "tag": "samfunnskritikk",
+      "count": 1
+    },
+    {
+      "tag": "hamsun",
+      "count": 1
+    },
+    {
+      "tag": "sult",
+      "count": 1
+    },
+    {
+      "tag": "undset",
+      "count": 1
+    },
+    {
+      "tag": "kilder",
+      "count": 1
+    },
+    {
+      "tag": "apa7",
+      "count": 1
+    },
+    {
+      "tag": "plot",
+      "count": 1
+    },
+    {
+      "tag": "fortelleteknikk",
+      "count": 1
+    },
+    {
+      "tag": "dialog",
+      "count": 1
+    },
+    {
+      "tag": "formatering",
+      "count": 1
+    },
+    {
+      "tag": "karakterer",
+      "count": 1
+    },
+    {
+      "tag": "kortfilm",
+      "count": 1
+    },
+    {
+      "tag": "lyd",
+      "count": 1
+    },
+    {
+      "tag": "klipping",
+      "count": 1
+    },
+    {
+      "tag": "filmproduksjon",
+      "count": 1
+    },
+    {
+      "tag": "systemer",
+      "count": 1
+    },
+    {
+      "tag": "spesialisering",
+      "count": 1
+    },
+    {
+      "tag": "østerriksk skole",
+      "count": 1
+    },
+    {
+      "tag": "migrasjon",
+      "count": 1
+    },
+    {
+      "tag": "innovasjon",
+      "count": 1
+    },
+    {
+      "tag": "byutvikling",
+      "count": 1
+    },
+    {
+      "tag": "finland",
+      "count": 1
+    },
+    {
+      "tag": "sosial-kontrakt",
+      "count": 1
+    },
+    {
+      "tag": "weber",
+      "count": 1
+    },
+    {
+      "tag": "kongedømme",
+      "count": 1
+    },
+    {
+      "tag": "parlamentarisme",
+      "count": 1
+    },
+    {
+      "tag": "valg",
+      "count": 1
+    },
+    {
+      "tag": "eliter",
+      "count": 1
+    },
+    {
+      "tag": "anarki",
+      "count": 1
+    },
+    {
+      "tag": "kapitalisme",
+      "count": 1
+    },
+    {
+      "tag": "atferd",
+      "count": 1
+    },
+    {
+      "tag": "markedsføring",
+      "count": 1
+    },
+    {
+      "tag": "rettsvitenskap",
+      "count": 1
+    },
+    {
+      "tag": "vestfronten",
+      "count": 1
+    },
+    {
+      "tag": "soldatliv",
+      "count": 1
+    },
+    {
+      "tag": "kvinner",
+      "count": 1
+    },
+    {
+      "tag": "sjøfart",
+      "count": 1
+    },
+    {
+      "tag": "nøytralitet",
+      "count": 1
+    },
+    {
+      "tag": "slavehandel",
+      "count": 1
+    },
+    {
+      "tag": "reformer",
+      "count": 1
+    },
+    {
+      "tag": "sentantikken",
+      "count": 1
+    },
+    {
+      "tag": "hellige_tekster",
+      "count": 1
+    },
+    {
+      "tag": "skapelse",
+      "count": 1
+    },
+    {
+      "tag": "misjon",
+      "count": 1
+    },
+    {
+      "tag": "kirkesamfunn",
+      "count": 1
+    },
+    {
+      "tag": "skisma",
+      "count": 1
+    },
+    {
+      "tag": "okumenikk",
+      "count": 1
+    },
+    {
+      "tag": "sakrament",
+      "count": 1
+    },
+    {
+      "tag": "nattverd",
+      "count": 1
+    },
+    {
+      "tag": "baptistene",
+      "count": 1
+    },
+    {
+      "tag": "frikirke",
+      "count": 1
+    },
+    {
+      "tag": "voksendap",
+      "count": 1
+    },
+    {
+      "tag": "høytider",
+      "count": 1
+    },
+    {
+      "tag": "den-hellige-ånd",
+      "count": 1
+    },
+    {
+      "tag": "pinse",
+      "count": 1
+    },
+    {
+      "tag": "jødedom",
+      "count": 1
+    },
+    {
+      "tag": "urfolk",
+      "count": 1
+    },
+    {
+      "tag": "ontologi",
+      "count": 1
+    },
+    {
+      "tag": "epistemologi",
+      "count": 1
+    },
+    {
+      "tag": "sokrates",
+      "count": 1
+    },
+    {
+      "tag": "platon",
+      "count": 1
+    },
+    {
+      "tag": "idélære",
+      "count": 1
+    },
+    {
+      "tag": "logikk",
+      "count": 1
+    },
+    {
+      "tag": "aquinas",
+      "count": 1
+    },
+    {
+      "tag": "descartes",
+      "count": 1
+    },
+    {
+      "tag": "skeptisisme",
+      "count": 1
+    },
+    {
+      "tag": "hume",
+      "count": 1
+    },
+    {
+      "tag": "kierkegaard",
+      "count": 1
+    },
+    {
+      "tag": "nietzsche",
+      "count": 1
+    },
+    {
+      "tag": "mises",
+      "count": 1
+    },
+    {
+      "tag": "heidegger",
+      "count": 1
+    },
+    {
+      "tag": "beauvoir",
+      "count": 1
+    },
+    {
+      "tag": "rothbard",
+      "count": 1
+    },
+    {
+      "tag": "moral",
+      "count": 1
+    },
+    {
+      "tag": "nytte",
+      "count": 1
+    },
+    {
+      "tag": "konsekvens",
+      "count": 1
+    },
+    {
+      "tag": "mill",
+      "count": 1
+    },
+    {
+      "tag": "imperativ",
+      "count": 1
+    },
+    {
+      "tag": "dygd",
+      "count": 1
+    },
+    {
+      "tag": "karakter",
+      "count": 1
+    },
+    {
+      "tag": "naturrett",
+      "count": 1
+    },
+    {
+      "tag": "nap",
+      "count": 1
+    },
+    {
+      "tag": "eiendom",
+      "count": 1
+    },
+    {
+      "tag": "harmoni",
+      "count": 1
+    },
+    {
+      "tag": "notasjon",
+      "count": 1
+    },
+    {
+      "tag": "skala",
+      "count": 1
+    },
+    {
+      "tag": "toneart",
+      "count": 1
+    },
+    {
+      "tag": "caged",
+      "count": 1
+    },
+    {
+      "tag": "grunntone",
+      "count": 1
+    },
+    {
+      "tag": "bass",
+      "count": 1
+    },
+    {
+      "tag": "melodi",
+      "count": 1
+    },
+    {
+      "tag": "hook",
+      "count": 1
+    },
+    {
+      "tag": "dynamikk",
+      "count": 1
+    },
+    {
+      "tag": "uttrykk",
+      "count": 1
+    },
+    {
+      "tag": "tekstskriving",
+      "count": 1
+    },
+    {
+      "tag": "kreativt",
+      "count": 1
+    },
+    {
+      "tag": "joik",
+      "count": 1
+    },
+    {
+      "tag": "streaming",
+      "count": 1
+    },
+    {
+      "tag": "musikkindustri",
+      "count": 1
+    },
+    {
+      "tag": "improvisasjon",
+      "count": 1
+    },
+    {
+      "tag": "afroamerikansk",
+      "count": 1
+    },
+    {
+      "tag": "hardingfele",
+      "count": 1
+    },
+    {
+      "tag": "hip-hop",
+      "count": 1
+    },
+    {
+      "tag": "sampling",
+      "count": 1
+    },
+    {
+      "tag": "fornyelse",
+      "count": 1
+    },
+    {
+      "tag": "skole",
+      "count": 1
+    },
+    {
+      "tag": "vurdering",
+      "count": 1
+    },
+    {
+      "tag": "akkorder",
+      "count": 1
+    }
+  ]
+}

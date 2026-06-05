@@ -11,6 +11,57 @@ export const MANIFEST_PATH = path.join(CONTENT_DIR, 'manifest.json');
 export const TEXT_ENTRIES_DIR = path.join(__dirname, '../src/data/texts/entries');
 export const MANUAL_PATH = path.join(CONTENT_DIR, 'global-timeline.manual.json');
 export const OUTPUT_PATH = path.join(CONTENT_DIR, 'global-timeline.json');
+export const PLACE_COORDS_PATH = path.join(CONTENT_DIR, 'geo', 'place-coordinates.json');
+
+// Geografisk beriking: gir hvert event lat/lng + land-id ut fra stedordboken.
+// Mest presise tag vinner: by (3) > land/imperium (2) > region (1). Ved likhet
+// vinner første tag i events tag-liste. Events uten geo-tag faller tilbake på
+// fag (subjectFallback) og merkes geoConfidence:'guess'.
+const KIND_RANK = { by: 3, by_: 3, land: 2, imperium: 2, region: 1 };
+
+export function loadPlaceCoords() {
+    if (!fs.existsSync(PLACE_COORDS_PATH)) {
+        console.warn(`[timeline] place-coordinates.json mangler (${PLACE_COORDS_PATH}) — hopper over geo-beriking.`);
+        return null;
+    }
+    return JSON.parse(fs.readFileSync(PLACE_COORDS_PATH, 'utf-8'));
+}
+
+export function enrichEventsWithGeo(events, placeData) {
+    if (!placeData) return;
+    const { places = {}, aliases = {}, subjectFallback = {} } = placeData;
+    const canonical = (tag) => aliases[tag] || tag;
+
+    for (const ev of events) {
+        let best = null;
+        for (const rawTag of ev.tags || []) {
+            const place = places[canonical(rawTag)];
+            if (!place) continue;
+            const rank = KIND_RANK[place.kind] ?? 1;
+            if (!best || rank > best.rank) best = { place, rank };
+        }
+
+        if (best) {
+            ev.lat = best.place.lat;
+            ev.lng = best.place.lng;
+            ev.placeLabel = best.place.label;
+            if (best.place.countryId != null) ev.placeCountryId = best.place.countryId;
+            ev.geoConfidence = 'tag';
+            continue;
+        }
+
+        // Fallback: gjett sted fra fag.
+        const fallbackTag = subjectFallback[ev.subjectId];
+        const fallback = fallbackTag ? places[fallbackTag] : null;
+        if (fallback) {
+            ev.lat = fallback.lat;
+            ev.lng = fallback.lng;
+            ev.placeLabel = fallback.label;
+            if (fallback.countryId != null) ev.placeCountryId = fallback.countryId;
+            ev.geoConfidence = 'guess';
+        }
+    }
+}
 
 // Minimum antall tekstbibliotek-events vi forventer å finne. Faller den under dette
 // uten en bevisst sletting av tekster, har sannsynligvis filformatet eller stien
@@ -305,6 +356,16 @@ export async function generate() {
     }
 
     const allEvents = Array.from(eventMap.values()).sort((a, b) => a.startDate - b.startDate);
+
+    // Geografisk beriking for verdensatlaset (/atlas).
+    const placeData = loadPlaceCoords();
+    enrichEventsWithGeo(allEvents, placeData);
+    const geoTagged = allEvents.filter((e) => e.geoConfidence === 'tag').length;
+    const geoGuessed = allEvents.filter((e) => e.geoConfidence === 'guess').length;
+    console.log(
+        `[timeline] geo: ${geoTagged} via tag, ${geoGuessed} via fag-gjetning, ` +
+            `${allEvents.length - geoTagged - geoGuessed} uten sted.`
+    );
 
     const output = {
         id: 'global-timeline',

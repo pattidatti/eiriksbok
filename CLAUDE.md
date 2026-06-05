@@ -164,6 +164,7 @@ The app uses a manifest-driven routing system:
 /norsk/virkemidler/desk         Virkemiddel-verksted (skrivebord-layout)
 /norsk/ordklasser/sortering     Ordklassesortering (drag-and-drop)
 /tidslinje                      Global timeline
+/atlas                          Verdensatlas (fullskjerms kart-tidslinje)
 /laeringsstier                  Learning paths hub
 /persongalleri                  Person gallery
 /colonization                   Kolonisering-kart (verdenshistorie)
@@ -327,6 +328,49 @@ File: `public/content/global-timeline.json`
 ```
 
 Edit this file directly. Never store events in individual article JSON files.
+
+---
+
+## Verdensatlas (`/atlas`)
+
+Et fullskjerms verdenskart der eleven scrubber/spiller av en tidslinje og ser **hvor**
+historien skjer. Bygger på de samme `global-timeline.json`-eventene som `/tidslinje`, men
+plasserer dem geografisk. Hovedmål: elev-utforskning (Chromebook 1366×768 baseline).
+
+**Slik fungerer det:**
+
+1. **Sted-ordbok** — `public/content/geo/place-coordinates.json` mapper geografiske tags
+   (`norge`, `roma`, `romerriket`, `athen` …) til `{ lat, lng, label, kind, countryId }`.
+   `kind` ∈ `by | land | imperium | region`. `countryId` = ISO 3166-1 numerisk (= world-atlas
+   `geo.id`) og brukes for land-klikk. Fila genereres av `scripts/generate-place-coordinates.js`
+   (kjøres i `scan:content`) fra en innebygd, kuratert gazetteer. Tags den ikke kjenner havner
+   i `_unmapped` for manuell vask. Sett `"source": "manual"` på en place for å beskytte den mot
+   regenerering. **Aliases** (f.eks. `midtosten`→`midtøsten`, `USA`→`usa`) normaliserer tag-rot.
+
+2. **Geo-beriking av events** — `scripts/generate-timeline.js` stempler hvert event med
+   `lat/lng`, `placeLabel`, `placeCountryId` og `geoConfidence`. Mest presise tag vinner
+   (`by` > `land`/`imperium` > `region`). Events uten geo-tag faller tilbake til fag
+   (`subjectFallback`, f.eks. `norsk`→Norge) og merkes `geoConfidence: 'guess'`. Events uten
+   noe treff får ingen koordinat og vises ikke på kartet.
+
+3. **Kartet** (`src/components/atlas/AtlasWorldMap.tsx`) — `d3-geo` (`geoNaturalEarth1`) med
+   verdensgeometri lastet **lokalt** fra `public/data/world/countries-110m.json` (aldri CDN —
+   unngår blank skjerm på ustabilt klasseromsnett). Land fargelegges som et **aktivitets-
+   heatmap** (hvor mye innhold er aktivt i tidsvinduet). Hendelser vises som klyngede pins med
+   **akkumuler + fade**: alt som har skjedd blir liggende, eldre dempes mens nåtid lyser. Fade
+   måles i piksler langs `timelineLayout.ts` (`yearToX`), ikke i år.
+
+4. **Land-klikk** → `AtlasEventPanel.tsx` lister alle events med matchende `placeCountryId`,
+   deduplisert på lenke, med lenke til artikkelen. Pin-klikk gjør det samme for klyngens events.
+
+**Filer:** `src/pages/AtlasPage.tsx` (orkestrering + avspillingsløkke), `src/components/atlas/`
+(`AtlasWorldMap`, `AtlasTimeline`, `AtlasEventPanel`, `atlasFade.ts`, `useAtlasWorld.ts`).
+Ruten er full-bredde via `FULL_WIDTH_PATHS` i `src/context/LayoutContext.tsx`.
+
+**Utvide dekningen:** legg nye steder i gazetteeren i `generate-place-coordinates.js` (ikke
+direkte i JSON-en med mindre `source: "manual"`), kjør `npm run scan:content`, og sjekk at
+`_unmapped` krymper. MVP kuraterer Historie-tags grundig; andre fag berikes automatisk og
+finpusses ved behov.
 
 ---
 
@@ -523,7 +567,8 @@ A highly realistic 4K cinematic photograph of [scene], [time period].
 |---|---|
 | `scripts/generateContentIndex.js` | Builds `content-index.json` for fast search |
 | `scripts/sync-manifest-dates.js` | Syncs `createdDate` in manifest |
-| `scripts/generate-timeline.js` | Validates/rebuilds `global-timeline.json` |
+| `scripts/generate-timeline.js` | Rebuilds `global-timeline.json` + geo-beriker events (lat/lng/placeCountryId) |
+| `scripts/generate-place-coordinates.js` | Genererer `geo/place-coordinates.json` (tag → koordinat-ordbok for `/atlas`) |
 | `scripts/scan-concepts.js` | Scans articles for potential new concept terms |
 | `scripts/optimize-images.js` | Converts images to WebP |
 | `scripts/copy-404.js` | Copies `index.html` to `404.html` for SPA routing on static hosts |
@@ -538,7 +583,9 @@ A highly realistic 4K cinematic photograph of [scene], [time period].
 | File | Role |
 |---|---|
 | `public/content/manifest.json` | App skeleton — subjects, topics, lessons, tools |
-| `public/content/global-timeline.json` | All historical timeline events |
+| `public/content/global-timeline.json` | All historical timeline events (geo-beriket for `/atlas`) |
+| `public/content/geo/place-coordinates.json` | Tag → koordinat/land-ordbok for Verdensatlaset |
+| `src/pages/AtlasPage.tsx` | Verdensatlas — fullskjerms kart-tidslinje (`/atlas`) |
 | `public/data/concepts.json` | Auto-generated concept/flashcard database |
 | `src/components/ComponentRegistry.tsx` | Maps component names to React components |
 | `src/App.tsx` | Router setup, context providers |

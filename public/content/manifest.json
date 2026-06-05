@@ -1207,7 +1207,7 @@
                 "HDI"
               ],
               "createdDate": "2026-06-02T00:00:00Z",
-              "lastUpdated": "2026-06-02T11:31:56+02:00"
+              "lastUpdated": "2026-06-04T22:49:51+02:00"
             }
           ]
         },
@@ -1400,7 +1400,7 @@
                 "historisk-kontekst"
               ],
               "createdDate": "2026-06-02T00:00:00Z",
-              "lastUpdated": "2026-06-02T11:31:56+02:00"
+              "lastUpdated": "2026-06-04T22:49:51+02:00"
             },
             {
               "id": "km-7-konfliktar",
@@ -1415,7 +1415,7 @@
                 "historiske-konflikter"
               ],
               "createdDate": "2026-06-02T00:00:00Z",
-              "lastUpdated": "2026-06-02T11:31:56+02:00"
+              "lastUpdated": "2026-06-04T22:49:51+02:00"
             },
             {
               "id": "km-8-terror-folkemord",
@@ -1430,7 +1430,7 @@
                 "forebygging"
               ],
               "createdDate": "2026-06-02T00:00:00Z",
-              "lastUpdated": "2026-06-02T12:46:46+02:00"
+              "lastUpdated": "2026-06-04T22:49:51+02:00"
             },
             {
               "id": "km-12-maktaktørar",
@@ -1445,7 +1445,7 @@
                 "sivilt-samfunn"
               ],
               "createdDate": "2026-06-02T00:00:00Z",
-              "lastUpdated": "2026-06-02T15:27:18+02:00"
+              "lastUpdated": "2026-06-04T22:49:51+02:00"
             },
             {
               "id": "km-14-lover-normer",
@@ -1460,7 +1460,7 @@
                 "demokrati"
               ],
               "createdDate": "2026-06-02T00:00:00Z",
-              "lastUpdated": "2026-06-02T15:27:18+02:00"
+              "lastUpdated": "2026-06-04T22:49:51+02:00"
             },
             {
               "id": "km-15-norsk-demokrati",
@@ -1475,7 +1475,7 @@
                 "partisystem"
               ],
               "createdDate": "2026-06-02T00:00:00Z",
-              "lastUpdated": "2026-06-02T16:32:02+02:00"
+              "lastUpdated": "2026-06-04T22:49:51+02:00"
             },
             {
               "id": "km-17-medborgar",
@@ -1490,7 +1490,7 @@
                 "sivilt-samfunn"
               ],
               "createdDate": "2026-06-02T00:00:00Z",
-              "lastUpdated": "2026-06-02T16:32:02+02:00"
+              "lastUpdated": "2026-06-04T22:49:51+02:00"
             }
           ]
         },
@@ -1578,7 +1578,7 @@
                 "ekkokamre"
               ],
               "createdDate": "2026-06-02T00:00:00Z",
-              "lastUpdated": "2026-06-02T10:49:38+02:00"
+              "lastUpdated": "2026-06-04T22:49:51+02:00"
             },
             {
               "id": "km-4-teknologi-endring",
@@ -1593,7 +1593,7 @@
                 "industrialisering"
               ],
               "createdDate": "2026-06-02T00:00:00Z",
-              "lastUpdated": "2026-06-02T10:49:38+02:00"
+              "lastUpdated": "2026-06-04T22:49:51+02:00"
             },
             {
               "id": "km-9-identitet-mangfald",
@@ -1608,7 +1608,7 @@
                 "integrering"
               ],
               "createdDate": "2026-06-02T00:00:00Z",
-              "lastUpdated": "2026-06-02T12:46:46+02:00"
+              "lastUpdated": "2026-06-04T22:49:51+02:00"
             },
             {
               "id": "km-10-digitale-spor",
@@ -1623,7 +1623,7 @@
                 "sosiale-medier"
               ],
               "createdDate": "2026-06-02T00:00:00Z",
-              "lastUpdated": "2026-06-02T12:46:46+02:00"
+              "lastUpdated": "2026-06-04T22:49:51+02:00"
             },
             {
               "id": "km-11-sjolvbilete-grenser",
@@ -1638,7 +1638,7 @@
                 "sosiale-medier"
               ],
               "createdDate": "2026-06-02T00:00:00Z",
-              "lastUpdated": "2026-06-02T15:27:18+02:00"
+              "lastUpdated": "2026-06-04T22:49:51+02:00"
             },
             {
               "id": "km-13-digital-debatt",
@@ -1653,7 +1653,7 @@
                 "algoritmar"
               ],
               "createdDate": "2026-06-02T00:00:00Z",
-              "lastUpdated": "2026-06-02T15:27:18+02:00"
+              "lastUpdated": "2026-06-04T22:49:51+02:00"
             }
           ]
         },
@@ -1837,7 +1837,7 @@
                 "nasjonalisme"
               ],
               "createdDate": "2026-06-02T00:00:00Z",
-              "lastUpdated": "2026-06-02T10:49:38+02:00"
+              "lastUpdated": "2026-06-04T22:49:51+02:00"
             }
           ]
         },
@@ -2044,6 +2044,15 @@
           "id": "eksamen",
           "title": "Eksamen",
           "description": "Alt du trenger for å mestre muntlig eksamen i samfunnsfag etter 10. trinn.",
+          "tools": [
+            {
+              "id": "eksamen-samfunnsfag",
+              "title": "Spill: Muntlig eksamen",
+              "description": "Spill deg gjennom en hel muntlig eksamen i samfunnsfag - presentasjon og fagsamtale med sensor.",
+              "link": "/oving/spill/eksamen-samfunnsfag",
+              "icon": "play"
+            }
+          ],
           "lessons": [
             {
               "id": "muntlig",
@@ -2087,7 +2096,7 @@
                 "eksamen"
               ],
               "createdDate": "2026-06-02T00:00:00Z",
-              "lastUpdated": "2026-06-02T10:49:38+02:00"
+              "lastUpdated": "2026-06-04T22:49:51+02:00"
             },
             {
               "id": "km-16-dagsaktuelle-tema",
@@ -2102,7 +2111,7 @@
                 "eksamen"
               ],
               "createdDate": "2026-06-02T00:00:00Z",
-              "lastUpdated": "2026-06-02T16:32:02+02:00"
+              "lastUpdated": "2026-06-04T22:49:51+02:00"
             }
           ]
         },
@@ -2125,7 +2134,7 @@
                 "eksamen"
               ],
               "createdDate": "2026-06-02T00:00:00Z",
-              "lastUpdated": "2026-06-02T10:49:38+02:00"
+              "lastUpdated": "2026-06-04T22:49:51+02:00"
             },
             {
               "id": "km-2-kjelder-algoritmar",
@@ -2140,7 +2149,7 @@
                 "ekkokamre"
               ],
               "createdDate": "2026-06-02T00:00:00Z",
-              "lastUpdated": "2026-06-02T10:49:38+02:00"
+              "lastUpdated": "2026-06-04T22:49:51+02:00"
             },
             {
               "id": "km-3-historieframstilling",
@@ -2155,7 +2164,7 @@
                 "nasjonalisme"
               ],
               "createdDate": "2026-06-02T00:00:00Z",
-              "lastUpdated": "2026-06-02T10:49:38+02:00"
+              "lastUpdated": "2026-06-04T22:49:51+02:00"
             },
             {
               "id": "km-4-teknologi-endring",
@@ -2170,7 +2179,7 @@
                 "industrialisering"
               ],
               "createdDate": "2026-06-02T00:00:00Z",
-              "lastUpdated": "2026-06-02T10:49:38+02:00"
+              "lastUpdated": "2026-06-04T22:49:51+02:00"
             },
             {
               "id": "km-5-kamp-for-endring",
@@ -2185,7 +2194,7 @@
                 "historisk-kontekst"
               ],
               "createdDate": "2026-06-02T00:00:00Z",
-              "lastUpdated": "2026-06-02T11:31:56+02:00"
+              "lastUpdated": "2026-06-04T22:49:51+02:00"
             },
             {
               "id": "km-6-levekaar-verden",
@@ -2200,7 +2209,7 @@
                 "HDI"
               ],
               "createdDate": "2026-06-02T00:00:00Z",
-              "lastUpdated": "2026-06-02T11:31:56+02:00"
+              "lastUpdated": "2026-06-04T22:49:51+02:00"
             },
             {
               "id": "km-7-konfliktar",
@@ -2215,7 +2224,7 @@
                 "historiske-konflikter"
               ],
               "createdDate": "2026-06-02T00:00:00Z",
-              "lastUpdated": "2026-06-02T11:31:56+02:00"
+              "lastUpdated": "2026-06-04T22:49:51+02:00"
             },
             {
               "id": "km-8-terror-folkemord",
@@ -2230,7 +2239,7 @@
                 "forebygging"
               ],
               "createdDate": "2026-06-02T00:00:00Z",
-              "lastUpdated": "2026-06-02T12:46:46+02:00"
+              "lastUpdated": "2026-06-04T22:49:51+02:00"
             },
             {
               "id": "km-9-identitet-mangfald",
@@ -2245,7 +2254,7 @@
                 "integrering"
               ],
               "createdDate": "2026-06-02T00:00:00Z",
-              "lastUpdated": "2026-06-02T12:46:46+02:00"
+              "lastUpdated": "2026-06-04T22:49:51+02:00"
             },
             {
               "id": "km-10-digitale-spor",
@@ -2260,7 +2269,7 @@
                 "sosiale-medier"
               ],
               "createdDate": "2026-06-02T00:00:00Z",
-              "lastUpdated": "2026-06-02T12:46:46+02:00"
+              "lastUpdated": "2026-06-04T22:49:51+02:00"
             },
             {
               "id": "km-11-sjolvbilete-grenser",
@@ -2275,7 +2284,7 @@
                 "sosiale-medier"
               ],
               "createdDate": "2026-06-02T00:00:00Z",
-              "lastUpdated": "2026-06-02T15:27:18+02:00"
+              "lastUpdated": "2026-06-04T22:49:51+02:00"
             },
             {
               "id": "km-12-maktaktørar",
@@ -2290,7 +2299,7 @@
                 "sivilt-samfunn"
               ],
               "createdDate": "2026-06-02T00:00:00Z",
-              "lastUpdated": "2026-06-02T15:27:18+02:00"
+              "lastUpdated": "2026-06-04T22:49:51+02:00"
             },
             {
               "id": "km-13-digital-debatt",
@@ -2305,7 +2314,7 @@
                 "algoritmar"
               ],
               "createdDate": "2026-06-02T00:00:00Z",
-              "lastUpdated": "2026-06-02T15:27:18+02:00"
+              "lastUpdated": "2026-06-04T22:49:51+02:00"
             },
             {
               "id": "km-14-lover-normer",
@@ -2320,7 +2329,7 @@
                 "demokrati"
               ],
               "createdDate": "2026-06-02T00:00:00Z",
-              "lastUpdated": "2026-06-02T15:27:18+02:00"
+              "lastUpdated": "2026-06-04T22:49:51+02:00"
             },
             {
               "id": "km-15-norsk-demokrati",
@@ -2335,7 +2344,7 @@
                 "partisystem"
               ],
               "createdDate": "2026-06-02T00:00:00Z",
-              "lastUpdated": "2026-06-02T16:32:02+02:00"
+              "lastUpdated": "2026-06-04T22:49:51+02:00"
             },
             {
               "id": "km-16-dagsaktuelle-tema",
@@ -2350,7 +2359,7 @@
                 "eksamen"
               ],
               "createdDate": "2026-06-02T00:00:00Z",
-              "lastUpdated": "2026-06-02T16:32:02+02:00"
+              "lastUpdated": "2026-06-04T22:49:51+02:00"
             },
             {
               "id": "km-17-medborgar",
@@ -2365,7 +2374,7 @@
                 "sivilt-samfunn"
               ],
               "createdDate": "2026-06-02T00:00:00Z",
-              "lastUpdated": "2026-06-02T16:32:02+02:00"
+              "lastUpdated": "2026-06-04T22:49:51+02:00"
             }
           ]
         }
@@ -2772,7 +2781,7 @@
               "link": "/historie/forste-verdenskrig/ww1-sti",
               "icon": "map",
               "createdDate": "2026-01-18T18:32:30+01:00",
-              "lastUpdated": "2026-05-21T11:01:59+02:00"
+              "lastUpdated": "2026-06-04T22:49:51+02:00"
             },
             {
               "id": "ww1-vestfront",
@@ -2934,7 +2943,7 @@
               "link": "/historie/mellomkrigstiden/mellomkrigstiden-sti",
               "icon": "map",
               "createdDate": "2026-01-18T22:34:44+01:00",
-              "lastUpdated": "2026-06-04T11:38:17+02:00"
+              "lastUpdated": "2026-06-04T22:49:51+02:00"
             },
             {
               "id": "mellomkrigstiden-del1",
@@ -4948,7 +4957,7 @@
                 "teknologi"
               ],
               "createdDate": "2025-12-20T20:33:08+01:00",
-              "lastUpdated": "2026-05-07T09:32:27+02:00"
+              "lastUpdated": "2026-06-05T04:48:56+02:00"
             },
             {
               "id": "hverdagsliv-i-roma",
@@ -5407,7 +5416,8 @@
                 "mais",
                 "sivilisasjon"
               ],
-              "createdDate": "2026-06-05T00:00:00Z"
+              "createdDate": "2026-06-05T00:00:00Z",
+              "lastUpdated": "2026-06-05T01:33:04+00:00"
             },
             {
               "id": "indusdalen",
@@ -5526,7 +5536,7 @@
                 "sivilisasjon"
               ],
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-06-02T09:13:51+02:00"
+              "lastUpdated": "2026-06-05T08:38:50+02:00"
             },
             {
               "id": "dynastiene",
@@ -5539,7 +5549,7 @@
                 "oppfinnelser"
               ],
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-06-02T09:13:51+02:00"
+              "lastUpdated": "2026-06-05T00:36:05+02:00"
             },
             {
               "id": "silkeveien",
@@ -5578,7 +5588,7 @@
                 "mao"
               ],
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-06-02T09:13:51+02:00"
+              "lastUpdated": "2026-06-05T00:36:05+02:00"
             },
             {
               "id": "mao-og-revolusjonen",
@@ -5591,7 +5601,7 @@
                 "kommunisme"
               ],
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-06-02T09:13:51+02:00"
+              "lastUpdated": "2026-06-05T08:38:50+02:00"
             },
             {
               "id": "store-spranget",
@@ -5604,7 +5614,7 @@
                 "hungersnød"
               ],
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-06-02T09:13:51+02:00"
+              "lastUpdated": "2026-06-05T08:38:50+02:00"
             },
             {
               "id": "deng-og-reformene",
@@ -5617,7 +5627,7 @@
                 "økonomi"
               ],
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-06-02T09:13:51+02:00"
+              "lastUpdated": "2026-06-05T07:34:58+02:00"
             },
             {
               "id": "tiananmen-1989",
@@ -5630,7 +5640,7 @@
                 "demokrati"
               ],
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-06-02T09:13:51+02:00"
+              "lastUpdated": "2026-06-05T08:38:50+02:00"
             },
             {
               "id": "kina-supermakt",
@@ -5643,7 +5653,7 @@
                 "xi-jinping"
               ],
               "createdDate": "2026-05-31T00:00:00Z",
-              "lastUpdated": "2026-06-02T09:13:51+02:00"
+              "lastUpdated": "2026-06-05T07:34:58+02:00"
             }
           ]
         },

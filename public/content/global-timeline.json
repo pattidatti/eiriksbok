@@ -17,7 +17,11 @@
         "mennesket",
         "evolusjon",
         "afrika"
-      ]
+      ],
+      "lat": 2,
+      "lng": 20,
+      "placeLabel": "Afrika",
+      "geoConfidence": "tag"
     },
     {
       "id": "den-kognitive-revolusjonen",
@@ -107,7 +111,12 @@
         "norge",
         "steinalder",
         "jernalder"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "tag"
     },
     {
       "id": "kina",
@@ -129,7 +138,12 @@
         "han",
         "silkeveien",
         "sivilisasjon"
-      ]
+      ],
+      "lat": 34.8,
+      "lng": 113.7,
+      "placeLabel": "Huang He (Den gule elv)",
+      "placeCountryId": 156,
+      "geoConfidence": "tag"
     },
     {
       "id": "norge-for-vikingene-sub-1",
@@ -147,7 +161,12 @@
         "norge",
         "steinalder",
         "jernalder"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "tag"
     },
     {
       "id": "mesopotamia",
@@ -166,7 +185,12 @@
         "babylon",
         "kileskrift",
         "sivilisasjon"
-      ]
+      ],
+      "lat": 33.2,
+      "lng": 44.4,
+      "placeLabel": "Mesopotamia",
+      "placeCountryId": 368,
+      "geoConfidence": "tag"
     },
     {
       "id": "egypt",
@@ -186,7 +210,12 @@
         "pyramide",
         "hieroglyfer",
         "sivilisasjon"
-      ]
+      ],
+      "lat": 26.8,
+      "lng": 31,
+      "placeLabel": "Nilen",
+      "placeCountryId": 818,
+      "geoConfidence": "tag"
     },
     {
       "id": "orientering",
@@ -203,7 +232,11 @@
         "midtosten",
         "islam",
         "geografi"
-      ]
+      ],
+      "lat": 29,
+      "lng": 45,
+      "placeLabel": "Midtøsten",
+      "geoConfidence": "tag"
     },
     {
       "id": "indusdalen",
@@ -223,7 +256,12 @@
         "tidlig-sivilisasjon",
         "arkeologi",
         "sivilisasjon"
-      ]
+      ],
+      "lat": 27.3,
+      "lng": 68.1,
+      "placeLabel": "Indusdalen",
+      "placeCountryId": 586,
+      "geoConfidence": "tag"
     },
     {
       "id": "norge-for-vikingene-sub-2",
@@ -241,7 +279,12 @@
         "norge",
         "steinalder",
         "jernalder"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "tag"
     },
     {
       "id": "norge-for-vikingene-sub-3",
@@ -259,7 +302,12 @@
         "norge",
         "steinalder",
         "jernalder"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "tag"
     },
     {
       "id": "amerikas-sivilisasjoner",
@@ -279,7 +327,12 @@
         "tenochtitlan",
         "mais",
         "sivilisasjon"
-      ]
+      ],
+      "lat": 19.43,
+      "lng": -99.13,
+      "placeLabel": "Tenochtitlán",
+      "placeCountryId": 484,
+      "geoConfidence": "tag"
     },
     {
       "id": "norge-for-vikingene-sub-4",
@@ -297,7 +350,12 @@
         "norge",
         "steinalder",
         "jernalder"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "tag"
     },
     {
       "id": "frashokereti",
@@ -314,7 +372,12 @@
         "religion",
         "persia",
         "eskatologi"
-      ]
+      ],
+      "lat": 32,
+      "lng": 53,
+      "placeLabel": "Persia",
+      "placeCountryId": 364,
+      "geoConfidence": "tag"
     },
     {
       "id": "olympiske-leker",
@@ -333,7 +396,12 @@
         "olympia",
         "idrett",
         "religion"
-      ]
+      ],
+      "lat": 37.64,
+      "lng": 21.63,
+      "placeLabel": "Olympia",
+      "placeCountryId": 300,
+      "geoConfidence": "tag"
     },
     {
       "id": "romersk-start",
@@ -350,7 +418,12 @@
         "antikken",
         "roma",
         "republikk"
-      ]
+      ],
+      "lat": 41.9,
+      "lng": 12.5,
+      "placeLabel": "Roma",
+      "placeCountryId": 380,
+      "geoConfidence": "tag"
     },
     {
       "id": "athen-demokrati",
@@ -367,7 +440,12 @@
         "historie",
         "athen",
         "demokrati"
-      ]
+      ],
+      "lat": 37.98,
+      "lng": 23.73,
+      "placeLabel": "Athen",
+      "placeCountryId": 300,
+      "geoConfidence": "tag"
     },
     {
       "id": "norge-for-vikingene-sub-5",
@@ -385,7 +463,12 @@
         "norge",
         "steinalder",
         "jernalder"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "tag"
     },
     {
       "id": "peloponnesian-casus",
@@ -402,7 +485,12 @@
         "antikken",
         "hellas",
         "politikk"
-      ]
+      ],
+      "lat": 39,
+      "lng": 22,
+      "placeLabel": "Hellas",
+      "placeCountryId": 300,
+      "geoConfidence": "tag"
     },
     {
       "id": "sokrates-dod",
@@ -419,7 +507,12 @@
         "filosofi",
         "ytringsfrihet",
         "athen"
-      ]
+      ],
+      "lat": 37.98,
+      "lng": 23.73,
+      "placeLabel": "Athen",
+      "placeCountryId": 300,
+      "geoConfidence": "tag"
     },
     {
       "id": "platon-staten",
@@ -453,7 +546,12 @@
         "filosofi",
         "hellas",
         "utopi"
-      ]
+      ],
+      "lat": 39,
+      "lng": 22,
+      "placeLabel": "Hellas",
+      "placeCountryId": 300,
+      "geoConfidence": "tag"
     },
     {
       "id": "aristoteles-etikk",
@@ -487,7 +585,12 @@
         "kina",
         "dynastier",
         "oppfinnelser"
-      ]
+      ],
+      "lat": 35,
+      "lng": 105,
+      "placeLabel": "Kina",
+      "placeCountryId": 156,
+      "geoConfidence": "tag"
     },
     {
       "id": "silkeveien",
@@ -504,7 +607,12 @@
         "kina",
         "handel",
         "silkeveien"
-      ]
+      ],
+      "lat": 35,
+      "lng": 105,
+      "placeLabel": "Kina",
+      "placeCountryId": 156,
+      "geoConfidence": "tag"
     },
     {
       "id": "caesar",
@@ -522,7 +630,12 @@
         "roma",
         "republikk",
         "caesar"
-      ]
+      ],
+      "lat": 41.9,
+      "lng": 12.5,
+      "placeLabel": "Roma",
+      "placeCountryId": 380,
+      "geoConfidence": "tag"
     },
     {
       "id": "den-romerske-legionen",
@@ -540,7 +653,12 @@
         "romerriket",
         "militær",
         "teknologi"
-      ]
+      ],
+      "lat": 41.9,
+      "lng": 12.5,
+      "placeLabel": "Romerriket",
+      "placeCountryId": 380,
+      "geoConfidence": "tag"
     },
     {
       "id": "augustus-og-keiserdomme",
@@ -558,7 +676,12 @@
         "roma",
         "augustus",
         "keiser"
-      ]
+      ],
+      "lat": 41.9,
+      "lng": 12.5,
+      "placeLabel": "Roma",
+      "placeCountryId": 380,
+      "geoConfidence": "tag"
     },
     {
       "id": "norge-for-vikingene-sub-6",
@@ -576,7 +699,12 @@
         "norge",
         "steinalder",
         "jernalder"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "tag"
     },
     {
       "id": "romerske-keisere",
@@ -594,7 +722,12 @@
         "roma",
         "keiser",
         "biografi"
-      ]
+      ],
+      "lat": 41.9,
+      "lng": 12.5,
+      "placeLabel": "Roma",
+      "placeCountryId": 380,
+      "geoConfidence": "tag"
     },
     {
       "id": "pompeii",
@@ -611,7 +744,12 @@
         "historie",
         "romerriket",
         "arkeologi"
-      ]
+      ],
+      "lat": 41.9,
+      "lng": 12.5,
+      "placeLabel": "Romerriket",
+      "placeCountryId": 380,
+      "geoConfidence": "tag"
     },
     {
       "id": "vann-og-vindmolla",
@@ -649,7 +787,12 @@
         "romerriket",
         "økonomi",
         "globalisering"
-      ]
+      ],
+      "lat": 41.9,
+      "lng": 12.5,
+      "placeLabel": "Romerriket",
+      "placeCountryId": 380,
+      "geoConfidence": "tag"
     },
     {
       "id": "hverdagsliv-i-roma",
@@ -667,7 +810,12 @@
         "romerriket",
         "kultur",
         "hverdagsliv"
-      ]
+      ],
+      "lat": 41.9,
+      "lng": 12.5,
+      "placeLabel": "Romerriket",
+      "placeCountryId": 380,
+      "geoConfidence": "tag"
     },
     {
       "id": "legitimitet-og-kristendom",
@@ -685,7 +833,12 @@
         "romerriket",
         "religion",
         "politikk"
-      ]
+      ],
+      "lat": 41.9,
+      "lng": 12.5,
+      "placeLabel": "Romerriket",
+      "placeCountryId": 380,
+      "geoConfidence": "tag"
     },
     {
       "id": "tetrarkiet-etablert",
@@ -702,7 +855,12 @@
         "politikk",
         "romerriket",
         "maktfordeling"
-      ]
+      ],
+      "lat": 41.9,
+      "lng": 12.5,
+      "placeLabel": "Romerriket",
+      "placeCountryId": 380,
+      "geoConfidence": "tag"
     },
     {
       "id": "maksimalpris-ediktet",
@@ -719,7 +877,12 @@
         "økonomi",
         "inflasjon",
         "romerriket"
-      ]
+      ],
+      "lat": 41.9,
+      "lng": 12.5,
+      "placeLabel": "Romerriket",
+      "placeCountryId": 380,
+      "geoConfidence": "tag"
     },
     {
       "id": "diokletian-abdikerer",
@@ -736,7 +899,12 @@
         "historie",
         "romerriket",
         "biografi"
-      ]
+      ],
+      "lat": 41.9,
+      "lng": 12.5,
+      "placeLabel": "Romerriket",
+      "placeCountryId": 380,
+      "geoConfidence": "tag"
     },
     {
       "id": "aleksander-den-store",
@@ -756,7 +924,12 @@
         "hellas",
         "hellenisme",
         "imperium"
-      ]
+      ],
+      "lat": 32,
+      "lng": 53,
+      "placeLabel": "Perserriket",
+      "placeCountryId": 364,
+      "geoConfidence": "tag"
     },
     {
       "id": "vestromerrikets-fall-middelalder-ref",
@@ -774,7 +947,12 @@
         "roma",
         "kollaps",
         "historie"
-      ]
+      ],
+      "lat": 41.9,
+      "lng": 12.5,
+      "placeLabel": "Roma",
+      "placeCountryId": 380,
+      "geoConfidence": "tag"
     },
     {
       "id": "vestromerrikets-fall",
@@ -792,7 +970,12 @@
         "roma",
         "kollaps",
         "historie"
-      ]
+      ],
+      "lat": 41.9,
+      "lng": 12.5,
+      "placeLabel": "Roma",
+      "placeCountryId": 380,
+      "geoConfidence": "tag"
     },
     {
       "id": "norge-for-vikingene-sub-7",
@@ -810,7 +993,12 @@
         "norge",
         "steinalder",
         "jernalder"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "tag"
     },
     {
       "id": "augustin-gudsstaten",
@@ -845,7 +1033,12 @@
         "romerriket",
         "kultur",
         "politikk"
-      ]
+      ],
+      "lat": 41.9,
+      "lng": 12.5,
+      "placeLabel": "Romerriket",
+      "placeCountryId": 380,
+      "geoConfidence": "tag"
     },
     {
       "id": "klodvigs-daap",
@@ -862,7 +1055,12 @@
         "historie",
         "frankerriket",
         "religion"
-      ]
+      ],
+      "lat": 49,
+      "lng": 6,
+      "placeLabel": "Frankerriket",
+      "placeCountryId": 250,
+      "geoConfidence": "tag"
     },
     {
       "id": "perserkrigene",
@@ -881,7 +1079,12 @@
         "perserriket",
         "krig",
         "demokrati"
-      ]
+      ],
+      "lat": 39,
+      "lng": 22,
+      "placeLabel": "Hellas",
+      "placeCountryId": 300,
+      "geoConfidence": "tag"
     },
     {
       "id": "germanske-sprak",
@@ -900,7 +1103,12 @@
         "indoeuropeisk",
         "norrønt",
         "språkfamilie"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "wergild",
@@ -936,7 +1144,11 @@
         "historie",
         "middelalderen",
         "europa"
-      ]
+      ],
+      "lat": 50,
+      "lng": 15,
+      "placeLabel": "Europa",
+      "geoConfidence": "tag"
     },
     {
       "id": "tidlig-middelalder",
@@ -972,7 +1184,12 @@
         "athen",
         "sparta",
         "demokrati"
-      ]
+      ],
+      "lat": 37.98,
+      "lng": 23.73,
+      "placeLabel": "Athen",
+      "placeCountryId": 300,
+      "geoConfidence": "tag"
     },
     {
       "id": "gresk-teater",
@@ -991,7 +1208,12 @@
         "teater",
         "tragedie",
         "komedie"
-      ]
+      ],
+      "lat": 39,
+      "lng": 22,
+      "placeLabel": "Hellas",
+      "placeCountryId": 300,
+      "geoConfidence": "tag"
     },
     {
       "id": "norge-for-vikingene-sub-8",
@@ -1009,7 +1231,12 @@
         "norge",
         "steinalder",
         "jernalder"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "tag"
     },
     {
       "id": "klimakrisen-536",
@@ -1028,7 +1255,12 @@
         "klima",
         "folkevandring",
         "fimbulvinter"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "tag"
     },
     {
       "id": "klimakrisen-536-sub-0",
@@ -1047,7 +1279,12 @@
         "klima",
         "folkevandring",
         "fimbulvinter"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "tag"
     },
     {
       "id": "klimakrisen-536-sub-1",
@@ -1066,7 +1303,12 @@
         "klima",
         "folkevandring",
         "fimbulvinter"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "tag"
     },
     {
       "id": "norge-for-vikingene-sub-9",
@@ -1084,7 +1326,12 @@
         "norge",
         "steinalder",
         "jernalder"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "tag"
     },
     {
       "id": "klimakrisen-536-sub-2",
@@ -1103,7 +1350,12 @@
         "klima",
         "folkevandring",
         "fimbulvinter"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "tag"
     },
     {
       "id": "norge-for-vikingene-sub-10",
@@ -1121,7 +1373,12 @@
         "norge",
         "steinalder",
         "jernalder"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "tag"
     },
     {
       "id": "klimakrisen-536-sub-3",
@@ -1140,7 +1397,12 @@
         "klima",
         "folkevandring",
         "fimbulvinter"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "tag"
     },
     {
       "id": "islams-fodsel",
@@ -1157,7 +1419,11 @@
         "midtosten",
         "islam",
         "muhammed"
-      ]
+      ],
+      "lat": 29,
+      "lng": 45,
+      "placeLabel": "Midtøsten",
+      "geoConfidence": "tag"
     },
     {
       "id": "kyros-den-store",
@@ -1177,7 +1443,12 @@
         "imperium",
         "religion",
         "toleranse"
-      ]
+      ],
+      "lat": 32,
+      "lng": 53,
+      "placeLabel": "Perserriket",
+      "placeCountryId": 364,
+      "geoConfidence": "tag"
     },
     {
       "id": "norront",
@@ -1197,7 +1468,12 @@
         "gammelnorsk",
         "kasus",
         "språkutvikling"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "verdenshandel-for-oppdagelsesreisene",
@@ -1231,7 +1507,12 @@
         "krig",
         "frankerriket",
         "islam"
-      ]
+      ],
+      "lat": 49,
+      "lng": 6,
+      "placeLabel": "Frankerriket",
+      "placeCountryId": 250,
+      "geoConfidence": "tag"
     },
     {
       "id": "karl-den-store",
@@ -1249,7 +1530,11 @@
         "europa",
         "middelalder",
         "karl-den-store"
-      ]
+      ],
+      "lat": 50,
+      "lng": 15,
+      "placeLabel": "Europa",
+      "geoConfidence": "tag"
     },
     {
       "id": "skipsteknologi",
@@ -1302,7 +1587,11 @@
         "midtosten",
         "islam",
         "vitenskap"
-      ]
+      ],
+      "lat": 29,
+      "lng": 45,
+      "placeLabel": "Midtøsten",
+      "geoConfidence": "tag"
     },
     {
       "id": "romerske-guder",
@@ -1320,7 +1609,12 @@
         "romerriket",
         "religion",
         "krle"
-      ]
+      ],
+      "lat": 41.9,
+      "lng": 12.5,
+      "placeLabel": "Romerriket",
+      "placeCountryId": 380,
+      "geoConfidence": "tag"
     },
     {
       "id": "hypotesen-norden-vs-frankrike",
@@ -1359,7 +1653,12 @@
         "midtøsten",
         "imperier",
         "krig"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "tag"
     },
     {
       "id": "asatro",
@@ -1413,7 +1712,12 @@
         "mytologi",
         "religion",
         "guder"
-      ]
+      ],
+      "lat": 39,
+      "lng": 22,
+      "placeLabel": "Hellas",
+      "placeCountryId": 300,
+      "geoConfidence": "tag"
     },
     {
       "id": "myklebust-skipet",
@@ -1448,7 +1752,12 @@
         "russland",
         "handel",
         "vikingtiden"
-      ]
+      ],
+      "lat": 61.5,
+      "lng": 90,
+      "placeLabel": "Russland",
+      "placeCountryId": 643,
+      "geoConfidence": "tag"
     },
     {
       "id": "slaget-ved-solskjel",
@@ -1465,7 +1774,12 @@
         "vikingtiden",
         "krig",
         "rikssamlingen"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "tag"
     },
     {
       "id": "rikssamlingen",
@@ -1482,7 +1796,12 @@
         "historie",
         "norge",
         "rikssamlingen"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "tag"
     },
     {
       "id": "danelagen",
@@ -1499,7 +1818,12 @@
         "england",
         "krig",
         "vikingtiden"
-      ]
+      ],
+      "lat": 52.5,
+      "lng": -1.5,
+      "placeLabel": "England",
+      "placeCountryId": 826,
+      "geoConfidence": "tag"
     },
     {
       "id": "oppdagelsesreiser",
@@ -1517,7 +1841,11 @@
         "vikingtiden",
         "oppdagelse",
         "amerika"
-      ]
+      ],
+      "lat": 8,
+      "lng": -75,
+      "placeLabel": "Amerika",
+      "geoConfidence": "tag"
     },
     {
       "id": "jordbrukets-historie",
@@ -1555,7 +1883,12 @@
         "frankrike",
         "riddere",
         "vikingtiden"
-      ]
+      ],
+      "lat": 46.6,
+      "lng": 2.5,
+      "placeLabel": "Frankrike",
+      "placeCountryId": 250,
+      "geoConfidence": "tag"
     },
     {
       "id": "ibn-fadlan-reisebeskrivelse",
@@ -1567,7 +1900,12 @@
       "type": "text",
       "subjectId": "norsk",
       "link": "/norsk/bibliotek?text=ibn-fadlan-reisebeskrivelse",
-      "tags": []
+      "tags": [],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "det-hellige-romerske-rike",
@@ -1585,7 +1923,12 @@
         "middelalderen",
         "tyskland",
         "keiser"
-      ]
+      ],
+      "lat": 51.2,
+      "lng": 10.4,
+      "placeLabel": "Tyskland",
+      "placeCountryId": 276,
+      "geoConfidence": "tag"
     },
     {
       "id": "kristningen-av-norge",
@@ -1603,7 +1946,12 @@
         "norge",
         "olav-den-hellige",
         "stiklestad"
-      ]
+      ],
+      "lat": 63.79,
+      "lng": 11.56,
+      "placeLabel": "Stiklestad",
+      "placeCountryId": 578,
+      "geoConfidence": "tag"
     },
     {
       "id": "boktrykkerkunsten-sub-0",
@@ -1652,7 +2000,12 @@
       "type": "text",
       "subjectId": "norsk",
       "link": "/norsk/bibliotek?text=havamal",
-      "tags": []
+      "tags": [],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "genghis-khan-unification",
@@ -1669,7 +2022,12 @@
         "mongolene",
         "erobring",
         "asia"
-      ]
+      ],
+      "lat": 46.9,
+      "lng": 103.8,
+      "placeLabel": "Mongolriket",
+      "placeCountryId": 496,
+      "geoConfidence": "tag"
     },
     {
       "id": "mongolske-riket",
@@ -1687,7 +2045,12 @@
         "middelalder",
         "asia",
         "mongolene"
-      ]
+      ],
+      "lat": 46.9,
+      "lng": 103.8,
+      "placeLabel": "Mongolriket",
+      "placeCountryId": 496,
+      "geoConfidence": "tag"
     },
     {
       "id": "mongol-invasion-europe",
@@ -1704,7 +2067,12 @@
         "krig",
         "europa",
         "mongolene"
-      ]
+      ],
+      "lat": 46.9,
+      "lng": 103.8,
+      "placeLabel": "Mongolriket",
+      "placeCountryId": 496,
+      "geoConfidence": "tag"
     },
     {
       "id": "stockholm-founding",
@@ -1720,7 +2088,12 @@
       "tags": [
         "sverige",
         "bygger"
-      ]
+      ],
+      "lat": 62,
+      "lng": 15,
+      "placeLabel": "Sverige",
+      "placeCountryId": 752,
+      "geoConfidence": "tag"
     },
     {
       "id": "sveriges-historie",
@@ -1739,7 +2112,12 @@
         "stormaktstid",
         "vasa",
         "unionsoppløsning"
-      ]
+      ],
+      "lat": 62,
+      "lng": 15,
+      "placeLabel": "Sverige",
+      "placeCountryId": 752,
+      "geoConfidence": "tag"
     },
     {
       "id": "baghdad-fall",
@@ -1756,7 +2134,11 @@
         "krig",
         "islam",
         "midtausten"
-      ]
+      ],
+      "lat": 29,
+      "lng": 45,
+      "placeLabel": "Midtøsten",
+      "geoConfidence": "tag"
     },
     {
       "id": "aquinas-summa",
@@ -1793,7 +2175,12 @@
         "middelalder",
         "norgeshistorie",
         "rettsutvikling"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "tag"
     },
     {
       "id": "alv-erlingsson",
@@ -1812,7 +2199,12 @@
         "middelalder",
         "sjørøveri",
         "adel"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "tag"
     },
     {
       "id": "osman-og-oppkomsten",
@@ -1831,7 +2223,12 @@
         "historie",
         "osman",
         "balkan"
-      ]
+      ],
+      "lat": 39,
+      "lng": 35,
+      "placeLabel": "Det osmanske riket",
+      "placeCountryId": 792,
+      "geoConfidence": "tag"
     },
     {
       "id": "klokka",
@@ -1868,7 +2265,12 @@
         "historie",
         "norge",
         "pest"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "tag"
     },
     {
       "id": "svartedauden",
@@ -1886,7 +2288,12 @@
         "middelalder",
         "norge",
         "sykdom"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "tag"
     },
     {
       "id": "hanseatene-kontor",
@@ -1903,7 +2310,12 @@
         "handel",
         "bergen",
         "hansa"
-      ]
+      ],
+      "lat": 60.39,
+      "lng": 5.32,
+      "placeLabel": "Bergen",
+      "placeCountryId": 578,
+      "geoConfidence": "tag"
     },
     {
       "id": "janitsjarene",
@@ -1922,7 +2334,12 @@
         "historie",
         "janitsjarer",
         "hær"
-      ]
+      ],
+      "lat": 39,
+      "lng": 35,
+      "placeLabel": "Det osmanske riket",
+      "placeCountryId": 792,
+      "geoConfidence": "tag"
     },
     {
       "id": "kalmar-union-start",
@@ -1939,7 +2356,11 @@
         "union",
         "politikk",
         "norden"
-      ]
+      ],
+      "lat": 63,
+      "lng": 15,
+      "placeLabel": "Norden",
+      "geoConfidence": "tag"
     },
     {
       "id": "ceuta-conquest",
@@ -1956,7 +2377,12 @@
         "krig",
         "portugal",
         "afrika"
-      ]
+      ],
+      "lat": 39.5,
+      "lng": -8,
+      "placeLabel": "Portugal",
+      "placeCountryId": 620,
+      "geoConfidence": "tag"
     },
     {
       "id": "vitaliebrodrene-plyndring",
@@ -1973,7 +2399,12 @@
         "krig",
         "sjørøveri",
         "bergen"
-      ]
+      ],
+      "lat": 60.39,
+      "lng": 5.32,
+      "placeLabel": "Bergen",
+      "placeCountryId": 578,
+      "geoConfidence": "tag"
     },
     {
       "id": "boktrykkerkunsten-sub-1",
@@ -2032,7 +2463,12 @@
         "vitenskap",
         "italia",
         "humanisme"
-      ]
+      ],
+      "lat": 42.5,
+      "lng": 12.5,
+      "placeLabel": "Italia",
+      "placeCountryId": 380,
+      "geoConfidence": "tag"
     },
     {
       "id": "konstantinopels-fall",
@@ -2051,7 +2487,12 @@
         "historie",
         "konstantinopel",
         "krig"
-      ]
+      ],
+      "lat": 41.01,
+      "lng": 28.98,
+      "placeLabel": "Konstantinopel",
+      "placeCountryId": 792,
+      "geoConfidence": "tag"
     },
     {
       "id": "munkeliv-drapet",
@@ -2069,7 +2510,12 @@
         "hansa",
         "bergen",
         "kirke"
-      ]
+      ],
+      "lat": 60.39,
+      "lng": 5.32,
+      "placeLabel": "Bergen",
+      "placeCountryId": 578,
+      "geoConfidence": "tag"
     },
     {
       "id": "topkapi-palasset",
@@ -2088,7 +2534,12 @@
         "historie",
         "makt",
         "topkapi"
-      ]
+      ],
+      "lat": 41.01,
+      "lng": 28.98,
+      "placeLabel": "Konstantinopel",
+      "placeCountryId": 792,
+      "geoConfidence": "tag"
     },
     {
       "id": "sikhisme-nanak-fodsel",
@@ -2125,7 +2576,12 @@
         "skulptur",
         "italia",
         "firenze"
-      ]
+      ],
+      "lat": 43.77,
+      "lng": 11.26,
+      "placeLabel": "Firenze",
+      "placeCountryId": 380,
+      "geoConfidence": "tag"
     },
     {
       "id": "mirandola-dignity",
@@ -2159,7 +2615,12 @@
         "oppdagelse",
         "portugal",
         "afrika"
-      ]
+      ],
+      "lat": 39.5,
+      "lng": -8,
+      "placeLabel": "Portugal",
+      "placeCountryId": 620,
+      "geoConfidence": "tag"
     },
     {
       "id": "columbus-arrival",
@@ -2176,7 +2637,12 @@
         "oppdagelse",
         "spania",
         "amerika"
-      ]
+      ],
+      "lat": 40,
+      "lng": -3.7,
+      "placeLabel": "Spania",
+      "placeCountryId": 724,
+      "geoConfidence": "tag"
     },
     {
       "id": "europeisk-hegemoni",
@@ -2230,7 +2696,12 @@
         "historie",
         "religion",
         "mangfold"
-      ]
+      ],
+      "lat": 39,
+      "lng": 35,
+      "placeLabel": "Det osmanske riket",
+      "placeCountryId": 792,
+      "geoConfidence": "tag"
     },
     {
       "id": "tordesillas-treaty",
@@ -2247,7 +2718,12 @@
         "diplomati",
         "spania",
         "portugal"
-      ]
+      ],
+      "lat": 40,
+      "lng": -3.7,
+      "placeLabel": "Spania",
+      "placeCountryId": 724,
+      "geoConfidence": "tag"
     },
     {
       "id": "gustav-vasa",
@@ -2266,7 +2742,12 @@
         "reformasjonen",
         "kalmarunionen",
         "statsbygging"
-      ]
+      ],
+      "lat": 62,
+      "lng": 15,
+      "placeLabel": "Sverige",
+      "placeCountryId": 752,
+      "geoConfidence": "tag"
     },
     {
       "id": "dagama-india",
@@ -2283,7 +2764,12 @@
         "handel",
         "portugal",
         "india"
-      ]
+      ],
+      "lat": 39.5,
+      "lng": -8,
+      "placeLabel": "Portugal",
+      "placeCountryId": 620,
+      "geoConfidence": "tag"
     },
     {
       "id": "cabral-brasil",
@@ -2300,7 +2786,12 @@
         "oppdagelse",
         "portugal",
         "brasil"
-      ]
+      ],
+      "lat": 39.5,
+      "lng": -8,
+      "placeLabel": "Portugal",
+      "placeCountryId": 620,
+      "geoConfidence": "tag"
     },
     {
       "id": "boktrykkerkunsten-sub-2",
@@ -2337,7 +2828,12 @@
         "religion",
         "zoroastrismen",
         "krle"
-      ]
+      ],
+      "lat": 32,
+      "lng": 53,
+      "placeLabel": "Perserriket",
+      "placeCountryId": 364,
+      "geoConfidence": "tag"
     },
     {
       "id": "kalvin-og-kalvinismen",
@@ -2357,7 +2853,12 @@
         "predestinasjon",
         "geneve",
         "1500-tallet"
-      ]
+      ],
+      "lat": 46.2,
+      "lng": 6.14,
+      "placeLabel": "Genève",
+      "placeCountryId": 756,
+      "geoConfidence": "tag"
     },
     {
       "id": "malacca-conquest",
@@ -2374,7 +2875,12 @@
         "krig",
         "portugal",
         "asia"
-      ]
+      ],
+      "lat": 39.5,
+      "lng": -8,
+      "placeLabel": "Portugal",
+      "placeCountryId": 620,
+      "geoConfidence": "tag"
     },
     {
       "id": "thomas-more-utopia",
@@ -2410,7 +2916,11 @@
         "religion",
         "europa",
         "1500-tallet"
-      ]
+      ],
+      "lat": 50,
+      "lng": 15,
+      "placeLabel": "Europa",
+      "geoConfidence": "tag"
     },
     {
       "id": "boktrykkerkunsten-sub-3",
@@ -2445,7 +2955,12 @@
         "psykologi",
         "historie",
         "flokkmentalitet"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "stockholm-blodbadet",
@@ -2464,7 +2979,12 @@
         "christian-ii",
         "gustav-vasa",
         "vendepunkt"
-      ]
+      ],
+      "lat": 62,
+      "lng": 15,
+      "placeLabel": "Sverige",
+      "placeCountryId": 752,
+      "geoConfidence": "tag"
     },
     {
       "id": "suleyman-gullalderen",
@@ -2483,7 +3003,12 @@
         "historie",
         "süleyman",
         "gullalder"
-      ]
+      ],
+      "lat": 39,
+      "lng": 35,
+      "placeLabel": "Det osmanske riket",
+      "placeCountryId": 792,
+      "geoConfidence": "tag"
     },
     {
       "id": "cortes-mexico",
@@ -2500,7 +3025,12 @@
         "krig",
         "aztekere",
         "mexico"
-      ]
+      ],
+      "lat": 19.43,
+      "lng": -99.13,
+      "placeLabel": "Aztekerriket",
+      "placeCountryId": 484,
+      "geoConfidence": "tag"
     },
     {
       "id": "gustav-vasa-king",
@@ -2534,7 +3064,12 @@
         "krig",
         "inka",
         "peru"
-      ]
+      ],
+      "lat": -13.16,
+      "lng": -72.54,
+      "placeLabel": "Inkariket",
+      "placeCountryId": 604,
+      "geoConfidence": "tag"
     },
     {
       "id": "reformasjonen-i-norge",
@@ -2554,7 +3089,12 @@
         "olav-engelbrektsson",
         "danmark-norge",
         "1500-tallet"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "tag"
     },
     {
       "id": "mottreformasjonen",
@@ -2574,7 +3114,11 @@
         "trento",
         "europa",
         "1500-tallet"
-      ]
+      ],
+      "lat": 50,
+      "lng": 15,
+      "placeLabel": "Europa",
+      "geoConfidence": "tag"
     },
     {
       "id": "potosi-silver",
@@ -2591,7 +3135,12 @@
         "økonomi",
         "sølv",
         "bolivia"
-      ]
+      ],
+      "lat": -16.3,
+      "lng": -63.6,
+      "placeLabel": "Bolivia",
+      "placeCountryId": 68,
+      "geoConfidence": "tag"
     },
     {
       "id": "handel-og-kultur",
@@ -2610,7 +3159,12 @@
         "historie",
         "handel",
         "kultur"
-      ]
+      ],
+      "lat": 39,
+      "lng": 35,
+      "placeLabel": "Det osmanske riket",
+      "placeCountryId": 792,
+      "geoConfidence": "tag"
     },
     {
       "id": "galileo-galilei",
@@ -2630,7 +3184,12 @@
         "astronomi",
         "kirken",
         "italia"
-      ]
+      ],
+      "lat": 42.5,
+      "lng": 12.5,
+      "placeLabel": "Italia",
+      "placeCountryId": 380,
+      "geoConfidence": "tag"
     },
     {
       "id": "hekseprosessene",
@@ -2651,7 +3210,12 @@
         "rettsstat",
         "kvinnehistorie",
         "norgeshistorie"
-      ]
+      ],
+      "lat": 70.37,
+      "lng": 31.11,
+      "placeLabel": "Vardø",
+      "placeCountryId": 578,
+      "geoConfidence": "tag"
     },
     {
       "id": "den-spanske-armada-1588",
@@ -2686,7 +3250,12 @@
         "imperialisme",
         "india",
         "storbritannia"
-      ]
+      ],
+      "lat": 22,
+      "lng": 79,
+      "placeLabel": "India",
+      "placeCountryId": 356,
+      "geoConfidence": "tag"
     },
     {
       "id": "eic-sub-0",
@@ -2704,7 +3273,12 @@
         "imperialisme",
         "india",
         "storbritannia"
-      ]
+      ],
+      "lat": 22,
+      "lng": 79,
+      "placeLabel": "India",
+      "placeCountryId": 356,
+      "geoConfidence": "tag"
     },
     {
       "id": "voc-founding",
@@ -2721,7 +3295,12 @@
         "økonomi",
         "handel",
         "nederland"
-      ]
+      ],
+      "lat": 52.2,
+      "lng": 5.3,
+      "placeLabel": "Nederland",
+      "placeCountryId": 528,
+      "geoConfidence": "tag"
     },
     {
       "id": "voc",
@@ -2739,7 +3318,12 @@
         "kolonialisme",
         "nederland",
         "økonomi"
-      ]
+      ],
+      "lat": 52.2,
+      "lng": 5.3,
+      "placeLabel": "Nederland",
+      "placeCountryId": 528,
+      "geoConfidence": "tag"
     },
     {
       "id": "jamestown",
@@ -2756,7 +3340,12 @@
         "kolonialisering",
         "usa",
         "storbritannia"
-      ]
+      ],
+      "lat": 39.5,
+      "lng": -98,
+      "placeLabel": "USA",
+      "placeCountryId": 840,
+      "geoConfidence": "tag"
     },
     {
       "id": "quebec",
@@ -2773,7 +3362,12 @@
         "kolonialisering",
         "frankrike",
         "nord-amerika"
-      ]
+      ],
+      "lat": 46.6,
+      "lng": 2.5,
+      "placeLabel": "Frankrike",
+      "placeCountryId": 250,
+      "geoConfidence": "tag"
     },
     {
       "id": "stormaktstiden",
@@ -2793,7 +3387,12 @@
         "gustav-ii-adolf",
         "30-aarskrigen",
         "poltava"
-      ]
+      ],
+      "lat": 62,
+      "lng": 15,
+      "placeLabel": "Sverige",
+      "placeCountryId": 752,
+      "geoConfidence": "tag"
     },
     {
       "id": "praha-defenestrasjon-1618",
@@ -2810,7 +3409,11 @@
         "reformasjonen",
         "krig",
         "europa"
-      ]
+      ],
+      "lat": 50,
+      "lng": 15,
+      "placeLabel": "Europa",
+      "geoConfidence": "tag"
     },
     {
       "id": "30-aarskrigen",
@@ -2828,7 +3431,11 @@
         "krig",
         "europa",
         "reformasjonen"
-      ]
+      ],
+      "lat": 50,
+      "lng": 15,
+      "placeLabel": "Europa",
+      "geoConfidence": "tag"
     },
     {
       "id": "lutzen-battle",
@@ -2879,7 +3486,12 @@
         "økonomi",
         "flokkmentalitet",
         "nederland"
-      ]
+      ],
+      "lat": 52.2,
+      "lng": 5.3,
+      "placeLabel": "Nederland",
+      "placeCountryId": 528,
+      "geoConfidence": "tag"
     },
     {
       "id": "descartes-method",
@@ -2930,7 +3542,12 @@
         "historie",
         "enevelde",
         "frankrike"
-      ]
+      ],
+      "lat": 46.6,
+      "lng": 2.5,
+      "placeLabel": "Frankrike",
+      "placeCountryId": 250,
+      "geoConfidence": "tag"
     },
     {
       "id": "forfallet",
@@ -2949,7 +3566,12 @@
         "historie",
         "forfall",
         "balkan"
-      ]
+      ],
+      "lat": 39,
+      "lng": 35,
+      "placeLabel": "Det osmanske riket",
+      "placeCountryId": 792,
+      "geoConfidence": "tag"
     },
     {
       "id": "locke-treatises",
@@ -3073,7 +3695,12 @@
         "krig",
         "frankrike",
         "storbritannia"
-      ]
+      ],
+      "lat": 46.6,
+      "lng": 2.5,
+      "placeLabel": "Frankrike",
+      "placeCountryId": 250,
+      "geoConfidence": "tag"
     },
     {
       "id": "eic-sub-1",
@@ -3091,7 +3718,12 @@
         "imperialisme",
         "india",
         "storbritannia"
-      ]
+      ],
+      "lat": 22,
+      "lng": 79,
+      "placeLabel": "India",
+      "placeCountryId": 356,
+      "geoConfidence": "tag"
     },
     {
       "id": "industriell-revolusjon",
@@ -3110,7 +3742,12 @@
         "england",
         "dampmaskin",
         "1800-tallet"
-      ]
+      ],
+      "lat": 52.5,
+      "lng": -1.5,
+      "placeLabel": "England",
+      "placeCountryId": 826,
+      "geoConfidence": "tag"
     },
     {
       "id": "rousseau-social-contract",
@@ -3147,7 +3784,12 @@
         "keiser",
         "1800-tallet",
         "europa"
-      ]
+      ],
+      "lat": 46.6,
+      "lng": 2.5,
+      "placeLabel": "Frankrike",
+      "placeCountryId": 250,
+      "geoConfidence": "tag"
     },
     {
       "id": "usa-frigjoring-sub-0",
@@ -3165,7 +3807,12 @@
         "dekolonisering",
         "usa",
         "revolusjon"
-      ]
+      ],
+      "lat": 39.5,
+      "lng": -98,
+      "placeLabel": "USA",
+      "placeCountryId": 840,
+      "geoConfidence": "tag"
     },
     {
       "id": "okonomiske-skoler",
@@ -3182,7 +3829,12 @@
         "økonomi",
         "økonomiske skoler",
         "teori"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "usa-frigjoring",
@@ -3200,7 +3852,12 @@
         "dekolonisering",
         "usa",
         "revolusjon"
-      ]
+      ],
+      "lat": 39.5,
+      "lng": -98,
+      "placeLabel": "USA",
+      "placeCountryId": 840,
+      "geoConfidence": "tag"
     },
     {
       "id": "usa-frigjoring-sub-1",
@@ -3218,7 +3875,12 @@
         "dekolonisering",
         "usa",
         "revolusjon"
-      ]
+      ],
+      "lat": 39.5,
+      "lng": -98,
+      "placeLabel": "USA",
+      "placeCountryId": 840,
+      "geoConfidence": "tag"
     },
     {
       "id": "barnearbeid",
@@ -3238,7 +3900,12 @@
         "barnearbeid",
         "etikk",
         "1800-tallet"
-      ]
+      ],
+      "lat": 52.5,
+      "lng": -1.5,
+      "placeLabel": "England",
+      "placeCountryId": 826,
+      "geoConfidence": "tag"
     },
     {
       "id": "usa-frigjoring-sub-2",
@@ -3256,7 +3923,12 @@
         "dekolonisering",
         "usa",
         "revolusjon"
-      ]
+      ],
+      "lat": 39.5,
+      "lng": -98,
+      "placeLabel": "USA",
+      "placeCountryId": 840,
+      "geoConfidence": "tag"
     },
     {
       "id": "kant-moral",
@@ -3292,7 +3964,12 @@
         "opplysningstid",
         "menneskerettigheter",
         "1700-tallet"
-      ]
+      ],
+      "lat": 46.6,
+      "lng": 2.5,
+      "placeLabel": "Frankrike",
+      "placeCountryId": 250,
+      "geoConfidence": "tag"
     },
     {
       "id": "stormingen-av-bastillen",
@@ -3312,7 +3989,12 @@
         "1789",
         "1700-tallet",
         "menneskerettigheter"
-      ]
+      ],
+      "lat": 48.85,
+      "lng": 2.37,
+      "placeLabel": "Paris",
+      "placeCountryId": 250,
+      "geoConfidence": "tag"
     },
     {
       "id": "usa-frigjoring-sub-3",
@@ -3330,7 +4012,12 @@
         "dekolonisering",
         "usa",
         "revolusjon"
-      ]
+      ],
+      "lat": 39.5,
+      "lng": -98,
+      "placeLabel": "USA",
+      "placeCountryId": 840,
+      "geoConfidence": "tag"
     },
     {
       "id": "haiti",
@@ -3348,7 +4035,12 @@
         "dekolonisering",
         "haiti",
         "slaveri"
-      ]
+      ],
+      "lat": 19,
+      "lng": -72.3,
+      "placeLabel": "Haiti",
+      "placeCountryId": 332,
+      "geoConfidence": "tag"
     },
     {
       "id": "haiti-sub-0",
@@ -3366,7 +4058,12 @@
         "dekolonisering",
         "haiti",
         "slaveri"
-      ]
+      ],
+      "lat": 19,
+      "lng": -72.3,
+      "placeLabel": "Haiti",
+      "placeCountryId": 332,
+      "geoConfidence": "tag"
     },
     {
       "id": "robespierre-og-skrekkveldet",
@@ -3386,7 +4083,12 @@
         "skrekkveldet",
         "1700-tallet",
         "etikk"
-      ]
+      ],
+      "lat": 46.6,
+      "lng": 2.5,
+      "placeLabel": "Frankrike",
+      "placeCountryId": 250,
+      "geoConfidence": "tag"
     },
     {
       "id": "haiti-sub-1",
@@ -3404,7 +4106,12 @@
         "dekolonisering",
         "haiti",
         "slaveri"
-      ]
+      ],
+      "lat": 19,
+      "lng": -72.3,
+      "placeLabel": "Haiti",
+      "placeCountryId": 332,
+      "geoConfidence": "tag"
     },
     {
       "id": "vaksiner-og-antibiotika",
@@ -3442,7 +4149,12 @@
         "dekolonisering",
         "haiti",
         "slaveri"
-      ]
+      ],
+      "lat": 19,
+      "lng": -72.3,
+      "placeLabel": "Haiti",
+      "placeCountryId": 332,
+      "geoConfidence": "tag"
     },
     {
       "id": "haiti-sub-3",
@@ -3460,7 +4172,12 @@
         "dekolonisering",
         "haiti",
         "slaveri"
-      ]
+      ],
+      "lat": 19,
+      "lng": -72.3,
+      "placeLabel": "Haiti",
+      "placeCountryId": 332,
+      "geoConfidence": "tag"
     },
     {
       "id": "latin-amerika",
@@ -3478,7 +4195,11 @@
         "dekolonisering",
         "latin-amerika",
         "bolivar"
-      ]
+      ],
+      "lat": -15,
+      "lng": -60,
+      "placeLabel": "Latin-Amerika",
+      "geoConfidence": "tag"
     },
     {
       "id": "latin-amerika-sub-0",
@@ -3496,7 +4217,11 @@
         "dekolonisering",
         "latin-amerika",
         "bolivar"
-      ]
+      ],
+      "lat": -15,
+      "lng": -60,
+      "placeLabel": "Latin-Amerika",
+      "geoConfidence": "tag"
     },
     {
       "id": "kjoleskapet",
@@ -3534,7 +4259,11 @@
         "dekolonisering",
         "latin-amerika",
         "bolivar"
-      ]
+      ],
+      "lat": -15,
+      "lng": -60,
+      "placeLabel": "Latin-Amerika",
+      "geoConfidence": "tag"
     },
     {
       "id": "luddittene",
@@ -3551,7 +4280,12 @@
         "teknologi",
         "historie",
         "arbeid"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "norge-grunnlov-1814",
@@ -3568,7 +4302,12 @@
         "historie",
         "norge",
         "demokrati"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "tag"
     },
     {
       "id": "union-1814-start",
@@ -3603,7 +4342,12 @@
         "nynorsk",
         "Ivar Aasen",
         "språkpolitikk"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "grunnloven",
@@ -3621,7 +4365,12 @@
         "demokrati",
         "rettsstat",
         "1814"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "tag"
     },
     {
       "id": "napoleon-end",
@@ -3638,7 +4387,12 @@
         "historie",
         "storbritannia",
         "krig"
-      ]
+      ],
+      "lat": 54,
+      "lng": -2.5,
+      "placeLabel": "Storbritannia",
+      "placeCountryId": 826,
+      "geoConfidence": "tag"
     },
     {
       "id": "marx",
@@ -3673,7 +4427,11 @@
         "dekolonisering",
         "latin-amerika",
         "bolivar"
-      ]
+      ],
+      "lat": -15,
+      "lng": -60,
+      "placeLabel": "Latin-Amerika",
+      "geoConfidence": "tag"
     },
     {
       "id": "latin-amerika-sub-3",
@@ -3691,7 +4449,11 @@
         "dekolonisering",
         "latin-amerika",
         "bolivar"
-      ]
+      ],
+      "lat": -15,
+      "lng": -60,
+      "placeLabel": "Latin-Amerika",
+      "geoConfidence": "tag"
     },
     {
       "id": "new-harmony-owen",
@@ -3708,7 +4470,12 @@
         "ideologi",
         "usa",
         "utopi"
-      ]
+      ],
+      "lat": 39.5,
+      "lng": -98,
+      "placeLabel": "USA",
+      "placeCountryId": 840,
+      "geoConfidence": "tag"
     },
     {
       "id": "jernbanen",
@@ -3745,7 +4512,12 @@
         "kina",
         "imperialisme",
         "opium"
-      ]
+      ],
+      "lat": 35,
+      "lng": 105,
+      "placeLabel": "Kina",
+      "placeCountryId": 156,
+      "geoConfidence": "tag"
     },
     {
       "id": "hamskiftet",
@@ -3762,7 +4534,12 @@
         "historie",
         "norge",
         "industrialisering"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "tag"
     },
     {
       "id": "kierkegaard-enten-eller",
@@ -3796,7 +4573,12 @@
         "religion",
         "usa",
         "eskatologi"
-      ]
+      ],
+      "lat": 39.5,
+      "lng": -98,
+      "placeLabel": "USA",
+      "placeCountryId": 840,
+      "geoConfidence": "tag"
     },
     {
       "id": "telefonen",
@@ -3828,7 +4610,12 @@
       "type": "text",
       "subjectId": "norsk",
       "link": "/norsk/bibliotek?text=piken-med-svovelstikkene",
-      "tags": []
+      "tags": [],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "symaskinen",
@@ -3865,7 +4652,12 @@
         "arbeidsliv",
         "historie",
         "fagforening"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "crystal-palace",
@@ -3882,7 +4674,12 @@
         "historie",
         "teknologi",
         "storbritannia"
-      ]
+      ],
+      "lat": 54,
+      "lng": -2.5,
+      "placeLabel": "Storbritannia",
+      "placeCountryId": 826,
+      "geoConfidence": "tag"
     },
     {
       "id": "vann-og-kloakk",
@@ -3940,7 +4737,12 @@
         "imperialisme",
         "india",
         "storbritannia"
-      ]
+      ],
+      "lat": 22,
+      "lng": 79,
+      "placeLabel": "India",
+      "placeCountryId": 356,
+      "geoConfidence": "tag"
     },
     {
       "id": "eic-sub-3",
@@ -3958,7 +4760,12 @@
         "imperialisme",
         "india",
         "storbritannia"
-      ]
+      ],
+      "lat": 22,
+      "lng": 79,
+      "placeLabel": "India",
+      "placeCountryId": 356,
+      "geoConfidence": "tag"
     },
     {
       "id": "john-stuart-mill-liberty",
@@ -3975,7 +4782,12 @@
         "filosofi",
         "ytringsfrihet",
         "liberalisme"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "mill-on-liberty",
@@ -4004,7 +4816,12 @@
       "type": "text",
       "subjectId": "norsk",
       "link": "/norsk/bibliotek?text=faderen",
-      "tags": []
+      "tags": [],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "eic-sub-4",
@@ -4022,7 +4839,12 @@
         "imperialisme",
         "india",
         "storbritannia"
-      ]
+      ],
+      "lat": 22,
+      "lng": 79,
+      "placeLabel": "India",
+      "placeCountryId": 356,
+      "geoConfidence": "tag"
     },
     {
       "id": "jim-crow-lovene",
@@ -4041,7 +4863,12 @@
         "borgerrettigheter",
         "delte-samfunn",
         "martin-luther-king"
-      ]
+      ],
+      "lat": 39.5,
+      "lng": -98,
+      "placeLabel": "USA",
+      "placeCountryId": 840,
+      "geoConfidence": "tag"
     },
     {
       "id": "elektrisiteten",
@@ -4073,7 +4900,12 @@
       "type": "text",
       "subjectId": "norsk",
       "link": "/norsk/bibliotek?text=en-middag",
-      "tags": []
+      "tags": [],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "karen",
@@ -4085,7 +4917,12 @@
       "type": "text",
       "subjectId": "norsk",
       "link": "/norsk/bibliotek?text=karen",
-      "tags": []
+      "tags": [],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "nietzsche-zarathustra",
@@ -4113,7 +4950,12 @@
       "displayDate": "1885",
       "type": "text",
       "subjectId": "norsk",
-      "link": "/norsk/bibliotek?text=dypfryst"
+      "link": "/norsk/bibliotek?text=dypfryst",
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "kongo-sub-0",
@@ -4131,7 +4973,12 @@
         "dekolonisering",
         "kongo",
         "kald-krig"
-      ]
+      ],
+      "lat": -2.9,
+      "lng": 23.6,
+      "placeLabel": "Kongo",
+      "placeCountryId": 180,
+      "geoConfidence": "tag"
     },
     {
       "id": "karens-jul",
@@ -4143,7 +4990,12 @@
       "type": "text",
       "subjectId": "norsk",
       "link": "/norsk/bibliotek?text=karens-jul",
-      "tags": []
+      "tags": [],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "fandango",
@@ -4155,7 +5007,12 @@
       "type": "text",
       "subjectId": "norsk",
       "link": "/norsk/bibliotek?text=fandango",
-      "tags": []
+      "tags": [],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "sult-utdrag",
@@ -4167,7 +5024,12 @@
       "type": "text",
       "subjectId": "norsk",
       "link": "/norsk/bibliotek?text=sult-utdrag",
-      "tags": []
+      "tags": [],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "isak-og-bronopresten",
@@ -4179,7 +5041,12 @@
       "type": "text",
       "subjectId": "norsk",
       "link": "/norsk/bibliotek?text=isak-og-bronopresten",
-      "tags": []
+      "tags": [],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "jeg-ser",
@@ -4191,7 +5058,12 @@
       "type": "text",
       "subjectId": "norsk",
       "link": "/norsk/bibliotek?text=jeg-ser",
-      "tags": []
+      "tags": [],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "haugtussa-utdrag",
@@ -4203,7 +5075,12 @@
       "type": "text",
       "subjectId": "norsk",
       "link": "/norsk/bibliotek?text=haugtussa-utdrag",
-      "tags": []
+      "tags": [],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "opptakt",
@@ -4255,7 +5132,12 @@
         "norgeshistorie",
         "selvstendighet",
         "unionsoppløsning"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "tag"
     },
     {
       "id": "olje-og-makt",
@@ -4272,7 +5154,11 @@
         "midtosten",
         "olje",
         "opec"
-      ]
+      ],
+      "lat": 29,
+      "lng": 45,
+      "placeLabel": "Midtøsten",
+      "geoConfidence": "tag"
     },
     {
       "id": "borgerkrigen",
@@ -4289,7 +5175,12 @@
         "kina",
         "borgerkrig",
         "mao"
-      ]
+      ],
+      "lat": 35,
+      "lng": 105,
+      "placeLabel": "Kina",
+      "placeCountryId": 156,
+      "geoConfidence": "tag"
     },
     {
       "id": "federal-reserve-1913",
@@ -4306,7 +5197,12 @@
         "økonomi",
         "sentralbank",
         "rente"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "belgia-1914-casus",
@@ -4339,7 +5235,11 @@
       "tags": [
         "krig",
         "europa"
-      ]
+      ],
+      "lat": 50,
+      "lng": 15,
+      "placeLabel": "Europa",
+      "geoConfidence": "tag"
     },
     {
       "id": "skuddene-i-sarajevo",
@@ -4374,7 +5274,12 @@
         "historie",
         "forste-verdenskrig",
         "tyrkia"
-      ]
+      ],
+      "lat": 39,
+      "lng": 35,
+      "placeLabel": "Det osmanske riket",
+      "placeCountryId": 792,
+      "geoConfidence": "tag"
     },
     {
       "id": "slaget-ved-somme",
@@ -4407,7 +5312,11 @@
         "midtøsten",
         "geopolitikk",
         "mandat"
-      ]
+      ],
+      "lat": 29,
+      "lng": 45,
+      "placeLabel": "Midtøsten",
+      "geoConfidence": "tag"
     },
     {
       "id": "midtosten-mandater",
@@ -4425,7 +5334,12 @@
         "dekolonisering",
         "midtøsten",
         "osmanriket"
-      ]
+      ],
+      "lat": 39,
+      "lng": 35,
+      "placeLabel": "Det osmanske riket",
+      "placeCountryId": 792,
+      "geoConfidence": "tag"
     },
     {
       "id": "midtosten-mandater-sub-0",
@@ -4443,7 +5357,12 @@
         "dekolonisering",
         "midtøsten",
         "osmanriket"
-      ]
+      ],
+      "lat": 39,
+      "lng": 35,
+      "placeLabel": "Det osmanske riket",
+      "placeCountryId": 792,
+      "geoConfidence": "tag"
     },
     {
       "id": "sykes-picot",
@@ -4460,7 +5379,11 @@
         "midtosten",
         "imperialisme",
         "grenser"
-      ]
+      ],
+      "lat": 29,
+      "lng": 45,
+      "placeLabel": "Midtøsten",
+      "geoConfidence": "tag"
     },
     {
       "id": "bolsjevik-revolusjon",
@@ -4476,7 +5399,12 @@
       "tags": [
         "revolusjon",
         "russland"
-      ]
+      ],
+      "lat": 61.5,
+      "lng": 90,
+      "placeLabel": "Russland",
+      "placeCountryId": 643,
+      "geoConfidence": "tag"
     },
     {
       "id": "usa-krig-1917",
@@ -4492,7 +5420,12 @@
       "tags": [
         "krig",
         "usa"
-      ]
+      ],
+      "lat": 39.5,
+      "lng": -98,
+      "placeLabel": "USA",
+      "placeCountryId": 840,
+      "geoConfidence": "tag"
     },
     {
       "id": "midtosten-mandater-sub-1",
@@ -4510,7 +5443,12 @@
         "dekolonisering",
         "midtøsten",
         "osmanriket"
-      ]
+      ],
+      "lat": 39,
+      "lng": 35,
+      "placeLabel": "Det osmanske riket",
+      "placeCountryId": 792,
+      "geoConfidence": "tag"
     },
     {
       "id": "israel-og-palestina",
@@ -4527,7 +5465,12 @@
         "midtosten",
         "israel",
         "palestina"
-      ]
+      ],
+      "lat": 31.4,
+      "lng": 35,
+      "placeLabel": "Israel",
+      "placeCountryId": 376,
+      "geoConfidence": "tag"
     },
     {
       "id": "vapenhvilen-1918",
@@ -4560,7 +5503,12 @@
         "norge",
         "politikk",
         "velferdsstat"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "tag"
     },
     {
       "id": "kultur",
@@ -4596,7 +5544,12 @@
         "tyskland",
         "nazi",
         "politikk"
-      ]
+      ],
+      "lat": 51.2,
+      "lng": 10.4,
+      "placeLabel": "Tyskland",
+      "placeCountryId": 276,
+      "geoConfidence": "tag"
     },
     {
       "id": "japan",
@@ -4613,7 +5566,12 @@
         "japan",
         "militarisme",
         "krig"
-      ]
+      ],
+      "lat": 36.2,
+      "lng": 138.3,
+      "placeLabel": "Japan",
+      "placeCountryId": 392,
+      "geoConfidence": "tag"
     },
     {
       "id": "versailles-traktaten",
@@ -4662,7 +5620,12 @@
         "usa",
         "økonomi",
         "jazz"
-      ]
+      ],
+      "lat": 39.5,
+      "lng": -98,
+      "placeLabel": "USA",
+      "placeCountryId": 840,
+      "geoConfidence": "tag"
     },
     {
       "id": "italia",
@@ -4679,7 +5642,12 @@
         "italia",
         "fascisme",
         "politikk"
-      ]
+      ],
+      "lat": 42.5,
+      "lng": 12.5,
+      "placeLabel": "Italia",
+      "placeCountryId": 380,
+      "geoConfidence": "tag"
     },
     {
       "id": "india",
@@ -4697,7 +5665,12 @@
         "dekolonisering",
         "india",
         "gandhi"
-      ]
+      ],
+      "lat": 22,
+      "lng": 79,
+      "placeLabel": "India",
+      "placeCountryId": 356,
+      "geoConfidence": "tag"
     },
     {
       "id": "india-sub-0",
@@ -4715,7 +5688,12 @@
         "dekolonisering",
         "india",
         "gandhi"
-      ]
+      ],
+      "lat": 22,
+      "lng": 79,
+      "placeLabel": "India",
+      "placeCountryId": 356,
+      "geoConfidence": "tag"
     },
     {
       "id": "irland-deles",
@@ -4733,7 +5711,12 @@
         "belfast",
         "delte-samfunn",
         "the-troubles"
-      ]
+      ],
+      "lat": 54.6,
+      "lng": -5.93,
+      "placeLabel": "Belfast",
+      "placeCountryId": 826,
+      "geoConfidence": "tag"
     },
     {
       "id": "folkeforbundet",
@@ -4768,7 +5751,12 @@
         "dekolonisering",
         "midtøsten",
         "osmanriket"
-      ]
+      ],
+      "lat": 39,
+      "lng": 35,
+      "placeLabel": "Det osmanske riket",
+      "placeCountryId": 792,
+      "geoConfidence": "tag"
     },
     {
       "id": "sovjet",
@@ -4785,7 +5773,12 @@
         "sovjet",
         "stalin",
         "totalitarisme"
-      ]
+      ],
+      "lat": 61.5,
+      "lng": 90,
+      "placeLabel": "Sovjetunionen",
+      "placeCountryId": 643,
+      "geoConfidence": "tag"
     },
     {
       "id": "heidegger-vaeren",
@@ -4819,7 +5812,12 @@
         "pr",
         "media",
         "psykologi"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "borskrakk",
@@ -4854,7 +5852,12 @@
         "dekolonisering",
         "india",
         "gandhi"
-      ]
+      ],
+      "lat": 22,
+      "lng": 79,
+      "placeLabel": "India",
+      "placeCountryId": 356,
+      "geoConfidence": "tag"
     },
     {
       "id": "mukden-incident-1931",
@@ -4871,7 +5874,12 @@
         "krig",
         "japan",
         "mandsjuria"
-      ]
+      ],
+      "lat": 43,
+      "lng": 125,
+      "placeLabel": "Mandsjuria",
+      "placeCountryId": 156,
+      "geoConfidence": "tag"
     },
     {
       "id": "dachau-opens",
@@ -4888,7 +5896,12 @@
         "tyskland",
         "nazisme",
         "leire"
-      ]
+      ],
+      "lat": 51.2,
+      "lng": 10.4,
+      "placeLabel": "Tyskland",
+      "placeCountryId": 276,
+      "geoConfidence": "tag"
     },
     {
       "id": "hitler-makt",
@@ -4904,7 +5917,12 @@
       "tags": [
         "politikk",
         "tyskland"
-      ]
+      ],
+      "lat": 51.2,
+      "lng": 10.4,
+      "placeLabel": "Tyskland",
+      "placeCountryId": 276,
+      "geoConfidence": "tag"
     },
     {
       "id": "konsentrasjonsleirene",
@@ -4972,7 +5990,12 @@
         "historie",
         "anarkisme",
         "spania"
-      ]
+      ],
+      "lat": 40,
+      "lng": -3.7,
+      "placeLabel": "Spania",
+      "placeCountryId": 724,
+      "geoConfidence": "tag"
     },
     {
       "id": "spania",
@@ -4989,7 +6012,12 @@
         "spania",
         "borgerkrig",
         "ideologi"
-      ]
+      ],
+      "lat": 40,
+      "lng": -3.7,
+      "placeLabel": "Spania",
+      "placeCountryId": 724,
+      "geoConfidence": "tag"
     },
     {
       "id": "konsentrasjonsleirene-sub-2",
@@ -5039,7 +6067,12 @@
         "krig",
         "tyskland",
         "andre-verdenskrig"
-      ]
+      ],
+      "lat": 51.2,
+      "lng": 10.4,
+      "placeLabel": "Tyskland",
+      "placeCountryId": 276,
+      "geoConfidence": "tag"
     },
     {
       "id": "oversikt",
@@ -5073,7 +6106,12 @@
         "kina",
         "dynastier",
         "sivilisasjon"
-      ]
+      ],
+      "lat": 39,
+      "lng": 35,
+      "placeLabel": "Det osmanske riket",
+      "placeCountryId": 792,
+      "geoConfidence": "tag"
     },
     {
       "id": "krigens-lop",
@@ -5121,7 +6159,12 @@
       "tags": [
         "norge",
         "krig"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "tag"
     },
     {
       "id": "konsentrasjonsleirene-sub-3",
@@ -5157,7 +6200,12 @@
         "hjemmefronten",
         "quisling",
         "holocaust"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "tag"
     },
     {
       "id": "sorost-asia",
@@ -5175,7 +6223,12 @@
         "dekolonisering",
         "indonesia",
         "vietnam"
-      ]
+      ],
+      "lat": -2.5,
+      "lng": 118,
+      "placeLabel": "Indonesia",
+      "placeCountryId": 360,
+      "geoConfidence": "tag"
     },
     {
       "id": "konsentrasjonsleirene-sub-4",
@@ -5260,7 +6313,12 @@
         "dekolonisering",
         "india",
         "gandhi"
-      ]
+      ],
+      "lat": 22,
+      "lng": 79,
+      "placeLabel": "India",
+      "placeCountryId": 356,
+      "geoConfidence": "tag"
     },
     {
       "id": "sorost-asia-sub-0",
@@ -5278,7 +6336,12 @@
         "dekolonisering",
         "indonesia",
         "vietnam"
-      ]
+      ],
+      "lat": -2.5,
+      "lng": 118,
+      "placeLabel": "Indonesia",
+      "placeCountryId": 360,
+      "geoConfidence": "tag"
     },
     {
       "id": "bretton-woods",
@@ -5295,7 +6358,12 @@
         "økonomi",
         "usa",
         "globalt"
-      ]
+      ],
+      "lat": 39.5,
+      "lng": -98,
+      "placeLabel": "USA",
+      "placeCountryId": 840,
+      "geoConfidence": "tag"
     },
     {
       "id": "d-dagen",
@@ -5330,7 +6398,12 @@
         "verdensbanken",
         "gjeld",
         "nykolonialisme"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "imf-og-verdensbanken-sub-0",
@@ -5349,7 +6422,12 @@
         "verdensbanken",
         "gjeld",
         "nykolonialisme"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "konsentrasjonsleirene-sub-6",
@@ -5399,7 +6477,12 @@
         "frigjøring",
         "holocaust",
         "sovjet"
-      ]
+      ],
+      "lat": 61.5,
+      "lng": 90,
+      "placeLabel": "Sovjetunionen",
+      "placeCountryId": 643,
+      "geoConfidence": "tag"
     },
     {
       "id": "kultur-kald-krig",
@@ -5436,7 +6519,12 @@
         "stormakt",
         "usa",
         "sovjet"
-      ]
+      ],
+      "lat": 39.5,
+      "lng": -98,
+      "placeLabel": "USA",
+      "placeCountryId": 840,
+      "geoConfidence": "tag"
     },
     {
       "id": "fn",
@@ -5454,7 +6542,12 @@
         "politikk",
         "samfunn",
         "fn"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "konsentrasjonsleirene-sub-7",
@@ -5539,7 +6632,12 @@
         "dekolonisering",
         "indonesia",
         "vietnam"
-      ]
+      ],
+      "lat": -2.5,
+      "lng": 118,
+      "placeLabel": "Indonesia",
+      "placeCountryId": 360,
+      "geoConfidence": "tag"
     },
     {
       "id": "nurnbergprosessen",
@@ -5594,7 +6692,12 @@
         "dekolonisering",
         "krig",
         "algerie"
-      ]
+      ],
+      "lat": 28,
+      "lng": 3,
+      "placeLabel": "Algerie",
+      "placeCountryId": 12,
+      "geoConfidence": "tag"
     },
     {
       "id": "frigjoringskrigene-sub-0",
@@ -5612,7 +6715,12 @@
         "dekolonisering",
         "krig",
         "algerie"
-      ]
+      ],
+      "lat": 28,
+      "lng": 3,
+      "placeLabel": "Algerie",
+      "placeCountryId": 12,
+      "geoConfidence": "tag"
     },
     {
       "id": "kald-krig-midtosten",
@@ -5629,7 +6737,11 @@
         "midtosten",
         "kaldkrig",
         "cia"
-      ]
+      ],
+      "lat": 29,
+      "lng": 45,
+      "placeLabel": "Midtøsten",
+      "geoConfidence": "tag"
     },
     {
       "id": "oversikt-sub-2",
@@ -5664,7 +6776,12 @@
         "dekolonisering",
         "india",
         "gandhi"
-      ]
+      ],
+      "lat": 22,
+      "lng": 79,
+      "placeLabel": "India",
+      "placeCountryId": 356,
+      "geoConfidence": "tag"
     },
     {
       "id": "ghana-panafrikanisme-sub-0",
@@ -5682,7 +6799,12 @@
         "dekolonisering",
         "afrika",
         "ghana"
-      ]
+      ],
+      "lat": 7.9,
+      "lng": -1,
+      "placeLabel": "Ghana",
+      "placeCountryId": 288,
+      "geoConfidence": "tag"
     },
     {
       "id": "alt-blir-som-for",
@@ -5693,7 +6815,12 @@
       "displayDate": "1948",
       "type": "text",
       "subjectId": "norsk",
-      "link": "/norsk/bibliotek?text=alt-blir-som-for"
+      "link": "/norsk/bibliotek?text=alt-blir-som-for",
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "apartheid-innfores",
@@ -5711,7 +6838,12 @@
         "sør-afrika",
         "segregering",
         "delte-samfunn"
-      ]
+      ],
+      "lat": -29,
+      "lng": 24,
+      "placeLabel": "Sør-Afrika",
+      "placeCountryId": 710,
+      "geoConfidence": "tag"
     },
     {
       "id": "un-human-rights",
@@ -5780,7 +6912,12 @@
         "dekolonisering",
         "midtøsten",
         "osmanriket"
-      ]
+      ],
+      "lat": 39,
+      "lng": 35,
+      "placeLabel": "Det osmanske riket",
+      "placeCountryId": 792,
+      "geoConfidence": "tag"
     },
     {
       "id": "apartheid-syd-afrika",
@@ -5799,7 +6936,12 @@
         "segregering",
         "delte-samfunn",
         "mandela"
-      ]
+      ],
+      "lat": -29,
+      "lng": 24,
+      "placeLabel": "Sør-Afrika",
+      "placeCountryId": 710,
+      "geoConfidence": "tag"
     },
     {
       "id": "a-drepe-et-barn",
@@ -5811,7 +6953,12 @@
       "type": "text",
       "subjectId": "norsk",
       "link": "/norsk/bibliotek?text=a-drepe-et-barn",
-      "tags": []
+      "tags": [],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "beauvoir-kjonn",
@@ -5898,7 +7045,12 @@
         "indonesia",
         "suharto",
         "nykolonialisme"
-      ]
+      ],
+      "lat": -2.5,
+      "lng": 118,
+      "placeLabel": "Indonesia",
+      "placeCountryId": 360,
+      "geoConfidence": "tag"
     },
     {
       "id": "sorost-asia-sub-2",
@@ -5916,7 +7068,12 @@
         "dekolonisering",
         "indonesia",
         "vietnam"
-      ]
+      ],
+      "lat": -2.5,
+      "lng": 118,
+      "placeLabel": "Indonesia",
+      "placeCountryId": 360,
+      "geoConfidence": "tag"
     },
     {
       "id": "mao-og-revolusjonen",
@@ -5933,7 +7090,12 @@
         "kina",
         "mao",
         "kommunisme"
-      ]
+      ],
+      "lat": 35,
+      "lng": 105,
+      "placeLabel": "Kina",
+      "placeCountryId": 156,
+      "geoConfidence": "tag"
     },
     {
       "id": "koreakrigen",
@@ -5950,7 +7112,11 @@
         "krig",
         "asia",
         "proxy-krig"
-      ]
+      ],
+      "lat": 45,
+      "lng": 90,
+      "placeLabel": "Asia",
+      "geoConfidence": "tag"
     },
     {
       "id": "koreakrigen-sub-0",
@@ -5967,7 +7133,11 @@
         "krig",
         "asia",
         "proxy-krig"
-      ]
+      ],
+      "lat": 45,
+      "lng": 90,
+      "placeLabel": "Asia",
+      "geoConfidence": "tag"
     },
     {
       "id": "arendt-totalitarisme",
@@ -6000,7 +7170,12 @@
       "tags": [
         "psykologi",
         "forskning"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "operasjon-ajax-sub-0",
@@ -6020,7 +7195,12 @@
         "olje",
         "cia",
         "nykolonialisme"
-      ]
+      ],
+      "lat": 32,
+      "lng": 53,
+      "placeLabel": "Iran",
+      "placeCountryId": 364,
+      "geoConfidence": "tag"
     },
     {
       "id": "guatemala-1954-sub-0",
@@ -6039,7 +7219,12 @@
         "guatemala",
         "united-fruit",
         "nykolonialisme"
-      ]
+      ],
+      "lat": 15.8,
+      "lng": -90.2,
+      "placeLabel": "Guatemala",
+      "placeCountryId": 320,
+      "geoConfidence": "tag"
     },
     {
       "id": "frontfagmodellen",
@@ -6057,7 +7242,12 @@
         "økonomi",
         "lønn",
         "frontfag"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "korea-dmz-etablert",
@@ -6075,7 +7265,12 @@
         "asia",
         "delte-samfunn",
         "kald-krig"
-      ]
+      ],
+      "lat": 36.5,
+      "lng": 127.8,
+      "placeLabel": "Korea",
+      "placeCountryId": 410,
+      "geoConfidence": "tag"
     },
     {
       "id": "koreakrigen-sub-1",
@@ -6092,7 +7287,11 @@
         "krig",
         "asia",
         "proxy-krig"
-      ]
+      ],
+      "lat": 45,
+      "lng": 90,
+      "placeLabel": "Asia",
+      "geoConfidence": "tag"
     },
     {
       "id": "korea-dmz",
@@ -6111,7 +7310,12 @@
         "konflikt",
         "delte-samfunn",
         "atomvåpen"
-      ]
+      ],
+      "lat": 36.5,
+      "lng": 127.8,
+      "placeLabel": "Korea",
+      "placeCountryId": 410,
+      "geoConfidence": "tag"
     },
     {
       "id": "operasjon-ajax",
@@ -6131,7 +7335,12 @@
         "olje",
         "cia",
         "nykolonialisme"
-      ]
+      ],
+      "lat": 32,
+      "lng": 53,
+      "placeLabel": "Iran",
+      "placeCountryId": 364,
+      "geoConfidence": "tag"
     },
     {
       "id": "operasjon-ajax-sub-1",
@@ -6151,7 +7360,12 @@
         "olje",
         "cia",
         "nykolonialisme"
-      ]
+      ],
+      "lat": 32,
+      "lng": 53,
+      "placeLabel": "Iran",
+      "placeCountryId": 364,
+      "geoConfidence": "tag"
     },
     {
       "id": "okonomiske-leiemordere",
@@ -6208,7 +7422,12 @@
         "guatemala",
         "united-fruit",
         "nykolonialisme"
-      ]
+      ],
+      "lat": 15.8,
+      "lng": -90.2,
+      "placeLabel": "Guatemala",
+      "placeCountryId": 320,
+      "geoConfidence": "tag"
     },
     {
       "id": "guatemala-1954",
@@ -6227,7 +7446,12 @@
         "guatemala",
         "united-fruit",
         "nykolonialisme"
-      ]
+      ],
+      "lat": 15.8,
+      "lng": -90.2,
+      "placeLabel": "Guatemala",
+      "placeCountryId": 320,
+      "geoConfidence": "tag"
     },
     {
       "id": "guatemala-1954-sub-2",
@@ -6246,7 +7470,12 @@
         "guatemala",
         "united-fruit",
         "nykolonialisme"
-      ]
+      ],
+      "lat": 15.8,
+      "lng": -90.2,
+      "placeLabel": "Guatemala",
+      "placeCountryId": 320,
+      "geoConfidence": "tag"
     },
     {
       "id": "sorost-asia-sub-3",
@@ -6264,7 +7493,12 @@
         "dekolonisering",
         "indonesia",
         "vietnam"
-      ]
+      ],
+      "lat": -2.5,
+      "lng": 118,
+      "placeLabel": "Indonesia",
+      "placeCountryId": 360,
+      "geoConfidence": "tag"
     },
     {
       "id": "frigjoringskrigene-sub-1",
@@ -6282,7 +7516,12 @@
         "dekolonisering",
         "krig",
         "algerie"
-      ]
+      ],
+      "lat": 28,
+      "lng": 3,
+      "placeLabel": "Algerie",
+      "placeCountryId": 12,
+      "geoConfidence": "tag"
     },
     {
       "id": "rosa-parks",
@@ -6300,7 +7539,12 @@
         "segregering",
         "borgerrettigheter",
         "delte-samfunn"
-      ]
+      ],
+      "lat": 39.5,
+      "lng": -98,
+      "placeLabel": "USA",
+      "placeCountryId": 840,
+      "geoConfidence": "tag"
     },
     {
       "id": "nato-vs-warszawa-sub-1",
@@ -6334,7 +7578,11 @@
         "krig",
         "asia",
         "protest"
-      ]
+      ],
+      "lat": 45,
+      "lng": 90,
+      "placeLabel": "Asia",
+      "geoConfidence": "tag"
     },
     {
       "id": "suez-krisen",
@@ -6351,7 +7599,11 @@
         "midtøsten",
         "konflikt",
         "fn"
-      ]
+      ],
+      "lat": 29,
+      "lng": 45,
+      "placeLabel": "Midtøsten",
+      "geoConfidence": "tag"
     },
     {
       "id": "suez-krisen-sub-0",
@@ -6368,7 +7620,11 @@
         "midtøsten",
         "konflikt",
         "fn"
-      ]
+      ],
+      "lat": 29,
+      "lng": 45,
+      "placeLabel": "Midtøsten",
+      "geoConfidence": "tag"
     },
     {
       "id": "romkapplopet",
@@ -6420,7 +7676,12 @@
         "dekolonisering",
         "afrika",
         "ghana"
-      ]
+      ],
+      "lat": 7.9,
+      "lng": -1,
+      "placeLabel": "Ghana",
+      "placeCountryId": 288,
+      "geoConfidence": "tag"
     },
     {
       "id": "ghana-panafrikanisme-sub-1",
@@ -6438,7 +7699,12 @@
         "dekolonisering",
         "afrika",
         "ghana"
-      ]
+      ],
+      "lat": 7.9,
+      "lng": -1,
+      "placeLabel": "Ghana",
+      "placeCountryId": 288,
+      "geoConfidence": "tag"
     },
     {
       "id": "frigjoringskrigene-sub-2",
@@ -6456,7 +7722,12 @@
         "dekolonisering",
         "krig",
         "algerie"
-      ]
+      ],
+      "lat": 28,
+      "lng": 3,
+      "placeLabel": "Algerie",
+      "placeCountryId": 12,
+      "geoConfidence": "tag"
     },
     {
       "id": "store-spranget",
@@ -6473,7 +7744,12 @@
         "kina",
         "mao",
         "hungersnød"
-      ]
+      ],
+      "lat": 35,
+      "lng": 105,
+      "placeLabel": "Kina",
+      "placeCountryId": 156,
+      "geoConfidence": "tag"
     },
     {
       "id": "sharpeville-massakren",
@@ -6490,7 +7766,12 @@
         "apartheid",
         "sør-afrika",
         "delte-samfunn"
-      ]
+      ],
+      "lat": -29,
+      "lng": 24,
+      "placeLabel": "Sør-Afrika",
+      "placeCountryId": 710,
+      "geoConfidence": "tag"
     },
     {
       "id": "kongo",
@@ -6508,7 +7789,12 @@
         "dekolonisering",
         "kongo",
         "kald-krig"
-      ]
+      ],
+      "lat": -2.9,
+      "lng": 23.6,
+      "placeLabel": "Kongo",
+      "placeCountryId": 180,
+      "geoConfidence": "tag"
     },
     {
       "id": "kongo-sub-1",
@@ -6526,7 +7812,12 @@
         "dekolonisering",
         "kongo",
         "kald-krig"
-      ]
+      ],
+      "lat": -2.9,
+      "lng": 23.6,
+      "placeLabel": "Kongo",
+      "placeCountryId": 180,
+      "geoConfidence": "tag"
     },
     {
       "id": "foucault-madness",
@@ -6577,7 +7868,12 @@
         "tyskland",
         "jernteppet",
         "symbol"
-      ]
+      ],
+      "lat": 51.2,
+      "lng": 10.4,
+      "placeLabel": "Tyskland",
+      "placeCountryId": 276,
+      "geoConfidence": "tag"
     },
     {
       "id": "berlinmuren-sub-0",
@@ -6594,7 +7890,12 @@
         "tyskland",
         "jernteppet",
         "symbol"
-      ]
+      ],
+      "lat": 51.2,
+      "lng": 10.4,
+      "placeLabel": "Tyskland",
+      "placeCountryId": 276,
+      "geoConfidence": "tag"
     },
     {
       "id": "kongo-sub-2",
@@ -6612,7 +7913,12 @@
         "dekolonisering",
         "kongo",
         "kald-krig"
-      ]
+      ],
+      "lat": -2.9,
+      "lng": 23.6,
+      "placeLabel": "Kongo",
+      "placeCountryId": 180,
+      "geoConfidence": "tag"
     },
     {
       "id": "siste-skanse",
@@ -6630,7 +7936,12 @@
         "dekolonisering",
         "portugal",
         "apartheid"
-      ]
+      ],
+      "lat": 39.5,
+      "lng": -8,
+      "placeLabel": "Portugal",
+      "placeCountryId": 620,
+      "geoConfidence": "tag"
     },
     {
       "id": "siste-skanse-sub-0",
@@ -6648,7 +7959,12 @@
         "dekolonisering",
         "portugal",
         "apartheid"
-      ]
+      ],
+      "lat": 39.5,
+      "lng": -8,
+      "placeLabel": "Portugal",
+      "placeCountryId": 620,
+      "geoConfidence": "tag"
     },
     {
       "id": "rothbard-mes",
@@ -6734,7 +8050,12 @@
         "dekolonisering",
         "krig",
         "algerie"
-      ]
+      ],
+      "lat": 28,
+      "lng": 3,
+      "placeLabel": "Algerie",
+      "placeCountryId": 12,
+      "geoConfidence": "tag"
     },
     {
       "id": "det-usynlige-barnet",
@@ -6746,7 +8067,12 @@
       "type": "text",
       "subjectId": "norsk",
       "link": "/norsk/bibliotek?text=det-usynlige-barnet",
-      "tags": []
+      "tags": [],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "arendt-eichmann",
@@ -6781,7 +8107,12 @@
         "dekolonisering",
         "afrika",
         "ghana"
-      ]
+      ],
+      "lat": 7.9,
+      "lng": -1,
+      "placeLabel": "Ghana",
+      "placeCountryId": 288,
+      "geoConfidence": "tag"
     },
     {
       "id": "civil-rights-act",
@@ -6799,7 +8130,12 @@
         "segregering",
         "borgerrettigheter",
         "delte-samfunn"
-      ]
+      ],
+      "lat": 39.5,
+      "lng": -98,
+      "placeLabel": "USA",
+      "placeCountryId": 840,
+      "geoConfidence": "tag"
     },
     {
       "id": "vietnamkrigen-sub-0",
@@ -6816,7 +8152,11 @@
         "krig",
         "asia",
         "protest"
-      ]
+      ],
+      "lat": 45,
+      "lng": 90,
+      "placeLabel": "Asia",
+      "geoConfidence": "tag"
     },
     {
       "id": "indonesia-1965",
@@ -6835,7 +8175,12 @@
         "indonesia",
         "suharto",
         "nykolonialisme"
-      ]
+      ],
+      "lat": -2.5,
+      "lng": 118,
+      "placeLabel": "Indonesia",
+      "placeCountryId": 360,
+      "geoConfidence": "tag"
     },
     {
       "id": "indonesia-1965-sub-1",
@@ -6854,7 +8199,12 @@
         "indonesia",
         "suharto",
         "nykolonialisme"
-      ]
+      ],
+      "lat": -2.5,
+      "lng": 118,
+      "placeLabel": "Indonesia",
+      "placeCountryId": 360,
+      "geoConfidence": "tag"
     },
     {
       "id": "kongo-sub-3",
@@ -6872,7 +8222,12 @@
         "dekolonisering",
         "kongo",
         "kald-krig"
-      ]
+      ],
+      "lat": -2.9,
+      "lng": 23.6,
+      "placeLabel": "Kongo",
+      "placeCountryId": 180,
+      "geoConfidence": "tag"
     },
     {
       "id": "ghana-panafrikanisme-sub-3",
@@ -6890,7 +8245,12 @@
         "dekolonisering",
         "afrika",
         "ghana"
-      ]
+      ],
+      "lat": 7.9,
+      "lng": -1,
+      "placeLabel": "Ghana",
+      "placeCountryId": 288,
+      "geoConfidence": "tag"
     },
     {
       "id": "indonesia-1965-sub-2",
@@ -6909,7 +8269,12 @@
         "indonesia",
         "suharto",
         "nykolonialisme"
-      ]
+      ],
+      "lat": -2.5,
+      "lng": 118,
+      "placeLabel": "Indonesia",
+      "placeCountryId": 360,
+      "geoConfidence": "tag"
     },
     {
       "id": "the-troubles-starter",
@@ -6928,7 +8293,12 @@
         "konflikt",
         "delte-samfunn",
         "the-troubles"
-      ]
+      ],
+      "lat": 54.6,
+      "lng": -5.93,
+      "placeLabel": "Belfast",
+      "placeCountryId": 826,
+      "geoConfidence": "tag"
     },
     {
       "id": "peace-lines-1969",
@@ -6946,7 +8316,12 @@
         "belfast",
         "delte-samfunn",
         "the-troubles"
-      ]
+      ],
+      "lat": 54.6,
+      "lng": -5.93,
+      "placeLabel": "Belfast",
+      "placeCountryId": 826,
+      "geoConfidence": "tag"
     },
     {
       "id": "romkapplopet-sub-2",
@@ -6982,7 +8357,12 @@
         "konflikt",
         "delte-samfunn",
         "the-troubles"
-      ]
+      ],
+      "lat": 54.6,
+      "lng": -5.93,
+      "placeLabel": "Belfast",
+      "placeCountryId": 826,
+      "geoConfidence": "tag"
     },
     {
       "id": "chile-1973-sub-0",
@@ -7002,7 +8382,12 @@
         "allende",
         "pinochet",
         "nykolonialisme"
-      ]
+      ],
+      "lat": -35.7,
+      "lng": -71.5,
+      "placeLabel": "Chile",
+      "placeCountryId": 152,
+      "geoConfidence": "tag"
     },
     {
       "id": "nixon-sjokket-1971",
@@ -7019,7 +8404,12 @@
         "økonomi",
         "rente",
         "penger"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "petrodollaren-sub-0",
@@ -7038,7 +8428,12 @@
         "dollar",
         "opec",
         "nykolonialisme"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "chile-1973-sub-1",
@@ -7058,7 +8453,12 @@
         "allende",
         "pinochet",
         "nykolonialisme"
-      ]
+      ],
+      "lat": -35.7,
+      "lng": -71.5,
+      "placeLabel": "Chile",
+      "placeCountryId": 152,
+      "geoConfidence": "tag"
     },
     {
       "id": "bloody-sunday",
@@ -7077,7 +8477,12 @@
         "konflikt",
         "delte-samfunn",
         "the-troubles"
-      ]
+      ],
+      "lat": 54.6,
+      "lng": -5.93,
+      "placeLabel": "Belfast",
+      "placeCountryId": 826,
+      "geoConfidence": "tag"
     },
     {
       "id": "blue-marble",
@@ -7111,7 +8516,12 @@
         "historie",
         "rettigheter",
         "norge"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "tag"
     },
     {
       "id": "roman-club-limits",
@@ -7147,7 +8557,12 @@
         "dollar",
         "opec",
         "nykolonialisme"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "petrodollaren-sub-1",
@@ -7166,7 +8581,12 @@
         "dollar",
         "opec",
         "nykolonialisme"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "chile-1973",
@@ -7186,7 +8606,12 @@
         "allende",
         "pinochet",
         "nykolonialisme"
-      ]
+      ],
+      "lat": -35.7,
+      "lng": -71.5,
+      "placeLabel": "Chile",
+      "placeCountryId": 152,
+      "geoConfidence": "tag"
     },
     {
       "id": "chile-1973-sub-2",
@@ -7206,7 +8631,12 @@
         "allende",
         "pinochet",
         "nykolonialisme"
-      ]
+      ],
+      "lat": -35.7,
+      "lng": -71.5,
+      "placeLabel": "Chile",
+      "placeCountryId": 152,
+      "geoConfidence": "tag"
     },
     {
       "id": "okonomiske-leiemordere-sub-1",
@@ -7243,7 +8673,12 @@
         "europa",
         "konflikt",
         "delte-samfunn"
-      ]
+      ],
+      "lat": 35.1,
+      "lng": 33.4,
+      "placeLabel": "Kypros",
+      "placeCountryId": 196,
+      "geoConfidence": "tag"
     },
     {
       "id": "petrodollaren-sub-2",
@@ -7262,7 +8697,12 @@
         "dollar",
         "opec",
         "nykolonialisme"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "kypros-delingslinjen",
@@ -7281,7 +8721,12 @@
         "konflikt",
         "delte-samfunn",
         "tyrkia"
-      ]
+      ],
+      "lat": 35.1,
+      "lng": 33.4,
+      "placeLabel": "Kypros",
+      "placeCountryId": 196,
+      "geoConfidence": "tag"
     },
     {
       "id": "siste-skanse-sub-1",
@@ -7299,7 +8744,12 @@
         "dekolonisering",
         "portugal",
         "apartheid"
-      ]
+      ],
+      "lat": 39.5,
+      "lng": -8,
+      "placeLabel": "Portugal",
+      "placeCountryId": 620,
+      "geoConfidence": "tag"
     },
     {
       "id": "singer-animal",
@@ -7333,7 +8783,11 @@
         "krig",
         "asia",
         "protest"
-      ]
+      ],
+      "lat": 45,
+      "lng": 90,
+      "placeLabel": "Asia",
+      "geoConfidence": "tag"
     },
     {
       "id": "arbeidsrett",
@@ -7350,7 +8804,12 @@
         "arbeidsliv",
         "rettigheter",
         "lov"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "deng-og-reformene",
@@ -7367,7 +8826,12 @@
         "kina",
         "deng",
         "økonomi"
-      ]
+      ],
+      "lat": 35,
+      "lng": 105,
+      "placeLabel": "Kina",
+      "placeCountryId": 156,
+      "geoConfidence": "tag"
     },
     {
       "id": "iran-revolusjonen",
@@ -7384,7 +8848,12 @@
         "midtosten",
         "iran",
         "revolusjon"
-      ]
+      ],
+      "lat": 32,
+      "lng": 53,
+      "placeLabel": "Iran",
+      "placeCountryId": 364,
+      "geoConfidence": "tag"
     },
     {
       "id": "operasjon-ajax-sub-2",
@@ -7404,7 +8873,12 @@
         "olje",
         "cia",
         "nykolonialisme"
-      ]
+      ],
+      "lat": 32,
+      "lng": 53,
+      "placeLabel": "Iran",
+      "placeCountryId": 364,
+      "geoConfidence": "tag"
     },
     {
       "id": "imf-og-verdensbanken-sub-1",
@@ -7423,7 +8897,12 @@
         "verdensbanken",
         "gjeld",
         "nykolonialisme"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "mennesker-pa-kafe",
@@ -7435,7 +8914,12 @@
       "type": "text",
       "subjectId": "norsk",
       "link": "/norsk/bibliotek?text=mennesker-pa-kafe",
-      "tags": []
+      "tags": [],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "veien-mot-slutt",
@@ -7488,7 +8972,12 @@
         "Reagan",
         "Nicaragua",
         "skandale"
-      ]
+      ],
+      "lat": 39.5,
+      "lng": -98,
+      "placeLabel": "USA",
+      "placeCountryId": 840,
+      "geoConfidence": "tag"
     },
     {
       "id": "iran-contra",
@@ -7508,7 +8997,12 @@
         "Iran",
         "skandale",
         "kald-krig"
-      ]
+      ],
+      "lat": 39.5,
+      "lng": -98,
+      "placeLabel": "USA",
+      "placeCountryId": 840,
+      "geoConfidence": "tag"
     },
     {
       "id": "ozonlaget-avtalen",
@@ -7542,7 +9036,12 @@
         "tyskland",
         "jernteppet",
         "symbol"
-      ]
+      ],
+      "lat": 51.2,
+      "lng": 10.4,
+      "placeLabel": "Tyskland",
+      "placeCountryId": 276,
+      "geoConfidence": "tag"
     },
     {
       "id": "tiananmen-1989",
@@ -7559,7 +9058,12 @@
         "kina",
         "tiananmen",
         "demokrati"
-      ]
+      ],
+      "lat": 35,
+      "lng": 105,
+      "placeLabel": "Kina",
+      "placeCountryId": 156,
+      "geoConfidence": "tag"
     },
     {
       "id": "kuwait-1990-casus",
@@ -7576,7 +9080,11 @@
         "krig",
         "fn",
         "midtøsten"
-      ]
+      ],
+      "lat": 29,
+      "lng": 45,
+      "placeLabel": "Midtøsten",
+      "geoConfidence": "tag"
     },
     {
       "id": "mandela-fri",
@@ -7594,7 +9102,12 @@
         "sør-afrika",
         "mandela",
         "delte-samfunn"
-      ]
+      ],
+      "lat": -29,
+      "lng": 24,
+      "placeLabel": "Sør-Afrika",
+      "placeCountryId": 710,
+      "geoConfidence": "tag"
     },
     {
       "id": "siste-skanse-sub-2",
@@ -7612,7 +9125,12 @@
         "dekolonisering",
         "portugal",
         "apartheid"
-      ]
+      ],
+      "lat": 39.5,
+      "lng": -8,
+      "placeLabel": "Portugal",
+      "placeCountryId": 620,
+      "geoConfidence": "tag"
     },
     {
       "id": "golfkrigene",
@@ -7629,7 +9147,12 @@
         "midtosten",
         "irak",
         "golfkrig"
-      ]
+      ],
+      "lat": 33,
+      "lng": 44,
+      "placeLabel": "Irak",
+      "placeCountryId": 368,
+      "geoConfidence": "tag"
     },
     {
       "id": "veien-mot-slutt-sub-1",
@@ -7664,7 +9187,12 @@
         "dekolonisering",
         "portugal",
         "apartheid"
-      ]
+      ],
+      "lat": 39.5,
+      "lng": -8,
+      "placeLabel": "Portugal",
+      "placeCountryId": 620,
+      "geoConfidence": "tag"
     },
     {
       "id": "deep-blue-kasparov",
@@ -7681,7 +9209,12 @@
         "ai",
         "teknologi",
         "sjakk"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "belfast-avtalen",
@@ -7700,7 +9233,12 @@
         "fred",
         "delte-samfunn",
         "the-troubles"
-      ]
+      ],
+      "lat": 54.6,
+      "lng": -5.93,
+      "placeLabel": "Belfast",
+      "placeCountryId": 826,
+      "geoConfidence": "tag"
     },
     {
       "id": "google-founding",
@@ -7753,7 +9291,12 @@
         "verdensbanken",
         "gjeld",
         "nykolonialisme"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "kina-supermakt",
@@ -7770,7 +9313,12 @@
         "kina",
         "supermakt",
         "xi-jinping"
-      ]
+      ],
+      "lat": 35,
+      "lng": 105,
+      "placeLabel": "Kina",
+      "placeCountryId": 156,
+      "geoConfidence": "tag"
     },
     {
       "id": "krigen-mot-terror",
@@ -7787,7 +9335,12 @@
         "midtosten",
         "terror",
         "afghanistan"
-      ]
+      ],
+      "lat": 33.9,
+      "lng": 67.7,
+      "placeLabel": "Afghanistan",
+      "placeCountryId": 4,
+      "geoConfidence": "tag"
     },
     {
       "id": "vestbredden-barriere",
@@ -7805,7 +9358,12 @@
         "palestina",
         "midtøsten",
         "delte-samfunn"
-      ]
+      ],
+      "lat": 31.4,
+      "lng": 35,
+      "placeLabel": "Israel",
+      "placeCountryId": 376,
+      "geoConfidence": "tag"
     },
     {
       "id": "israel-palestina-muren",
@@ -7824,7 +9382,12 @@
         "midtøsten",
         "delte-samfunn",
         "okkupasjon"
-      ]
+      ],
+      "lat": 31.4,
+      "lng": 35,
+      "placeLabel": "Israel",
+      "placeCountryId": 376,
+      "geoConfidence": "tag"
     },
     {
       "id": "iraq-2003-casus",
@@ -7841,7 +9404,12 @@
         "krig",
         "usa",
         "irak"
-      ]
+      ],
+      "lat": 39.5,
+      "lng": -98,
+      "placeLabel": "USA",
+      "placeCountryId": 840,
+      "geoConfidence": "tag"
     },
     {
       "id": "okonomiske-leiemordere-sub-2",
@@ -7872,7 +9440,12 @@
       "type": "text",
       "subjectId": "norsk",
       "link": "/norsk/bibliotek?text=hjorten-i-skogbrynet",
-      "tags": []
+      "tags": [],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "twitter-noveller",
@@ -7883,7 +9456,12 @@
       "displayDate": "2009",
       "type": "text",
       "subjectId": "norsk",
-      "link": "/norsk/bibliotek?text=twitter-noveller"
+      "link": "/norsk/bibliotek?text=twitter-noveller",
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "barsakh",
@@ -7895,7 +9473,12 @@
       "type": "text",
       "subjectId": "norsk",
       "link": "/norsk/bibliotek?text=barsakh",
-      "tags": []
+      "tags": [],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "arabisk-var",
@@ -7912,7 +9495,11 @@
         "midtosten",
         "arabiskvaar",
         "demokrati"
-      ]
+      ],
+      "lat": 29,
+      "lng": 45,
+      "placeLabel": "Midtøsten",
+      "geoConfidence": "tag"
     },
     {
       "id": "eli-pariser-filter-bubble",
@@ -7929,7 +9516,12 @@
         "teknologi",
         "sosiale-medier",
         "polarisering"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "22-juli-2011",
@@ -7949,7 +9541,12 @@
         "terror",
         "demokrati",
         "radikalisering"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "tag"
     },
     {
       "id": "midtoesten-i-dag",
@@ -7966,7 +9563,12 @@
         "midtosten",
         "is",
         "iran"
-      ]
+      ],
+      "lat": 32,
+      "lng": 53,
+      "placeLabel": "Iran",
+      "placeCountryId": 364,
+      "geoConfidence": "tag"
     },
     {
       "id": "doden",
@@ -7978,7 +9580,12 @@
       "type": "text",
       "subjectId": "norsk",
       "link": "/norsk/bibliotek?text=doden",
-      "tags": []
+      "tags": [],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "snowden-leaks",
@@ -7994,7 +9601,12 @@
       "tags": [
         "ytringsfrihet",
         "overvåking"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "kylie-jenner-snapchat",
@@ -8011,7 +9623,12 @@
         "influensere",
         "økonomi",
         "media"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "frances-haugen-facebook",
@@ -8028,7 +9645,12 @@
         "ytringsfrihet",
         "teknologi",
         "varsling"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "chatgpt-launch",
@@ -8045,7 +9667,12 @@
         "ai",
         "teknologi",
         "fremtid"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "global-handel-oversikt",
@@ -8063,7 +9690,12 @@
         "globalisering",
         "økonomi",
         "infrastruktur"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "energi-og-rorledninger",
@@ -8082,7 +9714,12 @@
         "gass",
         "rørledninger",
         "geopolitikk"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "internett-kabler",
@@ -8101,7 +9738,12 @@
         "teknologi",
         "infrastruktur",
         "geopolitikk"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "mat-og-skipsfart",
@@ -8119,7 +9761,12 @@
         "mat",
         "handel",
         "logistikk"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "saarbare-nettverk",
@@ -8137,7 +9784,12 @@
         "infrastruktur",
         "geopolitikk",
         "sikkerhet"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "lonn-og-ulikhet",
@@ -8154,7 +9806,12 @@
         "arbeidsliv",
         "økonomi",
         "ulikhet"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "aldri-godt-nok",
@@ -8166,7 +9823,12 @@
       "type": "text",
       "subjectId": "norsk",
       "link": "/norsk/bibliotek?text=aldri-godt-nok",
-      "tags": []
+      "tags": [],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "min-leserhistorie",
@@ -8178,7 +9840,12 @@
       "type": "text",
       "subjectId": "norsk",
       "link": "/norsk/bibliotek?text=min-leserhistorie",
-      "tags": []
+      "tags": [],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "fremtidens-arbeidsliv",
@@ -8196,7 +9863,12 @@
         "fremtid",
         "ai",
         "gig"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "ki-botox",
@@ -8208,7 +9880,12 @@
       "type": "text",
       "subjectId": "norsk",
       "link": "/norsk/bibliotek?text=ki-botox",
-      "tags": []
+      "tags": [],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "hvordan-drofte",
@@ -8226,7 +9903,12 @@
         "drøfting",
         "argumentasjon",
         "saktekst"
-      ]
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     },
     {
       "id": "solvknapper",
@@ -8238,7 +9920,12 @@
       "type": "text",
       "subjectId": "norsk",
       "link": "/norsk/bibliotek?text=solvknapper",
-      "tags": []
+      "tags": [],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "guess"
     }
   ]
 }

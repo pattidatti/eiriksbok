@@ -17,6 +17,7 @@ const FULL_WIDTH_PATHS = [
     '/oving/detektiv',
     '/colonization',
     '/tidslinje',
+    '/atlas',
     '/oving/tidsreise',
     '/oving/etikk',
     '/oving/simulering',

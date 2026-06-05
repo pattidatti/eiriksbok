@@ -31,6 +31,7 @@ const ReligionComparisonPage = React.lazy(routeFactories.ReligionComparisonPage)
 const PhilosophyComparisonPage = React.lazy(routeFactories.PhilosophyComparisonPage);
 const TopicComparisonPage = React.lazy(routeFactories.TopicComparisonPage);
 const GlobalTimelinePage = React.lazy(routeFactories.GlobalTimelinePage);
+const AtlasPage = React.lazy(routeFactories.AtlasPage);
 const ChronoGamePage = React.lazy(routeFactories.ChronoGamePage);
 const RhetoricGamePage = React.lazy(routeFactories.RhetoricGamePage);
 const HangmanPage = React.lazy(routeFactories.HangmanPage);
@@ -94,6 +95,7 @@ const router = createBrowserRouter([
       { path: "norsk/bibliotek", element: <TextLibraryPage /> },
       { path: "norsk/bibliotek/:textId", element: <TextReaderPage /> },
       { path: "tidslinje", element: <GlobalTimelinePage /> },
+      { path: "atlas", element: <AtlasPage /> },
       { path: "persongalleri", element: <PersonGallery /> },
       { path: "colonization", element: <ColonizationMap /> },
       { path: "infrastruktur-atlas", element: <InfrastrukturAtlas /> },
