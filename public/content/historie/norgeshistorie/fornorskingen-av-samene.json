@@ -6,7 +6,7 @@
     "year": "1851-2023",
     "category": "Norge",
     "readTime": "9 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/norgeshistorie/fornorskingen-av-samene-hero.webp",
     "details": [
         "Fornorsking var en bevisst statlig politikk for å gjøre samene norske",
         "Mange samiske barn mistet språket sitt på internatskolene",
@@ -19,7 +19,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/norgeshistorie/fornorskingen-av-samene-01.webp",
             "alt": "Samiske barn utenfor en internatskole tidlig på 1900-tallet",
             "caption": "Mange samiske barn ble sendt på internatskole, langt fra familien."
         },
@@ -70,7 +70,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/norgeshistorie/fornorskingen-av-samene-02.webp",
             "alt": "Tomt klasserom i en gammel internatskole med pulter på rad",
             "caption": "I klasserommet var bare norsk lov. Samisk hørte ikke hjemme her, mente staten."
         },

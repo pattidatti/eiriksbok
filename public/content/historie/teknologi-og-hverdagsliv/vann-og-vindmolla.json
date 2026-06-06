@@ -5,7 +5,7 @@
   "year": "100-1750",
   "category": "Teknologi og hverdagsliv",
   "readTime": "8 min lesning",
-  "heroImage": "/images/placeholder.webp",
+  "heroImage": "/images/teknologi-og-hverdagsliv/vann-og-vindmolla-hero.webp",
   "details": [
     "I tusenvis av år var muskler den eneste kraften mennesker hadde. Møllene var første gang noe annet enn armer og bein gjorde jobben.",
     "Et vannhjul i en elv kunne male korn døgnet rundt og erstatte arbeidet til titalls mennesker.",
@@ -19,7 +19,7 @@
     },
     {
       "type": "image",
-      "src": "/images/placeholder.webp",
+      "src": "/images/teknologi-og-hverdagsliv/vann-og-vindmolla-01.webp",
       "alt": "Stort trehjul drevet av rennende elv ved en gammel vannmølle i morgenlys",
       "caption": "Vannhjulet snurret så lenge elva rant. For første gang kom kraften fra naturen i stedet for fra menneskenes egne muskler."
     },
@@ -96,7 +96,7 @@
     },
     {
       "type": "image",
-      "src": "/images/placeholder.webp",
+      "src": "/images/teknologi-og-hverdagsliv/vann-og-vindmolla-02.webp",
       "alt": "Tradisjonell nederlandsk vindmølle med store seilvinger på en flat slette mot dramatisk himmel",
       "caption": "Der det ikke fantes elver, fanget vindmøllene vinden i stedet. I Nederland pumpet de til og med vann bort, slik at folk kunne bo på land som før var hav."
     },
@@ -137,7 +137,7 @@
     },
     {
       "type": "image",
-      "src": "/images/placeholder.webp",
+      "src": "/images/teknologi-og-hverdagsliv/vann-og-vindmolla-03.webp",
       "alt": "Gammel hollandsk vindmølle med store seil mot en åpen himmel",
       "caption": "Vindmølla fanget kraften i vinden, men sto stille de dagene det var vindstille. Kraften var bundet til naturen."
     },

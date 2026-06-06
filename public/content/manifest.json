@@ -2600,7 +2600,7 @@
               "id": "fornorskingen-av-samene",
               "title": "Fornorskingen av samene",
               "description": "Hvordan staten i over hundre år forsøkte å viske ut samisk språk og kultur, og hvordan samene har tatt den tilbake.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/norgeshistorie/fornorskingen-av-samene-hero.webp",
               "year": "1851-2023",
               "layout": "rich",
               "tags": [
@@ -3535,7 +3535,7 @@
               "id": "vann-og-vindmolla",
               "title": "Vannet som jobbet: vann- og vindmølla",
               "description": "Hvordan vann- og vindmøller ble den første kraften utenfor muskler, og malte korn og drev sager lenge før dampmaskinen.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/teknologi-og-hverdagsliv/vann-og-vindmolla-hero.webp",
               "layout": "rich",
               "tags": [
                 "historie",
@@ -3637,7 +3637,7 @@
               "id": "vaksiner-og-antibiotika",
               "title": "Vaksiner og antibiotika: medisinen som forlenget livet",
               "description": "Hvordan Jenners vaksine og Flemings penicillin mer enn doblet forventet levealder - og hvorfor antibiotikaresistens er dagens nye trussel.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/teknologi-og-hverdagsliv/vaksiner-og-antibiotika-hero.webp",
               "layout": "rich",
               "tags": [
                 "historie",

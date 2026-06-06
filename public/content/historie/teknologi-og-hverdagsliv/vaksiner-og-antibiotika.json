@@ -5,7 +5,7 @@
   "year": "1796-1928",
   "category": "Teknologi og hverdagsliv",
   "readTime": "9 min lesning",
-  "heroImage": "/images/placeholder.webp",
+  "heroImage": "/images/teknologi-og-hverdagsliv/vaksiner-og-antibiotika-hero.webp",
   "details": [
     "For bare hundre år siden døde mange barn av sykdommer vi i dag knapt hører om. Halvparten av alle barn rakk ikke alltid å bli voksne.",
     "Edward Jenner laget den første vaksinen i 1796, og Alexander Fleming oppdaget penicillin i 1928. Disse to ideene reddet flere liv enn noen krig har tatt.",
@@ -19,7 +19,7 @@
     },
     {
       "type": "image",
-      "src": "/images/placeholder.webp",
+      "src": "/images/teknologi-og-hverdagsliv/vaksiner-og-antibiotika-01.webp",
       "alt": "Lege i gammeldags frakk holder en liten glassflaske mot lyset ved et vindu",
       "caption": "I to hundre år har vaksiner og antibiotika reddet flere liv enn noen annen oppfinnelse i medisinens historie."
     },
@@ -73,7 +73,7 @@
     },
     {
       "type": "image",
-      "src": "/images/placeholder.webp",
+      "src": "/images/teknologi-og-hverdagsliv/vaksiner-og-antibiotika-02.webp",
       "alt": "Nærbilde av en gammel petriskål med muggsopp og en klar ring rundt der bakteriene mangler",
       "caption": "Flemings glemte skål: rundt muggsoppen var bakteriene døde. Den klare ringen ble starten på antibiotikaen."
     },
@@ -118,7 +118,7 @@
     },
     {
       "type": "image",
-      "src": "/images/placeholder.webp",
+      "src": "/images/teknologi-og-hverdagsliv/vaksiner-og-antibiotika-03.webp",
       "alt": "Lang kø av mennesker venter rolig på vaksine utenfor en lys helsestasjon",
       "caption": "Når nok mennesker tar vaksinen, beskyttes også de som ikke kan ta den selv. Det er flokkimmunitet i praksis."
     },
