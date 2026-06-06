@@ -4824,6 +4824,30 @@
       "geoConfidence": "guess"
     },
     {
+      "id": "amerikanske-borgerkrigen",
+      "title": "Den amerikanske borgerkrigen: Krigen som avskaffet slaveriet",
+      "description": "Nord mot Sør i en blodig krig om slaveriet – krigen som holdt USA samlet og gjorde fire millioner mennesker frie.",
+      "startDate": 1861,
+      "endDate": 1865,
+      "displayDate": "1861-1865",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "dekolonisering",
+      "link": "/historie/dekolonisering/amerikanske-borgerkrigen",
+      "tags": [
+        "usa",
+        "slaveri",
+        "borgerkrig",
+        "lincoln",
+        "frigjoring"
+      ],
+      "lat": 39.5,
+      "lng": -98,
+      "placeLabel": "USA",
+      "placeCountryId": 840,
+      "geoConfidence": "tag"
+    },
+    {
       "id": "eic-sub-4",
       "title": "Oppløsning",
       "description": "Kompaniet blir formelt oppløst.",

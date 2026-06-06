@@ -1047,6 +1047,10 @@
       "count": 8
     },
     {
+      "tag": "slaveri",
+      "count": 8
+    },
+    {
       "tag": "fred",
       "count": 8
     },
@@ -1183,15 +1187,15 @@
       "count": 6
     },
     {
-      "tag": "slaveri",
-      "count": 6
-    },
-    {
       "tag": "helse",
       "count": 6
     },
     {
       "tag": "bolivar",
+      "count": 6
+    },
+    {
+      "tag": "borgerkrig",
       "count": 6
     },
     {
@@ -1428,10 +1432,6 @@
     },
     {
       "tag": "frihet",
-      "count": 4
-    },
-    {
-      "tag": "borgerkrig",
       "count": 4
     },
     {
@@ -2104,6 +2104,14 @@
     },
     {
       "tag": "hygiene",
+      "count": 2
+    },
+    {
+      "tag": "lincoln",
+      "count": 2
+    },
+    {
+      "tag": "frigjoring",
       "count": 2
     },
     {
