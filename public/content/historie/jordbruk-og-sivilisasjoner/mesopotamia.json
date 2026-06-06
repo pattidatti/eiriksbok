@@ -35,6 +35,13 @@
             "content": "Hvert år flommet elvene over og la igjen et tykt lag med næringsrikt slam. Det gjorde jorda lett å dyrke. Men flommene kom ikke alltid når bøndene trengte vann. Derfor måtte de grave kanaler og bygge demninger. For å holde slike anlegg ved like, måtte mange mennesker samarbeide. Det er en av grunnene til at de første byene oppstod akkurat her."
         },
         {
+            "type": "component",
+            "name": "MicroGame",
+            "props": {
+                "gameId": "kanalbyggeren-3d"
+            }
+        },
+        {
             "type": "header",
             "text": "Sumererne bygger verdens første byer"
         },

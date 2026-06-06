@@ -40,6 +40,7 @@ const GutenbergPresse3D = lazy(() => import('./GutenbergPresse3D'));
 const DemokratiLysene3D = lazy(() => import('./DemokratiLysene3D'));
 const Testudo3D = lazy(() => import('./Testudo3D'));
 const Chinampabyen3D = lazy(() => import('./Chinampabyen3D'));
+const Kanalbyggeren3D = lazy(() => import('./Kanalbyggeren3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
     'gladius-duell': {
@@ -356,6 +357,15 @@ export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.Laz
         estimatedSeconds: 120,
         loader: () => import('./Chinampabyen3D'),
         Component: Chinampabyen3D as never,
+    },
+    'kanalbyggeren-3d': {
+        id: 'kanalbyggeren-3d',
+        title: 'Grav kanalene i Sumer',
+        description:
+            'Led vannet fra Eufrat og Tigris ut til de tørre åkrene i Mesopotamia: klikk over hver åker for å grave en kanal, og se jorda bli grønn og kornet spire. For hver vannet åker vokser byen i midten, lag for lag, til zigguraten står. Lyspæren: elvene flommet til feil tid, så bøndene måtte grave kanaler og samarbeide for å styre vannet. Samarbeidet og matoverskuddet er en av hovedgrunnene til at verdens første byer vokste fram her.',
+        estimatedSeconds: 130,
+        loader: () => import('./Kanalbyggeren3D'),
+        Component: Kanalbyggeren3D as never,
     },
 };
 
