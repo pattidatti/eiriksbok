@@ -784,7 +784,7 @@
   "_unmapped": [
     {
       "tag": "historie",
-      "count": 265
+      "count": 267
     },
     {
       "tag": "dekolonisering",
@@ -1047,6 +1047,10 @@
       "count": 8
     },
     {
+      "tag": "menneskerettigheter",
+      "count": 8
+    },
+    {
       "tag": "fred",
       "count": 8
     },
@@ -1176,10 +1180,6 @@
     },
     {
       "tag": "teori",
-      "count": 6
-    },
-    {
-      "tag": "menneskerettigheter",
       "count": 6
     },
     {
@@ -1580,6 +1580,10 @@
     },
     {
       "tag": "kommunikasjon",
+      "count": 3
+    },
+    {
+      "tag": "urfolk",
       "count": 3
     },
     {
@@ -2096,6 +2100,14 @@
     },
     {
       "tag": "fagforening",
+      "count": 2
+    },
+    {
+      "tag": "samer",
+      "count": 2
+    },
+    {
+      "tag": "fornorsking",
       "count": 2
     },
     {
@@ -3088,10 +3100,6 @@
     },
     {
       "tag": "jødedom",
-      "count": 1
-    },
-    {
-      "tag": "urfolk",
       "count": 1
     },
     {
