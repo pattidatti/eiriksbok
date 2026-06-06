@@ -5,7 +5,7 @@
   "year": "1844-1876",
   "category": "Teknologi og hverdagsliv",
   "readTime": "8 min lesning",
-  "heroImage": "/images/placeholder.webp",
+  "heroImage": "/images/teknologi-og-hverdagsliv/telefonen-hero.webp",
   "details": [
     "I tusenvis av år gikk en beskjed aldri fortere enn en rytter, et skip eller et fottog kunne bære den.",
     "Telegrafen fra 1844 gjorde om ord til elektriske signaler som fløy gjennom en kabel nesten momentant.",
@@ -19,7 +19,7 @@
     },
     {
       "type": "image",
-      "src": "/images/placeholder.webp",
+      "src": "/images/teknologi-og-hverdagsliv/telefonen-01.webp",
       "alt": "Hånd holder gammelt brev ved siden av en tidlig telefon i varmt lampelys",
       "caption": "I tusenvis av år reiste beskjeden like sakte som budbringeren. Telegrafen og telefonen rev grensen i stykker."
     },
@@ -88,7 +88,7 @@
     },
     {
       "type": "image",
-      "src": "/images/placeholder.webp",
+      "src": "/images/teknologi-og-hverdagsliv/telefonen-02.webp",
       "alt": "Mann snakker inn i en tidlig telefon på et trebord fra 1800-tallet",
       "caption": "Med telefonen var det ikke lenger en operatør som banket ut prikker. Nå reiste din egen stemme gjennom tråden."
     },
@@ -114,7 +114,7 @@
     },
     {
       "type": "image",
-      "src": "/images/placeholder.webp",
+      "src": "/images/teknologi-og-hverdagsliv/telefonen-03.webp",
       "alt": "Telefonsentral med operatører som kobler ledninger ved et stort koblingsbord",
       "caption": "På sentralen koblet operatører hver eneste samtale for hånd, lenge før telefonen kunne ringe direkte."
     },

@@ -5,7 +5,7 @@
   "year": "1854",
   "category": "Teknologi og hverdagsliv",
   "readTime": "8 min lesning",
-  "heroImage": "/images/placeholder.webp",
+  "heroImage": "/images/teknologi-og-hverdagsliv/vann-og-kloakk-hero.webp",
   "details": [
     "I de tettpakkede byene på 1800-tallet drakk folk ofte vann som var blandet med avføring. Sykdommen kolera kunne ta livet av tusenvis på noen få uker.",
     "Legen John Snow tegnet et kart over dødsfallene i London i 1854 og beviste at smitten kom fra én eneste vannpumpe.",
@@ -19,7 +19,7 @@
     },
     {
       "type": "image",
-      "src": "/images/placeholder.webp",
+      "src": "/images/teknologi-og-hverdagsliv/vann-og-kloakk-01.webp",
       "alt": "Folk samler vann fra en felles gatepumpe i en trang London-gate på 1800-tallet",
       "caption": "I de store byene hentet folk drikkevannet sitt fra felles pumper på gata. Ingen visste hva som egentlig lurte i vannet."
     },
@@ -68,7 +68,7 @@
     },
     {
       "type": "image",
-      "src": "/images/placeholder.webp",
+      "src": "/images/teknologi-og-hverdagsliv/vann-og-kloakk-02.webp",
       "alt": "John Snow studerer et kart over London med streker som markerer dødsfall rundt en vannpumpe",
       "caption": "Snow merket av hvert dødsfall på kartet. Mønsteret pekte rett mot en eneste pumpe - et av de første eksemplene på det vi i dag kaller sporing av smitte."
     },
@@ -98,7 +98,7 @@
     },
     {
       "type": "image",
-      "src": "/images/placeholder.webp",
+      "src": "/images/teknologi-og-hverdagsliv/vann-og-kloakk-03.webp",
       "alt": "Arbeidere bygger en stor murt kloakktunnel under London på 1800-tallet",
       "caption": "Byene gravde seg ned og bygde enorme kloakksystemer. Disse usynlige rørene reddet flere liv enn de fleste medisiner."
     },

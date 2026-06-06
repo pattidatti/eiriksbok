@@ -5,7 +5,7 @@
   "year": "1846",
   "category": "Teknologi og hverdagsliv",
   "readTime": "8 min lesning",
-  "heroImage": "/images/placeholder.webp",
+  "heroImage": "/images/teknologi-og-hverdagsliv/symaskinen-hero.webp",
   "details": [
     "Før symaskinen tok det dagevis å sy en enkel skjorte for hånd, og klær var så dyre at folk eide bare noen få plagg.",
     "Symaskinen syr mange hundre sting i minuttet og kunne gjøre på en time det som tok en hel dag for hånd.",
@@ -19,7 +19,7 @@
     },
     {
       "type": "image",
-      "src": "/images/placeholder.webp",
+      "src": "/images/teknologi-og-hverdagsliv/symaskinen-01.webp",
       "alt": "Kvinnehender syr for hånd ved et bord i varmt lampelys",
       "caption": "Før symaskinen var hvert plagg timer med tålmodig håndarbeid. Klær var dyrt, og folk eide ofte bare noen få."
     },
@@ -76,7 +76,7 @@
     },
     {
       "type": "image",
-      "src": "/images/placeholder.webp",
+      "src": "/images/teknologi-og-hverdagsliv/symaskinen-02.webp",
       "alt": "Tidlig symaskin med tråkkepedal på et trebord i et verksted",
       "caption": "Singers symaskin med pedal frigjorde begge hendene. Solgt på avbetaling kom den inn i hjem over hele verden."
     },
@@ -123,7 +123,7 @@
     },
     {
       "type": "image",
-      "src": "/images/placeholder.webp",
+      "src": "/images/teknologi-og-hverdagsliv/symaskinen-03.webp",
       "alt": "Rad med kvinner ved symaskiner i en travel tekstilfabrikk",
       "caption": "Billige klær ble laget i store fabrikker med lange dager og lav lønn - ofte av kvinner og barn."
     },
