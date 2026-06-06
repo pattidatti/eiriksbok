@@ -5,7 +5,7 @@
     "year": "1861-1865",
     "category": "Verden",
     "readTime": "9 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/dekolonisering/amerikanske-borgerkrigen-hero.webp",
     "details": [
         "Nord og Sør gikk til krig om slaveriet i 1861.",
         "Lincoln erklærte de slavebundne frie i 1863.",
@@ -19,7 +19,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/dekolonisering/amerikanske-borgerkrigen-01.webp",
             "alt": "Et kart over USA splittet i et nordlig og et sørlig område",
             "caption": "I 1860 var USA delt i to: frie nordstater og slaveholdende sørstater."
         },
@@ -62,7 +62,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/dekolonisering/amerikanske-borgerkrigen-02.webp",
             "alt": "Soldater i blå uniformer marsjerer over en slagmark i røyk",
             "caption": "Krigen ble ført med moderne våpen og kostet enorme tap på begge sider."
         },
@@ -111,7 +111,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/dekolonisering/amerikanske-borgerkrigen-03.webp",
             "alt": "En tidligere slavebundet familie står fri foran et enkelt hus",
             "caption": "Slaveriet var over, men kampen for like rettigheter hadde bare begynt."
         },
