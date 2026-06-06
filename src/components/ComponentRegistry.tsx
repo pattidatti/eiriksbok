@@ -251,6 +251,7 @@ const JakartaMetoden = lazy(() => import('./content/interactive/JakartaMetoden')
 const KolonimaktSkifte = lazy(() => import('./content/interactive/KolonimaktSkifte').then(m => ({ default: m.KolonimaktSkifte })));
 const DigitalsporProfileren = lazy(() => import('./content/interactive/DigitalsporProfileren').then(m => ({ default: m.DigitalsporProfileren })));
 const Selvfolelsensfundament = lazy(() => import('./content/interactive/Selvfolelsensfundament').then(m => ({ default: m.Selvfolelsensfundament })));
+const NordMotSor = lazy(() => import('./content/interactive/NordMotSor').then(m => ({ default: m.NordMotSor })));
 
 // Mikrospill: lett, embeddbart spill inline i artikkel. gameId-prop velger spillet
 // fra mikrospill-registeret (src/components/microgames/registry.ts).
@@ -500,6 +501,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     PetrodollarKretslop,
     JakartaMetoden,
     KolonimaktSkifte,
+    NordMotSor,
     Gallery,
     gallery: Gallery,
     comparison: Comparison,

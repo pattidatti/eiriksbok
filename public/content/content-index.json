@@ -1,5 +1,5 @@
 {
-  "buildId": 1780741216094,
+  "buildId": 1780744430156,
   "contentMap": {
     "concept-adel": [
       "content/concepts/adel.json"
@@ -1164,6 +1164,9 @@
     ],
     "olympiske-leker": [
       "content/historie/antikkens-hellas/olympiske-leker.json"
+    ],
+    "amerikanske-borgerkrigen": [
+      "content/historie/dekolonisering/amerikanske-borgerkrigen.json"
     ],
     "apartheid-syd-afrika": [
       "content/historie/dekolonisering/apartheid-syd-afrika.json"
@@ -3733,6 +3736,7 @@
     "historie/antikkens-hellas/gresk-teater": "content/historie/antikkens-hellas/gresk-teater.json",
     "historie/antikkens-hellas/greske-guder": "content/historie/antikkens-hellas/greske-guder.json",
     "historie/antikkens-hellas/olympiske-leker": "content/historie/antikkens-hellas/olympiske-leker.json",
+    "historie/dekolonisering/amerikanske-borgerkrigen": "content/historie/dekolonisering/amerikanske-borgerkrigen.json",
     "historie/dekolonisering/apartheid-syd-afrika": "content/historie/dekolonisering/apartheid-syd-afrika.json",
     "historie/dekolonisering/dekolonisering-sti": "content/historie/dekolonisering/dekolonisering-sti.json",
     "historie/dekolonisering/frigjoringskrigene": "content/historie/dekolonisering/frigjoringskrigene.json",

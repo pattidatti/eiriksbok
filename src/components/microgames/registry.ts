@@ -42,6 +42,7 @@ const Testudo3D = lazy(() => import('./Testudo3D'));
 const Chinampabyen3D = lazy(() => import('./Chinampabyen3D'));
 const Kanalbyggeren3D = lazy(() => import('./Kanalbyggeren3D'));
 const SamiskGjenreising3D = lazy(() => import('./SamiskGjenreising3D'));
+const ForeneUnionen3D = lazy(() => import('./ForeneUnionen3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
     'gladius-duell': {
@@ -376,6 +377,15 @@ export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.Laz
         estimatedSeconds: 120,
         loader: () => import('./SamiskGjenreising3D'),
         Component: SamiskGjenreising3D as never,
+    },
+    'forene-unionen-3d': {
+        id: 'forene-unionen-3d',
+        title: 'Forene unionen',
+        description:
+            'Den amerikanske borgerkrigen i 3D: landet starter delt i to, et fritt industrielt Nord og et Sør bygd på slaveri, med en lysende sprekk imellom. Driv historien framover i tre steg - krigen bryter ut (1861), slaveriet avskaffes (1863) der lenkene faller og figurene reiser seg, og unionen samles igjen (1865) der de to halvdelene glir sammen og flagget reiser seg. Lyspæren: krig, frigjøring og samling gjorde et splittet slaveland om til én fri nasjon.',
+        estimatedSeconds: 150,
+        loader: () => import('./ForeneUnionen3D'),
+        Component: ForeneUnionen3D as never,
     },
 };
 
