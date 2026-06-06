@@ -41,6 +41,7 @@ const DemokratiLysene3D = lazy(() => import('./DemokratiLysene3D'));
 const Testudo3D = lazy(() => import('./Testudo3D'));
 const Chinampabyen3D = lazy(() => import('./Chinampabyen3D'));
 const Kanalbyggeren3D = lazy(() => import('./Kanalbyggeren3D'));
+const SamiskGjenreising3D = lazy(() => import('./SamiskGjenreising3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
     'gladius-duell': {
@@ -366,6 +367,15 @@ export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.Laz
         estimatedSeconds: 130,
         loader: () => import('./Kanalbyggeren3D'),
         Component: Kanalbyggeren3D as never,
+    },
+    'samisk-gjenreising-3d': {
+        id: 'samisk-gjenreising-3d',
+        title: 'Gjenreis den samiske kulturen',
+        description:
+            'Fornorskinga prøvde å viske ut samisk språk og kultur. Klikk de fem grå kulturuttrykkene - lávvu, rein, kofte, joik og språk - og vekk dem til live igjen. Når alt er gjenreist, synker internatskolen og det samiske flagget heises. Lyspæren: en kultur kan dempes, men den kan også reise seg igjen.',
+        estimatedSeconds: 120,
+        loader: () => import('./SamiskGjenreising3D'),
+        Component: SamiskGjenreising3D as never,
     },
 };
 

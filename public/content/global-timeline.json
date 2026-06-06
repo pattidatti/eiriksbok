@@ -4682,6 +4682,31 @@
       "geoConfidence": "tag"
     },
     {
+      "id": "fornorskingen-av-samene",
+      "title": "Fornorskingen av samene",
+      "description": "Hvordan staten i over hundre år forsøkte å viske ut samisk språk og kultur, og hvordan samene har tatt den tilbake.",
+      "startDate": 1851,
+      "endDate": 2023,
+      "displayDate": "1851-2023",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "norgeshistorie",
+      "link": "/historie/norgeshistorie/fornorskingen-av-samene",
+      "tags": [
+        "historie",
+        "norge",
+        "samer",
+        "urfolk",
+        "fornorsking",
+        "menneskerettigheter"
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "tag"
+    },
+    {
       "id": "vann-og-kloakk",
       "title": "Den usynlige revolusjonen: rent vann og kloakk",
       "description": "Det som reddet flest liv var ikke medisin, men rør og renseanlegg. Følg legen John Snow som løste kolera-gåten i London i 1854.",

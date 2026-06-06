@@ -1,0 +1,177 @@
+{
+    "id": "fornorskingen-av-samene",
+    "title": "Fornorskingen av samene",
+    "layout": "rich",
+    "subject": "historie",
+    "year": "1851-2023",
+    "category": "Norge",
+    "readTime": "9 min lesning",
+    "heroImage": "/images/placeholder.webp",
+    "details": [
+        "Fornorsking var en bevisst statlig politikk for å gjøre samene norske",
+        "Mange samiske barn mistet språket sitt på internatskolene",
+        "I dag har samene fått tilbake mange rettigheter, og språket vokser igjen"
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Tenk deg at du er sju år. Du blir hentet hjemmefra og kjørt til en stor skole langt unna. Her bor du sammen med andre barn, men du får ikke se foreldrene dine på lenge. Verst av alt: med en gang du sier noe på morsmålet ditt, blir du irettesatt. Språket du har snakket hele livet, er plutselig forbudt. Slik var hverdagen for tusenvis av samiske barn i Norge i over hundre år."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Samiske barn utenfor en internatskole tidlig på 1900-tallet",
+            "caption": "Mange samiske barn ble sendt på internatskole, langt fra familien."
+        },
+        {
+            "type": "header",
+            "text": "Hvem er samene?"
+        },
+        {
+            "type": "text",
+            "content": "Samene er et urfolk. Det betyr at de bodde i området sitt lenge før de moderne landegrensene ble trukket. Samene har levd i nord i flere tusen år, i et område som kalles Sápmi. Sápmi strekker seg over fire land: Norge, Sverige, Finland og Russland. Grensene mellom landene betyr lite for den samiske kulturen, som henger sammen på tvers av dem."
+        },
+        {
+            "type": "text",
+            "content": "Den samiske kulturen har sitt eget språk, sin egen klesdrakt som heter kofte, og sin egen sangform. Mange samer levde av reindrift og flyttet med dyra etter årstidene. Du kan lese mer om samenes tro og verdensbilde i artikkelen om [samisk religion](/krle/religion/samisk/intro), og om den særegne sangformen i artikkelen om [joik](/musikk/musikkhistorie/joik)."
+        },
+        {
+            "type": "header",
+            "text": "Hva var fornorsking?"
+        },
+        {
+            "type": "text",
+            "content": "Fornorsking betyr å gjøre noe eller noen norsk. Fra midten av 1800-tallet bestemte den norske staten at samene skulle bli mest mulig like andre nordmenn. De skulle lære norsk, gå i norsk skole og gi slipp på sin egen kultur. Dette var ikke tilfeldig. Det var en planlagt politikk som varte i over hundre år."
+        },
+        {
+            "type": "text",
+            "content": "Hvorfor gjorde staten dette? På 1800-tallet vokste det fram en sterk nasjonalfølelse i Norge. Mange mente at et land var sterkest når alle snakket samme språk og hadde samme kultur. Dette var den samme tida da Norge bygde seg opp som egen nasjon og til slutt brøt unionen med Sverige, som du kan lese om i artikkelen om [unionsoppløsningen i 1905](/historie/norgeshistorie/unionsopplosningen-1905). Samtidig mente noen forskere på den tida, helt feilaktig, at enkelte folkeslag var mer utviklet enn andre. Samene ble sett ned på. I tillegg ville staten ha kontroll over land og ressurser i nord."
+        },
+        {
+            "type": "text",
+            "content": "Allerede i 1851 satte staten av egne penger, kalt Finnefondet, til å lære samiske barn norsk. I 1898 kom Wexelsen-plakaten. Den slo fast at lærerne bare skulle bruke norsk i skolen. Samisk var i praksis forbudt i klasserommet. Dette skjedde i samme periode som striden om [bokmål og nynorsk](/norsk/sprakhistorie/bokmal-og-nynorsk) preget landet. Mens nordmenn flest kjempet om hvilken norsk de skulle skrive, fikk samiske barn ikke lov til å bruke språket sitt i det hele tatt."
+        },
+        {
+            "type": "component",
+            "name": "FornorskingMaler",
+            "props": {}
+        },
+        {
+            "type": "header",
+            "text": "Internatskolene"
+        },
+        {
+            "type": "text",
+            "content": "Det sterkeste våpenet i fornorskinga var internatskolene. Mange samiske familier bodde spredt og langt fra skolen. Løsningen ble at barna flyttet inn på skolen og bodde der i ukevis eller månedsvis. På internatet var det norsk som gjaldt. Barna fikk kjeft hvis de snakket samisk, også i friminuttene."
+        },
+        {
+            "type": "text",
+            "content": "For et barn er språket tett knyttet til hvem du er. Når du ikke får snakke morsmålet ditt, lærer du fort at det er noe å skamme seg over. Mange samiske barn sluttet derfor å bruke samisk. Da de selv ble voksne og fikk barn, snakket de norsk hjemme for å skåne barna sine. Slik forsvant språket fra en hel slekt på bare to eller tre generasjoner. Dette er den tøffeste konsekvensen av fornorskinga: et språk kan dø ut uten at noen tvinger fram et eneste dødsfall."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Tomt klasserom i en gammel internatskole med pulter på rad",
+            "caption": "I klasserommet var bare norsk lov. Samisk hørte ikke hjemme her, mente staten."
+        },
+        {
+            "type": "component",
+            "name": "MicroGame",
+            "props": {
+                "gameId": "samisk-gjenreising-3d"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Motstand og en ny kurs"
+        },
+        {
+            "type": "text",
+            "content": "Fornorskinga ble aldri helt vellykket. Mange samer holdt fast på språket og kulturen i det skjulte. Etter andre verdenskrig begynte holdningene sakte å endre seg. I 1959 fikk skolen igjen lov til å bruke samisk i undervisningen. Men det store vendepunktet kom senere."
+        },
+        {
+            "type": "text",
+            "content": "På slutten av 1970-tallet ville staten bygge en stor demning i Altaelva i Finnmark. Samer og naturvernere protesterte kraftig. Noen lenket seg fast, andre sultestreiket foran Stortinget. Alta-aksjonen tapte kampen om elva, men vant noe mye større: hele Norge fikk øynene opp for hvordan samene var blitt behandlet. Politikerne forsto at de måtte ta samenes rettigheter på alvor."
+        },
+        {
+            "type": "text",
+            "content": "I 1989 åpnet Sametinget. Det er samenes eget folkevalgte ting, der samer stemmer på sine egne representanter i saker som angår dem. Grunnloven slår nå fast at staten skal legge til rette for at samene kan ta vare på språket, kulturen og samfunnslivet sitt. Du kan lese mer om hvorfor en slik grunnlov er viktig i artikkelen om [Grunnloven](/samfunnskunnskap/styringsformer/grunnloven)."
+        },
+        {
+            "type": "header",
+            "text": "Sannhet og forsoning"
+        },
+        {
+            "type": "text",
+            "content": "I 2023 la en egen kommisjon fram en stor rapport om fornorskinga. Den kalles Sannhets- og forsoningskommisjonen. Rapporten fortalte historiene til dem som hadde opplevd urett, og Norge sa offentlig unnskyld. Å si unnskyld løser ikke alt, men det er et viktig steg. Det handler om å innrømme at noe gikk galt, slik at man kan gjøre det bedre."
+        },
+        {
+            "type": "text",
+            "content": "I dag lever den samiske kulturen igjen. Stadig flere lærer seg samisk på nytt, joiken høres i moderne musikk, og det samiske flagget heises med stolthet på samefolkets dag den 6. februar. Historien om fornorskinga viser noe viktig: en kultur kan presses helt til kanten av å forsvinne, men hvis folk kjemper for den, kan den også reise seg igjen."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hva betyr ordet fornorsking?",
+                        "options": [
+                            "Å gjøre noen eller noe mest mulig norsk",
+                            "Å flytte til Norge fra utlandet",
+                            "Å oversette tekster til norsk",
+                            "Å bygge nye skoler i Norge"
+                        ],
+                        "explanation": "Fornorsking var en planlagt politikk for å gjøre samene mest mulig like andre nordmenn, blant annet ved å fjerne det samiske språket.",
+                        "answer": 0
+                    },
+                    {
+                        "question": "Hva slo Wexelsen-plakaten fast i 1898?",
+                        "options": [
+                            "At samiske barn skulle slippe skole",
+                            "At lærerne bare skulle bruke norsk i skolen",
+                            "At samisk skulle være eget fag",
+                            "At alle skoler skulle flyttes til byene"
+                        ],
+                        "explanation": "Wexelsen-plakaten bestemte at undervisningen bare skulle foregå på norsk. Samisk ble i praksis forbudt i klasserommet.",
+                        "answer": 1
+                    },
+                    {
+                        "question": "Hvorfor mistet mange samiske familier språket sitt?",
+                        "options": [
+                            "Samisk var for vanskelig å lære",
+                            "Det fantes ingen bøker på samisk",
+                            "Barna fikk ikke snakke samisk på internatskolene, og mange sluttet av skam",
+                            "Samene flyttet til andre land"
+                        ],
+                        "explanation": "På internatskolene var samisk forbudt. Mange barn lærte å skamme seg over språket og snakket norsk med sine egne barn senere.",
+                        "answer": 2
+                    },
+                    {
+                        "question": "Hva var Alta-aksjonen?",
+                        "options": [
+                            "En protest mot en demning, som fikk Norge til å se samenes situasjon",
+                            "En ny internatskole i Finnmark",
+                            "En samisk musikkfestival",
+                            "En lov som forbød samisk språk"
+                        ],
+                        "explanation": "Alta-aksjonen var protesten mot demningen i Altaelva rundt 1980. Den tapte kampen om elva, men ble et vendepunkt for samiske rettigheter.",
+                        "answer": 0
+                    },
+                    {
+                        "question": "Hva skjedde i 2023?",
+                        "options": [
+                            "Sametinget ble lagt ned",
+                            "Fornorskinga begynte på nytt",
+                            "En kommisjon la fram en rapport, og Norge sa unnskyld for fornorskinga",
+                            "Samisk ble forbudt igjen"
+                        ],
+                        "explanation": "Sannhets- og forsoningskommisjonen la fram rapporten sin i 2023, og Norge ba offentlig om unnskyldning for uretten.",
+                        "answer": 2
+                    }
+                ]
+            }
+        }
+    ],
+    "timeline": []
+}
