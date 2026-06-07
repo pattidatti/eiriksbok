@@ -54,6 +54,13 @@
             "caption": "Gipsavstøpningene viser de siste øyeblikkene til ofrene med hjerteskjærende detaljer."
         },
         {
+            "type": "component",
+            "name": "MicroGame",
+            "props": {
+                "gameId": "pompeii-3d"
+            }
+        },
+        {
             "type": "header",
             "content": "Herculaneum: Den glemte katastrofen"
         },

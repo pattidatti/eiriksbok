@@ -44,6 +44,7 @@ const Kanalbyggeren3D = lazy(() => import('./Kanalbyggeren3D'));
 const SamiskGjenreising3D = lazy(() => import('./SamiskGjenreising3D'));
 const ForeneUnionen3D = lazy(() => import('./ForeneUnionen3D'));
 const HagiaSofia3D = lazy(() => import('./HagiaSofia3D'));
+const Pompeii3D = lazy(() => import('./Pompeii3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
     'gladius-duell': {
@@ -396,6 +397,15 @@ export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.Laz
         estimatedSeconds: 140,
         loader: () => import('./HagiaSofia3D'),
         Component: HagiaSofia3D as never,
+    },
+    'pompeii-3d': {
+        id: 'pompeii-3d',
+        title: 'Pompeii: byen som ble frosset',
+        description:
+            'Dra spaken og la Vesuv begrave Pompeii i aske til hele byen forsvinner. Så går 1700 år, asken synker til ruinnivå, og du graver fram tre ting asken har bevart akkurat slik de var i år 79: et fargesterkt veggmaleri, et brød som fortsatt står i ovnen, og en gipsavstøpning av et menneske i sitt siste øyeblikk. Lyspæren: det som ødela Pompeii reddet den også, for den samme asken som kvalte byen forseglet alt - derfor er Pompeii en tidskapsel.',
+        estimatedSeconds: 150,
+        loader: () => import('./Pompeii3D'),
+        Component: Pompeii3D as never,
     },
 };
 
