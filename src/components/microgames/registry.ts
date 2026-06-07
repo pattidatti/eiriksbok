@@ -43,6 +43,7 @@ const Chinampabyen3D = lazy(() => import('./Chinampabyen3D'));
 const Kanalbyggeren3D = lazy(() => import('./Kanalbyggeren3D'));
 const SamiskGjenreising3D = lazy(() => import('./SamiskGjenreising3D'));
 const ForeneUnionen3D = lazy(() => import('./ForeneUnionen3D'));
+const HagiaSofia3D = lazy(() => import('./HagiaSofia3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
     'gladius-duell': {
@@ -386,6 +387,15 @@ export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.Laz
         estimatedSeconds: 150,
         loader: () => import('./ForeneUnionen3D'),
         Component: ForeneUnionen3D as never,
+    },
+    'hagia-sofia-3d': {
+        id: 'hagia-sofia-3d',
+        title: 'Reis Hagia Sofias kuppel',
+        description:
+            'Bygg bysantinernes mesterverk i tre grep: spenn pendentivene som gjør firkanten om til en sirkel, reis ringen med 40 vinduer, og hev den store kuppelen på plass. Når lyset strømmer inn gjennom vindusringen, ser den tunge kuppelen ut til å sveve. Lyspæren: bysantinerne brukte ny ingeniørkunst - pendentiver og en krans av lys - til å skape en følelse av at himmelen åpnet seg over deg.',
+        estimatedSeconds: 140,
+        loader: () => import('./HagiaSofia3D'),
+        Component: HagiaSofia3D as never,
     },
 };
 

@@ -1,0 +1,159 @@
+{
+    "id": "bysantinske-riket",
+    "title": "Det bysantinske riket: Roma som overlevde",
+    "subject": "historie",
+    "layout": "rich",
+    "year": "330-1453",
+    "category": "Europa og Midtøsten",
+    "readTime": "9 min lesning",
+    "heroImage": "/images/placeholder.webp",
+    "details": [
+        "Det romerske riket falt ikke i 476. Den østlige halvdelen levde videre i nesten tusen år til, helt til 1453.",
+        "Folk i riket snakket gresk og var kristne, men kalte seg selv romere. Vi kaller riket bysantinsk, men det gjorde aldri de selv.",
+        "Konstantinopel var i mange hundre år Europas største og rikeste by, beskyttet av enorme murer.",
+        "Da riket til slutt falt, flyktet lærde vestover med greske bøker som var med på å tenne renessansen."
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Tenk deg en tenåring som bor i byen Konstantinopel rundt år 1000. Hun snakker gresk, går i en kristen kirke, og handler på et marked fullt av silke fra Kina og krydder fra India. Hvis du spør henne hvor hun er fra, svarer hun stolt: «Jeg er romer.» Og hun har rett. Hun bor i Det romerske riket. Problemet er bare at de fleste i Vest-Europa på denne tiden trodde at Roma hadde falt 500 år tidligere.\n\nHvordan kan begge deler stemme? Svaret er en av historiens mest oversette fortellinger: riket som nektet å dø."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Utsikt over byen Konstantinopel med store murer og en gylden kuppel ved havet",
+            "caption": "Konstantinopel lå der Europa møter Asia. I mange hundre år var dette den rikeste byen i den kristne verden."
+        },
+        {
+            "type": "header",
+            "text": "Roma som ikke falt"
+        },
+        {
+            "type": "text",
+            "content": "I skolebøker står det ofte at Romerriket falt i år 476. Men det som falt da, var bare den vestlige halvdelen. Allerede i 395 hadde riket blitt delt i to fordi det var blitt for stort til å styre fra ett sted. Hver halvdel fikk sin egen keiser.\n\nDa germanske hærer veltet den vestlige delen i 476, fortsatte den østlige delen som om lite hadde skjedd. Keiseren satt trygt i Konstantinopel, en by keiser Konstantin hadde grunnlagt i 330. Mens [arven etter Romerriket](/historie/romerriket/arven-etter-romerriket) smuldret opp i vest og [den tidlige middelalderen](/historie/middelalderen/tidlig-middelalder) begynte med små kongedømmer, levde det egentlige Romerriket videre i øst i nesten tusen år til."
+        },
+        {
+            "type": "text",
+            "content": "Historikere kaller dette østlige riket for «Det bysantinske riket», etter Bysants, det gamle navnet på byen Konstantinopel. Men det er et navn vi har funnet på i ettertid. Folk som levde der, kalte seg aldri bysantinere. De kalte seg romere, og riket sitt for Romerriket. Dra i tidslinjen under og se selv hvor lenge Roma faktisk levde."
+        },
+        {
+            "type": "component",
+            "name": "ByzantineSurvival",
+            "props": {
+                "title": "Falt Roma i 476?"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Et nytt slags Roma"
+        },
+        {
+            "type": "text",
+            "content": "Selv om de kalte seg romere, var dette riket ganske annerledes enn det gamle Roma. De gamle romerne snakket latin. Bysantinerne snakket gresk, for det var språket folk flest brukte i øst. De gamle romerne tilba mange guder. Bysantinerne var kristne, og kirken sto i sentrum av alt. Keiseren ble sett på som Guds utvalgte på jorden.\n\nRiket var også et veikryss for handel. Konstantinopel lå akkurat der [Silkeveien](/historie/kinas-historie/silkeveien) endte og Europa begynte. Varer fra hele verden gikk gjennom byen, og keiseren tok toll av alt. Det gjorde riket umåtelig rikt."
+        },
+        {
+            "type": "header",
+            "text": "Justinian og den store kuppelen"
+        },
+        {
+            "type": "text",
+            "content": "Riket var sterkest under keiser Justinian på 500-tallet. Han sendte hærene sine vestover og tok tilbake store deler av det gamle Vest-Roma for en stund. Han samlet også alle de romerske lovene i én stor lovbok. Denne lovsamlingen ble så god at den fortsatt påvirker rettssystemer i Europa i dag.\n\nMen det Justinian er aller mest kjent for, er en bygning: kirken Hagia Sofia. Den hadde en kuppel så enorm at folk knapt kunne tro sine egne øyne. Hemmeligheten var en ring av 40 vinduer rundt foten av kuppelen. Lyset som strømmet inn, gjorde at den tunge kuppelen så ut til å sveve fritt over rommet. Reis kuppelen selv i mikrospillet under, og se hvordan bysantinerne brukte ingeniørkunst til å skape en følelse av at himmelen åpnet seg."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Innsiden av Hagia Sofia med en enorm kuppel og lysstråler fra en ring av vinduer",
+            "caption": "Hagia Sofia. Ringen av vinduer rundt kuppelen fikk den til å se ut som den svevde på lys."
+        },
+        {
+            "type": "component",
+            "name": "MicroGame",
+            "props": {
+                "gameId": "hagia-sofia-3d"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Skattkammeret som reddet antikken"
+        },
+        {
+            "type": "text",
+            "content": "Mens mye kunnskap gikk tapt i vest etter at Vest-Roma falt, tok bysantinerne vare på den. I bibliotekene og klostrene deres ble greske og romerske bøker kopiert for hånd, gjennom hundrevis av år. Skrifter av tenkere som Platon og Aristoteles overlevde fordi noen i Konstantinopel gadd å skrive dem av på nytt og på nytt.\n\nRiket overlevde også fordi det var nesten umulig å erobre hovedstaden. Konstantinopel var omgitt av tykke, doble murer som motstod angrep i over tusen år. Bysantinerne hadde til og med et hemmelig våpen: «gresk ild», en brennende væske som kunne sprøytes mot fiendtlige skip og fortsatte å brenne selv på vann. Ingen vet helt sikkert hvordan den ble laget. Oppskriften var en så godt bevart hemmelighet at den er tapt for alltid."
+        },
+        {
+            "type": "header",
+            "text": "Splittelsen og fallet"
+        },
+        {
+            "type": "text",
+            "content": "Men riket fikk fiender på alle kanter, og det krympet sakte gjennom århundrene. I 1054 skjedde det også et brudd inne i selve kristendommen. Kirken i vest, med paven i Roma, og kirken i øst, med sentrum i Konstantinopel, ble uvenner og skilte lag. Vi kaller det Det store skismaet. Den vestlige kirken ble katolsk, den østlige ble ortodoks. De er fortsatt to ulike retninger i dag.\n\nVerre ble det i 1204. Da soldater fra Vest-Europa var på vei sørover under [korstogene](/historie/middelalderen/korstogene), gikk de i stedet til angrep på Konstantinopel og plyndret byen, enda den var en kristen by. Riket reiste seg aldri helt igjen etter det."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Soldater angriper de store bymurene i Konstantinopel med kanoner i 1453",
+            "caption": "I 1453 brukte osmanene gigantiske kanoner til å knuse murene som hadde stått i tusen år."
+        },
+        {
+            "type": "text",
+            "content": "Slutten kom i 1453. Da hadde det en gang så mektige riket skrumpet inn til lite mer enn selve byen. Den unge osmanske sultanen Mehmet 2. omringet Konstantinopel med en enorm hær og kanoner som var større enn noe man hadde sett før. Etter flere ukers beleiring brast de gamle murene, og byen falt. Du kan lese mer om denne dramatiske dagen i artikkelen om [Konstantinopels fall](/historie/osmanske-riket/konstantinopels-fall). Etter 1123 år var Romerriket endelig borte."
+        },
+        {
+            "type": "text",
+            "content": "Men arven levde videre. Da byen falt, flyktet mange lærde vestover, til byer i Italia, med kofferter fulle av greske bøker. Disse bøkene var med på å tenne den eksplosjonen av kunst og tenkning vi kaller renessansen. Den ortodokse kristendommen spredte seg nordover til Russland, som så på seg selv som arvtaker etter Konstantinopel. Riket som «ikke fantes» i historiebøkene, hadde formet verden på måter vi fortsatt merker i dag."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hva falt egentlig i år 476?",
+                        "options": [
+                            "Hele Romerriket på én gang",
+                            "Bare den vestlige halvdelen av Romerriket",
+                            "Konstantinopel",
+                            "Den ortodokse kirken"
+                        ],
+                        "correctAnswer": 1,
+                        "explanation": "Bare Vest-Roma falt i 476. Den østlige halvdelen, det vi kaller Det bysantinske riket, levde videre i nesten tusen år til."
+                    },
+                    {
+                        "question": "Hva kalte folk i Det bysantinske riket seg selv?",
+                        "options": [
+                            "Bysantinere",
+                            "Grekere",
+                            "Romere",
+                            "Konstantinere"
+                        ],
+                        "correctAnswer": 2,
+                        "explanation": "De kalte seg romere og riket sitt for Romerriket. Navnet bysantinsk har vi funnet på i ettertid."
+                    },
+                    {
+                        "question": "Hvorfor så kuppelen i Hagia Sofia ut til å sveve?",
+                        "options": [
+                            "Den var laget av glass",
+                            "Den hvilte på en ring av 40 vinduer som slapp inn lys",
+                            "Den hang i kjettinger fra taket",
+                            "Den var malt med gull"
+                        ],
+                        "correctAnswer": 1,
+                        "explanation": "Ringen av 40 vinduer rundt foten av kuppelen gjorde at lyset strømmet inn akkurat der, så den tunge kuppelen så lett ut."
+                    },
+                    {
+                        "question": "Hvordan var bysantinerne med på å hjelpe fram renessansen i Vest-Europa?",
+                        "options": [
+                            "De erobret Italia",
+                            "De fant opp boktrykkerkunsten",
+                            "De tok vare på greske og romerske bøker, som lærde tok med vestover da riket falt",
+                            "De bygde de første universitetene"
+                        ],
+                        "correctAnswer": 2,
+                        "explanation": "Bysantinerne kopierte og bevarte gamle greske bøker i tusen år. Da Konstantinopel falt i 1453, flyktet lærde vestover med bøkene, og de var med på å tenne renessansen."
+                    }
+                ]
+            }
+        }
+    ],
+    "timeline": []
+}

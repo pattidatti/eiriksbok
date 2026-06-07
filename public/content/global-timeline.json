@@ -907,6 +907,30 @@
       "geoConfidence": "tag"
     },
     {
+      "id": "bysantinske-riket",
+      "title": "Det bysantinske riket",
+      "description": "Romerriket falt ikke i 476. Den østlige halvdelen levde videre i nesten tusen år til.",
+      "startDate": 330,
+      "endDate": 1453,
+      "displayDate": "330-1453",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "middelalderen",
+      "link": "/historie/middelalderen/bysantinske-riket",
+      "tags": [
+        "historie",
+        "middelalderen",
+        "romerriket",
+        "konstantinopel",
+        "kristendom"
+      ],
+      "lat": 41.01,
+      "lng": 28.98,
+      "placeLabel": "Konstantinopel",
+      "placeCountryId": 792,
+      "geoConfidence": "tag"
+    },
+    {
       "id": "aleksander-den-store",
       "title": "Aleksander den store",
       "description": "Eleven av Aristoteles ble verdens største erobrer på 13 år. Men hans virkelige arv er hellenismen — kulturen som blandet gresk og persisk og varte i 1000 år.",
