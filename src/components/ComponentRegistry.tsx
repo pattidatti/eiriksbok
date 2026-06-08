@@ -21,6 +21,7 @@ import { MapCarousel } from './MapCarousel';
 // Lazy-loaded components for better performance
 // Interactive Content
 const TragediensTrinn = lazy(() => import('./content/interactive/TragediensTrinn').then(m => ({ default: m.TragediensTrinn })));
+const UtvandrerVekta = lazy(() => import('./content/interactive/UtvandrerVekta').then(m => ({ default: m.UtvandrerVekta })));
 const FornorskingMaler = lazy(() => import('./content/interactive/FornorskingMaler').then(m => ({ default: m.FornorskingMaler })));
 const OlympiskFred = lazy(() => import('./content/interactive/OlympiskFred').then(m => ({ default: m.OlympiskFred })));
 const ByzantineSurvival = lazy(() => import('./content/interactive/ByzantineSurvival').then(m => ({ default: m.ByzantineSurvival })));
@@ -303,6 +304,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     RomanPantheonExplorer,
     GreskGudeMatch,
     RomanExpansionMap,
+    UtvandrerVekta,
     TrolleyProblem,
     GoldenMeanSlider,
     CategoricalImperativeTester,

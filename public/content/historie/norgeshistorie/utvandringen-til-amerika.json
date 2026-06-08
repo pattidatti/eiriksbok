@@ -1,0 +1,187 @@
+{
+    "id": "utvandringen-til-amerika",
+    "title": "Utvandringen til Amerika",
+    "layout": "rich",
+    "year": "1825-1930",
+    "category": "Norge",
+    "readTime": "9 min lesning",
+    "heroImage": "/images/placeholder.webp",
+    "details": [
+        "Over 800 000 nordmenn reiste til Amerika mellom 1825 og 1930",
+        "Bare Irland mistet en større del av folket sitt til utvandring",
+        "Press hjemmefra og lokking fra Amerika drev den store folkeflyttingen"
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Den 4. juli 1825 seilte en liten slupp ut fra Stavanger. Den het Restauration, og om bord var 52 mennesker stuet sammen med alt de eide. Skipet var bygd for varer, ikke for folk, og turen over Atlanteren tok tre måneder. Da de endelig kom til New York, var de blitt 53 - et barn ble født på veien. Dette var de første norske utvandrerne. I tiårene som fulgte, skulle de få over 800 000 til å følge etter seg."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Liten seilskute fylt med utvandrere forlater en norsk havn",
+            "caption": "Sluppen Restauration forlot Stavanger i 1825 med 52 mennesker om bord. Reisen til New York tok tre måneder."
+        },
+        {
+            "type": "text",
+            "content": "Ingen annen folkeflytting har forandret Norge så mye på så kort tid. Bare Irland sendte en større del av folket sitt til Amerika. For å forstå hvorfor så mange dro, må vi se på to krefter som dro i hver sin retning: noe som skjøv folk ut av Norge, og noe som lokket dem mot Amerika."
+        },
+        {
+            "type": "header",
+            "text": "Presset hjemmefra"
+        },
+        {
+            "type": "text",
+            "content": "På 1800-tallet vokste folketallet i Norge raskt. Færre barn døde, og familiene ble store. Men jorda ble ikke større. En gård kunne ikke deles på alle barna, så bare den eldste sønnen arvet den. De andre måtte bli husmenn, tjenestefolk eller flytte. Mange bygder ble rett og slett for trange. Samtidig endret landbruket seg gjennom det vi kaller [hamskiftet](/historie/norgeshistorie/hamskiftet): nye maskiner gjorde arbeidet, og plutselig trengtes ikke alle de fattige husmennene lenger."
+        },
+        {
+            "type": "text",
+            "content": "Dårlige år gjorde det verre. Når avlingen slo feil, ble det sult og nød. For en ung mann uten håp om egen jord kunne Amerika virke som den eneste veien ut av fattigdommen. Forskere som studerer flytting, kaller slike grunner for press, eller push: krefter som skyver folk bort fra et sted. Du kan lese mer om hvordan dette virker i artikkelen om [push og pull i migrasjon](/samfunnskunnskap/demografi/migrasjon-push-pull)."
+        },
+        {
+            "type": "header",
+            "text": "Lokkingen fra Amerika"
+        },
+        {
+            "type": "text",
+            "content": "Mens Norge skjøv folk ut, lokket Amerika dem til seg. Det aller sterkeste lokkemiddelet var jord. I 1862 vedtok USA Homestead-loven. Den lovet gratis jord til alle som ville flytte vestover og dyrke den opp. For en husmannssønn som aldri kunne eie en flekk jord hjemme, var dette nesten ikke til å tro. På prærien i Midtvesten lå det mil etter mil med ledig land."
+        },
+        {
+            "type": "text",
+            "content": "Like viktig var amerikabrevene. Slektninger som alt hadde reist, skrev hjem og fortalte om lønn, mat og frihet. Noen la til og med ved billetten, så de hjemme kunne reise gratis. Brevene gikk fra hånd til hånd i bygda og ble lest høyt. Når naboen din skrev at han nå eide sin egen gård, ble drømmen om Amerika plutselig konkret. Disse grunnene kaller forskerne lokking, eller pull: krefter som trekker folk mot et nytt sted."
+        },
+        {
+            "type": "text",
+            "content": "Men ikke alt pekte mot Amerika. Mange var redde for den lange, farlige sjøreisa. Andre orket ikke tanken på å forlate foreldre de aldri ville se igjen, morsmålet sitt og hjembygda. Hver familie måtte veie press og lokking mot alt som holdt dem igjen. Prøv selv hvordan en slik avveiing kunne se ut:"
+        },
+        {
+            "type": "component",
+            "name": "UtvandrerVekta",
+            "props": {
+                "title": "Utvandrervekta: hva veide tyngst?"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Reisa over havet"
+        },
+        {
+            "type": "text",
+            "content": "De første utvandrerne seilte, og turen kunne ta to til tre måneder. Folk lå tett på mellomdekket, der det var mørkt, kaldt og fullt av sykdom. Mange ble syke, og noen overlevde ikke reisa. Fra rundt 1870 overtok dampskipene, og da gikk turen mye raskere - ofte under to uker. De fleste reiste først med båt til England, tok toget tvers over landet, og gikk så om bord i et stort dampskip mot New York eller Quebec."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Utvandrere står tett samlet på dekket av et dampskip på havet",
+            "caption": "Fra 1870-tallet fraktet store dampskip tusenvis av nordmenn over Atlanteren på under to uker."
+        },
+        {
+            "type": "text",
+            "content": "Uansett hvordan de reiste, kunne de bare ta med seg lite. Hver familie pakket livet sitt ned i én trekoffert - den såkalte amerikakofferten. Hva ville du tatt med deg, hvis du måtte velge bare noen få ting og la resten bli igjen for alltid? Prøv selv:"
+        },
+        {
+            "type": "component",
+            "name": "MicroGame",
+            "props": {
+                "gameId": "pakk-amerikakofferten-3d"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Et nytt liv i Midtvesten"
+        },
+        {
+            "type": "text",
+            "content": "De fleste norske utvandrerne slo seg ned i Midtvesten, særlig i statene Wisconsin, Minnesota, Iowa og Nord-Dakota. Der lignet landskapet og klimaet på det de var vant til hjemmefra. Mange kom nettopp i årene rundt [den amerikanske borgerkrigen](/historie/dekolonisering/amerikanske-borgerkrigen), da Homestead-loven åpnet prærien for nybyggere. De ryddet skog, brøt opp jord og bygde gårder fra ingenting."
+        },
+        {
+            "type": "text",
+            "content": "Nordmennene holdt sammen. De bygde kirker, startet aviser på norsk og giftet seg ofte med andre norsk-amerikanere. I noen bygder snakket folk norsk i flere slektsledd. Samtidig måtte de lære engelsk, nye lover og nye skikker. Mange kjente seg revet mellom to land: de var blitt amerikanere, men hjertet var fortsatt litt norsk."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Cleng Peerson - utvandrernes far",
+                "content": "Cleng Peerson reiste til Amerika før de andre for å lete etter et godt sted å bo. Han fant land i delstaten New York og senere i Midtvesten, og sendte beskjed hjem om hvor nordmennene burde slå seg ned. Han ble kalt utvandrernes far, fordi han viste vei for tusenvis som kom etter. Selv eide han aldri noen stor gård, men fortsatte å lete etter nye steder nesten hele livet."
+        }
+        },
+        {
+            "type": "header",
+            "text": "Hva betydde utvandringen for Norge?"
+        },
+        {
+            "type": "text",
+            "content": "Da det var som verst, på 1880-tallet, reiste det noen år nesten like mange nordmenn til Amerika som det ble født barn hjemme. Det merket landet godt. Bygdene mistet unge, sterke folk, og noen steder ble nesten folketomme. Men utvandringen var også en slags sikkerhetsventil. Uten den ville presset av for mange mennesker på for lite jord blitt enda hardere, samtidig som [industrien](/historie/industriell-revolusjon/industriell-revolusjon) i byene vokste fram og trengte arbeidsfolk."
+        },
+        {
+            "type": "text",
+            "content": "Utvandringen forandret også synet på verden. Penger og brev strømmet tilbake over havet, og mange familier hadde nå slekt på begge sider av Atlanteren. Da folketallet etter hvert sluttet å vokse så raskt, og Norge selv ble et rikere land, stilnet strømmen. Etter 1930 var den store utvandringen over. Men minnet lever videre: i dag finnes det omtrent like mange mennesker med norske aner i USA som det bor folk i hele Norge."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Norsk nybyggerfamilie foran et nybygd tommerhus pa den amerikanske praerien",
+            "caption": "I Midtvesten bygde norske utvandrere gårder fra grunnen av. Mange holdt fast på språket og kirken sin i generasjoner."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hva het skipet som tok de første norske utvandrerne til Amerika i 1825?",
+                        "options": [
+                            "Restauration",
+                            "Fram",
+                            "Gjøa",
+                            "Kon-Tiki"
+                        ],
+                        "answer": "Restauration"
+                    },
+                    {
+                        "question": "Hvilken av disse er et eksempel på press (push) som skjøv folk ut av Norge?",
+                        "options": [
+                            "Gratis jord gjennom Homestead-loven",
+                            "Det var ikke nok jord til alle barna hjemme",
+                            "Brev fra slekt i Amerika",
+                            "Høyere lønn i amerikanske byer"
+                        ],
+                        "answer": "Det var ikke nok jord til alle barna hjemme"
+                    },
+                    {
+                        "question": "Hva lovet Homestead-loven fra 1862?",
+                        "options": [
+                            "Gratis billett over Atlanteren",
+                            "Arbeid i fabrikkene i New York",
+                            "Gratis jord til den som ville dyrke den opp",
+                            "Norsk skole for alle barn"
+                        ],
+                        "answer": "Gratis jord til den som ville dyrke den opp"
+                    },
+                    {
+                        "question": "Hvor i USA slo de fleste norske utvandrerne seg ned?",
+                        "options": [
+                            "Sørstatene",
+                            "Midtvesten",
+                            "California",
+                            "Texas"
+                        ],
+                        "answer": "Midtvesten"
+                    },
+                    {
+                        "question": "Hvorfor kan utvandringen kalles en sikkerhetsventil for Norge?",
+                        "options": [
+                            "Den gjorde at færre barn ble født",
+                            "Den lettet presset av for mange mennesker på for lite jord",
+                            "Den tvang staten til å bygge flere skoler",
+                            "Den stoppet den industrielle revolusjonen"
+                        ],
+                        "answer": "Den lettet presset av for mange mennesker på for lite jord"
+                    }
+                ]
+            }
+        }
+    ],
+    "timeline": []
+}
