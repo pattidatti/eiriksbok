@@ -1,5 +1,5 @@
 {
-  "buildId": 1780800127856,
+  "buildId": 1780881739109,
   "contentMap": {
     "concept-adel": [
       "content/concepts/adel.json"
@@ -1571,6 +1571,9 @@
     ],
     "unionsopplosningen-1905": [
       "content/historie/norgeshistorie/unionsopplosningen-1905.json"
+    ],
+    "utvandringen-til-amerika": [
+      "content/historie/norgeshistorie/utvandringen-til-amerika.json"
     ],
     "forfallet": [
       "content/historie/osmanske-riket/forfallet.json"
@@ -3874,6 +3877,7 @@
     "historie/norgeshistorie/knut-alvsson/knut-alvsson": "content/historie/norgeshistorie/knut-alvsson/artikkel.json",
     "historie/norgeshistorie/norge-for-vikingene": "content/historie/norgeshistorie/norge-for-vikingene.json",
     "historie/norgeshistorie/unionsopplosningen-1905": "content/historie/norgeshistorie/unionsopplosningen-1905.json",
+    "historie/norgeshistorie/utvandringen-til-amerika": "content/historie/norgeshistorie/utvandringen-til-amerika.json",
     "historie/osmanske-riket/forfallet": "content/historie/osmanske-riket/forfallet.json",
     "historie/osmanske-riket/handel-og-kultur": "content/historie/osmanske-riket/handel-og-kultur.json",
     "historie/osmanske-riket/janitsjarene": "content/historie/osmanske-riket/janitsjarene.json",

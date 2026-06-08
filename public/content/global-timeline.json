@@ -4502,6 +4502,31 @@
       "geoConfidence": "tag"
     },
     {
+      "id": "utvandringen-til-amerika",
+      "title": "Utvandringen til Amerika",
+      "description": "Over 800 000 nordmenn reiste til Amerika mellom 1825 og 1930. Press hjemmefra og lokking fra Amerika drev den største folkeflyttingen i norsk historie.",
+      "startDate": 1825,
+      "endDate": 1930,
+      "displayDate": "1825-1930",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "norgeshistorie",
+      "link": "/historie/norgeshistorie/utvandringen-til-amerika",
+      "tags": [
+        "historie",
+        "norge",
+        "utvandring",
+        "amerika",
+        "migrasjon",
+        "1800-tallet"
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "tag"
+    },
+    {
       "id": "jernbanen",
       "title": "Jernbanen: maskinen som krympet verden",
       "description": "Hvordan damplokomotivet kuttet reisetid fra dager til timer, tvang fram standardtid, og bygde nettverket som forvandlet industrien til et samfunn.",

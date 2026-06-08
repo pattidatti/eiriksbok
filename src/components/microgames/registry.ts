@@ -45,6 +45,7 @@ const SamiskGjenreising3D = lazy(() => import('./SamiskGjenreising3D'));
 const ForeneUnionen3D = lazy(() => import('./ForeneUnionen3D'));
 const HagiaSofia3D = lazy(() => import('./HagiaSofia3D'));
 const Pompeii3D = lazy(() => import('./Pompeii3D'));
+const PakkAmerikakofferten3D = lazy(() => import('./PakkAmerikakofferten3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
     'gladius-duell': {
@@ -406,6 +407,15 @@ export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.Laz
         estimatedSeconds: 150,
         loader: () => import('./Pompeii3D'),
         Component: Pompeii3D as never,
+    },
+    'pakk-amerikakofferten-3d': {
+        id: 'pakk-amerikakofferten-3d',
+        title: 'Pakk amerikakofferten',
+        description:
+            'Det er 1880-tallet, og familien din skal utvandre til Amerika. Rundt en åpen koffert i stua ligger åtte eiendeler - Bibelen, familiebildet, bestemors sølje, verktøykassa, ullteppet, matsekken, rokken og barnas treleke. Men kofferten har plass til bare fem. Klikk det du vil ta med, bytt om du ombestemmer deg, og lukk lokket. Lyspæren: du kunne bare ta med én koffert, og alt annet - og alle du var glad i - måtte bli igjen.',
+        estimatedSeconds: 140,
+        loader: () => import('./PakkAmerikakofferten3D'),
+        Component: PakkAmerikakofferten3D as never,
     },
 };
 
