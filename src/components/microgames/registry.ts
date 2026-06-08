@@ -46,6 +46,7 @@ const ForeneUnionen3D = lazy(() => import('./ForeneUnionen3D'));
 const HagiaSofia3D = lazy(() => import('./HagiaSofia3D'));
 const Pompeii3D = lazy(() => import('./Pompeii3D'));
 const PakkAmerikakofferten3D = lazy(() => import('./PakkAmerikakofferten3D'));
+const Pyramidebyggeren3D = lazy(() => import('./Pyramidebyggeren3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
     'gladius-duell': {
@@ -416,6 +417,15 @@ export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.Laz
         estimatedSeconds: 140,
         loader: () => import('./PakkAmerikakofferten3D'),
         Component: PakkAmerikakofferten3D as never,
+    },
+    'pyramidebyggeren-3d': {
+        id: 'pyramidebyggeren-3d',
+        title: 'Bygg Khufus pyramide',
+        description:
+            'Bygg den store pyramiden ved Giza i 3D, lag for lag. Dra spaken for å bygge en sandrampe høyere, og dra steinblokkene på slede bort til foten av rampen så de sklir opp og låser seg på plass. For hvert lag blir pyramiden høyere, så rampen må bygges enda lenger. Lyspæren: egypterne hadde verken kraner eller maskiner. En lang, slak rampe og tusenvis av hender løftet 2,3 millioner blokker opp.',
+        estimatedSeconds: 150,
+        loader: () => import('./Pyramidebyggeren3D'),
+        Component: Pyramidebyggeren3D as never,
     },
 };
 

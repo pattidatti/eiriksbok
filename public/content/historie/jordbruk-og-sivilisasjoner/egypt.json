@@ -97,6 +97,13 @@
             "caption": "Pyramidene ved Giza ble bygget for omtrent 4500 år siden. Mange tror slavene bygde dem — men forskerne mener i dag at de fleste arbeiderne var vanlige bønder som arbeidet under flomsesongen."
         },
         {
+            "type": "component",
+            "name": "MicroGame",
+            "props": {
+                "gameId": "pyramidebyggeren-3d"
+            }
+        },
+        {
             "type": "header",
             "text": "Hieroglyfer og papyrus"
         },
