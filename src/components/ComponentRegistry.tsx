@@ -259,6 +259,7 @@ const KristendomsGrenerUtforsker = lazy(() => import('./content/interactive/Kris
 const BritPilarer = lazy(() => import('./content/interactive/BritPilarer').then(m => ({ default: m.BritPilarer })));
 const DharmahjuletUtforsker = lazy(() => import('./content/interactive/DharmahjuletUtforsker').then(m => ({ default: m.DharmahjuletUtforsker })));
 const MokshaVeiene = lazy(() => import('./content/interactive/MokshaVeiene').then(m => ({ default: m.MokshaVeiene })));
+const DemokratietFaller = lazy(() => import('./content/interactive/DemokratietFaller').then(m => ({ default: m.DemokratietFaller })));
 
 // Mikrospill: lett, embeddbart spill inline i artikkel. gameId-prop velger spillet
 // fra mikrospill-registeret (src/components/microgames/registry.ts).
@@ -542,6 +543,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     BritPilarer,
     DharmahjuletUtforsker,
     MokshaVeiene,
+    DemokratietFaller,
 };
 
 export const getComponent = (name: string) => {

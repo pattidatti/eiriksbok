@@ -9,6 +9,7 @@ import { demoWorldConfig } from '../games/demo-world/DemoWorldConfig';
 import { blueprintQuestConfig } from '../games/blueprint-quest/BlueprintQuestConfig';
 import { oljeplattformConfig } from '../games/oljeplattform/OljeplattformConfig';
 import { caesarIdesConfig } from '../games/caesar-ides/CaesarIdesConfig';
+import { marsjenMotRomaConfig } from '../games/marsjen-mot-roma/MarsjenMotRomaConfig';
 import { eksamenSamfunnsfagConfig } from '../games/eksamen-samfunnsfag/EksamenSamfunnsfagConfig';
 import { eksamenNorskConfig } from '../games/eksamen-norsk/EksamenNorskConfig';
 import type { GameConfig } from '../games/engine/types';
@@ -22,6 +23,7 @@ const GAME_REGISTRY: Record<string, GameConfig> = {
     'demo-world': demoWorldConfig,
     'sokrates-fengsel': blueprintQuestConfig,
     'caesar-ides': caesarIdesConfig,
+    'marsjen-mot-roma': marsjenMotRomaConfig,
     'eksamen-samfunnsfag': eksamenSamfunnsfagConfig,
     'eksamen-norsk': eksamenNorskConfig,
     oljeplattform: oljeplattformConfig,

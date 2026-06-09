@@ -53,6 +53,7 @@ const KristendomSpredning3D = lazy(() => import('./KristendomSpredning3D'));
 const TikkunOlam3D = lazy(() => import('./TikkunOlam3D'));
 const SamsaraSyklusen3D = lazy(() => import('./SamsaraSyklusen3D'));
 const MokshaVeien3D = lazy(() => import('./MokshaVeien3D'));
+const MarsjenMotRoma3D = lazy(() => import('./MarsjenMotRoma3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
     'gladius-duell': {
@@ -477,6 +478,15 @@ export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.Laz
         estimatedSeconds: 90,
         loader: () => import('./SamsaraSyklusen3D'),
         Component: SamsaraSyklusen3D as never,
+    },
+    'marsj-mot-roma-3d': {
+        id: 'marsj-mot-roma-3d',
+        title: 'Marsjen mot Roma',
+        description:
+            'Oktober 1922: fascistkolonnene nærmer seg Roma. Klikk de tre elementene og avdekk det historiske paradokset - marsjen lyktes ikke fordi fascistene var sterke, men fordi kongen ga seg.',
+        estimatedSeconds: 140,
+        loader: () => import('./MarsjenMotRoma3D'),
+        Component: MarsjenMotRoma3D as never,
     },
     'moksha-veien-3d': {
         id: 'moksha-veien-3d',
