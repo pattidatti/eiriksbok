@@ -125,7 +125,7 @@ export function MokshaVeiene() {
                                 <div
                                     className={`w-9 h-9 rounded-lg flex items-center justify-center mb-3 ${path.bgClass} border ${path.borderClass}`}
                                 >
-                                    <path.Icon className={`w-4.5 h-4.5 ${path.textClass}`} />
+                                    <path.Icon className={`w-4 h-4 ${path.textClass}`} />
                                 </div>
                                 <div
                                     className={`font-semibold text-sm leading-snug ${isActive || isExplored ? path.textClass : 'text-slate-700'}`}
