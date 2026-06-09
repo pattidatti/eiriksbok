@@ -1,5 +1,5 @@
 {
-  "buildId": 1780968307875,
+  "buildId": 1780998185686,
   "contentMap": {
     "concept-adel": [
       "content/concepts/adel.json"
@@ -1566,8 +1566,9 @@
     "klimakrisen-536": [
       "content/historie/norgeshistorie/klimakrisen-536.json"
     ],
-    "norgeshistorie-knut-alvsson": [
-      "content/historie/norgeshistorie/knut-alvsson/artikkel.json"
+    "knut-alvsson": [
+      "content/historie/norgeshistorie/knut-alvsson.json",
+      "content/people/knut-alvsson.json"
     ],
     "norge-for-vikingene": [
       "content/historie/norgeshistorie/norge-for-vikingene.json"
@@ -2800,9 +2801,6 @@
     "knut-alvsson-bio": [
       "content/people/knut-alvsson-bio.json"
     ],
-    "knut-alvsson": [
-      "content/people/knut-alvsson.json"
-    ],
     "knut-den-mektige": [
       "content/people/knut-den-mektige.json"
     ],
@@ -3878,7 +3876,7 @@
     "historie/norgeshistorie/hamskiftet": "content/historie/norgeshistorie/hamskiftet.json",
     "historie/norgeshistorie/kalmarunionen": "content/historie/norgeshistorie/kalmarunionen.json",
     "historie/norgeshistorie/klimakrisen-536": "content/historie/norgeshistorie/klimakrisen-536.json",
-    "historie/norgeshistorie/knut-alvsson/knut-alvsson": "content/historie/norgeshistorie/knut-alvsson/artikkel.json",
+    "historie/norgeshistorie/knut-alvsson": "content/historie/norgeshistorie/knut-alvsson.json",
     "historie/norgeshistorie/norge-for-vikingene": "content/historie/norgeshistorie/norge-for-vikingene.json",
     "historie/norgeshistorie/unionsopplosningen-1905": "content/historie/norgeshistorie/unionsopplosningen-1905.json",
     "historie/norgeshistorie/utvandringen-til-amerika": "content/historie/norgeshistorie/utvandringen-til-amerika.json",

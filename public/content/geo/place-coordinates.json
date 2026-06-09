@@ -784,7 +784,7 @@
   "_unmapped": [
     {
       "tag": "historie",
-      "count": 273
+      "count": 274
     },
     {
       "tag": "dekolonisering",
@@ -863,6 +863,10 @@
       "count": 18
     },
     {
+      "tag": "middelalder",
+      "count": 18
+    },
+    {
       "tag": "renessansen",
       "count": 18
     },
@@ -884,10 +888,6 @@
     },
     {
       "tag": "kristendom",
-      "count": 17
-    },
-    {
-      "tag": "middelalder",
       "count": 17
     },
     {

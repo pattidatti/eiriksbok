@@ -49,6 +49,9 @@ const PakkAmerikakofferten3D = lazy(() => import('./PakkAmerikakofferten3D'));
 const Pyramidebyggeren3D = lazy(() => import('./Pyramidebyggeren3D'));
 const KalmarKronene3D = lazy(() => import('./KalmarKronene3D'));
 const Pestrute3D = lazy(() => import('./Pestrute3D'));
+const KristendomSpredning3D = lazy(() => import('./KristendomSpredning3D'));
+const TikkunOlam3D = lazy(() => import('./TikkunOlam3D'));
+const SamsaraSyklusen3D = lazy(() => import('./SamsaraSyklusen3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
     'gladius-duell': {
@@ -446,6 +449,33 @@ export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.Laz
         estimatedSeconds: 130,
         loader: () => import('./Pestrute3D'),
         Component: Pestrute3D as never,
+    },
+    'kristendom-spredning': {
+        id: 'kristendom-spredning',
+        title: 'Kristendommens spredning',
+        description:
+            'Se kristendommen spre seg pa en roterende globus i 3D: fra 12 disipler i Jerusalem (ar 30) til Romerriket (ar 300), Europa (ar 1000), alle verdensdeler (ar 1500) og 2,4 milliarder i dag. Trykk "Neste epoke" og se byene lyse opp ett steg om gangen.',
+        estimatedSeconds: 130,
+        loader: () => import('./KristendomSpredning3D'),
+        Component: KristendomSpredning3D as never,
+    },
+    'tikkun-olam-3d': {
+        id: 'tikkun-olam-3d',
+        title: 'Tikkun Olam - Reparer verden',
+        description:
+            'Kjenn jødedommens kjerneforpliktelse på kroppen: reparer fire skader i en Jerusalem-by - gi mat til den sultne, fiks veien, tenn Shabbat-lyset, plant et tre. Verdenen lyser opp for hvert grep du tar. Lyspæren: Tikkun Olam er ikke et ideal, det er en daglig plikt.',
+        estimatedSeconds: 120,
+        loader: () => import('./TikkunOlam3D'),
+        Component: TikkunOlam3D as never,
+    },
+    'samsara-syklusen': {
+        id: 'samsara-syklusen',
+        title: 'Samsaras kretsløp',
+        description:
+            'Kjenn buddhismens kjerneinnsikt på kroppen: tre orbiterende gifter - Grådighet, Hat og Uvitenhet - holder sjelen fanget i Samsaras kretsløp. Klikk bort én gift om gangen og se sjelen lysne. Når alle tre er sluknet, oppnår sjelen Nirvana. Lyspæren: "Nirvana" betyr bokstavelig "utblåsing" - som å blåse ut en flamme.',
+        estimatedSeconds: 90,
+        loader: () => import('./SamsaraSyklusen3D'),
+        Component: SamsaraSyklusen3D as never,
     },
 };
 

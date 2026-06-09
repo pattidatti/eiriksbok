@@ -2566,6 +2566,29 @@
       "geoConfidence": "tag"
     },
     {
+      "id": "knut-alvsson",
+      "title": "Knut Alvsson",
+      "description": "Ridderen som trosset kong Hans.",
+      "startDate": 1455,
+      "endDate": 1502,
+      "displayDate": "1455-1502",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "norgeshistorie",
+      "link": "/historie/norgeshistorie/knut-alvsson",
+      "tags": [
+        "historie",
+        "norge",
+        "kalmarunionen",
+        "middelalder"
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "tag"
+    },
+    {
       "id": "topkapi-palasset",
       "title": "Topkapı: maktens palass",
       "description": "Hvordan makt faktisk fungerte bak palassmurene: sultanen, storvesiren og haremet i et spill av seremoni, intriger og kvinnemakt.",

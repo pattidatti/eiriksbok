@@ -5,20 +5,27 @@
     "topic": "religioner",
     "religion": "buddhisme",
     "dimension": "doctrinal",
-    "comparison_tags": [
-        "sentrale_trekk",
-        "frelse_og_mal"
-    ],
+    "comparison_tags": ["sentrale_trekk", "frelse_og_mal"],
     "createdDate": "2025-12-04T10:00:00Z",
-    "lastUpdated": "2025-12-04T10:00:00Z",
+    "lastUpdated": "2026-06-09T00:00:00Z",
+    "heroImage": "/images/krle/buddhisme/sentrale-trekk-hero.webp",
+    "readTime": "10 min lesning",
     "content": [
         {
+            "type": "text",
+            "content": "For 2500 år siden levde en prins i Nepal ved navn Siddhartha Gautama. Faren hans hadde sørget for at han bare så vakre, friske og glade ting - fattigdom, sykdom og død var skjult bak palassets murer. Men én dag red Siddhartha gjennom byen og møtte tre syn som forandret alt: en syk mann, en gammel mann og et lik. For første gang skjønte han at lidelse ikke var noe som bare rammet andre. Den ventet ham også."
+        },
+        {
             "type": "header",
-            "text": "Nirvana: Frigjøring fra lidelse"
+            "text": "Siddhartha og erkjennelsen"
         },
         {
             "type": "text",
-            "content": "Målet i buddhismen er å oppnå Nirvana, en tilstand av total frihet fra lidelse, begjær og gjenfødsel. Dette oppnås ved å innse at alt er foranderlig og at det ikke finnes noe fast 'jeg' (anatta)."
+            "content": "Da Siddhartha var 29 år, forlot han kone, barn og alt han eide for å søke svaret på spørsmålet: hva er lidelse, og finnes det en vei ut? Han prøvde streng askese - å pine kroppen for å oppnå innsikt. Men det hjalp ikke. Til slutt satte han seg under et fikentre i Bodh Gaya i India - i dag kalt Bodhitreet - og bestemte at han ikke ville flytte seg før han hadde funnet sannheten."
+        },
+        {
+            "type": "text",
+            "content": "Etter 49 dagers meditasjon fikk han den store erkjennelsen. Han ble Buddha - \"den opplyste\". Det han oppdaget delte han resten av livet med alle han møtte. Hans lære kalles Dharma og er kjernen i buddhismen."
         },
         {
             "type": "header",
@@ -26,61 +33,188 @@
         },
         {
             "type": "text",
-            "content": "Buddhas lære oppsummeres i de fire edle sannheter: 1) Alt er lidelse (utilfredshet), 2) Lidelsens årsak er begjær, 3) Lidelsen kan opphøre (Nirvana), 4) Veien til lidelsens opphør er Den åttedelte vei."
+            "content": "Buddha oppsummerte erkjennelsen sin i fire påstander kalt De fire edle sannheter. Buddhister beskriver dem som en lege som stiller en diagnose: han identifiserer sykdommen, finner årsaken, slår fast at kuren finnes, og skriver ut resepten."
         },
         {
-            "type": "header",
-            "text": "Karma og Gjenfødsel"
+            "type": "list",
+            "items": [
+                "Dukkha - Alt liv inneholder lidelse: aldring, sykdom, tap og skuffelse er uunngåelig.",
+                "Samudaya - Lidelsens årsak er begjær: vi lider fordi vi vil ha mer, holder fast, eller frykter å miste.",
+                "Nirodha - Det er mulig å avslutte lidelsen: Nirvana er ikke bare et ideal - det er faktisk mulig.",
+                "Magga - Veien til frigjøring er Den åttedelte veien."
+            ]
         },
         {
             "type": "text",
-            "content": "Handlinger (karma) har konsekvenser og binder mennesket til hjulet av gjenfødsler (Samsara). Målet er å bryte ut av dette kretsløpet."
+            "content": "I buddhismen er ikke frelse noe som gis deg av en gud. Det er noe du oppnår selv ved å følge en metode - som en pasient som tar medisinen legen skriver ut."
+        },
+        {
+            "type": "header",
+            "text": "Den åttedelte veien"
+        },
+        {
+            "type": "text",
+            "content": "Den åttedelte veien er den praktiske guiden til frigjøring. Den er delt inn i tre grupper - visdom, etikk og meditasjon - som vever seg inn i hverandre. Å forstå uten å leve etter forståelsen hjelper lite. Å leve etisk uten dyp meditasjon rekker heller ikke. Alle tre trengs."
+        },
+        {
+            "type": "component",
+            "name": "DharmahjuletUtforsker",
+            "props": {}
+        },
+        {
+            "type": "header",
+            "text": "Karma og gjenfødsel"
+        },
+        {
+            "type": "text",
+            "content": "Et sentralt prinsipp i buddhismen er karma - læren om at alle handlinger har konsekvenser. Gode handlinger skaper gode konsekvenser, dårlige handlinger skaper dårlige. Karma er ikke en belønning eller straff fra en gud, men mer som en naturlov: visse årsaker skaper visse virkninger."
+        },
+        {
+            "type": "text",
+            "content": "Buddhister tror at de fleste vesener gjenfødes igjen og igjen. Dette kretsløpet kalles Samsara. Hva du gjenfødes som avhenger av din karma. Målet er å bryte ut av kretsløpet og nå Nirvana. Buddhistisk meditasjon er en trening i å se gjennom illusjonene som binder oss til Samsara."
+        },
+        {
+            "type": "header",
+            "text": "Nirvana - frigjøringen"
+        },
+        {
+            "type": "text",
+            "content": "\"Nirvana\" betyr bokstavelig talt \"utblåsing\" - som å blåse ut en flamme. Det er ikke et sted man reiser til, men en tilstand som oppstår når De tre gifter er sluknet: grådighet (raga), hat (dvesha) og uvitenhet (moha)."
+        },
+        {
+            "type": "text",
+            "content": "I Theravada-buddhismen er Nirvana full frigjøring fra Samsara - den som oppnår det slipper å gjenfødes. I Mahayana-buddhismen er idealet en Bodhisattva - et opplyst vesen som velger å forbli i Samsara for å hjelpe alle andre til frigjøring. Det regnes som den høyeste form for medfølelse."
+        },
+        {
+            "type": "header",
+            "text": "Theravada og Mahayana"
+        },
+        {
+            "type": "text",
+            "content": "Buddhismen delte seg over tid i to store retninger. Theravada - \"de eldstes lære\" - er utbredt i Sri Lanka, Thailand og Kambodsja. Den legger vekt på den individuelle veien mot Nirvana gjennom meditasjon og streng klosterdisiplin."
+        },
+        {
+            "type": "text",
+            "content": "Mahayana - \"det store fartøyet\" - er utbredt i Kina, Japan, Korea og Tibet. Den utvider idealet til å omfatte alle veseners frigjøring og legger stor vekt på Bodhisattva-idealet. Tibetansk buddhisme (Vajrayana) er en gren av Mahayana, kjent for sine elaborate ritualer og Dalai Lama som åndelig leder."
+        },
+        {
+            "type": "header",
+            "text": "Buddhismen i dag"
+        },
+        {
+            "type": "text",
+            "content": "I dag følger rundt 500 millioner mennesker buddhismen - de fleste i Asia. Buddhismen er ikke bare en religion, men også en filosofi og en psykologisk praksis. Mange ikke-religiøse mennesker over hele verden praktiserer buddhistisk meditasjon, særlig mindfulness - bevisst tilstedeværelse i øyeblikket. Teknikken stammer direkte fra Buddhas undervisning under Bodhitreet for 2500 år siden."
+        },
+        {
+            "type": "text",
+            "content": "I Norge er buddhismen det tredje største registrerte trossamfunnet etter kristendommen og islam. Men mange flere praktiserer buddhistisk meditasjon uten å være formelle medlemmer av et buddhistisk trossamfunn."
+        },
+        {
+            "type": "header",
+            "text": "Se Samsara og Nirvana i 3D"
+        },
+        {
+            "type": "component",
+            "name": "MicroGame",
+            "props": { "gameId": "samsara-syklusen" }
+        },
+        {
+            "type": "header",
+            "text": "Videre lesning"
+        },
+        {
+            "type": "text",
+            "content": "Utforsk buddhismens hellige tekster og lær om Buddhas liv i artikkelen om [grunnleggerne av buddhismen](/krle/religion/buddhisme/grunnleggere). Les om [buddhistisk gudebilde](/krle/religion/buddhisme/gudsbilde) og [buddhistisk bønn og meditasjon](/krle/religion/buddhisme/bonn). Du kan også sammenligne buddhismen med andre religioner på [sammenligningssiden](/krle/sammenlign)."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hva er den første av De fire edle sannheter i buddhismen?",
+                        "options": [
+                            "Livet er fullt av lykke og glede",
+                            "Alt liv inneholder lidelse (Dukkha)",
+                            "Gud har skapt all lidelse"
+                        ],
+                        "answer": "Alt liv inneholder lidelse (Dukkha)"
+                    },
+                    {
+                        "question": "Hva betyr \"nirvana\" bokstavelig talt?",
+                        "options": [
+                            "En paradishage",
+                            "Guds rike",
+                            "\"Utblåsing\" - som å slukke en flamme"
+                        ],
+                        "answer": "\"Utblåsing\" - som å slukke en flamme"
+                    },
+                    {
+                        "question": "Hva er De tre gifter i buddhismen?",
+                        "options": [
+                            "Grådighet, hat og uvitenhet",
+                            "Stolthet, løgn og vold",
+                            "Begjær, rikdom og makt"
+                        ],
+                        "answer": "Grådighet, hat og uvitenhet"
+                    },
+                    {
+                        "question": "Hva er en Bodhisattva i Mahayana-buddhismen?",
+                        "options": [
+                            "Et buddhistisk tempel",
+                            "Et opplyst vesen som hjelper alle andre til frigjøring",
+                            "En buddhistisk hellig skriving"
+                        ],
+                        "answer": "Et opplyst vesen som hjelper alle andre til frigjøring"
+                    },
+                    {
+                        "question": "Hvilken del av Den åttedelte veien hører \"Rett meditasjon\" til?",
+                        "options": [
+                            "Visdom (Prajna)",
+                            "Etikk (Sila)",
+                            "Meditasjon (Samadhi)"
+                        ],
+                        "answer": "Meditasjon (Samadhi)"
+                    }
+                ]
+            }
         }
     ],
     "concepts": [
         {
+            "id": "dharma-buddh",
+            "term": "Dharma",
+            "definition": "Buddhas lære. Også brukt om den universelle kosmiske orden. Å følge Dharma betyr å leve i tråd med Buddhas innsikt."
+        },
+        {
+            "id": "samsara",
+            "term": "Samsara",
+            "definition": "Kretsløpet av gjenfødsel og lidelse. Buddhister tror vesener gjenfødes liv etter liv til de oppnår Nirvana og bryter ut av Samsara."
+        },
+        {
+            "id": "karma-buddh",
+            "term": "Karma",
+            "definition": "Prinsippet om årsak og virkning. Gode handlinger skaper gode konsekvenser, dårlige handlinger skaper dårlige. Karma er ikke en guddoms dom, men en naturlov."
+        },
+        {
             "id": "nirvana",
             "term": "Nirvana",
-            "definition": "Målet i buddhismen. En tilstand av total frihet fra lidelse og gjenfødsel."
+            "definition": "Buddhistenes mål. Tilstanden som oppstår når grådighet, hat og uvitenhet (De tre gifter) er sluknet. \"Nirvana\" betyr bokstavelig \"utblåsing\"."
         },
         {
-            "id": "den-attedelte-vei",
-            "term": "Den åttedelte vei",
-            "definition": "Veien til Nirvana. Inkluderer rett innsikt, rett tale, rett handling og rett meditasjon."
+            "id": "bodhisattva",
+            "term": "Bodhisattva",
+            "definition": "I Mahayana-buddhismen: et opplyst vesen som velger å ikke gå inn i Nirvana alene, men hjelper alle andre vesener til frigjøring. Regnes som det høyeste ideal."
         },
         {
-            "id": "anatta",
-            "term": "Anatta",
-            "definition": "Ikke-jeg. Læren om at det ikke finnes noen fast, uforanderlig sjel."
-        }
-    ],
-    "quiz": [
-        {
-            "question": "Hva er Nirvana?",
-            "options": [
-                "En himmel",
-                "Frihet fra lidelse og gjenfødsel",
-                "En gud"
-            ],
-            "answer": "Frihet fra lidelse og gjenfødsel"
+            "id": "dukkha",
+            "term": "Dukkha",
+            "definition": "Lidelse, utilfredshet, forgjengelighet. Den første av De fire edle sannheter: alt liv inneholder dukkha."
         },
         {
-            "question": "Hva er den første av de fire edle sannheter?",
-            "options": [
-                "Alt er lidelse",
-                "Gud finnes",
-                "Livet er en fest"
-            ],
-            "answer": "Alt er lidelse"
-        },
-        {
-            "question": "Hva betyr Anatta?",
-            "options": [
-                "Evig sjel",
-                "Ikke-jeg",
-                "Gud"
-            ],
-            "answer": "Ikke-jeg"
+            "id": "den-attedelte-veien",
+            "term": "Den åttedelte veien",
+            "definition": "Buddhas praktiske veiledning til Nirvana, delt i visdom (Prajna), etikk (Sila) og meditasjon (Samadhi). Den fjerde av De fire edle sannheter."
         }
     ],
     "quote": {

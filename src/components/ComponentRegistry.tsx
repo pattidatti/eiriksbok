@@ -255,6 +255,9 @@ const KolonimaktSkifte = lazy(() => import('./content/interactive/KolonimaktSkif
 const DigitalsporProfileren = lazy(() => import('./content/interactive/DigitalsporProfileren').then(m => ({ default: m.DigitalsporProfileren })));
 const Selvfolelsensfundament = lazy(() => import('./content/interactive/Selvfolelsensfundament').then(m => ({ default: m.Selvfolelsensfundament })));
 const NordMotSor = lazy(() => import('./content/interactive/NordMotSor').then(m => ({ default: m.NordMotSor })));
+const KristendomsGrenerUtforsker = lazy(() => import('./content/interactive/KristendomsGrenerUtforsker').then(m => ({ default: m.KristendomsGrenerUtforsker })));
+const BritPilarer = lazy(() => import('./content/interactive/BritPilarer').then(m => ({ default: m.BritPilarer })));
+const DharmahjuletUtforsker = lazy(() => import('./content/interactive/DharmahjuletUtforsker').then(m => ({ default: m.DharmahjuletUtforsker })));
 
 // Mikrospill: lett, embeddbart spill inline i artikkel. gameId-prop velger spillet
 // fra mikrospill-registeret (src/components/microgames/registry.ts).
@@ -534,6 +537,9 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     IdentitetsVeven,
     EngasjementsMaskinen,
     ArgumentBroen,
+    KristendomsGrenerUtforsker,
+    BritPilarer,
+    DharmahjuletUtforsker,
 };
 
 export const getComponent = (name: string) => {
