@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import type { GameEngineRef, DialogNode } from '../engine/types';
+import type { GameEngineRef, DialogNode, CinematicShot } from '../engine/types';
 import { addNPC, addPickup, addProp, addMonolog, addParticle, addAmbientAudio } from '../engine/declarative';
 import { registerMainSunLight, registerMainHemiLight } from '../engine/sceneUserData';
 import {
@@ -13,19 +13,27 @@ import { marsjenMotRomaMonologs } from './MarsjenMotRomaMonologs';
 
 // ─── Layout-konstanter ───────────────────────────────────────────────────────
 // Positiv Z = sør (spilleren spawn her). Spilleren marsjerer mot Roma i -Z.
+// Sidetorg mot vest (-X) rundt det utbrente trykkeriet.
 const BARRIER_Z = -6; // hærens veisperring blokkerer veien her til klimakset
+
+// De tre svar-notatene syntese-puzzlen krever. checkClimax åpner ikke puzzlen før
+// alle tre er samlet, så finalen aldri soft-låser.
+const REQUIRED_NOTES = ['notat-darlig-bevaepnet', 'notat-fascismens-natur', 'notat-elitens-svik'];
 
 export function setupMarsjenMotRomaScene(engine: GameEngineRef): void {
     const { scene, sceneMat } = engine;
 
     // ═══════════════════════════════════════════════════════════════════════
     // VÆR + FILL-LYS (overskyet, regnvåt oktoberdag - som den ekte marsjen)
+    // Atmosfæren er dynamisk: vær/lys endrer seg per fase (se atmosfære-buen lenger nede).
     // ═══════════════════════════════════════════════════════════════════════
-    engine.setWeather({ type: 'rain', intensity: 0.55 });
+    engine.setWeather({ type: 'rain', intensity: 0.4 });
 
     // Hemi + sol registrert med TimeOfDaySystem slik at de drives av timeOfDay
     // og får quality-boost på lav tier. Solen kaster skygger på medium/høy.
-    const hemi = new THREE.HemisphereLight(0xb8b4ac, 0x47443e, 1.15);
+    // VIKTIG: ikke override sun.intensity i update-loopen — TimeOfDaySystem driver
+    // intensiteten inkl. qualityBoost (1.5× på lav tier). Kun fargeovergangen beholdes.
+    const hemi = new THREE.HemisphereLight(0xb8b4ac, 0x47443e, 1.4);
     scene.add(hemi);
     registerMainHemiLight(scene, hemi);
 
@@ -40,15 +48,18 @@ export function setupMarsjenMotRomaScene(engine: GameEngineRef): void {
     sc.far = 80;
     scene.add(sun);
     registerMainSunLight(scene, sun);
+    // Farger brukt av atmosfære-buen for å varme solen i klimaks.
+    const sunBaseColor = new THREE.Color(0xd4cec2);
+    const sunWarmColor = new THREE.Color(0xf6e2b8);
 
     // ═══════════════════════════════════════════════════════════════════════
     // BAKKE + VEI
     // ═══════════════════════════════════════════════════════════════════════
     const ground = new THREE.Mesh(
-        new THREE.BoxGeometry(48, 1, 96),
+        new THREE.BoxGeometry(56, 1, 96),
         sceneMat(0x4f4738, { preset: 'soil', roughness: 1.0 }),
     );
-    ground.position.set(0, -0.5, -6);
+    ground.position.set(-4, -0.5, -6); // forskjøvet vest for å romme sidetorget
     ground.receiveShadow = true;
     ground.userData.solid = true;
     scene.add(ground);
@@ -62,9 +73,18 @@ export function setupMarsjenMotRomaScene(engine: GameEngineRef): void {
     road.receiveShadow = true;
     scene.add(road);
 
-    // Blanke vannpytter på veien (regnet ligger i søkk) - rent visuelt
+    // Sidegate mot vest (inn til trykkeri-torget) - brutt korridor, lateral dybde
+    const alley = new THREE.Mesh(
+        new THREE.BoxGeometry(12, 0.06, 5),
+        sceneMat(0x3c3833, { preset: 'stone', roughness: 0.95 }),
+    );
+    alley.position.set(-10, 0.03, 5);
+    alley.receiveShadow = true;
+    scene.add(alley);
+
+    // Blanke vannpytter (regnet ligger i søkk) - rent visuelt
     const puddlePositions: [number, number][] = [
-        [-1.5, 18], [2, 9], [-2, 1], [1, -9], [-1, -16],
+        [-1.5, 18], [2, 9], [-2, 1], [1, -9], [-1, -16], [-10, 4], [-12, 7],
     ];
     for (let i = 0; i < puddlePositions.length; i++) {
         const [px, pz] = puddlePositions[i];
@@ -84,11 +104,13 @@ export function setupMarsjenMotRomaScene(engine: GameEngineRef): void {
         // x, z, bredde, dybde, høyde, veggfarge
         [-11, 16, 6, 5, 4.5, 0xb07248],
         [11, 14, 7, 6, 5.5, 0xa86840],
-        [-12, 7, 7, 6, 6, 0x9c6038],
         [11, 6, 6, 5, 4.8, 0xb47a52],
         [12, -1, 7, 6, 6.5, 0xa06438],
         [-12, -11, 7, 7, 7, 0x986848],
         [12, -12, 7, 7, 7, 0x9a6240],
+        // Sidetorget mot vest (rammer inn trykkeriet)
+        [-15, 2, 5, 5, 5, 0x9c6038],
+        [-15, 9, 6, 5, 5.5, 0xa86c44],
     ];
     for (let i = 0; i < buildings.length; i++) {
         const [x, z, w, d, h, color] = buildings[i];
@@ -96,17 +118,24 @@ export function setupMarsjenMotRomaScene(engine: GameEngineRef): void {
     }
 
     // ═══════════════════════════════════════════════════════════════════════
-    // SVARTSKJORTE-KOLONNER (tusenvis antydet med to flankerende rekker)
+    // SVARTSKJORTE-KOLONNER (tusenvis antydet med tette, tåke-graderte rekker)
+    // Nære rekker = detaljerte figurer; fjerne rekker forsvinner i tåka i begge ender.
     // ═══════════════════════════════════════════════════════════════════════
     const staticMarcherGroups: THREE.Group[] = [];
-    for (let row = 0; row < 9; row++) {
-        const z = 17 - row * 2.4;
+    for (let row = 0; row < 11; row++) {
+        const z = 19 - row * 2.4;
         staticMarcherGroups.push(addMarcher(scene, sceneMat, -5.4 - (row % 2) * 0.5, z));
         staticMarcherGroups.push(addMarcher(scene, sceneMat, 5.4 + (row % 2) * 0.5, z));
         if (row % 2 === 0) {
             staticMarcherGroups.push(addMarcher(scene, sceneMat, -6.9, z - 0.6));
             staticMarcherGroups.push(addMarcher(scene, sceneMat, 6.9, z - 0.6));
         }
+    }
+    // Fjerne silhuett-rekker som drukner i tåka mot Roma (-Z) og bakover (+Z) -
+    // gir inntrykk av at marsjen ikke har noen ende. Billige (ingen skygge).
+    for (let row = 0; row < 6; row++) {
+        addSilhouetteRow(scene, sceneMat, -10 - row * 3.5); // mot Roma
+        addSilhouetteRow(scene, sceneMat, 24 + row * 3.5); // bakover, uendelige rekker
     }
 
     // Noen faner over kolonnen (sobert dyp rødt - ikke dyrket)
@@ -124,18 +153,52 @@ export function setupMarsjenMotRomaScene(engine: GameEngineRef): void {
 
     // ═══════════════════════════════════════════════════════════════════════
     // UTBRENT TRYKKERI (squadristi-volden vist som ettervirkning, ikke utspilt)
+    // På sidetorget mot vest. Linse-mål: «Se nærmere» → notat-volden.
     // ═══════════════════════════════════════════════════════════════════════
-    addBuilding(scene, sceneMat, -10, 3, 6, 5, 4, 0x1d1813); // sotsvart ruin
+    const ruinWall = new THREE.Mesh(
+        new THREE.BoxGeometry(6, 4, 5),
+        sceneMat(0x1d1813, { preset: 'stone', roughness: 0.95 }),
+    );
+    ruinWall.position.set(-11, 2, 4);
+    ruinWall.castShadow = true;
+    ruinWall.receiveShadow = true;
+    ruinWall.userData.solid = true;
+    scene.add(ruinWall);
     // Innfalt takbjelke
     const beam = new THREE.Mesh(
         new THREE.BoxGeometry(5, 0.3, 0.3),
         sceneMat(0x14110d, { preset: 'wood', roughness: 1 }),
     );
-    beam.position.set(-9.4, 2.1, 4.4);
+    beam.position.set(-10.4, 3.1, 5.4);
     beam.rotation.z = 0.5;
     beam.castShadow = true;
     scene.add(beam);
-    addParticle(engine, { id: 'ruin-smoke', preset: 'smoke', pos: [-10, 4, 3], scale: 1.6 });
+    addParticle(engine, { id: 'ruin-smoke', preset: 'smoke', pos: [-11, 4.4, 4], scale: 1.6 });
+
+    // ═══════════════════════════════════════════════════════════════════════
+    // VÅPENBOD (linse-mål #2: «Se nærmere på våpnene» → notat-darlig-bevaepnet)
+    // Plassert tydelig langs hovedveien så den ikke kan overses (kreves for finalen).
+    // ═══════════════════════════════════════════════════════════════════════
+    const weaponRack = makeWeaponRack(scene, sceneMat);
+    weaponRack.position.set(-3.6, 0, 13);
+
+    // ═══════════════════════════════════════════════════════════════════════
+    // VOGN (vista-mål: «Klatre opp» → cinematic over havet av svartskjorter)
+    // ═══════════════════════════════════════════════════════════════════════
+    const cart = makeCart(scene, sceneMat);
+    cart.position.set(6, 0, 19);
+
+    // ═══════════════════════════════════════════════════════════════════════
+    // TROMME (valgfri rytme-aktivitet: kjenn korsangens dragning på kroppen)
+    // ═══════════════════════════════════════════════════════════════════════
+    const drum = new THREE.Mesh(
+        new THREE.CylinderGeometry(0.5, 0.5, 0.7, 16),
+        sceneMat(0x6e2018, { preset: 'wood', roughness: 0.8 }),
+    );
+    drum.position.set(3.4, 0.7, 12);
+    drum.castShadow = true;
+    drum.userData.solid = true;
+    scene.add(drum);
 
     // ═══════════════════════════════════════════════════════════════════════
     // HÆRENS VEISPERRING (usynlig collider + synlige soldater som kan trekkes unna)
@@ -158,6 +221,7 @@ export function setupMarsjenMotRomaScene(engine: GameEngineRef): void {
     sawhorse.castShadow = true;
     soldierGroup.add(sawhorse);
     const soldierX = [-2.4, -0.8, 0.8, 2.4];
+    let linseSoldierBody: THREE.Mesh | null = null;
     for (let i = 0; i < soldierX.length; i++) {
         const s = makeFigure(sceneMat, 0x4a5640, 0xc89868, 0x2c3424); // grågrønn uniform
         s.position.set(soldierX[i], 0, BARRIER_Z - 0.6);
@@ -175,6 +239,7 @@ export function setupMarsjenMotRomaScene(engine: GameEngineRef): void {
         riflePipe.position.set(0.42, 1.54, 0.05);
         s.add(riflePipe);
         soldierGroup.add(s);
+        if (i === 1) linseSoldierBody = s.children[0] as THREE.Mesh; // linse-mål #5
     }
     scene.add(soldierGroup);
 
@@ -280,6 +345,19 @@ export function setupMarsjenMotRomaScene(engine: GameEngineRef): void {
         marchNPCs.push({ group: g, z: d.z, speed: d.speed, minZ: d.minZ, maxZ: d.maxZ, dir: -1 });
     }
 
+    // Linse-mål #1: en nær marsjerende - «Se nærmere» avslører den våte gutten med kosteskaft
+    const linseMarcher = makeFigure(sceneMat, 0x26262a, 0xc89868, 0x16161a);
+    linseMarcher.position.set(3.4, 0, 20.5);
+    // Liten kosteskaft i hånda (avsløres ved push-in)
+    const broom = new THREE.Mesh(
+        new THREE.CylinderGeometry(0.04, 0.04, 1.7, 6),
+        sceneMat(0x7a5a32, { preset: 'wood', roughness: 1 }),
+    );
+    broom.position.set(0.34, 0.9, 0.05);
+    broom.rotation.z = 0.18;
+    linseMarcher.add(broom);
+    scene.add(linseMarcher);
+
     // ═══════════════════════════════════════════════════════════════════════
     // KONG VIKTOR og MUSSOLINI (statiske figurer, skjult inntil cinematics)
     // ═══════════════════════════════════════════════════════════════════════
@@ -317,7 +395,7 @@ export function setupMarsjenMotRomaScene(engine: GameEngineRef): void {
         pos: [3, 0, 9],
         colors: { body: 0x2a2a2e, head: 0xd0a070, legs: 0x1a1a1e },
         emotion: 'triumphant',
-        questMarker: false,
+        questMarker: true,
         dialogs: ginoDialogs,
     });
 
@@ -325,7 +403,7 @@ export function setupMarsjenMotRomaScene(engine: GameEngineRef): void {
         id: 'pietro',
         name: 'Pietro',
         characterType: 'farmer',
-        pos: [-7, 0, 5],
+        pos: [-10, 0, 7], // flyttet til sidetorget ved trykkeriet
         colors: { body: 0x4a4038, head: 0xb88a64, legs: 0x2e271f },
         emotion: 'worried',
         questMarker: false,
@@ -354,6 +432,23 @@ export function setupMarsjenMotRomaScene(engine: GameEngineRef): void {
         dialogs: contiDialogs,
     });
 
+    // Liten livspustende vandring på de tidlige NPC-ene (de er fortsatt lette å snakke
+    // med - E virker uansett posisjon). Renzi/Conti står i ro (i givakt/på vakt).
+    engine.assignRoute({
+        characterId: 'carlo',
+        waypoints: [[-3, 23], [-2.2, 23.4], [-3, 23]],
+        mode: 'pingpong',
+        speed: 0.25,
+        pauseMs: 2600,
+    });
+    engine.assignRoute({
+        characterId: 'gino',
+        waypoints: [[3, 9], [3.6, 9.5], [3, 9]],
+        mode: 'pingpong',
+        speed: 0.3,
+        pauseMs: 2200,
+    });
+
     // ═══════════════════════════════════════════════════════════════════════
     // PICKUPS (flavor/dybde - leses i inventar)
     // ═══════════════════════════════════════════════════════════════════════
@@ -376,52 +471,107 @@ export function setupMarsjenMotRomaScene(engine: GameEngineRef): void {
     });
 
     // ═══════════════════════════════════════════════════════════════════════
-    // PROPAGANDA-PLAKATER (interaktive — E for å undersøke)
+    // SANNHETENS LINSE - de fysiske avsløringene (E: «Se nærmere»)
+    // Avstandsbildet (løgnen) vs. nærbildet (sannheten). Hver gir et notat.
     // ═══════════════════════════════════════════════════════════════════════
-    // Plakat 1: På veggen av bygning ved leiren (nord for Carlo, sør for marsj-kolonnen)
-    const plakat1 = new THREE.Mesh(
-        new THREE.BoxGeometry(1.4, 1.8, 0.06),
-        sceneMat(0x8a1a14, { preset: 'stone', roughness: 0.85 }),
-    );
-    plakat1.position.set(-7.7, 2.2, 14);
-    plakat1.castShadow = false;
-    scene.add(plakat1);
-    // Lys tekst-imitasjon
-    const plakatTekst1 = new THREE.Mesh(
-        new THREE.BoxGeometry(1.1, 0.2, 0.07),
-        sceneMat(0xf4e4c1, { preset: 'cloth', roughness: 1 }),
-    );
-    plakatTekst1.position.set(-7.7, 2.5, 14.04);
-    scene.add(plakatTekst1);
-    engine.registerInteract(plakat1, {
+    // #1 Marsjerende (hero-avsløring m/ push-in): hæren er en kledning
+    wireLinse(engine, linseMarcher.children[0] as THREE.Mesh, {
+        label: 'Se nærmere (E)',
+        monolog: 'linse_marsjer',
+        note: 'notat-haeren-kledning',
+        flag: 'saw_costume',
+        radius: 3,
+        pushIn: [
+            { duration: 1.7, cameraPos: [3.4, 1.5, 22.4], lookAt: [3.4, 1.0, 20.5], fov: 36, transition: 'cut' },
+        ],
+    });
+    // #2 Våpnene (hero-avsløring m/ push-in): militært maktesløs - KREVES for finalen
+    wireLinse(engine, weaponRack.children[0] as THREE.Mesh, {
+        label: 'Se nærmere på våpnene (E)',
+        monolog: 'linse_vaapen',
+        note: 'notat-darlig-bevaepnet',
+        flag: 'saw_weapons',
+        radius: 3,
+        pushIn: [
+            { duration: 1.7, cameraPos: [-3.6, 1.3, 14.8], lookAt: [-3.6, 0.8, 13], fov: 38, transition: 'cut' },
+        ],
+        onAfter: () => checkClimax(engine),
+    });
+    // #4 Trykkeriet: volden er politikken
+    wireLinse(engine, ruinWall, {
+        label: 'Se nærmere på ruinene (E)',
+        monolog: 'trykkeriet',
+        note: 'notat-volden',
+        flag: 'saw_arson',
+        radius: 4,
+    });
+    // #5 Soldaten ved sperringen: den ekte hæren er lammet
+    if (linseSoldierBody) {
+        wireLinse(engine, linseSoldierBody, {
+            label: 'Se nærmere på soldatene (E)',
+            monolog: 'linse_soldat',
+            note: 'notat-haeren-lammet',
+            flag: 'saw_real_army',
+            radius: 3.5,
+        });
+    }
+
+    // ═══════════════════════════════════════════════════════════════════════
+    // PROPAGANDA-PLAKATER (#3: «Se nærmere» → notat-propaganda)
+    // ═══════════════════════════════════════════════════════════════════════
+    const plakat1 = makePoster(scene, sceneMat, -7.7, 14, 0x8a1a14);
+    wireLinse(engine, plakat1, {
         label: 'Les plakaten (E)',
+        monolog: 'plakat_svart',
+        note: 'notat-propaganda',
+        flag: 'saw_propaganda',
+        radius: 3,
+    });
+    const plakat2 = makePoster(scene, sceneMat, 8.7, 2, 0x1a1a1e);
+    wireLinse(engine, plakat2, {
+        label: 'Les plakaten (E)',
+        monolog: 'plakat_vilje',
+        note: 'notat-propaganda', // samme notat - wireLinse legger ikke til duplikat
+        radius: 3,
+    });
+
+    // ═══════════════════════════════════════════════════════════════════════
+    // VISTA (valgfri): klatre opp på vogna og se utover havet av svartskjorter
+    // ═══════════════════════════════════════════════════════════════════════
+    engine.registerInteract(cart.children[0] as THREE.Mesh, {
+        label: 'Klatre opp på vogna (E)',
         radius: 3,
         onInteract: () => {
-            engine.unregisterInteract(plakat1);
-            engine.playMonolog('plakat_svart');
+            engine.unregisterInteract(cart.children[0] as THREE.Mesh);
+            void engine.playCinematic([
+                { duration: 3.2, cameraPos: [6, 4.2, 21], lookAt: [0, 1.2, 4], fov: 58, transition: 'fade' },
+                { duration: 3.0, cameraPos: [6, 4.4, 19], lookAt: [0, 1.2, -10], fov: 54, transition: 'cut' },
+            ]);
+            engine.schedule(() => engine.playMonolog('vista'), 600);
         },
     });
 
-    // Plakat 2: Lenger nord langs ruten, på høyre bygning
-    const plakat2 = new THREE.Mesh(
-        new THREE.BoxGeometry(1.4, 1.8, 0.06),
-        sceneMat(0x1a1a1e, { preset: 'stone', roughness: 0.85 }),
-    );
-    plakat2.position.set(8.7, 2.2, 2);
-    plakat2.castShadow = false;
-    scene.add(plakat2);
-    const plakatTekst2 = new THREE.Mesh(
-        new THREE.BoxGeometry(1.1, 0.2, 0.07),
-        sceneMat(0xf4e4c1, { preset: 'cloth', roughness: 1 }),
-    );
-    plakatTekst2.position.set(8.7, 2.6, 2.04);
-    scene.add(plakatTekst2);
-    engine.registerInteract(plakat2, {
-        label: 'Les plakaten (E)',
-        radius: 3,
+    // ═══════════════════════════════════════════════════════════════════════
+    // TROMME-AKTIVITET (valgfri rytme-beat: kjenn korsangens dragning)
+    // ═══════════════════════════════════════════════════════════════════════
+    engine.registerInteract(drum, {
+        label: 'Slå med på trommen (E)',
+        radius: 2.5,
         onInteract: () => {
-            engine.unregisterInteract(plakat2);
-            engine.playMonolog('plakat_vilje');
+            engine.openActivity({
+                id: 'korsang',
+                label: 'Korsangen',
+                prompt: 'Trykk MELLOMROM i takt med slagene: «A noi! A noi!»',
+                variant: 'rhythm',
+                durationMs: 6000,
+                windowMs: 720,
+                successThreshold: 0.55,
+                onSuccess: () => {
+                    engine.setFlag('felt_the_pull', true);
+                    engine.schedule(() => engine.playMonolog('marsj_rop'), 300);
+                },
+                onFail: () => engine.playMonolog('marsj_rop'),
+            });
         },
     });
 
@@ -431,23 +581,12 @@ export function setupMarsjenMotRomaScene(engine: GameEngineRef): void {
     for (const node of Object.values(marsjenMotRomaMonologs)) {
         engine.registerMonolog(node);
     }
-    addMonolog(engine, {
-        id: 'trykkeriet',
-        lines: marsjenMotRomaMonologs.trykkeriet.lines,
-        once: true,
-        trigger: { type: 'proximity', pos: [-7, 0, 5], radius: 4 },
-    });
+    // Proximity-teaser ved sperringen (selve notatet gis via linse på soldaten)
     addMonolog(engine, {
         id: 'haeren',
         lines: marsjenMotRomaMonologs.haeren.lines,
         once: true,
         trigger: { type: 'proximity', pos: [0, 0, -2], radius: 4 },
-    });
-    addMonolog(engine, {
-        id: 'marsj_rop',
-        lines: marsjenMotRomaMonologs.marsj_rop.lines,
-        once: true,
-        trigger: { type: 'proximity', pos: [0, 0, 11], radius: 4 },
     });
 
     // ═══════════════════════════════════════════════════════════════════════
@@ -456,55 +595,67 @@ export function setupMarsjenMotRomaScene(engine: GameEngineRef): void {
     addAmbientAudio(engine, { id: 'rain-wind', audio: 'wind-indoor', volume: 0.3, loop: true });
 
     // ═══════════════════════════════════════════════════════════════════════
-    // DIALOG-ACTIONS (kobler engine-flagg på dialog-noder)
+    // DIALOG-ACTIONS (kobler engine-flagg + notater på dialog-noder)
     // ═══════════════════════════════════════════════════════════════════════
     const dialogs = engine.config.dialogs;
 
-    wireDialogEnd(dialogs, 'carlo_greeting', () =>
-        engine.setCharacterMarkerVisible('carlo', false),
-    );
-    wireDialogEnd(dialogs, 'carlo_mussolini', () =>
-        engine.setFlag('learned_mussolini_background', true),
-    );
-    wireDialogEnd(dialogs, 'carlo_why', () =>
-        engine.setFlag('learned_mussolini_background', true),
-    );
+    // VIKTIG: node.onEnd fyrer KUN på noden der spilleren velger et `next:null`-valg
+    // (ikke på mellomnoder man navigerer videre fra). Derfor settes gating-flagg via
+    // choice.action i det øyeblikket spilleren ENGASJERER temaet - uavhengig av hvor
+    // dypt de navigerer eller hvor de avslutter. checkClimax kjøres når samtalen LUKKES
+    // (onEnd på alle Renzi/Conti-noder; bare terminal-noden fyrer = riktig timing).
 
-    wireDialogEnd(dialogs, 'gino_creed', () => engine.setFlag('learned_fascism_traits', true));
-    wireDialogEnd(dialogs, 'gino_violence', () => engine.setFlag('saw_squadristi_violence', true));
+    // Carlo (ikke gating - bare marker + flavor-flagg)
+    wireChoiceAction(dialogs, ['carlo_mussolini', 'carlo_why', 'carlo_quiz_sosialist'], () => {
+        engine.setFlag('learned_mussolini_background', true);
+        engine.setCharacterMarkerVisible('carlo', false);
+    });
 
-    wireDialogEnd(dialogs, 'pietro_greeting', () =>
+    // Gino: fascismens kjerne (gir svar-notatet, men er IKKE påkrevd for å åpne finalen -
+    // checkClimax fyller inn manglende notater som sikkerhetsnett)
+    wireChoiceAction(dialogs, ['gino_creed'], () => {
+        engine.setFlag('learned_fascism_traits', true);
+        engine.setCharacterMarkerVisible('gino', false);
+        grantNote(engine, 'notat-fascismens-natur');
+    });
+    wireChoiceAction(dialogs, ['gino_violence'], () => {
+        engine.setFlag('saw_squadristi_violence', true);
+        engine.setCharacterMarkerVisible('gino', false);
+    });
+
+    wireChoiceAction(dialogs, ['pietro_state'], () =>
         engine.setFlag('saw_squadristi_violence', true),
     );
 
-    wireDialogEnd(dialogs, 'kaptein_greeting', () =>
-        engine.setCharacterMarkerVisible('kaptein', false),
-    );
-    wireDialogEnd(dialogs, 'kaptein_bluff', () => {
+    // Renzi: bløffen (gating-flagg). Settes så snart spilleren spør om hæren kan stoppe
+    // marsjen ELLER hvorfor de venter - dekker alle grener inkl. quiz.
+    wireChoiceAction(dialogs, ['kaptein_bluff', 'kaptein_orders', 'kaptein_quiz_ordre'], () => {
         engine.setFlag('learned_bluff', true);
-        checkClimax(engine);
-    });
-    wireDialogEnd(dialogs, 'kaptein_orders', () => {
-        engine.setFlag('learned_bluff', true);
-        checkClimax(engine);
+        engine.setCharacterMarkerVisible('kaptein', false);
+        grantNote(engine, 'notat-darlig-bevaepnet'); // Renzis poeng: dårlig bevæpnet
     });
 
-    wireDialogEnd(dialogs, 'conti_greeting', () =>
-        engine.setCharacterMarkerVisible('conti', false),
+    // Conti: elitens motiv (gating-flagg). Settes ved begge inngangsvalg.
+    wireChoiceAction(dialogs, ['conti_motive', 'conti_compare'], () => {
+        engine.setFlag('learned_elite_motive', true);
+        engine.setCharacterMarkerVisible('conti', false);
+        grantNote(engine, 'notat-elitens-svik');
+    });
+    wireChoiceAction(dialogs, ['conti_compare'], () =>
+        engine.setFlag('compared_communism', true),
     );
-    wireDialogEnd(dialogs, 'conti_motive', () => {
-        engine.setFlag('learned_elite_motive', true);
-        checkClimax(engine);
-    });
-    wireDialogEnd(dialogs, 'conti_compare', () => {
-        engine.setFlag('compared_communism', true);
-        // Conti-samtalen dekker også elitens motiv hvis eleven gikk rett på sammenligningen
-        engine.setFlag('learned_elite_motive', true);
-        checkClimax(engine);
-    });
+
+    // Åpne syntese-finalen når spilleren LUKKER en Renzi/Conti-samtale og begge
+    // gating-flagg er satt. onEnd på alle noder → bare terminal-noden fyrer = ved lukking.
+    for (const key of [
+        'kaptein_greeting', 'kaptein_bluff', 'kaptein_orders', 'kaptein_quiz_ordre', 'kaptein_quiz_riktig',
+        'conti_greeting', 'conti_motive', 'conti_compare',
+    ]) {
+        wireDialogEnd(dialogs, key, () => checkClimax(engine));
+    }
 
     // ═══════════════════════════════════════════════════════════════════════
-    // QUIZ: siste steg i puzzle setter kongens-valg-fasen i gang
+    // SYNTESE-PUZZLE: riktig forsidesak starter kongens-valg-fasen
     // ═══════════════════════════════════════════════════════════════════════
     const puzzleConfig = engine.config.puzzle;
     if (puzzleConfig?.steps?.length) {
@@ -514,6 +665,38 @@ export function setupMarsjenMotRomaScene(engine: GameEngineRef): void {
             existingOnCorrect?.();
             engine.schedule(() => engine.setPhase('kongens-valg'), 1200);
         };
+    }
+
+    // ═══════════════════════════════════════════════════════════════════════
+    // ATMOSFÆRE-BUE: vær + lys følger fortellingen (verden forteller historien)
+    // ═══════════════════════════════════════════════════════════════════════
+    let todCurrent = 0.42; // lokal sannhet for timeOfDay (lerpes mot mål)
+    let todTarget = 0.42;
+    let atmospherePhase = '';
+    function applyAtmosphere(phase: string): void {
+        switch (phase) {
+            case 'samling':
+                engine.setWeather({ type: 'rain', intensity: 0.4 });
+                todTarget = 0.42;
+                break;
+            case 'marsjen':
+                engine.setWeather({ type: 'rain', intensity: 0.3 }); // regnet letner
+                todTarget = 0.44;
+                break;
+            case 'bloeffen':
+                engine.setWeather({ type: 'clear', intensity: 0 }); // regnet stopper, uhyggelig stille
+                todTarget = 0.43;
+                break;
+            case 'kongens-valg':
+                engine.setWeather({ type: 'clear', intensity: 0 });
+                todTarget = 0.60; // ettermiddagssol bryter gjennom — TimeOfDaySystem driver intensitet inkl. qualityBoost
+                engine.setBloom(0.55);
+                break;
+            case 'seieren':
+                engine.setWeather({ type: 'fog', intensity: 0.3 });
+                todTarget = 0.32; // grått igjen, mot demring - hul «seier»
+                break;
+        }
     }
 
     // ═══════════════════════════════════════════════════════════════════════
@@ -533,6 +716,24 @@ export function setupMarsjenMotRomaScene(engine: GameEngineRef): void {
     engine.registerUpdate((dt) => {
         elapsedTime += dt;
         const phase = engine.getPhase();
+
+        // Atmosfære-bytte når fasen skifter
+        if (phase !== atmospherePhase) {
+            atmospherePhase = phase;
+            applyAtmosphere(phase);
+        }
+        // Myk overgang av timeOfDay mot målet (cheap lerp)
+        if (Math.abs(todCurrent - todTarget) > 0.001) {
+            todCurrent += (todTarget - todCurrent) * Math.min(1, dt * 0.6);
+            engine.setTimeOfDay(todCurrent);
+        }
+        // Solfarge varmes i klimaks — intensiteten drives av TimeOfDaySystem (inkl. qualityBoost)
+        if (phase === 'kongens-valg' || phase === 'seieren') {
+            sun.color.lerp(sunWarmColor, Math.min(1, dt * 0.8));
+        } else {
+            sun.color.lerp(sunBaseColor, Math.min(1, dt * 0.5));
+        }
+
         const p = engine.getPlayerPosition();
 
         // Marsjen begynner når spilleren forlater leiren
@@ -590,7 +791,7 @@ export function setupMarsjenMotRomaScene(engine: GameEngineRef): void {
             // 12000ms: Mussolini-sekvens (etter kongen_taler ~10.5s er ferdig)
             // fadeToBlack → plasser Mussolini → cinematicens transition:'fade' tar over fra svart
             engine.schedule(() => {
-                engine.fadeToBlack(800);
+                void engine.fadeToBlack(800);
                 engine.schedule(() => {
                     // Mussolini ved palassportene (z=-16 = foran fasaden, klart fra bygninger)
                     mussoliniGroup.position.set(4, 0, -16);
@@ -668,15 +869,61 @@ export function setupMarsjenMotRomaScene(engine: GameEngineRef): void {
 
 // ─── Helpers ───────────────────────────────────────────────────────────────
 
+// Legg et notat i notatboka uten å lage duplikat (notat-items er stackable:false).
+function grantNote(engine: GameEngineRef, itemId: string): void {
+    if (!engine.hasItem(itemId)) engine.addItem(itemId);
+}
+
+interface LinseOpts {
+    label: string;
+    monolog: string;
+    note: string;
+    flag?: string;
+    radius?: number;
+    pushIn?: CinematicShot[];
+    onAfter?: () => void;
+}
+
+// Sannhetens linse: «Se nærmere» på en mesh. Avslører sannheten (monolog), legger et
+// notat i notatboka, setter et flagg, og kan kjøre en kort kamera-push-in for de
+// sterke avsløringene. Engangsbruk (unregistrerer interaksjonen).
+function wireLinse(engine: GameEngineRef, mesh: THREE.Mesh, opts: LinseOpts): void {
+    engine.registerInteract(mesh, {
+        label: opts.label,
+        radius: opts.radius ?? 3,
+        onInteract: () => {
+            engine.unregisterInteract(mesh);
+            if (opts.flag) engine.setFlag(opts.flag, true);
+            grantNote(engine, opts.note);
+            if (opts.pushIn) {
+                void engine.playCinematic(opts.pushIn);
+                engine.schedule(() => engine.playMonolog(opts.monolog), 300);
+            } else {
+                engine.playMonolog(opts.monolog);
+            }
+            opts.onAfter?.();
+        },
+    });
+}
+
+// Åpner syntese-puzzlen når spilleren har snakket med offiseren (Renzi → learned_bluff)
+// OG industrieieren (Conti → learned_elite_motive). Gating KUN på disse to (de eneste
+// obligatoriske NPC-ene), så finalen aldri soft-låser. Som sikkerhetsnett garanteres
+// de tre svar-notatene før puzzlen åpner: notater fra valgfrie linse-/Gino-funn man har
+// gjort beholdes, og det som mangler fylles inn (journalisten setter sammen bildet av alt
+// han har sett). Slik er syntesen alltid løsbar uansett rekkefølge eller utforskning.
 function checkClimax(engine: GameEngineRef): void {
-    if (
-        engine.getPhase() === 'bloeffen' &&
-        engine.getFlag<boolean>('learned_bluff') &&
-        engine.getFlag<boolean>('learned_elite_motive')
-    ) {
-        // Åpne quiz for å aktivere kongens-valg. Siste puzzle-steg setter fasen.
-        engine.schedule(() => engine.openPuzzle(), 800);
+    if (engine.getPhase() !== 'bloeffen') return;
+    if (engine.getFlag<boolean>('puzzle_started')) return;
+    if (!engine.getFlag<boolean>('learned_bluff')) return;
+    if (!engine.getFlag<boolean>('learned_elite_motive')) return;
+
+    // Sikkerhetsnett: garanter at de tre svar-notatene finnes (ingen duplikat).
+    for (const id of REQUIRED_NOTES) {
+        if (!engine.hasItem(id)) engine.addItem(id);
     }
+    engine.setFlag('puzzle_started', true);
+    engine.schedule(() => engine.openPuzzle(), 800);
 }
 
 function wireDialogEnd(
@@ -696,6 +943,31 @@ function wireDialogEnd(
                 action();
             }
         };
+    }
+}
+
+// Legg en handling på ALLE valg som leder til en av `nextTargets`-nodene. Brukes til å
+// sette gating-flagg i det øyeblikket spilleren engasjerer et tema - robust mot at
+// node.onEnd kun fyrer på terminal-noder (se forklaring der dette kalles).
+function wireChoiceAction(
+    dialogs: Record<string, DialogNode | DialogNode[]>,
+    nextTargets: string[],
+    action: () => void,
+): void {
+    const targetSet = new Set(nextTargets);
+    for (const entry of Object.values(dialogs)) {
+        const nodes = Array.isArray(entry) ? entry : [entry];
+        for (const node of nodes) {
+            for (const choice of node.choices) {
+                if (choice.next && targetSet.has(choice.next)) {
+                    const existing = choice.action;
+                    choice.action = (): void => {
+                        existing?.();
+                        action();
+                    };
+                }
+            }
+        }
     }
 }
 
@@ -769,6 +1041,99 @@ function addMarcher(
     g.position.set(x, 0, z);
     scene.add(g);
     return g;
+}
+
+// Billig silhuett-rekke som drukner i tåka (ingen skygge, mørk). Antyder uendelige
+// rekker uten å koste figur-detaljer.
+function addSilhouetteRow(
+    scene: THREE.Scene,
+    sceneMat: GameEngineRef['sceneMat'],
+    z: number,
+): void {
+    const mat = sceneMat(0x1a1a1e, { preset: 'cloth', roughness: 1 });
+    for (let i = 0; i < 8; i++) {
+        const x = -7 + i * 2;
+        const body = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.36, 1.5, 6), mat);
+        body.position.set(x + (i % 2) * 0.4, 0.75, z);
+        scene.add(body);
+    }
+}
+
+// Våpenbod: lent bunt av staur + et par rustne gevær. Linse-mål for «dårlig bevæpnet».
+function makeWeaponRack(scene: THREE.Scene, sceneMat: GameEngineRef['sceneMat']): THREE.Group {
+    const g = new THREE.Group();
+    const stand = new THREE.Mesh(
+        new THREE.BoxGeometry(1.4, 0.9, 0.5),
+        sceneMat(0x5a4632, { preset: 'wood', roughness: 0.9 }),
+    );
+    stand.position.y = 0.45;
+    stand.castShadow = true;
+    stand.userData.solid = true;
+    g.add(stand);
+    // Lente staur og rifler
+    const stickMat = sceneMat(0x7a5a32, { preset: 'wood', roughness: 1 });
+    for (let i = 0; i < 6; i++) {
+        const stick = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 1.8, 6), stickMat);
+        stick.position.set(-0.5 + i * 0.2, 1.1, 0);
+        stick.rotation.z = 0.22 + (i % 2) * 0.05;
+        stick.castShadow = true;
+        g.add(stick);
+    }
+    scene.add(g);
+    return g;
+}
+
+// Enkel vogn med plan og hjul - vista-punkt.
+function makeCart(scene: THREE.Scene, sceneMat: GameEngineRef['sceneMat']): THREE.Group {
+    const g = new THREE.Group();
+    const bed = new THREE.Mesh(
+        new THREE.BoxGeometry(2.6, 0.6, 1.6),
+        sceneMat(0x6a4e30, { preset: 'wood', roughness: 0.9 }),
+    );
+    bed.position.y = 1.0;
+    bed.castShadow = true;
+    bed.userData.solid = true;
+    g.add(bed);
+    const railMat = sceneMat(0x5a3f26, { preset: 'wood', roughness: 1 });
+    for (const sx of [-1.2, 1.2]) {
+        const rail = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.5, 1.6), railMat);
+        rail.position.set(sx, 1.5, 0);
+        g.add(rail);
+    }
+    const wheelMat = sceneMat(0x3a2a1a, { preset: 'wood', roughness: 1 });
+    for (const wx of [-0.9, 0.9]) {
+        for (const wz of [0.8, -0.8]) {
+            const wheel = new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.5, 0.15, 12), wheelMat);
+            wheel.rotation.z = Math.PI / 2;
+            wheel.position.set(wx, 0.5, wz);
+            g.add(wheel);
+        }
+    }
+    scene.add(g);
+    return g;
+}
+
+// Propaganda-plakat på en vegg. Returnerer plakat-meshen (linse-mål).
+function makePoster(
+    scene: THREE.Scene,
+    sceneMat: GameEngineRef['sceneMat'],
+    x: number,
+    z: number,
+    color: number,
+): THREE.Mesh {
+    const poster = new THREE.Mesh(
+        new THREE.BoxGeometry(1.4, 1.8, 0.06),
+        sceneMat(color, { preset: 'stone', roughness: 0.85 }),
+    );
+    poster.position.set(x, 2.2, z);
+    scene.add(poster);
+    const tekst = new THREE.Mesh(
+        new THREE.BoxGeometry(1.1, 0.2, 0.07),
+        sceneMat(0xf4e4c1, { preset: 'cloth', roughness: 1 }),
+    );
+    tekst.position.set(x, 2.5, z + 0.02);
+    scene.add(tekst);
+    return poster;
 }
 
 function makeHorseAndRider(

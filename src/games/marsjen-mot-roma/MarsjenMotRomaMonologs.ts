@@ -1,25 +1,59 @@
 import type { MonologNode } from '../engine/types';
 
 // Indre tanker journalisten har mens han følger marsjen. Brukes til å forsterke
-// pedagogiske poeng uten å låse spilleren i dialog. Klimaks-monologene
-// (`venter`, `kongen_taler`, `seier_refleksjon`) spilles manuelt via engine.schedule.
+// pedagogiske poeng uten å låse spilleren i dialog.
+//
+// Linse-monologene (`linse_*`) spilles når eleven trykker «Se nærmere» (E) på et
+// objekt. De er kjernen i signaturmekanikken: avstandsbildet (løgnen) vs. nærbildet
+// (sannheten). Klimaks-monologene (`venter`, `kongen_taler`, `seier_refleksjon`)
+// spilles manuelt via engine.schedule.
 
 export const marsjenMotRomaMonologs: Record<string, MonologNode> = {
     ankomst: {
         id: 'ankomst',
         lines: [
             'Regnet siler ned over leiren utenfor Roma.',
-            'Tusenvis av menn i sorte skjorter. Noen har gevær, mange har bare køller.',
-            'De roper om nasjonen og om en sterk leder. Jeg må forstå hva dette egentlig er.',
+            'Tusenvis av menn i sorte skjorter forsvinner inn i tåka. En hær, sier de.',
+            'Men en god journalist tror ikke på det han får se. Han går nærmere. Jeg må forstå hva dette egentlig er.',
         ],
         once: true,
     },
+
+    // ─── Sannhetens linse: de fysiske avsløringene ──────────────────────────────
+    linse_marsjer: {
+        id: 'linse_marsjer',
+        lines: [
+            'På avstand, i tåka, så de ut som en disiplinert hær. Truende. Uunngåelig.',
+            'Men her, en armlengde unna: en gjennomvåt gutt. Kosteskaft i hendene. Ingen støvler.',
+            'Skrekken er et kostyme. Jeg skriver det ned i notatboka.',
+        ],
+        once: true,
+    },
+    linse_vaapen: {
+        id: 'linse_vaapen',
+        lines: [
+            'Jeg lener meg inn over «våpnene» deres.',
+            'Jaktrifler. Staur. Et og annet ekte gevær, rustent av regnet.',
+            'En eneste salve fra ordentlige soldater ville spredt hele flokken. Notat: dette er militært maktesløst.',
+        ],
+        once: true,
+    },
+    linse_soldat: {
+        id: 'linse_soldat',
+        lines: [
+            'Disse soldatene er ekte. Skarpe gevær, tørr kruttlukt, ordnede rekker.',
+            'DETTE er makten som kunne stoppet alt på et øyeblikk.',
+            'Men de står stille og venter på en ordre fra Roma. Uten ordre er den ekte hæren bare tilskuere.',
+        ],
+        once: true,
+    },
+
     trykkeriet: {
         id: 'trykkeriet',
         lines: [
             'Et utbrent hus. Lukten av sot henger fortsatt i den våte lufta.',
-            'Dette var et trykkeri. Svartskjortene brant det fordi de trykte feil avis.',
-            'Og politiet? De så en annen vei.',
+            'Dette var et trykkeri. Svartskjortene brant det fordi det trykte feil avis.',
+            'Og politiet? De så en annen vei. For dem er ikke volden et problem - den er metoden.',
         ],
         once: true,
     },
@@ -72,7 +106,7 @@ export const marsjenMotRomaMonologs: Record<string, MonologNode> = {
     lese_flyveblad: {
         id: 'lese_flyveblad',
         lines: [
-            '"Fascistenes program, 1919." Jeg blar gjennom det fuktige, krøllede papiret.',
+            '«Fascistenes program, 1919.» Jeg blar gjennom det fuktige, krøllede papiret.',
             'Det lover alt på én gang: mot kapitalisme, mot sosialisme, for nasjonen, for handling.',
             'Ingen sammenhengende idé - bare en vilje til makt. Det er nok for dem som er sinte nok.',
         ],
@@ -82,9 +116,9 @@ export const marsjenMotRomaMonologs: Record<string, MonologNode> = {
     plakat_svart: {
         id: 'plakat_svart',
         lines: [
-            '"ITALIA REISER SEG!" - Mussolinis ansikt i store trekk over en oppstigende sol.',
-            '"Enten med oss, eller mot oss." En enkel verden uten nyanser.',
-            'Propagandaen er ikke sofistikert. Den trenger ikke være det - den taler til magen, ikke hodet.',
+            'Jeg går helt inntil plakaten. «ITALIA REISER SEG!» - Mussolinis ansikt over en oppstigende sol.',
+            '«Enten med oss, eller mot oss.» En enkel verden uten nyanser.',
+            'Propagandaen er ikke smart. Den trenger ikke være det - den taler til magen, ikke hodet. Notat tatt.',
         ],
         once: true,
     },
@@ -92,7 +126,7 @@ export const marsjenMotRomaMonologs: Record<string, MonologNode> = {
     plakat_vilje: {
         id: 'plakat_vilje',
         lines: [
-            '"VILJENS SEIER" - en knyttet neve over parlamentsbygningen.',
+            '«VILJENS SEIER» - en knyttet neve over parlamentsbygningen.',
             'Fienden er alltid den samme: de røde, de svake, forræderne. Alltid noen å peke på.',
             'Jeg skriver ned teksten ord for ord. Leserne hjemme må få se dette selv.',
         ],
@@ -102,9 +136,28 @@ export const marsjenMotRomaMonologs: Record<string, MonologNode> = {
     marsj_rop: {
         id: 'marsj_rop',
         lines: [
-            'Rundt meg roper de i kor: "A noi! A noi!" - "Til oss! Til oss!"',
+            'Rundt meg roper de i kor: «A noi! A noi!» - «Til oss! Til oss!»',
             'Sangen stiger. Trommene banker. Tusenvis av stemmer som sier det samme.',
             'Det er noe som trekker i magen - selv om man vet hva det er, kjennes det sterkt.',
+        ],
+        once: true,
+    },
+
+    mangler_bevis: {
+        id: 'mangler_bevis',
+        lines: [
+            'Jeg har snakket med dem som teller. Men forsidesaken min mangler fortsatt bevis jeg har sett med egne øyne.',
+            'Jeg burde gå tilbake og se nærmere - på hvor dårlig bevæpnet de er, på hva Gino tror på, på hvorfor de rike er her.',
+        ],
+        once: false,
+    },
+
+    vista: {
+        id: 'vista',
+        lines: [
+            'Fra vogna ser jeg utover hele kolonnen.',
+            'Et hav av sorte skjorter som forsvinner inn i regnet og tåka, i begge retninger.',
+            'Det SER uendelig ut. Men jeg har gått blant dem nå. Jeg vet hva tåka skjuler.',
         ],
         once: true,
     },

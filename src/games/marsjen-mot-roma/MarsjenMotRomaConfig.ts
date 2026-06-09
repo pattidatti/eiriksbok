@@ -8,8 +8,8 @@ export const marsjenMotRomaConfig: GameConfig = {
     subject: 'historie',
     description:
         'Roma, oktober 1922. Du er en ung journalist som følger tusenvis av svartskjorter mot ' +
-        'hovedstaden. Er dette en revolusjon - eller noe annet? Finn ut hvordan Mussolini ' +
-        'egentlig tok makten.',
+        'hovedstaden. Er dette en revolusjon - eller noe annet? Se nærmere, samle bevis, og finn ' +
+        'ut hvordan Mussolini egentlig tok makten.',
     thumbnail: '/images/mellomkrigstiden/marsjen-mot-roma-thumb.webp',
 
     learningGoals: [
@@ -21,13 +21,13 @@ export const marsjenMotRomaConfig: GameConfig = {
 
     world: {
         preset: 'open',
-        backgroundColor: '#8a8a92',
-        fogDensity: 0.012,
+        backgroundColor: '#9a9aa0',
+        fogDensity: 0.015, // tett nok til at kolonnen forsvinner i begge ender → «tusenvis»
     },
 
     visual: {
         sky: 'procedural',
-        timeOfDay: 0.45,
+        timeOfDay: 0.42, // lav start; atmosfære-buen hever/senker dette per fase
         postProcessing: 'auto',
     },
 
@@ -87,17 +87,81 @@ export const marsjenMotRomaConfig: GameConfig = {
             icon: '📄',
             stackable: false,
         },
+        // ─── Notater (samles via Sannhetens linse + nøkkeldialoger) ───────────────
+        {
+            id: 'notat-haeren-kledning',
+            name: 'Notat: Hæren er en kledning',
+            description:
+                'På avstand i tåka så de ut som en disiplinert hær. På nært hold: en ' +
+                'gjennomvåt gutt med kosteskaft og ingen støvler. Skrekken er et kostyme.',
+            icon: '📝',
+            stackable: false,
+        },
+        {
+            id: 'notat-darlig-bevaepnet',
+            name: 'Notat: Dårlig bevæpnet',
+            description:
+                'Jaktrifler, staur og noen få ekte gevær. Hæren kunne ha knust hele kolonnen ' +
+                'på en time. Marsjen er militært sett maktesløs.',
+            icon: '📝',
+            stackable: false,
+        },
+        {
+            id: 'notat-propaganda',
+            name: 'Notat: Propagandaen taler til magen',
+            description:
+                '«Enten med oss, eller mot oss.» Plakaten har ingen nyanser - bare en sterk ' +
+                'leder, en fiende, og en følelse. Den trenger ikke være sann for å virke.',
+            icon: '📝',
+            stackable: false,
+        },
+        {
+            id: 'notat-volden',
+            name: 'Notat: Volden er politikken',
+            description:
+                'Et utbrent trykkeri. Svartskjortene brant det fordi det trykte feil avis - og ' +
+                'politiet så en annen vei. Vold er ikke et problem for dem; det er metoden.',
+            icon: '📝',
+            stackable: false,
+        },
+        {
+            id: 'notat-fascismens-natur',
+            name: 'Notat: Fascismens kjerne',
+            description:
+                'Nasjonen over individet. Én sterk leder, ikke et prateparlament. Handling ' +
+                'framfor kompromiss. Frihet og rettigheter foraktes som svakhet.',
+            icon: '📝',
+            stackable: false,
+        },
+        {
+            id: 'notat-haeren-lammet',
+            name: 'Notat: Den ekte hæren er lammet',
+            description:
+                'Soldatene har ekte gevær og kunne stoppet alt. Men de venter på en ordre fra ' +
+                'kongen som aldri kommer. Uten ordre er hæren bare tilskuere.',
+            icon: '📝',
+            stackable: false,
+        },
+        {
+            id: 'notat-elitens-svik',
+            name: 'Notat: Eliten ønsket ham velkommen',
+            description:
+                'En rik fabrikkeier heier på pøblene. Hvorfor? Fascisten knuser streikene og ' +
+                'lar ham beholde fabrikken - ulikt kommunisten. En kald kalkyle: makt mot vern.',
+            icon: '📝',
+            stackable: false,
+        },
     ],
-    inventorySize: 4,
+    inventorySize: 12,
 
     quests: [
         {
             phase: 'samling',
-            objective: 'Svartskjortene samler seg i regnet. Snakk med dem og finn ut hvorfor de marsjerer.',
+            objective: 'Svartskjortene samler seg i regnet. Snakk med dem - og se nærmere på «hæren».',
         },
         {
             phase: 'marsjen',
-            objective: 'Følg marsjen mot Roma. Se hva svartskjortene tror på - og hva de gjør.',
+            objective: 'Følg marsjen. Samle bevis: se forbi det de vil at du skal se.',
         },
         {
             phase: 'bloeffen',
@@ -105,7 +169,7 @@ export const marsjenMotRomaConfig: GameConfig = {
         },
         {
             phase: 'kongens-valg',
-            objective: 'Vent. Alt avhenger nå av ett valg i palasset.',
+            objective: 'Forsidesaken er skrevet. Vent - alt avhenger nå av ett valg i palasset.',
         },
         {
             phase: 'seieren',
@@ -117,70 +181,40 @@ export const marsjenMotRomaConfig: GameConfig = {
         },
     ],
 
+    // ─── Syntese-finale: bygg forsidesaken av bevisene du selv samlet ─────────────
+    // Station-mode: plasser det skarpeste notatet under hver påstand. requiresItems
+    // garanterer at de tre svar-notatene er samlet (via obligatoriske beats), så
+    // openPuzzle aldri åpner for tidlig og soft-låser. step.onCorrect wires i Assets
+    // til å starte kongens-valg-klimakset.
+    // Fallback hvis station-mode føles for vrient for målgruppen: bytt til mode:'mcq'
+    // og gjenopprett de tre flervalgs-spørsmålene fra git-historikken (commit før v2).
     puzzle: {
+        mode: 'station',
+        stationLabel: 'Skriv forsidesaken: plasser det skarpeste beviset under hver påstand',
+        requiresItems: ['notat-darlig-bevaepnet', 'notat-fascismens-natur', 'notat-elitens-svik'],
         steps: [
             {
-                question: 'Kaptein Renzi sa at marsjen var en "bløff". Hva mente han med det?',
-                hint: 'Tenk på hva du så: hvem bar våpen, og hva kunne hæren ha gjort.',
-                options: [
-                    {
-                        text: 'Svartskjortene var dårlig bevæpnet og hæren kunne knust dem på timer.',
-                        correct: true,
-                        feedback: 'Riktig. Marsjen var et skuespill - ekte militærmakt ville ha stoppet den umiddelbart.',
-                    },
-                    {
-                        text: 'Mussolini var egentlig ikke til stede under marsjen.',
-                        correct: false,
-                        feedback: 'Nei - Mussolini var i Milano og ventet på resultatet. Men det var ikke det Renzi pekte på.',
-                    },
-                    {
-                        text: 'Svartskjortene løy om å ville ta Roma.',
-                        correct: false,
-                        feedback: 'De mente det alvorlig nok - men Renzi siktet til den militære realiteten.',
-                    },
+                question: 'Tre påstander skal stå på forsiden. Hvilket notat beviser hver av dem best?',
+                hint:
+                    'Slot 1: hva gjorde marsjen militært maktesløs? Slot 2: hva er fascismens ' +
+                    'kjerne? Slot 3: hvorfor ønsket de rike Mussolini velkommen?',
+                options: [],
+                ingredientSlots: [
+                    'notat-darlig-bevaepnet',
+                    'notat-fascismens-natur',
+                    'notat-elitens-svik',
                 ],
-            },
-            {
-                question: 'Gino beskrev fascismens kjennetegn. Hvilke tre passer best?',
-                hint: 'Husk hva Gino sa om nasjonen, lederen og demokratiet.',
-                options: [
-                    {
-                        text: 'Nasjonen over individet, sterk leder, vold som akseptabelt virkemiddel.',
-                        correct: true,
-                        feedback: 'Riktig. Ultranasjonalisme, lederkult og vold er kjernen i fascismen.',
-                    },
-                    {
-                        text: 'Individets frihet, folkets representasjon, fredelig kamp.',
-                        correct: false,
-                        feedback: 'Det er liberaldemokratiets verdier - det fascismen bekjemper.',
-                    },
-                    {
-                        text: 'Klassekamp, kollektivt eierskap, internasjonal solidaritet.',
-                        correct: false,
-                        feedback: 'Det er sosialistiske verdier. Fascismen er nasjonalistisk, ikke internasjonalistisk.',
-                    },
+                slotLabels: [
+                    'Hæren kunne knust marsjen på en time',
+                    'Fascismens sanne kjerne',
+                    'Hvorfor eliten ønsket Mussolini velkommen',
                 ],
-            },
-            {
-                question: 'Hvorfor støttet Signor Conti - en rik fabrikkeier - Mussolini?',
-                hint: 'Hva fryktet Conti mest, og hva lovde fascismen ham?',
-                options: [
-                    {
-                        text: 'Fascismen ville knuse streikene og beskytte hans eiendom, mot at han adlød staten.',
-                        correct: true,
-                        feedback: 'Riktig. Eliten valgte fascismen fordi den beskyttet privat eiendom - ulikt kommunismen.',
-                    },
-                    {
-                        text: 'Han trodde Mussolini var en ærlig mann som ville gjenopprette demokratiet.',
-                        correct: false,
-                        feedback: 'Conti var ikke naiv - han gjorde en kald kalkyle. Makt mot beskyttelse.',
-                    },
-                    {
-                        text: 'Han ble tvunget av svartskjortene til å støtte dem.',
-                        correct: false,
-                        feedback: 'Nei - eliten valgte dette frivillig. Det er det som gjør det så tragisk.',
-                    },
-                ],
+                correctFeedback:
+                    'Forsiden står. Du har bevist det selv: en militært maktesløs bløff, en ' +
+                    'voldelig ideologi, og en elite som åpnet døra. Nå avgjøres alt i palasset.',
+                incorrectFeedback:
+                    'Ikke helt. Les notatene dine igjen: hvilket bevis passer skarpest under ' +
+                    'hver påstand? Tenk militær makt, ideologiens kjerne, og elitens kalkyle.',
             },
         ],
     },
@@ -199,10 +233,13 @@ export const marsjenMotRomaConfig: GameConfig = {
               'individets frihet og bruker vold - men der kommunismen ville ta eiendommen hans, ' +
               'lot fascismen ham beholde den mot lydighet. Derfor valgte eliten fascismen.'
             : '';
+        const observer =
+            ' Du så alt med egne øyne. Du skrev det ned, ord for ord. Men ingen av dem som kunne ' +
+            'ha stoppet det, ville. Det var aldri din makt å endre denne dagen - bare å se den klart.';
         const reflection =
             ' Spør deg selv: finnes det bevegelser i dag som lover orden og storhet - mot at du ' +
             'gir opp litt frihet?';
-        return base + comparison + reflection;
+        return base + comparison + observer + reflection;
     },
 
     setupScene: setupMarsjenMotRomaScene,
