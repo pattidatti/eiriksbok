@@ -1,0 +1,185 @@
+{
+    "id": "kalmarunionen",
+    "title": "Kalmarunionen",
+    "layout": "rich",
+    "year": "1397-1523",
+    "category": "Norden",
+    "readTime": "9 min lesning",
+    "heroImage": "/images/placeholder.webp",
+    "details": [
+        "I 1397 samlet dronning Margrete Danmark, Norge og Sverige under én konge.",
+        "På papiret var rikene likeverdige, men makten lå i Danmark.",
+        "I 1523 brøt Sverige ut, og Norge ble igjen som den svake parten under Danmark."
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Sommeren 1397 møttes mektige menn fra hele Norden i den svenske byen Kalmar. De skulle krone Erik av Pommern til konge over tre riker på én gang: Danmark, Norge og Sverige. Bak det hele stod en av middelalderens dyktigste politikere, dronning Margrete. Hun hadde klart det nesten ingen trodde var mulig. Hun samlet hele Norden under én krone. Denne unionen kaller vi Kalmarunionen, og den varte i over hundre år."
+        },
+        {
+            "type": "text",
+            "content": "En union betyr at flere land går sammen om noe. I Kalmarunionen delte de tre rikene én konge, men hvert rike skulle fortsatt ha sine egne lover og sin egen rett. Vi kaller dette en personalunion, fordi det er personen, altså kongen, som binder rikene sammen. På den måten kunne de stå sammen utad, men styre seg selv innad. Det var i hvert fall planen."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Kroning i en middelalderkirke med adelsmenn samlet",
+            "caption": "Kalmar 1397: Erik av Pommern krones til konge over Danmark, Norge og Sverige."
+        },
+        {
+            "type": "header",
+            "text": "Hvorfor ble Norden samlet?"
+        },
+        {
+            "type": "text",
+            "content": "Margrete var datter av den danske kongen og gift med den norske kongen. Da både mannen og sønnen hennes døde, satt hun igjen med makten i to riker. Hun var en smart forhandler, og snart fikk hun også svenskene med på laget. På den måten bandt hun de tre rikene sammen gjennom arv og avtaler, ikke gjennom krig."
+        },
+        {
+            "type": "text",
+            "content": "For mange virket en union som en god idé. Tyske kjøpmenn i Hansaforbundet hadde stor makt over handelen i Norden, og tyske fyrster ville gjerne blande seg inn i nordisk politikk. Hvert enkelt rike var for svakt til å stå imot alene. Et samlet Norden kunne derimot stå mye sterkere mot presset utenfra. Tanken om å stå sammen mot felles fiender var en av de viktigste grunnene til at unionen ble til."
+        },
+        {
+            "type": "text",
+            "content": "Norge var dessuten svekket. Etter [svartedauden](/historie/middelalderen/svartedauden) var folketallet nesten halvert, og mange gårder lå øde. Landet hadde mistet mye av sin gamle styrke, og den norske adelen var liten og fattig sammenlignet med den danske. Et lite og fattig Norge hadde lite å stille opp med, og trengte å lene seg på naboene."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Dronning Margrete",
+                "content": "Margrete ble aldri kronet til dronning på vanlig måte, men hun var den som styrte i praksis. Hun valgte unge Erik av Pommern til konge fordi han var i slekt med henne, men det var Margrete som tok de viktige avgjørelsene helt fram til hun døde i 1412. Mange historikere regner henne som en av de mektigste kvinnene i nordisk historie."
+            }
+        },
+        {
+            "type": "header",
+            "text": "Én konge, men hvor lå makten?"
+        },
+        {
+            "type": "text",
+            "content": "Tanken bak unionen var fin: tre likeverdige riker som delte én konge, men beholdt sine egne lover. I virkeligheten ble det ikke slik. Danmark var det rikeste og folkerikeste riket, og kongen bodde og styrte derfra. Derfor lå makten tungt i Danmark."
+        },
+        {
+            "type": "text",
+            "content": "Kongen sendte ofte danske adelsmenn til Norge for å styre på hans vegne. Disse lensherrene krevde inn skatt og bestemte over folk. Mange nordmenn ble misfornøyde, for de følte at landet ble styrt av fremmede. En av dem som gjorde opprør, var ridderen [Knut Alvsson](/historie/norgeshistorie/knut-alvsson). Han samlet bønder mot det danske styret, men ble drept i et bakhold i 1502."
+        },
+        {
+            "type": "component",
+            "name": "KalmarMaktbalanse",
+            "props": {}
+        },
+        {
+            "type": "header",
+            "text": "Misnøye og opprør"
+        },
+        {
+            "type": "text",
+            "content": "Det var ikke bare i Norge folk var sinte. Sverige var det riket som var mest misfornøyd. Den svenske adelen ville styre seg selv og likte dårlig å ta imot ordre fra Danmark. Flere ganger gjorde svenskene opprør og kastet ut unionskongen. I lange perioder var Sverige bare så vidt med i unionen. Norge og Danmark holdt derimot tettere sammen gjennom hele perioden."
+        },
+        {
+            "type": "text",
+            "content": "Et av de største opprørene kom i 1434. Da reiste bergmannen Engelbrekt Engelbrektsson en hær av svenske bønder og gruvearbeidere mot kongens menn. De var lei av høye skatter og harde fogder. Opprøret spredte seg raskt over store deler av Sverige, og det viste hvor skjør unionen egentlig var. Hver gang kongen prøvde å stramme grepet, vokste motstanden. Unionen hang sammen så lenge kongen ga adelen det den ville ha, men sprakk i sømmene så snart han krevde for mye."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Bønder og adelsmenn med våpen samlet til opprør",
+            "caption": "Igjen og igjen reiste svenskene seg mot styret fra Danmark."
+        },
+        {
+            "type": "component",
+            "name": "MicroGame",
+            "props": {
+                "gameId": "kalmar-kronene-3d"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Stockholms blodbad og bruddet med Sverige"
+        },
+        {
+            "type": "text",
+            "content": "Slutten på unionen kom brått. I 1520 erobret den danske kongen Christian 2. byen Stockholm. Han lovte de svenske motstanderne sine trygghet, men brøt løftet. I løpet av få dager lot han henrette nesten hundre svenske adelsmenn. Denne grufulle hendelsen kaller vi [Stockholms blodbad](/historie/sveriges-historie/stockholm-blodbadet)."
+        },
+        {
+            "type": "text",
+            "content": "Blodbadet fikk svenskene til å hate unionen. En ung adelsmann ved navn [Gustav Vasa](/historie/sveriges-historie/gustav-vasa) ledet et stort opprør, og i 1523 ble han valgt til svensk konge. Da forlot Sverige Kalmarunionen for godt. Drømmen om et samlet Norden var over etter litt over hundre år."
+        },
+        {
+            "type": "header",
+            "text": "Norge ble den svake parten"
+        },
+        {
+            "type": "text",
+            "content": "For Sverige ble 1523 starten på en ny tid som en selvstendig stat. Gustav Vasa bygde opp et sterkt svensk kongedømme som senere skulle bli en stormakt i Nord-Europa. For Norge gikk det motsatt vei. Da Sverige dro, satt Norge igjen alene sammen med et mektig Danmark. Norge var fattig og svekket etter pesten, og hadde verken en sterk adel eller egne penger til å stå på egne bein. Maktforskjellen mellom de to landene var nå enda større enn før."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Et stille norsk vinterlandskap med en liten kirke",
+            "caption": "Etter at Sverige forlot unionen, ble Norge værende under Danmark i nesten 300 år."
+        },
+        {
+            "type": "text",
+            "content": "I 1537 ble Norge gjort til et lydrike under Danmark. Det betyr at Norge ikke lenger var et eget kongerike, men ble styrt som en del av Danmark. Denne perioden varte helt fram til 1814. Mange har kalt den lange tiden under Danmark for 400-årsnatten. Slik ble Kalmarunionen et vendepunkt: den begynte som en drøm om et sterkt og samlet Norden, men endte med å gjøre Norge til den svakeste i Norden."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hvem stod bak dannelsen av Kalmarunionen i 1397?",
+                        "options": [
+                            "Gustav Vasa",
+                            "Dronning Margrete",
+                            "Christian 2.",
+                            "Knut Alvsson"
+                        ],
+                        "correctAnswer": 1
+                    },
+                    {
+                        "question": "Hvilke tre riker var med i Kalmarunionen?",
+                        "options": [
+                            "Danmark, Norge og Island",
+                            "Norge, Sverige og Finland",
+                            "Danmark, Norge og Sverige",
+                            "Danmark, Sverige og Tyskland"
+                        ],
+                        "correctAnswer": 2
+                    },
+                    {
+                        "question": "Hvor lå mesteparten av makten i unionen?",
+                        "options": [
+                            "I Norge",
+                            "I Sverige",
+                            "Den var likt fordelt",
+                            "I Danmark"
+                        ],
+                        "correctAnswer": 3
+                    },
+                    {
+                        "question": "Hva skjedde med unionen i 1523?",
+                        "options": [
+                            "Norge brøt ut",
+                            "Sverige brøt ut under Gustav Vasa",
+                            "Unionen ble større",
+                            "Danmark forlot unionen"
+                        ],
+                        "correctAnswer": 1
+                    },
+                    {
+                        "question": "Hva ble følgen for Norge etter at Sverige dro?",
+                        "options": [
+                            "Norge ble selvstendig",
+                            "Norge ble den svake parten under Danmark",
+                            "Norge gikk sammen med Tyskland",
+                            "Norge fikk sin egen konge"
+                        ],
+                        "correctAnswer": 1
+                    }
+                ]
+            }
+        }
+    ],
+    "timeline": []
+}

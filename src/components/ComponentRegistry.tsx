@@ -23,6 +23,7 @@ import { MapCarousel } from './MapCarousel';
 const TragediensTrinn = lazy(() => import('./content/interactive/TragediensTrinn').then(m => ({ default: m.TragediensTrinn })));
 const UtvandrerVekta = lazy(() => import('./content/interactive/UtvandrerVekta').then(m => ({ default: m.UtvandrerVekta })));
 const FornorskingMaler = lazy(() => import('./content/interactive/FornorskingMaler').then(m => ({ default: m.FornorskingMaler })));
+const KalmarMaktbalanse = lazy(() => import('./content/interactive/KalmarMaktbalanse').then(m => ({ default: m.KalmarMaktbalanse })));
 const OlympiskFred = lazy(() => import('./content/interactive/OlympiskFred').then(m => ({ default: m.OlympiskFred })));
 const ByzantineSurvival = lazy(() => import('./content/interactive/ByzantineSurvival').then(m => ({ default: m.ByzantineSurvival })));
 const ParallelleSivilisasjoner = lazy(() => import('./content/interactive/ParallelleSivilisasjoner').then(m => ({ default: m.ParallelleSivilisasjoner })));
@@ -265,6 +266,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     HistoryLongLines,
     TragediensTrinn,
     FornorskingMaler,
+    KalmarMaktbalanse,
     OlympiskFred,
     ParallelleSivilisasjoner,
     Quiz,

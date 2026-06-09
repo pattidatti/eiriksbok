@@ -1,5 +1,5 @@
 {
-  "buildId": 1780881739109,
+  "buildId": 1780968307875,
   "contentMap": {
     "concept-adel": [
       "content/concepts/adel.json"
@@ -1559,6 +1559,9 @@
     ],
     "hamskiftet": [
       "content/historie/norgeshistorie/hamskiftet.json"
+    ],
+    "kalmarunionen": [
+      "content/historie/norgeshistorie/kalmarunionen.json"
     ],
     "klimakrisen-536": [
       "content/historie/norgeshistorie/klimakrisen-536.json"
@@ -3873,6 +3876,7 @@
     "historie/norgeshistorie/alv-erlingsson/alv-erlingsson": "content/historie/norgeshistorie/alv-erlingsson/alv-erlingsson.json",
     "historie/norgeshistorie/fornorskingen-av-samene": "content/historie/norgeshistorie/fornorskingen-av-samene.json",
     "historie/norgeshistorie/hamskiftet": "content/historie/norgeshistorie/hamskiftet.json",
+    "historie/norgeshistorie/kalmarunionen": "content/historie/norgeshistorie/kalmarunionen.json",
     "historie/norgeshistorie/klimakrisen-536": "content/historie/norgeshistorie/klimakrisen-536.json",
     "historie/norgeshistorie/knut-alvsson/knut-alvsson": "content/historie/norgeshistorie/knut-alvsson/artikkel.json",
     "historie/norgeshistorie/norge-for-vikingene": "content/historie/norgeshistorie/norge-for-vikingene.json",
