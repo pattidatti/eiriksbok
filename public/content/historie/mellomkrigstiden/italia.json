@@ -14,7 +14,7 @@
         },
         {
             "type": "image",
-            "src": "/images/mellomkrigstiden/hero_italia.webp",
+            "src": "/images/mellomkrigstiden/italia_taler.webp",
             "alt": "Benito Mussolini taler til store folkemengder i Roma",
             "caption": "Mussolini var en mesterlig taler som brukte folkemengder som politisk verktøy."
         },
@@ -58,7 +58,7 @@
         },
         {
             "type": "image",
-            "src": "/images/mellomkrigstiden/hero_tyskland.webp",
+            "src": "/images/mellomkrigstiden/italia_squadristi.webp",
             "alt": "Fascistiske svartskjorter marsjerer gjennom en italiensk landsby på 1920-tallet",
             "caption": "Svartskjortene skapte frykt og kaos for å bane vei for Mussolinis maktovertagelse."
         },
@@ -172,7 +172,7 @@
         },
         {
             "type": "image",
-            "src": "/images/mellomkrigstiden/hero_oversikt.webp",
+            "src": "/images/mellomkrigstiden/italia_etiopia.webp",
             "alt": "Italienske soldater marsjerer inn i Etiopia med fascistflagg i 1935",
             "caption": "Italias invasjon av Etiopia i 1935 viste at Mussolini var villig til å bryte alle normer."
         },
