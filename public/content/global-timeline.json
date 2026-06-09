@@ -2387,6 +2387,30 @@
       "geoConfidence": "tag"
     },
     {
+      "id": "kalmarunionen",
+      "title": "Kalmarunionen",
+      "description": "Da Danmark, Norge og Sverige ble samlet under én konge, og hvorfor unionen til slutt sprakk.",
+      "startDate": 1397,
+      "endDate": 1523,
+      "displayDate": "1397-1523",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "norgeshistorie",
+      "link": "/historie/norgeshistorie/kalmarunionen",
+      "tags": [
+        "historie",
+        "norge",
+        "kalmarunionen",
+        "middelalder",
+        "norden"
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "tag"
+    },
+    {
       "id": "ceuta-conquest",
       "title": "Erobringen av Ceuta",
       "description": "Portugal erobrer byen Ceuta i Nord-Afrika, starten på den europeiske ekspansjonen.",

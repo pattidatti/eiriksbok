@@ -47,6 +47,7 @@ const HagiaSofia3D = lazy(() => import('./HagiaSofia3D'));
 const Pompeii3D = lazy(() => import('./Pompeii3D'));
 const PakkAmerikakofferten3D = lazy(() => import('./PakkAmerikakofferten3D'));
 const Pyramidebyggeren3D = lazy(() => import('./Pyramidebyggeren3D'));
+const KalmarKronene3D = lazy(() => import('./KalmarKronene3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
     'gladius-duell': {
@@ -426,6 +427,15 @@ export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.Laz
         estimatedSeconds: 150,
         loader: () => import('./Pyramidebyggeren3D'),
         Component: Pyramidebyggeren3D as never,
+    },
+    'kalmar-kronene-3d': {
+        id: 'kalmar-kronene-3d',
+        title: 'Samle de tre kronene',
+        description:
+            'Dann Kalmarunionen i 3D: klikk kronene til Danmark, Norge og Sverige og se dem samle seg over én trone i 1397. Spol så fram til 1523, da Sverige bryter ut og Norge blir igjen som den svake parten under Danmark. Lyspæren: tre riker under én konge, men makten lå i Danmark, og ubalansen sprengte til slutt unionen.',
+        estimatedSeconds: 130,
+        loader: () => import('./KalmarKronene3D'),
+        Component: KalmarKronene3D as never,
     },
 };
 
