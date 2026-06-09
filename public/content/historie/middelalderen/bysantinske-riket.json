@@ -6,7 +6,7 @@
     "year": "330-1453",
     "category": "Europa og Midtøsten",
     "readTime": "9 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/middelalderen/bysantinske-riket-hero.webp",
     "details": [
         "Det romerske riket falt ikke i 476. Den østlige halvdelen levde videre i nesten tusen år til, helt til 1453.",
         "Folk i riket snakket gresk og var kristne, men kalte seg selv romere. Vi kaller riket bysantinsk, men det gjorde aldri de selv.",
@@ -20,7 +20,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/middelalderen/bysantinske-riket-01.webp",
             "alt": "Utsikt over byen Konstantinopel med store murer og en gylden kuppel ved havet",
             "caption": "Konstantinopel lå der Europa møter Asia. I mange hundre år var dette den rikeste byen i den kristne verden."
         },
@@ -61,7 +61,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/middelalderen/bysantinske-riket-02.webp",
             "alt": "Innsiden av Hagia Sofia med en enorm kuppel og lysstråler fra en ring av vinduer",
             "caption": "Hagia Sofia. Ringen av vinduer rundt kuppelen fikk den til å se ut som den svevde på lys."
         },
@@ -90,7 +90,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/middelalderen/bysantinske-riket-03.webp",
             "alt": "Soldater angriper de store bymurene i Konstantinopel med kanoner i 1453",
             "caption": "I 1453 brukte osmanene gigantiske kanoner til å knuse murene som hadde stått i tusen år."
         },

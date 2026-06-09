@@ -5,7 +5,7 @@
     "year": "1825-1930",
     "category": "Norge",
     "readTime": "9 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/norgeshistorie/utvandringen-til-amerika-hero.webp",
     "details": [
         "Over 800 000 nordmenn reiste til Amerika mellom 1825 og 1930",
         "Bare Irland mistet en større del av folket sitt til utvandring",
@@ -18,7 +18,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/norgeshistorie/utvandringen-til-amerika-01.webp",
             "alt": "Liten seilskute fylt med utvandrere forlater en norsk havn",
             "caption": "Sluppen Restauration forlot Stavanger i 1825 med 52 mennesker om bord. Reisen til New York tok tre måneder."
         },
@@ -71,7 +71,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/norgeshistorie/utvandringen-til-amerika-02.webp",
             "alt": "Utvandrere står tett samlet på dekket av et dampskip på havet",
             "caption": "Fra 1870-tallet fraktet store dampskip tusenvis av nordmenn over Atlanteren på under to uker."
         },
@@ -120,7 +120,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/norgeshistorie/utvandringen-til-amerika-03.webp",
             "alt": "Norsk nybyggerfamilie foran et nybygd tommerhus pa den amerikanske praerien",
             "caption": "I Midtvesten bygde norske utvandrere gårder fra grunnen av. Mange holdt fast på språket og kirken sin i generasjoner."
         },
