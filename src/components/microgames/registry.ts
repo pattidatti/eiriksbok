@@ -52,6 +52,7 @@ const Pestrute3D = lazy(() => import('./Pestrute3D'));
 const KristendomSpredning3D = lazy(() => import('./KristendomSpredning3D'));
 const TikkunOlam3D = lazy(() => import('./TikkunOlam3D'));
 const SamsaraSyklusen3D = lazy(() => import('./SamsaraSyklusen3D'));
+const MokshaVeien3D = lazy(() => import('./MokshaVeien3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
     'gladius-duell': {
@@ -476,6 +477,15 @@ export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.Laz
         estimatedSeconds: 90,
         loader: () => import('./SamsaraSyklusen3D'),
         Component: SamsaraSyklusen3D as never,
+    },
+    'moksha-veien-3d': {
+        id: 'moksha-veien-3d',
+        title: 'Atman søker Brahman',
+        description:
+            'Kjenn hinduismens kjerneidé på kroppen: Atman (sjelen) kretser rundt Brahman (det universelle) fanget i Samsara. Aktiver de tre yoga-veiene - Karma Yoga, Jnana Yoga og Bhakti Yoga - og se sjelen spirale innover og smelte inn i Brahman. Lyspæren: Atman og Brahman er identiske - gjenforeningen ER Moksha.',
+        estimatedSeconds: 90,
+        loader: () => import('./MokshaVeien3D'),
+        Component: MokshaVeien3D as never,
     },
 };
 

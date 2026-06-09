@@ -9,83 +9,190 @@
         "sentrale_trekk",
         "frelse_og_mal"
     ],
+    "heroImage": "/images/krle/hinduisme/hinduisme-sentrale-trekk-hero.webp",
+    "readTime": "9 min lesning",
     "createdDate": "2025-12-04T10:00:00Z",
-    "lastUpdated": "2025-12-04T10:00:00Z",
+    "lastUpdated": "2026-06-09T00:00:00Z",
     "content": [
         {
-            "type": "header",
-            "text": "Moksha: Frigjøring"
-        },
-        {
             "type": "text",
-            "content": "Det endelige målet i hinduismen er Moksha, frigjøring fra rekken av gjenfødsler (Samsara). Dette innebærer at sjelen (Atman) forenes med verdenssjelen (Brahman) eller kommer til en guds himmel."
+            "content": "Tenk deg en religion som er over 5000 år gammel, som aldri hadde én grunnlegger, og som ikke krever at du tror på nøyaktig det samme som naboen din. Hinduisme er verdens eldste levende religion - og på mange måter den mest mangfoldige. Over 1,2 milliarder mennesker kaller seg hinduer, men de tilber ulike guder, praktiserer på ulike måter og forstår livet forskjellig. Det de deler, er et felles sett av ideer om hva livet er, hva sjelen er, og hva det vil si å leve riktig."
         },
         {
             "type": "header",
-            "text": "Veier til frelse"
+            "text": "Hva er hinduisme?"
         },
         {
             "type": "text",
-            "content": "Det finnes flere veier til målet: Handlingens vei (gjøre sine plikter uten tanke på belønning), Kunnskapens vei (innsikt gjennom meditasjon) og Kjærlighetens vei (hengivelse til en gud)."
+            "content": "Hinduisme kalles gjerne 'Sanatan Dharma' - den evige orden. Det er ikke en religion som begynte en bestemt dag, men snarere en familie av tradisjoner som har vokst i India og omegn i tusenvis av år. Det finnes ingen pave eller offisiell leder som bestemmer hva som er riktig hinduisme. I stedet finnes det hellige tekster - Vedaene, Upanishadene og Bhagavad Gita - et mangfold av guder og gudinner, og et sett av kjerneideer som de fleste hinduer er enige om."
+        },
+        {
+            "type": "text",
+            "content": "Det som gjør hinduisme unik blant verdensreligionene, er nettopp dette mangfoldet. Den rommer både streng monoteisme (troen på én Gud) og polyteisme (troen på mange guder), og ser ingen motsetning mellom dem. Mangfold er ikke en svakhet - det er en styrke."
         },
         {
             "type": "header",
-            "text": "Dharma og Karma"
+            "text": "Brahman og Atman - sjelen som er alt"
         },
         {
             "type": "text",
-            "content": "Livet styres av Dharma (den evige verdensorden og pliktene) og Karma (loven om handling og konsekvens). Gode handlinger gir god karma og bedre gjenfødsel."
+            "content": "I hjertet av hinduismen finnes en av filosofiens mest dristige ideer: den universelle sjelen (Brahman) og din personlige sjel (Atman) er i bunn og grunn identiske. Brahman er det absolutte - kilden til alt som eksisterer, den usynlige kraften som holder universet oppe. Atman er sjelen din - den delen av deg som ikke dør når kroppen din gjør det."
+        },
+        {
+            "type": "text",
+            "content": "Upanishadene - en samling eldgamle filosofitekster - formulerer det slik: 'Tat tvam asi' - Det er deg. Den store sannheten du kan erkjenne gjennom livet, er at du ikke er atskilt fra universet. Du er en del av det. Illusjonen om atskilthet kalles maya - og å gjennomskue maya er første skritt mot frigjøring."
+        },
+        {
+            "type": "header",
+            "text": "Karma - handlingers vekt"
+        },
+        {
+            "type": "text",
+            "content": "Karma betyr ikke skjebne. Det betyr konsekvens. Hvert valg du tar, hver handling du gjør, legger seg som frø i sjelen din. Gode handlinger - de som gjøres uten egoisme og med omsorg for andre - bærer god karma. Dårlige handlinger - de som springer ut av grådighet eller egoisme - bærer dårlig karma."
+        },
+        {
+            "type": "text",
+            "content": "Karma bestemmer ikke hva du er, men den former hva du møter i neste liv. Det er et etisk system som sier: handlingene dine har mening, og de følger deg videre. Men karma er ikke bare straff og belønning. Den dypeste innsikten er at du kan handle fritt uten å la deg styre av begjær etter resultater - det er essensen av Karma Yoga."
+        },
+        {
+            "type": "header",
+            "text": "Dharma - din plass i verdensordenen"
+        },
+        {
+            "type": "text",
+            "content": "Dharma er et av hinduismens viktigste begreper, og det er vanskelig å oversette presist. Det betyr noe slikt som 'den rette orden' eller 'pliktene dine i samsvar med den du er'. Dharma handler om å leve i tråd med din natur og din rolle - som student, forelder, leder eller borger."
+        },
+        {
+            "type": "text",
+            "content": "I Bhagavad Gita - hinduismens kanskje viktigste tekst - spør krigeren Arjuna om han bør kjempe i en krig mot sin egen familie. Guden Krishna svarer at det er Arjunas dharma som kriger å kjempe. Men han skal gjøre det uten hat, uten begjær etter seier, og uten å frykte tapet. Handlingen er plikt - ikke hevn, ikke ære, ikke gevinst."
+        },
+        {
+            "type": "header",
+            "text": "Samsara - gjenfødsels-sirkelen"
+        },
+        {
+            "type": "text",
+            "content": "Hinduisme lærer at sjelen (Atman) er udødelig. Kroppen din er midlertidig - den fødes, lever og dør. Men Atman fortsetter og tar en ny kropp, igjen og igjen. Dette kaller vi samsara - sirkelen av gjenfødsler. Hvilken kropp sjelen tar i neste liv, avhenger av karma fra dette livet. Et liv levet med god karma og rettferdig dharma gir en bedre gjenfødsel - kanskje som et menneske med muligheter til å nå nærmere Moksha."
+        },
+        {
+            "type": "text",
+            "content": "Samsara er ikke et mål - det er det som skal overvinnes. Den er beskrevet som en elv du ikke kan stanse, men som du kan lære å krysse. Og det finnes veier ut."
+        },
+        {
+            "type": "header",
+            "text": "Moksha - frigjøringen"
+        },
+        {
+            "type": "text",
+            "content": "Det ultimate målet i hinduismen er Moksha - frigjøring fra samsaras syklus. Moksha betyr at Atman endelig erkjenner sin identitet med Brahman og smelter inn i det universelle. Det er ikke en himmel du reiser til - det er snarere oppløsningen av illusjonen om at du noen gang var atskilt. Moksha er slutten på gjenfødselsenes sirkel. Det er det hinduismen, i sin kjerne, handler om."
+        },
+        {
+            "type": "text",
+            "content": "Det finnes ikke bare én vei til Moksha. Hinduismen respekterer at ulike mennesker er ulike - og tilbyr dermed ulike veier til det samme målet."
+        },
+        {
+            "type": "component",
+            "name": "MokshaVeiene",
+            "props": {}
+        },
+        {
+            "type": "header",
+            "text": "Hinduismens guder - ett Brahman, mange ansikter"
+        },
+        {
+            "type": "text",
+            "content": "Hinduisme er polyteistisk - det finnes tusenvis av guder og gudinner. Men mange hinduer vil si at alle disse gudene er ulike manifestasjoner av én virkelighet: Brahman. De tre viktigste er Brahma (skaperen), Vishnu (opprettholdaren) og Shiva (den som ødelegger det gamle for å gjøre plass til det nye). Disse tre utgjør Trimurti - den guddommelige treenigheten i hinduismen."
+        },
+        {
+            "type": "text",
+            "content": "I tillegg tilbes Sarasvati (visdomens gudinne), Lakshmi (rikdommens og lykken gudinne), Durga (det feminine kraftprinsippet) og Krishna (Vishnus kjærligste skikkelse), blant mange andre. Valg av gud handler ikke om hvilken som er 'riktig' - det handler om hvem som taler til nettopp deg."
+        },
+        {
+            "type": "component",
+            "name": "MicroGame",
+            "props": { "gameId": "moksha-veien-3d" }
+        },
+        {
+            "type": "header",
+            "text": "Hinduismen i dag"
+        },
+        {
+            "type": "text",
+            "content": "Hinduisme er verdens tredje største religion, med rundt 1,2 milliarder tilhengere - de fleste i India og Nepal, men også store hinduistiske samfunn i Sørøst-Asia, Karibia og Vest-Europa. Hinduisme er ikke en misjonerende religion - den søker ikke aktivt å omvende andre. Den er en levende, mangfoldig tradisjon som tar opp i seg nye praksiser og ideer."
+        },
+        {
+            "type": "text",
+            "content": "Yoga og meditasjon, som opprinnelig er hinduistiske praksiser, har spredt seg over hele verden og praktiseres i dag av hundrevis av millioner mennesker - selv om mange ikke er klar over de religiøse røttene. Karma er blitt et hverdagsord i norsk. Hinduismens ideer om sjelen, tid og frigjøring preger vår felles kultur mer enn vi kanskje er klar over."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hva er det ultimate målet i hinduismen?",
+                        "options": ["Å gjenfødes som et bedre menneske", "Moksha - frigjøring fra samsaras syklus", "Å tjene de rette gudene"],
+                        "answer": "Moksha - frigjøring fra samsaras syklus"
+                    },
+                    {
+                        "question": "Hva betyr 'Tat tvam asi' i Upanishadene?",
+                        "options": ["Gud er stor", "Det er deg - Atman og Brahman er identiske", "Gå den rette veien"],
+                        "answer": "Det er deg - Atman og Brahman er identiske"
+                    },
+                    {
+                        "question": "Hvilken av disse er IKKE en av de tre yoga-veiene til Moksha?",
+                        "options": ["Karma Yoga", "Dharma Yoga", "Bhakti Yoga"],
+                        "answer": "Dharma Yoga"
+                    },
+                    {
+                        "question": "Hva er karma i hinduismen?",
+                        "options": ["Skjebnen din - bestemt av gudene", "Konsekvensen av dine handlinger - som påvirker neste gjenfødsel", "Et ritual du utfører i tempelet"],
+                        "answer": "Konsekvensen av dine handlinger - som påvirker neste gjenfødsel"
+                    }
+                ]
+            }
         }
     ],
     "concepts": [
         {
             "id": "karma",
             "term": "Karma",
-            "definition": "Loven om handling og konsekvens. Gode handlinger gir god karma, dårlige handlinger gir dårlig karma."
+            "definition": "Loven om handling og konsekvens i hinduismen. Gode handlinger gir god karma og bedre gjenfødsel, dårlige handlinger gir dårlig karma."
         },
         {
             "id": "dharma",
             "term": "Dharma",
-            "definition": "Den evige verdensorden. Også pliktene hvert menneske har."
+            "definition": "Den evige verdensorden og pliktene hvert menneske har ut fra sin natur og rolle. Å leve etter sin dharma er å leve riktig."
         },
         {
             "id": "samsara",
             "term": "Samsara",
-            "definition": "Rekken av gjenfødsler. Livet ses på som en sirkel av fødsel, død og ny fødsel."
-        }
-    ],
-    "quiz": [
-        {
-            "question": "Hva er Karma?",
-            "options": [
-                "En indisk matrett",
-                "Loven om handling og konsekvens",
-                "En gud"
-            ],
-            "answer": "Loven om handling og konsekvens"
+            "definition": "Sirkelen av gjenfødsler i hinduismen. Sjelen (Atman) gjenfødes igjen og igjen til den oppnår Moksha."
         },
         {
-            "question": "Hva er målet med livet i hinduismen?",
-            "options": [
-                "Å bli rik",
-                "Å få god karma og oppnå Moksha",
-                "Å leve evig på jorden"
-            ],
-            "answer": "Å få god karma og oppnå Moksha"
+            "id": "moksha",
+            "term": "Moksha",
+            "definition": "Frigjøring fra samsaras syklus i hinduismen. Atman erkjenner sin identitet med Brahman og smelter inn i det universelle."
         },
         {
-            "question": "Hva er Dharma?",
-            "options": [
-                "Verdensorden og plikter",
-                "En elv",
-                "En høytid"
-            ],
-            "answer": "Verdensorden og plikter"
+            "id": "brahman",
+            "term": "Brahman",
+            "definition": "Den universelle sjelen og kilden til alt som eksisterer i hinduismen. Identisk med Atman (den individuelle sjelen)."
+        },
+        {
+            "id": "atman",
+            "term": "Atman",
+            "definition": "Den individuelle sjelen i hinduismen - den udødelige delen av deg. Identisk med Brahman (den universelle sjelen)."
+        },
+        {
+            "id": "maya",
+            "term": "Maya",
+            "definition": "Illusjonen om at vi er atskilte fra Brahman og fra hverandre. Å gjennomskue maya er første skritt mot Moksha."
         }
     ],
     "quote": {
-        "text": "Man blir hva man gjør. Gjør man det gode, blir man god. Gjør man det onde, blir man ond.",
-        "source": "Upanishadene",
-        "reference": "Brihadaranyaka Upanishad 4.4.5"
+        "text": "La den rette handlingen være ditt motiv, ikke frukten som kommer av den.",
+        "source": "Bhagavad Gita",
+        "reference": "2.47"
     }
 }
