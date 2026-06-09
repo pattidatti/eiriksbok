@@ -31,8 +31,34 @@ export const carloDialogs: Record<string, DialogNode | DialogNode[]> = {
             'hjem var han en annen mann - en som bare ville ha makt, uansett farge på fanen.',
         choices: [
             { text: 'Så han byttet side helt?', next: 'carlo_why' },
-            { text: 'Takk. Det forklarer mye.', next: null },
+            { text: 'Takk. Det forklarer mye.', next: 'carlo_quiz_sosialist' },
         ],
+    },
+    carlo_quiz_sosialist: {
+        speaker: 'Carlo',
+        text: 'Et spørsmål tilbake, journalist: hva fikk egentlig Mussolini til å forlate sosialismen?',
+        choices: [
+            {
+                text: 'Han så at nasjonalisme ga mer makt enn klassekamp',
+                next: 'carlo_quiz_riktig',
+            },
+            {
+                text: 'Han ble overbevist av fascismens filosofi',
+                next: 'carlo_quiz_sosialist',
+                consequenceHint:
+                    'Fascismen var ikke en ferdig filosofi da Mussolini snudde - han skapte den etterpå.',
+            },
+            {
+                text: 'Krigen endret ham religiøst',
+                next: 'carlo_quiz_sosialist',
+                consequenceHint: 'Ikke riktig. Det var en politisk kalkyle, ikke religiøs overbevisning.',
+            },
+        ],
+    },
+    carlo_quiz_riktig: {
+        speaker: 'Carlo',
+        text: 'Nøyaktig. Makt var alltid målet - ideologien var bare et middel.',
+        choices: [{ text: 'Det er en skremmende tanke.', next: null }],
     },
     carlo_why: {
         speaker: 'Carlo',
@@ -129,7 +155,7 @@ export const kapteinDialogs: Record<string, DialogNode | DialogNode[]> = {
             'denne «marsjen» er en bløff. Vi kunne knust den før lunsj.',
         choices: [
             { text: 'Så hvorfor gjør dere det ikke?', next: 'kaptein_orders' },
-            { text: 'En bløff... det endrer alt.', next: null },
+            { text: 'En bløff... det endrer alt.', next: 'kaptein_quiz_ordre' },
         ],
     },
     kaptein_orders: {
@@ -139,6 +165,32 @@ export const kapteinDialogs: Record<string, DialogNode | DialogNode[]> = {
             'unntakstilstand. Signerer kongen, mobiliserer vi, og dette er over på en time. Men ' +
             'ordren har ikke kommet. Og uten den... står vi bare her og venter.',
         choices: [{ text: 'Så alt avhenger av kongen.', next: null }],
+    },
+    kaptein_quiz_ordre: {
+        speaker: 'Kaptein Renzi',
+        text: 'Et spørsmål, journalist: hva skjer uten kongens ordre?',
+        choices: [
+            {
+                text: 'Vi venter. Soldater er tilskuere uten ordre',
+                next: 'kaptein_quiz_riktig',
+            },
+            {
+                text: 'Hæren rykker inn uansett og knuser marsjen',
+                next: 'kaptein_quiz_ordre',
+                consequenceHint: 'Feil. En lojal hær gjør ingenting uten ordre - det er hele problemet.',
+            },
+            {
+                text: 'Marsjen avsløres og styrer seg selv',
+                next: 'kaptein_quiz_ordre',
+                consequenceHint:
+                    'Kanskje - men ingen tar den risikoen. Uten ordre er hæren låst.',
+            },
+        ],
+    },
+    kaptein_quiz_riktig: {
+        speaker: 'Kaptein Renzi',
+        text: 'Nøyaktig. Demokratiet kollapset ikke i kamp - det sto og så på fra sidelinjen.',
+        choices: [{ text: 'Det er en dyster lærdom.', next: null }],
     },
 };
 

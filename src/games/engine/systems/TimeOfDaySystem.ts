@@ -30,6 +30,7 @@ export class TimeOfDaySystem {
     private ambient: THREE.AmbientLight | null = null;
     private hemi: THREE.HemisphereLight | null = null;
     private dirty = true;
+    private qualityBoost = 1.0;
     private sunDir = new THREE.Vector3();
     // Fase 1.3: fog-kobling. Settes av GameEngine.
     private scene: THREE.Scene | null = null;
@@ -77,6 +78,11 @@ export class TimeOfDaySystem {
         this.dirty = true;
     }
 
+    setQualityBoost(boost: number): void {
+        this.qualityBoost = boost;
+        this.dirty = true;
+    }
+
     setTimeOfDay(t: number): void {
         this.timeOfDay = ((t % 1) + 1) % 1;
         this.dirty = true;
@@ -118,19 +124,19 @@ export class TimeOfDaySystem {
             this.sun.color.copy(color);
             // Intensitet: høyere midt på dagen
             const elevation = Math.max(0, dir.y);
-            this.sun.intensity = 0.4 + elevation * 1.6;
+            this.sun.intensity = (0.4 + elevation * 1.6) * this.qualityBoost;
         }
 
         if (this.ambient) {
             const color = ambientColorFor(this.timeOfDay);
             this.ambient.color.copy(color);
             const elevation = Math.max(0, this.getSunDirection().y);
-            this.ambient.intensity = 0.25 + elevation * 0.5;
+            this.ambient.intensity = (0.25 + elevation * 0.5) * this.qualityBoost;
         }
 
         if (this.hemi) {
             this.hemi.color.copy(skyColorFor(this.timeOfDay));
-            this.hemi.intensity = 0.3 + Math.max(0, this.getSunDirection().y) * 0.6;
+            this.hemi.intensity = (0.3 + Math.max(0, this.getSunDirection().y) * 0.6) * this.qualityBoost;
         }
 
         // Fog-kurven: lerp tetthet over dagen og bytt farge mot himmelhorisonten

@@ -45,6 +45,13 @@ export const marsjenMotRomaConfig: GameConfig = {
         skippable: true,
     },
 
+    openingCinematic: [
+        { duration: 3, cameraPos: [0, 22, 40], lookAt: [0, 0, 10], fov: 52, transition: 'fade' },
+        { duration: 2.5, cameraPos: [-3, 1.8, 22], lookAt: [0, 1, 10], fov: 65, transition: 'cut' },
+        { duration: 2.5, cameraPos: [0, 4, 18], lookAt: [0, 2, -20], fov: 55, transition: 'cut' },
+        { duration: 2, cameraPos: [8, 3, -8], lookAt: [0, 1.5, -6], fov: 60, transition: 'cut' },
+    ],
+
     player: {
         startPosition: [0, 0, 28],
         colors: {
@@ -104,7 +111,79 @@ export const marsjenMotRomaConfig: GameConfig = {
             phase: 'seieren',
             objective: 'Soldatene trekker seg. Gå inn i Roma.',
         },
+        {
+            phase: 'puzzleWon',
+            objective: 'Du har skrevet ned det viktigste. Nå venter historiens dom.',
+        },
     ],
+
+    puzzle: {
+        steps: [
+            {
+                question: 'Kaptein Renzi sa at marsjen var en "bløff". Hva mente han med det?',
+                hint: 'Tenk på hva du så: hvem bar våpen, og hva kunne hæren ha gjort.',
+                options: [
+                    {
+                        text: 'Svartskjortene var dårlig bevæpnet og hæren kunne knust dem på timer.',
+                        correct: true,
+                        feedback: 'Riktig. Marsjen var et skuespill - ekte militærmakt ville ha stoppet den umiddelbart.',
+                    },
+                    {
+                        text: 'Mussolini var egentlig ikke til stede under marsjen.',
+                        correct: false,
+                        feedback: 'Nei - Mussolini var i Milano og ventet på resultatet. Men det var ikke det Renzi pekte på.',
+                    },
+                    {
+                        text: 'Svartskjortene løy om å ville ta Roma.',
+                        correct: false,
+                        feedback: 'De mente det alvorlig nok - men Renzi siktet til den militære realiteten.',
+                    },
+                ],
+            },
+            {
+                question: 'Gino beskrev fascismens kjennetegn. Hvilke tre passer best?',
+                hint: 'Husk hva Gino sa om nasjonen, lederen og demokratiet.',
+                options: [
+                    {
+                        text: 'Nasjonen over individet, sterk leder, vold som akseptabelt virkemiddel.',
+                        correct: true,
+                        feedback: 'Riktig. Ultranasjonalisme, lederkult og vold er kjernen i fascismen.',
+                    },
+                    {
+                        text: 'Individets frihet, folkets representasjon, fredelig kamp.',
+                        correct: false,
+                        feedback: 'Det er liberaldemokratiets verdier - det fascismen bekjemper.',
+                    },
+                    {
+                        text: 'Klassekamp, kollektivt eierskap, internasjonal solidaritet.',
+                        correct: false,
+                        feedback: 'Det er sosialistiske verdier. Fascismen er nasjonalistisk, ikke internasjonalistisk.',
+                    },
+                ],
+            },
+            {
+                question: 'Hvorfor støttet Signor Conti - en rik fabrikkeier - Mussolini?',
+                hint: 'Hva fryktet Conti mest, og hva lovde fascismen ham?',
+                options: [
+                    {
+                        text: 'Fascismen ville knuse streikene og beskytte hans eiendom, mot at han adlød staten.',
+                        correct: true,
+                        feedback: 'Riktig. Eliten valgte fascismen fordi den beskyttet privat eiendom - ulikt kommunismen.',
+                    },
+                    {
+                        text: 'Han trodde Mussolini var en ærlig mann som ville gjenopprette demokratiet.',
+                        correct: false,
+                        feedback: 'Conti var ikke naiv - han gjorde en kald kalkyle. Makt mot beskyttelse.',
+                    },
+                    {
+                        text: 'Han ble tvunget av svartskjortene til å støtte dem.',
+                        correct: false,
+                        feedback: 'Nei - eliten valgte dette frivillig. Det er det som gjør det så tragisk.',
+                    },
+                ],
+            },
+        ],
+    },
 
     endText: (engine: GameEngineRef): string => {
         const base =

@@ -53,9 +53,58 @@ export const marsjenMotRomaMonologs: Record<string, MonologNode> = {
     seier_refleksjon: {
         id: 'seier_refleksjon',
         lines: [
-            'De marsjerte aldri inn med makt. Mussolini tar toget til Roma - i sovevogn.',
+            'De marsjerte aldri inn med makt. Det endte uten et eneste skudd.',
             'I morgen er han statsminister. Utnevnt, lovlig, av kongen selv.',
             'Bløffen virket. Ikke fordi den var sterk, men fordi ingen turte å stoppe den.',
+        ],
+        once: true,
+    },
+
+    tog_ankomst: {
+        id: 'tog_ankomst',
+        lines: [
+            'Der er han. Benito Mussolini. Ikke på hvit hest - i sovevogn på natttoget fra Milano.',
+            'Han ankommer som statsminister, ikke som erobrer. Og slik begynte tjue år med diktatur.',
+        ],
+        once: true,
+    },
+
+    lese_flyveblad: {
+        id: 'lese_flyveblad',
+        lines: [
+            '"Fascistenes program, 1919." Jeg blar gjennom det fuktige, krøllede papiret.',
+            'Det lover alt på én gang: mot kapitalisme, mot sosialisme, for nasjonen, for handling.',
+            'Ingen sammenhengende idé - bare en vilje til makt. Det er nok for dem som er sinte nok.',
+        ],
+        once: true,
+    },
+
+    plakat_svart: {
+        id: 'plakat_svart',
+        lines: [
+            '"ITALIA REISER SEG!" - Mussolinis ansikt i store trekk over en oppstigende sol.',
+            '"Enten med oss, eller mot oss." En enkel verden uten nyanser.',
+            'Propagandaen er ikke sofistikert. Den trenger ikke være det - den taler til magen, ikke hodet.',
+        ],
+        once: true,
+    },
+
+    plakat_vilje: {
+        id: 'plakat_vilje',
+        lines: [
+            '"VILJENS SEIER" - en knyttet neve over parlamentsbygningen.',
+            'Fienden er alltid den samme: de røde, de svake, forræderne. Alltid noen å peke på.',
+            'Jeg skriver ned teksten ord for ord. Leserne hjemme må få se dette selv.',
+        ],
+        once: true,
+    },
+
+    marsj_rop: {
+        id: 'marsj_rop',
+        lines: [
+            'Rundt meg roper de i kor: "A noi! A noi!" - "Til oss! Til oss!"',
+            'Sangen stiger. Trommene banker. Tusenvis av stemmer som sier det samme.',
+            'Det er noe som trekker i magen - selv om man vet hva det er, kjennes det sterkt.',
         ],
         once: true,
     },

@@ -1,5 +1,5 @@
 {
-  "buildId": 1781010322405,
+  "buildId": 1781029918820,
   "contentMap": {
     "concept-adel": [
       "content/concepts/adel.json"
@@ -406,6 +406,9 @@
     "concept-ideologi": [
       "content/concepts/ideologi.json"
     ],
+    "concept-il-duce": [
+      "content/concepts/il-duce.json"
+    ],
     "concept-imperialisme": [
       "content/concepts/imperialisme.json"
     ],
@@ -529,6 +532,9 @@
     "concept-leddsetning": [
       "content/concepts/leddsetning.json"
     ],
+    "concept-legalitet": [
+      "content/concepts/legalitet.json"
+    ],
     "concept-legitimitet": [
       "content/concepts/legitimitet.json"
     ],
@@ -570,6 +576,9 @@
     ],
     "concept-marshallhjelpen": [
       "content/concepts/marshallhjelpen.json"
+    ],
+    "concept-marsjen-mot-roma": [
+      "content/concepts/marsjen-mot-roma.json"
     ],
     "concept-meditasjon": [
       "content/concepts/meditasjon.json"
@@ -690,6 +699,9 @@
     ],
     "concept-organisasjon": [
       "content/concepts/organisasjon.json"
+    ],
+    "concept-ovra": [
+      "content/concepts/ovra.json"
     ],
     "concept-parlamentarisk-republikk": [
       "content/concepts/parlamentarisk-republikk.json"
@@ -891,6 +903,9 @@
     ],
     "concept-spesiell-okonomisk-sone": [
       "content/concepts/spesiell-okonomisk-sone.json"
+    ],
+    "concept-squadristi": [
+      "content/concepts/squadristi.json"
     ],
     "concept-stabilitet": [
       "content/concepts/stabilitet.json"
@@ -2639,6 +2654,9 @@
     "georges-clemenceau": [
       "content/people/georges-clemenceau.json"
     ],
+    "giacomo-matteotti": [
+      "content/people/giacomo-matteotti.json"
+    ],
     "giordano-bruno": [
       "content/people/giordano-bruno.json"
     ],
@@ -3077,6 +3095,9 @@
     "vidkun-quisling": [
       "content/people/vidkun-quisling.json"
     ],
+    "viktor-emanuel-iii": [
+      "content/people/viktor-emanuel-iii.json"
+    ],
     "vilhelm-erobreren": [
       "content/people/vilhelm-erobreren.json"
     ],
@@ -3490,6 +3511,7 @@
     "concepts/hyperinflasjon.json/hyperinflasjon": "content/concepts/hyperinflasjon.json",
     "concepts/identitet.json/identitet": "content/concepts/identitet.json",
     "concepts/ideologi.json/ideologi": "content/concepts/ideologi.json",
+    "concepts/il-duce.json/il-duce": "content/concepts/il-duce.json",
     "concepts/imperialisme.json/imperialisme": "content/concepts/imperialisme.json",
     "concepts/index-librorum-prohibitorum.json/index-librorum-prohibitorum": "content/concepts/index-librorum-prohibitorum.json",
     "concepts/indirekte-tale.json/indirekte-tale": "content/concepts/indirekte-tale.json",
@@ -3531,6 +3553,7 @@
     "concepts/langar.json/langar": "content/concepts/langar.json",
     "concepts/lebensraum.json/lebensraum": "content/concepts/lebensraum.json",
     "concepts/leddsetning.json/leddsetning": "content/concepts/leddsetning.json",
+    "concepts/legalitet.json/legalitet": "content/concepts/legalitet.json",
     "concepts/legitimitet.json/legitimitet": "content/concepts/legitimitet.json",
     "concepts/leiesoldater.json/leiesoldater": "content/concepts/leiesoldater.json",
     "concepts/lex-salica.json/lex-salica": "content/concepts/lex-salica.json",
@@ -3545,6 +3568,7 @@
     "concepts/manhattan-prosjektet.json/manhattan-prosjektet": "content/concepts/manhattan-prosjektet.json",
     "concepts/mannebot.json/mannebot": "content/concepts/mannebot.json",
     "concepts/marshallhjelpen.json/marshallhjelpen": "content/concepts/marshallhjelpen.json",
+    "concepts/marsjen-mot-roma.json/marsjen-mot-roma": "content/concepts/marsjen-mot-roma.json",
     "concepts/meditasjon.json/meditasjon": "content/concepts/meditasjon.json",
     "concepts/menneskeheten.json/menneskeheten": "content/concepts/menneskeheten.json",
     "concepts/menneskerettigheter.json/menneskerettigheter": "content/concepts/menneskerettigheter.json",
@@ -3585,6 +3609,7 @@
     "concepts/opium.json/opium": "content/concepts/opium.json",
     "concepts/oppdemming.json/oppdemming": "content/concepts/oppdemming.json",
     "concepts/organisasjon.json/organisasjon": "content/concepts/organisasjon.json",
+    "concepts/ovra.json/ovra": "content/concepts/ovra.json",
     "concepts/parlamentarisk-republikk.json/parlamentarisk-republikk": "content/concepts/parlamentarisk-republikk.json",
     "concepts/parlamentarisk-stat.json/parlamentarisk-stat": "content/concepts/parlamentarisk-stat.json",
     "concepts/parlamentarisme.json/parlamentarisme": "content/concepts/parlamentarisme.json",
@@ -3652,6 +3677,7 @@
     "concepts/sosialisme.json/sosialisme": "content/concepts/sosialisme.json",
     "concepts/spekulasjon.json/spekulasjon": "content/concepts/spekulasjon.json",
     "concepts/spesiell-okonomisk-sone.json/spesiell-okonomisk-sone": "content/concepts/spesiell-okonomisk-sone.json",
+    "concepts/squadristi.json/squadristi": "content/concepts/squadristi.json",
     "concepts/stabilitet.json/stabilitet": "content/concepts/stabilitet.json",
     "concepts/stalingrad.json/stalingrad": "content/concepts/stalingrad.json",
     "concepts/stamford-bridge.json/stamford-bridge": "content/concepts/stamford-bridge.json",
@@ -4235,6 +4261,7 @@
     "people/george-stephenson.json/george-stephenson": "content/people/george-stephenson.json",
     "people/george-v.json/george-v": "content/people/george-v.json",
     "people/georges-clemenceau.json/georges-clemenceau": "content/people/georges-clemenceau.json",
+    "people/giacomo-matteotti.json/giacomo-matteotti": "content/people/giacomo-matteotti.json",
     "people/giordano-bruno.json/giordano-bruno": "content/people/giordano-bruno.json",
     "people/grandmaster-flash.json/grandmaster-flash": "content/people/grandmaster-flash.json",
     "people/guillaume-farel.json/guillaume-farel": "content/people/guillaume-farel.json",
@@ -4383,6 +4410,7 @@
     "people/thomas-malthus.json/thomas-malthus": "content/people/thomas-malthus.json",
     "people/thomas-more.json/thomas-more": "content/people/thomas-more.json",
     "people/vidkun-quisling.json/vidkun-quisling": "content/people/vidkun-quisling.json",
+    "people/viktor-emanuel-iii.json/viktor-emanuel-iii": "content/people/viktor-emanuel-iii.json",
     "people/vilhelm-erobreren.json/vilhelm-erobreren": "content/people/vilhelm-erobreren.json",
     "people/vilhelm-krag.json/vilhelm-krag": "content/people/vilhelm-krag.json",
     "people/vladimir-lenin.json/vladimir-lenin": "content/people/vladimir-lenin.json",

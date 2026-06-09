@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import type { GameEngineRef, DialogNode } from '../engine/types';
 import { addNPC, addPickup, addProp, addMonolog, addParticle, addAmbientAudio } from '../engine/declarative';
+import { registerMainSunLight, registerMainHemiLight } from '../engine/sceneUserData';
 import {
     carloDialogs,
     ginoDialogs,
@@ -22,14 +23,23 @@ export function setupMarsjenMotRomaScene(engine: GameEngineRef): void {
     // ═══════════════════════════════════════════════════════════════════════
     engine.setWeather({ type: 'rain', intensity: 0.55 });
 
-    // Mykt fyll-lys så palasset og figurene leses gjennom det grå skydekket.
-    // Skyggeløst (preset-sola kaster allerede skygge) - dette løfter bare basen.
+    // Hemi + sol registrert med TimeOfDaySystem slik at de drives av timeOfDay
+    // og får quality-boost på lav tier. Solen kaster skygger på medium/høy.
     const hemi = new THREE.HemisphereLight(0xb8b4ac, 0x47443e, 1.15);
     scene.add(hemi);
-    const fill = new THREE.DirectionalLight(0xd4cec2, 0.85);
-    fill.position.set(-25, 35, 12);
-    fill.castShadow = false;
-    scene.add(fill);
+    registerMainHemiLight(scene, hemi);
+
+    const sun = new THREE.DirectionalLight(0xd4cec2, 1.0);
+    sun.position.set(-25, 35, 12);
+    sun.castShadow = true;
+    sun.shadow.mapSize.set(2048, 2048);
+    const sc = sun.shadow.camera;
+    sc.left = sc.bottom = -30;
+    sc.right = sc.top = 30;
+    sc.near = 1;
+    sc.far = 80;
+    scene.add(sun);
+    registerMainSunLight(scene, sun);
 
     // ═══════════════════════════════════════════════════════════════════════
     // BAKKE + VEI
@@ -88,13 +98,14 @@ export function setupMarsjenMotRomaScene(engine: GameEngineRef): void {
     // ═══════════════════════════════════════════════════════════════════════
     // SVARTSKJORTE-KOLONNER (tusenvis antydet med to flankerende rekker)
     // ═══════════════════════════════════════════════════════════════════════
+    const staticMarcherGroups: THREE.Group[] = [];
     for (let row = 0; row < 9; row++) {
         const z = 17 - row * 2.4;
-        addMarcher(scene, sceneMat, -5.4 - (row % 2) * 0.5, z);
-        addMarcher(scene, sceneMat, 5.4 + (row % 2) * 0.5, z);
+        staticMarcherGroups.push(addMarcher(scene, sceneMat, -5.4 - (row % 2) * 0.5, z));
+        staticMarcherGroups.push(addMarcher(scene, sceneMat, 5.4 + (row % 2) * 0.5, z));
         if (row % 2 === 0) {
-            addMarcher(scene, sceneMat, -6.9, z - 0.6);
-            addMarcher(scene, sceneMat, 6.9, z - 0.6);
+            staticMarcherGroups.push(addMarcher(scene, sceneMat, -6.9, z - 0.6));
+            staticMarcherGroups.push(addMarcher(scene, sceneMat, 6.9, z - 0.6));
         }
     }
 
@@ -150,6 +161,19 @@ export function setupMarsjenMotRomaScene(engine: GameEngineRef): void {
     for (let i = 0; i < soldierX.length; i++) {
         const s = makeFigure(sceneMat, 0x4a5640, 0xc89868, 0x2c3424); // grågrønn uniform
         s.position.set(soldierX[i], 0, BARRIER_Z - 0.6);
+        // Gevær: trestokk (kolbe/kropp) + metallpipe
+        const rifleStock = new THREE.Mesh(
+            new THREE.BoxGeometry(0.05, 1.3, 0.05),
+            sceneMat(0x3a2e1e, { preset: 'wood', roughness: 0.9 }),
+        );
+        rifleStock.position.set(0.42, 0.65, 0.05);
+        s.add(rifleStock);
+        const riflePipe = new THREE.Mesh(
+            new THREE.BoxGeometry(0.035, 0.48, 0.035),
+            sceneMat(0x4a4840, { preset: 'metal', roughness: 0.5 }),
+        );
+        riflePipe.position.set(0.42, 1.54, 0.05);
+        s.add(riflePipe);
         soldierGroup.add(s);
     }
     scene.add(soldierGroup);
@@ -187,6 +211,90 @@ export function setupMarsjenMotRomaScene(engine: GameEngineRef): void {
     pediment.position.set(0, 7.2, -14);
     pediment.castShadow = true;
     scene.add(pediment);
+
+    // ═══════════════════════════════════════════════════════════════════════
+    // TOGSTASJON (Mussolinis ankomst via tog - avdukes i seieren-fasen)
+    // ═══════════════════════════════════════════════════════════════════════
+    const stationGroup = new THREE.Group();
+    // Plattform
+    const platform = new THREE.Mesh(
+        new THREE.BoxGeometry(12, 0.5, 4),
+        sceneMat(0x5a5450, { preset: 'stone', roughness: 0.9 }),
+    );
+    platform.position.set(0, 0.25, 0);
+    platform.receiveShadow = true;
+    stationGroup.add(platform);
+    // Lokomotiv-kropp
+    const locoBody = new THREE.Mesh(
+        new THREE.BoxGeometry(4.5, 2.2, 2.4),
+        sceneMat(0x2a2420, { preset: 'metal', roughness: 0.7 }),
+    );
+    locoBody.position.set(-3, 1.6, 0);
+    locoBody.castShadow = true;
+    stationGroup.add(locoBody);
+    // Pipe
+    const chimney = new THREE.Mesh(
+        new THREE.CylinderGeometry(0.22, 0.28, 0.9, 8),
+        sceneMat(0x1a1a1a, { preset: 'metal', roughness: 0.8 }),
+    );
+    chimney.position.set(-4.5, 2.95, 0);
+    chimney.castShadow = true;
+    stationGroup.add(chimney);
+    // Dekorative hjul (3 par)
+    const wheelZOffsets = [1.3, -1.3];
+    const wheelXPositions = [-2, -3.5, -5];
+    for (const wx of wheelXPositions) {
+        for (const wz of wheelZOffsets) {
+            const wheel = new THREE.Mesh(
+                new THREE.CylinderGeometry(0.5, 0.5, 0.2, 12),
+                sceneMat(0x1a1a1a, { preset: 'metal', roughness: 0.6 }),
+            );
+            wheel.rotation.z = Math.PI / 2;
+            wheel.position.set(wx, -0.3, wz);
+            stationGroup.add(wheel);
+        }
+    }
+    stationGroup.position.set(-18, 0, 5);
+    scene.add(stationGroup);
+    addParticle(engine, { id: 'train-steam', preset: 'steam', pos: [-22.5, 3.5, 5], scale: 1.2 });
+
+    // ═══════════════════════════════════════════════════════════════════════
+    // ANIMERTE MARSJ-FIGURER (beveger seg langs veien i loop)
+    // ═══════════════════════════════════════════════════════════════════════
+    type MarchNPC = { group: THREE.Group; z: number; speed: number; minZ: number; maxZ: number; dir: number };
+    const marchNPCs: MarchNPC[] = [];
+    const marchNPCData = [
+        { x: -5.6, z: 21, speed: 0.7, minZ: 3, maxZ: 23 },
+        { x: 5.8, z: 19, speed: 0.8, minZ: 3, maxZ: 21 },
+        { x: -6.0, z: 15, speed: 0.65, minZ: 2, maxZ: 17 },
+        { x: 5.2, z: 13, speed: 0.75, minZ: 2, maxZ: 15 },
+        { x: -4.6, z: 9, speed: 0.6, minZ: 1, maxZ: 11 },
+        { x: 6.2, z: 7, speed: 0.85, minZ: 1, maxZ: 9 },
+        { x: -5.0, z: 5, speed: 0.72, minZ: 0, maxZ: 7 },
+        { x: 4.8, z: 3, speed: 0.78, minZ: 0, maxZ: 5 },
+    ];
+    for (const d of marchNPCData) {
+        const g = makeFigure(sceneMat, 0x26262a, 0xc89868, 0x16161a);
+        g.position.set(d.x, 0, d.z);
+        scene.add(g);
+        marchNPCs.push({ group: g, z: d.z, speed: d.speed, minZ: d.minZ, maxZ: d.maxZ, dir: -1 });
+    }
+
+    // ═══════════════════════════════════════════════════════════════════════
+    // KONG VIKTOR og MUSSOLINI (statiske figurer, skjult inntil cinematics)
+    // ═══════════════════════════════════════════════════════════════════════
+    const kongViktorGroup = makeFigure(sceneMat, 0x9a8454, 0xcea078, 0x5c4e30); // gyllen uniform
+    kongViktorGroup.position.set(100, 5, -19); // off-screen, avsløres ved klimaks
+    scene.add(kongViktorGroup);
+
+    const mussoliniGroup = makeFigure(sceneMat, 0x2a2622, 0xcea078, 0x1a1612); // mørk dress
+    mussoliniGroup.position.set(100, 0, 5); // off-screen, avsløres ved seieren
+    scene.add(mussoliniGroup);
+
+    // Budbringer på hest (rir inn under kongens-valg-fasen, synkronisert med kongen_taler-monologen)
+    const messengerHorse = makeHorseAndRider(sceneMat);
+    messengerHorse.group.position.set(100, 0, 0); // off-screen inntil aktivert
+    scene.add(messengerHorse.group);
 
     // ═══════════════════════════════════════════════════════════════════════
     // NPC-ER
@@ -264,6 +372,57 @@ export function setupMarsjenMotRomaScene(engine: GameEngineRef): void {
         pos: [-5, 1.05, 24],
         label: 'Plukk opp flyveblad (E)',
         audioOnPickup: 'pickup-paper',
+        onPickup: () => engine.schedule(() => engine.playMonolog('lese_flyveblad'), 600),
+    });
+
+    // ═══════════════════════════════════════════════════════════════════════
+    // PROPAGANDA-PLAKATER (interaktive — E for å undersøke)
+    // ═══════════════════════════════════════════════════════════════════════
+    // Plakat 1: På veggen av bygning ved leiren (nord for Carlo, sør for marsj-kolonnen)
+    const plakat1 = new THREE.Mesh(
+        new THREE.BoxGeometry(1.4, 1.8, 0.06),
+        sceneMat(0x8a1a14, { preset: 'stone', roughness: 0.85 }),
+    );
+    plakat1.position.set(-7.7, 2.2, 14);
+    plakat1.castShadow = false;
+    scene.add(plakat1);
+    // Lys tekst-imitasjon
+    const plakatTekst1 = new THREE.Mesh(
+        new THREE.BoxGeometry(1.1, 0.2, 0.07),
+        sceneMat(0xf4e4c1, { preset: 'cloth', roughness: 1 }),
+    );
+    plakatTekst1.position.set(-7.7, 2.5, 14.04);
+    scene.add(plakatTekst1);
+    engine.registerInteract(plakat1, {
+        label: 'Les plakaten (E)',
+        radius: 3,
+        onInteract: () => {
+            engine.unregisterInteract(plakat1);
+            engine.playMonolog('plakat_svart');
+        },
+    });
+
+    // Plakat 2: Lenger nord langs ruten, på høyre bygning
+    const plakat2 = new THREE.Mesh(
+        new THREE.BoxGeometry(1.4, 1.8, 0.06),
+        sceneMat(0x1a1a1e, { preset: 'stone', roughness: 0.85 }),
+    );
+    plakat2.position.set(8.7, 2.2, 2);
+    plakat2.castShadow = false;
+    scene.add(plakat2);
+    const plakatTekst2 = new THREE.Mesh(
+        new THREE.BoxGeometry(1.1, 0.2, 0.07),
+        sceneMat(0xf4e4c1, { preset: 'cloth', roughness: 1 }),
+    );
+    plakatTekst2.position.set(8.7, 2.6, 2.04);
+    scene.add(plakatTekst2);
+    engine.registerInteract(plakat2, {
+        label: 'Les plakaten (E)',
+        radius: 3,
+        onInteract: () => {
+            engine.unregisterInteract(plakat2);
+            engine.playMonolog('plakat_vilje');
+        },
     });
 
     // ═══════════════════════════════════════════════════════════════════════
@@ -283,6 +442,12 @@ export function setupMarsjenMotRomaScene(engine: GameEngineRef): void {
         lines: marsjenMotRomaMonologs.haeren.lines,
         once: true,
         trigger: { type: 'proximity', pos: [0, 0, -2], radius: 4 },
+    });
+    addMonolog(engine, {
+        id: 'marsj_rop',
+        lines: marsjenMotRomaMonologs.marsj_rop.lines,
+        once: true,
+        trigger: { type: 'proximity', pos: [0, 0, 11], radius: 4 },
     });
 
     // ═══════════════════════════════════════════════════════════════════════
@@ -339,14 +504,34 @@ export function setupMarsjenMotRomaScene(engine: GameEngineRef): void {
     });
 
     // ═══════════════════════════════════════════════════════════════════════
+    // QUIZ: siste steg i puzzle setter kongens-valg-fasen i gang
+    // ═══════════════════════════════════════════════════════════════════════
+    const puzzleConfig = engine.config.puzzle;
+    if (puzzleConfig?.steps?.length) {
+        const lastStep = puzzleConfig.steps[puzzleConfig.steps.length - 1];
+        const existingOnCorrect = lastStep.onCorrect;
+        lastStep.onCorrect = () => {
+            existingOnCorrect?.();
+            engine.schedule(() => engine.setPhase('kongens-valg'), 1200);
+        };
+    }
+
+    // ═══════════════════════════════════════════════════════════════════════
     // FASEPROGRESJON
     // ═══════════════════════════════════════════════════════════════════════
     let climaxStarted = false;
     let endScheduled = false;
     let soldiersAside = false;
     const soldierTargetX = 11;
+    let elapsedTime = 0;
+    let messengerRiding = false;
+    let messengerArrived = false;
+    let messengerTime = 0;
+    const MESSENGER_TARGET = new THREE.Vector3(5.5, 0, -2.5);
+    const MESSENGER_SPEED = 5.2;
 
     engine.registerUpdate((dt) => {
+        elapsedTime += dt;
         const phase = engine.getPhase();
         const p = engine.getPlayerPosition();
 
@@ -359,30 +544,118 @@ export function setupMarsjenMotRomaScene(engine: GameEngineRef): void {
             engine.setPhase('bloeffen');
         }
 
-        // Klimaks: kongen folder, hæren trekker seg, veien åpnes
+        // Klimaks: kongen vises, cinema, hæren trekker seg, veien åpnes
         if (phase === 'kongens-valg' && !climaxStarted) {
             climaxStarted = true;
+            // 700ms: «Alle venter...»-monolog (synkronisert med kongecinematics)
             engine.schedule(() => engine.playMonolog('venter'), 700);
+            // 3000ms: Vis kongen ved palasset
+            engine.schedule(() => {
+                // Kongen foran palasstrappen (z=-16 er foran fasaden, front er z=-17.5)
+                kongViktorGroup.position.set(-2, 0, -16);
+                void engine.playCinematic([
+                    // Vidvinkel fra høyre: palasset bak kongen
+                    { duration: 4, cameraPos: [9, 3.5, -8], lookAt: [-2, 1.1, -16], fov: 50, transition: 'fade' },
+                    // Nærbilde: kongen ved palasstrappen
+                    { duration: 3.5, cameraPos: [2, 1.8, -11], lookAt: [-2, 1.25, -16], fov: 42, transition: 'cut' },
+                    // Tilbake til gateplanet — spenning
+                    { duration: 3, cameraPos: [0, 3, -5], lookAt: [0, 1, -14], fov: 55, transition: 'fade' },
+                ]);
+            }, 3000);
+            // 13000ms: Start budbringer-hest (cinematicen slutter ~13.5s, hesten ankommer ~16.6s)
+            engine.schedule(() => {
+                messengerHorse.group.position.set(22, 0, -12);
+                messengerRiding = true;
+            }, 13000);
+            // 16000ms: Kongens beslutning avsløres (etter cinematicen ~14.5s er ferdig)
             engine.schedule(() => {
                 engine.playMonolog('kongen_taler');
                 engine.setFlag('king_caved', true);
                 engine.removeStaticCollider(barrier);
                 barrier.visible = false;
                 soldiersAside = true;
+                kongViktorGroup.position.set(100, 0, -16); // Skjul kongen før Mussolini ankommer
                 engine.setPhase('seieren');
-            }, 9500);
+            }, 16000);
         }
 
-        // Etter at veien er åpnet: la spilleren gå inn i Roma, så avslutt
+        // Seieren: Mussolini ankommer med tog, deretter avsluttende refleksjon
         if (phase === 'seieren' && !endScheduled) {
             endScheduled = true;
-            engine.schedule(() => engine.playMonolog('seier_refleksjon'), 2000);
-            engine.schedule(() => engine.triggerEnd(), 21000);
+            // 8000ms: Skjul budbringer-hesten (ikke lenger relevant)
+            engine.schedule(() => {
+                messengerHorse.group.position.set(100, 0, 0);
+                messengerRiding = false;
+            }, 8000);
+            // 12000ms: Mussolini-sekvens (etter kongen_taler ~10.5s er ferdig)
+            // fadeToBlack → plasser Mussolini → cinematicens transition:'fade' tar over fra svart
+            engine.schedule(() => {
+                engine.fadeToBlack(800);
+                engine.schedule(() => {
+                    // Mussolini ved palassportene (z=-16 = foran fasaden, klart fra bygninger)
+                    mussoliniGroup.position.set(4, 0, -16);
+                    void engine.playCinematic([
+                        // Vidvinkel: palasset fra venstre, Mussolini ved trappen
+                        { duration: 3.5, cameraPos: [-9, 3.5, -8], lookAt: [2, 1.1, -16], fov: 52, transition: 'fade' },
+                        // Nærbilde: Mussolini ved palassportene
+                        { duration: 3, cameraPos: [-1, 1.8, -11], lookAt: [4, 1.25, -16], fov: 45, transition: 'cut' },
+                    ]);
+                    engine.schedule(() => engine.playMonolog('tog_ankomst'), 2000);
+                }, 900);
+            }, 12000);
+            // 24000ms: Avsluttende refleksjon (etter Mussolini-sekvens ~9s er ferdig)
+            engine.schedule(() => engine.playMonolog('seier_refleksjon'), 24000);
+            engine.schedule(() => engine.triggerEnd(), 37000);
         }
 
         // Animér soldatene som skrider til side
         if (soldiersAside && soldierGroup.position.x < soldierTargetX - 0.05) {
             soldierGroup.position.x += (soldierTargetX - soldierGroup.position.x) * Math.min(1, dt * 1.5);
+        }
+
+        // Subtil pust/svai-animasjon på statiske marsjfigurer
+        for (let i = 0; i < staticMarcherGroups.length; i++) {
+            const g = staticMarcherGroups[i];
+            g.position.y = Math.sin(elapsedTime * 1.2 + i * 0.7) * 0.04;
+            g.rotation.z = Math.sin(elapsedTime * 0.8 + i * 1.1) * 0.03;
+        }
+
+        // Beveg marsjerende NPC-kolonner frem og tilbake
+        for (const m of marchNPCs) {
+            m.z += m.dir * m.speed * dt;
+            if (m.z < m.minZ) { m.z = m.minZ; m.dir = 1; }
+            if (m.z > m.maxZ) { m.z = m.maxZ; m.dir = -1; }
+            m.group.position.z = m.z;
+            m.group.rotation.y = m.dir > 0 ? Math.PI : 0;
+            m.group.position.y = Math.sin(elapsedTime * 1.8 + m.speed * 10) * 0.03;
+        }
+
+        // Budbringer på hest rider inn fra høyre side mot kapteinen
+        if (messengerRiding && !messengerArrived) {
+            messengerTime += dt;
+            const pos = messengerHorse.group.position;
+            const diff = MESSENGER_TARGET.clone().sub(pos);
+            const dist = diff.length();
+            if (dist < 0.5) {
+                messengerArrived = true;
+                pos.x = MESSENGER_TARGET.x;
+                pos.z = MESSENGER_TARGET.z;
+                // Vend mot kapteinen
+                messengerHorse.group.rotation.y = Math.atan2(2.6 - pos.x, -3.6 - pos.z);
+                messengerHorse.group.position.y = 0;
+            } else {
+                const step = Math.min(MESSENGER_SPEED * dt, dist);
+                diff.normalize().multiplyScalar(step);
+                pos.x += diff.x;
+                pos.z += diff.z;
+                messengerHorse.group.rotation.y = Math.atan2(diff.x, diff.z);
+                // Galopperingsanimasjon: bobling + benvipping
+                messengerHorse.group.position.y = Math.sin(messengerTime * 14) * 0.07;
+                messengerHorse.group.rotation.z = Math.sin(messengerTime * 14 + Math.PI) * 0.035;
+                for (let i = 0; i < messengerHorse.legs.length; i++) {
+                    messengerHorse.legs[i].rotation.x = Math.sin(messengerTime * 14 + i * Math.PI) * 0.45;
+                }
+            }
         }
     });
 
@@ -401,7 +674,8 @@ function checkClimax(engine: GameEngineRef): void {
         engine.getFlag<boolean>('learned_bluff') &&
         engine.getFlag<boolean>('learned_elite_motive')
     ) {
-        engine.setPhase('kongens-valg');
+        // Åpne quiz for å aktivere kongens-valg. Siste puzzle-steg setter fasen.
+        engine.schedule(() => engine.openPuzzle(), 800);
     }
 }
 
@@ -490,10 +764,77 @@ function addMarcher(
     sceneMat: GameEngineRef['sceneMat'],
     x: number,
     z: number,
-): void {
+): THREE.Group {
     const g = makeFigure(sceneMat, 0x26262a, 0xc89868, 0x16161a);
     g.position.set(x, 0, z);
     scene.add(g);
+    return g;
+}
+
+function makeHorseAndRider(
+    sceneMat: GameEngineRef['sceneMat'],
+): { group: THREE.Group; legs: THREE.Mesh[] } {
+    const g = new THREE.Group();
+    const brown = sceneMat(0x7a5030, { preset: 'cloth', roughness: 1 });
+    const darkBrown = sceneMat(0x4a3018, { preset: 'cloth', roughness: 1 });
+
+    // Hestekropp
+    const body = new THREE.Mesh(new THREE.BoxGeometry(0.65, 0.55, 1.5), brown);
+    body.position.set(0, 1.1, 0);
+    g.add(body);
+
+    // Bakparti (hestens rygg er høyere bak)
+    const rump = new THREE.Mesh(new THREE.BoxGeometry(0.55, 0.32, 0.52), brown);
+    rump.position.set(0, 1.42, -0.4);
+    g.add(rump);
+
+    // Hals
+    const neck = new THREE.Mesh(new THREE.BoxGeometry(0.28, 0.52, 0.26), brown);
+    neck.position.set(0, 1.54, 0.56);
+    neck.rotation.x = -0.35;
+    g.add(neck);
+
+    // Hestehode
+    const horseHead = new THREE.Mesh(new THREE.BoxGeometry(0.22, 0.28, 0.42), brown);
+    horseHead.position.set(0, 1.82, 0.86);
+    g.add(horseHead);
+
+    // 4 ben (indices: 0=front-left, 1=front-right, 2=back-left, 3=back-right)
+    const legGeom = new THREE.CylinderGeometry(0.08, 0.09, 0.9, 6);
+    const legXZ: Array<[number, number]> = [[-0.22, 0.42], [0.22, 0.42], [-0.22, -0.42], [0.22, -0.42]];
+    const legs: THREE.Mesh[] = [];
+    for (const [lx, lz] of legXZ) {
+        const leg = new THREE.Mesh(legGeom, darkBrown);
+        leg.position.set(lx, 0.45, lz);
+        g.add(leg);
+        legs.push(leg);
+    }
+
+    // Rytter kropp
+    const riderBody = new THREE.Mesh(
+        new THREE.CylinderGeometry(0.17, 0.21, 0.65, 8),
+        sceneMat(0x2e2a26, { preset: 'cloth', roughness: 1 }),
+    );
+    riderBody.position.set(0, 1.95, 0);
+    g.add(riderBody);
+
+    // Rytter hode
+    const riderHead = new THREE.Mesh(
+        new THREE.SphereGeometry(0.15, 8, 8),
+        sceneMat(0xcea078, { preset: 'cloth', roughness: 0.8 }),
+    );
+    riderHead.position.set(0, 2.46, 0);
+    g.add(riderHead);
+
+    // Rytter hatt
+    const hat = new THREE.Mesh(
+        new THREE.CylinderGeometry(0.17, 0.17, 0.11, 8),
+        sceneMat(0x1a1614, { preset: 'cloth', roughness: 1 }),
+    );
+    hat.position.set(0, 2.62, 0);
+    g.add(hat);
+
+    return { group: g, legs };
 }
 
 function addBanner(

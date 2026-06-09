@@ -340,13 +340,16 @@ export class GameEngine {
         this.renderer.shadowMap.enabled = this.qualityTier !== 'low';
         this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
         this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
-        this.renderer.toneMappingExposure = ppConfig.exposure ?? 1.4;
+        this.renderer.toneMappingExposure = ppConfig.exposure ?? (this.qualityTier === 'low' ? 1.9 : 1.4);
         this.renderer.outputColorSpace = THREE.SRGBColorSpace;
 
         options.container.appendChild(this.renderer.domElement);
 
         // Time-of-day + sky må initialiseres FØR buildScene så registrering av sun/ambient kan skje.
         this.timeOfDaySystem = new TimeOfDaySystem(visual.timeOfDay ?? 0.5);
+        if (this.qualityTier === 'low') {
+            this.timeOfDaySystem.setQualityBoost(1.5);
+        }
         this.cameraDirector = new CameraDirector();
         this.aiDirector = new AIDirector();
 
@@ -401,6 +404,19 @@ export class GameEngine {
 
         // Trigg en initial TOD-update slik at lyset stemmer fra første frame
         this.timeOfDaySystem.update();
+
+        // På lav tier: boost alle scene-lys som IKKE styres av TimeOfDaySystem
+        // (lagt til manuelt i setupScene uten registerMainSunLight/registerMainHemiLight).
+        if (this.qualityTier === 'low') {
+            const todManaged = new Set<THREE.Light>(
+                [this.sunLight, this.hemiLight, this.ambientLight].filter(Boolean) as THREE.Light[]
+            );
+            this.scene.traverse((obj) => {
+                if (obj instanceof THREE.Light && !todManaged.has(obj)) {
+                    obj.intensity *= 1.5;
+                }
+            });
+        }
 
         // Initial NPC-routes
         if (options.config.npcRoutes) {
