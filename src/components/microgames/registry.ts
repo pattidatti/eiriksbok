@@ -48,6 +48,7 @@ const Pompeii3D = lazy(() => import('./Pompeii3D'));
 const PakkAmerikakofferten3D = lazy(() => import('./PakkAmerikakofferten3D'));
 const Pyramidebyggeren3D = lazy(() => import('./Pyramidebyggeren3D'));
 const KalmarKronene3D = lazy(() => import('./KalmarKronene3D'));
+const Pestrute3D = lazy(() => import('./Pestrute3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
     'gladius-duell': {
@@ -436,6 +437,15 @@ export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.Laz
         estimatedSeconds: 130,
         loader: () => import('./KalmarKronene3D'),
         Component: KalmarKronene3D as never,
+    },
+    'pestrute-3d': {
+        id: 'pestrute-3d',
+        title: 'Pestens reise langs handelsrutene',
+        description:
+            'Folg Svartedauden fra Svartehavet til Bergen i 3D: klikk neste havn langs handelsruta og se pesten gli fra by til by, husene bli graa, folk falle og dodstallet stige. Lyspaera: de samme handelsrutene som baerte rikdom, baerte ogsaa doden helt til Norge i 1349.',
+        estimatedSeconds: 130,
+        loader: () => import('./Pestrute3D'),
+        Component: Pestrute3D as never,
     },
 };
 

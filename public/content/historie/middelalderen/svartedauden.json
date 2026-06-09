@@ -27,6 +27,13 @@
             "content": "Svartedauden kom til Norge (Bergen) i 1349, men pesten hadde herjet i Europa siden 1346. Den spredte seg via handelsruter fra [det Mongolske riket](/historie/middelalderen/mongolske-riket) i øst. På verdensbasis døde mellom 70 og 200 millioner mennesker."
         },
         {
+            "type": "component",
+            "name": "MicroGame",
+            "props": {
+                "gameId": "pestrute-3d"
+            }
+        },
+        {
             "type": "text",
             "title": "Konsekvenser for samfunnet",
             "content": "I Norge døde ca. 50% av befolkningen. Dette førte til at mange gårder ble stående tomme (ødegårder). For staten var dette en katastrofe, da skatteinntektene forsvant. Men for de fattige bøndene som overlevde, ble livet faktisk bedre: Det var nå rikelig med jord tilgjengelig, og de kunne kreve bedre vilkår."
