@@ -130,6 +130,10 @@
             "text": "For Hayek var Keynes' løsning – mer statlig utgifter – å behandle sykdommen med mer av det som forårsaket den. Det ville bare forsinke den nødvendige omstillingen og skape grobunn for enda verre kriser i fremtiden. Markedet måtte få lov til å «rense» seg selv, uansett hvor smertefullt det var på kort sikt."
         },
         {
+            "type": "component",
+            "name": "KriseSpaken"
+        },
+        {
             "type": "header",
             "level": 2,
             "text": "Hvem hadde rett?",

@@ -222,6 +222,8 @@
                 "type": "fakta",
                 "content": "La oss vende tilbake til Europa - til Italia i 1922. Du står i Roma og ser tusenvis av menn i sorte skjorter marsjere gjennom gatene. De roper om nasjonen, om orden, om en sterk leder. Benito Mussolini står i spissen - en tidligere sosialist som har funnet en ny vei til makt.\n\n'Marsjen mot Roma' er mer bløff enn revolusjon. Hadde hæren fått ordre om å stoppe svartskjortene, ville de blitt knust. Men kong Viktor Emanuel nøler. I stedet for å erklære unntakstilstand, inviterer han Mussolini til å danne regjering. Demokratiet overgir seg uten kamp.\n\nFascismen er født. Men hva er den egentlig? Ikke kapitalisme, ikke sosialisme, men noe nytt: ultranasjonalisme kombinert med autoritær ledelse, vold som politisk virkemiddel, og forakt for liberale verdier som kompromiss og rettigheter. Staten over alt, individet er ingenting.\n\nItalia blir malen - snart vil andre kopiere den.",
                 "tasks": [
+                    "Spill [Marsjen mot Roma](/oving/spill/marsjen-mot-roma)",
+                    "Les artikkelen [Italia: Fascismens fødsel](/historie/mellomkrigstiden/italia)",
                     "Hva var Mussolinis politiske bakgrunn før han ble fascist? (Fakta)",
                     "Beskriv marsjen mot Roma og hvordan Mussolini faktisk fikk makten. (Fakta)",
                     "Hva er de viktigste kjennetegnene ved fascistisk ideologi? (Forståelse)",
@@ -1638,41 +1640,51 @@
                     "year": 1922,
                     "pauseForTask": true,
                     "suggestedMinutes": 20,
-                    "taskPrompt": "Les artikkelen om Italia, og svar på oppgavene i steg 7.",
+                    "taskPrompt": "Spill spillet, les artikkelen om Italia, og svar på skriveoppgavene i steg 7.",
                     "points": [
                         {
                             "id": "tp1",
-                            "text": "Hva var Mussolinis politiske bakgrunn før han ble fascist? (Fakta)",
+                            "text": "Spill Marsjen mot Roma (/oving/spill/marsjen-mot-roma)",
                             "type": "bullet"
                         },
                         {
                             "id": "tp2",
-                            "text": "Beskriv marsjen mot Roma og hvordan Mussolini faktisk fikk makten. (Fakta)",
+                            "text": "Les artikkelen Italia: Fascismens fødsel (/historie/mellomkrigstiden/italia)",
                             "type": "bullet"
                         },
                         {
                             "id": "tp3",
-                            "text": "Hva er de viktigste kjennetegnene ved fascistisk ideologi? (Forståelse)",
+                            "text": "Hva var Mussolinis politiske bakgrunn før han ble fascist? (Fakta)",
                             "type": "bullet"
                         },
                         {
                             "id": "tp4",
-                            "text": "Hvordan kunne eliten - kongen, industrien, hæren - akseptere fascismen? (Analyse)",
+                            "text": "Beskriv marsjen mot Roma og hvordan Mussolini faktisk fikk makten. (Fakta)",
                             "type": "bullet"
                         },
                         {
                             "id": "tp5",
-                            "text": "Sammenlign fascismen med kommunismen: hva har de til felles, hva skiller dem? (Sammenligning)",
+                            "text": "Hva er de viktigste kjennetegnene ved fascistisk ideologi? (Forståelse)",
                             "type": "bullet"
                         },
                         {
                             "id": "tp6",
+                            "text": "Hvordan kunne eliten - kongen, industrien, hæren - akseptere fascismen? (Analyse)",
+                            "type": "bullet"
+                        },
+                        {
+                            "id": "tp7",
+                            "text": "Sammenlign fascismen med kommunismen: hva har de til felles, hva skiller dem? (Sammenligning)",
+                            "type": "bullet"
+                        },
+                        {
+                            "id": "tp8",
                             "text": "Ser du fascistiske trekk i moderne politiske bevegelser? (Refleksjon)",
                             "type": "bullet"
                         }
                     ],
                     "image": "/images/mellomkrigstiden/hero_italia.webp",
-                    "teacherNotes": "Faktaoppgavene er dekket. Bruk kjennetegnene fra slide tre når elevene sammenligner fascisme og kommunisme i oppgave 5."
+                    "teacherNotes": "Elevene starter med spillet for å leve seg inn i marsjen mot Roma, deretter artikkelen. Faktaoppgavene er dekket av presentasjonen - bruk kjennetegnene fra slide tre til sammenligningen i oppgave 7."
                 },
                 {
                     "id": "div-nazisme",

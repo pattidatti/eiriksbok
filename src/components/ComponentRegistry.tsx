@@ -29,6 +29,7 @@ const ByzantineSurvival = lazy(() => import('./content/interactive/ByzantineSurv
 const ParallelleSivilisasjoner = lazy(() => import('./content/interactive/ParallelleSivilisasjoner').then(m => ({ default: m.ParallelleSivilisasjoner })));
 const InflationCalculator = lazy(() => import('./content/interactive/InflationCalculator').then(m => ({ default: m.InflationCalculator })));
 const TimePreferenceModel = lazy(() => import('./content/interactive/TimePreferenceModel').then(m => ({ default: m.TimePreferenceModel })));
+const KriseSpaken = lazy(() => import('./content/interactive/KriseSpaken').then(m => ({ default: m.KriseSpaken })));
 const BusinessCycleModel = lazy(() => import('./content/interactive/BusinessCycleModel').then(m => ({ default: m.BusinessCycleModel })));
 const BusinessCycleGraph = lazy(() => import('./content/interactive/BusinessCycleGraph').then(m => ({ default: m.BusinessCycleGraph })));
 const ProductionModel = lazy(() => import('./content/interactive/ProductionModel').then(m => ({ default: m.ProductionModel })));
@@ -301,6 +302,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     // Interactive Content
     InflationCalculator,
     TimePreferenceModel,
+    KriseSpaken,
     BusinessCycleModel,
     BusinessCycleGraph,
     ProductionModel,
