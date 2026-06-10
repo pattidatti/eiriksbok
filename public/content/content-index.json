@@ -1,5 +1,5 @@
 {
-  "buildId": 1781054663309,
+  "buildId": 1781084437576,
   "contentMap": {
     "concept-adel": [
       "content/concepts/adel.json"
@@ -3308,6 +3308,9 @@
     "elitenes-herredomme": [
       "content/samfunnskunnskap/styringsformer/elitenes-herredomme.json"
     ],
+    "eu-og-eos": [
+      "content/samfunnskunnskap/styringsformer/eu-og-eos.json"
+    ],
     "foydalisme": [
       "content/samfunnskunnskap/styringsformer/foydalisme.json"
     ],
@@ -4486,6 +4489,7 @@
     "samfunnskunnskap/styringsformer/demokrati-ansikter": "content/samfunnskunnskap/styringsformer/demokrati-ansikter.json",
     "samfunnskunnskap/styringsformer/diktaturet": "content/samfunnskunnskap/styringsformer/diktaturet.json",
     "samfunnskunnskap/styringsformer/elitenes-herredomme": "content/samfunnskunnskap/styringsformer/elitenes-herredomme.json",
+    "samfunnskunnskap/styringsformer/eu-og-eos": "content/samfunnskunnskap/styringsformer/eu-og-eos.json",
     "samfunnskunnskap/styringsformer/foydalisme": "content/samfunnskunnskap/styringsformer/foydalisme.json",
     "samfunnskunnskap/styringsformer/grunnloven": "content/samfunnskunnskap/styringsformer/grunnloven.json",
     "samfunnskunnskap/styringsformer/km-12-maktaktørar": "content/samfunnskunnskap/styringsformer/km-12-maktaktørar.json",

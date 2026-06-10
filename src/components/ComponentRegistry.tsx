@@ -22,6 +22,7 @@ import { MapCarousel } from './MapCarousel';
 // Interactive Content
 const TragediensTrinn = lazy(() => import('./content/interactive/TragediensTrinn').then(m => ({ default: m.TragediensTrinn })));
 const UtvandrerVekta = lazy(() => import('./content/interactive/UtvandrerVekta').then(m => ({ default: m.UtvandrerVekta })));
+const SuverenitetsSkala = lazy(() => import('./content/interactive/SuverenitetsSkala').then(m => ({ default: m.SuverenitetsSkala })));
 const FornorskingMaler = lazy(() => import('./content/interactive/FornorskingMaler').then(m => ({ default: m.FornorskingMaler })));
 const KalmarMaktbalanse = lazy(() => import('./content/interactive/KalmarMaktbalanse').then(m => ({ default: m.KalmarMaktbalanse })));
 const WienerkongressenForhandling = lazy(() => import('./content/interactive/WienerkongressenForhandling').then(m => ({ default: m.WienerkongressenForhandling })));
@@ -316,6 +317,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     GreskGudeMatch,
     RomanExpansionMap,
     UtvandrerVekta,
+    SuverenitetsSkala,
     TrolleyProblem,
     GoldenMeanSlider,
     CategoricalImperativeTester,
