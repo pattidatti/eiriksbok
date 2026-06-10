@@ -1,0 +1,185 @@
+{
+    "id": "eu-og-eos",
+    "title": "EU og EØS: Norge mellom selvstyre og samarbeid",
+    "layout": "rich",
+    "year": "1994",
+    "category": "Norge i Europa",
+    "readTime": "9 min lesning",
+    "heroImage": "/images/placeholder.webp",
+    "details": [
+        "Norge stemte nei til EU-medlemskap to ganger, i 1972 og i 1994.",
+        "EØS-avtalen fra 1994 gjør Norge til en del av EUs indre marked.",
+        "Norge må følge EUs regler for handel, men har ikke stemmerett i EU.",
+        "Det indre markedet bygger på fri flyt av varer, tjenester, mennesker og penger.",
+        "Striden handler om byttehandelen mellom selvstyre og samarbeid."
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "I 1972 og i 1994 gikk nordmenn til valgurnene for å svare på det samme spørsmålet: Skal Norge bli medlem av EU? Begge gangene ble svaret nei. Likevel følger Norge i dag tusenvis av regler som er laget i EU. Hvordan henger det sammen?"
+        },
+        {
+            "type": "text",
+            "content": "Norge er ikke medlem av EU. Men Norge er heller ikke helt utenfor. Landet har valgt en mellomløsning som heter EØS-avtalen. For å skjønne den, må vi først forstå hva EU er, og hvorfor Norge sa nei."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Norske velgere på vei inn i et stemmelokale en høstdag",
+            "caption": "To ganger har norske velgere stemt nei til EU-medlemskap."
+        },
+        {
+            "type": "header",
+            "text": "Hvorfor lagde de EU?"
+        },
+        {
+            "type": "text",
+            "content": "Etter andre verdenskrig lå Europa i ruiner. To verdenskriger på under femti år hadde drept titalls millioner mennesker. Noen ledere tenkte en ny tanke: land som handler med hverandre og blir avhengige av hverandre, går sjeldnere til krig. Derfor begynte land i Vest-Europa å samarbeide tettere og tettere. Samarbeidet vokste til det vi i dag kaller EU, Den europeiske union. Tanken om å samarbeide for å sikre fred ligner på ideen bak [FN](/samfunnskunnskap/ideer-og-verdenssyn/fn)."
+        },
+        {
+            "type": "text",
+            "content": "Hjertet i EU er det indre markedet. Her kan fire ting bevege seg fritt over grensene mellom medlemslandene: varer, tjenester, mennesker og penger. En norsk bedrift kan selge fisk til Tyskland uten toll, og en norsk ungdom kan ta jobb i Spania uten å søke om lov. Et stort, åpent marked gjør varer billigere og gir folk flere muligheter."
+        },
+        {
+            "type": "text",
+            "content": "Du merker det indre markedet i hverdagen uten å tenke over det. Når familien handler på nett fra en butikk i Europa, eller når storesøster reiser på utveksling til Tyskland, er det dette samarbeidet som gjør det enkelt. Varer og mennesker krysser grensene nesten som om de ikke fantes."
+        },
+        {
+            "type": "header",
+            "text": "Norge sa nei, to ganger"
+        },
+        {
+            "type": "text",
+            "content": "Da Norge skulle bestemme seg, ble landet splittet. Mange i byene og i næringslivet ville bli med, fordi de så mulighetene i det store markedet. Men mange på bygda, i fiskeriene og i landbruket var redde. De fryktet at viktige avgjørelser om fisken i havet og jorda på land skulle flyttes til møterom langt borte i Brussel."
+        },
+        {
+            "type": "text",
+            "content": "Det handlet også om selvstyre. Norge ble fritt fra Sverige så sent som i [1905](/historie/norgeshistorie/unionsopplosningen-1905), og mange var stolte av å bestemme over sitt eget land. Retten til å styre seg selv er en grunnstein i [Grunnloven](/samfunnskunnskap/styringsformer/grunnloven). For mange føltes EU-medlemskap som å gi fra seg noe av det Norge nettopp hadde kjempet seg til. I 1972 ble det knapt nei, og i 1994 ble det nei igjen."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Splittet folkemengde med ja-plakater og nei-plakater i en gate",
+            "caption": "EU-spørsmålet delte Norge i to. By stod ofte mot bygd."
+        },
+        {
+            "type": "header",
+            "text": "EØS: med, men ikke med"
+        },
+        {
+            "type": "text",
+            "content": "Norge trengte fortsatt å selge varene sine til Europa. Løsningen ble EØS-avtalen, som trådte i kraft i 1994. EØS står for Det europeiske økonomiske samarbeidsområdet. Gjennom avtalen blir Norge en del av EUs indre marked, nesten som et fullt medlem. Norske bedrifter får selge fritt, og nordmenn kan studere og jobbe i hele Europa."
+        },
+        {
+            "type": "text",
+            "content": "Men avtalen har en pris. For å være med i markedet, må Norge følge EUs regler for handel. Og her er det store poenget: siden Norge ikke er medlem av EU, er landet ikke med når reglene lages og stemmes over. Norge må følge reglene, men sitter ikke ved bordet der de bestemmes. Noen områder holdt Norge utenfor avtalen, blant annet fisk og landbruk, nettopp det mange var mest redde for å miste. Du kan lese mer om hvordan land knytter seg sammen gjennom handel i [global handel](/samfunnskunnskap/handel-og-infrastruktur/global-handel-oversikt)."
+        },
+        {
+            "type": "component",
+            "name": "SuverenitetsSkala",
+            "props": {
+                "title": "Hvor mye skal Norge samarbeide med Europa?"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Reglene Norge ikke stemmer over"
+        },
+        {
+            "type": "text",
+            "content": "Dette er kjernen i den norske EU-striden. Tusenvis av regler fra EU blir til norsk lov gjennom EØS-avtalen. Tilhengerne sier at avtalen gir Norge nesten alle fordelene ved medlemskap uten å være fullt med. Motstanderne sier at Norge har gjort seg til en regelfølger uten stemmerett, og at det er udemokratisk å følge lover man ikke selv har vært med å bestemme."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "EØS i korte trekk",
+                "items": [
+                    "Trådte i kraft i 1994, samme år som Norge stemte nei til EU.",
+                    "Gir Norge tilgang til EUs indre marked: fri flyt av varer, tjenester, folk og penger.",
+                    "Norge må følge EUs regler for handel, men har ikke stemmerett i EU.",
+                    "Fisk og landbruk er holdt utenfor avtalen.",
+                    "Island og Liechtenstein er med i EØS sammen med Norge."
+                ]
+            }
+        },
+        {
+            "type": "component",
+            "name": "MicroGame",
+            "props": {
+                "gameId": "europa-broen-3d"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Striden i dag"
+        },
+        {
+            "type": "text",
+            "content": "Spørsmålet er fortsatt levende. Noen mener Norge bør melde seg helt inn i EU, slik at landet får stemmerett. Andre mener Norge bør si opp EØS-avtalen og heller lage egne handelsavtaler, for å få tilbake mer selvstyre. De fleste partiene vil beholde EØS som den er, fordi den gir trygg tilgang til markedet der Norge selger mest. Striden handler hele tiden om den samme byttehandelen: hvor mye selvstyre er Norge villig til å gi fra seg for å være med i fellesskapet?"
+        },
+        {
+            "type": "text",
+            "content": "Tallene forklarer mye av striden. EU er den klart viktigste handelspartneren til Norge. Omtrent to av tre varer som Norge selger til utlandet, går til land i EU. Når så mye av jobbene og inntektene henger på dette markedet, blir mange forsiktige med å rive opp avtalen, selv om de er uenige om mye annet."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Norsk flagg og EU-flagg side om side foran en moderne bygning",
+            "caption": "Norge er tett knyttet til EU gjennom EØS, men står utenfor selve unionen."
+        },
+        {
+            "type": "text",
+            "content": "Det finnes ikke ett riktig svar. Mer samarbeid gir Norge et større marked og mer innflytelse, men mindre selvstyre. Mindre samarbeid gir mer selvstyre, men dårligere tilgang til markedet. EØS er Norges forsøk på å finne en mellomvei. Å forstå denne avveiningen hjelper deg å henge med når voksne krangler om EU, EØS og hvor mye Norge skal bestemme selv."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hva svarte nordmenn da de stemte om EU-medlemskap i 1972 og 1994?",
+                        "options": [
+                            "Ja begge ganger",
+                            "Nei begge ganger",
+                            "Ja i 1972, nei i 1994",
+                            "Nei i 1972, ja i 1994"
+                        ],
+                        "correctAnswer": 1
+                    },
+                    {
+                        "question": "Hva er hovedpoenget med EØS-avtalen?",
+                        "options": [
+                            "Norge blir fullt medlem av EU",
+                            "Norge blir en del av EUs indre marked, men er ikke medlem av EU",
+                            "Norge slipper å følge alle EUs handelsregler",
+                            "Norge melder seg helt ut av samarbeidet med Europa"
+                        ],
+                        "correctAnswer": 1
+                    },
+                    {
+                        "question": "Hva er haken ved EØS som mange er uenige om?",
+                        "options": [
+                            "Norge må betale toll på alle varer",
+                            "Norge får ikke selge fisk til Europa",
+                            "Norge må følge EUs regler uten å ha stemmerett i EU",
+                            "Norge mister retten til egen grunnlov"
+                        ],
+                        "correctAnswer": 2
+                    },
+                    {
+                        "question": "Hva menes med det indre markedet?",
+                        "options": [
+                            "Et marked som bare finnes inne i Norge",
+                            "Et område der varer, tjenester, mennesker og penger kan bevege seg fritt over grensene",
+                            "En avtale om felles militær",
+                            "Et torg i Brussel der lederne møtes"
+                        ],
+                        "correctAnswer": 1
+                    }
+                ]
+            }
+        }
+    ],
+    "timeline": []
+}

@@ -56,8 +56,18 @@ const MokshaVeien3D = lazy(() => import('./MokshaVeien3D'));
 const MarsjenMotRoma3D = lazy(() => import('./MarsjenMotRoma3D'));
 const VektenIWien3D = lazy(() => import('./VektenIWien3D'));
 const Vesterleden3D = lazy(() => import('./Vesterleden3D'));
+const EuropaBroen3D = lazy(() => import('./EuropaBroen3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
+    'europa-broen-3d': {
+        id: 'europa-broen-3d',
+        title: 'Broen til Europa',
+        description:
+            'Dra spaken fra "Stå alene" til "Fullt EU-medlem" og se hva Norge får og gir fra seg: marked, innflytelse og selvstyre.',
+        estimatedSeconds: 150,
+        loader: () => import('./EuropaBroen3D'),
+        Component: EuropaBroen3D as never,
+    },
     'gladius-duell': {
         id: 'gladius-duell',
         title: 'Gladius-duell',
