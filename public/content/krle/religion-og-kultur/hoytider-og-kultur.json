@@ -1,0 +1,179 @@
+{
+    "id": "hoytider-og-kultur",
+    "title": "Høytider: Hvor kommer fridagene fra?",
+    "layout": "rich",
+    "subject": "krle",
+    "year": "Fra antikken til i dag",
+    "category": "Religion og samfunn",
+    "readTime": "8 min lesning",
+    "heroImage": "/images/placeholder.webp",
+    "details": [
+        "De fleste fridagene i Norge har religiøse røtter",
+        "Jul, påske og pinse er kristne høytider som hele samfunnet deler",
+        "Et mangfoldig Norge får stadig nye høytider som id og divali"
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Tenk på alle dagene du har fri fra skolen i løpet av et år. Juleferie. Påskeferie. En torsdag i mai der du plutselig slipper å møte opp. De fleste tar disse fridagene som en selvfølge. Men har du tenkt på hvor de kommer fra? Svaret er overraskende: nesten alle fridagene våre stammer fra religion. Religion lever videre i kalenderen, også for de som ikke tror på noe."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Norsk familie samlet rundt et pyntet julebord med levende lys",
+            "caption": "Mange høytider vi feirer sammen, har religiøse røtter, selv når vi ikke tenker over det."
+        },
+        {
+            "type": "header",
+            "text": "Hvorfor har vi fri akkurat disse dagene?"
+        },
+        {
+            "type": "text",
+            "content": "I Norge kaller vi de offisielle fridagene for røde dager, fordi de står med rødt i kalenderen. Da har de fleste fri fra jobb og skole, og butikkene holder stengt. Hvis du teller dem, ser du noe tydelig: de aller fleste røde dagene er kristne høytider. Det er ikke tilfeldig. I tusen år var Norge et kristent land, og kirken bestemte hvilke dager som var hellige. Disse dagene ble en del av loven, og de henger igjen den dag i dag."
+        },
+        {
+            "type": "text",
+            "content": "Selv den vanlige fridagen din har religiøse røtter. Hvorfor har vi nemlig fri på søndag? Fordi søndagen lenge var kristendommens hviledag, dagen folk gikk i kirken. Jødene hviler på lørdag og muslimene samles til bønn på fredag. Tanken om at én dag i uka skal være annerledes enn de andre, kommer altså rett fra religionen. I dag bruker de fleste søndagen til å sove lenge eller henge med venner, men dagen er fri fordi noen en gang mente den var hellig."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Røde dager i Norge",
+                "content": "Av de offisielle fridagene utenom søndagene er nesten alle kristne: 1. juledag, 2. juledag, skjærtorsdag, langfredag, 1. og 2. påskedag, Kristi himmelfartsdag og pinse. Bare 1. mai (arbeidernes dag) og 17. mai (grunnlovsdagen) er verdslige, altså ikke-religiøse."
+            }
+        },
+        {
+            "type": "header",
+            "text": "Jul, påske og pinse: kristne høytider som ble felles"
+        },
+        {
+            "type": "text",
+            "content": "De tre store kristne høytidene markerer hver sin del av historien om Jesus. I julen feirer kristne at Jesus ble født. I påsken minnes de at han døde og sto opp igjen. Pinsen kommer femti dager etter påske og handler om at den hellige ånd kom til disiplene. Du kan lese mer om troen bak dette i artikkelen om [kristendommen](/krle/religion/kristendom/intro)."
+        },
+        {
+            "type": "text",
+            "content": "Mange av skikkene rundt høytidene er eldre enn kristendommen selv. Da kristendommen kom til Norge, fantes det allerede gamle midtvinterfester der folk tente lys og spiste godt for å holde motet oppe i den mørkeste tiden. Kirken la julen sin oppå disse festene, og slik smeltet gammel og ny tradisjon sammen. Derfor har julen vår både krybbe og julenisse, både salmer og pepperkaker. Høytider er sjelden helt rene. De er lag på lag av historie."
+        },
+        {
+            "type": "text",
+            "content": "Det spesielle er at disse høytidene ikke lenger bare tilhører de troende. De har blitt felles kultur. En familie som aldri går i kirken, feirer likevel jul med pinnekjøtt og gaver. Mange spiser påskeegg uten å tenke på oppstandelsen i det hele tatt. Høytiden har fått et liv utenfor religionen. Akkurat som religiøse symboler dukker opp i [film, musikk og spill](/krle/religion-og-kultur/religion-i-medier), lever de gamle høytidene videre som tradisjoner vi deler, enten vi tror eller ikke."
+        },
+        {
+            "type": "text",
+            "content": "Prøv det selv: under ser du noen kjente merkedager. Dra hver av dem dit du tror den kommer fra. Hvor mange har egentlig religiøse røtter?"
+        },
+        {
+            "type": "component",
+            "name": "HoytidsKalender",
+            "props": {
+                "title": "Hvor kommer fri-dagen fra?"
+            }
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Barn tenner små oljelamper under en fargerik lysfest om kvelden",
+            "caption": "Lysfester finnes i mange religioner. Lyset i mørket betyr håp nesten overalt."
+        },
+        {
+            "type": "header",
+            "text": "Nye høytider i et mangfoldig Norge"
+        },
+        {
+            "type": "text",
+            "content": "Norge er ikke det samme landet det var for hundre år siden. I dag bor det mennesker fra hele verden her, med mange ulike religioner. Derfor feires det nå høytider i Norge som var nesten ukjente før. Muslimske familier feirer id når fastemåneden ramadan er over. Hinduer markerer divali, [hinduismens](/krle/religion/hinduisme/intro) store lysfest. Jøder tenner lysene under hanukka, og du kan lese mer om deres tradisjoner i artikkelen om [jødedommen](/krle/religion/jodedom/intro)."
+        },
+        {
+            "type": "text",
+            "content": "Noen skoler gir nå elever fri på sine viktigste religiøse høytider, selv om dagene ikke er røde i kalenderen. Det viser hvordan en kultur forandrer seg: når nye mennesker kommer, kommer det nye fester også. Kalenderen vår er ikke hugget i stein. Den vokser sakte, slik samfunnet rundt den gjør."
+        },
+        {
+            "type": "header",
+            "text": "Hva høytidene gjør med oss"
+        },
+        {
+            "type": "text",
+            "content": "Selve ordet høytid betyr egentlig høy tid, altså en tid som er løftet opp over det vanlige. En høytid bryter den grå hverdagen. Du gjør noe annet enn ellers: pynter huset, lager spesiell mat, tar på finklær og treffer slekta. Dette behovet for å gjøre noen dager spesielle ser ut til å være felles for mennesker over hele jorda, uansett hva de tror på."
+        },
+        {
+            "type": "text",
+            "content": "Hvis du ser nøye på de store høytidene, finner du noe slående: de likner hverandre mer enn du skulle tro. Jul, hanukka, divali og id handler alle om lys, god mat og det å samles med dem du er glad i. Lyset i mørket går igjen i religion etter religion. Det er kanskje derfor vi ofte kjenner oss igjen i hverandres fester, selv når vi tror på helt ulike ting."
+        },
+        {
+            "type": "text",
+            "content": "I spillet under kan du tenne lysene på fire ulike høytidsbord. Legg merke til hva de fire feiringene har felles, selv om de tilhører hver sin religion."
+        },
+        {
+            "type": "component",
+            "name": "MicroGame",
+            "props": {
+                "gameId": "festens-lys-3d"
+            }
+        },
+        {
+            "type": "text",
+            "content": "Høytider er altså mye mer enn fridager. De binder mennesker sammen og bærer historie videre fra én generasjon til den neste. De forteller oss hvem vi har vært, og de viser hvem vi holder på å bli. Neste gang du har fri fra skolen, vet du litt mer om hvorfor: en gammel tro har lagt igjen et spor i kalenderen din."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Mennesker med ulik bakgrunn deler et festmåltid rundt samme bord",
+            "caption": "Lys, mat og samvær er felles for høytider i mange religioner."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "title": "Sjekk hva du har lært",
+                "questions": [
+                    {
+                        "question": "Hvorfor er de fleste røde dagene i Norge kristne høytider?",
+                        "options": [
+                            "Fordi Norge var et kristent land i tusen år, og kirken bestemte hvilke dager som var hellige",
+                            "Fordi staten trakk lodd om fridagene",
+                            "Fordi kristne høytider alltid faller på en søndag",
+                            "Fordi alle land i verden har de samme fridagene"
+                        ],
+                        "explanation": "Kirken hadde makt over kalenderen i tusen år, og de hellige dagene ble en del av loven. Derfor henger de kristne høytidene igjen som røde dager.",
+                        "correctAnswer": 0
+                    },
+                    {
+                        "question": "Hva betyr det at en dag er verdslig?",
+                        "options": [
+                            "At den er ikke-religiøs",
+                            "At den bare feires i utlandet",
+                            "At det er en vanlig arbeidsdag",
+                            "At den kommer fra en gammel religion"
+                        ],
+                        "explanation": "Verdslig betyr ikke-religiøs. I Norge er 1. mai og 17. mai verdslige fridager, mens resten har kristne røtter.",
+                        "correctAnswer": 0
+                    },
+                    {
+                        "question": "Hvilke nye høytider feires i Norge i dag fordi landet har blitt mer mangfoldig?",
+                        "options": [
+                            "Id og divali",
+                            "Jul og påske",
+                            "1. mai og 17. mai",
+                            "Pinse og Kristi himmelfart"
+                        ],
+                        "explanation": "Når mennesker fra mange religioner flytter til Norge, kommer det nye fester også, som muslimenes id og hinduenes divali.",
+                        "correctAnswer": 0
+                    },
+                    {
+                        "question": "Hva har høytider som jul, hanukka, divali og id til felles?",
+                        "options": [
+                            "Lys, god mat og det å samles med dem du er glad i",
+                            "De feires alle på nøyaktig samme dato",
+                            "De handler alle om den samme guden",
+                            "De er alle offisielle røde dager i Norge"
+                        ],
+                        "explanation": "Selv om de tilhører ulike religioner, handler alle disse høytidene om lys i mørket, god mat og samvær. Derfor kjenner vi oss ofte igjen i hverandres fester.",
+                        "correctAnswer": 0
+                    }
+                ]
+            }
+        }
+    ],
+    "timeline": []
+}

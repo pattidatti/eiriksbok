@@ -145,6 +145,7 @@ const PlotDNA = lazy(() => import('./content/interactive/PlotDNA').then(m => ({ 
 const CharacterForge = lazy(() => import('./content/interactive/CharacterForge').then(m => ({ default: m.CharacterForge })));
 const PerspectiveSwitcher = lazy(() => import('./content/interactive/PerspectiveSwitcher').then(m => ({ default: m.PerspectiveSwitcher })));
 const PopkulturKoblingen = lazy(() => import('./content/interactive/PopkulturKoblingen').then(m => ({ default: m.PopkulturKoblingen })));
+const HoytidsKalender = lazy(() => import('./content/interactive/HoytidsKalender').then(m => ({ default: m.HoytidsKalender })));
 const SentenceTransformer = lazy(() => import('./content/interactive/SentenceTransformer').then(m => ({ default: m.SentenceTransformer })));
 const TimelineDirector = lazy(() => import('./content/interactive/TimelineDirector').then(m => ({ default: m.TimelineDirector })));
 const DialogDissector = lazy(() => import('./content/interactive/DialogDissector').then(m => ({ default: m.DialogDissector })));
@@ -408,6 +409,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     CharacterForge,
     PerspectiveSwitcher,
     PopkulturKoblingen,
+    HoytidsKalender,
     SentenceTransformer,
     TimelineDirector,
     DialogDissector,

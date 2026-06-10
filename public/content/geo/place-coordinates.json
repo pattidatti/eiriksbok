@@ -820,7 +820,7 @@
     },
     {
       "tag": "religion",
-      "count": 34
+      "count": 35
     },
     {
       "tag": "antikken",
@@ -891,6 +891,10 @@
       "count": 17
     },
     {
+      "tag": "kultur",
+      "count": 16
+    },
+    {
       "tag": "sivilisasjon",
       "count": 16
     },
@@ -913,10 +917,6 @@
     {
       "tag": "doctrinal",
       "count": 16
-    },
-    {
-      "tag": "kultur",
-      "count": 15
     },
     {
       "tag": "konflikt",
@@ -1539,6 +1539,10 @@
       "count": 4
     },
     {
+      "tag": "tradisjon",
+      "count": 4
+    },
+    {
       "tag": "instrument",
       "count": 4
     },
@@ -1664,10 +1668,6 @@
     },
     {
       "tag": "gitar",
-      "count": 3
-    },
-    {
-      "tag": "tradisjon",
       "count": 3
     },
     {
@@ -2591,6 +2591,10 @@
       "count": 2
     },
     {
+      "tag": "høytider",
+      "count": 2
+    },
+    {
       "tag": "samisk",
       "count": 2
     },
@@ -3112,10 +3116,6 @@
     },
     {
       "tag": "voksendap",
-      "count": 1
-    },
-    {
-      "tag": "høytider",
       "count": 1
     },
     {
