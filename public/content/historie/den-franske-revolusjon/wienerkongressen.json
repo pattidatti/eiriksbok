@@ -5,7 +5,7 @@
     "year": "1814-1815",
     "category": "Frankrike og Europa",
     "readTime": "8 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/den-franske-revolusjon/wienerkongressen-hero.webp",
     "details": [
         "Stormaktene møttes i Wien for å rydde opp etter Napoleon",
         "Målet var maktbalanse: ingen stat skulle bli for sterk",
@@ -19,7 +19,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/den-franske-revolusjon/wienerkongressen-01.webp",
             "alt": "Diplomater i praktfulle saler i Wien 1814",
             "caption": "I Wien danset adelen om kvelden og forhandlet om Europas grenser på dagtid."
         },
@@ -54,7 +54,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/den-franske-revolusjon/wienerkongressen-02.webp",
             "alt": "Et gammelt kart over Europa der grenser tegnes på nytt",
             "caption": "Hele landområder skiftet eier i Wien. Folk som bodde der, ble sjelden spurt."
         },
@@ -97,7 +97,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/den-franske-revolusjon/wienerkongressen-03.webp",
             "alt": "Eidsvollsbygningen der den norske grunnloven ble skrevet i 1814",
             "caption": "Mens stormaktene møttes i Wien, kjempet nordmenn for sin egen grunnlov på Eidsvoll."
         },

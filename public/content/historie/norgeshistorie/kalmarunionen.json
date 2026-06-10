@@ -5,7 +5,7 @@
     "year": "1397-1523",
     "category": "Norden",
     "readTime": "9 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/norgeshistorie/kalmarunionen-hero.webp",
     "details": [
         "I 1397 samlet dronning Margrete Danmark, Norge og Sverige under én konge.",
         "På papiret var rikene likeverdige, men makten lå i Danmark.",
@@ -22,7 +22,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/norgeshistorie/kalmarunionen-01.webp",
             "alt": "Kroning i en middelalderkirke med adelsmenn samlet",
             "caption": "Kalmar 1397: Erik av Pommern krones til konge over Danmark, Norge og Sverige."
         },
@@ -81,7 +81,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/norgeshistorie/kalmarunionen-02.webp",
             "alt": "Bønder og adelsmenn med våpen samlet til opprør",
             "caption": "Igjen og igjen reiste svenskene seg mot styret fra Danmark."
         },
@@ -114,7 +114,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/norgeshistorie/kalmarunionen-03.webp",
             "alt": "Et stille norsk vinterlandskap med en liten kirke",
             "caption": "Etter at Sverige forlot unionen, ble Norge værende under Danmark i nesten 300 år."
         },
