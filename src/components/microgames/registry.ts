@@ -55,6 +55,7 @@ const SamsaraSyklusen3D = lazy(() => import('./SamsaraSyklusen3D'));
 const MokshaVeien3D = lazy(() => import('./MokshaVeien3D'));
 const MarsjenMotRoma3D = lazy(() => import('./MarsjenMotRoma3D'));
 const VektenIWien3D = lazy(() => import('./VektenIWien3D'));
+const Vesterleden3D = lazy(() => import('./Vesterleden3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
     'gladius-duell': {
@@ -506,6 +507,15 @@ export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.Laz
         estimatedSeconds: 90,
         loader: () => import('./VektenIWien3D'),
         Component: VektenIWien3D as never,
+    },
+    'vesterleden-3d': {
+        id: 'vesterleden-3d',
+        title: 'Vesterleden: fra øy til øy mot Amerika',
+        description:
+            'Dra et langskip vestover over Nord-Atlanteren, hav for hav, fra Norge til Island, Grønland og Vinland. Hver kyst du bosetter blir basen for neste sprang. Lyspæren: vikingene nådde Amerika rundt 500 år før Columbus ved å hoppe fra øy til øy, og Vinland ble oppgitt fordi det lå for langt unna til å få forsterkninger.',
+        estimatedSeconds: 140,
+        loader: () => import('./Vesterleden3D'),
+        Component: Vesterleden3D as never,
     },
 };
 
