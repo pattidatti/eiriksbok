@@ -19,9 +19,9 @@
     },
     {
       "type": "image",
-      "src": "/images/placeholder.webp",
+      "src": "/images/osmanske-riket/handel-og-kultur-01.webp",
       "alt": "Travelt kaffehus på 1600-tallet med dampende kopper og menn i samtale",
-      "caption": "Verdens første kaffehus åpnet i Istanbul. Her møttes folk for å snakke, spille og diskutere nyheter."
+      "caption": "Verdens første kaffehus åpnet i Istanbul. Here møttes folk for å snakke, spille og diskutere nyheter."
     },
     {
       "type": "header",
@@ -56,7 +56,7 @@
     },
     {
       "type": "image",
-      "src": "/images/placeholder.webp",
+      "src": "/images/osmanske-riket/handel-og-kultur-02.webp",
       "alt": "Kamelkaravane lastet med varer på vei mot en by med kupler",
       "caption": "Karavaner med silke og krydder måtte gjennom osmansk land. Tollen gjorde riket rikt og varene dyre i Europa."
     },
@@ -75,12 +75,12 @@
         "title": "Arven etter riket",
         "items": [
           {
-            "image": "/images/placeholder.webp",
+            "image": "/images/osmanske-riket/handel-og-kultur-03.webp",
             "alt": "Vegg dekket av blå og røde İznik-fliser med blomstermønster",
             "caption": "İznik-flisene med sine blomster i dyp blå og rød pryder fortsatt moskeer og palasser."
           },
           {
-            "image": "/images/placeholder.webp",
+            "image": "/images/osmanske-riket/handel-og-kultur-04.webp",
             "alt": "Stor kuppelmoské tegnet av arkitekten Sinan sett nedenfra",
             "caption": "Sinans svevende kupler regnes blant verdens vakreste byggverk."
           }
@@ -97,7 +97,7 @@
     },
     {
       "type": "image",
-      "src": "/images/placeholder.webp",
+      "src": "/images/osmanske-riket/handel-og-kultur-05.webp",
       "alt": "Fargerike tulipaner i en osmansk hage foran et palass",
       "caption": "Tulipanen var en yndlingsblomst ved hoffet lenge før den ble berømt i Nederland."
     },
