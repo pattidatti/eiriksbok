@@ -32,6 +32,13 @@
             "content": "Rundt år 1000 seilte Leiv Eiriksson, sønn av Eirik Raude, enda lenger vest. Han nådde kysten av Nord-Amerika og ga landet navnet Vinland fordi han fant viltvoksende druer der. De bygde en liten base, sannsynligvis ved L'Anse aux Meadows på dagens Newfoundland. Vikingene ble imidlertid ikke værende lenge. Store avstander til Grønland og konflikter med urbefolkningen (som de kalte skrælinger) gjorde at bosettingen i Vinland ble oppgitt etter bare noen få år."
         },
         {
+            "type": "component",
+            "name": "MicroGame",
+            "props": {
+                "gameId": "vesterleden-3d"
+            }
+        },
+        {
             "type": "text",
             "title": "Hvorfor stoppet det?",
             "content": "Oppdagelsesreisene i vest viser vikingenes utrolige evne til å navigere over åpent hav. At de ikke klarte å bite seg fast i Amerika, skyldtes sannsynligvis at de rett og slett var for få folk. Grønland lå så langt unna at det var vanskelig å sende forsterkninger og utstyr. Likevel står deres bragder som et av de mest imponerende kapitlene i sjøfartshistorien."
