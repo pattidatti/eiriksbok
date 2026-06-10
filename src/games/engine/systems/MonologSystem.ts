@@ -22,6 +22,7 @@ export class MonologSystem {
     private seen = new Set<string>();
     private active: ActiveMonolog | null = null;
     private pushState: PushState;
+    private endWaiters: Array<() => void> = [];
 
     constructor(nodes: Record<string, MonologNode>, triggers: MonologTrigger[], pushState: PushState) {
         this.nodes = nodes;
@@ -86,6 +87,7 @@ export class MonologSystem {
         if (next >= this.active.lines.length) {
             this.active = null;
             this.pushState(null);
+            this.flushEndWaiters();
             return;
         }
         const node = this.nodes[this.active.nodeId];
@@ -110,6 +112,21 @@ export class MonologSystem {
 
     isActive(): boolean {
         return this.active !== null;
+    }
+
+    /**
+     * Promise som løses når den aktive monologen er ferdig. Løses umiddelbart hvis
+     * ingen monolog er aktiv (dekker også play() som no-oper på once-sette noder).
+     */
+    waitForEnd(): Promise<void> {
+        if (!this.active) return Promise.resolve();
+        return new Promise((resolve) => this.endWaiters.push(resolve));
+    }
+
+    private flushEndWaiters(): void {
+        const waiters = this.endWaiters;
+        this.endWaiters = [];
+        for (const resolve of waiters) resolve();
     }
 
     /** Legg til en ny monolog-node på runtime (brukes av declarative.addMonolog). */
@@ -137,11 +154,13 @@ export class MonologSystem {
     clear(): void {
         this.active = null;
         this.pushState(null);
+        this.flushEndWaiters();
     }
 
     dispose(): void {
         this.active = null;
         this.seen.clear();
         this.triggers = [];
+        this.flushEndWaiters();
     }
 }

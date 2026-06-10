@@ -143,6 +143,44 @@ export const marsjenMotRomaMonologs: Record<string, MonologNode> = {
         once: true,
     },
 
+    forside_klar: {
+        id: 'forside_klar',
+        lines: [
+            'Forsiden står. Tre påstander, tre bevis - alt sett med egne øyne.',
+            'Men en sak ingen leser, endrer ingenting. Telegrafkontoret ligger ved sidetorget.',
+            'Jeg må sende den nå, før linjene stenges.',
+        ],
+        once: true,
+    },
+
+    sidetorg_glimt: {
+        id: 'sidetorg_glimt',
+        lines: [
+            'Et torg åpner seg mellom husene. Og der, på hjørnet: et opplyst skilt i regnet.',
+            'TELEGRAFO. Derfra går linjene ut til hele verden.',
+            'Verdt å huske - en sak ingen får lest, endrer ingenting.',
+        ],
+        once: true,
+    },
+
+    telegraf_stengt: {
+        id: 'telegraf_stengt',
+        lines: [
+            'Telegrafisten ser spørrende på meg over skranken.',
+            'Jeg har ingenting å sende ennå. Forsidesaken må skrives ferdig først.',
+        ],
+        once: false,
+    },
+
+    seier_vandring: {
+        id: 'seier_vandring',
+        lines: [
+            'Veien til Roma ligger åpen. Kolonnen setter seg i bevegelse rundt meg.',
+            'Jeg går med dem. Ikke fordi jeg er en av dem - men fordi noen må se dette til slutten.',
+        ],
+        once: true,
+    },
+
     mangler_bevis: {
         id: 'mangler_bevis',
         lines: [

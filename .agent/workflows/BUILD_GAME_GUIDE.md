@@ -273,6 +273,36 @@ Bakgrunnslyd. Stille no-op hvis preset-URL er null.
 addAmbientAudio(engine, { id: 'wind', audio: 'wind-indoor', volume: 0.3 });
 ```
 
+### 3.10b `addCrowd(engine, config)` - instansierte folkemengder
+
+Hundrevis til ~2000 lavpoly-mennesker i ÉN draw call per sti-segment (CrowdSystem).
+Bruk denne for hærer, marsjer og folkemengder - ALDRI individuelle figurer i løkke.
+Gang-animasjonen skjer i vertex-shaderen; CPU-kostnaden per frame er kun uniforms.
+
+```ts
+// Marsjerende kolonne: flyter langs en polylinje med conveyor-wrap
+addCrowd(engine, {
+    id: 'kolonne',
+    count: 650,                 // FØR tier-skalering (low ×0.35, high ×1.0)
+    mode: 'march',
+    path: [[-5.8, 0, 75], [-5.8, 0, -5]],  // strekk stien dypt inn i tåka!
+    width: 2.6,
+    speed: 1.1,
+    palette: { shirts: [0x26262a, 0x1f1f23], skin: 0xc89868, caps: 0x121216, pants: 0x1c1c20 },
+});
+// Stående mengde
+addCrowd(engine, { id: 'torgfolk', count: 120, mode: 'static', area: { minX: -10, maxX: 10, minZ: 0, maxZ: 12 } });
+
+// Runtime-styring (f.eks. per fase):
+engine.setCrowdSpeed('kolonne', 0);       // kolonnen STOPPER (gang-anim dør mykt)
+engine.setCrowdVisible('kolonne', false);
+```
+
+**Fallgruver**: (1) march-stier wrapper instanser fra slutt til start - begge ender må
+ligge i tåke/utenfor synsvidde, ellers ser eleven figurer poppe. (2) Crowd-figurer har
+ingen kollisjon og kaster ikke skygge (depth-pass kjenner ikke shader-displacementen).
+(3) Hero-figurer nær kamera (linse-mål, navngitte personer) lages fortsatt manuelt.
+
 ### 3.11 `addParticle(engine, config)`
 
 Partikkel-effekt.
@@ -288,6 +318,26 @@ addParticle(engine, { id: 'forge-smoke', preset: 'smoke', pos: [0, 1, 0] });
 ```ts
 addRawMesh(engine, { mesh: myCustomMesh, solid: true });
 ```
+
+### 3.13 `engine.playSequence(steps)` - klimaks/cinematics uten schedule-kjeder
+
+Deklarativ tidslinje som erstatter nestede `engine.schedule()`-kjeder. `at` = ms fra
+sekvensstart, `after` = ms etter at forrige steg ble FERDIG (default `after: 0`).
+`wait: true` på monolog/cinematic venter til de er ferdige før neste steg.
+
+```ts
+engine.playSequence([
+    { after: 700, monolog: 'venter', wait: true },
+    { after: 500, do: () => { kongen.position.set(-2, 0, -16); } },
+    { after: 0, cinematic: [{ duration: 4, cameraPos: [9, 3.5, -8], lookAt: [-2, 1.1, -16], fov: 50, transition: 'fade' }], wait: true },
+    { after: 400, do: () => { engine.setPhase('seieren'); } },
+]);
+```
+
+**Skip-semantikk** (viktig): `handle.skip()` dropper gjenstående ventetider, monologer
+og cinematics - men `do`-steg KJØRES alltid (de bærer state: setFlag/setPhase/triggerEnd).
+Legg derfor visuell opprydding (fadeFromBlack, flytte aktører) i `do`-steg.
+Sekvenser kanselleres automatisk ved dispose. Se `engine/utils/SequenceRunner.ts`.
 
 ---
 
@@ -342,9 +392,29 @@ Hvis du trenger noe som ikke finnes: bruk `{ primitive: 'box' | 'cylinder' | 'sp
 
 ### 4.4 Audio-presets
 
-`pickup-tool`, `pickup-paper`, `puzzle-win`, `puzzle-fail`, `dialog-open`, `door-open`, `door-locked`, `footstep-wood`, `footstep-stone`, `fire-crackle`, `wind-indoor`, `chains-rattle`, `water-drip`
+`pickup-tool`, `pickup-paper`, `puzzle-win`, `puzzle-fail`, `dialog-open`, `door-open`, `door-locked`, `footstep-wood`, `footstep-stone`, `fire-crackle`, `wind-indoor`, `chains-rattle`, `water-drip`, `rain`, `wind-outdoor`, `crowd-murmur`, `thunder`, `drum-hit`, `shutter-click`
 
-**Merk**: De fleste audio-presets har ikke registrert URL i MVP. De blir stille no-ops. For å registrere, oppdater `AUDIO_PRESETS` i `src/games/engine/declarative/presets/audio.ts`.
+**Alle presets har lyd**: de syntetiseres prosedyralt via `proc:`-URL-skjemaet
+(`src/games/engine/systems/ProceduralAudio.ts`) - ingen lydfiler trengs. En `proc:`-URL
+kan også brukes direkte i `engine.playOneShot('proc:thunder')` og kan parametriseres:
+`'proc:blip-pickup?base=440&gain=0.3'`. Bytt gjerne en preset til en ekte fil-URL i
+`AUDIO_PRESETS` senere - call-sites er uendret.
+
+**Sanntidsstyrt lyd** (følger spill-state):
+
+```ts
+const steps = engine.startProceduralSound('march-footsteps', { bpm: 116, intensity: 0.5 });
+steps?.setParam('intensity', 0);   // stillhet når kolonnen stopper
+const murmur = engine.startProceduralSound('crowd-murmur-live', { intensity: 0.6 });
+```
+
+**Ambient med kontroll** (`engine.playAmbient` returnerer en handle async):
+
+```ts
+let rain: AudioHandle | null = null;
+void engine.playAmbient('proc:rain', { volume: 0.45, fadeIn: 1.5 }).then((h) => { rain = h; });
+// senere: rain?.setVolume(0); rain?.stop(2);
+```
 
 ### 4.5 Particle-presets
 

@@ -1,6 +1,16 @@
 import type { Group, Scene, MeshStandardMaterial, Light, Vector3, Mesh, Texture, Object3D } from 'three';
 import type { QuestDef } from './systems/QuestSystem';
 import type { ItemDef } from './systems/InventorySystem';
+import type { SequenceStep, SequenceHandle } from './utils/SequenceRunner';
+import type { LiveSoundName, LiveSoundOptions, LiveSoundHandle } from './systems/ProceduralAudio';
+import type { CrowdAreaSpec, CrowdPathSpec, AddCrowdOptions } from './systems/CrowdSystem';
+import type { AudioHandle } from './systems/AudioSystem';
+
+export type { AudioHandle } from './systems/AudioSystem';
+
+export type { SequenceStep, SequenceHandle } from './utils/SequenceRunner';
+export type { LiveSoundName, LiveSoundOptions, LiveSoundHandle } from './systems/ProceduralAudio';
+export type { CrowdMode, CrowdPalette, CrowdAreaSpec, CrowdPathSpec, AddCrowdOptions } from './systems/CrowdSystem';
 
 export type SubjectId = 'historie' | 'norsk' | 'krle' | 'samfunnsfag' | 'musikk';
 
@@ -386,6 +396,10 @@ export interface GameEngineRef {
     // Planlegg et kall som kanselleres automatisk hvis motoren disposes.
     // Bruk denne i stedet for setTimeout direkte i setupScene og dialog-actions.
     schedule: (callback: () => void, delayMs: number) => void;
+    // Kjør en deklarativ tidslinje (cinematics/monologer/state). Foretrekk denne
+    // fremfor nestede schedule()-kjeder. Se utils/SequenceRunner.ts for semantikk
+    // (spesielt skip(): `do`-steg kjøres alltid, presentasjonssteg droppes).
+    playSequence: (steps: SequenceStep[]) => SequenceHandle;
     // Registrer et SpotLight/PointLight for automatisk animasjon i motorloopen.
     registerAnimatedLight: (light: Light, animation: LightAnimation, baseIntensity?: number) => void;
     // Registrer en per-frame callback for prefab-animasjoner (flamme-geometri, partikler, lys-sync).
@@ -405,6 +419,11 @@ export interface GameEngineRef {
     addBirdFlock: (center: [number, number, number], opts?: { count?: number; radius?: number; altitude?: number; altitudeSpread?: number }) => void;
     addButterfly: (center: [number, number, number], opts?: { count?: number; radius?: number; color?: number }) => void;
     addAnimalGroup: (kind: AnimalKind, bounds: AABB2D, opts?: { count?: number }) => void;
+    // Instansiert folkemengde (hundrevis av figurer i én draw call). 'march'-modus
+    // flyter langs en sti med conveyor-wrap; setCrowdSpeed(id, 0) stopper kolonnen.
+    addCrowd: (id: string, spec: CrowdAreaSpec | CrowdPathSpec, opts: AddCrowdOptions) => void;
+    setCrowdSpeed: (id: string, speed: number) => void;
+    setCrowdVisible: (id: string, visible: boolean) => void;
     assignRoute: (config: NpcRouteConfig) => void;
     // CameraDirector
     setCameraFraming: (framing: DialogCameraFraming, target?: Vector3) => void;
@@ -443,10 +462,20 @@ export interface GameEngineRef {
     // ── Fase 3.1 (audio) ──
     // Spill en engangslyd. Spatial hvis `position` er satt.
     playOneShot: (url: string, opts?: { position?: [number, number, number]; volume?: number }) => void;
-    // Spill en ambient loop. Returnerer handle som kan stoppe eller volumjustere.
-    playAmbient: (url: string, opts?: { loop?: boolean; volume?: number; fadeIn?: number }) => void;
+    // Spill en ambient loop. Returnerer handle som kan stoppe eller volumjustere
+    // (null hvis avspillingen feilet).
+    playAmbient: (
+        url: string,
+        opts?: { loop?: boolean; volume?: number; fadeIn?: number },
+    ) => Promise<AudioHandle | null>;
     // Krever bruker-gesture (klikk) før Web Audio er tillatt; kall etter spill-start.
     resumeAudio: () => Promise<void>;
+    // Start en sanntidsstyrt prosedural lyd ('march-footsteps' | 'crowd-murmur-live').
+    // Returnerer handle med setParam('bpm'|'intensity') for å følge spill-state.
+    startProceduralSound: (
+        name: LiveSoundName,
+        opts?: LiveSoundOptions,
+    ) => LiveSoundHandle | null;
     // ── Fase 3.2 (dynamisk musikk) ──
     // Legg til et musikk-lag (loop). initialVolume=0 betyr "klar til fade-in".
     addMusicLayer: (layerId: string, url: string, initialVolume?: number) => Promise<void>;

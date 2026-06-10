@@ -1,8 +1,33 @@
 # Motor-Update: Fullstendig Plan for Oppgradering av GameEngine
 
-**Status**: Fase 1-6 ferdig og bygger rent (2026-04-23).
+**Status**: Fase 1-6 ferdig og bygger rent (2026-04-23). Fase 7 (crowd/lyd/sekvens) ferdig 2026-06-10.
 **Opprettet**: 2026-04-22
 **Mål**: Løfte motoren fra "funksjonell showroom" til "produksjonsklar mini-spillmotor" som kan bære ekte narrative spill.
+
+---
+
+## Leveranse Fase 7 (2026-06-10) - CrowdSystem, prosedural lyd, SequenceRunner
+
+Bygget som del av marsjen-mot-roma-løftet; alle tre systemer er generelle og gjenbrukbare.
+
+| Oppgave | Status | Filer |
+|---|---|---|
+| 7.1 SequenceRunner | ✅ | `utils/SequenceRunner.ts` (ny), `MonologSystem.ts` (waitForEnd), `GameEngine.ts`/`types.ts` (playSequence) |
+| 7.2 Prosedural lyd (`proc:`-skjema) | ✅ | `systems/ProceduralAudio.ts` (ny), `AudioSystem.ts` (proc:-intercept, startProcedural, beskyttede gains), `declarative/presets/audio.ts` (ALLE presets har nå lyd) |
+| 7.3 CrowdSystem (instansierte folkemengder) | ✅ | `systems/CrowdSystem.ts` (ny), `declarative/builders/crowd.ts` (addCrowd), `GameEngine.ts`/`types.ts` |
+| 7.4 Hot-loop-opprydding | ✅ | `GameEngine.ts`: ~18 per-frame `new THREE.Vector3()` i update/updateCamera/updatePhysicsPlayer erstattet med scratch-vektorer (GC-trykk på Chromebook) |
+| 7.5 Død kode fjernet | ✅ | `builders/BeachBuilder.ts` + `builders/CloisterBuilder.ts` slettet (ubrukt; SeascapeBuilder beholdt - brukes av Lindisfarne) |
+
+**Nye public API-er:**
+- `engine.playSequence(steps)` — deklarativ tidslinje for cinematics/monologer/state; erstatter nestede `schedule()`-kjeder. Handle med `skip()/cancel()/done`.
+- `engine.addCrowd(id, spec, opts)` / `setCrowdSpeed` / `setCrowdVisible` — instanserte folkemengder ('static' | 'march' med conveyor-wrap), gang-animasjon i vertex-shader, tier-skalert antall (low ×0.35 cap 600, high ×1.0 cap 2200).
+- `engine.startProceduralSound('march-footsteps' | 'crowd-murmur-live', opts)` — sanntidsstyrt lyd med `setParam('bpm'|'intensity')`.
+- `engine.playAmbient(...)` returnerer nå `Promise<AudioHandle | null>` (før: void) — spill kan stoppe/volumstyre ambient-looper.
+- Alle audio-presets mapper til `proc:`-URLer (Web Audio-syntese, ingen lydfiler) — alle motor-spill fikk lyd uten config-endringer.
+
+**Fiks**: `AudioSystem` initialiseres nå FØR `buildScene()` i konstruktøren — setupScene kan trygt kalle `playAmbient`/`startProceduralSound` (krasjet før).
+
+**Kjente begrensninger**: crowd-instanser kaster ikke skygge (three sin depth-pass kjenner ikke shader-displacementen) og har ingen kollisjon; march-stier må strekkes inn i tåka i begge ender (wrap-popp).
 
 ---
 

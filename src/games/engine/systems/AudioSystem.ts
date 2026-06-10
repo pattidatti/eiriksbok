@@ -1,4 +1,11 @@
 import * as THREE from 'three';
+import {
+    renderProceduralBuffer,
+    createLiveSound,
+    type LiveSoundHandle,
+    type LiveSoundName,
+    type LiveSoundOptions,
+} from './ProceduralAudio';
 
 // Fase 3.1: 3D-audio + ambient + one-shot lyd for mini-spill-motoren.
 // Bygger direkte på Web Audio API (Tone.js er tilgjengelig, men vi trenger
@@ -6,6 +13,8 @@ import * as THREE from 'three';
 //
 // Lydfiler lastes lazy fra `url` (relativt til public/). Første playSpatial()
 // for en gitt url fetcher og dekoder buffer; subsequenter kall er gratis.
+// URL-er med `proc:`-prefiks rendres prosedyralt (se ProceduralAudio.ts) -
+// prosjektet har ingen lydfiler, så alle presets bruker dette skjemaet.
 
 export interface AmbientOptions {
     loop?: boolean;       // default true
@@ -46,6 +55,13 @@ export class AudioSystem {
         target: THREE.Object3D | [number, number, number];
     }> = [];
     private allActiveGains = new Set<GainNode>();
+    // Gains som aldri skal kastes ut av enforceSimultaneousLimit: langtlevende
+    // ambient-looper, musikk-lag og live-generatorer. Grensen gjelder dermed i
+    // praksis one-shots og spatial-kilder.
+    private protectedGains = new Set<GainNode>();
+    // Aktive live-generatorer (prosedural lyd med sanntidsparametre)
+    private liveSounds = new Set<LiveSoundHandle>();
+    private disposed = false;
     private muted = false;
     private masterVolume = 1.0;
     // Fase 3.2: aktive musikk-lag per layer-ID. Hver inneholder en crossfade-gain
@@ -72,22 +88,32 @@ export class AudioSystem {
         const existing = this.bufferCache.get(url);
         if (existing) return existing;
         const ctx = this.ensureCtx();
-        const p = fetch(url)
-            .then((r) => {
-                if (!r.ok) throw new Error(`AudioSystem: fetch failed for ${url} (${r.status})`);
-                return r.arrayBuffer();
-            })
-            .then((buf) => ctx.decodeAudioData(buf));
+        const p = url.startsWith('proc:')
+            ? renderProceduralBuffer(url.slice(5), ctx.sampleRate)
+            : fetch(url)
+                  .then((r) => {
+                      if (!r.ok) throw new Error(`AudioSystem: fetch failed for ${url} (${r.status})`);
+                      return r.arrayBuffer();
+                  })
+                  .then((buf) => ctx.decodeAudioData(buf));
         this.bufferCache.set(url, p);
         return p;
     }
 
     private enforceSimultaneousLimit(): void {
-        // Hvis vi er over grensen, stopp eldste gain-node og rydd også i
-        // spatialSources og musicLayers slik at vi ikke oppdaterer døde pannere.
+        // Hvis vi er over grensen, stopp eldste IKKE-beskyttede gain-node og rydd
+        // også i spatialSources og musicLayers slik at vi ikke oppdaterer døde
+        // pannere. Beskyttede gains (ambient-looper, musikk, live-generatorer)
+        // kastes aldri - uten dette ville en burst av one-shots drept regnteppet.
         while (this.allActiveGains.size > MAX_SIMULTANEOUS) {
-            const oldest = this.allActiveGains.values().next().value as GainNode | undefined;
-            if (!oldest) break;
+            let oldest: GainNode | undefined;
+            for (const g of this.allActiveGains) {
+                if (!this.protectedGains.has(g)) {
+                    oldest = g;
+                    break;
+                }
+            }
+            if (!oldest) break; // alle gjenværende er beskyttet
             oldest.disconnect();
             this.allActiveGains.delete(oldest);
             // Fjern fra spatialSources hvis gain matcher
@@ -114,6 +140,9 @@ export class AudioSystem {
         try {
             const ctx = this.ensureCtx();
             const buffer = await this.loadBuffer(url);
+            // Lasting/rendring er async - systemet kan ha blitt disposet i mellomtiden
+            // (React StrictMode dobbelmonterer GameCanvas i dev).
+            if (this.disposed) return null;
             const source = ctx.createBufferSource();
             source.buffer = buffer;
             source.loop = opts.loop ?? true;
@@ -130,6 +159,8 @@ export class AudioSystem {
             gain.connect(this.masterGain!);
             source.start();
             this.allActiveGains.add(gain);
+            // Loopende ambient er et langtlevende lydteppe - skal ikke kastes ut
+            if (source.loop) this.protectedGains.add(gain);
             this.enforceSimultaneousLimit();
             return this.makeHandle(source, gain);
         } catch (e) {
@@ -143,6 +174,7 @@ export class AudioSystem {
         try {
             const ctx = this.ensureCtx();
             const buffer = await this.loadBuffer(url);
+            if (this.disposed) return null;
             const source = ctx.createBufferSource();
             source.buffer = buffer;
             source.loop = opts.loop ?? true;
@@ -184,6 +216,7 @@ export class AudioSystem {
         try {
             const ctx = this.ensureCtx();
             const buffer = await this.loadBuffer(url);
+            if (this.disposed) return;
             const source = ctx.createBufferSource();
             source.buffer = buffer;
             const gain = ctx.createGain();
@@ -271,6 +304,7 @@ export class AudioSystem {
         try {
             const ctx = this.ensureCtx();
             const buffer = await this.loadBuffer(url);
+            if (this.disposed) return;
             const existing = this.musicLayers.get(layerId);
             if (existing) return; // idempotent
             const source = ctx.createBufferSource();
@@ -283,6 +317,7 @@ export class AudioSystem {
             source.start();
             this.musicLayers.set(layerId, { source, gain, target: initialVolume });
             this.allActiveGains.add(gain);
+            this.protectedGains.add(gain);
             this.enforceSimultaneousLimit();
         } catch (e) {
             console.warn('addMusicLayer failed:', e);
@@ -308,9 +343,38 @@ export class AudioSystem {
             window.setTimeout(() => {
                 try { layer.source.stop(); } catch { /* already stopped */ }
                 this.allActiveGains.delete(layer.gain);
+                this.protectedGains.delete(layer.gain);
                 layer.gain.disconnect();
                 this.musicLayers.delete(id);
             }, fadeOutSec * 1000 + 50);
+        }
+    }
+
+    // ─── Prosedural live-lyd ─────────────────────────────────────────────────
+    // Sanntidsstyrte generatorer (marsj-tramp, folkemengde-summing). I motsetning
+    // til proc:-buffere kan disse endre bpm/intensity mens de spiller.
+
+    startProcedural(name: LiveSoundName, opts: LiveSoundOptions = {}): LiveSoundHandle | null {
+        try {
+            const ctx = this.ensureCtx();
+            const { handle, gain } = createLiveSound(ctx, this.masterGain!, name, opts);
+            this.allActiveGains.add(gain);
+            this.protectedGains.add(gain);
+            const wrapped: LiveSoundHandle = {
+                stop: (fadeOutSec) => {
+                    handle.stop(fadeOutSec);
+                    this.allActiveGains.delete(gain);
+                    this.protectedGains.delete(gain);
+                    this.liveSounds.delete(wrapped);
+                },
+                setVolume: (v) => handle.setVolume(v),
+                setParam: (param, value) => handle.setParam(param, value),
+            };
+            this.liveSounds.add(wrapped);
+            return wrapped;
+        } catch (e) {
+            console.warn('startProcedural failed:', e);
+            return null;
         }
     }
 
@@ -322,6 +386,7 @@ export class AudioSystem {
     }
 
     dispose(): void {
+        this.disposed = true;
         for (const s of this.spatialSources) {
             try { s.source.stop(); } catch { /* already ended */ }
             s.gain.disconnect();
@@ -333,8 +398,12 @@ export class AudioSystem {
             layer.gain.disconnect();
         }
         this.musicLayers.clear();
+        // Stopp live-generatorer (rydder deres setInterval-schedulere)
+        for (const live of [...this.liveSounds]) live.stop(0);
+        this.liveSounds.clear();
         for (const g of this.allActiveGains) g.disconnect();
         this.allActiveGains.clear();
+        this.protectedGains.clear();
         if (this.ctx) {
             void this.ctx.close();
             this.ctx = null;
@@ -351,11 +420,13 @@ export class AudioSystem {
                     window.setTimeout(() => {
                         try { source.stop(); } catch { /* already stopped */ }
                         this.allActiveGains.delete(gain);
+                        this.protectedGains.delete(gain);
                         gain.disconnect();
                     }, fadeOutSec * 1000);
                 } else {
                     try { source.stop(); } catch { /* already stopped */ }
                     this.allActiveGains.delete(gain);
+                    this.protectedGains.delete(gain);
                     gain.disconnect();
                 }
             },

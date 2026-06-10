@@ -114,7 +114,19 @@ export const pietroDialogs: Record<string, DialogNode | DialogNode[]> = {
             'mens det brant. Min forbrytelse? Vi trykte en sosialistavis.',
         choices: [
             { text: 'Anmeldte du det til politiet?', next: 'pietro_state' },
+            { text: 'Hvordan fikk dere ut avisene deres?', next: 'pietro_telegraf' },
             { text: 'Jeg er lei for det, Pietro.', next: null },
+        ],
+    },
+    pietro_telegraf: {
+        speaker: 'Pietro',
+        text:
+            'Ser du kontoret på hjørnet, der torget møter gata? Telegrafen. Derfra går linjen ' +
+            'til Milano, Paris, London - hele verden. Det var der jeg sendte sakene mine. Den ' +
+            'som vil bli hørt, må dit.',
+        choices: [
+            { text: 'Det skal jeg huske.', next: null },
+            { text: 'Anmeldte du brannen til politiet?', next: 'pietro_state' },
         ],
     },
     pietro_state: {
@@ -191,6 +203,31 @@ export const kapteinDialogs: Record<string, DialogNode | DialogNode[]> = {
         speaker: 'Kaptein Renzi',
         text: 'Nøyaktig. Demokratiet kollapset ikke i kamp - det sto og så på fra sidelinjen.',
         choices: [{ text: 'Det er en dyster lærdom.', next: null }],
+    },
+};
+
+// ─── Telegrafisten: spilleren leverer forsiden og velger overskrift ──────────────
+// Overskrifts-flaggene settes via choice.action wired i Assets (fila holdes som ren
+// data). onEnd på telegraf_sendt starter kongens-valg-sekvensen.
+export const telegrafDialogs: Record<string, DialogNode | DialogNode[]> = {
+    telegraf_valg: {
+        speaker: 'Telegrafisten',
+        text:
+            'Roma, sier du? Linjen er åpen ennå - men skynd deg, alle vil sende i kveld. ' +
+            'Hva skal stå øverst? Overskriften koster det samme uansett, men den avgjør ' +
+            'hva folk husker.',
+        choices: [
+            { text: '«BLØFFEN INGEN VÅGET Å STANSE»', next: 'telegraf_sendt' },
+            { text: '«VOLDEN ER POLITIKKEN DERES»', next: 'telegraf_sendt' },
+            { text: '«ELITEN ÅPNET DØREN FOR HAM»', next: 'telegraf_sendt' },
+        ],
+    },
+    telegraf_sendt: {
+        speaker: 'Telegrafisten',
+        text:
+            'Tastene smeller. Ord for ord går saken din ut til verden - Milano, Paris, London. ' +
+            'Så blir linjen stille. Nå venter alle bare på ett svar: hva sier kongen?',
+        choices: [{ text: 'Da venter vi.', next: null }],
     },
 };
 

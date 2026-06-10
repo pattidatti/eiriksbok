@@ -36,6 +36,7 @@ import { TimeOfDaySystem } from './systems/TimeOfDaySystem';
 import { WeatherSystem } from './systems/WeatherSystem';
 import { VegetationSystem } from './systems/VegetationSystem';
 import { FaunaSystem } from './systems/FaunaSystem';
+import { CrowdSystem, type CrowdAreaSpec, type CrowdPathSpec, type AddCrowdOptions } from './systems/CrowdSystem';
 import { CameraDirector } from './systems/CameraDirector';
 import { AIDirector } from './systems/AIDirector';
 import { ShadowSystem } from './systems/ShadowSystem';
@@ -52,6 +53,7 @@ import type { PhysicsWorld, CharacterControllerHandle } from './systems/PhysicsW
 import type { InteractableSystem } from './systems/InteractableSystem';
 import { getGameSettings, subscribeGameSettings } from './settings/gameSettings';
 import { disposeSceneDeep } from './utils/sceneDispose';
+import { runSequence, type SequenceHandle, type SequenceStep } from './utils/SequenceRunner';
 import { AssetLoader } from './AssetLoader';
 import { SaveSystem, type SaveHooks, type SerializedNpcPos } from './systems/SaveSystem';
 
@@ -89,6 +91,27 @@ const _photoFwdScratch = new THREE.Vector3();
 const _photoRightScratch = new THREE.Vector3();
 const _photoMoveScratch = new THREE.Vector3();
 const _photoUpScratch = new THREE.Vector3(0, 1, 0);
+
+// Scratch-vektorer for hot-loopen (update + updateCamera). Gjenbrukes hver frame
+// for å unngå GC-trykk på lavt-spesifiserte Chromebooks - IKKE behold referanser
+// til disse på tvers av frames.
+const _moveDirScratch = new THREE.Vector3();
+const _moveFwdScratch = new THREE.Vector3();
+const _moveRightScratch = new THREE.Vector3();
+const _followCharPosScratch = new THREE.Vector3();
+const _followFwdScratch = new THREE.Vector3();
+const _followTargetScratch = new THREE.Vector3();
+const _npcToPlayerScratch = new THREE.Vector3();
+const _playerWorldScratch = new THREE.Vector3();
+const _camPivotScratch = new THREE.Vector3();
+const _camIdealScratch = new THREE.Vector3();
+const _camForwardTmpScratch = new THREE.Vector3();
+const _camRightScratch = new THREE.Vector3();
+const _camLookTgtScratch = new THREE.Vector3();
+const _camClampScratch = new THREE.Vector3();
+const _worldUpScratch = new THREE.Vector3(0, 1, 0);
+const _physPosScratch = new THREE.Vector3();
+const _physDesiredScratch = new THREE.Vector3();
 
 // Godtar både det gamle string-formatet ('auto' | 'low' | 'medium' | 'high') og den nye
 // PostProcessingConfig-objektformen, og returnerer alltid et normalisert objekt.
@@ -154,6 +177,7 @@ export class GameEngine {
     private weatherSystem: WeatherSystem | null = null;
     private vegetationSystem: VegetationSystem | null = null;
     private faunaSystem: FaunaSystem | null = null;
+    private crowdSystem: CrowdSystem | null = null;
     private cameraDirector: CameraDirector;
     private aiDirector: AIDirector;
     private shadowSystem: ShadowSystem | null = null;
@@ -272,6 +296,8 @@ export class GameEngine {
 
     // Utestående timeouts satt via engine.schedule - kanselleres ved dispose
     private scheduledTimeouts = new Set<ReturnType<typeof setTimeout>>();
+    // Aktive sekvenser startet via engine.playSequence - kanselleres ved dispose
+    private activeSequences = new Set<SequenceHandle>();
     // Utestående intervals (f.eks. SaveSystem auto-save) - kanselleres ved dispose
     private scheduledIntervals = new Set<ReturnType<typeof setInterval>>();
 
@@ -355,6 +381,20 @@ export class GameEngine {
 
         if (options.onFade) {
             this.cameraDirector.setFadeCallback(options.onFade);
+        }
+
+        // Fase 3.1: audio-system. AudioContext opprettes ved første lyd-kall.
+        // MÅ initialiseres FØR buildScene: setupScene kan kalle playAmbient /
+        // startProceduralSound direkte.
+        this.audio = new AudioSystem();
+        if (options.config.audio?.masterVolume !== undefined) {
+            this.audio.setMasterVolume(options.config.audio.masterVolume);
+        }
+        if (options.config.audio?.tracks) {
+            // Del i onStart-spor (spilt ved startGame) og trigger-spor (evalueres fra update).
+            for (const t of options.config.audio.tracks) {
+                this.pendingAudioTracks.push(t);
+            }
         }
 
         this.buildScene();
@@ -470,18 +510,6 @@ export class GameEngine {
                     return v;
                 },
             });
-        }
-
-        // Fase 3.1: audio-system. AudioContext opprettes ved første lyd-kall.
-        this.audio = new AudioSystem();
-        if (options.config.audio?.masterVolume !== undefined) {
-            this.audio.setMasterVolume(options.config.audio.masterVolume);
-        }
-        if (options.config.audio?.tracks) {
-            // Del i onStart-spor (spilt ved startGame) og trigger-spor (evalueres fra update).
-            for (const t of options.config.audio.tracks) {
-                this.pendingAudioTracks.push(t);
-            }
         }
 
         // Post-processing
@@ -959,6 +987,34 @@ export class GameEngine {
                 }, delayMs);
                 this.scheduledTimeouts.add(id);
             },
+            playSequence: (steps: SequenceStep[]) => {
+                const handle = runSequence(
+                    {
+                        schedule: (fn, ms) => {
+                            const id = setTimeout(() => {
+                                this.scheduledTimeouts.delete(id);
+                                if (this.disposed) return;
+                                fn();
+                            }, ms);
+                            this.scheduledTimeouts.add(id);
+                            return () => {
+                                clearTimeout(id);
+                                this.scheduledTimeouts.delete(id);
+                            };
+                        },
+                        playMonolog: (id) => this.monologSystem?.play(id),
+                        isMonologActive: () => this.monologSystem?.isActive() ?? false,
+                        waitForMonologEnd: () =>
+                            this.monologSystem?.waitForEnd() ?? Promise.resolve(),
+                        playCinematic: (shots) => this.runCinematic(shots),
+                        isDisposed: () => this.disposed,
+                    },
+                    steps,
+                );
+                this.activeSequences.add(handle);
+                void handle.done.finally(() => this.activeSequences.delete(handle));
+                return handle;
+            },
             teleportPlayer: (x, y, z) => {
                 // Hvis spilleren fortsatt er barn av en seat-parent, løft den ut først
                 if (this.player.group.parent && this.player.group.parent !== this.scene) {
@@ -1029,6 +1085,12 @@ export class GameEngine {
                 if (!this.faunaSystem) this.faunaSystem = new FaunaSystem(this.scene, this.qualityTier);
                 this.faunaSystem.addAnimalGroup(kind, bounds, opts);
             },
+            addCrowd: (id: string, spec: CrowdAreaSpec | CrowdPathSpec, opts: AddCrowdOptions) => {
+                if (!this.crowdSystem) this.crowdSystem = new CrowdSystem(this.scene, this.qualityTier);
+                this.crowdSystem.addCrowd(id, spec, opts);
+            },
+            setCrowdSpeed: (id: string, speed: number) => this.crowdSystem?.setSpeed(id, speed),
+            setCrowdVisible: (id: string, visible: boolean) => this.crowdSystem?.setVisible(id, visible),
             assignRoute: (cfg: NpcRouteConfig) => this.aiDirector.assignRoute(cfg),
             setCameraFraming: (framing: DialogCameraFraming, target?: THREE.Vector3) => {
                 this.cameraDirector.setFraming(framing, target);
@@ -1075,8 +1137,9 @@ export class GameEngine {
             throwHeldItem: (force?: number) => this.interactables?.throwHeld(force),
             removeStaticCollider: (mesh: THREE.Mesh) => this.physics?.removeMesh(mesh),
             playOneShot: (url, opts) => void this.audio.playOneShot(url, opts),
-            playAmbient: (url, opts) => void this.audio.playAmbient(url, opts),
+            playAmbient: (url, opts) => this.audio.playAmbient(url, opts),
             resumeAudio: () => this.audio.resume(),
+            startProceduralSound: (name, opts) => this.audio.startProcedural(name, opts),
             addMusicLayer: (layerId, url, initialVolume) => this.audio.addMusicLayer(layerId, url, initialVolume),
             setMusicLayer: (layerId, targetVolume, fadeSec) => this.audio.setMusicLayer(layerId, targetVolume, fadeSec),
             questIsCompleted: (id) => this.questSystem?.isCompleted(id) ?? false,
@@ -2214,13 +2277,13 @@ export class GameEngine {
         // Player movement
         const WALK_SPEED = 5, RUN_SPEED = 9, JUMP = 6, GRAV = -18;
         const SPEED = (this.keys['ShiftLeft'] || this.keys['ShiftRight']) ? RUN_SPEED : WALK_SPEED;
-        const moveDir = new THREE.Vector3();
+        const moveDir = _moveDirScratch.set(0, 0, 0);
 
         const canMove = !this.dialogActive && !this.introInputBlocked && !this.cinematicInputBlocked && !this.activityActive && this.playerMode === 'free';
 
         if (canMove) {
-            const fwd = new THREE.Vector3(Math.sin(this.yaw), 0, -Math.cos(this.yaw));
-            const right = new THREE.Vector3(Math.cos(this.yaw), 0, Math.sin(this.yaw));
+            const fwd = _moveFwdScratch.set(Math.sin(this.yaw), 0, -Math.cos(this.yaw));
+            const right = _moveRightScratch.set(Math.cos(this.yaw), 0, Math.sin(this.yaw));
             if (this.keys['KeyW']) moveDir.add(fwd);
             if (this.keys['KeyS']) moveDir.sub(fwd);
             if (this.keys['KeyD']) moveDir.add(right);
@@ -2262,20 +2325,19 @@ export class GameEngine {
             if (this.followCharacterId) {
                 const char = this.characters.get(this.followCharacterId);
                 if (char) {
-                    const charPos = new THREE.Vector3();
-                    char.group.getWorldPosition(charPos);
+                    const charPos = char.group.getWorldPosition(_followCharPosScratch);
                     // Retningsvektor NPC-en ser mot (lokal Z-akse i world-rommet)
-                    const charFwd = new THREE.Vector3(
+                    const charFwd = _followFwdScratch.set(
                         Math.sin(char.group.rotation.y),
                         0,
                         Math.cos(char.group.rotation.y),
                     );
                     // Mal-posisjon: bak NPC-en med followOffset meter
-                    const targetPos = charPos.clone()
+                    const targetPos = _followTargetScratch.copy(charPos)
                         .addScaledVector(charFwd, -this.followOffset);
                     // Behold spillerens Y (viktig over ujevnt terreng)
                     targetPos.y = this.player.group.position.y;
-                    const toTarget = targetPos.clone().sub(this.player.group.position);
+                    const toTarget = targetPos.sub(this.player.group.position);
                     const dist = toTarget.length();
                     if (dist > 0.1) {
                         const step = Math.min(dist, this.followSpeed * dt);
@@ -2333,7 +2395,7 @@ export class GameEngine {
                 char.group.position.y = bobBase + Math.sin(this.time * 1.5) * 0.03;
 
                 // Roter mot spiller når i nærheten (kun for stasjonære NPCer)
-                const toPlayer = new THREE.Vector3().subVectors(
+                const toPlayer = _npcToPlayerScratch.subVectors(
                     this.player.group.position,
                     char.group.position
                 );
@@ -2530,13 +2592,13 @@ export class GameEngine {
 
         // Vær (regn/snø/tåke)
         if (this.weatherSystem) {
-            const playerWorld = new THREE.Vector3();
-            this.player.group.getWorldPosition(playerWorld);
+            const playerWorld = this.player.group.getWorldPosition(_playerWorldScratch);
             this.weatherSystem.update(dt, playerWorld.x, playerWorld.z);
         }
 
         // Vegetasjon (vind-shader-tid)
         this.vegetationSystem?.update(dt, this.camera);
+        this.crowdSystem?.update(dt, this.camera);
 
         // Fauna (fugler, sommerfugler, beitende dyr)
         this.faunaSystem?.update(dt, this.camera);
@@ -2546,8 +2608,7 @@ export class GameEngine {
 
         // AIDirector (NPC waypoint-vandring + reactive behaviors) - blokk når dialog/monolog er aktiv
         const blocked = this.dialogActive || (this.monologSystem?.isActive() ?? false);
-        const playerWorldPos = new THREE.Vector3();
-        this.player.group.getWorldPosition(playerWorldPos);
+        const playerWorldPos = this.player.group.getWorldPosition(_playerWorldScratch);
         this.aiDirector.update(dt, this.characters, blocked, playerWorldPos, (k, v) => {
             this.flags.set(k, v);
             if (v) this.evaluateAudioTriggers({ flag: k });
@@ -2570,8 +2631,7 @@ export class GameEngine {
 
         // Indre monolog (trigger-volumer og progresjon)
         if (this.monologSystem) {
-            const world = new THREE.Vector3();
-            this.player.group.getWorldPosition(world);
+            const world = this.player.group.getWorldPosition(_playerWorldScratch);
             this.monologSystem.update(dt, { x: world.x, z: world.z }, this.phase);
         }
 
@@ -2638,8 +2698,7 @@ export class GameEngine {
         this.pitch += (this.targetPitch - this.pitch) * inputLerp;
 
         // World-posisjon for spilleren (kan være barn av båt/annen gruppe)
-        const playerWorld = new THREE.Vector3();
-        this.player.group.getWorldPosition(playerWorld);
+        const playerWorld = this.player.group.getWorldPosition(_playerWorldScratch);
 
         // Pivot-punkt: fast over spillerens skulder. All orbit og look-at er relativt hit.
         const nowIndoors = this.scene.userData._indoors === true;
@@ -2648,7 +2707,7 @@ export class GameEngine {
         this.wasIndoors = nowIndoors;
         const b = this.indoorBlend;
         const pivotH = THREE.MathUtils.lerp(1.7, 1.5, b);
-        const pivot = new THREE.Vector3(playerWorld.x, playerWorld.y + pivotH, playerWorld.z);
+        const pivot = _camPivotScratch.set(playerWorld.x, playerWorld.y + pivotH, playerWorld.z);
 
         // Basis-distanse + brukerzoom, clampet per preset
         const baseDist = THREE.MathUtils.lerp(4.5, 2.8, b);
@@ -2658,7 +2717,7 @@ export class GameEngine {
 
         // Orbit rundt pivot på sfære (ikke rundt spiller)
         const cp = Math.cos(this.pitch);
-        const idealPos = new THREE.Vector3(
+        const idealPos = _camIdealScratch.set(
             pivot.x - Math.sin(this.yaw) * camDist * cp,
             pivot.y + Math.sin(this.pitch) * camDist,
             pivot.z + Math.cos(this.yaw) * camDist * cp
@@ -2666,12 +2725,11 @@ export class GameEngine {
 
         // Skulder-offset i KAMERAETS lokale høyre (perpendikulær til forward og world-up).
         // Look-at får samme offset, så kameraet ikke skjeler - parallell siktelinje.
-        const forward = new THREE.Vector3().subVectors(pivot, idealPos).normalize();
-        const worldUp = new THREE.Vector3(0, 1, 0);
-        const right = new THREE.Vector3().crossVectors(forward, worldUp).normalize();
+        const forward = _camForwardTmpScratch.subVectors(pivot, idealPos).normalize();
+        const right = _camRightScratch.crossVectors(forward, _worldUpScratch).normalize();
         const shoulder = right.multiplyScalar(0.6);
         idealPos.add(shoulder);
-        const lookTgt = pivot.clone().add(shoulder);
+        const lookTgt = _camLookTgtScratch.copy(pivot).add(shoulder);
 
         // CameraDirector OTS-framing (dialog): blend idealPos og lookTgt mot OTS-transform
         const ots = this.cameraDirector.apply();
@@ -2711,22 +2769,23 @@ export class GameEngine {
 
     // Strammer ideell kameraposisjon dersom strålen fra spiller til kamera krysser en vegg.
     // Bruker PhysicsWorld.raycastSegmentXZ hvis tilgjengelig; ellers no-op (ingen clamp).
+    // Returverdien kan være en delt scratch-vektor - les den umiddelbart, ikke behold referansen.
     private clampCameraAgainstWalls(player: THREE.Vector3, ideal: THREE.Vector3): THREE.Vector3 {
-        if (!this.physics) return ideal.clone();
+        if (!this.physics) return ideal;
         const MARGIN = 0.3;
         const dx = ideal.x - player.x;
         const dy = ideal.y - player.y;
         const dz = ideal.z - player.z;
         // Bruk 3D-avstand: XZ-only guard maskerer tak-kollisjon når spilleren ser rett ned.
         const dist3D = Math.hypot(dx, dy, dz);
-        if (dist3D < 0.01) return ideal.clone();
+        if (dist3D < 0.01) return ideal;
         const t = this.physics.raycastSegmentXZ(player, ideal);
-        if (t >= 1) return ideal.clone();
+        if (t >= 1) return ideal;
         const clampFactor = Math.max(0, t - MARGIN / dist3D);
         // Hvis kameraet ville kollapset inn i spilleren (clampFactor naer 0), er et kort
         // vegg-klipp langt mindre forstyrrende enn svart skjerm - returner idealposisjonen.
-        if (clampFactor < 0.05) return ideal.clone();
-        return new THREE.Vector3(
+        if (clampFactor < 0.05) return ideal;
+        return _camClampScratch.set(
             player.x + (ideal.x - player.x) * clampFactor,
             player.y + (ideal.y - player.y) * clampFactor,
             player.z + (ideal.z - player.z) * clampFactor,
@@ -2746,7 +2805,7 @@ export class GameEngine {
         const cc = this.playerCC!;
         const bodyPos = cc.body.translation();
         const jumpEnabled = this.config.physics?.playerJump !== false;
-        const pos = new THREE.Vector3(bodyPos.x, bodyPos.y, bodyPos.z);
+        const pos = _physPosScratch.set(bodyPos.x, bodyPos.y, bodyPos.z);
 
         // Ladder-klatring: hvis spilleren overlapper en climbable-sensor, overstyr gravity
         const climbing = this.physics!.isOverlappingClimbable(pos, this.playerRadius);
@@ -2767,7 +2826,7 @@ export class GameEngine {
             this.verticalVelocity += GRAV * dt;
         }
 
-        const desired = new THREE.Vector3(
+        const desired = _physDesiredScratch.set(
             moveDir.x * SPEED * dt,
             this.verticalVelocity * dt,
             moveDir.z * SPEED * dt,
@@ -2798,6 +2857,9 @@ export class GameEngine {
     dispose(): void {
         this.disposed = true;
         cancelAnimationFrame(this.animFrameId);
+        // Kanseller aktive sekvenser før timeouts ryddes (cancel løser ventende delays)
+        for (const handle of this.activeSequences) handle.cancel();
+        this.activeSequences.clear();
         // Kanseller alle planlagte timeouts og intervals for å unngå setState på disposed engine
         for (const id of this.scheduledTimeouts) clearTimeout(id);
         this.scheduledTimeouts.clear();
@@ -2817,6 +2879,8 @@ export class GameEngine {
         this.playerCC = null;
         this.weatherSystem?.dispose();
         this.vegetationSystem?.dispose();
+        this.crowdSystem?.dispose();
+        this.crowdSystem = null;
         this.faunaSystem?.dispose();
         this.skySystem?.dispose();
         this.cameraDirector.dispose();

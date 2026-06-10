@@ -46,10 +46,14 @@ export const marsjenMotRomaConfig: GameConfig = {
     },
 
     openingCinematic: [
-        { duration: 3, cameraPos: [0, 22, 40], lookAt: [0, 0, 10], fov: 52, transition: 'fade' },
-        { duration: 2.5, cameraPos: [-3, 1.8, 22], lookAt: [0, 1, 10], fov: 65, transition: 'cut' },
-        { duration: 2.5, cameraPos: [0, 4, 18], lookAt: [0, 2, -20], fov: 55, transition: 'cut' },
-        { duration: 2, cameraPos: [8, 3, -8], lookAt: [0, 1.5, -6], fov: 60, transition: 'cut' },
+        // Høy etablering: leiren i regnet, byporten og palass-silhuetten i tåka
+        { duration: 3.2, cameraPos: [0, 26, 46], lookAt: [0, 2, -6], fov: 50, transition: 'fade' },
+        // Lavt i kolonnen: svartskjortene marsjerer på veien mot porten
+        { duration: 2.6, cameraPos: [-4.5, 1.7, 23], lookAt: [2, 1.2, 14], fov: 62, transition: 'cut' },
+        // Gjennom portbuen: bygata og Quirinale-silhuetten lengst nede
+        { duration: 2.6, cameraPos: [0, 4.5, 16.5], lookAt: [0, 3, -28], fov: 55, transition: 'cut' },
+        // Sperringen: hæren venter der gata munner ut i piazzaen
+        { duration: 2.2, cameraPos: [8.5, 3, -5.5], lookAt: [0, 1.6, -2], fov: 58, transition: 'cut' },
     ],
 
     player: {
@@ -168,16 +172,20 @@ export const marsjenMotRomaConfig: GameConfig = {
             objective: 'Hæren har sperret veien. Snakk med offiseren og industrieieren.',
         },
         {
+            phase: 'telegrafen',
+            objective: 'Forsiden står. Lever den på telegrafkontoret ved sidetorget.',
+        },
+        {
             phase: 'kongens-valg',
-            objective: 'Forsidesaken er skrevet. Vent - alt avhenger nå av ett valg i palasset.',
+            objective: 'Saken er sendt. Alt avgjøres nå av ett valg i palasset.',
         },
         {
             phase: 'seieren',
-            objective: 'Soldatene trekker seg. Gå inn i Roma.',
+            objective: 'Soldatene trekker seg. Gå med kolonnen inn i Roma.',
         },
         {
             phase: 'puzzleWon',
-            objective: 'Du har skrevet ned det viktigste. Nå venter historiens dom.',
+            objective: 'Forsiden står. Nå må den ut til verden - finn telegrafkontoret.',
         },
     ],
 
@@ -185,7 +193,7 @@ export const marsjenMotRomaConfig: GameConfig = {
     // Station-mode: plasser det skarpeste notatet under hver påstand. requiresItems
     // garanterer at de tre svar-notatene er samlet (via obligatoriske beats), så
     // openPuzzle aldri åpner for tidlig og soft-låser. step.onCorrect wires i Assets
-    // til å starte kongens-valg-klimakset.
+    // til telegraf-fasen: spilleren leverer selv forsiden og velger overskrift.
     // Fallback hvis station-mode føles for vrient for målgruppen: bytt til mode:'mcq'
     // og gjenopprett de tre flervalgs-spørsmålene fra git-historikken (commit før v2).
     puzzle: {
@@ -228,6 +236,16 @@ export const marsjenMotRomaConfig: GameConfig = {
             'parlamentet - men bygd på vold og trusler. Demokratiet begikk ikke selvmord her. Det ' +
             'ble myrdet av dem som skulle ha beskyttet det. Italia ble malen. Tre år senere var ' +
             'Mussolini diktator - «Il Duce». Og andre fulgte etter.';
+        const headline = engine.getFlag<boolean>('overskrift_bloeff')
+            ? '«Bløffen ingen våget å stanse»'
+            : engine.getFlag<boolean>('overskrift_vold')
+              ? '«Volden er politikken deres»'
+              : engine.getFlag<boolean>('overskrift_elite')
+                ? '«Eliten åpnet døren for ham»'
+                : null;
+        const headlinePart = headline
+            ? ` Forsiden din - ${headline} - rakk aldri å stoppe noe. Men den ble stående som et vitnesbyrd om hva som egentlig skjedde.`
+            : '';
         const comparison = engine.getFlag<boolean>('compared_communism')
             ? ' Og du så forskjellen Conti pekte på: både fascisme og kommunisme forakter ' +
               'individets frihet og bruker vold - men der kommunismen ville ta eiendommen hans, ' +
@@ -239,7 +257,7 @@ export const marsjenMotRomaConfig: GameConfig = {
         const reflection =
             ' Spør deg selv: finnes det bevegelser i dag som lover orden og storhet - mot at du ' +
             'gir opp litt frihet?';
-        return base + comparison + observer + reflection;
+        return base + headlinePart + comparison + observer + reflection;
     },
 
     setupScene: setupMarsjenMotRomaScene,

@@ -40,7 +40,10 @@ export type AudioPresetName =
     | 'pickup-tool' | 'pickup-paper' | 'puzzle-win' | 'puzzle-fail'
     | 'dialog-open' | 'door-open' | 'door-locked'
     | 'footstep-wood' | 'footstep-stone'
-    | 'fire-crackle' | 'wind-indoor' | 'chains-rattle' | 'water-drip';
+    | 'fire-crackle' | 'wind-indoor' | 'chains-rattle' | 'water-drip'
+    // Utendørs-atmosfære + dramatikk (prosedyralt syntetisert, se ProceduralAudio.ts)
+    | 'rain' | 'wind-outdoor' | 'crowd-murmur' | 'thunder'
+    | 'drum-hit' | 'shutter-click';
 
 export type ParticlePresetName =
     | 'steam' | 'smoke' | 'dust' | 'sparks' | 'candle-glow' | 'torch-flame';
@@ -254,6 +257,34 @@ export interface AddMonologConfig {
         | { type: 'onPhase'; phase: string }
         | { type: 'onFlag'; flag: string }
         | { type: 'manual' }; // kun via engine.playMonolog(id)
+}
+
+// ─── addCrowd ────────────────────────────────────────────────────────────────
+
+export interface AddCrowdConfig {
+    id: string;
+    // Ønsket antall figurer FØR kvalitets-tier-skalering (low: ×0.35, high: ×1.0)
+    count: number;
+    mode: 'static' | 'march';
+    // march: polylinje kolonnen flyter langs. Strekk den godt inn i tåka i begge
+    // ender - instanser wrapper fra slutt til start (conveyor).
+    path?: Vec3[];
+    // march: kolonnebredde i meter (default 4)
+    width?: number;
+    // march: fart i m/s (default 1.2). Endres i runtime med engine.setCrowdSpeed.
+    speed?: number;
+    // static: området figurene står i
+    area?: { minX: number; maxX: number; minZ: number; maxZ: number };
+    // static: bakkenivå (default 0)
+    y?: number;
+    palette?: {
+        shirts: number[];
+        skin?: number;
+        caps?: number;
+        pants?: number;
+    };
+    scaleJitter?: number;
+    spacing?: number;
 }
 
 // ─── addAmbientAudio ─────────────────────────────────────────────────────────
