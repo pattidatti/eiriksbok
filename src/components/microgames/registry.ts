@@ -58,8 +58,18 @@ const VektenIWien3D = lazy(() => import('./VektenIWien3D'));
 const Vesterleden3D = lazy(() => import('./Vesterleden3D'));
 const EuropaBroen3D = lazy(() => import('./EuropaBroen3D'));
 const SkjulteSymboler3D = lazy(() => import('./SkjulteSymboler3D'));
+const FestensLys3D = lazy(() => import('./FestensLys3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
+    'festens-lys-3d': {
+        id: 'festens-lys-3d',
+        title: 'Festens lys',
+        description:
+            'Fire religioner, fire høytider - jul, hanukka, divali og id. Tenn lysene på hvert høytidsbord og se rommet lyse opp. Lyspæren: alle kulturer feirer med lys, mat og samling, selv om de tror på ulike ting.',
+        estimatedSeconds: 140,
+        loader: () => import('./FestensLys3D'),
+        Component: FestensLys3D as never,
+    },
     'skjulte-symboler-3d': {
         id: 'skjulte-symboler-3d',
         title: 'Skjulte symboler i populærkulturen',
