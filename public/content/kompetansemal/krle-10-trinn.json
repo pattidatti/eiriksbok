@@ -208,8 +208,15 @@
             "nummer": 9,
             "kortNavn": "Religion i medier og populærkultur",
             "tekst": "utforske og presentere hvordan elementer fra kristendom og andre religioner og livssyn kommer til uttrykk i medier og populærkultur",
-            "merknad": "Innhold om religion i film, musikk og medier er under utvikling.",
-            "innhold": {}
+            "innhold": {
+                "artikler": [
+                    {
+                        "tittel": "Religion i medier og populærkultur",
+                        "link": "/krle/religion-og-kultur/religion-i-medier",
+                        "begrunnelse": "Hvordan religiøse symboler og fortellinger lever videre i film, musikk, spill og mote, og hvordan vi kan lese dem med respekt og forståelse."
+                    }
+                ]
+            }
         },
         {
             "id": "rle-10-10",

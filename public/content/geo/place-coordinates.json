@@ -820,7 +820,7 @@
     },
     {
       "tag": "religion",
-      "count": 33
+      "count": 34
     },
     {
       "tag": "antikken",
@@ -3128,6 +3128,18 @@
     },
     {
       "tag": "jødedom",
+      "count": 1
+    },
+    {
+      "tag": "populærkultur",
+      "count": 1
+    },
+    {
+      "tag": "medier",
+      "count": 1
+    },
+    {
+      "tag": "symboler",
       "count": 1
     },
     {
