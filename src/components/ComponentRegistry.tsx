@@ -24,6 +24,7 @@ const TragediensTrinn = lazy(() => import('./content/interactive/TragediensTrinn
 const UtvandrerVekta = lazy(() => import('./content/interactive/UtvandrerVekta').then(m => ({ default: m.UtvandrerVekta })));
 const FornorskingMaler = lazy(() => import('./content/interactive/FornorskingMaler').then(m => ({ default: m.FornorskingMaler })));
 const KalmarMaktbalanse = lazy(() => import('./content/interactive/KalmarMaktbalanse').then(m => ({ default: m.KalmarMaktbalanse })));
+const WienerkongressenForhandling = lazy(() => import('./content/interactive/WienerkongressenForhandling').then(m => ({ default: m.WienerkongressenForhandling })));
 const OlympiskFred = lazy(() => import('./content/interactive/OlympiskFred').then(m => ({ default: m.OlympiskFred })));
 const ByzantineSurvival = lazy(() => import('./content/interactive/ByzantineSurvival').then(m => ({ default: m.ByzantineSurvival })));
 const ParallelleSivilisasjoner = lazy(() => import('./content/interactive/ParallelleSivilisasjoner').then(m => ({ default: m.ParallelleSivilisasjoner })));
@@ -273,6 +274,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     TragediensTrinn,
     FornorskingMaler,
     KalmarMaktbalanse,
+    WienerkongressenForhandling,
     OlympiskFred,
     ParallelleSivilisasjoner,
     Quiz,

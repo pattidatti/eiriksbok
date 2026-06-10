@@ -4444,6 +4444,31 @@
       "geoConfidence": "tag"
     },
     {
+      "id": "wienerkongressen",
+      "title": "Wienerkongressen: Da Europas kart ble tegnet på nytt",
+      "description": "Etter Napoleon møttes stormaktene i Wien for å skape maktbalanse og fred. De tegnet om Europas kart og bestemte også Norges skjebne i 1814.",
+      "startDate": 1814,
+      "endDate": 1815,
+      "displayDate": "1814-1815",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "den-franske-revolusjon",
+      "link": "/historie/den-franske-revolusjon/wienerkongressen",
+      "tags": [
+        "frankrike",
+        "europa",
+        "maktbalanse",
+        "napoleon",
+        "1814",
+        "1800-tallet"
+      ],
+      "lat": 46.6,
+      "lng": 2.5,
+      "placeLabel": "Frankrike",
+      "placeCountryId": 250,
+      "geoConfidence": "tag"
+    },
+    {
       "id": "napoleon-end",
       "title": "Slutten på Napoleonskrigene",
       "description": "Slaget ved Waterloo markerer slutten på Frankrikes utfordring og starten på Pax Britannica “ Storbritannias hundreårige fred.",

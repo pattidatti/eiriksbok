@@ -1,0 +1,177 @@
+{
+    "id": "wienerkongressen",
+    "title": "Wienerkongressen: Da Europas kart ble tegnet på nytt",
+    "layout": "rich",
+    "year": "1814-1815",
+    "category": "Frankrike og Europa",
+    "readTime": "8 min lesning",
+    "heroImage": "/images/placeholder.webp",
+    "details": [
+        "Stormaktene møttes i Wien for å rydde opp etter Napoleon",
+        "Målet var maktbalanse: ingen stat skulle bli for sterk",
+        "Kongene fikk tronene tilbake, men folket måtte vente på frihet",
+        "Avtalen ga Europa nesten hundre år uten storkrig mellom stormaktene"
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Høsten 1814 fyltes byen Wien av fyrster, konger og diplomater fra hele Europa. Det var ball hver kveld, jakt om dagen og middager som varte i timevis. En spøkefugl sa at «kongressen danser, men kommer ingen vei». Men bak de glitrende salene foregikk noe alvorlig: de mektigste mennene i Europa skulle bestemme hvordan verdensdelen skulle se ut etter at [Napoleon](/historie/den-franske-revolusjon/napoleon) endelig var slått. De tegnet om kartet over et helt kontinent."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Diplomater i praktfulle saler i Wien 1814",
+            "caption": "I Wien danset adelen om kvelden og forhandlet om Europas grenser på dagtid."
+        },
+        {
+            "type": "header",
+            "text": "Hvorfor møttes de i Wien?"
+        },
+        {
+            "type": "text",
+            "content": "I over tjue år hadde krig herjet Europa. Først kom den franske revolusjonen, så kom Napoleon og erobret det ene landet etter det andre. Da han endelig tapte i 1814, lå kartet i ruiner. Gamle land var forsvunnet, og nye var oppstått. Millioner av mennesker visste ikke lenger hvem som styrte dem. Hvem skulle styre hva nå? Stormaktene ville unngå at noe slikt skjedde igjen, og de var redde for at revolusjonens uro skulle spre seg til deres egne land. Derfor satte de seg ned i Wien for å bygge en ny og varig orden, en orden de selv kunne kontrollere."
+        },
+        {
+            "type": "header",
+            "text": "De store rundt bordet"
+        },
+        {
+            "type": "text",
+            "content": "Fire stormakter hadde slått Napoleon, og de bestemte det meste: Storbritannia, Russland, Preussen og Østerrike. Verten var den østerrikske fyrsten Klemens von Metternich, en klok og kald diplomat som ledet møtene med stødig hånd. De små landene fikk møte opp og danse på ballene, men de hadde lite de skulle ha sagt. De viktigste avgjørelsene ble tatt bak lukkede dører av de fire store. Selv den tapende parten, Frankrike, fikk likevel en plass ved bordet. Den smarte franske utsendingen Talleyrand klarte å spille de andre opp mot hverandre, slik at Frankrike slapp billig unna. Det var ikke tilfeldig, som du snart skal se."
+        },
+        {
+            "type": "header",
+            "text": "Maktbalanse: ingen skulle bli for sterk"
+        },
+        {
+            "type": "text",
+            "content": "Den viktigste tanken i Wien var maktbalanse. Ideen er enkel: hvis ingen enkelt stat blir mektig nok til å herske over de andre, tør ingen starte en stor krig. Tenk på en vippehuske i en lekepark. Sitter det en tung person på den ene siden, vipper hele greia skjevt. Men fordeler du vekten jevnt, blir den stående rolig. Slik tenkte diplomatene om Europa. De ville ikke knuse Frankrike helt, for da kunne en annen makt, som Russland, bli for sterk. I stedet lot de Frankrike bestå som en motvekt. Det var derfor Talleyrand slapp så lett: et levende Frankrike var nyttig for balansen."
+        },
+        {
+            "type": "component",
+            "name": "MicroGame",
+            "props": { "gameId": "vekten-i-wien-3d" }
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Et gammelt kart over Europa der grenser tegnes på nytt",
+            "caption": "Hele landområder skiftet eier i Wien. Folk som bodde der, ble sjelden spurt."
+        },
+        {
+            "type": "header",
+            "text": "Kartet tegnes på nytt"
+        },
+        {
+            "type": "text",
+            "content": "I Wien flyttet diplomatene på grenser som om de lekte med brikker. Russland fikk store deler av Polen. Preussen vokste og fikk land i Tyskland. Østerrike styrket grepet om Italia. De mange små tyske statene ble ikke samlet til ett land, men holdt delt og svake i et løst forbund. Grunnen var igjen balanse: en samlet, sterk tysk nasjon midt i Europa ville skremme alle naboene. Folk som bodde i disse områdene, ble nesten aldri spurt om hva de selv ønsket."
+        },
+        {
+            "type": "header",
+            "text": "Kongene tilbake på tronene"
+        },
+        {
+            "type": "text",
+            "content": "Diplomatene i Wien likte ikke ideene fra revolusjonen. De ville helst late som om den aldri hadde skjedd. Derfor satte de de gamle kongefamiliene tilbake på tronene de hadde mistet. I Frankrike kom kongeslekten Bourbon tilbake. Dette kalles restaurasjon, som betyr å sette noe tilbake slik det var før. Tanken var at sterke konger og gammel orden skapte ro, og at vanlige folk burde adlyde og holde seg i ro. Metternich var spesielt opptatt av dette. Han bygde et nett av spioner og sensur for å stoppe farlige ideer før de spredte seg. Nå kan du selv prøve å sitte ved forhandlingsbordet og kjenne hvor vanskelig disse valgene var."
+        },
+        {
+            "type": "component",
+            "name": "WienerkongressenForhandling",
+            "props": {}
+        },
+        {
+            "type": "header",
+            "text": "Fred for kongene, ikke for folket"
+        },
+        {
+            "type": "text",
+            "content": "Wienerkongressen ga stormaktene ro, men den overså noe viktig. [Revolusjonens ideer](/historie/den-franske-revolusjon/intro) om frihet og folkestyre var sluppet løs, og de lot seg ikke stenge inne igjen. Mange europeere drømte nå om to ting: frihet til å bestemme selv, og en egen nasjon for sitt eget folk. Diplomatene prøvde å slå ned slike tanker. Men misnøyen vokste under overflaten, og den brøt ut i opprør både i 1830 og i 1848. På lang sikt vant folkets idéer fram, selv om det tok mye lenger tid enn folk håpet."
+        },
+        {
+            "type": "header",
+            "text": "Hva betydde det for Norge?"
+        },
+        {
+            "type": "text",
+            "content": "Norge merket den nye stormaktspolitikken direkte. I 1814 ble Norge gitt bort fra Danmark til Sverige i en avtale mellom stormaktene. Nordmennene likte det dårlig og skrev sin egen [Grunnlov](/samfunnskunnskap/styringsformer/grunnloven) på Eidsvoll samme vår. Men de var for små til å stå imot. Resultatet ble et kompromiss: Norge fikk beholde Grunnloven og mye selvstyre, men måtte dele konge med Sverige i en union. Stormaktene fikk roen sin, og Norge måtte vente helt til [unionen ble oppløst i 1905](/historie/norgeshistorie/unionsopplosningen-1905) før landet ble helt fritt."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Eidsvollsbygningen der den norske grunnloven ble skrevet i 1814",
+            "caption": "Mens stormaktene møttes i Wien, kjempet nordmenn for sin egen grunnlov på Eidsvoll."
+        },
+        {
+            "type": "header",
+            "text": "Arven etter Wien"
+        },
+        {
+            "type": "text",
+            "content": "Var Wienerkongressen en suksess? Det kommer an på hvem du spør. For stormaktene var den en seier: Europa slapp en ny storkrig mellom de store i nesten hundre år. Dette samarbeidet kalles ofte «konserten av Europa», fordi maktene prøvde å spille sammen som et orkester. Men freden hadde en pris. Den ble bygd på å holde vanlige folk nede og nekte dem frihet og nasjon. Til slutt var det nettopp disse kreftene, frihetstrang og nasjonalisme, som rev den gamle ordenen i stykker og førte Europa inn i nye og blodige kriger på 1900-tallet."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hva var hovedmålet med Wienerkongressen?",
+                        "options": [
+                            "Å straffe Frankrike så hardt som mulig",
+                            "Å skape maktbalanse slik at ingen stat ble for sterk",
+                            "Å samle Tyskland til ett land",
+                            "Å gi alle europeere stemmerett"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "Diplomatene ville fordele makten jevnt mellom stormaktene. Hvis ingen ble for sterk, ville heller ingen tørre å starte en ny storkrig."
+                    },
+                    {
+                        "question": "Hvorfor slapp Frankrike forholdsvis lett unna, selv om landet hadde tapt?",
+                        "options": [
+                            "Fordi Napoleon fortsatt var keiser",
+                            "Fordi Frankrike var fattig og uten betydning",
+                            "Fordi et levende Frankrike var nyttig som motvekt mot de andre maktene",
+                            "Fordi de andre landene var redde for den franske hæren"
+                        ],
+                        "correctIndex": 2,
+                        "explanation": "Stormaktene ville ikke knuse Frankrike helt. Da kunne en annen makt blitt for sterk. Et Frankrike med litt kraft hjalp til å holde vekten i balanse."
+                    },
+                    {
+                        "question": "Hva betyr restaurasjon i denne sammenhengen?",
+                        "options": [
+                            "Å bygge nye fabrikker",
+                            "Å sette de gamle kongefamiliene tilbake på tronene",
+                            "Å gi folket en grunnlov",
+                            "Å male om de gamle slottene"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "Restaurasjon betyr å sette noe tilbake slik det var før. I Wien satte de de gamle kongene tilbake på tronene de hadde mistet under revolusjonen og Napoleon."
+                    },
+                    {
+                        "question": "Hva skjedde med Norge i 1814?",
+                        "options": [
+                            "Norge ble en helt selvstendig republikk",
+                            "Norge ble en del av Frankrike",
+                            "Norge ble gitt fra Danmark til Sverige, men fikk beholde sin egen grunnlov",
+                            "Norge ble styrt direkte fra Wien"
+                        ],
+                        "correctIndex": 2,
+                        "explanation": "Stormaktene ga Norge til Sverige. Nordmennene skrev likevel sin egen grunnlov på Eidsvoll og fikk beholde mye selvstyre, men måtte gå i union med Sverige fram til 1905."
+                    },
+                    {
+                        "question": "Hvorfor holdt ikke Wien-ordenen for alltid?",
+                        "options": [
+                            "Fordi diplomatene glemte å skrive ned avtalen",
+                            "Fordi folkets ønske om frihet og egen nasjon vokste og til slutt brøt fram",
+                            "Fordi Napoleon kom tilbake og vant",
+                            "Fordi det ikke fantes nok konger igjen"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "Ideene om frihet og nasjon lot seg ikke stenge inne. De førte til opprør i 1830 og 1848, og senere til store kriger på 1900-tallet."
+                    }
+                ]
+            }
+        }
+    ],
+    "timeline": []
+}

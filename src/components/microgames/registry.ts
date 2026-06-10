@@ -54,6 +54,7 @@ const TikkunOlam3D = lazy(() => import('./TikkunOlam3D'));
 const SamsaraSyklusen3D = lazy(() => import('./SamsaraSyklusen3D'));
 const MokshaVeien3D = lazy(() => import('./MokshaVeien3D'));
 const MarsjenMotRoma3D = lazy(() => import('./MarsjenMotRoma3D'));
+const VektenIWien3D = lazy(() => import('./VektenIWien3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
     'gladius-duell': {
@@ -496,6 +497,15 @@ export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.Laz
         estimatedSeconds: 90,
         loader: () => import('./MokshaVeien3D'),
         Component: MokshaVeien3D as never,
+    },
+    'vekten-i-wien-3d': {
+        id: 'vekten-i-wien-3d',
+        title: 'Vekten i Wien',
+        description:
+            'Etter Napoleon var Frankrike blitt en kjempe. Dra de fire stormaktene Storbritannia, Russland, Preussen og Østerrike opp på den tomme siden av vippevekten, og se at den først blir vannrett når alle fire er på plass. Lyspæren: det krevde flere stormakter sammen å balansere én sterk stat, og denne maktbalansen holdt Europa stabilt i nesten hundre år.',
+        estimatedSeconds: 90,
+        loader: () => import('./VektenIWien3D'),
+        Component: VektenIWien3D as never,
     },
 };
 

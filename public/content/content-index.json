@@ -1,5 +1,5 @@
 {
-  "buildId": 1781033764528,
+  "buildId": 1781054663309,
   "contentMap": {
     "concept-adel": [
       "content/concepts/adel.json"
@@ -1251,6 +1251,9 @@
     ],
     "stormingen-av-bastillen": [
       "content/historie/den-franske-revolusjon/stormingen-av-bastillen.json"
+    ],
+    "wienerkongressen": [
+      "content/historie/den-franske-revolusjon/wienerkongressen.json"
     ],
     "atomvapenkapplopet": [
       "content/historie/den-kalde-krigen/atomvapenkapplopet.json"
@@ -3793,6 +3796,7 @@
     "historie/den-franske-revolusjon/napoleon": "content/historie/den-franske-revolusjon/napoleon.json",
     "historie/den-franske-revolusjon/robespierre-og-skrekkveldet": "content/historie/den-franske-revolusjon/robespierre-og-skrekkveldet.json",
     "historie/den-franske-revolusjon/stormingen-av-bastillen": "content/historie/den-franske-revolusjon/stormingen-av-bastillen.json",
+    "historie/den-franske-revolusjon/wienerkongressen": "content/historie/den-franske-revolusjon/wienerkongressen.json",
     "historie/den-kalde-krigen/atomvapenkapplopet": "content/historie/den-kalde-krigen/atomvapenkapplopet.json",
     "historie/den-kalde-krigen/berlinmuren": "content/historie/den-kalde-krigen/berlinmuren.json",
     "historie/den-kalde-krigen/chile-1973": "content/historie/den-kalde-krigen/chile-1973.json",
