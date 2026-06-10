@@ -1,0 +1,197 @@
+{
+    "id": "religion-i-medier",
+    "title": "Religion i medier og populærkultur",
+    "layout": "rich",
+    "subject": "krle",
+    "year": "Fra antikken til i dag",
+    "category": "Religion og samfunn",
+    "readTime": "9 min lesning",
+    "heroImage": "/images/placeholder.webp",
+    "details": [
+        "Religiøse symboler og fortellinger lever videre i film, musikk, spill og merkevarer.",
+        "Mange superhelter, sanger og ord vi bruker hver dag har et religiøst opphav.",
+        "Å se hvor religionen gjemmer seg, hjelper deg å forstå kulturen rundt deg."
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Det er kveld. Du ser en superheltfilm der helten ofrer livet sitt for å redde verden, og så vekkes han til live igjen. På telefonen spiller en julelåt. Lillebroren din taper i et spill og sier «det er karma». Ingen av disse tingene handler om religion, vil du kanskje si. Men ser du nøye etter, er alle sammen fulle av den. Religion forsvinner ikke selv om folk går mindre i kirken. Den flytter seg over i tingene vi liker aller best: filmene, musikken, spillene og motet."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Ungdom ser superheltfilm på sofaen med mobil i hånden",
+            "caption": "En helt vanlig filmkveld er fullere av religion enn du tror."
+        },
+        {
+            "type": "header",
+            "text": "Religion gjemmer seg i det vi liker"
+        },
+        {
+            "type": "text",
+            "content": "Populærkultur er alt det mange mennesker liker samtidig: storfilmer, hitlåter, kjente spill, serier og kjendiser. Det er kulturen som når ut til alle. Og nettopp derfor finner du religiøse spor over alt i den. Folk som lager filmer og musikk, vokste selv opp med religiøse fortellinger. Bevisst eller ubevisst tar de med seg bilder, navn og historier som har vært en del av kulturen vår i tusenvis av år."
+        },
+        {
+            "type": "text",
+            "content": "Et tydelig eksempel er superhelten som dør og står opp igjen. Den fortellingen ligner forbløffende på historien om Jesu død og oppstandelse, en av de mest sentrale i kristendommen. Du finner den samme grunnformen i mange filmer: en helt gir alt for andre, faller, og kommer tilbake sterkere. Når du har lest om [de sentrale trekkene i kristendommen](/krle/religion/kristendom/sentrale-trekk), kjenner du plutselig igjen mønsteret i kinosalen."
+        },
+        {
+            "type": "header",
+            "text": "Hvorfor er religion overalt?"
+        },
+        {
+            "type": "text",
+            "content": "Religioner har samlet menneskenes største spørsmål i fortellinger: Hvorfor lever vi? Hva er rett og galt? Hva skjer når vi dør? Disse spørsmålene forsvinner ikke. Når en filmskaper vil lage noe som griper oss, låner han ofte fra de sterkeste fortellingene som finnes. Mange av dem er religiøse. Det er ikke bare kristendommen som dukker opp. Ord som «karma» og «nirvana» kommer fra [hinduismen](/krle/religion/hinduisme/intro) og [buddhismen](/krle/religion/buddhisme/intro), men brukes nå av folk som aldri har tenkt på religion i det hele tatt."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Religion uten gudstro?",
+                "content": "Du kan synge en julesang, gjøre yoga eller si «karma» uten å tro på noe. Det kalles gjerne kulturkristendom eller kulturell religion: religiøse skikker og ord lever videre som vaner og kultur, selv hos folk uten gudstro. Det viser hvor dypt religionen sitter i kulturen vår."
+            }
+        },
+        {
+            "type": "text",
+            "content": "Prøv selv: nedenfor kan du koble eksempler fra populærkulturen til det religiøse opphavet de bygger på. Når du har gjort det noen ganger, begynner du å se sporene helt av deg selv."
+        },
+        {
+            "type": "component",
+            "name": "PopkulturKoblingen",
+            "props": {}
+        },
+        {
+            "type": "header",
+            "text": "Fortellinger som blir gjenfortalt"
+        },
+        {
+            "type": "text",
+            "content": "Noen religiøse fortellinger er blitt gjenfortalt så mange ganger at vi nesten har glemt hvor de kommer fra. Tenk på alle filmene og spillene om en enorm flom og en båt som berger livet. De bygger på fortellingen om Noahs ark fra Bibelen. Eller tenk på englevinger, glorier og demoner i tegneserier og dataspill. Alt dette er religiøse bilder som har blitt vanlige byggeklosser i kulturen. Også musikk er full av det: gospel og salmer har formet både pop, rock og hiphop. Mange av de mest kjente artistene synger om himmel, sjel, frelse og synd uten at vi alltid legger merke til hvor ordene kommer fra."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Stor flom og en båt full av dyr i en moderne film",
+            "caption": "Storfilmer om flom og en redningsbåt henter formen sin fra Noahs ark."
+        },
+        {
+            "type": "text",
+            "content": "Det er ikke bare gamle fortellinger heller. Nyere religioner og livssyn setter også spor. Buddha-statuen som står som pynt på hylla hjemme hos mange, kommer fra buddhismen. Symboler som «Om», fredstegnet og månesigl dukker opp på klær, plakater og album. Når du lærer hva symbolene egentlig betyr, leser du kulturen rundt deg på en helt ny måte."
+        },
+        {
+            "type": "header",
+            "text": "Respekt eller tankeløshet?"
+        },
+        {
+            "type": "text",
+            "content": "At religion brukes i film og mote, er ikke alltid uproblematisk. Noen ganger blir hellige symboler brukt bare fordi de ser kule ut, uten at noen tenker på hva de betyr for dem som tror. En artist kan ha på seg et religiøst plagg som bare et antrekk, mens plagget er dypt alvorlig for andre. Andre ganger blir en hel religion vist på en feil eller dum måte i en film, slik at folk får et skjevt bilde av den. Da handler det om respekt: Hvordan vil de som tror, kjenne seg igjen? Dette er nettopp slike spørsmål [etikken](/krle/etikk/intro) hjelper oss å tenke gjennom."
+        },
+        {
+            "type": "text",
+            "content": "Samtidig kan populærkultur også gjøre noe fint. En film kan vekke nysgjerrighet på en religion mange ikke kjenner. En sang kan gi trøst med ord hentet fra en gammel salme. Spørsmålet er ikke om religion skal være i kulturen, for det er den allerede. Spørsmålet er om vi bruker den med respekt og forståelse, eller bare tankeløst. Derfor er det viktig å kjenne til hva symbolene betyr, så vi vet hva vi faktisk har med å gjøre."
+        },
+        {
+            "type": "text",
+            "content": "Under kan du gå inn i et helt vanlig ungdomsrom og lete selv. Klikk tingene som gjemmer et religiøst symbol, og se rommet lyse opp for hvert funn."
+        },
+        {
+            "type": "component",
+            "name": "MicroGame",
+            "props": {
+                "gameId": "skjulte-symboler-3d"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Slik leser du populærkulturen"
+        },
+        {
+            "type": "text",
+            "content": "Å oppdage religion i medier er en ferdighet du kan trene opp. Når du ser en film, hører en låt eller spiller et spill, kan du stille deg noen enkle spørsmål."
+        },
+        {
+            "type": "list",
+            "items": [
+                "Kjenner jeg igjen en fortelling eller et symbol her? Hvor har jeg sett det før?",
+                "Hvilken religion eller hvilket livssyn kommer det fra?",
+                "Brukes det med respekt, eller bare som pynt?",
+                "Gir det meg et riktig eller et skjevt bilde av religionen?"
+            ]
+        },
+        {
+            "type": "text",
+            "content": "Når du øver på dette, ser du at religion ikke er noe som hører fortiden til. Den lever rundt deg hver dag, i akkurat de tingene du liker best. Og det å se den, gjør deg til en skarpere leser av hele kulturen din."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Ungdom som ser religiøse symboler lyse opp i hverdagslige ting",
+            "caption": "Når du først lærer å se sporene, oppdager du dem over alt."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "title": "Sjekk forståelsen",
+                "questions": [
+                    {
+                        "question": "Hva menes med at religion finnes i populærkulturen?",
+                        "options": [
+                            "At alle filmer handler om Gud",
+                            "At religiøse symboler og fortellinger lever videre i film, musikk, spill og mote",
+                            "At bare religiøse mennesker ser film",
+                            "At populærkultur er forbudt i religion"
+                        ],
+                        "correctAnswer": 1,
+                        "explanation": "Religiøse fortellinger, symboler og ord dukker opp over alt i populærkulturen, ofte uten at vi tenker over det."
+                    },
+                    {
+                        "question": "Superhelten som dør og vekkes til live igjen, ligner på hvilken religiøs fortelling?",
+                        "options": [
+                            "Buddhas opplysning",
+                            "Muhammeds reise",
+                            "Jesu død og oppstandelse",
+                            "Skapelsen av verden"
+                        ],
+                        "correctAnswer": 2,
+                        "explanation": "Mønsteret med en helt som ofrer livet og kommer tilbake, ligner historien om Jesu død og oppstandelse i kristendommen."
+                    },
+                    {
+                        "question": "Hvor kommer ordet «karma» opprinnelig fra?",
+                        "options": [
+                            "Hinduismen og buddhismen",
+                            "Norrøn mytologi",
+                            "Et moderne dataspill",
+                            "Kristendommen"
+                        ],
+                        "correctAnswer": 0,
+                        "explanation": "«Karma» kommer fra hinduismen og buddhismen, men brukes i dag av mange uten religiøs mening."
+                    },
+                    {
+                        "question": "Hva menes med kulturkristendom eller kulturell religion?",
+                        "options": [
+                            "At man må tro for å feire jul",
+                            "At religiøse skikker og ord lever videre som vaner, også hos folk uten gudstro",
+                            "At religion bare finnes i kirken",
+                            "At all kultur er religiøs"
+                        ],
+                        "correctAnswer": 1,
+                        "explanation": "Mange synger julesanger eller sier «karma» uten å tro på noe. Religiøse skikker lever videre som kultur og vaner."
+                    },
+                    {
+                        "question": "Hvorfor kan det være et problem å bruke hellige symboler i mote og film?",
+                        "options": [
+                            "Fordi symboler aldri kan vises offentlig",
+                            "Fordi det alltid er ulovlig",
+                            "Fordi de kan brukes tankeløst eller gi et skjevt bilde og såre dem som tror",
+                            "Fordi religion ikke finnes i kulturen"
+                        ],
+                        "correctAnswer": 2,
+                        "explanation": "Når hellige symboler bare brukes som pynt eller vises feil, kan det vise mangel på respekt for dem religionen betyr noe for."
+                    }
+                ]
+            }
+        }
+    ],
+    "timeline": []
+}

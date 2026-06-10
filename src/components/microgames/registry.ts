@@ -57,8 +57,18 @@ const MarsjenMotRoma3D = lazy(() => import('./MarsjenMotRoma3D'));
 const VektenIWien3D = lazy(() => import('./VektenIWien3D'));
 const Vesterleden3D = lazy(() => import('./Vesterleden3D'));
 const EuropaBroen3D = lazy(() => import('./EuropaBroen3D'));
+const SkjulteSymboler3D = lazy(() => import('./SkjulteSymboler3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
+    'skjulte-symboler-3d': {
+        id: 'skjulte-symboler-3d',
+        title: 'Skjulte symboler i populærkulturen',
+        description:
+            'Et helt vanlig ungdomsrom er fullt av religion. Klikk de fem tingene som gjemmer et religiøst symbol - superhelt-plakaten, filmen, Buddha-statuen, julelåten og spillet - og se rommet lyse opp. Lyspæren: religion lever videre i film, musikk og spill, ofte uten at vi tenker over det.',
+        estimatedSeconds: 120,
+        loader: () => import('./SkjulteSymboler3D'),
+        Component: SkjulteSymboler3D as never,
+    },
     'europa-broen-3d': {
         id: 'europa-broen-3d',
         title: 'Broen til Europa',
