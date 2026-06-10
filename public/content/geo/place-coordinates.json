@@ -931,6 +931,10 @@
       "count": 14
     },
     {
+      "tag": "1800-tallet",
+      "count": 14
+    },
+    {
       "tag": "olje",
       "count": 14
     },
@@ -956,10 +960,6 @@
     },
     {
       "tag": "industri",
-      "count": 12
-    },
-    {
-      "tag": "1800-tallet",
       "count": 12
     },
     {
@@ -1416,6 +1416,14 @@
     },
     {
       "tag": "dampmaskin",
+      "count": 4
+    },
+    {
+      "tag": "napoleon",
+      "count": 4
+    },
+    {
+      "tag": "1814",
       "count": 4
     },
     {
@@ -2023,10 +2031,6 @@
       "count": 2
     },
     {
-      "tag": "napoleon",
-      "count": 2
-    },
-    {
       "tag": "code-civil",
       "count": 2
     },
@@ -2071,7 +2075,7 @@
       "count": 2
     },
     {
-      "tag": "1814",
+      "tag": "maktbalanse",
       "count": 2
     },
     {
