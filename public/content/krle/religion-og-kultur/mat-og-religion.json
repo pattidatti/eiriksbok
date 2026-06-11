@@ -6,7 +6,7 @@
     "year": "Fra antikken til i dag",
     "category": "Religion og samfunn",
     "readTime": "8 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/krle/mat-og-religion-hero.webp",
     "details": [
         "Mange religioner har regler for hva man kan og ikke kan spise",
         "Den samme maten kan være forbudt i én tro og helt vanlig i en annen",
@@ -19,7 +19,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/krle/mat-og-religion-01.webp",
             "alt": "Elever rundt en grill i skolegården der en elev takker nei til pølse",
             "caption": "Mat samler folk, men reglene rundt maten er ikke like for alle."
         },
@@ -64,7 +64,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/krle/mat-og-religion-02.webp",
             "alt": "Et bord dekket med ulike retter sett ovenfra, noen merket med grønt og noen med rødt",
             "caption": "Samme bord, ulike regler. Det som er forbudt for én, er hverdagsmat for en annen."
         },
@@ -105,7 +105,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/krle/mat-og-religion-03.webp",
             "alt": "Venner fra ulike kulturer som spiser et felles måltid rundt et bord",
             "caption": "Når vi tar hensyn til hverandres matregler, kan alle dele et måltid sammen."
         },

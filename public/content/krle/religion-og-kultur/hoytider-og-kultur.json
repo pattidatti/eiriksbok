@@ -6,7 +6,7 @@
     "year": "Fra antikken til i dag",
     "category": "Religion og samfunn",
     "readTime": "8 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/krle/hoytider-og-kultur-hero.webp",
     "details": [
         "De fleste fridagene i Norge har religiøse røtter",
         "Jul, påske og pinse er kristne høytider som hele samfunnet deler",
@@ -19,7 +19,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/krle/hoytider-og-kultur-01.webp",
             "alt": "Norsk familie samlet rundt et pyntet julebord med levende lys",
             "caption": "Mange høytider vi feirer sammen, har religiøse røtter, selv når vi ikke tenker over det."
         },
@@ -72,7 +72,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/krle/hoytider-og-kultur-02.webp",
             "alt": "Barn tenner små oljelamper under en fargerik lysfest om kvelden",
             "caption": "Lysfester finnes i mange religioner. Lyset i mørket betyr håp nesten overalt."
         },
@@ -117,7 +117,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/krle/hoytider-og-kultur-03.webp",
             "alt": "Mennesker med ulik bakgrunn deler et festmåltid rundt samme bord",
             "caption": "Lys, mat og samvær er felles for høytider i mange religioner."
         },

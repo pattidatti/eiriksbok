@@ -7053,13 +7053,13 @@
           "id": "religion-og-kultur",
           "title": "Religion og kultur",
           "description": "Hvordan religion lever videre i samfunnet, mediene og populærkulturen.",
-          "image": "/images/placeholder.webp",
+          "image": "/images/krle/religion-i-medier-hero.webp",
           "lessons": [
             {
               "id": "religion-i-medier",
               "title": "Religion i medier og populærkultur",
               "description": "Religiøse symboler og fortellinger lever videre i film, musikk, spill og mote.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/krle/religion-i-medier-hero.webp",
               "tags": [
                 "religion",
                 "populærkultur",
@@ -7073,7 +7073,7 @@
               "id": "hoytider-og-kultur",
               "title": "Høytider: Hvor kommer fridagene fra?",
               "description": "De fleste fridagene i Norge har religiøse røtter, og et mangfoldig samfunn får stadig nye høytider.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/krle/hoytider-og-kultur-hero.webp",
               "tags": [
                 "religion",
                 "høytider",
@@ -7087,7 +7087,7 @@
               "id": "mat-og-religion",
               "title": "Mat og religion: Hva får du spise?",
               "description": "Mange religioner har regler for hva man kan og ikke kan spise, og den samme maten kan være forbudt i én tro og vanlig i en annen.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/krle/mat-og-religion-hero.webp",
               "tags": [
                 "religion",
                 "mat",

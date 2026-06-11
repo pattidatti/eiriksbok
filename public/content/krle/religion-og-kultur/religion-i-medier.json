@@ -6,7 +6,7 @@
     "year": "Fra antikken til i dag",
     "category": "Religion og samfunn",
     "readTime": "9 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/krle/religion-i-medier-hero.webp",
     "details": [
         "Religiøse symboler og fortellinger lever videre i film, musikk, spill og merkevarer.",
         "Mange superhelter, sanger og ord vi bruker hver dag har et religiøst opphav.",
@@ -19,7 +19,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/krle/religion-i-medier-01.webp",
             "alt": "Ungdom ser superheltfilm på sofaen med mobil i hånden",
             "caption": "En helt vanlig filmkveld er fullere av religion enn du tror."
         },
@@ -70,7 +70,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/krle/religion-i-medier-02.webp",
             "alt": "Stor flom og en båt full av dyr i en moderne film",
             "caption": "Storfilmer om flom og en redningsbåt henter formen sin fra Noahs ark."
         },
@@ -124,7 +124,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/krle/religion-i-medier-03.webp",
             "alt": "Ungdom som ser religiøse symboler lyse opp i hverdagslige ting",
             "caption": "Når du først lærer å se sporene, oppdager du dem over alt."
         },
