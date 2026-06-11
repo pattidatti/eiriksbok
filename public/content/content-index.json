@@ -1,5 +1,5 @@
 {
-  "buildId": 1781130989656,
+  "buildId": 1781140707024,
   "contentMap": {
     "concept-adel": [
       "content/concepts/adel.json"
@@ -2214,6 +2214,9 @@
     "hoytider-og-kultur": [
       "content/krle/religion-og-kultur/hoytider-og-kultur.json"
     ],
+    "mat-og-religion": [
+      "content/krle/religion-og-kultur/mat-og-religion.json"
+    ],
     "religion-i-medier": [
       "content/krle/religion-og-kultur/religion-i-medier.json"
     ],
@@ -4125,6 +4128,7 @@
     "krle/religion/sikhisme/introduksjon": "content/krle/religion/sikhisme/introduksjon/artikkel.json",
     "krle/religion/sikhisme/sentrale-trekk": "content/krle/religion/sikhisme/sentrale-trekk/artikkel.json",
     "krle/religion-og-kultur/hoytider-og-kultur": "content/krle/religion-og-kultur/hoytider-og-kultur.json",
+    "krle/religion-og-kultur/mat-og-religion": "content/krle/religion-og-kultur/mat-og-religion.json",
     "krle/religion-og-kultur/religion-i-medier": "content/krle/religion-og-kultur/religion-i-medier.json",
     "musikk/grunnleggende/akkorder-og-harmoni": "content/musikk/grunnleggende/akkorder-og-harmoni.json",
     "musikk/grunnleggende/notasjon": "content/musikk/grunnleggende/notasjon.json",

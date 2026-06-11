@@ -1,0 +1,185 @@
+{
+    "id": "mat-og-religion",
+    "title": "Mat og religion: Hva får du spise?",
+    "layout": "rich",
+    "subject": "krle",
+    "year": "Fra antikken til i dag",
+    "category": "Religion og samfunn",
+    "readTime": "8 min lesning",
+    "heroImage": "/images/placeholder.webp",
+    "details": [
+        "Mange religioner har regler for hva man kan og ikke kan spise",
+        "Den samme maten kan være forbudt i én tro og helt vanlig i en annen",
+        "Matreglene handler om mer enn mat: de handler om identitet og fellesskap"
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Tenk deg at klassen skal grille i friminuttet. Læreren deler ut pølser til alle. Men én elev rister på hodet og takker nei. Det er ikke fordi pølsene smaker vondt. Det er fordi troen hennes sier at hun ikke får spise svinekjøtt. For mange mennesker handler ikke mat bare om hva som er godt. Maten henger sammen med hva de tror på."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Elever rundt en grill i skolegården der en elev takker nei til pølse",
+            "caption": "Mat samler folk, men reglene rundt maten er ikke like for alle."
+        },
+        {
+            "type": "header",
+            "text": "Hverdagsmat og forbudt mat"
+        },
+        {
+            "type": "text",
+            "content": "I de fleste religioner deler man maten inn i to grupper. Noe er helt vanlig å spise hver dag. Annet er forbudt, og det skal man holde seg unna. Hva som havner i hver gruppe, er forskjellig fra religion til religion. Det som er forbudt for én person, kan være helt greit for naboen."
+        },
+        {
+            "type": "text",
+            "content": "Mange tror at matreglene bare handler om hva som er sunt eller skittent. Men for de troende handler reglene mest om noe annet. Å følge reglene er en måte å vise at man hører til, og at man lytter til det troen sier. Hver gang man velger bort en forbudt rett, minner man seg selv om hva man tror på."
+        },
+        {
+            "type": "text",
+            "content": "Reglene kan også knytte folk sammen på tvers av land og tid. En jødisk gutt i Norge følger de samme matreglene som jøder fulgte for tusen år siden, og som jøder følger i dag i USA, Israel og Marokko. På den måten blir måltidet en tråd som binder menneskene i en tro sammen, selv når de bor langt fra hverandre."
+        },
+        {
+            "type": "header",
+            "text": "Hvorfor finnes matreglene?"
+        },
+        {
+            "type": "text",
+            "content": "De fleste matreglene står i hellige tekster som er flere tusen år gamle. I jødedommen kaller man mat som er tillatt for kosher. Reglene sier blant annet at jøder ikke skal spise gris, og at de ikke skal blande kjøtt og melk i samme måltid. I islam kaller man tillatt mat for halal, mens forbudt mat heter haram. Svin og alkohol er haram. Du kan lese mer om disse troene i artiklene om [islam](/krle/religion/islam) og [jødedommen](/krle/religion/jodedom)."
+        },
+        {
+            "type": "text",
+            "content": "I [hinduismen](/krle/religion/hinduisme) er kua et hellig dyr. Derfor spiser mange hinduer aldri oksekjøtt. Mange hinduer og buddhister er også vegetarianere. De vil ikke drepe dyr, fordi de mener at alt liv har en verdi. I kristendommen finnes det i dag få faste regler om mat, men noen kristne velger å spise enklere i fastetiden før påske."
+        },
+        {
+            "type": "component",
+            "name": "MicroGame",
+            "props": {
+                "gameId": "matreglerbordet-3d"
+            }
+        },
+        {
+            "type": "text",
+            "content": "Når du prøvde de ulike religionene i spillet, så du noe viktig: det samme svinekjøttet ble rødt og forbudt for jøder og muslimer, men grønt og lov for kristne. Kua var hellig for hinduer, men vanlig mat for andre. Maten er den samme. Det er reglene som er ulike."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Et bord dekket med ulike retter sett ovenfra, noen merket med grønt og noen med rødt",
+            "caption": "Samme bord, ulike regler. Det som er forbudt for én, er hverdagsmat for en annen."
+        },
+        {
+            "type": "header",
+            "text": "Når man ikke spiser: faste"
+        },
+        {
+            "type": "text",
+            "content": "Mat handler ikke bare om hva man spiser, men også om når man lar være. Mange religioner har perioder med faste. Da spiser eller drikker man mindre, eller ingenting, i et bestemt tidsrom. For muslimer er ramadan en hel måned der man verken spiser eller drikker mens sola er oppe. Jøder faster en hel dag på den helligste dagen i året, som heter jom kippur. Faste er en måte å trene viljen og tenke på noe større enn seg selv. Mange som faster, sier også at det gjør dem mer takknemlige for maten de ellers tar for gitt, og at de tenker mer på dem som ikke har nok å spise."
+        },
+        {
+            "type": "text",
+            "content": "Faste skaper også fellesskap. Når ramadan er over, samles familier og venner til store måltider. På samme måte feirer kristne påske med mat etter fasten, og jøder samles til måltid når sabbaten begynner. Maten markerer at noe spesielt skjer. Du kan lese mer om hvordan religion former [høytider og fridager](/krle/religion-og-kultur/hoytider-og-kultur) i Norge."
+        },
+        {
+            "type": "header",
+            "text": "Å ta hensyn til hverandre"
+        },
+        {
+            "type": "text",
+            "content": "I et land som Norge bor det mennesker med mange ulike religioner. Derfor møter du matregler hele tiden, kanskje uten å tenke over det. I kantina på skolen står det ofte om maten er halal eller vegetar. Mange butikker har egne hyller med halal-kjøtt, og restauranter merker rettene sine så gjestene vet hva de spiser. Når du skal lage mat til en venn, kan det være lurt å spørre om det er noe vennen din ikke spiser. Det er en enkel måte å vise respekt på, og det gjør at flere kan være med rundt bordet."
+        },
+        {
+            "type": "text",
+            "content": "Prøv deg på oppgaven under. Du er vert for tre venner med ulik tro, og du skal servere alle en rett de kan spise."
+        },
+        {
+            "type": "component",
+            "name": "MatGjesteBord",
+            "props": {
+                "title": "Dekk bordet for gjestene"
+            }
+        },
+        {
+            "type": "text",
+            "content": "Det var ikke alltid lett, var det vel? Du måtte tenke på hva hver enkelt kunne spise, og finne retter som passet. Akkurat dette gjør mange familier i Norge hver uke når de har gjester. Å ta hensyn til andres matregler er en del av det å leve sammen i et samfunn med mange kulturer."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Venner fra ulike kulturer som spiser et felles måltid rundt et bord",
+            "caption": "Når vi tar hensyn til hverandres matregler, kan alle dele et måltid sammen."
+        },
+        {
+            "type": "header",
+            "text": "Maten som speil"
+        },
+        {
+            "type": "text",
+            "content": "Det du spiser, kan altså vise hva du tror på. Matreglene er som et speil for troen. De gjør noe så vanlig som et måltid til noe som betyr mer. Neste gang du ser noen takke nei til en rett, vet du at det kanskje ikke handler om smak. Det kan handle om noe de bærer med seg fra troen sin, hver eneste dag."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hva betyr det at mat er kosher i jødedommen?",
+                        "options": [
+                            "At maten er ekstra sunn",
+                            "At maten er tillatt etter de jødiske reglene",
+                            "At maten er laget i Israel",
+                            "At maten er vegetar"
+                        ],
+                        "correctAnswer": 1,
+                        "explanation": "Kosher betyr at maten er tillatt etter reglene i jødedommen. Blant annet er svin og skalldyr ikke kosher."
+                    },
+                    {
+                        "question": "Hvilken mat er haram, altså forbudt, i islam?",
+                        "options": [
+                            "Fisk og brød",
+                            "Kylling og ris",
+                            "Svin og alkohol",
+                            "Oksekjøtt og grønnsaker"
+                        ],
+                        "correctAnswer": 2,
+                        "explanation": "Svinekjøtt og alkohol er haram i islam. Mat som er tillatt, kalles halal."
+                    },
+                    {
+                        "question": "Hvorfor spiser mange hinduer ikke oksekjøtt?",
+                        "options": [
+                            "Fordi oksekjøtt er dyrt",
+                            "Fordi kua er et hellig dyr i hinduismen",
+                            "Fordi de ikke liker smaken",
+                            "Fordi det er forbudt ved lov i India"
+                        ],
+                        "correctAnswer": 1,
+                        "explanation": "Kua er hellig i hinduismen. Derfor velger mange hinduer bort oksekjøtt."
+                    },
+                    {
+                        "question": "Hva er faste?",
+                        "options": [
+                            "Å spise så fort som mulig",
+                            "Å bare spise rask mat",
+                            "Å la være å spise eller drikke i et bestemt tidsrom",
+                            "Å spise det samme hver dag"
+                        ],
+                        "correctAnswer": 2,
+                        "explanation": "Faste betyr å la være å spise eller drikke i et tidsrom. Ramadan og jom kippur er eksempler."
+                    },
+                    {
+                        "question": "Hva er en god grunn til å spørre en gjest hva hen spiser?",
+                        "options": [
+                            "For å vise respekt og ta hensyn til troen til gjesten",
+                            "For å sjekke om gjesten er sulten",
+                            "For å vite hvor mye maten koster",
+                            "For å bestemme når man skal spise"
+                        ],
+                        "correctAnswer": 0,
+                        "explanation": "Å spørre er en enkel måte å vise respekt på, slik at alle kan spise noe de har lov til."
+                    }
+                ]
+            }
+        }
+    ],
+    "timeline": []
+}
