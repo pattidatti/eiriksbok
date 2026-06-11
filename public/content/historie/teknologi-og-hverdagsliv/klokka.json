@@ -78,6 +78,13 @@
     },
     {
       "type": "component",
+      "name": "MicroGame",
+      "props": {
+        "gameId": "gangen-3d"
+      }
+    },
+    {
+      "type": "component",
       "name": "FactBox",
       "props": {
         "title": "Hvorfor er timene like lange?",

@@ -56,6 +56,7 @@ const MokshaVeien3D = lazy(() => import('./MokshaVeien3D'));
 const MarsjenMotRoma3D = lazy(() => import('./MarsjenMotRoma3D'));
 const VektenIWien3D = lazy(() => import('./VektenIWien3D'));
 const Vesterleden3D = lazy(() => import('./Vesterleden3D'));
+const Gangen3D = lazy(() => import('./Gangen3D'));
 const EuropaBroen3D = lazy(() => import('./EuropaBroen3D'));
 const SkjulteSymboler3D = lazy(() => import('./SkjulteSymboler3D'));
 const FestensLys3D = lazy(() => import('./FestensLys3D'));
@@ -556,6 +557,15 @@ export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.Laz
         estimatedSeconds: 140,
         loader: () => import('./Vesterleden3D'),
         Component: Vesterleden3D as never,
+    },
+    'gangen-3d': {
+        id: 'gangen-3d',
+        title: 'Gangen: klokkas hemmelighet',
+        description:
+            'Bygg et mekanisk urverk steg for steg. Heng på loddet og se hjulet rase vilt av gårde, sett så inn gangen så det tikker jevnt, og still pendelen til klokka går rett. Lyspæren: gangen gjør den ujevne kraften fra loddet om til faste, tellbare tikk, og pendelen bestemmer takten.',
+        estimatedSeconds: 150,
+        loader: () => import('./Gangen3D'),
+        Component: Gangen3D as never,
     },
 };
 
