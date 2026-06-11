@@ -59,8 +59,18 @@ const Vesterleden3D = lazy(() => import('./Vesterleden3D'));
 const EuropaBroen3D = lazy(() => import('./EuropaBroen3D'));
 const SkjulteSymboler3D = lazy(() => import('./SkjulteSymboler3D'));
 const FestensLys3D = lazy(() => import('./FestensLys3D'));
+const MatreglerBord3D = lazy(() => import('./MatreglerBord3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
+    'matreglerbordet-3d': {
+        id: 'matreglerbordet-3d',
+        title: 'Matreglerbordet',
+        description:
+            'Det samme bordet med svin, oksekjøtt, reker, fisk, vin og brød. Velg en religion og se hvilke matvarer som blir lov (grønne) og forbudt (røde). Lyspæren: samme mat kan være helt vanlig i én religion og forbudt i en annen.',
+        estimatedSeconds: 150,
+        loader: () => import('./MatreglerBord3D'),
+        Component: MatreglerBord3D as never,
+    },
     'festens-lys-3d': {
         id: 'festens-lys-3d',
         title: 'Festens lys',

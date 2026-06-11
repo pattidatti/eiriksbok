@@ -20,6 +20,7 @@ import { MapCarousel } from './MapCarousel';
 
 // Lazy-loaded components for better performance
 // Interactive Content
+const MatGjesteBord = lazy(() => import('./content/interactive/MatGjesteBord').then(m => ({ default: m.MatGjesteBord })));
 const TragediensTrinn = lazy(() => import('./content/interactive/TragediensTrinn').then(m => ({ default: m.TragediensTrinn })));
 const UtvandrerVekta = lazy(() => import('./content/interactive/UtvandrerVekta').then(m => ({ default: m.UtvandrerVekta })));
 const SuverenitetsSkala = lazy(() => import('./content/interactive/SuverenitetsSkala').then(m => ({ default: m.SuverenitetsSkala })));
@@ -274,6 +275,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     // Core
     GovernmentExplorer,
     HistoryLongLines,
+    MatGjesteBord,
     TragediensTrinn,
     FornorskingMaler,
     KalmarMaktbalanse,

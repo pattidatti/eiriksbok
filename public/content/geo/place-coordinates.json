@@ -811,16 +811,16 @@
       "count": 40
     },
     {
+      "tag": "religion",
+      "count": 36
+    },
+    {
       "tag": "kald-krig",
       "count": 36
     },
     {
       "tag": "nykolonialisme",
       "count": 36
-    },
-    {
-      "tag": "religion",
-      "count": 35
     },
     {
       "tag": "antikken",
@@ -883,16 +883,16 @@
       "count": 18
     },
     {
+      "tag": "kultur",
+      "count": 17
+    },
+    {
       "tag": "etikk",
       "count": 17
     },
     {
       "tag": "kristendom",
       "count": 17
-    },
-    {
-      "tag": "kultur",
-      "count": 16
     },
     {
       "tag": "sivilisasjon",
@@ -1107,6 +1107,10 @@
       "count": 7
     },
     {
+      "tag": "mat",
+      "count": 7
+    },
+    {
       "tag": "bøker",
       "count": 7
     },
@@ -1164,10 +1168,6 @@
     },
     {
       "tag": "fimbulvinter",
-      "count": 6
-    },
-    {
-      "tag": "mat",
       "count": 6
     },
     {
@@ -3140,6 +3140,10 @@
     },
     {
       "tag": "symboler",
+      "count": 1
+    },
+    {
+      "tag": "matregler",
       "count": 1
     },
     {
