@@ -1,0 +1,182 @@
+{
+    "id": "symboler-og-klaer",
+    "title": "Religiøse symboler og klær: Tro du kan se",
+    "layout": "rich",
+    "subject": "krle",
+    "year": "Fra antikken til i dag",
+    "category": "Religion og samfunn",
+    "readTime": "8 min lesning",
+    "heroImage": "/images/placeholder.webp",
+    "details": [
+        "Religiøse symboler er tegn som peker til en tro og fortellingene bak",
+        "Klær kan også fortelle hvilken religion en person tilhører",
+        "Det samme symbolet kan bety ulike ting for ulike mennesker"
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Du sitter på bussen. Foran deg sitter en jente med et skaut rundt håret. Ved siden av henne har en gutt en liten sølvkjede med et kors. Lenger framme står en mann med turban. Ingen av dem har sagt et ord til deg. Likevel forteller klærne deres allerede noe: de tror på noe, og troen er ulik. Religion er ikke alltid noe som skjer inni hodet på folk. Av og til kan du se den rett foran deg."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Ulike mennesker på en buss med skaut, korskjede og turban",
+            "caption": "På bussen sitter flere religioner side om side. Klærne og smykkene viser det."
+        },
+        {
+            "type": "header",
+            "text": "Hva er et religiøst symbol?"
+        },
+        {
+            "type": "text",
+            "content": "Et symbol er et tegn som står for noe mer enn seg selv. Et hjerte står for kjærlighet. Et rødt lys står for stopp. Et religiøst symbol er et tegn som peker til en tro og fortellingene bak den. Når du ser symbolet, skal du tenke på hele religionen det hører til."
+        },
+        {
+            "type": "text",
+            "content": "De fleste store religioner har sitt eget tegn. Korset minner om at Jesus døde på et kors. Halvmånen og stjernen er blitt et kjent tegn for islam. Davidsstjernen er en sekskantet stjerne som står for jødisk tro. Buddhismen bruker et hjul, hinduismen tegnet Om, og sikhene tegnet khanda. Vil du se hvordan religionene ligner og skiller seg fra hverandre, kan du [sammenligne religioner](/krle/sammenlign) side om side."
+        },
+        {
+            "type": "text",
+            "content": "Vi bruker symboler hele tiden, også utenfor religion. Et flagg står for et land. En logo står for et merke. Et trafikkskilt forteller deg hva du skal gjøre uten ord. Religiøse symboler virker på samme måte, men de peker til noe folk holder hellig. Derfor kan et lite tegn vekke sterke følelser. For den som tror, er det ikke bare en strek på et papir. Det er en hel verden av mening samlet i ett bilde."
+        },
+        {
+            "type": "text",
+            "content": "Symbolene er ikke pynt som noen fant på i går. De har vokst fram gjennom hundrevis av år, og bærer med seg en historie. Klarer du å koble hvert tegn til riktig religion?"
+        },
+        {
+            "type": "component",
+            "name": "SymbolMatcher",
+            "props": {
+                "title": "Koble symbol til religion"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Klær som forteller om tro"
+        },
+        {
+            "type": "text",
+            "content": "Det er ikke bare smykker og tegn som viser tro. Klær kan gjøre det samme. Mange muslimske jenter og kvinner bruker hijab, et skaut som dekker håret. En jødisk mann kan bære kippa, en liten rund lue på issen. Sikher lar håret gro og samler det under en turban. En katolsk nonne bruker drakt og slør. Alle disse klærne sier noe: «Jeg hører til denne troen.» Noen klær brukes hele tiden, andre bare i bønn eller på spesielle dager."
+        },
+        {
+            "type": "text",
+            "content": "Hvorfor kler folk seg slik? For mange handler det om respekt for Gud eller for reglene i troen. For andre handler det om å vise hvem de er, akkurat som et fotballskjerf viser hvilket lag du heier på. Ofte er det begge deler på én gang. Det er viktig å huske at ikke alle som tilhører en religion, går med slike klær. Mange velger å la være, og det er helt vanlig."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Nærbilde av hijab, kippa og turban side om side",
+            "caption": "Hijab, kippa og turban. Klær kan være en stille måte å vise tro på."
+        },
+        {
+            "type": "header",
+            "text": "Symbolene på husene"
+        },
+        {
+            "type": "text",
+            "content": "Du finner ikke bare symboler på folk. Du finner dem også på bygningene der folk samles for å be. En kirke har gjerne et kors på toppen av tårnet. En moské har ofte en halvmåne over kuppelen. En synagoge kan bære davidsstjernen. Symbolet på taket forteller deg hvilken tro huset hører til, lenge før du går inn døra. Prøv selv: dra hvert symbol opp på riktig tak."
+        },
+        {
+            "type": "component",
+            "name": "MicroGame",
+            "props": {
+                "gameId": "symboler-paa-taket-3d"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Når symboler skaper debatt"
+        },
+        {
+            "type": "text",
+            "content": "I Norge har vi lenge diskutert hvor mye tro som skal få vises i det offentlige. Skal en politi få bruke hijab til uniformen? Skal læreren ha lov til å bære et stort kors på skolen? Noen mener at alle bør få vise troen sin fritt, fordi religionsfrihet er en menneskerett. Andre mener at noen yrker bør være helt nøytrale, slik at alle blir behandlet likt."
+        },
+        {
+            "type": "text",
+            "content": "Det finnes ikke ett fasitsvar her, og folk er uenige av gode grunner. Det viktige er å forstå at et lite stykke stoff eller et smykke kan bety mye for den som bærer det. For noen er det bare en vane. For andre er det selve kjernen i hvem de er. Slike spørsmål henger sammen med høytidene og fridagene våre, som du kan lese mer om i [hvor fridagene kommer fra](/krle/religion-og-kultur/hoytider-og-kultur)."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Ungdommer i klasserom diskuterer religiøse plagg",
+            "caption": "Hvor mye skal tro få vises på skolen og i jobben? Folk svarer ulikt."
+        },
+        {
+            "type": "header",
+            "text": "Hvorfor betyr symbolene så mye?"
+        },
+        {
+            "type": "text",
+            "content": "Symboler og klær gjør noe usynlig synlig. Troen bor inni et menneske, men symbolet gjør at andre kan se den. Det skaper også et fellesskap. Når du ser noen med samme tegn som deg selv, vet du at dere deler noe. På samme måte som mat og høytider binder folk sammen, gjør symbolene det. Du kan se hvordan mat fungerer på den måten i artikkelen om [mat og religion](/krle/religion-og-kultur/mat-og-religion)."
+        },
+        {
+            "type": "text",
+            "content": "Men husk: det samme symbolet kan bety helt ulike ting. For én person er et kors et hellig tegn på tro. For en annen er det bare et fint smykke uten mening. Derfor kan du ikke alltid vite nøyaktig hva en person tror, bare ved å se på klærne. Symbolet er en åpning til et spørsmål, ikke et ferdig svar. Den beste måten å forstå noen på, er fortsatt å spørre og lytte."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "title": "Sjekk hva du har lært",
+                "questions": [
+                    {
+                        "question": "Hva er et religiøst symbol?",
+                        "options": [
+                            "Et tegn som peker til en tro og fortellingene bak den",
+                            "Et merke som bare prester får bruke",
+                            "Et ord på et fremmed språk",
+                            "En regel for hva man kan spise"
+                        ],
+                        "explanation": "Et symbol er et tegn som står for noe mer enn seg selv. Et religiøst symbol peker til en hel religion.",
+                        "correctAnswer": 0
+                    },
+                    {
+                        "question": "Hvilket symbol hører til islam?",
+                        "options": [
+                            "Halvmånen og stjernen",
+                            "Korset",
+                            "Davidsstjernen",
+                            "Hjulet"
+                        ],
+                        "explanation": "Halvmånen og stjernen er blitt et kjent tegn for islam, og pryder mange moskeer.",
+                        "correctAnswer": 0
+                    },
+                    {
+                        "question": "Hva er kippa?",
+                        "options": [
+                            "En liten rund lue som en jødisk mann kan bære",
+                            "Et hellig måltid",
+                            "En kristen bønn",
+                            "Et tempel i India"
+                        ],
+                        "explanation": "Kippa er en liten lue på issen. Den er en måte å vise jødisk tro på.",
+                        "correctAnswer": 0
+                    },
+                    {
+                        "question": "Hvorfor kan du ikke alltid vite hva en person tror, bare ved å se klærne?",
+                        "options": [
+                            "Fordi det samme symbolet kan bety ulike ting for ulike mennesker",
+                            "Fordi alle religioner bruker akkurat de samme tegnene",
+                            "Fordi klær aldri sier noe om tro",
+                            "Fordi det er forbudt å bruke religiøse symboler i Norge"
+                        ],
+                        "explanation": "For én er et kors et hellig tegn, for en annen bare et smykke. Symbolet er en åpning til et spørsmål, ikke et ferdig svar.",
+                        "correctAnswer": 0
+                    },
+                    {
+                        "question": "Hva forteller et symbol på taket av et gudshus deg?",
+                        "options": [
+                            "Hvilken tro huset hører til",
+                            "Hvor gammelt huset er",
+                            "Hvor mange som bor i nabolaget",
+                            "Hvilket språk de snakker inne"
+                        ],
+                        "explanation": "Et kors over kirken, en halvmåne over moskeen eller en davidsstjerne på synagogen viser troen, lenge før du går inn.",
+                        "correctAnswer": 0
+                    }
+                ]
+            }
+        }
+    ],
+    "timeline": []
+}
