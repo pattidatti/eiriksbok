@@ -289,7 +289,12 @@ const MatreglerBord3D: React.FC<MicroGameProps> = ({ onComplete }) => {
                 fog: { near: 28, far: 55 },
                 target: [0, 1, 0],
             }}
-            scene={<TableScene religion={religion} onFood={onFood} />}
+            scene={
+                <>
+                    <TableScene religion={religion} onFood={onFood} />
+                    <Burst position={[0, 2, 0]} trigger={burst} color="#fde68a" />
+                </>
+            }
             overlays={
                 <>
                     <SceneBanner message={banner} wide />
@@ -298,7 +303,6 @@ const MatreglerBord3D: React.FC<MicroGameProps> = ({ onComplete }) => {
                         items={[{ label: 'Religioner utforsket', value: `${explored.length}/5` }]}
                     />
                     <SceneBadge corner="br">{religion ? religion.name : 'Velg en religion'}</SceneBadge>
-                    <Burst position={[0, 2, 0]} trigger={burst} color="#fde68a" />
                 </>
             }
         >
