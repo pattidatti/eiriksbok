@@ -10,6 +10,7 @@ const Colosseum3D = lazy(() => import('./Colosseum3D'));
 const TheodosianWalls3D = lazy(() => import('./TheodosianWalls3D'));
 const Hamskiftet3D = lazy(() => import('./Hamskiftet3D'));
 const VikingShip3D = lazy(() => import('./VikingShip3D'));
+const SymbolerPaaTaket3D = lazy(() => import('./SymbolerPaaTaket3D'));
 const IngenmanslandMG = lazy(() => import('./IngenmanslandMG'));
 const TidensFormer3D = lazy(() => import('./TidensFormer3D'));
 const DampmaskinHjerte3D = lazy(() => import('./DampmaskinHjerte3D'));
@@ -80,6 +81,15 @@ export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.Laz
         estimatedSeconds: 140,
         loader: () => import('./FestensLys3D'),
         Component: FestensLys3D as never,
+    },
+    'symboler-paa-taket-3d': {
+        id: 'symboler-paa-taket-3d',
+        title: 'Symbolene på taket',
+        description:
+            'Tre gudshus står på rad: en kirke, en moské og en synagoge. Dra korset, halvmånen og davidsstjernen opp på riktig tak, så lyser huset opp. Lyspæren: symbolet på taket forteller deg hvilken tro huset hører til, lenge før du går inn.',
+        estimatedSeconds: 120,
+        loader: () => import('./SymbolerPaaTaket3D'),
+        Component: SymbolerPaaTaket3D as never,
     },
     'skjulte-symboler-3d': {
         id: 'skjulte-symboler-3d',

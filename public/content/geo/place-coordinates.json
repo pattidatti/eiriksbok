@@ -812,7 +812,7 @@
     },
     {
       "tag": "religion",
-      "count": 36
+      "count": 37
     },
     {
       "tag": "kald-krig",
@@ -859,6 +859,10 @@
       "count": 21
     },
     {
+      "tag": "kultur",
+      "count": 18
+    },
+    {
       "tag": "steinalder",
       "count": 18
     },
@@ -881,10 +885,6 @@
     {
       "tag": "narrative",
       "count": 18
-    },
-    {
-      "tag": "kultur",
-      "count": 17
     },
     {
       "tag": "etikk",
@@ -1351,6 +1351,10 @@
       "count": 5
     },
     {
+      "tag": "identitet",
+      "count": 5
+    },
+    {
       "tag": "evolusjon",
       "count": 4
     },
@@ -1532,10 +1536,6 @@
     },
     {
       "tag": "sivilt-samfunn",
-      "count": 4
-    },
-    {
-      "tag": "identitet",
       "count": 4
     },
     {
@@ -2599,6 +2599,10 @@
       "count": 2
     },
     {
+      "tag": "symboler",
+      "count": 2
+    },
+    {
       "tag": "aristoteles",
       "count": 2
     },
@@ -3136,10 +3140,6 @@
     },
     {
       "tag": "medier",
-      "count": 1
-    },
-    {
-      "tag": "symboler",
       "count": 1
     },
     {
