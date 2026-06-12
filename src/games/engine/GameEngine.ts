@@ -421,7 +421,7 @@ export class GameEngine {
 
         // Sky-system (kun hvis sky === 'procedural')
         if ((visual.sky ?? (options.config.world.preset === 'open' ? 'procedural' : 'none')) === 'procedural') {
-            this.skySystem = new SkySystem(this.scene);
+            this.skySystem = new SkySystem(this.scene, visual.skyOptions);
             this.timeOfDaySystem.setSky(this.skySystem);
             const enableIbl = this.qualityTier === 'high';
             void this.skySystem.init().then(() => {

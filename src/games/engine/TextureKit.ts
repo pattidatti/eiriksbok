@@ -212,6 +212,40 @@ export function dirtKit(): TexKit {
     return (_dirtKit ??= buildKit(makeDirtCanvas(), 5.0));
 }
 
+// ── Glow-teksturer (additive sprites) ────────────────────────────────────────
+// Radial gradient hvit kjerne → farget glød → transparent. Brukes med
+// SpriteMaterial { blending: AdditiveBlending, depthWrite: false } for billig
+// glød (bål, fakler, magi, sol-halo) i stedet for mange PointLights.
+
+const _glowCache = new Map<string, THREE.CanvasTexture>();
+
+export function makeGlowTexture(opts: {
+    innerColor?: string;
+    outerColor?: string;
+    size?: number;
+} = {}): THREE.CanvasTexture {
+    const inner = opts.innerColor ?? 'rgba(255,240,200,1)';
+    const outer = opts.outerColor ?? 'rgba(255,140,50,0.55)';
+    const size = opts.size ?? 64;
+    const key = `${inner}|${outer}|${size}`;
+    const cached = _glowCache.get(key);
+    if (cached) return cached;
+
+    const cvs = document.createElement('canvas');
+    cvs.width = cvs.height = size;
+    const ctx = cvs.getContext('2d')!;
+    const half = size / 2;
+    const g = ctx.createRadialGradient(half, half, size * 0.03, half, half, half);
+    g.addColorStop(0, inner);
+    g.addColorStop(0.35, outer);
+    g.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = g;
+    ctx.fillRect(0, 0, size, size);
+    const tex = new THREE.CanvasTexture(cvs);
+    _glowCache.set(key, tex);
+    return tex;
+}
+
 export function makeLabelSprite(text: string, color = '#f0ddb8', fontSize = 24): THREE.Sprite {
     const cvs = document.createElement('canvas');
     // Måle-fase: finn faktisk tekst-bredde så canvas ikke klipper lange labels.
@@ -250,4 +284,6 @@ export function disposeTextureKit(): void {
         kit.normalMap.dispose();
     }
     _woodKit = _stoneKit = _fabricKit = _dirtKit = null;
+    for (const tex of _glowCache.values()) tex.dispose();
+    _glowCache.clear();
 }

@@ -312,6 +312,23 @@ export interface AddParticleConfig {
     scale?: number;
 }
 
+// ─── addGlowSprite (kits) ────────────────────────────────────────────────────
+// Additiv glød-sprite: billig «bloom» per objekt uten PointLight. Byggestein
+// for bål, fakler, magi og sol-halo - se også addCampfire.
+
+export interface AddGlowSpriteConfig {
+    id: string;
+    pos: Vec3;
+    // Glødens farge (tint på sprite-materialet).
+    color: number;
+    // Diameter i meter. Default 1.5.
+    size?: number;
+    // Opasitet 0..1. Default 0.8.
+    intensity?: number;
+    // Valgfri puls: størrelsen svinger ±amount (andel av size) med gitt fart.
+    pulse?: { amount: number; speed: number };
+}
+
 // ─── Builder-resultat ────────────────────────────────────────────────────────
 // Alle builders returnerer et objekt som lar deg gjøre manuelle justeringer
 // hvis nødvendig (sjelden - ideelt skal config-objektet dekke alt).

@@ -5,8 +5,10 @@ import type { SequenceStep, SequenceHandle } from './utils/SequenceRunner';
 import type { LiveSoundName, LiveSoundOptions, LiveSoundHandle } from './systems/ProceduralAudio';
 import type { CrowdAreaSpec, CrowdPathSpec, AddCrowdOptions } from './systems/CrowdSystem';
 import type { AudioHandle } from './systems/AudioSystem';
+import type { SkyOptions } from './systems/SkySystem';
 
 export type { AudioHandle } from './systems/AudioSystem';
+export type { SkyOptions } from './systems/SkySystem';
 
 export type { SequenceStep, SequenceHandle } from './utils/SequenceRunner';
 export type { LiveSoundName, LiveSoundOptions, LiveSoundHandle } from './systems/ProceduralAudio';
@@ -246,6 +248,9 @@ export interface VisualConfig {
     weather?: WeatherState;
     colorGrading?: ColorGrading;
     sky?: SkyMode;
+    // Fase 8: per-spill himmel-tuning (turbidity/rayleigh/mie) for f.eks.
+    // solnedgangs-look. Kombineres med timeOfDay (0.7+ = kveld).
+    skyOptions?: SkyOptions;
     fogDensityCurve?: FogDensityCurve;
     // Fase 2.3: skygge-modus. 'standard' = enkel DirectionalLight.shadow.
     // 'cascaded' = three/addons CSM med tre kaskader (kun high-tier, kun 'open'-preset).
