@@ -6,7 +6,7 @@
     "year": "Fra antikken til i dag",
     "category": "Religion og samfunn",
     "readTime": "8 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/religion-og-kultur/symboler-og-klaer-hero.webp",
     "details": [
         "Religiøse symboler er tegn som peker til en tro og fortellingene bak",
         "Klær kan også fortelle hvilken religion en person tilhører",
@@ -19,7 +19,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/religion-og-kultur/symboler-og-klaer-01.webp",
             "alt": "Ulike mennesker på en buss med skaut, korskjede og turban",
             "caption": "På bussen sitter flere religioner side om side. Klærne og smykkene viser det."
         },
@@ -64,7 +64,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/religion-og-kultur/symboler-og-klaer-02.webp",
             "alt": "Nærbilde av hijab, kippa og turban side om side",
             "caption": "Hijab, kippa og turban. Klær kan være en stille måte å vise tro på."
         },
@@ -97,7 +97,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/religion-og-kultur/symboler-og-klaer-03.webp",
             "alt": "Ungdommer i klasserom diskuterer religiøse plagg",
             "caption": "Hvor mye skal tro få vises på skolen og i jobben? Folk svarer ulikt."
         },
