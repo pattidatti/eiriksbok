@@ -31,6 +31,13 @@
             "content": "Rikssamlingen handlet i stor grad om å kontrollere Nordvegen – den viktige kystveien langs Norge. Den som kontrollerte kysten, kontrollerte også handelen og skipstrafikken. Ved å bygge opp kongsgårder langs kysten kunne Harald kreve inn skatter og sikre lojalitet fra lokale høvdinger. Likevel var riket sårbart for indre splid."
         },
         {
+            "type": "component",
+            "name": "MicroGame",
+            "props": {
+                "gameId": "rikssamlingen-3d"
+            }
+        },
+        {
             "type": "text",
             "title": "En skjør enhet",
             "content": "Selv om Harald samlet landet, var makten hans i stor grad knyttet til hans egen person. Han hadde mange sønner, og for å sikre fred ble de sendt til ulike allierte familier for oppfostring. Etter Haralds død brøt det ut voldsomme maktkamper mellom sønnene, blant andre Eirik Blodøks og Håkon den Gode. Til tross for dette ga Harald Hårfagre senere norske konger en såkalt historisk legitimitet; man mente at bare de som stammet fra Harald hadde rett til å kreve kongetittelen."
