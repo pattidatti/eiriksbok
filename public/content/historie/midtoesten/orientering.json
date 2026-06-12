@@ -32,17 +32,17 @@
         "title": "Midtøstens geografi",
         "items": [
           {
-            "image": "/images/placeholder.webp",
+            "image": "/images/midtoesten/orientering-map-political.webp",
             "caption": "Det politiske kartet viser over 20 stater med svært ulike størrelser - fra gigantiske Saudi-Arabia til bitte lille Bahrain. Grensene ble i stor grad trukket av europeiske kolonimakter etter første verdenskrig, uten særlig hensyn til hvem som bodde der.",
             "alt": "Politisk kart over Midtøsten"
           },
           {
-            "image": "/images/placeholder.webp",
+            "image": "/images/midtoesten/orientering-map-religion.webp",
             "caption": "Den religiøse fordelingen viser at sunnimuslimer dominerer i de fleste arabiske land, mens shiamuslimer er i flertall i Iran, Irak og Bahrain. Israel er den eneste jødiske staten. Libanon har et komplisert religiøst mosaikk av kristne, shia og sunni.",
             "alt": "Kart over religiøs fordeling i Midtøsten"
           },
           {
-            "image": "/images/placeholder.webp",
+            "image": "/images/midtoesten/orientering-map-oil.webp",
             "caption": "Oljekartet avslører en enorm ubalanse. Golfstatene - Saudi-Arabia, Kuwait, UAE, Qatar og Irak - sitter på mesteparten av verdens kjente oljereserver. Land som Jordan, Libanon og Egypt har lite olje og er langt fattigere. Olje forklarer mye av den geopolitiske interessen i regionen.",
             "alt": "Kart over oljereserver i Midtøsten"
           }

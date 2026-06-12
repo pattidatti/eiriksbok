@@ -950,7 +950,7 @@
                 "norsk"
               ],
               "createdDate": "2026-06-02T00:00:00Z",
-              "lastUpdated": "2026-06-02T09:38:09+02:00"
+              "lastUpdated": "2026-06-12T07:35:11+02:00"
             }
           ]
         }
@@ -1391,7 +1391,7 @@
               "id": "eu-og-eos",
               "title": "EU og EØS: Norge mellom selvstyre og samarbeid",
               "description": "Hvorfor Norge sa nei til EU to ganger, men likevel følger tusenvis av EU-regler gjennom EØS-avtalen.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/styringsformer/eu-og-eos-hero.webp",
               "tags": [
                 "norge",
                 "eu",
@@ -2096,7 +2096,7 @@
                 "historie"
               ],
               "createdDate": "2026-06-02T00:00:00Z",
-              "lastUpdated": "2026-06-02T10:26:58+02:00"
+              "lastUpdated": "2026-06-12T07:35:11+02:00"
             },
             {
               "id": "km-1-metode",
@@ -7109,7 +7109,7 @@
                 "identitet"
               ],
               "createdDate": "2026-06-12T00:00:00Z",
-              "lastUpdated": "2026-06-12T03:23:20+02:00"
+              "lastUpdated": "2026-06-12T07:35:11+02:00"
             }
           ]
         },

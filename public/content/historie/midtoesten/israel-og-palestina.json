@@ -123,17 +123,17 @@
         "title": "Territoriet i endring",
         "items": [
           {
-            "image": "/images/placeholder.webp",
+            "image": "/images/midtoesten/israel-og-palestina-map-1947.webp",
             "caption": "FNs delingsplan 1947: to stater, med Jerusalem som internasjonal by under FN-administrasjon",
             "alt": "Kart over FNs delingsplan for Palestina 1947"
           },
           {
-            "image": "/images/placeholder.webp",
+            "image": "/images/midtoesten/israel-og-palestina-map-1948.webp",
             "caption": "Israel etter 1948-krigen: staten vokste utover FN-planen. Egypten kontrollerte Gaza, Jordan kontrollerte Vestbredden",
             "alt": "Kart over Israel og arabisk-kontrollerte områder etter 1948-krigen"
           },
           {
-            "image": "/images/placeholder.webp",
+            "image": "/images/midtoesten/israel-og-palestina-map-1967.webp",
             "caption": "Israel og de okkuperte områdene etter 6-dagerskrigen 1967: Vestbredden, Gaza, Sinai og Golanhøydene under israelsk kontroll",
             "alt": "Kart over Israel og okkuperte områder etter 6-dagerskrigen 1967"
           }

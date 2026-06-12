@@ -5,7 +5,7 @@
     "year": "1994",
     "category": "Norge i Europa",
     "readTime": "9 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/styringsformer/eu-og-eos-hero.webp",
     "details": [
         "Norge stemte nei til EU-medlemskap to ganger, i 1972 og i 1994.",
         "EØS-avtalen fra 1994 gjør Norge til en del av EUs indre marked.",
@@ -24,7 +24,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/styringsformer/eu-og-eos-01.webp",
             "alt": "Norske velgere på vei inn i et stemmelokale en høstdag",
             "caption": "To ganger har norske velgere stemt nei til EU-medlemskap."
         },
@@ -58,7 +58,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/styringsformer/eu-og-eos-02.webp",
             "alt": "Splittet folkemengde med ja-plakater og nei-plakater i en gate",
             "caption": "EU-spørsmålet delte Norge i to. By stod ofte mot bygd."
         },
@@ -124,7 +124,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/styringsformer/eu-og-eos-03.webp",
             "alt": "Norsk flagg og EU-flagg side om side foran en moderne bygning",
             "caption": "Norge er tett knyttet til EU gjennom EØS, men står utenfor selve unionen."
         },
