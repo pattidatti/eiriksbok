@@ -62,8 +62,18 @@ const EuropaBroen3D = lazy(() => import('./EuropaBroen3D'));
 const SkjulteSymboler3D = lazy(() => import('./SkjulteSymboler3D'));
 const FestensLys3D = lazy(() => import('./FestensLys3D'));
 const MatreglerBord3D = lazy(() => import('./MatreglerBord3D'));
+const Rikssamlingen3D = lazy(() => import('./Rikssamlingen3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
+    'rikssamlingen-3d': {
+        id: 'rikssamlingen-3d',
+        title: 'Rikssamlingen: da Norge ble ett',
+        description:
+            'Et stilisert kystkart der hvert rike har sin egen smaakonge. Klikk rikene ett for ett og legg dem under Harald, og se kystleia Nordvegen lyse opp i gull. Et morkt gap blir staaende ved Hafrsfjord til du tar det avgjorende slaget rundt aar 872. Lyspaeren: Norge ble ett rike fordi Harald tok kontroll over kysten og vant i Hafrsfjord.',
+        estimatedSeconds: 150,
+        loader: () => import('./Rikssamlingen3D'),
+        Component: Rikssamlingen3D as never,
+    },
     'matreglerbordet-3d': {
         id: 'matreglerbordet-3d',
         title: 'Matreglerbordet',
