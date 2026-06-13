@@ -13,7 +13,12 @@ export interface LauncherSlot {
     upBias: number;
     chargeTimeMs: number;
     ammo: number;
-    fire: (origin: THREE.Vector3, velocity: THREE.Vector3) => void;
+    // Skalér prosjektil-gravitasjonen (1 = full fysikk-gravitasjon). Lavere = flatere,
+    // mer forutsigbar bane (Valheim-bue-følelse). Preview bruker samme skala. Default 1.
+    gravityScale?: number;
+    // gravity er den ferdig skalerte gravitasjonsvektoren - send den videre til spawnProjectile
+    // så banen matcher previewen nøyaktig.
+    fire: (origin: THREE.Vector3, velocity: THREE.Vector3, gravity: THREE.Vector3) => void;
     onAmmoEmpty?: () => void;
 }
 
@@ -50,6 +55,8 @@ export class InteractableSystem {
     private scene: THREE.Scene;
     private playerGroup: THREE.Group | null = null;
     private labelSprites = new Map<THREE.Mesh, THREE.Sprite>();
+    // Feedback-hook: kalles med pickup-labelen når noe plukkes opp (motoren viser varsel + lyd).
+    private notifyCb: ((label: string) => void) | null = null;
 
     // ── Fase 8: lad-og-kast + launcher + bue-preview ──
     private projectiles: ProjectileSystem | null = null;
@@ -59,6 +66,7 @@ export class InteractableSystem {
     private chargeBaseForce = 8;
     private chargeMaxForce = 16;
     private chargeUpBias = 2;
+    private chargeGravityScale = 1;
     private chargePreviewEnabled = true;
     private launcher: LauncherSlot | null = null;
     private previewPoints: THREE.Points | null = null;
@@ -75,8 +83,15 @@ export class InteractableSystem {
         this.projectiles = ps;
     }
 
+    setNotify(cb: (label: string) => void): void {
+        this.notifyCb = cb;
+    }
+
     // ── Launcher (spyd/bue/slynge) ──
     equipLauncher(slot: LauncherSlot): void {
+        // Slipp et evt. holdt objekt (f.eks. en kaste-øks) når du utruster et stativ,
+        // så du ikke ender med både øks i hånd og launcher. No-op uten holdt objekt.
+        if (this.held) this.drop();
         this.launcher = slot;
     }
     unequipLauncher(): void {
@@ -102,6 +117,7 @@ export class InteractableSystem {
             this.chargeMaxForce = this.launcher.maxForce;
             this.chargeUpBias = this.launcher.upBias;
             this.chargeTimeMs = this.launcher.chargeTimeMs;
+            this.chargeGravityScale = this.launcher.gravityScale ?? 1;
             this.chargePreviewEnabled = true;
         } else if (this.held?.opts.charge) {
             const c = this.held.opts.charge;
@@ -109,6 +125,7 @@ export class InteractableSystem {
             this.chargeMaxForce = c.maxForce ?? 16;
             this.chargeUpBias = 2;
             this.chargeTimeMs = c.chargeTimeMs ?? 900;
+            this.chargeGravityScale = 1;
             this.chargePreviewEnabled = c.preview !== false;
         } else {
             return;
@@ -126,7 +143,8 @@ export class InteractableSystem {
         const force = this.chargeBaseForce + (this.chargeMaxForce - this.chargeBaseForce) * level;
         const { origin, velocity } = this.computeLaunch(force);
         if (this.launcher && this.launcher.ammo > 0) {
-            this.launcher.fire(origin, velocity);
+            const gravity = new THREE.Vector3(0, this.physics.gravity * this.chargeGravityScale, 0);
+            this.launcher.fire(origin, velocity, gravity);
             this.launcher.ammo--;
             if (this.launcher.ammo <= 0) this.launcher.onAmmoEmpty?.();
         } else if (this.held?.opts.charge) {
@@ -165,6 +183,17 @@ export class InteractableSystem {
     private computeLaunch(force: number): { origin: THREE.Vector3; velocity: THREE.Vector3 } {
         const origin = this.getHandPosition();
         const dir = this.camera.getWorldDirection(new THREE.Vector3());
+        if (this.launcher) {
+            // Aim-true (Valheim-bue): sikt mot et fjernt punkt langs kameraets blikk
+            // (sikteet) og send spydet DIT fra hånda. Da går det dit du peker, med
+            // naturlig fall fra gravitasjon - i stedet for en uintuitiv side-lobb.
+            const camPos = this.camera.getWorldPosition(new THREE.Vector3());
+            const aim = camPos.addScaledVector(dir, 40);
+            const velocity = aim.sub(origin).normalize().multiplyScalar(force);
+            velocity.y += this.chargeUpBias;
+            return { origin, velocity };
+        }
+        // Hånd-kast (øks): behold den lette lobben langs blikkretningen.
         const velocity = dir.multiplyScalar(force).add(new THREE.Vector3(0, this.chargeUpBias, 0));
         return { origin, velocity };
     }
@@ -261,14 +290,13 @@ export class InteractableSystem {
     /** Returnerer true hvis E ble konsumert (pickup eller drop).
      *  playerPos brukes for proximity-fallback (tredjepersonkamera er for langt unna). */
     tryHandleInteract(playerPos?: THREE.Vector3): boolean {
-        if (this.held) {
-            this.drop();
-            return true;
-        }
         const origin = this.camera.getWorldPosition(new THREE.Vector3());
         const dir = new THREE.Vector3();
         this.camera.getWorldDirection(dir);
-        // Raycast fra kamera - krever at spilleren sikter direkte på objektet
+        const refPos = playerPos ?? origin;
+
+        // Siktet raycast-pickup: krever at spilleren sikter direkte på objektet.
+        // (pickup() er no-op hvis noe allerede holdes.)
         const hit = this.physics.raycast(origin, dir, 2.5);
         if (hit.hit && hit.bodyHandle !== undefined) {
             for (const rec of this.pickups.values()) {
@@ -279,15 +307,28 @@ export class InteractableSystem {
                 }
             }
         }
-        // Fallback: nærmeste pickup innen 2.5m fra spillerposisjon (ikke kamera)
-        const refPos = playerPos ?? origin;
+
+        // Høyprioritets-interakt (f.eks. våpenstativ): vinner over hold-slipp og
+        // nærhets-pickup, så spydet kan utrustes selv om du holder en øks.
+        const nearInteract = this.getNearbyInteract(refPos);
+        if (nearInteract?.opts.priority) {
+            nearInteract.opts.onInteract();
+            return true;
+        }
+
+        // Holder du noe: slipp det.
+        if (this.held) {
+            this.drop();
+            return true;
+        }
+
+        // Nærmeste pickup innen 2.5m fra spillerposisjon (ikke kamera).
         const nearest = this.getNearbyPickup(refPos, 2.5);
         if (nearest) {
             this.pickup(nearest);
             return true;
         }
-        // Custom interactable (alter, dor, etc.) — sjekk etter pickups
-        const nearInteract = this.getNearbyInteract(refPos);
+        // Vanlig custom interactable (alter, dor, etc.) — sjekk etter pickups.
         if (nearInteract) {
             nearInteract.opts.onInteract();
             return true;
@@ -321,6 +362,8 @@ export class InteractableSystem {
         const rec = this.pickups.get(mesh);
         if (!rec || this.held) return;
 
+        const label = typeof rec.opts.label === 'string' ? rec.opts.label : 'Plukk opp';
+
         if (rec.opts.toInventory) {
             // Direkte til inventar: fjern fra scene + physics, skjul label permanent
             this.removeLabel(mesh);
@@ -328,6 +371,7 @@ export class InteractableSystem {
             this.physics.removeMesh(mesh);
             mesh.removeFromParent();
             this.pickups.delete(mesh);
+            this.notifyCb?.(label);
             return;
         }
 
@@ -337,6 +381,7 @@ export class InteractableSystem {
         this.physics.setBodyEnabled(mesh, false);
         this.held = rec;
         rec.opts.onPickup?.();
+        this.notifyCb?.(label);
     }
 
     drop(): void {
@@ -505,7 +550,7 @@ export class InteractableSystem {
         this.ensurePreview();
         const force = this.chargeBaseForce + (this.chargeMaxForce - this.chargeBaseForce) * this.chargeLevel;
         const { origin, velocity } = this.computeLaunch(force);
-        const g = this.physics.gravity; // negativ
+        const g = this.physics.gravity * this.chargeGravityScale; // negativ, samme skala som kastet
         const dtP = 0.07;
         let count = 0;
         let prev = origin.clone();

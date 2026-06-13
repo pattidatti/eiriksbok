@@ -109,6 +109,26 @@ Importer alt fra `./kit`. Dette er den autoritative verktøykassa - bygg nye spi
   </Draggable>
   ```
 
+### Variasjons-primitiver (bryt klikk-hotspot-ruten)
+Tre kit-primitiver gir hele klasser av ikke-klikk-mekanikk. Bruk dem framfor enda en hotspot-rad.
+- **`Rotatable`** - vri et objekt til en vinkel ved å dra (1-DOF kontinuerlig): hjul, spak, ratt,
+  solur, klokke, "still inn". `target` + `tolerance` gir et "på plass"-treff (`onAlign`); `snap` for hakk.
+  ```tsx
+  <Rotatable axis="y" target={Math.PI / 2} onAlign={() => setFlag(true)}><Dial /></Rotatable>
+  ```
+- **`Connector`** - forbind A->B ved å klikke to noder: handelsrute, kabel, akvedukt, slektsledd.
+  `correct`-par validerer (grønn/rød) og `onComplete` fyrer når alle riktige er laget.
+  ```tsx
+  <Connector nodes={[{id:'oslo',position:[-4,0.4,2]},{id:'bergen',position:[3,0.4,-1]}]}
+      correct={[['oslo','bergen']]} onComplete={win} />
+  ```
+- **`AimLauncher`** - sikt-og-skyt med ballistisk bue: dra håndtaket bakover/opp for å lade, se den
+  predikerte banen, slipp for å skyte. Katapult, bue, kanon, diskos. Treff sjekkes mot `targets`.
+  ```tsx
+  <AimLauncher position={[0,0.6,6]} targets={[{id:'mur',position:[0,1.2,-10],radius:1.4}]}
+      onHit={score} onMiss={shake}><CatapultMesh /></AimLauncher>
+  ```
+
 ### Input-widgets under vinduet
 - **`ChoiceRow`** - vannrett rad med valgkort (done/active/locked). **`StepTracker`** - "Steg X av N".
 - **`SceneSlider`** - kontinuerlig spak som styrer scene-tilstand i sanntid (vannstand, år, bredde).
@@ -148,17 +168,28 @@ Toolkitet har fem lag til som løfter et mikrospill fra «funker» til «wow». 
 som tjener læringsmålet - ikke alt på en gang.
 
 ### Signaturlook (visuelt imponerende)
-- **`THEMES`** - era-paletter (`viking`, `roman`, `industrial`, `egypt`). Mat `sky`/`fog`
-  til `MicroCanvas` og bruk fargene i scene-parts, så hvert emne får distinkt identitet.
+- **`THEMES`** - era-paletter: `viking`, `roman`, `industrial`, `egypt`, `greek`, `medieval`,
+  `enlightenment`, `modern`, `cosmic`, `arctic`, `asian`, `mesoamerican`. Mat `sky`/`fog` til
+  `MicroCanvas` og bruk fargene i scene-parts, så hvert emne får distinkt identitet. Velg det som
+  matcher emnet (kosmisk er bevisst LYS, ikke mørk).
+- **Lys-stemning** (`MicroCanvas` `light`-prop): `day` (standard), `overcast`, `golden`, `noon`,
+  `twilight`, `arctic`. Distinkt atmosfære uten LUT - en industriscene blir `overcast`, en
+  solnedgang `golden`/`twilight`. Eksplisitte `sunIntensity` osv. vinner fortsatt over stemningen.
 - **`ToonMaterial`** - flat, tegneserieaktig storybook-look: `<mesh><boxGeometry/><ToonMaterial color="#a8412f" /></mesh>`.
+- **`GlowMaterial`** - drop-in emissivt materiale (`toneMapped={false}`) for ild/lamper/varsellys/magi:
+  `<mesh><sphereGeometry/><GlowMaterial color="#ffb000" /></mesh>`. **`GlowHalo`** - mykt additivt
+  glød-skall rundt et objekt (halo uten PointLight): `<group><Lampe /><GlowHalo color="#ffcc66" size={1.4} /></group>`.
+- **`WaterMaterial`** - vann med ekte animerte vertex-bølger (ikke bare emissiv puls). Krever et
+  segmentert plan: `<mesh rotation={[-Math.PI/2,0,0]}><planeGeometry args={[16,30,40,40]} /><WaterMaterial /></mesh>`.
 - **`KitOutline`** - tegneserie-kant; legg som siste barn i et `<mesh>` for å fremheve valgte objekter.
 - **Kontaktskygge + vignette** er på automatisk via `MicroCanvas`/`MicroGameScaffold` (slå av med `canvas={{ contactShadows: false }}`).
 - **Egen himmel-gradient.** `MicroCanvas` tar bare én bakgrunnsfarge. For en filmatisk himmel: legg en
   stor `sphereGeometry` (radius ~60) med `side={THREE.BackSide}`, `fog={false}` og en `CanvasTexture`
   med en vertikal gradient (kjølig topp -> varm horisont). Holder seg lys og respekterer lys-stil-regelen.
-- **Atmosfære-glød.** En litt større kule rundt et objekt med `meshBasicMaterial` (`transparent`,
-  `side={THREE.BackSide}`, `blending={THREE.AdditiveBlending}`, `depthWrite={false}`) gir en myk halo.
-  La fargen `damp`e med tilstanden for å vise liv/forfall/forvandling.
+- **Atmosfære-glød.** Bruk ferdige `GlowHalo` (additivt skall) eller `GlowMaterial` (emissivt) i
+  stedet for å hand-rulle. Vil du animere haloen, gi den en `damp`-et farge/opasitet via en egen
+  `meshBasicMaterial` (`side={THREE.BackSide}`, `blending={THREE.AdditiveBlending}`, `depthWrite={false}`)
+  for å vise liv/forfall/forvandling.
 - **Dybde uten mørke.** Drivende skybanker (store, flate, halvgjennomsiktige kuler) og svake lys-
   partikler («motes») gir rom og atmosfære mens scenen forblir lys. **Dramaet skal komme fra at *emnet*
   forandrer seg** (verden brenner, byen vokser), ikke fra en mørk UI - mørkt tema krever eksplisitt ønske.
@@ -166,6 +197,12 @@ som tjener læringsmålet - ikke alt på en gang.
   lever selv før eleven gjør noe.
 
 ### Game-feel / juice (gøy + vanedannende)
+- **Lyd er default-on.** `Interactive`/`Hotspot` spiller en `'select'`-tone ved klikk, og `Draggable`
+  spiller `'pick'` ved grep + `'drop'` ved slipp - helt gratis, ingen wiring. Overstyr med
+  `sound`-propen (`sound={null}`/`sound="correct"` på Interactive/Hotspot, `sound={false}` på
+  Draggable). For egne event-lyder midt i logikken: `microSfx.play('correct' | 'incorrect' |
+  'advance' | 'complete' | 'sceneChange' | ...)` (delt app-global lyd-singleton; samme kjede og mute
+  som `useStepSounds`).
 - **`useShake()`** - trauma-basert rist; fest `ref` til en `<group>` rundt scenen, kall `shake(0.7)` ved treff.
 - **`usePop()`** - spring-pop på skala; `pop()` ved suksess/plassering.
 - **`Burst`** - instanserte suksess-partikler; avfyres når `trigger`-tallet endres: `<Burst position={[0,2,0]} trigger={winCount} />`.
@@ -188,7 +225,22 @@ som tjener læringsmålet - ikke alt på en gang.
 
 ### Rikdom & unikhet
 - **`InstancedField`** - spre hundrevis av kopier (skog, folkemengde, åker, steinur) billig: `<InstancedField count={120} geometry={<coneGeometry .../>} material={<meshStandardMaterial .../>} />`.
+- **`Particles`** - kontinuerlig atmosfære/vær (instansert, billig). Presets: `rain`, `snow`, `dust`,
+  `embers`, `leaves`, `motes`. `<Particles preset="snow" />` over scenen, eller lokalt med
+  `center`/`area`/`height` (f.eks. `embers` over et bål). Velg det som matcher emnet - atmosfære, ikke mekanikk.
+- **`Impact`** - kort treff-burst ved plassering/treff: `splash` (vann), `dustPuff` (bakke), `sparks`
+  (metall). Fyres når `trigger` endres: `<Impact preset="dustPuff" trigger={dropCount} position={[x,0,z]} />`.
+  Snarvei: `Draggable` har `dropFx="dustPuff"` som avfyrer den automatisk på slippstedet (opt-in,
+  for riktig preset velges per kontekst).
 - **Flere scene-parts:** `Rock`, `Fire` (flakkende, lyser opp), `Banner` (vaiende), `Gear` (roterende tannhjul, `spin`).
+- **Uttrykksfulle figurer:** `Person` (armer/bein + `pose` `idle|walk|raise|sit` + `hat`
+  `cap|helmet|crown|hood`) i stedet for den gamle blokk-`Figure` - så folk ser forskjellige ut på
+  tvers av epoker. `Animal` (`horse|ox|sheep`).
+- **Miljøbyggesteiner:** `Wall` (m/tinder), `Tower`, `Column`, `Arch`, `Bridge`, `Cart`, `Boat`
+  (m/`sail`), `Tent`, `Torch` (emissiv + punktlys), `MarketStall`, `Hill`. Velg deler som matcher
+  emnet - en romersk gate er `Column` + `Arch`, en vikinghavn er `Boat` + `MarketStall`.
+- **Bryt "alle hus like":** `Building` og `Tree` tar nå et valgfritt `seed` som varierer
+  høyde/bredde litt. Gi hver instans i en rad/skog ulik `seed` så scenen ikke ser stemplet ut.
 
 ### Robusthet & forfatterstøtte
 - **Preview-rute:** test et mikrospill isolert på `/mikrospill` (galleri) og `/mikrospill/<id>` - uten å embedde i en artikkel. Bruk dette når du bygger.
@@ -197,14 +249,15 @@ som tjener læringsmålet - ikke alt på en gang.
 
 ### Mekanikk-arketyper - bryt ut av «klikk tre ting»
 Velg en form som matcher emnet, ikke alltid den samme:
-- **Bygg/monter** (VikingShip): dra deler på plass, klikk for å føye til, se det reise seg.
-- **Rute/naviger:** legg en vei/forbindelse fra A til B (handelsrute, kabel, akvedukt).
-- **Balanser/finn likevekt:** en slider/spak søker et optimalt punkt (pris, vannstand, dose).
-- **Sorter-i-3D:** dra objekter i riktige soner/bøtter (kategorier, tidsperioder).
+- **Bygg/monter** (VikingShip): dra deler på plass, klikk for å føye til, se det reise seg. (`Draggable` + `Hotspot`)
+- **Rute/naviger:** legg en vei/forbindelse fra A til B (handelsrute, kabel, akvedukt). (`Connector`)
+- **Vri/still-inn:** drei et ratt/spak/solur til riktig vinkel. (`Rotatable`)
+- **Balanser/finn likevekt:** en slider/spak søker et optimalt punkt (pris, vannstand, dose). (`SceneSlider`)
+- **Sorter-i-3D:** dra objekter i riktige soner/bøtter (kategorier, tidsperioder). (`Draggable` + `snapPoints`)
 - **Årsakskjede:** utløs en sekvens (dominoer, kjedereaksjon) og se konsekvensen.
 - **Grav-fram/avdekk:** fjern lag for å avsløre noe under (arkeologi, geologi).
 - **Dyrk/simuler over tid:** la en prosess utvikle seg (befolkning, økosystem, by).
-- **Sikt/bane:** juster vinkel/kraft og se en kastebane (katapult, kanon).
+- **Sikt/bane:** juster vinkel/kraft og se en kastebane (katapult, kanon, bue). (`AimLauncher`)
 - **Modell-sammenlikning (morf-og-se):** representer en abstrakt idé romlig og veksle mellom to
   modeller (`CompareToggle`), så samme system spilles ut ulikt under hver. Eks: samme verden under
   sirkulær vs. lineær tid (`TidensFormer3D`).

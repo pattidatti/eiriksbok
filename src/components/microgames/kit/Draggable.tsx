@@ -1,6 +1,8 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { useThree, type ThreeEvent } from '@react-three/fiber';
 import * as THREE from 'three';
+import { microSfx } from './sound';
+import { Impact, type ImpactPreset } from './Impact';
 
 interface DragBounds {
     minX?: number;
@@ -30,6 +32,13 @@ interface DraggableProps {
     onDrop?: (pos: THREE.Vector3) => void;
     // Hvor sterkt objektet "løftes" mens det dras (visuell juice).
     liftY?: number;
+    // Spill 'pick'-lyd ved grep og 'drop'-lyd ved slipp (delt lyd-singleton).
+    // Default true - gir drag juicy lyd-respons gratis. Sett false for å slå av.
+    sound?: boolean;
+    // Treff-partikkel ved slipp (støvsky/sprut/gnister). Opt-in fordi riktig
+    // preset er kontekstavhengig: 'splash' når noe slippes i vann, 'dustPuff' på
+    // bakke, 'sparks' mot metall. Udefinert = ingen partikkel.
+    dropFx?: ImpactPreset;
 }
 
 function clamp(v: number, lo?: number, hi?: number) {
@@ -55,10 +64,14 @@ export const Draggable: React.FC<DraggableProps> = ({
     onDrag,
     onDrop,
     liftY = 0.4,
+    sound = true,
+    dropFx,
 }) => {
     const group = useRef<THREE.Group>(null);
     const controls = useThree((s) => s.controls) as { enabled: boolean } | null;
     const [dragging, setDragging] = useState(false);
+    // Bumpes ved hvert slipp for å avfyre treff-partikkelen (Impact) på stedet.
+    const [fxTrigger, setFxTrigger] = useState(0);
     const plane = useMemo(
         () => new THREE.Plane(new THREE.Vector3(0, 1, 0), -planeY),
         [planeY]
@@ -128,6 +141,7 @@ export const Draggable: React.FC<DraggableProps> = ({
                 setDragging(true);
                 if (controls) controls.enabled = false;
                 document.body.style.cursor = 'grabbing';
+                if (sound) microSfx.play('pick');
                 onDragStart?.();
             }}
             onPointerMove={(e: ThreeEvent<PointerEvent>) => {
@@ -145,7 +159,9 @@ export const Draggable: React.FC<DraggableProps> = ({
                 setDragging(false);
                 if (controls) controls.enabled = true;
                 document.body.style.cursor = '';
+                if (sound) microSfx.play('drop');
                 end();
+                if (dropFx) setFxTrigger((c) => c + 1);
             }}
             onPointerOver={(e: ThreeEvent<PointerEvent>) => {
                 e.stopPropagation();
@@ -157,6 +173,7 @@ export const Draggable: React.FC<DraggableProps> = ({
             }}
         >
             {children}
+            {dropFx && <Impact preset={dropFx} trigger={fxTrigger} />}
         </group>
     );
 };

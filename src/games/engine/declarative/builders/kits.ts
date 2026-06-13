@@ -219,14 +219,14 @@ export function addWavingFlag(
         side: THREE.DoubleSide,
     });
 
+    const poleH = h + 1.2;
     const banner = new THREE.Mesh(new THREE.PlaneGeometry(w, h, 14, 6), material);
-    // Plasser fanen så venstre kant ligger ved stanga, øvre del øverst.
-    banner.position.set(w / 2, h * 0.5, 0);
+    // Plasser fanen så venstre kant ligger ved stanga og fanen henger fra toppen.
+    banner.position.set(w / 2, poleH - 0.2 - h / 2, 0);
     group.add(banner);
 
     if (config.pole !== false) {
         const poleMat = new THREE.MeshStandardMaterial({ color: 0x5a4632, roughness: 0.9, metalness: 0 });
-        const poleH = h + 1.2;
         const pole = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.05, poleH, 8), poleMat);
         pole.position.set(0, poleH / 2 - 0.2, 0);
         pole.castShadow = true;
@@ -263,10 +263,12 @@ export function addZoneTitle(engine: GameEngineRef, config: AddZoneTitleConfig):
     });
 }
 
-const LAUNCHER_DEFAULTS: Record<AddLauncherConfig['kind'], { force: number; upBias: number; visual: ProjectileVisual; label: string }> = {
-    spear: { force: 18, upBias: 1.4, visual: 'spear', label: 'Ta spyd (E)' },
-    bow:   { force: 26, upBias: 0.6, visual: 'arrow', label: 'Ta bue (E)' },
-    sling: { force: 22, upBias: 1.8, visual: 'stone', label: 'Ta slynge (E)' },
+// Aim-true-bane (se InteractableSystem.computeLaunch): spyd/bue går dit sikteet peker,
+// så de skal være raske og flate (lav upBias). Slynga beholder en tydelig lobb.
+const LAUNCHER_DEFAULTS: Record<AddLauncherConfig['kind'], { force: number; upBias: number; gravityScale: number; visual: ProjectileVisual; label: string }> = {
+    spear: { force: 26, upBias: 0.4, gravityScale: 0.4, visual: 'spear', label: 'Ta spyd (E)' },
+    bow:   { force: 30, upBias: 0.2, gravityScale: 0.3, visual: 'arrow', label: 'Ta bue (E)' },
+    sling: { force: 22, upBias: 1.4, gravityScale: 0.7, visual: 'stone', label: 'Ta slynge (E)' },
 };
 
 /**
@@ -305,16 +307,19 @@ export function addLauncher(engine: GameEngineRef, config: AddLauncherConfig): {
     engine.scene.add(group);
 
     const equip = () => {
+        engine.notify(`${def.label.replace(/^Ta\s+/, '').replace(/\s*\(E\)$/, '')} klart`);
         engine.equipLauncher({
             minForce: force * 0.45,
             maxForce: force,
             upBias: def.upBias,
+            gravityScale: def.gravityScale,
             chargeTimeMs: 850,
             ammo: ammoMax,
-            fire: (origin, velocity) => {
+            fire: (origin, velocity, gravity) => {
                 engine.spawnProjectile({
                     from: origin,
                     velocity,
+                    gravity,
                     visual: def.visual,
                     onHit: (hit) => {
                         if (hit.target) config.onHitTarget?.();
@@ -331,6 +336,7 @@ export function addLauncher(engine: GameEngineRef, config: AddLauncherConfig): {
     engine.registerInteract(weapon, {
         label: def.label,
         radius: 2.4,
+        priority: true, // utruster selv om spilleren holder et annet kast-objekt
         onInteract: equip,
     });
 

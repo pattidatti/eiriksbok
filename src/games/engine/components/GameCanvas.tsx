@@ -231,6 +231,8 @@ export function GameCanvas({ config }: GameCanvasProps) {
                     qualityTier={uiState.qualityTier}
                     throwCharge={uiState.throwCharge}
                     launcherAmmo={uiState.launcherAmmo}
+                    notice={uiState.notice}
+                    hitMarker={uiState.hitMarker}
                 />
             )}
 

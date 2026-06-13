@@ -14,9 +14,11 @@ interface GameHUDProps {
     qualityTier?: 'low' | 'medium' | 'high';
     throwCharge?: number | null;
     launcherAmmo?: number | null;
+    notice?: { text: string; key: number } | null;
+    hitMarker?: number | null;
 }
 
-export function GameHUD({ questObjective, questParts, showInteractPrompt: _si, showFlash, toast, debug, qualityTier, throwCharge, launcherAmmo }: GameHUDProps) {
+export function GameHUD({ questObjective, questParts, showInteractPrompt: _si, showFlash, toast, debug, qualityTier, throwCharge, launcherAmmo, notice, hitMarker }: GameHUDProps) {
     void _si;
     return (
         <>
@@ -212,6 +214,50 @@ export function GameHUD({ questObjective, questParts, showInteractPrompt: _si, s
                 </div>
             )}
 
+            {/* Handlings-varsel (plukket opp / utrustet) */}
+            {notice && (
+                <div
+                    key={notice.key}
+                    style={{
+                        position: 'absolute',
+                        top: 64,
+                        left: '50%',
+                        transform: 'translateX(-50%)',
+                        color: '#f4e4c1',
+                        fontSize: 15,
+                        fontFamily: "Georgia, 'Times New Roman', serif",
+                        letterSpacing: 0.5,
+                        textShadow: '0 2px 10px rgba(0,0,0,0.95), 0 0 20px rgba(0,0,0,0.7)',
+                        animation: 'noticePop 1.6s ease forwards',
+                        pointerEvents: 'none',
+                        zIndex: 13,
+                        whiteSpace: 'nowrap',
+                    }}
+                >
+                    {notice.text}
+                </div>
+            )}
+
+            {/* Hitmarker (blink på sikteet ved treff) */}
+            {hitMarker != null && (
+                <div
+                    key={hitMarker}
+                    style={{
+                        position: 'absolute',
+                        left: '50%',
+                        top: '50%',
+                        transform: 'translate(-50%, -50%)',
+                        width: 22,
+                        height: 22,
+                        pointerEvents: 'none',
+                        zIndex: 14,
+                        animation: 'hitMarkerPop 0.4s ease-out forwards',
+                    }}
+                >
+                    <span style={{ position: 'absolute', inset: 0, color: '#ffe9a8', fontSize: 22, lineHeight: '22px', textAlign: 'center', fontWeight: 'bold', textShadow: '0 0 6px rgba(0,0,0,0.9)' }}>✕</span>
+                </div>
+            )}
+
             {/* Screen flash */}
             {showFlash && (
                 <div
@@ -233,6 +279,17 @@ export function GameHUD({ questObjective, questParts, showInteractPrompt: _si, s
                 @keyframes toastFadeIn {
                     from { opacity: 0; transform: translateX(-50%) translateY(-8px); }
                     to { opacity: 1; transform: translateX(-50%) translateY(0); }
+                }
+                @keyframes noticePop {
+                    0% { opacity: 0; transform: translateX(-50%) translateY(-6px) scale(0.96); }
+                    14% { opacity: 1; transform: translateX(-50%) translateY(0) scale(1); }
+                    80% { opacity: 1; transform: translateX(-50%) translateY(0) scale(1); }
+                    100% { opacity: 0; transform: translateX(-50%) translateY(-4px) scale(1); }
+                }
+                @keyframes hitMarkerPop {
+                    0% { opacity: 0; transform: translate(-50%, -50%) scale(1.6) rotate(0deg); }
+                    25% { opacity: 1; transform: translate(-50%, -50%) scale(1) rotate(0deg); }
+                    100% { opacity: 0; transform: translate(-50%, -50%) scale(0.9) rotate(0deg); }
                 }
             `}</style>
         </>

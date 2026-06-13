@@ -3,17 +3,21 @@
 
 export { damp, dampV3 } from './damp';
 export { useStage } from './useStage';
-export { MicroCanvas, type MicroCanvasProps } from './MicroCanvas';
+export { MicroCanvas, type MicroCanvasProps, type LightMood } from './MicroCanvas';
 export { MicroGameScaffold } from './MicroGameScaffold';
 
 // Direkte 3D-interaksjon
 export { Interactive, type InteractiveState } from './Interactive';
 export { Hotspot } from './Hotspot';
 export { Draggable } from './Draggable';
+// Variasjons-primitiver: bryt klikk-hotspot-ruten
+export { Rotatable } from './Rotatable';
+export { Connector, type ConnectorNode } from './Connector';
+export { AimLauncher, type AimTarget } from './AimLauncher';
 
 // Signaturlook: temaer + toon-materiale + kant
 export { THEMES, DEFAULT_THEME, type KitTheme } from './themes';
-export { ToonMaterial, KitOutline } from './materials';
+export { ToonMaterial, KitOutline, GlowMaterial, GlowHalo, WaterMaterial } from './materials';
 export { toonGradientMap } from './toonGradient';
 
 // Prosedyrale scene-deler
@@ -29,14 +33,36 @@ export {
     Banner,
     Gear,
 } from './scene-parts';
+// Utvidet del-bibliotek: uttrykksfulle figurer + flere miljøbyggesteiner
+export {
+    Person,
+    Wall,
+    Tower,
+    Column,
+    Arch,
+    Bridge,
+    Cart,
+    Boat,
+    Animal,
+    Tent,
+    Torch,
+    MarketStall,
+    Hill,
+    type Pose,
+    type HeadGear,
+    type AnimalKind,
+} from './scene-parts-extra';
 export { InstancedField } from './InstancedField';
 
 // Game-feel / juice
 export { useShake, usePop, ease } from './juice';
 export { Burst } from './Burst';
+export { Particles, type AmbientParticlePreset } from './Particles';
+export { Impact, type ImpactPreset } from './Impact';
 export { useScore } from './useScore';
 
 // Lyd & kamera (immersjon)
+export { microSfx, type StepSoundEvent } from './sound';
 export { useAmbience, type AmbiencePreset } from './useAmbience';
 export { CameraRig } from './CameraRig';
 export { useIdleMotion } from './useIdleMotion';

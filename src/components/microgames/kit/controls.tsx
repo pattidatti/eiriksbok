@@ -6,7 +6,7 @@ import { ArrowRight, Check, X, type LucideIcon } from 'lucide-react';
 // verktøypalett. Kombiner fritt med de direkte 3D-primitivene (Interactive,
 // Hotspot, Draggable) - knapper og 3D-klikk utelukker ikke hverandre.
 
-export type ChoiceStatus = 'done' | 'active' | 'locked';
+export type ChoiceStatus = 'done' | 'active' | 'available' | 'locked';
 
 export interface ChoiceItem {
     id: string;
@@ -35,13 +35,15 @@ export function ChoiceRow({
                     <button
                         key={it.id}
                         onClick={() => onSelect(it.id)}
-                        disabled={!active}
+                        disabled={it.status === 'locked'}
                         className={`relative text-left rounded-xl border-2 p-3 transition ${
                             done
-                                ? 'bg-emerald-50 border-emerald-300'
+                                ? 'bg-emerald-50 border-emerald-300 hover:bg-emerald-100 cursor-pointer'
                                 : active
                                   ? 'bg-amber-100 border-amber-400 hover:bg-amber-200 hover:border-amber-500 shadow-sm cursor-pointer'
-                                  : 'bg-slate-50 border-slate-200 opacity-55 cursor-not-allowed'
+                                  : it.status === 'available'
+                                    ? 'bg-white border-slate-200 hover:bg-amber-50 hover:border-amber-300 cursor-pointer'
+                                    : 'bg-slate-50 border-slate-200 opacity-55 cursor-not-allowed'
                         }`}
                     >
                         <div className="flex items-center gap-2.5">

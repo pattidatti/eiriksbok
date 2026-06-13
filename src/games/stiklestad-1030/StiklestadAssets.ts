@@ -90,7 +90,7 @@ export function setupStiklestadScene(engine: GameEngineRef): void {
     LAYOUT.TRAIN_TARGETS.forEach((t, i) => {
         const id = `blink-${i}`;
         addTarget(engine, {
-            id, pos: [t[0], 'terrain', t[1]], reactions: ['knock', 'flash'], resetAfterMs: 2600,
+            id, pos: [t[0], 'terrain', t[1]], radius: 1.1, reactions: ['knock', 'flash'], resetAfterMs: 2600,
             onHit: () => { trainTargetsHit.add(id); registerTrainingHit(); },
         });
     });
@@ -210,16 +210,18 @@ export function setupStiklestadScene(engine: GameEngineRef): void {
         battle.reveal();
         // Hæren velter frem.
         engine.setCrowdSpeed('bondehaer-kolonne', 1.6);
-        // Auto-utrust spilleren med et kaste-spyd (ekte kamp).
+        // Auto-utrust spilleren med et kaste-spyd (ekte kamp). Aim-true + flat bane
+        // (lav upBias): spydet går dit sikteet peker.
         engine.equipLauncher({
-            minForce: 9, maxForce: 20, upBias: 1.2, chargeTimeMs: 750, ammo: 99,
-            fire: (origin, velocity) => {
+            minForce: 20, maxForce: 30, upBias: 0.4, gravityScale: 0.4, chargeTimeMs: 750, ammo: 99,
+            fire: (origin, velocity, gravity) => {
                 engine.spawnProjectile({
-                    from: origin, velocity, visual: 'spear',
+                    from: origin, velocity, gravity, visual: 'spear',
                     onHit: (hit) => { if (hit.target) engine.cameraShake(0.15, 0.2); },
                 });
             },
         });
+        engine.notify('Spyd klart - hold F for å sikte og kaste');
         void engine.playAmbient('proc:crowd-murmur', { volume: 0.5, fadeIn: 1 });
         engine.playMonolog('slaget_start');
     }
@@ -395,6 +397,7 @@ function buildBattlePieces(engine: GameEngineRef): BattlePieces {
         fallen.push(e.group);
         const pos = e.group.position;
         spawnBloodPuff(pos.x, pos.y + 1.0, pos.z);
+        engine.flashHitMarker();
         engine.playOneShot('proc:drum-hit', { position: [pos.x, pos.y + 1, pos.z], volume: 0.45 });
     }
     function idOf(e: Enemy): string {

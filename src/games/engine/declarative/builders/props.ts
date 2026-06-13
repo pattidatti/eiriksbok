@@ -5,7 +5,7 @@ import type {
     BuildResult, ModelPresetName,
 } from '../types';
 import { createModel, createMaterial, isValidModelPreset } from '../presets';
-import { applyShadows, applyTransform, markPhysics, resolveY } from './_util';
+import { addGroundShadow, applyShadows, applyTransform, markPhysics, resolveY } from './_util';
 
 /** Bygg en mesh fra AddPropConfig.model (preset eller custom primitive). */
 function buildMeshFromModelSpec(
@@ -76,6 +76,7 @@ export function addProp(
 
     group.userData.declarativeId = config.id;
     engine.scene.add(group);
+    addGroundShadow(engine, group);
 
     return { group, primary };
 }
@@ -95,6 +96,7 @@ export function addInteractable(
 
     group.userData.declarativeId = config.id;
     engine.scene.add(group);
+    addGroundShadow(engine, group);
 
     engine.registerInteract(primary, {
         label: config.prompt ?? 'Bruk (E)',
@@ -132,6 +134,7 @@ export function addDoor(
     markPhysics(slab, { solid: true, colliderShape: 'cuboid' });
     group.userData.declarativeId = config.id;
     engine.scene.add(group);
+    addGroundShadow(engine, group);
 
     const isLocked = () => {
         if (!config.lockedUntilFlag) return false;

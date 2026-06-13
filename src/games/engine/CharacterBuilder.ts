@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import type { CharacterConfig, Emotion, CharacterType } from './types';
+import { createBlobShadow } from './declarative/builders/_util';
 
 function addOutline(mesh: THREE.Mesh, scale = 1.06): void {
     const outline = new THREE.Mesh(
@@ -145,7 +146,7 @@ function createInteractLabel(): THREE.Sprite {
     ctx.font = 'bold 26px Inter, sans-serif';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-    ctx.fillText('snakk (E)', 128, 32);
+    ctx.fillText('Snakk (E)', 128, 32);
     ctx.shadowBlur = 0;
     const texture = new THREE.CanvasTexture(canvas);
     const sprite = new THREE.Sprite(
@@ -260,6 +261,14 @@ export function buildCharacter(
         interactLabel.position.y = 2.40;
         interactLabel.visible = false;
         g.add(interactLabel);
+    }
+
+    // LOW-baseline: falsk kontaktskygge når ekte skygger er av (low-tier). Lagt som
+    // barn av karakter-gruppa så den følger NPC-en når den går. Se _util.addGroundShadow.
+    if (!renderer.shadowMap.enabled) {
+        const blob = createBlobShadow(scene, 0.5);
+        blob.position.y = 0.02;
+        g.add(blob);
     }
 
     g.position.set(...config.position);

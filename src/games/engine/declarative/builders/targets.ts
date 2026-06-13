@@ -102,6 +102,11 @@ export function addTarget(
             if (hit) return;
             hit = true;
             engine.removeProjectileTarget(config.id);
+            // Treff-feedback: kraftig dunk på treffpunktet + hitmarker + lett shake, så
+            // spilleren tydelig kjenner at skuddet satt (i tillegg til reaksjonene under).
+            engine.playOneShot('proc:drum-hit', { position: [record.center.x, record.center.y, record.center.z], volume: 0.6 });
+            engine.flashHitMarker();
+            engine.cameraShake(0.08, 0.16);
             if (reactions.includes('flash')) flashT = 0.4;
             if (reactions.includes('knock')) knockT = 0;
             if (reactions.includes('shatter')) doShatter();

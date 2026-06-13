@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useFrame, type ThreeEvent } from '@react-three/fiber';
 import * as THREE from 'three';
 import { damp } from './damp';
+import { microSfx, type StepSoundEvent } from './sound';
 
 export type InteractiveState = 'idle' | 'hover' | 'selected' | 'correct' | 'wrong' | 'disabled';
 
@@ -24,6 +25,10 @@ interface InteractiveProps {
     // Usynlig, forstørret klikkflate (boks [b,h,d]) for trygg trackpad-treffing
     // på Chromebook. Plasseres i objektets sentrum.
     hitArea?: [number, number, number];
+    // Event-lyd som spilles ved klikk (delt lyd-singleton). Default 'select' -
+    // gir alle mikrospill juicy klikk-respons gratis. Sett null for å slå av,
+    // eller f.eks. 'correct' for et annet kvitterings-lydbilde.
+    sound?: StepSoundEvent | null;
 }
 
 // Gjør et hvilket som helst 3D-objekt klikkbart med innebygd juicy feedback:
@@ -40,6 +45,7 @@ export const Interactive: React.FC<InteractiveProps> = ({
     scale = 1,
     hoverScale = 1.07,
     hitArea,
+    sound = 'select',
 }) => {
     const group = useRef<THREE.Group>(null);
     const [hovered, setHovered] = useState(false);
@@ -78,7 +84,9 @@ export const Interactive: React.FC<InteractiveProps> = ({
             rotation={rotation}
             onClick={(e: ThreeEvent<MouseEvent>) => {
                 e.stopPropagation();
-                if (!disabled) onSelect?.();
+                if (disabled) return;
+                if (sound) microSfx.play(sound);
+                onSelect?.();
             }}
             onPointerOver={(e: ThreeEvent<PointerEvent>) => {
                 e.stopPropagation();

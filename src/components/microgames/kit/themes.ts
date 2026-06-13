@@ -62,6 +62,94 @@ export const THEMES: Record<string, KitTheme> = {
         leaf: '#7a8a3a',
         accent: '#2d6a8f',
     },
+    // Egeerhavet - skarp lys, hvit marmor, dyp blå sjø, oliven.
+    greek: {
+        sky: '#dceaf2',
+        fog: '#d6e6ef',
+        ground: '#cdbd92',
+        water: '#1f6fa0',
+        wood: '#8a6a3f',
+        stone: '#eee9dd',
+        leaf: '#6e7d3e',
+        accent: '#b5482f',
+    },
+    // Middelalder/norrønt-kristent - kjølig stein, skoggrønt, heraldisk rødt og gull.
+    medieval: {
+        sky: '#cdd6dc',
+        fog: '#c6d0d6',
+        ground: '#6f7e4c',
+        water: '#3c6b86',
+        wood: '#4a3420',
+        stone: '#8d8a82',
+        leaf: '#37592f',
+        accent: '#8a2b2b',
+    },
+    // Opplysningstiden - raffinert by, pergament, brostein og messing/blått.
+    enlightenment: {
+        sky: '#ece3cf',
+        fog: '#e6ddc8',
+        ground: '#9a9476',
+        water: '#4a6f86',
+        wood: '#6e4d2e',
+        stone: '#c3b291',
+        leaf: '#5f6f3c',
+        accent: '#2e5e86',
+    },
+    // Moderne / kald krig - betong, stål, asfalt, signalrødt.
+    modern: {
+        sky: '#cdd3d6',
+        fog: '#c6ccd0',
+        ground: '#6b7068',
+        water: '#46606e',
+        wood: '#5a5048',
+        stone: '#9aa0a2',
+        leaf: '#5a6a4a',
+        accent: '#c0392b',
+    },
+    // Kosmisk / abstrakt - lysende, ikke mørkt (lys stil-regelen): blek lavendel + gull.
+    cosmic: {
+        sky: '#e8e2f2',
+        fog: '#e0d8ee',
+        ground: '#cfc6dd',
+        water: '#7f9fd0',
+        wood: '#8a7d9a',
+        stone: '#d6cfe2',
+        leaf: '#9a8fb0',
+        accent: '#e3b23c',
+    },
+    // Samisk / arktisk - kaldt, lyst: snøhvitt, isblått, varm rød lavvo-aksent.
+    arctic: {
+        sky: '#dceaf2',
+        fog: '#e4eef4',
+        ground: '#e8eef2',
+        water: '#7fb0cc',
+        wood: '#6a5038',
+        stone: '#b8c4cc',
+        leaf: '#5a7a6a',
+        accent: '#b5402f',
+    },
+    // Øst-Asia / risdyrking - dis, rismarkgrønt, lakkrødt og vermillon.
+    asian: {
+        sky: '#e2ebe6',
+        fog: '#dce8e2',
+        ground: '#7a9456',
+        water: '#5a8a8a',
+        wood: '#6e2f2a',
+        stone: '#b6ada0',
+        leaf: '#4a7a3a',
+        accent: '#c0392b',
+    },
+    // Mesoamerika - frodig jungel, kalkstein, jade og rødt.
+    mesoamerican: {
+        sky: '#dbe6cf',
+        fog: '#d4e0c6',
+        ground: '#5c7a3a',
+        water: '#3f8a86',
+        wood: '#6e4a2c',
+        stone: '#c6bb9a',
+        leaf: '#356b2f',
+        accent: '#1f8a7a',
+    },
 };
 
 export const DEFAULT_THEME = THEMES.viking;

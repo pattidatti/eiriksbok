@@ -45,6 +45,9 @@ export interface InteractOptions {
     // Kalles når spilleren trykker E innen radius. Gjør ingenting av seg selv —
     // kall engine.unregisterInteract(mesh) inni her når interaksjonen er ferdig.
     onInteract: () => void;
+    // Høyprioritets-interakt: E vinner over hold-slipp og nærhets-pickup. Brukes for
+    // våpenstativ så et våpen kan utrustes selv om spilleren holder et annet. Default false.
+    priority?: boolean;
 }
 
 // Opsjoner når et objekt registreres som pickupable via engine.registerPickup.
@@ -462,6 +465,10 @@ export interface GameEngineRef {
     // Fase 8: vis en stor sonetittel (sted/kapittel) med CSS-fade. Brukes av
     // addZoneTitle-kit-en og kan kalles direkte ved fase-skifter.
     showZoneTitle: (title: string, opts?: { subtitle?: string; durationMs?: number }) => void;
+    // Kort handlings-varsel i HUD (plukket opp, utrustet o.l.) + en lett pickup-lyd.
+    notify: (text: string) => void;
+    // Blink en hitmarker på sikteet (kalles av mål/fiender ved treff for tydelig feedback).
+    flashHitMarker: () => void;
     // Fase 8: skyt et lett prosjektil (analytisk bane + raycast, ikke Rapier-body).
     spawnProjectile: (opts: ProjectileSpawnOptions) => void;
     // Registrer/fjern et prosjektil-mål (blink). Brukes av addTarget-builderen.
@@ -761,4 +768,9 @@ export interface GameUIState {
     throwCharge?: number | null;
     // Gjenværende ammunisjon for utrustet launcher (spyd/bue/slynge). null = ingen.
     launcherAmmo?: number | null;
+    // Kort handlings-varsel (plukket opp / utrustet). `key` bumpes så overlayet
+    // kan restarte fade-animasjonen selv ved samme tekst. null = ingen synlig.
+    notice?: { text: string; key: number } | null;
+    // Bumpes hver gang spilleren treffer et mål - trigger en hitmarker-blink på sikteet.
+    hitMarker?: number | null;
 }

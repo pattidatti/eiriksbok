@@ -146,8 +146,8 @@ export function buildStiklestadMap(engine: GameEngineRef): MapRefs {
         ['baal-tvil', LAYOUT.FIRE_TVIL, 1.2],
         ['baal-ettermaele', LAYOUT.FIRE_ETTERMAELE, 1.35],
     ];
-    const campfires = fires.map(([id, p, scale], i) => {
-        const fire = addCampfire(engine, { id, pos: [p[0], 'terrain', p[1]], scale, audio: i === 0 });
+    const campfires = fires.map(([id, p, scale]) => {
+        const fire = addCampfire(engine, { id, pos: [p[0], 'terrain', p[1]], scale });
         // Ekstra varm glød-halo så bålet leser tydelig på lav tier (ingen bloom der).
         const fy = engine.getTerrainHeight(p[0], p[1]);
         addGlowSprite(engine, { id: `${id}-halo`, pos: [p[0], fy + 0.8, p[1]], color: PALETTE.glow, size: 3.4 * scale, intensity: 0.9, pulse: { amount: 0.12, speed: 2.4 } });
@@ -233,7 +233,12 @@ function buildKongsbanner(engine: GameEngineRef, x: number, z: number): void {
 
     const cloth = new THREE.Mesh(
         new THREE.PlaneGeometry(1.5, 2.0),
-        new THREE.MeshStandardMaterial({ map: tex, side: THREE.DoubleSide, roughness: 0.95, metalness: 0 }),
+        // Selvlys (emissiveMap) så det røde feltet ikke leses som blått i det kjølige
+        // skumringslyset - ellers ser banneret ut som det svenske flagget.
+        new THREE.MeshStandardMaterial({
+            map: tex, emissiveMap: tex, emissive: 0xffffff, emissiveIntensity: 0.55,
+            side: THREE.DoubleSide, roughness: 0.95, metalness: 0,
+        }),
     );
     cloth.position.set(0.82, poleH - 1.2, 0); // henger ut til siden av stanga
     cloth.castShadow = true;

@@ -6,6 +6,40 @@ import { markPhysics } from './_util';
 
 type WallAxis = { along: 'x' | 'z'; sign: number };
 
+/**
+ * LOW-baseline (Fase 9): bak en enkel ambient-okklusjon inn i vertex-fargene så rom
+ * får dybde uten shadow maps. Billig (bakt én gang, null runtime-kost) og virker på
+ * alle tier — komplementært til ekte skygger. Materialet må ha `vertexColors = true`.
+ */
+
+/** Mørkne en vegg-mesh nær gulvet (basert på VERDENS-y, så høye headers ikke mørknes). */
+function bakeWallAO(mesh: THREE.Mesh, fadeHeight = 1.3, strength = 0.4): void {
+    const pos = mesh.geometry.attributes.position;
+    const colors = new Float32Array(pos.count * 3);
+    for (let i = 0; i < pos.count; i++) {
+        const worldY = mesh.position.y + pos.getY(i);
+        const t = Math.min(1, Math.max(0, worldY) / fadeHeight); // 0 ved gulv, 1 over fadeHeight
+        const shade = 1 - strength * (1 - t);
+        colors[i * 3] = colors[i * 3 + 1] = colors[i * 3 + 2] = shade;
+    }
+    mesh.geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+}
+
+/** Mørkne et gulv-plan mot kantene (der det møter veggene). */
+function bakeFloorAO(geom: THREE.BufferGeometry, halfW: number, halfD: number, strength = 0.28): void {
+    const pos = geom.attributes.position;
+    const colors = new Float32Array(pos.count * 3);
+    for (let i = 0; i < pos.count; i++) {
+        // PlaneGeometry ligger i XY før rotasjon: x→verdens-x, y→verdens-z.
+        const ex = Math.abs(pos.getX(i)) / halfW;
+        const ey = Math.abs(pos.getY(i)) / halfD;
+        const edge = Math.pow(Math.max(ex, ey), 3); // kun nær kanten
+        const shade = 1 - strength * edge;
+        colors[i * 3] = colors[i * 3 + 1] = colors[i * 3 + 2] = shade;
+    }
+    geom.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+}
+
 const WALL_AXES: Record<RoomWall, WallAxis> = {
     north: { along: 'x', sign: -1 }, // Z = -halfDepth
     south: { along: 'x', sign: +1 }, // Z = +halfDepth
@@ -61,6 +95,7 @@ function buildWallWithOpenings(
         }
         mesh.castShadow = true;
         mesh.receiveShadow = true;
+        bakeWallAO(mesh);
         markPhysics(mesh, { solid: true, colliderShape: 'cuboid' });
         group.add(mesh);
         meshes.push(mesh);
@@ -83,6 +118,7 @@ function buildWallWithOpenings(
                 else sill.position.set(0, sillHeight / 2, o.offset);
                 sill.castShadow = true;
                 sill.receiveShadow = true;
+                bakeWallAO(sill);
                 markPhysics(sill, { solid: true });
                 group.add(sill);
                 meshes.push(sill);
@@ -98,6 +134,7 @@ function buildWallWithOpenings(
                 if (axis.along === 'x') header.position.set(o.offset, hy, 0);
                 else header.position.set(0, hy, o.offset);
                 header.castShadow = true;
+                bakeWallAO(header);
                 markPhysics(header, { solid: true });
                 group.add(header);
                 meshes.push(header);
@@ -116,6 +153,7 @@ function buildWallWithOpenings(
                 if (axis.along === 'x') header.position.set(o.offset, hy, 0);
                 else header.position.set(0, hy, o.offset);
                 header.castShadow = true;
+                bakeWallAO(header);
                 markPhysics(header, { solid: true });
                 group.add(header);
                 meshes.push(header);
@@ -162,6 +200,13 @@ export function buildRoom(
     const floorMat = createMaterial(config.floor ?? 'wood');
     const wallMat = createMaterial(config.walls ?? 'plaster');
 
+    // LOW-baseline: klon presetene og slå på vertex-farger så vi kan bake AO inn
+    // uten å forurense det delte material-cachen (createMaterial returnerer delt).
+    const floorAOMat = floorMat.clone();
+    floorAOMat.vertexColors = true;
+    const wallAOMat = wallMat.clone();
+    wallAOMat.vertexColors = true;
+
     // ─── Gulv ────────────────────────────────────────────────────────────────
     const floorMesh = new THREE.Mesh(
         new THREE.BoxGeometry(width, 0.4, depth),
@@ -172,11 +217,10 @@ export function buildRoom(
     markPhysics(floorMesh, { solid: true, colliderShape: 'cuboid' });
     roomGroup.add(floorMesh);
 
-    // Synlig gulv-plane for å få riktig material på toppen
-    const floorVisible = new THREE.Mesh(
-        new THREE.PlaneGeometry(width, depth),
-        floorMat,
-    );
+    // Synlig gulv-plane (subdividert) for å få riktig material + kant-AO på toppen
+    const floorGeom = new THREE.PlaneGeometry(width, depth, 8, 8);
+    bakeFloorAO(floorGeom, width / 2, depth / 2);
+    const floorVisible = new THREE.Mesh(floorGeom, floorAOMat);
     floorVisible.rotation.x = -Math.PI / 2;
     floorVisible.position.y = 0.01;
     floorVisible.receiveShadow = true;
@@ -228,7 +272,7 @@ export function buildRoom(
             })),
         ];
 
-        buildWallWithOpenings(wall, wallLen, height, thickness, openings, wallMat, wallGroup);
+        buildWallWithOpenings(wall, wallLen, height, thickness, openings, wallAOMat, wallGroup);
 
         // For dører med openFlag: lag en "slab" som blokkerer åpningen når flagget er falsy
         for (const door of wallDoors) {

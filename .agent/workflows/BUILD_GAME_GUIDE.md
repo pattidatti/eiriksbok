@@ -667,6 +667,32 @@ det er mange lys. Følg disse prinsippene:
 
 ---
 
+## 6.3 Automatisk LOW-baseline (Fase 9)
+
+På lav-tier (Chromebook-baseline) er ekte skygger, bloom og post-prosessering AV. Motoren
+kompenserer nå **automatisk** med tre billige grep så scenene ikke ser flate ut. Du trenger
+ikke gjøre noe — dette gjelder alle spill bygget med de deklarative builderne:
+
+- **Blob-kontaktskygge.** `addProp`, `addInteractable`, `addDoor` og NPC-er (`addNPC`) får et
+  mykt gradient-plan lagt under seg når motoren kjører på low-tier (`getQualityTier() === 'low'`).
+  Det grunner objektene mot bakken så de ikke "flyter". På medium/high gjør ekte skygger jobben,
+  så blobben legges ikke til. Logikken bor i `declarative/builders/_util.ts` (`addGroundShadow`).
+  - Den hoppes over for objekter som ikke hviler på bakken (bunn > 0.4 m over terreng/gulv), så
+    vegg-fakler, vindusgitter og hyller får ingen feilplassert blob.
+  - `addPickup` får **ikke** blob (itemet forsvinner inn i inventaret ved opplukking).
+- **Vertex-AO i rom.** `buildRoom` baker en lett ambient-okklusjon inn i vertex-fargene: vegger
+  mørknes nær gulvet og gulvet mørknes mot kantene. Gir dybde i hjørner uten shadow maps. Bakt
+  én gang, null runtime-kost, og virker på alle tier.
+- **Gradient-himmeldome.** Scener som ikke bruker `sky: 'procedural'` får en billig vertikal
+  gradient-dome (`systems/SkyDome.ts`) i stedet for flat bakgrunnsfarge. Horisontfargen settes
+  lik fogfargen, så fjerne objekter blir rene silhuetter. I lukkede rom er domen occludert (gratis).
+
+**Hva betyr dette for deg som bygger spill?** Du får penere lav-tier-scener uten ekstra arbeid.
+Bygg fortsatt med disipinert `Palette.ts` og fog-matchet himmel (§6.2) — baselinen erstatter ikke
+god art direction, den hever bunnlinjen.
+
+---
+
 ## 7. Quality Gates
 
 Kopier denne sjekklisten til PR-beskrivelsen din. Alle punkter skal være ✓.

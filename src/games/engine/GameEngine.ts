@@ -32,6 +32,7 @@ import { DustSystem, SparkSystem } from './ParticleSystem';
 import { MonologSystem } from './systems/MonologSystem';
 import { PostProcessingSystem, resolveTier, type QualityTier } from './systems/PostProcessingSystem';
 import { SkySystem } from './systems/SkySystem';
+import { createSkyDome } from './systems/SkyDome';
 import { TimeOfDaySystem } from './systems/TimeOfDaySystem';
 import { WeatherSystem } from './systems/WeatherSystem';
 import { VegetationSystem } from './systems/VegetationSystem';
@@ -133,6 +134,15 @@ interface EngineOptions {
     onCollect?: (name: string) => void;
     // Bro fra CameraDirector til DOM-overlay
     onFade?: (visible: boolean, durationMs: number) => Promise<void>;
+}
+
+// Gjør en pickup-label ("Ta øks (E), hold F for å kaste") om til et kort varsel
+// ("Tok øks"). Fjerner tast-hint i parentes og oversetter ledende verb til fortid.
+function prettifyPickupLabel(label: string): string {
+    let name = label.split('(')[0].trim().replace(/[,.]$/, '');
+    name = name.replace(/^ta\s+/i, 'Tok ').replace(/^plukk(\s+opp)?\s+/i, 'Tok ');
+    if (!/^tok\s/i.test(name)) name = 'Tok ' + name.toLowerCase();
+    return name;
 }
 
 export class GameEngine {
@@ -426,7 +436,8 @@ export class GameEngine {
         }
 
         // Sky-system (kun hvis sky === 'procedural')
-        if ((visual.sky ?? (options.config.world.preset === 'open' ? 'procedural' : 'none')) === 'procedural') {
+        const skyMode = visual.sky ?? (options.config.world.preset === 'open' ? 'procedural' : 'none');
+        if (skyMode === 'procedural') {
             this.skySystem = new SkySystem(this.scene, visual.skyOptions);
             this.timeOfDaySystem.setSky(this.skySystem);
             const enableIbl = this.qualityTier === 'high';
@@ -436,6 +447,15 @@ export class GameEngine {
                 if (enableIbl) this.skySystem?.enableIbl(this.renderer);
                 this.timeOfDaySystem.setTimeOfDay(this.timeOfDaySystem.getTimeOfDay());
             });
+        } else {
+            // LOW-baseline (Fase 9): erstatt flat solid bakgrunn med en billig
+            // gradient-dome. Horisontfargen = fogfargen → fjerne objekter blir
+            // silhuetter. Domen er occludert (gratis) i lukkede rom.
+            const horizon = this.scene.fog instanceof THREE.FogExp2
+                ? this.scene.fog.color
+                : new THREE.Color(options.config.world.backgroundColor ?? 0x6b5544);
+            const domeRadius = Math.min(far * 0.9, 120);
+            this.scene.add(createSkyDome(horizon, domeRadius));
         }
 
         // Initial weather hvis spesifisert
@@ -712,6 +732,8 @@ export class GameEngine {
         }
         this.interactables = new InteractableSystem(this.physics, this.camera, this.scene);
         this.interactables.setPlayerGroup(this.player.group);
+        // Pickup-feedback: rens label til et kort navn og vis et varsel + lyd.
+        this.interactables.setNotify((label) => this.notify(prettifyPickupLabel(label)));
         // Fase 8: prosjektil-system (lette stein/spyd/pil). Deler scene + fysikk.
         this.projectileSystem = new ProjectileSystem(this.scene, this.physics);
         this.interactables.setProjectileSystem(this.projectileSystem);
@@ -1136,7 +1158,21 @@ export class GameEngine {
             getTerrainHeight: (x: number, z: number) => this.terrain?.getHeight(x, z) ?? 0,
             hasTerrain: () => this.terrain !== null,
             showZoneTitle: (title, opts) => this.showZoneTitle(title, opts),
-            spawnProjectile: (opts) => this.projectileSystem?.spawnProjectile(opts),
+            notify: (text) => this.notify(text),
+            flashHitMarker: () => this.flashHitMarker(),
+            spawnProjectile: (opts) => this.projectileSystem?.spawnProjectile({
+                ...opts,
+                onHit: (hit) => {
+                    // Standard treff-feedback: bakke/vegg-bom gir et dempet dunk (mål-treff
+                    // har egen, kraftigere lyd via addTarget/fiende-onHit).
+                    if (!hit.target) {
+                        void this.audio.playOneShot('proc:drum-hit', {
+                            position: [hit.point.x, hit.point.y, hit.point.z], volume: 0.2,
+                        });
+                    }
+                    opts.onHit?.(hit);
+                },
+            }),
             addProjectileTarget: (record) => this.projectileSystem?.registerTarget(record),
             removeProjectileTarget: (id) => this.projectileSystem?.removeTarget(id),
             equipLauncher: (slot: LauncherSlot) => this.interactables?.equipLauncher(slot),
@@ -2106,6 +2142,10 @@ export class GameEngine {
     // Fase 8: ladnings-meter + ammo. Pollet per frame, pushes kun ved endring.
     private activeThrowCharge: number | null = null;
     private activeLauncherAmmo: number | null = null;
+    // Feedback: handlings-varsel (notify) + hitmarker. Keys bumpes per hendelse.
+    private activeNotice: GameUIState['notice'] = null;
+    private noticeKey = 0;
+    private hitMarkerKey = 0;
 
     private pushUIState(override: Partial<GameUIState> = {}): void {
         if (this.isEnded) return;
@@ -2117,6 +2157,7 @@ export class GameEngine {
         if ('zoneTitle' in override) this.activeZoneTitle = override.zoneTitle ?? null;
         if ('throwCharge' in override) this.activeThrowCharge = override.throwCharge ?? null;
         if ('launcherAmmo' in override) this.activeLauncherAmmo = override.launcherAmmo ?? null;
+        if ('notice' in override) this.activeNotice = override.notice ?? null;
 
         const collectibles = this.config.collectibles ?? [];
         const parts = collectibles.map((c) => ({
@@ -2145,6 +2186,7 @@ export class GameEngine {
             zoneTitle: this.activeZoneTitle,
             throwCharge: this.activeThrowCharge,
             launcherAmmo: this.activeLauncherAmmo,
+            notice: this.activeNotice,
         };
 
         this.options.onUIUpdate({ ...base, ...override });
@@ -2164,6 +2206,28 @@ export class GameEngine {
             if (this.zoneTitleKey === key) this.pushUIState({ zoneTitle: null });
         }, durationMs);
         this.scheduledTimeouts.add(id);
+    }
+
+    // Kort handlings-varsel (plukket opp / utrustet) + lett pickup-lyd. Auto-ryddes.
+    notify(text: string): void {
+        if (this.disposed || !text) return;
+        void this.audio.playOneShot('proc:blip-pickup', { volume: 0.5 });
+        this.noticeKey++;
+        const key = this.noticeKey;
+        this.pushUIState({ notice: { text, key } });
+        const id = setTimeout(() => {
+            this.scheduledTimeouts.delete(id);
+            if (this.disposed) return;
+            if (this.noticeKey === key) this.pushUIState({ notice: null });
+        }, 1600);
+        this.scheduledTimeouts.add(id);
+    }
+
+    // Blink hitmarker på sikteet. Bare en key-bump; HUD-en spiller fade-animasjonen.
+    flashHitMarker(): void {
+        if (this.disposed) return;
+        this.hitMarkerKey++;
+        this.pushUIState({ hitMarker: this.hitMarkerKey });
     }
 
     // ─── Game loop ───────────────────────────────────────────────────────────

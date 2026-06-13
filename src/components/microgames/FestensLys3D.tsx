@@ -150,7 +150,7 @@ const FestensLys3D: React.FC<MicroGameProps> = ({ onComplete }) => {
         id: c.id,
         title: c.name,
         blurb: c.religion,
-        status: celebDone(c.id) ? 'done' : i === active ? 'active' : 'locked',
+        status: celebDone(c.id) ? 'done' : i === active ? 'active' : 'available',
     }));
 
     const idle = !touched;

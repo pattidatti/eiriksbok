@@ -5,6 +5,18 @@ import * as THREE from 'three';
 // Gjenbrukbare lavpoly-deler for raskt å bygge en levende mikrospill-scene.
 // Alle er billige (få polygoner), kaster/mottar skygge, og tar farger som props
 // så de kan tilpasses hvert emne. Sett dem sammen til en hel verden.
+//
+// Flere deler (Person, Wall, Tower, Column, Arch, Bridge, Cart, Boat, Animal,
+// Tent, Torch, MarketStall, Hill) ligger i scene-parts-extra.tsx.
+
+// Deterministisk pseudo-random for valgfri seed-variasjon (samme mønster som
+// InstancedField): så en rad hus/trær ikke er identiske, uten Math.random.
+function variate(seed: number | undefined, spread: number): number {
+    if (seed === undefined) return 1;
+    let s = (seed * 2654435761) >>> 0;
+    s = (s * 1664525 + 1013904223) >>> 0;
+    return 1 + (s / 4294967296 - 0.5) * 2 * spread;
+}
 
 // --- Bakkeplan ---
 export function GroundPlane({
@@ -64,6 +76,7 @@ export function Building({
     w = 1.6,
     h = 1.1,
     d = 1.3,
+    seed,
 }: {
     position?: [number, number, number];
     body?: string;
@@ -71,15 +84,21 @@ export function Building({
     w?: number;
     h?: number;
     d?: number;
+    // Valgfritt frø: varierer høyde/bredde litt så en rad hus ikke er identiske.
+    // Udefinert = ingen variasjon (bakoverkompatibelt).
+    seed?: number;
 }) {
+    const vw = w * variate(seed, 0.18);
+    const vh = h * variate(seed === undefined ? undefined : seed + 1, 0.22);
+    const vd = d * variate(seed === undefined ? undefined : seed + 2, 0.18);
     return (
         <group position={position}>
-            <mesh position={[0, h / 2, 0]} castShadow receiveShadow>
-                <boxGeometry args={[w, h, d]} />
+            <mesh position={[0, vh / 2, 0]} castShadow receiveShadow>
+                <boxGeometry args={[vw, vh, vd]} />
                 <meshStandardMaterial color={body} roughness={0.85} />
             </mesh>
-            <mesh position={[0, h + 0.32, 0]} rotation={[0, Math.PI / 4, 0]} castShadow>
-                <coneGeometry args={[w * 0.82, 0.64, 4]} />
+            <mesh position={[0, vh + 0.32, 0]} rotation={[0, Math.PI / 4, 0]} castShadow>
+                <coneGeometry args={[vw * 0.82, 0.64, 4]} />
                 <meshStandardMaterial color={roof} roughness={0.9} />
             </mesh>
         </group>
@@ -90,12 +109,17 @@ export function Building({
 export function Tree({
     position = [0, 0, 0],
     leaf = '#3f6b39',
+    seed,
 }: {
     position?: [number, number, number];
     leaf?: string;
+    // Valgfritt frø: varierer høyde/bredde litt så en skog ikke er identiske kjegler.
+    seed?: number;
 }) {
+    const vh = variate(seed, 0.25);
+    const vr = variate(seed === undefined ? undefined : seed + 1, 0.2);
     return (
-        <group position={position}>
+        <group position={position} scale={[vr, vh, vr]}>
             <mesh position={[0, 0.4, 0]} castShadow>
                 <cylinderGeometry args={[0.1, 0.14, 0.8, 6]} />
                 <meshStandardMaterial color="#5c3f26" roughness={0.9} />

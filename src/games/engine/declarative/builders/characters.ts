@@ -1,4 +1,4 @@
-import type { GameEngineRef, CharacterConfig, MonologNode, MonologTrigger } from '../../types';
+import type { GameEngineRef, CharacterConfig, MonologNode, MonologTrigger, DialogNode } from '../../types';
 import type { AddNPCConfig, AddMonologConfig, Vec3 } from '../types';
 import { resolveY } from './_util';
 
@@ -50,9 +50,15 @@ export function addNPC(
     // Engine-utvidelse: dynamisk NPC-tillegg
     engine.addCharacter(charCfg);
 
-    // Merge dialogs i config.dialogs
+    // Merge dialogs i config.dialogs. Motoren åpner alltid `${id}_greeting` ved E-trykk,
+    // så honorer et avvikende greetingDialog ved å aliasere det til `${id}_greeting`.
     if (config.dialogs) {
-        engine.registerDialogs(config.dialogs);
+        const dialogs: Record<string, DialogNode | DialogNode[]> = { ...config.dialogs };
+        const gk = config.greetingDialog;
+        if (gk && gk !== `${config.id}_greeting` && dialogs[gk]) {
+            dialogs[`${config.id}_greeting`] = dialogs[gk];
+        }
+        engine.registerDialogs(dialogs);
     }
 }
 

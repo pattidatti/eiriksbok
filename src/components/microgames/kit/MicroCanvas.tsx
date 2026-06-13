@@ -21,6 +21,30 @@ import { useReducedMotion } from 'framer-motion';
 //  - Konservativt skygge-/DPR-budsjett. PerformanceMonitor hever DPR igjen når
 //    maskinen har rom, men vi starter alltid lavt for å unngå startspiken.
 
+// Lys-stemninger: distinkt atmosfære uten LUT (kun lysfarge/-vinkel/-styrke + hemi).
+// Alle holder seg LYSE (drama fra emnet, ikke mørk UI). 'day' = nøyaktig dagens
+// standardrigg, så spill uten `light`-prop ser identiske ut.
+export type LightMood = 'day' | 'overcast' | 'golden' | 'noon' | 'twilight' | 'arctic';
+
+interface LightMoodCfg {
+    sun: [number, number, number];
+    sunColor: string;
+    sunIntensity: number;
+    ambient: number;
+    hemiSky: string;
+    hemiGround: string;
+    hemiIntensity: number;
+}
+
+const LIGHT_MOODS: Record<LightMood, LightMoodCfg> = {
+    day: { sun: [10, 16, 8], sunColor: '#ffffff', sunIntensity: 1.15, ambient: 0.62, hemiSky: '#fff3d6', hemiGround: '#5a7045', hemiIntensity: 0.4 },
+    overcast: { sun: [6, 18, 6], sunColor: '#eef2f4', sunIntensity: 0.6, ambient: 0.9, hemiSky: '#dfe6ea', hemiGround: '#6a6a5a', hemiIntensity: 0.55 },
+    golden: { sun: [16, 8, 10], sunColor: '#ffc98a', sunIntensity: 1.3, ambient: 0.55, hemiSky: '#ffe6c0', hemiGround: '#6a5a40', hemiIntensity: 0.45 },
+    noon: { sun: [2, 22, 3], sunColor: '#fffaf0', sunIntensity: 1.5, ambient: 0.5, hemiSky: '#fff6e0', hemiGround: '#5a6a45', hemiIntensity: 0.35 },
+    twilight: { sun: [14, 6, 9], sunColor: '#ffb27a', sunIntensity: 0.85, ambient: 0.7, hemiSky: '#f3d2c0', hemiGround: '#5a5570', hemiIntensity: 0.5 },
+    arctic: { sun: [10, 15, 8], sunColor: '#eaf2ff', sunIntensity: 1.15, ambient: 0.85, hemiSky: '#eaf4ff', hemiGround: '#8a98a4', hemiIntensity: 0.5 },
+};
+
 export interface MicroCanvasProps {
     children: React.ReactNode;
     // Kamera-startposisjon og fov. Default er en behagelig isometrisk-aktig vinkel.
@@ -39,7 +63,11 @@ export interface MicroCanvasProps {
     minPolarAngle?: number;
     maxPolarAngle?: number;
     target?: [number, number, number];
-    // Solstyrke og -posisjon kan finjusteres, men har gode defaults.
+    // Lys-stemning: 'day' (default, = dagens rigg), 'overcast', 'golden', 'noon',
+    // 'twilight', 'arctic'. Gir distinkt atmosfære uten LUT. Eksplisitte sun*/
+    // ambient*-props nedenfor vinner over stemningens verdier.
+    light?: LightMood;
+    // Solstyrke og -posisjon kan finjusteres. Udefinert = hentes fra `light`-stemningen.
     sunPosition?: [number, number, number];
     sunIntensity?: number;
     ambientIntensity?: number;
@@ -63,14 +91,20 @@ export const MicroCanvas: React.FC<MicroCanvasProps> = ({
     minPolarAngle = Math.PI / 7,
     maxPolarAngle = Math.PI / 2.4,
     target = [0, 0.5, 0],
-    sunPosition = [10, 16, 8],
-    sunIntensity = 1.15,
-    ambientIntensity = 0.62,
+    light = 'day',
+    sunPosition,
+    sunIntensity,
+    ambientIntensity,
     controls = true,
     contactShadows = true,
     shadowY = 0,
 }) => {
     const fogColor = fog?.color ?? background;
+    // Lys-stemningen gir defaults; eksplisitte props vinner.
+    const mood = LIGHT_MOODS[light];
+    const sunPos = sunPosition ?? mood.sun;
+    const sunInt = sunIntensity ?? mood.sunIntensity;
+    const ambInt = ambientIntensity ?? mood.ambient;
     // Reduserer oppløsning automatisk hvis bildeflyten faller (svake Chromebooks),
     // og hever den igjen når det er rom. Starter på 1 - den billigste - og lar
     // PerformanceMonitor klatre til maks 1.5 først når maskinen viser at den
@@ -117,11 +151,12 @@ export const MicroCanvas: React.FC<MicroCanvasProps> = ({
                 <color attach="background" args={[background]} />
                 {fog && <fog attach="fog" args={[fogColor, fog.near, fog.far]} />}
 
-                <ambientLight intensity={ambientIntensity} />
-                <hemisphereLight args={['#fff3d6', '#5a7045', 0.4]} />
+                <ambientLight intensity={ambInt} />
+                <hemisphereLight args={[mood.hemiSky, mood.hemiGround, mood.hemiIntensity]} />
                 <directionalLight
-                    position={sunPosition}
-                    intensity={sunIntensity}
+                    position={sunPos}
+                    intensity={sunInt}
+                    color={mood.sunColor}
                     castShadow
                     shadow-mapSize={[1024, 1024]}
                     shadow-camera-left={-20}

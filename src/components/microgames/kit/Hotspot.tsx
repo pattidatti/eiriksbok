@@ -3,6 +3,7 @@ import { Billboard, Html } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 import { Interactive, type InteractiveState } from './Interactive';
+import { type StepSoundEvent } from './sound';
 
 interface HotspotProps {
     position: [number, number, number];
@@ -15,6 +16,8 @@ interface HotspotProps {
     // Valgfri etikett som vises over pinnen ved hover/aktiv.
     label?: string;
     color?: string;
+    // Event-lyd ved klikk (default 'select'). null slår av. Se Interactive.
+    sound?: StepSoundEvent | null;
 }
 
 const STATE_COLOR: Record<InteractiveState, string> = {
@@ -37,6 +40,7 @@ export const Hotspot: React.FC<HotspotProps> = ({
     radius = 0.5,
     label,
     color,
+    sound = 'select',
 }) => {
     return (
         <Billboard position={position}>
@@ -46,6 +50,7 @@ export const Hotspot: React.FC<HotspotProps> = ({
                 state={state}
                 disabled={disabled}
                 hitArea={[radius * 3, radius * 3, 0.1]}
+                sound={sound}
             >
                 {(s) => (
                     <>

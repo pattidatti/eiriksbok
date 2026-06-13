@@ -30,24 +30,21 @@ export const MicroGameFrame: React.FC<MicroGameFrameProps> = ({
             animate={{ opacity: 1, y: 0 }}
             className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl border-2 border-amber-200 overflow-hidden shadow-sm"
         >
-            <header className="flex items-center justify-between gap-3 px-5 py-3 border-b border-amber-200 bg-white/60">
-                <div className="flex items-center gap-3 min-w-0">
-                    <div className="w-9 h-9 rounded-lg bg-amber-500 text-white flex items-center justify-center shadow-sm flex-shrink-0">
-                        <Gamepad2 className="w-4 h-4" />
+            <header className="flex items-center justify-between gap-3 px-3.5 py-1.5 border-b border-amber-200 bg-white/60">
+                <div className="flex items-center gap-2 min-w-0">
+                    <div className="w-6 h-6 rounded-md bg-amber-500 text-white flex items-center justify-center shadow-sm flex-shrink-0">
+                        <Gamepad2 className="w-3.5 h-3.5" />
                     </div>
-                    <div className="min-w-0">
-                        <span className="text-[10px] font-bold uppercase tracking-widest text-amber-700">
-                            Mikro-spill
-                        </span>
-                        <h3 className="text-base font-bold leading-tight text-slate-900 truncate">
+                    <div className="flex items-baseline gap-2 min-w-0">
+                        <h3 className="text-sm font-bold leading-tight text-slate-900 truncate">
                             {title}
                         </h3>
                         {subtitle && (
-                            <p className="text-xs text-slate-500 truncate">{subtitle}</p>
+                            <p className="hidden sm:block text-xs text-slate-500 truncate">{subtitle}</p>
                         )}
                     </div>
                 </div>
-                <div className="flex items-center gap-2 flex-shrink-0">
+                <div className="flex items-center gap-1.5 flex-shrink-0">
                     {estimatedSeconds !== undefined && (
                         <span className="hidden md:inline-flex items-center gap-1 text-xs text-slate-500">
                             <Clock className="w-3 h-3" />
@@ -59,7 +56,7 @@ export const MicroGameFrame: React.FC<MicroGameFrameProps> = ({
                     {onRetry && (
                         <button
                             onClick={onRetry}
-                            className="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-semibold text-slate-600 hover:text-amber-700 hover:bg-amber-100 rounded-lg transition"
+                            className="inline-flex items-center gap-1 px-2 py-1 text-xs font-semibold text-slate-600 hover:text-amber-700 hover:bg-amber-100 rounded-md transition"
                             aria-label="Start mikro-spillet på nytt"
                         >
                             <RotateCcw className="w-3.5 h-3.5" />

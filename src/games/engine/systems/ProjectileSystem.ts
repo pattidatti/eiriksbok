@@ -47,7 +47,20 @@ interface Projectile {
     alignToVelocity: boolean;
     onHit?: ProjectileSpawnOptions['onHit'];
     active: boolean;
+    // Treff-feedback: prosjektilet "sitter fast" ved treffpunktet et lite øyeblikk og
+    // fader ut, så spilleren tydelig ser at det landet (i stedet for å forsvinne i lufta).
+    stuck: boolean;
+    stuckLife: number;
 }
+
+// Liten splint som spruter ut fra treffpunktet og fader. Gir taktil treff-feedback.
+interface ImpactBit {
+    mesh: THREE.Mesh;
+    vel: THREE.Vector3;
+    life: number;
+}
+
+const STICK_SEC = 0.8;
 
 interface TrackedBody {
     getPos: () => THREE.Vector3;
@@ -120,6 +133,8 @@ export class ProjectileSystem {
     private targets = new Map<string, ProjectileTargetRecord>();
     private tracked: TrackedBody[] = [];
     private gravityDefault: THREE.Vector3;
+    private impacts: ImpactBit[] = [];
+    private impactGeo: THREE.BufferGeometry | null = null;
 
     constructor(scene: THREE.Scene, physics: PhysicsWorld) {
         this.scene = scene;
@@ -169,6 +184,8 @@ export class ProjectileSystem {
             alignToVelocity: opts.alignToVelocity ?? defaultAlign,
             onHit: opts.onHit,
             active: true,
+            stuck: false,
+            stuckLife: 0,
         });
     }
 
@@ -176,6 +193,13 @@ export class ProjectileSystem {
         // Analytiske prosjektiler.
         for (const p of this.active) {
             if (!p.active) continue;
+            // Fastsittende prosjektil: tell ned + fade, resirkuler når tiden er ute.
+            if (p.stuck) {
+                p.stuckLife += dt;
+                this.fadeStuck(p);
+                if (p.stuckLife >= STICK_SEC) this.recycle(p);
+                continue;
+            }
             const from = p.pos.clone(); // posisjon før dette steget (segment-start)
             p.vel.addScaledVector(p.gravity, dt);
             p.pos.addScaledVector(p.vel, dt);
@@ -189,9 +213,7 @@ export class ProjectileSystem {
                 }
             }
             if (targetHit) {
-                targetHit.onHit(targetHit);
-                p.onHit?.({ point: p.pos.clone(), target: targetHit });
-                this.recycle(p);
+                this.impact(p, targetHit.center.clone(), targetHit);
                 continue;
             }
             // 2) Bakke/vegg-treff via raycast langs steget.
@@ -201,10 +223,7 @@ export class ProjectileSystem {
                 dir.divideScalar(dist);
                 const hit = this.physics.raycast(from, dir, dist);
                 if (hit.hit) {
-                    p.pos.copy(hit.point);
-                    p.mesh.position.copy(p.pos);
-                    p.onHit?.({ point: p.pos.clone(), target: null });
-                    this.recycle(p);
+                    this.impact(p, hit.point.clone(), null);
                     continue;
                 }
             }
@@ -224,6 +243,20 @@ export class ProjectileSystem {
             this.active = this.active.filter((p) => p.active);
         }
 
+        // Impact-splinter: tyngde + fade, ryddes når de er ferdige.
+        for (let i = this.impacts.length - 1; i >= 0; i--) {
+            const b = this.impacts[i];
+            b.life += dt;
+            b.vel.y += this.physics.gravity * dt;
+            b.mesh.position.addScaledVector(b.vel, dt);
+            (b.mesh.material as THREE.MeshBasicMaterial).opacity = Math.max(0, 0.95 - b.life / 0.5);
+            if (b.life >= 0.5) {
+                this.scene.remove(b.mesh);
+                (b.mesh.material as THREE.Material).dispose();
+                this.impacts.splice(i, 1);
+            }
+        }
+
         // Sporede fysiske kast: sjekk segment mot mål.
         for (const tb of this.tracked) {
             tb.life += dt;
@@ -232,6 +265,7 @@ export class ProjectileSystem {
                 if (distPointToSegment(tb.prev, cur, t.center) <= t.radius) {
                     t.onHit(t);
                     tb.onHit(t);
+                    this.spawnImpactBurst(t.center.clone(), 0xffe2a0);
                     tb.life = 999; // marker for fjerning
                     break;
                 }
@@ -243,8 +277,61 @@ export class ProjectileSystem {
         }
     }
 
+    // Treff: kjør callbacks én gang, sprut splinter og la prosjektilet sitte fast.
+    private impact(p: Projectile, point: THREE.Vector3, target: ProjectileTargetRecord | null): void {
+        p.pos.copy(point);
+        p.mesh.position.copy(point);
+        if (target) target.onHit(target);
+        p.onHit?.({ point: point.clone(), target });
+        this.spawnImpactBurst(point, target ? 0xffe2a0 : 0xc4b08a);
+        p.stuck = true;
+        p.stuckLife = 0;
+        p.vel.set(0, 0, 0);
+    }
+
+    private spawnImpactBurst(point: THREE.Vector3, color: number): void {
+        if (!this.impactGeo) this.impactGeo = new THREE.TetrahedronGeometry(0.05, 0);
+        for (let i = 0; i < 7; i++) {
+            const m = new THREE.Mesh(
+                this.impactGeo,
+                new THREE.MeshBasicMaterial({ color, transparent: true, opacity: 0.95, depthWrite: false }),
+            );
+            m.position.copy(point);
+            this.scene.add(m);
+            this.impacts.push({
+                mesh: m,
+                vel: new THREE.Vector3((Math.random() - 0.5) * 3, 1 + Math.random() * 2.5, (Math.random() - 0.5) * 3),
+                life: 0,
+            });
+        }
+    }
+
+    // Fade fastsittende prosjektil: helt synlig først, så ut mot slutten av STICK_SEC.
+    private fadeStuck(p: Projectile): void {
+        const k = Math.max(0, Math.min(1, 1 - (p.stuckLife - STICK_SEC * 0.55) / (STICK_SEC * 0.45)));
+        p.mesh.traverse((o) => {
+            const mat = (o as THREE.Mesh).material as THREE.Material | THREE.Material[] | undefined;
+            if (!mat) return;
+            for (const x of Array.isArray(mat) ? mat : [mat]) {
+                x.transparent = true;
+                (x as THREE.Material & { opacity: number }).opacity = k;
+            }
+        });
+    }
+
     private recycle(p: Projectile): void {
         p.active = false;
+        p.stuck = false;
+        p.stuckLife = 0;
+        // Tilbakestill fade slik at poolede meshes er fullt synlige ved gjenbruk.
+        p.mesh.traverse((o) => {
+            const mat = (o as THREE.Mesh).material as THREE.Material | THREE.Material[] | undefined;
+            if (!mat) return;
+            for (const x of Array.isArray(mat) ? mat : [mat]) {
+                x.transparent = false;
+                (x as THREE.Material & { opacity: number }).opacity = 1;
+            }
+        });
         this.scene.remove(p.mesh);
         if (p.visualKey !== 'custom') {
             const pool = this.pools.get(p.visualKey) ?? [];
@@ -280,5 +367,12 @@ export class ProjectileSystem {
         this.pools.clear();
         this.targets.clear();
         this.tracked = [];
+        for (const b of this.impacts) {
+            this.scene.remove(b.mesh);
+            (b.mesh.material as THREE.Material).dispose();
+        }
+        this.impacts = [];
+        this.impactGeo?.dispose();
+        this.impactGeo = null;
     }
 }
