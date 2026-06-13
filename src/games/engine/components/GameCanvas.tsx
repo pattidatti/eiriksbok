@@ -172,6 +172,12 @@ export function GameCanvas({ config }: GameCanvasProps) {
         engineRef.current?.handleDialogChoice(index);
     }, []);
 
+    // Lyd-bro for dialog-UI (åpne-lyd, typewriter-tikk). Valg-lyden spilles i
+    // motoren slik at den dekker både muse-klikk og talltastene 1-5.
+    const playUiSound = useCallback((url: string, opts?: { volume?: number }) => {
+        void engineRef.current?.audio.playOneShot(url, opts);
+    }, []);
+
     const handlePuzzleAnswer = useCallback((index: number) => {
         engineRef.current?.handlePuzzleAnswer(index);
     }, []);
@@ -269,7 +275,7 @@ export function GameCanvas({ config }: GameCanvasProps) {
 
             {/* Dialog box */}
             {uiState.started && !uiState.ended && uiState.dialog && (
-                <DialogBox dialog={uiState.dialog} onChoice={handleDialogChoice} />
+                <DialogBox dialog={uiState.dialog} onChoice={handleDialogChoice} playSound={playUiSound} />
             )}
 
             {/* Puzzle UI */}

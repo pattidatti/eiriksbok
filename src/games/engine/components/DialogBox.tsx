@@ -14,9 +14,12 @@ interface DialogState {
 interface DialogBoxProps {
     dialog: DialogState;
     onChoice: (index: number) => void;
+    // Valgfri lyd-bro fra GameCanvas (engine.audio.playOneShot). Brukes til
+    // åpne-lyd og typewriter-tikk; mangler den, er dialogen lydløs.
+    playSound?: (url: string, opts?: { volume?: number }) => void;
 }
 
-const TYPEWRITER_MS_PER_CHAR = 22;
+const BASE_MS_PER_CHAR = 22;
 
 const EMOTION_BORDERS: Record<Emotion, string> = {
     glad: '#d4a574',
@@ -25,30 +28,75 @@ const EMOTION_BORDERS: Record<Emotion, string> = {
     triumphant: '#f0c060',
 };
 
-export function DialogBox({ dialog, onChoice }: DialogBoxProps) {
+// Tegnsettings-bevisst tempo: lengre opphold etter setningstegn gir teksten "pust".
+function charDelay(prevChar: string | undefined): number {
+    if (!prevChar) return BASE_MS_PER_CHAR;
+    if (prevChar === '.' || prevChar === '!' || prevChar === '?' || prevChar === ':') return 260;
+    if (prevChar === ',' || prevChar === ';') return 140;
+    if (prevChar === ' ') return 12;
+    return BASE_MS_PER_CHAR;
+}
+
+// Respekter OS-innstillingen "redusér bevegelse": dropp animasjon + typewriter.
+function useReducedMotion(): boolean {
+    const [reduced, setReduced] = useState(
+        () =>
+            typeof window !== 'undefined' &&
+            !!window.matchMedia?.('(prefers-reduced-motion: reduce)').matches,
+    );
+    useEffect(() => {
+        if (!window.matchMedia) return;
+        const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+        const onChange = () => setReduced(mq.matches);
+        mq.addEventListener('change', onChange);
+        return () => mq.removeEventListener('change', onChange);
+    }, []);
+    return reduced;
+}
+
+export function DialogBox({ dialog, onChoice, playSound }: DialogBoxProps) {
+    const reduced = useReducedMotion();
     // textKey endres kun når visibility eller text endres - bruk det som key/dependency for typewriter
     const textKey = useMemo(() => `${dialog.visible ? 1 : 0}:${dialog.text}`, [dialog.visible, dialog.text]);
     const [revealedByKey, setRevealedByKey] = useState<{ key: string; n: number }>({ key: textKey, n: 0 });
     const revealed = revealedByKey.key === textKey ? revealedByKey.n : 0;
     const skipRef = useRef(false);
 
+    // Stabil referanse til lyd-callback for bruk i typewriter-løkka uten å re-binde effekten.
+    const playSoundRef = useRef(playSound);
+    useEffect(() => {
+        playSoundRef.current = playSound;
+    }, [playSound]);
+
+    // Åpne-lyd: kun ved samtale-start. DialogBox monteres på nytt per ny samtale,
+    // men beholdes gjennom node-kjeden, så en mount-effekt fyrer nøyaktig én gang.
+    useEffect(() => {
+        playSoundRef.current?.('proc:dialog-open', { volume: 0.3 });
+    }, []);
+
     useEffect(() => {
         // Reset skip når text endres
         skipRef.current = false;
     }, [textKey]);
 
+    const displayLen = reduced ? dialog.text.length : revealed;
+    const isComplete = displayLen >= dialog.text.length;
+
     useEffect(() => {
+        if (reduced) return; // ingen typewriter ved redusert bevegelse
         if (!dialog.visible) return;
         if (revealed >= dialog.text.length) return;
-        const id = setTimeout(
-            () => setRevealedByKey({
-                key: textKey,
-                n: skipRef.current ? dialog.text.length : Math.min(dialog.text.length, revealed + 1),
-            }),
-            TYPEWRITER_MS_PER_CHAR,
-        );
+        const delay = skipRef.current ? 0 : charDelay(dialog.text[revealed - 1]);
+        const id = setTimeout(() => {
+            const next = skipRef.current ? dialog.text.length : Math.min(dialog.text.length, revealed + 1);
+            setRevealedByKey({ key: textKey, n: next });
+            // Svak typewriter-tikk, throttlet (~hvert 3. tegn) og aldri på mellomrom.
+            if (!skipRef.current && next % 3 === 0 && dialog.text[next - 1] !== ' ') {
+                playSoundRef.current?.('proc:type-tick', { volume: 0.12 });
+            }
+        }, delay);
         return () => clearTimeout(id);
-    }, [revealed, dialog.text, dialog.visible, textKey]);
+    }, [revealed, dialog.text, dialog.visible, textKey, reduced]);
 
     useEffect(() => {
         if (!dialog.visible) return;
@@ -65,7 +113,6 @@ export function DialogBox({ dialog, onChoice }: DialogBoxProps) {
 
     if (!dialog.visible) return null;
 
-    const isComplete = revealed >= dialog.text.length;
     const borderColor = dialog.emotion ? EMOTION_BORDERS[dialog.emotion] : undefined;
 
     const handleClick = () => {
@@ -77,7 +124,17 @@ export function DialogBox({ dialog, onChoice }: DialogBoxProps) {
 
     return (
         <div onClick={handleClick} style={{ cursor: isComplete ? 'default' : 'pointer' }}>
-            <GamePanel borderColor={borderColor}>
+            <style>{`
+                @keyframes choiceIn {
+                    0%   { opacity: 0; transform: translateY(6px); }
+                    100% { opacity: 1; transform: translateY(0); }
+                }
+                @keyframes dialogCaretBlink {
+                    0%, 49%   { opacity: 0.7; }
+                    50%, 100% { opacity: 0; }
+                }
+            `}</style>
+            <GamePanel borderColor={borderColor} animateIn={!reduced}>
                 <div
                     style={{
                         fontSize: 17,
@@ -98,9 +155,17 @@ export function DialogBox({ dialog, onChoice }: DialogBoxProps) {
                         minHeight: 50,
                     }}
                 >
-                    {dialog.text.slice(0, revealed)}
+                    {dialog.text.slice(0, displayLen)}
                     {!isComplete && (
-                        <span style={{ opacity: 0.6, marginLeft: 2 }}>▌</span>
+                        <span
+                            style={{
+                                marginLeft: 2,
+                                animation: reduced ? undefined : 'dialogCaretBlink 1s step-end infinite',
+                                opacity: 0.7,
+                            }}
+                        >
+                            ▌
+                        </span>
                     )}
                 </p>
 
@@ -114,6 +179,7 @@ export function DialogBox({ dialog, onChoice }: DialogBoxProps) {
                                 icon={choice.icon}
                                 consequenceHint={choice.consequenceHint}
                                 onClick={() => onChoice(i)}
+                                animate={!reduced}
                             />
                         ))}
                     </div>

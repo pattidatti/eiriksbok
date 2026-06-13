@@ -326,6 +326,63 @@ const renderDrip: ProceduralRenderer = (ctx, p) => {
     osc.stop(0.18);
 };
 
+const renderDialogOpen: ProceduralRenderer = (ctx, p) => {
+    // Mykt, lavt anslag når en samtale åpnes: to dempede sinus-toner (kvint) som svulmer kort.
+    const base = p.base ?? 330;
+    const notes: Array<[number, number]> = [
+        [base, 0],
+        [base * 1.5, 0.02],
+    ];
+    for (const [freq, t0] of notes) {
+        const osc = ctx.createOscillator();
+        osc.type = 'sine';
+        osc.frequency.value = freq;
+        const g = ctx.createGain();
+        g.gain.setValueAtTime(0.0001, t0);
+        g.gain.exponentialRampToValueAtTime((p.gain ?? 0.22) * (t0 === 0 ? 1 : 0.6), t0 + 0.03);
+        g.gain.exponentialRampToValueAtTime(0.0001, t0 + 0.16);
+        osc.connect(g).connect(ctx.destination);
+        osc.start(t0);
+        osc.stop(t0 + 0.18);
+    }
+};
+
+const renderTypeTick: ProceduralRenderer = (ctx, p) => {
+    // Svært kort, lav "tikk" for typewriter. Filtrert støy-burst, knapt hørbar.
+    const noise = noiseSource(ctx, 0.05);
+    const bp = ctx.createBiquadFilter();
+    bp.type = 'bandpass';
+    bp.frequency.value = 2600;
+    bp.Q.value = 1.2;
+    const g = ctx.createGain();
+    g.gain.setValueAtTime(0.0001, 0);
+    g.gain.exponentialRampToValueAtTime(p.gain ?? 0.12, 0.002);
+    g.gain.exponentialRampToValueAtTime(0.0001, 0.03);
+    noise.connect(bp).connect(g).connect(ctx.destination);
+    noise.start();
+    noise.stop(0.05);
+};
+
+const renderDialogChoice: ProceduralRenderer = (ctx, p) => {
+    // Kort, varm bekreftelse når et valg velges: to triangel-toner opp.
+    const notes: Array<[number, number]> = [
+        [440, 0],
+        [660, 0.05],
+    ];
+    for (const [freq, t0] of notes) {
+        const osc = ctx.createOscillator();
+        osc.type = 'triangle';
+        osc.frequency.value = freq;
+        const g = ctx.createGain();
+        g.gain.setValueAtTime(0.0001, t0);
+        g.gain.exponentialRampToValueAtTime(p.gain ?? 0.3, t0 + 0.01);
+        g.gain.exponentialRampToValueAtTime(0.0001, t0 + 0.1);
+        osc.connect(g).connect(ctx.destination);
+        osc.start(t0);
+        osc.stop(t0 + 0.12);
+    }
+};
+
 export const PROCEDURAL_SOUNDS: Record<string, ProceduralDef> = {
     'rain':          { duration: 6,    loop: true,  render: renderRain },
     'wind':          { duration: 8,    loop: true,  render: renderWind },
@@ -340,6 +397,9 @@ export const PROCEDURAL_SOUNDS: Record<string, ProceduralDef> = {
     'buzz-fail':     { duration: 0.45, loop: false, render: renderBuzz },
     'rattle':        { duration: 0.7,  loop: false, render: renderRattle },
     'drip':          { duration: 0.2,  loop: false, render: renderDrip },
+    'dialog-open':   { duration: 0.18, loop: false, render: renderDialogOpen },
+    'type-tick':     { duration: 0.05, loop: false, render: renderTypeTick },
+    'dialog-choice': { duration: 0.14, loop: false, render: renderDialogChoice },
 };
 
 // ─── proc:-parsing + offline-rendering ───────────────────────────────────────

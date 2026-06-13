@@ -1754,6 +1754,8 @@ export class GameEngine {
         const text = typeof node.text === 'function' ? node.text() : node.text;
 
         this.currentChoices = node.choices.map((choice) => () => {
+            // Kort bekreftelses-lyd ved valg (dekker både muse-klikk og talltastene 1-5).
+            void this.audio.playOneShot('proc:dialog-choice', { volume: 0.35 });
             if (choice.next) {
                 if (choice.action) choice.action();
                 this.openDialog(choice.next);

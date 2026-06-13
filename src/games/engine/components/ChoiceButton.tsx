@@ -6,6 +6,8 @@ interface ChoiceButtonProps {
     icon?: string;
     consequenceHint?: string;
     onClick: () => void;
+    // Når true: kort forskjøvet inn-animasjon (keyframe `choiceIn` defineres i DialogBox).
+    animate?: boolean;
 }
 
 const keyBadge: React.CSSProperties = {
@@ -28,8 +30,13 @@ const iconStyle: React.CSSProperties = {
     fontSize: 16,
 };
 
-export function ChoiceButton({ index, text, icon, consequenceHint, onClick }: ChoiceButtonProps) {
+export function ChoiceButton({ index, text, icon, consequenceHint, onClick, animate }: ChoiceButtonProps) {
     const [hovered, setHovered] = useState(false);
+    const [pressed, setPressed] = useState(false);
+
+    // Hover gir slide til høyre; trykk gir lett "inn-trykk" (scale) for taktil følelse.
+    const translateX = hovered ? 4 : 0;
+    const scale = pressed ? 0.98 : 1;
 
     const buttonStyle: React.CSSProperties = {
         display: 'block',
@@ -42,9 +49,11 @@ export function ChoiceButton({ index, text, icon, consequenceHint, onClick }: Ch
         fontFamily: 'inherit',
         fontSize: 14,
         cursor: 'pointer',
-        transition: 'all 0.2s',
+        transition: 'background 0.2s, border-color 0.2s, color 0.2s, transform 0.08s',
         borderRadius: 3,
-        transform: hovered ? 'translateX(4px)' : 'translateX(0)',
+        transform: `translateX(${translateX}px) scale(${scale})`,
+        animation: animate ? 'choiceIn 180ms ease-out both' : undefined,
+        animationDelay: animate ? `${index * 45}ms` : undefined,
     };
 
     return (
@@ -52,7 +61,12 @@ export function ChoiceButton({ index, text, icon, consequenceHint, onClick }: Ch
             <button
                 onClick={onClick}
                 onMouseEnter={() => setHovered(true)}
-                onMouseLeave={() => setHovered(false)}
+                onMouseLeave={() => {
+                    setHovered(false);
+                    setPressed(false);
+                }}
+                onMouseDown={() => setPressed(true)}
+                onMouseUp={() => setPressed(false)}
                 style={buttonStyle}
             >
                 <span style={keyBadge}>{index + 1}</span>
