@@ -45,6 +45,9 @@ export interface AddCrowdOptions {
     palette?: CrowdPalette;
     scaleJitter?: number; // default 0.12
     spacing?: number;     // avstand mellom rekker i kolonne, default 0.9
+    // Fase 8: hvis satt, static-modus sampler bakkehøyden per figur (terreng-snap).
+    // march løfter path-punktene i builderen før de når hit, så denne brukes der ikke.
+    heightSampler?: (x: number, z: number) => number;
 }
 
 const DEFAULT_PALETTE: CrowdPalette = {
@@ -457,8 +460,11 @@ export class CrowdSystem {
         const up = new THREE.Vector3(0, 1, 0);
         const scl = new THREE.Vector3();
 
+        const sampler = opts.heightSampler;
         for (let i = 0; i < count; i++) {
-            pos.set(area.minX + Math.random() * w, y, area.minZ + Math.random() * d);
+            const px = area.minX + Math.random() * w;
+            const pz = area.minZ + Math.random() * d;
+            pos.set(px, sampler ? sampler(px, pz) : y, pz);
             quat.setFromAxisAngle(up, Math.random() * Math.PI * 2);
             const s = 1 - jitter / 2 + Math.random() * jitter;
             scl.set(s, s, s);

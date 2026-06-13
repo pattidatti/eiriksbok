@@ -215,6 +215,33 @@ export class PhysicsWorld {
         return RAPIER.ColliderDesc.cuboid(hx, hy, hz);
     }
 
+    /** Registrer et prosedyralt terreng som en statisk heightfield-collider.
+     *  Heightfield > trimesh: O(1)-høyde-queries og ingen BVH-bygging (billig på
+     *  Chromebook). `heights` MÅ være kolonne-major (se TerrainSystem.getHeightsColumnMajor):
+     *  heights[col * rows + row]. Feltet sentreres i origo og spenner sizeX×sizeZ meter.
+     *  Høydeverdiene er i meter (y-skala = 1), så fysikk-overflaten matcher mesh-Y-en direkte.
+     *
+     *  Orientering (verifisert empirisk med engangs-raycast-harness mot getHeight): kolonne-
+     *  major-pakkingen til TerrainSystem gir et fysikk-felt som ligger nøyaktig under det
+     *  visuelle. NB: heights.length MÅ være (nrows+1)*(ncols+1) = rows*cols, derfor nrows = rows-1. */
+    addHeightfield(
+        heights: Float32Array,
+        rows: number,
+        cols: number,
+        sizeX: number,
+        sizeZ: number,
+    ): RAPIER_NS.RigidBody | null {
+        if (!RAPIER) return null;
+        const bodyDesc = RAPIER.RigidBodyDesc.fixed().setTranslation(0, 0, 0);
+        const body = this.world.createRigidBody(bodyDesc);
+        const scale = { x: sizeX, y: 1, z: sizeZ };
+        const colliderDesc = RAPIER.ColliderDesc.heightfield(rows - 1, cols - 1, heights, scale)
+            .setFriction(0.9)
+            .setRestitution(0);
+        this.world.createCollider(colliderDesc, body);
+        return body;
+    }
+
     removeMesh(mesh: THREE.Object3D): void {
         const body = this.meshToBody.get(mesh);
         if (!body) return;

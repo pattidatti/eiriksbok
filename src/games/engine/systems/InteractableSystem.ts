@@ -1,7 +1,23 @@
 import * as THREE from 'three';
 import type { PickupOptions, InteractOptions } from '../types';
 import type { PhysicsWorld } from './PhysicsWorld';
-import { makeLabelSprite } from '../TextureKit';
+import type { ProjectileSystem } from './ProjectileSystem';
+import { makeLabelSprite, makeGlowTexture } from '../TextureKit';
+
+// Fase 8: utrustet launcher (spyd/bue/slynge). fire() spawner prosjektilet med den
+// ferdig beregnede origin+velocity, så previewen matcher faktisk bane. Ammo telles her
+// så HUD-en kan lese den.
+export interface LauncherSlot {
+    minForce: number;
+    maxForce: number;
+    upBias: number;
+    chargeTimeMs: number;
+    ammo: number;
+    fire: (origin: THREE.Vector3, velocity: THREE.Vector3) => void;
+    onAmmoEmpty?: () => void;
+}
+
+const PREVIEW_STEPS = 24;
 
 interface PickupRecord {
     mesh: THREE.Mesh;
@@ -35,10 +51,145 @@ export class InteractableSystem {
     private playerGroup: THREE.Group | null = null;
     private labelSprites = new Map<THREE.Mesh, THREE.Sprite>();
 
+    // ── Fase 8: lad-og-kast + launcher + bue-preview ──
+    private projectiles: ProjectileSystem | null = null;
+    private charging = false;
+    private chargeLevel = 0;       // 0..1
+    private chargeTimeMs = 900;
+    private chargeBaseForce = 8;
+    private chargeMaxForce = 16;
+    private chargeUpBias = 2;
+    private chargePreviewEnabled = true;
+    private launcher: LauncherSlot | null = null;
+    private previewPoints: THREE.Points | null = null;
+    private previewPositions = new Float32Array(PREVIEW_STEPS * 3);
+    private previewRing: THREE.Mesh | null = null;
+
     constructor(physics: PhysicsWorld, camera: THREE.Camera, scene: THREE.Scene) {
         this.physics = physics;
         this.camera = camera;
         this.scene = scene;
+    }
+
+    setProjectileSystem(ps: ProjectileSystem): void {
+        this.projectiles = ps;
+    }
+
+    // ── Launcher (spyd/bue/slynge) ──
+    equipLauncher(slot: LauncherSlot): void {
+        this.launcher = slot;
+    }
+    unequipLauncher(): void {
+        this.cancelCharge();
+        this.launcher = null;
+    }
+    isLauncherEquipped(): boolean {
+        return this.launcher !== null;
+    }
+    getLauncherAmmo(): number | null {
+        return this.launcher ? this.launcher.ammo : null;
+    }
+
+    // ── Charge (hold F = lad, slipp = kast/skyt) ──
+    canCharge(): boolean {
+        return (this.launcher !== null && this.launcher.ammo > 0) || !!this.held?.opts.charge;
+    }
+
+    beginCharge(): void {
+        if (this.charging) return;
+        if (this.launcher && this.launcher.ammo > 0) {
+            this.chargeBaseForce = this.launcher.minForce;
+            this.chargeMaxForce = this.launcher.maxForce;
+            this.chargeUpBias = this.launcher.upBias;
+            this.chargeTimeMs = this.launcher.chargeTimeMs;
+            this.chargePreviewEnabled = true;
+        } else if (this.held?.opts.charge) {
+            const c = this.held.opts.charge;
+            this.chargeBaseForce = this.held.opts.throwForce;
+            this.chargeMaxForce = c.maxForce ?? 16;
+            this.chargeUpBias = 2;
+            this.chargeTimeMs = c.chargeTimeMs ?? 900;
+            this.chargePreviewEnabled = c.preview !== false;
+        } else {
+            return;
+        }
+        this.charging = true;
+        this.chargeLevel = 0;
+    }
+
+    releaseCharge(): void {
+        if (!this.charging) return;
+        this.charging = false;
+        const level = this.chargeLevel;
+        this.chargeLevel = 0;
+        this.hidePreview();
+        const force = this.chargeBaseForce + (this.chargeMaxForce - this.chargeBaseForce) * level;
+        const { origin, velocity } = this.computeLaunch(force);
+        if (this.launcher && this.launcher.ammo > 0) {
+            this.launcher.fire(origin, velocity);
+            this.launcher.ammo--;
+            if (this.launcher.ammo <= 0) this.launcher.onAmmoEmpty?.();
+        } else if (this.held?.opts.charge) {
+            this.throwHeldWithVelocity(velocity);
+        }
+    }
+
+    /** Avbryt lading rent (dialog/cinematic/mode-bytte). */
+    cancelCharge(): void {
+        if (!this.charging) return;
+        this.charging = false;
+        this.chargeLevel = 0;
+        this.hidePreview();
+    }
+
+    isCharging(): boolean {
+        return this.charging;
+    }
+    getCharge(): number | null {
+        return this.charging ? this.chargeLevel : null;
+    }
+
+    // Spillerens "hånd": ved siden av spilleren i arm-høyde (samme som holdt-objekt),
+    // ellers kamera-fallback. Brukes som start for både preview og kast.
+    private getHandPosition(): THREE.Vector3 {
+        if (this.playerGroup) {
+            const playerPos = this.playerGroup.getWorldPosition(new THREE.Vector3());
+            const right = new THREE.Vector3(1, 0, 0).applyQuaternion(this.camera.quaternion);
+            right.y = 0;
+            if (right.lengthSq() > 0.001) right.normalize();
+            return playerPos.addScaledVector(right, 0.5).add(new THREE.Vector3(0, 0.85, 0));
+        }
+        return this.camera.getWorldPosition(new THREE.Vector3());
+    }
+
+    private computeLaunch(force: number): { origin: THREE.Vector3; velocity: THREE.Vector3 } {
+        const origin = this.getHandPosition();
+        const dir = this.camera.getWorldDirection(new THREE.Vector3());
+        const velocity = dir.multiplyScalar(force).add(new THREE.Vector3(0, this.chargeUpBias, 0));
+        return { origin, velocity };
+    }
+
+    private throwHeldWithVelocity(velocity: THREE.Vector3): void {
+        if (!this.held) return;
+        const mesh = this.held.mesh;
+        const worldPos = mesh.getWorldPosition(new THREE.Vector3());
+        mesh.position.copy(worldPos);
+        const body = this.physics.getBody(mesh);
+        if (body) {
+            body.setTranslation({ x: worldPos.x, y: worldPos.y, z: worldPos.z }, true);
+            body.setLinvel({ x: velocity.x, y: velocity.y, z: velocity.z }, true);
+            // Spor den kastede bodyen så den kan treffe mål (Fase 8).
+            this.projectiles?.trackThrownBody(
+                () => {
+                    const t = body.translation();
+                    return new THREE.Vector3(t.x, t.y, t.z);
+                },
+                () => {},
+            );
+        }
+        this.physics.setBodyEnabled(mesh, true);
+        this.held.opts.onThrow?.();
+        this.held = null;
     }
 
     setPlayerGroup(group: THREE.Group): void {
@@ -229,8 +380,15 @@ export class InteractableSystem {
         return this.held !== null;
     }
 
-    /** Oppdater holdt objekt og label-sprites. */
-    update(): void {
+    /** Oppdater holdt objekt, label-sprites og lade-preview. */
+    update(dt = 0): void {
+        // Fase 8: avanser ladning + bue-preview.
+        if (this.charging) {
+            this.chargeLevel = Math.min(1, this.chargeLevel + (dt * 1000) / this.chargeTimeMs);
+            if (this.chargePreviewEnabled) this.updatePreview();
+            else this.hidePreview();
+        }
+
         const playerPos = new THREE.Vector3();
         if (this.playerGroup) this.playerGroup.getWorldPosition(playerPos);
 
@@ -310,7 +468,106 @@ export class InteractableSystem {
         }
     }
 
+    // ── Ballistisk bue-preview ──
+    // Sampler samme bane som det faktiske kastet (samme gravitasjon som Rapier),
+    // stopper ved første raycast-treff og markerer landingspunktet med en ring.
+    private ensurePreview(): void {
+        if (!this.previewPoints) {
+            const geo = new THREE.BufferGeometry();
+            geo.setAttribute('position', new THREE.BufferAttribute(this.previewPositions, 3));
+            const mat = new THREE.PointsMaterial({
+                map: makeGlowTexture({ innerColor: '#fff4d8', outerColor: '#ffb347' }),
+                color: 0xffd27a,
+                size: 0.22,
+                transparent: true,
+                opacity: 0.9,
+                depthWrite: false,
+                blending: THREE.AdditiveBlending,
+                sizeAttenuation: true,
+            });
+            this.previewPoints = new THREE.Points(geo, mat);
+            this.previewPoints.frustumCulled = false;
+            this.previewPoints.renderOrder = 998;
+            this.scene.add(this.previewPoints);
+        }
+        if (!this.previewRing) {
+            this.previewRing = new THREE.Mesh(
+                new THREE.RingGeometry(0.25, 0.34, 20),
+                new THREE.MeshBasicMaterial({ color: 0xffd27a, transparent: true, opacity: 0.8, side: THREE.DoubleSide, depthWrite: false }),
+            );
+            this.previewRing.rotation.x = -Math.PI / 2;
+            this.previewRing.renderOrder = 998;
+            this.scene.add(this.previewRing);
+        }
+    }
+
+    private updatePreview(): void {
+        this.ensurePreview();
+        const force = this.chargeBaseForce + (this.chargeMaxForce - this.chargeBaseForce) * this.chargeLevel;
+        const { origin, velocity } = this.computeLaunch(force);
+        const g = this.physics.gravity; // negativ
+        const dtP = 0.07;
+        let count = 0;
+        let prev = origin.clone();
+        let landing: THREE.Vector3 | null = null;
+        for (let i = 0; i < PREVIEW_STEPS; i++) {
+            const t = i * dtP;
+            const cur = new THREE.Vector3(
+                origin.x + velocity.x * t,
+                origin.y + velocity.y * t + 0.5 * g * t * t,
+                origin.z + velocity.z * t,
+            );
+            const seg = cur.clone().sub(prev);
+            const segLen = seg.length();
+            if (i > 0 && segLen > 1e-4) {
+                const hit = this.physics.raycast(prev, seg.divideScalar(segLen), segLen);
+                if (hit.hit) {
+                    this.previewPositions[count * 3] = hit.point.x;
+                    this.previewPositions[count * 3 + 1] = hit.point.y;
+                    this.previewPositions[count * 3 + 2] = hit.point.z;
+                    count++;
+                    landing = hit.point.clone();
+                    break;
+                }
+            }
+            this.previewPositions[count * 3] = cur.x;
+            this.previewPositions[count * 3 + 1] = cur.y;
+            this.previewPositions[count * 3 + 2] = cur.z;
+            count++;
+            prev = cur;
+        }
+        const posAttr = this.previewPoints!.geometry.getAttribute('position') as THREE.BufferAttribute;
+        posAttr.needsUpdate = true;
+        this.previewPoints!.geometry.setDrawRange(0, count);
+        this.previewPoints!.visible = true;
+        if (landing && this.previewRing) {
+            this.previewRing.position.set(landing.x, landing.y + 0.02, landing.z);
+            this.previewRing.visible = true;
+        } else if (this.previewRing) {
+            this.previewRing.visible = false;
+        }
+    }
+
+    private hidePreview(): void {
+        if (this.previewPoints) this.previewPoints.visible = false;
+        if (this.previewRing) this.previewRing.visible = false;
+    }
+
     dispose(): void {
+        if (this.previewPoints) {
+            this.scene.remove(this.previewPoints);
+            this.previewPoints.geometry.dispose();
+            (this.previewPoints.material as THREE.PointsMaterial).map?.dispose();
+            (this.previewPoints.material as THREE.Material).dispose();
+            this.previewPoints = null;
+        }
+        if (this.previewRing) {
+            this.scene.remove(this.previewRing);
+            this.previewRing.geometry.dispose();
+            (this.previewRing.material as THREE.Material).dispose();
+            this.previewRing = null;
+        }
+        this.launcher = null;
         for (const sprite of this.labelSprites.values()) {
             this.scene.remove(sprite);
             (sprite.material as THREE.SpriteMaterial).map?.dispose();

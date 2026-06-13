@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import type { GameEngineRef } from '../../types';
 import type { AddPickupConfig, AddPuzzleSlotConfig, BuildResult, AudioPresetName } from '../types';
 import { createModel, isValidModelPreset, getAudioUrl } from '../presets';
-import { applyShadows, applyTransform, markPhysics } from './_util';
+import { applyShadows, applyTransform, markPhysics, resolveY } from './_util';
 
 function buildModelMesh(model: AddPickupConfig['model']) {
     if (typeof model === 'string') {
@@ -53,7 +53,7 @@ export function addPickup(
     }
 
     const result = buildModelMesh(config.model);
-    applyTransform(result.group, config.pos, config.rot);
+    applyTransform(result.group, resolveY(engine, config.pos), config.rot);
     applyShadows(result.group, true, true);
 
     // Pickup-meshes er dynamic så PhysicsWorld gir dem en body (så de kan plukkes opp).

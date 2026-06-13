@@ -6,6 +6,9 @@ import type { LiveSoundName, LiveSoundOptions, LiveSoundHandle } from './systems
 import type { CrowdAreaSpec, CrowdPathSpec, AddCrowdOptions } from './systems/CrowdSystem';
 import type { AudioHandle } from './systems/AudioSystem';
 import type { SkyOptions } from './systems/SkySystem';
+import type { TerrainSystem } from './systems/TerrainSystem';
+import type { ProjectileSpawnOptions, ProjectileTargetRecord } from './systems/ProjectileSystem';
+import type { LauncherSlot } from './systems/InteractableSystem';
 
 export type { AudioHandle } from './systems/AudioSystem';
 export type { SkyOptions } from './systems/SkySystem';
@@ -57,6 +60,14 @@ export interface PickupOptions {
     // mesh + fysikk-body umiddelbart. onPickup kalles ETTER addItem (bra for å
     // fjerne ekstra visuelle effekter eller sette flagg). onDrop/onThrow ignoreres.
     toInventory?: { itemId: string; count?: number };
+    // Fase 8: lad-og-kast. Når satt blir F en "hold for å lade"-handling: hold F for å
+    // bygge opp kast-kraft (med bue-preview), slipp for å kaste med lerp(throwForce,
+    // maxForce, ladning). Uten feltet beholdes dagens umiddelbare F-kast.
+    charge?: {
+        maxForce?: number;      // kraft ved full ladning. Default 16.
+        chargeTimeMs?: number;  // tid til full ladning i ms. Default 900.
+        preview?: boolean;      // vis ballistisk bue-preview. Default true.
+    };
 }
 
 export type Emotion = 'glad' | 'worried' | 'surprised' | 'triumphant';
@@ -105,7 +116,8 @@ export interface CinematicShot {
     fov?: number;
     // 'cut' = kameraet teleporterer umiddelbart (standard).
     // 'fade' = fade til sort, bytt posisjon, fade inn igjen.
-    transition?: 'cut' | 'fade';
+    // 'glide' = lerp (easeInOut) fra forrige shot til dette (Fase 8).
+    transition?: 'cut' | 'fade' | 'glide';
 }
 
 export interface PuzzleOption {
@@ -288,7 +300,9 @@ export interface NpcBehaviorConfig {
 // 'title' = fade + stor title/subtitle på skjermen før spilleren får kontroll.
 // 'none' = ingen intro (spilleren starter umiddelbart).
 export interface IntroConfig {
-    type: 'fade' | 'title' | 'none';
+    // 'zone' (Fase 8): som 'title', men rendret som sonetittel-overlay (serif, stor
+    // tracking) i stedet for det fullskjerms intro-kortet.
+    type: 'fade' | 'title' | 'none' | 'zone';
     title?: string;
     subtitle?: string;
     durationMs?: number;       // hvor lenge holdes tittelen synlig (default 2500)
@@ -437,6 +451,26 @@ export interface GameEngineRef {
     fadeFromBlack: (durationMs?: number) => Promise<void>;
     // Tier (slik at byggere/setupScene kan velge billig/dyr variant)
     getQualityTier: () => 'low' | 'medium' | 'high';
+    // ── Fase 8 (prosedyralt terreng) ──
+    // Kalles av buildTerrain for å koble terrenget til motoren (height-queries +
+    // heightfield-collider). Spillkode trenger normalt ikke kalle denne direkte.
+    attachTerrain: (system: TerrainSystem) => void;
+    // Terrenghøyde ved (x, z) i meter. 0 hvis ingen terreng. Brukes av 'terrain'-
+    // sentinelen i deklarative pos-felt og av samplere for NPC/vegetasjon.
+    getTerrainHeight: (x: number, z: number) => number;
+    hasTerrain: () => boolean;
+    // Fase 8: vis en stor sonetittel (sted/kapittel) med CSS-fade. Brukes av
+    // addZoneTitle-kit-en og kan kalles direkte ved fase-skifter.
+    showZoneTitle: (title: string, opts?: { subtitle?: string; durationMs?: number }) => void;
+    // Fase 8: skyt et lett prosjektil (analytisk bane + raycast, ikke Rapier-body).
+    spawnProjectile: (opts: ProjectileSpawnOptions) => void;
+    // Registrer/fjern et prosjektil-mål (blink). Brukes av addTarget-builderen.
+    addProjectileTarget: (record: ProjectileTargetRecord) => void;
+    removeProjectileTarget: (id: string) => void;
+    // Utrust/fjern en launcher (spyd/bue/slynge). Hold F = lad, slipp = skyt.
+    equipLauncher: (slot: LauncherSlot) => void;
+    unequipLauncher: () => void;
+    getLauncherAmmo: () => number | null;
     // Station puzzle: kall med de valgte item-IDene i rekkefylgen spilleren plasserte dem.
     handleStationSubmit: (selectedItemIds: string[]) => void;
     // Hopper over intro-fasen (Fase 5). No-op hvis intro ikke er aktiv.
@@ -604,6 +638,10 @@ export interface GameConfig {
     };
     // Cinematic-sekvens som spilles automatisk etter intro (for "innled-shot" i spillet).
     openingCinematic?: CinematicShot[];
+    // Fase 8: etter siste openingCinematic-shot glir kameraet mykt (easeInOut) inn i
+    // spillerens orbit-kamera over `glideToPlayerMs` ms, i stedet for å kutte. SKIP
+    // kutter rent. Krever openingCinematic.
+    openingCinematicEnd?: { glideToPlayerMs: number };
     // Pre-registrerte aktivitets-definisjoner. Kan ogsa opprettes inline i openActivity.
     activities?: ActivityDef[];
     // Stealth-deteksjonssystem. Bak if(config.detection) — null kostnad nar ubrukt.
@@ -715,4 +753,12 @@ export interface GameUIState {
     // ── Fase 5 ──
     intro?: { active: boolean; title?: string; subtitle?: string; skippable: boolean } | null;
     qualityTier?: 'low' | 'medium' | 'high';
+    // ── Fase 8 ──
+    // Sonetittel (sted/kapittel). null = ingen synlig. `key` bumpes hver gang en ny
+    // tittel vises så overlayet kan restarte fade-animasjonen selv ved samme tekst.
+    zoneTitle?: { title: string; subtitle?: string; key: number; durationMs: number } | null;
+    // Ladnings-nivå 0..1 mens spilleren holder F (lad-og-kast). null = lader ikke.
+    throwCharge?: number | null;
+    // Gjenværende ammunisjon for utrustet launcher (spyd/bue/slynge). null = ingen.
+    launcherAmmo?: number | null;
 }

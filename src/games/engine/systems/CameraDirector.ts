@@ -42,6 +42,16 @@ export class CameraDirector {
 
     private fadeCallback: FadeCallback | null = null;
     private cinematicOverride: CinematicOverride | null = null;
+    // Fase 8: aktiv glide-interpolasjon (easeInOut) av cinematicOverride mellom to
+    // transformer. Drives av update(dt). resolve kalles når glide-en er ferdig
+    // (eller avbrutt av dispose) så playCinematic kan fortsette.
+    private glide: {
+        from: CinematicOverride;
+        to: CinematicOverride;
+        elapsed: number;
+        duration: number; // sekunder
+        resolve: () => void;
+    } | null = null;
 
     setFadeCallback(cb: FadeCallback): void {
         this.fadeCallback = cb;
@@ -96,6 +106,30 @@ export class CameraDirector {
     }
 
     update(dt: number): void {
+        // Fase 8: glide-interpolasjon kjøres FØR dialog-early-return (uavhengig av dialog).
+        if (this.glide) {
+            const g = this.glide;
+            g.elapsed += dt;
+            const raw = g.duration > 0 ? Math.min(1, g.elapsed / g.duration) : 1;
+            // easeInOut (smoothstep-aktig kubisk)
+            const t = raw < 0.5 ? 4 * raw * raw * raw : 1 - Math.pow(-2 * raw + 2, 3) / 2;
+            if (!this.cinematicOverride) {
+                this.cinematicOverride = {
+                    cameraPos: new THREE.Vector3(),
+                    lookAt: new THREE.Vector3(),
+                    fov: g.from.fov,
+                };
+            }
+            this.cinematicOverride.cameraPos.lerpVectors(g.from.cameraPos, g.to.cameraPos, t);
+            this.cinematicOverride.lookAt.lerpVectors(g.from.lookAt, g.to.lookAt, t);
+            this.cinematicOverride.fov = g.from.fov + (g.to.fov - g.from.fov) * t;
+            if (raw >= 1) {
+                const done = g.resolve;
+                this.glide = null;
+                done();
+            }
+        }
+
         if (!this.isDialogActive && this.springPos < 0.001 && this.springVel < 0.001) return;
 
         const targetPos = this.isDialogActive ? 1.0 : 0.0;
@@ -175,28 +209,63 @@ export class CameraDirector {
         await this.fadeCallback(false, durationMs);
     }
 
-    async playCinematic(shots: CinematicShot[]): Promise<void> {
+    // endGlide (Fase 8): etter siste shot glir kameraet mykt inn i `target` (typisk
+    // spillerens orbit-ideal) over durationMs, i stedet for å kutte. Overriden nulles
+    // først når glide-en er ferdig.
+    async playCinematic(
+        shots: CinematicShot[],
+        endGlide?: { target: { cameraPos: THREE.Vector3; lookAt: THREE.Vector3; fov: number }; durationMs: number },
+    ): Promise<void> {
         if (shots.length === 0) return;
 
+        let prev: CinematicOverride | null = this.cinematicOverride;
         for (const shot of shots) {
-            if (shot.transition === 'fade') {
-                await this.fadeToBlack(300);
-            }
-
-            this.cinematicOverride = {
+            const target: CinematicOverride = {
                 cameraPos: new THREE.Vector3(...shot.cameraPos),
                 lookAt: new THREE.Vector3(...shot.lookAt),
                 fov: shot.fov ?? 60,
             };
 
-            if (shot.transition === 'fade') {
-                await this.fadeFromBlack(400);
+            if (shot.transition === 'glide' && prev) {
+                // Lerp fra forrige shot inn i dette over hele shot-varigheten.
+                await this.runGlide(prev, target, shot.duration * 1000);
+            } else {
+                if (shot.transition === 'fade') await this.fadeToBlack(300);
+                this.cinematicOverride = target;
+                if (shot.transition === 'fade') await this.fadeFromBlack(400);
+                await new Promise<void>((resolve) => setTimeout(resolve, shot.duration * 1000));
             }
+            prev = target;
+        }
 
-            await new Promise<void>((resolve) => setTimeout(resolve, shot.duration * 1000));
+        if (endGlide && prev) {
+            await this.runGlide(prev, {
+                cameraPos: endGlide.target.cameraPos.clone(),
+                lookAt: endGlide.target.lookAt.clone(),
+                fov: endGlide.target.fov,
+            }, endGlide.durationMs);
         }
 
         this.cinematicOverride = null;
+        this.glide = null;
+    }
+
+    private runGlide(from: CinematicOverride, to: CinematicOverride, durationMs: number): Promise<void> {
+        // Avbryt en eventuell pågående glide rent.
+        this.glide?.resolve();
+        return new Promise<void>((resolve) => {
+            this.glide = {
+                from: {
+                    cameraPos: from.cameraPos.clone(),
+                    lookAt: from.lookAt.clone(),
+                    fov: from.fov,
+                },
+                to,
+                elapsed: 0,
+                duration: durationMs / 1000,
+                resolve,
+            };
+        });
     }
 
     getCinematicOverride(): CinematicOverride | null {
@@ -214,6 +283,9 @@ export class CameraDirector {
     dispose(): void {
         this.fadeCallback = null;
         this.cinematicOverride = null;
+        // Resolve en eventuell ventende glide så playCinematic ikke henger ved dispose.
+        this.glide?.resolve();
+        this.glide = null;
     }
 }
 

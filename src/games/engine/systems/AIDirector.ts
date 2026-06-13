@@ -30,6 +30,13 @@ export class AIDirector {
     private targetVec = new THREE.Vector3();
     private deltaVec = new THREE.Vector3();
     private _playerPosScratch = new THREE.Vector3();
+    // Fase 8: terreng-høyde-sampler. Når satt, klemmer routede/reaktive NPC-er ned
+    // til bakken etter horisontal bevegelse (ellers svever de over skråninger).
+    private heightSampler: ((x: number, z: number) => number) | null = null;
+
+    setHeightSampler(fn: ((x: number, z: number) => number) | null): void {
+        this.heightSampler = fn;
+    }
 
     assignBehavior(config: NpcBehaviorConfig): void {
         this.behaviors.set(config.characterId, {
@@ -154,6 +161,18 @@ export class AIDirector {
 
                 char.group.userData._isWalking = true;
                 char.group.userData._walkSpeed = speed;
+            }
+        }
+
+        // Fase 8: snap alle AIDirector-styrte NPC-er til terrenghøyden etter at
+        // x/z er oppdatert. Stasjonære NPC-er (uten rute/behavior) håndteres av
+        // sin-bob-en i GameEngine, som leser samme terreng.
+        if (this.heightSampler) {
+            const sampler = this.heightSampler;
+            const ids = new Set<string>([...this.routes.keys(), ...this.behaviors.keys()]);
+            for (const id of ids) {
+                const char = characters.get(id);
+                if (char) char.group.position.y = sampler(char.group.position.x, char.group.position.z);
             }
         }
     }

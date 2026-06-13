@@ -9,6 +9,7 @@ import { DialogBox } from './DialogBox';
 import { PuzzleUI } from './PuzzleUI';
 import { MonologBox } from './MonologBox';
 import { IntroOverlay } from './IntroRunner';
+import { ZoneTitleOverlay } from './ZoneTitleOverlay';
 import { SettingsMenu } from './SettingsMenu';
 import { DebugHud } from './DebugHud';
 import type { DebugStats } from '../systems/DebugHudSystem';
@@ -228,6 +229,8 @@ export function GameCanvas({ config }: GameCanvasProps) {
                     toast={toast}
                     debug={uiState.debug}
                     qualityTier={uiState.qualityTier}
+                    throwCharge={uiState.throwCharge}
+                    launcherAmmo={uiState.launcherAmmo}
                 />
             )}
 
@@ -238,6 +241,16 @@ export function GameCanvas({ config }: GameCanvasProps) {
                     subtitle={uiState.intro.subtitle}
                     skippable={uiState.intro.skippable}
                     onSkip={handleSkipIntro}
+                />
+            )}
+
+            {/* Sonetittel-overlay (Fase 8) - keyet så fade restarter per ny tittel */}
+            {uiState.started && !uiState.ended && uiState.zoneTitle && (
+                <ZoneTitleOverlay
+                    key={uiState.zoneTitle.key}
+                    title={uiState.zoneTitle.title}
+                    subtitle={uiState.zoneTitle.subtitle}
+                    durationMs={uiState.zoneTitle.durationMs}
                 />
             )}
 

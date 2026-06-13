@@ -1,7 +1,7 @@
 import type { GameEngineRef } from '../../types';
 import type { AddAmbientAudioConfig, AddParticleConfig, BuildResult } from '../types';
 import { getAudioUrl, isValidAudioPreset, createParticle } from '../presets';
-import { applyTransform } from './_util';
+import { applyTransform, resolveY } from './_util';
 
 /**
  * Legg til ambient bakgrunnslyd. Hvis audio-preset ikke har registrert URL,
@@ -61,7 +61,7 @@ export function addParticle(
     config: AddParticleConfig
 ): BuildResult {
     const result = createParticle(config.preset, config.scale ?? 1);
-    applyTransform(result.group, config.pos);
+    applyTransform(result.group, resolveY(engine, config.pos));
     result.group.userData.declarativeId = config.id;
     engine.scene.add(result.group);
     engine.registerUpdate(result.update);

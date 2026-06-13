@@ -1,6 +1,15 @@
 import * as THREE from 'three';
 import type { SolidUserData } from '../../systems/PhysicsWorld';
-import type { Vec3, Euler3 } from '../types';
+import type { GameEngineRef } from '../../types';
+import type { Vec3, Euler3, TVec3 } from '../types';
+
+/** Fase 8: gjør om en TVec3 til en numerisk Vec3 ved å bytte 'terrain'-sentinelen
+ *  mot engine.getTerrainHeight(x, z) (+ valgfri yOffset). En ren tall-Y går rett
+ *  gjennom. Kall denne i builders FØR applyTransform når pos-feltet er en TVec3. */
+export function resolveY(engine: GameEngineRef, pos: TVec3, yOffset = 0): Vec3 {
+    const y = pos[1] === 'terrain' ? engine.getTerrainHeight(pos[0], pos[2]) + yOffset : pos[1];
+    return [pos[0], y, pos[2]];
+}
 
 /** Sett shadow-flagg rekursivt. Default: cast=true, receive=true. */
 export function applyShadows(

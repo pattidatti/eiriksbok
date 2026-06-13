@@ -1,8 +1,38 @@
 # Motor-Update: Fullstendig Plan for Oppgradering av GameEngine
 
-**Status**: Fase 1-6 ferdig og bygger rent (2026-04-23). Fase 7 (crowd/lyd/sekvens) ferdig 2026-06-10.
+**Status**: Fase 1-6 ferdig og bygger rent (2026-04-23). Fase 7 (crowd/lyd/sekvens) ferdig 2026-06-10. Fase 8 (terreng/kits/interaksjonsverb) motordel ferdig 2026-06-13.
 **Opprettet**: 2026-04-22
 **Mål**: Løfte motoren fra "funksjonell showroom" til "produksjonsklar mini-spillmotor" som kan bære ekte narrative spill.
+
+---
+
+## Leveranse Fase 8 (2026-06-13) - Terreng, eleganse-kits, interaksjonsverb
+
+Motor-delen av Fase 8. Demo-world-showcasen og Stiklestad-1030-spillet er **utsatt**, ikke
+levert i denne runden - motoren er bygget og verifisert, men ennå ikke tatt i bruk av et spill.
+Filosofi som før: opt-in, null breaking changes, tier-gating (Chromebook 1366x768 baseline).
+
+| Oppgave | Status | Filer |
+|---|---|---|
+| A. Prosedyralt terreng | ✅ | `systems/TerrainSystem.ts` (seeded noise + features + vertex-farger + bilineær `getHeight`), `systems/PhysicsWorld.ts` (`addHeightfield`), `declarative/builders/terrain.ts` (`buildTerrain`), `GameEngine.ts`/`types.ts` (`getTerrainHeight`/`hasTerrain`/`attachTerrain`) |
+| A. Terreng-plassering + skrånings-følging | ✅ | `'terrain'`-sentinel + `resolveY` (`declarative/builders/_util.ts`), `AddCrowdConfig.snapToTerrain` + `CrowdSystem.heightSampler`, `AIDirector.setHeightSampler`, `VegetationSystem.setHeightSampler`, NPC sin-bob terreng-base |
+| B. Eleganse-kits | ✅ | `declarative/builders/kits.ts`: `addCampfire`, `addWavingFlag`, `addZoneTitle` (+ `addGlowSprite` fra Fase 8a), `GamePalette`-konvensjon |
+| B. Sonetitler + cinematic-glide | ✅ | `components/ZoneTitleOverlay.tsx` (ny), `showZoneTitle`/`GameUIState.zoneTitle`, `IntroConfig.type 'zone'`, `CinematicShot.transition 'glide'` + `openingCinematicEnd` (`CameraDirector.ts`) |
+| C. Interaksjonsverb | ✅ | `systems/ProjectileSystem.ts` (ny), `InteractableSystem.ts` (charge-throw + bue-preview + launcher), `declarative/builders/targets.ts` (`addTarget`), `kits.ts` (`addLauncher`), HUD-meter + ammo |
+
+**Nye public API-er:**
+- `buildTerrain(engine, {id, size, segments?, noise?, features?, paint?, palette?, ...})` — ett vertex-farget terreng-mesh + Rapier-heightfield + height-queries. Boundary-vegger + lighting-preset på kjøpet.
+- `engine.getTerrainHeight(x, z)` / `engine.hasTerrain()` — terrenghøyde for plassering/sampling.
+- `'terrain'`-sentinel i pos-felt: `addProp({ pos: [x, 'terrain', z] })` snapper til bakken (AddProp/AddPickup/AddNPC/AddInteractable/AddParticle/AddGlowSprite). `AddCrowdConfig.snapToTerrain`.
+- `addCampfire`, `addWavingFlag`, `addZoneTitle` (kits) — konsoliderer mønstre spillene før håndrullet. All animasjon (flicker/vaiing/fade) kjøres internt; spill-loopen forblir ren.
+- `engine.showZoneTitle(title, {subtitle?, durationMs?})` + `IntroConfig.type: 'zone'`.
+- `CinematicShot.transition: 'glide'` (lerp mellom shots) + `GameConfig.openingCinematicEnd: { glideToPlayerMs }` (myk glid inn i spillerkontroll).
+- `engine.spawnProjectile({from, velocity, gravity?, visual, onHit?})` — analytiske prosjektiler (raycast per steg, ikke Rapier-bodies; pool 32 per visual).
+- `PickupOptions.charge` — hold F = lad, slipp = kast med bue-preview. `addTarget` (blink m/ flash/knock/shatter) + `addLauncher` (spyd/bue/slynge). Ett kast-verb for alt.
+
+**Verifisering**: Rapier-heightfield-orienteringen ble verifisert empirisk med en engangs-raycast-harness mot `getHeight` (kolonne-major-pakking er riktig; rad-major ga transponert resultat). `npx tsc -b`, `npx eslint src/games/engine` og `npx vite build` er grønne. Full in-scene-spillverifisering av terreng/kits/prosjektiler defereres til Stiklestad-spillet (ingen motor-spill bruker API-ene ennå).
+
+**Kjente begrensninger**: heightfield-collideren støtter ikke overheng/grotter (bruk props for det). march-crowds på terreng følger bakken stykkevis-lineært - fortett path-punktene over kuperte rygger. `addTarget`-knock/shatter er visuelle (ikke fysikk-bodies). `addLauncher` viser ikke et våpen i hånden (kun stativet + prosjektilet) - kosmetikk overlatt til konsument-spillet.
 
 ---
 

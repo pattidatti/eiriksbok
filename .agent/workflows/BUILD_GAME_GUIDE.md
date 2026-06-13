@@ -341,6 +341,111 @@ Sekvenser kanselleres automatisk ved dispose. Se `engine/utils/SequenceRunner.ts
 
 ---
 
+### 3.14 `buildTerrain(engine, config)` - prosedyralt terreng (Fase 8)
+
+Erstatter den flate bakke-boksen med ekte, kupert terreng: ett vertex-farget mesh +
+Rapier-heightfield + height-queries. Kall den FØR du plasserer noe på bakken.
+
+```ts
+buildTerrain(engine, {
+    id: 'stiklestad-terreng',
+    size: 180,                 // kvadratisk side i meter
+    seed: 7,
+    noise: { amplitude: 3, frequency: 0.02, octaves: 3 },
+    features: [
+        { type: 'flatten', center: [0, 60], radius: 22 },   // leir-platting
+        { type: 'plateau', center: [0, 0], radius: 30, height: 7 }, // utsiktsrygg
+        { type: 'rim', innerRadius: 70, height: 25 },        // fjellring i horisonten
+    ],
+    paint: [{ center: [0, 30], radius: 8, color: 0x6a5a3a }], // tråkket sti
+    palette: { grass: 0x6b8a4a, rock: 0x6a6470 },
+    lights: 'outdoor-dusk',
+});
+```
+
+**`'terrain'`-sentinel**: i pos-felt kan Y-en være strengen `'terrain'` i stedet for et
+tall - da snappes objektet til bakkehøyden. Virker på `addProp`, `addPickup`, `addNPC`,
+`addInteractable`, `addParticle`, `addGlowSprite`:
+
+```ts
+addProp(engine, { id: 'stein', model: 'crate', pos: [12, 'terrain', -4] });
+```
+
+Crowds: sett `snapToTerrain: true` på `addCrowd` (static sampler høyden per figur; march
+løfter path-punktene - fortett punktene over kuperte rygger). NPC-ruter, vegetasjon og
+gress følger bakken automatisk når et terreng finnes.
+
+**Krav/fallgruver:**
+- `player.startPosition.y` MÅ ligge OVER terrenget der spilleren spawner (ellers havner
+  kapselen inne i bakken). Bruk `getTerrainHeight` mentalt: leiren ligger på `flatten`-høyden.
+- Heightfield-collideren støtter ikke overheng/grotter - bruk props for det.
+- Bratte flater (normal.y < `slopeRockThreshold`, default 0.75 ≈ 41°) males som stein.
+  Character-controllerens maks-helning er 45°, så veldig bratte rygger blir uframkommelige.
+- `engine.getTerrainHeight(x, z)` gir bakkehøyden i runtime (f.eks. for å plassere effekter).
+
+### 3.15 Kits - bål, faner, sonetitler (Fase 8)
+
+Ferdigmonterte visuelle byggesteiner som konsoliderer mønstre spillene før håndrullet hver
+for seg. **All animasjon (flicker, vaiing, fade) kjøres internt i kit-en** - legg ALDRI
+sinus-animasjon av bål/faner i spillets egen update-loop (gammel duplisert jank, se §8.17).
+
+```ts
+addCampfire(engine, { id: 'leirbaal', pos: [0, 'terrain', 58], scale: 1.1, audio: true });
+addWavingFlag(engine, { id: 'olavsfane', pos: [-3, 'terrain', 56], colors: { top: 0x7a1f1f, bottom: 0xc23b22 } });
+addGlowSprite(engine, { id: 'fakkel-glow', pos: [4, 1.6, 50], color: 0xffa64d, pulse: { amount: 0.1, speed: 3 } });
+
+// Sonetittel når spilleren går inn i et område (som MonologTrigger, men for stedsnavn):
+addZoneTitle(engine, { id: 'sone-rygg', area: { minX: -20, maxX: 20, minZ: -10, maxZ: 10 }, title: 'Ryggen', subtitle: '29. juli 1030' });
+```
+
+- `addCampfire` returnerer `setLit(boolean)` for å tenne/slukke. Bruker ett flickrende
+  PointLight (animert av motoren) + glød-sprite + valgfri røyk og knitre-lyd.
+- `engine.showZoneTitle(title, { subtitle?, durationMs? })` kan også kalles direkte ved
+  fase-skifter. `IntroConfig.type: 'zone'` gir en sonetittel-intro i stedet for intro-kortet.
+
+**Cinematic-glide** (Fase 8): `CinematicShot.transition: 'glide'` lerper mykt fra forrige
+shot. `GameConfig.openingCinematicEnd: { glideToPlayerMs }` lar åpnings-cinematicen gli inn
+i spillerkontroll i stedet for å kutte:
+
+```ts
+openingCinematic: [
+    { duration: 3, cameraPos: [20, 14, 40], lookAt: [0, 2, 0], fov: 55 },
+    { duration: 2.5, cameraPos: [4, 2, 8], lookAt: [0, 1.6, 0], transition: 'glide' },
+],
+openingCinematicEnd: { glideToPlayerMs: 1400 },
+```
+
+### 3.16 Interaksjonsverb - lad-og-kast, prosjektiler, mål (Fase 8)
+
+Ett kast-verb for alt: **E = ta/bruk, hold F = lad, slipp F = kast/skyt.** Ingen ny tast.
+
+```ts
+// 1) Kastbar stein (charge-throw): hold F for å lade, slipp for å kaste med bue-preview.
+addPickup(engine, {
+    id: 'kaste-stein', itemId: 'stein', model: 'sphere', pos: [3, 'terrain', 2],
+});
+engine.registerPickup(mesh, { throwForce: 8, charge: { maxForce: 16, chargeTimeMs: 900 } });
+
+// 2) Blink (mål) med reaksjon ved treff:
+addTarget(engine, { id: 'blink-1', pos: [0, 'terrain', -18], reactions: ['knock'], resetAfterMs: 2500, onHit: () => engine.setFlag('traff', true) });
+
+// 3) Våpenstativ: E = utrust spyd, deretter hold F = lad, slipp = skyt prosjektil mot blinken.
+addLauncher(engine, { id: 'spyd-stativ', kind: 'spear', pos: [6, 'terrain', 0], ammo: 5, onHitTarget: () => engine.setFlag('traff', true) });
+
+// 4) Manuelt prosjektil (analytisk bane, ikke Rapier-body):
+engine.spawnProjectile({ from, velocity, visual: 'arrow', onHit: (hit) => { if (hit.target) score++; } });
+```
+
+- Charge-previewen viser en ballistisk bue (samme gravitasjon som Rapier) + landingsring,
+  så det spilleren ser er det faktiske treffpunktet. HUD viser ladnings-meter + ammo.
+- `addTarget`-reaksjoner: `flash` (emissiv puls), `knock` (veltes), `shatter` (fragmenter, 2s).
+  Disse er visuelle - målet er en proximity-sone, ikke en fysikk-body.
+- Prosjektiler er pool-et (32 per visual) og bruker raycast per steg (deterministisk treff,
+  ingen body-churn). Vanlige holdte-objekt-kast spores også mot mål.
+- Lading kanselleres automatisk ved dialog/cinematic/pause/ikke-fri modus.
+
+---
+
 ## 4. Preset-katalog
 
 ### 4.1 Material-presets
@@ -536,6 +641,29 @@ condition: { flagsRequired: [FLAGS.ENGINE_BUILT] }   // ✓
 // Mast 15m + tre emissive kjegler i stigende opacity + PointLight int 180.
 // Lagt inn pulserende animasjon via registerUpdate for liv.
 ```
+
+---
+
+## 6.2 Art direction (Fase 8)
+
+Et spill ser «elegant» ut når fargene er disiplinerte og scenen er komponert - ikke når
+det er mange lys. Følg disse prinsippene:
+
+- **Én palett per spill.** Samle scene-objektfargene i en `Palette.ts`:
+  `export const PALETTE = { gold: 0xd4a017, blood: 0x7a1f1f, iron: 0x4c4654, ... } satisfies GamePalette`.
+  Bruk PALETTE-konstantene overalt i stedet for løse hex-tall. Det gir et sammenhengende
+  fargespråk og gjør det trivielt å justere stemningen. **INGEN LUT/color-grading** - alle
+  spill deler den globale looken; paletten styrer kun objektfarger.
+- **Silhuetter mot en fog-matchet himmel.** Sett `visual.skyOptions` (turbidity/rayleigh) så
+  himmelen matcher tåkefargen. Fjerne figurer/fjell blir da rene silhuetter - billig dybde.
+  Solnedgang: `timeOfDay: 0.7+` + `skyOptions: { turbidity: 12, rayleigh: 3.5 }`.
+- **Glød via sprites, ikke mange PointLights.** Bruk `addGlowSprite`/`addCampfire` for bål,
+  fakler, vinduer og magi. Hvert ekstra PointLight koster på lav tier; en additiv sprite er
+  nesten gratis. Reserver PointLights til de få lyskildene som faktisk må kaste lys.
+- **Fog som komposisjonsverktøy.** Tåke skjuler kartkanten, gjør crowds «uendelige» og
+  fokuserer blikket. La kolonner/fjell forsvinne inn i tåka i stedet for å ende brått.
+- **flatShading + vertex-farger** (terreng) gir en bevisst fasettert, illustrativ look som
+  er billigere enn texturer og matcher motorens øvrige stil.
 
 ---
 
@@ -802,6 +930,28 @@ onEnd: () => {
 ```
 
 Hvis NPC-en ikke trenger å bevege seg: endre dialog-teksten til "Gå inn" / "Jeg venter her" i stedet for "Følg meg".
+
+### 8.17 Håndrullet flicker/vaiing i spillets update-loop (Fase 8)
+
+Eldre spill duplikerte samme bål-flicker og fane-vaiing i sin egen `registerUpdate`:
+
+```ts
+// FEIL: sinus-animasjon av bål/fane i spill-koden (duplisert i 3+ spill, lett å få ut av synk)
+engine.registerUpdate((_dt, t) => {
+    fireLight.intensity = 18 + Math.sin(t * 13) * 4;
+    banner.material.uniforms.uTime.value = t;
+});
+```
+
+**Riktig:** bruk kit-ene - de eier animasjonen internt:
+
+```ts
+addCampfire(engine, { id: 'baal', pos: [0, 'terrain', 0] });   // flicker bor i motoren
+addWavingFlag(engine, { id: 'fane', pos: [-3, 'terrain', 0] }); // vaiing bor i kit-en
+```
+
+Regelen: flicker/vaiing/puls hører hjemme i motoren (`registerAnimatedLight`, kits), ALDRI i
+spillets update-loop. Da kan de ikke komme ut av synk og spill-koden forblir deklarativ.
 
 ---
 

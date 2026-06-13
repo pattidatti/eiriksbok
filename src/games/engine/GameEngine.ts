@@ -50,7 +50,9 @@ import { QuestSystem } from './systems/QuestSystem';
 import { InventorySystem } from './systems/InventorySystem';
 import { runValidation } from './systems/ConfigValidator';
 import type { PhysicsWorld, CharacterControllerHandle } from './systems/PhysicsWorld';
-import type { InteractableSystem } from './systems/InteractableSystem';
+import type { TerrainSystem } from './systems/TerrainSystem';
+import type { InteractableSystem, LauncherSlot } from './systems/InteractableSystem';
+import type { ProjectileSystem } from './systems/ProjectileSystem';
 import { getGameSettings, subscribeGameSettings } from './settings/gameSettings';
 import { disposeSceneDeep } from './utils/sceneDispose';
 import { runSequence, type SequenceHandle, type SequenceStep } from './utils/SequenceRunner';
@@ -217,7 +219,11 @@ export class GameEngine {
     private physics: PhysicsWorld | null = null;
     private playerCC: CharacterControllerHandle | null = null;
     private interactables: InteractableSystem | null = null;
+    private projectileSystem: ProjectileSystem | null = null;
     private physicsReady: Promise<void> | null = null;
+    // Fase 8: prosedyralt terreng. Settes av buildTerrain via attachTerrain (i setupScene,
+    // før fysikk er klar). initPhysics registrerer heightfield-collideren etterpå.
+    private terrain: TerrainSystem | null = null;
     // Fase 5.1: GLTF-assets pre-lastet før startGame (opt-in via config.assets)
     private assetLoader: AssetLoader | null = null;
     private assetsReady: Promise<void> | null = null;
@@ -652,9 +658,23 @@ export class GameEngine {
         };
     }
 
+    // Oppretter VegetationSystem ved behov og kobler terreng-sampleren hvis et
+    // terreng allerede er attached (Fase 8) - så gress-scatter legger seg på bakken.
+    private ensureVegetationSystem(): VegetationSystem {
+        if (!this.vegetationSystem) {
+            this.vegetationSystem = new VegetationSystem(this.scene, this.qualityTier);
+            if (this.terrain) {
+                const t = this.terrain;
+                this.vegetationSystem.setHeightSampler((x, z) => t.getHeight(x, z));
+            }
+        }
+        return this.vegetationSystem;
+    }
+
     private async initPhysics(): Promise<void> {
         const { PhysicsWorld } = await import('./systems/PhysicsWorld');
         const { InteractableSystem } = await import('./systems/InteractableSystem');
+        const { ProjectileSystem } = await import('./systems/ProjectileSystem');
         if (this.disposed) return;
         const gravity = this.config.physics?.gravity ?? -18;
         this.physics = await PhysicsWorld.create(gravity);
@@ -665,6 +685,13 @@ export class GameEngine {
         }
         // Registrer alle userData.solid-meshes i scenen
         this.physics.addStaticFromScene(this.scene);
+        // Fase 8: hvis et terreng ble attached i setupScene, registrer heightfield-collideren
+        // nå (fysikken var ikke klar synkront). Mesh-en ligger allerede i scenen.
+        if (this.terrain) {
+            const { heights, rows, cols } = this.terrain.getHeightsColumnMajor();
+            const size = this.terrain.getSize();
+            this.physics.addHeightfield(heights, rows, cols, size, size);
+        }
         // Lag character controller for spilleren, plassert der player-meshen er
         const playerWorld = new THREE.Vector3();
         this.player.group.getWorldPosition(playerWorld);
@@ -685,6 +712,9 @@ export class GameEngine {
         }
         this.interactables = new InteractableSystem(this.physics, this.camera, this.scene);
         this.interactables.setPlayerGroup(this.player.group);
+        // Fase 8: prosjektil-system (lette stein/spyd/pil). Deler scene + fysikk.
+        this.projectileSystem = new ProjectileSystem(this.scene, this.physics);
+        this.interactables.setProjectileSystem(this.projectileSystem);
         for (const p of this.pendingPickups) this.interactables.registerPickup(p.mesh, p.opts);
         this.pendingPickups.length = 0;
         for (const p of this.pendingInteracts) this.interactables.registerInteract(p.mesh, p.opts);
@@ -1062,16 +1092,10 @@ export class GameEngine {
                 this.weatherSystem.setWeather(state);
             },
             addVegetationPatch: (area: AABB2D, density: number, type: VegetationType = 'grass') => {
-                if (!this.vegetationSystem) {
-                    this.vegetationSystem = new VegetationSystem(this.scene, this.qualityTier);
-                }
-                this.vegetationSystem.addPatch(area, density, type);
+                this.ensureVegetationSystem().addPatch(area, density, type);
             },
             addTree: (position: [number, number, number], type: TreeType = 'pine') => {
-                if (!this.vegetationSystem) {
-                    this.vegetationSystem = new VegetationSystem(this.scene, this.qualityTier);
-                }
-                this.vegetationSystem.addTree(position, type);
+                this.ensureVegetationSystem().addTree(position, type);
             },
             addBirdFlock: (center, opts) => {
                 if (!this.faunaSystem) this.faunaSystem = new FaunaSystem(this.scene, this.qualityTier);
@@ -1099,6 +1123,25 @@ export class GameEngine {
             fadeToBlack: (durationMs?: number) => this.cameraDirector.fadeToBlack(durationMs),
             fadeFromBlack: (durationMs?: number) => this.cameraDirector.fadeFromBlack(durationMs),
             getQualityTier: () => this.qualityTier,
+            // Fase 8: terreng. attachTerrain kalles av buildTerrain i setupScene; selve
+            // heightfield-collideren registreres i initPhysics når Rapier er klar.
+            attachTerrain: (system: TerrainSystem) => {
+                this.terrain = system;
+                // Koble terreng-sampler til systemer som flytter ting horisontalt og
+                // ellers ville svevet: routede NPC-er og gress-scatter.
+                const sampler = (x: number, z: number) => system.getHeight(x, z);
+                this.aiDirector.setHeightSampler(sampler);
+                this.vegetationSystem?.setHeightSampler(sampler);
+            },
+            getTerrainHeight: (x: number, z: number) => this.terrain?.getHeight(x, z) ?? 0,
+            hasTerrain: () => this.terrain !== null,
+            showZoneTitle: (title, opts) => this.showZoneTitle(title, opts),
+            spawnProjectile: (opts) => this.projectileSystem?.spawnProjectile(opts),
+            addProjectileTarget: (record) => this.projectileSystem?.registerTarget(record),
+            removeProjectileTarget: (id) => this.projectileSystem?.removeTarget(id),
+            equipLauncher: (slot: LauncherSlot) => this.interactables?.equipLauncher(slot),
+            unequipLauncher: () => this.interactables?.unequipLauncher(),
+            getLauncherAmmo: () => this.interactables?.getLauncherAmmo() ?? null,
             skipIntro: () => this.skipIntro(),
             openActivity: (def: ActivityDef | string) => this.openActivity(def),
             closeActivity: () => this.closeActivity(),
@@ -1283,12 +1326,22 @@ export class GameEngine {
                 this.handleInteract();
             }
 
-            // Kast-tast (F) - kun hvis spilleren holder et objekt
+            // Kast-tast (F). Fase 8: hvis holdt objekt har charge ELLER en launcher er
+            // utrustet, blir F en "hold for å lade"-handling (slipp = kast/skyt). Ellers
+            // beholdes dagens umiddelbare kast av holdt objekt.
             if (e.code === 'KeyF' && !this.dialogActive && !this.introInputBlocked && !this.cinematicInputBlocked) {
-                this.interactables?.tryHandleThrow();
+                if (this.interactables?.canCharge()) {
+                    if (!e.repeat) this.interactables.beginCharge();
+                } else {
+                    this.interactables?.tryHandleThrow();
+                }
             }
         };
-        const onKeyUp = (e: KeyboardEvent) => { this.keys[e.code] = false; };
+        const onKeyUp = (e: KeyboardEvent) => {
+            this.keys[e.code] = false;
+            // Fase 8: slipp F = kast/skyt med oppbygget ladning.
+            if (e.code === 'KeyF') this.interactables?.releaseCharge();
+        };
 
         const onMouseMove = (e: MouseEvent) => {
             if (!this.mouseLocked) return;
@@ -1470,6 +1523,27 @@ export class GameEngine {
         const holdMs = intro.durationMs ?? 2500;
         const skippable = intro.skippable !== false;
 
+        // Fase 8: 'zone'-intro = fade inn + sonetittel-overlay (serif), ikke det
+        // fullskjerms intro-kortet. Blokkerer input mens tittelen holdes.
+        if (intro.type === 'zone') {
+            await this.cameraDirector.fadeToBlack(0);
+            if (this.disposed || !this.introActive) return;
+            await this.cameraDirector.fadeFromBlack(fadeMs);
+            if (this.disposed || !this.introActive) return;
+            if (intro.title) {
+                this.showZoneTitle(intro.title, { subtitle: intro.subtitle, durationMs: holdMs });
+            }
+            await new Promise<void>((resolve) => {
+                this.introTimeout = setTimeout(() => {
+                    this.introTimeout = null;
+                    resolve();
+                }, holdMs);
+            });
+            if (this.disposed || !this.introActive) return;
+            this.endIntro();
+            return;
+        }
+
         // Send intro-state til UI
         this.pushUIState({
             intro: {
@@ -1510,9 +1584,13 @@ export class GameEngine {
         this.introInputBlocked = false;
         this.pushUIState({ intro: null });
 
-        // Spill av eventuell opening cinematic etter intro er ferdig
+        // Spill av eventuell opening cinematic etter intro er ferdig. openingCinematicEnd
+        // (Fase 8) lar kameraet gli mykt inn i spillerkontroll i stedet for å kutte.
         if (this.config.openingCinematic && this.config.openingCinematic.length > 0) {
-            void this.runCinematic(this.config.openingCinematic);
+            void this.runCinematic(
+                this.config.openingCinematic,
+                this.config.openingCinematicEnd?.glideToPlayerMs,
+            );
         }
     }
 
@@ -1564,11 +1642,19 @@ export class GameEngine {
         }
     }
 
-    private async runCinematic(shots: CinematicShot[]): Promise<void> {
+    private async runCinematic(
+        shots: CinematicShot[],
+        endGlideMs?: number,
+    ): Promise<void> {
         if (shots.length === 0 || this.disposed) return;
         this.cinematicInputBlocked = true;
+        // Fase 8: glide-mål = orbit-idealet for nåværende yaw/pitch (spilleren står
+        // stille gjennom cinematicen, så det er trygt å beregne her).
+        const endGlide = endGlideMs
+            ? { target: this.computeOrbitIdealTransform(), durationMs: endGlideMs }
+            : undefined;
         try {
-            await this.cameraDirector.playCinematic(shots);
+            await this.cameraDirector.playCinematic(shots, endGlide);
         } finally {
             if (!this.disposed) {
                 this.cinematicInputBlocked = false;
@@ -2014,6 +2100,12 @@ export class GameEngine {
     // ─── Push state to React ─────────────────────────────────────────────────
 
     private activeIntro: GameUIState['intro'] = null;
+    // Fase 8: sonetittel-overlay. Persisteres på samme måte som intro/dialog.
+    private activeZoneTitle: GameUIState['zoneTitle'] = null;
+    private zoneTitleKey = 0;
+    // Fase 8: ladnings-meter + ammo. Pollet per frame, pushes kun ved endring.
+    private activeThrowCharge: number | null = null;
+    private activeLauncherAmmo: number | null = null;
 
     private pushUIState(override: Partial<GameUIState> = {}): void {
         if (this.isEnded) return;
@@ -2022,6 +2114,9 @@ export class GameEngine {
         if ('puzzle' in override) this.activePuzzle = override.puzzle ?? null;
         if ('activity' in override) this.activeActivity = override.activity ?? null;
         if ('intro' in override) this.activeIntro = override.intro ?? null;
+        if ('zoneTitle' in override) this.activeZoneTitle = override.zoneTitle ?? null;
+        if ('throwCharge' in override) this.activeThrowCharge = override.throwCharge ?? null;
+        if ('launcherAmmo' in override) this.activeLauncherAmmo = override.launcherAmmo ?? null;
 
         const collectibles = this.config.collectibles ?? [];
         const parts = collectibles.map((c) => ({
@@ -2047,9 +2142,28 @@ export class GameEngine {
                 : undefined,
             intro: this.activeIntro,
             qualityTier: this.qualityTier,
+            zoneTitle: this.activeZoneTitle,
+            throwCharge: this.activeThrowCharge,
+            launcherAmmo: this.activeLauncherAmmo,
         };
 
         this.options.onUIUpdate({ ...base, ...override });
+    }
+
+    // Fase 8: vis en sonetittel som fader inn og forsvinner av seg selv.
+    private showZoneTitle(title: string, opts?: { subtitle?: string; durationMs?: number }): void {
+        if (this.disposed) return;
+        this.zoneTitleKey++;
+        const key = this.zoneTitleKey;
+        const durationMs = opts?.durationMs ?? 3200;
+        this.pushUIState({ zoneTitle: { title, subtitle: opts?.subtitle, key, durationMs } });
+        const id = setTimeout(() => {
+            this.scheduledTimeouts.delete(id);
+            if (this.disposed) return;
+            // Bare rydd hvis ingen nyere tittel har overtatt.
+            if (this.zoneTitleKey === key) this.pushUIState({ zoneTitle: null });
+        }, durationMs);
+        this.scheduledTimeouts.add(id);
     }
 
     // ─── Game loop ───────────────────────────────────────────────────────────
@@ -2358,7 +2472,24 @@ export class GameEngine {
             const t = this.playerCC.body.translation();
             this.player.group.position.set(t.x, t.y - this.playerHalfHeight, t.z);
         }
-        this.interactables?.update();
+        this.interactables?.update(dt);
+        this.projectileSystem?.update(dt);
+
+        // Fase 8: avbryt lading rent hvis spilleren mister kontroll (dialog/cinematic/
+        // pause/ikke-fri modus), ellers ville ladningen hengt.
+        if (this.interactables?.isCharging() &&
+            (this.dialogActive || this.cinematicInputBlocked || this.paused || this.playerMode !== 'free')) {
+            this.interactables.cancelCharge();
+        }
+
+        // Fase 8: push ladnings-meter + ammo til HUD kun ved endring.
+        if (this.interactables) {
+            const charge = this.interactables.getCharge();
+            const ammo = this.interactables.getLauncherAmmo();
+            if (charge !== this.activeThrowCharge || ammo !== this.activeLauncherAmmo) {
+                this.pushUIState({ throwCharge: charge, launcherAmmo: ammo });
+            }
+        }
 
         // Rotate player to face movement direction
         if (moveDir.lengthSq() > 0.1) {
@@ -2391,7 +2522,13 @@ export class GameEngine {
             // en base-Y i userData så sin-bob ikke rykker dem ned til gulvet.
             // NPCer med aktiv rute styres av AIDirector og skal ikke få sin-bob (overstyrer posisjon).
             if (!hasRoute) {
-                const bobBase = (char.group.userData.bobBase as number | undefined) ?? 0;
+                // Fase 8: på terreng er base-Y bakkehøyden ved NPC-ens x/z (med mindre
+                // spillet har satt en eksplisitt bobBase, f.eks. mannskap i en båt).
+                const bobBase =
+                    (char.group.userData.bobBase as number | undefined) ??
+                    (this.terrain
+                        ? this.terrain.getHeight(char.group.position.x, char.group.position.z)
+                        : 0);
                 char.group.position.y = bobBase + Math.sin(this.time * 1.5) * 0.03;
 
                 // Roter mot spiller når i nærheten (kun for stasjonære NPCer)
@@ -2676,6 +2813,35 @@ export class GameEngine {
         this.updateCamera(dt);
     }
 
+    // Fase 8: beregn spillerens orbit-ideal-transform (pos/lookAt/fov) for NÅVÆRENDE
+    // yaw/pitch UTEN å committe noe. Brukes som glide-mål for openingCinematicEnd, så
+    // kameraet lander nøyaktig der orbit-kameraet ville stått - ingen snap når
+    // overriden slippes (yaw/pitch er allerede konsistente med målet).
+    private computeOrbitIdealTransform(): { cameraPos: THREE.Vector3; lookAt: THREE.Vector3; fov: number } {
+        const playerWorld = this.player.group.getWorldPosition(new THREE.Vector3());
+        const b = this.indoorBlend;
+        const pivotH = THREE.MathUtils.lerp(1.7, 1.5, b);
+        const pivot = new THREE.Vector3(playerWorld.x, playerWorld.y + pivotH, playerWorld.z);
+        const baseDist = THREE.MathUtils.lerp(4.5, 2.8, b);
+        const minDist = THREE.MathUtils.lerp(3.0, 1.8, b);
+        const maxDist = THREE.MathUtils.lerp(8.0, 4.0, b);
+        const camDist = Math.max(minDist, Math.min(maxDist, baseDist + this.camDistZoom));
+        const cp = Math.cos(this.pitch);
+        const idealPos = new THREE.Vector3(
+            pivot.x - Math.sin(this.yaw) * camDist * cp,
+            pivot.y + Math.sin(this.pitch) * camDist,
+            pivot.z + Math.cos(this.yaw) * camDist * cp,
+        );
+        const forward = new THREE.Vector3().subVectors(pivot, idealPos).normalize();
+        const right = new THREE.Vector3().crossVectors(forward, new THREE.Vector3(0, 1, 0)).normalize();
+        const shoulder = right.multiplyScalar(0.6);
+        idealPos.add(shoulder);
+        const lookTgt = pivot.clone().add(shoulder);
+        idealPos.y = Math.max(0.5, idealPos.y);
+        const clamped = this.clampCameraAgainstWalls(pivot, idealPos);
+        return { cameraPos: clamped.clone(), lookAt: lookTgt, fov: this.camera.fov };
+    }
+
     private updateCamera(dt: number): void {
         // Cinematic override: sett kamera direkte, hopp over orbit-logikken.
         // Nar cinematicen avsluttes lerper camPos/camTarget seg glatt tilbake.
@@ -2874,9 +3040,13 @@ export class GameEngine {
         this.unsubscribeSettings();
         this.interactables?.dispose();
         this.interactables = null;
+        this.projectileSystem?.dispose();
+        this.projectileSystem = null;
         this.physics?.dispose();
         this.physics = null;
         this.playerCC = null;
+        this.terrain?.dispose();
+        this.terrain = null;
         this.weatherSystem?.dispose();
         this.vegetationSystem?.dispose();
         this.crowdSystem?.dispose();

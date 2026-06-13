@@ -8,7 +8,7 @@
 // Bruk: importer funksjonene fra '@/games/engine/declarative' og kall dem fra
 // GameConfig.setupScene med engine-referansen som første argument.
 
-import type { Emotion, DialogNode } from '../types';
+import type { Emotion, DialogNode, AABB2D } from '../types';
 
 // ─── Preset-navn (se presets/*.ts for definisjoner) ──────────────────────────
 
@@ -52,6 +52,12 @@ export type ParticlePresetName =
 
 export type Vec3 = [number, number, number];
 export type Euler3 = [number, number, number];
+
+// Fase 8: terreng-snappende posisjon. Y kan være tallet, eller sentinelen 'terrain'
+// som resolveY() bytter mot engine.getTerrainHeight(x, z). Krever at buildTerrain er
+// kalt; uten terreng blir 'terrain' til 0. Union-utvidelse = bakoverkompatibelt
+// (en ren [number, number, number] er fortsatt en gyldig TVec3).
+export type TVec3 = [number, number | 'terrain', number];
 
 // Rom-vegg. Brukes for dør-plassering.
 export type RoomWall = 'north' | 'south' | 'east' | 'west';
@@ -106,6 +112,28 @@ export interface BuildOutdoorConfig {
     sky?: 'procedural' | 'solid' | 'none';
 }
 
+// ─── buildTerrain (Fase 8) ───────────────────────────────────────────────────
+// Prosedyralt terreng: én vertex-farget mesh + Rapier-heightfield + height-queries.
+// TerrainConfig (size/segments/noise/features/paint/palette ...) defineres i
+// systems/TerrainSystem og re-eksporteres her for deklarativ bruk.
+
+export type {
+    TerrainConfig,
+    TerrainFeature,
+    TerrainPalette,
+    PaintZone,
+} from '../systems/TerrainSystem';
+
+import type { TerrainConfig } from '../systems/TerrainSystem';
+
+export interface BuildTerrainConfig extends TerrainConfig {
+    id: string;
+    // Usynlige kollisjons-vegger langs kartkanten. Default true.
+    boundary?: boolean;
+    // Lighting-preset. Default 'outdoor-day'. Sett 'outdoor-dusk' for kveld.
+    lights?: LightingPresetName;
+}
+
 // ─── addProp ─────────────────────────────────────────────────────────────────
 
 export interface AddPropConfig {
@@ -116,7 +144,7 @@ export interface AddPropConfig {
         size: Vec3 | [number, number]; // box: xyz, cylinder: [radius, height], sphere: [radius]
         color?: number;
     };
-    pos: Vec3;
+    pos: TVec3;
     rot?: Euler3;
     scale?: number | Vec3;
     // Overstyr preset-materialet. Default: modellens innebygde materiale.
@@ -143,7 +171,7 @@ export interface AddPickupConfig {
     // Antall som legges til. Default 1.
     count?: number;
     model: ModelPresetName | AddPropConfig['model'];
-    pos: Vec3;
+    pos: TVec3;
     rot?: Euler3;
     // Flytende tekst over objektet. Default "Plukk opp (E)".
     label?: string;
@@ -177,7 +205,7 @@ export interface AddPuzzleSlotConfig {
 export interface AddInteractableConfig {
     id: string;
     model: ModelPresetName | AddPropConfig['model'];
-    pos: Vec3;
+    pos: TVec3;
     rot?: Euler3;
     // Flytende etikett. Default "Bruk (E)".
     prompt?: string;
@@ -218,7 +246,7 @@ export interface AddNPCConfig {
     name: string;
     // Må være en gyldig CharacterType. Throw ved ugyldig verdi.
     characterType: CharacterTypePresetName;
-    pos: Vec3;
+    pos: TVec3;
     // Default farger: hudlik, enkel klesdrakt basert på characterType.
     colors?: {
         body?: number;
@@ -285,6 +313,10 @@ export interface AddCrowdConfig {
     };
     scaleJitter?: number;
     spacing?: number;
+    // Fase 8: snap figurene til terrenghøyden (krever buildTerrain). static sampler
+    // høyden per figur; march løfter path-punktene til terrenget (fortett punktene
+    // ~8-10 m over rygger - segmentene lerper lineært mellom dem).
+    snapToTerrain?: boolean;
 }
 
 // ─── addAmbientAudio ─────────────────────────────────────────────────────────
@@ -307,7 +339,7 @@ export interface AddAmbientAudioConfig {
 export interface AddParticleConfig {
     id: string;
     preset: ParticlePresetName;
-    pos: Vec3;
+    pos: TVec3;
     // Skala-multiplier. Default 1.
     scale?: number;
 }
@@ -318,7 +350,7 @@ export interface AddParticleConfig {
 
 export interface AddGlowSpriteConfig {
     id: string;
-    pos: Vec3;
+    pos: TVec3;
     // Glødens farge (tint på sprite-materialet).
     color: number;
     // Diameter i meter. Default 1.5.
@@ -327,6 +359,114 @@ export interface AddGlowSpriteConfig {
     intensity?: number;
     // Valgfri puls: størrelsen svinger ±amount (andel av size) med gitt fart.
     pulse?: { amount: number; speed: number };
+}
+
+// ─── addCampfire (kits) ──────────────────────────────────────────────────────
+// Ferdig bål: steinring, krysslagte stokker, glør, flammer, glød-sprite, et
+// flickrende PointLight (animert av motoren - aldri i spill-loopen) og valgfri
+// røyk + knitre-lyd. Returnerer setLit() for å tenne/slukke i runtime.
+
+export interface AddCampfireConfig {
+    id: string;
+    pos: TVec3;
+    // Skala-multiplier på hele bålet. Default 1.
+    scale?: number;
+    // PointLight-styrke når tent. Default 18. Sett 0 for å droppe lyset.
+    light?: number;
+    // Legg til en stigende røyk-partikkel. Default true.
+    smoke?: boolean;
+    // Spill en spatial 'fire-crackle'-loop. Default false.
+    audio?: boolean;
+    // Starter bålet tent? Default true.
+    lit?: boolean;
+}
+
+// ─── addWavingFlag (kits) ────────────────────────────────────────────────────
+// Fane/banner på stang med vaiende vertex-shader (anchor mot stanga). Konsoliderer
+// banner-mønsteret spillene før håndrullet. Animasjonen kjøres internt i kit-en.
+
+export interface AddWavingFlagConfig {
+    id: string;
+    pos: TVec3;
+    // [bredde, høyde] i meter. Default [1.6, 1.0].
+    size?: [number, number];
+    // Toppfarge + bunnfarge for vertikal gradient. Default rød/oransje.
+    colors?: { top: number; bottom: number };
+    // Antall vertikale striper (mørk/lys). Default 4. 0 = ingen striper.
+    stripes?: number;
+    // Tegn en stang langs venstre kant. Default true.
+    pole?: boolean;
+    // Vaie-fart. Default 3.
+    waveSpeed?: number;
+    // Vaie-amplitude (meter). Default 0.12.
+    waveAmount?: number;
+}
+
+// ─── addZoneTitle (kits, Fase 8) ─────────────────────────────────────────────
+// Proximity-trigget sonetittel: når spilleren går inn i `area` vises en stor
+// serif-tittel (CSS-fade) via engine.showZoneTitle. Som MonologTrigger, men for
+// stedsnavn ("Stiklestad - 29. juli 1030").
+
+export interface AddZoneTitleConfig {
+    id: string;
+    // AABB på XZ-planet som utløser tittelen.
+    area: AABB2D;
+    title: string;
+    subtitle?: string;
+    // Vis kun første gang spilleren går inn? Default true.
+    once?: boolean;
+    // Hvor lenge tittelen holdes (ms). Default 3200.
+    durationMs?: number;
+}
+
+// ─── addTarget (Fase 8) ──────────────────────────────────────────────────────
+// Et prosjektil-mål (blink). Treffes av spawnProjectile eller sporede kast. Kjører
+// valgte reaksjoner ved treff. Registreres som proximity-sone i ProjectileSystem.
+
+export interface AddTargetConfig {
+    id: string;
+    pos: TVec3;
+    // Treff-radius i meter. Default 0.55.
+    radius?: number;
+    // Reaksjoner ved treff. Default ['flash'].
+    //  flash   = emissiv puls
+    //  knock   = målet veltes bakover
+    //  shatter = målet sprekker i fragmenter (2s) og forsvinner
+    reactions?: Array<'flash' | 'knock' | 'shatter'>;
+    // Poeng (lagres på record, valgfritt for spillets egen telling).
+    points?: number;
+    // Kalles ved treff.
+    onHit?: () => void;
+    // Gjenoppbygg målet etter så mange ms. Uten dette blir treffet permanent.
+    resetAfterMs?: number;
+}
+
+// ─── addLauncher (Fase 8) ────────────────────────────────────────────────────
+// Et våpenstativ (spyd/bue/slynge). E ved stativet = utrust; deretter hold F = lad,
+// slipp = skyt et prosjektil. Limer C1 (charge) + C2 (ProjectileSystem) sammen.
+
+export interface AddLauncherConfig {
+    id: string;
+    kind: 'spear' | 'bow' | 'sling';
+    pos: TVec3;
+    rot?: Euler3;
+    // Antall skudd. Default 5.
+    ammo?: number;
+    // Maks utgangsfart ved full ladning. Default per kind (spear 18, bow 26, sling 22).
+    force?: number;
+    // Kalles når et prosjektil treffer et mål.
+    onHitTarget?: () => void;
+    // Kalles når ammunisjonen er tom.
+    onAmmoEmpty?: () => void;
+}
+
+// ─── GamePalette (Fase 8) ────────────────────────────────────────────────────
+// Konvensjon, ikke motor-plumbing: hvert spill samler scene-objektfargene sine i
+// en `Palette.ts` med `export const PALETTE = {...} satisfies GamePalette`. Gir
+// fargedisiplin per spill. INGEN LUT/color-grading - alle spill deler global look.
+
+export interface GamePalette {
+    [name: string]: number;
 }
 
 // ─── Builder-resultat ────────────────────────────────────────────────────────

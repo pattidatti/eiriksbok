@@ -198,11 +198,18 @@ export class VegetationSystem {
     private time = 0;
     private dist: LodDistances;
     private _tmpVec = new THREE.Vector3();
+    // Fase 8: valgfri terreng-sampler. Når satt legger gress-scatter og trær seg på
+    // bakkehøyden i stedet for y=0.
+    private heightSampler: ((x: number, z: number) => number) | null = null;
 
     constructor(scene: THREE.Scene, tier: QualityTier) {
         this.scene = scene;
         this.tier = tier;
         this.dist = lodDistancesFor(tier);
+    }
+
+    setHeightSampler(fn: ((x: number, z: number) => number) | null): void {
+        this.heightSampler = fn;
     }
 
     addPatch(area: AABB2D, density: number, type: VegetationType = 'grass'): void {
@@ -237,11 +244,9 @@ export class VegetationSystem {
         const quat = new THREE.Quaternion();
         const scale = new THREE.Vector3();
         for (let i = 0; i < count; i++) {
-            pos.set(
-                area.minX + Math.random() * w,
-                0,
-                area.minZ + Math.random() * d,
-            );
+            const gx = area.minX + Math.random() * w;
+            const gz = area.minZ + Math.random() * d;
+            pos.set(gx, this.heightSampler ? this.heightSampler(gx, gz) : 0, gz);
             quat.setFromAxisAngle(new THREE.Vector3(0, 1, 0), Math.random() * Math.PI * 2);
             const s = 0.7 + Math.random() * 0.6;
             scale.set(s, s, s);
@@ -292,7 +297,8 @@ export class VegetationSystem {
         const lod = new THREE.LOD();
         lod.addLevel(near, 0);
         lod.addLevel(sprite, this.dist.treeFar);
-        lod.position.set(px, py, pz);
+        // Fase 8: snap treet til terrenget hvis en sampler er satt (ellers bruk gitt py).
+        lod.position.set(px, this.heightSampler ? this.heightSampler(px, pz) : py, pz);
         this.scene.add(lod);
 
         this.trees.push({ lod });

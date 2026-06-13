@@ -1,5 +1,6 @@
 import type { GameEngineRef, CharacterConfig, MonologNode, MonologTrigger } from '../../types';
 import type { AddNPCConfig, AddMonologConfig, Vec3 } from '../types';
+import { resolveY } from './_util';
 
 // Character-type-preset-farger. AI trenger ikke oppgi colors eksplisitt.
 const DEFAULT_COLORS: Record<AddNPCConfig['characterType'], { body: number; head: number; legs: number }> = {
@@ -38,7 +39,7 @@ export function addNPC(
     const charCfg: CharacterConfig = {
         id: config.id,
         name: config.name,
-        position: config.pos,
+        position: resolveY(engine, config.pos),
         colors,
         characterType: config.characterType,
         defaultEmotion: config.emotion,

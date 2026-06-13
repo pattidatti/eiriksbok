@@ -1,5 +1,7 @@
 export * from './scene';
+export * from './terrain';
 export * from './props';
+export * from './targets';
 export * from './inventory';
 export * from './characters';
 export * from './media';

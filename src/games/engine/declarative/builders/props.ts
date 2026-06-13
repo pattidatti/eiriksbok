@@ -5,7 +5,7 @@ import type {
     BuildResult, ModelPresetName,
 } from '../types';
 import { createModel, createMaterial, isValidModelPreset } from '../presets';
-import { applyShadows, applyTransform, markPhysics } from './_util';
+import { applyShadows, applyTransform, markPhysics, resolveY } from './_util';
 
 /** Bygg en mesh fra AddPropConfig.model (preset eller custom primitive). */
 function buildMeshFromModelSpec(
@@ -60,7 +60,7 @@ export function addProp(
         primary.material = createMaterial(config.material);
     }
 
-    applyTransform(group, config.pos, config.rot, config.scale);
+    applyTransform(group, resolveY(engine, config.pos), config.rot, config.scale);
     applyShadows(group, config.castShadow ?? true, config.receiveShadow ?? true);
 
     if (config.solid !== false) {
@@ -87,7 +87,7 @@ export function addInteractable(
 ): BuildResult {
     const { group, primary } = buildMeshFromModelSpec(config.model);
 
-    applyTransform(group, config.pos, config.rot);
+    applyTransform(group, resolveY(engine, config.pos), config.rot);
     applyShadows(group, true, true);
 
     // Interactables er vanligvis statiske - kolliderer for å kunne treffes av raycast.

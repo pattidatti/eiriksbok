@@ -12,9 +12,11 @@ interface GameHUDProps {
     toast?: string;
     debug?: { phase: string; flags: Record<string, unknown> };
     qualityTier?: 'low' | 'medium' | 'high';
+    throwCharge?: number | null;
+    launcherAmmo?: number | null;
 }
 
-export function GameHUD({ questObjective, questParts, showInteractPrompt: _si, showFlash, toast, debug, qualityTier }: GameHUDProps) {
+export function GameHUD({ questObjective, questParts, showInteractPrompt: _si, showFlash, toast, debug, qualityTier, throwCharge, launcherAmmo }: GameHUDProps) {
     void _si;
     return (
         <>
@@ -157,6 +159,58 @@ export function GameHUD({ questObjective, questParts, showInteractPrompt: _si, s
                 </div>
             )}
 
+
+            {/* Ladnings-meter (Fase 8: hold F = lad) */}
+            {throwCharge != null && (
+                <div
+                    style={{
+                        position: 'absolute',
+                        left: '50%',
+                        bottom: '22%',
+                        transform: 'translateX(-50%)',
+                        width: 140,
+                        height: 10,
+                        background: 'rgba(0,0,0,0.55)',
+                        border: '1px solid rgba(255,210,122,0.5)',
+                        borderRadius: 5,
+                        overflow: 'hidden',
+                        pointerEvents: 'none',
+                        zIndex: 13,
+                    }}
+                >
+                    <div
+                        style={{
+                            height: '100%',
+                            width: `${Math.round(throwCharge * 100)}%`,
+                            background: `linear-gradient(90deg, #ffd27a, ${throwCharge > 0.8 ? '#ff6a1a' : '#ffae42'})`,
+                            transition: 'width 0.05s linear',
+                        }}
+                    />
+                </div>
+            )}
+
+            {/* Ammunisjon (Fase 8: utrustet launcher) */}
+            {launcherAmmo != null && (
+                <div
+                    style={{
+                        position: 'absolute',
+                        right: 20,
+                        bottom: 120,
+                        background: 'rgba(30,18,10,0.85)',
+                        border: '1px solid #5c4228',
+                        padding: '8px 14px',
+                        borderRadius: 4,
+                        color: '#f4e4c1',
+                        fontFamily: "Georgia, 'Times New Roman', serif",
+                        fontSize: 15,
+                        pointerEvents: 'none',
+                        zIndex: 11,
+                    }}
+                >
+                    <span style={{ color: '#d4a574', letterSpacing: 1 }}>Ammo</span>{' '}
+                    <strong>{launcherAmmo}</strong>
+                </div>
+            )}
 
             {/* Screen flash */}
             {showFlash && (
