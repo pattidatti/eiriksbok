@@ -1,0 +1,199 @@
+{
+    "id": "det-foydale-japan",
+    "title": "Det føydale Japan: samuraienes tid",
+    "layout": "rich",
+    "year": "1185-1868",
+    "category": "Verdenshistorie",
+    "readTime": "9 min lesning",
+    "heroImage": "/images/placeholder.webp",
+    "details": [
+        "I nesten 700 år styrte krigere kalt samurai Japan, mens keiseren bare var et symbol.",
+        "Makten hvilte på ris: en herres rikdom ble målt i koku, sekker med ris.",
+        "I 1868 ble hele systemet avskaffet, og Japan ble et moderne land på få tiår."
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "En samurai kneler foran herren sin. Han har to sverd i beltet og er klar til å dø for å holde løftet om troskap. Slik så makten ut i Japan i nesten 700 år. Fra slutten av 1100-tallet til 1868 var det ikke en konge som styrte landet, men krigere. Disse krigerne kalte vi samurai, og tiden deres er en av de mest spennende i verdenshistorien."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Samurai i rustning kneler foran sin herre i en borgsal",
+            "caption": "En samurai sverget troskap til herren sin. Båndet mellom kriger og herre var selve limet i samfunnet."
+        },
+        {
+            "type": "header",
+            "text": "Keiseren som ikke bestemte"
+        },
+        {
+            "type": "text",
+            "content": "Japan hadde en keiser hele tiden. Folk så på ham som hellig, nesten som en gud. Men her kommer det merkelige: keiseren bestemte nesten ingenting. Han satt i palasset sitt i byen Kyoto og var et symbol, ikke en hersker."
+        },
+        {
+            "type": "text",
+            "content": "Den virkelige makten lå hos shogunen. Ordet shogun betyr noe slikt som øverste general. Shogunen var den sterkeste krigsherren i landet, og han styrte i keiserens navn. Han hadde sin egen regjering og bestemte over lover, skatter og krig. Keiseren ga ham bare tittelen. Mye av dette minner om [middelalderen i Europa](/historie/middelalderen/middelalderen), der konger ga land til riddere mot at de lovet troskap og krigstjeneste."
+        },
+        {
+            "type": "header",
+            "text": "Krigerne tok makten"
+        },
+        {
+            "type": "text",
+            "content": "Under shogunen sto daimyoene. En daimyo var en lensherre som styrte et stort landområde med sin egen borg og sin egen hær. Og hæren besto av samuraier."
+        },
+        {
+            "type": "text",
+            "content": "Samuraiene var mer enn soldater. De fulgte et sett med leveregler vi kaller bushido, som betyr krigerens vei. Bushido handlet om mot, troskap og ære. En samurai skulle heller dø enn å bli vanæret. De hadde også rett til å bære to sverd, noe ingen andre fikk lov til. Sverdene viste alle hvem de var."
+        },
+        {
+            "type": "text",
+            "content": "Æren var så viktig at en samurai som sviktet herren sin, kunne velge å ta sitt eget liv for å gjenvinne den. Det høres hardt ut for oss i dag, men for dem var troskap viktigere enn livet selv. Klikk deg gjennom pyramiden under og se hvem som egentlig hadde makten i dette samfunnet."
+        },
+        {
+            "type": "component",
+            "name": "MaktpyramidenJapan",
+            "props": {
+                "title": "Maktpyramiden i føydale Japan"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Ris var den ekte rikdommen"
+        },
+        {
+            "type": "text",
+            "content": "Hvordan kunne en daimyo holde en hær med samuraier? Svaret er ris. I føydale Japan var ris det samme som penger. En herres rikdom ble ikke målt i gull, men i koku. Ett koku var omtrent så mye ris som ett menneske spiste på ett år."
+        },
+        {
+            "type": "text",
+            "content": "Samuraiene fikk ikke lønn i mynt. De fikk lønn i ris. Jo mer ris landet til en daimyo ga, desto flere krigere kunne han fø, og desto mektigere ble han. De aller største daimyoene rådde over land som ga mer enn ti tusen koku i året. Risen var altså selve grunnmuren under makten. Prøv det selv i spillet under: dyrk markene og se hva risen gjør med borgen og hæren."
+        },
+        {
+            "type": "component",
+            "name": "MicroGame",
+            "props": {
+                "gameId": "rismark-og-makt-3d"
+            }
+        },
+        {
+            "type": "text",
+            "content": "Dette forklarer noe rart med rangstigen. Bøndene som dyrket risen, sto ganske lavt. Likevel sto de over kjøpmennene. Hvorfor? Fordi bøndene laget noe ekte, mens kjøpmennene bare flyttet varer fra hånd til hånd. Penger ga ikke status i Japan. Derfor kunne en kjøpmann være rik, men likevel stå nederst i rang."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Japansk borg med flere etasjer over grønne rismarker",
+            "caption": "En daimyos borg ruvet over rismarkene. Markene var ikke bare mat, men selve kilden til makten."
+        },
+        {
+            "type": "header",
+            "text": "Et land som stengte dørene"
+        },
+        {
+            "type": "text",
+            "content": "I år 1603 vant familien Tokugawa kampen om å bli shogun. De skulle styre Japan i over 250 år. Etter mange hundre år med kriger mellom daimyoene ga Tokugawa-shogunene landet noe det sjelden hadde hatt: fred."
+        },
+        {
+            "type": "text",
+            "content": "Den lange freden forandret samuraiene. Nå var det nesten ingen kriger å kjempe. En kriger uten krig måtte finne noe annet å gjøre. Mange samuraier ble derfor embetsmenn: de styrte byer, krevde inn skatt og skrev papirer for herren sin. Sverdet hang fortsatt i beltet, men pennen ble like viktig. Slik gikk krigerklassen sakte fra slagmark til skrivebord."
+        },
+        {
+            "type": "text",
+            "content": "Rundt hver borg vokste det fram en by. Her bodde samuraiene tett ved herren sin, og hit kom håndverkere og kjøpmenn for å selge varene sine. Byene ble travle steder fulle av liv, og noen av dem er store byer i Japan den dag i dag."
+        },
+        {
+            "type": "text",
+            "content": "Men de var redde for å miste kontrollen. Derfor stengte de landet for omverdenen. Nesten ingen fikk reise inn, og japanere fikk ikke reise ut. Denne politikken kalles sakoku, som betyr det lukkede landet. I over 200 år levde Japan nesten helt for seg selv. Landet var sjelden truet utenfra. To ganger på 1200-tallet prøvde [det mongolske riket](/historie/middelalderen/mongolske-riket) å invadere, men begge gangene blåste kraftige stormer vekk flåten deres. Japanerne kalte stormene kamikaze, som betyr guddommelig vind."
+        },
+        {
+            "type": "header",
+            "text": "Da de svarte skipene kom"
+        },
+        {
+            "type": "text",
+            "content": "Freden tok slutt i 1853. Da seilte amerikanske krigsskip inn i en japansk havn. Skipene var av jern, drevet av damp, og spydde svart røyk. Japanerne kalte dem de svarte skipene. Amerikanerne krevde at Japan skulle åpne grensene for handel. Japan hadde ingen våpen som kunne måle seg med kanonene, og måtte gi etter."
+        },
+        {
+            "type": "text",
+            "content": "Sjokket var enormt. Mange japanere skjønte at det lukkede landet var blitt håpløst akterutseilt. I 1868 styrtet de shogunen og ga makten tilbake til keiseren. Vi kaller dette Meiji-restaurasjonen, etter den unge keiseren Meiji. Nå skulle Japan ta igjen resten av verden, og det fort."
+        },
+        {
+            "type": "text",
+            "content": "På bare noen tiår bygde landet jernbaner, fabrikker og en moderne hær, slik [den industrielle revolusjonen](/historie/industriell-revolusjon/industriell-revolusjon) hadde forandret Europa. Samuraiene mistet retten til å bære sverd, og hele krigerklassen forsvant. Den nye, sterke hæren skulle senere føre Japan inn i store kriger. Du kan lese mer om [Japan på 1930-tallet](/historie/mellomkrigstiden/japan)."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Damptog og fabrikker i et Japan i rask forandring på 1870-tallet",
+            "caption": "Etter 1868 forandret Japan seg lynraskt. På få tiår gikk landet fra sverd til damptog."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Visste du dette?",
+                "content": "Byen Edo var hovedstaden til Tokugawa-shogunene. På 1700-tallet bodde det rundt en million mennesker der, og det gjorde Edo til en av de største byene i hele verden. I dag heter byen Tokyo."
+            }
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hvem hadde den virkelige makten i føydale Japan?",
+                        "options": [
+                            "Keiseren",
+                            "Shogunen og krigerne",
+                            "Kjøpmennene",
+                            "Bøndene"
+                        ],
+                        "answer": "Shogunen og krigerne"
+                    },
+                    {
+                        "question": "Hva ble en herres rikdom målt i?",
+                        "options": [
+                            "Gullmynter",
+                            "Koku, altså ris",
+                            "Antall borger",
+                            "Sølv"
+                        ],
+                        "answer": "Koku, altså ris"
+                    },
+                    {
+                        "question": "Hva betyr bushido?",
+                        "options": [
+                            "Det lukkede landet",
+                            "Øverste general",
+                            "Krigerens vei",
+                            "Guddommelig vind"
+                        ],
+                        "answer": "Krigerens vei"
+                    },
+                    {
+                        "question": "Hva var sakoku?",
+                        "options": [
+                            "En politikk som stengte Japan for omverdenen",
+                            "En type sverd",
+                            "Keiserens palass",
+                            "En skatt på ris"
+                        ],
+                        "answer": "En politikk som stengte Japan for omverdenen"
+                    },
+                    {
+                        "question": "Hva skjedde i 1868?",
+                        "options": [
+                            "Mongolene invaderte Japan",
+                            "De svarte skipene kom",
+                            "Shogunen ble styrtet og Japan begynte å bli moderne",
+                            "Edo ble grunnlagt"
+                        ],
+                        "answer": "Shogunen ble styrtet og Japan begynte å bli moderne"
+                    }
+                ]
+            }
+        }
+    ],
+    "timeline": []
+}

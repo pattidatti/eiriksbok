@@ -2015,6 +2015,30 @@
       ]
     },
     {
+      "id": "det-foydale-japan",
+      "title": "Det føydale Japan: samuraienes tid",
+      "description": "I nesten 700 år styrte samurai-krigere Japan mens keiseren var et symbol, og makten hvilte på ris.",
+      "startDate": 1185,
+      "endDate": 1868,
+      "displayDate": "1185-1868",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "japans-historie",
+      "link": "/historie/japans-historie/det-foydale-japan",
+      "tags": [
+        "japan",
+        "samurai",
+        "foydalisme",
+        "verdenshistorie",
+        "shogun"
+      ],
+      "lat": 36.2,
+      "lng": 138.3,
+      "placeLabel": "Japan",
+      "placeCountryId": 392,
+      "geoConfidence": "tag"
+    },
+    {
       "id": "havamal",
       "title": "Håvamål",
       "description": "Utgitt av Ukjent (Den høyes tale)",
