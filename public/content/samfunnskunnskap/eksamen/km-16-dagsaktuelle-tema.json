@@ -5,7 +5,7 @@
     "subject": "samfunnskunnskap",
     "topic": "eksamen",
     "layout": "rich",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/eksamen/km-16-dagsaktuelle-tema-hero.webp",
     "readTime": "10 min lesning",
     "category": "Eksamen",
     "tags": ["eksamen", "metode", "argumentasjon", "kilder"],
@@ -30,7 +30,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/eksamen/km-16-dagsaktuelle-tema-01.webp",
             "alt": "Ungdommer diskuterer rundt bord med notater og laptop",
             "caption": "Gode diskusjoner krever mer enn sterke meninger - de krever gode argumenter."
         },
@@ -96,7 +96,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/eksamen/km-16-dagsaktuelle-tema-02.webp",
             "alt": "Skjermbilde av ulike nyhetskilder på en laptop",
             "caption": "Hvert nettsted har sin egen ståsted. Å sammenligne flere kilder gir deg et mer komplett bilde."
         },
@@ -181,7 +181,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/eksamen/km-16-dagsaktuelle-tema-03.webp",
             "alt": "To elever presenterer argument foran klassen",
             "caption": "Å presentere for andre trener deg til å forklare argumentene dine klart og tydelig."
         },

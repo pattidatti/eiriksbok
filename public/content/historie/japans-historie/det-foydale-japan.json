@@ -5,7 +5,7 @@
     "year": "1185-1868",
     "category": "Verdenshistorie",
     "readTime": "9 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/japans-historie/det-foydale-japan-hero.webp",
     "details": [
         "I nesten 700 år styrte krigere kalt samurai Japan, mens keiseren bare var et symbol.",
         "Makten hvilte på ris: en herres rikdom ble målt i koku, sekker med ris.",
@@ -18,7 +18,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/japans-historie/det-foydale-japan-01.webp",
             "alt": "Samurai i rustning kneler foran sin herre i en borgsal",
             "caption": "En samurai sverget troskap til herren sin. Båndet mellom kriger og herre var selve limet i samfunnet."
         },
@@ -82,7 +82,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/japans-historie/det-foydale-japan-02.webp",
             "alt": "Japansk borg med flere etasjer over grønne rismarker",
             "caption": "En daimyos borg ruvet over rismarkene. Markene var ikke bare mat, men selve kilden til makten."
         },
@@ -124,7 +124,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/japans-historie/det-foydale-japan-03.webp",
             "alt": "Damptog og fabrikker i et Japan i rask forandring på 1870-tallet",
             "caption": "Etter 1868 forandret Japan seg lynraskt. På få tiår gikk landet fra sverd til damptog."
         },
