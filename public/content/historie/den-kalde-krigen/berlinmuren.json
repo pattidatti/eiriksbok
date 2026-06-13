@@ -48,6 +48,13 @@
             "content": "P\u00e5 natten til s\u00f8ndag 13. august 1961 rykket \u00f8sttyske soldater og arbeidere ut. De rulle ut pigger\u00e5d og sperret gater. Folk som v\u00e5knet neste morgen, oppdaget at de ikke lenger kunne g\u00e5 p\u00e5 jobb, bes\u00f8ke familie eller krysse gaten til den andre siden av byen.\n\nI l\u00f8pet av dager og uker ble piggtr\u00e5den erstattet av betongvegger. Hus som l\u00e5 langs grensen ble murt igjen, og beboerne ble tvangsevakuert. Muren var ikke bare \u00e9n vegg, men et komplekst system av to murer med et tomt omr\u00e5de imellom – kjent som 'd\u00f8dsstripen' – med vaktt\u00e5rn, automatiske skytev\u00e5pen og vaktbikkjer."
         },
         {
+            "type": "component",
+            "name": "MicroGame",
+            "props": {
+                "gameId": "berlinmuren-3d"
+            }
+        },
+        {
             "type": "header",
             "text": "'Ich bin ein Berliner'"
         },
