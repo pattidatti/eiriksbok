@@ -5,7 +5,7 @@
     "subject": "samfunnskunnskap",
     "topic": "eksamen",
     "layout": "rich",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/eksamen/km-1-metode-hero.webp",
     "readTime": "10 min lesning",
     "category": "Eksamen",
     "details": [
@@ -32,7 +32,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/eksamen/km-1-metode-01.webp",
             "alt": "Elev som undersøker grafer og statistikk på skjerm",
             "caption": "Å lese statistikk kritisk er en grunnleggende samfunnsfaglig ferdighet."
         },
@@ -161,7 +161,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/eksamen/km-1-metode-02.webp",
             "alt": "Grafer og statistikk fra SSB vist på en skjerm",
             "caption": "SSB.no er en av de viktigste kildene for norsk samfunnsstatistikk."
         },
@@ -360,7 +360,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/eksamen/km-1-metode-03.webp",
             "alt": "Elev som presenterer grafer for klassen med lysbilder",
             "caption": "Gode digitale presentasjoner gjør funn tydelige og overbevisende."
         },

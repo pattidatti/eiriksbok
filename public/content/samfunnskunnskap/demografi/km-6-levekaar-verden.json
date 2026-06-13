@@ -7,7 +7,7 @@
     "layout": "rich",
     "category": "Samfunnskunnskap",
     "readTime": "9 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/demografi/km-6-levekaar-verden-hero.webp",
     "details": [
         "Kompetansemål SAF01-04",
         "Globale levekår og demografi"
@@ -28,7 +28,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/demografi/km-6-levekaar-verden-01.webp",
             "alt": "Verdenskart som viser levealder i ulike land",
             "caption": "Forventet levealder varierer enormt fra land til land - fra under 55 år i noen afrikanske land til over 85 år i Japan og Sveits."
         },
@@ -66,7 +66,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/demografi/km-6-levekaar-verden-02.webp",
             "alt": "Stolpediagram sammenligner HDI-verdier fem ulike land",
             "caption": "HDI-skalaen plasserer land fra 'svært lav' til 'svært høy' menneskelig utvikling. Norge topper lista, mens Niger ligger nederst."
         },
@@ -112,7 +112,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/demografi/km-6-levekaar-verden-03.webp",
             "alt": "Kart med piler som viser globale migrasjonsstrømmer",
             "caption": "De store migrasjonsstrømmene går fra lavinntektsland i Afrika og Asia mot Europa og Nord-Amerika - drevet av store levekårsforskjeller."
         },
