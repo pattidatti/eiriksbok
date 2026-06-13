@@ -63,6 +63,7 @@ const SkjulteSymboler3D = lazy(() => import('./SkjulteSymboler3D'));
 const FestensLys3D = lazy(() => import('./FestensLys3D'));
 const MatreglerBord3D = lazy(() => import('./MatreglerBord3D'));
 const Rikssamlingen3D = lazy(() => import('./Rikssamlingen3D'));
+const RismarkOgMakt3D = lazy(() => import('./RismarkOgMakt3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
     'rikssamlingen-3d': {
@@ -577,6 +578,15 @@ export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.Laz
         estimatedSeconds: 140,
         loader: () => import('./Vesterleden3D'),
         Component: Vesterleden3D as never,
+    },
+    'rismark-og-makt-3d': {
+        id: 'rismark-og-makt-3d',
+        title: 'Ris er makt',
+        description:
+            'Dyrk rismarkene i en daimyos len. For hver mark du planter fylles lageret med koku, borgen vokser en etasje, og en ny samurai stiller seg ved porten. Lyspæren: makt i føydale Japan var bygd på ris. Jo mer en daimyo kunne høste, desto flere krigere kunne han fø, og desto mektigere ble han.',
+        estimatedSeconds: 140,
+        loader: () => import('./RismarkOgMakt3D'),
+        Component: RismarkOgMakt3D as never,
     },
     'gangen-3d': {
         id: 'gangen-3d',
