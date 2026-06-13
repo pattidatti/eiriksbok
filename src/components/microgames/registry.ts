@@ -64,8 +64,18 @@ const FestensLys3D = lazy(() => import('./FestensLys3D'));
 const MatreglerBord3D = lazy(() => import('./MatreglerBord3D'));
 const Rikssamlingen3D = lazy(() => import('./Rikssamlingen3D'));
 const RismarkOgMakt3D = lazy(() => import('./RismarkOgMakt3D'));
+const Berlinmuren3D = lazy(() => import('./Berlinmuren3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
+    'berlinmuren-3d': {
+        id: 'berlinmuren-3d',
+        title: 'Dodsstripen: muren som delte en by',
+        description:
+            'En skive av Berlin med hus pa hver side av grensa. Steng de apne overgangene natt til 13. august 1961, dra sa en spak som bygger ut dodsstripen lag for lag - to murer, en tom sandsone, vakttarn og lyskastere - og riv til slutt muren i 1989 sa de to familiene moter hverandre igjen. Lyspaeren: Berlinmuren var aldri bare en vegg, men et dypt, dodelig system som skar gjennom en levende by i 28 ar.',
+        estimatedSeconds: 150,
+        loader: () => import('./Berlinmuren3D'),
+        Component: Berlinmuren3D as never,
+    },
     'rikssamlingen-3d': {
         id: 'rikssamlingen-3d',
         title: 'Rikssamlingen: da Norge ble ett',
