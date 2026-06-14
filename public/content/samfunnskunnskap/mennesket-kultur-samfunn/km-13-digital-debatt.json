@@ -4,7 +4,7 @@
     "layout": "rich",
     "category": "Samfunnskunnskap",
     "readTime": "9 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/mennesket-kultur-samfunn/km-13-digital-debatt-hero.webp",
     "description": "Utforsk hvordan sosiale medier og digitale plattformer former samfunnsdebatten - hvem som kommer til orde, hvem som tier, og hvordan algoritmer styrer det vi ser.",
     "subject": "samfunnskunnskap",
     "topic": "mennesket-kultur-samfunn",
@@ -40,7 +40,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/mennesket-kultur-samfunn/km-13-digital-debatt-01.webp",
             "alt": "Ung person med telefon deltar i nettdebatt",
             "caption": "Sosiale medier har senket terskelen for hvem som kan ta del i samfunnsdebatten."
         },
@@ -79,7 +79,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/mennesket-kultur-samfunn/km-13-digital-debatt-02.webp",
             "alt": "Skjematisk framstilling av algoritmisk nyhetsstrøm på sosiale medier",
             "caption": "Algoritmer prioriterer innhold som skaper reaksjoner - ikke nødvendigvis innhold som er sant eller viktig."
         },
@@ -191,7 +191,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/mennesket-kultur-samfunn/km-13-digital-debatt-03.webp",
             "alt": "Polarisert debatt i kommentarfelt på sosiale medier",
             "caption": "Digitale debatter kan samle seg rundt ekstreme posisjoner, selv når de fleste egentlig er mer nyanserte."
         },
