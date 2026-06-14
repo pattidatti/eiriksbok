@@ -4,7 +4,7 @@
     "layout": "rich",
     "category": "Samfunnskunnskap",
     "readTime": "9 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/mennesket-kultur-samfunn/km-4-teknologi-endring-hero.webp",
     "description": "Utforsk hvordan teknologi har formet verden fra plogen til kunstig intelligens, og drøft hva ny teknologi betyr for enkeltmennesket, samfunnet og naturen.",
     "subject": "samfunnskunnskap",
     "topic": "mennesket-kultur-samfunn",
@@ -36,7 +36,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/mennesket-kultur-samfunn/km-4-teknologi-endring-01.webp",
             "alt": "Luddittene knuser vevstoler i en engelsk fabrikk i 1811",
             "caption": "Luddittene protesterte mot de nye vevstolene ved å knuse dem. Teknologimotstand er ikke noe nytt."
         },
@@ -118,7 +118,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/mennesket-kultur-samfunn/km-4-teknologi-endring-02.webp",
             "alt": "Barn jobber i en fabrikk under industrialiseringen på 1800-tallet",
             "caption": "Under industrialiseringen jobbet barn i fabrikker under farlige forhold. Ny teknologi skaper alltid nye etiske spørsmål."
         },
