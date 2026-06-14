@@ -1195,6 +1195,10 @@
       "count": 6
     },
     {
+      "tag": "industrialisering",
+      "count": 6
+    },
+    {
       "tag": "borgerkrig",
       "count": 6
     },
@@ -1399,6 +1403,10 @@
       "count": 4
     },
     {
+      "tag": "verdenshistorie",
+      "count": 4
+    },
+    {
       "tag": "unionsoppløsning",
       "count": 4
     },
@@ -1432,10 +1440,6 @@
     },
     {
       "tag": "ideologi",
-      "count": 4
-    },
-    {
-      "tag": "industrialisering",
       "count": 4
     },
     {
@@ -1851,10 +1855,6 @@
       "count": 2
     },
     {
-      "tag": "verdenshistorie",
-      "count": 2
-    },
-    {
       "tag": "shogun",
       "count": 2
     },
@@ -2152,6 +2152,14 @@
     },
     {
       "tag": "frigjoring",
+      "count": 2
+    },
+    {
+      "tag": "meiji",
+      "count": 2
+    },
+    {
+      "tag": "modernisering",
       "count": 2
     },
     {

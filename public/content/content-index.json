@@ -1,5 +1,5 @@
 {
-  "buildId": 1781390058683,
+  "buildId": 1781399833252,
   "contentMap": {
     "concept-adel": [
       "content/concepts/adel.json"
@@ -1362,6 +1362,9 @@
     ],
     "det-foydale-japan": [
       "content/historie/japans-historie/det-foydale-japan.json"
+    ],
+    "meiji-restaurasjonen": [
+      "content/historie/japans-historie/meiji-restaurasjonen.json"
     ],
     "amerikas-sivilisasjoner": [
       "content/historie/jordbruk-og-sivilisasjoner/amerikas-sivilisasjoner.json"
@@ -3851,6 +3854,7 @@
     "historie/industriell-revolusjon/industriell-revolusjon": "content/historie/industriell-revolusjon/industriell-revolusjon.json",
     "historie/industriell-revolusjon/jernbanen": "content/historie/industriell-revolusjon/jernbanen.json",
     "historie/japans-historie/det-foydale-japan": "content/historie/japans-historie/det-foydale-japan.json",
+    "historie/japans-historie/meiji-restaurasjonen": "content/historie/japans-historie/meiji-restaurasjonen.json",
     "historie/jordbruk-og-sivilisasjoner/amerikas-sivilisasjoner": "content/historie/jordbruk-og-sivilisasjoner/amerikas-sivilisasjoner.json",
     "historie/jordbruk-og-sivilisasjoner/egypt": "content/historie/jordbruk-og-sivilisasjoner/egypt.json",
     "historie/jordbruk-og-sivilisasjoner/indusdalen": "content/historie/jordbruk-og-sivilisasjoner/indusdalen.json",

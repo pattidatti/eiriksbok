@@ -5018,6 +5018,30 @@
       "geoConfidence": "tag"
     },
     {
+      "id": "meiji-restaurasjonen",
+      "title": "Meiji-restaurasjonen: Japan blir en stormakt",
+      "description": "Etter at amerikanske krigsskip tvang landet til å åpne seg, moderniserte Japan seg selv lynraskt og ble en stormakt på rundt 40 år.",
+      "startDate": 1868,
+      "endDate": 1912,
+      "displayDate": "1868-1912",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "japans-historie",
+      "link": "/historie/japans-historie/meiji-restaurasjonen",
+      "tags": [
+        "japan",
+        "meiji",
+        "modernisering",
+        "verdenshistorie",
+        "industrialisering"
+      ],
+      "lat": 36.2,
+      "lng": 138.3,
+      "placeLabel": "Japan",
+      "placeCountryId": 392,
+      "geoConfidence": "tag"
+    },
+    {
       "id": "eic-sub-4",
       "title": "Oppløsning",
       "description": "Kompaniet blir formelt oppløst.",

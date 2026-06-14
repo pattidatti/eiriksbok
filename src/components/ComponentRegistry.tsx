@@ -22,6 +22,7 @@ import { MapCarousel } from './MapCarousel';
 // Interactive Content
 const MatGjesteBord = lazy(() => import('./content/interactive/MatGjesteBord').then(m => ({ default: m.MatGjesteBord })));
 const MaktpyramidenJapan = lazy(() => import('./content/interactive/MaktpyramidenJapan').then(m => ({ default: m.MaktpyramidenJapan })));
+const MeijiModellvalg = lazy(() => import('./content/interactive/MeijiModellvalg').then(m => ({ default: m.MeijiModellvalg })));
 const SymbolMatcher = lazy(() => import('./content/interactive/SymbolMatcher').then(m => ({ default: m.SymbolMatcher })));
 const TragediensTrinn = lazy(() => import('./content/interactive/TragediensTrinn').then(m => ({ default: m.TragediensTrinn })));
 const UtvandrerVekta = lazy(() => import('./content/interactive/UtvandrerVekta').then(m => ({ default: m.UtvandrerVekta })));
@@ -325,6 +326,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     RomanExpansionMap,
     UtvandrerVekta,
     MaktpyramidenJapan,
+    MeijiModellvalg,
     SuverenitetsSkala,
     TrolleyProblem,
     GoldenMeanSlider,
