@@ -66,6 +66,7 @@ const MatreglerBord3D = lazy(() => import('./MatreglerBord3D'));
 const Rikssamlingen3D = lazy(() => import('./Rikssamlingen3D'));
 const RismarkOgMakt3D = lazy(() => import('./RismarkOgMakt3D'));
 const Berlinmuren3D = lazy(() => import('./Berlinmuren3D'));
+const Falltaarnet3D = lazy(() => import('./Falltaarnet3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
     'meiji-byen-3d': {
@@ -616,6 +617,15 @@ export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.Laz
         estimatedSeconds: 150,
         loader: () => import('./Gangen3D'),
         Component: Gangen3D as never,
+    },
+    'falltaarnet-3d': {
+        id: 'falltaarnet-3d',
+        title: 'Falltårnet i Pisa',
+        description:
+            'Bær en tung jernkule og en lett trekule opp i toppen av det skjeve tårnet i Pisa, velg en verden og slipp dem. I Aristoteles verden faller den tunge raskest, slik alle trodde i 2000 år. I virkeligheten lander de helt likt, akkurat som Galileo målte. Lyspæren: tunge og lette ting faller like fort, og Galileos store grep var å sjekke selv i stedet for å tro på autoriteten.',
+        estimatedSeconds: 140,
+        loader: () => import('./Falltaarnet3D'),
+        Component: Falltaarnet3D as never,
     },
 };
 

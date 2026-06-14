@@ -36,6 +36,13 @@
             "content": "Galileo ble født i Pisa i 1564, samme år som Shakespeare og samme år som Michelangelo døde. Faren ville at han skulle bli lege, men Galileo fant matematikken mer spennende. Han ble professor i Pisa, og senere i Padova, og han hadde en plagsom vane: han stilte spørsmål ved alt læreboka sa. Hvorfor faller tunge ting raskere enn lette? Aristoteles hadde sagt det, og alle hadde trodd det i 2000 år. Galileo prøvde å sjekke. Han slapp kuler av ulik vekt fra Pisa-tårnet (sier legenden) og rullet baller ned skråe planker, og oppdaget at alt faller like raskt — uansett hvor tungt det er. Det var Aristoteles som tok feil."
         },
         {
+            "type": "component",
+            "name": "MicroGame",
+            "props": {
+                "gameId": "falltaarnet-3d"
+            }
+        },
+        {
             "type": "text",
             "content": "Denne måten å tenke på var ny. I middelalderens universiteter slo man opp i bøker av Aristoteles og diskuterte hva han hadde ment. Galileo gjorde noe annet: han satte opp et forsøk og målte resultatet. Hvis bøkene var uenige med målingene, var det bøkene som tok feil. Dette virker selvsagt for oss i dag, men det var revolusjonerende den gangen. Galileo skrev en gang: 'Naturens bok er skrevet i matematikkens språk.' For ham var verden noe man kunne måle og regne på, ikke noe man skulle lese om i gamle bøker."
         },
