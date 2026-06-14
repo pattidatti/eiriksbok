@@ -5,7 +5,7 @@
     "year": "1868-1912",
     "category": "Verdenshistorie",
     "readTime": "9 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/japans-historie/meiji-restaurasjonen-hero.webp",
     "details": [
         "I 1853 tvang amerikanske krigsskip Japan til å åpne seg for verden.",
         "Fra 1868 moderniserte Japan seg selv, frivillig og lynraskt.",
@@ -18,7 +18,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/japans-historie/meiji-restaurasjonen-01.webp",
             "alt": "Svarte amerikanske dampskip i bukta utenfor Tokyo i 1853",
             "caption": "Perrys svarte skip i 1853. De viste hvor langt bak Japan hadde havnet."
         },
@@ -69,7 +69,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/japans-historie/meiji-restaurasjonen-02.webp",
             "alt": "Damptog og fabrikkpiper i en japansk by på slutten av 1800-tallet",
             "caption": "Jernbane, fabrikker og telegraf forandret Japan på rekordtid."
         },
@@ -106,7 +106,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/japans-historie/meiji-restaurasjonen-03.webp",
             "alt": "Japanske ledere i vestlige klær foran en moderne murbygning rundt 1900",
             "caption": "Rundt år 1900 var Japan blitt en stormakt på linje med landene i Vesten."
         },

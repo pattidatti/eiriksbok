@@ -7,7 +7,7 @@
     "layout": "rich",
     "category": "Samfunnskunnskap",
     "readTime": "10 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/samfunnskunnskap/ideer-og-verdenssyn/historieframstilling-hero.webp",
     "details": [
         "Kompetansemål SAF01-04",
         "Historieframstilling og holdninger"
@@ -28,7 +28,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/samfunnskunnskap/ideer-og-verdenssyn/historieframstilling-01.webp",
             "alt": "Monumenter og statuer i byer rundt om i verden",
             "caption": "Monumenter i det offentlige rommet forteller oss hvem samfunnet har valgt å hedre - og hvem som er blitt glemt."
         },
@@ -133,7 +133,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/samfunnskunnskap/ideer-og-verdenssyn/historieframstilling-02.webp",
             "alt": "Propagandaplakater fra første og andre verdenskrig",
             "caption": "Propaganda er historieframstilling som et bevisst verktøy for å forme holdninger og motivere til handling."
         },
@@ -279,7 +279,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/samfunnskunnskap/ideer-og-verdenssyn/historieframstilling-03.webp",
             "alt": "Elev analyserer kart og historiebøker med kritisk blikk",
             "caption": "Å stille spørsmål til historieframstillingen - hvem har skrevet dette og for hvem? - er en grunnleggende demokratisk ferdighet."
         },

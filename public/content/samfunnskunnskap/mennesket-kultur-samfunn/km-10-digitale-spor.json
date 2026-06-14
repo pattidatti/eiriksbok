@@ -7,8 +7,8 @@
     "layout": "rich",
     "category": "Samfunnskunnskap",
     "readTime": "8 min lesning",
-    "heroImage": "/images/placeholder.webp",
-    "image": "/images/placeholder.webp",
+    "heroImage": "/images/samfunnskunnskap/mennesket-kultur-samfunn/digitale-spor-hero.webp",
+    "image": "/images/samfunnskunnskap/mennesket-kultur-samfunn/digitale-spor-hero.webp",
     "tags": ["personvern", "digitale-spor", "GDPR", "opphavsrett", "teknologi"],
     "details": [
         "Kompetansemål SAF01-04",
@@ -31,7 +31,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/samfunnskunnskap/mennesket-kultur-samfunn/digitale-spor-01.webp",
             "alt": "Tenåring bruker telefon med digitale dataspor synlig rundt seg",
             "caption": "Hvert klikk og søk etterlater seg data som lagres av plattformene du bruker."
         },
@@ -175,7 +175,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/samfunnskunnskap/mennesket-kultur-samfunn/digitale-spor-02.webp",
             "alt": "GDPR-logo og personvernregler illustrert med lås og dokument",
             "caption": "GDPR gir deg rettigheter over egne data - inkludert retten til å bli glemt."
         },
@@ -214,7 +214,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/samfunnskunnskap/mennesket-kultur-samfunn/digitale-spor-03.webp",
             "alt": "Kreativt innhold med opphavsrettsymbol og nettverkstilkoblinger",
             "caption": "Alt du lager digitalt er automatisk beskyttet av opphavsretten - og det samme gjelder andres verk."
         },
