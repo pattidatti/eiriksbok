@@ -97,6 +97,7 @@ const router = createBrowserRouter([
       { path: "tidslinje", element: <GlobalTimelinePage /> },
       { path: "atlas", element: <AtlasPage /> },
       { path: "persongalleri", element: <PersonGallery /> },
+      { path: "persongalleri/:slug", element: <PersonGallery /> },
       { path: "colonization", element: <ColonizationMap /> },
       { path: "infrastruktur-atlas", element: <InfrastrukturAtlas /> },
       { path: "samfunnskunnskap/okonomi/verden", element: <OkonomiVerden /> },

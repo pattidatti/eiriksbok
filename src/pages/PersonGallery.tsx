@@ -1,17 +1,40 @@
 import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import { User, Search, Filter, BookOpen, ArrowRight } from 'lucide-react';
-import { useGlossary } from '../context/GlossaryContext';
+import { Link, useParams } from 'react-router-dom';
+import { User, Search, Filter, BookOpen, ArrowRight, ArrowLeft } from 'lucide-react';
+import { useGlossary, type GlossaryEntry } from '../context/GlossaryContext';
+
+// Lager en URL-vennlig slug av et navn: «John F. Kennedy» -> «john-f-kennedy».
+// Brukes til å koble persongalleri-lenker (/persongalleri/john-f-kennedy) mot
+// person-oppføringer som bare har et `term`-felt (ingen egen id/slug).
+const slugify = (s: string): string =>
+    s
+        .normalize('NFKD')
+        .replace(/[̀-ͯ]/g, '')
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '');
 
 export const PersonGallery: React.FC = () => {
     const { entries, isLoading } = useGlossary();
-    const [searchQuery, setSearchQuery] = useState('');
+    const { slug } = useParams<{ slug?: string }>();
+    const [searchQuery, setSearchQuery] = useState(slug ? slug.replace(/-/g, ' ') : '');
     const [selectedSubject, setSelectedSubject] = useState<string>('all');
 
     const people = useMemo(() => {
         return entries.filter(e => e.type === 'person');
     }, [entries]);
+
+    // Finn personen en slug peker på. Eksakt match på navn-slug eller alias-slug
+    // åpner detaljvisning. Treffer vi ikke eksakt, faller vi pent tilbake til
+    // galleriet med søket forhåndsutfylt (aldri en «død» blank skjerm).
+    const activePerson = useMemo<GlossaryEntry | undefined>(() => {
+        if (!slug) return undefined;
+        return people.find(p => {
+            if (slugify(p.term) === slug) return true;
+            return (p.aliases ?? []).some(a => slugify(a) === slug);
+        });
+    }, [people, slug]);
 
     const subjects = useMemo(() => {
         const set = new Set(people.map(p => p.subject).filter(Boolean));
@@ -19,9 +42,11 @@ export const PersonGallery: React.FC = () => {
     }, [people]);
 
     const filteredPeople = useMemo(() => {
+        const q = searchQuery.toLowerCase();
         return people.filter(p => {
-            const matchesSearch = p.term.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                p.definition.toLowerCase().includes(searchQuery.toLowerCase());
+            const matchesSearch =
+                (p.term ?? '').toLowerCase().includes(q) ||
+                (p.definition ?? '').toLowerCase().includes(q);
             const matchesSubject = selectedSubject === 'all' || p.subject === selectedSubject;
             return matchesSearch && matchesSubject;
         });
@@ -36,6 +61,67 @@ export const PersonGallery: React.FC = () => {
                         <div key={i} className="h-64 bg-slate-100 rounded-2xl" />
                     ))}
                 </div>
+            </div>
+        );
+    }
+
+    if (activePerson) {
+        return (
+            <div className="max-w-3xl mx-auto px-4 py-12">
+                <Link
+                    to="/persongalleri"
+                    className="inline-flex items-center gap-2 text-slate-500 hover:text-orange-600 font-semibold mb-8 transition-colors"
+                >
+                    <ArrowLeft size={18} /> Tilbake til persongalleriet
+                </Link>
+
+                <motion.div
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.25 }}
+                    className="bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-slate-200"
+                >
+                    <div className="flex items-start justify-between mb-6">
+                        <div className="p-4 bg-orange-50 text-orange-600 rounded-2xl">
+                            <User size={40} strokeWidth={2.5} />
+                        </div>
+                        {activePerson.subject && (
+                            <span className="px-3 py-1 bg-slate-100 text-slate-500 text-xs font-bold uppercase tracking-wider rounded-full">
+                                {activePerson.subject}
+                            </span>
+                        )}
+                    </div>
+
+                    <h1 className="text-4xl font-black text-slate-900">{activePerson.term}</h1>
+                    {activePerson.lifespan && (
+                        <div className="text-base font-semibold text-slate-400 mt-2 bg-slate-50 inline-block py-1 px-3 rounded-lg">
+                            {activePerson.lifespan}
+                        </div>
+                    )}
+
+                    <p className="text-lg text-slate-600 leading-relaxed mt-6">
+                        {activePerson.definition}
+                    </p>
+
+                    {activePerson.tags && activePerson.tags.length > 0 && (
+                        <div className="flex flex-wrap gap-2 mt-8">
+                            {activePerson.tags.map(tag => (
+                                <span key={tag} className="text-xs font-bold text-slate-400 uppercase">
+                                    #{tag}
+                                </span>
+                            ))}
+                        </div>
+                    )}
+
+                    {activePerson.link && (
+                        <Link
+                            to={activePerson.link}
+                            className="inline-flex items-center gap-1 mt-8 text-orange-600 font-bold hover:gap-2 transition-all"
+                        >
+                            Les artikkelen <ArrowRight size={18} />
+                        </Link>
+                    )}
+                </motion.div>
             </div>
         );
     }

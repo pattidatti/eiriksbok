@@ -14,6 +14,7 @@ const ROOT = path.join(__dirname, '..', 'public', 'content');
 const APPLY = process.argv.includes('--apply');
 
 const MAPPING = {
+    '/historie/kolonialisering/oversikt': '/historie/kolonialisering',
     '/historie/andre-verdenskrig/intro': '/historie/andre-verdenskrig/oversikt',
     '/filosofi/historisk-filosofi/sokrates': '/krle/filosofi/sokrates',
     '/historie/industriell-revolusjon/intro':
