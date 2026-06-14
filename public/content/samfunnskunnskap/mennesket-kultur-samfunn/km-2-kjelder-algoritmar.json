@@ -4,7 +4,7 @@
     "layout": "rich",
     "category": "Samfunnskunnskap",
     "readTime": "8 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/mennesket-kultur-samfunn/km-2-kjelder-algoritmar-hero.webp",
     "subject": "samfunnskunnskap",
     "topic": "mennesket-kultur-samfunn",
     "description": "Lær deg å vurdere kilder kritisk, forstå hvordan algoritmer former det du ser, og oppdage hva som finnes i blindsonene dine.",
@@ -35,7 +35,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/mennesket-kultur-samfunn/km-2-kjelder-algoritmar-01.webp",
             "alt": "Ulike avisforsider dekker samme nyhetssak på forskjellige måter",
             "caption": "Samme hendelse kan se svært ulik ut avhengig av kilden du leser."
         },
@@ -86,7 +86,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/mennesket-kultur-samfunn/km-2-kjelder-algoritmar-02.webp",
             "alt": "Illustrasjon av algoritmebobler som gir folk ulike nyhetsstrømmer",
             "caption": "Algoritmer skaper personlige nyhetsstrømmer - og to personer kan leve i helt ulike informasjonsverdener."
         },
@@ -156,7 +156,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/mennesket-kultur-samfunn/km-2-kjelder-algoritmar-03.webp",
             "alt": "Person som vurderer flere ulike kilder på en dataskjerm",
             "caption": "God kildevurdering krever at vi aktivt sammenligner perspektiver fra flere uavhengige kilder."
         },
