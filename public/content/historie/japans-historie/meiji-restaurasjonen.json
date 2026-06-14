@@ -1,0 +1,171 @@
+{
+    "id": "meiji-restaurasjonen",
+    "title": "Meiji-restaurasjonen: Japan blir en stormakt",
+    "layout": "rich",
+    "year": "1868-1912",
+    "category": "Verdenshistorie",
+    "readTime": "9 min lesning",
+    "heroImage": "/images/placeholder.webp",
+    "details": [
+        "I 1853 tvang amerikanske krigsskip Japan til å åpne seg for verden.",
+        "Fra 1868 moderniserte Japan seg selv, frivillig og lynraskt.",
+        "På rundt 40 år gikk landet fra samuraier til moderne stormakt."
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "En sommerdag i 1853 dukket det opp fire svarte skip i bukta utenfor Tokyo. De spydde svart røyk, og de var større enn noe japanerne hadde sett. Om bord var den amerikanske offiseren Matthew Perry. Han hadde med seg ett enkelt budskap: Japan måtte åpne havnene sine for handel, ellers ville kanonene snakke. Japanerne hadde nesten ingenting å stille opp med. Skipene deres var små trebåter. Kanonene deres var gamle."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Svarte amerikanske dampskip i bukta utenfor Tokyo i 1853",
+            "caption": "Perrys svarte skip i 1853. De viste hvor langt bak Japan hadde havnet."
+        },
+        {
+            "type": "text",
+            "content": "Sjokket satt dypt. I over 200 år hadde Japan vært et lukket land. Nesten ingen fikk reise inn, og nesten ingen fikk reise ut. Mens resten av verden bygde dampmaskiner og jernbaner, levde Japan fortsatt i et samfunn styrt av krigere. Du kan lese mer om den tiden i artikkelen om [Det føydale Japan](/historie/japans-historie/det-foydale-japan). Nå skjønte mange japanere noe ubehagelig: hvis de ikke forandret seg fort, kom de til å bli tatt over av fremmede makter, akkurat som nabolandet Kina."
+        },
+        {
+            "type": "header",
+            "text": "Keiseren får makten tilbake"
+        },
+        {
+            "type": "text",
+            "content": "I hundrevis av år hadde den virkelige makten ligget hos shogunen, den øverste krigsherren. Keiseren var bare et symbol uten makt. Men nå fikk shogunen skylda for at landet var blitt så svakt. I 1868 gjorde en gruppe yngre samuraier opprør, styrtet shogunen og ga makten tilbake til den unge keiseren Meiji. Dette kaller vi Meiji-restaurasjonen. Ordet restaurasjon betyr å sette noe tilbake slik det var før."
+        },
+        {
+            "type": "text",
+            "content": "Men dette ble ikke en reise tilbake i tid. Tvert imot. De nye lederne brukte keiseren som et samlende ansikt, mens de selv satte i gang den raskeste forandringen noe land hadde sett. Mottoet deres var enkelt: et rikt land og en sterk hær. For å få til det måtte Japan lære av dem som allerede hadde lyktes."
+        },
+        {
+            "type": "header",
+            "text": "Å lære av de beste"
+        },
+        {
+            "type": "text",
+            "content": "I 1871 sendte Japan en stor gruppe ledere på en lang reise rundt i Europa og USA. Reisen kalles Iwakura-oppdraget. I nesten to år besøkte de fabrikker, skoler, havner og parlamenter. De skrev ned alt de så. Tanken var smart: i stedet for å kopiere ett enkelt land, ville Japan plukke det aller beste fra hvert land. Den sterkeste hæren, den beste marinen, det smarteste skolesystemet. Prøv selv å være med i delegasjonen og velg hvor Japan bør hente forbildene sine."
+        },
+        {
+            "type": "component",
+            "name": "MeijiModellvalg",
+            "props": {}
+        },
+        {
+            "type": "text",
+            "content": "Dette var nøkkelen til at det gikk så fort. Japan ble ikke modernisert med tvang utenfra. Landet valgte selv, og det valgte med vilje. De leide inn tusenvis av utenlandske eksperter for å lære opp japanerne, og sendte sine egne unge til utlandet for å studere. Så snart japanerne kunne faget selv, sendte de ekspertene hjem igjen. Slik fikk Japan kunnskapen uten å gi fra seg styringen over sitt eget land."
+        },
+        {
+            "type": "text",
+            "content": "Forandringen merkes ikke bare i fabrikker og hærleirer. Den nådde helt inn i hverdagen til vanlige folk. Mange begynte å gå i vestlige klær, klippe av seg den gamle hårknuten og spise kjøtt, som før hadde vært lite vanlig. Japan tok i bruk den samme kalenderen som resten av verden, og innførte vanlig skoletid for barn. På noen tiår forandret landet både hvordan det så ut og hvordan folk levde."
+        },
+        {
+            "type": "header",
+            "text": "Japan skifter ham"
+        },
+        {
+            "type": "text",
+            "content": "På få tiår forandret landet seg fullstendig. Japan bygde jernbaner, telegraflinjer og fabrikker. Den første [jernbanen](/historie/industriell-revolusjon/jernbanen) åpnet i 1872 mellom Tokyo og havnebyen Yokohama. Staten reiste fabrikker og verft, akkurat som under [den industrielle revolusjonen](/historie/industriell-revolusjon/industriell-revolusjon) i Europa. Barn fikk plikt til å gå på skole. Se selv hvordan en japansk by kunne forvandle seg da reformene kom."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Damptog og fabrikkpiper i en japansk by på slutten av 1800-tallet",
+            "caption": "Jernbane, fabrikker og telegraf forandret Japan på rekordtid."
+        },
+        {
+            "type": "component",
+            "name": "MicroGame",
+            "props": {
+                "gameId": "meiji-byen-3d"
+            }
+        },
+        {
+            "type": "text",
+            "content": "Selve samfunnet ble bygd om. De gamle skillene mellom samurai, bonde og kjøpmann ble fjernet. Nå skulle alle være borgere i samme nasjon. Hæren ble ikke lenger fylt av samuraier, men av vanlige unge menn som ble kalt inn til verneplikt. For samuraiene var dette et hardt slag. De mistet både retten til å bære sverd og den spesielle plassen sin i samfunnet."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Den siste samuraien",
+                "content": "Mange samuraier likte ikke at de mistet makten sin. I 1877 gjorde en gruppe opprør under lederen Saigo Takamori. Men opprørerne med sverd og rustning hadde ingen sjanse mot den nye hæren med geværer og kanoner. Opprøret ble slått ned. Det viste tydelig at samuraienes tid var over for godt."
+            }
+        },
+        {
+            "type": "header",
+            "text": "Prisen og prisene"
+        },
+        {
+            "type": "text",
+            "content": "Forandringen kostet. Bøndene måtte betale høye skatter for å finansiere fabrikkene og hæren. Mange jobbet lange dager i de nye fabrikkene for lav lønn. Og ikke alle fikk være med på å bestemme, selv om Japan fikk en grunnlov i 1889. Keiseren og en liten elite satt fortsatt med mesteparten av makten."
+        },
+        {
+            "type": "text",
+            "content": "Men resultatet var likevel oppsiktsvekkende. På bare én generasjon var Japan blitt en moderne industrinasjon. Og landet brukte den nye styrken sin slik stormaktene gjorde: til å erobre. Japan vant en krig mot Kina i 1895, og i 1905 slo de til og med det store Russland. Det var første gang på lenge at et asiatisk land beseiret en europeisk stormakt. Den samme veksten og krigsviljen førte etter hvert Japan inn i [andre verdenskrig](/historie/andre-verdenskrig/oversikt)."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Japanske ledere i vestlige klær foran en moderne murbygning rundt 1900",
+            "caption": "Rundt år 1900 var Japan blitt en stormakt på linje med landene i Vesten."
+        },
+        {
+            "type": "text",
+            "content": "Meiji-restaurasjonen er en av de mest dramatiske historiene i verdenshistorien. Mens nesten hele Asia og Afrika ble kolonisert av europeiske makter, klarte Japan å gå motsatt vei. Landet moderniserte seg selv, beholdt sin egen frihet, og ble til slutt en av de mektigste statene i verden. Hemmeligheten var ikke flaks. Den var et bevisst valg: å se nøkternt på sin egen svakhet, og så lære av de beste."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hva utløste sjokket som startet moderniseringen av Japan?",
+                        "options": [
+                            "Amerikanske krigsskip tvang Japan til å åpne seg i 1853",
+                            "En stor jordskjelvkatastrofe",
+                            "Et opprør blant bøndene",
+                            "En krig mot Kina"
+                        ],
+                        "correctAnswer": 0,
+                        "explanation": "Matthew Perrys svarte skip kom i 1853 og krevde at Japan åpnet havnene sine. Det viste hvor svakt det lukkede landet var blitt."
+                    },
+                    {
+                        "question": "Hva skjedde i 1868?",
+                        "options": [
+                            "Shogunen ble styrtet, og makten ble gitt tilbake til keiser Meiji",
+                            "Japan ble kolonisert av USA",
+                            "Den første jernbanen åpnet",
+                            "Samuraiene tok all makten"
+                        ],
+                        "correctAnswer": 0,
+                        "explanation": "I 1868 gjorde yngre samuraier opprør, styrtet shogunen og ga makten tilbake til den unge keiseren Meiji. Dette er selve Meiji-restaurasjonen."
+                    },
+                    {
+                        "question": "Hva var smart med måten Japan moderniserte seg på?",
+                        "options": [
+                            "De plukket det beste forbildet fra flere ulike land",
+                            "De kopierte alt fra ett eneste land",
+                            "De nektet å lære av utlandet",
+                            "De lot fremmede styre landet"
+                        ],
+                        "correctAnswer": 0,
+                        "explanation": "Gjennom Iwakura-oppdraget valgte Japan med vilje det beste fra hvert land: hæren fra Tyskland, marinen fra Storbritannia, og så videre."
+                    },
+                    {
+                        "question": "Hvorfor er Meiji-restaurasjonen så spesiell i verdenshistorien?",
+                        "options": [
+                            "Japan moderniserte seg selv og unngikk å bli kolonisert, i motsetning til nesten hele Asia",
+                            "Japan ble det første landet med dampmaskin",
+                            "Japan ga all makt til folket",
+                            "Japan stengte grensene sine for alltid"
+                        ],
+                        "correctAnswer": 0,
+                        "explanation": "Mens nesten hele Asia og Afrika ble kolonisert, klarte Japan å modernisere seg selv og bli en stormakt på egen hånd."
+                    }
+                ]
+            }
+        }
+    ],
+    "timeline": []
+}

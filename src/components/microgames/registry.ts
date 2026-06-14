@@ -9,6 +9,7 @@ const GladiusDuel = lazy(() => import('./GladiusDuel'));
 const Colosseum3D = lazy(() => import('./Colosseum3D'));
 const TheodosianWalls3D = lazy(() => import('./TheodosianWalls3D'));
 const Hamskiftet3D = lazy(() => import('./Hamskiftet3D'));
+const MeijiByen3D = lazy(() => import('./MeijiByen3D'));
 const VikingShip3D = lazy(() => import('./VikingShip3D'));
 const SymbolerPaaTaket3D = lazy(() => import('./SymbolerPaaTaket3D'));
 const IngenmanslandMG = lazy(() => import('./IngenmanslandMG'));
@@ -67,6 +68,15 @@ const RismarkOgMakt3D = lazy(() => import('./RismarkOgMakt3D'));
 const Berlinmuren3D = lazy(() => import('./Berlinmuren3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
+    'meiji-byen-3d': {
+        id: 'meiji-byen-3d',
+        title: 'Meiji-byen forvandles',
+        description:
+            'En japansk by med torii-port, rispaddier, tradisjonelle hus og Fuji i bakgrunnen. Velg tre reformer i rekkefølge - bygg jernbanen (1872), reis fabrikkene og innfør skole og telegraf - og se byen forvandle seg fra lukket føydalsamfunn til moderne industriby. Lyspæren: på bare noen tiår moderniserte Japan seg selv, frivillig og lynraskt, mens nabolandene ble kolonisert.',
+        estimatedSeconds: 150,
+        loader: () => import('./MeijiByen3D'),
+        Component: MeijiByen3D as never,
+    },
     'berlinmuren-3d': {
         id: 'berlinmuren-3d',
         title: 'Dodsstripen: muren som delte en by',
