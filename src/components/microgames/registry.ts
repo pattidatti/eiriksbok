@@ -68,8 +68,18 @@ const RismarkOgMakt3D = lazy(() => import('./RismarkOgMakt3D'));
 const Berlinmuren3D = lazy(() => import('./Berlinmuren3D'));
 const Falltaarnet3D = lazy(() => import('./Falltaarnet3D'));
 const JapanMirakelBy3D = lazy(() => import('./JapanMirakelBy3D'));
+const StormingenAvBastillen3D = lazy(() => import('./StormingenAvBastillen3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
+    'stormingen-av-bastillen-3d': {
+        id: 'stormingen-av-bastillen-3d',
+        title: 'Stormingen av Bastillen',
+        description:
+            'Festningen Bastillen ruver over gatene i Paris den 14. juli 1789, og en folkemengde presser pa nedenfor. Kapp de to kjettingene sa vindebrua dundrer ned og folket stromer inn, rull sa de fem kanonene fra avhopperne i stilling foran porten, og krev til slutt overgivelse sa det hvite flagget gar opp, de fa fangene gar fri og trikoloren heises. Lyspaeren: det var vanlige parisere, ikke kongen, som tok en kongelig festning med makt, og de kom egentlig for kruttet, ikke for fangene.',
+        estimatedSeconds: 150,
+        loader: () => import('./StormingenAvBastillen3D'),
+        Component: StormingenAvBastillen3D as never,
+    },
     'japan-mirakel-by-3d': {
         id: 'japan-mirakel-by-3d',
         title: 'Reis Japan fra ruinene',

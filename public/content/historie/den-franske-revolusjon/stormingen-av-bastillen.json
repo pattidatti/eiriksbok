@@ -84,6 +84,13 @@
         },
         {
             "type": "component",
+            "name": "MicroGame",
+            "props": {
+                "gameId": "stormingen-av-bastillen-3d"
+            }
+        },
+        {
+            "type": "component",
             "name": "QuoteBlock",
             "props": {
                 "text": "— Men dette er jo et opprør! — Nei, sire. Det er en revolusjon.",
