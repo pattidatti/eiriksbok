@@ -55,6 +55,7 @@ export const demoWorldConfig: GameConfig = {
             defaultEmotion: 'glad',
             marker: true,
             showName: true,
+            portrait: '🧝',
         },
         {
             id: 'vandrer',
@@ -64,6 +65,7 @@ export const demoWorldConfig: GameConfig = {
             characterType: 'farmer',
             defaultEmotion: 'glad',
             showName: true,
+            portrait: '🚶',
         },
     ],
 

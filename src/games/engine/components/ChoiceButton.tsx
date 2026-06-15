@@ -8,52 +8,52 @@ interface ChoiceButtonProps {
     onClick: () => void;
     // Når true: kort forskjøvet inn-animasjon (keyframe `choiceIn` defineres i DialogBox).
     animate?: boolean;
+    // Emotion-/varm aksentfarge for tall-badge og hover-kant.
+    accentColor?: string;
 }
 
-const keyBadge: React.CSSProperties = {
-    display: 'inline-block',
-    background: 'rgba(0,0,0,0.45)',
-    border: '1px solid #8b6f47',
-    borderRadius: 3,
-    fontFamily: 'monospace',
-    fontSize: 12,
-    padding: '1px 6px',
-    marginRight: 10,
-    color: '#d4a574',
-    minWidth: 20,
-    textAlign: 'center',
-};
-
-const iconStyle: React.CSSProperties = {
-    display: 'inline-block',
-    marginRight: 8,
-    fontSize: 16,
-};
-
-export function ChoiceButton({ index, text, icon, consequenceHint, onClick, animate }: ChoiceButtonProps) {
+export function ChoiceButton({ index, text, icon, consequenceHint, onClick, animate, accentColor }: ChoiceButtonProps) {
     const [hovered, setHovered] = useState(false);
     const [pressed, setPressed] = useState(false);
+    const accent = accentColor ?? '#d4a574';
 
     // Hover gir slide til høyre; trykk gir lett "inn-trykk" (scale) for taktil følelse.
-    const translateX = hovered ? 4 : 0;
+    const translateX = hovered ? 5 : 0;
     const scale = pressed ? 0.98 : 1;
 
+    const keyBadge: React.CSSProperties = {
+        display: 'inline-grid',
+        placeItems: 'center',
+        background: 'rgba(0,0,0,0.45)',
+        border: `1px solid ${accent}`,
+        borderRadius: 6,
+        fontFamily: 'monospace',
+        fontSize: 16,
+        fontWeight: 700,
+        width: 30,
+        height: 30,
+        flex: 'none',
+        color: accent,
+    };
+
     const buttonStyle: React.CSSProperties = {
-        display: 'block',
+        display: 'flex',
+        alignItems: 'center',
+        gap: 12,
         width: '100%',
         background: hovered ? '#5c4228' : 'transparent',
-        border: `1px solid ${hovered ? '#d4a574' : '#5c4228'}`,
+        border: `1px solid ${hovered ? accent : '#5c4228'}`,
         color: hovered ? '#fff' : '#f4e4c1',
-        padding: '10px 14px',
+        padding: '12px 16px',
         textAlign: 'left' as const,
         fontFamily: 'inherit',
-        fontSize: 14,
+        fontSize: 21,
         cursor: 'pointer',
         transition: 'background 0.2s, border-color 0.2s, color 0.2s, transform 0.08s',
-        borderRadius: 3,
+        borderRadius: 10,
         transform: `translateX(${translateX}px) scale(${scale})`,
-        animation: animate ? 'choiceIn 180ms ease-out both' : undefined,
-        animationDelay: animate ? `${index * 45}ms` : undefined,
+        animation: animate ? 'choiceIn 200ms ease-out both' : undefined,
+        animationDelay: animate ? `${index * 55}ms` : undefined,
     };
 
     return (
@@ -70,15 +70,15 @@ export function ChoiceButton({ index, text, icon, consequenceHint, onClick, anim
                 style={buttonStyle}
             >
                 <span style={keyBadge}>{index + 1}</span>
-                {icon && <span style={iconStyle}>{icon}</span>}
-                {text}
+                {icon && <span style={{ fontSize: 20, flex: 'none' }}>{icon}</span>}
+                <span>{text}</span>
             </button>
             {hovered && consequenceHint && (
                 <div
                     style={{
                         marginTop: 4,
-                        marginLeft: 36,
-                        fontSize: 12,
+                        marginLeft: 42,
+                        fontSize: 15,
                         color: '#a8946d',
                         fontStyle: 'italic',
                         letterSpacing: 0.3,

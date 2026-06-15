@@ -326,8 +326,10 @@ export function GameCanvas({ config }: GameCanvasProps) {
                 </div>
             )}
 
-            {/* Indre monolog (ikke-blokkerende) */}
-            {uiState.started && !uiState.ended && (
+            {/* Indre monolog (ikke-blokkerende). Skjules mens en blokkerende bunn-overlay
+                er oppe (dialog/puzzle/aktivitet) så den ikke legger seg oppå dialogboksen.
+                Motoren pauser samtidig monolog-progresjonen, så den gjenopptas her etterpå. */}
+            {uiState.started && !uiState.ended && !uiState.dialog && !uiState.puzzle && !uiState.activity && (
                 <MonologBox monolog={uiState.monolog} />
             )}
 

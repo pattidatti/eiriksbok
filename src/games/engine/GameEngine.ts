@@ -86,6 +86,31 @@ function easeInOut(t: number): number {
     return t * t * (3 - 2 * t);
 }
 
+// Portrett-glyf for dialogboksen (Portrett lower-third). Prioritet: eksplisitt
+// node-portrett → karakterens portrett → characterType-emoji → emotion-ansikt → standard.
+const PORTRAIT_BY_TYPE: Record<import('./types').CharacterType, string> = {
+    scientist: '🧑‍🔬',
+    farmer: '🧑‍🌾',
+    noble: '🤴',
+    monk: '🧙',
+};
+const PORTRAIT_BY_EMOTION: Record<Emotion, string> = {
+    glad: '😊',
+    worried: '😟',
+    surprised: '😮',
+    triumphant: '😌',
+};
+function resolvePortrait(
+    node: import('./types').DialogNode,
+    charConfig?: { characterType?: import('./types').CharacterType; portrait?: string }
+): string {
+    if (node.portrait) return node.portrait;
+    if (charConfig?.portrait) return charConfig.portrait;
+    if (charConfig?.characterType) return PORTRAIT_BY_TYPE[charConfig.characterType];
+    if (node.emotion) return PORTRAIT_BY_EMOTION[node.emotion];
+    return '🙂';
+}
+
 // Gjenbruksvektorer for god rays-projeksjon (Fase 2.5) — unngår allokering per frame.
 const _sunWorldScratch = new THREE.Vector3();
 const _sunNdcScratch = new THREE.Vector3();
@@ -121,6 +146,7 @@ const _physDesiredScratch = new THREE.Vector3();
 // Platforming-scratch (carry-raycast + mantle ledge-deteksjon)
 const _physCarryScratch = new THREE.Vector3();
 const _downScratch = new THREE.Vector3(0, -1, 0);
+const _upScratch = new THREE.Vector3(0, 1, 0);
 const _ledgeFwdScratch = new THREE.Vector3();
 const _ledgeAScratch = new THREE.Vector3();
 const _ledgeBScratch = new THREE.Vector3();
@@ -207,6 +233,9 @@ export class GameEngine {
     private sunLight: THREE.DirectionalLight | null = null;
     private ambientLight: THREE.AmbientLight | null = null;
     private hemiLight: THREE.HemisphereLight | null = null;
+    // Low-tier kontaktskygge for spilleren, løftet ut av spillergruppa til scenen og
+    // projisert på bakken hver frame (ellers følger den spilleren opp i hopp/heis).
+    private playerContactShadow: THREE.Mesh | null = null;
 
     // State
     private phase = 'intro';
@@ -287,7 +316,7 @@ export class GameEngine {
     private triumphAnimStates = new Map<string, { t: number; duration: number }>();
 
     // NPCs and collectibles
-    private characters: Map<string, BuiltCharacter & { config: { id: string; name: string } }> = new Map();
+    private characters: Map<string, BuiltCharacter & { config: { id: string; name: string; characterType?: import('./types').CharacterType; portrait?: string } }> = new Map();
     private collectibleMeshes: Map<string, { group: THREE.Group; config: { id: string; name: string } }> = new Map();
 
     // Particles
@@ -914,10 +943,24 @@ export class GameEngine {
         );
         this.player.group.userData.isPlayer = true;
 
+        // Low-tier: CharacterBuilder la en blob-kontaktskygge som BARN av spillergruppa.
+        // For en spiller som hopper og rir heiser ville den fulgt med opp ("skyggen blir
+        // ikke værende på bakken"). Løft den ut til scenen og projiser den på bakken under
+        // spilleren hver frame (se updateContactShadow). NPC-er beholder sin barn-blob.
+        const pBlob = this.player.group.children.find(
+            (c) => (c.userData as { _blobShadow?: boolean })._blobShadow
+        );
+        if (pBlob) {
+            this.player.group.remove(pBlob);
+            pBlob.position.set(0, 0, 0);
+            this.scene.add(pBlob);
+            this.playerContactShadow = pBlob as THREE.Mesh;
+        }
+
         // Build NPCs
         for (const charCfg of this.config.characters) {
             const built = buildCharacter(charCfg, this.toonMat.bind(this), this.renderer, this.scene, this.qualityTier !== 'low');
-            this.characters.set(charCfg.id, { ...built, config: { id: charCfg.id, name: charCfg.name } });
+            this.characters.set(charCfg.id, { ...built, config: { id: charCfg.id, name: charCfg.name, characterType: charCfg.characterType, portrait: charCfg.portrait } });
         }
 
         // Initialize body targets for characters with a default emotion
@@ -1303,7 +1346,7 @@ export class GameEngine {
             return;
         }
         const built = buildCharacter(cfg, this.toonMat.bind(this), this.renderer, this.scene, this.qualityTier !== 'low');
-        this.characters.set(cfg.id, { ...built, config: { id: cfg.id, name: cfg.name } });
+        this.characters.set(cfg.id, { ...built, config: { id: cfg.id, name: cfg.name, characterType: cfg.characterType, portrait: cfg.portrait } });
         if (cfg.characterType && cfg.defaultEmotion) {
             this.bodyTargets.set(cfg.id, BODY_TARGETS[cfg.defaultEmotion]);
         }
@@ -1906,6 +1949,7 @@ export class GameEngine {
                     consequenceHint: c.consequenceHint,
                 })),
                 emotion: node.emotion,
+                portrait: resolvePortrait(node, speakerChar?.config),
             },
         });
     }
@@ -2618,8 +2662,9 @@ export class GameEngine {
         this.movingPlatformSystem?.update(this.time);
 
         // Player movement
-        const WALK_SPEED = 5, RUN_SPEED = 9;
-        const JUMP = this.config.physics?.jump?.velocity ?? 6;
+        const WALK_SPEED = this.config.physics?.walkSpeed ?? 6;
+        const RUN_SPEED = this.config.physics?.runSpeed ?? 11;
+        const JUMP = this.config.physics?.jump?.velocity ?? 7;
         const GRAV = this.config.physics?.gravity ?? -18;
         const SPEED = (this.keys['ShiftLeft'] || this.keys['ShiftRight']) ? RUN_SPEED : WALK_SPEED;
         const moveDir = _moveDirScratch.set(0, 0, 0);
@@ -2702,6 +2747,7 @@ export class GameEngine {
         if (this.physics && this.playerCC && this.playerMode === 'free') {
             const t = this.playerCC.body.translation();
             this.player.group.position.set(t.x, t.y - this.playerHalfHeight, t.z);
+            this.updateContactShadow(t.x, t.y - this.playerHalfHeight, t.z);
         }
         this.interactables?.update(dt);
         this.projectileSystem?.update(dt);
@@ -3011,8 +3057,11 @@ export class GameEngine {
         // Proximity
         this.checkProximity();
 
-        // Indre monolog (trigger-volumer og progresjon)
-        if (this.monologSystem) {
+        // Indre monolog (trigger-volumer og progresjon). Pauses mens en blokkerende
+        // bunn-overlay er oppe (dialog/puzzle/aktivitet) — indre tanke og samtale skal
+        // ikke vises samtidig, og en aktiv monolog skal fryse i stedet for å rulle/avslutte
+        // usett bak boksen. Den gjenopptas der den slapp når overlayen lukkes.
+        if (this.monologSystem && !this.dialogActive && !this.puzzleActive && !this.activityActive) {
             const world = this.player.group.getWorldPosition(_playerWorldScratch);
             this.monologSystem.update(dt, { x: world.x, z: world.z }, this.phase);
         }
@@ -3262,9 +3311,10 @@ export class GameEngine {
     private mantleApex = new THREE.Vector3();
     private mantleEnd = new THREE.Vector3();
     private mantleCooldown = 0;
-    // Snap-to-ground må skrus av mens man klatrer, ellers drar den spilleren ned igjen
-    // hver frame (klatrefart << snap-avstand) og klatring blir umulig.
-    private snapDisabledForClimb = false;
+    // Snap-to-ground må skrus av mens man klatrer ELLER bæres oppover av en stigende
+    // plattform, ellers drar den spilleren ned igjen hver frame (klatrefart/heisfart <<
+    // snap-avstand) og klatring/heistur blir ødelagt.
+    private snapDisabled = false;
     private updatePhysicsPlayer(
         dt: number,
         moveDir: THREE.Vector3,
@@ -3304,14 +3354,31 @@ export class GameEngine {
         // Ladder-klatring: hvis spilleren overlapper en climbable-sensor, overstyr gravity
         const climbing = this.physics!.isOverlappingClimbable(pos, this.playerRadius);
 
-        // Skru av snap-to-ground mens man klatrer (ellers snapper controlleren spilleren
-        // ned til bakken hver frame og hindrer klatring). Skru på igjen etterpå.
-        if (climbing && !this.snapDisabledForClimb) {
+        // ── Carry-deteksjon: står vi på en bevegelig plattform? (gjøres FØR snap-beslutning
+        // fordi en stigende plattform også må skru av snap-to-ground). ──
+        let carry: THREE.Vector3 | null = null;
+        if (this.onGround && this.movingPlatformSystem) {
+            const feetY = bodyPos.y - this.playerHalfHeight;
+            const rayO = _physCarryScratch.set(bodyPos.x, feetY + 0.15, bodyPos.z);
+            const hit = this.physics!.raycast(rayO, _downScratch.set(0, -1, 0), 0.35, cc.body);
+            if (hit.hit && hit.bodyHandle !== undefined) {
+                carry = this.movingPlatformSystem.getCarryDelta(hit.bodyHandle);
+            }
+        }
+        const liftingUp = !!carry && carry.y > 1e-4;
+
+        // Skru av snap-to-ground mens man klatrer ELLER bæres oppover av en stigende
+        // plattform. På vei opp beregnes computeColliderMovement mot plattformens FORRIGE
+        // posisjon (kinematisk translasjon trer først i kraft ved step()), så snap ville
+        // ellers dra spilleren tilbake til den gamle overflaten - og plattformen stiger
+        // forbi beina (legs clip, torso skyves opp). Skru på igjen etterpå.
+        const wantSnapOff = climbing || liftingUp;
+        if (wantSnapOff && !this.snapDisabled) {
             cc.controller.disableSnapToGround();
-            this.snapDisabledForClimb = true;
-        } else if (!climbing && this.snapDisabledForClimb) {
+            this.snapDisabled = true;
+        } else if (!wantSnapOff && this.snapDisabled) {
             cc.controller.enableSnapToGround(0.4);
-            this.snapDisabledForClimb = false;
+            this.snapDisabled = false;
         }
 
         // Edge-detect Space (ett trykk = én handling, ikke per-frame mens holdt)
@@ -3319,10 +3386,13 @@ export class GameEngine {
         const spacePressed = spaceDown && !this.jumpWasDown;
         this.jumpWasDown = spaceDown;
 
-        // ── Mantle-trigger: i lufta, trykker Space inn mot en gripbar kant ──
-        if (spacePressed && jumpEnabled && !this.onGround && !climbing && this.mantleCooldown <= 0) {
+        // ── Mantle-trigger: i lufta og på vei inn mot en gripbar kant ──
+        // Auto-grip (default): karakteren griper kanten automatisk når den kommer i kontakt,
+        // uten ekstra tastetrykk. Sett physics.mantle.auto:false for manuell Space-i-lufta.
+        const autoMantle = this.config.physics?.mantle?.auto !== false;
+        if (jumpEnabled && !this.onGround && !climbing && this.mantleCooldown <= 0) {
             const f = _ledgeFwdScratch.set(Math.sin(this.yaw), 0, -Math.cos(this.yaw));
-            if (moveDir.dot(f) > 0.3) {
+            if (moveDir.dot(f) > 0.3 && (autoMantle || spacePressed)) {
                 const ledge = this.detectLedge(bodyPos, f);
                 if (ledge) {
                     this.mantling = true;
@@ -3394,20 +3464,12 @@ export class GameEngine {
             moveDir.z * SPEED * dt,
         );
 
-        // ── Carry: bli båret av en bevegelig plattform man står på ──
-        if (this.onGround && this.movingPlatformSystem) {
-            const feetY = bodyPos.y - this.playerHalfHeight;
-            const rayO = _physCarryScratch.set(bodyPos.x, feetY + 0.15, bodyPos.z);
-            const hit = this.physics!.raycast(rayO, _downScratch.set(0, -1, 0), 0.35, cc.body);
-            if (hit.hit && hit.bodyHandle !== undefined) {
-                const carry = this.movingPlatformSystem.getCarryDelta(hit.bodyHandle);
-                if (carry) {
-                    desired.x += carry.x;
-                    desired.z += carry.z;
-                    if (carry.y > 0) desired.y += carry.y;                 // lift
-                    else if (carry.y < 0) desired.y = Math.min(desired.y, carry.y); // lim ved nedstigning
-                }
-            }
+        // ── Carry: bli båret av en bevegelig plattform man står på (detektert over) ──
+        if (carry) {
+            desired.x += carry.x;
+            desired.z += carry.z;
+            if (carry.y > 0) desired.y += carry.y;                 // lift
+            else if (carry.y < 0) desired.y = Math.min(desired.y, carry.y); // lim ved nedstigning
         }
 
         const corr = this.physics!.computeCharacterMovement(cc, desired);
@@ -3438,9 +3500,11 @@ export class GameEngine {
     }
 
     // Søker etter en gripbar kant rett foran spilleren (mantle/kantgrep, Del C).
-    // Tre raycast i yaw-retning: vegg i brysthøyde må treffe, hodehøyde må være klar,
-    // og en ned-probe like bak veggtoppen finner kant-Y. Returnerer null hvis ingen
-    // gyldig kant i gripbart høydebånd (1.2-2.0m over føttene).
+    // To raycast i yaw-retning: en lav vegg-ray (feet+0.5) må treffe, så en ned-probe like
+    // bak veggtoppen finner kant-Y, og en kort opp-sjekk bekrefter takklaring til å stå.
+    // Den lave rayen + sjekken hver frame fanger kanten over hele hoppbuen (også når føttene
+    // er nær eller litt over kanttoppen), så auto-grip utløses på vei inn over et hull.
+    // Returnerer null hvis ingen gyldig kant i gripbart høydebånd [riseMin, riseMax].
     private detectLedge(
         bodyPos: { x: number; y: number; z: number },
         f: THREE.Vector3,
@@ -3448,28 +3512,34 @@ export class GameEngine {
         const phys = this.physics;
         const cc = this.playerCC;
         if (!phys || !cc) return null;
+        const tune = this.config.physics?.mantle;
+        const reach = tune?.reach ?? 0.8;
+        const riseMin = tune?.riseMin ?? 0.6;
+        const riseMax = tune?.riseMax ?? 2.2;
         const feetY = bodyPos.y - this.playerHalfHeight;
 
-        // 1. Vegg-ray i brysthøyde - må TREFFE
-        const chestO = _ledgeAScratch.set(bodyPos.x, feetY + 1.0, bodyPos.z);
-        const wall = phys.raycast(chestO, f, 0.65, cc.body);
+        // 1. Lav vegg-ray (feet+0.5) - må TREFFE en vegg innen rekkevidde
+        const wallO = _ledgeAScratch.set(bodyPos.x, feetY + 0.5, bodyPos.z);
+        const wall = phys.raycast(wallO, f, reach, cc.body);
         if (!wall.hit) return null;
 
-        // 2. Hode-klaring - må BOMME (ledig over kanten)
-        const headO = _ledgeBScratch.set(bodyPos.x, feetY + 1.95, bodyPos.z);
-        if (phys.raycast(headO, f, 0.65, cc.body).hit) return null;
-
-        // 3. Ned-probe like bak veggtoppen - finn kant-Y
+        // 2. Ned-probe like bak veggtoppen - finn kant-Y
         const probeO = _ledgeCScratch.set(
-            wall.point.x + f.x * 0.25,
-            feetY + 2.1,
-            wall.point.z + f.z * 0.25,
+            wall.point.x + f.x * 0.3,
+            feetY + 2.4,
+            wall.point.z + f.z * 0.3,
         );
-        const down = phys.raycast(probeO, _downScratch.set(0, -1, 0), 1.1, cc.body);
+        const down = phys.raycast(probeO, _downScratch.set(0, -1, 0), 2.0, cc.body);
         if (!down.hit) return null;
         const topY = down.point.y;
         const rise = topY - feetY;
-        if (rise < 1.2 || rise > 2.0) return null;
+        if (rise < riseMin || rise > riseMax) return null;
+
+        // 3. Takklaring - rommet over kanttoppen må være ledig så kapselen får stå
+        const headO = _ledgeBScratch.set(probeO.x, topY + 0.1, probeO.z);
+        if (phys.raycast(headO, _upScratch.set(0, 1, 0), this.playerHalfHeight * 2 + 0.2, cc.body).hit) {
+            return null;
+        }
 
         // Ikke gripe en bevegelig plattform som kant (unngå rar oppklatring under bevegelse)
         if (down.bodyHandle !== undefined && this.movingPlatformSystem?.getCarryDelta(down.bodyHandle)) {
@@ -3478,10 +3548,27 @@ export class GameEngine {
         return { x: probeO.x, z: probeO.z, topY };
     }
 
+    // Holder spillerens low-tier kontaktskygge på bakken under spilleren (i stedet for å
+    // følge med opp i hopp/heis). Raycaster ned fra føttene og legger blob-en på første
+    // solide flate under. Skjuler den hvis det ikke er noe under innen rekkevidde.
+    private updateContactShadow(px: number, feetY: number, pz: number): void {
+        const blob = this.playerContactShadow;
+        if (!blob || !this.physics) return;
+        const origin = _physCarryScratch.set(px, feetY + 0.2, pz);
+        const hit = this.physics.raycast(origin, _downScratch.set(0, -1, 0), 60, this.playerCC?.body);
+        if (!hit.hit) {
+            blob.visible = false;
+            return;
+        }
+        blob.visible = true;
+        blob.position.set(px, hit.point.y + 0.02, pz);
+    }
+
     // ─── Cleanup ─────────────────────────────────────────────────────────────
 
     dispose(): void {
         this.disposed = true;
+        this.playerContactShadow = null;
         cancelAnimationFrame(this.animFrameId);
         // Kanseller aktive sekvenser før timeouts ryddes (cancel løser ventende delays)
         for (const handle of this.activeSequences) handle.cancel();

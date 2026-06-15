@@ -32,13 +32,24 @@ export interface PhysicsConfig {
     playerFallDamage?: boolean;     // default false
     fallDamageThreshold?: number;   // m/s - absolutt verdi av landings-Y-hastighet; default 12
     onPlayerFallDamage?: (velocity: number) => void;
+    // Horisontal bevegelsesfart (m/s). Defaults gir en rask, responsiv følelse.
+    walkSpeed?: number;             // default 6
+    runSpeed?: number;              // default 11 (Shift)
     // Valgfri finjustering av hopp-følelsen. Defaults gir den globale, juicy følelsen
     // (coyote-time + jump-buffer + variabel høyde + apex/fall-tuning).
     jump?: {
-        velocity?: number;          // oppover-hastighet ved hopp (default 6)
+        velocity?: number;          // oppover-hastighet ved hopp (default 7)
         coyoteMs?: number;          // nådetid etter å forlate bakken (default 100)
         bufferMs?: number;          // forhåndstrykk-vindu før landing (default 120)
         fallMultiplier?: number;    // ekstra gravitasjon under fall for snappy landing (default 1.35)
+    };
+    // Kantgrep (mantle). Som standard griper karakteren automatisk når man hopper inn mot
+    // en gripbar kant - ingen ekstra tastetrykk. Sett auto:false for manuell Space-i-lufta.
+    mantle?: {
+        auto?: boolean;             // default true - grip automatisk ved kontakt
+        reach?: number;             // forover-probe rekkevidde i m, default 0.8
+        riseMin?: number;           // m over føttene; under dette er det "flatt", default 0.6
+        riseMax?: number;           // m over føttene; over dette er kanten for høy, default 2.2
     };
 }
 
@@ -123,6 +134,9 @@ export interface DialogNode {
     cameraFraming?: DialogCameraFraming;
     // Valgfri emotion-tint for ramme rundt dialogboksen (default ingen tint).
     emotion?: Emotion;
+    // Valgfritt portrett-glyf (emoji) for denne replikken. Overstyrer karakterens
+    // portrett/characterType. Brukes i Portrett lower-third-layouten.
+    portrait?: string;
     // Fase 4.4: kun brukt når noden er del av en liste i dialogs[key].
     // Første variant hvor condition stemmer blir valgt. En node uten condition
     // fungerer som default/fallback og må komme sist i listen.
@@ -176,6 +190,9 @@ export interface CharacterConfig {
     extras?: (group: Group) => void;
     marker?: boolean;
     showName?: boolean;
+    // Valgfritt portrett-glyf (emoji) som vises i dialogboksens portrett-rute.
+    // Default utledes fra characterType hvis utelatt.
+    portrait?: string;
 }
 
 export interface CollectibleConfig {
@@ -754,6 +771,7 @@ export interface GameUIState {
         text: string;
         choices: DialogChoiceUI[];
         emotion?: Emotion;
+        portrait?: string;
     } | null;
     puzzle: {
         visible: boolean;

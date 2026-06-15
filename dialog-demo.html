@@ -1,0 +1,568 @@
+<!doctype html>
+<html lang="nb">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Dialog-demo — tre layouter</title>
+<style>
+    :root {
+        /* Varm pergament-palett (nær dagens motor) */
+        --warm-panel: rgba(20, 12, 6, 0.92);
+        --warm-border: #8b6f47;
+        --warm-text: #f4e4c1;
+        --warm-accent: #d4a574;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+        font-family: 'Outfit', 'Inter', system-ui, sans-serif;
+        background: #0b0d12;
+        color: #f4e4c1;
+        overflow: hidden;
+    }
+
+    /* ── Verktøylinje ───────────────────────────────────────────── */
+    .toolbar {
+        position: fixed;
+        top: 0; left: 0; right: 0;
+        z-index: 100;
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        padding: 10px 16px;
+        background: rgba(10, 12, 18, 0.78);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        flex-wrap: wrap;
+    }
+    .toolbar .label {
+        font-size: 13px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: #8fa0b6;
+        margin-right: 4px;
+    }
+    .tbtn {
+        font: inherit;
+        font-size: 15px;
+        padding: 8px 16px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        background: rgba(255, 255, 255, 0.04);
+        color: #e8edf5;
+        cursor: pointer;
+        transition: transform 0.12s, background 0.18s, border-color 0.18s;
+    }
+    .tbtn:hover { background: rgba(255, 255, 255, 0.1); transform: translateY(-1px); }
+    .tbtn.active {
+        background: #d4a574;
+        border-color: #d4a574;
+        color: #1a1206;
+        font-weight: 600;
+    }
+    .tbtn.ghost { border-style: dashed; }
+    .spacer { flex: 1; }
+
+    /* ── Falsk 3D-scene ─────────────────────────────────────────── */
+    #stage {
+        position: fixed;
+        inset: 0;
+        /* Lysalvendalen: lysende dal */
+        background:
+            radial-gradient(120% 80% at 50% -10%, #cfe8ff 0%, #9ec4e8 28%, #7ba6cf 48%, transparent 70%),
+            linear-gradient(180deg, #aed4f0 0%, #cfe6c9 55%, #8fb87e 100%);
+        overflow: hidden;
+    }
+    /* enkle åser */
+    #stage::before {
+        content: "";
+        position: absolute;
+        left: -10%; right: -10%; bottom: 0; height: 46%;
+        background:
+            radial-gradient(60% 120% at 20% 100%, #6f9e63 0%, transparent 60%),
+            radial-gradient(70% 130% at 80% 100%, #5d8a55 0%, transparent 62%),
+            linear-gradient(180deg, #7fae6f 0%, #5a8650 100%);
+        filter: saturate(0.9);
+    }
+    /* svevende lyspartikler */
+    .mote {
+        position: absolute;
+        width: 6px; height: 6px;
+        border-radius: 50%;
+        background: #fff6d8;
+        box-shadow: 0 0 12px 4px rgba(255, 246, 216, 0.8);
+        animation: float 7s ease-in-out infinite;
+        opacity: 0.7;
+    }
+    @keyframes float {
+        0%, 100% { transform: translateY(0); opacity: 0.4; }
+        50% { transform: translateY(-26px); opacity: 0.9; }
+    }
+
+    /* Figuren i scenen */
+    #actor {
+        position: absolute;
+        left: 50%;
+        bottom: 30%;
+        transform: translateX(-50%);
+        font-size: 150px;
+        line-height: 1;
+        filter: drop-shadow(0 14px 18px rgba(0, 0, 0, 0.35));
+        transition: filter 0.4s, transform 0.25s;
+        user-select: none;
+        z-index: 4;
+    }
+    #actor.talking { animation: bob 0.6s ease-in-out infinite; }
+    @keyframes bob {
+        0%, 100% { transform: translateX(-50%) translateY(0); }
+        50% { transform: translateX(-50%) translateY(-6px); }
+    }
+    /* teater-spotlys på figuren */
+    #spotlight {
+        position: absolute;
+        left: 50%; bottom: 8%;
+        width: 520px; height: 560px;
+        transform: translateX(-50%);
+        background: radial-gradient(ellipse 50% 60% at 50% 30%, rgba(255, 244, 214, 0.55), transparent 70%);
+        opacity: 0;
+        transition: opacity 0.5s;
+        pointer-events: none;
+        z-index: 3;
+    }
+    /* teater-mørklegging */
+    #vignette {
+        position: absolute; inset: 0;
+        background: radial-gradient(ellipse 60% 70% at 50% 42%, transparent 35%, rgba(0,0,0,0.72) 100%);
+        opacity: 0;
+        transition: opacity 0.5s;
+        pointer-events: none;
+        z-index: 2;
+    }
+    body.theatre #spotlight { opacity: 1; }
+    body.theatre #vignette { opacity: 1; }
+
+    /* ── Felles dialog-byggeklosser ─────────────────────────────── */
+    #dialog-root { position: fixed; inset: 0; z-index: 10; pointer-events: none; }
+    #dialog-root * { pointer-events: auto; }
+
+    .caret {
+        display: inline-block;
+        margin-left: 2px;
+        animation: blink 1s step-end infinite;
+    }
+    @keyframes blink { 0%,49% { opacity: 0.8; } 50%,100% { opacity: 0; } }
+
+    @keyframes choiceIn {
+        0% { opacity: 0; transform: translateY(10px); }
+        100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes panelIn {
+        0% { opacity: 0; transform: var(--tin, translateY(20px)) scale(0.97); }
+        100% { opacity: 1; transform: var(--tout, translateY(0)) scale(1); }
+    }
+    @keyframes pop {
+        0% { transform: scale(1); } 40% { transform: scale(1.06); } 100% { transform: scale(1); }
+    }
+
+    .choice {
+        font: inherit;
+        font-size: 22px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        width: 100%;
+        text-align: left;
+        padding: 14px 20px;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: transform 0.1s, background 0.18s, border-color 0.18s, color 0.18s;
+        animation: choiceIn 220ms cubic-bezier(0.2,0.8,0.2,1) both;
+    }
+    .choice .num {
+        flex: none;
+        font-size: 16px;
+        font-weight: 700;
+        width: 32px; height: 32px;
+        display: grid; place-items: center;
+        border-radius: 8px;
+    }
+    .choice:active { transform: scale(0.98); }
+    .speaker-name {
+        font-size: 22px;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        font-weight: 700;
+        margin-bottom: 8px;
+    }
+    .line {
+        font-size: 30px;
+        line-height: 1.45;
+    }
+
+    /* Emotion-portrett (gjenbrukes i flere layouter) */
+    .portrait {
+        flex: none;
+        display: grid;
+        place-items: center;
+        border-radius: 20px;
+        font-size: 86px;
+        transition: box-shadow 0.4s, background 0.4s, transform 0.25s;
+    }
+    .portrait.talking { animation: bob 0.6s ease-in-out infinite; }
+
+    /* ── A: Portrett lower-third ────────────────────────────────── */
+    .lt-wrap {
+        position: absolute;
+        left: 50%; bottom: 34px;
+        transform: translateX(-50%);
+        width: min(1040px, 94vw);
+        display: flex;
+        gap: 18px;
+        align-items: stretch;
+        --tin: translateX(-50%) translateY(20px);
+        --tout: translateX(-50%) translateY(0);
+        animation: panelIn 240ms cubic-bezier(0.2,0.8,0.2,1) both;
+    }
+    .lt-portrait {
+        width: 180px;
+        background: rgba(20, 12, 6, 0.92);
+        border: 3px solid var(--warm-border);
+    }
+    .lt-panel {
+        flex: 1;
+        background: rgba(20, 12, 6, 0.92);
+        border: 3px solid var(--warm-border);
+        border-radius: 18px;
+        padding: 24px 30px;
+        box-shadow: 0 14px 50px rgba(0,0,0,0.55);
+        color: var(--warm-text);
+        backdrop-filter: blur(8px);
+    }
+    .lt-panel .speaker-name { color: var(--warm-accent); }
+    .lt-choices { display: flex; flex-direction: column; gap: 8px; margin-top: 18px; }
+    .lt-choices .choice {
+        background: transparent;
+        border: 1px solid #5c4228;
+        color: var(--warm-text);
+    }
+    .lt-choices .choice .num { background: rgba(0,0,0,0.4); color: var(--warm-accent); }
+    .lt-choices .choice:hover {
+        background: #5c4228; border-color: var(--warm-accent); color: #fff;
+        transform: translateX(5px);
+    }
+
+    /* ── B: Snakkeboble (diegetisk) ─────────────────────────────── */
+    .bubble {
+        position: absolute;
+        left: 50%;
+        bottom: 52%;
+        transform: translateX(40px);
+        max-width: 520px;
+        background: #fffdf6;
+        color: #2a2018;
+        border-radius: 22px;
+        padding: 22px 26px;
+        box-shadow: 0 18px 50px rgba(0,0,0,0.3);
+        animation: panelIn 240ms cubic-bezier(0.2,0.8,0.2,1) both;
+        --tin: translateX(40px) translateY(14px);
+        --tout: translateX(40px) translateY(0);
+        z-index: 6;
+    }
+    .bubble::after { /* peker mot figuren */
+        content: "";
+        position: absolute;
+        left: -16px; bottom: 30px;
+        border: 16px solid transparent;
+        border-right-color: #fffdf6;
+        border-left: 0;
+    }
+    .bubble .speaker-name { color: #b07a32; font-size: 18px; margin-bottom: 4px; }
+    .bubble .line { font-size: 27px; }
+    .bubble-tray {
+        position: absolute;
+        left: 50%; bottom: 34px;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 12px;
+        background: rgba(255,253,246,0.95);
+        border-radius: 16px;
+        padding: 12px;
+        box-shadow: 0 12px 36px rgba(0,0,0,0.28);
+        animation: panelIn 240ms 0.05s cubic-bezier(0.2,0.8,0.2,1) both;
+        --tin: translateX(-50%) translateY(20px);
+        --tout: translateX(-50%) translateY(0);
+        flex-wrap: wrap;
+        justify-content: center;
+        max-width: 94vw;
+    }
+    .bubble-tray .choice {
+        width: auto;
+        background: #f1e7d2;
+        color: #3a2c19;
+        border: 2px solid transparent;
+    }
+    .bubble-tray .choice .num { background: #d4a574; color: #3a2c19; }
+    .bubble-tray .choice:hover { background: #e3d2ab; border-color: #b07a32; transform: translateY(-3px); }
+
+    /* ── C: Teater / spotlys ────────────────────────────────────── */
+    .theatre-text {
+        position: absolute;
+        left: 50%; bottom: 14%;
+        transform: translateX(-50%);
+        width: min(1100px, 92vw);
+        text-align: center;
+        text-shadow: 0 3px 20px rgba(0,0,0,0.9);
+        z-index: 12;
+        animation: panelIn 320ms cubic-bezier(0.2,0.8,0.2,1) both;
+        --tin: translateX(-50%) translateY(16px);
+        --tout: translateX(-50%) translateY(0);
+    }
+    .theatre-text .speaker-name { color: #f0c060; font-size: 24px; }
+    .theatre-text .line { font-size: 40px; line-height: 1.35; color: #fff; font-weight: 500; }
+    .theatre-choices {
+        display: flex; flex-direction: column; align-items: center; gap: 10px;
+        margin-top: 26px;
+    }
+    .theatre-choices .choice {
+        width: auto;
+        justify-content: center;
+        background: rgba(255,255,255,0.06);
+        border: 1.5px solid rgba(255,255,255,0.35);
+        color: #fff;
+        backdrop-filter: blur(4px);
+    }
+    .theatre-choices .choice .num { background: rgba(255,255,255,0.15); color: #f0c060; }
+    .theatre-choices .choice:hover {
+        background: rgba(240,192,96,0.9); color: #1a1206; border-color: #f0c060;
+        transform: scale(1.04);
+    }
+
+    .hint {
+        position: fixed;
+        bottom: 6px; left: 50%; transform: translateX(-50%);
+        font-size: 12px; color: rgba(255,255,255,0.45);
+        z-index: 100;
+    }
+</style>
+</head>
+<body class="portrait">
+
+<div class="toolbar">
+    <span class="label">Layout</span>
+    <button class="tbtn active" data-layout="portrait">A · Portrett lower-third</button>
+    <button class="tbtn" data-layout="bubble">B · Snakkeboble</button>
+    <button class="tbtn" data-layout="theatre">C · Teater / spotlys</button>
+    <span class="spacer"></span>
+    <button class="tbtn ghost" id="replay">↻ Spill av igjen</button>
+</div>
+
+<div id="stage">
+    <div id="vignette"></div>
+    <div id="spotlight"></div>
+    <div id="actor">🧝</div>
+</div>
+
+<div id="dialog-root"></div>
+
+<div class="hint">Stor type + typewriter med tegnsettings-pust · valg dukker opp etterpå med stagger · emotion farger portrett + ramme · trykk 1–3 eller klikk</div>
+
+<script>
+// ── Eksempel-dialog (Lysalvendalen-stil) ─────────────────────────
+const EMOTION = {
+    glad:        { face: "😊", ring: "#d4a574", glow: "rgba(212,165,116,0.6)" },
+    worried:     { face: "😟", ring: "#7a92ad", glow: "rgba(122,146,173,0.6)" },
+    surprised:   { face: "😮", ring: "#a8d4e0", glow: "rgba(168,212,224,0.7)" },
+    triumphant:  { face: "😌", ring: "#f0c060", glow: "rgba(240,192,96,0.7)" },
+};
+
+const SCRIPT = [
+    {
+        speaker: "Lysalven Eira",
+        emotion: "glad",
+        text: "Velkommen til Lysalvendalen, vandrer. Lyset her har en egen vilje — ser du hvordan motene danser?",
+        choices: [
+            { text: "Hva er motene?", icon: "✨" },
+            { text: "Hvorfor er jeg her?", icon: "🧭" },
+        ],
+    },
+    {
+        speaker: "Lysalven Eira",
+        emotion: "surprised",
+        text: "Du kjenner dem ikke?! Da er du virkelig langveisfra. Motene er minner som ennå ikke har funnet hvile.",
+        choices: [
+            { text: "Kan jeg hjelpe dem?", icon: "🤝" },
+            { text: "Det høres farlig ut.", icon: "⚠️" },
+        ],
+    },
+    {
+        speaker: "Lysalven Eira",
+        emotion: "worried",
+        text: "Farlig, ja. Men dalen falmer hvis ingen lytter til dem. Tør du å gå inn i tåken med meg?",
+        choices: [
+            { text: "Jeg blir med deg.", icon: "🔦" },
+            { text: "Fortell meg mer først.", icon: "💬" },
+        ],
+    },
+    {
+        speaker: "Lysalven Eira",
+        emotion: "triumphant",
+        text: "Da er dalen ikke fortapt likevel. Kom — lyset våkner der vi går.",
+        choices: [
+            { text: "(Start reisen på nytt)", icon: "↻" },
+        ],
+    },
+];
+
+// ── Tilstand ─────────────────────────────────────────────────────
+let layout = "portrait";
+let nodeIndex = 0;
+let typing = false;
+let typeTimer = null;
+
+const root = document.getElementById("dialog-root");
+const actor = document.getElementById("actor");
+
+// Tegnsettings-bevisst tempo (samme idé som motoren)
+function charDelay(prev) {
+    if (!prev) return 26;
+    if (".!?:".includes(prev)) return 300;
+    if (",;".includes(prev)) return 160;
+    if (prev === " ") return 14;
+    return 26;
+}
+
+function setLayout(name) {
+    layout = name;
+    document.body.className = name;
+    document.querySelectorAll(".tbtn[data-layout]").forEach(b =>
+        b.classList.toggle("active", b.dataset.layout === name));
+    render();
+}
+
+function next(choiceIdx) {
+    if (typing) { finishTyping(); return; }
+    if (nodeIndex >= SCRIPT.length - 1) { nodeIndex = 0; }
+    else { nodeIndex++; }
+    render();
+}
+
+let finishTyping = () => {};
+
+function render() {
+    clearTimeout(typeTimer);
+    root.innerHTML = "";
+    const node = SCRIPT[nodeIndex];
+    const emo = EMOTION[node.emotion];
+
+    actor.classList.add("talking");
+    actor.style.filter = `drop-shadow(0 14px 18px rgba(0,0,0,0.35)) drop-shadow(0 0 26px ${emo.glow})`;
+
+    // Bygg layout-skall
+    let lineEl, choicesEl, portraitEl;
+
+    if (layout === "portrait") {
+        const wrap = el("div", "lt-wrap");
+        portraitEl = el("div", "portrait talking");
+        const ltp = el("div", "lt-portrait portrait talking");
+        ltp.textContent = emo.face;
+        stylePortrait(ltp, emo);
+        const panel = el("div", "lt-panel");
+        panel.innerHTML = `<div class="speaker-name">${node.speaker}</div>`;
+        lineEl = el("div", "line"); panel.appendChild(lineEl);
+        choicesEl = el("div", "lt-choices"); panel.appendChild(choicesEl);
+        panel.style.borderColor = emo.ring;
+        ltp.style.borderColor = emo.ring;
+        wrap.append(ltp, panel);
+        root.appendChild(wrap);
+    }
+    else if (layout === "bubble") {
+        const bub = el("div", "bubble");
+        bub.innerHTML = `<div class="speaker-name">${node.speaker}</div>`;
+        lineEl = el("div", "line"); bub.appendChild(lineEl);
+        root.appendChild(bub);
+        choicesEl = el("div", "bubble-tray");
+        root.appendChild(choicesEl);
+    }
+    else { // theatre
+        const box = el("div", "theatre-text");
+        box.innerHTML = `<div class="speaker-name">${node.speaker}</div>`;
+        lineEl = el("div", "line"); box.appendChild(lineEl);
+        choicesEl = el("div", "theatre-choices"); box.appendChild(choicesEl);
+        root.appendChild(box);
+    }
+
+    // Typewriter
+    typeText(node.text, lineEl, () => showChoices(node, choicesEl));
+}
+
+function typeText(text, lineEl, done) {
+    typing = true;
+    let i = 0;
+    const caret = `<span class="caret">▌</span>`;
+    finishTyping = () => {
+        clearTimeout(typeTimer);
+        typing = false;
+        lineEl.innerHTML = text;
+        done();
+    };
+    const step = () => {
+        i++;
+        lineEl.innerHTML = text.slice(0, i) + (i < text.length ? caret : "");
+        if (i < text.length) {
+            typeTimer = setTimeout(step, charDelay(text[i - 1]));
+        } else {
+            typing = false;
+            done();
+        }
+    };
+    lineEl.innerHTML = caret;
+    typeTimer = setTimeout(step, 120);
+}
+
+function showChoices(node, container) {
+    container.innerHTML = "";
+    node.choices.forEach((c, i) => {
+        const b = el("button", "choice");
+        b.style.animationDelay = (i * 60) + "ms";
+        b.innerHTML = `<span class="num">${i + 1}</span><span>${c.icon ? c.icon + " " : ""}${c.text}</span>`;
+        b.onclick = () => { b.style.animation = "pop 0.25s"; next(i); };
+        container.appendChild(b);
+    });
+}
+
+// ── Hjelpere ─────────────────────────────────────────────────────
+function el(tag, cls) { const e = document.createElement(tag); if (cls) e.className = cls; return e; }
+function stylePortrait(node, emo) {
+    node.style.boxShadow = `0 0 0 3px ${emo.ring}, 0 0 40px ${emo.glow}`;
+    node.style.background = "rgba(20,12,6,0.92)";
+}
+
+// ── Hendelser ────────────────────────────────────────────────────
+document.querySelectorAll(".tbtn[data-layout]").forEach(b =>
+    b.addEventListener("click", () => setLayout(b.dataset.layout)));
+document.getElementById("replay").addEventListener("click", () => { nodeIndex = 0; render(); });
+
+window.addEventListener("keydown", e => {
+    if (e.code === "Space") { e.preventDefault(); if (typing) finishTyping(); return; }
+    const n = parseInt(e.key, 10);
+    if (n >= 1 && n <= 5) {
+        const node = SCRIPT[nodeIndex];
+        if (!typing && n <= node.choices.length) next(n - 1);
+    }
+});
+
+// Strø ut lyspartikler
+const stage = document.getElementById("stage");
+for (let i = 0; i < 14; i++) {
+    const m = el("div", "mote");
+    m.style.left = (8 + Math.random() * 84) + "%";
+    m.style.top = (18 + Math.random() * 50) + "%";
+    m.style.animationDelay = (Math.random() * 7) + "s";
+    m.style.animationDuration = (5 + Math.random() * 5) + "s";
+    stage.appendChild(m);
+}
+
+render();
+</script>
+</body>
+</html>

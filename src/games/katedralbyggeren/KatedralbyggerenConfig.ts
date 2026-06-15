@@ -5,7 +5,7 @@
 // alle de nye traverserings-verbene:
 //   - Stige (klatring)        - hold W ved stigen
 //   - Hull mellom stillasbord - hopp (coyote-time + variabel høyde + apex-tuning)
-//   - Høy kant                - Space + frem i lufta = mantle/kantgrep
+//   - Høy kant                - hold W inn mot kanten og hopp = automatisk kantgrep (mantle)
 //   - Stein-heis              - bevegelig plattform som bærer deg opp
 //   - C                       - bytt mellom 1.- og 3.-person
 

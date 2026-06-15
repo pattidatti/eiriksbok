@@ -45,6 +45,7 @@ export function addNPC(
         defaultEmotion: config.emotion,
         marker: config.questMarker,
         showName: config.talkable !== false,
+        portrait: config.portrait,
     };
 
     // Engine-utvidelse: dynamisk NPC-tillegg

@@ -219,6 +219,7 @@ Karakter med dialog, emosjon, marker.
 addNPC(engine, {
     id: 'sokrates', name: 'Sokrates', characterType: 'monk',
     pos: [0, 0, -2], emotion: 'worried', questMarker: true,
+    portrait: '🧙',
     dialogs: {
         sokrates_greeting: { speaker: 'Sokrates', text: 'Hei.', choices: [{ text: 'Hei', next: null }] },
     },
@@ -226,6 +227,8 @@ addNPC(engine, {
 ```
 
 **Dialog-konvensjon for fler-NPC-spill**: bruk `{npcId}_greeting`, `{npcId}_progress` osv. Motoren åpner `sokrates_greeting` automatisk når spilleren trykker E på Sokrates.
+
+**`portrait`-glyfen** (valgfri emoji): vises i portrett-ruten til venstre i dialogboksen (Portrett lower-third-layouten). Settes per NPC i `addNPC`/`config.characters`, eller per replikk via `portrait` på en enkelt `DialogNode` (node-nivå overstyrer karakter-nivå). Utelates den, faller motoren tilbake i denne rekkefølgen: `characterType`-emoji (`scientist`→🧑‍🔬, `farmer`→🧑‍🌾, `noble`→🤴, `monk`→🧙) → emotion-ansikt → 🙂. Emotion (`emotion` på `DialogNode`) tinter i tillegg rammen/aksenten rundt boksen. Velg en glyf som matcher figuren, ikke bare characterType-modellen (f.eks. en lysalv modellert som `monk` passer bedre med 🧝).
 
 **Variants**: en dialog-verdi kan være array. Da sorteres fallback (uten condition) automatisk sist.
 
@@ -614,6 +617,7 @@ condition: { flagsRequired: [FLAGS.ENGINE_BUILT] }   // ✓
 | Emissive/glødende objekt (flamme, lampe, display) ser grått/brunt ut | `addProp` med `primitive` gir kun `MeshStandardMaterial` uten emissive | Lag meshen med raw THREE: `new THREE.MeshStandardMaterial({ emissive: 0xff6020, emissiveIntensity: 3 })`. Se §6.1 |
 | Quest-markør over NPC forsvinner ikke etter dialog | `questMarker: true` er *startverdi*, ikke automatisk livssyklus | Kall `engine.setCharacterMarkerVisible(id, false)` i dialogens `onEnd` eller i interactable-handleren som markerer fasen ferdig |
 | Spiller kan ikke hoppe | `physics.playerJump` er `false` | Sett `playerJump: true` i GameConfig.physics. Spesielt viktig for utendørs-spill |
+| Kommer ikke opp på en høy kant (1-2m over hodehøyde-spranget) | Kanten er for høy for et rent hopp; karakteren skal *gripe* den | Kantgrep er automatisk (auto-mantle): hold W inn mot kanten og hopp - karakteren drar seg opp. Kanttoppen må være `riseMin..riseMax` (0.6-2.2m) over føttene og ha takklaring. Juster `physics.mantle.{reach,riseMin,riseMax}` ved behov; sett `physics.mantle.auto:false` for manuell Space-i-lufta |
 | Stort objekt (mast, tårn) er ikke synlig fra andre ender av dekket | For lavt/tynt | Master ≥12m, flammer/lys ≥5m diameter, emissive + punktlys for distansesynlighet |
 | `primitive: 'sphere'` gir TS-feil «Source has 1 element(s)» | Type krever 3-tuple selv om kommentar sier `[r]` | Bruk `size: [r, r, r]` |
 
@@ -931,6 +935,29 @@ Default `physics.playerJump` er `false`. Spillet trenger **eksplisitt `playerJum
 Hvis spilleren møter en usynlig vegg der det visuelt ser ut som en lav kant, er manglende `playerJump: true` den vanligste årsaken.
 
 Sett `playerJump: false` kun i *strengt* interiør-spill der bakken er helt flat og hopp aldri trengs.
+
+**Bevegelsesfart og kantgrep (mantle):** `GameConfig.physics` styrer også horisontal fart og
+automatisk kantgrep:
+
+```ts
+physics: {
+    playerJump: true,
+    walkSpeed: 6,   // default 6 (m/s)
+    runSpeed: 11,   // default 11 (m/s, Shift)
+    mantle: {
+        auto: true,     // default true - karakteren griper en kant automatisk når den
+                        //   hopper inn mot den; ingen ekstra tastetrykk
+        reach: 0.8,     // hvor langt foran kanten registreres (m)
+        riseMin: 0.6,   // kanttopp må være minst så høyt over føttene (under = "flatt")
+        riseMax: 2.2,   // ... og høyst så høyt (over = for høy å dra seg opp på)
+    },
+}
+```
+
+Auto-grip lar eleven komme opp på kanter som er for høye for et rent hopp (1-2m): hold W inn mot
+kanten og hopp, så drar karakteren seg opp av seg selv. Alle feltene er valgfrie - utelat
+`physics`/`mantle` helt for standardoppførselen. Sett `mantle.auto:false` hvis et spill heller
+vil ha manuelt kantgrep (Space-i-lufta inn mot kanten).
 
 ### 8.16 Dialog-tekst lover NPC-handling som aldri skjer
 

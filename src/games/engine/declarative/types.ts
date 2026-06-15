@@ -267,6 +267,8 @@ export interface AddNPCConfig {
     greetingDialog?: string;
     // Kan NPCen snakkes med? Default true. Sett false for stumme NPCer / statister.
     talkable?: boolean;
+    // Valgfritt portrett-glyf (emoji) i dialogboksens portrett-rute. Default fra characterType.
+    portrait?: string;
 }
 
 // ─── addMonolog ──────────────────────────────────────────────────────────────

@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState, useMemo } from 'react';
-import { GamePanel } from './GamePanel';
 import { ChoiceButton } from './ChoiceButton';
 import type { DialogChoiceUI, Emotion } from '../types';
 
@@ -9,6 +8,7 @@ interface DialogState {
     text: string;
     choices: DialogChoiceUI[];
     emotion?: Emotion;
+    portrait?: string;
 }
 
 interface DialogBoxProps {
@@ -20,6 +20,12 @@ interface DialogBoxProps {
 }
 
 const BASE_MS_PER_CHAR = 22;
+
+// Varm pergament-palett (Portrett lower-third).
+const WARM_PANEL = 'rgba(20,12,6,0.94)';
+const WARM_BORDER = '#8b6f47';
+const WARM_TEXT = '#f4e4c1';
+const WARM_ACCENT = '#d4a574';
 
 const EMOTION_BORDERS: Record<Emotion, string> = {
     glad: '#d4a574',
@@ -113,7 +119,12 @@ export function DialogBox({ dialog, onChoice, playSound }: DialogBoxProps) {
 
     if (!dialog.visible) return null;
 
-    const borderColor = dialog.emotion ? EMOTION_BORDERS[dialog.emotion] : undefined;
+    // Emotion gir ramme/aksent-tint; uten emotion brukes den varme standardpaletten.
+    const frameColor = dialog.emotion ? EMOTION_BORDERS[dialog.emotion] : WARM_BORDER;
+    const accentColor = dialog.emotion ? EMOTION_BORDERS[dialog.emotion] : WARM_ACCENT;
+    const portrait = dialog.portrait ?? '🙂';
+    // Mens teksten skrives "snakker" portrettet (lett bob). Stopper når replikken er ferdig.
+    const speaking = !isComplete && !reduced;
 
     const handleClick = () => {
         if (!isComplete) {
@@ -123,68 +134,139 @@ export function DialogBox({ dialog, onChoice, playSound }: DialogBoxProps) {
     };
 
     return (
-        <div onClick={handleClick} style={{ cursor: isComplete ? 'default' : 'pointer' }}>
+        <div
+            onClick={handleClick}
+            style={{
+                position: 'absolute',
+                bottom: 34,
+                left: '50%',
+                transform: 'translateX(-50%)',
+                width: 'min(1040px, 94vw)',
+                zIndex: 10,
+                cursor: isComplete ? 'default' : 'pointer',
+                fontFamily: "Georgia, 'Times New Roman', serif",
+            }}
+        >
             <style>{`
                 @keyframes choiceIn {
-                    0%   { opacity: 0; transform: translateY(6px); }
+                    0%   { opacity: 0; transform: translateY(8px); }
                     100% { opacity: 1; transform: translateY(0); }
                 }
                 @keyframes dialogCaretBlink {
                     0%, 49%   { opacity: 0.7; }
                     50%, 100% { opacity: 0; }
                 }
+                @keyframes dialogLowerThirdIn {
+                    0%   { opacity: 0; transform: translateY(22px) scale(0.98); }
+                    100% { opacity: 1; transform: translateY(0) scale(1); }
+                }
+                @keyframes dialogPortraitBob {
+                    0%, 100% { transform: translateY(0); }
+                    50%      { transform: translateY(-5px); }
+                }
             `}</style>
-            <GamePanel borderColor={borderColor} animateIn={!reduced}>
+
+            <div
+                style={{
+                    display: 'flex',
+                    gap: 16,
+                    alignItems: 'stretch',
+                    animation: reduced ? undefined : 'dialogLowerThirdIn 240ms cubic-bezier(0.2,0.8,0.2,1) both',
+                }}
+            >
+                {/* Portrett-rute */}
                 <div
                     style={{
-                        fontSize: 17,
-                        color: borderColor ?? '#d4a574',
-                        marginBottom: 10,
-                        letterSpacing: 1,
-                        fontVariant: 'small-caps',
+                        flex: 'none',
+                        width: 168,
+                        display: 'grid',
+                        placeItems: 'center',
+                        background: WARM_PANEL,
+                        border: `3px solid ${frameColor}`,
+                        borderRadius: 18,
+                        boxShadow: `0 10px 40px rgba(0,0,0,0.5), 0 0 34px -6px ${frameColor}`,
+                        backdropFilter: 'blur(8px)',
                     }}
                 >
-                    {dialog.speaker}
+                    <span
+                        style={{
+                            fontSize: 92,
+                            lineHeight: 1,
+                            filter: `drop-shadow(0 6px 10px rgba(0,0,0,0.45))`,
+                            animation: speaking ? 'dialogPortraitBob 0.6s ease-in-out infinite' : undefined,
+                        }}
+                    >
+                        {portrait}
+                    </span>
                 </div>
 
-                <p
+                {/* Tekst-panel */}
+                <div
                     style={{
-                        fontSize: 15,
-                        lineHeight: 1.6,
-                        marginBottom: 14,
-                        minHeight: 50,
+                        flex: 1,
+                        minWidth: 0,
+                        background: WARM_PANEL,
+                        border: `3px solid ${frameColor}`,
+                        borderRadius: 18,
+                        padding: '22px 30px',
+                        boxShadow: '0 10px 50px rgba(0,0,0,0.55)',
+                        backdropFilter: 'blur(8px)',
+                        color: WARM_TEXT,
                     }}
                 >
-                    {dialog.text.slice(0, displayLen)}
-                    {!isComplete && (
-                        <span
-                            style={{
-                                marginLeft: 2,
-                                animation: reduced ? undefined : 'dialogCaretBlink 1s step-end infinite',
-                                opacity: 0.7,
-                            }}
-                        >
-                            ▌
-                        </span>
-                    )}
-                </p>
-
-                {isComplete && (
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-                        {dialog.choices.map((choice, i) => (
-                            <ChoiceButton
-                                key={i}
-                                index={i}
-                                text={choice.text}
-                                icon={choice.icon}
-                                consequenceHint={choice.consequenceHint}
-                                onClick={() => onChoice(i)}
-                                animate={!reduced}
-                            />
-                        ))}
+                    <div
+                        style={{
+                            fontSize: 22,
+                            color: accentColor,
+                            marginBottom: 10,
+                            letterSpacing: 1.5,
+                            fontVariant: 'small-caps',
+                            fontWeight: 700,
+                        }}
+                    >
+                        {dialog.speaker}
                     </div>
-                )}
-            </GamePanel>
+
+                    <p
+                        style={{
+                            fontSize: 29,
+                            lineHeight: 1.5,
+                            marginBottom: 18,
+                            minHeight: 88,
+                        }}
+                    >
+                        {dialog.text.slice(0, displayLen)}
+                        {!isComplete && (
+                            <span
+                                style={{
+                                    marginLeft: 2,
+                                    animation: reduced ? undefined : 'dialogCaretBlink 1s step-end infinite',
+                                    opacity: 0.7,
+                                }}
+                            >
+                                ▌
+                            </span>
+                        )}
+                    </p>
+
+                    {isComplete && (
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+                            {dialog.choices.map((choice, i) => (
+                                <ChoiceButton
+                                    key={i}
+                                    index={i}
+                                    text={choice.text}
+                                    icon={choice.icon}
+                                    consequenceHint={choice.consequenceHint}
+                                    onClick={() => onChoice(i)}
+                                    animate={!reduced}
+                                    accentColor={accentColor}
+                                />
+                            ))}
+                        </div>
+                    )}
+                </div>
+            </div>
         </div>
     );
 }
