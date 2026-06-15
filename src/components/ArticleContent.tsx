@@ -164,7 +164,7 @@ export const ArticleContent: React.FC<ArticleContentProps> = React.memo(({ conte
     const displayContent = fullContent || content;
 
     return (
-        <div className={`article-content ${isTool ? 'w-full max-w-none' : 'max-w-5xl mx-auto'}`}>
+        <div className={`article-content min-w-0 ${isTool ? 'w-full max-w-none' : 'max-w-5xl mx-auto'}`}>
             {displayContent.map((block, index) => {
                 // ... (rest of the mapping using mergedConcepts instead of concepts)
                 // Handle 'type' (standard), 'name' (legacy), and '__typename' (GraphQL)
@@ -192,7 +192,7 @@ export const ArticleContent: React.FC<ArticleContentProps> = React.memo(({ conte
                     const props = normalizeProps({ ...(block as any) }, type as string);
 
                     return (
-                        <div key={index} className="my-4">
+                        <div key={index} className="my-4 min-w-0 max-w-full" data-interactive-component>
                             <React.Suspense fallback={<div className="h-20 w-full animate-pulse bg-slate-50 rounded-xl" />}>
                                 <DirectComponent {...props} />
                             </React.Suspense>
@@ -414,7 +414,7 @@ export const ArticleContent: React.FC<ArticleContentProps> = React.memo(({ conte
                         }
 
                         return (
-                            <div key={index} data-interactive-component>
+                            <div key={index} className="min-w-0 max-w-full" data-interactive-component>
                                 <React.Suspense fallback={<div className="h-40 w-full animate-pulse bg-slate-100 rounded-xl my-4 flex items-center justify-center text-slate-400">Laster modul...</div>}>
                                     <RegisteredComponent {...normalizeProps({ ...((block as any).props || {}) }, ComponentName)} />
                                 </React.Suspense>

@@ -17,6 +17,8 @@ export interface SolidUserData {
     restitution?: number;
     climbable?: boolean;
     pickupable?: boolean;
+    // Bevegelig plattform: hopp over i den statiske importøren (egen kinematisk body).
+    kinematicPlatform?: boolean;
     // Demping på dynamiske bodies - uten disse ruller/drifter objekter evig.
     linearDamping?: number;
     angularDamping?: number;
@@ -37,6 +39,12 @@ export interface RaycastHit {
     bodyHandle?: number;
 }
 
+export interface KinematicPlatformHandle {
+    mesh: THREE.Object3D;
+    body: RAPIER_NS.RigidBody;
+    bodyHandle: number;
+}
+
 const FIXED_DT = 1 / 60;
 const MAX_SUBSTEPS = 5;
 
@@ -50,6 +58,8 @@ export class PhysicsWorld {
     private dynamics: { mesh: THREE.Object3D; body: RAPIER_NS.RigidBody }[] = [];
     // Sensorer for ladders (climbable)
     private climbables: RAPIER_NS.Collider[] = [];
+    // Kinematiske bevegelige plattformer (heiser/lifter som bærer spilleren)
+    private platforms: KinematicPlatformHandle[] = [];
 
     private accumulator = 0;
 
@@ -77,6 +87,8 @@ export class PhysicsWorld {
         while (queue.length) {
             const obj = queue.pop()!;
             const ud = obj.userData as SolidUserData;
+            // Bevegelige plattformer får en egen kinematisk body via createKinematicPlatform.
+            if (ud.kinematicPlatform) continue;
             if (ud.solid && obj instanceof THREE.Mesh) {
                 if (ud.dynamic) {
                     this.addDynamicMesh(obj);
@@ -249,6 +261,64 @@ export class PhysicsWorld {
         this.meshToBody.delete(mesh);
         const idx = this.dynamics.findIndex((d) => d.mesh === mesh);
         if (idx >= 0) this.dynamics.splice(idx, 1);
+        const pidx = this.platforms.findIndex((p) => p.mesh === mesh);
+        if (pidx >= 0) this.platforms.splice(pidx, 1);
+    }
+
+    // ── Bevegelige plattformer (kinematiske) ───────────────────────────────────
+
+    /** Lag en kinematisk position-based body fra en mesh (sentrert geometri antas).
+     *  Spillerens character-controller kolliderer korrekt mot denne og rapporterer
+     *  grounded når hen står oppå. Carry (at spilleren følger plattformen) håndteres
+     *  i GameEngine via getCarryDelta + raycast. */
+    createKinematicPlatform(mesh: THREE.Mesh): KinematicPlatformHandle | null {
+        if (!RAPIER) return null;
+        if (this.meshToBody.has(mesh)) return null;
+        const ud = mesh.userData as SolidUserData;
+
+        mesh.updateWorldMatrix(true, false);
+        const worldPos = new THREE.Vector3();
+        const worldQuat = new THREE.Quaternion();
+        const worldScale = new THREE.Vector3();
+        mesh.matrixWorld.decompose(worldPos, worldQuat, worldScale);
+
+        if (!mesh.geometry.boundingBox) mesh.geometry.computeBoundingBox();
+        const bb = mesh.geometry.boundingBox!;
+        const localCenter = new THREE.Vector3().addVectors(bb.min, bb.max).multiplyScalar(0.5);
+        const localSize = new THREE.Vector3().subVectors(bb.max, bb.min);
+        const half = new THREE.Vector3(
+            (localSize.x * worldScale.x) / 2,
+            (localSize.y * worldScale.y) / 2,
+            (localSize.z * worldScale.z) / 2,
+        );
+        const centerOffset = localCenter.clone().multiply(worldScale).applyQuaternion(worldQuat);
+        const bodyPos = worldPos.clone().add(centerOffset);
+
+        const bodyDesc = RAPIER.RigidBodyDesc.kinematicPositionBased()
+            .setTranslation(bodyPos.x, bodyPos.y, bodyPos.z)
+            .setRotation({ x: worldQuat.x, y: worldQuat.y, z: worldQuat.z, w: worldQuat.w });
+        const body = this.world.createRigidBody(bodyDesc);
+
+        const colliderDesc = this.buildColliderDesc(mesh, ud.colliderShape ?? 'cuboid', half);
+        if (!colliderDesc) {
+            this.world.removeRigidBody(body);
+            return null;
+        }
+        colliderDesc.setFriction(ud.friction ?? 0.9);
+        this.world.createCollider(colliderDesc, body);
+
+        this.meshToBody.set(mesh, body);
+        const handle: KinematicPlatformHandle = { mesh, body, bodyHandle: body.handle };
+        this.platforms.push(handle);
+        return handle;
+    }
+
+    setPlatformTranslation(handle: KinematicPlatformHandle, x: number, y: number, z: number): void {
+        handle.body.setNextKinematicTranslation({ x, y, z });
+    }
+
+    getPlatformByBodyHandle(bodyHandle: number): KinematicPlatformHandle | undefined {
+        return this.platforms.find((p) => p.bodyHandle === bodyHandle);
     }
 
     getBody(mesh: THREE.Object3D): RAPIER_NS.RigidBody | undefined {
@@ -280,6 +350,15 @@ export class PhysicsWorld {
         controller.setMaxSlopeClimbAngle(Math.PI / 4);
 
         return { body, collider, controller, radius, halfHeight };
+    }
+
+    /** Kjør character-controlleren for ønsket forflytning. EXCLUDE_SENSORS gjør at
+     *  klatre-sensorer (og andre sensorer) ikke blokkerer spilleren - ellers ville
+     *  spilleren stoppe FORAN stigesensoren og aldri komme inn i den for å klatre. */
+    computeCharacterMovement(cc: CharacterControllerHandle, desired: THREE.Vector3): { x: number; y: number; z: number } {
+        if (!RAPIER) return { x: 0, y: 0, z: 0 };
+        cc.controller.computeColliderMovement(cc.collider, desired, RAPIER.QueryFilterFlags.EXCLUDE_SENSORS);
+        return cc.controller.computedMovement();
     }
 
     // ── Query-API ─────────────────────────────────────────────────────────────
@@ -404,6 +483,7 @@ export class PhysicsWorld {
     dispose(): void {
         this.dynamics.length = 0;
         this.climbables.length = 0;
+        this.platforms.length = 0;
         this.world.free();
     }
 }

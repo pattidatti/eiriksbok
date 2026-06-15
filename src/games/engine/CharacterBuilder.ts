@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import type { CharacterConfig, Emotion, CharacterType } from './types';
 import { createBlobShadow } from './declarative/builders/_util';
+import { makeLabelSprite } from './TextureKit';
 
 function addOutline(mesh: THREE.Mesh, scale = 1.06): void {
     const outline = new THREE.Mesh(
@@ -135,49 +136,15 @@ export interface BuiltCharacter {
     defaultEmotion?: Emotion;
 }
 
+// Navn- og interaksjons-etiketter bruker makeLabelSprite (TextureKit), som måler
+// teksten og dimensjonerer canvas + sprite-skala dynamisk - så lange navn som
+// "Byggmester Gunnar" aldri klippes. depthTest er av, så de tegnes alltid over geometri.
 function createInteractLabel(): THREE.Sprite {
-    const canvas = document.createElement('canvas');
-    canvas.width = 256;
-    canvas.height = 64;
-    const ctx = canvas.getContext('2d')!;
-    ctx.shadowColor = 'rgba(0,0,0,0.95)';
-    ctx.shadowBlur = 14;
-    ctx.fillStyle = '#ffd45a';
-    ctx.font = 'bold 26px Inter, sans-serif';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.fillText('Snakk (E)', 128, 32);
-    ctx.shadowBlur = 0;
-    const texture = new THREE.CanvasTexture(canvas);
-    const sprite = new THREE.Sprite(
-        new THREE.SpriteMaterial({ map: texture, transparent: true, depthWrite: false, depthTest: false })
-    );
-    sprite.renderOrder = 999;
-    sprite.scale.set(1.4, 0.35, 1);
-    return sprite;
+    return makeLabelSprite('Snakk (E)', '#ffd45a', 26);
 }
 
 function createNameLabel(name: string): THREE.Sprite {
-    const canvas = document.createElement('canvas');
-    canvas.width = 256;
-    canvas.height = 64;
-    const ctx = canvas.getContext('2d')!;
-    ctx.shadowColor = 'rgba(0,0,0,0.95)';
-    ctx.shadowBlur = 14;
-    ctx.fillStyle = '#ffffff';
-    ctx.font = 'bold 28px Inter, sans-serif';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.fillText(name, 128, 32);
-    ctx.shadowBlur = 0;
-
-    const texture = new THREE.CanvasTexture(canvas);
-    const sprite = new THREE.Sprite(
-        new THREE.SpriteMaterial({ map: texture, transparent: true, depthWrite: false, depthTest: false })
-    );
-    sprite.renderOrder = 999;
-    sprite.scale.set(1.4, 0.35, 1);
-    return sprite;
+    return makeLabelSprite(name, '#ffffff', 28);
 }
 
 export function buildCharacter(
@@ -258,10 +225,10 @@ export function buildCharacter(
     let interactLabel: THREE.Sprite | undefined;
     if (config.showName !== false) {
         nameLabel = createNameLabel(config.name);
-        nameLabel.position.y = 1.95;
+        nameLabel.position.y = 2.18; // godt over hodet (hode-topp ~1.8) så teksten ikke overlapper
         g.add(nameLabel);
         interactLabel = createInteractLabel();
-        interactLabel.position.y = 2.40;
+        interactLabel.position.y = 2.58;
         interactLabel.visible = false;
         g.add(interactLabel);
     }

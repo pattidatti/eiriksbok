@@ -353,7 +353,10 @@ export const InteractiveArticle: React.FC<InteractiveArticleProps> = ({ event, f
                     ) : (
                         <div className={`grid gap-8 md:gap-12 ${event.layout === 'tool' ? 'grid-cols-1 w-full' : 'grid-cols-1 lg:grid-cols-[1fr_350px]'}`}>
                             {/* Left Column: Article Text */}
-                            <div className="space-y-8">
+                            {/* min-w-0 + article-main-column: lar 1fr-kolonnen krympe under
+                                barnas egen bredde, så en bred komponent aldri kan presse ut
+                                sidebaren (klassisk CSS-grid-felle). Se index.css. */}
+                            <div className="space-y-8 min-w-0 article-main-column">
                                 <ArticleContent
                                     content={event.content}
                                     concepts={event.concepts}

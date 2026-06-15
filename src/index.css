@@ -45,6 +45,28 @@ body {
   overflow-x: hidden;
 }
 
+/* === Layout-sikkerhetsnett: artikkelinnhold vs. sidebar ===
+   Rik-layout bruker grid-cols-[1fr_350px] (se InteractiveArticle.tsx). En grid-
+   /flex-kolonne får som standard min-width:auto, så en bred komponent kan vokse
+   1fr-kolonnen og presse 350px-sidebaren ut av skjermen. Disse reglene gjør at
+   innholdskolonnen alltid kan krympe, og at en interaktiv komponentblokk aldri
+   sprenger ut av kolonnen - uansett hva komponenten gjør internt. Holder
+   garantien selv om utility-klassene i JSX skulle bli endret.
+   overflow-x: clip holder bredden i sjakk, men tvinger IKKE overflow-y til auto
+   (i motsetning til auto/scroll), så vertikale popovers/tooltips vises fortsatt. */
+.article-main-column {
+  min-width: 0;
+}
+.article-content {
+  min-width: 0;
+  max-width: 100%;
+}
+[data-interactive-component] {
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 10px;

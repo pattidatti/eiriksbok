@@ -32,6 +32,24 @@ export interface PhysicsConfig {
     playerFallDamage?: boolean;     // default false
     fallDamageThreshold?: number;   // m/s - absolutt verdi av landings-Y-hastighet; default 12
     onPlayerFallDamage?: (velocity: number) => void;
+    // Valgfri finjustering av hopp-følelsen. Defaults gir den globale, juicy følelsen
+    // (coyote-time + jump-buffer + variabel høyde + apex/fall-tuning).
+    jump?: {
+        velocity?: number;          // oppover-hastighet ved hopp (default 6)
+        coyoteMs?: number;          // nådetid etter å forlate bakken (default 100)
+        bufferMs?: number;          // forhåndstrykk-vindu før landing (default 120)
+        fallMultiplier?: number;    // ekstra gravitasjon under fall for snappy landing (default 1.35)
+    };
+}
+
+// Bevegelig plattform (heis/lift) som bærer spilleren mens hen går og hopper på den.
+// Beveger seg A→B→A i en syklus. Posisjon er tids-basert (deterministisk for save/load).
+export interface MovingPlatformOptions {
+    from: [number, number, number]; // verdensposisjon A (plattformsenter)
+    to: [number, number, number];   // verdensposisjon B
+    period: number;                  // sekunder for en full A→B→A-syklus
+    easing?: 'linear' | 'sine';      // default 'sine' (myke endepunkter)
+    phase?: number;                  // 0..1 start-offset i syklusen
 }
 
 // Opsjoner for generelle interaksjonspunkter (alter, dor, hendel etc.) registrert via
@@ -505,6 +523,10 @@ export interface GameEngineRef {
     // - kall mesh.removeFromParent() eller anim mesh.position separat for visuell effekt.
     // No-op hvis fysikk er deaktivert eller mesh ikke har en collider.
     removeStaticCollider: (mesh: Mesh) => void;
+    // Gjør en mesh til en bevegelig plattform (kinematisk body) som bærer spilleren.
+    // Mesh-en bør ha sentrert geometri (f.eks. BoxGeometry). Beveger seg per
+    // MovingPlatformOptions. Fungerer kun når fysikk er aktiv.
+    addMovingPlatform: (mesh: Mesh, opts: MovingPlatformOptions) => void;
     // ── Fase 3.1 (audio) ──
     // Spill en engangslyd. Spatial hvis `position` er satt.
     playOneShot: (url: string, opts?: { position?: [number, number, number]; volume?: number }) => void;

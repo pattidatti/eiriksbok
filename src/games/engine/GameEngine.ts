@@ -22,6 +22,7 @@ import type {
     CharacterConfig,
     MonologNode,
     MonologTrigger,
+    MovingPlatformOptions,
 } from './types';
 import { TimedActivitySystem } from './systems/TimedActivitySystem';
 import { DetectionSystem } from './systems/DetectionSystem';
@@ -51,6 +52,7 @@ import { QuestSystem } from './systems/QuestSystem';
 import { InventorySystem } from './systems/InventorySystem';
 import { runValidation } from './systems/ConfigValidator';
 import type { PhysicsWorld, CharacterControllerHandle } from './systems/PhysicsWorld';
+import { MovingPlatformSystem } from './systems/MovingPlatformSystem';
 import type { TerrainSystem } from './systems/TerrainSystem';
 import type { InteractableSystem, LauncherSlot } from './systems/InteractableSystem';
 import type { ProjectileSystem } from './systems/ProjectileSystem';
@@ -116,6 +118,13 @@ const _camEyeScratch = new THREE.Vector3();
 const _worldUpScratch = new THREE.Vector3(0, 1, 0);
 const _physPosScratch = new THREE.Vector3();
 const _physDesiredScratch = new THREE.Vector3();
+// Platforming-scratch (carry-raycast + mantle ledge-deteksjon)
+const _physCarryScratch = new THREE.Vector3();
+const _downScratch = new THREE.Vector3(0, -1, 0);
+const _ledgeFwdScratch = new THREE.Vector3();
+const _ledgeAScratch = new THREE.Vector3();
+const _ledgeBScratch = new THREE.Vector3();
+const _ledgeCScratch = new THREE.Vector3();
 
 // Godtar både det gamle string-formatet ('auto' | 'low' | 'medium' | 'high') og den nye
 // PostProcessingConfig-objektformen, og returnerer alltid et normalisert objekt.
@@ -241,6 +250,9 @@ export class GameEngine {
     // Fase 5.2: save/load. Alltid aktiv — config.id er påkrevd så save-nøkkel er stabil.
     private saveSystem: SaveSystem | null = null;
     private pendingPickups: { mesh: THREE.Mesh; opts?: PickupOptions }[] = [];
+    // Bevegelige plattformer (Del B). Settes opp i initPhysics; ventende fra setupScene.
+    private movingPlatformSystem: MovingPlatformSystem | null = null;
+    private pendingPlatforms: { mesh: THREE.Mesh; opts: MovingPlatformOptions }[] = [];
     private pendingInteracts: { mesh: THREE.Mesh; opts: import('./types').InteractOptions }[] = [];
 
     // Camera
@@ -753,6 +765,13 @@ export class GameEngine {
         this.pendingPickups.length = 0;
         for (const p of this.pendingInteracts) this.interactables.registerInteract(p.mesh, p.opts);
         this.pendingInteracts.length = 0;
+        // Bevegelige plattformer (Del B): opprett kinematiske bodies for alt registrert i setupScene.
+        this.movingPlatformSystem = new MovingPlatformSystem(this.physics);
+        for (const p of this.pendingPlatforms) {
+            const handle = this.physics.createKinematicPlatform(p.mesh);
+            if (handle) this.movingPlatformSystem.add(handle, p.opts, this.time);
+        }
+        this.pendingPlatforms.length = 0;
     }
 
     // ─── Public interface for setupScene callbacks ──────────────────────────
@@ -880,11 +899,12 @@ export class GameEngine {
                 position: playerCfg.startPosition,
                 colors: playerCfg.colors,
                 extras: (g) => {
-                    // Default player hat
+                    // Default player hat. Merket povHide så den skjules i førsteperson
+                    // (ellers dekker den synet).
                     const hat = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.3, 0.15, 3), this.toonMat(0x1a0f08));
-                    hat.position.y = 1.78; hat.rotation.y = Math.PI / 6; g.add(hat);
+                    hat.position.y = 1.78; hat.rotation.y = Math.PI / 6; hat.userData.povHide = true; g.add(hat);
                     const brim = new THREE.Mesh(new THREE.CylinderGeometry(0.4, 0.4, 0.05, 3), this.toonMat(0x1a0f08));
-                    brim.position.y = 1.7; brim.rotation.y = Math.PI / 6; g.add(brim);
+                    brim.position.y = 1.7; brim.rotation.y = Math.PI / 6; brim.userData.povHide = true; g.add(brim);
                 },
             },
             this.toonMat.bind(this),
@@ -1228,6 +1248,17 @@ export class GameEngine {
             dropHeldItem: () => this.interactables?.drop(),
             throwHeldItem: (force?: number) => this.interactables?.throwHeld(force),
             removeStaticCollider: (mesh: THREE.Mesh) => this.physics?.removeMesh(mesh),
+            addMovingPlatform: (mesh: THREE.Mesh, opts: MovingPlatformOptions) => {
+                // Hopp over i den statiske importøren; plattformen får en kinematisk body.
+                mesh.userData.kinematicPlatform = true;
+                if (this.physics && this.movingPlatformSystem) {
+                    const handle = this.physics.createKinematicPlatform(mesh);
+                    if (handle) this.movingPlatformSystem.add(handle, opts, this.time);
+                } else {
+                    // Fysikk ikke klar ennå (setupScene) - prosesseres i initPhysics.
+                    this.pendingPlatforms.push({ mesh, opts });
+                }
+            },
             playOneShot: (url, opts) => void this.audio.playOneShot(url, opts),
             playAmbient: (url, opts) => this.audio.playAmbient(url, opts),
             resumeAudio: () => this.audio.resume(),
@@ -2500,6 +2531,10 @@ export class GameEngine {
         this.player.rArm.visible = visible;
         this.player.lLeg.visible = visible;
         this.player.rLeg.visible = visible;
+        // Ekstrautstyr (hatt/brem o.l.) merket povHide skjules også i førsteperson.
+        this.player.group.traverse((o) => {
+            if (o.userData?.povHide) o.visible = visible;
+        });
     }
 
     setPhotoExposure(exposure: number): void {
@@ -2578,8 +2613,14 @@ export class GameEngine {
         if (!this.gameStarted) return;
         this.time += dt;
 
+        // Bevegelige plattformer flyttes FØR spilleren, så carry-deltaet er kjent når
+        // updatePhysicsPlayer leser det (og før den ene physics.step() under).
+        this.movingPlatformSystem?.update(this.time);
+
         // Player movement
-        const WALK_SPEED = 5, RUN_SPEED = 9, JUMP = 6, GRAV = -18;
+        const WALK_SPEED = 5, RUN_SPEED = 9;
+        const JUMP = this.config.physics?.jump?.velocity ?? 6;
+        const GRAV = this.config.physics?.gravity ?? -18;
         const SPEED = (this.keys['ShiftLeft'] || this.keys['ShiftRight']) ? RUN_SPEED : WALK_SPEED;
         const moveDir = _moveDirScratch.set(0, 0, 0);
 
@@ -2702,6 +2743,20 @@ export class GameEngine {
         } else {
             for (const m of [lLeg, rLeg, lArm, rArm]) m.rotation.x *= 0.85;
             body.position.y = 0.9;
+        }
+
+        // Hopp/landings-juice (Del A): squash ved landing, ease tilbake mot 1.
+        // Jump-strekket settes i updatePhysicsPlayer; her eases gruppe-skalaen tilbake.
+        if (this.landSquashTimer > 0) {
+            this.landSquashTimer = Math.max(0, this.landSquashTimer - dt);
+            const k = this.landSquashTimer / 0.18; // 1 → 0
+            this.player.group.scale.set(1 + 0.18 * k, 1 - 0.22 * k, 1 + 0.18 * k);
+        } else {
+            const sc = this.player.group.scale;
+            const k = Math.min(1, dt * 12);
+            sc.x += (1 - sc.x) * k;
+            sc.y += (1 - sc.y) * k;
+            sc.z += (1 - sc.z) * k;
         }
 
         // NPC animations
@@ -3193,6 +3248,23 @@ export class GameEngine {
     // Kalkulerer ønsket bevegelse og kjører character-controlleren. Utfaller i at
     // body.setNextKinematicTranslation settes; etter physics.step() leses ny posisjon.
     private verticalVelocity = 0;
+    // ── Hopp-følelse (Del A) ──
+    private coyoteTimer = 0;        // nådetid igjen etter å forlate bakken
+    private jumpBufferTimer = 0;    // forhåndstrykk igjen
+    private jumpHeld = false;       // Space holdt siden hoppet startet (variabel høyde)
+    private jumpWasDown = false;    // forrige frames Space-tilstand (edge-detect)
+    private landSquashTimer = 0;    // squash-juice igjen etter landing
+    // ── Mantle / kantgrep (Del C) ──
+    private mantling = false;
+    private mantleTimer = 0;
+    private readonly mantleDur = 0.35;
+    private mantleStart = new THREE.Vector3();
+    private mantleApex = new THREE.Vector3();
+    private mantleEnd = new THREE.Vector3();
+    private mantleCooldown = 0;
+    // Snap-to-ground må skrus av mens man klatrer, ellers drar den spilleren ned igjen
+    // hver frame (klatrefart << snap-avstand) og klatring blir umulig.
+    private snapDisabledForClimb = false;
     private updatePhysicsPlayer(
         dt: number,
         moveDir: THREE.Vector3,
@@ -3202,26 +3274,118 @@ export class GameEngine {
     ): void {
         const cc = this.playerCC!;
         const bodyPos = cc.body.translation();
+
+        this.mantleCooldown = Math.max(0, this.mantleCooldown - dt);
+
+        // ── Mantle pågår: scripted opp-så-frem-bue, bypass gravity/input/CC ──
+        if (this.mantling) {
+            this.mantleTimer += dt;
+            const t = Math.min(1, this.mantleTimer / this.mantleDur);
+            const p = _physDesiredScratch;
+            if (t < 0.5) p.lerpVectors(this.mantleStart, this.mantleApex, t / 0.5);
+            else p.lerpVectors(this.mantleApex, this.mantleEnd, (t - 0.5) / 0.5);
+            cc.body.setNextKinematicTranslation({ x: p.x, y: p.y, z: p.z });
+            if (t >= 1) {
+                this.mantling = false;
+                this.onGround = true;
+                this.verticalVelocity = 0;
+                this.mantleCooldown = 0.4;
+            }
+            return;
+        }
+
         const jumpEnabled = this.config.physics?.playerJump !== false;
+        const tune = this.config.physics?.jump;
+        const coyoteTime = (tune?.coyoteMs ?? 100) / 1000;
+        const bufferTime = (tune?.bufferMs ?? 120) / 1000;
+        const fallMult = tune?.fallMultiplier ?? 1.35;
         const pos = _physPosScratch.set(bodyPos.x, bodyPos.y, bodyPos.z);
 
         // Ladder-klatring: hvis spilleren overlapper en climbable-sensor, overstyr gravity
         const climbing = this.physics!.isOverlappingClimbable(pos, this.playerRadius);
 
-        // Hopp (kun hvis grounded forrige frame)
-        if (this.keys['Space'] && jumpEnabled && this.onGround && !this.dialogActive) {
-            this.verticalVelocity = JUMP;
-            this.onGround = false;
+        // Skru av snap-to-ground mens man klatrer (ellers snapper controlleren spilleren
+        // ned til bakken hver frame og hindrer klatring). Skru på igjen etterpå.
+        if (climbing && !this.snapDisabledForClimb) {
+            cc.controller.disableSnapToGround();
+            this.snapDisabledForClimb = true;
+        } else if (!climbing && this.snapDisabledForClimb) {
+            cc.controller.enableSnapToGround(0.4);
+            this.snapDisabledForClimb = false;
         }
 
+        // Edge-detect Space (ett trykk = én handling, ikke per-frame mens holdt)
+        const spaceDown = !!this.keys['Space'] && !this.dialogActive;
+        const spacePressed = spaceDown && !this.jumpWasDown;
+        this.jumpWasDown = spaceDown;
+
+        // ── Mantle-trigger: i lufta, trykker Space inn mot en gripbar kant ──
+        if (spacePressed && jumpEnabled && !this.onGround && !climbing && this.mantleCooldown <= 0) {
+            const f = _ledgeFwdScratch.set(Math.sin(this.yaw), 0, -Math.cos(this.yaw));
+            if (moveDir.dot(f) > 0.3) {
+                const ledge = this.detectLedge(bodyPos, f);
+                if (ledge) {
+                    this.mantling = true;
+                    this.mantleTimer = 0;
+                    this.mantleStart.set(bodyPos.x, bodyPos.y, bodyPos.z);
+                    this.mantleApex.set(bodyPos.x, ledge.topY + this.playerHalfHeight + 0.05, bodyPos.z);
+                    this.mantleEnd.set(ledge.x, ledge.topY + this.playerHalfHeight, ledge.z);
+                    return;
+                }
+            }
+        }
+
+        // Coyote-time + jump-buffer
+        if (this.onGround) this.coyoteTimer = coyoteTime;
+        else this.coyoteTimer = Math.max(0, this.coyoteTimer - dt);
+        if (spacePressed) this.jumpBufferTimer = bufferTime;
+        else this.jumpBufferTimer = Math.max(0, this.jumpBufferTimer - dt);
+
+        // Hopp utløses fra buffer + coyote (ikke direkte av tastetrykket)
+        if (this.jumpBufferTimer > 0 && this.coyoteTimer > 0 && jumpEnabled && !climbing) {
+            this.verticalVelocity = JUMP;
+            this.onGround = false;
+            this.jumpHeld = true;
+            this.jumpBufferTimer = 0;
+            this.coyoteTimer = 0;
+            this.player.group.scale.set(0.9, 1.14, 0.9); // strekk-juice
+            void this.audio.playOneShot('proc:blip', { volume: 0.22 });
+        }
+
+        // Variabel høyde: slipp Space tidlig under oppstigning = kortere hopp
+        if (this.jumpHeld && !spaceDown && this.verticalVelocity > 0) {
+            this.verticalVelocity *= 0.45;
+            this.jumpHeld = false;
+        }
+        if (this.verticalVelocity <= 0) this.jumpHeld = false;
+
+        // Vertikal integrasjon
         if (climbing) {
-            // Vertikal bevegelse styrt av W/S; fryse horisontal drift
-            this.verticalVelocity = 0;
-            const climbSpeed = 3;
-            const up = this.keys['KeyW'] ? 1 : this.keys['KeyS'] ? -1 : 0;
-            this.verticalVelocity = up * climbSpeed;
+            // Vegg-/stigeklatring: W/S styrer vertikalt; Space = lite bakover-hopp av veggen
+            if (spacePressed && jumpEnabled) {
+                this.verticalVelocity = JUMP * 0.7;
+                moveDir.set(Math.sin(this.yaw), 0, -Math.cos(this.yaw)).multiplyScalar(-1);
+            } else {
+                const climbSpeed = 3;
+                const up = this.keys['KeyW'] ? 1 : this.keys['KeyS'] ? -1 : 0;
+                this.verticalVelocity = up * climbSpeed;
+                // Frys horisontal så spilleren henger på stigen i stedet for å gå forbi den.
+                moveDir.set(0, 0, 0);
+                // Auto-avstigning: når man klatrer opp og det ikke lenger er klatrbart litt
+                // over hodet, dytt framover så man stiger av på plattformen øverst.
+                if (up > 0) {
+                    const above = _ledgeAScratch.set(bodyPos.x, bodyPos.y + 0.6, bodyPos.z);
+                    if (!this.physics!.isOverlappingClimbable(above, this.playerRadius)) {
+                        moveDir.set(Math.sin(this.yaw), 0, -Math.cos(this.yaw));
+                    }
+                }
+            }
         } else {
-            this.verticalVelocity += GRAV * dt;
+            // Apex-heng + raskere fall = snappy platforming-følelse (full hold = uendret høyde)
+            let g = GRAV;
+            if (this.verticalVelocity < 0) g = GRAV * fallMult;
+            else if (this.verticalVelocity > 0 && this.verticalVelocity < 2) g = GRAV * 0.75;
+            this.verticalVelocity += g * dt;
         }
 
         const desired = _physDesiredScratch.set(
@@ -3229,8 +3393,24 @@ export class GameEngine {
             this.verticalVelocity * dt,
             moveDir.z * SPEED * dt,
         );
-        cc.controller.computeColliderMovement(cc.collider, desired);
-        const corr = cc.controller.computedMovement();
+
+        // ── Carry: bli båret av en bevegelig plattform man står på ──
+        if (this.onGround && this.movingPlatformSystem) {
+            const feetY = bodyPos.y - this.playerHalfHeight;
+            const rayO = _physCarryScratch.set(bodyPos.x, feetY + 0.15, bodyPos.z);
+            const hit = this.physics!.raycast(rayO, _downScratch.set(0, -1, 0), 0.35, cc.body);
+            if (hit.hit && hit.bodyHandle !== undefined) {
+                const carry = this.movingPlatformSystem.getCarryDelta(hit.bodyHandle);
+                if (carry) {
+                    desired.x += carry.x;
+                    desired.z += carry.z;
+                    if (carry.y > 0) desired.y += carry.y;                 // lift
+                    else if (carry.y < 0) desired.y = Math.min(desired.y, carry.y); // lim ved nedstigning
+                }
+            }
+        }
+
+        const corr = this.physics!.computeCharacterMovement(cc, desired);
         cc.body.setNextKinematicTranslation({
             x: bodyPos.x + corr.x,
             y: bodyPos.y + corr.y,
@@ -3239,15 +3419,63 @@ export class GameEngine {
 
         const grounded = cc.controller.computedGrounded();
         if (grounded && !this.onGround) {
-            // Landing - sjekk fallskade
+            // Landing - fallskade + juice
             const impact = -this.verticalVelocity;   // positiv verdi = hardt landing
             const phys = this.config.physics;
             if (phys?.playerFallDamage && impact > (phys.fallDamageThreshold ?? 12)) {
                 phys.onPlayerFallDamage?.(impact);
             }
+            this.landSquashTimer = 0.18;
+            if (impact > 4) {
+                // Liten kamera-dip ved hard landing (selger i førsteperson også)
+                this.shakeAmount = Math.min(0.14, impact * 0.011);
+                this.shakeDuration = 0.16;
+                this.shakeTimer = 0;
+            }
         }
         this.onGround = grounded;
         if (grounded && this.verticalVelocity < 0) this.verticalVelocity = 0;
+    }
+
+    // Søker etter en gripbar kant rett foran spilleren (mantle/kantgrep, Del C).
+    // Tre raycast i yaw-retning: vegg i brysthøyde må treffe, hodehøyde må være klar,
+    // og en ned-probe like bak veggtoppen finner kant-Y. Returnerer null hvis ingen
+    // gyldig kant i gripbart høydebånd (1.2-2.0m over føttene).
+    private detectLedge(
+        bodyPos: { x: number; y: number; z: number },
+        f: THREE.Vector3,
+    ): { x: number; z: number; topY: number } | null {
+        const phys = this.physics;
+        const cc = this.playerCC;
+        if (!phys || !cc) return null;
+        const feetY = bodyPos.y - this.playerHalfHeight;
+
+        // 1. Vegg-ray i brysthøyde - må TREFFE
+        const chestO = _ledgeAScratch.set(bodyPos.x, feetY + 1.0, bodyPos.z);
+        const wall = phys.raycast(chestO, f, 0.65, cc.body);
+        if (!wall.hit) return null;
+
+        // 2. Hode-klaring - må BOMME (ledig over kanten)
+        const headO = _ledgeBScratch.set(bodyPos.x, feetY + 1.95, bodyPos.z);
+        if (phys.raycast(headO, f, 0.65, cc.body).hit) return null;
+
+        // 3. Ned-probe like bak veggtoppen - finn kant-Y
+        const probeO = _ledgeCScratch.set(
+            wall.point.x + f.x * 0.25,
+            feetY + 2.1,
+            wall.point.z + f.z * 0.25,
+        );
+        const down = phys.raycast(probeO, _downScratch.set(0, -1, 0), 1.1, cc.body);
+        if (!down.hit) return null;
+        const topY = down.point.y;
+        const rise = topY - feetY;
+        if (rise < 1.2 || rise > 2.0) return null;
+
+        // Ikke gripe en bevegelig plattform som kant (unngå rar oppklatring under bevegelse)
+        if (down.bodyHandle !== undefined && this.movingPlatformSystem?.getCarryDelta(down.bodyHandle)) {
+            return null;
+        }
+        return { x: probeO.x, z: probeO.z, topY };
     }
 
     // ─── Cleanup ─────────────────────────────────────────────────────────────
@@ -3274,6 +3502,8 @@ export class GameEngine {
         this.interactables = null;
         this.projectileSystem?.dispose();
         this.projectileSystem = null;
+        this.movingPlatformSystem?.dispose();
+        this.movingPlatformSystem = null;
         this.physics?.dispose();
         this.physics = null;
         this.playerCC = null;

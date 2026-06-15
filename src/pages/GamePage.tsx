@@ -13,6 +13,7 @@ import { marsjenMotRomaConfig } from '../games/marsjen-mot-roma/MarsjenMotRomaCo
 import { eksamenSamfunnsfagConfig } from '../games/eksamen-samfunnsfag/EksamenSamfunnsfagConfig';
 import { eksamenNorskConfig } from '../games/eksamen-norsk/EksamenNorskConfig';
 import { stiklestadConfig } from '../games/stiklestad-1030/StiklestadConfig';
+import { katedralbyggerenConfig } from '../games/katedralbyggeren/KatedralbyggerenConfig';
 import type { GameConfig } from '../games/engine/types';
 
 // Registry: map game IDs to their configs
@@ -29,6 +30,7 @@ const GAME_REGISTRY: Record<string, GameConfig> = {
     'eksamen-norsk': eksamenNorskConfig,
     oljeplattform: oljeplattformConfig,
     'stiklestad-1030': stiklestadConfig,
+    katedralbyggeren: katedralbyggerenConfig,
 };
 
 function GameLoader({ gameId }: { gameId: string }) {
