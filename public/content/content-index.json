@@ -1,5 +1,5 @@
 {
-  "buildId": 1781501910762,
+  "buildId": 1781511266224,
   "contentMap": {
     "concept-adel": [
       "content/concepts/adel.json"
@@ -60,6 +60,9 @@
     ],
     "concept-artilleri": [
       "content/concepts/artilleri.json"
+    ],
+    "concept-asherah": [
+      "content/concepts/asherah.json"
     ],
     "concept-autoritaert-diktatur": [
       "content/concepts/autoritaert-diktatur.json"
@@ -370,6 +373,9 @@
     "concept-helsetning": [
       "content/concepts/helsetning.json"
     ],
+    "concept-henoteisme": [
+      "content/concepts/henoteisme.json"
+    ],
     "concept-hermeneutisk-sirkel": [
       "content/concepts/hermeneutisk-sirkel.json"
     ],
@@ -480,6 +486,9 @@
     ],
     "concept-khalsa": [
       "content/concepts/khalsa.json"
+    ],
+    "concept-kildekritikk": [
+      "content/concepts/kildekritikk.json"
     ],
     "concept-kirtan": [
       "content/concepts/kirtan.json"
@@ -616,6 +625,9 @@
     "concept-monopol": [
       "content/concepts/monopol.json"
     ],
+    "concept-monoteisme": [
+      "content/concepts/monoteisme.json"
+    ],
     "concept-motiv": [
       "content/concepts/motiv.json"
     ],
@@ -744,6 +756,9 @@
     ],
     "concept-pliktetikk": [
       "content/concepts/pliktetikk.json"
+    ],
+    "concept-polyteisme": [
+      "content/concepts/polyteisme.json"
     ],
     "concept-pontifex-maximus": [
       "content/concepts/pontifex-maximus.json"
@@ -2067,6 +2082,9 @@
     "hinduisme-sentrale-trekk": [
       "content/krle/religion/hinduisme/sentrale-trekk/artikkel.json"
     ],
+    "monoteismens-fodsel": [
+      "content/krle/religion/historiske-religioner/monoteismens-fodsel.json"
+    ],
     "islam-bonn": [
       "content/krle/religion/islam/bonn/artikkel.json"
     ],
@@ -2510,6 +2528,9 @@
     "adolf-eichmann": [
       "content/people/adolf-eichmann.json"
     ],
+    "akhenaten": [
+      "content/people/akhenaten.json"
+    ],
     "alexander-kielland": [
       "content/people/alexander-kielland.json"
     ],
@@ -2626,6 +2647,9 @@
     ],
     "ester-boserup": [
       "content/people/ester-boserup.json"
+    ],
+    "francesca-stavrakopoulou": [
+      "content/people/francesca-stavrakopoulou.json"
     ],
     "franco": [
       "content/people/franco.json"
@@ -3077,6 +3101,9 @@
     "sigbjoern-obstfelder": [
       "content/people/sigbjoern-obstfelder.json"
     ],
+    "sigmund-freud": [
+      "content/people/sigmund-freud.json"
+    ],
     "smith": [
       "content/people/smith.json"
     ],
@@ -3423,6 +3450,7 @@
     "concepts/argumentasjon.json/argumentasjon": "content/concepts/argumentasjon.json",
     "concepts/armada.json/armada": "content/concepts/armada.json",
     "concepts/artilleri.json/artilleri": "content/concepts/artilleri.json",
+    "concepts/asherah.json/asherah": "content/concepts/asherah.json",
     "concepts/autoritaert-diktatur.json/autoritaert-diktatur": "content/concepts/autoritaert-diktatur.json",
     "concepts/autoritet.json/autoritet": "content/concepts/autoritet.json",
     "concepts/avkolonisering.json/avkolonisering": "content/concepts/avkolonisering.json",
@@ -3526,6 +3554,7 @@
     "concepts/harem.json/harem": "content/concepts/harem.json",
     "concepts/helhet.json/helhet": "content/concepts/helhet.json",
     "concepts/helsetning.json/helsetning": "content/concepts/helsetning.json",
+    "concepts/henoteisme.json/henoteisme": "content/concepts/henoteisme.json",
     "concepts/hermeneutisk-sirkel.json/hermeneutisk-sirkel": "content/concepts/hermeneutisk-sirkel.json",
     "concepts/hierarki.json/hierarki": "content/concepts/hierarki.json",
     "concepts/hijra.json/hijra": "content/concepts/hijra.json",
@@ -3563,6 +3592,7 @@
     "concepts/karakterutvikling.json/karakterutvikling": "content/concepts/karakterutvikling.json",
     "concepts/keynesiansk-okonomi.json/keynesiansk-okonomi": "content/concepts/keynesiansk-okonomi.json",
     "concepts/khalsa.json/khalsa": "content/concepts/khalsa.json",
+    "concepts/kildekritikk.json/kildekritikk": "content/concepts/kildekritikk.json",
     "concepts/kirtan.json/kirtan": "content/concepts/kirtan.json",
     "concepts/kjaerlighet.json/kjaerlighet": "content/concepts/kjaerlighet.json",
     "concepts/koloni.json/koloni": "content/concepts/koloni.json",
@@ -3608,6 +3638,7 @@
     "concepts/molotov-ribbentrop-pakten.json/molotov-ribbentrop-pakten": "content/concepts/molotov-ribbentrop-pakten.json",
     "concepts/monarki.json/monarki": "content/concepts/monarki.json",
     "concepts/monopol.json/monopol": "content/concepts/monopol.json",
+    "concepts/monoteisme.json/monoteisme": "content/concepts/monoteisme.json",
     "concepts/motiv.json/motiv": "content/concepts/motiv.json",
     "concepts/mujahedin.json/mujahedin": "content/concepts/mujahedin.json",
     "concepts/mutual-assured-destruction.json/mutual-assured-destruction": "content/concepts/mutual-assured-destruction.json",
@@ -3651,6 +3682,7 @@
     "concepts/perestrojka.json/perestrojka": "content/concepts/perestrojka.json",
     "concepts/petrodollar.json/petrodollar": "content/concepts/petrodollar.json",
     "concepts/pliktetikk.json/pliktetikk": "content/concepts/pliktetikk.json",
+    "concepts/polyteisme.json/polyteisme": "content/concepts/polyteisme.json",
     "concepts/pontifex-maximus.json/pontifex-maximus": "content/concepts/pontifex-maximus.json",
     "concepts/population-registration-act.json/population-registration-act": "content/concepts/population-registration-act.json",
     "concepts/pragmatisme.json/pragmatisme": "content/concepts/pragmatisme.json",
@@ -4091,6 +4123,7 @@
     "krle/religion/hinduisme/intro": "content/krle/religion/hinduisme/intro.json",
     "krle/religion/hinduisme/overgangsriter": "content/krle/religion/hinduisme/overgangsriter/artikkel.json",
     "krle/religion/hinduisme/sentrale-trekk": "content/krle/religion/hinduisme/sentrale-trekk/artikkel.json",
+    "krle/religion/historiske-religioner/monoteismens-fodsel": "content/krle/religion/historiske-religioner/monoteismens-fodsel.json",
     "krle/religion/islam/bonn": "content/krle/religion/islam/bonn/artikkel.json",
     "krle/religion/islam/frelse": "content/krle/religion/islam/frelse/artikkel.json",
     "krle/religion/islam/grunnleggere": "content/krle/religion/islam/grunnleggere/artikkel.json",
@@ -4238,6 +4271,7 @@
     "norsk/virkemidler/tid-og-struktur": "content/norsk/virkemidler/tid-og-struktur.json",
     "people/adam-smith.json/adam-smith": "content/people/adam-smith.json",
     "people/adolf-eichmann.json/adolf-eichmann": "content/people/adolf-eichmann.json",
+    "people/akhenaten.json/akhenaten": "content/people/akhenaten.json",
     "people/alexander-kielland.json/alexander-kielland": "content/people/alexander-kielland.json",
     "people/alv-erlingsson.json/alv-erlingsson": "content/people/alv-erlingsson.json",
     "people/amalie-skram.json/amalie-skram": "content/people/amalie-skram.json",
@@ -4278,6 +4312,7 @@
     "people/ellington.json/ellington": "content/people/ellington.json",
     "people/ernest-hemingway.json/ernest-hemingway": "content/people/ernest-hemingway.json",
     "people/ester-boserup.json/ester-boserup": "content/people/ester-boserup.json",
+    "people/francesca-stavrakopoulou.json/francesca-stavrakopoulou": "content/people/francesca-stavrakopoulou.json",
     "people/franco.json/franco": "content/people/franco.json",
     "people/franz-ferdinand.json/franz-ferdinand": "content/people/franz-ferdinand.json",
     "people/fredrik-barbarossa.json/fredrik-barbarossa": "content/people/fredrik-barbarossa.json",
@@ -4431,6 +4466,7 @@
     "people/scipio-africanus.json/scipio-africanus": "content/people/scipio-africanus.json",
     "people/selassie.json/selassie": "content/people/selassie.json",
     "people/sigbjoern-obstfelder.json/sigbjoern-obstfelder": "content/people/sigbjoern-obstfelder.json",
+    "people/sigmund-freud.json/sigmund-freud": "content/people/sigmund-freud.json",
     "people/smith.json/smith": "content/people/smith.json",
     "people/sokrates-bio.json/sokrates-bio": "content/people/sokrates-bio.json",
     "people/solomon-asch.json/solomon-asch": "content/people/solomon-asch.json",

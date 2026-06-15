@@ -69,8 +69,18 @@ const Berlinmuren3D = lazy(() => import('./Berlinmuren3D'));
 const Falltaarnet3D = lazy(() => import('./Falltaarnet3D'));
 const JapanMirakelBy3D = lazy(() => import('./JapanMirakelBy3D'));
 const StormingenAvBastillen3D = lazy(() => import('./StormingenAvBastillen3D'));
+const TempeletsRenselse3D = lazy(() => import('./TempeletsRenselse3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
+    'tempelets-renselse-3d': {
+        id: 'tempelets-renselse-3d',
+        title: 'Tempelets renselse',
+        description:
+            'På en kanaaneisk offerhøyde står Yahweh-steinen sammen med flere andre guder: Asherah-pælen, Baal-figuren, en Astarte-figurin og et røkelsesalter. Klikk hvert objekt og se at folk dyrket dem sammen her, og gjenskap så kong Josjias reform (år 622 f.Kr.) ved å fjerne de fremmede gudene én for én, til bare Yahweh-steinen står igjen og lyser. Lyspæren: slik ble troen på mange guder til troen på én eneste Gud - det vi kaller monoteisme.',
+        estimatedSeconds: 140,
+        loader: () => import('./TempeletsRenselse3D'),
+        Component: TempeletsRenselse3D as never,
+    },
     'stormingen-av-bastillen-3d': {
         id: 'stormingen-av-bastillen-3d',
         title: 'Stormingen av Bastillen',

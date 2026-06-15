@@ -112,6 +112,7 @@ const _camForwardTmpScratch = new THREE.Vector3();
 const _camRightScratch = new THREE.Vector3();
 const _camLookTgtScratch = new THREE.Vector3();
 const _camClampScratch = new THREE.Vector3();
+const _camEyeScratch = new THREE.Vector3();
 const _worldUpScratch = new THREE.Vector3(0, 1, 0);
 const _physPosScratch = new THREE.Vector3();
 const _physDesiredScratch = new THREE.Vector3();
@@ -248,6 +249,9 @@ export class GameEngine {
     private camDistZoom = 0; // brukerjustert zoom-offset fra musehjul
     private indoorBlend = 0; // smooth overgang innendors/utendors (0=ute, 1=inne)
     private wasIndoors = false;
+    // Kameramodus (C bytter). 'third' = orbit over skulder, 'first' = i øyehøyde.
+    // Dialog/cinematics overstyrer uansett modus og faller tilbake etterpå.
+    private cameraMode: 'third' | 'first' = 'third';
     private shakeAmount = 0;
     private shakeDuration = 0;
     private shakeTimer = 0;
@@ -256,6 +260,14 @@ export class GameEngine {
     private unsubscribeSettings: () => void = () => {};
     private lastShadowEnabled: boolean | null = null;
     private lastShadowType: THREE.ShadowMapType | null = null;
+
+    // Adaptiv oppløsning (kun low-tier): skalerer pixelRatio ned når fps svikter og opp
+    // igjen når det er headroom. Multipliseres med brukerens renderScale, overskriver den
+    // ikke. Hysterese + dwell + cooldown hindrer synlig "pusting".
+    private adaptiveScale = 1;
+    private adaptiveCooldown = 0;
+    private adaptiveBelowTimer = 0;
+    private adaptiveAboveTimer = 0;
 
     // Emotion state per NPC
     private emotionStates = new Map<string, EmotionMorphState>();
@@ -877,13 +889,14 @@ export class GameEngine {
             },
             this.toonMat.bind(this),
             this.renderer,
-            this.scene
+            this.scene,
+            this.qualityTier !== 'low'
         );
         this.player.group.userData.isPlayer = true;
 
         // Build NPCs
         for (const charCfg of this.config.characters) {
-            const built = buildCharacter(charCfg, this.toonMat.bind(this), this.renderer, this.scene);
+            const built = buildCharacter(charCfg, this.toonMat.bind(this), this.renderer, this.scene, this.qualityTier !== 'low');
             this.characters.set(charCfg.id, { ...built, config: { id: charCfg.id, name: charCfg.name } });
         }
 
@@ -1258,7 +1271,7 @@ export class GameEngine {
             console.warn(`[GameEngine] Character '${cfg.id}' finnes allerede. Hopper over.`);
             return;
         }
-        const built = buildCharacter(cfg, this.toonMat.bind(this), this.renderer, this.scene);
+        const built = buildCharacter(cfg, this.toonMat.bind(this), this.renderer, this.scene, this.qualityTier !== 'low');
         this.characters.set(cfg.id, { ...built, config: { id: cfg.id, name: cfg.name } });
         if (cfg.characterType && cfg.defaultEmotion) {
             this.bodyTargets.set(cfg.id, BODY_TARGETS[cfg.defaultEmotion]);
@@ -1372,6 +1385,12 @@ export class GameEngine {
                     this.interactables?.tryHandleThrow();
                 }
             }
+
+            // Kameramodus-bytte (C): 1.- ↔ 3.-person. Blokkert i kontekster der det ikke
+            // gir mening eller ville slåss med override-kameraet.
+            if (e.code === 'KeyC' && !e.repeat) {
+                this.toggleCameraMode();
+            }
         };
         const onKeyUp = (e: KeyboardEvent) => {
             this.keys[e.code] = false;
@@ -1383,7 +1402,10 @@ export class GameEngine {
             if (!this.mouseLocked) return;
             this.targetYaw += e.movementX * 0.003;
             // Pitch-konvensjon: positiv = kamera høyere + ser ned. Mer rom oppover enn før.
-            this.targetPitch = Math.max(-1.2, Math.min(1.0, this.targetPitch + e.movementY * 0.003));
+            // Førsteperson får videre, symmetrisk klamp (se rett opp/ned).
+            const pitchLo = this.cameraMode === 'first' ? -1.5 : -1.2;
+            const pitchHi = this.cameraMode === 'first' ? 1.5 : 1.0;
+            this.targetPitch = Math.max(pitchLo, Math.min(pitchHi, this.targetPitch + e.movementY * 0.003));
         };
 
         const onWheel = (e: WheelEvent) => {
@@ -1434,11 +1456,8 @@ export class GameEngine {
             this.camera.updateProjectionMatrix();
         }
 
-        // Render-skala: base fra kvalitets-tier, multiplisert med brukerens skala
-        const basePR = this.qualityTier === 'low' ? 1 : Math.min(window.devicePixelRatio, 2);
-        this.renderer.setPixelRatio(basePR * s.renderScale);
-        const sz = this.getContainerSize();
-        this.postProcessing?.resize(sz.width, sz.height);
+        // Render-skala: base fra kvalitets-tier × brukerens skala × adaptiv skala.
+        this.applyRenderScale();
 
         // Skygger: av/lav/høy. Bare flagg material.needsUpdate når type faktisk endres.
         const wantEnabled = s.shadowQuality !== 'off';
@@ -1466,6 +1485,55 @@ export class GameEngine {
 
         // Post-processing av/på
         this.postProcessing?.setEnabled(s.postProcessing);
+    }
+
+    // Effektiv pixelRatio = tier-base × brukerens renderScale × adaptiv skala (low-tier).
+    private effectivePixelRatio(): number {
+        const s = getGameSettings().graphics;
+        const basePR = this.qualityTier === 'low' ? 1 : Math.min(window.devicePixelRatio, 2);
+        return basePR * s.renderScale * this.adaptiveScale;
+    }
+
+    private applyRenderScale(): void {
+        this.renderer.setPixelRatio(this.effectivePixelRatio());
+        const sz = this.getContainerSize();
+        this.postProcessing?.resize(sz.width, sz.height);
+    }
+
+    // Adaptiv kvalitet (kun low-tier): hold 30+ fps ved å skalere pixelRatio. Drop raskt
+    // (1s under 28 fps), løft langsomt (3s over 50 fps), med cooldown mellom steg. Medium/
+    // high røres ikke - de har headroom og skal beholde full skarphet.
+    private updateAdaptiveQuality(dt: number): void {
+        if (this.qualityTier !== 'low' || !this.gameStarted || this.paused) return;
+        const fps = this.debugHudSystem?.getAvgFps() ?? 0;
+        if (fps <= 0) return; // dt-buffer ikke varmt ennå
+        if (this.adaptiveCooldown > 0) this.adaptiveCooldown -= dt;
+
+        const MIN_SCALE = 0.7;
+        const STEP = 0.1;
+        if (fps < 28) {
+            this.adaptiveBelowTimer += dt;
+            this.adaptiveAboveTimer = 0;
+        } else if (fps > 50) {
+            this.adaptiveAboveTimer += dt;
+            this.adaptiveBelowTimer = 0;
+        } else {
+            this.adaptiveBelowTimer = 0;
+            this.adaptiveAboveTimer = 0;
+        }
+        if (this.adaptiveCooldown > 0) return;
+
+        if (this.adaptiveBelowTimer >= 1 && this.adaptiveScale > MIN_SCALE) {
+            this.adaptiveScale = Math.max(MIN_SCALE, this.adaptiveScale - STEP);
+            this.adaptiveBelowTimer = 0;
+            this.adaptiveCooldown = 2;
+            this.applyRenderScale();
+        } else if (this.adaptiveAboveTimer >= 3 && this.adaptiveScale < 1) {
+            this.adaptiveScale = Math.min(1, this.adaptiveScale + STEP);
+            this.adaptiveAboveTimer = 0;
+            this.adaptiveCooldown = 2;
+            this.applyRenderScale();
+        }
     }
 
     private getContainerSize(): { width: number; height: number } {
@@ -2258,6 +2326,7 @@ export class GameEngine {
         // Debug-HUD leser + resetter renderer.info før render, slik at draw calls
         // akkumuleres gjennom hele post-processing-kjeden.
         this.debugHudSystem?.tick(dt);
+        this.updateAdaptiveQuality(dt);
         this.postProcessing.render();
         // Nullstill "just-pressed"-flagg for input-abstraksjonen på slutten av frame.
         this.inputManager.endFrame();
@@ -2372,10 +2441,65 @@ export class GameEngine {
     togglePhotoMode(): boolean {
         if (this.photoMode.active) {
             this.photoMode.exit(this.camPos, this.camTarget);
+            // Gjenopprett kameramodus-synlighet (kroppen kan ha vært skjult i 1.-person).
+            this.applyCameraModeVisibility();
         } else {
+            // Tving hele spilleren synlig så screenshots ikke blir hodeløse.
+            this.setPlayerBodyVisible(true);
             this.photoMode.enter(this.camPos, this.camTarget);
         }
         return this.photoMode.active;
+    }
+
+    // Bytt mellom 1.- og 3.-person. Returnerer ny modus. Blokkert i kontekster der
+    // override-kameraet (dialog/cinematic/foto) eller en låst spiller eier kameraet.
+    toggleCameraMode(): 'third' | 'first' {
+        if (
+            !this.gameStarted ||
+            this.isEnded ||
+            this.photoMode.active ||
+            this.dialogActive ||
+            this.paused ||
+            this.introInputBlocked ||
+            this.cinematicInputBlocked ||
+            this.activityActive ||
+            this.playerMode !== 'free'
+        ) {
+            return this.cameraMode;
+        }
+        this.cameraMode = this.cameraMode === 'third' ? 'first' : 'third';
+        // Hold pitch innenfor den nye modusens klamp så bytte ikke gir et hopp.
+        const lo = this.cameraMode === 'first' ? -1.5 : -1.2;
+        const hi = this.cameraMode === 'first' ? 1.5 : 1.0;
+        this.targetPitch = Math.max(lo, Math.min(hi, this.targetPitch));
+        // Tilbake til tredjeperson: nullstill FOV til brukerens innstilling (FP-pathen
+        // bumper den +6, og ingen andre i tredjeperson-pathen tilbakestiller den).
+        if (this.cameraMode === 'third') {
+            const baseFov = getGameSettings().graphics.fov;
+            if (Math.abs(this.camera.fov - baseFov) > 0.05) {
+                this.camera.fov = baseFov;
+                this.camera.updateProjectionMatrix();
+            }
+        }
+        this.applyCameraModeVisibility();
+        this.notify(this.cameraMode === 'first' ? 'Førsteperson' : 'Tredjeperson');
+        return this.cameraMode;
+    }
+
+    // Skjul spillerens egen kropp i førsteperson (unngå at kamera står inni meshen),
+    // vis den igjen i tredjeperson. Outlines er barn av delene og følger automatisk med.
+    private applyCameraModeVisibility(): void {
+        this.setPlayerBodyVisible(this.cameraMode !== 'first');
+    }
+
+    private setPlayerBodyVisible(visible: boolean): void {
+        if (!this.player) return;
+        this.player.head.visible = visible;
+        this.player.body.visible = visible;
+        this.player.lArm.visible = visible;
+        this.player.rArm.visible = visible;
+        this.player.lLeg.visible = visible;
+        this.player.rLeg.visible = visible;
     }
 
     setPhotoExposure(exposure: number): void {
@@ -2928,6 +3052,48 @@ export class GameEngine {
         const inputLerp = Math.min(1, dt * 25);
         this.yaw += (this.targetYaw - this.yaw) * inputLerp;
         this.pitch += (this.targetPitch - this.pitch) * inputLerp;
+
+        // Førsteperson: kamera i øyehøyde, sikt langs yaw/pitch. Hopp over orbit/skulder/
+        // wall-clamp. Dialog-framing (OTS) eier kameraet når den er aktiv - da faller vi
+        // gjennom til tredjeperson-pathen denne framen (isFraming() er ikke-muterende, så
+        // ingen dobbel-advance av OTS-springen). cinematicOverride er allerede håndtert over.
+        if (this.cameraMode === 'first' && !this.cameraDirector.isFraming()) {
+            const pw = this.player.group.getWorldPosition(_playerWorldScratch);
+            const eyeH = 1.65;
+            const eye = _camEyeScratch.set(pw.x, pw.y + eyeH, pw.z);
+            const cp = Math.cos(this.pitch);
+            // Samme forward-konvensjon som orbit: positiv pitch = ser ned (-sin).
+            const lookTgt = _camLookTgtScratch.set(
+                eye.x + Math.sin(this.yaw) * cp,
+                eye.y - Math.sin(this.pitch),
+                eye.z - Math.cos(this.yaw) * cp,
+            );
+            const camLerp = Math.min(1, dt * 10);
+            this.camPos.lerp(eye, camLerp);
+            this.camTarget.lerp(lookTgt, camLerp);
+            this.camera.position.copy(this.camPos);
+
+            // Litt videre FOV i førsteperson for naturlig følelse.
+            const fpFov = getGameSettings().graphics.fov + 6;
+            if (Math.abs(this.camera.fov - fpFov) > 0.05) {
+                this.camera.fov = fpFov;
+                this.camera.updateProjectionMatrix();
+            }
+
+            if (this.shakeDuration > 0) {
+                this.shakeTimer += dt;
+                if (this.shakeTimer < this.shakeDuration) {
+                    const decay = 1 - this.shakeTimer / this.shakeDuration;
+                    this.camera.position.x += (Math.random() - 0.5) * this.shakeAmount * decay;
+                    this.camera.position.y += (Math.random() - 0.5) * this.shakeAmount * decay * 0.5;
+                } else {
+                    this.shakeDuration = 0;
+                }
+            }
+
+            this.camera.lookAt(this.camTarget);
+            return;
+        }
 
         // World-posisjon for spilleren (kan være barn av båt/annen gruppe)
         const playerWorld = this.player.group.getWorldPosition(_playerWorldScratch);

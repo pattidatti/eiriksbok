@@ -110,6 +110,26 @@
     "definition": "Fordommer og hat rettet mot jøder. Har røtter i middelalderen, men nådde sitt mest brutale uttrykk i nazistenes Holocaust."
   },
   {
+    "id": "arabisk-var-begrep",
+    "term": "Den arabiske våren",
+    "aliases": [
+      "arabiske vårens",
+      "arabisk vår",
+      "arabiske opprørene"
+    ],
+    "definition": "Bølge av folkeopprør som feide gjennom den arabiske verden fra desember 2010. Startet da Mohamed Bouazizi, en tunisisk fruktselger, satte fyr på seg selv i protest mot korrupsjon. Innen ett år hadde regjeringene i Tunisia, Egypt, Libya og Jemen falt. I Syria endte det i borgerkrig.",
+    "type": "concept",
+    "subject": "historie",
+    "topic": "midtoesten",
+    "tags": [
+      "demokrati",
+      "revolusjon",
+      "tunisia",
+      "egypt",
+      "syria"
+    ]
+  },
+  {
     "id": "arbeidsmiljoloven",
     "term": "Arbeidsmiljøloven",
     "definition": "Den norske loven som beskytter arbeidstakere. Den regulerer blant annet arbeidstid, ferie, oppsigelse og sikkerhet på arbeidsplassen.",
@@ -158,6 +178,21 @@
     "tags": []
   },
   {
+    "id": "asherah",
+    "term": "Asherah",
+    "aliases": [
+      "asjera"
+    ],
+    "definition": "En moder-gudinne som ble dyrket i Midtøsten i antikken. Inskripsjoner og bibeltekster tyder på at hun en periode ble dyrket sammen med Yahweh, før hun ble renset ut av troen.",
+    "type": "concept",
+    "tags": [
+      "krle",
+      "religionshistorie",
+      "gudinne"
+    ],
+    "subject": "krle"
+  },
+  {
     "id": "autoritaert-diktatur",
     "term": "autoritært diktatur",
     "definition": "Folket får ikke være med å bestemme, men kan til en viss grad mene ting. Staten kontrollerer politikken, men lar folk leve livene sine relativt fritt ellers.",
@@ -199,6 +234,25 @@
     "subject": "historie",
     "topic": "dekolonisering",
     "tags": []
+  },
+  {
+    "id": "bayt-al-hikma",
+    "term": "Bayt al-Hikma",
+    "aliases": [
+      "Visdomshuset",
+      "Huset for visdom"
+    ],
+    "definition": "«Visdomshuset» - et stort oversettelsessenter og akademi i Bagdad grunnlagt ca. 830 under den abbasidiske kalifen Harun al-Rashid. Kjernen i det islamske gullaldet. Lærde oversatte greske, persiske og indiske tekster til arabisk, og produserte banebrytende verk innen matematikk, astronomi, medisin og filosofi. Brant da mongolerne ødela Bagdad i 1258.",
+    "type": "concept",
+    "subject": "historie",
+    "topic": "midtoesten",
+    "tags": [
+      "islam",
+      "gullaldet",
+      "Bagdad",
+      "vitenskap",
+      "kunnskap"
+    ]
   },
   {
     "id": "belte-og-vei",
@@ -1037,6 +1091,21 @@
     "link": "/norsk/skrivehjelp/hvordan-lage-karakterer"
   },
   {
+    "id": "hamas",
+    "term": "Hamas",
+    "aliases": [],
+    "definition": "Islamistisk palestinsk bevegelse og de facto-styre i Gaza siden 2007. Anerkjenner ikke staten Israel. Vant valget i de palestinske områdene i 2006, noe som førte til splittelse med den moderate PLO-ledede selvstyremyndigheten på Vestbredden. Klassifisert som terrororganisasjon av USA, EU og Israel. Stod bak angrepet mot Israel 7. oktober 2023.",
+    "type": "concept",
+    "subject": "historie",
+    "topic": "midtoesten",
+    "tags": [
+      "palestina",
+      "gaza",
+      "islamisme",
+      "israel"
+    ]
+  },
+  {
     "id": "harem",
     "term": "Harem",
     "aliases": [
@@ -1071,6 +1140,22 @@
     "subject": "norsk"
   },
   {
+    "id": "henoteisme",
+    "term": "Henoteisme",
+    "aliases": [
+      "henoteistisk",
+      "henoteismen"
+    ],
+    "definition": "Troen på at det finnes flere guder, men at man velger å dyrke bare én av dem. Mange forskere mener dette var et mellomtrinn på veien mot monoteisme i det gamle Israel.",
+    "type": "concept",
+    "tags": [
+      "krle",
+      "religion",
+      "gudsbildet"
+    ],
+    "subject": "krle"
+  },
+  {
     "id": "hermeneutisk-sirkel",
     "term": "Hermeneutisk sirkel",
     "aliases": [
@@ -1093,6 +1178,24 @@
     "definition": "Et system der noen står over andre i rang og makt. Finnes i kirker, hærer, bedrifter og dyresamfunn."
   },
   {
+    "id": "hijra",
+    "term": "Hijra",
+    "aliases": [
+      "hegira"
+    ],
+    "definition": "Muhammeds flukt fra Mekka til Medina i 622 e.Kr., etter at han møtte sterk motstand fra Mekkas maktelite. Hendelsen markerer starten på den islamske tidsregningen - år 1 i den islamske kalenderen. I Medina bygde Muhammed det første muslimske samfunnet og etablerte islamsk lov.",
+    "type": "concept",
+    "subject": "historie",
+    "topic": "midtoesten",
+    "tags": [
+      "islam",
+      "Muhammed",
+      "Mekka",
+      "Medina",
+      "kalender"
+    ]
+  },
+  {
     "id": "himmelens-mandat",
     "term": "Himmelens mandat",
     "aliases": [
@@ -1110,6 +1213,24 @@
     ],
     "subject": "historie",
     "topic": "kinas-historie"
+  },
+  {
+    "id": "hizbollah",
+    "term": "Hizbollah",
+    "aliases": [
+      "Hezbollah"
+    ],
+    "definition": "Libanesisk shia-bevegelse og militærmakt grunnlagt i 1982 med støtte fra Iran etter den israelske invasjonen av Libanon. Både politisk parti og militærstyrke. Kjemper for Palestinas frigjøring og iranske interesser i regionen. Betraktes som terrororganisasjon av USA, EU og mange arabiske land, men har bred støtte blant libanesiske shiaer.",
+    "type": "concept",
+    "subject": "historie",
+    "topic": "midtoesten",
+    "tags": [
+      "libanon",
+      "iran",
+      "shia",
+      "militær",
+      "Midtøsten"
+    ]
   },
   {
     "id": "holocaust",
@@ -1163,6 +1284,20 @@
     "id": "ideologi",
     "term": "Ideologi",
     "definition": "Et helhetlig sett med ideer om hvordan samfunnet bør være. Liberalisme, sosialisme og konservatisme er eksempler på politiske ideologier."
+  },
+  {
+    "id": "il-duce",
+    "term": "Il Duce",
+    "definition": "Italiensk for 'lederen' eller 'foreren'. Tittelen Mussolini brukte om seg selv som Italias diktator fra 1925. Tilsvarer 'Der Fuhrer' i Nazi-Tyskland.",
+    "type": "concept",
+    "subject": "historie",
+    "topic": "mellomkrigstiden",
+    "tags": [
+      "fascisme",
+      "italia",
+      "mussolini",
+      "diktatur"
+    ]
   },
   {
     "id": "imperialisme",
@@ -1408,6 +1543,22 @@
     ]
   },
   {
+    "id": "kildekritikk",
+    "term": "Kildekritikk",
+    "aliases": [
+      "kildekritisk",
+      "kildekritiske"
+    ],
+    "definition": "Å vurdere hvor pålitelig en kilde er: hvem som laget den, når, og hvorfor. Når flere uavhengige kilder forteller det samme, stoler forskere mer på det.",
+    "type": "concept",
+    "tags": [
+      "krle",
+      "historie",
+      "metode"
+    ],
+    "subject": "krle"
+  },
+  {
     "id": "kirtan",
     "term": "Kirtan",
     "definition": "Lovsang og musikalsk fremføring av hymner fra Guru Granth Sahib, som er en sentral del av sikh-tilbedelse.",
@@ -1564,6 +1715,19 @@
     "subject": "norsk"
   },
   {
+    "id": "legalitet",
+    "term": "Legalitet",
+    "definition": "Mussolinis strategi for å komme til makten gjennom tilsynelatende lovlige midler: han ble formelt utnevnt av kongen, ikke gjennom et klassisk kupp. Strategien skjulte at fascistene brukte trusler og vold i bakgrunnen.",
+    "type": "concept",
+    "subject": "historie",
+    "topic": "mellomkrigstiden",
+    "tags": [
+      "fascisme",
+      "italia",
+      "makt"
+    ]
+  },
+  {
     "id": "legitimitet",
     "term": "Legitimitet",
     "definition": "Når folk anerkjenner at en hersker eller en lov har rett til å bestemme. Uten legitimitet må makten holdes oppe med vold."
@@ -1659,6 +1823,26 @@
     "tags": []
   },
   {
+    "id": "mandatsystem",
+    "term": "Mandatsystem",
+    "aliases": [
+      "mandat",
+      "mandater",
+      "mandatområde",
+      "mandatmakter"
+    ],
+    "definition": "Folkeforbundets system etter første verdenskrig der europeiske stormakter styrte tidligere tyske og osmanske kolonier «på vegne av» dem - inntil befolkningen angivelig var «klar for selvstyre». I praksis var det kolonistyre med nytt navn. Storbritannia fikk mandat over Irak og Palestina, Frankrike over Syria og Libanon.",
+    "type": "concept",
+    "subject": "historie",
+    "topic": "midtoesten",
+    "tags": [
+      "kolonialisme",
+      "Folkeforbundet",
+      "Midtøsten",
+      "imperialisme"
+    ]
+  },
+  {
     "id": "manhattan-prosjektet",
     "term": "Manhattan-prosjektet",
     "definition": "Det hemmelige amerikanske forskningsprosjektet som utviklet de første atombombene.",
@@ -1693,6 +1877,20 @@
       "hjelp",
       "usa",
       "europa"
+    ]
+  },
+  {
+    "id": "marsjen-mot-roma",
+    "term": "Marsjen mot Roma",
+    "definition": "Fascistenes maktovertakelse i Italia i oktober 1922. Tusenvis av svartskjorter marsjerte mot hovedstaden, og kong Viktor Emanuel III utnevnte Mussolini til statsminister for å unngå borgerkrig.",
+    "type": "concept",
+    "subject": "historie",
+    "topic": "mellomkrigstiden",
+    "tags": [
+      "fascisme",
+      "italia",
+      "1922",
+      "kupp"
     ]
   },
   {
@@ -1795,6 +1993,23 @@
     "tags": []
   },
   {
+    "id": "monoteisme",
+    "term": "Monoteisme",
+    "aliases": [
+      "monoteistisk",
+      "monoteist",
+      "monoteismen"
+    ],
+    "definition": "Troen på at det finnes bare én eneste gud. Jødedom, kristendom og islam er monoteistiske religioner.",
+    "type": "concept",
+    "tags": [
+      "krle",
+      "religion",
+      "gudsbildet"
+    ],
+    "subject": "krle"
+  },
+  {
     "id": "motiv",
     "term": "motiv",
     "definition": "Drivkraften bak en karakters handlinger. Det de ønsker å oppnå eller unngå. Uten et tydelig motiv blir karakteren ofte passiv og handlingen retningsløs.",
@@ -1803,9 +2018,46 @@
     "tags": []
   },
   {
+    "id": "mujahedin",
+    "term": "Mujahedin",
+    "aliases": [
+      "mujaheddin",
+      "mujahideen"
+    ],
+    "definition": "Arabisk for «de som kjemper jihad». Brukes spesielt om de islamske motstandskjemperne som kjempet mot Sovjet i Afghanistan på 1980-tallet. USA og Saudi-Arabia finansierte disse krigsherrene med milliarder av dollar. Da Sovjet trakk seg ut i 1989, satt nettverkene igjen med trening og våpen - noen ble grunnlaget for al-Qaida.",
+    "type": "concept",
+    "subject": "historie",
+    "topic": "midtoesten",
+    "tags": [
+      "afghanistan",
+      "jihad",
+      "USA",
+      "Sovjet",
+      "al-Qaida"
+    ]
+  },
+  {
     "id": "mutual-assured-destruction",
     "term": "Mutual Assured Destruction",
     "definition": "Doktrinen om gjensidig garantert ødeleggelse. USA og Sovjet hadde så mange atomvåpen at angrep ville ødelegge begge - derfor turte ingen angripe."
+  },
+  {
+    "id": "nakba",
+    "term": "Nakba",
+    "aliases": [
+      "nakbaen",
+      "katastrofen"
+    ],
+    "definition": "Arabisk for «katastrofen». Betegner flukten og fordrivelsen av ca. 700 000 palestinere i krigen i 1948 da Israel ble opprettet. Rundt 400-500 landsbyer ble tømt. Palestinerne og etterkommerne deres lever fortsatt spredt i flyktningleirer i naboland og i diaspora. Nakba markeres 15. mai hvert år.",
+    "type": "concept",
+    "subject": "historie",
+    "topic": "midtoesten",
+    "tags": [
+      "palestina",
+      "israel",
+      "flukt",
+      "1948"
+    ]
   },
   {
     "id": "nasjon",
@@ -1955,6 +2207,24 @@
     "definition": "Bevisst valg om å påføre andre skade. Filosofer har diskutert om ondskap er en kraft i seg selv, eller bare fravær av godt."
   },
   {
+    "id": "opec",
+    "term": "OPEC",
+    "aliases": [
+      "OPEC-landene",
+      "oljekartell"
+    ],
+    "definition": "Organisasjonen av oljeeksporterende land, grunnlagt i Bagdad i 1960 av Iran, Irak, Kuwait, Saudi-Arabia og Venezuela. Koordinerer oljepriser og produksjon blant medlemslandene. Brukt som politisk vapen i 1973 da arabiske OPEC-land innførte oljeembargo mot land som støttet Israel under Yom Kippur-krigen.",
+    "type": "concept",
+    "subject": "historie",
+    "topic": "midtoesten",
+    "tags": [
+      "olje",
+      "økonomi",
+      "Midtøsten",
+      "embargo"
+    ]
+  },
+  {
     "id": "operasjon-barbarossa",
     "term": "Operasjon Barbarossa",
     "definition": "Kodenavnet på Tysklands invasjon av Sovjetunionen i 1941.",
@@ -1986,6 +2256,20 @@
     "id": "organisasjon",
     "term": "Organisasjon",
     "definition": "En strukturert gruppe mennesker som jobber mot felles mål, med fordelte roller og regler. Bedrifter, idrettslag og FN er alle organisasjoner."
+  },
+  {
+    "id": "ovra",
+    "term": "OVRA",
+    "definition": "Det hemmelige fascistiske politiet i Italia, opprettet av Mussolini i 1927. OVRA overvåket, arresterte og torturerte politiske motstandere av regimet.",
+    "type": "concept",
+    "subject": "historie",
+    "topic": "mellomkrigstiden",
+    "tags": [
+      "fascisme",
+      "italia",
+      "diktatur",
+      "hemmelig politi"
+    ]
   },
   {
     "id": "parlamentarisk-republikk",
@@ -2104,6 +2388,22 @@
     "definition": "Etisk teori som sier at handlinger er riktige eller gale i seg selv, ikke pga. konsekvensene. Knyttet til Immanuel Kant og det kategoriske imperativ."
   },
   {
+    "id": "polyteisme",
+    "term": "Polyteisme",
+    "aliases": [
+      "polyteistisk",
+      "polyteismen"
+    ],
+    "definition": "Troen på at det finnes mange guder samtidig. De gamle grekerne, romerne og vikingene var polyteister.",
+    "type": "concept",
+    "tags": [
+      "krle",
+      "religion",
+      "gudsbildet"
+    ],
+    "subject": "krle"
+  },
+  {
     "id": "pontifex-maximus",
     "term": "Pontifex Maximus",
     "definition": "Den øverste prest i romersk religion. Først en politisk tittel, så overtatt av keiserne og senere av paven."
@@ -2132,6 +2432,25 @@
     "subject": "samfunnskunnskap",
     "topic": "styringsformer",
     "tags": []
+  },
+  {
+    "id": "proxy-krig",
+    "term": "Proxy-krig",
+    "aliases": [
+      "proxy-kriger",
+      "proxykrig",
+      "stedfortrederkrig"
+    ],
+    "definition": "En konflikt der to stormakter støtter ulike sider uten å kjempe direkte mot hverandre. Iran og Saudi-Arabia har ikke erklært krig mot hverandre, men bruker penger, våpen og rådgivere til å påvirke konflikter i Jemen, Syria, Irak og Libanon. Resultatet er at disse landenes egne konflikter forlenges og forverres.",
+    "type": "concept",
+    "subject": "historie",
+    "topic": "midtoesten",
+    "tags": [
+      "saudi-arabia",
+      "iran",
+      "krig",
+      "geopolitikk"
+    ]
   },
   {
     "id": "radar",
@@ -2353,6 +2672,26 @@
     "tags": []
   },
   {
+    "id": "sekterisme",
+    "term": "Sekterisme",
+    "aliases": [
+      "sektarisme",
+      "sekterisk",
+      "sekteriske konflikter"
+    ],
+    "definition": "Politiske og sosiale konflikter drevet av tilhørighet til religiøse eller etniske grupper, fremfor saklig uenighet. I Midtøsten brukes begrepet særlig om sunni-shia-rivaliseringen. Sekterisme ble forsterket av kolonimaktenes strategi med å splitte og herske, og av at kunstige grenser etter Sykes-Picot tvang ulike grupper inn i samme stat.",
+    "type": "concept",
+    "subject": "historie",
+    "topic": "midtoesten",
+    "tags": [
+      "sunni",
+      "shia",
+      "konflikt",
+      "Midtøsten",
+      "religion"
+    ]
+  },
+  {
     "id": "selvbestemmelsesrett",
     "term": "Selvbestemmelsesrett",
     "definition": "Prinsippet om at et folk har rett til å styre seg selv og velge sin egen statstilhørighet.",
@@ -2419,6 +2758,27 @@
     "subject": "krle"
   },
   {
+    "id": "shiaislam",
+    "term": "Shiaislam",
+    "aliases": [
+      "shia",
+      "shiaer",
+      "shiamuslimer",
+      "shiamuslim"
+    ],
+    "definition": "Den nest største grenen av islam, med ca. 15 prosent av verdens muslimer. Shiaer mener at lederskapet etter Muhammed tilhørte hans familie - spesielt svigersønnen Ali og hans etterkommere (imamene). Muhammeds barnebarn Husain ble drept i slaget ved Karbala i 680, et traume som fortsatt er sentralt i shia-troen. Dominerende religion i Iran, Irak og Bahrain.",
+    "type": "concept",
+    "subject": "historie",
+    "topic": "midtoesten",
+    "tags": [
+      "islam",
+      "religion",
+      "iran",
+      "shia",
+      "Karbala"
+    ]
+  },
+  {
     "id": "show-dont-tell",
     "term": "Show, don't tell",
     "definition": "En skriveteknikk der man viser hva som skjer eller hva en karakter føler gjennom handlinger, sanser og detaljer, i stedet for å bare fortelle det direkte til leseren (f.eks. ved å beskrive skjelvende hender i stedet for å skrive «han var redd»).",
@@ -2432,6 +2792,26 @@
     "topic": "religion",
     "tags": [
       "sikhisme"
+    ]
+  },
+  {
+    "id": "sionisme",
+    "term": "Sionisme",
+    "aliases": [
+      "sionist",
+      "sionistisk",
+      "sionistene",
+      "sionistbevegelsen"
+    ],
+    "definition": "Politisk bevegelse grunnlagt av Theodor Herzl på 1890-tallet, som kjempet for opprettelsen av en jødisk stat i det historiske landet Israel/Palestina. Sionismen vokste frem som svar på europeisk antisemittisme og mente at jøder trengte et eget hjemland for å være trygge.",
+    "type": "concept",
+    "subject": "historie",
+    "topic": "midtoesten",
+    "tags": [
+      "israel",
+      "jøder",
+      "palestina",
+      "nasjonalisme"
     ]
   },
   {
@@ -2496,6 +2876,20 @@
     ],
     "subject": "historie",
     "topic": "kinas-historie"
+  },
+  {
+    "id": "squadristi",
+    "term": "Squadristi",
+    "definition": "Italienske fascistiske aksjonsskvadronene på 1920-tallet. De angrep fagforeninger, aviser og politiske motstandere. Kjent i Norge som svartskjortene.",
+    "type": "concept",
+    "subject": "historie",
+    "topic": "mellomkrigstiden",
+    "tags": [
+      "fascisme",
+      "italia",
+      "vold",
+      "svartskjortene"
+    ]
   },
   {
     "id": "stabilitet",
@@ -2628,6 +3022,27 @@
       "hersker"
     ],
     "subject": "historie"
+  },
+  {
+    "id": "sunniislam",
+    "term": "Sunniislam",
+    "aliases": [
+      "sunni",
+      "sunnier",
+      "sunnimuslimer",
+      "sunnimuslim",
+      "sunnislam"
+    ],
+    "definition": "Den største grenen av islam, med ca. 85 prosent av verdens muslimer. Sunnier mener at lederskapet etter Muhammeds død i 632 skulle velges blant de troendes skikkede menn. Dominerende religion i Saudi-Arabia, Egypt, Tyrkia, Jordan og de fleste arabiske land. Saudi-Arabia bruker oljepenger til å spre en konservativ variant kalt wahhabisme.",
+    "type": "concept",
+    "subject": "historie",
+    "topic": "midtoesten",
+    "tags": [
+      "islam",
+      "religion",
+      "saudi-arabia",
+      "sunni"
+    ]
   },
   {
     "id": "suverenitet",

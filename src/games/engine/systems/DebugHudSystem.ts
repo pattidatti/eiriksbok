@@ -80,6 +80,14 @@ export class DebugHudSystem {
         return this.lastStats;
     }
 
+    // Lett fps-avlesning for adaptiv kvalitet — leser kun dt-bufferet, ikke renderer.info.
+    // Returnerer 0 før bufferet er varmt nok til å være meningsfullt.
+    getAvgFps(): number {
+        if (this.dtBuffer.length < FPS_WINDOW) return 0;
+        const avgDt = this.dtBuffer.reduce((a, b) => a + b, 0) / this.dtBuffer.length;
+        return avgDt > 0 ? 1 / avgDt : 0;
+    }
+
     dispose(): void {
         this.renderer.info.autoReset = true;
     }

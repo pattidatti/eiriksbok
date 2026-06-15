@@ -14,35 +14,8 @@ const DEFAULT_BLOOM_STRENGTH: Record<QualityTier, number> = {
 const DEFAULT_BLOOM_RADIUS = 0.6;
 const DEFAULT_BLOOM_THRESHOLD = 0.65;
 
-// Single-pass cinematic shader — safe for all devices (Chromebook included).
-const LightweightCinematicShader = {
-    uniforms: {
-        tDiffuse: { value: null },
-        time: { value: 0 },
-        warmth: { value: 0.06 },
-        vignette: { value: 0.55 },
-    },
-    vertexShader: `varying vec2 vUv; void main(){ vUv=uv; gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.); }`,
-    fragmentShader: `
-        uniform sampler2D tDiffuse;
-        uniform float warmth;
-        uniform float vignette;
-        varying vec2 vUv;
-        void main(){
-            vec2 center = vUv - 0.5;
-            float edge = dot(center, center);
-            float aberr = 0.0018 * edge;
-            float r = texture2D(tDiffuse, vUv + vec2(aberr,  0.0)).r;
-            float g = texture2D(tDiffuse, vUv                   ).g;
-            float b = texture2D(tDiffuse, vUv - vec2(aberr,  0.0)).b;
-            vec4 c = vec4(r, g, b, 1.0);
-            c.r = min(1.0, c.r * (1.0 + warmth));
-            c.b *= (1.0 - warmth * 0.5);
-            c.rgb *= 1.0 - edge * vignette;
-            gl_FragColor = c;
-        }`,
-};
-
+// Cinematic shader (chromatic aberration + vignette + warmth) — kun medium/high.
+// Low-tier kjører direkte renderer.render() uten composer (se init()).
 const HighEndCinematicShader = {
     uniforms: {
         tDiffuse: { value: null },
@@ -200,7 +173,13 @@ export class PostProcessingSystem {
     async init(): Promise<void> {
         try {
             if (this.tier === 'low') {
-                await this.setupLow();
+                // Chromebook-floor: ingen composer. render() faller gjennom til
+                // renderer.render() og sparer 2-3 fullskjerm-pass (cinematic + FXAA +
+                // EffectComposer-kopi) på svak GPU. Det er den største enkeltgevinsten
+                // for 30+ fps på skole-Chromebook. Varme/eksponering dekkes av den
+                // boostede toneMappingExposure (1.9) i GameEngine.
+                this.initialized = true;
+                return;
             } else if (this.tier === 'medium') {
                 await this.setupMedium();
             } else {
@@ -210,30 +189,6 @@ export class PostProcessingSystem {
         } catch (e) {
             console.warn('PostProcessing init failed, falling back to direct render:', e);
         }
-    }
-
-    private async setupLow(): Promise<void> {
-        const [{ EffectComposer }, { RenderPass }, { ShaderPass }, { FXAAShader }] =
-            await Promise.all([
-                import('three/addons/postprocessing/EffectComposer.js'),
-                import('three/addons/postprocessing/RenderPass.js'),
-                import('three/addons/postprocessing/ShaderPass.js'),
-                import('three/addons/shaders/FXAAShader.js'),
-            ]);
-        const composer = new EffectComposer(this.renderer);
-        composer.addPass(new RenderPass(this.scene, this.camera));
-        const cinematic = new ShaderPass(LightweightCinematicShader);
-        cinematic.uniforms.warmth.value = this.grading.warmth;
-        cinematic.uniforms.vignette.value = this.grading.vignette;
-        composer.addPass(cinematic);
-        const fxaa = new ShaderPass(FXAAShader);
-        const pr = this.renderer.getPixelRatio();
-        fxaa.uniforms['resolution'].value.x = 1 / (window.innerWidth * pr);
-        fxaa.uniforms['resolution'].value.y = 1 / (window.innerHeight * pr);
-        composer.addPass(fxaa);
-        this.composer = composer as unknown as ComposerLike;
-        this.cinematicPass = cinematic as unknown as CinematicPassLike;
-        this.fxaaPass = fxaa as unknown as FxaaPassLike;
     }
 
     private async setupMedium(): Promise<void> {

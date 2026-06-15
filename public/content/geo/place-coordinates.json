@@ -1015,6 +1015,10 @@
       "count": 9
     },
     {
+      "tag": "kildekritikk",
+      "count": 9
+    },
+    {
       "tag": "sentrale_trekk",
       "count": 9
     },
@@ -1060,10 +1064,6 @@
     },
     {
       "tag": "fred",
-      "count": 8
-    },
-    {
-      "tag": "kildekritikk",
       "count": 8
     },
     {
@@ -3164,6 +3164,22 @@
     },
     {
       "tag": "jødedom",
+      "count": 1
+    },
+    {
+      "tag": "religionshistorie",
+      "count": 1
+    },
+    {
+      "tag": "monoteisme",
+      "count": 1
+    },
+    {
+      "tag": "asherah",
+      "count": 1
+    },
+    {
+      "tag": "yahweh",
       "count": 1
     },
     {

@@ -184,7 +184,10 @@ export function buildCharacter(
     config: CharacterConfig,
     toonMat: (color: number, opts?: Record<string, unknown>) => THREE.MeshStandardMaterial,
     renderer: THREE.WebGLRenderer,
-    scene: THREE.Scene
+    scene: THREE.Scene,
+    // Toon-outlines dobler draw calls per karakter (BackSide-barn). Skrus av på low-tier
+    // for færre draw calls; toon-looken overlever uten dem.
+    outlines = true
 ): BuiltCharacter {
     const g = new THREE.Group();
 
@@ -193,7 +196,7 @@ export function buildCharacter(
         toonMat(config.colors.body)
     );
     body.position.y = 0.9; body.castShadow = true;
-    addOutline(body);
+    if (outlines) addOutline(body);
     g.add(body);
 
     const head = new THREE.Mesh(
@@ -201,7 +204,7 @@ export function buildCharacter(
         toonMat(config.colors.head)
     );
     head.position.y = 1.55; head.castShadow = true;
-    addOutline(head, 1.08);
+    if (outlines) addOutline(head, 1.08);
     g.add(head);
 
     let faceCanvas: HTMLCanvasElement | undefined;

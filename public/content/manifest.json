@@ -1460,7 +1460,7 @@
                 "sivilt-samfunn"
               ],
               "createdDate": "2026-06-02T00:00:00Z",
-              "lastUpdated": "2026-06-04T22:49:51+02:00"
+              "lastUpdated": "2026-06-15T07:39:50+02:00"
             },
             {
               "id": "km-14-lover-normer",
@@ -1608,7 +1608,7 @@
                 "industrialisering"
               ],
               "createdDate": "2026-06-02T00:00:00Z",
-              "lastUpdated": "2026-06-15T00:42:50+02:00"
+              "lastUpdated": "2026-06-15T07:39:50+02:00"
             },
             {
               "id": "km-9-identitet-mangfald",
@@ -1623,7 +1623,7 @@
                 "integrering"
               ],
               "createdDate": "2026-06-02T00:00:00Z",
-              "lastUpdated": "2026-06-04T22:49:51+02:00"
+              "lastUpdated": "2026-06-15T07:39:50+02:00"
             },
             {
               "id": "km-10-digitale-spor",
@@ -2194,7 +2194,7 @@
                 "industrialisering"
               ],
               "createdDate": "2026-06-02T00:00:00Z",
-              "lastUpdated": "2026-06-15T00:42:50+02:00"
+              "lastUpdated": "2026-06-15T07:39:50+02:00"
             },
             {
               "id": "km-5-kamp-for-endring",
@@ -2269,7 +2269,7 @@
                 "integrering"
               ],
               "createdDate": "2026-06-02T00:00:00Z",
-              "lastUpdated": "2026-06-04T22:49:51+02:00"
+              "lastUpdated": "2026-06-15T07:39:50+02:00"
             },
             {
               "id": "km-10-digitale-spor",
@@ -2314,7 +2314,7 @@
                 "sivilt-samfunn"
               ],
               "createdDate": "2026-06-02T00:00:00Z",
-              "lastUpdated": "2026-06-04T22:49:51+02:00"
+              "lastUpdated": "2026-06-15T07:39:50+02:00"
             },
             {
               "id": "km-13-digital-debatt",
@@ -2785,7 +2785,7 @@
                 "industrialisering"
               ],
               "createdDate": "2026-06-15T00:00:00Z",
-              "lastUpdated": "2026-06-15T03:22:11+02:00"
+              "lastUpdated": "2026-06-15T07:39:50+02:00"
             }
           ]
         },
@@ -6683,7 +6683,23 @@
                   "icon": "cloud-lightning"
                 }
               ],
-              "lessons": []
+              "lessons": [
+                {
+                  "id": "monoteismens-fodsel",
+                  "title": "Hadde Gud en kone?",
+                  "description": "Arkeologien viser en eldre Yahweh med kropp, familie og naboguder. Slik ble mange guder til én.",
+                  "image": "/images/placeholder.webp",
+                  "tags": [
+                    "religionshistorie",
+                    "monoteisme",
+                    "asherah",
+                    "yahweh",
+                    "kildekritikk"
+                  ],
+                  "createdDate": "2026-06-15T00:00:00Z",
+                  "lastUpdated": "2026-06-15T08:09:44.352Z"
+                }
+              ]
             },
             {
               "id": "bahai",

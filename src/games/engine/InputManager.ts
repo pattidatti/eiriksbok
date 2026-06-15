@@ -6,6 +6,7 @@ export type GameAction =
     | 'MOVE_FWD' | 'MOVE_BACK' | 'MOVE_LEFT' | 'MOVE_RIGHT'
     | 'RUN' | 'JUMP'
     | 'INTERACT' | 'THROW' | 'CLIMB'
+    | 'CAMERA_TOGGLE'
     | 'PAUSE' | 'SKIP_INTRO'
     | 'DEBUG_HUD' | 'PHOTO_MODE'
     | 'DIALOG_1' | 'DIALOG_2' | 'DIALOG_3' | 'DIALOG_4' | 'DIALOG_5';
@@ -23,7 +24,8 @@ const DEFAULT_BINDINGS: KeyBindings = {
     JUMP: ['Space'],
     INTERACT: ['KeyE'],
     THROW: ['KeyF'],
-    CLIMB: ['KeyC'],
+    CLIMB: [], // tidligere KeyC; klatring drives av fysikk-overlap, ikke input
+    CAMERA_TOGGLE: ['KeyC'], // bytt mellom 1.- og 3.-person
     PAUSE: ['Escape'],
     SKIP_INTRO: ['Space', 'Enter'],
     DEBUG_HUD: ['F3'],
@@ -126,6 +128,11 @@ export class InputManager {
                 if (Array.isArray(val) && val.every((c) => typeof c === 'string')) {
                     merged[key] = val;
                 }
+            }
+            // Migrering: returnerende brukere har KeyC lagret på den utgåtte CLIMB-actionen.
+            // Flytt den til CAMERA_TOGGLE hvis de ikke selv har rebundet noe annet.
+            if (!parsed.CAMERA_TOGGLE && merged.CLIMB.includes('KeyC')) {
+                merged.CLIMB = merged.CLIMB.filter((c) => c !== 'KeyC');
             }
             return merged;
         } catch {
