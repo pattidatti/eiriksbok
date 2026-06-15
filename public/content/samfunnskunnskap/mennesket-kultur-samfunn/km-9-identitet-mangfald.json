@@ -4,7 +4,7 @@
     "layout": "rich",
     "category": "Samfunnskunnskap",
     "readTime": "9 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/mennesket-kultur-samfunn/km-9-identitet-mangfald-hero.webp",
     "subject": "samfunnskunnskap",
     "topic": "mennesket-kultur-samfunn",
     "details": [
@@ -39,7 +39,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/mennesket-kultur-samfunn/km-9-identitet-mangfald-01.webp",
             "alt": "Barn fra ulike bakgrunner leker sammen i skolegård",
             "caption": "Norske skoler speiler i dag et mangfoldig samfunn - med elever fra mange ulike bakgrunner."
         },
@@ -82,7 +82,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/mennesket-kultur-samfunn/km-9-identitet-mangfald-02.webp",
             "alt": "Ulike kulturelle symboler og uttrykk fra mange ulike land",
             "caption": "Kulturuttrykk kan være kleskoder, mat, musikk, arkitektur - eller usynlige verdier og vaner."
         },
@@ -212,7 +212,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/mennesket-kultur-samfunn/km-9-identitet-mangfald-03.webp",
             "alt": "Unge mennesker samarbeider om et prosjekt rundt et bord",
             "caption": "Grupper med ulik bakgrunn løser problemer bedre - det kaller vi kognitiv mangfoldighet."
         },

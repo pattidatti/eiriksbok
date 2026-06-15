@@ -5,7 +5,7 @@
     "year": "1945-1990",
     "category": "Verdenshistorie",
     "readTime": "9 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/japans-historie/japans-okonomiske-mirakel-hero.webp",
     "details": [
         "I 1945 lå Japan i ruiner etter å ha tapt andre verdenskrig.",
         "På bare rundt 40 år ble landet en av verdens rikeste.",
@@ -18,7 +18,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/japans-historie/japans-okonomiske-mirakel-01.webp",
             "alt": "Utbombet japansk by i ruiner sommeren 1945",
             "caption": "I 1945 lå mange japanske byer i ruiner. Få trodde landet kunne reise seg så raskt."
         },
@@ -75,7 +75,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/japans-historie/japans-okonomiske-mirakel-02.webp",
             "alt": "Lasteskip fullt av japanske biler forlater en havn",
             "caption": "Japanske biler og elektronikk ble fraktet ut til hele verden. Eksporten gjorde landet rikt."
         },
@@ -93,7 +93,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/japans-historie/japans-okonomiske-mirakel-03.webp",
             "alt": "Moderne Tokyo med skyskrapere og lys om kvelden",
             "caption": "På få tiår vokste Tokyo til en av verdens største og mest moderne storbyer."
         },

@@ -4,7 +4,7 @@
     "layout": "rich",
     "category": "Samfunnskunnskap",
     "readTime": "9 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/styringsformer/km-12-maktaktørar-hero.webp",
     "description": "Hvem bestemmer egentlig i samfunnet? Utforsk de viktigste maktaktørene i Norge og verden, og lær hvordan de begrunner standpunktene sine.",
     "subject": "samfunnskunnskap",
     "topic": "styringsformer",
@@ -37,7 +37,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/styringsformer/km-12-maktaktørar-01.webp",
             "alt": "Stortinget sett utenfra med menneskemengde foran",
             "caption": "Stortinget er det fremste symbolet på folkestyre, men mange andre aktører påvirker politikken."
         },
@@ -75,7 +75,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/styringsformer/km-12-maktaktørar-02.webp",
             "alt": "Lobbyister i korridor utenfor politisk møterom",
             "caption": "Lobbyisme - å forsøke å påvirke politikere - er en lovlig, men omdiskutert form for maktutøvelse."
         },
@@ -121,7 +121,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/styringsformer/km-12-maktaktørar-03.webp",
             "alt": "Demonstranter med bannere foran regjeringsbygning",
             "caption": "Sivilsamfunnet bruker demonstrasjoner for å synliggjøre makt nedenfra, uten formell posisjon."
         },
