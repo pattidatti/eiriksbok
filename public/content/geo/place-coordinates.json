@@ -1055,6 +1055,10 @@
       "count": 8
     },
     {
+      "tag": "industrialisering",
+      "count": 8
+    },
+    {
       "tag": "fred",
       "count": 8
     },
@@ -1171,6 +1175,10 @@
       "count": 6
     },
     {
+      "tag": "verdenshistorie",
+      "count": 6
+    },
+    {
       "tag": "kunst",
       "count": 6
     },
@@ -1192,10 +1200,6 @@
     },
     {
       "tag": "bolivar",
-      "count": 6
-    },
-    {
-      "tag": "industrialisering",
       "count": 6
     },
     {
@@ -1400,10 +1404,6 @@
     },
     {
       "tag": "guder",
-      "count": 4
-    },
-    {
-      "tag": "verdenshistorie",
       "count": 4
     },
     {
@@ -2232,6 +2232,14 @@
     },
     {
       "tag": "quisling",
+      "count": 2
+    },
+    {
+      "tag": "okonomi",
+      "count": 2
+    },
+    {
+      "tag": "etterkrigstid",
       "count": 2
     },
     {

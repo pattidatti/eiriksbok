@@ -67,8 +67,18 @@ const Rikssamlingen3D = lazy(() => import('./Rikssamlingen3D'));
 const RismarkOgMakt3D = lazy(() => import('./RismarkOgMakt3D'));
 const Berlinmuren3D = lazy(() => import('./Berlinmuren3D'));
 const Falltaarnet3D = lazy(() => import('./Falltaarnet3D'));
+const JapanMirakelBy3D = lazy(() => import('./JapanMirakelBy3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
+    'japan-mirakel-by-3d': {
+        id: 'japan-mirakel-by-3d',
+        title: 'Reis Japan fra ruinene',
+        description:
+            'En japansk by ligger i ruiner etter krigen i 1945. Velg tre tiltak i rekkefølge - bygg skoler og fabrikker (1950), lag kvalitetsvarer for eksport (1960) og bygg det moderne Japan (1980) - og se ruinene synke, fabrikkene reise seg, eksportskipet komme og skyskrapere og lyntog lyse opp en moderne storby. Lyspæren: Japan ble rikt av kloke valg - skoler, kvalitet og eksport, ikke våpen - gjentatt tiår etter tiår.',
+        estimatedSeconds: 150,
+        loader: () => import('./JapanMirakelBy3D'),
+        Component: JapanMirakelBy3D as never,
+    },
     'meiji-byen-3d': {
         id: 'meiji-byen-3d',
         title: 'Meiji-byen forvandles',
