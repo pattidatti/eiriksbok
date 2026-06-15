@@ -7,7 +7,7 @@
     "layout": "rich",
     "category": "Samfunnskunnskap",
     "readTime": "8 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/styringsformer/km-14-lover-normer-hero.webp",
     "details": [
         "Kompetansemål SAF01-04",
         "Lover og regler i samfunnet"
@@ -40,7 +40,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/styringsformer/km-14-lover-normer-01.webp",
             "alt": "Lovboka og norsk flagg på et rettsbord",
             "caption": "Lover er skriftlige regler vedtatt av Stortinget. De gjelder for alle i Norge."
         },
@@ -85,7 +85,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/styringsformer/km-14-lover-normer-02.webp",
             "alt": "Ungdommer i en gruppe som diskuterer rundt et bord",
             "caption": "Normer styrer mye av hverdagen vår - hva som regnes som rettferdig, høflig eller passende."
         },
@@ -128,7 +128,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/styringsformer/km-14-lover-normer-03.webp",
             "alt": "FN-bygningen i New York med flagg fra mange land",
             "caption": "FNs menneskerettighetserklæring setter grenser for hva stater kan gjøre mot sine innbyggere."
         },

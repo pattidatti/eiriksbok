@@ -8,7 +8,7 @@
     "layout": "rich",
     "category": "Samfunnskunnskap",
     "readTime": "9 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/styringsformer/km-15-norsk-demokrati-hero.webp",
     "details": [
         "Kompetansemål SAF01-04",
         "Norsk politisk system og velferdsstat"
@@ -36,7 +36,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/styringsformer/km-15-norsk-demokrati-01.webp",
             "alt": "Stortinget i Oslo sett fra Karl Johans gate",
             "caption": "Stortinget er Norges lovgivende myndighet og samles i Oslo. Her vedtas lovene og statsbudsjettet."
         },
@@ -87,7 +87,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/styringsformer/km-15-norsk-demokrati-02.webp",
             "alt": "Norsk sykehus med ansatte i korridoren",
             "caption": "Offentlige sykehus er kjernen i norsk velferdsstat. Behandlingen er gratis for alle."
         },
@@ -128,7 +128,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/styringsformer/km-15-norsk-demokrati-03.webp",
             "alt": "Unge velgere utenfor et valglokale i Norge",
             "caption": "Valgdeltakelse er grunnlaget for demokratiet. Alle over 18 år har stemmerett i Norge."
         },

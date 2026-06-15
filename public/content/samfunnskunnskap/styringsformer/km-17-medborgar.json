@@ -4,7 +4,7 @@
     "layout": "rich",
     "category": "Samfunnskunnskap",
     "readTime": "10 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/styringsformer/km-17-medborgar-hero.webp",
     "description": "Hva betyr det egentlig å være medborger? Utforsk rettigheter og plikter i demokratiet, og sammenlign hvordan politiske systemer er organisert i ulike land.",
     "subject": "samfunnskunnskap",
     "topic": "styringsformer",
@@ -40,7 +40,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/styringsformer/km-17-medborgar-01.webp",
             "alt": "Unge mennesker i kø ved en stemmeurne",
             "caption": "Stemmeretten er en av de viktigste rettighetene en medborger har, men mange steder i verden er den begrenset eller fratatt."
         },
@@ -78,7 +78,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/styringsformer/km-17-medborgar-02.webp",
             "alt": "Sammenligning av valg i demokrati og autoritært regime",
             "caption": "Formelle valg finnes i mange ulike systemer, men under svært ulike vilkår for den enkelte borgeren."
         },
@@ -124,7 +124,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/styringsformer/km-17-medborgar-03.webp",
             "alt": "Frivillige i et lokalt organisasjonsmøte i Norge",
             "caption": "Det frivillige organisasjonslivet er en av grunnsteinene i det norske demokratiet, og en arena der medborgere utøver retten sin til deltakelse."
         },
