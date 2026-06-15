@@ -1,0 +1,188 @@
+{
+    "id": "japans-okonomiske-mirakel",
+    "title": "Japans økonomiske mirakel",
+    "layout": "rich",
+    "year": "1945-1990",
+    "category": "Verdenshistorie",
+    "readTime": "9 min lesning",
+    "heroImage": "/images/placeholder.webp",
+    "details": [
+        "I 1945 lå Japan i ruiner etter å ha tapt andre verdenskrig.",
+        "På bare rundt 40 år ble landet en av verdens rikeste.",
+        "Hemmeligheten var skoler, kvalitetsvarer og eksport, ikke våpen."
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Sommeren 1945 var Japan knust. To atombomber hadde lagt byene Hiroshima og Nagasaki i grus, og store deler av hovedstaden Tokyo var brent ned. Japan hadde tapt andre verdenskrig. Folk sultet, og fabrikkene var ødelagt. Hvis du sto i Tokyo det året, ville du aldri trodd at denne byen om 40 år skulle bli en av de rikeste i hele verden. Men det er akkurat det som skjedde. Vi kaller det Japans økonomiske mirakel."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Utbombet japansk by i ruiner sommeren 1945",
+            "caption": "I 1945 lå mange japanske byer i ruiner. Få trodde landet kunne reise seg så raskt."
+        },
+        {
+            "type": "header",
+            "text": "Et nytt Japan etter krigen"
+        },
+        {
+            "type": "text",
+            "content": "Etter krigen ble Japan styrt av USA i noen år. Amerikanerne hjalp landet med å lage en helt ny grunnlov. Det viktigste i den nye grunnloven var et løfte: Japan skulle aldri mer føre angrepskrig. Landet fikk ikke lov til å bygge opp en stor hær."
+        },
+        {
+            "type": "text",
+            "content": "De første årene etter krigen var harde. Mange hadde mistet hjemmet sitt, og det var lite mat i butikkene. Men sakte begynte hjulene å snurre igjen. Da nabolandet Korea havnet i krig i 1950, trengte amerikanske soldater masse utstyr i nærheten. De kjøpte det fra japanske fabrikker. Slik fikk Japan en god start på å bygge opp industrien sin på nytt."
+        },
+        {
+            "type": "text",
+            "content": "Dette hørtes ut som en straff, men det ble en fordel. Mange andre land brukte enorme summer på våpen og soldater under [den kalde krigen](/historie/den-kalde-krigen/oversikt). Japan slapp det. I stedet kunne landet bruke nesten alle pengene sine på noe annet: fabrikker, skoler og ny teknologi. USA passet på sikkerheten, så Japan kunne satse alt på å bli rikt."
+        },
+        {
+            "type": "text",
+            "content": "Japanerne jobbet hardt og sparte mye. Foreldre brukte det de hadde på at barna skulle få god utdanning. Et land uten naturrikdommer som olje eller store gruver hadde bare én ting å satse på: kunnskapen og arbeidet til folket sitt. Det hadde Japan gjort før også, under [Meiji-restaurasjonen](/historie/japans-historie/meiji-restaurasjonen) på 1800-tallet, da landet moderniserte seg lynraskt. Erfaringen fra den gang viste at Japan kunne lære av andre land og bli best på kort tid."
+        },
+        {
+            "type": "header",
+            "text": "Fra billig kopi til verdens beste"
+        },
+        {
+            "type": "text",
+            "content": "På 1950-tallet hadde \"Made in Japan\" et dårlig rykte. Det betydde billige varer av dårlig kvalitet. Men japanske bedrifter bestemte seg for å snu dette. De fant på en arbeidsmåte som kalles kaizen. Ordet betyr \"forbedring\". Tanken er enkel: i stedet for å gjøre store endringer sjelden, gjør du mange små forbedringer hele tiden. Hver arbeider ser etter feil og fikser dem, dag etter dag."
+        },
+        {
+            "type": "text",
+            "content": "Resultatet ble varer som nesten aldri var ødelagt. Bilfabrikken Toyota og elektronikkbedriften Sony ble kjente over hele verden. En japansk bil startet hver gang og varte i mange år. Plutselig betydde \"Made in Japan\" topp kvalitet. Prøv selv hvordan kaizen virker: fiks de små feilene på bilen under, én av gangen, og se kvaliteten stige."
+        },
+        {
+            "type": "component",
+            "name": "KaizenVerksted",
+            "props": {
+                "title": "Kaizen-verkstedet: gjør bilen verdensklasse"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Eksport: å selge til hele verden"
+        },
+        {
+            "type": "text",
+            "content": "Japan er et lite land med få innbyggere sammenlignet med kjemper som USA. Skulle bedriftene tjene store penger, måtte de selge varene sine til andre land. Det kalles eksport. Skip fulle av biler, radioer, kameraer og fjernsyn seilte ut fra de japanske havnene til kunder over hele kloden."
+        },
+        {
+            "type": "text",
+            "content": "Denne måten å tenke på lignet litt på det som skjedde under [den industrielle revolusjonen](/historie/industriell-revolusjon/industriell-revolusjon) i Europa hundre år tidligere: maskiner, fabrikker og masseproduksjon skapte rikdom. Men Japan gjorde det raskere enn noe land hadde gjort før. Pengene som strømmet inn fra eksporten, ble brukt til å bygge enda flere og bedre fabrikker."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Lasteskip fullt av japanske biler forlater en havn",
+            "caption": "Japanske biler og elektronikk ble fraktet ut til hele verden. Eksporten gjorde landet rikt."
+        },
+        {
+            "type": "header",
+            "text": "Miraklet tar form"
+        },
+        {
+            "type": "text",
+            "content": "I 1964 viste Japan seg fram for verden. Tokyo arrangerte De olympiske leker, og samme år åpnet det første lyntoget, Shinkansen. Toget suste av gårde i over 200 kilometer i timen, raskere enn noe annet tog i verden den gang. Det ble et symbol på det nye Japan: moderne, raskt og foran alle andre."
+        },
+        {
+            "type": "text",
+            "content": "Rundt 1968 hadde Japan blitt verdens nest største økonomi, bare slått av USA. På bare litt over 20 år hadde landet gått fra ruiner til toppen. I de neste tiårene vokste store byer som Tokyo og Osaka med skyskrapere og neonlys. Bygg miraklet selv i spillet under: ta de tre valgene som løftet Japan fra aske til storby."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Moderne Tokyo med skyskrapere og lys om kvelden",
+            "caption": "På få tiår vokste Tokyo til en av verdens største og mest moderne storbyer."
+        },
+        {
+            "type": "component",
+            "name": "MicroGame",
+            "props": {
+                "gameId": "japan-mirakel-by-3d"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Prisen for miraklet"
+        },
+        {
+            "type": "text",
+            "content": "Miraklet hadde også en bakside. Mange japanere jobbet så mye at de nesten ikke så familien sin. Noen jobbet seg bokstavelig talt i hjel. Japanerne har til og med et eget ord for det: karoshi, som betyr \"død av for mye arbeid\". Drømmen om å bygge landet rikt kostet mange mennesker dyrt."
+        },
+        {
+            "type": "text",
+            "content": "På slutten av 1980-tallet vokste også prisene på hus og aksjer altfor raskt. Dette kalles en boble. Rundt 1990 sprakk boblen, og Japan fikk mange vanskelige år med lite vekst. Men miraklet var likevel ekte. Landet som tapte krigen i 1941, det samme landet som [gikk inn i krigen full av selvtillit](/historie/mellomkrigstiden/japan), reiste seg fra ruinene og ble et av verdens rikeste og mest moderne samfunn."
+        },
+        {
+            "type": "text",
+            "content": "Historien om Japan etter krigen viser noe viktig: et land trenger ikke olje, gull eller en stor hær for å lykkes. Med kloke valg, god utdanning og hardt arbeid kan et folk bygge seg opp igjen selv etter en stor katastrofe. Det er kanskje den største lærdommen fra Japans økonomiske mirakel."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hvorfor kunne Japan bruke så mye penger på fabrikker og skoler etter krigen?",
+                        "options": [
+                            "Landet hadde funnet store mengder olje",
+                            "Den nye grunnloven forbød en stor hær, så pengene gikk til økonomien",
+                            "Andre land ga Japan all maten og varene de trengte gratis",
+                            "Japan hadde vunnet krigen og fått penger fra de tapende landene"
+                        ],
+                        "correctAnswer": 1,
+                        "explanation": "Den nye grunnloven etter krigen forbød en stor hær. Mens andre land brukte mye på våpen, kunne Japan bruke pengene på fabrikker, skoler og teknologi."
+                    },
+                    {
+                        "question": "Hva betyr ordet kaizen?",
+                        "options": [
+                            "Å selge varer til utlandet",
+                            "Død av for mye arbeid",
+                            "Mange små forbedringer hele tiden",
+                            "Et raskt tog"
+                        ],
+                        "correctAnswer": 2,
+                        "explanation": "Kaizen betyr forbedring. Japanske bedrifter gjorde mange små forbedringer hele tiden, og slik ble varene deres blant de beste i verden."
+                    },
+                    {
+                        "question": "Hvorfor måtte japanske bedrifter satse så mye på eksport?",
+                        "options": [
+                            "Japan er et lite land, så de måtte selge til hele verden for å tjene stort",
+                            "Det var forbudt å selge varer inne i Japan",
+                            "Japanerne likte ikke varene sine selv",
+                            "Andre land tvang Japan til å selge alt de lagde"
+                        ],
+                        "correctAnswer": 0,
+                        "explanation": "Japan har få innbyggere sammenlignet med kjemper som USA. For å tjene store penger måtte bedriftene selge varene sine til kunder over hele verden."
+                    },
+                    {
+                        "question": "Hva var Shinkansen, som åpnet i 1964?",
+                        "options": [
+                            "En ny type bil fra Toyota",
+                            "Verdens raskeste lyntog, et symbol på det nye Japan",
+                            "Et stort kjøpesenter i Tokyo",
+                            "En japansk grunnlov"
+                        ],
+                        "correctAnswer": 1,
+                        "explanation": "Shinkansen åpnet i 1964 og var verdens raskeste tog. Sammen med OL i Tokyo samme år ble det et symbol på det moderne Japan."
+                    },
+                    {
+                        "question": "Hva er karoshi et eksempel på når det gjelder baksiden av miraklet?",
+                        "options": [
+                            "At japanske varer var av dårlig kvalitet",
+                            "At Japan tapte krigen i 1945",
+                            "At mange jobbet så mye at det gikk ut over helsen og familien",
+                            "At prisene på hus falt i 1990"
+                        ],
+                        "correctAnswer": 2,
+                        "explanation": "Karoshi betyr død av for mye arbeid. Mange japanere jobbet så hardt for å bygge landet at det gikk ut over helsen og familielivet."
+                    }
+                ]
+            }
+        }
+    ],
+    "timeline": []
+}

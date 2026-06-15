@@ -6768,6 +6768,30 @@
       "geoConfidence": "guess"
     },
     {
+      "id": "japans-okonomiske-mirakel",
+      "title": "Japans økonomiske mirakel",
+      "description": "Fra ruiner i 1945 til en av verdens rikeste nasjoner på 40 år. Hvordan skoler, kvalitet og eksport gjorde Japan til en supermakt.",
+      "startDate": 1945,
+      "endDate": 1990,
+      "displayDate": "1945-1990",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "japans-historie",
+      "link": "/historie/japans-historie/japans-okonomiske-mirakel",
+      "tags": [
+        "japan",
+        "okonomi",
+        "etterkrigstid",
+        "verdenshistorie",
+        "industrialisering"
+      ],
+      "lat": 36.2,
+      "lng": 138.3,
+      "placeLabel": "Japan",
+      "placeCountryId": 392,
+      "geoConfidence": "tag"
+    },
+    {
       "id": "konsentrasjonsleirene-sub-7",
       "title": "Frigjøringen",
       "description": "Allierte styrker frigjør leirene og avslører grusomhetene.",
