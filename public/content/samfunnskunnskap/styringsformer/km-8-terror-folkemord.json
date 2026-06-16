@@ -4,7 +4,7 @@
     "layout": "rich",
     "category": "Samfunnskunnskap",
     "readTime": "10 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/styringsformer/km-8-terror-folkemord-hero.webp",
     "description": "Hvordan kan hat bli til massemord? Utforsk årsaker til og konsekvenser av terrorisme og folkemord, fra holocaust til 22. juli, og lær hva som kan stoppe ekstreme handlinger.",
     "subject": "samfunnsfag",
     "topic": "styringsformer",
@@ -40,7 +40,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/styringsformer/km-8-terror-folkemord-01.webp",
             "alt": "Minnesmerke for ofrene etter 22. juli 2011 i Oslo",
             "caption": "Minnesmerket på Utøya minner oss om hva hat og ekstremisme kan føre til. 77 mennesker mistet livet 22. juli 2011."
         },
@@ -88,7 +88,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/styringsformer/km-8-terror-folkemord-02.webp",
             "alt": "Nazistisk propagandaplakat fra 1930-tallets Tyskland som dehumaniserer jøder",
             "caption": "Nazistisk propaganda fremstilte jøder som en trussel mot det tyske folket, et klassisk eksempel på dehumanisering som banet vei for holocaust."
         },
@@ -238,7 +238,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/styringsformer/km-8-terror-folkemord-03.webp",
             "alt": "Rosetog i Oslo etter terrorangrepet 22. juli 2011",
             "caption": "Hundretusenvis gikk i rosetog etter 22. juli som symbol på at det norske demokratiet ikke lot seg knekke av terror."
         },

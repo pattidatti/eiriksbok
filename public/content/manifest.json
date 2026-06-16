@@ -1436,7 +1436,7 @@
               "id": "km-8-terror-folkemord",
               "title": "Fra hat til folkemord",
               "description": "Artikkelen utforsker årsaker til og konsekvenser av terrorisme og folkemord, fra holocaust til 22. juli og Rwanda, og trener eleven i å gjenkjenne radikalisering og reflektere over forebygging. En interaktiv eskaleringstrapp, et 3D-mikrospill om dehumanisering og et scenario-rollespill setter eleven midt i prosessen og lar dem ta valg som illustrerer hva som beskytter mot ekstremisme.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/styringsformer/km-8-terror-folkemord-hero.webp",
               "tags": [
                 "holocaust",
                 "terrorisme",
@@ -2245,7 +2245,7 @@
               "id": "km-8-terror-folkemord",
               "title": "Fra hat til folkemord",
               "description": "Artikkelen utforsker årsaker til og konsekvenser av terrorisme og folkemord, fra holocaust til 22. juli og Rwanda, og trener eleven i å gjenkjenne radikalisering og reflektere over forebygging. En interaktiv eskaleringstrapp, et 3D-mikrospill om dehumanisering og et scenario-rollespill setter eleven midt i prosessen og lar dem ta valg som illustrerer hva som beskytter mot ekstremisme.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/styringsformer/km-8-terror-folkemord-hero.webp",
               "tags": [
                 "holocaust",
                 "terrorisme",
@@ -7581,7 +7581,7 @@
                 "eksistensialisme"
               ],
               "createdDate": "2026-06-16T09:00:00+02:00",
-              "lastUpdated": "2026-06-16T12:22:32.749Z"
+              "lastUpdated": "2026-06-16T14:46:46+02:00"
             }
           ]
         }
