@@ -5,7 +5,7 @@
     "year": "1894-1910",
     "category": "Japan",
     "readTime": "8 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/japans-historie/japansk-imperialisme-hero.webp",
     "details": [
         "På bare 40 år gikk Japan fra lukket bondeland til imperialistisk stormakt.",
         "I 1905 slo Japan Russland til sjøs. Det var første gang i moderne tid et asiatisk land beseiret en europeisk stormakt.",
@@ -22,7 +22,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/japans-historie/japansk-imperialisme-01.webp",
             "alt": "Moderne japanske slagskip i kamp mot en russisk flåte til sjøs",
             "caption": "Slaget i Tsushimastredet i 1905 sjokkerte hele verden. En europeisk stormakt var slått av et land fra Asia."
         },
@@ -79,7 +79,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/japans-historie/japansk-imperialisme-02.webp",
             "alt": "Sliten russisk flåte seiler inn i et trangt sund ved soloppgang",
             "caption": "Den russiske flåten seilte over 30 000 kilometer for å nå Japan. Slaget var over på under ett døgn."
         },

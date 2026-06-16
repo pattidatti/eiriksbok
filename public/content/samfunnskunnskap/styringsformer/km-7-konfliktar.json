@@ -4,7 +4,7 @@
     "layout": "rich",
     "category": "Samfunnskunnskap",
     "readTime": "9 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/styringsformer/km-7-konfliktar-hero.webp",
     "description": "Utforsk årsakene til historiske og nåtidige konflikter, konsekvensene de fikk, og om andre veivalg kunne ha hindret dem.",
     "subject": "samfunnsfag",
     "topic": "styringsformer",
@@ -36,7 +36,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/styringsformer/km-7-konfliktar-01.webp",
             "alt": "Soldater i skyttergraver under første verdenskrig",
             "caption": "Første verdenskrig kostet 20 millioner mennesker livet. Alliansesystemet i Europa var en av de sentrale årsakene."
         },
@@ -90,7 +90,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/styringsformer/km-7-konfliktar-02.webp",
             "alt": "FN-generalforsamlingen vedtar folkemordkonvensjonen i 1948",
             "caption": "FN ble grunnlagt i 1945 for å hindre at verdenskrigenes grusomheter skulle gjentas. Les mer om [Forente Nasjoner](/samfunnskunnskap/ideer-og-verdenssyn/fn)."
         },
