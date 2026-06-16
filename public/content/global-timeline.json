@@ -5284,6 +5284,30 @@
       "geoConfidence": "guess"
     },
     {
+      "id": "japansk-imperialisme",
+      "title": "Japansk imperialisme: Da Japan slo en stormakt",
+      "description": "På 40 år gikk Japan fra lukket bondeland til imperialistisk stormakt. I 1905 slo landet Russland og ble det første asiatiske landet i moderne tid som beseiret en europeisk stormakt.",
+      "startDate": 1894,
+      "endDate": 1910,
+      "displayDate": "1894-1910",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "japans-historie",
+      "link": "/historie/japans-historie/japansk-imperialisme",
+      "tags": [
+        "japan",
+        "imperialisme",
+        "russisk-japanske-krig",
+        "korea",
+        "verdenshistorie"
+      ],
+      "lat": 36.2,
+      "lng": 138.3,
+      "placeLabel": "Japan",
+      "placeCountryId": 392,
+      "geoConfidence": "tag"
+    },
+    {
       "id": "haugtussa-utdrag",
       "title": "Haugtussa (Til deg, du hei)",
       "description": "Utgitt av Arne Garborg",

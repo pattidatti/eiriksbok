@@ -1,0 +1,179 @@
+{
+    "id": "japansk-imperialisme",
+    "title": "Japansk imperialisme: Da Japan slo en stormakt",
+    "layout": "rich",
+    "year": "1894-1910",
+    "category": "Japan",
+    "readTime": "8 min lesning",
+    "heroImage": "/images/placeholder.webp",
+    "details": [
+        "På bare 40 år gikk Japan fra lukket bondeland til imperialistisk stormakt.",
+        "I 1905 slo Japan Russland til sjøs. Det var første gang i moderne tid et asiatisk land beseiret en europeisk stormakt.",
+        "Japans framgang kostet naboene dyrt: Korea ble en koloni i 1910."
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "En morgen i mai 1905 dukket en enorm russisk flåte opp i et smalt sund mellom Korea og Japan. Skipene hadde seilt nesten halve jorden rundt, over 30 000 kilometer, for å knuse den japanske marinen. Men da solen gikk ned samme kveld, lå nesten hele den russiske flåten på havbunnen. Japan hadde vunnet. For første gang i moderne tid hadde et land fra Asia slått en av Europas store stormakter."
+        },
+        {
+            "type": "text",
+            "content": "Hvordan var dette mulig? Bare femti år tidligere var Japan et lukket bondesamfunn nesten uten kontakt med resten av verden. Nå sendte landet moderne slagskip ut for å vinne kriger. Svaret ligger i en rask og dramatisk forvandling, og i et farlig valg Japan tok om hvordan landet skulle bli sterkt."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Moderne japanske slagskip i kamp mot en russisk flåte til sjøs",
+            "caption": "Slaget i Tsushimastredet i 1905 sjokkerte hele verden. En europeisk stormakt var slått av et land fra Asia."
+        },
+        {
+            "type": "header",
+            "text": "Fra lukket land til stormakt"
+        },
+        {
+            "type": "text",
+            "content": "I [Meiji-restaurasjonen](/historie/japans-historie/meiji-restaurasjonen) bestemte Japan seg for å modernisere seg selv så fort som mulig. Landet bygde jernbaner, fabrikker, skoler, en moderne hær og en sterk marine. Japanske ledere reiste til Europa og USA for å lære, og tok med seg det de mente var best."
+        },
+        {
+            "type": "text",
+            "content": "Men de lærte ikke bare om dampmaskiner og skoler. De så også at de mektige landene i Europa hadde bygd store kolonirikker rundt om i verden. Å ha kolonier var et tegn på at du var en ekte stormakt. Japans ledere tenkte enkelt: skal vi overleve mellom rovdyrene, må vi bli et rovdyr selv."
+        },
+        {
+            "type": "text",
+            "content": "Japan hadde også et praktisk problem. Landet er fjellrikt og har lite kull, jern og dyrkbar jord. For å holde de nye fabrikkene i gang trengte Japan råvarer og markeder. Akkurat som de europeiske landene i [Europa erobrer verden](/historie/kolonialisering/europa-erobrer-verden), begynte Japan å se mot nabolandene for å skaffe seg det de manglet."
+        },
+        {
+            "type": "header",
+            "text": "Krigen mot Kina (1894-1895)"
+        },
+        {
+            "type": "text",
+            "content": "Det første målet var Korea, et land rett vest for Japan. Problemet var at det enorme Kina mente Korea hørte inn under dem. I 1894 brøt det ut krig mellom Japan og Kina om hvem som skulle bestemme over Korea."
+        },
+        {
+            "type": "text",
+            "content": "På papiret var dette en umulig kamp. Kina var mange ganger større enn Japan og hadde mye flere folk. Men Kina hadde ikke modernisert seg. Den japanske hæren og marinen var nye, godt trente og godt utstyrte, mens de kinesiske styrkene var gammeldagse. Japan vant raskt og knusende. Som seierherre fikk Japan øya Taiwan, sin første koloni. Verden begynte å legge merke til den nye stormakten i øst."
+        },
+        {
+            "type": "text",
+            "content": "Bygg Japans imperium selv i kartet under. Klikk landet som lyser, og legg nabolandene under Japan i historisk rekkefølge. Den midterste noden er det avgjørende sjøslaget mot Russland."
+        },
+        {
+            "type": "component",
+            "name": "MicroGame",
+            "props": {
+                "gameId": "japansk-imperium-3d"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Krigen mot Russland (1904-1905)"
+        },
+        {
+            "type": "text",
+            "content": "Den neste rivalen var mye farligere. Russland var en europeisk stormakt som også ville inn i samme område. Russerne bygde jernbane gjennom Mandsjuria i Nord-Kina og leide en viktig havn der, Port Arthur. Japan følte seg presset, og i 1904 angrep japanske skip den russiske flåten ved Port Arthur uten forvarsel."
+        },
+        {
+            "type": "text",
+            "content": "Krigen ble hard. På land kjempet store hærer om byer og festninger i Mandsjuria, og titusener av soldater døde. Til sjøs hadde Japan overtaket. For å snu krigen sendte tsaren sin store Østersjøflåte fra Europa. Reisen tok et halvt år, hele veien rundt Afrika og Asia. Da den endelig nådde fram, var mannskapet utslitt, og den moderne japanske flåten ventet på dem i Tsushimastredet."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Sliten russisk flåte seiler inn i et trangt sund ved soloppgang",
+            "caption": "Den russiske flåten seilte over 30 000 kilometer for å nå Japan. Slaget var over på under ett døgn."
+        },
+        {
+            "type": "text",
+            "content": "Slaget endte i en total japansk seier. USAs president hjalp til med å forhandle fram en fred i 1905. Japan fikk den sørlige delen av øya Sakhalin og fri rett til å styre over Korea. Men det viktigste var ikke landområdene. Det viktigste var beskjeden hele verden nå hadde fått: en europeisk stormakt kunne beseires."
+        },
+        {
+            "type": "text",
+            "content": "Nyheten om seieren spredte seg som en bølge. Klikk deg gjennom hvordan den ga håp til folk som selv levde under europeisk styre."
+        },
+        {
+            "type": "component",
+            "name": "Sjokkbolgen1905",
+            "props": {
+                "title": "Sjokkbølgen fra 1905"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Korea blir en koloni (1910)"
+        },
+        {
+            "type": "text",
+            "content": "For Japan var seieren en triumf. For naboene var den en tragedie. Etter krigen mot Russland strammet Japan grepet om Korea, og i 1910 ble landet en japansk koloni. De neste 35 årene styrte Japan Korea hardt. Koreanere måtte bruke japansk språk på skolen, ta japanske navn og arbeide for den japanske staten."
+        },
+        {
+            "type": "text",
+            "content": "Mange av de samme tingene som senere skjedde i kolonienes frigjøringskamper, ser vi her i en asiatisk utgave. Mens seieren i 1905 ga håp til folk i [India](/historie/dekolonisering/india) og andre koloniserte land, opplevde koreanerne selv å bli undertrykt av nettopp det landet som hadde inspirert dem. Japan var blitt et imperium med de samme to ansiktene som de europeiske: stolthet hjemme, undertrykkelse ute."
+        },
+        {
+            "type": "header",
+            "text": "Et forvarsel om mer"
+        },
+        {
+            "type": "text",
+            "content": "Seirene gjorde Japan stolt og selvsikkert. Mange japanere mente nå at landet hadde rett til å lede hele Asia. Hæren og marinen fikk stadig mer makt og ære. Denne tankegangen vokste seg sterkere de neste tiårene og førte til slutt landet inn på [Japans vei mot krig](/historie/mellomkrigstiden/japan) på 1930-tallet."
+        },
+        {
+            "type": "text",
+            "content": "Historien om Japans imperialisme viser noe viktig: et land kan modernisere seg og bli sterkt på utrolig kort tid. Men styrke kan brukes på godt og vondt. Den samme moderniseringen som ga Japan stolthet og selvstendighet, ble til redskapet som tok friheten fra naboene. Hva tror du veide tyngst for vanlige japanere den gangen: stoltheten over å vinne, eller det andre land måtte betale?"
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hva gjorde Japan i stand til å bli en stormakt på så kort tid?",
+                        "options": [
+                            "Landet hadde mye kull og jern fra før",
+                            "Meiji-moderniseringen ga landet en moderne hær, marine og industri",
+                            "Andre land ga Japan store kolonier i gave",
+                            "Japan unngikk all kontakt med Europa"
+                        ],
+                        "explanation": "Etter Meiji-restaurasjonen moderniserte Japan seg selv lynraskt med fabrikker, jernbaner, skoler og et sterkt militære.",
+                        "correctAnswer": 1
+                    },
+                    {
+                        "question": "Hvorfor var seieren over Russland i 1905 så viktig for hele verden?",
+                        "options": [
+                            "Det var første gang i moderne tid et asiatisk land slo en europeisk stormakt",
+                            "Det var den blodigste krigen i historien",
+                            "Russland sluttet å eksistere etterpå",
+                            "Japan ble medlem av Europa"
+                        ],
+                        "explanation": "Seieren viste koloniserte folk over hele verden at de mektige europeiske landene faktisk kunne beseires.",
+                        "correctAnswer": 0
+                    },
+                    {
+                        "question": "Hvorfor ville Japan skaffe seg kolonier?",
+                        "options": [
+                            "For å gi bort råvarer til naboene",
+                            "Landet manglet råvarer og ville ha ressurser, markeder og status som stormakt",
+                            "For å slippe å modernisere seg",
+                            "Fordi keiseren likte å reise"
+                        ],
+                        "explanation": "Japan er fjellrikt med lite kull og jern. Landet trengte råvarer og markeder, og kolonier var også et tegn på at du var en stormakt.",
+                        "correctAnswer": 1
+                    },
+                    {
+                        "question": "Hva skjedde med Korea i 1910?",
+                        "options": [
+                            "Korea ble en fri og selvstendig nasjon",
+                            "Korea erobret Japan",
+                            "Korea ble en japansk koloni under hardt styre",
+                            "Korea ble en del av Russland"
+                        ],
+                        "explanation": "Etter seieren over Russland gjorde Japan Korea til koloni i 1910, og styrte landet hardt i 35 år.",
+                        "correctAnswer": 2
+                    }
+                ]
+            }
+        }
+    ],
+    "timeline": []
+}
