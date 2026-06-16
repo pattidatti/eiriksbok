@@ -1,5 +1,5 @@
 {
-  "buildId": 1781587981612,
+  "buildId": 1781612658555,
   "contentMap": {
     "concept-adel": [
       "content/concepts/adel.json"
@@ -1880,6 +1880,9 @@
     ],
     "naturrett": [
       "content/krle/etikk/naturrett.json"
+    ],
+    "nihilisme": [
+      "content/krle/etikk/nihilisme.json"
     ],
     "non-aggression": [
       "content/krle/etikk/non-aggression.json"
@@ -4059,6 +4062,7 @@
     "krle/etikk/dygdsetikk": "content/krle/etikk/dygdsetikk.json",
     "krle/etikk/intro": "content/krle/etikk/intro.json",
     "krle/etikk/naturrett": "content/krle/etikk/naturrett.json",
+    "krle/etikk/nihilisme": "content/krle/etikk/nihilisme.json",
     "krle/etikk/non-aggression": "content/krle/etikk/non-aggression.json",
     "krle/etikk/pliktetikk": "content/krle/etikk/pliktetikk.json",
     "krle/etikk/utilitarisme": "content/krle/etikk/utilitarisme.json",

@@ -867,6 +867,10 @@
       "count": 18
     },
     {
+      "tag": "etikk",
+      "count": 18
+    },
+    {
       "tag": "middelalder",
       "count": 18
     },
@@ -885,10 +889,6 @@
     {
       "tag": "narrative",
       "count": 18
-    },
-    {
-      "tag": "etikk",
-      "count": 17
     },
     {
       "tag": "kristendom",
@@ -1287,6 +1287,10 @@
       "count": 5
     },
     {
+      "tag": "eksistensialisme",
+      "count": 5
+    },
+    {
       "tag": "media",
       "count": 5
     },
@@ -1440,10 +1444,6 @@
     },
     {
       "tag": "ideologi",
-      "count": 4
-    },
-    {
-      "tag": "eksistensialisme",
       "count": 4
     },
     {
@@ -1604,6 +1604,10 @@
     },
     {
       "tag": "urfolk",
+      "count": 3
+    },
+    {
+      "tag": "nihilisme",
       "count": 3
     },
     {
@@ -2172,10 +2176,6 @@
     },
     {
       "tag": "lys",
-      "count": 2
-    },
-    {
-      "tag": "nihilisme",
       "count": 2
     },
     {
@@ -3300,6 +3300,10 @@
     },
     {
       "tag": "eiendom",
+      "count": 1
+    },
+    {
+      "tag": "verdier",
       "count": 1
     },
     {

@@ -67,6 +67,7 @@ const ConformityExperiment = lazy(() => import('./content/interactive/Conformity
 const OstracismGame = lazy(() => import('./content/interactive/OstracismGame').then(m => ({ default: m.OstracismGame })));
 const VirtueBalance = lazy(() => import('./content/interactive/VirtueBalance').then(m => ({ default: m.VirtueBalance })));
 const AuthorityShifter = lazy(() => import('./content/interactive/AuthorityShifter').then(m => ({ default: m.AuthorityShifter })));
+const VerdiGrunnlaget = lazy(() => import('./content/interactive/VerdiGrunnlaget').then(m => ({ default: m.VerdiGrunnlaget })));
 const Argumentlupen = lazy(() => import('./content/interactive/Argumentlupen').then(m => ({ default: m.Argumentlupen })));
 const Medborgartesten = lazy(() => import('./content/interactive/Medborgartesten').then(m => ({ default: m.Medborgartesten })));
 const SocialContractDecider = lazy(() => import('./content/interactive/SocialContractDecider').then(m => ({ default: m.SocialContractDecider })));
@@ -344,6 +345,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     OstracismGame,
     VirtueBalance,
     AuthorityShifter,
+    VerdiGrunnlaget,
     Argumentlupen,
     Medborgartesten,
     SocialContractDecider,

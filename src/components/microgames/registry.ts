@@ -72,8 +72,18 @@ const StormingenAvBastillen3D = lazy(() => import('./StormingenAvBastillen3D'));
 const TempeletsRenselse3D = lazy(() => import('./TempeletsRenselse3D'));
 const JapanskImperium3D = lazy(() => import('./JapanskImperium3D'));
 const SaturnVMane3D = lazy(() => import('./SaturnVMane3D'));
+const MoralskTomrom3D = lazy(() => import('./MoralskTomrom3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
+    'moralsk-tomrom-3d': {
+        id: 'moralsk-tomrom-3d',
+        title: 'Det moralske tomrommet',
+        description:
+            'En glødende verdi-sol svever i et lyst kosmos, og rundt den orbiterer fire verdier - ærlighet, hjelpsomhet, rettferd og vennlighet - som lyser av seg selv. Slukk sola, og verdiene avsløres som kalde, grå steiner uten egen glød. Det er moralsk nihilisme: ingen moral ligger ferdig i verden. Klikk så en stein og tenn den med ditt eget, kjølige lys. Lyspæren: verdien forsvant ikke, den byttet kilde - fra verden til mennesket, slik Nietzsche og Sartre svarte nihilismen.',
+        estimatedSeconds: 140,
+        loader: () => import('./MoralskTomrom3D'),
+        Component: MoralskTomrom3D as never,
+    },
     'saturn-v-mane-3d': {
         id: 'saturn-v-mane-3d',
         title: 'Saturn V til månen',

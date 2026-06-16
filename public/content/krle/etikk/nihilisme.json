@@ -1,0 +1,217 @@
+{
+    "id": "nihilisme",
+    "title": "Nihilisme i etikk",
+    "subject": "krle",
+    "topic": "etikk",
+    "layout": "rich",
+    "readTime": "10 min lesning",
+    "heroImage": "/images/etikk/nihilisme_hero.webp",
+    "dimension": "etikk",
+    "comparison_tags": [
+        "nihilisme",
+        "moralsk_nihilisme",
+        "verdier",
+        "eksistensialisme"
+    ],
+    "details": [
+        "Nihilisme betyr troen på at noe vi tar for gitt, egentlig ikke finnes.",
+        "Moralsk nihilisme: det finnes ingen objektive verdier, ingen handling er rett eller gal i seg selv.",
+        "Vokste fram på 1800-tallet da troen mistet grepet om samfunnet.",
+        "Nietzsches 'Gud er død' beskriver tomrommet moralen havnet i.",
+        "Svaret fra Nietzsche, Sartre og Camus: vi må skape verdiene selv."
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Tenk deg at en venn sier: 'Det er ikke egentlig galt å lyve eller å være slem. Vi har bare blitt enige om å kalle det galt.' Hva ville du svart? De fleste av oss føler at noen ting er ekte galt, ikke bare noe vi har funnet på. Men kan du bevise det? Den som svarer nei på det spørsmålet, er på vei inn i en av de mest utfordrende tankene i hele etikken: nihilismen."
+        },
+        {
+            "type": "header",
+            "text": "Hva er nihilisme?"
+        },
+        {
+            "type": "text",
+            "content": "Ordet nihilisme kommer fra det latinske ordet nihil, som betyr ingenting. En nihilist mener altså at noe vi tar for gitt, egentlig ikke finnes. Men det er viktig å skille mellom to former, for de spør om to ulike ting."
+        },
+        {
+            "type": "list",
+            "items": [
+                "Eksistensiell nihilisme: troen på at livet i seg selv ikke har noen større mening eller hensikt.",
+                "Moralsk nihilisme: troen på at det ikke finnes objektive moralske verdier. Ingen handling er rett eller gal i seg selv."
+            ]
+        },
+        {
+            "type": "text",
+            "content": "Denne artikkelen handler mest om den siste. Eksistensiell nihilisme spør 'hvorfor lever vi?'. Moralsk nihilisme spør noe enda mer ubehagelig: finnes det i det hele tatt noe som heter rett og galt?"
+        },
+        {
+            "type": "header",
+            "text": "Moralsk nihilisme: ingen objektive verdier"
+        },
+        {
+            "type": "text",
+            "content": "En moralsk nihilist sier ikke nødvendigvis at vi bør være slemme. Han sier noe mer grunnleggende: at en setning som 'det er galt å stjele' ikke er sann på samme måte som '2 pluss 2 er 4'. Når du sier at noe er galt, beskriver du egentlig bare en følelse du har, eller en regel samfunnet ditt har laget. Du peker ikke på et faktum om verden."
+        },
+        {
+            "type": "text",
+            "content": "Tenk på det slik: hvis du tar et mikroskop og studerer en grusom handling, finner du aldri selve 'galheten' noe sted. Du finner mennesker, handlinger og følelser, men ingen egenskap som heter galt svever over det hele. For nihilisten betyr dette at moralen mangler en grunnmur. Verdiene våre henger i løse lufta. Prøv det selv i modellen under: hver søyle er en grunn til at noe er galt, og nihilisten har et svar på hver av dem."
+        },
+        {
+            "type": "component",
+            "name": "VerdiGrunnlaget"
+        },
+        {
+            "type": "component",
+            "name": "QuoteBlock",
+            "props": {
+                "text": "Hvis Gud ikke finnes, er alt tillatt.",
+                "author": "Fjodor Dostojevskij, Brødrene Karamasov"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Hvor kommer nihilismen fra?"
+        },
+        {
+            "type": "text",
+            "content": "Nihilismen ble for alvor et tema i Europa på 1800-tallet. I lang tid hadde mange ment at moralen kom fra Gud: Gud bestemte hva som var rett og galt, og derfor var det sant for alle. Men etter hvert som vitenskapen vokste og religionen mistet grepet om samfunnet, begynte folk å spørre seg hva som skjer med moralen hvis troen forsvinner."
+        },
+        {
+            "type": "text",
+            "content": "Filosofen [Friedrich Nietzsche](/krle/filosofi/nietzsche) fanget dette i den berømte setningen 'Gud er død'. Han mente ikke at en faktisk person hadde dødd. Han mente at troen på Gud ikke lenger kunne bære moralen vår. Nietzsche så på nihilismen som en stor fare: når det gamle grunnlaget faller, står vi igjen i et tomrom der ingenting lenger ser ut til å bety noe. Spørsmålet ble: hva gjør vi nå?"
+        },
+        {
+            "type": "header",
+            "text": "Nihilismens utfordring"
+        },
+        {
+            "type": "text",
+            "content": "Nihilismen er vanskelig å vinne en diskusjon mot, men den har en svakhet. Hvis ingenting har verdi, så har heller ikke nihilismen selv noen verdi. Hvis det er likegyldig hva vi gjør, hvorfor skulle det da være viktig å ha rett om at alt er likegyldig? Dette kalles nihilismens paradoks."
+        },
+        {
+            "type": "text",
+            "content": "Det finnes også et problem i praksis. Selv den som sier at ingenting betyr noe, blir sint hvis noen stjeler sykkelen hans. Vi klarer rett og slett ikke å leve som ekte nihilister, for vi handler hele tiden som om noe betyr noe. Mange tenkere mener derfor at nihilismen ikke er et sted man kan bli boende, men en port man må gjennom for å tenke nytt om moral."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Nihilismens paradoks",
+                "content": "Hvis ingenting har verdi, har heller ikke påstanden om at ingenting har verdi noen verdi. Da finnes det ingen god grunn til å være nihilist. Mange bruker nettopp dette som et argument mot streng moralsk nihilisme."
+            }
+        },
+        {
+            "type": "text",
+            "content": "I mikrospillet under kan du selv kjenne på kjernen i nihilismen. Slukk den lysende verdi-solen, og se hva som skjer med verdiene rundt den."
+        },
+        {
+            "type": "component",
+            "name": "MicroGame",
+            "props": {
+                "gameId": "moralsk-tomrom-3d"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Svar på nihilismen"
+        },
+        {
+            "type": "text",
+            "content": "De fleste filosofer prøver ikke å motbevise nihilismen helt. I stedet spør de: hvis verden ikke gir oss ferdige verdier, kan vi da lage dem selv? Her finnes flere svar."
+        },
+        {
+            "type": "list",
+            "items": [
+                "Nietzsche: i stedet for å synke ned i tomheten bør mennesket skape sine egne verdier og leve etter dem med full kraft. Han kalte det å si ja til livet.",
+                "Jean-Paul Sartre og eksistensialismen: mennesket er fritt og ikke bundet av noen fasit. Men nettopp derfor er vi fullt ansvarlige for hvert valg vi tar. Friheten er både en gave og en tung byrde.",
+                "Albert Camus og absurdismen: livet er kanskje meningsløst, men vi kan likevel velge å bry oss, hjelpe andre og leve godt. Det er menneskets opprør mot tomheten."
+            ]
+        },
+        {
+            "type": "text",
+            "content": "Felles for dem alle er en snuoperasjon: verdien forsvinner ikke, men kilden flyttes. Den kommer ikke lenger fra himmelen eller fra naturen, men fra mennesket selv."
+        },
+        {
+            "type": "component",
+            "name": "Comparison",
+            "props": {
+                "title": "To syn på moralen",
+                "leftTitle": "Moralsk nihilisme",
+                "rightTitle": "Etikk med grunnlag",
+                "items": [
+                    {
+                        "label": "Finnes rett og galt?",
+                        "left": "Nei, ikke som objektive fakta. Bare følelser og regler vi har laget.",
+                        "right": "Ja, det finnes svar vi kan finne fram til eller begrunne."
+                    },
+                    {
+                        "label": "Hvor kommer moralen fra?",
+                        "left": "Ingen steder ute i verden. Vi har funnet den opp selv.",
+                        "right": "Fra nytte, fra plikt eller fra god karakter."
+                    },
+                    {
+                        "label": "Eksempel",
+                        "left": "'Galt' er til sjuende og sist bare et ord vi bruker.",
+                        "right": "Utilitarisme, pliktetikk og dygdsetikk gir hver sin grunnmur."
+                    }
+                ]
+            }
+        },
+        {
+            "type": "text",
+            "content": "De andre etiske teoriene du kan lese om, som [utilitarisme](/krle/etikk/utilitarisme), [pliktetikk](/krle/etikk/pliktetikk) og [dygdsetikk](/krle/etikk/dygdsetikk), prøver alle å gi moralen et fast grunnlag. Nihilismen er på mange måter speilbildet deres: den spør hva som skjer hvis et slikt grunnlag ikke finnes."
+        },
+        {
+            "type": "header",
+            "text": "Hva sitter vi igjen med?"
+        },
+        {
+            "type": "text",
+            "content": "Moralsk nihilisme er ikke en oppskrift på hvordan du bør leve. Den er mer som et speil som tvinger oss til å spørre hvorfor vi egentlig mener det vi mener. Kanskje finner du ut at verdiene dine trenger en bedre begrunnelse enn at sånn har det alltid vært. Kanskje ender du, som Nietzsche og Sartre, med å ta ansvar for å reise dine egne verdier. Uansett er det vanskelig å leve helt uten å tro at noe betyr noe. Selv det å bry seg er et valg vi kan ta. For mange er det nettopp der ekte etikk begynner: ikke når vi får verdiene utdelt, men når vi selv bestemmer oss for hva vi vil stå for."
+        }
+    ],
+    "quiz": [
+        {
+            "question": "Hva er hovedpåstanden i moralsk nihilisme?",
+            "options": [
+                "At alle mennesker egentlig er onde.",
+                "At det ikke finnes objektive moralske verdier, og ingen handling er rett eller gal i seg selv.",
+                "At vi alltid bør gjøre det som gir mest lykke.",
+                "At Gud bestemmer hva som er rett og galt."
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Hva er forskjellen på eksistensiell og moralsk nihilisme?",
+            "options": [
+                "Eksistensiell nihilisme handler om livets mening, moralsk nihilisme om rett og galt.",
+                "De betyr nøyaktig det samme.",
+                "Eksistensiell nihilisme handler om penger, moralsk om følelser.",
+                "Moralsk nihilisme gjelder bare i religion."
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "question": "Hva mente Nietzsche med setningen 'Gud er død'?",
+            "options": [
+                "At en bestemt person hadde dødd.",
+                "At ingen lenger får lov til å tro på Gud.",
+                "At troen på Gud ikke lenger kunne bære moralen i samfunnet.",
+                "At vitenskapen hadde bevist at Gud aldri fantes."
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "question": "Hva er kjernen i svaret Nietzsche, Sartre og Camus gir på nihilismen?",
+            "options": [
+                "At vi bør gi opp og slutte å bry oss.",
+                "At moralen likevel kommer fra naturen.",
+                "At vi må vente på at Gud gir oss verdiene tilbake.",
+                "At mennesket selv må skape verdiene og ta ansvar for dem."
+            ],
+            "correctAnswer": 3
+        }
+    ],
+    "createdDate": "2026-06-16T09:00:00+02:00",
+    "lastUpdated": "2026-06-16T09:00:00+02:00"
+}
