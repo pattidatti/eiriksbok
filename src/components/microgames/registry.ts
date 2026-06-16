@@ -70,8 +70,18 @@ const Falltaarnet3D = lazy(() => import('./Falltaarnet3D'));
 const JapanMirakelBy3D = lazy(() => import('./JapanMirakelBy3D'));
 const StormingenAvBastillen3D = lazy(() => import('./StormingenAvBastillen3D'));
 const TempeletsRenselse3D = lazy(() => import('./TempeletsRenselse3D'));
+const JapanskImperium3D = lazy(() => import('./JapanskImperium3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
+    'japansk-imperium-3d': {
+        id: 'japansk-imperium-3d',
+        title: 'Det japanske imperiet vokser',
+        description:
+            'Et stilisert kart over Ost-Asia der Japans oyer alt ligger roede i ost. Legg nabolandene under Japan i historisk rekkefolge: ta Taiwan fra Kina (1895), senk den russiske flaaten i sjoeslaget ved Tsushima (1905), og gjor Korea til koloni (1910). For hvert land som faller blir det roedt og en roed imperie-lenke fra Japan lyser opp. Lyspaeren: Meiji-Japan brukte sin nye industri og haer til aa bli et imperium, og i 1905 ble det forste asiatiske landet i moderne tid som slo en europeisk stormakt.',
+        estimatedSeconds: 140,
+        loader: () => import('./JapanskImperium3D'),
+        Component: JapanskImperium3D as never,
+    },
     'tempelets-renselse-3d': {
         id: 'tempelets-renselse-3d',
         title: 'Tempelets renselse',

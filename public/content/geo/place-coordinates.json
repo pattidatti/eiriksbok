@@ -907,6 +907,10 @@
       "count": 16
     },
     {
+      "tag": "imperialisme",
+      "count": 16
+    },
+    {
       "tag": "geopolitikk",
       "count": 16
     },
@@ -921,10 +925,6 @@
     {
       "tag": "konflikt",
       "count": 15
-    },
-    {
-      "tag": "imperialisme",
-      "count": 14
     },
     {
       "tag": "reformasjonen",
@@ -1028,6 +1028,10 @@
     },
     {
       "tag": "arkeologi",
+      "count": 8
+    },
+    {
+      "tag": "verdenshistorie",
       "count": 8
     },
     {
@@ -1172,10 +1176,6 @@
     },
     {
       "tag": "fimbulvinter",
-      "count": 6
-    },
-    {
-      "tag": "verdenshistorie",
       "count": 6
     },
     {
@@ -2176,6 +2176,10 @@
     },
     {
       "tag": "nihilisme",
+      "count": 2
+    },
+    {
+      "tag": "russisk-japanske-krig",
       "count": 2
     },
     {

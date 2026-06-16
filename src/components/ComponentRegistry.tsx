@@ -23,6 +23,7 @@ import { MapCarousel } from './MapCarousel';
 const MatGjesteBord = lazy(() => import('./content/interactive/MatGjesteBord').then(m => ({ default: m.MatGjesteBord })));
 const MaktpyramidenJapan = lazy(() => import('./content/interactive/MaktpyramidenJapan').then(m => ({ default: m.MaktpyramidenJapan })));
 const MeijiModellvalg = lazy(() => import('./content/interactive/MeijiModellvalg').then(m => ({ default: m.MeijiModellvalg })));
+const Sjokkbolgen1905 = lazy(() => import('./content/interactive/Sjokkbolgen1905').then(m => ({ default: m.Sjokkbolgen1905 })));
 const KaizenVerksted = lazy(() => import('./content/interactive/KaizenVerksted').then(m => ({ default: m.KaizenVerksted })));
 const SymbolMatcher = lazy(() => import('./content/interactive/SymbolMatcher').then(m => ({ default: m.SymbolMatcher })));
 const TragediensTrinn = lazy(() => import('./content/interactive/TragediensTrinn').then(m => ({ default: m.TragediensTrinn })));
@@ -330,6 +331,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     UtvandrerVekta,
     MaktpyramidenJapan,
     MeijiModellvalg,
+    Sjokkbolgen1905,
     KaizenVerksted,
     SuverenitetsSkala,
     TrolleyProblem,
