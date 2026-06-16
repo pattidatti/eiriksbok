@@ -70,6 +70,13 @@
         },
         {
             "type": "component",
+            "name": "MicroGame",
+            "props": {
+                "gameId": "saturn-v-mane-3d"
+            }
+        },
+        {
+            "type": "component",
             "name": "TimelineComponent",
             "props": {
                 "title": "Milep\u00e6ler i romkappl\u00f8pet",

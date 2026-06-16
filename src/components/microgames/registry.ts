@@ -71,8 +71,18 @@ const JapanMirakelBy3D = lazy(() => import('./JapanMirakelBy3D'));
 const StormingenAvBastillen3D = lazy(() => import('./StormingenAvBastillen3D'));
 const TempeletsRenselse3D = lazy(() => import('./TempeletsRenselse3D'));
 const JapanskImperium3D = lazy(() => import('./JapanskImperium3D'));
+const SaturnVMane3D = lazy(() => import('./SaturnVMane3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
+    'saturn-v-mane-3d': {
+        id: 'saturn-v-mane-3d',
+        title: 'Saturn V til månen',
+        description:
+            'Bygg månerakketen Saturn V på utskytningsrampen ved å dra de tre trinnene oppå hverandre, nedenfra og opp. Tenn motorene, og slipp så hvert tomme trinn ett for ett mens raketten klatrer - for hvert trinn som faller av synker massen og fartøyet skyter fart. Til slutt er bare den lille Apollo-kapselen igjen, lett nok til å gli helt til månen. Lyspæren: Apollo 11 nådde aldri månen i ett stykke. Raketten måtte kaste fra seg de tunge, tomme trinnene for å bli lett nok til å rive seg løs fra jordas tyngdekraft.',
+        estimatedSeconds: 150,
+        loader: () => import('./SaturnVMane3D'),
+        Component: SaturnVMane3D as never,
+    },
     'japansk-imperium-3d': {
         id: 'japansk-imperium-3d',
         title: 'Det japanske imperiet vokser',
