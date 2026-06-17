@@ -1,5 +1,5 @@
 {
-  "buildId": 1781659279586,
+  "buildId": 1781716246704,
   "contentMap": {
     "concept-adel": [
       "content/concepts/adel.json"
@@ -2045,6 +2045,9 @@
     ],
     "buddhisme-bonn": [
       "content/krle/religion/buddhisme/bonn/artikkel.json"
+    ],
+    "buddhisme-den-attedelte-vei": [
+      "content/krle/religion/buddhisme/den-attedelte-vei/artikkel.json"
     ],
     "buddhisme-frelse": [
       "content/krle/religion/buddhisme/frelse/artikkel.json"
@@ -4120,6 +4123,7 @@
     "krle/religion/bahai/overgangsriter": "content/krle/religion/bahai/overgangsriter/artikkel.json",
     "krle/religion/bahai/sentrale-trekk": "content/krle/religion/bahai/sentrale-trekk/artikkel.json",
     "krle/religion/buddhisme/bonn": "content/krle/religion/buddhisme/bonn/artikkel.json",
+    "krle/religion/buddhisme/den-attedelte-vei": "content/krle/religion/buddhisme/den-attedelte-vei/artikkel.json",
     "krle/religion/buddhisme/frelse": "content/krle/religion/buddhisme/frelse/artikkel.json",
     "krle/religion/buddhisme/grunnleggere": "content/krle/religion/buddhisme/grunnleggere/artikkel.json",
     "krle/religion/buddhisme/gudsbilde": "content/krle/religion/buddhisme/gudsbilde/artikkel.json",

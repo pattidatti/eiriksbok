@@ -1023,6 +1023,10 @@
       "count": 9
     },
     {
+      "tag": "buddhisme",
+      "count": 9
+    },
+    {
       "tag": "forhistorie",
       "count": 8
     },
@@ -1088,10 +1092,6 @@
     },
     {
       "tag": "hellige-tekster",
-      "count": 8
-    },
-    {
-      "tag": "buddhisme",
       "count": 8
     },
     {
@@ -3176,6 +3176,14 @@
     },
     {
       "tag": "pinse",
+      "count": 1
+    },
+    {
+      "tag": "den_attedelte_vei",
+      "count": 1
+    },
+    {
+      "tag": "ethical",
       "count": 1
     },
     {

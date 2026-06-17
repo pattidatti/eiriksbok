@@ -272,6 +272,7 @@ const NordMotSor = lazy(() => import('./content/interactive/NordMotSor').then(m 
 const KristendomsGrenerUtforsker = lazy(() => import('./content/interactive/KristendomsGrenerUtforsker').then(m => ({ default: m.KristendomsGrenerUtforsker })));
 const BritPilarer = lazy(() => import('./content/interactive/BritPilarer').then(m => ({ default: m.BritPilarer })));
 const DharmahjuletUtforsker = lazy(() => import('./content/interactive/DharmahjuletUtforsker').then(m => ({ default: m.DharmahjuletUtforsker })));
+const AttedeltVeiDilemma = lazy(() => import('./content/interactive/AttedeltVeiDilemma').then(m => ({ default: m.AttedeltVeiDilemma })));
 const MokshaVeiene = lazy(() => import('./content/interactive/MokshaVeiene').then(m => ({ default: m.MokshaVeiene })));
 const DemokratietFaller = lazy(() => import('./content/interactive/DemokratietFaller').then(m => ({ default: m.DemokratietFaller })));
 
@@ -570,6 +571,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     KristendomsGrenerUtforsker,
     BritPilarer,
     DharmahjuletUtforsker,
+    AttedeltVeiDilemma,
     MokshaVeiene,
     DemokratietFaller,
 };

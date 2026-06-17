@@ -75,8 +75,18 @@ const SaturnVMane3D = lazy(() => import('./SaturnVMane3D'));
 const MoralskTomrom3D = lazy(() => import('./MoralskTomrom3D'));
 const Allmennviljen3D = lazy(() => import('./Allmennviljen3D'));
 const Sjoimperiet3D = lazy(() => import('./Sjoimperiet3D'));
+const AttedeltVei3D = lazy(() => import('./AttedeltVei3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
+    'attedelt-vei-hjulet': {
+        id: 'attedelt-vei-hjulet',
+        title: 'Sett dharmahjulet i gang',
+        description:
+            'Et lysende dharmahjul svever i et lyst kosmos, men det står stille og eikene er grå. Tenn de åtte eikene én for én ved å klikke dem - gule for visdom, blå for etikk, lilla for fordypning - og se hjulet ta form. Når alle åtte lyser, vakler hjulet likevel: dra spaken til middelveien, verken for mye nytelse eller for mye selvpining, så hjulet steiler seg og ruller. Lyspæren: Den åttedelte veien er ikke åtte trinn du tar etter hverandre, men ett hjul som bare ruller når alle delene øves samtidig og holdes i balanse.',
+        estimatedSeconds: 140,
+        loader: () => import('./AttedeltVei3D'),
+        Component: AttedeltVei3D as never,
+    },
     'allmennviljen-3d': {
         id: 'allmennviljen-3d',
         title: 'Allmennviljen',
