@@ -74,6 +74,7 @@ const JapanskImperium3D = lazy(() => import('./JapanskImperium3D'));
 const SaturnVMane3D = lazy(() => import('./SaturnVMane3D'));
 const MoralskTomrom3D = lazy(() => import('./MoralskTomrom3D'));
 const Allmennviljen3D = lazy(() => import('./Allmennviljen3D'));
+const Sjoimperiet3D = lazy(() => import('./Sjoimperiet3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
     'allmennviljen-3d': {
@@ -696,6 +697,15 @@ export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.Laz
         estimatedSeconds: 140,
         loader: () => import('./Falltaarnet3D'),
         Component: Falltaarnet3D as never,
+    },
+    'sjoimperiet-3d': {
+        id: 'sjoimperiet-3d',
+        title: 'Bygg sjøimperiet',
+        description:
+            'Portugal var et lite land, men styrte verdenshandelen. Klikk knutepunktene langs sjøveien til India - Ceuta, Elmina, Kapp det gode håp, Goa og Malakka - og reis kjeden av befestede handelsstasjoner. For hver festning lyser en ny etappe av ruten opp, og krydderskipet seiler videre mot kilden. Lyspæren: et sjøimperium (thalassokrati) ble bygd ved å kontrollere knutepunktene langs ruten, ikke ved å erobre store landområder.',
+        estimatedSeconds: 150,
+        loader: () => import('./Sjoimperiet3D'),
+        Component: Sjoimperiet3D as never,
     },
 };
 
