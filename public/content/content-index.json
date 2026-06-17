@@ -1,5 +1,5 @@
 {
-  "buildId": 1781649240747,
+  "buildId": 1781659279586,
   "contentMap": {
     "concept-adel": [
       "content/concepts/adel.json"
@@ -2012,6 +2012,9 @@
     ],
     "rothbard": [
       "content/krle/filosofi/rothbard.json"
+    ],
+    "rousseau": [
+      "content/krle/filosofi/rousseau.json"
     ],
     "sokrates": [
       "content/krle/filosofi/sokrates.json"
@@ -4106,6 +4109,7 @@
     "krle/filosofi/quests/quest-socratic_dialogue": "content/krle/filosofi/quests/socratic_dialogue.json",
     "krle/filosofi/quests/quest-sokrates_gadfly": "content/krle/filosofi/quests/sokrates_gadfly.json",
     "krle/filosofi/rothbard": "content/krle/filosofi/rothbard.json",
+    "krle/filosofi/rousseau": "content/krle/filosofi/rousseau.json",
     "krle/filosofi/sokrates": "content/krle/filosofi/sokrates.json",
     "krle/religion/bahai/bonn": "content/krle/religion/bahai/bonn/artikkel.json",
     "krle/religion/bahai/frelse": "content/krle/religion/bahai/frelse/artikkel.json",

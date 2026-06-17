@@ -3741,6 +3741,25 @@
       ]
     },
     {
+      "id": "rousseau",
+      "title": "Jean-Jacques Rousseau",
+      "description": "Mennesket er født fritt: Samfunnskontrakten, folkesuverenitet og allmennviljen.",
+      "startDate": 1712,
+      "endDate": 1778,
+      "displayDate": "1712-1778",
+      "type": "lesson",
+      "subjectId": "krle",
+      "topicId": "filosofi",
+      "link": "/krle/filosofi/rousseau",
+      "tags": [
+        "filosofi",
+        "opplysningstiden",
+        "samfunnskontrakt",
+        "folkesuverenitet",
+        "rousseau"
+      ]
+    },
+    {
       "id": "david-hume",
       "title": "David Hume",
       "description": "Den skotske filosofen David Hume utgir 'A Treatise of Human Nature', et av de viktigste verkene i vestlig filosofi.",

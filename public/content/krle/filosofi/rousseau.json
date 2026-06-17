@@ -1,0 +1,212 @@
+{
+    "id": "rousseau",
+    "title": "Jean-Jacques Rousseau",
+    "subject": "krle",
+    "topic": "filosofi",
+    "layout": "rich",
+    "year": "1712-1778",
+    "category": "Opplysningstiden",
+    "readTime": "14 min lesning",
+    "heroImage": "/images/filosofi/rousseau_hero.webp",
+    "dimension": "samfunnssyn",
+    "comparison_tags": [
+        "samfunnskontrakt",
+        "folkesuverenitet",
+        "allmennviljen"
+    ],
+    "details": [
+        "Skrev den berømte setningen: Mennesket er født fritt, men er overalt i lenker.",
+        "Mente at staten henter all makt fra folket selv, ikke fra en konge eller fra Gud.",
+        "Innførte ideen om allmennviljen: det som er best for fellesskapet som helhet.",
+        "Tankene hans inspirerte den franske revolusjonen og moderne folkestyre.",
+        "Ekte frihet er for Rousseau å følge lover vi gir oss selv."
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Jean-Jacques Rousseau (1712-1778) vokste opp i den frie byen Genève. Som ung gutt mistet han moren og ble overlatt mye til seg selv. Senere vandret han rundt i Europa, levde fattig og lærte seg det meste på egen hånd. Da han endelig begynte å skrive, rystet han hele samtiden med én eneste setning: Mennesket er født fritt, men er overalt i lenker. Hva mente han med det?"
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Ung mann vandrer alene på en landevei i Europa på 1700-tallet",
+            "caption": "Rousseau lærte seg filosofi mens han vandret rundt i Europa, fattig og uten skolegang."
+        },
+        {
+            "type": "header",
+            "text": "Mennesket er født fritt"
+        },
+        {
+            "type": "text",
+            "content": "Rousseau trodde at mennesket er godt fra naturens side. Vi blir født frie og likeverdige. Men idet vi vokser opp i samfunnet, blir vi bundet av regler, eiendom, penger og rang. Disse lenkene er ikke noe naturen har gitt oss. Vi har laget dem selv. Der [John Locke](/krle/filosofi/locke) så på samfunnet som en god avtale som beskytter oss, var Rousseau mer kritisk. Han mente at samfunnet ofte gjør oss ufrie og misunnelige, fordi vi hele tiden måler oss mot hverandre."
+        },
+        {
+            "type": "header",
+            "text": "Naturtilstanden: fri, men alene"
+        },
+        {
+            "type": "text",
+            "content": "Mange filosofer prøvde å forestille seg hvordan mennesket levde før det fantes stater og lover. De kalte dette naturtilstanden. Thomas Hobbes mente at livet uten en stat var en skrekkelig krig der alle sloss mot alle. Rousseau snudde dette på hodet. Han mente naturmennesket levde fredelig og fritt, men alene. Problemene begynte først da noen satte opp et gjerde og sa: Dette er mitt. Da oppstod eiendom, og med eiendom kom ulikhet, grådighet og strid."
+        },
+        {
+            "type": "component",
+            "name": "Comparison",
+            "props": {
+                "title": "To syn på naturtilstanden",
+                "leftTitle": "Hobbes",
+                "rightTitle": "Rousseau",
+                "items": [
+                    {
+                        "label": "Mennesket av natur",
+                        "left": "Egoistisk og farlig",
+                        "right": "Godt og fredelig"
+                    },
+                    {
+                        "label": "Livet uten stat",
+                        "left": "Krig, alle mot alle",
+                        "right": "Fritt, men ensomt"
+                    },
+                    {
+                        "label": "Hvem bør ha makten",
+                        "left": "En sterk hersker",
+                        "right": "Folket selv"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "text": "Samfunnskontrakten"
+        },
+        {
+            "type": "text",
+            "content": "Vi kan ikke vandre tilbake til skogen. Vi må leve sammen. Spørsmålet Rousseau stilte var derfor: Hvordan kan vi leve sammen i et samfunn og likevel være frie? Svaret hans var en samfunnskontrakt. Folket går sammen og blir enige om å lage felles regler. Men her er det avgjørende: Makten gis ikke til en konge eller til en liten gruppe rike. Makten ligger hos folket som helhet. Dette kalte han folkesuverenitet, og det er en av grunnsteinene i alt moderne folkestyre, slik vi ser det i [makt og legitimitet](/samfunnskunnskap/styringsformer/makt-og-legitimitet)."
+        },
+        {
+            "type": "header",
+            "text": "Allmennviljen"
+        },
+        {
+            "type": "text",
+            "content": "Den viktigste, og vanskeligste, ideen til Rousseau er allmennviljen. Det betyr det som er best for fellesskapet som helhet. Allmennviljen er ikke det samme som å legge sammen alle de private ønskene. Hver enkelt av oss vil jo ha mest mulig for oss selv. Hvis vi bare regner sammen all egoismen, får vi ikke noe godt samfunn. Allmennviljen er noe annet: Det er det vi vil når vi tenker som innbyggere og spør hva som tjener oss alle."
+        },
+        {
+            "type": "text",
+            "content": "Tenk på klassen din. Hvis hver elev bare krever det de selv vil, krasjer ønskene med hverandre, og ingen blir enige. Men hvis dere spør hva som er best for hele klassen, kan dere bli enige om en regel alle tjener på. Det første er summen av de private viljene. Det andre er allmennviljen. Forskjellen kan virke liten, men for Rousseau var den selve hemmeligheten bak et rettferdig samfunn. Prøv det selv nedenfor."
+        },
+        {
+            "type": "component",
+            "name": "AllmennviljeVerksted",
+            "props": {}
+        },
+        {
+            "type": "text",
+            "content": "Det er én ting å forstå allmennviljen, og en annen ting å kjenne den. I mikrospillet under skyver du en hel landsby fra privat vilje mot allmennvilje, og ser hva som skjer når folk slutter å dra i hver sin retning og i stedet samler seg om en felles lov."
+        },
+        {
+            "type": "component",
+            "name": "MicroGame",
+            "props": {
+                "gameId": "allmennviljen-3d"
+            }
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Landsbyfolk samlet i en ring rundt et opplyst torg",
+            "caption": "Allmennviljen er det landsbyen vil som ett fellesskap, ikke summen av alle de private ønskene."
+        },
+        {
+            "type": "header",
+            "text": "Frihet er å følge loven vi gir oss selv"
+        },
+        {
+            "type": "text",
+            "content": "For Rousseau var dette nøkkelen til frihet. Når du adlyder en lov som andre tvinger på deg, er du ufri. Men når du adlyder en lov som du selv har vært med på å lage, lyder du egentlig deg selv. Da er du fri. Derfor mente han at ekte frihet er å følge lovene vi gir oss selv i fellesskap. Rousseau brukte også en setning som er blitt mye diskutert: at den som ikke vil følge allmennviljen, kan tvinges til å være fri. Dette har skapt strid helt fram til i dag, fordi farlige ledere senere har misbrukt tanken til å undertrykke folk i fellesskapets navn."
+        },
+        {
+            "type": "header",
+            "text": "Bøkene som rystet Europa"
+        },
+        {
+            "type": "text",
+            "content": "Rousseau samlet tankene sine i noen få, men kraftfulle bøker. I boka om ulikheten mellom mennesker viste han hvordan eiendom og rikdom delte folk inn i fattige og rike. I Samfunnskontrakten forklarte han hvordan et fritt folk kan styre seg selv. Og i boka Émile skrev han om hvordan barn bør oppdras. Bøkene var så modige at myndighetene ble redde. Flere av dem ble forbudt og brent, og Rousseau måtte rømme fra by til by. Likevel ble bøkene lest i hemmelighet over hele Europa, og ideene spredte seg som ild i tørt gress."
+        },
+        {
+            "type": "header",
+            "text": "Arven etter Rousseau"
+        },
+        {
+            "type": "text",
+            "content": "Få tenkere har preget verden mer enn Rousseau. Bare elleve år etter at han døde, brøt [den franske revolusjonen](/historie/den-franske-revolusjon/intro) ut. Opprørerne ropte om frihet og folkesuverenitet, og bar Rousseau på leppene. Ideene hans om at folket er kilden til all makt, ligger også under den norske [Grunnloven](/samfunnskunnskap/styringsformer/grunnloven) fra 1814. Sammen med [Montesquieu](/krle/filosofi/montesquieu) og hans lære om maktfordeling ga Rousseau oss selve grunnmuren i det moderne demokratiet: at vi styrer oss selv. Tanken om at folket er kilden til all makt, virket nesten utenkelig på Rousseaus egen tid, da konger styrte med eneveldig makt. I dag er den så selvsagt at vi nesten glemmer hvor radikal den en gang var."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Folkemengde med faner under den franske revolusjonen i 1789",
+            "caption": "Da revolusjonen brøt ut i Frankrike i 1789, ropte folket om folkesuverenitet, akkurat som Rousseau hadde skrevet."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "title": "Test deg selv: Rousseau",
+                "questions": [
+                    {
+                        "question": "Hva mente Rousseau med setningen Mennesket er født fritt, men er overalt i lenker?",
+                        "options": [
+                            "At vi blir født frie, men bindes av samfunnets regler og ulikhet",
+                            "At alle mennesker fødes i fangenskap",
+                            "At frihet er umulig å oppnå"
+                        ],
+                        "correctAnswer": 0,
+                        "explanation": "Vi fødes frie, men lenkene er noe samfunnet legger på oss: regler, eiendom og rang som vi har laget selv."
+                    },
+                    {
+                        "question": "Hva er allmennviljen?",
+                        "options": [
+                            "Summen av alle de private ønskene lagt sammen",
+                            "Det som er best for fellesskapet som helhet",
+                            "Viljen til den sterkeste lederen"
+                        ],
+                        "correctAnswer": 1,
+                        "explanation": "Allmennviljen er ikke all egoismen lagt sammen, men det vi vil når vi tenker på hva som tjener fellesskapet."
+                    },
+                    {
+                        "question": "Hvem mente Rousseau skulle ha makten i samfunnet?",
+                        "options": [
+                            "En sterk konge",
+                            "De rikeste i landet",
+                            "Folket selv (folkesuverenitet)"
+                        ],
+                        "correctAnswer": 2,
+                        "explanation": "Folkesuverenitet betyr at all makt kommer fra folket selv, ikke fra en konge eller fra Gud."
+                    },
+                    {
+                        "question": "Hvordan så Rousseau på naturtilstanden, sammenlignet med Hobbes?",
+                        "options": [
+                            "Som en krig der alle sloss mot alle",
+                            "Som fredelig og fri, men ensom",
+                            "Akkurat likt som Hobbes"
+                        ],
+                        "correctAnswer": 1,
+                        "explanation": "Hobbes så naturtilstanden som krig, men Rousseau snudde det om: naturmennesket levde fredelig og fritt, helt til eiendommen skapte ulikhet."
+                    },
+                    {
+                        "question": "Hva er ekte frihet, ifølge Rousseau?",
+                        "options": [
+                            "Å gjøre akkurat hva man vil, uten regler",
+                            "Å følge lover som en konge bestemmer",
+                            "Å følge lover vi gir oss selv i fellesskap"
+                        ],
+                        "correctAnswer": 2,
+                        "explanation": "Når du følger en lov du selv har vært med på å lage, lyder du egentlig deg selv. Da er du fri."
+                    }
+                ]
+            }
+        }
+    ],
+    "timeline": [],
+    "createdDate": "2026-06-17T00:00:00Z",
+    "lastUpdated": "2026-06-17T00:00:00Z"
+}
