@@ -73,8 +73,18 @@ const TempeletsRenselse3D = lazy(() => import('./TempeletsRenselse3D'));
 const JapanskImperium3D = lazy(() => import('./JapanskImperium3D'));
 const SaturnVMane3D = lazy(() => import('./SaturnVMane3D'));
 const MoralskTomrom3D = lazy(() => import('./MoralskTomrom3D'));
+const Allmennviljen3D = lazy(() => import('./Allmennviljen3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
+    'allmennviljen-3d': {
+        id: 'allmennviljen-3d',
+        title: 'Allmennviljen',
+        description:
+            'Skyv landsbyen fra privat vilje til allmennvilje. Fem innbyggere står spredt og vender ryggen til hverandre - hver drar i sin egen retning. Mens du skyver spaken samler de seg rundt torget, vender seg mot hverandre, og en felles lov reiser seg i midten og lyser opp. Vedta loven sammen. Lyspæren: allmennviljen er ikke summen av de private ønskene, men det fellesskapet vil som en helhet - og loven de gir seg selv binder dem sammen i stedet for å splitte dem.',
+        estimatedSeconds: 130,
+        loader: () => import('./Allmennviljen3D'),
+        Component: Allmennviljen3D as never,
+    },
     'moralsk-tomrom-3d': {
         id: 'moralsk-tomrom-3d',
         title: 'Det moralske tomrommet',

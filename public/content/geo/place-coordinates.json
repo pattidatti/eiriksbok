@@ -800,7 +800,7 @@
     },
     {
       "tag": "filosofi",
-      "count": 55
+      "count": 57
     },
     {
       "tag": "økonomi",
@@ -1127,6 +1127,10 @@
       "count": 7
     },
     {
+      "tag": "opplysningstiden",
+      "count": 7
+    },
+    {
       "tag": "segregering",
       "count": 7
     },
@@ -1280,10 +1284,6 @@
     },
     {
       "tag": "natur",
-      "count": 5
-    },
-    {
-      "tag": "opplysningstiden",
       "count": 5
     },
     {
@@ -2048,6 +2048,18 @@
     },
     {
       "tag": "james-watt",
+      "count": 2
+    },
+    {
+      "tag": "samfunnskontrakt",
+      "count": 2
+    },
+    {
+      "tag": "folkesuverenitet",
+      "count": 2
+    },
+    {
+      "tag": "rousseau",
       "count": 2
     },
     {
