@@ -77,6 +77,7 @@ const MoralskTomrom3D = lazy(() => import('./MoralskTomrom3D'));
 const Allmennviljen3D = lazy(() => import('./Allmennviljen3D'));
 const Sjoimperiet3D = lazy(() => import('./Sjoimperiet3D'));
 const AttedeltVei3D = lazy(() => import('./AttedeltVei3D'));
+const RentVannRorene3D = lazy(() => import('./RentVannRorene3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
     'attedelt-vei-hjulet': {
@@ -717,6 +718,15 @@ export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.Laz
         estimatedSeconds: 140,
         loader: () => import('./Falltaarnet3D'),
         Component: Falltaarnet3D as never,
+    },
+    'rent-vann-rorene-3d': {
+        id: 'rent-vann-rorene-3d',
+        title: 'Den usynlige revolusjonen',
+        description:
+            'Et tverrsnitt av en syk by på 1800-tallet: under bakken siver avføring fra en utedo ned i grunnvannet og forgifter brønnen folk drikker fra. Klikk de gule punktene to og to for å legge ror: et kloakkror som leder det skitne vekk, og et rent vannror fra vanntårnet til husene. For hvert ror klarner grunnvannet og folk blir friskere, til byen er frisk. Lyspæren: byene ble reddet ikke av medisin, men ved å skille det rene vannet fra det skitne, en av de mest oversette revolusjonene i historien.',
+        estimatedSeconds: 140,
+        loader: () => import('./RentVannRorene3D'),
+        Component: RentVannRorene3D as never,
     },
     'sjoimperiet-3d': {
         id: 'sjoimperiet-3d',
