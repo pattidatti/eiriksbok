@@ -260,6 +260,10 @@
             }
         },
         {
+            "type": "text",
+            "content": "Vil du fordype deg videre? Utforsk [læringstien for den kalde krigen](/historie/den-kalde-krigen/kald-krig-sti) eller sett deg i en beslutningsmakers sted i [tidsreise-scenariet](/oving/tidsreise/kald-krig)."
+        },
+        {
             "type": "component",
             "name": "Quiz",
             "props": {
