@@ -3216,6 +3216,31 @@
       "geoConfidence": "tag"
     },
     {
+      "id": "den-vitenskapelige-revolusjonen",
+      "title": "Den vitenskapelige revolusjonen",
+      "description": "Da folk sluttet å stole blindt på gamle autoriteter og begynte å teste ideer mot virkeligheten. Fra Kopernikus og Galileo til Newton ble den vitenskapelige metoden født.",
+      "startDate": 1543,
+      "endDate": 1687,
+      "displayDate": "1543-1687",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "renessansen",
+      "link": "/historie/renessansen/den-vitenskapelige-revolusjonen",
+      "tags": [
+        "renessansen",
+        "vitenskap",
+        "astronomi",
+        "kopernikus",
+        "galileo",
+        "newton",
+        "europa"
+      ],
+      "lat": 50,
+      "lng": 15,
+      "placeLabel": "Europa",
+      "geoConfidence": "tag"
+    },
+    {
       "id": "potosi-silver",
       "title": "Sølvfunnet i Potosí",
       "description": "Verdens største sølvforekomst oppdages i dagens Bolivia, og finansierer det spanske imperiet.",

@@ -49,6 +49,7 @@ const SentenceBuilder = lazy(() => import('./content/interactive/SentenceBuilder
 const RomanPantheonExplorer = lazy(() => import('./content/interactive/RomanPantheonExplorer').then(m => ({ default: m.RomanPantheonExplorer })));
 const AsherahUtgraving = lazy(() => import('./content/interactive/AsherahUtgraving').then(m => ({ default: m.AsherahUtgraving })));
 const GreskGudeMatch = lazy(() => import('./content/interactive/GreskGudeMatch').then(m => ({ default: m.GreskGudeMatch })));
+const TestPaastanden = lazy(() => import('./content/interactive/TestPaastanden').then(m => ({ default: m.TestPaastanden })));
 const RomanExpansionMap = lazy(() => import('./content/interactive/RomanExpansionMap').then(m => ({ default: m.RomanExpansionMap })));
 const TrolleyProblem = lazy(() => import('./content/interactive/TrolleyProblem').then(m => ({ default: m.TrolleyProblem })));
 const GoldenMeanSlider = lazy(() => import('./content/interactive/GoldenMeanSlider').then(m => ({ default: m.GoldenMeanSlider })));
@@ -331,6 +332,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     RomanPantheonExplorer,
     AsherahUtgraving,
     GreskGudeMatch,
+    TestPaastanden,
     RomanExpansionMap,
     UtvandrerVekta,
     MaktpyramidenJapan,
