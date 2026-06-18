@@ -1,5 +1,5 @@
 {
-  "buildId": 1781716246704,
+  "buildId": 1781745765379,
   "contentMap": {
     "concept-adel": [
       "content/concepts/adel.json"
@@ -1684,6 +1684,9 @@
     ],
     "reformasjonen-i-norge": [
       "content/historie/reformasjonen/reformasjonen-i-norge.json"
+    ],
+    "den-vitenskapelige-revolusjonen": [
+      "content/historie/renessansen/den-vitenskapelige-revolusjonen.json"
     ],
     "galileo-galilei": [
       "content/historie/renessansen/galileo-galilei.json",
@@ -4002,6 +4005,7 @@
     "historie/reformasjonen/martin-luther": "content/historie/reformasjonen/martin-luther.json",
     "historie/reformasjonen/mottreformasjonen": "content/historie/reformasjonen/mottreformasjonen.json",
     "historie/reformasjonen/reformasjonen-i-norge": "content/historie/reformasjonen/reformasjonen-i-norge.json",
+    "historie/renessansen/den-vitenskapelige-revolusjonen": "content/historie/renessansen/den-vitenskapelige-revolusjonen.json",
     "historie/renessansen/galileo-galilei": "content/historie/renessansen/galileo-galilei.json",
     "historie/renessansen/leonardo-da-vinci": "content/historie/renessansen/leonardo-da-vinci.json",
     "historie/renessansen/michelangelo": "content/historie/renessansen/michelangelo.json",

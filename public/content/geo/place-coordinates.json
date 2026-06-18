@@ -859,6 +859,10 @@
       "count": 21
     },
     {
+      "tag": "renessansen",
+      "count": 20
+    },
+    {
       "tag": "kultur",
       "count": 18
     },
@@ -875,7 +879,7 @@
       "count": 18
     },
     {
-      "tag": "renessansen",
+      "tag": "vitenskap",
       "count": 18
     },
     {
@@ -900,10 +904,6 @@
     },
     {
       "tag": "islam",
-      "count": 16
-    },
-    {
-      "tag": "vitenskap",
       "count": 16
     },
     {
@@ -1428,6 +1428,14 @@
     },
     {
       "tag": "selvstendighet",
+      "count": 4
+    },
+    {
+      "tag": "astronomi",
+      "count": 4
+    },
+    {
+      "tag": "galileo",
       "count": 4
     },
     {
@@ -1991,11 +1999,11 @@
       "count": 2
     },
     {
-      "tag": "galileo",
+      "tag": "kopernikus",
       "count": 2
     },
     {
-      "tag": "astronomi",
+      "tag": "newton",
       "count": 2
     },
     {

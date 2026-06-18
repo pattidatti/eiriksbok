@@ -14,6 +14,7 @@ const VikingShip3D = lazy(() => import('./VikingShip3D'));
 const SymbolerPaaTaket3D = lazy(() => import('./SymbolerPaaTaket3D'));
 const IngenmanslandMG = lazy(() => import('./IngenmanslandMG'));
 const TidensFormer3D = lazy(() => import('./TidensFormer3D'));
+const HimmelModellen3D = lazy(() => import('./HimmelModellen3D'));
 const DampmaskinHjerte3D = lazy(() => import('./DampmaskinHjerte3D'));
 const Falanksen3D = lazy(() => import('./Falanksen3D'));
 const OlympiaDiskos3D = lazy(() => import('./OlympiaDiskos3D'));
@@ -284,6 +285,15 @@ export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.Laz
         estimatedSeconds: 150,
         loader: () => import('./TidensFormer3D'),
         Component: TidensFormer3D as never,
+    },
+    'himmelmodellen-3d': {
+        id: 'himmelmodellen-3d',
+        title: 'To modeller av himmelen',
+        description:
+            'Sola, jorda og den røde planeten Mars svever i et lyst kosmos. Bytt mellom de to gamle verdensbildene og la planetene gå: med jorda i sentrum må Mars lage kronglete sløyfer for å stemme med himmelen, men flytt sola til sentrum og alt går i rene, rolige sirkler. Lyspæren: begge modellene forklarer det vi ser, men vitenskapen valgte sola-i-sentrum fordi den gjør det samme på en mye enklere måte - den enkleste forklaringen som stemmer, vinner.',
+        estimatedSeconds: 150,
+        loader: () => import('./HimmelModellen3D'),
+        Component: HimmelModellen3D as never,
     },
     'dampmaskin-hjerte-3d': {
         id: 'dampmaskin-hjerte-3d',
