@@ -866,7 +866,7 @@
               "id": "hvordan-skrive-dialog",
               "title": "Hvordan skrive dialog",
               "description": "Lær de gylne reglene for dialog: Anførselstegn, linjeskift og subtekst.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/lessons/norsk/skrivehjelp/dialog-hero.webp",
               "tags": [
                 "skrivehjelp",
                 "dialog",
@@ -892,7 +892,7 @@
               "id": "hvordan-lage-kortfilm",
               "title": "Hvordan lage kortfilm",
               "description": "Fra manus til ferdig film: lyd, lys, vinkler, klipping og teksting — for deg som filmer på Chromebook.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/lessons/norsk/kortfilm-hero.webp",
               "tags": [
                 "skrivehjelp",
                 "kortfilm",
@@ -1018,7 +1018,7 @@
               "id": "inflasjon-og-rente",
               "title": "Inflasjon og rente",
               "description": "Hvorfor blir alt dyrere? Om penger, renter og priser.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/lessons/okonomi/inflasjon-og-rente.webp",
               "tags": [
                 "økonomi",
                 "inflasjon",
@@ -1072,7 +1072,7 @@
               "id": "petrodollaren",
               "title": "Petrodollaren: Hvorfor olje måles i dollar",
               "description": "Nesten all olje i verden selges i dollar. Oljepenger blir til lån, og lån blir til gjeld - drivstoffet i hele systemet.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/samfunnskunnskap/okonomi/petrodollaren_hero.webp",
               "tags": [
                 "økonomi",
                 "olje",
@@ -1961,7 +1961,7 @@
               "id": "imf-og-verdensbanken",
               "title": "Gjeld som våpen: IMF og Verdensbanken",
               "description": "To mektige banker ble født for å hjelpe verden - men lånene deres kommer med krav som kan ramme de fattigste.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/samfunnskunnskap/handel-og-infrastruktur/imf-og-verdensbanken_hero.webp",
               "layout": "rich",
               "tags": [
                 "økonomi",
@@ -2449,7 +2449,7 @@
               "id": "norge-for-vikingene",
               "title": "Norge før vikingene",
               "description": "Fra pionerbosetning til folkevandringstid.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/history/norge_for_vikingene_hero.webp",
               "tags": [
                 "historie",
                 "norge",
@@ -2464,7 +2464,7 @@
               "layout": "rich",
               "title": "536 - Året da solen forsvant",
               "description": "Klimakrisen som kan være virkelighetens Fimbulvinter.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/norgeshistorie/klimakrisen-536-hero.webp",
               "year": "536",
               "tags": [
                 "historie",
@@ -3489,7 +3489,7 @@
               "id": "operasjon-ajax",
               "title": "Operasjon Ajax: Da oljen ble verdt et kupp",
               "description": "Iran valgte selv å eie oljen sin - og ble straffet for det. Det første store CIA-kuppet, og hvordan det slo tilbake.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/historie/den-kalde-krigen/operasjon-ajax_hero.webp",
               "tags": [
                 "historie",
                 "kald-krig",
@@ -3505,7 +3505,7 @@
               "id": "chile-1973",
               "title": "Få økonomien til å skrike: Kuppet i Chile",
               "description": "USA kvalte Chiles økonomi i stedet for å invadere. Resultatet ble 17 år med diktatur under Pinochet.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/historie/den-kalde-krigen/chile-1973_hero.webp",
               "tags": [
                 "historie",
                 "kald-krig",
@@ -3521,7 +3521,7 @@
               "id": "indonesia-1965",
               "title": "Jakarta-metoden: Indonesias glemte tragedie",
               "description": "Et av etterkrigstidens største massedrap, med vestlig støtte. Volden ble en oppskrift andre land kopierte.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/historie/den-kalde-krigen/indonesia-1965_hero.webp",
               "tags": [
                 "historie",
                 "kald-krig",
@@ -4202,7 +4202,7 @@
                 "india",
                 "storbritannia"
               ],
-              "image": "/images/placeholder.webp",
+              "image": "/images/kolonialisering/eic-hero.webp",
               "createdDate": "2025-11-28T22:22:13+01:00",
               "lastUpdated": "2026-06-10T03:30:00+02:00"
             }
@@ -4286,7 +4286,7 @@
               "id": "okonomiske-leiemordere",
               "title": "Økonomiske leiemordere: Slik kjøpes et helt land",
               "description": "Du trenger ikke en hær for å erobre et land - du trenger et lån. Om John Perkins og nykolonialismen.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/historie/dekolonisering/okonomiske-leiemordere_hero.webp",
               "tags": [
                 "historie",
                 "dekolonisering",
@@ -4301,7 +4301,7 @@
               "id": "guatemala-1954",
               "title": "Bananrepublikken: Da et fruktselskap styrtet en regjering",
               "description": "Ett amerikansk fruktselskap eide nesten alt i Guatemala. CIA-kuppet i 1954 utløste 36 år med borgerkrig.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/historie/dekolonisering/guatemala-1954_hero.webp",
               "tags": [
                 "historie",
                 "dekolonisering",
@@ -4316,7 +4316,7 @@
               "id": "nykolonialisme",
               "title": "Nykolonialisme: Kolonimakt uten kolonier",
               "description": "Koloniene ble frie, men forble styrt på en ny måte. Samme mål som før, ny metode: lån, selskaper og gjeld.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/historie/dekolonisering/nykolonialisme_hero.webp",
               "tags": [
                 "historie",
                 "dekolonisering",
@@ -4905,7 +4905,7 @@
               "id": "boktrykkerkunsten",
               "title": "Boktrykkerkunsten",
               "description": "Revolusjonen som spredte kunnskap.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/middelalderen/boktrykkerkunsten-hero.webp",
               "tags": [
                 "oppfinnelser",
                 "teknologi",
@@ -5112,7 +5112,7 @@
               "id": "diokletian",
               "title": "Diokletian: Da Romerriket ble gjenfødt",
               "description": "Keiseren som reddet imperiet fra kollaps gjennom tetrarki, økonomiske reformer og streng kontroll.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/romerriket/diokletian-hero.webp",
               "layout": "rich",
               "tags": [
                 "historie",
