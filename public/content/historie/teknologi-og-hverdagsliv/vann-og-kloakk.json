@@ -94,6 +94,17 @@
     },
     {
       "type": "text",
+      "content": "Prøv selv. Under ser du et tverrsnitt av en syk by. Avføringen siver ned i grunnvannet og forgifter brønnen. Legg de to rørene som forandret alt, og se hva som skjer med folk."
+    },
+    {
+      "type": "component",
+      "name": "MicroGame",
+      "props": {
+        "gameId": "rent-vann-rorene-3d"
+      }
+    },
+    {
+      "type": "text",
       "content": "Resultatet var enormt. Kolera, tyfus og en rekke andre vannbårne sykdommer nesten forsvant fra de rike landene. Spedbarn som før døde i hopetall, fikk vokse opp. Mange forskere mener at rent vann og kloakk har reddet flere menneskeliv enn noen medisin noensinne, til og med mer enn [vaksiner og antibiotika](/historie/teknologi-og-hverdagsliv/vaksiner-og-antibiotika), som kom litt senere og fikk all æren. Det merkelige er at vi nesten aldri tenker på det. Røret under gata er usynlig, kloakken er ute av syne, og kranen bare virker. Det er kanskje den mest oversette revolusjonen i hele historien."
     },
     {
