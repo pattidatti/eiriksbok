@@ -5,7 +5,7 @@
     "year": "1312-1337",
     "category": "Vest-Afrika",
     "readTime": "9 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/afrikanske-riker/mansa-musa-og-mali-hero.webp",
     "details": [
         "Mali var et av verdens rikeste riker på 1300-tallet",
         "Rikdommen kom fra handel med gull og salt over Sahara",
@@ -19,7 +19,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/afrikanske-riker/mansa-musa-og-mali-01.webp",
             "alt": "Mansa Musa rir med følge og gullastede kameler gjennom ørkenen",
             "caption": "Mansa Musas pilegrimsreise i 1324 gjorde Mali kjent i hele verden."
         },
@@ -68,7 +68,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/afrikanske-riker/mansa-musa-og-mali-02.webp",
             "alt": "Leirmoské i Timbuktu med utstikkende trebjelker mot blå himmel",
             "caption": "Den store moskeen i Timbuktu var bygd av leire og ble et senter for lærdom."
         },
@@ -105,7 +105,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/afrikanske-riker/mansa-musa-og-mali-03.webp",
             "alt": "Karavane med kameler passerer ruinene av en gammel afrikansk by i solnedgang",
             "caption": "Rikene i Vest-Afrika satte spor som fortsatt er synlige i dag."
         },
