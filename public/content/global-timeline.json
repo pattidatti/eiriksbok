@@ -2299,6 +2299,29 @@
       ]
     },
     {
+      "id": "mansa-musa-og-mali",
+      "title": "Mansa Musa og Mali-riket",
+      "description": "Hvordan et rike i Vest-Afrika ble et av verdens rikeste på handel med gull og salt over Sahara.",
+      "startDate": 1312,
+      "endDate": 1337,
+      "displayDate": "1312-1337",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "afrikanske-riker",
+      "link": "/historie/afrikanske-riker/mansa-musa-og-mali",
+      "tags": [
+        "afrika",
+        "mali",
+        "handel",
+        "gull",
+        "middelalderen"
+      ],
+      "lat": 2,
+      "lng": 20,
+      "placeLabel": "Afrika",
+      "geoConfidence": "tag"
+    },
+    {
       "id": "svartedauden-norge",
       "title": "Svartedauden kommer til Norge",
       "description": "Pesten ankommer Bjørgvin med et handelsskip.",

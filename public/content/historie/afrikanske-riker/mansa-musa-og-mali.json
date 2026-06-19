@@ -1,0 +1,173 @@
+{
+    "id": "mansa-musa-og-mali",
+    "title": "Mansa Musa og Mali-riket",
+    "layout": "rich",
+    "year": "1312-1337",
+    "category": "Vest-Afrika",
+    "readTime": "9 min lesning",
+    "heroImage": "/images/placeholder.webp",
+    "details": [
+        "Mali var et av verdens rikeste riker på 1300-tallet",
+        "Rikdommen kom fra handel med gull og salt over Sahara",
+        "Kongen Mansa Musa var trolig den rikeste personen som noen gang har levd",
+        "Byen Timbuktu ble et berømt sted for bøker og lærdom"
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "I år 1324 dro en konge ut på en reise som folk snakket om i hundrevis av år etterpå. Mansa Musa, kongen av Mali i Vest-Afrika, var på vei til Mekka. Med seg hadde han tusenvis av mennesker og hundrevis av kameler lastet med gull. Da følget stoppet i Kairo i Egypt, ga Mansa Musa bort så mye gull til fattige og kjøpmenn at gullet mistet verdien sin i byen i over ti år. Aldri før hadde folk i Egypt sett en så rik mann. Men hvem var han, og hvordan kunne et rike sør for Sahara bli så rikt?"
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Mansa Musa rir med følge og gullastede kameler gjennom ørkenen",
+            "caption": "Mansa Musas pilegrimsreise i 1324 gjorde Mali kjent i hele verden."
+        },
+        {
+            "type": "header",
+            "text": "Et rike bygd på gull og salt"
+        },
+        {
+            "type": "text",
+            "content": "Mali lå i Vest-Afrika, langs den store elva Niger. Riket vokste fram på 1200-tallet og ble størst på 1300-tallet. Hemmeligheten bak rikdommen var to varer som folk over hele verden ville ha: gull og salt. Sør i riket fantes det gull i elvene og i bakken. I nord, ute i Sahara, lå det store saltgruver der folk hogde ut salt i tunge blokker."
+        },
+        {
+            "type": "text",
+            "content": "I dag tenker vi på salt som noe billig vi har i et lite glass på kjøkkenet. Men før i tiden var salt livsviktig. Uten kjøleskap var salt den eneste måten å hindre at mat råtnet. Og i den brennende heten sør for Sahara svetter kroppen ut så mye salt at folk rett og slett må spise salt for å holde seg i live. Sør i Mali, der gullet lå, fantes det nesten ikke salt i det hele tatt. Derfor ble salt der nede like verdifullt som gull. Du kan lese mer om hvor viktig handel har vært gjennom historien i artikkelen om [det islamske gullaldet](/historie/midtoesten/islamsk-gullaldet)."
+        },
+        {
+            "type": "header",
+            "text": "Saharahandelen: et hav av sand"
+        },
+        {
+            "type": "text",
+            "content": "Mellom saltet i nord og gullet i sør lå Sahara, verdens største ørken. Å krysse den var som å seile over et hav av sand. Kjøpmennene reiste i lange karavaner med kameler, som tåler tørke og varme bedre enn andre dyr. En karavane kunne ha hundrevis av kameler og bruke flere måneder på turen. De fraktet salt sørover og gull nordover, og handlet også med stoff, kobber, hester og bøker."
+        },
+        {
+            "type": "text",
+            "content": "Mali lå akkurat midt på denne veien. Kongen krevde toll av hver eneste karavane som passerte. Han trengte ikke selv å grave fram gullet eller hogge ut saltet. Det holdt å kontrollere veien mellom dem. Slik ble Mali rikt på samme måte som en bompengestasjon: alle som ville handle mellom nord og sør, måtte betale. Prøv det selv i øvelsen under, og se hvordan den samme varen kan være billig ett sted og verdt en formue et annet."
+        },
+        {
+            "type": "component",
+            "name": "GullSaltVekten",
+            "props": {
+                "title": "Gull eller salt – hva er verdt mest?"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Timbuktu: en by full av bøker"
+        },
+        {
+            "type": "text",
+            "content": "Den mest berømte byen i Mali var Timbuktu. Den lå der ørkenen møtte elva Niger, og var et perfekt sted for handel. Men Timbuktu ble kjent for noe mer enn gull. Byen ble et av de viktigste stedene for lærdom i hele den muslimske verden. Tusenvis av studenter kom dit for å studere, og byen hadde store skoler ved moskeene."
+        },
+        {
+            "type": "text",
+            "content": "I Timbuktu kunne en bok være verdt mer enn gull. Kjøpmenn tjente noen ganger mer på å selge bøker enn på å selge varer. Lærde menn samlet og skrev bøker om religion, lover, stjernene, medisin og historie. Mange tusen av disse gamle håndskrevne bøkene finnes fortsatt i dag. De viser at Vest-Afrika hadde en rik kultur med skriftspråk og kunnskap, på en tid da få i Europa kunne lese."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Leirmoské i Timbuktu med utstikkende trebjelker mot blå himmel",
+            "caption": "Den store moskeen i Timbuktu var bygd av leire og ble et senter for lærdom."
+        },
+        {
+            "type": "header",
+            "text": "Mansa Musa og pilegrimsreisen"
+        },
+        {
+            "type": "text",
+            "content": "Mansa Musa var konge i Mali fra rundt 1312 til 1337. Ordet mansa betyr konge på språket mandinka. Han var muslim, slik mange i Mali var blitt, og derfor ville han dra på pilegrimsreise til Mekka, akkurat som troende muslimer gjorde da islam først spredte seg. Du kan lese om hvordan religionen oppsto i artikkelen om [islams fødsel](/historie/midtoesten/islams-fodsel)."
+        },
+        {
+            "type": "text",
+            "content": "Reisen i 1324 var enorm. Kildene forteller om titusener av mennesker og store mengder gull. På veien hjem fikk Mansa Musa bygd nye moskeer og skoler i byene sine. Etter reisen ble Mali tegnet inn på kart i Europa. På et berømt kart fra 1375 sitter Mansa Musa med en gullklump i hånden og en krone på hodet. For første gang forsto europeerne at det fantes et mektig og rikt rike sør for Sahara. Bær du salt og gull over ørkenen i spillet under, og se hvordan Mali ble rikt på å eie veien."
+        },
+        {
+            "type": "component",
+            "name": "MicroGame",
+            "props": {
+                "gameId": "karavanen-over-sahara-3d"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Hva skjedde med Mali?"
+        },
+        {
+            "type": "text",
+            "content": "Ingen riker varer evig. Etter Mansa Musa ble kongene i Mali svakere, og deler av riket rev seg løs. På 1400-tallet vokste et nytt rike fram i samme område, Songhai-riket, med byen Gao som hovedstad. Songhai overtok kontrollen over handelen og ble enda større enn Mali en periode. Men også Songhai falt til slutt, etter et angrep fra nord på slutten av 1500-tallet."
+        },
+        {
+            "type": "text",
+            "content": "Først flere hundre år senere kom europeerne for alvor til Vest-Afrika. Da handelen over Atlanterhavet startet, ble mange afrikanere fanget og solgt som slaver. Det kan du lese mer om i artikkelen om [trekanthandelen](/historie/kolonialisering/trekanthandelen). Men det er viktig å huske at lenge før dette hadde Afrika sine egne rike og mektige stater."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Karavane med kameler passerer ruinene av en gammel afrikansk by i solnedgang",
+            "caption": "Rikene i Vest-Afrika satte spor som fortsatt er synlige i dag."
+        },
+        {
+            "type": "header",
+            "text": "Hvorfor dette er viktig"
+        },
+        {
+            "type": "text",
+            "content": "Mange tror at Afrika ikke hadde noen stor historie før europeerne kom. Historien om Mali viser at det er feil. Her var det rike konger, travle byer, lange handelsruter og skoler fulle av bøker, på samme tid som middelalderen pågikk i Europa. Når vi i dag snakker om frihet og stolthet i Afrika, henter mange inspirasjon nettopp fra disse gamle rikene. Du kan lese om hvordan dette ble viktig i nyere tid i artikkelen om [Ghana og panafrikanismen](/historie/dekolonisering/ghana-panafrikanisme)."
+        },
+        {
+            "type": "text",
+            "content": "Mansa Musa minner oss om noe enkelt, men lett å glemme: rikdom og kunnskap har funnes på alle kontinenter, til alle tider. Et rike midt i et hav av sand klarte å bli et av de rikeste i verden, bare ved å kontrollere veien mellom salt og gull."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hvilke to varer var Mali-rikets rikdom bygd på?",
+                        "options": ["Gull og salt", "Olje og kull", "Sølv og krydder", "Korn og vin"],
+                        "correctAnswer": 0,
+                        "explanation": "Mali ble rikt på handelen med gull fra sør og salt fra saltgruvene i Sahara i nord."
+                    },
+                    {
+                        "question": "Hvorfor ble salt like verdifullt som gull sør i Mali?",
+                        "options": [
+                            "Fordi det nesten ikke fantes salt der, og folk trengte salt for å leve i heten",
+                            "Fordi salt var vakkert å se på",
+                            "Fordi kongen forbød salt",
+                            "Fordi salt kunne brukes som våpen"
+                        ],
+                        "correctAnswer": 0,
+                        "explanation": "I sør fantes det nesten ingen salt, men kroppen trenger salt i den sterke heten. Derfor ble salt der nede byttet mot like mye gull."
+                    },
+                    {
+                        "question": "Hva gjorde byen Timbuktu spesielt kjent for, i tillegg til handel?",
+                        "options": [
+                            "For bøker, skoler og lærdom",
+                            "For sine store havner",
+                            "For å bygge skip",
+                            "For å lage våpen"
+                        ],
+                        "correctAnswer": 0,
+                        "explanation": "Timbuktu ble et av de viktigste stedene for lærdom, med skoler og tusenvis av håndskrevne bøker."
+                    },
+                    {
+                        "question": "Hva skjedde da Mansa Musa ga bort gull i Kairo i 1324?",
+                        "options": [
+                            "Gullet mistet verdien sin i byen i flere år",
+                            "Han ble kastet ut av byen",
+                            "Folk nektet å ta imot gullet",
+                            "Byen ble ødelagt"
+                        ],
+                        "correctAnswer": 0,
+                        "explanation": "Han ga bort så mye gull at det ble for mye av det i byen, og verdien falt i over ti år."
+                    }
+                ]
+            }
+        }
+    ],
+    "timeline": []
+}

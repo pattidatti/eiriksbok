@@ -78,8 +78,18 @@ const Allmennviljen3D = lazy(() => import('./Allmennviljen3D'));
 const Sjoimperiet3D = lazy(() => import('./Sjoimperiet3D'));
 const AttedeltVei3D = lazy(() => import('./AttedeltVei3D'));
 const RentVannRorene3D = lazy(() => import('./RentVannRorene3D'));
+const KaravanenOverSahara3D = lazy(() => import('./KaravanenOverSahara3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
+    'karavanen-over-sahara-3d': {
+        id: 'karavanen-over-sahara-3d',
+        title: 'Karavanen over Sahara',
+        description:
+            'Mali lå midt på veien mellom saltgruvene i Sahara og gullfeltene i sør. Dra en saltlast sørover over ørkenen til gullfeltene, der salt var så sjeldent at det ble byttet mot like mye gull, og dra så gullet nordover for å selge det dyrt. Hver gang en last passerer Timbuktu i midten, fylles Malis skattkammer. Lyspæren: den som kontrollerte veien mellom salt og gull ble styrtrik, og slik vokste et av middelalderens rikeste riker fram i Vest-Afrika, lenge før europeerne kom.',
+        estimatedSeconds: 150,
+        loader: () => import('./KaravanenOverSahara3D'),
+        Component: KaravanenOverSahara3D as never,
+    },
     'attedelt-vei-hjulet': {
         id: 'attedelt-vei-hjulet',
         title: 'Sett dharmahjulet i gang',
