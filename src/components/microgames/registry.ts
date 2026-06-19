@@ -79,8 +79,18 @@ const Sjoimperiet3D = lazy(() => import('./Sjoimperiet3D'));
 const AttedeltVei3D = lazy(() => import('./AttedeltVei3D'));
 const RentVannRorene3D = lazy(() => import('./RentVannRorene3D'));
 const KaravanenOverSahara3D = lazy(() => import('./KaravanenOverSahara3D'));
+const Karantenelinja3D = lazy(() => import('./Karantenelinja3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
+    'karantenelinja-3d': {
+        id: 'karantenelinja-3d',
+        title: 'Karantenelinja: Cuba-krisen 1962',
+        description:
+            'Cuba-krisen som et geografisk sjakkspill i tre steg. Klikk de skjulte rakettrampene som U-2 flyet fant på Cuba, dra så en spak og se rekkevidden vokse nordover til amerikanske byer lyser rødt, og dra til slutt tre krigsskip ut i karantenelinja så de sovjetiske fraktskipene må snu. Lyspæren: hele krisen handlet om geografi. Rakettene lå bare 15 mil fra USA, og Kennedy svarte med et romlig grep (en ring av skip rundt Cuba) i stedet for atomkrig.',
+        estimatedSeconds: 150,
+        loader: () => import('./Karantenelinja3D'),
+        Component: Karantenelinja3D as never,
+    },
     'karavanen-over-sahara-3d': {
         id: 'karavanen-over-sahara-3d',
         title: 'Karavanen over Sahara',
