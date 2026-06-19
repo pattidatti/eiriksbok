@@ -1,5 +1,5 @@
 {
-  "buildId": 1781822029518,
+  "buildId": 1781831951889,
   "contentMap": {
     "concept-adel": [
       "content/concepts/adel.json"
@@ -1161,6 +1161,9 @@
     ],
     "global-timeline.manual": [
       "content/global-timeline.manual.json"
+    ],
+    "mansa-musa-og-mali": [
+      "content/historie/afrikanske-riker/mansa-musa-og-mali.json"
     ],
     "andre-verdenskrig-bakgrunn": [
       "content/historie/andre-verdenskrig/bakgrunn.json"
@@ -3832,6 +3835,7 @@
     "global-timeline-images.json/undefined/global-timeline-images": "content/global-timeline-images.json",
     "global-timeline.json/undefined/global-timeline": "content/global-timeline.json",
     "global-timeline.manual.json/undefined/global-timeline.manual": "content/global-timeline.manual.json",
+    "historie/afrikanske-riker/mansa-musa-og-mali": "content/historie/afrikanske-riker/mansa-musa-og-mali.json",
     "historie/andre-verdenskrig/bakgrunn": "content/historie/andre-verdenskrig/bakgrunn.json",
     "historie/andre-verdenskrig/konsekvenser": "content/historie/andre-verdenskrig/konsekvenser.json",
     "historie/andre-verdenskrig/konsentrasjonsleirene": "content/historie/andre-verdenskrig/konsentrasjonsleirene.json",

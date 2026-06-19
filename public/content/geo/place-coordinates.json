@@ -827,12 +827,12 @@
       "count": 30
     },
     {
-      "tag": "oppfinnelser",
-      "count": 29
+      "tag": "handel",
+      "count": 30
     },
     {
-      "tag": "handel",
-      "count": 28
+      "tag": "oppfinnelser",
+      "count": 29
     },
     {
       "tag": "imperium",
@@ -923,6 +923,10 @@
       "count": 16
     },
     {
+      "tag": "middelalderen",
+      "count": 15
+    },
+    {
       "tag": "konflikt",
       "count": 15
     },
@@ -941,10 +945,6 @@
     {
       "tag": "skrivehjelp",
       "count": 14
-    },
-    {
-      "tag": "middelalderen",
-      "count": 13
     },
     {
       "tag": "folkemord",
@@ -1888,6 +1888,14 @@
     },
     {
       "tag": "klokke",
+      "count": 2
+    },
+    {
+      "tag": "mali",
+      "count": 2
+    },
+    {
+      "tag": "gull",
       "count": 2
     },
     {

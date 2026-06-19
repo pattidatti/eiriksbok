@@ -20,6 +20,7 @@ import { MapCarousel } from './MapCarousel';
 
 // Lazy-loaded components for better performance
 // Interactive Content
+const GullSaltVekten = lazy(() => import('./content/interactive/GullSaltVekten').then(m => ({ default: m.GullSaltVekten })));
 const AllmennviljeVerksted = lazy(() => import('./content/interactive/AllmennviljeVerksted').then(m => ({ default: m.AllmennviljeVerksted })));
 const MatGjesteBord = lazy(() => import('./content/interactive/MatGjesteBord').then(m => ({ default: m.MatGjesteBord })));
 const MaktpyramidenJapan = lazy(() => import('./content/interactive/MaktpyramidenJapan').then(m => ({ default: m.MaktpyramidenJapan })));
@@ -285,6 +286,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     // Core
     GovernmentExplorer,
     HistoryLongLines,
+    GullSaltVekten,
     MatGjesteBord,
     TragediensTrinn,
     FornorskingMaler,
