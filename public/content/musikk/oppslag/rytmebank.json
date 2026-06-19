@@ -2,6 +2,7 @@
     "id": "rytmebank",
     "title": "Rytmebank",
     "ingress": "En samling med vanlige trommerytmer du kan bruke i dine egne låter.",
+    "heroImage": "/images/lessons/musikk/oppslag/rytmebank.webp",
     "content": [
         {
             "type": "text",

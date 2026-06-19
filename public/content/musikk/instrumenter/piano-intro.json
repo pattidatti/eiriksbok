@@ -2,6 +2,7 @@
     "id": "piano-intro",
     "title": "Piano: Introduksjon",
     "ingress": "Pianoet er kanskje det mest oversiktlige instrumentet som finnes. Her ligger alle tonene på rekke og rad.",
+    "heroImage": "/images/lessons/musikk/instrumenter/piano-intro.webp",
     "content": [
         {
             "type": "text",

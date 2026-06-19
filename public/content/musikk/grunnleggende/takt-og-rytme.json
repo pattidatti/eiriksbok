@@ -2,6 +2,7 @@
     "id": "takt-og-rytme",
     "title": "Takt og Rytme",
     "ingress": "Musikkens hjerteslag. Lær forskjellen på puls og rytme, og bygg din egen beat.",
+    "heroImage": "/images/lessons/musikk/grunnleggende/takt-og-rytme.webp",
     "content": [
         {
             "type": "text",

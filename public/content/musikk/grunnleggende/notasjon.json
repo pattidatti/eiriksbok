@@ -2,6 +2,7 @@
     "id": "notasjon",
     "title": "Notasjon",
     "ingress": "Musikk er et språk, og notasjon er måten vi skriver det ned på. Lær forskjellen på noter og tabulatur.",
+    "heroImage": "/images/lessons/musikk/grunnleggende/notasjon.webp",
     "content": [
         {
             "type": "text",

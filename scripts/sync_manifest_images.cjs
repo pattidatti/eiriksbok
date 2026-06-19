@@ -70,9 +70,10 @@ function processLesson(subjectId, topicId, subTopicId, lesson) {
         if (fs.existsSync(filePath)) {
             try {
                 const article = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-                if (article.heroImage) {
-                    console.log(`Updating ${lesson.title} (${lesson.id}) with image: ${article.heroImage}`);
-                    lesson.image = article.heroImage;
+                const img = article.heroImage || article.image;
+                if (img) {
+                    console.log(`Updating ${lesson.title} (${lesson.id}) with image: ${img}`);
+                    lesson.image = img;
                     return 1;
                 }
             } catch (e) {

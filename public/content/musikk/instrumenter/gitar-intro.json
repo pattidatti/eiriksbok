@@ -2,6 +2,7 @@
     "id": "gitar-intro",
     "title": "Gitar: Introduksjon",
     "ingress": "Det mest populære bål-instrumentet. Lær strengene, stemming og dine første grep.",
+    "heroImage": "/images/lessons/musikk/instrumenter/gitar-intro.webp",
     "content": [
         {
             "type": "text",

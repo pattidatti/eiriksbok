@@ -2,6 +2,7 @@
     "id": "trommer-intro",
     "title": "Trommer: Introduksjon",
     "ingress": "Det er her energien kommer fra.",
+    "heroImage": "/images/lessons/musikk/instrumenter/trommer-intro.webp",
     "content": [
         {
             "type": "text",

@@ -31,7 +31,7 @@
               "id": "substantiv",
               "title": "Substantiv",
               "description": "Konkret vs. abstrakt, kjønn og bøying.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/lessons/norsk/ordklasser/substantiv.webp",
               "tags": [
                 "grammatikk",
                 "substantiv",
@@ -44,7 +44,7 @@
               "id": "verb",
               "title": "Verb",
               "description": "Tider, sterke/svake verb og hjelpeverb.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/lessons/norsk/ordklasser/verb.webp",
               "tags": [
                 "grammatikk",
                 "verb",
@@ -57,7 +57,7 @@
               "id": "adjektiv",
               "title": "Adjektiv",
               "description": "Samsvarsbøying og gradbøying.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/lessons/norsk/ordklasser/adjektiv.webp",
               "tags": [
                 "grammatikk",
                 "adjektiv",
@@ -70,7 +70,7 @@
               "id": "pronomen",
               "title": "Pronomen",
               "description": "Personlige, eiendoms- og spørrepronomen.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/lessons/norsk/ordklasser/pronomen.webp",
               "tags": [
                 "grammatikk",
                 "pronomen",
@@ -83,7 +83,7 @@
               "id": "preposisjoner",
               "title": "Preposisjoner",
               "description": "Sted, tid og faste uttrykk.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/lessons/norsk/ordklasser/preposisjoner.webp",
               "tags": [
                 "grammatikk",
                 "preposisjoner",
@@ -96,7 +96,7 @@
               "id": "adverb",
               "title": "Adverb",
               "description": "Tidsadverb, stedsadverb og måtesadverb.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/lessons/norsk/ordklasser/adverb.webp",
               "tags": [
                 "grammatikk",
                 "adverb",
@@ -109,7 +109,7 @@
               "id": "konjunksjoner-subjunksjoner",
               "title": "Konjunksjoner og Subjunksjoner",
               "description": "Bindeord og ord som innleder leddsetninger.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/lessons/norsk/ordklasser/konjunksjoner-subjunksjoner.webp",
               "tags": [
                 "grammatikk",
                 "konjunksjoner",
@@ -131,7 +131,7 @@
               "id": "setningsanalyse",
               "title": "Setningsanalyse",
               "description": "Hvordan analysere setninger.",
-              "image": "/images/placeholder.webp",
+              "image": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&q=80",
               "tags": [
                 "skjønnlitteratur",
                 "fortelling"
@@ -164,7 +164,7 @@
               "id": "niva-1-grunnmuren",
               "title": "Nivå 1: Grunnmuren (S-V)",
               "description": "Subjekt og Verbal: Selve skjelettet i setningen.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/lessons/norsk/setningsoppbygging/niva-1-grunnmuren.webp",
               "tags": [
                 "grammatikk",
                 "syntaks",
@@ -178,7 +178,7 @@
               "id": "niva-2-utvidet",
               "title": "Nivå 2: Objekt og Adverbial",
               "description": "Utvid setningene med hvem som rammes og hvor det skjer.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/lessons/norsk/setningsoppbygging/niva-2-utvidet.webp",
               "tags": [
                 "grammatikk",
                 "syntaks",
@@ -192,7 +192,7 @@
               "id": "niva-3-v2-regelen",
               "title": "Nivå 3: V2-Regelen",
               "description": "Den viktigste regelen i norsk: Verbet skal alltid stå på plass nummer to!",
-              "image": "/images/placeholder.webp",
+              "image": "/images/lessons/norsk/setningsoppbygging/niva-3-v2-regelen.webp",
               "tags": [
                 "grammatikk",
                 "syntaks",
@@ -206,7 +206,7 @@
               "id": "niva-4-leddsetninger",
               "title": "Nivå 4: Leddsetninger",
               "description": "Helsetninger vs. leddsetninger og 'ikke'-plassering.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/lessons/norsk/setningsoppbygging/niva-4-leddsetninger.webp",
               "tags": [
                 "grammatikk",
                 "syntaks",
@@ -228,7 +228,7 @@
               "id": "novelle",
               "title": "Novelle",
               "description": "Korte fortellinger med en tydelig konflikt.",
-              "image": "/images/placeholder.webp",
+              "image": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&q=80",
               "tags": [
                 "skjønnlitteratur",
                 "fortelling",
@@ -242,7 +242,7 @@
               "id": "eventyr",
               "title": "Eventyr",
               "description": "Folkediktning full av magi og overnaturlige vesener.",
-              "image": "/images/placeholder.webp",
+              "image": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80",
               "tags": [
                 "skjønnlitteratur",
                 "eventyr",
@@ -255,7 +255,7 @@
               "id": "roman",
               "title": "Roman",
               "description": "Lengre fortellinger som gir rom for fordypning.",
-              "image": "/images/placeholder.webp",
+              "image": "https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&q=80",
               "tags": [
                 "skjønnlitteratur",
                 "fortelling",
@@ -269,7 +269,7 @@
               "id": "dikt",
               "title": "Dikt (Lyrikk)",
               "description": "Tekster som uttrykker stemninger og følelser.",
-              "image": "/images/placeholder.webp",
+              "image": "https://images.unsplash.com/photo-1490730141103-6cac27aaab94?auto=format&fit=crop&q=80",
               "tags": [
                 "skjønnlitteratur",
                 "lyrikk",
@@ -283,7 +283,7 @@
               "id": "artikkel",
               "title": "Fagartikkel",
               "description": "Objektive tekster som formidler kunnskap.",
-              "image": "/images/placeholder.webp",
+              "image": "https://images.unsplash.com/photo-1586339949916-3e9457bef6d3?auto=format&fit=crop&q=80",
               "tags": [
                 "sakprosa",
                 "fakta",
@@ -297,7 +297,7 @@
               "id": "debattinnlegg",
               "title": "Debattinnlegg",
               "description": "Tekster som argumenterer for en mening.",
-              "image": "/images/placeholder.webp",
+              "image": "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&q=80",
               "tags": [
                 "sakprosa",
                 "mening",
@@ -311,7 +311,7 @@
               "id": "kommentar",
               "title": "Kommentar",
               "description": "Subjektive tekster som analyserer og mener noe om en sak.",
-              "image": "/images/placeholder.webp",
+              "image": "https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&q=80",
               "tags": [
                 "sakprosa",
                 "mening",
@@ -605,7 +605,7 @@
               "id": "nasjonalromantikken",
               "title": "Nasjonalromantikken",
               "description": "Da Norge fant sin sjel: Bønder, natur og eventyr.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/lessons/norsk/litteraturhistorie/nasjonalromantikken.webp",
               "createdDate": "2025-11-30T22:30:55+01:00",
               "tags": [
                 "litteraturhistorie",
@@ -618,7 +618,7 @@
               "id": "realismen",
               "title": "Realismen",
               "description": "Sannheten skal frem: Samfunnskritikk og problemer under debatt.",
-              "image": "/images/placeholder.webp",
+              "image": "https://images.unsplash.com/photo-1712687948350-9906073eb5f7?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&w=600",
               "createdDate": "2025-11-30T22:30:55+01:00",
               "tags": [
                 "litteraturhistorie",
@@ -631,7 +631,7 @@
               "id": "ny-romantikken",
               "title": "Nyromantikken",
               "description": "Følelser og mystikk: Det ubevisste sjeleliv.",
-              "image": "/images/placeholder.webp",
+              "image": "https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f?q=80&w=2574&auto=format&fit=crop",
               "createdDate": "2025-11-30T22:30:55+01:00",
               "tags": [
                 "litteraturhistorie",
@@ -644,7 +644,7 @@
               "id": "ny-realismen",
               "title": "Nyrealismen",
               "description": "Etikk og historie: Vanlige folk og store valg.",
-              "image": "/images/placeholder.webp",
+              "image": "https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&q=80",
               "createdDate": "2025-11-30T22:30:55+01:00",
               "tags": [
                 "litteraturhistorie",
@@ -805,7 +805,7 @@
               "id": "hvordan-skrive-novelle",
               "title": "Hvordan skrive novelle",
               "description": "Tips og triks for å skrive gode noveller.",
-              "image": "/images/placeholder.webp",
+              "image": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&q=80",
               "tags": [
                 "skrivehjelp",
                 "novelle"
@@ -817,7 +817,7 @@
               "id": "hvordan-skrive-eventyr",
               "title": "Hvordan skrive eventyr",
               "description": "Lær å skrive eventyr med magi og moral.",
-              "image": "/images/placeholder.webp",
+              "image": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80",
               "tags": [
                 "skrivehjelp",
                 "eventyr"
@@ -829,7 +829,7 @@
               "id": "hvordan-skrive-dikt",
               "title": "Hvordan skrive dikt",
               "description": "Slipp løs kreativiteten med lyrikk.",
-              "image": "/images/placeholder.webp",
+              "image": "https://images.unsplash.com/photo-1490730141103-6cac27aaab94?auto=format&fit=crop&q=80",
               "tags": [
                 "skrivehjelp",
                 "dikt"
@@ -841,7 +841,7 @@
               "id": "hvordan-skrive-roman",
               "title": "Hvordan skrive roman",
               "description": "Tips for å planlegge og skrive lengre fortellinger.",
-              "image": "/images/placeholder.webp",
+              "image": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&q=80",
               "tags": [
                 "skrivehjelp",
                 "roman"
@@ -853,7 +853,7 @@
               "id": "7-vanlige-plot",
               "title": "7 vanlige plot",
               "description": "De syv grunnleggende historiene som alle fortellinger bygger på.",
-              "image": "/images/placeholder.webp",
+              "image": "https://images.unsplash.com/photo-1519791883288-dc8bd696e667?auto=format&fit=crop&q=80",
               "tags": [
                 "skrivehjelp",
                 "plot",
@@ -1027,7 +1027,7 @@
                 "fortrinn"
               ],
               "createdDate": "2026-06-19T09:00:00+02:00",
-              "lastUpdated": "2026-06-19T06:56:03.574Z"
+              "lastUpdated": "2026-06-19T13:02:11+02:00"
             },
             {
               "id": "inflasjon-og-rente",
@@ -2149,7 +2149,7 @@
           "id": "kompetansemal",
           "title": "Kompetansemål",
           "description": "Alle de dedikerte kompetansemål-artiklene i samfunnsfag samlet på ett sted. Hver artikkel dekker ett kompetansemål fra læreplanen - lett å finne fram til.",
-          "image": "/images/placeholder.webp",
+          "image": "/images/eksamen/km-1-metode-hero.webp",
           "lessons": [
             {
               "id": "km-1-metode",
@@ -3553,7 +3553,7 @@
           "id": "industriell-revolusjon",
           "title": "Industriell Revolusjon",
           "description": "Fra bonde- til industrisamfunn.",
-          "image": "/images/placeholder.webp",
+          "image": "/images/historie/industriell-revolusjon/hero.webp",
           "lessons": [
             {
               "id": "industriell-revolusjon",
@@ -4086,7 +4086,7 @@
           "id": "kolonialisering",
           "title": "Kolonialisering",
           "description": "Europeisk ekspansjon og dens konsekvenser.",
-          "image": "/images/placeholder.webp",
+          "image": "/images/historie/kolonialisering/europa-erobrer-verden-hero.webp",
           "tools": [
             {
               "id": "colonization-map",
@@ -5498,7 +5498,7 @@
           "id": "antikkens-hellas",
           "title": "Antikkens Hellas",
           "description": "Bystatene som formet Vesten: demokratiet i Athen, krigerne i Sparta og arven etter dem.",
-          "image": "/images/placeholder.webp",
+          "image": "/images/antikkens-hellas/athen-og-sparta-hero.webp",
           "lessons": [
             {
               "id": "athen-og-sparta",
@@ -7267,7 +7267,7 @@
           "id": "filosofi",
           "title": "Filosofi",
           "description": "Utforsk de store tankene som har formet vår verden.",
-          "image": "/images/placeholder.webp",
+          "image": "/images/filosofi/intro_hero.webp",
           "defaultView": "chronological",
           "tools": [
             {
@@ -7557,7 +7557,7 @@
           "id": "etikk",
           "title": "Etikk",
           "description": "Hva er rett og galt? Utforsk de store etiske systemene.",
-          "image": "/images/placeholder.webp",
+          "image": "/images/etikk/intro_hero.webp",
           "defaultView": "chronological",
           "tools": [
             {
@@ -7722,13 +7722,13 @@
           "id": "grunnleggende",
           "title": "Det Grunnleggende",
           "description": "Lær musikkens språk: Takt, rytme og harmoni.",
-          "image": "/images/placeholder.webp",
+          "image": "/images/lessons/musikk/grunnleggende/takt-og-rytme.webp",
           "lessons": [
             {
               "id": "takt-og-rytme",
               "title": "Takt og Rytme",
               "description": "Hva er puls? Hva er en takt? Lær om 4/4 og andre taktarter.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/lessons/musikk/grunnleggende/takt-og-rytme.webp",
               "tags": [
                 "musikk",
                 "teori",
@@ -7741,7 +7741,7 @@
               "id": "akkorder-og-harmoni",
               "title": "Akkorder og Harmoni",
               "description": "Forstå dur, moll og treklanger.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/lessons/musikk/grunnleggende/akkorder-og-harmoni.webp",
               "tags": [
                 "musikk",
                 "teori",
@@ -7754,7 +7754,7 @@
               "id": "notasjon",
               "title": "Notasjon",
               "description": "Lær å lese musikkens kart: Noter og tabulatur.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/lessons/musikk/grunnleggende/notasjon.webp",
               "tags": [
                 "musikk",
                 "teori",
@@ -7783,13 +7783,13 @@
           "id": "instrumenter",
           "title": "Instrumentene",
           "description": "Verktøykassen: Gitar, Piano, Bass og Trommer.",
-          "image": "/images/placeholder.webp",
+          "image": "/images/lessons/musikk/instrumenter/piano-intro.webp",
           "lessons": [
             {
               "id": "piano-intro",
               "title": "Piano: Introduksjon",
               "description": "Tangentene, akkorder og koordinasjon.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/lessons/musikk/instrumenter/piano-intro.webp",
               "tags": [
                 "musikk",
                 "instrument",
@@ -7802,7 +7802,7 @@
               "id": "gitar-intro",
               "title": "Gitar: Introduksjon",
               "description": "Strenger, grep og strumming.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/lessons/musikk/instrumenter/gitar-intro.webp",
               "tags": [
                 "musikk",
                 "instrument",
@@ -7845,7 +7845,7 @@
               "id": "bass-intro",
               "title": "Bass: Introduksjon",
               "description": "Grunnmuren i bandet. Samspill med trommer.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/lessons/musikk/instrumenter/bass-intro.webp",
               "tags": [
                 "musikk",
                 "instrument",
@@ -7858,7 +7858,7 @@
               "id": "trommer-intro",
               "title": "Trommer: Introduksjon",
               "description": "Rytmeboksen. Koordinasjon og backbeat.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/lessons/musikk/instrumenter/trommer-intro.webp",
               "tags": [
                 "musikk",
                 "instrument",
@@ -7873,13 +7873,13 @@
           "id": "komposisjon",
           "title": "Komposisjon",
           "description": "Hvordan lage egne låter?",
-          "image": "/images/placeholder.webp",
+          "image": "/images/lessons/musikk/komposisjon/lat-struktur.webp",
           "lessons": [
             {
               "id": "lat-struktur",
               "title": "Låtens Anatomi",
               "description": "Vers, refreng, bro og oppbygging.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/lessons/musikk/komposisjon/lat-struktur.webp",
               "tags": [
                 "musikk",
                 "komposisjon",
@@ -8050,13 +8050,13 @@
           "id": "vurdering",
           "title": "Vurdering",
           "description": "Mål og mening.",
-          "image": "/images/placeholder.webp",
+          "image": "/images/lessons/musikk/vurdering/vurderingskriterier.webp",
           "lessons": [
             {
               "id": "vurderingskriterier",
               "title": "Hva blir vi vurdert i?",
               "description": "Teknikk, samspill og kreativitet.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/lessons/musikk/vurdering/vurderingskriterier.webp",
               "tags": [
                 "musikk",
                 "skole",
@@ -8071,14 +8071,14 @@
           "id": "oppslag",
           "title": "Verktøy & Oppslag",
           "description": "Din musikalske verktøykasse.",
-          "image": "/images/placeholder.webp",
+          "image": "/images/lessons/musikk/oppslag/akkordbank.webp",
           "lessons": [
             {
               "id": "akkordbank",
               "layout": "tool",
               "title": "Akkordbank",
               "description": "Oversikt over vanlige pianoakkorder.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/lessons/musikk/oppslag/akkordbank.webp",
               "tags": [
                 "musikk",
                 "oppslag",
@@ -8093,7 +8093,7 @@
               "layout": "tool",
               "title": "Rytmebank",
               "description": "Bibliotek over vanlige trommerytmer.",
-              "image": "/images/placeholder.webp",
+              "image": "/images/lessons/musikk/oppslag/rytmebank.webp",
               "tags": [
                 "musikk",
                 "oppslag",

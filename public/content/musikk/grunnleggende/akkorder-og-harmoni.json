@@ -2,6 +2,7 @@
     "id": "akkorder-og-harmoni",
     "title": "Akkorder og Harmoni",
     "ingress": "Magien som oppstår når flere toner klinger sammen. Lær om dur, moll og treklanger.",
+    "heroImage": "/images/lessons/musikk/grunnleggende/akkorder-og-harmoni.webp",
     "content": [
         {
             "type": "text",
