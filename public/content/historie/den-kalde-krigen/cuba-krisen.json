@@ -52,6 +52,13 @@
         },
         {
             "type": "component",
+            "name": "MicroGame",
+            "props": {
+                "gameId": "karantenelinja-3d"
+            }
+        },
+        {
+            "type": "component",
             "name": "TimelineComponent",
             "props": {
                 "title": "De 13 dagene som rystet verden",
