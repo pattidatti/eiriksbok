@@ -1,5 +1,11 @@
 [
   {
+    "id": "absolutt-fortrinn",
+    "term": "Absolutt fortrinn",
+    "definition": "Å være best til å lage en vare, altså klare å lage mest av den med de samme ressursene. Et land kan ha absolutt fortrinn i alt og likevel tjene på å spesialisere seg etter komparativt fortrinn.",
+    "subject": "samfunnskunnskap"
+  },
+  {
     "id": "adel",
     "term": "Adel",
     "aliases": [
@@ -59,6 +65,12 @@
     "subject": "historie",
     "topic": "forste-verdenskrig",
     "tags": []
+  },
+  {
+    "id": "alternativkostnad",
+    "term": "Alternativkostnad",
+    "definition": "Det beste du gir opp når du velger å bruke tid eller ressurser på noe annet. Hver time legen skriver brev, er en time hun ikke behandler pasienter. Alternativkostnaden er kjernen i komparativt fortrinn.",
+    "subject": "samfunnskunnskap"
   },
   {
     "id": "anarki",
@@ -1595,6 +1607,12 @@
     "subject": "samfunnskunnskap",
     "topic": "demografi-okonomi",
     "tags": []
+  },
+  {
+    "id": "komparativt-fortrinn",
+    "term": "Komparativt fortrinn",
+    "definition": "Å kunne lage en vare med lavere alternativkostnad enn andre, altså å ofre minst for å lage den. Selv den som er dårligst til alt har et komparativt fortrinn i noe, og derfor lønner det seg å spesialisere seg og bytte.",
+    "subject": "samfunnskunnskap"
   },
   {
     "id": "komsakulturen",

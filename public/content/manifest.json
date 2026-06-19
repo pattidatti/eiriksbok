@@ -1015,6 +1015,21 @@
               "lastUpdated": "2026-05-07T09:32:27+02:00"
             },
             {
+              "id": "komparativt-fortrinn",
+              "title": "Komparativt og absolutt fortrinn",
+              "description": "Hvorfor lønner det seg å bytte, selv når én er best til alt? Om alternativkostnad og hvem som bør lage hva.",
+              "image": "/images/lessons/okonomi/komparativt-fortrinn_hero.webp",
+              "tags": [
+                "økonomi",
+                "produksjon",
+                "spesialisering",
+                "handel",
+                "fortrinn"
+              ],
+              "createdDate": "2026-06-19T09:00:00+02:00",
+              "lastUpdated": "2026-06-19T06:56:03.574Z"
+            },
+            {
               "id": "inflasjon-og-rente",
               "title": "Inflasjon og rente",
               "description": "Hvorfor blir alt dyrere? Om penger, renter og priser.",
@@ -6037,7 +6052,7 @@
                 "middelalderen"
               ],
               "createdDate": "2026-06-19T00:00:00Z",
-              "lastUpdated": "2026-06-19T03:23:03+02:00"
+              "lastUpdated": "2026-06-19T07:33:05+02:00"
             }
           ]
         }

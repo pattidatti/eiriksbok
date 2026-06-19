@@ -80,8 +80,18 @@ const AttedeltVei3D = lazy(() => import('./AttedeltVei3D'));
 const RentVannRorene3D = lazy(() => import('./RentVannRorene3D'));
 const KaravanenOverSahara3D = lazy(() => import('./KaravanenOverSahara3D'));
 const Karantenelinja3D = lazy(() => import('./Karantenelinja3D'));
+const Produksjonsoppskriften3D = lazy(() => import('./Produksjonsoppskriften3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
+    'produksjonsoppskriften-3d': {
+        id: 'produksjonsoppskriften-3d',
+        title: 'Produksjonsoppskriften',
+        description:
+            'En vare lages aldri av én ting alene. Dra de tre flyttbare faktorene - mennesker, råvare og maskin - inn på produksjonsbordet ved kysten og se laksefileten bli til. Test så den fjerde faktoren: flytt fabrikken innland, og havet glir bort sammen med den billige laksen, så produksjonen stopper. Lyspæren: produksjon er en miks av mennesker, råvarer, maskiner og lokasjon, og fordi miksen er ulik fra sted til sted, er ulike steder billigst til ulike varer - selve grunnen til at land spesialiserer seg og bytter.',
+        estimatedSeconds: 150,
+        loader: () => import('./Produksjonsoppskriften3D'),
+        Component: Produksjonsoppskriften3D as never,
+    },
     'karantenelinja-3d': {
         id: 'karantenelinja-3d',
         title: 'Karantenelinja: Cuba-krisen 1962',

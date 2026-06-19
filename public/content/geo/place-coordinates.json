@@ -804,7 +804,7 @@
     },
     {
       "tag": "økonomi",
-      "count": 55
+      "count": 56
     },
     {
       "tag": "politikk",
@@ -823,11 +823,11 @@
       "count": 36
     },
     {
-      "tag": "antikken",
-      "count": 30
+      "tag": "handel",
+      "count": 31
     },
     {
-      "tag": "handel",
+      "tag": "antikken",
       "count": 30
     },
     {
@@ -1671,6 +1671,10 @@
       "count": 3
     },
     {
+      "tag": "produksjon",
+      "count": 3
+    },
+    {
       "tag": "levekår",
       "count": 3
     },
@@ -2463,7 +2467,7 @@
       "count": 2
     },
     {
-      "tag": "produksjon",
+      "tag": "spesialisering",
       "count": 2
     },
     {
@@ -3047,7 +3051,7 @@
       "count": 1
     },
     {
-      "tag": "spesialisering",
+      "tag": "fortrinn",
       "count": 1
     },
     {

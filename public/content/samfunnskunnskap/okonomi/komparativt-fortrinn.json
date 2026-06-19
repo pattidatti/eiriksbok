@@ -1,0 +1,195 @@
+{
+    "id": "komparativt-fortrinn",
+    "title": "Komparativt og absolutt fortrinn",
+    "ingress": "Kan du lage en blyant helt alene, fra bunnen av? Nei. Og det er nettopp derfor vi bytter med hverandre. Her er logikken som forklarer hvem som bør lage hva.",
+    "image": "/images/lessons/okonomi/komparativt-fortrinn_hero.webp",
+    "heroImage": "/images/lessons/okonomi/komparativt-fortrinn_hero.webp",
+    "status": "published",
+    "layout": "rich",
+    "category": "Økonomi",
+    "readTime": "9 min lesning",
+    "tags": [
+        "økonomi",
+        "produksjon",
+        "spesialisering",
+        "handel",
+        "fortrinn"
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Prøv å lage en blyant helt alene. Du må felle et tre, finne grafitt i en gruve, utvinne metall til ringen og koke maling. Ingen klarer det. Likevel ligger det blyanter i hver eneste butikk, til en billig penge. Hemmeligheten er at ingen lager blyanten alene. Tusenvis av mennesker over hele verden gjør hver sin lille del, og bytter resultatet med hverandre."
+        },
+        {
+            "type": "text",
+            "content": "For å skjønne hvorfor det lønner seg å dele opp arbeidet sånn, må vi først se hva produksjon egentlig er."
+        },
+        {
+            "type": "header",
+            "content": "Produksjon er en oppskrift"
+        },
+        {
+            "type": "text",
+            "content": "Vi tenker ofte at en vare blir laget av én ting. Men all produksjon er en miks, akkurat som en oppskrift. Det trengs alltid fire slags ingredienser:"
+        },
+        {
+            "type": "list",
+            "items": [
+                "Mennesker - noen må gjøre jobben og bruke hodet og hendene.",
+                "Råvarer - tingene varen er laget av, som mel, tre eller fisk.",
+                "Maskiner - verktøyene som gjør at få mennesker kan lage mye.",
+                "Land og lokasjon - selve stedet, med jord, klima og naturressurser."
+            ]
+        },
+        {
+            "type": "text",
+            "content": "Tenk på en pizza. Den blir til av en kokk (mennesker), mel og tomat (råvarer), en steinovn (maskin) og et lokale på et godt sted (lokasjon). Fjerner du én av delene, stopper produksjonen. Og her er poenget: blandingen er ulik fra sted til sted. Noen steder har billig strøm, andre har god jord eller en lang kyst. Derfor er ulike steder billigst til å lage ulike ting."
+        },
+        {
+            "type": "text",
+            "content": "Prøv selv i spillet under. Bland de fire faktorene og se hva som skjer når du flytter fabrikken til feil sted."
+        },
+        {
+            "type": "component",
+            "name": "MicroGame",
+            "props": { "gameId": "produksjonsoppskriften-3d" }
+        },
+        {
+            "type": "header",
+            "content": "Absolutt fortrinn: best til alt"
+        },
+        {
+            "type": "text",
+            "content": "Tenk deg byens beste lege. Hun er så dyktig at hun tilfeldigvis også er den raskeste i byen til å skrive på tastatur. Hun er altså best til to ting på en gang. Når noen er best til å lage noe, sier vi at de har et absolutt fortrinn."
+        },
+        {
+            "type": "text",
+            "content": "Siden legen er raskest til begge deler, burde hun vel skrive alle brevene sine selv? Det føles logisk. Men det er feil, og grunnen er det viktigste poenget i hele økonomifaget."
+        },
+        {
+            "type": "header",
+            "content": "Komparativt fortrinn: det du ofrer"
+        },
+        {
+            "type": "text",
+            "content": "Hver time legen bruker på å skrive brev, er en time hun ikke behandler pasienter. Det hun gir opp, kaller vi alternativkostnaden. For legen er alternativkostnaden ved å skrive brev enormt høy, fordi den samme timen kunne reddet liv."
+        },
+        {
+            "type": "text",
+            "content": "En sekretær er tregere på tastaturet enn legen. Men sekretæren gir nesten ingenting opp ved å skrive, for hen kan ikke behandle pasienter likevel. Derfor lønner det seg at legen behandler pasienter og sekretæren skriver brevene. Den som ofrer minst for å gjøre en oppgave, har et komparativt fortrinn i den oppgaven. Begge tjener på å bytte, selv om legen er best til alt."
+        },
+        {
+            "type": "text",
+            "content": "La oss sette tall på det. Ada og Bjørn lager brød og fisk. Ada er raskest til begge deler. Men hvem bør egentlig lage hva? Klikk deg gjennom og se."
+        },
+        {
+            "type": "component",
+            "name": "FortrinnsKalkulator"
+        },
+        {
+            "type": "header",
+            "content": "Hvorfor vinner begge?"
+        },
+        {
+            "type": "text",
+            "content": "Et bytte er ikke som en fotballkamp, der den ene vinner og den andre taper. Når du frivillig bytter, gjør du det fordi du vil ha det du får mer enn det du gir fra deg. Den andre tenker akkurat motsatt. Dere verdsetter tingene ulikt, og derfor blir begge gladere etterpå. Den østerrikske økonomen Ludwig von Mises kalte dette loven om samvirke: nettopp fordi vi er forskjellige og ofrer ulikt, lønner det seg å samarbeide. Det er selve grunnen til at samfunn finnes."
+        },
+        {
+            "type": "text",
+            "content": "Det fine er at også den som er svakest, har noe å bidra med. Du trenger ikke være best i verden til noe. Du trenger bare å finne det du ofrer minst på, og bytte til deg resten. Dette bygger videre på ideen om [arbeidsspesialisering](/samfunnskunnskap/okonomi/arbeidsspesialisering), der vi blir gode ved å gjøre én ting om og om igjen."
+        },
+        {
+            "type": "header",
+            "content": "Norge sin oppskrift"
+        },
+        {
+            "type": "text",
+            "content": "Norge er et godt eksempel. Vi har en lang kyst med kaldt, rent vann og masse billig vannkraft. Det er en lokasjon som er perfekt for oppdrettslaks, aluminium og skipsfart. Samtidig er vi få mennesker, og lønningene er høye. Da blir det dyrt for oss å sy t-skjorter."
+        },
+        {
+            "type": "text",
+            "content": "Derfor gjør Norge akkurat det Ada og Bjørn gjorde: vi lager mest av det vi ofrer minst på, som laks og olje, og bytter det mot t-skjorter fra land der mange hender gjør klesproduksjon billig. Begge land vinner. Du kan se hvordan dette spiller seg ut i hele verden i artikkelen om [global handel](/samfunnskunnskap/handel-og-infrastruktur/global-handel-oversikt)."
+        },
+        {
+            "type": "text",
+            "content": "Det er også derfor mange økonomer er skeptiske til toll og handelsmurer. Når et land legger høy avgift på varer utenfra, hindrer det byttet som kunne gjort begge sider rikere. Det blir litt som om legen ble nektet å la sekretæren skrive."
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "To tenkere bak ideen",
+                "content": "David Ricardo (1772-1823) var en britisk økonom som i 1817 forklarte hvorfor land tjener på å spesialisere seg, selv når ett land er best til alt. Ludwig von Mises (1881-1973) var en østerriksk økonom som tok ideen videre: han mente at den samme logikken forklarer hvorfor mennesker i det hele tatt slår seg sammen i samfunn."
+            }
+        },
+        {
+            "type": "header",
+            "content": "Kort oppsummert"
+        },
+        {
+            "type": "list",
+            "items": [
+                "Produksjon er en miks av mennesker, råvarer, maskiner og lokasjon.",
+                "Absolutt fortrinn betyr å være best til å lage noe.",
+                "Komparativt fortrinn betyr å ofre minst for å lage noe.",
+                "Hver bør lage det de har komparativt fortrinn i, og bytte til seg resten.",
+                "Da vinner begge parter, selv den som er dårligst til alt."
+            ]
+        },
+        {
+            "type": "quiz",
+            "questions": [
+                {
+                    "question": "Hva menes med at produksjon er en miks?",
+                    "options": [
+                        "At alt lages på en fabrikk",
+                        "At det trengs mennesker, råvarer, maskiner og lokasjon",
+                        "At man blander flere varer sammen",
+                        "At staten bestemmer hva som lages"
+                    ],
+                    "correctAnswer": 1
+                },
+                {
+                    "question": "Hva betyr det at noen har et absolutt fortrinn?",
+                    "options": [
+                        "At de ofrer minst for å lage varen",
+                        "At de bor på et godt sted",
+                        "At de er best til å lage varen",
+                        "At de eier en maskin"
+                    ],
+                    "correctAnswer": 2
+                },
+                {
+                    "question": "Hva er alternativkostnaden ved en handling?",
+                    "options": [
+                        "Det du må betale i penger",
+                        "Det beste du gir opp for å gjøre den",
+                        "Skatten staten tar",
+                        "Prisen på råvarene"
+                    ],
+                    "correctAnswer": 1
+                },
+                {
+                    "question": "Hvorfor bør legen la sekretæren skrive brevene, selv om legen er raskest?",
+                    "options": [
+                        "Fordi sekretæren trenger jobb",
+                        "Fordi legen ofrer pasienter ved å skrive selv",
+                        "Fordi det er ulovlig for leger å skrive",
+                        "Fordi sekretæren er billigere å ansette"
+                    ],
+                    "correctAnswer": 1
+                },
+                {
+                    "question": "Hvorfor eksporterer Norge laks og importerer t-skjorter?",
+                    "options": [
+                        "Fordi nordmenn ikke liker å sy",
+                        "Fordi vi har komparativt fortrinn i laks, men ikke i klær",
+                        "Fordi laks er dyrere enn klær",
+                        "Fordi andre land forbyr norsk klesproduksjon"
+                    ],
+                    "correctAnswer": 1
+                }
+            ]
+        }
+    ]
+}

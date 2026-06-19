@@ -1,6 +1,9 @@
 {
-  "buildId": 1781847137783,
+  "buildId": 1781852342219,
   "contentMap": {
+    "concept-absolutt-fortrinn": [
+      "content/concepts/absolutt-fortrinn.json"
+    ],
     "concept-adel": [
       "content/concepts/adel.json"
     ],
@@ -21,6 +24,9 @@
     ],
     "concept-allianse": [
       "content/concepts/allianse.json"
+    ],
+    "concept-alternativkostnad": [
+      "content/concepts/alternativkostnad.json"
     ],
     "concept-anarki": [
       "content/concepts/anarki.json"
@@ -504,6 +510,9 @@
     ],
     "concept-kommunisme": [
       "content/concepts/kommunisme.json"
+    ],
+    "concept-komparativt-fortrinn": [
+      "content/concepts/komparativt-fortrinn.json"
     ],
     "concept-komsakulturen": [
       "content/concepts/komsakulturen.json"
@@ -3347,6 +3356,9 @@
     "inflasjon-og-rente": [
       "content/samfunnskunnskap/okonomi/inflasjon-og-rente.json"
     ],
+    "komparativt-fortrinn": [
+      "content/samfunnskunnskap/okonomi/komparativt-fortrinn.json"
+    ],
     "naturlig-rente": [
       "content/samfunnskunnskap/okonomi/naturlig-rente.json"
     ],
@@ -3448,6 +3460,7 @@
     ]
   },
   "hierarchicalMap": {
+    "concepts/absolutt-fortrinn.json/absolutt-fortrinn": "content/concepts/absolutt-fortrinn.json",
     "concepts/adel.json/adel": "content/concepts/adel.json",
     "concepts/aerlighet.json/aerlighet": "content/concepts/aerlighet.json",
     "concepts/agens.json/agens": "content/concepts/agens.json",
@@ -3455,6 +3468,7 @@
     "concepts/aksemaktene.json/aksemaktene": "content/concepts/aksemaktene.json",
     "concepts/aksjeselskap.json/aksjeselskap": "content/concepts/aksjeselskap.json",
     "concepts/allianse.json/allianse": "content/concepts/allianse.json",
+    "concepts/alternativkostnad.json/alternativkostnad": "content/concepts/alternativkostnad.json",
     "concepts/anarki.json/anarki": "content/concepts/anarki.json",
     "concepts/anarko-kapitalisme.json/anarko-kapitalisme": "content/concepts/anarko-kapitalisme.json",
     "concepts/anarko-kommunisme.json/anarko-kommunisme": "content/concepts/anarko-kommunisme.json",
@@ -3616,6 +3630,7 @@
     "concepts/koloni.json/koloni": "content/concepts/koloni.json",
     "concepts/kommentarsetning.json/kommentarsetning": "content/concepts/kommentarsetning.json",
     "concepts/kommunisme.json/kommunisme": "content/concepts/kommunisme.json",
+    "concepts/komparativt-fortrinn.json/komparativt-fortrinn": "content/concepts/komparativt-fortrinn.json",
     "concepts/komsakulturen.json/komsakulturen": "content/concepts/komsakulturen.json",
     "concepts/konfirmasjon.json/konfirmasjon": "content/concepts/konfirmasjon.json",
     "concepts/konfusianisme.json/konfusianisme": "content/concepts/konfusianisme.json",
@@ -4568,6 +4583,7 @@
     "samfunnskunnskap/okonomi/arbeidsspesialisering": "content/samfunnskunnskap/okonomi/arbeidsspesialisering.json",
     "samfunnskunnskap/okonomi/finanskriser": "content/samfunnskunnskap/okonomi/finanskriser.json",
     "samfunnskunnskap/okonomi/inflasjon-og-rente": "content/samfunnskunnskap/okonomi/inflasjon-og-rente.json",
+    "samfunnskunnskap/okonomi/komparativt-fortrinn": "content/samfunnskunnskap/okonomi/komparativt-fortrinn.json",
     "samfunnskunnskap/okonomi/naturlig-rente": "content/samfunnskunnskap/okonomi/naturlig-rente.json",
     "samfunnskunnskap/okonomi/okonomiske-skoler": "content/samfunnskunnskap/okonomi/okonomiske-skoler.json",
     "samfunnskunnskap/okonomi/pengesystem-vs-naturalhandel": "content/samfunnskunnskap/okonomi/pengesystem-vs-naturalhandel.json",
