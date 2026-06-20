@@ -82,8 +82,18 @@ const KaravanenOverSahara3D = lazy(() => import('./KaravanenOverSahara3D'));
 const RiketLangsNiger3D = lazy(() => import('./RiketLangsNiger3D'));
 const Karantenelinja3D = lazy(() => import('./Karantenelinja3D'));
 const Produksjonsoppskriften3D = lazy(() => import('./Produksjonsoppskriften3D'));
+const Rutebyen3D = lazy(() => import('./Rutebyen3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
+    'rutebyen-mohenjo-daro': {
+        id: 'rutebyen-mohenjo-daro',
+        title: 'Rutebyen: Mohenjo-daro',
+        description:
+            'Bygg en av verdens forste planlagte byer i tre steg. Dra de skjeve husene inn paa rutenettet saa rette gater vokser fram som et sjakkbrett, klikk deg gjennom gatene og legg lokk over det lukkede avlopet under hver gate, og reis til slutt Det store badet i sentrum. Lyspaeren: Mohenjo-daro vokste ikke vilt og tilfeldig, den ble TEGNET forst og bygd etterpaa, med rette gater, like hus og verdens forste bymessige kloakk for over 4000 ar siden.',
+        estimatedSeconds: 150,
+        loader: () => import('./Rutebyen3D'),
+        Component: Rutebyen3D as never,
+    },
     'produksjonsoppskriften-3d': {
         id: 'produksjonsoppskriften-3d',
         title: 'Produksjonsoppskriften',

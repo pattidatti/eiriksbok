@@ -1,224 +1,231 @@
 {
-    "id": "indusdalen",
-    "title": "Indusdalen: Sivilisasjonen som forsvant",
-    "layout": "rich",
-    "year": "2600 fvt – 1900 fvt",
-    "category": "Tidlige sivilisasjoner",
-    "readTime": "9 min lesning",
-    "heroImage": "/images/jordbruk-og-sivilisasjoner/indusdalen-hero.webp",
-    "details": [
-        "En av verdens fire eldste sivilisasjoner, sammen med Mesopotamia, Egypt og Kina.",
-        "Hadde planlagte byer med avløp i hvert eneste hus — 4000 år før det var vanlig i Europa.",
-        "Skriften deres er aldri blitt lest. Vi vet ikke engang hva de kalte seg selv."
-    ],
-    "content": [
-        {
-            "type": "text",
-            "content": "En jente på rundt fjorten år går hjem gjennom gatene i Mohenjo-daro. Året er 2500 fvt. Hun bærer en krukke med vann hun nettopp har hentet fra brønnen på torget. Gatene er rette som et rutenett, så det er lett å finne fram. Hun passerer hus med murvegger, og når hun kommer hjem, går vannet fra kjøkkenet rett ned i et avløpsrør under gulvet. Alt dette skjer i en by som er like stor som datidens største byer i Egypt og Mesopotamia. Likevel har du kanskje aldri hørt om den. Velkommen til Indusdalen — den glemte sivilisasjonen."
-        },
-        {
-            "type": "image",
-            "src": "/images/jordbruk-og-sivilisasjoner/indusdalen-hero.webp",
-            "alt": "Ung jente med leirkrukke i en planlagt by i Indusdalen, rette gater og murhus i bakgrunnen",
-            "caption": "Mohenjo-daro hadde rette gater i et rutenett — som New York City, men 4500 år tidligere."
-        },
-        {
-            "type": "header",
-            "text": "Mellom fjell og hav"
-        },
-        {
-            "type": "text",
-            "content": "Indusdalen ligger der dagens Pakistan, nordvest-India og deler av Afghanistan møtes. Elven Indus renner ned fra Himalaya og ut i Det arabiske hav. Som Nilen i [Egypt](/historie/jordbruk-og-sivilisasjoner/egypt), gjorde elven jorda fruktbar. Hver vår smeltet snøen i fjellene og elven flommet over. Bønder kunne høste hvete, bygg og verdens første dyrkede bomull her. Jorda langs Indus var like rik som jorda i [Mesopotamia](/historie/jordbruk-og-sivilisasjoner/mesopotamia). Indusdalen, Egypt og Mesopotamia blomstret omtrent samtidig - tre store elvesamfunn som viste at jordbruket gjorde byer mulig flere steder på én gang."
-        },
-        {
-            "type": "text",
-            "content": "På sitt største, rundt 2500 fvt., dekket Indusdalen et område like stort som Vest-Europa. Det er mye større enn Egypt eller Mesopotamia var i samme periode. Vi har funnet over 1500 byer og landsbyer her. De to største, Mohenjo-daro og Harappa, hadde trolig rundt 40 000 innbyggere hver. Det var enorme tall for sin tid."
-        },
-        {
-            "type": "header",
-            "text": "Verdens første planlagte byer"
-        },
-        {
-            "type": "text",
-            "content": "Det som overrasker arkeologene mest, er hvordan byene er bygget. Gatene går rett nord–sør og rett øst–vest, som et sjakkbrett. Husene har samme stil over alt: stein-fundament, murvegger og flatt tak. I Mesopotamia og Egypt vokste byene mer tilfeldig, men i Indusdalen ser det ut som om noen planla det hele før de begynte å bygge."
-        },
-        {
-            "type": "text",
-            "content": "Avløpssystemet er enda mer overraskende. Hvert hus hadde sin egen brønn for drikkevann, og vasker og toaletter rant ut i et nettverk av lukkede avløpsrør under gatene. Slike avløp fantes ikke igjen i Europa før på 1800-tallet. Tenk på det: en by i 2500 fvt. hadde bedre kloakk enn London i 1800-tallets begynnelse."
-        },
-        {
-            "type": "component",
-            "name": "FactBox",
-            "props": {
-                "title": "Det store badet i Mohenjo-daro",
-                "content": "Midt i Mohenjo-daro ligger et stort bygget basseng, omtrent 12 ganger 7 meter. Veggene er tettet med bek så vannet ikke skulle lekke ut. Forskere tror det var brukt til rituelle vaskinger, kanskje religiøse. Det er det eldste vannbassenget vi kjenner til som er bygget av mennesker."
-            }
-        },
-        {
-            "type": "header",
-            "text": "Et samfunn uten konger?"
-        },
-        {
-            "type": "text",
-            "content": "Når arkeologer graver fram en gammel by, leter de gjerne etter de største og fineste bygningene. Det er der herskerne pleide å bo. Men i Indusdalen finnes det ingen palasser. Ingen kongegraver. Ingen statuer av store ledere. Husene i byen er omtrent like store, og selv små familier hadde innlagt avløp."
-        },
-        {
-            "type": "text",
-            "content": "Hva betyr dette? Noen forskere tror at indusfolket levde i et samfunn uten konger — kanskje styrt av prester, råd eller handelsmenn. Andre mener at lederne kan ha fantes, men at de levde enkelt og ikke ville vise fram makten sin. Få våpen er funnet, og det er nesten ingen tegn på store slag. Sammenlignet med Mesopotamia, der konger stadig kriget mot hverandre, virker Indusdalen påfallende fredelig."
-        },
-        {
-            "type": "image",
-            "src": "/images/jordbruk-og-sivilisasjoner/indusdalen-01.webp",
-            "alt": "Utgravde murvegger og smale gater i Mohenjo-daros ruiner, varmt ettermiddagslys",
-            "caption": "Ruinene av Mohenjo-daro i dagens Pakistan. Selv etter 4500 år ser man klart hvor rette gatene var."
-        },
-        {
-            "type": "header",
-            "text": "Skriften ingen kan lese"
-        },
-        {
-            "type": "text",
-            "content": "Indusfolket etterlot seg over 4000 innskrifter, ofte risset inn på små seglstein laget av såpestein. Tegnene er nesten 400 forskjellige. Det høres ut som mye, men det er ikke nok til at språkforskere kan knekke koden. De fleste innskriftene er bare fire eller fem tegn lange — for korte til å gi oss noe sikkert holdepunkt."
-        },
-        {
-            "type": "text",
-            "content": "I over hundre år har forskere prøvd å lese tegnene. Noen mener de står for et tidlig dravidisk språk, andre tror det er sanskrit, og noen lurer på om det i det hele tatt er et språk eller bare symboler. Ingen har vunnet diskusjonen. Indus-skriften er en av historiens største uløste gåter. Vi vet ikke engang hva indusfolket kalte seg selv — navnet 'indusfolket' har vi gitt dem."
-        },
-        {
-            "type": "component",
-            "name": "IndusMysteryBoard",
-            "props": {
-                "title": "Bygg ditt eget bilde av Indusdalen"
-            }
-        },
-        {
-            "type": "header",
-            "text": "Hvorfor forsvant de?"
-        },
-        {
-            "type": "text",
-            "content": "Rundt 1900 fvt. begynner noe merkelig å skje. Byer som har vært befolket i 700 år, tømmer seg gradvis. Brønnene fylles av sand. Avløpene blir tette. Folk flytter ut, og ingen bygger nye byer. Innen 1700 fvt. er Mohenjo-daro og Harappa nesten tomme. Hva skjedde?"
-        },
-        {
-            "type": "text",
-            "content": "Det finnes flere teorier. En av de sterkeste handler om klimaendring. Forskere har funnet tegn på at monsunregnet ble svakere over flere hundre år. Tørke kan ha gjort jorda ufruktbar. En annen teori er at elver skiftet løp. Sarasvati, en stor elv som indusfolket bygde byer ved, tørket gradvis ut og forsvant. Atter andre peker på indre uro eller sykdom. Sannheten er at vi ikke vet helt sikkert. Indusdalen forsvant uten å etterlate seg en klar forklaring."
-        },
-        {
-            "type": "component",
-            "name": "TimelineComponent",
-            "props": {
-                "title": "Indusdalens livshistorie",
-                "compact": true,
-                "events": [
-                    {
-                        "date": "7000 fvt",
-                        "title": "Første bønder",
-                        "description": "De første jordbrukerne slår seg ned langs Indus. De dyrker hvete, bygg og avler kveg."
-                    },
-                    {
-                        "date": "2600 fvt",
-                        "title": "Storbyene blomstrer",
-                        "description": "Mohenjo-daro og Harappa når sitt høydepunkt. Standardiserte vekter brukes over hele området."
-                    },
-                    {
-                        "date": "2000 fvt",
-                        "title": "Klimaet endrer seg",
-                        "description": "Monsunen blir svakere. Elven Sarasvati tørker gradvis ut. Avlingene minker."
-                    },
-                    {
-                        "date": "1900 fvt",
-                        "title": "Byene tømmes",
-                        "description": "Innbyggerne forlater de store byene. Få bygger nye. Sivilisasjonen oppløses langsomt."
-                    },
-                    {
-                        "date": "1500 fvt",
-                        "title": "Indusdalen blir glemt",
-                        "description": "Sivilisasjonen forsvinner fra historien. Først i 1921 begynner arkeologer å grave fram ruinene."
-                    }
-                ]
-            }
-        },
-        {
-            "type": "image",
-            "src": "/images/jordbruk-og-sivilisasjoner/indusdalen-02.webp",
-            "alt": "Tørr elveseng og forlatte murruiner i Indusdalen, vinden virvler opp støv",
-            "caption": "Da elvene endret løp og monsunen svekket seg, ble bærekraften brutt. Indusdalen forsvant gradvis i støvet."
-        },
-        {
-            "type": "header",
-            "text": "Hva lærer vi av Indusdalen?"
-        },
-        {
-            "type": "text",
-            "content": "Indusdalen tvinger oss til å revurdere hva en avansert sivilisasjon er. Uten [overgangen fra jegere til bønder](/historie/jordbruk-og-sivilisasjoner/jordbruk-og-sivilisasjoner) hadde verken Indusdalen eller de andre tidlige sivilisasjonene kunnet oppstå. Det var faste avlinger som gjorde byene mulige. Samtidig tenker vi ofte at store kulturer trenger konger, hærer og kriger for å vokse. Indusdalen viser at det ikke alltid stemmer. Et samfunn kan være velorganisert, teknologisk fremragende og dekke et enormt område, uten at noen åpenbar enehersker styrer det."
-        },
-        {
-            "type": "text",
-            "content": "Den lærer oss også at sivilisasjoner ikke er evige. En kultur som blomstret i nesten tusen år, kunne forsvinne i løpet av noen få generasjoner når naturen endret seg. Det er en påminnelse om hvor sårbare også våre egne samfunn kan være. Endelig viser Indusdalen at historien er full av hull. Vi har funn, men ingen tekst. Vi har byer, men ingen navn. Arkeologien er detektivarbeid — og noen ganger forblir saken uoppklart."
-        },
-        {
-            "type": "component",
-            "name": "Quiz",
-            "props": {
-                "questions": [
-                    {
-                        "question": "Hvor lå Indusdalen?",
-                        "options": [
-                            "Mellom Eufrat og Tigris, i dagens Irak",
-                            "Langs Nilen, i dagens Egypt",
-                            "I området der Pakistan, nordvest-India og Afghanistan møtes",
-                            "I dagens Kina, langs Den gule elven"
-                        ],
-                        "answer": "I området der Pakistan, nordvest-India og Afghanistan møtes",
-                        "explanation": "Indusdalen er oppkalt etter elven Indus, som renner fra Himalaya til Det arabiske hav gjennom det som i dag er Pakistan og nordvest-India."
-                    },
-                    {
-                        "question": "Hva er spesielt med byene i Indusdalen?",
-                        "options": [
-                            "De var bygget av tre og hadde høye tårn",
-                            "De var planlagt på forhånd med rette gater og innlagt avløp",
-                            "De var bygget rundt store kongepalasser",
-                            "De var underjordiske og skjult for fiender"
-                        ],
-                        "answer": "De var planlagt på forhånd med rette gater og innlagt avløp",
-                        "explanation": "Mohenjo-daro og Harappa hadde rutenett-gater og avløp i hvert hus — 4000 år før dette ble vanlig i Europa."
-                    },
-                    {
-                        "question": "Hvorfor mener forskere at Indusdalen kanskje var et fredelig samfunn?",
-                        "options": [
-                            "Fordi det er funnet flere fredsavtaler i skriften deres",
-                            "Fordi det er funnet få våpen og ingen tegn på store slag",
-                            "Fordi byene var bygget uten murer",
-                            "Fordi det står i mesopotamiske tekster"
-                        ],
-                        "answer": "Fordi det er funnet få våpen og ingen tegn på store slag",
-                        "explanation": "Det mangler også palasser og kongegraver. Det peker mot et mer likestilt og mindre krigersk samfunn enn nabokulturene."
-                    },
-                    {
-                        "question": "Hva er det største mysteriet med Indus-skriften?",
-                        "options": [
-                            "Vi har for få tekster til å lese dem",
-                            "Den ble brent av indusfolket selv",
-                            "Den er for komplisert til å tyde",
-                            "Den er skrevet på et språk vi har glemt"
-                        ],
-                        "answer": "Vi har for få tekster til å lese dem",
-                        "explanation": "De fleste innskrifter er bare 4–5 tegn lange. Det er for kort til at språkforskere kan knekke koden."
-                    },
-                    {
-                        "question": "Hva er den mest sannsynlige grunnen til at Indusdalen forsvant?",
-                        "options": [
-                            "En stor erobring fra Mesopotamia",
-                            "En vulkan ødela byene",
-                            "Klimaendringer og elver som skiftet løp gjorde jorda ufruktbar",
-                            "En pest drepte alle innbyggerne"
-                        ],
-                        "answer": "Klimaendringer og elver som skiftet løp gjorde jorda ufruktbar",
-                        "explanation": "Monsunen ble svakere over flere hundre år, og elven Sarasvati tørket ut. Men det er fortsatt usikkert hva som var hovedårsaken."
-                    }
-                ]
-            }
-        }
-    ],
-    "timeline": []
+  "id": "indusdalen",
+  "title": "Indusdalen: Sivilisasjonen som forsvant",
+  "layout": "rich",
+  "year": "2600 fvt – 1900 fvt",
+  "category": "Tidlige sivilisasjoner",
+  "readTime": "9 min lesning",
+  "heroImage": "/images/jordbruk-og-sivilisasjoner/indusdalen-hero.webp",
+  "details": [
+    "En av verdens fire eldste sivilisasjoner, sammen med Mesopotamia, Egypt og Kina.",
+    "Hadde planlagte byer med avløp i hvert eneste hus — 4000 år før det var vanlig i Europa.",
+    "Skriften deres er aldri blitt lest. Vi vet ikke engang hva de kalte seg selv."
+  ],
+  "content": [
+    {
+      "type": "text",
+      "content": "En jente på rundt fjorten år går hjem gjennom gatene i Mohenjo-daro. Året er 2500 fvt. Hun bærer en krukke med vann hun nettopp har hentet fra brønnen på torget. Gatene er rette som et rutenett, så det er lett å finne fram. Hun passerer hus med murvegger, og når hun kommer hjem, går vannet fra kjøkkenet rett ned i et avløpsrør under gulvet. Alt dette skjer i en by som er like stor som datidens største byer i Egypt og Mesopotamia. Likevel har du kanskje aldri hørt om den. Velkommen til Indusdalen — den glemte sivilisasjonen."
+    },
+    {
+      "type": "image",
+      "src": "/images/jordbruk-og-sivilisasjoner/indusdalen-hero.webp",
+      "alt": "Ung jente med leirkrukke i en planlagt by i Indusdalen, rette gater og murhus i bakgrunnen",
+      "caption": "Mohenjo-daro hadde rette gater i et rutenett — som New York City, men 4500 år tidligere."
+    },
+    {
+      "type": "header",
+      "text": "Mellom fjell og hav"
+    },
+    {
+      "type": "text",
+      "content": "Indusdalen ligger der dagens Pakistan, nordvest-India og deler av Afghanistan møtes. Elven Indus renner ned fra Himalaya og ut i Det arabiske hav. Som Nilen i [Egypt](/historie/jordbruk-og-sivilisasjoner/egypt), gjorde elven jorda fruktbar. Hver vår smeltet snøen i fjellene og elven flommet over. Bønder kunne høste hvete, bygg og verdens første dyrkede bomull her. Jorda langs Indus var like rik som jorda i [Mesopotamia](/historie/jordbruk-og-sivilisasjoner/mesopotamia). Indusdalen, Egypt og Mesopotamia blomstret omtrent samtidig - tre store elvesamfunn som viste at jordbruket gjorde byer mulig flere steder på én gang."
+    },
+    {
+      "type": "text",
+      "content": "På sitt største, rundt 2500 fvt., dekket Indusdalen et område like stort som Vest-Europa. Det er mye større enn Egypt eller Mesopotamia var i samme periode. Vi har funnet over 1500 byer og landsbyer her. De to største, Mohenjo-daro og Harappa, hadde trolig rundt 40 000 innbyggere hver. Det var enorme tall for sin tid."
+    },
+    {
+      "type": "header",
+      "text": "Verdens første planlagte byer"
+    },
+    {
+      "type": "text",
+      "content": "Det som overrasker arkeologene mest, er hvordan byene er bygget. Gatene går rett nord–sør og rett øst–vest, som et sjakkbrett. Husene har samme stil over alt: stein-fundament, murvegger og flatt tak. I Mesopotamia og Egypt vokste byene mer tilfeldig, men i Indusdalen ser det ut som om noen planla det hele før de begynte å bygge."
+    },
+    {
+      "type": "text",
+      "content": "Avløpssystemet er enda mer overraskende. Hvert hus hadde sin egen brønn for drikkevann, og vasker og toaletter rant ut i et nettverk av lukkede avløpsrør under gatene. Slike avløp fantes ikke igjen i Europa før på 1800-tallet. Tenk på det: en by i 2500 fvt. hadde bedre kloakk enn London i 1800-tallets begynnelse."
+    },
+    {
+      "type": "component",
+      "name": "FactBox",
+      "props": {
+        "title": "Det store badet i Mohenjo-daro",
+        "content": "Midt i Mohenjo-daro ligger et stort bygget basseng, omtrent 12 ganger 7 meter. Veggene er tettet med bek så vannet ikke skulle lekke ut. Forskere tror det var brukt til rituelle vaskinger, kanskje religiøse. Det er det eldste vannbassenget vi kjenner til som er bygget av mennesker."
+      }
+    },
+    {
+      "type": "component",
+      "name": "MicroGame",
+      "props": {
+        "gameId": "rutebyen-mohenjo-daro"
+      }
+    },
+    {
+      "type": "header",
+      "text": "Et samfunn uten konger?"
+    },
+    {
+      "type": "text",
+      "content": "Når arkeologer graver fram en gammel by, leter de gjerne etter de største og fineste bygningene. Det er der herskerne pleide å bo. Men i Indusdalen finnes det ingen palasser. Ingen kongegraver. Ingen statuer av store ledere. Husene i byen er omtrent like store, og selv små familier hadde innlagt avløp."
+    },
+    {
+      "type": "text",
+      "content": "Hva betyr dette? Noen forskere tror at indusfolket levde i et samfunn uten konger — kanskje styrt av prester, råd eller handelsmenn. Andre mener at lederne kan ha fantes, men at de levde enkelt og ikke ville vise fram makten sin. Få våpen er funnet, og det er nesten ingen tegn på store slag. Sammenlignet med Mesopotamia, der konger stadig kriget mot hverandre, virker Indusdalen påfallende fredelig."
+    },
+    {
+      "type": "image",
+      "src": "/images/jordbruk-og-sivilisasjoner/indusdalen-01.webp",
+      "alt": "Utgravde murvegger og smale gater i Mohenjo-daros ruiner, varmt ettermiddagslys",
+      "caption": "Ruinene av Mohenjo-daro i dagens Pakistan. Selv etter 4500 år ser man klart hvor rette gatene var."
+    },
+    {
+      "type": "header",
+      "text": "Skriften ingen kan lese"
+    },
+    {
+      "type": "text",
+      "content": "Indusfolket etterlot seg over 4000 innskrifter, ofte risset inn på små seglstein laget av såpestein. Tegnene er nesten 400 forskjellige. Det høres ut som mye, men det er ikke nok til at språkforskere kan knekke koden. De fleste innskriftene er bare fire eller fem tegn lange — for korte til å gi oss noe sikkert holdepunkt."
+    },
+    {
+      "type": "text",
+      "content": "I over hundre år har forskere prøvd å lese tegnene. Noen mener de står for et tidlig dravidisk språk, andre tror det er sanskrit, og noen lurer på om det i det hele tatt er et språk eller bare symboler. Ingen har vunnet diskusjonen. Indus-skriften er en av historiens største uløste gåter. Vi vet ikke engang hva indusfolket kalte seg selv — navnet 'indusfolket' har vi gitt dem."
+    },
+    {
+      "type": "component",
+      "name": "IndusMysteryBoard",
+      "props": {
+        "title": "Bygg ditt eget bilde av Indusdalen"
+      }
+    },
+    {
+      "type": "header",
+      "text": "Hvorfor forsvant de?"
+    },
+    {
+      "type": "text",
+      "content": "Rundt 1900 fvt. begynner noe merkelig å skje. Byer som har vært befolket i 700 år, tømmer seg gradvis. Brønnene fylles av sand. Avløpene blir tette. Folk flytter ut, og ingen bygger nye byer. Innen 1700 fvt. er Mohenjo-daro og Harappa nesten tomme. Hva skjedde?"
+    },
+    {
+      "type": "text",
+      "content": "Det finnes flere teorier. En av de sterkeste handler om klimaendring. Forskere har funnet tegn på at monsunregnet ble svakere over flere hundre år. Tørke kan ha gjort jorda ufruktbar. En annen teori er at elver skiftet løp. Sarasvati, en stor elv som indusfolket bygde byer ved, tørket gradvis ut og forsvant. Atter andre peker på indre uro eller sykdom. Sannheten er at vi ikke vet helt sikkert. Indusdalen forsvant uten å etterlate seg en klar forklaring."
+    },
+    {
+      "type": "component",
+      "name": "TimelineComponent",
+      "props": {
+        "title": "Indusdalens livshistorie",
+        "compact": true,
+        "events": [
+          {
+            "date": "7000 fvt",
+            "title": "Første bønder",
+            "description": "De første jordbrukerne slår seg ned langs Indus. De dyrker hvete, bygg og avler kveg."
+          },
+          {
+            "date": "2600 fvt",
+            "title": "Storbyene blomstrer",
+            "description": "Mohenjo-daro og Harappa når sitt høydepunkt. Standardiserte vekter brukes over hele området."
+          },
+          {
+            "date": "2000 fvt",
+            "title": "Klimaet endrer seg",
+            "description": "Monsunen blir svakere. Elven Sarasvati tørker gradvis ut. Avlingene minker."
+          },
+          {
+            "date": "1900 fvt",
+            "title": "Byene tømmes",
+            "description": "Innbyggerne forlater de store byene. Få bygger nye. Sivilisasjonen oppløses langsomt."
+          },
+          {
+            "date": "1500 fvt",
+            "title": "Indusdalen blir glemt",
+            "description": "Sivilisasjonen forsvinner fra historien. Først i 1921 begynner arkeologer å grave fram ruinene."
+          }
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "src": "/images/jordbruk-og-sivilisasjoner/indusdalen-02.webp",
+      "alt": "Tørr elveseng og forlatte murruiner i Indusdalen, vinden virvler opp støv",
+      "caption": "Da elvene endret løp og monsunen svekket seg, ble bærekraften brutt. Indusdalen forsvant gradvis i støvet."
+    },
+    {
+      "type": "header",
+      "text": "Hva lærer vi av Indusdalen?"
+    },
+    {
+      "type": "text",
+      "content": "Indusdalen tvinger oss til å revurdere hva en avansert sivilisasjon er. Uten [overgangen fra jegere til bønder](/historie/jordbruk-og-sivilisasjoner/jordbruk-og-sivilisasjoner) hadde verken Indusdalen eller de andre tidlige sivilisasjonene kunnet oppstå. Det var faste avlinger som gjorde byene mulige. Samtidig tenker vi ofte at store kulturer trenger konger, hærer og kriger for å vokse. Indusdalen viser at det ikke alltid stemmer. Et samfunn kan være velorganisert, teknologisk fremragende og dekke et enormt område, uten at noen åpenbar enehersker styrer det."
+    },
+    {
+      "type": "text",
+      "content": "Den lærer oss også at sivilisasjoner ikke er evige. En kultur som blomstret i nesten tusen år, kunne forsvinne i løpet av noen få generasjoner når naturen endret seg. Det er en påminnelse om hvor sårbare også våre egne samfunn kan være. Endelig viser Indusdalen at historien er full av hull. Vi har funn, men ingen tekst. Vi har byer, men ingen navn. Arkeologien er detektivarbeid — og noen ganger forblir saken uoppklart."
+    },
+    {
+      "type": "component",
+      "name": "Quiz",
+      "props": {
+        "questions": [
+          {
+            "question": "Hvor lå Indusdalen?",
+            "options": [
+              "Mellom Eufrat og Tigris, i dagens Irak",
+              "Langs Nilen, i dagens Egypt",
+              "I området der Pakistan, nordvest-India og Afghanistan møtes",
+              "I dagens Kina, langs Den gule elven"
+            ],
+            "answer": "I området der Pakistan, nordvest-India og Afghanistan møtes",
+            "explanation": "Indusdalen er oppkalt etter elven Indus, som renner fra Himalaya til Det arabiske hav gjennom det som i dag er Pakistan og nordvest-India."
+          },
+          {
+            "question": "Hva er spesielt med byene i Indusdalen?",
+            "options": [
+              "De var bygget av tre og hadde høye tårn",
+              "De var planlagt på forhånd med rette gater og innlagt avløp",
+              "De var bygget rundt store kongepalasser",
+              "De var underjordiske og skjult for fiender"
+            ],
+            "answer": "De var planlagt på forhånd med rette gater og innlagt avløp",
+            "explanation": "Mohenjo-daro og Harappa hadde rutenett-gater og avløp i hvert hus — 4000 år før dette ble vanlig i Europa."
+          },
+          {
+            "question": "Hvorfor mener forskere at Indusdalen kanskje var et fredelig samfunn?",
+            "options": [
+              "Fordi det er funnet flere fredsavtaler i skriften deres",
+              "Fordi det er funnet få våpen og ingen tegn på store slag",
+              "Fordi byene var bygget uten murer",
+              "Fordi det står i mesopotamiske tekster"
+            ],
+            "answer": "Fordi det er funnet få våpen og ingen tegn på store slag",
+            "explanation": "Det mangler også palasser og kongegraver. Det peker mot et mer likestilt og mindre krigersk samfunn enn nabokulturene."
+          },
+          {
+            "question": "Hva er det største mysteriet med Indus-skriften?",
+            "options": [
+              "Vi har for få tekster til å lese dem",
+              "Den ble brent av indusfolket selv",
+              "Den er for komplisert til å tyde",
+              "Den er skrevet på et språk vi har glemt"
+            ],
+            "answer": "Vi har for få tekster til å lese dem",
+            "explanation": "De fleste innskrifter er bare 4–5 tegn lange. Det er for kort til at språkforskere kan knekke koden."
+          },
+          {
+            "question": "Hva er den mest sannsynlige grunnen til at Indusdalen forsvant?",
+            "options": [
+              "En stor erobring fra Mesopotamia",
+              "En vulkan ødela byene",
+              "Klimaendringer og elver som skiftet løp gjorde jorda ufruktbar",
+              "En pest drepte alle innbyggerne"
+            ],
+            "answer": "Klimaendringer og elver som skiftet løp gjorde jorda ufruktbar",
+            "explanation": "Monsunen ble svakere over flere hundre år, og elven Sarasvati tørket ut. Men det er fortsatt usikkert hva som var hovedårsaken."
+          }
+        ]
+      }
+    }
+  ],
+  "timeline": []
 }
