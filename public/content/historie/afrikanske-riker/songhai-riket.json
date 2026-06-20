@@ -5,7 +5,7 @@
     "year": "1464-1591",
     "category": "Vest-Afrika",
     "readTime": "8 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/afrikanske-riker/songhai-riket-hero.webp",
     "details": [
         "Songhai ble det største riket i Afrikas historie, bygd langs elva Niger.",
         "Timbuktu var et verdenskjent senter for både handel og kunnskap.",
@@ -18,7 +18,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/afrikanske-riker/songhai-riket-01.webp",
             "alt": "Travel havneby ved elva Niger med lave leirhus og elvebåter",
             "caption": "Songhai-riket vokste fram langs den store elva Niger i Vest-Afrika."
         },
@@ -51,7 +51,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/afrikanske-riker/songhai-riket-02.webp",
             "alt": "Lærde menn leser håndskrevne bøker i et bibliotek i Timbuktu",
             "caption": "I Timbuktu kunne en god bok være verdt mer enn gull."
         },
@@ -73,7 +73,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/afrikanske-riker/songhai-riket-03.webp",
             "alt": "Marokkanske soldater med musketter møter et stort afrikansk rytteri",
             "caption": "Ved Tondibi i 1591 møtte skytevåpen for første gang Songhais store hær."
         },
