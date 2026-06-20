@@ -1,0 +1,161 @@
+{
+    "id": "songhai-riket",
+    "title": "Songhai-riket",
+    "layout": "rich",
+    "year": "1464-1591",
+    "category": "Vest-Afrika",
+    "readTime": "8 min lesning",
+    "heroImage": "/images/placeholder.webp",
+    "details": [
+        "Songhai ble det største riket i Afrikas historie, bygd langs elva Niger.",
+        "Timbuktu var et verdenskjent senter for både handel og kunnskap.",
+        "Riket falt i 1591 da en liten marokkansk hær med skytevåpen vant."
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "I 1591 skjedde noe som virket umulig. En liten hær på rundt 4000 soldater kom ut av Sahara, helt utslitt etter måneder i ørkenen. De møtte en hær fra Songhai som var mange ganger større. Likevel var det den lille hæren som vant, og et av historiens største riker brøt sammen på noen få timer. Hvordan kunne det skje? Svaret forteller mye om et av de mektigste rikene verden har sett, et rike de fleste aldri har hørt om: Songhai. For lenge før europeiske skip nådde kysten av Afrika, fantes det her store og rike kongedømmer med travle byer, lærde menn og handel over hele kontinentet."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Travel havneby ved elva Niger med lave leirhus og elvebåter",
+            "caption": "Songhai-riket vokste fram langs den store elva Niger i Vest-Afrika."
+        },
+        {
+            "type": "header",
+            "text": "Riket som vokste seg størst i Afrika"
+        },
+        {
+            "type": "text",
+            "content": "Songhai lå i Vest-Afrika, langs den store elva Niger. I starten var det bare et lite kongedømme rundt byen Gao. Men i mer enn hundre år hadde Mali-riket vært den store makten i området. Da Mali ble svakere på 1400-tallet, så Songhai sin sjanse og tok over. Du kan lese mer om forgjengeren i artikkelen om [Mansa Musa og Mali-riket](/historie/afrikanske-riker/mansa-musa-og-mali)."
+        },
+        {
+            "type": "text",
+            "content": "En sterk konge som het Sonni Ali bygde riket stort. Han var en dyktig hærfører som vant slag etter slag. I 1468 erobret han den berømte byen Timbuktu, og noen år senere tok han også den rike handelsbyen Djenné. Etter Sonni Ali vokste Songhai videre til det største riket i hele Afrikas historie. På sitt største strakte det seg over et område større enn hele Vest-Europa. Tusenvis av mennesker levde under den samme kongen og fulgte de samme lovene."
+        },
+        {
+            "type": "header",
+            "text": "Niger var rikets motorvei"
+        },
+        {
+            "type": "text",
+            "content": "Hemmeligheten bak makten til Songhai var elva Niger. Den buktet seg gjennom landet som en lang livsåre, og de tre store byene Gao, Timbuktu og Djenné lå alle langs vannet. På elva fraktet folk salt, gull, korn og soldater fra by til by. Å reise på elva var mye raskere og lettere enn å gå over land i den steikende heten. Songhai bygde derfor en egen krigsflåte av lange elvebåter. Med båtene kunne kongen flytte hæren sin raskt dit han trengte den, og handelsmenn kunne sende varer trygt mellom byene. Den som styrte elva, styrte handelen, og den som styrte handelen, ble rik og mektig. Prøv selv å knytte rikets byer sammen langs Niger."
+        },
+        {
+            "type": "component",
+            "name": "MicroGame",
+            "props": {
+                "gameId": "riket-langs-niger-3d"
+            }
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Lærde menn leser håndskrevne bøker i et bibliotek i Timbuktu",
+            "caption": "I Timbuktu kunne en god bok være verdt mer enn gull."
+        },
+        {
+            "type": "header",
+            "text": "Timbuktu, byen full av bøker"
+        },
+        {
+            "type": "text",
+            "content": "Midt i riket lå Timbuktu. Byen var kjent over hele verden, ikke bare for gull, men for kunnskap. Her fantes skoler, store moskeer og samlinger med tusenvis av håndskrevne bøker. En slik håndskrevet bok kalles et manuskript, og noen familier i Timbuktu eide hele biblioteker. Lærde menn kom langveisfra for å studere og undervise. Mange i Songhai var muslimer, og de leste tekstene til [islam](/historie/midtoesten/islams-fodsel) på samme måte som de lærde i den [islamske gullalderen](/historie/midtoesten/islamsk-gullaldet). I Timbuktu kunne en god bok være verdt mer enn gull, og det forteller mye om hvor høyt folk her satte kunnskap."
+        },
+        {
+            "type": "header",
+            "text": "Askia Muhammad ordner riket"
+        },
+        {
+            "type": "text",
+            "content": "Den mest kjente kongen het Askia Muhammad. Han var god til å styre. Han delte riket inn i mindre deler og satte egne menn til å lede hver del, slik at ordrer fra kongen nådde ut til hele riket. Han laget faste mål og vekter, slik at handelen ble lettere og mer rettferdig, og bygde opp en fast hær som kunne brukes når som helst. Han satte også egne dommere til å dømme i rettssaker. I 1496 dro Askia Muhammad på en lang pilegrimsreise til Mekka, slik mange muslimske ledere gjorde. En pilegrimsreise er en reise til et hellig sted. Han hadde med seg mye gull, og reisen viste hele verden hvor rikt og velorganisert Songhai var."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Marokkanske soldater med musketter møter et stort afrikansk rytteri",
+            "caption": "Ved Tondibi i 1591 møtte skytevåpen for første gang Songhais store hær."
+        },
+        {
+            "type": "header",
+            "text": "Hvorfor falt det største riket?"
+        },
+        {
+            "type": "text",
+            "content": "Songhai virket urokkelig. Men i 1591 kom slutten brått. Sultanen i Marokko ville ha kontroll over gullet og saltet. Han sendte en hær tvers over Sahara. Hæren var liten, men den hadde noe Songhai ikke hadde: skytevåpen. Musketter og kanoner var nye våpen, og verken spyd eller buer kunne måle seg med dem. Prøv selv å finne ut hvorfor den store hæren tapte."
+        },
+        {
+            "type": "component",
+            "name": "TondibiSlaget",
+            "props": {
+                "title": "Slaget ved Tondibi, 1591"
+            }
+        },
+        {
+            "type": "text",
+            "content": "Etter slaget ved Tondibi falt Songhai fra hverandre. Marokkanerne klarte aldri å styre det enorme området selv, så langt hjemmefra. I stedet ble det store riket delt opp i mange små deler som kranglet og kjempet seg imellom. Handelen over Sahara ble mindre, og de berømte byene mistet noe av sin gamle glans. Aldri igjen reiste det seg et like mektig rike i Vest-Afrika."
+        },
+        {
+            "type": "header",
+            "text": "Hvorfor dette er viktig"
+        },
+        {
+            "type": "text",
+            "content": "I lang tid fikk mange høre at Afrika ikke hadde noen stor historie før europeerne kom. Songhai viser at det er feil. Her fantes store, velstyrte riker med byer fulle av bøker og handel, lenge før europeiske skip nådde kysten. Da Songhai falt, endret mye seg. I årene etter vokste den europeiske handelen langs kysten, blant annet den grufulle [trekanthandelen](/historie/kolonialisering/trekanthandelen) med slaver over Atlanterhavet. Slaget ved Tondibi minner oss også om noe annet: en ny teknologi, som skytevåpen, kunne snu opp ned på styrkeforholdet i verden og felle selv det største riket. Tiden med de mektige vestafrikanske rikene var over."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hva gjorde Songhai til et så mektig rike?",
+                        "options": [
+                            "Kontroll over elva Niger og de rike handelsbyene",
+                            "Store skoger med tømmer",
+                            "Mange gruver med jern",
+                            "En sterk flåte på havet"
+                        ],
+                        "correctAnswer": 0,
+                        "explanation": "Niger var rikets motorvei. Den som styrte elva og handelsbyene, styrte handelen med gull og salt og ble rik og mektig."
+                    },
+                    {
+                        "question": "Hva var Timbuktu mest kjent for, i tillegg til gull?",
+                        "options": [
+                            "Kunnskap, med skoler og tusenvis av bøker",
+                            "Store idrettsleker",
+                            "Skipsbygging",
+                            "Vulkaner"
+                        ],
+                        "correctAnswer": 0,
+                        "explanation": "Timbuktu var et verdenskjent senter for kunnskap. Lærde menn kom langveisfra, og en god bok kunne være verdt mer enn gull."
+                    },
+                    {
+                        "question": "Hvorfor vant den lille marokkanske hæren ved Tondibi i 1591?",
+                        "options": [
+                            "De hadde skytevåpen som musketter og kanoner",
+                            "De var mange flere enn Songhai",
+                            "De kom om natten",
+                            "De hadde elefanter"
+                        ],
+                        "correctAnswer": 0,
+                        "explanation": "Marokko hadde få soldater, men de hadde skytevåpen. Spyd og buer kunne ikke måle seg med musketter og kanoner."
+                    },
+                    {
+                        "question": "Hva forteller historien om Songhai oss om Afrika?",
+                        "options": [
+                            "At Afrika hadde store, velstyrte riker lenge før europeerne kom",
+                            "At Afrika var tomt før europeerne kom",
+                            "At ingen drev handel i Afrika",
+                            "At det aldri fantes byer i Afrika"
+                        ],
+                        "correctAnswer": 0,
+                        "explanation": "Songhai viser at Afrika hadde mektige riker med handel og lærdom lenge før europeiske skip nådde kysten."
+                    }
+                ]
+            }
+        }
+    ],
+    "timeline": []
+}

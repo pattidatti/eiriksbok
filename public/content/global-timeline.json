@@ -2636,6 +2636,29 @@
       "geoConfidence": "tag"
     },
     {
+      "id": "songhai-riket",
+      "title": "Songhai-riket",
+      "description": "Det største riket i Afrikas historie vokste fram langs elva Niger, men falt for skytevåpen i 1591.",
+      "startDate": 1464,
+      "endDate": 1591,
+      "displayDate": "1464-1591",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "afrikanske-riker",
+      "link": "/historie/afrikanske-riker/songhai-riket",
+      "tags": [
+        "afrika",
+        "songhai",
+        "niger",
+        "timbuktu",
+        "middelalderen"
+      ],
+      "lat": 2,
+      "lng": 20,
+      "placeLabel": "Afrika",
+      "geoConfidence": "tag"
+    },
+    {
       "id": "topkapi-palasset",
       "title": "Topkapı: maktens palass",
       "description": "Hvordan makt faktisk fungerte bak palassmurene: sultanen, storvesiren og haremet i et spill av seremoni, intriger og kvinnemakt.",

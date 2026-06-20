@@ -1,5 +1,5 @@
 {
-  "buildId": 1781909150876,
+  "buildId": 1781918198876,
   "contentMap": {
     "concept-absolutt-fortrinn": [
       "content/concepts/absolutt-fortrinn.json"
@@ -1173,6 +1173,9 @@
     ],
     "mansa-musa-og-mali": [
       "content/historie/afrikanske-riker/mansa-musa-og-mali.json"
+    ],
+    "songhai-riket": [
+      "content/historie/afrikanske-riker/songhai-riket.json"
     ],
     "andre-verdenskrig-bakgrunn": [
       "content/historie/andre-verdenskrig/bakgrunn.json"
@@ -3851,6 +3854,7 @@
     "global-timeline.json/undefined/global-timeline": "content/global-timeline.json",
     "global-timeline.manual.json/undefined/global-timeline.manual": "content/global-timeline.manual.json",
     "historie/afrikanske-riker/mansa-musa-og-mali": "content/historie/afrikanske-riker/mansa-musa-og-mali.json",
+    "historie/afrikanske-riker/songhai-riket": "content/historie/afrikanske-riker/songhai-riket.json",
     "historie/andre-verdenskrig/bakgrunn": "content/historie/andre-verdenskrig/bakgrunn.json",
     "historie/andre-verdenskrig/konsekvenser": "content/historie/andre-verdenskrig/konsekvenser.json",
     "historie/andre-verdenskrig/konsentrasjonsleirene": "content/historie/andre-verdenskrig/konsentrasjonsleirene.json",
