@@ -79,6 +79,7 @@ const Sjoimperiet3D = lazy(() => import('./Sjoimperiet3D'));
 const AttedeltVei3D = lazy(() => import('./AttedeltVei3D'));
 const RentVannRorene3D = lazy(() => import('./RentVannRorene3D'));
 const KaravanenOverSahara3D = lazy(() => import('./KaravanenOverSahara3D'));
+const RiketLangsNiger3D = lazy(() => import('./RiketLangsNiger3D'));
 const Karantenelinja3D = lazy(() => import('./Karantenelinja3D'));
 const Produksjonsoppskriften3D = lazy(() => import('./Produksjonsoppskriften3D'));
 
@@ -109,6 +110,15 @@ export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.Laz
         estimatedSeconds: 150,
         loader: () => import('./KaravanenOverSahara3D'),
         Component: KaravanenOverSahara3D as never,
+    },
+    'riket-langs-niger-3d': {
+        id: 'riket-langs-niger-3d',
+        title: 'Bygg riket langs Niger',
+        description:
+            'Songhai var et elve-rike. Dra Songhais krigsbater opp elva Niger til de tre store handelsbyene Gao, Timbuktu og Djenne. For hver by som kommer under riket, reiser flagget seg, husene vokser og riket utvider seg langs elva. Lyspæren: kontroll over Niger og handelsbyene gjorde Songhai til det største riket Afrika har sett. Elva var rikets motorvei, som bandt byene sammen til ett mektig rike.',
+        estimatedSeconds: 120,
+        loader: () => import('./RiketLangsNiger3D'),
+        Component: RiketLangsNiger3D as never,
     },
     'attedelt-vei-hjulet': {
         id: 'attedelt-vei-hjulet',
