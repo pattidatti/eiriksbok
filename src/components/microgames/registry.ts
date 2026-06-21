@@ -80,6 +80,7 @@ const AttedeltVei3D = lazy(() => import('./AttedeltVei3D'));
 const RentVannRorene3D = lazy(() => import('./RentVannRorene3D'));
 const KaravanenOverSahara3D = lazy(() => import('./KaravanenOverSahara3D'));
 const RiketLangsNiger3D = lazy(() => import('./RiketLangsNiger3D'));
+const TvillingbyenKoumbiSaleh3D = lazy(() => import('./TvillingbyenKoumbiSaleh3D'));
 const Karantenelinja3D = lazy(() => import('./Karantenelinja3D'));
 const Produksjonsoppskriften3D = lazy(() => import('./Produksjonsoppskriften3D'));
 const Rutebyen3D = lazy(() => import('./Rutebyen3D'));
@@ -129,6 +130,15 @@ export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.Laz
         estimatedSeconds: 120,
         loader: () => import('./RiketLangsNiger3D'),
         Component: RiketLangsNiger3D as never,
+    },
+    'tvillingbyen-koumbi-saleh-3d': {
+        id: 'tvillingbyen-koumbi-saleh-3d',
+        title: 'Bygg tvillingbyen Koumbi Saleh',
+        description:
+            'Ghana-rikets hovedstad Koumbi Saleh var to byer i én. Dra de seks bygningene på plass: kongens palass, den hellige lunden og kongegravene i kongebyen, og moskeen, markedet og handelshusene i kjøpmannsbyen et stykke unna. Lyspæren: Ghanas hovedstad var to verdener side om side – en gammel afrikansk kongeby og en muslimsk handelsby – bundet sammen av handelen med gull og salt. Slik viser byen at to kulturer og to religioner kunne dele samme rike.',
+        estimatedSeconds: 140,
+        loader: () => import('./TvillingbyenKoumbiSaleh3D'),
+        Component: TvillingbyenKoumbiSaleh3D as never,
     },
     'attedelt-vei-hjulet': {
         id: 'attedelt-vei-hjulet',

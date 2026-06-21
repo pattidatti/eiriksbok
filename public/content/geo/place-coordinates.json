@@ -824,7 +824,7 @@
     },
     {
       "tag": "handel",
-      "count": 31
+      "count": 33
     },
     {
       "tag": "antikken",
@@ -863,6 +863,10 @@
       "count": 20
     },
     {
+      "tag": "middelalderen",
+      "count": 19
+    },
+    {
       "tag": "kultur",
       "count": 18
     },
@@ -893,10 +897,6 @@
     {
       "tag": "narrative",
       "count": 18
-    },
-    {
-      "tag": "middelalderen",
-      "count": 17
     },
     {
       "tag": "kristendom",
@@ -1387,6 +1387,10 @@
       "count": 4
     },
     {
+      "tag": "gull",
+      "count": 4
+    },
+    {
       "tag": "germansk",
       "count": 4
     },
@@ -1767,6 +1771,10 @@
       "count": 2
     },
     {
+      "tag": "salt",
+      "count": 2
+    },
+    {
       "tag": "inflasjon",
       "count": 2
     },
@@ -1896,10 +1904,6 @@
     },
     {
       "tag": "mali",
-      "count": 2
-    },
-    {
-      "tag": "gull",
       "count": 2
     },
     {

@@ -1,5 +1,5 @@
 {
-  "buildId": 1781933514670,
+  "buildId": 1782004579683,
   "contentMap": {
     "concept-absolutt-fortrinn": [
       "content/concepts/absolutt-fortrinn.json"
@@ -1170,6 +1170,9 @@
     ],
     "global-timeline.manual": [
       "content/global-timeline.manual.json"
+    ],
+    "ghana-riket": [
+      "content/historie/afrikanske-riker/ghana-riket.json"
     ],
     "mansa-musa-og-mali": [
       "content/historie/afrikanske-riker/mansa-musa-og-mali.json"
@@ -3853,6 +3856,7 @@
     "global-timeline-images.json/undefined/global-timeline-images": "content/global-timeline-images.json",
     "global-timeline.json/undefined/global-timeline": "content/global-timeline.json",
     "global-timeline.manual.json/undefined/global-timeline.manual": "content/global-timeline.manual.json",
+    "historie/afrikanske-riker/ghana-riket": "content/historie/afrikanske-riker/ghana-riket.json",
     "historie/afrikanske-riker/mansa-musa-og-mali": "content/historie/afrikanske-riker/mansa-musa-og-mali.json",
     "historie/afrikanske-riker/songhai-riket": "content/historie/afrikanske-riker/songhai-riket.json",
     "historie/andre-verdenskrig/bakgrunn": "content/historie/andre-verdenskrig/bakgrunn.json",
