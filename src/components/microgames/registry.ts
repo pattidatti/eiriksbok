@@ -84,8 +84,18 @@ const TvillingbyenKoumbiSaleh3D = lazy(() => import('./TvillingbyenKoumbiSaleh3D
 const Karantenelinja3D = lazy(() => import('./Karantenelinja3D'));
 const Produksjonsoppskriften3D = lazy(() => import('./Produksjonsoppskriften3D'));
 const Rutebyen3D = lazy(() => import('./Rutebyen3D'));
+const Trekanthandelen3D = lazy(() => import('./Trekanthandelen3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
+    'trekanthandelen-3d': {
+        id: 'trekanthandelen-3d',
+        title: 'Den dodelige trekanten',
+        description:
+            'Dra handelsskipet rundt de tre hjornene i den atlantiske trekant-handelen, og se hvorfor systemet aldri lot skipet seile tomt. Etappe 1: ferdigvarer fra Europa til Vest-Afrika. Etappe 2, Midtpassasjen: skipet frakter mennesker, stuet sammen under dekk, ingen feiring, bare det morke faktumet om hva systemet gjorde. Etappe 3: sukker og bomull tilbake til Europa. For hver etappe tegnes en linje, til trekanten er sluttet. Lyspaeren: hver etappe ga profitt og betalte for den neste, og hele kretslopet hvilte pa Midtpassasjen, der mennesker ble behandlet som last.',
+        estimatedSeconds: 170,
+        loader: () => import('./Trekanthandelen3D'),
+        Component: Trekanthandelen3D as never,
+    },
     'rutebyen-mohenjo-daro': {
         id: 'rutebyen-mohenjo-daro',
         title: 'Rutebyen: Mohenjo-daro',
