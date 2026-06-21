@@ -77,6 +77,13 @@
             ]
         },
         {
+            "type": "component",
+            "name": "MicroGame",
+            "props": {
+                "gameId": "trekanthandelen-3d"
+            }
+        },
+        {
             "type": "header",
             "content": "Arven etter handelen"
         },
