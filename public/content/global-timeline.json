@@ -2040,6 +2040,30 @@
       ]
     },
     {
+      "id": "stor-zimbabwe",
+      "title": "Stor-Zimbabwe",
+      "description": "En mektig steinby i det sørlige Afrika, bygd uten mørtel og rik på handel med gull og elfenben.",
+      "startDate": 1100,
+      "endDate": 1450,
+      "displayDate": "1100-1450",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "afrikanske-riker",
+      "link": "/historie/afrikanske-riker/stor-zimbabwe",
+      "tags": [
+        "afrika",
+        "zimbabwe",
+        "shona",
+        "handel",
+        "kildekritikk",
+        "middelalderen"
+      ],
+      "lat": 2,
+      "lng": 20,
+      "placeLabel": "Afrika",
+      "geoConfidence": "tag"
+    },
+    {
       "id": "det-foydale-japan",
       "title": "Det føydale Japan: samuraienes tid",
       "description": "I nesten 700 år styrte samurai-krigere Japan mens keiseren var et symbol, og makten hvilte på ris.",
