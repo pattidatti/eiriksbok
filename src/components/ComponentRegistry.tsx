@@ -22,6 +22,8 @@ import { MapCarousel } from './MapCarousel';
 // Interactive Content
 const GullSaltVekten = lazy(() => import('./content/interactive/GullSaltVekten').then(m => ({ default: m.GullSaltVekten })));
 const TondibiSlaget = lazy(() => import('./content/interactive/TondibiSlaget').then(m => ({ default: m.TondibiSlaget })));
+const DenTauseHandelen = lazy(() => import('./content/interactive/DenTauseHandelen').then(m => ({ default: m.DenTauseHandelen })));
+const BevisVurderer = lazy(() => import('./content/interactive/BevisVurderer').then(m => ({ default: m.BevisVurderer })));
 const AllmennviljeVerksted = lazy(() => import('./content/interactive/AllmennviljeVerksted').then(m => ({ default: m.AllmennviljeVerksted })));
 const MatGjesteBord = lazy(() => import('./content/interactive/MatGjesteBord').then(m => ({ default: m.MatGjesteBord })));
 const MaktpyramidenJapan = lazy(() => import('./content/interactive/MaktpyramidenJapan').then(m => ({ default: m.MaktpyramidenJapan })));
@@ -290,6 +292,8 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     HistoryLongLines,
     GullSaltVekten,
     TondibiSlaget,
+    DenTauseHandelen,
+    BevisVurderer,
     MatGjesteBord,
     TragediensTrinn,
     FornorskingMaler,

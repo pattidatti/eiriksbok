@@ -6040,6 +6040,22 @@
           "image": "/images/afrikanske-riker/mansa-musa-og-mali-hero.webp",
           "lessons": [
             {
+              "id": "ghana-riket",
+              "title": "Ghana-riket",
+              "description": "Det første store handelsriket i Vest-Afrika ble styrtrikt på gull og salt, lenge før Mali og Songhai.",
+              "image": "/images/afrikanske-riker/ghana-riket-hero.webp",
+              "tags": [
+                "afrika",
+                "ghana",
+                "handel",
+                "gull",
+                "salt",
+                "middelalderen"
+              ],
+              "createdDate": "2026-06-21T00:00:00Z",
+              "lastUpdated": "2026-06-22T05:00:03.553Z"
+            },
+            {
               "id": "mansa-musa-og-mali",
               "title": "Mansa Musa og Mali-riket",
               "description": "Hvordan et rike i Vest-Afrika ble et av verdens rikeste på handel med gull og salt over Sahara.",
@@ -6068,6 +6084,22 @@
               ],
               "createdDate": "2026-06-20T00:00:00Z",
               "lastUpdated": "2026-06-20T07:32:18+02:00"
+            },
+            {
+              "id": "stor-zimbabwe",
+              "title": "Stor-Zimbabwe",
+              "description": "En mektig steinby i det sørlige Afrika, bygd uten mørtel og rik på handel med gull og elfenben.",
+              "image": "/images/afrikanske-riker/stor-zimbabwe-hero.webp",
+              "tags": [
+                "afrika",
+                "zimbabwe",
+                "shona",
+                "handel",
+                "kildekritikk",
+                "middelalderen"
+              ],
+              "createdDate": "2026-06-22T00:00:00Z",
+              "lastUpdated": "2026-06-22T05:00:03.553Z"
             }
           ]
         }

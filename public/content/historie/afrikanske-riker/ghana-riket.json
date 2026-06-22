@@ -1,0 +1,165 @@
+{
+    "id": "ghana-riket",
+    "title": "Ghana-riket",
+    "layout": "rich",
+    "year": "ca. 300-1240",
+    "category": "Vest-Afrika",
+    "readTime": "9 min lesning",
+    "heroImage": "/images/afrikanske-riker/ghana-riket-hero.webp",
+    "details": [
+        "Ghana var det forste store handelsriket i Vest-Afrika, lenge for Mali og Songhai.",
+        "Riket ble styrtrikt ved aa kontrollere handelen mellom gull fra sor og salt fra nord.",
+        "Hovedstaden Koumbi Saleh var to byer i en: en kongeby og en muslimsk kjopmannsby."
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "For over tusen år siden kom en handelsmann fra nord ridende på kamel ut av Sahara. Han hadde reist i ukevis gjennom ørkenen med en last salt. Da han endelig nådde fram, kom han til et rike så rikt på gull at folk i fjerne land bare kalte det «gullandet». Men det merkelige var dette: ingen utenfra visste hvor gullet kom fra. Kjøpmennene byttet til seg gull år etter år, men gruvene forble en godt voktet hemmelighet. Dette var Ghana-riket, det første av de store rikene i Vest-Afrika."
+        },
+        {
+            "type": "image",
+            "src": "/images/afrikanske-riker/ghana-riket-01.webp",
+            "alt": "Handelsmann pa kamel ankommer en travel by ved kanten av Sahara",
+            "caption": "Karavaner fra nord kom til Ghana med salt og dro hjem med gull."
+        },
+        {
+            "type": "header",
+            "text": "Det forste store riket i Vest-Afrika"
+        },
+        {
+            "type": "text",
+            "content": "Ghana-riket lå ikke der landet Ghana ligger i dag, men lenger nord og vest, i det som nå er Mali og Mauritania. Folket som bygde riket, kalles soninke. De grunnla riket allerede rundt år 300, mange hundre år før de andre store rikene i området. Selve ordet «Ghana» var egentlig tittelen til kongen, og betydde noe slikt som «kriger-konge». Senere overtok andre riker plassen som den store makten. Du kan lese om det neste store riket i artikkelen om [Mansa Musa og Mali-riket](/historie/afrikanske-riker/mansa-musa-og-mali), som vokste fram da Ghana falt."
+        },
+        {
+            "type": "header",
+            "text": "Porten mellom salt og gull"
+        },
+        {
+            "type": "text",
+            "content": "Hemmeligheten bak rikdommen var hvor riket lå. Langt sør i skogene fantes det gull i elvene. Langt nord i Sahara fantes det salt, som folk i sør manglet og trengte for å leve. Ghana lå akkurat midt imellom, som en port mellom to verdener. Alle som ville bytte gull mot salt, måtte gjennom riket. Kongen tok toll på alt som passerte, både saltet som kom sørover og gullet som gikk nordover. Han eide ikke en eneste gullgruve selv, men ble likevel styrtrik, fordi han eide veien. Mange av kjøpmennene som kom nordfra, var muslimer, og de tok med seg både varer og den nye troen [islam](/historie/midtoesten/islams-fodsel) inn i riket."
+        },
+        {
+            "type": "header",
+            "text": "Den tause handelen"
+        },
+        {
+            "type": "text",
+            "content": "Hvordan kunne to folk som ikke snakket samme språk, og som aldri møttes, likevel bytte gull mot salt? Svaret var en merkelig skikk som kalles den tause handelen. Saltkjøpmennene la saltet sitt i rader på en elvebredd, slo på en stor tromme for å gi beskjed, og trakk seg så langt unna. Da kom gullgraverne fram fra skjul, la igjen så mye gull de syntes saltet var verdt, og forsvant igjen. Så kom kjøpmennene tilbake. Var de fornøyde, tok de gullet. Var de ikke det, lot de gullet ligge og slo på trommen igjen for å be om mer. Slik gikk det fram og tilbake til begge var fornøyde, helt uten ord. Prøv selv å gjøre en handel uten å møte den andre."
+        },
+        {
+            "type": "component",
+            "name": "DenTauseHandelen",
+            "props": {
+                "title": "Den tause handelen"
+            }
+        },
+        {
+            "type": "text",
+            "content": "Den tause handelen løste et stort problem. De to folkene stolte ikke på hverandre, men de stolte på reglene. Og skikken hadde en hemmelig nytte: så lenge gullgraverne aldri viste seg, kunne ingen følge etter dem og finne gruvene. På den måten forble kilden til gullet en hemmelighet i hundrevis av år. Det gjorde gullet sjeldent og dyrt, og det var nettopp det kongen og kjøpmennene tjente på."
+        },
+        {
+            "type": "image",
+            "src": "/images/afrikanske-riker/ghana-riket-02.webp",
+            "alt": "Salt lagt ut pa en elvebredd med gull pa motsatt side, ingen mennesker synlige",
+            "caption": "I den tause handelen byttet to folk varer uten noensinne å møtes."
+        },
+        {
+            "type": "header",
+            "text": "Kongens gull"
+        },
+        {
+            "type": "text",
+            "content": "Kongen i Ghana fant også en smart måte å holde seg rikest av alle. Han laget en enkel regel: alle store gullklumper tilhørte ham. Vanlige folk fikk bare handle med gullstøv, de fineste smulene av gull. Hvorfor det? Tenk deg at alle kunne selge store klumper fritt. Da ville det blitt så mye gull på markedet at verdien falt. Ved å samle alle de store klumpene hos seg selv, holdt kongen gullet sjeldent og verdifullt, og han ble selv enormt rik. En arabisk reisende som het al-Bakri skrev at kongens hoff strålte av gull. Til og med hundene ved hoffet skal ha hatt halsbånd av gull og sølv, fortalte han."
+        },
+        {
+            "type": "header",
+            "text": "Koumbi Saleh, byen som var to byer"
+        },
+        {
+            "type": "text",
+            "content": "Hovedstaden i riket het Koumbi Saleh, og den var spesiell: den var egentlig to byer i én, et stykke fra hverandre. I den ene byen, kongebyen, bodde kongen. Her dyrket folk de gamle gudene sine, og i en hellig lund like ved lå gravene til kongene. I den andre byen bodde de muslimske kjøpmennene fra nord. Den var full av moskeer, et travelt marked og hus for handelsmenn langveisfra. De to byene hadde hver sin kultur og hver sin tro, men levde fredelig side om side. Det som bandt dem sammen, var handelen. Prøv selv å reise tvillingbyen."
+        },
+        {
+            "type": "component",
+            "name": "MicroGame",
+            "props": {
+                "gameId": "tvillingbyen-koumbi-saleh-3d"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Hvorfor falt Ghana?"
+        },
+        {
+            "type": "text",
+            "content": "Ingen rike varer evig. Fra 1000-tallet ble Ghana svakere. Krigere fra nord, kalt almoravidene, presset på og kjempet om kontroll over handelen. Samtidig ble landet tørrere, slik at det ble vanskeligere å dyrke mat og holde dyr. Og nye handelsveier vokste fram lenger øst, der Ghana ikke lenger satt med porten. Etter hvert ble riket delt opp i mindre deler som kranglet seg imellom. Rundt år 1240 ble det som var igjen av Ghana, en del av det nye og mektige Mali-riket. Slik gikk makten i Vest-Afrika videre fra ett rike til det neste."
+        },
+        {
+            "type": "image",
+            "src": "/images/afrikanske-riker/ghana-riket-03.webp",
+            "alt": "Uttorket landskap med forlatte leirhus og en sandstorm i horisonten",
+            "caption": "Tørke, kamp om handelen og nye veier svekket Ghana over tid."
+        },
+        {
+            "type": "header",
+            "text": "Hvorfor dette er viktig"
+        },
+        {
+            "type": "text",
+            "content": "I lang tid fikk mange høre at Afrika ikke hadde noen stor historie før europeerne kom. Ghana viser at det er feil. Her fantes et velstyrt rike med konger, lover, byer og handel over hele Sahara, mer enn tusen år tilbake. Vi vet om riket fordi muslimske geografer som al-Bakri skrev om det, på samme måte som lærde skrev ned kunnskap i den [islamske gullalderen](/historie/midtoesten/islamsk-gullaldet). Koumbi Saleh viser også at to religioner kunne leve fredelig i samme rike. Mange hundre år senere skulle europeiske skip komme til kysten av Afrika og starte den grufulle [trekanthandelen](/historie/kolonialisering/trekanthandelen) med slaver. Men da Ghana blomstret, var Vest-Afrika et område med rike og mektige riker som resten av verden ville handle med."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hvorfor ble kongen i Ghana så rik?",
+                        "options": [
+                            "Han tok toll på handelen mellom gull fra sør og salt fra nord",
+                            "Han eide alle gullgruvene selv",
+                            "Han fant gull i havet",
+                            "Han solgte tømmer til Europa"
+                        ],
+                        "correctAnswer": 0,
+                        "explanation": "Ghana lå midt mellom gullet i sør og saltet i nord. Kongen eide ikke gruvene, men tok toll på alt som passerte. Han eide veien, og det gjorde ham rik."
+                    },
+                    {
+                        "question": "Hva var den tause handelen?",
+                        "options": [
+                            "En måte å bytte gull mot salt på uten å møtes eller snakke sammen",
+                            "En lov mot å snakke høyt på markedet",
+                            "En sang kjøpmennene sang",
+                            "En type skrift uten ord"
+                        ],
+                        "correctAnswer": 0,
+                        "explanation": "I den tause handelen la den ene parten ut varer og trakk seg unna, så kom den andre og la igjen betaling. Slik byttet to folk varer uten å møtes, og gullets kilde forble hemmelig."
+                    },
+                    {
+                        "question": "Hvorfor bestemte kongen at alle store gullklumper tilhørte ham?",
+                        "options": [
+                            "For å holde gullet sjeldent og verdifullt",
+                            "Fordi klumpene var farlige",
+                            "For å gi dem bort til folket",
+                            "Fordi de var tunge å bære"
+                        ],
+                        "correctAnswer": 0,
+                        "explanation": "Hvis alle kunne selge store klumper, ville det blitt for mye gull og verdien ville falt. Ved å samle klumpene selv, holdt kongen gullet sjeldent og verdifullt."
+                    },
+                    {
+                        "question": "Hva var spesielt med hovedstaden Koumbi Saleh?",
+                        "options": [
+                            "Den var to byer i én: en kongeby og en muslimsk kjøpmannsby",
+                            "Den lå på en øy",
+                            "Den var bygd helt av gull",
+                            "Ingen fikk lov til å bo der"
+                        ],
+                        "correctAnswer": 0,
+                        "explanation": "Koumbi Saleh var to byer et stykke fra hverandre: en kongeby med de gamle gudene og en kjøpmannsby med muslimer fra nord. To kulturer levde fredelig side om side, bundet sammen av handelen."
+                    }
+                ]
+            }
+        }
+    ],
+    "timeline": []
+}

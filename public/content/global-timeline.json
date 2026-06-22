@@ -863,6 +863,31 @@
       "geoConfidence": "tag"
     },
     {
+      "id": "ghana-riket",
+      "title": "Ghana-riket",
+      "description": "Det første store handelsriket i Vest-Afrika ble styrtrikt på gull og salt, lenge før Mali og Songhai.",
+      "startDate": 300,
+      "endDate": null,
+      "displayDate": "ca. 300-1240",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "afrikanske-riker",
+      "link": "/historie/afrikanske-riker/ghana-riket",
+      "tags": [
+        "afrika",
+        "ghana",
+        "handel",
+        "gull",
+        "salt",
+        "middelalderen"
+      ],
+      "lat": 7.9,
+      "lng": -1,
+      "placeLabel": "Ghana",
+      "placeCountryId": 288,
+      "geoConfidence": "tag"
+    },
+    {
       "id": "maksimalpris-ediktet",
       "title": "Ediktet om maksimalpriser",
       "description": "Diokletian forsøker å bremse inflasjonen med drakoniske pristiltak.",
@@ -2013,6 +2038,30 @@
         "krig",
         "kulturmote"
       ]
+    },
+    {
+      "id": "stor-zimbabwe",
+      "title": "Stor-Zimbabwe",
+      "description": "En mektig steinby i det sørlige Afrika, bygd uten mørtel og rik på handel med gull og elfenben.",
+      "startDate": 1100,
+      "endDate": 1450,
+      "displayDate": "1100-1450",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "afrikanske-riker",
+      "link": "/historie/afrikanske-riker/stor-zimbabwe",
+      "tags": [
+        "afrika",
+        "zimbabwe",
+        "shona",
+        "handel",
+        "kildekritikk",
+        "middelalderen"
+      ],
+      "lat": 2,
+      "lng": 20,
+      "placeLabel": "Afrika",
+      "geoConfidence": "tag"
     },
     {
       "id": "det-foydale-japan",

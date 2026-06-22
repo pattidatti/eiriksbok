@@ -824,7 +824,7 @@
     },
     {
       "tag": "handel",
-      "count": 31
+      "count": 35
     },
     {
       "tag": "antikken",
@@ -853,6 +853,10 @@
     {
       "tag": "demokrati",
       "count": 23
+    },
+    {
+      "tag": "middelalderen",
+      "count": 21
     },
     {
       "tag": "vikingtiden",
@@ -893,10 +897,6 @@
     {
       "tag": "narrative",
       "count": 18
-    },
-    {
-      "tag": "middelalderen",
-      "count": 17
     },
     {
       "tag": "kristendom",
@@ -971,6 +971,10 @@
       "count": 12
     },
     {
+      "tag": "kildekritikk",
+      "count": 11
+    },
+    {
       "tag": "atomvåpen",
       "count": 11
     },
@@ -1012,10 +1016,6 @@
     },
     {
       "tag": "eksamen",
-      "count": 9
-    },
-    {
-      "tag": "kildekritikk",
       "count": 9
     },
     {
@@ -1384,6 +1384,10 @@
     },
     {
       "tag": "maktfordeling",
+      "count": 4
+    },
+    {
+      "tag": "gull",
       "count": 4
     },
     {
@@ -1767,6 +1771,10 @@
       "count": 2
     },
     {
+      "tag": "salt",
+      "count": 2
+    },
+    {
       "tag": "inflasjon",
       "count": 2
     },
@@ -1863,6 +1871,14 @@
       "count": 2
     },
     {
+      "tag": "zimbabwe",
+      "count": 2
+    },
+    {
+      "tag": "shona",
+      "count": 2
+    },
+    {
       "tag": "samurai",
       "count": 2
     },
@@ -1896,10 +1912,6 @@
     },
     {
       "tag": "mali",
-      "count": 2
-    },
-    {
-      "tag": "gull",
       "count": 2
     },
     {

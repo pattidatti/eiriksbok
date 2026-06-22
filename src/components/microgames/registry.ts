@@ -80,11 +80,42 @@ const AttedeltVei3D = lazy(() => import('./AttedeltVei3D'));
 const RentVannRorene3D = lazy(() => import('./RentVannRorene3D'));
 const KaravanenOverSahara3D = lazy(() => import('./KaravanenOverSahara3D'));
 const RiketLangsNiger3D = lazy(() => import('./RiketLangsNiger3D'));
+const TvillingbyenKoumbiSaleh3D = lazy(() => import('./TvillingbyenKoumbiSaleh3D'));
 const Karantenelinja3D = lazy(() => import('./Karantenelinja3D'));
 const Produksjonsoppskriften3D = lazy(() => import('./Produksjonsoppskriften3D'));
 const Rutebyen3D = lazy(() => import('./Rutebyen3D'));
+const Trekanthandelen3D = lazy(() => import('./Trekanthandelen3D'));
+const StorZimbabweMur3D = lazy(() => import('./StorZimbabweMur3D'));
+const Stromveien3D = lazy(() => import('./Stromveien3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
+    'stromveien-3d': {
+        id: 'stromveien-3d',
+        title: 'Strommen kommer inn i huset',
+        description:
+            'Det er kveld og den norske dalen er mork. Slipp vannet los i fossen med en spak, sa fossen driver generatoren i kraftverket. Strekk sa ledningen ved a klikke punktene etter tur fra kraftverket via to stolper helt fram til huset, og skru til slutt pa lyset - sa vinduer, lyspaere og gatelys lyser opp dalen. Dra vannforingen ned igjen, og lyset svekkes. Lyspaeren: ei paere alene gir ikke lys. Strommen ma ha en hel vei a ga, fra fossen som lager den, gjennom ledningene, helt inn i taket ditt. Det var dette Edison forstod da han bygde hele systemet, ikke bare paera.',
+        estimatedSeconds: 150,
+        loader: () => import('./Stromveien3D'),
+        Component: Stromveien3D as never,
+    },
+    'stor-zimbabwe-mur-3d': {
+        id: 'stor-zimbabwe-mur-3d',
+        title: 'Bygg Stor-Zimbabwe',
+        description:
+            'Reis Stor-Zimbabwes to kjennemerker i tørr stein. Dra granittblokker fra steinbruddet bort til byggepunktet og legg lag på lag: først den buede ringmuren, så det høye kjegletårnet inne i borgen. En live-teller viser "Mørtel brukt: 0" hele veien. Lyspæren: byggerne i shona-folket hugget granitten så jevn at de mektige murene holdt seg oppe helt uten mørtel, en by europeerne lenge nektet å tro at afrikanere hadde reist.',
+        estimatedSeconds: 140,
+        loader: () => import('./StorZimbabweMur3D'),
+        Component: StorZimbabweMur3D as never,
+    },
+    'trekanthandelen-3d': {
+        id: 'trekanthandelen-3d',
+        title: 'Den dodelige trekanten',
+        description:
+            'Dra handelsskipet rundt de tre hjornene i den atlantiske trekant-handelen, og se hvorfor systemet aldri lot skipet seile tomt. Etappe 1: ferdigvarer fra Europa til Vest-Afrika. Etappe 2, Midtpassasjen: skipet frakter mennesker, stuet sammen under dekk, ingen feiring, bare det morke faktumet om hva systemet gjorde. Etappe 3: sukker og bomull tilbake til Europa. For hver etappe tegnes en linje, til trekanten er sluttet. Lyspaeren: hver etappe ga profitt og betalte for den neste, og hele kretslopet hvilte pa Midtpassasjen, der mennesker ble behandlet som last.',
+        estimatedSeconds: 170,
+        loader: () => import('./Trekanthandelen3D'),
+        Component: Trekanthandelen3D as never,
+    },
     'rutebyen-mohenjo-daro': {
         id: 'rutebyen-mohenjo-daro',
         title: 'Rutebyen: Mohenjo-daro',
@@ -129,6 +160,15 @@ export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.Laz
         estimatedSeconds: 120,
         loader: () => import('./RiketLangsNiger3D'),
         Component: RiketLangsNiger3D as never,
+    },
+    'tvillingbyen-koumbi-saleh-3d': {
+        id: 'tvillingbyen-koumbi-saleh-3d',
+        title: 'Bygg tvillingbyen Koumbi Saleh',
+        description:
+            'Ghana-rikets hovedstad Koumbi Saleh var to byer i én. Dra de seks bygningene på plass: kongens palass, den hellige lunden og kongegravene i kongebyen, og moskeen, markedet og handelshusene i kjøpmannsbyen et stykke unna. Lyspæren: Ghanas hovedstad var to verdener side om side – en gammel afrikansk kongeby og en muslimsk handelsby – bundet sammen av handelen med gull og salt. Slik viser byen at to kulturer og to religioner kunne dele samme rike.',
+        estimatedSeconds: 140,
+        loader: () => import('./TvillingbyenKoumbiSaleh3D'),
+        Component: TvillingbyenKoumbiSaleh3D as never,
     },
     'attedelt-vei-hjulet': {
         id: 'attedelt-vei-hjulet',

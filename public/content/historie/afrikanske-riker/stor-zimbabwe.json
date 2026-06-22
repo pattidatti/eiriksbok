@@ -1,0 +1,149 @@
+{
+    "id": "stor-zimbabwe",
+    "title": "Stor-Zimbabwe",
+    "layout": "rich",
+    "year": "1100-1450",
+    "category": "Sør-Afrika",
+    "readTime": "8 min lesning",
+    "heroImage": "/images/afrikanske-riker/stor-zimbabwe-hero.webp",
+    "details": [
+        "Stor-Zimbabwe var en mektig steinby i det sørlige Afrika, bygd helt uten mørtel.",
+        "Byen ble rik på handel med gull og elfenben helt ut til kysten.",
+        "Lenge nektet europeere å tro at afrikanere hadde bygget den, men bevisene er klare."
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "I 1871 kom en tysk forsker til en ås i det sørlige Afrika. Foran ham reiste det seg digre murer av stein, høyere enn et hus og bygd uten en eneste klatt mørtel. Mørtel er blandingen av kalk og sand som binder steiner sammen i de fleste murer. Her var det ikke brukt noe slikt. Forskeren ble målløs. Men i stedet for å spørre hvem som hadde bygget byen, bestemte han seg på forhånd: dette kunne afrikanere umulig ha laget. Der tok han feil. Murene han stod foran, er restene av Stor-Zimbabwe, en av de mektigste byene Afrika har sett."
+        },
+        {
+            "type": "image",
+            "src": "/images/afrikanske-riker/stor-zimbabwe-01.webp",
+            "alt": "Høye buede steinmurer på en gressdekt ås i Sør-Afrika",
+            "caption": "Ringmuren i Stor-Zimbabwe er over ti meter høy noen steder, og er bygd helt uten mørtel."
+        },
+        {
+            "type": "header",
+            "text": "En by bygd i stein"
+        },
+        {
+            "type": "text",
+            "content": "Navnet Stor-Zimbabwe betyr omtrent de store steinhusene på språket til shona-folket, som bodde i området. Og det er nettopp stein byen er kjent for. Byggerne kløyvde granitt fra åsene rundt. Granitt er en hard og tung bergart, og det krevde stor dyktighet å hugge hver blokk så jevn at den låste seg fast i steinene under bare av sin egen tyngde. Slik kunne de reise murer som har stått i over 700 år, uten å lime dem sammen. Det mest kjente byggverket er en stor, buet ringmur som svinger seg rundt borgen uten et eneste skarpt hjørne. På det høyeste er muren over ti meter, og noen steder er den fem meter tykk ved bakken. Inne i ringmuren står et høyt, solid tårn formet som en kornkurv. Ingen vet helt sikkert hva tårnet ble brukt til, men det viste hvor mektig kongen var. Prøv selv å reise muren og tårnet, stein på stein."
+        },
+        {
+            "type": "component",
+            "name": "MicroGame",
+            "props": {
+                "gameId": "stor-zimbabwe-mur-3d"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Rik på gull og handel"
+        },
+        {
+            "type": "text",
+            "content": "Stor-Zimbabwe lå smart til. Rundt byen fantes både gode beiter for kveg og gruver med gull. Kveg var en stor rikdom her, og kongen eide enorme flokker. Jo flere dyr en familie hadde, desto mektigere var den. Men det var handelen som virkelig gjorde byen rik. Folket gravde ut gull og samlet elfenben fra elefanter, og sendte det østover til handelsbyer ved kysten av Det indiske hav, som Sofala og Kilwa. Derfra gikk varene videre med skip til Arabia, India og helt til Kina. På denne måten var en by langt inne i Afrika koblet til et stort handelsnett som strakte seg over halve verden."
+        },
+        {
+            "type": "text",
+            "content": "At byen handlet med fjerne land, vet vi fordi forskere har funnet glassperler, kinesisk keramikk og arabiske mynter i ruinene. Slike ting kom ikke dit av seg selv. De ble byttet mot gull og elfenben. Akkurat som [Ghana-riket](/historie/afrikanske-riker/ghana-riket) og [Mali-riket](/historie/afrikanske-riker/mansa-musa-og-mali) i Vest-Afrika ble rike på gull og salt, ble Stor-Zimbabwe rikt på gull i sør. Afrika var altså fullt av travle handelsruter lenge før europeiske skip kom."
+        },
+        {
+            "type": "image",
+            "src": "/images/afrikanske-riker/stor-zimbabwe-02.webp",
+            "alt": "Handelsmenn bytter gull og elfenben mot glassperler og keramikk",
+            "caption": "Gull og elfenben fra Stor-Zimbabwe ble byttet mot varer fra Arabia, India og Kina."
+        },
+        {
+            "type": "header",
+            "text": "Livet i byen"
+        },
+        {
+            "type": "text",
+            "content": "På sitt største bodde det kanskje 18 000 mennesker i og rundt Stor-Zimbabwe. Det gjorde byen til en av de største i hele Afrika på den tiden. Kongen og de rikeste familiene bodde innenfor de høye murene, mens vanlige folk bodde i hus av leire utenfor. Inne i borgen styrte kongen handelen, samlet inn gull og holdt store fester. Murene var ikke først og fremst en festning mot fiender. De var et tegn på makt, et slags steinkrone som viste hvem som bestemte."
+        },
+        {
+            "type": "text",
+            "content": "Rundt år 1450 ble byen forlatt. Forskere er ikke helt sikre på hvorfor. Kanskje ble det for mange mennesker og kveg på ett sted, slik at jorda og beitene ble utslitt. Kanskje flyttet handelen med gull seg nordover til nye byer. Uansett tok folket med seg byggekunsten sin videre og reiste nye steinbyer andre steder. Stor-Zimbabwe var altså ikke et blaff, men en del av en lang afrikansk tradisjon."
+        },
+        {
+            "type": "header",
+            "text": "Hvem bygde Stor-Zimbabwe?"
+        },
+        {
+            "type": "text",
+            "content": "Da europeere tok kontroll over området på 1800-tallet, likte mange av dem ikke det de så. På den tiden mente de at afrikanere stod under dem. En mektig afrikansk steinby passet ikke inn i det bildet. Derfor fant de på forklaringer: kanskje fenikere fra Middelhavet hadde bygget den, eller folk fra det gamle Egypt. Senere, da landet ble kolonien Rhodesia, presset myndighetene til og med forskere til å holde sannheten skjult. Men en god historiker spør alltid: hva sier kildene, og hvem er det som forteller? Undersøk sporene under, og se hva bevisene egentlig viser."
+        },
+        {
+            "type": "component",
+            "name": "BevisVurderer",
+            "props": {}
+        },
+        {
+            "type": "header",
+            "text": "Hvorfor dette er viktig"
+        },
+        {
+            "type": "text",
+            "content": "Historien om Stor-Zimbabwe handler om mer enn gamle murer. Den viser hvordan fordommer kan farge måten vi forteller historie på. Bevisene pekte hele tiden mot afrikanske byggere, men noen ville ikke se dem. Det er en god påminnelse om at vi alltid må sjekke kildene og spørre hvorfor noen forteller en historie på en bestemt måte. Den samme holdningen som fikk europeere til å nedvurdere Afrika, drev også fram tiden da [Europa erobret store deler av verden](/historie/kolonialisering/europa-erobrer-verden)."
+        },
+        {
+            "type": "text",
+            "content": "I dag står ruinene som et stolt symbol. Da landet ble fritt i 1980, tok det navnet sitt etter nettopp denne byen og kalte seg Zimbabwe. Sammen med riker som [Songhai](/historie/afrikanske-riker/songhai-riket) i vest minner Stor-Zimbabwe oss om en enkel, men viktig sannhet: Afrika hadde store, rike og velbygde samfunn lenge før europeerne kom."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hva er Stor-Zimbabwe mest kjent for?",
+                        "options": [
+                            "Mektige murer av stein, bygd helt uten mørtel",
+                            "Store pyramider av sand",
+                            "Et nettverk av kanaler",
+                            "Høye tårn av tre"
+                        ],
+                        "correctAnswer": 0,
+                        "explanation": "Byggerne hugget granitten så jevn at murene holdt seg oppe uten mørtel. Ringmuren og kjegletårnet er byens kjennemerker."
+                    },
+                    {
+                        "question": "Hvordan ble Stor-Zimbabwe rikt?",
+                        "options": [
+                            "Gjennom handel med gull og elfenben helt ut til kysten",
+                            "Ved å erobre Europa",
+                            "Gjennom store sølvgruver",
+                            "Ved å bygge skip til Atlanterhavet"
+                        ],
+                        "correctAnswer": 0,
+                        "explanation": "Folket gravde ut gull og samlet elfenben, og byttet det mot varer fra Arabia, India og Kina ved Det indiske hav."
+                    },
+                    {
+                        "question": "Hvorfor påstod mange europeere at afrikanere ikke kunne ha bygget byen?",
+                        "options": [
+                            "På grunn av fordommer, ikke på grunn av bevisene",
+                            "Fordi byen var for liten",
+                            "Fordi det fantes skriftlige bevis på det",
+                            "Fordi shona-folket selv sa det"
+                        ],
+                        "correctAnswer": 0,
+                        "explanation": "Bevisene pekte mot afrikanske byggere. Myten om fremmede byggherrer bygde på fordommer, ikke på fakta."
+                    },
+                    {
+                        "question": "Hva forteller historien om Stor-Zimbabwe oss om hvordan vi bør lese historie?",
+                        "options": [
+                            "At vi alltid må sjekke kildene og spørre hvem som forteller",
+                            "At gamle fortellinger alltid er sanne",
+                            "At forskere aldri tar feil",
+                            "At ruiner ikke kan fortelle oss noe"
+                        ],
+                        "correctAnswer": 0,
+                        "explanation": "Fordommer kan farge historien. Derfor må vi alltid spørre hva kildene sier, og hvorfor noen forteller en historie på en bestemt måte."
+                    }
+                ]
+            }
+        }
+    ],
+    "timeline": []
+}
