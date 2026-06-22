@@ -86,8 +86,18 @@ const Produksjonsoppskriften3D = lazy(() => import('./Produksjonsoppskriften3D')
 const Rutebyen3D = lazy(() => import('./Rutebyen3D'));
 const Trekanthandelen3D = lazy(() => import('./Trekanthandelen3D'));
 const StorZimbabweMur3D = lazy(() => import('./StorZimbabweMur3D'));
+const Stromveien3D = lazy(() => import('./Stromveien3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
+    'stromveien-3d': {
+        id: 'stromveien-3d',
+        title: 'Strommen kommer inn i huset',
+        description:
+            'Det er kveld og den norske dalen er mork. Slipp vannet los i fossen med en spak, sa fossen driver generatoren i kraftverket. Strekk sa ledningen ved a klikke punktene etter tur fra kraftverket via to stolper helt fram til huset, og skru til slutt pa lyset - sa vinduer, lyspaere og gatelys lyser opp dalen. Dra vannforingen ned igjen, og lyset svekkes. Lyspaeren: ei paere alene gir ikke lys. Strommen ma ha en hel vei a ga, fra fossen som lager den, gjennom ledningene, helt inn i taket ditt. Det var dette Edison forstod da han bygde hele systemet, ikke bare paera.',
+        estimatedSeconds: 150,
+        loader: () => import('./Stromveien3D'),
+        Component: Stromveien3D as never,
+    },
     'stor-zimbabwe-mur-3d': {
         id: 'stor-zimbabwe-mur-3d',
         title: 'Bygg Stor-Zimbabwe',

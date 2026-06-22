@@ -66,6 +66,13 @@
       "content": "Det tok tid. Mange hus på landsbygda fikk ikke strøm før langt inn på 1900-tallet. Men der strømmen kom, ble forandringen enorm. Et eneste lite trykk på en bryter, og hele rommet ble lyst. Ingen flamme, ingen os, ingen frykt for brann."
     },
     {
+      "type": "component",
+      "name": "MicroGame",
+      "props": {
+        "gameId": "stromveien-3d"
+      }
+    },
+    {
       "type": "header",
       "text": "Krigen om strømmen"
     },
