@@ -85,8 +85,18 @@ const Karantenelinja3D = lazy(() => import('./Karantenelinja3D'));
 const Produksjonsoppskriften3D = lazy(() => import('./Produksjonsoppskriften3D'));
 const Rutebyen3D = lazy(() => import('./Rutebyen3D'));
 const Trekanthandelen3D = lazy(() => import('./Trekanthandelen3D'));
+const StorZimbabweMur3D = lazy(() => import('./StorZimbabweMur3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
+    'stor-zimbabwe-mur-3d': {
+        id: 'stor-zimbabwe-mur-3d',
+        title: 'Bygg Stor-Zimbabwe',
+        description:
+            'Reis Stor-Zimbabwes to kjennemerker i tørr stein. Dra granittblokker fra steinbruddet bort til byggepunktet og legg lag på lag: først den buede ringmuren, så det høye kjegletårnet inne i borgen. En live-teller viser "Mørtel brukt: 0" hele veien. Lyspæren: byggerne i shona-folket hugget granitten så jevn at de mektige murene holdt seg oppe helt uten mørtel, en by europeerne lenge nektet å tro at afrikanere hadde reist.',
+        estimatedSeconds: 140,
+        loader: () => import('./StorZimbabweMur3D'),
+        Component: StorZimbabweMur3D as never,
+    },
     'trekanthandelen-3d': {
         id: 'trekanthandelen-3d',
         title: 'Den dodelige trekanten',

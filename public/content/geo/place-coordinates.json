@@ -824,7 +824,7 @@
     },
     {
       "tag": "handel",
-      "count": 33
+      "count": 35
     },
     {
       "tag": "antikken",
@@ -855,16 +855,16 @@
       "count": 23
     },
     {
+      "tag": "middelalderen",
+      "count": 21
+    },
+    {
       "tag": "vikingtiden",
       "count": 21
     },
     {
       "tag": "renessansen",
       "count": 20
-    },
-    {
-      "tag": "middelalderen",
-      "count": 19
     },
     {
       "tag": "kultur",
@@ -971,6 +971,10 @@
       "count": 12
     },
     {
+      "tag": "kildekritikk",
+      "count": 11
+    },
+    {
       "tag": "atomvåpen",
       "count": 11
     },
@@ -1012,10 +1016,6 @@
     },
     {
       "tag": "eksamen",
-      "count": 9
-    },
-    {
-      "tag": "kildekritikk",
       "count": 9
     },
     {
@@ -1868,6 +1868,14 @@
     },
     {
       "tag": "kulturmote",
+      "count": 2
+    },
+    {
+      "tag": "zimbabwe",
+      "count": 2
+    },
+    {
+      "tag": "shona",
       "count": 2
     },
     {
