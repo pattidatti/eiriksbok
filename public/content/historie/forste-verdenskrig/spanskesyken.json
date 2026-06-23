@@ -1,0 +1,185 @@
+{
+    "id": "spanskesyken",
+    "title": "Spanskesyken: pandemien som drepte flere enn krigen",
+    "layout": "rich",
+    "year": "1918-1920",
+    "category": "Første verdenskrig",
+    "readTime": "9 min lesning",
+    "heroImage": "/images/placeholder.webp",
+    "details": [
+        "Spanskesyken var en influensa som spredte seg over hele verden mot slutten av første verdenskrig.",
+        "Den drepte flere mennesker enn alle kampene i krigen til sammen.",
+        "Den var uvanlig fordi den rammet unge, friske voksne hardest."
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Høsten 1918 var verden endelig i ferd med å puste ut. Første verdenskrig nærmet seg slutten etter fire grusomme år. Men akkurat da freden var i sikte, kom en ny og usynlig fiende. En kraftig influensa spredte seg over hele kloden på noen få måneder. Den fikk navnet spanskesyken, og før den ga seg, hadde den tatt livet av flere mennesker enn hele krigen."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Lang rad med syke i et fullt nødsykehus høsten 1918",
+            "caption": "Da sykehusene ble fulle, måtte skoler og haller gjøres om til nødsykehus med rader av senger."
+        },
+        {
+            "type": "header",
+            "text": "En usynlig fiende"
+        },
+        {
+            "type": "text",
+            "content": "Spanskesyken var ikke en helt ny sykdom. Det var influensa, samme type sykdom som gir oss feber og hoste hver vinter. Men dette viruset var en uvanlig farlig variant. Det spredte seg lett fra person til person gjennom luften, og mange ble svært syke i løpet av få timer."
+        },
+        {
+            "type": "text",
+            "content": "Et virus er en bitte liten smittebærer, så liten at man ikke kan se den uten et kraftig mikroskop. I 1918 hadde legene ennå ikke gode mikroskoper for å se virus, og de hadde verken vaksiner eller antibiotika. De sto nesten maktesløse mot en fiende de ikke engang kunne se."
+        },
+        {
+            "type": "text",
+            "content": "Men hvorfor het den spanskesyken, når den slett ikke startet i Spania? Svaret henger sammen med [første verdenskrig](/historie/forste-verdenskrig/oversikt). I landene som var med i krigen, ble avisene styrt av staten. Myndighetene ville ikke at fienden skulle få vite hvor svekket hæren var av sykdom, så avisene tidde. Spania var ikke med i krigen. Der kunne avisene skrive fritt om den store epidemien. Derfor trodde mange at sykdommen kom fra Spania, og det misvisende navnet ble hengende."
+        },
+        {
+            "type": "header",
+            "text": "Hvorfor spredte den seg så fort?"
+        },
+        {
+            "type": "text",
+            "content": "Spanskesyken kom på verst tenkelige tidspunkt. Krigen hadde samlet millioner av unge menn i trange leirer og våte skyttergraver. I [skyttergravene](/historie/forste-verdenskrig/skyttergravskrig) levde soldatene tett, og smitten spredte seg som ild i tørt gress. Når soldatene ble sendt hjem eller flyttet til nye fronter, tok de viruset med seg. Tog og skip fraktet det videre til byer over hele verden på bare noen uker."
+        },
+        {
+            "type": "text",
+            "content": "I byene bodde folk tett, og mange jobbet side om side på fabrikker. Det fantes ingen medisin som kunne stoppe viruset. Den eneste måten å bremse smitten på var å holde folk fra hverandre. Spanskesyken kom dessuten i flere bølger. Den første bølgen våren 1918 var mild, men da sykdommen kom tilbake om høsten, var den langt farligere. Mange senket skuldrene for tidlig og ble overrasket av den nye, dødelige bølgen. Prøv det selv i spillet under: se hvor langt smitten når i en liten by, med og uten tiltak."
+        },
+        {
+            "type": "component",
+            "name": "MicroGame",
+            "props": {
+                "gameId": "smitten-i-byen-3d"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Den rammet de unge hardest"
+        },
+        {
+            "type": "text",
+            "content": "Vanlig influensa er farligst for de aller eldste og for små barn. Spanskesyken var annerledes, og det gjorde den ekstra skremmende. Den tok livet av mange unge og friske voksne mellom 20 og 40 år, altså de som ellers var sterkest."
+        },
+        {
+            "type": "text",
+            "content": "Forskere tror at svaret ligger i kroppens eget forsvar. Når et virus angriper, slår immunforsvaret tilbake. Hos unge og sterke mennesker var dette forsvaret så kraftig at det overreagerte og skadet lungene istedenfor å redde dem. Det som vanligvis var en styrke, ble plutselig en fare. Mange familier mistet nettopp de voksne som tjente penger og passet på barna."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Unge voksne pasienter side om side på et travelt nødsykehus i 1918",
+            "caption": "Spanskesyken rammet unge voksne hardest. Det gjorde den ekstra ødeleggende for familier og samfunn."
+        },
+        {
+            "type": "header",
+            "text": "Hva kunne man gjøre?"
+        },
+        {
+            "type": "text",
+            "content": "Uten vaksine og medisin hadde myndighetene bare noen få våpen igjen, og alle handlet om å holde folk fra hverandre. De stengte skoler, kinoer og kirker. De forbød store folkemøter. De ba folk vaske hendene ofte og bruke ansiktsmaske. De syke ble isolert hjemme eller på egne sykehus."
+        },
+        {
+            "type": "text",
+            "content": "Det viste seg at tidspunktet betydde alt. Byer som satte inn tiltak tidlig, klarte seg langt bedre enn byer som ventet. Tiltakene gjorde ikke nødvendigvis at færre ble syke til slutt. Men de gjorde at folk ble syke litt etter litt, ikke alle på en gang. Da rakk legene og sykehusene å hjelpe. Dette kalles å flate ut kurven. Skru på tiltakene under og se selv hva som skjer med smittetoppen."
+        },
+        {
+            "type": "component",
+            "name": "FlatUtKurven",
+            "props": {}
+        },
+        {
+            "type": "header",
+            "text": "Spanskesyken i Norge"
+        },
+        {
+            "type": "text",
+            "content": "Norge slapp ikke unna. Sommeren 1918 kom de første tilfellene, trolig med reisende og sjøfolk. Utover høsten ble byene hardt rammet. Skoler og forsamlingshus ble stengt, og enkelte steder turte folk knapt å gå ut."
+        },
+        {
+            "type": "text",
+            "content": "Til sammen døde rundt 15 000 mennesker i Norge av spanskesyken. Det er flere enn alle nordmenn som mistet livet i sjøkrigen under første verdenskrig. Mange små bygder mistet flere av sine yngste og sterkeste på kort tid. Noen steder var det ikke nok friske folk igjen til å drive gårdene eller begrave de døde. Sorgen satte dype spor i lokalsamfunn over hele landet, og mange barn vokste opp uten foreldre."
+        },
+        {
+            "type": "header",
+            "text": "Hva lærte vi?"
+        },
+        {
+            "type": "text",
+            "content": "Spanskesyken minner om [svartedauden](/historie/middelalderen/svartedauden) noen hundre år tidligere. Begge sykdommene viser det samme: en epidemi sprer seg gjennom måten vi lever på. Tette byer, mye reising og mange møter mellom mennesker gir smitten flere veier å gå."
+        },
+        {
+            "type": "text",
+            "content": "I dag har vi vaksiner, antibiotika og mye bedre kunnskap om virus. Likevel kjente mange av oss igjen historien om spanskesyken da koronapandemien kom i 2020. Da ble skoler stengt og folkemøter forbudt på nytt, akkurat som i 1918. Lærdommen er den samme: når en farlig smitte sprer seg, er det å kutte kontakt mellom mennesker det sterkeste våpenet vi har. Spanskesyken ble en del av [krigens ettervirkninger](/historie/forste-verdenskrig/konsekvenser), og den minner oss om at historie ikke bare handler om slag og konger, men også om de usynlige farene som kan ramme oss alle."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Folk med ansiktsmasker som går i en travel bygate i 1918",
+            "caption": "Ansiktsmasker ble et vanlig syn i bygatene i 1918, lenge før vi så dem igjen i 2020."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hvorfor fikk sykdommen navnet spanskesyken?",
+                        "options": [
+                            "Fordi den startet i Spania",
+                            "Fordi spanske leger oppdaget viruset",
+                            "Fordi Spania var nøytralt og avisene der skrev fritt om epidemien",
+                            "Fordi den bare rammet Spania"
+                        ],
+                        "answer": "Fordi Spania var nøytralt og avisene der skrev fritt om epidemien"
+                    },
+                    {
+                        "question": "Hvorfor spredte spanskesyken seg så raskt i 1918?",
+                        "options": [
+                            "Folk reiste lite, så viruset måtte arbeide hardt",
+                            "Krigen samlet soldater tett, og tog og skip fraktet smitten verden rundt",
+                            "Legene hadde laget en vaksine som virket dårlig",
+                            "Viruset kunne fly gjennom luften over store avstander"
+                        ],
+                        "answer": "Krigen samlet soldater tett, og tog og skip fraktet smitten verden rundt"
+                    },
+                    {
+                        "question": "Hva var uvanlig med hvem spanskesyken rammet?",
+                        "options": [
+                            "Den rammet bare gamle mennesker",
+                            "Den rammet bare soldater ved fronten",
+                            "Den tok livet av mange unge og friske voksne",
+                            "Den gjorde nesten ingen alvorlig syke"
+                        ],
+                        "answer": "Den tok livet av mange unge og friske voksne"
+                    },
+                    {
+                        "question": "Hva betyr det å flate ut kurven?",
+                        "options": [
+                            "Å sørge for at ingen i det hele tatt blir syke",
+                            "Å spre smitten ut over tid, så ikke alle blir syke samtidig",
+                            "Å la alle bli syke fort så det går over raskt",
+                            "Å bygge flere sykehus midt under en epidemi"
+                        ],
+                        "answer": "Å spre smitten ut over tid, så ikke alle blir syke samtidig"
+                    },
+                    {
+                        "question": "Omtrent hvor mange døde av spanskesyken i Norge?",
+                        "options": [
+                            "Rundt 1 500",
+                            "Rundt 15 000",
+                            "Rundt 150 000",
+                            "Rundt 1,5 millioner"
+                        ],
+                        "answer": "Rundt 15 000"
+                    }
+                ]
+            }
+        }
+    ],
+    "timeline": []
+}

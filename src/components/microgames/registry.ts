@@ -87,6 +87,7 @@ const Rutebyen3D = lazy(() => import('./Rutebyen3D'));
 const Trekanthandelen3D = lazy(() => import('./Trekanthandelen3D'));
 const StorZimbabweMur3D = lazy(() => import('./StorZimbabweMur3D'));
 const Stromveien3D = lazy(() => import('./Stromveien3D'));
+const SmittenIByen3D = lazy(() => import('./SmittenIByen3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
     'stromveien-3d': {
@@ -826,6 +827,15 @@ export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.Laz
         estimatedSeconds: 150,
         loader: () => import('./Sjoimperiet3D'),
         Component: Sjoimperiet3D as never,
+    },
+    'smitten-i-byen-3d': {
+        id: 'smitten-i-byen-3d',
+        title: 'Stopp smitten i byen',
+        description:
+            'Spanskesyken sprer seg hus for hus gjennom en liten norsk by i 1918. Klikk de tre tiltakene - steng skolen, steng kirken og isoler de syke - og dra tidsspaken for å la ukene gå. Uten tiltak blir nesten hele byen syk; med tiltak holder de fleste husene seg friske. Lyspæren: byer som stengte samlingssteder tidlig mistet langt færre mennesker. Å kutte kontakt er det sterkeste våpenet mot en epidemi.',
+        estimatedSeconds: 150,
+        loader: () => import('./SmittenIByen3D'),
+        Component: SmittenIByen3D as never,
     },
 };
 
