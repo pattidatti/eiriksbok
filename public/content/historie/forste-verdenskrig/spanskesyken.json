@@ -5,7 +5,7 @@
     "year": "1918-1920",
     "category": "Første verdenskrig",
     "readTime": "9 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/historie/forste-verdenskrig/spanskesyken-hero.webp",
     "details": [
         "Spanskesyken var en influensa som spredte seg over hele verden mot slutten av første verdenskrig.",
         "Den drepte flere mennesker enn alle kampene i krigen til sammen.",
@@ -18,7 +18,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/historie/forste-verdenskrig/spanskesyken-01.webp",
             "alt": "Lang rad med syke i et fullt nødsykehus høsten 1918",
             "caption": "Da sykehusene ble fulle, måtte skoler og haller gjøres om til nødsykehus med rader av senger."
         },
@@ -71,7 +71,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/historie/forste-verdenskrig/spanskesyken-02.webp",
             "alt": "Unge voksne pasienter side om side på et travelt nødsykehus i 1918",
             "caption": "Spanskesyken rammet unge voksne hardest. Det gjorde den ekstra ødeleggende for familier og samfunn."
         },
@@ -118,7 +118,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/historie/forste-verdenskrig/spanskesyken-03.webp",
             "alt": "Folk med ansiktsmasker som går i en travel bygate i 1918",
             "caption": "Ansiktsmasker ble et vanlig syn i bygatene i 1918, lenge før vi så dem igjen i 2020."
         },
