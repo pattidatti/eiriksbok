@@ -1067,6 +1067,10 @@
       "count": 8
     },
     {
+      "tag": "helse",
+      "count": 8
+    },
+    {
       "tag": "industrialisering",
       "count": 8
     },
@@ -1196,10 +1200,6 @@
     },
     {
       "tag": "teori",
-      "count": 6
-    },
-    {
-      "tag": "helse",
       "count": 6
     },
     {
@@ -2248,6 +2248,14 @@
     },
     {
       "tag": "mandat",
+      "count": 2
+    },
+    {
+      "tag": "spanskesyken",
+      "count": 2
+    },
+    {
+      "tag": "pandemi",
       "count": 2
     },
     {

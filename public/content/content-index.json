@@ -1,5 +1,5 @@
 {
-  "buildId": 1782106465002,
+  "buildId": 1782177949525,
   "contentMap": {
     "concept-absolutt-fortrinn": [
       "content/concepts/absolutt-fortrinn.json"
@@ -1371,6 +1371,9 @@
     ],
     "skyttergravskrig": [
       "content/historie/forste-verdenskrig/skyttergravskrig.json"
+    ],
+    "spanskesyken": [
+      "content/historie/forste-verdenskrig/spanskesyken.json"
     ],
     "forste-verdenskrig-teknologi": [
       "content/historie/forste-verdenskrig/teknologi.json"
@@ -3926,6 +3929,7 @@
     "historie/forste-verdenskrig/oversikt": "content/historie/forste-verdenskrig/oversikt.json",
     "historie/forste-verdenskrig/russiske-revolusjon": "content/historie/forste-verdenskrig/russiske-revolusjon.json",
     "historie/forste-verdenskrig/skyttergravskrig": "content/historie/forste-verdenskrig/skyttergravskrig.json",
+    "historie/forste-verdenskrig/spanskesyken": "content/historie/forste-verdenskrig/spanskesyken.json",
     "historie/forste-verdenskrig/teknologi": "content/historie/forste-verdenskrig/teknologi.json",
     "historie/forste-verdenskrig/tyske-revolusjon": "content/historie/forste-verdenskrig/tyske-revolusjon.json",
     "historie/forste-verdenskrig/ww1-sti": "content/historie/forste-verdenskrig/ww1-sti.json",

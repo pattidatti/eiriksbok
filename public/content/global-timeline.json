@@ -5870,6 +5870,23 @@
       ]
     },
     {
+      "id": "spanskesyken",
+      "title": "Spanskesyken",
+      "description": "Pandemien i 1918 som drepte flere mennesker enn hele krigen.",
+      "startDate": 1918,
+      "endDate": 1920,
+      "displayDate": "1918-1920",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "forste-verdenskrig",
+      "link": "/historie/forste-verdenskrig/spanskesyken",
+      "tags": [
+        "spanskesyken",
+        "pandemi",
+        "helse"
+      ]
+    },
+    {
       "id": "norge",
       "title": "Klassekamp i Norge",
       "description": "Menstad-slaget og grunnlaget for velferdsstaten.",
