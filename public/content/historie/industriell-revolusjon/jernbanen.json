@@ -80,6 +80,11 @@
             "content": "I 1847 vedtok de britiske jernbaneselskapene at alle stasjoner skulle bruke samme tid: Greenwich Mean Time. I 1884 ble verden delt inn i 24 tidssoner. Den moderne klokken - den som styrer skoletimer, arbeidsskift og fly-avganger - er en jernbanens oppfinnelse. Klokken ble plutselig viktigere enn sola."
         },
         {
+            "type": "component",
+            "name": "MicroGame",
+            "props": { "gameId": "standardklokka-3d" }
+        },
+        {
             "type": "header",
             "text": "Industrien får en motorvei"
         },

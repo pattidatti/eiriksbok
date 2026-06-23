@@ -88,8 +88,18 @@ const Trekanthandelen3D = lazy(() => import('./Trekanthandelen3D'));
 const StorZimbabweMur3D = lazy(() => import('./StorZimbabweMur3D'));
 const Stromveien3D = lazy(() => import('./Stromveien3D'));
 const SmittenIByen3D = lazy(() => import('./SmittenIByen3D'));
+const Standardklokka3D = lazy(() => import('./Standardklokka3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
+    'standardklokka-3d': {
+        id: 'standardklokka-3d',
+        title: 'Still klokkene til togets tid',
+        description:
+            'Før jernbanen hadde hver by sin egen klokke etter sola, og klokka i Bristol gikk minutter bak klokka i London. Da togene begynte å gå etter ruteplan ble det kaos. Dra viseren på hvert klokketårn til samme tid (rett opp på tolv), så signal-lampene blir grønne og toget endelig kan kjøre ruta si fra London. Lyspæren: jernbanen tvang fram EN felles standardtid - klokka ble plutselig viktigere enn sola, og slik fikk vi tidssonene vi fortsatt lever etter.',
+        estimatedSeconds: 150,
+        loader: () => import('./Standardklokka3D'),
+        Component: Standardklokka3D as never,
+    },
     'stromveien-3d': {
         id: 'stromveien-3d',
         title: 'Strommen kommer inn i huset',
