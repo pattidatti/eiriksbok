@@ -5,7 +5,7 @@
     "year": "600-200 fvt",
     "category": "Antikkens Hellas",
     "readTime": "9 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/antikkens-hellas/gresk-vitenskap-hero.webp",
     "details": [
         "Grekerne var blant de første som forklarte naturen med fornuft i stedet for guder.",
         "De fant opp grunnlaget for matematikk, geometri og naturvitenskap.",
@@ -19,7 +19,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/antikkens-hellas/gresk-vitenskap-01.webp",
             "alt": "Gresk tenker ser opp på stjernehimmelen om natten",
             "caption": "I stedet for å spørre hvem som styrte himmelen, begynte grekerne å spørre hvordan den virket."
         },
@@ -77,7 +77,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/antikkens-hellas/gresk-vitenskap-02.webp",
             "alt": "Arkimedes hopper opp av badekaret mens vann skvulper over kanten",
             "caption": "Da vannet steg i badekaret, forsto Arkimedes løsningen. Han skal ha ropt Eureka, som betyr jeg har funnet det."
         },
@@ -118,7 +118,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/antikkens-hellas/gresk-vitenskap-03.webp",
             "alt": "Moderne forsker med mikroskop ved siden av gammel gresk skriftrull",
             "caption": "Fra greske skriftruller til dagens laboratorier: den samme grunntanken om å lete etter svar med fornuft."
         },

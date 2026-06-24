@@ -828,7 +828,7 @@
     },
     {
       "tag": "antikken",
-      "count": 31
+      "count": 32
     },
     {
       "tag": "oppfinnelser",
@@ -863,12 +863,12 @@
       "count": 21
     },
     {
-      "tag": "renessansen",
+      "tag": "vitenskap",
       "count": 20
     },
     {
-      "tag": "vitenskap",
-      "count": 19
+      "tag": "renessansen",
+      "count": 20
     },
     {
       "tag": "kultur",
@@ -1824,6 +1824,14 @@
     },
     {
       "tag": "toleranse",
+      "count": 2
+    },
+    {
+      "tag": "matematikk",
+      "count": 2
+    },
+    {
+      "tag": "arkimedes",
       "count": 2
     },
     {
@@ -3176,14 +3184,6 @@
     },
     {
       "tag": "sentantikken",
-      "count": 1
-    },
-    {
-      "tag": "matematikk",
-      "count": 1
-    },
-    {
-      "tag": "arkimedes",
       "count": 1
     },
     {
