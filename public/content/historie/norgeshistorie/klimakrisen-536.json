@@ -38,6 +38,11 @@
             "content": "Naturvitenskapelige data støtter historieberetningene om denne klimakrisen. Ved å studere årringer i gamle trær ser forskerne at 536 (og årene rett etterpå) hadde ekstremt dårlig vekst for trærne. Dendrokronologer (eksperter på treringdatering) har identifisert 535, 536 og 541 som tre av de fire kaldeste årene på de siste 2000 år. Trær i blant annet Irland, Sverige, Nord-Amerika og Chile viser svært smale årringer rundt 536 – et tegn på at plantene slet i kaldt klima uansett om de stod på den nordlige eller sørlige halvkule. Klimakrisen i 536 var dermed global. Forskere kaller perioden som følger for senantikkens lille istid (536–~660 e.Kr.), fordi en serie kalde somre og uår vedvarte i over hundre år etter det første utbruddet."
         },
         {
+            "type": "component",
+            "name": "MicroGame",
+            "props": { "gameId": "fimbulvinteren-3d" }
+        },
+        {
             "type": "text",
             "title": "Hungersnød og sykdom",
             "content": "Det plutselige kalde, mørke klimaet fikk katastrofale følger for menneskene. Uten normal sol og varme sviktet avlingene. Korn modnet ikke, frukt råtnet på trærne, og beitedyrene fant ikke nok gress. Kilder fra Irland forteller om flere år med brødmangel etter 536. Folk slet med alvorlig hungersnød i mange deler av verden. I Kina skal opptil 70–80% av befolkningen i noen områder ha dødd av sult på grunn av avlingssvikten. Også i vår del av verden var situasjonen kritisk. I arkeologiske lag fra Norge og Sverige ser man tegn til at bosetninger ble forlatt, og det er funnet frostskader i treringenene som tyder på flere år med kulde og uår. Noen historikere anslår at så mye som halvparten av befolkningen i Norge kan ha dødd i løpet av denne krisetiden, selv om tallene er usikre."
