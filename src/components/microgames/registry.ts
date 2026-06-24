@@ -90,6 +90,7 @@ const Stromveien3D = lazy(() => import('./Stromveien3D'));
 const SmittenIByen3D = lazy(() => import('./SmittenIByen3D'));
 const Standardklokka3D = lazy(() => import('./Standardklokka3D'));
 const ArkimedesKronen3D = lazy(() => import('./ArkimedesKronen3D'));
+const Fimbulvinteren3D = lazy(() => import('./Fimbulvinteren3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
     'arkimedes-kronen-3d': {
@@ -856,6 +857,15 @@ export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.Laz
         estimatedSeconds: 150,
         loader: () => import('./SmittenIByen3D'),
         Component: SmittenIByen3D as never,
+    },
+    'fimbulvinteren-3d': {
+        id: 'fimbulvinteren-3d',
+        title: '536 - Fimbulvinteren',
+        description:
+            'Året 536 ble verden rammet av en av historiens verste klimakatastrofer. Utløs vulkanutbruddet, dra støvskyen over himmelen og se hele verdenen reagere: solen dovner og krymper, himmelen gråner, avlingene visner og det snør om sommeren. Sollys og temperatur faller mens du drar. Til slutt: hva trodde folk i Norden de opplevde? Lyspæren: det var ikke solen som døde - et slør av vulkanstøv stengte sollyset ute i flere år, kulda drepte avlingene og kan ha tatt halve Norges befolkning. Minnet kan ha farget myten om Fimbulvinteren.',
+        estimatedSeconds: 140,
+        loader: () => import('./Fimbulvinteren3D'),
+        Component: Fimbulvinteren3D as never,
     },
 };
 
