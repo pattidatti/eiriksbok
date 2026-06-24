@@ -89,8 +89,18 @@ const StorZimbabweMur3D = lazy(() => import('./StorZimbabweMur3D'));
 const Stromveien3D = lazy(() => import('./Stromveien3D'));
 const SmittenIByen3D = lazy(() => import('./SmittenIByen3D'));
 const Standardklokka3D = lazy(() => import('./Standardklokka3D'));
+const ArkimedesKronen3D = lazy(() => import('./ArkimedesKronen3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
+    'arkimedes-kronen-3d': {
+        id: 'arkimedes-kronen-3d',
+        title: 'Arkimedes og kongens krone',
+        description:
+            'Kongen mistenker at gullsmeden har blandet billig sølv inn i gullkronen. Du har to glasskar med like mye vann. Senk det rene gullet i det ene karet og den mistenkte kronen i det andre med glidebryteren, og se hvor høyt vannet stiger i hvert kar. Kronen og gullet veier akkurat like mye, men kronen hever vannet mest. Lyspæren: en gjenstand presser bort vann etter hvor stor den er, ikke hvor tung. Siden sølv er lettere enn gull, må en falsk krone være større, og en større krone presser bort mer vann. Slik avslørte Arkimedes juks med vann og fornuft i stedet for gjetning.',
+        estimatedSeconds: 120,
+        loader: () => import('./ArkimedesKronen3D'),
+        Component: ArkimedesKronen3D as never,
+    },
     'standardklokka-3d': {
         id: 'standardklokka-3d',
         title: 'Still klokkene til togets tid',

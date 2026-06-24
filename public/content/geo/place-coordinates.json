@@ -828,7 +828,7 @@
     },
     {
       "tag": "antikken",
-      "count": 30
+      "count": 31
     },
     {
       "tag": "oppfinnelser",
@@ -867,6 +867,10 @@
       "count": 20
     },
     {
+      "tag": "vitenskap",
+      "count": 19
+    },
+    {
       "tag": "kultur",
       "count": 18
     },
@@ -880,10 +884,6 @@
     },
     {
       "tag": "middelalder",
-      "count": 18
-    },
-    {
-      "tag": "vitenskap",
       "count": 18
     },
     {
@@ -3176,6 +3176,14 @@
     },
     {
       "tag": "sentantikken",
+      "count": 1
+    },
+    {
+      "tag": "matematikk",
+      "count": 1
+    },
+    {
+      "tag": "arkimedes",
       "count": 1
     },
     {
