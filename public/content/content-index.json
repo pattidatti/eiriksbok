@@ -1,5 +1,5 @@
 {
-  "buildId": 1782177949525,
+  "buildId": 1782264176064,
   "contentMap": {
     "concept-absolutt-fortrinn": [
       "content/concepts/absolutt-fortrinn.json"
@@ -1209,6 +1209,9 @@
     ],
     "gresk-teater": [
       "content/historie/antikkens-hellas/gresk-teater.json"
+    ],
+    "gresk-vitenskap": [
+      "content/historie/antikkens-hellas/gresk-vitenskap.json"
     ],
     "greske-guder": [
       "content/historie/antikkens-hellas/greske-guder.json"
@@ -3875,6 +3878,7 @@
     "historie/andre-verdenskrig/teknologi": "content/historie/andre-verdenskrig/teknologi.json",
     "historie/antikkens-hellas/athen-og-sparta": "content/historie/antikkens-hellas/athen-og-sparta.json",
     "historie/antikkens-hellas/gresk-teater": "content/historie/antikkens-hellas/gresk-teater.json",
+    "historie/antikkens-hellas/gresk-vitenskap": "content/historie/antikkens-hellas/gresk-vitenskap.json",
     "historie/antikkens-hellas/greske-guder": "content/historie/antikkens-hellas/greske-guder.json",
     "historie/antikkens-hellas/olympiske-leker": "content/historie/antikkens-hellas/olympiske-leker.json",
     "historie/dekolonisering/amerikanske-borgerkrigen": "content/historie/dekolonisering/amerikanske-borgerkrigen.json",

@@ -20,6 +20,7 @@ import { MapCarousel } from './MapCarousel';
 
 // Lazy-loaded components for better performance
 // Interactive Content
+const EratosthenesJorda = lazy(() => import('./content/interactive/EratosthenesJorda').then(m => ({ default: m.EratosthenesJorda })));
 const GullSaltVekten = lazy(() => import('./content/interactive/GullSaltVekten').then(m => ({ default: m.GullSaltVekten })));
 const TondibiSlaget = lazy(() => import('./content/interactive/TondibiSlaget').then(m => ({ default: m.TondibiSlaget })));
 const DenTauseHandelen = lazy(() => import('./content/interactive/DenTauseHandelen').then(m => ({ default: m.DenTauseHandelen })));
@@ -291,6 +292,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     // Core
     GovernmentExplorer,
     HistoryLongLines,
+    EratosthenesJorda,
     GullSaltVekten,
     TondibiSlaget,
     FlatUtKurven,
