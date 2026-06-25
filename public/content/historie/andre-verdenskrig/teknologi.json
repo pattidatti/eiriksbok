@@ -30,6 +30,11 @@
       "content": "En av de viktigste oppfinnelsene var radar (Radio Detection and Ranging). Teknologien bruker radiobølger til å oppdage gjenstander på lang avstand. Radar var helt avgjørende for at britene vant Slaget om Storbritannia i 1940. De kunne se de tyske bombeflyene lenge før de nådde kysten, og sende opp jagerflyene sine på nøyaktig rett tid og sted. Uten radar ville trolig Storbritannia ha tapt luftkrigen.\n\nUte på havet ble radar og sonar (lydbølger under vann) brukt til å jakte på tyske ubåter. Krigen førte også til utviklingen av de første elektroniske mottiltakene, som å slippe ut strimler av aluminiumfolie fra fly (kalt «chaff») for å forvirre fiendens radar."
     },
     {
+      "type": "component",
+      "name": "MicroGame",
+      "props": { "gameId": "radarvakten-3d" }
+    },
+    {
       "type": "header",
       "text": "Kodeknekking og datamaskinenes fødsel"
     },
