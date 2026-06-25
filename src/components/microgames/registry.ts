@@ -19,6 +19,7 @@ const DampmaskinHjerte3D = lazy(() => import('./DampmaskinHjerte3D'));
 const Falanksen3D = lazy(() => import('./Falanksen3D'));
 const OlympiaDiskos3D = lazy(() => import('./OlympiaDiskos3D'));
 const Vannmolla3D = lazy(() => import('./Vannmolla3D'));
+const Radarvakten3D = lazy(() => import('./Radarvakten3D'));
 const Konklusjonsbroen3D = lazy(() => import('./Konklusjonsbroen3D'));
 const MonumentTorget3D = lazy(() => import('./MonumentTorget3D'));
 const Teknologibolgen3D = lazy(() => import('./Teknologibolgen3D'));
@@ -94,6 +95,15 @@ const Fimbulvinteren3D = lazy(() => import('./Fimbulvinteren3D'));
 const DorerSomApnet3D = lazy(() => import('./DorerSomApnet3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
+    'radarvakten-3d': {
+        id: 'radarvakten-3d',
+        title: 'Radarvakten: se det usynlige',
+        description:
+            'England, 1940. Tyske bombefly nærmer seg kysten, skjult i skodde og halvmørke. Du dreier radarskåla og sveiper en stråle ut over havet. Når strålen treffer et fly, lyser det svakt opp og blir klikkbart. Klikk for å sende en puls: en ring av radiobølger farer ut, studser mot flyet og kommer tilbake som et ekko, og avstanden leses av med en gang. Finn alle fire bombeflyene før de når kysten. Lyspæren: radar lar deg se fly i mørke og tåke ved å sende ut usynlige radiobølger som studser tilbake, og ekkoet forteller hvor langt unna flyet er. Derfor kunne britene møte angrepet i tide.',
+        estimatedSeconds: 150,
+        loader: () => import('./Radarvakten3D'),
+        Component: Radarvakten3D as never,
+    },
     'arkimedes-kronen-3d': {
         id: 'arkimedes-kronen-3d',
         title: 'Arkimedes og kongens krone',
