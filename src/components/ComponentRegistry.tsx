@@ -579,6 +579,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     CableBreakSim: lazy(() => import('./content/interactive/infrastruktur/CableBreakSim').then(m => ({ default: m.CableBreakSim }))),
     ShipmentTracker: lazy(() => import('./content/interactive/infrastruktur/ShipmentTracker').then(m => ({ default: m.ShipmentTracker }))),
     CascadeFailureSim: lazy(() => import('./content/interactive/infrastruktur/CascadeFailureSim').then(m => ({ default: m.CascadeFailureSim }))),
+    RettighetsLas: lazy(() => import('./content/interactive/RettighetsLas').then(m => ({ default: m.RettighetsLas }))),
     MapCarousel,
     KontekstKompasset,
     IdentitetsVeven,

@@ -5323,6 +5323,31 @@
       ]
     },
     {
+      "id": "kvinnekampen",
+      "title": "Kvinnekampen",
+      "description": "Hvordan kvinner i Norge vant rettigheter som utdanning, egen lønn og stemmerett, dør for dør.",
+      "startDate": 1884,
+      "endDate": 1913,
+      "displayDate": "1884-1913",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "norgeshistorie",
+      "link": "/historie/norgeshistorie/kvinnekampen",
+      "tags": [
+        "historie",
+        "norge",
+        "norgeshistorie",
+        "likestilling",
+        "kvinnekamp",
+        "stemmerett"
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "tag"
+    },
+    {
       "id": "dypfryst",
       "title": "Dypfryst",
       "description": "Utgitt av Roald Dahl",

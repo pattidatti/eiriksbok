@@ -1,5 +1,5 @@
 {
-  "buildId": 1782279121893,
+  "buildId": 1782350340243,
   "contentMap": {
     "concept-absolutt-fortrinn": [
       "content/concepts/absolutt-fortrinn.json"
@@ -1641,6 +1641,9 @@
     "knut-alvsson": [
       "content/historie/norgeshistorie/knut-alvsson.json",
       "content/people/knut-alvsson.json"
+    ],
+    "kvinnekampen": [
+      "content/historie/norgeshistorie/kvinnekampen.json"
     ],
     "norge-for-vikingene": [
       "content/historie/norgeshistorie/norge-for-vikingene.json"
@@ -4021,6 +4024,7 @@
     "historie/norgeshistorie/kalmarunionen": "content/historie/norgeshistorie/kalmarunionen.json",
     "historie/norgeshistorie/klimakrisen-536": "content/historie/norgeshistorie/klimakrisen-536.json",
     "historie/norgeshistorie/knut-alvsson": "content/historie/norgeshistorie/knut-alvsson.json",
+    "historie/norgeshistorie/kvinnekampen": "content/historie/norgeshistorie/kvinnekampen.json",
     "historie/norgeshistorie/norge-for-vikingene": "content/historie/norgeshistorie/norge-for-vikingene.json",
     "historie/norgeshistorie/unionsopplosningen-1905": "content/historie/norgeshistorie/unionsopplosningen-1905.json",
     "historie/norgeshistorie/utvandringen-til-amerika": "content/historie/norgeshistorie/utvandringen-til-amerika.json",

@@ -1,0 +1,165 @@
+{
+    "id": "kvinnekampen",
+    "title": "Kvinnekampen",
+    "layout": "rich",
+    "year": "1884-1913",
+    "category": "Likestilling",
+    "readTime": "9 min lesning",
+    "heroImage": "/images/placeholder.webp",
+    "details": [
+        "Kvinner i Norge fikk full stemmerett i 1913, blant de første i verden",
+        "Rettigheter som utdanning og egen lønn ble vunnet dør for dør",
+        "Ingen av rettighetene kom av seg selv, de krevde tiår med kamp"
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Tenk deg at du er ei jente i Norge i 1880. Du er like smart som broren din, men du får ikke gå på universitetet. Du kan ikke stemme ved valg. Hvis du gifter deg, er det mannen din som bestemmer over pengene du tjener. Slik var livet for nesten alle kvinner den gangen. I dag tar vi det som en selvfølge at jenter og gutter har de samme rettighetene. Men disse rettighetene er nyere enn du tror, og de kom ikke gratis. De ble vunnet gjennom en lang kamp."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Ung kvinne ved et vindu i en stue på 1880-tallet",
+            "caption": "For en jente på 1880-tallet var både skole, stemmerett og egen lønn stengte dører."
+        },
+        {
+            "type": "header",
+            "text": "Et samfunn der mennene bestemte"
+        },
+        {
+            "type": "text",
+            "content": "På 1800-tallet var Norge bygd på en enkel regel: menn styrte, kvinner adlød. En kvinne gikk fra å være under farens ansvar til å være under mannens. Hun kunne ikke bestemme over egen formue, ikke ta de fleste yrker, og ikke være med å velge dem som styrte landet. En gift kvinne ble regnet som umyndig, omtrent på samme måte som et barn. Tjente hun penger, var det mannen som eide dem. Ville hun skille seg, var det nesten umulig. Mange mente at dette var helt naturlig, og at kvinner verken ønsket eller trengte slike rettigheter. Noen hevdet til og med at kvinner ikke tålte å tenke på politikk."
+        },
+        {
+            "type": "text",
+            "content": "Men nye tanker var på vei. Under [den franske revolusjonen](/historie/den-franske-revolusjon/intro) hadde folk ropt om frihet og likhet for alle. Tanken om at hvert menneske har rettigheter bare fordi det er et menneske, kalles [naturrett](/krle/etikk/naturrett). Stadig flere spurte: hvis alle mennesker er like mye verdt, hvorfor gjelder ikke det kvinner?"
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Hva betyr likestilling?",
+                "content": "Likestilling betyr at jenter og gutter, kvinner og menn, har de samme rettighetene og mulighetene. På 1800-tallet fantes ikke dette ordet i loven i det hele tatt."
+            }
+        },
+        {
+            "type": "header",
+            "text": "Pionerene som turte å si fra"
+        },
+        {
+            "type": "text",
+            "content": "Den første som virkelig satte ord på uretten i Norge, var forfatteren Camilla Collett. I 1854 ga hun ut romanen Amtmandens Døtre. Den fortalte om unge kvinner som ikke fikk gifte seg med dem de elsket, men måtte gjøre som familien bestemte. Boka fikk mange til å tenke nytt. Litt senere kom Aasta Hansteen, som holdt offentlige taler om kvinners rett til å bestemme selv. Det var modig gjort, for kvinner som talte i det offentlige rom ble ofte hånet."
+        },
+        {
+            "type": "text",
+            "content": "I 1884 gikk en gruppe kvinner og menn sammen og startet Norsk Kvinnesaksforening. En av de viktigste lederne var Gina Krog. Hun krevde noe mange syntes var helt vilt på den tiden: at kvinner skulle få stemme ved valg, akkurat som menn. Kampen for stemmerett ble den store saken. Samtidig sloss arbeidere for sine rettigheter gjennom [fagforeninger](/samfunnskunnskap/arbeidsliv/fagforeninger), og de to kampene lærte mye av hverandre."
+        },
+        {
+            "type": "component",
+            "name": "RettighetsLas",
+            "props": {
+                "title": "Lås opp rettighetene",
+                "intro": "Klikk på den neste låsen. Hver rettighet ble vunnet etter år med kamp."
+            }
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Kvinner med bannere i et tog i en norsk by rundt 1900",
+            "caption": "Kvinnesaksforeningen samlet underskrifter og holdt møter for å kreve stemmerett."
+        },
+        {
+            "type": "header",
+            "text": "Dør for dør"
+        },
+        {
+            "type": "text",
+            "content": "Rettighetene kom ikke alle på en gang. De ble vunnet litt etter litt, som dører som åpnet seg en for en. I 1884 åpnet Universitetet i Oslo for kvinner. For første gang kunne jenter ta høyere utdanning. I 1888 kom en viktig lov: gifte kvinner ble myndige. Det betydde at en kvinne nå kunne styre sin egen lønn og eiendom selv, i stedet for at mannen eide alt."
+        },
+        {
+            "type": "text",
+            "content": "Så kom det viktigste av alt: stemmeretten. I 1901 fikk noen kvinner lov til å stemme ved kommunevalg, men bare hvis de eller mannen tjente nok penger. Det var et første skritt. Kampen fortsatte, og i 1913 vedtok Stortinget at alle kvinner i Norge skulle ha full stemmerett ved valg. Norge var et av de aller første landene i verden som gjorde dette. Bare to år tidligere, samtidig som landet bygde seg opp etter [unionsoppløsningen i 1905](/historie/norgeshistorie/unionsopplosningen-1905), hadde Anna Rogstad blitt den første kvinnen som satt på Stortinget."
+        },
+        {
+            "type": "component",
+            "name": "MicroGame",
+            "props": {
+                "gameId": "dorer-som-apnet-3d"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Kampen var ikke ferdig i 1913"
+        },
+        {
+            "type": "text",
+            "content": "Stemmeretten var en stor seier, men den løste ikke alt. Kvinner tjente fortsatt mindre enn menn for det samme arbeidet, og mange yrker var nesten umulige å komme inn i. Under [første verdenskrig](/historie/forste-verdenskrig/hjemmefronten) viste kvinner at de kunne gjøre arbeidet til menn som var i krig, og det endret hvordan folk så på dem."
+        },
+        {
+            "type": "text",
+            "content": "Kampen for full likestilling fortsatte gjennom hele 1900-tallet. Kvinner fikk gradvis adgang til flere yrker, og flere tok lang utdanning. I 1978 fikk Norge en egen likestillingslov som forbød å behandle folk dårligere bare fordi de er kvinner. Tenkere som Simone de Beauvoir skrev bøker som forandret hvordan mange forsto [kjønn og frihet](/krle/filosofi/beauvoir). Likevel er kampen ikke helt over. Også i dag jobber folk for lik lønn og like muligheter, og i mange andre land i verden har kvinner fortsatt langt færre rettigheter enn menn."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "En jente og en gutt sitter side om side i et moderne klasserom",
+            "caption": "Rettighetene du har i dag, er resultatet av mer enn hundre år med kamp."
+        },
+        {
+            "type": "header",
+            "text": "Hvorfor dette angår deg"
+        },
+        {
+            "type": "text",
+            "content": "Det er lett å tro at rettigheter er som naturlover, at de alltid har vært der og alltid vil være der. Men historien om kvinnekampen viser noe annet. Hver rettighet du har, fra retten til å gå på skole til retten til å stemme når du blir voksen, ble kjempet fram av mennesker som nektet å godta at noe var umulig. Mange av disse seirene er overraskende ferske. Besteforeldrene dine ble født inn i en verden som fortsatt var i full endring. Når du forstår hvor mye kamp som ligger bak, blir det også tydeligere hvorfor det er verdt å ta vare på."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hvilket år fikk alle kvinner i Norge full stemmerett ved valg?",
+                        "options": ["1884", "1901", "1913", "1978"],
+                        "correctIndex": 2,
+                        "explanation": "I 1913 vedtok Stortinget full stemmerett for kvinner. Norge var blant de første landene i verden."
+                    },
+                    {
+                        "question": "Hva handlet loven fra 1888 om?",
+                        "options": [
+                            "At gifte kvinner ble myndige og fikk styre egen lønn og eiendom",
+                            "At kvinner fikk lov til å stemme ved kommunevalg",
+                            "At jenter fikk gå på universitetet",
+                            "At kvinner fikk lik lønn som menn"
+                        ],
+                        "correctIndex": 0,
+                        "explanation": "Loven fra 1888 gjorde gifte kvinner myndige. Før dette eide mannen alt kvinnen tjente."
+                    },
+                    {
+                        "question": "Hvem var Gina Krog?",
+                        "options": [
+                            "En forfatter som skrev Amtmandens Døtre",
+                            "En leder i Norsk Kvinnesaksforening som kjempet for stemmerett",
+                            "Den første kvinnen på Stortinget",
+                            "En dronning av Norge"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "Gina Krog var en sentral leder i kvinnesaksbevegelsen og krevde at kvinner skulle få stemmerett."
+                    },
+                    {
+                        "question": "Hva er hovedpoenget i historien om kvinnekampen?",
+                        "options": [
+                            "At rettigheter alltid har vært like for alle",
+                            "At rettigheter ble vunnet gjennom lang kamp og ikke kom av seg selv",
+                            "At bare menn kjempet for kvinners rettigheter",
+                            "At alt ble løst med stemmeretten i 1913"
+                        ],
+                        "correctIndex": 1,
+                        "explanation": "Rettighetene ble vunnet dør for dør gjennom tiår med kamp. Ingen av dem kom av seg selv."
+                    }
+                ]
+            }
+        }
+    ],
+    "timeline": []
+}

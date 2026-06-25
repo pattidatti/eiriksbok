@@ -91,6 +91,7 @@ const SmittenIByen3D = lazy(() => import('./SmittenIByen3D'));
 const Standardklokka3D = lazy(() => import('./Standardklokka3D'));
 const ArkimedesKronen3D = lazy(() => import('./ArkimedesKronen3D'));
 const Fimbulvinteren3D = lazy(() => import('./Fimbulvinteren3D'));
+const DorerSomApnet3D = lazy(() => import('./DorerSomApnet3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
     'arkimedes-kronen-3d': {
@@ -866,6 +867,15 @@ export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.Laz
         estimatedSeconds: 140,
         loader: () => import('./Fimbulvinteren3D'),
         Component: Fimbulvinteren3D as never,
+    },
+    'dorer-som-apnet-3d': {
+        id: 'dorer-som-apnet-3d',
+        title: 'Dørene som åpnet seg',
+        description:
+            'Dra et år-spak framover fra 1875 til 1913 og se hvordan stengte dører åpner seg for kvinner, en etter en: utdanning (1884), egen lønn (1888), kommunal stemmerett (1901) og full stemmerett (1913). En kvinnefigur går gjennom hver dør som åpnes. Lyspæren: rettigheter vi tar for gitt i dag var stengte dører, og de ble åpnet gjennom flere tiår med organisert kamp.',
+        estimatedSeconds: 120,
+        loader: () => import('./DorerSomApnet3D'),
+        Component: DorerSomApnet3D as never,
     },
 };
 
