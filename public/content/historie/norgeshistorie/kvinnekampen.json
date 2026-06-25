@@ -5,7 +5,7 @@
     "year": "1884-1913",
     "category": "Likestilling",
     "readTime": "9 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/norgeshistorie/kvinnekampen-hero.webp",
     "details": [
         "Kvinner i Norge fikk full stemmerett i 1913, blant de første i verden",
         "Rettigheter som utdanning og egen lønn ble vunnet dør for dør",
@@ -18,7 +18,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/norgeshistorie/kvinnekampen-01.webp",
             "alt": "Ung kvinne ved et vindu i en stue på 1880-tallet",
             "caption": "For en jente på 1880-tallet var både skole, stemmerett og egen lønn stengte dører."
         },
@@ -64,7 +64,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/norgeshistorie/kvinnekampen-02.webp",
             "alt": "Kvinner med bannere i et tog i en norsk by rundt 1900",
             "caption": "Kvinnesaksforeningen samlet underskrifter og holdt møter for å kreve stemmerett."
         },
@@ -101,7 +101,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/norgeshistorie/kvinnekampen-03.webp",
             "alt": "En jente og en gutt sitter side om side i et moderne klasserom",
             "caption": "Rettighetene du har i dag, er resultatet av mer enn hundre år med kamp."
         },
