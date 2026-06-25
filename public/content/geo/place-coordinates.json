@@ -784,7 +784,7 @@
   "_unmapped": [
     {
       "tag": "historie",
-      "count": 274
+      "count": 275
     },
     {
       "tag": "dekolonisering",
@@ -1680,6 +1680,10 @@
     },
     {
       "tag": "levekår",
+      "count": 3
+    },
+    {
+      "tag": "stemmerett",
       "count": 3
     },
     {
@@ -2607,10 +2611,6 @@
       "count": 2
     },
     {
-      "tag": "stemmerett",
-      "count": 2
-    },
-    {
       "tag": "algoritmer",
       "count": 2
     },
@@ -3152,6 +3152,14 @@
     },
     {
       "tag": "rettsvitenskap",
+      "count": 1
+    },
+    {
+      "tag": "likestilling",
+      "count": 1
+    },
+    {
+      "tag": "kvinnekamp",
       "count": 1
     },
     {
