@@ -5,7 +5,7 @@
     "year": "1215",
     "category": "England",
     "readTime": "9 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/historie/lov-og-rett/magna-carta-hero.webp",
     "details": [
         "I 1215 satte kong Johan seglet sitt på Magna Carta.",
         "For første gang måtte selv kongen følge loven.",
@@ -34,7 +34,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/historie/lov-og-rett/magna-carta-kong-johan.webp",
             "alt": "Kong Johan på en høy trone over knelende undersåtter i en mørk middelaldersal",
             "caption": "Før 1215 sto den engelske kongen over loven. Han kunne kreve skatt, fengsle og dømme akkurat som han ville."
         },
@@ -98,7 +98,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/historie/lov-og-rett/magna-carta-pergament.webp",
             "alt": "Et gammelt pergament med tett latinsk håndskrift og et voksseglet hengende nederst",
             "caption": "Fire originale eksemplarer av Magna Carta finnes fortsatt i dag, over 800 år senere."
         },
