@@ -1,5 +1,5 @@
 {
-  "buildId": 1782350340243,
+  "buildId": 1782436764638,
   "contentMap": {
     "concept-absolutt-fortrinn": [
       "content/concepts/absolutt-fortrinn.json"
@@ -1491,6 +1491,9 @@
     ],
     "hekseprosessene": [
       "content/historie/lov-og-rett/hekseprosessene.json"
+    ],
+    "magna-carta": [
+      "content/historie/lov-og-rett/magna-carta.json"
     ],
     "magnus-landslov": [
       "content/historie/lov-og-rett/magnus-landslov.json"
@@ -3975,6 +3978,7 @@
     "historie/kolonialisering/verdenshandel-for-oppdagelsesreisene": "content/historie/kolonialisering/verdenshandel-for-oppdagelsesreisene.json",
     "historie/kolonialisering/voc": "content/historie/kolonialisering/voc.json",
     "historie/lov-og-rett/hekseprosessene": "content/historie/lov-og-rett/hekseprosessene.json",
+    "historie/lov-og-rett/magna-carta": "content/historie/lov-og-rett/magna-carta.json",
     "historie/lov-og-rett/magnus-landslov": "content/historie/lov-og-rett/magnus-landslov.json",
     "historie/lov-og-rett/nurnbergprosessen": "content/historie/lov-og-rett/nurnbergprosessen.json",
     "historie/lov-og-rett/wergild": "content/historie/lov-og-rett/wergild.json",

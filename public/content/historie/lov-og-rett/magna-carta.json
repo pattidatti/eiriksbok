@@ -1,0 +1,179 @@
+{
+    "id": "magna-carta",
+    "title": "Magna Carta - da kongen måtte bøye seg for loven",
+    "layout": "rich",
+    "year": "1215",
+    "category": "England",
+    "readTime": "9 min lesning",
+    "heroImage": "/images/placeholder.webp",
+    "details": [
+        "I 1215 satte kong Johan seglet sitt på Magna Carta.",
+        "For første gang måtte selv kongen følge loven.",
+        "Avtalen ble en spire til rettsstaten vi lever i i dag."
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Det er en sommerdag i juni 1215. På en eng ved elva Themsen i England står kong Johan ansikt til ansikt med en flokk sinte baroner. Baronene er rike menn som eier mye land. De har med seg soldater, og de er lei av kongen. Johan har tapt kriger, krevd inn skatt etter skatt, og fengslet folk han ikke likte. Nå har baronene fått nok. De gir kongen et valg: skriv under på våre krav, eller mist tronen."
+        },
+        {
+            "type": "text",
+            "content": "Kong Johan hadde ikke noe valg. Han var nesten blakk, og hæren hans var for liten. Så han satte seglet sitt på et stort pergament fullt av regler. Dokumentet fikk navnet Magna Carta, som er latin for det store brevet. Ingen visste det den dagen, men det de gjorde på enga ved Runnymede skulle få følger i mange hundre år."
+        },
+        {
+            "type": "header",
+            "text": "En konge som sto over alt"
+        },
+        {
+            "type": "text",
+            "content": "For å forstå hvorfor Magna Carta var så viktig, må vi se hvordan makten fungerte før. I middelalderen mente folk at kongen fikk makten sin direkte fra Gud. Kongen var ikke valgt, og han kunne ikke stilles for retten. Han bestemte over hæren, over skattene og over domstolene. Hvis kongen ville ha pengene dine, tok han dem. Hvis han ville ha deg i fengsel, satte han deg der."
+        },
+        {
+            "type": "text",
+            "content": "Kongen sto altså over loven. Loven var noe han brukte mot andre, ikke noe som gjaldt ham selv. Du kan lese mer om hvordan kongemakten vokste fram i artikkelen om [monarkiet](/samfunnskunnskap/styringsformer/monarkiet). I England hadde dette systemet fungert ganske greit så lenge kongen var sterk og rettferdig. Men kong Johan var verken det ene eller det andre."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Kong Johan på en høy trone over knelende undersåtter i en mørk middelaldersal",
+            "caption": "Før 1215 sto den engelske kongen over loven. Han kunne kreve skatt, fengsle og dømme akkurat som han ville."
+        },
+        {
+            "type": "header",
+            "text": "Hvorfor baronene gjorde opprør"
+        },
+        {
+            "type": "text",
+            "content": "Kong Johan trengte hele tiden penger. Han førte dyre kriger i Frankrike, og han tapte de fleste av dem. For å betale presset han baronene hardt. Han fant på nye skatter, krevde store summer for arv, og straffet dem som ikke betalte. Mange baroner mistet både gods og ære uten en eneste rettssak."
+        },
+        {
+            "type": "text",
+            "content": "Til slutt slo baronene seg sammen. De var ikke vanlige bønder, men noen av de mektigste mennene i landet. Våren 1215 reiste de en hær og tok kontroll over London. Nå hadde de nok makt til å tvinge kongen til forhandlingsbordet. Kravet deres var enkelt, men helt nytt: kongen måtte love å følge faste regler, akkurat som alle andre."
+        },
+        {
+            "type": "component",
+            "name": "KongensMaktBinding",
+            "props": {}
+        },
+        {
+            "type": "header",
+            "text": "Hva Magna Carta sa"
+        },
+        {
+            "type": "text",
+            "content": "Magna Carta hadde 63 punkter. De fleste handlet om penger og land som var viktige akkurat i 1215, og er glemt i dag. Men noen få punkter ble stående som store ideer. Det viktigste var dette: kongen kunne ikke lenger kreve ny skatt uten å spørre et råd av menn først. Pengene tilhørte ikke kongen alene."
+        },
+        {
+            "type": "text",
+            "content": "Et annet punkt ble enda mer berømt. Det sa at ingen fri mann skulle fengsles, jages bort eller fratas eiendommen sin uten en lovlig dom av sine likemenn. Med andre ord: kongen kunne ikke straffe deg bare fordi han ville. Du hadde rett til en rettferdig rettssak. Dette var en helt ny tanke om at folk har rettigheter som selv kongen må respektere."
+        },
+        {
+            "type": "component",
+            "name": "MicroGame",
+            "props": { "gameId": "forseglingen-runnymede-3d" }
+        },
+        {
+            "type": "component",
+            "name": "QuoteBlock",
+            "props": {
+                "text": "Ingen fri mann skal fengsles eller fratas sine rettigheter uten en lovlig dom av sine likemenn og etter landets lov.",
+                "author": "Magna Carta, punkt 39, 1215"
+            }
+        },
+        {
+            "type": "text",
+            "content": "Magna Carta gjorde altså ikke kongen maktesløs. Han var fortsatt konge, og han styrte fortsatt landet. Men nå sto han under loven i stedet for over den. Det er denne forskjellen som gjør avtalen så viktig. For første gang var det skrevet ned, svart på hvitt, at selv den mektigste mannen i landet måtte følge regler."
+        },
+        {
+            "type": "header",
+            "text": "En vanskelig start"
+        },
+        {
+            "type": "text",
+            "content": "Magna Carta fikk ingen lett start. Bare noen uker etter at kong Johan hadde skrevet under, fikk han paven til å si at avtalen var ugyldig. Krigen mellom kongen og baronene blusset opp igjen. Men så døde Johan plutselig høsten 1216, og sønnen hans var bare ni år gammel. De som styrte for den unge kongen, valgte å godta Magna Carta på nytt for å skape fred."
+        },
+        {
+            "type": "text",
+            "content": "Slik overlevde avtalen. Den ble bekreftet flere ganger av nye konger gjennom hundreårene. Sakte ble den til noe mer enn et brev fra 1215. Den ble et symbol på at makten har grenser, og at folk har rettigheter loven må verne om."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Et gammelt pergament med tett latinsk håndskrift og et voksseglet hengende nederst",
+            "caption": "Fire originale eksemplarer av Magna Carta finnes fortsatt i dag, over 800 år senere."
+        },
+        {
+            "type": "header",
+            "text": "Arven etter Runnymede"
+        },
+        {
+            "type": "text",
+            "content": "Ideen i Magna Carta spredte seg langt utenfor England. Tanken om at ingen står over loven, og at folk har rettigheter som må respekteres, ble en grunnstein i mange land. Da USA og Frankrike laget sine egne lover på 1700-tallet, bygde de videre på den samme ideen. Det gjorde også Norge da Grunnloven ble skrevet i 1814. Du kan lese om den i artikkelen om [Grunnloven](/samfunnskunnskap/styringsformer/grunnloven)."
+        },
+        {
+            "type": "text",
+            "content": "Norge gikk forresten en lignende vei på egen hånd. Bare noen tiår etter Magna Carta laget kong Magnus Lagabøte én felles lov for hele landet, der kongen også skulle følge faste regler. Det kan du lese mer om i artikkelen om [Magnus Lagabøtes landslov](/historie/lov-og-rett/magnus-landslov). Begge stedene skjedde det samme: makten ble flyttet fra ett menneskes vilje til en lov alle måtte rette seg etter."
+        },
+        {
+            "type": "text",
+            "content": "Det vi i dag kaller en rettsstat, bygger på akkurat denne tanken. I en rettsstat gjelder loven likt for alle, også for dem som styrer. Ingen statsminister og ingen konge kan sette seg over reglene. Den ideen som baronene tvang fram på enga ved Runnymede, lever videre hver gang en domstol sier at også de mektige må følge loven. Vil du se hvordan ideen om at folket skal ha makt vokste videre, kan du lese om [demokratiets mange ansikter](/samfunnskunnskap/styringsformer/demokrati-ansikter)."
+        },
+        {
+            "type": "header",
+            "text": "Quiz"
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hva er Magna Carta?",
+                        "options": [
+                            "En avtale fra 1215 som bandt den engelske kongen til loven",
+                            "En borg kong Johan bygde ved Themsen",
+                            "Navnet på baronenes hær",
+                            "En krig mellom England og Frankrike"
+                        ],
+                        "correct": 0,
+                        "explanation": "Magna Carta betyr det store brevet. Det var et dokument med 63 punkter som kong Johan ble tvunget til å godta i 1215."
+                    },
+                    {
+                        "question": "Hvorfor gjorde baronene opprør mot kong Johan?",
+                        "options": [
+                            "Han ville innføre demokrati",
+                            "Han krevde stadig nye skatter og straffet folk uten rettssak",
+                            "Han nektet å føre krig i Frankrike",
+                            "Han ga bort for mye land til bøndene"
+                        ],
+                        "correct": 1,
+                        "explanation": "Johan presset baronene hardt for penger og tok gods og frihet fra dem uten lov og dom. Til slutt fikk de nok."
+                    },
+                    {
+                        "question": "Hva var den viktigste nye ideen i Magna Carta?",
+                        "options": [
+                            "At kongen skulle velges av folket",
+                            "At alle skulle eie like mye land",
+                            "At selv kongen måtte følge loven",
+                            "At kirken skulle bestemme over kongen"
+                        ],
+                        "correct": 2,
+                        "explanation": "Før sto kongen over loven. Magna Carta flyttet ham under loven, slik at også han måtte følge faste regler."
+                    },
+                    {
+                        "question": "Hvorfor er Magna Carta fortsatt viktig i dag?",
+                        "options": [
+                            "Den bestemmer hvem som er konge i England",
+                            "Den er grunnlaget for ideen om en rettsstat der loven gjelder likt for alle",
+                            "Den forbyr all skatt",
+                            "Den gjelder bare i middelalderen"
+                        ],
+                        "correct": 1,
+                        "explanation": "Tanken om at ingen står over loven ble en grunnstein i rettsstaten, og ble brukt videre i blant annet den norske Grunnloven fra 1814."
+                    }
+                ]
+            }
+        }
+    ],
+    "timeline": []
+}

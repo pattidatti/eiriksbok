@@ -2174,6 +2174,31 @@
       "geoConfidence": "tag"
     },
     {
+      "id": "magna-carta",
+      "title": "Magna Carta - da kongen måtte bøye seg for loven",
+      "description": "I 1215 tvang engelske baroner kong Johan til å skrive under på Magna Carta. For første gang måtte selv kongen følge loven - en spire til rettsstaten.",
+      "startDate": 1215,
+      "endDate": null,
+      "displayDate": "1215",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "lov-og-rett",
+      "link": "/historie/lov-og-rett/magna-carta",
+      "tags": [
+        "magna-carta",
+        "england",
+        "rettsstat",
+        "middelalder",
+        "rettsutvikling",
+        "kongemakt"
+      ],
+      "lat": 52.5,
+      "lng": -1.5,
+      "placeLabel": "England",
+      "placeCountryId": 826,
+      "geoConfidence": "tag"
+    },
+    {
       "id": "mongol-invasion-europe",
       "title": "Mongolene invaderer Europa",
       "description": "Mongolske horder beseirer russiske, polske og ungarske hærer og når utkanten av Wien.",
