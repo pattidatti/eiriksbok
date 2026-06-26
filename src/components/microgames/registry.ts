@@ -6,6 +6,7 @@ import type { MicroGameEntry } from './types';
 // Three.js-avhengige spill (3D) blir kun lastet når eleven åpner dem.
 
 const GladiusDuel = lazy(() => import('./GladiusDuel'));
+const Laasesting3D = lazy(() => import('./Laasesting3D'));
 const Colosseum3D = lazy(() => import('./Colosseum3D'));
 const TheodosianWalls3D = lazy(() => import('./TheodosianWalls3D'));
 const Hamskiftet3D = lazy(() => import('./Hamskiftet3D'));
@@ -428,6 +429,15 @@ export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.Laz
         estimatedSeconds: 150,
         loader: () => import('./HimmelModellen3D'),
         Component: HimmelModellen3D as never,
+    },
+    'laasesting-3d': {
+        id: 'laasesting-3d',
+        title: 'Laasesting: maskinen med to traader',
+        description:
+            'Tre symaskinen og sy en soem i 3D: dra spolen med undertraaden paa plass, og vugg svinghjulet saa naala foerer den blaa overtraaden ned og kroken laaser den fast i den oransje undertraaden. Oppdag hvorfor symaskinen bruker to traader.',
+        estimatedSeconds: 120,
+        loader: () => import('./Laasesting3D'),
+        Component: Laasesting3D as never,
     },
     'dampmaskin-hjerte-3d': {
         id: 'dampmaskin-hjerte-3d',

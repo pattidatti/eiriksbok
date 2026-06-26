@@ -56,6 +56,13 @@
       }
     },
     {
+      "type": "component",
+      "name": "MicroGame",
+      "props": {
+        "gameId": "laasesting-3d"
+      }
+    },
+    {
       "type": "header",
       "text": "Da klær ble billig"
     },
