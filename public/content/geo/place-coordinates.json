@@ -784,7 +784,7 @@
   "_unmapped": [
     {
       "tag": "historie",
-      "count": 275
+      "count": 276
     },
     {
       "tag": "dekolonisering",
@@ -863,6 +863,10 @@
       "count": 21
     },
     {
+      "tag": "middelalder",
+      "count": 20
+    },
+    {
       "tag": "vitenskap",
       "count": 20
     },
@@ -880,10 +884,6 @@
     },
     {
       "tag": "etikk",
-      "count": 18
-    },
-    {
-      "tag": "middelalder",
       "count": 18
     },
     {
@@ -983,6 +983,10 @@
       "count": 11
     },
     {
+      "tag": "rettsstat",
+      "count": 10
+    },
+    {
       "tag": "grunnleggere",
       "count": 10
     },
@@ -1036,10 +1040,6 @@
     },
     {
       "tag": "verdenshistorie",
-      "count": 8
-    },
-    {
-      "tag": "rettsstat",
       "count": 8
     },
     {
@@ -1172,6 +1172,10 @@
     },
     {
       "tag": "lov",
+      "count": 6
+    },
+    {
+      "tag": "rettsutvikling",
       "count": 6
     },
     {
@@ -1399,10 +1403,6 @@
       "count": 4
     },
     {
-      "tag": "rettsutvikling",
-      "count": 4
-    },
-    {
       "tag": "krle",
       "count": 4
     },
@@ -1460,6 +1460,10 @@
     },
     {
       "tag": "frihet",
+      "count": 4
+    },
+    {
+      "tag": "stemmerett",
       "count": 4
     },
     {
@@ -1683,10 +1687,6 @@
       "count": 3
     },
     {
-      "tag": "stemmerett",
-      "count": 3
-    },
-    {
       "tag": "opphavsrett",
       "count": 3
     },
@@ -1900,6 +1900,14 @@
     },
     {
       "tag": "shogun",
+      "count": 2
+    },
+    {
+      "tag": "magna-carta",
+      "count": 2
+    },
+    {
+      "tag": "kongemakt",
       "count": 2
     },
     {
@@ -2244,6 +2252,14 @@
     },
     {
       "tag": "lys",
+      "count": 2
+    },
+    {
+      "tag": "likestilling",
+      "count": 2
+    },
+    {
+      "tag": "kvinnekamp",
       "count": 2
     },
     {
@@ -3152,14 +3168,6 @@
     },
     {
       "tag": "rettsvitenskap",
-      "count": 1
-    },
-    {
-      "tag": "likestilling",
-      "count": 1
-    },
-    {
-      "tag": "kvinnekamp",
       "count": 1
     },
     {

@@ -93,8 +93,18 @@ const Standardklokka3D = lazy(() => import('./Standardklokka3D'));
 const ArkimedesKronen3D = lazy(() => import('./ArkimedesKronen3D'));
 const Fimbulvinteren3D = lazy(() => import('./Fimbulvinteren3D'));
 const DorerSomApnet3D = lazy(() => import('./DorerSomApnet3D'));
+const ForseglingenRunnymede3D = lazy(() => import('./ForseglingenRunnymede3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
+    'forseglingen-runnymede-3d': {
+        id: 'forseglingen-runnymede-3d',
+        title: 'Forseglingen på Runnymede',
+        description:
+            'Enga ved Themsen, juni 1215. Kong Johan har gått tom for penger og makt, og opprørske baroner tvinger ham til forhandlingsbordet. Dra voksseglet bort til pergamentet og slipp det. For hvert segl du setter, synker kongens høye trone et hakk, mens en steinstele merket LOVEN reiser seg like mye, og baronene løfter armene. Når alle fire segl er på plass, står tronen og loven på samme høyde. Lyspæren: Magna Carta gjorde ikke kongen maktesløs. Den senket ham ned til lovens nivå, slik at selv kongen for første gang måtte følge regler han ikke kunne endre alene. Det er denne ideen rettsstaten fortsatt bygger på.',
+        estimatedSeconds: 150,
+        loader: () => import('./ForseglingenRunnymede3D'),
+        Component: ForseglingenRunnymede3D as never,
+    },
     'radarvakten-3d': {
         id: 'radarvakten-3d',
         title: 'Radarvakten: se det usynlige',
