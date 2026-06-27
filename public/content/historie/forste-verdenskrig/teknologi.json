@@ -84,6 +84,11 @@
       "caption": "Stridsvognen ble utviklet for å knuse piggtråd og krysse skyttergraver, her en Mark IV som bryter seg gjennom frontlinjen."
     },
     {
+      "type": "component",
+      "name": "MicroGame",
+      "props": { "gameId": "stalmonsteret-3d" }
+    },
+    {
       "type": "header",
       "text": "Luftkrigens barndom"
     },
