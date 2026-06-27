@@ -14,6 +14,7 @@ const MeijiByen3D = lazy(() => import('./MeijiByen3D'));
 const VikingShip3D = lazy(() => import('./VikingShip3D'));
 const SymbolerPaaTaket3D = lazy(() => import('./SymbolerPaaTaket3D'));
 const IngenmanslandMG = lazy(() => import('./IngenmanslandMG'));
+const Stalmonsteret3D = lazy(() => import('./Stalmonsteret3D'));
 const TidensFormer3D = lazy(() => import('./TidensFormer3D'));
 const HimmelModellen3D = lazy(() => import('./HimmelModellen3D'));
 const DampmaskinHjerte3D = lazy(() => import('./DampmaskinHjerte3D'));
@@ -98,6 +99,15 @@ const ForseglingenRunnymede3D = lazy(() => import('./ForseglingenRunnymede3D'));
 const Bergkunsten3D = lazy(() => import('./Bergkunsten3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
+    'stalmonsteret-3d': {
+        id: 'stalmonsteret-3d',
+        title: 'Stålmonsteret bryter fronten',
+        description:
+            'Vestfronten under første verdenskrig. Trykk på knappen og send infanteriet over ingenmannsland. De løper mot fiendens skyttergrav, men maskingeværet meier dem ned ved piggtråden og angrepet stivner. Dra så spaken og kjør stridsvognen fram: den ruller ut i ingenmannsland, knuser piggtråden, tar imot kulene med panseret og klatrer til slutt over skyttergraven. Klikk maskingeværet for å lese om ildkraften. Lyspæren: maskingevær og piggtråd gjorde det umulig for mennesker å krysse ingenmannsland, og det var nettopp derfor stridsvognen ble oppfunnet. En maskin som tålte kulene, knuste tråden og krysset grava kunne bryte stillstanden de ikke klarte.',
+        estimatedSeconds: 150,
+        loader: () => import('./Stalmonsteret3D'),
+        Component: Stalmonsteret3D as never,
+    },
     'bergkunsten-3d': {
         id: 'bergkunsten-3d',
         title: 'Finn helleristningene',
