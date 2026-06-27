@@ -10446,6 +10446,25 @@
       "placeLabel": "Norge",
       "placeCountryId": 578,
       "geoConfidence": "guess"
+    },
+    {
+      "id": "helleristninger",
+      "title": "Helleristninger: Beskjeder hugget i stein",
+      "description": "Bildene de første nordmennene hugget i berget, og hvordan vi tolker dem i dag.",
+      "startDate": 5000,
+      "endDate": -500,
+      "displayDate": "5000-500 fvt",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "norgeshistorie",
+      "link": "/historie/norgeshistorie/helleristninger",
+      "tags": [
+        "forhistorie",
+        "steinalder",
+        "bronsealder",
+        "kilder",
+        "alta"
+      ]
     }
   ]
 }

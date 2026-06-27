@@ -863,6 +863,10 @@
       "count": 21
     },
     {
+      "tag": "steinalder",
+      "count": 20
+    },
+    {
       "tag": "middelalder",
       "count": 20
     },
@@ -876,10 +880,6 @@
     },
     {
       "tag": "kultur",
-      "count": 18
-    },
-    {
-      "tag": "steinalder",
       "count": 18
     },
     {
@@ -983,6 +983,10 @@
       "count": 11
     },
     {
+      "tag": "forhistorie",
+      "count": 10
+    },
+    {
       "tag": "rettsstat",
       "count": 10
     },
@@ -1029,10 +1033,6 @@
     {
       "tag": "buddhisme",
       "count": 9
-    },
-    {
-      "tag": "forhistorie",
-      "count": 8
     },
     {
       "tag": "arkeologi",
@@ -1664,6 +1664,10 @@
     },
     {
       "tag": "skandale",
+      "count": 3
+    },
+    {
+      "tag": "kilder",
       "count": 3
     },
     {
@@ -2487,6 +2491,14 @@
       "count": 2
     },
     {
+      "tag": "bronsealder",
+      "count": 2
+    },
+    {
+      "tag": "alta",
+      "count": 2
+    },
+    {
       "tag": "skriving",
       "count": 2
     },
@@ -3056,10 +3068,6 @@
     },
     {
       "tag": "undset",
-      "count": 1
-    },
-    {
-      "tag": "kilder",
       "count": 1
     },
     {
