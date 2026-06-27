@@ -95,8 +95,18 @@ const ArkimedesKronen3D = lazy(() => import('./ArkimedesKronen3D'));
 const Fimbulvinteren3D = lazy(() => import('./Fimbulvinteren3D'));
 const DorerSomApnet3D = lazy(() => import('./DorerSomApnet3D'));
 const ForseglingenRunnymede3D = lazy(() => import('./ForseglingenRunnymede3D'));
+const Bergkunsten3D = lazy(() => import('./Bergkunsten3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
+    'bergkunsten-3d': {
+        id: 'bergkunsten-3d',
+        title: 'Finn helleristningene',
+        description:
+            'Et naket berg ute i landskapet. Dra spaken og senk sola mot horisonten. Når lyset står høyt er berget flatt og tomt, men når sola synker, kaster de grunne hugg-sporene skygge og figurene trer fram - en båt, et solhjul, en jeger, en elg og en fisk. Klikk hver figur for å registrere den. Lyspæren: du ser helleristninger best når sola står lavt, og det er nettopp derfor de er så vanskelige å finne. Arkeologer leter i skrått lys eller maler opp sporene, og nye ristninger blir oppdaget den dag i dag.',
+        estimatedSeconds: 140,
+        loader: () => import('./Bergkunsten3D'),
+        Component: Bergkunsten3D as never,
+    },
     'forseglingen-runnymede-3d': {
         id: 'forseglingen-runnymede-3d',
         title: 'Forseglingen på Runnymede',
