@@ -55,6 +55,13 @@
             }
         },
         {
+            "type": "component",
+            "name": "MicroGame",
+            "props": {
+                "gameId": "de-sju-hoydene-3d"
+            }
+        },
+        {
             "type": "header",
             "content": "Fra konger til frihet: Republikkens fødsel"
         },
