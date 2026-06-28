@@ -12,6 +12,7 @@ const TheodosianWalls3D = lazy(() => import('./TheodosianWalls3D'));
 const Hamskiftet3D = lazy(() => import('./Hamskiftet3D'));
 const MeijiByen3D = lazy(() => import('./MeijiByen3D'));
 const VikingShip3D = lazy(() => import('./VikingShip3D'));
+const DeSjuHoydene3D = lazy(() => import('./DeSjuHoydene3D'));
 const SymbolerPaaTaket3D = lazy(() => import('./SymbolerPaaTaket3D'));
 const IngenmanslandMG = lazy(() => import('./IngenmanslandMG'));
 const Stalmonsteret3D = lazy(() => import('./Stalmonsteret3D'));
@@ -665,6 +666,15 @@ export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.Laz
         estimatedSeconds: 110,
         loader: () => import('./Spleiselaget3D'),
         Component: Spleiselaget3D as never,
+    },
+    'de-sju-hoydene-3d': {
+        id: 'de-sju-hoydene-3d',
+        title: 'Bygg Roma på de sju høydene',
+        description:
+            'Bygg Roma slik arkeologien forteller det, ikke slik myten gjør. Klikk de sju høydene ved elven Tiberen og la en landsby slå seg ned på hver: høydene ga forsvar, elven ga handel. Dra så spaken og tørrlegg sumpen i midten, slik at den blir til Forum, det felles torget. Da smelter de sju landsbyene sammen til én by med mur rundt. Lyspæren: Roma ble ikke reist på én dag av én mann, men vokste sakte fram fordi stedet var perfekt for både forsvar og handel.',
+        estimatedSeconds: 150,
+        loader: () => import('./DeSjuHoydene3D'),
+        Component: DeSjuHoydene3D as never,
     },
     'gobekli-tepe-3d': {
         id: 'gobekli-tepe-3d',
