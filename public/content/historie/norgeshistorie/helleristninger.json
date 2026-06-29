@@ -5,7 +5,7 @@
     "year": "5000-500 fvt",
     "category": "Norges forhistorie",
     "readTime": "8 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/norgeshistorie/helleristninger-hero.webp",
     "details": [
         "Helleristninger er bilder folk hugget i berg lenge før vi hadde skrift i Norge.",
         "De viser dyr, båter, sol og mennesker, og de er en av våre eldste kilder til fortida.",
@@ -18,7 +18,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/norgeshistorie/helleristninger-01.webp",
             "alt": "Nært bilde av figurer hugget inn i et grått svaberg ute i landskapet",
             "caption": "En helleristning er ikke malt på, men hugget ned i selve berget. Sporene er bare noen millimeter dype."
         },
@@ -76,7 +76,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/norgeshistorie/helleristninger-02.webp",
             "alt": "Helleristninger som lyser fram i lavt, skrått kveldslys på et berg",
             "caption": "I lavt lys kaster de grunne sporene skygge, og figurene trer fram av berget."
         },

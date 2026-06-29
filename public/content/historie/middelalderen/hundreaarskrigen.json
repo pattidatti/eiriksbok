@@ -5,7 +5,7 @@
     "year": "1337-1453",
     "category": "Middelalderen",
     "readTime": "7 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/middelalderen/hundreaarskrigen-hero.webp",
     "details": [
         "Varte i over hundre år (1337-1453)",
         "Langbuen og kanonen gjorde slutt på riddernes makt",
@@ -18,7 +18,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/middelalderen/hundreaarskrigen-01.webp",
             "alt": "Franske riddere på hest rir inn i et regn av piler på en gjørmete slagmark",
             "caption": "Slaget ved Azincourt 1415. De franske ridderne red rett inn i de engelske langbuenes pilregn."
         },
@@ -57,7 +57,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/middelalderen/hundreaarskrigen-02.webp",
             "alt": "En rekke engelske bueskyttere spenner store langbuer og skyter en sky av piler",
             "caption": "Engelske langbueskyttere. En vegg av piler kunne stoppe selv de beste ridderne."
         },
@@ -90,7 +90,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/middelalderen/hundreaarskrigen-03.webp",
             "alt": "Jeanne d'Arc i rustning holder et hvitt banner høyt foran byporten i Orléans",
             "caption": "Jeanne d'Arc ved Orléans i 1429. Bondejenta som ga Frankrike troen tilbake."
         },
