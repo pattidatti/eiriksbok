@@ -21,6 +21,7 @@ import { MapCarousel } from './MapCarousel';
 // Lazy-loaded components for better performance
 // Interactive Content
 const HelleristningTyder = lazy(() => import('./content/interactive/HelleristningTyder').then(m => ({ default: m.HelleristningTyder })));
+const RidderMotLangbue = lazy(() => import('./content/interactive/RidderMotLangbue').then(m => ({ default: m.RidderMotLangbue })));
 const EratosthenesJorda = lazy(() => import('./content/interactive/EratosthenesJorda').then(m => ({ default: m.EratosthenesJorda })));
 const KongensMaktBinding = lazy(() => import('./content/interactive/KongensMaktBinding').then(m => ({ default: m.KongensMaktBinding })));
 const GullSaltVekten = lazy(() => import('./content/interactive/GullSaltVekten').then(m => ({ default: m.GullSaltVekten })));
@@ -295,6 +296,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     GovernmentExplorer,
     HistoryLongLines,
     HelleristningTyder,
+    RidderMotLangbue,
     EratosthenesJorda,
     GullSaltVekten,
     TondibiSlaget,

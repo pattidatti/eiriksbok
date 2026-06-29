@@ -1,0 +1,151 @@
+{
+    "id": "hundreaarskrigen",
+    "title": "Hundreårskrigen",
+    "layout": "rich",
+    "year": "1337-1453",
+    "category": "Middelalderen",
+    "readTime": "7 min lesning",
+    "heroImage": "/images/placeholder.webp",
+    "details": [
+        "Varte i over hundre år (1337-1453)",
+        "Langbuen og kanonen gjorde slutt på riddernes makt",
+        "Jeanne d'Arc snudde krigen for Frankrike i 1429"
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Det regnet den 25. oktober 1415. På en gjørmete åker ved Azincourt i Nord-Frankrike satt tusenvis av franske riddere på hestene sine, tunge av stål og sikre på seier. Mot dem sto en liten, sulten engelsk hær. Da ridderne red fram, fylte himmelen seg med piler. Hestene falt, ridderne sank i gjørma, og den stolte franske hæren ble slaktet ned på noen få timer. Hvordan kunne noen bønder med buer slå Europas fineste riddere?"
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Franske riddere på hest rir inn i et regn av piler på en gjørmete slagmark",
+            "caption": "Slaget ved Azincourt 1415. De franske ridderne red rett inn i de engelske langbuenes pilregn."
+        },
+        {
+            "type": "text",
+            "content": "Svaret ligger i en av de lengste og merkeligste krigene i historien. Hundreårskrigen var en serie kriger mellom England og Frankrike som varte fra 1337 til 1453, altså i hele 116 år. Den startet med en krangel om en krone. Den engelske kongen mente at han også hadde rett til å være konge i Frankrike, og da franskmennene sa nei, gikk England til krig. Engelske hærer seilte over kanalen og herjet i Frankrike i over hundre år."
+        },
+        {
+            "type": "header",
+            "text": "En krig i rykk og napp"
+        },
+        {
+            "type": "text",
+            "content": "Selv om vi kaller den én krig, var Hundreårskrigen egentlig mange korte kriger med lange pauser imellom. Noen år raste kampene, andre år var det våpenhvile. Soldatene dro hjem, kongene byttet ut hverandre, og nye konger startet kampen på nytt. Mellom slagene kom også noe verre enn krig: i 1349 traff svartedauden Europa og drepte rundt en tredjedel av alle mennesker. Du kan lese mer i artikkelen om [svartedauden](/historie/middelalderen/svartedauden). Pesten rammet begge sider hardt, men så snart den ga seg, tok krigen til igjen."
+        },
+        {
+            "type": "header",
+            "text": "Langbuen knuser ridderen"
+        },
+        {
+            "type": "text",
+            "content": "I starten av middelalderen var ridderen nesten umulig å slå. Han var en rik kriger i full rustning på en stridshest, trent fra barnsben av. I artikkelen om [middelalderen](/historie/middelalderen/middelalderen) ser du hvordan ridderne sto øverst på krigsmarken, akkurat som under [korstogene](/historie/middelalderen/korstogene). Men i Hundreårskrigen møtte ridderen et nytt våpen: den engelske langbuen. En langbue var billig og laget av tre, men den var nesten to meter høy og skjøt piler så langt og så hardt at de kunne gå tvers gjennom rustning. Og det viktigste: en hær kunne ha tusenvis av bueskyttere. Mens én ridder kostet en formue, kunne en vanlig bonde læres opp til å skyte med bue."
+        },
+        {
+            "type": "text",
+            "content": "Ved Crécy i 1346, Poitiers i 1356 og Azincourt i 1415 vant England store seire mot mye større franske hærer. Hemmeligheten var ikke ett supervåpen, men mengden. Tusenvis av piler i lufta samtidig stoppet ethvert rytterangrep før det nådde fram. Prøv det selv nedenfor: hvor mange bueskyttere må til for å stanse den franske ridderen?"
+        },
+        {
+            "type": "component",
+            "name": "RidderMotLangbue",
+            "props": {}
+        },
+        {
+            "type": "text",
+            "content": "Senere i krigen kom enda et nytt våpen: kanonen. Med krutt og kanonkuler kunne en hær skyte hull i de tykke borgmurene som ridderne hadde gjemt seg bak i hundrevis av år. Sammen gjorde langbuen og kanonen at den tunge ridderen ikke lenger var konge på slagmarken. Krig handlet ikke lenger om noen få helter i rustning, men om mange vanlige soldater med våpen som alle hadde råd til."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "En rekke engelske bueskyttere spenner store langbuer og skyter en sky av piler",
+            "caption": "Engelske langbueskyttere. En vegg av piler kunne stoppe selv de beste ridderne."
+        },
+        {
+            "type": "header",
+            "text": "Jeanne d'Arc snur krigen"
+        },
+        {
+            "type": "text",
+            "content": "Rundt 1420 så det ut som Frankrike var ferdig. England kontrollerte store deler av landet, og den franske kongen var svak og redd. Da skjedde noe ingen kunne tro. En ung bondejente på sytten år, Jeanne d'Arc, kom til hoffet og sa at Gud hadde sendt henne for å redde Frankrike. Mot alle odds fikk hun lov til å bli med hæren. I 1429 ledet hun de franske soldatene til byen Orléans, som hadde vært beleiret av engelskmennene. På få dager løftet hun beleiringen. Plutselig trodde franskmennene på seier igjen."
+        },
+        {
+            "type": "text",
+            "content": "Jeanne hjalp den franske kongen Karl 7. å bli kronet, og det ga ham makt og ære. Men selv ble hun tatt til fange av englendernes allierte, dømt og brent på bålet i 1431, bare nitten år gammel. Likevel var skaden allerede skjedd for England: krigen hadde snudd. I mikrospillet under kan du selv følge krigen som svinger fram og tilbake, helt til Jeanne snur alt ved Orléans."
+        },
+        {
+            "type": "component",
+            "name": "MicroGame",
+            "props": {
+                "gameId": "hundreaarskrigen-3d"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Et nytt Europa"
+        },
+        {
+            "type": "text",
+            "content": "Etter Orléans tok Frankrike tilbake landet sitt bit for bit, og i 1453 var krigen over. England satt igjen med nesten ingenting på fransk jord. Men krigen forandret mer enn et kart. Før hadde mange folk følt seg mest knyttet til sin egen herre eller sin egen by. Etter over hundre år med krig mot en felles fiende begynte folk i England og Frankrike å føle seg som engelskmenn og franskmenn, som egne nasjoner. Kongene fikk mer makt, fordi de trengte penger og soldater fra hele landet for å vinne krigen. De begynte å bygge faste hærer av betalte soldater i stedet for å låne riddere av rike herrer, og de krevde inn skatt fra alle for å betale for det. Sakte men sikkert ble de løse landene til sterke, samlede stater."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Jeanne d'Arc i rustning holder et hvitt banner høyt foran byporten i Orléans",
+            "caption": "Jeanne d'Arc ved Orléans i 1429. Bondejenta som ga Frankrike troen tilbake."
+        },
+        {
+            "type": "text",
+            "content": "Slik ble Hundreårskrigen et vendepunkt. Den var slutten på riddernes tid og begynnelsen på en verden med større riker, sterkere konger og hærer av vanlige folk. Måten kongene nå styrte og krevde inn skatt på, bygde videre på ideer om lov og makt som vi kjenner igjen fra [Magna Carta](/historie/lov-og-rett/magna-carta) i England. Og den lærte Europa en lekse som aldri ble glemt: selv den sterkeste ridder kan falle for en sky av piler og en jente som nektet å gi opp."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "title": "Hundreårskrigen - sjekk forståelsen",
+                "questions": [
+                    {
+                        "question": "Hvor lenge varte Hundreårskrigen omtrent?",
+                        "options": ["Akkurat 100 år", "Over 100 år (1337-1453)", "50 år", "200 år"],
+                        "correctAnswer": 1,
+                        "explanation": "Krigen varte fra 1337 til 1453, altså 116 år, med mange pauser imellom."
+                    },
+                    {
+                        "question": "Hvorfor kunne engelske bueskyttere slå de franske ridderne?",
+                        "options": [
+                            "Buene var laget av gull",
+                            "De var mange og skjøt tusenvis av piler langt og hardt",
+                            "Ridderne hadde ingen rustning",
+                            "Franskmennene hadde ingen hester"
+                        ],
+                        "correctAnswer": 1,
+                        "explanation": "Langbuen var billig, så en hær kunne ha tusenvis av bueskyttere. Mengden piler stoppet rytterangrepet før det nådde fram."
+                    },
+                    {
+                        "question": "Hva gjorde Jeanne d'Arc i 1429?",
+                        "options": [
+                            "Hun ble dronning av England",
+                            "Hun løftet beleiringen av Orléans og snudde krigen",
+                            "Hun fant opp kanonen",
+                            "Hun startet svartedauden"
+                        ],
+                        "correctAnswer": 1,
+                        "explanation": "Jeanne d'Arc ledet de franske soldatene og løftet beleiringen av Orléans. Det ga franskmennene troen på seier tilbake."
+                    },
+                    {
+                        "question": "Hva var en viktig følge av krigen?",
+                        "options": [
+                            "Ridderne ble enda mektigere",
+                            "England og Frankrike begynte å føle seg som egne nasjoner",
+                            "All krig tok slutt i Europa",
+                            "Pesten forsvant for godt"
+                        ],
+                        "correctAnswer": 1,
+                        "explanation": "Etter over hundre år med krig mot en felles fiende vokste følelsen av å være en egen nasjon fram, og kongene fikk mer makt."
+                    }
+                ]
+            }
+        }
+    ],
+    "timeline": []
+}

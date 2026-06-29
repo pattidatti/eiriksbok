@@ -2420,6 +2420,30 @@
       "geoConfidence": "tag"
     },
     {
+      "id": "hundreaarskrigen",
+      "title": "Hundreårskrigen",
+      "description": "Krigen mellom England og Frankrike som varte i over hundre år, knuste riddernes makt og løftet fram Jeanne d'Arc.",
+      "startDate": 1337,
+      "endDate": 1453,
+      "displayDate": "1337-1453",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "middelalderen",
+      "link": "/historie/middelalderen/hundreaarskrigen",
+      "tags": [
+        "historie",
+        "middelalderen",
+        "krig",
+        "england",
+        "frankrike"
+      ],
+      "lat": 52.5,
+      "lng": -1.5,
+      "placeLabel": "England",
+      "placeCountryId": 826,
+      "geoConfidence": "tag"
+    },
+    {
       "id": "svartedauden-norge",
       "title": "Svartedauden kommer til Norge",
       "description": "Pesten ankommer Bjørgvin med et handelsskip.",

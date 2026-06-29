@@ -98,8 +98,18 @@ const Fimbulvinteren3D = lazy(() => import('./Fimbulvinteren3D'));
 const DorerSomApnet3D = lazy(() => import('./DorerSomApnet3D'));
 const ForseglingenRunnymede3D = lazy(() => import('./ForseglingenRunnymede3D'));
 const Bergkunsten3D = lazy(() => import('./Bergkunsten3D'));
+const Hundreaarskrigen3D = lazy(() => import('./Hundreaarskrigen3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
+    'hundreaarskrigen-3d': {
+        id: 'hundreaarskrigen-3d',
+        title: 'Hundreaarskrigen: krigen som svingte',
+        description:
+            'Et kart over Frankrike sett ovenfra. Hundreaarskrigen mellom England og Frankrike svingte fram og tilbake i over hundre aar. Klikk de tre store engelske seirene i rekkefolge - Crecy 1346, Poitiers 1356 og Azincourt 1415 - og se landet farges roedt mens fronten presser sorover, til bare byen Orleans holder stand, beleiret. Send saa Jeanne d&apos;Arc til Orleans i 1429: hun loefter beleiringen, det franske blaa skyller tilbake over kartet, og Frankrike vinner krigen i 1453. Lyspaeren: krigen var ikke ett slag, men en serie kriger som svingte fram og tilbake. England vant slag etter slag med langbuene sine, helt til en ung bondejente snudde alt ved Orleans og ga franskmennene troen tilbake.',
+        estimatedSeconds: 150,
+        loader: () => import('./Hundreaarskrigen3D'),
+        Component: Hundreaarskrigen3D as never,
+    },
     'stalmonsteret-3d': {
         id: 'stalmonsteret-3d',
         title: 'Stålmonsteret bryter fronten',
