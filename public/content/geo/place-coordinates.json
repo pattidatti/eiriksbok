@@ -784,19 +784,19 @@
   "_unmapped": [
     {
       "tag": "historie",
-      "count": 276
+      "count": 278
     },
     {
       "tag": "dekolonisering",
       "count": 73
     },
     {
-      "tag": "teknologi",
-      "count": 65
+      "tag": "krig",
+      "count": 66
     },
     {
-      "tag": "krig",
-      "count": 64
+      "tag": "teknologi",
+      "count": 65
     },
     {
       "tag": "filosofi",
@@ -856,7 +856,7 @@
     },
     {
       "tag": "middelalderen",
-      "count": 21
+      "count": 23
     },
     {
       "tag": "vikingtiden",
