@@ -94,6 +94,11 @@
             "content": "Det forteller oss noe viktig om renessansen. Selv geniene måtte tjene penger, og fyrster betalte best for våpen. Leonardo fikk jobben, og i Milano fikk han nesten tjue år til å gjøre nøyaktig hva han ville. Han malte Nattverden på veggen i et kloster, han designet kanaler gjennom byen, og han fylte sider på sider med skisser av flymaskiner, dykkerdrakter og giljotiner."
         },
         {
+            "type": "component",
+            "name": "MicroGame",
+            "props": { "gameId": "leonardo-flygemaskin-3d" }
+        },
+        {
             "type": "image",
             "src": "/images/renessansen/leonardo-da-vinci-02.webp",
             "alt": "Naerbilde av en aapnet renessanse-notatbok med speilskrift og en detaljert skisse av en flymaskin",

@@ -12,6 +12,7 @@ const TheodosianWalls3D = lazy(() => import('./TheodosianWalls3D'));
 const Hamskiftet3D = lazy(() => import('./Hamskiftet3D'));
 const MeijiByen3D = lazy(() => import('./MeijiByen3D'));
 const VikingShip3D = lazy(() => import('./VikingShip3D'));
+const LeonardoFlygemaskin3D = lazy(() => import('./LeonardoFlygemaskin3D'));
 const DeSjuHoydene3D = lazy(() => import('./DeSjuHoydene3D'));
 const SymbolerPaaTaket3D = lazy(() => import('./SymbolerPaaTaket3D'));
 const IngenmanslandMG = lazy(() => import('./IngenmanslandMG'));
@@ -433,6 +434,15 @@ export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.Laz
         estimatedSeconds: 160,
         loader: () => import('./VikingShip3D'),
         Component: VikingShip3D as never,
+    },
+    'leonardo-flygemaskin-3d': {
+        id: 'leonardo-flygemaskin-3d',
+        title: 'Leonardos flygemaskin',
+        description:
+            'Gjenskap Leonardos arbeidsmåte i 3D: studer fuglevingen, bygg flygemaskinen med de samme prinsippene, og tråkk pedalen for å slå med vingene.',
+        estimatedSeconds: 150,
+        loader: () => import('./LeonardoFlygemaskin3D'),
+        Component: LeonardoFlygemaskin3D as never,
     },
     'ingenmannsland-mg': {
         id: 'ingenmannsland-mg',
