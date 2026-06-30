@@ -101,8 +101,18 @@ const ForseglingenRunnymede3D = lazy(() => import('./ForseglingenRunnymede3D'));
 const Bergkunsten3D = lazy(() => import('./Bergkunsten3D'));
 const Hundreaarskrigen3D = lazy(() => import('./Hundreaarskrigen3D'));
 const Stenderpyramiden3D = lazy(() => import('./Stenderpyramiden3D'));
+const FingertFlukt3D = lazy(() => import('./FingertFlukt3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
+    'fingerte-flukten-3d': {
+        id: 'fingerte-flukten-3d',
+        title: 'Den fingerte flukten',
+        description:
+            'En åpen steppe sett ovenfra. Du styrer den lette mongolske rytterstyrken mot en tyngre, tett fiendeblokk. Klikk «Egg fienden» så de lette bueskytterne skyter pilregn og lokker. Dra så spaken «Falsk flukt»: mongolene rir bakover, og den tunge blokka jager etter, men de ivrigste rir fra og de tyngste henger etter, så den tette blokka strekkes ut i en lang, sliten linje. Når fienden er full strukket ut, lukk fellen fra begge flanker, og bakholdet sveiper inn og omringer dem. Lyspæren: mongolene vant ikke fordi de var sterkest, men fordi de var raske og disiplinerte nok til å late som de flyktet. Fiendens egen iver ble fella som omringet dem.',
+        estimatedSeconds: 150,
+        loader: () => import('./FingertFlukt3D'),
+        Component: FingertFlukt3D as never,
+    },
     'stenderpyramiden-3d': {
         id: 'stenderpyramiden-3d',
         title: 'Stenderpyramiden faller',
