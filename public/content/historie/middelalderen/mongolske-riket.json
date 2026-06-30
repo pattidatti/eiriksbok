@@ -138,6 +138,13 @@
         },
         {
             "type": "component",
+            "name": "MicroGame",
+            "props": {
+                "gameId": "fingerte-flukten-3d"
+            }
+        },
+        {
+            "type": "component",
             "name": "ScenarioRoleplay",
             "props": {
                 "title": "Handelsmannen på Silkeveien",
