@@ -1,5 +1,24 @@
 {
-  "plaintextInternalLinks": [],
+  "plaintextInternalLinks": [
+    {
+      "file": "content/historie/mellomkrigstiden/mellomkrigstiden-sti.json",
+      "key": "learningPathData.presentation.slides[39].points[0].text",
+      "match": "/oving/spill/marsjen-mot-roma",
+      "snippet": "l Marsjen mot Roma (/oving/spill/marsjen-mot-roma)"
+    },
+    {
+      "file": "content/historie/mellomkrigstiden/mellomkrigstiden-sti.json",
+      "key": "learningPathData.presentation.slides[39].points[1].text",
+      "match": "/historie/mellomkrigstiden/italia",
+      "snippet": " Fascismens fødsel (/historie/mellomkrigstiden/italia)"
+    },
+    {
+      "file": "content/samfunnskunnskap/okonomi/inflasjon-og-rente.json",
+      "key": "content[20].content",
+      "match": "/samfunnskunnskap/okonomi/naturlig-rente",
+      "snippet": "n naturlige renten (/samfunnskunnskap/okonomi/naturlig-rente) tar for seg Böhm-B"
+    }
+  ],
   "suspiciousMarkdownLinks": [],
   "emptyOrPlaceholderComparisons": []
 }
