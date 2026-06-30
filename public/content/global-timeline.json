@@ -4304,6 +4304,32 @@
       "geoConfidence": "tag"
     },
     {
+      "id": "menneskerettighetserklaeringen",
+      "title": "Menneskerettighetserklæringen av 1789",
+      "description": "Den 26. august 1789 skrev franskmennene ned sytten setninger om at alle er født frie og like, og la grunnmuren for menneskerettighetene vi har i dag.",
+      "startDate": 1789,
+      "endDate": null,
+      "displayDate": "1789",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "den-franske-revolusjon",
+      "link": "/historie/den-franske-revolusjon/menneskerettighetserklaeringen",
+      "tags": [
+        "frankrike",
+        "revolusjon",
+        "menneskerettigheter",
+        "1789",
+        "1700-tallet",
+        "rettigheter",
+        "demokrati"
+      ],
+      "lat": 46.6,
+      "lng": 2.5,
+      "placeLabel": "Frankrike",
+      "placeCountryId": 250,
+      "geoConfidence": "tag"
+    },
+    {
       "id": "usa-frigjoring-sub-3",
       "title": "Grunnloven",
       "description": "USA får sin konstitusjon og George Washington blir president.",

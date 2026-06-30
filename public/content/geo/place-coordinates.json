@@ -843,16 +843,16 @@
       "count": 25
     },
     {
+      "tag": "demokrati",
+      "count": 24
+    },
+    {
       "tag": "hverdagsliv",
       "count": 24
     },
     {
       "tag": "musikk",
       "count": 24
-    },
-    {
-      "tag": "demokrati",
-      "count": 23
     },
     {
       "tag": "middelalderen",
@@ -879,6 +879,10 @@
       "count": 20
     },
     {
+      "tag": "revolusjon",
+      "count": 19
+    },
+    {
       "tag": "kultur",
       "count": 18
     },
@@ -888,10 +892,6 @@
     },
     {
       "tag": "ritual",
-      "count": 18
-    },
-    {
-      "tag": "revolusjon",
       "count": 18
     },
     {
@@ -1019,6 +1019,18 @@
       "count": 9
     },
     {
+      "tag": "rettigheter",
+      "count": 9
+    },
+    {
+      "tag": "1700-tallet",
+      "count": 9
+    },
+    {
+      "tag": "menneskerettigheter",
+      "count": 9
+    },
+    {
       "tag": "analyse",
       "count": 9
     },
@@ -1048,18 +1060,6 @@
     },
     {
       "tag": "1500-tallet",
-      "count": 8
-    },
-    {
-      "tag": "rettigheter",
-      "count": 8
-    },
-    {
-      "tag": "1700-tallet",
-      "count": 8
-    },
-    {
-      "tag": "menneskerettigheter",
       "count": 8
     },
     {
@@ -1607,6 +1607,10 @@
       "count": 3
     },
     {
+      "tag": "1789",
+      "count": 3
+    },
+    {
       "tag": "medisin",
       "count": 3
     },
@@ -2144,10 +2148,6 @@
     },
     {
       "tag": "plikt",
-      "count": 2
-    },
-    {
-      "tag": "1789",
       "count": 2
     },
     {

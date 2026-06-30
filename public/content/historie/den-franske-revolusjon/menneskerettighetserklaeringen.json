@@ -1,0 +1,176 @@
+{
+    "id": "menneskerettighetserklaeringen",
+    "title": "Menneskerettighetserklæringen av 1789",
+    "layout": "rich",
+    "year": "1789",
+    "category": "Europa",
+    "readTime": "9 min lesning",
+    "heroImage": "/images/placeholder.webp",
+    "details": [
+        "Den 26. august 1789 vedtok den franske Nasjonalforsamlingen «Erklæringen om menneskets og borgerens rettigheter».",
+        "Erklæringen slo fast at alle mennesker er født frie og like, og at loven skal være den samme for alle.",
+        "Ideene fra 1789 ble grunnmuren i moderne menneskerettigheter, også i den norske grunnloven og i FN."
+    ],
+    "tags": [
+        "frankrike",
+        "revolusjon",
+        "menneskerettigheter",
+        "1789",
+        "1700-tallet",
+        "rettigheter",
+        "demokrati"
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "Den 26. august 1789 satt en gruppe menn i en sal utenfor Paris og skrev ned sytten korte setninger. De rakk ikke å forstå hvor viktige de var. Dokumentet de laget, het «Erklæringen om menneskets og borgerens rettigheter». På bare to sider slo det fast en helt ny idé: at alle mennesker er født frie og like, og at rettighetene dine kommer av at du er menneske, ikke av hvem du er født som. Den ideen skulle forandre hele verden."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Menn i den franske nasjonalforsamlingen skriver erklæringen ved et bord i 1789",
+            "caption": "Erklæringen ble skrevet på bare noen uker sommeren 1789, midt i revolusjonens kaos."
+        },
+        {
+            "type": "header",
+            "text": "Et samfunn delt i tre"
+        },
+        {
+            "type": "text",
+            "content": "For å skjønne hvorfor erklæringen ble så viktig, må vi se hvordan Frankrike var bygd opp før den kom. Samfunnet var delt inn i tre grupper, som ble kalt stender. Øverst sto geistligheten, altså prestene og kirken. Like under sto adelen, de fine familiene som eide jorda. Helt nederst sto tredjestanden: bønder, arbeidere, handelsmenn og alle andre. Tredjestanden var rundt nittisju av hundre mennesker i landet.\n\nProblemet var enkelt og urettferdig. De to øverste gruppene betalte nesten ingen skatt, selv om de var rikest. Tredjestanden betalte nesten alt, selv om de var fattigst. Hvis du var født inn i en bondefamilie, kunne du aldri bli noe annet. Fødselen din bestemte hele livet ditt. Bare noen uker tidligere, den 14. juli, hadde sinte parisere [stormet festningen Bastillen](/historie/den-franske-revolusjon/stormingen-av-bastillen). Folket hadde fått nok."
+        },
+        {
+            "type": "header",
+            "text": "Natten da privilegiene falt"
+        },
+        {
+            "type": "text",
+            "content": "Natten til den 4. august 1789 skjedde det noe nesten utrolig. Nasjonalforsamlingen møttes, og stemningen var elektrisk. En etter en reiste adelsmenn og prester seg og ga frivillig fra seg de gamle særrettighetene sine. De ga avkall på retten til å slippe skatt. De ga avkall på retten til å dømme bøndene sine. Møtet varte til langt på natt, og da sola sto opp, var det gamle stendersamfunnet i praksis avskaffet.\n\nMen å rive ned det gamle var ikke nok. Forsamlingen trengte å si tydelig hva som skulle gjelde i stedet. Hvilke rettigheter har et menneske egentlig? Det var dette spørsmålet de satte seg til å svare på."
+        },
+        {
+            "type": "header",
+            "text": "Sytten setninger som forandret alt"
+        },
+        {
+            "type": "text",
+            "content": "Ideene kom ikke fra ingenting. Gjennom hele 1700-tallet hadde tenkere stilt nye spørsmål om makt og frihet. Denne tiden kalles opplysningstiden. [Montesquieu](/krle/filosofi/montesquieu) mente at makten måtte deles, så ingen konge kunne styre alene. Andre mente at folket selv, ikke kongen, egentlig eier landet. Disse tankene la mennene i Nasjonalforsamlingen nå inn i erklæringen.\n\nDe sytten setningene var korte og kraftige. Den aller første slo fast at alle mennesker fødes frie og like i rettigheter. En annen sa at loven skal være den samme for alle, enten du er rik eller fattig. En tredje sa at ingen kan fengsles eller straffes uten at en lov sier det på forhånd. Erklæringen ga også alle frihet til å tro, tenke og si meningen sin. For folk som var vant til at kongen kunne gjøre akkurat som han ville, var dette svimlende nytt.\n\nDet kanskje mest dristige sto likevel litt skjult i teksten. Erklæringen sa at all makt kommer fra folket, ikke fra Gud eller fra kongen. Det betydde at heller ikke kongen lenger sto over loven. Han var fra nå av en tjener for folket, ikke en herre over det. Mange av mennene i salen visste godt at de med disse ordene snudde tusen år med tankegang på hodet. En vanlig franskmann kunne plutselig lese, svart på hvitt, at han var like mye verdt som en greve."
+        },
+        {
+            "type": "component",
+            "name": "ArvenFra1789",
+            "props": {
+                "title": "Arven fra 1789"
+            }
+        },
+        {
+            "type": "component",
+            "name": "FactBox",
+            "props": {
+                "title": "Erklæringen — visste du dette?",
+                "items": [
+                    "Den ble vedtatt den 26. august 1789, bare seks uker etter stormingen av Bastillen.",
+                    "Den har sytten korte artikler og er på under to sider.",
+                    "Den amerikanske politikeren Thomas Jefferson var i Paris og ga råd mens den ble skrevet.",
+                    "Selve ordet «borger» (citoyen) ble et hedersord i revolusjonen, i stedet for titler som «herr» og «frue».",
+                    "Erklæringen er fortsatt en del av Frankrikes grunnlov i dag."
+                ]
+            }
+        },
+        {
+            "type": "component",
+            "name": "MicroGame",
+            "props": {
+                "gameId": "stenderpyramiden-3d"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Hva erklæringen ikke gjorde"
+        },
+        {
+            "type": "text",
+            "content": "Erklæringen var et stort skritt, men den var ikke perfekt. Da det sto «alle mennesker», mente mennene som skrev den egentlig bare menn. Kvinner fikk verken stemmerett eller de samme rettighetene. En modig forfatter som het Olympe de Gouges ble så sint at hun skrev sin egen «Erklæring om kvinnens rettigheter» i 1791. Det likte makthaverne dårlig. Få år senere ble hun selv sendt til giljotinen.\n\nOgså slaveriet fikk leve videre. I de franske koloniene jobbet hundretusener av slaver, og erklæringens vakre ord nådde ikke fram til dem med det første. Slaveriet ble forbudt en kort stund, men [Napoleon](/historie/den-franske-revolusjon/napoleon) innførte det igjen noen år etter. Erklæringen lovet altså mer enn den klarte å holde. Likevel var ordene skrevet ned, og senere kunne folk peke på dem og kreve at de skulle gjelde alle, på ordentlig."
+        },
+        {
+            "type": "component",
+            "name": "QuoteBlock",
+            "props": {
+                "text": "Menneskene fødes og forblir frie og like i rettigheter.",
+                "author": "Artikkel 1 i Erklæringen om menneskets og borgerens rettigheter, 1789"
+            }
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Folkemengde i Paris løfter erklæringen på en plakat over hodene sine",
+            "caption": "Erklæringen ble lest opp og hengt opp på vegger over hele Frankrike."
+        },
+        {
+            "type": "header",
+            "text": "Arven helt fram til i dag"
+        },
+        {
+            "type": "text",
+            "content": "Ideen om at alle mennesker har like rettigheter fra fødselen, lot seg ikke stoppe. Den spredte seg fra Frankrike til hele Europa og videre ut i verden. Da Norge skrev sin egen [grunnlov i 1814](/samfunnskunnskap/styringsformer/grunnloven), bygde mennene på Eidsvoll direkte på de samme tankene. Også vår grunnlov slo fast at ingen kan straffes uten lov og dom.\n\nHundre og femti år senere kom det neste store steget. Etter de grufulle ødeleggelsene i andre verdenskrig samlet verdens land seg og vedtok [FNs verdenserklæring om menneskerettighetene](/samfunnskunnskap/ideer-og-verdenssyn/fn) i 1948. Den første setningen der ligner påfallende på den fra 1789: alle mennesker er født frie og med samme verdi.\n\nNår du i dag vet at du har rett til å si meningen din, at du ikke kan straffes uten lov, og at læreren og statsministeren dømmes etter de samme reglene som deg, så lever du på arven fra de sytten setningene i 1789. De rettighetene ble ikke gitt deg av en konge. Og nettopp derfor kan ingen konge ta dem fra deg igjen."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hva het dokumentet Nasjonalforsamlingen vedtok den 26. august 1789?",
+                        "options": [
+                            "Erklæringen om menneskets og borgerens rettigheter",
+                            "Den franske grunnloven",
+                            "Wienertraktaten",
+                            "FNs verdenserklæring"
+                        ],
+                        "answer": "Erklæringen om menneskets og borgerens rettigheter"
+                    },
+                    {
+                        "question": "Hvilken gruppe var størst, men betalte nesten all skatten i det gamle Frankrike?",
+                        "options": [
+                            "Tredjestanden",
+                            "Adelen",
+                            "Geistligheten",
+                            "Kongefamilien"
+                        ],
+                        "answer": "Tredjestanden"
+                    },
+                    {
+                        "question": "Hva slo den aller første setningen i erklæringen fast?",
+                        "options": [
+                            "At alle mennesker fødes frie og like i rettigheter",
+                            "At kongen har all makt",
+                            "At bare adelen har rettigheter",
+                            "At kirken skal styre landet"
+                        ],
+                        "answer": "At alle mennesker fødes frie og like i rettigheter"
+                    },
+                    {
+                        "question": "Hvem skrev en egen «Erklæring om kvinnens rettigheter» i 1791?",
+                        "options": [
+                            "Olympe de Gouges",
+                            "Marie Antoinette",
+                            "Montesquieu",
+                            "Napoleon"
+                        ],
+                        "answer": "Olympe de Gouges"
+                    },
+                    {
+                        "question": "Hvordan lever ideene fra 1789 videre i dag?",
+                        "options": [
+                            "De ble grunnmur for grunnlover og for FNs verdenserklæring om menneskerettighetene",
+                            "De ble glemt etter revolusjonen",
+                            "De gjelder bare i Frankrike",
+                            "De ble erstattet av kongens lover"
+                        ],
+                        "answer": "De ble grunnmur for grunnlover og for FNs verdenserklæring om menneskerettighetene"
+                    }
+                ]
+            }
+        }
+    ],
+    "timeline": []
+}
