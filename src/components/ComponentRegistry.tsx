@@ -30,6 +30,7 @@ const DenTauseHandelen = lazy(() => import('./content/interactive/DenTauseHandel
 const FlatUtKurven = lazy(() => import('./content/interactive/FlatUtKurven').then(m => ({ default: m.FlatUtKurven })));
 const BevisVurderer = lazy(() => import('./content/interactive/BevisVurderer').then(m => ({ default: m.BevisVurderer })));
 const AllmennviljeVerksted = lazy(() => import('./content/interactive/AllmennviljeVerksted').then(m => ({ default: m.AllmennviljeVerksted })));
+const ArvenFra1789 = lazy(() => import('./content/interactive/ArvenFra1789').then(m => ({ default: m.ArvenFra1789 })));
 const MatGjesteBord = lazy(() => import('./content/interactive/MatGjesteBord').then(m => ({ default: m.MatGjesteBord })));
 const MaktpyramidenJapan = lazy(() => import('./content/interactive/MaktpyramidenJapan').then(m => ({ default: m.MaktpyramidenJapan })));
 const MeijiModellvalg = lazy(() => import('./content/interactive/MeijiModellvalg').then(m => ({ default: m.MeijiModellvalg })));
@@ -304,6 +305,7 @@ export const componentRegistry: Record<string, React.ComponentType<any>> = {
     DenTauseHandelen,
     BevisVurderer,
     MatGjesteBord,
+    ArvenFra1789,
     TragediensTrinn,
     FornorskingMaler,
     KalmarMaktbalanse,

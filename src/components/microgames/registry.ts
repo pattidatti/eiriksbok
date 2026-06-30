@@ -100,8 +100,18 @@ const DorerSomApnet3D = lazy(() => import('./DorerSomApnet3D'));
 const ForseglingenRunnymede3D = lazy(() => import('./ForseglingenRunnymede3D'));
 const Bergkunsten3D = lazy(() => import('./Bergkunsten3D'));
 const Hundreaarskrigen3D = lazy(() => import('./Hundreaarskrigen3D'));
+const Stenderpyramiden3D = lazy(() => import('./Stenderpyramiden3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
+    'stenderpyramiden-3d': {
+        id: 'stenderpyramiden-3d',
+        title: 'Stenderpyramiden faller',
+        description:
+            'Det franske samfunnet i 1788 sett som en bratt pyramide. Den bittesmå geistligheten og adelen står høyt på toppen, mens den enorme tredjestanden er presset sammen nederst og bøyer seg under vekten. Dra spaken fra 1788 mot 1789: de privilegerte synker ned til bakken, de tre stendene blir tre like brede plattformer ved siden av hverandre, alle reiser seg, og Erklæringen om menneskerettighetene lyser opp bak dem. Vedta til slutt erklæringen. Lyspæren: før 1789 bestemte fødselen din om du sto på toppen eller bunnen, og to bittesmå grupper styrte alt. Erklæringen flyttet alle ned på samme grunn: like for loven, uansett hvem du var født som.',
+        estimatedSeconds: 140,
+        loader: () => import('./Stenderpyramiden3D'),
+        Component: Stenderpyramiden3D as never,
+    },
     'hundreaarskrigen-3d': {
         id: 'hundreaarskrigen-3d',
         title: 'Hundreaarskrigen: krigen som svingte',

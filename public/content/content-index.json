@@ -1,5 +1,5 @@
 {
-  "buildId": 1782711292945,
+  "buildId": 1782782287865,
   "contentMap": {
     "concept-absolutt-fortrinn": [
       "content/concepts/absolutt-fortrinn.json"
@@ -1281,6 +1281,9 @@
     ],
     "den-franske-revolusjon-intro": [
       "content/historie/den-franske-revolusjon/intro.json"
+    ],
+    "menneskerettighetserklaeringen": [
+      "content/historie/den-franske-revolusjon/menneskerettighetserklaeringen.json"
     ],
     "napoleon": [
       "content/historie/den-franske-revolusjon/napoleon.json"
@@ -3914,6 +3917,7 @@
     "historie/dekolonisering/usa-frigjoring": "content/historie/dekolonisering/usa-frigjoring.json",
     "historie/demo-artikkel/demo-artikkel": "content/historie/demo-artikkel/demo-artikkel.json",
     "historie/den-franske-revolusjon/intro": "content/historie/den-franske-revolusjon/intro.json",
+    "historie/den-franske-revolusjon/menneskerettighetserklaeringen": "content/historie/den-franske-revolusjon/menneskerettighetserklaeringen.json",
     "historie/den-franske-revolusjon/napoleon": "content/historie/den-franske-revolusjon/napoleon.json",
     "historie/den-franske-revolusjon/robespierre-og-skrekkveldet": "content/historie/den-franske-revolusjon/robespierre-og-skrekkveldet.json",
     "historie/den-franske-revolusjon/stormingen-av-bastillen": "content/historie/den-franske-revolusjon/stormingen-av-bastillen.json",
