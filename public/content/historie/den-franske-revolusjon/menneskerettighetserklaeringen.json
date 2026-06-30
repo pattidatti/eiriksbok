@@ -5,7 +5,7 @@
     "year": "1789",
     "category": "Europa",
     "readTime": "9 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/den-franske-revolusjon/menneskerettighetserklaeringen-hero.webp",
     "details": [
         "Den 26. august 1789 vedtok den franske Nasjonalforsamlingen «Erklæringen om menneskets og borgerens rettigheter».",
         "Erklæringen slo fast at alle mennesker er født frie og like, og at loven skal være den samme for alle.",
@@ -27,7 +27,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/den-franske-revolusjon/menneskerettighetserklaeringen-01.webp",
             "alt": "Menn i den franske nasjonalforsamlingen skriver erklæringen ved et bord i 1789",
             "caption": "Erklæringen ble skrevet på bare noen uker sommeren 1789, midt i revolusjonens kaos."
         },
@@ -101,7 +101,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/den-franske-revolusjon/menneskerettighetserklaeringen-02.webp",
             "alt": "Folkemengde i Paris løfter erklæringen på en plakat over hodene sine",
             "caption": "Erklæringen ble lest opp og hengt opp på vegger over hele Frankrike."
         },

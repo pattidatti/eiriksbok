@@ -835,16 +835,16 @@
       "count": 29
     },
     {
+      "tag": "demokrati",
+      "count": 25
+    },
+    {
       "tag": "imperium",
       "count": 25
     },
     {
       "tag": "delte-samfunn",
       "count": 25
-    },
-    {
-      "tag": "demokrati",
-      "count": 24
     },
     {
       "tag": "hverdagsliv",
@@ -880,7 +880,7 @@
     },
     {
       "tag": "revolusjon",
-      "count": 19
+      "count": 20
     },
     {
       "tag": "kultur",
@@ -999,6 +999,18 @@
       "count": 10
     },
     {
+      "tag": "rettigheter",
+      "count": 10
+    },
+    {
+      "tag": "1700-tallet",
+      "count": 10
+    },
+    {
+      "tag": "menneskerettigheter",
+      "count": 10
+    },
+    {
       "tag": "arbeidsliv",
       "count": 10
     },
@@ -1016,18 +1028,6 @@
     },
     {
       "tag": "keiser",
-      "count": 9
-    },
-    {
-      "tag": "rettigheter",
-      "count": 9
-    },
-    {
-      "tag": "1700-tallet",
-      "count": 9
-    },
-    {
-      "tag": "menneskerettigheter",
       "count": 9
     },
     {
@@ -1451,6 +1451,10 @@
       "count": 4
     },
     {
+      "tag": "1789",
+      "count": 4
+    },
+    {
       "tag": "1814",
       "count": 4
     },
@@ -1604,10 +1608,6 @@
     },
     {
       "tag": "empirisme",
-      "count": 3
-    },
-    {
-      "tag": "1789",
       "count": 3
     },
     {
