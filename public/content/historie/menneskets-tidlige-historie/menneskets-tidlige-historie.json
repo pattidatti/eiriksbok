@@ -27,6 +27,13 @@
         },
         {
             "type": "component",
+            "name": "MicroGame",
+            "props": {
+                "gameId": "ut-av-afrika-3d"
+            }
+        },
+        {
+            "type": "component",
             "name": "FactBox",
             "props": {
                 "content": "Homo sapiens oppstod i Afrika for 200 000 år siden. Nomader er jegere og samlere uten fast boplass."
