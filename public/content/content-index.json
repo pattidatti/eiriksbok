@@ -1,5 +1,5 @@
 {
-  "buildId": 1782858757479,
+  "buildId": 1782869365275,
   "contentMap": {
     "concept-absolutt-fortrinn": [
       "content/concepts/absolutt-fortrinn.json"
@@ -1659,6 +1659,9 @@
     ],
     "norge-for-vikingene": [
       "content/historie/norgeshistorie/norge-for-vikingene.json"
+    ],
+    "unionen-med-sverige": [
+      "content/historie/norgeshistorie/unionen-med-sverige.json"
     ],
     "unionsopplosningen-1905": [
       "content/historie/norgeshistorie/unionsopplosningen-1905.json"
@@ -4042,6 +4045,7 @@
     "historie/norgeshistorie/knut-alvsson": "content/historie/norgeshistorie/knut-alvsson.json",
     "historie/norgeshistorie/kvinnekampen": "content/historie/norgeshistorie/kvinnekampen.json",
     "historie/norgeshistorie/norge-for-vikingene": "content/historie/norgeshistorie/norge-for-vikingene.json",
+    "historie/norgeshistorie/unionen-med-sverige": "content/historie/norgeshistorie/unionen-med-sverige.json",
     "historie/norgeshistorie/unionsopplosningen-1905": "content/historie/norgeshistorie/unionsopplosningen-1905.json",
     "historie/norgeshistorie/utvandringen-til-amerika": "content/historie/norgeshistorie/utvandringen-til-amerika.json",
     "historie/osmanske-riket/forfallet": "content/historie/osmanske-riket/forfallet.json",

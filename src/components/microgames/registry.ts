@@ -102,6 +102,7 @@ const Bergkunsten3D = lazy(() => import('./Bergkunsten3D'));
 const Hundreaarskrigen3D = lazy(() => import('./Hundreaarskrigen3D'));
 const Stenderpyramiden3D = lazy(() => import('./Stenderpyramiden3D'));
 const FingertFlukt3D = lazy(() => import('./FingertFlukt3D'));
+const Personalunion3D = lazy(() => import('./Personalunion3D'));
 
 export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.LazyExoticComponent<React.ComponentType<unknown>> }> = {
     'fingerte-flukten-3d': {
@@ -967,6 +968,15 @@ export const MICRO_GAMES: Record<string, MicroGameEntry & { Component: React.Laz
         estimatedSeconds: 140,
         loader: () => import('./Fimbulvinteren3D'),
         Component: Fimbulvinteren3D as never,
+    },
+    'personalunion-3d': {
+        id: 'personalunion-3d',
+        title: 'Hva ble Norge i 1814?',
+        description:
+            'Dra en spak gjennom tre modeller for forholdet mellom Norge og Sverige, og se landene, kronene og flaggene forvandle seg: to selvstendige land med hver sin konge, personalunionen fra 1814 der de deler én konge men Norge beholder sitt eget flagg og sin egen stat, eller full innlemmelse der Norge slukes inn i Sverige. Finn hvilken modell Norge faktisk ble i 1814. Lyspæren: personalunionen ligger midt imellom - Norge delte bare kongen og utenrikspolitikken, alt annet var vårt eget.',
+        estimatedSeconds: 130,
+        loader: () => import('./Personalunion3D'),
+        Component: Personalunion3D as never,
     },
     'dorer-som-apnet-3d': {
         id: 'dorer-som-apnet-3d',

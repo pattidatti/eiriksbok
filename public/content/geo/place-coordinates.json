@@ -784,7 +784,7 @@
   "_unmapped": [
     {
       "tag": "historie",
-      "count": 278
+      "count": 280
     },
     {
       "tag": "dekolonisering",
@@ -1211,6 +1211,10 @@
       "count": 6
     },
     {
+      "tag": "1814",
+      "count": 6
+    },
+    {
       "tag": "borgerkrig",
       "count": 6
     },
@@ -1419,6 +1423,10 @@
       "count": 4
     },
     {
+      "tag": "union",
+      "count": 4
+    },
+    {
       "tag": "makt",
       "count": 4
     },
@@ -1452,10 +1460,6 @@
     },
     {
       "tag": "1789",
-      "count": 4
-    },
-    {
-      "tag": "1814",
       "count": 4
     },
     {
@@ -1952,10 +1956,6 @@
     },
     {
       "tag": "hær",
-      "count": 2
-    },
-    {
-      "tag": "union",
       "count": 2
     },
     {
