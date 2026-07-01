@@ -65,7 +65,8 @@
                     { "tittel": "Bahá'u'lláh", "link": "/krle/religion/bahai/grunnleggere", "begrunnelse": "Dekker Religion i historiske endringsprosesser" },
                     { "tittel": "Joseph Smith", "link": "/krle/religion/mormonisme/grunnleggere", "begrunnelse": "Dekker Religion i historiske endringsprosesser" },
                     { "tittel": "Charles Taze Russell", "link": "/krle/religion/jehovas-vitner/grunnleggere", "begrunnelse": "Dekker Religion i historiske endringsprosesser" },
-                    { "tittel": "Guruene", "link": "/krle/religion/sikhisme/grunnleggere", "begrunnelse": "Dekker Religion i historiske endringsprosesser" }
+                    { "tittel": "Guruene", "link": "/krle/religion/sikhisme/grunnleggere", "begrunnelse": "Dekker Religion i historiske endringsprosesser" },
+                    { "tittel": "Hadde Gud en kone?", "link": "/krle/religion/historiske-religioner/monoteismens-fodsel", "begrunnelse": "Hvordan monoteismen vokste fram som en historisk endringsprosess." }
                 ],
                 "detektiv": [
                     { "tittel": "Slaget ved Stiklestad", "link": "/oving/detektiv/stiklestad", "begrunnelse": "Olav Haraldssons død og kristningen av Norge." },
@@ -214,7 +215,10 @@
                         "tittel": "Religion i medier og populærkultur",
                         "link": "/krle/religion-og-kultur/religion-i-medier",
                         "begrunnelse": "Hvordan religiøse symboler og fortellinger lever videre i film, musikk, spill og mote, og hvordan vi kan lese dem med respekt og forståelse."
-                    }
+                    },
+                    { "tittel": "Høytider: Hvor kommer fridagene fra?", "link": "/krle/religion-og-kultur/hoytider-og-kultur", "begrunnelse": "Hvordan religiøse høytider preger norsk kultur og hverdag." },
+                    { "tittel": "Mat og religion: Hva får du spise?", "link": "/krle/religion-og-kultur/mat-og-religion", "begrunnelse": "Hvordan matregler fra ulike religioner kommer til uttrykk i samtidskultur." },
+                    { "tittel": "Religiøse symboler og klær: Tro du kan se", "link": "/krle/religion-og-kultur/symboler-og-klaer", "begrunnelse": "Hvordan religiøse symboler synes i det offentlige rommet." }
                 ]
             }
         },
@@ -230,7 +234,8 @@
                     { "tittel": "Siddhartha Gautama (Buddha)", "link": "/krle/religion/buddhisme/grunnleggere", "begrunnelse": "Den åttedelte vei og buddhistisk etikk." },
                     { "tittel": "Abraham og Moses", "link": "/krle/religion/jodedom/grunnleggere", "begrunnelse": "De ti bud og pakten som etisk grunnlag." },
                     { "tittel": "Augustin", "link": "/krle/filosofi/augustin", "begrunnelse": "Kristen etikk: arvesynd, nåde og fri vilje." },
-                    { "tittel": "Thomas Aquinas", "link": "/krle/filosofi/aquinas", "begrunnelse": "Naturrett og kristen-aristotelisk etikk." }
+                    { "tittel": "Thomas Aquinas", "link": "/krle/filosofi/aquinas", "begrunnelse": "Naturrett og kristen-aristotelisk etikk." },
+                    { "tittel": "Den åttedelte veien", "link": "/krle/religion/buddhisme/den-attedelte-vei", "begrunnelse": "Sentral etisk ide i buddhismen." }
                 ],
                 "spill": [
                     { "tittel": "Sammenlign Religioner", "link": "/krle/sammenlign", "begrunnelse": "Sammenlign etiske idealer på tvers av religioner." }
@@ -258,7 +263,9 @@
                     { "tittel": "David Hume", "link": "/krle/filosofi/hume", "begrunnelse": "Dekker Filosofi og etikk" },
                     { "tittel": "Karl Marx", "link": "/krle/filosofi/marx", "begrunnelse": "Dekker Filosofi og etikk" },
                     { "tittel": "Ludwig von Mises", "link": "/krle/filosofi/mises", "begrunnelse": "Dekker Filosofi og etikk" },
-                    { "tittel": "Murray Rothbard", "link": "/krle/filosofi/rothbard", "begrunnelse": "Dekker Filosofi og etikk" }
+                    { "tittel": "Murray Rothbard", "link": "/krle/filosofi/rothbard", "begrunnelse": "Dekker Filosofi og etikk" },
+                    { "tittel": "Jean-Jacques Rousseau", "link": "/krle/filosofi/rousseau", "begrunnelse": "Filosof som formet moderne tenkning om samfunn og frihet." },
+                    { "tittel": "Nihilisme i etikk", "link": "/krle/etikk/nihilisme", "begrunnelse": "Etisk retning som utfordrer ideen om objektive verdier." }
                 ],
                 "spill": [
                     { "tittel": "Den filosofiske odysséen", "link": "/krle/filosofi/odyssey", "begrunnelse": "Personlig læringsportal gjennom filosofihistorien." },

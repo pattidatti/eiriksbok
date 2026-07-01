@@ -27,6 +27,16 @@
                         "tittel": "Hypotesen: Norden vs. Frankrike",
                         "link": "/historie/vikingtiden/hypotesen-norden-vs-frankrike",
                         "begrunnelse": "Eleven jobber med en konkret historisk hypotese og vurderer kilder for og imot."
+                    },
+                    {
+                        "tittel": "Slik ser en 6-er ut: Muntlig eksamen i samfunnsfag",
+                        "link": "/samfunnskunnskap/eksamen/muntlig-modell",
+                        "begrunnelse": "Modellsvar som viser bruk av samfunnsfaglig metode i presentasjon av funn."
+                    },
+                    {
+                        "tittel": "Dagsaktuelle tema - slik jobber du",
+                        "link": "/samfunnskunnskap/eksamen/km-16-dagsaktuelle-tema",
+                        "begrunnelse": "Trener samfunnsfaglig metode på dagsaktuelle tema: hente kilder, vurdere kritisk, bygge argument."
                     }
                 ],
                 "stier": [
@@ -674,6 +684,11 @@
                         "tittel": "Gjeld som våpen: IMF og Verdensbanken",
                         "link": "/samfunnskunnskap/handel-og-infrastruktur/imf-og-verdensbanken",
                         "begrunnelse": "Dekker Menneskerettar og internasjonale avtalar"
+                    },
+                    {
+                        "tittel": "EU og EØS: Norge mellom selvstyre og samarbeid",
+                        "link": "/samfunnskunnskap/styringsformer/eu-og-eos",
+                        "begrunnelse": "Hvordan internasjonale avtaler (EØS) former norsk lovgivning og selvstyre."
                     }
                 ],
                 "stier": [
@@ -691,7 +706,15 @@
             "kortNavn": "Fornorsking og minoriteter",
             "tekst": "gjøre rede for fornorskingen av samene og de nasjonale minoritetene og uretten de har vært utsatt for, og reflektere over hvilke konsekvenser det har hatt og har på individ- og samfunnsnivå",
             "merknad": "Dette målet er foreløpig svakt dekt i Eiriksbok. Egne artikler om samiske rettigheter, fornorskingspolitikken og sannhets- og forsoningskommisjonen er planlagt.",
-            "innhold": {}
+            "innhold": {
+                "artikler": [
+                    {
+                        "tittel": "Fornorskingen av samene",
+                        "link": "/historie/norgeshistorie/fornorskingen-av-samene",
+                        "begrunnelse": "Hvordan fornorskingspolitikken rammet samene og hva urett har betydd for individ og samfunn."
+                    }
+                ]
+            }
         },
         {
             "id": "saf-10-11",
@@ -799,6 +822,11 @@
                         "tittel": "Petrodollaren: Hvorfor olje måles i dollar",
                         "link": "/samfunnskunnskap/okonomi/petrodollaren",
                         "begrunnelse": "Dekker Personlig økonomi og levestandard"
+                    },
+                    {
+                        "tittel": "Komparativt og absolutt fortrinn",
+                        "link": "/samfunnskunnskap/okonomi/komparativt-fortrinn",
+                        "begrunnelse": "Grunnleggende økonomisk teori om arbeidsspesialisering og handel som påvirker levestandard."
                     }
                 ],
                 "verktoy": [
@@ -1118,6 +1146,11 @@
                         "tittel": "Grunnloven 1814",
                         "link": "/samfunnskunnskap/styringsformer/grunnloven",
                         "begrunnelse": "Dekker Det norske politiske systemet"
+                    },
+                    {
+                        "tittel": "Å være medborger",
+                        "link": "/samfunnskunnskap/styringsformer/km-17-medborgar",
+                        "begrunnelse": "Rettigheter og plikter i det norske demokratiet, sammenlignet med andre politiske systemer."
                     }
                 ]
             }

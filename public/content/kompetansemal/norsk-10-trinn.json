@@ -169,7 +169,8 @@
                     { "tittel": "Debattinnlegg", "link": "/norsk/tekstsjangre/debattinnlegg", "begrunnelse": "Argumenterende tekst for et standpunkt." },
                     { "tittel": "Hvordan skrive gode saktekster", "link": "/norsk/skrivehjelp/hvordan-skrive-gode-saktekster", "begrunnelse": "Bygge gode avsnitt med tema og bindeord." },
                     { "tittel": "Muntlig eksamen", "link": "/norsk/eksamen/muntlig", "begrunnelse": "Mestre saklig argumentasjon i samtale." },
-                    { "tittel": "Hva er retorikk?", "link": "/norsk/retorikk/grunnleggende-retorikk", "begrunnelse": "Etos, patos og logos i seriøs argumentasjon." }
+                    { "tittel": "Hva er retorikk?", "link": "/norsk/retorikk/grunnleggende-retorikk", "begrunnelse": "Etos, patos og logos i seriøs argumentasjon." },
+                    { "tittel": "Slik ser en 6-er ut: Muntlig eksamen", "link": "/norsk/eksamen/muntlig-modell", "begrunnelse": "Modellsvar som demonstrerer saklig argumentasjon og fagspråk i muntlig framføring." }
                 ]
             }
         },
