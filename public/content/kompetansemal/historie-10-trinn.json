@@ -42,7 +42,8 @@
                     { "tittel": "Kultur og Propaganda (Den kalde krigen)", "link": "/historie/den-kalde-krigen/kultur", "begrunnelse": "Direkte arbeid med ensrettede kilder og propaganda." },
                     { "tittel": "Hypotesen: Norden vs. Frankrike", "link": "/historie/vikingtiden/hypotesen-norden-vs-frankrike", "begrunnelse": "Diskuterer hvordan mangel på kilder gir rom for konkurrerende fortolkninger." },
                     { "tittel": "Skipet som ble brent (Myklebust-funnet)", "link": "/historie/vikingtiden/myklebust-funnet", "begrunnelse": "Arkeologi og kildevurdering." },
-                    { "tittel": "Operasjon Ajax: Da oljen ble verdt et kupp", "link": "/historie/den-kalde-krigen/operasjon-ajax", "begrunnelse": "Dekker Kilder og kildekritikk" }
+                    { "tittel": "Operasjon Ajax: Da oljen ble verdt et kupp", "link": "/historie/den-kalde-krigen/operasjon-ajax", "begrunnelse": "Dekker Kilder og kildekritikk" },
+                    { "tittel": "Helleristninger: Beskjeder hugget i stein", "link": "/historie/norgeshistorie/helleristninger", "begrunnelse": "Hvordan arkeologiske kilder gir informasjon om fortida." }
                 ],
                 "stier": [
                     { "tittel": "Læringssti: Kildeføring (APA 7)", "link": "/laeringsstier", "begrunnelse": "Lære korrekt kildebruk og referansehåndtering." }
@@ -78,7 +79,9 @@
                     { "tittel": "De Romerske Gudene", "link": "/historie/romerriket/romerske-guder", "begrunnelse": "Dekker Framstillinger av fortida" },
                     { "tittel": "Zarathustra og zoroastrismen", "link": "/historie/perserriket/zarathustra-og-zoroastrismen", "begrunnelse": "Dekker Framstillinger av fortida" },
                     { "tittel": "Göbekli Tepe — tempelet eldre enn jordbruket", "link": "/historie/menneskets-tidlige-historie/gobekli-tepe", "begrunnelse": "Dekker Framstillinger av fortida" },
-                    { "tittel": "Knut Alvsson", "link": "/historie/norgeshistorie/knut-alvsson", "begrunnelse": "Dekker Framstillinger av fortida" }
+                    { "tittel": "Knut Alvsson", "link": "/historie/norgeshistorie/knut-alvsson", "begrunnelse": "Dekker Framstillinger av fortida" },
+                    { "tittel": "Gudene på Olympen: greske myter", "link": "/historie/antikkens-hellas/greske-guder", "begrunnelse": "Hvordan mytene har formet framstillinger av antikken." },
+                    { "tittel": "Gresk teater: tragedie og komedie", "link": "/historie/antikkens-hellas/gresk-teater", "begrunnelse": "Teateret som kulturell framstilling av samfunnet." }
                 ],
                 "stier": [
                     { "tittel": "Læringssti: Vikingtiden", "link": "/historie/vikingtiden/vikingtiden-sti" },
@@ -130,7 +133,11 @@
                     { "tittel": "Det gamle Kina: Sivilisasjonen ved Den gule elven", "link": "/historie/jordbruk-og-sivilisasjoner/kina", "begrunnelse": "Dekker Teknologi som endringsfaktor" },
                     { "tittel": "Den kognitive revolusjonen", "link": "/historie/menneskets-tidlige-historie/den-kognitive-revolusjonen", "begrunnelse": "Dekker Teknologi som endringsfaktor" },
                     { "tittel": "Den jordbruksrevolusjonen", "link": "/historie/menneskets-tidlige-historie/den-jordbruksrevolusjonen", "begrunnelse": "Dekker Teknologi som endringsfaktor" },
-                    { "tittel": "Olje og makt: Ressursen som endret alt", "link": "/historie/midtoesten/olje-og-makt", "begrunnelse": "Dekker Teknologi som endringsfaktor" }
+                    { "tittel": "Olje og makt: Ressursen som endret alt", "link": "/historie/midtoesten/olje-og-makt", "begrunnelse": "Dekker Teknologi som endringsfaktor" },
+                    { "tittel": "Meiji-restaurasjonen: Japan blir en stormakt", "link": "/historie/japans-historie/meiji-restaurasjonen", "begrunnelse": "Hvordan teknologisk modernisering endret Japan raskt." },
+                    { "tittel": "Japans økonomiske mirakel", "link": "/historie/japans-historie/japans-okonomiske-mirakel", "begrunnelse": "Teknologi som endringsfaktor i etterkrigstidens Japan." },
+                    { "tittel": "Den vitenskapelige revolusjonen", "link": "/historie/renessansen/den-vitenskapelige-revolusjonen", "begrunnelse": "Vitenskapen som endret verdensbildet og teknologien." },
+                    { "tittel": "Gresk vitenskap: Da fornuften forklarte verden", "link": "/historie/antikkens-hellas/gresk-vitenskap", "begrunnelse": "Antikkens vitenskap som grunnlag for senere teknologisk utvikling." }
                 ],
                 "stier": [
                     { "tittel": "Læringssti: Verdens årer", "link": "/laeringsstier", "begrunnelse": "Infrastruktur, handel og teknologi som binder verden sammen." }
@@ -177,7 +184,12 @@
                     { "tittel": "Deng Xiaoping: Kina åpner for verden", "link": "/historie/kinas-historie/deng-og-reformene", "begrunnelse": "Dekker Kamp for endring" },
                     { "tittel": "Tiananmen 1989: Da studentene krevde frihet", "link": "/historie/kinas-historie/tiananmen-1989", "begrunnelse": "Dekker Kamp for endring" },
                     { "tittel": "Den iranske revolusjonen 1979", "link": "/historie/midtoesten/iran-revolusjonen", "begrunnelse": "Dekker Kamp for endring" },
-                    { "tittel": "Den arabiske våren", "link": "/historie/midtoesten/arabisk-var", "begrunnelse": "Dekker Kamp for endring" }
+                    { "tittel": "Den arabiske våren", "link": "/historie/midtoesten/arabisk-var", "begrunnelse": "Dekker Kamp for endring" },
+                    { "tittel": "Kvinnekampen", "link": "/historie/norgeshistorie/kvinnekampen", "begrunnelse": "Kamp for kvinners rettigheter i Norge." },
+                    { "tittel": "Fornorskingen av samene", "link": "/historie/norgeshistorie/fornorskingen-av-samene", "begrunnelse": "Samenes kamp mot fornorskingspolitikken." },
+                    { "tittel": "Menneskerettighetserklæringen av 1789", "link": "/historie/den-franske-revolusjon/menneskerettighetserklaeringen", "begrunnelse": "Kampen for grunnleggende rettigheter under franske revolusjon." },
+                    { "tittel": "Magna Carta — da kongen måtte bøye seg for loven", "link": "/historie/lov-og-rett/magna-carta", "begrunnelse": "Tidlig kamp mot enevoldsmakt." },
+                    { "tittel": "Den amerikanske borgerkrigen: Krigen som avskaffet slaveriet", "link": "/historie/dekolonisering/amerikanske-borgerkrigen", "begrunnelse": "Kampen mot slaveriet som storpolitisk endring." }
                 ],
                 "stier": [
                     { "tittel": "Læringssti: Frihetens Maraton", "link": "/historie/dekolonisering/dekolonisering-sti", "begrunnelse": "Følger frihetskampen gjennom 200 år og 3 kontinenter." }
@@ -247,7 +259,21 @@
                     { "tittel": "Det islamske gullaldet: Da Bagdad var verdens kunnskapssenter", "link": "/historie/midtoesten/islamsk-gullaldet", "begrunnelse": "Dekker Geografi, politikk og levekår" },
                     { "tittel": "Sykes-Picot: Da Vesten tegnet Midtøstens kart", "link": "/historie/midtoesten/sykes-picot", "begrunnelse": "Dekker Geografi, politikk og levekår" },
                     { "tittel": "Norge før vikingene", "link": "/historie/norgeshistorie/norge-for-vikingene", "begrunnelse": "Dekker Geografi, politikk og levekår" },
-                    { "tittel": "536 - Året da solen forsvant", "link": "/historie/norgeshistorie/klimakrisen-536", "begrunnelse": "Dekker Geografi, politikk og levekår" }
+                    { "tittel": "536 - Året da solen forsvant", "link": "/historie/norgeshistorie/klimakrisen-536", "begrunnelse": "Dekker Geografi, politikk og levekår" },
+                    { "tittel": "Kalmarunionen", "link": "/historie/norgeshistorie/kalmarunionen", "begrunnelse": "Hvordan politiske unioner formet Nordens levekår og maktforhold." },
+                    { "tittel": "Unionen med Sverige: To land, én konge", "link": "/historie/norgeshistorie/unionen-med-sverige", "begrunnelse": "Hvordan politisk union påvirket norske levekår 1814-1905." },
+                    { "tittel": "Utvandringen til Amerika", "link": "/historie/norgeshistorie/utvandringen-til-amerika", "begrunnelse": "Levekår som drev nordmenn til migrasjon." },
+                    { "tittel": "Det føydale Japan: samuraienes tid", "link": "/historie/japans-historie/det-foydale-japan", "begrunnelse": "Politisk system og levekår i føydalsamfunnet." },
+                    { "tittel": "Wienerkongressen: Da Europas kart ble tegnet på nytt", "link": "/historie/den-franske-revolusjon/wienerkongressen", "begrunnelse": "Hvordan stormaktenes politiske avgjørelser endret Europas geografi." },
+                    { "tittel": "Det bysantinske riket", "link": "/historie/middelalderen/bysantinske-riket", "begrunnelse": "Geografiske og politiske forhold i det østromerske riket." },
+                    { "tittel": "Athen og Sparta: to byer, to verdener", "link": "/historie/antikkens-hellas/athen-og-sparta", "begrunnelse": "To politiske systemer og hvordan de påvirket levekår." },
+                    { "tittel": "De olympiske lekene i antikken", "link": "/historie/antikkens-hellas/olympiske-leker", "begrunnelse": "Kultur og samfunn i de greske bystatene." },
+                    { "tittel": "Amerikas tidlige sivilisasjoner: maya, aztekere og inka", "link": "/historie/jordbruk-og-sivilisasjoner/amerikas-sivilisasjoner", "begrunnelse": "Hvordan geografi formet førcolumbianske sivilisasjoner." },
+                    { "tittel": "Ghana-riket", "link": "/historie/afrikanske-riker/ghana-riket", "begrunnelse": "Hvordan handel og geografi bygget vestafrikanske stater." },
+                    { "tittel": "Mansa Musa og Mali-riket", "link": "/historie/afrikanske-riker/mansa-musa-og-mali", "begrunnelse": "Mali-rikets politikk og velstand i Vest-Afrika." },
+                    { "tittel": "Songhai-riket", "link": "/historie/afrikanske-riker/songhai-riket", "begrunnelse": "Politiske og geografiske forhold i Songhai-riket." },
+                    { "tittel": "Stor-Zimbabwe", "link": "/historie/afrikanske-riker/stor-zimbabwe", "begrunnelse": "Politisk sentralmakt og handel i det sørlige Afrika." },
+                    { "tittel": "Spanskesyken", "link": "/historie/forste-verdenskrig/spanskesyken", "begrunnelse": "Hvordan pandemien påvirket levekår og befolkning globalt." }
                 ],
                 "stier": [
                     { "tittel": "Læringssti: Imperienes sykluser", "link": "/laeringsstier", "begrunnelse": "Hvorfor stormakter stiger og faller." },
@@ -311,7 +337,9 @@
                     { "tittel": "Israel og Palestina: Et land, to folk", "link": "/historie/midtoesten/israel-og-palestina", "begrunnelse": "Dekker Konflikter — årsak og konsekvens" },
                     { "tittel": "Den kalde krigen i Midtøsten", "link": "/historie/midtoesten/kald-krig-midtosten", "begrunnelse": "Dekker Konflikter — årsak og konsekvens" },
                     { "tittel": "Golfkrigene: Fra Kuwait til Irak", "link": "/historie/midtoesten/golfkrigene", "begrunnelse": "Dekker Konflikter — årsak og konsekvens" },
-                    { "tittel": "Midtøsten i dag: Konflikt og framtid", "link": "/historie/midtoesten/midtoesten-i-dag", "begrunnelse": "Dekker Konflikter — årsak og konsekvens" }
+                    { "tittel": "Midtøsten i dag: Konflikt og framtid", "link": "/historie/midtoesten/midtoesten-i-dag", "begrunnelse": "Dekker Konflikter — årsak og konsekvens" },
+                    { "tittel": "Japansk imperialisme: Da Japan slo en stormakt", "link": "/historie/japans-historie/japansk-imperialisme", "begrunnelse": "Årsaker og konsekvenser av japansk ekspansjon i Asia." },
+                    { "tittel": "Hundreårskrigen", "link": "/historie/middelalderen/hundreaarskrigen", "begrunnelse": "En sentral historisk konflikt som formet Europa." }
                 ],
                 "stier": [
                     { "tittel": "Læringssti: Første verdenskrig", "link": "/historie/forste-verdenskrig/ww1-sti" },
