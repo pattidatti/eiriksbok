@@ -5,7 +5,7 @@
     "year": "1814-1905",
     "category": "Norge",
     "readTime": "9 min lesning",
-    "heroImage": "/images/placeholder.webp",
+    "heroImage": "/images/norgeshistorie/unionen-med-sverige-hero.webp",
     "details": [
         "I januar 1814 ga Danmark bort Norge til den svenske kongen etter Napoleonskrigene.",
         "Nordmennene nektet å bli gitt bort, skrev sin egen grunnlov og valgte sin egen konge 17. mai 1814.",
@@ -20,7 +20,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/norgeshistorie/unionen-med-sverige-01.webp",
             "alt": "Kald vinterhavn med seilskip og bud som leser opp brev i 1814",
             "caption": "Kielfreden i januar 1814: Danmark tapte, og Norge ble lovet bort til Sverige."
         },
@@ -62,7 +62,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/norgeshistorie/unionen-med-sverige-02.webp",
             "alt": "Forhandlingsbord der norske og svenske menn undertegner en avtale i 1814",
             "caption": "Mossekonvensjonen: Norge beholdt grunnloven, men gikk inn i union med Sverige."
         },
@@ -134,7 +134,7 @@
         },
         {
             "type": "image",
-            "src": "/images/placeholder.webp",
+            "src": "/images/norgeshistorie/unionen-med-sverige-03.webp",
             "alt": "Norsk handelsskip på havet med rent norsk flagg tidlig på 1900-tallet",
             "caption": "Norge ble en stor sjøfartsnasjon, og ville ha egne konsuler ute i verden."
         },
