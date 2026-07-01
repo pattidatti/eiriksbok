@@ -1,0 +1,222 @@
+{
+    "id": "unionen-med-sverige",
+    "title": "Unionen med Sverige: To land, én konge",
+    "layout": "rich",
+    "year": "1814-1905",
+    "category": "Norge",
+    "readTime": "9 min lesning",
+    "heroImage": "/images/placeholder.webp",
+    "details": [
+        "I januar 1814 ga Danmark bort Norge til den svenske kongen etter Napoleonskrigene.",
+        "Nordmennene nektet å bli gitt bort, skrev sin egen grunnlov og valgte sin egen konge 17. mai 1814.",
+        "Etter en kort krig ble Norge og Sverige enige om en personalunion: felles konge, men to selvstendige land.",
+        "I 91 år delte Norge bare kongen og utenrikspolitikken med Sverige. Alt annet var Norges eget.",
+        "Unionen ga Norge tid til å vokse fram som en egen nasjon, klar for full selvstendighet i 1905."
+    ],
+    "content": [
+        {
+            "type": "text",
+            "content": "En kald januardag i 1814 fikk nordmennene en beskjed som snudde livet på hodet: de var ikke lenger danske. De var svenske. Ingen hadde spurt dem. Med et pennestrøk langt borte i den tyske byen Kiel hadde den danske kongen gitt Norge bort til kongen av Sverige, som om landet var en gave eller et stykke jord man kunne selge. For nordmennene føltes det som å bli byttebrikke i et spill de aldri hadde fått være med på."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Kald vinterhavn med seilskip og bud som leser opp brev i 1814",
+            "caption": "Kielfreden i januar 1814: Danmark tapte, og Norge ble lovet bort til Sverige."
+        },
+        {
+            "type": "header",
+            "text": "Hvorfor ble Norge gitt bort?"
+        },
+        {
+            "type": "text",
+            "content": "For å forstå 1814 må vi se på de store krigene i Europa. Den franske keiseren Napoleon hadde herjet gjennom hele verdensdelen, og Danmark-Norge hadde valgt feil side: de holdt med Napoleon. Da Napoleon begynte å tape, tapte også vennene hans. Sverige, som hadde stått mot Napoleon, forlangte en belønning. Belønningen var Norge."
+        },
+        {
+            "type": "text",
+            "content": "I fredsavtalen som ble skrevet i Kiel, måtte Danmark gi Norge til Sverige. De store landene i Europa bekreftet dette da de senere møttes for å ordne opp i kaoset etter Napoleon. Du kan lese mer om hvordan stormaktene tegnet om Europas kart i artikkelen om [Wienerkongressen](/historie/den-franske-revolusjon/wienerkongressen). Norge hadde vært i union med Danmark i over 400 år. Nå skulle et nytt kapittel begynne, enten nordmennene ville eller ikke."
+        },
+        {
+            "type": "header",
+            "text": "Nordmennene sier nei"
+        },
+        {
+            "type": "text",
+            "content": "Men nordmennene nektet å bli gitt bort som en postpakke. Den danske prinsen Christian Frederik, som var i Norge, satte seg i spissen for et opprør. Han samlet 112 av landets fremste menn på gården Eidsvoll nord for Oslo. Der satt de gjennom hele våren 1814 og skrev noe helt nytt: en grunnlov. En grunnlov er de aller viktigste reglene for hvordan et land skal styres, reglene som står over alle andre lover."
+        },
+        {
+            "type": "text",
+            "content": "Den 17. mai 1814 var grunnloven ferdig, og mennene på Eidsvoll valgte Christian Frederik til Norges egen konge. For en kort, svimlende stund var Norge et fritt og selvstendig land med sin egen konge og sin egen grunnlov. Selve grunnloven, og hvorfor den fortsatt styrer Norge i dag, kan du utforske i artikkelen [Grunnloven 1814](/samfunnskunnskap/styringsformer/grunnloven). Men Sverige hadde ikke tenkt å gi slipp på sin lovede belønning."
+        },
+        {
+            "type": "header",
+            "text": "En kort krig og et klokt kompromiss"
+        },
+        {
+            "type": "text",
+            "content": "Sommeren 1814 marsjerte den svenske hæren inn i Norge. Bak den sto en av tidens dyktigste hærførere: Karl Johan, en tidligere general under Napoleon som nå var svensk tronarving. Den norske hæren var liten og dårlig utstyrt, og krigen ble kort. Nordmennene innså raskt at de ikke kunne vinne med våpen."
+        },
+        {
+            "type": "text",
+            "content": "Men Karl Johan var klok. Han visste at et folk som slåss for sin frihet, er vanskelig å styre med makt. I stedet for å knuse Norge, tilbød han et kompromiss. Avtalen ble skrevet ned i den lille byen Moss, og kalles Mossekonvensjonen. Nordmennene fikk beholde grunnloven sin. Til gjengjeld måtte de godta å gå inn i en union med Sverige og dele konge. Christian Frederik måtte gi fra seg tronen og reise hjem til Danmark."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Forhandlingsbord der norske og svenske menn undertegner en avtale i 1814",
+            "caption": "Mossekonvensjonen: Norge beholdt grunnloven, men gikk inn i union med Sverige."
+        },
+        {
+            "type": "header",
+            "text": "Hva slags union var dette?"
+        },
+        {
+            "type": "text",
+            "content": "Her kommer det viktigste å forstå med hele denne historien. Norge ble ikke erobret. Norge ble ikke en del av Sverige slik en fylke er en del av et land. I stedet ble det som kalles en personalunion. Ordet kommer av person, altså et menneske. Det var bare én ting Norge og Sverige egentlig delte: personen på tronen. Kongen var felles. Alt det andre beholdt Norge for seg selv."
+        },
+        {
+            "type": "text",
+            "content": "Norge hadde fortsatt sin egen grunnlov. Norge hadde sitt eget storting, altså sin egen folkevalgte forsamling som lagde lovene. Norge hadde sin egen hær, sine egne penger og sin egen regjering som styrte de daglige sakene hjemme. Det eneste Norge ga fra seg i tillegg til kongen, var retten til å bestemme sin egen utenrikspolitikk. Det betyr forholdet til andre land: hvem man skulle handle med, og hva man skulle si ute i verden. Det tok Sverige seg av på vegne av begge land."
+        },
+        {
+            "type": "component",
+            "name": "PersonalunionSorter",
+            "props": {
+                "title": "Delt med Sverige, eller Norges eget?"
+            }
+        },
+        {
+            "type": "text",
+            "content": "Sett med dagens øyne var dette en overraskende god avtale for et land som nettopp hadde tapt en krig. Til sammenlikning var den gamle [Kalmarunionen](/historie/norgeshistorie/kalmarunionen) fra middelalderen mye tettere, og Norge ble den svakeste parten. I 1814 slapp nordmennene mye billigere unna. De hadde tapt slaget, men beholdt nesten hele staten sin."
+        },
+        {
+            "type": "header",
+            "text": "91 år som formet en nasjon"
+        },
+        {
+            "type": "text",
+            "content": "Unionen med Sverige varte i 91 år, fra 1814 til 1905. For folk flest var dette en rolig og fredelig tid uten krig. Norge fikk vokse og modnes. Byene ble større, dampskip og etter hvert jernbane bandt landet sammen, og stadig flere lærte å lese og skrive. Det vokste fram en sterk følelse av at Norge var noe eget, en egen nasjon med sin egen historie, sitt eget språk og sin egen natur."
+        },
+        {
+            "type": "text",
+            "content": "Kunstnere, diktere og forskere lette etter det ekte norske. De samlet folkeeventyr, malte fjell og fjorder og skrev om vikingtiden og de gamle kongene. Denne stoltheten over det norske kalles nasjonalromantikk. Jo mer nordmennene følte seg som en egen nasjon, desto mer irriterte de seg over å måtte dele konge og utenrikspolitikk med Sverige."
+        },
+        {
+            "type": "component",
+            "name": "MicroGame",
+            "props": {
+                "gameId": "personalunion-3d"
+            }
+        },
+        {
+            "type": "header",
+            "text": "Flagget som ble et symbol"
+        },
+        {
+            "type": "text",
+            "content": "En av de tingene nordmennene kranglet mest om, var flagget. Både det norske og det svenske flagget hadde lenge et lite unionsmerke i hjørnet, et rødt og blått felt som viste at landene hørte sammen. Mange nordmenn syntes merket lignet en rotete blanding, og de begynte å kalle det sildesalaten. For dem var det et daglig, synlig tegn på at Norge ikke var helt fritt."
+        },
+        {
+            "type": "text",
+            "content": "Kampen for et rent norsk flagg uten unionsmerke ble en kamp om noe mye større enn stoff og farger. Den handlet om retten til å være seg selv. I 1898 vedtok Stortinget endelig at handelsflagget skulle være rent norsk. Det var en liten seier, men den viste hvor sterk lengselen etter full selvstendighet var blitt."
+        },
+        {
+            "type": "header",
+            "text": "Veien mot slutten"
+        },
+        {
+            "type": "text",
+            "content": "Etter hvert som Norge vokste seg sterkere, ble unionen strammere og strammere. Den store stridssaken ble utenrikspolitikken. Norge var blitt en av verdens største skipsfartsnasjoner, med handelsskip på alle hav. Men når norske sjøfolk trengte hjelp i utlandet, måtte de gå til svenske konsuler, altså svenske representanter ute i verden. Nordmennene ville ha sine egne norske konsuler som forsto norske behov."
+        },
+        {
+            "type": "text",
+            "content": "Denne konsulatsaken ble gnisten som til slutt sprengte unionen. Da den svenske kongen nektet å godta norske konsuler, sa den norske regjeringen fra seg jobben. Norge sto uten regjering, og hele unionen slo sprekker. Hvordan Norge til slutt løsrev seg fredelig, uten krig mellom brødrefolkene, er en egen dramatisk historie som du kan lese i artikkelen om [Unionsoppløsningen 1905](/historie/norgeshistorie/unionsopplosningen-1905)."
+        },
+        {
+            "type": "image",
+            "src": "/images/placeholder.webp",
+            "alt": "Norsk handelsskip på havet med rent norsk flagg tidlig på 1900-tallet",
+            "caption": "Norge ble en stor sjøfartsnasjon, og ville ha egne konsuler ute i verden."
+        },
+        {
+            "type": "header",
+            "text": "Hva ga de 91 årene Norge?"
+        },
+        {
+            "type": "text",
+            "content": "Det er lett å se på unionstiden som 91 tapte år under en fremmed konge. Men slik var det ikke. Fordi Norge fikk beholde grunnloven, stortinget og staten sin, kunne landet øve seg på å styre seg selv. Nordmennene lærte å drive politikk, å diskutere, å ta ansvar. Da selvstendigheten kom i 1905, sto Norge klar med en ferdig stat og lang erfaring. Unionen var altså ikke bare en tvangstrøye, men også en skole i selvstyre."
+        },
+        {
+            "type": "text",
+            "content": "Det er også verdt å huske at ikke alle i landet ble behandlet likt i denne tiden. Mens nordmennene kjempet for sin egen frihet, førte staten samtidig en hard politikk mot det samiske folket. Den historien kan du lese om i artikkelen om [fornorskingen av samene](/historie/norgeshistorie/fornorskingen-av-samene). Frihet for noen betydde ikke alltid frihet for alle."
+        },
+        {
+            "type": "text",
+            "content": "Neste gang du feirer 17. mai, er det verdt å huske hva dagen egentlig handler om. Grunnloven fra Eidsvoll ble skrevet av et lite land som nettopp var blitt gitt bort, men som nektet å gi opp. Selv om Norge måtte inn i unionen med Sverige, var det grunnloven fra 1814 som holdt drømmen om selvstendighet i live gjennom alle de 91 årene, helt til den ble virkelighet."
+        },
+        {
+            "type": "component",
+            "name": "Quiz",
+            "props": {
+                "questions": [
+                    {
+                        "question": "Hvorfor ble Norge gitt fra Danmark til Sverige i 1814?",
+                        "options": [
+                            "Danmark tapte etter å ha holdt med Napoleon, og Sverige krevde Norge som belønning",
+                            "Nordmennene stemte for å bli svenske",
+                            "Sverige kjøpte Norge for penger",
+                            "Norge hadde aldri vært under Danmark"
+                        ],
+                        "explanation": "Danmark-Norge holdt med Napoleon og tapte. I fredsavtalen i Kiel måtte Danmark gi Norge til Sverige, som hadde stått mot Napoleon.",
+                        "answer": 0
+                    },
+                    {
+                        "question": "Hva betyr det at Norge og Sverige hadde en personalunion?",
+                        "options": [
+                            "Norge ble en del av Sverige med felles alt",
+                            "De delte bare kongen, mens Norge beholdt sin egen grunnlov, storting og hær",
+                            "Norge mistet grunnloven sin",
+                            "De to landene hadde hver sin konge"
+                        ],
+                        "explanation": "Personalunion betyr at bare personen på tronen, kongen, var felles. Norge beholdt sin egen grunnlov, sitt storting, sin hær, sine penger og sin regjering.",
+                        "answer": 1
+                    },
+                    {
+                        "question": "Hva var det eneste Norge ga fra seg i tillegg til å dele konge?",
+                        "options": [
+                            "Grunnloven",
+                            "Stortinget",
+                            "Utenrikspolitikken",
+                            "Hæren"
+                        ],
+                        "explanation": "Norge ga fra seg retten til å bestemme sin egen utenrikspolitikk. Sverige tok seg av forholdet til andre land på vegne av begge.",
+                        "answer": 2
+                    },
+                    {
+                        "question": "Hva var 'sildesalaten' som nordmennene kranglet om?",
+                        "options": [
+                            "En matrett som ble delt mellom landene",
+                            "Unionsmerket i hjørnet av flagget",
+                            "Navnet på den svenske kongen",
+                            "En skatt Norge måtte betale"
+                        ],
+                        "explanation": "Sildesalaten var kallenavnet på unionsmerket i flagghjørnet. Kampen for et rent norsk flagg handlet egentlig om retten til å være et selvstendig land.",
+                        "answer": 1
+                    },
+                    {
+                        "question": "Hvorfor kan vi si at unionstiden også var nyttig for Norge?",
+                        "options": [
+                            "Fordi Norge slapp å ha noen grunnlov",
+                            "Fordi Sverige styrte alt for Norge",
+                            "Fordi Norge fikk øve seg på selvstyre og sto klar da selvstendigheten kom i 1905",
+                            "Fordi Norge ble rikere enn Sverige"
+                        ],
+                        "explanation": "Siden Norge beholdt grunnloven og staten sin, lærte nordmennene å styre seg selv. Da unionen ble oppløst i 1905, sto Norge klar med en ferdig stat og lang erfaring.",
+                        "answer": 2
+                    }
+                ]
+            }
+        }
+    ],
+    "timeline": []
+}

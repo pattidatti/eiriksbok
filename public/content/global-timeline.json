@@ -4706,6 +4706,30 @@
       "geoConfidence": "tag"
     },
     {
+      "id": "unionen-med-sverige",
+      "title": "Unionen med Sverige: To land, én konge",
+      "description": "Hvordan Norge i 1814 ble en personalunion med Sverige, og hva de 91 årene betydde.",
+      "startDate": 1814,
+      "endDate": 1905,
+      "displayDate": "1814-1905",
+      "type": "lesson",
+      "subjectId": "historie",
+      "topicId": "norgeshistorie",
+      "link": "/historie/norgeshistorie/unionen-med-sverige",
+      "tags": [
+        "historie",
+        "norge",
+        "norgeshistorie",
+        "union",
+        "1814"
+      ],
+      "lat": 60.5,
+      "lng": 8.5,
+      "placeLabel": "Norge",
+      "placeCountryId": 578,
+      "geoConfidence": "tag"
+    },
+    {
       "id": "wienerkongressen",
       "title": "Wienerkongressen: Da Europas kart ble tegnet på nytt",
       "description": "Etter Napoleon møttes stormaktene i Wien for å skape maktbalanse og fred. De tegnet om Europas kart og bestemte også Norges skjebne i 1814.",
